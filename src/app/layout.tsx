@@ -8,6 +8,8 @@ import Script from "next/script";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { preconnect } from "react-dom";
 
+import { SpeedInsights } from "@vercel/speed-insights/next";
+
 import { GoogleTagManager } from "@/components/GoogleTagManager";
 import { themeInitScript, ThemeProvider } from "@/components/ThemeProvider";
 import { routing } from "@/i18n/routing";
@@ -158,6 +160,7 @@ export default async function RootLayout({ children }: Props) {
             <AxeDevConsole />
           </ThemeProvider>
         </NuqsAdapter>
+        <SpeedInsights />
       </body>
     </html>
   );
