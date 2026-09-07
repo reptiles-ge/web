@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { getLocale } from "next-intl/server";
 import dynamic from "next/dynamic";
 import { Noto_Sans, Noto_Sans_Georgian, Sora } from "next/font/google";
 import Script from "next/script";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { preconnect } from "react-dom";
-
-import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { GoogleTagManager } from "@/components/GoogleTagManager";
 import { themeInitScript, ThemeProvider } from "@/components/ThemeProvider";
