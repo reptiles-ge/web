@@ -54438,6 +54438,101 @@
       ],
       "updatedAt": "2026-09-07T09:17:50.443Z"
     },
+    "vipera-transcaucasiana-saba-2.jpg": {
+      "sourceHash": "b8af0f2b57da195c699e29a3d11f5e522913a79e07e4f64ab422a2ad03205731",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "vipera-transcaucasiana-saba-2.jpg",
+      "originalSize": 328456,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-transcaucasiana-saba-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 14648
+        },
+        {
+          "key": "optimized/vipera-transcaucasiana-saba-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 22110
+        },
+        {
+          "key": "optimized/vipera-transcaucasiana-saba-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 20500
+        },
+        {
+          "key": "optimized/vipera-transcaucasiana-saba-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 30954
+        },
+        {
+          "key": "optimized/vipera-transcaucasiana-saba-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 40776
+        },
+        {
+          "key": "optimized/vipera-transcaucasiana-saba-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 61504
+        },
+        {
+          "key": "optimized/vipera-transcaucasiana-saba-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 57519
+        },
+        {
+          "key": "optimized/vipera-transcaucasiana-saba-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 87100
+        },
+        {
+          "key": "optimized/vipera-transcaucasiana-saba-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 104745
+        },
+        {
+          "key": "optimized/vipera-transcaucasiana-saba-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 154108
+        },
+        {
+          "key": "optimized/vipera-transcaucasiana-saba-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 203147
+        },
+        {
+          "key": "optimized/vipera-transcaucasiana-saba-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 297912
+        }
+      ],
+      "updatedAt": "2026-09-07T09:26:12.680Z"
+    },
     "vipera-transcaucasiana-zauri-1.jpg": {
       "sourceHash": "37b6137f1a2747c8528b215db6ffae6bc2c8d2e7d9a9d1075adbcffd84552e83",
       "configFingerprint": "a895f8e025dcc7fa",
