@@ -42,10 +42,8 @@ export type AtlasStats = {
 export function getAtlasPhotoCount(catalog: Species[] = getCatalogSpecies()) {
   const urls = new Set<string>();
   for (const item of catalog) {
-    if (item.image) urls.add(item.image);
-    if (item.mobileImage) urls.add(item.mobileImage);
     for (const photo of item.gallery) {
-      urls.add(photo.src);
+      if (photo.src) urls.add(photo.src);
     }
   }
   return urls.size;
