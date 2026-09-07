@@ -48,6 +48,11 @@ export const VENOMOUS_VIPER_IDS = [
   "vipera-renardi",
 ] as const;
 
+export const REAR_FANGED_SPECIES_IDS = [
+  "malpolon-insignitus",
+  "telescopus-fallax",
+] as const;
+
 export const RACER_CLUSTER_IDS = [
   "platyceps-najadum",
   "elaphe-dione",
@@ -686,9 +691,12 @@ export function getHubIndexTitleKey(hubId: GroupHubId) {
 }
 
 export function getRearFangedSpecies(species: Species[]) {
-  return species.filter(
-    (item) => isVenomousDanger(item.danger) && item.family !== "Viperidae",
+  const order = new Map(
+    REAR_FANGED_SPECIES_IDS.map((id, index) => [id, index]),
   );
+  return species
+    .filter((item) => order.has(item.id))
+    .sort((a, b) => (order.get(a.id) ?? 0) - (order.get(b.id) ?? 0));
 }
 
 export function getViperSpecies(species: Species[]) {

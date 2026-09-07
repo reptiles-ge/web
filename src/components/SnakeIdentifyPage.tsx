@@ -13,6 +13,7 @@ import { LookalikePair } from "@/components/LookalikePair";
 import { QuizPracticeCta } from "@/components/QuizPracticeCta";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { SpeciesInlineLink } from "@/components/SpeciesInlineLink";
+import { isVenomousDanger } from "@/data/speciesAtlasMeta";
 import { Link } from "@/i18n/navigation";
 import {
   type ClusterGuideViewProps,
@@ -35,7 +36,9 @@ export async function SnakeIdentifyPage({
   const locale = (await getLocale()) as AppLocale;
   const byId = new Map(species.map((item) => [item.id, item]));
   const vipers = getViperSpecies(species);
-  const rearFanged = getRearFangedSpecies(species);
+  const rearFanged = getRearFangedSpecies(species).filter((item) =>
+    isVenomousDanger(item.danger),
+  );
   const venomous = [...vipers, ...rearFanged];
   const pairs = SNAKE_LOOKALIKE_PAIRS.map((pair) => ({
     a: byId.get(pair.a),

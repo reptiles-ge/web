@@ -121,6 +121,11 @@ export function VenomousSnakesSpecies({
                         {chunks}
                       </SpeciesInlineLink>
                     ),
+                    telescopus: (chunks) => (
+                      <SpeciesInlineLink id="telescopus-fallax">
+                        {chunks}
+                      </SpeciesInlineLink>
+                    ),
                   })}
                 </PhoneLinkedText>
               </p>

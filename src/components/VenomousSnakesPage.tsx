@@ -2,7 +2,8 @@ import type { ReactNode } from "react";
 
 import { getLocale, getTranslations } from "next-intl/server";
 
-import type { Species } from "@/data/species";
+import { getSpeciesById, type Species } from "@/data/species";
+import { localizeSpecies } from "@/i18n/localizeSpecies";
 import type { AppLocale } from "@/i18n/routing";
 
 import { ClusterFaqSection } from "@/components/ClusterFaqSection";
@@ -18,6 +19,7 @@ import {
   getHubPageRelatedGuides,
   getRearFangedSpecies,
   getViperSpecies,
+  REAR_FANGED_SPECIES_IDS,
 } from "@/lib/clusterGuides";
 
 const FAQ_ITEMS = [1, 2, 3, 4, 5] as const;
@@ -37,7 +39,13 @@ export async function VenomousSnakesPage({
   const t = await getTranslations("venomousSnakes");
   const locale = (await getLocale()) as AppLocale;
   const vipers = getViperSpecies(species);
-  const rearFanged = getRearFangedSpecies(species);
+  const rearFangedPool = [...species];
+  for (const id of REAR_FANGED_SPECIES_IDS) {
+    if (rearFangedPool.some((item) => item.id === id)) continue;
+    const extra = getSpeciesById(id);
+    if (extra) rearFangedPool.push(localizeSpecies(extra, locale));
+  }
+  const rearFanged = getRearFangedSpecies(rearFangedPool);
   const highCount = species.filter((item) => item.danger === "High").length;
   const moderateCount = species.filter(
     (item) => item.danger === "Moderate",
