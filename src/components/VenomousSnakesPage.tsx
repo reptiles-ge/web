@@ -2,8 +2,6 @@ import type { ReactNode } from "react";
 
 import { getLocale, getTranslations } from "next-intl/server";
 
-import { getSpeciesById, type Species } from "@/data/species";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
 import type { AppLocale } from "@/i18n/routing";
 
 import { ClusterFaqSection } from "@/components/ClusterFaqSection";
@@ -14,6 +12,8 @@ import { VenomousSnakesCta } from "@/components/VenomousSnakesCta";
 import { VenomousSnakesGuides } from "@/components/VenomousSnakesGuides";
 import { VenomousSnakesHero } from "@/components/VenomousSnakesHero";
 import { VenomousSnakesSpecies } from "@/components/VenomousSnakesSpecies";
+import { getSpeciesById, type Species } from "@/data/species";
+import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { Link } from "@/i18n/navigation";
 import {
   getHubPageRelatedGuides,

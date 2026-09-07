@@ -694,7 +694,7 @@ export function getHubIndexTitleKey(hubId: GroupHubId) {
 }
 
 export function getRearFangedSpecies(species: Species[]) {
-  const order = new Map(
+  const order = new Map<string, number>(
     REAR_FANGED_SPECIES_IDS.map((id, index) => [id, index]),
   );
   return species

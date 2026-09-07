@@ -78,8 +78,8 @@ export function VenomousSnakesGuides({
               <Link
                 className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-[14px] font-medium text-white transition-opacity hover:opacity-90 dark:text-ink"
                 href={{
-                  pathname: "/news/[slug]",
                   params: { slug: "georgia-herpetofauna-checklist-2026" },
+                  pathname: "/news/[slug]",
                 }}
               >
                 {t("checklistCta")}
