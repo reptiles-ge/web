@@ -38,7 +38,8 @@ describe("buildLlmsFullText", () => {
     expect(body).toContain("10.3897/caucasiana.5.e189214");
     expect(body).toContain("Published species cards: 125");
     expect(body.length).toBeGreaterThan(50_000);
-    expect(body.length).toBeLessThan(1_500_000);
+    expect(body.length).toBeLessThan(900_000);
+    expect(body).toContain("fuller cards");
   });
 
   it("keeps bite pages educational and omits medical schema claims", () => {

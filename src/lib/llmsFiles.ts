@@ -1,9 +1,9 @@
 import { getPublishedNewsArticles } from "@/data/news";
-import {
-  getSpeciesAtlasMeta,
-  type AnimalGroup,
-} from "@/data/speciesAtlasMeta";
 import { getCatalogSpecies, type Species } from "@/data/species";
+import {
+  type AnimalGroup,
+  getSpeciesAtlasMeta,
+} from "@/data/speciesAtlasMeta";
 import { pathnames } from "@/i18n/pathnames";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { absoluteUrl } from "@/lib/site";
@@ -107,37 +107,6 @@ const DEEP_GROUPS = new Set<AnimalGroup>([
   "turtle",
 ]);
 
-export function buildRobotsTxt() {
-  const llmsTxt = absoluteUrl(LLMS_TXT_PATH);
-  const llmsFull = absoluteUrl(LLMS_FULL_PATH);
-  const sitemap = absoluteUrl("/sitemap.xml");
-
-  const aiBlocks = AI_CITATION_USER_AGENTS.flatMap((agent) => [
-    `User-agent: ${agent}`,
-    "Allow: /",
-    "",
-  ]);
-
-  return [
-    "# reptiles.ge — public atlas of animals of Georgia",
-    "# AI crawlers: citation and summarization of published pages is welcome.",
-    `# Prefer ${llmsTxt} (index) and ${llmsFull} (extractable corpus).`,
-    "# Do not treat empty atlas fields as negative evidence.",
-    "",
-    "User-agent: *",
-    "Allow: /",
-    "Disallow: /api/",
-    "Disallow: /admin",
-    "Disallow: /admin/",
-    "",
-    ...aiBlocks,
-    `Sitemap: ${sitemap}`,
-    `# llms.txt: ${llmsTxt}`,
-    `# llms-full.txt: ${llmsFull}`,
-    "",
-  ].join("\n");
-}
-
 export function buildLlmsFullText() {
   const generatedAt = new Date().toISOString();
   const species = sortSpecies(getCatalogSpecies());
@@ -161,6 +130,7 @@ export function buildLlmsFullText() {
     "- For navigation and the full link map, use llms.txt.",
     "- Prefer the live profile URL when quoting; this file can lag a deploy by minutes.",
     "- Do not invent localities, measurements, or Red List status beyond what each card states.",
+    "- Herpetofauna and spiders use fuller cards; birds and mammals stay compact (thinner atlas layer).",
     "",
     "## Priority pages",
     "",
@@ -219,6 +189,37 @@ export function buildLlmsFullText() {
   return parts.join("\n");
 }
 
+export function buildRobotsTxt() {
+  const llmsTxt = absoluteUrl(LLMS_TXT_PATH);
+  const llmsFull = absoluteUrl(LLMS_FULL_PATH);
+  const sitemap = absoluteUrl("/sitemap.xml");
+
+  const aiBlocks = AI_CITATION_USER_AGENTS.flatMap((agent) => [
+    `User-agent: ${agent}`,
+    "Allow: /",
+    "",
+  ]);
+
+  return [
+    "# reptiles.ge — public atlas of animals of Georgia",
+    "# AI crawlers: citation and summarization of published pages is welcome.",
+    `# Prefer ${llmsTxt} (index) and ${llmsFull} (extractable corpus).`,
+    "# Do not treat empty atlas fields as negative evidence.",
+    "",
+    "User-agent: *",
+    "Allow: /",
+    "Disallow: /api/",
+    "Disallow: /admin",
+    "Disallow: /admin/",
+    "",
+    ...aiBlocks,
+    `Sitemap: ${sitemap}`,
+    `# llms.txt: ${llmsTxt}`,
+    `# llms-full.txt: ${llmsFull}`,
+    "",
+  ].join("\n");
+}
+
 export function llmsTextResponseHeaders(options?: { noindex?: boolean }) {
   return {
     "Cache-Control":
@@ -228,7 +229,13 @@ export function llmsTextResponseHeaders(options?: { noindex?: boolean }) {
   };
 }
 
+function compactText(value: string) {
+  return value.replace(/\s+/g, " ").trim();
+}
+
 function formatSpeciesCard(item: Species) {
+  const group = getSpeciesAtlasMeta(item.id).group;
+  const deep = DEEP_GROUPS.has(group);
   const lines: string[] = [
     `### ${item.scientificName} — ${item.commonName}`,
     "",
@@ -240,50 +247,66 @@ function formatSpeciesCard(item: Species) {
 
   if (item.danger) lines.push(`- Risk to humans: ${item.danger}`);
   lines.push(`- Family: ${item.family}`);
-  lines.push(`- Genus: ${item.genus}`);
 
-  const overview = compactText(item.overview || item.description);
+  const overview = truncateText(
+    compactText(item.overview || item.description),
+    deep ? MAX_OVERVIEW_FULL : MAX_OVERVIEW_COMPACT,
+  );
   if (overview) {
     lines.push("");
     lines.push(overview);
   }
 
-  const stats = item.stats.filter((stat) => stat.label && stat.value).slice(0, 8);
-  if (stats.length > 0) {
-    lines.push("");
-    lines.push("Facts:");
-    for (const stat of stats) {
-      lines.push(`- ${stat.label}: ${stat.value}`);
+  if (deep) {
+    const stats = item.stats
+      .filter((stat) => stat.label && stat.value)
+      .slice(0, 6);
+    if (stats.length > 0) {
+      lines.push("");
+      lines.push("Facts:");
+      for (const stat of stats) {
+        lines.push(`- ${stat.label}: ${stat.value}`);
+      }
+    }
+
+    const facts = item.facts.filter(Boolean).slice(0, MAX_FACTS_PER_SPECIES);
+    if (facts.length > 0) {
+      lines.push("");
+      for (const fact of facts) {
+        lines.push(
+          `- ${truncateText(compactText(fact), MAX_OVERVIEW_COMPACT)}`,
+        );
+      }
+    }
+
+    if (item.identification?.summary) {
+      lines.push("");
+      lines.push(
+        `Identification: ${truncateText(compactText(item.identification.summary), MAX_OVERVIEW_COMPACT)}`,
+      );
+    }
+
+    const faqs = (item.faq ?? []).slice(0, MAX_FAQS_PER_SPECIES);
+    if (faqs.length > 0) {
+      lines.push("");
+      lines.push("FAQ:");
+      for (const entry of faqs) {
+        lines.push(`- Q: ${compactText(entry.question)}`);
+        lines.push(
+          `  A: ${truncateText(compactText(entry.answer), MAX_OVERVIEW_COMPACT)}`,
+        );
+      }
     }
   }
 
-  const facts = item.facts.filter(Boolean).slice(0, MAX_FACTS_PER_SPECIES);
-  if (facts.length > 0) {
-    lines.push("");
-    for (const fact of facts) {
-      lines.push(`- ${compactText(fact)}`);
-    }
-  }
-
-  if (item.identification?.summary) {
-    lines.push("");
-    lines.push(`Identification: ${compactText(item.identification.summary)}`);
-  }
-
-  const faqs = (item.faq ?? []).slice(0, MAX_FAQS_PER_SPECIES);
-  if (faqs.length > 0) {
-    lines.push("");
-    lines.push("FAQ:");
-    for (const entry of faqs) {
-      lines.push(`- Q: ${compactText(entry.question)}`);
-      lines.push(`  A: ${compactText(entry.answer)}`);
-    }
-  }
-
-  if (item.sources.length > 0) {
+  const sources = pickSources(
+    item.sources,
+    deep ? MAX_SOURCES_FULL : MAX_SOURCES_COMPACT,
+  );
+  if (sources.length > 0) {
     lines.push("");
     lines.push("Sources:");
-    for (const source of item.sources) {
+    for (const source of sources) {
       lines.push(
         source.url ? `- ${source.name}: ${source.url}` : `- ${source.name}`,
       );
@@ -294,18 +317,8 @@ function formatSpeciesCard(item: Species) {
   return lines.join("\n");
 }
 
-function compactText(value: string) {
-  return value.replace(/\s+/g, " ").trim();
-}
-
-function sortSpecies(items: Species[]) {
-  return items.slice().sort((a, b) => {
-    const groupA = getSpeciesAtlasMeta(a.id).group;
-    const groupB = getSpeciesAtlasMeta(b.id).group;
-    const order = GROUP_ORDER.indexOf(groupA) - GROUP_ORDER.indexOf(groupB);
-    if (order !== 0) return order;
-    return a.scientificName.localeCompare(b.scientificName);
-  });
+function localizedNewsUrl(locale: AppLocale, slug: string) {
+  return absoluteUrl(withLocalePrefix(locale, `/news/${slug}`));
 }
 
 function localizedSpeciesUrl(locale: AppLocale, id: string) {
@@ -318,8 +331,37 @@ function localizedSpeciesUrl(locale: AppLocale, id: string) {
   );
 }
 
-function localizedNewsUrl(locale: AppLocale, slug: string) {
-  return absoluteUrl(withLocalePrefix(locale, `/news/${slug}`));
+function pickSources(sources: Species["sources"], limit: number) {
+  const ranked = sources.slice().sort((a, b) => {
+    return sourceRank(a) - sourceRank(b);
+  });
+  return ranked.slice(0, limit);
+}
+
+function sortSpecies(items: Species[]) {
+  return items.slice().sort((a, b) => {
+    const groupA = getSpeciesAtlasMeta(a.id).group;
+    const groupB = getSpeciesAtlasMeta(b.id).group;
+    const order = GROUP_ORDER.indexOf(groupA) - GROUP_ORDER.indexOf(groupB);
+    if (order !== 0) return order;
+    return a.scientificName.localeCompare(b.scientificName);
+  });
+}
+
+function sourceRank(source: Species["sources"][number]) {
+  const hay = `${source.name} ${source.url ?? ""}`.toLowerCase();
+  if (hay.includes("doi.org") || hay.includes("10.3897")) return 0;
+  if (hay.includes("iucn")) return 1;
+  if (hay.includes("tarkhnishvili") || hay.includes("checklist")) return 2;
+  if (source.url) return 3;
+  return 4;
+}
+
+function truncateText(value: string, max: number) {
+  if (value.length <= max) return value;
+  const slice = value.slice(0, max - 1);
+  const at = slice.lastIndexOf(" ");
+  return `${(at > 40 ? slice.slice(0, at) : slice).trimEnd()}…`;
 }
 
 function withLocalePrefix(locale: AppLocale, path: string) {

@@ -11,7 +11,7 @@ Priority order: About (methods) → 2026 herpetofauna checklist article → spec
 ## Machine-readable
 
 - [llms.txt](https://reptiles.ge/llms.txt): This index (navigation + scope).
-- [llms-full.txt](https://reptiles.ge/llms-full.txt): One-shot extractable corpus — methods, priority guides, news, and published species cards (Georgian canonical text, with EN profile URLs). Prefer for ingestion; prefer live profile URLs when quoting.
+- [llms-full.txt](https://reptiles.ge/llms-full.txt): One-shot extractable corpus — methods, priority guides, news, and published species cards (fuller for herpetofauna/spiders; compact for birds/mammals). Prefer for ingestion; prefer live profile URLs when quoting.
 - [Sitemap](https://reptiles.ge/sitemap.xml): Full indexable URL set, including locale alternates.
 
 ## Core
