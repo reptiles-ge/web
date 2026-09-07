@@ -52582,6 +52582,196 @@
       ],
       "updatedAt": "2026-09-07T09:16:01.162Z"
     },
+    "vipera-kaznakovi-saba-2.jpg": {
+      "sourceHash": "2db044ca762bfacf7babc88d2da57ad177631e9320c29bd51dded837b258784f",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "vipera-kaznakovi-saba-2.jpg",
+      "originalSize": 450030,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-kaznakovi-saba-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 20838
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-saba-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 33922
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-saba-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 29637
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-saba-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 47688
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-saba-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 60038
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-saba-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 95368
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-saba-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 83526
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-saba-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 133710
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-saba-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 141946
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-saba-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 226336
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-saba-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 269039
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-saba-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 409176
+        }
+      ],
+      "updatedAt": "2026-09-07T09:31:32.138Z"
+    },
+    "vipera-kaznakovi-saba-3.jpg": {
+      "sourceHash": "190987b019a786f2115999c8f70a55dd8ca5b77fe15f03a11044f886808292a5",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "vipera-kaznakovi-saba-3.jpg",
+      "originalSize": 474984,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-kaznakovi-saba-3-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 18613
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-saba-3-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 29222
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-saba-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 27724
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-saba-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 41922
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-saba-3-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 59733
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-saba-3-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 87230
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-saba-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 83830
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-saba-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 123210
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-saba-3-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 146101
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-saba-3-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 212638
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-saba-3-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 269634
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-saba-3-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 395466
+        }
+      ],
+      "updatedAt": "2026-09-07T09:31:30.722Z"
+    },
     "vipera-kaznakovi-sandro-1.jpg": {
       "sourceHash": "bfaee412fbf204ba29a00905b4c9784102d7d2442db81931b4faa3370e8d428d",
       "configFingerprint": "a895f8e025dcc7fa",
