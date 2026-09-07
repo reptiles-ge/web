@@ -330,6 +330,21 @@ export function AdminSpeciesEditor({
             name="locationEn"
           />
         </label>
+        <label className="mt-4 flex cursor-pointer items-start gap-2.5 text-[13px] text-foreground">
+          <input
+            className="mt-0.5 size-4 shrink-0 accent-primary"
+            name="georgiaField"
+            type="checkbox"
+            value="1"
+          />
+          <span>
+            <span className="font-medium">საქართველოს ველში</span>
+            <span className="mt-0.5 block text-[12px] leading-relaxed text-muted-foreground">
+              მონიშნე მხოლოდ თუ საქართველოშია გადაღებული და ადგილი იცი. თუ არა —
+              უცხოეთი / ტიპური არეალი რჩება, ბეიჯი არ გამოჩნდება.
+            </span>
+          </span>
+        </label>
         <label className="mt-3 block text-[12px] text-muted-foreground">
           თარიღი
           <input

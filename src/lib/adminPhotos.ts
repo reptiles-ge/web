@@ -37,6 +37,7 @@ export type AddSpeciesPhotosResult = {
 
 export type AdminPhotoCreditInput = {
   date?: string;
+  georgiaField?: boolean;
   location?: string;
   locationEn?: string;
   photographer?: string;
@@ -145,11 +146,16 @@ export function creditFromInput(
       : input.location?.trim();
   const date = input.date?.trim();
   const url = photoCreditUrl(input.url);
+  const georgiaField = Boolean(input.georgiaField);
+  if (georgiaField && !location) {
+    throw new Error("საქართველოს ველის ფოტოს ადგილი სავალდებულოა");
+  }
   const credit: PhotoCredit = {
     ...(photographer ? { photographer } : {}),
     ...(url ? { url } : {}),
     ...(location ? { location } : {}),
     ...(date ? { date } : {}),
+    ...(georgiaField ? { photoConfidence: "georgia-field" } : {}),
   };
   return Object.keys(credit).length > 0 ? credit : undefined;
 }

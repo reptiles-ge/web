@@ -38,6 +38,7 @@ export async function POST(request: Request) {
     const result = await addSpeciesPhotos({
       credit: {
         date: textField(form, "date"),
+        georgiaField: form.get("georgiaField") === "1",
         location: textField(form, "location"),
         locationEn: textField(form, "locationEn"),
         photographer: textField(form, "photographer"),

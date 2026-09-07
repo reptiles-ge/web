@@ -584,6 +584,9 @@ function creditEntries(credit: PhotoCredit): Array<[string, string]> {
   if (credit.url) entries.push(["url", credit.url]);
   if (credit.location) entries.push(["location", credit.location]);
   if (credit.date) entries.push(["date", credit.date]);
+  if (credit.photoConfidence) {
+    entries.push(["photoConfidence", credit.photoConfidence]);
+  }
   return entries;
 }
 
@@ -715,6 +718,13 @@ function normalizeCredit(value: unknown): PhotoCredit | undefined {
   }
   if (typeof record.date === "string" && record.date.trim()) {
     credit.date = record.date.trim();
+  }
+  if (
+    record.photoConfidence === "georgia-field" ||
+    record.photoConfidence === "placeholder" ||
+    record.photoConfidence === "range-typical"
+  ) {
+    credit.photoConfidence = record.photoConfidence;
   }
   return Object.keys(credit).length > 0 ? credit : undefined;
 }
