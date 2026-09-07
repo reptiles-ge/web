@@ -25,12 +25,14 @@ import { HUB_CLUSTER_CARDS, splitHubSpecies } from "@/lib/clusterGuides";
 import { GROUP_HUB_LIST } from "@/lib/groupHubs";
 
 type GroupHubPageProps = {
+  heroMobileSrc?: string;
   heroSrc: string;
   hubId: GroupHubId;
   species: Species[];
 };
 
 export async function GroupHubPage({
+  heroMobileSrc,
   heroSrc,
   hubId,
   species,
@@ -45,7 +47,12 @@ export async function GroupHubPage({
   return (
     <div className="min-h-screen bg-background">
       <div>
-        <GroupHubHero heroSrc={heroSrc} hubId={hubId} species={species} />
+        <GroupHubHero
+          heroMobileSrc={heroMobileSrc}
+          heroSrc={heroSrc}
+          hubId={hubId}
+          species={species}
+        />
 
         <section className="bg-background py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">

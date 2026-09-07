@@ -9,6 +9,7 @@ type CoverImageProps = {
   "aria-hidden"?: boolean;
   className?: string;
   fill?: boolean;
+  mobileSrc?: null | string;
   priority?: boolean;
   sizes: string;
   src: string;
@@ -19,11 +20,22 @@ export function CoverImage({
   "aria-hidden": ariaHidden,
   className,
   fill = true,
+  mobileSrc,
   priority = false,
   sizes,
   src,
 }: CoverImageProps) {
   const entry = optimizedEntry(src);
+  const mobileSources = mobileSrc
+    ? pictureSources(mobileSrc, {
+        media: "(max-width: 639px)",
+        sizes,
+      })
+    : [];
+  const desktopSources = pictureSources(src, {
+    ...(mobileSrc ? { media: "(min-width: 640px)" } : {}),
+    sizes,
+  });
 
   return (
     <picture
@@ -33,7 +45,7 @@ export function CoverImage({
           : "media-placeholder relative block"
       }
     >
-      {pictureSources(src, { sizes }).map((source) => (
+      {[...mobileSources, ...desktopSources].map((source) => (
         <source key={source.key} {...source.props} />
       ))}
       <img

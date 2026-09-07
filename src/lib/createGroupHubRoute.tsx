@@ -101,6 +101,10 @@ export function createGroupHubRoute(hubId: GroupHubId) {
       species.find((item) => item.id === hub.heroSpeciesId) ?? species[0];
     const heroSrc =
       hero?.image && !isPlaceholderMedia(hero.image) ? hero.image : images.hero;
+    const heroMobileSrc =
+      hero?.mobileImage && !isPlaceholderMedia(hero.mobileImage)
+        ? hero.mobileImage
+        : undefined;
 
     const breadcrumbLd = {
       "@context": "https://schema.org",
@@ -187,11 +191,27 @@ export function createGroupHubRoute(hubId: GroupHubId) {
 
     return (
       <>
-        <CoverImagePreload sizes="100vw" src={heroSrc} />
+        <CoverImagePreload
+          media={heroMobileSrc ? "(min-width: 640px)" : undefined}
+          sizes="100vw"
+          src={heroSrc}
+        />
+        {heroMobileSrc ? (
+          <CoverImagePreload
+            media="(max-width: 639px)"
+            sizes="100vw"
+            src={heroMobileSrc}
+          />
+        ) : null}
         <JsonLd data={breadcrumbLd} />
         <JsonLd data={collectionLd} />
         <JsonLd data={faqLd} />
-        <GroupHubPage heroSrc={heroSrc} hubId={hubId} species={species} />
+        <GroupHubPage
+          heroMobileSrc={heroMobileSrc}
+          heroSrc={heroSrc}
+          hubId={hubId}
+          species={species}
+        />
         <NewsRelatedBlock
           articles={getPublishedNewsForHub(hubId)}
           locale={locale}
