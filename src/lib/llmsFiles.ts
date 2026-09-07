@@ -57,13 +57,13 @@ const PRIORITY_PAGES: ReadonlyArray<{
   },
   {
     blurb:
-      "Editorial article on Tarkhnishvili et al. 2026 (12 amphibians, 56 reptiles in that paper).",
+      "Citable facts from Tarkhnishvili et al. 2026: 12 amphibians, 56 reptiles; confirmed vs candidate; atlas is editorial, not the paper.",
     title: "Georgia herpetofauna checklist 2026",
     urlPath: "/news/georgia-herpetofauna-checklist-2026",
   },
   {
     blurb:
-      "Medically significant vipers in the atlas, plus identification links. Educational.",
+      "Medically significant vipers in Georgia (Caucasus), myths vs media errors, viper vs Montpellier compare table. Educational.",
     title: "Venomous snakes in Georgia",
     urlPath: "/gvelebi/shxamiani-gvelebi",
   },
