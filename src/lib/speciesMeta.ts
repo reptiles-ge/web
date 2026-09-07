@@ -160,7 +160,7 @@ export function speciesPageMetaTitle(
   intent: string,
 ) {
   const override = SPECIES_META_TITLE_OVERRIDE[speciesId];
-  if (override) {
+  if (override && (locale === "ka" || locale === "en")) {
     return locale === "ka" ? override.ka : override.en;
   }
   return speciesMetaTitle(commonName, scientificName, intent);

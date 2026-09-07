@@ -15,14 +15,11 @@ import { NotFoundContent } from "@/components/NotFoundContent";
 import { SkipLink } from "@/components/SkipLink";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { getLocaleSwitchIndex } from "@/lib/localeSwitchData";
+import { notFoundMetadata } from "@/lib/notFoundMetadata";
 
-export const metadata: Metadata = {
-  robots: {
-    follow: true,
-    googleBot: { follow: true, index: false },
-    index: false,
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  return notFoundMetadata(await resolveNotFoundLocale());
+}
 
 export default async function RootNotFound() {
   const locale = await resolveNotFoundLocale();

@@ -693,6 +693,8 @@
   "notFound": {
     "eyebrow": "Lost in the atlas",
     "title": "This path isn’t on the map",
+    "metaTitle": "Page not found",
+    "metaDescription": "This path isn’t on the map. The page may have moved, or the link is outdated — continue through the species atlas, regions, or the venomous guide.",
     "body": "The page may have moved, or the link is outdated. Continue through the atlas — species, regions, or the venomous guide.",
     "home": "Back to home",
     "species": "Species",
