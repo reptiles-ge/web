@@ -177,10 +177,10 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
   {
     aliases: ["Saba Todua", "საბა თოდუა"],
     bio: {
-      en: "Saba Todua is a wildlife photographer.",
-      ka: "საბა თოდუა ველური ბუნების ფოტოგრაფია.",
-      ru: "Саба Тодуа — фотограф дикой природы.",
-      tr: "Saba Todua, yaban hayatı fotoğrafçısıdır.",
+      en: "Saba Todua is an ecology student at Ilia State University and an amateur herpetologist.",
+      ka: "საბა თოდუა ილიას სახელმწიფო უნივერსიტეტის სტუდენტი. მოყვარული ჰერპეტოლოგი.",
+      ru: "Саба Тодуа — студент-эколог Государственного университета Ильи и любитель-герпетолог.",
+      tr: "Saba Todua, Ilia Devlet Üniversitesi’nde ekoloji öğrencisi ve amatör herpetologdur.",
     },
     id: "saba-todua",
     links: {
@@ -195,7 +195,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     portraitClass: "object-[50%_28%]",
     portraitSrc: "https://cdn.reptiles.ge/authors/saba-todua.jpg",
     published: true,
-    role: "photographer",
+    role: "herpetologist",
     slug: "saba-todua",
   },
   {

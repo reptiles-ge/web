@@ -198,7 +198,7 @@ describe("credit authors", () => {
     );
   });
 
-  it("resolves Saba Todua as a published photographer", () => {
+  it("resolves Saba Todua as a published herpetologist", () => {
     expect(getPublishedCreditAuthorByName("საბა თოდუა")?.slug).toBe(
       "saba-todua",
     );
@@ -207,11 +207,11 @@ describe("credit authors", () => {
     );
     const author = getPublishedCreditAuthorBySlug("saba-todua");
     expect(author?.published).toBe(true);
-    expect(author?.role).toBe("photographer");
+    expect(author?.role).toBe("herpetologist");
     expect(author?.portraitSrc).toBe(
       "https://cdn.reptiles.ge/authors/saba-todua.jpg",
     );
-    expect(author?.bio?.ka).toContain("ველური ბუნების ფოტოგრაფია");
+    expect(author?.bio?.ka).toContain("მოყვარული ჰერპეტოლოგი");
     expect(author?.links).toEqual({
       facebook: "https://www.facebook.com/todua.saba.54438",
     });
