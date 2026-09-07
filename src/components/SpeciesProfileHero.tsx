@@ -1,17 +1,24 @@
 import { MapPin, Shield } from "lucide-react";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import type { PictureSource } from "@/data/optimizedImages";
 import type { DangerLevel, Species } from "@/data/species";
 import type { AnimalGroup } from "@/data/speciesAtlas";
+import type { AppLocale } from "@/i18n/routing";
 import type { SpeciesBreadcrumbCrumb } from "@/lib/speciesBreadcrumbs";
 
+import { SpeciesScientificNameCopy } from "@/components/SpeciesScientificNameCopy";
 import { SpeciesVoicePlayer } from "@/components/SpeciesVoicePlayer";
 import { optimizedEntry, optimizedImgSrc } from "@/data/optimizedImages";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
 import { dangerPageHref } from "@/lib/dangerLevels";
 import { getSpeciesRiskChip, usesDangerScale } from "@/lib/speciesRisk";
+import {
+  speciesShareStatusKind,
+  speciesShareText,
+  speciesShareUrl,
+} from "@/lib/speciesShareText";
 
 type SpeciesProfileHeroProps = {
   breadcrumbs: SpeciesBreadcrumbCrumb[];
@@ -36,12 +43,33 @@ export async function SpeciesProfileHero({
   mobileImageAlt,
   species,
 }: SpeciesProfileHeroProps) {
-  const [t, tCard, tDanger] = await Promise.all([
+  const [locale, t, tCard, tDanger] = await Promise.all([
+    getLocale() as Promise<AppLocale>,
     getTranslations("profile"),
     getTranslations("card"),
     getTranslations("danger"),
   ]);
   const riskChip = getSpeciesRiskChip(species, group);
+  const shareStatusKind = speciesShareStatusKind(
+    species.id,
+    group,
+    species.danger,
+  );
+  const shareStatus =
+    shareStatusKind === "venomous"
+      ? t("copyShareVenomous")
+      : shareStatusKind === "harmless"
+        ? t("copyShareHarmless")
+        : shareStatusKind === "rearFanged"
+          ? t("copyShareRearFanged")
+          : null;
+  const shareText = speciesShareText({
+    commonName: species.commonName,
+    detailsLabel: t("copyShareDetails"),
+    scientificName: species.scientificName,
+    status: shareStatus,
+    url: speciesShareUrl(locale, species.id),
+  });
   const dangerLabel = tCard("dangerLevel");
   const dangerValue = riskChip ? tDanger(riskChip.level) : "";
   const dangerAria =
@@ -82,8 +110,12 @@ export async function SpeciesProfileHero({
         <h1 className="text-balance-tight max-w-4xl font-display text-display-hero font-semibold text-white">
           {species.commonName}
         </h1>
-        <p className="mt-3 font-display text-[15px] tracking-wide text-white/55 italic sm:text-[17px]">
-          {species.scientificName}
+        <p className="group/sci mt-3 flex items-center gap-0.5 font-display text-[15px] tracking-wide text-white/55 sm:text-[17px]">
+          <span className="italic">{species.scientificName}</span>
+          <SpeciesScientificNameCopy
+            speciesId={species.id}
+            text={shareText}
+          />
         </p>
         <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-white/70 sm:mt-5 sm:text-[16px]">
           {species.description}
