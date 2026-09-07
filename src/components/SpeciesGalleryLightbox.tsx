@@ -186,7 +186,7 @@ export function SpeciesGalleryLightbox({
             />
             <button
               aria-label={closeLabel}
-              className="absolute top-5 right-5 z-10 rounded-full border border-white/15 p-2.5 text-white/80 hover:bg-white/10 hover:text-white"
+              className="absolute top-5 right-5 z-20 rounded-full border border-white/20 bg-black/45 p-2.5 text-white hover:bg-black/60"
               onClick={() => dialogRef.current?.close()}
               ref={closeButtonRef}
               type="button"
@@ -198,7 +198,7 @@ export function SpeciesGalleryLightbox({
               <>
                 <button
                   aria-label={prevLabel}
-                  className="absolute top-1/2 left-3 z-10 -translate-y-1/2 rounded-full border border-white/15 p-2.5 text-white/80 hover:bg-white/10 hover:text-white sm:left-6"
+                  className="absolute top-1/2 left-2 z-20 -translate-y-1/2 rounded-full border border-white/20 bg-black/45 p-2.5 text-white hover:bg-black/60 sm:left-6"
                   onClick={(event) => {
                     event.stopPropagation();
                     setActive((current) =>
@@ -213,7 +213,7 @@ export function SpeciesGalleryLightbox({
                 </button>
                 <button
                   aria-label={nextLabel}
-                  className="absolute top-1/2 right-3 z-10 -translate-y-1/2 rounded-full border border-white/15 p-2.5 text-white/80 hover:bg-white/10 hover:text-white sm:right-6"
+                  className="absolute top-1/2 right-2 z-20 -translate-y-1/2 rounded-full border border-white/20 bg-black/45 p-2.5 text-white hover:bg-black/60 sm:right-6"
                   onClick={(event) => {
                     event.stopPropagation();
                     setActive((current) =>
