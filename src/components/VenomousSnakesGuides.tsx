@@ -15,9 +15,15 @@ import {
   CLUSTER_TITLE_RELATED,
   ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
+import { GuideEditorialNote } from "@/components/GuideShared";
 import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
 import { SpeciesInlineLink } from "@/components/SpeciesInlineLink";
+import { VenomousSnakesCompare } from "@/components/VenomousSnakesCompare";
 import { Link } from "@/i18n/navigation";
+import { formatContentDate } from "@/lib/formatDate";
+
+const MYTHS = [1, 2, 3, 4] as const;
+const EDITORIAL_UPDATED = "2026-09-07";
 
 type VenomousSnakesGuidesProps = {
   locale: AppLocale;
@@ -32,6 +38,58 @@ export function VenomousSnakesGuides({
 
   return (
     <>
+      <VenomousSnakesCompare />
+
+      <ClusterContentSection
+        body={t("mythsLead")}
+        eyebrow={t("mythsEyebrow")}
+        id="myths"
+        surface="background"
+        title={t("mythsTitle")}
+      >
+        <ul className="mt-10 divide-y divide-border border-y border-border">
+          {MYTHS.map((n) => (
+            <li className="py-5 sm:py-6" key={n}>
+              <p className="font-display text-[17px] leading-snug font-medium text-foreground sm:text-[19px]">
+                {t(`myth${n}False`)}
+              </p>
+              <p className="mt-2 max-w-3xl text-[15px] leading-relaxed text-muted-foreground">
+                {t(`myth${n}True`)}
+              </p>
+            </li>
+          ))}
+        </ul>
+      </ClusterContentSection>
+
+      <section className="border-t border-border bg-surface py-20 lg:py-28">
+        <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+          <div className="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end lg:gap-16">
+            <div>
+              <ClusterSectionIntro
+                body={t("checklistBody")}
+                bodyClassName={CLUSTER_BODY}
+                eyebrow={t("checklistEyebrow")}
+                eyebrowClassName={CLUSTER_EYEBROW}
+                title={t("checklistTitle")}
+                titleClassName={CLUSTER_TITLE_RELATED}
+              />
+            </div>
+            <div>
+              <Link
+                className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-[14px] font-medium text-white transition-opacity hover:opacity-90 dark:text-ink"
+                href={{
+                  pathname: "/news/[slug]",
+                  params: { slug: "georgia-herpetofauna-checklist-2026" },
+                }}
+              >
+                {t("checklistCta")}
+                <ArrowUpRight className="size-4" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="border-t border-border bg-surface py-20 lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
@@ -166,6 +224,13 @@ export function VenomousSnakesGuides({
         title={t("relatedGuidesTitle")}
       >
         <RelatedGuideGrid cards={relatedGuides} locale={locale} />
+        <GuideEditorialNote
+          body={t("editorialBody")}
+          disclaimer={t("editorialDisclaimer")}
+          updated={t("editorialUpdated", {
+            date: formatContentDate(EDITORIAL_UPDATED, locale),
+          })}
+        />
       </ClusterContentSection>
     </>
   );

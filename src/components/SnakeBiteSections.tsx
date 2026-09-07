@@ -48,7 +48,7 @@ function externalSourceHref(locale: AppLocale, n: 1 | 2 | 3 | 4) {
     : EXTERNAL_SOURCE_HREFS.en[n];
 }
 
-const EDITORIAL_UPDATED = "2026-08-29";
+const EDITORIAL_UPDATED = "2026-09-07";
 
 const inlineLinkClassName =
   "font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground";
