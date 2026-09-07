@@ -205,11 +205,12 @@ export function buildLlmsFullText() {
   return parts.join("\n");
 }
 
-export function llmsTextResponseHeaders() {
+export function llmsTextResponseHeaders(options?: { noindex?: boolean }) {
   return {
-    "Cache-Control": "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800",
+    "Cache-Control":
+      "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800",
     "Content-Type": "text/plain; charset=utf-8",
-    "X-Robots-Tag": "noindex, follow",
+    ...(options?.noindex ? { "X-Robots-Tag": "noindex, follow" } : {}),
   };
 }
 
