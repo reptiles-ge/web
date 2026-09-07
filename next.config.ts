@@ -50,7 +50,14 @@ const nextConfig: NextConfig = {
     ];
     return [
       {
-        headers: security,
+        headers: [
+          ...security,
+          {
+            key: "Link",
+            value:
+              '</llms.txt>; rel="alternate"; type="text/plain"; title="llms.txt", </llms-full.txt>; rel="alternate"; type="text/plain"; title="llms-full.txt"',
+          },
+        ],
         source: "/:path*",
       },
       {
@@ -128,6 +135,21 @@ const nextConfig: NextConfig = {
         destination: "/gvelebi/tsxvirrkosani-gvelgesla",
         source: "/species/vipera-ammodytes",
         statusCode: 301,
+      },
+      {
+        destination: "/gvelebi/tsxvirrkosani-gvelgesla",
+        source: "/gvelebi/vipera-ammodytes",
+        statusCode: 301,
+      },
+      {
+        destination: "/gvelebi/tsxvirrkosani-gvelgesla",
+        source: "/snakes/vipera-ammodytes",
+        statusCode: 301,
+      },
+      {
+        destination: "/gvelebi",
+        source: "/gvelebi/dolichophis-caspius",
+        statusCode: 302,
       },
       {
         destination: "/amfibiebi/bayayi",
@@ -337,6 +359,8 @@ const nextConfig: NextConfig = {
         ["/gvelebi/shxamiani-gvelebi", "/venomous-snakes"],
         ["/gvelebi/gveli-ezoshi", "/snakes-in-the-yard"],
         ["/species/vipera-ammodytes", "/snakes/vipera-transcaucasiana"],
+        ["/snakes/vipera-ammodytes", "/snakes/vipera-transcaucasiana"],
+        ["/gvelebi/vipera-ammodytes", "/snakes/vipera-transcaucasiana"],
         ["/amfibiebi/bayayi", "/amphibians/frogs"],
         ["/amphibians/bayayi", "/amphibians/frogs"],
         ["/gvelebi/saxeoebebi", "/snakes/species"],

@@ -693,6 +693,8 @@
   "notFound": {
     "eyebrow": "Atlasda kayboldunuz",
     "title": "Bu yol haritada yok",
+    "metaTitle": "Sayfa bulunamadı",
+    "metaDescription": "Bu yol haritada yok. Sayfa taşınmış veya bağlantı eski olabilir — tür atlası, bölgeler veya zehirli rehberi üzerinden devam edin.",
     "body": "Sayfa taşınmış veya bağlantı eski olabilir. Atlas üzerinden devam edin — türler, bölgeler veya zehirli rehberi.",
     "home": "Ana sayfaya dön",
     "species": "Türler",

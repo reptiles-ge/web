@@ -70,6 +70,46 @@ test("unpublished caspius 302s to the snake hub", async ({ request }) => {
   });
   expect(response.status()).toBe(302);
   expect(locationPath(response.headers())).toBe("/gvelebi");
+
+  const kaSlug = await request.get("/gvelebi/dolichophis-caspius", {
+    maxRedirects: 0,
+  });
+  expect(kaSlug.status()).toBe(302);
+  expect(locationPath(kaSlug.headers())).toBe("/gvelebi");
+
+  const enSlug = await request.get("/en/snakes/dolichophis-caspius", {
+    maxRedirects: 0,
+  });
+  expect(enSlug.status()).toBe(302);
+  expect(locationPath(enSlug.headers())).toBe("/en/snakes");
+});
+
+test("vipera-ammodytes 301s to vipera-transcaucasiana", async ({
+  request,
+}) => {
+  const legacy = await request.get("/species/vipera-ammodytes", {
+    maxRedirects: 0,
+  });
+  expect(legacy.status()).toBe(301);
+  expect(locationPath(legacy.headers())).toBe(
+    "/gvelebi/tsxvirrkosani-gvelgesla",
+  );
+
+  const kaHub = await request.get("/gvelebi/vipera-ammodytes", {
+    maxRedirects: 0,
+  });
+  expect(kaHub.status()).toBe(301);
+  expect(locationPath(kaHub.headers())).toBe(
+    "/gvelebi/tsxvirrkosani-gvelgesla",
+  );
+
+  const enHub = await request.get("/en/snakes/vipera-ammodytes", {
+    maxRedirects: 0,
+  });
+  expect(enHub.status()).toBe(301);
+  expect(locationPath(enHub.headers())).toBe(
+    "/en/snakes/vipera-transcaucasiana",
+  );
 });
 
 test("filtered atlas is noindex", async ({ page }) => {

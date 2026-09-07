@@ -8,6 +8,12 @@ Use Georgian URLs below as canonical (`x-default`). Prefixed locales are `/en`, 
 
 Priority order: About (methods) → 2026 herpetofauna checklist article → species atlas → group hubs and indexes → species profiles → identification and safety guides → region pages (only taxa with an administrative-unit record in the atlas).
 
+## Machine-readable
+
+- [llms.txt](https://reptiles.ge/llms.txt): This index (navigation + scope).
+- [llms-full.txt](https://reptiles.ge/llms-full.txt): One-shot extractable corpus — methods, priority guides, news, and published species cards (fuller for herpetofauna/spiders; compact for birds/mammals). Prefer for ingestion; prefer live profile URLs when quoting.
+- [Sitemap](https://reptiles.ge/sitemap.xml): Full indexable URL set, including locale alternates.
+
 ## Core
 
 - [Home](https://reptiles.ge/): Georgian homepage for the atlas.
@@ -248,6 +254,5 @@ Published spider profiles only. Not a complete arachnofauna list.
 - [Quizzes](https://reptiles.ge/quiz): Quiz index. Turtle quiz is listed as coming soon (no URL).
 - [Which snake?](https://reptiles.ge/quiz/romeli-gvelia): Snake photo quiz. Practice, not field ID. No result URLs.
 - [Which lizard?](https://reptiles.ge/quiz/romeli-xvlikia): Lizard photo quiz. Practice, not field ID. No result URLs.
-- [Sitemap](https://reptiles.ge/sitemap.xml): Full indexable URL set, including locale alternates.
 - [Tarkhnishvili et al. 2026](https://doi.org/10.3897/caucasiana.5.e189214): Annotated checklist cited for amphibians and reptiles.
 - [Iankoshvili & Tarkhnishvili 2021](https://doi.org/10.1080/09397140.2021.1957208): Snake distribution paper cited on About and some snake profiles.
