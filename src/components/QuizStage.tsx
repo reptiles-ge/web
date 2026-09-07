@@ -10,7 +10,9 @@ import type {
 
 import { useQuizCopy } from "@/components/QuizCopyContext";
 import { QuizCover } from "@/components/QuizCover";
-import { QuizStagePanel } from "@/components/QuizStagePanel";
+import { QuizIntroOverlay } from "@/components/QuizIntroOverlay";
+import { QuizResultOverlay } from "@/components/QuizResultOverlay";
+import { QuizRound } from "@/components/QuizRound";
 import { cn } from "@/lib/cn";
 
 type Answered = {
@@ -83,6 +85,49 @@ export function QuizStage({
 }: QuizStageProps) {
   const t = useQuizCopy();
 
+  let panel;
+  if (!playing) {
+    panel = <QuizIntroOverlay headingId={headingId} onStart={onStart} />;
+  } else if (complete && questions) {
+    panel = (
+      <QuizResultOverlay
+        answers={answers}
+        byId={byId}
+        correctCount={correctCount}
+        headingId={headingId}
+        onRestart={onRestart}
+        questions={questions}
+        quizId={quizId}
+        shareUrl={shareUrl}
+        total={total}
+      />
+    );
+  } else if (!question || !correctSpecies) {
+    panel = <p className="text-white/70">{t("loading")}</p>;
+  } else {
+    panel = (
+      <QuizRound
+        byId={byId}
+        correctSpecies={correctSpecies}
+        feedbackRef={feedbackRef}
+        headingId={headingId}
+        hintedQuestions={hintedQuestions}
+        hintOpen={hintOpen}
+        index={index}
+        nextLabel={nextLabel}
+        onHintToggle={onHintToggle}
+        onNext={onNext}
+        onSelect={onSelect}
+        optionRefs={optionRefs}
+        question={question}
+        quizId={quizId}
+        revealed={revealed}
+        selectedId={selectedId}
+        total={total}
+      />
+    );
+  }
+
   return (
     <section
       aria-labelledby={headingId}
@@ -105,33 +150,7 @@ export function QuizStage({
           stagePadClass(playing, complete, revealed),
         )}
       >
-        <QuizStagePanel
-          answers={answers}
-          byId={byId}
-          complete={complete}
-          correctCount={correctCount}
-          correctSpecies={correctSpecies}
-          feedbackRef={feedbackRef}
-          headingId={headingId}
-          hintedQuestions={hintedQuestions}
-          hintOpen={hintOpen}
-          index={index}
-          nextLabel={nextLabel}
-          onHintToggle={onHintToggle}
-          onNext={onNext}
-          onRestart={onRestart}
-          onSelect={onSelect}
-          onStart={onStart}
-          optionRefs={optionRefs}
-          playing={playing}
-          question={question}
-          questions={questions}
-          quizId={quizId}
-          revealed={revealed}
-          selectedId={selectedId}
-          shareUrl={shareUrl}
-          total={total}
-        />
+        {panel}
       </div>
     </section>
   );
