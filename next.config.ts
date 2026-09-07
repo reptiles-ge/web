@@ -50,7 +50,14 @@ const nextConfig: NextConfig = {
     ];
     return [
       {
-        headers: security,
+        headers: [
+          ...security,
+          {
+            key: "Link",
+            value:
+              '</llms.txt>; rel="alternate"; type="text/plain"; title="llms.txt", </llms-full.txt>; rel="alternate"; type="text/plain"; title="llms-full.txt"',
+          },
+        ],
         source: "/:path*",
       },
       {

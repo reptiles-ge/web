@@ -254,6 +254,5 @@ Published spider profiles only. Not a complete arachnofauna list.
 - [Quizzes](https://reptiles.ge/quiz): Quiz index. Turtle quiz is listed as coming soon (no URL).
 - [Which snake?](https://reptiles.ge/quiz/romeli-gvelia): Snake photo quiz. Practice, not field ID. No result URLs.
 - [Which lizard?](https://reptiles.ge/quiz/romeli-xvlikia): Lizard photo quiz. Practice, not field ID. No result URLs.
-- [Sitemap](https://reptiles.ge/sitemap.xml): Full indexable URL set, including locale alternates.
 - [Tarkhnishvili et al. 2026](https://doi.org/10.3897/caucasiana.5.e189214): Annotated checklist cited for amphibians and reptiles.
 - [Iankoshvili & Tarkhnishvili 2021](https://doi.org/10.1080/09397140.2021.1957208): Snake distribution paper cited on About and some snake profiles.
