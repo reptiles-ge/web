@@ -36,6 +36,7 @@ const nextConfig: NextConfig = {
           "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com",
           "style-src 'self' 'unsafe-inline'",
           "img-src 'self' data: blob: https://cdn.reptiles.ge https://www.googletagmanager.com https://www.google-analytics.com https://stats.g.doubleclick.net https://*.google.com https://*.google.ge",
+          "media-src 'self' https://cdn.reptiles.ge",
           "font-src 'self' data:",
           "connect-src 'self' https://cdn.reptiles.ge https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://*.google-analytics.com https://*.analytics.google.com https://stats.g.doubleclick.net",
           "frame-src https://www.googletagmanager.com",
