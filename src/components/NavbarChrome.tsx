@@ -73,8 +73,7 @@ export function NavbarChrome({
         )}
         style={{
           backdropFilter: "blur(24px) saturate(160%)",
-          background:
-            "color-mix(in oklab, var(--background) 72%, transparent)",
+          background: "color-mix(in oklab, var(--background) 72%, transparent)",
           borderBottom: "1px solid var(--border)",
         }}
       />

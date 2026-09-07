@@ -2,8 +2,8 @@
 
 import type { SnakeQuizQuestion, SnakeQuizSpecies } from "@/lib/snakeQuizEngine";
 
+import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { QuizCoverPicture } from "@/components/QuizCoverPicture";
-import { QuizCoverPreload } from "@/components/QuizCoverPreload";
 
 type QuizCoverProps = {
   correctSpecies: SnakeQuizSpecies | undefined;
@@ -28,10 +28,30 @@ export function QuizCover({
 }: QuizCoverProps) {
   const alt =
     playing && revealed && correctSpecies ? correctSpecies.imageAlt : hiddenAlt;
+  const nextImage = nextQuestion?.image;
+  const nextMobile = nextQuestion?.mobileImage;
+  const split = Boolean(nextMobile && nextMobile !== nextImage);
 
   return (
     <>
-      <QuizCoverPreload nextQuestion={nextQuestion} />
+      {nextImage ? (
+        split && nextMobile ? (
+          <>
+            <CoverImagePreload
+              media="(max-width: 1023px)"
+              sizes="100vw"
+              src={nextMobile}
+            />
+            <CoverImagePreload
+              media="(min-width: 1024px)"
+              sizes="100vw"
+              src={nextImage}
+            />
+          </>
+        ) : (
+          <CoverImagePreload sizes="100vw" src={nextImage} />
+        )
+      ) : null}
       <div className="absolute inset-0 overflow-hidden">
         {coverSrc ? (
           <QuizCoverPicture
