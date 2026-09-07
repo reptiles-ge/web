@@ -175,6 +175,30 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     slug: "nika-melikishvili",
   },
   {
+    aliases: ["Saba Todua", "საბა თოდუა"],
+    bio: {
+      en: "Saba Todua is a wildlife photographer.",
+      ka: "საბა თოდუა ველური ბუნების ფოტოგრაფია.",
+      ru: "Саба Тодуа — фотограф дикой природы.",
+      tr: "Saba Todua, yaban hayatı fotoğrafçısıdır.",
+    },
+    id: "saba-todua",
+    links: {
+      facebook: "https://www.facebook.com/todua.saba.54438",
+    },
+    name: {
+      en: "Saba Todua",
+      ka: "საბა თოდუა",
+      ru: "Саба Тодуа",
+      tr: "Saba Todua",
+    },
+    portraitClass: "object-[50%_28%]",
+    portraitSrc: "https://cdn.reptiles.ge/authors/saba-todua.jpg",
+    published: true,
+    role: "photographer",
+    slug: "saba-todua",
+  },
+  {
     aliases: ["Close to wildlife", "ველურ ბუნებასთან ახლოს"],
     bio: {
       en: "A wildlife photographer who documents Georgia’s reptiles and amphibians in their natural habitat.",
