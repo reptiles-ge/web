@@ -76,7 +76,7 @@ export function TurtlesHubSections() {
                 {
                   key: "emys",
                   regions: [
-                    { id: "samegrelo", labelKey: "regionSamegrelo" },
+                    { id: "samegrelo-zemo-svaneti", labelKey: "regionSamegrelo" },
                   ] as const,
                 },
                 {

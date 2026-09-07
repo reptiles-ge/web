@@ -42,11 +42,16 @@ const REGION_PATH_IDS = [
   "kvemo-kartli",
   "mtskheta-mtianeti",
   "racha",
-  "samegrelo",
+  "samegrelo-zemo-svaneti",
   "samtskhe-javakheti",
   "shida-kartli",
   "tbilisi",
 ] as const;
+
+const REGION_HERO_FILES: Partial<Record<(typeof REGION_PATH_IDS)[number], string>> =
+  {
+    "samegrelo-zemo-svaneti": "samegrelo",
+  };
 
 type CheckStatus = "ok" | "not_found" | "failed";
 
@@ -190,7 +195,8 @@ function collectSources(): Map<string, ImageHit> {
   }
 
   for (const id of REGION_PATH_IDS) {
-    add(`${CDN_BASE}/regions/${id}.jpg`, `regions/${id}`);
+    const file = REGION_HERO_FILES[id] ?? id;
+    add(`${CDN_BASE}/regions/${file}.jpg`, `regions/${id}`);
   }
 
   return bySrc;

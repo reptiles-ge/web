@@ -6,7 +6,7 @@ const outFile = path.join(process.cwd(), "src/data/georgia-paths.generated.ts");
 
 const REGION_PATH_IDS = [
   "abkhazia",
-  "samegrelo",
+  "samegrelo-zemo-svaneti",
   "shida-kartli",
   "racha",
   "mtskheta-mtianeti",

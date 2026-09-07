@@ -68,7 +68,7 @@ Region lists include only taxa assigned to that administrative unit in the atlas
 
 - [Regions](https://reptiles.ge/regions): Map of Georgia’s 12 regions used by the atlas.
 - [Abkhazia](https://reptiles.ge/regions/abkhazia): Atlas records for Abkhazia.
-- [Samegrelo — Zemo Svaneti](https://reptiles.ge/regions/samegrelo): Atlas records for Samegrelo — Zemo Svaneti.
+- [Samegrelo — Zemo Svaneti](https://reptiles.ge/regions/samegrelo-zemo-svaneti): Atlas records for Samegrelo — Zemo Svaneti.
 - [Guria](https://reptiles.ge/regions/guria): Atlas records for Guria.
 - [Adjara](https://reptiles.ge/regions/adjara): Atlas records for Adjara.
 - [Imereti](https://reptiles.ge/regions/imereti): Atlas records for Imereti.
