@@ -6,7 +6,7 @@ import type { NavLink } from "@/components/NavbarMenu";
 import type { LocaleSwitchIndex } from "@/lib/localeSwitch";
 
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
-import { LOGO_NAV_SIZE, Logo } from "@/components/Logo";
+import { Logo, LOGO_NAV_SIZE } from "@/components/Logo";
 import { SpeciesSearch } from "@/components/SpeciesSearch";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { Link } from "@/i18n/navigation";
