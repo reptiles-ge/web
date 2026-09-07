@@ -4,6 +4,6 @@ export const dynamic = "force-static";
 
 export function GET() {
   return new Response(buildLlmsFullText(), {
-    headers: llmsTextResponseHeaders(),
+    headers: llmsTextResponseHeaders({ noindex: true }),
   });
 }
