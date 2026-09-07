@@ -100,7 +100,7 @@ export default async function Home({ params }: Props): Promise<ReactElement> {
   const org = organizationJsonLd({ description });
   const datasetId = `${homeUrl}#atlas`;
   const termsId = `${homeUrl}#atlas-terms`;
-  const searchUrlTemplate = `${absoluteUrl(localePath("ka", "/species"))}?q={search_term_string}`;
+  const searchUrlTemplate = `${absoluteUrl(localePath(locale, "/species"))}?q={search_term_string}`;
 
   const graph = {
     "@context": "https://schema.org",

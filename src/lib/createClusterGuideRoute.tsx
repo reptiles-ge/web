@@ -242,29 +242,31 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
             url,
           };
 
-    const faqNumbers = Array.from(
-      { length: guide.faqCount },
-      (_, index) => index + 1,
-    );
-    const faqLd = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: faqNumbers.map((n) => ({
-        "@type": "Question",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: t(`faq${n}A` as Parameters<typeof t>[0]),
-        },
-        name: t(`faq${n}Q` as Parameters<typeof t>[0]),
-      })),
-    };
+    const faqLd =
+      guide.emitFaqSchema === false
+        ? null
+        : {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: Array.from(
+              { length: guide.faqCount },
+              (_, index) => index + 1,
+            ).map((n) => ({
+              "@type": "Question",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: t(`faq${n}A` as Parameters<typeof t>[0]),
+              },
+              name: t(`faq${n}Q` as Parameters<typeof t>[0]),
+            })),
+          };
 
     return (
       <>
         {heroSrc ? <CoverImagePreload sizes="100vw" src={heroSrc} /> : null}
         <JsonLd data={breadcrumbLd} />
         <JsonLd data={pageLd} />
-        <JsonLd data={faqLd} />
+        {faqLd ? <JsonLd data={faqLd} /> : null}
         <PageView guideId={guideId} heroSrc={heroSrc} species={species} />
       </>
     );
