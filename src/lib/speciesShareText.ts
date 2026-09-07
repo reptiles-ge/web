@@ -28,18 +28,6 @@ export function speciesShareStatusKind(
   return isVenomousDanger(danger) ? "venomous" : "harmless";
 }
 
-export function speciesShareVenomous(
-  group: AnimalGroup,
-  danger?: DangerLevel,
-): boolean | null {
-  if (!groupHasVenomConcept(group) || !danger) return null;
-  return isVenomousDanger(danger);
-}
-
-export function speciesShareUrl(locale: AppLocale, id: string) {
-  return `${SHARE_ORIGIN}${localePath(locale, speciesHref(id, locale))}`;
-}
-
 export function speciesShareText({
   commonName,
   detailsLabel,
@@ -56,4 +44,16 @@ export function speciesShareText({
   const names = `${commonName} (${scientificName})`;
   const heading = status ? `${names} - ${status}` : names;
   return `${heading}\n\n🔗 ${detailsLabel}: ${url}`;
+}
+
+export function speciesShareUrl(locale: AppLocale, id: string) {
+  return `${SHARE_ORIGIN}${localePath(locale, speciesHref(id, locale))}`;
+}
+
+export function speciesShareVenomous(
+  group: AnimalGroup,
+  danger?: DangerLevel,
+): boolean | null {
+  if (!groupHasVenomConcept(group) || !danger) return null;
+  return isVenomousDanger(danger);
 }
