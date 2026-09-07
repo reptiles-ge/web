@@ -16,6 +16,7 @@ import {
 } from "@/components/GuideShared";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
+import { SpeciesInlineLink } from "@/components/SpeciesInlineLink";
 import { Link } from "@/i18n/navigation";
 import { formatContentDate } from "@/lib/formatDate";
 
@@ -47,7 +48,7 @@ function externalSourceHref(locale: AppLocale, n: 1 | 2 | 3 | 4) {
     : EXTERNAL_SOURCE_HREFS.en[n];
 }
 
-const EDITORIAL_UPDATED = "2026-08-29";
+const EDITORIAL_UPDATED = "2026-09-07";
 
 const inlineLinkClassName =
   "font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground";
@@ -268,6 +269,11 @@ function SnakeBiteSpecies({ species }: { species: Species[] }) {
             <PhoneLinkedText>
               {t.rich("speciesBody", {
                 count: species.length,
+                giurza: (chunks) => (
+                  <SpeciesInlineLink id="macrovipera-lebetina">
+                    {chunks}
+                  </SpeciesInlineLink>
+                ),
                 index: (chunks) => (
                   <Link
                     className={inlineLinkClassName}
@@ -275,6 +281,11 @@ function SnakeBiteSpecies({ species }: { species: Species[] }) {
                   >
                     {chunks}
                   </Link>
+                ),
+                malpolon: (chunks) => (
+                  <SpeciesInlineLink id="malpolon-insignitus">
+                    {chunks}
+                  </SpeciesInlineLink>
                 ),
                 range: (chunks) => (
                   <Link

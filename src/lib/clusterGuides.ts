@@ -48,6 +48,11 @@ export const VENOMOUS_VIPER_IDS = [
   "vipera-renardi",
 ] as const;
 
+export const REAR_FANGED_SPECIES_IDS = [
+  "malpolon-insignitus",
+  "telescopus-fallax",
+] as const;
+
 export const RACER_CLUSTER_IDS = [
   "platyceps-najadum",
   "elaphe-dione",
@@ -100,6 +105,7 @@ export const YARD_CANID_IDS = [
 export const VENOMOUS_SPIDER_IDS = ["latrodectus-tredecimguttatus"] as const;
 
 export type ClusterGuideConfig = {
+  emitFaqSchema?: boolean;
   faqCount: 4 | 5 | 6 | 8 | 10;
   heroImage?: string;
   heroSpeciesId: string;
@@ -395,6 +401,7 @@ export const CLUSTER_GUIDES: Record<ClusterGuideId, ClusterGuideConfig> = {
     schema: "article",
   },
   "snake-bite": {
+    emitFaqSchema: false,
     faqCount: 8,
     heroImage: "/images/guides/snake-bite-cover.png",
     heroSpeciesId: "macrovipera-lebetina",
@@ -458,6 +465,7 @@ export const CLUSTER_GUIDES: Record<ClusterGuideId, ClusterGuideConfig> = {
     schema: "article",
   },
   "spider-bite": {
+    emitFaqSchema: false,
     faqCount: 8,
     heroSpeciesId: "latrodectus-tredecimguttatus",
     id: "spider-bite",
@@ -686,9 +694,12 @@ export function getHubIndexTitleKey(hubId: GroupHubId) {
 }
 
 export function getRearFangedSpecies(species: Species[]) {
-  return species.filter(
-    (item) => isVenomousDanger(item.danger) && item.family !== "Viperidae",
+  const order = new Map<string, number>(
+    REAR_FANGED_SPECIES_IDS.map((id, index) => [id, index]),
   );
+  return species
+    .filter((item) => order.has(item.id))
+    .sort((a, b) => (order.get(a.id) ?? 0) - (order.get(b.id) ?? 0));
 }
 
 export function getViperSpecies(species: Species[]) {

@@ -129,7 +129,7 @@ export default async function VenomousSnakesRoute({ params }: Props) {
       "@type": "Question",
       acceptedAnswer: {
         "@type": "Answer",
-        text: t(`faq${n}A`),
+        text: t(`faq${n}A`).replace(/<\/?[a-zA-Z0-9]+>/g, ""),
       },
       name: t(`faq${n}Q`),
     })),

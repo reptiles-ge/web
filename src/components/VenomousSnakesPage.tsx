@@ -1,22 +1,31 @@
+import type { ReactNode } from "react";
+
 import { getLocale, getTranslations } from "next-intl/server";
 
-import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
 
 import { ClusterFaqSection } from "@/components/ClusterFaqSection";
 import { ContentAttribution } from "@/components/ContentAttribution";
 import { QuizPracticeCta } from "@/components/QuizPracticeCta";
+import { SpeciesInlineLink } from "@/components/SpeciesInlineLink";
 import { VenomousSnakesCta } from "@/components/VenomousSnakesCta";
 import { VenomousSnakesGuides } from "@/components/VenomousSnakesGuides";
 import { VenomousSnakesHero } from "@/components/VenomousSnakesHero";
 import { VenomousSnakesSpecies } from "@/components/VenomousSnakesSpecies";
+import { getSpeciesById, type Species } from "@/data/species";
+import { localizeSpecies } from "@/i18n/localizeSpecies";
+import { Link } from "@/i18n/navigation";
 import {
   getHubPageRelatedGuides,
   getRearFangedSpecies,
   getViperSpecies,
+  REAR_FANGED_SPECIES_IDS,
 } from "@/lib/clusterGuides";
 
 const FAQ_ITEMS = [1, 2, 3, 4, 5] as const;
+
+const faqInlineLinkClassName =
+  "font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground";
 
 type VenomousSnakesPageProps = {
   heroSrc: string;
@@ -30,7 +39,13 @@ export async function VenomousSnakesPage({
   const t = await getTranslations("venomousSnakes");
   const locale = (await getLocale()) as AppLocale;
   const vipers = getViperSpecies(species);
-  const rearFanged = getRearFangedSpecies(species);
+  const rearFangedPool = [...species];
+  for (const id of REAR_FANGED_SPECIES_IDS) {
+    if (rearFangedPool.some((item) => item.id === id)) continue;
+    const extra = getSpeciesById(id);
+    if (extra) rearFangedPool.push(localizeSpecies(extra, locale));
+  }
+  const rearFanged = getRearFangedSpecies(rearFangedPool);
   const highCount = species.filter((item) => item.danger === "High").length;
   const moderateCount = species.filter(
     (item) => item.danger === "Moderate",
@@ -48,6 +63,20 @@ export async function VenomousSnakesPage({
         card.key !== "bite" &&
         card.key !== "yard"),
   );
+
+  const faqRich = {
+    bite: (chunks: ReactNode) => (
+      <Link className={faqInlineLinkClassName} href="/snakes/gvelis-nakbeni">
+        {chunks}
+      </Link>
+    ),
+    giurza: (chunks: ReactNode) => (
+      <SpeciesInlineLink id="macrovipera-lebetina">{chunks}</SpeciesInlineLink>
+    ),
+    malpolon: (chunks: ReactNode) => (
+      <SpeciesInlineLink id="malpolon-insignitus">{chunks}</SpeciesInlineLink>
+    ),
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -86,7 +115,10 @@ export async function VenomousSnakesPage({
             title: t("faqTitle"),
           }}
           items={FAQ_ITEMS.map((n) => ({
-            answer: t(`faq${n}A`),
+            answer:
+              n === 1 || n === 2 || n === 4 || n === 5
+                ? t.rich(`faq${n}A`, faqRich)
+                : t(`faq${n}A`),
             question: t(`faq${n}Q`),
           }))}
         />

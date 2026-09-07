@@ -15,12 +15,14 @@ import { cn } from "@/lib/cn";
 import { quizHref } from "@/lib/quizzes";
 
 type GroupHubHeroProps = {
+  heroMobileSrc?: string;
   heroSrc: string;
   hubId: GroupHubId;
   species: Species[];
 };
 
 export async function GroupHubHero({
+  heroMobileSrc,
   heroSrc,
   hubId,
   species,
@@ -45,7 +47,12 @@ export async function GroupHubHero({
       >
         <CoverImage
           alt={t("heroImageAlt")}
-          className="object-cover object-[50%_35%]"
+          className={
+            heroMobileSrc
+              ? "object-cover object-center sm:object-[50%_35%]"
+              : "object-cover object-[50%_35%]"
+          }
+          mobileSrc={heroMobileSrc}
           priority
           sizes="100vw"
           src={heroSrc}

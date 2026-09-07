@@ -8,10 +8,12 @@ import { ClusterContentSection } from "@/components/ClusterContentSection";
 import { ClusterGuideLead } from "@/components/ClusterGuideLead";
 import { ClusterNumberedSteps } from "@/components/ClusterNumberedSteps";
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
+import { GuideEditorialNote } from "@/components/GuideShared";
 import { LookalikePair } from "@/components/LookalikePair";
 import { QuizPracticeCta } from "@/components/QuizPracticeCta";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { SpeciesInlineLink } from "@/components/SpeciesInlineLink";
+import { isVenomousDanger } from "@/data/speciesAtlasMeta";
 import { Link } from "@/i18n/navigation";
 import {
   type ClusterGuideViewProps,
@@ -19,7 +21,11 @@ import {
   getViperSpecies,
   SNAKE_LOOKALIKE_PAIRS,
 } from "@/lib/clusterGuides";
+import { formatContentDate } from "@/lib/formatDate";
 import { speciesHref } from "@/lib/speciesRoutes";
+
+const MYTHS = [1, 2, 3, 4] as const;
+const EDITORIAL_UPDATED = "2026-09-07";
 
 export async function SnakeIdentifyPage({
   guideId,
@@ -30,7 +36,9 @@ export async function SnakeIdentifyPage({
   const locale = (await getLocale()) as AppLocale;
   const byId = new Map(species.map((item) => [item.id, item]));
   const vipers = getViperSpecies(species);
-  const rearFanged = getRearFangedSpecies(species);
+  const rearFanged = getRearFangedSpecies(species).filter((item) =>
+    isVenomousDanger(item.danger),
+  );
   const venomous = [...vipers, ...rearFanged];
   const pairs = SNAKE_LOOKALIKE_PAIRS.map((pair) => ({
     a: byId.get(pair.a),
@@ -147,6 +155,34 @@ export async function SnakeIdentifyPage({
             </div>
           ))}
         </div>
+      </ClusterContentSection>
+
+      <ClusterContentSection
+        body={t("mythsLead")}
+        eyebrow={t("mythsEyebrow")}
+        id="myths"
+        surface="background"
+        title={t("mythsTitle")}
+      >
+        <ul className="mt-10 divide-y divide-border border-y border-border">
+          {MYTHS.map((n) => (
+            <li className="py-5 sm:py-6" key={n}>
+              <p className="font-display text-[17px] leading-snug font-medium text-foreground sm:text-[19px]">
+                {t(`myth${n}False`)}
+              </p>
+              <p className="mt-2 max-w-3xl text-[15px] leading-relaxed text-muted-foreground">
+                {t(`myth${n}True`)}
+              </p>
+            </li>
+          ))}
+        </ul>
+        <GuideEditorialNote
+          body={t("editorialBody")}
+          disclaimer={t("editorialDisclaimer")}
+          updated={t("editorialUpdated", {
+            date: formatContentDate(EDITORIAL_UPDATED, locale),
+          })}
+        />
       </ClusterContentSection>
     </ClusterPageFrame>
   );

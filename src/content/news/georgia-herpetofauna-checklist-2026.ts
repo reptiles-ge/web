@@ -93,6 +93,47 @@ export const GEORGIA_HERPETOFAUNA_CHECKLIST_2026: NewsArticle = {
           blocks: [
             {
               parts: [
+                "Fact: Tarkhnishvili et al. 2026 treats 12 amphibian and 56 reptile species as recorded from Georgia.",
+              ],
+              type: "p",
+            },
+            {
+              parts: [
+                "Fact: The paper splits taxa into biologically confirmed species and candidates that still need validation — a candidate is not confirmed.",
+              ],
+              type: "p",
+            },
+            {
+              parts: [
+                "Fact: The 12 / 56 totals are herpetofauna only. Birds and mammals on this atlas are separate published-profile sets, not those counts.",
+              ],
+              type: "p",
+            },
+            {
+              parts: [
+                "Fact: Reptiles.ge is an editorial compilation that follows this checklist for amphibians and reptiles — it is not the scientific paper and not a government checklist.",
+              ],
+              type: "p",
+            },
+            {
+              parts: [
+                "Source DOI: ",
+                {
+                  href: PAPER_URL,
+                  label: "10.3897/caucasiana.5.e189214",
+                  type: "external",
+                },
+                ".",
+              ],
+              type: "p",
+            },
+          ],
+          heading: "Key facts (citable)",
+        },
+        {
+          blocks: [
+            {
+              parts: [
                 "The checklist gives taxonomic remarks, specimen photographs and generalised distribution maps. Most taxa are represented by COI DNA barcodes from the Caucasus Barcoding of Life project (",
                 {
                   href: CABOL_URL,
@@ -260,6 +301,47 @@ export const GEORGIA_HERPETOFAUNA_CHECKLIST_2026: NewsArticle = {
       metaTitle:
         "საქართველოში 56 ქვეწარმავალი და 12 ამფიბიაა — ახალი ჩამონათვალი",
       sections: [
+        {
+          blocks: [
+            {
+              parts: [
+                "ფაქტი: Tarkhnishvili et al. 2026 საქართველოდან 12 ამფიბიასა და 56 ქვეწარმავალს იღებს ჩამონათვალში.",
+              ],
+              type: "p",
+            },
+            {
+              parts: [
+                "ფაქტი: ნაშრომი ტაქსონებს ბიოლოგიურად დადასტურებულ სახეობებად და კანდიდატებად ყოფს — კანდიდატი დადასტურებული არ არის.",
+              ],
+              type: "p",
+            },
+            {
+              parts: [
+                "ფაქტი: 12 / 56 მხოლოდ ჰერპეტოფაუნაა. ამ ატლასის ფრინველები და ძუძუმწოვრები ცალკე გამოქვეყნებული პროფილების ნაკრებია და ამ რიცხვებში არ შედის.",
+              ],
+              type: "p",
+            },
+            {
+              parts: [
+                "ფაქტი: Reptiles.ge ამ checklist-ის სარედაქციო კომპილაციაა ამფიბიებისა და ქვეწარმავლებისთვის — არა თავად სამეცნიერო ნაშრომი და არა სახელმწიფო ჩამონათვალი.",
+              ],
+              type: "p",
+            },
+            {
+              parts: [
+                "წყაროს DOI: ",
+                {
+                  href: PAPER_URL,
+                  label: "10.3897/caucasiana.5.e189214",
+                  type: "external",
+                },
+                ".",
+              ],
+              type: "p",
+            },
+          ],
+          heading: "მთავარი ფაქტები (ციტირებადი)",
+        },
         {
           blocks: [
             {
@@ -434,6 +516,47 @@ export const GEORGIA_HERPETOFAUNA_CHECKLIST_2026: NewsArticle = {
           blocks: [
             {
               parts: [
+                "Факт: Tarkhnishvili et al. 2026 принимает для Грузии 12 видов амфибий и 56 видов рептилий.",
+              ],
+              type: "p",
+            },
+            {
+              parts: [
+                "Факт: Работа делит таксоны на биологически подтверждённые виды и кандидатов, которым ещё нужна валидация — кандидат не подтверждён.",
+              ],
+              type: "p",
+            },
+            {
+              parts: [
+                "Факт: 12 / 56 — только герпетофауна. Птицы и млекопитающие этого атласа — отдельные наборы опубликованных профилей и в эти числа не входят.",
+              ],
+              type: "p",
+            },
+            {
+              parts: [
+                "Факт: Reptiles.ge — редакционная компиляция этого чек-листа для амфибий и рептилий, а не сама научная статья и не государственный список.",
+              ],
+              type: "p",
+            },
+            {
+              parts: [
+                "DOI источника: ",
+                {
+                  href: PAPER_URL,
+                  label: "10.3897/caucasiana.5.e189214",
+                  type: "external",
+                },
+                ".",
+              ],
+              type: "p",
+            },
+          ],
+          heading: "Ключевые факты (для цитирования)",
+        },
+        {
+          blocks: [
+            {
+              parts: [
                 "Список даёт таксономические замечания, фотографии экземпляров и обобщённые карты распространения. Большинство таксонов представлены ДНК-баркодами COI проекта Caucasus Barcoding of Life (",
                 {
                   href: CABOL_URL,
@@ -601,6 +724,47 @@ export const GEORGIA_HERPETOFAUNA_CHECKLIST_2026: NewsArticle = {
       metaTitle:
         "Gürcistan’da 56 sürüngen ve 12 amfibi var — 2026 kontrol listesi",
       sections: [
+        {
+          blocks: [
+            {
+              parts: [
+                "Gerçek: Tarkhnishvili et al. 2026 Gürcistan’dan 12 amfibi ve 56 sürüngen türünü kayıtlara alır.",
+              ],
+              type: "p",
+            },
+            {
+              parts: [
+                "Gerçek: Makale taksonları biyolojik olarak doğrulanmış türler ve hâlâ doğrulama gerektiren adaylar olarak ayırır — aday doğrulanmış değildir.",
+              ],
+              type: "p",
+            },
+            {
+              parts: [
+                "Gerçek: 12 / 56 yalnızca herpetofaunadır. Bu atlasdaki kuşlar ve memeliler ayrı yayımlanmış profil kümeleridir ve bu sayılara girmez.",
+              ],
+              type: "p",
+            },
+            {
+              parts: [
+                "Gerçek: Reptiles.ge amfibi ve sürüngenler için bu checklist’in editoryal derlemesidir — bilimsel makalenin kendisi veya devlet listesi değildir.",
+              ],
+              type: "p",
+            },
+            {
+              parts: [
+                "Kaynak DOI: ",
+                {
+                  href: PAPER_URL,
+                  label: "10.3897/caucasiana.5.e189214",
+                  type: "external",
+                },
+                ".",
+              ],
+              type: "p",
+            },
+          ],
+          heading: "Anahtar gerçekler (alıntılanabilir)",
+        },
         {
           blocks: [
             {
@@ -795,5 +959,5 @@ export const GEORGIA_HERPETOFAUNA_CHECKLIST_2026: NewsArticle = {
     },
   ],
   status: "published",
-  updatedAt: "2026-09-02",
+  updatedAt: "2026-09-07",
 };
