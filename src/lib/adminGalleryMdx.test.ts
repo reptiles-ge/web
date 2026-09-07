@@ -123,6 +123,31 @@ describe("reorderGalleryInMdx", () => {
     expect(next).toContain('url: "https://example.com/ana"');
   });
 
+  it("writes georgia-field photoConfidence into credit", () => {
+    const next = appendGalleryItemToMdx(FIXTURE, {
+      credit: {
+        location: "ვაშლოვანი",
+        photoConfidence: "georgia-field",
+        photographer: "ანა",
+      },
+      src: "https://cdn.reptiles.ge/d.jpg",
+    });
+    expect(next).toContain("photoConfidence: georgia-field");
+    const gallery = matter(next).data.gallery as Array<{
+      credit?: {
+        location?: string;
+        photoConfidence?: string;
+        photographer?: string;
+      };
+      src: string;
+    }>;
+    expect(gallery.at(-1)?.credit).toEqual({
+      location: "ვაშლოვანი",
+      photoConfidence: "georgia-field",
+      photographer: "ანა",
+    });
+  });
+
   it("can move a newly appended item to the front", () => {
     const withNew = appendGalleryItemToMdx(FIXTURE, {
       credit: { photographer: "ნიკა" },
