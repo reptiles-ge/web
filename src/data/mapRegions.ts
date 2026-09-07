@@ -72,7 +72,7 @@ export const regions: Region[] = [
       ru: "От Колхидской низменности до высокогорной Сванетии — влажные леса, речные долины и альпийский пояс.",
       tr: "Kolhis ovasından yüksek Svaneti’ye — nemli ormanlar, nehir vadileri ve alpin kuşak.",
     },
-    id: "samegrelo",
+    id: "samegrelo-zemo-svaneti",
     name: {
       en: "Samegrelo — Zemo Svaneti",
       ka: "სამეგრელო — ზემო სვანეთი",
@@ -85,7 +85,7 @@ export const regions: Region[] = [
       ru: "Самегрело — Верхней Сванетии",
       tr: "Samegrelo — Zemo Svaneti",
     },
-    path: georgiaRegionPaths.samegrelo,
+    path: georgiaRegionPaths["samegrelo-zemo-svaneti"],
     speciesIds: [
       "vipera-kaznakovi",
       "vipera-dinniki",

@@ -51,7 +51,7 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
       en: "Abkhazia joins the Black Sea coast, Colchic forests, and Caucasus foothills. Humid climate and fragmented montane habitats support both lowland and highland taxa — including Caucasian and Dinnik’s vipers.",
       ka: "აფხაზეთი აერთიანებს შავი ზღვის სანაპიროს, კოლხურ ტყეებს და კავკასიონის მთისწინეთს. ნოტიო ჰავა და ფრაგმენტირებული მთის ჰაბიტატები ხელს უწყობს როგორც დაბლობის, ისე მაღალმთის სახეობებს — მათ შორის კავკასიურ და დინიკის გველგესლებს.",
     },
-    relatedIds: ["samegrelo", "racha", "guria"],
+    relatedIds: ["samegrelo-zemo-svaneti", "racha", "guria"],
   },
   adjara: {
     biome: { en: "Colchic · coastal", ka: "კოლხური · სანაპირო" },
@@ -106,7 +106,7 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
       en: "Adjara is one of western Georgia’s most humid herpetological zones. Subtropical forests, mountain valleys, and the Black Sea coast bring together Caucasian viper, grass snake and dice snake, smooth snake, and glass lizard. Eastern arid-zone taxa are largely absent.",
       ka: "აჭარა დასავლეთ საქართველოს ერთ-ერთი ყველაზე ტენიანი ჰერპეტოლოგიური ზონაა. ნოტიო სუბტროპიკული ტყეები, მთიანი ხეობები და შავი ზღვის სანაპირო ქმნის გარემოს, სადაც კავკასიური გველგესლა, ჩვეულებრივი და წყლის ანკარა, სპილენძა და გველხოკერა ერთმანეთს ემთხვევა. აღმოსავლეთის მშრალი ზონის სახეობები აქ თითქმის არ გვხვდება.",
     },
-    relatedIds: ["guria", "samtskhe-javakheti", "samegrelo"],
+    relatedIds: ["guria", "samtskhe-javakheti", "samegrelo-zemo-svaneti"],
   },
   guria: {
     biome: { en: "Colchic · subtropical", ka: "კოლხური · სუბტროპიკული" },
@@ -130,7 +130,7 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
       en: "Guria is defined by humid subtropical Colchic forests and river valleys. Moisture-loving fauna dominates — eastern arid-zone species are largely absent.",
       ka: "გურია ნოტიო სუბტროპიკული კოლხური ტყეებითა და მდინარის ხეობებით გამოირჩევა. აქ დომინირებს ტენიანობის მოყვარული ფაუნა — აღმოსავლეთის მშრალი ზონის სახეობები თითქმის არ გვხვდება.",
     },
-    relatedIds: ["adjara", "samegrelo", "imereti"],
+    relatedIds: ["adjara", "samegrelo-zemo-svaneti", "imereti"],
   },
   imereti: {
     biome: { en: "Karst · Rioni basin", ka: "კარსტი · რიონის აუზი" },
@@ -155,7 +155,7 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
       en: "Imereti links western Georgian habitats through karst mountains, wooded valleys, and the Rioni basin. Colchic influence remains strong, with more continental elements appearing inland.",
       ka: "იმერეთი კარსტული მთებით, ტყიანი ხეობებითა და რიონის აუზით აკავშირებს დასავლეთ საქართველოს ჰაბიტატებს. აქ კოლხური გავლენა ჯერ კიდევ ძლიერია, მაგრამ უკვე ჩნდება უფრო კონტინენტური ელემენტებიც.",
     },
-    relatedIds: ["guria", "samegrelo", "racha", "samtskhe-javakheti"],
+    relatedIds: ["guria", "samegrelo-zemo-svaneti", "racha", "samtskhe-javakheti"],
   },
   kakheti: {
     biome: { en: "Alazani · semi-arid", ka: "ალაზანი · ნახევრად უდაბნო" },
@@ -275,9 +275,9 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
       en: "Racha — Lechkhumi — Kvemo Svaneti is defined by high forests, subalpine meadows, and rocky gorges. Montane taxa such as Dinnik’s viper are more characteristic than lowland fauna.",
       ka: "რაჭა — ლეჩხუმი — ქვემო სვანეთი მაღალმთიანი ტყეებით, სუბალპური მდელოებითა და კლდოვანი ხეობებით გამოირჩევა. აქ მთის სახეობები — მათ შორის დინიკის გველგესლა — უფრო დამახასიათებელია, ვიდრე დაბლობის ფაუნა.",
     },
-    relatedIds: ["samegrelo", "imereti", "mtskheta-mtianeti"],
+    relatedIds: ["samegrelo-zemo-svaneti", "imereti", "mtskheta-mtianeti"],
   },
-  samegrelo: {
+  "samegrelo-zemo-svaneti": {
     biome: { en: "Colchis · Svaneti", ka: "კოლხეთი · სვანეთი" },
     faq: [
       {

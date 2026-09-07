@@ -38,7 +38,7 @@ export const GEORGIA_DOLPHIN_STRANDINGS_2026: NewsArticle = {
                 },
                 " to ",
                 {
-                  id: "samegrelo",
+                  id: "samegrelo-zemo-svaneti",
                   label: "Anaklia",
                   type: "region",
                 },
@@ -92,7 +92,7 @@ export const GEORGIA_DOLPHIN_STRANDINGS_2026: NewsArticle = {
                 },
                 " ",
                 {
-                  id: "samegrelo",
+                  id: "samegrelo-zemo-svaneti",
                   label: "ანაკლიამდე",
                   type: "region",
                 },
@@ -147,7 +147,7 @@ export const GEORGIA_DOLPHIN_STRANDINGS_2026: NewsArticle = {
                 },
                 " до ",
                 {
-                  id: "samegrelo",
+                  id: "samegrelo-zemo-svaneti",
                   label: "Анаклии",
                   type: "region",
                 },
@@ -202,7 +202,7 @@ export const GEORGIA_DOLPHIN_STRANDINGS_2026: NewsArticle = {
                 },
                 " ",
                 {
-                  id: "samegrelo",
+                  id: "samegrelo-zemo-svaneti",
                   label: "Anaklia’ya",
                   type: "region",
                 },
@@ -242,7 +242,7 @@ export const GEORGIA_DOLPHIN_STRANDINGS_2026: NewsArticle = {
   image: PHOTO_COAST,
   publishedAt: "2026-09-02",
   relatedHubIds: ["mammals"],
-  relatedRegionIds: ["adjara", "samegrelo"],
+  relatedRegionIds: ["adjara", "samegrelo-zemo-svaneti"],
   relatedSpeciesIds: [],
   slug: "georgia-dolphin-strandings-2026",
   sources: [

@@ -497,6 +497,20 @@ const nextConfig: NextConfig = {
         source: "/tr/quiz/which-lizard",
         statusCode: 301,
       },
+      {
+        destination: "/regions/samegrelo-zemo-svaneti",
+        source: "/regions/samegrelo",
+        statusCode: 301,
+      },
+      {
+        destination: "/regions/samegrelo-zemo-svaneti",
+        source: "/regions/zemo-svaneti",
+        statusCode: 301,
+      },
+      ...latinRedirects([
+        ["/regions/samegrelo", "/regions/samegrelo-zemo-svaneti"],
+        ["/regions/zemo-svaneti", "/regions/samegrelo-zemo-svaneti"],
+      ]),
     ];
   },
   serverExternalPackages: ["sharp", "@reptiles-ge/img-compression"],
