@@ -5,6 +5,10 @@ import { useTranslations } from "next-intl";
 import { ClusterContentSection } from "@/components/ClusterContentSection";
 
 const COMPARE_ROWS = ["risk", "fangs", "lookalike", "emergency"] as const;
+const COMPARE_COLS = [
+  { header: "compareColViper", value: "compareViper" },
+  { header: "compareColMalpolon", value: "compareMalpolon" },
+] as const;
 
 export function VenomousSnakesCompare() {
   const t = useTranslations("venomousSnakes");
@@ -21,10 +25,11 @@ export function VenomousSnakesCompare() {
           <thead>
             <tr className="border-b border-border text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
               <th className="py-4 pr-4 font-medium">{t("compareColTrait")}</th>
-              <th className="py-4 pr-4 font-medium">{t("compareColViper")}</th>
-              <th className="py-4 pr-4 font-medium">
-                {t("compareColMalpolon")}
-              </th>
+              {COMPARE_COLS.map((col) => (
+                <th className="py-4 pr-4 font-medium" key={col.header}>
+                  {t(col.header)}
+                </th>
+              ))}
             </tr>
           </thead>
           <tbody>
@@ -36,12 +41,14 @@ export function VenomousSnakesCompare() {
                 <th className="py-4 pr-4 text-[14px] font-medium text-foreground">
                   {t(`compareRow.${row}`)}
                 </th>
-                <td className="py-4 pr-4 text-[14px] leading-relaxed text-muted-foreground">
-                  {t(`compareViper.${row}`)}
-                </td>
-                <td className="py-4 pr-4 text-[14px] leading-relaxed text-muted-foreground">
-                  {t(`compareMalpolon.${row}`)}
-                </td>
+                {COMPARE_COLS.map((col) => (
+                  <td
+                    className="py-4 pr-4 text-[14px] leading-relaxed text-muted-foreground"
+                    key={col.value}
+                  >
+                    {t(`${col.value}.${row}`)}
+                  </td>
+                ))}
               </tr>
             ))}
           </tbody>

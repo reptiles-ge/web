@@ -27,9 +27,14 @@ import {
 } from "@/lib/site";
 import { isPlaceholderMedia } from "@/lib/speciesContent";
 
+type HubTranslator = Awaited<ReturnType<typeof getTranslations>>;
+
 type Props = {
   params: Promise<{ locale: string }>;
 };
+
+const TURTLE_FAQ_INDICES = [1, 2, 3, 4, 5, 6, 7, 8] as const;
+const DEFAULT_FAQ_INDICES = [1, 2, 3, 4, 5] as const;
 
 export function createGroupHubRoute(hubId: GroupHubId) {
   const hub = GROUP_HUBS[hubId];
@@ -151,58 +156,15 @@ export function createGroupHubRoute(hubId: GroupHubId) {
       url,
     };
 
-    const faqIndices =
-      hubId === "turtles"
-        ? ([1, 2, 3, 4, 5, 6, 7, 8] as const)
-        : ([1, 2, 3, 4, 5] as const);
-
-    const mainEntity: Array<{
-      "@type": "Question";
-      acceptedAnswer: { "@type": "Answer"; text: string };
-      name: string;
-    }> = [];
-    for (const n of faqIndices) {
-      if (!t.has(`faq${n}Q`)) continue;
-      mainEntity.push({
-        "@type": "Question",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text:
-            hubId === "snakes" && n === 5
-              ? t.markup("faq5A", {
-                  bite: (chunks) => chunks,
-                  yard: (chunks) => chunks,
-                })
-              : hubId === "turtles" && n === 4
-                ? t.markup("faq4A", {
-                    identify: (chunks) => chunks,
-                  })
-                : t(`faq${n}A`),
-        },
-        name: t(`faq${n}Q`),
-      });
-    }
-
     const faqLd = {
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      mainEntity,
+      mainEntity: buildHubFaqMainEntity(hubId, t),
     };
 
     return (
       <>
-        <CoverImagePreload
-          media={heroMobileSrc ? "(min-width: 640px)" : undefined}
-          sizes="100vw"
-          src={heroSrc}
-        />
-        {heroMobileSrc ? (
-          <CoverImagePreload
-            media="(max-width: 639px)"
-            sizes="100vw"
-            src={heroMobileSrc}
-          />
-        ) : null}
+        <HubCoverPreloads desktopSrc={heroSrc} mobileSrc={heroMobileSrc} />
         <JsonLd data={breadcrumbLd} />
         <JsonLd data={collectionLd} />
         <JsonLd data={faqLd} />
@@ -225,4 +187,72 @@ export function createGroupHubRoute(hubId: GroupHubId) {
     generateStaticParams: () => routing.locales.map((locale) => ({ locale })),
     Page,
   };
+}
+
+function buildHubFaqMainEntity(hubId: GroupHubId, t: HubTranslator) {
+  const mainEntity: Array<{
+    "@type": "Question";
+    acceptedAnswer: { "@type": "Answer"; text: string };
+    name: string;
+  }> = [];
+
+  for (const n of hubFaqIndices(hubId)) {
+    if (!t.has(`faq${n}Q`)) continue;
+    mainEntity.push({
+      "@type": "Question",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: hubFaqAnswer(hubId, n, t),
+      },
+      name: t(`faq${n}Q`),
+    });
+  }
+
+  return mainEntity;
+}
+
+function HubCoverPreloads({
+  desktopSrc,
+  mobileSrc,
+}: {
+  desktopSrc: string;
+  mobileSrc?: string;
+}) {
+  if (!mobileSrc) {
+    return <CoverImagePreload sizes="100vw" src={desktopSrc} />;
+  }
+
+  return (
+    <>
+      <CoverImagePreload
+        media="(min-width: 640px)"
+        sizes="100vw"
+        src={desktopSrc}
+      />
+      <CoverImagePreload
+        media="(max-width: 639px)"
+        sizes="100vw"
+        src={mobileSrc}
+      />
+    </>
+  );
+}
+
+function hubFaqAnswer(hubId: GroupHubId, n: number, t: HubTranslator) {
+  if (hubId === "snakes" && n === 5) {
+    return t.markup("faq5A", {
+      bite: (chunks) => chunks,
+      yard: (chunks) => chunks,
+    });
+  }
+  if (hubId === "turtles" && n === 4) {
+    return t.markup("faq4A", {
+      identify: (chunks) => chunks,
+    });
+  }
+  return t(`faq${n}A`);
+}
+
+function hubFaqIndices(hubId: GroupHubId) {
+  return hubId === "turtles" ? TURTLE_FAQ_INDICES : DEFAULT_FAQ_INDICES;
 }
