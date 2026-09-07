@@ -211,7 +211,7 @@ describe("credit authors", () => {
     expect(author?.portraitSrc).toBe(
       "https://cdn.reptiles.ge/authors/saba-todua.jpg",
     );
-    expect(author?.bio?.ka).toContain("გველგესლებს");
+    expect(author?.bio?.ka).toContain("ველური ბუნების ფოტოგრაფია");
     expect(author?.links).toEqual({
       facebook: "https://www.facebook.com/todua.saba.54438",
     });
@@ -293,6 +293,7 @@ describe("credit authors", () => {
       "nika-melikishvili",
       "zakro-songulashvili",
       "velur-bunebastan-axlos",
+      "saba-todua",
     ]);
     expect(cards.map((card) => card.photoCount)).toEqual(
       [...cards.map((card) => card.photoCount)].sort((a, b) => b - a),
