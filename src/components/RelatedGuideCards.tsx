@@ -163,7 +163,7 @@ function hubClusterCardImage(card: HubClusterCard, species: Species[]) {
   if (card.kind === "quiz") {
     return card.id === "lizard"
       ? GROUP_HUB_ILLUSTRATIONS.lizards
-      : "/images/guides/snake-quiz-og.jpg";
+      : GROUP_HUB_ILLUSTRATIONS.snakes;
   }
 
   const override = PAGE_CARD_IMAGES[card.href] ?? GUIDE_HERO_IMAGES[card.href];
