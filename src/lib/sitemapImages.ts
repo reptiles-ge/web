@@ -1,6 +1,7 @@
 import type { PhotoCredit, Species } from "@/data/species";
 
 import { hasPublishedCreditAuthorPage } from "@/data/creditAuthors";
+import { optimizedImgSrc } from "@/data/optimizedImages";
 import { absoluteImageUrl } from "@/lib/site";
 import { isPlaceholderMedia } from "@/lib/speciesContent";
 
@@ -17,7 +18,7 @@ export function creditAuthorPageImageUrls(
     if (!src || isPlaceholderMedia(src) || urls.length >= MAX_SITEMAP_IMAGES) {
       return;
     }
-    const url = absoluteImageUrl(src);
+    const url = absoluteImageUrl(optimizedImgSrc(src));
     if (seen.has(url)) return;
     seen.add(url);
     urls.push(url);
@@ -39,7 +40,7 @@ export function speciesPageImageUrls(species: Species): string[] {
       return;
     }
     if (!hasPublishedCreditAuthorPage(credit?.photographer)) return;
-    const url = absoluteImageUrl(src);
+    const url = absoluteImageUrl(optimizedImgSrc(src));
     if (seen.has(url)) return;
     seen.add(url);
     urls.push(url);

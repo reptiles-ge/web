@@ -70,6 +70,20 @@ describe("speciesPageImageUrls", () => {
     ]);
   });
 
+  it("emits the same optimized URL the page serves", () => {
+    const src = "https://cdn.reptiles.ge/macrovipera-lebetina-nika-1.jpg";
+    const urls = speciesPageImageUrls({
+      ...base,
+      gallery: [],
+      image: src,
+      imageCredit: { photographer: "ნიკა მელიქიშვილი" },
+    } as Species);
+
+    expect(urls).toEqual([
+      "https://cdn.reptiles.ge/optimized/macrovipera-lebetina-nika-1-1024.webp",
+    ]);
+  });
+
   it("returns an empty list when no photo has a published author page", () => {
     expect(
       speciesPageImageUrls({
