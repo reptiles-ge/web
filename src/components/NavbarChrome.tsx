@@ -6,7 +6,7 @@ import type { NavLink } from "@/components/NavbarMenu";
 import type { LocaleSwitchIndex } from "@/lib/localeSwitch";
 
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
-import { Logo } from "@/components/Logo";
+import { LOGO_NAV_SIZE, Logo } from "@/components/Logo";
 import { SpeciesSearch } from "@/components/SpeciesSearch";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { Link } from "@/i18n/navigation";
@@ -86,7 +86,7 @@ export function NavbarChrome({
         <Logo
           priority
           showWordmark
-          size={44}
+          size={LOGO_NAV_SIZE}
           wordmarkClassName={cn(
             "hidden text-[17px] transition-colors sm:inline",
             elevated ? "text-foreground" : "text-white",

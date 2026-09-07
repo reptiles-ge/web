@@ -12,6 +12,7 @@ import { AnalyticsPageContext } from "@/components/AnalyticsPageContext";
 import { Footer } from "@/components/Footer";
 import { FooterGate } from "@/components/FooterGate";
 import { LocaleSwitchProvider } from "@/components/LocaleSwitchProvider";
+import { LogoPreload } from "@/components/LogoPreload";
 import { Navbar } from "@/components/Navbar";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { SkipLink } from "@/components/SkipLink";
@@ -46,6 +47,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       <LocaleSwitchProvider index={switchIndex}>
         <SkipLink label={t("skipToContent")} />
         <ScrollToTop />
+        <LogoPreload />
         <AnalyticsPageContext switchIndex={switchIndex} />
         <VisitPing />
         <Navbar switchIndex={switchIndex} />

@@ -9,6 +9,7 @@ import {
 import { cookies } from "next/headers";
 
 import { LocaleSwitchProvider } from "@/components/LocaleSwitchProvider";
+import { LogoPreload } from "@/components/LogoPreload";
 import { Navbar } from "@/components/Navbar";
 import { NotFoundContent } from "@/components/NotFoundContent";
 import { SkipLink } from "@/components/SkipLink";
@@ -34,6 +35,7 @@ export default async function RootNotFound() {
     <NextIntlClientProvider locale={locale} messages={messages}>
       <LocaleSwitchProvider index={switchIndex}>
         <SkipLink label={t("skipToContent")} />
+        <LogoPreload />
         <Navbar switchIndex={switchIndex} />
         <main id="main" tabIndex={-1}>
           <NotFoundContent />
