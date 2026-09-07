@@ -16,6 +16,7 @@ import {
   ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
 import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
+import { SpeciesInlineLink } from "@/components/SpeciesInlineLink";
 import { Link } from "@/i18n/navigation";
 
 type VenomousSnakesGuidesProps = {
@@ -126,7 +127,18 @@ export function VenomousSnakesGuides({
           <div className="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end lg:gap-16">
             <div>
               <ClusterSectionIntro
-                body={t("lookalikesBody")}
+                body={t.rich("lookalikesBody", {
+                  giurza: (chunks) => (
+                    <SpeciesInlineLink id="macrovipera-lebetina">
+                      {chunks}
+                    </SpeciesInlineLink>
+                  ),
+                  malpolon: (chunks) => (
+                    <SpeciesInlineLink id="malpolon-insignitus">
+                      {chunks}
+                    </SpeciesInlineLink>
+                  ),
+                })}
                 bodyClassName={CLUSTER_BODY}
                 eyebrow={t("lookalikesEyebrow")}
                 eyebrowClassName={CLUSTER_EYEBROW}

@@ -1,7 +1,7 @@
 "use client";
 
 import { Plus } from "lucide-react";
-import { useState } from "react";
+import { type ReactNode, useState } from "react";
 
 import {
   CLUSTER_EYEBROW,
@@ -13,7 +13,7 @@ import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { cn } from "@/lib/cn";
 
 type ClusterFaqItem = {
-  answer: string;
+  answer: ReactNode;
   question: string;
 };
 

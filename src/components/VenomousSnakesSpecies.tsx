@@ -80,6 +80,11 @@ export function VenomousSnakesSpecies({
             <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
               <PhoneLinkedText>
                 {t.rich("vipersBody", {
+                  giurza: (chunks) => (
+                    <SpeciesInlineLink id="macrovipera-lebetina">
+                      {chunks}
+                    </SpeciesInlineLink>
+                  ),
                   kaznakovi: (chunks) => (
                     <SpeciesInlineLink id="vipera-kaznakovi">
                       {chunks}
@@ -96,7 +101,28 @@ export function VenomousSnakesSpecies({
                 {t("rearFangedTitle")}
               </h3>
               <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-                <PhoneLinkedText>{t("rearFangedBody")}</PhoneLinkedText>
+                <PhoneLinkedText>
+                  {t.rich("rearFangedBody", {
+                    bite: (chunks) => (
+                      <Link
+                        className="font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
+                        href="/snakes/gvelis-nakbeni"
+                      >
+                        {chunks}
+                      </Link>
+                    ),
+                    giurza: (chunks) => (
+                      <SpeciesInlineLink id="macrovipera-lebetina">
+                        {chunks}
+                      </SpeciesInlineLink>
+                    ),
+                    malpolon: (chunks) => (
+                      <SpeciesInlineLink id="malpolon-insignitus">
+                        {chunks}
+                      </SpeciesInlineLink>
+                    ),
+                  })}
+                </PhoneLinkedText>
               </p>
               <SpeciesGuideList
                 locale={locale}

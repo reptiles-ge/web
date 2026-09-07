@@ -363,8 +363,8 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
     faq: [
       {
         answer: {
-          en: "Records include Levantine viper, nose-horned viper, Urartian and steppe ratsnakes, red-bellied and Dahl’s whip snakes, cat snake, grass snake and dice snake, smooth snake, and glass lizard — mainly in suburbs and riverside areas.",
-          ka: "ჩანაწერებშია გიურზა, ცხვირრქოსანი გველგესლა, ურარტუს და სახეებიანი მცურავი, წითელმუცელა და წენგოსფერი მცურავი, კატისთვალა, ჩვეულებრივი და წყლის ანკარა, სპილენძა და გველხოკერა — ძირითადად გარეუბნებსა და მდინარის პირას.",
+          en: "Records include Levantine viper, nose-horned viper, steppe viper, Urartian and steppe ratsnakes, red-bellied and Dahl’s whip snakes, cat snake, grass snake and dice snake, smooth snake, and glass lizard — mainly in suburbs and riverside areas.",
+          ka: "ჩანაწერებშია გიურზა, ცხვირრქოსანი გველგესლა, ველის გველგესლა, ურარტუს და სახეებიანი მცურავი, წითელმუცელა და წენგოსფერი მცურავი, კატისთვალა, ჩვეულებრივი და წყლის ანკარა, სპილენძა და გველხოკერა — ძირითადად გარეუბნებსა და მდინარის პირას.",
         },
         question: {
           en: "Which snakes live in Tbilisi?",
@@ -373,8 +373,8 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
       },
       {
         answer: {
-          en: "Levantine viper and nose-horned viper are venomous; others are harmless. If you see a snake — do not touch it, step back, and contact appropriate services if needed.",
-          ka: "გიურზა და ცხვირრქოსანი გველგესლა შხამიანია. სხვები უვნებელია. თუ გველი ნახეთ — არ შეეხოთ, გადადგით ნაბიჯი უკან და საჭიროების შემთხვევაში დაუკავშირდით შესაბამის სამსახურებს.",
+          en: "Levantine viper and nose-horned viper are high risk in this atlas; steppe viper is moderate. Other listed snakes are harmless to people. Keep distance. If bitten, call 112 immediately — do not cut, suck, or apply a tourniquet.",
+          ka: "გიურზა და ცხვირრქოსანი გველგესლა ამ ატლასში მაღალი რისკისაა; ველის გველგესლა — საშუალო. სხვა ჩამოთვლილი გველები ადამიანისთვის უვნებელია. დაიცავით მანძილი. ნაკბენისას დაუყოვნებლივ დარეკეთ 112-ზე — ნუ გაჭრით, ნუ ამოიწოვთ, ნუ გაიკეთებთ ტურნიკეტს.",
         },
         question: {
           en: "Are snakes in Tbilisi dangerous?",
@@ -383,12 +383,22 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
       },
       {
         answer: {
-          en: "Along the Mtkvari, rocky slopes, suburban valleys, and less disturbed greenery — not busy central streets.",
-          ka: "მტკვრის პირას, კლდოვან ფერდობებზე, გარეუბნის ხეობებსა და ნაკლებად შეწუხებულ გამწვანებაში — არა შუა ქალაქის ქუჩებში.",
+          en: "Along the Mtkvari, rocky slopes, suburban valleys, and less disturbed greenery — not busy central streets. Levantine viper records near Tbilisi are scarce; it is tied to dry eastern habitats.",
+          ka: "მტკვრის პირას, კლდოვან ფერდობებზე, გარეუბნის ხეობებსა და ნაკლებად შეწუხებულ გამწვანებაში — არა შუა ქალაქის ქუჩებში. თბილისის მიდამოებში გიურზა იშვიათია; სახეობა აღმოსავლეთის მშრალ ჰაბიტატებს უკავშირდება.",
         },
         question: {
           en: "Where are snakes more likely around Tbilisi?",
           ka: "სად არის მეტი შანსი გველის ნახვის თბილისში?",
+        },
+      },
+      {
+        answer: {
+          en: "Call 112 first. Stay calm and limit movement. Do not cut the wound, suck venom, or use a tourniquet. Species ID can wait until emergency care is underway.",
+          ka: "ჯერ დარეკეთ 112-ზე. შეინარჩუნეთ სიმშვიდე და შეამცირეთ მოძრაობა. ნუ გაჭრით ჭრილობას, ნუ ამოიწოვთ შხამს, ნუ გაიკეთებთ ტურნიკეტს. სახეობის გარჩევა შეიძლება მას შემდეგ, რაც გადაუდებელი დახმარება უკვე გამოძახებულია.",
+        },
+        question: {
+          en: "What if a snake bites someone in Tbilisi?",
+          ka: "რა ვქნა, თუ თბილისში გველმა მიკბინა?",
         },
       },
     ],
@@ -398,8 +408,8 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
       { en: "Riverside habitats", ka: "მდინარის პირას ჰაბიტატები" },
     ],
     overview: {
-      en: "In Tbilisi, reptiles occur mainly in suburban valleys, parks, and riverside habitats — not dense city centers. Levantine viper, nose-horned viper, red-bellied racer, glass lizard, and others may appear. Urban encounters are uncommon but real.",
-      ka: "თბილისში ქვეწარმავლები ძირითადად ქალაქის მიმდებარე ხეობებში, პარკებსა და მდინარის პირას გვხვდება — არა ცენტრალურ უბნებში. აქ შეიძლება შეხვდეთ გიურზას, ცხვირრქოსან გველგესლას, წითელმუცელა მცურავს, გველხოკერას და სხვა სახეობებს. ურბანული შეხვედრები იშვიათია, მაგრამ რეალურია.",
+      en: "In Tbilisi, reptiles occur mainly in suburban valleys, parks, and riverside habitats — not dense city centers. Atlas records include Levantine viper (scarce near the city), nose-horned viper, steppe viper, red-bellied racer, glass lizard, and others. Urban encounters are uncommon but real. If bitten, call 112.",
+      ka: "თბილისში ქვეწარმავლები ძირითადად ქალაქის მიმდებარე ხეობებში, პარკებსა და მდინარის პირას გვხვდება — არა ცენტრალურ უბნებში. ატლასის ჩანაწერებშია გიურზა (ქალაქთან იშვიათი), ცხვირრქოსანი და ველის გველგესლა, წითელმუცელა მცურავი, გველხოკერა და სხვა სახეობები. ურბანული შეხვედრები იშვიათია, მაგრამ რეალურია. ნაკბენისას დარეკეთ 112-ზე.",
     },
     relatedIds: [
       "kvemo-kartli",
