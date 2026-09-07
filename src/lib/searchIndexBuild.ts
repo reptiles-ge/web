@@ -784,7 +784,7 @@ const STATIC_PAGES: Array<
     },
   },
   {
-    heroImage: "/images/guides/snake-quiz-og.jpg",
+    heroImage: GROUP_HUB_ILLUSTRATIONS.snakes,
     href: "/quiz",
     icon: "identify",
     id: "quizzes",
@@ -952,7 +952,7 @@ export function buildSearchIndex(locale: AppLocale): SearchDocument[] {
       "snake-quiz",
       quizHref("snake", locale),
       SNAKE_QUIZ_COPY,
-      "/images/guides/snake-quiz-og.jpg",
+      GROUP_HUB_ILLUSTRATIONS.snakes,
     ),
     toPageDocument(
       locale,

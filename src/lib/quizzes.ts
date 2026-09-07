@@ -35,7 +35,7 @@ export const QUIZ_INDEX = [
     id: "snake",
     messageKey: "snake",
     messageNamespace: "snakeQuiz",
-    ogImage: "/images/guides/snake-quiz-og.jpg",
+    ogImage: GROUP_HUB_ILLUSTRATIONS.snakes,
     questions: 10,
     slugs: {
       en: "which-snake",

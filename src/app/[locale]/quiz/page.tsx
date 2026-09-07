@@ -23,7 +23,7 @@ type Props = {
 };
 
 const PATH = "/quiz";
-const OG_IMAGE = "/images/guides/snake-quiz-og.jpg";
+const OG_IMAGE = "/images/home/groups/snakes.jpg";
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: localeParam } = await params;
