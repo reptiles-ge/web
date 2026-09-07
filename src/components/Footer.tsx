@@ -234,6 +234,15 @@ export async function Footer({ regions, venomous }: FooterProps) {
             >
               <FacebookGlyph className="size-4" />
             </a>
+            <a
+              aria-label={t("instagram")}
+              className="inline-flex size-10 items-center justify-center rounded-full border border-border bg-card text-muted-foreground transition-colors hover:border-primary/35 hover:text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
+              href="https://www.instagram.com/reptiles.ge/"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <InstagramGlyph className="size-4" />
+            </a>
             <span className="tracking-wide">{t("forCurious")}</span>
           </div>
         </div>
@@ -258,6 +267,30 @@ function FacebookGlyph({ className }: { className?: string }) {
         strokeLinejoin="round"
         strokeWidth="1.5"
       />
+    </svg>
+  );
+}
+
+function InstagramGlyph({ className }: { className?: string }) {
+  return (
+    <svg
+      aria-hidden
+      className={className}
+      fill="none"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect
+        height="20"
+        rx="5"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        width="20"
+        x="2"
+        y="2"
+      />
+      <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.5" />
+      <circle cx="17.5" cy="6.5" fill="currentColor" r="1" />
     </svg>
   );
 }
