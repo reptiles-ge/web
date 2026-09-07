@@ -32771,6 +32771,59 @@
       ],
       "updatedAt": "2026-08-28T21:44:07.433Z"
     },
+    "lacerta-media-levan-1.jpg": {
+      "sourceHash": "3e58f7c7c273c1b34d6a8d2ab4fba3db95098e56256893db615d37576863bb06",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lacerta-media-levan-1.jpg",
+      "originalSize": 72948,
+      "width": 528,
+      "height": 960,
+      "derivatives": [
+        {
+          "key": "optimized/lacerta-media-levan-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 582,
+          "byteSize": 23221
+        },
+        {
+          "key": "optimized/lacerta-media-levan-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 582,
+          "byteSize": 31254
+        },
+        {
+          "key": "optimized/lacerta-media-levan-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 727,
+          "byteSize": 31415
+        },
+        {
+          "key": "optimized/lacerta-media-levan-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 727,
+          "byteSize": 42582
+        },
+        {
+          "key": "optimized/lacerta-media-levan-1-528.avif",
+          "format": "avif",
+          "width": 528,
+          "height": 960,
+          "byteSize": 47191
+        },
+        {
+          "key": "optimized/lacerta-media-levan-1-528.webp",
+          "format": "webp",
+          "width": 528,
+          "height": 960,
+          "byteSize": 60102
+        }
+      ],
+      "updatedAt": "2026-09-07T07:54:45.114Z"
+    },
     "lacerta-media-zauri-1.jpg": {
       "sourceHash": "ad0890dbc95e249d24deb8d6a869abf78da06940a8a17e80a2e448ce11821911",
       "configFingerprint": "409788ee46c653d8",
