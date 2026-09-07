@@ -32866,6 +32866,101 @@
       ],
       "updatedAt": "2026-09-07T07:53:10.209Z"
     },
+    "lacerta-media-zauri-2.jpg": {
+      "sourceHash": "008bced34af0235e8da676f72c943fc011f23d5698970711731d85f07894b1b7",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lacerta-media-zauri-2.jpg",
+      "originalSize": 304361,
+      "width": 1440,
+      "height": 960,
+      "derivatives": [
+        {
+          "key": "optimized/lacerta-media-zauri-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 13972
+        },
+        {
+          "key": "optimized/lacerta-media-zauri-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 22804
+        },
+        {
+          "key": "optimized/lacerta-media-zauri-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 20479
+        },
+        {
+          "key": "optimized/lacerta-media-zauri-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 33334
+        },
+        {
+          "key": "optimized/lacerta-media-zauri-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 46677
+        },
+        {
+          "key": "optimized/lacerta-media-zauri-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 74058
+        },
+        {
+          "key": "optimized/lacerta-media-zauri-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 66659
+        },
+        {
+          "key": "optimized/lacerta-media-zauri-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 106510
+        },
+        {
+          "key": "optimized/lacerta-media-zauri-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 123365
+        },
+        {
+          "key": "optimized/lacerta-media-zauri-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 198826
+        },
+        {
+          "key": "optimized/lacerta-media-zauri-2-1440.avif",
+          "format": "avif",
+          "width": 1440,
+          "height": 960,
+          "byteSize": 172313
+        },
+        {
+          "key": "optimized/lacerta-media-zauri-2-1440.webp",
+          "format": "webp",
+          "width": 1440,
+          "height": 960,
+          "byteSize": 258090
+        }
+      ],
+      "updatedAt": "2026-09-07T07:54:03.334Z"
+    },
     "lacerta-media.jpg": {
       "sourceHash": "53eaf6014722772f1ff525ecaf9404eec7cf577a2e0335aad383b4c509f79742",
       "configFingerprint": "a895f8e025dcc7fa",
