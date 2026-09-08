@@ -12685,6 +12685,101 @@
       ],
       "updatedAt": "2026-08-28T21:36:04.333Z"
     },
+    "darevskia-praticola-cristian-1.jpg": {
+      "sourceHash": "5b3aae43362c7a16e854649cf8686fe07f3748f2d421e8b56741ef6a52a2f187",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-praticola-cristian-1.jpg",
+      "originalSize": 176330,
+      "width": 1224,
+      "height": 1013,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-praticola-cristian-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 265,
+          "byteSize": 12825
+        },
+        {
+          "key": "optimized/darevskia-praticola-cristian-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 265,
+          "byteSize": 20972
+        },
+        {
+          "key": "optimized/darevskia-praticola-cristian-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 331,
+          "byteSize": 17878
+        },
+        {
+          "key": "optimized/darevskia-praticola-cristian-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 331,
+          "byteSize": 29136
+        },
+        {
+          "key": "optimized/darevskia-praticola-cristian-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 530,
+          "byteSize": 36326
+        },
+        {
+          "key": "optimized/darevskia-praticola-cristian-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 530,
+          "byteSize": 57736
+        },
+        {
+          "key": "optimized/darevskia-praticola-cristian-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 662,
+          "byteSize": 49103
+        },
+        {
+          "key": "optimized/darevskia-praticola-cristian-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 662,
+          "byteSize": 78022
+        },
+        {
+          "key": "optimized/darevskia-praticola-cristian-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 993,
+          "byteSize": 83151
+        },
+        {
+          "key": "optimized/darevskia-praticola-cristian-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 993,
+          "byteSize": 133290
+        },
+        {
+          "key": "optimized/darevskia-praticola-cristian-1-1224.avif",
+          "format": "avif",
+          "width": 1224,
+          "height": 1013,
+          "byteSize": 94225
+        },
+        {
+          "key": "optimized/darevskia-praticola-cristian-1-1224.webp",
+          "format": "webp",
+          "width": 1224,
+          "height": 1013,
+          "byteSize": 133130
+        }
+      ],
+      "updatedAt": "2026-09-08T18:24:47.179Z"
+    },
     "darevskia-praticola-mobile.jpg": {
       "sourceHash": "dc3d8cace244a41becd9c23eaec468e75888f350179e431b37f164caac64a12e",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -12751,6 +12846,291 @@
         }
       ],
       "updatedAt": "2026-08-28T21:36:04.722Z"
+    },
+    "darevskia-praticola-zauri-1.jpg": {
+      "sourceHash": "ea866fac593947bb015e8dcb79e3743dc17bfa0ed176c8596e3aaa7fedc8be50",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-praticola-zauri-1.jpg",
+      "originalSize": 167204,
+      "width": 1344,
+      "height": 960,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-praticola-zauri-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 229,
+          "byteSize": 10878
+        },
+        {
+          "key": "optimized/darevskia-praticola-zauri-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 229,
+          "byteSize": 16726
+        },
+        {
+          "key": "optimized/darevskia-praticola-zauri-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 286,
+          "byteSize": 14928
+        },
+        {
+          "key": "optimized/darevskia-praticola-zauri-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 286,
+          "byteSize": 23092
+        },
+        {
+          "key": "optimized/darevskia-praticola-zauri-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 457,
+          "byteSize": 29724
+        },
+        {
+          "key": "optimized/darevskia-praticola-zauri-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 457,
+          "byteSize": 45936
+        },
+        {
+          "key": "optimized/darevskia-praticola-zauri-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 571,
+          "byteSize": 40517
+        },
+        {
+          "key": "optimized/darevskia-praticola-zauri-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 571,
+          "byteSize": 62510
+        },
+        {
+          "key": "optimized/darevskia-praticola-zauri-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 857,
+          "byteSize": 69401
+        },
+        {
+          "key": "optimized/darevskia-praticola-zauri-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 857,
+          "byteSize": 108604
+        },
+        {
+          "key": "optimized/darevskia-praticola-zauri-1-1344.avif",
+          "format": "avif",
+          "width": 1344,
+          "height": 960,
+          "byteSize": 84280
+        },
+        {
+          "key": "optimized/darevskia-praticola-zauri-1-1344.webp",
+          "format": "webp",
+          "width": 1344,
+          "height": 960,
+          "byteSize": 126932
+        }
+      ],
+      "updatedAt": "2026-09-08T18:23:31.717Z"
+    },
+    "darevskia-praticola-zauri-2.jpg": {
+      "sourceHash": "492c2166fdb04ab1a81e40f39e8491b57ba2528886cad1390dfff50adb6cdf61",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-praticola-zauri-2.jpg",
+      "originalSize": 222291,
+      "width": 1344,
+      "height": 960,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-praticola-zauri-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 229,
+          "byteSize": 14247
+        },
+        {
+          "key": "optimized/darevskia-praticola-zauri-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 229,
+          "byteSize": 21062
+        },
+        {
+          "key": "optimized/darevskia-praticola-zauri-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 286,
+          "byteSize": 19658
+        },
+        {
+          "key": "optimized/darevskia-praticola-zauri-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 286,
+          "byteSize": 29558
+        },
+        {
+          "key": "optimized/darevskia-praticola-zauri-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 457,
+          "byteSize": 40677
+        },
+        {
+          "key": "optimized/darevskia-praticola-zauri-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 457,
+          "byteSize": 61622
+        },
+        {
+          "key": "optimized/darevskia-praticola-zauri-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 571,
+          "byteSize": 55267
+        },
+        {
+          "key": "optimized/darevskia-praticola-zauri-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 571,
+          "byteSize": 83900
+        },
+        {
+          "key": "optimized/darevskia-praticola-zauri-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 857,
+          "byteSize": 95520
+        },
+        {
+          "key": "optimized/darevskia-praticola-zauri-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 857,
+          "byteSize": 146686
+        },
+        {
+          "key": "optimized/darevskia-praticola-zauri-2-1344.avif",
+          "format": "avif",
+          "width": 1344,
+          "height": 960,
+          "byteSize": 115091
+        },
+        {
+          "key": "optimized/darevskia-praticola-zauri-2-1344.webp",
+          "format": "webp",
+          "width": 1344,
+          "height": 960,
+          "byteSize": 169504
+        }
+      ],
+      "updatedAt": "2026-09-08T18:23:30.719Z"
+    },
+    "darevskia-praticola-zauri-3.jpg": {
+      "sourceHash": "8870cb681a180727e49800dc2f45d56112d05bdbda2108605faf49ae2cceb0e1",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-praticola-zauri-3.jpg",
+      "originalSize": 255429,
+      "width": 1344,
+      "height": 960,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-praticola-zauri-3-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 229,
+          "byteSize": 16987
+        },
+        {
+          "key": "optimized/darevskia-praticola-zauri-3-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 229,
+          "byteSize": 28546
+        },
+        {
+          "key": "optimized/darevskia-praticola-zauri-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 286,
+          "byteSize": 23226
+        },
+        {
+          "key": "optimized/darevskia-praticola-zauri-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 286,
+          "byteSize": 39420
+        },
+        {
+          "key": "optimized/darevskia-praticola-zauri-3-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 457,
+          "byteSize": 46813
+        },
+        {
+          "key": "optimized/darevskia-praticola-zauri-3-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 457,
+          "byteSize": 77258
+        },
+        {
+          "key": "optimized/darevskia-praticola-zauri-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 571,
+          "byteSize": 63718
+        },
+        {
+          "key": "optimized/darevskia-praticola-zauri-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 571,
+          "byteSize": 105586
+        },
+        {
+          "key": "optimized/darevskia-praticola-zauri-3-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 857,
+          "byteSize": 109985
+        },
+        {
+          "key": "optimized/darevskia-praticola-zauri-3-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 857,
+          "byteSize": 181014
+        },
+        {
+          "key": "optimized/darevskia-praticola-zauri-3-1344.avif",
+          "format": "avif",
+          "width": 1344,
+          "height": 960,
+          "byteSize": 137832
+        },
+        {
+          "key": "optimized/darevskia-praticola-zauri-3-1344.webp",
+          "format": "webp",
+          "width": 1344,
+          "height": 960,
+          "byteSize": 206668
+        }
+      ],
+      "updatedAt": "2026-09-08T18:23:32.595Z"
     },
     "darevskia-praticola.jpg": {
       "sourceHash": "f955c3b611354f6c77e36dfc327a27db7683c5c7e06ec938cec4b9fafefb137d",

@@ -1502,12 +1502,40 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1536],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/darevskia-praticola-cristian-1.jpg": {
+    "path": "darevskia-praticola-cristian-1",
+    "width": 1224,
+    "height": 1013,
+    "widths": [320, 400, 640, 800, 1200, 1224],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/darevskia-praticola-mobile.jpg": {
     "path": "darevskia-praticola-mobile",
     "width": 2048,
     "height": 1536,
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif"]
+  },
+  "https://cdn.reptiles.ge/darevskia-praticola-zauri-1.jpg": {
+    "path": "darevskia-praticola-zauri-1",
+    "width": 1344,
+    "height": 960,
+    "widths": [320, 400, 640, 800, 1200, 1344],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-praticola-zauri-2.jpg": {
+    "path": "darevskia-praticola-zauri-2",
+    "width": 1344,
+    "height": 960,
+    "widths": [320, 400, 640, 800, 1200, 1344],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-praticola-zauri-3.jpg": {
+    "path": "darevskia-praticola-zauri-3",
+    "width": 1344,
+    "height": 960,
+    "widths": [320, 400, 640, 800, 1200, 1344],
+    "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/darevskia-praticola.jpg": {
     "path": "darevskia-praticola",
