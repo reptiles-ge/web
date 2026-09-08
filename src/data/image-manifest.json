@@ -18829,6 +18829,481 @@
       ],
       "updatedAt": "2026-08-28T21:39:29.631Z"
     },
+    "emys-orbicularis-laura-1.jpg": {
+      "sourceHash": "be0568526425a7be5dd2ee14f21484c36e6035a2667044eb9c2a8d81d3675014",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "emys-orbicularis-laura-1.jpg",
+      "originalSize": 533332,
+      "width": 1600,
+      "height": 1066,
+      "derivatives": [
+        {
+          "key": "optimized/emys-orbicularis-laura-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14634
+        },
+        {
+          "key": "optimized/emys-orbicularis-laura-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 22094
+        },
+        {
+          "key": "optimized/emys-orbicularis-laura-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 23585
+        },
+        {
+          "key": "optimized/emys-orbicularis-laura-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 34458
+        },
+        {
+          "key": "optimized/emys-orbicularis-laura-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 54354
+        },
+        {
+          "key": "optimized/emys-orbicularis-laura-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 81480
+        },
+        {
+          "key": "optimized/emys-orbicularis-laura-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 79706
+        },
+        {
+          "key": "optimized/emys-orbicularis-laura-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 119886
+        },
+        {
+          "key": "optimized/emys-orbicularis-laura-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 153296
+        },
+        {
+          "key": "optimized/emys-orbicularis-laura-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 229504
+        },
+        {
+          "key": "optimized/emys-orbicularis-laura-1-1600.avif",
+          "format": "avif",
+          "width": 1600,
+          "height": 1066,
+          "byteSize": 247493
+        },
+        {
+          "key": "optimized/emys-orbicularis-laura-1-1600.webp",
+          "format": "webp",
+          "width": 1600,
+          "height": 1066,
+          "byteSize": 348910
+        }
+      ],
+      "updatedAt": "2026-09-08T19:25:21.582Z"
+    },
+    "emys-orbicularis-levan-1.jpg": {
+      "sourceHash": "83dbf285191326de543aa1a4ef101e60af5c249a0e2c26b0c52fd5e76679bfeb",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "emys-orbicularis-levan-1.jpg",
+      "originalSize": 151433,
+      "width": 2048,
+      "height": 1366,
+      "derivatives": [
+        {
+          "key": "optimized/emys-orbicularis-levan-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 4107
+        },
+        {
+          "key": "optimized/emys-orbicularis-levan-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 4938
+        },
+        {
+          "key": "optimized/emys-orbicularis-levan-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 5789
+        },
+        {
+          "key": "optimized/emys-orbicularis-levan-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 6896
+        },
+        {
+          "key": "optimized/emys-orbicularis-levan-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 13293
+        },
+        {
+          "key": "optimized/emys-orbicularis-levan-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 15206
+        },
+        {
+          "key": "optimized/emys-orbicularis-levan-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 19637
+        },
+        {
+          "key": "optimized/emys-orbicularis-levan-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 22006
+        },
+        {
+          "key": "optimized/emys-orbicularis-levan-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 37435
+        },
+        {
+          "key": "optimized/emys-orbicularis-levan-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 41116
+        },
+        {
+          "key": "optimized/emys-orbicularis-levan-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1366,
+          "byteSize": 89564
+        },
+        {
+          "key": "optimized/emys-orbicularis-levan-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1366,
+          "byteSize": 93108
+        }
+      ],
+      "updatedAt": "2026-09-08T19:27:38.463Z"
+    },
+    "emys-orbicularis-nikoloz-1.jpg": {
+      "sourceHash": "e27af6604cc381cae74ec212e465364ee8bfb908c8d0ab73ba8998149157cc01",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "emys-orbicularis-nikoloz-1.jpg",
+      "originalSize": 340589,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/emys-orbicularis-nikoloz-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 7681
+        },
+        {
+          "key": "optimized/emys-orbicularis-nikoloz-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9522
+        },
+        {
+          "key": "optimized/emys-orbicularis-nikoloz-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 10584
+        },
+        {
+          "key": "optimized/emys-orbicularis-nikoloz-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 13424
+        },
+        {
+          "key": "optimized/emys-orbicularis-nikoloz-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 22593
+        },
+        {
+          "key": "optimized/emys-orbicularis-nikoloz-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 28658
+        },
+        {
+          "key": "optimized/emys-orbicularis-nikoloz-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 32123
+        },
+        {
+          "key": "optimized/emys-orbicularis-nikoloz-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 40670
+        },
+        {
+          "key": "optimized/emys-orbicularis-nikoloz-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 60342
+        },
+        {
+          "key": "optimized/emys-orbicularis-nikoloz-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 79832
+        },
+        {
+          "key": "optimized/emys-orbicularis-nikoloz-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 225498
+        },
+        {
+          "key": "optimized/emys-orbicularis-nikoloz-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 269354
+        }
+      ],
+      "updatedAt": "2026-09-08T19:28:50.432Z"
+    },
+    "emys-orbicularis-velur-1.jpg": {
+      "sourceHash": "d641d8b791425aaeda8fe41825cda4e6e4c02f235fecb920447d23b59729502b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "emys-orbicularis-velur-1.jpg",
+      "originalSize": 187060,
+      "width": 1295,
+      "height": 720,
+      "derivatives": [
+        {
+          "key": "optimized/emys-orbicularis-velur-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 178,
+          "byteSize": 11697
+        },
+        {
+          "key": "optimized/emys-orbicularis-velur-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 178,
+          "byteSize": 18724
+        },
+        {
+          "key": "optimized/emys-orbicularis-velur-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 223,
+          "byteSize": 16926
+        },
+        {
+          "key": "optimized/emys-orbicularis-velur-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 223,
+          "byteSize": 26594
+        },
+        {
+          "key": "optimized/emys-orbicularis-velur-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 356,
+          "byteSize": 36089
+        },
+        {
+          "key": "optimized/emys-orbicularis-velur-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 356,
+          "byteSize": 56358
+        },
+        {
+          "key": "optimized/emys-orbicularis-velur-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 445,
+          "byteSize": 51003
+        },
+        {
+          "key": "optimized/emys-orbicularis-velur-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 445,
+          "byteSize": 78600
+        },
+        {
+          "key": "optimized/emys-orbicularis-velur-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 667,
+          "byteSize": 89384
+        },
+        {
+          "key": "optimized/emys-orbicularis-velur-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 667,
+          "byteSize": 136598
+        },
+        {
+          "key": "optimized/emys-orbicularis-velur-1-1295.avif",
+          "format": "avif",
+          "width": 1295,
+          "height": 720,
+          "byteSize": 108378
+        },
+        {
+          "key": "optimized/emys-orbicularis-velur-1-1295.webp",
+          "format": "webp",
+          "width": 1295,
+          "height": 720,
+          "byteSize": 147990
+        }
+      ],
+      "updatedAt": "2026-09-08T19:26:12.238Z"
+    },
+    "emys-orbicularis-velur-2.jpg": {
+      "sourceHash": "e90844ff21edbcbea6480c9a61a187e13bbcd54495805c9acb1b1b5d25db773a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "emys-orbicularis-velur-2.jpg",
+      "originalSize": 497765,
+      "width": 1523,
+      "height": 960,
+      "derivatives": [
+        {
+          "key": "optimized/emys-orbicularis-velur-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 202,
+          "byteSize": 22839
+        },
+        {
+          "key": "optimized/emys-orbicularis-velur-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 202,
+          "byteSize": 35966
+        },
+        {
+          "key": "optimized/emys-orbicularis-velur-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 252,
+          "byteSize": 34103
+        },
+        {
+          "key": "optimized/emys-orbicularis-velur-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 252,
+          "byteSize": 54132
+        },
+        {
+          "key": "optimized/emys-orbicularis-velur-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 403,
+          "byteSize": 76640
+        },
+        {
+          "key": "optimized/emys-orbicularis-velur-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 403,
+          "byteSize": 123938
+        },
+        {
+          "key": "optimized/emys-orbicularis-velur-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 504,
+          "byteSize": 106875
+        },
+        {
+          "key": "optimized/emys-orbicularis-velur-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 504,
+          "byteSize": 177994
+        },
+        {
+          "key": "optimized/emys-orbicularis-velur-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 756,
+          "byteSize": 187372
+        },
+        {
+          "key": "optimized/emys-orbicularis-velur-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 756,
+          "byteSize": 315618
+        },
+        {
+          "key": "optimized/emys-orbicularis-velur-2-1523.avif",
+          "format": "avif",
+          "width": 1523,
+          "height": 960,
+          "byteSize": 262867
+        },
+        {
+          "key": "optimized/emys-orbicularis-velur-2-1523.webp",
+          "format": "webp",
+          "width": 1523,
+          "height": 960,
+          "byteSize": 413902
+        }
+      ],
+      "updatedAt": "2026-09-08T19:26:04.840Z"
+    },
     "emys-orbicularis.jpg": {
       "sourceHash": "570f39ed670f7627eb96220fc57f01a109401d5af9910ece012498bef0cfe4c6",
       "configFingerprint": "a895f8e025dcc7fa",

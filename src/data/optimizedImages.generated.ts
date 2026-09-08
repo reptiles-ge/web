@@ -2132,6 +2132,41 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1536],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/emys-orbicularis-laura-1.jpg": {
+    "path": "emys-orbicularis-laura-1",
+    "width": 1600,
+    "height": 1066,
+    "widths": [320, 400, 640, 800, 1200, 1600],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/emys-orbicularis-levan-1.jpg": {
+    "path": "emys-orbicularis-levan-1",
+    "width": 2048,
+    "height": 1366,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/emys-orbicularis-nikoloz-1.jpg": {
+    "path": "emys-orbicularis-nikoloz-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/emys-orbicularis-velur-1.jpg": {
+    "path": "emys-orbicularis-velur-1",
+    "width": 1295,
+    "height": 720,
+    "widths": [320, 400, 640, 800, 1200, 1295],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/emys-orbicularis-velur-2.jpg": {
+    "path": "emys-orbicularis-velur-2",
+    "width": 1523,
+    "height": 960,
+    "widths": [320, 400, 640, 800, 1200, 1523],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/emys-orbicularis.jpg": {
     "path": "emys-orbicularis",
     "width": 2048,
