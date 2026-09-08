@@ -1775,6 +1775,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 771],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/dolichophis-schmidti-shota-1.jpg": {
+    "path": "dolichophis-schmidti-shota-1",
+    "width": 1536,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/eirenis-collaris-2.jpg": {
     "path": "eirenis-collaris-2",
     "width": 738,
