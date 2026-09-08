@@ -2020,6 +2020,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/eremias-arguta-diego-3.jpg": {
+    "path": "eremias-arguta-diego-3",
+    "width": 1200,
+    "height": 800,
+    "widths": [320, 400, 640, 800, 1200],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/eremias-arguta-giorgi-1.jpg": {
     "path": "eremias-arguta-giorgi-1",
     "width": 1440,
