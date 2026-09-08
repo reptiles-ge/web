@@ -50296,6 +50296,101 @@
       ],
       "updatedAt": "2026-08-28T21:58:40.915Z"
     },
+    "strix-aluco-nika-1.jpg": {
+      "sourceHash": "12178797387162ca139a7589b6736bbadfe9c123dce34c96421a563dbfb5c92a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "strix-aluco-nika-1.jpg",
+      "originalSize": 139708,
+      "width": 1440,
+      "height": 960,
+      "derivatives": [
+        {
+          "key": "optimized/strix-aluco-nika-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 7187
+        },
+        {
+          "key": "optimized/strix-aluco-nika-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10424
+        },
+        {
+          "key": "optimized/strix-aluco-nika-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 9905
+        },
+        {
+          "key": "optimized/strix-aluco-nika-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 14102
+        },
+        {
+          "key": "optimized/strix-aluco-nika-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 20170
+        },
+        {
+          "key": "optimized/strix-aluco-nika-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 28722
+        },
+        {
+          "key": "optimized/strix-aluco-nika-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 28849
+        },
+        {
+          "key": "optimized/strix-aluco-nika-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 40326
+        },
+        {
+          "key": "optimized/strix-aluco-nika-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 54754
+        },
+        {
+          "key": "optimized/strix-aluco-nika-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 72568
+        },
+        {
+          "key": "optimized/strix-aluco-nika-1-1440.avif",
+          "format": "avif",
+          "width": 1440,
+          "height": 960,
+          "byteSize": 80041
+        },
+        {
+          "key": "optimized/strix-aluco-nika-1-1440.webp",
+          "format": "webp",
+          "width": 1440,
+          "height": 960,
+          "byteSize": 93312
+        }
+      ],
+      "updatedAt": "2026-09-08T18:33:28.341Z"
+    },
     "strix-aluco-nottsexminer-1.jpg": {
       "sourceHash": "4edd1ecd9a207e2dc2382a00b2f3fa81afe2fff93a3845e4f7e59135f1b33460",
       "configFingerprint": "a895f8e025dcc7fa",
