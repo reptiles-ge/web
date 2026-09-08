@@ -4631,6 +4631,62 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1728],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/paralaudakia-caucasia-aashin-1.jpg": {
+    "path": "paralaudakia-caucasia-aashin-1",
+    "width": 1080,
+    "height": 1350,
+    "widths": [320, 400, 640, 800, 1080],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/paralaudakia-caucasia-bryan-1.jpg": {
+    "path": "paralaudakia-caucasia-bryan-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/paralaudakia-caucasia-dudleyes-1.jpg": {
+    "path": "paralaudakia-caucasia-dudleyes-1",
+    "width": 1282,
+    "height": 720,
+    "widths": [320, 400, 640, 800, 1200, 1282],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/paralaudakia-caucasia-elenina-1.jpg": {
+    "path": "paralaudakia-caucasia-elenina-1",
+    "width": 1170,
+    "height": 1124,
+    "widths": [320, 400, 640, 800, 1170],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/paralaudakia-caucasia-elenina-2.jpg": {
+    "path": "paralaudakia-caucasia-elenina-2",
+    "width": 1250,
+    "height": 720,
+    "widths": [320, 400, 640, 800, 1200, 1250],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/paralaudakia-caucasia-kseniia-1.jpg": {
+    "path": "paralaudakia-caucasia-kseniia-1",
+    "width": 914,
+    "height": 686,
+    "widths": [320, 400, 640, 800, 914],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/paralaudakia-caucasia-kseniia-2.jpg": {
+    "path": "paralaudakia-caucasia-kseniia-2",
+    "width": 1280,
+    "height": 960,
+    "widths": [320, 400, 640, 800, 1200, 1280],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/paralaudakia-caucasia-laura-1.jpg": {
+    "path": "paralaudakia-caucasia-laura-1",
+    "width": 1600,
+    "height": 1054,
+    "widths": [320, 400, 640, 800, 1200, 1600],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/paralaudakia-caucasia-mobile.jpg": {
     "path": "paralaudakia-caucasia-mobile",
     "width": 1920,

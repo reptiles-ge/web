@@ -43465,6 +43465,724 @@
       ],
       "updatedAt": "2026-08-28T21:55:42.811Z"
     },
+    "paralaudakia-caucasia-aashin-1.jpg": {
+      "sourceHash": "c512fabaa41e42d174c3e68a95fd4c518d524e4993a926fc35bb1b92ed52245c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "paralaudakia-caucasia-aashin-1.jpg",
+      "originalSize": 147983,
+      "width": 1080,
+      "height": 1350,
+      "derivatives": [
+        {
+          "key": "optimized/paralaudakia-caucasia-aashin-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 400,
+          "byteSize": 11935
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-aashin-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 400,
+          "byteSize": 17518
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-aashin-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 500,
+          "byteSize": 16662
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-aashin-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 500,
+          "byteSize": 25268
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-aashin-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 800,
+          "byteSize": 32442
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-aashin-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 800,
+          "byteSize": 51176
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-aashin-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1000,
+          "byteSize": 45480
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-aashin-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1000,
+          "byteSize": 71884
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-aashin-1-1080.avif",
+          "format": "avif",
+          "width": 1080,
+          "height": 1350,
+          "byteSize": 74279
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-aashin-1-1080.webp",
+          "format": "webp",
+          "width": 1080,
+          "height": 1350,
+          "byteSize": 112966
+        }
+      ],
+      "updatedAt": "2026-09-08T17:43:01.451Z"
+    },
+    "paralaudakia-caucasia-bryan-1.jpg": {
+      "sourceHash": "78397feb2346eb9b448348bb6003846fdbf6acab15e7e2705e543f2b32be3a83",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "paralaudakia-caucasia-bryan-1.jpg",
+      "originalSize": 665994,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/paralaudakia-caucasia-bryan-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 14906
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-bryan-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 23030
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-bryan-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 22320
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-bryan-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 33864
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-bryan-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 51857
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-bryan-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 80082
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-bryan-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 79659
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-bryan-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 122536
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-bryan-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 162532
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-bryan-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 248540
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-bryan-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 394778
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-bryan-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 578268
+        }
+      ],
+      "updatedAt": "2026-09-08T17:40:31.255Z"
+    },
+    "paralaudakia-caucasia-dudleyes-1.jpg": {
+      "sourceHash": "34440aeefb43dcfd8e9a4a988a4b243c11ddb700732257749ac007adf5ad7f05",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "paralaudakia-caucasia-dudleyes-1.jpg",
+      "originalSize": 220503,
+      "width": 1282,
+      "height": 720,
+      "derivatives": [
+        {
+          "key": "optimized/paralaudakia-caucasia-dudleyes-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 13484
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-dudleyes-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 18454
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-dudleyes-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 20819
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-dudleyes-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 28104
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-dudleyes-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 359,
+          "byteSize": 48388
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-dudleyes-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 359,
+          "byteSize": 68134
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-dudleyes-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 449,
+          "byteSize": 67428
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-dudleyes-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 449,
+          "byteSize": 97478
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-dudleyes-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 674,
+          "byteSize": 111549
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-dudleyes-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 674,
+          "byteSize": 173902
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-dudleyes-1-1282.avif",
+          "format": "avif",
+          "width": 1282,
+          "height": 720,
+          "byteSize": 125362
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-dudleyes-1-1282.webp",
+          "format": "webp",
+          "width": 1282,
+          "height": 720,
+          "byteSize": 185092
+        }
+      ],
+      "updatedAt": "2026-09-08T17:43:51.599Z"
+    },
+    "paralaudakia-caucasia-elenina-1.jpg": {
+      "sourceHash": "a78123375b1786ba1349a28c27ba6897998516474f7ab5d8e42fb5e3072b539f",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "paralaudakia-caucasia-elenina-1.jpg",
+      "originalSize": 324543,
+      "width": 1170,
+      "height": 1124,
+      "derivatives": [
+        {
+          "key": "optimized/paralaudakia-caucasia-elenina-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 307,
+          "byteSize": 24991
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-elenina-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 307,
+          "byteSize": 39050
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-elenina-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 384,
+          "byteSize": 38753
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-elenina-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 384,
+          "byteSize": 61180
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-elenina-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 615,
+          "byteSize": 81786
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-elenina-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 615,
+          "byteSize": 138334
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-elenina-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 769,
+          "byteSize": 110132
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-elenina-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 769,
+          "byteSize": 186056
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-elenina-1-1170.avif",
+          "format": "avif",
+          "width": 1170,
+          "height": 1124,
+          "byteSize": 185826
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-elenina-1-1170.webp",
+          "format": "webp",
+          "width": 1170,
+          "height": 1124,
+          "byteSize": 278954
+        }
+      ],
+      "updatedAt": "2026-09-08T17:39:14.318Z"
+    },
+    "paralaudakia-caucasia-elenina-2.jpg": {
+      "sourceHash": "d52548ab05152ee939123639effb16ab4dd1584f2774a83b5401c4eaff0a53f9",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "paralaudakia-caucasia-elenina-2.jpg",
+      "originalSize": 361003,
+      "width": 1250,
+      "height": 720,
+      "derivatives": [
+        {
+          "key": "optimized/paralaudakia-caucasia-elenina-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 184,
+          "byteSize": 18327
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-elenina-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 184,
+          "byteSize": 28794
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-elenina-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 230,
+          "byteSize": 28436
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-elenina-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 230,
+          "byteSize": 43950
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-elenina-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 369,
+          "byteSize": 71553
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-elenina-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 369,
+          "byteSize": 109198
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-elenina-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 461,
+          "byteSize": 105884
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-elenina-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 461,
+          "byteSize": 164080
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-elenina-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 691,
+          "byteSize": 193838
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-elenina-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 691,
+          "byteSize": 322876
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-elenina-2-1250.avif",
+          "format": "avif",
+          "width": 1250,
+          "height": 720,
+          "byteSize": 212100
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-elenina-2-1250.webp",
+          "format": "webp",
+          "width": 1250,
+          "height": 720,
+          "byteSize": 339802
+        }
+      ],
+      "updatedAt": "2026-09-08T17:39:19.600Z"
+    },
+    "paralaudakia-caucasia-kseniia-1.jpg": {
+      "sourceHash": "b0b574a4d386a20116842b619d87cf6fe5cb550246576aed717b3f4620539ffe",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "paralaudakia-caucasia-kseniia-1.jpg",
+      "originalSize": 90503,
+      "width": 914,
+      "height": 686,
+      "derivatives": [
+        {
+          "key": "optimized/paralaudakia-caucasia-kseniia-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 10721
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-kseniia-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 14232
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-kseniia-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 15121
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-kseniia-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 20762
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-kseniia-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 29845
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-kseniia-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 41944
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-kseniia-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 40304
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-kseniia-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 57706
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-kseniia-1-914.avif",
+          "format": "avif",
+          "width": 914,
+          "height": 686,
+          "byteSize": 53440
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-kseniia-1-914.webp",
+          "format": "webp",
+          "width": 914,
+          "height": 686,
+          "byteSize": 67394
+        }
+      ],
+      "updatedAt": "2026-09-08T17:41:57.858Z"
+    },
+    "paralaudakia-caucasia-kseniia-2.jpg": {
+      "sourceHash": "9934415972d2e10febc609f66cb1032236ec710d967ca37888c488a3df6b6bc5",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "paralaudakia-caucasia-kseniia-2.jpg",
+      "originalSize": 177045,
+      "width": 1280,
+      "height": 960,
+      "derivatives": [
+        {
+          "key": "optimized/paralaudakia-caucasia-kseniia-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 9309
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-kseniia-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 12352
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-kseniia-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 13686
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-kseniia-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 18640
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-kseniia-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 31873
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-kseniia-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 46416
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-kseniia-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 45314
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-kseniia-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 63616
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-kseniia-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 86634
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-kseniia-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 117586
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-kseniia-2-1280.avif",
+          "format": "avif",
+          "width": 1280,
+          "height": 960,
+          "byteSize": 106945
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-kseniia-2-1280.webp",
+          "format": "webp",
+          "width": 1280,
+          "height": 960,
+          "byteSize": 127846
+        }
+      ],
+      "updatedAt": "2026-09-08T17:42:01.330Z"
+    },
+    "paralaudakia-caucasia-laura-1.jpg": {
+      "sourceHash": "34944ebc69eebaad81f91e736f561b59d821f0b27aa3ccefa7fc3c12a7d7fb44",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "paralaudakia-caucasia-laura-1.jpg",
+      "originalSize": 366825,
+      "width": 1600,
+      "height": 1054,
+      "derivatives": [
+        {
+          "key": "optimized/paralaudakia-caucasia-laura-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 210,
+          "byteSize": 9948
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-laura-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 210,
+          "byteSize": 13406
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-laura-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 264,
+          "byteSize": 15130
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-laura-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 264,
+          "byteSize": 20846
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-laura-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 422,
+          "byteSize": 34796
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-laura-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 422,
+          "byteSize": 49970
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-laura-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 527,
+          "byteSize": 51404
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-laura-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 527,
+          "byteSize": 74706
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-laura-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 791,
+          "byteSize": 99934
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-laura-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 791,
+          "byteSize": 150938
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-laura-1-1600.avif",
+          "format": "avif",
+          "width": 1600,
+          "height": 1054,
+          "byteSize": 162285
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-laura-1-1600.webp",
+          "format": "webp",
+          "width": 1600,
+          "height": 1054,
+          "byteSize": 238172
+        }
+      ],
+      "updatedAt": "2026-09-08T17:38:00.291Z"
+    },
     "paralaudakia-caucasia-mobile.jpg": {
       "sourceHash": "107b6dfe71799e59643818a7aefbcb8906c87613f3f9871bc8b2e844656485f5",
       "configFingerprint": "a895f8e025dcc7fa",
