@@ -42202,6 +42202,101 @@
       ],
       "updatedAt": "2026-09-08T16:10:26.254Z"
     },
+    "pelobates-syriacus-laura-1.jpg": {
+      "sourceHash": "8e32ca92d66d1f5cb0ede92b77ae09197884bc57d819368742bf42a494f04f99",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pelobates-syriacus-laura-1.jpg",
+      "originalSize": 447011,
+      "width": 1600,
+      "height": 1066,
+      "derivatives": [
+        {
+          "key": "optimized/pelobates-syriacus-laura-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14663
+        },
+        {
+          "key": "optimized/pelobates-syriacus-laura-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 22908
+        },
+        {
+          "key": "optimized/pelobates-syriacus-laura-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 21573
+        },
+        {
+          "key": "optimized/pelobates-syriacus-laura-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 34044
+        },
+        {
+          "key": "optimized/pelobates-syriacus-laura-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 45386
+        },
+        {
+          "key": "optimized/pelobates-syriacus-laura-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 70374
+        },
+        {
+          "key": "optimized/pelobates-syriacus-laura-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 63567
+        },
+        {
+          "key": "optimized/pelobates-syriacus-laura-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 99386
+        },
+        {
+          "key": "optimized/pelobates-syriacus-laura-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 118960
+        },
+        {
+          "key": "optimized/pelobates-syriacus-laura-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 183220
+        },
+        {
+          "key": "optimized/pelobates-syriacus-laura-1-1600.avif",
+          "format": "avif",
+          "width": 1600,
+          "height": 1066,
+          "byteSize": 195287
+        },
+        {
+          "key": "optimized/pelobates-syriacus-laura-1-1600.webp",
+          "format": "webp",
+          "width": 1600,
+          "height": 1066,
+          "byteSize": 268544
+        }
+      ],
+      "updatedAt": "2026-09-08T16:12:38.841Z"
+    },
     "pelobates-syriacus.jpg": {
       "sourceHash": "3223962bf51a7d415c46557efba40983cac0c3d059d04c5ec3b2e552fb31392f",
       "configFingerprint": "a895f8e025dcc7fa",
