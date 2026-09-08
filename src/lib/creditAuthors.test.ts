@@ -292,10 +292,8 @@ describe("credit authors", () => {
       "ioane-rostiashvili",
       "sandro-khakhva",
       "giorgi-iankoshvili",
-      "zakro-songulashvili",
       "nika-melikishvili",
       "velur-bunebastan-axlos",
-      "giorgi-iankoshvili",
       "zakro-songulashvili",
       "saba-todua",
     ]);
