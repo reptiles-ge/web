@@ -36956,6 +36956,87 @@
       ],
       "updatedAt": "2026-09-08T16:17:46.393Z"
     },
+    "mauremys-caspica-giorgi-2.jpg": {
+      "sourceHash": "f73c1db82c23eac6c71cec0daeb334fc1cf2db7aec653ffee74a1b965406c43c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "mauremys-caspica-giorgi-2.jpg",
+      "originalSize": 111579,
+      "width": 960,
+      "height": 640,
+      "derivatives": [
+        {
+          "key": "optimized/mauremys-caspica-giorgi-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9421
+        },
+        {
+          "key": "optimized/mauremys-caspica-giorgi-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11310
+        },
+        {
+          "key": "optimized/mauremys-caspica-giorgi-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 14184
+        },
+        {
+          "key": "optimized/mauremys-caspica-giorgi-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 17066
+        },
+        {
+          "key": "optimized/mauremys-caspica-giorgi-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 29659
+        },
+        {
+          "key": "optimized/mauremys-caspica-giorgi-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 36410
+        },
+        {
+          "key": "optimized/mauremys-caspica-giorgi-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 41367
+        },
+        {
+          "key": "optimized/mauremys-caspica-giorgi-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 50770
+        },
+        {
+          "key": "optimized/mauremys-caspica-giorgi-2-960.avif",
+          "format": "avif",
+          "width": 960,
+          "height": 640,
+          "byteSize": 54302
+        },
+        {
+          "key": "optimized/mauremys-caspica-giorgi-2-960.webp",
+          "format": "webp",
+          "width": 960,
+          "height": 640,
+          "byteSize": 60232
+        }
+      ],
+      "updatedAt": "2026-09-08T16:19:36.863Z"
+    },
     "mauremys-caspica-mobile.jpg": {
       "sourceHash": "72734e41cea882a8ba626c0470239d11030a16d068d61df9db236425288d5f59",
       "configFingerprint": "a895f8e025dcc7fa",
