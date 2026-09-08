@@ -4631,6 +4631,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1728],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/paralaudakia-caucasia-laura-1.jpg": {
+    "path": "paralaudakia-caucasia-laura-1",
+    "width": 1600,
+    "height": 1054,
+    "widths": [320, 400, 640, 800, 1200, 1600],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/paralaudakia-caucasia-mobile.jpg": {
     "path": "paralaudakia-caucasia-mobile",
     "width": 1920,
