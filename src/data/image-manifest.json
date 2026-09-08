@@ -18829,6 +18829,101 @@
       ],
       "updatedAt": "2026-08-28T21:39:29.631Z"
     },
+    "emys-orbicularis-laura-1.jpg": {
+      "sourceHash": "be0568526425a7be5dd2ee14f21484c36e6035a2667044eb9c2a8d81d3675014",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "emys-orbicularis-laura-1.jpg",
+      "originalSize": 533332,
+      "width": 1600,
+      "height": 1066,
+      "derivatives": [
+        {
+          "key": "optimized/emys-orbicularis-laura-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14634
+        },
+        {
+          "key": "optimized/emys-orbicularis-laura-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 22094
+        },
+        {
+          "key": "optimized/emys-orbicularis-laura-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 23585
+        },
+        {
+          "key": "optimized/emys-orbicularis-laura-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 34458
+        },
+        {
+          "key": "optimized/emys-orbicularis-laura-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 54354
+        },
+        {
+          "key": "optimized/emys-orbicularis-laura-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 81480
+        },
+        {
+          "key": "optimized/emys-orbicularis-laura-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 79706
+        },
+        {
+          "key": "optimized/emys-orbicularis-laura-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 119886
+        },
+        {
+          "key": "optimized/emys-orbicularis-laura-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 153296
+        },
+        {
+          "key": "optimized/emys-orbicularis-laura-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 229504
+        },
+        {
+          "key": "optimized/emys-orbicularis-laura-1-1600.avif",
+          "format": "avif",
+          "width": 1600,
+          "height": 1066,
+          "byteSize": 247493
+        },
+        {
+          "key": "optimized/emys-orbicularis-laura-1-1600.webp",
+          "format": "webp",
+          "width": 1600,
+          "height": 1066,
+          "byteSize": 348910
+        }
+      ],
+      "updatedAt": "2026-09-08T19:25:21.582Z"
+    },
     "emys-orbicularis.jpg": {
       "sourceHash": "570f39ed670f7627eb96220fc57f01a109401d5af9910ece012498bef0cfe4c6",
       "configFingerprint": "a895f8e025dcc7fa",

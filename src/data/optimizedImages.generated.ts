@@ -2132,6 +2132,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1536],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/emys-orbicularis-laura-1.jpg": {
+    "path": "emys-orbicularis-laura-1",
+    "width": 1600,
+    "height": 1066,
+    "widths": [320, 400, 640, 800, 1200, 1600],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/emys-orbicularis.jpg": {
     "path": "emys-orbicularis",
     "width": 2048,
