@@ -15474,6 +15474,101 @@
       ],
       "updatedAt": "2026-08-28T21:37:06.555Z"
     },
+    "dolichophis-schmidti-shota-1.jpg": {
+      "sourceHash": "2efd88c25cc302c75f7d4fe11364a7a1c99c44aeb51c1729ef9ca12821186e0d",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "dolichophis-schmidti-shota-1.jpg",
+      "originalSize": 808829,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/dolichophis-schmidti-shota-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 36555
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-shota-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 57894
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-shota-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 52746
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-shota-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 87642
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-shota-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 119307
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-shota-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 194788
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-shota-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 175295
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-shota-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 280088
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-shota-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 320955
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-shota-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 504578
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-shota-1-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 475117
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-shota-1-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 681970
+        }
+      ],
+      "updatedAt": "2026-09-08T19:05:07.752Z"
+    },
     "dolichophis-schmidti.webp": {
       "sourceHash": "943459d265739e0309962524bcb4bd4a5be5b2f1a073a242e05daf144ae64aac",
       "configFingerprint": "a895f8e025dcc7fa",
