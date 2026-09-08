@@ -1124,6 +1124,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 985],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/darevskia-armeniaca-davit-2.jpg": {
+    "path": "darevskia-armeniaca-davit-2",
+    "width": 578,
+    "height": 659,
+    "widths": [320, 400, 578],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/darevskia-armeniaca-mobile.jpg": {
     "path": "darevskia-armeniaca-mobile",
     "width": 2048,
