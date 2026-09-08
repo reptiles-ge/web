@@ -3099,6 +3099,196 @@
       ],
       "updatedAt": "2026-09-05T16:35:26.909Z"
     },
+    "athene-noctua-giorgi-1.jpg": {
+      "sourceHash": "7e629a4476ce52d53685653c48b09a4c4874739925d6e991da67e87f0c529a11",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "athene-noctua-giorgi-1.jpg",
+      "originalSize": 117528,
+      "width": 1440,
+      "height": 960,
+      "derivatives": [
+        {
+          "key": "optimized/athene-noctua-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 5040
+        },
+        {
+          "key": "optimized/athene-noctua-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6896
+        },
+        {
+          "key": "optimized/athene-noctua-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 7192
+        },
+        {
+          "key": "optimized/athene-noctua-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 10384
+        },
+        {
+          "key": "optimized/athene-noctua-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 16417
+        },
+        {
+          "key": "optimized/athene-noctua-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 24982
+        },
+        {
+          "key": "optimized/athene-noctua-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 23320
+        },
+        {
+          "key": "optimized/athene-noctua-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 36556
+        },
+        {
+          "key": "optimized/athene-noctua-giorgi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 42705
+        },
+        {
+          "key": "optimized/athene-noctua-giorgi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 67728
+        },
+        {
+          "key": "optimized/athene-noctua-giorgi-1-1440.avif",
+          "format": "avif",
+          "width": 1440,
+          "height": 960,
+          "byteSize": 56543
+        },
+        {
+          "key": "optimized/athene-noctua-giorgi-1-1440.webp",
+          "format": "webp",
+          "width": 1440,
+          "height": 960,
+          "byteSize": 88548
+        }
+      ],
+      "updatedAt": "2026-09-08T18:35:58.479Z"
+    },
+    "athene-noctua-giorgi-2.jpg": {
+      "sourceHash": "31f36c33b1f5da1d78c3b759ac3478d9f1e2080cff08cf004ce1feb87f0d460b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "athene-noctua-giorgi-2.jpg",
+      "originalSize": 122928,
+      "width": 1440,
+      "height": 960,
+      "derivatives": [
+        {
+          "key": "optimized/athene-noctua-giorgi-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 4788
+        },
+        {
+          "key": "optimized/athene-noctua-giorgi-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6658
+        },
+        {
+          "key": "optimized/athene-noctua-giorgi-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 6930
+        },
+        {
+          "key": "optimized/athene-noctua-giorgi-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 10162
+        },
+        {
+          "key": "optimized/athene-noctua-giorgi-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 16409
+        },
+        {
+          "key": "optimized/athene-noctua-giorgi-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 25074
+        },
+        {
+          "key": "optimized/athene-noctua-giorgi-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 24312
+        },
+        {
+          "key": "optimized/athene-noctua-giorgi-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 37934
+        },
+        {
+          "key": "optimized/athene-noctua-giorgi-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 46008
+        },
+        {
+          "key": "optimized/athene-noctua-giorgi-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 72784
+        },
+        {
+          "key": "optimized/athene-noctua-giorgi-2-1440.avif",
+          "format": "avif",
+          "width": 1440,
+          "height": 960,
+          "byteSize": 61690
+        },
+        {
+          "key": "optimized/athene-noctua-giorgi-2-1440.webp",
+          "format": "webp",
+          "width": 1440,
+          "height": 960,
+          "byteSize": 95884
+        }
+      ],
+      "updatedAt": "2026-09-08T18:36:03.840Z"
+    },
     "authors/giorgi-iankoshvili.jpg": {
       "sourceHash": "9293cfefb2f50d69de48b05398db754295b5bea000c048b332b30a6766c75b6d",
       "configFingerprint": "409788ee46c653d8",
