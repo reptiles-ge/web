@@ -522,6 +522,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1440],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/athene-noctua-irakli-1.jpg": {
+    "path": "athene-noctua-irakli-1",
+    "width": 1080,
+    "height": 1350,
+    "widths": [320, 400, 640, 800, 1080],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/authors/giorgi-iankoshvili.jpg": {
     "path": "authors/giorgi-iankoshvili",
     "width": 682,

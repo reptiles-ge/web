@@ -3479,6 +3479,87 @@
       ],
       "updatedAt": "2026-09-08T18:36:56.580Z"
     },
+    "athene-noctua-irakli-1.jpg": {
+      "sourceHash": "9d14fbd195ef298d196d3d57c2fb4288e325b3938d219e34a8497974b9fc92a5",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "athene-noctua-irakli-1.jpg",
+      "originalSize": 457255,
+      "width": 1080,
+      "height": 1350,
+      "derivatives": [
+        {
+          "key": "optimized/athene-noctua-irakli-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 400,
+          "byteSize": 29514
+        },
+        {
+          "key": "optimized/athene-noctua-irakli-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 400,
+          "byteSize": 45578
+        },
+        {
+          "key": "optimized/athene-noctua-irakli-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 500,
+          "byteSize": 46282
+        },
+        {
+          "key": "optimized/athene-noctua-irakli-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 500,
+          "byteSize": 70710
+        },
+        {
+          "key": "optimized/athene-noctua-irakli-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 800,
+          "byteSize": 109338
+        },
+        {
+          "key": "optimized/athene-noctua-irakli-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 800,
+          "byteSize": 170058
+        },
+        {
+          "key": "optimized/athene-noctua-irakli-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1000,
+          "byteSize": 162164
+        },
+        {
+          "key": "optimized/athene-noctua-irakli-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1000,
+          "byteSize": 250766
+        },
+        {
+          "key": "optimized/athene-noctua-irakli-1-1080.avif",
+          "format": "avif",
+          "width": 1080,
+          "height": 1350,
+          "byteSize": 262445
+        },
+        {
+          "key": "optimized/athene-noctua-irakli-1-1080.webp",
+          "format": "webp",
+          "width": 1080,
+          "height": 1350,
+          "byteSize": 406354
+        }
+      ],
+      "updatedAt": "2026-09-08T18:37:58.562Z"
+    },
     "authors/giorgi-iankoshvili.jpg": {
       "sourceHash": "9293cfefb2f50d69de48b05398db754295b5bea000c048b332b30a6766c75b6d",
       "configFingerprint": "409788ee46c653d8",
