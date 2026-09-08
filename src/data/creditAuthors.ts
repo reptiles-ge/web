@@ -227,6 +227,30 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     slug: "armen-seropian",
   },
   {
+    aliases: ["Shota Zandukeli", "შოთა ზანდუკელი"],
+    bio: {
+      en: "Shota Zandukeli is a well-known Georgian herpetologist (reptile specialist) who actively works with the media and shares public guidance on living safely alongside reptiles.",
+      ka: "შოთა ზანდუკელი არის ცნობილი ქართველი ჰერპეტოლოგი (ქვეწარმავლების სპეციალისტი), რომელიც აქტიურად თანამშრომლობს მედიასთან და საზოგადოებას ქვეწარმავლებთან უსაფრთხო თანაარსებობის შესახებ საინფორმაციო რეკომენდაციებს აწვდის.",
+      ru: "Шота Зандукели — известный грузинский герпетолог (специалист по пресмыкающимся), который активно сотрудничает со СМИ и даёт обществу информационные рекомендации о безопасном сосуществовании с рептилиями.",
+      tr: "Shota Zandukeli, medyayla aktif çalışan ve topluma sürüngenlerle güvenli birlikte yaşama hakkında bilgilendirici öneriler sunan tanınmış bir Gürcü herpetologdur (sürüngen uzmanı).",
+    },
+    id: "shota-zandukeli",
+    links: {
+      facebook: "https://www.facebook.com/sh.zandukeli",
+    },
+    name: {
+      en: "Shota Zandukeli",
+      ka: "შოთა ზანდუკელი",
+      ru: "Шота Зандукели",
+      tr: "Shota Zandukeli",
+    },
+    portraitClass: "object-[72%_22%]",
+    portraitSrc: "https://cdn.reptiles.ge/authors/shota-zandukeli.jpg",
+    published: true,
+    role: "herpetologist",
+    slug: "shota-zandukeli",
+  },
+  {
     aliases: ["Close to wildlife", "ველურ ბუნებასთან ახლოს"],
     bio: {
       en: "A wildlife photographer who documents Georgia’s reptiles and amphibians in their natural habitat.",
