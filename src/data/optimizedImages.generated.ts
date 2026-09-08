@@ -1131,6 +1131,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 578],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/darevskia-armeniaca-konrad-1.jpg": {
+    "path": "darevskia-armeniaca-konrad-1",
+    "width": 1600,
+    "height": 1000,
+    "widths": [320, 400, 640, 800, 1200, 1600],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/darevskia-armeniaca-mobile.jpg": {
     "path": "darevskia-armeniaca-mobile",
     "width": 2048,
