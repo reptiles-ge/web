@@ -62862,6 +62862,101 @@
       ],
       "updatedAt": "2026-08-28T22:02:39.394Z"
     },
+    "zamenis-longissimus-shota-1.jpg": {
+      "sourceHash": "8e71f07d38764591256ded92ec050c4bd15d487c22215c93dbe4d123f4b49442",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "zamenis-longissimus-shota-1.jpg",
+      "originalSize": 428109,
+      "width": 1395,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/zamenis-longissimus-shota-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 470,
+          "byteSize": 23068
+        },
+        {
+          "key": "optimized/zamenis-longissimus-shota-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 470,
+          "byteSize": 34364
+        },
+        {
+          "key": "optimized/zamenis-longissimus-shota-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 588,
+          "byteSize": 33495
+        },
+        {
+          "key": "optimized/zamenis-longissimus-shota-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 588,
+          "byteSize": 48408
+        },
+        {
+          "key": "optimized/zamenis-longissimus-shota-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 940,
+          "byteSize": 74241
+        },
+        {
+          "key": "optimized/zamenis-longissimus-shota-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 940,
+          "byteSize": 109684
+        },
+        {
+          "key": "optimized/zamenis-longissimus-shota-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1174,
+          "byteSize": 104715
+        },
+        {
+          "key": "optimized/zamenis-longissimus-shota-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1174,
+          "byteSize": 155646
+        },
+        {
+          "key": "optimized/zamenis-longissimus-shota-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1762,
+          "byteSize": 189196
+        },
+        {
+          "key": "optimized/zamenis-longissimus-shota-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1762,
+          "byteSize": 285032
+        },
+        {
+          "key": "optimized/zamenis-longissimus-shota-1-1395.avif",
+          "format": "avif",
+          "width": 1395,
+          "height": 2048,
+          "byteSize": 255548
+        },
+        {
+          "key": "optimized/zamenis-longissimus-shota-1-1395.webp",
+          "format": "webp",
+          "width": 1395,
+          "height": 2048,
+          "byteSize": 343870
+        }
+      ],
+      "updatedAt": "2026-09-08T19:01:16.028Z"
+    },
     "zamenis-longissimus.jpg": {
       "sourceHash": "af1d6b7167175e0b62da9e0ecd1297c280f2f1ce5dfe6bbd7f25b4cca8f14c7a",
       "configFingerprint": "a895f8e025dcc7fa",

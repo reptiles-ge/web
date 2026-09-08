@@ -6619,6 +6619,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1600],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/zamenis-longissimus-shota-1.jpg": {
+    "path": "zamenis-longissimus-shota-1",
+    "width": 1395,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1395],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/zamenis-longissimus.jpg": {
     "path": "zamenis-longissimus",
     "width": 1024,
