@@ -4662,6 +4662,101 @@
       ],
       "updatedAt": "2026-08-28T21:29:12.739Z"
     },
+    "buteo-buteo-giorgi-1.jpg": {
+      "sourceHash": "a20cf2937d4bef87bc08bc2f0e3e8d37dfcabdaa21ee290c5a5bf7ba0024d566",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "buteo-buteo-giorgi-1.jpg",
+      "originalSize": 184082,
+      "width": 1565,
+      "height": 1043,
+      "derivatives": [
+        {
+          "key": "optimized/buteo-buteo-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8964
+        },
+        {
+          "key": "optimized/buteo-buteo-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12886
+        },
+        {
+          "key": "optimized/buteo-buteo-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 12626
+        },
+        {
+          "key": "optimized/buteo-buteo-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 18436
+        },
+        {
+          "key": "optimized/buteo-buteo-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 26396
+        },
+        {
+          "key": "optimized/buteo-buteo-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 39238
+        },
+        {
+          "key": "optimized/buteo-buteo-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 36567
+        },
+        {
+          "key": "optimized/buteo-buteo-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 53892
+        },
+        {
+          "key": "optimized/buteo-buteo-giorgi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 62837
+        },
+        {
+          "key": "optimized/buteo-buteo-giorgi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 90198
+        },
+        {
+          "key": "optimized/buteo-buteo-giorgi-1-1565.avif",
+          "format": "avif",
+          "width": 1565,
+          "height": 1043,
+          "byteSize": 93502
+        },
+        {
+          "key": "optimized/buteo-buteo-giorgi-1-1565.webp",
+          "format": "webp",
+          "width": 1565,
+          "height": 1043,
+          "byteSize": 122420
+        }
+      ],
+      "updatedAt": "2026-09-08T16:37:48.011Z"
+    },
     "buteo-buteo-lukasik-1.jpg": {
       "sourceHash": "4ffb838ffa33e8b0c0afca163b9c7e65c9151327e43dbbe60ccf86f8d2edc82d",
       "configFingerprint": "a895f8e025dcc7fa",
