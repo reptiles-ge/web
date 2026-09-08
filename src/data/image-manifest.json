@@ -10348,6 +10348,87 @@
       ],
       "updatedAt": "2026-08-28T21:32:01.417Z"
     },
+    "darevskia-dahli-davit-1.jpg": {
+      "sourceHash": "1247d7ac85258b304dfddfc703d0e6475d5d302f8d82ca323427f3f268436900",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-dahli-davit-1.jpg",
+      "originalSize": 133687,
+      "width": 956,
+      "height": 717,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-dahli-davit-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 7146
+        },
+        {
+          "key": "optimized/darevskia-dahli-davit-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 10148
+        },
+        {
+          "key": "optimized/darevskia-dahli-davit-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 11071
+        },
+        {
+          "key": "optimized/darevskia-dahli-davit-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 15662
+        },
+        {
+          "key": "optimized/darevskia-dahli-davit-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 30166
+        },
+        {
+          "key": "optimized/darevskia-dahli-davit-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 38912
+        },
+        {
+          "key": "optimized/darevskia-dahli-davit-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 46262
+        },
+        {
+          "key": "optimized/darevskia-dahli-davit-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 57876
+        },
+        {
+          "key": "optimized/darevskia-dahli-davit-1-956.avif",
+          "format": "avif",
+          "width": 956,
+          "height": 717,
+          "byteSize": 63873
+        },
+        {
+          "key": "optimized/darevskia-dahli-davit-1-956.webp",
+          "format": "webp",
+          "width": 956,
+          "height": 717,
+          "byteSize": 68586
+        }
+      ],
+      "updatedAt": "2026-09-08T16:45:48.262Z"
+    },
     "darevskia-dahli.jpg": {
       "sourceHash": "5a2fc5fba66fca654601d0f4616618532ed0c35d87462884382e64a0758b8d27",
       "configFingerprint": "a895f8e025dcc7fa",
