@@ -1063,6 +1063,9 @@ function creditAuthorRoleSearchTerms(role: CreditAuthorRole) {
   if (role === "photographer") {
     return ["ფოტოგრაფი", "photographer", "фотограф", "fotoğrafçı"];
   }
+  if (role === "researcher") {
+    return ["მკვლევარი", "researcher", "исследователь", "araştırmacı"];
+  }
   return ["ჰერპეტოლოგი", "herpetologist", "герпетолог", "herpetolog"];
 }
 
