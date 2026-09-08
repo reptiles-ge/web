@@ -669,11 +669,32 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2000],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/buteo-buteo-giorgi-1.jpg": {
+    "path": "buteo-buteo-giorgi-1",
+    "width": 1565,
+    "height": 1043,
+    "widths": [320, 400, 640, 800, 1200, 1565],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/buteo-buteo-lukasik-1.jpg": {
     "path": "buteo-buteo-lukasik-1",
     "width": 1024,
     "height": 768,
     "widths": [400, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/buteo-buteo-nika-1.jpg": {
+    "path": "buteo-buteo-nika-1",
+    "width": 1440,
+    "height": 960,
+    "widths": [320, 400, 640, 800, 1200, 1440],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/buteo-buteo-nika-2.jpg": {
+    "path": "buteo-buteo-nika-2",
+    "width": 2000,
+    "height": 1381,
+    "widths": [320, 400, 640, 800, 1200, 2000],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/buteo-buteo-serbia-1.jpg": {
@@ -702,6 +723,27 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 369,
     "height": 550,
     "widths": [369],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/buteo-buteo-velur-1.jpg": {
+    "path": "buteo-buteo-velur-1",
+    "width": 1452,
+    "height": 942,
+    "widths": [320, 400, 640, 800, 1200, 1452],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/buteo-buteo-velur-2.jpg": {
+    "path": "buteo-buteo-velur-2",
+    "width": 1438,
+    "height": 960,
+    "widths": [320, 400, 640, 800, 1200, 1438],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/buteo-buteo-velur-3.jpg": {
+    "path": "buteo-buteo-velur-3",
+    "width": 1296,
+    "height": 720,
+    "widths": [320, 400, 640, 800, 1200, 1296],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/buteo-buteo-yerpo-juv.jpg": {
@@ -1117,6 +1159,27 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/darevskia-armeniaca-davit-1.jpg": {
+    "path": "darevskia-armeniaca-davit-1",
+    "width": 985,
+    "height": 739,
+    "widths": [320, 400, 640, 800, 985],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-armeniaca-davit-2.jpg": {
+    "path": "darevskia-armeniaca-davit-2",
+    "width": 578,
+    "height": 659,
+    "widths": [320, 400, 578],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-armeniaca-konrad-1.jpg": {
+    "path": "darevskia-armeniaca-konrad-1",
+    "width": 1600,
+    "height": 1000,
+    "widths": [320, 400, 640, 800, 1200, 1600],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/darevskia-armeniaca-mobile.jpg": {
     "path": "darevskia-armeniaca-mobile",
     "width": 2048,
@@ -1248,6 +1311,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 2048,
     "height": 1536,
     "widths": [400, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-dahli-davit-1.jpg": {
+    "path": "darevskia-dahli-davit-1",
+    "width": 956,
+    "height": 717,
+    "widths": [320, 400, 640, 800, 956],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/darevskia-dahli.jpg": {
@@ -2005,6 +2075,41 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "height": 1536,
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif"]
+  },
+  "https://cdn.reptiles.ge/eremias-arguta-diego-1.jpg": {
+    "path": "eremias-arguta-diego-1",
+    "width": 1200,
+    "height": 800,
+    "widths": [320, 400, 640, 800, 1200],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/eremias-arguta-diego-2.jpg": {
+    "path": "eremias-arguta-diego-2",
+    "width": 1200,
+    "height": 800,
+    "widths": [320, 400, 640, 800, 1200],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/eremias-arguta-diego-3.jpg": {
+    "path": "eremias-arguta-diego-3",
+    "width": 1200,
+    "height": 800,
+    "widths": [320, 400, 640, 800, 1200],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/eremias-arguta-giorgi-1.jpg": {
+    "path": "eremias-arguta-giorgi-1",
+    "width": 1440,
+    "height": 960,
+    "widths": [320, 400, 640, 800, 1200, 1440],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/eremias-arguta-giorgi-2.jpg": {
+    "path": "eremias-arguta-giorgi-2",
+    "width": 1440,
+    "height": 960,
+    "widths": [320, 400, 640, 800, 1200, 1440],
+    "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/eremias-arguta-mobile.jpg": {
     "path": "eremias-arguta-mobile",
@@ -4560,6 +4665,34 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "height": 2048,
     "widths": [400, 800, 1200, 1536],
     "formats": ["avif"]
+  },
+  "https://cdn.reptiles.ge/pelobates-syriacus-armen-1.jpg": {
+    "path": "pelobates-syriacus-armen-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/pelobates-syriacus-armen-2.jpg": {
+    "path": "pelobates-syriacus-armen-2",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/pelobates-syriacus-assaf-1.jpg": {
+    "path": "pelobates-syriacus-assaf-1",
+    "width": 1440,
+    "height": 960,
+    "widths": [320, 400, 640, 800, 1200, 1440],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/pelobates-syriacus-laura-1.jpg": {
+    "path": "pelobates-syriacus-laura-1",
+    "width": 1600,
+    "height": 1066,
+    "widths": [320, 400, 640, 800, 1200, 1600],
+    "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/pelobates-syriacus.jpg": {
     "path": "pelobates-syriacus",

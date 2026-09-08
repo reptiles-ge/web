@@ -4662,6 +4662,101 @@
       ],
       "updatedAt": "2026-08-28T21:29:12.739Z"
     },
+    "buteo-buteo-giorgi-1.jpg": {
+      "sourceHash": "a20cf2937d4bef87bc08bc2f0e3e8d37dfcabdaa21ee290c5a5bf7ba0024d566",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "buteo-buteo-giorgi-1.jpg",
+      "originalSize": 184082,
+      "width": 1565,
+      "height": 1043,
+      "derivatives": [
+        {
+          "key": "optimized/buteo-buteo-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8964
+        },
+        {
+          "key": "optimized/buteo-buteo-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12886
+        },
+        {
+          "key": "optimized/buteo-buteo-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 12626
+        },
+        {
+          "key": "optimized/buteo-buteo-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 18436
+        },
+        {
+          "key": "optimized/buteo-buteo-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 26396
+        },
+        {
+          "key": "optimized/buteo-buteo-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 39238
+        },
+        {
+          "key": "optimized/buteo-buteo-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 36567
+        },
+        {
+          "key": "optimized/buteo-buteo-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 53892
+        },
+        {
+          "key": "optimized/buteo-buteo-giorgi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 62837
+        },
+        {
+          "key": "optimized/buteo-buteo-giorgi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 90198
+        },
+        {
+          "key": "optimized/buteo-buteo-giorgi-1-1565.avif",
+          "format": "avif",
+          "width": 1565,
+          "height": 1043,
+          "byteSize": 93502
+        },
+        {
+          "key": "optimized/buteo-buteo-giorgi-1-1565.webp",
+          "format": "webp",
+          "width": 1565,
+          "height": 1043,
+          "byteSize": 122420
+        }
+      ],
+      "updatedAt": "2026-09-08T16:37:48.011Z"
+    },
     "buteo-buteo-lukasik-1.jpg": {
       "sourceHash": "4ffb838ffa33e8b0c0afca163b9c7e65c9151327e43dbbe60ccf86f8d2edc82d",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -4714,6 +4809,196 @@
         }
       ],
       "updatedAt": "2026-08-28T21:29:09.511Z"
+    },
+    "buteo-buteo-nika-1.jpg": {
+      "sourceHash": "6665b7f9887a1111f78569694ce7a702544e2812b6f4f962b0520cf085026e89",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "buteo-buteo-nika-1.jpg",
+      "originalSize": 49227,
+      "width": 1440,
+      "height": 960,
+      "derivatives": [
+        {
+          "key": "optimized/buteo-buteo-nika-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 2612
+        },
+        {
+          "key": "optimized/buteo-buteo-nika-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 3164
+        },
+        {
+          "key": "optimized/buteo-buteo-nika-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 3812
+        },
+        {
+          "key": "optimized/buteo-buteo-nika-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 4396
+        },
+        {
+          "key": "optimized/buteo-buteo-nika-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 7402
+        },
+        {
+          "key": "optimized/buteo-buteo-nika-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 9204
+        },
+        {
+          "key": "optimized/buteo-buteo-nika-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 10080
+        },
+        {
+          "key": "optimized/buteo-buteo-nika-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 13156
+        },
+        {
+          "key": "optimized/buteo-buteo-nika-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 18570
+        },
+        {
+          "key": "optimized/buteo-buteo-nika-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 24474
+        },
+        {
+          "key": "optimized/buteo-buteo-nika-1-1440.avif",
+          "format": "avif",
+          "width": 1440,
+          "height": 960,
+          "byteSize": 24904
+        },
+        {
+          "key": "optimized/buteo-buteo-nika-1-1440.webp",
+          "format": "webp",
+          "width": 1440,
+          "height": 960,
+          "byteSize": 31732
+        }
+      ],
+      "updatedAt": "2026-09-08T16:41:11.943Z"
+    },
+    "buteo-buteo-nika-2.jpg": {
+      "sourceHash": "398aa2d57c6aaa88d3de1fc17c69e0da9287fae48b4b0de3da51d7a581b5752c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "buteo-buteo-nika-2.jpg",
+      "originalSize": 170206,
+      "width": 2000,
+      "height": 1381,
+      "derivatives": [
+        {
+          "key": "optimized/buteo-buteo-nika-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 221,
+          "byteSize": 4767
+        },
+        {
+          "key": "optimized/buteo-buteo-nika-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 221,
+          "byteSize": 5600
+        },
+        {
+          "key": "optimized/buteo-buteo-nika-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 276,
+          "byteSize": 6519
+        },
+        {
+          "key": "optimized/buteo-buteo-nika-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 276,
+          "byteSize": 7632
+        },
+        {
+          "key": "optimized/buteo-buteo-nika-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 442,
+          "byteSize": 13273
+        },
+        {
+          "key": "optimized/buteo-buteo-nika-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 442,
+          "byteSize": 15860
+        },
+        {
+          "key": "optimized/buteo-buteo-nika-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 552,
+          "byteSize": 19090
+        },
+        {
+          "key": "optimized/buteo-buteo-nika-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 552,
+          "byteSize": 23108
+        },
+        {
+          "key": "optimized/buteo-buteo-nika-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 829,
+          "byteSize": 41576
+        },
+        {
+          "key": "optimized/buteo-buteo-nika-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 829,
+          "byteSize": 48320
+        },
+        {
+          "key": "optimized/buteo-buteo-nika-2-2000.avif",
+          "format": "avif",
+          "width": 2000,
+          "height": 1381,
+          "byteSize": 103227
+        },
+        {
+          "key": "optimized/buteo-buteo-nika-2-2000.webp",
+          "format": "webp",
+          "width": 2000,
+          "height": 1381,
+          "byteSize": 117510
+        }
+      ],
+      "updatedAt": "2026-09-08T16:42:38.648Z"
     },
     "buteo-buteo-serbia-1.jpg": {
       "sourceHash": "c277968d2da80b1cec4773fa7db566ed73487a93294c862f6121d1e98769223a",
@@ -4926,6 +5211,291 @@
         }
       ],
       "updatedAt": "2026-08-28T21:29:12.296Z"
+    },
+    "buteo-buteo-velur-1.jpg": {
+      "sourceHash": "27f8fb3d409b5b392f1fd1049c17a8568042dc802adfb933f26224246feb0219",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "buteo-buteo-velur-1.jpg",
+      "originalSize": 195973,
+      "width": 1452,
+      "height": 942,
+      "derivatives": [
+        {
+          "key": "optimized/buteo-buteo-velur-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 208,
+          "byteSize": 10281
+        },
+        {
+          "key": "optimized/buteo-buteo-velur-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 208,
+          "byteSize": 14512
+        },
+        {
+          "key": "optimized/buteo-buteo-velur-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 260,
+          "byteSize": 14619
+        },
+        {
+          "key": "optimized/buteo-buteo-velur-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 260,
+          "byteSize": 21158
+        },
+        {
+          "key": "optimized/buteo-buteo-velur-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 415,
+          "byteSize": 29794
+        },
+        {
+          "key": "optimized/buteo-buteo-velur-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 415,
+          "byteSize": 43112
+        },
+        {
+          "key": "optimized/buteo-buteo-velur-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 519,
+          "byteSize": 42044
+        },
+        {
+          "key": "optimized/buteo-buteo-velur-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 519,
+          "byteSize": 60050
+        },
+        {
+          "key": "optimized/buteo-buteo-velur-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 779,
+          "byteSize": 75307
+        },
+        {
+          "key": "optimized/buteo-buteo-velur-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 779,
+          "byteSize": 107842
+        },
+        {
+          "key": "optimized/buteo-buteo-velur-1-1452.avif",
+          "format": "avif",
+          "width": 1452,
+          "height": 942,
+          "byteSize": 105317
+        },
+        {
+          "key": "optimized/buteo-buteo-velur-1-1452.webp",
+          "format": "webp",
+          "width": 1452,
+          "height": 942,
+          "byteSize": 141272
+        }
+      ],
+      "updatedAt": "2026-09-08T16:38:59.243Z"
+    },
+    "buteo-buteo-velur-2.jpg": {
+      "sourceHash": "2abb5cb8a8443c223a783bad2b2f931292bb3183259c9a0ac996c18d5137f414",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "buteo-buteo-velur-2.jpg",
+      "originalSize": 152932,
+      "width": 1438,
+      "height": 960,
+      "derivatives": [
+        {
+          "key": "optimized/buteo-buteo-velur-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 214,
+          "byteSize": 10528
+        },
+        {
+          "key": "optimized/buteo-buteo-velur-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 214,
+          "byteSize": 15228
+        },
+        {
+          "key": "optimized/buteo-buteo-velur-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 14635
+        },
+        {
+          "key": "optimized/buteo-buteo-velur-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 20734
+        },
+        {
+          "key": "optimized/buteo-buteo-velur-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 27761
+        },
+        {
+          "key": "optimized/buteo-buteo-velur-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 38406
+        },
+        {
+          "key": "optimized/buteo-buteo-velur-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 37366
+        },
+        {
+          "key": "optimized/buteo-buteo-velur-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 50322
+        },
+        {
+          "key": "optimized/buteo-buteo-velur-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 62726
+        },
+        {
+          "key": "optimized/buteo-buteo-velur-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 81932
+        },
+        {
+          "key": "optimized/buteo-buteo-velur-2-1438.avif",
+          "format": "avif",
+          "width": 1438,
+          "height": 960,
+          "byteSize": 85308
+        },
+        {
+          "key": "optimized/buteo-buteo-velur-2-1438.webp",
+          "format": "webp",
+          "width": 1438,
+          "height": 960,
+          "byteSize": 99196
+        }
+      ],
+      "updatedAt": "2026-09-08T16:39:44.888Z"
+    },
+    "buteo-buteo-velur-3.jpg": {
+      "sourceHash": "1187b893f6ea8c1d8180f08bef02972538905dca4cf816dcea81c32c31f24700",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "buteo-buteo-velur-3.jpg",
+      "originalSize": 45200,
+      "width": 1296,
+      "height": 720,
+      "derivatives": [
+        {
+          "key": "optimized/buteo-buteo-velur-3-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 178,
+          "byteSize": 3442
+        },
+        {
+          "key": "optimized/buteo-buteo-velur-3-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 178,
+          "byteSize": 4406
+        },
+        {
+          "key": "optimized/buteo-buteo-velur-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 222,
+          "byteSize": 4321
+        },
+        {
+          "key": "optimized/buteo-buteo-velur-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 222,
+          "byteSize": 6130
+        },
+        {
+          "key": "optimized/buteo-buteo-velur-3-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 356,
+          "byteSize": 8154
+        },
+        {
+          "key": "optimized/buteo-buteo-velur-3-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 356,
+          "byteSize": 11830
+        },
+        {
+          "key": "optimized/buteo-buteo-velur-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 444,
+          "byteSize": 10458
+        },
+        {
+          "key": "optimized/buteo-buteo-velur-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 444,
+          "byteSize": 15400
+        },
+        {
+          "key": "optimized/buteo-buteo-velur-3-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 667,
+          "byteSize": 17955
+        },
+        {
+          "key": "optimized/buteo-buteo-velur-3-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 667,
+          "byteSize": 24896
+        },
+        {
+          "key": "optimized/buteo-buteo-velur-3-1296.avif",
+          "format": "avif",
+          "width": 1296,
+          "height": 720,
+          "byteSize": 19918
+        },
+        {
+          "key": "optimized/buteo-buteo-velur-3-1296.webp",
+          "format": "webp",
+          "width": 1296,
+          "height": 720,
+          "byteSize": 27464
+        }
+      ],
+      "updatedAt": "2026-09-08T16:41:57.252Z"
     },
     "buteo-buteo-yerpo-juv.jpg": {
       "sourceHash": "abffb2c88e5300f6db37f8ab38f413165ffd8a98d0c50cf694fbf9a879827099",
@@ -8902,6 +9472,235 @@
       ],
       "updatedAt": "2026-08-28T21:31:16.482Z"
     },
+    "darevskia-armeniaca-davit-1.jpg": {
+      "sourceHash": "859e7dd636e43d9d8b3fc5572e9b6a45f31e7e924af164bfd405fbe455ef96ba",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-armeniaca-davit-1.jpg",
+      "originalSize": 172614,
+      "width": 985,
+      "height": 739,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-armeniaca-davit-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 15021
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-davit-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 21548
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-davit-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 22357
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-davit-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 32328
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-davit-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 44440
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-davit-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 63492
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-davit-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 60394
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-davit-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 85764
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-davit-1-985.avif",
+          "format": "avif",
+          "width": 985,
+          "height": 739,
+          "byteSize": 84925
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-davit-1-985.webp",
+          "format": "webp",
+          "width": 985,
+          "height": 739,
+          "byteSize": 103128
+        }
+      ],
+      "updatedAt": "2026-09-08T16:30:51.969Z"
+    },
+    "darevskia-armeniaca-davit-2.jpg": {
+      "sourceHash": "ba682a97c80c51188302696c968f76ca52997708a82645329d5354fabdc39c07",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-armeniaca-davit-2.jpg",
+      "originalSize": 145585,
+      "width": 578,
+      "height": 659,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-armeniaca-davit-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 365,
+          "byteSize": 26739
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-davit-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 365,
+          "byteSize": 43514
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-davit-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 456,
+          "byteSize": 37375
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-davit-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 456,
+          "byteSize": 62508
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-davit-2-578.avif",
+          "format": "avif",
+          "width": 578,
+          "height": 659,
+          "byteSize": 67047
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-davit-2-578.webp",
+          "format": "webp",
+          "width": 578,
+          "height": 659,
+          "byteSize": 103766
+        }
+      ],
+      "updatedAt": "2026-09-08T16:31:53.151Z"
+    },
+    "darevskia-armeniaca-konrad-1.jpg": {
+      "sourceHash": "a1c7a36aae78cff06c04d64546d9382f43b4000cb18dd487cdb53be3cbf44ac9",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-armeniaca-konrad-1.jpg",
+      "originalSize": 336753,
+      "width": 1600,
+      "height": 1000,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-armeniaca-konrad-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 200,
+          "byteSize": 12834
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-konrad-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 200,
+          "byteSize": 20824
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-konrad-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 250,
+          "byteSize": 19543
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-konrad-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 250,
+          "byteSize": 31390
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-konrad-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 400,
+          "byteSize": 44433
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-konrad-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 400,
+          "byteSize": 69980
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-konrad-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 500,
+          "byteSize": 64670
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-konrad-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 500,
+          "byteSize": 103356
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-konrad-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 750,
+          "byteSize": 119253
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-konrad-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 750,
+          "byteSize": 191102
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-konrad-1-1600.avif",
+          "format": "avif",
+          "width": 1600,
+          "height": 1000,
+          "byteSize": 190840
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-konrad-1-1600.webp",
+          "format": "webp",
+          "width": 1600,
+          "height": 1000,
+          "byteSize": 283822
+        }
+      ],
+      "updatedAt": "2026-09-08T16:32:55.557Z"
+    },
     "darevskia-armeniaca-mobile.jpg": {
       "sourceHash": "471e87389146768a091ba89810ae2c78736c7ebeea8dddf7afe16280df49f0c6",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -10118,6 +10917,87 @@
         }
       ],
       "updatedAt": "2026-08-28T21:32:01.417Z"
+    },
+    "darevskia-dahli-davit-1.jpg": {
+      "sourceHash": "1247d7ac85258b304dfddfc703d0e6475d5d302f8d82ca323427f3f268436900",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-dahli-davit-1.jpg",
+      "originalSize": 133687,
+      "width": 956,
+      "height": 717,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-dahli-davit-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 7146
+        },
+        {
+          "key": "optimized/darevskia-dahli-davit-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 10148
+        },
+        {
+          "key": "optimized/darevskia-dahli-davit-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 11071
+        },
+        {
+          "key": "optimized/darevskia-dahli-davit-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 15662
+        },
+        {
+          "key": "optimized/darevskia-dahli-davit-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 30166
+        },
+        {
+          "key": "optimized/darevskia-dahli-davit-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 38912
+        },
+        {
+          "key": "optimized/darevskia-dahli-davit-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 46262
+        },
+        {
+          "key": "optimized/darevskia-dahli-davit-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 57876
+        },
+        {
+          "key": "optimized/darevskia-dahli-davit-1-956.avif",
+          "format": "avif",
+          "width": 956,
+          "height": 717,
+          "byteSize": 63873
+        },
+        {
+          "key": "optimized/darevskia-dahli-davit-1-956.webp",
+          "format": "webp",
+          "width": 956,
+          "height": 717,
+          "byteSize": 68586
+        }
+      ],
+      "updatedAt": "2026-09-08T16:45:48.262Z"
     },
     "darevskia-dahli.jpg": {
       "sourceHash": "5a2fc5fba66fca654601d0f4616618532ed0c35d87462884382e64a0758b8d27",
@@ -17118,6 +17998,439 @@
         }
       ],
       "updatedAt": "2026-08-28T21:39:38.591Z"
+    },
+    "eremias-arguta-diego-1.jpg": {
+      "sourceHash": "ce14c621f907a1fea0f7ec9106b0db7128e30faa31fa29e94649b230b2912e4f",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eremias-arguta-diego-1.jpg",
+      "originalSize": 353252,
+      "width": 1200,
+      "height": 800,
+      "derivatives": [
+        {
+          "key": "optimized/eremias-arguta-diego-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 16888
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 28134
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 25002
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 42464
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 56892
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 96898
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 81843
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 137856
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 162400
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 244554
+        }
+      ],
+      "updatedAt": "2026-09-08T16:24:21.499Z"
+    },
+    "eremias-arguta-diego-2.jpg": {
+      "sourceHash": "703fb59402e31d8c8c72428e385181da067d3d3529188cb1849594d7ff104298",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eremias-arguta-diego-2.jpg",
+      "originalSize": 302097,
+      "width": 1200,
+      "height": 800,
+      "derivatives": [
+        {
+          "key": "optimized/eremias-arguta-diego-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14653
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 22854
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 21704
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 33234
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 50044
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 75610
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 72079
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 110162
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 143763
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 198062
+        }
+      ],
+      "updatedAt": "2026-09-08T16:24:20.416Z"
+    },
+    "eremias-arguta-diego-3.jpg": {
+      "sourceHash": "ce14c621f907a1fea0f7ec9106b0db7128e30faa31fa29e94649b230b2912e4f",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eremias-arguta-diego-3.jpg",
+      "originalSize": 353252,
+      "width": 1200,
+      "height": 800,
+      "derivatives": [
+        {
+          "key": "optimized/eremias-arguta-diego-3-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 16888
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-3-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 28134
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 25002
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 42464
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-3-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 56892
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-3-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 96898
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 81843
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 137856
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-3-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 162400
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-3-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 244554
+        }
+      ],
+      "updatedAt": "2026-09-08T16:25:25.373Z"
+    },
+    "eremias-arguta-giorgi-1.jpg": {
+      "sourceHash": "60499760dc44aff6dadac319b8165ca3601d179ec7dac4ff133c42ebdeb7d596",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eremias-arguta-giorgi-1.jpg",
+      "originalSize": 171501,
+      "width": 1440,
+      "height": 960,
+      "derivatives": [
+        {
+          "key": "optimized/eremias-arguta-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10124
+        },
+        {
+          "key": "optimized/eremias-arguta-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 16078
+        },
+        {
+          "key": "optimized/eremias-arguta-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 14033
+        },
+        {
+          "key": "optimized/eremias-arguta-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 22280
+        },
+        {
+          "key": "optimized/eremias-arguta-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 28369
+        },
+        {
+          "key": "optimized/eremias-arguta-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 43980
+        },
+        {
+          "key": "optimized/eremias-arguta-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 38605
+        },
+        {
+          "key": "optimized/eremias-arguta-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 59796
+        },
+        {
+          "key": "optimized/eremias-arguta-giorgi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 65870
+        },
+        {
+          "key": "optimized/eremias-arguta-giorgi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 101794
+        },
+        {
+          "key": "optimized/eremias-arguta-giorgi-1-1440.avif",
+          "format": "avif",
+          "width": 1440,
+          "height": 960,
+          "byteSize": 92616
+        },
+        {
+          "key": "optimized/eremias-arguta-giorgi-1-1440.webp",
+          "format": "webp",
+          "width": 1440,
+          "height": 960,
+          "byteSize": 124722
+        }
+      ],
+      "updatedAt": "2026-09-08T16:23:23.639Z"
+    },
+    "eremias-arguta-giorgi-2.jpg": {
+      "sourceHash": "381785cc659de425fe602195db07fdafecc3670b805857e0f5d8c760d110c43b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eremias-arguta-giorgi-2.jpg",
+      "originalSize": 205074,
+      "width": 1440,
+      "height": 960,
+      "derivatives": [
+        {
+          "key": "optimized/eremias-arguta-giorgi-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10873
+        },
+        {
+          "key": "optimized/eremias-arguta-giorgi-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 17236
+        },
+        {
+          "key": "optimized/eremias-arguta-giorgi-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 15227
+        },
+        {
+          "key": "optimized/eremias-arguta-giorgi-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 24090
+        },
+        {
+          "key": "optimized/eremias-arguta-giorgi-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 31954
+        },
+        {
+          "key": "optimized/eremias-arguta-giorgi-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 50738
+        },
+        {
+          "key": "optimized/eremias-arguta-giorgi-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 44435
+        },
+        {
+          "key": "optimized/eremias-arguta-giorgi-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 70058
+        },
+        {
+          "key": "optimized/eremias-arguta-giorgi-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 78539
+        },
+        {
+          "key": "optimized/eremias-arguta-giorgi-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 125820
+        },
+        {
+          "key": "optimized/eremias-arguta-giorgi-2-1440.avif",
+          "format": "avif",
+          "width": 1440,
+          "height": 960,
+          "byteSize": 108723
+        },
+        {
+          "key": "optimized/eremias-arguta-giorgi-2-1440.webp",
+          "format": "webp",
+          "width": 1440,
+          "height": 960,
+          "byteSize": 158854
+        }
+      ],
+      "updatedAt": "2026-09-08T16:23:22.980Z"
     },
     "eremias-arguta-mobile.jpg": {
       "sourceHash": "17f6b40bfd4199cefb7e077d6bf32905778096a976bd5e9cbce69a69cb19597d",
@@ -42472,6 +43785,386 @@
         }
       ],
       "updatedAt": "2026-08-28T21:55:51.857Z"
+    },
+    "pelobates-syriacus-armen-1.jpg": {
+      "sourceHash": "3c1b4512c1794317f848cad142720a5790e95c08edd908df8cad06332ce3f4f0",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pelobates-syriacus-armen-1.jpg",
+      "originalSize": 428772,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/pelobates-syriacus-armen-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9559
+        },
+        {
+          "key": "optimized/pelobates-syriacus-armen-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 13886
+        },
+        {
+          "key": "optimized/pelobates-syriacus-armen-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 13874
+        },
+        {
+          "key": "optimized/pelobates-syriacus-armen-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 19958
+        },
+        {
+          "key": "optimized/pelobates-syriacus-armen-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 30962
+        },
+        {
+          "key": "optimized/pelobates-syriacus-armen-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 46386
+        },
+        {
+          "key": "optimized/pelobates-syriacus-armen-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 46400
+        },
+        {
+          "key": "optimized/pelobates-syriacus-armen-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 69116
+        },
+        {
+          "key": "optimized/pelobates-syriacus-armen-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 92612
+        },
+        {
+          "key": "optimized/pelobates-syriacus-armen-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 140208
+        },
+        {
+          "key": "optimized/pelobates-syriacus-armen-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 243206
+        },
+        {
+          "key": "optimized/pelobates-syriacus-armen-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 343226
+        }
+      ],
+      "updatedAt": "2026-09-08T16:09:43.768Z"
+    },
+    "pelobates-syriacus-armen-2.jpg": {
+      "sourceHash": "3c1b4512c1794317f848cad142720a5790e95c08edd908df8cad06332ce3f4f0",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pelobates-syriacus-armen-2.jpg",
+      "originalSize": 428772,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/pelobates-syriacus-armen-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9559
+        },
+        {
+          "key": "optimized/pelobates-syriacus-armen-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 13886
+        },
+        {
+          "key": "optimized/pelobates-syriacus-armen-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 13874
+        },
+        {
+          "key": "optimized/pelobates-syriacus-armen-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 19958
+        },
+        {
+          "key": "optimized/pelobates-syriacus-armen-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 30962
+        },
+        {
+          "key": "optimized/pelobates-syriacus-armen-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 46386
+        },
+        {
+          "key": "optimized/pelobates-syriacus-armen-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 46400
+        },
+        {
+          "key": "optimized/pelobates-syriacus-armen-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 69116
+        },
+        {
+          "key": "optimized/pelobates-syriacus-armen-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 92612
+        },
+        {
+          "key": "optimized/pelobates-syriacus-armen-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 140208
+        },
+        {
+          "key": "optimized/pelobates-syriacus-armen-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 243206
+        },
+        {
+          "key": "optimized/pelobates-syriacus-armen-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 343226
+        }
+      ],
+      "updatedAt": "2026-09-08T16:14:04.151Z"
+    },
+    "pelobates-syriacus-assaf-1.jpg": {
+      "sourceHash": "6771b4952c991349b85d5733905e261ae362f66b3dd88c0ae87b9c5e803b232a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pelobates-syriacus-assaf-1.jpg",
+      "originalSize": 203847,
+      "width": 1440,
+      "height": 960,
+      "derivatives": [
+        {
+          "key": "optimized/pelobates-syriacus-assaf-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11299
+        },
+        {
+          "key": "optimized/pelobates-syriacus-assaf-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 15720
+        },
+        {
+          "key": "optimized/pelobates-syriacus-assaf-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 16350
+        },
+        {
+          "key": "optimized/pelobates-syriacus-assaf-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 22698
+        },
+        {
+          "key": "optimized/pelobates-syriacus-assaf-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 34389
+        },
+        {
+          "key": "optimized/pelobates-syriacus-assaf-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 48590
+        },
+        {
+          "key": "optimized/pelobates-syriacus-assaf-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 48024
+        },
+        {
+          "key": "optimized/pelobates-syriacus-assaf-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 68020
+        },
+        {
+          "key": "optimized/pelobates-syriacus-assaf-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 86000
+        },
+        {
+          "key": "optimized/pelobates-syriacus-assaf-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 123384
+        },
+        {
+          "key": "optimized/pelobates-syriacus-assaf-1-1440.avif",
+          "format": "avif",
+          "width": 1440,
+          "height": 960,
+          "byteSize": 122818
+        },
+        {
+          "key": "optimized/pelobates-syriacus-assaf-1-1440.webp",
+          "format": "webp",
+          "width": 1440,
+          "height": 960,
+          "byteSize": 156198
+        }
+      ],
+      "updatedAt": "2026-09-08T16:10:26.254Z"
+    },
+    "pelobates-syriacus-laura-1.jpg": {
+      "sourceHash": "8e32ca92d66d1f5cb0ede92b77ae09197884bc57d819368742bf42a494f04f99",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pelobates-syriacus-laura-1.jpg",
+      "originalSize": 447011,
+      "width": 1600,
+      "height": 1066,
+      "derivatives": [
+        {
+          "key": "optimized/pelobates-syriacus-laura-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14663
+        },
+        {
+          "key": "optimized/pelobates-syriacus-laura-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 22908
+        },
+        {
+          "key": "optimized/pelobates-syriacus-laura-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 21573
+        },
+        {
+          "key": "optimized/pelobates-syriacus-laura-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 34044
+        },
+        {
+          "key": "optimized/pelobates-syriacus-laura-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 45386
+        },
+        {
+          "key": "optimized/pelobates-syriacus-laura-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 70374
+        },
+        {
+          "key": "optimized/pelobates-syriacus-laura-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 63567
+        },
+        {
+          "key": "optimized/pelobates-syriacus-laura-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 99386
+        },
+        {
+          "key": "optimized/pelobates-syriacus-laura-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 118960
+        },
+        {
+          "key": "optimized/pelobates-syriacus-laura-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 183220
+        },
+        {
+          "key": "optimized/pelobates-syriacus-laura-1-1600.avif",
+          "format": "avif",
+          "width": 1600,
+          "height": 1066,
+          "byteSize": 195287
+        },
+        {
+          "key": "optimized/pelobates-syriacus-laura-1-1600.webp",
+          "format": "webp",
+          "width": 1600,
+          "height": 1066,
+          "byteSize": 268544
+        }
+      ],
+      "updatedAt": "2026-09-08T16:12:38.841Z"
     },
     "pelobates-syriacus.jpg": {
       "sourceHash": "3223962bf51a7d415c46557efba40983cac0c3d059d04c5ec3b2e552fb31392f",
