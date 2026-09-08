@@ -17119,6 +17119,439 @@
       ],
       "updatedAt": "2026-08-28T21:39:38.591Z"
     },
+    "eremias-arguta-diego-1.jpg": {
+      "sourceHash": "ce14c621f907a1fea0f7ec9106b0db7128e30faa31fa29e94649b230b2912e4f",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eremias-arguta-diego-1.jpg",
+      "originalSize": 353252,
+      "width": 1200,
+      "height": 800,
+      "derivatives": [
+        {
+          "key": "optimized/eremias-arguta-diego-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 16888
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 28134
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 25002
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 42464
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 56892
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 96898
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 81843
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 137856
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 162400
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 244554
+        }
+      ],
+      "updatedAt": "2026-09-08T16:24:21.499Z"
+    },
+    "eremias-arguta-diego-2.jpg": {
+      "sourceHash": "703fb59402e31d8c8c72428e385181da067d3d3529188cb1849594d7ff104298",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eremias-arguta-diego-2.jpg",
+      "originalSize": 302097,
+      "width": 1200,
+      "height": 800,
+      "derivatives": [
+        {
+          "key": "optimized/eremias-arguta-diego-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14653
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 22854
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 21704
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 33234
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 50044
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 75610
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 72079
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 110162
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 143763
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 198062
+        }
+      ],
+      "updatedAt": "2026-09-08T16:24:20.416Z"
+    },
+    "eremias-arguta-diego-3.jpg": {
+      "sourceHash": "ce14c621f907a1fea0f7ec9106b0db7128e30faa31fa29e94649b230b2912e4f",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eremias-arguta-diego-3.jpg",
+      "originalSize": 353252,
+      "width": 1200,
+      "height": 800,
+      "derivatives": [
+        {
+          "key": "optimized/eremias-arguta-diego-3-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 16888
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-3-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 28134
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 25002
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 42464
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-3-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 56892
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-3-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 96898
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 81843
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 137856
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-3-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 162400
+        },
+        {
+          "key": "optimized/eremias-arguta-diego-3-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 244554
+        }
+      ],
+      "updatedAt": "2026-09-08T16:25:25.373Z"
+    },
+    "eremias-arguta-giorgi-1.jpg": {
+      "sourceHash": "60499760dc44aff6dadac319b8165ca3601d179ec7dac4ff133c42ebdeb7d596",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eremias-arguta-giorgi-1.jpg",
+      "originalSize": 171501,
+      "width": 1440,
+      "height": 960,
+      "derivatives": [
+        {
+          "key": "optimized/eremias-arguta-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10124
+        },
+        {
+          "key": "optimized/eremias-arguta-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 16078
+        },
+        {
+          "key": "optimized/eremias-arguta-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 14033
+        },
+        {
+          "key": "optimized/eremias-arguta-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 22280
+        },
+        {
+          "key": "optimized/eremias-arguta-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 28369
+        },
+        {
+          "key": "optimized/eremias-arguta-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 43980
+        },
+        {
+          "key": "optimized/eremias-arguta-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 38605
+        },
+        {
+          "key": "optimized/eremias-arguta-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 59796
+        },
+        {
+          "key": "optimized/eremias-arguta-giorgi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 65870
+        },
+        {
+          "key": "optimized/eremias-arguta-giorgi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 101794
+        },
+        {
+          "key": "optimized/eremias-arguta-giorgi-1-1440.avif",
+          "format": "avif",
+          "width": 1440,
+          "height": 960,
+          "byteSize": 92616
+        },
+        {
+          "key": "optimized/eremias-arguta-giorgi-1-1440.webp",
+          "format": "webp",
+          "width": 1440,
+          "height": 960,
+          "byteSize": 124722
+        }
+      ],
+      "updatedAt": "2026-09-08T16:23:23.639Z"
+    },
+    "eremias-arguta-giorgi-2.jpg": {
+      "sourceHash": "381785cc659de425fe602195db07fdafecc3670b805857e0f5d8c760d110c43b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eremias-arguta-giorgi-2.jpg",
+      "originalSize": 205074,
+      "width": 1440,
+      "height": 960,
+      "derivatives": [
+        {
+          "key": "optimized/eremias-arguta-giorgi-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10873
+        },
+        {
+          "key": "optimized/eremias-arguta-giorgi-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 17236
+        },
+        {
+          "key": "optimized/eremias-arguta-giorgi-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 15227
+        },
+        {
+          "key": "optimized/eremias-arguta-giorgi-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 24090
+        },
+        {
+          "key": "optimized/eremias-arguta-giorgi-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 31954
+        },
+        {
+          "key": "optimized/eremias-arguta-giorgi-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 50738
+        },
+        {
+          "key": "optimized/eremias-arguta-giorgi-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 44435
+        },
+        {
+          "key": "optimized/eremias-arguta-giorgi-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 70058
+        },
+        {
+          "key": "optimized/eremias-arguta-giorgi-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 78539
+        },
+        {
+          "key": "optimized/eremias-arguta-giorgi-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 125820
+        },
+        {
+          "key": "optimized/eremias-arguta-giorgi-2-1440.avif",
+          "format": "avif",
+          "width": 1440,
+          "height": 960,
+          "byteSize": 108723
+        },
+        {
+          "key": "optimized/eremias-arguta-giorgi-2-1440.webp",
+          "format": "webp",
+          "width": 1440,
+          "height": 960,
+          "byteSize": 158854
+        }
+      ],
+      "updatedAt": "2026-09-08T16:23:22.980Z"
+    },
     "eremias-arguta-mobile.jpg": {
       "sourceHash": "17f6b40bfd4199cefb7e077d6bf32905778096a976bd5e9cbce69a69cb19597d",
       "configFingerprint": "a895f8e025dcc7fa",
