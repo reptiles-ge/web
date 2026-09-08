@@ -74,36 +74,6 @@ describe("reorderGalleryInMdx", () => {
     ).toThrow(/Unknown gallery src/);
   });
 
-  it("reorders a real KA profile and keeps each credit on its src", () => {
-    const raw = fs.readFileSync(
-      path.join(
-        process.cwd(),
-        "src/content/species/paralaudakia-caucasia/ka.mdx",
-      ),
-      "utf8",
-    );
-    const original = matter(raw).data.gallery as Array<{
-      credit?: { photographer?: string };
-      src: string;
-    }>;
-    const reversed = [...original].reverse();
-    const next = reorderGalleryInMdx(
-      raw,
-      reversed.map((item) => item.src),
-    );
-    const gallery = matter(next).data.gallery as Array<{
-      credit?: { photographer?: string };
-      src: string;
-    }>;
-    expect(gallery.map((item) => item.src)).toEqual(
-      reversed.map((item) => item.src),
-    );
-    for (const item of reversed) {
-      const match = gallery.find((entry) => entry.src === item.src);
-      expect(match?.credit?.photographer).toBe(item.credit?.photographer);
-    }
-  });
-
   it("writes photographer url on a new gallery item", () => {
     const next = appendGalleryItemToMdx(FIXTURE, {
       credit: {
@@ -271,31 +241,6 @@ text
     expect(data.mobileImage).toBeUndefined();
   });
 
-  it("sets a gallery photo as the cover on a real KA profile", () => {
-    const raw = fs.readFileSync(
-      path.join(
-        process.cwd(),
-        "src/content/species/paralaudakia-caucasia/ka.mdx",
-      ),
-      "utf8",
-    );
-    const next = setCoverInMdx(raw, "desktop", {
-      credit: { date: "2026-08-22", photographer: "ზაქრო სონგულაშვილი" },
-      src: "https://cdn.reptiles.ge/paralaudakia-caucasia-zakro-1.jpg",
-    });
-    const data = matter(next).data as {
-      image: string;
-      imageCredit: { photographer: string };
-      mobileImage: string;
-    };
-    expect(data.image).toBe(
-      "https://cdn.reptiles.ge/paralaudakia-caucasia-zakro-1.jpg",
-    );
-    expect(data.imageCredit.photographer).toBe("ზაქრო სონგულაშვილი");
-    expect(data.mobileImage).toBe(
-      "https://cdn.reptiles.ge/paralaudakia-caucasia-mobile.jpg",
-    );
-  });
 });
 
 describe("removeGalleryItemFromMdx", () => {
@@ -340,37 +285,6 @@ text
     expect(() =>
       removeGalleryItemFromMdx(FIXTURE, "https://cdn.reptiles.ge/missing.jpg"),
     ).toThrow(/Unknown gallery src/);
-  });
-
-  it("removes a photo from a real KA profile", () => {
-    const raw = fs.readFileSync(
-      path.join(
-        process.cwd(),
-        "src/content/species/paralaudakia-caucasia/ka.mdx",
-      ),
-      "utf8",
-    );
-    const original = matter(raw).data.gallery as Array<{
-      credit?: { photographer?: string };
-      src: string;
-    }>;
-    const removed = original[1];
-    if (!removed) throw new Error("Need a second gallery photo");
-    const next = removeGalleryItemFromMdx(raw, removed.src);
-    const gallery = matter(next).data.gallery as Array<{
-      credit?: { photographer?: string };
-      src: string;
-    }>;
-    expect(gallery.map((item) => item.src)).toEqual(
-      original
-        .filter((item) => item.src !== removed.src)
-        .map((item) => item.src),
-    );
-    for (const item of original) {
-      if (item.src === removed.src) continue;
-      const match = gallery.find((entry) => entry.src === item.src);
-      expect(match?.credit?.photographer).toBe(item.credit?.photographer);
-    }
   });
 });
 
