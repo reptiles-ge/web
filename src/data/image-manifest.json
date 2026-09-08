@@ -43465,6 +43465,101 @@
       ],
       "updatedAt": "2026-08-28T21:55:42.811Z"
     },
+    "paralaudakia-caucasia-bryan-1.jpg": {
+      "sourceHash": "78397feb2346eb9b448348bb6003846fdbf6acab15e7e2705e543f2b32be3a83",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "paralaudakia-caucasia-bryan-1.jpg",
+      "originalSize": 665994,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/paralaudakia-caucasia-bryan-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 14906
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-bryan-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 23030
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-bryan-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 22320
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-bryan-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 33864
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-bryan-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 51857
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-bryan-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 80082
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-bryan-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 79659
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-bryan-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 122536
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-bryan-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 162532
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-bryan-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 248540
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-bryan-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 394778
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-bryan-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 578268
+        }
+      ],
+      "updatedAt": "2026-09-08T17:40:31.255Z"
+    },
     "paralaudakia-caucasia-elenina-1.jpg": {
       "sourceHash": "a78123375b1786ba1349a28c27ba6897998516474f7ab5d8e42fb5e3072b539f",
       "configFingerprint": "409788ee46c653d8",
