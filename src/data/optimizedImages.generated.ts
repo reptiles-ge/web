@@ -2062,6 +2062,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 899],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/elaphe-urartica-shota-1.jpg": {
+    "path": "elaphe-urartica-shota-1",
+    "width": 1536,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/elaphe-urartica.webp": {
     "path": "elaphe-urartica",
     "width": 2400,

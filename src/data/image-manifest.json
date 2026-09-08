@@ -18145,6 +18145,101 @@
       ],
       "updatedAt": "2026-08-28T21:38:48.506Z"
     },
+    "elaphe-urartica-shota-1.jpg": {
+      "sourceHash": "539aff460a344af575528bcbe4d878a7aa8da71524b52ac95f0b2e5f79510d91",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "elaphe-urartica-shota-1.jpg",
+      "originalSize": 453277,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/elaphe-urartica-shota-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 26214
+        },
+        {
+          "key": "optimized/elaphe-urartica-shota-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 42844
+        },
+        {
+          "key": "optimized/elaphe-urartica-shota-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 35985
+        },
+        {
+          "key": "optimized/elaphe-urartica-shota-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 57494
+        },
+        {
+          "key": "optimized/elaphe-urartica-shota-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 72895
+        },
+        {
+          "key": "optimized/elaphe-urartica-shota-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 112280
+        },
+        {
+          "key": "optimized/elaphe-urartica-shota-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 100252
+        },
+        {
+          "key": "optimized/elaphe-urartica-shota-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 152548
+        },
+        {
+          "key": "optimized/elaphe-urartica-shota-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 172730
+        },
+        {
+          "key": "optimized/elaphe-urartica-shota-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 251214
+        },
+        {
+          "key": "optimized/elaphe-urartica-shota-1-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 261848
+        },
+        {
+          "key": "optimized/elaphe-urartica-shota-1-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 344030
+        }
+      ],
+      "updatedAt": "2026-09-08T19:02:32.030Z"
+    },
     "elaphe-urartica.webp": {
       "sourceHash": "cc69dee049448f9e71df687e231aab9351cb59bf3c39c0979064b81688415c33",
       "configFingerprint": "a895f8e025dcc7fa",
