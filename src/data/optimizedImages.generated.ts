@@ -6031,6 +6031,20 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1440],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/vulpes-vulpes-nika-3.jpg": {
+    "path": "vulpes-vulpes-nika-3",
+    "width": 960,
+    "height": 681,
+    "widths": [320, 400, 640, 800, 960],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/vulpes-vulpes-nika-4.jpg": {
+    "path": "vulpes-vulpes-nika-4",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/vulpes-vulpes-niko-2.jpg": {
     "path": "vulpes-vulpes-niko-2",
     "width": 1440,
@@ -6050,6 +6064,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1920,
     "height": 1280,
     "widths": [400, 800, 1200, 1920],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/vulpes-vulpes-zakro-1.jpg": {
+    "path": "vulpes-vulpes-zakro-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/vulpes-vulpes-zauri-1.jpg": {
