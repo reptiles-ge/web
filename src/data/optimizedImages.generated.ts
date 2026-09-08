@@ -1502,6 +1502,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1536],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/darevskia-praticola-cristian-1.jpg": {
+    "path": "darevskia-praticola-cristian-1",
+    "width": 1224,
+    "height": 1013,
+    "widths": [320, 400, 640, 800, 1200, 1224],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/darevskia-praticola-mobile.jpg": {
     "path": "darevskia-praticola-mobile",
     "width": 2048,
