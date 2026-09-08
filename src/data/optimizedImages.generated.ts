@@ -2139,6 +2139,20 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1600],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/emys-orbicularis-velur-1.jpg": {
+    "path": "emys-orbicularis-velur-1",
+    "width": 1295,
+    "height": 720,
+    "widths": [320, 400, 640, 800, 1200, 1295],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/emys-orbicularis-velur-2.jpg": {
+    "path": "emys-orbicularis-velur-2",
+    "width": 1523,
+    "height": 960,
+    "widths": [320, 400, 640, 800, 1200, 1523],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/emys-orbicularis.jpg": {
     "path": "emys-orbicularis",
     "width": 2048,
