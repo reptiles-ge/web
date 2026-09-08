@@ -6465,6 +6465,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1888],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/xerotyphlops-vermicularis-shota-1.jpg": {
+    "path": "xerotyphlops-vermicularis-shota-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/xerotyphlops-vermicularis-vaso-1.jpg": {
     "path": "xerotyphlops-vermicularis-vaso-1",
     "width": 1080,
