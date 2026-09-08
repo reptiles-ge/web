@@ -38174,6 +38174,372 @@
       ],
       "updatedAt": "2026-08-28T21:45:54.853Z"
     },
+    "mauremys-caspica-giorgi-1.jpg": {
+      "sourceHash": "95184493703d5a993902827cb2c289bb8a47c790d7a1a37a52d0e226121c1a3b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "mauremys-caspica-giorgi-1.jpg",
+      "originalSize": 222522,
+      "width": 1440,
+      "height": 960,
+      "derivatives": [
+        {
+          "key": "optimized/mauremys-caspica-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12335
+        },
+        {
+          "key": "optimized/mauremys-caspica-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 19316
+        },
+        {
+          "key": "optimized/mauremys-caspica-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 17604
+        },
+        {
+          "key": "optimized/mauremys-caspica-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 27522
+        },
+        {
+          "key": "optimized/mauremys-caspica-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 37072
+        },
+        {
+          "key": "optimized/mauremys-caspica-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 57772
+        },
+        {
+          "key": "optimized/mauremys-caspica-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 51406
+        },
+        {
+          "key": "optimized/mauremys-caspica-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 80028
+        },
+        {
+          "key": "optimized/mauremys-caspica-giorgi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 89205
+        },
+        {
+          "key": "optimized/mauremys-caspica-giorgi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 141080
+        },
+        {
+          "key": "optimized/mauremys-caspica-giorgi-1-1440.avif",
+          "format": "avif",
+          "width": 1440,
+          "height": 960,
+          "byteSize": 122475
+        },
+        {
+          "key": "optimized/mauremys-caspica-giorgi-1-1440.webp",
+          "format": "webp",
+          "width": 1440,
+          "height": 960,
+          "byteSize": 173938
+        }
+      ],
+      "updatedAt": "2026-09-08T16:17:46.393Z"
+    },
+    "mauremys-caspica-giorgi-2.jpg": {
+      "sourceHash": "f73c1db82c23eac6c71cec0daeb334fc1cf2db7aec653ffee74a1b965406c43c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "mauremys-caspica-giorgi-2.jpg",
+      "originalSize": 111579,
+      "width": 960,
+      "height": 640,
+      "derivatives": [
+        {
+          "key": "optimized/mauremys-caspica-giorgi-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9421
+        },
+        {
+          "key": "optimized/mauremys-caspica-giorgi-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11310
+        },
+        {
+          "key": "optimized/mauremys-caspica-giorgi-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 14184
+        },
+        {
+          "key": "optimized/mauremys-caspica-giorgi-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 17066
+        },
+        {
+          "key": "optimized/mauremys-caspica-giorgi-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 29659
+        },
+        {
+          "key": "optimized/mauremys-caspica-giorgi-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 36410
+        },
+        {
+          "key": "optimized/mauremys-caspica-giorgi-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 41367
+        },
+        {
+          "key": "optimized/mauremys-caspica-giorgi-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 50770
+        },
+        {
+          "key": "optimized/mauremys-caspica-giorgi-2-960.avif",
+          "format": "avif",
+          "width": 960,
+          "height": 640,
+          "byteSize": 54302
+        },
+        {
+          "key": "optimized/mauremys-caspica-giorgi-2-960.webp",
+          "format": "webp",
+          "width": 960,
+          "height": 640,
+          "byteSize": 60232
+        }
+      ],
+      "updatedAt": "2026-09-08T16:19:36.863Z"
+    },
+    "mauremys-caspica-laura-1.jpg": {
+      "sourceHash": "f5feb2efd3652662b6a6552cdd2e2213f98525a6b36e47335691aa6b91ea91dd",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "mauremys-caspica-laura-1.jpg",
+      "originalSize": 562529,
+      "width": 1600,
+      "height": 1095,
+      "derivatives": [
+        {
+          "key": "optimized/mauremys-caspica-laura-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 218,
+          "byteSize": 16284
+        },
+        {
+          "key": "optimized/mauremys-caspica-laura-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 218,
+          "byteSize": 25244
+        },
+        {
+          "key": "optimized/mauremys-caspica-laura-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 274,
+          "byteSize": 25532
+        },
+        {
+          "key": "optimized/mauremys-caspica-laura-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 274,
+          "byteSize": 40120
+        },
+        {
+          "key": "optimized/mauremys-caspica-laura-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 438,
+          "byteSize": 58672
+        },
+        {
+          "key": "optimized/mauremys-caspica-laura-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 438,
+          "byteSize": 92208
+        },
+        {
+          "key": "optimized/mauremys-caspica-laura-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 548,
+          "byteSize": 84697
+        },
+        {
+          "key": "optimized/mauremys-caspica-laura-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 548,
+          "byteSize": 135690
+        },
+        {
+          "key": "optimized/mauremys-caspica-laura-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 821,
+          "byteSize": 160821
+        },
+        {
+          "key": "optimized/mauremys-caspica-laura-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 821,
+          "byteSize": 251274
+        },
+        {
+          "key": "optimized/mauremys-caspica-laura-1-1600.avif",
+          "format": "avif",
+          "width": 1600,
+          "height": 1095,
+          "byteSize": 251990
+        },
+        {
+          "key": "optimized/mauremys-caspica-laura-1-1600.webp",
+          "format": "webp",
+          "width": 1600,
+          "height": 1095,
+          "byteSize": 369798
+        }
+      ],
+      "updatedAt": "2026-09-08T16:20:25.308Z"
+    },
+    "mauremys-caspica-laura-2.jpg": {
+      "sourceHash": "f5feb2efd3652662b6a6552cdd2e2213f98525a6b36e47335691aa6b91ea91dd",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "mauremys-caspica-laura-2.jpg",
+      "originalSize": 562529,
+      "width": 1600,
+      "height": 1095,
+      "derivatives": [
+        {
+          "key": "optimized/mauremys-caspica-laura-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 218,
+          "byteSize": 16284
+        },
+        {
+          "key": "optimized/mauremys-caspica-laura-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 218,
+          "byteSize": 25244
+        },
+        {
+          "key": "optimized/mauremys-caspica-laura-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 274,
+          "byteSize": 25532
+        },
+        {
+          "key": "optimized/mauremys-caspica-laura-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 274,
+          "byteSize": 40120
+        },
+        {
+          "key": "optimized/mauremys-caspica-laura-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 438,
+          "byteSize": 58672
+        },
+        {
+          "key": "optimized/mauremys-caspica-laura-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 438,
+          "byteSize": 92208
+        },
+        {
+          "key": "optimized/mauremys-caspica-laura-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 548,
+          "byteSize": 84697
+        },
+        {
+          "key": "optimized/mauremys-caspica-laura-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 548,
+          "byteSize": 135690
+        },
+        {
+          "key": "optimized/mauremys-caspica-laura-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 821,
+          "byteSize": 160821
+        },
+        {
+          "key": "optimized/mauremys-caspica-laura-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 821,
+          "byteSize": 251274
+        },
+        {
+          "key": "optimized/mauremys-caspica-laura-2-1600.avif",
+          "format": "avif",
+          "width": 1600,
+          "height": 1095,
+          "byteSize": 251990
+        },
+        {
+          "key": "optimized/mauremys-caspica-laura-2-1600.webp",
+          "format": "webp",
+          "width": 1600,
+          "height": 1095,
+          "byteSize": 369798
+        }
+      ],
+      "updatedAt": "2026-09-08T16:21:21.583Z"
+    },
     "mauremys-caspica-mobile.jpg": {
       "sourceHash": "72734e41cea882a8ba626c0470239d11030a16d068d61df9db236425288d5f59",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -38240,6 +38606,101 @@
         }
       ],
       "updatedAt": "2026-08-28T21:46:00.197Z"
+    },
+    "mauremys-caspica-zakro-1.jpg": {
+      "sourceHash": "78ad30b067373489a5579e34794702f7c4d3f817bd9adcbe97a660321fd1c60c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "mauremys-caspica-zakro-1.jpg",
+      "originalSize": 227350,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/mauremys-caspica-zakro-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6653
+        },
+        {
+          "key": "optimized/mauremys-caspica-zakro-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9522
+        },
+        {
+          "key": "optimized/mauremys-caspica-zakro-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 8980
+        },
+        {
+          "key": "optimized/mauremys-caspica-zakro-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 12766
+        },
+        {
+          "key": "optimized/mauremys-caspica-zakro-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 16883
+        },
+        {
+          "key": "optimized/mauremys-caspica-zakro-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 24704
+        },
+        {
+          "key": "optimized/mauremys-caspica-zakro-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 23313
+        },
+        {
+          "key": "optimized/mauremys-caspica-zakro-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 32668
+        },
+        {
+          "key": "optimized/mauremys-caspica-zakro-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 41158
+        },
+        {
+          "key": "optimized/mauremys-caspica-zakro-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 55562
+        },
+        {
+          "key": "optimized/mauremys-caspica-zakro-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 124524
+        },
+        {
+          "key": "optimized/mauremys-caspica-zakro-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 129966
+        }
+      ],
+      "updatedAt": "2026-09-08T16:16:56.287Z"
     },
     "mauremys-caspica.jpg": {
       "sourceHash": "707e287ff396040528378e3d6514b56fbe95c7ab15e736ff445f9b1e67dfc762",

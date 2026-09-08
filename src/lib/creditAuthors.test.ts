@@ -38,7 +38,9 @@ describe("credit authors", () => {
     expect(getPublishedCreditAuthorBySlug("sandro-khakhva")?.bio?.ka).toContain(
       "დამწყები ჰერპეტოლოგი და ნატურალისტი",
     );
-    expect(getPublishedCreditAuthorBySlug("sandro-khakhva")?.links).toBeUndefined();
+    expect(
+      getPublishedCreditAuthorBySlug("sandro-khakhva")?.links,
+    ).toBeUndefined();
     expect(getPublishedCreditAuthorBySlug("sandro-khakhva")?.role).toBe(
       "herpetologist",
     );
@@ -289,9 +291,9 @@ describe("credit authors", () => {
       "zauri-khachidze",
       "ioane-rostiashvili",
       "sandro-khakhva",
+      "giorgi-iankoshvili",
       "nika-melikishvili",
       "velur-bunebastan-axlos",
-      "giorgi-iankoshvili",
       "zakro-songulashvili",
       "saba-todua",
     ]);
