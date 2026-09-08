@@ -690,6 +690,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1440],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/buteo-buteo-nika-2.jpg": {
+    "path": "buteo-buteo-nika-2",
+    "width": 2000,
+    "height": 1381,
+    "widths": [320, 400, 640, 800, 1200, 2000],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/buteo-buteo-serbia-1.jpg": {
     "path": "buteo-buteo-serbia-1",
     "width": 1194,

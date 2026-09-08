@@ -4905,6 +4905,101 @@
       ],
       "updatedAt": "2026-09-08T16:41:11.943Z"
     },
+    "buteo-buteo-nika-2.jpg": {
+      "sourceHash": "398aa2d57c6aaa88d3de1fc17c69e0da9287fae48b4b0de3da51d7a581b5752c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "buteo-buteo-nika-2.jpg",
+      "originalSize": 170206,
+      "width": 2000,
+      "height": 1381,
+      "derivatives": [
+        {
+          "key": "optimized/buteo-buteo-nika-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 221,
+          "byteSize": 4767
+        },
+        {
+          "key": "optimized/buteo-buteo-nika-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 221,
+          "byteSize": 5600
+        },
+        {
+          "key": "optimized/buteo-buteo-nika-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 276,
+          "byteSize": 6519
+        },
+        {
+          "key": "optimized/buteo-buteo-nika-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 276,
+          "byteSize": 7632
+        },
+        {
+          "key": "optimized/buteo-buteo-nika-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 442,
+          "byteSize": 13273
+        },
+        {
+          "key": "optimized/buteo-buteo-nika-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 442,
+          "byteSize": 15860
+        },
+        {
+          "key": "optimized/buteo-buteo-nika-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 552,
+          "byteSize": 19090
+        },
+        {
+          "key": "optimized/buteo-buteo-nika-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 552,
+          "byteSize": 23108
+        },
+        {
+          "key": "optimized/buteo-buteo-nika-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 829,
+          "byteSize": 41576
+        },
+        {
+          "key": "optimized/buteo-buteo-nika-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 829,
+          "byteSize": 48320
+        },
+        {
+          "key": "optimized/buteo-buteo-nika-2-2000.avif",
+          "format": "avif",
+          "width": 2000,
+          "height": 1381,
+          "byteSize": 103227
+        },
+        {
+          "key": "optimized/buteo-buteo-nika-2-2000.webp",
+          "format": "webp",
+          "width": 2000,
+          "height": 1381,
+          "byteSize": 117510
+        }
+      ],
+      "updatedAt": "2026-09-08T16:42:38.648Z"
+    },
     "buteo-buteo-serbia-1.jpg": {
       "sourceHash": "c277968d2da80b1cec4773fa7db566ed73487a93294c862f6121d1e98769223a",
       "configFingerprint": "a895f8e025dcc7fa",
