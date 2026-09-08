@@ -43465,6 +43465,87 @@
       ],
       "updatedAt": "2026-08-28T21:55:42.811Z"
     },
+    "paralaudakia-caucasia-aashin-1.jpg": {
+      "sourceHash": "c512fabaa41e42d174c3e68a95fd4c518d524e4993a926fc35bb1b92ed52245c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "paralaudakia-caucasia-aashin-1.jpg",
+      "originalSize": 147983,
+      "width": 1080,
+      "height": 1350,
+      "derivatives": [
+        {
+          "key": "optimized/paralaudakia-caucasia-aashin-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 400,
+          "byteSize": 11935
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-aashin-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 400,
+          "byteSize": 17518
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-aashin-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 500,
+          "byteSize": 16662
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-aashin-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 500,
+          "byteSize": 25268
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-aashin-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 800,
+          "byteSize": 32442
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-aashin-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 800,
+          "byteSize": 51176
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-aashin-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1000,
+          "byteSize": 45480
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-aashin-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1000,
+          "byteSize": 71884
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-aashin-1-1080.avif",
+          "format": "avif",
+          "width": 1080,
+          "height": 1350,
+          "byteSize": 74279
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-aashin-1-1080.webp",
+          "format": "webp",
+          "width": 1080,
+          "height": 1350,
+          "byteSize": 112966
+        }
+      ],
+      "updatedAt": "2026-09-08T17:43:01.451Z"
+    },
     "paralaudakia-caucasia-bryan-1.jpg": {
       "sourceHash": "78397feb2346eb9b448348bb6003846fdbf6acab15e7e2705e543f2b32be3a83",
       "configFingerprint": "409788ee46c653d8",
