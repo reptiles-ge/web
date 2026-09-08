@@ -5072,6 +5072,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/pseudopus-apodus-shota-1.jpg": {
+    "path": "pseudopus-apodus-shota-1",
+    "width": 1536,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/pseudopus-apodus-zakro-1.jpg": {
     "path": "pseudopus-apodus-zakro-1",
     "width": 1000,
