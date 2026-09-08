@@ -42107,6 +42107,101 @@
       ],
       "updatedAt": "2026-09-08T16:09:43.768Z"
     },
+    "pelobates-syriacus-armen-2.jpg": {
+      "sourceHash": "3c1b4512c1794317f848cad142720a5790e95c08edd908df8cad06332ce3f4f0",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pelobates-syriacus-armen-2.jpg",
+      "originalSize": 428772,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/pelobates-syriacus-armen-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9559
+        },
+        {
+          "key": "optimized/pelobates-syriacus-armen-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 13886
+        },
+        {
+          "key": "optimized/pelobates-syriacus-armen-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 13874
+        },
+        {
+          "key": "optimized/pelobates-syriacus-armen-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 19958
+        },
+        {
+          "key": "optimized/pelobates-syriacus-armen-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 30962
+        },
+        {
+          "key": "optimized/pelobates-syriacus-armen-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 46386
+        },
+        {
+          "key": "optimized/pelobates-syriacus-armen-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 46400
+        },
+        {
+          "key": "optimized/pelobates-syriacus-armen-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 69116
+        },
+        {
+          "key": "optimized/pelobates-syriacus-armen-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 92612
+        },
+        {
+          "key": "optimized/pelobates-syriacus-armen-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 140208
+        },
+        {
+          "key": "optimized/pelobates-syriacus-armen-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 243206
+        },
+        {
+          "key": "optimized/pelobates-syriacus-armen-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 343226
+        }
+      ],
+      "updatedAt": "2026-09-08T16:14:04.151Z"
+    },
     "pelobates-syriacus-assaf-1.jpg": {
       "sourceHash": "6771b4952c991349b85d5733905e261ae362f66b3dd88c0ae87b9c5e803b232a",
       "configFingerprint": "409788ee46c653d8",
