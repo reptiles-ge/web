@@ -14,6 +14,7 @@ import {
   ShieldAlert,
 } from "lucide-react";
 
+import { optimizedImgSrc } from "@/data/optimizedImages";
 import { cn } from "@/lib/cn";
 import { type SearchDocument, type SearchIcon } from "@/lib/siteSearch";
 
@@ -79,7 +80,7 @@ export function ResultRow({
               className="size-full object-cover transition-transform duration-500 group-hover/item:scale-105"
               decoding="async"
               height={48}
-              src={item.image}
+              src={optimizedImgSrc(item.image, 400)}
               width={48}
             />
           </picture>
