@@ -5307,6 +5307,101 @@
       ],
       "updatedAt": "2026-09-08T16:39:44.888Z"
     },
+    "buteo-buteo-velur-3.jpg": {
+      "sourceHash": "1187b893f6ea8c1d8180f08bef02972538905dca4cf816dcea81c32c31f24700",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "buteo-buteo-velur-3.jpg",
+      "originalSize": 45200,
+      "width": 1296,
+      "height": 720,
+      "derivatives": [
+        {
+          "key": "optimized/buteo-buteo-velur-3-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 178,
+          "byteSize": 3442
+        },
+        {
+          "key": "optimized/buteo-buteo-velur-3-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 178,
+          "byteSize": 4406
+        },
+        {
+          "key": "optimized/buteo-buteo-velur-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 222,
+          "byteSize": 4321
+        },
+        {
+          "key": "optimized/buteo-buteo-velur-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 222,
+          "byteSize": 6130
+        },
+        {
+          "key": "optimized/buteo-buteo-velur-3-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 356,
+          "byteSize": 8154
+        },
+        {
+          "key": "optimized/buteo-buteo-velur-3-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 356,
+          "byteSize": 11830
+        },
+        {
+          "key": "optimized/buteo-buteo-velur-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 444,
+          "byteSize": 10458
+        },
+        {
+          "key": "optimized/buteo-buteo-velur-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 444,
+          "byteSize": 15400
+        },
+        {
+          "key": "optimized/buteo-buteo-velur-3-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 667,
+          "byteSize": 17955
+        },
+        {
+          "key": "optimized/buteo-buteo-velur-3-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 667,
+          "byteSize": 24896
+        },
+        {
+          "key": "optimized/buteo-buteo-velur-3-1296.avif",
+          "format": "avif",
+          "width": 1296,
+          "height": 720,
+          "byteSize": 19918
+        },
+        {
+          "key": "optimized/buteo-buteo-velur-3-1296.webp",
+          "format": "webp",
+          "width": 1296,
+          "height": 720,
+          "byteSize": 27464
+        }
+      ],
+      "updatedAt": "2026-09-08T16:41:57.252Z"
+    },
     "buteo-buteo-yerpo-juv.jpg": {
       "sourceHash": "abffb2c88e5300f6db37f8ab38f413165ffd8a98d0c50cf694fbf9a879827099",
       "configFingerprint": "a895f8e025dcc7fa",
