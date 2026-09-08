@@ -5331,6 +5331,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1280],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/strix-aluco-1.jpg": {
+    "path": "strix-aluco-1",
+    "width": 2048,
+    "height": 1368,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/strix-aluco-gaebler-1.jpg": {
     "path": "strix-aluco-gaebler-1",
     "width": 1654,

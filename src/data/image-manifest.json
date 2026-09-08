@@ -50067,6 +50067,101 @@
       ],
       "updatedAt": "2026-09-05T16:33:27.207Z"
     },
+    "strix-aluco-1.jpg": {
+      "sourceHash": "bbfc9b7bc6333ef808a755785b1730a84a1abc80a8ae0180ce74e281b2aab904",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "strix-aluco-1.jpg",
+      "originalSize": 570672,
+      "width": 2048,
+      "height": 1368,
+      "derivatives": [
+        {
+          "key": "optimized/strix-aluco-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 214,
+          "byteSize": 13715
+        },
+        {
+          "key": "optimized/strix-aluco-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 214,
+          "byteSize": 19858
+        },
+        {
+          "key": "optimized/strix-aluco-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 20929
+        },
+        {
+          "key": "optimized/strix-aluco-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 30058
+        },
+        {
+          "key": "optimized/strix-aluco-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 428,
+          "byteSize": 50146
+        },
+        {
+          "key": "optimized/strix-aluco-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 428,
+          "byteSize": 73334
+        },
+        {
+          "key": "optimized/strix-aluco-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 76766
+        },
+        {
+          "key": "optimized/strix-aluco-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 111374
+        },
+        {
+          "key": "optimized/strix-aluco-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 802,
+          "byteSize": 151143
+        },
+        {
+          "key": "optimized/strix-aluco-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 802,
+          "byteSize": 212792
+        },
+        {
+          "key": "optimized/strix-aluco-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1368,
+          "byteSize": 365255
+        },
+        {
+          "key": "optimized/strix-aluco-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1368,
+          "byteSize": 450572
+        }
+      ],
+      "updatedAt": "2026-09-08T18:32:33.823Z"
+    },
     "strix-aluco-gaebler-1.jpg": {
       "sourceHash": "64a5c2f5c11d744eafd72f8d8d995c692d2ccedc575945f36fc5bffe7f0a7077",
       "configFingerprint": "a895f8e025dcc7fa",
