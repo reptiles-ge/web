@@ -4652,6 +4652,20 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1250],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/paralaudakia-caucasia-kseniia-1.jpg": {
+    "path": "paralaudakia-caucasia-kseniia-1",
+    "width": 914,
+    "height": 686,
+    "widths": [320, 400, 640, 800, 914],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/paralaudakia-caucasia-kseniia-2.jpg": {
+    "path": "paralaudakia-caucasia-kseniia-2",
+    "width": 1280,
+    "height": 960,
+    "widths": [320, 400, 640, 800, 1200, 1280],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/paralaudakia-caucasia-laura-1.jpg": {
     "path": "paralaudakia-caucasia-laura-1",
     "width": 1600,
