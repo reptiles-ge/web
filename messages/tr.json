@@ -651,7 +651,8 @@
     "roles": {
       "herpetologist": "Herpetolog",
       "photographer": "Fotoğrafçı",
-      "ranger": "Ranger"
+      "ranger": "Ranger",
+      "researcher": "Araştırmacı"
     },
     "facebook": "Facebook",
     "instagram": "Instagram",

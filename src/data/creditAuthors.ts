@@ -28,7 +28,11 @@ export type CreditAuthor = {
   slug: string;
 };
 
-export type CreditAuthorRole = "herpetologist" | "photographer" | "ranger";
+export type CreditAuthorRole =
+  | "herpetologist"
+  | "photographer"
+  | "ranger"
+  | "researcher";
 
 export const CREDIT_AUTHORS: CreditAuthor[] = [
   {
@@ -197,6 +201,30 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     published: true,
     role: "herpetologist",
     slug: "saba-todua",
+  },
+  {
+    aliases: ["Armen Seropian", "არმენ სეროფიანი"],
+    bio: {
+      en: "Armen Seropian is a Georgian researcher, entomologist and arachnologist (spider specialist) who works at the Institute of Ecology at Ilia State University.",
+      ka: "არმენ სეროფიანი არის ქართველი მკვლევარი, ენტომოლოგი და არაქნოლოგი (ობობების სპეციალისტი), რომელიც მოღვაწეობს ილიას სახელმწიფო უნივერსიტეტის ეკოლოგიის ინსტიტუტში.",
+      ru: "Армен Серопиан — грузинский исследователь, энтомолог и арахнолог (специалист по паукам), работающий в Институте экологии Государственного университета Ильи.",
+      tr: "Armen Seropian, Ilia Devlet Üniversitesi Ekoloji Enstitüsü’nde çalışan Gürcü araştırmacı, entomolog ve araknologdur (örümcek uzmanı).",
+    },
+    id: "armen-seropian",
+    links: {
+      facebook: "https://www.facebook.com/armen.seropian",
+    },
+    name: {
+      en: "Armen Seropian",
+      ka: "არმენ სეროფიანი",
+      ru: "Армен Серопиан",
+      tr: "Armen Seropian",
+    },
+    portraitClass: "object-[50%_28%]",
+    portraitSrc: "https://cdn.reptiles.ge/authors/armen-seropian.jpg",
+    published: true,
+    role: "researcher",
+    slug: "armen-seropian",
   },
   {
     aliases: ["Close to wildlife", "ველურ ბუნებასთან ახლოს"],
