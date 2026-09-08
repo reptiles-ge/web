@@ -2006,6 +2006,20 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/eremias-arguta-giorgi-1.jpg": {
+    "path": "eremias-arguta-giorgi-1",
+    "width": 1440,
+    "height": 960,
+    "widths": [320, 400, 640, 800, 1200, 1440],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/eremias-arguta-giorgi-2.jpg": {
+    "path": "eremias-arguta-giorgi-2",
+    "width": 1440,
+    "height": 960,
+    "widths": [320, 400, 640, 800, 1200, 1440],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/eremias-arguta-mobile.jpg": {
     "path": "eremias-arguta-mobile",
     "width": 1920,
