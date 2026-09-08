@@ -4631,6 +4631,20 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1728],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/paralaudakia-caucasia-elenina-1.jpg": {
+    "path": "paralaudakia-caucasia-elenina-1",
+    "width": 1170,
+    "height": 1124,
+    "widths": [320, 400, 640, 800, 1170],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/paralaudakia-caucasia-elenina-2.jpg": {
+    "path": "paralaudakia-caucasia-elenina-2",
+    "width": 1250,
+    "height": 720,
+    "widths": [320, 400, 640, 800, 1200, 1250],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/paralaudakia-caucasia-laura-1.jpg": {
     "path": "paralaudakia-caucasia-laura-1",
     "width": 1600,

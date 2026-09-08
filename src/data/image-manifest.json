@@ -43465,6 +43465,182 @@
       ],
       "updatedAt": "2026-08-28T21:55:42.811Z"
     },
+    "paralaudakia-caucasia-elenina-1.jpg": {
+      "sourceHash": "a78123375b1786ba1349a28c27ba6897998516474f7ab5d8e42fb5e3072b539f",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "paralaudakia-caucasia-elenina-1.jpg",
+      "originalSize": 324543,
+      "width": 1170,
+      "height": 1124,
+      "derivatives": [
+        {
+          "key": "optimized/paralaudakia-caucasia-elenina-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 307,
+          "byteSize": 24991
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-elenina-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 307,
+          "byteSize": 39050
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-elenina-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 384,
+          "byteSize": 38753
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-elenina-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 384,
+          "byteSize": 61180
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-elenina-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 615,
+          "byteSize": 81786
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-elenina-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 615,
+          "byteSize": 138334
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-elenina-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 769,
+          "byteSize": 110132
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-elenina-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 769,
+          "byteSize": 186056
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-elenina-1-1170.avif",
+          "format": "avif",
+          "width": 1170,
+          "height": 1124,
+          "byteSize": 185826
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-elenina-1-1170.webp",
+          "format": "webp",
+          "width": 1170,
+          "height": 1124,
+          "byteSize": 278954
+        }
+      ],
+      "updatedAt": "2026-09-08T17:39:14.318Z"
+    },
+    "paralaudakia-caucasia-elenina-2.jpg": {
+      "sourceHash": "d52548ab05152ee939123639effb16ab4dd1584f2774a83b5401c4eaff0a53f9",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "paralaudakia-caucasia-elenina-2.jpg",
+      "originalSize": 361003,
+      "width": 1250,
+      "height": 720,
+      "derivatives": [
+        {
+          "key": "optimized/paralaudakia-caucasia-elenina-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 184,
+          "byteSize": 18327
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-elenina-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 184,
+          "byteSize": 28794
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-elenina-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 230,
+          "byteSize": 28436
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-elenina-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 230,
+          "byteSize": 43950
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-elenina-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 369,
+          "byteSize": 71553
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-elenina-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 369,
+          "byteSize": 109198
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-elenina-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 461,
+          "byteSize": 105884
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-elenina-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 461,
+          "byteSize": 164080
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-elenina-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 691,
+          "byteSize": 193838
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-elenina-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 691,
+          "byteSize": 322876
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-elenina-2-1250.avif",
+          "format": "avif",
+          "width": 1250,
+          "height": 720,
+          "byteSize": 212100
+        },
+        {
+          "key": "optimized/paralaudakia-caucasia-elenina-2-1250.webp",
+          "format": "webp",
+          "width": 1250,
+          "height": 720,
+          "byteSize": 339802
+        }
+      ],
+      "updatedAt": "2026-09-08T17:39:19.600Z"
+    },
     "paralaudakia-caucasia-laura-1.jpg": {
       "sourceHash": "34944ebc69eebaad81f91e736f561b59d821f0b27aa3ccefa7fc3c12a7d7fb44",
       "configFingerprint": "409788ee46c653d8",
