@@ -2146,6 +2146,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/emys-orbicularis-nikoloz-1.jpg": {
+    "path": "emys-orbicularis-nikoloz-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/emys-orbicularis-velur-1.jpg": {
     "path": "emys-orbicularis-velur-1",
     "width": 1295,
