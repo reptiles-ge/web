@@ -48036,6 +48036,101 @@
       ],
       "updatedAt": "2026-08-28T21:57:02.942Z"
     },
+    "pseudopus-apodus-shota-1.jpg": {
+      "sourceHash": "693d72a4bbb71ff10d186f0b226f97c7f85d4054f2d7a893740bc8b28a3d25dc",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pseudopus-apodus-shota-1.jpg",
+      "originalSize": 480910,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/pseudopus-apodus-shota-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 24741
+        },
+        {
+          "key": "optimized/pseudopus-apodus-shota-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 40658
+        },
+        {
+          "key": "optimized/pseudopus-apodus-shota-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 34233
+        },
+        {
+          "key": "optimized/pseudopus-apodus-shota-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 55254
+        },
+        {
+          "key": "optimized/pseudopus-apodus-shota-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 73285
+        },
+        {
+          "key": "optimized/pseudopus-apodus-shota-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 112102
+        },
+        {
+          "key": "optimized/pseudopus-apodus-shota-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 103592
+        },
+        {
+          "key": "optimized/pseudopus-apodus-shota-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 156672
+        },
+        {
+          "key": "optimized/pseudopus-apodus-shota-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 187788
+        },
+        {
+          "key": "optimized/pseudopus-apodus-shota-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 273514
+        },
+        {
+          "key": "optimized/pseudopus-apodus-shota-1-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 293787
+        },
+        {
+          "key": "optimized/pseudopus-apodus-shota-1-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 381716
+        }
+      ],
+      "updatedAt": "2026-09-08T19:04:00.052Z"
+    },
     "pseudopus-apodus-zakro-1.jpg": {
       "sourceHash": "29e06105c7b3a6989fdcfbcd199aee75eca09f66fe508d721d588b0b481afeed",
       "configFingerprint": "a895f8e025dcc7fa",
