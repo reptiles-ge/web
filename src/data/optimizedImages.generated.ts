@@ -508,6 +508,20 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1440],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/athene-noctua-giorgi-3.jpg": {
+    "path": "athene-noctua-giorgi-3",
+    "width": 1280,
+    "height": 960,
+    "widths": [320, 400, 640, 800, 1200, 1280],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/athene-noctua-giorgi-4.jpg": {
+    "path": "athene-noctua-giorgi-4",
+    "width": 1440,
+    "height": 960,
+    "widths": [320, 400, 640, 800, 1200, 1440],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/authors/giorgi-iankoshvili.jpg": {
     "path": "authors/giorgi-iankoshvili",
     "width": 682,
