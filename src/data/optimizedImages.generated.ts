@@ -5331,6 +5331,27 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1280],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/strix-aluco-1.jpg": {
+    "path": "strix-aluco-1",
+    "width": 2048,
+    "height": 1368,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/strix-aluco-2.jpg": {
+    "path": "strix-aluco-2",
+    "width": 1350,
+    "height": 900,
+    "widths": [320, 400, 640, 800, 1200, 1350],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/strix-aluco-3.jpg": {
+    "path": "strix-aluco-3",
+    "width": 1080,
+    "height": 1350,
+    "widths": [320, 400, 640, 800, 1080],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/strix-aluco-gaebler-1.jpg": {
     "path": "strix-aluco-gaebler-1",
     "width": 1654,
@@ -5345,6 +5366,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1920],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/strix-aluco-nika-1.jpg": {
+    "path": "strix-aluco-nika-1",
+    "width": 1440,
+    "height": 960,
+    "widths": [320, 400, 640, 800, 1200, 1440],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/strix-aluco-nottsexminer-1.jpg": {
     "path": "strix-aluco-nottsexminer-1",
     "width": 1920,
@@ -5357,6 +5385,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1920,
     "height": 1280,
     "widths": [400, 800, 1200, 1920],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/strix-aluco-zakro-1.jpg": {
+    "path": "strix-aluco-zakro-1",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/sus-scrofa-1.jpg": {

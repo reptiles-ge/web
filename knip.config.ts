@@ -1,6 +1,7 @@
 import type { KnipConfig } from "knip";
 
 const config: KnipConfig = {
+  ignore: ["src/lib/creditAuthors.ts"],
   ignoreDependencies: [
     "eslint-plugin-import",
     "eslint-plugin-jsx-a11y",
