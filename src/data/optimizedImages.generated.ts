@@ -669,11 +669,32 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2000],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/buteo-buteo-giorgi-1.jpg": {
+    "path": "buteo-buteo-giorgi-1",
+    "width": 1565,
+    "height": 1043,
+    "widths": [320, 400, 640, 800, 1200, 1565],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/buteo-buteo-lukasik-1.jpg": {
     "path": "buteo-buteo-lukasik-1",
     "width": 1024,
     "height": 768,
     "widths": [400, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/buteo-buteo-nika-1.jpg": {
+    "path": "buteo-buteo-nika-1",
+    "width": 1440,
+    "height": 960,
+    "widths": [320, 400, 640, 800, 1200, 1440],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/buteo-buteo-nika-2.jpg": {
+    "path": "buteo-buteo-nika-2",
+    "width": 2000,
+    "height": 1381,
+    "widths": [320, 400, 640, 800, 1200, 2000],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/buteo-buteo-serbia-1.jpg": {
@@ -702,6 +723,27 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 369,
     "height": 550,
     "widths": [369],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/buteo-buteo-velur-1.jpg": {
+    "path": "buteo-buteo-velur-1",
+    "width": 1452,
+    "height": 942,
+    "widths": [320, 400, 640, 800, 1200, 1452],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/buteo-buteo-velur-2.jpg": {
+    "path": "buteo-buteo-velur-2",
+    "width": 1438,
+    "height": 960,
+    "widths": [320, 400, 640, 800, 1200, 1438],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/buteo-buteo-velur-3.jpg": {
+    "path": "buteo-buteo-velur-3",
+    "width": 1296,
+    "height": 720,
+    "widths": [320, 400, 640, 800, 1200, 1296],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/buteo-buteo-yerpo-juv.jpg": {

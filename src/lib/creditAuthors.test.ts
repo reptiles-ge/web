@@ -289,10 +289,10 @@ describe("credit authors", () => {
       "zauri-khachidze",
       "ioane-rostiashvili",
       "sandro-khakhva",
-      "giorgi-iankoshvili",
       "nika-melikishvili",
-      "zakro-songulashvili",
       "velur-bunebastan-axlos",
+      "giorgi-iankoshvili",
+      "zakro-songulashvili",
       "saba-todua",
     ]);
     expect(cards.map((card) => card.photoCount)).toEqual(
