@@ -4645,6 +4645,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/paralaudakia-caucasia-dudleyes-1.jpg": {
+    "path": "paralaudakia-caucasia-dudleyes-1",
+    "width": 1282,
+    "height": 720,
+    "widths": [320, 400, 640, 800, 1200, 1282],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/paralaudakia-caucasia-elenina-1.jpg": {
     "path": "paralaudakia-caucasia-elenina-1",
     "width": 1170,
