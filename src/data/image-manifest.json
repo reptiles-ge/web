@@ -59154,6 +59154,196 @@
       ],
       "updatedAt": "2026-09-07T09:26:12.680Z"
     },
+    "vipera-transcaucasiana-shota-1.jpg": {
+      "sourceHash": "72e2c19b1c613ea80f3afea47ee7a2c6c4d13e05bc548184bc9057393fa18e50",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "vipera-transcaucasiana-shota-1.jpg",
+      "originalSize": 252728,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-transcaucasiana-shota-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 14625
+        },
+        {
+          "key": "optimized/vipera-transcaucasiana-shota-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 20758
+        },
+        {
+          "key": "optimized/vipera-transcaucasiana-shota-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 19823
+        },
+        {
+          "key": "optimized/vipera-transcaucasiana-shota-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 28190
+        },
+        {
+          "key": "optimized/vipera-transcaucasiana-shota-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 38926
+        },
+        {
+          "key": "optimized/vipera-transcaucasiana-shota-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 56336
+        },
+        {
+          "key": "optimized/vipera-transcaucasiana-shota-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 52505
+        },
+        {
+          "key": "optimized/vipera-transcaucasiana-shota-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 77290
+        },
+        {
+          "key": "optimized/vipera-transcaucasiana-shota-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 89708
+        },
+        {
+          "key": "optimized/vipera-transcaucasiana-shota-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 130306
+        },
+        {
+          "key": "optimized/vipera-transcaucasiana-shota-1-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 130220
+        },
+        {
+          "key": "optimized/vipera-transcaucasiana-shota-1-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 176414
+        }
+      ],
+      "updatedAt": "2026-09-08T19:08:32.971Z"
+    },
+    "vipera-transcaucasiana-shota-2.jpg": {
+      "sourceHash": "a2d1c6fe0b74b515e7cd8d9c327f6ce5c9867e953a82a0dc549e92e6fdb35862",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "vipera-transcaucasiana-shota-2.jpg",
+      "originalSize": 340562,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-transcaucasiana-shota-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 18559
+        },
+        {
+          "key": "optimized/vipera-transcaucasiana-shota-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 26696
+        },
+        {
+          "key": "optimized/vipera-transcaucasiana-shota-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 25680
+        },
+        {
+          "key": "optimized/vipera-transcaucasiana-shota-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 36846
+        },
+        {
+          "key": "optimized/vipera-transcaucasiana-shota-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 53187
+        },
+        {
+          "key": "optimized/vipera-transcaucasiana-shota-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 74012
+        },
+        {
+          "key": "optimized/vipera-transcaucasiana-shota-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 74546
+        },
+        {
+          "key": "optimized/vipera-transcaucasiana-shota-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 103002
+        },
+        {
+          "key": "optimized/vipera-transcaucasiana-shota-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 130288
+        },
+        {
+          "key": "optimized/vipera-transcaucasiana-shota-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 181692
+        },
+        {
+          "key": "optimized/vipera-transcaucasiana-shota-2-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 198164
+        },
+        {
+          "key": "optimized/vipera-transcaucasiana-shota-2-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 252238
+        }
+      ],
+      "updatedAt": "2026-09-08T19:08:44.477Z"
+    },
     "vipera-transcaucasiana-zauri-1.jpg": {
       "sourceHash": "37b6137f1a2747c8528b215db6ffae6bc2c8d2e7d9a9d1075adbcffd84552e83",
       "configFingerprint": "a895f8e025dcc7fa",
