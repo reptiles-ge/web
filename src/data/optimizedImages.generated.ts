@@ -718,6 +718,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1452],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/buteo-buteo-velur-2.jpg": {
+    "path": "buteo-buteo-velur-2",
+    "width": 1438,
+    "height": 960,
+    "widths": [320, 400, 640, 800, 1200, 1438],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/buteo-buteo-yerpo-juv.jpg": {
     "path": "buteo-buteo-yerpo-juv",
     "width": 1920,
