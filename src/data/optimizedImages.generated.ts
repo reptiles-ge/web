@@ -5359,6 +5359,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1920],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/strix-aluco-zakro-1.jpg": {
+    "path": "strix-aluco-zakro-1",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/sus-scrofa-1.jpg": {
     "path": "sus-scrofa-1",
     "width": 2400,

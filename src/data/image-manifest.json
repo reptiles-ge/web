@@ -50335,6 +50335,87 @@
       ],
       "updatedAt": "2026-08-28T21:58:34.148Z"
     },
+    "strix-aluco-zakro-1.jpg": {
+      "sourceHash": "ea440331daaaded66813c6c411a03bc6346d6536ba2e756935a8912e67c1351d",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "strix-aluco-zakro-1.jpg",
+      "originalSize": 103393,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/strix-aluco-zakro-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8839
+        },
+        {
+          "key": "optimized/strix-aluco-zakro-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11948
+        },
+        {
+          "key": "optimized/strix-aluco-zakro-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 12324
+        },
+        {
+          "key": "optimized/strix-aluco-zakro-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 16094
+        },
+        {
+          "key": "optimized/strix-aluco-zakro-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 23720
+        },
+        {
+          "key": "optimized/strix-aluco-zakro-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 29248
+        },
+        {
+          "key": "optimized/strix-aluco-zakro-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 31075
+        },
+        {
+          "key": "optimized/strix-aluco-zakro-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 38102
+        },
+        {
+          "key": "optimized/strix-aluco-zakro-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 43639
+        },
+        {
+          "key": "optimized/strix-aluco-zakro-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 48664
+        }
+      ],
+      "updatedAt": "2026-09-08T18:31:51.369Z"
+    },
     "sus-scrofa-1.jpg": {
       "sourceHash": "49280d7171353ebed2adbb92f9e035992d2a24e6ac13881b834936df2efbeba2",
       "configFingerprint": "a895f8e025dcc7fa",
