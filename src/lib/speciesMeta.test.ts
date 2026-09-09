@@ -13,7 +13,7 @@ describe("speciesPageMetaTitle", () => {
         "შხამი, არეალი და ამოცნობა",
       ),
     ).toBe(
-      "გიურზა (Macrovipera lebetinus) | შხამიანი გველი აღმოსავლეთ საქართველოში",
+      "გიურზა (Macrovipera lebetinus) | შხამიანი გველი საქართველოში — რისკი",
     );
     expect(
       speciesPageMetaTitle(
@@ -24,7 +24,7 @@ describe("speciesPageMetaTitle", () => {
         "venom, range, and identification",
       ),
     ).toBe(
-      "Levantine viper (Macrovipera lebetinus) | Venomous snake of eastern Georgia",
+      "Levantine viper (Macrovipera lebetinus) | High-risk venomous snake in Georgia",
     );
   });
 
