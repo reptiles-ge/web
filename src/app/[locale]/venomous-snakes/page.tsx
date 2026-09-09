@@ -122,6 +122,12 @@ export default async function VenomousSnakesRoute({ params }: Props) {
     ],
   };
 
+  const faqRichPlain = {
+    bite: (chunks: string) => chunks,
+    giurza: (chunks: string) => chunks,
+    malpolon: (chunks: string) => chunks,
+  };
+
   const faqLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -129,7 +135,10 @@ export default async function VenomousSnakesRoute({ params }: Props) {
       "@type": "Question",
       acceptedAnswer: {
         "@type": "Answer",
-        text: t(`faq${n}A`).replace(/<\/?[a-zA-Z0-9]+>/g, ""),
+        text:
+          n === 1 || n === 2 || n === 4 || n === 5
+            ? t.markup(`faq${n}A`, faqRichPlain)
+            : t(`faq${n}A`),
       },
       name: t(`faq${n}Q`),
     })),
