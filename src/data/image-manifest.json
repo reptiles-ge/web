@@ -47761,6 +47761,101 @@
       ],
       "updatedAt": "2026-09-09T20:13:22.540Z"
     },
+    "pelophylax-ridibundus-vlad-1.jpg": {
+      "sourceHash": "cd133ee60c55a0ab18e05c64549778579ebcc17a9595190e2bfe9c611fe391b1",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pelophylax-ridibundus-vlad-1.jpg",
+      "originalSize": 255724,
+      "width": 1280,
+      "height": 960,
+      "derivatives": [
+        {
+          "key": "optimized/pelophylax-ridibundus-vlad-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 17135
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-vlad-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 27438
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-vlad-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 24752
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-vlad-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 38392
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-vlad-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 52180
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-vlad-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 81206
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-vlad-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 72856
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-vlad-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 110140
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-vlad-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 131110
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-vlad-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 187034
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-vlad-1-1280.avif",
+          "format": "avif",
+          "width": 1280,
+          "height": 960,
+          "byteSize": 156856
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-vlad-1-1280.webp",
+          "format": "webp",
+          "width": 1280,
+          "height": 960,
+          "byteSize": 202428
+        }
+      ],
+      "updatedAt": "2026-09-09T20:14:41.306Z"
+    },
     "pelophylax-ridibundus.jpg": {
       "sourceHash": "9010a97b2261b7e167fe328eb880fb5e8aad59dd3d1ab6487d058cac0a09c45b",
       "configFingerprint": "a895f8e025dcc7fa",
