@@ -47613,6 +47613,59 @@
       ],
       "updatedAt": "2026-09-09T20:12:15.926Z"
     },
+    "pelophylax-ridibundus-lasha-1.jpg": {
+      "sourceHash": "eca6f76f0361a2fd9e26e24a634850d3a4f49a602e3901966a179243ef51bd10",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pelophylax-ridibundus-lasha-1.jpg",
+      "originalSize": 134382,
+      "width": 640,
+      "height": 557,
+      "derivatives": [
+        {
+          "key": "optimized/pelophylax-ridibundus-lasha-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 279,
+          "byteSize": 20879
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-lasha-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 279,
+          "byteSize": 31996
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-lasha-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 348,
+          "byteSize": 30567
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-lasha-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 348,
+          "byteSize": 46164
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-lasha-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 557,
+          "byteSize": 66330
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-lasha-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 557,
+          "byteSize": 94402
+        }
+      ],
+      "updatedAt": "2026-09-09T20:13:22.540Z"
+    },
     "pelophylax-ridibundus.jpg": {
       "sourceHash": "9010a97b2261b7e167fe328eb880fb5e8aad59dd3d1ab6487d058cac0a09c45b",
       "configFingerprint": "a895f8e025dcc7fa",
