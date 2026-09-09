@@ -114,6 +114,10 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
     en: "Dahl's whip snake (Platyceps najadum) | Non-venomous snake in Georgia",
     ka: "წენგოსფერი მცურავი (Platyceps najadum) | უშხამო გველი საქართველოში",
   },
+  "pseudopus-apodus": {
+    en: "European glass lizard (Pseudopus apodus) | Legless lizard of eastern Georgia",
+    ka: "გველხოკერა (Pseudopus apodus) | უფეხო ხვლიკი აღმოსავლეთ საქართველოში",
+  },
   "steatoda-paykulliana": {
     en: "False black widow (Steatoda paykulliana) | Cobweb spider in Georgia",
     ka: "ცრუ ყარაყურთი (Steatoda paykulliana) | ობობა საქართველოში",
