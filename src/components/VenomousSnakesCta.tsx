@@ -1,7 +1,9 @@
 "use client";
 
 import { ArrowRight } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+
+import type { AppLocale } from "@/i18n/routing";
 
 import {
   CLUSTER_HERO_BODY,
@@ -10,10 +12,13 @@ import {
   ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
 import { CoverImage } from "@/components/CoverImage";
+import { useSpeciesHref } from "@/components/LocaleSwitchProvider";
 import { Link } from "@/i18n/navigation";
 
 export function VenomousSnakesCta({ heroSrc }: { heroSrc: string }) {
   const t = useTranslations("venomousSnakes");
+  const locale = useLocale() as AppLocale;
+  const giurzaHref = useSpeciesHref("macrovipera-lebetina", locale);
 
   return (
     <section className="relative flex min-h-[70svh] items-center overflow-hidden bg-ink py-24">
@@ -38,16 +43,28 @@ export function VenomousSnakesCta({ heroSrc }: { heroSrc: string }) {
           <div className="mt-10 flex flex-wrap gap-3">
             <Link
               className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-[14px] font-medium text-ink transition-opacity hover:opacity-90"
-              href="/species"
+              href={giurzaHref}
             >
-              {t("ctaAllSpecies")}
+              {t("ctaGiurza")}
               <ArrowRight className="size-4" />
             </Link>
             <Link
               className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-[14px] font-medium text-white/85 backdrop-blur-md transition-colors hover:border-white/35 hover:text-white"
-              href="/regions"
+              href="/snakes/gvelis-nakbeni"
             >
-              {t("ctaRegions")}
+              {t("ctaBite")}
+            </Link>
+            <Link
+              className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-[14px] font-medium text-white/85 backdrop-blur-md transition-colors hover:border-white/35 hover:text-white"
+              href="/snakes-in-the-yard"
+            >
+              {t("yardCta")}
+            </Link>
+            <Link
+              className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-[14px] font-medium text-white/85 backdrop-blur-md transition-colors hover:border-white/35 hover:text-white"
+              href="/species"
+            >
+              {t("ctaAllSpecies")}
             </Link>
           </div>
         </div>

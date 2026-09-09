@@ -14,6 +14,7 @@ import {
   GuideSymptomsLead,
   GuideTwoColumnSurface,
 } from "@/components/GuideShared";
+import { useSpeciesHref } from "@/components/LocaleSwitchProvider";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { SpeciesInlineLink } from "@/components/SpeciesInlineLink";
@@ -254,6 +255,7 @@ function SnakeBiteSources() {
 function SnakeBiteSpecies({ species }: { species: Species[] }) {
   const t = useTranslations("snakeBite");
   const locale = useLocale() as AppLocale;
+  const giurzaHref = useSpeciesHref("macrovipera-lebetina", locale);
 
   return (
     <section className="border-t border-border bg-surface py-20 lg:py-28">
@@ -311,6 +313,13 @@ function SnakeBiteSpecies({ species }: { species: Species[] }) {
             href="/venomous-snakes"
           >
             {t("linkVenomous")}
+            <ArrowUpRight className="size-4" />
+          </Link>
+          <Link
+            className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-3 text-[14px] font-medium text-foreground"
+            href={giurzaHref}
+          >
+            {t("linkGiurza")}
             <ArrowUpRight className="size-4" />
           </Link>
           <Link

@@ -879,8 +879,8 @@
     "contributorsLink": "About Reptiles"
   },
   "venomousSnakes": {
-    "metaTitle": "Venomous snakes in Georgia (Caucasus) — species, risk, ID",
-    "metaDescription": "Venomous snakes of the Republic of Georgia (Caucasus): Levantine, Caucasus, Dinnik’s, Transcaucasian long-nosed, Darevsky’s, and steppe vipers. Risk, identification, safety, and atlas profiles.",
+    "metaTitle": "Venomous snakes in Georgia — Levantine viper, vipers, risk",
+    "metaDescription": "Venomous snakes of Georgia in one guide: Levantine viper (high risk), Caucasus, Dinnik’s, nose-horned and other vipers. Identification, safety, and profiles — not a medical protocol.",
     "keywords": "venomous snakes in Georgia, venomous snakes Georgia, Levantine viper, Caucasus viper, Dinnik's viper, Transcaucasian long-nosed viper, Darevsky's viper, eastern steppe viper, Macrovipera lebetina, Vipera kaznakovi, Vipera dinniki, Vipera transcaucasiana, Vipera darevskii, Vipera renardi",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Venomous snakes",
@@ -956,6 +956,8 @@
     "ctaTitle": "Continue in the atlas — from species to region",
     "ctaBody": "The full catalog, harmless species, and regional guides live in one place.",
     "ctaAllSpecies": "All species",
+    "ctaBite": "Snakebite guide",
+    "ctaGiurza": "Levantine viper profile",
     "ctaRegions": "Regions atlas",
     "compareEyebrow": "Compare",
     "compareTitle": "Vipers vs Montpellier snake",
@@ -1831,8 +1833,8 @@
     "editorialDisclaimer": "If bitten, call 112. Do not handle wild snakes to “check” signs."
   },
   "snakeBite": {
-    "metaTitle": "Snakebite — what should you do?",
-    "metaDescription": "Snakebite in Georgia: call 112 immediately. What to do, what not to do, and possible symptoms. Do not cut, suck, or apply a tourniquet. Educational page — not a medical protocol.",
+    "metaTitle": "Snakebite in Georgia — call 112 | what not to do",
+    "metaDescription": "Snakebite in Georgia: call 112 immediately. Do not cut, suck, or apply a tourniquet. Then see the venomous snakes guide and Levantine viper profile. Educational page — not a medical protocol.",
     "keywords": "snakebite Georgia, snake bite what to do, 112, venomous snake bite, snakebite symptoms",
     "breadcrumbCurrent": "Bite",
     "heroImageAlt": "Levantine viper on a rocky slope — cover for Georgia’s venomous-snake guide",
@@ -1927,6 +1929,7 @@
     "editorialDisclaimer": "The page is educational and does not replace a clinician, toxicologist, or emergency service.",
     "linkVenomous": "Venomous snakes",
     "linkYard": "Snakes in the yard",
+    "linkGiurza": "Levantine viper profile",
     "linkSnakes": "Snakes guide",
     "speciesEyebrow": "In Georgia",
     "speciesTitle": "Which venomous snakes occur in Georgia?",

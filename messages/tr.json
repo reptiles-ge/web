@@ -879,8 +879,8 @@
     "contributorsLink": "Reptiles hakkında"
   },
   "venomousSnakes": {
-    "metaTitle": "Gürcistan’da (Kafkasya) zehirli yılanlar — türler, risk, teşhis",
-    "metaDescription": "Gürcistan Cumhuriyeti (Kafkasya) zehirli yılanları: Levantin engereği, Kafkas, Dinnik, Transkafkas uzun burunlu, Darevsky ve bozkır engerekleri. Risk, teşhis, güvenlik ve reptiles.ge profilleri.",
+    "metaTitle": "Gürcistan’da zehirli yılanlar — Levant engereği, risk",
+    "metaDescription": "Gürcistan’ın zehirli yılanları tek rehberde: Levant engereği (yüksek risk), Kafkas, Dinnik, burunlu ve diğer engerekler. Tanıma, güvenlik ve profiller — tıbbi protokol değil.",
     "keywords": "Gürcistan’da zehirli yılanlar, zehirli yılanlar Gürcistan, Levant engereği, Kafkas engereği, Dinnik engereği, Transkafkas uzun burunlu engerek, Darevski engereği, doğu bozkır engereği, Macrovipera lebetina, Vipera kaznakovi, Vipera dinniki, Vipera transcaucasiana, Vipera darevskii, Vipera renardi",
     "breadcrumbHome": "Ana sayfa",
     "breadcrumbCurrent": "Zehirli yılanlar",
@@ -956,6 +956,8 @@
     "ctaTitle": "Atlasda devam edin — türden bölgeye",
     "ctaBody": "Tam katalog, zararsız türler ve bölgesel rehberler tek yerdedir.",
     "ctaAllSpecies": "Tüm türler",
+    "ctaBite": "Isırık rehberi",
+    "ctaGiurza": "Levant engereği profili",
     "ctaRegions": "Bölgeler atlası",
     "compareEyebrow": "Karşılaştırma",
     "compareTitle": "Engerekler ve Montpellier yılanı",
@@ -1831,8 +1833,8 @@
     "editorialDisclaimer": "Isırıkta 112’yi arayın. İşaretleri “kontrol etmek” için yabani yılanlara dokunmayın."
   },
   "snakeBite": {
-    "metaTitle": "Yılan ısırığı — ne yapmalısınız?",
-    "metaDescription": "Gürcistan’da yılan ısırığı: hemen 112’yi arayın. Ne yapılacağı, ne yapılmayacağı ve olası belirtiler. Kesmeyin, emmeyin, turnike uygulamayın. Eğitici sayfa — tıbbi protokol değil.",
+    "metaTitle": "Gürcistan’da yılan ısırığı — 112’yi arayın | ne yapmayın",
+    "metaDescription": "Gürcistan’da yılan ısırığı: hemen 112. Kesmeyin, emmeyin, turnike uygulamayın. Sonra zehirli yılanlar rehberi ve Levant engereği profili. Eğitici sayfa — tıbbi protokol değil.",
     "keywords": "yılan ısırığı Gürcistan, yılan ısırığında ne yapılır, 112, zehirli yılan ısırığı, yılan ısırığı belirtileri",
     "breadcrumbCurrent": "Isırık",
     "heroImageAlt": "Kayalık yamaçta Levant engereği — Gürcistan zehirli yılan rehberi kapağı",
@@ -1927,6 +1929,7 @@
     "editorialDisclaimer": "Sayfa eğitici niteliktedir ve klinisyen, toksikolog veya acil servisin yerini tutmaz.",
     "linkVenomous": "Zehirli yılanlar",
     "linkYard": "Bahçedeki yılanlar",
+    "linkGiurza": "Levant engereği profili",
     "linkSnakes": "Yılan rehberi",
     "speciesEyebrow": "Gürcistan’da",
     "speciesTitle": "Gürcistan’da hangi zehirli yılanlar bulunur?",

@@ -841,6 +841,11 @@ export function getSpeciesGuideLinks(id: string): HubClusterCard[] {
         key: "bite",
         kind: "page",
       });
+      links.push({
+        href: "/snakes-in-the-yard",
+        key: "yard",
+        kind: "page",
+      });
     } else {
       links.push({
         href: "/snakes/shxamiani-gvelis-amocnoba",

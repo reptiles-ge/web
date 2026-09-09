@@ -87,8 +87,8 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
     ka: "ბულბული (Luscinia megarhynchos) | მომღერალი ფრინველი საქართველოში",
   },
   "macrovipera-lebetina": {
-    en: "Levantine viper (Macrovipera lebetinus) | Venomous snake of eastern Georgia",
-    ka: "გიურზა (Macrovipera lebetinus) | შხამიანი გველი აღმოსავლეთ საქართველოში",
+    en: "Levantine viper (Macrovipera lebetinus) | High-risk venomous snake in Georgia",
+    ka: "გიურზა (Macrovipera lebetinus) | შხამიანი გველი საქართველოში — რისკი",
   },
   "milvus-migrans": {
     en: "Black kite (Milvus migrans) | Raptor in Georgia",
