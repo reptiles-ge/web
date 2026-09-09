@@ -106,10 +106,6 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
     en: "Dice snake (Natrix tessellata) | Non-venomous water snake in Georgia",
     ka: "წყლის ანკარა (Natrix tessellata) | უშხამო წყლის გველი საქართველოში",
   },
-  "pseudopus-apodus": {
-    en: "European glass lizard (Pseudopus apodus) | Legless lizard of eastern Georgia",
-    ka: "გველხოკერა (Pseudopus apodus) | უფეხო ხვლიკი აღმოსავლეთ საქართველოში",
-  },
   "ommatotriton-ophryticus": {
     en: "Northern banded newt (Ommatotriton ophryticus) | Newt in Georgia",
     ka: "კავკასიური ტრიტონი (Ommatotriton ophryticus) | ტრიტონი საქართველოში",
@@ -117,6 +113,10 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
   "platyceps-najadum": {
     en: "Dahl's whip snake (Platyceps najadum) | Non-venomous snake in Georgia",
     ka: "წენგოსფერი მცურავი (Platyceps najadum) | უშხამო გველი საქართველოში",
+  },
+  "pseudopus-apodus": {
+    en: "European glass lizard (Pseudopus apodus) | Legless lizard of eastern Georgia",
+    ka: "გველხოკერა (Pseudopus apodus) | უფეხო ხვლიკი აღმოსავლეთ საქართველოში",
   },
   "steatoda-paykulliana": {
     en: "False black widow (Steatoda paykulliana) | Cobweb spider in Georgia",
