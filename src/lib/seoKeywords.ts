@@ -331,10 +331,10 @@ const SPECIES_ALIASES: Record<
     ka: ["წენგოსფერი მცურავი", "უშხამო მცურავი", "Coluber najadum"],
   },
   "pseudopus-apodus": {
-    en: ["European glass lizard", "sheltopusik"],
-    ka: ["გველხოკერა"],
-    ru: ["желтопузик"],
-    tr: ["Yılan kertenkele"],
+    en: ["European glass lizard", "sheltopusik", "Ophisaurus apodus"],
+    ka: ["გველხოკერა", "ხოკერა", "Ophisaurus apodus"],
+    ru: ["желтопузик", "Ophisaurus apodus"],
+    tr: ["Yılan kertenkele", "sheltopusik", "Ophisaurus apodus"],
   },
   "rana-macrocnemis": {
     en: [
