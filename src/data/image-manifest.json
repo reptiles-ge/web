@@ -47532,6 +47532,87 @@
       ],
       "updatedAt": "2026-08-28T21:56:07.012Z"
     },
+    "pelophylax-ridibundus-giorgi-1.jpg": {
+      "sourceHash": "6f46d82e5ece2d1c550b56491c6ea559cf722ea05673cef7f6a8449c351cf823",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pelophylax-ridibundus-giorgi-1.jpg",
+      "originalSize": 232999,
+      "width": 960,
+      "height": 644,
+      "derivatives": [
+        {
+          "key": "optimized/pelophylax-ridibundus-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 215,
+          "byteSize": 21376
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 215,
+          "byteSize": 34624
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 268,
+          "byteSize": 31731
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 268,
+          "byteSize": 51194
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 429,
+          "byteSize": 63757
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 429,
+          "byteSize": 104334
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 537,
+          "byteSize": 87682
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 537,
+          "byteSize": 143396
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-giorgi-1-960.avif",
+          "format": "avif",
+          "width": 960,
+          "height": 644,
+          "byteSize": 114205
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-giorgi-1-960.webp",
+          "format": "webp",
+          "width": 960,
+          "height": 644,
+          "byteSize": 172166
+        }
+      ],
+      "updatedAt": "2026-09-09T20:12:15.926Z"
+    },
     "pelophylax-ridibundus.jpg": {
       "sourceHash": "9010a97b2261b7e167fe328eb880fb5e8aad59dd3d1ab6487d058cac0a09c45b",
       "configFingerprint": "a895f8e025dcc7fa",
