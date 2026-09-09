@@ -36274,6 +36274,101 @@
       ],
       "updatedAt": "2026-09-05T16:44:01.383Z"
     },
+    "latrodectus-tredecimguttatus-giorgi-1.jpg": {
+      "sourceHash": "94bf37f0faec1562e9c8426026a1b2527dadc251142b02712ffff9fc668c0c4a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "latrodectus-tredecimguttatus-giorgi-1.jpg",
+      "originalSize": 136168,
+      "width": 1821,
+      "height": 1211,
+      "derivatives": [
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 212,
+          "byteSize": 7524
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 212,
+          "byteSize": 9264
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 9825
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 12096
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 17551
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 21530
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 532,
+          "byteSize": 22946
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 532,
+          "byteSize": 28224
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-giorgi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 798,
+          "byteSize": 37214
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-giorgi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 798,
+          "byteSize": 46256
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-giorgi-1-1821.avif",
+          "format": "avif",
+          "width": 1821,
+          "height": 1211,
+          "byteSize": 68922
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-giorgi-1-1821.webp",
+          "format": "webp",
+          "width": 1821,
+          "height": 1211,
+          "byteSize": 80676
+        }
+      ],
+      "updatedAt": "2026-09-09T19:59:51.795Z"
+    },
     "latrodectus-tredecimguttatus-ioane-1.jpg": {
       "sourceHash": "60a002b8c6d6ada2629c07927707dd5871e361aec37f0901018c5eaea664158e",
       "configFingerprint": "a895f8e025dcc7fa",
