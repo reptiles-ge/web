@@ -47532,6 +47532,101 @@
       ],
       "updatedAt": "2026-08-28T21:56:07.012Z"
     },
+    "pelophylax-ridibundus-aleksandar-1.jpg": {
+      "sourceHash": "3ef1778365af3a40470dd31b4d62cbf6a4548a9b6a3f59776576837de3834b81",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pelophylax-ridibundus-aleksandar-1.jpg",
+      "originalSize": 417379,
+      "width": 2027,
+      "height": 1352,
+      "derivatives": [
+        {
+          "key": "optimized/pelophylax-ridibundus-aleksandar-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 214,
+          "byteSize": 11205
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-aleksandar-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 214,
+          "byteSize": 16170
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-aleksandar-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 15636
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-aleksandar-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 23510
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-aleksandar-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 33902
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-aleksandar-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 52216
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-aleksandar-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 49436
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-aleksandar-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 74882
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-aleksandar-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 93426
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-aleksandar-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 142056
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-aleksandar-1-2027.avif",
+          "format": "avif",
+          "width": 2027,
+          "height": 1352,
+          "byteSize": 242729
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-aleksandar-1-2027.webp",
+          "format": "webp",
+          "width": 2027,
+          "height": 1352,
+          "byteSize": 312332
+        }
+      ],
+      "updatedAt": "2026-09-09T20:14:04.464Z"
+    },
     "pelophylax-ridibundus-giorgi-1.jpg": {
       "sourceHash": "6f46d82e5ece2d1c550b56491c6ea559cf722ea05673cef7f6a8449c351cf823",
       "configFingerprint": "409788ee46c653d8",
