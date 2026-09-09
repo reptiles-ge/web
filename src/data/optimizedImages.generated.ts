@@ -3798,11 +3798,46 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/latrodectus-tredecimguttatus-armen-1.jpg": {
+    "path": "latrodectus-tredecimguttatus-armen-1",
+    "width": 1280,
+    "height": 983,
+    "widths": [320, 400, 640, 800, 1200, 1280],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/latrodectus-tredecimguttatus-armen-2.jpg": {
+    "path": "latrodectus-tredecimguttatus-armen-2",
+    "width": 1440,
+    "height": 1064,
+    "widths": [320, 400, 640, 800, 1200, 1440],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/latrodectus-tredecimguttatus-giorgi-1.jpg": {
+    "path": "latrodectus-tredecimguttatus-giorgi-1",
+    "width": 1821,
+    "height": 1211,
+    "widths": [320, 400, 640, 800, 1200, 1821],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/latrodectus-tredecimguttatus-ioane-1.jpg": {
     "path": "latrodectus-tredecimguttatus-ioane-1",
     "width": 960,
     "height": 1275,
     "widths": [400, 800, 960],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/latrodectus-tredecimguttatus-julien-1.jpg": {
+    "path": "latrodectus-tredecimguttatus-julien-1",
+    "width": 843,
+    "height": 1264,
+    "widths": [320, 400, 640, 800, 843],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/latrodectus-tredecimguttatus-uros-1.jpg": {
+    "path": "latrodectus-tredecimguttatus-uros-1",
+    "width": 1280,
+    "height": 960,
+    "widths": [320, 400, 640, 800, 1200, 1280],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/latrodectus-tredecimguttatus-zakro-1.jpg": {

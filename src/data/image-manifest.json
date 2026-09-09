@@ -36274,6 +36274,291 @@
       ],
       "updatedAt": "2026-09-05T16:44:01.383Z"
     },
+    "latrodectus-tredecimguttatus-armen-1.jpg": {
+      "sourceHash": "7e3f6ffdd6e11df7aba84d0ce3cb68f8f79eed18da9aa1a8c6e7b00500b4bb74",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "latrodectus-tredecimguttatus-armen-1.jpg",
+      "originalSize": 211612,
+      "width": 1280,
+      "height": 983,
+      "derivatives": [
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-armen-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 246,
+          "byteSize": 10178
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-armen-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 246,
+          "byteSize": 12960
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-armen-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 307,
+          "byteSize": 14978
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-armen-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 307,
+          "byteSize": 18280
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-armen-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 492,
+          "byteSize": 32499
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-armen-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 492,
+          "byteSize": 39944
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-armen-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 614,
+          "byteSize": 45490
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-armen-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 614,
+          "byteSize": 56138
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-armen-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 922,
+          "byteSize": 79639
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-armen-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 922,
+          "byteSize": 96076
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-armen-1-1280.avif",
+          "format": "avif",
+          "width": 1280,
+          "height": 983,
+          "byteSize": 88448
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-armen-1-1280.webp",
+          "format": "webp",
+          "width": 1280,
+          "height": 983,
+          "byteSize": 100350
+        }
+      ],
+      "updatedAt": "2026-09-09T20:02:24.206Z"
+    },
+    "latrodectus-tredecimguttatus-armen-2.jpg": {
+      "sourceHash": "88adf6b8a4c2c258d21bc5657c8f0445c58019aea05808faba311f9bedcc1044",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "latrodectus-tredecimguttatus-armen-2.jpg",
+      "originalSize": 255684,
+      "width": 1440,
+      "height": 1064,
+      "derivatives": [
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-armen-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 236,
+          "byteSize": 8103
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-armen-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 236,
+          "byteSize": 9904
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-armen-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 296,
+          "byteSize": 11911
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-armen-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 296,
+          "byteSize": 14550
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-armen-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 473,
+          "byteSize": 28234
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-armen-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 473,
+          "byteSize": 34264
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-armen-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 591,
+          "byteSize": 42850
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-armen-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 591,
+          "byteSize": 52238
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-armen-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 887,
+          "byteSize": 86473
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-armen-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 887,
+          "byteSize": 108938
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-armen-2-1440.avif",
+          "format": "avif",
+          "width": 1440,
+          "height": 1064,
+          "byteSize": 119362
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-armen-2-1440.webp",
+          "format": "webp",
+          "width": 1440,
+          "height": 1064,
+          "byteSize": 139898
+        }
+      ],
+      "updatedAt": "2026-09-09T20:03:27.436Z"
+    },
+    "latrodectus-tredecimguttatus-giorgi-1.jpg": {
+      "sourceHash": "94bf37f0faec1562e9c8426026a1b2527dadc251142b02712ffff9fc668c0c4a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "latrodectus-tredecimguttatus-giorgi-1.jpg",
+      "originalSize": 136168,
+      "width": 1821,
+      "height": 1211,
+      "derivatives": [
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 212,
+          "byteSize": 7524
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 212,
+          "byteSize": 9264
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 9825
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 12096
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 17551
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 21530
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 532,
+          "byteSize": 22946
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 532,
+          "byteSize": 28224
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-giorgi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 798,
+          "byteSize": 37214
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-giorgi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 798,
+          "byteSize": 46256
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-giorgi-1-1821.avif",
+          "format": "avif",
+          "width": 1821,
+          "height": 1211,
+          "byteSize": 68922
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-giorgi-1-1821.webp",
+          "format": "webp",
+          "width": 1821,
+          "height": 1211,
+          "byteSize": 80676
+        }
+      ],
+      "updatedAt": "2026-09-09T19:59:51.795Z"
+    },
     "latrodectus-tredecimguttatus-ioane-1.jpg": {
       "sourceHash": "60a002b8c6d6ada2629c07927707dd5871e361aec37f0901018c5eaea664158e",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -36326,6 +36611,182 @@
         }
       ],
       "updatedAt": "2026-09-05T16:40:00.150Z"
+    },
+    "latrodectus-tredecimguttatus-julien-1.jpg": {
+      "sourceHash": "bc35496cc7d432b91e387f267168591f2f28e6b08710c2b63873be7430e688b1",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "latrodectus-tredecimguttatus-julien-1.jpg",
+      "originalSize": 138549,
+      "width": 843,
+      "height": 1264,
+      "derivatives": [
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-julien-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 480,
+          "byteSize": 17859
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-julien-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 480,
+          "byteSize": 24806
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-julien-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 600,
+          "byteSize": 24668
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-julien-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 600,
+          "byteSize": 34118
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-julien-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 960,
+          "byteSize": 49359
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-julien-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 960,
+          "byteSize": 66914
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-julien-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1200,
+          "byteSize": 67237
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-julien-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1200,
+          "byteSize": 91878
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-julien-1-843.avif",
+          "format": "avif",
+          "width": 843,
+          "height": 1264,
+          "byteSize": 77346
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-julien-1-843.webp",
+          "format": "webp",
+          "width": 843,
+          "height": 1264,
+          "byteSize": 100446
+        }
+      ],
+      "updatedAt": "2026-09-09T20:00:26.130Z"
+    },
+    "latrodectus-tredecimguttatus-uros-1.jpg": {
+      "sourceHash": "d6964c9a7ba2652a6c473b381e9aeafa45174aa6e51b1a443596cf43b80db477",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "latrodectus-tredecimguttatus-uros-1.jpg",
+      "originalSize": 67624,
+      "width": 1280,
+      "height": 960,
+      "derivatives": [
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-uros-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 5231
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-uros-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 6024
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-uros-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 7389
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-uros-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 8298
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-uros-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 14149
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-uros-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 16564
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-uros-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 18414
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-uros-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 21374
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-uros-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 30082
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-uros-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 34850
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-uros-1-1280.avif",
+          "format": "avif",
+          "width": 1280,
+          "height": 960,
+          "byteSize": 34236
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-uros-1-1280.webp",
+          "format": "webp",
+          "width": 1280,
+          "height": 960,
+          "byteSize": 39240
+        }
+      ],
+      "updatedAt": "2026-09-09T20:01:39.206Z"
     },
     "latrodectus-tredecimguttatus-zakro-1.jpg": {
       "sourceHash": "f4547f3a798eb58d1ffac28713a4bfd6d588378068ad16099f26d4730823f465",
