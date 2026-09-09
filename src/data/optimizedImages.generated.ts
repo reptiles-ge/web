@@ -4974,6 +4974,34 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1977],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/pelophylax-ridibundus-aleksandar-1.jpg": {
+    "path": "pelophylax-ridibundus-aleksandar-1",
+    "width": 2027,
+    "height": 1352,
+    "widths": [320, 400, 640, 800, 1200, 2027],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/pelophylax-ridibundus-giorgi-1.jpg": {
+    "path": "pelophylax-ridibundus-giorgi-1",
+    "width": 960,
+    "height": 644,
+    "widths": [320, 400, 640, 800, 960],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/pelophylax-ridibundus-lasha-1.jpg": {
+    "path": "pelophylax-ridibundus-lasha-1",
+    "width": 640,
+    "height": 557,
+    "widths": [320, 400, 640],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/pelophylax-ridibundus-vlad-1.jpg": {
+    "path": "pelophylax-ridibundus-vlad-1",
+    "width": 1280,
+    "height": 960,
+    "widths": [320, 400, 640, 800, 1200, 1280],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/pelophylax-ridibundus.jpg": {
     "path": "pelophylax-ridibundus",
     "width": 2048,
