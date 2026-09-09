@@ -3560,6 +3560,59 @@
       ],
       "updatedAt": "2026-09-08T18:37:58.562Z"
     },
+    "authors/david-tarkhnishvili.jpg": {
+      "sourceHash": "30f3a8dea6993982128fb26663adab75daa84dd9a096730e7086ee7df6a1a8a1",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "authors/david-tarkhnishvili.jpg",
+      "originalSize": 27093,
+      "width": 480,
+      "height": 480,
+      "derivatives": [
+        {
+          "key": "optimized/authors/david-tarkhnishvili-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 320,
+          "byteSize": 7862
+        },
+        {
+          "key": "optimized/authors/david-tarkhnishvili-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 320,
+          "byteSize": 10396
+        },
+        {
+          "key": "optimized/authors/david-tarkhnishvili-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 400,
+          "byteSize": 10551
+        },
+        {
+          "key": "optimized/authors/david-tarkhnishvili-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 400,
+          "byteSize": 13942
+        },
+        {
+          "key": "optimized/authors/david-tarkhnishvili-480.avif",
+          "format": "avif",
+          "width": 480,
+          "height": 480,
+          "byteSize": 14345
+        },
+        {
+          "key": "optimized/authors/david-tarkhnishvili-480.webp",
+          "format": "webp",
+          "width": 480,
+          "height": 480,
+          "byteSize": 17584
+        }
+      ],
+      "updatedAt": "2026-09-09T23:05:31.639Z"
+    },
     "authors/giorgi-iankoshvili.jpg": {
       "sourceHash": "9293cfefb2f50d69de48b05398db754295b5bea000c048b332b30a6766c75b6d",
       "configFingerprint": "409788ee46c653d8",
