@@ -274,6 +274,34 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     role: "photographer",
     slug: "velur-bunebastan-axlos",
   },
+  {
+    aliases: [
+      "David Tarkhnishvili",
+      "Davit Tarkhnishvili",
+      "დავით თარხნიშვილი",
+    ],
+    bio: {
+      en: "David Tarkhnishvili is a well-known Georgian biologist, evolutionary ecologist, and educator who is currently a professor at Ilia State University. His research and scientific work focus mainly on the biodiversity of the Caucasus region, population genetics, and evolutionary biology.",
+      ka: "დავით თარხნიშვილი არის ცნობილი ქართველი ბიოლოგი, ევოლუციური ეკოლოგი და პედაგოგი, რომელიც ამჟამად ილიას სახელმწიფო უნივერსიტეტის პროფესორია. მისი კვლევები და სამეცნიერო მოღვაწეობა ძირითადად კავკასიის რეგიონის ბიომრავალფეროვნებას, პოპულაციურ გენეტიკასა და ევოლუციურ ბიოლოგიას უკავშირდება.",
+      ru: "Давид Тархнишвили — известный грузинский биолог, эволюционный эколог и педагог, профессор Государственного университета Ильи. Его исследования и научная деятельность связаны в основном с биоразнообразием Кавказского региона, популяционной генетикой и эволюционной биологией.",
+      tr: "David Tarkhnishvili, şu anda Ilia Devlet Üniversitesi profesörü olan tanınmış bir Gürcü biyolog, evrimsel ekolog ve eğitimcidir. Araştırma ve bilimsel çalışmaları esas olarak Kafkasya bölgesinin biyoçeşitliliği, popülasyon genetiği ve evrimsel biyoloji ile bağlantılıdır.",
+    },
+    id: "david-tarkhnishvili",
+    links: {
+      facebook: "https://www.facebook.com/david.tarkhnishvili",
+    },
+    name: {
+      en: "David Tarkhnishvili",
+      ka: "დავით თარხნიშვილი",
+      ru: "Давид Тархнишвили",
+      tr: "David Tarkhnishvili",
+    },
+    portraitClass: "object-[50%_28%]",
+    portraitSrc: "https://cdn.reptiles.ge/authors/david-tarkhnishvili.jpg",
+    published: true,
+    role: "researcher",
+    slug: "david-tarkhnishvili",
+  },
 ];
 
 const bySlug = new Map(CREDIT_AUTHORS.map((author) => [author.slug, author]));
