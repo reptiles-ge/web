@@ -118,7 +118,7 @@ describe("formatVisitMessage", () => {
       }),
     ).toBe(
       [
-        "ახალი ვიზიტი · KA",
+        "🟢 ახალი ვიზიტი · KA",
         "",
         "გვერდი: გიურზა",
         "URL: /gvelebi/giurza",
@@ -132,7 +132,9 @@ describe("formatVisitMessage", () => {
 
   it("omits missing optional lines", () => {
     expect(formatVisitMessage({ path: "/gvelebi" })).toBe(
-      ["ახალი ვიზიტი · KA", "", "გვერდი: გველები", "URL: /gvelebi"].join("\n"),
+      ["🔴 ახალი ვიზიტი · KA", "", "გვერდი: გველები", "URL: /gvelebi"].join(
+        "\n",
+      ),
     );
   });
 
@@ -141,7 +143,7 @@ describe("formatVisitMessage", () => {
       formatVisitMessage({ path: "/en/snakes/macrovipera-lebetina" }),
     ).toBe(
       [
-        "ახალი ვიზიტი · EN",
+        "🔴 ახალი ვიზიტი · EN",
         "",
         "გვერდი: გიურზა",
         "URL: /en/snakes/macrovipera-lebetina",
@@ -156,7 +158,7 @@ describe("formatVisitMessage", () => {
       }),
     ).toBe(
       [
-        "ახალი ვიზიტი · KA",
+        "🔵 ახალი ვიზიტი · KA",
         "",
         "გვერდი: მწვანე გომბეშო",
         "URL: /amfibiebi/mtsvane-gombesho",

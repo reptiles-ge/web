@@ -21,11 +21,12 @@ export function formatVisitMessage(input: {
   const pathname = displayVisitPath(cleaned);
   const locale = visitLocaleFromPath(pathname).toUpperCase();
   const page = visitPageLabel(cleaned);
-  const lines = [`ახალი ვიზიტი · ${locale}`, ""];
+  const source = visitReferrerSource(input.referrer, cleaned);
+  const lines = [`${visitSourceMark(source)} ახალი ვიზიტი · ${locale}`, ""];
   if (page) lines.push(`გვერდი: ${page}`);
   lines.push(`URL: ${pathname}`);
   const extra = [
-    sourceLine(input.referrer, cleaned),
+    source ? `წყარო: ${source}` : undefined,
     placeLine(input.country, input.city),
     deviceLine(input.userAgent),
   ].filter((line): line is string => Boolean(line));
@@ -46,7 +47,8 @@ function placeLine(country?: null | string, city?: null | string) {
   return place ? `ადგილი: ${place}` : undefined;
 }
 
-function sourceLine(referrer?: string, path?: string) {
-  const source = visitReferrerSource(referrer, path);
-  return source ? `წყარო: ${source}` : undefined;
+function visitSourceMark(source?: string) {
+  if (!source) return "🔴";
+  if (source === "Facebook") return "🔵";
+  return "🟢";
 }
