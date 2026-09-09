@@ -3805,6 +3805,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1280],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/latrodectus-tredecimguttatus-armen-2.jpg": {
+    "path": "latrodectus-tredecimguttatus-armen-2",
+    "width": 1440,
+    "height": 1064,
+    "widths": [320, 400, 640, 800, 1200, 1440],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/latrodectus-tredecimguttatus-giorgi-1.jpg": {
     "path": "latrodectus-tredecimguttatus-giorgi-1",
     "width": 1821,
