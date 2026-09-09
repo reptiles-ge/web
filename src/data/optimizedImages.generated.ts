@@ -3826,6 +3826,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 960],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/latrodectus-tredecimguttatus-irakli-1.jpg": {
+    "path": "latrodectus-tredecimguttatus-irakli-1",
+    "width": 960,
+    "height": 720,
+    "widths": [320, 400, 640, 800, 960],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/latrodectus-tredecimguttatus-julien-1.jpg": {
     "path": "latrodectus-tredecimguttatus-julien-1",
     "width": 843,
