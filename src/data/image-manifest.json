@@ -36422,6 +36422,87 @@
       ],
       "updatedAt": "2026-09-05T16:40:00.150Z"
     },
+    "latrodectus-tredecimguttatus-julien-1.jpg": {
+      "sourceHash": "bc35496cc7d432b91e387f267168591f2f28e6b08710c2b63873be7430e688b1",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "latrodectus-tredecimguttatus-julien-1.jpg",
+      "originalSize": 138549,
+      "width": 843,
+      "height": 1264,
+      "derivatives": [
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-julien-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 480,
+          "byteSize": 17859
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-julien-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 480,
+          "byteSize": 24806
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-julien-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 600,
+          "byteSize": 24668
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-julien-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 600,
+          "byteSize": 34118
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-julien-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 960,
+          "byteSize": 49359
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-julien-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 960,
+          "byteSize": 66914
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-julien-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1200,
+          "byteSize": 67237
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-julien-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1200,
+          "byteSize": 91878
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-julien-1-843.avif",
+          "format": "avif",
+          "width": 843,
+          "height": 1264,
+          "byteSize": 77346
+        },
+        {
+          "key": "optimized/latrodectus-tredecimguttatus-julien-1-843.webp",
+          "format": "webp",
+          "width": 843,
+          "height": 1264,
+          "byteSize": 100446
+        }
+      ],
+      "updatedAt": "2026-09-09T20:00:26.130Z"
+    },
     "latrodectus-tredecimguttatus-zakro-1.jpg": {
       "sourceHash": "f4547f3a798eb58d1ffac28713a4bfd6d588378068ad16099f26d4730823f465",
       "configFingerprint": "a895f8e025dcc7fa",
