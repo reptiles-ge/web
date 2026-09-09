@@ -24960,6 +24960,87 @@
       ],
       "updatedAt": "2026-09-05T15:38:13.999Z"
     },
+    "hyla-savignyi-davit-1.jpg": {
+      "sourceHash": "1c01a9e11e8dbb2cdc549b2dc5ca337db7295a436a50ad8aef3263d65a034d85",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "hyla-savignyi-davit-1.jpg",
+      "originalSize": 153140,
+      "width": 810,
+      "height": 686,
+      "derivatives": [
+        {
+          "key": "optimized/hyla-savignyi-davit-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 271,
+          "byteSize": 15823
+        },
+        {
+          "key": "optimized/hyla-savignyi-davit-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 271,
+          "byteSize": 23478
+        },
+        {
+          "key": "optimized/hyla-savignyi-davit-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 339,
+          "byteSize": 22827
+        },
+        {
+          "key": "optimized/hyla-savignyi-davit-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 339,
+          "byteSize": 32804
+        },
+        {
+          "key": "optimized/hyla-savignyi-davit-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 542,
+          "byteSize": 45365
+        },
+        {
+          "key": "optimized/hyla-savignyi-davit-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 542,
+          "byteSize": 62286
+        },
+        {
+          "key": "optimized/hyla-savignyi-davit-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 678,
+          "byteSize": 63931
+        },
+        {
+          "key": "optimized/hyla-savignyi-davit-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 678,
+          "byteSize": 86380
+        },
+        {
+          "key": "optimized/hyla-savignyi-davit-1-810.avif",
+          "format": "avif",
+          "width": 810,
+          "height": 686,
+          "byteSize": 67812
+        },
+        {
+          "key": "optimized/hyla-savignyi-davit-1-810.webp",
+          "format": "webp",
+          "width": 810,
+          "height": 686,
+          "byteSize": 85266
+        }
+      ],
+      "updatedAt": "2026-09-09T20:19:25.659Z"
+    },
     "hyla-savignyi-mobile.jpg": {
       "sourceHash": "963a1d9314feb0c40815715adc06c5de72fb5b0d76c10f45f06cb262d8dbaa0d",
       "configFingerprint": "a895f8e025dcc7fa",
