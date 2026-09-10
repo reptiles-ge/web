@@ -1,7 +1,14 @@
 import type { GalleryImage, PhotoCredit } from "./speciesTypes";
 
+import { hasPhotoCoordinates } from "@/lib/photoCoordinates";
+
 export function hasPhotoCredit(credit?: PhotoCredit): credit is PhotoCredit {
-  return Boolean(credit?.photographer || credit?.location || credit?.date);
+  return Boolean(
+    credit?.photographer ||
+      credit?.location ||
+      credit?.date ||
+      hasPhotoCoordinates(credit),
+  );
 }
 
 export function mergeGallery(
@@ -26,11 +33,14 @@ export function overlayPhotoCredit(
   const url = extra?.url ?? base?.url;
   const location = extra?.location ?? base?.location;
   const date = extra?.date ?? base?.date;
+  const lat = base?.lat ?? extra?.lat;
+  const lng = base?.lng ?? extra?.lng;
   const merged: PhotoCredit = {
     ...(photographer ? { photographer } : {}),
     ...(url ? { url } : {}),
     ...(location ? { location } : {}),
     ...(date ? { date } : {}),
+    ...(typeof lat === "number" && typeof lng === "number" ? { lat, lng } : {}),
   };
   return hasPhotoCredit(merged) ? merged : undefined;
 }
