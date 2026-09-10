@@ -19,6 +19,7 @@ import {
   type OptimizeCatalogUpdate,
   optimizeUploadedOriginal,
 } from "@/lib/imageOptimize";
+import { parsePhotoCoordinatesInput } from "@/lib/photoCoordinates";
 import { CDN_BASE } from "@/lib/site";
 import { kaToSlug } from "@/lib/slugify";
 
@@ -38,6 +39,8 @@ export type AddSpeciesPhotosResult = {
 export type AdminPhotoCreditInput = {
   date?: string;
   georgiaField?: boolean;
+  lat?: string;
+  lng?: string;
   location?: string;
   locationEn?: string;
   photographer?: string;
@@ -147,6 +150,10 @@ export function creditFromInput(
   const date = input.date?.trim();
   const url = photoCreditUrl(input.url);
   const georgiaField = Boolean(input.georgiaField);
+  const coordinates = parsePhotoCoordinatesInput(
+    input.lat ?? "",
+    input.lng ?? "",
+  );
   if (georgiaField && !location) {
     throw new Error("საქართველოს ველის ფოტოს ადგილი სავალდებულოა");
   }
@@ -155,6 +162,7 @@ export function creditFromInput(
     ...(url ? { url } : {}),
     ...(location ? { location } : {}),
     ...(date ? { date } : {}),
+    ...(coordinates ? { lat: coordinates.lat, lng: coordinates.lng } : {}),
     ...(georgiaField ? { photoConfidence: "georgia-field" } : {}),
   };
   return Object.keys(credit).length > 0 ? credit : undefined;

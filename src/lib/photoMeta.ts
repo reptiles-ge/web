@@ -7,6 +7,7 @@ import {
   hasPublishedCreditAuthorPage,
 } from "@/data/creditAuthors";
 import { creditAuthorUrl } from "@/lib/creditAuthors";
+import { hasPhotoCoordinates } from "@/lib/photoCoordinates";
 import { absoluteImageUrl } from "@/lib/site";
 import { speciesPhotoAlt } from "@/lib/speciesMeta";
 
@@ -30,6 +31,7 @@ export function galleryImageObject(
   );
   const format = encodingFormat(photo.src);
   const creator = credit ? personNode(credit, locale) : undefined;
+  const contentLocation = photoContentLocation(credit);
 
   return {
     "@type": "ImageObject",
@@ -47,14 +49,7 @@ export function galleryImageObject(
         }
       : {}),
     ...(credit?.date ? { dateCreated: credit.date } : {}),
-    ...(credit?.location
-      ? {
-          contentLocation: {
-            "@type": "Place",
-            name: credit.location,
-          },
-        }
-      : {}),
+    ...(contentLocation ? { contentLocation } : {}),
   };
 }
 
@@ -92,5 +87,22 @@ function personNode(credit: PhotoCredit, locale: AppLocale) {
       : credit.url
         ? { url: credit.url }
         : {}),
+  };
+}
+
+function photoContentLocation(credit?: PhotoCredit) {
+  if (!credit?.location && !hasPhotoCoordinates(credit)) return undefined;
+  return {
+    "@type": "Place" as const,
+    ...(credit.location ? { name: credit.location } : {}),
+    ...(hasPhotoCoordinates(credit)
+      ? {
+          geo: {
+            "@type": "GeoCoordinates" as const,
+            latitude: credit.lat,
+            longitude: credit.lng,
+          },
+        }
+      : {}),
   };
 }

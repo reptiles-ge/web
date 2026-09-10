@@ -266,6 +266,8 @@ export function SpeciesGalleryLightbox({
                     activeSlide.subject
                       ? {
                           date: activeSlide.credit?.date,
+                          lat: activeSlide.credit?.lat,
+                          lng: activeSlide.credit?.lng,
                           location: activeSlide.credit?.location,
                         }
                       : activeSlide.credit

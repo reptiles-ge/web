@@ -9,6 +9,10 @@ import {
 } from "@/data/species";
 import { type AnimalGroup, speciesAtlasMeta } from "@/data/speciesAtlas";
 import { type CoverTarget } from "@/lib/adminCover";
+import {
+  normalizePhotoCoordinates,
+  type PhotoCoordinates,
+} from "@/lib/photoCoordinates";
 import { CDN_BASE } from "@/lib/site";
 
 export type { CoverTarget };
@@ -114,8 +118,12 @@ export function appendGalleryItemToSpecies(
 }
 
 export function creditsEqual(a?: PhotoCredit, b?: PhotoCredit): boolean {
-  const left = Object.fromEntries(creditEntries(a ?? {}));
-  const right = Object.fromEntries(creditEntries(b ?? {}));
+  const left = Object.fromEntries(
+    creditEntries(a ?? {}).map(([key, value]) => [key, String(value)]),
+  );
+  const right = Object.fromEntries(
+    creditEntries(b ?? {}).map(([key, value]) => [key, String(value)]),
+  );
   const keys = new Set([...Object.keys(left), ...Object.keys(right)]);
   for (const key of keys) {
     if (left[key] !== right[key]) return false;
@@ -130,11 +138,7 @@ export function formatGalleryItemYaml(item: GalleryImage): string {
   if (fields.length > 0) {
     lines.push("    credit:");
     for (const [key, value] of fields) {
-      lines.push(
-        key === "url"
-          ? `      url: ${JSON.stringify(value)}`
-          : `      ${key}: ${yamlScalar(value)}`,
-      );
+      lines.push(`      ${formatCreditField(key, value)}`);
     }
   }
   return `${lines.join("\n")}\n`;
@@ -534,6 +538,107 @@ export function setCoverInSpecies(
   }
 }
 
+export function updateGalleryPhotoCoordinatesInMdx(
+  raw: string,
+  src: string,
+  coordinates: null | PhotoCoordinates,
+): string {
+  const gallery = normalizeGallery(matter(raw).data.gallery);
+  const index = gallery.findIndex((item) => item.src === src);
+  if (index < 0) {
+    throw new Error(`Unknown gallery src: ${src}`);
+  }
+
+  const current = gallery[index];
+  if (!current) {
+    throw new Error(`Unknown gallery src: ${src}`);
+  }
+  const nextCredit = withPhotoCoordinates(current.credit, coordinates);
+  const nextItem: GalleryImage = nextCredit
+    ? { credit: nextCredit, src }
+    : { src };
+
+  const newline = raw.includes("\r\n") ? "\r\n" : "\n";
+  const lines = raw.split(/\r?\n/);
+  const range = findGalleryRange(lines);
+  if (!range) {
+    throw new Error("Gallery block not found");
+  }
+
+  const body = lines.slice(range.start + 1, range.end);
+  let trailing = 0;
+  for (let i = body.length - 1; i >= 0; i -= 1) {
+    if (body[i].trim() !== "") break;
+    trailing += 1;
+  }
+  const trailingLines = trailing > 0 ? body.slice(body.length - trailing) : [];
+  const items = splitGalleryItems(body);
+  if (items.length !== gallery.length) {
+    throw new Error("Could not parse gallery items");
+  }
+
+  const itemIndex = items.findIndex((item) => galleryItemSrc(item) === src);
+  if (itemIndex < 0) {
+    throw new Error(`Unknown gallery src: ${src}`);
+  }
+
+  const replacement = formatGalleryItemYaml(nextItem)
+    .replace(/\r?\n$/, "")
+    .split(/\r?\n/);
+  const nextItems = [...items];
+  nextItems[itemIndex] = replacement;
+
+  let next = [
+    ...lines.slice(0, range.start + 1),
+    ...nextItems.flat(),
+    ...trailingLines,
+    ...lines.slice(range.end),
+  ].join(newline);
+
+  const data = matter(next).data as {
+    image?: unknown;
+    mobileImage?: unknown;
+  };
+  if (data.image === src) {
+    next = setCoverInMdx(next, "desktop", nextItem, false);
+  }
+  if (data.mobileImage === src) {
+    next = setCoverInMdx(next, "mobile", nextItem, false);
+  }
+
+  const check = normalizeGallery(matter(next).data.gallery).find(
+    (item) => item.src === src,
+  );
+  if (!creditsEqual(check?.credit, nextItem.credit)) {
+    throw new Error("Failed to update photo coordinates");
+  }
+  return next;
+}
+
+export function updateGalleryPhotoCoordinatesInSpecies(
+  id: string,
+  src: string,
+  coordinates: null | PhotoCoordinates,
+  repoRoot = process.cwd(),
+) {
+  if (!isSpeciesContentId(id)) {
+    throw new Error("Invalid species id");
+  }
+  const kaPath = path.join(repoRoot, "src/content/species", id, "ka.mdx");
+  if (!fs.existsSync(kaPath)) {
+    throw new Error(`Missing ${id}/ka.mdx`);
+  }
+  fs.writeFileSync(
+    kaPath,
+    updateGalleryPhotoCoordinatesInMdx(
+      fs.readFileSync(kaPath, "utf8"),
+      src,
+      coordinates,
+    ),
+    "utf8",
+  );
+}
+
 function assertGalleryPermutation(current: string[], next: string[]) {
   if (next.length !== current.length) {
     throw new Error("Gallery order must include every photo once");
@@ -578,11 +683,15 @@ function coverTargetForSrc(
   return null;
 }
 
-function creditEntries(credit: PhotoCredit): Array<[string, string]> {
-  const entries: Array<[string, string]> = [];
+function creditEntries(
+  credit: PhotoCredit,
+): Array<[string, number | string]> {
+  const entries: Array<[string, number | string]> = [];
   if (credit.photographer) entries.push(["photographer", credit.photographer]);
   if (credit.url) entries.push(["url", credit.url]);
   if (credit.location) entries.push(["location", credit.location]);
+  if (typeof credit.lat === "number") entries.push(["lat", credit.lat]);
+  if (typeof credit.lng === "number") entries.push(["lng", credit.lng]);
   if (credit.date) entries.push(["date", credit.date]);
   if (credit.photoConfidence) {
     entries.push(["photoConfidence", credit.photoConfidence]);
@@ -634,13 +743,15 @@ function formatCreditBlock(key: string, credit?: PhotoCredit): string[] {
   if (fields.length === 0) return [];
   const lines = [`${key}:`];
   for (const [field, value] of fields) {
-    lines.push(
-      field === "url"
-        ? `  url: ${JSON.stringify(value)}`
-        : `  ${field}: ${yamlScalar(value)}`,
-    );
+    lines.push(`  ${formatCreditField(field, value)}`);
   }
   return lines;
+}
+
+function formatCreditField(key: string, value: number | string): string {
+  if (typeof value === "number") return `${key}: ${value}`;
+  if (key === "url") return `url: ${JSON.stringify(value)}`;
+  return `${key}: ${yamlScalar(value)}`;
 }
 
 function galleryItemSrc(lines: string[]): null | string {
@@ -718,6 +829,11 @@ function normalizeCredit(value: unknown): PhotoCredit | undefined {
   }
   if (typeof record.date === "string" && record.date.trim()) {
     credit.date = record.date.trim();
+  }
+  const coordinates = normalizePhotoCoordinates(record.lat, record.lng);
+  if (coordinates) {
+    credit.lat = coordinates.lat;
+    credit.lng = coordinates.lng;
   }
   if (
     record.photoConfidence === "georgia-field" ||
@@ -800,6 +916,20 @@ function splitGalleryItems(lines: string[]): string[][] {
   }
   if (current) items.push(current);
   return items;
+}
+
+function withPhotoCoordinates(
+  credit: PhotoCredit | undefined,
+  coordinates: null | PhotoCoordinates,
+): PhotoCredit | undefined {
+  const next: PhotoCredit = { ...(credit ?? {}) };
+  delete next.lat;
+  delete next.lng;
+  if (coordinates) {
+    next.lat = coordinates.lat;
+    next.lng = coordinates.lng;
+  }
+  return Object.keys(next).length > 0 ? next : undefined;
 }
 
 function yamlScalar(value: string): string {

@@ -34,7 +34,7 @@ export function AdminSpeciesEditor({
   scientificName,
 }: Props) {
   const [busy, setBusy] = useState<
-    "cover" | "idle" | "remove" | "reorder" | "upload"
+    "coordinates" | "cover" | "idle" | "remove" | "reorder" | "upload"
   >("idle");
   const [error, setError] = useState<null | string>(null);
   const [ok, setOk] = useState<null | string>(null);
@@ -253,6 +253,73 @@ export function AdminSpeciesEditor({
     }
   }
 
+  async function onSaveCoordinates(
+    src: string,
+    input: { clear?: boolean; lat: string; lng: string },
+  ) {
+    if (busyRef.current) return;
+    busyRef.current = true;
+    setBusy("coordinates");
+    setError(null);
+    setOk(null);
+    try {
+      const response = await fetch("/api/admin/photos/coordinates", {
+        body: JSON.stringify({
+          clear: Boolean(input.clear),
+          id,
+          lat: input.lat,
+          lng: input.lng,
+          src,
+        }),
+        headers: { "Content-Type": "application/json" },
+        method: "POST",
+      });
+      const payload = (await response.json()) as {
+        credit?: { lat?: number; lng?: number };
+        error?: string;
+        pullRequestUrl?: string;
+      };
+      if (!response.ok) {
+        throw new Error(payload.error ?? "კოორდინატები ვერ შეინახა");
+      }
+      setPhotos((current) =>
+        current.map((item) => {
+          if (item.src !== src) return item;
+          const credit = { ...(item.credit ?? {}) };
+          delete credit.lat;
+          delete credit.lng;
+          if (
+            typeof payload.credit?.lat === "number" &&
+            typeof payload.credit?.lng === "number"
+          ) {
+            credit.lat = payload.credit.lat;
+            credit.lng = payload.credit.lng;
+          }
+          return Object.keys(credit).length > 0
+            ? { credit, src: item.src }
+            : { src: item.src };
+        }),
+      );
+      if (payload.pullRequestUrl) {
+        setPullRequestUrl(payload.pullRequestUrl);
+        setOk(
+          input.clear
+            ? "კოორდინატები წაიშალა PR-ში. Merge შენზეა."
+            : "კოორდინატები PR-შია. Merge შენზეა.",
+        );
+      } else {
+        setOk("კოორდინატები PR-შია.");
+      }
+    } catch (caught) {
+      setError(
+        caught instanceof Error ? caught.message : "კოორდინატები ვერ შეინახა",
+      );
+    } finally {
+      busyRef.current = false;
+      setBusy("idle");
+    }
+  }
+
   return (
     <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_20rem]">
       <AdminGalleryPanel
@@ -263,6 +330,7 @@ export function AdminSpeciesEditor({
         onPreview={(src) => setPreview({ src, type: "photo" })}
         onRemove={(src) => void onRemove(src)}
         onReorder={setPhotos}
+        onSaveCoordinates={(src, input) => void onSaveCoordinates(src, input)}
         onSaveOrder={() => void onSaveOrder()}
         onSelectLive={() => setPreview({ type: "live" })}
         onSetCover={(src, target) => void onSetCover(src, target)}
@@ -330,6 +398,30 @@ export function AdminSpeciesEditor({
             name="locationEn"
           />
         </label>
+        <div className="mt-3 grid grid-cols-2 gap-2">
+          <label className="block text-[12px] text-muted-foreground">
+            განედი (lat)
+            <input
+              className="mt-1.5 h-10 w-full rounded-md border border-border bg-background px-3 text-[14px] text-foreground outline-none focus:border-primary"
+              inputMode="decimal"
+              name="lat"
+              placeholder="41.81667"
+            />
+          </label>
+          <label className="block text-[12px] text-muted-foreground">
+            გრძედი (lng)
+            <input
+              className="mt-1.5 h-10 w-full rounded-md border border-border bg-background px-3 text-[14px] text-foreground outline-none focus:border-primary"
+              inputMode="decimal"
+              name="lng"
+              placeholder="45.35000"
+            />
+          </label>
+        </div>
+        <p className="mt-1.5 text-[11px] leading-relaxed text-muted-foreground">
+          ორივე ველი ერთად. საიტზე რუკის ბმული და GeoCoordinates schema. იშვიათი
+          სახეობის ზუსტი ბუნაგი ნუ მიუთითო — ადგილის დონე საკმარისია.
+        </p>
         <label className="mt-4 flex cursor-pointer items-start gap-2.5 text-[13px] text-foreground">
           <input
             className="mt-0.5 size-4 shrink-0 accent-primary"
@@ -387,6 +479,7 @@ function AdminGalleryPanel({
   onPreview,
   onRemove,
   onReorder,
+  onSaveCoordinates,
   onSaveOrder,
   onSelectLive,
   onSetCover,
@@ -396,13 +489,17 @@ function AdminGalleryPanel({
   scientificName,
   setPreview,
 }: {
-  busy: "cover" | "idle" | "remove" | "reorder" | "upload";
+  busy: "coordinates" | "cover" | "idle" | "remove" | "reorder" | "upload";
   commonName: string;
   covers: AdminCovers;
   dirty: boolean;
   onPreview: (src: string) => void;
   onRemove: (src: string) => void;
   onReorder: Dispatch<SetStateAction<GalleryImage[]>>;
+  onSaveCoordinates: (
+    src: string,
+    input: { clear?: boolean; lat: string; lng: string },
+  ) => void;
   onSaveOrder: () => void;
   onSelectLive: () => void;
   onSetCover: (src: string, target: CoverTarget) => void;
@@ -436,6 +533,7 @@ function AdminGalleryPanel({
           onPreview={onPreview}
           onRemove={onRemove}
           onReorder={onReorder}
+          onSaveCoordinates={onSaveCoordinates}
           onSetCover={onSetCover}
           photos={photos}
         />
@@ -464,6 +562,9 @@ function AdminGalleryPanel({
       ) : null}
       {busy === "remove" ? (
         <p className="mt-4 text-[13px] text-primary">იშლება…</p>
+      ) : null}
+      {busy === "coordinates" ? (
+        <p className="mt-4 text-[13px] text-primary">კოორდინატები ინახება…</p>
       ) : null}
     </section>
   );
@@ -503,7 +604,7 @@ function GalleryHelp({
       {photos.length > 1 ? (
         <p className="mt-2 text-[12px] leading-relaxed text-muted-foreground">
           გადაათრიე ან ისრებით შეცვალე რიგი. ეს გალერეის ინდექსია, არა ყდის
-          image / mobileImage.
+          image / mobileImage. კოორდინატები ფოტოს ბარათიდანაც ინახება (PR).
         </p>
       ) : null}
     </>

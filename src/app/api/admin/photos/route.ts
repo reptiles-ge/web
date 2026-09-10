@@ -39,6 +39,8 @@ export async function POST(request: Request) {
       credit: {
         date: textField(form, "date"),
         georgiaField: form.get("georgiaField") === "1",
+        lat: textField(form, "lat"),
+        lng: textField(form, "lng"),
         location: textField(form, "location"),
         locationEn: textField(form, "locationEn"),
         photographer: textField(form, "photographer"),

@@ -11,12 +11,24 @@ const photoConfidenceSchema = z.enum([
 const photoCreditSchema = z
   .object({
     date: z.string().optional(),
+    lat: z.number().min(-90).max(90).optional(),
+    lng: z.number().min(-180).max(180).optional(),
     location: z.string().optional(),
     photographer: z.string().optional(),
     photoConfidence: photoConfidenceSchema.optional(),
     url: z.string().optional(),
   })
-  .passthrough();
+  .passthrough()
+  .superRefine((credit, ctx) => {
+    const hasLat = credit.lat !== undefined;
+    const hasLng = credit.lng !== undefined;
+    if (hasLat === hasLng) return;
+    ctx.addIssue({
+      code: "custom",
+      message: "photo credit lat and lng must both be set",
+      path: hasLat ? ["lng"] : ["lat"],
+    });
+  });
 
 const galleryImageSchema = z
   .object({

@@ -10,6 +10,8 @@ export type PhotoConfidence = "georgia-field" | "placeholder" | "range-typical";
 
 export type PhotoCredit = {
   date?: string;
+  lat?: number;
+  lng?: number;
   location?: string;
   photoConfidence?: PhotoConfidence;
   photographer?: string;

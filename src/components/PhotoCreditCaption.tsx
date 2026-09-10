@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, MapPin } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { type ReactNode } from "react";
 
@@ -16,6 +16,10 @@ import { Link } from "@/i18n/navigation";
 import { trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
 import { formatPhotoDate } from "@/lib/formatDate";
+import {
+  hasPhotoCoordinates,
+  photoMapUrl,
+} from "@/lib/photoCoordinates";
 import { photoCreditSourceLabel } from "@/lib/photoCreditSource";
 
 type PhotoCreditCaptionProps = {
@@ -45,8 +49,15 @@ export function PhotoCreditCaption({
     credit && photographerName ? (
       <PhotoCreditName credit={credit} speciesId={speciesId} />
     ) : null;
+  const hasMap = hasPhotoCoordinates(credit);
 
-  if (!photographerName && !credit?.location && !dateLabel && !georgiaField) {
+  if (
+    !photographerName &&
+    !credit?.location &&
+    !dateLabel &&
+    !georgiaField &&
+    !hasMap
+  ) {
     return null;
   }
 
@@ -58,10 +69,12 @@ export function PhotoCreditCaption({
         dateLabel={dateLabel}
         georgiaField={georgiaField}
         georgiaFieldLabel={t("georgiaFieldPhoto")}
+        mapLabel={t("photoMapLink")}
         photoCredit={t("photoCredit")}
         photoDate={t("photoDate")}
         photographer={photographer}
         photoLocation={t("photoLocation")}
+        speciesId={speciesId}
       />
     );
   }
@@ -73,8 +86,10 @@ export function PhotoCreditCaption({
       dateLabel={dateLabel}
       georgiaField={georgiaField}
       georgiaFieldLabel={t("georgiaFieldPhoto")}
+      mapLabel={t("photoMapLink")}
       photoCredit={t("photoCredit")}
       photographer={photographer}
+      speciesId={speciesId}
     />
   );
 }
@@ -95,20 +110,24 @@ function LightboxCredit({
   dateLabel,
   georgiaField,
   georgiaFieldLabel,
+  mapLabel,
   photoCredit,
   photoDate,
   photographer,
   photoLocation,
+  speciesId,
 }: {
   className: string;
   credit?: PhotoCredit;
   dateLabel: null | string;
   georgiaField: boolean;
   georgiaFieldLabel: string;
+  mapLabel: string;
   photoCredit: string;
   photoDate: string;
   photographer: ReactNode;
   photoLocation: string;
+  speciesId?: string;
 }) {
   return (
     <div
@@ -123,10 +142,14 @@ function LightboxCredit({
           {photographer}
         </p>
       ) : null}
-      {credit?.location ? (
+      {credit?.location || hasPhotoCoordinates(credit) ? (
         <p>
           <span className="text-white/50">{photoLocation} </span>
-          <span>{credit.location}</span>
+          <PhotoLocationLink
+            credit={credit}
+            mapLabel={mapLabel}
+            speciesId={speciesId}
+          />
         </p>
       ) : null}
       {dateLabel && credit?.date ? (
@@ -191,25 +214,71 @@ function PhotoCreditName({
   );
 }
 
+function PhotoLocationLink({
+  credit,
+  mapLabel,
+  speciesId,
+}: {
+  credit?: PhotoCredit;
+  mapLabel: string;
+  speciesId?: string;
+}) {
+  const location = credit?.location?.trim();
+  if (!hasPhotoCoordinates(credit)) {
+    return location ? <span>{location}</span> : null;
+  }
+
+  const href = photoMapUrl(credit);
+  const label = location || mapLabel;
+
+  return (
+    <a
+      className="inline-flex items-center gap-1 underline decoration-white/25 underline-offset-2 transition-colors hover:decoration-white/70"
+      href={href}
+      onClick={(event) => {
+        event.stopPropagation();
+        if (speciesId) {
+          trackEvent("source_click", {
+            link_type: "photo_map",
+            species_id: speciesId,
+          });
+        }
+      }}
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      <MapPin aria-hidden="true" className="size-[0.95em] shrink-0 opacity-80" />
+      <span>{label}</span>
+      <span className="sr-only"> — {mapLabel}</span>
+      <ArrowUpRight aria-hidden="true" className="size-[0.85em]" />
+    </a>
+  );
+}
+
 function ThumbCredit({
   className,
   credit,
   dateLabel,
   georgiaField,
   georgiaFieldLabel,
+  mapLabel,
   photoCredit,
   photographer,
+  speciesId,
 }: {
   className: string;
   credit?: PhotoCredit;
   dateLabel: null | string;
   georgiaField: boolean;
   georgiaFieldLabel: string;
+  mapLabel: string;
   photoCredit: string;
   photographer: ReactNode;
+  speciesId?: string;
 }) {
   const location = credit?.location;
   const dateTime = credit?.date;
+  const hasMap = hasPhotoCoordinates(credit);
 
   return (
     <figcaption
@@ -224,10 +293,18 @@ function ThumbCredit({
           <span className="pointer-events-auto">{photographer}</span>
         </p>
       ) : null}
-      {location || dateLabel ? (
+      {location || dateLabel || hasMap ? (
         <p className="mt-0.5 text-white/55">
-          {location ? <span>{location}</span> : null}
-          {location && dateLabel ? " · " : null}
+          {location || hasMap ? (
+            <span className="pointer-events-auto">
+              <PhotoLocationLink
+                credit={credit}
+                mapLabel={mapLabel}
+                speciesId={speciesId}
+              />
+            </span>
+          ) : null}
+          {(location || hasMap) && dateLabel ? " · " : null}
           {dateLabel && dateTime ? (
             <time dateTime={dateTime}>{dateLabel}</time>
           ) : null}

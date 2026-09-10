@@ -4,6 +4,7 @@ import os from "node:os";
 import path from "node:path";
 
 import type { GalleryImage } from "@/data/speciesTypes";
+import type { PhotoCoordinates } from "@/lib/photoCoordinates";
 
 import {
   appendGalleryItemToSpecies,
@@ -12,6 +13,7 @@ import {
   removeGalleryItemFromSpecies,
   reorderGalleryInSpecies,
   setCoverInSpecies,
+  updateGalleryPhotoCoordinatesInSpecies,
 } from "@/lib/adminGalleryMdx";
 import {
   applyOptimizeCatalog,
@@ -84,6 +86,55 @@ export async function openGalleryReorderPullRequest(input: {
       "- [ ] Species profile gallery shows photos in the new order",
     ].join("\n"),
     title: `Reorder gallery for ${input.id}`,
+  });
+}
+
+export async function openPhotoCoordinatesPullRequest(input: {
+  coordinates: null | PhotoCoordinates;
+  id: string;
+  src: string;
+}): Promise<string> {
+  if (!isSpeciesContentId(input.id)) {
+    throw new Error("Invalid species id");
+  }
+  if (!input.src.trim()) {
+    throw new Error("Invalid gallery src");
+  }
+
+  const filename = input.src.split("/").at(-1) || input.src;
+  const coordinates = input.coordinates;
+  const clearing = coordinates === null;
+  const coordLabel = clearing
+    ? "clear coordinates"
+    : `set coordinates ${coordinates.lat}, ${coordinates.lng}`;
+
+  return withPhotoPullRequest({
+    apply: (worktree) => {
+      updateGalleryPhotoCoordinatesInSpecies(
+        input.id,
+        input.src,
+        coordinates,
+        worktree,
+      );
+    },
+    commitBody: clearing
+      ? "Photo coordinates cleared from the local admin."
+      : "Photo coordinates updated from the local admin.",
+    editExistingBody: false,
+    id: input.id,
+    prBody: [
+      "## Summary",
+      `- ${coordLabel} on \`${filename}\` (\`${input.id}\`)`,
+      "- KA gallery credit `lat` / `lng` (and matching cover credits when the same `src`)",
+      "- Powers map link + ImageObject `GeoCoordinates` on the species page",
+      "",
+      "## Test plan",
+      "- [ ] Gallery / lightbox shows map pin link when coordinates are set",
+      "- [ ] JSON-LD ImageObject contentLocation includes GeoCoordinates",
+    ].join("\n"),
+    title: clearing
+      ? `Clear photo coordinates on ${input.id}`
+      : `Set photo coordinates on ${input.id}`,
   });
 }
 

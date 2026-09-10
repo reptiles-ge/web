@@ -33,6 +33,36 @@ describe("galleryImageObject", () => {
       }),
     );
   });
+
+  it("adds GeoCoordinates under contentLocation Place", () => {
+    const data = galleryImageObject(
+      {
+        credit: {
+          lat: 41.81667,
+          lng: 45.35,
+          location: "ვაშლოვანი",
+          photographer: "სანდრო ხახვა",
+        },
+        src: "https://cdn.reptiles.ge/vipera-kaznakovi.jpg",
+      },
+      {
+        commonName: "კავკასიური გველგესლა",
+        location: "",
+        scientificName: "Vipera kaznakovi",
+      },
+      "ka",
+    );
+
+    expect(data.contentLocation).toEqual({
+      "@type": "Place",
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: 41.81667,
+        longitude: 45.35,
+      },
+      name: "ვაშლოვანი",
+    });
+  });
 });
 
 describe("galleryImageObjects", () => {
