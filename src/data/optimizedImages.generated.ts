@@ -6164,6 +6164,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 631],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/vipera-kaznakovi-1.jpg": {
+    "path": "vipera-kaznakovi-1",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/vipera-kaznakovi-2.webp": {
     "path": "vipera-kaznakovi-2",
     "width": 2400,
@@ -6199,6 +6206,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/vipera-kaznakovi-alex-1.jpg": {
+    "path": "vipera-kaznakovi-alex-1",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/vipera-kaznakovi-armen-1.jpg": {
     "path": "vipera-kaznakovi-armen-1",
     "width": 2400,
@@ -6215,10 +6229,10 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
   },
   "https://cdn.reptiles.ge/vipera-kaznakovi-giorgi-1.jpg": {
     "path": "vipera-kaznakovi-giorgi-1",
-    "width": 800,
-    "height": 778,
-    "widths": [400, 800],
-    "formats": ["avif"]
+    "width": 1024,
+    "height": 768,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/vipera-kaznakovi-saba-1.jpg": {
     "path": "vipera-kaznakovi-saba-1",

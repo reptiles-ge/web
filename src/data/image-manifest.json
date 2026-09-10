@@ -58723,6 +58723,87 @@
       ],
       "updatedAt": "2026-08-28T22:00:30.706Z"
     },
+    "vipera-kaznakovi-1.jpg": {
+      "sourceHash": "1fd8d00d9a5c71c48bb0e82408ffb21db57f22a6a75d8d7c067b47d1afee27b4",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "vipera-kaznakovi-1.jpg",
+      "originalSize": 174011,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-kaznakovi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12729
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 22064
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 18013
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 30358
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 34298
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 56562
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 45720
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 74064
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 63882
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 101002
+        }
+      ],
+      "updatedAt": "2026-09-10T19:58:06.576Z"
+    },
     "vipera-kaznakovi-2.webp": {
       "sourceHash": "1a18b5a1603c4b5d83cf0dd166da5b7bcedbd5765b1fb36151439f6be6f14439",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -59058,6 +59139,87 @@
       ],
       "updatedAt": "2026-08-28T22:00:42.426Z"
     },
+    "vipera-kaznakovi-alex-1.jpg": {
+      "sourceHash": "f66f4c12397b708734c649d3bab2841048834595009bb2aadf970529820bb6b7",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "vipera-kaznakovi-alex-1.jpg",
+      "originalSize": 186826,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-kaznakovi-alex-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 13365
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-alex-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 20256
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-alex-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 19058
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-alex-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 28926
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-alex-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 37321
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-alex-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 55352
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-alex-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 50533
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-alex-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 74426
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-alex-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 71163
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-alex-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 103614
+        }
+      ],
+      "updatedAt": "2026-09-10T19:59:16.528Z"
+    },
     "vipera-kaznakovi-armen-1.jpg": {
       "sourceHash": "97a36cb30477dab8aa0fe4e6d812b8ea3b48d4a2ff917549bfbba676b733eb51",
       "configFingerprint": "409788ee46c653d8",
@@ -59235,43 +59397,85 @@
       "updatedAt": "2026-09-06T17:22:44.337Z"
     },
     "vipera-kaznakovi-giorgi-1.jpg": {
-      "sourceHash": "8de9e3a1023b5e15c5d1c5e3e62733357faa24e4187b8d0fbdcea210d02b978a",
-      "configFingerprint": "a895f8e025dcc7fa",
+      "sourceHash": "160e9b2fe80ca05d5999ffbe0bf16494c6373f18670df825a600f2e3a8bcda74",
+      "configFingerprint": "409788ee46c653d8",
       "originalKey": "vipera-kaznakovi-giorgi-1.jpg",
-      "originalSize": 87099,
-      "width": 800,
-      "height": 778,
+      "originalSize": 351956,
+      "width": 1024,
+      "height": 768,
       "derivatives": [
+        {
+          "key": "optimized/vipera-kaznakovi-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 25060
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 39476
+        },
         {
           "key": "optimized/vipera-kaznakovi-giorgi-1-400.avif",
           "format": "avif",
           "width": 400,
-          "height": 389,
-          "byteSize": 23416
+          "height": 300,
+          "byteSize": 38401
         },
         {
           "key": "optimized/vipera-kaznakovi-giorgi-1-400.webp",
           "format": "webp",
           "width": 400,
-          "height": 389,
-          "byteSize": 35184
+          "height": 300,
+          "byteSize": 58682
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 88467
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 135620
         },
         {
           "key": "optimized/vipera-kaznakovi-giorgi-1-800.avif",
           "format": "avif",
           "width": 800,
-          "height": 778,
-          "byteSize": 68948
+          "height": 600,
+          "byteSize": 129813
         },
         {
           "key": "optimized/vipera-kaznakovi-giorgi-1-800.webp",
           "format": "webp",
           "width": 800,
-          "height": 778,
-          "byteSize": 90348
+          "height": 600,
+          "byteSize": 204838
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-giorgi-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 199347
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-giorgi-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 310116
         }
       ],
-      "updatedAt": "2026-08-28T22:00:40.957Z"
+      "updatedAt": "2026-09-10T19:56:34.964Z"
     },
     "vipera-kaznakovi-mobile.webp": {
       "sourceHash": "11db46516fe56afcdeb5e77d7aaad41a4c8209f559e1ffb4a677b84f1c05f372",
