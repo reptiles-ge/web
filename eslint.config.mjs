@@ -1,6 +1,7 @@
 import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTs from "eslint-config-next/typescript";
 import eslintConfigPrettier from "eslint-config-prettier/flat";
+import nextEdgeBoundary from "eslint-plugin-next-edge-boundary";
 import perfectionist from "eslint-plugin-perfectionist";
 import tailwindcss from "eslint-plugin-tailwindcss";
 import unusedImports from "eslint-plugin-unused-imports";
@@ -125,6 +126,10 @@ const eslintConfig = defineConfig([
         },
       ],
     },
+  },
+  {
+    files: ["src/proxy.ts", "middleware.ts", "src/middleware.ts"],
+    ...nextEdgeBoundary.configs.recommended,
   },
   {
     files: ["src/proxy.ts", "src/lib/speciesSlugTable.ts"],

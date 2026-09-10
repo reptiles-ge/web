@@ -84,6 +84,9 @@ importers:
       eslint-plugin-jsx-a11y:
         specifier: ^6.10.2
         version: 6.10.2(eslint@9.39.5(jiti@2.7.0))
+      eslint-plugin-next-edge-boundary:
+        specifier: 0.1.1
+        version: 0.1.1(eslint@9.39.5(jiti@2.7.0))(typescript@5.9.3)
       eslint-plugin-perfectionist:
         specifier: 5.10.1
         version: 5.10.1(eslint@9.39.5(jiti@2.7.0))(typescript@5.9.3)
@@ -2762,6 +2765,16 @@ packages:
     engines: {node: '>=4.0'}
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8 || ^9
+
+  eslint-plugin-next-edge-boundary@0.1.1:
+    resolution: {integrity: sha512-MmneVqVKhVJGe9DX1lKwCSuwkd9ICwx2MoQLjvcR/qFwUIAgz8oamsxuFVEPsRSoXzCQTcfvduj94//Twciq7g==}
+    engines: {node: '>=20'}
+    peerDependencies:
+      eslint: '>=9'
+      typescript: '>=5'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
 
   eslint-plugin-perfectionist@5.10.1:
     resolution: {integrity: sha512-Kprsp9Us0GqAesYaAIzUViw57xYp5WBqzXrcE0Mtww++E5fexWXYBipMuuD7yvyH4vvpBH0+oJ+OMAmZ0oYXkw==}
@@ -6638,6 +6651,12 @@ snapshots:
       object.fromentries: 2.0.8
       safe-regex-test: 1.1.0
       string.prototype.includes: 2.0.1
+
+  eslint-plugin-next-edge-boundary@0.1.1(eslint@9.39.5(jiti@2.7.0))(typescript@5.9.3):
+    dependencies:
+      eslint: 9.39.5(jiti@2.7.0)
+    optionalDependencies:
+      typescript: 5.9.3
 
   eslint-plugin-perfectionist@5.10.1(eslint@9.39.5(jiti@2.7.0))(typescript@5.9.3):
     dependencies:
