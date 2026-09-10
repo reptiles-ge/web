@@ -7686,6 +7686,87 @@
       ],
       "updatedAt": "2026-08-28T21:30:10.156Z"
     },
+    "coronella-austriaca-1.jpg": {
+      "sourceHash": "b53893e4de09a7fbefeb940d157baa7efc173567c8d8935dc368843879d16e4e",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "coronella-austriaca-1.jpg",
+      "originalSize": 171831,
+      "width": 1024,
+      "height": 576,
+      "derivatives": [
+        {
+          "key": "optimized/coronella-austriaca-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 11551
+        },
+        {
+          "key": "optimized/coronella-austriaca-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 19040
+        },
+        {
+          "key": "optimized/coronella-austriaca-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 16574
+        },
+        {
+          "key": "optimized/coronella-austriaca-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 27452
+        },
+        {
+          "key": "optimized/coronella-austriaca-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 34229
+        },
+        {
+          "key": "optimized/coronella-austriaca-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 56408
+        },
+        {
+          "key": "optimized/coronella-austriaca-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 49017
+        },
+        {
+          "key": "optimized/coronella-austriaca-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 77682
+        },
+        {
+          "key": "optimized/coronella-austriaca-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 576,
+          "byteSize": 70765
+        },
+        {
+          "key": "optimized/coronella-austriaca-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 576,
+          "byteSize": 108592
+        }
+      ],
+      "updatedAt": "2026-09-10T20:25:27.224Z"
+    },
     "coronella-austriaca-2.webp": {
       "sourceHash": "215454ab1940308b40306450d6e8f06a4f52246248542649ef6990a948579013",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -8087,6 +8168,330 @@
         }
       ],
       "updatedAt": "2026-08-28T21:30:31.881Z"
+    },
+    "coronella-austriaca-andrey-1.jpg": {
+      "sourceHash": "4426bc336658a1092221f23e6a591c133e99729b1dfefdf9ce663f88cb35292c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "coronella-austriaca-andrey-1.jpg",
+      "originalSize": 255841,
+      "width": 858,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/coronella-austriaca-andrey-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 382,
+          "byteSize": 19231
+        },
+        {
+          "key": "optimized/coronella-austriaca-andrey-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 382,
+          "byteSize": 25764
+        },
+        {
+          "key": "optimized/coronella-austriaca-andrey-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 477,
+          "byteSize": 31260
+        },
+        {
+          "key": "optimized/coronella-austriaca-andrey-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 477,
+          "byteSize": 41036
+        },
+        {
+          "key": "optimized/coronella-austriaca-andrey-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 764,
+          "byteSize": 79272
+        },
+        {
+          "key": "optimized/coronella-austriaca-andrey-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 764,
+          "byteSize": 106096
+        },
+        {
+          "key": "optimized/coronella-austriaca-andrey-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 955,
+          "byteSize": 114829
+        },
+        {
+          "key": "optimized/coronella-austriaca-andrey-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 955,
+          "byteSize": 155886
+        },
+        {
+          "key": "optimized/coronella-austriaca-andrey-1-858.avif",
+          "format": "avif",
+          "width": 858,
+          "height": 1024,
+          "byteSize": 139478
+        },
+        {
+          "key": "optimized/coronella-austriaca-andrey-1-858.webp",
+          "format": "webp",
+          "width": 858,
+          "height": 1024,
+          "byteSize": 179672
+        }
+      ],
+      "updatedAt": "2026-09-10T20:27:39.263Z"
+    },
+    "coronella-austriaca-aurélien-1.jpg": {
+      "sourceHash": "f098e4590e05e73dd77a9806507e02a511305f9df099c4d17b55ba63cab61b67",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "coronella-austriaca-aurélien-1.jpg",
+      "originalSize": 213197,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/coronella-austriaca-aurélien-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 15716
+        },
+        {
+          "key": "optimized/coronella-austriaca-aurélien-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 26112
+        },
+        {
+          "key": "optimized/coronella-austriaca-aurélien-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 22791
+        },
+        {
+          "key": "optimized/coronella-austriaca-aurélien-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 37474
+        },
+        {
+          "key": "optimized/coronella-austriaca-aurélien-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 45301
+        },
+        {
+          "key": "optimized/coronella-austriaca-aurélien-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 73164
+        },
+        {
+          "key": "optimized/coronella-austriaca-aurélien-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 60552
+        },
+        {
+          "key": "optimized/coronella-austriaca-aurélien-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 98100
+        },
+        {
+          "key": "optimized/coronella-austriaca-aurélien-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 84524
+        },
+        {
+          "key": "optimized/coronella-austriaca-aurélien-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 132250
+        }
+      ],
+      "updatedAt": "2026-09-10T20:26:27.528Z"
+    },
+    "coronella-austriaca-edouard-1.jpg": {
+      "sourceHash": "0b511df5b5aa66a916235320162adb482a92095cfaa4edd837b11f628bc1ef12",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "coronella-austriaca-edouard-1.jpg",
+      "originalSize": 248853,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/coronella-austriaca-edouard-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 15660
+        },
+        {
+          "key": "optimized/coronella-austriaca-edouard-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 26958
+        },
+        {
+          "key": "optimized/coronella-austriaca-edouard-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 23606
+        },
+        {
+          "key": "optimized/coronella-austriaca-edouard-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 39624
+        },
+        {
+          "key": "optimized/coronella-austriaca-edouard-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 50709
+        },
+        {
+          "key": "optimized/coronella-austriaca-edouard-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 84738
+        },
+        {
+          "key": "optimized/coronella-austriaca-edouard-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 69667
+        },
+        {
+          "key": "optimized/coronella-austriaca-edouard-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 121116
+        },
+        {
+          "key": "optimized/coronella-austriaca-edouard-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 103490
+        },
+        {
+          "key": "optimized/coronella-austriaca-edouard-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 172454
+        }
+      ],
+      "updatedAt": "2026-09-10T20:29:42.588Z"
+    },
+    "coronella-austriaca-ketevan-1.jpg": {
+      "sourceHash": "18551b78c3cc59c9e4c8a33ee06895395882a1a1d4a060e0be33551abc570a1a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "coronella-austriaca-ketevan-1.jpg",
+      "originalSize": 159987,
+      "width": 1024,
+      "height": 849,
+      "derivatives": [
+        {
+          "key": "optimized/coronella-austriaca-ketevan-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 265,
+          "byteSize": 11401
+        },
+        {
+          "key": "optimized/coronella-austriaca-ketevan-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 265,
+          "byteSize": 17002
+        },
+        {
+          "key": "optimized/coronella-austriaca-ketevan-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 332,
+          "byteSize": 16591
+        },
+        {
+          "key": "optimized/coronella-austriaca-ketevan-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 332,
+          "byteSize": 24690
+        },
+        {
+          "key": "optimized/coronella-austriaca-ketevan-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 531,
+          "byteSize": 32654
+        },
+        {
+          "key": "optimized/coronella-austriaca-ketevan-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 531,
+          "byteSize": 50116
+        },
+        {
+          "key": "optimized/coronella-austriaca-ketevan-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 663,
+          "byteSize": 43374
+        },
+        {
+          "key": "optimized/coronella-austriaca-ketevan-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 663,
+          "byteSize": 67662
+        },
+        {
+          "key": "optimized/coronella-austriaca-ketevan-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 849,
+          "byteSize": 57685
+        },
+        {
+          "key": "optimized/coronella-austriaca-ketevan-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 849,
+          "byteSize": 90196
+        }
+      ],
+      "updatedAt": "2026-09-10T20:28:47.887Z"
     },
     "coronella-austriaca-mobile.webp": {
       "sourceHash": "d6e3f864583de86739a95655247fb00ac7f3d9d44eba5adcdc980716f376aeaf",

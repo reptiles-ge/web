@@ -963,6 +963,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1920],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/coronella-austriaca-1.jpg": {
+    "path": "coronella-austriaca-1",
+    "width": 1024,
+    "height": 576,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/coronella-austriaca-3.webp": {
     "path": "coronella-austriaca-3",
     "width": 2200,
@@ -997,6 +1004,34 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "height": 1237,
     "widths": [400, 800, 1200, 2200],
     "formats": ["avif"]
+  },
+  "https://cdn.reptiles.ge/coronella-austriaca-andrey-1.jpg": {
+    "path": "coronella-austriaca-andrey-1",
+    "width": 858,
+    "height": 1024,
+    "widths": [320, 400, 640, 800, 858],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/coronella-austriaca-aur%C3%A9lien-1.jpg": {
+    "path": "coronella-austriaca-aur%C3%A9lien-1",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/coronella-austriaca-edouard-1.jpg": {
+    "path": "coronella-austriaca-edouard-1",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/coronella-austriaca-ketevan-1.jpg": {
+    "path": "coronella-austriaca-ketevan-1",
+    "width": 1024,
+    "height": 849,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/coronella-austriaca-sandro-1.jpg": {
     "path": "coronella-austriaca-sandro-1",
