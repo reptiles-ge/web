@@ -44689,6 +44689,87 @@
       ],
       "updatedAt": "2026-08-28T21:54:59.540Z"
     },
+    "natrix-natrix-8.jpg": {
+      "sourceHash": "c3de2cdef4467a226f9e63e8d4486b68edcb190b478e7ea6d5c9bb44c0307139",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "natrix-natrix-8.jpg",
+      "originalSize": 288753,
+      "width": 1024,
+      "height": 768,
+      "derivatives": [
+        {
+          "key": "optimized/natrix-natrix-8-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 21832
+        },
+        {
+          "key": "optimized/natrix-natrix-8-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 33548
+        },
+        {
+          "key": "optimized/natrix-natrix-8-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 34290
+        },
+        {
+          "key": "optimized/natrix-natrix-8-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 52426
+        },
+        {
+          "key": "optimized/natrix-natrix-8-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 69180
+        },
+        {
+          "key": "optimized/natrix-natrix-8-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 116536
+        },
+        {
+          "key": "optimized/natrix-natrix-8-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 91063
+        },
+        {
+          "key": "optimized/natrix-natrix-8-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 159100
+        },
+        {
+          "key": "optimized/natrix-natrix-8-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 121582
+        },
+        {
+          "key": "optimized/natrix-natrix-8-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 211986
+        }
+      ],
+      "updatedAt": "2026-09-10T22:03:10.188Z"
+    },
     "natrix-natrix-alex-1.jpg": {
       "sourceHash": "2c0825dcf19a2b470b1d61bb2eecd26c554b4230dd8643b6b1adf5e1a02a59a0",
       "configFingerprint": "409788ee46c653d8",
