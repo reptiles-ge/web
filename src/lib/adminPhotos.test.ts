@@ -65,4 +65,29 @@ describe("creditFromInput", () => {
       photographer: "ანა",
     });
   });
+
+  it("stores lat/lng on both locales", () => {
+    expect(
+      creditFromInput(
+        {
+          lat: "41.81667",
+          lng: "45.35",
+          location: "ვაშლოვანი",
+          photographer: "ანა",
+        },
+        "ka",
+      ),
+    ).toEqual({
+      lat: 41.81667,
+      lng: 45.35,
+      location: "ვაშლოვანი",
+      photographer: "ანა",
+    });
+  });
+
+  it("requires both lat and lng together", () => {
+    expect(() =>
+      creditFromInput({ lat: "41.8", photographer: "ანა" }, "ka"),
+    ).toThrow(/კოორდინატები/);
+  });
 });

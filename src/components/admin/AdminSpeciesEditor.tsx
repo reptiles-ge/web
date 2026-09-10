@@ -330,6 +330,30 @@ export function AdminSpeciesEditor({
             name="locationEn"
           />
         </label>
+        <div className="mt-3 grid grid-cols-2 gap-2">
+          <label className="block text-[12px] text-muted-foreground">
+            განედი (lat)
+            <input
+              className="mt-1.5 h-10 w-full rounded-md border border-border bg-background px-3 text-[14px] text-foreground outline-none focus:border-primary"
+              inputMode="decimal"
+              name="lat"
+              placeholder="41.81667"
+            />
+          </label>
+          <label className="block text-[12px] text-muted-foreground">
+            გრძედი (lng)
+            <input
+              className="mt-1.5 h-10 w-full rounded-md border border-border bg-background px-3 text-[14px] text-foreground outline-none focus:border-primary"
+              inputMode="decimal"
+              name="lng"
+              placeholder="45.35000"
+            />
+          </label>
+        </div>
+        <p className="mt-1.5 text-[11px] leading-relaxed text-muted-foreground">
+          ორივე ველი ერთად. საიტზე რუკის ბმული და GeoCoordinates schema. იშვიათი
+          სახეობის ზუსტი ბუნაგი ნუ მიუთითო — ადგილის დონე საკმარისია.
+        </p>
         <label className="mt-4 flex cursor-pointer items-start gap-2.5 text-[13px] text-foreground">
           <input
             className="mt-0.5 size-4 shrink-0 accent-primary"

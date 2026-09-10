@@ -9,6 +9,7 @@ import {
 } from "@/data/species";
 import { type AnimalGroup, speciesAtlasMeta } from "@/data/speciesAtlas";
 import { type CoverTarget } from "@/lib/adminCover";
+import { normalizePhotoCoordinates } from "@/lib/photoCoordinates";
 import { CDN_BASE } from "@/lib/site";
 
 export type { CoverTarget };
@@ -114,8 +115,12 @@ export function appendGalleryItemToSpecies(
 }
 
 export function creditsEqual(a?: PhotoCredit, b?: PhotoCredit): boolean {
-  const left = Object.fromEntries(creditEntries(a ?? {}));
-  const right = Object.fromEntries(creditEntries(b ?? {}));
+  const left = Object.fromEntries(
+    creditEntries(a ?? {}).map(([key, value]) => [key, String(value)]),
+  );
+  const right = Object.fromEntries(
+    creditEntries(b ?? {}).map(([key, value]) => [key, String(value)]),
+  );
   const keys = new Set([...Object.keys(left), ...Object.keys(right)]);
   for (const key of keys) {
     if (left[key] !== right[key]) return false;
@@ -130,11 +135,7 @@ export function formatGalleryItemYaml(item: GalleryImage): string {
   if (fields.length > 0) {
     lines.push("    credit:");
     for (const [key, value] of fields) {
-      lines.push(
-        key === "url"
-          ? `      url: ${JSON.stringify(value)}`
-          : `      ${key}: ${yamlScalar(value)}`,
-      );
+      lines.push(`      ${formatCreditField(key, value)}`);
     }
   }
   return `${lines.join("\n")}\n`;
@@ -578,11 +579,15 @@ function coverTargetForSrc(
   return null;
 }
 
-function creditEntries(credit: PhotoCredit): Array<[string, string]> {
-  const entries: Array<[string, string]> = [];
+function creditEntries(
+  credit: PhotoCredit,
+): Array<[string, number | string]> {
+  const entries: Array<[string, number | string]> = [];
   if (credit.photographer) entries.push(["photographer", credit.photographer]);
   if (credit.url) entries.push(["url", credit.url]);
   if (credit.location) entries.push(["location", credit.location]);
+  if (typeof credit.lat === "number") entries.push(["lat", credit.lat]);
+  if (typeof credit.lng === "number") entries.push(["lng", credit.lng]);
   if (credit.date) entries.push(["date", credit.date]);
   if (credit.photoConfidence) {
     entries.push(["photoConfidence", credit.photoConfidence]);
@@ -634,13 +639,15 @@ function formatCreditBlock(key: string, credit?: PhotoCredit): string[] {
   if (fields.length === 0) return [];
   const lines = [`${key}:`];
   for (const [field, value] of fields) {
-    lines.push(
-      field === "url"
-        ? `  url: ${JSON.stringify(value)}`
-        : `  ${field}: ${yamlScalar(value)}`,
-    );
+    lines.push(`  ${formatCreditField(field, value)}`);
   }
   return lines;
+}
+
+function formatCreditField(key: string, value: number | string): string {
+  if (typeof value === "number") return `${key}: ${value}`;
+  if (key === "url") return `url: ${JSON.stringify(value)}`;
+  return `${key}: ${yamlScalar(value)}`;
 }
 
 function galleryItemSrc(lines: string[]): null | string {
@@ -718,6 +725,11 @@ function normalizeCredit(value: unknown): PhotoCredit | undefined {
   }
   if (typeof record.date === "string" && record.date.trim()) {
     credit.date = record.date.trim();
+  }
+  const coordinates = normalizePhotoCoordinates(record.lat, record.lng);
+  if (coordinates) {
+    credit.lat = coordinates.lat;
+    credit.lng = coordinates.lng;
   }
   if (
     record.photoConfidence === "georgia-field" ||
