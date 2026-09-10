@@ -5751,6 +5751,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2400],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/telescopus-fallax-alex-1.jpg": {
+    "path": "telescopus-fallax-alex-1",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/telescopus-fallax-armen-1.jpg": {
     "path": "telescopus-fallax-armen-1",
     "width": 2400,
