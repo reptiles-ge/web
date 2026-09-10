@@ -8331,6 +8331,87 @@
       ],
       "updatedAt": "2026-09-10T20:26:27.528Z"
     },
+    "coronella-austriaca-edouard-1.jpg": {
+      "sourceHash": "0b511df5b5aa66a916235320162adb482a92095cfaa4edd837b11f628bc1ef12",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "coronella-austriaca-edouard-1.jpg",
+      "originalSize": 248853,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/coronella-austriaca-edouard-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 15660
+        },
+        {
+          "key": "optimized/coronella-austriaca-edouard-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 26958
+        },
+        {
+          "key": "optimized/coronella-austriaca-edouard-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 23606
+        },
+        {
+          "key": "optimized/coronella-austriaca-edouard-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 39624
+        },
+        {
+          "key": "optimized/coronella-austriaca-edouard-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 50709
+        },
+        {
+          "key": "optimized/coronella-austriaca-edouard-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 84738
+        },
+        {
+          "key": "optimized/coronella-austriaca-edouard-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 69667
+        },
+        {
+          "key": "optimized/coronella-austriaca-edouard-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 121116
+        },
+        {
+          "key": "optimized/coronella-austriaca-edouard-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 103490
+        },
+        {
+          "key": "optimized/coronella-austriaca-edouard-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 172454
+        }
+      ],
+      "updatedAt": "2026-09-10T20:29:42.588Z"
+    },
     "coronella-austriaca-ketevan-1.jpg": {
       "sourceHash": "18551b78c3cc59c9e4c8a33ee06895395882a1a1d4a060e0be33551abc570a1a",
       "configFingerprint": "409788ee46c653d8",
