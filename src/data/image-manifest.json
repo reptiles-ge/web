@@ -43779,6 +43779,87 @@
       ],
       "updatedAt": "2026-09-01T12:59:10.684Z"
     },
+    "mustela-nivalis-anastasiia-1.jpg": {
+      "sourceHash": "00ba66a3c05b4e31eb7e9682a742c9b57d3ab0fd92cf4474f6ad91f4efaef600",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "mustela-nivalis-anastasiia-1.jpg",
+      "originalSize": 111387,
+      "width": 1024,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/mustela-nivalis-anastasiia-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 320,
+          "byteSize": 5766
+        },
+        {
+          "key": "optimized/mustela-nivalis-anastasiia-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 320,
+          "byteSize": 5852
+        },
+        {
+          "key": "optimized/mustela-nivalis-anastasiia-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 400,
+          "byteSize": 8438
+        },
+        {
+          "key": "optimized/mustela-nivalis-anastasiia-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 400,
+          "byteSize": 8684
+        },
+        {
+          "key": "optimized/mustela-nivalis-anastasiia-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 640,
+          "byteSize": 17777
+        },
+        {
+          "key": "optimized/mustela-nivalis-anastasiia-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 640,
+          "byteSize": 18844
+        },
+        {
+          "key": "optimized/mustela-nivalis-anastasiia-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 800,
+          "byteSize": 25026
+        },
+        {
+          "key": "optimized/mustela-nivalis-anastasiia-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 800,
+          "byteSize": 26424
+        },
+        {
+          "key": "optimized/mustela-nivalis-anastasiia-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 1024,
+          "byteSize": 35793
+        },
+        {
+          "key": "optimized/mustela-nivalis-anastasiia-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 1024,
+          "byteSize": 37928
+        }
+      ],
+      "updatedAt": "2026-09-10T22:46:36.776Z"
+    },
     "mustela-nivalis-andrieux-1.jpg": {
       "sourceHash": "0d39fdcbf07c7c659fd0d9c03f0f41142d7faaf4952e68c47374050eb13fb53c",
       "configFingerprint": "a895f8e025dcc7fa",

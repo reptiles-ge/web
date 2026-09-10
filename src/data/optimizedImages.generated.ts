@@ -4533,6 +4533,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2400],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/mustela-nivalis-anastasiia-1.jpg": {
+    "path": "mustela-nivalis-anastasiia-1",
+    "width": 1024,
+    "height": 1024,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/mustela-nivalis-andrieux-1.jpg": {
     "path": "mustela-nivalis-andrieux-1",
     "width": 1184,
