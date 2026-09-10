@@ -60374,6 +60374,87 @@
       ],
       "updatedAt": "2026-09-05T11:10:04.768Z"
     },
+    "vipera-dinniki-bobby-1.jpg": {
+      "sourceHash": "8e60214c6ff079acabbd4e888a5d5e982dedd17198b6c9be965252d2216fddbe",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "vipera-dinniki-bobby-1.jpg",
+      "originalSize": 208106,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-dinniki-bobby-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14357
+        },
+        {
+          "key": "optimized/vipera-dinniki-bobby-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 24070
+        },
+        {
+          "key": "optimized/vipera-dinniki-bobby-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 21103
+        },
+        {
+          "key": "optimized/vipera-dinniki-bobby-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 35000
+        },
+        {
+          "key": "optimized/vipera-dinniki-bobby-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 42640
+        },
+        {
+          "key": "optimized/vipera-dinniki-bobby-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 69524
+        },
+        {
+          "key": "optimized/vipera-dinniki-bobby-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 58134
+        },
+        {
+          "key": "optimized/vipera-dinniki-bobby-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 93650
+        },
+        {
+          "key": "optimized/vipera-dinniki-bobby-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 80756
+        },
+        {
+          "key": "optimized/vipera-dinniki-bobby-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 128994
+        }
+      ],
+      "updatedAt": "2026-09-10T22:57:37.648Z"
+    },
     "vipera-dinniki-brecht-1.jpg": {
       "sourceHash": "e39e3a1c6b20de6ab1dfa32a6a3dd200320088f44433e2f818da132c96705ddd",
       "configFingerprint": "409788ee46c653d8",
