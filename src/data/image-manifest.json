@@ -15603,6 +15603,87 @@
       ],
       "updatedAt": "2026-08-29T22:42:16.168Z"
     },
+    "dolichophis-schmidti-bobby-1.jpg": {
+      "sourceHash": "a26bc586c783d4b9d5c25065ce76ec08f555214c1900419df0a1bf12f7b4b17f",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "dolichophis-schmidti-bobby-1.jpg",
+      "originalSize": 161192,
+      "width": 1024,
+      "height": 655,
+      "derivatives": [
+        {
+          "key": "optimized/dolichophis-schmidti-bobby-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 204,
+          "byteSize": 11818
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-bobby-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 204,
+          "byteSize": 18678
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-bobby-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 256,
+          "byteSize": 16388
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-bobby-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 256,
+          "byteSize": 25802
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-bobby-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 409,
+          "byteSize": 31794
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-bobby-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 409,
+          "byteSize": 49414
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-bobby-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 512,
+          "byteSize": 41971
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-bobby-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 512,
+          "byteSize": 64002
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-bobby-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 655,
+          "byteSize": 58565
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-bobby-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 655,
+          "byteSize": 86450
+        }
+      ],
+      "updatedAt": "2026-09-10T21:14:25.256Z"
+    },
     "dolichophis-schmidti-david-1.jpg": {
       "sourceHash": "54881154488baff373cd55ac14181dced17c6e1782abccc6717a31663e6fda33",
       "configFingerprint": "409788ee46c653d8",
