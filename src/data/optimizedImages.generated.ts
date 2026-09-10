@@ -963,6 +963,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1920],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/coronella-austriaca-1.jpg": {
+    "path": "coronella-austriaca-1",
+    "width": 1024,
+    "height": 576,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/coronella-austriaca-3.webp": {
     "path": "coronella-austriaca-3",
     "width": 2200,
