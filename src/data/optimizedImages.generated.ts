@@ -4764,6 +4764,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 767],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/natrix-tessellata-tom%C3%A1%C5%A1-1.jpg": {
+    "path": "natrix-tessellata-tom%C3%A1%C5%A1-1",
+    "width": 1024,
+    "height": 682,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/news-batumi-19300-cosentino-kite-1.jpg": {
     "path": "news-batumi-19300-cosentino-kite-1",
     "width": 2400,

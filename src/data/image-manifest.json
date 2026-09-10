@@ -45679,6 +45679,87 @@
       ],
       "updatedAt": "2026-08-28T21:55:09.811Z"
     },
+    "natrix-tessellata-tomáš-1.jpg": {
+      "sourceHash": "1b1cd6cbb8e64aca7680cd213d97dec8923d647488e7ce04f995d49bdac52549",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "natrix-tessellata-tomáš-1.jpg",
+      "originalSize": 157330,
+      "width": 1024,
+      "height": 682,
+      "derivatives": [
+        {
+          "key": "optimized/natrix-tessellata-tomáš-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11620
+        },
+        {
+          "key": "optimized/natrix-tessellata-tomáš-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 17084
+        },
+        {
+          "key": "optimized/natrix-tessellata-tomáš-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 16392
+        },
+        {
+          "key": "optimized/natrix-tessellata-tomáš-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 23502
+        },
+        {
+          "key": "optimized/natrix-tessellata-tomáš-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 31372
+        },
+        {
+          "key": "optimized/natrix-tessellata-tomáš-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 43960
+        },
+        {
+          "key": "optimized/natrix-tessellata-tomáš-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 41756
+        },
+        {
+          "key": "optimized/natrix-tessellata-tomáš-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 59510
+        },
+        {
+          "key": "optimized/natrix-tessellata-tomáš-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 682,
+          "byteSize": 58762
+        },
+        {
+          "key": "optimized/natrix-tessellata-tomáš-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 682,
+          "byteSize": 82508
+        }
+      ],
+      "updatedAt": "2026-09-10T21:37:41.807Z"
+    },
     "natrix-tessellata.webp": {
       "sourceHash": "862dfbaa92206b50ff51e9e0919078118036bf189b58313a91479a0bd24d6b3b",
       "configFingerprint": "a895f8e025dcc7fa",
