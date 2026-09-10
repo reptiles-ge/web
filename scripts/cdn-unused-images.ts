@@ -141,6 +141,7 @@ function collectUsedKeys(): Set<string> {
   }
   markUsed(used, SITE_OG_IMAGE_URL);
   markUsed(used, FALLBACK_OG_IMAGE_URL);
+  markUsed(used, `${CDN_BASE}/logo.webp`);
   used.add("image-manifest.json");
 
   return used;
