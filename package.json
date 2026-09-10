@@ -74,7 +74,7 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
-    "eslint-plugin-next-edge-boundary": "0.1.0",
+    "eslint-plugin-next-edge-boundary": "0.1.1",
     "eslint-plugin-perfectionist": "5.10.1",
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-tailwindcss": "^4.4.0",
