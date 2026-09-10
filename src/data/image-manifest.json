@@ -15603,6 +15603,87 @@
       ],
       "updatedAt": "2026-08-29T22:42:16.168Z"
     },
+    "dolichophis-schmidti-david-1.jpg": {
+      "sourceHash": "54881154488baff373cd55ac14181dced17c6e1782abccc6717a31663e6fda33",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "dolichophis-schmidti-david-1.jpg",
+      "originalSize": 99281,
+      "width": 1024,
+      "height": 678,
+      "derivatives": [
+        {
+          "key": "optimized/dolichophis-schmidti-david-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 212,
+          "byteSize": 6806
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-david-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 212,
+          "byteSize": 9588
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-david-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 265,
+          "byteSize": 9710
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-david-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 265,
+          "byteSize": 13226
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-david-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 424,
+          "byteSize": 18121
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-david-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 424,
+          "byteSize": 26084
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-david-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 530,
+          "byteSize": 24785
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-david-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 530,
+          "byteSize": 34780
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-david-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 678,
+          "byteSize": 34548
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-david-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 678,
+          "byteSize": 47520
+        }
+      ],
+      "updatedAt": "2026-09-10T21:13:20.664Z"
+    },
     "dolichophis-schmidti-george-1.jpg": {
       "sourceHash": "1a482fa58d847d758d405740fb3683fc18b2e6d73909b69bac49a593ecb15018",
       "configFingerprint": "a895f8e025dcc7fa",
