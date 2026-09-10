@@ -9,7 +9,10 @@ import {
 } from "@/data/species";
 import { type AnimalGroup, speciesAtlasMeta } from "@/data/speciesAtlas";
 import { type CoverTarget } from "@/lib/adminCover";
-import { normalizePhotoCoordinates } from "@/lib/photoCoordinates";
+import {
+  type PhotoCoordinates,
+  normalizePhotoCoordinates,
+} from "@/lib/photoCoordinates";
 import { CDN_BASE } from "@/lib/site";
 
 export type { CoverTarget };
@@ -442,6 +445,107 @@ export function reorderGalleryInSpecies(
   );
 }
 
+export function updateGalleryPhotoCoordinatesInMdx(
+  raw: string,
+  src: string,
+  coordinates: PhotoCoordinates | null,
+): string {
+  const gallery = normalizeGallery(matter(raw).data.gallery);
+  const index = gallery.findIndex((item) => item.src === src);
+  if (index < 0) {
+    throw new Error(`Unknown gallery src: ${src}`);
+  }
+
+  const current = gallery[index];
+  if (!current) {
+    throw new Error(`Unknown gallery src: ${src}`);
+  }
+  const nextCredit = withPhotoCoordinates(current.credit, coordinates);
+  const nextItem: GalleryImage = nextCredit
+    ? { credit: nextCredit, src }
+    : { src };
+
+  const newline = raw.includes("\r\n") ? "\r\n" : "\n";
+  const lines = raw.split(/\r?\n/);
+  const range = findGalleryRange(lines);
+  if (!range) {
+    throw new Error("Gallery block not found");
+  }
+
+  const body = lines.slice(range.start + 1, range.end);
+  let trailing = 0;
+  for (let i = body.length - 1; i >= 0; i -= 1) {
+    if (body[i].trim() !== "") break;
+    trailing += 1;
+  }
+  const trailingLines = trailing > 0 ? body.slice(body.length - trailing) : [];
+  const items = splitGalleryItems(body);
+  if (items.length !== gallery.length) {
+    throw new Error("Could not parse gallery items");
+  }
+
+  const itemIndex = items.findIndex((item) => galleryItemSrc(item) === src);
+  if (itemIndex < 0) {
+    throw new Error(`Unknown gallery src: ${src}`);
+  }
+
+  const replacement = formatGalleryItemYaml(nextItem)
+    .replace(/\r?\n$/, "")
+    .split(/\r?\n/);
+  const nextItems = [...items];
+  nextItems[itemIndex] = replacement;
+
+  let next = [
+    ...lines.slice(0, range.start + 1),
+    ...nextItems.flat(),
+    ...trailingLines,
+    ...lines.slice(range.end),
+  ].join(newline);
+
+  const data = matter(next).data as {
+    image?: unknown;
+    mobileImage?: unknown;
+  };
+  if (data.image === src) {
+    next = setCoverInMdx(next, "desktop", nextItem, false);
+  }
+  if (data.mobileImage === src) {
+    next = setCoverInMdx(next, "mobile", nextItem, false);
+  }
+
+  const check = normalizeGallery(matter(next).data.gallery).find(
+    (item) => item.src === src,
+  );
+  if (!creditsEqual(check?.credit, nextItem.credit)) {
+    throw new Error("Failed to update photo coordinates");
+  }
+  return next;
+}
+
+export function updateGalleryPhotoCoordinatesInSpecies(
+  id: string,
+  src: string,
+  coordinates: PhotoCoordinates | null,
+  repoRoot = process.cwd(),
+) {
+  if (!isSpeciesContentId(id)) {
+    throw new Error("Invalid species id");
+  }
+  const kaPath = path.join(repoRoot, "src/content/species", id, "ka.mdx");
+  if (!fs.existsSync(kaPath)) {
+    throw new Error(`Missing ${id}/ka.mdx`);
+  }
+  fs.writeFileSync(
+    kaPath,
+    updateGalleryPhotoCoordinatesInMdx(
+      fs.readFileSync(kaPath, "utf8"),
+      src,
+      coordinates,
+    ),
+    "utf8",
+  );
+}
+
 export function setCoverInMdx(
   raw: string,
   target: CoverTarget,
@@ -753,6 +857,20 @@ function normalizeGallery(value: unknown): GalleryImage[] {
     out.push(credit ? { credit, src } : { src });
   }
   return out;
+}
+
+function withPhotoCoordinates(
+  credit: PhotoCredit | undefined,
+  coordinates: PhotoCoordinates | null,
+): PhotoCredit | undefined {
+  const next: PhotoCredit = { ...(credit ?? {}) };
+  delete next.lat;
+  delete next.lng;
+  if (coordinates) {
+    next.lat = coordinates.lat;
+    next.lng = coordinates.lng;
+  }
+  return Object.keys(next).length > 0 ? next : undefined;
 }
 
 function setCoverField(

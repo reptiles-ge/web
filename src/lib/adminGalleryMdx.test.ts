@@ -10,6 +10,7 @@ import {
   removeGalleryItemFromSpecies,
   reorderGalleryInMdx,
   setCoverInMdx,
+  updateGalleryPhotoCoordinatesInMdx,
 } from "@/lib/adminGalleryMdx";
 
 const FIXTURE = `---
@@ -144,6 +145,65 @@ describe("reorderGalleryInMdx", () => {
       lng: 45.35,
       location: "ვაშლოვანი",
       photographer: "ანა",
+    });
+  });
+
+  it("updates lat/lng on an existing gallery item and matching cover", () => {
+    const withCoords = updateGalleryPhotoCoordinatesInMdx(
+      FIXTURE,
+      "https://cdn.reptiles.ge/b.jpg",
+      { lat: 41.9, lng: 45.4 },
+    );
+    const gallery = matter(withCoords).data.gallery as Array<{
+      credit?: { lat?: number; lng?: number; photographer?: string };
+      src: string;
+    }>;
+    expect(gallery[1]?.credit).toEqual({
+      lat: 41.9,
+      lng: 45.4,
+      location: "ყვარელი",
+      photographer: "ბექა",
+    });
+
+    const asCover = setCoverInMdx(
+      withCoords,
+      "desktop",
+      {
+        credit: gallery[1]?.credit,
+        src: "https://cdn.reptiles.ge/b.jpg",
+      },
+      true,
+    );
+    const synced = updateGalleryPhotoCoordinatesInMdx(
+      asCover,
+      "https://cdn.reptiles.ge/b.jpg",
+      { lat: 42.1, lng: 44.2 },
+    );
+    const data = matter(synced).data as {
+      imageCredit?: { lat?: number; lng?: number };
+    };
+    expect(data.imageCredit?.lat).toBe(42.1);
+    expect(data.imageCredit?.lng).toBe(44.2);
+  });
+
+  it("clears lat/lng from an existing gallery item", () => {
+    const withCoords = updateGalleryPhotoCoordinatesInMdx(
+      FIXTURE,
+      "https://cdn.reptiles.ge/b.jpg",
+      { lat: 41.9, lng: 45.4 },
+    );
+    const cleared = updateGalleryPhotoCoordinatesInMdx(
+      withCoords,
+      "https://cdn.reptiles.ge/b.jpg",
+      null,
+    );
+    const gallery = matter(cleared).data.gallery as Array<{
+      credit?: { lat?: number; lng?: number; location?: string };
+      src: string;
+    }>;
+    expect(gallery[1]?.credit).toEqual({
+      location: "ყვარელი",
+      photographer: "ბექა",
     });
   });
 

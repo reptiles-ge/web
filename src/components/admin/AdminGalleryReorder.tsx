@@ -4,11 +4,18 @@ import {
   ChevronDown,
   ChevronUp,
   GripVertical,
+  MapPin,
   Monitor,
   Smartphone,
   Trash2,
 } from "lucide-react";
-import { type Dispatch, type SetStateAction, useRef, useState } from "react";
+import {
+  type Dispatch,
+  type SetStateAction,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 
 import type { GalleryImage } from "@/data/speciesTypes";
 
@@ -21,6 +28,7 @@ import {
   type CoverTarget,
 } from "@/lib/adminCover";
 import { cn } from "@/lib/cn";
+import { hasPhotoCoordinates } from "@/lib/photoCoordinates";
 
 type Props = {
   covers: AdminCovers;
@@ -28,6 +36,10 @@ type Props = {
   onPreview: (src: string) => void;
   onRemove: (src: string) => void;
   onReorder: Dispatch<SetStateAction<GalleryImage[]>>;
+  onSaveCoordinates: (
+    src: string,
+    input: { clear?: boolean; lat: string; lng: string },
+  ) => void;
   onSetCover: (src: string, target: CoverTarget) => void;
   photos: GalleryImage[];
 };
@@ -38,11 +50,13 @@ export function AdminGalleryReorder({
   onPreview,
   onRemove,
   onReorder,
+  onSaveCoordinates,
   onSetCover,
   photos,
 }: Props) {
   const dragFrom = useRef<null | number>(null);
   const [draggingSrc, setDraggingSrc] = useState<null | string>(null);
+  const [coordsOpenSrc, setCoordsOpenSrc] = useState<null | string>(null);
   const sortable = photos.length > 1;
   const canDrag = sortable && !disabled;
   const canRemove = photos.length > 1 && !disabled;
@@ -65,6 +79,7 @@ export function AdminGalleryReorder({
     <ul className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
       {photos.map((item, index) => {
         const roles = adminCoverRoles(item.src, covers);
+        const hasCoords = hasPhotoCoordinates(item.credit);
         return (
           <li
             className={cn(
@@ -158,6 +173,52 @@ export function AdminGalleryReorder({
                 onChange={(target) => onSetCover(item.src, target)}
               />
               <button
+                className={cn(
+                  "mt-1.5 inline-flex h-8 w-full items-center justify-center gap-1.5 rounded-md border text-[11px] hover:bg-secondary disabled:opacity-40",
+                  hasCoords
+                    ? "border-primary/40 text-foreground"
+                    : "border-border text-muted-foreground",
+                )}
+                disabled={disabled}
+                onClick={() =>
+                  setCoordsOpenSrc((current) =>
+                    current === item.src ? null : item.src,
+                  )
+                }
+                type="button"
+              >
+                <MapPin aria-hidden className="size-3.5" />
+                {hasCoords
+                  ? `${item.credit?.lat}, ${item.credit?.lng}`
+                  : "კოორდინატები"}
+              </button>
+              {coordsOpenSrc === item.src ? (
+                <PhotoCoordinatesForm
+                  disabled={disabled}
+                  lat={
+                    typeof item.credit?.lat === "number"
+                      ? String(item.credit.lat)
+                      : ""
+                  }
+                  lng={
+                    typeof item.credit?.lng === "number"
+                      ? String(item.credit.lng)
+                      : ""
+                  }
+                  onClear={() =>
+                    onSaveCoordinates(item.src, {
+                      clear: true,
+                      lat: "",
+                      lng: "",
+                    })
+                  }
+                  onSave={(lat, lng) =>
+                    onSaveCoordinates(item.src, { lat, lng })
+                  }
+                  src={item.src}
+                />
+              ) : null}
+              <button
                 className="mt-1.5 inline-flex h-8 w-full items-center justify-center gap-1.5 rounded-md border border-border text-[11px] text-destructive hover:bg-secondary disabled:opacity-40"
                 disabled={!canRemove}
                 onClick={() => onRemove(item.src)}
@@ -222,5 +283,70 @@ function CoverSelect({
         <option value="both">ორივეს ყდა</option>
       </select>
     </label>
+  );
+}
+
+function PhotoCoordinatesForm({
+  disabled,
+  lat,
+  lng,
+  onClear,
+  onSave,
+  src,
+}: {
+  disabled?: boolean;
+  lat: string;
+  lng: string;
+  onClear: () => void;
+  onSave: (lat: string, lng: string) => void;
+  src: string;
+}) {
+  const [latValue, setLatValue] = useState(lat);
+  const [lngValue, setLngValue] = useState(lng);
+
+  useEffect(() => {
+    setLatValue(lat);
+    setLngValue(lng);
+  }, [lat, lng, src]);
+
+  return (
+    <div className="mt-1.5 space-y-1.5 rounded-md border border-border bg-background p-1.5">
+      <div className="grid grid-cols-2 gap-1">
+        <input
+          className="h-8 rounded-md border border-border bg-card px-1.5 text-[11px] text-foreground outline-none focus:border-primary"
+          disabled={disabled}
+          inputMode="decimal"
+          onChange={(event) => setLatValue(event.target.value)}
+          placeholder="lat"
+          value={latValue}
+        />
+        <input
+          className="h-8 rounded-md border border-border bg-card px-1.5 text-[11px] text-foreground outline-none focus:border-primary"
+          disabled={disabled}
+          inputMode="decimal"
+          onChange={(event) => setLngValue(event.target.value)}
+          placeholder="lng"
+          value={lngValue}
+        />
+      </div>
+      <button
+        className="inline-flex h-8 w-full items-center justify-center rounded-md bg-foreground text-[11px] font-medium text-background disabled:opacity-40"
+        disabled={disabled || !latValue.trim() || !lngValue.trim()}
+        onClick={() => onSave(latValue, lngValue)}
+        type="button"
+      >
+        შენახვა
+      </button>
+      {lat || lng ? (
+        <button
+          className="inline-flex h-7 w-full items-center justify-center rounded-md text-[11px] text-muted-foreground hover:bg-secondary disabled:opacity-40"
+          disabled={disabled}
+          onClick={onClear}
+          type="button"
+        >
+          წაშლა
+        </button>
+      ) : null}
+    </div>
   );
 }
