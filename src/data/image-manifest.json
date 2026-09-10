@@ -43832,6 +43832,87 @@
       ],
       "updatedAt": "2026-08-28T21:54:37.383Z"
     },
+    "mustela-nivalis-attila-1.jpg": {
+      "sourceHash": "149d0c890271736aa1ee7eccc6035d44baa06d71fd34489a0b6eed7efe929e94",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "mustela-nivalis-attila-1.jpg",
+      "originalSize": 199671,
+      "width": 1024,
+      "height": 768,
+      "derivatives": [
+        {
+          "key": "optimized/mustela-nivalis-attila-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 14164
+        },
+        {
+          "key": "optimized/mustela-nivalis-attila-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 21458
+        },
+        {
+          "key": "optimized/mustela-nivalis-attila-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 20246
+        },
+        {
+          "key": "optimized/mustela-nivalis-attila-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 30054
+        },
+        {
+          "key": "optimized/mustela-nivalis-attila-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 39772
+        },
+        {
+          "key": "optimized/mustela-nivalis-attila-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 58486
+        },
+        {
+          "key": "optimized/mustela-nivalis-attila-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 54730
+        },
+        {
+          "key": "optimized/mustela-nivalis-attila-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 79716
+        },
+        {
+          "key": "optimized/mustela-nivalis-attila-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 77341
+        },
+        {
+          "key": "optimized/mustela-nivalis-attila-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 108850
+        }
+      ],
+      "updatedAt": "2026-09-10T22:45:32.843Z"
+    },
     "mustela-nivalis-grazalema-1.jpg": {
       "sourceHash": "db5a653c3bcd860488fb4e9ac5a3c35e13db1bcf1f3efaf62fcbd947ee7c03ac",
       "configFingerprint": "a895f8e025dcc7fa",
