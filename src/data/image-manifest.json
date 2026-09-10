@@ -59235,43 +59235,85 @@
       "updatedAt": "2026-09-06T17:22:44.337Z"
     },
     "vipera-kaznakovi-giorgi-1.jpg": {
-      "sourceHash": "8de9e3a1023b5e15c5d1c5e3e62733357faa24e4187b8d0fbdcea210d02b978a",
-      "configFingerprint": "a895f8e025dcc7fa",
+      "sourceHash": "160e9b2fe80ca05d5999ffbe0bf16494c6373f18670df825a600f2e3a8bcda74",
+      "configFingerprint": "409788ee46c653d8",
       "originalKey": "vipera-kaznakovi-giorgi-1.jpg",
-      "originalSize": 87099,
-      "width": 800,
-      "height": 778,
+      "originalSize": 351956,
+      "width": 1024,
+      "height": 768,
       "derivatives": [
+        {
+          "key": "optimized/vipera-kaznakovi-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 25060
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 39476
+        },
         {
           "key": "optimized/vipera-kaznakovi-giorgi-1-400.avif",
           "format": "avif",
           "width": 400,
-          "height": 389,
-          "byteSize": 23416
+          "height": 300,
+          "byteSize": 38401
         },
         {
           "key": "optimized/vipera-kaznakovi-giorgi-1-400.webp",
           "format": "webp",
           "width": 400,
-          "height": 389,
-          "byteSize": 35184
+          "height": 300,
+          "byteSize": 58682
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 88467
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 135620
         },
         {
           "key": "optimized/vipera-kaznakovi-giorgi-1-800.avif",
           "format": "avif",
           "width": 800,
-          "height": 778,
-          "byteSize": 68948
+          "height": 600,
+          "byteSize": 129813
         },
         {
           "key": "optimized/vipera-kaznakovi-giorgi-1-800.webp",
           "format": "webp",
           "width": 800,
-          "height": 778,
-          "byteSize": 90348
+          "height": 600,
+          "byteSize": 204838
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-giorgi-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 199347
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-giorgi-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 310116
         }
       ],
-      "updatedAt": "2026-08-28T22:00:40.957Z"
+      "updatedAt": "2026-09-10T19:56:34.964Z"
     },
     "vipera-kaznakovi-mobile.webp": {
       "sourceHash": "11db46516fe56afcdeb5e77d7aaad41a4c8209f559e1ffb4a677b84f1c05f372",

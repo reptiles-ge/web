@@ -6215,10 +6215,10 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
   },
   "https://cdn.reptiles.ge/vipera-kaznakovi-giorgi-1.jpg": {
     "path": "vipera-kaznakovi-giorgi-1",
-    "width": 800,
-    "height": 778,
-    "widths": [400, 800],
-    "formats": ["avif"]
+    "width": 1024,
+    "height": 768,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/vipera-kaznakovi-saba-1.jpg": {
     "path": "vipera-kaznakovi-saba-1",
