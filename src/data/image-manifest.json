@@ -38625,6 +38625,87 @@
       ],
       "updatedAt": "2026-09-06T14:58:18.387Z"
     },
+    "macrovipera-lebetina-antonina-1.jpg": {
+      "sourceHash": "1820a93db9e2e21c2c59f90169bf909a770e38ea03f3d5605b938ca8f903f259",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "macrovipera-lebetina-antonina-1.jpg",
+      "originalSize": 134539,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/macrovipera-lebetina-antonina-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9675
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-antonina-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14378
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-antonina-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 13521
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-antonina-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 19712
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-antonina-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 25422
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-antonina-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 38180
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-antonina-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 34266
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-antonina-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 49950
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-antonina-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 46892
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-antonina-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 68320
+        }
+      ],
+      "updatedAt": "2026-09-10T18:34:28.026Z"
+    },
     "macrovipera-lebetina-ar-1.jpg": {
       "sourceHash": "83d8ac522cf90912a8cecc9d70d7415e75cec01477f499a8c959fb37a0bdbdc2",
       "configFingerprint": "409788ee46c653d8",
@@ -38814,6 +38895,168 @@
         }
       ],
       "updatedAt": "2026-09-06T15:01:38.274Z"
+    },
+    "macrovipera-lebetina-aurélien-1.jpg": {
+      "sourceHash": "fd2da099d8f4e6a2e1e2dcb245818ba94a478bb525d48f56320cd9ea7a39537f",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "macrovipera-lebetina-aurélien-1.jpg",
+      "originalSize": 106981,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/macrovipera-lebetina-aurélien-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 7290
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-aurélien-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9860
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-aurélien-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 10326
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-aurélien-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 13890
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-aurélien-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 20686
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-aurélien-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 27552
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-aurélien-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 28092
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-aurélien-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 37410
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-aurélien-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 39886
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-aurélien-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 52284
+        }
+      ],
+      "updatedAt": "2026-09-10T18:24:27.625Z"
+    },
+    "macrovipera-lebetina-frédéric-1.jpg": {
+      "sourceHash": "7801a6e4361eba60af890b5f7798c7d33e8e863ea579946679536c7a10b04911",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "macrovipera-lebetina-frédéric-1.jpg",
+      "originalSize": 128371,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/macrovipera-lebetina-frédéric-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8336
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-frédéric-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12204
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-frédéric-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 11432
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-frédéric-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 17152
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-frédéric-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 22171
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-frédéric-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 32750
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-frédéric-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 29452
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-frédéric-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 44720
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-frédéric-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 43427
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-frédéric-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 65634
+        }
+      ],
+      "updatedAt": "2026-09-10T18:31:24.324Z"
     },
     "macrovipera-lebetina-giorgi-1.jpg": {
       "sourceHash": "25cc63940e01e03f36961480c2543aaa4792271173285f098fdc5d2d540df213",
@@ -39340,11 +39583,106 @@
       ],
       "updatedAt": "2026-09-06T15:00:24.078Z"
     },
+    "macrovipera-lebetina-marcus-1.jpg": {
+      "sourceHash": "55f583ef2e230c7a2ede992ff94a5d634fd8fea911fc7c1f3952a924751dc3e6",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "macrovipera-lebetina-marcus-1.jpg",
+      "originalSize": 562330,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/macrovipera-lebetina-marcus-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11416
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-marcus-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 17958
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-marcus-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 16214
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-marcus-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 25756
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-marcus-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 34955
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-marcus-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 54978
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-marcus-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 50158
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-marcus-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 78206
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-marcus-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 89697
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-marcus-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 140196
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-marcus-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 185124
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-marcus-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 296970
+        }
+      ],
+      "updatedAt": "2026-09-10T18:29:07.087Z"
+    },
     "macrovipera-lebetina-nika-1.jpg": {
-      "sourceHash": "2e86ac2251e79235148e654f01c4899042e312ff37f4a9154cdebc85ed29bf6f",
+      "sourceHash": "55b9fe75b8cc7a4a73aa468d32ee5b90248ea6a195b434af4485ab0c25f55334",
       "configFingerprint": "409788ee46c653d8",
       "originalKey": "macrovipera-lebetina-nika-1.jpg",
-      "originalSize": 107000,
+      "originalSize": 109462,
       "width": 1024,
       "height": 682,
       "derivatives": [
@@ -39353,73 +39691,73 @@
           "format": "avif",
           "width": 320,
           "height": 213,
-          "byteSize": 6769
+          "byteSize": 6163
         },
         {
           "key": "optimized/macrovipera-lebetina-nika-1-320.webp",
           "format": "webp",
           "width": 320,
           "height": 213,
-          "byteSize": 8758
+          "byteSize": 8164
         },
         {
           "key": "optimized/macrovipera-lebetina-nika-1-400.avif",
           "format": "avif",
           "width": 400,
           "height": 266,
-          "byteSize": 9469
+          "byteSize": 8698
         },
         {
           "key": "optimized/macrovipera-lebetina-nika-1-400.webp",
           "format": "webp",
           "width": 400,
           "height": 266,
-          "byteSize": 12080
+          "byteSize": 11384
         },
         {
           "key": "optimized/macrovipera-lebetina-nika-1-640.avif",
           "format": "avif",
           "width": 640,
           "height": 426,
-          "byteSize": 18048
+          "byteSize": 16816
         },
         {
           "key": "optimized/macrovipera-lebetina-nika-1-640.webp",
           "format": "webp",
           "width": 640,
           "height": 426,
-          "byteSize": 23674
+          "byteSize": 22264
         },
         {
           "key": "optimized/macrovipera-lebetina-nika-1-800.avif",
           "format": "avif",
           "width": 800,
           "height": 533,
-          "byteSize": 24334
+          "byteSize": 22791
         },
         {
           "key": "optimized/macrovipera-lebetina-nika-1-800.webp",
           "format": "webp",
           "width": 800,
           "height": 533,
-          "byteSize": 32588
+          "byteSize": 30620
         },
         {
           "key": "optimized/macrovipera-lebetina-nika-1-1024.avif",
           "format": "avif",
           "width": 1024,
           "height": 682,
-          "byteSize": 37138
+          "byteSize": 33596
         },
         {
           "key": "optimized/macrovipera-lebetina-nika-1-1024.webp",
           "format": "webp",
           "width": 1024,
           "height": 682,
-          "byteSize": 49680
+          "byteSize": 45768
         }
       ],
-      "updatedAt": "2026-09-06T09:47:16.810Z"
+      "updatedAt": "2026-09-10T18:55:48.891Z"
     },
     "macrovipera-lebetina-nika-2.jpg": {
       "sourceHash": "5eb6785dbb0e8f9be47fa1402ece5f570fd31b98669ab3c79f2d7038cd8ca0f7",
@@ -39650,6 +39988,87 @@
       ],
       "updatedAt": "2026-09-06T09:47:03.514Z"
     },
+    "macrovipera-lebetina-nika-5.jpg": {
+      "sourceHash": "55b9fe75b8cc7a4a73aa468d32ee5b90248ea6a195b434af4485ab0c25f55334",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "macrovipera-lebetina-nika-5.jpg",
+      "originalSize": 109462,
+      "width": 1024,
+      "height": 682,
+      "derivatives": [
+        {
+          "key": "optimized/macrovipera-lebetina-nika-5-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6163
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-nika-5-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8164
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-nika-5-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 8698
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-nika-5-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 11384
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-nika-5-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 16816
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-nika-5-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 22264
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-nika-5-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 22791
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-nika-5-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 30620
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-nika-5-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 682,
+          "byteSize": 33596
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-nika-5-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 682,
+          "byteSize": 45768
+        }
+      ],
+      "updatedAt": "2026-09-10T18:58:07.898Z"
+    },
     "macrovipera-lebetina-nino-1.jpg": {
       "sourceHash": "a61b43201160934df8950597b3cdeeeca276e9917da354cb82618671d9c0eeb5",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -39833,6 +40252,73 @@
         }
       ],
       "updatedAt": "2026-08-28T21:45:32.287Z"
+    },
+    "macrovipera-lebetina-teimuraz-1.jpg": {
+      "sourceHash": "1bdac98056b0037dcd6d21dfe0aec405a76ab1a7277b199806fbb09f51c36805",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "macrovipera-lebetina-teimuraz-1.jpg",
+      "originalSize": 165326,
+      "width": 683,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/macrovipera-lebetina-teimuraz-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 480,
+          "byteSize": 22800
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-teimuraz-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 480,
+          "byteSize": 32714
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-teimuraz-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 600,
+          "byteSize": 32051
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-teimuraz-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 600,
+          "byteSize": 46556
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-teimuraz-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 960,
+          "byteSize": 59867
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-teimuraz-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 960,
+          "byteSize": 87608
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-teimuraz-1-683.avif",
+          "format": "avif",
+          "width": 683,
+          "height": 1024,
+          "byteSize": 66509
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-teimuraz-1-683.webp",
+          "format": "webp",
+          "width": 683,
+          "height": 1024,
+          "byteSize": 97086
+        }
+      ],
+      "updatedAt": "2026-09-10T18:32:42.502Z"
     },
     "macrovipera-lebetina-zakro-1.jpg": {
       "sourceHash": "e3072aae87fc7ee76e3f265f02439f17eab9b88704833ab6ee2fef72330a1ffc",
