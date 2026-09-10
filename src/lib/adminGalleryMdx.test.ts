@@ -118,6 +118,35 @@ describe("reorderGalleryInMdx", () => {
     });
   });
 
+  it("writes numeric lat/lng into credit yaml", () => {
+    const next = appendGalleryItemToMdx(FIXTURE, {
+      credit: {
+        lat: 41.81667,
+        lng: 45.35,
+        location: "ვაშლოვანი",
+        photographer: "ანა",
+      },
+      src: "https://cdn.reptiles.ge/d.jpg",
+    });
+    expect(next).toContain("lat: 41.81667");
+    expect(next).toContain("lng: 45.35");
+    const gallery = matter(next).data.gallery as Array<{
+      credit?: {
+        lat?: number;
+        lng?: number;
+        location?: string;
+        photographer?: string;
+      };
+      src: string;
+    }>;
+    expect(gallery.at(-1)?.credit).toEqual({
+      lat: 41.81667,
+      lng: 45.35,
+      location: "ვაშლოვანი",
+      photographer: "ანა",
+    });
+  });
+
   it("can move a newly appended item to the front", () => {
     const withNew = appendGalleryItemToMdx(FIXTURE, {
       credit: { photographer: "ნიკა" },
