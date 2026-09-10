@@ -4533,11 +4533,25 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2400],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/mustela-nivalis-anastasiia-1.jpg": {
+    "path": "mustela-nivalis-anastasiia-1",
+    "width": 1024,
+    "height": 1024,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/mustela-nivalis-andrieux-1.jpg": {
     "path": "mustela-nivalis-andrieux-1",
     "width": 1184,
     "height": 1800,
     "widths": [400, 800, 1184],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/mustela-nivalis-attila-1.jpg": {
+    "path": "mustela-nivalis-attila-1",
+    "width": 1024,
+    "height": 768,
+    "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/mustela-nivalis-grazalema-1.jpg": {
@@ -4552,6 +4566,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1800,
     "height": 1350,
     "widths": [400, 800, 1200, 1800],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/mustela-nivalis-matthias-1.jpg": {
+    "path": "mustela-nivalis-matthias-1",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/mustela-nivalis-richenza-1.jpg": {
