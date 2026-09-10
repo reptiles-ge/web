@@ -45057,6 +45057,87 @@
       ],
       "updatedAt": "2026-08-28T21:55:03.639Z"
     },
+    "natrix-tessellata-barnabás-1.jpg": {
+      "sourceHash": "a0e74f8d3dd0cb2d0e02014e2f84fcb420fb8e3620d3ed80c1f6c6e80aff8201",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "natrix-tessellata-barnabás-1.jpg",
+      "originalSize": 278071,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/natrix-tessellata-barnabás-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 15912
+        },
+        {
+          "key": "optimized/natrix-tessellata-barnabás-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 22444
+        },
+        {
+          "key": "optimized/natrix-tessellata-barnabás-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 25348
+        },
+        {
+          "key": "optimized/natrix-tessellata-barnabás-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 36264
+        },
+        {
+          "key": "optimized/natrix-tessellata-barnabás-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 60980
+        },
+        {
+          "key": "optimized/natrix-tessellata-barnabás-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 92108
+        },
+        {
+          "key": "optimized/natrix-tessellata-barnabás-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 88980
+        },
+        {
+          "key": "optimized/natrix-tessellata-barnabás-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 139008
+        },
+        {
+          "key": "optimized/natrix-tessellata-barnabás-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 136440
+        },
+        {
+          "key": "optimized/natrix-tessellata-barnabás-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 210736
+        }
+      ],
+      "updatedAt": "2026-09-10T21:34:50.172Z"
+    },
     "natrix-tessellata-beka-1.jpg": {
       "sourceHash": "5b61804f816376b57ec58383ad9199c305ad2cc358c55b1a29a33f89c8bca6d7",
       "configFingerprint": "a895f8e025dcc7fa",
