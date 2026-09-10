@@ -3756,11 +3756,32 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/lacerta-media-davit-1.jpg": {
+    "path": "lacerta-media-davit-1",
+    "width": 648,
+    "height": 486,
+    "widths": [320, 400, 640, 648],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/lacerta-media-edvard-1.jpg": {
+    "path": "lacerta-media-edvard-1",
+    "width": 2048,
+    "height": 1363,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/lacerta-media-levan-1.jpg": {
     "path": "lacerta-media-levan-1",
     "width": 528,
     "height": 960,
     "widths": [320, 400, 528],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/lacerta-media-nika-1.jpg": {
+    "path": "lacerta-media-nika-1",
+    "width": 960,
+    "height": 540,
+    "widths": [320, 400, 640, 800, 960],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/lacerta-media-zauri-1.jpg": {

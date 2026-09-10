@@ -35805,6 +35805,168 @@
       ],
       "updatedAt": "2026-08-28T21:44:07.433Z"
     },
+    "lacerta-media-davit-1.jpg": {
+      "sourceHash": "33c9088e347d8f5eb798ce60d7362a8996f769deaedbeafd42893ef9f0633f9b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lacerta-media-davit-1.jpg",
+      "originalSize": 119241,
+      "width": 648,
+      "height": 486,
+      "derivatives": [
+        {
+          "key": "optimized/lacerta-media-davit-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 19007
+        },
+        {
+          "key": "optimized/lacerta-media-davit-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 30196
+        },
+        {
+          "key": "optimized/lacerta-media-davit-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 28878
+        },
+        {
+          "key": "optimized/lacerta-media-davit-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 45626
+        },
+        {
+          "key": "optimized/lacerta-media-davit-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 60486
+        },
+        {
+          "key": "optimized/lacerta-media-davit-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 98816
+        },
+        {
+          "key": "optimized/lacerta-media-davit-1-648.avif",
+          "format": "avif",
+          "width": 648,
+          "height": 486,
+          "byteSize": 63164
+        },
+        {
+          "key": "optimized/lacerta-media-davit-1-648.webp",
+          "format": "webp",
+          "width": 648,
+          "height": 486,
+          "byteSize": 96736
+        }
+      ],
+      "updatedAt": "2026-09-10T18:04:36.172Z"
+    },
+    "lacerta-media-edvard-1.jpg": {
+      "sourceHash": "8646e58a31f6b86b5dfa11393cbd3993d0698d33d81ca563eef6e874783860e7",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lacerta-media-edvard-1.jpg",
+      "originalSize": 344360,
+      "width": 2048,
+      "height": 1363,
+      "derivatives": [
+        {
+          "key": "optimized/lacerta-media-edvard-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11228
+        },
+        {
+          "key": "optimized/lacerta-media-edvard-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 17334
+        },
+        {
+          "key": "optimized/lacerta-media-edvard-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 15641
+        },
+        {
+          "key": "optimized/lacerta-media-edvard-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 24396
+        },
+        {
+          "key": "optimized/lacerta-media-edvard-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 32162
+        },
+        {
+          "key": "optimized/lacerta-media-edvard-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 51320
+        },
+        {
+          "key": "optimized/lacerta-media-edvard-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 532,
+          "byteSize": 44503
+        },
+        {
+          "key": "optimized/lacerta-media-edvard-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 532,
+          "byteSize": 72300
+        },
+        {
+          "key": "optimized/lacerta-media-edvard-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 799,
+          "byteSize": 76656
+        },
+        {
+          "key": "optimized/lacerta-media-edvard-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 799,
+          "byteSize": 123544
+        },
+        {
+          "key": "optimized/lacerta-media-edvard-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1363,
+          "byteSize": 161723
+        },
+        {
+          "key": "optimized/lacerta-media-edvard-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1363,
+          "byteSize": 249160
+        }
+      ],
+      "updatedAt": "2026-09-10T18:07:27.831Z"
+    },
     "lacerta-media-levan-1.jpg": {
       "sourceHash": "3e58f7c7c273c1b34d6a8d2ab4fba3db95098e56256893db615d37576863bb06",
       "configFingerprint": "409788ee46c653d8",
@@ -35857,6 +36019,87 @@
         }
       ],
       "updatedAt": "2026-09-07T07:54:45.114Z"
+    },
+    "lacerta-media-nika-1.jpg": {
+      "sourceHash": "86941e0657b9cb58d2d953bac1878189c938f1d9dc2910a35960275150ddacbf",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lacerta-media-nika-1.jpg",
+      "originalSize": 200375,
+      "width": 960,
+      "height": 540,
+      "derivatives": [
+        {
+          "key": "optimized/lacerta-media-nika-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 17490
+        },
+        {
+          "key": "optimized/lacerta-media-nika-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 27250
+        },
+        {
+          "key": "optimized/lacerta-media-nika-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 27154
+        },
+        {
+          "key": "optimized/lacerta-media-nika-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 41598
+        },
+        {
+          "key": "optimized/lacerta-media-nika-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 57828
+        },
+        {
+          "key": "optimized/lacerta-media-nika-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 93554
+        },
+        {
+          "key": "optimized/lacerta-media-nika-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 81037
+        },
+        {
+          "key": "optimized/lacerta-media-nika-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 131996
+        },
+        {
+          "key": "optimized/lacerta-media-nika-1-960.avif",
+          "format": "avif",
+          "width": 960,
+          "height": 540,
+          "byteSize": 104734
+        },
+        {
+          "key": "optimized/lacerta-media-nika-1-960.webp",
+          "format": "webp",
+          "width": 960,
+          "height": 540,
+          "byteSize": 162954
+        }
+      ],
+      "updatedAt": "2026-09-10T18:05:33.831Z"
     },
     "lacerta-media-zauri-1.jpg": {
       "sourceHash": "ad0890dbc95e249d24deb8d6a869abf78da06940a8a17e80a2e448ce11821911",
