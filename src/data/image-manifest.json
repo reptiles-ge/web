@@ -45177,6 +45177,87 @@
       ],
       "updatedAt": "2026-08-28T21:55:05.280Z"
     },
+    "natrix-tessellata-brecht-1.jpg": {
+      "sourceHash": "80bc948b4d92906f07bb7aafa071cc0ac06cd9e72589af698fd8eac6f6b39630",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "natrix-tessellata-brecht-1.jpg",
+      "originalSize": 253651,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/natrix-tessellata-brecht-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14223
+        },
+        {
+          "key": "optimized/natrix-tessellata-brecht-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 20836
+        },
+        {
+          "key": "optimized/natrix-tessellata-brecht-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 22563
+        },
+        {
+          "key": "optimized/natrix-tessellata-brecht-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 32978
+        },
+        {
+          "key": "optimized/natrix-tessellata-brecht-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 53170
+        },
+        {
+          "key": "optimized/natrix-tessellata-brecht-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 79240
+        },
+        {
+          "key": "optimized/natrix-tessellata-brecht-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 76441
+        },
+        {
+          "key": "optimized/natrix-tessellata-brecht-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 116856
+        },
+        {
+          "key": "optimized/natrix-tessellata-brecht-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 117948
+        },
+        {
+          "key": "optimized/natrix-tessellata-brecht-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 170666
+        }
+      ],
+      "updatedAt": "2026-09-10T21:36:53.503Z"
+    },
     "natrix-tessellata-giorgi-1.jpg": {
       "sourceHash": "153eaa4702da00c9b01aa3420b2e75399148e6974528388add4715dee128e811",
       "configFingerprint": "a895f8e025dcc7fa",
