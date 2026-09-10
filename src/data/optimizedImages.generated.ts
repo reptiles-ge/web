@@ -4582,6 +4582,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1024],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/natrix-natrix-1.jpg": {
+    "path": "natrix-natrix-1",
+    "width": 1024,
+    "height": 768,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/natrix-natrix-2.jpg": {
     "path": "natrix-natrix-2",
     "width": 2400,
