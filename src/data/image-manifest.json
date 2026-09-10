@@ -15765,6 +15765,73 @@
       ],
       "updatedAt": "2026-09-10T21:13:20.664Z"
     },
+    "dolichophis-schmidti-frederic-1.jpg": {
+      "sourceHash": "b0c55df68172137cde32ae5f7376761f1f2a3b8314ff559cf99b175fb6ac0e70",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "dolichophis-schmidti-frederic-1.jpg",
+      "originalSize": 239411,
+      "width": 768,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/dolichophis-schmidti-frederic-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 22480
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-frederic-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 36792
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-frederic-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 33318
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-frederic-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 53146
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-frederic-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 72705
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-frederic-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 111984
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-frederic-1-768.avif",
+          "format": "avif",
+          "width": 768,
+          "height": 1024,
+          "byteSize": 99678
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-frederic-1-768.webp",
+          "format": "webp",
+          "width": 768,
+          "height": 1024,
+          "byteSize": 148386
+        }
+      ],
+      "updatedAt": "2026-09-10T21:15:27.267Z"
+    },
     "dolichophis-schmidti-george-1.jpg": {
       "sourceHash": "1a482fa58d847d758d405740fb3683fc18b2e6d73909b69bac49a593ecb15018",
       "configFingerprint": "a895f8e025dcc7fa",

@@ -1789,6 +1789,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/dolichophis-schmidti-frederic-1.jpg": {
+    "path": "dolichophis-schmidti-frederic-1",
+    "width": 768,
+    "height": 1024,
+    "widths": [320, 400, 640, 768],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/dolichophis-schmidti-george-1.jpg": {
     "path": "dolichophis-schmidti-george-1",
     "width": 1024,
