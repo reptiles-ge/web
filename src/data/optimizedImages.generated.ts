@@ -4022,6 +4022,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1440],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/macrovipera-lebetina-antonina-1.jpg": {
+    "path": "macrovipera-lebetina-antonina-1",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/macrovipera-lebetina-ar-1.jpg": {
     "path": "macrovipera-lebetina-ar-1",
     "width": 2048,

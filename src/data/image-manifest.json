@@ -38625,6 +38625,87 @@
       ],
       "updatedAt": "2026-09-06T14:58:18.387Z"
     },
+    "macrovipera-lebetina-antonina-1.jpg": {
+      "sourceHash": "1820a93db9e2e21c2c59f90169bf909a770e38ea03f3d5605b938ca8f903f259",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "macrovipera-lebetina-antonina-1.jpg",
+      "originalSize": 134539,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/macrovipera-lebetina-antonina-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9675
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-antonina-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14378
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-antonina-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 13521
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-antonina-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 19712
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-antonina-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 25422
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-antonina-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 38180
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-antonina-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 34266
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-antonina-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 49950
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-antonina-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 46892
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-antonina-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 68320
+        }
+      ],
+      "updatedAt": "2026-09-10T18:34:28.026Z"
+    },
     "macrovipera-lebetina-ar-1.jpg": {
       "sourceHash": "83d8ac522cf90912a8cecc9d70d7415e75cec01477f499a8c959fb37a0bdbdc2",
       "configFingerprint": "409788ee46c653d8",
