@@ -45,7 +45,7 @@ const TRACKING_QUERY = new Set([
 ]);
 
 const SOURCE_HOSTS: Array<{ match: RegExp; name: string }> = [
-  { match: /(^|\.)google\./i, name: "Google" },
+  { match: /(^|\.)google\./i, name: "google.com" },
   { match: /(^|\.)bing\./i, name: "Bing" },
   { match: /(^|\.)yandex\./i, name: "Yandex" },
   { match: /(^|\.)duckduckgo\./i, name: "DuckDuckGo" },
@@ -67,7 +67,7 @@ const SOURCE_TOKENS: Record<string, string> = {
   duckduckgo: "DuckDuckGo",
   facebook: "Facebook",
   fb: "Facebook",
-  google: "Google",
+  google: "google.com",
   ig: "Instagram",
   instagram: "Instagram",
   reddit: "Reddit",

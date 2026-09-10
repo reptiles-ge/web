@@ -123,7 +123,7 @@ describe("formatVisitMessage", () => {
         "გვერდი: გიურზა",
         "URL: /gvelebi/giurza",
         "",
-        "წყარო: Google",
+        "წყარო: google.com",
         "ადგილი: საქართველო, თბილისი",
         "მოწყობილობა: iPhone · Safari",
       ].join("\n"),
@@ -172,7 +172,7 @@ describe("formatVisitMessage", () => {
 describe("visitReferrerSource", () => {
   it("names well-known hosts", () => {
     expect(visitReferrerSource("https://www.google.com/search?q=gveli")).toBe(
-      "Google",
+      "google.com",
     );
     expect(visitReferrerSource("https://t.me/share")).toBe("Telegram");
     expect(visitReferrerSource("https://l.facebook.com/l.php")).toBe(
