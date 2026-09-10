@@ -18,7 +18,6 @@ import {
 import { speciesImageAlt } from "@/lib/speciesMeta";
 
 const SPOTLIGHT_ID = "vipera-dinniki";
-const SPOTLIGHT_IMAGE = "https://cdn.reptiles.ge/vipera-dinniki-truso-2.jpg";
 const SUPPORTING_IDS = [
   "pseudopus-apodus",
   "testudo-graeca",
@@ -34,11 +33,8 @@ export async function HomeFeatured() {
 
   const spotlight = localizeSpecies(base, locale);
   const hero = getSpeciesHeroSources(spotlight);
-  const imageSrc = !isPlaceholderMedia(SPOTLIGHT_IMAGE)
-    ? SPOTLIGHT_IMAGE
-    : hero.desktopHeroSrc && !isPlaceholderMedia(hero.desktopHeroSrc)
-      ? hero.desktopHeroSrc
-      : spotlight.image;
+  const imageSrc =
+    hero.mobileHeroSrc ?? hero.desktopHeroSrc ?? spotlight.image;
   const group = getSpeciesAtlasMeta(spotlight.id).group;
   const stats = filterDisplayStats(spotlight.stats, group).slice(0, 4);
   const supporting = SUPPORTING_IDS.map((id) => getSpeciesById(id))
