@@ -44128,6 +44128,87 @@
       ],
       "updatedAt": "2026-08-28T21:54:43.413Z"
     },
+    "mustela-nivalis-matthias-1.jpg": {
+      "sourceHash": "a3389c6648a776f08b6d0d01ab62459804d8c786100cf637695fabc0a4e8ecc1",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "mustela-nivalis-matthias-1.jpg",
+      "originalSize": 194177,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/mustela-nivalis-matthias-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12021
+        },
+        {
+          "key": "optimized/mustela-nivalis-matthias-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 18226
+        },
+        {
+          "key": "optimized/mustela-nivalis-matthias-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 18301
+        },
+        {
+          "key": "optimized/mustela-nivalis-matthias-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 27132
+        },
+        {
+          "key": "optimized/mustela-nivalis-matthias-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 39197
+        },
+        {
+          "key": "optimized/mustela-nivalis-matthias-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 59044
+        },
+        {
+          "key": "optimized/mustela-nivalis-matthias-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 54600
+        },
+        {
+          "key": "optimized/mustela-nivalis-matthias-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 81994
+        },
+        {
+          "key": "optimized/mustela-nivalis-matthias-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 80895
+        },
+        {
+          "key": "optimized/mustela-nivalis-matthias-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 115904
+        }
+      ],
+      "updatedAt": "2026-09-10T22:47:28.127Z"
+    },
     "mustela-nivalis-richenza-1.jpg": {
       "sourceHash": "63a4ff7e9d1b9dbc05883f94815ab5016f8876c03c87526a6fb2e36635f27720",
       "configFingerprint": "a895f8e025dcc7fa",
