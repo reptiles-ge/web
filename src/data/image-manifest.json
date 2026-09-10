@@ -15603,6 +15603,316 @@
       ],
       "updatedAt": "2026-08-29T22:42:16.168Z"
     },
+    "dolichophis-schmidti-bobby-1.jpg": {
+      "sourceHash": "a26bc586c783d4b9d5c25065ce76ec08f555214c1900419df0a1bf12f7b4b17f",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "dolichophis-schmidti-bobby-1.jpg",
+      "originalSize": 161192,
+      "width": 1024,
+      "height": 655,
+      "derivatives": [
+        {
+          "key": "optimized/dolichophis-schmidti-bobby-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 204,
+          "byteSize": 11818
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-bobby-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 204,
+          "byteSize": 18678
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-bobby-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 256,
+          "byteSize": 16388
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-bobby-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 256,
+          "byteSize": 25802
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-bobby-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 409,
+          "byteSize": 31794
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-bobby-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 409,
+          "byteSize": 49414
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-bobby-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 512,
+          "byteSize": 41971
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-bobby-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 512,
+          "byteSize": 64002
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-bobby-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 655,
+          "byteSize": 58565
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-bobby-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 655,
+          "byteSize": 86450
+        }
+      ],
+      "updatedAt": "2026-09-10T21:14:25.256Z"
+    },
+    "dolichophis-schmidti-christian-1.jpg": {
+      "sourceHash": "2b97bb50fa4b5156595c7216ff8265bc991bceacdd041fa1bd79b2c87668a011",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "dolichophis-schmidti-christian-1.jpg",
+      "originalSize": 291322,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/dolichophis-schmidti-christian-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 15247
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-christian-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 24138
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-christian-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 23639
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-christian-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 38304
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-christian-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 58843
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-christian-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 94534
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-christian-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 88516
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-christian-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 140228
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-christian-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 144311
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-christian-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 217338
+        }
+      ],
+      "updatedAt": "2026-09-10T21:16:15.519Z"
+    },
+    "dolichophis-schmidti-david-1.jpg": {
+      "sourceHash": "54881154488baff373cd55ac14181dced17c6e1782abccc6717a31663e6fda33",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "dolichophis-schmidti-david-1.jpg",
+      "originalSize": 99281,
+      "width": 1024,
+      "height": 678,
+      "derivatives": [
+        {
+          "key": "optimized/dolichophis-schmidti-david-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 212,
+          "byteSize": 6806
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-david-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 212,
+          "byteSize": 9588
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-david-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 265,
+          "byteSize": 9710
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-david-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 265,
+          "byteSize": 13226
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-david-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 424,
+          "byteSize": 18121
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-david-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 424,
+          "byteSize": 26084
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-david-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 530,
+          "byteSize": 24785
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-david-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 530,
+          "byteSize": 34780
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-david-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 678,
+          "byteSize": 34548
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-david-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 678,
+          "byteSize": 47520
+        }
+      ],
+      "updatedAt": "2026-09-10T21:13:20.664Z"
+    },
+    "dolichophis-schmidti-frederic-1.jpg": {
+      "sourceHash": "b0c55df68172137cde32ae5f7376761f1f2a3b8314ff559cf99b175fb6ac0e70",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "dolichophis-schmidti-frederic-1.jpg",
+      "originalSize": 239411,
+      "width": 768,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/dolichophis-schmidti-frederic-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 22480
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-frederic-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 36792
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-frederic-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 33318
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-frederic-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 53146
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-frederic-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 72705
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-frederic-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 111984
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-frederic-1-768.avif",
+          "format": "avif",
+          "width": 768,
+          "height": 1024,
+          "byteSize": 99678
+        },
+        {
+          "key": "optimized/dolichophis-schmidti-frederic-1-768.webp",
+          "format": "webp",
+          "width": 768,
+          "height": 1024,
+          "byteSize": 148386
+        }
+      ],
+      "updatedAt": "2026-09-10T21:15:27.267Z"
+    },
     "dolichophis-schmidti-george-1.jpg": {
       "sourceHash": "1a482fa58d847d758d405740fb3683fc18b2e6d73909b69bac49a593ecb15018",
       "configFingerprint": "a895f8e025dcc7fa",
