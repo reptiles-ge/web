@@ -40091,6 +40091,73 @@
       ],
       "updatedAt": "2026-08-28T21:45:32.287Z"
     },
+    "macrovipera-lebetina-teimuraz-1.jpg": {
+      "sourceHash": "1bdac98056b0037dcd6d21dfe0aec405a76ab1a7277b199806fbb09f51c36805",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "macrovipera-lebetina-teimuraz-1.jpg",
+      "originalSize": 165326,
+      "width": 683,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/macrovipera-lebetina-teimuraz-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 480,
+          "byteSize": 22800
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-teimuraz-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 480,
+          "byteSize": 32714
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-teimuraz-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 600,
+          "byteSize": 32051
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-teimuraz-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 600,
+          "byteSize": 46556
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-teimuraz-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 960,
+          "byteSize": 59867
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-teimuraz-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 960,
+          "byteSize": 87608
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-teimuraz-1-683.avif",
+          "format": "avif",
+          "width": 683,
+          "height": 1024,
+          "byteSize": 66509
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-teimuraz-1-683.webp",
+          "format": "webp",
+          "width": 683,
+          "height": 1024,
+          "byteSize": 97086
+        }
+      ],
+      "updatedAt": "2026-09-10T18:32:42.502Z"
+    },
     "macrovipera-lebetina-zakro-1.jpg": {
       "sourceHash": "e3072aae87fc7ee76e3f265f02439f17eab9b88704833ab6ee2fef72330a1ffc",
       "configFingerprint": "409788ee46c653d8",
