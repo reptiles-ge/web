@@ -3770,6 +3770,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 528],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/lacerta-media-nika-1.jpg": {
+    "path": "lacerta-media-nika-1",
+    "width": 960,
+    "height": 540,
+    "widths": [320, 400, 640, 800, 960],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/lacerta-media-zauri-1.jpg": {
     "path": "lacerta-media-zauri-1",
     "width": 2048,

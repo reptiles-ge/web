@@ -35925,6 +35925,87 @@
       ],
       "updatedAt": "2026-09-07T07:54:45.114Z"
     },
+    "lacerta-media-nika-1.jpg": {
+      "sourceHash": "86941e0657b9cb58d2d953bac1878189c938f1d9dc2910a35960275150ddacbf",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lacerta-media-nika-1.jpg",
+      "originalSize": 200375,
+      "width": 960,
+      "height": 540,
+      "derivatives": [
+        {
+          "key": "optimized/lacerta-media-nika-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 17490
+        },
+        {
+          "key": "optimized/lacerta-media-nika-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 27250
+        },
+        {
+          "key": "optimized/lacerta-media-nika-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 27154
+        },
+        {
+          "key": "optimized/lacerta-media-nika-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 41598
+        },
+        {
+          "key": "optimized/lacerta-media-nika-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 57828
+        },
+        {
+          "key": "optimized/lacerta-media-nika-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 93554
+        },
+        {
+          "key": "optimized/lacerta-media-nika-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 81037
+        },
+        {
+          "key": "optimized/lacerta-media-nika-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 131996
+        },
+        {
+          "key": "optimized/lacerta-media-nika-1-960.avif",
+          "format": "avif",
+          "width": 960,
+          "height": 540,
+          "byteSize": 104734
+        },
+        {
+          "key": "optimized/lacerta-media-nika-1-960.webp",
+          "format": "webp",
+          "width": 960,
+          "height": 540,
+          "byteSize": 162954
+        }
+      ],
+      "updatedAt": "2026-09-10T18:05:33.831Z"
+    },
     "lacerta-media-zauri-1.jpg": {
       "sourceHash": "ad0890dbc95e249d24deb8d6a869abf78da06940a8a17e80a2e448ce11821911",
       "configFingerprint": "409788ee46c653d8",
