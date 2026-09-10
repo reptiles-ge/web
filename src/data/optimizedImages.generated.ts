@@ -4582,6 +4582,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1024],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/natrix-natrix-1.jpg": {
+    "path": "natrix-natrix-1",
+    "width": 1024,
+    "height": 768,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/natrix-natrix-2.jpg": {
     "path": "natrix-natrix-2",
     "width": 2400,
@@ -4622,6 +4629,48 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 2400,
     "height": 1600,
     "widths": [400, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/natrix-natrix-8.jpg": {
+    "path": "natrix-natrix-8",
+    "width": 1024,
+    "height": 768,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/natrix-natrix-alex-1.jpg": {
+    "path": "natrix-natrix-alex-1",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/natrix-natrix-alexandre-1.jpg": {
+    "path": "natrix-natrix-alexandre-1",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/natrix-natrix-barnab%C3%A1s-1.jpg": {
+    "path": "natrix-natrix-barnab%C3%A1s-1",
+    "width": 768,
+    "height": 1024,
+    "widths": [320, 400, 640, 768],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/natrix-natrix-christian-1.jpg": {
+    "path": "natrix-natrix-christian-1",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/natrix-natrix-louis-1.jpg": {
+    "path": "natrix-natrix-louis-1",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/natrix-natrix-mobile.jpg": {

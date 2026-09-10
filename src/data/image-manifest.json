@@ -44206,6 +44206,87 @@
       ],
       "updatedAt": "2026-08-28T21:54:44.858Z"
     },
+    "natrix-natrix-1.jpg": {
+      "sourceHash": "059e5ca435fd3e10f7e1480dfc734f5c87aab5ba83268046437cc5ef3a1ddb09",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "natrix-natrix-1.jpg",
+      "originalSize": 405192,
+      "width": 1024,
+      "height": 768,
+      "derivatives": [
+        {
+          "key": "optimized/natrix-natrix-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 22815
+        },
+        {
+          "key": "optimized/natrix-natrix-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 35682
+        },
+        {
+          "key": "optimized/natrix-natrix-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 36608
+        },
+        {
+          "key": "optimized/natrix-natrix-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 56634
+        },
+        {
+          "key": "optimized/natrix-natrix-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 87896
+        },
+        {
+          "key": "optimized/natrix-natrix-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 134950
+        },
+        {
+          "key": "optimized/natrix-natrix-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 131088
+        },
+        {
+          "key": "optimized/natrix-natrix-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 204474
+        },
+        {
+          "key": "optimized/natrix-natrix-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 206060
+        },
+        {
+          "key": "optimized/natrix-natrix-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 319004
+        }
+      ],
+      "updatedAt": "2026-09-10T21:59:17.926Z"
+    },
     "natrix-natrix-2.jpg": {
       "sourceHash": "2f85e32976057059cdd4e8942f07452afa869195a69f91d98f5c6c52cabc1e91",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -44607,6 +44688,478 @@
         }
       ],
       "updatedAt": "2026-08-28T21:54:59.540Z"
+    },
+    "natrix-natrix-8.jpg": {
+      "sourceHash": "c3de2cdef4467a226f9e63e8d4486b68edcb190b478e7ea6d5c9bb44c0307139",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "natrix-natrix-8.jpg",
+      "originalSize": 288753,
+      "width": 1024,
+      "height": 768,
+      "derivatives": [
+        {
+          "key": "optimized/natrix-natrix-8-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 21832
+        },
+        {
+          "key": "optimized/natrix-natrix-8-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 33548
+        },
+        {
+          "key": "optimized/natrix-natrix-8-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 34290
+        },
+        {
+          "key": "optimized/natrix-natrix-8-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 52426
+        },
+        {
+          "key": "optimized/natrix-natrix-8-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 69180
+        },
+        {
+          "key": "optimized/natrix-natrix-8-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 116536
+        },
+        {
+          "key": "optimized/natrix-natrix-8-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 91063
+        },
+        {
+          "key": "optimized/natrix-natrix-8-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 159100
+        },
+        {
+          "key": "optimized/natrix-natrix-8-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 121582
+        },
+        {
+          "key": "optimized/natrix-natrix-8-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 211986
+        }
+      ],
+      "updatedAt": "2026-09-10T22:03:10.188Z"
+    },
+    "natrix-natrix-alex-1.jpg": {
+      "sourceHash": "2c0825dcf19a2b470b1d61bb2eecd26c554b4230dd8643b6b1adf5e1a02a59a0",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "natrix-natrix-alex-1.jpg",
+      "originalSize": 131687,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/natrix-natrix-alex-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8572
+        },
+        {
+          "key": "optimized/natrix-natrix-alex-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 13878
+        },
+        {
+          "key": "optimized/natrix-natrix-alex-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 11951
+        },
+        {
+          "key": "optimized/natrix-natrix-alex-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 18748
+        },
+        {
+          "key": "optimized/natrix-natrix-alex-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 23038
+        },
+        {
+          "key": "optimized/natrix-natrix-alex-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 35928
+        },
+        {
+          "key": "optimized/natrix-natrix-alex-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 31118
+        },
+        {
+          "key": "optimized/natrix-natrix-alex-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 46992
+        },
+        {
+          "key": "optimized/natrix-natrix-alex-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 43872
+        },
+        {
+          "key": "optimized/natrix-natrix-alex-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 64914
+        }
+      ],
+      "updatedAt": "2026-09-10T22:00:01.044Z"
+    },
+    "natrix-natrix-alexandre-1.jpg": {
+      "sourceHash": "c97be5e668408dcdde541d9ab0b329ef7bbc063d1759c7efbfcbac10b9371e7d",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "natrix-natrix-alexandre-1.jpg",
+      "originalSize": 211614,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/natrix-natrix-alexandre-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14400
+        },
+        {
+          "key": "optimized/natrix-natrix-alexandre-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 23602
+        },
+        {
+          "key": "optimized/natrix-natrix-alexandre-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 20939
+        },
+        {
+          "key": "optimized/natrix-natrix-alexandre-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 35258
+        },
+        {
+          "key": "optimized/natrix-natrix-alexandre-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 43109
+        },
+        {
+          "key": "optimized/natrix-natrix-alexandre-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 72398
+        },
+        {
+          "key": "optimized/natrix-natrix-alexandre-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 59266
+        },
+        {
+          "key": "optimized/natrix-natrix-alexandre-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 97430
+        },
+        {
+          "key": "optimized/natrix-natrix-alexandre-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 84789
+        },
+        {
+          "key": "optimized/natrix-natrix-alexandre-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 134868
+        }
+      ],
+      "updatedAt": "2026-09-10T22:00:46.998Z"
+    },
+    "natrix-natrix-barnabás-1.jpg": {
+      "sourceHash": "6aefcc820d065dc25b5a64fa6ae95f403fc4f13567ff52437d8e66bf00fe198e",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "natrix-natrix-barnabás-1.jpg",
+      "originalSize": 343340,
+      "width": 768,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/natrix-natrix-barnabás-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 41037
+        },
+        {
+          "key": "optimized/natrix-natrix-barnabás-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 63178
+        },
+        {
+          "key": "optimized/natrix-natrix-barnabás-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 58842
+        },
+        {
+          "key": "optimized/natrix-natrix-barnabás-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 93070
+        },
+        {
+          "key": "optimized/natrix-natrix-barnabás-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 117715
+        },
+        {
+          "key": "optimized/natrix-natrix-barnabás-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 190994
+        },
+        {
+          "key": "optimized/natrix-natrix-barnabás-1-768.avif",
+          "format": "avif",
+          "width": 768,
+          "height": 1024,
+          "byteSize": 152186
+        },
+        {
+          "key": "optimized/natrix-natrix-barnabás-1-768.webp",
+          "format": "webp",
+          "width": 768,
+          "height": 1024,
+          "byteSize": 247704
+        }
+      ],
+      "updatedAt": "2026-09-10T21:58:20.160Z"
+    },
+    "natrix-natrix-christian-1.jpg": {
+      "sourceHash": "a6c4535c769589c54b422c634a50f5e77afdcbeca12a73bb0a65b43a6f0e1b21",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "natrix-natrix-christian-1.jpg",
+      "originalSize": 360353,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/natrix-natrix-christian-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 21431
+        },
+        {
+          "key": "optimized/natrix-natrix-christian-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 33434
+        },
+        {
+          "key": "optimized/natrix-natrix-christian-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 34317
+        },
+        {
+          "key": "optimized/natrix-natrix-christian-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 51998
+        },
+        {
+          "key": "optimized/natrix-natrix-christian-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 81294
+        },
+        {
+          "key": "optimized/natrix-natrix-christian-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 126434
+        },
+        {
+          "key": "optimized/natrix-natrix-christian-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 118283
+        },
+        {
+          "key": "optimized/natrix-natrix-christian-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 186956
+        },
+        {
+          "key": "optimized/natrix-natrix-christian-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 180932
+        },
+        {
+          "key": "optimized/natrix-natrix-christian-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 291278
+        }
+      ],
+      "updatedAt": "2026-09-10T22:01:35.216Z"
+    },
+    "natrix-natrix-louis-1.jpg": {
+      "sourceHash": "8882cfe70fddbabea9518805974f6a2fdd5e56a5df7e2492d969b3ad2e4a1344",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "natrix-natrix-louis-1.jpg",
+      "originalSize": 135626,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/natrix-natrix-louis-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9075
+        },
+        {
+          "key": "optimized/natrix-natrix-louis-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 13558
+        },
+        {
+          "key": "optimized/natrix-natrix-louis-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 13041
+        },
+        {
+          "key": "optimized/natrix-natrix-louis-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 19160
+        },
+        {
+          "key": "optimized/natrix-natrix-louis-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 26544
+        },
+        {
+          "key": "optimized/natrix-natrix-louis-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 37896
+        },
+        {
+          "key": "optimized/natrix-natrix-louis-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 36100
+        },
+        {
+          "key": "optimized/natrix-natrix-louis-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 51660
+        },
+        {
+          "key": "optimized/natrix-natrix-louis-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 51598
+        },
+        {
+          "key": "optimized/natrix-natrix-louis-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 72102
+        }
+      ],
+      "updatedAt": "2026-09-10T22:02:24.669Z"
     },
     "natrix-natrix-mobile.jpg": {
       "sourceHash": "9e9f514b849f754949b904b70ebe780cca47b0100aaa9c3385ecdfa13af50400",
