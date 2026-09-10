@@ -29,6 +29,7 @@
     "images:og-missing": "tsx scripts/compile-species.ts && tsx scripts/generate-missing-og.ts",
     "images:unused": "node scripts/remove-unused-images.js",
     "images:unused:delete": "node scripts/remove-unused-images.js --delete",
+    "images:cdn-unused": "tsx scripts/cdn-unused-images.ts",
     "images:optimize": "tsx scripts/compile-species.ts && tsx scripts/optimize-images.ts",
     "images:optimize:dry": "tsx scripts/compile-species.ts && tsx scripts/optimize-images.ts --dry-run",
     "images:optimize:news": "tsx scripts/compile-species.ts && tsx scripts/optimize-images.ts --news",

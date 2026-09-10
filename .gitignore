@@ -49,6 +49,7 @@ index.html
 
 tmp/
 *.tmp
+cdn-unused-images.txt
 /test-results/
 /playwright-report/
 /blob-report/
