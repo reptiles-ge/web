@@ -44918,6 +44918,87 @@
       ],
       "updatedAt": "2026-09-10T21:58:20.160Z"
     },
+    "natrix-natrix-christian-1.jpg": {
+      "sourceHash": "a6c4535c769589c54b422c634a50f5e77afdcbeca12a73bb0a65b43a6f0e1b21",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "natrix-natrix-christian-1.jpg",
+      "originalSize": 360353,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/natrix-natrix-christian-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 21431
+        },
+        {
+          "key": "optimized/natrix-natrix-christian-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 33434
+        },
+        {
+          "key": "optimized/natrix-natrix-christian-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 34317
+        },
+        {
+          "key": "optimized/natrix-natrix-christian-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 51998
+        },
+        {
+          "key": "optimized/natrix-natrix-christian-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 81294
+        },
+        {
+          "key": "optimized/natrix-natrix-christian-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 126434
+        },
+        {
+          "key": "optimized/natrix-natrix-christian-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 118283
+        },
+        {
+          "key": "optimized/natrix-natrix-christian-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 186956
+        },
+        {
+          "key": "optimized/natrix-natrix-christian-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 180932
+        },
+        {
+          "key": "optimized/natrix-natrix-christian-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 291278
+        }
+      ],
+      "updatedAt": "2026-09-10T22:01:35.216Z"
+    },
     "natrix-natrix-mobile.jpg": {
       "sourceHash": "9e9f514b849f754949b904b70ebe780cca47b0100aaa9c3385ecdfa13af50400",
       "configFingerprint": "a895f8e025dcc7fa",
