@@ -59139,6 +59139,87 @@
       ],
       "updatedAt": "2026-08-28T22:00:42.426Z"
     },
+    "vipera-kaznakovi-alex-1.jpg": {
+      "sourceHash": "f66f4c12397b708734c649d3bab2841048834595009bb2aadf970529820bb6b7",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "vipera-kaznakovi-alex-1.jpg",
+      "originalSize": 186826,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-kaznakovi-alex-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 13365
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-alex-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 20256
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-alex-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 19058
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-alex-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 28926
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-alex-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 37321
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-alex-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 55352
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-alex-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 50533
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-alex-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 74426
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-alex-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 71163
+        },
+        {
+          "key": "optimized/vipera-kaznakovi-alex-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 103614
+        }
+      ],
+      "updatedAt": "2026-09-10T19:59:16.528Z"
+    },
     "vipera-kaznakovi-armen-1.jpg": {
       "sourceHash": "97a36cb30477dab8aa0fe4e6d812b8ea3b48d4a2ff917549bfbba676b733eb51",
       "configFingerprint": "409788ee46c653d8",
