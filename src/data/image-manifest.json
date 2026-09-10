@@ -44608,6 +44608,73 @@
       ],
       "updatedAt": "2026-08-28T21:54:59.540Z"
     },
+    "natrix-natrix-barnabás-1.jpg": {
+      "sourceHash": "6aefcc820d065dc25b5a64fa6ae95f403fc4f13567ff52437d8e66bf00fe198e",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "natrix-natrix-barnabás-1.jpg",
+      "originalSize": 343340,
+      "width": 768,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/natrix-natrix-barnabás-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 41037
+        },
+        {
+          "key": "optimized/natrix-natrix-barnabás-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 63178
+        },
+        {
+          "key": "optimized/natrix-natrix-barnabás-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 58842
+        },
+        {
+          "key": "optimized/natrix-natrix-barnabás-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 93070
+        },
+        {
+          "key": "optimized/natrix-natrix-barnabás-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 117715
+        },
+        {
+          "key": "optimized/natrix-natrix-barnabás-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 190994
+        },
+        {
+          "key": "optimized/natrix-natrix-barnabás-1-768.avif",
+          "format": "avif",
+          "width": 768,
+          "height": 1024,
+          "byteSize": 152186
+        },
+        {
+          "key": "optimized/natrix-natrix-barnabás-1-768.webp",
+          "format": "webp",
+          "width": 768,
+          "height": 1024,
+          "byteSize": 247704
+        }
+      ],
+      "updatedAt": "2026-09-10T21:58:20.160Z"
+    },
     "natrix-natrix-mobile.jpg": {
       "sourceHash": "9e9f514b849f754949b904b70ebe780cca47b0100aaa9c3385ecdfa13af50400",
       "configFingerprint": "a895f8e025dcc7fa",
