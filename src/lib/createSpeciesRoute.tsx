@@ -51,6 +51,7 @@ import {
   speciesHref,
   speciesStaticParams,
 } from "@/lib/speciesRoutes";
+import { speciesArticleSpatialCoverage } from "@/lib/speciesSpatialCoverage";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 
 type PageProps = {
@@ -245,6 +246,7 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
         "@type": "WebPage",
       },
       publisher: org,
+      spatialCoverage: speciesArticleSpatialCoverage(item.id, locale),
     };
 
     const breadcrumbLd = {

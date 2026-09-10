@@ -12,7 +12,6 @@ import {
 import {
   type Dispatch,
   type SetStateAction,
-  useEffect,
   useRef,
   useState,
 } from "react";
@@ -195,6 +194,7 @@ export function AdminGalleryReorder({
               {coordsOpenSrc === item.src ? (
                 <PhotoCoordinatesForm
                   disabled={disabled}
+                  key={`${item.src}:${typeof item.credit?.lat === "number" ? item.credit.lat : ""}:${typeof item.credit?.lng === "number" ? item.credit.lng : ""}`}
                   lat={
                     typeof item.credit?.lat === "number"
                       ? String(item.credit.lat)
@@ -215,7 +215,6 @@ export function AdminGalleryReorder({
                   onSave={(lat, lng) =>
                     onSaveCoordinates(item.src, { lat, lng })
                   }
-                  src={item.src}
                 />
               ) : null}
               <button
@@ -292,22 +291,15 @@ function PhotoCoordinatesForm({
   lng,
   onClear,
   onSave,
-  src,
 }: {
   disabled?: boolean;
   lat: string;
   lng: string;
   onClear: () => void;
   onSave: (lat: string, lng: string) => void;
-  src: string;
 }) {
   const [latValue, setLatValue] = useState(lat);
   const [lngValue, setLngValue] = useState(lng);
-
-  useEffect(() => {
-    setLatValue(lat);
-    setLngValue(lng);
-  }, [lat, lng, src]);
 
   return (
     <div className="mt-1.5 space-y-1.5 rounded-md border border-border bg-background p-1.5">
