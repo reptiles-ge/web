@@ -44795,6 +44795,73 @@
       ],
       "updatedAt": "2026-08-28T21:55:00.902Z"
     },
+    "natrix-tessellata-1.jpg": {
+      "sourceHash": "ec475ce408be0283a2c1b854b451c1ee831bb7518e09e9afeca196fe79f6112b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "natrix-tessellata-1.jpg",
+      "originalSize": 332504,
+      "width": 768,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/natrix-tessellata-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 33008
+        },
+        {
+          "key": "optimized/natrix-tessellata-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 52472
+        },
+        {
+          "key": "optimized/natrix-tessellata-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 50952
+        },
+        {
+          "key": "optimized/natrix-tessellata-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 80150
+        },
+        {
+          "key": "optimized/natrix-tessellata-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 117883
+        },
+        {
+          "key": "optimized/natrix-tessellata-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 187118
+        },
+        {
+          "key": "optimized/natrix-tessellata-1-768.avif",
+          "format": "avif",
+          "width": 768,
+          "height": 1024,
+          "byteSize": 163481
+        },
+        {
+          "key": "optimized/natrix-tessellata-1-768.webp",
+          "format": "webp",
+          "width": 768,
+          "height": 1024,
+          "byteSize": 251968
+        }
+      ],
+      "updatedAt": "2026-09-10T21:38:26.384Z"
+    },
     "natrix-tessellata-2.webp": {
       "sourceHash": "0321d8ed7d8accc7f3572b1098cbc1fd0f9de2968a51d14c13412d7d3070a500",
       "configFingerprint": "a895f8e025dcc7fa",

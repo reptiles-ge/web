@@ -4645,6 +4645,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2400],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/natrix-tessellata-1.jpg": {
+    "path": "natrix-tessellata-1",
+    "width": 768,
+    "height": 1024,
+    "widths": [320, 400, 640, 768],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/natrix-tessellata-2.webp": {
     "path": "natrix-tessellata-2",
     "width": 800,
