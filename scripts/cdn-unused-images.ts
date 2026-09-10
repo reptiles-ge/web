@@ -178,6 +178,10 @@ function storageOrigin() {
   return `https://${host}`;
 }
 
+function isRootOriginalJpeg(key: string) {
+  return !key.includes("/") && /\.jpe?g$/i.test(key);
+}
+
 async function deleteStorageKey(
   key: string,
   storageZone: string,
@@ -208,10 +212,19 @@ async function main() {
   console.log("Listing BunnyCDN storage…");
   const listed = await storage.list("");
   const images = listed.filter((key) => IMAGE_EXT.test(key));
-  const unused = images.filter((key) => !used.has(key)).sort();
+  const unused = images
+    .filter((key) => !used.has(key) || isRootOriginalJpeg(key))
+    .sort();
+  const rootOriginals = unused.filter(isRootOriginalJpeg).length;
 
   console.log(`BunnyCDN image files: ${images.length}`);
-  console.log(`Unused image files: ${unused.length}\n`);
+  console.log(
+    `Unused image files: ${unused.length}` +
+      (rootOriginals > 0
+        ? ` (includes ${rootOriginals} root-folder JPEG originals)`
+        : ""),
+  );
+  console.log("");
 
   if (unused.length === 0) {
     console.log("Nothing to delete.");
@@ -229,7 +242,7 @@ async function main() {
   try {
     const answer = (
       await rl.question(
-        `\n${unused.length} გამოუყენებელი ფოტოა. წავშალოთ BunnyCDN-დან? [Y/N] `,
+        `\n${unused.length} ფოტოა წასაშლელი (unused + root JPEG originals). წავშალოთ BunnyCDN-დან? [Y/N] `,
       )
     )
       .trim()
