@@ -1,6 +1,6 @@
-import type { GalleryImage, PhotoCredit } from "./speciesTypes";
-
 import { hasPhotoCoordinates } from "@/lib/photoCoordinates";
+
+import type { GalleryImage, PhotoCredit } from "./speciesTypes";
 
 export function hasPhotoCredit(credit?: PhotoCredit): credit is PhotoCredit {
   return Boolean(

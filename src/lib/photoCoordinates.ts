@@ -9,7 +9,7 @@ const COORD_DECIMALS = 5;
 
 export function hasPhotoCoordinates(
   credit?: PhotoCredit,
-): credit is PhotoCredit & PhotoCoordinates {
+): credit is PhotoCoordinates & PhotoCredit {
   return (
     typeof credit?.lat === "number" &&
     typeof credit?.lng === "number" &&
