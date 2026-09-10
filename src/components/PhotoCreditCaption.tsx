@@ -283,20 +283,20 @@ function ThumbCredit({
   return (
     <figcaption
       className={cn(
-        "pointer-events-none absolute inset-x-0 bottom-0 z-2 bg-linear-to-t from-black/55 to-transparent px-3 pt-8 pb-2.5 text-[10px] leading-snug tracking-[0.04em] text-white/70 opacity-100 transition-opacity duration-300 sm:opacity-0 sm:group-hover:opacity-100",
+        "pointer-events-none absolute inset-x-0 bottom-0 z-2 select-none bg-linear-to-t from-black/55 to-transparent px-3 pt-8 pb-2.5 text-[10px] leading-snug tracking-[0.04em] text-white/70 opacity-0 transition-opacity duration-300 sm:group-hover:opacity-100",
         className,
       )}
     >
       {photographer ? (
         <p>
           <span className="text-white/45">{photoCredit} </span>
-          <span className="pointer-events-auto">{photographer}</span>
+          <span className="sm:pointer-events-auto">{photographer}</span>
         </p>
       ) : null}
       {location || dateLabel || hasMap ? (
         <p className="mt-0.5 text-white/55">
           {location || hasMap ? (
-            <span className="pointer-events-auto">
+            <span className="sm:pointer-events-auto">
               <PhotoLocationLink
                 credit={credit}
                 mapLabel={mapLabel}
