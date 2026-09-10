@@ -120,12 +120,15 @@ Local `public/images`. Dry-run by default. Delete with `npm run images:unused:de
 
 1. Scans the repo for used `cdn.reptiles.ge` URLs (originals + `optimized/` + `og/` derivatives)
 2. Diffs against Bunny storage
-3. Writes `cdn-unused-images.txt` (gitignored)
-4. Asks: `N unused photos. Delete from BunnyCDN? [Y/N]`
+3. Always includes **root-folder JPEG originals** (`foo.jpg` at storage `/`, no path prefix) — those are temporary uploads and are always offered for delete, even if still referenced
+4. Writes `cdn-unused-images.txt` (gitignored)
+5. Asks: `N unused photos. Delete from BunnyCDN? [Y/N]`
 
-**Y** deletes only unused image files from storage. **N** deletes nothing.
+**Y** deletes the listed image files from storage. **N** deletes nothing.
 
-Note: old `optimized/*.webp` may show up as unused when the manifest now serves AVIF only — that is expected.
+Notes:
+- Old `optimized/*.webp` may show up as unused when the manifest now serves AVIF only — that is expected.
+- Nested paths (`authors/`, `regions/`, `images/`, `og/`, `optimized/`, …) are only deleted when unreferenced. Root JPEGs are always candidates.
 
 ---
 
