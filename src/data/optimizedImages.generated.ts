@@ -6297,6 +6297,27 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1080],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/vipera-dinniki-bobby-1.jpg": {
+    "path": "vipera-dinniki-bobby-1",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/vipera-dinniki-brecht-1.jpg": {
+    "path": "vipera-dinniki-brecht-1",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/vipera-dinniki-fabian-1.jpg": {
+    "path": "vipera-dinniki-fabian-1",
+    "width": 683,
+    "height": 1024,
+    "widths": [320, 400, 640, 683],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/vipera-dinniki-giorgi-1.jpg": {
     "path": "vipera-dinniki-giorgi-1",
     "width": 2048,
@@ -6309,6 +6330,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 718,
     "height": 960,
     "widths": [400, 718],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/vipera-dinniki-mirko-1.jpg": {
+    "path": "vipera-dinniki-mirko-1",
+    "width": 1024,
+    "height": 680,
+    "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/vipera-dinniki-qazbegis-1.jpg": {
