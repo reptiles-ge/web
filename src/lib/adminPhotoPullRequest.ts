@@ -274,6 +274,14 @@ function createPullRequest(input: {
   return url;
 }
 
+function currentBranchName(cwd: string) {
+  try {
+    return run("git", ["branch", "--show-current"], cwd);
+  } catch {
+    return "";
+  }
+}
+
 function findOpenPhotoPullRequest(
   id: string,
 ): null | { branch: string; url: string } {
@@ -380,6 +388,60 @@ async function withPhotoPullRequest(input: {
   const rel = speciesMdxRel(input.id);
   const existing = findOpenPhotoPullRequest(input.id);
   const branch = existing?.branch ?? `photos/${input.id}-${stamp()}`;
+  const onPhotoBranch =
+    Boolean(existing) && currentBranchName(REPO_ROOT) === branch;
+
+  if (onPhotoBranch) {
+    try {
+      run("git", ["fetch", "origin", branch], REPO_ROOT);
+      run("git", ["merge", "--ff-only", `origin/${branch}`], REPO_ROOT);
+    } catch {}
+
+    await input.apply(REPO_ROOT);
+    const mdxFiles = rel.filter((file) =>
+      fs.existsSync(path.join(REPO_ROOT, file)),
+    );
+    run(
+      "git",
+      ["add", "--", ...mdxFiles, ...(input.extraFiles ?? [])],
+      REPO_ROOT,
+    );
+
+    if (!hasStagedChanges(REPO_ROOT)) {
+      throw new Error("No gallery changes to open a pull request for");
+    }
+
+    run("git", ["commit", "-m", input.title, "-m", input.commitBody], REPO_ROOT);
+    run(
+      "git",
+      ["push", "-u", "origin", `HEAD:refs/heads/${branch}`],
+      REPO_ROOT,
+    );
+
+    if (existing) {
+      if (input.editExistingBody !== false) {
+        try {
+          run(
+            "gh",
+            ["pr", "edit", existing.url, "--body", input.prBody],
+            REPO_ROOT,
+          );
+        } catch {
+          return existing.url;
+        }
+      }
+      return existing.url;
+    }
+
+    return createPullRequest({
+      body: input.prBody,
+      branch,
+      cwd: REPO_ROOT,
+      repo: githubRepoName(REPO_ROOT),
+      title: input.title,
+    });
+  }
+
   const worktree = fs.mkdtempSync(path.join(os.tmpdir(), "reptiles-photos-"));
   let addedWorktree = false;
   let pushed = false;
