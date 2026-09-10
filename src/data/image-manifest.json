@@ -60536,6 +60536,73 @@
       ],
       "updatedAt": "2026-09-10T22:56:38.366Z"
     },
+    "vipera-dinniki-fabian-1.jpg": {
+      "sourceHash": "c4541a67d91679dd2a53ca46a979662e3b9e378354f6db9b52e8b9f604cebbd3",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "vipera-dinniki-fabian-1.jpg",
+      "originalSize": 228996,
+      "width": 683,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-dinniki-fabian-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 480,
+          "byteSize": 30785
+        },
+        {
+          "key": "optimized/vipera-dinniki-fabian-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 480,
+          "byteSize": 50336
+        },
+        {
+          "key": "optimized/vipera-dinniki-fabian-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 600,
+          "byteSize": 42617
+        },
+        {
+          "key": "optimized/vipera-dinniki-fabian-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 600,
+          "byteSize": 70838
+        },
+        {
+          "key": "optimized/vipera-dinniki-fabian-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 960,
+          "byteSize": 80544
+        },
+        {
+          "key": "optimized/vipera-dinniki-fabian-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 960,
+          "byteSize": 127826
+        },
+        {
+          "key": "optimized/vipera-dinniki-fabian-1-683.avif",
+          "format": "avif",
+          "width": 683,
+          "height": 1024,
+          "byteSize": 89980
+        },
+        {
+          "key": "optimized/vipera-dinniki-fabian-1-683.webp",
+          "format": "webp",
+          "width": 683,
+          "height": 1024,
+          "byteSize": 138468
+        }
+      ],
+      "updatedAt": "2026-09-10T22:59:21.414Z"
+    },
     "vipera-dinniki-giorgi-1.jpg": {
       "sourceHash": "a852a1454957a0fa029fbfb7e959128a6fcb687fb7dc3eea5e5e43fd88055a5b",
       "configFingerprint": "a895f8e025dcc7fa",
