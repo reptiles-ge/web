@@ -38815,6 +38815,87 @@
       ],
       "updatedAt": "2026-09-06T15:01:38.274Z"
     },
+    "macrovipera-lebetina-aurélien-1.jpg": {
+      "sourceHash": "fd2da099d8f4e6a2e1e2dcb245818ba94a478bb525d48f56320cd9ea7a39537f",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "macrovipera-lebetina-aurélien-1.jpg",
+      "originalSize": 106981,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/macrovipera-lebetina-aurélien-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 7290
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-aurélien-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9860
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-aurélien-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 10326
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-aurélien-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 13890
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-aurélien-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 20686
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-aurélien-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 27552
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-aurélien-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 28092
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-aurélien-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 37410
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-aurélien-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 39886
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-aurélien-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 52284
+        }
+      ],
+      "updatedAt": "2026-09-10T18:24:27.625Z"
+    },
     "macrovipera-lebetina-giorgi-1.jpg": {
       "sourceHash": "25cc63940e01e03f36961480c2543aaa4792271173285f098fdc5d2d540df213",
       "configFingerprint": "409788ee46c653d8",
