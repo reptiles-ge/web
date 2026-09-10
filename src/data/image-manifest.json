@@ -39421,6 +39421,101 @@
       ],
       "updatedAt": "2026-09-06T15:00:24.078Z"
     },
+    "macrovipera-lebetina-marcus-1.jpg": {
+      "sourceHash": "55f583ef2e230c7a2ede992ff94a5d634fd8fea911fc7c1f3952a924751dc3e6",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "macrovipera-lebetina-marcus-1.jpg",
+      "originalSize": 562330,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/macrovipera-lebetina-marcus-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11416
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-marcus-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 17958
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-marcus-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 16214
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-marcus-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 25756
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-marcus-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 34955
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-marcus-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 54978
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-marcus-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 50158
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-marcus-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 78206
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-marcus-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 89697
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-marcus-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 140196
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-marcus-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 185124
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-marcus-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 296970
+        }
+      ],
+      "updatedAt": "2026-09-10T18:29:07.087Z"
+    },
     "macrovipera-lebetina-nika-1.jpg": {
       "sourceHash": "2e86ac2251e79235148e654f01c4899042e312ff37f4a9154cdebc85ed29bf6f",
       "configFingerprint": "409788ee46c653d8",
