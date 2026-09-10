@@ -44795,6 +44795,73 @@
       ],
       "updatedAt": "2026-08-28T21:55:00.902Z"
     },
+    "natrix-tessellata-1.jpg": {
+      "sourceHash": "ec475ce408be0283a2c1b854b451c1ee831bb7518e09e9afeca196fe79f6112b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "natrix-tessellata-1.jpg",
+      "originalSize": 332504,
+      "width": 768,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/natrix-tessellata-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 33008
+        },
+        {
+          "key": "optimized/natrix-tessellata-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 52472
+        },
+        {
+          "key": "optimized/natrix-tessellata-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 50952
+        },
+        {
+          "key": "optimized/natrix-tessellata-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 80150
+        },
+        {
+          "key": "optimized/natrix-tessellata-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 117883
+        },
+        {
+          "key": "optimized/natrix-tessellata-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 187118
+        },
+        {
+          "key": "optimized/natrix-tessellata-1-768.avif",
+          "format": "avif",
+          "width": 768,
+          "height": 1024,
+          "byteSize": 163481
+        },
+        {
+          "key": "optimized/natrix-tessellata-1-768.webp",
+          "format": "webp",
+          "width": 768,
+          "height": 1024,
+          "byteSize": 251968
+        }
+      ],
+      "updatedAt": "2026-09-10T21:38:26.384Z"
+    },
     "natrix-tessellata-2.webp": {
       "sourceHash": "0321d8ed7d8accc7f3572b1098cbc1fd0f9de2968a51d14c13412d7d3070a500",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -45057,6 +45124,87 @@
       ],
       "updatedAt": "2026-08-28T21:55:03.639Z"
     },
+    "natrix-tessellata-barnabás-1.jpg": {
+      "sourceHash": "a0e74f8d3dd0cb2d0e02014e2f84fcb420fb8e3620d3ed80c1f6c6e80aff8201",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "natrix-tessellata-barnabás-1.jpg",
+      "originalSize": 278071,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/natrix-tessellata-barnabás-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 15912
+        },
+        {
+          "key": "optimized/natrix-tessellata-barnabás-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 22444
+        },
+        {
+          "key": "optimized/natrix-tessellata-barnabás-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 25348
+        },
+        {
+          "key": "optimized/natrix-tessellata-barnabás-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 36264
+        },
+        {
+          "key": "optimized/natrix-tessellata-barnabás-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 60980
+        },
+        {
+          "key": "optimized/natrix-tessellata-barnabás-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 92108
+        },
+        {
+          "key": "optimized/natrix-tessellata-barnabás-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 88980
+        },
+        {
+          "key": "optimized/natrix-tessellata-barnabás-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 139008
+        },
+        {
+          "key": "optimized/natrix-tessellata-barnabás-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 136440
+        },
+        {
+          "key": "optimized/natrix-tessellata-barnabás-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 210736
+        }
+      ],
+      "updatedAt": "2026-09-10T21:34:50.172Z"
+    },
     "natrix-tessellata-beka-1.jpg": {
       "sourceHash": "5b61804f816376b57ec58383ad9199c305ad2cc358c55b1a29a33f89c8bca6d7",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -45095,6 +45243,87 @@
         }
       ],
       "updatedAt": "2026-08-28T21:55:05.280Z"
+    },
+    "natrix-tessellata-brecht-1.jpg": {
+      "sourceHash": "80bc948b4d92906f07bb7aafa071cc0ac06cd9e72589af698fd8eac6f6b39630",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "natrix-tessellata-brecht-1.jpg",
+      "originalSize": 253651,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/natrix-tessellata-brecht-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14223
+        },
+        {
+          "key": "optimized/natrix-tessellata-brecht-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 20836
+        },
+        {
+          "key": "optimized/natrix-tessellata-brecht-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 22563
+        },
+        {
+          "key": "optimized/natrix-tessellata-brecht-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 32978
+        },
+        {
+          "key": "optimized/natrix-tessellata-brecht-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 53170
+        },
+        {
+          "key": "optimized/natrix-tessellata-brecht-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 79240
+        },
+        {
+          "key": "optimized/natrix-tessellata-brecht-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 76441
+        },
+        {
+          "key": "optimized/natrix-tessellata-brecht-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 116856
+        },
+        {
+          "key": "optimized/natrix-tessellata-brecht-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 117948
+        },
+        {
+          "key": "optimized/natrix-tessellata-brecht-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 170666
+        }
+      ],
+      "updatedAt": "2026-09-10T21:36:53.503Z"
     },
     "natrix-tessellata-giorgi-1.jpg": {
       "sourceHash": "153eaa4702da00c9b01aa3420b2e75399148e6974528388add4715dee128e811",
@@ -45291,6 +45520,168 @@
       ],
       "updatedAt": "2026-08-28T21:55:07.620Z"
     },
+    "natrix-tessellata-louis-1.jpg": {
+      "sourceHash": "8ccc18b88bf8e98e018f10a6eb886ad7c601e2783e8132e7bf3f6ad8c4f21bec",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "natrix-tessellata-louis-1.jpg",
+      "originalSize": 126145,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/natrix-tessellata-louis-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8411
+        },
+        {
+          "key": "optimized/natrix-tessellata-louis-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10998
+        },
+        {
+          "key": "optimized/natrix-tessellata-louis-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 12272
+        },
+        {
+          "key": "optimized/natrix-tessellata-louis-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 15788
+        },
+        {
+          "key": "optimized/natrix-tessellata-louis-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 25338
+        },
+        {
+          "key": "optimized/natrix-tessellata-louis-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 31236
+        },
+        {
+          "key": "optimized/natrix-tessellata-louis-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 34431
+        },
+        {
+          "key": "optimized/natrix-tessellata-louis-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 42656
+        },
+        {
+          "key": "optimized/natrix-tessellata-louis-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 49012
+        },
+        {
+          "key": "optimized/natrix-tessellata-louis-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 57646
+        }
+      ],
+      "updatedAt": "2026-09-10T21:39:21.599Z"
+    },
+    "natrix-tessellata-markus-1.jpg": {
+      "sourceHash": "18df46efd37899eda7c318c7a23b43b07c0fe202d93eac270386e1563799ea85",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "natrix-tessellata-markus-1.jpg",
+      "originalSize": 146080,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/natrix-tessellata-markus-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11073
+        },
+        {
+          "key": "optimized/natrix-tessellata-markus-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 15746
+        },
+        {
+          "key": "optimized/natrix-tessellata-markus-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 15750
+        },
+        {
+          "key": "optimized/natrix-tessellata-markus-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 22342
+        },
+        {
+          "key": "optimized/natrix-tessellata-markus-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 31026
+        },
+        {
+          "key": "optimized/natrix-tessellata-markus-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 42488
+        },
+        {
+          "key": "optimized/natrix-tessellata-markus-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 40902
+        },
+        {
+          "key": "optimized/natrix-tessellata-markus-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 56340
+        },
+        {
+          "key": "optimized/natrix-tessellata-markus-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 56632
+        },
+        {
+          "key": "optimized/natrix-tessellata-markus-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 77210
+        }
+      ],
+      "updatedAt": "2026-09-10T21:35:38.364Z"
+    },
     "natrix-tessellata-sandro-1.jpg": {
       "sourceHash": "d59a58339c70e4ecfc3f01190c598e002de3064b7a328b110a82345a2c4b7f1a",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -45435,6 +45826,87 @@
         }
       ],
       "updatedAt": "2026-08-28T21:55:09.811Z"
+    },
+    "natrix-tessellata-tomáš-1.jpg": {
+      "sourceHash": "1b1cd6cbb8e64aca7680cd213d97dec8923d647488e7ce04f995d49bdac52549",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "natrix-tessellata-tomáš-1.jpg",
+      "originalSize": 157330,
+      "width": 1024,
+      "height": 682,
+      "derivatives": [
+        {
+          "key": "optimized/natrix-tessellata-tomáš-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11620
+        },
+        {
+          "key": "optimized/natrix-tessellata-tomáš-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 17084
+        },
+        {
+          "key": "optimized/natrix-tessellata-tomáš-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 16392
+        },
+        {
+          "key": "optimized/natrix-tessellata-tomáš-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 23502
+        },
+        {
+          "key": "optimized/natrix-tessellata-tomáš-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 31372
+        },
+        {
+          "key": "optimized/natrix-tessellata-tomáš-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 43960
+        },
+        {
+          "key": "optimized/natrix-tessellata-tomáš-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 41756
+        },
+        {
+          "key": "optimized/natrix-tessellata-tomáš-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 59510
+        },
+        {
+          "key": "optimized/natrix-tessellata-tomáš-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 682,
+          "byteSize": 58762
+        },
+        {
+          "key": "optimized/natrix-tessellata-tomáš-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 682,
+          "byteSize": 82508
+        }
+      ],
+      "updatedAt": "2026-09-10T21:37:41.807Z"
     },
     "natrix-tessellata.webp": {
       "sourceHash": "862dfbaa92206b50ff51e9e0919078118036bf189b58313a91479a0bd24d6b3b",

@@ -4645,6 +4645,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2400],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/natrix-tessellata-1.jpg": {
+    "path": "natrix-tessellata-1",
+    "width": 768,
+    "height": 1024,
+    "widths": [320, 400, 640, 768],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/natrix-tessellata-2.webp": {
     "path": "natrix-tessellata-2",
     "width": 800,
@@ -4680,11 +4687,25 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/natrix-tessellata-barnab%C3%A1s-1.jpg": {
+    "path": "natrix-tessellata-barnab%C3%A1s-1",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/natrix-tessellata-beka-1.jpg": {
     "path": "natrix-tessellata-beka-1",
     "width": 768,
     "height": 1024,
     "widths": [400, 768],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/natrix-tessellata-brecht-1.jpg": {
+    "path": "natrix-tessellata-brecht-1",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/natrix-tessellata-giorgi-1.jpg": {
@@ -4722,6 +4743,20 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 771],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/natrix-tessellata-louis-1.jpg": {
+    "path": "natrix-tessellata-louis-1",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/natrix-tessellata-markus-1.jpg": {
+    "path": "natrix-tessellata-markus-1",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/natrix-tessellata-sandro-1.jpg": {
     "path": "natrix-tessellata-sandro-1",
     "width": 1024,
@@ -4741,6 +4776,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 767,
     "height": 1024,
     "widths": [400, 767],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/natrix-tessellata-tom%C3%A1%C5%A1-1.jpg": {
+    "path": "natrix-tessellata-tom%C3%A1%C5%A1-1",
+    "width": 1024,
+    "height": 682,
+    "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/news-batumi-19300-cosentino-kite-1.jpg": {
