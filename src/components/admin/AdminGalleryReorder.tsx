@@ -140,10 +140,18 @@ export function AdminGalleryReorder({
               </span>
             </div>
             <div className="px-2 py-1.5">
-              <div className="flex items-center gap-1">
-                <p className="min-w-0 flex-1 truncate text-[11px] text-muted-foreground">
-                  {item.credit?.photographer ?? item.src.split("/").at(-1)}
-                </p>
+              <div className="flex items-start gap-1">
+                <div className="min-w-0 flex-1">
+                  <p className="truncate text-[11px] text-muted-foreground">
+                    {item.credit?.photographer ?? "—"}
+                  </p>
+                  <p
+                    className="mt-0.5 break-all font-mono text-[10px] leading-snug text-muted-foreground/80 select-all"
+                    title={item.src}
+                  >
+                    {item.src}
+                  </p>
+                </div>
                 {sortable ? (
                   <span className="flex shrink-0">
                     <button
