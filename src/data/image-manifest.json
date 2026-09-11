@@ -21203,6 +21203,87 @@
       ],
       "updatedAt": "2026-08-28T21:39:58.264Z"
     },
+    "eremias-velox-aurélien-1.jpg": {
+      "sourceHash": "2106a8c46c8648dad6834f2f9fb034437f05e640dc9e3efb45a30ad5867cbbad",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eremias-velox-aurélien-1.jpg",
+      "originalSize": 116458,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/eremias-velox-aurélien-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8319
+        },
+        {
+          "key": "optimized/eremias-velox-aurélien-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12374
+        },
+        {
+          "key": "optimized/eremias-velox-aurélien-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 11739
+        },
+        {
+          "key": "optimized/eremias-velox-aurélien-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 17180
+        },
+        {
+          "key": "optimized/eremias-velox-aurélien-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 22152
+        },
+        {
+          "key": "optimized/eremias-velox-aurélien-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 33262
+        },
+        {
+          "key": "optimized/eremias-velox-aurélien-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 30303
+        },
+        {
+          "key": "optimized/eremias-velox-aurélien-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 44854
+        },
+        {
+          "key": "optimized/eremias-velox-aurélien-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 41970
+        },
+        {
+          "key": "optimized/eremias-velox-aurélien-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 60706
+        }
+      ],
+      "updatedAt": "2026-09-11T01:46:02.522Z"
+    },
     "eremias-velox-korbinian-1.jpg": {
       "sourceHash": "c944faf6346bf7a93e3756639e0673c6bd717449286aa2d5962dd19e20d79230",
       "configFingerprint": "409788ee46c653d8",

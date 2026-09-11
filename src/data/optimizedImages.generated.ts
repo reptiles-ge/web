@@ -2230,6 +2230,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/eremias-velox-aur%C3%A9lien-1.jpg": {
+    "path": "eremias-velox-aur%C3%A9lien-1",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/eremias-velox-korbinian-1.jpg": {
     "path": "eremias-velox-korbinian-1",
     "width": 1024,
