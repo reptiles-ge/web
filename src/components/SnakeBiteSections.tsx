@@ -117,7 +117,7 @@ function SnakeBiteDisclaimer() {
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div>
           <PhoneLinkedText>
-            <p className="text-[11px] font-medium tracking-[0.3em] text-destructive uppercase">
+            <p className="text-[11px] font-medium tracking-[0.18em] text-destructive uppercase">
               {t("disclaimerEyebrow")}
             </p>
             <h2 className="mt-5 max-w-3xl font-display text-display-title font-semibold">
@@ -187,7 +187,7 @@ function SnakeBiteSources() {
     >
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div>
-          <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
+          <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
             {t("sourcesEyebrow")}
           </p>
           <h2 className="mt-5 max-w-2xl font-display text-display-title font-semibold">
@@ -198,7 +198,7 @@ function SnakeBiteSources() {
           </p>
         </div>
 
-        <p className="mt-10 text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase">
+        <p className="mt-10 text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
           {t("sourcesMedicalLabel")}
         </p>
         <ul className="mt-4 max-w-3xl divide-y divide-border border-y border-border">
@@ -224,7 +224,7 @@ function SnakeBiteSources() {
           ))}
         </ul>
 
-        <p className="mt-10 text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase">
+        <p className="mt-10 text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
           {t("sourcesSiteLabel")}
         </p>
         <ul className="mt-4 max-w-3xl divide-y divide-border border-y border-border">
@@ -261,7 +261,7 @@ function SnakeBiteSpecies({ species }: { species: Species[] }) {
     <section className="border-t border-border bg-surface py-20 lg:py-28">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div>
-          <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
+          <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
             {t("speciesEyebrow")}
           </p>
           <h2 className="mt-5 max-w-2xl font-display text-display-title font-semibold">
@@ -378,7 +378,7 @@ function SnakeBiteUnseen() {
     <section className="border-t border-border bg-background py-20 lg:py-28">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div>
-          <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
+          <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
             {t("unseenEyebrow")}
           </p>
           <h2 className="mt-5 max-w-2xl font-display text-display-title font-semibold">

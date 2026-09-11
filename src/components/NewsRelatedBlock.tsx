@@ -25,7 +25,7 @@ export async function NewsRelatedBlock({
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
+            <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
               {t("eyebrow")}
             </p>
             <h2 className="mt-3 font-display text-display-title font-semibold text-foreground">

@@ -76,7 +76,10 @@ export function TurtlesHubSections() {
                 {
                   key: "emys",
                   regions: [
-                    { id: "samegrelo-zemo-svaneti", labelKey: "regionSamegrelo" },
+                    {
+                      id: "samegrelo-zemo-svaneti",
+                      labelKey: "regionSamegrelo",
+                    },
                   ] as const,
                 },
                 {
@@ -182,7 +185,7 @@ export function TurtlesHubSections() {
             <div className="contents">
               <div className="flex h-full flex-col justify-between bg-card p-8 sm:p-10">
                 <div>
-                  <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
+                  <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
                     {t("landEyebrow")}
                   </p>
                   <h2 className="mt-5 font-display text-display-title font-semibold">
@@ -204,7 +207,7 @@ export function TurtlesHubSections() {
             <div className="contents">
               <div className="flex h-full flex-col justify-between bg-card p-8 sm:p-10">
                 <div>
-                  <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
+                  <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
                     {t("waterEyebrow")}
                   </p>
                   <h2 className="mt-5 font-display text-display-title font-semibold">

@@ -61,7 +61,7 @@ export function RegionsIndex({
                 <ArrowLeft className="size-3.5" />
                 {t("back")}
               </Link>
-              <p className="text-[11px] font-medium tracking-[0.32em] text-white/45 uppercase">
+              <p className="text-[11px] font-medium tracking-[0.18em] text-white/45 uppercase">
                 {t("eyebrow")}
               </p>
               <h1 className="text-balance-tight mt-3 max-w-3xl font-display text-display-hero font-semibold text-white sm:mt-4">
@@ -92,7 +92,7 @@ export function RegionsIndex({
           />
           <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10">
             <div className="mx-auto max-w-2xl text-center">
-              <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
+              <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
                 {t("mapEyebrow")}
               </p>
               <h2 className="mt-5 font-display text-display-title font-semibold text-foreground">
@@ -118,7 +118,7 @@ export function RegionsIndex({
         <section className="border-t border-border bg-surface py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <div>
-              <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
+              <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
                 {t("clusterEyebrow")}
               </p>
               <h2 className="mt-5 max-w-2xl font-display text-display-title font-semibold">
@@ -164,7 +164,7 @@ export function RegionsIndex({
         <section className="border-t border-border bg-background py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <div>
-              <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
+              <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
                 {t("directoryEyebrow")}
               </p>
               <h2 className="mt-5 max-w-2xl font-display text-display-title font-semibold">
@@ -187,7 +187,7 @@ export function RegionsIndex({
         <section className="border-t border-border bg-background py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <div>
-              <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
+              <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
                 {t("seo.eyebrow")}
               </p>
               <h2 className="mt-5 max-w-3xl font-display text-display-title font-semibold text-foreground">

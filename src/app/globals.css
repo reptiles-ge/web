@@ -68,12 +68,8 @@
   --color-surface: var(--surface);
   --radius-card: 1.25rem;
   --radius-media: 1.75rem;
-  --font-sans:
-    var(--font-noto-georgian), var(--font-sora), var(--font-noto-sans),
-    sans-serif;
-  --font-display:
-    var(--font-noto-georgian), var(--font-sora), var(--font-noto-sans),
-    sans-serif;
+  --font-sans: var(--font-you), var(--font-noto-sans), sans-serif;
+  --font-display: var(--font-you), var(--font-noto-sans), sans-serif;
 }
 
 @utility text-display-kicker {
@@ -113,15 +109,11 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family:
-    var(--font-noto-georgian), var(--font-sora), var(--font-noto-sans),
-    sans-serif;
+  font-family: var(--font-you), var(--font-noto-sans), sans-serif;
 }
 
 .font-display {
-  font-family:
-    var(--font-noto-georgian), var(--font-sora), var(--font-noto-sans),
-    sans-serif;
+  font-family: var(--font-you), var(--font-noto-sans), sans-serif;
 }
 
 .text-balance-tight {

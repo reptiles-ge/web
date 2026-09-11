@@ -32,7 +32,7 @@ export async function HomeSeo() {
   return (
     <section className="border-t border-border bg-background py-20 lg:py-28">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <p className="text-[11px] font-medium tracking-[0.28em] text-muted-foreground uppercase">
+        <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
           {t("eyebrow")}
         </p>
         <h2 className="mt-4 max-w-2xl font-display text-display-title font-semibold text-foreground">

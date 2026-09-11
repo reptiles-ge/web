@@ -41,7 +41,7 @@ export async function HomeContributors() {
     <section className="bg-background py-20 lg:py-28">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="max-w-xl">
-          <p className="text-[11px] font-medium tracking-[0.28em] text-muted-foreground uppercase">
+          <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
             {t("eyebrow")}
           </p>
           <h2 className="text-balance-tight mt-4 font-display text-display-title font-semibold">
@@ -79,7 +79,7 @@ export async function HomeContributors() {
                       />
                     </span>
                     <span className="min-w-0 pt-1">
-                      <span className="block text-[11px] font-medium tracking-[0.28em] text-muted-foreground uppercase">
+                      <span className="block text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
                         {tAuthor(`roles.${card.author.role}`)}
                       </span>
                       <h3 className="mt-2 flex items-center gap-2 font-display text-[1.35rem] leading-tight font-semibold text-foreground transition-colors group-hover:text-primary sm:text-[1.5rem]">

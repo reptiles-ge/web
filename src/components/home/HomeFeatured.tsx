@@ -33,8 +33,7 @@ export async function HomeFeatured() {
 
   const spotlight = localizeSpecies(base, locale);
   const hero = getSpeciesHeroSources(spotlight);
-  const imageSrc =
-    hero.mobileHeroSrc ?? hero.desktopHeroSrc ?? spotlight.image;
+  const imageSrc = hero.mobileHeroSrc ?? hero.desktopHeroSrc ?? spotlight.image;
   const group = getSpeciesAtlasMeta(spotlight.id).group;
   const stats = filterDisplayStats(spotlight.stats, group).slice(0, 4);
   const supporting = SUPPORTING_IDS.map((id) => getSpeciesById(id))
@@ -46,7 +45,7 @@ export async function HomeFeatured() {
     <section className="bg-surface py-20 lg:py-28" id="species">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="max-w-xl">
-          <p className="text-[11px] font-medium tracking-[0.28em] text-muted-foreground uppercase">
+          <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
             {t("eyebrow")}
           </p>
           <h2 className="text-balance-tight mt-4 font-display text-display-title font-semibold">
@@ -77,7 +76,7 @@ export async function HomeFeatured() {
             </TrackedSpeciesLink>
 
             <div className="lg:pb-4">
-              <p className="text-[11px] font-medium tracking-[0.28em] text-muted-foreground uppercase">
+              <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
                 {tDetail("eyebrow")}
               </p>
               <h3 className="mt-4 font-display text-display-title font-semibold text-foreground">

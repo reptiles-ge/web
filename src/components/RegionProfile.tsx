@@ -172,7 +172,7 @@ function RegionFaqSection({
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-24">
           <div>
-            <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
+            <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
               {t("faqEyebrow")}
             </p>
             <AnchoredHeading
@@ -260,7 +260,7 @@ function RegionProfileHabitats({
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
           <div>
-            <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
+            <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
               {t("habitatsEyebrow")}
             </p>
             <AnchoredHeading
@@ -354,7 +354,7 @@ function RegionProfileHero({
           <span aria-hidden>/</span>
           <span className="text-white/70">{name}</span>
         </nav>
-        <p className="text-[11px] font-medium tracking-[0.32em] text-white/45 uppercase">
+        <p className="text-[11px] font-medium tracking-[0.18em] text-white/45 uppercase">
           {t("regionEyebrow")}
         </p>
         <h1 className="text-balance-tight mt-3 max-w-4xl font-display text-display-hero font-semibold text-white sm:mt-4">
@@ -403,7 +403,7 @@ function RegionProfileRange({
       />
       <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
+          <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
             {t("rangeEyebrow")}
           </p>
           <AnchoredHeading
@@ -430,7 +430,7 @@ function RegionProfileRelated({ related }: { related: Region[] }) {
   return (
     <section className="border-t border-border bg-background py-20 lg:py-28">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
+        <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
           {t("relatedEyebrow")}
         </p>
         <AnchoredHeading
@@ -489,7 +489,7 @@ function RegionProfileSpecies({
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="flex items-end justify-between gap-6">
           <div>
-            <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
+            <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
               {t("speciesEyebrow")}
             </p>
             <AnchoredHeading
@@ -540,7 +540,7 @@ function RegionProfileVenomous({
   return (
     <section className="bg-background py-20 lg:py-28">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
+        <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
           {t("venomousEyebrow")}
         </p>
         <AnchoredHeading

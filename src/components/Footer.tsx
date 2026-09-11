@@ -107,7 +107,7 @@ export async function Footer({ regions, venomous }: FooterProps) {
           </div>
 
           <div>
-            <p className="text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase">
+            <p className="text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
               {t("exploreTitle")}
             </p>
             <ul className="mt-5 space-y-3">
@@ -125,7 +125,7 @@ export async function Footer({ regions, venomous }: FooterProps) {
           </div>
 
           <div>
-            <p className="text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase">
+            <p className="text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
               {t("guidesTitle")}
             </p>
             <ul className="mt-5 space-y-3">
@@ -143,7 +143,7 @@ export async function Footer({ regions, venomous }: FooterProps) {
           </div>
 
           <div>
-            <p className="text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase">
+            <p className="text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
               {t("companyTitle")}
             </p>
             <ul className="mt-5 space-y-3">
@@ -164,7 +164,7 @@ export async function Footer({ regions, venomous }: FooterProps) {
         <div className="mt-14 grid gap-10 border-t border-border pt-12 lg:mt-16 lg:grid-cols-2 lg:gap-16 lg:pt-14">
           <div>
             <div className="flex items-end justify-between gap-4">
-              <p className="text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase">
+              <p className="text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
                 {t("venomousTitle")}
               </p>
               <Link
@@ -195,7 +195,7 @@ export async function Footer({ regions, venomous }: FooterProps) {
 
           <div>
             <div className="flex items-end justify-between gap-4">
-              <p className="text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase">
+              <p className="text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
                 {t("regionsTitle")}
               </p>
               <Link

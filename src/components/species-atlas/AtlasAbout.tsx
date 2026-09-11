@@ -20,7 +20,7 @@ export async function AtlasAbout({ locale, stats }: AtlasAboutProps) {
       <div className="mx-auto max-w-350 px-6 lg:px-10">
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
           <div>
-            <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
+            <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
               {t("aboutEyebrow")}
             </p>
             <h2 className="mt-4 font-display text-display-title font-semibold">

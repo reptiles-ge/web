@@ -55,7 +55,7 @@ export function QuizIntroOverlay({
     <div className="flex min-h-[calc(100dvh-7.5rem)] w-full flex-col">
       <div className="mt-auto w-full pb-8 sm:pb-20 lg:pb-24">
         <QuizBreadcrumbs />
-        <p className="text-[11px] font-medium tracking-[0.32em] text-white/55 uppercase">
+        <p className="text-[11px] font-medium tracking-[0.18em] text-white/55 uppercase">
           {t("eyebrow")}
         </p>
         <h1
@@ -74,7 +74,7 @@ export function QuizIntroOverlay({
               className="bg-black/40 px-4 py-3.5 backdrop-blur-xl sm:p-6"
               key={rule.title}
             >
-              <span className="font-display text-[12px] tracking-[0.22em] text-white/50">
+              <span className="font-display text-[12px] tracking-[0.16em] text-white/50">
                 {String(index + 1).padStart(2, "0")}
               </span>
               <p className="mt-2 font-display text-[16px] font-semibold text-white sm:mt-3 sm:text-[18px]">

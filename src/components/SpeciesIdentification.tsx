@@ -25,7 +25,7 @@ export async function SpeciesIdentification({
   return (
     <section className="bg-background py-20 lg:py-28">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
+        <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
           {t("identification")}
         </p>
         <AnchoredHeading

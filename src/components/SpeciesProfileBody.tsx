@@ -83,7 +83,7 @@ export async function SpeciesProfileBody({
 
       <section className="bg-surface py-20 lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
+          <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
             {t("overview")}
           </p>
           <AnchoredHeading
@@ -188,7 +188,7 @@ export async function SpeciesProfileBody({
       {guideLinks.length > 0 ? (
         <section className="border-t border-border bg-surface py-16 lg:py-20">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-            <p className="text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase">
+            <p className="text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
               {t("guidesEyebrow")}
             </p>
             <h2 className="mt-4 max-w-2xl font-display text-display-card font-semibold">
@@ -226,10 +226,7 @@ function SpeciesBreadcrumbTrail({
   breadcrumbs: SpeciesBreadcrumbCrumb[];
 }) {
   return (
-    <nav
-      aria-label={ariaLabel}
-      className="sr-only"
-    >
+    <nav aria-label={ariaLabel} className="sr-only">
       <ol className="mx-auto flex max-w-[1400px] flex-wrap items-center gap-x-2 gap-y-1 px-6 py-4 text-[13px] text-muted-foreground lg:px-10">
         {breadcrumbs.map((crumb, index) => {
           const isLast = index === breadcrumbs.length - 1;
@@ -304,7 +301,7 @@ async function SpeciesProfileBiology({
       )}
     >
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
+        <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
           {t("biology")}
         </p>
         <AnchoredHeading

@@ -64,7 +64,7 @@ export function AtlasBrowse({
       <div className="mx-auto max-w-350 px-6 lg:px-10">
         <div>
           <div className="max-w-2xl">
-            <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
+            <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
               {t("explorerEyebrow")}
             </p>
             <h2 className="mt-4 font-display text-display-title font-semibold text-foreground">
@@ -264,7 +264,7 @@ function ComingSoonPanel({
 
   return (
     <div className="mt-12 rounded-media border border-border bg-card px-6 py-14 text-center sm:px-10">
-      <p className="text-[11px] font-medium tracking-[0.28em] text-muted-foreground uppercase">
+      <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
         {t("emptyEyebrow")}
       </p>
       <h3 className="mx-auto mt-4 max-w-lg font-display text-display-card font-semibold">

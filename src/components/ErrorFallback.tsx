@@ -19,7 +19,7 @@ export function ErrorFallback({ reset }: { reset: () => void }) {
 
   return (
     <div className="mx-auto max-w-2xl px-6 py-24 lg:px-10 lg:py-32">
-      <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
+      <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
         {t("eyebrow")}
       </p>
       <h1 className="mt-4 font-display text-display-title font-semibold">

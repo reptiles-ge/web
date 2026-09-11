@@ -38,7 +38,7 @@ export async function HomeFresh() {
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-xl">
-            <p className="text-[11px] font-medium tracking-[0.28em] text-muted-foreground uppercase">
+            <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
               {t("eyebrow")}
             </p>
             <h2 className="text-balance-tight mt-4 font-display text-display-title font-semibold">
@@ -117,7 +117,7 @@ export async function HomeFresh() {
 
           {updated.length > 0 ? (
             <div>
-              <p className="text-[11px] font-medium tracking-[0.28em] text-muted-foreground uppercase">
+              <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
                 {t("updated")}
               </p>
               <ul className="mt-5 divide-y divide-border border-y border-border">

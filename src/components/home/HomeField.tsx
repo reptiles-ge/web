@@ -44,7 +44,7 @@ export async function HomeField() {
     <section className="bg-surface py-20 lg:py-28">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="max-w-xl">
-          <p className="text-[11px] font-medium tracking-[0.28em] text-muted-foreground uppercase">
+          <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
             {t("eyebrow")}
           </p>
           <h2 className="text-balance-tight mt-4 font-display text-display-title font-semibold">
@@ -57,7 +57,7 @@ export async function HomeField() {
 
         <div className="mt-12 grid gap-14 lg:mt-16 lg:grid-cols-2 lg:gap-20">
           <div className="min-w-0">
-            <p className="text-[11px] font-medium tracking-[0.28em] text-muted-foreground uppercase">
+            <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
               {tSafety("eyebrow")}
             </p>
             <h3 className="mt-3 font-display text-display-card font-semibold">

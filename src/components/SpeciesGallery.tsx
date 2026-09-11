@@ -76,7 +76,7 @@ export async function SpeciesGallery({
         )}
       >
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
+          <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
             {t("gallery")}
           </p>
           <AnchoredHeading

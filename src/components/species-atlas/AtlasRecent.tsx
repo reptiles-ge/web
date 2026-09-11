@@ -18,7 +18,7 @@ export function AtlasRecent({ species }: { species: SpeciesListItem[] }) {
     <section className="border-t border-border bg-background py-20 lg:py-28">
       <div className="mx-auto max-w-350 px-6 lg:px-10">
         <div>
-          <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
+          <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
             {t("recentEyebrow")}
           </p>
           <h2 className="mt-4 font-display text-display-title font-semibold">
