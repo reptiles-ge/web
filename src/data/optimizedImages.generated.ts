@@ -1159,6 +1159,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/darevskia-adjarica-christian-1.jpg": {
+    "path": "darevskia-adjarica-christian-1",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/darevskia-adjarica-mobile.jpg": {
     "path": "darevskia-adjarica-mobile",
     "width": 2048,

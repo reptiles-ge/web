@@ -10151,6 +10151,87 @@
       ],
       "updatedAt": "2026-08-28T21:31:01.674Z"
     },
+    "darevskia-adjarica-christian-1.jpg": {
+      "sourceHash": "589110769bbd13b869e4e76f93891a3f0bbcc6ed690387b95d5b10f01fe3fa77",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-adjarica-christian-1.jpg",
+      "originalSize": 129577,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-adjarica-christian-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 7804
+        },
+        {
+          "key": "optimized/darevskia-adjarica-christian-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11020
+        },
+        {
+          "key": "optimized/darevskia-adjarica-christian-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 10687
+        },
+        {
+          "key": "optimized/darevskia-adjarica-christian-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 15480
+        },
+        {
+          "key": "optimized/darevskia-adjarica-christian-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 23041
+        },
+        {
+          "key": "optimized/darevskia-adjarica-christian-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 32402
+        },
+        {
+          "key": "optimized/darevskia-adjarica-christian-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 33490
+        },
+        {
+          "key": "optimized/darevskia-adjarica-christian-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 47058
+        },
+        {
+          "key": "optimized/darevskia-adjarica-christian-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 52188
+        },
+        {
+          "key": "optimized/darevskia-adjarica-christian-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 70122
+        }
+      ],
+      "updatedAt": "2026-09-11T01:52:57.459Z"
+    },
     "darevskia-adjarica-mobile.jpg": {
       "sourceHash": "99387a81c67176f7e4e7a14adf6ae6ed3d75e92b62d6c387060c3c55d263a919",
       "configFingerprint": "a895f8e025dcc7fa",
