@@ -20,7 +20,7 @@ import { speciesImageAlt } from "@/lib/speciesMeta";
 const SPOTLIGHT_ID = "vipera-dinniki";
 const SUPPORTING_IDS = [
   "pseudopus-apodus",
-  "testudo-graeca",
+  "paralaudakia-caucasia",
   "mertensiella-caucasica",
 ] as const;
 
