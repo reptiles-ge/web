@@ -1537,6 +1537,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 960],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/darevskia-pontica-vojt%C4%9Bch-1.jpg": {
+    "path": "darevskia-pontica-vojt%C4%9Bch-1",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/darevskia-pontica.jpg": {
     "path": "darevskia-pontica",
     "width": 2048,

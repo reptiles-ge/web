@@ -13850,6 +13850,87 @@
       ],
       "updatedAt": "2026-09-11T13:02:32.941Z"
     },
+    "darevskia-pontica-vojtěch-1.jpg": {
+      "sourceHash": "9796ce9844d685d9a1f23f191919aa76b121b6fbb9e4979b63123352f07d2b90",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-pontica-vojtěch-1.jpg",
+      "originalSize": 149454,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-pontica-vojtěch-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9409
+        },
+        {
+          "key": "optimized/darevskia-pontica-vojtěch-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 15398
+        },
+        {
+          "key": "optimized/darevskia-pontica-vojtěch-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 13435
+        },
+        {
+          "key": "optimized/darevskia-pontica-vojtěch-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 22022
+        },
+        {
+          "key": "optimized/darevskia-pontica-vojtěch-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 26700
+        },
+        {
+          "key": "optimized/darevskia-pontica-vojtěch-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 44766
+        },
+        {
+          "key": "optimized/darevskia-pontica-vojtěch-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 36771
+        },
+        {
+          "key": "optimized/darevskia-pontica-vojtěch-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 60740
+        },
+        {
+          "key": "optimized/darevskia-pontica-vojtěch-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 53332
+        },
+        {
+          "key": "optimized/darevskia-pontica-vojtěch-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 87674
+        }
+      ],
+      "updatedAt": "2026-09-11T13:03:46.699Z"
+    },
     "darevskia-pontica.jpg": {
       "sourceHash": "dc3d8cace244a41becd9c23eaec468e75888f350179e431b37f164caac64a12e",
       "configFingerprint": "a895f8e025dcc7fa",
