@@ -38218,6 +38218,87 @@
       ],
       "updatedAt": "2026-08-28T21:44:16.327Z"
     },
+    "lacerta-strigata-бийболат-1.jpg": {
+      "sourceHash": "ab8cb69bdf261561aba3fd2c2493cd5ac975a9c1a1d46bddda26cb87279336aa",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lacerta-strigata-бийболат-1.jpg",
+      "originalSize": 263792,
+      "width": 1024,
+      "height": 771,
+      "derivatives": [
+        {
+          "key": "optimized/lacerta-strigata-бийболат-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 241,
+          "byteSize": 13694
+        },
+        {
+          "key": "optimized/lacerta-strigata-бийболат-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 241,
+          "byteSize": 22284
+        },
+        {
+          "key": "optimized/lacerta-strigata-бийболат-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 301,
+          "byteSize": 20822
+        },
+        {
+          "key": "optimized/lacerta-strigata-бийболат-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 301,
+          "byteSize": 33450
+        },
+        {
+          "key": "optimized/lacerta-strigata-бийболат-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 482,
+          "byteSize": 51431
+        },
+        {
+          "key": "optimized/lacerta-strigata-бийболат-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 482,
+          "byteSize": 79994
+        },
+        {
+          "key": "optimized/lacerta-strigata-бийболат-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 602,
+          "byteSize": 76400
+        },
+        {
+          "key": "optimized/lacerta-strigata-бийболат-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 602,
+          "byteSize": 119634
+        },
+        {
+          "key": "optimized/lacerta-strigata-бийболат-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 771,
+          "byteSize": 118158
+        },
+        {
+          "key": "optimized/lacerta-strigata-бийболат-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 771,
+          "byteSize": 179332
+        }
+      ],
+      "updatedAt": "2026-09-11T12:25:57.629Z"
+    },
     "lacerta-strigata.jpg": {
       "sourceHash": "89edf332d4e79346775a899be24adf09f0e8471f9a751bd8ff3e1c6df4d8cf25",
       "configFingerprint": "a895f8e025dcc7fa",

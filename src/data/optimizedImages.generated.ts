@@ -3840,6 +3840,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 858],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/lacerta-strigata-%D0%B1%D0%B8%D0%B9%D0%B1%D0%BE%D0%BB%D0%B0%D1%82-1.jpg": {
+    "path": "lacerta-strigata-%D0%B1%D0%B8%D0%B9%D0%B1%D0%BE%D0%BB%D0%B0%D1%82-1",
+    "width": 1024,
+    "height": 771,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/lacerta-strigata-2.jpg": {
     "path": "lacerta-strigata-2",
     "width": 1696,
