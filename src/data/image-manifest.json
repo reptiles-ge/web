@@ -14051,6 +14051,87 @@
       ],
       "updatedAt": "2026-09-11T12:49:50.086Z"
     },
+    "darevskia-portschinskii-giorgi-2.jpg": {
+      "sourceHash": "f2e49109a73af63c7c0fd1a425411054538676a111758f3c38163e07c11e00bb",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-portschinskii-giorgi-2.jpg",
+      "originalSize": 197313,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-portschinskii-giorgi-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12348
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-giorgi-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 17138
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-giorgi-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 18998
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-giorgi-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 25380
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-giorgi-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 42009
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-giorgi-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 55570
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-giorgi-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 58552
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-giorgi-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 77746
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-giorgi-2-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 85803
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-giorgi-2-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 111466
+        }
+      ],
+      "updatedAt": "2026-09-11T12:50:54.228Z"
+    },
     "darevskia-portschinskii-mobile.jpg": {
       "sourceHash": "74f334d40732037c45bf8d9975278f322083ff0e58572bcc726a398cbe5d462f",
       "configFingerprint": "a895f8e025dcc7fa",
