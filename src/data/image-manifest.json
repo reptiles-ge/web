@@ -38218,6 +38218,87 @@
       ],
       "updatedAt": "2026-08-28T21:44:16.327Z"
     },
+    "lacerta-strigata-fabian-1.jpg": {
+      "sourceHash": "927fc5ba848c64a472906c26115bb3855d128f8aa51c7cd8cebc53356527e86b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lacerta-strigata-fabian-1.jpg",
+      "originalSize": 281549,
+      "width": 1024,
+      "height": 768,
+      "derivatives": [
+        {
+          "key": "optimized/lacerta-strigata-fabian-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 15566
+        },
+        {
+          "key": "optimized/lacerta-strigata-fabian-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 22444
+        },
+        {
+          "key": "optimized/lacerta-strigata-fabian-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 25253
+        },
+        {
+          "key": "optimized/lacerta-strigata-fabian-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 35226
+        },
+        {
+          "key": "optimized/lacerta-strigata-fabian-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 60004
+        },
+        {
+          "key": "optimized/lacerta-strigata-fabian-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 86988
+        },
+        {
+          "key": "optimized/lacerta-strigata-fabian-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 87995
+        },
+        {
+          "key": "optimized/lacerta-strigata-fabian-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 130724
+        },
+        {
+          "key": "optimized/lacerta-strigata-fabian-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 136852
+        },
+        {
+          "key": "optimized/lacerta-strigata-fabian-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 200992
+        }
+      ],
+      "updatedAt": "2026-09-11T12:29:44.061Z"
+    },
     "lacerta-strigata-leonid-1.jpg": {
       "sourceHash": "810c12234d536a86d833d0e274d1f3d9623eb51493d41ba7ff178a0b60a13c07",
       "configFingerprint": "409788ee46c653d8",
