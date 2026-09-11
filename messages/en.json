@@ -61,7 +61,7 @@
     "kicker": "A field atlas",
     "brand": "Reptiles",
     "title": "Animals of Georgia — species, range, identification",
-    "subtitle": "Species profiles, regional maps, and field photos — in Georgian and English.",
+    "subtitle": "Species profiles, regional maps, identification guides, and field photos in one atlas.",
     "viewSpecies": "Species",
     "exploreRegions": "By region",
     "moreAboutViper": "Venomous snakes in Georgia",
@@ -163,14 +163,14 @@
     "groups": {
       "eyebrow": "Atlas",
       "title": "Explore by group",
-      "subtitle": "Reptiles and amphibians are the deepest layer. Birds, mammals, and spiders are added in the same structure.",
+      "subtitle": "Snakes, lizards, turtles, amphibians, birds, mammals, and spiders — open a group for profiles, photos, and guides.",
       "count": "{count, plural, one {# species} other {# species}}",
       "catalog": "Full atlas",
       "illustrationAlt": "Illustration — {name}"
     },
     "featured": {
       "eyebrow": "Species",
-      "title": "In the field",
+      "title": "Species from the atlas",
       "subtitle": "Scientific and common names, risk, and field photos — verified profiles."
     },
     "fresh": {

@@ -61,7 +61,7 @@
     "kicker": "Saha atlası",
     "brand": "Reptiles",
     "title": "Gürcistan hayvanları — türler, yayılış, tanıma",
-    "subtitle": "Tür profilleri, bölgesel haritalar ve saha fotoğrafları.",
+    "subtitle": "Tür profilleri, bölgesel haritalar, tanıma rehberleri ve saha fotoğrafları tek atlasta.",
     "viewSpecies": "Türler",
     "exploreRegions": "Bölgelere göre",
     "moreAboutViper": "Gürcistan’da zehirli yılanlar",
@@ -163,14 +163,14 @@
     "groups": {
       "eyebrow": "Atlas",
       "title": "Gruplara göre keşfet",
-      "subtitle": "Sürüngenler ve amfibiler en derin katmandır. Kuşlar, memeliler ve örümcekler aynı yapıda eklenir.",
+      "subtitle": "Yılanlar, kertenkeleler, kaplumbağalar, amfibiler, kuşlar, memeliler ve örümcekler — profiller, fotoğraflar ve rehberler için bir grup açın.",
       "count": "{count, plural, one {# tür} other {# tür}}",
       "catalog": "Tam atlas",
       "illustrationAlt": "İllüstrasyon — {name}"
     },
     "featured": {
       "eyebrow": "Türler",
-      "title": "Sahada",
+      "title": "Atlastan türler",
       "subtitle": "Bilimsel ve yaygın adlar, risk ve saha fotoğrafları — doğrulanmış profiller."
     },
     "fresh": {
