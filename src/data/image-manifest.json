@@ -21203,6 +21203,87 @@
       ],
       "updatedAt": "2026-08-28T21:39:58.264Z"
     },
+    "eremias-velox-korbinian-1.jpg": {
+      "sourceHash": "c944faf6346bf7a93e3756639e0673c6bd717449286aa2d5962dd19e20d79230",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eremias-velox-korbinian-1.jpg",
+      "originalSize": 111290,
+      "width": 1024,
+      "height": 771,
+      "derivatives": [
+        {
+          "key": "optimized/eremias-velox-korbinian-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 241,
+          "byteSize": 5753
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 241,
+          "byteSize": 7376
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 301,
+          "byteSize": 8820
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 301,
+          "byteSize": 11178
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 482,
+          "byteSize": 20331
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 482,
+          "byteSize": 26052
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 602,
+          "byteSize": 28904
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 602,
+          "byteSize": 36876
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 771,
+          "byteSize": 41596
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 771,
+          "byteSize": 52406
+        }
+      ],
+      "updatedAt": "2026-09-11T01:42:45.261Z"
+    },
     "eremias-velox-mobile.jpg": {
       "sourceHash": "ce62ebd2f1262cdd1a9d78bf07fa57ebd17ffaa62f45d26dc1605120764fbd57",
       "configFingerprint": "a895f8e025dcc7fa",
