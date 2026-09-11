@@ -100,15 +100,6 @@ export function flattenGroups(groups: SearchGroup[]) {
   return groups.flatMap((group) => group.items);
 }
 
-export function scoreDocument(query: string, doc: SearchDocument) {
-  if (!query.trim()) return 0;
-  return scoreFuseResult(
-    query,
-    doc,
-    new Fuse([doc], FUSE_OPTIONS).search(query),
-  );
-}
-
 export function searchIndex(
   index: SearchDocument[],
   query: string,
