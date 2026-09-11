@@ -46,10 +46,8 @@ export function Logo({
       </picture>
       {showWordmark ? (
         <span
-          className={cn(
-            "font-[system-ui,sans-serif] font-semibold tracking-tight",
-            wordmarkClassName,
-          )}
+          className={cn("font-normal tracking-tight", wordmarkClassName)}
+          style={{ fontFamily: "system-ui, sans-serif" }}
         >
           Reptiles
         </span>
