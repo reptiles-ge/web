@@ -53369,6 +53369,87 @@
       ],
       "updatedAt": "2026-08-28T21:56:11.006Z"
     },
+    "phoenicolacerta-laevis-kseniia-1.jpg": {
+      "sourceHash": "cc3806e0e9e80464f8c0a4e2028bb395381eca413e8667c77fa741e7b7ae9ec1",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "phoenicolacerta-laevis-kseniia-1.jpg",
+      "originalSize": 247910,
+      "width": 1024,
+      "height": 768,
+      "derivatives": [
+        {
+          "key": "optimized/phoenicolacerta-laevis-kseniia-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 15810
+        },
+        {
+          "key": "optimized/phoenicolacerta-laevis-kseniia-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 25424
+        },
+        {
+          "key": "optimized/phoenicolacerta-laevis-kseniia-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 24327
+        },
+        {
+          "key": "optimized/phoenicolacerta-laevis-kseniia-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 37828
+        },
+        {
+          "key": "optimized/phoenicolacerta-laevis-kseniia-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 51850
+        },
+        {
+          "key": "optimized/phoenicolacerta-laevis-kseniia-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 79792
+        },
+        {
+          "key": "optimized/phoenicolacerta-laevis-kseniia-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 72643
+        },
+        {
+          "key": "optimized/phoenicolacerta-laevis-kseniia-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 109316
+        },
+        {
+          "key": "optimized/phoenicolacerta-laevis-kseniia-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 103751
+        },
+        {
+          "key": "optimized/phoenicolacerta-laevis-kseniia-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 154472
+        }
+      ],
+      "updatedAt": "2026-09-11T13:26:03.631Z"
+    },
     "phoenicolacerta-laevis-mobile.jpg": {
       "sourceHash": "266cc9e2b0b4f60a1948a35bff0052ed6e4ea40a4d45ad7153fa0b611424f9e1",
       "configFingerprint": "a895f8e025dcc7fa",
