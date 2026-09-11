@@ -88,10 +88,6 @@ export async function QuizzesPage({ items }: QuizzesPageProps) {
               />
             ))}
           </div>
-
-          <p className="mt-8 max-w-2xl text-[14px] leading-relaxed text-muted-foreground sm:mt-10">
-            {t("upcomingLine")}
-          </p>
         </div>
       </section>
 
