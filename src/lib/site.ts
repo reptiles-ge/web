@@ -1,3 +1,10 @@
+import type {
+  OrganizationLeaf,
+  SearchAction,
+  WebSiteLeaf,
+  WithActionConstraints,
+} from "schema-dts";
+
 import { getPathname } from "@/i18n/navigation";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { quizHref } from "@/lib/quizzes";
@@ -110,7 +117,7 @@ export function openGraphJpeg(url: string, alt: string) {
 
 export function organizationJsonLd(options?: {
   description?: string;
-}): Record<string, unknown> {
+}): OrganizationLeaf {
   return {
     "@id": siteEntityId("organization"),
     "@type": "Organization",
@@ -189,7 +196,9 @@ export function speciesPageUrl(locale: AppLocale, id: string) {
 export function websiteJsonLd(options: {
   description: string;
   searchUrlTemplate?: string;
-}): Record<string, unknown> {
+}): WebSiteLeaf & {
+  potentialAction?: WithActionConstraints<SearchAction>;
+} {
   return {
     "@id": siteEntityId("website"),
     "@type": "WebSite",
