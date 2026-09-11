@@ -41,7 +41,7 @@ export async function SpeciesProfileRelated({
             </p>
             <AnchoredHeading
               anchorLabel={t("anchorLink")}
-              className="mt-4 font-display text-display-title"
+              className="mt-4 font-display text-display-title font-bold"
               id={
                 lookalikes
                   ? SPECIES_SECTION_IDS.lookalikes

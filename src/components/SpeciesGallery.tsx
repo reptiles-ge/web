@@ -81,7 +81,7 @@ export async function SpeciesGallery({
           </p>
           <AnchoredHeading
             anchorLabel={t("anchorLink")}
-            className="mt-5 font-display text-display-title"
+            className="mt-5 font-display text-display-title font-bold"
             id={SPECIES_SECTION_IDS.gallery}
             slugSource={`${name} ${t("galleryTitle")}`}
           >

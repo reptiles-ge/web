@@ -30,7 +30,7 @@ export async function SpeciesIdentification({
         </p>
         <AnchoredHeading
           anchorLabel={t("anchorLink")}
-          className="mt-5 max-w-3xl font-display text-display-title"
+          className="mt-5 max-w-3xl font-display text-display-title font-bold"
           id={SPECIES_SECTION_IDS.identification}
           slugSource={t("identificationTitle", { name })}
         >
