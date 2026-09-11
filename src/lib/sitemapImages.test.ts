@@ -71,7 +71,7 @@ describe("speciesPageImageUrls", () => {
   });
 
   it("emits the same optimized URL the page serves", () => {
-    const src = "https://cdn.reptiles.ge/macrovipera-lebetina-nika-1.jpg";
+    const src = "https://cdn.reptiles.ge/macrovipera-lebetina-nika-4.jpg";
     const urls = speciesPageImageUrls({
       ...base,
       gallery: [],
@@ -80,7 +80,7 @@ describe("speciesPageImageUrls", () => {
     } as Species);
 
     expect(urls).toEqual([
-      "https://cdn.reptiles.ge/optimized/macrovipera-lebetina-nika-1-1024.webp",
+      "https://cdn.reptiles.ge/optimized/macrovipera-lebetina-nika-4-1024.webp",
     ]);
   });
 
