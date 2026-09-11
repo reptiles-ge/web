@@ -5226,6 +5226,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 768],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/platyceps-najadum-tom%C3%A1%C5%A1-1.jpg": {
+    "path": "platyceps-najadum-tom%C3%A1%C5%A1-1",
+    "width": 1024,
+    "height": 682,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/platyceps-najadum.webp": {
     "path": "platyceps-najadum",
     "width": 2400,

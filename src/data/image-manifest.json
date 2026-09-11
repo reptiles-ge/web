@@ -54385,6 +54385,87 @@
       ],
       "updatedAt": "2026-08-28T21:56:41.114Z"
     },
+    "platyceps-najadum-tomáš-1.jpg": {
+      "sourceHash": "71947a23e4615df592ae346f2314bc9f918bc53a4c347f16e5c7b83c849bb4cf",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "platyceps-najadum-tomáš-1.jpg",
+      "originalSize": 183719,
+      "width": 1024,
+      "height": 682,
+      "derivatives": [
+        {
+          "key": "optimized/platyceps-najadum-tomáš-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 13082
+        },
+        {
+          "key": "optimized/platyceps-najadum-tomáš-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 19536
+        },
+        {
+          "key": "optimized/platyceps-najadum-tomáš-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 18832
+        },
+        {
+          "key": "optimized/platyceps-najadum-tomáš-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 27982
+        },
+        {
+          "key": "optimized/platyceps-najadum-tomáš-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 37398
+        },
+        {
+          "key": "optimized/platyceps-najadum-tomáš-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 57652
+        },
+        {
+          "key": "optimized/platyceps-najadum-tomáš-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 51549
+        },
+        {
+          "key": "optimized/platyceps-najadum-tomáš-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 79298
+        },
+        {
+          "key": "optimized/platyceps-najadum-tomáš-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 682,
+          "byteSize": 73024
+        },
+        {
+          "key": "optimized/platyceps-najadum-tomáš-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 682,
+          "byteSize": 111452
+        }
+      ],
+      "updatedAt": "2026-09-11T13:32:23.272Z"
+    },
     "platyceps-najadum.webp": {
       "sourceHash": "e7a6453e45c7d0b4c297a84c11f7177628aa5bcd5094fc05224fcb62f734d3dc",
       "configFingerprint": "a895f8e025dcc7fa",
