@@ -2,20 +2,22 @@ import { getTranslations } from "next-intl/server";
 
 import type { GalleryImage, Species, SpeciesStat } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
+import type { SpeciesBreadcrumbCrumb } from "@/lib/speciesBreadcrumbs";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { BiologyBlock } from "@/components/BiologyBlock";
 import { ContentAttribution } from "@/components/ContentAttribution";
 import { SpeciesRangeMap } from "@/components/map/SpeciesRangeMap";
-import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { QuizPracticeCta } from "@/components/QuizPracticeCta";
 import { RelatedGuideStaticGrid } from "@/components/RelatedGuideStaticGrid";
 import { SpeciesFaqSection } from "@/components/SpeciesFaqSection";
 import { SpeciesGallery } from "@/components/SpeciesGallery";
 import { SpeciesIdentification } from "@/components/SpeciesIdentification";
+import { SpeciesOverviewText } from "@/components/SpeciesOverviewText";
 import { SpeciesProfileFacts } from "@/components/SpeciesProfileFacts";
 import { SpeciesProfileRelated } from "@/components/SpeciesProfileRelated";
 import { SpeciesSources } from "@/components/SpeciesSources";
+import { Link } from "@/i18n/navigation";
 import {
   type HubClusterCard,
   isLizardSpecies,
@@ -33,7 +35,7 @@ type BiologyBlockItem = {
 
 type SpeciesProfileBodyProps = {
   biologyBlocks: BiologyBlockItem[];
-  checklistNote: null | string;
+  breadcrumbs: SpeciesBreadcrumbCrumb[];
   dangerValue: null | string;
   displayStats: SpeciesStat[];
   gallery: GalleryImage[];
@@ -48,7 +50,7 @@ type SpeciesProfileBodyProps = {
 
 export async function SpeciesProfileBody({
   biologyBlocks,
-  checklistNote,
+  breadcrumbs,
   dangerValue,
   displayStats,
   gallery,
@@ -66,8 +68,12 @@ export async function SpeciesProfileBody({
 
   return (
     <>
+      <SpeciesBreadcrumbTrail
+        ariaLabel={t("breadcrumbAria")}
+        breadcrumbs={breadcrumbs}
+      />
+
       <SpeciesProfileFacts
-        checklistNote={checklistNote}
         danger={species.danger}
         dangerValue={dangerValue}
         displayStats={displayStats}
@@ -82,15 +88,17 @@ export async function SpeciesProfileBody({
           </p>
           <AnchoredHeading
             anchorLabel={t("anchorLink")}
-            className="mt-5 max-w-2xl font-display text-display-title"
+            className="mt-5 max-w-2xl font-display text-display-title leading-[1.14]"
             id={SPECIES_SECTION_IDS.overview}
-            slugSource={`${t("whoIs")} ${species.commonName}`}
+            slugSource={t("overviewTitle", { name: species.commonName })}
           >
-            {t("whoIs")} {species.commonName}
+            {t("overviewTitle", { name: species.commonName })}
           </AnchoredHeading>
-          <p className="mt-8 max-w-2xl text-[16px] leading-relaxed text-foreground/85 sm:text-[18px]">
-            <PhoneLinkedText>{species.overview}</PhoneLinkedText>
-          </p>
+          <SpeciesOverviewText
+            body={species.overview}
+            readLess={t("readLess")}
+            readMore={t("readMore")}
+          />
           <p className="mt-6 text-[12px] tracking-wide text-muted-foreground">
             {t("lastUpdated")}{" "}
             <time dateTime={species.updatedAt}>
@@ -208,6 +216,71 @@ function biologyGridClass(count: number) {
     return "md:grid-cols-3";
   }
   return "md:grid-cols-1";
+}
+
+function SpeciesBreadcrumbTrail({
+  ariaLabel,
+  breadcrumbs,
+}: {
+  ariaLabel: string;
+  breadcrumbs: SpeciesBreadcrumbCrumb[];
+}) {
+  return (
+    <nav
+      aria-label={ariaLabel}
+      className="sr-only"
+    >
+      <ol className="mx-auto flex max-w-[1400px] flex-wrap items-center gap-x-2 gap-y-1 px-6 py-4 text-[13px] text-muted-foreground lg:px-10">
+        {breadcrumbs.map((crumb, index) => {
+          const isLast = index === breadcrumbs.length - 1;
+
+          return (
+            <SpeciesBreadcrumbTrailItem
+              crumb={crumb}
+              index={index}
+              isLast={isLast}
+              key={crumb.href ? `${crumb.href}:${crumb.name}` : crumb.name}
+            />
+          );
+        })}
+      </ol>
+    </nav>
+  );
+}
+
+function SpeciesBreadcrumbTrailItem({
+  crumb,
+  index,
+  isLast,
+}: {
+  crumb: SpeciesBreadcrumbCrumb;
+  index: number;
+  isLast: boolean;
+}) {
+  return (
+    <li className="inline-flex items-center gap-2">
+      {index > 0 ? (
+        <span aria-hidden="true" className="text-border">
+          /
+        </span>
+      ) : null}
+      {crumb.href && !isLast ? (
+        <Link
+          className="transition-colors hover:text-foreground"
+          href={crumb.href}
+        >
+          {crumb.name}
+        </Link>
+      ) : (
+        <span
+          aria-current={isLast ? "page" : undefined}
+          className={isLast ? "font-medium text-foreground" : undefined}
+        >
+          {crumb.name}
+        </span>
+      )}
+    </li>
+  );
 }
 
 async function SpeciesProfileBiology({

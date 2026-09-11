@@ -5,7 +5,6 @@ import type { PictureSource } from "@/data/optimizedImages";
 import type { DangerLevel, Species } from "@/data/species";
 import type { AnimalGroup } from "@/data/speciesAtlas";
 import type { AppLocale } from "@/i18n/routing";
-import type { SpeciesBreadcrumbCrumb } from "@/lib/speciesBreadcrumbs";
 
 import { SpeciesScientificNameCopy } from "@/components/SpeciesScientificNameCopy";
 import { SpeciesVoicePlayer } from "@/components/SpeciesVoicePlayer";
@@ -21,7 +20,6 @@ import {
 } from "@/lib/speciesShareText";
 
 type SpeciesProfileHeroProps = {
-  breadcrumbs: SpeciesBreadcrumbCrumb[];
   desktopHeroSrc: null | string;
   group: AnimalGroup;
   heroDesktopSources: PictureSource[];
@@ -33,7 +31,6 @@ type SpeciesProfileHeroProps = {
 };
 
 export async function SpeciesProfileHero({
-  breadcrumbs,
   desktopHeroSrc,
   group,
   heroDesktopSources,
@@ -95,18 +92,6 @@ export async function SpeciesProfileHero({
       <div className="absolute inset-0 bg-linear-to-b from-black/65 via-black/25 to-black/90" />
       <div className="absolute inset-0 bg-[radial-gradient(100%_70%_at_50%_30%,transparent_30%,rgba(0,0,0,0.55)_100%)]" />
       <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
-        <nav aria-label={t("breadcrumbAria")} className="mb-4 sm:mb-6">
-          <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[13px] text-white/55">
-            {breadcrumbs.map((crumb, index) => (
-              <SpeciesProfileCrumb
-                crumb={crumb}
-                index={index}
-                isLast={index === breadcrumbs.length - 1}
-                key={crumb.href ? `${crumb.href}:${crumb.name}` : crumb.name}
-              />
-            ))}
-          </ol>
-        </nav>
         <h1 className="text-balance-tight max-w-4xl font-display text-display-hero font-semibold text-white">
           {species.commonName}
         </h1>
@@ -117,11 +102,8 @@ export async function SpeciesProfileHero({
             text={shareText}
           />
         </p>
-        <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-white/70 sm:mt-5 sm:text-[16px]">
-          {species.description}
-        </p>
-        <div className="mt-5 flex flex-wrap items-center gap-3 sm:mt-6">
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-white/12 bg-white/5 px-3.5 py-2 text-[13px] text-white/60 backdrop-blur-md">
+        <div className="mt-5 flex flex-wrap items-center gap-2 sm:mt-6 sm:gap-3">
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-white/12 bg-white/5 px-3 py-2 text-[13px] text-white/60 backdrop-blur-md sm:px-3.5">
             <MapPin aria-hidden="true" className="size-3.5 text-white/45" />
             {species.location}
           </span>
@@ -164,12 +146,12 @@ function SpeciesHeroRiskChip({
         : { dot: "bg-primary", valueHero: "text-[#8fceae]" };
 
   const chip = (
-    <span className="inline-flex items-center gap-2.5 rounded-full border border-white/12 bg-white/5 px-3.5 py-2 backdrop-blur-md">
+    <span className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-3 py-2 backdrop-blur-md sm:gap-2.5 sm:px-3.5">
       <Shield aria-hidden="true" className="size-3.5 text-white/45" />
-      <span className="text-[11px] tracking-[0.14em] text-white/45">
+      <span className="hidden text-[11px] tracking-[0.14em] text-white/45 sm:inline">
         {label}
       </span>
-      <span aria-hidden="true" className="h-3 w-px bg-white/15" />
+      <span aria-hidden="true" className="hidden h-3 w-px bg-white/15 sm:block" />
       <span
         className={cn(
           "inline-flex items-center gap-1.5 text-[12px] font-semibold tracking-wide",
@@ -197,38 +179,6 @@ function SpeciesHeroRiskChip({
     >
       {chip}
     </Link>
-  );
-}
-
-function SpeciesProfileCrumb({
-  crumb,
-  index,
-  isLast,
-}: {
-  crumb: SpeciesBreadcrumbCrumb;
-  index: number;
-  isLast: boolean;
-}) {
-  return (
-    <li className="inline-flex items-center gap-2">
-      {index > 0 ? (
-        <span aria-hidden="true" className="text-white/30">
-          /
-        </span>
-      ) : null}
-      {crumb.href && !isLast ? (
-        <Link className="transition-colors hover:text-white" href={crumb.href}>
-          {crumb.name}
-        </Link>
-      ) : (
-        <span
-          aria-current={isLast ? "page" : undefined}
-          className={isLast ? "text-white/80" : undefined}
-        >
-          {crumb.name}
-        </span>
-      )}
-    </li>
   );
 }
 
