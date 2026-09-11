@@ -16,7 +16,7 @@ export function QuizBreadcrumbs() {
   const tQuizzes = useTranslations("quizzes");
 
   return (
-    <nav aria-label="Breadcrumb" className="mb-4 sm:mb-6">
+    <nav aria-label="Breadcrumb" className="sr-only">
       <ol className="flex flex-wrap items-center gap-2 text-[13px] text-white/55">
         <li>
           <Link className="transition-colors hover:text-white" href="/">

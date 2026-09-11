@@ -81,7 +81,7 @@ export async function NewsArticlePage({
       <div>
         <article className="mx-auto max-w-[1400px] px-6 pt-30 pb-16 sm:pt-33 sm:pb-20 lg:px-10">
           <header>
-            <nav aria-label="Breadcrumb" className="mb-8 sm:mb-10">
+            <nav aria-label="Breadcrumb" className="sr-only">
               <ol className="flex flex-wrap items-center gap-2 text-[13px] text-muted-foreground">
                 <li>
                   <Link
