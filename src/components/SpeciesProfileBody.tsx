@@ -36,7 +36,6 @@ type BiologyBlockItem = {
 type SpeciesProfileBodyProps = {
   biologyBlocks: BiologyBlockItem[];
   breadcrumbs: SpeciesBreadcrumbCrumb[];
-  checklistNote: null | string;
   dangerValue: null | string;
   displayStats: SpeciesStat[];
   gallery: GalleryImage[];
@@ -52,7 +51,6 @@ type SpeciesProfileBodyProps = {
 export async function SpeciesProfileBody({
   biologyBlocks,
   breadcrumbs,
-  checklistNote,
   dangerValue,
   displayStats,
   gallery,
@@ -76,7 +74,6 @@ export async function SpeciesProfileBody({
       />
 
       <SpeciesProfileFacts
-        checklistNote={checklistNote}
         danger={species.danger}
         dangerValue={dangerValue}
         displayStats={displayStats}
@@ -91,11 +88,11 @@ export async function SpeciesProfileBody({
           </p>
           <AnchoredHeading
             anchorLabel={t("anchorLink")}
-            className="mt-5 max-w-2xl font-display text-display-title"
+            className="mt-5 max-w-2xl font-display text-display-title leading-[1.14]"
             id={SPECIES_SECTION_IDS.overview}
-            slugSource={`${t("whoIs")} ${species.commonName}`}
+            slugSource={t("overviewTitle", { name: species.commonName })}
           >
-            {t("whoIs")} {species.commonName}
+            {t("overviewTitle", { name: species.commonName })}
           </AnchoredHeading>
           <SpeciesOverviewText
             body={species.overview}

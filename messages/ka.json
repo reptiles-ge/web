@@ -302,6 +302,7 @@
   "profile": {
     "back": "ყველა სახეობა",
     "overview": "მიმოხილვა",
+    "overviewTitle": "{name} საქართველოში",
     "whoIs": "რა არის",
     "atAGlance": "სწრაფი მიმოხილვა",
     "atAGlanceTitle": "მთავარი მონაცემები ერთი შეხედვით",

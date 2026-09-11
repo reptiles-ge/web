@@ -302,6 +302,7 @@
   "profile": {
     "back": "Все виды",
     "overview": "Обзор",
+    "overviewTitle": "{name} в Грузии",
     "whoIs": "Что это",
     "atAGlance": "Кратко",
     "atAGlanceTitle": "Главное одним взглядом",

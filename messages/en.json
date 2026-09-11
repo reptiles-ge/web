@@ -302,6 +302,7 @@
   "profile": {
     "back": "All species",
     "overview": "Overview",
+    "overviewTitle": "{name} in Georgia",
     "whoIs": "What is",
     "atAGlance": "At a glance",
     "atAGlanceTitle": "Key facts in one look",
