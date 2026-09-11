@@ -21,10 +21,5 @@ export default defineConfig({
     fileParallelism: false,
     include: ["src/**/*.test.ts"],
     pool: "forks",
-    poolOptions: {
-      forks: {
-        singleFork: true,
-      },
-    },
   },
 });
