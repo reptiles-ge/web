@@ -54466,6 +54466,87 @@
       ],
       "updatedAt": "2026-09-11T13:32:23.272Z"
     },
+    "platyceps-najadum-vojtěch-1.jpg": {
+      "sourceHash": "d0c194e4066586cac09f67fc7f0dce4e4b631c439933845dd6f8d45954f95de2",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "platyceps-najadum-vojtěch-1.jpg",
+      "originalSize": 198080,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/platyceps-najadum-vojtěch-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 15709
+        },
+        {
+          "key": "optimized/platyceps-najadum-vojtěch-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 24892
+        },
+        {
+          "key": "optimized/platyceps-najadum-vojtěch-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 21985
+        },
+        {
+          "key": "optimized/platyceps-najadum-vojtěch-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 35266
+        },
+        {
+          "key": "optimized/platyceps-najadum-vojtěch-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 42484
+        },
+        {
+          "key": "optimized/platyceps-najadum-vojtěch-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 64092
+        },
+        {
+          "key": "optimized/platyceps-najadum-vojtěch-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 56548
+        },
+        {
+          "key": "optimized/platyceps-najadum-vojtěch-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 84636
+        },
+        {
+          "key": "optimized/platyceps-najadum-vojtěch-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 78509
+        },
+        {
+          "key": "optimized/platyceps-najadum-vojtěch-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 113220
+        }
+      ],
+      "updatedAt": "2026-09-11T13:33:41.185Z"
+    },
     "platyceps-najadum.webp": {
       "sourceHash": "e7a6453e45c7d0b4c297a84c11f7177628aa5bcd5094fc05224fcb62f734d3dc",
       "configFingerprint": "a895f8e025dcc7fa",
