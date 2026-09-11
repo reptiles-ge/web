@@ -335,7 +335,7 @@ function RegionProfileHero({
       <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
         <nav
           aria-label="Breadcrumb"
-          className="mb-4 flex flex-wrap items-center gap-2 text-[13px] text-white/45 sm:mb-6"
+          className="sr-only"
         >
           <Link
             className="inline-flex items-center gap-2 font-medium transition-colors hover:text-white"
