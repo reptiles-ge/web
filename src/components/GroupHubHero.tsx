@@ -62,16 +62,18 @@ export async function GroupHubHero({
 
         <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
           <div>
-            <InkHeroBreadcrumb
-              crumbs={[
-                {
-                  href: "/",
-                  label: tShared("breadcrumbHome"),
-                  withBack: true,
-                },
-                { label: t("breadcrumbCurrent") },
-              ]}
-            />
+            <div className="sr-only">
+              <InkHeroBreadcrumb
+                crumbs={[
+                  {
+                    href: "/",
+                    label: tShared("breadcrumbHome"),
+                    withBack: true,
+                  },
+                  { label: t("breadcrumbCurrent") },
+                ]}
+              />
+            </div>
 
             <p className="font-display text-display-kicker font-semibold tracking-tight text-white/90">
               Reptiles
