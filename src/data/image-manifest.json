@@ -12136,6 +12136,59 @@
       ],
       "updatedAt": "2026-08-28T21:31:53.025Z"
     },
+    "darevskia-daghestanica-1.jpg": {
+      "sourceHash": "f960f58d4572c8fce762549f11365a7291dcb8d7e5cb60b5f85ebc572c01ef4e",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-daghestanica-1.jpg",
+      "originalSize": 140042,
+      "width": 472,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-daghestanica-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 694,
+          "byteSize": 32795
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 694,
+          "byteSize": 50986
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 868,
+          "byteSize": 46063
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 868,
+          "byteSize": 73118
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-1-472.avif",
+          "format": "avif",
+          "width": 472,
+          "height": 1024,
+          "byteSize": 60522
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-1-472.webp",
+          "format": "webp",
+          "width": 472,
+          "height": 1024,
+          "byteSize": 92414
+        }
+      ],
+      "updatedAt": "2026-09-11T13:11:05.156Z"
+    },
     "darevskia-daghestanica-2.jpg": {
       "sourceHash": "c2466b5d75eb3540b26b88ee8211e2d6a286d46987b68ea6f4a1188fc2bb60c6",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -12269,6 +12322,383 @@
         }
       ],
       "updatedAt": "2026-08-28T21:31:54.636Z"
+    },
+    "darevskia-daghestanica-4.jpg": {
+      "sourceHash": "40415db3574c6ecdbce411d980f502e7a7e0057826f4607b8650f332a58a77e2",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-daghestanica-4.jpg",
+      "originalSize": 200380,
+      "width": 1024,
+      "height": 768,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-daghestanica-4-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 13369
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-4-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 19218
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-4-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 19634
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-4-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 27800
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-4-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 40192
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-4-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 58614
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-4-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 56406
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-4-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 81762
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-4-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 84980
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-4-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 121660
+        }
+      ],
+      "updatedAt": "2026-09-11T13:11:48.727Z"
+    },
+    "darevskia-daghestanica-5.jpg": {
+      "sourceHash": "b9f076509e0a3f9ec6ad2849b439264a635e948a5d4c49a2b6fd028b13ba424e",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-daghestanica-5.jpg",
+      "originalSize": 218816,
+      "width": 1024,
+      "height": 768,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-daghestanica-5-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 13985
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-5-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 20964
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-5-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 21550
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-5-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 31636
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-5-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 45610
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-5-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 67708
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-5-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 64094
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-5-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 95182
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-5-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 92711
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-5-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 132082
+        }
+      ],
+      "updatedAt": "2026-09-11T13:12:16.969Z"
+    },
+    "darevskia-daghestanica-aleksandre-1.jpg": {
+      "sourceHash": "22ece6d77be4db8faeeae134ec4968c9738c480a546ad6d6cb5fc8e51c4971fb",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-daghestanica-aleksandre-1.jpg",
+      "originalSize": 119248,
+      "width": 960,
+      "height": 661,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-daghestanica-aleksandre-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 220,
+          "byteSize": 12534
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-aleksandre-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 220,
+          "byteSize": 19358
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-aleksandre-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 275,
+          "byteSize": 18855
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-aleksandre-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 275,
+          "byteSize": 28356
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-aleksandre-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 441,
+          "byteSize": 39064
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-aleksandre-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 441,
+          "byteSize": 57776
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-aleksandre-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 551,
+          "byteSize": 53526
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-aleksandre-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 551,
+          "byteSize": 78188
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-aleksandre-1-960.avif",
+          "format": "avif",
+          "width": 960,
+          "height": 661,
+          "byteSize": 73385
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-aleksandre-1-960.webp",
+          "format": "webp",
+          "width": 960,
+          "height": 661,
+          "byteSize": 98992
+        }
+      ],
+      "updatedAt": "2026-09-11T13:09:10.088Z"
+    },
+    "darevskia-daghestanica-denis-1.jpg": {
+      "sourceHash": "729eef4a87c71b53470cf24cce0777449b88c5017943f2eec6224915e9b4d6b3",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-daghestanica-denis-1.jpg",
+      "originalSize": 155989,
+      "width": 1024,
+      "height": 576,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-daghestanica-denis-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 10247
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-denis-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 16730
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-denis-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 14851
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-denis-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 24328
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-denis-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 29762
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-denis-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 49212
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-denis-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 41772
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-denis-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 67774
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-denis-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 576,
+          "byteSize": 60710
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-denis-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 576,
+          "byteSize": 97208
+        }
+      ],
+      "updatedAt": "2026-09-11T13:08:06.571Z"
+    },
+    "darevskia-daghestanica-giorgi-1.jpg": {
+      "sourceHash": "27c3e4a966a8baabe7cdb2f74a9809ea1501a0d4a8eac43577f871f227c5e9b5",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-daghestanica-giorgi-1.jpg",
+      "originalSize": 103127,
+      "width": 577,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-daghestanica-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 568,
+          "byteSize": 14381
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 568,
+          "byteSize": 20858
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 710,
+          "byteSize": 20626
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 710,
+          "byteSize": 30168
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-giorgi-1-577.avif",
+          "format": "avif",
+          "width": 577,
+          "height": 1024,
+          "byteSize": 37617
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-giorgi-1-577.webp",
+          "format": "webp",
+          "width": 577,
+          "height": 1024,
+          "byteSize": 54546
+        }
+      ],
+      "updatedAt": "2026-09-11T13:07:09.556Z"
     },
     "darevskia-daghestanica.jpg": {
       "sourceHash": "c3344291ec38769abd29b563cee8b891808a3dcd26370e637ad9906ec1051323",

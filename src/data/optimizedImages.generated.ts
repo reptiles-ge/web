@@ -1355,6 +1355,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/darevskia-daghestanica-1.jpg": {
+    "path": "darevskia-daghestanica-1",
+    "width": 472,
+    "height": 1024,
+    "widths": [320, 400, 472],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/darevskia-daghestanica-2.jpg": {
     "path": "darevskia-daghestanica-2",
     "width": 1536,
@@ -1368,6 +1375,41 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "height": 2048,
     "widths": [400, 800, 1200, 1366],
     "formats": ["avif"]
+  },
+  "https://cdn.reptiles.ge/darevskia-daghestanica-4.jpg": {
+    "path": "darevskia-daghestanica-4",
+    "width": 1024,
+    "height": 768,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-daghestanica-5.jpg": {
+    "path": "darevskia-daghestanica-5",
+    "width": 1024,
+    "height": 768,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-daghestanica-aleksandre-1.jpg": {
+    "path": "darevskia-daghestanica-aleksandre-1",
+    "width": 960,
+    "height": 661,
+    "widths": [320, 400, 640, 800, 960],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-daghestanica-denis-1.jpg": {
+    "path": "darevskia-daghestanica-denis-1",
+    "width": 1024,
+    "height": 576,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-daghestanica-giorgi-1.jpg": {
+    "path": "darevskia-daghestanica-giorgi-1",
+    "width": 577,
+    "height": 1024,
+    "widths": [320, 400, 577],
+    "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/darevskia-daghestanica.jpg": {
     "path": "darevskia-daghestanica",
