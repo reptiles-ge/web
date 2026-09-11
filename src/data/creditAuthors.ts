@@ -311,6 +311,9 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
       tr: "Lasha Gogodze, Gürcü-Amerikan Lisesi mezunudur; Tunus’taki iFest uluslararası konferansına katılmış ve şu anda ABD’de Connecticut College’da biyokimya ve moleküler biyoloji okumaktadır.",
     },
     id: "lasha-gogodze",
+    links: {
+      facebook: "https://www.facebook.com/lasha.gogodze.2025",
+    },
     name: {
       en: "Lasha Gogodze",
       ka: "ლაშა გოგოძე",
