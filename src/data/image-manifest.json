@@ -21432,6 +21432,73 @@
       ],
       "updatedAt": "2026-09-11T01:43:41.538Z"
     },
+    "eremias-velox-nikita-2.jpg": {
+      "sourceHash": "b0e65daef01f996b0ad3b80b8cd194645fd5fc7b0dd231d4da175a593a596501",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eremias-velox-nikita-2.jpg",
+      "originalSize": 168582,
+      "width": 683,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/eremias-velox-nikita-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 480,
+          "byteSize": 19705
+        },
+        {
+          "key": "optimized/eremias-velox-nikita-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 480,
+          "byteSize": 32574
+        },
+        {
+          "key": "optimized/eremias-velox-nikita-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 600,
+          "byteSize": 27798
+        },
+        {
+          "key": "optimized/eremias-velox-nikita-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 600,
+          "byteSize": 45170
+        },
+        {
+          "key": "optimized/eremias-velox-nikita-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 960,
+          "byteSize": 54844
+        },
+        {
+          "key": "optimized/eremias-velox-nikita-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 960,
+          "byteSize": 87116
+        },
+        {
+          "key": "optimized/eremias-velox-nikita-2-683.avif",
+          "format": "avif",
+          "width": 683,
+          "height": 1024,
+          "byteSize": 62520
+        },
+        {
+          "key": "optimized/eremias-velox-nikita-2-683.webp",
+          "format": "webp",
+          "width": 683,
+          "height": 1024,
+          "byteSize": 97800
+        }
+      ],
+      "updatedAt": "2026-09-11T01:44:34.605Z"
+    },
     "eremias-velox.jpg": {
       "sourceHash": "2dd2c2367fd7b1666537c1756f8a149fa0dec262ab6e84b41d25887f9da25d64",
       "configFingerprint": "a895f8e025dcc7fa",

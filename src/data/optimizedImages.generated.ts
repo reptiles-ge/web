@@ -2251,6 +2251,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/eremias-velox-nikita-2.jpg": {
+    "path": "eremias-velox-nikita-2",
+    "width": 683,
+    "height": 1024,
+    "widths": [320, 400, 640, 683],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/eremias-velox.jpg": {
     "path": "eremias-velox",
     "width": 2048,
