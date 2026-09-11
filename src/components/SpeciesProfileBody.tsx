@@ -226,42 +226,79 @@ function SpeciesBreadcrumbTrail({
   ariaLabel: string;
   breadcrumbs: SpeciesBreadcrumbCrumb[];
 }) {
+  const current = breadcrumbs[breadcrumbs.length - 1];
+
   return (
     <nav aria-label={ariaLabel} className="border-b border-border bg-background">
-      <ol className="mx-auto flex max-w-[1400px] flex-wrap items-center gap-x-2 gap-y-1 px-6 py-4 text-[13px] text-muted-foreground lg:px-10">
+      <details className="group mx-auto max-w-[1400px] px-6 py-4 sm:hidden">
+        <summary className="flex cursor-pointer list-none items-center gap-2 text-[13px] font-medium text-foreground marker:hidden">
+          <span className="text-muted-foreground">...</span>
+          <span aria-hidden="true" className="text-border">
+            /
+          </span>
+          <span>{current?.name}</span>
+        </summary>
+        <ol className="mt-3 flex flex-col gap-2 text-[12px] leading-relaxed text-muted-foreground">
+          {breadcrumbs.map((crumb, index) => (
+            <SpeciesBreadcrumbTrailItem
+              crumb={crumb}
+              index={index}
+              isLast={index === breadcrumbs.length - 1}
+              key={crumb.href ? `${crumb.href}:${crumb.name}` : crumb.name}
+            />
+          ))}
+        </ol>
+      </details>
+      <ol className="mx-auto hidden max-w-[1400px] flex-wrap items-center gap-x-2 gap-y-1 px-6 py-4 text-[13px] text-muted-foreground sm:flex lg:px-10">
         {breadcrumbs.map((crumb, index) => {
           const isLast = index === breadcrumbs.length - 1;
 
           return (
-            <li
-              className="inline-flex items-center gap-2"
+            <SpeciesBreadcrumbTrailItem
+              crumb={crumb}
+              index={index}
+              isLast={isLast}
               key={crumb.href ? `${crumb.href}:${crumb.name}` : crumb.name}
-            >
-              {index > 0 ? (
-                <span aria-hidden="true" className="text-border">
-                  /
-                </span>
-              ) : null}
-              {crumb.href && !isLast ? (
-                <Link
-                  className="transition-colors hover:text-foreground"
-                  href={crumb.href}
-                >
-                  {crumb.name}
-                </Link>
-              ) : (
-                <span
-                  aria-current={isLast ? "page" : undefined}
-                  className={isLast ? "text-foreground" : undefined}
-                >
-                  {crumb.name}
-                </span>
-              )}
-            </li>
+            />
           );
         })}
       </ol>
     </nav>
+  );
+}
+
+function SpeciesBreadcrumbTrailItem({
+  crumb,
+  index,
+  isLast,
+}: {
+  crumb: SpeciesBreadcrumbCrumb;
+  index: number;
+  isLast: boolean;
+}) {
+  return (
+    <li className="inline-flex items-center gap-2">
+      {index > 0 ? (
+        <span aria-hidden="true" className="text-border">
+          /
+        </span>
+      ) : null}
+      {crumb.href && !isLast ? (
+        <Link
+          className="transition-colors hover:text-foreground"
+          href={crumb.href}
+        >
+          {crumb.name}
+        </Link>
+      ) : (
+        <span
+          aria-current={isLast ? "page" : undefined}
+          className={isLast ? "font-medium text-foreground" : undefined}
+        >
+          {crumb.name}
+        </span>
+      )}
+    </li>
   );
 }
 
