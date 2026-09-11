@@ -7,6 +7,7 @@ import type { AnimalGroup } from "@/data/speciesAtlas";
 import type { AppLocale } from "@/i18n/routing";
 import type { SpeciesBreadcrumbCrumb } from "@/lib/speciesBreadcrumbs";
 
+import { SpeciesHeroDescription } from "@/components/SpeciesHeroDescription";
 import { SpeciesScientificNameCopy } from "@/components/SpeciesScientificNameCopy";
 import { SpeciesVoicePlayer } from "@/components/SpeciesVoicePlayer";
 import { optimizedEntry, optimizedImgSrc } from "@/data/optimizedImages";
@@ -117,9 +118,11 @@ export async function SpeciesProfileHero({
             text={shareText}
           />
         </p>
-        <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-white/70 sm:mt-5 sm:text-[16px]">
-          {species.description}
-        </p>
+        <SpeciesHeroDescription
+          body={species.description}
+          readLess={t("readLess")}
+          readMore={t("readMore")}
+        />
         <div className="mt-5 flex flex-wrap items-center gap-3 sm:mt-6">
           <span className="inline-flex items-center gap-1.5 rounded-full border border-white/12 bg-white/5 px-3.5 py-2 text-[13px] text-white/60 backdrop-blur-md">
             <MapPin aria-hidden="true" className="size-3.5 text-white/45" />

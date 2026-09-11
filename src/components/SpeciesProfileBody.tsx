@@ -7,12 +7,12 @@ import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { BiologyBlock } from "@/components/BiologyBlock";
 import { ContentAttribution } from "@/components/ContentAttribution";
 import { SpeciesRangeMap } from "@/components/map/SpeciesRangeMap";
-import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { QuizPracticeCta } from "@/components/QuizPracticeCta";
 import { RelatedGuideStaticGrid } from "@/components/RelatedGuideStaticGrid";
 import { SpeciesFaqSection } from "@/components/SpeciesFaqSection";
 import { SpeciesGallery } from "@/components/SpeciesGallery";
 import { SpeciesIdentification } from "@/components/SpeciesIdentification";
+import { SpeciesOverviewText } from "@/components/SpeciesOverviewText";
 import { SpeciesProfileFacts } from "@/components/SpeciesProfileFacts";
 import { SpeciesProfileRelated } from "@/components/SpeciesProfileRelated";
 import { SpeciesSources } from "@/components/SpeciesSources";
@@ -88,9 +88,11 @@ export async function SpeciesProfileBody({
           >
             {t("whoIs")} {species.commonName}
           </AnchoredHeading>
-          <p className="mt-8 max-w-2xl text-[16px] leading-relaxed text-foreground/85 sm:text-[18px]">
-            <PhoneLinkedText>{species.overview}</PhoneLinkedText>
-          </p>
+          <SpeciesOverviewText
+            body={species.overview}
+            readLess={t("readLess")}
+            readMore={t("readMore")}
+          />
           <p className="mt-6 text-[12px] tracking-wide text-muted-foreground">
             {t("lastUpdated")}{" "}
             <time dateTime={species.updatedAt}>
