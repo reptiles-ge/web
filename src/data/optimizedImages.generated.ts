@@ -3875,6 +3875,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/lacerta-strigata-frank-1.jpg": {
+    "path": "lacerta-strigata-frank-1",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/lacerta-strigata-ka-1.jpg": {
     "path": "lacerta-strigata-ka-1",
     "width": 1024,
