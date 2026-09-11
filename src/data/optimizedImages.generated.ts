@@ -2230,12 +2230,47 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/eremias-velox-aur%C3%A9lien-1.jpg": {
+    "path": "eremias-velox-aur%C3%A9lien-1",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/eremias-velox-jean-louis-1.jpg": {
+    "path": "eremias-velox-jean-louis-1",
+    "width": 1024,
+    "height": 768,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/eremias-velox-korbinian-1.jpg": {
+    "path": "eremias-velox-korbinian-1",
+    "width": 1024,
+    "height": 771,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/eremias-velox-mobile.jpg": {
     "path": "eremias-velox-mobile",
     "width": 2048,
     "height": 1306,
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif"]
+  },
+  "https://cdn.reptiles.ge/eremias-velox-nikita-1.jpg": {
+    "path": "eremias-velox-nikita-1",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/eremias-velox-nikita-2.jpg": {
+    "path": "eremias-velox-nikita-2",
+    "width": 683,
+    "height": 1024,
+    "widths": [320, 400, 640, 683],
+    "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/eremias-velox.jpg": {
     "path": "eremias-velox",

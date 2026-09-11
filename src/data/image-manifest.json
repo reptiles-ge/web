@@ -21203,6 +21203,249 @@
       ],
       "updatedAt": "2026-08-28T21:39:58.264Z"
     },
+    "eremias-velox-aurélien-1.jpg": {
+      "sourceHash": "2106a8c46c8648dad6834f2f9fb034437f05e640dc9e3efb45a30ad5867cbbad",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eremias-velox-aurélien-1.jpg",
+      "originalSize": 116458,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/eremias-velox-aurélien-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8319
+        },
+        {
+          "key": "optimized/eremias-velox-aurélien-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12374
+        },
+        {
+          "key": "optimized/eremias-velox-aurélien-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 11739
+        },
+        {
+          "key": "optimized/eremias-velox-aurélien-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 17180
+        },
+        {
+          "key": "optimized/eremias-velox-aurélien-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 22152
+        },
+        {
+          "key": "optimized/eremias-velox-aurélien-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 33262
+        },
+        {
+          "key": "optimized/eremias-velox-aurélien-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 30303
+        },
+        {
+          "key": "optimized/eremias-velox-aurélien-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 44854
+        },
+        {
+          "key": "optimized/eremias-velox-aurélien-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 41970
+        },
+        {
+          "key": "optimized/eremias-velox-aurélien-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 60706
+        }
+      ],
+      "updatedAt": "2026-09-11T01:46:02.522Z"
+    },
+    "eremias-velox-jean-louis-1.jpg": {
+      "sourceHash": "fa92cfa063197a334a97ed1a107feb069edb8344470c34b5b31b0c528b5587aa",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eremias-velox-jean-louis-1.jpg",
+      "originalSize": 231250,
+      "width": 1024,
+      "height": 768,
+      "derivatives": [
+        {
+          "key": "optimized/eremias-velox-jean-louis-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 13652
+        },
+        {
+          "key": "optimized/eremias-velox-jean-louis-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 22236
+        },
+        {
+          "key": "optimized/eremias-velox-jean-louis-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 20932
+        },
+        {
+          "key": "optimized/eremias-velox-jean-louis-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 33370
+        },
+        {
+          "key": "optimized/eremias-velox-jean-louis-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 45207
+        },
+        {
+          "key": "optimized/eremias-velox-jean-louis-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 70444
+        },
+        {
+          "key": "optimized/eremias-velox-jean-louis-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 63803
+        },
+        {
+          "key": "optimized/eremias-velox-jean-louis-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 98606
+        },
+        {
+          "key": "optimized/eremias-velox-jean-louis-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 96013
+        },
+        {
+          "key": "optimized/eremias-velox-jean-louis-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 138202
+        }
+      ],
+      "updatedAt": "2026-09-11T01:47:22.961Z"
+    },
+    "eremias-velox-korbinian-1.jpg": {
+      "sourceHash": "c944faf6346bf7a93e3756639e0673c6bd717449286aa2d5962dd19e20d79230",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eremias-velox-korbinian-1.jpg",
+      "originalSize": 111290,
+      "width": 1024,
+      "height": 771,
+      "derivatives": [
+        {
+          "key": "optimized/eremias-velox-korbinian-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 241,
+          "byteSize": 5753
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 241,
+          "byteSize": 7376
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 301,
+          "byteSize": 8820
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 301,
+          "byteSize": 11178
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 482,
+          "byteSize": 20331
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 482,
+          "byteSize": 26052
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 602,
+          "byteSize": 28904
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 602,
+          "byteSize": 36876
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 771,
+          "byteSize": 41596
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 771,
+          "byteSize": 52406
+        }
+      ],
+      "updatedAt": "2026-09-11T01:42:45.261Z"
+    },
     "eremias-velox-mobile.jpg": {
       "sourceHash": "ce62ebd2f1262cdd1a9d78bf07fa57ebd17ffaa62f45d26dc1605120764fbd57",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -21269,6 +21512,154 @@
         }
       ],
       "updatedAt": "2026-08-28T21:39:57.762Z"
+    },
+    "eremias-velox-nikita-1.jpg": {
+      "sourceHash": "9d8cb45bce0c1515e4ffbaf6875040d4857b81d967e06377a1f313bc174439ae",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eremias-velox-nikita-1.jpg",
+      "originalSize": 166288,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/eremias-velox-nikita-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9576
+        },
+        {
+          "key": "optimized/eremias-velox-nikita-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 15026
+        },
+        {
+          "key": "optimized/eremias-velox-nikita-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 14225
+        },
+        {
+          "key": "optimized/eremias-velox-nikita-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 21944
+        },
+        {
+          "key": "optimized/eremias-velox-nikita-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 30405
+        },
+        {
+          "key": "optimized/eremias-velox-nikita-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 47100
+        },
+        {
+          "key": "optimized/eremias-velox-nikita-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 43106
+        },
+        {
+          "key": "optimized/eremias-velox-nikita-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 68028
+        },
+        {
+          "key": "optimized/eremias-velox-nikita-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 64578
+        },
+        {
+          "key": "optimized/eremias-velox-nikita-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 95664
+        }
+      ],
+      "updatedAt": "2026-09-11T01:43:41.538Z"
+    },
+    "eremias-velox-nikita-2.jpg": {
+      "sourceHash": "b0e65daef01f996b0ad3b80b8cd194645fd5fc7b0dd231d4da175a593a596501",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eremias-velox-nikita-2.jpg",
+      "originalSize": 168582,
+      "width": 683,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/eremias-velox-nikita-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 480,
+          "byteSize": 19705
+        },
+        {
+          "key": "optimized/eremias-velox-nikita-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 480,
+          "byteSize": 32574
+        },
+        {
+          "key": "optimized/eremias-velox-nikita-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 600,
+          "byteSize": 27798
+        },
+        {
+          "key": "optimized/eremias-velox-nikita-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 600,
+          "byteSize": 45170
+        },
+        {
+          "key": "optimized/eremias-velox-nikita-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 960,
+          "byteSize": 54844
+        },
+        {
+          "key": "optimized/eremias-velox-nikita-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 960,
+          "byteSize": 87116
+        },
+        {
+          "key": "optimized/eremias-velox-nikita-2-683.avif",
+          "format": "avif",
+          "width": 683,
+          "height": 1024,
+          "byteSize": 62520
+        },
+        {
+          "key": "optimized/eremias-velox-nikita-2-683.webp",
+          "format": "webp",
+          "width": 683,
+          "height": 1024,
+          "byteSize": 97800
+        }
+      ],
+      "updatedAt": "2026-09-11T01:44:34.605Z"
     },
     "eremias-velox.jpg": {
       "sourceHash": "2dd2c2367fd7b1666537c1756f8a149fa0dec262ab6e84b41d25887f9da25d64",
