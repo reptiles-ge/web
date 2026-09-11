@@ -12270,6 +12270,87 @@
       ],
       "updatedAt": "2026-08-28T21:31:54.636Z"
     },
+    "darevskia-daghestanica-aleksandre-1.jpg": {
+      "sourceHash": "22ece6d77be4db8faeeae134ec4968c9738c480a546ad6d6cb5fc8e51c4971fb",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-daghestanica-aleksandre-1.jpg",
+      "originalSize": 119248,
+      "width": 960,
+      "height": 661,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-daghestanica-aleksandre-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 220,
+          "byteSize": 12534
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-aleksandre-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 220,
+          "byteSize": 19358
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-aleksandre-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 275,
+          "byteSize": 18855
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-aleksandre-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 275,
+          "byteSize": 28356
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-aleksandre-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 441,
+          "byteSize": 39064
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-aleksandre-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 441,
+          "byteSize": 57776
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-aleksandre-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 551,
+          "byteSize": 53526
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-aleksandre-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 551,
+          "byteSize": 78188
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-aleksandre-1-960.avif",
+          "format": "avif",
+          "width": 960,
+          "height": 661,
+          "byteSize": 73385
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-aleksandre-1-960.webp",
+          "format": "webp",
+          "width": 960,
+          "height": 661,
+          "byteSize": 98992
+        }
+      ],
+      "updatedAt": "2026-09-11T13:09:10.088Z"
+    },
     "darevskia-daghestanica-denis-1.jpg": {
       "sourceHash": "729eef4a87c71b53470cf24cce0777449b88c5017943f2eec6224915e9b4d6b3",
       "configFingerprint": "409788ee46c653d8",
