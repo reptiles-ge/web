@@ -10151,6 +10151,411 @@
       ],
       "updatedAt": "2026-08-28T21:31:01.674Z"
     },
+    "darevskia-adjarica-christian-1.jpg": {
+      "sourceHash": "589110769bbd13b869e4e76f93891a3f0bbcc6ed690387b95d5b10f01fe3fa77",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-adjarica-christian-1.jpg",
+      "originalSize": 129577,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-adjarica-christian-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 7804
+        },
+        {
+          "key": "optimized/darevskia-adjarica-christian-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11020
+        },
+        {
+          "key": "optimized/darevskia-adjarica-christian-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 10687
+        },
+        {
+          "key": "optimized/darevskia-adjarica-christian-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 15480
+        },
+        {
+          "key": "optimized/darevskia-adjarica-christian-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 23041
+        },
+        {
+          "key": "optimized/darevskia-adjarica-christian-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 32402
+        },
+        {
+          "key": "optimized/darevskia-adjarica-christian-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 33490
+        },
+        {
+          "key": "optimized/darevskia-adjarica-christian-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 47058
+        },
+        {
+          "key": "optimized/darevskia-adjarica-christian-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 52188
+        },
+        {
+          "key": "optimized/darevskia-adjarica-christian-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 70122
+        }
+      ],
+      "updatedAt": "2026-09-11T01:52:57.459Z"
+    },
+    "darevskia-adjarica-kseniia-1.jpg": {
+      "sourceHash": "71505b6937852fb7fdbb5d75a9bc73a680ac37300c76b7199235d9561e8cbf51",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-adjarica-kseniia-1.jpg",
+      "originalSize": 356418,
+      "width": 1024,
+      "height": 768,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 18476
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 29656
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 30965
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 47810
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 78249
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 122606
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 114398
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 183368
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 171906
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 272036
+        }
+      ],
+      "updatedAt": "2026-09-11T01:54:57.305Z"
+    },
+    "darevskia-adjarica-kseniia-2.jpg": {
+      "sourceHash": "a51ffa12b6ba0c06e1cd48504ffcc458e6338d1a70aae6fc1a574a28b1691148",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-adjarica-kseniia-2.jpg",
+      "originalSize": 334832,
+      "width": 1024,
+      "height": 768,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 19492
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 30566
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 31525
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 48072
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 74245
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 115532
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 106100
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 168174
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-2-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 155348
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-2-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 242176
+        }
+      ],
+      "updatedAt": "2026-09-11T01:57:42.839Z"
+    },
+    "darevskia-adjarica-leonid-1.jpg": {
+      "sourceHash": "129429948a64e62e1b3f35369859d23a75f2b8de9981b220d2aa3fb5190cf46f",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-adjarica-leonid-1.jpg",
+      "originalSize": 257810,
+      "width": 1024,
+      "height": 689,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-adjarica-leonid-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 215,
+          "byteSize": 16277
+        },
+        {
+          "key": "optimized/darevskia-adjarica-leonid-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 215,
+          "byteSize": 28746
+        },
+        {
+          "key": "optimized/darevskia-adjarica-leonid-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 269,
+          "byteSize": 24021
+        },
+        {
+          "key": "optimized/darevskia-adjarica-leonid-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 269,
+          "byteSize": 41428
+        },
+        {
+          "key": "optimized/darevskia-adjarica-leonid-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 431,
+          "byteSize": 49619
+        },
+        {
+          "key": "optimized/darevskia-adjarica-leonid-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 431,
+          "byteSize": 85082
+        },
+        {
+          "key": "optimized/darevskia-adjarica-leonid-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 538,
+          "byteSize": 69657
+        },
+        {
+          "key": "optimized/darevskia-adjarica-leonid-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 538,
+          "byteSize": 120992
+        },
+        {
+          "key": "optimized/darevskia-adjarica-leonid-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 689,
+          "byteSize": 102062
+        },
+        {
+          "key": "optimized/darevskia-adjarica-leonid-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 689,
+          "byteSize": 175292
+        }
+      ],
+      "updatedAt": "2026-09-11T01:54:06.573Z"
+    },
+    "darevskia-adjarica-leonid-2.jpg": {
+      "sourceHash": "b5a4bf0881e4d1b55db6ceb84c4af4e9a070cef90cc3388057030c3615f298ca",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-adjarica-leonid-2.jpg",
+      "originalSize": 142236,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-adjarica-leonid-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8653
+        },
+        {
+          "key": "optimized/darevskia-adjarica-leonid-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12328
+        },
+        {
+          "key": "optimized/darevskia-adjarica-leonid-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 12439
+        },
+        {
+          "key": "optimized/darevskia-adjarica-leonid-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 18340
+        },
+        {
+          "key": "optimized/darevskia-adjarica-leonid-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 25492
+        },
+        {
+          "key": "optimized/darevskia-adjarica-leonid-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 39510
+        },
+        {
+          "key": "optimized/darevskia-adjarica-leonid-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 35952
+        },
+        {
+          "key": "optimized/darevskia-adjarica-leonid-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 56454
+        },
+        {
+          "key": "optimized/darevskia-adjarica-leonid-2-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 52128
+        },
+        {
+          "key": "optimized/darevskia-adjarica-leonid-2-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 80584
+        }
+      ],
+      "updatedAt": "2026-09-11T01:56:10.297Z"
+    },
     "darevskia-adjarica-mobile.jpg": {
       "sourceHash": "99387a81c67176f7e4e7a14adf6ae6ed3d75e92b62d6c387060c3c55d263a919",
       "configFingerprint": "a895f8e025dcc7fa",
