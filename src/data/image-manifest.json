@@ -21284,6 +21284,87 @@
       ],
       "updatedAt": "2026-09-11T01:46:02.522Z"
     },
+    "eremias-velox-jean-louis-1.jpg": {
+      "sourceHash": "fa92cfa063197a334a97ed1a107feb069edb8344470c34b5b31b0c528b5587aa",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eremias-velox-jean-louis-1.jpg",
+      "originalSize": 231250,
+      "width": 1024,
+      "height": 768,
+      "derivatives": [
+        {
+          "key": "optimized/eremias-velox-jean-louis-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 13652
+        },
+        {
+          "key": "optimized/eremias-velox-jean-louis-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 22236
+        },
+        {
+          "key": "optimized/eremias-velox-jean-louis-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 20932
+        },
+        {
+          "key": "optimized/eremias-velox-jean-louis-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 33370
+        },
+        {
+          "key": "optimized/eremias-velox-jean-louis-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 45207
+        },
+        {
+          "key": "optimized/eremias-velox-jean-louis-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 70444
+        },
+        {
+          "key": "optimized/eremias-velox-jean-louis-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 63803
+        },
+        {
+          "key": "optimized/eremias-velox-jean-louis-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 98606
+        },
+        {
+          "key": "optimized/eremias-velox-jean-louis-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 96013
+        },
+        {
+          "key": "optimized/eremias-velox-jean-louis-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 138202
+        }
+      ],
+      "updatedAt": "2026-09-11T01:47:22.961Z"
+    },
     "eremias-velox-korbinian-1.jpg": {
       "sourceHash": "c944faf6346bf7a93e3756639e0673c6bd717449286aa2d5962dd19e20d79230",
       "configFingerprint": "409788ee46c653d8",
