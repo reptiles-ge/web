@@ -5121,6 +5121,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/phoenicolacerta-laevis-kseniia-2.jpg": {
+    "path": "phoenicolacerta-laevis-kseniia-2",
+    "width": 1024,
+    "height": 768,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/phoenicolacerta-laevis-mobile.jpg": {
     "path": "phoenicolacerta-laevis-mobile",
     "width": 2048,
