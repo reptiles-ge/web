@@ -529,6 +529,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1080],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/authors/armen-seropian.jpg": {
+    "path": "authors/armen-seropian",
+    "width": 775,
+    "height": 775,
+    "widths": [320, 400, 640, 775],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/authors/david-tarkhnishvili.jpg": {
     "path": "authors/david-tarkhnishvili",
     "width": 480,
@@ -547,6 +554,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "path": "authors/ioane-rostiashvili",
     "width": 1024,
     "height": 1021,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/authors/lasha-gogodze.jpg": {
+    "path": "authors/lasha-gogodze",
+    "width": 1024,
+    "height": 1023,
     "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
@@ -570,6 +584,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "height": 996,
     "widths": [320, 400, 640, 800, 1011],
     "formats": ["avif"]
+  },
+  "https://cdn.reptiles.ge/authors/shota-zandukeli.jpg": {
+    "path": "authors/shota-zandukeli",
+    "width": 822,
+    "height": 812,
+    "widths": [320, 400, 640, 800, 822],
+    "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/authors/velur-bunebastan-axlos.jpg": {
     "path": "authors/velur-bunebastan-axlos",
@@ -977,34 +998,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2200],
     "formats": ["avif"]
   },
-  "https://cdn.reptiles.ge/coronella-austriaca-4.webp": {
-    "path": "coronella-austriaca-4",
-    "width": 2200,
-    "height": 1650,
-    "widths": [400, 800, 1200, 2200],
-    "formats": ["avif"]
-  },
-  "https://cdn.reptiles.ge/coronella-austriaca-5.webp": {
-    "path": "coronella-austriaca-5",
-    "width": 2200,
-    "height": 1466,
-    "widths": [400, 800, 1200, 2200],
-    "formats": ["avif"]
-  },
-  "https://cdn.reptiles.ge/coronella-austriaca-6.webp": {
-    "path": "coronella-austriaca-6",
-    "width": 2200,
-    "height": 1441,
-    "widths": [400, 800, 1200, 2200],
-    "formats": ["avif"]
-  },
-  "https://cdn.reptiles.ge/coronella-austriaca-7.webp": {
-    "path": "coronella-austriaca-7",
-    "width": 2200,
-    "height": 1237,
-    "widths": [400, 800, 1200, 2200],
-    "formats": ["avif"]
-  },
   "https://cdn.reptiles.ge/coronella-austriaca-andrey-1.jpg": {
     "path": "coronella-austriaca-andrey-1",
     "width": 858,
@@ -1033,25 +1026,11 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
-  "https://cdn.reptiles.ge/coronella-austriaca-sandro-1.jpg": {
-    "path": "coronella-austriaca-sandro-1",
-    "width": 1393,
-    "height": 960,
-    "widths": [400, 800, 1200, 1393],
-    "formats": ["avif"]
-  },
   "https://cdn.reptiles.ge/coronella-austriaca-sandro-2.jpg": {
     "path": "coronella-austriaca-sandro-2",
     "width": 1330,
     "height": 960,
     "widths": [400, 800, 1200, 1330],
-    "formats": ["avif"]
-  },
-  "https://cdn.reptiles.ge/coronella-austriaca-sandro-3.jpg": {
-    "path": "coronella-austriaca-sandro-3",
-    "width": 2048,
-    "height": 1614,
-    "widths": [400, 800, 1200, 2048],
     "formats": ["avif"]
   },
   "https://cdn.reptiles.ge/coronella-austriaca-sandro-4.jpg": {
@@ -1060,13 +1039,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "height": 960,
     "widths": [400, 800, 1200, 1244],
     "formats": ["avif"]
-  },
-  "https://cdn.reptiles.ge/coronella-austriaca-shota-1.jpg": {
-    "path": "coronella-austriaca-shota-1",
-    "width": 767,
-    "height": 1024,
-    "widths": [400, 767],
-    "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/coronella-austriaca-zauri-1.jpg": {
     "path": "coronella-austriaca-zauri-1",
@@ -1256,13 +1228,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "height": 1000,
     "widths": [320, 400, 640, 800, 1200, 1600],
     "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/darevskia-armeniaca-mobile.jpg": {
-    "path": "darevskia-armeniaca-mobile",
-    "width": 2048,
-    "height": 1540,
-    "widths": [400, 800, 1200, 2048],
-    "formats": ["avif"]
   },
   "https://cdn.reptiles.ge/darevskia-armeniaca.jpg": {
     "path": "darevskia-armeniaca",
@@ -1586,13 +1551,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1224],
     "formats": ["avif", "webp"]
   },
-  "https://cdn.reptiles.ge/darevskia-praticola-mobile.jpg": {
-    "path": "darevskia-praticola-mobile",
-    "width": 2048,
-    "height": 1536,
-    "widths": [400, 800, 1200, 2048],
-    "formats": ["avif"]
-  },
   "https://cdn.reptiles.ge/darevskia-praticola-zauri-1.jpg": {
     "path": "darevskia-praticola-zauri-1",
     "width": 1344,
@@ -1754,20 +1712,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
-  "https://cdn.reptiles.ge/dolichophis-schmidti-6.webp": {
-    "path": "dolichophis-schmidti-6",
-    "width": 1920,
-    "height": 1080,
-    "widths": [400, 800, 1200, 1920],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/dolichophis-schmidti-7.webp": {
-    "path": "dolichophis-schmidti-7",
-    "width": 2048,
-    "height": 1536,
-    "widths": [400, 800, 1200, 2048],
-    "formats": ["avif", "webp"]
-  },
   "https://cdn.reptiles.ge/dolichophis-schmidti-andro-1.jpg": {
     "path": "dolichophis-schmidti-andro-1",
     "width": 1024,
@@ -1810,29 +1754,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1024],
     "formats": ["avif", "webp"]
   },
-  "https://cdn.reptiles.ge/dolichophis-schmidti-george-2.jpg": {
-    "path": "dolichophis-schmidti-george-2",
-    "width": 1024,
-    "height": 682,
-    "widths": [400, 800, 1024],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/dolichophis-schmidti-ioane-1.jpg": {
-    "path": "dolichophis-schmidti-ioane-1",
-    "width": 579,
-    "height": 1024,
-    "widths": [400, 579],
-    "formats": ["avif", "webp"]
-  },
   "https://cdn.reptiles.ge/dolichophis-schmidti-ioane-2.jpg": {
     "path": "dolichophis-schmidti-ioane-2",
-    "width": 771,
-    "height": 1024,
-    "widths": [400, 771],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/dolichophis-schmidti-ioane-3.jpg": {
-    "path": "dolichophis-schmidti-ioane-3",
     "width": 771,
     "height": 1024,
     "widths": [400, 771],
@@ -2257,20 +2180,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "height": 1536,
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif"]
-  },
-  "https://cdn.reptiles.ge/eremias-arguta-diego-1.jpg": {
-    "path": "eremias-arguta-diego-1",
-    "width": 1200,
-    "height": 800,
-    "widths": [320, 400, 640, 800, 1200],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/eremias-arguta-diego-2.jpg": {
-    "path": "eremias-arguta-diego-2",
-    "width": 1200,
-    "height": 800,
-    "widths": [320, 400, 640, 800, 1200],
-    "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/eremias-arguta-diego-3.jpg": {
     "path": "eremias-arguta-diego-3",
@@ -3287,13 +3196,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2145],
     "formats": ["avif", "webp"]
   },
-  "https://cdn.reptiles.ge/images/species/latrodectus-tredecimguttatus-1.jpg": {
-    "path": "images/species/latrodectus-tredecimguttatus-1",
-    "width": 1800,
-    "height": 1010,
-    "widths": [400, 800, 1200, 1800],
-    "formats": ["avif", "webp"]
-  },
   "https://cdn.reptiles.ge/images/species/latrodectus-tredecimguttatus-eggs-1.jpg": {
     "path": "images/species/latrodectus-tredecimguttatus-eggs-1",
     "width": 1800,
@@ -4057,48 +3959,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2400],
     "formats": ["avif", "webp"]
   },
-  "https://cdn.reptiles.ge/macrovipera-lebetina-2.webp": {
-    "path": "macrovipera-lebetina-2",
-    "width": 1200,
-    "height": 1265,
-    "widths": [400, 800, 1200],
-    "formats": ["avif"]
-  },
-  "https://cdn.reptiles.ge/macrovipera-lebetina-4.webp": {
-    "path": "macrovipera-lebetina-4",
-    "width": 1500,
-    "height": 1000,
-    "widths": [400, 800, 1200, 1500],
-    "formats": ["avif"]
-  },
-  "https://cdn.reptiles.ge/macrovipera-lebetina-6.webp": {
-    "path": "macrovipera-lebetina-6",
-    "width": 800,
-    "height": 498,
-    "widths": [400, 800],
-    "formats": ["avif"]
-  },
-  "https://cdn.reptiles.ge/macrovipera-lebetina-alisa-1.jpg": {
-    "path": "macrovipera-lebetina-alisa-1",
-    "width": 1440,
-    "height": 912,
-    "widths": [320, 400, 640, 800, 1200, 1440],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/macrovipera-lebetina-antonina-1.jpg": {
-    "path": "macrovipera-lebetina-antonina-1",
-    "width": 1024,
-    "height": 683,
-    "widths": [320, 400, 640, 800, 1024],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/macrovipera-lebetina-ar-1.jpg": {
-    "path": "macrovipera-lebetina-ar-1",
-    "width": 2048,
-    "height": 1304,
-    "widths": [320, 400, 640, 800, 1200, 2048],
-    "formats": ["avif", "webp"]
-  },
   "https://cdn.reptiles.ge/macrovipera-lebetina-armen-1.jpg": {
     "path": "macrovipera-lebetina-armen-1",
     "width": 2048,
@@ -4113,25 +3973,11 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
-  "https://cdn.reptiles.ge/macrovipera-lebetina-fr%C3%A9d%C3%A9ric-1.jpg": {
-    "path": "macrovipera-lebetina-fr%C3%A9d%C3%A9ric-1",
-    "width": 1024,
-    "height": 683,
-    "widths": [320, 400, 640, 800, 1024],
-    "formats": ["avif", "webp"]
-  },
   "https://cdn.reptiles.ge/macrovipera-lebetina-giorgi-1.jpg": {
     "path": "macrovipera-lebetina-giorgi-1",
     "width": 1024,
     "height": 691,
     "widths": [320, 400, 640, 800, 1024],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/macrovipera-lebetina-giorgi-2.jpg": {
-    "path": "macrovipera-lebetina-giorgi-2",
-    "width": 1024,
-    "height": 698,
-    "widths": [400, 800, 1024],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/macrovipera-lebetina-giorgi-3.jpg": {
@@ -4141,22 +3987,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1514],
     "formats": ["avif", "webp"]
   },
-  "https://cdn.reptiles.ge/macrovipera-lebetina-ioane-1.jpg": {
-    "path": "macrovipera-lebetina-ioane-1",
-    "width": 771,
-    "height": 1024,
-    "widths": [320, 400, 640, 771],
-    "formats": ["avif"]
-  },
   "https://cdn.reptiles.ge/macrovipera-lebetina-ioane-2.jpg": {
     "path": "macrovipera-lebetina-ioane-2",
-    "width": 771,
-    "height": 1024,
-    "widths": [320, 400, 640, 771],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/macrovipera-lebetina-ioane-3.jpg": {
-    "path": "macrovipera-lebetina-ioane-3",
     "width": 771,
     "height": 1024,
     "widths": [320, 400, 640, 771],
@@ -4176,27 +4008,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
-  "https://cdn.reptiles.ge/macrovipera-lebetina-nika-1.jpg": {
-    "path": "macrovipera-lebetina-nika-1",
-    "width": 1024,
-    "height": 682,
-    "widths": [320, 400, 640, 800, 1024],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/macrovipera-lebetina-nika-2.jpg": {
-    "path": "macrovipera-lebetina-nika-2",
-    "width": 1024,
-    "height": 682,
-    "widths": [400, 800, 1024],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/macrovipera-lebetina-nika-3.png": {
-    "path": "macrovipera-lebetina-nika-3",
-    "width": 1224,
-    "height": 816,
-    "widths": [320, 400, 640, 800, 1200, 1224],
-    "formats": ["avif", "webp"]
-  },
   "https://cdn.reptiles.ge/macrovipera-lebetina-nika-4.jpg": {
     "path": "macrovipera-lebetina-nika-4",
     "width": 1024,
@@ -4210,62 +4021,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "height": 682,
     "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/macrovipera-lebetina-nino-1.jpg": {
-    "path": "macrovipera-lebetina-nino-1",
-    "width": 767,
-    "height": 1024,
-    "widths": [400, 767],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/macrovipera-lebetina-nino-2.jpg": {
-    "path": "macrovipera-lebetina-nino-2",
-    "width": 767,
-    "height": 1024,
-    "widths": [320, 400, 640, 767],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/macrovipera-lebetina-shota-1.jpg": {
-    "path": "macrovipera-lebetina-shota-1",
-    "width": 767,
-    "height": 1024,
-    "widths": [400, 767],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/macrovipera-lebetina-shota-2.jpg": {
-    "path": "macrovipera-lebetina-shota-2",
-    "width": 767,
-    "height": 1024,
-    "widths": [400, 767],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/macrovipera-lebetina-teimuraz-1.jpg": {
-    "path": "macrovipera-lebetina-teimuraz-1",
-    "width": 683,
-    "height": 1024,
-    "widths": [320, 400, 640, 683],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/macrovipera-lebetina-zakro-1.jpg": {
-    "path": "macrovipera-lebetina-zakro-1",
-    "width": 1024,
-    "height": 682,
-    "widths": [320, 400, 640, 800, 1024],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/macrovipera-lebetina-zakro-2.jpg": {
-    "path": "macrovipera-lebetina-zakro-2",
-    "width": 1000,
-    "height": 667,
-    "widths": [320, 400, 640, 800, 1000],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/macrovipera-lebetina.webp": {
-    "path": "macrovipera-lebetina",
-    "width": 1200,
-    "height": 798,
-    "widths": [320, 400, 640, 800, 1200],
-    "formats": ["avif"]
   },
   "https://cdn.reptiles.ge/malpolon-insignitus-1.jpg": {
     "path": "malpolon-insignitus-1",
@@ -4328,13 +4083,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 960,
     "height": 640,
     "widths": [320, 400, 640, 800, 960],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/mauremys-caspica-laura-1.jpg": {
-    "path": "mauremys-caspica-laura-1",
-    "width": 1600,
-    "height": 1095,
-    "widths": [320, 400, 640, 800, 1200, 1600],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/mauremys-caspica-laura-2.jpg": {
@@ -4554,32 +4302,11 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
-  "https://cdn.reptiles.ge/mustela-nivalis-grazalema-1.jpg": {
-    "path": "mustela-nivalis-grazalema-1",
-    "width": 1800,
-    "height": 1350,
-    "widths": [400, 800, 1200, 1800],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/mustela-nivalis-martin-bravo-1.jpg": {
-    "path": "mustela-nivalis-martin-bravo-1",
-    "width": 1800,
-    "height": 1350,
-    "widths": [400, 800, 1200, 1800],
-    "formats": ["avif", "webp"]
-  },
   "https://cdn.reptiles.ge/mustela-nivalis-matthias-1.jpg": {
     "path": "mustela-nivalis-matthias-1",
     "width": 1024,
     "height": 683,
     "widths": [320, 400, 640, 800, 1024],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/mustela-nivalis-richenza-1.jpg": {
-    "path": "mustela-nivalis-richenza-1",
-    "width": 1800,
-    "height": 1205,
-    "widths": [400, 800, 1200, 1800],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/mustela-nivalis-strzelecki-1.jpg": {
@@ -4617,31 +4344,10 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2400],
     "formats": ["avif"]
   },
-  "https://cdn.reptiles.ge/natrix-natrix-3.jpg": {
-    "path": "natrix-natrix-3",
-    "width": 1920,
-    "height": 1440,
-    "widths": [400, 800, 1200, 1920],
-    "formats": ["avif"]
-  },
   "https://cdn.reptiles.ge/natrix-natrix-4.jpg": {
     "path": "natrix-natrix-4",
     "width": 2400,
     "height": 1500,
-    "widths": [400, 800, 1200, 2400],
-    "formats": ["avif"]
-  },
-  "https://cdn.reptiles.ge/natrix-natrix-5.jpg": {
-    "path": "natrix-natrix-5",
-    "width": 2400,
-    "height": 1600,
-    "widths": [400, 800, 1200, 2400],
-    "formats": ["avif"]
-  },
-  "https://cdn.reptiles.ge/natrix-natrix-6.jpg": {
-    "path": "natrix-natrix-6",
-    "width": 2400,
-    "height": 1800,
     "widths": [400, 800, 1200, 2400],
     "formats": ["avif"]
   },
@@ -4694,20 +4400,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
-  "https://cdn.reptiles.ge/natrix-natrix-mobile.jpg": {
-    "path": "natrix-natrix-mobile",
-    "width": 1800,
-    "height": 1200,
-    "widths": [400, 800, 1200, 1800],
-    "formats": ["avif"]
-  },
-  "https://cdn.reptiles.ge/natrix-natrix-zakro-1.jpg": {
-    "path": "natrix-natrix-zakro-1",
-    "width": 1024,
-    "height": 682,
-    "widths": [400, 800, 1024],
-    "formats": ["avif", "webp"]
-  },
   "https://cdn.reptiles.ge/natrix-natrix.jpg": {
     "path": "natrix-natrix",
     "width": 2400,
@@ -4750,25 +4442,11 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800],
     "formats": ["avif"]
   },
-  "https://cdn.reptiles.ge/natrix-tessellata-7.webp": {
-    "path": "natrix-tessellata-7",
-    "width": 800,
-    "height": 533,
-    "widths": [400, 800],
-    "formats": ["avif"]
-  },
   "https://cdn.reptiles.ge/natrix-tessellata-barnab%C3%A1s-1.jpg": {
     "path": "natrix-tessellata-barnab%C3%A1s-1",
     "width": 1024,
     "height": 683,
     "widths": [320, 400, 640, 800, 1024],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/natrix-tessellata-beka-1.jpg": {
-    "path": "natrix-tessellata-beka-1",
-    "width": 768,
-    "height": 1024,
-    "widths": [400, 768],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/natrix-tessellata-brecht-1.jpg": {
@@ -4777,13 +4455,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "height": 683,
     "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/natrix-tessellata-giorgi-1.jpg": {
-    "path": "natrix-tessellata-giorgi-1",
-    "width": 552,
-    "height": 368,
-    "widths": [400, 552],
-    "formats": ["avif"]
   },
   "https://cdn.reptiles.ge/natrix-tessellata-ioane-1.jpg": {
     "path": "natrix-tessellata-ioane-1",
@@ -4794,13 +4465,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
   },
   "https://cdn.reptiles.ge/natrix-tessellata-ioane-2.jpg": {
     "path": "natrix-tessellata-ioane-2",
-    "width": 771,
-    "height": 1024,
-    "widths": [400, 771],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/natrix-tessellata-ioane-3.jpg": {
-    "path": "natrix-tessellata-ioane-3",
     "width": 771,
     "height": 1024,
     "widths": [400, 771],
@@ -4832,20 +4496,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1024,
     "height": 812,
     "widths": [400, 800, 1024],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/natrix-tessellata-sandro-2.jpg": {
-    "path": "natrix-tessellata-sandro-2",
-    "width": 1024,
-    "height": 728,
-    "widths": [400, 800, 1024],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/natrix-tessellata-shota-1.jpg": {
-    "path": "natrix-tessellata-shota-1",
-    "width": 767,
-    "height": 1024,
-    "widths": [400, 767],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/natrix-tessellata-tom%C3%A1%C5%A1-1.jpg": {
@@ -5093,13 +4743,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1600],
     "formats": ["avif", "webp"]
   },
-  "https://cdn.reptiles.ge/paralaudakia-caucasia-mobile.jpg": {
-    "path": "paralaudakia-caucasia-mobile",
-    "width": 1920,
-    "height": 1280,
-    "widths": [400, 800, 1200, 1920],
-    "formats": ["avif"]
-  },
   "https://cdn.reptiles.ge/paralaudakia-caucasia-zakro-1.jpg": {
     "path": "paralaudakia-caucasia-zakro-1",
     "width": 1024,
@@ -5127,13 +4770,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "height": 2048,
     "widths": [400, 800, 1200, 1536],
     "formats": ["avif"]
-  },
-  "https://cdn.reptiles.ge/pelobates-syriacus-armen-1.jpg": {
-    "path": "pelobates-syriacus-armen-1",
-    "width": 2048,
-    "height": 1365,
-    "widths": [320, 400, 640, 800, 1200, 2048],
-    "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/pelobates-syriacus-armen-2.jpg": {
     "path": "pelobates-syriacus-armen-2",
@@ -5849,48 +5485,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2400],
     "formats": ["avif", "webp"]
   },
-  "https://cdn.reptiles.ge/telescopus-fallax-2.jpg": {
-    "path": "telescopus-fallax-2",
-    "width": 2400,
-    "height": 1714,
-    "widths": [400, 800, 1200, 2400],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/telescopus-fallax-3.jpg": {
-    "path": "telescopus-fallax-3",
-    "width": 2400,
-    "height": 1800,
-    "widths": [400, 800, 1200, 2400],
-    "formats": ["avif"]
-  },
-  "https://cdn.reptiles.ge/telescopus-fallax-4.jpg": {
-    "path": "telescopus-fallax-4",
-    "width": 2400,
-    "height": 1800,
-    "widths": [400, 800, 1200, 2400],
-    "formats": ["avif"]
-  },
-  "https://cdn.reptiles.ge/telescopus-fallax-5.jpg": {
-    "path": "telescopus-fallax-5",
-    "width": 2048,
-    "height": 1365,
-    "widths": [400, 800, 1200, 2048],
-    "formats": ["avif"]
-  },
-  "https://cdn.reptiles.ge/telescopus-fallax-6.jpg": {
-    "path": "telescopus-fallax-6",
-    "width": 1280,
-    "height": 1920,
-    "widths": [400, 800, 1200, 1280],
-    "formats": ["avif"]
-  },
-  "https://cdn.reptiles.ge/telescopus-fallax-7.jpg": {
-    "path": "telescopus-fallax-7",
-    "width": 2400,
-    "height": 1773,
-    "widths": [400, 800, 1200, 2400],
-    "formats": ["avif", "webp"]
-  },
   "https://cdn.reptiles.ge/telescopus-fallax-alex-1.jpg": {
     "path": "telescopus-fallax-alex-1",
     "width": 1024,
@@ -5932,13 +5526,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "height": 768,
     "widths": [400, 800, 1024],
     "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/telescopus-fallax-mobile.jpg": {
-    "path": "telescopus-fallax-mobile",
-    "width": 1800,
-    "height": 2400,
-    "widths": [400, 800, 1200, 1800],
-    "formats": ["avif"]
   },
   "https://cdn.reptiles.ge/telescopus-fallax-titouan-1.jpg": {
     "path": "telescopus-fallax-titouan-1",
@@ -6129,13 +5716,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1024],
     "formats": ["avif", "webp"]
   },
-  "https://cdn.reptiles.ge/vipera-cover-on-mobile.webp": {
-    "path": "vipera-cover-on-mobile",
-    "width": 1200,
-    "height": 1680,
-    "widths": [400, 800, 1200],
-    "formats": ["avif"]
-  },
   "https://cdn.reptiles.ge/vipera-darevskii-1.jpg": {
     "path": "vipera-darevskii-1",
     "width": 2048,
@@ -6220,13 +5800,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2400],
     "formats": ["avif"]
   },
-  "https://cdn.reptiles.ge/vipera-dinnik-2.webp": {
-    "path": "vipera-dinnik-2",
-    "width": 1276,
-    "height": 957,
-    "widths": [400, 800, 1200, 1276],
-    "formats": ["avif", "webp"]
-  },
   "https://cdn.reptiles.ge/vipera-dinnik-3.webp": {
     "path": "vipera-dinnik-3",
     "width": 800,
@@ -6234,67 +5807,11 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800],
     "formats": ["avif"]
   },
-  "https://cdn.reptiles.ge/vipera-dinnik-4.webp": {
-    "path": "vipera-dinnik-4",
-    "width": 1200,
-    "height": 789,
-    "widths": [400, 800, 1200],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/vipera-dinnik-5.webp": {
-    "path": "vipera-dinnik-5",
-    "width": 1024,
-    "height": 683,
-    "widths": [400, 800, 1024],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/vipera-dinnik-6.webp": {
-    "path": "vipera-dinnik-6",
-    "width": 1600,
-    "height": 1038,
-    "widths": [400, 800, 1200, 1600],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/vipera-dinnik-7.jpg": {
-    "path": "vipera-dinnik-7",
-    "width": 600,
-    "height": 800,
-    "widths": [400, 600],
-    "formats": ["avif"]
-  },
   "https://cdn.reptiles.ge/vipera-dinnik.webp": {
     "path": "vipera-dinnik",
     "width": 1600,
     "height": 1038,
     "widths": [400, 800, 1200, 1600],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/vipera-dinniki-aleksi-1.jpg": {
-    "path": "vipera-dinniki-aleksi-1",
-    "width": 1315,
-    "height": 1799,
-    "widths": [400, 800, 1200, 1315],
-    "formats": ["avif"]
-  },
-  "https://cdn.reptiles.ge/vipera-dinniki-anano-1.jpg": {
-    "path": "vipera-dinniki-anano-1",
-    "width": 2048,
-    "height": 1365,
-    "widths": [400, 800, 1200, 2048],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/vipera-dinniki-anano-2.jpg": {
-    "path": "vipera-dinniki-anano-2",
-    "width": 1653,
-    "height": 1043,
-    "widths": [400, 800, 1200, 1653],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/vipera-dinniki-bichiko-1.jpg": {
-    "path": "vipera-dinniki-bichiko-1",
-    "width": 1080,
-    "height": 720,
-    "widths": [400, 800, 1080],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/vipera-dinniki-bobby-1.jpg": {
@@ -6318,47 +5835,12 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 683],
     "formats": ["avif", "webp"]
   },
-  "https://cdn.reptiles.ge/vipera-dinniki-giorgi-1.jpg": {
-    "path": "vipera-dinniki-giorgi-1",
-    "width": 2048,
-    "height": 1366,
-    "widths": [400, 800, 1200, 2048],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/vipera-dinniki-giorgi-2.jpg": {
-    "path": "vipera-dinniki-giorgi-2",
-    "width": 718,
-    "height": 960,
-    "widths": [400, 718],
-    "formats": ["avif", "webp"]
-  },
   "https://cdn.reptiles.ge/vipera-dinniki-mirko-1.jpg": {
     "path": "vipera-dinniki-mirko-1",
     "width": 1024,
     "height": 680,
     "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/vipera-dinniki-qazbegis-1.jpg": {
-    "path": "vipera-dinniki-qazbegis-1",
-    "width": 2048,
-    "height": 1536,
-    "widths": [400, 800, 1200, 2048],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/vipera-dinniki-saba-1.jpg": {
-    "path": "vipera-dinniki-saba-1",
-    "width": 1152,
-    "height": 2048,
-    "widths": [400, 800, 1152],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/vipera-dinniki-saba-2.jpg": {
-    "path": "vipera-dinniki-saba-2",
-    "width": 2048,
-    "height": 1536,
-    "widths": [320, 400, 640, 800, 1200, 2048],
-    "formats": ["avif"]
   },
   "https://cdn.reptiles.ge/vipera-dinniki-sandro-1.jpg": {
     "path": "vipera-dinniki-sandro-1",
@@ -6367,32 +5849,11 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
-  "https://cdn.reptiles.ge/vipera-dinniki-sandro-2.jpg": {
-    "path": "vipera-dinniki-sandro-2",
-    "width": 2048,
-    "height": 1805,
-    "widths": [400, 800, 1200, 2048],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/vipera-dinniki-truso-2.jpg": {
-    "path": "vipera-dinniki-truso-2",
-    "width": 631,
-    "height": 1024,
-    "widths": [400, 631],
-    "formats": ["avif", "webp"]
-  },
   "https://cdn.reptiles.ge/vipera-kaznakovi-1.jpg": {
     "path": "vipera-kaznakovi-1",
     "width": 1024,
     "height": 683,
     "widths": [320, 400, 640, 800, 1024],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/vipera-kaznakovi-2.webp": {
-    "path": "vipera-kaznakovi-2",
-    "width": 2400,
-    "height": 1846,
-    "widths": [400, 800, 1200, 2400],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/vipera-kaznakovi-3.webp": {
@@ -6406,13 +5867,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "path": "vipera-kaznakovi-4",
     "width": 2048,
     "height": 1365,
-    "widths": [400, 800, 1200, 2048],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/vipera-kaznakovi-6.webp": {
-    "path": "vipera-kaznakovi-6",
-    "width": 2048,
-    "height": 1465,
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
@@ -6444,29 +5898,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1126],
     "formats": ["avif", "webp"]
   },
-  "https://cdn.reptiles.ge/vipera-kaznakovi-giorgi-1.jpg": {
-    "path": "vipera-kaznakovi-giorgi-1",
-    "width": 1024,
-    "height": 768,
-    "widths": [320, 400, 640, 800, 1024],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/vipera-kaznakovi-saba-1.jpg": {
-    "path": "vipera-kaznakovi-saba-1",
-    "width": 1440,
-    "height": 1440,
-    "widths": [320, 400, 640, 800, 1200, 1440],
-    "formats": ["avif", "webp"]
-  },
   "https://cdn.reptiles.ge/vipera-kaznakovi-saba-2.jpg": {
     "path": "vipera-kaznakovi-saba-2",
-    "width": 2048,
-    "height": 1536,
-    "widths": [320, 400, 640, 800, 1200, 2048],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/vipera-kaznakovi-saba-3.jpg": {
-    "path": "vipera-kaznakovi-saba-3",
     "width": 2048,
     "height": 1536,
     "widths": [320, 400, 640, 800, 1200, 2048],
@@ -6486,43 +5919,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1998],
     "formats": ["avif"]
   },
-  "https://cdn.reptiles.ge/vipera-kaznakovi-sandro-3.jpg": {
-    "path": "vipera-kaznakovi-sandro-3",
-    "width": 1199,
-    "height": 720,
-    "widths": [400, 800, 1199],
-    "formats": ["avif"]
-  },
-  "https://cdn.reptiles.ge/vipera-kaznakovi-sandro-4.jpg": {
-    "path": "vipera-kaznakovi-sandro-4",
-    "width": 1296,
-    "height": 960,
-    "widths": [400, 800, 1200, 1296],
-    "formats": ["avif"]
-  },
-  "https://cdn.reptiles.ge/vipera-kaznakovi-sandro-5.jpg": {
-    "path": "vipera-kaznakovi-sandro-5",
-    "width": 1440,
-    "height": 960,
-    "widths": [400, 800, 1200, 1440],
-    "formats": ["avif"]
-  },
-  "https://cdn.reptiles.ge/vipera-kaznakovi-zakro-1.jpg": {
-    "path": "vipera-kaznakovi-zakro-1",
-    "width": 1024,
-    "height": 682,
-    "widths": [400, 800, 1024],
-    "formats": ["avif", "webp"]
-  },
   "https://cdn.reptiles.ge/vipera-kaznakovi-zauri-1.jpg": {
     "path": "vipera-kaznakovi-zauri-1",
-    "width": 1024,
-    "height": 683,
-    "widths": [400, 800, 1024],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/vipera-kaznakovi-zauri-2.jpg": {
-    "path": "vipera-kaznakovi-zauri-2",
     "width": 1024,
     "height": 683,
     "widths": [400, 800, 1024],
@@ -6533,13 +5931,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1024,
     "height": 682,
     "widths": [400, 800, 1024],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/vipera-kaznakovi.webp": {
-    "path": "vipera-kaznakovi",
-    "width": 2400,
-    "height": 1846,
-    "widths": [400, 800, 1200, 2400],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/vipera-renardi-1.jpg": {
@@ -6611,13 +6002,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "height": 1365,
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/vipera-renardi-saba-1.jpg": {
-    "path": "vipera-renardi-saba-1",
-    "width": 2048,
-    "height": 1536,
-    "widths": [320, 400, 640, 800, 1200, 2048],
-    "formats": ["avif"]
   },
   "https://cdn.reptiles.ge/vipera-renardi.jpg": {
     "path": "vipera-renardi",
