@@ -1,3 +1,5 @@
+import Fuse, { type FuseResult, type IFuseOptions } from "fuse.js";
+
 import type { AppPathnames } from "@/i18n/routing";
 import type { QuizHref } from "@/lib/quizzes";
 
@@ -82,37 +84,20 @@ const LIMITS: Record<SearchKind, number> = {
   species: 6,
 };
 
+const FUSE_OPTIONS = {
+  ignoreLocation: true,
+  includeScore: true,
+  keys: [
+    { name: "title", weight: 0.4 },
+    { name: "scoreTitles", weight: 0.35 },
+    { name: "subtitle", weight: 0.12 },
+    { name: "searchText", weight: 0.13 },
+  ],
+  threshold: 0.36,
+} satisfies IFuseOptions<SearchDocument>;
+
 export function flattenGroups(groups: SearchGroup[]) {
   return groups.flatMap((group) => group.items);
-}
-
-export function scoreDocument(query: string, doc: SearchDocument) {
-  const q = normalize(query);
-  if (!q) return 0;
-  const text = doc.searchText;
-  const tokens = q.split(" ").filter(Boolean);
-  if (tokens.some((token) => !text.includes(token))) return 0;
-
-  const titleScore = Math.max(
-    ...doc.scoreTitles.map((title) => fieldScore(q, normalize(title), 100)),
-    0,
-  );
-  const tokenTitle = tokens.reduce(
-    (sum, token) =>
-      sum +
-      Math.max(
-        ...doc.scoreTitles.map((title) =>
-          fieldScore(token, normalize(title), 34),
-        ),
-        0,
-      ),
-    0,
-  );
-  let score = Math.max(titleScore, tokenTitle);
-  score += Math.min(16, q.length);
-  if (doc.kind === "page" && titleScore >= 48) score += 10;
-  if (doc.kind === "region" && titleScore >= 70) score += 6;
-  return score;
 }
 
 export function searchIndex(
@@ -156,8 +141,10 @@ export function searchIndex(
   }
 
   const scored: ScoredDocument[] = [];
-  for (const item of scoped) {
-    const score = scoreDocument(trimmed, item);
+  const fuse = new Fuse(scoped, FUSE_OPTIONS);
+  for (const result of fuse.search(trimmed)) {
+    const { item } = result;
+    const score = scoreFuseResult(trimmed, item, [result]);
     if (score <= 0) continue;
     totals[item.kind] += 1;
     scored.push({ ...item, score });
@@ -212,18 +199,6 @@ export function writeRecent(entry: RecentRef) {
   return next;
 }
 
-function fieldScore(query: string, field: string, weight: number) {
-  if (!field) return 0;
-  if (field === query) return weight;
-  if (field.startsWith(query)) return Math.round(weight * 0.92);
-  const tokens = field.split(/[\s,./():+_|–—-]+/);
-  if (tokens.some((token) => token.startsWith(query))) {
-    return Math.round(weight * 0.78);
-  }
-  if (field.includes(query)) return Math.round(weight * 0.48);
-  return 0;
-}
-
 function groupDocuments(
   items: ScoredDocument[],
   limits: Record<SearchKind, number>,
@@ -241,8 +216,7 @@ function groupDocuments(
   const groups: Array<{ items: typeof buckets.page; kind: SearchKind }> = [];
   for (const kind of Object.keys(buckets) as SearchKind[]) {
     const itemsForKind = buckets[kind];
-    if (itemsForKind.length > 0)
-      groups.push({ items: itemsForKind, kind });
+    if (itemsForKind.length > 0) groups.push({ items: itemsForKind, kind });
   }
 
   groups.sort((a, b) => {
@@ -258,4 +232,38 @@ function groupDocuments(
 
 function normalize(value: string) {
   return value.normalize("NFKC").toLowerCase().replace(/\s+/g, " ").trim();
+}
+
+function scoreFuseResult(
+  query: string,
+  doc: SearchDocument,
+  results: FuseResult<SearchDocument>[],
+) {
+  const result = results[0];
+  if (!result) return 0;
+
+  const q = normalize(query);
+  if (!q) return 0;
+
+  const fuseScore = 1 - (result.score ?? 1);
+  const exactTitle = doc.scoreTitles.some((title) => normalize(title) === q);
+  const prefixTitle = doc.scoreTitles.some((title) =>
+    normalize(title).startsWith(q),
+  );
+  const searchable = normalize(
+    [doc.title, doc.subtitle, ...doc.scoreTitles, doc.searchText].join(" "),
+  );
+  const tokens = q.split(" ").filter(Boolean);
+  const fullTextMatch = searchable.includes(q);
+  const tokenTextMatch = tokens.every((token) => searchable.includes(token));
+
+  return (
+    fuseScore * 100 +
+    (exactTitle ? 40 : 0) +
+    (prefixTitle ? 18 : 0) +
+    (fullTextMatch ? 60 : 0) +
+    (tokenTextMatch ? 20 : 0) +
+    (doc.kind === "species" && fullTextMatch ? 18 : 0) +
+    Math.min(12, q.length)
+  );
 }
