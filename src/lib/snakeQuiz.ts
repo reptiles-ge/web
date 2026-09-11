@@ -21,9 +21,7 @@ const QUIZ_MOBILE_IMAGE_OVERRIDES: Record<string, string> = {
   "elaphe-urartica": "https://cdn.reptiles.ge/elaphe-urartica-mobile.webp",
   "eryx-jaculus": "https://cdn.reptiles.ge/eryx-jaculus-ioane-1.jpg",
   "malpolon-insignitus": "https://cdn.reptiles.ge/malpolon-insignitus-2.jpg",
-  "natrix-natrix": "https://cdn.reptiles.ge/natrix-natrix-mobile.jpg",
   "vipera-darevskii": "https://cdn.reptiles.ge/vipera-darevskii-mobile.jpg",
-  "vipera-dinniki": "https://cdn.reptiles.ge/vipera-cover-on-mobile.webp",
   "vipera-renardi": "https://cdn.reptiles.ge/vipera-renardi-2.jpg",
   "vipera-transcaucasiana":
     "https://cdn.reptiles.ge/vipera-transcaucasiana-mobile.webp",
@@ -92,7 +90,8 @@ export function toSnakeQuizSpecies(species: Species): SnakeQuizSpecies {
     ? species.gallery.find((item) => item.src === overrideSrc)
     : undefined;
   const image = overridePhoto?.src ?? species.image;
-  const mobileOverride = QUIZ_MOBILE_IMAGE_OVERRIDES[species.id];
+  const mobileOverride =
+    QUIZ_MOBILE_IMAGE_OVERRIDES[species.id] ?? species.mobileImage;
   const mobileImage =
     mobileOverride && mobileOverride !== image ? mobileOverride : undefined;
 
