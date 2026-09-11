@@ -76,9 +76,9 @@ export async function SpeciesProfileHero({
 
   return (
     <section
-      className="relative flex min-h-[70svh] w-full flex-col justify-end overflow-hidden bg-ink pb-10 sm:pb-12 lg:min-h-[75svh] lg:pb-16"
+      className="relative flex min-h-[58svh] w-full flex-col justify-end overflow-hidden bg-ink pb-8 sm:pb-10 lg:min-h-[75svh] lg:pb-16"
       style={{
-        paddingTop: "7rem",
+        paddingTop: "6rem",
       }}
     >
       <SpeciesProfileHeroMedia
@@ -97,10 +97,7 @@ export async function SpeciesProfileHero({
         </h1>
         <p className="group/sci mt-3 flex items-center gap-0.5 font-display text-[15px] tracking-wide text-white/55 sm:text-[17px]">
           <span className="italic">{species.scientificName}</span>
-          <SpeciesScientificNameCopy
-            speciesId={species.id}
-            text={shareText}
-          />
+          <SpeciesScientificNameCopy speciesId={species.id} text={shareText} />
         </p>
         <div className="mt-5 flex flex-wrap items-center gap-2 sm:mt-6 sm:gap-3">
           <span className="inline-flex items-center gap-1.5 rounded-full border border-white/12 bg-white/5 px-3 py-2 text-[13px] text-white/60 backdrop-blur-md sm:px-3.5">
@@ -151,7 +148,10 @@ function SpeciesHeroRiskChip({
       <span className="hidden text-[11px] tracking-[0.14em] text-white/45 sm:inline">
         {label}
       </span>
-      <span aria-hidden="true" className="hidden h-3 w-px bg-white/15 sm:block" />
+      <span
+        aria-hidden="true"
+        className="hidden h-3 w-px bg-white/15 sm:block"
+      />
       <span
         className={cn(
           "inline-flex items-center gap-1.5 text-[12px] font-semibold tracking-wide",
