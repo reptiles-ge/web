@@ -93,7 +93,9 @@ export function QuizResultOverlay({
 
   return (
     <div className="flex w-full flex-col pb-16 sm:pb-24">
-      <QuizBreadcrumbs />
+      <div className="sr-only">
+        <QuizBreadcrumbs />
+      </div>
       <p className="text-[11px] font-medium tracking-[0.18em] text-white/55 uppercase">
         {t("resultEyebrow")}
       </p>
