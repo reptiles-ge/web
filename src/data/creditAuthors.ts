@@ -302,6 +302,27 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     role: "researcher",
     slug: "david-tarkhnishvili",
   },
+  {
+    aliases: ["Lasha Gogodze", "ლაშა გოგოძე"],
+    bio: {
+      en: "Lasha Gogodze is a graduate of the Georgian-American High School who took part in the iFest international conference in Tunisia and currently studies Biochemistry and Molecular Biology at Connecticut College in the United States.",
+      ka: "ლაშა გოგოძე, ქართულ-ამერიკული უმაღლესი სკოლის კურსდამთავრებული, რომელიც მონაწილეობდა ტუნისში გამართულ iFest საერთაშორისო კონფერენციაზე და ამჟამად სწავლობს აშშ-ში, Connecticut College-ში ბიოქიმიისა და მოლეკულური ბიოლოგიის მიმართულებით.",
+      ru: "Лаша Гогодзе — выпускник грузино-американской средней школы, участвовал в международной конференции iFest в Тунисе и сейчас изучает биохимию и молекулярную биологию в Connecticut College в США.",
+      tr: "Lasha Gogodze, Gürcü-Amerikan Lisesi mezunudur; Tunus’taki iFest uluslararası konferansına katılmış ve şu anda ABD’de Connecticut College’da biyokimya ve moleküler biyoloji okumaktadır.",
+    },
+    id: "lasha-gogodze",
+    name: {
+      en: "Lasha Gogodze",
+      ka: "ლაშა გოგოძე",
+      ru: "Лаша Гогодзе",
+      tr: "Lasha Gogodze",
+    },
+    portraitClass: "object-[48%_12%]",
+    portraitSrc: "https://cdn.reptiles.ge/authors/lasha-gogodze.jpg",
+    published: true,
+    role: "researcher",
+    slug: "lasha-gogodze",
+  },
 ];
 
 const bySlug = new Map(CREDIT_AUTHORS.map((author) => [author.slug, author]));

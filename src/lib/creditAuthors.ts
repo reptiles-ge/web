@@ -87,12 +87,10 @@ export function getCreditAuthorCards(): CreditAuthorCard[] {
   const cards = [];
   for (const author of getPublishedCreditAuthors()) {
     const photos = getCreditAuthorPhotos(author);
-    const preview = pickCreditAuthorPreviewPhotos(photos);
-    if (preview.length === 0) continue;
     cards.push({
       author,
       photoCount: photos.length,
-      preview,
+      preview: pickCreditAuthorPreviewPhotos(photos),
       speciesCount: getCreditAuthorSpeciesIds(photos).length,
     });
   }

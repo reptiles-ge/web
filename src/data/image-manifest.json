@@ -3560,6 +3560,73 @@
       ],
       "updatedAt": "2026-09-08T18:37:58.562Z"
     },
+    "authors/armen-seropian.jpg": {
+      "sourceHash": "1ce4be27a76164de9339c10063ff298a500bbf6d4d549ab66bbdce3ec1bcaafe",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "authors/armen-seropian.jpg",
+      "originalSize": 148642,
+      "width": 775,
+      "height": 775,
+      "derivatives": [
+        {
+          "key": "optimized/authors/armen-seropian-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 320,
+          "byteSize": 11115
+        },
+        {
+          "key": "optimized/authors/armen-seropian-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 320,
+          "byteSize": 15822
+        },
+        {
+          "key": "optimized/authors/armen-seropian-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 400,
+          "byteSize": 16578
+        },
+        {
+          "key": "optimized/authors/armen-seropian-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 400,
+          "byteSize": 23874
+        },
+        {
+          "key": "optimized/authors/armen-seropian-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 640,
+          "byteSize": 37950
+        },
+        {
+          "key": "optimized/authors/armen-seropian-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 640,
+          "byteSize": 54796
+        },
+        {
+          "key": "optimized/authors/armen-seropian-775.avif",
+          "format": "avif",
+          "width": 775,
+          "height": 775,
+          "byteSize": 54298
+        },
+        {
+          "key": "optimized/authors/armen-seropian-775.webp",
+          "format": "webp",
+          "width": 775,
+          "height": 775,
+          "byteSize": 76382
+        }
+      ],
+      "updatedAt": "2026-09-11T00:30:54.533Z"
+    },
     "authors/david-tarkhnishvili.jpg": {
       "sourceHash": "30f3a8dea6993982128fb26663adab75daa84dd9a096730e7086ee7df6a1a8a1",
       "configFingerprint": "409788ee46c653d8",
@@ -3760,6 +3827,87 @@
         }
       ],
       "updatedAt": "2026-09-06T17:50:38.329Z"
+    },
+    "authors/lasha-gogodze.jpg": {
+      "sourceHash": "dd0f963b470835becb02d275baf714ac2e490412c46d2e93c16e3e9a39f0d734",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "authors/lasha-gogodze.jpg",
+      "originalSize": 196120,
+      "width": 1024,
+      "height": 1023,
+      "derivatives": [
+        {
+          "key": "optimized/authors/lasha-gogodze-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 319,
+          "byteSize": 12591
+        },
+        {
+          "key": "optimized/authors/lasha-gogodze-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 319,
+          "byteSize": 18242
+        },
+        {
+          "key": "optimized/authors/lasha-gogodze-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 400,
+          "byteSize": 17348
+        },
+        {
+          "key": "optimized/authors/lasha-gogodze-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 400,
+          "byteSize": 24874
+        },
+        {
+          "key": "optimized/authors/lasha-gogodze-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 639,
+          "byteSize": 32614
+        },
+        {
+          "key": "optimized/authors/lasha-gogodze-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 639,
+          "byteSize": 46854
+        },
+        {
+          "key": "optimized/authors/lasha-gogodze-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 799,
+          "byteSize": 43997
+        },
+        {
+          "key": "optimized/authors/lasha-gogodze-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 799,
+          "byteSize": 62286
+        },
+        {
+          "key": "optimized/authors/lasha-gogodze-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 1023,
+          "byteSize": 65074
+        },
+        {
+          "key": "optimized/authors/lasha-gogodze-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 1023,
+          "byteSize": 91432
+        }
+      ],
+      "updatedAt": "2026-09-11T00:30:56.556Z"
     },
     "authors/nika-melikishvili.jpg": {
       "sourceHash": "8813f2adaec6429dc81ad22c826b33881286564af69407bcc608be3df8895a74",
@@ -4002,7 +4150,88 @@
           "byteSize": 230226
         }
       ],
-      "updatedAt": "2026-09-06T12:26:16.344Z"
+      "updatedAt": "2026-09-11T00:30:58.219Z"
+    },
+    "authors/shota-zandukeli.jpg": {
+      "sourceHash": "763bd5f4df236078146c21d6973627f30aec0e160cd2f4c3e99ba689576efcfa",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "authors/shota-zandukeli.jpg",
+      "originalSize": 164323,
+      "width": 822,
+      "height": 812,
+      "derivatives": [
+        {
+          "key": "optimized/authors/shota-zandukeli-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 316,
+          "byteSize": 15148
+        },
+        {
+          "key": "optimized/authors/shota-zandukeli-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 316,
+          "byteSize": 21700
+        },
+        {
+          "key": "optimized/authors/shota-zandukeli-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 395,
+          "byteSize": 22004
+        },
+        {
+          "key": "optimized/authors/shota-zandukeli-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 395,
+          "byteSize": 31558
+        },
+        {
+          "key": "optimized/authors/shota-zandukeli-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 632,
+          "byteSize": 46375
+        },
+        {
+          "key": "optimized/authors/shota-zandukeli-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 632,
+          "byteSize": 67764
+        },
+        {
+          "key": "optimized/authors/shota-zandukeli-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 790,
+          "byteSize": 64683
+        },
+        {
+          "key": "optimized/authors/shota-zandukeli-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 790,
+          "byteSize": 94268
+        },
+        {
+          "key": "optimized/authors/shota-zandukeli-822.avif",
+          "format": "avif",
+          "width": 822,
+          "height": 812,
+          "byteSize": 64525
+        },
+        {
+          "key": "optimized/authors/shota-zandukeli-822.webp",
+          "format": "webp",
+          "width": 822,
+          "height": 812,
+          "byteSize": 94114
+        }
+      ],
+      "updatedAt": "2026-09-11T00:31:00.806Z"
     },
     "authors/velur-bunebastan-axlos.jpg": {
       "sourceHash": "51b102ae4d443bd1207de4dcea5cbb71c98e87a32a3cd47f99579f8bb522474d",
@@ -26036,7 +26265,7 @@
           "byteSize": 272276
         }
       ],
-      "updatedAt": "2026-09-06T13:11:37.179Z"
+      "updatedAt": "2026-09-11T00:31:07.430Z"
     },
     "images/home/groups/birds.jpg": {
       "sourceHash": "d03c8925303f88a828fb31e4e3562553ed92ea2500c90d6ea877d20fed35fd00",
@@ -26117,7 +26346,7 @@
           "byteSize": 131548
         }
       ],
-      "updatedAt": "2026-09-06T13:11:17.774Z"
+      "updatedAt": "2026-09-11T00:31:10.552Z"
     },
     "images/home/groups/lizards.jpg": {
       "sourceHash": "066e1cc066206326ab10437dc3fe3c9c1f27540673608d9dbf89b310b6bd8702",
@@ -26212,7 +26441,7 @@
           "byteSize": 344598
         }
       ],
-      "updatedAt": "2026-09-06T13:11:46.855Z"
+      "updatedAt": "2026-09-11T00:31:08.280Z"
     },
     "images/home/groups/mammals.jpg": {
       "sourceHash": "e84e26f71a016ebd729eab74a5d537383d9721855d90a4d27527721ceb940739",
@@ -26293,7 +26522,7 @@
           "byteSize": 178278
         }
       ],
-      "updatedAt": "2026-09-06T13:11:21.844Z"
+      "updatedAt": "2026-09-11T00:31:06.814Z"
     },
     "images/home/groups/snakes.jpg": {
       "sourceHash": "40913797bd7a37477ae447364c3a7106609e7104b774351c0aa089cfc18e92df",
@@ -26388,7 +26617,7 @@
           "byteSize": 249742
         }
       ],
-      "updatedAt": "2026-09-06T13:11:34.073Z"
+      "updatedAt": "2026-09-11T00:31:20.238Z"
     },
     "images/home/groups/spiders.jpg": {
       "sourceHash": "d97fae0b550f0760f7cf89bfb18b376b87ce2b40a6bd5fe1e086bff908918f1c",
@@ -26469,7 +26698,7 @@
           "byteSize": 126958
         }
       ],
-      "updatedAt": "2026-09-06T13:11:27.985Z"
+      "updatedAt": "2026-09-11T00:31:20.762Z"
     },
     "images/home/groups/turtles.jpg": {
       "sourceHash": "865e39fdba02b04b4981d8c5d4d97c28510ec069dd186d3acc4ec3c43a3f52ef",
@@ -26564,7 +26793,7 @@
           "byteSize": 298432
         }
       ],
-      "updatedAt": "2026-09-06T13:11:39.445Z"
+      "updatedAt": "2026-09-11T00:31:16.038Z"
     },
     "images/news/vipera-pontica-hybrid-georgia-2026/figure-1.jpg": {
       "sourceHash": "aa43734d76421fa4eebcdd4912941e24db3a4343c15708f4596eee037465708d",
