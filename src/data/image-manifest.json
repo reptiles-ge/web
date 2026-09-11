@@ -13769,6 +13769,87 @@
       ],
       "updatedAt": "2026-08-28T21:35:43.527Z"
     },
+    "darevskia-pontica-tom-1.jpg": {
+      "sourceHash": "87bcf39d6fb6b8bee03f372ae1f960bdcc9ef5cecb7c2844132524b2991f887c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-pontica-tom-1.jpg",
+      "originalSize": 108836,
+      "width": 960,
+      "height": 720,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-pontica-tom-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 11598
+        },
+        {
+          "key": "optimized/darevskia-pontica-tom-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 16640
+        },
+        {
+          "key": "optimized/darevskia-pontica-tom-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 17183
+        },
+        {
+          "key": "optimized/darevskia-pontica-tom-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 24614
+        },
+        {
+          "key": "optimized/darevskia-pontica-tom-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 35279
+        },
+        {
+          "key": "optimized/darevskia-pontica-tom-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 49394
+        },
+        {
+          "key": "optimized/darevskia-pontica-tom-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 48158
+        },
+        {
+          "key": "optimized/darevskia-pontica-tom-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 67020
+        },
+        {
+          "key": "optimized/darevskia-pontica-tom-1-960.avif",
+          "format": "avif",
+          "width": 960,
+          "height": 720,
+          "byteSize": 65119
+        },
+        {
+          "key": "optimized/darevskia-pontica-tom-1-960.webp",
+          "format": "webp",
+          "width": 960,
+          "height": 720,
+          "byteSize": 82630
+        }
+      ],
+      "updatedAt": "2026-09-11T13:02:32.941Z"
+    },
     "darevskia-pontica.jpg": {
       "sourceHash": "dc3d8cace244a41becd9c23eaec468e75888f350179e431b37f164caac64a12e",
       "configFingerprint": "a895f8e025dcc7fa",
