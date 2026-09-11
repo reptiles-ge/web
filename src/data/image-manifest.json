@@ -60765,6 +60765,87 @@
       ],
       "updatedAt": "2026-09-10T22:56:38.366Z"
     },
+    "vipera-dinniki-brecht-2.jpg": {
+      "sourceHash": "8887aa991f0ab3127d0190264b6d018d9f151f0b526aa5af91cbf4f14c25c168",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "vipera-dinniki-brecht-2.jpg",
+      "originalSize": 94300,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-dinniki-brecht-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8987
+        },
+        {
+          "key": "optimized/vipera-dinniki-brecht-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 13706
+        },
+        {
+          "key": "optimized/vipera-dinniki-brecht-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 12203
+        },
+        {
+          "key": "optimized/vipera-dinniki-brecht-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 18598
+        },
+        {
+          "key": "optimized/vipera-dinniki-brecht-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 22059
+        },
+        {
+          "key": "optimized/vipera-dinniki-brecht-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 33192
+        },
+        {
+          "key": "optimized/vipera-dinniki-brecht-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 28077
+        },
+        {
+          "key": "optimized/vipera-dinniki-brecht-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 42228
+        },
+        {
+          "key": "optimized/vipera-dinniki-brecht-2-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 38073
+        },
+        {
+          "key": "optimized/vipera-dinniki-brecht-2-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 56132
+        }
+      ],
+      "updatedAt": "2026-09-11T01:31:12.633Z"
+    },
     "vipera-dinniki-fabian-1.jpg": {
       "sourceHash": "c4541a67d91679dd2a53ca46a979662e3b9e378354f6db9b52e8b9f604cebbd3",
       "configFingerprint": "409788ee46c653d8",
