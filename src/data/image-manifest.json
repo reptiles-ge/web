@@ -38084,6 +38084,87 @@
       ],
       "updatedAt": "2026-08-28T21:44:06.755Z"
     },
+    "lacerta-strigata-1.jpg": {
+      "sourceHash": "52582f638c4c6806abbafd04da271218591265886f5454f7bb9f176fee378649",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lacerta-strigata-1.jpg",
+      "originalSize": 155742,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/lacerta-strigata-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11179
+        },
+        {
+          "key": "optimized/lacerta-strigata-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 18904
+        },
+        {
+          "key": "optimized/lacerta-strigata-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 15597
+        },
+        {
+          "key": "optimized/lacerta-strigata-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 25944
+        },
+        {
+          "key": "optimized/lacerta-strigata-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 29502
+        },
+        {
+          "key": "optimized/lacerta-strigata-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 47330
+        },
+        {
+          "key": "optimized/lacerta-strigata-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 39120
+        },
+        {
+          "key": "optimized/lacerta-strigata-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 62608
+        },
+        {
+          "key": "optimized/lacerta-strigata-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 54888
+        },
+        {
+          "key": "optimized/lacerta-strigata-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 83970
+        }
+      ],
+      "updatedAt": "2026-09-11T12:30:50.465Z"
+    },
     "lacerta-strigata-2.jpg": {
       "sourceHash": "78fdc547a83759fa93c20ee030950cd818531c4642e5f5b8e7006cbff72a9caa",
       "configFingerprint": "a895f8e025dcc7fa",
