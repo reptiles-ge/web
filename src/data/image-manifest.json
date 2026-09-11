@@ -10232,6 +10232,87 @@
       ],
       "updatedAt": "2026-09-11T01:52:57.459Z"
     },
+    "darevskia-adjarica-leonid-1.jpg": {
+      "sourceHash": "129429948a64e62e1b3f35369859d23a75f2b8de9981b220d2aa3fb5190cf46f",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-adjarica-leonid-1.jpg",
+      "originalSize": 257810,
+      "width": 1024,
+      "height": 689,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-adjarica-leonid-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 215,
+          "byteSize": 16277
+        },
+        {
+          "key": "optimized/darevskia-adjarica-leonid-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 215,
+          "byteSize": 28746
+        },
+        {
+          "key": "optimized/darevskia-adjarica-leonid-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 269,
+          "byteSize": 24021
+        },
+        {
+          "key": "optimized/darevskia-adjarica-leonid-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 269,
+          "byteSize": 41428
+        },
+        {
+          "key": "optimized/darevskia-adjarica-leonid-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 431,
+          "byteSize": 49619
+        },
+        {
+          "key": "optimized/darevskia-adjarica-leonid-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 431,
+          "byteSize": 85082
+        },
+        {
+          "key": "optimized/darevskia-adjarica-leonid-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 538,
+          "byteSize": 69657
+        },
+        {
+          "key": "optimized/darevskia-adjarica-leonid-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 538,
+          "byteSize": 120992
+        },
+        {
+          "key": "optimized/darevskia-adjarica-leonid-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 689,
+          "byteSize": 102062
+        },
+        {
+          "key": "optimized/darevskia-adjarica-leonid-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 689,
+          "byteSize": 175292
+        }
+      ],
+      "updatedAt": "2026-09-11T01:54:06.573Z"
+    },
     "darevskia-adjarica-mobile.jpg": {
       "sourceHash": "99387a81c67176f7e4e7a14adf6ae6ed3d75e92b62d6c387060c3c55d263a919",
       "configFingerprint": "a895f8e025dcc7fa",
