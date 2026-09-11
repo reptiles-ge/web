@@ -108,7 +108,7 @@ export function AtlasSpeciesCard({
 
         {regionNames.length > 0 ? (
           <div className="mt-4 border-t border-border/70 pt-4">
-            <p className="text-[10px] font-medium tracking-[0.22em] text-muted-foreground uppercase">
+            <p className="text-[10px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
               {t("foundIn")}
             </p>
             <p className="mt-1.5 text-[13px] leading-snug text-foreground/80">

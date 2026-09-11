@@ -18,7 +18,7 @@ export async function FinalCTA() {
       />
       <div className="absolute inset-0 bg-linear-to-t from-black/88 via-black/45 to-black/25" />
       <div className="relative mx-auto w-full max-w-[1400px] px-6 py-12 lg:px-10 lg:py-16">
-        <p className="text-[11px] font-medium tracking-[0.28em] text-white/45 uppercase">
+        <p className="text-[11px] font-medium tracking-[0.18em] text-white/45 uppercase">
           {t("eyebrow")}
         </p>
         <h2 className="text-balance-tight mt-4 max-w-2xl font-display text-display-title font-semibold text-white">

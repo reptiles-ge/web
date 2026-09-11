@@ -29,7 +29,7 @@ export function GuideDoDontSection({
         <PhoneLinkedText>
           <div className="grid gap-14 lg:grid-cols-2 lg:gap-20">
             <div>
-              <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
+              <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
                 {doEyebrow}
               </p>
               <h2 className="mt-5 font-display text-display-title font-semibold">
@@ -52,7 +52,7 @@ export function GuideDoDontSection({
               </ol>
             </div>
             <div>
-              <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
+              <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
                 {dontEyebrow}
               </p>
               <h2 className="mt-5 font-display text-display-title font-semibold">
@@ -115,7 +115,7 @@ export function GuideFactColumn({
 }) {
   return (
     <div>
-      <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
+      <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
         {eyebrow}
       </p>
       <h2 className="mt-5 font-display text-display-title font-semibold">
@@ -195,7 +195,7 @@ export function GuideSymptomsLead({
 }) {
   return (
     <div>
-      <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
+      <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
         {eyebrow}
       </p>
       <h2 className="mt-5 max-w-2xl font-display text-display-title font-semibold">

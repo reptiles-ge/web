@@ -94,7 +94,7 @@ export function QuizResultOverlay({
   return (
     <div className="flex w-full flex-col pb-16 sm:pb-24">
       <QuizBreadcrumbs />
-      <p className="text-[11px] font-medium tracking-[0.3em] text-white/55 uppercase">
+      <p className="text-[11px] font-medium tracking-[0.18em] text-white/55 uppercase">
         {t("resultEyebrow")}
       </p>
       <h2
@@ -189,7 +189,7 @@ export function QuizResultOverlay({
       <p className="mt-8 max-w-xl text-[14px] leading-relaxed text-white/65 sm:mt-10">
         {t("practiceNote")}
       </p>
-      <p className="mt-6 text-[11px] font-medium tracking-[0.28em] text-white/45 uppercase">
+      <p className="mt-6 text-[11px] font-medium tracking-[0.18em] text-white/45 uppercase">
         {t("relatedTitle")}
       </p>
       <div className="mt-3 flex flex-col gap-3 sm:flex-row sm:flex-wrap">

@@ -129,7 +129,7 @@ function PanelContent({ locale, onClose, region, species }: PanelContentProps) {
     <div className="flex min-h-0 flex-1 flex-col pt-2 lg:pt-0">
       <div className="flex items-start justify-between gap-4 border-b border-border/80 px-6 py-5">
         <div>
-          <p className="text-[11px] font-medium tracking-[0.28em] text-muted-foreground uppercase">
+          <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
             {t("regionLabel")}
           </p>
           <h2

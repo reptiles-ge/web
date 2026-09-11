@@ -113,7 +113,7 @@ export async function NewsArticlePage({
                 </li>
               </ol>
             </nav>
-            <p className="text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase">
+            <p className="text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
               {category ? <span>{category}</span> : null}
               {category ? <span aria-hidden="true"> · </span> : null}
               <time dateTime={article.publishedAt}>{dateLabel}</time>

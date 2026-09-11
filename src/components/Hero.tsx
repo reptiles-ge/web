@@ -31,7 +31,7 @@ export async function Hero() {
       <div className="absolute inset-0 bg-linear-to-r from-black/55 via-black/20 to-transparent" />
 
       <div className="relative z-10 mx-auto flex w-full max-w-[1400px] flex-col px-6 lg:px-10">
-        <p className="text-[11px] font-medium tracking-[0.28em] text-white/55 uppercase">
+        <p className="text-[11px] font-medium tracking-[0.18em] text-white/55 uppercase">
           {t("kicker")}
         </p>
         <h1 className="text-balance-tight mt-4 max-w-3xl font-display text-display-lead font-semibold text-white">

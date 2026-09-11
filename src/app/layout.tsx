@@ -4,7 +4,8 @@ import type { ReactNode } from "react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { getLocale } from "next-intl/server";
 import dynamic from "next/dynamic";
-import { Noto_Sans, Noto_Sans_Georgian, Sora } from "next/font/google";
+import { Noto_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import Script from "next/script";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { preconnect } from "react-dom";
@@ -26,18 +27,28 @@ import "./globals.css";
 const GTM_ID = "GTM-NM65ZMML";
 const FACEBOOK_APP_ID = "1033733009490487";
 
-const sora = Sora({
-  display: "optional",
-  preload: false,
-  subsets: ["latin", "latin-ext"],
-  variable: "--font-sora",
-});
-
-const notoSansGeorgian = Noto_Sans_Georgian({
+const you = localFont({
   display: "swap",
   preload: true,
-  subsets: ["georgian", "latin"],
-  variable: "--font-noto-georgian",
+  src: [
+    {
+      path: "./fonts/You-Normal.woff2",
+      weight: "400",
+    },
+    {
+      path: "./fonts/You-Normal.woff2",
+      weight: "500",
+    },
+    {
+      path: "./fonts/You-Bold.woff2",
+      weight: "600",
+    },
+    {
+      path: "./fonts/You-Bold.woff2",
+      weight: "700",
+    },
+  ],
+  variable: "--font-you",
 });
 
 const notoSans = Noto_Sans({
@@ -120,12 +131,7 @@ export default async function RootLayout({ children }: Props) {
 
   return (
     <html
-      className={cn(
-        sora.variable,
-        notoSansGeorgian.variable,
-        notoSans.variable,
-        "h-full antialiased",
-      )}
+      className={cn(you.variable, notoSans.variable, "h-full antialiased")}
       data-scroll-behavior="smooth"
       lang={locale}
       suppressHydrationWarning

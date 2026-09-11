@@ -84,7 +84,7 @@ export async function QuizLanding({
 
       <article className="border-t border-white/10 bg-background px-6 py-16 text-foreground lg:px-10 lg:py-24">
         <div className="mx-auto max-w-[1400px]">
-          <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
+          <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
             {t("practiceEyebrow")}
           </p>
           <h2 className="mt-4 max-w-3xl font-display text-display-title font-semibold">

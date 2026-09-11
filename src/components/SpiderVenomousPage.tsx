@@ -40,7 +40,7 @@ export async function SpiderVenomousPage({
         id="content"
       >
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
+          <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
             {t("summaryEyebrow")}
           </p>
           <h2 className="mt-5 max-w-3xl font-display text-display-title font-semibold">

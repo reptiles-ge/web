@@ -114,7 +114,7 @@ export async function AuthorPage({
               />
             </div>
             <div className="min-w-0">
-              <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
+              <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
                 {t(`roles.${author.role}`)}
               </p>
               <h1 className="mt-2 font-display text-[clamp(1.7rem,3.6vw,2.6rem)] leading-[1.05] font-semibold tracking-tight text-foreground">
@@ -158,14 +158,14 @@ export async function AuthorPage({
 
       <section className="bg-background py-16 sm:py-20 lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <h2 className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
+          <h2 className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
             {t("gallery")}
           </h2>
           <AuthorGallery locale={locale} photos={photos} />
 
           {speciesIds.length > 0 ? (
             <div className="mt-20 border-t border-border pt-12 sm:mt-24 sm:pt-16">
-              <h2 className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
+              <h2 className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
                 {t("speciesList")}
               </h2>
               <ul className="mt-6 flex max-w-3xl flex-wrap gap-x-6 gap-y-3">
@@ -189,7 +189,7 @@ export async function AuthorPage({
           ) : null}
 
           <div className="mt-20 border-t border-border pt-12 sm:mt-24 sm:pt-16">
-            <h2 className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
+            <h2 className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
               {t("next")}
             </h2>
             <ul className="mt-6 flex max-w-3xl flex-wrap gap-x-6 gap-y-3">

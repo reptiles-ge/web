@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 
 export const CLUSTER_EYEBROW =
-  "text-[11px] font-medium uppercase tracking-[0.3em] text-muted-foreground";
+  "text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground";
 export const CLUSTER_TITLE_GUIDE =
   "mt-5 font-display text-display-title font-semibold";
 export const CLUSTER_TITLE_SECTION =
@@ -13,7 +13,7 @@ export const CLUSTER_TITLE_RELATED =
 export const CLUSTER_BODY =
   "mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground";
 export const CLUSTER_HERO_EYEBROW =
-  "text-[11px] font-medium uppercase tracking-[0.32em] text-white/45";
+  "text-[11px] font-medium uppercase tracking-[0.18em] text-white/45";
 export const CLUSTER_HERO_TITLE =
   "mt-5 max-w-3xl font-display text-display-lead font-semibold text-white";
 export const CLUSTER_HERO_BODY =

@@ -142,7 +142,7 @@ export async function GroupHubPage({
           <div className="absolute inset-0 bg-linear-to-b from-black/75 via-black/60 to-black/88" />
           <div className="relative mx-auto w-full max-w-[1400px] px-6 lg:px-10">
             <div>
-              <p className="text-[11px] font-medium tracking-[0.32em] text-white/45 uppercase">
+              <p className="text-[11px] font-medium tracking-[0.18em] text-white/45 uppercase">
                 {t("ctaEyebrow")}
               </p>
               <h2 className="mt-5 max-w-3xl font-display text-display-lead font-semibold text-white">

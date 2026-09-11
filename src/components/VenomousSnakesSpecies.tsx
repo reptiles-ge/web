@@ -160,7 +160,7 @@ function VenomousFeaturedCard({
         href={useSpeciesHref(species.id, locale)}
       >
         <div>
-          <p className="text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase">
+          <p className="text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
             {eyebrow}
           </p>
           <p className="mt-2 font-display text-[22px] font-semibold text-foreground">

@@ -29,7 +29,7 @@ export async function SpeciesFaqSection({
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-24">
           <div>
-            <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
+            <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
               {t("faq")}
             </p>
             <AnchoredHeading

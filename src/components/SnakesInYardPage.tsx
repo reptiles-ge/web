@@ -67,7 +67,7 @@ export async function SnakesInYardPage({
               <div>
                 <div className="flex h-full flex-col justify-between bg-card p-7 sm:p-9">
                   <div>
-                    <p className="text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase">
+                    <p className="text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
                       {t("contactBiteEyebrow")}
                     </p>
                     <h3 className="mt-4 font-display text-display-card font-semibold text-foreground">
@@ -98,7 +98,7 @@ export async function SnakesInYardPage({
               <div>
                 <div className="flex h-full flex-col justify-between bg-card p-7 sm:p-9">
                   <div>
-                    <p className="text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase">
+                    <p className="text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
                       {t("contactAgencyEyebrow")}
                     </p>
                     <h3 className="mt-4 font-display text-display-card font-semibold text-foreground">

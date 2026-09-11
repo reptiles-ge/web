@@ -53,7 +53,7 @@ export async function AboutPage() {
               <p className="font-display text-[clamp(2.4rem,6vw,3.75rem)] leading-none font-semibold tracking-tight text-white">
                 {t("brand")}
               </p>
-              <p className="mt-5 text-[11px] font-medium tracking-[0.32em] text-white/45 uppercase">
+              <p className="mt-5 text-[11px] font-medium tracking-[0.18em] text-white/45 uppercase">
                 {t("eyebrow")}
               </p>
               <h1 className="text-balance-tight mt-3 max-w-3xl font-display text-display-lead font-semibold text-white sm:mt-4">
@@ -70,7 +70,7 @@ export async function AboutPage() {
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20">
               <div>
-                <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
+                <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
                   {t("companyEyebrow")}
                 </p>
                 <h2 className="mt-4 font-display text-display-title font-semibold text-foreground">
@@ -128,7 +128,7 @@ export async function AboutPage() {
         >
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <div>
-              <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
+              <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
                 {t("methodEyebrow")}
               </p>
               <h2 className="mt-4 max-w-2xl font-display text-display-title font-semibold">
@@ -175,7 +175,7 @@ export async function AboutPage() {
         <section className="border-t border-border bg-background py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <div>
-              <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
+              <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
                 {t("exploreEyebrow")}
               </p>
               <h2 className="mt-4 max-w-2xl font-display text-display-title font-semibold">
@@ -223,7 +223,7 @@ export async function AboutPage() {
         <section className="border-t border-border bg-background py-20 lg:py-28">
           <div className="mx-auto max-w-[860px] px-6 text-center lg:px-10">
             <div>
-              <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
+              <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
                 {t("contributeEyebrow")}
               </p>
               <h2 className="mt-4 font-display text-display-title font-semibold">

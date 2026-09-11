@@ -47,7 +47,7 @@ export async function AtlasHero({ stats }: AtlasHeroProps) {
             </ol>
           </nav>
 
-          <p className="text-[11px] font-medium tracking-[0.32em] text-white/45 uppercase">
+          <p className="text-[11px] font-medium tracking-[0.18em] text-white/45 uppercase">
             {t("eyebrow")}
           </p>
           <h1 className="text-balance-tight mt-3 max-w-4xl font-display text-display-hero font-semibold text-white sm:mt-4">
@@ -75,7 +75,7 @@ export async function AtlasHero({ stats }: AtlasHeroProps) {
               </div>
             </div>
 
-            <p className="mt-5 text-[11px] font-medium tracking-[0.28em] text-white/50 uppercase">
+            <p className="mt-5 text-[11px] font-medium tracking-[0.18em] text-white/50 uppercase">
               {t("stats.pathwaysLabel")}
             </p>
 
@@ -168,7 +168,7 @@ export async function AtlasHero({ stats }: AtlasHeroProps) {
                 className="group flex min-w-42 flex-1 flex-col items-start rounded-card border border-white/10 bg-white/4 p-4 text-left backdrop-blur-md transition-[border-color,background-color] duration-300 hover:border-white/25 hover:bg-white/8 sm:min-w-48 sm:p-5"
                 href="/regions"
               >
-                <span className="text-[10px] font-medium tracking-[0.22em] text-white/50 uppercase">
+                <span className="text-[10px] font-medium tracking-[0.16em] text-white/50 uppercase">
                   {t("stats.pathwayPlace")}
                 </span>
                 <span className="mt-3 font-display text-[1.35rem] leading-tight font-semibold text-white sm:text-2xl">
@@ -221,7 +221,7 @@ function HeroPathway({
   const style = { animationDelay: `${delay}ms` };
   const content = (
     <>
-      <span className="text-[10px] font-medium tracking-[0.22em] text-white/50 uppercase">
+      <span className="text-[10px] font-medium tracking-[0.16em] text-white/50 uppercase">
         {eyebrow}
       </span>
       <span className="mt-3 font-display text-[1.35rem] leading-tight font-semibold text-white sm:text-2xl">

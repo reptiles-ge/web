@@ -33,7 +33,7 @@ export async function SpeciesProfileFacts({
   return (
     <section className="bg-background py-20 lg:py-28">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
+        <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
           {t("atAGlance")}
         </p>
         <AnchoredHeading
@@ -47,7 +47,7 @@ export async function SpeciesProfileFacts({
           <div className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-media bg-border md:grid-cols-3">
             {displayStats.map((stat) => (
               <div className="bg-background p-6 lg:p-8" key={stat.label}>
-                <p className="text-[10px] tracking-[0.22em] text-muted-foreground">
+                <p className="text-[10px] tracking-[0.16em] text-muted-foreground">
                   {stat.label}
                 </p>
                 <p className="mt-3 font-display text-[20px] leading-tight font-medium lg:text-[24px]">

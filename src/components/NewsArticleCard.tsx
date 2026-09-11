@@ -34,7 +34,7 @@ export async function NewsArticleCard({
   const Heading = featured ? "h2" : "h3";
 
   const meta = (
-    <p className="text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase">
+    <p className="text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
       {category ? <span>{category}</span> : null}
       {category ? <span aria-hidden="true"> · </span> : null}
       <time dateTime={article.publishedAt}>{dateLabel}</time>
@@ -78,7 +78,7 @@ export async function NewsArticleCard({
             </div>
           ) : null}
           <div className="lg:pb-1">
-            <p className="text-[11px] font-medium tracking-[0.28em] text-muted-foreground uppercase">
+            <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
               {t("featured")}
             </p>
             <div className="mt-3">{meta}</div>

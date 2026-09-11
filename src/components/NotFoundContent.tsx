@@ -46,7 +46,7 @@ export async function NotFoundContent() {
           404
         </p>
         <div className="-mt-6 max-w-2xl sm:-mt-10 lg:-mt-14">
-          <p className="text-[11px] font-medium tracking-[0.32em] text-white/45 uppercase">
+          <p className="text-[11px] font-medium tracking-[0.18em] text-white/45 uppercase">
             {t("eyebrow")}
           </p>
           <h1 className="text-balance-tight mt-4 font-display text-display-hero font-semibold text-white">

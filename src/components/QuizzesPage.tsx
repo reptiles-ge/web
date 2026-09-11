@@ -58,7 +58,7 @@ export async function QuizzesPage({ items }: QuizzesPageProps) {
               <li className="text-foreground">{t("breadcrumbCurrent")}</li>
             </ol>
           </nav>
-          <p className="text-[11px] font-medium tracking-[0.32em] text-muted-foreground uppercase">
+          <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
             {t("eyebrow")}
           </p>
           <div className="mt-4 grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
@@ -97,7 +97,7 @@ export async function QuizzesPage({ items }: QuizzesPageProps) {
 
       <section className="border-t border-border bg-background py-16 text-foreground lg:py-24">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
+          <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
             {t("howEyebrow")}
           </p>
           <h2 className="mt-4 max-w-2xl font-display text-display-title font-semibold">
@@ -109,7 +109,7 @@ export async function QuizzesPage({ items }: QuizzesPageProps) {
                 className="bg-card px-6 py-7 sm:px-8 sm:py-9"
                 key={step.title}
               >
-                <span className="font-display text-[12px] tracking-[0.22em] text-muted-foreground">
+                <span className="font-display text-[12px] tracking-[0.16em] text-muted-foreground">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <p className="mt-4 font-display text-[20px] font-semibold">

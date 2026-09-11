@@ -36,7 +36,7 @@ export async function SpeciesProfileRelated({
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="flex items-end justify-between gap-6">
           <div>
-            <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
+            <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
               {lookalikes ? t("lookalikes") : t("related")}
             </p>
             <AnchoredHeading

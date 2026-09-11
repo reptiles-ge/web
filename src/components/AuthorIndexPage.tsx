@@ -88,7 +88,7 @@ export async function AuthorIndexPage({
                         />
                       </span>
                       <span className="min-w-0 pt-1">
-                        <span className="block text-[11px] font-medium tracking-[0.28em] text-muted-foreground uppercase">
+                        <span className="block text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
                           {t(`roles.${card.author.role}`)}
                         </span>
                         <h2 className="mt-2 font-display text-[1.35rem] leading-tight font-semibold text-foreground transition-colors group-hover:text-primary sm:text-[1.5rem]">

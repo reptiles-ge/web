@@ -104,7 +104,7 @@ function ConflictContact({
           {config.show112 ? (
             <div className="flex h-full flex-col justify-between bg-card p-7 sm:p-9">
               <div>
-                <p className="text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase">
+                <p className="text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
                   {t("contactBiteEyebrow")}
                 </p>
                 <h3 className="mt-4 font-display text-display-card font-semibold text-foreground">
@@ -126,7 +126,7 @@ function ConflictContact({
           {config.agencyPhone ? (
             <div className="flex h-full flex-col justify-between bg-card p-7 sm:p-9">
               <div>
-                <p className="text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase">
+                <p className="text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
                   {t("contactAgencyEyebrow")}
                 </p>
                 <h3 className="mt-4 font-display text-display-card font-semibold text-foreground">
@@ -149,7 +149,7 @@ function ConflictContact({
           ) : (
             <div className="flex h-full flex-col justify-between bg-card p-7 sm:p-9">
               <div>
-                <p className="text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase">
+                <p className="text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
                   {t("contactHelpEyebrow")}
                 </p>
                 <h3 className="mt-4 font-display text-display-card font-semibold text-foreground">
@@ -279,7 +279,7 @@ function ConflictSummary({ config }: { config: ConflictGuideConfig }) {
     <section className="scroll-mt-28 bg-background py-20 lg:py-28" id="content">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div>
-          <p className="text-[11px] font-medium tracking-[0.3em] text-muted-foreground uppercase">
+          <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
             {t("summaryEyebrow")}
           </p>
           <h2 className="mt-5 max-w-3xl font-display text-display-title font-semibold">
