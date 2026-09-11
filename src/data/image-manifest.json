@@ -21351,6 +21351,87 @@
       ],
       "updatedAt": "2026-08-28T21:39:57.762Z"
     },
+    "eremias-velox-nikita-1.jpg": {
+      "sourceHash": "9d8cb45bce0c1515e4ffbaf6875040d4857b81d967e06377a1f313bc174439ae",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eremias-velox-nikita-1.jpg",
+      "originalSize": 166288,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/eremias-velox-nikita-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9576
+        },
+        {
+          "key": "optimized/eremias-velox-nikita-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 15026
+        },
+        {
+          "key": "optimized/eremias-velox-nikita-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 14225
+        },
+        {
+          "key": "optimized/eremias-velox-nikita-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 21944
+        },
+        {
+          "key": "optimized/eremias-velox-nikita-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 30405
+        },
+        {
+          "key": "optimized/eremias-velox-nikita-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 47100
+        },
+        {
+          "key": "optimized/eremias-velox-nikita-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 43106
+        },
+        {
+          "key": "optimized/eremias-velox-nikita-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 68028
+        },
+        {
+          "key": "optimized/eremias-velox-nikita-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 64578
+        },
+        {
+          "key": "optimized/eremias-velox-nikita-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 95664
+        }
+      ],
+      "updatedAt": "2026-09-11T01:43:41.538Z"
+    },
     "eremias-velox.jpg": {
       "sourceHash": "2dd2c2367fd7b1666537c1756f8a149fa0dec262ab6e84b41d25887f9da25d64",
       "configFingerprint": "a895f8e025dcc7fa",
