@@ -38,7 +38,7 @@ export async function SpeciesProfileFacts({
         </p>
         <AnchoredHeading
           anchorLabel={t("anchorLink")}
-          className="mt-5 max-w-2xl font-display text-display-title"
+          className="mt-5 max-w-2xl font-display text-display-title font-bold"
           id={SPECIES_SECTION_IDS.atAGlance}
         >
           {t("atAGlanceTitle")}
