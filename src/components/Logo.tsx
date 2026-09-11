@@ -1,8 +1,10 @@
 import { cn } from "@/lib/cn";
 
 export const LOGO_SRC = "/images/logo-160.webp";
-export const LOGO_AVIF_SRCSET = "/images/logo-88.avif 88w, /images/logo-160.avif 160w";
-export const LOGO_WEBP_SRCSET = "/images/logo-88.webp 88w, /images/logo-160.webp 160w";
+export const LOGO_AVIF_SRCSET =
+  "/images/logo-88.avif 88w, /images/logo-160.avif 160w";
+export const LOGO_WEBP_SRCSET =
+  "/images/logo-88.webp 88w, /images/logo-160.webp 160w";
 export const LOGO_NAV_SIZE = 44;
 
 type LogoProps = {
@@ -45,7 +47,7 @@ export function Logo({
       {showWordmark ? (
         <span
           className={cn(
-            "font-display font-semibold tracking-tight",
+            "font-[system-ui,sans-serif] font-semibold tracking-tight",
             wordmarkClassName,
           )}
         >
