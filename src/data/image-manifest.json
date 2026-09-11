@@ -12270,6 +12270,59 @@
       ],
       "updatedAt": "2026-08-28T21:31:54.636Z"
     },
+    "darevskia-daghestanica-giorgi-1.jpg": {
+      "sourceHash": "27c3e4a966a8baabe7cdb2f74a9809ea1501a0d4a8eac43577f871f227c5e9b5",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-daghestanica-giorgi-1.jpg",
+      "originalSize": 103127,
+      "width": 577,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-daghestanica-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 568,
+          "byteSize": 14381
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 568,
+          "byteSize": 20858
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 710,
+          "byteSize": 20626
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 710,
+          "byteSize": 30168
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-giorgi-1-577.avif",
+          "format": "avif",
+          "width": 577,
+          "height": 1024,
+          "byteSize": 37617
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-giorgi-1-577.webp",
+          "format": "webp",
+          "width": 577,
+          "height": 1024,
+          "byteSize": 54546
+        }
+      ],
+      "updatedAt": "2026-09-11T13:07:09.556Z"
+    },
     "darevskia-daghestanica.jpg": {
       "sourceHash": "c3344291ec38769abd29b563cee8b891808a3dcd26370e637ad9906ec1051323",
       "configFingerprint": "a895f8e025dcc7fa",
