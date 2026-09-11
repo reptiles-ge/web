@@ -117,7 +117,6 @@ export async function SpeciesProfile({
         speciesId={species.id}
       />
       <SpeciesProfileHero
-        breadcrumbs={breadcrumbs}
         desktopHeroSrc={desktopHeroSrc}
         group={group}
         heroDesktopSources={heroDesktopSources}
@@ -129,6 +128,7 @@ export async function SpeciesProfile({
       />
       <SpeciesProfileBody
         biologyBlocks={biologyBlocks}
+        breadcrumbs={breadcrumbs}
         checklistNote={checklistNote}
         dangerValue={dangerValue}
         displayStats={displayStats}
