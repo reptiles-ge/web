@@ -42,7 +42,7 @@ export async function QuizzesPage({ items }: QuizzesPageProps) {
     <div className="min-h-screen bg-background">
       <section className="pt-28 pb-10 sm:pt-32 sm:pb-14 lg:pb-16">
         <div className="mx-auto w-full max-w-[1400px] px-6 lg:px-10">
-          <nav aria-label="Breadcrumb" className="mb-5 sm:mb-7">
+          <nav aria-label="Breadcrumb" className="sr-only">
             <ol className="flex flex-wrap items-center gap-2 text-[13px] text-muted-foreground">
               <li>
                 <Link

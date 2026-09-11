@@ -29,10 +29,7 @@ export async function AuthorIndexPage({
     <div className="min-h-screen bg-background">
       <header className="pt-30 pb-12 sm:pt-33 sm:pb-16 lg:pb-20">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <nav
-            aria-label={tProfile("breadcrumbAria")}
-            className="mb-8 sm:mb-10"
-          >
+          <nav aria-label={tProfile("breadcrumbAria")} className="sr-only">
             <ol className="flex flex-wrap items-center gap-2 text-[13px] text-muted-foreground">
               <li>
                 <Link

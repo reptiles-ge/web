@@ -73,7 +73,7 @@ export async function AuthorPage({
         style={{ paddingTop: "5.5rem" }}
       >
         <div className="mx-auto max-w-[1400px] px-6 pt-6 pb-10 lg:px-10 lg:pt-8 lg:pb-14">
-          <nav aria-label={tProfile("breadcrumbAria")}>
+          <nav aria-label={tProfile("breadcrumbAria")} className="sr-only">
             <ol className="flex flex-wrap items-center gap-2 text-[13px] text-muted-foreground">
               <li>
                 <Link

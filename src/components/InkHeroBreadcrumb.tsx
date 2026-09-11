@@ -1,5 +1,3 @@
-"use client";
-
 import { ArrowLeft } from "lucide-react";
 import { Fragment } from "react";
 
@@ -13,7 +11,7 @@ type InkHeroCrumb = {
 
 export function InkHeroBreadcrumb({ crumbs }: { crumbs: InkHeroCrumb[] }) {
   return (
-    <nav aria-label="Breadcrumb" className="mb-5 sm:mb-7">
+    <nav aria-label="Breadcrumb" className="sr-only">
       <ol className="flex flex-wrap items-center gap-2 text-[13px] text-white/55">
         {crumbs.map((crumb, index) => (
           <Fragment key={crumb.label}>
