@@ -14132,6 +14132,73 @@
       ],
       "updatedAt": "2026-09-11T12:50:54.228Z"
     },
+    "darevskia-portschinskii-giorgi-3.jpg": {
+      "sourceHash": "5371842efe7e2fa73b2258c5af74aa955db36c0dd0959011e9bf1d2fa691bcef",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-portschinskii-giorgi-3.jpg",
+      "originalSize": 355833,
+      "width": 768,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-portschinskii-giorgi-3-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 37811
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-giorgi-3-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 58122
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-giorgi-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 58005
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-giorgi-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 89670
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-giorgi-3-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 126938
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-giorgi-3-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 210750
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-giorgi-3-768.avif",
+          "format": "avif",
+          "width": 768,
+          "height": 1024,
+          "byteSize": 172123
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-giorgi-3-768.webp",
+          "format": "webp",
+          "width": 768,
+          "height": 1024,
+          "byteSize": 287522
+        }
+      ],
+      "updatedAt": "2026-09-11T12:51:42.697Z"
+    },
     "darevskia-portschinskii-mobile.jpg": {
       "sourceHash": "74f334d40732037c45bf8d9975278f322083ff0e58572bcc726a398cbe5d462f",
       "configFingerprint": "a895f8e025dcc7fa",
