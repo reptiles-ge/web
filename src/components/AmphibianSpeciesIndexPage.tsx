@@ -27,6 +27,7 @@ export async function AmphibianSpeciesIndexPage({
 }: ClusterGuideViewProps) {
   const t = await getTranslations("amphibianIndex");
   const locale = (await getLocale()) as AppLocale;
+  const guideP3 = t.has("guideP3") ? t("guideP3") : null;
   const frogs = species.filter((item) => isFrogSpecies(item.id));
   const newts = species.filter((item) => isNewtSpecies(item.id));
 
@@ -50,6 +51,7 @@ export async function AmphibianSpeciesIndexPage({
           <>
             <p>{t("guideP1")}</p>
             <p>{t("guideP2")}</p>
+            {guideP3 ? <p>{guideP3}</p> : null}
           </>
         }
         eyebrow={t("guideEyebrow")}
