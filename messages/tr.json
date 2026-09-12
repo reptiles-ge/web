@@ -260,6 +260,8 @@
     "news": "Haberler",
     "contributors": "Katkıda bulunanlar",
     "contact": "İletişim",
+    "privacy": "Gizlilik",
+    "terms": "Koşullar",
     "venomousTitle": "Zehirli türler",
     "venomousAll": "Güvenlik rehberi",
     "regionsTitle": "Gürcistan bölgeleri",
@@ -298,6 +300,17 @@
     "jackalYard": "Bahçede çakal",
     "bearEncounter": "Ayı karşılaşması",
     "lizardHouse": "Evde kertenkele"
+  },
+  "legal": {
+    "canonicalNotice": "Bu sayfadaki hukuki metin şu anda Gürcüce olarak sunulmaktadır; Gürcüce sürüm esas metin kabul edilmelidir.",
+    "privacy": {
+      "metaTitle": "Gizlilik Politikası",
+      "metaDescription": "reptiles.ge'nin teknik verileri, çerezleri, analitiği ve katkıda bulunan kişi bilgilerini nasıl işlediği."
+    },
+    "terms": {
+      "metaTitle": "Kullanım Koşulları",
+      "metaDescription": "reptiles.ge kullanım koşulları: eğitim amaçlı açıklamalar, fikri mülkiyet ve dış kaynak koşulları."
+    }
   },
   "profile": {
     "back": "Tüm türler",

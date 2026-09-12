@@ -3,7 +3,10 @@ import { getPublishedNewsArticleBySlug, newsLocalizedTitle } from "@/data/news";
 import { getRegionById } from "@/data/regions";
 import { pathnames } from "@/i18n/pathnames";
 import { type AppLocale, type AppPathnames } from "@/i18n/routing";
-import { CLUSTER_GUIDE_LIST, type ClusterMessageKey } from "@/lib/clusterGuides";
+import {
+  CLUSTER_GUIDE_LIST,
+  type ClusterMessageKey,
+} from "@/lib/clusterGuides";
 import { GROUP_HUB_LIST, type GroupHubId } from "@/lib/groupHubs";
 import { resolveQuizBySlug } from "@/lib/quizzes";
 import { resolveSpecies, resolveSpeciesInHub } from "@/lib/speciesRoutes";
@@ -20,10 +23,7 @@ const SPECIES_PATH_TO_HUB: Partial<Record<AppPathnames, GroupHubId>> = {
   "/turtles/[slug]": "turtles",
 };
 
-const CLUSTER_FOOTER_KEY: Record<
-  ClusterMessageKey,
-  keyof typeof ka.footer
-> = {
+const CLUSTER_FOOTER_KEY: Record<ClusterMessageKey, keyof typeof ka.footer> = {
   amphibianFrogs: "frogs",
   amphibianFrogsIndex: "frogsIndex",
   amphibianIndex: "amphibianIndex",
@@ -60,6 +60,7 @@ const STATIC_TITLES: Partial<Record<AppPathnames, string>> = {
   "/lizards": ka.footer.lizards,
   "/mammals": ka.footer.mammals,
   "/news": ka.footer.news,
+  "/privacy": ka.footer.privacy,
   "/quiz": ka.footer.quizzes,
   "/regions": ka.footer.regions,
   "/risk-to-humans": ka.footer.riskLevels,
@@ -67,6 +68,7 @@ const STATIC_TITLES: Partial<Record<AppPathnames, string>> = {
   "/snakes-in-the-yard": ka.footer.yard,
   "/species": ka.footer.species,
   "/spiders": ka.footer.spiders,
+  "/terms": ka.footer.terms,
   "/turtles": ka.footer.turtles,
   "/venomous-snakes": ka.footer.venomous,
 };
