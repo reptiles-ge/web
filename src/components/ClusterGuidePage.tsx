@@ -23,6 +23,7 @@ export async function ClusterGuidePage({
   const guide = CLUSTER_GUIDES[guideId];
   const t = await getTranslations(guide.messageKey);
   const locale = (await getLocale()) as AppLocale;
+  const guideP3 = t.has("guideP3") ? t("guideP3") : null;
   const familyCount = new Set(species.map((item) => item.family)).size;
 
   return (
@@ -45,6 +46,7 @@ export async function ClusterGuidePage({
           <>
             <p>{t("guideP1")}</p>
             <p>{t("guideP2")}</p>
+            {guideP3 ? <p>{guideP3}</p> : null}
           </>
         }
         eyebrow={t("guideEyebrow")}

@@ -34,6 +34,7 @@ export async function CatalogSpeciesIndexPage({
   }
   const t = await getTranslations(messageKey);
   const locale = (await getLocale()) as AppLocale;
+  const guideP3 = t.has("guideP3") ? t("guideP3") : null;
   const familyCount = new Set(species.map((item) => item.family)).size;
   const introducedCount = species.filter(
     (item) => item.id === "trachemys-scripta",
@@ -67,6 +68,7 @@ export async function CatalogSpeciesIndexPage({
           <>
             <p>{t("guideP1")}</p>
             <p>{t("guideP2")}</p>
+            {guideP3 ? <p>{guideP3}</p> : null}
           </>
         }
         eyebrow={t("guideEyebrow")}

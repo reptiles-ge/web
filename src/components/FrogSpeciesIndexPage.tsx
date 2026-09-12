@@ -7,9 +7,7 @@ import type { ClusterGuideViewProps } from "@/lib/clusterGuides";
 import { ClusterContentSection } from "@/components/ClusterContentSection";
 import { ClusterGuideLead } from "@/components/ClusterGuideLead";
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
-import {
-  ClusterStat,
-} from "@/components/ClusterSectionIntro";
+import { ClusterStat } from "@/components/ClusterSectionIntro";
 import { SpeciesIndexTable } from "@/components/SpeciesIndexTable";
 import { Link } from "@/i18n/navigation";
 
@@ -20,6 +18,7 @@ export async function FrogSpeciesIndexPage({
 }: ClusterGuideViewProps) {
   const t = await getTranslations("amphibianFrogsIndex");
   const locale = (await getLocale()) as AppLocale;
+  const guideP3 = t.has("guideP3") ? t("guideP3") : null;
   const familyCount = new Set(species.map((item) => item.family)).size;
 
   return (
@@ -42,6 +41,7 @@ export async function FrogSpeciesIndexPage({
           <>
             <p>{t("guideP1")}</p>
             <p>{t("guideP2")}</p>
+            {guideP3 ? <p>{guideP3}</p> : null}
             <Link
               className="inline-flex items-center gap-2 text-[14px] font-medium text-foreground"
               href="/amphibians/bayayi"
