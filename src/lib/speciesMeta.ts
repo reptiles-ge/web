@@ -134,6 +134,10 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
     en: "Nose-horned viper (Vipera ammodytes) | Venomous snake of the Lesser Caucasus",
     ka: "ცხვირრქოსანი გველგესლა (Vipera ammodytes) | შხამიანი გველი მცირე კავკასიონზე",
   },
+  "xerotyphlops-vermicularis": {
+    en: "European blind snake (Xerotyphlops vermicularis) | Harmless blind snake in Georgia",
+    ka: "გველბრუცა (Xerotyphlops vermicularis) | უშხამო ბრმა გველი საქართველოში",
+  },
 };
 
 export function speciesImageAlt(
