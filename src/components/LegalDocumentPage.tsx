@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+
 import { readFileSync } from "node:fs";
 import path from "node:path";
 
@@ -6,10 +8,20 @@ import type { AppLocale } from "@/i18n/routing";
 export type LegalDocumentId = "privacy" | "terms";
 
 type Block =
-  | { items: string[]; type: "list" }
-  | { level: number; text: string; type: "heading" }
-  | { rows: string[][]; type: "table" }
-  | { text: string; type: "paragraph" };
+  | { items: TextPart[]; key: string; type: "list" }
+  | { key: string; level: number; text: string; type: "heading" }
+  | { key: string; rows: TableRow[]; type: "table" }
+  | { key: string; text: string; type: "paragraph" };
+
+type TableRow = {
+  cells: TextPart[];
+  key: string;
+};
+
+type TextPart = {
+  key: string;
+  text: string;
+};
 
 const documentFiles: Record<LegalDocumentId, string> = {
   privacy: "reptiles-ge-privacy-policy-ka.md",
@@ -39,7 +51,7 @@ export function LegalDocumentPage({
           </p>
         ) : null}
         <div className="space-y-6">
-          {blocks.map((block, index) => renderBlock(block, index))}
+          {blocks.map((block) => renderBlock(block))}
         </div>
       </article>
     </main>
@@ -47,18 +59,31 @@ export function LegalDocumentPage({
 }
 
 function InlineText({ text }: { text: string }) {
-  return text.split(/(`[^`]+`)/g).map((part, index) =>
-    part.startsWith("`") && part.endsWith("`") ? (
+  const parts: ReactNode[] = [];
+  const codePattern = /`([^`]+)`/g;
+  let cursor = 0;
+  let match: null | RegExpExecArray;
+
+  while ((match = codePattern.exec(text))) {
+    if (match.index > cursor) {
+      parts.push(text.slice(cursor, match.index));
+    }
+    parts.push(
       <code
         className="rounded bg-card px-1.5 py-0.5 text-[0.92em] text-foreground"
-        key={index}
+        key={sourceKey("code", match.index + 1, match[1])}
       >
-        {part.slice(1, -1)}
-      </code>
-    ) : (
-      part
-    ),
-  );
+        {match[1]}
+      </code>,
+    );
+    cursor = match.index + match[0].length;
+  }
+
+  if (cursor < text.length) {
+    parts.push(text.slice(cursor));
+  }
+
+  return parts;
 }
 
 function parseMarkdown(markdown: string) {
@@ -77,6 +102,7 @@ function parseMarkdown(markdown: string) {
     const heading = line.match(/^(#{1,3})\s+(.+)$/);
     if (heading) {
       blocks.push({
+        key: sourceKey("heading", index + 1, heading[2]),
         level: heading[1].length,
         text: heading[2],
         type: "heading",
@@ -86,28 +112,43 @@ function parseMarkdown(markdown: string) {
     }
 
     if (line.startsWith("|")) {
-      const rows: string[][] = [];
+      const rows: TableRow[] = [];
+      const startLine = index + 1;
       while (index < lines.length && lines[index]?.trim().startsWith("|")) {
         const row = lines[index]?.trim() ?? "";
         if (!/^\|[\s:|-]+\|$/.test(row)) {
-          rows.push(splitTableRow(row));
+          const rowLine = index + 1;
+          const cells = splitTableRow(row).map((cell, cellIndex) => ({
+            key: sourceKey("cell", rowLine, `${cellIndex}-${cell}`),
+            text: cell,
+          }));
+          rows.push({
+            cells,
+            key: sourceKey("row", rowLine, row),
+          });
         }
         index += 1;
       }
-      blocks.push({ rows, type: "table" });
+      blocks.push({ key: sourceKey("table", startLine), rows, type: "table" });
       continue;
     }
 
     if (line.startsWith("- ")) {
-      const items: string[] = [];
+      const items: TextPart[] = [];
+      const startLine = index + 1;
       while (index < lines.length && lines[index]?.trim().startsWith("- ")) {
-        items.push((lines[index]?.trim() ?? "").slice(2));
+        const item = (lines[index]?.trim() ?? "").slice(2);
+        items.push({
+          key: sourceKey("item", index + 1, item),
+          text: item,
+        });
         index += 1;
       }
-      blocks.push({ items, type: "list" });
+      blocks.push({ items, key: sourceKey("list", startLine), type: "list" });
       continue;
     }
 
+    const startLine = index + 1;
     const parts: string[] = [line];
     index += 1;
     while (index < lines.length) {
@@ -123,7 +164,11 @@ function parseMarkdown(markdown: string) {
       parts.push(next);
       index += 1;
     }
-    blocks.push({ text: parts.join(" "), type: "paragraph" });
+    blocks.push({
+      key: sourceKey("paragraph", startLine, line),
+      text: parts.join(" "),
+      type: "paragraph",
+    });
   }
 
   return blocks;
@@ -136,7 +181,7 @@ function readDocument(documentId: LegalDocumentId) {
   );
 }
 
-function renderBlock(block: Block, index: number) {
+function renderBlock(block: Block) {
   if (block.type === "heading") {
     const className =
       block.level === 1
@@ -146,7 +191,7 @@ function renderBlock(block: Block, index: number) {
           : "pt-3 text-xl font-semibold tracking-normal text-foreground";
     const Tag = `h${block.level}` as "h1" | "h2" | "h3";
     return (
-      <Tag className={className} key={index}>
+      <Tag className={className} key={block.key}>
         <InlineText text={block.text} />
       </Tag>
     );
@@ -156,11 +201,11 @@ function renderBlock(block: Block, index: number) {
     return (
       <ul
         className="ml-5 list-disc space-y-2 text-[15px] leading-7 text-foreground/82"
-        key={index}
+        key={block.key}
       >
-        {block.items.map((item, itemIndex) => (
-          <li key={itemIndex}>
-            <InlineText text={item} />
+        {block.items.map((item) => (
+          <li key={item.key}>
+            <InlineText text={item.text} />
           </li>
         ))}
       </ul>
@@ -172,33 +217,33 @@ function renderBlock(block: Block, index: number) {
     return (
       <div
         className="overflow-x-auto rounded-md border border-border"
-        key={index}
+        key={block.key}
       >
         <table className="min-w-full divide-y divide-border text-left text-[13px]">
           {head ? (
             <thead className="bg-card">
               <tr>
-                {head.map((cell, cellIndex) => (
+                {head.cells.map((cell) => (
                   <th
                     className="px-4 py-3 font-semibold text-foreground"
-                    key={cellIndex}
+                    key={cell.key}
                     scope="col"
                   >
-                    <InlineText text={cell} />
+                    <InlineText text={cell.text} />
                   </th>
                 ))}
               </tr>
             </thead>
           ) : null}
           <tbody className="divide-y divide-border">
-            {body.map((row, rowIndex) => (
-              <tr key={rowIndex}>
-                {row.map((cell, cellIndex) => (
+            {body.map((row) => (
+              <tr key={row.key}>
+                {row.cells.map((cell) => (
                   <td
                     className="px-4 py-3 align-top text-foreground/78"
-                    key={cellIndex}
+                    key={cell.key}
                   >
-                    <InlineText text={cell} />
+                    <InlineText text={cell.text} />
                   </td>
                 ))}
               </tr>
@@ -210,10 +255,14 @@ function renderBlock(block: Block, index: number) {
   }
 
   return (
-    <p className="text-[15px] leading-7 text-foreground/82" key={index}>
+    <p className="text-[15px] leading-7 text-foreground/82" key={block.key}>
       <InlineText text={block.text} />
     </p>
   );
+}
+
+function sourceKey(prefix: string, line: number, text = "") {
+  return `${prefix}-${line}-${text}`;
 }
 
 function splitTableRow(row: string) {
