@@ -474,6 +474,7 @@ export const regions: Region[] = [
       "lissotriton-lantzi",
       "pelobates-syriacus",
       "testudo-graeca",
+      "ophisops-elegans",
       "darevskia-dahli",
       "darevskia-portschinskii",
       "ciconia-ciconia",
