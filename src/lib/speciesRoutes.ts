@@ -166,7 +166,7 @@ const LOOKALIKES: Record<string, string[]> = {
   "eremias-velox": ["eremias-arguta"],
   "erithacus-rubecula": ["luscinia-megarhynchos"],
   "eryx-jaculus": ["xerotyphlops-vermicularis", "telescopus-fallax"],
-  "eumeces-schneiderii": ["ablepharus-pannonicus"],
+  "eumeces-schneiderii": ["ablepharus-pannonicus", "ophisops-elegans"],
   "falco-peregrinus": ["accipiter-nisus", "buteo-buteo", "aquila-chrysaetos"],
   "ficedula-hypoleuca": ["ficedula-semitorquata"],
   "ficedula-semitorquata": ["ficedula-hypoleuca"],
