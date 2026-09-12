@@ -73,6 +73,8 @@ const companyLinks = [
   { href: "/news" as const, labelKey: "news" as const },
   { href: "/authors" as const, labelKey: "contributors" as const },
   { href: "/contact" as const, labelKey: "contact" as const },
+  { href: "/privacy" as const, labelKey: "privacy" as const },
+  { href: "/terms-and-conditions" as const, labelKey: "terms" as const },
 ];
 
 export async function Footer({ regions, venomous }: FooterProps) {

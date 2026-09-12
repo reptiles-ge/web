@@ -61,6 +61,7 @@ export const pathnames = {
   ),
   "/news": "/news",
   "/news/[slug]": "/news/[slug]",
+  "/privacy": "/privacy",
   "/quiz": "/quiz",
   "/quiz/[slug]": "/quiz/[slug]",
   "/regions": "/regions",
@@ -92,6 +93,7 @@ export const pathnames = {
     "/obobebi/shxamiani-obobebi",
     "/spiders/venomous",
   ),
+  "/terms-and-conditions": "/terms-and-conditions",
   "/turtles": kaLatin("/kuebi", "/turtles"),
   "/turtles/[slug]": kaLatin("/kuebi/[slug]", "/turtles/[slug]"),
   "/turtles/identifikacia": kaLatin(

@@ -260,6 +260,8 @@
     "news": "News",
     "contributors": "Contributors",
     "contact": "Contact",
+    "privacy": "Privacy",
+    "terms": "Terms",
     "venomousTitle": "Venomous species",
     "venomousAll": "Safety guide",
     "regionsTitle": "Regions of Georgia",
@@ -298,6 +300,17 @@
     "jackalYard": "Jackal in the yard",
     "bearEncounter": "Bear encounter",
     "lizardHouse": "Lizard in the house"
+  },
+  "legal": {
+    "canonicalNotice": "The legal text on this page is currently provided in Georgian; treat the Georgian version as the canonical text.",
+    "privacy": {
+      "metaTitle": "Privacy Policy",
+      "metaDescription": "How reptiles.ge handles technical data, cookies, analytics, and contributor credits."
+    },
+    "terms": {
+      "metaTitle": "Terms of Use",
+      "metaDescription": "Terms for using reptiles.ge, including educational disclaimers, intellectual property, and external source conditions."
+    }
   },
   "profile": {
     "back": "All species",

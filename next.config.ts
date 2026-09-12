@@ -103,6 +103,11 @@ const nextConfig: NextConfig = {
         statusCode: 301,
       },
       {
+        destination: "/terms-and-conditions",
+        source: "/terms",
+        statusCode: 301,
+      },
+      {
         destination: "/gvelebi",
         source: "/snakes",
         statusCode: 301,
@@ -431,6 +436,7 @@ const nextConfig: NextConfig = {
         ["/snakes/dolichophis-caspius", "/snakes", 302],
         ["/gvelebi/qvitelmutsela-mtsuravi", "/snakes", 302],
         ["/species/dolichophis-caspius", "/snakes", 302],
+        ["/terms", "/terms-and-conditions"],
       ]),
       {
         destination: "/en/quiz/which-snake",
