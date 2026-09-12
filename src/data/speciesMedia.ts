@@ -21,7 +21,12 @@ export function mergeGallery(
     const extra = bySrc.get(item.src);
     if (!extra) return item;
     const credit = overlayPhotoCredit(item.credit, extra.credit);
-    return credit ? { credit, src: item.src } : { src: item.src };
+    const photoConfidence = extra.photoConfidence ?? item.photoConfidence;
+    return {
+      ...(credit ? { credit } : {}),
+      ...(photoConfidence ? { photoConfidence } : {}),
+      src: item.src,
+    };
   });
 }
 
@@ -35,12 +40,14 @@ export function overlayPhotoCredit(
   const date = extra?.date ?? base?.date;
   const lat = base?.lat ?? extra?.lat;
   const lng = base?.lng ?? extra?.lng;
+  const photoConfidence = extra?.photoConfidence ?? base?.photoConfidence;
   const merged: PhotoCredit = {
     ...(photographer ? { photographer } : {}),
     ...(url ? { url } : {}),
     ...(location ? { location } : {}),
     ...(date ? { date } : {}),
     ...(typeof lat === "number" && typeof lng === "number" ? { lat, lng } : {}),
+    ...(photoConfidence ? { photoConfidence } : {}),
   };
   return hasPhotoCredit(merged) ? merged : undefined;
 }
