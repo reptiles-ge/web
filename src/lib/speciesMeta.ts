@@ -110,6 +110,10 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
     en: "Northern banded newt (Ommatotriton ophryticus) | Newt in Georgia",
     ka: "კავკასიური ტრიტონი (Ommatotriton ophryticus) | ტრიტონი საქართველოში",
   },
+  "phoenicolacerta-laevis": {
+    en: "Lebanon lizard (Phoenicolacerta laevis) | Introduced lizard in Georgia",
+    ka: "ლიბანური ხვლიკი (Phoenicolacerta laevis) | შემოტანილი ხვლიკი საქართველოში",
+  },
   "platyceps-najadum": {
     en: "Dahl's whip snake (Platyceps najadum) | Non-venomous snake in Georgia",
     ka: "წენგოსფერი მცურავი (Platyceps najadum) | უშხამო გველი საქართველოში",
