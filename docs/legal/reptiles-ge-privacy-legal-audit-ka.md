@@ -134,7 +134,7 @@ Vercel, Google, Bunny და სხვა providers შესაძლოა მ
 
 ### Improvements
 
-6. დაამატეთ საჯარო `/privacy` და `/terms` გვერდები ყველა locale-ზე, footer/header link-ით.
+6. დაამატეთ საჯარო `/privacy` და `/terms-and-conditions` გვერდები ყველა locale-ზე, footer/header link-ით.
 
 7. privacy contact, controller identity, registered/legal address და dispute venue შეავსეთ მფლობელის დადასტურებით.
 

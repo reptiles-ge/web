@@ -93,7 +93,7 @@ export const pathnames = {
     "/obobebi/shxamiani-obobebi",
     "/spiders/venomous",
   ),
-  "/terms": "/terms",
+  "/terms-and-conditions": "/terms-and-conditions",
   "/turtles": kaLatin("/kuebi", "/turtles"),
   "/turtles/[slug]": kaLatin("/kuebi/[slug]", "/turtles/[slug]"),
   "/turtles/identifikacia": kaLatin(

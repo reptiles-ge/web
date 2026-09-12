@@ -68,7 +68,7 @@ const STATIC_TITLES: Partial<Record<AppPathnames, string>> = {
   "/snakes-in-the-yard": ka.footer.yard,
   "/species": ka.footer.species,
   "/spiders": ka.footer.spiders,
-  "/terms": ka.footer.terms,
+  "/terms-and-conditions": ka.footer.terms,
   "/turtles": ka.footer.turtles,
   "/venomous-snakes": ka.footer.venomous,
 };

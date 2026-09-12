@@ -27,7 +27,7 @@ type Props = {
 
 const legalPaths = {
   privacy: "/privacy",
-  terms: "/terms",
+  terms: "/terms-and-conditions",
 } as const;
 
 export function createLegalRoute(documentId: LegalDocumentId) {
