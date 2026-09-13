@@ -4162,6 +4162,48 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2400],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/lycosa-singoriensis-armen-1.jpg": {
+    "path": "lycosa-singoriensis-armen-1",
+    "width": 2400,
+    "height": 3009,
+    "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/lycosa-singoriensis-giorgi-2.jpg": {
+    "path": "lycosa-singoriensis-giorgi-2",
+    "width": 1268,
+    "height": 1061,
+    "widths": [320, 400, 640, 800, 1200, 1268],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/lycosa-singoriensis-ivan-1.jpg": {
+    "path": "lycosa-singoriensis-ivan-1",
+    "width": 576,
+    "height": 1024,
+    "widths": [320, 400, 576],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/lycosa-singoriensis-ivane-1.jpg": {
+    "path": "lycosa-singoriensis-ivane-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/lycosa-singoriensis-ka-1.jpg": {
+    "path": "lycosa-singoriensis-ka-1",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/lycosa-singoriensis-natalia-1.jpg": {
+    "path": "lycosa-singoriensis-natalia-1",
+    "width": 1834,
+    "height": 1273,
+    "widths": [320, 400, 640, 800, 1200, 1834],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/macrovipera-lebetina-armen-1.jpg": {
     "path": "macrovipera-lebetina-armen-1",
     "width": 2048,
