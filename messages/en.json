@@ -1669,7 +1669,6 @@
     "guideEyebrow": "Guide",
     "guideTitle": "Spiders in the animal atlas",
     "guideP1": "Reptiles.ge is adding spider profiles in the same format as the rest of the atlas: named sources, photos, and identification notes.",
-    "guideP2": "Country occurrence here rests on <otto>Otto 2022’s Caucasian spiders database</otto> and the <ilia>Ilia State University biodiversity database</ilia>. New sourced profiles are added gradually.",
     "speciesEyebrow": "Catalog",
     "speciesTitle": "{count} spiders in the atlas",
     "speciesBody": "Each profile states whether the species is confirmed in Georgia.",
