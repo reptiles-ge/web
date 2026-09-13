@@ -41703,6 +41703,59 @@
       ],
       "updatedAt": "2026-09-13T17:18:57.317Z"
     },
+    "lycosa-singoriensis-ivan-1.jpg": {
+      "sourceHash": "705e841636714ad1151b22088cb14558553657e3b2589d46934e5656d7bf4f2a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lycosa-singoriensis-ivan-1.jpg",
+      "originalSize": 188279,
+      "width": 576,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/lycosa-singoriensis-ivan-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 569,
+          "byteSize": 33076
+        },
+        {
+          "key": "optimized/lycosa-singoriensis-ivan-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 569,
+          "byteSize": 52458
+        },
+        {
+          "key": "optimized/lycosa-singoriensis-ivan-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 711,
+          "byteSize": 45322
+        },
+        {
+          "key": "optimized/lycosa-singoriensis-ivan-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 711,
+          "byteSize": 71128
+        },
+        {
+          "key": "optimized/lycosa-singoriensis-ivan-1-576.avif",
+          "format": "avif",
+          "width": 576,
+          "height": 1024,
+          "byteSize": 73874
+        },
+        {
+          "key": "optimized/lycosa-singoriensis-ivan-1-576.webp",
+          "format": "webp",
+          "width": 576,
+          "height": 1024,
+          "byteSize": 112954
+        }
+      ],
+      "updatedAt": "2026-09-13T17:27:06.041Z"
+    },
     "lycosa-singoriensis-ivane-1.jpg": {
       "sourceHash": "bc9c9d430e5603754c91f568bd8f435304520961e34e86aa86cc600ddf7c7e35",
       "configFingerprint": "409788ee46c653d8",
