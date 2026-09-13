@@ -41513,6 +41513,101 @@
       ],
       "updatedAt": "2026-08-28T21:45:11.604Z"
     },
+    "lycosa-singoriensis-armen-1.jpg": {
+      "sourceHash": "349645562c88cdd9644f47728fa8ad363fe70d25c520e13509bc9ff18127f20b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lycosa-singoriensis-armen-1.jpg",
+      "originalSize": 818601,
+      "width": 2400,
+      "height": 3009,
+      "derivatives": [
+        {
+          "key": "optimized/lycosa-singoriensis-armen-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 401,
+          "byteSize": 7549
+        },
+        {
+          "key": "optimized/lycosa-singoriensis-armen-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 401,
+          "byteSize": 9814
+        },
+        {
+          "key": "optimized/lycosa-singoriensis-armen-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 501,
+          "byteSize": 11245
+        },
+        {
+          "key": "optimized/lycosa-singoriensis-armen-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 501,
+          "byteSize": 14402
+        },
+        {
+          "key": "optimized/lycosa-singoriensis-armen-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 802,
+          "byteSize": 26270
+        },
+        {
+          "key": "optimized/lycosa-singoriensis-armen-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 802,
+          "byteSize": 34828
+        },
+        {
+          "key": "optimized/lycosa-singoriensis-armen-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1003,
+          "byteSize": 40177
+        },
+        {
+          "key": "optimized/lycosa-singoriensis-armen-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1003,
+          "byteSize": 53286
+        },
+        {
+          "key": "optimized/lycosa-singoriensis-armen-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1504,
+          "byteSize": 88307
+        },
+        {
+          "key": "optimized/lycosa-singoriensis-armen-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1504,
+          "byteSize": 122196
+        },
+        {
+          "key": "optimized/lycosa-singoriensis-armen-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 3009,
+          "byteSize": 279188
+        },
+        {
+          "key": "optimized/lycosa-singoriensis-armen-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 3009,
+          "byteSize": 403826
+        }
+      ],
+      "updatedAt": "2026-09-13T17:22:13.818Z"
+    },
     "lycosa-singoriensis-giorgi-2.jpg": {
       "sourceHash": "c63049608eb997e7f7c5a59dcddd877fe1c9aa5ff16c90a1b7aea6b5c8648863",
       "configFingerprint": "409788ee46c653d8",

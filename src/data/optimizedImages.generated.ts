@@ -4162,6 +4162,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2400],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/lycosa-singoriensis-armen-1.jpg": {
+    "path": "lycosa-singoriensis-armen-1",
+    "width": 2400,
+    "height": 3009,
+    "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/lycosa-singoriensis-giorgi-2.jpg": {
     "path": "lycosa-singoriensis-giorgi-2",
     "width": 1268,
