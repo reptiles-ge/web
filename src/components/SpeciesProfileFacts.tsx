@@ -3,7 +3,7 @@ import { getTranslations } from "next-intl/server";
 import type { DangerLevel, SpeciesStat } from "@/data/species";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
-import { PhoneLinkedText } from "@/components/PhoneLinkedText";
+import { BiologyExpandable } from "@/components/BiologyExpandable";
 import { Link } from "@/i18n/navigation";
 import { dangerPageHref } from "@/lib/dangerLevels";
 import { isPlaceholderBody } from "@/lib/speciesContent";
@@ -63,13 +63,17 @@ export async function SpeciesProfileFacts({
           </div>
         ) : null}
         {interaction && !isPlaceholderBody(interaction) ? (
-          <p className="mt-8 max-w-2xl text-[15px] leading-relaxed text-foreground/80 sm:text-[16px]">
-            <span className="font-medium text-foreground">
+          <aside className="mt-8 max-w-3xl border-l-4 border-gold bg-surface p-5 sm:px-6">
+            <h3 className="font-display text-[20px] font-medium text-foreground">
               {t("interaction")}
-            </span>
-            {": "}
-            <PhoneLinkedText>{interaction}</PhoneLinkedText>
-          </p>
+            </h3>
+            <BiologyExpandable
+              body={interaction}
+              needsExpand={interaction.length > 260}
+              readLess={t("readLess")}
+              readMore={t("readMore")}
+            />
+          </aside>
         ) : null}
       </div>
     </section>
