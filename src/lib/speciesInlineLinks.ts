@@ -1,6 +1,6 @@
 export type SpeciesInlinePart =
-  | { id: string; label: string; type: "species" }
-  | { type: "text"; value: string };
+  | { id: string; key: string; label: string; type: "species" }
+  | { key: string; type: "text"; value: string };
 
 const SPECIES_INLINE_LINK = /\[([^\]]+)\]\(([a-z0-9-]+)\)/g;
 
@@ -12,17 +12,30 @@ export function splitSpeciesInlineLinks(text: string): SpeciesInlinePart[] {
 
   while ((match = pattern.exec(text)) !== null) {
     if (match.index > lastIndex) {
-      parts.push({ type: "text", value: text.slice(lastIndex, match.index) });
+      parts.push({
+        key: `t:${lastIndex}`,
+        type: "text",
+        value: text.slice(lastIndex, match.index),
+      });
     }
-    parts.push({ id: match[2], label: match[1], type: "species" });
+    parts.push({
+      id: match[2],
+      key: `s:${match.index}:${match[2]}`,
+      label: match[1],
+      type: "species",
+    });
     lastIndex = match.index + match[0].length;
   }
 
   if (lastIndex < text.length) {
-    parts.push({ type: "text", value: text.slice(lastIndex) });
+    parts.push({
+      key: `t:${lastIndex}`,
+      type: "text",
+      value: text.slice(lastIndex),
+    });
   }
 
-  return parts.length > 0 ? parts : [{ type: "text", value: text }];
+  return parts.length > 0 ? parts : [{ key: "t:0", type: "text", value: text }];
 }
 
 export function stripSpeciesInlineLinks(text: string) {

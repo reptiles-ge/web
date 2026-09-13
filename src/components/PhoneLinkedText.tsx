@@ -20,8 +20,13 @@ const INLINE_LINK_CLASS_NAME =
 const INTERNAL_ROUTE_LINK = /\[([^\]]+)\]\((\/[^)]+)\)/g;
 
 type RouteLinkPart =
-  | { href: ComponentProps<typeof Link>["href"]; label: string; type: "route" }
-  | { type: "text"; value: string };
+  | {
+      href: ComponentProps<typeof Link>["href"];
+      key: string;
+      label: string;
+      type: "route";
+    }
+  | { key: string; type: "text"; value: string };
 
 export function PhoneLinkedText({ children }: { children: ReactNode }) {
   return <>{linkPhonesInNode(children)}</>;
@@ -51,13 +56,13 @@ function linkPhonesInNode(node: ReactNode): ReactNode {
 function renderPhoneLinkedString(text: string): ReactNode {
   const parts = splitInternalRouteLinks(text);
   if (parts.length > 1 || parts[0].type !== "text") {
-    return parts.map((part, index) => {
+    return parts.map((part) => {
       if (part.type === "route") {
         return (
           <Link
             className={INLINE_LINK_CLASS_NAME}
             href={part.href}
-            key={`r:${index}:${part.href}:${part.label}`}
+            key={part.key}
           >
             {part.label}
           </Link>
@@ -65,7 +70,7 @@ function renderPhoneLinkedString(text: string): ReactNode {
       }
 
       return (
-        <Fragment key={`t:${index}`}>
+        <Fragment key={part.key}>
           {renderSpeciesAndPhoneLinks(part.value)}
         </Fragment>
       );
@@ -102,13 +107,13 @@ function renderPhoneOnlyLinks(text: string): ReactNode {
 function renderSpeciesAndPhoneLinks(text: string): ReactNode {
   const parts = splitSpeciesInlineLinks(text);
   if (parts.length > 1 || parts[0].type !== "text") {
-    return parts.map((part, index) => {
+    return parts.map((part) => {
       if (part.type === "species") {
         return (
           <SpeciesInlineLink
             className={INLINE_LINK_CLASS_NAME}
             id={part.id}
-            key={`s:${index}:${part.id}:${part.label}`}
+            key={part.key}
             source="other"
           >
             {part.label}
@@ -117,9 +122,7 @@ function renderSpeciesAndPhoneLinks(text: string): ReactNode {
       }
 
       return (
-        <Fragment key={`t:${index}`}>
-          {renderPhoneOnlyLinks(part.value)}
-        </Fragment>
+        <Fragment key={part.key}>{renderPhoneOnlyLinks(part.value)}</Fragment>
       );
     });
   }
@@ -135,10 +138,15 @@ function splitInternalRouteLinks(text: string): RouteLinkPart[] {
 
   while ((match = pattern.exec(text)) !== null) {
     if (match.index > lastIndex) {
-      parts.push({ type: "text", value: text.slice(lastIndex, match.index) });
+      parts.push({
+        key: `t:${lastIndex}`,
+        type: "text",
+        value: text.slice(lastIndex, match.index),
+      });
     }
     parts.push({
       href: match[2] as ComponentProps<typeof Link>["href"],
+      key: `r:${match.index}:${match[2]}`,
       label: match[1],
       type: "route",
     });
@@ -146,8 +154,12 @@ function splitInternalRouteLinks(text: string): RouteLinkPart[] {
   }
 
   if (lastIndex < text.length) {
-    parts.push({ type: "text", value: text.slice(lastIndex) });
+    parts.push({
+      key: `t:${lastIndex}`,
+      type: "text",
+      value: text.slice(lastIndex),
+    });
   }
 
-  return parts.length > 0 ? parts : [{ type: "text", value: text }];
+  return parts.length > 0 ? parts : [{ key: "t:0", type: "text", value: text }];
 }
