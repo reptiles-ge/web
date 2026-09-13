@@ -65,7 +65,10 @@ export async function GroupHubSpeciesList({
           ))}
         </div>
 
-        {hubId === "turtles" || hubId === "birds" || hubId === "mammals" ? (
+        {hubId === "turtles" ||
+        hubId === "birds" ||
+        hubId === "mammals" ||
+        hubId === "spiders" ? (
           <div>
             <Link
               className="mt-10 inline-flex items-center gap-2 text-[14px] font-medium text-foreground transition-colors hover:text-primary"
@@ -74,7 +77,9 @@ export async function GroupHubSpeciesList({
                   ? "/turtles/saxeoebebi"
                   : hubId === "birds"
                     ? "/birds/saxeoebebi"
-                    : "/mammals/saxeoebebi"
+                    : hubId === "mammals"
+                      ? "/mammals/saxeoebebi"
+                      : "/spiders/saxeoebebi"
               }
             >
               {t("speciesIndexCta")}

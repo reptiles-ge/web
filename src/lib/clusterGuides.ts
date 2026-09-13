@@ -138,6 +138,7 @@ export type ClusterGuideId =
   | "snake-largest"
   | "snake-range"
   | "spider-bite"
+  | "spider-index"
   | "spider-venomous"
   | "turtle-identify"
   | "turtle-index"
@@ -167,6 +168,7 @@ export type ClusterGuidePath =
   | "/snakes/shxamiani-gvelis-amocnoba"
   | "/spiders"
   | "/spiders/obobis-nakbeni"
+  | "/spiders/saxeoebebi"
   | "/spiders/shxamiani-obobebi"
   | "/turtles/identifikacia"
   | "/turtles/saxeoebebi"
@@ -193,6 +195,7 @@ export type ClusterMessageKey =
   | "snakeLargest"
   | "snakeRange"
   | "spiderBite"
+  | "spiderIndex"
   | "spiderVenomous"
   | "turtleIdentify"
   | "turtleIndex"
@@ -477,6 +480,17 @@ export const CLUSTER_GUIDES: Record<ClusterGuideId, ClusterGuideConfig> = {
     primaryCta: "tel",
     schema: "article",
   },
+  "spider-index": {
+    faqCount: 4,
+    heroSpeciesId: "argiope-bruennichi",
+    id: "spider-index",
+    matches: isSpiderSpecies,
+    messageKey: "spiderIndex",
+    parentHub: "spiders",
+    pathname: "/spiders/saxeoebebi",
+    primaryCta: "hash",
+    schema: "collection",
+  },
   "spider-venomous": {
     faqCount: 6,
     heroSpeciesId: "latrodectus-tredecimguttatus",
@@ -578,6 +592,7 @@ export type HubClusterCard =
         | "range"
         | "snakesHub"
         | "spiderBite"
+        | "spiderIndex"
         | "spidersHub"
         | "spiderVenomous"
         | "turtleIdentify"
@@ -642,6 +657,7 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
     { id: "macrovipera-lebetina", key: "giurza", kind: "species" },
   ],
   spiders: [
+    { href: "/spiders/saxeoebebi", key: "spiderIndex", kind: "page" },
     {
       href: "/spiders/shxamiani-obobebi",
       key: "spiderVenomous",
@@ -665,7 +681,7 @@ export const HUB_INDEX_PATH: Record<GroupHubId, ClusterGuidePath> = {
   lizards: "/lizards/saxeoebebi",
   mammals: "/mammals/saxeoebebi",
   snakes: "/snakes/saxeoebebi",
-  spiders: "/spiders",
+  spiders: "/spiders/saxeoebebi",
   turtles: "/turtles/saxeoebebi",
 };
 
@@ -685,7 +701,7 @@ export function getHubIndexTitleKey(hubId: GroupHubId) {
     case "snakes":
       return "cluster.index.title" as const;
     case "spiders":
-      return "hubs.spiders" as const;
+      return "cluster.spiderIndex.title" as const;
     case "turtles":
       return "cluster.turtleIndex.title" as const;
     default:
@@ -953,7 +969,11 @@ export function getSpeciesGuideLinks(id: string): HubClusterCard[] {
       });
     }
   } else if (group === "spider") {
-    links.push({ href: "/spiders", key: "spidersHub", kind: "page" });
+    links.push({
+      href: "/spiders/saxeoebebi",
+      key: "spiderIndex",
+      kind: "page",
+    });
     links.push({
       href: "/spiders/shxamiani-obobebi",
       key: "spiderVenomous",

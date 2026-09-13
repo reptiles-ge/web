@@ -32,6 +32,7 @@ describe("species routes", () => {
 
   it("does not resolve a reserved hub slug as a species", () => {
     expect(resolveSpeciesInHub("snakes", "saxeoebebi")).toBeUndefined();
+    expect(resolveSpeciesInHub("spiders", "saxeoebebi")).toBeUndefined();
   });
 
   it("builds hub-scoped hrefs", () => {

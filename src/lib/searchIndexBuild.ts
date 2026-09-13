@@ -590,6 +590,27 @@ const CLUSTER_COPY: Record<ClusterGuideId, PageCopy> = {
       tr: "Örümcek ısırığı — ne yapmalıyım?",
     },
   },
+  "spider-index": {
+    icon: "atlas",
+    keywords: [
+      "ობობების სახეობები",
+      "spider species",
+      "пауки Грузии",
+      "örümcek türleri",
+    ],
+    subtitle: {
+      en: "Published spider profiles in one table",
+      ka: "გამოქვეყნებული ობობების პროფილები ერთ ცხრილში",
+      ru: "Опубликованные профили пауков в одной таблице",
+      tr: "Yayımlanmış örümcek profilleri tek tabloda",
+    },
+    title: {
+      en: "Spider species of Georgia",
+      ka: "საქართველოს ობობების სახეობები",
+      ru: "Виды пауков Грузии",
+      tr: "Gürcistan örümcek türleri",
+    },
+  },
   "spider-venomous": {
     icon: "safety",
     keywords: [

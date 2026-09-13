@@ -238,6 +238,7 @@ export async function openRemovePhotoPullRequest(input: {
 }
 
 function createPullRequest(input: {
+  baseBranch: string;
   body: string;
   branch: string;
   cwd: string;
@@ -252,7 +253,7 @@ function createPullRequest(input: {
       "--repo",
       input.repo,
       "--base",
-      BASE_BRANCH,
+      input.baseBranch,
       "--head",
       input.branch,
       "--title",
@@ -283,6 +284,7 @@ function currentBranchName(cwd: string) {
 }
 
 function findOpenPhotoPullRequest(
+  baseBranch: string,
   id: string,
 ): null | { branch: string; url: string } {
   try {
@@ -292,7 +294,7 @@ function findOpenPhotoPullRequest(
         "pr",
         "list",
         "--base",
-        BASE_BRANCH,
+        baseBranch,
         "--state",
         "open",
         "--limit",
@@ -343,6 +345,32 @@ function hasStagedChanges(cwd: string) {
   }
 }
 
+function refHasSpeciesFiles(ref: string, id: string) {
+  try {
+    const files = run("git", ["ls-tree", "-r", "--name-only", ref], REPO_ROOT);
+    const required = new Set(speciesMdxRel(id));
+    for (const file of files.split("\n")) {
+      required.delete(file.trim());
+    }
+    return required.size === 0;
+  } catch {
+    return false;
+  }
+}
+
+function resolvePhotoBase(id: string) {
+  const currentBranch = currentBranchName(REPO_ROOT);
+  if (
+    currentBranch &&
+    currentBranch !== BASE_BRANCH &&
+    !refHasSpeciesFiles(BASE_REF, id) &&
+    speciesMdxRel(id).every((file) => fs.existsSync(path.join(REPO_ROOT, file)))
+  ) {
+    return { branch: currentBranch, ref: "HEAD" };
+  }
+  return { branch: BASE_BRANCH, ref: BASE_REF };
+}
+
 function run(cmd: string, args: string[], cwd: string) {
   try {
     return execFileSync(cmd, args, {
@@ -386,7 +414,8 @@ async function withPhotoPullRequest(input: {
   title: string;
 }): Promise<string> {
   const rel = speciesMdxRel(input.id);
-  const existing = findOpenPhotoPullRequest(input.id);
+  const base = resolvePhotoBase(input.id);
+  const existing = findOpenPhotoPullRequest(base.branch, input.id);
   const branch = existing?.branch ?? `photos/${input.id}-${stamp()}`;
   const onPhotoBranch =
     Boolean(existing) && currentBranchName(REPO_ROOT) === branch;
@@ -411,7 +440,11 @@ async function withPhotoPullRequest(input: {
       throw new Error("No gallery changes to open a pull request for");
     }
 
-    run("git", ["commit", "-m", input.title, "-m", input.commitBody], REPO_ROOT);
+    run(
+      "git",
+      ["commit", "-m", input.title, "-m", input.commitBody],
+      REPO_ROOT,
+    );
     run(
       "git",
       ["push", "-u", "origin", `HEAD:refs/heads/${branch}`],
@@ -434,6 +467,7 @@ async function withPhotoPullRequest(input: {
     }
 
     return createPullRequest({
+      baseBranch: base.branch,
       body: input.prBody,
       branch,
       cwd: REPO_ROOT,
@@ -448,9 +482,9 @@ async function withPhotoPullRequest(input: {
 
   try {
     try {
-      run("git", ["fetch", "origin", BASE_BRANCH], REPO_ROOT);
+      run("git", ["fetch", "origin", base.branch], REPO_ROOT);
     } catch {
-      run("git", ["rev-parse", "--verify", BASE_REF], REPO_ROOT);
+      run("git", ["rev-parse", "--verify", base.ref], REPO_ROOT);
     }
 
     if (existing) {
@@ -470,7 +504,7 @@ async function withPhotoPullRequest(input: {
     } else {
       run(
         "git",
-        ["worktree", "add", "-b", branch, worktree, BASE_REF],
+        ["worktree", "add", "-b", branch, worktree, base.ref],
         REPO_ROOT,
       );
     }
@@ -518,6 +552,7 @@ async function withPhotoPullRequest(input: {
     for (let attempt = 1; attempt <= 4; attempt += 1) {
       try {
         return createPullRequest({
+          baseBranch: base.branch,
           body: input.prBody,
           branch,
           cwd: worktree,

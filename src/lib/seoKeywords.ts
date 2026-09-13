@@ -963,6 +963,20 @@ const SPECIES_ALIASES: Record<
       "Lutra lutra meridionalis",
     ],
   },
+  "lycosa-singoriensis": {
+    en: [
+      "South Russian tarantula",
+      "Songarian wolf spider",
+      "Lycosa singoriensis",
+      "large wolf spider Georgia",
+    ],
+    ka: [
+      "ტარანტული",
+      "დიდი მგლის ობობა",
+      "სამხრეთრუსული ტარანტული",
+      "Lycosa singoriensis",
+    ],
+  },
   "lynx-lynx": {
     en: [
       "European lynx",

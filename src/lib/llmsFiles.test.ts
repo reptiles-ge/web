@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 
+import { getCatalogSpecies } from "@/data/species";
 import {
   AI_CITATION_USER_AGENTS,
   buildLlmsFullText,
@@ -36,7 +37,9 @@ describe("buildLlmsFullText", () => {
     expect(body).toContain("/gvelebi/giurza");
     expect(body).toContain("/en/snakes/macrovipera-lebetina");
     expect(body).toContain("10.3897/caucasiana.5.e189214");
-    expect(body).toContain("Published species cards: 125");
+    expect(body).toContain(
+      `Published species cards: ${getCatalogSpecies().length}`,
+    );
     expect(body.length).toBeGreaterThan(50_000);
     expect(body.length).toBeLessThan(900_000);
     expect(body).toContain("fuller cards");

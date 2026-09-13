@@ -156,7 +156,7 @@
       },
       "spiders": {
         "title": "Gürcistan’daki örümcekler",
-        "body": "Adı geçen kaynaklı tür profilleri — henüz tam ulusal liste değil.",
+        "body": "Kaynaklı profiller, fotoğraflar, tanıma ve güvenlik rehberleriyle.",
         "cta": "Örümcekler"
       }
     },
@@ -295,6 +295,7 @@
     "birdIndex": "Kuş türleri",
     "mammalIndex": "Memeli türleri",
     "lizardQuiz": "Bu hangi kertenkele?",
+    "spiderIndex": "Örümcek türleri",
     "spiderVenomous": "Zehirli örümcekler",
     "spiderBite": "Örümcek ısırığı",
     "jackalYard": "Bahçede çakal",
@@ -866,7 +867,7 @@
       "mammalsTitle": "Gürcistan memelileri",
       "mammalsP1": "Memeli sayfaları aynı profil yapısını kullanır. Henüz azı yayımlanmıştır — bu katalogda olmaması türün Gürcistan’da olmadığı anlamına gelmez.",
       "spidersTitle": "Gürcistan örümcekleri",
-      "spidersP1": "Örümcek sayfaları aynı kuralı izler: adı geçen kaynaklar, uydurulmuş harita yok. Liste büyür ve tam bir örümcek faunası kontrol listesinin yerini tutmaz.",
+      "spidersP1": "Örümcek sayfaları aynı kuralı izler: adı geçen kaynaklar, uydurulmuş harita yok. Kaynaklı sayfa hazır olduğunda liste yeni profillerle büyür.",
       "venomousTitle": "Gürcistan’ın zehirli yılanları",
       "venomousP1": "Gürcistan yılanlarının yalnızca bir azınlığı tıbbi açıdan önemlidir. Bu atlasda “zehirli”, insanlar için orta veya yüksek risk demektir: Levant engereği (Macrovipera lebetina), Kafkas engereği (Vipera kaznakovi), Dinnik engereği (Vipera dinniki), Transkafkas uzun burunlu engerek (Vipera transcaucasiana), Darevski engereği (Vipera darevskii) ve bozkır engereği (Vipera renardi). Buradaki diğer yılanların çoğu — su yılanı, kareli su yılanı, yılanlar, düz yılan, kedi yılanı — insanlar için zararsızdır, ancak birkaçı sıkça yanlış tanınır.",
       "venomousP2": "Güvenli karşılaşma pratiği basittir: yabani yılanları ellemiyin, mesafe koyun ve bölgenizde yaygın benzerleri öğrenin. Tanıma özellikleri, yaşam alanı ve koruma statüsü için her profili açın. Bu eğitici doğa tarihi rehberliğidir, acil tıbbi tavsiye değildir.",
@@ -1235,7 +1236,7 @@
       "spidersHub": {
         "eyebrow": "Örümcekler",
         "title": "Gürcistan’daki örümcekler",
-        "body": "Atlasdaki ilk örümcek profilleri — tür sayfaları, tam bir örümcek faunası listesi değil.",
+        "body": "Atlasdaki örümcek profilleri: tür sayfaları, fotoğraflar ve kaynaklar tek yerde.",
         "cta": "Örümcekler"
       },
       "birdIndex": {
@@ -1248,6 +1249,12 @@
         "eyebrow": "Katalog",
         "title": "Memeli türleri",
         "body": "Yayımlanmış atlas profilleri tabloda. Tam memeli listesi değildir.",
+        "cta": "Dizin"
+      },
+      "spiderIndex": {
+        "eyebrow": "Katalog",
+        "title": "Örümcek türleri",
+        "body": "Yayımlanmış profiller tek tabloda — adlar, familyalar, risk ve bağlantılar.",
         "cta": "Dizin"
       },
       "lizardQuiz": {
@@ -1534,7 +1541,7 @@
     },
     "faqEyebrow": "SSS",
     "faqTitle": "Amfibiler hakkında sorulanlar",
-    "faqIntro": "Kısa yanıtlar — derinlik profillerdedir.",
+    "faqIntro": "Kısa yanıtlar - ayrıntılı bilgi profillerdedir.",
     "faq1Q": "Gürcistan’da hangi amfibiler bulunur?",
     "faq1A": "Atlas Kafkas semenderini, semenderleri, kara kurbağalarını, ağaç kurbağalarını ve diğer kontrol listesi destekli türleri içerir. Tam liste bu sayfadadır.",
     "faq2Q": "Sahada amfibileri nerede görebilirim?",
@@ -1572,12 +1579,12 @@
     "section": {
       "all": {
         "title": "Kuşlar — {count}",
-        "body": "Şimdiye kadar yayımlanan profiller. Bu listede olmaması türün Gürcistan’da olmadığı anlamına gelmez."
+        "body": "Fotoğraflar, statü ve kaynaklarla yayımlanan kuş profilleri."
       }
     },
     "faqEyebrow": "SSS",
     "faqTitle": "Burada kuşlar hakkında sorulanlar",
-    "faqIntro": "Kısa yanıtlar — derinlik profillerdedir.",
+    "faqIntro": "Kısa yanıtlar - ayrıntılı bilgi profillerdedir.",
     "faq1Q": "Bu site tüm Gürcistan kuşlarını kapsar mı?",
     "faq1A": "Hayır. Bu merkez yazıldıkça tek tür sayfaları yayımlar. 2024 ulusal kontrol listesi tam avifauna için başvurudur.",
     "faq2Q": "Atlasda şimdi hangi kuş var?",
@@ -1625,12 +1632,12 @@
     "section": {
       "all": {
         "title": "Memeliler — {count}",
-        "body": "Şimdiye kadar yayımlanan profiller. Bu listede olmaması türün Gürcistan’da olmadığı anlamına gelmez."
+        "body": "Fotoğraflar, statü ve kaynaklarla yayımlanan memeli profilleri."
       }
     },
     "faqEyebrow": "SSS",
     "faqTitle": "Burada memeliler hakkında sorulanlar",
-    "faqIntro": "Kısa yanıtlar — derinlik profillerdedir.",
+    "faqIntro": "Kısa yanıtlar - ayrıntılı bilgi profillerdedir.",
     "faq1Q": "Bu site tüm Gürcistan memelilerini kapsar mı?",
     "faq1A": "Hayır. Bu merkez yazıldıkça tek tür sayfaları yayımlar. Ulusal memeli kontrol listeleri tam fauna için başvuru olmayı sürdürür.",
     "faq2Q": "Atlasda şimdi hangi memeliler var?",
@@ -1653,41 +1660,42 @@
     "breadcrumbCurrent": "Örümcekler",
     "heroImageAlt": "Sarı-siyah bantlı eşekarısı örümceği daire ağında",
     "title": "Gürcistan’daki örümcekler",
-    "subtitle": "Adı geçen kaynaklı Gürcistan örümcek profilleri — tam ulusal liste değil.",
+    "subtitle": "Gürcistan örümcek profilleri tek yerde: fotoğraflar, tanıma notları, yayılış bağlamı ve kaynaklar.",
     "ctaSpecies": "Türleri gör",
     "statSpecies": "Atlasdaki örümcek",
     "statFamilies": "Familya",
-    "statExtra": "Şimdiki odak",
-    "statExtraValue": "Argiope / Steatoda / Latrodectus",
+    "statExtra": "Kaynaklar",
+    "statExtraValue": "Adlandırılmış",
     "guideEyebrow": "Rehber",
     "guideTitle": "Hayvan atlasında örümcekler",
-    "guideP1": "Reptiles.ge, atlasın geri kalanıyla aynı kanıt kurallarıyla örümcek profilleri ekler: adı geçen kaynaklar, uydurulmuş bölgesel harita yok.",
-    "guideP2": "Ülke varlığı burada Otto 2022 Kafkas örümcekleri veritabanına ve İlia Üniversitesi biyoçeşitlilik veritabanına dayanır. Bu hub 659 türlük ulusal kontrol listesinin yerini tutmaz.",
+    "guideP1": "Reptiles.ge, atlasın geri kalanıyla aynı yapıda örümcek profilleri ekler: adı geçen kaynaklar, fotoğraflar ve tanıma notları.",
+    "guideP2": "Ülke varlığı burada <otto>Otto 2022 Kafkas örümcekleri veritabanına</otto> ve <ilia>İlia Üniversitesi biyoçeşitlilik veritabanına</ilia> dayanır. Kaynaklı yeni profiller kademeli olarak eklenir.",
     "speciesEyebrow": "Katalog",
     "speciesTitle": "Atlasda {count} örümcek",
-    "speciesBody": "Her profil, türün Gürcistan’da doğrulanıp doğrulanmadığını — ve haritada neyin kaldığını — söyler.",
+    "speciesBody": "Her profil, türün Gürcistan’da doğrulanıp doğrulanmadığını söyler.",
     "section": {
       "all": {
         "title": "Örümcekler — {count}",
-        "body": "Şimdiye kadar yayımlanan profiller. Bu listede olmaması türün Gürcistan’da olmadığı anlamına gelmez."
+        "body": "Fotoğraflar, tanıma notları ve kaynaklarla yayımlanan örümcek profilleri."
       }
     },
     "faqEyebrow": "Sık sorulanlar",
     "faqTitle": "Burada örümcekler hakkında ne sorulur",
-    "faqIntro": "Kısa yanıtlar — derinlik profillerdedir.",
+    "faqIntro": "Kısa yanıtlar - ayrıntılı bilgi profillerdedir.",
     "faq1Q": "Site Gürcistan’ın tüm örümceklerini kapsar mı?",
-    "faq1A": "Hayır. Bu hub, yazıldıkça tek tek tür sayfaları yayımlar. Tam fauna için Otto 2022 referans kalır.",
+    "faq1A": "Bu hub, kaynaklı profiller hazırlandıkça tek tek tür sayfaları yayımlar. Gürcistan’ın daha geniş örümcek faunası için Otto 2022 referanstır.",
     "faq2Q": "Atlasda şimdi hangi örümcekler var?",
     "faq2A": "Dört profil: eşekarısı örümceği, loblu örümcek, yalancı karakurt ve karakurt (Latrodectus tredecimguttatus). Liste büyüyor.",
     "faq3Q": "Örümcekler atlasa nasıl eklenir?",
-    "faq3A": "Örümcek sayfaları aynı tür-profil yapısını kullanır. Gürcistan hayvan atlasının parçasıdırlar, tam bir ulusal örümcek faunası listesi değildir.",
+    "faq3A": "Örümcek sayfaları aynı tür-profil yapısını kullanır: tanıma, habitat, yayılış, risk ve kaynaklar tek sayfada.",
     "faq4Q": "Örümcekler için bölgesel haritalar gösterilir mi?",
     "faq4A": "Yalnızca bir profilin adlandırılmış bölgesel kayıtları olduğunda. Eşekarısı örümceği, loblu örümcek, yalancı karakurt ve karakurt sayfaları bölgeleri adlandırılmış noktalardan boyar.",
     "faq5Q": "Yabani örümcekleri ellemek gerekir mi?",
     "faq5A": "Hayır. İzleyin. Argiope insanlar için tıbbi risk değildir; sahte kara dul ısırığı acıtabilir; karakurt ısırığı tıbbi olarak önemlidir. Yabani örümceği elinize almayın. Isırıldıysanız 112’yi arayın.",
     "ctaEyebrow": "Sonraki adım",
     "ctaTitle": "Örümcek listesinden profile",
-    "ctaBody": "Bir tür açın veya sürüngen, amfibi, kuş ve memeli rehberlerinde devam edin."
+    "ctaBody": "Bir tür açın veya sürüngen, amfibi, kuş ve memeli rehberlerinde devam edin.",
+    "speciesIndexCta": "Örümcek türleri dizini"
   },
   "amphibianFrogs": {
     "metaTitle": "Gürcistan kurbağaları — tür rehberi",
@@ -1712,7 +1720,7 @@
     "speciesBody": "Her satır bir profil açar. Bu taksonların bölgesel haritaları çoğu zaman hâlâ boştur — yayılış uydurmayız.",
     "faqEyebrow": "SSS",
     "faqTitle": "Kurbağalar hakkında sorulanlar",
-    "faqIntro": "Kısa yanıtlar — derinlik profillerdedir.",
+    "faqIntro": "Kısa yanıtlar - ayrıntılı bilgi profillerdedir.",
     "faq1Q": "Gürcistan’da kaç kurbağa vardır?",
     "faq1A": "Bu atlas kontrol listesinden 8 Anura türü listeler: iki kara kurbağası, iki ağaç kurbağası, Suriye saplı kurbağası, Kafkas maydanoz kurbağası, Kafkas kahverengi kurbağası ve ova kurbağası.",
     "faq2Q": "Kurbağa ile kara kurbağası arasındaki fark nedir?",
@@ -1768,7 +1776,7 @@
     "tableBody": "Fotoğraf, adlar, zehir, yayılış, boyut, yaşam alanı. Etkinlik yalnızca istatistikte varsa görünür. Uzun tire eksik alandır, sıfır değil.",
     "faqEyebrow": "SSS",
     "faqTitle": "Liste hakkında sorulanlar",
-    "faqIntro": "Kısa yanıtlar — derinlik profillerdedir.",
+    "faqIntro": "Kısa yanıtlar - ayrıntılı bilgi profillerdedir.",
     "faq1Q": "Gürcistan’da kaç yılan vardır?",
     "faq1A": "Bu dizin, kontrol listesinden atlasın güncel yılan kataloğudur. Sayı taksonomiyle değişir — burada yayımlanmış olanı görürsünüz.",
     "faq2Q": "Hangi yılanlar zehirlidir?",
@@ -2987,6 +2995,42 @@
     "ctaTitle": "Dizinden profile",
     "ctaBody": "Bir memeli profili açın veya soru pratikse bahçedeki çakal ve ayı karşılaşması rehberlerine gidin."
   },
+  "spiderIndex": {
+    "metaTitle": "Gürcistan örümcek türleri — atlas dizini",
+    "metaDescription": "Atlasın yayımlanmış örümcek profilleri tek tabloda: eşekarısı örümceği, loblu örümcek, yalancı karakurt ve karakurt — fotoğraflar, tanıma notları ve kaynaklarla.",
+    "keywords": "Gürcistan örümcek türleri, örümcek dizini Gürcistan, eşekarısı örümceği, karakurt, yalancı karakurt",
+    "breadcrumbCurrent": "Türler",
+    "heroImageAlt": "Sarı-siyah bantlı eşekarısı örümceği daire ağında",
+    "title": "Gürcistan örümcek türleri",
+    "subtitle": "Yayımlanmış profil dizini: adlar, familyalar, risk düzeyleri, fotoğraflar ve kaynaklı tür sayfaları.",
+    "ctaSpecies": "Dizini gör",
+    "ctaParent": "Örümcekler",
+    "statSpecies": "Atlasteki örümcek",
+    "statFamilies": "Familya",
+    "statExtra": "Profiller",
+    "statExtraValue": "Kademeli eklenir",
+    "guideEyebrow": "Dizin",
+    "guideTitle": "Yayımlanmış profiller",
+    "guideP1": "Bu sayfadaki Gürcistan örümcek türleri, atlasta yayımlanmış örümcek profilleridir. Tablo ortak adı, bilimsel adı, familyayı, kısa habitat alanını ve profil bağlantısını birleştirir.",
+    "guideP2": "Profiller adlandırılmış kaynaklardan yazılır: Otto 2022, İlia Üniversitesi biyoçeşitlilik veritabanı ve her tür sayfasında belirtilen kayıtlar. Kaynaklı sayfa hazır olduğunda yeni türler eklenir.",
+    "tableEyebrow": "Tablo",
+    "tableTitle": "{count} örümcek atlaste",
+    "tableBody": "Her satır bir profil açar. Familya filtreleri taramayı kolaylaştırır; boş alan kaynak boşluğudur, olumsuz sonuç değildir.",
+    "faqEyebrow": "Sık sorulanlar",
+    "faqTitle": "Bu dizinde ne aranır",
+    "faqIntro": "Liste, kaynaklar ve güvenlik tek yerde.",
+    "faq1Q": "Örümcek dizini ne gösterir?",
+    "faq1A": "Dizin, atlasta yayımlanmış örümcek profillerini ve ana alanlarını gösterir: ad, familya, risk düzeyi, habitat ve profil bağlantısı.",
+    "faq2Q": "Bir tür burada yoksa ne demek?",
+    "faq2A": "Atlas profilinin henüz yayımlanmadığı anlamına gelir. Adlandırılmış kaynaklarla desteklenen metin hazır olduğunda yeni sayfalar eklenir.",
+    "faq3Q": "Riskli örümcekleri nerede bulurum?",
+    "faq3A": "Zehirli örümcekler rehberini açın. Bu atlaste tıbbi olarak önemli örümcek karakurttur; ısırıldıysanız 112’yi arayın.",
+    "faq4Q": "Bölgesel harita neden boş olabilir?",
+    "faq4A": "Harita yalnızca adlandırılmış idari kayıtları boyar. Kaynak yalnızca ülke düzeyinde varlığı doğruluyorsa, atlas bölgeleri varsayımla boyamaz.",
+    "ctaEyebrow": "Sonraki adım",
+    "ctaTitle": "Dizinden profile",
+    "ctaBody": "Bir örümcek profili açın veya soru güvenlikle ilgiliyse zehirli örümcekler ve örümcek ısırığı rehberlerine gidin."
+  },
   "spiderVenomous": {
     "metaTitle": "Gürcistan’da zehirli örümcekler?",
     "metaDescription": "Bu atlaste tıbbi olarak önemli örümcek karakurttur. Argiope kara dul değildir. Hangi işaretler, neyi elinize almamalı ve ısırıkta 112’yi ne zaman aramalı.",
@@ -3009,7 +3053,7 @@
     "guideEyebrow": "Gürcistan",
     "guideTitle": "Bu neden ABD yazısı değil",
     "guideP1": "Gürcüce aramada kara dul çoğu zaman Latrodectus mactans demektir. World Spider Catalog o türü Kuzey Amerika’ya yerli alır. Burada doğrulanan Akdeniz / Avrupa karakurdudur — L. tredecimguttatus. Eski kayıtlarda Kafkas materyali sıkça L. mactans alttürü yazılırdı.",
-    "guideP2": "Atlaste dört profil var, Gürcistan’ın 659 örümceklik listesi değil (Otto 2022). Adı geçen karakurt kayıtları Tiflis, Gori, Aspindza ile Şiraki ve Eldari ovalarıdır. Profil kayıt yoksa başka bölge haritada boyanmaz. Bu sayfadaki örümcek fotoğraflarını Gürcistan saha çekimi saymayın.",
+    "guideP2": "Atlaste şu anda dört örümcek profili var. Otto 2022 Gürcistan için 659 örümcek listeler; burada kaynaklı atlas profili hazır olan türler gösterilir. Adı geçen karakurt kayıtları Tiflis, Gori, Aspindza ile Şiraki ve Eldari ovalarıdır. Profil kayıt yoksa başka bölge haritada boyanmaz. Bu sayfadaki örümcek fotoğraflarını Gürcistan saha çekimi saymayın.",
     "idEyebrow": "Tanıma",
     "idTitle": "Hangi örümcek olduğunu nasıl anlarız?",
     "idBody": "Renk yetmez. Ağ tipi, karın biçimi ve boyut birlikte işler. Emin değilseniz elinize almayın — profili açın.",
@@ -3030,7 +3074,7 @@
     "dont3": "Isırığı kesmeyin, emmeyin, yakmayın. 112’yi arayın.",
     "speciesEyebrow": "Atlas",
     "speciesTitle": "Bu sitedeki dört örümcek",
-    "speciesBody": "{count} profil — karşılaştırma için, tam bir araknofauna değil. İşaretler karakurta uyuyorsa o sayfayı açın.",
+    "speciesBody": "{count} profil karşılaştırma için. İşaretler karakurta uyuyorsa o sayfayı açın.",
     "linkKarakurt": "Karakurt profili",
     "mythsEyebrow": "Mitler",
     "mythsTitle": "Yaygın mitler",

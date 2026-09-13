@@ -156,7 +156,7 @@
       },
       "spiders": {
         "title": "Spiders in Georgia",
-        "body": "Species profiles with named sources — not a complete national list yet.",
+        "body": "Sourced profiles, with photos, identification, and safety guides.",
         "cta": "Spiders"
       }
     },
@@ -295,6 +295,7 @@
     "birdIndex": "Bird species",
     "mammalIndex": "Mammal species",
     "lizardQuiz": "Which lizard is it?",
+    "spiderIndex": "Spider species",
     "spiderVenomous": "Venomous spiders",
     "spiderBite": "Spider bite",
     "jackalYard": "Jackal in the yard",
@@ -866,7 +867,7 @@
       "mammalsTitle": "Mammals of Georgia",
       "mammalsP1": "Mammal pages use the same profile structure. Few are published yet — absence from this catalog does not mean the species is absent from Georgia.",
       "spidersTitle": "Spiders of Georgia",
-      "spidersP1": "Spider pages follow the same rule: named sources, no invented maps. The list is growing and does not replace a full arachnofauna checklist.",
+      "spidersP1": "Spider pages follow the same rule: named sources, no invented maps. The list grows with new profiles when a sourced page is ready.",
       "venomousTitle": "Venomous snakes of Georgia",
       "venomousP1": "Only a minority of Georgia’s snakes are medically significant. In this atlas, “venomous” means moderate or high risk to humans: the Levantine viper (Macrovipera lebetina), Caucasus viper (Vipera kaznakovi), Dinnik’s viper (Vipera dinniki), Transcaucasian long-nosed viper (Vipera transcaucasiana), Darevsky’s viper (Vipera darevskii), and steppe viper (Vipera renardi). Most other snakes here — grass snake, dice snake, racers, smooth snake, cat snake — are harmless to people, though several are frequently misidentified.",
       "venomousP2": "Safe encounter practice is simple: do not handle wild snakes, keep distance, and learn the lookalikes common in your region. Open each profile for identification traits, habitat, and conservation status. This is educational natural-history guidance, not emergency medical advice.",
@@ -1235,7 +1236,7 @@
       "spidersHub": {
         "eyebrow": "Spiders",
         "title": "Spiders in Georgia",
-        "body": "The first spider profiles in the atlas — species pages, not a full arachnofauna list.",
+        "body": "Spider profiles in the atlas, with species pages, photos, and sources in one place.",
         "cta": "Spiders"
       },
       "birdIndex": {
@@ -1248,6 +1249,12 @@
         "eyebrow": "Catalog",
         "title": "Mammal species",
         "body": "Published atlas profiles in a table. Not a full mammal list.",
+        "cta": "Index"
+      },
+      "spiderIndex": {
+        "eyebrow": "Catalog",
+        "title": "Spider species",
+        "body": "Published profiles in one table — names, families, risk, and links.",
         "cta": "Index"
       },
       "lizardQuiz": {
@@ -1534,7 +1541,7 @@
     },
     "faqEyebrow": "FAQ",
     "faqTitle": "What people ask about amphibians",
-    "faqIntro": "Short answers — depth lives on profiles.",
+    "faqIntro": "Short answers - detailed information is on profiles.",
     "faq1Q": "Which amphibians occur in Georgia?",
     "faq1A": "The atlas includes the Caucasian salamander, newts, toads, tree frogs, and other checklist-supported species. The full list is on this page.",
     "faq2Q": "Where can I see amphibians in the field?",
@@ -1572,12 +1579,12 @@
     "section": {
       "all": {
         "title": "Birds — {count}",
-        "body": "Profiles published so far. Absence from this list does not mean the species is absent from Georgia."
+        "body": "Published bird profiles with photos, status, and sources."
       }
     },
     "faqEyebrow": "FAQ",
     "faqTitle": "What people ask about birds here",
-    "faqIntro": "Short answers — depth lives on profiles.",
+    "faqIntro": "Short answers - detailed information is on profiles.",
     "faq1Q": "Does this site cover all Georgian birds?",
     "faq1A": "No. This hub publishes individual species pages as they are written. The 2024 national checklist is the reference for the full avifauna.",
     "faq2Q": "Which bird is in the atlas now?",
@@ -1625,12 +1632,12 @@
     "section": {
       "all": {
         "title": "Mammals — {count}",
-        "body": "Profiles published so far. Absence from this list does not mean the species is absent from Georgia."
+        "body": "Published mammal profiles with photos, status, and sources."
       }
     },
     "faqEyebrow": "FAQ",
     "faqTitle": "What people ask about mammals here",
-    "faqIntro": "Short answers — depth lives on profiles.",
+    "faqIntro": "Short answers - detailed information is on profiles.",
     "faq1Q": "Does this site cover all Georgian mammals?",
     "faq1A": "No. This hub publishes individual species pages as they are written. National mammal checklists remain the reference for the full fauna.",
     "faq2Q": "Which mammals are in the atlas now?",
@@ -1653,41 +1660,42 @@
     "breadcrumbCurrent": "Spiders",
     "heroImageAlt": "Wasp spider with yellow-and-black bands in an orb web",
     "title": "Spiders in Georgia",
-    "subtitle": "Spider profiles for Georgia with named sources — not a complete national list.",
+    "subtitle": "Spider profiles for Georgia in one place: photos, identification notes, range context, and sources.",
     "ctaSpecies": "See the species",
     "statSpecies": "Spiders in the atlas",
     "statFamilies": "Families",
-    "statExtra": "Current focus",
-    "statExtraValue": "Argiope / Steatoda / Latrodectus",
+    "statExtra": "Sources",
+    "statExtraValue": "Named",
     "guideEyebrow": "Guide",
     "guideTitle": "Spiders in the animal atlas",
-    "guideP1": "Reptiles.ge is adding spider profiles using the same evidence rules as the rest of the atlas: named sources, no invented regional maps.",
-    "guideP2": "Country occurrence here rests on Otto 2022’s Caucasian spiders database and the Ilia State University biodiversity database. This hub is not a substitute for the 659-species national checklist.",
+    "guideP1": "Reptiles.ge is adding spider profiles in the same format as the rest of the atlas: named sources, photos, and identification notes.",
+    "guideP2": "Country occurrence here rests on <otto>Otto 2022’s Caucasian spiders database</otto> and the <ilia>Ilia State University biodiversity database</ilia>. New sourced profiles are added gradually.",
     "speciesEyebrow": "Catalog",
     "speciesTitle": "{count} spiders in the atlas",
-    "speciesBody": "Each profile states whether the species is confirmed in Georgia — and what remains unmapped.",
+    "speciesBody": "Each profile states whether the species is confirmed in Georgia.",
     "section": {
       "all": {
         "title": "Spiders — {count}",
-        "body": "Profiles published so far. Absence from this list does not mean the species is absent from Georgia."
+        "body": "Published spider profiles with photos, identification notes, and sources."
       }
     },
     "faqEyebrow": "FAQ",
     "faqTitle": "What people ask about spiders here",
-    "faqIntro": "Short answers — depth lives on profiles.",
+    "faqIntro": "Short answers - detailed information is on profiles.",
     "faq1Q": "Does this site cover all Georgian spiders?",
-    "faq1A": "No. This hub publishes individual species pages as they are written. Otto 2022 remains the reference for the full fauna.",
+    "faq1A": "This hub publishes individual species pages as sourced profiles are prepared. Use Otto 2022 as the reference for Georgia’s wider spider fauna.",
     "faq2Q": "Which spiders are in the atlas now?",
     "faq2A": "Four profiles: the wasp spider, the lobed argiope, the false black widow, and the Mediterranean black widow (Latrodectus tredecimguttatus). The list is growing.",
     "faq3Q": "How are spiders added to the atlas?",
-    "faq3A": "Spider pages use the same species-profile structure. They are part of the animal atlas of Georgia, not a complete national arachnofauna list.",
+    "faq3A": "Spider pages use the same species-profile structure: identification, habitat, range, risk, and sources on one page.",
     "faq4Q": "Are regional maps shown for spiders?",
     "faq4A": "Only when a profile has named regional records. The wasp spider, lobed argiope, false black widow, and Mediterranean black widow pages colour regions from named localities.",
     "faq5Q": "Should I handle wild spiders?",
     "faq5A": "No. Watch. Argiope is not a medical risk to people; a false-widow bite can hurt; a karakurt bite is medically significant. Do not pick up wild spiders. If bitten, call 112.",
     "ctaEyebrow": "Next step",
     "ctaTitle": "From spider list to profile",
-    "ctaBody": "Open a species, or continue in the reptile, amphibian, bird, and mammal guides."
+    "ctaBody": "Open a species, or continue in the reptile, amphibian, bird, and mammal guides.",
+    "speciesIndexCta": "Spider species index"
   },
   "amphibianFrogs": {
     "metaTitle": "Frogs of Georgia — species guide",
@@ -1712,7 +1720,7 @@
     "speciesBody": "Each row opens a profile. Regional maps for these taxa are often still empty — we do not invent ranges.",
     "faqEyebrow": "FAQ",
     "faqTitle": "What people ask about frogs",
-    "faqIntro": "Short answers — depth lives on profiles.",
+    "faqIntro": "Short answers - detailed information is on profiles.",
     "faq1Q": "How many frogs are there in Georgia?",
     "faq1A": "This atlas lists 8 Anura species from the checklist: two toads, two treefrogs, Syrian spadefoot, Caucasian parsley frog, Caucasian brown frog, and marsh frog.",
     "faq2Q": "What is the difference between a frog and a toad?",
@@ -1768,7 +1776,7 @@
     "tableBody": "Photo, names, venom, range, size, habitat. Activity appears only if it is in the stats. An em dash is a missing field, not a zero.",
     "faqEyebrow": "FAQ",
     "faqTitle": "What people ask about the list",
-    "faqIntro": "Short answers — depth lives on profiles.",
+    "faqIntro": "Short answers - detailed information is on profiles.",
     "faq1Q": "How many snakes are there in Georgia?",
     "faq1A": "This index is the atlas’s current snake catalog from the checklist. The number changes with taxonomy — here you see what is already published.",
     "faq2Q": "Which snakes are venomous?",
@@ -2987,6 +2995,42 @@
     "ctaTitle": "From index to profile",
     "ctaBody": "Open a mammal profile, or go to the jackal-in-the-yard and bear encounter guides if the question is practical."
   },
+  "spiderIndex": {
+    "metaTitle": "Spider species of Georgia — atlas index",
+    "metaDescription": "Published atlas spider profiles in one table: wasp spider, lobed argiope, false black widow, and Mediterranean black widow, with photos, identification notes, and sources.",
+    "keywords": "spider species of Georgia, spider index Georgia, wasp spider, karakurt, false black widow, Georgia spider species",
+    "breadcrumbCurrent": "Species",
+    "heroImageAlt": "Wasp spider with yellow-and-black bands in an orb web",
+    "title": "Spider species of Georgia",
+    "subtitle": "Published profile index: names, families, risk levels, photos, and sourced species pages.",
+    "ctaSpecies": "See the index",
+    "ctaParent": "Spiders",
+    "statSpecies": "Spiders in the atlas",
+    "statFamilies": "Families",
+    "statExtra": "Profiles",
+    "statExtraValue": "Added gradually",
+    "guideEyebrow": "Index",
+    "guideTitle": "Profiles already published",
+    "guideP1": "Spider species of Georgia on this page means spider profiles already published in the atlas. The table brings together common name, scientific name, family, a short habitat field, and the profile link.",
+    "guideP2": "Profiles are written from named sources: Otto 2022, the Ilia State University biodiversity database, and records cited on each species page. New species are added when a sourced page is ready.",
+    "tableEyebrow": "Table",
+    "tableTitle": "{count} spiders in the atlas",
+    "tableBody": "Each row opens a profile. Family filters help scanning; an empty field is a source gap, not a negative conclusion.",
+    "faqEyebrow": "FAQ",
+    "faqTitle": "What people ask on this index",
+    "faqIntro": "List, sources, and safety in one place.",
+    "faq1Q": "What does the spider index show?",
+    "faq1A": "The index shows spider profiles published in the atlas and their main fields: name, family, risk level, habitat, and profile link.",
+    "faq2Q": "What if a species is missing here?",
+    "faq2A": "It means its atlas profile has not been published yet. New pages are added when text backed by named sources is ready.",
+    "faq3Q": "Where can I find risky spiders?",
+    "faq3A": "Open the venomous spiders guide. In this atlas the medically significant spider is the karakurt; if bitten, call 112.",
+    "faq4Q": "Why might the regional map be empty?",
+    "faq4A": "The map only paints named administrative records. If a source confirms only country-level presence, the atlas does not colour regions by inference.",
+    "ctaEyebrow": "Next step",
+    "ctaTitle": "From index to profile",
+    "ctaBody": "Open a spider profile, or go to the venomous spiders and spider bite guides when the question is about safety."
+  },
   "spiderVenomous": {
     "metaTitle": "Venomous spiders in Georgia?",
     "metaDescription": "The medically significant spider in this atlas is the karakurt. Argiope is not a black widow. What to look for, what not to handle, and when to call 112 after a bite.",
@@ -3009,7 +3053,7 @@
     "guideEyebrow": "Georgia",
     "guideTitle": "Why this is not a US article",
     "guideP1": "A Georgian search for black widow often means Latrodectus mactans. The World Spider Catalog treats that species as native to North America. What is confirmed here is the Mediterranean / European karakurt — L. tredecimguttatus. Older records often listed Caucasian material as a subspecies of L. mactans.",
-    "guideP2": "The atlas has four profiles, not Georgia's 659-spider list (Otto 2022). Named karakurt records are Tbilisi, Gori, Aspindza, and the Shiraki and Eldari plains. Other regions are not coloured unless a profile names a record. Do not treat the spider photos on this page as Georgia-field shots.",
+    "guideP2": "The atlas currently has four spider profiles. Otto 2022 lists 659 spiders for Georgia; this page shows the species that already have sourced atlas profiles. Named karakurt records are Tbilisi, Gori, Aspindza, and the Shiraki and Eldari plains. Other regions are not coloured unless a profile names a record. Do not treat the spider photos on this page as Georgia-field shots.",
     "idEyebrow": "Identification",
     "idTitle": "How do we tell which spider it is?",
     "idBody": "Colour is not enough. Web type, abdomen shape, and size work together. If unsure, do not pick it up — open the profile.",
@@ -3030,7 +3074,7 @@
     "dont3": "Do not cut, suck, or burn a bite. Call 112.",
     "speciesEyebrow": "Atlas",
     "speciesTitle": "Four spiders on this site",
-    "speciesBody": "{count} profiles — for comparison, not a full arachnofauna. If the marks match a karakurt, open that page.",
+    "speciesBody": "{count} profiles for comparison. If the marks match a karakurt, open that page.",
     "linkKarakurt": "Karakurt profile",
     "mythsEyebrow": "Myths",
     "mythsTitle": "Common myths",

@@ -28,6 +28,7 @@ export async function CatalogSpeciesIndexPage({
   if (
     messageKey !== "birdIndex" &&
     messageKey !== "mammalIndex" &&
+    messageKey !== "spiderIndex" &&
     messageKey !== "turtleIndex"
   ) {
     return null;

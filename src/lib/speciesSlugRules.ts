@@ -141,6 +141,14 @@ const KA_SLUG_ALIASES: Record<string, string[]> = {
     "rufous-nightingale",
   ],
   "lutra-lutra": ["tsavi", "wavi", "evraziuli-tsavi"],
+  "lycosa-singoriensis": [
+    "tarantuli",
+    "didi-mglis-oboba",
+    "samxretrusuli-tarantuli",
+    "south-russian-tarantula",
+    "songarian-wolf-spider",
+    "lycosa-singoriensis",
+  ],
   "lynx-lynx": ["fotsxveri", "lynx", "evraziuli-fotsxveri"],
   "meles-canescens": ["evropuli-machvi", "meles-meles", "machvi"],
   "milvus-migrans": [

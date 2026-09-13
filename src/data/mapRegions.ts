@@ -480,6 +480,7 @@ export const regions: Region[] = [
       "ciconia-ciconia",
       "tyto-alba",
       "argiope-bruennichi",
+      "lycosa-singoriensis",
     ],
   },
   {
@@ -545,6 +546,7 @@ export const regions: Region[] = [
       "argiope-lobata",
       "steatoda-paykulliana",
       "latrodectus-tredecimguttatus",
+      "lycosa-singoriensis",
     ],
   },
   {
