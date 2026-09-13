@@ -63,6 +63,7 @@ export const kaFrontmatterSchema = z
     commonName: nonempty,
     conservation: z.string().optional(),
     danger: dangerLevelSchema.optional(),
+    dateModified: z.string().optional(),
     datePublished: z.string().optional(),
     description: z.string().optional(),
     diet: z.string().optional(),
