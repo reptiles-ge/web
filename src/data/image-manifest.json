@@ -41608,6 +41608,101 @@
       ],
       "updatedAt": "2026-09-13T17:18:57.317Z"
     },
+    "lycosa-singoriensis-ivane-1.jpg": {
+      "sourceHash": "bc9c9d430e5603754c91f568bd8f435304520961e34e86aa86cc600ddf7c7e35",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lycosa-singoriensis-ivane-1.jpg",
+      "originalSize": 1005928,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/lycosa-singoriensis-ivane-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 18108
+        },
+        {
+          "key": "optimized/lycosa-singoriensis-ivane-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 30060
+        },
+        {
+          "key": "optimized/lycosa-singoriensis-ivane-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 26454
+        },
+        {
+          "key": "optimized/lycosa-singoriensis-ivane-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 44788
+        },
+        {
+          "key": "optimized/lycosa-singoriensis-ivane-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 61871
+        },
+        {
+          "key": "optimized/lycosa-singoriensis-ivane-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 106230
+        },
+        {
+          "key": "optimized/lycosa-singoriensis-ivane-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 95839
+        },
+        {
+          "key": "optimized/lycosa-singoriensis-ivane-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 164176
+        },
+        {
+          "key": "optimized/lycosa-singoriensis-ivane-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 197490
+        },
+        {
+          "key": "optimized/lycosa-singoriensis-ivane-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 331694
+        },
+        {
+          "key": "optimized/lycosa-singoriensis-ivane-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 480967
+        },
+        {
+          "key": "optimized/lycosa-singoriensis-ivane-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 728770
+        }
+      ],
+      "updatedAt": "2026-09-13T17:20:38.212Z"
+    },
     "macrovipera-lebetina-2.webp": {
       "sourceHash": "b6cc2b7f182c0fd6314ced5fc1a5d3c71751b54b3e770ef21f0b7070356fd015",
       "configFingerprint": "a895f8e025dcc7fa",
