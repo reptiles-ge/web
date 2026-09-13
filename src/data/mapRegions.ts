@@ -480,6 +480,7 @@ export const regions: Region[] = [
       "ciconia-ciconia",
       "tyto-alba",
       "argiope-bruennichi",
+      "lycosa-singoriensis",
     ],
   },
   {

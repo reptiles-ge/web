@@ -123,6 +123,7 @@ export const featuredSpeciesIds = [
   "capra-aegagrus",
   "argiope-bruennichi",
   "argiope-lobata",
+  "lycosa-singoriensis",
   "steatoda-paykulliana",
   "latrodectus-tredecimguttatus",
 ] as const;

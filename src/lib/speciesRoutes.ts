@@ -199,6 +199,7 @@ const LOOKALIKES: Record<string, string[]> = {
     "mertensiella-caucasica",
   ],
   "luscinia-megarhynchos": ["erithacus-rubecula"],
+  "lycosa-singoriensis": ["latrodectus-tredecimguttatus"],
   "lynx-lynx": ["panthera-pardus", "canis-lupus"],
   "macrovipera-lebetina": [
     "malpolon-insignitus",

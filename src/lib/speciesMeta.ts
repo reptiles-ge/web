@@ -86,6 +86,10 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
     en: "Common nightingale (Luscinia megarhynchos) | Songbird in Georgia",
     ka: "ბულბული (Luscinia megarhynchos) | მომღერალი ფრინველი საქართველოში",
   },
+  "lycosa-singoriensis": {
+    en: "South Russian tarantula (Lycosa singoriensis) | Wolf spider in Georgia",
+    ka: "ტარანტული (Lycosa singoriensis) | დიდი მგლის ობობა საქართველოში",
+  },
   "macrovipera-lebetina": {
     en: "Levantine viper (Macrovipera lebetinus) | High-risk venomous snake in Georgia",
     ka: "გიურზა (Macrovipera lebetinus) | შხამიანი გველი საქართველოში — რისკი",

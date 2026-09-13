@@ -311,6 +311,10 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "mammal",
     habitats: ["wetland", "forest", "mountain"],
   },
+  "lycosa-singoriensis": {
+    group: "spider",
+    habitats: ["grassland"],
+  },
   "lynx-lynx": {
     group: "mammal",
     habitats: ["forest", "mountain", "grassland"],
