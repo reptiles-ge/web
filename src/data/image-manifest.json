@@ -41703,6 +41703,101 @@
       ],
       "updatedAt": "2026-09-13T17:20:38.212Z"
     },
+    "lycosa-singoriensis-natalia-1.jpg": {
+      "sourceHash": "c483f6ecbf01f64e85ed5a3ea91d032b113d893f331fda42a171607400784708",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lycosa-singoriensis-natalia-1.jpg",
+      "originalSize": 557669,
+      "width": 1834,
+      "height": 1273,
+      "derivatives": [
+        {
+          "key": "optimized/lycosa-singoriensis-natalia-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 222,
+          "byteSize": 14451
+        },
+        {
+          "key": "optimized/lycosa-singoriensis-natalia-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 222,
+          "byteSize": 23976
+        },
+        {
+          "key": "optimized/lycosa-singoriensis-natalia-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 277,
+          "byteSize": 21841
+        },
+        {
+          "key": "optimized/lycosa-singoriensis-natalia-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 277,
+          "byteSize": 35870
+        },
+        {
+          "key": "optimized/lycosa-singoriensis-natalia-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 444,
+          "byteSize": 47453
+        },
+        {
+          "key": "optimized/lycosa-singoriensis-natalia-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 444,
+          "byteSize": 77564
+        },
+        {
+          "key": "optimized/lycosa-singoriensis-natalia-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 555,
+          "byteSize": 67483
+        },
+        {
+          "key": "optimized/lycosa-singoriensis-natalia-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 555,
+          "byteSize": 109962
+        },
+        {
+          "key": "optimized/lycosa-singoriensis-natalia-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 833,
+          "byteSize": 125359
+        },
+        {
+          "key": "optimized/lycosa-singoriensis-natalia-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 833,
+          "byteSize": 199906
+        },
+        {
+          "key": "optimized/lycosa-singoriensis-natalia-1-1834.avif",
+          "format": "avif",
+          "width": 1834,
+          "height": 1273,
+          "byteSize": 237498
+        },
+        {
+          "key": "optimized/lycosa-singoriensis-natalia-1-1834.webp",
+          "format": "webp",
+          "width": 1834,
+          "height": 1273,
+          "byteSize": 330292
+        }
+      ],
+      "updatedAt": "2026-09-13T17:21:27.958Z"
+    },
     "macrovipera-lebetina-2.webp": {
       "sourceHash": "b6cc2b7f182c0fd6314ced5fc1a5d3c71751b54b3e770ef21f0b7070356fd015",
       "configFingerprint": "a895f8e025dcc7fa",

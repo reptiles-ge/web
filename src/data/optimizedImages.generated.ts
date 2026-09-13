@@ -4176,6 +4176,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/lycosa-singoriensis-natalia-1.jpg": {
+    "path": "lycosa-singoriensis-natalia-1",
+    "width": 1834,
+    "height": 1273,
+    "widths": [320, 400, 640, 800, 1200, 1834],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/macrovipera-lebetina-armen-1.jpg": {
     "path": "macrovipera-lebetina-armen-1",
     "width": 2048,
