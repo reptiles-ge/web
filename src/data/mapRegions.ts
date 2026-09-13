@@ -546,6 +546,7 @@ export const regions: Region[] = [
       "argiope-lobata",
       "steatoda-paykulliana",
       "latrodectus-tredecimguttatus",
+      "lycosa-singoriensis",
     ],
   },
   {
