@@ -41798,6 +41798,87 @@
       ],
       "updatedAt": "2026-09-13T17:20:38.212Z"
     },
+    "lycosa-singoriensis-ka-1.jpg": {
+      "sourceHash": "eef05353d1b8aac0bf0055129f4fd01289338620e946c2618103f9977ee0aee0",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lycosa-singoriensis-ka-1.jpg",
+      "originalSize": 146336,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/lycosa-singoriensis-ka-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9977
+        },
+        {
+          "key": "optimized/lycosa-singoriensis-ka-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 13950
+        },
+        {
+          "key": "optimized/lycosa-singoriensis-ka-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 14509
+        },
+        {
+          "key": "optimized/lycosa-singoriensis-ka-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 20406
+        },
+        {
+          "key": "optimized/lycosa-singoriensis-ka-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 29158
+        },
+        {
+          "key": "optimized/lycosa-singoriensis-ka-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 41498
+        },
+        {
+          "key": "optimized/lycosa-singoriensis-ka-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 39515
+        },
+        {
+          "key": "optimized/lycosa-singoriensis-ka-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 55736
+        },
+        {
+          "key": "optimized/lycosa-singoriensis-ka-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 57401
+        },
+        {
+          "key": "optimized/lycosa-singoriensis-ka-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 79970
+        }
+      ],
+      "updatedAt": "2026-09-13T17:26:15.426Z"
+    },
     "lycosa-singoriensis-natalia-1.jpg": {
       "sourceHash": "c483f6ecbf01f64e85ed5a3ea91d032b113d893f331fda42a171607400784708",
       "configFingerprint": "409788ee46c653d8",
