@@ -102,7 +102,16 @@ function getMtimeDate(filePaths: string[]): string | null {
   return latest === 0 ? null : toSiteDateTime(new Date(latest));
 }
 
-function resolveUpdatedAt(filePaths: string[]): string {
+function resolveUpdatedAt(
+  filePaths: string[],
+  override: string | undefined,
+): string {
+  if (override) {
+    const parsed = parseToSiteDateTime(override);
+    if (parsed) return parsed;
+    throw new Error(`Invalid dateModified: ${override}`);
+  }
+
   const existing = filePaths.filter((filePath) => fs.existsSync(filePath));
   if (existing.length === 0) {
     throw new Error(`Unable to resolve updatedAt for: ${filePaths.join(", ")}`);
@@ -313,7 +322,7 @@ for (const id of ids) {
     errors.push(`${id}: published taxon missing en.mdx`);
   }
 
-  const updatedAt = resolveUpdatedAt([kaPath, ...localePaths]);
+  const updatedAt = resolveUpdatedAt([kaPath, ...localePaths], fm.dateModified);
   const publishedAt = resolvePublishedAt(
     [kaPath, ...localePaths],
     fm.datePublished,
@@ -397,6 +406,4 @@ export const idByAnySlug: Record<string, string> = ${JSON.stringify(slugMaps.idB
 fs.writeFileSync(outFile, source, "utf8");
 fs.writeFileSync(slugOutFile, slugSource, "utf8");
 console.log(`Compiled ${species.length} species → ${outFile}`);
-console.log(
-  `Compiled ${slugRows.length} published slug rows → ${slugOutFile}`,
-);
+console.log(`Compiled ${slugRows.length} published slug rows → ${slugOutFile}`);
