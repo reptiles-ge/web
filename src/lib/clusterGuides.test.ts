@@ -8,6 +8,7 @@ import {
   isDarevskiaSpecies,
   isMammalSpecies,
   isSnakeSpecies,
+  isSpiderSpecies,
   REAR_FANGED_SPECIES_IDS,
   VENOMOUS_SPIDER_IDS,
 } from "@/lib/clusterGuides";
@@ -75,6 +76,7 @@ describe("bird and mammal indexes", () => {
     expect(CLUSTER_GUIDES["spider-bite"].pathname).toBe(
       "/spiders/obobis-nakbeni",
     );
+    expect(CLUSTER_GUIDES["spider-index"].pathname).toBe("/spiders/saxeoebebi");
     expect(CLUSTER_GUIDES["snake-bite"].emitFaqSchema).toBe(false);
     expect(CLUSTER_GUIDES["spider-bite"].emitFaqSchema).toBe(false);
     expect(CLUSTER_GUIDES["lizard-house"].pathname).toBe(
@@ -83,13 +85,18 @@ describe("bird and mammal indexes", () => {
     const catalog = getCatalogSpecies();
     const birds = catalog.filter(isBirdSpecies);
     const mammals = catalog.filter(isMammalSpecies);
+    const spiders = catalog.filter(isSpiderSpecies);
     expect(birds.length).toBeGreaterThan(0);
     expect(mammals.length).toBeGreaterThan(0);
+    expect(spiders.length).toBeGreaterThan(0);
     expect(
       birds.every((item) => CLUSTER_GUIDES["bird-index"].matches(item)),
     ).toBe(true);
     expect(
       mammals.every((item) => CLUSTER_GUIDES["mammal-index"].matches(item)),
+    ).toBe(true);
+    expect(
+      spiders.every((item) => CLUSTER_GUIDES["spider-index"].matches(item)),
     ).toBe(true);
     const venomousSpiders = catalog.filter((item) =>
       CLUSTER_GUIDES["spider-bite"].matches(item),

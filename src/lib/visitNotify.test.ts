@@ -94,6 +94,7 @@ describe("visitPageLabel", () => {
 
   it("prefers a static guide over a species slug", () => {
     expect(visitPageLabel("/gvelebi/saxeoebebi")).toBe("გველის სახეობები");
+    expect(visitPageLabel("/obobebi/saxeoebebi")).toBe("ობობების სახეობები");
   });
 });
 

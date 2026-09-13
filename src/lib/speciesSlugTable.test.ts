@@ -32,6 +32,7 @@ describe("species slug table", () => {
 
   it("does not resolve a reserved hub slug as a species", () => {
     expect(resolveSpeciesIdInHub("snakes", "saxeoebebi")).toBeUndefined();
+    expect(resolveSpeciesIdInHub("spiders", "saxeoebebi")).toBeUndefined();
   });
 
   it("rejects a slug from another hub", () => {

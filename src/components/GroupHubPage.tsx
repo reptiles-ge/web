@@ -31,6 +31,13 @@ type GroupHubPageProps = {
   species: Species[];
 };
 
+const spiderSourceLinkClassName =
+  "font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground";
+
+const spiderOttoUrl =
+  "https://caucasus-spiders.info/checklist/country-checklists/?country=2";
+const spiderIliaUrl = "https://biodiversity.iliauni.edu.ge/ka";
+
 export async function GroupHubPage({
   heroMobileSrc,
   heroSrc,
@@ -71,7 +78,32 @@ export async function GroupHubPage({
                     <PhoneLinkedText>{t("guideP1")}</PhoneLinkedText>
                   </p>
                   <p>
-                    <PhoneLinkedText>{t("guideP2")}</PhoneLinkedText>
+                    <PhoneLinkedText>
+                      {hubId === "spiders"
+                        ? t.rich("guideP2", {
+                            ilia: (chunks) => (
+                              <a
+                                className={spiderSourceLinkClassName}
+                                href={spiderIliaUrl}
+                                rel="noreferrer"
+                                target="_blank"
+                              >
+                                {chunks}
+                              </a>
+                            ),
+                            otto: (chunks) => (
+                              <a
+                                className={spiderSourceLinkClassName}
+                                href={spiderOttoUrl}
+                                rel="noreferrer"
+                                target="_blank"
+                              >
+                                {chunks}
+                              </a>
+                            ),
+                          })
+                        : t("guideP2")}
+                    </PhoneLinkedText>
                   </p>
                 </div>
               </div>

@@ -74,6 +74,7 @@ const CLUSTER_PAGES: Record<
   "snake-largest": SnakeLargestPage,
   "snake-range": SnakeRangePage,
   "spider-bite": SpiderBitePage,
+  "spider-index": CatalogSpeciesIndexPage,
   "spider-venomous": SpiderVenomousPage,
   "turtle-identify": TurtleIdentifyPage,
   "turtle-index": CatalogSpeciesIndexPage,

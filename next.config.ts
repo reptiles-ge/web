@@ -412,6 +412,8 @@ const nextConfig: NextConfig = {
         ["/birds/saxeoebebi", "/birds/species"],
         ["/dzuzumtsovrebi/saxeoebebi", "/mammals/species"],
         ["/mammals/saxeoebebi", "/mammals/species"],
+        ["/obobebi/saxeoebebi", "/spiders/species"],
+        ["/spiders/saxeoebebi", "/spiders/species"],
         ["/xvlikebi/xvliki-saxlshi", "/lizards/in-the-house"],
         ["/lizards/xvliki-saxlshi", "/lizards/in-the-house"],
         ["/dzuzumtsovrebi/tura-ezoshi", "/mammals/jackal-in-the-yard"],

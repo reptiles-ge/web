@@ -89,6 +89,7 @@ export const pathnames = {
     "/obobebi/obobis-nakbeni",
     "/spiders/bite",
   ),
+  "/spiders/saxeoebebi": kaLatin("/obobebi/saxeoebebi", "/spiders/species"),
   "/spiders/shxamiani-obobebi": kaLatin(
     "/obobebi/shxamiani-obobebi",
     "/spiders/venomous",

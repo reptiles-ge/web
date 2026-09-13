@@ -43,6 +43,7 @@ const CLUSTER_FOOTER_KEY: Record<ClusterMessageKey, keyof typeof ka.footer> = {
   snakeLargest: "snakeLargest",
   snakeRange: "snakeRange",
   spiderBite: "spiderBite",
+  spiderIndex: "spiderIndex",
   spiderVenomous: "spiderVenomous",
   turtleIdentify: "turtleIdentify",
   turtleIndex: "turtleIndex",
