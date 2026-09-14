@@ -26,6 +26,7 @@ export function SpeciesOverviewText({
       <p
         className={cn(
           "mt-8 max-w-2xl text-[16px] leading-relaxed text-foreground/85 sm:text-[18px]",
+          "whitespace-pre-line",
           !open && needsExpand ? "line-clamp-6" : "",
         )}
       >
