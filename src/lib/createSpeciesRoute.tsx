@@ -41,6 +41,7 @@ import { getSpeciesHeroSources, isPlaceholderBody } from "@/lib/speciesContent";
 import {
   speciesFallbackDescriptionKey,
   speciesMetaDescription,
+  speciesMetaDescriptionOverride,
   speciesPageMetaTitle,
   speciesTitleIntentKey,
 } from "@/lib/speciesMeta";
@@ -92,12 +93,14 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
       item.scientificName,
       t(speciesTitleIntentKey(group, raw.danger)),
     );
-    const description = isPlaceholderBody(item.overview)
-      ? t(speciesFallbackDescriptionKey(group, raw.danger), {
-          name: item.commonName,
-          scientific: item.scientificName,
-        })
-      : speciesMetaDescription(item.overview);
+    const description =
+      speciesMetaDescriptionOverride(raw.id, locale) ??
+      (isPlaceholderBody(item.overview)
+        ? t(speciesFallbackDescriptionKey(group, raw.danger), {
+            name: item.commonName,
+            scientific: item.scientificName,
+          })
+        : speciesMetaDescription(item.overview));
     const url = speciesPageUrl(locale, item.id);
     const keywords = speciesSeoKeywords(item, locale);
 

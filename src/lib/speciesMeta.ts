@@ -148,6 +148,14 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
   },
 };
 
+const SPECIES_META_DESCRIPTION_OVERRIDE: Partial<
+  Record<string, Partial<Record<AppLocale, string>>>
+> = {
+  "macrovipera-lebetina": {
+    ka: "გიურზა (Macrovipera lebetinus) საქართველოში: ამოცნობის ნიშნები, გავრცელება, აღმოსავლეთ საქართველოს მშრალი ჰაბიტატები, ზომა და მაღალი რისკი ადამიანისთვის.",
+  },
+};
+
 export function speciesImageAlt(
   commonName: string,
   scientificName: string,
@@ -166,6 +174,13 @@ export function speciesMetaDescription(overview: string, maxLength = 160) {
     lastSpace > 80 ? truncated.slice(0, lastSpace) : truncated
   ).trim();
   return `${clipped}…`;
+}
+
+export function speciesMetaDescriptionOverride(
+  speciesId: string,
+  locale: AppLocale,
+) {
+  return SPECIES_META_DESCRIPTION_OVERRIDE[speciesId]?.[locale];
 }
 
 export function speciesPageMetaTitle(
