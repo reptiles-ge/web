@@ -19,7 +19,7 @@
 
 კოდიდან დადგენილი მთავარი ფაილები:
 
-- `src/app/layout.tsx` — Vercel Speed Insights, Google Tag Manager, `NEXT_LOCALE`, theme init.
+- `src/app/layout.tsx` — Google Tag Manager, `NEXT_LOCALE`, theme init.
 - `src/components/GoogleTagManager.tsx` — GTM loader და `dataLayer`.
 - `src/lib/analytics.ts` — მომხმარებლის ქცევითი ივენთები `dataLayer`-ში.
 - `src/components/SpeciesSearch.tsx`, `src/lib/siteSearch.ts` — ძებნის query ივენთები და recent search storage.
@@ -33,10 +33,6 @@
 ### საიტის მიწოდება და ტექნიკური ლოგები
 
 საიტი მუშაობს Vercel-ზე. საჯარო პასუხებში ჩანს `Server: Vercel` და first-party `NEXT_LOCALE` cookie. Vercel, ქსელური ინფრასტრუქტურა და CDN პროვაიდერები ბუნებრივად ამუშავებენ IP მისამართს, request headers-ს, URL-ს, user-agent-ს და ტექნიკურ ლოგებს საიტის მიწოდებისა და უსაფრთხოებისთვის. Vercel-ის რეალური შენახვის ვადები, რეგიონები და DPA/contractual terms კოდიდან არ დგინდება — `[საჭიროა მფლობელისგან დაზუსტება]`.
-
-### Vercel Speed Insights
-
-`@vercel/speed-insights/next` ჩართულია `src/app/layout.tsx`-ში. ის აგზავნის performance/usage telemetry-ს Vercel-ში. პოლიტიკაში უნდა იყოს აღწერილი როგორც performance analytics/measurement. თუ ის არ არის მკაცრად აუცილებელი, საჭიროა გადაწყდეს, უნდა იყოს თუ არა consent-ზე დამოკიდებული, განსაკუთრებით EU/EEA ვიზიტორებისთვის.
 
 ### Google Tag Manager და შესაძლო Google Analytics/Ads
 
@@ -89,14 +85,14 @@ Quiz-ს არ სჭირდება ანგარიში ან სა�
 
 ## მესამე მხარეები
 
-| მესამე მხარე                     | კოდით დადგენილი როლი             | მონაცემები                                         | რისკი/საჭირო მოქმედება                                                      |
-| -------------------------------- | -------------------------------- | -------------------------------------------------- | --------------------------------------------------------------------------- |
-| Vercel                           | hosting, headers, Speed Insights | IP, request data, performance telemetry            | DPA, რეგიონი, retention, sub-processors: `[საჭიროა მფლობელისგან დაზუსტება]` |
-| Bunny CDN/Storage                | CDN და admin upload tooling      | media files, admin-upload metadata                 | DPA, retention, storage region: `[საჭიროა მფლობელისგან დაზუსტება]`          |
-| Google Tag Manager               | tag loading                      | `dataLayer` events, page context, possible cookies | consent gating, GTM export, GA retention აუცილებელია                        |
-| Google Analytics/Ads/DoubleClick | შესაძლო GTM tags/CSP allowlist   | analytics/conversion identifiers                   | exact usage `[საჭიროა მფლობელისგან დაზუსტება]`                              |
-| Google Maps                      | outbound photo coordinate link   | click takes user to Google                         | only after user click; disclose external link                               |
-| External scientific/media sites  | outbound source/credit links     | user leaves site                                   | disclose external sites have own policies                                   |
+| მესამე მხარე                     | კოდით დადგენილი როლი           | მონაცემები                                         | რისკი/საჭირო მოქმედება                                                      |
+| -------------------------------- | ------------------------------ | -------------------------------------------------- | --------------------------------------------------------------------------- |
+| Vercel                           | hosting, headers               | IP, request data, technical logs                   | DPA, რეგიონი, retention, sub-processors: `[საჭიროა მფლობელისგან დაზუსტება]` |
+| Bunny CDN/Storage                | CDN და admin upload tooling    | media files, admin-upload metadata                 | DPA, retention, storage region: `[საჭიროა მფლობელისგან დაზუსტება]`          |
+| Google Tag Manager               | tag loading                    | `dataLayer` events, page context, possible cookies | consent gating, GTM export, GA retention აუცილებელია                        |
+| Google Analytics/Ads/DoubleClick | შესაძლო GTM tags/CSP allowlist | analytics/conversion identifiers                   | exact usage `[საჭიროა მფლობელისგან დაზუსტება]`                              |
+| Google Maps                      | outbound photo coordinate link | click takes user to Google                         | only after user click; disclose external link                               |
+| External scientific/media sites  | outbound source/credit links   | user leaves site                                   | disclose external sites have own policies                                   |
 
 ## საერთაშორისო გადაცემები
 
@@ -124,7 +120,7 @@ Vercel, Google, Bunny და სხვა providers შესაძლოა მ
    - მოქმედება: განიხილეთ raw `search_term`-ის საერთოდ ამოღება, client-side aggregation, ან მხოლოდ result/no-result signal-ის გაგზავნა.
 
 4. retention policy არ არის დოკუმენტირებული.
-   - ეხება: GA/GTM, Vercel Speed Insights, Bunny და email correspondence.
+   - ეხება: GA/GTM, Bunny და email correspondence.
    - მოქმედება: შექმენით შიდა retention register და policy-ში მიუთითეთ რეალური ვადები.
 
 5. ფოტოებისა და third-party media-ს უფლებები granular metadata-ით არ ჩანს.

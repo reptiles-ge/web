@@ -22,7 +22,7 @@
 
 ### ანალიტიკა და საიტის გამოყენება
 
-საიტზე გამოიყენება Google Tag Manager და Vercel Speed Insights. Google Tag Manager-ის მეშვეობით შეიძლება დამუშავდეს გვერდის ნახვები, ენის შეცვლა, ძებნის გამოყენება, atlas filters, species/profile interactions, წყაროებზე click, gallery/audio interactions, quiz interactions, FAQ გახსნა და მსგავსი ივენთები.
+საიტზე გამოიყენება Google Tag Manager. Google Tag Manager-ის მეშვეობით შეიძლება დამუშავდეს გვერდის ნახვები, ენის შეცვლა, ძებნის გამოყენება, atlas filters, species/profile interactions, წყაროებზე click, gallery/audio interactions, quiz interactions, FAQ გახსნა და მსგავსი ივენთები.
 
 ზოგ შემთხვევაში analytics event შეიძლება შეიცავდეს ძებნის ტექსტს. გთხოვთ, საიტის ძებნაში არ ჩაწეროთ თქვენი ან სხვა პირის პერსონალური მონაცემები.
 
@@ -69,7 +69,7 @@ Non-essential analytics ან marketing cookies უნდა ჩაირთო
 
 საიტის მუშაობისთვის შეიძლება გამოყენებული იყოს შემდეგი მესამე მხარეები:
 
-- Vercel — hosting, ტექნიკური მიწოდება და performance insights;
+- Vercel — hosting და ტექნიკური მიწოდება;
 - Bunny CDN/Storage — media/CDN და admin upload workflow;
 - Google Tag Manager და შესაძლო Google Analytics/Google Ads tags — analytics/conversion, GTM container-ის კონფიგურაციის მიხედვით;
 - Google Maps და სხვა გარე წყაროები — მხოლოდ მაშინ, როცა მომხმარებელი თავად გადადის გარე ბმულზე.

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import { getLocale } from "next-intl/server";
 import dynamic from "next/dynamic";
 import { Noto_Sans } from "next/font/google";
@@ -166,7 +165,6 @@ export default async function RootLayout({ children }: Props) {
             <AxeDevConsole />
           </ThemeProvider>
         </NuqsAdapter>
-        <SpeedInsights />
       </body>
     </html>
   );
