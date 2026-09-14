@@ -4420,6 +4420,87 @@
       ],
       "updatedAt": "2026-09-06T13:11:15.286Z"
     },
+    "bubo-bubo-tomasz-1.jpg": {
+      "sourceHash": "f459560866135f1e9741b0f01e55231afbd70b15bf3735d472b23c88b1ff3138",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "bubo-bubo-tomasz-1.jpg",
+      "originalSize": 226550,
+      "width": 1024,
+      "height": 673,
+      "derivatives": [
+        {
+          "key": "optimized/bubo-bubo-tomasz-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 210,
+          "byteSize": 14157
+        },
+        {
+          "key": "optimized/bubo-bubo-tomasz-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 210,
+          "byteSize": 22232
+        },
+        {
+          "key": "optimized/bubo-bubo-tomasz-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 263,
+          "byteSize": 21483
+        },
+        {
+          "key": "optimized/bubo-bubo-tomasz-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 263,
+          "byteSize": 34680
+        },
+        {
+          "key": "optimized/bubo-bubo-tomasz-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 421,
+          "byteSize": 46414
+        },
+        {
+          "key": "optimized/bubo-bubo-tomasz-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 421,
+          "byteSize": 75536
+        },
+        {
+          "key": "optimized/bubo-bubo-tomasz-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 526,
+          "byteSize": 65924
+        },
+        {
+          "key": "optimized/bubo-bubo-tomasz-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 526,
+          "byteSize": 104458
+        },
+        {
+          "key": "optimized/bubo-bubo-tomasz-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 673,
+          "byteSize": 98636
+        },
+        {
+          "key": "optimized/bubo-bubo-tomasz-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 673,
+          "byteSize": 147230
+        }
+      ],
+      "updatedAt": "2026-09-14T17:21:14.008Z"
+    },
     "bufo-verrucosissimus-2.jpg": {
       "sourceHash": "f431dc6937c9f6d574a732af5fc6330dca1b875008192c8aa983118b78890c3f",
       "configFingerprint": "a895f8e025dcc7fa",
