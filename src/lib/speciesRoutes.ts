@@ -176,7 +176,6 @@ const LOOKALIKES: Record<string, string[]> = {
     "platyceps-najadum",
     "elaphe-urartica",
     "dolichophis-schmidti",
-    "macrovipera-lebetina",
     "vipera-transcaucasiana",
   ],
   "hyla-orientalis": [
@@ -203,7 +202,8 @@ const LOOKALIKES: Record<string, string[]> = {
   "macrovipera-lebetina": [
     "malpolon-insignitus",
     "dolichophis-schmidti",
-    "vipera-renardi",
+    "elaphe-dione",
+    "elaphe-urartica",
   ],
   "malpolon-insignitus": [
     "macrovipera-lebetina",
@@ -280,7 +280,6 @@ const LOOKALIKES: Record<string, string[]> = {
     "elaphe-urartica",
     "elaphe-dione",
     "telescopus-fallax",
-    "macrovipera-lebetina",
     "vipera-transcaucasiana",
   ],
   "procyon-lotor": ["meles-canescens", "vulpes-vulpes"],
@@ -333,7 +332,6 @@ const LOOKALIKES: Record<string, string[]> = {
   "vipera-transcaucasiana": [
     "vipera-kaznakovi",
     "coronella-austriaca",
-    "macrovipera-lebetina",
     "vipera-dinniki",
     "vipera-darevskii",
   ],
@@ -366,7 +364,12 @@ for (const [id, peers] of Object.entries(LOOKALIKES)) {
 }
 
 export function getSpeciesLookalikes(id: string): string[] {
-  return [...(lookalikeIndex[id] ?? [])].filter(isPublishedSpeciesId);
+  const direct = LOOKALIKES[id] ?? [];
+  const directIds = new Set(direct);
+  return [
+    ...direct,
+    ...[...(lookalikeIndex[id] ?? [])].filter((peer) => !directIds.has(peer)),
+  ].filter(isPublishedSpeciesId);
 }
 
 export function legacySpeciesStaticParams(): Array<{
