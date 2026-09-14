@@ -166,6 +166,9 @@ const SPECIES_META_DESCRIPTION_OVERRIDE: Partial<
   "meles-canescens": {
     ka: "მაჩვი (Meles canescens) საქართველოში: ამოცნობის ნიშნები, გავრცელება, ტყისა და ბუჩქნარის ჰაბიტატები, კვება, ქცევა და კონსერვაციის სტატუსი.",
   },
+  "vipera-kaznakovi": {
+    ka: "კავკასიური გველგესლა (Vipera kaznakovi) საქართველოში — როგორ ამოვიცნოთ, სად გვხვდება დასავლეთ საქართველოს კოლხურ ზონებში, რა რისკს ქმნის მისი ნაკბენი და რატომ აქვს EN კონსერვაციული სტატუსი.",
+  },
 };
 
 export function speciesImageAlt(
