@@ -54665,6 +54665,302 @@
       ],
       "updatedAt": "2026-08-28T21:56:17.403Z"
     },
+    "picus-viridis-archil-1.jpg": {
+      "sourceHash": "1e5478b6e48dea7749399c78c5e8db3203f042d3fe93d5b738a08cf9d383fa85",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "picus-viridis-archil-1.jpg",
+      "originalSize": 216369,
+      "width": 1024,
+      "height": 864,
+      "derivatives": [
+        {
+          "key": "optimized/picus-viridis-archil-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 270,
+          "byteSize": 15994
+        },
+        {
+          "key": "optimized/picus-viridis-archil-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 270,
+          "byteSize": 23560
+        },
+        {
+          "key": "optimized/picus-viridis-archil-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 338,
+          "byteSize": 23244
+        },
+        {
+          "key": "optimized/picus-viridis-archil-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 338,
+          "byteSize": 33778
+        },
+        {
+          "key": "optimized/picus-viridis-archil-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 540,
+          "byteSize": 45319
+        },
+        {
+          "key": "optimized/picus-viridis-archil-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 540,
+          "byteSize": 65402
+        },
+        {
+          "key": "optimized/picus-viridis-archil-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 675,
+          "byteSize": 62887
+        },
+        {
+          "key": "optimized/picus-viridis-archil-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 675,
+          "byteSize": 91180
+        },
+        {
+          "key": "optimized/picus-viridis-archil-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 864,
+          "byteSize": 91794
+        },
+        {
+          "key": "optimized/picus-viridis-archil-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 864,
+          "byteSize": 127364
+        }
+      ],
+      "updatedAt": "2026-09-14T19:08:14.322Z"
+    },
+    "picus-viridis-dachi-1.jpg": {
+      "sourceHash": "54e8e8909156fe9c3d61c639c4250e82f386bd746f16e73aa70cfe7fba8db075",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "picus-viridis-dachi-1.jpg",
+      "originalSize": 136965,
+      "width": 683,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/picus-viridis-dachi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 480,
+          "byteSize": 16534
+        },
+        {
+          "key": "optimized/picus-viridis-dachi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 480,
+          "byteSize": 23962
+        },
+        {
+          "key": "optimized/picus-viridis-dachi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 600,
+          "byteSize": 22806
+        },
+        {
+          "key": "optimized/picus-viridis-dachi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 600,
+          "byteSize": 33640
+        },
+        {
+          "key": "optimized/picus-viridis-dachi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 960,
+          "byteSize": 43198
+        },
+        {
+          "key": "optimized/picus-viridis-dachi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 960,
+          "byteSize": 61942
+        },
+        {
+          "key": "optimized/picus-viridis-dachi-1-683.avif",
+          "format": "avif",
+          "width": 683,
+          "height": 1024,
+          "byteSize": 47847
+        },
+        {
+          "key": "optimized/picus-viridis-dachi-1-683.webp",
+          "format": "webp",
+          "width": 683,
+          "height": 1024,
+          "byteSize": 68762
+        }
+      ],
+      "updatedAt": "2026-09-14T19:06:38.174Z"
+    },
+    "picus-viridis-giorgi-1.jpg": {
+      "sourceHash": "787d3e63f36067fe97bd6a1e3077e8f192e27a771b7b399b34c1c6b0d69a5665",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "picus-viridis-giorgi-1.jpg",
+      "originalSize": 156795,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/picus-viridis-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10266
+        },
+        {
+          "key": "optimized/picus-viridis-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 15274
+        },
+        {
+          "key": "optimized/picus-viridis-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 14452
+        },
+        {
+          "key": "optimized/picus-viridis-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 21266
+        },
+        {
+          "key": "optimized/picus-viridis-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 29889
+        },
+        {
+          "key": "optimized/picus-viridis-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 43278
+        },
+        {
+          "key": "optimized/picus-viridis-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 41692
+        },
+        {
+          "key": "optimized/picus-viridis-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 60482
+        },
+        {
+          "key": "optimized/picus-viridis-giorgi-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 61971
+        },
+        {
+          "key": "optimized/picus-viridis-giorgi-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 88522
+        }
+      ],
+      "updatedAt": "2026-09-14T19:09:09.199Z"
+    },
+    "picus-viridis-gogopopo-1.jpg": {
+      "sourceHash": "4f73db4257367921cfdb7970b0824f871912d1600d4890693f0099a4744c2a80",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "picus-viridis-gogopopo-1.jpg",
+      "originalSize": 145962,
+      "width": 683,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/picus-viridis-gogopopo-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 480,
+          "byteSize": 16442
+        },
+        {
+          "key": "optimized/picus-viridis-gogopopo-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 480,
+          "byteSize": 25530
+        },
+        {
+          "key": "optimized/picus-viridis-gogopopo-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 600,
+          "byteSize": 22955
+        },
+        {
+          "key": "optimized/picus-viridis-gogopopo-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 600,
+          "byteSize": 36248
+        },
+        {
+          "key": "optimized/picus-viridis-gogopopo-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 960,
+          "byteSize": 44995
+        },
+        {
+          "key": "optimized/picus-viridis-gogopopo-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 960,
+          "byteSize": 69708
+        },
+        {
+          "key": "optimized/picus-viridis-gogopopo-1-683.avif",
+          "format": "avif",
+          "width": 683,
+          "height": 1024,
+          "byteSize": 50377
+        },
+        {
+          "key": "optimized/picus-viridis-gogopopo-1-683.webp",
+          "format": "webp",
+          "width": 683,
+          "height": 1024,
+          "byteSize": 77912
+        }
+      ],
+      "updatedAt": "2026-09-14T19:03:33.652Z"
+    },
     "picus-viridis-lours-1.jpg": {
       "sourceHash": "b48963e996421147e1274aec10f2c07f916640f143f2186afe13cad6135a1cf6",
       "configFingerprint": "a895f8e025dcc7fa",
