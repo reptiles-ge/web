@@ -1,10 +1,12 @@
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import type { SpeciesFaq } from "@/data/species";
+import type { AppLocale } from "@/i18n/routing";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { SpeciesFaqItems } from "@/components/SpeciesFaqItems";
 import { type PageType } from "@/lib/analytics";
+import { georgianTanPhrase } from "@/lib/georgianGrammar";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 
 type SpeciesFaqSectionProps = {
@@ -22,7 +24,11 @@ export async function SpeciesFaqSection({
 }: SpeciesFaqSectionProps) {
   if (items.length === 0) return null;
 
-  const t = await getTranslations("profile");
+  const [locale, t] = await Promise.all([
+    getLocale() as Promise<AppLocale>,
+    getTranslations("profile"),
+  ]);
+  const faqName = locale === "ka" ? georgianTanPhrase(name) : name;
 
   return (
     <section className="bg-background py-24 lg:py-32">
@@ -41,7 +47,7 @@ export async function SpeciesFaqSection({
             </AnchoredHeading>
             <p className="mt-5 max-w-sm text-[15px] leading-relaxed text-muted-foreground">
               {t("faqIntroBefore")}
-              {name}
+              {faqName}
               {t("faqIntroAfter")}
             </p>
           </div>
