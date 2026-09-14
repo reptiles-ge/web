@@ -5226,6 +5226,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/picus-viridis-dachi-1.jpg": {
+    "path": "picus-viridis-dachi-1",
+    "width": 683,
+    "height": 1024,
+    "widths": [320, 400, 640, 683],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/picus-viridis-gogopopo-1.jpg": {
     "path": "picus-viridis-gogopopo-1",
     "width": 683,
