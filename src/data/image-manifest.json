@@ -4420,6 +4420,87 @@
       ],
       "updatedAt": "2026-09-06T13:11:15.286Z"
     },
+    "bubo-bubo-aiken-1.jpg": {
+      "sourceHash": "700e2cc2e3ac402f4b766828f2678ce6461bd7575f883e3465b78f883afb8db3",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "bubo-bubo-aiken-1.jpg",
+      "originalSize": 259159,
+      "width": 1024,
+      "height": 768,
+      "derivatives": [
+        {
+          "key": "optimized/bubo-bubo-aiken-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 18346
+        },
+        {
+          "key": "optimized/bubo-bubo-aiken-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 28932
+        },
+        {
+          "key": "optimized/bubo-bubo-aiken-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 27952
+        },
+        {
+          "key": "optimized/bubo-bubo-aiken-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 42604
+        },
+        {
+          "key": "optimized/bubo-bubo-aiken-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 56636
+        },
+        {
+          "key": "optimized/bubo-bubo-aiken-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 85308
+        },
+        {
+          "key": "optimized/bubo-bubo-aiken-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 78280
+        },
+        {
+          "key": "optimized/bubo-bubo-aiken-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 115434
+        },
+        {
+          "key": "optimized/bubo-bubo-aiken-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 111192
+        },
+        {
+          "key": "optimized/bubo-bubo-aiken-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 159922
+        }
+      ],
+      "updatedAt": "2026-09-14T17:24:00.211Z"
+    },
     "bubo-bubo-barnabás-1.jpg": {
       "sourceHash": "f9b92b3931a9ab59c2feed2768e9c7a888471e1fb00d3dd69f022f3b06be7618",
       "configFingerprint": "409788ee46c653d8",
