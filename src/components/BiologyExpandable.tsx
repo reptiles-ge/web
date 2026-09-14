@@ -25,6 +25,7 @@ export function BiologyExpandable({
       <p
         className={cn(
           "mt-4 text-[15px] leading-relaxed text-muted-foreground",
+          "whitespace-pre-line",
           !open && needsExpand ? "line-clamp-3" : "",
         )}
       >

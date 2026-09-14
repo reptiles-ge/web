@@ -36,7 +36,7 @@ export async function SpeciesIdentification({
         >
           {t("identificationTitle", { name })}
         </AnchoredHeading>
-        <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
+        <p className="mt-5 max-w-2xl text-[15px] leading-relaxed whitespace-pre-line text-muted-foreground sm:text-[16px]">
           <IdentificationRichText text={identification.summary} />
         </p>
 
@@ -53,7 +53,7 @@ export async function SpeciesIdentification({
                 >
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <p className="max-w-2xl self-center text-[16px] leading-relaxed text-foreground/85 sm:text-[18px]">
+                <p className="max-w-2xl self-center text-[16px] leading-relaxed whitespace-pre-line text-foreground/85 sm:text-[18px]">
                   <IdentificationRichText text={trait} />
                 </p>
               </li>
