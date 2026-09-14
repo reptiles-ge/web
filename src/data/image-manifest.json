@@ -54665,6 +54665,73 @@
       ],
       "updatedAt": "2026-08-28T21:56:17.403Z"
     },
+    "picus-viridis-gogopopo-1.jpg": {
+      "sourceHash": "4f73db4257367921cfdb7970b0824f871912d1600d4890693f0099a4744c2a80",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "picus-viridis-gogopopo-1.jpg",
+      "originalSize": 145962,
+      "width": 683,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/picus-viridis-gogopopo-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 480,
+          "byteSize": 16442
+        },
+        {
+          "key": "optimized/picus-viridis-gogopopo-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 480,
+          "byteSize": 25530
+        },
+        {
+          "key": "optimized/picus-viridis-gogopopo-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 600,
+          "byteSize": 22955
+        },
+        {
+          "key": "optimized/picus-viridis-gogopopo-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 600,
+          "byteSize": 36248
+        },
+        {
+          "key": "optimized/picus-viridis-gogopopo-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 960,
+          "byteSize": 44995
+        },
+        {
+          "key": "optimized/picus-viridis-gogopopo-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 960,
+          "byteSize": 69708
+        },
+        {
+          "key": "optimized/picus-viridis-gogopopo-1-683.avif",
+          "format": "avif",
+          "width": 683,
+          "height": 1024,
+          "byteSize": 50377
+        },
+        {
+          "key": "optimized/picus-viridis-gogopopo-1-683.webp",
+          "format": "webp",
+          "width": 683,
+          "height": 1024,
+          "byteSize": 77912
+        }
+      ],
+      "updatedAt": "2026-09-14T19:03:33.652Z"
+    },
     "picus-viridis-lours-1.jpg": {
       "sourceHash": "b48963e996421147e1274aec10f2c07f916640f143f2186afe13cad6135a1cf6",
       "configFingerprint": "a895f8e025dcc7fa",
