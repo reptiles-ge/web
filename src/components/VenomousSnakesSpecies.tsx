@@ -77,7 +77,7 @@ export function VenomousSnakesSpecies({
             <h3 className="font-display text-display-card font-semibold">
               {t("vipersTitle")}
             </h3>
-            <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
+            <p className="mt-3 max-w-2xl text-[15px] leading-relaxed whitespace-pre-line text-muted-foreground">
               <PhoneLinkedText>
                 {t.rich("vipersBody", {
                   giurza: (chunks) => (
@@ -100,7 +100,7 @@ export function VenomousSnakesSpecies({
               <h3 className="font-display text-display-card font-semibold">
                 {t("rearFangedTitle")}
               </h3>
-              <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
+              <p className="mt-3 max-w-2xl text-[15px] leading-relaxed whitespace-pre-line text-muted-foreground">
                 <PhoneLinkedText>
                   {t.rich("rearFangedBody", {
                     bite: (chunks) => (
