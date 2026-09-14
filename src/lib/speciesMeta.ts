@@ -154,6 +154,9 @@ const SPECIES_META_DESCRIPTION_OVERRIDE: Partial<
   "macrovipera-lebetina": {
     ka: "გიურზა (Macrovipera lebetinus) საქართველოში: ამოცნობის ნიშნები, გავრცელება, აღმოსავლეთ საქართველოს მშრალი ჰაბიტატები, ზომა და მაღალი რისკი ადამიანისთვის.",
   },
+  "meles-canescens": {
+    ka: "მაჩვი (Meles canescens) საქართველოში: ამოცნობის ნიშნები, გავრცელება, ტყისა და ბუჩქნარის ჰაბიტატები, კვება, ქცევა და კონსერვაციის სტატუსი.",
+  },
 };
 
 export function speciesImageAlt(
