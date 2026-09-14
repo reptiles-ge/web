@@ -157,7 +157,7 @@ export function speciesImageAlt(
 }
 
 export function speciesMetaDescription(overview: string, maxLength = 160) {
-  const lead = firstSentence(overview);
+  const lead = firstSentence(stripInlineMarkdownLinks(overview));
   if (lead.length <= maxLength) return lead;
 
   const truncated = lead.slice(0, maxLength - 1);
@@ -199,4 +199,8 @@ function firstSentence(text: string) {
   const trimmed = text.trim();
   const match = trimmed.match(/^.*?[.!?…](?=\s|$)/u);
   return match ? match[0].trim() : trimmed;
+}
+
+function stripInlineMarkdownLinks(text: string) {
+  return text.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1");
 }
