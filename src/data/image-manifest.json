@@ -4501,6 +4501,87 @@
       ],
       "updatedAt": "2026-09-14T17:22:16.714Z"
     },
+    "bubo-bubo-beilan-1.jpg": {
+      "sourceHash": "afde7629f0ea1d2e0059e0f41b48d3715206c95b19f879cb9ea8b544637fc9fb",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "bubo-bubo-beilan-1.jpg",
+      "originalSize": 261152,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/bubo-bubo-beilan-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 16290
+        },
+        {
+          "key": "optimized/bubo-bubo-beilan-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 25440
+        },
+        {
+          "key": "optimized/bubo-bubo-beilan-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 24612
+        },
+        {
+          "key": "optimized/bubo-bubo-beilan-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 39444
+        },
+        {
+          "key": "optimized/bubo-bubo-beilan-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 55303
+        },
+        {
+          "key": "optimized/bubo-bubo-beilan-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 85006
+        },
+        {
+          "key": "optimized/bubo-bubo-beilan-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 78568
+        },
+        {
+          "key": "optimized/bubo-bubo-beilan-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 122372
+        },
+        {
+          "key": "optimized/bubo-bubo-beilan-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 116640
+        },
+        {
+          "key": "optimized/bubo-bubo-beilan-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 173482
+        }
+      ],
+      "updatedAt": "2026-09-14T17:23:18.811Z"
+    },
     "bubo-bubo-jesús-1.jpg": {
       "sourceHash": "72d3d0b91c6acf172dde6c562861d7a1f888cd979e85283df8f6c7d7321490df",
       "configFingerprint": "409788ee46c653d8",
