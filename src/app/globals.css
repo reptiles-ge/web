@@ -112,6 +112,33 @@ body {
   font-family: var(--font-you), var(--font-noto-sans), sans-serif;
 }
 
+#nprogress {
+  pointer-events: none;
+}
+
+#nprogress .bar {
+  background: var(--primary);
+  height: 3px;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2147483647;
+}
+
+#nprogress .peg {
+  box-shadow:
+    0 0 10px var(--primary),
+    0 0 5px var(--primary);
+  display: block;
+  height: 100%;
+  opacity: 1;
+  position: absolute;
+  right: 0;
+  transform: rotate(3deg) translate(0, -4px);
+  width: 100px;
+}
+
 .font-display {
   font-family: var(--font-you), var(--font-noto-sans), sans-serif;
 }
