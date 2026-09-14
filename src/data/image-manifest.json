@@ -4501,6 +4501,87 @@
       ],
       "updatedAt": "2026-09-14T17:22:16.714Z"
     },
+    "bubo-bubo-jesús-1.jpg": {
+      "sourceHash": "72d3d0b91c6acf172dde6c562861d7a1f888cd979e85283df8f6c7d7321490df",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "bubo-bubo-jesús-1.jpg",
+      "originalSize": 360713,
+      "width": 1024,
+      "height": 769,
+      "derivatives": [
+        {
+          "key": "optimized/bubo-bubo-jesús-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 20730
+        },
+        {
+          "key": "optimized/bubo-bubo-jesús-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 32462
+        },
+        {
+          "key": "optimized/bubo-bubo-jesús-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 32793
+        },
+        {
+          "key": "optimized/bubo-bubo-jesús-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 50024
+        },
+        {
+          "key": "optimized/bubo-bubo-jesús-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 481,
+          "byteSize": 77698
+        },
+        {
+          "key": "optimized/bubo-bubo-jesús-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 481,
+          "byteSize": 118564
+        },
+        {
+          "key": "optimized/bubo-bubo-jesús-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 601,
+          "byteSize": 114222
+        },
+        {
+          "key": "optimized/bubo-bubo-jesús-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 601,
+          "byteSize": 176190
+        },
+        {
+          "key": "optimized/bubo-bubo-jesús-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 769,
+          "byteSize": 174920
+        },
+        {
+          "key": "optimized/bubo-bubo-jesús-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 769,
+          "byteSize": 261258
+        }
+      ],
+      "updatedAt": "2026-09-14T17:22:49.635Z"
+    },
     "bubo-bubo-tomasz-1.jpg": {
       "sourceHash": "f459560866135f1e9741b0f01e55231afbd70b15bf3735d472b23c88b1ff3138",
       "configFingerprint": "409788ee46c653d8",
