@@ -11,16 +11,16 @@ export const CLUSTER_TITLE_SECTION =
 export const CLUSTER_TITLE_RELATED =
   "mt-5 max-w-2xl font-display text-display-title font-semibold";
 export const CLUSTER_BODY =
-  "mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground";
+  "mt-5 max-w-2xl whitespace-pre-line text-[15px] leading-relaxed text-muted-foreground";
 export const CLUSTER_HERO_EYEBROW =
   "text-[11px] font-medium uppercase tracking-[0.18em] text-white/45";
 export const CLUSTER_HERO_TITLE =
   "mt-5 max-w-3xl font-display text-display-lead font-semibold text-white";
 export const CLUSTER_HERO_BODY =
-  "mt-5 max-w-xl text-[15px] leading-relaxed text-white/60";
+  "mt-5 max-w-xl whitespace-pre-line text-[15px] leading-relaxed text-white/60";
 export const CLUSTER_FAQ_TITLE = "mt-5 font-display text-display-title";
 export const CLUSTER_FAQ_BODY =
-  "mt-5 max-w-sm text-[15px] leading-relaxed text-muted-foreground";
+  "mt-5 max-w-sm whitespace-pre-line text-[15px] leading-relaxed text-muted-foreground";
 
 export function ClusterSectionIntro({
   body,

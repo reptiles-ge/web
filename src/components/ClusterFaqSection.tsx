@@ -86,7 +86,7 @@ export function ClusterFaqSection({
                       )}
                     >
                       <div className="overflow-hidden">
-                        <p className="pr-12 pb-7 text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
+                        <p className="pr-12 pb-7 text-[15px] leading-relaxed whitespace-pre-line text-muted-foreground sm:text-[16px]">
                           <PhoneLinkedText>{item.answer}</PhoneLinkedText>
                         </p>
                       </div>
