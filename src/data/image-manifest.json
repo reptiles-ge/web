@@ -4420,6 +4420,87 @@
       ],
       "updatedAt": "2026-09-06T13:11:15.286Z"
     },
+    "bubo-bubo-barnabás-1.jpg": {
+      "sourceHash": "f9b92b3931a9ab59c2feed2768e9c7a888471e1fb00d3dd69f022f3b06be7618",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "bubo-bubo-barnabás-1.jpg",
+      "originalSize": 140118,
+      "width": 1024,
+      "height": 575,
+      "derivatives": [
+        {
+          "key": "optimized/bubo-bubo-barnabás-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 179,
+          "byteSize": 10790
+        },
+        {
+          "key": "optimized/bubo-bubo-barnabás-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 179,
+          "byteSize": 15192
+        },
+        {
+          "key": "optimized/bubo-bubo-barnabás-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 15971
+        },
+        {
+          "key": "optimized/bubo-bubo-barnabás-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 22554
+        },
+        {
+          "key": "optimized/bubo-bubo-barnabás-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 359,
+          "byteSize": 30128
+        },
+        {
+          "key": "optimized/bubo-bubo-barnabás-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 359,
+          "byteSize": 41786
+        },
+        {
+          "key": "optimized/bubo-bubo-barnabás-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 449,
+          "byteSize": 40325
+        },
+        {
+          "key": "optimized/bubo-bubo-barnabás-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 449,
+          "byteSize": 53602
+        },
+        {
+          "key": "optimized/bubo-bubo-barnabás-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 575,
+          "byteSize": 53524
+        },
+        {
+          "key": "optimized/bubo-bubo-barnabás-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 575,
+          "byteSize": 72488
+        }
+      ],
+      "updatedAt": "2026-09-14T17:22:16.714Z"
+    },
     "bubo-bubo-tomasz-1.jpg": {
       "sourceHash": "f459560866135f1e9741b0f01e55231afbd70b15bf3735d472b23c88b1ff3138",
       "configFingerprint": "409788ee46c653d8",

@@ -613,6 +613,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 480],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/bubo-bubo-barnab%C3%A1s-1.jpg": {
+    "path": "bubo-bubo-barnab%C3%A1s-1",
+    "width": 1024,
+    "height": 575,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/bubo-bubo-tomasz-1.jpg": {
     "path": "bubo-bubo-tomasz-1",
     "width": 1024,
