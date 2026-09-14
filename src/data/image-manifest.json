@@ -4420,6 +4420,411 @@
       ],
       "updatedAt": "2026-09-06T13:11:15.286Z"
     },
+    "bubo-bubo-aiken-1.jpg": {
+      "sourceHash": "700e2cc2e3ac402f4b766828f2678ce6461bd7575f883e3465b78f883afb8db3",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "bubo-bubo-aiken-1.jpg",
+      "originalSize": 259159,
+      "width": 1024,
+      "height": 768,
+      "derivatives": [
+        {
+          "key": "optimized/bubo-bubo-aiken-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 18346
+        },
+        {
+          "key": "optimized/bubo-bubo-aiken-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 28932
+        },
+        {
+          "key": "optimized/bubo-bubo-aiken-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 27952
+        },
+        {
+          "key": "optimized/bubo-bubo-aiken-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 42604
+        },
+        {
+          "key": "optimized/bubo-bubo-aiken-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 56636
+        },
+        {
+          "key": "optimized/bubo-bubo-aiken-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 85308
+        },
+        {
+          "key": "optimized/bubo-bubo-aiken-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 78280
+        },
+        {
+          "key": "optimized/bubo-bubo-aiken-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 115434
+        },
+        {
+          "key": "optimized/bubo-bubo-aiken-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 111192
+        },
+        {
+          "key": "optimized/bubo-bubo-aiken-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 159922
+        }
+      ],
+      "updatedAt": "2026-09-14T17:24:00.211Z"
+    },
+    "bubo-bubo-barnabás-1.jpg": {
+      "sourceHash": "f9b92b3931a9ab59c2feed2768e9c7a888471e1fb00d3dd69f022f3b06be7618",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "bubo-bubo-barnabás-1.jpg",
+      "originalSize": 140118,
+      "width": 1024,
+      "height": 575,
+      "derivatives": [
+        {
+          "key": "optimized/bubo-bubo-barnabás-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 179,
+          "byteSize": 10790
+        },
+        {
+          "key": "optimized/bubo-bubo-barnabás-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 179,
+          "byteSize": 15192
+        },
+        {
+          "key": "optimized/bubo-bubo-barnabás-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 15971
+        },
+        {
+          "key": "optimized/bubo-bubo-barnabás-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 22554
+        },
+        {
+          "key": "optimized/bubo-bubo-barnabás-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 359,
+          "byteSize": 30128
+        },
+        {
+          "key": "optimized/bubo-bubo-barnabás-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 359,
+          "byteSize": 41786
+        },
+        {
+          "key": "optimized/bubo-bubo-barnabás-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 449,
+          "byteSize": 40325
+        },
+        {
+          "key": "optimized/bubo-bubo-barnabás-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 449,
+          "byteSize": 53602
+        },
+        {
+          "key": "optimized/bubo-bubo-barnabás-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 575,
+          "byteSize": 53524
+        },
+        {
+          "key": "optimized/bubo-bubo-barnabás-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 575,
+          "byteSize": 72488
+        }
+      ],
+      "updatedAt": "2026-09-14T17:22:16.714Z"
+    },
+    "bubo-bubo-beilan-1.jpg": {
+      "sourceHash": "afde7629f0ea1d2e0059e0f41b48d3715206c95b19f879cb9ea8b544637fc9fb",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "bubo-bubo-beilan-1.jpg",
+      "originalSize": 261152,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/bubo-bubo-beilan-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 16290
+        },
+        {
+          "key": "optimized/bubo-bubo-beilan-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 25440
+        },
+        {
+          "key": "optimized/bubo-bubo-beilan-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 24612
+        },
+        {
+          "key": "optimized/bubo-bubo-beilan-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 39444
+        },
+        {
+          "key": "optimized/bubo-bubo-beilan-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 55303
+        },
+        {
+          "key": "optimized/bubo-bubo-beilan-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 85006
+        },
+        {
+          "key": "optimized/bubo-bubo-beilan-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 78568
+        },
+        {
+          "key": "optimized/bubo-bubo-beilan-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 122372
+        },
+        {
+          "key": "optimized/bubo-bubo-beilan-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 116640
+        },
+        {
+          "key": "optimized/bubo-bubo-beilan-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 173482
+        }
+      ],
+      "updatedAt": "2026-09-14T17:23:18.811Z"
+    },
+    "bubo-bubo-jesús-1.jpg": {
+      "sourceHash": "72d3d0b91c6acf172dde6c562861d7a1f888cd979e85283df8f6c7d7321490df",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "bubo-bubo-jesús-1.jpg",
+      "originalSize": 360713,
+      "width": 1024,
+      "height": 769,
+      "derivatives": [
+        {
+          "key": "optimized/bubo-bubo-jesús-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 20730
+        },
+        {
+          "key": "optimized/bubo-bubo-jesús-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 32462
+        },
+        {
+          "key": "optimized/bubo-bubo-jesús-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 32793
+        },
+        {
+          "key": "optimized/bubo-bubo-jesús-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 50024
+        },
+        {
+          "key": "optimized/bubo-bubo-jesús-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 481,
+          "byteSize": 77698
+        },
+        {
+          "key": "optimized/bubo-bubo-jesús-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 481,
+          "byteSize": 118564
+        },
+        {
+          "key": "optimized/bubo-bubo-jesús-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 601,
+          "byteSize": 114222
+        },
+        {
+          "key": "optimized/bubo-bubo-jesús-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 601,
+          "byteSize": 176190
+        },
+        {
+          "key": "optimized/bubo-bubo-jesús-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 769,
+          "byteSize": 174920
+        },
+        {
+          "key": "optimized/bubo-bubo-jesús-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 769,
+          "byteSize": 261258
+        }
+      ],
+      "updatedAt": "2026-09-14T17:22:49.635Z"
+    },
+    "bubo-bubo-tomasz-1.jpg": {
+      "sourceHash": "f459560866135f1e9741b0f01e55231afbd70b15bf3735d472b23c88b1ff3138",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "bubo-bubo-tomasz-1.jpg",
+      "originalSize": 226550,
+      "width": 1024,
+      "height": 673,
+      "derivatives": [
+        {
+          "key": "optimized/bubo-bubo-tomasz-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 210,
+          "byteSize": 14157
+        },
+        {
+          "key": "optimized/bubo-bubo-tomasz-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 210,
+          "byteSize": 22232
+        },
+        {
+          "key": "optimized/bubo-bubo-tomasz-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 263,
+          "byteSize": 21483
+        },
+        {
+          "key": "optimized/bubo-bubo-tomasz-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 263,
+          "byteSize": 34680
+        },
+        {
+          "key": "optimized/bubo-bubo-tomasz-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 421,
+          "byteSize": 46414
+        },
+        {
+          "key": "optimized/bubo-bubo-tomasz-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 421,
+          "byteSize": 75536
+        },
+        {
+          "key": "optimized/bubo-bubo-tomasz-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 526,
+          "byteSize": 65924
+        },
+        {
+          "key": "optimized/bubo-bubo-tomasz-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 526,
+          "byteSize": 104458
+        },
+        {
+          "key": "optimized/bubo-bubo-tomasz-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 673,
+          "byteSize": 98636
+        },
+        {
+          "key": "optimized/bubo-bubo-tomasz-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 673,
+          "byteSize": 147230
+        }
+      ],
+      "updatedAt": "2026-09-14T17:21:14.008Z"
+    },
     "bufo-verrucosissimus-2.jpg": {
       "sourceHash": "f431dc6937c9f6d574a732af5fc6330dca1b875008192c8aa983118b78890c3f",
       "configFingerprint": "a895f8e025dcc7fa",
