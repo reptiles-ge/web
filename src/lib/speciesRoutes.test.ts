@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import {
+  getSpeciesLookalikes,
   getSpeciesPublicSlug,
   resolveSpeciesId,
   resolveSpeciesInHub,
@@ -44,5 +45,14 @@ describe("species routes", () => {
       params: { slug: "macrovipera-lebetina" },
       pathname: "/snakes/[slug]",
     });
+  });
+
+  it("keeps giurza lookalikes to the curated four species", () => {
+    expect(getSpeciesLookalikes("macrovipera-lebetina")).toEqual([
+      "malpolon-insignitus",
+      "dolichophis-schmidti",
+      "elaphe-dione",
+      "elaphe-urartica",
+    ]);
   });
 });
