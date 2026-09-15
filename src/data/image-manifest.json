@@ -28840,20 +28840,6 @@
           "byteSize": 68134
         },
         {
-          "key": "optimized/images/home/groups/turtles-800.avif",
-          "format": "avif",
-          "width": 800,
-          "height": 533,
-          "byteSize": 66194
-        },
-        {
-          "key": "optimized/images/home/groups/turtles-800.webp",
-          "format": "webp",
-          "width": 800,
-          "height": 533,
-          "byteSize": 97466
-        },
-        {
           "key": "optimized/images/home/groups/turtles-1200.avif",
           "format": "avif",
           "width": 1200,
