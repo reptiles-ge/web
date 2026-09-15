@@ -72,13 +72,13 @@ export const GROUP_HUBS: Record<GroupHubId, GroupHubConfig> = {
 export const GROUP_HUB_LIST = Object.values(GROUP_HUBS);
 
 export const GROUP_HUB_ILLUSTRATIONS: Record<GroupHubId, string> = {
-  amphibians: "/images/home/groups/amphibians.jpg",
-  birds: "/images/home/groups/birds.jpg",
-  lizards: "/images/home/groups/lizards.jpg",
-  mammals: "/images/home/groups/mammals.jpg",
-  snakes: "/images/home/groups/snakes.jpg",
-  spiders: "/images/home/groups/spiders.jpg",
-  turtles: "/images/home/groups/turtles.jpg",
+  amphibians: "https://cdn.reptiles.ge/mertensiella-caucasica-armen-3.jpg",
+  birds: "https://cdn.reptiles.ge/emberiza-citrinella-sharp-1.jpg",
+  lizards: "https://cdn.reptiles.ge/pseudopus-apodus-mobile.webp",
+  mammals: "https://cdn.reptiles.ge/vulpes-vulpes-portrait-1.jpg",
+  snakes: "https://cdn.reptiles.ge/vipera-dinniki-fabian-1.jpg",
+  spiders: "https://cdn.reptiles.ge/argiope-bruennichi-zauri-1.jpg",
+  turtles: "https://cdn.reptiles.ge/testudo-graeca-3.jpg",
 };
 
 export const ANIMAL_GROUP_TO_HUB: Record<AnimalGroup, GroupHubId> = {
