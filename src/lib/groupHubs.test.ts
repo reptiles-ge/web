@@ -1,3 +1,5 @@
+import fs from "node:fs";
+import path from "node:path";
 import { describe, expect, it } from "vitest";
 
 import { optimizedEntry } from "@/data/optimizedImages";
@@ -10,12 +12,14 @@ describe("group hub illustrations", () => {
     );
 
     for (const src of Object.values(GROUP_HUB_ILLUSTRATIONS)) {
-      expect(src.startsWith("https://cdn.reptiles.ge/"), src).toBe(true);
+      expect(src.startsWith("/images/home/groups/"), src).toBe(true);
     }
   });
 
-  it("has optimized derivatives for homepage cards", () => {
+  it("points at existing homepage cover files", () => {
     for (const src of Object.values(GROUP_HUB_ILLUSTRATIONS)) {
+      const filePath = path.join(process.cwd(), "public", src);
+      expect(fs.existsSync(filePath), src).toBe(true);
       expect(optimizedEntry(src), src).not.toBeNull();
     }
   });
