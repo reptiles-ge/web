@@ -2608,6 +2608,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1899],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/hemorrhois-ravergieri-david-1.jpg": {
+    "path": "hemorrhois-ravergieri-david-1",
+    "width": 1024,
+    "height": 678,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/hemorrhois-ravergieri-rust-1.jpg": {
     "path": "hemorrhois-ravergieri-rust-1",
     "width": 1152,

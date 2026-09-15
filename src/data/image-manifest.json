@@ -26734,6 +26734,87 @@
       ],
       "updatedAt": "2026-09-05T15:46:41.359Z"
     },
+    "hemorrhois-ravergieri-david-1.jpg": {
+      "sourceHash": "64e8da90a5d34ba33ca7439cfb0123a4d388e96b2822296793d2191530cbf151",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "hemorrhois-ravergieri-david-1.jpg",
+      "originalSize": 198910,
+      "width": 1024,
+      "height": 678,
+      "derivatives": [
+        {
+          "key": "optimized/hemorrhois-ravergieri-david-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 212,
+          "byteSize": 13811
+        },
+        {
+          "key": "optimized/hemorrhois-ravergieri-david-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 212,
+          "byteSize": 22952
+        },
+        {
+          "key": "optimized/hemorrhois-ravergieri-david-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 265,
+          "byteSize": 19711
+        },
+        {
+          "key": "optimized/hemorrhois-ravergieri-david-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 265,
+          "byteSize": 32800
+        },
+        {
+          "key": "optimized/hemorrhois-ravergieri-david-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 424,
+          "byteSize": 38709
+        },
+        {
+          "key": "optimized/hemorrhois-ravergieri-david-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 424,
+          "byteSize": 64036
+        },
+        {
+          "key": "optimized/hemorrhois-ravergieri-david-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 530,
+          "byteSize": 53019
+        },
+        {
+          "key": "optimized/hemorrhois-ravergieri-david-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 530,
+          "byteSize": 86368
+        },
+        {
+          "key": "optimized/hemorrhois-ravergieri-david-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 678,
+          "byteSize": 74534
+        },
+        {
+          "key": "optimized/hemorrhois-ravergieri-david-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 678,
+          "byteSize": 116242
+        }
+      ],
+      "updatedAt": "2026-09-15T13:58:40.562Z"
+    },
     "hemorrhois-ravergieri-mobile.jpg": {
       "sourceHash": "763404363ec8ffa06d387276e2fdca5a311b904fadce09215ad96c4b65a6e5e7",
       "configFingerprint": "a895f8e025dcc7fa",
