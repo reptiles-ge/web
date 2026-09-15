@@ -22,6 +22,7 @@ const SKIP_FILE_NAMES = new Set([
   "optimizedImages.generated.ts",
   "species.generated.ts",
 ]);
+const SKIP_FILE_SUFFIXES = [".test.ts", ".test.tsx"];
 const SCAN_EXTS = new Set([
   ".css",
   ".js",
@@ -48,10 +49,11 @@ const REGION_PATH_IDS = [
   "tbilisi",
 ] as const;
 
-const REGION_HERO_FILES: Partial<Record<(typeof REGION_PATH_IDS)[number], string>> =
-  {
-    "samegrelo-zemo-svaneti": "samegrelo",
-  };
+const REGION_HERO_FILES: Partial<
+  Record<(typeof REGION_PATH_IDS)[number], string>
+> = {
+  "samegrelo-zemo-svaneti": "samegrelo",
+};
 
 type CheckStatus = "ok" | "not_found" | "failed";
 
@@ -134,6 +136,9 @@ function walkFiles(dir: string, out: string[] = []) {
     if (entry.isDirectory()) {
       if (SKIP_DIR_NAMES.has(entry.name)) continue;
       walkFiles(full, out);
+      continue;
+    }
+    if (SKIP_FILE_SUFFIXES.some((suffix) => entry.name.endsWith(suffix))) {
       continue;
     }
     if (SKIP_FILE_NAMES.has(entry.name)) continue;
