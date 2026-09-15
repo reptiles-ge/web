@@ -4,55 +4,6 @@ import type { OptimizedImageEntry } from "./optimizedImages";
 export const optimizedBaseUrl = "https://cdn.reptiles.ge/optimized/";
 
 export const optimizedImages: Record<string, OptimizedImageEntry> = {
-  "/images/home/groups/amphibians.jpg": {
-    "path": "images/home/groups/amphibians",
-    "width": 1800,
-    "height": 1200,
-    "widths": [320, 400, 640, 1200, 1800],
-    "formats": ["avif", "webp"]
-  },
-  "/images/home/groups/birds.jpg": {
-    "path": "images/home/groups/birds",
-    "width": 900,
-    "height": 900,
-    "widths": [320, 400, 640, 800, 900],
-    "formats": ["avif", "webp"]
-  },
-  "/images/home/groups/lizards.jpg": {
-    "path": "images/home/groups/lizards",
-    "width": 1800,
-    "height": 1200,
-    "widths": [320, 400, 640, 1200, 1800],
-    "formats": ["avif", "webp"]
-  },
-  "/images/home/groups/mammals.jpg": {
-    "path": "images/home/groups/mammals",
-    "width": 900,
-    "height": 900,
-    "widths": [320, 400, 640, 800, 900],
-    "formats": ["avif", "webp"]
-  },
-  "/images/home/groups/snakes.jpg": {
-    "path": "images/home/groups/snakes",
-    "width": 1800,
-    "height": 1200,
-    "widths": [320, 400, 640, 800, 1200, 1800],
-    "formats": ["avif", "webp"]
-  },
-  "/images/home/groups/spiders.jpg": {
-    "path": "images/home/groups/spiders",
-    "width": 900,
-    "height": 900,
-    "widths": [320, 400, 640, 800, 900],
-    "formats": ["avif", "webp"]
-  },
-  "/images/home/groups/turtles.jpg": {
-    "path": "images/home/groups/turtles",
-    "width": 1800,
-    "height": 1200,
-    "widths": [320, 400, 640, 1200, 1800],
-    "formats": ["avif", "webp"]
-  },
   "/images/news/vipera-pontica-hybrid-georgia-2026/figure-1.jpg": {
     "path": "images/news/vipera-pontica-hybrid-georgia-2026/figure-1",
     "width": 1772,
@@ -93,13 +44,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 2400,
     "height": 1889,
     "widths": [400, 800, 1200, 2400],
-    "formats": ["avif", "webp"]
-  },
-  "/images/species/argiope-bruennichi-mating-1.jpg": {
-    "path": "images/species/argiope-bruennichi-mating-1",
-    "width": 731,
-    "height": 1056,
-    "widths": [400, 731],
     "formats": ["avif", "webp"]
   },
   "/images/species/argiope-bruennichi-pair-1.jpg": {
@@ -1040,13 +984,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 858],
     "formats": ["avif", "webp"]
   },
-  "https://cdn.reptiles.ge/coronella-austriaca-aur%C3%A9lien-1.jpg": {
-    "path": "coronella-austriaca-aur%C3%A9lien-1",
-    "width": 1024,
-    "height": 683,
-    "widths": [320, 400, 640, 800, 1024],
-    "formats": ["avif", "webp"]
-  },
   "https://cdn.reptiles.ge/coronella-austriaca-edouard-1.jpg": {
     "path": "coronella-austriaca-edouard-1",
     "width": 1024,
@@ -1390,13 +1327,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif"]
   },
-  "https://cdn.reptiles.ge/darevskia-daghestanica-1.jpg": {
-    "path": "darevskia-daghestanica-1",
-    "width": 472,
-    "height": 1024,
-    "widths": [320, 400, 472],
-    "formats": ["avif", "webp"]
-  },
   "https://cdn.reptiles.ge/darevskia-daghestanica-2.jpg": {
     "path": "darevskia-daghestanica-2",
     "width": 1536,
@@ -1411,39 +1341,11 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1366],
     "formats": ["avif"]
   },
-  "https://cdn.reptiles.ge/darevskia-daghestanica-4.jpg": {
-    "path": "darevskia-daghestanica-4",
-    "width": 1024,
-    "height": 768,
-    "widths": [320, 400, 640, 800, 1024],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/darevskia-daghestanica-5.jpg": {
-    "path": "darevskia-daghestanica-5",
-    "width": 1024,
-    "height": 768,
-    "widths": [320, 400, 640, 800, 1024],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/darevskia-daghestanica-aleksandre-1.jpg": {
-    "path": "darevskia-daghestanica-aleksandre-1",
-    "width": 960,
-    "height": 661,
-    "widths": [320, 400, 640, 800, 960],
-    "formats": ["avif", "webp"]
-  },
   "https://cdn.reptiles.ge/darevskia-daghestanica-denis-1.jpg": {
     "path": "darevskia-daghestanica-denis-1",
     "width": 1024,
     "height": 576,
     "widths": [320, 400, 640, 800, 1024],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/darevskia-daghestanica-giorgi-1.jpg": {
-    "path": "darevskia-daghestanica-giorgi-1",
-    "width": 577,
-    "height": 1024,
-    "widths": [320, 400, 577],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/darevskia-daghestanica.jpg": {
@@ -3959,13 +3861,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 858],
     "formats": ["avif", "webp"]
   },
-  "https://cdn.reptiles.ge/lacerta-strigata-%D0%B1%D0%B8%D0%B9%D0%B1%D0%BE%D0%BB%D0%B0%D1%82-1.jpg": {
-    "path": "lacerta-strigata-%D0%B1%D0%B8%D0%B9%D0%B1%D0%BE%D0%BB%D0%B0%D1%82-1",
-    "width": 1024,
-    "height": 771,
-    "widths": [320, 400, 640, 800, 1024],
-    "formats": ["avif", "webp"]
-  },
   "https://cdn.reptiles.ge/lacerta-strigata-1.jpg": {
     "path": "lacerta-strigata-1",
     "width": 1024,
@@ -4244,13 +4139,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 2048,
     "height": 1304,
     "widths": [320, 400, 640, 800, 1200, 2048],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/macrovipera-lebetina-aur%C3%A9lien-1.jpg": {
-    "path": "macrovipera-lebetina-aur%C3%A9lien-1",
-    "width": 1024,
-    "height": 683,
-    "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/macrovipera-lebetina-giorgi-1.jpg": {
@@ -4659,13 +4547,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
-  "https://cdn.reptiles.ge/natrix-natrix-barnab%C3%A1s-1.jpg": {
-    "path": "natrix-natrix-barnab%C3%A1s-1",
-    "width": 768,
-    "height": 1024,
-    "widths": [320, 400, 640, 768],
-    "formats": ["avif", "webp"]
-  },
   "https://cdn.reptiles.ge/natrix-natrix-christian-1.jpg": {
     "path": "natrix-natrix-christian-1",
     "width": 1024,
@@ -4722,13 +4603,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800],
     "formats": ["avif"]
   },
-  "https://cdn.reptiles.ge/natrix-tessellata-barnab%C3%A1s-1.jpg": {
-    "path": "natrix-tessellata-barnab%C3%A1s-1",
-    "width": 1024,
-    "height": 683,
-    "widths": [320, 400, 640, 800, 1024],
-    "formats": ["avif", "webp"]
-  },
   "https://cdn.reptiles.ge/natrix-tessellata-brecht-1.jpg": {
     "path": "natrix-tessellata-brecht-1",
     "width": 1024,
@@ -4776,13 +4650,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1024,
     "height": 812,
     "widths": [400, 800, 1024],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/natrix-tessellata-tom%C3%A1%C5%A1-1.jpg": {
-    "path": "natrix-tessellata-tom%C3%A1%C5%A1-1",
-    "width": 1024,
-    "height": 682,
-    "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/news-batumi-19300-cosentino-kite-1.jpg": {
@@ -5364,20 +5231,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 768,
     "height": 1024,
     "widths": [400, 768],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/platyceps-najadum-tom%C3%A1%C5%A1-1.jpg": {
-    "path": "platyceps-najadum-tom%C3%A1%C5%A1-1",
-    "width": 1024,
-    "height": 682,
-    "widths": [320, 400, 640, 800, 1024],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/platyceps-najadum-vojt%C4%9Bch-1.jpg": {
-    "path": "platyceps-najadum-vojt%C4%9Bch-1",
-    "width": 1024,
-    "height": 683,
-    "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/platyceps-najadum.webp": {
