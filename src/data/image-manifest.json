@@ -61602,6 +61602,397 @@
       ],
       "updatedAt": "2026-08-28T21:59:19.897Z"
     },
+    "tenuidactylus-caspius-david-1.jpg": {
+      "sourceHash": "b85e058f3a54d3f6071cc9ebc44aa42de0889653a2d8ea70f254dad2ba610cea",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "tenuidactylus-caspius-david-1.jpg",
+      "originalSize": 112162,
+      "width": 1024,
+      "height": 677,
+      "derivatives": [
+        {
+          "key": "optimized/tenuidactylus-caspius-david-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 211,
+          "byteSize": 7459
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-david-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 211,
+          "byteSize": 9984
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-david-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 264,
+          "byteSize": 10105
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-david-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 264,
+          "byteSize": 14052
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-david-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 423,
+          "byteSize": 19037
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-david-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 423,
+          "byteSize": 26762
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-david-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 529,
+          "byteSize": 25916
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-david-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 529,
+          "byteSize": 36850
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-david-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 677,
+          "byteSize": 37312
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-david-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 677,
+          "byteSize": 51678
+        }
+      ],
+      "updatedAt": "2026-09-15T05:37:10.553Z"
+    },
+    "tenuidactylus-caspius-davit-1.jpg": {
+      "sourceHash": "a5bdd5f4ae20b1ac8dabe862e9553a96f146fc936e0a0e9c1c99aaf29bdb0eb5",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "tenuidactylus-caspius-davit-1.jpg",
+      "originalSize": 111267,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/tenuidactylus-caspius-davit-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 7387
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-davit-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10476
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-davit-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 10686
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-davit-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 14878
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-davit-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 20624
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-davit-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 28886
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-davit-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 27805
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-davit-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 38812
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-davit-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 38764
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-davit-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 52462
+        }
+      ],
+      "updatedAt": "2026-09-15T05:38:07.468Z"
+    },
+    "tenuidactylus-caspius-gocha-1.jpg": {
+      "sourceHash": "d0b90b6fe4400725a3e1e3342894320728bf2dc54c3d1c0a396f08f512074c6c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "tenuidactylus-caspius-gocha-1.jpg",
+      "originalSize": 85351,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/tenuidactylus-caspius-gocha-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 5753
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-gocha-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 7216
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-gocha-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 7930
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-gocha-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 10102
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-gocha-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 14523
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-gocha-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 19414
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-gocha-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 19684
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-gocha-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 26214
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-gocha-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 27994
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-gocha-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 37808
+        }
+      ],
+      "updatedAt": "2026-09-15T05:39:02.816Z"
+    },
+    "tenuidactylus-caspius-gocha-2.jpg": {
+      "sourceHash": "75e6b7fbbf787eddf1831e8a3bcad4507782e6c2b85f7e3b095365fd2f093c5c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "tenuidactylus-caspius-gocha-2.jpg",
+      "originalSize": 136284,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/tenuidactylus-caspius-gocha-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8132
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-gocha-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11152
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-gocha-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 11942
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-gocha-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 16314
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-gocha-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 25320
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-gocha-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 35392
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-gocha-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 35838
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-gocha-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 50116
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-gocha-2-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 53699
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-gocha-2-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 74002
+        }
+      ],
+      "updatedAt": "2026-09-15T05:40:02.872Z"
+    },
+    "tenuidactylus-caspius-gocha-3.jpg": {
+      "sourceHash": "c8afbd3004e01b09a76795ce467cef16ca54af72bb69b5c2203be396f51fe27d",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "tenuidactylus-caspius-gocha-3.jpg",
+      "originalSize": 99936,
+      "width": 683,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/tenuidactylus-caspius-gocha-3-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 480,
+          "byteSize": 11456
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-gocha-3-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 480,
+          "byteSize": 15784
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-gocha-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 600,
+          "byteSize": 15977
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-gocha-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 600,
+          "byteSize": 21642
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-gocha-3-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 960,
+          "byteSize": 30269
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-gocha-3-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 960,
+          "byteSize": 41614
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-gocha-3-683.avif",
+          "format": "avif",
+          "width": 683,
+          "height": 1024,
+          "byteSize": 34076
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-gocha-3-683.webp",
+          "format": "webp",
+          "width": 683,
+          "height": 1024,
+          "byteSize": 46548
+        }
+      ],
+      "updatedAt": "2026-09-15T05:40:02.570Z"
+    },
     "tenuidactylus-caspius-mobile.jpg": {
       "sourceHash": "a78efd1ed6d1d252a6a98010527e076809e05287f458c52aa132f9e8d4616ced",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -61668,6 +62059,87 @@
         }
       ],
       "updatedAt": "2026-08-28T21:59:23.471Z"
+    },
+    "tenuidactylus-caspius-nikita-1.jpg": {
+      "sourceHash": "8cd92d60f4800e28c634444be7cb616e7b5e80152a30fa13acbc54065efdbe42",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "tenuidactylus-caspius-nikita-1.jpg",
+      "originalSize": 214169,
+      "width": 1024,
+      "height": 680,
+      "derivatives": [
+        {
+          "key": "optimized/tenuidactylus-caspius-nikita-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12065
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-nikita-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 18366
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-nikita-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 18916
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-nikita-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 28124
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-nikita-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 425,
+          "byteSize": 43083
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-nikita-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 425,
+          "byteSize": 65818
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-nikita-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 531,
+          "byteSize": 62084
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-nikita-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 531,
+          "byteSize": 97138
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-nikita-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 680,
+          "byteSize": 92043
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-nikita-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 680,
+          "byteSize": 147086
+        }
+      ],
+      "updatedAt": "2026-09-15T05:40:57.104Z"
     },
     "tenuidactylus-caspius.jpg": {
       "sourceHash": "b43af577096b9860b69be1bd6a5d5df905849f26f73fee3ab1a3a9f6e3b92a22",
