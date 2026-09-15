@@ -28326,20 +28326,6 @@
           "byteSize": 61120
         },
         {
-          "key": "optimized/images/home/groups/amphibians-800.avif",
-          "format": "avif",
-          "width": 800,
-          "height": 533,
-          "byteSize": 66073
-        },
-        {
-          "key": "optimized/images/home/groups/amphibians-800.webp",
-          "format": "webp",
-          "width": 800,
-          "height": 533,
-          "byteSize": 88506
-        },
-        {
           "key": "optimized/images/home/groups/amphibians-1200.avif",
           "format": "avif",
           "width": 1200,
@@ -28500,20 +28486,6 @@
           "width": 640,
           "height": 427,
           "byteSize": 72612
-        },
-        {
-          "key": "optimized/images/home/groups/lizards-800.avif",
-          "format": "avif",
-          "width": 800,
-          "height": 533,
-          "byteSize": 68489
-        },
-        {
-          "key": "optimized/images/home/groups/lizards-800.webp",
-          "format": "webp",
-          "width": 800,
-          "height": 533,
-          "byteSize": 106608
         },
         {
           "key": "optimized/images/home/groups/lizards-1200.avif",
@@ -28852,20 +28824,6 @@
           "width": 640,
           "height": 427,
           "byteSize": 68134
-        },
-        {
-          "key": "optimized/images/home/groups/turtles-800.avif",
-          "format": "avif",
-          "width": 800,
-          "height": 533,
-          "byteSize": 66194
-        },
-        {
-          "key": "optimized/images/home/groups/turtles-800.webp",
-          "format": "webp",
-          "width": 800,
-          "height": 533,
-          "byteSize": 97466
         },
         {
           "key": "optimized/images/home/groups/turtles-1200.avif",
