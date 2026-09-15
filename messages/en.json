@@ -1031,7 +1031,7 @@
     "ctaRegions": "Regions atlas",
     "relatedEyebrow": "Other categories",
     "relatedTitle": "Continue in other categories",
-    "relatedBody": "Each category gathers related species on one guide page — then sends you to the full profile.",
+    "relatedBody": "Each category gathers the relevant species on one guide page, where you can continue to a specific snake’s full profile.",
     "relatedGuidesEyebrow": "Related guides",
     "relatedGuidesTitle": "Continue with related pages",
     "relatedGuidesBody": "Identification, range, safety, and species indexes — stay in the same topic instead of returning to the homepage.",
@@ -1302,7 +1302,7 @@
     "breadcrumbCurrent": "Snakes",
     "heroImageAlt": "Dinnik’s viper in rocky Caucasus habitat",
     "title": "Snakes in Georgia",
-    "subtitle": "A complete guide to Georgia’s snakes — catalog, risk levels, and a clear path to every full profile.",
+    "subtitle": "Snakes in Georgia — a complete guide with the species catalog, risk levels, and a full profile for every snake.",
     "ctaSpecies": "See the species",
     "ctaQuiz": "Which snake is it?",
     "statSpecies": "Snakes in the atlas",
@@ -1311,36 +1311,36 @@
     "statExtraValue": "—",
     "guideEyebrow": "Guide",
     "guideTitle": "All of Georgia’s snakes in one guide",
-    "guideP1": "Every snake in the atlas — venomous and harmless — with links to identification, bite first steps, range, and full profiles.",
-    "guideP2": "Harmless racers, cat snakes, and smooth snakes are often confused with vipers. From here open the venomous guide, the yard guide, or a species profile — photos, traits, habitat, and sources.",
+    "guideP1": "This page gathers the snakes of Georgia represented in the atlas — venomous and harmless species, with identification traits, ranges, and links to full profiles.",
+    "guideP2": "Some harmless snakes can look like vipers. For more detail, open the venomous snakes guide, the practical guide for finding a snake in the yard, or a specific species profile with photos, identification traits, habitat, and sources.",
     "speciesEyebrow": "Catalog",
     "speciesTitle": "{count} snakes in the atlas",
-    "speciesBody": "Each entry opens a full profile — common and scientific names, risk, short overview, and regions.",
+    "speciesBody": "From each entry you can open the species’ full profile, with the common and scientific name, risk level, short overview, and distribution information.",
     "section": {
       "venomous": {
         "title": "Venomous snakes in Georgia — {count}",
-        "body": "Levantine viper, Dinnik’s, Caucasus, Transcaucasian, Darevsky’s, and steppe vipers. Full guide is separate."
+        "body": "Georgia’s venomous snakes include the Levantine, Dinnik’s, Caucasus, Transcaucasian, Darevsky’s, and steppe vipers. Full information about them is gathered in the separate venomous snakes guide."
       },
       "harmless": {
         "title": "Harmless — {count}",
-        "body": "Most snakes are harmless and often mistaken for vipers. Profiles show identification traits and habitat."
+        "body": "Most snakes found in Georgia are not dangerous to humans. Do not rely on colour alone when identifying them — species profiles show appearance traits, habitat, and distribution information."
       },
       "racers": {
         "title": "Racers — {count}",
-        "body": "Dahl’s whip snake, steppe ratsnake, European cat snake, and Aesculapian snake — harmless colubrids often mistaken for vipers."
+        "body": "Dahl’s whip snake, steppe ratsnake, European cat snake, and Aesculapian snake are harmless snakes that are sometimes confused with venomous species."
       }
     },
     "faqEyebrow": "FAQ",
     "faqTitle": "What people ask about snakes",
     "faqIntro": "Short answers — depth lives on species pages.",
     "faq1Q": "How many snakes are there in Georgia?",
-    "faq1A": "This atlas lists snake profiles confirmed or checklist-supported for Georgia. Counts change with taxonomy and new confirmations — this page shows the current catalog.",
+    "faq1A": "This atlas gathers snake profiles that are confirmed for Georgia or included in the relevant checklists. The exact number of species can change with taxonomy and newly confirmed data, so this page always presents the current catalog.",
     "faq2Q": "Which snakes are venomous in Georgia?",
-    "faq2A": "Medically significant species are collected in a dedicated venomous snakes guide. Most snakes here are harmless — do not kill by mistake; compare profiles.",
+    "faq2A": "Medically significant venomous snakes are gathered in a separate guide. Most snakes in Georgia are harmless, so do not kill an unknown snake by mistake — keep distance and compare its traits with the profiles.",
     "faq3Q": "How do I tell a viper from a harmless snake?",
-    "faq3A": "Vipers often have a vertical pupil and a more triangular head, but the rule is not universal. Learn species traits, habitat, and region from the profiles.",
+    "faq3A": "Some vipers have a vertical pupil and a relatively broad, triangular head, but those traits are not enough in every case. For more reliable identification, consider other body traits, habitat, and distribution region.",
     "faq4Q": "Where do snakes occur in Georgia?",
-    "faq4A": "From forests to high mountains and the dry east — ranges live in the regional atlas and on each species page. One species can span several regions.",
+    "faq4A": "Georgia’s snakes occur in varied habitats, from forests and high mountain zones to dry eastern landscapes. You can check a specific species’ distribution in its profile and in the regional atlas; one species often occurs in several regions.",
     "faq5Q": "What should I do if I meet a snake?",
     "faq5A": "Do not handle it, keep distance, and pass aside. If bitten, call 112 and see the <bite>bite guide</bite>. If a snake is in the yard or you want to reduce visits, see the practical <yard>yard guide</yard>.",
     "ctaEyebrow": "Next step",

@@ -1031,7 +1031,7 @@
     "ctaRegions": "Bölgeler atlası",
     "relatedEyebrow": "Diğer kategoriler",
     "relatedTitle": "Diğer kategorilerde devam edin",
-    "relatedBody": "Her kategori ilgili türleri tek bir rehber sayfasında toplar — sonra sizi tam profile gönderir.",
+    "relatedBody": "Her kategori ilgili türleri tek bir rehber sayfasında birleştirir; buradan belirli bir yılanın tam profiline geçebilirsiniz.",
     "relatedGuidesEyebrow": "İlgili rehberler",
     "relatedGuidesTitle": "İlgili sayfalarla devam edin",
     "relatedGuidesBody": "Tanıma, yayılış, güvenlik ve tür dizinleri — ana sayfaya dönmek yerine aynı konuda kalın.",
@@ -1302,7 +1302,7 @@
     "breadcrumbCurrent": "Yılanlar",
     "heroImageAlt": "Kayalık Kafkas habitatında Dinnik engereği",
     "title": "Gürcistan’daki yılanlar",
-    "subtitle": "Gürcistan yılanlarına tam rehber — katalog, risk düzeyleri ve her tam profile net yol.",
+    "subtitle": "Gürcistan’daki yılanlar — tür kataloğu, risk düzeyleri ve her yılanın tam profiliyle eksiksiz rehber.",
     "ctaSpecies": "Türleri gör",
     "ctaQuiz": "Bu hangi yılan?",
     "statSpecies": "Atlasdaki yılanlar",
@@ -1311,36 +1311,36 @@
     "statExtraValue": "—",
     "guideEyebrow": "Rehber",
     "guideTitle": "Gürcistan’ın tüm yılanları tek rehberde",
-    "guideP1": "Atlasdaki her yılan — zehirli ve zararsız — tanıma, ısırıkta ilk adımlar, yayılış ve tam profillere bağlantılarla.",
-    "guideP2": "Zararsız yılanlar, kedi yılanları ve düz yılanlar sıkça engereklerle karıştırılır. Buradan zehirli rehberini, bahçe rehberini veya bir tür profilini açın — fotoğraflar, özellikler, yaşam alanı ve kaynaklar.",
+    "guideP1": "Bu sayfada atlasda yer alan Gürcistan yılanları toplanır — zehirli ve zararsız türler, tanıma özellikleri, yayılış bilgisi ve tam profil bağlantılarıyla.",
+    "guideP2": "Bazı zararsız yılanlar görünüş olarak engereklere benzeyebilir. Daha fazla bilgi için zehirli yılanlar rehberine, bahçede yılan bulmaya yönelik pratik rehbere veya fotoğraflar, tanıma özellikleri, yaşam alanı ve kaynaklar içeren belirli bir tür profiline geçin.",
     "speciesEyebrow": "Katalog",
     "speciesTitle": "Atlasda {count} yılan",
-    "speciesBody": "Her kayıt tam bir profil açar — yaygın ve bilimsel adlar, risk, kısa özet ve bölgeler.",
+    "speciesBody": "Her kayıttan türün tam profilini açabilirsiniz; burada yaygın ve bilimsel ad, risk düzeyi, kısa açıklama ve yayılış bilgisi yer alır.",
     "section": {
       "venomous": {
         "title": "Gürcistan’da zehirli yılanlar — {count}",
-        "body": "Levant, Dinnik, Kafkas, Transkafkas, Darevski ve bozkır engerekleri. Tam rehber ayrıdır."
+        "body": "Gürcistan’ın zehirli yılanları arasında Levant, Dinnik, Kafkas, Transkafkas, Darevski ve bozkır engerekleri bulunur. Onlarla ilgili tam bilgi ayrı zehirli yılanlar rehberinde toplanmıştır."
       },
       "harmless": {
         "title": "Zararsız — {count}",
-        "body": "Çoğu yılan zararsızdır ve sıkça engerek sanılır. Profiller tanıma özelliklerini ve yaşam alanını gösterir."
+        "body": "Gürcistan’da görülen yılanların çoğu insanlar için tehlikeli değildir. Tanımlarken yalnızca renge güvenmeyin — tür profillerinde görünüş özellikleri, yaşam alanı ve yayılış bilgisi bulunur."
       },
       "racers": {
         "title": "Yılanlar — {count}",
-        "body": "Dahl kamçı yılanı, bozkır sıçan yılanı, Avrupa kedi yılanı ve Eskülap yılanı — sıkça engerek sanılan zararsız colubridler."
+        "body": "Dahl kamçı yılanı, bozkır sıçan yılanı, Avrupa kedi yılanı ve Eskülap yılanı, bazen zehirli türlerle karıştırılan zararsız yılanlardır."
       }
     },
     "faqEyebrow": "SSS",
     "faqTitle": "Yılanlar hakkında sorulanlar",
     "faqIntro": "Kısa yanıtlar — derinlik tür sayfalarındadır.",
     "faq1Q": "Gürcistan’da kaç yılan vardır?",
-    "faq1A": "Bu atlas Gürcistan için doğrulanmış veya kontrol listesiyle desteklenen yılan profillerini listeler. Sayılar taksonomi ve yeni doğrulamalarla değişir — bu sayfa güncel kataloğu gösterir.",
+    "faq1A": "Bu atlas Gürcistan için doğrulanmış veya ilgili kontrol listelerinde yer alan yılan profillerini toplar. Türlerin kesin sayısı taksonomik değişiklikler ve yeni doğrulanmış verilerle değişebilir; bu yüzden sayfada her zaman güncel katalog gösterilir.",
     "faq2Q": "Gürcistan’da hangi yılanlar zehirlidir?",
-    "faq2A": "Tıbbi açıdan önemli türler ayrı bir zehirli yılan rehberinde toplanır. Buradaki çoğu yılan zararsızdır — yanlışlıkla öldürmeyin; profilleri karşılaştırın.",
+    "faq2A": "Tıbbi açıdan önemli zehirli yılanlar ayrı bir rehberde toplanmıştır. Gürcistan’daki yılanların çoğu zararsızdır; bu yüzden bilinmeyen bir yılanı yanlışlıkla öldürmeyin — mesafe bırakın ve tür özelliklerini profillerle karşılaştırın.",
     "faq3Q": "Engereği zararsız yılandan nasıl ayırırım?",
-    "faq3A": "Engereklerin çoğu zaman dikey gözbebeği ve daha üçgen bir başı vardır, ancak kural evrensel değildir. Profillerden tür özelliklerini, yaşam alanını ve bölgeyi öğrenin.",
+    "faq3A": "Bazı engereklerde dikey gözbebeği ve görece geniş, üçgen bir baş bulunur, ancak bu özellikler her durumda yeterli değildir. Daha güvenilir tanıma için diğer vücut özelliklerini, yaşam alanını ve yayılış bölgesini dikkate alın.",
     "faq4Q": "Gürcistan’da yılanlar nerede bulunur?",
-    "faq4A": "Ormanlardan yüksek dağlara ve kuru doğuya — yayılışlar bölgesel atlasda ve her tür sayfasındadır. Bir tür birkaç bölgeye yayılabilir.",
+    "faq4A": "Gürcistan’ın yılanları ormanlardan yüksek dağ kuşaklarına ve doğudaki kuru peyzajlara kadar çeşitli ortamlarda görülür. Belirli bir türün yayılışını profilinde ve bölgesel atlasda görebilirsiniz; bir tür çoğu zaman birkaç bölgede bulunur.",
     "faq5Q": "Yılanla karşılaşırsam ne yapmalıyım?",
     "faq5A": "Ellemiyin, mesafe koyun ve yanından geçin. Isırıldıysa 112’yi arayın ve <bite>ısırık rehberine</bite> bakın. Bahçede yılan varsa veya ziyaretleri azaltmak istiyorsanız pratik <yard>bahçe rehberine</yard> bakın.",
     "ctaEyebrow": "Sonraki adım",
