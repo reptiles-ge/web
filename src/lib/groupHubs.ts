@@ -76,7 +76,7 @@ export const GROUP_HUB_ILLUSTRATIONS: Record<GroupHubId, string> = {
   birds: "https://cdn.reptiles.ge/emberiza-citrinella-sharp-1.jpg",
   lizards: "https://cdn.reptiles.ge/pseudopus-apodus-mobile.webp",
   mammals: "https://cdn.reptiles.ge/vulpes-vulpes-portrait-1.jpg",
-  snakes: "https://cdn.reptiles.ge/vipera-dinniki-fabian-1.jpg",
+  snakes: "https://cdn.reptiles.ge/hero-img.webp",
   spiders: "https://cdn.reptiles.ge/argiope-bruennichi-zauri-1.jpg",
   turtles: "https://cdn.reptiles.ge/testudo-graeca-3.jpg",
 };
