@@ -26896,6 +26896,73 @@
       ],
       "updatedAt": "2026-09-15T13:59:34.828Z"
     },
+    "hemorrhois-ravergieri-matthias-1.jpg": {
+      "sourceHash": "2b77de40de7ecf0784c6910f4563787f37f66a5ba99c296e21a91a1eeef8fc73",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "hemorrhois-ravergieri-matthias-1.jpg",
+      "originalSize": 335096,
+      "width": 768,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/hemorrhois-ravergieri-matthias-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 34483
+        },
+        {
+          "key": "optimized/hemorrhois-ravergieri-matthias-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 54218
+        },
+        {
+          "key": "optimized/hemorrhois-ravergieri-matthias-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 51933
+        },
+        {
+          "key": "optimized/hemorrhois-ravergieri-matthias-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 82946
+        },
+        {
+          "key": "optimized/hemorrhois-ravergieri-matthias-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 117712
+        },
+        {
+          "key": "optimized/hemorrhois-ravergieri-matthias-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 193066
+        },
+        {
+          "key": "optimized/hemorrhois-ravergieri-matthias-1-768.avif",
+          "format": "avif",
+          "width": 768,
+          "height": 1024,
+          "byteSize": 163758
+        },
+        {
+          "key": "optimized/hemorrhois-ravergieri-matthias-1-768.webp",
+          "format": "webp",
+          "width": 768,
+          "height": 1024,
+          "byteSize": 263648
+        }
+      ],
+      "updatedAt": "2026-09-15T14:00:24.550Z"
+    },
     "hemorrhois-ravergieri-mobile.jpg": {
       "sourceHash": "763404363ec8ffa06d387276e2fdca5a311b904fadce09215ad96c4b65a6e5e7",
       "configFingerprint": "a895f8e025dcc7fa",
