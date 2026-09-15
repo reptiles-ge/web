@@ -26896,6 +26896,87 @@
       ],
       "updatedAt": "2026-09-15T13:59:34.828Z"
     },
+    "hemorrhois-ravergieri-louis-1.jpg": {
+      "sourceHash": "08ff109b03e6b91faafacc5c061bf000394390b0ee064b85414ef85959d7027b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "hemorrhois-ravergieri-louis-1.jpg",
+      "originalSize": 136834,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/hemorrhois-ravergieri-louis-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9609
+        },
+        {
+          "key": "optimized/hemorrhois-ravergieri-louis-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14464
+        },
+        {
+          "key": "optimized/hemorrhois-ravergieri-louis-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 13439
+        },
+        {
+          "key": "optimized/hemorrhois-ravergieri-louis-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 20540
+        },
+        {
+          "key": "optimized/hemorrhois-ravergieri-louis-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 26423
+        },
+        {
+          "key": "optimized/hemorrhois-ravergieri-louis-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 40394
+        },
+        {
+          "key": "optimized/hemorrhois-ravergieri-louis-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 35531
+        },
+        {
+          "key": "optimized/hemorrhois-ravergieri-louis-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 55372
+        },
+        {
+          "key": "optimized/hemorrhois-ravergieri-louis-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 50649
+        },
+        {
+          "key": "optimized/hemorrhois-ravergieri-louis-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 77014
+        }
+      ],
+      "updatedAt": "2026-09-15T14:06:05.187Z"
+    },
     "hemorrhois-ravergieri-matthias-1.jpg": {
       "sourceHash": "2b77de40de7ecf0784c6910f4563787f37f66a5ba99c296e21a91a1eeef8fc73",
       "configFingerprint": "409788ee46c653d8",
