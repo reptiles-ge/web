@@ -62060,6 +62060,87 @@
       ],
       "updatedAt": "2026-08-28T21:59:23.471Z"
     },
+    "tenuidactylus-caspius-nikita-1.jpg": {
+      "sourceHash": "8cd92d60f4800e28c634444be7cb616e7b5e80152a30fa13acbc54065efdbe42",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "tenuidactylus-caspius-nikita-1.jpg",
+      "originalSize": 214169,
+      "width": 1024,
+      "height": 680,
+      "derivatives": [
+        {
+          "key": "optimized/tenuidactylus-caspius-nikita-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12065
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-nikita-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 18366
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-nikita-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 18916
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-nikita-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 28124
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-nikita-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 425,
+          "byteSize": 43083
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-nikita-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 425,
+          "byteSize": 65818
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-nikita-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 531,
+          "byteSize": 62084
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-nikita-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 531,
+          "byteSize": 97138
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-nikita-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 680,
+          "byteSize": 92043
+        },
+        {
+          "key": "optimized/tenuidactylus-caspius-nikita-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 680,
+          "byteSize": 147086
+        }
+      ],
+      "updatedAt": "2026-09-15T05:40:57.104Z"
+    },
     "tenuidactylus-caspius.jpg": {
       "sourceHash": "b43af577096b9860b69be1bd6a5d5df905849f26f73fee3ab1a3a9f6e3b92a22",
       "configFingerprint": "a895f8e025dcc7fa",
