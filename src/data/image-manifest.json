@@ -28502,20 +28502,6 @@
           "byteSize": 72612
         },
         {
-          "key": "optimized/images/home/groups/lizards-800.avif",
-          "format": "avif",
-          "width": 800,
-          "height": 533,
-          "byteSize": 68489
-        },
-        {
-          "key": "optimized/images/home/groups/lizards-800.webp",
-          "format": "webp",
-          "width": 800,
-          "height": 533,
-          "byteSize": 106608
-        },
-        {
           "key": "optimized/images/home/groups/lizards-1200.avif",
           "format": "avif",
           "width": 1200,
