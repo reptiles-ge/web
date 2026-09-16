@@ -106,7 +106,8 @@ function resolvePublishedAt(
     const parsed = parseToSiteDateTime(override);
     if (parsed) return parsed;
   }
-  return getGitFirstCommitDate(filePaths) ?? updatedAt;
+  const gitDate = getGitFirstCommitDate(filePaths);
+  return gitDate && gitDate <= updatedAt ? gitDate : updatedAt;
 }
 
 function creditLacksLocation(credit?: PhotoCredit) {
