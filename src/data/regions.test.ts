@@ -9,9 +9,7 @@ describe("region speciesIds", () => {
     const published = new Set(getCatalogSpecies().map((item) => item.id));
     for (const region of regions) {
       for (const id of region.speciesIds) {
-        expect(unpublishedSpeciesIds.has(id), `${region.id}:${id}`).toBe(
-          false,
-        );
+        expect(unpublishedSpeciesIds.has(id), `${region.id}:${id}`).toBe(false);
         expect(published.has(id), `${region.id}:${id}`).toBe(true);
       }
     }
@@ -20,7 +18,7 @@ describe("region speciesIds", () => {
 
 describe("region FAQ locale gating", () => {
   it("omits English-only FAQ copy for Russian", () => {
-    const content = getRegionContent("adjara");
+    const content = getRegionContent("abkhazia");
     for (const entry of content.faq) {
       expect(localizeRegionTextIfPresent(entry.question, "ru")).toBeNull();
       expect(localizeRegionTextIfPresent(entry.answer, "ru")).toBeNull();

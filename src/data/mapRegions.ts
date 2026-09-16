@@ -150,10 +150,10 @@ export const regions: Region[] = [
   },
   {
     description: {
-      en: "Humid subtropical forests, mountain valleys, and the Black Sea coast create a unique setting for many reptiles.",
-      ka: "ნოტიო სუბტროპიკული ტყეები, მთიანი ხეობები და შავი ზღვის სანაპირო ქმნის უნიკალურ გარემოს მრავალი რეპტილიისთვის.",
-      ru: "Влажные субтропические леса, горные долины и черноморское побережье создают особую среду для многих рептилий.",
-      tr: "Nemli subtropik ormanlar, dağ vadileri ve Karadeniz kıyısı birçok sürüngen için özgün bir ortam oluşturur.",
+      en: "Adjara’s humid subtropical forests, mountain valleys, and Black Sea coast create varied habitats where several reptile species occur.",
+      ka: "აჭარის ნოტიო სუბტროპიკული ტყეები, მთიანი ხეობები და შავი ზღვის სანაპირო სხვადასხვა ტიპის ჰაბიტატს ქმნის, სადაც ქვეწარმავლების რამდენიმე სახეობა გვხვდება.",
+      ru: "Влажные субтропические леса Аджарии, горные долины и побережье Чёрного моря создают разные типы местообитаний, где встречается несколько видов рептилий.",
+      tr: "Acara’nın nemli subtropik ormanları, dağ vadileri ve Karadeniz kıyısı, birkaç sürüngen türünün görüldüğü farklı habitatlar oluşturur.",
     },
     id: "adjara",
     name: { en: "Adjara", ka: "აჭარა", ru: "Аджария", tr: "Acara" },
