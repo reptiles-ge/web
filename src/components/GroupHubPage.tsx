@@ -43,6 +43,9 @@ export async function GroupHubPage({
   const relatedHubs = GROUP_HUB_LIST.filter((hub) => hub.id !== hubId);
   const clusterCards = HUB_CLUSTER_CARDS[hubId];
   const sections = splitHubSpecies(hubId, species);
+  const relatedBody = t.has("relatedBody")
+    ? t("relatedBody")
+    : tShared("relatedBody");
 
   return (
     <div className="min-h-screen bg-background">
@@ -100,7 +103,7 @@ export async function GroupHubPage({
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <div>
               <ClusterSectionIntro
-                body={tShared("relatedBody")}
+                body={relatedBody}
                 bodyClassName={CLUSTER_BODY}
                 eyebrow={tShared("relatedEyebrow")}
                 eyebrowClassName={CLUSTER_EYEBROW}

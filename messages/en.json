@@ -1354,7 +1354,7 @@
     "breadcrumbCurrent": "Lizards",
     "heroImageAlt": "European glass lizard in dry grassland habitat",
     "title": "Lizards in Georgia",
-    "subtitle": "From Caucasus rock lizards to the glass lizard — a full catalog and a path to every profile.",
+    "subtitle": "From Caucasus rock lizards to the glass lizard — profiles, identification traits, and a catalog of the lizards found in Georgia.",
     "ctaSpecies": "See the species",
     "statSpecies": "Lizards in the atlas",
     "statFamilies": "Families",
@@ -1362,38 +1362,39 @@
     "statExtraValue": "12",
     "guideEyebrow": "Guide",
     "guideTitle": "Georgia’s lizards in one guide",
-    "guideP1": "This page gathers every lizard in the atlas — Darevskia rock lizards, meadow lacertids, and limbless forms like the glass lizard — and sends you to detailed profiles.",
-    "guideP2": "Rock lizards are hard to separate — colour, scalation, and region matter. Pick a species here or open the regional atlas if you know the place.",
+    "guideP1": "This page gathers the lizard profiles published in the atlas — Darevskia rock lizards, forest and meadow species, geckos, and the limbless glass lizard. Each entry leads to the full profile for that species.",
+    "guideP2": "Rock lizards are often hard to separate. Colour alone is not enough — body traits, place of occurrence, and habitat matter too. If you know where the animal was found, the regional atlas can also help you narrow the species.",
     "speciesEyebrow": "Catalog",
     "speciesTitle": "{count} lizards in the atlas",
-    "speciesBody": "The list covers rock lizards, lacertids, skinks, and anguids — each profile built for identification.",
+    "speciesBody": "The list brings together rock lizards, other lacertids, skinks, anguids, and other groups. Each profile includes identification traits, distribution, and additional information.",
+    "relatedBody": "Each category gathers the relevant species on one guide page, where you can continue to a specific lizard’s full profile.",
     "section": {
       "featured": {
         "title": "Caucasian agama and glass lizard",
-        "body": "The two lizards people search most — a rock agama and a legless lizard often mistaken for a snake."
+        "body": "The atlas includes both rock lizards and the glass lizard — a large limbless lizard often mistaken for a snake."
       },
       "darevskia": {
         "title": "Rock lizards (Darevskia) — {count}",
-        "body": "Caucasian Darevskia is especially rich. Colour is not enough — region and traits are on each profile. Regional maps are still empty for many taxa."
+        "body": "The Caucasus is home to many Darevskia species, and telling them apart is often difficult. Do not rely only on colour — use the place of occurrence and the identification traits described in the profile."
       },
       "other": {
         "title": "Other lizards — {count}",
-        "body": "Lacertids, skinks, geckos, and other non-Darevskia species from the checklist."
+        "body": "This section also gathers non-Darevskia species, including other lacertids, skinks, geckos, anguids, and other lizards confirmed in Georgia."
       }
     },
     "faqEyebrow": "FAQ",
     "faqTitle": "What people ask about lizards",
     "faqIntro": "Short answers — depth lives on species pages.",
     "faq1Q": "How many lizards are there in Georgia?",
-    "faq1A": "The atlas gathers checklist- and source-supported lizard profiles. Darevskia is especially rich in the Caucasus — start from this catalog.",
+    "faq1A": "The atlas gathers lizard profiles supported by sources for Georgia. The rock-lizard genus Darevskia is especially diverse in the Caucasus, so it has an important place in the catalog.",
     "faq2Q": "Is the glass lizard a snake or a lizard?",
-    "faq2A": "The European glass lizard (Pseudopus apodus) is a long limbless lizard, not a snake. The comparison with the slow worm and water snakes is in a dedicated guide.",
+    "faq2A": "The European glass lizard (Pseudopus apodus) is a large, strongly elongated limbless lizard, not a snake. A separate guide also helps distinguish it from the slow worm and similar snakes.",
     "faq3Q": "How do I tell rock lizards apart?",
-    "faq3A": "Many Darevskia species look similar. Use region, habitat, and identification traits — not colour alone.",
+    "faq3A": "Many Darevskia species look very similar. For identification, consider the region where it was found, the habitat, and the traits described in the species profile — colour alone is not reliable.",
     "faq4Q": "Where are lizards most common?",
-    "faq4A": "Rocks, xeric slopes, forest edges, and meadows. Regional pages show local lists.",
+    "faq4A": "Georgia’s lizards occur in many environments — rocky places, dry slopes, forest edges, meadows, and other habitats. Regional pages help show which species are confirmed from a specific place.",
     "faq5Q": "Are Georgia’s lizards venomous?",
-    "faq5A": "No — lizards in this atlas are not venomous to people. A Caspian gecko on a house wall is harmless; do not kill it. Venom risk here concerns some snakes, not lizards.",
+    "faq5A": "No. The Georgian lizards presented in the atlas are not venomous to people. You may also see a Caspian gecko on building walls — it is harmless and does not need to be killed. Important venom risk in Georgia concerns certain snakes, not lizards.",
     "ctaEyebrow": "Next step",
     "ctaTitle": "From lizard list to profile",
     "ctaBody": "Open a species or compare regional lists. Atlas filters help you pick the right group first.",
