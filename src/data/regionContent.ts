@@ -68,6 +68,9 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
         tr: "Kafkas etekleri.",
       },
     ],
+    metaDescription: {
+      ka: "აფხაზეთის ქვეწარმავლების ატლასი — კავკასიური გველგესლა (Vipera kaznakovi), დინიკის გველგესლა, ანკარები და გველხოკერა: ამოცნობა, გავრცელება, ჰაბიტატები და უსაფრთხოება.",
+    },
     overview: {
       en: "Abkhazia combines the Black Sea coast, Colchic forests, and Caucasus foothills. The humid climate and large elevation range create varied habitats for both lowland and mountain reptiles. Recorded species in the region include Caucasian and Dinnik’s vipers.",
       ka: "აფხაზეთი აერთიანებს შავი ზღვის სანაპიროს, კოლხურ ტყეებსა და კავკასიონის მთისწინეთს. ნოტიო კლიმატი და სიმაღლის დიდი სხვაობა მრავალფეროვან ჰაბიტატებს ქმნის როგორც დაბლობის, ისე მთის ქვეწარმავლებისთვის. რეგიონში დაფიქსირებულია მათ შორის კავკასიური და დინიკის გველგესლები.",
