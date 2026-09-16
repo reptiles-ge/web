@@ -29,10 +29,10 @@ export type RegionTooltipSpecies = {
 export const regions: Region[] = [
   {
     description: {
-      en: "The Black Sea coast, Colchic forests, and Caucasus foothills form a humid, biodiverse habitat.",
-      ka: "შავი ზღვის სანაპირო, კოლხური ტყეები და კავკასიონის მთისწინეთი ქმნის ნოტიო, მრავალფეროვან ჰაბიტატს.",
-      ru: "Черноморское побережье, колхидские леса и предгорья Кавказа образуют влажную, богатую видами среду.",
-      tr: "Karadeniz kıyısı, Kolhis ormanları ve Kafkas etekleri nemli, türce zengin bir ortam oluşturur.",
+      en: "The Black Sea coast, Colchic forests, and Caucasus foothills in Abkhazia create a humid, varied environment where different reptile types occur.",
+      ka: "შავი ზღვის სანაპირო, კოლხური ტყეები და კავკასიონის მთისწინეთი აფხაზეთში ნოტიო და მრავალფეროვან გარემოს ქმნის, სადაც სხვადასხვა ტიპის ქვეწარმავლები გვხვდება.",
+      ru: "Побережье Чёрного моря, колхидские леса и предгорья Кавказа в Абхазии создают влажную и разнообразную среду, где встречаются разные группы рептилий.",
+      tr: "Abhazya’da Karadeniz kıyısı, Kolhis ormanları ve Kafkas etekleri, farklı sürüngen tiplerinin görüldüğü nemli ve çeşitli bir ortam oluşturur.",
     },
     id: "abkhazia",
     name: { en: "Abkhazia", ka: "აფხაზეთი", ru: "Абхазия", tr: "Abhazya" },

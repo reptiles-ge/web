@@ -18,7 +18,7 @@ describe("region speciesIds", () => {
 
 describe("region FAQ locale gating", () => {
   it("omits English-only FAQ copy for Russian", () => {
-    const content = getRegionContent("abkhazia");
+    const content = getRegionContent("guria");
     for (const entry of content.faq) {
       expect(localizeRegionTextIfPresent(entry.question, "ru")).toBeNull();
       expect(localizeRegionTextIfPresent(entry.answer, "ru")).toBeNull();

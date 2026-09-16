@@ -560,7 +560,7 @@
     "clusterAmphibians": "Amphibian index",
     "dataGapEyebrow": "Gap",
     "dataGapTitle": "The map is not a complete fauna yet",
-    "dataGapBody": "Region lists show only named records. Many species are still unmapped to an administrative unit until a source confirms them. Empty municipality pages are not built."
+    "dataGapBody": "Regional lists show only source-confirmed records. If a species is not yet tied to an administrative unit by a source, it is not added to that list. Empty municipality pages are not built."
   },
   "contact": {
     "metaTitle": "Contact",

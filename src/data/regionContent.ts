@@ -21,36 +21,58 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
     faq: [
       {
         answer: {
-          en: "Recorded taxa include Caucasian and Dinnik’s vipers, grass snake and dice snake, smooth snake, and European glass lizard. Exact lists vary by habitat and elevation.",
-          ka: "რეგიონში დაფიქსირებულია კავკასიური და დინიკის გველგესლები, ჩვეულებრივი და წყლის ანკარა, სპილენძა და გველხოკერა. ზუსტი სია იცვლება ჰაბიტატისა და სიმაღლის მიხედვით.",
+          en: "Abkhazia records include Caucasian and Dinnik’s vipers, grass snake and dice snake, smooth snake, and European glass lizard. The species mix at a specific place changes with habitat and elevation.",
+          ka: "აფხაზეთში დაფიქსირებულია კავკასიური და დინიკის გველგესლები, ჩვეულებრივი და წყლის ანკარა, სპილენძა და გველხოკერა. კონკრეტულ ადგილზე სახეობების შემადგენლობა ჰაბიტატისა და სიმაღლის მიხედვით იცვლება.",
+          ru: "В Абхазии отмечены кавказская и Динникова гадюки, обыкновенный и водяной ужи, медянка и желтопузик. Состав видов в конкретном месте меняется в зависимости от местообитания и высоты.",
+          tr: "Abhazya’da Kafkas engereği ve Dinnik engereği, halkalı su yılanı ve su yılanı, düz yılan ve cam kertenkele kaydedilmiştir. Belirli bir yerdeki tür bileşimi habitat ve yükseltiye göre değişir.",
         },
         question: {
           en: "Which snakes occur in Abkhazia?",
           ka: "რა გველები გვხვდება აფხაზეთში?",
+          ru: "Какие змеи встречаются в Абхазии?",
+          tr: "Abhazya’da hangi yılanlar görülür?",
         },
       },
       {
         answer: {
-          en: "Yes — Caucasian viper (Vipera kaznakovi) and Dinnik’s viper (Vipera dinniki) are venomous. Keep distance and never attempt to handle them.",
-          ka: "დიახ — კავკასიური გველგესლა (Vipera kaznakovi) და დინიკის გველგესლა (Vipera dinniki) შხამიანია. შეხვედრისას დაიცავით მანძილი და არ სცადოთ დაჭერა.",
+          en: "Yes. Caucasian viper (Vipera kaznakovi) and Dinnik’s viper (Vipera dinniki) are venomous species. When you meet one, keep a safe distance and do not try to catch it.",
+          ka: "დიახ. კავკასიური გველგესლა (Vipera kaznakovi) და დინიკის გველგესლა (Vipera dinniki) შხამიანი სახეობებია. შეხვედრისას დაიცავით უსაფრთხო მანძილი და არ სცადოთ მათი დაჭერა.",
+          ru: "Да. Кавказская гадюка (Vipera kaznakovi) и гадюка Динника (Vipera dinniki) — ядовитые виды. При встрече держите безопасную дистанцию и не пытайтесь их ловить.",
+          tr: "Evet. Kafkas engereği (Vipera kaznakovi) ve Dinnik engereği (Vipera dinniki) zehirli türlerdir. Karşılaştığınızda güvenli mesafe bırakın ve yakalamaya çalışmayın.",
         },
         question: {
           en: "Are there venomous snakes in Abkhazia?",
           ka: "არის თუ არა შხამიანი გველი აფხაზეთში?",
+          ru: "Есть ли в Абхазии ядовитые змеи?",
+          tr: "Abhazya’da zehirli yılan var mı?",
         },
       },
     ],
     habitats: [
       {
-        en: "Black Sea coast and humid lowlands",
-        ka: "შავი ზღვის სანაპირო და ტენიანი დაბლობი",
+        en: "Black Sea coast and humid lowlands.",
+        ka: "შავი ზღვის სანაპირო და ტენიანი დაბლობი.",
+        ru: "Побережье Чёрного моря и влажные низменности.",
+        tr: "Karadeniz kıyısı ve nemli alçak alanlar.",
       },
-      { en: "Colchic forests", ka: "კოლხური ტყეები" },
-      { en: "Caucasus foothills", ka: "კავკასიონის მთისწინეთი" },
+      {
+        en: "Colchic forests.",
+        ka: "კოლხური ტყეები.",
+        ru: "Колхидские леса.",
+        tr: "Kolhis ormanları.",
+      },
+      {
+        en: "Caucasus foothills.",
+        ka: "კავკასიონის მთისწინეთი.",
+        ru: "Предгорья Кавказа.",
+        tr: "Kafkas etekleri.",
+      },
     ],
     overview: {
-      en: "Abkhazia joins the Black Sea coast, Colchic forests, and Caucasus foothills. Humid climate and fragmented montane habitats support both lowland and highland taxa — including Caucasian and Dinnik’s vipers.",
-      ka: "აფხაზეთი აერთიანებს შავი ზღვის სანაპიროს, კოლხურ ტყეებს და კავკასიონის მთისწინეთს. ნოტიო ჰავა და ფრაგმენტირებული მთის ჰაბიტატები ხელს უწყობს როგორც დაბლობის, ისე მაღალმთის სახეობებს — მათ შორის კავკასიურ და დინიკის გველგესლებს.",
+      en: "Abkhazia combines the Black Sea coast, Colchic forests, and Caucasus foothills. The humid climate and large elevation range create varied habitats for both lowland and mountain reptiles. Recorded species in the region include Caucasian and Dinnik’s vipers.",
+      ka: "აფხაზეთი აერთიანებს შავი ზღვის სანაპიროს, კოლხურ ტყეებსა და კავკასიონის მთისწინეთს. ნოტიო კლიმატი და სიმაღლის დიდი სხვაობა მრავალფეროვან ჰაბიტატებს ქმნის როგორც დაბლობის, ისე მთის ქვეწარმავლებისთვის. რეგიონში დაფიქსირებულია მათ შორის კავკასიური და დინიკის გველგესლები.",
+      ru: "Абхазия объединяет побережье Чёрного моря, колхидские леса и предгорья Кавказа. Влажный климат и большой перепад высот создают разнообразные местообитания как для низинных, так и для горных рептилий. В регионе зарегистрированы в том числе кавказская и Динникова гадюки.",
+      tr: "Abhazya, Karadeniz kıyısını, Kolhis ormanlarını ve Kafkas eteklerini bir araya getirir. Nemli iklim ve büyük yükselti farkı hem alçak alan hem de dağ sürüngenleri için çeşitli habitatlar oluşturur. Bölgede Kafkas engereği ve Dinnik engereği de kaydedilmiştir.",
     },
     relatedIds: ["samegrelo-zemo-svaneti", "racha", "guria"],
   },
