@@ -560,7 +560,7 @@
     "clusterAmphibians": "Amfibi dizini",
     "dataGapEyebrow": "Boşluk",
     "dataGapTitle": "Harita henüz tam fauna değildir",
-    "dataGapBody": "Bölge listeleri yalnızca adlandırılmış kayıtları gösterir. Bir kaynak doğrulayana kadar birçok tür henüz bir idari birime haritalanmamıştır. Boş belediye sayfaları kurulmaz."
+    "dataGapBody": "Bölgesel listelerde yalnızca kaynaklarla doğrulanmış kayıtlar gösterilir. Belirli bir tür bir kaynakla henüz bir idari birime bağlanmamışsa, ilgili listeye eklenmez. Boş belediye sayfaları oluşturulmaz."
   },
   "contact": {
     "metaTitle": "İletişim",
