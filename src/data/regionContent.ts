@@ -134,6 +134,9 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
         tr: "Karadeniz kıyısı.",
       },
     ],
+    metaDescription: {
+      ka: "აჭარის ქვეწარმავლების ატლასი — კავკასიური გველგესლა (Vipera kaznakovi), ანკარები, სპილენძა და გველხოკერა: ამოცნობა, გავრცელება, ჰაბიტატები და უსაფრთხოება.",
+    },
     overview: {
       en: "Adjara is one of western Georgia’s most humid regions. Humid subtropical forests, mountain valleys, and the Black Sea coast create varied environments for reptiles. The region has Caucasian viper, grass snake and dice snake, smooth snake, European glass lizard, and other species.",
       ka: "აჭარა დასავლეთ საქართველოს ერთ-ერთი ყველაზე ტენიანი რეგიონია. ნოტიო სუბტროპიკული ტყეები, მთიანი ხეობები და შავი ზღვის სანაპირო მრავალფეროვან გარემოს ქმნის ქვეწარმავლებისთვის. რეგიონში გვხვდება კავკასიური გველგესლა, ჩვეულებრივი და წყლის ანკარა, სპილენძა, გველხოკერა და სხვა სახეობები.",
