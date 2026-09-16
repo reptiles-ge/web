@@ -5,6 +5,7 @@ export type RegionContent = {
   biome: LocalizedText;
   faq: RegionFaq[];
   habitats: LocalizedText[];
+  metaDescription?: Partial<LocalizedText>;
   overview: LocalizedText;
   relatedIds: RegionPathId[];
 };
@@ -443,6 +444,9 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
         tr: "Nehir kıyısı habitatları.",
       },
     ],
+    metaDescription: {
+      ka: "თბილისის ქვეწარმავლების ატლასი — გიურზა, გველგესლები, მცურავები და გველხოკერა: ამოცნობა, გავრცელება, ჰაბიტატები და უსაფრთხოება თბილისსა და მის შემოგარენში.",
+    },
     overview: {
       en: "In Tbilisi, reptiles mainly occur in valleys around the city, parks, green areas, and riverside habitats, not in central urban districts. Atlas records from Tbilisi and its surroundings include Levantine viper, nose-horned viper, steppe viper, several ratsnakes and racers, grass and dice snakes, glass lizard, and other species. Encounters inside the city are rare but possible. If a snake bites someone, call 112 immediately.",
       ka: "თბილისში ქვეწარმავლები ძირითადად ქალაქის მიმდებარე ხეობებში, პარკებში, გამწვანებულ ადგილებსა და მდინარის პირას გვხვდება და არა ცენტრალურ ურბანულ უბნებში. ატლასის ჩანაწერებში თბილისის ტერიტორიიდან და შემოგარენიდან წარმოდგენილია გიურზა, ცხვირრქოსანი და ველის გველგესლა, სხვადასხვა მცურავი, ანკარები, გველხოკერა და სხვა სახეობები. ქალაქის შიგნით ასეთი შეხვედრები იშვიათია, მაგრამ შესაძლებელია. გველის ნაკბენისას დაუყოვნებლივ დარეკეთ 112-ზე.",

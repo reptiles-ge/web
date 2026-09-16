@@ -608,7 +608,7 @@ export function getRegionsForSpecies(speciesId: string): Region[] {
 }
 
 export function hasLocalizedText(
-  text: LocalizedText,
+  text: Partial<LocalizedText>,
   locale: AppLocale,
 ): boolean {
   const value = text[locale];
@@ -623,7 +623,7 @@ export function localizeRegionText(
 }
 
 export function localizeRegionTextIfPresent(
-  text: LocalizedText,
+  text: Partial<LocalizedText>,
   locale: AppLocale,
 ): null | string {
   if (!hasLocalizedText(text, locale)) return null;
