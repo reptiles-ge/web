@@ -79,15 +79,6 @@ export function newsArticlePhotos(article: NewsArticle) {
   return photos;
 }
 
-export function newsLatestModified(articles = getPublishedNewsArticles()) {
-  let latest = "";
-  for (const article of articles) {
-    const value = article.updatedAt ?? article.publishedAt;
-    if (value > latest) latest = value;
-  }
-  return latest || undefined;
-}
-
 export function newsLocalizedDek(article: NewsArticle, locale: AppLocale) {
   return getNewsCopy(article, locale).dek;
 }
