@@ -71,11 +71,15 @@ export async function generateMetadata({
   const nameIn = localizeRegionText(region.nameIn, locale);
   const content = getRegionContent(region.id);
   const title = t("regionMetaTitle", { name, nameIn });
-  const description = t("regionMetaDescription", {
-    count: region.speciesIds.length,
-    name,
-    nameIn,
-  });
+  const description =
+    (content.metaDescription
+      ? localizeRegionTextIfPresent(content.metaDescription, locale)
+      : null) ??
+    t("regionMetaDescription", {
+      count: region.speciesIds.length,
+      name,
+      nameIn,
+    });
   const path = regionHref(region.id);
   const ogImageSrc = getRegionHeroImage(region.id);
   const ogImage = openGraphJpeg(ogImageSrc, title);

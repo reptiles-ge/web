@@ -5,6 +5,7 @@ export type RegionContent = {
   biome: LocalizedText;
   faq: RegionFaq[];
   habitats: LocalizedText[];
+  metaDescription?: Partial<LocalizedText>;
   overview: LocalizedText;
   relatedIds: RegionPathId[];
 };
@@ -155,7 +156,12 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
       en: "Imereti links western Georgian habitats through karst mountains, wooded valleys, and the Rioni basin. Colchic influence remains strong, with more continental elements appearing inland.",
       ka: "იმერეთი კარსტული მთებით, ტყიანი ხეობებითა და რიონის აუზით აკავშირებს დასავლეთ საქართველოს ჰაბიტატებს. აქ კოლხური გავლენა ჯერ კიდევ ძლიერია, მაგრამ უკვე ჩნდება უფრო კონტინენტური ელემენტებიც.",
     },
-    relatedIds: ["guria", "samegrelo-zemo-svaneti", "racha", "samtskhe-javakheti"],
+    relatedIds: [
+      "guria",
+      "samegrelo-zemo-svaneti",
+      "racha",
+      "samtskhe-javakheti",
+    ],
   },
   kakheti: {
     biome: { en: "Alazani · semi-arid", ka: "ალაზანი · ნახევრად უდაბნო" },
@@ -363,53 +369,89 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
     faq: [
       {
         answer: {
-          en: "Records include Levantine viper, nose-horned viper, steppe viper, Urartian and steppe ratsnakes, red-bellied and Dahl’s whip snakes, cat snake, grass snake and dice snake, smooth snake, and glass lizard — mainly in suburbs and riverside areas.",
-          ka: "ჩანაწერებშია გიურზა, ცხვირრქოსანი გველგესლა, ველის გველგესლა, ურარტუს და სახეებიანი მცურავი, წითელმუცელა და წენგოსფერი მცურავი, კატისთვალა, ჩვეულებრივი და წყლის ანკარა, სპილენძა და გველხოკერა — ძირითადად გარეუბნებსა და მდინარის პირას.",
+          en: "Tbilisi records include Levantine viper, nose-horned viper, steppe viper, Urartian ratsnake, steppe ratsnake, red-bellied racer, Dahl’s whip snake, cat snake, grass snake, dice snake, smooth snake, and glass lizard. Encounters with these species are more likely in suburbs, valleys, rocky places, and riverside areas.",
+          ka: "თბილისის ჩანაწერებში წარმოდგენილია გიურზა, ცხვირრქოსანი გველგესლა, ველის გველგესლა, ურარტუს მცურავი, სახეებიანი მცურავი, წითელმუცელა და წენგოსფერი მცურავი, კატისთვალა, ჩვეულებრივი და წყლის ანკარა, სპილენძა და გველხოკერა. ასეთი სახეობების შეხვედრა უფრო მოსალოდნელია ქალაქის გარეუბნებში, ხეობებში, კლდოვან ადგილებსა და მდინარის პირას.",
+          ru: "В записях по Тбилиси представлены гюрза, носатая гадюка, степная гадюка, урартский полоз, узорчатый полоз, краснобрюхий и Далев полозы, кошачья змея, обыкновенный и водяной ужи, медянка и желтопузик. Встречи с такими видами более вероятны на окраинах, в ущельях, на скальных участках и у реки.",
+          tr: "Tiflis kayıtlarında koca engerek, burun boynuzlu engerek, bozkır engereği, Urartu sıçan yılanı, desenli sıçan yılanı, kırmızı karınlı ve Dahl kamçı yılanları, kedi yılanı, halkalı su yılanı, su yılanı, düz yılan ve cam kertenkele yer alır. Bu türlerle karşılaşma daha çok banliyölerde, vadilerde, kayalık alanlarda ve nehir kıyısında beklenir.",
         },
         question: {
           en: "Which snakes live in Tbilisi?",
           ka: "რა გველები ბინადრობენ თბილისში?",
+          ru: "Какие змеи обитают в Тбилиси?",
+          tr: "Tiflis’te hangi yılanlar yaşar?",
         },
       },
       {
         answer: {
-          en: "Levantine viper and nose-horned viper are high risk in this atlas; steppe viper is moderate. Other listed snakes are harmless to people. Keep distance. If bitten, call 112 immediately — do not cut, suck, or apply a tourniquet.",
-          ka: "გიურზა და ცხვირრქოსანი გველგესლა ამ ატლასში მაღალი რისკისაა; ველის გველგესლა — საშუალო. სხვა ჩამოთვლილი გველები ადამიანისთვის უვნებელია. დაიცავით მანძილი. ნაკბენისას დაუყოვნებლივ დარეკეთ 112-ზე — ნუ გაჭრით, ნუ ამოიწოვთ, ნუ გაიკეთებთ ტურნიკეტს.",
+          en: "Levantine viper and nose-horned viper are rated high risk in this atlas, while steppe viper is moderate risk. The other listed snakes do not pose a venomous danger to people. Keep distance from any unknown snake.\n\nIf bitten, call 112 immediately. Do not cut the wound, suck out venom, or use a tourniquet.",
+          ka: "გიურზა და ცხვირრქოსანი გველგესლა ამ ატლასში მაღალი რისკის სახეობებადაა შეფასებული, ველის გველგესლა კი — საშუალო რისკისად. სხვა ჩამოთვლილი გველები ადამიანისთვის შხამიან საფრთხეს არ წარმოადგენენ. ნებისმიერ უცნობ გველთან დაიცავით დისტანცია.\n\nნაკბენისას დაუყოვნებლივ დარეკეთ 112-ზე. არ გაჭრათ ჭრილობა, არ ამოიწოვოთ შხამი და არ გამოიყენოთ ტურნიკეტი.",
+          ru: "Гюрза и носатая гадюка в этом атласе оценены как виды высокого риска, а степная гадюка — среднего риска. Другие перечисленные змеи не представляют для человека ядовитой опасности. С любой неизвестной змеёй держите дистанцию.\n\nПри укусе немедленно звоните 112. Не разрезайте рану, не отсасывайте яд и не используйте жгут.",
+          tr: "Koca engerek ve burun boynuzlu engerek bu atlasta yüksek riskli, bozkır engereği ise orta riskli türler olarak değerlendirilir. Listelenen diğer yılanlar insanlar için zehirli bir tehlike oluşturmaz. Bilinmeyen her yılandan uzak durun.\n\nIsırıkta hemen 112’yi arayın. Yarayı kesmeyin, zehri emmeyin ve turnike kullanmayın.",
         },
         question: {
           en: "Are snakes in Tbilisi dangerous?",
           ka: "საშიშია თუ არა გველები თბილისში?",
+          ru: "Опасны ли змеи в Тбилиси?",
+          tr: "Tiflis’teki yılanlar tehlikeli midir?",
         },
       },
       {
         answer: {
-          en: "Along the Mtkvari, rocky slopes, suburban valleys, and less disturbed greenery — not busy central streets. Levantine viper records near Tbilisi are scarce; it is tied to dry eastern habitats.",
-          ka: "მტკვრის პირას, კლდოვან ფერდობებზე, გარეუბნის ხეობებსა და ნაკლებად შეწუხებულ გამწვანებაში — არა შუა ქალაქის ქუჩებში. თბილისის მიდამოებში გიურზა იშვიათია; სახეობა აღმოსავლეთის მშრალ ჰაბიტატებს უკავშირდება.",
+          en: "Reptile encounters are more likely along the Mtkvari, on rocky slopes, in suburban valleys, and in less disturbed green areas than on central city streets. Levantine viper is recorded only rarely around Tbilisi and is more strongly tied to dry habitats of eastern Georgia.",
+          ka: "ქვეწარმავლების შეხვედრა უფრო მოსალოდნელია მტკვრის პირას, კლდოვან ფერდობებზე, გარეუბნის ხეობებსა და ნაკლებად შეწუხებულ გამწვანებულ ადგილებში, ვიდრე ქალაქის ცენტრალურ ქუჩებში. თბილისის მიდამოებში გიურზა იშვიათად ფიქსირდება და უფრო მეტად აღმოსავლეთ საქართველოს მშრალ ჰაბიტატებს უკავშირდება.",
+          ru: "Встречи с рептилиями более вероятны у Мтквари, на скальных склонах, в пригородных ущельях и в менее нарушенных зелёных местах, чем на центральных улицах города. Гюрза в окрестностях Тбилиси фиксируется редко и сильнее связана с сухими местообитаниями восточной Грузии.",
+          tr: "Sürüngenlerle karşılaşma, merkezi şehir sokaklarından çok Mtkvari kıyısında, kayalık yamaçlarda, banliyö vadilerinde ve daha az rahatsız edilen yeşil alanlarda beklenir. Koca engerek Tiflis çevresinde nadiren kaydedilir ve daha çok doğu Gürcistan’ın kuru habitatlarıyla ilişkilidir.",
         },
         question: {
           en: "Where are snakes more likely around Tbilisi?",
           ka: "სად არის მეტი შანსი გველის ნახვის თბილისში?",
+          ru: "Где вокруг Тбилиси змей встретить вероятнее?",
+          tr: "Tiflis çevresinde yılan görme olasılığı nerede daha yüksektir?",
         },
       },
       {
         answer: {
-          en: "Call 112 first. Stay calm and limit movement. Do not cut the wound, suck venom, or use a tourniquet. Species ID can wait until emergency care is underway.",
-          ka: "ჯერ დარეკეთ 112-ზე. შეინარჩუნეთ სიმშვიდე და შეამცირეთ მოძრაობა. ნუ გაჭრით ჭრილობას, ნუ ამოიწოვთ შხამს, ნუ გაიკეთებთ ტურნიკეტს. სახეობის გარჩევა შეიძლება მას შემდეგ, რაც გადაუდებელი დახმარება უკვე გამოძახებულია.",
+          en: "If a snake bites someone, call 112 first. Stay calm and try to move the bitten limb as little as possible. Do not cut the wound, suck out venom, or use a tourniquet. Species identification can wait — calling emergency help matters more.",
+          ka: "გველის ნაკბენისას პირველ რიგში დარეკეთ 112-ზე. შეინარჩუნეთ სიმშვიდე და ეცადეთ ნაკბენი კიდური ნაკლებად ამოძრაოთ. არ გაჭრათ ჭრილობა, არ ამოიწოვოთ შხამი და არ გამოიყენოთ ტურნიკეტი. სახეობის ამოცნობა შეიძლება მოგვიანებითაც — გადაუდებელი დახმარების გამოძახება უფრო მნიშვნელოვანია.",
+          ru: "При укусе змеи сначала звоните 112. Сохраняйте спокойствие и старайтесь как можно меньше двигать укушенной конечностью. Не разрезайте рану, не отсасывайте яд и не используйте жгут. Вид можно определить позже — важнее вызвать экстренную помощь.",
+          tr: "Yılan ısırığında önce 112’yi arayın. Sakin kalın ve ısırılan uzvu mümkün olduğunca az hareket ettirmeye çalışın. Yarayı kesmeyin, zehri emmeyin ve turnike kullanmayın. Türü daha sonra tanımak mümkündür; acil yardım çağırmak daha önemlidir.",
         },
         question: {
           en: "What if a snake bites someone in Tbilisi?",
           ka: "რა ვქნა, თუ თბილისში გველმა მიკბინა?",
+          ru: "Что делать, если в Тбилиси укусила змея?",
+          tr: "Tiflis’te birini yılan ısırırsa ne yapılmalı?",
         },
       },
     ],
     habitats: [
-      { en: "Suburban valleys", ka: "გარეუბნის ხეობები" },
-      { en: "Parks and green belts", ka: "პარკები და გამწვანება" },
-      { en: "Riverside habitats", ka: "მდინარის პირას ჰაბიტატები" },
+      {
+        en: "Suburban valleys.",
+        ka: "გარეუბნის ხეობები.",
+        ru: "Пригородные ущелья.",
+        tr: "Banliyö vadileri.",
+      },
+      {
+        en: "Parks and green areas.",
+        ka: "პარკები და გამწვანებული ტერიტორიები.",
+        ru: "Парки и зелёные зоны.",
+        tr: "Parklar ve yeşil alanlar.",
+      },
+      {
+        en: "Riverside habitats.",
+        ka: "მდინარის პირას არსებული ჰაბიტატები.",
+        ru: "Местообитания у реки.",
+        tr: "Nehir kıyısı habitatları.",
+      },
     ],
+    metaDescription: {
+      ka: "თბილისის ქვეწარმავლების ატლასი — გიურზა, გველგესლები, მცურავები და გველხოკერა: ამოცნობა, გავრცელება, ჰაბიტატები და უსაფრთხოება თბილისსა და მის შემოგარენში.",
+    },
     overview: {
-      en: "In Tbilisi, reptiles occur mainly in suburban valleys, parks, and riverside habitats — not dense city centers. Atlas records include Levantine viper (scarce near the city), nose-horned viper, steppe viper, red-bellied racer, glass lizard, and others. Urban encounters are uncommon but real. If bitten, call 112.",
-      ka: "თბილისში ქვეწარმავლები ძირითადად ქალაქის მიმდებარე ხეობებში, პარკებსა და მდინარის პირას გვხვდება — არა ცენტრალურ უბნებში. ატლასის ჩანაწერებშია გიურზა (ქალაქთან იშვიათი), ცხვირრქოსანი და ველის გველგესლა, წითელმუცელა მცურავი, გველხოკერა და სხვა სახეობები. ურბანული შეხვედრები იშვიათია, მაგრამ რეალურია. ნაკბენისას დარეკეთ 112-ზე.",
+      en: "In Tbilisi, reptiles mainly occur in valleys around the city, parks, green areas, and riverside habitats, not in central urban districts. Atlas records from Tbilisi and its surroundings include Levantine viper, nose-horned viper, steppe viper, several ratsnakes and racers, grass and dice snakes, glass lizard, and other species. Encounters inside the city are rare but possible. If a snake bites someone, call 112 immediately.",
+      ka: "თბილისში ქვეწარმავლები ძირითადად ქალაქის მიმდებარე ხეობებში, პარკებში, გამწვანებულ ადგილებსა და მდინარის პირას გვხვდება და არა ცენტრალურ ურბანულ უბნებში. ატლასის ჩანაწერებში თბილისის ტერიტორიიდან და შემოგარენიდან წარმოდგენილია გიურზა, ცხვირრქოსანი და ველის გველგესლა, სხვადასხვა მცურავი, ანკარები, გველხოკერა და სხვა სახეობები. ქალაქის შიგნით ასეთი შეხვედრები იშვიათია, მაგრამ შესაძლებელია. გველის ნაკბენისას დაუყოვნებლივ დარეკეთ 112-ზე.",
+      ru: "В Тбилиси рептилии в основном встречаются в ущельях вокруг города, парках, зелёных местах и у реки, а не в центральных городских районах. В атласных записях с территории Тбилиси и окрестностей представлены гюрза, носатая и степная гадюки, разные полозы, ужи, желтопузик и другие виды. Внутри города такие встречи редки, но возможны. При укусе змеи немедленно звоните 112.",
+      tr: "Tiflis’te sürüngenler çoğunlukla kent çevresindeki vadilerde, parklarda, yeşil alanlarda ve nehir kıyısında görülür; merkezi kentsel bölgelerde değil. Atlas kayıtlarında Tiflis ve çevresinden koca engerek, burun boynuzlu engerek, bozkır engereği, çeşitli sıçan ve kamçı yılanları, su yılanları, cam kertenkele ve başka türler yer alır. Şehir içinde böyle karşılaşmalar nadirdir ama mümkündür. Yılan ısırığında hemen 112’yi arayın.",
     },
     relatedIds: [
       "kvemo-kartli",
