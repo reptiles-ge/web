@@ -1354,7 +1354,7 @@
     "breadcrumbCurrent": "Kertenkeleler",
     "heroImageAlt": "Kuru çayır habitatında Avrupa cam kertenkelesi",
     "title": "Gürcistan’daki kertenkeleler",
-    "subtitle": "Kafkas kaya kertenkelelerinden cam kertenkeleye — tam katalog ve her profile bir yol.",
+    "subtitle": "Kafkas kaya kertenkelelerinden cam kertenkeleye — Gürcistan’da bulunan kertenkelelerin profilleri, tanıma özellikleri ve tür kataloğu.",
     "ctaSpecies": "Türleri gör",
     "statSpecies": "Atlasdaki kertenkeleler",
     "statFamilies": "Familyalar",
@@ -1362,38 +1362,39 @@
     "statExtraValue": "12",
     "guideEyebrow": "Rehber",
     "guideTitle": "Gürcistan kertenkeleleri tek rehberde",
-    "guideP1": "Bu sayfa atlasdaki her kertenkeleyi toplar — Darevskia kaya kertenkeleleri, çayır lacertidleri ve cam kertenkele gibi bacaksız biçimler — ve sizi ayrıntılı profillere gönderir.",
-    "guideP2": "Kaya kertenkelelerini ayırmak zordur — renk, pul dizilimi ve bölge önemlidir. Buradan bir tür seçin veya yeri biliyorsanız bölgesel atlası açın.",
+    "guideP1": "Burada atlasta yayımlanan kertenkele profilleri toplanır — Darevskia kaya kertenkeleleri, orman ve çayır türleri, gekolar ve bacaksız cam kertenkele. Her kayıt sizi ilgili türün tam profiline götürür.",
+    "guideP2": "Kaya kertenkelelerini ayırmak çoğu zaman zordur. Yalnızca renk yeterli değildir — vücut özellikleri, bulunduğu yer ve habitat da önemlidir. Bulunduğu yeri biliyorsanız, bölgesel atlas türü bulmanıza da yardımcı olur.",
     "speciesEyebrow": "Katalog",
     "speciesTitle": "Atlasda {count} kertenkele",
-    "speciesBody": "Liste kaya kertenkelelerini, lacertidleri, skinkleri ve anguidleri kapsar — her profil tanıma için kurulmuştur.",
+    "speciesBody": "Liste kaya kertenkelelerini, diğer lacertidleri, skinkleri, anguidleri ve başka grupları bir araya getirir. Her profilde tanıma özellikleri, yayılış ve ek bilgiler bulunur.",
+    "relatedBody": "Her kategori ilgili türleri tek bir rehber sayfasında birleştirir; buradan belirli bir kertenkelenin tam profiline geçebilirsiniz.",
     "section": {
       "featured": {
         "title": "Kafkas agaması ve cam kertenkele",
-        "body": "İnsanların en çok aradığı iki kertenkele — bir kaya agaması ve sıkça yılan sanılan bacaksız bir kertenkele."
+        "body": "Atlasta hem kaya kertenkelelerini hem de cam kertenkeleyi görebilirsiniz — sıkça yılanla karıştırılan büyük, bacaksız bir kertenkele."
       },
       "darevskia": {
         "title": "Kaya kertenkeleleri (Darevskia) — {count}",
-        "body": "Kafkas Darevskia özellikle zengindir. Renk yetmez — bölge ve özellikler her profildedir. Birçok takson için bölgesel haritalar hâlâ boştur."
+        "body": "Kafkasya birçok Darevskia türüne ev sahipliği yapar ve bunları birbirinden ayırmak çoğu zaman zordur. Yalnızca renge güvenmeyin — bulunduğu yeri ve profilde anlatılan tanıma özelliklerini de dikkate alın."
       },
       "other": {
         "title": "Diğer kertenkeleler — {count}",
-        "body": "Lacertidler, skinkler, gekolar ve kontrol listesindeki diğer Darevskia dışı türler."
+        "body": "Burada Darevskia dışındaki türler de toplanır — diğer lacertidler, skinkler, gekolar, anguidler ve Gürcistan’da doğrulanmış başka kertenkeleler dahil."
       }
     },
     "faqEyebrow": "SSS",
     "faqTitle": "Kertenkeleler hakkında sorulanlar",
     "faqIntro": "Kısa yanıtlar — derinlik tür sayfalarındadır.",
     "faq1Q": "Gürcistan’da kaç kertenkele vardır?",
-    "faq1A": "Atlas kontrol listesi ve kaynaklarla desteklenen kertenkele profillerini toplar. Darevskia Kafkasya’da özellikle zengindir — bu katalogdan başlayın.",
+    "faq1A": "Atlas, Gürcistan için kaynaklarla doğrulanan kertenkele profillerini bir araya getirir. Kaya kertenkeleleri cinsi Darevskia Kafkasya’da özellikle çeşitlidir; bu yüzden katalogda önemli bir yer tutar.",
     "faq2Q": "Cam kertenkele yılan mıdır kertenkele midir?",
-    "faq2A": "Avrupa cam kertenkelesi (Pseudopus apodus) uzun bacaksız bir kertenkeledir, yılan değildir. Yavaş kertenkele ve su yılanlarıyla karşılaştırma ayrı bir rehberdedir.",
+    "faq2A": "Avrupa cam kertenkelesi (Pseudopus apodus) büyük, çok uzamış bacaksız bir kertenkeledir; yılan değildir. Yavaş solucan kertenkelesi ve benzer yılanlardan ayırmak için ayrı rehbere de bakabilirsiniz.",
     "faq3Q": "Kaya kertenkelelerini nasıl ayırırım?",
-    "faq3A": "Birçok Darevskia türü benzer görünür. Yalnızca renge değil bölgeye, yaşam alanına ve tanıma özelliklerine bakın.",
+    "faq3A": "Birçok Darevskia türü dış görünüş olarak birbirine çok benzer. Tanımlarken bulunduğu bölgeyi, habitatı ve tür profilinde anlatılan özellikleri dikkate alın — yalnızca renk güvenilir bir işaret değildir.",
     "faq4Q": "Kertenkeleler en çok nerede görülür?",
-    "faq4A": "Kayalar, kurak yamaçlar, orman kenarları ve çayırlar. Bölgesel sayfalar yerel listeleri gösterir.",
+    "faq4A": "Gürcistan kertenkeleleri farklı ortamlarda görülür — kayalık yerlerde, kuru yamaçlarda, orman kenarlarında, çayırlarda ve başka habitatlarda. Bölgesel sayfalar belirli bir yerden hangi türlerin doğrulandığını görmenize yardımcı olur.",
     "faq5Q": "Gürcistan kertenkeleleri zehirli midir?",
-    "faq5A": "Hayır — bu atlasteki kertenkeleler insanlar için zehirli değildir. Ev duvarındaki Hazar gekosu zararsızdır; öldürmeyin. Zehir riski bazı yılanlara aittir, kertenkelelere değil.",
+    "faq5A": "Hayır. Atlasta sunulan Gürcistan kertenkeleleri insanlar için zehirli değildir. Binaların duvarlarında Hazar gekosuyla da karşılaşabilirsiniz — zararsızdır ve öldürülmesi gerekmez. Gürcistan’da zehirle ilgili önemli risk bazı yılanlarla ilgilidir, kertenkelelerle değil.",
     "ctaEyebrow": "Sonraki adım",
     "ctaTitle": "Kertenkele listesinden profile",
     "ctaBody": "Bir tür açın veya bölgesel listeleri karşılaştırın. Atlas süzgeçleri önce doğru grubu seçmenize yardım eder.",
