@@ -1,10 +1,15 @@
 import type { MetadataRoute } from "next";
 
 import { getPublishedCreditAuthors } from "@/data/creditAuthors";
-import { getPublishedNewsArticles, newsLatestModified } from "@/data/news";
-import { getRegionSpecies, regions } from "@/data/regions";
+import { getPublishedNewsArticles } from "@/data/news";
+import {
+  sitemapAuthorLastModified,
+  sitemapPathLastModified,
+  sitemapQuizLastModified,
+  sitemapRegionLastModified,
+} from "@/data/pageLastModified";
+import { regions } from "@/data/regions";
 import { getCatalogSpecies } from "@/data/species";
-import { getAtlasStats } from "@/data/speciesAtlas";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { CLUSTER_GUIDE_LIST } from "@/lib/clusterGuides";
 import {
@@ -38,12 +43,7 @@ const FALLBACK_LASTMOD = "2026-01-01T00:00:00+04:00";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const catalog = getCatalogSpecies();
-  const atlasLastModified = toLastModified(getAtlasStats(catalog).lastUpdated);
   const newsArticles = getPublishedNewsArticles();
-  const newsModifiedRaw = newsLatestModified(newsArticles);
-  const newsLastModified = toLastModified(
-    newsModifiedRaw ? newsDateTime(newsModifiedRaw) : undefined,
-  );
   const entries: MetadataRoute.Sitemap = [];
   const seen = new Set<string>();
 
@@ -54,41 +54,41 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }
 
   for (const locale of routing.locales) {
-    push(pageEntry(locale, "/", atlasLastModified));
-    push(pageEntry(locale, "/contact", atlasLastModified));
-    push(pageEntry(locale, "/about", atlasLastModified));
-    push(pageEntry(locale, "/news", newsLastModified));
-    push(pageEntry(locale, "/authors", atlasLastModified));
-    push(pageEntry(locale, "/species", atlasLastModified));
-    push(pageEntry(locale, "/venomous-snakes", atlasLastModified));
-    push(pageEntry(locale, "/snakes-in-the-yard", atlasLastModified));
-    push(pageEntry(locale, "/risk-to-humans", atlasLastModified));
-    push(pageEntry(locale, "/quiz", atlasLastModified));
+    push(pageEntry(locale, "/"));
+    push(pageEntry(locale, "/contact"));
+    push(pageEntry(locale, "/about"));
+    push(pageEntry(locale, "/news"));
+    push(pageEntry(locale, "/authors"));
+    push(pageEntry(locale, "/species"));
+    push(pageEntry(locale, "/venomous-snakes"));
+    push(pageEntry(locale, "/snakes-in-the-yard"));
+    push(pageEntry(locale, "/risk-to-humans"));
+    push(pageEntry(locale, "/quiz"));
     for (const quiz of liveQuizzes()) {
       const { languages } = quizAlternates(locale, quiz.id);
       push({
         alternates: { languages },
-        lastModified: atlasLastModified,
+        lastModified: sitemapQuizLastModified(quiz.id),
         url: quizPageUrl(locale, quiz.id),
       });
     }
 
     for (const guide of CLUSTER_GUIDE_LIST) {
-      push(pageEntry(locale, guide.pathname, atlasLastModified));
+      push(pageEntry(locale, guide.pathname));
     }
 
     for (const hub of GROUP_HUB_LIST) {
-      push(pageEntry(locale, hub.path, atlasLastModified));
+      push(pageEntry(locale, hub.path));
     }
 
-    push(pageEntry(locale, "/regions", atlasLastModified));
+    push(pageEntry(locale, "/regions"));
 
     for (const region of regions) {
       push(
         pageEntry(
           locale,
           regionHref(region.id),
-          maxUpdatedAt(getRegionSpecies(region).map((item) => item.updatedAt)),
+          sitemapRegionLastModified(region.id),
         ),
       );
     }
@@ -110,7 +110,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       const images = creditAuthorPageImageUrls(author.portraitSrc, photos);
       push({
         alternates: { languages },
-        lastModified: maxUpdatedAt(photos.map((photo) => photo.updatedAt)),
+        lastModified: sitemapAuthorLastModified(author.slug),
         url: creditAuthorUrl(locale, author.slug),
         ...(images.length > 0 ? { images } : {}),
       });
@@ -131,23 +131,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return entries;
 }
 
-function maxUpdatedAt(dates: Array<null | string | undefined>): string {
-  let latest: null | string = null;
-  let latestTime = Number.NEGATIVE_INFINITY;
-  for (const value of dates) {
-    if (!value) continue;
-    const time = Date.parse(value);
-    if (Number.isNaN(time) || time < latestTime) continue;
-    latestTime = time;
-    latest = value;
-  }
-  return toLastModified(latest);
-}
-
 function pageEntry(
   locale: AppLocale,
   href: Parameters<typeof localePath>[1],
-  lastModified: string,
+  lastModified = sitemapPathLastModified(String(href)),
 ): MetadataRoute.Sitemap[number] {
   const { languages } = localeAlternates(locale, href);
   return {

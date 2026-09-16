@@ -23,7 +23,7 @@ import {
   unpublishedSpeciesIds,
 } from "../src/data/speciesPublish";
 import { ANIMAL_GROUP_TO_HUB } from "../src/lib/groupHubs";
-import { parseToSiteDateTime, toSiteDateTime } from "../src/lib/siteTime";
+import { parseToSiteDateTime } from "../src/lib/siteTime";
 import { buildSpeciesSlugMaps } from "../src/lib/speciesSlugRules";
 import {
   kaFrontmatterSchema,
@@ -84,24 +84,6 @@ function getGitFirstCommitDate(filePaths: string[]): string | null {
   return oldest;
 }
 
-function getGitLastCommitDate(filePaths: string[]): string | null {
-  let latest: string | null = null;
-  for (const filePath of filePaths) {
-    const parsed = gitFileDates.lastByPath.get(toRepoPath(filePath));
-    if (parsed && (!latest || parsed > latest)) latest = parsed;
-  }
-  return latest;
-}
-
-function getMtimeDate(filePaths: string[]): string | null {
-  let latest = 0;
-  for (const filePath of filePaths) {
-    if (!fs.existsSync(filePath)) continue;
-    latest = Math.max(latest, fs.statSync(filePath).mtimeMs);
-  }
-  return latest === 0 ? null : toSiteDateTime(new Date(latest));
-}
-
 function resolveUpdatedAt(
   filePaths: string[],
   override: string | undefined,
@@ -112,18 +94,7 @@ function resolveUpdatedAt(
     throw new Error(`Invalid dateModified: ${override}`);
   }
 
-  const existing = filePaths.filter((filePath) => fs.existsSync(filePath));
-  if (existing.length === 0) {
-    throw new Error(`Unable to resolve updatedAt for: ${filePaths.join(", ")}`);
-  }
-
-  const gitDate = getGitLastCommitDate(existing);
-  if (gitDate) return gitDate;
-
-  const mtimeDate = getMtimeDate(existing);
-  if (mtimeDate) return mtimeDate;
-
-  throw new Error(`Unable to resolve updatedAt for: ${filePaths.join(", ")}`);
+  throw new Error(`Missing dateModified: ${filePaths[0]}`);
 }
 
 function resolvePublishedAt(
