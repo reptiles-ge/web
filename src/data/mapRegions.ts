@@ -551,10 +551,10 @@ export const regions: Region[] = [
   },
   {
     description: {
-      en: "Suburban valleys, parks, and riverside habitats occasionally host reptiles within the capital.",
-      ka: "ქალაქის მიმდებარე ხეობები, პარკები და მდინარის პირას არსებული ჰაბიტატები იშვიათად, მაგრამ მაინც მასპინძლობს რეპტილიებს.",
-      ru: "Пригородные долины, парки и приречные местообитания иногда держат рептилий в пределах столицы.",
-      tr: "Kent çevresi vadileri, parklar ve nehir kenarı habitatları başkentte ara sıra sürüngen barındırır.",
+      en: "In Tbilisi, suitable reptile habitats are suburban valleys, parks, green areas, and riverside natural habitats. Encounters are less expected in densely built districts.",
+      ka: "თბილისში ქვეწარმავლებისთვის შესაფერისი ადგილებია ქალაქის მიმდებარე ხეობები, პარკები, გამწვანებული ზონები და მდინარის პირას არსებული ბუნებრივი ჰაბიტატები. მჭიდროდ განაშენიანებულ უბნებში მათი შეხვედრა ნაკლებად მოსალოდნელია.",
+      ru: "В Тбилиси подходящие для рептилий места — пригородные ущелья, парки, зелёные зоны и природные местообитания у реки. В плотно застроенных районах встречи менее вероятны.",
+      tr: "Tiflis’te sürüngenler için uygun yerler kent çevresindeki vadiler, parklar, yeşil alanlar ve nehir kıyısındaki doğal habitatlardır. Yoğun yapılaşmış bölgelerde karşılaşma daha az beklenir.",
     },
     id: "tbilisi",
     name: { en: "Tbilisi", ka: "თბილისი", ru: "Тбилиси", tr: "Tiflis" },
