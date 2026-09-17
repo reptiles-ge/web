@@ -8320,6 +8320,101 @@
       ],
       "updatedAt": "2026-08-28T21:30:10.156Z"
     },
+    "cervus-elaphus-1.jpg": {
+      "sourceHash": "5bd345d7ecaf1dda3e68ca7229cff47683adf2003dc9e5a39392f668b1214b73",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "cervus-elaphus-1.jpg",
+      "originalSize": 1226451,
+      "width": 2400,
+      "height": 1665,
+      "derivatives": [
+        {
+          "key": "optimized/cervus-elaphus-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 222,
+          "byteSize": 9269
+        },
+        {
+          "key": "optimized/cervus-elaphus-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 222,
+          "byteSize": 11848
+        },
+        {
+          "key": "optimized/cervus-elaphus-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 278,
+          "byteSize": 12869
+        },
+        {
+          "key": "optimized/cervus-elaphus-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 278,
+          "byteSize": 16714
+        },
+        {
+          "key": "optimized/cervus-elaphus-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 444,
+          "byteSize": 27338
+        },
+        {
+          "key": "optimized/cervus-elaphus-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 444,
+          "byteSize": 35180
+        },
+        {
+          "key": "optimized/cervus-elaphus-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 555,
+          "byteSize": 38708
+        },
+        {
+          "key": "optimized/cervus-elaphus-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 555,
+          "byteSize": 51096
+        },
+        {
+          "key": "optimized/cervus-elaphus-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 832,
+          "byteSize": 68909
+        },
+        {
+          "key": "optimized/cervus-elaphus-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 832,
+          "byteSize": 95300
+        },
+        {
+          "key": "optimized/cervus-elaphus-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1665,
+          "byteSize": 195533
+        },
+        {
+          "key": "optimized/cervus-elaphus-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1665,
+          "byteSize": 275234
+        }
+      ],
+      "updatedAt": "2026-09-17T19:10:32.473Z"
+    },
     "coronella-austriaca-1.jpg": {
       "sourceHash": "b53893e4de09a7fbefeb940d157baa7efc173567c8d8935dc368843879d16e4e",
       "configFingerprint": "409788ee46c653d8",
