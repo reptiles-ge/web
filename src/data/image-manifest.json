@@ -8510,6 +8510,87 @@
       ],
       "updatedAt": "2026-09-17T19:11:15.034Z"
     },
+    "cervus-elaphus-larisa-1.jpg": {
+      "sourceHash": "f92b58c972c23f4bcddc09a4884051f94f303d6bb7a9a81366d97e171fc4f0fa",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "cervus-elaphus-larisa-1.jpg",
+      "originalSize": 284391,
+      "width": 1024,
+      "height": 768,
+      "derivatives": [
+        {
+          "key": "optimized/cervus-elaphus-larisa-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 12088
+        },
+        {
+          "key": "optimized/cervus-elaphus-larisa-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 16216
+        },
+        {
+          "key": "optimized/cervus-elaphus-larisa-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 19969
+        },
+        {
+          "key": "optimized/cervus-elaphus-larisa-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 27294
+        },
+        {
+          "key": "optimized/cervus-elaphus-larisa-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 54744
+        },
+        {
+          "key": "optimized/cervus-elaphus-larisa-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 73120
+        },
+        {
+          "key": "optimized/cervus-elaphus-larisa-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 88033
+        },
+        {
+          "key": "optimized/cervus-elaphus-larisa-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 117594
+        },
+        {
+          "key": "optimized/cervus-elaphus-larisa-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 150824
+        },
+        {
+          "key": "optimized/cervus-elaphus-larisa-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 200066
+        }
+      ],
+      "updatedAt": "2026-09-17T19:13:37.647Z"
+    },
     "cervus-elaphus-nika-1.jpg": {
       "sourceHash": "c8dfc5353da4210c287a0fe36cea6170c3e1252b4aac0dae9c5630371ced84c7",
       "configFingerprint": "409788ee46c653d8",
