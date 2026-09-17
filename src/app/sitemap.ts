@@ -43,7 +43,6 @@ const FALLBACK_LASTMOD = "2026-01-01T00:00:00+04:00";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const catalog = getCatalogSpecies();
-  const newsArticles = getPublishedNewsArticles();
   const entries: MetadataRoute.Sitemap = [];
   const seen = new Set<string>();
 
@@ -116,7 +115,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       });
     }
 
-    for (const article of newsArticles) {
+    for (const article of getPublishedNewsArticles(locale)) {
       const { languages } = newsArticleAlternates(locale, article.slug);
       push({
         alternates: { languages },

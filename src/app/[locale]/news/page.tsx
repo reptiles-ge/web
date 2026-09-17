@@ -88,7 +88,7 @@ export default async function NewsIndexRoute({ params }: Props) {
     locale,
     namespace: "groupHubShared",
   });
-  const articles = getPublishedNewsArticles();
+  const articles = getPublishedNewsArticles(locale);
   const url = newsIndexUrl(locale);
 
   const breadcrumbLd = {
@@ -120,7 +120,7 @@ export default async function NewsIndexRoute({ params }: Props) {
       "@type": "ItemList",
       itemListElement: articles.map((article, index) => ({
         "@type": "ListItem",
-        name: article.copy[locale].title,
+        name: article.copy[locale]?.title ?? article.copy.ka.title,
         position: index + 1,
         url: newsArticleUrl(locale, article.slug),
       })),
