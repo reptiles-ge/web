@@ -10,7 +10,7 @@ export const THERIDION_HUSEYNOVI_NEW_SPIDER_SPECIES_GEORGIA_2026: NewsArticle =
       en: {
         dek: "In August 2026, scientists described Theridion huseynovi as a species new to science. It is known from Georgia, Azerbaijan, and Iran, and the Georgian material had previously been treated as another species.",
         lead:
-          "In 2026, work on South Caucasus spiders revealed another species new to science. Theridion huseynovi, a small spider in the family Theridiidae, was formally described as a new species and confirmed from Georgia, Azerbaijan, and Iran.",
+          "In 2026, work on South Caucasus spiders revealed another species new to science. Theridion huseynovi, a spider in the family Theridiidae, was formally described as a new species and confirmed from Georgia, Azerbaijan, and Iran.",
         metaDescription:
           "Scientists described Theridion huseynovi as a spider species new to science. The species is confirmed from Georgia, Azerbaijan, and Iran.",
         metaTitle:
@@ -92,9 +92,7 @@ export const THERIDION_HUSEYNOVI_NEW_SPIDER_SPECIES_GEORGIA_2026: NewsArticle =
               },
               {
                 parts: [
-                  "That means material collected in Georgia is part of the scientific material on which the new species was formally described. For the atlas, the ",
-                  { id: "spiders", label: "spiders hub", type: "hub" },
-                  " remains the main navigation; this news item adds the 2026 taxonomic update.",
+                  "That means material collected in Georgia is part of the scientific material on which the new species was formally described.",
                 ],
                 type: "p",
               },
@@ -151,7 +149,8 @@ export const THERIDION_HUSEYNOVI_NEW_SPIDER_SPECIES_GEORGIA_2026: NewsArticle =
             blocks: [
               {
                 parts: [
-                  "Georgia's spider diversity is still being actively studied. The case of ",
+                  { id: "spiders", label: "Georgia's spider diversity", type: "hub" },
+                  " is still being actively studied. The case of ",
                   { name: "Theridion huseynovi", type: "sci" },
                   " shows that discovering a new species does not always mean finding an animal in a completely unknown place for the first time.",
                 ],
@@ -173,7 +172,7 @@ export const THERIDION_HUSEYNOVI_NEW_SPIDER_SPECIES_GEORGIA_2026: NewsArticle =
       ka: {
         dek: "2026 წლის აგვისტოში მეცნიერებმა Theridion huseynovi მეცნიერებისთვის ახალ სახეობად აღწერეს. სახეობა საქართველოდან, აზერბაიჯანიდან და ირანიდანაა ცნობილი, ხოლო ქართული მასალა მანამდე სხვა სახეობად იყო მიჩნეული.",
         lead:
-          "2026 წელს სამხრეთ კავკასიის ობობების შესწავლამ მეცნიერებისთვის კიდევ ერთი ახალი სახეობა გამოავლინა. Theridion huseynovi — Theridiidae-ს ოჯახის პატარა ობობა — ოფიციალურად ახალ სახეობად აღწერეს და მისი გავრცელება საქართველოში, აზერბაიჯანსა და ირანში დადასტურდა.",
+          "2026 წელს სამხრეთ კავკასიის ობობების შესწავლამ მეცნიერებისთვის კიდევ ერთი ახალი სახეობა გამოავლინა. Theridion huseynovi — Theridiidae-ს ოჯახის ობობა — ოფიციალურად ახალ სახეობად აღწერეს და მისი გავრცელება საქართველოში, აზერბაიჯანსა და ირანში დადასტურდა.",
         metaDescription:
           "მეცნიერებმა Theridion huseynovi მეცნიერებისთვის ახალ ობობის სახეობად აღწერეს. სახეობა დადასტურებულია საქართველოში, აზერბაიჯანსა და ირანში.",
         metaTitle:
@@ -257,9 +256,7 @@ export const THERIDION_HUSEYNOVI_NEW_SPIDER_SPECIES_GEORGIA_2026: NewsArticle =
               },
               {
                 parts: [
-                  "ეს ნიშნავს, რომ საქართველოში შეგროვებული მასალა უშუალოდ მონაწილეობს იმ სამეცნიერო მასალაში, რომლის საფუძველზეც ახალი სახეობა ოფიციალურად აღიწერა. ატლასში ",
-                  { id: "spiders", label: "ობობების ჰაბი", type: "hub" },
-                  " რჩება მთავარ სანავიგაციო გვერდად; ეს სიახლე 2026 წლის ტაქსონომიურ კონტექსტს ამატებს.",
+                  "ეს ნიშნავს, რომ საქართველოში შეგროვებული მასალა უშუალოდ მონაწილეობს იმ სამეცნიერო მასალაში, რომლის საფუძველზეც ახალი სახეობა ოფიციალურად აღიწერა.",
                 ],
                 type: "p",
               },
@@ -316,7 +313,8 @@ export const THERIDION_HUSEYNOVI_NEW_SPIDER_SPECIES_GEORGIA_2026: NewsArticle =
             blocks: [
               {
                 parts: [
-                  "საქართველოს ობობების მრავალფეროვნება ჯერ კიდევ აქტიურად იკვლევა. ",
+                  { id: "spiders", label: "საქართველოს ობობების მრავალფეროვნება", type: "hub" },
+                  " ჯერ კიდევ აქტიურად იკვლევა. ",
                   { name: "Theridion huseynovi", type: "sci" },
                   "-ს ისტორია კარგად აჩვენებს, რომ ახალი სახეობის აღმოჩენა ყოველთვის სრულიად უცნობ ადგილზე პირველად ნაპოვნ ცხოველს არ ნიშნავს.",
                 ],
@@ -338,7 +336,7 @@ export const THERIDION_HUSEYNOVI_NEW_SPIDER_SPECIES_GEORGIA_2026: NewsArticle =
       ru: {
         dek: "В августе 2026 года учёные описали Theridion huseynovi как новый для науки вид. Он известен из Грузии, Азербайджана и Ирана, а грузинский материал раньше относили к другому виду.",
         lead:
-          "В 2026 году изучение пауков Южного Кавказа выявило ещё один новый для науки вид. Theridion huseynovi, небольшой паук семейства Theridiidae, официально описан как новый вид и подтверждён в Грузии, Азербайджане и Иране.",
+          "В 2026 году изучение пауков Южного Кавказа выявило ещё один новый для науки вид. Theridion huseynovi, паук семейства Theridiidae, официально описан как новый вид и подтверждён в Грузии, Азербайджане и Иране.",
         metaDescription:
           "Учёные описали Theridion huseynovi как новый для науки вид пауков. Вид подтверждён в Грузии, Азербайджане и Иране.",
         metaTitle:
@@ -420,9 +418,7 @@ export const THERIDION_HUSEYNOVI_NEW_SPIDER_SPECIES_GEORGIA_2026: NewsArticle =
               },
               {
                 parts: [
-                  "Это значит, что материал из Грузии входит в научную серию, на основании которой вид был официально описан. В атласе ",
-                  { id: "spiders", label: "раздел пауков", type: "hub" },
-                  " остаётся основной страницей; эта новость добавляет таксономический контекст 2026 года.",
+                  "Это значит, что материал из Грузии входит в научную серию, на основании которой вид был официально описан.",
                 ],
                 type: "p",
               },
@@ -479,7 +475,8 @@ export const THERIDION_HUSEYNOVI_NEW_SPIDER_SPECIES_GEORGIA_2026: NewsArticle =
             blocks: [
               {
                 parts: [
-                  "Разнообразие пауков Грузии всё ещё активно изучается. История ",
+                  { id: "spiders", label: "Разнообразие пауков Грузии", type: "hub" },
+                  " всё ещё активно изучается. История ",
                   { name: "Theridion huseynovi", type: "sci" },
                   " показывает, что открытие нового вида не всегда означает первую находку животного в совершенно неизвестном месте.",
                 ],
@@ -501,7 +498,7 @@ export const THERIDION_HUSEYNOVI_NEW_SPIDER_SPECIES_GEORGIA_2026: NewsArticle =
       tr: {
         dek: "Ağustos 2026’da bilim insanları Theridion huseynovi’yi bilim için yeni bir tür olarak tanımladı. Tür Gürcistan, Azerbaycan ve İran’dan biliniyor; Gürcistan materyali daha önce başka bir tür sanılmıştı.",
         lead:
-          "2026’da Güney Kafkasya örümcekleri üzerine çalışma bilim için yeni bir tür daha ortaya çıkardı. Theridion huseynovi, Theridiidae familyasından küçük bir örümcek, yeni tür olarak resmen tanımlandı ve Gürcistan, Azerbaycan ve İran’dan doğrulandı.",
+          "2026’da Güney Kafkasya örümcekleri üzerine çalışma bilim için yeni bir tür daha ortaya çıkardı. Theridion huseynovi, Theridiidae familyasından bir örümcek, yeni tür olarak resmen tanımlandı ve Gürcistan, Azerbaycan ve İran’dan doğrulandı.",
         metaDescription:
           "Bilim insanları Theridion huseynovi’yi bilim için yeni bir örümcek türü olarak tanımladı. Tür Gürcistan, Azerbaycan ve İran’da doğrulandı.",
         metaTitle:
@@ -583,9 +580,7 @@ export const THERIDION_HUSEYNOVI_NEW_SPIDER_SPECIES_GEORGIA_2026: NewsArticle =
               },
               {
                 parts: [
-                  "Bu, Gürcistan’da toplanan materyalin yeni türün resmi tanımına temel oluşturan bilimsel materyalin parçası olduğu anlamına gelir. Atlasta ",
-                  { id: "spiders", label: "örümcekler bölümü", type: "hub" },
-                  " ana gezinme sayfası olarak kalır; bu haber 2026 taksonomik bağlamını ekler.",
+                  "Bu, Gürcistan’da toplanan materyalin yeni türün resmi tanımına temel oluşturan bilimsel materyalin parçası olduğu anlamına gelir.",
                 ],
                 type: "p",
               },
@@ -642,7 +637,8 @@ export const THERIDION_HUSEYNOVI_NEW_SPIDER_SPECIES_GEORGIA_2026: NewsArticle =
             blocks: [
               {
                 parts: [
-                  "Gürcistan’ın örümcek çeşitliliği hâlâ etkin biçimde araştırılıyor. ",
+                  { id: "spiders", label: "Gürcistan’ın örümcek çeşitliliği", type: "hub" },
+                  " hâlâ etkin biçimde araştırılıyor. ",
                   { name: "Theridion huseynovi", type: "sci" },
                   " örneği, yeni tür keşfinin her zaman tamamen bilinmeyen bir yerde ilk kez hayvan bulmak anlamına gelmediğini gösteriyor.",
                 ],

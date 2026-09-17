@@ -584,6 +584,7 @@
     "introBody": "Gürcistan hayvanlarıyla ilgili saha kayıtlarını, bilimsel gelişmeleri ve önemli olayları yayımlıyoruz. Her yazı editoryaldir ve kaynaklara dayanır; asıl kayıt tür profilidir.",
     "breadcrumbNews": "Haberler",
     "sourceHeading": "Kaynak",
+    "sourceHeadingPlural": "Kaynaklar",
     "reportedBy": "Sayım: {source}",
     "editorialBy": "Editoryal, Reptiles.ge",
     "editorialNote": "Bu sayfa bir {source} raporunu açıklar. Sayımı Reptiles.ge yapmadı.",
