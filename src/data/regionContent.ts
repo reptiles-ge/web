@@ -195,27 +195,56 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
     relatedIds: ["adjara", "samegrelo-zemo-svaneti", "imereti"],
   },
   imereti: {
-    biome: { en: "Karst · Rioni basin", ka: "კარსტი · რიონის აუზი" },
+    biome: {
+      en: "Karst · Rioni basin",
+      ka: "კარსტი · რიონის აუზი",
+      ru: "Карст · бассейн Риони",
+      tr: "Karst · Rioni havzası",
+    },
     faq: [
       {
         answer: {
-          en: "Records include Caucasian viper, smooth snake, grass snake and dice snake, and glass lizard.",
-          ka: "ჩანაწერებშია კავკასიური გველგესლა, სპილენძა, ჩვეულებრივი და წყლის ანკარა და გველხოკერა.",
+          en: "Imereti records include Caucasian viper, smooth snake, grass snake and dice snake, and glass lizard.",
+          ka: "იმერეთის ჩანაწერებში წარმოდგენილია კავკასიური გველგესლა, სპილენძა, ჩვეულებრივი და წყლის ანკარა და გველხოკერა.",
+          ru: "В записях Имеретии представлены кавказская гадюка, медянка, обыкновенный и водяной ужи, а также желтопузик.",
+          tr: "İmereti kayıtlarında Kafkas engereği, düz yılan, halkalı su yılanı ve su yılanı ile cam kertenkele yer alır.",
         },
         question: {
           en: "Which snakes occur in Imereti?",
           ka: "რა გველები გვხვდება იმერეთში?",
+          ru: "Какие змеи встречаются в Имеретии?",
+          tr: "İmereti’de hangi yılanlar görülür?",
         },
       },
     ],
     habitats: [
-      { en: "Karst mountains", ka: "კარსტული მთები" },
-      { en: "Wooded valleys", ka: "ტყიანი ხეობები" },
-      { en: "Rioni basin", ka: "რიონის აუზი" },
+      {
+        en: "Karst mountains.",
+        ka: "კარსტული მთები.",
+        ru: "Карстовые горы.",
+        tr: "Karst dağları.",
+      },
+      {
+        en: "Wooded valleys.",
+        ka: "ტყიანი ხეობები.",
+        ru: "Лесистые долины.",
+        tr: "Ormanlı vadiler.",
+      },
+      {
+        en: "Rioni basin.",
+        ka: "რიონის აუზი.",
+        ru: "Бассейн Риони.",
+        tr: "Rioni havzası.",
+      },
     ],
+    metaDescription: {
+      ka: "იმერეთი — ქვეწარმავლების დადასტურებული ჩანაწერები, გავრცელების რუკა, კარსტული მთები, ტყიანი ხეობები, რიონის აუზი და რეგიონში გავრცელებული შხამიანი გველები.",
+    },
     overview: {
-      en: "Imereti links western Georgian habitats through karst mountains, wooded valleys, and the Rioni basin. Colchic influence remains strong, with more continental elements appearing inland.",
-      ka: "იმერეთი კარსტული მთებით, ტყიანი ხეობებითა და რიონის აუზით აკავშირებს დასავლეთ საქართველოს ჰაბიტატებს. აქ კოლხური გავლენა ჯერ კიდევ ძლიერია, მაგრამ უკვე ჩნდება უფრო კონტინენტური ელემენტებიც.",
+      en: "Imereti is defined by karst mountains, wooded valleys, and the Rioni basin. The region has humid habitats characteristic of western Georgia, while more continental environmental signals appear toward the east.",
+      ka: "იმერეთი კარსტული მთებით, ტყიანი ხეობებითა და რიონის აუზით გამოირჩევა. რეგიონში დასავლეთ საქართველოსთვის დამახასიათებელი ნოტიო ჰაბიტატები გვხვდება, თუმცა აღმოსავლეთისკენ უფრო კონტინენტური გარემოს ნიშნებიც ჩნდება.",
+      ru: "Имеретия выделяется карстовыми горами, лесистыми долинами и бассейном Риони. В регионе встречаются влажные местообитания, характерные для западной Грузии, но к востоку появляются и признаки более континентальной среды.",
+      tr: "İmereti karst dağları, ormanlı vadileri ve Rioni havzasıyla öne çıkar. Bölgede batı Gürcistan’a özgü nemli habitatlar görülür, ancak doğuya doğru daha karasal çevre işaretleri de ortaya çıkar.",
     },
     relatedIds: [
       "guria",
