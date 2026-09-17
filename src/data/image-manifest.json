@@ -28644,14 +28644,123 @@
       ],
       "updatedAt": "2026-09-15T09:30:38.753Z"
     },
+    "images/news/theridion-huseynovi-new-spider-species-georgia-2026/theridion-huseynovi.png": {
+      "sourceHash": "d4a1a13fbf943fc87f371418a57eca878129fcd41f735deb5bfbca43c80fe9f3",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/theridion-huseynovi-new-spider-species-georgia-2026/theridion-huseynovi.png",
+      "originalSize": 1648722,
+      "width": 1497,
+      "height": 1051,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/theridion-huseynovi-new-spider-species-georgia-2026/theridion-huseynovi-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 225,
+          "byteSize": 8362
+        },
+        {
+          "key": "optimized/images/news/theridion-huseynovi-new-spider-species-georgia-2026/theridion-huseynovi-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 225,
+          "byteSize": 11994
+        },
+        {
+          "key": "optimized/images/news/theridion-huseynovi-new-spider-species-georgia-2026/theridion-huseynovi-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 281,
+          "byteSize": 12503
+        },
+        {
+          "key": "optimized/images/news/theridion-huseynovi-new-spider-species-georgia-2026/theridion-huseynovi-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 281,
+          "byteSize": 17650
+        },
+        {
+          "key": "optimized/images/news/theridion-huseynovi-new-spider-species-georgia-2026/theridion-huseynovi-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 449,
+          "byteSize": 25703
+        },
+        {
+          "key": "optimized/images/news/theridion-huseynovi-new-spider-species-georgia-2026/theridion-huseynovi-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 449,
+          "byteSize": 37196
+        },
+        {
+          "key": "optimized/images/news/theridion-huseynovi-new-spider-species-georgia-2026/theridion-huseynovi-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 562,
+          "byteSize": 36894
+        },
+        {
+          "key": "optimized/images/news/theridion-huseynovi-new-spider-species-georgia-2026/theridion-huseynovi-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 562,
+          "byteSize": 52192
+        },
+        {
+          "key": "optimized/images/news/theridion-huseynovi-new-spider-species-georgia-2026/theridion-huseynovi-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 842,
+          "byteSize": 65925
+        },
+        {
+          "key": "optimized/images/news/theridion-huseynovi-new-spider-species-georgia-2026/theridion-huseynovi-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 842,
+          "byteSize": 91630
+        },
+        {
+          "key": "optimized/images/news/theridion-huseynovi-new-spider-species-georgia-2026/theridion-huseynovi-1497.avif",
+          "format": "avif",
+          "width": 1497,
+          "height": 1051,
+          "byteSize": 87958
+        },
+        {
+          "key": "optimized/images/news/theridion-huseynovi-new-spider-species-georgia-2026/theridion-huseynovi-1497.webp",
+          "format": "webp",
+          "width": 1497,
+          "height": 1051,
+          "byteSize": 119140
+        }
+      ],
+      "updatedAt": "2026-09-17T15:22:39.204Z"
+    },
     "images/news/vipera-pontica-hybrid-georgia-2026/figure-1.jpg": {
       "sourceHash": "aa43734d76421fa4eebcdd4912941e24db3a4343c15708f4596eee037465708d",
-      "configFingerprint": "a895f8e025dcc7fa",
+      "configFingerprint": "409788ee46c653d8",
       "originalKey": "images/news/vipera-pontica-hybrid-georgia-2026/figure-1.jpg",
       "originalSize": 1093078,
       "width": 1772,
       "height": 1253,
       "derivatives": [
+        {
+          "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 226,
+          "byteSize": 14125
+        },
+        {
+          "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 226,
+          "byteSize": 19024
+        },
         {
           "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-1-400.avif",
           "format": "avif",
@@ -28665,6 +28774,20 @@
           "width": 400,
           "height": 283,
           "byteSize": 30614
+        },
+        {
+          "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 453,
+          "byteSize": 56580
+        },
+        {
+          "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 453,
+          "byteSize": 81122
         },
         {
           "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-1-800.avif",
@@ -28709,16 +28832,30 @@
           "byteSize": 645112
         }
       ],
-      "updatedAt": "2026-09-02T06:32:50.021Z"
+      "updatedAt": "2026-09-17T15:22:37.972Z"
     },
     "images/news/vipera-pontica-hybrid-georgia-2026/figure-2.jpg": {
       "sourceHash": "62f4c91ddee942d3d6b21b4defbe51198332352423ae0ffe9e31e432b0e966de",
-      "configFingerprint": "a895f8e025dcc7fa",
+      "configFingerprint": "409788ee46c653d8",
       "originalKey": "images/news/vipera-pontica-hybrid-georgia-2026/figure-2.jpg",
       "originalSize": 861115,
       "width": 1772,
       "height": 1112,
       "derivatives": [
+        {
+          "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 201,
+          "byteSize": 14937
+        },
+        {
+          "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 201,
+          "byteSize": 21842
+        },
         {
           "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-2-400.avif",
           "format": "avif",
@@ -28732,6 +28869,20 @@
           "width": 400,
           "height": 251,
           "byteSize": 35226
+        },
+        {
+          "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 402,
+          "byteSize": 62912
+        },
+        {
+          "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 402,
+          "byteSize": 94390
         },
         {
           "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-2-800.avif",
@@ -28776,16 +28927,30 @@
           "byteSize": 559088
         }
       ],
-      "updatedAt": "2026-09-02T06:32:49.704Z"
+      "updatedAt": "2026-09-17T15:22:38.062Z"
     },
     "images/news/vipera-pontica-hybrid-georgia-2026/figure-3.jpg": {
       "sourceHash": "dd0f4b367d44de85997a0c0d23ac01cea456f9e52aad52829973567762d8dd83",
-      "configFingerprint": "a895f8e025dcc7fa",
+      "configFingerprint": "409788ee46c653d8",
       "originalKey": "images/news/vipera-pontica-hybrid-georgia-2026/figure-3.jpg",
       "originalSize": 688927,
       "width": 1772,
       "height": 1181,
       "derivatives": [
+        {
+          "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-3-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 13981
+        },
+        {
+          "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-3-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 23596
+        },
         {
           "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-3-400.avif",
           "format": "avif",
@@ -28799,6 +28964,20 @@
           "width": 400,
           "height": 266,
           "byteSize": 35328
+        },
+        {
+          "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-3-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 46579
+        },
+        {
+          "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-3-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 75534
         },
         {
           "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-3-800.avif",
@@ -28843,16 +29022,30 @@
           "byteSize": 372058
         }
       ],
-      "updatedAt": "2026-09-02T06:33:13.926Z"
+      "updatedAt": "2026-09-17T15:22:38.072Z"
     },
     "images/news/vipera-pontica-hybrid-georgia-2026/figure-4.jpg": {
       "sourceHash": "58a64af0c4433dfb4f78b5849ba8c3caeeeadb38d0dc589f0363f85bdddbb317",
-      "configFingerprint": "a895f8e025dcc7fa",
+      "configFingerprint": "409788ee46c653d8",
       "originalKey": "images/news/vipera-pontica-hybrid-georgia-2026/figure-4.jpg",
       "originalSize": 1761747,
       "width": 2362,
       "height": 2366,
       "derivatives": [
+        {
+          "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-4-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 321,
+          "byteSize": 22210
+        },
+        {
+          "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-4-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 321,
+          "byteSize": 35166
+        },
         {
           "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-4-400.avif",
           "format": "avif",
@@ -28866,6 +29059,20 @@
           "width": 400,
           "height": 401,
           "byteSize": 50600
+        },
+        {
+          "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-4-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 641,
+          "byteSize": 71518
+        },
+        {
+          "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-4-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 641,
+          "byteSize": 113654
         },
         {
           "key": "optimized/images/news/vipera-pontica-hybrid-georgia-2026/figure-4-800.avif",
@@ -28910,7 +29117,7 @@
           "byteSize": 982360
         }
       ],
-      "updatedAt": "2026-09-02T06:32:49.935Z"
+      "updatedAt": "2026-09-17T15:22:49.785Z"
     },
     "images/species/accipiter-gentilis-afr-1.jpg": {
       "sourceHash": "c2bc814a7c781dce6160c9dd4ab87a47a001f462a14a81bd2edec861bc5aac5a",
@@ -56981,6 +57188,87 @@
         }
       ],
       "updatedAt": "2026-08-28T21:57:23.008Z"
+    },
+    "regions/adjara.jpg": {
+      "sourceHash": "fec8d8af10844e36e85352fe451ac827431a1770589edb5755b836b0c1f413ac",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "regions/adjara.jpg",
+      "originalSize": 198178,
+      "width": 1200,
+      "height": 767,
+      "derivatives": [
+        {
+          "key": "optimized/regions/adjara-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 204,
+          "byteSize": 12213
+        },
+        {
+          "key": "optimized/regions/adjara-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 204,
+          "byteSize": 17596
+        },
+        {
+          "key": "optimized/regions/adjara-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 255,
+          "byteSize": 18711
+        },
+        {
+          "key": "optimized/regions/adjara-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 255,
+          "byteSize": 27860
+        },
+        {
+          "key": "optimized/regions/adjara-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 409,
+          "byteSize": 52530
+        },
+        {
+          "key": "optimized/regions/adjara-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 409,
+          "byteSize": 75852
+        },
+        {
+          "key": "optimized/regions/adjara-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 511,
+          "byteSize": 81090
+        },
+        {
+          "key": "optimized/regions/adjara-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 511,
+          "byteSize": 117960
+        },
+        {
+          "key": "optimized/regions/adjara-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 767,
+          "byteSize": 161860
+        },
+        {
+          "key": "optimized/regions/adjara-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 767,
+          "byteSize": 244196
+        }
+      ],
+      "updatedAt": "2026-09-17T15:22:50.678Z"
     },
     "sciurus-anomalus-alacam-1.jpg": {
       "sourceHash": "65ec92758c8207376f6b1094cdf1b8c6307dcd16c3fc56cfa34d9b586958cdcb",

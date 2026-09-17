@@ -3,7 +3,8 @@ import type { NewsArticle, NewsPhoto } from "@/data/newsTypes";
 const ZOOTAXA_URL = "https://doi.org/10.11646/zootaxa.5866.2.2";
 const WSC_URL = "https://wsc.nmbe.ch/spec-data/73992/species";
 const CAUCASIANA_URL = "https://doi.org/10.3897/caucasiana.3.e120883";
-const PHOTO_DIR = "/images/news/theridion-huseynovi-new-spider-species-georgia-2026";
+const PHOTO_DIR =
+  "https://cdn.reptiles.ge/images/news/theridion-huseynovi-new-spider-species-georgia-2026";
 
 const PHOTO_THERIDION_HUSEYNOVI: NewsPhoto = {
   alt: {
