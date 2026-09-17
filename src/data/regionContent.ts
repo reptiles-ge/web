@@ -171,26 +171,53 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
     relatedIds: ["guria", "samtskhe-javakheti", "samegrelo-zemo-svaneti"],
   },
   guria: {
-    biome: { en: "Colchic · subtropical", ka: "კოლხური · სუბტროპიკული" },
+    biome: {
+      en: "Colchic · subtropical",
+      ka: "კოლხური · სუბტროპიკული",
+      ru: "Колхидский · субтропический",
+      tr: "Kolhis · subtropik",
+    },
     faq: [
       {
         answer: {
-          en: "Yes — Caucasian viper (Vipera kaznakovi) is venomous. Grass snake, dice snake, and smooth snake are harmless to humans.",
-          ka: "დიახ — კავკასიური გველგესლა (Vipera kaznakovi) შხამიანია. ჩვეულებრივი და წყლის ანკარა და სპილენძა უვნებელია ადამიანისთვის.",
+          en: "Yes. Caucasian viper (Vipera kaznakovi) is a venomous species. Grass snake, dice snake, and smooth snake do not pose a venomous danger to people. Still keep a safe distance from any unknown snake.",
+          ka: "დიახ. კავკასიური გველგესლა (Vipera kaznakovi) შხამიანი სახეობაა. ჩვეულებრივი ანკარა, წყლის ანკარა და სპილენძა ადამიანისთვის შხამიან საფრთხეს არ წარმოადგენენ. უცნობ გველთან მაინც დაიცავით უსაფრთხო მანძილი.",
+          ru: "Да. Кавказская гадюка (Vipera kaznakovi) — ядовитый вид. Обыкновенный уж, водяной уж и медянка не представляют для человека ядовитой опасности. С любой неизвестной змеёй всё равно держите безопасную дистанцию.",
+          tr: "Evet. Kafkas engereği (Vipera kaznakovi) zehirli bir türdür. Halkalı su yılanı, su yılanı ve düz yılan insanlar için zehirli bir tehlike oluşturmaz. Yine de bilinmeyen bir yılandan güvenli mesafe bırakın.",
         },
         question: {
           en: "Are there venomous snakes in Guria?",
           ka: "არის თუ არა შხამიანი გველი გურიაში?",
+          ru: "Есть ли в Гурии ядовитые змеи?",
+          tr: "Gurya’da zehirli yılan var mı?",
         },
       },
     ],
     habitats: [
-      { en: "Colchic forests", ka: "კოლხური ტყეები" },
-      { en: "River valleys", ka: "მდინარის ხეობები" },
+      {
+        en: "Colchic forests.",
+        ka: "კოლხური ტყეები.",
+        ru: "Колхидские леса.",
+        tr: "Kolhis ormanları.",
+      },
+      {
+        en: "River valleys.",
+        ka: "მდინარის ხეობები.",
+        ru: "Речные долины.",
+        tr: "Nehir vadileri.",
+      },
     ],
+    metaDescription: {
+      en: "Guria — 18 reptile and amphibian species, range map, Colchic forests, river valleys, habitats, and the venomous snake recorded in the region.",
+      ka: "გურია — ქვეწარმავლებისა და ამფიბიების 18 სახეობა, გავრცელების რუკა, კოლხური ტყეები, მდინარის ხეობები, ჰაბიტატები და რეგიონში გავრცელებული შხამიანი გველი.",
+      ru: "Гурия — 18 видов рептилий и амфибий, карта распространения, колхидские леса, речные долины, местообитания и ядовитая змея региона.",
+      tr: "Gurya — 18 sürüngen ve amfibi türü, yayılış haritası, Kolhis ormanları, nehir vadileri, habitatlar ve bölgede kaydedilen zehirli yılan.",
+    },
     overview: {
-      en: "Guria is defined by humid subtropical Colchic forests and river valleys. Moisture-loving fauna dominates — eastern arid-zone species are largely absent.",
-      ka: "გურია ნოტიო სუბტროპიკული კოლხური ტყეებითა და მდინარის ხეობებით გამოირჩევა. აქ დომინირებს ტენიანობის მოყვარული ფაუნა — აღმოსავლეთის მშრალი ზონის სახეობები თითქმის არ გვხვდება.",
+      en: "Guria is defined by a humid subtropical climate, Colchic forests, and river valleys. This environment is especially suitable for reptiles tied to moist habitats, while species typical of eastern Georgia’s dry zones are less common here.",
+      ka: "გურია ნოტიო სუბტროპიკული კლიმატით, კოლხური ტყეებითა და მდინარის ხეობებით გამოირჩევა. ასეთი გარემო განსაკუთრებით ხელსაყრელია ტენიან ჰაბიტატებთან დაკავშირებული ქვეწარმავლებისთვის, ხოლო აღმოსავლეთ საქართველოს მშრალი ზონებისთვის დამახასიათებელი სახეობები აქ ნაკლებად გვხვდება.",
+      ru: "Гурия выделяется влажным субтропическим климатом, колхидскими лесами и речными долинами. Такая среда особенно благоприятна для рептилий, связанных с влажными местообитаниями, тогда как виды, характерные для сухих зон восточной Грузии, здесь встречаются реже.",
+      tr: "Gurya nemli subtropik iklimi, Kolhis ormanları ve nehir vadileriyle öne çıkar. Bu ortam, nemli habitatlarla ilişkili sürüngenler için özellikle elverişlidir; doğu Gürcistan’ın kuru bölgelerine özgü türler ise burada daha az görülür.",
     },
     relatedIds: ["adjara", "samegrelo-zemo-svaneti", "imereti"],
   },

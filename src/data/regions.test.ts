@@ -17,12 +17,15 @@ describe("region speciesIds", () => {
 });
 
 describe("region FAQ locale gating", () => {
-  it("omits English-only FAQ copy for Russian", () => {
+  it("localizes Guria FAQ copy in every active locale", () => {
     const content = getRegionContent("guria");
     for (const entry of content.faq) {
-      expect(localizeRegionTextIfPresent(entry.question, "ru")).toBeNull();
-      expect(localizeRegionTextIfPresent(entry.answer, "ru")).toBeNull();
-      expect(localizeRegionTextIfPresent(entry.question, "ka")).toBeTruthy();
+      for (const locale of ["ka", "en", "ru", "tr"] as const) {
+        expect(
+          localizeRegionTextIfPresent(entry.question, locale),
+        ).toBeTruthy();
+        expect(localizeRegionTextIfPresent(entry.answer, locale)).toBeTruthy();
+      }
     }
   });
 });

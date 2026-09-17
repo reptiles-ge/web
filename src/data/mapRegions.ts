@@ -119,10 +119,10 @@ export const regions: Region[] = [
   },
   {
     description: {
-      en: "Humid subtropical Colchic forests and river valleys favor moisture-loving species.",
-      ka: "ნოტიო სუბტროპიკული კოლხური ტყეები და მდინარის ხეობები ხელს უწყობს ტენიანობის მოყვარულ სახეობებს.",
-      ru: "Влажные субтропические колхидские леса и речные долины благоприятны для влаголюбивых видов.",
-      tr: "Nemli subtropik Kolhis ormanları ve nehir vadileri neme bağlı türlüre elverişlidir.",
+      en: "Guria’s humid Colchic forests and river valleys create varied habitats for reptiles tied to moist environments.",
+      ka: "გურიის ნოტიო კოლხური ტყეები და მდინარის ხეობები მრავალფეროვან ჰაბიტატებს ქმნის ტენიან გარემოსთან დაკავშირებული ქვეწარმავლებისთვის.",
+      ru: "Влажные колхидские леса и речные долины Гурии создают разнообразные местообитания для рептилий, связанных с влажной средой.",
+      tr: "Gurya’nın nemli Kolhis ormanları ve nehir vadileri, nemli ortamlarla ilişkili sürüngenler için çeşitli habitatlar oluşturur.",
     },
     id: "guria",
     name: { en: "Guria", ka: "გურია", ru: "Гурия", tr: "Gurya" },

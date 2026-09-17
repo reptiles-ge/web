@@ -67,7 +67,7 @@ export const SITEMAP_QUIZ_LAST_MODIFIED: Record<string, string> = {
 export const SITEMAP_REGION_LAST_MODIFIED: Record<string, string> = {
   abkhazia: "2026-09-16T18:34:00+04:00",
   adjara: "2026-09-16T18:45:00+04:00",
-  guria: "2026-09-16T18:56:00+04:00",
+  guria: "2026-09-17T14:32:57+04:00",
   imereti: "2026-09-16T19:07:00+04:00",
   kakheti: "2026-09-16T19:18:00+04:00",
   "kvemo-kartli": "2026-09-16T19:29:00+04:00",
