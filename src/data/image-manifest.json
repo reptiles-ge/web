@@ -8510,6 +8510,87 @@
       ],
       "updatedAt": "2026-09-17T19:11:15.034Z"
     },
+    "cervus-elaphus-giorgi-1.jpg": {
+      "sourceHash": "6854cf6684c0ff9527c040204af73c68b994c7e431ab11bed111a582fd5b76f3",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "cervus-elaphus-giorgi-1.jpg",
+      "originalSize": 212902,
+      "width": 1024,
+      "height": 731,
+      "derivatives": [
+        {
+          "key": "optimized/cervus-elaphus-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 228,
+          "byteSize": 12301
+        },
+        {
+          "key": "optimized/cervus-elaphus-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 228,
+          "byteSize": 20018
+        },
+        {
+          "key": "optimized/cervus-elaphus-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 286,
+          "byteSize": 18287
+        },
+        {
+          "key": "optimized/cervus-elaphus-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 286,
+          "byteSize": 29352
+        },
+        {
+          "key": "optimized/cervus-elaphus-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 457,
+          "byteSize": 40336
+        },
+        {
+          "key": "optimized/cervus-elaphus-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 457,
+          "byteSize": 59862
+        },
+        {
+          "key": "optimized/cervus-elaphus-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 571,
+          "byteSize": 56523
+        },
+        {
+          "key": "optimized/cervus-elaphus-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 571,
+          "byteSize": 81250
+        },
+        {
+          "key": "optimized/cervus-elaphus-giorgi-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 731,
+          "byteSize": 84650
+        },
+        {
+          "key": "optimized/cervus-elaphus-giorgi-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 731,
+          "byteSize": 115532
+        }
+      ],
+      "updatedAt": "2026-09-17T19:15:13.950Z"
+    },
     "cervus-elaphus-larisa-1.jpg": {
       "sourceHash": "f92b58c972c23f4bcddc09a4884051f94f303d6bb7a9a81366d97e171fc4f0fa",
       "configFingerprint": "409788ee46c653d8",
