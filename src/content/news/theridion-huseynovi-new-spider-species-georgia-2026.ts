@@ -1,19 +1,8 @@
-import type { NewsArticle, NewsPhoto } from "@/data/newsTypes";
+import type { NewsArticle } from "@/data/newsTypes";
 
 const ZOOTAXA_URL = "https://doi.org/10.11646/zootaxa.5866.2.2";
 const WSC_URL = "https://wsc.nmbe.ch/spec-data/73992/species";
 const CAUCASIANA_URL = "https://doi.org/10.3897/caucasiana.3.e120883";
-const PHOTO_DIR = "/images/news/theridion-huseynovi-new-spider-species-georgia-2026";
-
-const PHOTO_THERIDION_HUSEYNOVI: NewsPhoto = {
-  alt: {
-    en: "Theridion huseynovi on a white background.",
-    ka: "Theridion huseynovi თეთრ ფონზე.",
-    ru: "Theridion huseynovi на белом фоне.",
-    tr: "Beyaz zemin üzerinde Theridion huseynovi.",
-  },
-  src: `${PHOTO_DIR}/theridion-huseynovi.png`,
-};
 
 export const THERIDION_HUSEYNOVI_NEW_SPIDER_SPECIES_GEORGIA_2026: NewsArticle =
   {
@@ -670,7 +659,6 @@ export const THERIDION_HUSEYNOVI_NEW_SPIDER_SPECIES_GEORGIA_2026: NewsArticle =
       },
     },
     id: "theridion-huseynovi-new-spider-species-georgia-2026",
-    image: PHOTO_THERIDION_HUSEYNOVI,
     publishedAt: "2026-09-17",
     relatedHubIds: ["spiders"],
     relatedRegionIds: ["kvemo-kartli", "shida-kartli"],
