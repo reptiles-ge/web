@@ -500,7 +500,7 @@
     "metaDescription": "Bölgelere göre Gürcistan yılanları ve sürüngenleri — harita, yaşam alanları, zehirli türler ve saha profilleri.",
     "eyebrow": "Bölgesel atlas",
     "title": "Gürcistan bölgeleri",
-    "subtitle": "Yere göre sürüngenler — harita, yaşam alanları ve tür profilleri. Listeler, diğer gruplar kaynaklanana kadar hâlâ neredeyse yalnızca yılanlar ve cam kertenkeledir.",
+    "subtitle": "Gürcistan’ın sürüngenlerini yere göre inceleyin — bölgesel haritalar, yaşam alanları ve doğrulanmış tür profilleri. Bu aşamada bölgesel listelerde çoğunlukla yılanlar ve cam kertenkele yer alır; diğer gruplar, yayılışları kaynaklarla doğrulandığında eklenecektir.",
     "heroImageAlt": "Bölgelere göre Gürcistan haritası — ormandan dağlara ve kuru doğuya, sürüngenlerle",
     "regionHeroAlt": "{name} — bölgesel peyzaj",
     "back": "Atlas",
@@ -542,8 +542,8 @@
     "seo": {
       "eyebrow": "Yerden faunaya",
       "title": "Bölgesel atlas nasıl işler",
-      "p1": "Gürcistan’da sürüngen toplulukları yere göre değişir: Kolhis ormanları ve batı kıyısı, Büyük Kafkasya yüksek kuşağı ve doğunun kurak havzaları farklı türleri barındırır. Bölgesel atlas bu gradyanı pratik bir yola çevirir — haritada veya listede bir yer seçin ve orada neyin kaydedildiğini görün.",
-      "p2": "Her bölge sayfası doğrulanmış tür listelerini, yaşam alanlarını, zehirli yılan notlarını ve bir haritayı bir araya getirir. Amfibiler, kaplumbağalar ve cam kertenkele dışında neredeyse tüm kertenkeleler henüz haritalanmamıştır — bu bir boşluktur, tam fauna değildir. Tam yılan bölgesel görünümü ayrıca yayılış rehberindedir.",
+      "p1": "Gürcistan’ın sürüngen toplulukları yere göre belirgin biçimde değişir. Batıdaki nemli Kolhis ormanları ve Karadeniz kıyısı, Büyük Kafkasya’nın yüksek dağ kuşağı ve doğunun kuru bölgeleri farklı türler için farklı ortamlar oluşturur.",
+      "p2": "Bölgesel atlas bu farkları görmeyi kolaylaştırır — haritada veya listede bir yer seçin ve hangi türlerin orada kaynaklarla doğrulandığını görün. Her bölge sayfası tür listesini, başlıca yaşam alanlarını, zehirli türlerle ilgili notları ve haritayı bir araya getirir. Bu aşamada amfibiler, kaplumbağalar ve cam kertenkele dışında kertenkelelerin büyük bölümü bölgesel haritalara tam olarak bağlanmamıştır. Bu yüzden bölgesel liste belirli bir yerin tam faunası olarak görülmemelidir.",
       "links": {
         "species": "Tür atlası",
         "venomous": "Gürcistan’ın zehirli yılanları",
@@ -553,14 +553,14 @@
     },
     "clusterEyebrow": "Kategoriler",
     "clusterTitle": "Bölgeden gruba",
-    "clusterBody": "Bir bölge doğrulanmış kayıtları gösterir. Tam kataloglar kategori sayfalarındadır — yılanlar, kertenkeleler, kaplumbağalar, amfibiler.",
+    "clusterBody": "Her bölge sayfasında kaynaklarla doğrulanmış kayıtları görürsünüz. Gürcistan’ın tam sürüngen kataloğu ayrı kategorilerde toplanır — yılanlar, kertenkeleler, kaplumbağalar ve amfibiler.",
     "clusterSnakes": "Yılan yayılışı",
     "clusterLizards": "Kertenkele dizini",
     "clusterTurtles": "Kaplumbağa dizini",
     "clusterAmphibians": "Amfibi dizini",
     "dataGapEyebrow": "Boşluk",
     "dataGapTitle": "Harita henüz tam fauna değildir",
-    "dataGapBody": "Bölgesel listelerde yalnızca kaynaklarla doğrulanmış kayıtlar gösterilir. Belirli bir tür bir kaynakla henüz bir idari birime bağlanmamışsa, ilgili listeye eklenmez. Boş belediye sayfaları oluşturulmaz."
+    "dataGapBody": "Bölge sayfalarına yalnızca doğrulanmış kayıtlar eklenir. Bir türün belirli bir idari birimle bağlantısı henüz bir kaynakla doğrulanmamışsa, ilgili listede görünmez."
   },
   "contact": {
     "metaTitle": "İletişim",
