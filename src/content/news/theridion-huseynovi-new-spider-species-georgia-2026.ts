@@ -12,7 +12,6 @@ const PHOTO_THERIDION_HUSEYNOVI: NewsPhoto = {
     ru: "Theridion huseynovi на белом фоне.",
     tr: "Beyaz zemin üzerinde Theridion huseynovi.",
   },
-  plate: true,
   src: `${PHOTO_DIR}/theridion-huseynovi.png`,
 };
 
