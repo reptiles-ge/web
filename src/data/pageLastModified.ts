@@ -73,7 +73,7 @@ export const SITEMAP_REGION_LAST_MODIFIED: Record<string, string> = {
   "kvemo-kartli": "2026-09-16T19:29:00+04:00",
   "mtskheta-mtianeti": "2026-09-16T19:40:00+04:00",
   racha: "2026-09-16T19:51:00+04:00",
-  "samegrelo-zemo-svaneti": "2026-09-16T20:02:00+04:00",
+  "samegrelo-zemo-svaneti": "2026-09-17T13:58:48+04:00",
   "samtskhe-javakheti": "2026-09-16T20:13:00+04:00",
   "shida-kartli": "2026-09-16T20:24:00+04:00",
   tbilisi: "2026-09-16T20:35:00+04:00",

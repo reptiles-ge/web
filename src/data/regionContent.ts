@@ -378,23 +378,47 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
     faq: [
       {
         answer: {
-          en: "In humid lowlands, Caucasian viper, grass snake and dice snake, smooth snake, and glass lizard are more typical. In high Zemo Svaneti, Dinnik’s viper occurs.",
-          ka: "დაბლობსა და ტენიან ზონაში უფრო ხშირია კავკასიური გველგესლა, ჩვეულებრივი და წყლის ანკარა, სპილენძა და გველხოკერა. ზემო სვანეთის მაღალმთაში გვხვდება დინიკის გველგესლა.",
+          en: "Caucasian viper, grass snake and dice snake, smooth snake, and glass lizard are recorded in Samegrelo’s lowland and humid zones. Dinnik’s viper occurs in the high-mountain part of Zemo Svaneti. Species composition at a specific place changes with elevation and habitat.",
+          ka: "სამეგრელოს დაბლობ და ტენიან ზონებში დაფიქსირებულია კავკასიური გველგესლა, ჩვეულებრივი და წყლის ანკარა, სპილენძა და გველხოკერა. ზემო სვანეთის მაღალმთიან ნაწილში გვხვდება დინიკის გველგესლა. კონკრეტულ ადგილზე სახეობების შემადგენლობა სიმაღლისა და ჰაბიტატის მიხედვით იცვლება.",
+          ru: "В низинных и влажных зонах Самегрело зарегистрированы кавказская гадюка, обыкновенный и водяной ужи, медянка и желтопузик. В высокогорной части Верхней Сванетии встречается гадюка Динника. Состав видов в конкретном месте меняется в зависимости от высоты и местообитания.",
+          tr: "Samegrelo’nun alçak ve nemli bölgelerinde Kafkas engereği, halkalı su yılanı ve su yılanı, düz yılan ve cam kertenkele kaydedilmiştir. Zemo Svaneti’nin yüksek dağ kesiminde Dinnik engereği görülür. Belirli bir yerdeki tür bileşimi yükselti ve habitata göre değişir.",
         },
         question: {
           en: "Which snakes live in Samegrelo?",
           ka: "რა გველები გვხვდება სამეგრელოში?",
+          ru: "Какие змеи встречаются в Самегрело?",
+          tr: "Samegrelo’da hangi yılanlar görülür?",
         },
       },
     ],
     habitats: [
-      { en: "Colchis lowlands", ka: "კოლხეთის დაბლობი" },
-      { en: "River valleys", ka: "მდინარის ხეობები" },
-      { en: "High Svaneti", ka: "სვანეთის მაღალმთა" },
+      {
+        en: "Colchis lowlands.",
+        ka: "კოლხეთის დაბლობი.",
+        ru: "Колхидская низменность.",
+        tr: "Kolhis ovası.",
+      },
+      {
+        en: "River valleys.",
+        ka: "მდინარის ხეობები.",
+        ru: "Речные долины.",
+        tr: "Nehir vadileri.",
+      },
+      {
+        en: "High-mountain Svaneti.",
+        ka: "სვანეთის მაღალმთიანი ზონა.",
+        ru: "Высокогорная зона Сванетии.",
+        tr: "Svaneti’nin yüksek dağ kuşağı.",
+      },
     ],
+    metaDescription: {
+      ka: "სამეგრელო-ზემო სვანეთი — ქვეწარმავლების დადასტურებული ჩანაწერები, გავრცელების რუკა, კოლხეთის დაბლობი, სვანეთის მაღალმთიანი ზონა და რეგიონში გავრცელებული შხამიანი გველები.",
+    },
     overview: {
-      en: "Samegrelo — Zemo Svaneti stretches from the Colchis lowlands to high Svaneti. Humid forests, river valleys, and alpine belts meet in one region — so fauna shifts with elevation.",
-      ka: "სამეგრელო — ზემო სვანეთი გადაჭიმულია კოლხეთის დაბლობიდან სვანეთის მაღალმთამდე. ერთ რეგიონში ხვდება ტენიანი ტყეები, მდინარის ხეობები და ალპური ზონა — ამიტომ ფაუნა ვერტიკალურად იცვლება.",
+      en: "Samegrelo — Zemo Svaneti extends from the Colchis lowlands to the high mountains of Svaneti. Humid forests, river valleys, and alpine zones meet within one region, so reptile composition changes markedly with elevation and habitat.",
+      ka: "სამეგრელო — ზემო სვანეთი კოლხეთის დაბლობიდან სვანეთის მაღალმთამდე ვრცელდება. ერთ რეგიონში გვხვდება ტენიანი ტყეები, მდინარის ხეობები და ალპური ზონა, ამიტომ ქვეწარმავლების შემადგენლობა სიმაღლისა და ჰაბიტატის მიხედვით მნიშვნელოვნად იცვლება.",
+      ru: "Самегрело — Верхняя Сванетия простирается от Колхидской низменности до высокогорий Сванетии. В одном регионе встречаются влажные леса, речные долины и альпийская зона, поэтому состав рептилий заметно меняется в зависимости от высоты и местообитания.",
+      tr: "Samegrelo — Zemo Svaneti, Kolhis ovasından Svaneti’nin yüksek dağlarına kadar uzanır. Nemli ormanlar, nehir vadileri ve alpin kuşak tek bir bölgede buluşur; bu yüzden sürüngen bileşimi yükselti ve habitata göre belirgin biçimde değişir.",
     },
     relatedIds: ["abkhazia", "guria", "racha", "imereti"],
   },
