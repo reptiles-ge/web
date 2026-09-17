@@ -54224,6 +54224,73 @@
       ],
       "updatedAt": "2026-09-17T14:24:28.824Z"
     },
+    "pholcus-phalangioides-sandro-2.jpg": {
+      "sourceHash": "a19f3d5dabdc068433f1535e04c15160b20f84b52141e4164566cc6d779b62fe",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pholcus-phalangioides-sandro-2.jpg",
+      "originalSize": 85954,
+      "width": 766,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/pholcus-phalangioides-sandro-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 428,
+          "byteSize": 7687
+        },
+        {
+          "key": "optimized/pholcus-phalangioides-sandro-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 428,
+          "byteSize": 9694
+        },
+        {
+          "key": "optimized/pholcus-phalangioides-sandro-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 535,
+          "byteSize": 10398
+        },
+        {
+          "key": "optimized/pholcus-phalangioides-sandro-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 535,
+          "byteSize": 12948
+        },
+        {
+          "key": "optimized/pholcus-phalangioides-sandro-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 856,
+          "byteSize": 18510
+        },
+        {
+          "key": "optimized/pholcus-phalangioides-sandro-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 856,
+          "byteSize": 23334
+        },
+        {
+          "key": "optimized/pholcus-phalangioides-sandro-2-766.avif",
+          "format": "avif",
+          "width": 766,
+          "height": 1024,
+          "byteSize": 23292
+        },
+        {
+          "key": "optimized/pholcus-phalangioides-sandro-2-766.webp",
+          "format": "webp",
+          "width": 766,
+          "height": 1024,
+          "byteSize": 30800
+        }
+      ],
+      "updatedAt": "2026-09-17T14:25:30.075Z"
+    },
     "pholcus-phalangioides-zauri-2.jpg": {
       "sourceHash": "2bd52bc3f48e3a87d3a55d27fc234ad40b89e5256b60a8ef24acf9b77ff27e4d",
       "configFingerprint": "409788ee46c653d8",

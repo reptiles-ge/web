@@ -4939,6 +4939,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/pholcus-phalangioides-sandro-2.jpg": {
+    "path": "pholcus-phalangioides-sandro-2",
+    "width": 766,
+    "height": 1024,
+    "widths": [320, 400, 640, 766],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/pholcus-phalangioides-zauri-2.jpg": {
     "path": "pholcus-phalangioides-zauri-2",
     "width": 2048,
