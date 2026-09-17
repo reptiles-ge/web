@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 
+import { useCookieConsent } from "@/components/cookie-consent/CookieConsentProvider";
 import {
   isVisitBlocked,
   sanitizeVisitPath,
@@ -13,7 +14,10 @@ import { postVisitPing } from "@/lib/visitPingClient";
 let inFlight = false;
 
 export function VisitPing() {
+  const { consent } = useCookieConsent();
+
   useEffect(() => {
+    if (!consent?.analytics) return;
     if (inFlight) return;
     if (navigator.webdriver) return;
     if (readSeen()) return;
@@ -37,7 +41,7 @@ export function VisitPing() {
         clearSeen();
         inFlight = false;
       });
-  }, []);
+  }, [consent?.analytics]);
 
   return null;
 }

@@ -5,7 +5,9 @@ import path from "node:path";
 
 import type { AppLocale } from "@/i18n/routing";
 
-export type LegalDocumentId = "privacy" | "terms";
+import { getPathname } from "@/i18n/navigation";
+
+export type LegalDocumentId = "cookies" | "privacy" | "terms";
 
 type Block =
   | { items: TextPart[]; key: string; type: "list" }
@@ -23,10 +25,25 @@ type TextPart = {
   text: string;
 };
 
-const documentFiles: Record<LegalDocumentId, string> = {
-  privacy: "reptiles-ge-privacy-policy-ka.md",
-  terms: "reptiles-ge-terms-of-use-ka.md",
+const documentFiles: Record<
+  LegalDocumentId,
+  Partial<Record<AppLocale, string>>
+> = {
+  cookies: {
+    en: "reptiles-ge-cookie-policy-en.md",
+    ka: "reptiles-ge-cookie-policy-ka.md",
+    ru: "reptiles-ge-cookie-policy-ru.md",
+    tr: "reptiles-ge-cookie-policy-tr.md",
+  },
+  privacy: { ka: "reptiles-ge-privacy-policy-ka.md" },
+  terms: { ka: "reptiles-ge-terms-of-use-ka.md" },
 };
+
+const documentRouteHrefs = {
+  "/cookie-policy": "/cookie-policy",
+  "/privacy": "/privacy",
+  "/terms-and-conditions": "/terms-and-conditions",
+} as const;
 
 export function LegalDocumentPage({
   documentId,
@@ -37,45 +54,63 @@ export function LegalDocumentPage({
   locale: AppLocale;
   notice: string;
 }) {
-  const blocks = parseMarkdown(readDocument(documentId));
+  const localized = hasLocalizedDocument(documentId, locale);
+  const blocks = parseMarkdown(readDocument(documentId, locale));
 
   return (
     <main className="bg-background">
       <article
         className="mx-auto max-w-4xl px-6 pt-28 pb-16 text-foreground lg:px-10 lg:pt-32 lg:pb-20"
-        lang="ka"
+        lang={localized ? locale : "ka"}
       >
-        {locale !== "ka" ? (
+        {!localized ? (
           <p className="mb-8 rounded-md border border-border bg-card px-4 py-3 text-[14px] leading-relaxed text-muted-foreground">
             {notice}
           </p>
         ) : null}
         <div className="space-y-6">
-          {blocks.map((block) => renderBlock(block))}
+          {blocks.map((block) => renderBlock(block, locale))}
         </div>
       </article>
     </main>
   );
 }
 
-function InlineText({ text }: { text: string }) {
+function hasLocalizedDocument(documentId: LegalDocumentId, locale: AppLocale) {
+  return Boolean(documentFiles[documentId][locale]);
+}
+
+function InlineText({ locale, text }: { locale: AppLocale; text: string }) {
   const parts: ReactNode[] = [];
-  const codePattern = /`([^`]+)`/g;
+  const inlinePattern = /`([^`]+)`|\[([^\]]+)\]\(([^)]+)\)/g;
   let cursor = 0;
   let match: null | RegExpExecArray;
 
-  while ((match = codePattern.exec(text))) {
+  while ((match = inlinePattern.exec(text))) {
     if (match.index > cursor) {
       parts.push(text.slice(cursor, match.index));
     }
-    parts.push(
-      <code
-        className="rounded bg-card px-1.5 py-0.5 text-[0.92em] text-foreground"
-        key={sourceKey("code", match.index + 1, match[1])}
-      >
-        {match[1]}
-      </code>,
-    );
+    if (match[1]) {
+      parts.push(
+        <code
+          className="rounded bg-card px-1.5 py-0.5 text-[0.92em] text-foreground"
+          key={sourceKey("code", match.index + 1, match[1])}
+        >
+          {match[1]}
+        </code>,
+      );
+    } else if (match[2] && match[3]) {
+      const href = resolveDocumentHref(match[3], locale);
+      parts.push(
+        <a
+          className="font-medium text-primary underline-offset-4 hover:underline focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
+          href={href}
+          key={sourceKey("link", match.index + 1, `${match[2]}-${href}`)}
+        >
+          {match[2]}
+        </a>,
+      );
+    }
     cursor = match.index + match[0].length;
   }
 
@@ -84,6 +119,12 @@ function InlineText({ text }: { text: string }) {
   }
 
   return parts;
+}
+
+function isDocumentRouteHref(
+  route: string,
+): route is keyof typeof documentRouteHrefs {
+  return route in documentRouteHrefs;
 }
 
 function parseMarkdown(markdown: string) {
@@ -174,14 +215,16 @@ function parseMarkdown(markdown: string) {
   return blocks;
 }
 
-function readDocument(documentId: LegalDocumentId) {
-  return readFileSync(
-    path.join(process.cwd(), "docs/legal", documentFiles[documentId]),
-    "utf8",
-  );
+function readDocument(documentId: LegalDocumentId, locale: AppLocale) {
+  const file =
+    documentFiles[documentId][locale] ?? documentFiles[documentId].ka;
+  if (!file) {
+    throw new Error(`Missing legal document for ${documentId}`);
+  }
+  return readFileSync(path.join(process.cwd(), "docs/legal", file), "utf8");
 }
 
-function renderBlock(block: Block) {
+function renderBlock(block: Block, locale: AppLocale) {
   if (block.type === "heading") {
     const className =
       block.level === 1
@@ -192,7 +235,7 @@ function renderBlock(block: Block) {
     const Tag = `h${block.level}` as "h1" | "h2" | "h3";
     return (
       <Tag className={className} key={block.key}>
-        <InlineText text={block.text} />
+        <InlineText locale={locale} text={block.text} />
       </Tag>
     );
   }
@@ -205,7 +248,7 @@ function renderBlock(block: Block) {
       >
         {block.items.map((item) => (
           <li key={item.key}>
-            <InlineText text={item.text} />
+            <InlineText locale={locale} text={item.text} />
           </li>
         ))}
       </ul>
@@ -229,7 +272,7 @@ function renderBlock(block: Block) {
                     key={cell.key}
                     scope="col"
                   >
-                    <InlineText text={cell.text} />
+                    <InlineText locale={locale} text={cell.text} />
                   </th>
                 ))}
               </tr>
@@ -243,7 +286,7 @@ function renderBlock(block: Block) {
                     className="px-4 py-3 align-top text-foreground/78"
                     key={cell.key}
                   >
-                    <InlineText text={cell.text} />
+                    <InlineText locale={locale} text={cell.text} />
                   </td>
                 ))}
               </tr>
@@ -256,9 +299,16 @@ function renderBlock(block: Block) {
 
   return (
     <p className="text-[15px] leading-7 text-foreground/82" key={block.key}>
-      <InlineText text={block.text} />
+      <InlineText locale={locale} text={block.text} />
     </p>
   );
+}
+
+function resolveDocumentHref(href: string, locale: AppLocale) {
+  if (!href.startsWith("route:")) return href;
+  const route = href.slice("route:".length);
+  if (!isDocumentRouteHref(route)) return href;
+  return getPathname({ href: documentRouteHrefs[route], locale });
 }
 
 function sourceKey(prefix: string, line: number, text = "") {

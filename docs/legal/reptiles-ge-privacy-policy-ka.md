@@ -22,11 +22,13 @@
 
 ### ანალიტიკა და საიტის გამოყენება
 
-საიტზე გამოიყენება Google Tag Manager. Google Tag Manager-ის მეშვეობით შეიძლება დამუშავდეს გვერდის ნახვები, ენის შეცვლა, ძებნის გამოყენება, atlas filters, species/profile interactions, წყაროებზე click, gallery/audio interactions, quiz interactions, FAQ გახსნა და მსგავსი ივენთები.
+საიტზე ანალიტიკა ირთვება მხოლოდ cookie banner-ში ან Cookie Settings-ში გაცემული თანხმობის შემდეგ. თანხმობის შემთხვევაში შეიძლება ჩაიტვირთოს Google Tag Manager, Google Analytics, Top.ge counter და პირველი მხარის visit notification.
+
+Google Tag Manager-ის მეშვეობით შეიძლება დამუშავდეს გვერდის ნახვები, ენის შეცვლა, ძებნის გამოყენება, atlas filters, species/profile interactions, წყაროებზე click, gallery/audio interactions, quiz interactions, FAQ გახსნა და მსგავსი ივენთები.
 
 ზოგ შემთხვევაში analytics event შეიძლება შეიცავდეს ძებნის ტექსტს. გთხოვთ, საიტის ძებნაში არ ჩაწეროთ თქვენი ან სხვა პირის პერსონალური მონაცემები.
 
-Google Tag Manager-ის მეშვეობით შეიძლება გამოყენებული იყოს Google Analytics/Google Ads-ის analytics ან conversion cookies, როგორც აღწერილია ქვემოთ ცხრილში.
+სარეკლამო consent-ები default-ად უარყოფილია და საიტი არ რთავს advertising cookie კატეგორიას. Cookie-ების დეტალური აღწერა მოცემულია [Cookie Policy-ში](route:/cookie-policy).
 
 ### ელფოსტით კონტაქტი
 
@@ -55,15 +57,17 @@ Google Tag Manager-ის მეშვეობით შეიძლება �
 
 ## Cookie, localStorage და sessionStorage
 
-| სახელი                             | ტიპი           | მიზანი                                             | ვადა                                                     | კატეგორია                |
-| ---------------------------------- | -------------- | -------------------------------------------------- | -------------------------------------------------------- | ------------------------ |
-| `NEXT_LOCALE`                      | cookie         | ენის არჩევის დამახსოვრება                          | browser/session ან framework-ის მიხედვით                 | აუცილებელი/ფუნქციური     |
-| `reptiles-theme`                   | localStorage   | theme preference                                   | სანამ მომხმარებელი/ბრაუზერი არ წაშლის                    | ფუნქციური                |
-| `reptiles.search.recent`           | localStorage   | ბოლო არჩეული search results                        | fixed expiry არ არის                                     | ფუნქციური                |
-| `reptiles.quiz.draft.{quizId}`     | sessionStorage | quiz progress                                      | browser tab/session-ის დასრულებამდე ან quiz დასრულებამდე | ფუნქციური                |
-| Google analytics/marketing cookies | cookie         | analytics/conversion, თუ GTM container-ში ჩართულია | Google tag/config-ზე დამოკიდებული                        | ანალიტიკური/მარკეტინგული |
+| სახელი                         | ტიპი           | მიზანი                                              | ვადა                                                     | კატეგორია            |
+| ------------------------------ | -------------- | --------------------------------------------------- | -------------------------------------------------------- | -------------------- |
+| `NEXT_LOCALE`                  | cookie         | ენის არჩევის დამახსოვრება                           | browser/session ან framework-ის მიხედვით                 | აუცილებელი/ფუნქციური |
+| `reptiles-theme`               | localStorage   | theme preference                                    | სანამ მომხმარებელი/ბრაუზერი არ წაშლის                    | ფუნქციური            |
+| `reptiles.search.recent`       | localStorage   | ბოლო არჩეული search results                         | fixed expiry არ არის                                     | ფუნქციური            |
+| `reptiles.quiz.draft.{quizId}` | sessionStorage | quiz progress                                       | browser tab/session-ის დასრულებამდე ან quiz დასრულებამდე | ფუნქციური            |
+| `reptiles_cookie_consent`      | cookie         | cookie consent preference                           | დაახლოებით 12 თვე                                        | აუცილებელი           |
+| `rp_v`                         | cookie         | პირველი მხარის visit notification limiter           | დაახლოებით 24 საათი                                      | ანალიტიკური          |
+| `_ga`, `_ga_*`                 | cookie         | Google Analytics, თუ ანალიტიკაზე თანხმობა გაცემულია | ჩვეულებრივ 2 წლამდე                                      | ანალიტიკური          |
 
-Non-essential analytics ან marketing cookies უნდა ჩაირთოს მხოლოდ შესაბამისი თანხმობის ან მოქმედი სამართლებრივი საფუძვლის არსებობისას.
+Non-essential analytics cookies ირთვება მხოლოდ შესაბამისი თანხმობის არსებობისას. თანხმობის მართვა შესაძლებელია footer-ში არსებული Cookie Settings ღილაკით.
 
 ## ვის გადაეცემა მონაცემები
 
@@ -71,7 +75,8 @@ Non-essential analytics ან marketing cookies უნდა ჩაირთო
 
 - Vercel — hosting და ტექნიკური მიწოდება;
 - Bunny CDN/Storage — media/CDN და admin upload workflow;
-- Google Tag Manager და შესაძლო Google Analytics/Google Ads tags — analytics/conversion, GTM container-ის კონფიგურაციის მიხედვით;
+- Google Tag Manager და Google Analytics — analytics, მხოლოდ თანხმობის შემდეგ;
+- Top.ge — traffic counter, მხოლოდ თანხმობის შემდეგ;
 - Google Maps და სხვა გარე წყაროები — მხოლოდ მაშინ, როცა მომხმარებელი თავად გადადის გარე ბმულზე.
 
 მესამე მხარეები მონაცემებს ამუშავებენ თავიანთი პირობების, მონაცემთა დამუშავების შეთანხმებებისა და შენახვის პოლიტიკების შესაბამისად.

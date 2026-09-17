@@ -261,6 +261,8 @@
     "contributors": "Контрибьюторы",
     "contact": "Контакты",
     "privacy": "Конфиденциальность",
+    "cookiePolicy": "Политика cookies",
+    "cookieSettings": "Настройки cookies",
     "terms": "Условия",
     "venomousTitle": "Ядовитые виды",
     "venomousAll": "Гид по безопасности",
@@ -308,10 +310,34 @@
       "metaTitle": "Политика конфиденциальности",
       "metaDescription": "Как reptiles.ge обрабатывает технические данные, cookies, аналитику и сведения об авторах."
     },
+    "cookies": {
+      "metaTitle": "Политика cookies",
+      "metaDescription": "Какие cookies использует Reptiles.ge, как работает согласие на аналитику и как изменить настройки."
+    },
     "terms": {
       "metaTitle": "Условия использования",
       "metaDescription": "Условия использования reptiles.ge: образовательные оговорки, интеллектуальная собственность и условия внешних источников."
     }
+  },
+  "cookieConsent": {
+    "bannerAria": "Согласие на cookies",
+    "title": "Мы бережно относимся к вашей конфиденциальности",
+    "description": "Reptiles.ge использует необходимые cookies для работы сайта. С вашего согласия мы используем аналитические cookies, чтобы понимать, как используется сайт, и улучшать его материалы.",
+    "necessaryOnly": "Только необходимые",
+    "settings": "Настройки",
+    "accept": "Принять",
+    "policyLink": "Политика cookies",
+    "settingsEyebrow": "Настройки cookies",
+    "settingsTitle": "Выберите cookies",
+    "necessaryTitle": "Необходимые cookies",
+    "necessaryDescription": "Нужны для работы сайта и сохранения вашего выбора по cookies. Их нельзя отключить в этой панели.",
+    "analyticsTitle": "Аналитические cookies",
+    "analyticsDescription": "Помогают понять, как используется Reptiles.ge, чтобы улучшать страницы, поиск, квизы и контент.",
+    "analyticsToggle": "Включить аналитические cookies",
+    "alwaysOn": "Всегда включены",
+    "save": "Сохранить настройки",
+    "acceptAll": "Принять все",
+    "close": "Закрыть"
   },
   "profile": {
     "back": "Все виды",

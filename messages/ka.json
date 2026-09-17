@@ -261,6 +261,8 @@
     "contributors": "კონტრიბუტორები",
     "contact": "კონტაქტი",
     "privacy": "კონფიდენციალურობა",
+    "cookiePolicy": "Cookie პოლიტიკა",
+    "cookieSettings": "Cookie პარამეტრები",
     "terms": "წესები და პირობები",
     "venomousTitle": "შხამიანი სახეობები",
     "venomousAll": "უსაფრთხოების გიდი",
@@ -308,10 +310,34 @@
       "metaTitle": "კონფიდენციალურობის პოლიტიკა",
       "metaDescription": "როგორ ამუშავებს reptiles.ge ტექნიკურ მონაცემებს, cookie-ებს, analytics-სა და contributor credit-ებს."
     },
+    "cookies": {
+      "metaTitle": "Cookie პოლიტიკა",
+      "metaDescription": "რა cookie-ებს იყენებს Reptiles.ge, როგორ მუშაობს ანალიტიკის თანხმობა და როგორ შეცვალოთ არჩევანი."
+    },
     "terms": {
       "metaTitle": "გამოყენების წესები",
       "metaDescription": "reptiles.ge-ის გამოყენების წესები, საგანმანათლებლო დათქმები, ინტელექტუალური საკუთრება და გარე წყაროების პირობები."
     }
+  },
+  "cookieConsent": {
+    "bannerAria": "Cookie თანხმობა",
+    "title": "ჩვენ ვუფრთხილდებით თქვენს კონფიდენციალურობას",
+    "description": "Reptiles.ge იყენებს აუცილებელ cookie-ებს საიტის მუშაობისთვის. თქვენი თანხმობის შემთხვევაში ვიყენებთ ანალიტიკურ cookie-ებს, რათა გავიგოთ როგორ გამოიყენება საიტი და გავაუმჯობესოთ მისი კონტენტი.",
+    "necessaryOnly": "მხოლოდ აუცილებელი",
+    "settings": "პარამეტრები",
+    "accept": "მიღება",
+    "policyLink": "Cookie პოლიტიკა",
+    "settingsEyebrow": "Cookie პარამეტრები",
+    "settingsTitle": "აირჩიეთ cookie-ები",
+    "necessaryTitle": "აუცილებელი cookie-ები",
+    "necessaryDescription": "საჭიროა საიტის მუშაობისთვის და თქვენი cookie არჩევანის დასამახსოვრებლად. მათი გამორთვა ამ პანელიდან შეუძლებელია.",
+    "analyticsTitle": "ანალიტიკური cookie-ები",
+    "analyticsDescription": "გვეხმარება გავიგოთ, როგორ გამოიყენება Reptiles.ge, რომ გავაუმჯობესოთ გვერდები, ძებნა, quiz-ები და კონტენტი.",
+    "analyticsToggle": "ანალიტიკური cookie-ების ჩართვა",
+    "alwaysOn": "ყოველთვის ჩართული",
+    "save": "არჩევანის შენახვა",
+    "acceptAll": "ყველაფრის მიღება",
+    "close": "დახურვა"
   },
   "profile": {
     "back": "ყველა სახეობა",

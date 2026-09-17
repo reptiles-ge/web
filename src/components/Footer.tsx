@@ -1,6 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
+import { CookieSettingsButton } from "@/components/cookie-consent/CookieSettingsButton";
 import { Logo } from "@/components/Logo";
 import { TopGeCounter } from "@/components/TopGeCounter";
 import { Link } from "@/i18n/navigation";
@@ -75,8 +76,12 @@ const companyLinks = [
   { href: "/authors" as const, labelKey: "contributors" as const },
   { href: "/contact" as const, labelKey: "contact" as const },
   { href: "/privacy" as const, labelKey: "privacy" as const },
+  { href: "/cookie-policy" as const, labelKey: "cookiePolicy" as const },
   { href: "/terms-and-conditions" as const, labelKey: "terms" as const },
 ];
+
+const footerLinkClass =
+  "text-[14px] text-foreground/80 transition-colors hover:text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none";
 
 export async function Footer({ regions, venomous }: FooterProps) {
   const t = await getTranslations("footer");
@@ -116,10 +121,7 @@ export async function Footer({ regions, venomous }: FooterProps) {
             <ul className="mt-5 space-y-3">
               {exploreLinks.map((link) => (
                 <li key={link.href}>
-                  <Link
-                    className="text-[14px] text-foreground/80 transition-colors hover:text-primary"
-                    href={link.href}
-                  >
+                  <Link className={footerLinkClass} href={link.href}>
                     {t(link.labelKey)}
                   </Link>
                 </li>
@@ -134,10 +136,7 @@ export async function Footer({ regions, venomous }: FooterProps) {
             <ul className="mt-5 space-y-3">
               {guideLinks.map((link) => (
                 <li key={link.href}>
-                  <Link
-                    className="text-[14px] text-foreground/80 transition-colors hover:text-primary"
-                    href={link.href}
-                  >
+                  <Link className={footerLinkClass} href={link.href}>
                     {t(link.labelKey)}
                   </Link>
                 </li>
@@ -152,14 +151,17 @@ export async function Footer({ regions, venomous }: FooterProps) {
             <ul className="mt-5 space-y-3">
               {companyLinks.map((link) => (
                 <li key={link.href}>
-                  <Link
-                    className="text-[14px] text-foreground/80 transition-colors hover:text-primary"
-                    href={link.href}
-                  >
+                  <Link className={footerLinkClass} href={link.href}>
                     {t(link.labelKey)}
                   </Link>
                 </li>
               ))}
+              <li>
+                <CookieSettingsButton
+                  className={`${footerLinkClass} text-left`}
+                  label={t("cookieSettings")}
+                />
+              </li>
             </ul>
           </div>
         </div>

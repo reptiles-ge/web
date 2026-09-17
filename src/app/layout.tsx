@@ -9,10 +9,10 @@ import Script from "next/script";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { preconnect } from "react-dom";
 
-import { GoogleTagManager } from "@/components/GoogleTagManager";
 import { themeInitScript, ThemeProvider } from "@/components/ThemeProvider";
 import { routing } from "@/i18n/routing";
 import { cn } from "@/lib/cn";
+import { consentModeInitScript } from "@/lib/consent/google-consent";
 import {
   absoluteUrl,
   CDN_BASE,
@@ -23,7 +23,6 @@ import {
 
 import "./globals.css";
 
-const GTM_ID = "GTM-NM65ZMML";
 const FACEBOOK_APP_ID = "1033733009490487";
 
 const you = localFont({
@@ -135,8 +134,11 @@ export default async function RootLayout({ children }: Props) {
       lang={locale}
       suppressHydrationWarning
     >
-      {isProd ? <GoogleTagManager gtmId={GTM_ID} /> : null}
       <head>
+        <script
+          dangerouslySetInnerHTML={{ __html: consentModeInitScript() }}
+          id="reptiles-consent-mode"
+        />
         {isProd ? null : (
           <Script
             crossOrigin="anonymous"
@@ -147,18 +149,6 @@ export default async function RootLayout({ children }: Props) {
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body className="min-h-full bg-background font-sans text-foreground transition-colors duration-300">
-        {isProd ? (
-          <noscript>
-            <iframe
-              height="0"
-              sandbox="allow-scripts"
-              src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
-              style={{ display: "none", visibility: "hidden" }}
-              title="Google Tag Manager"
-              width="0"
-            />
-          </noscript>
-        ) : null}
         <NuqsAdapter>
           <ThemeProvider>
             {children}

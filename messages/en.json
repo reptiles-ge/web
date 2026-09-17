@@ -261,6 +261,8 @@
     "contributors": "Contributors",
     "contact": "Contact",
     "privacy": "Privacy",
+    "cookiePolicy": "Cookie Policy",
+    "cookieSettings": "Cookie Settings",
     "terms": "Terms",
     "venomousTitle": "Venomous species",
     "venomousAll": "Safety guide",
@@ -308,10 +310,34 @@
       "metaTitle": "Privacy Policy",
       "metaDescription": "How reptiles.ge handles technical data, cookies, analytics, and contributor credits."
     },
+    "cookies": {
+      "metaTitle": "Cookie Policy",
+      "metaDescription": "Which cookies Reptiles.ge uses, how Analytics consent works, and how you can change your preferences."
+    },
     "terms": {
       "metaTitle": "Terms of Use",
       "metaDescription": "Terms for using reptiles.ge, including educational disclaimers, intellectual property, and external source conditions."
     }
+  },
+  "cookieConsent": {
+    "bannerAria": "Cookie consent",
+    "title": "We take care of your privacy",
+    "description": "Reptiles.ge uses necessary cookies to keep the site working. With your consent, we use analytics cookies to understand how the site is used and improve its content.",
+    "necessaryOnly": "Necessary only",
+    "settings": "Settings",
+    "accept": "Accept",
+    "policyLink": "Cookie Policy",
+    "settingsEyebrow": "Cookie settings",
+    "settingsTitle": "Choose your cookies",
+    "necessaryTitle": "Necessary cookies",
+    "necessaryDescription": "Required for the site to work and to remember your cookie choice. They cannot be turned off from this panel.",
+    "analyticsTitle": "Analytics cookies",
+    "analyticsDescription": "Help us understand how Reptiles.ge is used so we can improve pages, search, quizzes, and content.",
+    "analyticsToggle": "Enable analytics cookies",
+    "alwaysOn": "Always on",
+    "save": "Save preferences",
+    "acceptAll": "Accept all",
+    "close": "Close"
   },
   "profile": {
     "back": "All species",

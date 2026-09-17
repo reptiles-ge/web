@@ -1,8 +1,6 @@
-import {
-  type AnimalGroup,
-  getSpeciesAtlasMeta,
-} from "@/data/speciesAtlasMeta";
+import { type AnimalGroup, getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
+import { hasAnalyticsConsent } from "@/lib/consent/google-consent";
 
 export type AnalyticsValue = boolean | number | string;
 
@@ -58,6 +56,7 @@ type DataLayerRecord = Record<string, AnalyticsValue | undefined> & {
 
 declare global {
   interface Window {
+    __reptilesAnalyticsConsent?: boolean;
     dataLayer?: DataLayerRecord[];
   }
 }
@@ -107,8 +106,7 @@ export function trackSpeciesClick(params: {
   source: SpeciesClickSource;
   species_id: string;
 }) {
-  const group =
-    params.group ?? getSpeciesAtlasMeta(params.species_id).group;
+  const group = params.group ?? getSpeciesAtlasMeta(params.species_id).group;
   trackEvent("species_click", {
     group,
     position: params.position,
@@ -131,6 +129,7 @@ function compact(params: Record<string, AnalyticsValue | undefined>) {
 
 function push(payload: DataLayerRecord) {
   if (typeof window === "undefined") return;
+  if (!hasAnalyticsConsent()) return;
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push(payload);
 }

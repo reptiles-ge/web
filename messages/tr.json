@@ -261,6 +261,8 @@
     "contributors": "Katkıda bulunanlar",
     "contact": "İletişim",
     "privacy": "Gizlilik",
+    "cookiePolicy": "Çerez Politikası",
+    "cookieSettings": "Çerez Ayarları",
     "terms": "Koşullar",
     "venomousTitle": "Zehirli türler",
     "venomousAll": "Güvenlik rehberi",
@@ -308,10 +310,34 @@
       "metaTitle": "Gizlilik Politikası",
       "metaDescription": "reptiles.ge'nin teknik verileri, çerezleri, analitiği ve katkıda bulunan kişi bilgilerini nasıl işlediği."
     },
+    "cookies": {
+      "metaTitle": "Çerez Politikası",
+      "metaDescription": "Reptiles.ge'nin hangi cookie'leri kullandığı, Analitik onayının nasıl çalıştığı ve tercihlerinizi nasıl değiştirebileceğiniz."
+    },
     "terms": {
       "metaTitle": "Kullanım Koşulları",
       "metaDescription": "reptiles.ge kullanım koşulları: eğitim amaçlı açıklamalar, fikri mülkiyet ve dış kaynak koşulları."
     }
+  },
+  "cookieConsent": {
+    "bannerAria": "Cookie onayı",
+    "title": "Gizliliğinize özen gösteriyoruz",
+    "description": "Reptiles.ge sitenin çalışması için gerekli cookie'leri kullanır. Onayınızla, sitenin nasıl kullanıldığını anlamak ve içeriği iyileştirmek için analitik cookie'leri kullanırız.",
+    "necessaryOnly": "Yalnızca gerekli",
+    "settings": "Ayarlar",
+    "accept": "Kabul et",
+    "policyLink": "Çerez Politikası",
+    "settingsEyebrow": "Cookie ayarları",
+    "settingsTitle": "Cookie tercihlerinizi seçin",
+    "necessaryTitle": "Gerekli cookie'ler",
+    "necessaryDescription": "Sitenin çalışması ve cookie tercihinizi hatırlamak için gereklidir. Bu panelden kapatılamaz.",
+    "analyticsTitle": "Analitik cookie'ler",
+    "analyticsDescription": "Reptiles.ge'nin nasıl kullanıldığını anlamamıza, sayfaları, aramayı, quizleri ve içeriği iyileştirmemize yardımcı olur.",
+    "analyticsToggle": "Analitik cookie'leri etkinleştir",
+    "alwaysOn": "Her zaman açık",
+    "save": "Tercihleri kaydet",
+    "acceptAll": "Tümünü kabul et",
+    "close": "Kapat"
   },
   "profile": {
     "back": "Tüm türler",

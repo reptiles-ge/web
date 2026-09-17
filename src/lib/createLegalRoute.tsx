@@ -26,6 +26,7 @@ type Props = {
 };
 
 const legalPaths = {
+  cookies: "/cookie-policy",
   privacy: "/privacy",
   terms: "/terms-and-conditions",
 } as const;

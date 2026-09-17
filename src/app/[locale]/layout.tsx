@@ -9,6 +9,7 @@ import {
 import { notFound } from "next/navigation";
 
 import { AnalyticsPageContext } from "@/components/AnalyticsPageContext";
+import { CookieConsentProvider } from "@/components/cookie-consent/CookieConsentProvider";
 import { Footer } from "@/components/Footer";
 import { FooterGate } from "@/components/FooterGate";
 import { LocaleSwitchProvider } from "@/components/LocaleSwitchProvider";
@@ -19,6 +20,7 @@ import { ScrollToTop } from "@/components/ScrollToTop";
 import { SkipLink } from "@/components/SkipLink";
 import { VisitPing } from "@/components/VisitPing";
 import { routing } from "@/i18n/routing";
+import { GTM_ID } from "@/lib/consent/config";
 import { getFooterData } from "@/lib/footerData";
 import { getLocaleSwitchIndex } from "@/lib/localeSwitchData";
 
@@ -45,21 +47,26 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <NextIntlClientProvider messages={messages}>
-      <LocaleSwitchProvider index={switchIndex}>
-        <SkipLink label={t("skipToContent")} />
-        <NavigationProgress />
-        <ScrollToTop />
-        <LogoPreload />
-        <AnalyticsPageContext switchIndex={switchIndex} />
-        <VisitPing />
-        <Navbar switchIndex={switchIndex} />
-        <main id="main" tabIndex={-1}>
-          {children}
-        </main>
-        <FooterGate>
-          <Footer {...footerData} />
-        </FooterGate>
-      </LocaleSwitchProvider>
+      <CookieConsentProvider
+        analyticsEnabled={process.env.NODE_ENV === "production"}
+        gtmId={GTM_ID}
+      >
+        <LocaleSwitchProvider index={switchIndex}>
+          <SkipLink label={t("skipToContent")} />
+          <NavigationProgress />
+          <ScrollToTop />
+          <LogoPreload />
+          <AnalyticsPageContext switchIndex={switchIndex} />
+          <VisitPing />
+          <Navbar switchIndex={switchIndex} />
+          <main id="main" tabIndex={-1}>
+            {children}
+          </main>
+          <FooterGate>
+            <Footer {...footerData} />
+          </FooterGate>
+        </LocaleSwitchProvider>
+      </CookieConsentProvider>
     </NextIntlClientProvider>
   );
 }

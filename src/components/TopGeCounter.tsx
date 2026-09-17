@@ -1,7 +1,14 @@
+"use client";
+
 import Script from "next/script";
 
+import { useCookieConsent } from "@/components/cookie-consent/CookieConsentProvider";
+
 export function TopGeCounter() {
+  const { consent } = useCookieConsent();
+
   if (process.env.NODE_ENV !== "production") return null;
+  if (!consent?.analytics) return null;
 
   return (
     <>
