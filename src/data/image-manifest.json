@@ -8510,6 +8510,87 @@
       ],
       "updatedAt": "2026-09-17T19:11:15.034Z"
     },
+    "cervus-elaphus-andrew-1.jpg": {
+      "sourceHash": "bd69af2472ad3e98943fef92f541069c495a8a5a69c4470dab2435fa4917580f",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "cervus-elaphus-andrew-1.jpg",
+      "originalSize": 246470,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/cervus-elaphus-andrew-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 15027
+        },
+        {
+          "key": "optimized/cervus-elaphus-andrew-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 23828
+        },
+        {
+          "key": "optimized/cervus-elaphus-andrew-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 22203
+        },
+        {
+          "key": "optimized/cervus-elaphus-andrew-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 35890
+        },
+        {
+          "key": "optimized/cervus-elaphus-andrew-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 48845
+        },
+        {
+          "key": "optimized/cervus-elaphus-andrew-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 79452
+        },
+        {
+          "key": "optimized/cervus-elaphus-andrew-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 69391
+        },
+        {
+          "key": "optimized/cervus-elaphus-andrew-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 112748
+        },
+        {
+          "key": "optimized/cervus-elaphus-andrew-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 106181
+        },
+        {
+          "key": "optimized/cervus-elaphus-andrew-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 167448
+        }
+      ],
+      "updatedAt": "2026-09-17T19:18:23.854Z"
+    },
     "cervus-elaphus-dachi-1.jpg": {
       "sourceHash": "732f6e552f9c4660ca0a5259f9dee104052e8f21168b06c86c3663fe7d2fdc19",
       "configFingerprint": "409788ee46c653d8",
