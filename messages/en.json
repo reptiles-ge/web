@@ -500,7 +500,7 @@
     "metaDescription": "Snakes and reptiles of Georgia by region — map, habitats, venomous species, and field profiles.",
     "eyebrow": "Regional atlas",
     "title": "Regions of Georgia",
-    "subtitle": "Explore reptiles by place — map, habitats, and species profiles. Lists are still almost only snakes and the glass lizard until other groups are sourced.",
+    "subtitle": "Explore Georgia’s reptiles by place — regional maps, habitats, and profiles of confirmed species. At this stage, regional lists mostly include snakes and the glass lizard; other groups will be added when their distribution is confirmed by sources.",
     "heroImageAlt": "Map of Georgia by region — from forest to mountains and the dry east, with reptiles",
     "regionHeroAlt": "{name} — regional landscape",
     "back": "Atlas",
@@ -542,8 +542,8 @@
     "seo": {
       "eyebrow": "From place to fauna",
       "title": "How the regional atlas works",
-      "p1": "In Georgia, reptile assemblages shift with place: Colchic forests and the western coast, the Greater Caucasus high belt, and the arid basins of the east each support different species. The regional atlas turns that gradient into a practical path — pick a place on the map or in the list and see what is recorded there.",
-      "p2": "Each region page brings together confirmed species lists, habitats, venomous-snake notes, and a map. Amphibians, turtles, and almost all lizards (except the glass lizard) are not mapped yet — that is a gap, not a complete fauna. The full snake regional view is also on the range guide.",
+      "p1": "Georgia’s reptile assemblages change strongly from place to place. The humid Colchic forests and Black Sea coast in the west, the high mountain zone of the Greater Caucasus, and the dry eastern regions create different conditions for different species.",
+      "p2": "The regional atlas makes those differences easier to see — choose a place on the map or in the list and see which species are confirmed there by sources. Each region page brings together the species list, main habitats, notes related to venomous species, and a map. At this stage, amphibians, turtles, and many lizards, apart from the glass lizard, are not fully tied to regional maps. A regional list should therefore not be treated as the complete fauna of a place.",
       "links": {
         "species": "Species atlas",
         "venomous": "Venomous snakes of Georgia",
@@ -553,14 +553,14 @@
     },
     "clusterEyebrow": "Categories",
     "clusterTitle": "From region to group",
-    "clusterBody": "A region shows confirmed records. Full catalogs live on the category pages — snakes, lizards, turtles, amphibians.",
+    "clusterBody": "Each region page shows records confirmed by sources. Georgia’s full reptile catalog is organized in separate categories — snakes, lizards, turtles, and amphibians.",
     "clusterSnakes": "Snake range",
     "clusterLizards": "Lizard index",
     "clusterTurtles": "Turtle index",
     "clusterAmphibians": "Amphibian index",
     "dataGapEyebrow": "Gap",
     "dataGapTitle": "The map is not a complete fauna yet",
-    "dataGapBody": "Regional lists show only source-confirmed records. If a species is not yet tied to an administrative unit by a source, it is not added to that list. Empty municipality pages are not built."
+    "dataGapBody": "Only confirmed records are added to region pages. If a species’ link to a specific administrative unit has not yet been confirmed by a source, it will not appear in the relevant list."
   },
   "contact": {
     "metaTitle": "Contact",
