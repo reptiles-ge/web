@@ -1019,6 +1019,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1957],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/cervus-elaphus-teimuraz-2.jpg": {
+    "path": "cervus-elaphus-teimuraz-2",
+    "width": 1957,
+    "height": 1305,
+    "widths": [320, 400, 640, 800, 1200, 1957],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/coronella-austriaca-1.jpg": {
     "path": "coronella-austriaca-1",
     "width": 1024,
