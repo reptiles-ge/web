@@ -8320,6 +8320,858 @@
       ],
       "updatedAt": "2026-08-28T21:30:10.156Z"
     },
+    "cervus-elaphus-1.jpg": {
+      "sourceHash": "5bd345d7ecaf1dda3e68ca7229cff47683adf2003dc9e5a39392f668b1214b73",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "cervus-elaphus-1.jpg",
+      "originalSize": 1226451,
+      "width": 2400,
+      "height": 1665,
+      "derivatives": [
+        {
+          "key": "optimized/cervus-elaphus-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 222,
+          "byteSize": 9269
+        },
+        {
+          "key": "optimized/cervus-elaphus-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 222,
+          "byteSize": 11848
+        },
+        {
+          "key": "optimized/cervus-elaphus-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 278,
+          "byteSize": 12869
+        },
+        {
+          "key": "optimized/cervus-elaphus-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 278,
+          "byteSize": 16714
+        },
+        {
+          "key": "optimized/cervus-elaphus-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 444,
+          "byteSize": 27338
+        },
+        {
+          "key": "optimized/cervus-elaphus-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 444,
+          "byteSize": 35180
+        },
+        {
+          "key": "optimized/cervus-elaphus-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 555,
+          "byteSize": 38708
+        },
+        {
+          "key": "optimized/cervus-elaphus-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 555,
+          "byteSize": 51096
+        },
+        {
+          "key": "optimized/cervus-elaphus-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 832,
+          "byteSize": 68909
+        },
+        {
+          "key": "optimized/cervus-elaphus-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 832,
+          "byteSize": 95300
+        },
+        {
+          "key": "optimized/cervus-elaphus-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1665,
+          "byteSize": 195533
+        },
+        {
+          "key": "optimized/cervus-elaphus-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1665,
+          "byteSize": 275234
+        }
+      ],
+      "updatedAt": "2026-09-17T19:10:32.473Z"
+    },
+    "cervus-elaphus-2.jpg": {
+      "sourceHash": "651af1a887d78ef0c89b338d4d728fd4403251f100296e891d241ab25a4b0872",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "cervus-elaphus-2.jpg",
+      "originalSize": 1626780,
+      "width": 2400,
+      "height": 1601,
+      "derivatives": [
+        {
+          "key": "optimized/cervus-elaphus-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11555
+        },
+        {
+          "key": "optimized/cervus-elaphus-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 16928
+        },
+        {
+          "key": "optimized/cervus-elaphus-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 17608
+        },
+        {
+          "key": "optimized/cervus-elaphus-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 25616
+        },
+        {
+          "key": "optimized/cervus-elaphus-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 40165
+        },
+        {
+          "key": "optimized/cervus-elaphus-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 60312
+        },
+        {
+          "key": "optimized/cervus-elaphus-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 59395
+        },
+        {
+          "key": "optimized/cervus-elaphus-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 90570
+        },
+        {
+          "key": "optimized/cervus-elaphus-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 127061
+        },
+        {
+          "key": "optimized/cervus-elaphus-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 193520
+        },
+        {
+          "key": "optimized/cervus-elaphus-2-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1601,
+          "byteSize": 426026
+        },
+        {
+          "key": "optimized/cervus-elaphus-2-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1601,
+          "byteSize": 634858
+        }
+      ],
+      "updatedAt": "2026-09-17T19:11:15.034Z"
+    },
+    "cervus-elaphus-andrew-1.jpg": {
+      "sourceHash": "bd69af2472ad3e98943fef92f541069c495a8a5a69c4470dab2435fa4917580f",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "cervus-elaphus-andrew-1.jpg",
+      "originalSize": 246470,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/cervus-elaphus-andrew-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 15027
+        },
+        {
+          "key": "optimized/cervus-elaphus-andrew-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 23828
+        },
+        {
+          "key": "optimized/cervus-elaphus-andrew-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 22203
+        },
+        {
+          "key": "optimized/cervus-elaphus-andrew-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 35890
+        },
+        {
+          "key": "optimized/cervus-elaphus-andrew-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 48845
+        },
+        {
+          "key": "optimized/cervus-elaphus-andrew-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 79452
+        },
+        {
+          "key": "optimized/cervus-elaphus-andrew-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 69391
+        },
+        {
+          "key": "optimized/cervus-elaphus-andrew-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 112748
+        },
+        {
+          "key": "optimized/cervus-elaphus-andrew-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 106181
+        },
+        {
+          "key": "optimized/cervus-elaphus-andrew-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 167448
+        }
+      ],
+      "updatedAt": "2026-09-17T19:18:23.854Z"
+    },
+    "cervus-elaphus-dachi-1.jpg": {
+      "sourceHash": "732f6e552f9c4660ca0a5259f9dee104052e8f21168b06c86c3663fe7d2fdc19",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "cervus-elaphus-dachi-1.jpg",
+      "originalSize": 255722,
+      "width": 683,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/cervus-elaphus-dachi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 480,
+          "byteSize": 34448
+        },
+        {
+          "key": "optimized/cervus-elaphus-dachi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 480,
+          "byteSize": 50900
+        },
+        {
+          "key": "optimized/cervus-elaphus-dachi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 600,
+          "byteSize": 49867
+        },
+        {
+          "key": "optimized/cervus-elaphus-dachi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 600,
+          "byteSize": 73552
+        },
+        {
+          "key": "optimized/cervus-elaphus-dachi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 960,
+          "byteSize": 101300
+        },
+        {
+          "key": "optimized/cervus-elaphus-dachi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 960,
+          "byteSize": 147928
+        },
+        {
+          "key": "optimized/cervus-elaphus-dachi-1-683.avif",
+          "format": "avif",
+          "width": 683,
+          "height": 1024,
+          "byteSize": 114394
+        },
+        {
+          "key": "optimized/cervus-elaphus-dachi-1-683.webp",
+          "format": "webp",
+          "width": 683,
+          "height": 1024,
+          "byteSize": 163134
+        }
+      ],
+      "updatedAt": "2026-09-17T19:16:10.624Z"
+    },
+    "cervus-elaphus-giorgi-1.jpg": {
+      "sourceHash": "6854cf6684c0ff9527c040204af73c68b994c7e431ab11bed111a582fd5b76f3",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "cervus-elaphus-giorgi-1.jpg",
+      "originalSize": 212902,
+      "width": 1024,
+      "height": 731,
+      "derivatives": [
+        {
+          "key": "optimized/cervus-elaphus-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 228,
+          "byteSize": 12301
+        },
+        {
+          "key": "optimized/cervus-elaphus-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 228,
+          "byteSize": 20018
+        },
+        {
+          "key": "optimized/cervus-elaphus-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 286,
+          "byteSize": 18287
+        },
+        {
+          "key": "optimized/cervus-elaphus-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 286,
+          "byteSize": 29352
+        },
+        {
+          "key": "optimized/cervus-elaphus-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 457,
+          "byteSize": 40336
+        },
+        {
+          "key": "optimized/cervus-elaphus-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 457,
+          "byteSize": 59862
+        },
+        {
+          "key": "optimized/cervus-elaphus-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 571,
+          "byteSize": 56523
+        },
+        {
+          "key": "optimized/cervus-elaphus-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 571,
+          "byteSize": 81250
+        },
+        {
+          "key": "optimized/cervus-elaphus-giorgi-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 731,
+          "byteSize": 84650
+        },
+        {
+          "key": "optimized/cervus-elaphus-giorgi-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 731,
+          "byteSize": 115532
+        }
+      ],
+      "updatedAt": "2026-09-17T19:15:13.950Z"
+    },
+    "cervus-elaphus-larisa-1.jpg": {
+      "sourceHash": "f92b58c972c23f4bcddc09a4884051f94f303d6bb7a9a81366d97e171fc4f0fa",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "cervus-elaphus-larisa-1.jpg",
+      "originalSize": 284391,
+      "width": 1024,
+      "height": 768,
+      "derivatives": [
+        {
+          "key": "optimized/cervus-elaphus-larisa-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 12088
+        },
+        {
+          "key": "optimized/cervus-elaphus-larisa-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 16216
+        },
+        {
+          "key": "optimized/cervus-elaphus-larisa-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 19969
+        },
+        {
+          "key": "optimized/cervus-elaphus-larisa-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 27294
+        },
+        {
+          "key": "optimized/cervus-elaphus-larisa-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 54744
+        },
+        {
+          "key": "optimized/cervus-elaphus-larisa-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 73120
+        },
+        {
+          "key": "optimized/cervus-elaphus-larisa-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 88033
+        },
+        {
+          "key": "optimized/cervus-elaphus-larisa-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 117594
+        },
+        {
+          "key": "optimized/cervus-elaphus-larisa-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 150824
+        },
+        {
+          "key": "optimized/cervus-elaphus-larisa-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 200066
+        }
+      ],
+      "updatedAt": "2026-09-17T19:13:37.647Z"
+    },
+    "cervus-elaphus-mcfegan-ian-1.jpg": {
+      "sourceHash": "ea0e58a802dc0011ab81614d7b39eaff1434cb59ceeea8a3508291200b405228",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "cervus-elaphus-mcfegan-ian-1.jpg",
+      "originalSize": 163570,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/cervus-elaphus-mcfegan-ian-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10259
+        },
+        {
+          "key": "optimized/cervus-elaphus-mcfegan-ian-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 13712
+        },
+        {
+          "key": "optimized/cervus-elaphus-mcfegan-ian-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 14861
+        },
+        {
+          "key": "optimized/cervus-elaphus-mcfegan-ian-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 20188
+        },
+        {
+          "key": "optimized/cervus-elaphus-mcfegan-ian-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 31298
+        },
+        {
+          "key": "optimized/cervus-elaphus-mcfegan-ian-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 44726
+        },
+        {
+          "key": "optimized/cervus-elaphus-mcfegan-ian-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 44316
+        },
+        {
+          "key": "optimized/cervus-elaphus-mcfegan-ian-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 64110
+        },
+        {
+          "key": "optimized/cervus-elaphus-mcfegan-ian-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 66654
+        },
+        {
+          "key": "optimized/cervus-elaphus-mcfegan-ian-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 94784
+        }
+      ],
+      "updatedAt": "2026-09-17T19:17:26.288Z"
+    },
+    "cervus-elaphus-nika-1.jpg": {
+      "sourceHash": "c8dfc5353da4210c287a0fe36cea6170c3e1252b4aac0dae9c5630371ced84c7",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "cervus-elaphus-nika-1.jpg",
+      "originalSize": 314948,
+      "width": 1157,
+      "height": 764,
+      "derivatives": [
+        {
+          "key": "optimized/cervus-elaphus-nika-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 211,
+          "byteSize": 17069
+        },
+        {
+          "key": "optimized/cervus-elaphus-nika-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 211,
+          "byteSize": 24856
+        },
+        {
+          "key": "optimized/cervus-elaphus-nika-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 264,
+          "byteSize": 25890
+        },
+        {
+          "key": "optimized/cervus-elaphus-nika-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 264,
+          "byteSize": 37246
+        },
+        {
+          "key": "optimized/cervus-elaphus-nika-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 423,
+          "byteSize": 59892
+        },
+        {
+          "key": "optimized/cervus-elaphus-nika-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 423,
+          "byteSize": 85900
+        },
+        {
+          "key": "optimized/cervus-elaphus-nika-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 528,
+          "byteSize": 86957
+        },
+        {
+          "key": "optimized/cervus-elaphus-nika-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 528,
+          "byteSize": 125390
+        },
+        {
+          "key": "optimized/cervus-elaphus-nika-1-1157.avif",
+          "format": "avif",
+          "width": 1157,
+          "height": 764,
+          "byteSize": 167112
+        },
+        {
+          "key": "optimized/cervus-elaphus-nika-1-1157.webp",
+          "format": "webp",
+          "width": 1157,
+          "height": 764,
+          "byteSize": 235806
+        }
+      ],
+      "updatedAt": "2026-09-17T19:12:28.519Z"
+    },
+    "cervus-elaphus-teimuraz-1.jpg": {
+      "sourceHash": "f75a5943f2f1f45581850981fbf4ae6cbac4e7b53283afc13288b5ac1ef6711a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "cervus-elaphus-teimuraz-1.jpg",
+      "originalSize": 522922,
+      "width": 1957,
+      "height": 1305,
+      "derivatives": [
+        {
+          "key": "optimized/cervus-elaphus-teimuraz-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 16003
+        },
+        {
+          "key": "optimized/cervus-elaphus-teimuraz-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 24450
+        },
+        {
+          "key": "optimized/cervus-elaphus-teimuraz-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 23733
+        },
+        {
+          "key": "optimized/cervus-elaphus-teimuraz-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 35846
+        },
+        {
+          "key": "optimized/cervus-elaphus-teimuraz-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 49689
+        },
+        {
+          "key": "optimized/cervus-elaphus-teimuraz-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 77746
+        },
+        {
+          "key": "optimized/cervus-elaphus-teimuraz-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 72330
+        },
+        {
+          "key": "optimized/cervus-elaphus-teimuraz-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 113552
+        },
+        {
+          "key": "optimized/cervus-elaphus-teimuraz-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 137082
+        },
+        {
+          "key": "optimized/cervus-elaphus-teimuraz-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 208760
+        },
+        {
+          "key": "optimized/cervus-elaphus-teimuraz-1-1957.avif",
+          "format": "avif",
+          "width": 1957,
+          "height": 1305,
+          "byteSize": 308736
+        },
+        {
+          "key": "optimized/cervus-elaphus-teimuraz-1-1957.webp",
+          "format": "webp",
+          "width": 1957,
+          "height": 1305,
+          "byteSize": 418644
+        }
+      ],
+      "updatedAt": "2026-09-17T19:24:41.045Z"
+    },
+    "cervus-elaphus-teimuraz-2.jpg": {
+      "sourceHash": "f75a5943f2f1f45581850981fbf4ae6cbac4e7b53283afc13288b5ac1ef6711a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "cervus-elaphus-teimuraz-2.jpg",
+      "originalSize": 522922,
+      "width": 1957,
+      "height": 1305,
+      "derivatives": [
+        {
+          "key": "optimized/cervus-elaphus-teimuraz-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 16003
+        },
+        {
+          "key": "optimized/cervus-elaphus-teimuraz-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 24450
+        },
+        {
+          "key": "optimized/cervus-elaphus-teimuraz-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 23733
+        },
+        {
+          "key": "optimized/cervus-elaphus-teimuraz-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 35846
+        },
+        {
+          "key": "optimized/cervus-elaphus-teimuraz-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 49689
+        },
+        {
+          "key": "optimized/cervus-elaphus-teimuraz-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 77746
+        },
+        {
+          "key": "optimized/cervus-elaphus-teimuraz-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 72330
+        },
+        {
+          "key": "optimized/cervus-elaphus-teimuraz-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 113552
+        },
+        {
+          "key": "optimized/cervus-elaphus-teimuraz-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 137082
+        },
+        {
+          "key": "optimized/cervus-elaphus-teimuraz-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 208760
+        },
+        {
+          "key": "optimized/cervus-elaphus-teimuraz-2-1957.avif",
+          "format": "avif",
+          "width": 1957,
+          "height": 1305,
+          "byteSize": 308736
+        },
+        {
+          "key": "optimized/cervus-elaphus-teimuraz-2-1957.webp",
+          "format": "webp",
+          "width": 1957,
+          "height": 1305,
+          "byteSize": 418644
+        }
+      ],
+      "updatedAt": "2026-09-17T19:25:26.878Z"
+    },
     "coronella-austriaca-1.jpg": {
       "sourceHash": "b53893e4de09a7fbefeb940d157baa7efc173567c8d8935dc368843879d16e4e",
       "configFingerprint": "409788ee46c653d8",

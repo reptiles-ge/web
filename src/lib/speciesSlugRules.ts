@@ -76,6 +76,13 @@ const KA_SLUG_ALIASES: Record<string, string[]> = {
   "canis-lupus": ["mgeli"],
   "capra-aegagrus": ["niamori", "veluri-txa", "bezoaruli-txa"],
   "capreolus-capreolus": ["shveli"],
+  "cervus-elaphus": [
+    "iremi",
+    "kavkasiuri-ketilshobili-iremi",
+    "red-deer",
+    "caucasian-red-deer",
+    "maral",
+  ],
   "ciconia-ciconia": ["laklaki", "tetri-qarqati"],
   "columba-palumbus": [
     "kedani",

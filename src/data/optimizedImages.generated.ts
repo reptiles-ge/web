@@ -956,6 +956,76 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1920],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/cervus-elaphus-1.jpg": {
+    "path": "cervus-elaphus-1",
+    "width": 2400,
+    "height": 1665,
+    "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/cervus-elaphus-2.jpg": {
+    "path": "cervus-elaphus-2",
+    "width": 2400,
+    "height": 1601,
+    "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/cervus-elaphus-andrew-1.jpg": {
+    "path": "cervus-elaphus-andrew-1",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/cervus-elaphus-dachi-1.jpg": {
+    "path": "cervus-elaphus-dachi-1",
+    "width": 683,
+    "height": 1024,
+    "widths": [320, 400, 640, 683],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/cervus-elaphus-giorgi-1.jpg": {
+    "path": "cervus-elaphus-giorgi-1",
+    "width": 1024,
+    "height": 731,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/cervus-elaphus-larisa-1.jpg": {
+    "path": "cervus-elaphus-larisa-1",
+    "width": 1024,
+    "height": 768,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/cervus-elaphus-mcfegan-ian-1.jpg": {
+    "path": "cervus-elaphus-mcfegan-ian-1",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/cervus-elaphus-nika-1.jpg": {
+    "path": "cervus-elaphus-nika-1",
+    "width": 1157,
+    "height": 764,
+    "widths": [320, 400, 640, 800, 1157],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/cervus-elaphus-teimuraz-1.jpg": {
+    "path": "cervus-elaphus-teimuraz-1",
+    "width": 1957,
+    "height": 1305,
+    "widths": [320, 400, 640, 800, 1200, 1957],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/cervus-elaphus-teimuraz-2.jpg": {
+    "path": "cervus-elaphus-teimuraz-2",
+    "width": 1957,
+    "height": 1305,
+    "widths": [320, 400, 640, 800, 1200, 1957],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/coronella-austriaca-1.jpg": {
     "path": "coronella-austriaca-1",
     "width": 1024,
