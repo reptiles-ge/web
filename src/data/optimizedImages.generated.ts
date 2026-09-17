@@ -4918,6 +4918,48 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/pholcus-phalangioides-arvidas-2.jpg": {
+    "path": "pholcus-phalangioides-arvidas-2",
+    "width": 1024,
+    "height": 771,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/pholcus-phalangioides-arvidas-3.jpg": {
+    "path": "pholcus-phalangioides-arvidas-3",
+    "width": 1024,
+    "height": 768,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/pholcus-phalangioides-sandro-1.jpg": {
+    "path": "pholcus-phalangioides-sandro-1",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/pholcus-phalangioides-sandro-2.jpg": {
+    "path": "pholcus-phalangioides-sandro-2",
+    "width": 766,
+    "height": 1024,
+    "widths": [320, 400, 640, 766],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/pholcus-phalangioides-vanya-1.jpg": {
+    "path": "pholcus-phalangioides-vanya-1",
+    "width": 576,
+    "height": 1024,
+    "widths": [320, 400, 576],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/pholcus-phalangioides-zauri-2.jpg": {
+    "path": "pholcus-phalangioides-zauri-2",
+    "width": 2048,
+    "height": 1462,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/picus-viridis-archil-1.jpg": {
     "path": "picus-viridis-archil-1",
     "width": 1024,

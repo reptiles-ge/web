@@ -122,6 +122,10 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
     en: "Lebanon lizard (Phoenicolacerta laevis) | Introduced lizard in Georgia",
     ka: "ლიბანური ხვლიკი (Phoenicolacerta laevis) | შემოტანილი ხვლიკი საქართველოში",
   },
+  "pholcus-phalangioides": {
+    en: "Long-bodied cellar spider (Pholcus phalangioides) | Cellar spider in Georgia",
+    ka: "გრძელფეხა ფოლკუსი (Pholcus phalangioides) | სახლის ობობა საქართველოში",
+  },
   "platyceps-najadum": {
     en: "Dahl's whip snake (Platyceps najadum) | Non-venomous snake in Georgia",
     ka: "წენგოსფერი მცურავი (Platyceps najadum) | უშხამო გველი საქართველოში",
@@ -178,6 +182,9 @@ const SPECIES_META_DESCRIPTION_OVERRIDE: Partial<
   },
   "meles-canescens": {
     ka: "მაჩვი (Meles canescens) საქართველოში: ამოცნობის ნიშნები, გავრცელება, ტყისა და ბუჩქნარის ჰაბიტატები, კვება, ქცევა და კონსერვაციის სტატუსი.",
+  },
+  "pholcus-phalangioides": {
+    ka: "გრძელფეხა ფოლკუსი (Pholcus phalangioides) საქართველოში — სახლისა და სარდაფის გრძელფეხა ობობის ამოცნობა, დადასტურებული ჩანაწერები და ადამიანისთვის რეალური რისკი.",
   },
   "vipera-kaznakovi": {
     ka: "კავკასიური გველგესლა (Vipera kaznakovi) საქართველოში — როგორ ამოვიცნოთ, სად გვხვდება დასავლეთ საქართველოს კოლხურ ზონებში, რა რისკს ქმნის მისი ნაკბენი და რატომ აქვს EN კონსერვაციული სტატუსი.",

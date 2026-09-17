@@ -274,6 +274,7 @@ const LOOKALIKES: Record<string, string[]> = {
   ],
   "phasianus-colchicus": ["coturnix-coturnix"],
   "phoenicolacerta-laevis": ["darevskia-pontica", "lacerta-agilis"],
+  "pholcus-phalangioides": ["araneus-diadematus"],
   "pica-pica": ["corvus-corax", "garrulus-glandarius"],
   "platyceps-najadum": [
     "hemorrhois-ravergieri",

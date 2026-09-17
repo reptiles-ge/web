@@ -407,6 +407,10 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "lizard",
     habitats: ["grassland", "forest"],
   },
+  "pholcus-phalangioides": {
+    group: "spider",
+    habitats: ["forest"],
+  },
   "pica-pica": {
     group: "bird",
     habitats: ["grassland", "forest"],
