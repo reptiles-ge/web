@@ -193,10 +193,10 @@ export const regions: Region[] = [
   },
   {
     description: {
-      en: "Karst mountains, wooded valleys, and the Rioni basin unite western Georgia’s habitats.",
-      ka: "კარსტული მთები, ტყიანი ხეობები და რიონის აუზი აერთიანებს დასავლეთ საქართველოს ჰაბიტატებს.",
-      ru: "Карстовые горы, лесистые долины и бассейн Риони объединяют местообитания западной Грузии.",
-      tr: "Karst dağları, ormanlı vadiler ve Rioni havzası batı Gürcistan habitatlarını birleştirir.",
+      en: "Imereti’s karst mountains, wooded valleys, and the Rioni basin create varied environments for reptiles.",
+      ka: "იმერეთის კარსტული მთები, ტყიანი ხეობები და რიონის აუზი მრავალფეროვან გარემოს ქმნის ქვეწარმავლებისთვის.",
+      ru: "Карстовые горы Имеретии, лесистые долины и бассейн Риони создают разнообразную среду для рептилий.",
+      tr: "İmereti’nin karst dağları, ormanlı vadileri ve Rioni havzası sürüngenler için çeşitli ortamlar oluşturur.",
     },
     id: "imereti",
     name: { en: "Imereti", ka: "იმერეთი", ru: "Имеретия", tr: "İmereti" },
