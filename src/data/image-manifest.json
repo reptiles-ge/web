@@ -2281,6 +2281,73 @@
       ],
       "updatedAt": "2026-09-17T11:24:49.822Z"
     },
+    "araneus-diadematus-dachi-1.jpg": {
+      "sourceHash": "60fc6da841a0deb97c22a90a3a95ee880be31219459f987c89c425b4bd2a31e4",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "araneus-diadematus-dachi-1.jpg",
+      "originalSize": 64262,
+      "width": 683,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/araneus-diadematus-dachi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 480,
+          "byteSize": 7172
+        },
+        {
+          "key": "optimized/araneus-diadematus-dachi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 480,
+          "byteSize": 8074
+        },
+        {
+          "key": "optimized/araneus-diadematus-dachi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 600,
+          "byteSize": 9569
+        },
+        {
+          "key": "optimized/araneus-diadematus-dachi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 600,
+          "byteSize": 11092
+        },
+        {
+          "key": "optimized/araneus-diadematus-dachi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 960,
+          "byteSize": 18202
+        },
+        {
+          "key": "optimized/araneus-diadematus-dachi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 960,
+          "byteSize": 21090
+        },
+        {
+          "key": "optimized/araneus-diadematus-dachi-1-683.avif",
+          "format": "avif",
+          "width": 683,
+          "height": 1024,
+          "byteSize": 20528
+        },
+        {
+          "key": "optimized/araneus-diadematus-dachi-1-683.webp",
+          "format": "webp",
+          "width": 683,
+          "height": 1024,
+          "byteSize": 23460
+        }
+      ],
+      "updatedAt": "2026-09-17T11:27:43.969Z"
+    },
     "araneus-diadematus-davit-1.jpg": {
       "sourceHash": "ca53e1082331bd07e4c01ec8da7329e15fcc749c7d8cd18577d8751798606caf",
       "configFingerprint": "409788ee46c653d8",
