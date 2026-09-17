@@ -2200,6 +2200,87 @@
       ],
       "updatedAt": "2026-08-29T07:20:45.931Z"
     },
+    "araneus-diadematus-andreas-1.jpg": {
+      "sourceHash": "390cb65fbb4a313b80fa22b2f391da7497b83fb9f1355b50d3aff7414dccb043",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "araneus-diadematus-andreas-1.jpg",
+      "originalSize": 212134,
+      "width": 1024,
+      "height": 1009,
+      "derivatives": [
+        {
+          "key": "optimized/araneus-diadematus-andreas-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 315,
+          "byteSize": 12081
+        },
+        {
+          "key": "optimized/araneus-diadematus-andreas-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 315,
+          "byteSize": 17278
+        },
+        {
+          "key": "optimized/araneus-diadematus-andreas-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 394,
+          "byteSize": 16727
+        },
+        {
+          "key": "optimized/araneus-diadematus-andreas-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 394,
+          "byteSize": 23386
+        },
+        {
+          "key": "optimized/araneus-diadematus-andreas-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 631,
+          "byteSize": 32928
+        },
+        {
+          "key": "optimized/araneus-diadematus-andreas-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 631,
+          "byteSize": 45100
+        },
+        {
+          "key": "optimized/araneus-diadematus-andreas-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 788,
+          "byteSize": 46121
+        },
+        {
+          "key": "optimized/araneus-diadematus-andreas-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 788,
+          "byteSize": 60970
+        },
+        {
+          "key": "optimized/araneus-diadematus-andreas-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 1009,
+          "byteSize": 68578
+        },
+        {
+          "key": "optimized/araneus-diadematus-andreas-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 1009,
+          "byteSize": 89356
+        }
+      ],
+      "updatedAt": "2026-09-17T11:24:49.822Z"
+    },
     "araneus-diadematus-gocha-1.jpg": {
       "sourceHash": "9a9aea53c8d09f41745ae015b3c20e8d064616ad6eb92858af8df16e0bd806a4",
       "configFingerprint": "409788ee46c653d8",
