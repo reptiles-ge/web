@@ -237,6 +237,9 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
         tr: "Rioni havzası.",
       },
     ],
+    metaDescription: {
+      ka: "იმერეთი — ქვეწარმავლების დადასტურებული ჩანაწერები, გავრცელების რუკა, კარსტული მთები, ტყიანი ხეობები, რიონის აუზი და რეგიონში გავრცელებული შხამიანი გველები.",
+    },
     overview: {
       en: "Imereti is defined by karst mountains, wooded valleys, and the Rioni basin. The region has humid habitats characteristic of western Georgia, while more continental environmental signals appear toward the east.",
       ka: "იმერეთი კარსტული მთებით, ტყიანი ხეობებითა და რიონის აუზით გამოირჩევა. რეგიონში დასავლეთ საქართველოსთვის დამახასიათებელი ნოტიო ჰაბიტატები გვხვდება, თუმცა აღმოსავლეთისკენ უფრო კონტინენტური გარემოს ნიშნებიც ჩნდება.",
