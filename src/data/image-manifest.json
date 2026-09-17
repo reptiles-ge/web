@@ -53981,6 +53981,101 @@
       ],
       "updatedAt": "2026-08-28T21:56:17.403Z"
     },
+    "pholcus-phalangioides-zauri-2.jpg": {
+      "sourceHash": "2bd52bc3f48e3a87d3a55d27fc234ad40b89e5256b60a8ef24acf9b77ff27e4d",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pholcus-phalangioides-zauri-2.jpg",
+      "originalSize": 304341,
+      "width": 2048,
+      "height": 1462,
+      "derivatives": [
+        {
+          "key": "optimized/pholcus-phalangioides-zauri-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 228,
+          "byteSize": 6133
+        },
+        {
+          "key": "optimized/pholcus-phalangioides-zauri-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 228,
+          "byteSize": 8634
+        },
+        {
+          "key": "optimized/pholcus-phalangioides-zauri-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 285,
+          "byteSize": 9155
+        },
+        {
+          "key": "optimized/pholcus-phalangioides-zauri-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 285,
+          "byteSize": 12280
+        },
+        {
+          "key": "optimized/pholcus-phalangioides-zauri-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 457,
+          "byteSize": 20396
+        },
+        {
+          "key": "optimized/pholcus-phalangioides-zauri-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 457,
+          "byteSize": 27064
+        },
+        {
+          "key": "optimized/pholcus-phalangioides-zauri-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 571,
+          "byteSize": 28939
+        },
+        {
+          "key": "optimized/pholcus-phalangioides-zauri-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 571,
+          "byteSize": 38522
+        },
+        {
+          "key": "optimized/pholcus-phalangioides-zauri-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 857,
+          "byteSize": 51016
+        },
+        {
+          "key": "optimized/pholcus-phalangioides-zauri-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 857,
+          "byteSize": 65960
+        },
+        {
+          "key": "optimized/pholcus-phalangioides-zauri-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1462,
+          "byteSize": 101532
+        },
+        {
+          "key": "optimized/pholcus-phalangioides-zauri-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1462,
+          "byteSize": 125752
+        }
+      ],
+      "updatedAt": "2026-09-17T14:17:43.881Z"
+    },
     "picus-viridis-archil-1.jpg": {
       "sourceHash": "1e5478b6e48dea7749399c78c5e8db3203f042d3fe93d5b738a08cf9d383fa85",
       "configFingerprint": "409788ee46c653d8",
