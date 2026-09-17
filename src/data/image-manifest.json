@@ -54291,6 +54291,59 @@
       ],
       "updatedAt": "2026-09-17T14:25:30.075Z"
     },
+    "pholcus-phalangioides-vanya-1.jpg": {
+      "sourceHash": "aeef1dfe61177ce1aa9994e95b0b748b9582b9d2811de5197bbc3531ebc8959e",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pholcus-phalangioides-vanya-1.jpg",
+      "originalSize": 93598,
+      "width": 576,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/pholcus-phalangioides-vanya-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 569,
+          "byteSize": 11222
+        },
+        {
+          "key": "optimized/pholcus-phalangioides-vanya-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 569,
+          "byteSize": 14260
+        },
+        {
+          "key": "optimized/pholcus-phalangioides-vanya-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 711,
+          "byteSize": 16015
+        },
+        {
+          "key": "optimized/pholcus-phalangioides-vanya-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 711,
+          "byteSize": 20176
+        },
+        {
+          "key": "optimized/pholcus-phalangioides-vanya-1-576.avif",
+          "format": "avif",
+          "width": 576,
+          "height": 1024,
+          "byteSize": 31758
+        },
+        {
+          "key": "optimized/pholcus-phalangioides-vanya-1-576.webp",
+          "format": "webp",
+          "width": 576,
+          "height": 1024,
+          "byteSize": 36932
+        }
+      ],
+      "updatedAt": "2026-09-17T14:27:03.851Z"
+    },
     "pholcus-phalangioides-zauri-2.jpg": {
       "sourceHash": "2bd52bc3f48e3a87d3a55d27fc234ad40b89e5256b60a8ef24acf9b77ff27e4d",
       "configFingerprint": "409788ee46c653d8",
