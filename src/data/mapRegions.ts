@@ -67,10 +67,10 @@ export const regions: Region[] = [
   },
   {
     description: {
-      en: "From the Colchis lowlands to high Svaneti — humid forests, river valleys, and alpine zones.",
-      ka: "კოლხეთის დაბლობიდან სვანეთის მაღალმთამდე — ტენიანი ტყეები, მდინარის ხეობები და ალპური ზონა.",
-      ru: "От Колхидской низменности до высокогорной Сванетии — влажные леса, речные долины и альпийский пояс.",
-      tr: "Kolhis ovasından yüksek Svaneti’ye — nemli ormanlar, nehir vadileri ve alpin kuşak.",
+      en: "From the Colchis lowlands to high Svaneti, the region combines humid forests, river valleys, and high-mountain zones.",
+      ka: "კოლხეთის დაბლობიდან სვანეთის მაღალმთამდე რეგიონი აერთიანებს ტენიან ტყეებს, მდინარის ხეობებსა და მაღალმთიან ზონებს.",
+      ru: "От Колхидской низменности до высокогорной Сванетии регион объединяет влажные леса, речные долины и высокогорные зоны.",
+      tr: "Kolhis ovasından yüksek Svaneti’ye uzanan bölge nemli ormanları, nehir vadilerini ve yüksek dağ kuşaklarını birleştirir.",
     },
     id: "samegrelo-zemo-svaneti",
     name: {
