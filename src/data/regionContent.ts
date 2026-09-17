@@ -411,6 +411,9 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
         tr: "Svaneti’nin yüksek dağ kuşağı.",
       },
     ],
+    metaDescription: {
+      ka: "სამეგრელო-ზემო სვანეთი — ქვეწარმავლების დადასტურებული ჩანაწერები, გავრცელების რუკა, კოლხეთის დაბლობი, სვანეთის მაღალმთიანი ზონა და რეგიონში გავრცელებული შხამიანი გველები.",
+    },
     overview: {
       en: "Samegrelo — Zemo Svaneti extends from the Colchis lowlands to the high mountains of Svaneti. Humid forests, river valleys, and alpine zones meet within one region, so reptile composition changes markedly with elevation and habitat.",
       ka: "სამეგრელო — ზემო სვანეთი კოლხეთის დაბლობიდან სვანეთის მაღალმთამდე ვრცელდება. ერთ რეგიონში გვხვდება ტენიანი ტყეები, მდინარის ხეობები და ალპური ზონა, ამიტომ ქვეწარმავლების შემადგენლობა სიმაღლისა და ჰაბიტატის მიხედვით მნიშვნელოვნად იცვლება.",
