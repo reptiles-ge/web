@@ -53981,6 +53981,87 @@
       ],
       "updatedAt": "2026-08-28T21:56:17.403Z"
     },
+    "pholcus-phalangioides-arvidas-2.jpg": {
+      "sourceHash": "7f4a71dd0bb6bcc2f79cd4c0d4bf2ddeb9e438d5c89bc1eae1b75ce8a90fd0b1",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pholcus-phalangioides-arvidas-2.jpg",
+      "originalSize": 65211,
+      "width": 1024,
+      "height": 771,
+      "derivatives": [
+        {
+          "key": "optimized/pholcus-phalangioides-arvidas-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 241,
+          "byteSize": 3961
+        },
+        {
+          "key": "optimized/pholcus-phalangioides-arvidas-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 241,
+          "byteSize": 4766
+        },
+        {
+          "key": "optimized/pholcus-phalangioides-arvidas-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 301,
+          "byteSize": 5334
+        },
+        {
+          "key": "optimized/pholcus-phalangioides-arvidas-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 301,
+          "byteSize": 6496
+        },
+        {
+          "key": "optimized/pholcus-phalangioides-arvidas-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 482,
+          "byteSize": 9649
+        },
+        {
+          "key": "optimized/pholcus-phalangioides-arvidas-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 482,
+          "byteSize": 12158
+        },
+        {
+          "key": "optimized/pholcus-phalangioides-arvidas-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 602,
+          "byteSize": 12624
+        },
+        {
+          "key": "optimized/pholcus-phalangioides-arvidas-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 602,
+          "byteSize": 15886
+        },
+        {
+          "key": "optimized/pholcus-phalangioides-arvidas-2-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 771,
+          "byteSize": 17570
+        },
+        {
+          "key": "optimized/pholcus-phalangioides-arvidas-2-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 771,
+          "byteSize": 21382
+        }
+      ],
+      "updatedAt": "2026-09-17T14:18:49.151Z"
+    },
     "pholcus-phalangioides-zauri-2.jpg": {
       "sourceHash": "2bd52bc3f48e3a87d3a55d27fc234ad40b89e5256b60a8ef24acf9b77ff27e4d",
       "configFingerprint": "409788ee46c653d8",
