@@ -1,10 +1,19 @@
-import type { NewsArticle } from "@/data/newsTypes";
+import type { NewsArticle, NewsPhoto } from "@/data/newsTypes";
 
 const BLACK_SEA_PAPER_URL =
   "https://blackmeditjournal.org/volumes-archive/vol-32-2026/vol-32-2026-no-1/first-records-of-leatherback-turtle-dermochelys-coriacea-in-the-black-sea-turkiye/";
 const ISTANBUL_STRAIT_PAPER_URL =
   "https://blackmeditjournal.org/wp-content/uploads/5-2024-2_152-159.pdf";
 const NOAA_URL = "https://www.fisheries.noaa.gov/species/leatherback-turtle";
+const PHOTO_DIR =
+  "/images/news/leatherback-turtle-first-turkish-black-sea-records-2026";
+
+const PHOTO_LEATHERBACK: NewsPhoto = {
+  alt: {
+    ka: "ტყავისებრი ზღვის კუ წყალქვეშ.",
+  },
+  src: `${PHOTO_DIR}/leatherback-turtle.png`,
+};
 
 export const LEATHERBACK_TURTLE_FIRST_TURKISH_BLACK_SEA_RECORDS_2026: NewsArticle =
   {
@@ -214,6 +223,7 @@ export const LEATHERBACK_TURTLE_FIRST_TURKISH_BLACK_SEA_RECORDS_2026: NewsArticl
       },
     },
     id: "leatherback-turtle-first-turkish-black-sea-records-2026",
+    image: PHOTO_LEATHERBACK,
     publishedAt: "2026-09-17",
     relatedHubIds: ["turtles"],
     relatedRegionIds: [],

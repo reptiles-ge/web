@@ -71,11 +71,11 @@ export function newsIndexUrl(locale: AppLocale) {
 export function newsOgImageUrl(article?: NewsArticle) {
   const src = article ? getNewsImageSrc(article) : null;
   if (src) {
-    const fromPipeline = ogImageUrlFromSrc(src);
-    if (fromPipeline) return fromPipeline;
     if (src.startsWith("/")) {
       return absoluteUrl(src);
     }
+    const fromPipeline = ogImageUrlFromSrc(src);
+    if (fromPipeline) return fromPipeline;
     if (src.startsWith("http://") || src.startsWith("https://")) {
       return src;
     }

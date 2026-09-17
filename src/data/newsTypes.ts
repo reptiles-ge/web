@@ -41,7 +41,9 @@ export type NewsMark =
   | { name: string; type: "sci" };
 
 export type NewsPhoto = {
-  alt: Record<AppLocale, string>;
+  alt: Partial<Record<AppLocale, string>> & {
+    ka: string;
+  };
   credit?: PhotoCredit;
   fromAtlas?: boolean;
   plate?: boolean;

@@ -78,7 +78,7 @@ export function localizeNewsPhoto(
   locale: AppLocale,
 ): NewsVisual {
   return {
-    alt: photo.alt[locale],
+    alt: photo.alt[locale] ?? photo.alt.ka,
     credit: photo.credit,
     fromAtlas: Boolean(photo.fromAtlas),
     plate: Boolean(photo.plate),
