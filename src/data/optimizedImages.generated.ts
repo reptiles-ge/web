@@ -340,6 +340,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1600],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/araneus-diadematus-gocha-1.jpg": {
+    "path": "araneus-diadematus-gocha-1",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/argiope-bruennichi-anamarija-1.jpg": {
     "path": "argiope-bruennichi-anamarija-1",
     "width": 1536,

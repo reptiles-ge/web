@@ -2200,6 +2200,87 @@
       ],
       "updatedAt": "2026-08-29T07:20:45.931Z"
     },
+    "araneus-diadematus-gocha-1.jpg": {
+      "sourceHash": "9a9aea53c8d09f41745ae015b3c20e8d064616ad6eb92858af8df16e0bd806a4",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "araneus-diadematus-gocha-1.jpg",
+      "originalSize": 106833,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/araneus-diadematus-gocha-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6070
+        },
+        {
+          "key": "optimized/araneus-diadematus-gocha-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8116
+        },
+        {
+          "key": "optimized/araneus-diadematus-gocha-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 8467
+        },
+        {
+          "key": "optimized/araneus-diadematus-gocha-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 11088
+        },
+        {
+          "key": "optimized/araneus-diadematus-gocha-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 16569
+        },
+        {
+          "key": "optimized/araneus-diadematus-gocha-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 22508
+        },
+        {
+          "key": "optimized/araneus-diadematus-gocha-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 22747
+        },
+        {
+          "key": "optimized/araneus-diadematus-gocha-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 32248
+        },
+        {
+          "key": "optimized/araneus-diadematus-gocha-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 35387
+        },
+        {
+          "key": "optimized/araneus-diadematus-gocha-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 48664
+        }
+      ],
+      "updatedAt": "2026-09-17T11:21:29.246Z"
+    },
     "argiope-bruennichi-anamarija-1.jpg": {
       "sourceHash": "8105e8a7052c82fdff29d8a2efb645190bacd82199880d425b48a782bdb281fe",
       "configFingerprint": "a895f8e025dcc7fa",
