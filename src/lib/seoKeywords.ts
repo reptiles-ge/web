@@ -526,6 +526,23 @@ const SPECIES_ALIASES: Record<
       "Falco chrysaetos",
     ],
   },
+  "araneus-diadematus": {
+    en: [
+      "European garden spider",
+      "cross spider",
+      "cross orb-weaver",
+      "diadem spider",
+      "Araneus diadematus",
+    ],
+    ka: [
+      "ჩვეულებრივი ჯვრიანა",
+      "ჯვრიანა ობობა",
+      "ბაღის ობობა",
+      "Araneus diadematus",
+    ],
+    ru: ["обыкновенный крестовик", "паук-крестовик", "Araneus diadematus"],
+    tr: ["Avrupa bahçe örümceği", "haçlı örümcek", "Araneus diadematus"],
+  },
   "argiope-bruennichi": {
     en: [
       "wasp spider",

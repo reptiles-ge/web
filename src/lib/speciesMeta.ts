@@ -58,6 +58,10 @@ export function speciesTitleIntentKey(
 const SPECIES_META_TITLE_OVERRIDE: Partial<
   Record<string, { en: string; ka: string }>
 > = {
+  "araneus-diadematus": {
+    en: "European garden spider (Araneus diadematus) | Cross orb-weaver in Georgia",
+    ka: "ჩვეულებრივი ჯვრიანა (Araneus diadematus) | ობობა საქართველოში",
+  },
   "argiope-bruennichi": {
     en: "Wasp spider (Argiope bruennichi) | Orb-weaver in Georgia",
     ka: "არგიოპა (Argiope bruennichi) | ობობა საქართველოში",
@@ -151,6 +155,9 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
 const SPECIES_META_DESCRIPTION_OVERRIDE: Partial<
   Record<string, Partial<Record<AppLocale, string>>>
 > = {
+  "araneus-diadematus": {
+    ka: "ჩვეულებრივი ჯვრიანა (Araneus diadematus) საქართველოში — ამოცნობის ნიშნები, დადასტურებული გავრცელება, ჰაბიტატი, ზომა და რამდენად საშიშია ადამიანისთვის.",
+  },
   "argiope-bruennichi": {
     ka: "არგიოპა (Argiope bruennichi) საქართველოში — როგორ ამოიცნოთ ყვითელ-შავი ობობა, სად გვხვდება, რა ზომისაა და რატომ არ ითვლება ადამიანისთვის სამედიცინო რისკად.",
   },

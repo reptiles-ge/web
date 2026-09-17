@@ -40,6 +40,15 @@ const KA_SLUG_ALIASES: Record<string, string[]> = {
   "anas-platyrhynchos": ["gareuli-ikhvi", "ikhvi", "mallard"],
   "apus-apus": ["chveulebrivi-namgala", "namgala"],
   "aquila-chrysaetos": ["okrosferi-artsivi", "okrosperi-artsivi"],
+  "araneus-diadematus": [
+    "chveulebrivi-jvriana",
+    "jvriana",
+    "european-garden-spider",
+    "cross-spider",
+    "cross-orbweaver",
+    "cross-orb-weaver",
+    "diadem-spider",
+  ],
   "argiope-bruennichi": [
     "argiopa",
     "brunnikis-argiopa",
