@@ -1,6 +1,12 @@
-import { getPublishedNewsArticles, type NewsArticle } from "@/data/news";
+import type { AppLocale } from "@/i18n/routing";
+
+import {
+  getNewsArticleLocales,
+  getPublishedNewsArticleBySlug,
+  getPublishedNewsArticles,
+  type NewsArticle,
+} from "@/data/news";
 import { getPathname } from "@/i18n/navigation";
-import { type AppLocale, routing } from "@/i18n/routing";
 import { getNewsImageSrc } from "@/lib/newsVisual";
 import {
   absoluteUrl,
@@ -11,7 +17,20 @@ import {
 import { parseToSiteDateTime } from "@/lib/siteTime";
 
 export function newsArticleAlternates(locale: AppLocale, slug: string) {
-  return localeAlternates(locale, newsArticleHref(slug));
+  const article = getPublishedNewsArticleBySlug(slug);
+  if (!article) return localeAlternates(locale, newsArticleHref(slug));
+
+  const languages: Record<string, string> = {
+    "x-default": newsArticleUrl("ka", slug),
+  };
+  for (const loc of getNewsArticleLocales(article)) {
+    languages[loc] = newsArticleUrl(loc, slug);
+  }
+
+  return {
+    canonical: newsArticleUrl(locale, slug),
+    languages,
+  };
 }
 
 export function newsArticleHref(slug: string) {
@@ -52,11 +71,11 @@ export function newsIndexUrl(locale: AppLocale) {
 export function newsOgImageUrl(article?: NewsArticle) {
   const src = article ? getNewsImageSrc(article) : null;
   if (src) {
-    const fromPipeline = ogImageUrlFromSrc(src);
-    if (fromPipeline) return fromPipeline;
     if (src.startsWith("/")) {
       return absoluteUrl(src);
     }
+    const fromPipeline = ogImageUrlFromSrc(src);
+    if (fromPipeline) return fromPipeline;
     if (src.startsWith("http://") || src.startsWith("https://")) {
       return src;
     }
@@ -66,7 +85,7 @@ export function newsOgImageUrl(article?: NewsArticle) {
 
 export function publishedNewsStaticParams() {
   return getPublishedNewsArticles().flatMap((article) =>
-    routing.locales.map((locale) => ({
+    getNewsArticleLocales(article).map((locale) => ({
       locale,
       slug: article.slug,
     })),

@@ -45,7 +45,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const locale = localeParam as AppLocale;
   const article = getPublishedNewsArticleBySlug(slug);
-  if (!article) {
+  const copy = article ? getNewsCopy(article, locale) : undefined;
+  if (!article || !copy) {
     const t = await getTranslations({ locale, namespace: "news" });
     return {
       robots: { follow: false, index: false },
@@ -53,7 +54,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  const copy = getNewsCopy(article, locale);
   const title = copy.metaTitle;
   const description = copy.metaDescription;
   const url = newsArticleUrl(locale, article.slug);
@@ -104,7 +104,8 @@ export default async function NewsArticleRoute({ params }: Props) {
   setRequestLocale(locale);
 
   const article = getPublishedNewsArticleBySlug(slug);
-  if (!article) {
+  const copy = article ? getNewsCopy(article, locale) : undefined;
+  if (!article || !copy) {
     notFound();
   }
 
@@ -113,7 +114,6 @@ export default async function NewsArticleRoute({ params }: Props) {
     locale,
     namespace: "groupHubShared",
   });
-  const copy = getNewsCopy(article, locale);
   const url = newsArticleUrl(locale, article.slug);
   const ogImage = newsOgImageUrl(article);
   const published = newsDateTime(article.publishedAt);

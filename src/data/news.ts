@@ -6,6 +6,7 @@ import { BATUMI_19300_RAPTORS_2026 } from "@/content/news/batumi-19300-raptors-2
 import { DAREVSKIA_UZZELLI_ARMENIA_2026 } from "@/content/news/darevskia-uzzelli-armenia-2026";
 import { GEORGIA_DOLPHIN_STRANDINGS_2026 } from "@/content/news/georgia-dolphin-strandings-2026";
 import { GEORGIA_HERPETOFAUNA_CHECKLIST_2026 } from "@/content/news/georgia-herpetofauna-checklist-2026";
+import { LEATHERBACK_TURTLE_FIRST_TURKISH_BLACK_SEA_RECORDS_2026 } from "@/content/news/leatherback-turtle-first-turkish-black-sea-records-2026";
 import { THERIDION_HUSEYNOVI_NEW_SPIDER_SPECIES_GEORGIA_2026 } from "@/content/news/theridion-huseynovi-new-spider-species-georgia-2026";
 import { VIPERA_PONTICA_HYBRID_GEORGIA_2026 } from "@/content/news/vipera-pontica-hybrid-georgia-2026";
 import { getRegionById } from "@/data/regions";
@@ -15,6 +16,7 @@ import { GROUP_HUBS } from "@/lib/groupHubs";
 export type { NewsArticle, NewsPhoto } from "@/data/newsTypes";
 
 const NEWS_ARTICLES: readonly NewsArticle[] = [
+  LEATHERBACK_TURTLE_FIRST_TURKISH_BLACK_SEA_RECORDS_2026,
   THERIDION_HUSEYNOVI_NEW_SPIDER_SPECIES_GEORGIA_2026,
   DAREVSKIA_UZZELLI_ARMENIA_2026,
   GEORGIA_HERPETOFAUNA_CHECKLIST_2026,
@@ -36,6 +38,10 @@ export function getAllNewsArticles() {
   return NEWS_ARTICLES;
 }
 
+export function getNewsArticleLocales(article: NewsArticle) {
+  return Object.keys(article.copy) as AppLocale[];
+}
+
 export function getNewsCopy(article: NewsArticle, locale: AppLocale) {
   return article.copy[locale];
 }
@@ -46,8 +52,9 @@ export function getPublishedNewsArticleBySlug(slug: string) {
   return article;
 }
 
-export function getPublishedNewsArticles() {
+export function getPublishedNewsArticles(locale?: AppLocale) {
   return NEWS_ARTICLES.filter((article) => article.status === "published")
+    .filter((article) => (locale ? Boolean(article.copy[locale]) : true))
     .slice()
     .sort((a, b) => {
       const byDate = b.publishedAt.localeCompare(a.publishedAt);
@@ -82,11 +89,11 @@ export function newsArticlePhotos(article: NewsArticle) {
 }
 
 export function newsLocalizedDek(article: NewsArticle, locale: AppLocale) {
-  return getNewsCopy(article, locale).dek;
+  return getNewsCopy(article, locale)?.dek ?? article.copy.ka.dek;
 }
 
 export function newsLocalizedTitle(article: NewsArticle, locale: AppLocale) {
-  return getNewsCopy(article, locale).title;
+  return getNewsCopy(article, locale)?.title ?? article.copy.ka.title;
 }
 
 export function newsPhotoBySrc(article: NewsArticle, src: string) {
@@ -114,12 +121,12 @@ export function newsSearchKeywords(article: NewsArticle) {
   return [
     article.slug,
     ...Object.values(article.copy).flatMap((copy) => [
-      copy.title,
-      copy.dek,
-      copy.metaTitle,
+      copy?.title,
+      copy?.dek,
+      copy?.metaTitle,
     ]),
     ...article.sources.map((source) => source.name),
-  ];
+  ].filter((item): item is string => Boolean(item));
 }
 
 export function newsSourceOrg(article: NewsArticle) {

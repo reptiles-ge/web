@@ -20,7 +20,7 @@ export async function HomeFresh() {
   const locale = (await getLocale()) as AppLocale;
   const t = await getTranslations("home.fresh");
   const tNews = await getTranslations("news");
-  const articles = getPublishedNewsArticles();
+  const articles = getPublishedNewsArticles(locale);
   const [lead, ...rest] = articles;
   const updated: Species[] = [];
   for (const item of getRecentlyUpdatedSpecies(4)) {
@@ -92,6 +92,7 @@ export async function HomeFresh() {
                 <ul className="mt-8 space-y-4 border-t border-border pt-6">
                   {rest.map((article) => {
                     const copy = getNewsCopy(article, locale);
+                    if (!copy) return null;
                     return (
                       <li key={article.slug}>
                         <Link

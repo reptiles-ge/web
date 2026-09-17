@@ -55,6 +55,8 @@ export async function NewsArticlePage({
     }),
   ]);
   const copy = getNewsCopy(article, locale);
+  if (!copy) return null;
+
   const dateLabel = formatContentDate(article.publishedAt, locale);
   const sourceOrg = newsSourceOrg(article);
   const hub = newsCategoryHub(article);
