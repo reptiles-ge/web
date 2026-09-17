@@ -8510,6 +8510,73 @@
       ],
       "updatedAt": "2026-09-17T19:11:15.034Z"
     },
+    "cervus-elaphus-dachi-1.jpg": {
+      "sourceHash": "732f6e552f9c4660ca0a5259f9dee104052e8f21168b06c86c3663fe7d2fdc19",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "cervus-elaphus-dachi-1.jpg",
+      "originalSize": 255722,
+      "width": 683,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/cervus-elaphus-dachi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 480,
+          "byteSize": 34448
+        },
+        {
+          "key": "optimized/cervus-elaphus-dachi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 480,
+          "byteSize": 50900
+        },
+        {
+          "key": "optimized/cervus-elaphus-dachi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 600,
+          "byteSize": 49867
+        },
+        {
+          "key": "optimized/cervus-elaphus-dachi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 600,
+          "byteSize": 73552
+        },
+        {
+          "key": "optimized/cervus-elaphus-dachi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 960,
+          "byteSize": 101300
+        },
+        {
+          "key": "optimized/cervus-elaphus-dachi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 960,
+          "byteSize": 147928
+        },
+        {
+          "key": "optimized/cervus-elaphus-dachi-1-683.avif",
+          "format": "avif",
+          "width": 683,
+          "height": 1024,
+          "byteSize": 114394
+        },
+        {
+          "key": "optimized/cervus-elaphus-dachi-1-683.webp",
+          "format": "webp",
+          "width": 683,
+          "height": 1024,
+          "byteSize": 163134
+        }
+      ],
+      "updatedAt": "2026-09-17T19:16:10.624Z"
+    },
     "cervus-elaphus-giorgi-1.jpg": {
       "sourceHash": "6854cf6684c0ff9527c040204af73c68b994c7e431ab11bed111a582fd5b76f3",
       "configFingerprint": "409788ee46c653d8",

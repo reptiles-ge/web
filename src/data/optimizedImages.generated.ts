@@ -970,6 +970,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 2400],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/cervus-elaphus-dachi-1.jpg": {
+    "path": "cervus-elaphus-dachi-1",
+    "width": 683,
+    "height": 1024,
+    "widths": [320, 400, 640, 683],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/cervus-elaphus-giorgi-1.jpg": {
     "path": "cervus-elaphus-giorgi-1",
     "width": 1024,
