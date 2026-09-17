@@ -8510,6 +8510,87 @@
       ],
       "updatedAt": "2026-09-17T19:11:15.034Z"
     },
+    "cervus-elaphus-nika-1.jpg": {
+      "sourceHash": "c8dfc5353da4210c287a0fe36cea6170c3e1252b4aac0dae9c5630371ced84c7",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "cervus-elaphus-nika-1.jpg",
+      "originalSize": 314948,
+      "width": 1157,
+      "height": 764,
+      "derivatives": [
+        {
+          "key": "optimized/cervus-elaphus-nika-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 211,
+          "byteSize": 17069
+        },
+        {
+          "key": "optimized/cervus-elaphus-nika-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 211,
+          "byteSize": 24856
+        },
+        {
+          "key": "optimized/cervus-elaphus-nika-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 264,
+          "byteSize": 25890
+        },
+        {
+          "key": "optimized/cervus-elaphus-nika-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 264,
+          "byteSize": 37246
+        },
+        {
+          "key": "optimized/cervus-elaphus-nika-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 423,
+          "byteSize": 59892
+        },
+        {
+          "key": "optimized/cervus-elaphus-nika-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 423,
+          "byteSize": 85900
+        },
+        {
+          "key": "optimized/cervus-elaphus-nika-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 528,
+          "byteSize": 86957
+        },
+        {
+          "key": "optimized/cervus-elaphus-nika-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 528,
+          "byteSize": 125390
+        },
+        {
+          "key": "optimized/cervus-elaphus-nika-1-1157.avif",
+          "format": "avif",
+          "width": 1157,
+          "height": 764,
+          "byteSize": 167112
+        },
+        {
+          "key": "optimized/cervus-elaphus-nika-1-1157.webp",
+          "format": "webp",
+          "width": 1157,
+          "height": 764,
+          "byteSize": 235806
+        }
+      ],
+      "updatedAt": "2026-09-17T19:12:28.519Z"
+    },
     "coronella-austriaca-1.jpg": {
       "sourceHash": "b53893e4de09a7fbefeb940d157baa7efc173567c8d8935dc368843879d16e4e",
       "configFingerprint": "409788ee46c653d8",
