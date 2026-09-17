@@ -33,7 +33,13 @@ export const THERIDION_HUSEYNOVI_NEW_SPIDER_SPECIES_GEORGIA_2026: NewsArticle =
             blocks: [
               {
                 parts: [
-                  "The study was published in Zootaxa on 11 August 2026. The authors are Alireza Zamani, Armen Seropian, and Yuri M. Marusik.",
+                  "The study was published in Zootaxa on 11 August 2026. The authors are Alireza Zamani, ",
+                  {
+                    label: "Armen Seropian",
+                    slug: "armen-seropian",
+                    type: "credit-author",
+                  },
+                  ", and Yuri M. Marusik.",
                 ],
                 type: "p",
               },
@@ -171,7 +177,13 @@ export const THERIDION_HUSEYNOVI_NEW_SPIDER_SPECIES_GEORGIA_2026: NewsArticle =
               },
               {
                 parts: [
-                  "Sometimes a specimen is already in a museum or scientific collection, and later work shows that it belongs to a previously undescribed species. Here, Georgian material directly contributed to the description, and one of the authors, Armen Seropian, is connected with Ilia State University.",
+                  "Sometimes a specimen is already in a museum or scientific collection, and later work shows that it belongs to a previously undescribed species. Here, Georgian material directly contributed to the description, and one of the authors, ",
+                  {
+                    label: "Armen Seropian",
+                    slug: "armen-seropian",
+                    type: "credit-author",
+                  },
+                  ", is connected with Ilia State University.",
                 ],
                 type: "p",
               },
@@ -195,7 +207,13 @@ export const THERIDION_HUSEYNOVI_NEW_SPIDER_SPECIES_GEORGIA_2026: NewsArticle =
             blocks: [
               {
                 parts: [
-                  "კვლევა 2026 წლის 11 აგვისტოს სამეცნიერო ჟურნალ Zootaxa-ში გამოქვეყნდა. ნაშრომის ავტორები არიან ალირეზა ზამანი (Alireza Zamani), არმენ სეროპიანი (Armen Seropian) და იური მარუსიკი (Yuri M. Marusik).",
+                  "კვლევა 2026 წლის 11 აგვისტოს სამეცნიერო ჟურნალ Zootaxa-ში გამოქვეყნდა. ნაშრომის ავტორები არიან ალირეზა ზამანი (Alireza Zamani), ",
+                  {
+                    label: "არმენ სეროპიანი (Armen Seropian)",
+                    slug: "armen-seropian",
+                    type: "credit-author",
+                  },
+                  " და იური მარუსიკი (Yuri M. Marusik).",
                 ],
                 type: "p",
               },
@@ -335,7 +353,13 @@ export const THERIDION_HUSEYNOVI_NEW_SPIDER_SPECIES_GEORGIA_2026: NewsArticle =
               },
               {
                 parts: [
-                  "ზოგჯერ ეგზემპლარი უკვე მუზეუმში ან სამეცნიერო კოლექციაშია დაცული, მაგრამ დამატებითი კვლევა აჩვენებს, რომ იგი სინამდვილეში სხვა, მანამდე აღუწერელ სახეობას ეკუთვნის. ამ შემთხვევაში განსაკუთრებით საინტერესოა ისიც, რომ ახალი სახეობის აღწერაში საქართველოს მასალა პირდაპირ მონაწილეობს, ხოლო ერთ-ერთი კვლევის ავტორი — არმენ სეროპიანი — ილიას სახელმწიფო უნივერსიტეტთან არის დაკავშირებული.",
+                  "ზოგჯერ ეგზემპლარი უკვე მუზეუმში ან სამეცნიერო კოლექციაშია დაცული, მაგრამ დამატებითი კვლევა აჩვენებს, რომ იგი სინამდვილეში სხვა, მანამდე აღუწერელ სახეობას ეკუთვნის. ამ შემთხვევაში განსაკუთრებით საინტერესოა ისიც, რომ ახალი სახეობის აღწერაში საქართველოს მასალა პირდაპირ მონაწილეობს, ხოლო ერთ-ერთი კვლევის ავტორი — ",
+                  {
+                    label: "არმენ სეროპიანი",
+                    slug: "armen-seropian",
+                    type: "credit-author",
+                  },
+                  " — ილიას სახელმწიფო უნივერსიტეტთან არის დაკავშირებული.",
                 ],
                 type: "p",
               },
@@ -359,7 +383,13 @@ export const THERIDION_HUSEYNOVI_NEW_SPIDER_SPECIES_GEORGIA_2026: NewsArticle =
             blocks: [
               {
                 parts: [
-                  "Работа опубликована в Zootaxa 11 августа 2026 года. Авторы статьи — Алиреза Замани, Армен Серопян и Юрий М. Марусик.",
+                  "Работа опубликована в Zootaxa 11 августа 2026 года. Авторы статьи — Алиреза Замани, ",
+                  {
+                    label: "Армен Серопян",
+                    slug: "armen-seropian",
+                    type: "credit-author",
+                  },
+                  " и Юрий М. Марусик.",
                 ],
                 type: "p",
               },
@@ -497,7 +527,13 @@ export const THERIDION_HUSEYNOVI_NEW_SPIDER_SPECIES_GEORGIA_2026: NewsArticle =
               },
               {
                 parts: [
-                  "Иногда экземпляр уже хранится в музее или научной коллекции, а дополнительное исследование показывает, что он относится к ранее неописанному виду. В этом случае грузинский материал прямо участвовал в описании вида, а один из авторов, Армен Серопян, связан с Университетом Ильи.",
+                  "Иногда экземпляр уже хранится в музее или научной коллекции, а дополнительное исследование показывает, что он относится к ранее неописанному виду. В этом случае грузинский материал прямо участвовал в описании вида, а один из авторов, ",
+                  {
+                    label: "Армен Серопян",
+                    slug: "armen-seropian",
+                    type: "credit-author",
+                  },
+                  ", связан с Университетом Ильи.",
                 ],
                 type: "p",
               },
@@ -521,7 +557,13 @@ export const THERIDION_HUSEYNOVI_NEW_SPIDER_SPECIES_GEORGIA_2026: NewsArticle =
             blocks: [
               {
                 parts: [
-                  "Çalışma 11 Ağustos 2026’da Zootaxa’da yayımlandı. Yazarlar Alireza Zamani, Armen Seropian ve Yuri M. Marusik.",
+                  "Çalışma 11 Ağustos 2026’da Zootaxa’da yayımlandı. Yazarlar Alireza Zamani, ",
+                  {
+                    label: "Armen Seropian",
+                    slug: "armen-seropian",
+                    type: "credit-author",
+                  },
+                  " ve Yuri M. Marusik.",
                 ],
                 type: "p",
               },
@@ -659,7 +701,13 @@ export const THERIDION_HUSEYNOVI_NEW_SPIDER_SPECIES_GEORGIA_2026: NewsArticle =
               },
               {
                 parts: [
-                  "Bazen örnek zaten bir müzede veya bilimsel koleksiyondadır; ek çalışma onun daha önce tanımlanmamış bir türe ait olduğunu gösterir. Bu olayda Gürcistan materyali tür tanımına doğrudan katıldı ve yazarlardan Armen Seropian Ilia Devlet Üniversitesi ile bağlantılıdır.",
+                  "Bazen örnek zaten bir müzede veya bilimsel koleksiyondadır; ek çalışma onun daha önce tanımlanmamış bir türe ait olduğunu gösterir. Bu olayda Gürcistan materyali tür tanımına doğrudan katıldı ve yazarlardan ",
+                  {
+                    label: "Armen Seropian",
+                    slug: "armen-seropian",
+                    type: "credit-author",
+                  },
+                  " Ilia Devlet Üniversitesi ile bağlantılıdır.",
                 ],
                 type: "p",
               },
