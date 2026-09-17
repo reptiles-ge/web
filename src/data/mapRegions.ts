@@ -544,6 +544,7 @@ export const regions: Region[] = [
       "tyto-alba",
       "argiope-bruennichi",
       "argiope-lobata",
+      "araneus-diadematus",
       "steatoda-paykulliana",
       "latrodectus-tredecimguttatus",
       "lycosa-singoriensis",

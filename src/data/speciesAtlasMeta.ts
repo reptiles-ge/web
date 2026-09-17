@@ -47,6 +47,10 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "bird",
     habitats: ["mountain", "forest", "grassland"],
   },
+  "araneus-diadematus": {
+    group: "spider",
+    habitats: ["forest", "grassland"],
+  },
   "argiope-bruennichi": {
     group: "spider",
     habitats: ["grassland", "wetland"],
