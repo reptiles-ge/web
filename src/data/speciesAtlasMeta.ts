@@ -95,6 +95,10 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "mammal",
     habitats: ["forest", "grassland", "mountain"],
   },
+  "cervus-elaphus": {
+    group: "mammal",
+    habitats: ["forest", "grassland", "mountain"],
+  },
   "ciconia-ciconia": {
     group: "bird",
     habitats: ["wetland", "grassland"],

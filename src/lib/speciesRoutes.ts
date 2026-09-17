@@ -66,7 +66,8 @@ const LOOKALIKES: Record<string, string[]> = {
     "falco-peregrinus",
   ],
   "canis-aureus": ["vulpes-vulpes", "canis-lupus"],
-  "capreolus-capreolus": ["sus-scrofa", "capra-aegagrus"],
+  "capreolus-capreolus": ["cervus-elaphus", "sus-scrofa", "capra-aegagrus"],
+  "cervus-elaphus": ["capreolus-capreolus", "capra-aegagrus", "sus-scrofa"],
   "columba-palumbus": ["streptopelia-turtur"],
   "coronella-austriaca": [
     "vipera-transcaucasiana",

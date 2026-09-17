@@ -114,6 +114,7 @@ export const featuredSpeciesIds = [
   "meles-canescens",
   "sciurus-anomalus",
   "capreolus-capreolus",
+  "cervus-elaphus",
   "ursus-arctos",
   "erinaceus-concolor",
   "sus-scrofa",
