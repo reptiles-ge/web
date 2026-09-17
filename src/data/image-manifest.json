@@ -8739,6 +8739,87 @@
       ],
       "updatedAt": "2026-09-17T19:13:37.647Z"
     },
+    "cervus-elaphus-mcfegan-ian-1.jpg": {
+      "sourceHash": "ea0e58a802dc0011ab81614d7b39eaff1434cb59ceeea8a3508291200b405228",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "cervus-elaphus-mcfegan-ian-1.jpg",
+      "originalSize": 163570,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/cervus-elaphus-mcfegan-ian-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10259
+        },
+        {
+          "key": "optimized/cervus-elaphus-mcfegan-ian-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 13712
+        },
+        {
+          "key": "optimized/cervus-elaphus-mcfegan-ian-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 14861
+        },
+        {
+          "key": "optimized/cervus-elaphus-mcfegan-ian-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 20188
+        },
+        {
+          "key": "optimized/cervus-elaphus-mcfegan-ian-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 31298
+        },
+        {
+          "key": "optimized/cervus-elaphus-mcfegan-ian-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 44726
+        },
+        {
+          "key": "optimized/cervus-elaphus-mcfegan-ian-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 44316
+        },
+        {
+          "key": "optimized/cervus-elaphus-mcfegan-ian-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 64110
+        },
+        {
+          "key": "optimized/cervus-elaphus-mcfegan-ian-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 66654
+        },
+        {
+          "key": "optimized/cervus-elaphus-mcfegan-ian-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 94784
+        }
+      ],
+      "updatedAt": "2026-09-17T19:17:26.288Z"
+    },
     "cervus-elaphus-nika-1.jpg": {
       "sourceHash": "c8dfc5353da4210c287a0fe36cea6170c3e1252b4aac0dae9c5630371ced84c7",
       "configFingerprint": "409788ee46c653d8",
