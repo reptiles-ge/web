@@ -8982,6 +8982,101 @@
       ],
       "updatedAt": "2026-09-17T19:12:28.519Z"
     },
+    "cervus-elaphus-teimuraz-1.jpg": {
+      "sourceHash": "f75a5943f2f1f45581850981fbf4ae6cbac4e7b53283afc13288b5ac1ef6711a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "cervus-elaphus-teimuraz-1.jpg",
+      "originalSize": 522922,
+      "width": 1957,
+      "height": 1305,
+      "derivatives": [
+        {
+          "key": "optimized/cervus-elaphus-teimuraz-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 16003
+        },
+        {
+          "key": "optimized/cervus-elaphus-teimuraz-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 24450
+        },
+        {
+          "key": "optimized/cervus-elaphus-teimuraz-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 23733
+        },
+        {
+          "key": "optimized/cervus-elaphus-teimuraz-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 35846
+        },
+        {
+          "key": "optimized/cervus-elaphus-teimuraz-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 49689
+        },
+        {
+          "key": "optimized/cervus-elaphus-teimuraz-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 77746
+        },
+        {
+          "key": "optimized/cervus-elaphus-teimuraz-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 72330
+        },
+        {
+          "key": "optimized/cervus-elaphus-teimuraz-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 113552
+        },
+        {
+          "key": "optimized/cervus-elaphus-teimuraz-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 137082
+        },
+        {
+          "key": "optimized/cervus-elaphus-teimuraz-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 208760
+        },
+        {
+          "key": "optimized/cervus-elaphus-teimuraz-1-1957.avif",
+          "format": "avif",
+          "width": 1957,
+          "height": 1305,
+          "byteSize": 308736
+        },
+        {
+          "key": "optimized/cervus-elaphus-teimuraz-1-1957.webp",
+          "format": "webp",
+          "width": 1957,
+          "height": 1305,
+          "byteSize": 418644
+        }
+      ],
+      "updatedAt": "2026-09-17T19:24:41.045Z"
+    },
     "coronella-austriaca-1.jpg": {
       "sourceHash": "b53893e4de09a7fbefeb940d157baa7efc173567c8d8935dc368843879d16e4e",
       "configFingerprint": "409788ee46c653d8",
