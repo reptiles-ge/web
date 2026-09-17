@@ -584,6 +584,7 @@
     "introBody": "We publish field records, scientific updates, and notable events connected to Georgia’s animals. Each article is editorial and rests on cited sources; the species profile remains the atlas record.",
     "breadcrumbNews": "News",
     "sourceHeading": "Source",
+    "sourceHeadingPlural": "Sources",
     "reportedBy": "Count reported by {source}",
     "editorialBy": "Editorial, Reptiles.ge",
     "editorialNote": "This page explains a {source} report. Reptiles.ge did not conduct the count.",

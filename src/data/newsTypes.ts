@@ -34,6 +34,7 @@ export type NewsMark =
   | { id: GroupHubId; label: string; type: "hub" }
   | { id: string; label: string; type: "region" }
   | { id: string; label: string; type: "species" }
+  | { label: string; slug: string; type: "credit-author" }
   | { label: string; type: "news-index" }
   | { name: string; type: "sci" };
 

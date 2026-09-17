@@ -2,6 +2,7 @@ import type { NewsMark } from "@/data/newsTypes";
 import type { AppLocale } from "@/i18n/routing";
 
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
+import { creditAuthorHref } from "@/data/creditAuthors";
 import { Link } from "@/i18n/navigation";
 import { GROUP_HUBS } from "@/lib/groupHubs";
 import { regionHref, speciesHref } from "@/lib/speciesRoutes";
@@ -29,6 +30,7 @@ export function NewsRichText({
 function newsMarkKey(mark: NewsMark, index: number) {
   if (typeof mark === "string") return `t:${index}:${mark}`;
   if (mark.type === "sci") return `sci:${index}:${mark.name}`;
+  if (mark.type === "credit-author") return `author:${index}:${mark.slug}`;
   if (mark.type === "external") return `ext:${index}:${mark.href}`;
   if (mark.type === "hub") return `hub:${index}:${mark.id}`;
   if (mark.type === "region") return `region:${index}:${mark.id}`;
@@ -54,6 +56,17 @@ function NewsMarkNode({ locale, mark }: { locale: AppLocale; mark: NewsMark }) {
       >
         {mark.label}
       </a>
+    );
+  }
+
+  if (mark.type === "credit-author") {
+    return (
+      <Link
+        className="text-foreground underline decoration-foreground/20 underline-offset-[3px] transition-colors hover:decoration-primary"
+        href={creditAuthorHref(mark.slug)}
+      >
+        {mark.label}
+      </Link>
     );
   }
 

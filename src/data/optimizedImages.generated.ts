@@ -57,28 +57,28 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "path": "images/news/vipera-pontica-hybrid-georgia-2026/figure-1",
     "width": 1772,
     "height": 1253,
-    "widths": [400, 800, 1200, 1772],
+    "widths": [320, 400, 640, 800, 1200, 1772],
     "formats": ["avif", "webp"]
   },
   "/images/news/vipera-pontica-hybrid-georgia-2026/figure-2.jpg": {
     "path": "images/news/vipera-pontica-hybrid-georgia-2026/figure-2",
     "width": 1772,
     "height": 1112,
-    "widths": [400, 800, 1200, 1772],
+    "widths": [320, 400, 640, 800, 1200, 1772],
     "formats": ["avif", "webp"]
   },
   "/images/news/vipera-pontica-hybrid-georgia-2026/figure-3.jpg": {
     "path": "images/news/vipera-pontica-hybrid-georgia-2026/figure-3",
     "width": 1772,
     "height": 1181,
-    "widths": [400, 800, 1200, 1772],
+    "widths": [320, 400, 640, 800, 1200, 1772],
     "formats": ["avif", "webp"]
   },
   "/images/news/vipera-pontica-hybrid-georgia-2026/figure-4.jpg": {
     "path": "images/news/vipera-pontica-hybrid-georgia-2026/figure-4",
     "width": 2362,
     "height": 2366,
-    "widths": [400, 800, 1200, 2362],
+    "widths": [320, 400, 640, 800, 1200, 2362],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/ablepharus-pannonicus-2.jpg": {
@@ -2636,20 +2636,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 768],
     "formats": ["avif", "webp"]
   },
-  "https://cdn.reptiles.ge/hemorrhois-ravergieri-rust-1.jpg": {
-    "path": "hemorrhois-ravergieri-rust-1",
-    "width": 1152,
-    "height": 2048,
-    "widths": [400, 800, 1152],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/hemorrhois-ravergieri.jpg": {
-    "path": "hemorrhois-ravergieri",
-    "width": 2048,
-    "height": 1151,
-    "widths": [400, 800, 1200, 2048],
-    "formats": ["avif"]
-  },
   "https://cdn.reptiles.ge/hero-img.webp": {
     "path": "hero-img",
     "width": 1920,
@@ -2725,6 +2711,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1331,
     "height": 1500,
     "widths": [400, 800, 1200, 1331],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/news/theridion-huseynovi-new-spider-species-georgia-2026/theridion-huseynovi.png": {
+    "path": "images/news/theridion-huseynovi-new-spider-species-georgia-2026/theridion-huseynovi",
+    "width": 1497,
+    "height": 1051,
+    "widths": [320, 400, 640, 800, 1200, 1497],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/images/species/accipiter-gentilis-afr-1.jpg": {
@@ -5176,6 +5169,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "height": 1536,
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/regions/adjara.jpg": {
+    "path": "regions/adjara",
+    "width": 1200,
+    "height": 767,
+    "widths": [320, 400, 640, 800, 1200],
+    "formats": ["avif"]
   },
   "https://cdn.reptiles.ge/sciurus-anomalus-alacam-1.jpg": {
     "path": "sciurus-anomalus-alacam-1",

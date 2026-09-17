@@ -62,6 +62,8 @@ export async function NewsArticlePage({
   const visual = getNewsVisual(article, locale);
   const primarySource = article.sources[0];
   const moreSources = article.sources.slice(1);
+  const sourceHeading =
+    article.sources.length > 1 ? t("sourceHeadingPlural") : t("sourceHeading");
   const species = newsRelatedSpecies(article).map((item) =>
     localizeSpecies(item, locale),
   );
@@ -187,7 +189,7 @@ export async function NewsArticlePage({
                   className="font-display text-display-card font-semibold text-foreground"
                   id="sources"
                 >
-                  {t("sourceHeading")}
+                  {sourceHeading}
                 </AnchoredHeading>
                 <a
                   className="group mt-6 inline-flex min-h-11 max-w-full items-center gap-2 font-display text-display-card font-semibold text-foreground transition-colors hover:text-primary"
@@ -261,6 +263,7 @@ export async function NewsArticlePage({
                 ))}
                 {hubs.map((relatedHub) => {
                   const hero = getSpeciesById(relatedHub.heroSpeciesId);
+                  const title = tNav(relatedHub.id);
                   return (
                     <li key={relatedHub.id}>
                       <RelatedAtlasCard
@@ -270,17 +273,8 @@ export async function NewsArticlePage({
                             ? hero.image
                             : null
                         }
-                        imageAlt={
-                          hero
-                            ? speciesPhotoAlt(
-                                localizeSpecies(hero, locale).commonName,
-                                hero.scientificName,
-                                localizeSpecies(hero, locale).location,
-                                hero.imageCredit,
-                              )
-                            : ""
-                        }
-                        title={tNav(relatedHub.id)}
+                        imageAlt={title}
+                        title={title}
                       />
                     </li>
                   );
