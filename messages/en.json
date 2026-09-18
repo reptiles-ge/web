@@ -169,7 +169,7 @@
     "groups": {
       "eyebrow": "Atlas",
       "title": "Explore by group",
-      "subtitle": "Snakes, lizards, turtles, amphibians, birds, mammals, spiders, and insects — open a group for profiles, photos, and guides.",
+      "subtitle": "Snakes, lizards, turtles, amphibians, birds, mammals, and spiders — open a group for profiles, photos, and guides.",
       "count": "{count, plural, one {# species} other {# species}}",
       "catalog": "Full atlas",
       "illustrationAlt": "Illustration — {name}"
