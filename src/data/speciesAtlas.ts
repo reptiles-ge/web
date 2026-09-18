@@ -27,6 +27,7 @@ const venomousDangerOrder: Record<DangerLevel, number> = {
 export type AtlasStats = {
   amphibians: number;
   birds: number;
+  insects: number;
   lastUpdated: null | string;
   lizards: number;
   mammals: number;
@@ -55,6 +56,7 @@ export function getAtlasStats(
   const byGroup: Record<AnimalGroup, number> = {
     amphibian: 0,
     bird: 0,
+    insect: 0,
     lizard: 0,
     mammal: 0,
     snake: 0,
@@ -75,6 +77,7 @@ export function getAtlasStats(
   return {
     amphibians: byGroup.amphibian,
     birds: byGroup.bird,
+    insects: byGroup.insect,
     lastUpdated: updatedDates.at(-1) ?? null,
     lizards: byGroup.lizard,
     mammals: byGroup.mammal,

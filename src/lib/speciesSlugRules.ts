@@ -175,6 +175,14 @@ const KA_SLUG_ALIASES: Record<string, string[]> = {
     "lycosa-singoriensis",
   ],
   "lynx-lynx": ["fotsxveri", "lynx", "evraziuli-fotsxveri"],
+  "mantis-religiosa": [
+    "choqela",
+    "chokela",
+    "mantis-religiosa",
+    "praying-mantis",
+    "european-mantis",
+    "european-praying-mantis",
+  ],
   "meles-canescens": ["evropuli-machvi", "meles-meles", "machvi"],
   "milvus-migrans": [
     "dzera",

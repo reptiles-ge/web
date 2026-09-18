@@ -18,6 +18,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 900],
     "formats": ["avif", "webp"]
   },
+  "/images/home/groups/insects.jpg": {
+    "path": "images/home/groups/insects",
+    "width": 900,
+    "height": 900,
+    "widths": [320, 400, 640, 800, 900],
+    "formats": ["avif", "webp"]
+  },
   "/images/home/groups/lizards.jpg": {
     "path": "images/home/groups/lizards",
     "width": 1800,
@@ -4181,6 +4188,69 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 2048,
     "height": 1264,
     "widths": [400, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/mantis-religiosa-armen-1.jpg": {
+    "path": "mantis-religiosa-armen-1",
+    "width": 1274,
+    "height": 1880,
+    "widths": [320, 400, 640, 800, 1200, 1274],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/mantis-religiosa-danielcma-1.jpg": {
+    "path": "mantis-religiosa-danielcma-1",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/mantis-religiosa-gio-1.jpg": {
+    "path": "mantis-religiosa-gio-1",
+    "width": 1440,
+    "height": 960,
+    "widths": [320, 400, 640, 800, 1200, 1440],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/mantis-religiosa-gocha-1.jpg": {
+    "path": "mantis-religiosa-gocha-1",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/mantis-religiosa-gogopopo-3.jpg": {
+    "path": "mantis-religiosa-gogopopo-3",
+    "width": 1024,
+    "height": 819,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/mantis-religiosa-natalia-1.jpg": {
+    "path": "mantis-religiosa-natalia-1",
+    "width": 810,
+    "height": 1440,
+    "widths": [320, 400, 640, 800, 810],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/mantis-religiosa-toko-1.jpg": {
+    "path": "mantis-religiosa-toko-1",
+    "width": 2048,
+    "height": 1036,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/mantis-religiosa-woodukdr-1.jpg": {
+    "path": "mantis-religiosa-woodukdr-1",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/mantis-religiosa-zauri-1.jpg": {
+    "path": "mantis-religiosa-zauri-1",
+    "width": 2400,
+    "height": 3360,
+    "widths": [320, 400, 640, 800, 1200, 2400],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/mauremys-caspica-2.jpg": {

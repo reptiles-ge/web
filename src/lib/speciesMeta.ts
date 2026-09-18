@@ -10,6 +10,7 @@ export function speciesFallbackDescriptionKey(
 ):
   | "descriptionAmphibian"
   | "descriptionBird"
+  | "descriptionInsect"
   | "descriptionMammal"
   | "descriptionReptile"
   | "descriptionSpider"
@@ -19,6 +20,7 @@ export function speciesFallbackDescriptionKey(
   }
   if (group === "amphibian") return "descriptionAmphibian";
   if (group === "bird") return "descriptionBird";
+  if (group === "insect") return "descriptionInsect";
   if (group === "mammal") return "descriptionMammal";
   if (group === "spider") return "descriptionSpider";
   return "descriptionReptile";
@@ -38,6 +40,7 @@ export function speciesTitleIntentKey(
 ):
   | "titleAmphibian"
   | "titleBird"
+  | "titleInsect"
   | "titleLizard"
   | "titleMammal"
   | "titleSnake"
@@ -50,6 +53,7 @@ export function speciesTitleIntentKey(
   if (group === "lizard") return "titleLizard";
   if (group === "turtle") return "titleTurtle";
   if (group === "bird") return "titleBird";
+  if (group === "insect") return "titleInsect";
   if (group === "mammal") return "titleMammal";
   if (group === "spider") return "titleSpider";
   return "titleAmphibian";
@@ -97,6 +101,10 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
   "macrovipera-lebetina": {
     en: "Levantine viper (Macrovipera lebetinus) | High-risk venomous snake in Georgia",
     ka: "გიურზა (Macrovipera lebetinus) | შხამიანი გველი საქართველოში — რისკი",
+  },
+  "mantis-religiosa": {
+    en: "European mantis (Mantis religiosa) | Praying mantis in Georgia",
+    ka: "ჩოქელა (Mantis religiosa) | მწერი საქართველოში",
   },
   "milvus-migrans": {
     en: "Black kite (Milvus migrans) | Raptor in Georgia",

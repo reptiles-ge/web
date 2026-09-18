@@ -29524,6 +29524,87 @@
       ],
       "updatedAt": "2026-09-15T09:30:28.098Z"
     },
+    "images/home/groups/insects.jpg": {
+      "sourceHash": "5cdb9c2b740a71d71c5a6700ab5f39ee6ebe969381964b3601ef273566c2cfb5",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/home/groups/insects.jpg",
+      "originalSize": 175479,
+      "width": 900,
+      "height": 900,
+      "derivatives": [
+        {
+          "key": "optimized/images/home/groups/insects-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 320,
+          "byteSize": 10779
+        },
+        {
+          "key": "optimized/images/home/groups/insects-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 320,
+          "byteSize": 16800
+        },
+        {
+          "key": "optimized/images/home/groups/insects-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 400,
+          "byteSize": 16229
+        },
+        {
+          "key": "optimized/images/home/groups/insects-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 400,
+          "byteSize": 25082
+        },
+        {
+          "key": "optimized/images/home/groups/insects-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 640,
+          "byteSize": 38048
+        },
+        {
+          "key": "optimized/images/home/groups/insects-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 640,
+          "byteSize": 54294
+        },
+        {
+          "key": "optimized/images/home/groups/insects-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 800,
+          "byteSize": 54643
+        },
+        {
+          "key": "optimized/images/home/groups/insects-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 800,
+          "byteSize": 76392
+        },
+        {
+          "key": "optimized/images/home/groups/insects-900.avif",
+          "format": "avif",
+          "width": 900,
+          "height": 900,
+          "byteSize": 46040
+        },
+        {
+          "key": "optimized/images/home/groups/insects-900.webp",
+          "format": "webp",
+          "width": 900,
+          "height": 900,
+          "byteSize": 93506
+        }
+      ],
+      "updatedAt": "2026-09-18T18:11:12.697Z"
+    },
     "images/home/groups/lizards.jpg": {
       "sourceHash": "066e1cc066206326ab10437dc3fe3c9c1f27540673608d9dbf89b310b6bd8702",
       "configFingerprint": "409788ee46c653d8",
@@ -46157,6 +46238,791 @@
         }
       ],
       "updatedAt": "2026-08-28T21:45:48.768Z"
+    },
+    "mantis-religiosa-armen-1.jpg": {
+      "sourceHash": "d3d45a0832257b8ef0f6c1636e40e200225f45dad7819fafa32d6aa3c5323544",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "mantis-religiosa-armen-1.jpg",
+      "originalSize": 180496,
+      "width": 1274,
+      "height": 1880,
+      "derivatives": [
+        {
+          "key": "optimized/mantis-religiosa-armen-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 472,
+          "byteSize": 6982
+        },
+        {
+          "key": "optimized/mantis-religiosa-armen-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 472,
+          "byteSize": 9256
+        },
+        {
+          "key": "optimized/mantis-religiosa-armen-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 590,
+          "byteSize": 9907
+        },
+        {
+          "key": "optimized/mantis-religiosa-armen-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 590,
+          "byteSize": 13148
+        },
+        {
+          "key": "optimized/mantis-religiosa-armen-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 944,
+          "byteSize": 22459
+        },
+        {
+          "key": "optimized/mantis-religiosa-armen-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 944,
+          "byteSize": 29620
+        },
+        {
+          "key": "optimized/mantis-religiosa-armen-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1181,
+          "byteSize": 33320
+        },
+        {
+          "key": "optimized/mantis-religiosa-armen-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1181,
+          "byteSize": 43682
+        },
+        {
+          "key": "optimized/mantis-religiosa-armen-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1771,
+          "byteSize": 66102
+        },
+        {
+          "key": "optimized/mantis-religiosa-armen-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1771,
+          "byteSize": 87290
+        },
+        {
+          "key": "optimized/mantis-religiosa-armen-1-1274.avif",
+          "format": "avif",
+          "width": 1274,
+          "height": 1880,
+          "byteSize": 75680
+        },
+        {
+          "key": "optimized/mantis-religiosa-armen-1-1274.webp",
+          "format": "webp",
+          "width": 1274,
+          "height": 1880,
+          "byteSize": 92900
+        }
+      ],
+      "updatedAt": "2026-09-18T18:13:57.160Z"
+    },
+    "mantis-religiosa-danielcma-1.jpg": {
+      "sourceHash": "f6ef90fc8d0f4605f227765e4c5e0f0f6041626ba06fe10c3afbaac567624278",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "mantis-religiosa-danielcma-1.jpg",
+      "originalSize": 30970,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/mantis-religiosa-danielcma-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 2935
+        },
+        {
+          "key": "optimized/mantis-religiosa-danielcma-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 3542
+        },
+        {
+          "key": "optimized/mantis-religiosa-danielcma-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 3689
+        },
+        {
+          "key": "optimized/mantis-religiosa-danielcma-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 4392
+        },
+        {
+          "key": "optimized/mantis-religiosa-danielcma-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 6531
+        },
+        {
+          "key": "optimized/mantis-religiosa-danielcma-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 7486
+        },
+        {
+          "key": "optimized/mantis-religiosa-danielcma-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 8441
+        },
+        {
+          "key": "optimized/mantis-religiosa-danielcma-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 9960
+        },
+        {
+          "key": "optimized/mantis-religiosa-danielcma-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 12448
+        },
+        {
+          "key": "optimized/mantis-religiosa-danielcma-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 13922
+        }
+      ],
+      "updatedAt": "2026-09-18T18:08:03.769Z"
+    },
+    "mantis-religiosa-gio-1.jpg": {
+      "sourceHash": "0ca3bd9044a00a41a9b7261bc3cbc836500c3db1d4d22d69e49b2a5a47f75b1f",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "mantis-religiosa-gio-1.jpg",
+      "originalSize": 99495,
+      "width": 1440,
+      "height": 960,
+      "derivatives": [
+        {
+          "key": "optimized/mantis-religiosa-gio-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6837
+        },
+        {
+          "key": "optimized/mantis-religiosa-gio-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9000
+        },
+        {
+          "key": "optimized/mantis-religiosa-gio-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 9094
+        },
+        {
+          "key": "optimized/mantis-religiosa-gio-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 11918
+        },
+        {
+          "key": "optimized/mantis-religiosa-gio-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 16530
+        },
+        {
+          "key": "optimized/mantis-religiosa-gio-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 21506
+        },
+        {
+          "key": "optimized/mantis-religiosa-gio-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 21679
+        },
+        {
+          "key": "optimized/mantis-religiosa-gio-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 28546
+        },
+        {
+          "key": "optimized/mantis-religiosa-gio-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 35776
+        },
+        {
+          "key": "optimized/mantis-religiosa-gio-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 47016
+        },
+        {
+          "key": "optimized/mantis-religiosa-gio-1-1440.avif",
+          "format": "avif",
+          "width": 1440,
+          "height": 960,
+          "byteSize": 49079
+        },
+        {
+          "key": "optimized/mantis-religiosa-gio-1-1440.webp",
+          "format": "webp",
+          "width": 1440,
+          "height": 960,
+          "byteSize": 59118
+        }
+      ],
+      "updatedAt": "2026-09-18T18:04:59.799Z"
+    },
+    "mantis-religiosa-gocha-1.jpg": {
+      "sourceHash": "f272c058166a16b7c734bf60a97494b9d4dee85fe7916030b1d4e5ea9c6ad8b8",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "mantis-religiosa-gocha-1.jpg",
+      "originalSize": 70328,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/mantis-religiosa-gocha-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 5335
+        },
+        {
+          "key": "optimized/mantis-religiosa-gocha-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6624
+        },
+        {
+          "key": "optimized/mantis-religiosa-gocha-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 6829
+        },
+        {
+          "key": "optimized/mantis-religiosa-gocha-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 8716
+        },
+        {
+          "key": "optimized/mantis-religiosa-gocha-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 12080
+        },
+        {
+          "key": "optimized/mantis-religiosa-gocha-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 15480
+        },
+        {
+          "key": "optimized/mantis-religiosa-gocha-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 15443
+        },
+        {
+          "key": "optimized/mantis-religiosa-gocha-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 20458
+        },
+        {
+          "key": "optimized/mantis-religiosa-gocha-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 21341
+        },
+        {
+          "key": "optimized/mantis-religiosa-gocha-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 28144
+        }
+      ],
+      "updatedAt": "2026-09-18T18:02:45.169Z"
+    },
+    "mantis-religiosa-gogopopo-3.jpg": {
+      "sourceHash": "9ccc66fc5765cb707adf08047a2bc5f2f089bdae0e6339ebff70429a39ab0a10",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "mantis-religiosa-gogopopo-3.jpg",
+      "originalSize": 125490,
+      "width": 1024,
+      "height": 819,
+      "derivatives": [
+        {
+          "key": "optimized/mantis-religiosa-gogopopo-3-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 256,
+          "byteSize": 7571
+        },
+        {
+          "key": "optimized/mantis-religiosa-gogopopo-3-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 256,
+          "byteSize": 10814
+        },
+        {
+          "key": "optimized/mantis-religiosa-gogopopo-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 320,
+          "byteSize": 10169
+        },
+        {
+          "key": "optimized/mantis-religiosa-gogopopo-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 320,
+          "byteSize": 14804
+        },
+        {
+          "key": "optimized/mantis-religiosa-gogopopo-3-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 512,
+          "byteSize": 18869
+        },
+        {
+          "key": "optimized/mantis-religiosa-gogopopo-3-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 512,
+          "byteSize": 27218
+        },
+        {
+          "key": "optimized/mantis-religiosa-gogopopo-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 640,
+          "byteSize": 25478
+        },
+        {
+          "key": "optimized/mantis-religiosa-gogopopo-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 640,
+          "byteSize": 36494
+        },
+        {
+          "key": "optimized/mantis-religiosa-gogopopo-3-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 819,
+          "byteSize": 36334
+        },
+        {
+          "key": "optimized/mantis-religiosa-gogopopo-3-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 819,
+          "byteSize": 50144
+        }
+      ],
+      "updatedAt": "2026-09-18T18:00:34.725Z"
+    },
+    "mantis-religiosa-natalia-1.jpg": {
+      "sourceHash": "d31da47435fbe105730accbbd58547dc39fdfe921aef520fa0a18e8b20816f9e",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "mantis-religiosa-natalia-1.jpg",
+      "originalSize": 132100,
+      "width": 810,
+      "height": 1440,
+      "derivatives": [
+        {
+          "key": "optimized/mantis-religiosa-natalia-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 569,
+          "byteSize": 13194
+        },
+        {
+          "key": "optimized/mantis-religiosa-natalia-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 569,
+          "byteSize": 15784
+        },
+        {
+          "key": "optimized/mantis-religiosa-natalia-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 711,
+          "byteSize": 18970
+        },
+        {
+          "key": "optimized/mantis-religiosa-natalia-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 711,
+          "byteSize": 23008
+        },
+        {
+          "key": "optimized/mantis-religiosa-natalia-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 1138,
+          "byteSize": 40129
+        },
+        {
+          "key": "optimized/mantis-religiosa-natalia-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 1138,
+          "byteSize": 49002
+        },
+        {
+          "key": "optimized/mantis-religiosa-natalia-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1422,
+          "byteSize": 55783
+        },
+        {
+          "key": "optimized/mantis-religiosa-natalia-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1422,
+          "byteSize": 68772
+        },
+        {
+          "key": "optimized/mantis-religiosa-natalia-1-810.avif",
+          "format": "avif",
+          "width": 810,
+          "height": 1440,
+          "byteSize": 59057
+        },
+        {
+          "key": "optimized/mantis-religiosa-natalia-1-810.webp",
+          "format": "webp",
+          "width": 810,
+          "height": 1440,
+          "byteSize": 66180
+        }
+      ],
+      "updatedAt": "2026-09-18T18:14:48.173Z"
+    },
+    "mantis-religiosa-toko-1.jpg": {
+      "sourceHash": "f28ef28e2cf889e767ad5e2f0610eda7e560c65fe05d36c9da8089b7d50d97bd",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "mantis-religiosa-toko-1.jpg",
+      "originalSize": 164574,
+      "width": 2048,
+      "height": 1036,
+      "derivatives": [
+        {
+          "key": "optimized/mantis-religiosa-toko-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 162,
+          "byteSize": 5181
+        },
+        {
+          "key": "optimized/mantis-religiosa-toko-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 162,
+          "byteSize": 6468
+        },
+        {
+          "key": "optimized/mantis-religiosa-toko-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 202,
+          "byteSize": 6846
+        },
+        {
+          "key": "optimized/mantis-religiosa-toko-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 202,
+          "byteSize": 8588
+        },
+        {
+          "key": "optimized/mantis-religiosa-toko-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 324,
+          "byteSize": 13537
+        },
+        {
+          "key": "optimized/mantis-religiosa-toko-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 324,
+          "byteSize": 17188
+        },
+        {
+          "key": "optimized/mantis-religiosa-toko-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 405,
+          "byteSize": 18909
+        },
+        {
+          "key": "optimized/mantis-religiosa-toko-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 405,
+          "byteSize": 23684
+        },
+        {
+          "key": "optimized/mantis-religiosa-toko-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 607,
+          "byteSize": 35169
+        },
+        {
+          "key": "optimized/mantis-religiosa-toko-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 607,
+          "byteSize": 43010
+        },
+        {
+          "key": "optimized/mantis-religiosa-toko-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1036,
+          "byteSize": 94987
+        },
+        {
+          "key": "optimized/mantis-religiosa-toko-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1036,
+          "byteSize": 98508
+        }
+      ],
+      "updatedAt": "2026-09-18T18:06:20.916Z"
+    },
+    "mantis-religiosa-woodukdr-1.jpg": {
+      "sourceHash": "df6df908a44dcec92afb8ef9134e308486172ddd1f903e14fecc467e72f495b9",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "mantis-religiosa-woodukdr-1.jpg",
+      "originalSize": 120022,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/mantis-religiosa-woodukdr-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 4782
+        },
+        {
+          "key": "optimized/mantis-religiosa-woodukdr-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 7216
+        },
+        {
+          "key": "optimized/mantis-religiosa-woodukdr-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 6369
+        },
+        {
+          "key": "optimized/mantis-religiosa-woodukdr-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 9738
+        },
+        {
+          "key": "optimized/mantis-religiosa-woodukdr-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 12212
+        },
+        {
+          "key": "optimized/mantis-religiosa-woodukdr-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 18476
+        },
+        {
+          "key": "optimized/mantis-religiosa-woodukdr-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 17720
+        },
+        {
+          "key": "optimized/mantis-religiosa-woodukdr-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 25314
+        },
+        {
+          "key": "optimized/mantis-religiosa-woodukdr-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 28528
+        },
+        {
+          "key": "optimized/mantis-religiosa-woodukdr-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 38146
+        }
+      ],
+      "updatedAt": "2026-09-18T18:08:32.087Z"
+    },
+    "mantis-religiosa-zauri-1.jpg": {
+      "sourceHash": "e70fe6de424c486c0ec38b9e2918804fc3344a00acee13fa67f122e264683565",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "mantis-religiosa-zauri-1.jpg",
+      "originalSize": 1615332,
+      "width": 2400,
+      "height": 3360,
+      "derivatives": [
+        {
+          "key": "optimized/mantis-religiosa-zauri-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 448,
+          "byteSize": 17268
+        },
+        {
+          "key": "optimized/mantis-religiosa-zauri-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 448,
+          "byteSize": 24484
+        },
+        {
+          "key": "optimized/mantis-religiosa-zauri-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 559,
+          "byteSize": 23212
+        },
+        {
+          "key": "optimized/mantis-religiosa-zauri-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 559,
+          "byteSize": 33496
+        },
+        {
+          "key": "optimized/mantis-religiosa-zauri-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 896,
+          "byteSize": 44303
+        },
+        {
+          "key": "optimized/mantis-religiosa-zauri-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 896,
+          "byteSize": 63956
+        },
+        {
+          "key": "optimized/mantis-religiosa-zauri-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1120,
+          "byteSize": 60477
+        },
+        {
+          "key": "optimized/mantis-religiosa-zauri-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1120,
+          "byteSize": 87568
+        },
+        {
+          "key": "optimized/mantis-religiosa-zauri-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1680,
+          "byteSize": 105694
+        },
+        {
+          "key": "optimized/mantis-religiosa-zauri-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1680,
+          "byteSize": 150590
+        },
+        {
+          "key": "optimized/mantis-religiosa-zauri-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 3360,
+          "byteSize": 282100
+        },
+        {
+          "key": "optimized/mantis-religiosa-zauri-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 3360,
+          "byteSize": 366534
+        }
+      ],
+      "updatedAt": "2026-09-18T18:12:41.833Z"
     },
     "mauremys-caspica-2.jpg": {
       "sourceHash": "33cde2b5349455bb9853037c0da01ffe82b1fcd94bcea28df5829bac53a24a0a",

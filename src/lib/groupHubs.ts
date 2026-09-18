@@ -11,6 +11,7 @@ export type GroupHubConfig = {
 export type GroupHubId =
   | "amphibians"
   | "birds"
+  | "insects"
   | "lizards"
   | "mammals"
   | "snakes"
@@ -31,6 +32,13 @@ export const GROUP_HUBS: Record<GroupHubId, GroupHubConfig> = {
     id: "birds",
     messageKey: "birds",
     path: "/birds",
+  },
+  insects: {
+    group: "insect",
+    heroSpeciesId: "mantis-religiosa",
+    id: "insects",
+    messageKey: "insects",
+    path: "/insects",
   },
   lizards: {
     group: "lizard",
@@ -74,6 +82,7 @@ export const GROUP_HUB_LIST = Object.values(GROUP_HUBS);
 export const GROUP_HUB_ILLUSTRATIONS: Record<GroupHubId, string> = {
   amphibians: "/images/home/groups/amphibians.jpg",
   birds: "/images/home/groups/birds.jpg",
+  insects: "/images/home/groups/insects.jpg",
   lizards: "/images/home/groups/lizards.jpg",
   mammals: "/images/home/groups/mammals.jpg",
   snakes: "/images/home/groups/snakes.jpg",
@@ -84,6 +93,7 @@ export const GROUP_HUB_ILLUSTRATIONS: Record<GroupHubId, string> = {
 export const ANIMAL_GROUP_TO_HUB: Record<AnimalGroup, GroupHubId> = {
   amphibian: "amphibians",
   bird: "birds",
+  insect: "insects",
   lizard: "lizards",
   mammal: "mammals",
   snake: "snakes",
@@ -101,6 +111,7 @@ export const RESERVED_HUB_SLUGS: Record<GroupHubId, readonly string[]> = {
     "newts",
   ],
   birds: ["saxeoebebi", "species"],
+  insects: ["saxeoebebi", "species"],
   lizards: [
     "saxeoebebi",
     "identifikacia",

@@ -12,6 +12,7 @@ import { cn } from "@/lib/cn";
 const GROUP_LABEL: Record<AnimalGroup, string> = {
   amphibian: "ამფიბიები",
   bird: "ფრინველები",
+  insect: "მწერები",
   lizard: "ხვლიკები",
   mammal: "ძუძუმწოვრები",
   snake: "გველები",
@@ -26,6 +27,7 @@ const GROUPS: Array<"all" | AnimalGroup> = [
   "turtle",
   "amphibian",
   "bird",
+  "insect",
   "mammal",
   "spider",
 ];

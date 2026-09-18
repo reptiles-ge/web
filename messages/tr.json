@@ -14,6 +14,7 @@
     "birds": "Kuşlar",
     "mammals": "Memeliler",
     "spiders": "Örümcekler",
+    "insects": "Böcekler",
     "news": "Haberler",
     "openMenu": "Menüyü aç",
     "closeMenu": "Menüyü kapat",
@@ -158,12 +159,17 @@
         "title": "Gürcistan’daki örümcekler",
         "body": "Kaynaklı profiller, fotoğraflar, tanıma ve güvenlik rehberleriyle.",
         "cta": "Örümcekler"
+      },
+      "insects": {
+        "title": "Gürcistan’daki böcekler",
+        "body": "Taksonomi, tanıma, yaşam alanı ve kaynaklarla yayımlanmış böcek profilleri.",
+        "cta": "Böcekler"
       }
     },
     "groups": {
       "eyebrow": "Atlas",
       "title": "Gruplara göre keşfet",
-      "subtitle": "Yılanlar, kertenkeleler, kaplumbağalar, amfibiler, kuşlar, memeliler ve örümcekler — profiller, fotoğraflar ve rehberler için bir grup açın.",
+      "subtitle": "Yılanlar, kertenkeleler, kaplumbağalar, amfibiler, kuşlar, memeliler, örümcekler ve böcekler — profiller, fotoğraflar ve rehberler için bir grup açın.",
       "count": "{count, plural, one {# tür} other {# tür}}",
       "catalog": "Tam atlas",
       "illustrationAlt": "İllüstrasyon — {name}"
@@ -228,6 +234,7 @@
         "birds": "Gürcistan’daki kuşlar",
         "mammals": "Gürcistan’daki memeliler",
         "spiders": "Gürcistan’daki örümcekler",
+        "insects": "Gürcistan’daki böcekler",
         "identify": "Zehirli yılanı tanı",
         "bite": "Yılan ısırığında ilk adımlar",
         "lizardIdentify": "Kertenkeleyi tanı",
@@ -274,6 +281,7 @@
     "birds": "Kuşlar",
     "mammals": "Memeliler",
     "spiders": "Örümcekler",
+    "insects": "Böcekler",
     "frogs": "Kurbağalar",
     "newts": "Semenderler",
     "snakeIndex": "Yılan türleri",
@@ -296,6 +304,7 @@
     "mammalIndex": "Memeli türleri",
     "lizardQuiz": "Bu hangi kertenkele?",
     "spiderIndex": "Örümcek türleri",
+    "insectIndex": "Böcek türleri",
     "spiderVenomous": "Zehirli örümcekler",
     "spiderBite": "Örümcek ısırığı",
     "jackalYard": "Bahçede çakal",
@@ -661,6 +670,7 @@
       "birds": "Gürcistan’daki kuşlar",
       "mammals": "Gürcistan’daki memeliler",
       "spiders": "Gürcistan’daki örümcekler",
+      "insects": "Gürcistan’daki böcekler",
       "venomous": "Gürcistan’da zehirli yılanlar"
     }
   },
@@ -758,19 +768,21 @@
     "titleBird": "Gürcistan’da yayılış ve tanıma",
     "titleMammal": "Gürcistan’da yayılış ve tanıma",
     "titleSpider": "Gürcistan’da yayılış ve tanıma",
+    "titleInsect": "Gürcistan’da yayılış ve tanıma",
     "descriptionVenomous": "{name} ({scientific}) — yayılış, biyoloji, zehir ve koruma statüsü. Gürcistan ve Kafkasya sürüngen atlası.",
     "descriptionReptile": "{name} ({scientific}) — yayılış, biyoloji ve koruma statüsü. Gürcistan ve Kafkasya sürüngen atlası.",
     "descriptionAmphibian": "{name} ({scientific}) — yayılış, biyoloji ve koruma statüsü. Gürcistan amfibileri.",
     "descriptionBird": "{name} ({scientific}) — yayılış, biyoloji ve koruma statüsü. Gürcistan kuşları.",
     "descriptionMammal": "{name} ({scientific}) — yayılış, biyoloji ve koruma statüsü. Gürcistan memelileri.",
-    "descriptionSpider": "{name} ({scientific}) — yayılış, biyoloji ve koruma statüsü. Gürcistan örümcekleri."
+    "descriptionSpider": "{name} ({scientific}) — yayılış, biyoloji ve koruma statüsü. Gürcistan örümcekleri.",
+    "descriptionInsect": "{name} ({scientific}) — yayılış, biyoloji ve koruma statüsü. Gürcistan böcekleri."
   },
   "speciesAtlas": {
     "metaTitle": "Tür atlası — Gürcistan hayvanları",
     "metaDescription": "Gürcistan hayvanları tek katalogda: tür profilleri, fotoğraflar ve tanıma. Sürüngenler şimdiye kadar en eksiksiz gruptur.",
     "eyebrow": "Tür atlası",
     "title": "Tür atlası",
-    "subtitle": "Gürcistan’da kaydedilen türler — sürüngenler, amfibiler, kuşlar, memeliler ve örümcekler. Açıklamalar, fotoğraflar ve tanıma notları.",
+    "subtitle": "Gürcistan’da kaydedilen türler — sürüngenler, amfibiler, kuşlar, memeliler, örümcekler ve böcekler. Açıklamalar, fotoğraflar ve tanıma notları.",
     "heroImageAlt": "Sisli bir dağ vadisinde yosunlu kayada bir engerek",
     "breadcrumbHome": "Ana sayfa",
     "breadcrumbSpecies": "Türler",
@@ -796,9 +808,10 @@
       "pathwayBirdsTitle": "{count} kuş",
       "pathwayMammalsTitle": "{count} memeli",
       "pathwaySpidersTitle": "{count} örümcek",
+      "pathwayInsectsTitle": "{count} böcek",
       "pathwayVenomousTitle": "{count} zehirli",
       "pathwayRegionsTitle": "{count} bölge",
-      "expandingNote": "Kuşlar, memeliler ve örümcekler katalogda aynı standarttadır. Sürüngenler ve amfibiler hâlâ en eksiksiz katmandır."
+      "expandingNote": "Kuşlar, memeliler, örümcekler ve böcekler katalogda aynı standarttadır. Sürüngenler ve amfibiler hâlâ en eksiksiz katmandır."
     },
     "explorerEyebrow": "Gezgin",
     "explorerTitle": "Kataloğa göz at",
@@ -830,7 +843,8 @@
       "amphibian": "Amfibiler",
       "bird": "Kuşlar",
       "mammal": "Memeliler",
-      "spider": "Örümcekler"
+      "spider": "Örümcekler",
+      "insect": "Böcekler"
     },
     "danger": {
       "all": "Tümü",
@@ -869,6 +883,8 @@
       "mammalsP1": "Memeli sayfaları aynı profil yapısını kullanır. Henüz azı yayımlanmıştır — bu katalogda olmaması türün Gürcistan’da olmadığı anlamına gelmez.",
       "spidersTitle": "Gürcistan örümcekleri",
       "spidersP1": "Örümcek sayfaları aynı kuralı izler: adı geçen kaynaklar, uydurulmuş harita yok. Kaynaklı sayfa hazır olduğunda liste yeni profillerle büyür.",
+      "insectsTitle": "Gürcistan böcekleri",
+      "insectsP1": "Böcek sayfaları aynı kuralı izler: adı geçen kaynaklar, uydurulmuş harita yok. Kaynaklı sayfa hazır olduğunda liste yeni profillerle büyür.",
       "venomousTitle": "Gürcistan’ın zehirli yılanları",
       "venomousP1": "Gürcistan yılanlarının yalnızca bir azınlığı tıbbi açıdan önemlidir. Bu atlasda “zehirli”, insanlar için orta veya yüksek risk demektir: Levant engereği (Macrovipera lebetina), Kafkas engereği (Vipera kaznakovi), Dinnik engereği (Vipera dinniki), Transkafkas uzun burunlu engerek (Vipera transcaucasiana), Darevski engereği (Vipera darevskii) ve bozkır engereği (Vipera renardi). Buradaki diğer yılanların çoğu — su yılanı, kareli su yılanı, yılanlar, düz yılan, kedi yılanı — insanlar için zararsızdır, ancak birkaçı sıkça yanlış tanınır.",
       "venomousP2": "Güvenli karşılaşma pratiği basittir: yabani yılanları ellemiyin, mesafe koyun ve bölgenizde yaygın benzerleri öğrenin. Tanıma özellikleri, yaşam alanı ve koruma statüsü için her profili açın. Bu eğitici doğa tarihi rehberliğidir, acil tıbbi tavsiye değildir.",
@@ -1043,7 +1059,8 @@
       "amphibians": "Amfibiler",
       "birds": "Gürcistan’daki kuşlar",
       "mammals": "Gürcistan’daki memeliler",
-      "spiders": "Gürcistan’daki örümcekler"
+      "spiders": "Gürcistan’daki örümcekler",
+      "insects": "Gürcistan’daki böcekler"
     },
     "venomousEyebrow": "Güvenlik",
     "venomousTitle": "Gürcistan’ın zehirli yılanları",
@@ -1240,6 +1257,12 @@
         "body": "Atlasdaki örümcek profilleri: tür sayfaları, fotoğraflar ve kaynaklar tek yerde.",
         "cta": "Örümcekler"
       },
+      "insectsHub": {
+        "eyebrow": "Böcekler",
+        "title": "Gürcistan’daki böcekler",
+        "body": "Atlasdaki böcek profilleri: taksonomi, tanıma, yaşam alanı ve kaynaklar tek yerde.",
+        "cta": "Böcekler"
+      },
       "birdIndex": {
         "eyebrow": "Katalog",
         "title": "Kuş türleri",
@@ -1256,6 +1279,12 @@
         "eyebrow": "Katalog",
         "title": "Örümcek türleri",
         "body": "Yayımlanmış profiller tek tabloda — adlar, familyalar, risk ve bağlantılar.",
+        "cta": "Dizin"
+      },
+      "insectIndex": {
+        "eyebrow": "Katalog",
+        "title": "Böcek türleri",
+        "body": "Yayımlanmış profiller tek tabloda — adlar, familyalar, yaşam alanı ve bağlantılar.",
         "cta": "Dizin"
       },
       "lizardQuiz": {
@@ -1697,6 +1726,50 @@
     "ctaTitle": "Örümcek listesinden profile",
     "ctaBody": "Bir tür açın veya sürüngen, amfibi, kuş ve memeli rehberlerinde devam edin.",
     "speciesIndexCta": "Örümcek türleri dizini"
+  },
+  "insects": {
+    "metaTitle": "Gürcistan’daki böcekler — tür profilleri",
+    "metaDescription": "reptiles.ge’de Gürcistan böcekleri: tanıma, taksonomi, yaşam alanı, ülke düzeyinde doğrulanmış bulunma ve kaynaklar. Atlas şu anda Avrupa peygamberdevesini (Mantis religiosa) içerir.",
+    "keywords": "Gürcistan böcekleri, Gürcistan böcek türleri, Mantis religiosa Gürcistan, Avrupa peygamberdevesi, peygamberdevesi Gürcistan",
+    "breadcrumbCurrent": "Böcekler",
+    "heroImageAlt": "Güneşli uzun ot içinde Avrupa peygamberdevesi",
+    "title": "Gürcistan’daki böcekler",
+    "subtitle": "Gürcistan’daki böcekler — taksonomi, tanıma notları, yaşam alanı ve kaynaklarla yayımlanmış tür profilleri.",
+    "ctaSpecies": "Türleri gör",
+    "statSpecies": "Atlasdaki böcekler",
+    "statFamilies": "Familyalar",
+    "statExtra": "Kaynaklar",
+    "statExtraValue": "Adı geçen",
+    "guideEyebrow": "Rehber",
+    "guideTitle": "Hayvan atlasında böcekler",
+    "guideP1": "Reptiles.ge’deki böcek profilleri diğer grup sayfalarıyla aynı editöryal kurala uyar: kabul edilmiş taksonomi önce gelir, Gürcistan’a özgü kanıt genel biyolojiden ayrılır ve bölgesel haritalar uydurulmaz.",
+    "guideP2": "Bu büyüyen bir profil setidir, tam ulusal böcek listesi değildir. Bir tür burada ancak kaynaklı sayfası hazır olduğunda görünür.",
+    "speciesEyebrow": "Katalog",
+    "speciesTitle": "Atlasda {count} böcek",
+    "speciesBody": "Her profil türün Gürcistan’da doğrulanıp doğrulanmadığını ve kaynakların kesin yerleri mi yoksa yalnızca ülke düzeyinde bulunmayı mı desteklediğini belirtir.",
+    "section": {
+      "all": {
+        "title": "Böcekler — {count}",
+        "body": "Yayımlanmış böcek profilleri tanıma notları, yaşam alanı bilgisi, ülke düzeyinde durum ve kaynaklarla burada toplanır."
+      }
+    },
+    "faqEyebrow": "SSS",
+    "faqTitle": "Burada böceklerle ilgili sorulanlar",
+    "faqIntro": "Kısa yanıtlar - ayrıntılar profillerde.",
+    "faq1Q": "Bu site Gürcistan’daki tüm böcekleri kapsıyor mu?",
+    "faq1A": "Hayır. Bu bölüm yeterli güvenilir kaynak olduğunda tekil böcek profilleri yayımlar. Bölümde olmaması türün Gürcistan’da olmadığı anlamına gelmez.",
+    "faq2Q": "Atlasda şimdi hangi böcekler var?",
+    "faq2A": "İlk yayımlanan böcek profili Avrupa peygamberdevesi, Mantis religiosa’dır.",
+    "faq3Q": "Böcekler atlasa nasıl eklenir?",
+    "faq3A": "Böcek sayfaları aynı tür profili yapısını kullanır: taksonomi, tanıma, yaşam alanı, Gürcistan’a özgü kanıt, gerektiğinde güvenlik veya ekoloji notları ve kaynaklar.",
+    "faq4Q": "Böcekler için bölgesel haritalar var mı?",
+    "faq4A": "Yalnızca profil bölgesel veya yerel kayıtları kaynakla destekliyorsa. Ülke düzeyinde bir kaynak tüm Gürcistan bölgelerini otomatik olarak renklendirmez.",
+    "faq5Q": "Yabani böcekleri ele almak gerekir mi?",
+    "faq5A": "Genellikle hayır. Uzaktan gözlemleyin; güvenilir pratik bir neden yoksa yabani organizmaları toplamayın veya taşımayın.",
+    "ctaEyebrow": "Sonraki adım",
+    "ctaTitle": "Böcek listesinden profile",
+    "ctaBody": "Bir tür açın veya sürüngen, amfibi, kuş, memeli ve örümcek rehberlerinde devam edin.",
+    "speciesIndexCta": "Böcek türleri dizini"
   },
   "amphibianFrogs": {
     "metaTitle": "Gürcistan kurbağaları — tür rehberi",
@@ -3031,6 +3104,42 @@
     "ctaEyebrow": "Sonraki adım",
     "ctaTitle": "Dizinden profile",
     "ctaBody": "Bir örümcek profili açın veya soru güvenlikle ilgiliyse zehirli örümcekler ve örümcek ısırığı rehberlerine gidin."
+  },
+  "insectIndex": {
+    "metaTitle": "Gürcistan böcek türleri — atlas dizini",
+    "metaDescription": "Yayımlanmış böcek profilleri tek tabloda: Avrupa peygamberdevesi (Mantis religiosa), taksonomi, tanıma notları, yaşam alanı ve kaynaklarla.",
+    "keywords": "Gürcistan böcek türleri, böcek dizini Gürcistan, Mantis religiosa Gürcistan, Avrupa peygamberdevesi",
+    "breadcrumbCurrent": "Türler",
+    "heroImageAlt": "Güneşli uzun ot içinde Avrupa peygamberdevesi",
+    "title": "Gürcistan böcek türleri",
+    "subtitle": "Yayımlanmış profil dizini: adlar, familyalar, yaşam alanı alanları ve kaynaklı tür sayfaları.",
+    "ctaSpecies": "Dizini gör",
+    "ctaParent": "Böcekler",
+    "statSpecies": "Atlasdaki böcekler",
+    "statFamilies": "Familyalar",
+    "statExtra": "Profiller",
+    "statExtraValue": "Kademeli eklenir",
+    "guideEyebrow": "Dizin",
+    "guideTitle": "Yayımlanmış profiller",
+    "guideP1": "Bu sayfadaki Gürcistan böcek türleri, atlasta yayımlanmış böcek profilleridir. Tablo ortak adı, bilimsel adı, familyayı, kısa habitat alanını ve profil bağlantısını birleştirir.",
+    "guideP2": "Profiller adlandırılmış kaynaklardan yazılır. Bölgesel harita yalnızca kaynaklar adlandırılmış Gürcistan yerlerini veya idari bölgeleri desteklediğinde görünür.",
+    "tableEyebrow": "Tablo",
+    "tableTitle": "{count} böcek atlaste",
+    "tableBody": "Her satır bir profil açar. Familya filtreleri taramayı kolaylaştırır; boş alan kaynak boşluğudur, olumsuz sonuç değildir.",
+    "faqEyebrow": "Sık sorulanlar",
+    "faqTitle": "Bu dizinde ne aranır",
+    "faqIntro": "Liste, kaynaklar ve Gürcistan’a özgü kanıt tek yerde.",
+    "faq1Q": "Böcek dizini ne gösterir?",
+    "faq1A": "Dizin, atlasta yayımlanmış böcek profillerini ve ana alanlarını gösterir: ad, familya, yaşam alanı ve profil bağlantısı.",
+    "faq2Q": "Bir tür burada yoksa ne demek?",
+    "faq2A": "Atlas profilinin henüz yayımlanmadığı anlamına gelir. Adlandırılmış kaynaklarla desteklenen metin hazır olduğunda yeni sayfalar eklenir.",
+    "faq3Q": "Boş bölgesel harita böceğin olmadığı anlamına mı gelir?",
+    "faq3A": "Hayır. Harita yalnızca adlandırılmış idari kayıtları boyar. Kaynak yalnızca ülke düzeyinde varlığı doğruluyorsa, atlas bölgeleri varsayımla boyamaz.",
+    "faq4Q": "Bu Gürcistan böceklerinin tam ulusal listesi mi?",
+    "faq4A": "Hayır. Bu yayımlanmış profil dizinidir, Gürcistan böcek faunasının tam checklist’i değildir.",
+    "ctaEyebrow": "Sonraki adım",
+    "ctaTitle": "Dizinden profile",
+    "ctaBody": "Bir böcek profili açın veya tam hayvan atlasında devam edin."
   },
   "spiderVenomous": {
     "metaTitle": "Gürcistan’da zehirli örümcekler?",

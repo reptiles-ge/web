@@ -119,6 +119,7 @@ export function parseAtlasFilters(
     "turtle",
     "amphibian",
     "bird",
+    "insect",
     "mammal",
     "spider",
   ];
