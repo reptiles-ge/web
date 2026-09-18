@@ -17,7 +17,6 @@ import { Navbar } from "@/components/Navbar";
 import { NavigationProgress } from "@/components/NavigationProgress";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { SkipLink } from "@/components/SkipLink";
-import { VisitPing } from "@/components/VisitPing";
 import { routing } from "@/i18n/routing";
 import { getFooterData } from "@/lib/footerData";
 import { getLocaleSwitchIndex } from "@/lib/localeSwitchData";
@@ -51,7 +50,6 @@ export default async function LocaleLayout({ children, params }: Props) {
         <ScrollToTop />
         <LogoPreload />
         <AnalyticsPageContext switchIndex={switchIndex} />
-        <VisitPing />
         <Navbar switchIndex={switchIndex} />
         <main id="main" tabIndex={-1}>
           {children}
