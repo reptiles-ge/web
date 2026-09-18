@@ -75,6 +75,15 @@ const KA_SLUG_ALIASES: Record<string, string[]> = {
   "canis-aureus": ["tura"],
   "canis-lupus": ["mgeli"],
   "capra-aegagrus": ["niamori", "veluri-txa", "bezoaruli-txa"],
+  "capra-cylindricornis": [
+    "aghmosavlet-kavkasiuri-jixvi",
+    "aghmosavletkavkasiuri-jikhvi",
+    "daghestnuri-jixvi",
+    "jixvi",
+    "east-caucasian-tur",
+    "daghestan-tur",
+    "capra-cylindricornis",
+  ],
   "capreolus-capreolus": ["shveli"],
   "cervus-elaphus": [
     "iremi",
