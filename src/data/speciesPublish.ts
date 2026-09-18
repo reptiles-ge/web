@@ -126,6 +126,7 @@ export const featuredSpeciesIds = [
   "argiope-bruennichi",
   "argiope-lobata",
   "araneus-diadematus",
+  "cheiracanthium-punctorium",
   "pholcus-phalangioides",
   "lycosa-singoriensis",
   "steatoda-paykulliana",

@@ -115,6 +115,7 @@ export const regions: Region[] = [
       "phasianus-colchicus",
       "tyto-alba",
       "argiope-bruennichi",
+      "cheiracanthium-punctorium",
     ],
   },
   {
@@ -189,6 +190,7 @@ export const regions: Region[] = [
       "streptopelia-turtur",
       "argiope-bruennichi",
       "steatoda-paykulliana",
+      "cheiracanthium-punctorium",
     ],
   },
   {
@@ -223,6 +225,7 @@ export const regions: Region[] = [
       "lacerta-agilis",
       "tyto-alba",
       "argiope-bruennichi",
+      "cheiracanthium-punctorium",
     ],
   },
   {
@@ -325,6 +328,7 @@ export const regions: Region[] = [
       "argiope-bruennichi",
       "steatoda-paykulliana",
       "latrodectus-tredecimguttatus",
+      "cheiracanthium-punctorium",
     ],
   },
   {
@@ -548,6 +552,7 @@ export const regions: Region[] = [
       "steatoda-paykulliana",
       "latrodectus-tredecimguttatus",
       "lycosa-singoriensis",
+      "cheiracanthium-punctorium",
     ],
   },
   {
@@ -596,6 +601,7 @@ export const regions: Region[] = [
       "darevskia-portschinskii",
       "argiope-bruennichi",
       "latrodectus-tredecimguttatus",
+      "cheiracanthium-punctorium",
     ],
   },
 ];
