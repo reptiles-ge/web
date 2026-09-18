@@ -4218,6 +4218,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/mantis-religiosa-natalia-1.jpg": {
+    "path": "mantis-religiosa-natalia-1",
+    "width": 810,
+    "height": 1440,
+    "widths": [320, 400, 640, 800, 810],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/mantis-religiosa-toko-1.jpg": {
     "path": "mantis-religiosa-toko-1",
     "width": 2048,

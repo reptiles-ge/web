@@ -46591,6 +46591,87 @@
       ],
       "updatedAt": "2026-09-18T18:00:34.725Z"
     },
+    "mantis-religiosa-natalia-1.jpg": {
+      "sourceHash": "d31da47435fbe105730accbbd58547dc39fdfe921aef520fa0a18e8b20816f9e",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "mantis-religiosa-natalia-1.jpg",
+      "originalSize": 132100,
+      "width": 810,
+      "height": 1440,
+      "derivatives": [
+        {
+          "key": "optimized/mantis-religiosa-natalia-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 569,
+          "byteSize": 13194
+        },
+        {
+          "key": "optimized/mantis-religiosa-natalia-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 569,
+          "byteSize": 15784
+        },
+        {
+          "key": "optimized/mantis-religiosa-natalia-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 711,
+          "byteSize": 18970
+        },
+        {
+          "key": "optimized/mantis-religiosa-natalia-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 711,
+          "byteSize": 23008
+        },
+        {
+          "key": "optimized/mantis-religiosa-natalia-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 1138,
+          "byteSize": 40129
+        },
+        {
+          "key": "optimized/mantis-religiosa-natalia-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 1138,
+          "byteSize": 49002
+        },
+        {
+          "key": "optimized/mantis-religiosa-natalia-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1422,
+          "byteSize": 55783
+        },
+        {
+          "key": "optimized/mantis-religiosa-natalia-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1422,
+          "byteSize": 68772
+        },
+        {
+          "key": "optimized/mantis-religiosa-natalia-1-810.avif",
+          "format": "avif",
+          "width": 810,
+          "height": 1440,
+          "byteSize": 59057
+        },
+        {
+          "key": "optimized/mantis-religiosa-natalia-1-810.webp",
+          "format": "webp",
+          "width": 810,
+          "height": 1440,
+          "byteSize": 66180
+        }
+      ],
+      "updatedAt": "2026-09-18T18:14:48.173Z"
+    },
     "mantis-religiosa-toko-1.jpg": {
       "sourceHash": "f28ef28e2cf889e767ad5e2f0610eda7e560c65fe05d36c9da8089b7d50d97bd",
       "configFingerprint": "409788ee46c653d8",
