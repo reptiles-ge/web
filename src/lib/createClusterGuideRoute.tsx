@@ -60,6 +60,7 @@ const CLUSTER_PAGES: Record<
   "amphibian-index": AmphibianSpeciesIndexPage,
   "amphibian-newts": ClusterGuidePage,
   "bird-index": CatalogSpeciesIndexPage,
+  "insect-index": CatalogSpeciesIndexPage,
   "lizard-darevskia": DarevskiaGuidePage,
   "lizard-glass": LizardComparePage,
   "lizard-house": LizardHousePage,

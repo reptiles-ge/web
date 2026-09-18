@@ -14,6 +14,7 @@
     "birds": "Birds",
     "mammals": "Mammals",
     "spiders": "Spiders",
+    "insects": "Insects",
     "news": "News",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
@@ -158,12 +159,17 @@
         "title": "Spiders in Georgia",
         "body": "Sourced profiles, with photos, identification, and safety guides.",
         "cta": "Spiders"
+      },
+      "insects": {
+        "title": "Insects in Georgia",
+        "body": "Published insect profiles with taxonomy, identification, habitat, and sources.",
+        "cta": "Insects"
       }
     },
     "groups": {
       "eyebrow": "Atlas",
       "title": "Explore by group",
-      "subtitle": "Snakes, lizards, turtles, amphibians, birds, mammals, and spiders — open a group for profiles, photos, and guides.",
+      "subtitle": "Snakes, lizards, turtles, amphibians, birds, mammals, spiders, and insects — open a group for profiles, photos, and guides.",
       "count": "{count, plural, one {# species} other {# species}}",
       "catalog": "Full atlas",
       "illustrationAlt": "Illustration — {name}"
@@ -228,6 +234,7 @@
         "birds": "Birds in Georgia",
         "mammals": "Mammals in Georgia",
         "spiders": "Spiders in Georgia",
+        "insects": "Insects in Georgia",
         "identify": "Identify a venomous snake",
         "bite": "Snakebite first steps",
         "lizardIdentify": "Identify a lizard",
@@ -274,6 +281,7 @@
     "birds": "Birds",
     "mammals": "Mammals",
     "spiders": "Spiders",
+    "insects": "Insects",
     "frogs": "Frogs",
     "newts": "Newts",
     "snakeIndex": "Snake species",
@@ -296,6 +304,7 @@
     "mammalIndex": "Mammal species",
     "lizardQuiz": "Which lizard is it?",
     "spiderIndex": "Spider species",
+    "insectIndex": "Insect species",
     "spiderVenomous": "Venomous spiders",
     "spiderBite": "Spider bite",
     "jackalYard": "Jackal in the yard",
@@ -661,6 +670,7 @@
       "birds": "Birds in Georgia",
       "mammals": "Mammals in Georgia",
       "spiders": "Spiders in Georgia",
+      "insects": "Insects in Georgia",
       "venomous": "Venomous snakes in Georgia"
     }
   },
@@ -758,19 +768,21 @@
     "titleBird": "range and identification in Georgia",
     "titleMammal": "range and identification in Georgia",
     "titleSpider": "range and identification in Georgia",
+    "titleInsect": "range and identification in Georgia",
     "descriptionVenomous": "{name} ({scientific}) — range, biology, venom, and conservation status. Atlas of reptiles of Georgia and the Caucasus.",
     "descriptionReptile": "{name} ({scientific}) — range, biology, and conservation status. Atlas of reptiles of Georgia and the Caucasus.",
     "descriptionAmphibian": "{name} ({scientific}) — range, biology, and conservation status. Amphibians of Georgia.",
     "descriptionBird": "{name} ({scientific}) — range, biology, and conservation status. Birds of Georgia.",
     "descriptionMammal": "{name} ({scientific}) — range, biology, and conservation status. Mammals of Georgia.",
-    "descriptionSpider": "{name} ({scientific}) — range, biology, and conservation status. Spiders of Georgia."
+    "descriptionSpider": "{name} ({scientific}) — range, biology, and conservation status. Spiders of Georgia.",
+    "descriptionInsect": "{name} ({scientific}) — range, biology, and conservation status. Insects of Georgia."
   },
   "speciesAtlas": {
     "metaTitle": "Species atlas — animals of Georgia",
     "metaDescription": "Animals of Georgia in one catalog: species profiles, photos, and identification. Reptiles are the most complete group so far.",
     "eyebrow": "Species atlas",
     "title": "Species atlas",
-    "subtitle": "Species recorded in Georgia — reptiles, amphibians, birds, mammals, and spiders. Descriptions, photos, and identification notes.",
+    "subtitle": "Species recorded in Georgia — reptiles, amphibians, birds, mammals, spiders, and insects. Descriptions, photos, and identification notes.",
     "heroImageAlt": "A viper on a mossy rock in a misty mountain valley",
     "breadcrumbHome": "Home",
     "breadcrumbSpecies": "Species",
@@ -796,9 +808,10 @@
       "pathwayBirdsTitle": "{count} birds",
       "pathwayMammalsTitle": "{count} mammals",
       "pathwaySpidersTitle": "{count} spiders",
+      "pathwayInsectsTitle": "{count} insects",
       "pathwayVenomousTitle": "{count} venomous",
       "pathwayRegionsTitle": "{count} regions",
-      "expandingNote": "Birds, mammals, and spiders are in the catalog under the same standard. Reptiles and amphibians are still the most complete layer."
+      "expandingNote": "Birds, mammals, spiders, and insects are in the catalog under the same standard. Reptiles and amphibians are still the most complete layer."
     },
     "explorerEyebrow": "Explorer",
     "explorerTitle": "Browse the catalog",
@@ -830,7 +843,8 @@
       "amphibian": "Amphibians",
       "bird": "Birds",
       "mammal": "Mammals",
-      "spider": "Spiders"
+      "spider": "Spiders",
+      "insect": "Insects"
     },
     "danger": {
       "all": "All",
@@ -869,6 +883,8 @@
       "mammalsP1": "Mammal pages use the same profile structure. Few are published yet — absence from this catalog does not mean the species is absent from Georgia.",
       "spidersTitle": "Spiders of Georgia",
       "spidersP1": "Spider pages follow the same rule: named sources, no invented maps. The list grows with new profiles when a sourced page is ready.",
+      "insectsTitle": "Insects of Georgia",
+      "insectsP1": "Insect pages follow the same rule: named sources, no invented maps. The list grows with new profiles when a sourced page is ready.",
       "venomousTitle": "Venomous snakes of Georgia",
       "venomousP1": "Only a minority of Georgia’s snakes are medically significant. In this atlas, “venomous” means moderate or high risk to humans: the Levantine viper (Macrovipera lebetina), Caucasus viper (Vipera kaznakovi), Dinnik’s viper (Vipera dinniki), Transcaucasian long-nosed viper (Vipera transcaucasiana), Darevsky’s viper (Vipera darevskii), and steppe viper (Vipera renardi). Most other snakes here — grass snake, dice snake, racers, smooth snake, cat snake — are harmless to people, though several are frequently misidentified.",
       "venomousP2": "Safe encounter practice is simple: do not handle wild snakes, keep distance, and learn the lookalikes common in your region. Open each profile for identification traits, habitat, and conservation status. This is educational natural-history guidance, not emergency medical advice.",
@@ -1043,7 +1059,8 @@
       "amphibians": "Amphibians",
       "birds": "Birds in Georgia",
       "mammals": "Mammals in Georgia",
-      "spiders": "Spiders in Georgia"
+      "spiders": "Spiders in Georgia",
+      "insects": "Insects in Georgia"
     },
     "venomousEyebrow": "Safety",
     "venomousTitle": "Venomous snakes of Georgia",
@@ -1240,6 +1257,12 @@
         "body": "Spider profiles in the atlas, with species pages, photos, and sources in one place.",
         "cta": "Spiders"
       },
+      "insectsHub": {
+        "eyebrow": "Insects",
+        "title": "Insects in Georgia",
+        "body": "Published insect profiles in the atlas, with taxonomy, identification, habitat, and sources in one place.",
+        "cta": "Insects"
+      },
       "birdIndex": {
         "eyebrow": "Catalog",
         "title": "Bird species",
@@ -1256,6 +1279,12 @@
         "eyebrow": "Catalog",
         "title": "Spider species",
         "body": "Published profiles in one table — names, families, risk, and links.",
+        "cta": "Index"
+      },
+      "insectIndex": {
+        "eyebrow": "Catalog",
+        "title": "Insect species",
+        "body": "Published insect profiles in one table — names, families, habitat, and links.",
         "cta": "Index"
       },
       "lizardQuiz": {
@@ -1697,6 +1726,50 @@
     "ctaTitle": "From spider list to profile",
     "ctaBody": "Open a species, or continue in the reptile, amphibian, bird, and mammal guides.",
     "speciesIndexCta": "Spider species index"
+  },
+  "insects": {
+    "metaTitle": "Insects in Georgia — species profiles",
+    "metaDescription": "Insects of Georgia on reptiles.ge: identification, taxonomy, habitat, country-level occurrence, and sources. The atlas currently includes the European mantis (Mantis religiosa).",
+    "keywords": "insects in Georgia, Georgian insects, Mantis religiosa Georgia, European mantis, praying mantis Georgia, chqela, choqela",
+    "breadcrumbCurrent": "Insects",
+    "heroImageAlt": "European mantis in tall sunny grass",
+    "title": "Insects in Georgia",
+    "subtitle": "Insects in Georgia — published species profiles with taxonomy, identification notes, habitat, and sources.",
+    "ctaSpecies": "See the species",
+    "statSpecies": "Insects in the atlas",
+    "statFamilies": "Families",
+    "statExtra": "Sources",
+    "statExtraValue": "Named",
+    "guideEyebrow": "Guide",
+    "guideTitle": "Insects in the animal atlas",
+    "guideP1": "Insect profiles on Reptiles.ge follow the same editorial rule as the other group pages: accepted taxonomy first, Georgia-specific evidence separated from general biology, and no invented regional maps.",
+    "guideP2": "This is a growing profile set, not a complete national insect checklist. A species appears here only when a sourced page is ready.",
+    "speciesEyebrow": "Catalog",
+    "speciesTitle": "{count} insects in the atlas",
+    "speciesBody": "Each profile states whether the species is confirmed in Georgia and whether the sources support exact localities or only country-level occurrence.",
+    "section": {
+      "all": {
+        "title": "Insects — {count}",
+        "body": "Published insect profiles are gathered here with identification notes, habitat information, country-level status, and sources."
+      }
+    },
+    "faqEyebrow": "FAQ",
+    "faqTitle": "What people ask about insects here",
+    "faqIntro": "Short answers - detailed information is on profiles.",
+    "faq1Q": "Does this site cover all Georgian insects?",
+    "faq1A": "No. This hub publishes individual insect profiles when enough reliable sources are available. Absence from the hub does not mean a species is absent from Georgia.",
+    "faq2Q": "Which insects are in the atlas now?",
+    "faq2A": "The first published insect profile is the European mantis, Mantis religiosa, known in Georgian as ჩოქელა.",
+    "faq3Q": "How are insects added to the atlas?",
+    "faq3A": "Insect pages use the same species-profile structure: taxonomy, identification, habitat, Georgia-specific evidence, safety or ecological notes where relevant, and sources.",
+    "faq4Q": "Are regional maps shown for insects?",
+    "faq4A": "Only when a profile has sourced regional or local records. A country-level occurrence source does not automatically colour every Georgian region.",
+    "faq5Q": "Should I handle wild insects?",
+    "faq5A": "Usually no. Observe from a distance and avoid collecting or moving wildlife unless a reliable practical reason exists.",
+    "ctaEyebrow": "Next step",
+    "ctaTitle": "From insect list to profile",
+    "ctaBody": "Open a species, or continue in the reptile, amphibian, bird, mammal, and spider guides.",
+    "speciesIndexCta": "Insect species index"
   },
   "amphibianFrogs": {
     "metaTitle": "Frogs of Georgia — species guide",
@@ -3031,6 +3104,42 @@
     "ctaEyebrow": "Next step",
     "ctaTitle": "From index to profile",
     "ctaBody": "Open a spider profile, or go to the venomous spiders and spider bite guides when the question is about safety."
+  },
+  "insectIndex": {
+    "metaTitle": "Insect species of Georgia — atlas index",
+    "metaDescription": "Published atlas insect profiles in one table: European mantis (Mantis religiosa), with taxonomy, identification notes, habitat, and sources.",
+    "keywords": "insect species of Georgia, insect index Georgia, Mantis religiosa Georgia, European mantis, praying mantis",
+    "breadcrumbCurrent": "Species",
+    "heroImageAlt": "European mantis in tall sunny grass",
+    "title": "Insect species of Georgia",
+    "subtitle": "Published profile index: names, families, habitat fields, and sourced species pages.",
+    "ctaSpecies": "See the index",
+    "ctaParent": "Insects",
+    "statSpecies": "Insects in the atlas",
+    "statFamilies": "Families",
+    "statExtra": "Profiles",
+    "statExtraValue": "Added gradually",
+    "guideEyebrow": "Index",
+    "guideTitle": "Profiles already published",
+    "guideP1": "Insect species of Georgia on this page means insect profiles already published in the atlas. The table brings together common name, scientific name, family, a short habitat field, and the profile link.",
+    "guideP2": "Profiles are written from named sources. A regional map appears only when sources support named Georgian localities or administrative regions.",
+    "tableEyebrow": "Table",
+    "tableTitle": "{count} insects in the atlas",
+    "tableBody": "Each row opens a profile. Family filters help scanning; an empty field is a source gap, not a negative conclusion.",
+    "faqEyebrow": "FAQ",
+    "faqTitle": "What people ask on this index",
+    "faqIntro": "List, sources, and Georgia-specific evidence in one place.",
+    "faq1Q": "What does the insect index show?",
+    "faq1A": "The index shows insect profiles published in the atlas and their main fields: name, family, habitat, and profile link.",
+    "faq2Q": "What if a species is missing here?",
+    "faq2A": "It means its atlas profile has not been published yet. New pages are added when text backed by named sources is ready.",
+    "faq3Q": "Does an empty regional map mean the insect is absent?",
+    "faq3A": "No. The map only paints named administrative records. If a source confirms only country-level presence, the atlas does not colour regions by inference.",
+    "faq4Q": "Is this a complete national insect checklist?",
+    "faq4A": "No. It is a published-profile index, not a complete checklist of Georgia's insect fauna.",
+    "ctaEyebrow": "Next step",
+    "ctaTitle": "From index to profile",
+    "ctaBody": "Open an insect profile, or continue in the full animal atlas."
   },
   "spiderVenomous": {
     "metaTitle": "Venomous spiders in Georgia?",

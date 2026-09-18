@@ -6,14 +6,14 @@ import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
 
 export type MobileNavItem =
-  | { href: NavLink["href"]; kind: "link"; label: string }
-  | { kind: "groups" };
+  { href: NavLink["href"]; kind: "link"; label: string } | { kind: "groups" };
 
 export type NavLink = {
   href:
     | "/about"
     | "/amphibians"
     | "/birds"
+    | "/insects"
     | "/lizards"
     | "/mammals"
     | "/news"

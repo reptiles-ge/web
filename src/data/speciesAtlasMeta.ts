@@ -1,7 +1,14 @@
 import type { DangerLevel } from "./speciesTypes";
 
 export type AnimalGroup =
-  "amphibian" | "bird" | "lizard" | "mammal" | "snake" | "spider" | "turtle";
+  | "amphibian"
+  | "bird"
+  | "insect"
+  | "lizard"
+  | "mammal"
+  | "snake"
+  | "spider"
+  | "turtle";
 
 export type HabitatTag = "forest" | "grassland" | "mountain" | "wetland";
 
@@ -337,6 +344,10 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
   },
   "malpolon-insignitus": {
     group: "snake",
+    habitats: ["grassland"],
+  },
+  "mantis-religiosa": {
+    group: "insect",
     habitats: ["grassland"],
   },
   "mauremys-caspica": {

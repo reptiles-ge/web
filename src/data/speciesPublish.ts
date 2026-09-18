@@ -123,6 +123,7 @@ export const featuredSpeciesIds = [
   "procyon-lotor",
   "capra-aegagrus",
   "capra-cylindricornis",
+  "mantis-religiosa",
   "argiope-bruennichi",
   "argiope-lobata",
   "araneus-diadematus",

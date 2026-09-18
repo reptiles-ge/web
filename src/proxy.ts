@@ -18,6 +18,7 @@ const intlMiddleware = createMiddleware(routing);
 const KA_HUB: Record<GroupHubId, string> = {
   amphibians: "amfibiebi",
   birds: "prinvelebi",
+  insects: "mtserebi",
   lizards: "xvlikebi",
   mammals: "dzuzumtsovrebi",
   snakes: "gvelebi",
@@ -30,14 +31,16 @@ const KA_PREFIX_TO_HUB: Record<string, GroupHubId> = {
   dzuzumtsovrebi: "mammals",
   gvelebi: "snakes",
   kuebi: "turtles",
+  mtserebi: "insects",
   obobebi: "spiders",
   prinvelebi: "birds",
   xvlikebi: "lizards",
 };
 
-const HUB_SEGMENT = "snakes|lizards|turtles|amphibians|birds|mammals|spiders";
+const HUB_SEGMENT =
+  "snakes|lizards|turtles|amphibians|birds|mammals|spiders|insects";
 const KA_HUB_SEGMENT =
-  "gvelebi|xvlikebi|kuebi|amfibiebi|prinvelebi|dzuzumtsovrebi|obobebi";
+  "gvelebi|xvlikebi|kuebi|amfibiebi|prinvelebi|dzuzumtsovrebi|obobebi|mtserebi";
 const PREFIX_SEGMENT = "en|ru|tr";
 
 export default function proxy(request: NextRequest) {

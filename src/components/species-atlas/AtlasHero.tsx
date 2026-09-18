@@ -164,6 +164,17 @@ export async function AtlasHero({ stats }: AtlasHeroProps) {
                   })}
                 />
               ) : null}
+              {stats.insects > 0 ? (
+                <HeroPathway
+                  delay={320}
+                  eyebrow={t("groups.insect")}
+                  href="/insects"
+                  meta={t("stats.pathwayExplore")}
+                  title={t("stats.pathwayInsectsTitle", {
+                    count: stats.insects,
+                  })}
+                />
+              ) : null}
               <Link
                 className="group flex min-w-42 flex-1 flex-col items-start rounded-card border border-white/10 bg-white/4 p-4 text-left backdrop-blur-md transition-[border-color,background-color] duration-300 hover:border-white/25 hover:bg-white/8 sm:min-w-48 sm:p-5"
                 href="/regions"
@@ -206,6 +217,7 @@ function HeroPathway({
   href?:
     | "/amphibians"
     | "/birds"
+    | "/insects"
     | "/lizards"
     | "/mammals"
     | "/snakes"

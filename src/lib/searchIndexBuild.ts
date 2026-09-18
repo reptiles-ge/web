@@ -66,6 +66,7 @@ type PageCopy = {
 const GROUP_LABELS: Record<AnimalGroup, LocalizedText> = {
   amphibian: { en: "Amphibian", ka: "ამფიბია", ru: "Амфибия", tr: "Amfibi" },
   bird: { en: "Bird", ka: "ფრინველი", ru: "Птица", tr: "Kuş" },
+  insect: { en: "Insect", ka: "მწერი", ru: "Насекомое", tr: "Böcek" },
   lizard: { en: "Lizard", ka: "ხვლიკი", ru: "Ящерица", tr: "Kertenkele" },
   mammal: {
     en: "Mammal",
@@ -113,6 +114,32 @@ const HUB_COPY: Record<GroupHubId, PageCopy> = {
       ka: "ფრინველები საქართველოში",
       ru: "Птицы Грузии",
       tr: "Gürcistan kuşları",
+    },
+  },
+  insects: {
+    icon: "hub",
+    keywords: [
+      "მწერები",
+      "mtserebi",
+      "insects",
+      "ჩოქელა",
+      "mantis",
+      "praying mantis",
+      "богомол",
+      "böcek",
+      "peygamberdevesi",
+    ],
+    subtitle: {
+      en: "Insect profiles in the nature atlas",
+      ka: "მწერების პროფილები ბუნების ატლასში",
+      ru: "Профили насекомых в атласе природы",
+      tr: "Doğa atlasında böcek profilleri",
+    },
+    title: {
+      en: "Insects in Georgia",
+      ka: "მწერები საქართველოში",
+      ru: "Насекомые Грузии",
+      tr: "Gürcistan böcekleri",
     },
   },
   lizards: {
@@ -323,6 +350,23 @@ const CLUSTER_COPY: Record<ClusterGuideId, PageCopy> = {
     title: {
       en: "Bird species of Georgia",
       ka: "საქართველოს ფრინველების სახეობები",
+    },
+  },
+  "insect-index": {
+    icon: "atlas",
+    keywords: [
+      "მწერების სახეობები",
+      "insect species",
+      "praying mantis",
+      "Mantis religiosa",
+    ],
+    subtitle: {
+      en: "Published insect profiles in one table",
+      ka: "გამოქვეყნებული მწერების პროფილები ერთ ცხრილში",
+    },
+    title: {
+      en: "Insect species of Georgia",
+      ka: "საქართველოს მწერების სახეობები",
     },
   },
   "lizard-darevskia": {
@@ -1128,6 +1172,11 @@ function speciesGroupText(species: Species) {
   );
   extra.push(group === "amphibian" ? "ამფიბია amphibian амфибии amfibi" : "");
   extra.push(group === "bird" ? "ფრინველი bird გრატა птицы kuşlar" : "");
+  extra.push(
+    group === "insect"
+      ? "მწერი მწერები insects mantis ჩოქელა богомол böcek peygamberdevesi"
+      : "",
+  );
   extra.push(
     group === "mammal"
       ? "ძუძუმწოვარი mammal მელა fox დედოფალა სინდიოფალა weasel ციყვი squirrel დათვი bear ursus ჯიქი leopard წავი otter lutra ფოცხვერი lynx"

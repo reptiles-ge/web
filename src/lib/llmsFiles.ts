@@ -1,9 +1,6 @@
 import { getPublishedNewsArticles } from "@/data/news";
 import { getCatalogSpecies, type Species } from "@/data/species";
-import {
-  type AnimalGroup,
-  getSpeciesAtlasMeta,
-} from "@/data/speciesAtlasMeta";
+import { type AnimalGroup, getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import { pathnames } from "@/i18n/pathnames";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { absoluteUrl } from "@/lib/site";
@@ -32,11 +29,13 @@ const GROUP_ORDER: AnimalGroup[] = [
   "bird",
   "mammal",
   "spider",
+  "insect",
 ];
 
 const GROUP_HEADING: Record<AnimalGroup, string> = {
   amphibian: "Amphibians",
   bird: "Birds",
+  insect: "Insects",
   lizard: "Lizards",
   mammal: "Mammals",
   snake: "Snakes",
@@ -68,14 +67,12 @@ const PRIORITY_PAGES: ReadonlyArray<{
     urlPath: "/gvelebi/shxamiani-gvelebi",
   },
   {
-    blurb:
-      "Educational snakebite page. Call 112. Not a medical protocol.",
+    blurb: "Educational snakebite page. Call 112. Not a medical protocol.",
     title: "Snakebite",
     urlPath: "/gvelebi/gvelis-nakbeni",
   },
   {
-    blurb:
-      "Visual cues are not universal; compare lookalikes and profiles.",
+    blurb: "Visual cues are not universal; compare lookalikes and profiles.",
     title: "Venomous vs harmless snakes",
     urlPath: "/gvelebi/shxamiani-gvelis-amocnoba",
   },
@@ -101,6 +98,7 @@ const MAX_OVERVIEW_COMPACT = 220;
 
 const DEEP_GROUPS = new Set<AnimalGroup>([
   "amphibian",
+  "insect",
   "lizard",
   "snake",
   "spider",
@@ -117,7 +115,7 @@ export function buildLlmsFullText() {
     "",
     "> Digital atlas of animals of Georgia. Georgian URLs are canonical (`x-default`). Prefixed locales: `/en`, `/ru`, `/tr`.",
     "",
-    "Reptiles.ge is an editorial compilation, not a government agency and not a substitute for the papers it cites. Amphibians and reptiles follow Tarkhnishvili et al. 2026; birds, mammals, and spiders are thinner published-profile sets, not complete national checklists. Empty size, region, IUCN, or Red List fields stay hidden. Checklist candidates stay candidates. Bite and venom pages are educational: call 112; they are not medical protocol.",
+    "Reptiles.ge is an editorial compilation, not a government agency and not a substitute for the papers it cites. Amphibians and reptiles follow Tarkhnishvili et al. 2026; birds, mammals, spiders, and insects are thinner published-profile sets, not complete national checklists. Empty size, region, IUCN, or Red List fields stay hidden. Checklist candidates stay candidates. Bite and venom pages are educational: call 112; they are not medical protocol.",
     "",
     `Generated: ${generatedAt}`,
     `Published species cards: ${species.length}`,
@@ -130,7 +128,7 @@ export function buildLlmsFullText() {
     "- For navigation and the full link map, use llms.txt.",
     "- Prefer the live profile URL when quoting; this file can lag a deploy by minutes.",
     "- Do not invent localities, measurements, or Red List status beyond what each card states.",
-    "- Herpetofauna and spiders use fuller cards; birds and mammals stay compact (thinner atlas layer).",
+    "- Herpetofauna and spiders use fuller cards; birds, mammals, and insects stay compact (thinner atlas layer).",
     "",
     "## Priority pages",
     "",

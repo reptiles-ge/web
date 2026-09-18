@@ -124,6 +124,7 @@ export type ClusterGuideId =
   | "amphibian-index"
   | "amphibian-newts"
   | "bird-index"
+  | "insect-index"
   | "lizard-darevskia"
   | "lizard-glass"
   | "lizard-house"
@@ -152,6 +153,8 @@ export type ClusterGuidePath =
   | "/amphibians/tritoni-salamandra"
   | "/birds"
   | "/birds/saxeoebebi"
+  | "/insects"
+  | "/insects/saxeoebebi"
   | "/lizards/darevskia"
   | "/lizards/identifikacia"
   | "/lizards/saxeoebebi"
@@ -181,6 +184,7 @@ export type ClusterMessageKey =
   | "amphibianIndex"
   | "amphibianNewts"
   | "birdIndex"
+  | "insectIndex"
   | "lizardCompare"
   | "lizardDarevskia"
   | "lizardHouse"
@@ -220,6 +224,10 @@ export function isDarevskiaSpecies(species: Species) {
 
 export function isFrogSpecies(id: string) {
   return frogIdSet.has(id);
+}
+
+export function isInsectSpecies(species: Species) {
+  return getSpeciesAtlasMeta(species.id).group === "insect";
 }
 
 export function isLizardSpecies(species: Species) {
@@ -306,6 +314,17 @@ export const CLUSTER_GUIDES: Record<ClusterGuideId, ClusterGuideConfig> = {
     messageKey: "birdIndex",
     parentHub: "birds",
     pathname: "/birds/saxeoebebi",
+    primaryCta: "hash",
+    schema: "collection",
+  },
+  "insect-index": {
+    faqCount: 4,
+    heroSpeciesId: "mantis-religiosa",
+    id: "insect-index",
+    matches: isInsectSpecies,
+    messageKey: "insectIndex",
+    parentHub: "insects",
+    pathname: "/insects/saxeoebebi",
     primaryCta: "hash",
     schema: "collection",
   },
@@ -560,6 +579,7 @@ export type HubClusterCard =
   | {
       href:
         | "/birds"
+        | "/insects"
         | "/lizards"
         | "/mammals"
         | "/snakes"
@@ -578,6 +598,8 @@ export type HubClusterCard =
         | "glassLizard"
         | "identify"
         | "index"
+        | "insectIndex"
+        | "insectsHub"
         | "jackalYard"
         | "largest"
         | "lizardDarevskia"
@@ -622,6 +644,7 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
     { href: "/amphibians/tritoni-salamandra", key: "newts", kind: "page" },
   ],
   birds: [{ href: "/birds/saxeoebebi", key: "birdIndex", kind: "page" }],
+  insects: [{ href: "/insects/saxeoebebi", key: "insectIndex", kind: "page" }],
   lizards: [
     { href: "/lizards/saxeoebebi", key: "lizardIndex", kind: "page" },
     { id: "lizard", key: "lizardQuiz", kind: "quiz" },
@@ -678,6 +701,7 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
 export const HUB_INDEX_PATH: Record<GroupHubId, ClusterGuidePath> = {
   amphibians: "/amphibians/saxeoebebi",
   birds: "/birds/saxeoebebi",
+  insects: "/insects/saxeoebebi",
   lizards: "/lizards/saxeoebebi",
   mammals: "/mammals/saxeoebebi",
   snakes: "/snakes/saxeoebebi",
@@ -694,6 +718,8 @@ export function getHubIndexTitleKey(hubId: GroupHubId) {
   switch (hubId) {
     case "birds":
       return "cluster.birdIndex.title" as const;
+    case "insects":
+      return "cluster.insectIndex.title" as const;
     case "lizards":
       return "cluster.lizardIndex.title" as const;
     case "mammals":
@@ -785,7 +811,12 @@ export function splitHubSpecies(
     ].filter((section) => section.items.length > 0);
   }
 
-  if (hubId === "birds" || hubId === "mammals" || hubId === "spiders") {
+  if (
+    hubId === "birds" ||
+    hubId === "insects" ||
+    hubId === "mammals" ||
+    hubId === "spiders"
+  ) {
     return [{ items: species, key: "all" }].filter(
       (section) => section.items.length > 0,
     );
@@ -948,6 +979,12 @@ export function getSpeciesGuideLinks(id: string): HubClusterCard[] {
     });
   } else if (group === "bird") {
     links.push({ href: "/birds/saxeoebebi", key: "birdIndex", kind: "page" });
+  } else if (group === "insect") {
+    links.push({
+      href: "/insects/saxeoebebi",
+      key: "insectIndex",
+      kind: "page",
+    });
   } else if (group === "mammal") {
     links.push({
       href: "/mammals/saxeoebebi",

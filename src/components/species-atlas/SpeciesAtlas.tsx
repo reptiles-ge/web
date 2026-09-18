@@ -28,10 +28,7 @@ import {
   defaultAtlasFilters,
   filterAtlasSpecies,
 } from "@/data/atlasFilters";
-import {
-  type AnimalGroup,
-  getSpeciesAtlasMeta,
-} from "@/data/speciesAtlasMeta";
+import { type AnimalGroup, getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import { trackEvent, truncateSearchTerm } from "@/lib/analytics";
 
 export function SpeciesAtlas({
@@ -132,6 +129,7 @@ export function SpeciesAtlas({
       all: catalog.length,
       amphibian: 0,
       bird: 0,
+      insect: 0,
       lizard: 0,
       mammal: 0,
       snake: 0,

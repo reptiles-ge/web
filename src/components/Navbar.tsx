@@ -34,6 +34,7 @@ export function Navbar({ switchIndex }: { switchIndex: LocaleSwitchIndex }) {
     { href: "/birds" as const, label: t("birds") },
     { href: "/mammals" as const, label: t("mammals") },
     { href: "/spiders" as const, label: t("spiders") },
+    { href: "/insects" as const, label: t("insects") },
   ];
   const groupLinks = [...reptileGroupLinks, ...otherGroupLinks];
   const mobileNavItems = [
@@ -158,7 +159,9 @@ function hasDarkHeroTop(pathname: string) {
     pathname === "/mammals" ||
     pathname.startsWith("/mammals/") ||
     pathname === "/spiders" ||
-    pathname.startsWith("/spiders/")
+    pathname.startsWith("/spiders/") ||
+    pathname === "/insects" ||
+    pathname.startsWith("/insects/")
   ) {
     return true;
   }

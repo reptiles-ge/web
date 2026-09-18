@@ -1009,6 +1009,17 @@ const SPECIES_ALIASES: Record<
       "Felis lynx",
     ],
   },
+  "mantis-religiosa": {
+    en: [
+      "European mantis",
+      "praying mantis",
+      "European praying mantis",
+      "Mantis religiosa",
+    ],
+    ka: ["ჩოქელა", "მლოცველი ჩოქელა", "Mantis religiosa"],
+    ru: ["обыкновенный богомол", "богомол", "Mantis religiosa"],
+    tr: ["peygamberdevesi", "Avrupa peygamberdevesi", "Mantis religiosa"],
+  },
   "meles-canescens": {
     en: [
       "European badger",

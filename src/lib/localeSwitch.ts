@@ -7,6 +7,7 @@ export type LocaleSpeciesHref = {
   pathname:
     | "/amphibians/[slug]"
     | "/birds/[slug]"
+    | "/insects/[slug]"
     | "/lizards/[slug]"
     | "/mammals/[slug]"
     | "/snakes/[slug]"
@@ -22,6 +23,7 @@ export type LocaleSwitchGuide = {
 export type LocaleSwitchHubId =
   | "amphibians"
   | "birds"
+  | "insects"
   | "lizards"
   | "mammals"
   | "snakes"
@@ -52,6 +54,7 @@ export type ResolvedPageContext = {
 const SPECIES_PATH_TO_HUB: Record<string, LocaleSwitchHubId> = {
   "/amphibians/[slug]": "amphibians",
   "/birds/[slug]": "birds",
+  "/insects/[slug]": "insects",
   "/lizards/[slug]": "lizards",
   "/mammals/[slug]": "mammals",
   "/snakes/[slug]": "snakes",
@@ -65,6 +68,7 @@ const HUB_BY_PATH: Record<
 > = {
   "/amphibians": { group: "amphibian", id: "amphibians" },
   "/birds": { group: "bird", id: "birds" },
+  "/insects": { group: "insect", id: "insects" },
   "/lizards": { group: "lizard", id: "lizards" },
   "/mammals": { group: "mammal", id: "mammals" },
   "/snakes": { group: "snake", id: "snakes" },
@@ -86,7 +90,10 @@ export function quizHrefFromIndex(
   const quiz = index.quizzes.find((item) => item.id === id);
   const slug = quiz?.slugs[locale];
   if (!slug) {
-    return { params: { slug: "romeli-gvelia" }, pathname: "/quiz/[slug]" as const };
+    return {
+      params: { slug: "romeli-gvelia" },
+      pathname: "/quiz/[slug]" as const,
+    };
   }
   return { params: { slug }, pathname: "/quiz/[slug]" as const };
 }
@@ -131,7 +138,9 @@ export function resolvePageContextFromIndex(
     return { entity_id: params.id, page_type: "region" };
   }
   if (pathname === "/quiz/[slug]" && params.slug) {
-    const quiz = index.quizzes.find((item) => item.slugs[locale] === params.slug);
+    const quiz = index.quizzes.find(
+      (item) => item.slugs[locale] === params.slug,
+    );
     return {
       entity_id: quiz?.id,
       group: quiz?.group,
@@ -198,6 +207,8 @@ export function speciesHrefFromIndex(
   switch (hub) {
     case "birds":
       return { params: { slug }, pathname: "/birds/[slug]" };
+    case "insects":
+      return { params: { slug }, pathname: "/insects/[slug]" };
     case "lizards":
       return { params: { slug }, pathname: "/lizards/[slug]" };
     case "mammals":
