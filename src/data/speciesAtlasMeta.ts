@@ -91,6 +91,10 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "mammal",
     habitats: ["mountain", "forest"],
   },
+  "capra-cylindricornis": {
+    group: "mammal",
+    habitats: ["mountain", "grassland"],
+  },
   "capreolus-capreolus": {
     group: "mammal",
     habitats: ["forest", "grassland", "mountain"],

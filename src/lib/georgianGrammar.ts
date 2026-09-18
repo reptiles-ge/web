@@ -1,7 +1,15 @@
 const KA_VOWELS = /[აეიოუ]$/u;
+const KA_TAN_OVERRIDES: Record<string, string> = {
+  "აღმოსავლეთკავკასიური ჯიხვი": "აღმოსავლეთკავკასიურ ჯიხვთან",
+};
 
 export function georgianTanPhrase(value: string) {
-  const words = value.trim().split(/\s+/);
+  const trimmed = value.trim();
+  const override = KA_TAN_OVERRIDES[trimmed];
+
+  if (override) return override;
+
+  const words = trimmed.split(/\s+/);
   const last = words.pop();
 
   if (!last) return value;
