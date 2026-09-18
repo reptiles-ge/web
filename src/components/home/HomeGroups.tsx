@@ -17,7 +17,7 @@ import { isPlaceholderMedia } from "@/lib/speciesContent";
 import { speciesImageAlt } from "@/lib/speciesMeta";
 
 const FEATURED_HUBS = ["snakes", "lizards", "turtles", "amphibians"] as const;
-const QUIET_HUBS = ["birds", "mammals", "spiders", "insects"] as const;
+const QUIET_HUBS = ["birds", "mammals", "spiders"] as const;
 const USE_GROUP_ILLUSTRATIONS = true;
 
 export async function HomeGroups() {

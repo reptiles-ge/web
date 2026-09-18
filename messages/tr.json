@@ -169,7 +169,7 @@
     "groups": {
       "eyebrow": "Atlas",
       "title": "Gruplara göre keşfet",
-      "subtitle": "Yılanlar, kertenkeleler, kaplumbağalar, amfibiler, kuşlar, memeliler, örümcekler ve böcekler — profiller, fotoğraflar ve rehberler için bir grup açın.",
+      "subtitle": "Yılanlar, kertenkeleler, kaplumbağalar, amfibiler, kuşlar, memeliler ve örümcekler — profiller, fotoğraflar ve rehberler için bir grup açın.",
       "count": "{count, plural, one {# tür} other {# tür}}",
       "catalog": "Tam atlas",
       "illustrationAlt": "İllüstrasyon — {name}"
