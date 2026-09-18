@@ -35,7 +35,7 @@ export const SITEMAP_PATH_LAST_MODIFIED: Record<string, string> = {
   "/spiders": "2026-09-16T14:10:00+04:00",
   "/spiders/obobis-nakbeni": "2026-09-16T14:21:00+04:00",
   "/spiders/saxeoebebi": "2026-09-16T14:32:00+04:00",
-  "/spiders/shxamiani-obobebi": "2026-09-16T14:43:00+04:00",
+  "/spiders/shxamiani-obobebi": "2026-09-18T16:11:40+04:00",
   "/turtles": "2026-09-16T14:54:00+04:00",
   "/turtles/identifikacia": "2026-09-16T15:05:00+04:00",
   "/turtles/saxeoebebi": "2026-09-16T15:16:00+04:00",
