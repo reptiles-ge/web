@@ -46415,6 +46415,101 @@
       ],
       "updatedAt": "2026-09-18T18:00:34.725Z"
     },
+    "mantis-religiosa-toko-1.jpg": {
+      "sourceHash": "f28ef28e2cf889e767ad5e2f0610eda7e560c65fe05d36c9da8089b7d50d97bd",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "mantis-religiosa-toko-1.jpg",
+      "originalSize": 164574,
+      "width": 2048,
+      "height": 1036,
+      "derivatives": [
+        {
+          "key": "optimized/mantis-religiosa-toko-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 162,
+          "byteSize": 5181
+        },
+        {
+          "key": "optimized/mantis-religiosa-toko-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 162,
+          "byteSize": 6468
+        },
+        {
+          "key": "optimized/mantis-religiosa-toko-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 202,
+          "byteSize": 6846
+        },
+        {
+          "key": "optimized/mantis-religiosa-toko-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 202,
+          "byteSize": 8588
+        },
+        {
+          "key": "optimized/mantis-religiosa-toko-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 324,
+          "byteSize": 13537
+        },
+        {
+          "key": "optimized/mantis-religiosa-toko-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 324,
+          "byteSize": 17188
+        },
+        {
+          "key": "optimized/mantis-religiosa-toko-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 405,
+          "byteSize": 18909
+        },
+        {
+          "key": "optimized/mantis-religiosa-toko-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 405,
+          "byteSize": 23684
+        },
+        {
+          "key": "optimized/mantis-religiosa-toko-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 607,
+          "byteSize": 35169
+        },
+        {
+          "key": "optimized/mantis-religiosa-toko-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 607,
+          "byteSize": 43010
+        },
+        {
+          "key": "optimized/mantis-religiosa-toko-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1036,
+          "byteSize": 94987
+        },
+        {
+          "key": "optimized/mantis-religiosa-toko-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1036,
+          "byteSize": 98508
+        }
+      ],
+      "updatedAt": "2026-09-18T18:06:20.916Z"
+    },
     "mauremys-caspica-2.jpg": {
       "sourceHash": "33cde2b5349455bb9853037c0da01ffe82b1fcd94bcea28df5829bac53a24a0a",
       "configFingerprint": "a895f8e025dcc7fa",
