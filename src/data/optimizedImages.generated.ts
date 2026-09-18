@@ -18,6 +18,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 900],
     "formats": ["avif", "webp"]
   },
+  "/images/home/groups/insects.jpg": {
+    "path": "images/home/groups/insects",
+    "width": 900,
+    "height": 900,
+    "widths": [320, 400, 640, 800, 900],
+    "formats": ["avif", "webp"]
+  },
   "/images/home/groups/lizards.jpg": {
     "path": "images/home/groups/lizards",
     "width": 1800,
