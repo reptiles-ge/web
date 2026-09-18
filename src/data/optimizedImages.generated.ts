@@ -4183,6 +4183,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/mantis-religiosa-armen-1.jpg": {
+    "path": "mantis-religiosa-armen-1",
+    "width": 1274,
+    "height": 1880,
+    "widths": [320, 400, 640, 800, 1200, 1274],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/mantis-religiosa-danielcma-1.jpg": {
     "path": "mantis-religiosa-danielcma-1",
     "width": 1024,
