@@ -46158,6 +46158,87 @@
       ],
       "updatedAt": "2026-08-28T21:45:48.768Z"
     },
+    "mantis-religiosa-danielcma-1.jpg": {
+      "sourceHash": "f6ef90fc8d0f4605f227765e4c5e0f0f6041626ba06fe10c3afbaac567624278",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "mantis-religiosa-danielcma-1.jpg",
+      "originalSize": 30970,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/mantis-religiosa-danielcma-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 2935
+        },
+        {
+          "key": "optimized/mantis-religiosa-danielcma-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 3542
+        },
+        {
+          "key": "optimized/mantis-religiosa-danielcma-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 3689
+        },
+        {
+          "key": "optimized/mantis-religiosa-danielcma-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 4392
+        },
+        {
+          "key": "optimized/mantis-religiosa-danielcma-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 6531
+        },
+        {
+          "key": "optimized/mantis-religiosa-danielcma-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 7486
+        },
+        {
+          "key": "optimized/mantis-religiosa-danielcma-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 8441
+        },
+        {
+          "key": "optimized/mantis-religiosa-danielcma-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 9960
+        },
+        {
+          "key": "optimized/mantis-religiosa-danielcma-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 12448
+        },
+        {
+          "key": "optimized/mantis-religiosa-danielcma-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 13922
+        }
+      ],
+      "updatedAt": "2026-09-18T18:08:03.769Z"
+    },
     "mantis-religiosa-gio-1.jpg": {
       "sourceHash": "0ca3bd9044a00a41a9b7261bc3cbc836500c3db1d4d22d69e49b2a5a47f75b1f",
       "configFingerprint": "409788ee46c653d8",
