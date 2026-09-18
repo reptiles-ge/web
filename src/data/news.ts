@@ -63,20 +63,26 @@ export function getPublishedNewsArticles(locale?: AppLocale) {
     });
 }
 
-export function getPublishedNewsForHub(hubId: GroupHubId) {
-  return getPublishedNewsArticles().filter((article) =>
+export function getPublishedNewsForHub(hubId: GroupHubId, locale?: AppLocale) {
+  return getPublishedNewsArticles(locale).filter((article) =>
     article.relatedHubIds.includes(hubId),
   );
 }
 
-export function getPublishedNewsForRegion(regionId: string) {
-  return getPublishedNewsArticles().filter((article) =>
+export function getPublishedNewsForRegion(
+  regionId: string,
+  locale?: AppLocale,
+) {
+  return getPublishedNewsArticles(locale).filter((article) =>
     article.relatedRegionIds.includes(regionId),
   );
 }
 
-export function getPublishedNewsForSpecies(speciesId: string) {
-  return getPublishedNewsArticles().filter((article) =>
+export function getPublishedNewsForSpecies(
+  speciesId: string,
+  locale?: AppLocale,
+) {
+  return getPublishedNewsArticles(locale).filter((article) =>
     article.relatedSpeciesIds.includes(speciesId),
   );
 }

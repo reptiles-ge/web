@@ -175,7 +175,7 @@ export function createGroupHubRoute(hubId: GroupHubId) {
           species={species}
         />
         <NewsRelatedBlock
-          articles={getPublishedNewsForHub(hubId)}
+          articles={getPublishedNewsForHub(hubId, locale)}
           locale={locale}
         />
       </>

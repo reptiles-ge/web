@@ -49,6 +49,7 @@ index.html
 
 tmp/
 .atlas/
+.seo/
 target/
 *.tmp
 cdn-unused-images.txt
