@@ -46158,6 +46158,101 @@
       ],
       "updatedAt": "2026-08-28T21:45:48.768Z"
     },
+    "mantis-religiosa-gio-1.jpg": {
+      "sourceHash": "0ca3bd9044a00a41a9b7261bc3cbc836500c3db1d4d22d69e49b2a5a47f75b1f",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "mantis-religiosa-gio-1.jpg",
+      "originalSize": 99495,
+      "width": 1440,
+      "height": 960,
+      "derivatives": [
+        {
+          "key": "optimized/mantis-religiosa-gio-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6837
+        },
+        {
+          "key": "optimized/mantis-religiosa-gio-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9000
+        },
+        {
+          "key": "optimized/mantis-religiosa-gio-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 9094
+        },
+        {
+          "key": "optimized/mantis-religiosa-gio-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 11918
+        },
+        {
+          "key": "optimized/mantis-religiosa-gio-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 16530
+        },
+        {
+          "key": "optimized/mantis-religiosa-gio-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 21506
+        },
+        {
+          "key": "optimized/mantis-religiosa-gio-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 21679
+        },
+        {
+          "key": "optimized/mantis-religiosa-gio-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 28546
+        },
+        {
+          "key": "optimized/mantis-religiosa-gio-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 35776
+        },
+        {
+          "key": "optimized/mantis-religiosa-gio-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 47016
+        },
+        {
+          "key": "optimized/mantis-religiosa-gio-1-1440.avif",
+          "format": "avif",
+          "width": 1440,
+          "height": 960,
+          "byteSize": 49079
+        },
+        {
+          "key": "optimized/mantis-religiosa-gio-1-1440.webp",
+          "format": "webp",
+          "width": 1440,
+          "height": 960,
+          "byteSize": 59118
+        }
+      ],
+      "updatedAt": "2026-09-18T18:04:59.799Z"
+    },
     "mantis-religiosa-gocha-1.jpg": {
       "sourceHash": "f272c058166a16b7c734bf60a97494b9d4dee85fe7916030b1d4e5ea9c6ad8b8",
       "configFingerprint": "409788ee46c653d8",
