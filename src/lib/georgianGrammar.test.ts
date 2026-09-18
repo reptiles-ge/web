@@ -8,6 +8,12 @@ describe("georgianTanPhrase", () => {
     expect(georgianTanPhrase("წყლის გველი")).toBe("წყლის გველთან");
   });
 
+  it("uses known phrase overrides", () => {
+    expect(georgianTanPhrase("აღმოსავლეთკავკასიური ჯიხვი")).toBe(
+      "აღმოსავლეთკავკასიურ ჯიხვთან",
+    );
+  });
+
   it("adds სთან after vowel-final names", () => {
     expect(georgianTanPhrase("გიურზა")).toBe("გიურზასთან");
   });
