@@ -14,6 +14,11 @@ const SPECIES_ROOT = path.join(SRC_ROOT, "content", "species");
 const IMAGE_EXT = /\.(avif|gif|jpe?g|png|svg|webp)(\?.*)?$/i;
 const CDN_URL_RE = /https:\/\/cdn\.reptiles\.ge\/[^"'\\\s)>]+/g;
 const LOCAL_IMAGE_RE = /(?<!cdn\.reptiles\.ge)\/images\/[^"'\\\s)>]+/g;
+const PLACEHOLDER_IMAGE_SRCS = new Set([
+  "/images/species-placeholder.jpg",
+  "/images/species-placeholder.png",
+  "/images/species-placeholder.svg",
+]);
 
 const SKIP_DIR_NAMES = new Set([".git", ".next", "node_modules"]);
 const SKIP_FILE_NAMES = new Set([
@@ -119,6 +124,7 @@ function parseArguments(argv: string[]): CliOptions {
 }
 
 function isSourceSrc(value: string) {
+  if (PLACEHOLDER_IMAGE_SRCS.has(value)) return false;
   if (value.includes("/optimized/")) return false;
   if (!IMAGE_EXT.test(value)) return false;
   return value.startsWith(`${CDN_BASE}/`) || value.startsWith("/images/");
@@ -210,6 +216,7 @@ function collectSources(): Map<string, ImageHit> {
 function servedUrlsFor(src: string): string[] {
   const entry = optimizedEntry(src);
   if (!entry) {
+    if (src.startsWith("/images/")) return [src];
     return src.startsWith("http") ? [src] : [];
   }
   const urls: string[] = [];
@@ -252,7 +259,7 @@ function collectServedUrls(): {
 }
 
 type CdnClient = {
-  close: () => void;
+  close: () => Promise<void>;
   status: (url: string) => Promise<number>;
 };
 
@@ -316,14 +323,28 @@ function createCdnClient(timeoutMs: number): CdnClient {
 
   return {
     close() {
-      session?.close();
+      const current = session;
       session = undefined;
+      connecting = undefined;
+      if (!current || current.closed || current.destroyed) {
+        return Promise.resolve();
+      }
+      return new Promise((resolve) => {
+        const timer = setTimeout(() => {
+          current.destroy();
+          resolve();
+        }, 500);
+        current.close(() => {
+          clearTimeout(timer);
+          resolve();
+        });
+      });
     },
     async status(url: string) {
       try {
         return await requestStatus(await connect(), url);
       } catch {
-        session?.close();
+        session?.destroy();
         session = undefined;
         connecting = undefined;
         return requestStatus(await connect(), url);
@@ -347,7 +368,19 @@ function toCheckResult(url: string, statusCode: number): CheckResult {
   };
 }
 
-async function checkUrl(url: string, client: CdnClient): Promise<CheckResult> {
+function checkLocalImage(src: string): CheckResult {
+  const pathname = new URL(src, "http://local").pathname;
+  const filePath = path.join(ROOT, "public", decodeURIComponent(pathname));
+  if (fs.existsSync(filePath)) return { status: "ok", url: src };
+  return { status: "not_found", statusCode: 404, url: src };
+}
+
+async function checkUrl(
+  url: string,
+  client: CdnClient,
+): Promise<CheckResult> {
+  if (url.startsWith("/images/")) return checkLocalImage(url);
+
   try {
     return toCheckResult(url, await client.status(url));
   } catch (error) {
@@ -419,7 +452,7 @@ async function main() {
       return result;
     });
   } finally {
-    client.close();
+    await client.close();
   }
   const elapsedMs = Date.now() - started;
 
@@ -482,7 +515,11 @@ async function main() {
   }
 }
 
-main().catch((error) => {
-  console.error(error instanceof Error ? error.message : error);
-  process.exitCode = 1;
-});
+main()
+  .then(() => {
+    setImmediate(() => process.exit(process.exitCode ?? 0));
+  })
+  .catch((error) => {
+    console.error(error instanceof Error ? error.message : error);
+    setImmediate(() => process.exit(1));
+  });
