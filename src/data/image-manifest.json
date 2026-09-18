@@ -7784,6 +7784,386 @@
       ],
       "updatedAt": "2026-08-28T21:29:49.802Z"
     },
+    "capra-cylindricornis-nika-1.jpg": {
+      "sourceHash": "5daad70229bb138c48c9e5f103d9e551ba52ec92f35a8beaedbeec96dc3d4f36",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "capra-cylindricornis-nika-1.jpg",
+      "originalSize": 458124,
+      "width": 2007,
+      "height": 1367,
+      "derivatives": [
+        {
+          "key": "optimized/capra-cylindricornis-nika-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 218,
+          "byteSize": 14566
+        },
+        {
+          "key": "optimized/capra-cylindricornis-nika-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 218,
+          "byteSize": 22150
+        },
+        {
+          "key": "optimized/capra-cylindricornis-nika-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 272,
+          "byteSize": 20544
+        },
+        {
+          "key": "optimized/capra-cylindricornis-nika-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 272,
+          "byteSize": 31048
+        },
+        {
+          "key": "optimized/capra-cylindricornis-nika-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 436,
+          "byteSize": 45693
+        },
+        {
+          "key": "optimized/capra-cylindricornis-nika-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 436,
+          "byteSize": 67108
+        },
+        {
+          "key": "optimized/capra-cylindricornis-nika-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 545,
+          "byteSize": 65245
+        },
+        {
+          "key": "optimized/capra-cylindricornis-nika-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 545,
+          "byteSize": 94938
+        },
+        {
+          "key": "optimized/capra-cylindricornis-nika-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 817,
+          "byteSize": 122387
+        },
+        {
+          "key": "optimized/capra-cylindricornis-nika-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 817,
+          "byteSize": 167782
+        },
+        {
+          "key": "optimized/capra-cylindricornis-nika-1-2007.avif",
+          "format": "avif",
+          "width": 2007,
+          "height": 1367,
+          "byteSize": 312556
+        },
+        {
+          "key": "optimized/capra-cylindricornis-nika-1-2007.webp",
+          "format": "webp",
+          "width": 2007,
+          "height": 1367,
+          "byteSize": 371482
+        }
+      ],
+      "updatedAt": "2026-09-18T14:59:40.100Z"
+    },
+    "capra-cylindricornis-nika-2.jpg": {
+      "sourceHash": "26c3fb8528465ba52a180049f94bdc30594575c38e97b37e29d97b8085f46107",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "capra-cylindricornis-nika-2.jpg",
+      "originalSize": 729785,
+      "width": 1747,
+      "height": 1165,
+      "derivatives": [
+        {
+          "key": "optimized/capra-cylindricornis-nika-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 214,
+          "byteSize": 15813
+        },
+        {
+          "key": "optimized/capra-cylindricornis-nika-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 214,
+          "byteSize": 25636
+        },
+        {
+          "key": "optimized/capra-cylindricornis-nika-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 25343
+        },
+        {
+          "key": "optimized/capra-cylindricornis-nika-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 39718
+        },
+        {
+          "key": "optimized/capra-cylindricornis-nika-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 65732
+        },
+        {
+          "key": "optimized/capra-cylindricornis-nika-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 99876
+        },
+        {
+          "key": "optimized/capra-cylindricornis-nika-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 101593
+        },
+        {
+          "key": "optimized/capra-cylindricornis-nika-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 157876
+        },
+        {
+          "key": "optimized/capra-cylindricornis-nika-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 231793
+        },
+        {
+          "key": "optimized/capra-cylindricornis-nika-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 355470
+        },
+        {
+          "key": "optimized/capra-cylindricornis-nika-2-1747.avif",
+          "format": "avif",
+          "width": 1747,
+          "height": 1165,
+          "byteSize": 442743
+        },
+        {
+          "key": "optimized/capra-cylindricornis-nika-2-1747.webp",
+          "format": "webp",
+          "width": 1747,
+          "height": 1165,
+          "byteSize": 718730
+        }
+      ],
+      "updatedAt": "2026-09-18T14:59:40.471Z"
+    },
+    "capra-cylindricornis-nika-3.jpg": {
+      "sourceHash": "28cf779623c3a57c0ebdf24ca3cd60cb7da5d36ab2577d27e7602536a8495e26",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "capra-cylindricornis-nika-3.jpg",
+      "originalSize": 533802,
+      "width": 1890,
+      "height": 1311,
+      "derivatives": [
+        {
+          "key": "optimized/capra-cylindricornis-nika-3-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 222,
+          "byteSize": 9724
+        },
+        {
+          "key": "optimized/capra-cylindricornis-nika-3-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 222,
+          "byteSize": 13776
+        },
+        {
+          "key": "optimized/capra-cylindricornis-nika-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 277,
+          "byteSize": 15081
+        },
+        {
+          "key": "optimized/capra-cylindricornis-nika-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 277,
+          "byteSize": 21202
+        },
+        {
+          "key": "optimized/capra-cylindricornis-nika-3-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 444,
+          "byteSize": 39422
+        },
+        {
+          "key": "optimized/capra-cylindricornis-nika-3-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 444,
+          "byteSize": 52874
+        },
+        {
+          "key": "optimized/capra-cylindricornis-nika-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 555,
+          "byteSize": 62768
+        },
+        {
+          "key": "optimized/capra-cylindricornis-nika-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 555,
+          "byteSize": 84066
+        },
+        {
+          "key": "optimized/capra-cylindricornis-nika-3-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 832,
+          "byteSize": 144272
+        },
+        {
+          "key": "optimized/capra-cylindricornis-nika-3-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 832,
+          "byteSize": 195170
+        },
+        {
+          "key": "optimized/capra-cylindricornis-nika-3-1890.avif",
+          "format": "avif",
+          "width": 1890,
+          "height": 1311,
+          "byteSize": 327868
+        },
+        {
+          "key": "optimized/capra-cylindricornis-nika-3-1890.webp",
+          "format": "webp",
+          "width": 1890,
+          "height": 1311,
+          "byteSize": 481080
+        }
+      ],
+      "updatedAt": "2026-09-18T14:59:36.626Z"
+    },
+    "capra-cylindricornis-nika-4.jpg": {
+      "sourceHash": "8c0f9f5198c9558e2075689f622324c51a4a859e853baa880b6d0d806feaa513",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "capra-cylindricornis-nika-4.jpg",
+      "originalSize": 616013,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/capra-cylindricornis-nika-4-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 13062
+        },
+        {
+          "key": "optimized/capra-cylindricornis-nika-4-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 20918
+        },
+        {
+          "key": "optimized/capra-cylindricornis-nika-4-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 19191
+        },
+        {
+          "key": "optimized/capra-cylindricornis-nika-4-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 30920
+        },
+        {
+          "key": "optimized/capra-cylindricornis-nika-4-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 46292
+        },
+        {
+          "key": "optimized/capra-cylindricornis-nika-4-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 72050
+        },
+        {
+          "key": "optimized/capra-cylindricornis-nika-4-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 69868
+        },
+        {
+          "key": "optimized/capra-cylindricornis-nika-4-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 109898
+        },
+        {
+          "key": "optimized/capra-cylindricornis-nika-4-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 141776
+        },
+        {
+          "key": "optimized/capra-cylindricornis-nika-4-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 222766
+        },
+        {
+          "key": "optimized/capra-cylindricornis-nika-4-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 371492
+        },
+        {
+          "key": "optimized/capra-cylindricornis-nika-4-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 546554
+        }
+      ],
+      "updatedAt": "2026-09-18T14:59:39.072Z"
+    },
     "capreolus-capreolus-antlers-1.jpg": {
       "sourceHash": "82d08ed4e02a4141db5b98e8a0c93db5795fc0f46e9dbd9a48497a0edde28aa4",
       "configFingerprint": "a895f8e025dcc7fa",

@@ -900,6 +900,34 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2400],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/capra-cylindricornis-nika-1.jpg": {
+    "path": "capra-cylindricornis-nika-1",
+    "width": 2007,
+    "height": 1367,
+    "widths": [320, 400, 640, 800, 1200, 2007],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/capra-cylindricornis-nika-2.jpg": {
+    "path": "capra-cylindricornis-nika-2",
+    "width": 1747,
+    "height": 1165,
+    "widths": [320, 400, 640, 800, 1200, 1747],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/capra-cylindricornis-nika-3.jpg": {
+    "path": "capra-cylindricornis-nika-3",
+    "width": 1890,
+    "height": 1311,
+    "widths": [320, 400, 640, 800, 1200, 1890],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/capra-cylindricornis-nika-4.jpg": {
+    "path": "capra-cylindricornis-nika-4",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/capreolus-capreolus-antlers-1.jpg": {
     "path": "capreolus-capreolus-antlers-1",
     "width": 1914,
