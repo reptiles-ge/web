@@ -335,6 +335,9 @@ fn check_routes(
             );
             continue;
         }
+        if is_local_rewrite_redirect(fetch) {
+            continue;
+        }
         if is_redirect(fetch.status) {
             fatal(
                 diagnostics,
@@ -634,7 +637,7 @@ fn check_hreflang(
             continue;
         }
         match fetches.get(&target_path) {
-            Some(fetch) if fetch.status == 200 => {}
+            Some(fetch) if fetch_is_healthy_expected_route(fetch) => {}
             Some(fetch) if is_redirect(fetch.status) => fatal(
                 diagnostics,
                 "hreflang-target-redirect",
@@ -799,7 +802,7 @@ fn validate_jsonld_urls(
                     Some(route),
                     format!("JSON-LD internal URL `{url}` returns 404"),
                 );
-            } else if is_redirect(fetch.status) {
+            } else if is_redirect(fetch.status) && !is_local_rewrite_redirect(fetch) {
                 fatal(
                     diagnostics,
                     "jsonld-internal-url-broken",
@@ -876,7 +879,7 @@ fn validate_breadcrumb(
                             Some(route),
                             format!("breadcrumb target `{url}` returned 404"),
                         );
-                    } else if is_redirect(fetch.status) {
+                    } else if is_redirect(fetch.status) && !is_local_rewrite_redirect(fetch) {
                         fatal(
                             diagnostics,
                             "breadcrumb-target-redirect",
@@ -1047,7 +1050,7 @@ fn check_sitemap(
                 expected_by_path.get(&path),
                 format!("sitemap URL returned HTTP {}", fetch.status),
             );
-        } else if is_redirect(fetch.status) {
+        } else if is_redirect(fetch.status) && !is_local_rewrite_redirect(fetch) {
             fatal(
                 diagnostics,
                 "sitemap-url-redirect",
@@ -1220,7 +1223,7 @@ fn check_internal_links(
                     expected_by_path.get(source),
                     format!("internal link `{href}` returns HTTP {}", fetch.status),
                 );
-            } else if is_redirect(fetch.status) {
+            } else if is_redirect(fetch.status) && !is_local_rewrite_redirect(fetch) {
                 warning(
                     diagnostics,
                     "internal-link-redirect",
@@ -1262,6 +1265,9 @@ fn check_orphans(
             continue;
         }
         if expected_route_is_unhealthy(path, expected_by_path, fetches) {
+            continue;
+        }
+        if !models.contains_key(path) {
             continue;
         }
         if inbound.get(path).is_none_or(BTreeSet::is_empty) {
@@ -1975,7 +1981,9 @@ fn expected_route_is_unhealthy(
 ) -> bool {
     let path = normalize_path(path);
     expected_by_path.contains_key(&path)
-        && fetches.get(&path).is_some_and(|fetch| fetch.status != 200)
+        && fetches
+            .get(&path)
+            .is_some_and(|fetch| !fetch_is_healthy_expected_route(fetch))
 }
 
 fn page_noindex(fetch: &FetchResult, model: &PageModel) -> bool {
@@ -2049,6 +2057,18 @@ fn parse_seo_date(value: &str) -> Option<DateTime<Utc>> {
 
 fn is_redirect(status: u16) -> bool {
     (300..400).contains(&status)
+}
+
+fn fetch_is_healthy_expected_route(fetch: &FetchResult) -> bool {
+    fetch.status == 200 || is_local_rewrite_redirect(fetch)
+}
+
+fn is_local_rewrite_redirect(fetch: &FetchResult) -> bool {
+    is_redirect(fetch.status)
+        && fetch
+            .headers
+            .get("x-middleware-rewrite")
+            .is_some_and(|values| !values.is_empty())
 }
 
 fn normalize_path(value: &str) -> String {
@@ -2274,6 +2294,16 @@ mod tests {
         }
     }
 
+    fn local_rewrite_fetch(path: &str) -> FetchResult {
+        let mut fetch = fetch(path, 301);
+        fetch.location = Some("/amphibians/foo".to_string());
+        fetch.headers.insert(
+            "x-middleware-rewrite".to_string(),
+            vec!["http://localhost:3000/ka/amphibians/foo".to_string()],
+        );
+        fetch
+    }
+
     #[test]
     fn normalizes_internal_urls() {
         assert_eq!(
@@ -2318,6 +2348,28 @@ mod tests {
         assert!(diagnostics
             .iter()
             .any(|item| item.code == "unexpected-noindex"));
+    }
+
+    #[test]
+    fn ignores_local_next_intl_rewrite_redirect_artifact() {
+        let route = route("/amfibiebi/foo");
+        let graph = graph(vec![route.clone()]);
+        let expected = BTreeMap::from([(route.path.clone(), route.clone())]);
+        let fetches = BTreeMap::from([(route.path.clone(), local_rewrite_fetch(&route.path))]);
+        let mut diagnostics = Vec::new();
+        check_routes(
+            &graph,
+            &expected,
+            &fetches,
+            &BTreeMap::new(),
+            &mut diagnostics,
+        );
+        assert!(diagnostics.is_empty());
+        assert!(!expected_route_is_unhealthy(
+            &route.path,
+            &expected,
+            &fetches
+        ));
     }
 
     #[test]
@@ -2505,7 +2557,10 @@ mod tests {
             ("/a".to_string(), fetch("/a", 200)),
             ("/b".to_string(), fetch("/b", 200)),
         ]);
-        let models = BTreeMap::from([("/a".to_string(), page("/a", "https://reptiles.ge/a"))]);
+        let models = BTreeMap::from([
+            ("/a".to_string(), page("/a", "https://reptiles.ge/a")),
+            ("/b".to_string(), page("/b", "https://reptiles.ge/b")),
+        ]);
         let mut diagnostics = Vec::new();
         check_orphans(&graph, &expected, &fetches, &models, &mut diagnostics);
         assert!(diagnostics
