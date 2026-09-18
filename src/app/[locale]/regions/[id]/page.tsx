@@ -255,7 +255,7 @@ export default async function RegionPage({ params }: PageProps) {
         venomous={venomous}
       />
       <NewsRelatedBlock
-        articles={getPublishedNewsForRegion(region.id)}
+        articles={getPublishedNewsForRegion(region.id, locale)}
         locale={locale}
       />
     </>
