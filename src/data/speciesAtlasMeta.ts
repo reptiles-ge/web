@@ -103,6 +103,10 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "mammal",
     habitats: ["forest", "grassland", "mountain"],
   },
+  "cheiracanthium-punctorium": {
+    group: "spider",
+    habitats: ["grassland"],
+  },
   "ciconia-ciconia": {
     group: "bird",
     habitats: ["wetland", "grassland"],

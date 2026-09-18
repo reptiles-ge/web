@@ -692,6 +692,22 @@ const SPECIES_ALIASES: Record<
       "Capreolus capreolus caucasicus",
     ],
   },
+  "cheiracanthium-punctorium": {
+    en: [
+      "European yellow sac spider",
+      "yellow sac spider",
+      "Cheiracanthium punctorium",
+      "Aranea punctoria",
+    ],
+    ka: [
+      "Cheiracanthium punctorium",
+      "yellow sac spider",
+      "European yellow sac spider",
+      "Aranea punctoria",
+    ],
+    ru: ["Cheiracanthium punctorium", "желтый паук", "Aranea punctoria"],
+    tr: ["Cheiracanthium punctorium", "sarı kese örümceği", "Aranea punctoria"],
+  },
   "ciconia-ciconia": {
     en: [
       "western white stork",

@@ -70,6 +70,10 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
     en: "Lobed argiope (Argiope lobata) | Orb-weaver in Georgia",
     ka: "ლობებიანი არგიოპა (Argiope lobata) | ობობა საქართველოში",
   },
+  "cheiracanthium-punctorium": {
+    en: "European yellow sac spider (Cheiracanthium punctorium) | Spider in Georgia",
+    ka: "Cheiracanthium punctorium | ობობა საქართველოში",
+  },
   "columba-palumbus": {
     en: "Common woodpigeon (Columba palumbus) | Wood pigeon in Georgia",
     ka: "ქედანი (Columba palumbus) | ტყის მტრედი საქართველოში",
@@ -167,6 +171,10 @@ const SPECIES_META_DESCRIPTION_OVERRIDE: Partial<
   },
   "buteo-buteo": {
     ka: "ჩვეულებრივი კაკაჩა (Buteo buteo) საქართველოში — ამოცნობის ნიშნები, გავრცელება, ჰაბიტატი, კვება, მიგრაცია ბათუმის გავლით და რატომ არის ადამიანისთვის უვნებელი.",
+  },
+  "cheiracanthium-punctorium": {
+    en: "European yellow sac spider (Cheiracanthium punctorium) in Georgia: confirmed records, identification, habitat, size, and realistic bite risk.",
+    ka: "Cheiracanthium punctorium საქართველოში — დადასტურებული ჩანაწერები, ამოცნობის ნიშნები, ჰაბიტატი, ზომა და მტკივნეული ნაკბენის რეალური რისკი.",
   },
   "dolichophis-schmidti": {
     ka: "წითელმუცელა მცურავი (Dolichophis schmidti) საქართველოში — ამოცნობის ნიშნები, აღმოსავლეთ საქართველოს ჰაბიტატები, ზომა, ქცევა და რამდენად საშიშია ადამიანისთვის.",

@@ -92,6 +92,12 @@ const KA_SLUG_ALIASES: Record<string, string[]> = {
     "caucasian-red-deer",
     "maral",
   ],
+  "cheiracanthium-punctorium": [
+    "cheiracanthium",
+    "cheiracanthium-punctorium",
+    "european-yellow-sac-spider",
+    "yellow-sac-spider",
+  ],
   "ciconia-ciconia": ["laklaki", "tetri-qarqati"],
   "columba-palumbus": [
     "kedani",
