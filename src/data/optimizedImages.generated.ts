@@ -928,6 +928,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/capra-cylindricornis-nika-5.jpg": {
+    "path": "capra-cylindricornis-nika-5",
+    "width": 1536,
+    "height": 1024,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/capreolus-capreolus-antlers-1.jpg": {
     "path": "capreolus-capreolus-antlers-1",
     "width": 1914,
