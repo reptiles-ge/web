@@ -4225,6 +4225,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/mantis-religiosa-zauri-1.jpg": {
+    "path": "mantis-religiosa-zauri-1",
+    "width": 2400,
+    "height": 3360,
+    "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/mauremys-caspica-2.jpg": {
     "path": "mauremys-caspica-2",
     "width": 1583,
