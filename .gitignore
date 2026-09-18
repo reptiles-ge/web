@@ -48,6 +48,8 @@ src/data/search-index.*.generated.ts
 index.html
 
 tmp/
+.atlas/
+target/
 *.tmp
 cdn-unused-images.txt
 /test-results/
