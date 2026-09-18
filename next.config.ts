@@ -49,6 +49,7 @@ const nextConfig: NextConfig = {
       { key: "X-Content-Type-Options", value: "nosniff" },
       { key: "X-Frame-Options", value: "DENY" },
     ];
+    const noindexStatic = [{ key: "X-Robots-Tag", value: "noindex" }];
     return [
       {
         headers: [
@@ -60,6 +61,10 @@ const nextConfig: NextConfig = {
           },
         ],
         source: "/:path*",
+      },
+      {
+        headers: noindexStatic,
+        source: "/_next/static/:path*",
       },
       {
         headers: [
