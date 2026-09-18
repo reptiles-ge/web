@@ -46158,6 +46158,87 @@
       ],
       "updatedAt": "2026-08-28T21:45:48.768Z"
     },
+    "mantis-religiosa-gocha-1.jpg": {
+      "sourceHash": "f272c058166a16b7c734bf60a97494b9d4dee85fe7916030b1d4e5ea9c6ad8b8",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "mantis-religiosa-gocha-1.jpg",
+      "originalSize": 70328,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/mantis-religiosa-gocha-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 5335
+        },
+        {
+          "key": "optimized/mantis-religiosa-gocha-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6624
+        },
+        {
+          "key": "optimized/mantis-religiosa-gocha-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 6829
+        },
+        {
+          "key": "optimized/mantis-religiosa-gocha-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 8716
+        },
+        {
+          "key": "optimized/mantis-religiosa-gocha-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 12080
+        },
+        {
+          "key": "optimized/mantis-religiosa-gocha-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 15480
+        },
+        {
+          "key": "optimized/mantis-religiosa-gocha-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 15443
+        },
+        {
+          "key": "optimized/mantis-religiosa-gocha-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 20458
+        },
+        {
+          "key": "optimized/mantis-religiosa-gocha-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 21341
+        },
+        {
+          "key": "optimized/mantis-religiosa-gocha-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 28144
+        }
+      ],
+      "updatedAt": "2026-09-18T18:02:45.169Z"
+    },
     "mantis-religiosa-gogopopo-3.jpg": {
       "sourceHash": "9ccc66fc5765cb707adf08047a2bc5f2f089bdae0e6339ebff70429a39ab0a10",
       "configFingerprint": "409788ee46c653d8",
