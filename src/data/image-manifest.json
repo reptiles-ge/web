@@ -54760,6 +54760,87 @@
       ],
       "updatedAt": "2026-09-19T19:53:27.638Z"
     },
+    "olivierus-caucasicus-vil05-1.jpg": {
+      "sourceHash": "17b09b275d199593aaca28ed4296db27ff92237dc9f4cdd369f2540f148249b4",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "olivierus-caucasicus-vil05-1.jpg",
+      "originalSize": 244519,
+      "width": 1024,
+      "height": 768,
+      "derivatives": [
+        {
+          "key": "optimized/olivierus-caucasicus-vil05-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 16098
+        },
+        {
+          "key": "optimized/olivierus-caucasicus-vil05-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 25830
+        },
+        {
+          "key": "optimized/olivierus-caucasicus-vil05-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 24388
+        },
+        {
+          "key": "optimized/olivierus-caucasicus-vil05-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 38488
+        },
+        {
+          "key": "optimized/olivierus-caucasicus-vil05-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 51012
+        },
+        {
+          "key": "optimized/olivierus-caucasicus-vil05-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 82640
+        },
+        {
+          "key": "optimized/olivierus-caucasicus-vil05-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 71377
+        },
+        {
+          "key": "optimized/olivierus-caucasicus-vil05-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 114806
+        },
+        {
+          "key": "optimized/olivierus-caucasicus-vil05-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 103459
+        },
+        {
+          "key": "optimized/olivierus-caucasicus-vil05-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 156872
+        }
+      ],
+      "updatedAt": "2026-09-19T19:54:09.252Z"
+    },
     "ommatotriton-ophryticus-2.jpg": {
       "sourceHash": "b6b3e608bebea71073edaae8e5d440fb5bfab1860c2c159623f36dcc4e09d534",
       "configFingerprint": "a895f8e025dcc7fa",
