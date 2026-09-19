@@ -29860,7 +29860,7 @@
           "byteSize": 272276
         }
       ],
-      "updatedAt": "2026-09-15T09:30:27.071Z"
+      "updatedAt": "2026-09-19T10:46:26.323Z"
     },
     "images/home/groups/birds.jpg": {
       "sourceHash": "d03c8925303f88a828fb31e4e3562553ed92ea2500c90d6ea877d20fed35fd00",
@@ -29941,7 +29941,7 @@
           "byteSize": 131548
         }
       ],
-      "updatedAt": "2026-09-15T09:30:28.098Z"
+      "updatedAt": "2026-09-19T10:46:31.359Z"
     },
     "images/home/groups/insects.jpg": {
       "sourceHash": "5cdb9c2b740a71d71c5a6700ab5f39ee6ebe969381964b3601ef273566c2cfb5",
@@ -30022,7 +30022,7 @@
           "byteSize": 93506
         }
       ],
-      "updatedAt": "2026-09-18T18:11:12.697Z"
+      "updatedAt": "2026-09-19T10:46:38.925Z"
     },
     "images/home/groups/lizards.jpg": {
       "sourceHash": "066e1cc066206326ab10437dc3fe3c9c1f27540673608d9dbf89b310b6bd8702",
@@ -30117,7 +30117,7 @@
           "byteSize": 344598
         }
       ],
-      "updatedAt": "2026-09-15T09:30:33.028Z"
+      "updatedAt": "2026-09-19T10:46:49.615Z"
     },
     "images/home/groups/mammals.jpg": {
       "sourceHash": "e84e26f71a016ebd729eab74a5d537383d9721855d90a4d27527721ceb940739",
@@ -30198,7 +30198,88 @@
           "byteSize": 178278
         }
       ],
-      "updatedAt": "2026-09-15T09:30:25.694Z"
+      "updatedAt": "2026-09-19T10:46:55.268Z"
+    },
+    "images/home/groups/scorpions.jpg": {
+      "sourceHash": "e3cb4dd5c659564c67cfce918d1a438d13675c51876be3fd10b8540a7ed46215",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/home/groups/scorpions.jpg",
+      "originalSize": 60548,
+      "width": 900,
+      "height": 900,
+      "derivatives": [
+        {
+          "key": "optimized/images/home/groups/scorpions-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 320,
+          "byteSize": 3978
+        },
+        {
+          "key": "optimized/images/home/groups/scorpions-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 320,
+          "byteSize": 5254
+        },
+        {
+          "key": "optimized/images/home/groups/scorpions-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 400,
+          "byteSize": 4980
+        },
+        {
+          "key": "optimized/images/home/groups/scorpions-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 400,
+          "byteSize": 6320
+        },
+        {
+          "key": "optimized/images/home/groups/scorpions-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 640,
+          "byteSize": 7854
+        },
+        {
+          "key": "optimized/images/home/groups/scorpions-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 640,
+          "byteSize": 9966
+        },
+        {
+          "key": "optimized/images/home/groups/scorpions-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 800,
+          "byteSize": 9745
+        },
+        {
+          "key": "optimized/images/home/groups/scorpions-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 800,
+          "byteSize": 13050
+        },
+        {
+          "key": "optimized/images/home/groups/scorpions-900.avif",
+          "format": "avif",
+          "width": 900,
+          "height": 900,
+          "byteSize": 11091
+        },
+        {
+          "key": "optimized/images/home/groups/scorpions-900.webp",
+          "format": "webp",
+          "width": 900,
+          "height": 900,
+          "byteSize": 14224
+        }
+      ],
+      "updatedAt": "2026-09-19T10:47:06.911Z"
     },
     "images/home/groups/snakes.jpg": {
       "sourceHash": "40913797bd7a37477ae447364c3a7106609e7104b774351c0aa089cfc18e92df",
@@ -30293,7 +30374,7 @@
           "byteSize": 249742
         }
       ],
-      "updatedAt": "2026-09-15T09:30:32.963Z"
+      "updatedAt": "2026-09-19T10:47:15.425Z"
     },
     "images/home/groups/spiders.jpg": {
       "sourceHash": "d97fae0b550f0760f7cf89bfb18b376b87ce2b40a6bd5fe1e086bff908918f1c",
@@ -30374,7 +30455,7 @@
           "byteSize": 126958
         }
       ],
-      "updatedAt": "2026-09-15T09:30:36.833Z"
+      "updatedAt": "2026-09-19T10:47:22.138Z"
     },
     "images/home/groups/turtles.jpg": {
       "sourceHash": "865e39fdba02b04b4981d8c5d4d97c28510ec069dd186d3acc4ec3c43a3f52ef",
@@ -30469,7 +30550,7 @@
           "byteSize": 298432
         }
       ],
-      "updatedAt": "2026-09-15T09:30:38.753Z"
+      "updatedAt": "2026-09-19T10:47:37.262Z"
     },
     "images/news/theridion-huseynovi-new-spider-species-georgia-2026/theridion-huseynovi.png": {
       "sourceHash": "d4a1a13fbf943fc87f371418a57eca878129fcd41f735deb5bfbca43c80fe9f3",

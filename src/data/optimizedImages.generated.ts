@@ -39,6 +39,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 900],
     "formats": ["avif", "webp"]
   },
+  "/images/home/groups/scorpions.jpg": {
+    "path": "images/home/groups/scorpions",
+    "width": 900,
+    "height": 900,
+    "widths": [320, 400, 640, 800, 900],
+    "formats": ["avif", "webp"]
+  },
   "/images/home/groups/snakes.jpg": {
     "path": "images/home/groups/snakes",
     "width": 1800,
@@ -1056,13 +1063,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
   },
   "https://cdn.reptiles.ge/cervus-elaphus-teimuraz-1.jpg": {
     "path": "cervus-elaphus-teimuraz-1",
-    "width": 1957,
-    "height": 1305,
-    "widths": [320, 400, 640, 800, 1200, 1957],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/cervus-elaphus-teimuraz-2.jpg": {
-    "path": "cervus-elaphus-teimuraz-2",
     "width": 1957,
     "height": 1305,
     "widths": [320, 400, 640, 800, 1200, 1957],

@@ -93,7 +93,7 @@ export const GROUP_HUB_ILLUSTRATIONS: Record<GroupHubId, string> = {
   insects: "/images/home/groups/insects.jpg",
   lizards: "/images/home/groups/lizards.jpg",
   mammals: "/images/home/groups/mammals.jpg",
-  scorpions: "/images/species-placeholder.svg",
+  scorpions: "/images/home/groups/scorpions.jpg",
   snakes: "/images/home/groups/snakes.jpg",
   spiders: "/images/home/groups/spiders.jpg",
   turtles: "/images/home/groups/turtles.jpg",
