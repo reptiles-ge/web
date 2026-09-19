@@ -4904,6 +4904,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/olivierus-caucasicus-ilia-1.jpg": {
+    "path": "olivierus-caucasicus-ilia-1",
+    "width": 500,
+    "height": 333,
+    "widths": [320, 400, 500],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/olivierus-caucasicus-leonid-1.jpg": {
     "path": "olivierus-caucasicus-leonid-1",
     "width": 1024,

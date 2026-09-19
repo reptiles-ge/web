@@ -54760,6 +54760,59 @@
       ],
       "updatedAt": "2026-09-19T19:53:27.638Z"
     },
+    "olivierus-caucasicus-ilia-1.jpg": {
+      "sourceHash": "32b3c6b547aa77c2b22708754b5c5dd2c66fa62f5c8e25c4e1f2893804904874",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "olivierus-caucasicus-ilia-1.jpg",
+      "originalSize": 64499,
+      "width": 500,
+      "height": 333,
+      "derivatives": [
+        {
+          "key": "optimized/olivierus-caucasicus-ilia-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 13793
+        },
+        {
+          "key": "optimized/olivierus-caucasicus-ilia-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 20078
+        },
+        {
+          "key": "optimized/olivierus-caucasicus-ilia-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 20751
+        },
+        {
+          "key": "optimized/olivierus-caucasicus-ilia-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 30076
+        },
+        {
+          "key": "optimized/olivierus-caucasicus-ilia-1-500.avif",
+          "format": "avif",
+          "width": 500,
+          "height": 333,
+          "byteSize": 31827
+        },
+        {
+          "key": "optimized/olivierus-caucasicus-ilia-1-500.webp",
+          "format": "webp",
+          "width": 500,
+          "height": 333,
+          "byteSize": 45048
+        }
+      ],
+      "updatedAt": "2026-09-19T20:02:38.459Z"
+    },
     "olivierus-caucasicus-leonid-1.jpg": {
       "sourceHash": "5dc47b8921223992bc045d573effb5513c278604e7bb1e16ff0e566eefef844d",
       "configFingerprint": "409788ee46c653d8",
