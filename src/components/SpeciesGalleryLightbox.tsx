@@ -235,6 +235,7 @@ export function SpeciesGalleryLightbox({
                 <picture
                   className="media-placeholder absolute inset-0 block size-full"
                   key={activeSlide.src}
+                  style={{ backgroundColor: "transparent" }}
                 >
                   {activeSlide.sources.map((source) => (
                     <source key={source.key} {...source.props} />
