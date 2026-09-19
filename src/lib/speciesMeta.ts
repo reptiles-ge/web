@@ -95,8 +95,8 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
     ka: "გულწითელა (Erithacus rubecula) | მთელი წლის რეზიდენტი საქართველოში",
   },
   "euscorpius-italicus": {
-    en: "Italian scorpion (Euscorpius italicus) | Western Georgia",
-    ka: "იტალიური მორიელი (Euscorpius italicus) | მორიელი დასავლეთ საქართველოში",
+    en: "Italian scorpion (Euscorpius italicus) | Georgia",
+    ka: "იტალიური მორიელი (Euscorpius italicus) | მორიელი საქართველოში",
   },
   "euscorpius-mingrelicus": {
     en: "Mingrelian scorpion (Euscorpius mingrelicus) | Western Georgia",
@@ -207,8 +207,8 @@ const SPECIES_META_DESCRIPTION_OVERRIDE: Partial<
     ka: "ევროპული ზღარბი (Erinaceus concolor) საქართველოში — ამოცნობის ნიშნები, გავრცელება, ჰაბიტატი, კვება და რატომ არის ადამიანისთვის უვნებელი.",
   },
   "euscorpius-italicus": {
-    en: "Italian scorpion (Euscorpius italicus) in Georgia: taxonomy, western Georgian records, identification, human-associated habitat, and sting risk.",
-    ka: "იტალიური მორიელი (Euscorpius italicus) საქართველოში — ტაქსონომია, დასავლეთ საქართველოს ჩანაწერები, ამოცნობა, ანთროპოგენური ჰაბიტატი და ჩხვლეტის რისკი.",
+    en: "Italian scorpion (Euscorpius italicus) in Georgia: taxonomy, Georgian records, identification, human-associated habitat, and sting risk.",
+    ka: "იტალიური მორიელი (Euscorpius italicus) საქართველოში — ტაქსონომია, საქართველოს ჩანაწერები, ამოცნობა, ანთროპოგენური ჰაბიტატი და ჩხვლეტის რისკი.",
   },
   "euscorpius-mingrelicus": {
     en: "Mingrelian scorpion (Euscorpius mingrelicus) in Georgia: taxonomy, western Georgian range, identification, humid forest habitat, and sting risk.",
