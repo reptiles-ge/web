@@ -21,7 +21,7 @@ const KA_HUB: Record<GroupHubId, string> = {
   insects: "mtserebi",
   lizards: "xvlikebi",
   mammals: "dzuzumtsovrebi",
-  scorpions: "moriebi",
+  scorpions: "morieli",
   snakes: "gvelebi",
   spiders: "obobebi",
   turtles: "kuebi",
@@ -33,6 +33,7 @@ const KA_PREFIX_TO_HUB: Record<string, GroupHubId> = {
   gvelebi: "snakes",
   kuebi: "turtles",
   moriebi: "scorpions",
+  morieli: "scorpions",
   mtserebi: "insects",
   obobebi: "spiders",
   prinvelebi: "birds",
@@ -42,7 +43,7 @@ const KA_PREFIX_TO_HUB: Record<string, GroupHubId> = {
 const HUB_SEGMENT =
   "snakes|lizards|turtles|amphibians|birds|mammals|scorpions|spiders|insects";
 const KA_HUB_SEGMENT =
-  "gvelebi|xvlikebi|kuebi|amfibiebi|prinvelebi|dzuzumtsovrebi|moriebi|obobebi|mtserebi";
+  "gvelebi|xvlikebi|kuebi|amfibiebi|prinvelebi|dzuzumtsovrebi|morieli|moriebi|obobebi|mtserebi";
 const PREFIX_SEGMENT = "en|ru|tr";
 
 export default function proxy(request: NextRequest) {
@@ -54,6 +55,8 @@ export default function proxy(request: NextRequest) {
 
   const photographer = legacyPhotographerRedirectPath(pathname);
   if (photographer) return redirectTo(request, photographer);
+
+  if (pathname === "/moriebi") return redirectTo(request, "/morieli");
 
   const legacy = pathname.match(
     new RegExp(`^(\\/(${PREFIX_SEGMENT}))?\\/species\\/([^/]+)$`),

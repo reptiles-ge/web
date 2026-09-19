@@ -217,7 +217,7 @@ const HUB_COPY: Record<GroupHubId, PageCopy> = {
     icon: "hub",
     keywords: [
       "მორიელები",
-      "moriebi",
+      "morieli",
       "scorpions",
       "ჭრელი მორიელი",
       "Mesobuthus eupeus",

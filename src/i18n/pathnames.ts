@@ -70,8 +70,8 @@ export const pathnames = {
   "/regions": "/regions",
   "/regions/[id]": "/regions/[id]",
   "/risk-to-humans": kaLatin("/riskis-doneebi", "/risk-to-humans"),
-  "/scorpions": kaLatin("/moriebi", "/scorpions"),
-  "/scorpions/[slug]": kaLatin("/moriebi/[slug]", "/scorpions/[slug]"),
+  "/scorpions": kaLatin("/morieli", "/scorpions"),
+  "/scorpions/[slug]": kaLatin("/morieli/[slug]", "/scorpions/[slug]"),
   "/snakes": kaLatin("/gvelebi", "/snakes"),
   "/snakes-in-the-yard": kaLatin(
     "/gvelebi/gveli-ezoshi",
