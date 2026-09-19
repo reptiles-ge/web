@@ -1264,7 +1264,7 @@
       "scorpionsHub": {
         "eyebrow": "Scorpions",
         "title": "Scorpions in Georgia",
-        "body": "Published scorpion profiles with taxonomy, Georgia evidence, habitat, sting risk, and sources.",
+        "body": "Published scorpion profiles with taxonomy, identification traits, habitat, evidence of occurrence in Georgia, sting risk, and sources.",
         "cta": "Scorpions"
       },
       "spidersHub": {
@@ -1702,12 +1702,12 @@
   },
   "scorpions": {
     "metaTitle": "Scorpions in Georgia — species profiles",
-    "metaDescription": "Scorpions of Georgia on reptiles.ge: taxonomy, identification, habitat, country evidence, sting risk, and sources. The atlas currently includes the mottled scorpion (Mesobuthus eupeus).",
-    "keywords": "scorpions in Georgia, Georgia scorpions, Mesobuthus eupeus, mottled scorpion, lesser Asian scorpion",
+    "metaDescription": "Scorpions in Georgia — published species profiles with taxonomy, identification traits, habitat, evidence of occurrence in Georgia, sting risk, and sources.",
+    "keywords": "scorpions in Georgia, Georgia scorpions, Mesobuthus eupeus, Euscorpius mingrelicus, mottled scorpion, Mingrelian scorpion",
     "breadcrumbCurrent": "Scorpions",
     "heroImageAlt": "Dry rocky grassland habitat for scorpions",
     "title": "Scorpions in Georgia",
-    "subtitle": "Scorpions in Georgia — published species profiles with taxonomy, identification notes, habitat, sting risk, and sources.",
+    "subtitle": "Scorpions in Georgia — published species profiles with taxonomy, identification traits, habitat, evidence of occurrence in Georgia, sting risk, and sources.",
     "ctaSpecies": "See the species",
     "statSpecies": "Scorpions in the atlas",
     "statFamilies": "Families",
@@ -1715,30 +1715,31 @@
     "statExtraValue": "Named",
     "guideEyebrow": "Guide",
     "guideTitle": "Scorpions in the animal atlas",
-    "guideP1": "Scorpion profiles on Reptiles.ge follow the same editorial rule as the other group pages: accepted taxonomy first, Georgia-specific evidence separated from general biology, and no invented regional maps.",
-    "guideP2": "This is a growing profile set, not a complete national scorpion checklist. A species appears here only when a sourced page is ready.",
+    "guideP1": "Scorpion profiles follow the same editorial rules as the other animal groups: modern taxonomy is used, Georgia-specific data are checked separately, and local information is clearly separated from general species biology.",
+    "guideP2": "Regional distribution is also marked only from confirmed records. This page is a growing profile collection, not a complete list of all scorpions living in Georgia. A new species is added when a profile based on reliable sources is ready.",
     "speciesEyebrow": "Catalog",
     "speciesTitle": "{count} scorpions in the atlas",
-    "speciesBody": "Each profile states whether the species is confirmed in Georgia and whether sources support exact localities or only country-level occurrence.",
+    "speciesBody": "Each profile states whether the species is confirmed in Georgia and how precise the distribution data are: whether there are specific local records or only country-level evidence of occurrence.",
+    "relatedBody": "The scorpion hub gathers published species on one guide page, where you can open the full profile for a specific scorpion.",
     "section": {
       "all": {
         "title": "Scorpions — {count}",
-        "body": "Published scorpion profiles are gathered here with identification notes, habitat information, country-level status, sting risk, and sources."
+        "body": "Published scorpion profiles are gathered in one place. Each page includes identification traits, habitat, occurrence status in Georgia, possible sting risk, and the sources used."
       }
     },
     "faqEyebrow": "FAQ",
     "faqTitle": "What people ask about scorpions here",
     "faqIntro": "Short answers - detailed information is on profiles.",
     "faq1Q": "Does this site cover all Georgian scorpions?",
-    "faq1A": "No. This hub publishes individual scorpion profiles when enough reliable sources are available. Absence from the hub does not mean a species is absent from Georgia.",
+    "faq1A": "No. This page does not represent a complete national checklist of Georgian scorpions. Only species with enough reliable sources and a prepared full profile are added here. If a species is not yet shown in the hub, that does not automatically mean it is absent from Georgia.",
     "faq2Q": "Which scorpions are in the atlas now?",
-    "faq2A": "The first published scorpion profile is the mottled scorpion, Mesobuthus eupeus, known in Georgian as ჭრელი მორიელი.",
+    "faq2A": "One of the first published profiles is the mottled scorpion — Mesobuthus eupeus.",
     "faq3Q": "How are scorpions added to the atlas?",
-    "faq3A": "Scorpion pages use the same species-profile structure: taxonomy, identification, habitat, Georgia-specific evidence, sting risk where relevant, and sources.",
+    "faq3A": "Each scorpion page follows a shared structure: taxonomy, appearance and identification, habitat, evidence of occurrence in Georgia, possible sting risk where needed, and sources used.",
     "faq4Q": "Are regional maps shown for scorpions?",
-    "faq4A": "Only when a profile has sourced regional or local records. A country-level occurrence source does not automatically colour every Georgian region.",
+    "faq4A": "A region is marked only when the profile has a relevant local or regional record. Knowing only that a species occurs in Georgia does not mean every Georgian region should be marked.",
     "faq5Q": "Should I handle wild scorpions?",
-    "faq5A": "No. A scorpion sting can be painful and may cause wider symptoms. Do not touch wild scorpions by hand. If a sting causes strong symptoms, involves a child, allergy, or uncertainty, call 112.",
+    "faq5A": "No. Not all scorpion stings are the same, and some may be painful or cause other symptoms. Do not touch scorpions by hand. If the pain is severe, the affected person is a child, allergic or other systemic symptoms develop, or the situation is unclear, call 112 and seek medical help.",
     "ctaEyebrow": "Next step",
     "ctaTitle": "From scorpion list to profile",
     "ctaBody": "Open a species, or continue in the reptile, amphibian, bird, mammal, spider, and insect guides."
