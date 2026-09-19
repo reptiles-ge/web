@@ -49573,6 +49573,73 @@
       ],
       "updatedAt": "2026-09-19T10:53:53.460Z"
     },
+    "mesobuthus-eupeus-kirill-1.jpg": {
+      "sourceHash": "bb2e5e2d313e2abb4cb96acc015246622d0d58c605cf74d2e31ec5fbc630ad98",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "mesobuthus-eupeus-kirill-1.jpg",
+      "originalSize": 304773,
+      "width": 771,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/mesobuthus-eupeus-kirill-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 425,
+          "byteSize": 31735
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-kirill-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 425,
+          "byteSize": 50822
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-kirill-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 531,
+          "byteSize": 47044
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-kirill-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 531,
+          "byteSize": 74504
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-kirill-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 850,
+          "byteSize": 100651
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-kirill-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 850,
+          "byteSize": 162844
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-kirill-1-771.avif",
+          "format": "avif",
+          "width": 771,
+          "height": 1024,
+          "byteSize": 136990
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-kirill-1-771.webp",
+          "format": "webp",
+          "width": 771,
+          "height": 1024,
+          "byteSize": 214094
+        }
+      ],
+      "updatedAt": "2026-09-19T10:55:58.846Z"
+    },
     "milvus-migrans-kraft-germany.jpg": {
       "sourceHash": "8648d8dca44b8fe34ffb3a5b2db38e3eb59249face16f26929f94125af6b3376",
       "configFingerprint": "a895f8e025dcc7fa",
