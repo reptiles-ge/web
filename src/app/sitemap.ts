@@ -56,6 +56,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     push(pageEntry(locale, "/"));
     push(pageEntry(locale, "/contact"));
     push(pageEntry(locale, "/about"));
+    push(pageEntry(locale, "/terms-and-conditions"));
+    push(pageEntry(locale, "/privacy"));
     push(pageEntry(locale, "/news"));
     push(pageEntry(locale, "/authors"));
     push(pageEntry(locale, "/species"));
