@@ -1,11 +1,12 @@
 "use client";
 
-import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 
 import type { AppLocale } from "@/i18n/routing";
 
 import { CoverImage } from "@/components/CoverImage";
+import { InkHeroBreadcrumb } from "@/components/InkHeroBreadcrumb";
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
 import {
   localizeRegionText,
@@ -55,13 +56,16 @@ export function RegionsIndex({
 
           <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
             <div>
-              <Link
-                className="mb-4 inline-flex items-center gap-2 text-[13px] font-medium text-white/55 transition-colors hover:text-white sm:mb-6"
-                href={{ hash: "atlas", pathname: "/" }}
-              >
-                <ArrowLeft className="size-3.5" />
-                {t("back")}
-              </Link>
+              <InkHeroBreadcrumb
+                crumbs={[
+                  {
+                    href: { hash: "atlas", pathname: "/" },
+                    label: t("back"),
+                    withBack: true,
+                  },
+                  { label: t("title") },
+                ]}
+              />
               <p className="text-[11px] font-medium tracking-[0.18em] text-white/45 uppercase">
                 {t("eyebrow")}
               </p>
