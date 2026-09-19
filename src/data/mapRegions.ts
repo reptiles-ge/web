@@ -625,6 +625,7 @@ export const regions: Region[] = [
       "cheiracanthium-punctorium",
       "euscorpius-italicus",
       "mesobuthus-eupeus",
+      "olivierus-caucasicus",
     ],
   },
 ];

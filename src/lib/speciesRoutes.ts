@@ -176,8 +176,16 @@ const LOOKALIKES: Record<string, string[]> = {
   "erithacus-rubecula": ["luscinia-megarhynchos"],
   "eryx-jaculus": ["xerotyphlops-vermicularis", "telescopus-fallax"],
   "eumeces-schneiderii": ["ablepharus-pannonicus", "ophisops-elegans"],
-  "euscorpius-italicus": ["euscorpius-mingrelicus", "mesobuthus-eupeus"],
-  "euscorpius-mingrelicus": ["euscorpius-italicus", "mesobuthus-eupeus"],
+  "euscorpius-italicus": [
+    "euscorpius-mingrelicus",
+    "mesobuthus-eupeus",
+    "olivierus-caucasicus",
+  ],
+  "euscorpius-mingrelicus": [
+    "euscorpius-italicus",
+    "mesobuthus-eupeus",
+    "olivierus-caucasicus",
+  ],
   "falco-peregrinus": ["accipiter-nisus", "buteo-buteo", "aquila-chrysaetos"],
   "ficedula-hypoleuca": ["ficedula-semitorquata"],
   "ficedula-semitorquata": ["ficedula-hypoleuca"],
@@ -232,6 +240,11 @@ const LOOKALIKES: Record<string, string[]> = {
     "ommatotriton-ophryticus",
     "triturus-karelinii",
   ],
+  "mesobuthus-eupeus": [
+    "olivierus-caucasicus",
+    "euscorpius-italicus",
+    "euscorpius-mingrelicus",
+  ],
   "milvus-migrans": ["buteo-buteo", "pernis-apivorus", "aquila-chrysaetos"],
   "natrix-natrix": [
     "natrix-tessellata",
@@ -242,6 +255,11 @@ const LOOKALIKES: Record<string, string[]> = {
     "natrix-natrix",
     "vipera-kaznakovi",
     "pseudopus-apodus",
+  ],
+  "olivierus-caucasicus": [
+    "mesobuthus-eupeus",
+    "euscorpius-italicus",
+    "euscorpius-mingrelicus",
   ],
   "ommatotriton-ophryticus": [
     "lissotriton-lantzi",

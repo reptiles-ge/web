@@ -399,6 +399,10 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "snake",
     habitats: ["wetland"],
   },
+  "olivierus-caucasicus": {
+    group: "scorpion",
+    habitats: ["grassland"],
+  },
   "ommatotriton-ophryticus": {
     group: "amphibian",
     habitats: ["wetland", "forest", "mountain"],

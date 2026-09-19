@@ -4897,6 +4897,48 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2400],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/olivierus-caucasicus-evgeny-1.jpg": {
+    "path": "olivierus-caucasicus-evgeny-1",
+    "width": 1024,
+    "height": 696,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/olivierus-caucasicus-ilia-1.jpg": {
+    "path": "olivierus-caucasicus-ilia-1",
+    "width": 500,
+    "height": 333,
+    "widths": [320, 400, 500],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/olivierus-caucasicus-leonid-1.jpg": {
+    "path": "olivierus-caucasicus-leonid-1",
+    "width": 1024,
+    "height": 696,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/olivierus-caucasicus-marina-1.jpg": {
+    "path": "olivierus-caucasicus-marina-1",
+    "width": 1024,
+    "height": 684,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/olivierus-caucasicus-vil05-1.jpg": {
+    "path": "olivierus-caucasicus-vil05-1",
+    "width": 1024,
+    "height": 768,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/olivierus-caucasicus-vladimir-1.jpg": {
+    "path": "olivierus-caucasicus-vladimir-1",
+    "width": 500,
+    "height": 370,
+    "widths": [320, 400, 500],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/ommatotriton-ophryticus-2.jpg": {
     "path": "ommatotriton-ophryticus-2",
     "width": 2048,

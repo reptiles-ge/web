@@ -133,6 +133,7 @@ export const featuredSpeciesIds = [
   "steatoda-paykulliana",
   "latrodectus-tredecimguttatus",
   "mesobuthus-eupeus",
+  "olivierus-caucasicus",
   "euscorpius-mingrelicus",
   "euscorpius-italicus",
 ] as const;
