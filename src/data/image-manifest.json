@@ -49573,6 +49573,73 @@
       ],
       "updatedAt": "2026-09-19T10:53:53.460Z"
     },
+    "mesobuthus-eupeus-jannic-justen-1.jpg": {
+      "sourceHash": "c26502e2d17750d4034662369187feed790efdceafb783204e13d4482e83498c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "mesobuthus-eupeus-jannic-justen-1.jpg",
+      "originalSize": 145552,
+      "width": 683,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/mesobuthus-eupeus-jannic-justen-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 480,
+          "byteSize": 16977
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-jannic-justen-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 480,
+          "byteSize": 25812
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-jannic-justen-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 600,
+          "byteSize": 23416
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-jannic-justen-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 600,
+          "byteSize": 35770
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-jannic-justen-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 960,
+          "byteSize": 45291
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-jannic-justen-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 960,
+          "byteSize": 68182
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-jannic-justen-1-683.avif",
+          "format": "avif",
+          "width": 683,
+          "height": 1024,
+          "byteSize": 51350
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-jannic-justen-1-683.webp",
+          "format": "webp",
+          "width": 683,
+          "height": 1024,
+          "byteSize": 76350
+        }
+      ],
+      "updatedAt": "2026-09-19T10:57:06.661Z"
+    },
     "mesobuthus-eupeus-kirill-1.jpg": {
       "sourceHash": "bb2e5e2d313e2abb4cb96acc015246622d0d58c605cf74d2e31ec5fbc630ad98",
       "configFingerprint": "409788ee46c653d8",
