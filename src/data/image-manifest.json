@@ -9904,6 +9904,87 @@
       ],
       "updatedAt": "2026-09-19T07:35:52.699Z"
     },
+    "cheiracanthium-punctorium-leda-1.jpg": {
+      "sourceHash": "4a9fad469ea30e3f9eb5cd6e6d4f8a45cecfda966f555bc0dd0a2b0c69a6acdc",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "cheiracanthium-punctorium-leda-1.jpg",
+      "originalSize": 176900,
+      "width": 1024,
+      "height": 768,
+      "derivatives": [
+        {
+          "key": "optimized/cheiracanthium-punctorium-leda-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 11085
+        },
+        {
+          "key": "optimized/cheiracanthium-punctorium-leda-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 15476
+        },
+        {
+          "key": "optimized/cheiracanthium-punctorium-leda-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 16246
+        },
+        {
+          "key": "optimized/cheiracanthium-punctorium-leda-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 22654
+        },
+        {
+          "key": "optimized/cheiracanthium-punctorium-leda-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 32165
+        },
+        {
+          "key": "optimized/cheiracanthium-punctorium-leda-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 44706
+        },
+        {
+          "key": "optimized/cheiracanthium-punctorium-leda-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 44772
+        },
+        {
+          "key": "optimized/cheiracanthium-punctorium-leda-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 62526
+        },
+        {
+          "key": "optimized/cheiracanthium-punctorium-leda-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 64538
+        },
+        {
+          "key": "optimized/cheiracanthium-punctorium-leda-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 88700
+        }
+      ],
+      "updatedAt": "2026-09-19T07:37:23.756Z"
+    },
     "cheiracanthium-punctorium-zsiciarz-1.jpg": {
       "sourceHash": "e9e7243fabf3f1bf27d2eea41d7c15ce2b86a76cc2a20d671820b7a72fcb39ff",
       "configFingerprint": "409788ee46c653d8",
