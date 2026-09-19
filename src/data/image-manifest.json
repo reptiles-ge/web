@@ -26280,6 +26280,87 @@
       ],
       "updatedAt": "2026-09-19T12:44:18.030Z"
     },
+    "euscorpius-mingrelicus-fabian-1.jpg": {
+      "sourceHash": "cd5b6c9f4f5e094890ba33c3bcf00f7aef5b8449d8b904927b82a433dbcf2323",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "euscorpius-mingrelicus-fabian-1.jpg",
+      "originalSize": 250120,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/euscorpius-mingrelicus-fabian-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 15939
+        },
+        {
+          "key": "optimized/euscorpius-mingrelicus-fabian-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 25566
+        },
+        {
+          "key": "optimized/euscorpius-mingrelicus-fabian-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 24296
+        },
+        {
+          "key": "optimized/euscorpius-mingrelicus-fabian-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 38838
+        },
+        {
+          "key": "optimized/euscorpius-mingrelicus-fabian-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 52927
+        },
+        {
+          "key": "optimized/euscorpius-mingrelicus-fabian-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 84184
+        },
+        {
+          "key": "optimized/euscorpius-mingrelicus-fabian-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 73726
+        },
+        {
+          "key": "optimized/euscorpius-mingrelicus-fabian-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 119214
+        },
+        {
+          "key": "optimized/euscorpius-mingrelicus-fabian-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 108837
+        },
+        {
+          "key": "optimized/euscorpius-mingrelicus-fabian-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 168396
+        }
+      ],
+      "updatedAt": "2026-09-19T12:47:46.376Z"
+    },
     "euscorpius-mingrelicus-frederic-1.jpg": {
       "sourceHash": "3f0043c8d8bccee6eceae4b0f6aabcedaa547fa382735ac0d72c88affacd4dba",
       "configFingerprint": "409788ee46c653d8",
