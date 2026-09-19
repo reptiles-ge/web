@@ -55003,6 +55003,59 @@
       ],
       "updatedAt": "2026-09-19T19:54:09.252Z"
     },
+    "olivierus-caucasicus-vladimir-1.jpg": {
+      "sourceHash": "adfc8318a6d3d527dc0a4df41ec47285fd18b00bf37aa6f1ac57d51a37493563",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "olivierus-caucasicus-vladimir-1.jpg",
+      "originalSize": 98865,
+      "width": 500,
+      "height": 370,
+      "derivatives": [
+        {
+          "key": "optimized/olivierus-caucasicus-vladimir-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 237,
+          "byteSize": 20866
+        },
+        {
+          "key": "optimized/olivierus-caucasicus-vladimir-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 237,
+          "byteSize": 32866
+        },
+        {
+          "key": "optimized/olivierus-caucasicus-vladimir-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 296,
+          "byteSize": 31514
+        },
+        {
+          "key": "optimized/olivierus-caucasicus-vladimir-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 296,
+          "byteSize": 50080
+        },
+        {
+          "key": "optimized/olivierus-caucasicus-vladimir-1-500.avif",
+          "format": "avif",
+          "width": 500,
+          "height": 370,
+          "byteSize": 49121
+        },
+        {
+          "key": "optimized/olivierus-caucasicus-vladimir-1-500.webp",
+          "format": "webp",
+          "width": 500,
+          "height": 370,
+          "byteSize": 76682
+        }
+      ],
+      "updatedAt": "2026-09-19T20:01:35.092Z"
+    },
     "ommatotriton-ophryticus-2.jpg": {
       "sourceHash": "b6b3e608bebea71073edaae8e5d440fb5bfab1860c2c159623f36dcc4e09d534",
       "configFingerprint": "a895f8e025dcc7fa",
