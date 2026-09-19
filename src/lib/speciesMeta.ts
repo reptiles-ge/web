@@ -13,6 +13,7 @@ export function speciesFallbackDescriptionKey(
   | "descriptionInsect"
   | "descriptionMammal"
   | "descriptionReptile"
+  | "descriptionScorpion"
   | "descriptionSpider"
   | "descriptionVenomous" {
   if (group === "snake" && isVenomousDanger(danger)) {
@@ -22,6 +23,7 @@ export function speciesFallbackDescriptionKey(
   if (group === "bird") return "descriptionBird";
   if (group === "insect") return "descriptionInsect";
   if (group === "mammal") return "descriptionMammal";
+  if (group === "scorpion") return "descriptionScorpion";
   if (group === "spider") return "descriptionSpider";
   return "descriptionReptile";
 }
@@ -43,6 +45,7 @@ export function speciesTitleIntentKey(
   | "titleInsect"
   | "titleLizard"
   | "titleMammal"
+  | "titleScorpion"
   | "titleSnake"
   | "titleSnakeVenomous"
   | "titleSpider"
@@ -55,6 +58,7 @@ export function speciesTitleIntentKey(
   if (group === "bird") return "titleBird";
   if (group === "insect") return "titleInsect";
   if (group === "mammal") return "titleMammal";
+  if (group === "scorpion") return "titleScorpion";
   if (group === "spider") return "titleSpider";
   return "titleAmphibian";
 }
@@ -109,6 +113,10 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
   "mantis-religiosa": {
     en: "European mantis (Mantis religiosa) | Praying mantis in Georgia",
     ka: "ჩოქელა (Mantis religiosa) | მწერი საქართველოში",
+  },
+  "mesobuthus-eupeus": {
+    en: "Mottled scorpion (Mesobuthus eupeus) | Scorpion in Georgia",
+    ka: "ჭრელი მორიელი (Mesobuthus eupeus) | მორიელი საქართველოში",
   },
   "milvus-migrans": {
     en: "Black kite (Milvus migrans) | Raptor in Georgia",
@@ -198,6 +206,10 @@ const SPECIES_META_DESCRIPTION_OVERRIDE: Partial<
   },
   "meles-canescens": {
     ka: "მაჩვი (Meles canescens) საქართველოში: ამოცნობის ნიშნები, გავრცელება, ტყისა და ბუჩქნარის ჰაბიტატები, კვება, ქცევა და კონსერვაციის სტატუსი.",
+  },
+  "mesobuthus-eupeus": {
+    en: "Mottled scorpion (Mesobuthus eupeus) in Georgia: taxonomy, Tbilisi evidence, identification notes, habitat, sting risk, and sources.",
+    ka: "ჭრელი მორიელი (Mesobuthus eupeus) საქართველოში — ტაქსონომია, თბილისის მტკიცებულება, ამოცნობა, ჰაბიტატი, ნაკბენის რისკი და წყაროები.",
   },
   "pholcus-phalangioides": {
     ka: "გრძელფეხა ფოლკუსი (Pholcus phalangioides) საქართველოში — სახლისა და სარდაფის გრძელფეხა ობობის ამოცნობა, დადასტურებული ჩანაწერები და ადამიანისთვის რეალური რისკი.",

@@ -39,6 +39,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 900],
     "formats": ["avif", "webp"]
   },
+  "/images/home/groups/scorpions.jpg": {
+    "path": "images/home/groups/scorpions",
+    "width": 900,
+    "height": 900,
+    "widths": [320, 400, 640, 800, 900],
+    "formats": ["avif", "webp"]
+  },
   "/images/home/groups/snakes.jpg": {
     "path": "images/home/groups/snakes",
     "width": 1800,
@@ -1056,13 +1063,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
   },
   "https://cdn.reptiles.ge/cervus-elaphus-teimuraz-1.jpg": {
     "path": "cervus-elaphus-teimuraz-1",
-    "width": 1957,
-    "height": 1305,
-    "widths": [320, 400, 640, 800, 1200, 1957],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/cervus-elaphus-teimuraz-2.jpg": {
-    "path": "cervus-elaphus-teimuraz-2",
     "width": 1957,
     "height": 1305,
     "widths": [320, 400, 640, 800, 1200, 1957],
@@ -4454,6 +4454,83 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 2048,
     "height": 1356,
     "widths": [400, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/mesobuthus-eupeus-armen-1.jpg": {
+    "path": "mesobuthus-eupeus-armen-1",
+    "width": 1440,
+    "height": 1057,
+    "widths": [320, 400, 640, 800, 1200, 1440],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/mesobuthus-eupeus-armen-2.jpg": {
+    "path": "mesobuthus-eupeus-armen-2",
+    "width": 1400,
+    "height": 861,
+    "widths": [320, 400, 640, 800, 1200, 1400],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/mesobuthus-eupeus-barnab%C3%A1s-1.jpg": {
+    "path": "mesobuthus-eupeus-barnab%C3%A1s-1",
+    "width": 1024,
+    "height": 682,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/mesobuthus-eupeus-denis-1.jpg": {
+    "path": "mesobuthus-eupeus-denis-1",
+    "width": 1024,
+    "height": 576,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/mesobuthus-eupeus-dmitry-1.jpg": {
+    "path": "mesobuthus-eupeus-dmitry-1",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/mesobuthus-eupeus-giorgi-1.jpg": {
+    "path": "mesobuthus-eupeus-giorgi-1",
+    "width": 1999,
+    "height": 1357,
+    "widths": [320, 400, 640, 800, 1200, 1999],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/mesobuthus-eupeus-ioane-1.jpg": {
+    "path": "mesobuthus-eupeus-ioane-1",
+    "width": 1536,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/mesobuthus-eupeus-jannic-justen-1.jpg": {
+    "path": "mesobuthus-eupeus-jannic-justen-1",
+    "width": 683,
+    "height": 1024,
+    "widths": [320, 400, 640, 683],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/mesobuthus-eupeus-kirill-1.jpg": {
+    "path": "mesobuthus-eupeus-kirill-1",
+    "width": 771,
+    "height": 1024,
+    "widths": [320, 400, 640, 771],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/mesobuthus-eupeus-lasha-1.jpg": {
+    "path": "mesobuthus-eupeus-lasha-1",
+    "width": 1440,
+    "height": 960,
+    "widths": [320, 400, 640, 800, 1200, 1440],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/mesobuthus-eupeus-nika-1.jpg": {
+    "path": "mesobuthus-eupeus-nika-1",
+    "width": 1440,
+    "height": 1049,
+    "widths": [320, 400, 640, 800, 1200, 1440],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/milvus-migrans-kraft-germany.jpg": {

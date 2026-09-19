@@ -30,6 +30,7 @@ const GROUP_RANK: Record<AnimalGroup, number> = {
   insect: 7,
   lizard: 1,
   mammal: 5,
+  scorpion: 7,
   snake: 0,
   spider: 6,
   turtle: 3,

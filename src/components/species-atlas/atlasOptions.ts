@@ -10,6 +10,7 @@ export const GROUP_OPTIONS = [
   "bird",
   "insect",
   "mammal",
+  "scorpion",
   "spider",
 ] as const satisfies readonly ("all" | AnimalGroup)[];
 

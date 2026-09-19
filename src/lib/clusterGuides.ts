@@ -164,6 +164,7 @@ export type ClusterGuidePath =
   | "/mammals/datvi-shekhvedra"
   | "/mammals/saxeoebebi"
   | "/mammals/tura-ezoshi"
+  | "/scorpions"
   | "/snakes/didi-gvelebi"
   | "/snakes/gavrtseleba"
   | "/snakes/gvelis-nakbeni"
@@ -582,6 +583,7 @@ export type HubClusterCard =
         | "/insects"
         | "/lizards"
         | "/mammals"
+        | "/scorpions"
         | "/snakes"
         | "/snakes-in-the-yard"
         | "/spiders"
@@ -612,6 +614,7 @@ export type HubClusterCard =
         | "mammalsHub"
         | "newts"
         | "range"
+        | "scorpionsHub"
         | "snakesHub"
         | "spiderBite"
         | "spiderIndex"
@@ -664,6 +667,7 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
     { href: "/mammals/tura-ezoshi", key: "jackalYard", kind: "page" },
     { href: "/mammals/datvi-shekhvedra", key: "bearEncounter", kind: "page" },
   ],
+  scorpions: [],
   snakes: [
     { href: "/snakes/saxeoebebi", key: "index", kind: "page" },
     { href: "/venomous-snakes", key: "venomous", kind: "page" },
@@ -704,6 +708,7 @@ export const HUB_INDEX_PATH: Record<GroupHubId, ClusterGuidePath> = {
   insects: "/insects/saxeoebebi",
   lizards: "/lizards/saxeoebebi",
   mammals: "/mammals/saxeoebebi",
+  scorpions: "/scorpions",
   snakes: "/snakes/saxeoebebi",
   spiders: "/spiders/saxeoebebi",
   turtles: "/turtles/saxeoebebi",
@@ -724,6 +729,8 @@ export function getHubIndexTitleKey(hubId: GroupHubId) {
       return "cluster.lizardIndex.title" as const;
     case "mammals":
       return "cluster.mammalIndex.title" as const;
+    case "scorpions":
+      return "cluster.scorpionsHub.title" as const;
     case "snakes":
       return "cluster.index.title" as const;
     case "spiders":
@@ -815,6 +822,7 @@ export function splitHubSpecies(
     hubId === "birds" ||
     hubId === "insects" ||
     hubId === "mammals" ||
+    hubId === "scorpions" ||
     hubId === "spiders"
   ) {
     return [{ items: species, key: "all" }].filter(
@@ -1005,6 +1013,8 @@ export function getSpeciesGuideLinks(id: string): HubClusterCard[] {
         kind: "page",
       });
     }
+  } else if (group === "scorpion") {
+    links.push({ href: "/scorpions", key: "scorpionsHub", kind: "page" });
   } else if (group === "spider") {
     links.push({
       href: "/spiders/saxeoebebi",

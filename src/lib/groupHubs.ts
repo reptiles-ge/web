@@ -14,6 +14,7 @@ export type GroupHubId =
   | "insects"
   | "lizards"
   | "mammals"
+  | "scorpions"
   | "snakes"
   | "spiders"
   | "turtles";
@@ -54,6 +55,13 @@ export const GROUP_HUBS: Record<GroupHubId, GroupHubConfig> = {
     messageKey: "mammals",
     path: "/mammals",
   },
+  scorpions: {
+    group: "scorpion",
+    heroSpeciesId: "mesobuthus-eupeus",
+    id: "scorpions",
+    messageKey: "scorpions",
+    path: "/scorpions",
+  },
   snakes: {
     group: "snake",
     heroSpeciesId: "vipera-dinniki",
@@ -85,6 +93,7 @@ export const GROUP_HUB_ILLUSTRATIONS: Record<GroupHubId, string> = {
   insects: "/images/home/groups/insects.jpg",
   lizards: "/images/home/groups/lizards.jpg",
   mammals: "/images/home/groups/mammals.jpg",
+  scorpions: "/images/home/groups/scorpions.jpg",
   snakes: "/images/home/groups/snakes.jpg",
   spiders: "/images/home/groups/spiders.jpg",
   turtles: "/images/home/groups/turtles.jpg",
@@ -96,6 +105,7 @@ export const ANIMAL_GROUP_TO_HUB: Record<AnimalGroup, GroupHubId> = {
   insect: "insects",
   lizard: "lizards",
   mammal: "mammals",
+  scorpion: "scorpions",
   snake: "snakes",
   spider: "spiders",
   turtle: "turtles",
@@ -131,6 +141,7 @@ export const RESERVED_HUB_SLUGS: Record<GroupHubId, readonly string[]> = {
     "jackal-in-the-yard",
     "bear-encounter",
   ],
+  scorpions: ["saxeoebebi", "species"],
   snakes: [
     "shxamiani-gvelebi",
     "gveli-ezoshi",

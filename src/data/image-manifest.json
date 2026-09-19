@@ -29860,7 +29860,7 @@
           "byteSize": 272276
         }
       ],
-      "updatedAt": "2026-09-15T09:30:27.071Z"
+      "updatedAt": "2026-09-19T10:46:26.323Z"
     },
     "images/home/groups/birds.jpg": {
       "sourceHash": "d03c8925303f88a828fb31e4e3562553ed92ea2500c90d6ea877d20fed35fd00",
@@ -29941,7 +29941,7 @@
           "byteSize": 131548
         }
       ],
-      "updatedAt": "2026-09-15T09:30:28.098Z"
+      "updatedAt": "2026-09-19T10:46:31.359Z"
     },
     "images/home/groups/insects.jpg": {
       "sourceHash": "5cdb9c2b740a71d71c5a6700ab5f39ee6ebe969381964b3601ef273566c2cfb5",
@@ -30022,7 +30022,7 @@
           "byteSize": 93506
         }
       ],
-      "updatedAt": "2026-09-18T18:11:12.697Z"
+      "updatedAt": "2026-09-19T10:46:38.925Z"
     },
     "images/home/groups/lizards.jpg": {
       "sourceHash": "066e1cc066206326ab10437dc3fe3c9c1f27540673608d9dbf89b310b6bd8702",
@@ -30117,7 +30117,7 @@
           "byteSize": 344598
         }
       ],
-      "updatedAt": "2026-09-15T09:30:33.028Z"
+      "updatedAt": "2026-09-19T10:46:49.615Z"
     },
     "images/home/groups/mammals.jpg": {
       "sourceHash": "e84e26f71a016ebd729eab74a5d537383d9721855d90a4d27527721ceb940739",
@@ -30198,7 +30198,88 @@
           "byteSize": 178278
         }
       ],
-      "updatedAt": "2026-09-15T09:30:25.694Z"
+      "updatedAt": "2026-09-19T10:46:55.268Z"
+    },
+    "images/home/groups/scorpions.jpg": {
+      "sourceHash": "e3cb4dd5c659564c67cfce918d1a438d13675c51876be3fd10b8540a7ed46215",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/home/groups/scorpions.jpg",
+      "originalSize": 60548,
+      "width": 900,
+      "height": 900,
+      "derivatives": [
+        {
+          "key": "optimized/images/home/groups/scorpions-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 320,
+          "byteSize": 3978
+        },
+        {
+          "key": "optimized/images/home/groups/scorpions-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 320,
+          "byteSize": 5254
+        },
+        {
+          "key": "optimized/images/home/groups/scorpions-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 400,
+          "byteSize": 4980
+        },
+        {
+          "key": "optimized/images/home/groups/scorpions-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 400,
+          "byteSize": 6320
+        },
+        {
+          "key": "optimized/images/home/groups/scorpions-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 640,
+          "byteSize": 7854
+        },
+        {
+          "key": "optimized/images/home/groups/scorpions-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 640,
+          "byteSize": 9966
+        },
+        {
+          "key": "optimized/images/home/groups/scorpions-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 800,
+          "byteSize": 9745
+        },
+        {
+          "key": "optimized/images/home/groups/scorpions-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 800,
+          "byteSize": 13050
+        },
+        {
+          "key": "optimized/images/home/groups/scorpions-900.avif",
+          "format": "avif",
+          "width": 900,
+          "height": 900,
+          "byteSize": 11091
+        },
+        {
+          "key": "optimized/images/home/groups/scorpions-900.webp",
+          "format": "webp",
+          "width": 900,
+          "height": 900,
+          "byteSize": 14224
+        }
+      ],
+      "updatedAt": "2026-09-19T10:47:06.911Z"
     },
     "images/home/groups/snakes.jpg": {
       "sourceHash": "40913797bd7a37477ae447364c3a7106609e7104b774351c0aa089cfc18e92df",
@@ -30293,7 +30374,7 @@
           "byteSize": 249742
         }
       ],
-      "updatedAt": "2026-09-15T09:30:32.963Z"
+      "updatedAt": "2026-09-19T10:47:15.425Z"
     },
     "images/home/groups/spiders.jpg": {
       "sourceHash": "d97fae0b550f0760f7cf89bfb18b376b87ce2b40a6bd5fe1e086bff908918f1c",
@@ -30374,7 +30455,7 @@
           "byteSize": 126958
         }
       ],
-      "updatedAt": "2026-09-15T09:30:36.833Z"
+      "updatedAt": "2026-09-19T10:47:22.138Z"
     },
     "images/home/groups/turtles.jpg": {
       "sourceHash": "865e39fdba02b04b4981d8c5d4d97c28510ec069dd186d3acc4ec3c43a3f52ef",
@@ -30469,7 +30550,7 @@
           "byteSize": 298432
         }
       ],
-      "updatedAt": "2026-09-15T09:30:38.753Z"
+      "updatedAt": "2026-09-19T10:47:37.262Z"
     },
     "images/news/theridion-huseynovi-new-spider-species-georgia-2026/theridion-huseynovi.png": {
       "sourceHash": "d4a1a13fbf943fc87f371418a57eca878129fcd41f735deb5bfbca43c80fe9f3",
@@ -49248,6 +49329,953 @@
         }
       ],
       "updatedAt": "2026-08-28T21:54:37.779Z"
+    },
+    "mesobuthus-eupeus-armen-1.jpg": {
+      "sourceHash": "6aee839146d28fe1ce4b85498277af47af9b8dbf2c73a40be35ec06f62a0585b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "mesobuthus-eupeus-armen-1.jpg",
+      "originalSize": 367948,
+      "width": 1440,
+      "height": 1057,
+      "derivatives": [
+        {
+          "key": "optimized/mesobuthus-eupeus-armen-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 235,
+          "byteSize": 13800
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-armen-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 235,
+          "byteSize": 19762
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-armen-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 293,
+          "byteSize": 19558
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-armen-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 293,
+          "byteSize": 28630
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-armen-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 470,
+          "byteSize": 42640
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-armen-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 470,
+          "byteSize": 62884
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-armen-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 587,
+          "byteSize": 61061
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-armen-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 587,
+          "byteSize": 90204
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-armen-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 881,
+          "byteSize": 114984
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-armen-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 881,
+          "byteSize": 168832
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-armen-1-1440.avif",
+          "format": "avif",
+          "width": 1440,
+          "height": 1057,
+          "byteSize": 158257
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-armen-1-1440.webp",
+          "format": "webp",
+          "width": 1440,
+          "height": 1057,
+          "byteSize": 208358
+        }
+      ],
+      "updatedAt": "2026-09-19T11:07:21.665Z"
+    },
+    "mesobuthus-eupeus-armen-2.jpg": {
+      "sourceHash": "493b5a26371163debd311cb48a80138cf443c941f426e6b49f0580188aeb85da",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "mesobuthus-eupeus-armen-2.jpg",
+      "originalSize": 314761,
+      "width": 1400,
+      "height": 861,
+      "derivatives": [
+        {
+          "key": "optimized/mesobuthus-eupeus-armen-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 197,
+          "byteSize": 12483
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-armen-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 197,
+          "byteSize": 17820
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-armen-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 246,
+          "byteSize": 17837
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-armen-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 246,
+          "byteSize": 26250
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-armen-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 394,
+          "byteSize": 40371
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-armen-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 394,
+          "byteSize": 59762
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-armen-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 492,
+          "byteSize": 57843
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-armen-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 492,
+          "byteSize": 86226
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-armen-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 738,
+          "byteSize": 107667
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-armen-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 738,
+          "byteSize": 161528
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-armen-2-1400.avif",
+          "format": "avif",
+          "width": 1400,
+          "height": 861,
+          "byteSize": 138628
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-armen-2-1400.webp",
+          "format": "webp",
+          "width": 1400,
+          "height": 861,
+          "byteSize": 193760
+        }
+      ],
+      "updatedAt": "2026-09-19T11:09:10.994Z"
+    },
+    "mesobuthus-eupeus-barnabás-1.jpg": {
+      "sourceHash": "5e3e0275c15590020df1b479ae4986bf1174e2b3bcfaab6e7579d77d5556b4f1",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "mesobuthus-eupeus-barnabás-1.jpg",
+      "originalSize": 305308,
+      "width": 1024,
+      "height": 682,
+      "derivatives": [
+        {
+          "key": "optimized/mesobuthus-eupeus-barnabás-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 16447
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-barnabás-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 23806
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-barnabás-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 26714
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-barnabás-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 39850
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-barnabás-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 67511
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-barnabás-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 103896
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-barnabás-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 97760
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-barnabás-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 157480
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-barnabás-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 682,
+          "byteSize": 152622
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-barnabás-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 682,
+          "byteSize": 247682
+        }
+      ],
+      "updatedAt": "2026-09-19T10:54:54.768Z"
+    },
+    "mesobuthus-eupeus-denis-1.jpg": {
+      "sourceHash": "f5307fb0d3d2f37fee798899c7594174ed6258b0ecfc0a2bab90a57074c3f85a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "mesobuthus-eupeus-denis-1.jpg",
+      "originalSize": 248367,
+      "width": 1024,
+      "height": 576,
+      "derivatives": [
+        {
+          "key": "optimized/mesobuthus-eupeus-denis-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 15657
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-denis-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 25856
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-denis-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 24516
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-denis-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 38988
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-denis-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 53161
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-denis-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 88414
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-denis-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 75841
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-denis-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 126352
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-denis-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 576,
+          "byteSize": 113161
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-denis-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 576,
+          "byteSize": 190180
+        }
+      ],
+      "updatedAt": "2026-09-19T10:53:07.792Z"
+    },
+    "mesobuthus-eupeus-dmitry-1.jpg": {
+      "sourceHash": "684bd80dee85726133f777cc021c44719db22b8f776ad241f2778ca241fae439",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "mesobuthus-eupeus-dmitry-1.jpg",
+      "originalSize": 83031,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/mesobuthus-eupeus-dmitry-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6008
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-dmitry-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8072
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-dmitry-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 7878
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-dmitry-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 10482
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-dmitry-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 14061
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-dmitry-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 18468
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-dmitry-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 18564
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-dmitry-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 23828
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-dmitry-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 26654
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-dmitry-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 33512
+        }
+      ],
+      "updatedAt": "2026-09-19T10:53:53.460Z"
+    },
+    "mesobuthus-eupeus-giorgi-1.jpg": {
+      "sourceHash": "2e2920c8ab6257b3bf51091abb49b1145f43313aae6adee609e5b05c3757a07b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "mesobuthus-eupeus-giorgi-1.jpg",
+      "originalSize": 259624,
+      "width": 1999,
+      "height": 1357,
+      "derivatives": [
+        {
+          "key": "optimized/mesobuthus-eupeus-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 217,
+          "byteSize": 5772
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 217,
+          "byteSize": 6960
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 271,
+          "byteSize": 7960
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 271,
+          "byteSize": 9662
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 434,
+          "byteSize": 16210
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 434,
+          "byteSize": 19936
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 543,
+          "byteSize": 23177
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 543,
+          "byteSize": 28880
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-giorgi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 815,
+          "byteSize": 43251
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-giorgi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 815,
+          "byteSize": 52270
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-giorgi-1-1999.avif",
+          "format": "avif",
+          "width": 1999,
+          "height": 1357,
+          "byteSize": 167764
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-giorgi-1-1999.webp",
+          "format": "webp",
+          "width": 1999,
+          "height": 1357,
+          "byteSize": 179490
+        }
+      ],
+      "updatedAt": "2026-09-19T10:59:40.047Z"
+    },
+    "mesobuthus-eupeus-ioane-1.jpg": {
+      "sourceHash": "4c42442950bd5a53fcb4b8d62d3c1153fb5e2a9b2da9b7fb7b22dd2017438309",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "mesobuthus-eupeus-ioane-1.jpg",
+      "originalSize": 482177,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/mesobuthus-eupeus-ioane-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 29308
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-ioane-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 45248
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-ioane-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 41862
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-ioane-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 65712
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-ioane-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 85662
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-ioane-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 134440
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-ioane-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 116510
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-ioane-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 179250
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-ioane-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 194226
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-ioane-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 292534
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-ioane-1-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 287556
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-ioane-1-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 372978
+        }
+      ],
+      "updatedAt": "2026-09-19T10:58:19.479Z"
+    },
+    "mesobuthus-eupeus-jannic-justen-1.jpg": {
+      "sourceHash": "c26502e2d17750d4034662369187feed790efdceafb783204e13d4482e83498c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "mesobuthus-eupeus-jannic-justen-1.jpg",
+      "originalSize": 145552,
+      "width": 683,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/mesobuthus-eupeus-jannic-justen-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 480,
+          "byteSize": 16977
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-jannic-justen-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 480,
+          "byteSize": 25812
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-jannic-justen-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 600,
+          "byteSize": 23416
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-jannic-justen-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 600,
+          "byteSize": 35770
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-jannic-justen-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 960,
+          "byteSize": 45291
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-jannic-justen-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 960,
+          "byteSize": 68182
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-jannic-justen-1-683.avif",
+          "format": "avif",
+          "width": 683,
+          "height": 1024,
+          "byteSize": 51350
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-jannic-justen-1-683.webp",
+          "format": "webp",
+          "width": 683,
+          "height": 1024,
+          "byteSize": 76350
+        }
+      ],
+      "updatedAt": "2026-09-19T10:57:06.661Z"
+    },
+    "mesobuthus-eupeus-kirill-1.jpg": {
+      "sourceHash": "bb2e5e2d313e2abb4cb96acc015246622d0d58c605cf74d2e31ec5fbc630ad98",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "mesobuthus-eupeus-kirill-1.jpg",
+      "originalSize": 304773,
+      "width": 771,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/mesobuthus-eupeus-kirill-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 425,
+          "byteSize": 31735
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-kirill-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 425,
+          "byteSize": 50822
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-kirill-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 531,
+          "byteSize": 47044
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-kirill-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 531,
+          "byteSize": 74504
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-kirill-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 850,
+          "byteSize": 100651
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-kirill-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 850,
+          "byteSize": 162844
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-kirill-1-771.avif",
+          "format": "avif",
+          "width": 771,
+          "height": 1024,
+          "byteSize": 136990
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-kirill-1-771.webp",
+          "format": "webp",
+          "width": 771,
+          "height": 1024,
+          "byteSize": 214094
+        }
+      ],
+      "updatedAt": "2026-09-19T10:55:58.846Z"
+    },
+    "mesobuthus-eupeus-lasha-1.jpg": {
+      "sourceHash": "bf9ac451e573da9e01ef4578d7827ef8360b802adf7403ccb129b0f980f5c682",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "mesobuthus-eupeus-lasha-1.jpg",
+      "originalSize": 155902,
+      "width": 1440,
+      "height": 960,
+      "derivatives": [
+        {
+          "key": "optimized/mesobuthus-eupeus-lasha-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11255
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-lasha-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 17188
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-lasha-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 15485
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-lasha-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 23434
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-lasha-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 29106
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-lasha-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 42334
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-lasha-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 38886
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-lasha-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 56014
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-lasha-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 62837
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-lasha-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 88082
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-lasha-1-1440.avif",
+          "format": "avif",
+          "width": 1440,
+          "height": 960,
+          "byteSize": 85542
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-lasha-1-1440.webp",
+          "format": "webp",
+          "width": 1440,
+          "height": 960,
+          "byteSize": 110266
+        }
+      ],
+      "updatedAt": "2026-09-19T11:00:49.100Z"
+    },
+    "mesobuthus-eupeus-nika-1.jpg": {
+      "sourceHash": "cf2687480b6d834e02b022a31f1999efef5ed2b22e7e76af700fe9c857990996",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "mesobuthus-eupeus-nika-1.jpg",
+      "originalSize": 364874,
+      "width": 1440,
+      "height": 1049,
+      "derivatives": [
+        {
+          "key": "optimized/mesobuthus-eupeus-nika-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 233,
+          "byteSize": 14926
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-nika-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 233,
+          "byteSize": 23644
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-nika-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 291,
+          "byteSize": 21004
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-nika-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 291,
+          "byteSize": 33386
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-nika-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 466,
+          "byteSize": 46102
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-nika-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 466,
+          "byteSize": 71406
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-nika-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 583,
+          "byteSize": 64926
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-nika-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 583,
+          "byteSize": 100626
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-nika-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 874,
+          "byteSize": 119496
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-nika-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 874,
+          "byteSize": 180240
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-nika-1-1440.avif",
+          "format": "avif",
+          "width": 1440,
+          "height": 1049,
+          "byteSize": 159552
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-nika-1-1440.webp",
+          "format": "webp",
+          "width": 1440,
+          "height": 1049,
+          "byteSize": 219232
+        }
+      ],
+      "updatedAt": "2026-09-19T11:08:08.668Z"
     },
     "milvus-migrans-kraft-germany.jpg": {
       "sourceHash": "8648d8dca44b8fe34ffb3a5b2db38e3eb59249face16f26929f94125af6b3376",

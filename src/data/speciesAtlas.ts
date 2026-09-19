@@ -33,6 +33,7 @@ export type AtlasStats = {
   mammals: number;
   photos: number;
   regions: number;
+  scorpions: number;
   snakes: number;
   spiders: number;
   total: number;
@@ -59,6 +60,7 @@ export function getAtlasStats(
     insect: 0,
     lizard: 0,
     mammal: 0,
+    scorpion: 0,
     snake: 0,
     spider: 0,
     turtle: 0,
@@ -83,6 +85,7 @@ export function getAtlasStats(
     mammals: byGroup.mammal,
     photos: getAtlasPhotoCount(catalog),
     regions: regions.length,
+    scorpions: byGroup.scorpion,
     snakes: byGroup.snake,
     spiders: byGroup.spider,
     total: catalog.length,

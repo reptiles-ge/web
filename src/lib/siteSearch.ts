@@ -61,6 +61,7 @@ export type SearchPageHref = Exclude<
   | "/news/[slug]"
   | "/quiz/[slug]"
   | "/regions/[id]"
+  | "/scorpions/[slug]"
   | "/snakes/[slug]"
   | "/species/[id]"
   | "/spiders/[slug]"
@@ -75,6 +76,7 @@ type SpeciesHref = {
     | "/insects/[slug]"
     | "/lizards/[slug]"
     | "/mammals/[slug]"
+    | "/scorpions/[slug]"
     | "/snakes/[slug]"
     | "/spiders/[slug]"
     | "/turtles/[slug]";
