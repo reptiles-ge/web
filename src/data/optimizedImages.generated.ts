@@ -2510,6 +2510,69 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/euscorpius-italicus-butterfly-fly-1.jpg": {
+    "path": "euscorpius-italicus-butterfly-fly-1",
+    "width": 1024,
+    "height": 768,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/euscorpius-italicus-dominik-1.jpg": {
+    "path": "euscorpius-italicus-dominik-1",
+    "width": 576,
+    "height": 1024,
+    "widths": [320, 400, 576],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/euscorpius-italicus-emanuele-1.jpg": {
+    "path": "euscorpius-italicus-emanuele-1",
+    "width": 1024,
+    "height": 768,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/euscorpius-italicus-gintautas-1.jpg": {
+    "path": "euscorpius-italicus-gintautas-1",
+    "width": 1000,
+    "height": 650,
+    "widths": [320, 400, 640, 800, 1000],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/euscorpius-italicus-manuel-1.jpg": {
+    "path": "euscorpius-italicus-manuel-1",
+    "width": 500,
+    "height": 333,
+    "widths": [320, 400, 500],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/euscorpius-italicus-markus-1.jpg": {
+    "path": "euscorpius-italicus-markus-1",
+    "width": 1024,
+    "height": 768,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/euscorpius-italicus-matvei-1.jpg": {
+    "path": "euscorpius-italicus-matvei-1",
+    "width": 768,
+    "height": 1024,
+    "widths": [320, 400, 640, 768],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/euscorpius-italicus-sandro-1.jpg": {
+    "path": "euscorpius-italicus-sandro-1",
+    "width": 960,
+    "height": 632,
+    "widths": [320, 400, 640, 800, 960],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/euscorpius-italicus-zakro-1.jpg": {
+    "path": "euscorpius-italicus-zakro-1",
+    "width": 960,
+    "height": 720,
+    "widths": [320, 400, 640, 800, 960],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/euscorpius-mingrelicus-andrii-1.jpg": {
     "path": "euscorpius-mingrelicus-andrii-1",
     "width": 1024,
