@@ -50087,6 +50087,101 @@
       ],
       "updatedAt": "2026-09-19T11:00:49.100Z"
     },
+    "mesobuthus-eupeus-nika-1.jpg": {
+      "sourceHash": "cf2687480b6d834e02b022a31f1999efef5ed2b22e7e76af700fe9c857990996",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "mesobuthus-eupeus-nika-1.jpg",
+      "originalSize": 364874,
+      "width": 1440,
+      "height": 1049,
+      "derivatives": [
+        {
+          "key": "optimized/mesobuthus-eupeus-nika-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 233,
+          "byteSize": 14926
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-nika-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 233,
+          "byteSize": 23644
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-nika-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 291,
+          "byteSize": 21004
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-nika-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 291,
+          "byteSize": 33386
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-nika-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 466,
+          "byteSize": 46102
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-nika-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 466,
+          "byteSize": 71406
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-nika-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 583,
+          "byteSize": 64926
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-nika-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 583,
+          "byteSize": 100626
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-nika-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 874,
+          "byteSize": 119496
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-nika-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 874,
+          "byteSize": 180240
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-nika-1-1440.avif",
+          "format": "avif",
+          "width": 1440,
+          "height": 1049,
+          "byteSize": 159552
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-nika-1-1440.webp",
+          "format": "webp",
+          "width": 1440,
+          "height": 1049,
+          "byteSize": 219232
+        }
+      ],
+      "updatedAt": "2026-09-19T11:08:08.668Z"
+    },
     "milvus-migrans-kraft-germany.jpg": {
       "sourceHash": "8648d8dca44b8fe34ffb3a5b2db38e3eb59249face16f26929f94125af6b3376",
       "configFingerprint": "a895f8e025dcc7fa",

@@ -4519,6 +4519,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1440],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/mesobuthus-eupeus-nika-1.jpg": {
+    "path": "mesobuthus-eupeus-nika-1",
+    "width": 1440,
+    "height": 1049,
+    "widths": [320, 400, 640, 800, 1200, 1440],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/milvus-migrans-kraft-germany.jpg": {
     "path": "milvus-migrans-kraft-germany",
     "width": 800,
