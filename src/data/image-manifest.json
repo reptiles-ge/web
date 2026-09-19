@@ -49330,6 +49330,87 @@
       ],
       "updatedAt": "2026-08-28T21:54:37.779Z"
     },
+    "mesobuthus-eupeus-denis-1.jpg": {
+      "sourceHash": "f5307fb0d3d2f37fee798899c7594174ed6258b0ecfc0a2bab90a57074c3f85a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "mesobuthus-eupeus-denis-1.jpg",
+      "originalSize": 248367,
+      "width": 1024,
+      "height": 576,
+      "derivatives": [
+        {
+          "key": "optimized/mesobuthus-eupeus-denis-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 15657
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-denis-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 25856
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-denis-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 24516
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-denis-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 38988
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-denis-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 53161
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-denis-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 88414
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-denis-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 75841
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-denis-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 126352
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-denis-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 576,
+          "byteSize": 113161
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-denis-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 576,
+          "byteSize": 190180
+        }
+      ],
+      "updatedAt": "2026-09-19T10:53:07.792Z"
+    },
     "milvus-migrans-kraft-germany.jpg": {
       "sourceHash": "8648d8dca44b8fe34ffb3a5b2db38e3eb59249face16f26929f94125af6b3376",
       "configFingerprint": "a895f8e025dcc7fa",
