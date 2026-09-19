@@ -9647,6 +9647,87 @@
       ],
       "updatedAt": "2026-09-17T19:25:26.878Z"
     },
+    "cheiracanthium-punctorium-adam-1.jpg": {
+      "sourceHash": "92ee93f980c1f37891d3ffc011626446da5164c3e7ed871ceacaa6be3184a340",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "cheiracanthium-punctorium-adam-1.jpg",
+      "originalSize": 246114,
+      "width": 852,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/cheiracanthium-punctorium-adam-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 385,
+          "byteSize": 9714
+        },
+        {
+          "key": "optimized/cheiracanthium-punctorium-adam-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 385,
+          "byteSize": 12084
+        },
+        {
+          "key": "optimized/cheiracanthium-punctorium-adam-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 481,
+          "byteSize": 14154
+        },
+        {
+          "key": "optimized/cheiracanthium-punctorium-adam-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 481,
+          "byteSize": 18064
+        },
+        {
+          "key": "optimized/cheiracanthium-punctorium-adam-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 769,
+          "byteSize": 36470
+        },
+        {
+          "key": "optimized/cheiracanthium-punctorium-adam-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 769,
+          "byteSize": 53428
+        },
+        {
+          "key": "optimized/cheiracanthium-punctorium-adam-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 962,
+          "byteSize": 74813
+        },
+        {
+          "key": "optimized/cheiracanthium-punctorium-adam-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 962,
+          "byteSize": 99682
+        },
+        {
+          "key": "optimized/cheiracanthium-punctorium-adam-1-852.avif",
+          "format": "avif",
+          "width": 852,
+          "height": 1024,
+          "byteSize": 104732
+        },
+        {
+          "key": "optimized/cheiracanthium-punctorium-adam-1-852.webp",
+          "format": "webp",
+          "width": 852,
+          "height": 1024,
+          "byteSize": 134124
+        }
+      ],
+      "updatedAt": "2026-09-19T07:35:20.188Z"
+    },
     "cheiracanthium-punctorium-armen-1.jpg": {
       "sourceHash": "eeb0fbd68dd5b7cd7b1c83e32d1d063b50a0eea0c930d8c921a460f36a5c5a69",
       "configFingerprint": "409788ee46c653d8",

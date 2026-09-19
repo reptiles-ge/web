@@ -1061,6 +1061,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1957],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/cheiracanthium-punctorium-adam-1.jpg": {
+    "path": "cheiracanthium-punctorium-adam-1",
+    "width": 852,
+    "height": 1024,
+    "widths": [320, 400, 640, 800, 852],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/cheiracanthium-punctorium-armen-1.jpg": {
     "path": "cheiracanthium-punctorium-armen-1",
     "width": 1527,
