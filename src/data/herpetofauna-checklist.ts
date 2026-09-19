@@ -1,9 +1,7 @@
 import { speciesAtlasMeta } from "@/data/speciesAtlasMeta";
 
 export type HerpetofaunaChecklistStatus =
-  | "candidate"
-  | "confirmed"
-  | "introduced";
+  "candidate" | "confirmed" | "introduced";
 
 const HERP_GROUPS = new Set(["amphibian", "lizard", "snake", "turtle"]);
 
@@ -15,7 +13,6 @@ const CANDIDATE = new Set<string>([
   "darevskia-caucasica",
   "darevskia-obscura",
   "darevskia-pontica",
-  "darevskia-raddei",
   "dolichophis-caspius",
   "dolichophis-schmidti",
   "hyla-orientalis",

@@ -16,10 +16,7 @@ describe("herpetofauna checklist", () => {
     );
     expect(publishedHerps.length).toBeGreaterThan(0);
     for (const item of publishedHerps) {
-      expect(
-        getHerpetofaunaChecklistStatus(item.id),
-        item.id,
-      ).not.toBeNull();
+      expect(getHerpetofaunaChecklistStatus(item.id), item.id).not.toBeNull();
     }
   });
 
@@ -41,6 +38,9 @@ describe("herpetofauna checklist", () => {
       "introduced",
     );
     expect(getHerpetofaunaChecklistStatus("macrovipera-lebetina")).toBe(
+      "confirmed",
+    );
+    expect(getHerpetofaunaChecklistStatus("darevskia-raddei")).toBe(
       "confirmed",
     );
   });
