@@ -26090,6 +26090,87 @@
       ],
       "updatedAt": "2026-09-19T16:58:09.804Z"
     },
+    "euscorpius-italicus-markus-1.jpg": {
+      "sourceHash": "a11ad2880929f5df3b450618772ad905487765d36289fd13929b7c8a194dabec",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "euscorpius-italicus-markus-1.jpg",
+      "originalSize": 240013,
+      "width": 1024,
+      "height": 768,
+      "derivatives": [
+        {
+          "key": "optimized/euscorpius-italicus-markus-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 13467
+        },
+        {
+          "key": "optimized/euscorpius-italicus-markus-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 18642
+        },
+        {
+          "key": "optimized/euscorpius-italicus-markus-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 23044
+        },
+        {
+          "key": "optimized/euscorpius-italicus-markus-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 31774
+        },
+        {
+          "key": "optimized/euscorpius-italicus-markus-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 57135
+        },
+        {
+          "key": "optimized/euscorpius-italicus-markus-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 80008
+        },
+        {
+          "key": "optimized/euscorpius-italicus-markus-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 81733
+        },
+        {
+          "key": "optimized/euscorpius-italicus-markus-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 114940
+        },
+        {
+          "key": "optimized/euscorpius-italicus-markus-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 118902
+        },
+        {
+          "key": "optimized/euscorpius-italicus-markus-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 160262
+        }
+      ],
+      "updatedAt": "2026-09-19T16:59:38.091Z"
+    },
     "euscorpius-italicus-sandro-1.jpg": {
       "sourceHash": "7458220a9bba42a6d754a61d9995d48a1dd4469a66d36de283d5e5fbe2b3ba59",
       "configFingerprint": "409788ee46c653d8",
