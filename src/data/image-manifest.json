@@ -26009,6 +26009,87 @@
       ],
       "updatedAt": "2026-08-28T21:41:12.015Z"
     },
+    "euscorpius-italicus-butterfly-fly-1.jpg": {
+      "sourceHash": "6c1e0d374740e57fc5db1678d8c6403389e26affad6a41fae3faa530412d04a3",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "euscorpius-italicus-butterfly-fly-1.jpg",
+      "originalSize": 319960,
+      "width": 1024,
+      "height": 768,
+      "derivatives": [
+        {
+          "key": "optimized/euscorpius-italicus-butterfly-fly-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 21739
+        },
+        {
+          "key": "optimized/euscorpius-italicus-butterfly-fly-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 33488
+        },
+        {
+          "key": "optimized/euscorpius-italicus-butterfly-fly-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 33808
+        },
+        {
+          "key": "optimized/euscorpius-italicus-butterfly-fly-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 51784
+        },
+        {
+          "key": "optimized/euscorpius-italicus-butterfly-fly-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 73670
+        },
+        {
+          "key": "optimized/euscorpius-italicus-butterfly-fly-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 119230
+        },
+        {
+          "key": "optimized/euscorpius-italicus-butterfly-fly-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 101978
+        },
+        {
+          "key": "optimized/euscorpius-italicus-butterfly-fly-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 169242
+        },
+        {
+          "key": "optimized/euscorpius-italicus-butterfly-fly-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 145172
+        },
+        {
+          "key": "optimized/euscorpius-italicus-butterfly-fly-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 237286
+        }
+      ],
+      "updatedAt": "2026-09-19T17:00:47.812Z"
+    },
     "euscorpius-italicus-gintautas-1.jpg": {
       "sourceHash": "a7a90e420e9ffa28796fe5907980ab85d98fe4ace3ca718b52317e6b45975bff",
       "configFingerprint": "409788ee46c653d8",
