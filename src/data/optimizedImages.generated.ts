@@ -4463,6 +4463,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1440],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/mesobuthus-eupeus-armen-2.jpg": {
+    "path": "mesobuthus-eupeus-armen-2",
+    "width": 1400,
+    "height": 861,
+    "widths": [320, 400, 640, 800, 1200, 1400],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/mesobuthus-eupeus-barnab%C3%A1s-1.jpg": {
     "path": "mesobuthus-eupeus-barnab%C3%A1s-1",
     "width": 1024,
