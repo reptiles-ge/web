@@ -26199,6 +26199,87 @@
       ],
       "updatedAt": "2026-09-19T12:44:18.030Z"
     },
+    "euscorpius-mingrelicus-frederic-1.jpg": {
+      "sourceHash": "3f0043c8d8bccee6eceae4b0f6aabcedaa547fa382735ac0d72c88affacd4dba",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "euscorpius-mingrelicus-frederic-1.jpg",
+      "originalSize": 212268,
+      "width": 1024,
+      "height": 682,
+      "derivatives": [
+        {
+          "key": "optimized/euscorpius-mingrelicus-frederic-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14074
+        },
+        {
+          "key": "optimized/euscorpius-mingrelicus-frederic-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 23098
+        },
+        {
+          "key": "optimized/euscorpius-mingrelicus-frederic-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 21268
+        },
+        {
+          "key": "optimized/euscorpius-mingrelicus-frederic-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 34482
+        },
+        {
+          "key": "optimized/euscorpius-mingrelicus-frederic-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 44516
+        },
+        {
+          "key": "optimized/euscorpius-mingrelicus-frederic-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 72290
+        },
+        {
+          "key": "optimized/euscorpius-mingrelicus-frederic-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 61660
+        },
+        {
+          "key": "optimized/euscorpius-mingrelicus-frederic-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 98664
+        },
+        {
+          "key": "optimized/euscorpius-mingrelicus-frederic-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 682,
+          "byteSize": 88680
+        },
+        {
+          "key": "optimized/euscorpius-mingrelicus-frederic-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 682,
+          "byteSize": 138596
+        }
+      ],
+      "updatedAt": "2026-09-19T12:45:43.643Z"
+    },
     "ficedula-hypoleuca-crowbared-1.jpg": {
       "sourceHash": "bcfd4aab32fdfa6c66f19e8591a529b2d80cbeb860dc5218bcf86f06e7673edf",
       "configFingerprint": "a895f8e025dcc7fa",
