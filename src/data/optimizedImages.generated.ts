@@ -2517,6 +2517,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1350],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/euscorpius-mingrelicus-armen-2.jpg": {
+    "path": "euscorpius-mingrelicus-armen-2",
+    "width": 1440,
+    "height": 1026,
+    "widths": [320, 400, 640, 800, 1200, 1440],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/ficedula-hypoleuca-crowbared-1.jpg": {
     "path": "ficedula-hypoleuca-crowbared-1",
     "width": 2400,

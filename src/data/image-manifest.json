@@ -26104,6 +26104,101 @@
       ],
       "updatedAt": "2026-09-19T12:43:26.669Z"
     },
+    "euscorpius-mingrelicus-armen-2.jpg": {
+      "sourceHash": "e9a4c2e8748615eb62fae94606370e536279aedcb7c46997f1ee07afabf39642",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "euscorpius-mingrelicus-armen-2.jpg",
+      "originalSize": 449825,
+      "width": 1440,
+      "height": 1026,
+      "derivatives": [
+        {
+          "key": "optimized/euscorpius-mingrelicus-armen-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 228,
+          "byteSize": 14525
+        },
+        {
+          "key": "optimized/euscorpius-mingrelicus-armen-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 228,
+          "byteSize": 20078
+        },
+        {
+          "key": "optimized/euscorpius-mingrelicus-armen-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 285,
+          "byteSize": 21733
+        },
+        {
+          "key": "optimized/euscorpius-mingrelicus-armen-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 285,
+          "byteSize": 30324
+        },
+        {
+          "key": "optimized/euscorpius-mingrelicus-armen-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 456,
+          "byteSize": 51608
+        },
+        {
+          "key": "optimized/euscorpius-mingrelicus-armen-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 456,
+          "byteSize": 74642
+        },
+        {
+          "key": "optimized/euscorpius-mingrelicus-armen-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 570,
+          "byteSize": 77714
+        },
+        {
+          "key": "optimized/euscorpius-mingrelicus-armen-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 570,
+          "byteSize": 112690
+        },
+        {
+          "key": "optimized/euscorpius-mingrelicus-armen-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 855,
+          "byteSize": 150553
+        },
+        {
+          "key": "optimized/euscorpius-mingrelicus-armen-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 855,
+          "byteSize": 228106
+        },
+        {
+          "key": "optimized/euscorpius-mingrelicus-armen-2-1440.avif",
+          "format": "avif",
+          "width": 1440,
+          "height": 1026,
+          "byteSize": 208116
+        },
+        {
+          "key": "optimized/euscorpius-mingrelicus-armen-2-1440.webp",
+          "format": "webp",
+          "width": 1440,
+          "height": 1026,
+          "byteSize": 292136
+        }
+      ],
+      "updatedAt": "2026-09-19T12:44:18.030Z"
+    },
     "ficedula-hypoleuca-crowbared-1.jpg": {
       "sourceHash": "bcfd4aab32fdfa6c66f19e8591a529b2d80cbeb860dc5218bcf86f06e7673edf",
       "configFingerprint": "a895f8e025dcc7fa",
