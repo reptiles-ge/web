@@ -1075,6 +1075,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1527],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/cheiracanthium-punctorium-dominic-1.jpg": {
+    "path": "cheiracanthium-punctorium-dominic-1",
+    "width": 1024,
+    "height": 768,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/coronella-austriaca-1.jpg": {
     "path": "coronella-austriaca-1",
     "width": 1024,

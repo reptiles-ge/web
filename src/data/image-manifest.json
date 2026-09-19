@@ -9823,6 +9823,87 @@
       ],
       "updatedAt": "2026-09-19T07:33:40.976Z"
     },
+    "cheiracanthium-punctorium-dominic-1.jpg": {
+      "sourceHash": "727e779088d0e5919c7b09d89faa34a36f0afae9812ecc5ebc14b359e76f5439",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "cheiracanthium-punctorium-dominic-1.jpg",
+      "originalSize": 193434,
+      "width": 1024,
+      "height": 768,
+      "derivatives": [
+        {
+          "key": "optimized/cheiracanthium-punctorium-dominic-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 13369
+        },
+        {
+          "key": "optimized/cheiracanthium-punctorium-dominic-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 20526
+        },
+        {
+          "key": "optimized/cheiracanthium-punctorium-dominic-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 19392
+        },
+        {
+          "key": "optimized/cheiracanthium-punctorium-dominic-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 29870
+        },
+        {
+          "key": "optimized/cheiracanthium-punctorium-dominic-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 38706
+        },
+        {
+          "key": "optimized/cheiracanthium-punctorium-dominic-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 59656
+        },
+        {
+          "key": "optimized/cheiracanthium-punctorium-dominic-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 53995
+        },
+        {
+          "key": "optimized/cheiracanthium-punctorium-dominic-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 84038
+        },
+        {
+          "key": "optimized/cheiracanthium-punctorium-dominic-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 76794
+        },
+        {
+          "key": "optimized/cheiracanthium-punctorium-dominic-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 117758
+        }
+      ],
+      "updatedAt": "2026-09-19T07:35:52.699Z"
+    },
     "coronella-austriaca-1.jpg": {
       "sourceHash": "b53893e4de09a7fbefeb940d157baa7efc173567c8d8935dc368843879d16e4e",
       "configFingerprint": "409788ee46c653d8",
