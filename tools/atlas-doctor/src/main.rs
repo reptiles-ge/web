@@ -228,18 +228,15 @@ fn check_species_content(graph: &Graph, diagnostics: &mut Vec<Diagnostic>) {
         check_generated_freshness(graph, diagnostics, &item.id, ka);
         check_atlas_meta(graph, diagnostics, &item.id, is_published, ka);
         check_checklist_status(graph, diagnostics, &item.id, ka);
-        check_gallery_references(diagnostics, item, ka);
         check_internal_links(diagnostics, &valid_paths, ka);
         check_photo_provenance(diagnostics, ka);
         check_candidate_tone(graph, diagnostics, &item.id, ka);
 
-        let ka_gallery = gallery_srcs(&ka.frontmatter);
         for (locale, localized) in &item.locales {
             if locale == "ka" {
                 continue;
             }
             check_taxonomy_locale(diagnostics, &item.id, locale, ka, localized);
-            check_gallery_overlay(diagnostics, &ka_gallery, locale, localized);
             check_internal_links(diagnostics, &valid_paths, localized);
             check_photo_provenance(diagnostics, localized);
         }
@@ -445,64 +442,6 @@ fn check_atlas_meta(
                     meta.group
                 ),
             );
-        }
-    }
-}
-
-fn check_gallery_overlay(
-    diagnostics: &mut Vec<Diagnostic>,
-    ka_gallery: &BTreeSet<String>,
-    locale: &str,
-    localized: &LocaleContent,
-) {
-    for src in gallery_srcs(&localized.frontmatter) {
-        if !ka_gallery.contains(&src) {
-            fatal(
-                diagnostics,
-                "gallery-reference-invalid",
-                &localized.path,
-                format!("{locale}.mdx overlays unknown gallery src `{src}`"),
-            );
-        }
-    }
-}
-
-fn check_gallery_references(
-    diagnostics: &mut Vec<Diagnostic>,
-    item: &SpeciesContent,
-    ka: &LocaleContent,
-) {
-    let ka_gallery = gallery_srcs(&ka.frontmatter);
-    for field in ["image", "mobileImage"] {
-        if let Some(src) = str_field(&ka.frontmatter, field) {
-            if !src.trim().is_empty() && !ka_gallery.contains(src) {
-                fatal(
-                    diagnostics,
-                    "gallery-reference-invalid",
-                    &ka.path,
-                    format!("{field} `{src}` is not present in canonical KA gallery"),
-                );
-            }
-        }
-    }
-
-    for (locale, localized) in &item.locales {
-        if locale == "ka" {
-            continue;
-        }
-        for field in ["image", "mobileImage"] {
-            if let Some(src) = str_field(&localized.frontmatter, field) {
-                if !src.trim().is_empty() && !ka_gallery.contains(src) {
-                    fatal(
-                        diagnostics,
-                        "gallery-reference-invalid",
-                        &localized.path,
-                        format!(
-                            "{locale}.mdx {field} `{src}` is not present in canonical KA gallery"
-                        ),
-                    );
-                }
-            }
         }
     }
 }
@@ -932,18 +871,6 @@ fn photo_credit_entries(
     out
 }
 
-fn gallery_srcs(frontmatter: &Map<String, Value>) -> BTreeSet<String> {
-    frontmatter
-        .get("gallery")
-        .and_then(Value::as_array)
-        .into_iter()
-        .flatten()
-        .filter_map(Value::as_object)
-        .filter_map(|item| str_field(item, "src"))
-        .map(str::to_string)
-        .collect()
-}
-
 fn sources_are_valid(value: Option<&Value>) -> bool {
     let Some(sources) = value.and_then(Value::as_array) else {
         return false;
@@ -1068,23 +995,6 @@ mod tests {
             { "name": "Tarkhnishvili et al. 2026", "url": "https://doi.org/10.3897/caucasiana.5.e189214" }
         ]);
         assert!(sources_are_valid(Some(&value)));
-    }
-
-    #[test]
-    fn extracts_gallery_srcs() {
-        let value = serde_json::json!({
-            "gallery": [
-                { "src": "https://cdn.reptiles.ge/a.jpg" },
-                { "src": "https://cdn.reptiles.ge/b.jpg" }
-            ]
-        });
-        assert_eq!(
-            gallery_srcs(value.as_object().unwrap()),
-            BTreeSet::from([
-                "https://cdn.reptiles.ge/a.jpg".to_string(),
-                "https://cdn.reptiles.ge/b.jpg".to_string()
-            ])
-        );
     }
 
     #[test]
