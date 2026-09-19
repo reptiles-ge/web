@@ -2517,6 +2517,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/euscorpius-italicus-emanuele-1.jpg": {
+    "path": "euscorpius-italicus-emanuele-1",
+    "width": 1024,
+    "height": 768,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/euscorpius-italicus-gintautas-1.jpg": {
     "path": "euscorpius-italicus-gintautas-1",
     "width": 1000,

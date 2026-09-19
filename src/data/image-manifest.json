@@ -26090,6 +26090,87 @@
       ],
       "updatedAt": "2026-09-19T17:00:47.812Z"
     },
+    "euscorpius-italicus-emanuele-1.jpg": {
+      "sourceHash": "747ebf6163c030bfef5346f74b01860125e5922bcce342f7d6fa8ce05767dd3c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "euscorpius-italicus-emanuele-1.jpg",
+      "originalSize": 250680,
+      "width": 1024,
+      "height": 768,
+      "derivatives": [
+        {
+          "key": "optimized/euscorpius-italicus-emanuele-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 15598
+        },
+        {
+          "key": "optimized/euscorpius-italicus-emanuele-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 26646
+        },
+        {
+          "key": "optimized/euscorpius-italicus-emanuele-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 24287
+        },
+        {
+          "key": "optimized/euscorpius-italicus-emanuele-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 39530
+        },
+        {
+          "key": "optimized/euscorpius-italicus-emanuele-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 50454
+        },
+        {
+          "key": "optimized/euscorpius-italicus-emanuele-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 81224
+        },
+        {
+          "key": "optimized/euscorpius-italicus-emanuele-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 70804
+        },
+        {
+          "key": "optimized/euscorpius-italicus-emanuele-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 112140
+        },
+        {
+          "key": "optimized/euscorpius-italicus-emanuele-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 103164
+        },
+        {
+          "key": "optimized/euscorpius-italicus-emanuele-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 152812
+        }
+      ],
+      "updatedAt": "2026-09-19T17:04:21.339Z"
+    },
     "euscorpius-italicus-gintautas-1.jpg": {
       "sourceHash": "a7a90e420e9ffa28796fe5907980ab85d98fe4ace3ca718b52317e6b45975bff",
       "configFingerprint": "409788ee46c653d8",
