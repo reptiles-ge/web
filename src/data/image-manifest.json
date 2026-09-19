@@ -26252,6 +26252,73 @@
       ],
       "updatedAt": "2026-09-19T16:59:38.091Z"
     },
+    "euscorpius-italicus-matvei-1.jpg": {
+      "sourceHash": "3a31fea40b68005fcfb47744b328016d154b4e935a860905a597124bae5b7c64",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "euscorpius-italicus-matvei-1.jpg",
+      "originalSize": 133752,
+      "width": 768,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/euscorpius-italicus-matvei-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 13446
+        },
+        {
+          "key": "optimized/euscorpius-italicus-matvei-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 17104
+        },
+        {
+          "key": "optimized/euscorpius-italicus-matvei-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 18976
+        },
+        {
+          "key": "optimized/euscorpius-italicus-matvei-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 23930
+        },
+        {
+          "key": "optimized/euscorpius-italicus-matvei-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 36540
+        },
+        {
+          "key": "optimized/euscorpius-italicus-matvei-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 45166
+        },
+        {
+          "key": "optimized/euscorpius-italicus-matvei-1-768.avif",
+          "format": "avif",
+          "width": 768,
+          "height": 1024,
+          "byteSize": 46658
+        },
+        {
+          "key": "optimized/euscorpius-italicus-matvei-1-768.webp",
+          "format": "webp",
+          "width": 768,
+          "height": 1024,
+          "byteSize": 57620
+        }
+      ],
+      "updatedAt": "2026-09-19T17:01:34.225Z"
+    },
     "euscorpius-italicus-sandro-1.jpg": {
       "sourceHash": "7458220a9bba42a6d754a61d9995d48a1dd4469a66d36de283d5e5fbe2b3ba59",
       "configFingerprint": "409788ee46c653d8",
