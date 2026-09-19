@@ -116,6 +116,7 @@ export const regions: Region[] = [
       "tyto-alba",
       "argiope-bruennichi",
       "cheiracanthium-punctorium",
+      "euscorpius-mingrelicus",
     ],
   },
   {
@@ -148,6 +149,7 @@ export const regions: Region[] = [
       "larus-fuscus",
       "argiope-bruennichi",
       "cheiracanthium-punctorium",
+      "euscorpius-mingrelicus",
     ],
   },
   {
@@ -191,6 +193,7 @@ export const regions: Region[] = [
       "streptopelia-turtur",
       "argiope-bruennichi",
       "steatoda-paykulliana",
+      "euscorpius-mingrelicus",
     ],
   },
   {
@@ -226,6 +229,7 @@ export const regions: Region[] = [
       "tyto-alba",
       "argiope-bruennichi",
       "cheiracanthium-punctorium",
+      "euscorpius-mingrelicus",
     ],
   },
   {
