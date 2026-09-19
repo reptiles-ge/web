@@ -6325,6 +6325,20 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/vipera-dinniki-sandro-2.jpg": {
+    "path": "vipera-dinniki-sandro-2",
+    "width": 2048,
+    "height": 1785,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/vipera-dinniki-sandro-3.jpg": {
+    "path": "vipera-dinniki-sandro-3",
+    "width": 2048,
+    "height": 1342,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/vipera-kaznakovi-1.jpg": {
     "path": "vipera-kaznakovi-1",
     "width": 1024,

@@ -70911,71 +70911,194 @@
       "updatedAt": "2026-09-05T10:53:49.759Z"
     },
     "vipera-dinniki-sandro-2.jpg": {
-      "sourceHash": "8e3667e96d91961523a3b8fc46105890a6cbd70e3aea6c4732f7eb237cda3af3",
-      "configFingerprint": "a895f8e025dcc7fa",
+      "sourceHash": "af0362e26a329dc79001221030cf5c1f2548bd63ab96ce6b47b868ebdae83d27",
+      "configFingerprint": "409788ee46c653d8",
       "originalKey": "vipera-dinniki-sandro-2.jpg",
-      "originalSize": 472152,
+      "originalSize": 581347,
       "width": 2048,
-      "height": 1805,
+      "height": 1785,
       "derivatives": [
+        {
+          "key": "optimized/vipera-dinniki-sandro-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 279,
+          "byteSize": 17900
+        },
+        {
+          "key": "optimized/vipera-dinniki-sandro-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 279,
+          "byteSize": 28214
+        },
         {
           "key": "optimized/vipera-dinniki-sandro-2-400.avif",
           "format": "avif",
           "width": 400,
-          "height": 352,
-          "byteSize": 21408
+          "height": 348,
+          "byteSize": 26601
         },
         {
           "key": "optimized/vipera-dinniki-sandro-2-400.webp",
           "format": "webp",
           "width": 400,
-          "height": 352,
-          "byteSize": 32574
+          "height": 348,
+          "byteSize": 40872
+        },
+        {
+          "key": "optimized/vipera-dinniki-sandro-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 558,
+          "byteSize": 59946
+        },
+        {
+          "key": "optimized/vipera-dinniki-sandro-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 558,
+          "byteSize": 91588
         },
         {
           "key": "optimized/vipera-dinniki-sandro-2-800.avif",
           "format": "avif",
           "width": 800,
-          "height": 705,
-          "byteSize": 73660
+          "height": 697,
+          "byteSize": 86536
         },
         {
           "key": "optimized/vipera-dinniki-sandro-2-800.webp",
           "format": "webp",
           "width": 800,
-          "height": 705,
-          "byteSize": 105444
+          "height": 697,
+          "byteSize": 131880
         },
         {
           "key": "optimized/vipera-dinniki-sandro-2-1200.avif",
           "format": "avif",
           "width": 1200,
-          "height": 1058,
-          "byteSize": 132943
+          "height": 1046,
+          "byteSize": 151674
         },
         {
           "key": "optimized/vipera-dinniki-sandro-2-1200.webp",
           "format": "webp",
           "width": 1200,
-          "height": 1058,
-          "byteSize": 186460
+          "height": 1046,
+          "byteSize": 229866
         },
         {
           "key": "optimized/vipera-dinniki-sandro-2-2048.avif",
           "format": "avif",
           "width": 2048,
-          "height": 1805,
-          "byteSize": 280655
+          "height": 1785,
+          "byteSize": 347681
         },
         {
           "key": "optimized/vipera-dinniki-sandro-2-2048.webp",
           "format": "webp",
           "width": 2048,
-          "height": 1805,
-          "byteSize": 339114
+          "height": 1785,
+          "byteSize": 441274
         }
       ],
-      "updatedAt": "2026-09-05T11:01:37.750Z"
+      "updatedAt": "2026-09-19T21:13:54.247Z"
+    },
+    "vipera-dinniki-sandro-3.jpg": {
+      "sourceHash": "5ec26a02072bbc57a51ff466702845960708b786c39ee1a84aed3fd586b2d383",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "vipera-dinniki-sandro-3.jpg",
+      "originalSize": 330844,
+      "width": 2048,
+      "height": 1342,
+      "derivatives": [
+        {
+          "key": "optimized/vipera-dinniki-sandro-3-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 209,
+          "byteSize": 11907
+        },
+        {
+          "key": "optimized/vipera-dinniki-sandro-3-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 209,
+          "byteSize": 19640
+        },
+        {
+          "key": "optimized/vipera-dinniki-sandro-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 262,
+          "byteSize": 16581
+        },
+        {
+          "key": "optimized/vipera-dinniki-sandro-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 262,
+          "byteSize": 27328
+        },
+        {
+          "key": "optimized/vipera-dinniki-sandro-3-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 419,
+          "byteSize": 33712
+        },
+        {
+          "key": "optimized/vipera-dinniki-sandro-3-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 419,
+          "byteSize": 54574
+        },
+        {
+          "key": "optimized/vipera-dinniki-sandro-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 524,
+          "byteSize": 46366
+        },
+        {
+          "key": "optimized/vipera-dinniki-sandro-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 524,
+          "byteSize": 73114
+        },
+        {
+          "key": "optimized/vipera-dinniki-sandro-3-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 786,
+          "byteSize": 77864
+        },
+        {
+          "key": "optimized/vipera-dinniki-sandro-3-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 786,
+          "byteSize": 122840
+        },
+        {
+          "key": "optimized/vipera-dinniki-sandro-3-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1342,
+          "byteSize": 175580
+        },
+        {
+          "key": "optimized/vipera-dinniki-sandro-3-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1342,
+          "byteSize": 232190
+        }
+      ],
+      "updatedAt": "2026-09-19T21:13:53.289Z"
     },
     "vipera-dinniki-truso-2.jpg": {
       "sourceHash": "876f79c0a81214fe88d59481a025ace8e549d5dec108a1e763e2a22097fa7023",
