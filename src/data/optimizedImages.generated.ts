@@ -4477,6 +4477,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/mesobuthus-eupeus-giorgi-1.jpg": {
+    "path": "mesobuthus-eupeus-giorgi-1",
+    "width": 1999,
+    "height": 1357,
+    "widths": [320, 400, 640, 800, 1200, 1999],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/mesobuthus-eupeus-ioane-1.jpg": {
     "path": "mesobuthus-eupeus-ioane-1",
     "width": 1536,

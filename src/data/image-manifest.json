@@ -49573,6 +49573,101 @@
       ],
       "updatedAt": "2026-09-19T10:53:53.460Z"
     },
+    "mesobuthus-eupeus-giorgi-1.jpg": {
+      "sourceHash": "2e2920c8ab6257b3bf51091abb49b1145f43313aae6adee609e5b05c3757a07b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "mesobuthus-eupeus-giorgi-1.jpg",
+      "originalSize": 259624,
+      "width": 1999,
+      "height": 1357,
+      "derivatives": [
+        {
+          "key": "optimized/mesobuthus-eupeus-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 217,
+          "byteSize": 5772
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 217,
+          "byteSize": 6960
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 271,
+          "byteSize": 7960
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 271,
+          "byteSize": 9662
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 434,
+          "byteSize": 16210
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 434,
+          "byteSize": 19936
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 543,
+          "byteSize": 23177
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 543,
+          "byteSize": 28880
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-giorgi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 815,
+          "byteSize": 43251
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-giorgi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 815,
+          "byteSize": 52270
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-giorgi-1-1999.avif",
+          "format": "avif",
+          "width": 1999,
+          "height": 1357,
+          "byteSize": 167764
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-giorgi-1-1999.webp",
+          "format": "webp",
+          "width": 1999,
+          "height": 1357,
+          "byteSize": 179490
+        }
+      ],
+      "updatedAt": "2026-09-19T10:59:40.047Z"
+    },
     "mesobuthus-eupeus-ioane-1.jpg": {
       "sourceHash": "4c42442950bd5a53fcb4b8d62d3c1153fb5e2a9b2da9b7fb7b22dd2017438309",
       "configFingerprint": "409788ee46c653d8",
