@@ -9647,6 +9647,101 @@
       ],
       "updatedAt": "2026-09-17T19:25:26.878Z"
     },
+    "cheiracanthium-punctorium-armen-1.jpg": {
+      "sourceHash": "eeb0fbd68dd5b7cd7b1c83e32d1d063b50a0eea0c930d8c921a460f36a5c5a69",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "cheiracanthium-punctorium-armen-1.jpg",
+      "originalSize": 593002,
+      "width": 1527,
+      "height": 1800,
+      "derivatives": [
+        {
+          "key": "optimized/cheiracanthium-punctorium-armen-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 377,
+          "byteSize": 16973
+        },
+        {
+          "key": "optimized/cheiracanthium-punctorium-armen-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 377,
+          "byteSize": 22618
+        },
+        {
+          "key": "optimized/cheiracanthium-punctorium-armen-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 472,
+          "byteSize": 24426
+        },
+        {
+          "key": "optimized/cheiracanthium-punctorium-armen-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 472,
+          "byteSize": 32712
+        },
+        {
+          "key": "optimized/cheiracanthium-punctorium-armen-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 754,
+          "byteSize": 57698
+        },
+        {
+          "key": "optimized/cheiracanthium-punctorium-armen-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 754,
+          "byteSize": 74482
+        },
+        {
+          "key": "optimized/cheiracanthium-punctorium-armen-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 943,
+          "byteSize": 87312
+        },
+        {
+          "key": "optimized/cheiracanthium-punctorium-armen-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 943,
+          "byteSize": 111016
+        },
+        {
+          "key": "optimized/cheiracanthium-punctorium-armen-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1415,
+          "byteSize": 180878
+        },
+        {
+          "key": "optimized/cheiracanthium-punctorium-armen-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1415,
+          "byteSize": 226112
+        },
+        {
+          "key": "optimized/cheiracanthium-punctorium-armen-1-1527.avif",
+          "format": "avif",
+          "width": 1527,
+          "height": 1800,
+          "byteSize": 282007
+        },
+        {
+          "key": "optimized/cheiracanthium-punctorium-armen-1-1527.webp",
+          "format": "webp",
+          "width": 1527,
+          "height": 1800,
+          "byteSize": 320684
+        }
+      ],
+      "updatedAt": "2026-09-19T07:33:40.976Z"
+    },
     "coronella-austriaca-1.jpg": {
       "sourceHash": "b53893e4de09a7fbefeb940d157baa7efc173567c8d8935dc368843879d16e4e",
       "configFingerprint": "409788ee46c653d8",
