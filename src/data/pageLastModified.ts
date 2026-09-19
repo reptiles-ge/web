@@ -26,7 +26,7 @@ export const SITEMAP_PATH_LAST_MODIFIED: Record<string, string> = {
   "/quiz": "2026-09-16T12:09:00+04:00",
   "/regions": "2026-09-17T13:48:55+04:00",
   "/risk-to-humans": "2026-09-16T12:31:00+04:00",
-  "/scorpions": "2026-09-19T14:00:00+04:00",
+  "/scorpions": "2026-09-19T18:40:00+04:00",
   "/snakes": "2026-09-16T12:42:00+04:00",
   "/snakes-in-the-yard": "2026-09-19T12:33:28+04:00",
   "/snakes/didi-gvelebi": "2026-09-16T13:04:00+04:00",

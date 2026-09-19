@@ -1264,7 +1264,7 @@
       "scorpionsHub": {
         "eyebrow": "Akrepler",
         "title": "Gürcistan’daki akrepler",
-        "body": "Taksonomi, Gürcistan kanıtı, habitat, sokma riski ve kaynaklarla yayımlanmış akrep profilleri.",
+        "body": "Taksonomi, tanıma özellikleri, habitat, Gürcistan’da bulunma kanıtı, sokma riski ve kaynaklarla yayımlanmış akrep profilleri.",
         "cta": "Akrepler"
       },
       "spidersHub": {
@@ -1702,12 +1702,12 @@
   },
   "scorpions": {
     "metaTitle": "Gürcistan’daki akrepler — tür profilleri",
-    "metaDescription": "Reptiles.ge’de Gürcistan akrepleri: taksonomi, tanıma, habitat, ülke kanıtı, sokma riski ve kaynaklar. Atlas şu anda alacalı akrebi (Mesobuthus eupeus) içerir.",
-    "keywords": "Gürcistan akrepleri, Gürcistan’da akrepler, Mesobuthus eupeus, alacalı akrep, mottled scorpion",
+    "metaDescription": "Gürcistan’daki akrepler — taksonomi, tanıma özellikleri, habitat, Gürcistan’da bulunma kanıtı, sokma riski ve kaynaklarla yayımlanmış tür profilleri.",
+    "keywords": "Gürcistan akrepleri, Gürcistan’da akrepler, Mesobuthus eupeus, Euscorpius mingrelicus, alacalı akrep, Mingrelian scorpion",
     "breadcrumbCurrent": "Akrepler",
     "heroImageAlt": "Akrepler için kuru taşlı otluk habitat",
     "title": "Gürcistan’daki akrepler",
-    "subtitle": "Gürcistan’daki akrepler — taksonomi, tanıma notları, habitat, sokma riski ve kaynaklarla yayımlanmış tür profilleri.",
+    "subtitle": "Gürcistan’daki akrepler — taksonomi, tanıma özellikleri, habitat, Gürcistan’da bulunma kanıtı, sokma riski ve kaynaklarla yayımlanmış tür profilleri.",
     "ctaSpecies": "Türleri gör",
     "statSpecies": "Atlasdaki akrepler",
     "statFamilies": "Familyalar",
@@ -1715,30 +1715,31 @@
     "statExtraValue": "Adlandırılmış",
     "guideEyebrow": "Rehber",
     "guideTitle": "Hayvan atlasında akrepler",
-    "guideP1": "Reptiles.ge’de akrep profilleri diğer grup sayfalarıyla aynı editoryal kuralı izler: önce kabul edilen taksonomi, Gürcistan kanıtı genel biyolojiden ayrı, uydurulmuş bölgesel harita yok.",
-    "guideP2": "Bu büyüyen bir profil setidir, tam bir ulusal akrep listesi değildir. Bir tür yalnızca kaynaklı sayfası hazır olduğunda burada görünür.",
+    "guideP1": "Akrep profilleri diğer hayvan gruplarıyla aynı editoryal kuralları izler: modern taksonomi kullanılır, Gürcistan’a ait veriler ayrı doğrulanır ve yerel bilgiler genel tür biyolojisinden açıkça ayrılır.",
+    "guideP2": "Bölgesel dağılış da yalnızca doğrulanmış kayıtlar temelinde işaretlenir. Bu sayfa büyüyen bir profil koleksiyonudur, Gürcistan’da yaşayan tüm akreplerin tam listesi değildir. Yeni bir tür, güvenilir kaynaklara dayalı profili hazır olduğunda eklenir.",
     "speciesEyebrow": "Katalog",
     "speciesTitle": "Atlasda {count} akrep",
-    "speciesBody": "Her profil türün Gürcistan’da doğrulanıp doğrulanmadığını ve kaynakların kesin yer mi yoksa yalnızca ülke düzeyi mi verdiğini belirtir.",
+    "speciesBody": "Her profilde türün Gürcistan’da doğrulanıp doğrulanmadığı ve dağılış verisinin ne kadar kesin olduğu belirtilir: belirli yerel kayıtlar mı var, yoksa yalnızca ülke düzeyinde bulunma kanıtı mı.",
+    "relatedBody": "Akrep merkezi yayımlanmış türleri tek bir rehber sayfasında birleştirir; buradan belirli bir akrebin tam profiline geçebilirsiniz.",
     "section": {
       "all": {
         "title": "Akrepler — {count}",
-        "body": "Yayımlanmış akrep profilleri burada tanıma notları, habitat bilgisi, ülke statüsü, sokma riski ve kaynaklarla toplanır."
+        "body": "Yayımlanmış akrep profilleri tek bir yerde toplanır. Her sayfada tanıma özellikleri, habitat, Gürcistan’daki bulunma durumu, olası sokma riski ve kullanılan kaynaklar yer alır."
       }
     },
     "faqEyebrow": "SSS",
     "faqTitle": "Burada akrepler hakkında sorulanlar",
     "faqIntro": "Kısa yanıtlar - ayrıntılı bilgi profillerdedir.",
     "faq1Q": "Bu site Gürcistan’daki tüm akrepleri kapsar mı?",
-    "faq1A": "Hayır. Bu merkez, yeterli güvenilir kaynak olduğunda tek tür akrep profilleri yayımlar. Merkezde olmaması türün Gürcistan’da olmadığı anlamına gelmez.",
+    "faq1A": "Hayır. Bu sayfa Gürcistan akreplerinin tam ulusal kontrol listesi değildir. Buraya yalnızca hakkında yeterli güvenilir kaynak bulunan ve tam profili hazırlanmış türler eklenir. Bir tür henüz merkezde görünmüyorsa, bu otomatik olarak Gürcistan’da bulunmadığı anlamına gelmez.",
     "faq2Q": "Atlasda şimdi hangi akrepler var?",
-    "faq2A": "İlk yayımlanmış akrep profili alacalı akrep, Mesobuthus eupeus.",
+    "faq2A": "Yayımlanan ilk profillerden biri alacalı akrep — Mesobuthus eupeus.",
     "faq3Q": "Akrepler atlasa nasıl eklenir?",
-    "faq3A": "Akrep sayfaları aynı tür-profili yapısını kullanır: taksonomi, tanıma, habitat, Gürcistan kanıtı, gerektiğinde sokma riski ve kaynaklar.",
+    "faq3A": "Her akrep sayfası ortak bir yapıyı izler: taksonomi, görünüm ve tanıma, habitat, Gürcistan’da bulunma kanıtı, gerektiğinde olası sokma riski ve kullanılan kaynaklar.",
     "faq4Q": "Akrepler için bölgesel haritalar gösterilir mi?",
-    "faq4A": "Yalnızca bir profilin adlandırılmış bölgesel veya yerel kayıtları olduğunda. Ülke düzeyindeki kaynak tüm Gürcistan bölgelerini otomatik olarak renklendirmez.",
+    "faq4A": "Bir bölge yalnızca profilde ilgili yerel veya bölgesel kayıt varsa işaretlenir. Türün Gürcistan’da bulunduğunu bilmek, ülkenin tüm bölgelerini işaretlemek gerektiği anlamına gelmez.",
     "faq5Q": "Yabani akrepleri elle tutmak gerekir mi?",
-    "faq5A": "Hayır. Akrep sokması ağrılı olabilir ve bazen genel belirtiler yapabilir. Yabani akreplere elle dokunmayın. Güçlü belirtiler, çocuk, alerji veya belirsizlik durumunda 112’yi arayın.",
+    "faq5A": "Hayır. Tüm akrep sokmaları aynı değildir; bazıları ağrılı olabilir veya başka belirtilere yol açabilir. Akrebe elle dokunmayın. Ağrı şiddetliyse, etkilenen kişi çocuksa, alerjik veya başka genel belirtiler gelişirse ya da durum belirsizse 112’yi arayın ve tıbbi yardım alın.",
     "ctaEyebrow": "Sonraki adım",
     "ctaTitle": "Akrep listesinden profile",
     "ctaBody": "Bir tür açın veya sürüngen, amfibi, kuş, memeli, örümcek ve böcek rehberlerinde devam edin."
