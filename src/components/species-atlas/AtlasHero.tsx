@@ -47,10 +47,7 @@ export async function AtlasHero({ stats }: AtlasHeroProps) {
             </ol>
           </nav>
 
-          <p className="text-[11px] font-medium tracking-[0.18em] text-white/45 uppercase">
-            {t("eyebrow")}
-          </p>
-          <h1 className="text-balance-tight mt-3 max-w-4xl font-display text-display-hero font-semibold text-white sm:mt-4">
+          <h1 className="text-balance-tight max-w-4xl font-display text-display-hero font-semibold text-white">
             {t("title")}
           </h1>
           <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-white/65 sm:mt-5 sm:text-[16px]">
