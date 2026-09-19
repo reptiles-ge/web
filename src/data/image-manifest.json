@@ -54760,6 +54760,87 @@
       ],
       "updatedAt": "2026-09-19T19:53:27.638Z"
     },
+    "olivierus-caucasicus-leonid-1.jpg": {
+      "sourceHash": "5dc47b8921223992bc045d573effb5513c278604e7bb1e16ff0e566eefef844d",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "olivierus-caucasicus-leonid-1.jpg",
+      "originalSize": 143509,
+      "width": 1024,
+      "height": 696,
+      "derivatives": [
+        {
+          "key": "optimized/olivierus-caucasicus-leonid-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 218,
+          "byteSize": 10218
+        },
+        {
+          "key": "optimized/olivierus-caucasicus-leonid-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 218,
+          "byteSize": 14702
+        },
+        {
+          "key": "optimized/olivierus-caucasicus-leonid-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 272,
+          "byteSize": 13760
+        },
+        {
+          "key": "optimized/olivierus-caucasicus-leonid-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 272,
+          "byteSize": 19570
+        },
+        {
+          "key": "optimized/olivierus-caucasicus-leonid-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 435,
+          "byteSize": 26623
+        },
+        {
+          "key": "optimized/olivierus-caucasicus-leonid-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 435,
+          "byteSize": 37580
+        },
+        {
+          "key": "optimized/olivierus-caucasicus-leonid-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 544,
+          "byteSize": 36225
+        },
+        {
+          "key": "optimized/olivierus-caucasicus-leonid-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 544,
+          "byteSize": 50398
+        },
+        {
+          "key": "optimized/olivierus-caucasicus-leonid-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 696,
+          "byteSize": 52118
+        },
+        {
+          "key": "optimized/olivierus-caucasicus-leonid-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 696,
+          "byteSize": 71876
+        }
+      ],
+      "updatedAt": "2026-09-19T19:55:20.796Z"
+    },
     "olivierus-caucasicus-vil05-1.jpg": {
       "sourceHash": "17b09b275d199593aaca28ed4296db27ff92237dc9f4cdd369f2540f148249b4",
       "configFingerprint": "409788ee46c653d8",
