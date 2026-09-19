@@ -687,23 +687,6 @@ fn check_regions(graph: &Graph, diagnostics: &mut Vec<Diagnostic>) {
                     ),
                 );
             }
-            if graph
-                .species
-                .checklist_status_by_id
-                .get(id)
-                .and_then(Option::as_deref)
-                == Some("candidate")
-            {
-                fatal(
-                    diagnostics,
-                    "candidate-region-reference",
-                    "src/data/regions.ts",
-                    format!(
-                        "region `{}` references candidate species `{id}` as mapped fauna",
-                        region.id
-                    ),
-                );
-            }
         }
     }
 }
