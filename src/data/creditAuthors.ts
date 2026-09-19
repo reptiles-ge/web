@@ -179,6 +179,35 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     slug: "nika-melikishvili",
   },
   {
+    aliases: [
+      "Nika Kerdikoshvili",
+      "ნიკა კერდიკოშვილი",
+      "ნიკა ქერდიკოშვილი",
+    ],
+    bio: {
+      en: "Nika Kerdikoshvili is a Georgian zoologist, wildlife photographer, and experienced guide specializing in birdwatching and ecotours in Georgia. He has a background in biology, knows Georgia’s most remote corners well, and actively collaborates with various environmental and documentary film production organizations.",
+      ka: "ნიკა კერდიკოშვილი არის ქართველი ზოოლოგი, ველური ბუნების ფოტოგრაფი და გამოცდილი გიდი, რომელიც სპეციალიზებულია ბერდვოჩინგსა (ფრინველებზე დაკვირვება) და ეკოტურებზე საქართველოში. მას აქვს ბიოლოგიური განათლება, კარგად იცნობს საქართველოს ყველაზე შორეულ კუთხეებს და აქტიურად თანამშრომლობს სხვადასხვა გარემოსდაცვით და დოკუმენტური ფილმების მწარმოებელ ორგანიზაციებთან.",
+      ru: "Ника Кердикошвили — грузинский зоолог, фотограф дикой природы и опытный гид, специализирующийся на бердвотчинге и экотурах в Грузии. У него биологическое образование, он хорошо знает самые отдалённые уголки Грузии и активно сотрудничает с различными природоохранными организациями и производителями документальных фильмов.",
+      tr: "Nika Kerdikoshvili, Gürcistan’da kuş gözlemciliği ve ekoturlar konusunda uzmanlaşmış Gürcü zoolog, yaban hayatı fotoğrafçısı ve deneyimli bir rehberdir. Biyoloji eğitimi vardır, Gürcistan’ın en uzak köşelerini iyi tanır ve çeşitli çevre koruma ve belgesel film yapım kuruluşlarıyla aktif olarak çalışır.",
+    },
+    id: "nika-kerdikoshvili",
+    links: {
+      facebook: "https://www.facebook.com/nika.kerdikoshvili.9",
+    },
+    name: {
+      en: "Nika Kerdikoshvili",
+      ka: "ნიკა კერდიკოშვილი",
+      ru: "Ника Кердикошвили",
+      tr: "Nika Kerdikoshvili",
+    },
+    portraitClass: "object-[50%_52%]",
+    portraitSrc:
+      "https://cdn.reptiles.ge/optimized/images/authors/nika-kerdikoshvili-480.webp",
+    published: true,
+    role: "photographer",
+    slug: "nika-kerdikoshvili",
+  },
+  {
     aliases: ["Saba Todua", "საბა თოდუა"],
     bio: {
       en: "Saba Todua is an ecology student at Ilia State University and an amateur herpetologist.",

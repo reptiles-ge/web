@@ -30859,6 +30859,59 @@
       ],
       "updatedAt": "2026-08-28T21:42:44.113Z"
     },
+    "images/authors/nika-kerdikoshvili.png": {
+      "sourceHash": "adca7fa551ef4ed31f05cb118b3f3e282b437f28dc5a44bbeaeed5fe3be06471",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/authors/nika-kerdikoshvili.png",
+      "originalSize": 385054,
+      "width": 480,
+      "height": 480,
+      "derivatives": [
+        {
+          "key": "optimized/images/authors/nika-kerdikoshvili-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 320,
+          "byteSize": 16350
+        },
+        {
+          "key": "optimized/images/authors/nika-kerdikoshvili-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 320,
+          "byteSize": 21866
+        },
+        {
+          "key": "optimized/images/authors/nika-kerdikoshvili-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 400,
+          "byteSize": 23691
+        },
+        {
+          "key": "optimized/images/authors/nika-kerdikoshvili-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 400,
+          "byteSize": 32020
+        },
+        {
+          "key": "optimized/images/authors/nika-kerdikoshvili-480.avif",
+          "format": "avif",
+          "width": 480,
+          "height": 480,
+          "byteSize": 32176
+        },
+        {
+          "key": "optimized/images/authors/nika-kerdikoshvili-480.webp",
+          "format": "webp",
+          "width": 480,
+          "height": 480,
+          "byteSize": 43030
+        }
+      ],
+      "updatedAt": "2026-09-19T21:09:17.292Z"
+    },
     "images/home/groups/amphibians.jpg": {
       "sourceHash": "93be3de896c76e82e0182df5b4b1d97ac92bde9f93d1393be8fb2cc98e1cbc3b",
       "configFingerprint": "409788ee46c653d8",
