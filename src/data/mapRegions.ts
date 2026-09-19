@@ -338,6 +338,7 @@ export const regions: Region[] = [
       "steatoda-paykulliana",
       "latrodectus-tredecimguttatus",
       "cheiracanthium-punctorium",
+      "mesobuthus-eupeus",
     ],
   },
   {
@@ -380,6 +381,7 @@ export const regions: Region[] = [
       "eirenis-modestus",
       "zamenis-hohenackeri",
       "tenuidactylus-caspius",
+      "paralaudakia-caucasia",
       "darevskia-praticola",
       "ommatotriton-ophryticus",
       "lissotriton-lantzi",
@@ -393,6 +395,7 @@ export const regions: Region[] = [
       "latrodectus-tredecimguttatus",
       "cheiracanthium-punctorium",
       "euscorpius-italicus",
+      "mesobuthus-eupeus",
     ],
   },
   {
@@ -444,6 +447,7 @@ export const regions: Region[] = [
       "capra-aegagrus",
       "gyps-fulvus",
       "euscorpius-italicus",
+      "mesobuthus-eupeus",
     ],
   },
   {
@@ -488,6 +492,7 @@ export const regions: Region[] = [
       "eirenis-modestus",
       "eirenis-collaris",
       "zamenis-hohenackeri",
+      "paralaudakia-caucasia",
       "lissotriton-lantzi",
       "pelobates-syriacus",
       "testudo-graeca",
@@ -498,6 +503,7 @@ export const regions: Region[] = [
       "tyto-alba",
       "argiope-bruennichi",
       "lycosa-singoriensis",
+      "mesobuthus-eupeus",
     ],
   },
   {
@@ -566,6 +572,7 @@ export const regions: Region[] = [
       "latrodectus-tredecimguttatus",
       "lycosa-singoriensis",
       "cheiracanthium-punctorium",
+      "mesobuthus-eupeus",
     ],
   },
   {
@@ -610,12 +617,14 @@ export const regions: Region[] = [
       "eirenis-modestus",
       "eirenis-collaris",
       "zamenis-hohenackeri",
+      "paralaudakia-caucasia",
       "darevskia-dahli",
       "darevskia-portschinskii",
       "argiope-bruennichi",
       "latrodectus-tredecimguttatus",
       "cheiracanthium-punctorium",
       "euscorpius-italicus",
+      "mesobuthus-eupeus",
     ],
   },
 ];
