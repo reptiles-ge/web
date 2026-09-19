@@ -26171,6 +26171,59 @@
       ],
       "updatedAt": "2026-09-19T16:58:09.804Z"
     },
+    "euscorpius-italicus-manuel-1.jpg": {
+      "sourceHash": "b000b3ebc65c54c26582a3e2cfe51d634ed8c9a4254e24bcdeb4c8b9fc38ccd7",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "euscorpius-italicus-manuel-1.jpg",
+      "originalSize": 66543,
+      "width": 500,
+      "height": 333,
+      "derivatives": [
+        {
+          "key": "optimized/euscorpius-italicus-manuel-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14443
+        },
+        {
+          "key": "optimized/euscorpius-italicus-manuel-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 22704
+        },
+        {
+          "key": "optimized/euscorpius-italicus-manuel-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 20201
+        },
+        {
+          "key": "optimized/euscorpius-italicus-manuel-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 32012
+        },
+        {
+          "key": "optimized/euscorpius-italicus-manuel-1-500.avif",
+          "format": "avif",
+          "width": 500,
+          "height": 333,
+          "byteSize": 28342
+        },
+        {
+          "key": "optimized/euscorpius-italicus-manuel-1-500.webp",
+          "format": "webp",
+          "width": 500,
+          "height": 333,
+          "byteSize": 43824
+        }
+      ],
+      "updatedAt": "2026-09-19T17:02:47.783Z"
+    },
     "euscorpius-italicus-markus-1.jpg": {
       "sourceHash": "a11ad2880929f5df3b450618772ad905487765d36289fd13929b7c8a194dabec",
       "configFingerprint": "409788ee46c653d8",
