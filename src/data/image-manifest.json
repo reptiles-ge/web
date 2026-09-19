@@ -54679,6 +54679,87 @@
       ],
       "updatedAt": "2026-09-01T13:02:13.936Z"
     },
+    "olivierus-caucasicus-evgeny-1.jpg": {
+      "sourceHash": "cf32b50bf7f42594851c0254a7e259d18a0f9f55482a213e6c8d737e50af973f",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "olivierus-caucasicus-evgeny-1.jpg",
+      "originalSize": 246734,
+      "width": 1024,
+      "height": 696,
+      "derivatives": [
+        {
+          "key": "optimized/olivierus-caucasicus-evgeny-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 218,
+          "byteSize": 15786
+        },
+        {
+          "key": "optimized/olivierus-caucasicus-evgeny-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 218,
+          "byteSize": 25376
+        },
+        {
+          "key": "optimized/olivierus-caucasicus-evgeny-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 272,
+          "byteSize": 23089
+        },
+        {
+          "key": "optimized/olivierus-caucasicus-evgeny-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 272,
+          "byteSize": 37562
+        },
+        {
+          "key": "optimized/olivierus-caucasicus-evgeny-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 435,
+          "byteSize": 50747
+        },
+        {
+          "key": "optimized/olivierus-caucasicus-evgeny-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 435,
+          "byteSize": 81114
+        },
+        {
+          "key": "optimized/olivierus-caucasicus-evgeny-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 544,
+          "byteSize": 70885
+        },
+        {
+          "key": "optimized/olivierus-caucasicus-evgeny-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 544,
+          "byteSize": 113104
+        },
+        {
+          "key": "optimized/olivierus-caucasicus-evgeny-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 696,
+          "byteSize": 105412
+        },
+        {
+          "key": "optimized/olivierus-caucasicus-evgeny-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 696,
+          "byteSize": 165996
+        }
+      ],
+      "updatedAt": "2026-09-19T19:53:27.638Z"
+    },
     "ommatotriton-ophryticus-2.jpg": {
       "sourceHash": "b6b3e608bebea71073edaae8e5d440fb5bfab1860c2c159623f36dcc4e09d534",
       "configFingerprint": "a895f8e025dcc7fa",

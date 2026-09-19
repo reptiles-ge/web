@@ -4897,6 +4897,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2400],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/olivierus-caucasicus-evgeny-1.jpg": {
+    "path": "olivierus-caucasicus-evgeny-1",
+    "width": 1024,
+    "height": 696,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/ommatotriton-ophryticus-2.jpg": {
     "path": "ommatotriton-ophryticus-2",
     "width": 2048,
