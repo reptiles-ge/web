@@ -26009,6 +26009,87 @@
       ],
       "updatedAt": "2026-08-28T21:41:12.015Z"
     },
+    "euscorpius-mingrelicus-andrii-1.jpg": {
+      "sourceHash": "777bdb53bc8d82d7ef8be33e4fdbaa4f128bce0eac44206134025054c0bf1fa3",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "euscorpius-mingrelicus-andrii-1.jpg",
+      "originalSize": 254198,
+      "width": 1024,
+      "height": 678,
+      "derivatives": [
+        {
+          "key": "optimized/euscorpius-mingrelicus-andrii-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 212,
+          "byteSize": 14457
+        },
+        {
+          "key": "optimized/euscorpius-mingrelicus-andrii-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 212,
+          "byteSize": 22906
+        },
+        {
+          "key": "optimized/euscorpius-mingrelicus-andrii-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 265,
+          "byteSize": 22323
+        },
+        {
+          "key": "optimized/euscorpius-mingrelicus-andrii-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 265,
+          "byteSize": 36284
+        },
+        {
+          "key": "optimized/euscorpius-mingrelicus-andrii-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 424,
+          "byteSize": 51099
+        },
+        {
+          "key": "optimized/euscorpius-mingrelicus-andrii-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 424,
+          "byteSize": 83920
+        },
+        {
+          "key": "optimized/euscorpius-mingrelicus-andrii-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 530,
+          "byteSize": 73914
+        },
+        {
+          "key": "optimized/euscorpius-mingrelicus-andrii-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 530,
+          "byteSize": 123390
+        },
+        {
+          "key": "optimized/euscorpius-mingrelicus-andrii-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 678,
+          "byteSize": 109977
+        },
+        {
+          "key": "optimized/euscorpius-mingrelicus-andrii-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 678,
+          "byteSize": 178702
+        }
+      ],
+      "updatedAt": "2026-09-19T12:47:02.773Z"
+    },
     "euscorpius-mingrelicus-armen-1.jpg": {
       "sourceHash": "1056639e98faf872939cd2cc7ff3007dbc55ee6db05882bfc715dba95fe60c4e",
       "configFingerprint": "409788ee46c653d8",

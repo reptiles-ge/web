@@ -2510,6 +2510,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/euscorpius-mingrelicus-andrii-1.jpg": {
+    "path": "euscorpius-mingrelicus-andrii-1",
+    "width": 1024,
+    "height": 678,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/euscorpius-mingrelicus-armen-1.jpg": {
     "path": "euscorpius-mingrelicus-armen-1",
     "width": 1350,
