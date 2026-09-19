@@ -99,6 +99,7 @@ export function SpeciesGalleryLightbox({
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const triggerRefs = useRef<Array<HTMLButtonElement | null>>([]);
   const restoreIndex = useRef<null | number>(null);
+  const [loadedSrc, setLoadedSrc] = useState<null | string>(null);
 
   useEffect(() => {
     const dialog = dialogRef.current;
@@ -135,6 +136,7 @@ export function SpeciesGalleryLightbox({
   }, [active, slides.length]);
 
   const activeSlide = active !== null ? slides[active] : null;
+  const imageLoaded = activeSlide ? loadedSrc === activeSlide.src : false;
 
   const openAt = useCallback(
     (index: number) => {
@@ -217,9 +219,7 @@ export function SpeciesGalleryLightbox({
                   onClick={(event) => {
                     event.stopPropagation();
                     setActive((current) =>
-                      current === null
-                        ? null
-                        : (current + 1) % slides.length,
+                      current === null ? null : (current + 1) % slides.length,
                     );
                   }}
                   type="button"
@@ -234,7 +234,10 @@ export function SpeciesGalleryLightbox({
               onClick={(event) => event.stopPropagation()}
             >
               <div className="relative min-h-0 flex-1">
-                <picture>
+                {!imageLoaded ? (
+                  <div className="media-placeholder absolute inset-0 size-full" />
+                ) : null}
+                <picture className="absolute inset-0 block size-full">
                   {activeSlide.sources.map((source) => (
                     <source key={source.key} {...source.props} />
                   ))}
@@ -244,6 +247,8 @@ export function SpeciesGalleryLightbox({
                     decoding="async"
                     fetchPriority="high"
                     height={activeSlide.height}
+                    key={activeSlide.src}
+                    onLoad={() => setLoadedSrc(activeSlide.src)}
                     sizes={GALLERY_LIGHTBOX_SIZES}
                     src={activeSlide.src}
                     width={activeSlide.width}

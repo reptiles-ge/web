@@ -120,6 +120,9 @@ export const metadata: Metadata = {
     images: [SITE_OG_IMAGE_URL],
     title: siteConfig.title,
   },
+  verification: {
+    yandex: "2dc599344cbb9c66",
+  },
 };
 
 export default async function RootLayout({ children }: Props) {
