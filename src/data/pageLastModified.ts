@@ -24,7 +24,7 @@ export const SITEMAP_PATH_LAST_MODIFIED: Record<string, string> = {
   "/mammals/tura-ezoshi": "2026-09-16T11:47:00+04:00",
   "/news": "2026-09-16T11:58:00+04:00",
   "/quiz": "2026-09-16T12:09:00+04:00",
-  "/regions": "2026-09-17T13:48:55+04:00",
+  "/regions": "2026-09-19T22:35:37+04:00",
   "/risk-to-humans": "2026-09-16T12:31:00+04:00",
   "/scorpions": "2026-09-19T18:55:00+04:00",
   "/snakes": "2026-09-16T12:42:00+04:00",

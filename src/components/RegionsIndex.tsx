@@ -1,10 +1,12 @@
 "use client";
 
-import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 
 import type { AppLocale } from "@/i18n/routing";
 
+import { CoverImage } from "@/components/CoverImage";
+import { InkHeroBreadcrumb } from "@/components/InkHeroBreadcrumb";
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
 import {
   localizeRegionText,
@@ -15,6 +17,8 @@ import {
 import { getRegionContent } from "@/data/regionContent";
 import { Link } from "@/i18n/navigation";
 import { regionHref } from "@/lib/regionHref";
+
+const REGIONS_HERO_IMAGE = "/images/home/groups/snakes.jpg";
 
 export function RegionsIndex({
   stats,
@@ -39,18 +43,29 @@ export function RegionsIndex({
             paddingTop: "7rem",
           }}
         >
+          <CoverImage
+            alt=""
+            aria-hidden
+            className="object-cover object-[58%_45%]"
+            priority
+            sizes="100vw"
+            src={REGIONS_HERO_IMAGE}
+          />
           <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/35 to-black/90" />
           <div className="absolute inset-0 bg-[radial-gradient(90%_60%_at_50%_20%,transparent_25%,rgba(0,0,0,0.55)_100%)]" />
 
           <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
             <div>
-              <Link
-                className="mb-4 inline-flex items-center gap-2 text-[13px] font-medium text-white/55 transition-colors hover:text-white sm:mb-6"
-                href={{ hash: "atlas", pathname: "/" }}
-              >
-                <ArrowLeft className="size-3.5" />
-                {t("back")}
-              </Link>
+              <InkHeroBreadcrumb
+                crumbs={[
+                  {
+                    href: { hash: "atlas", pathname: "/" },
+                    label: t("back"),
+                    withBack: true,
+                  },
+                  { label: t("title") },
+                ]}
+              />
               <p className="text-[11px] font-medium tracking-[0.18em] text-white/45 uppercase">
                 {t("eyebrow")}
               </p>
