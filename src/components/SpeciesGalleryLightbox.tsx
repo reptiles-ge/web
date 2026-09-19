@@ -217,9 +217,7 @@ export function SpeciesGalleryLightbox({
                   onClick={(event) => {
                     event.stopPropagation();
                     setActive((current) =>
-                      current === null
-                        ? null
-                        : (current + 1) % slides.length,
+                      current === null ? null : (current + 1) % slides.length,
                     );
                   }}
                   type="button"
@@ -234,7 +232,10 @@ export function SpeciesGalleryLightbox({
               onClick={(event) => event.stopPropagation()}
             >
               <div className="relative min-h-0 flex-1">
-                <picture>
+                <picture
+                  className="media-placeholder absolute inset-0 block size-full"
+                  key={activeSlide.src}
+                >
                   {activeSlide.sources.map((source) => (
                     <source key={source.key} {...source.props} />
                   ))}
