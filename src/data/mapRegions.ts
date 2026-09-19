@@ -338,6 +338,7 @@ export const regions: Region[] = [
       "steatoda-paykulliana",
       "latrodectus-tredecimguttatus",
       "cheiracanthium-punctorium",
+      "mesobuthus-eupeus",
     ],
   },
   {
@@ -392,6 +393,7 @@ export const regions: Region[] = [
       "latrodectus-tredecimguttatus",
       "cheiracanthium-punctorium",
       "euscorpius-italicus",
+      "mesobuthus-eupeus",
     ],
   },
   {
@@ -443,6 +445,7 @@ export const regions: Region[] = [
       "capra-aegagrus",
       "gyps-fulvus",
       "euscorpius-italicus",
+      "mesobuthus-eupeus",
     ],
   },
   {
@@ -497,6 +500,7 @@ export const regions: Region[] = [
       "tyto-alba",
       "argiope-bruennichi",
       "lycosa-singoriensis",
+      "mesobuthus-eupeus",
     ],
   },
   {
@@ -565,6 +569,7 @@ export const regions: Region[] = [
       "latrodectus-tredecimguttatus",
       "lycosa-singoriensis",
       "cheiracanthium-punctorium",
+      "mesobuthus-eupeus",
     ],
   },
   {
@@ -615,6 +620,7 @@ export const regions: Region[] = [
       "latrodectus-tredecimguttatus",
       "cheiracanthium-punctorium",
       "euscorpius-italicus",
+      "mesobuthus-eupeus",
     ],
   },
 ];
