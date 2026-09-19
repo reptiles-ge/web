@@ -263,6 +263,10 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "lizard",
     habitats: ["grassland", "mountain"],
   },
+  "euscorpius-mingrelicus": {
+    group: "scorpion",
+    habitats: ["forest", "mountain"],
+  },
   "falco-peregrinus": {
     group: "bird",
     habitats: ["mountain", "grassland", "wetland"],

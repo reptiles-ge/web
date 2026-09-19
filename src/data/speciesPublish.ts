@@ -133,6 +133,7 @@ export const featuredSpeciesIds = [
   "steatoda-paykulliana",
   "latrodectus-tredecimguttatus",
   "mesobuthus-eupeus",
+  "euscorpius-mingrelicus",
 ] as const;
 
 export const unpublishedSpeciesIds = new Set<string>(["dolichophis-caspius"]);

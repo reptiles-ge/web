@@ -94,6 +94,10 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
     en: "European robin (Erithacus rubecula) | Year-round resident in Georgia",
     ka: "გულწითელა (Erithacus rubecula) | მთელი წლის რეზიდენტი საქართველოში",
   },
+  "euscorpius-mingrelicus": {
+    en: "Mingrelian scorpion (Euscorpius mingrelicus) | Western Georgia",
+    ka: "მეგრული მორიელი (Euscorpius mingrelicus) | მორიელი დასავლეთ საქართველოში",
+  },
   "latrodectus-tredecimguttatus": {
     en: "Mediterranean black widow (Latrodectus tredecimguttatus) | Widow spider in Georgia",
     ka: "ყარაყურთი (Latrodectus tredecimguttatus) | შავი ქვრივი საქართველოში",
@@ -197,6 +201,10 @@ const SPECIES_META_DESCRIPTION_OVERRIDE: Partial<
   },
   "erinaceus-concolor": {
     ka: "ევროპული ზღარბი (Erinaceus concolor) საქართველოში — ამოცნობის ნიშნები, გავრცელება, ჰაბიტატი, კვება და რატომ არის ადამიანისთვის უვნებელი.",
+  },
+  "euscorpius-mingrelicus": {
+    en: "Mingrelian scorpion (Euscorpius mingrelicus) in Georgia: taxonomy, western Georgian range, identification, humid forest habitat, and sting risk.",
+    ka: "მეგრული მორიელი (Euscorpius mingrelicus) საქართველოში — ტაქსონომია, დასავლეთ საქართველოს არეალი, ამოცნობა, ნოტიო ტყის ჰაბიტატი და ჩხვლეტის რისკი.",
   },
   "lutra-lutra": {
     ka: "ჩვეულებრივი წავი (Lutra lutra) საქართველოში — როგორ ამოიცნოთ, სად გვხვდება, რა ზომისაა, რას ჭამს და რა სტატუსით არის დაცული.",

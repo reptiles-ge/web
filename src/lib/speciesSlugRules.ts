@@ -119,6 +119,14 @@ const KA_SLUG_ALIASES: Record<string, string[]> = {
     "aghmosavletevropuli-zgharbi",
   ],
   "erithacus-rubecula": ["gultitela", "bultsitela", "european-robin", "robin"],
+  "euscorpius-mingrelicus": [
+    "megruli-morieli",
+    "mingrelian-scorpion",
+    "euscorpius-mingrelicus",
+    "alpiscorpius-mingrelicus",
+    "scorpio-mingrelicus",
+    "karadeniz-akrebi",
+  ],
   "falco-peregrinus": [
     "shavardeni",
     "chveulebrivi-shavardeni",
