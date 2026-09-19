@@ -2510,6 +2510,41 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/euscorpius-mingrelicus-andrii-1.jpg": {
+    "path": "euscorpius-mingrelicus-andrii-1",
+    "width": 1024,
+    "height": 678,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/euscorpius-mingrelicus-armen-1.jpg": {
+    "path": "euscorpius-mingrelicus-armen-1",
+    "width": 1350,
+    "height": 938,
+    "widths": [320, 400, 640, 800, 1200, 1350],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/euscorpius-mingrelicus-armen-2.jpg": {
+    "path": "euscorpius-mingrelicus-armen-2",
+    "width": 1440,
+    "height": 1026,
+    "widths": [320, 400, 640, 800, 1200, 1440],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/euscorpius-mingrelicus-fabian-1.jpg": {
+    "path": "euscorpius-mingrelicus-fabian-1",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/euscorpius-mingrelicus-frederic-1.jpg": {
+    "path": "euscorpius-mingrelicus-frederic-1",
+    "width": 1024,
+    "height": 682,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/ficedula-hypoleuca-crowbared-1.jpg": {
     "path": "ficedula-hypoleuca-crowbared-1",
     "width": 2400,
