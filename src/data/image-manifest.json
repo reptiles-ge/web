@@ -26009,6 +26009,87 @@
       ],
       "updatedAt": "2026-08-28T21:41:12.015Z"
     },
+    "euscorpius-italicus-gintautas-1.jpg": {
+      "sourceHash": "a7a90e420e9ffa28796fe5907980ab85d98fe4ace3ca718b52317e6b45975bff",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "euscorpius-italicus-gintautas-1.jpg",
+      "originalSize": 249359,
+      "width": 1000,
+      "height": 650,
+      "derivatives": [
+        {
+          "key": "optimized/euscorpius-italicus-gintautas-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 208,
+          "byteSize": 14633
+        },
+        {
+          "key": "optimized/euscorpius-italicus-gintautas-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 208,
+          "byteSize": 22444
+        },
+        {
+          "key": "optimized/euscorpius-italicus-gintautas-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 260,
+          "byteSize": 23698
+        },
+        {
+          "key": "optimized/euscorpius-italicus-gintautas-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 260,
+          "byteSize": 35128
+        },
+        {
+          "key": "optimized/euscorpius-italicus-gintautas-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 416,
+          "byteSize": 58732
+        },
+        {
+          "key": "optimized/euscorpius-italicus-gintautas-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 416,
+          "byteSize": 88778
+        },
+        {
+          "key": "optimized/euscorpius-italicus-gintautas-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 520,
+          "byteSize": 87537
+        },
+        {
+          "key": "optimized/euscorpius-italicus-gintautas-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 520,
+          "byteSize": 134832
+        },
+        {
+          "key": "optimized/euscorpius-italicus-gintautas-1-1000.avif",
+          "format": "avif",
+          "width": 1000,
+          "height": 650,
+          "byteSize": 131333
+        },
+        {
+          "key": "optimized/euscorpius-italicus-gintautas-1-1000.webp",
+          "format": "webp",
+          "width": 1000,
+          "height": 650,
+          "byteSize": 196108
+        }
+      ],
+      "updatedAt": "2026-09-19T16:58:09.804Z"
+    },
     "euscorpius-italicus-zakro-1.jpg": {
       "sourceHash": "5ef8911f08f11dc45dcc89967c85863963d9892a86aff57a9403c6d0ecfa15b3",
       "configFingerprint": "409788ee46c653d8",
