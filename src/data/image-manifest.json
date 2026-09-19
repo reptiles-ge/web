@@ -49330,6 +49330,87 @@
       ],
       "updatedAt": "2026-08-28T21:54:37.779Z"
     },
+    "mesobuthus-eupeus-barnabás-1.jpg": {
+      "sourceHash": "5e3e0275c15590020df1b479ae4986bf1174e2b3bcfaab6e7579d77d5556b4f1",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "mesobuthus-eupeus-barnabás-1.jpg",
+      "originalSize": 305308,
+      "width": 1024,
+      "height": 682,
+      "derivatives": [
+        {
+          "key": "optimized/mesobuthus-eupeus-barnabás-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 16447
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-barnabás-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 23806
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-barnabás-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 26714
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-barnabás-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 39850
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-barnabás-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 67511
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-barnabás-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 103896
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-barnabás-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 97760
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-barnabás-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 157480
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-barnabás-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 682,
+          "byteSize": 152622
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-barnabás-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 682,
+          "byteSize": 247682
+        }
+      ],
+      "updatedAt": "2026-09-19T10:54:54.768Z"
+    },
     "mesobuthus-eupeus-denis-1.jpg": {
       "sourceHash": "f5307fb0d3d2f37fee798899c7594174ed6258b0ecfc0a2bab90a57074c3f85a",
       "configFingerprint": "409788ee46c653d8",
