@@ -49573,6 +49573,101 @@
       ],
       "updatedAt": "2026-09-19T10:53:53.460Z"
     },
+    "mesobuthus-eupeus-ioane-1.jpg": {
+      "sourceHash": "4c42442950bd5a53fcb4b8d62d3c1153fb5e2a9b2da9b7fb7b22dd2017438309",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "mesobuthus-eupeus-ioane-1.jpg",
+      "originalSize": 482177,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/mesobuthus-eupeus-ioane-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 29308
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-ioane-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 45248
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-ioane-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 41862
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-ioane-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 65712
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-ioane-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 85662
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-ioane-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 134440
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-ioane-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 116510
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-ioane-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 179250
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-ioane-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 194226
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-ioane-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 292534
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-ioane-1-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 287556
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-ioane-1-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 372978
+        }
+      ],
+      "updatedAt": "2026-09-19T10:58:19.479Z"
+    },
     "mesobuthus-eupeus-jannic-justen-1.jpg": {
       "sourceHash": "c26502e2d17750d4034662369187feed790efdceafb783204e13d4482e83498c",
       "configFingerprint": "409788ee46c653d8",
