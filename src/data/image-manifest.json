@@ -26090,6 +26090,87 @@
       ],
       "updatedAt": "2026-09-19T16:58:09.804Z"
     },
+    "euscorpius-italicus-sandro-1.jpg": {
+      "sourceHash": "7458220a9bba42a6d754a61d9995d48a1dd4469a66d36de283d5e5fbe2b3ba59",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "euscorpius-italicus-sandro-1.jpg",
+      "originalSize": 182696,
+      "width": 960,
+      "height": 632,
+      "derivatives": [
+        {
+          "key": "optimized/euscorpius-italicus-sandro-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 211,
+          "byteSize": 16790
+        },
+        {
+          "key": "optimized/euscorpius-italicus-sandro-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 211,
+          "byteSize": 25838
+        },
+        {
+          "key": "optimized/euscorpius-italicus-sandro-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 263,
+          "byteSize": 25282
+        },
+        {
+          "key": "optimized/euscorpius-italicus-sandro-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 263,
+          "byteSize": 41028
+        },
+        {
+          "key": "optimized/euscorpius-italicus-sandro-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 421,
+          "byteSize": 52264
+        },
+        {
+          "key": "optimized/euscorpius-italicus-sandro-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 421,
+          "byteSize": 88470
+        },
+        {
+          "key": "optimized/euscorpius-italicus-sandro-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 527,
+          "byteSize": 70019
+        },
+        {
+          "key": "optimized/euscorpius-italicus-sandro-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 527,
+          "byteSize": 121504
+        },
+        {
+          "key": "optimized/euscorpius-italicus-sandro-1-960.avif",
+          "format": "avif",
+          "width": 960,
+          "height": 632,
+          "byteSize": 91748
+        },
+        {
+          "key": "optimized/euscorpius-italicus-sandro-1-960.webp",
+          "format": "webp",
+          "width": 960,
+          "height": 632,
+          "byteSize": 136168
+        }
+      ],
+      "updatedAt": "2026-09-19T16:58:52.124Z"
+    },
     "euscorpius-italicus-zakro-1.jpg": {
       "sourceHash": "5ef8911f08f11dc45dcc89967c85863963d9892a86aff57a9403c6d0ecfa15b3",
       "configFingerprint": "409788ee46c653d8",
