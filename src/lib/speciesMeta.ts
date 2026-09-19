@@ -203,8 +203,8 @@ const SPECIES_META_DESCRIPTION_OVERRIDE: Partial<
     ka: "ევროპული ზღარბი (Erinaceus concolor) საქართველოში — ამოცნობის ნიშნები, გავრცელება, ჰაბიტატი, კვება და რატომ არის ადამიანისთვის უვნებელი.",
   },
   "euscorpius-mingrelicus": {
-    en: "Mingrelian scorpion (Euscorpius mingrelicus) in Georgia: taxonomy, western Georgian range, identification, humid forest habitat, and sting risk.",
-    ka: "მეგრული მორიელი (Euscorpius mingrelicus) საქართველოში — ტაქსონომია, დასავლეთ საქართველოს არეალი, ამოცნობა, ნოტიო ტყის ჰაბიტატი და ჩხვლეტის რისკი.",
+    en: "Mingrelian scorpion (Euscorpius mingrelicus) in Georgia: taxonomy, Batumi, Samegrelo, Guria, and Imereti range, identification, habitat, and sting risk.",
+    ka: "მეგრული მორიელი (Euscorpius mingrelicus) საქართველოში — ტაქსონომია, ბათუმის, სამეგრელოს, გურიისა და იმერეთის არეალი, ამოცნობა, ჰაბიტატი და ჩხვლეტის რისკი.",
   },
   "lutra-lutra": {
     ka: "ჩვეულებრივი წავი (Lutra lutra) საქართველოში — როგორ ამოიცნოთ, სად გვხვდება, რა ზომისაა, რას ჭამს და რა სტატუსით არის დაცული.",
