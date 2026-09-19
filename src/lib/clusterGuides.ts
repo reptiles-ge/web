@@ -243,10 +243,6 @@ export function isNewtSpecies(id: string) {
   return newtIdSet.has(id);
 }
 
-export function isScorpionSpecies(species: Species) {
-  return getSpeciesAtlasMeta(species.id).group === "scorpion";
-}
-
 export function isSnakeSpecies(species: Species) {
   return getSpeciesAtlasMeta(species.id).group === "snake";
 }
