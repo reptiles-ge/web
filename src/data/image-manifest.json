@@ -9904,6 +9904,87 @@
       ],
       "updatedAt": "2026-09-19T07:35:52.699Z"
     },
+    "cheiracanthium-punctorium-zsiciarz-1.jpg": {
+      "sourceHash": "e9e7243fabf3f1bf27d2eea41d7c15ce2b86a76cc2a20d671820b7a72fcb39ff",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "cheiracanthium-punctorium-zsiciarz-1.jpg",
+      "originalSize": 129418,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/cheiracanthium-punctorium-zsiciarz-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8912
+        },
+        {
+          "key": "optimized/cheiracanthium-punctorium-zsiciarz-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12674
+        },
+        {
+          "key": "optimized/cheiracanthium-punctorium-zsiciarz-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 12780
+        },
+        {
+          "key": "optimized/cheiracanthium-punctorium-zsiciarz-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 17456
+        },
+        {
+          "key": "optimized/cheiracanthium-punctorium-zsiciarz-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 25638
+        },
+        {
+          "key": "optimized/cheiracanthium-punctorium-zsiciarz-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 33372
+        },
+        {
+          "key": "optimized/cheiracanthium-punctorium-zsiciarz-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 35260
+        },
+        {
+          "key": "optimized/cheiracanthium-punctorium-zsiciarz-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 46358
+        },
+        {
+          "key": "optimized/cheiracanthium-punctorium-zsiciarz-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 50588
+        },
+        {
+          "key": "optimized/cheiracanthium-punctorium-zsiciarz-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 64044
+        }
+      ],
+      "updatedAt": "2026-09-19T07:36:50.969Z"
+    },
     "coronella-austriaca-1.jpg": {
       "sourceHash": "b53893e4de09a7fbefeb940d157baa7efc173567c8d8935dc368843879d16e4e",
       "configFingerprint": "409788ee46c653d8",
