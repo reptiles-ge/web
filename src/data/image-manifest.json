@@ -26090,6 +26090,59 @@
       ],
       "updatedAt": "2026-09-19T17:00:47.812Z"
     },
+    "euscorpius-italicus-dominik-1.jpg": {
+      "sourceHash": "206a530cfc502e2b4724e45ee84f8279583b0e64622c16345fef6be3f8bfc0b7",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "euscorpius-italicus-dominik-1.jpg",
+      "originalSize": 234469,
+      "width": 576,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/euscorpius-italicus-dominik-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 569,
+          "byteSize": 43565
+        },
+        {
+          "key": "optimized/euscorpius-italicus-dominik-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 569,
+          "byteSize": 68492
+        },
+        {
+          "key": "optimized/euscorpius-italicus-dominik-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 711,
+          "byteSize": 62316
+        },
+        {
+          "key": "optimized/euscorpius-italicus-dominik-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 711,
+          "byteSize": 100912
+        },
+        {
+          "key": "optimized/euscorpius-italicus-dominik-1-576.avif",
+          "format": "avif",
+          "width": 576,
+          "height": 1024,
+          "byteSize": 109541
+        },
+        {
+          "key": "optimized/euscorpius-italicus-dominik-1-576.webp",
+          "format": "webp",
+          "width": 576,
+          "height": 1024,
+          "byteSize": 175854
+        }
+      ],
+      "updatedAt": "2026-09-19T17:05:01.320Z"
+    },
     "euscorpius-italicus-emanuele-1.jpg": {
       "sourceHash": "747ebf6163c030bfef5346f74b01860125e5922bcce342f7d6fa8ce05767dd3c",
       "configFingerprint": "409788ee46c653d8",
