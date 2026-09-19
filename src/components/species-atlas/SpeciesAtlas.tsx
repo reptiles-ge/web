@@ -132,6 +132,7 @@ export function SpeciesAtlas({
       insect: 0,
       lizard: 0,
       mammal: 0,
+      scorpion: 0,
       snake: 0,
       spider: 0,
       turtle: 0,

@@ -33,6 +33,7 @@ export function Navbar({ switchIndex }: { switchIndex: LocaleSwitchIndex }) {
     { href: "/amphibians" as const, label: t("amphibians") },
     { href: "/birds" as const, label: t("birds") },
     { href: "/mammals" as const, label: t("mammals") },
+    { href: "/scorpions" as const, label: t("scorpions") },
     { href: "/spiders" as const, label: t("spiders") },
     { href: "/insects" as const, label: t("insects") },
   ];
@@ -158,6 +159,8 @@ function hasDarkHeroTop(pathname: string) {
     pathname.startsWith("/birds/") ||
     pathname === "/mammals" ||
     pathname.startsWith("/mammals/") ||
+    pathname === "/scorpions" ||
+    pathname.startsWith("/scorpions/") ||
     pathname === "/spiders" ||
     pathname.startsWith("/spiders/") ||
     pathname === "/insects" ||

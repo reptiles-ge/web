@@ -176,6 +176,8 @@ function groupCount(
       return stats.lizards;
     case "mammal":
       return stats.mammals;
+    case "scorpion":
+      return stats.scorpions;
     case "snake":
       return stats.snakes;
     case "spider":

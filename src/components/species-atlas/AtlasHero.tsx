@@ -164,6 +164,17 @@ export async function AtlasHero({ stats }: AtlasHeroProps) {
                   })}
                 />
               ) : null}
+              {stats.scorpions > 0 ? (
+                <HeroPathway
+                  delay={310}
+                  eyebrow={t("groups.scorpion")}
+                  href="/scorpions"
+                  meta={t("stats.pathwayExplore")}
+                  title={t("stats.pathwayScorpionsTitle", {
+                    count: stats.scorpions,
+                  })}
+                />
+              ) : null}
               {stats.insects > 0 ? (
                 <HeroPathway
                   delay={320}
@@ -220,6 +231,7 @@ function HeroPathway({
     | "/insects"
     | "/lizards"
     | "/mammals"
+    | "/scorpions"
     | "/snakes"
     | "/spiders"
     | "/turtles"

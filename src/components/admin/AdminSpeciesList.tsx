@@ -15,6 +15,7 @@ const GROUP_LABEL: Record<AnimalGroup, string> = {
   insect: "მწერები",
   lizard: "ხვლიკები",
   mammal: "ძუძუმწოვრები",
+  scorpion: "მორიელები",
   snake: "გველები",
   spider: "ობობები",
   turtle: "კუები",
@@ -29,6 +30,7 @@ const GROUPS: Array<"all" | AnimalGroup> = [
   "bird",
   "insect",
   "mammal",
+  "scorpion",
   "spider",
 ];
 

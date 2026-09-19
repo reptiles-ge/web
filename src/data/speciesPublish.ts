@@ -132,6 +132,7 @@ export const featuredSpeciesIds = [
   "lycosa-singoriensis",
   "steatoda-paykulliana",
   "latrodectus-tredecimguttatus",
+  "mesobuthus-eupeus",
 ] as const;
 
 export const unpublishedSpeciesIds = new Set<string>(["dolichophis-caspius"]);

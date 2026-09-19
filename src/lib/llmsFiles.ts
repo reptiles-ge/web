@@ -29,6 +29,7 @@ const GROUP_ORDER: AnimalGroup[] = [
   "bird",
   "mammal",
   "spider",
+  "scorpion",
   "insect",
 ];
 
@@ -38,6 +39,7 @@ const GROUP_HEADING: Record<AnimalGroup, string> = {
   insect: "Insects",
   lizard: "Lizards",
   mammal: "Mammals",
+  scorpion: "Scorpions",
   snake: "Snakes",
   spider: "Spiders",
   turtle: "Turtles",
@@ -100,6 +102,7 @@ const DEEP_GROUPS = new Set<AnimalGroup>([
   "amphibian",
   "insect",
   "lizard",
+  "scorpion",
   "snake",
   "spider",
   "turtle",

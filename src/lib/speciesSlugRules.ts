@@ -190,6 +190,13 @@ const KA_SLUG_ALIASES: Record<string, string[]> = {
     "european-praying-mantis",
   ],
   "meles-canescens": ["evropuli-machvi", "meles-meles", "machvi"],
+  "mesobuthus-eupeus": [
+    "chreli-morieli",
+    "mottled-scorpion",
+    "lesser-asian-scorpion",
+    "buthus-eupeus",
+    "mesobuthus-eupeus",
+  ],
   "milvus-migrans": [
     "dzera",
     "black-kite",

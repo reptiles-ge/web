@@ -21,6 +21,7 @@ export type SpeciesHref = {
     | "/insects/[slug]"
     | "/lizards/[slug]"
     | "/mammals/[slug]"
+    | "/scorpions/[slug]"
     | "/snakes/[slug]"
     | "/spiders/[slug]"
     | "/turtles/[slug]";
@@ -421,6 +422,8 @@ export function speciesHref(id: string, locale: AppLocale): SpeciesHref {
       return { params: { slug }, pathname: "/lizards/[slug]" };
     case "mammals":
       return { params: { slug }, pathname: "/mammals/[slug]" };
+    case "scorpions":
+      return { params: { slug }, pathname: "/scorpions/[slug]" };
     case "snakes":
       return { params: { slug }, pathname: "/snakes/[slug]" };
     case "spiders":

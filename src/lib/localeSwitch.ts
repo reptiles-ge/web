@@ -10,6 +10,7 @@ export type LocaleSpeciesHref = {
     | "/insects/[slug]"
     | "/lizards/[slug]"
     | "/mammals/[slug]"
+    | "/scorpions/[slug]"
     | "/snakes/[slug]"
     | "/spiders/[slug]"
     | "/turtles/[slug]";
@@ -26,6 +27,7 @@ export type LocaleSwitchHubId =
   | "insects"
   | "lizards"
   | "mammals"
+  | "scorpions"
   | "snakes"
   | "spiders"
   | "turtles";
@@ -57,6 +59,7 @@ const SPECIES_PATH_TO_HUB: Record<string, LocaleSwitchHubId> = {
   "/insects/[slug]": "insects",
   "/lizards/[slug]": "lizards",
   "/mammals/[slug]": "mammals",
+  "/scorpions/[slug]": "scorpions",
   "/snakes/[slug]": "snakes",
   "/spiders/[slug]": "spiders",
   "/turtles/[slug]": "turtles",
@@ -71,6 +74,7 @@ const HUB_BY_PATH: Record<
   "/insects": { group: "insect", id: "insects" },
   "/lizards": { group: "lizard", id: "lizards" },
   "/mammals": { group: "mammal", id: "mammals" },
+  "/scorpions": { group: "scorpion", id: "scorpions" },
   "/snakes": { group: "snake", id: "snakes" },
   "/spiders": { group: "spider", id: "spiders" },
   "/turtles": { group: "turtle", id: "turtles" },
@@ -213,6 +217,8 @@ export function speciesHrefFromIndex(
       return { params: { slug }, pathname: "/lizards/[slug]" };
     case "mammals":
       return { params: { slug }, pathname: "/mammals/[slug]" };
+    case "scorpions":
+      return { params: { slug }, pathname: "/scorpions/[slug]" };
     case "snakes":
       return { params: { slug }, pathname: "/snakes/[slug]" };
     case "spiders":

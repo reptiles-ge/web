@@ -6,6 +6,7 @@ export type AnimalGroup =
   | "insect"
   | "lizard"
   | "mammal"
+  | "scorpion"
   | "snake"
   | "spider"
   | "turtle";
@@ -366,6 +367,10 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "amphibian",
     habitats: ["wetland", "forest"],
   },
+  "mesobuthus-eupeus": {
+    group: "scorpion",
+    habitats: ["grassland"],
+  },
   "milvus-migrans": {
     group: "bird",
     habitats: ["wetland", "forest", "grassland"],
@@ -571,6 +576,7 @@ export function groupHasVenomConcept(group: AnimalGroup) {
     group === "lizard" ||
     group === "turtle" ||
     group === "amphibian" ||
+    group === "scorpion" ||
     group === "spider"
   );
 }

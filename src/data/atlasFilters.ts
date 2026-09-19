@@ -121,6 +121,7 @@ export function parseAtlasFilters(
     "bird",
     "insect",
     "mammal",
+    "scorpion",
     "spider",
   ];
   const dangers: AtlasDangerFilter[] = ["all", "venomous", "harmless"];

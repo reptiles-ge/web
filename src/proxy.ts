@@ -21,6 +21,7 @@ const KA_HUB: Record<GroupHubId, string> = {
   insects: "mtserebi",
   lizards: "xvlikebi",
   mammals: "dzuzumtsovrebi",
+  scorpions: "moriebi",
   snakes: "gvelebi",
   spiders: "obobebi",
   turtles: "kuebi",
@@ -31,6 +32,7 @@ const KA_PREFIX_TO_HUB: Record<string, GroupHubId> = {
   dzuzumtsovrebi: "mammals",
   gvelebi: "snakes",
   kuebi: "turtles",
+  moriebi: "scorpions",
   mtserebi: "insects",
   obobebi: "spiders",
   prinvelebi: "birds",
@@ -38,9 +40,9 @@ const KA_PREFIX_TO_HUB: Record<string, GroupHubId> = {
 };
 
 const HUB_SEGMENT =
-  "snakes|lizards|turtles|amphibians|birds|mammals|spiders|insects";
+  "snakes|lizards|turtles|amphibians|birds|mammals|scorpions|spiders|insects";
 const KA_HUB_SEGMENT =
-  "gvelebi|xvlikebi|kuebi|amfibiebi|prinvelebi|dzuzumtsovrebi|obobebi|mtserebi";
+  "gvelebi|xvlikebi|kuebi|amfibiebi|prinvelebi|dzuzumtsovrebi|moriebi|obobebi|mtserebi";
 const PREFIX_SEGMENT = "en|ru|tr";
 
 export default function proxy(request: NextRequest) {

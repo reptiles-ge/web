@@ -19,6 +19,7 @@ export type NavLink = {
     | "/news"
     | "/quiz"
     | "/regions"
+    | "/scorpions"
     | "/snakes"
     | "/species"
     | "/spiders"

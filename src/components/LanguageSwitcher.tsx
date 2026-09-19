@@ -34,6 +34,7 @@ const STATIC_LOCALE_PATHS = [
   "/amphibians",
   "/birds",
   "/mammals",
+  "/scorpions",
   "/spiders",
   "/spiders/shxamiani-obobebi",
   "/spiders/obobis-nakbeni",
@@ -109,10 +110,15 @@ export function LanguageSwitcher({
     const slug = typeof params.slug === "string" ? params.slug : undefined;
     const id = typeof params.id === "string" ? params.id : undefined;
     if (code !== locale) {
-      const context = resolvePageContextFromIndex(switchIndex, pathname, locale, {
-        id,
-        slug,
-      });
+      const context = resolvePageContextFromIndex(
+        switchIndex,
+        pathname,
+        locale,
+        {
+          id,
+          slug,
+        },
+      );
       trackEvent("language_change", {
         entity_id: context.entity_id,
         language: code,
@@ -134,6 +140,7 @@ export function LanguageSwitcher({
         "amphibians",
         "birds",
         "mammals",
+        "scorpions",
         "spiders",
       ] as const
     ).find((item) => pathname === `/${item}/[slug]`);
@@ -163,7 +170,10 @@ export function LanguageSwitcher({
     }
 
     if (pathname === "/regions/[id]" && id) {
-      router.replace({ params: { id }, pathname: "/regions/[id]" }, { locale: code });
+      router.replace(
+        { params: { id }, pathname: "/regions/[id]" },
+        { locale: code },
+      );
       close();
       return;
     }
