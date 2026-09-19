@@ -54841,6 +54841,87 @@
       ],
       "updatedAt": "2026-09-19T19:55:20.796Z"
     },
+    "olivierus-caucasicus-marina-1.jpg": {
+      "sourceHash": "678c14291b17bae27fe00f19389b28455d8d4c109b3886596e2274f2637924f8",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "olivierus-caucasicus-marina-1.jpg",
+      "originalSize": 200763,
+      "width": 1024,
+      "height": 684,
+      "derivatives": [
+        {
+          "key": "optimized/olivierus-caucasicus-marina-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 214,
+          "byteSize": 13217
+        },
+        {
+          "key": "optimized/olivierus-caucasicus-marina-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 214,
+          "byteSize": 22084
+        },
+        {
+          "key": "optimized/olivierus-caucasicus-marina-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 18942
+        },
+        {
+          "key": "optimized/olivierus-caucasicus-marina-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 31644
+        },
+        {
+          "key": "optimized/olivierus-caucasicus-marina-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 428,
+          "byteSize": 39251
+        },
+        {
+          "key": "optimized/olivierus-caucasicus-marina-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 428,
+          "byteSize": 64408
+        },
+        {
+          "key": "optimized/olivierus-caucasicus-marina-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 53916
+        },
+        {
+          "key": "optimized/olivierus-caucasicus-marina-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 87274
+        },
+        {
+          "key": "optimized/olivierus-caucasicus-marina-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 684,
+          "byteSize": 78463
+        },
+        {
+          "key": "optimized/olivierus-caucasicus-marina-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 684,
+          "byteSize": 123458
+        }
+      ],
+      "updatedAt": "2026-09-19T19:59:19.861Z"
+    },
     "olivierus-caucasicus-vil05-1.jpg": {
       "sourceHash": "17b09b275d199593aaca28ed4296db27ff92237dc9f4cdd369f2540f148249b4",
       "configFingerprint": "409788ee46c653d8",
