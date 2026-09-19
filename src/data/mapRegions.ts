@@ -380,6 +380,7 @@ export const regions: Region[] = [
       "coronella-austriaca",
       "eirenis-modestus",
       "zamenis-hohenackeri",
+      "tenuidactylus-caspius",
       "paralaudakia-caucasia",
       "darevskia-praticola",
       "ommatotriton-ophryticus",
