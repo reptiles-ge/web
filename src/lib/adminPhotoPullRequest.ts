@@ -23,6 +23,7 @@ import {
 const REPO_ROOT = process.cwd();
 const BASE_REF = "origin/main";
 const BASE_BRANCH = "main";
+const MDX_FILES = ["ka.mdx", "en.mdx", "ru.mdx", "tr.mdx"] as const;
 
 export async function openCoverPullRequest(input: {
   id: string;
@@ -364,7 +365,9 @@ function resolvePhotoBase(id: string) {
     currentBranch &&
     currentBranch !== BASE_BRANCH &&
     !refHasSpeciesFiles(BASE_REF, id) &&
-    speciesMdxRel(id).every((file) => fs.existsSync(path.join(REPO_ROOT, file)))
+    MDX_FILES.every((file) =>
+      fs.existsSync(path.join(process.cwd(), "src/content/species", id, file)),
+    )
   ) {
     return { branch: currentBranch, ref: "HEAD" };
   }
@@ -390,9 +393,7 @@ function run(cmd: string, args: string[], cwd: string) {
 }
 
 function speciesMdxRel(id: string) {
-  return ["ka.mdx", "en.mdx", "ru.mdx", "tr.mdx"].map((file) =>
-    path.join("src/content/species", id, file),
-  );
+  return MDX_FILES.map((file) => path.join("src/content/species", id, file));
 }
 
 function stamp() {
@@ -427,8 +428,15 @@ async function withPhotoPullRequest(input: {
     } catch {}
 
     await input.apply(REPO_ROOT);
-    const mdxFiles = rel.filter((file) =>
-      fs.existsSync(path.join(REPO_ROOT, file)),
+    const mdxFiles = rel.filter((_, index) =>
+      fs.existsSync(
+        path.join(
+          process.cwd(),
+          "src/content/species",
+          input.id,
+          MDX_FILES[index],
+        ),
+      ),
     );
     run(
       "git",
