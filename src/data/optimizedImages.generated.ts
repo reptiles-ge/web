@@ -4456,6 +4456,20 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/mesobuthus-eupeus-armen-1.jpg": {
+    "path": "mesobuthus-eupeus-armen-1",
+    "width": 1440,
+    "height": 1057,
+    "widths": [320, 400, 640, 800, 1200, 1440],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/mesobuthus-eupeus-armen-2.jpg": {
+    "path": "mesobuthus-eupeus-armen-2",
+    "width": 1400,
+    "height": 861,
+    "widths": [320, 400, 640, 800, 1200, 1400],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/mesobuthus-eupeus-barnab%C3%A1s-1.jpg": {
     "path": "mesobuthus-eupeus-barnab%C3%A1s-1",
     "width": 1024,
@@ -4509,6 +4523,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "path": "mesobuthus-eupeus-lasha-1",
     "width": 1440,
     "height": 960,
+    "widths": [320, 400, 640, 800, 1200, 1440],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/mesobuthus-eupeus-nika-1.jpg": {
+    "path": "mesobuthus-eupeus-nika-1",
+    "width": 1440,
+    "height": 1049,
     "widths": [320, 400, 640, 800, 1200, 1440],
     "formats": ["avif", "webp"]
   },

@@ -49330,6 +49330,196 @@
       ],
       "updatedAt": "2026-08-28T21:54:37.779Z"
     },
+    "mesobuthus-eupeus-armen-1.jpg": {
+      "sourceHash": "6aee839146d28fe1ce4b85498277af47af9b8dbf2c73a40be35ec06f62a0585b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "mesobuthus-eupeus-armen-1.jpg",
+      "originalSize": 367948,
+      "width": 1440,
+      "height": 1057,
+      "derivatives": [
+        {
+          "key": "optimized/mesobuthus-eupeus-armen-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 235,
+          "byteSize": 13800
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-armen-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 235,
+          "byteSize": 19762
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-armen-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 293,
+          "byteSize": 19558
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-armen-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 293,
+          "byteSize": 28630
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-armen-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 470,
+          "byteSize": 42640
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-armen-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 470,
+          "byteSize": 62884
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-armen-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 587,
+          "byteSize": 61061
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-armen-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 587,
+          "byteSize": 90204
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-armen-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 881,
+          "byteSize": 114984
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-armen-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 881,
+          "byteSize": 168832
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-armen-1-1440.avif",
+          "format": "avif",
+          "width": 1440,
+          "height": 1057,
+          "byteSize": 158257
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-armen-1-1440.webp",
+          "format": "webp",
+          "width": 1440,
+          "height": 1057,
+          "byteSize": 208358
+        }
+      ],
+      "updatedAt": "2026-09-19T11:07:21.665Z"
+    },
+    "mesobuthus-eupeus-armen-2.jpg": {
+      "sourceHash": "493b5a26371163debd311cb48a80138cf443c941f426e6b49f0580188aeb85da",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "mesobuthus-eupeus-armen-2.jpg",
+      "originalSize": 314761,
+      "width": 1400,
+      "height": 861,
+      "derivatives": [
+        {
+          "key": "optimized/mesobuthus-eupeus-armen-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 197,
+          "byteSize": 12483
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-armen-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 197,
+          "byteSize": 17820
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-armen-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 246,
+          "byteSize": 17837
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-armen-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 246,
+          "byteSize": 26250
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-armen-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 394,
+          "byteSize": 40371
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-armen-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 394,
+          "byteSize": 59762
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-armen-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 492,
+          "byteSize": 57843
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-armen-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 492,
+          "byteSize": 86226
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-armen-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 738,
+          "byteSize": 107667
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-armen-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 738,
+          "byteSize": 161528
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-armen-2-1400.avif",
+          "format": "avif",
+          "width": 1400,
+          "height": 861,
+          "byteSize": 138628
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-armen-2-1400.webp",
+          "format": "webp",
+          "width": 1400,
+          "height": 861,
+          "byteSize": 193760
+        }
+      ],
+      "updatedAt": "2026-09-19T11:09:10.994Z"
+    },
     "mesobuthus-eupeus-barnabás-1.jpg": {
       "sourceHash": "5e3e0275c15590020df1b479ae4986bf1174e2b3bcfaab6e7579d77d5556b4f1",
       "configFingerprint": "409788ee46c653d8",
@@ -49991,6 +50181,101 @@
         }
       ],
       "updatedAt": "2026-09-19T11:00:49.100Z"
+    },
+    "mesobuthus-eupeus-nika-1.jpg": {
+      "sourceHash": "cf2687480b6d834e02b022a31f1999efef5ed2b22e7e76af700fe9c857990996",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "mesobuthus-eupeus-nika-1.jpg",
+      "originalSize": 364874,
+      "width": 1440,
+      "height": 1049,
+      "derivatives": [
+        {
+          "key": "optimized/mesobuthus-eupeus-nika-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 233,
+          "byteSize": 14926
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-nika-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 233,
+          "byteSize": 23644
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-nika-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 291,
+          "byteSize": 21004
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-nika-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 291,
+          "byteSize": 33386
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-nika-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 466,
+          "byteSize": 46102
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-nika-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 466,
+          "byteSize": 71406
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-nika-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 583,
+          "byteSize": 64926
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-nika-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 583,
+          "byteSize": 100626
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-nika-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 874,
+          "byteSize": 119496
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-nika-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 874,
+          "byteSize": 180240
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-nika-1-1440.avif",
+          "format": "avif",
+          "width": 1440,
+          "height": 1049,
+          "byteSize": 159552
+        },
+        {
+          "key": "optimized/mesobuthus-eupeus-nika-1-1440.webp",
+          "format": "webp",
+          "width": 1440,
+          "height": 1049,
+          "byteSize": 219232
+        }
+      ],
+      "updatedAt": "2026-09-19T11:08:08.668Z"
     },
     "milvus-migrans-kraft-germany.jpg": {
       "sourceHash": "8648d8dca44b8fe34ffb3a5b2db38e3eb59249face16f26929f94125af6b3376",
