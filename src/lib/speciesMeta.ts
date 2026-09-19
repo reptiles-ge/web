@@ -66,10 +66,6 @@ export function speciesTitleIntentKey(
 const SPECIES_META_TITLE_OVERRIDE: Partial<
   Record<string, { en: string; ka: string }>
 > = {
-  "alpiscorpius-mingrelicus": {
-    en: "Mingrelian scorpion (Alpiscorpius mingrelicus) | Western Georgia",
-    ka: "მეგრული მორიელი (Alpiscorpius mingrelicus) | მორიელი დასავლეთ საქართველოში",
-  },
   "araneus-diadematus": {
     en: "European garden spider (Araneus diadematus) | Cross orb-weaver in Georgia",
     ka: "ჩვეულებრივი ჯვრიანა (Araneus diadematus) | ობობა საქართველოში",
@@ -97,6 +93,10 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
   "erithacus-rubecula": {
     en: "European robin (Erithacus rubecula) | Year-round resident in Georgia",
     ka: "გულწითელა (Erithacus rubecula) | მთელი წლის რეზიდენტი საქართველოში",
+  },
+  "euscorpius-mingrelicus": {
+    en: "Mingrelian scorpion (Euscorpius mingrelicus) | Western Georgia",
+    ka: "მეგრული მორიელი (Euscorpius mingrelicus) | მორიელი დასავლეთ საქართველოში",
   },
   "latrodectus-tredecimguttatus": {
     en: "Mediterranean black widow (Latrodectus tredecimguttatus) | Widow spider in Georgia",
@@ -183,10 +183,6 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
 const SPECIES_META_DESCRIPTION_OVERRIDE: Partial<
   Record<string, Partial<Record<AppLocale, string>>>
 > = {
-  "alpiscorpius-mingrelicus": {
-    en: "Mingrelian scorpion (Alpiscorpius mingrelicus) in Georgia: accepted taxonomy, western Georgian range, identification, humid forest habitat, and sting risk.",
-    ka: "მეგრული მორიელი (Alpiscorpius mingrelicus) საქართველოში — მიღებული ტაქსონომია, დასავლეთ საქართველოს არეალი, ამოცნობა, ნოტიო ტყის ჰაბიტატი და ჩხვლეტის რისკი.",
-  },
   "araneus-diadematus": {
     ka: "ჩვეულებრივი ჯვრიანა (Araneus diadematus) საქართველოში — ამოცნობის ნიშნები, დადასტურებული გავრცელება, ჰაბიტატი, ზომა და რამდენად საშიშია ადამიანისთვის.",
   },
@@ -205,6 +201,10 @@ const SPECIES_META_DESCRIPTION_OVERRIDE: Partial<
   },
   "erinaceus-concolor": {
     ka: "ევროპული ზღარბი (Erinaceus concolor) საქართველოში — ამოცნობის ნიშნები, გავრცელება, ჰაბიტატი, კვება და რატომ არის ადამიანისთვის უვნებელი.",
+  },
+  "euscorpius-mingrelicus": {
+    en: "Mingrelian scorpion (Euscorpius mingrelicus) in Georgia: taxonomy, western Georgian range, identification, humid forest habitat, and sting risk.",
+    ka: "მეგრული მორიელი (Euscorpius mingrelicus) საქართველოში — ტაქსონომია, დასავლეთ საქართველოს არეალი, ამოცნობა, ნოტიო ტყის ჰაბიტატი და ჩხვლეტის რისკი.",
   },
   "lutra-lutra": {
     ka: "ჩვეულებრივი წავი (Lutra lutra) საქართველოში — როგორ ამოიცნოთ, სად გვხვდება, რა ზომისაა, რას ჭამს და რა სტატუსით არის დაცული.",

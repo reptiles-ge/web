@@ -39,10 +39,6 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "bird",
     habitats: ["grassland"],
   },
-  "alpiscorpius-mingrelicus": {
-    group: "scorpion",
-    habitats: ["forest", "mountain"],
-  },
   "anas-platyrhynchos": {
     group: "bird",
     habitats: ["wetland"],
@@ -266,6 +262,10 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
   "eumeces-schneiderii": {
     group: "lizard",
     habitats: ["grassland", "mountain"],
+  },
+  "euscorpius-mingrelicus": {
+    group: "scorpion",
+    habitats: ["forest", "mountain"],
   },
   "falco-peregrinus": {
     group: "bird",
