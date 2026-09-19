@@ -614,6 +614,7 @@ export const regions: Region[] = [
       "argiope-bruennichi",
       "latrodectus-tredecimguttatus",
       "cheiracanthium-punctorium",
+      "euscorpius-italicus",
     ],
   },
 ];
