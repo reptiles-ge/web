@@ -5,8 +5,11 @@ import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
+import type { ClientMessageNamespace } from "@/i18n/clientMessages";
+
 import { AmphibianSpeciesIndexPage } from "@/components/AmphibianSpeciesIndexPage";
 import { CatalogSpeciesIndexPage } from "@/components/CatalogSpeciesIndexPage";
+import { ClientMessagesProvider } from "@/components/ClientMessagesProvider";
 import { ClusterGuidePage } from "@/components/ClusterGuidePage";
 import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { DarevskiaGuidePage } from "@/components/DarevskiaGuidePage";
@@ -175,6 +178,16 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
       catalog.find((item) => item.id === guide.heroSpeciesId) ??
       catalog.find(guide.matches);
     const heroSrc = guide.heroImage ?? heroRaw?.image ?? "";
+    const clientMessageNamespaces: ClientMessageNamespace[] = [
+      "card",
+      "danger",
+      "groupHubShared",
+      "map",
+      "profile",
+      "speciesIndex",
+      parent.messageKey,
+      guide.messageKey,
+    ];
 
     const breadcrumbLd = {
       "@context": "https://schema.org",
@@ -269,7 +282,9 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
         <JsonLd data={breadcrumbLd} />
         <JsonLd data={pageLd} />
         {faqLd ? <JsonLd data={faqLd} /> : null}
-        <PageView guideId={guideId} heroSrc={heroSrc} species={species} />
+        <ClientMessagesProvider namespaces={clientMessageNamespaces}>
+          <PageView guideId={guideId} heroSrc={heroSrc} species={species} />
+        </ClientMessagesProvider>
       </>
     );
   }

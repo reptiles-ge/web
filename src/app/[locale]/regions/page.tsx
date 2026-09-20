@@ -4,6 +4,7 @@ import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
+import { ClientMessagesProvider } from "@/components/ClientMessagesProvider";
 import { JsonLd } from "@/components/JsonLd";
 import { RegionsIndex } from "@/components/RegionsIndex";
 import {
@@ -105,10 +106,12 @@ export default async function RegionsPage({ params }: Props) {
   return (
     <>
       <JsonLd data={jsonLd} />
-      <RegionsIndex
-        stats={getCatalogRegionStats()}
-        tooltipSpeciesByRegion={getRegionTooltipPreviews(locale)}
-      />
+      <ClientMessagesProvider namespaces={["map", "regions"]}>
+        <RegionsIndex
+          stats={getCatalogRegionStats()}
+          tooltipSpeciesByRegion={getRegionTooltipPreviews(locale)}
+        />
+      </ClientMessagesProvider>
     </>
   );
 }

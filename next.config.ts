@@ -25,9 +25,6 @@ function latinRedirects(
 }
 
 const nextConfig: NextConfig = {
-  experimental: {
-    inlineCss: true,
-  },
   async headers() {
     const contentSecurityPolicy = [
       "default-src 'self'",

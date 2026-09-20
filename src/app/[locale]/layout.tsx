@@ -17,6 +17,11 @@ import { Navbar } from "@/components/Navbar";
 import { NavigationProgress } from "@/components/NavigationProgress";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { SkipLink } from "@/components/SkipLink";
+import {
+  type ClientMessages,
+  pickClientMessages,
+  ROOT_CLIENT_MESSAGE_NAMESPACES,
+} from "@/i18n/clientMessages";
 import { routing } from "@/i18n/routing";
 import { getFooterData } from "@/lib/footerData";
 import { getLocaleSwitchIndex } from "@/lib/localeSwitchData";
@@ -37,7 +42,10 @@ export default async function LocaleLayout({ children, params }: Props) {
   }
 
   setRequestLocale(locale);
-  const messages = await getMessages();
+  const messages = pickClientMessages(
+    (await getMessages()) as ClientMessages,
+    ROOT_CLIENT_MESSAGE_NAMESPACES,
+  );
   const t = await getTranslations("nav");
   const footerData = getFooterData(locale);
   const switchIndex = getLocaleSwitchIndex();
