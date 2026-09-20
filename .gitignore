@@ -57,3 +57,4 @@ cdn-unused-images.txt
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+.env.sentry-build-plugin
