@@ -53,6 +53,7 @@ export const SITEMAP_AUTHOR_LAST_MODIFIED: Record<string, string> = {
   "armen-seropian": "2026-09-16T16:00:00+04:00",
   "david-tarkhnishvili": "2026-09-16T16:11:00+04:00",
   "giorgi-iankoshvili": "2026-09-16T16:22:00+04:00",
+  "giorgi-sheklashvili": "2026-09-20T20:05:00+04:00",
   "ioane-rostiashvili": "2026-09-16T16:33:00+04:00",
   "lasha-gogodze": "2026-09-16T16:44:00+04:00",
   "nika-kerdikoshvili": "2026-09-20T01:30:00+04:00",

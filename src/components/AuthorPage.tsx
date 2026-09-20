@@ -1,3 +1,6 @@
+import type { ComponentType } from "react";
+
+import { ExternalLink } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import type { CreditAuthor } from "@/data/creditAuthors";
@@ -41,30 +44,36 @@ export async function AuthorPage({
   const bio = creditAuthorBio(author, locale);
   const speciesIds = getCreditAuthorSpeciesIds(photos);
   const hubs = getCreditAuthorHubIds(speciesIds);
-  const socials = [
-    author.links?.facebook
-      ? {
-          href: author.links.facebook,
-          Icon: FacebookGlyph,
-          key: "facebook" as const,
-        }
-      : null,
-    author.links?.instagram
-      ? {
-          href: author.links.instagram,
-          Icon: InstagramGlyph,
-          key: "instagram" as const,
-        }
-      : null,
-  ].filter(
-    (
-      item,
-    ): item is {
-      href: string;
-      Icon: typeof FacebookGlyph;
-      key: "facebook" | "instagram";
-    } => Boolean(item),
-  );
+  const socials: Array<{
+    href: string;
+    Icon: ComponentType<{ className?: string }>;
+    key: string;
+    label: string;
+  }> = [];
+  if (author.links?.facebook) {
+    socials.push({
+      href: author.links.facebook,
+      Icon: FacebookGlyph,
+      key: "facebook",
+      label: t("facebook"),
+    });
+  }
+  if (author.links?.instagram) {
+    socials.push({
+      href: author.links.instagram,
+      Icon: InstagramGlyph,
+      key: "instagram",
+      label: t("instagram"),
+    });
+  }
+  if (author.links?.researchGate) {
+    socials.push({
+      href: author.links.researchGate,
+      Icon: ExternalLink,
+      key: "researchGate",
+      label: "ResearchGate",
+    });
+  }
 
   return (
     <div className="min-h-screen bg-background">
@@ -141,7 +150,7 @@ export async function AuthorPage({
               {socials.map((item) => (
                 <li key={item.key}>
                   <a
-                    aria-label={t(item.key)}
+                    aria-label={item.label}
                     className="inline-flex size-11 items-center justify-center rounded-full border border-border bg-card text-muted-foreground transition-colors hover:border-primary/35 hover:text-primary"
                     href={item.href}
                     rel="noopener noreferrer"
