@@ -4,6 +4,7 @@ import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
+import { ClientMessagesProvider } from "@/components/ClientMessagesProvider";
 import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { JsonLd } from "@/components/JsonLd";
 import { VenomousSnakesPage } from "@/components/VenomousSnakesPage";
@@ -176,7 +177,20 @@ export default async function VenomousSnakesRoute({ params }: Props) {
       <JsonLd data={breadcrumbLd} />
       <JsonLd data={pageLd} />
       <JsonLd data={faqLd} />
-      <VenomousSnakesPage heroSrc={heroSrc} species={venomous} />
+      <ClientMessagesProvider
+        namespaces={[
+          "card",
+          "danger",
+          "groupHubShared",
+          "profile",
+          "quizzes",
+          "snakeQuiz",
+          "snakes",
+          "venomousSnakes",
+        ]}
+      >
+        <VenomousSnakesPage heroSrc={heroSrc} species={venomous} />
+      </ClientMessagesProvider>
     </>
   );
 }

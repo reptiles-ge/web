@@ -4,6 +4,7 @@ import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
+import { ClientMessagesProvider } from "@/components/ClientMessagesProvider";
 import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { GroupHubPage } from "@/components/GroupHubPage";
 import { JsonLd } from "@/components/JsonLd";
@@ -11,6 +12,7 @@ import { NewsRelatedBlock } from "@/components/NewsRelatedBlock";
 import { getPublishedNewsForHub } from "@/data/news";
 import { getCatalogSpeciesByGroup } from "@/data/speciesAtlas";
 import { images } from "@/data/speciesMedia";
+import { GROUP_HUB_SHARED_CLIENT_MESSAGE_NAMESPACES } from "@/i18n/clientMessages";
 import { georgiaPlaceName, openGraphLocale } from "@/i18n/localeMeta";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { type AppLocale, routing } from "@/i18n/routing";
@@ -168,12 +170,19 @@ export function createGroupHubRoute(hubId: GroupHubId) {
         <JsonLd data={breadcrumbLd} />
         <JsonLd data={collectionLd} />
         <JsonLd data={faqLd} />
-        <GroupHubPage
-          heroMobileSrc={heroMobileSrc}
-          heroSrc={heroSrc}
-          hubId={hubId}
-          species={species}
-        />
+        <ClientMessagesProvider
+          namespaces={[
+            ...GROUP_HUB_SHARED_CLIENT_MESSAGE_NAMESPACES,
+            hub.messageKey,
+          ]}
+        >
+          <GroupHubPage
+            heroMobileSrc={heroMobileSrc}
+            heroSrc={heroSrc}
+            hubId={hubId}
+            species={species}
+          />
+        </ClientMessagesProvider>
         <NewsRelatedBlock
           articles={getPublishedNewsForHub(hubId, locale)}
           locale={locale}

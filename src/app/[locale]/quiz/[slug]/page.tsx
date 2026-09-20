@@ -4,6 +4,7 @@ import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
+import { ClientMessagesProvider } from "@/components/ClientMessagesProvider";
 import { JsonLd } from "@/components/JsonLd";
 import { QuizLanding } from "@/components/QuizLanding";
 import { QuizPlayer } from "@/components/QuizPlayer";
@@ -185,13 +186,17 @@ export default async function QuizSlugRoute({ params }: Props) {
       <JsonLd data={breadcrumbLd} />
       <JsonLd data={pageLd} />
       <JsonLd data={faqLd} />
-      <QuizPlayer pool={pool} quizId={quiz.id} shareUrl={url} />
-      <QuizLanding
-        namespace={quiz.messageNamespace}
-        pool={pool}
-        quizId={quiz.id}
-        species={catalog}
-      />
+      <ClientMessagesProvider
+        namespaces={["groupHubShared", "quizzes", quiz.messageNamespace]}
+      >
+        <QuizPlayer pool={pool} quizId={quiz.id} shareUrl={url} />
+        <QuizLanding
+          namespace={quiz.messageNamespace}
+          pool={pool}
+          quizId={quiz.id}
+          species={catalog}
+        />
+      </ClientMessagesProvider>
     </>
   );
 }

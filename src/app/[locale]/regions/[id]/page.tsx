@@ -4,6 +4,7 @@ import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
+import { ClientMessagesProvider } from "@/components/ClientMessagesProvider";
 import { ContentAttribution } from "@/components/ContentAttribution";
 import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { JsonLd } from "@/components/JsonLd";
@@ -248,12 +249,16 @@ export default async function RegionPage({ params }: PageProps) {
             : [jsonLd, breadcrumbJsonLd]
         }
       />
-      <RegionProfile
-        attribution={<ContentAttribution />}
-        region={region}
-        species={species}
-        venomous={venomous}
-      />
+      <ClientMessagesProvider
+        namespaces={["card", "danger", "groupHubShared", "map", "regions"]}
+      >
+        <RegionProfile
+          attribution={<ContentAttribution />}
+          region={region}
+          species={species}
+          venomous={venomous}
+        />
+      </ClientMessagesProvider>
       <NewsRelatedBlock
         articles={getPublishedNewsForRegion(region.id, locale)}
         locale={locale}

@@ -4,6 +4,7 @@ import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
+import { ClientMessagesProvider } from "@/components/ClientMessagesProvider";
 import { JsonLd } from "@/components/JsonLd";
 import { type QuizCardModel, QuizzesPage } from "@/components/QuizzesPage";
 import { openGraphLocale } from "@/i18n/localeMeta";
@@ -137,7 +138,9 @@ export default async function QuizzesIndexRoute({ params }: Props) {
     <>
       <JsonLd data={breadcrumbLd} />
       <JsonLd data={pageLd} />
-      <QuizzesPage items={items} />
+      <ClientMessagesProvider namespaces={["quizzes"]}>
+        <QuizzesPage items={items} />
+      </ClientMessagesProvider>
     </>
   );
 }

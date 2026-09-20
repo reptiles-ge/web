@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 import createBundleAnalyzer from "@next/bundle-analyzer";
+import { withSentryConfig } from "@sentry/nextjs/config";
 import createNextIntlPlugin from "next-intl/plugin";
 
 const withBundleAnalyzer = createBundleAnalyzer({
@@ -25,9 +26,6 @@ function latinRedirects(
 }
 
 const nextConfig: NextConfig = {
-  experimental: {
-    inlineCss: true,
-  },
   async headers() {
     const contentSecurityPolicy = [
       "default-src 'self'",
@@ -540,4 +538,12 @@ const nextConfig: NextConfig = {
   trailingSlash: false,
 };
 
-export default withBundleAnalyzer(withNextIntl(nextConfig));
+export default withSentryConfig(withBundleAnalyzer(withNextIntl(nextConfig)), {
+  bundleSizeOptimizations: {
+    excludeDebugStatements: true,
+  },
+  org: "icleaning-06",
+  project: "reptiles-ge-web",
+  silent: !process.env.CI,
+  widenClientFileUpload: true,
+});

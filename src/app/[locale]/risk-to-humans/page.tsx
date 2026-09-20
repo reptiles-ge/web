@@ -4,6 +4,7 @@ import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
+import { ClientMessagesProvider } from "@/components/ClientMessagesProvider";
 import { JsonLd } from "@/components/JsonLd";
 import { RiskToHumansPage } from "@/components/RiskToHumansPage";
 import { getCatalogSpecies, getSpeciesById } from "@/data/species";
@@ -155,12 +156,16 @@ export default async function RiskToHumansRoute({ params }: Props) {
       <JsonLd data={breadcrumbLd} />
       <JsonLd data={pageLd} />
       <JsonLd data={faqLd} />
-      <RiskToHumansPage
-        harmlessCount={byDanger.Harmless.length}
-        harmlessExamples={harmlessExamples}
-        high={byDanger.High}
-        moderate={byDanger.Moderate}
-      />
+      <ClientMessagesProvider
+        namespaces={["card", "danger", "groupHubShared", "riskToHumans"]}
+      >
+        <RiskToHumansPage
+          harmlessCount={byDanger.Harmless.length}
+          harmlessExamples={harmlessExamples}
+          high={byDanger.High}
+          moderate={byDanger.Moderate}
+        />
+      </ClientMessagesProvider>
     </>
   );
 }

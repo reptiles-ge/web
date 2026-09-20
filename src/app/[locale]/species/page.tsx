@@ -4,18 +4,17 @@ import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
+import { ClientMessagesProvider } from "@/components/ClientMessagesProvider";
 import { JsonLd } from "@/components/JsonLd";
 import { AtlasAbout } from "@/components/species-atlas/AtlasAbout";
 import { AtlasHero } from "@/components/species-atlas/AtlasHero";
 import { AtlasSeo } from "@/components/species-atlas/AtlasSeo";
 import { SpeciesAtlas } from "@/components/species-atlas/SpeciesAtlas";
-import {
-  hasActiveAtlasFilters,
-  parseAtlasFilters,
-} from "@/data/atlasFilters";
+import { hasActiveAtlasFilters, parseAtlasFilters } from "@/data/atlasFilters";
 import { getRegionTooltipPreviews } from "@/data/regions";
 import { getSpeciesById } from "@/data/species";
 import { getAtlasStats } from "@/data/speciesAtlas";
+import { ATLAS_CLIENT_MESSAGE_NAMESPACES } from "@/i18n/clientMessages";
 import { georgiaPlaceName, openGraphLocale } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { getAtlasListItems, getAtlasRecentItems } from "@/lib/atlasList";
@@ -146,14 +145,16 @@ export default async function SpeciesIndexPage({ params }: Props) {
     <div className="min-h-screen bg-background">
       <JsonLd data={breadcrumbLd} />
       <JsonLd data={collectionLd} />
-      <AtlasHero stats={stats} />
-      <SpeciesAtlas
-        catalog={catalog}
-        recent={recent}
-        tooltipSpeciesByRegion={tooltipSpeciesByRegion}
-      />
-      <AtlasSeo />
-      <AtlasAbout locale={locale} stats={stats} />
+      <ClientMessagesProvider namespaces={ATLAS_CLIENT_MESSAGE_NAMESPACES}>
+        <AtlasHero stats={stats} />
+        <SpeciesAtlas
+          catalog={catalog}
+          recent={recent}
+          tooltipSpeciesByRegion={tooltipSpeciesByRegion}
+        />
+        <AtlasSeo />
+        <AtlasAbout locale={locale} stats={stats} />
+      </ClientMessagesProvider>
     </div>
   );
 }
