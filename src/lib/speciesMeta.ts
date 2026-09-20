@@ -36,6 +36,8 @@ export function speciesMetaTitle(
   return `${commonName} (${scientificName}) | ${intent}`;
 }
 
+const MAX_META_TITLE_LENGTH = 70;
+
 export function speciesTitleIntentKey(
   group: AnimalGroup,
   danger?: DangerLevel,
@@ -61,6 +63,10 @@ export function speciesTitleIntentKey(
   if (group === "scorpion") return "titleScorpion";
   if (group === "spider") return "titleSpider";
   return "titleAmphibian";
+}
+
+function shortSpeciesMetaTitle(commonName: string, intent: string) {
+  return `${commonName} | ${intent}`;
 }
 
 const SPECIES_META_TITLE_OVERRIDE: Partial<
@@ -280,9 +286,15 @@ export function speciesPageMetaTitle(
 ) {
   const override = SPECIES_META_TITLE_OVERRIDE[speciesId];
   if (override && (locale === "ka" || locale === "en")) {
-    return locale === "ka" ? override.ka : override.en;
+    const title = locale === "ka" ? override.ka : override.en;
+    return locale === "ka" && title.length > MAX_META_TITLE_LENGTH
+      ? shortSpeciesMetaTitle(commonName, intent)
+      : title;
   }
-  return speciesMetaTitle(commonName, scientificName, intent);
+  const title = speciesMetaTitle(commonName, scientificName, intent);
+  return locale === "ka" && title.length > MAX_META_TITLE_LENGTH
+    ? shortSpeciesMetaTitle(commonName, intent)
+    : title;
 }
 
 export function speciesPhotoAlt(
