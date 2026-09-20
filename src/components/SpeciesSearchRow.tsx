@@ -76,7 +76,7 @@ export function ResultRow({
         <span className="relative size-12 shrink-0 overflow-hidden rounded-[14px] bg-ink">
           <picture>
             <img
-              alt=""
+              alt={item.title}
               className="size-full object-cover transition-transform duration-500 group-hover/item:scale-105"
               decoding="async"
               height={48}

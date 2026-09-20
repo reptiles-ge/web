@@ -144,6 +144,7 @@ export async function HomeGroups() {
 
             return (
               <HubListRow
+                alt={visual?.alt ?? tNav(hubId)}
                 className={
                   mobileOnly ? "bg-background sm:hidden" : "bg-background"
                 }
@@ -188,12 +189,14 @@ function groupCount(
 }
 
 function HubListRow({
+  alt,
   className,
   countLabel,
   href,
   name,
   src,
 }: {
+  alt: string;
   className?: string;
   countLabel: string;
   href: `/${GroupHubId}`;
@@ -209,7 +212,7 @@ function HubListRow({
         {src ? (
           <span className="relative size-14 shrink-0 overflow-hidden bg-ink">
             <CoverImage
-              alt=""
+              alt={alt}
               className="object-cover"
               sizes="56px"
               src={src}

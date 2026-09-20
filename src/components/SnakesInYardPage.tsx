@@ -158,7 +158,7 @@ export async function SnakesInYardPage({
 
         <section className="relative flex min-h-[60svh] items-center overflow-hidden bg-ink py-24">
           <CoverImage
-            alt=""
+            alt={t("heroImageAlt")}
             aria-hidden
             className="object-cover opacity-45"
             sizes="100vw"
