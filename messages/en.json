@@ -535,6 +535,7 @@
     "speciesEyebrow": "Species",
     "speciesTitle": "Species recorded in {name}",
     "speciesCount": "{count, plural, =0 {No species recorded} one {# species} other {# species}}",
+    "speciesFilterLabel": "Filter species by group",
     "venomousEyebrow": "Safety",
     "venomousTitle": "Venomous snakes in {name}",
     "venomousBody": "Only moderate or high-risk species are highlighted here. When you meet an unknown snake, keep distance and use the full species profile for identification.",

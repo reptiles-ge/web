@@ -2,7 +2,7 @@
 
 import { ArrowLeft, ArrowUpRight, Plus, Shield } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
-import { type ReactNode, useState } from "react";
+import { type ReactNode, useMemo, useState } from "react";
 
 import type { RegionPathId } from "@/data/georgia-paths";
 import type { Species } from "@/data/species";
@@ -23,6 +23,7 @@ import {
 } from "@/data/mapRegions";
 import { getRegionContent } from "@/data/regionContent";
 import { getRegionHeroImage } from "@/data/regionImages";
+import { type AnimalGroup, getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import { Link } from "@/i18n/navigation";
 import { trackEvent, trackSpeciesClick } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
@@ -41,6 +42,20 @@ type RegionProfileProps = {
   species: Species[];
   venomous: Species[];
 };
+
+type RegionSpeciesFilter = "all" | AnimalGroup;
+
+const REGION_SPECIES_GROUPS = [
+  { group: "snake", navKey: "snakes" },
+  { group: "lizard", navKey: "lizards" },
+  { group: "turtle", navKey: "turtles" },
+  { group: "amphibian", navKey: "amphibians" },
+  { group: "bird", navKey: "birds" },
+  { group: "mammal", navKey: "mammals" },
+  { group: "scorpion", navKey: "scorpions" },
+  { group: "spider", navKey: "spiders" },
+  { group: "insect", navKey: "insects" },
+] as const satisfies readonly { group: AnimalGroup; navKey: string }[];
 
 export function RegionProfile({
   attribution,
@@ -480,6 +495,39 @@ function RegionProfileSpecies({
   species: Species[];
 }) {
   const t = useTranslations("regions");
+  const tNav = useTranslations("nav");
+  const tSearch = useTranslations("search");
+  const [filter, setFilter] = useState<RegionSpeciesFilter>("all");
+  const groupOptions = useMemo(() => {
+    const counts = new Map<AnimalGroup, number>();
+    for (const item of species) {
+      const group = getSpeciesAtlasMeta(item.id).group;
+      counts.set(group, (counts.get(group) ?? 0) + 1);
+    }
+    return REGION_SPECIES_GROUPS.flatMap((option) => {
+      const count = counts.get(option.group) ?? 0;
+      return count > 0 ? [{ ...option, count }] : [];
+    });
+  }, [species]);
+  const filteredSpecies = useMemo(
+    () =>
+      filter === "all"
+        ? species
+        : species.filter(
+            (item) => getSpeciesAtlasMeta(item.id).group === filter,
+          ),
+    [filter, species],
+  );
+
+  function updateFilter(next: RegionSpeciesFilter, count: number) {
+    if (next === filter) return;
+    setFilter(next);
+    trackEvent("region_species_filter", {
+      group_filter: next,
+      page_type: "region",
+      result_count: count,
+    });
+  }
 
   return (
     <section className="border-t border-border bg-surface py-20 lg:py-28">
@@ -499,12 +547,50 @@ function RegionProfileSpecies({
             </AnchoredHeading>
           </div>
           <p className="hidden text-[13px] text-muted-foreground sm:block">
-            {t("speciesCount", { count: species.length })}
+            {t("speciesCount", { count: filteredSpecies.length })}
           </p>
         </div>
+        {groupOptions.length > 1 ? (
+          <div
+            aria-label={t("speciesFilterLabel")}
+            className="mt-8 flex flex-wrap gap-2"
+            role="group"
+          >
+            <button
+              aria-pressed={filter === "all"}
+              className={cn(
+                "rounded-full border px-3.5 py-2 text-[13px] font-medium transition-colors",
+                filter === "all"
+                  ? "border-ink bg-ink text-ink-foreground"
+                  : "border-border bg-background text-muted-foreground hover:border-foreground/30 hover:text-foreground",
+              )}
+              onClick={() => updateFilter("all", species.length)}
+              type="button"
+            >
+              {tSearch("all")} <span className="ml-2">{species.length}</span>
+            </button>
+            {groupOptions.map((option) => (
+              <button
+                aria-pressed={filter === option.group}
+                className={cn(
+                  "rounded-full border px-3.5 py-2 text-[13px] font-medium transition-colors",
+                  filter === option.group
+                    ? "border-ink bg-ink text-ink-foreground"
+                    : "border-border bg-background text-muted-foreground hover:border-foreground/30 hover:text-foreground",
+                )}
+                key={option.group}
+                onClick={() => updateFilter(option.group, option.count)}
+                type="button"
+              >
+                {tNav(option.navKey)}{" "}
+                <span className="ml-2">{option.count}</span>
+              </button>
+            ))}
+          </div>
+        ) : null}
         {species.length > 0 ? (
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {species.map((item) => (
+            {filteredSpecies.map((item) => (
               <div key={item.id}>
                 <PhotoSpeciesCard species={item} />
               </div>

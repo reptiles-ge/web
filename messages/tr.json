@@ -535,6 +535,7 @@
     "speciesEyebrow": "Türler",
     "speciesTitle": "{name} içinde kaydedilen türler",
     "speciesCount": "{count, plural, =0 {Kayıtlı tür yok} one {# tür} other {# tür}}",
+    "speciesFilterLabel": "Türleri gruba göre filtrele",
     "venomousEyebrow": "Güvenlik",
     "venomousTitle": "{name} içinde zehirli yılanlar",
     "venomousBody": "Burada yalnızca orta veya yüksek riskli türler ayrıca vurgulanır. Bilinmeyen bir yılanla karşılaştığınızda mesafe bırakın ve tanıma için türün tam profilini kullanın.",
