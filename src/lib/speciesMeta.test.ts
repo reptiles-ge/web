@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 
+import { shortMetaDescription } from "@/lib/metaDescription";
 import {
   speciesMetaDescription,
   speciesPageMetaTitle,
@@ -56,13 +57,37 @@ describe("speciesPageMetaTitle", () => {
 });
 
 describe("speciesMetaDescription", () => {
-  it("strips inline markdown links from the lead sentence", () => {
+  it("strips inline markdown links without dropping fitting text", () => {
     expect(
       speciesMetaDescription(
         "The Levantine viper is a [venomous snake](/venomous-snakes) often confused with the [Montpellier snake](malpolon-insignitus). Keep distance.",
       ),
     ).toBe(
-      "The Levantine viper is a venomous snake often confused with the Montpellier snake.",
+      "The Levantine viper is a venomous snake often confused with the Montpellier snake. Keep distance.",
     );
+  });
+
+  it("clips long descriptions to the search snippet limit", () => {
+    const description = speciesMetaDescription(
+      "This deliberately long overview keeps going past the normal search snippet boundary so metadata does not exceed the limit used by the SEO crawl report in production.",
+      90,
+    );
+
+    expect(description.length).toBeLessThanOrEqual(90);
+    expect(description.endsWith("…")).toBe(true);
+  });
+});
+
+describe("shortMetaDescription", () => {
+  it("keeps the full description when it fits", () => {
+    const text = "First sentence. Second sentence.";
+
+    expect(shortMetaDescription(text)).toBe(text);
+  });
+
+  it("clips only when the description exceeds the limit", () => {
+    const text = "A ".repeat(100);
+
+    expect(shortMetaDescription(text).length).toBeLessThanOrEqual(160);
   });
 });

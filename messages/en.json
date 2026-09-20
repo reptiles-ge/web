@@ -617,7 +617,7 @@
   },
   "about": {
     "metaTitle": "About",
-    "metaDescription": "Reptiles.ge is a four-language atlas of animals of Georgia. Georgian is canonical. Herpetofauna follows Tarkhnishvili et al. 2026; empty fields stay empty rather than invented.",
+    "metaDescription": "Reptiles.ge is a four-language atlas of Georgia’s animals. Georgian is canonical; herpetofauna follows Tarkhnishvili et al. 2026.",
     "back": "Home",
     "brand": "Reptiles",
     "eyebrow": "About the company",
@@ -922,7 +922,7 @@
   },
   "venomousSnakes": {
     "metaTitle": "Venomous snakes in Georgia — Levantine viper, vipers, risk",
-    "metaDescription": "Venomous snakes of Georgia in one guide: Levantine viper (high risk), Caucasus, Dinnik’s, nose-horned and other vipers. Identification, safety, and profiles — not a medical protocol.",
+    "metaDescription": "Venomous snakes of Georgia: Levantine viper, Caucasus, Dinnik’s, nose-horned and other vipers. Identification and safety, not medical advice.",
     "keywords": "venomous snakes in Georgia, venomous snakes Georgia, Levantine viper, Caucasus viper, Dinnik's viper, Transcaucasian long-nosed viper, Darevsky's viper, eastern steppe viper, Macrovipera lebetina, Vipera kaznakovi, Vipera dinniki, Vipera transcaucasiana, Vipera darevskii, Vipera renardi",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Venomous snakes",
@@ -1448,7 +1448,7 @@
   },
   "turtles": {
     "metaTitle": "Turtles in Georgia — species, range, and identification",
-    "metaDescription": "Turtles of Georgia in one hub: four species, land and freshwater habitats, verified regional records, and a path to identification — with photos and full profiles.",
+    "metaDescription": "Turtles of Georgia in one hub: four species, land and freshwater habitats, verified regional records, photos, and full profiles.",
     "keywords": "turtles in Georgia, Georgia turtles, turtle species Georgia, freshwater turtles Georgia, land turtles Georgia, spur-thighed tortoise, European pond turtle, Caspian turtle, red-eared slider, Testudo graeca, Emys orbicularis, Mauremys caspica, Trachemys scripta",
     "breadcrumbCurrent": "Turtles",
     "heroImageAlt": "Spur-thighed tortoise (Testudo graeca) in dry grassland habitat in Georgia",
@@ -1605,7 +1605,7 @@
   },
   "birds": {
     "metaTitle": "Birds in Georgia — species profiles",
-    "metaDescription": "Birds of Georgia on reptiles.ge: field-guide profiles with identification, seasonality, and sources. Current species include white stork, yellowhammer, woodpeckers, and other confirmed taxa.",
+    "metaDescription": "Birds of Georgia on reptiles.ge: field-guide profiles with identification, seasonality, and sources for white stork, yellowhammer, woodpeckers, and more.",
     "keywords": "birds in Georgia, Georgia birds, white stork, Ciconia ciconia, European green woodpecker, yellowhammer, თეთრი ყარყატი",
     "breadcrumbCurrent": "Birds",
     "heroImageAlt": "Open farmland habitat used by wintering buntings in Georgia",
@@ -1649,7 +1649,7 @@
   },
   "mammals": {
     "metaTitle": "Mammals in Georgia — species profiles",
-    "metaDescription": "Mammals of Georgia on reptiles.ge: field-guide profiles with identification, range, and sources. Current species include red fox, golden jackal, wolf, brown bear, European roe deer, least weasel, Caucasian squirrel, hedgehog, wild boar, Caucasian leopard, and raccoon.",
+    "metaDescription": "Mammals of Georgia on reptiles.ge: field-guide profiles with identification, range, and sources, from red fox and wolf to brown bear and Caucasian leopard.",
     "keywords": "mammals in Georgia, Georgia mammals, red fox, golden jackal, wolf, brown bear, European roe deer, least weasel, Caucasian squirrel, hedgehog, wild boar, Caucasian leopard, raccoon, Procyon lotor, Capreolus capreolus, Ursus arctos, Vulpes vulpes, Canis aureus, Canis lupus, Sciurus anomalus, Sus scrofa, Panthera pardus, შველი, მურა დათვი, ჯიქი, ენოტი",
     "breadcrumbCurrent": "Mammals",
     "heroImageAlt": "Red fox at a woodland edge, with reddish fur and a bushy tail",
@@ -1746,7 +1746,7 @@
   },
   "spiders": {
     "metaTitle": "Spiders in Georgia — species profiles",
-    "metaDescription": "Spiders of Georgia on reptiles.ge: identification, range, and sources. The atlas currently includes the wasp spider, the lobed argiope, the false black widow, and the Mediterranean black widow, with named Georgian records.",
+    "metaDescription": "Spiders of Georgia on reptiles.ge: identification, range, and sources for wasp spider, lobed argiope, false black widow, karakurt, and more.",
     "keywords": "spiders in Georgia, wasp spider, false black widow, Mediterranean black widow, Argiope bruennichi, Latrodectus tredecimguttatus, Steatoda paykulliana, Georgia spiders",
     "breadcrumbCurrent": "Spiders",
     "heroImageAlt": "Wasp spider with yellow-and-black bands in an orb web",
@@ -1789,7 +1789,7 @@
   },
   "insects": {
     "metaTitle": "Insects in Georgia — species profiles",
-    "metaDescription": "Insects of Georgia on reptiles.ge: identification, taxonomy, habitat, country-level occurrence, and sources. The atlas currently includes the European mantis (Mantis religiosa).",
+    "metaDescription": "Insects of Georgia on reptiles.ge: identification, taxonomy, habitat, country-level records, and sources. Currently includes the European mantis.",
     "keywords": "insects in Georgia, Georgian insects, Mantis religiosa Georgia, European mantis, praying mantis Georgia, chqela, choqela",
     "breadcrumbCurrent": "Insects",
     "heroImageAlt": "European mantis in tall sunny grass",
@@ -1925,7 +1925,7 @@
   },
   "snakeIdentify": {
     "metaTitle": "Venomous vs harmless snakes in Georgia (Caucasus)",
-    "metaDescription": "How to tell venomous from harmless snakes in the Republic of Georgia: cues are not universal. Giurza, Caucasus viper, water snakes, Montpellier snake, glass lizard — compare profiles.",
+    "metaDescription": "How to tell venomous from harmless snakes in Georgia: compare giurza, Caucasus viper, water snakes, Montpellier snake, and glass lizard.",
     "keywords": "venomous vs harmless snake Georgia, how to identify venomous snake, viper vs grass snake, glass lizard vs snake",
     "breadcrumbCurrent": "Identify",
     "heroImageAlt": "Venomous viper in forest and harmless grass snake by a stream — comparison",
@@ -1991,7 +1991,7 @@
   },
   "snakeBite": {
     "metaTitle": "Snakebite in Georgia — call 112 | what not to do",
-    "metaDescription": "Snakebite in Georgia: call 112 immediately. Do not cut, suck, or apply a tourniquet. Then see the venomous snakes guide and Levantine viper profile. Educational page — not a medical protocol.",
+    "metaDescription": "Snakebite in Georgia: call 112 immediately. Do not cut, suck, or apply a tourniquet. Educational page, not a medical protocol.",
     "keywords": "snakebite Georgia, snake bite what to do, 112, venomous snake bite, snakebite symptoms",
     "breadcrumbCurrent": "Bite",
     "heroImageAlt": "Levantine viper on a rocky slope — cover for Georgia’s venomous-snake guide",
@@ -2154,7 +2154,7 @@
   },
   "snakeLargest": {
     "metaTitle": "The largest snakes of Georgia",
-    "metaDescription": "Large snakes recorded in Georgia: Levantine viper, red-bellied racer, Montpellier snake. Sizes from profile sources only. The glass lizard is a lizard, not a snake.",
+    "metaDescription": "Large snakes recorded in Georgia: Levantine viper, red-bellied racer, Montpellier snake. The glass lizard is a lizard, not a snake.",
     "keywords": "largest snakes Georgia, biggest snake Georgia, giurza size, racer size, glass lizard",
     "breadcrumbCurrent": "Largest snakes",
     "heroImageAlt": "Red-bellied racer on rocky hills",
@@ -2190,7 +2190,7 @@
   },
   "lizardIndex": {
     "metaTitle": "Lizard species of Georgia — full index",
-    "metaDescription": "Lizards of Georgia in one index: Darevskia, Caucasian agama, glass lizard, skinks. Name, range, size — only where a source exists. Tarkhnishvili et al. 2026 checklist.",
+    "metaDescription": "Lizards of Georgia in one index: Darevskia, Caucasian agama, glass lizard, and skinks. Name, range, and size where sourced.",
     "keywords": "lizard species Georgia, Darevskia, rock lizards, Caucasian agama, glass lizard, Georgia lizards list",
     "breadcrumbCurrent": "Species",
     "heroImageAlt": "European glass lizard in dry grassland",
@@ -3131,7 +3131,7 @@
   },
   "spiderIndex": {
     "metaTitle": "Spider species of Georgia — atlas index",
-    "metaDescription": "Published atlas spider profiles in one table: wasp spider, lobed argiope, false black widow, and Mediterranean black widow, with photos, identification notes, and sources.",
+    "metaDescription": "Published atlas spider profiles in one table: wasp spider, lobed argiope, false black widow, and karakurt, with photos and sources.",
     "keywords": "spider species of Georgia, spider index Georgia, wasp spider, karakurt, false black widow, Georgia spider species",
     "breadcrumbCurrent": "Species",
     "heroImageAlt": "Wasp spider with yellow-and-black bands in an orb web",
@@ -3203,7 +3203,7 @@
   },
   "spiderVenomous": {
     "metaTitle": "Venomous spiders in Georgia?",
-    "metaDescription": "The medically significant spider in this atlas is the karakurt. Argiope is not a black widow. What to look for, what not to handle, and when to call 112 after a bite.",
+    "metaDescription": "The medically significant spider in this atlas is the karakurt. Argiope is not a black widow. What to check and when to call 112.",
     "keywords": "venomous spiders Georgia, karakurt, black widow, false karakurt, Argiope",
     "breadcrumbCurrent": "Venomous spiders",
     "heroImageAlt": "Karakurt — black female with a globular abdomen",
