@@ -32,6 +32,32 @@ describe("speciesPageMetaTitle", () => {
     );
   });
 
+  it("uses exact KA-only overrides", () => {
+    expect(
+      speciesPageMetaTitle(
+        "dolichophis-schmidti",
+        "ka",
+        "წითელმუცელა მცურავი",
+        "Dolichophis schmidti",
+        "არეალი და ამოცნობა საქართველოში",
+      ),
+    ).toBe(
+      "წითელმუცელა მცურავი (Dolichophis schmidti) — უშხამო გველი აღმოსავლეთ საქართველოში",
+    );
+  });
+
+  it("keeps the KA length guard for non-exact overrides", () => {
+    expect(
+      speciesPageMetaTitle(
+        "vipera-transcaucasiana",
+        "ka",
+        "ცხვირრქოსანი გველგესლა",
+        "Vipera ammodytes",
+        "შხამი, არეალი და ამოცნობა",
+      ),
+    ).toBe("ცხვირრქოსანი გველგესლა | შხამი, არეალი და ამოცნობა");
+  });
+
   it("does not apply EN overrides to RU or TR", () => {
     expect(
       speciesPageMetaTitle(
