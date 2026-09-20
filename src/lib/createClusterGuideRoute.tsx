@@ -39,6 +39,7 @@ import {
   type ClusterGuideViewProps,
 } from "@/lib/clusterGuides";
 import { GROUP_HUBS } from "@/lib/groupHubs";
+import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import {
   absoluteUrl,
   localeAlternates,
@@ -108,8 +109,13 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
       locale === "ka" && EXACT_KA_TITLE_GUIDES.has(guideId)
         ? { absolute: title }
         : title;
-    const description = t("metaDescription");
-    const url = absoluteUrl(localePath(locale, guide.pathname));
+    const path = localePath(locale, guide.pathname);
+    const description = kaMetaDescriptionOverride(
+      locale,
+      path,
+      t("metaDescription"),
+    );
+    const url = absoluteUrl(path);
     const catalog = getCatalogSpecies();
     const matched = catalog.filter(guide.matches);
     const hero =

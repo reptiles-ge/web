@@ -8,6 +8,7 @@ import { ContactPage } from "@/components/ContactPage";
 import { JsonLd } from "@/components/JsonLd";
 import { openGraphLocale } from "@/i18n/localeMeta";
 import { routing } from "@/i18n/routing";
+import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import {
   absoluteUrl,
   localeAlternates,
@@ -60,10 +61,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const t = await getTranslations({ locale, namespace: "contact" });
   const title = t("metaTitle");
-  const description = t("metaDescription");
-  const path = "/contact";
-  const url = absoluteUrl(localePath(locale, path));
-  const alternates = localeAlternates(locale, path);
+  const pagePath = "/contact";
+  const path = localePath(locale, pagePath);
+  const description = kaMetaDescriptionOverride(
+    locale,
+    path,
+    t("metaDescription"),
+  );
+  const url = absoluteUrl(path);
+  const alternates = localeAlternates(locale, pagePath);
   const ogImage = openGraphJpeg(SITE_OG_IMAGE_URL, title);
 
   return {

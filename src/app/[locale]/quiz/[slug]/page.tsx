@@ -12,6 +12,7 @@ import { getCatalogSpecies } from "@/data/species";
 import { openGraphLocale } from "@/i18n/localeMeta";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { type AppLocale, routing } from "@/i18n/routing";
+import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import { quizStaticParams, resolveQuizBySlug } from "@/lib/quizzes";
 import {
   absoluteUrl,
@@ -48,8 +49,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     namespace: quiz.messageNamespace,
   });
   const title = t("metaTitle");
-  const description = t("metaDescription");
   const url = quizPageUrl(locale, quiz.id);
+  const description = kaMetaDescriptionOverride(
+    locale,
+    new URL(url).pathname,
+    t("metaDescription"),
+  );
   const ogImage = absoluteUrl(quiz.ogImage);
 
   return {
