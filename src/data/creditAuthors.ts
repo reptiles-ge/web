@@ -14,6 +14,7 @@ export type CreditAuthor = {
   links?: {
     facebook?: string;
     instagram?: string;
+    researchGate?: string;
   };
   name: {
     en: string;
@@ -29,10 +30,7 @@ export type CreditAuthor = {
 };
 
 export type CreditAuthorRole =
-  | "herpetologist"
-  | "photographer"
-  | "ranger"
-  | "researcher";
+  "herpetologist" | "photographer" | "ranger" | "researcher";
 
 export const CREDIT_AUTHORS: CreditAuthor[] = [
   {
@@ -179,11 +177,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     slug: "nika-melikishvili",
   },
   {
-    aliases: [
-      "Nika Kerdikoshvili",
-      "ნიკა კერდიკოშვილი",
-      "ნიკა ქერდიკოშვილი",
-    ],
+    aliases: ["Nika Kerdikoshvili", "ნიკა კერდიკოშვილი", "ნიკა ქერდიკოშვილი"],
     bio: {
       en: "Nika Kerdikoshvili is a Georgian zoologist, wildlife photographer, and experienced guide specializing in birdwatching and ecotours in Georgia. He has a background in biology, knows Georgia’s most remote corners well, and actively collaborates with various environmental and documentary film production organizations.",
       ka: "ნიკა კერდიკოშვილი არის ქართველი ზოოლოგი, ველური ბუნების ფოტოგრაფი და გამოცდილი გიდი, რომელიც სპეციალიზებულია ბერდვოჩინგსა (ფრინველებზე დაკვირვება) და ეკოტურებზე საქართველოში. მას აქვს ბიოლოგიური განათლება, კარგად იცნობს საქართველოს ყველაზე შორეულ კუთხეებს და აქტიურად თანამშრომლობს სხვადასხვა გარემოსდაცვით და დოკუმენტური ფილმების მწარმოებელ ორგანიზაციებთან.",
@@ -332,6 +326,29 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     slug: "david-tarkhnishvili",
   },
   {
+    aliases: ["Giorgi Sheklashvili", "გიორგი შეყლაშვილი", "გიორგი შეკლაშვილი"],
+    bio: {
+      en: "Giorgi Sheklashvili is a Georgian researcher in biology, a doctoral student at Ilia State University (ISU), and a researcher at the Institute of Zoology.",
+      ka: "გიორგი შეყლაშვილი ბიოლოგიის სფეროში არის ქართველი მკვლევარი, ილიას სახელმწიფო უნივერსიტეტის (ISU) დოქტორანტი და ზოოლოგიის ინსტიტუტის მეცნიერ-თანამშრომელი.",
+    },
+    id: "giorgi-sheklashvili",
+    links: {
+      facebook: "https://www.facebook.com/giorgi.sheylashvili.39",
+      researchGate:
+        "https://www.researchgate.net/profile/Giorgi-Sheklashvili-2",
+    },
+    name: {
+      en: "Giorgi Sheklashvili",
+      ka: "გიორგი შეყლაშვილი",
+    },
+    portraitClass: "object-[36%_38%]",
+    portraitSrc:
+      "https://cdn.reptiles.ge/images/authors/giorgi-sheklashvili.jpg",
+    published: true,
+    role: "researcher",
+    slug: "giorgi-sheklashvili",
+  },
+  {
     aliases: ["Lasha Gogodze", "ლაშა გოგოძე"],
     bio: {
       en: "Lasha Gogodze is a graduate of the Georgian-American High School who took part in the iFest international conference in Tunisia and currently studies Biochemistry and Molecular Biology at Connecticut College in the United States.",
@@ -386,9 +403,11 @@ export function creditAuthorName(author: CreditAuthor, locale: AppLocale) {
 }
 
 export function creditAuthorSameAs(author: CreditAuthor) {
-  return [author.links?.facebook, author.links?.instagram].filter(
-    (href): href is string => Boolean(href),
-  );
+  return [
+    author.links?.facebook,
+    author.links?.instagram,
+    author.links?.researchGate,
+  ].filter((href): href is string => Boolean(href));
 }
 
 export function getCreditAuthorByName(name: string) {

@@ -1,7 +1,8 @@
 "use client";
 
-import { ChevronDown, Search, X } from "lucide-react";
+import { Check, ChevronDown, Search, X } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { useId, useMemo, useState } from "react";
 
 import type { AppLocale } from "@/i18n/routing";
 
@@ -203,27 +204,12 @@ export function AtlasBrowse({
               <p className="w-24 shrink-0 text-[11px] font-medium tracking-[0.2em] text-muted-foreground uppercase sm:pt-0.5">
                 {t("filters.region")}
               </p>
-              <label className="relative inline-flex min-w-48 items-center">
-                <select
-                  aria-label={t("filters.region")}
-                  className="w-full cursor-pointer appearance-none border-0 bg-transparent py-0 pr-7 text-[14px] font-medium text-foreground outline-none"
-                  onChange={(event) =>
-                    onUpdateFilter("region", event.target.value)
-                  }
-                  value={filters.region}
-                >
-                  <option value="all">{t("filters.allRegions")}</option>
-                  {regions.map((region) => (
-                    <option key={region.id} value={region.id}>
-                      {localizeRegionText(region.name, locale)}
-                    </option>
-                  ))}
-                </select>
-                <ChevronDown
-                  aria-hidden="true"
-                  className="pointer-events-none absolute right-0 size-3.5 text-muted-foreground"
-                />
-              </label>
+              <RegionDropdown
+                label={t("filters.region")}
+                locale={locale}
+                onChange={(value) => onUpdateFilter("region", value)}
+                value={filters.region}
+              />
             </div>
           </div>
         </div>
@@ -333,6 +319,113 @@ function LensRow({
       <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
         {children}
       </div>
+    </div>
+  );
+}
+
+function RegionDropdown({
+  label,
+  locale,
+  onChange,
+  value,
+}: {
+  label: string;
+  locale: AppLocale;
+  onChange: (value: string) => void;
+  value: string;
+}) {
+  const t = useTranslations("speciesAtlas");
+  const listId = useId();
+  const [open, setOpen] = useState(false);
+  const options = useMemo(
+    () => [
+      { id: "all", name: t("filters.allRegions") },
+      ...regions.map((region) => ({
+        id: region.id,
+        name: localizeRegionText(region.name, locale),
+      })),
+    ],
+    [locale, t],
+  );
+  const selected = options.find((option) => option.id === value) ?? options[0];
+
+  function choose(next: string) {
+    onChange(next);
+    setOpen(false);
+  }
+
+  return (
+    <div
+      className="relative inline-block min-w-56"
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget)) {
+          setOpen(false);
+        }
+      }}
+    >
+      <button
+        aria-controls={open ? listId : undefined}
+        aria-expanded={open}
+        aria-haspopup="listbox"
+        aria-label={label}
+        className="inline-flex w-full items-center justify-between gap-3 rounded-full border border-border bg-card px-4 py-2.5 text-left text-[14px] font-medium text-foreground transition-colors hover:border-primary/35 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:outline-none"
+        onClick={() => setOpen((current) => !current)}
+        onKeyDown={(event) => {
+          if (event.key === "Escape") setOpen(false);
+          if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+            event.preventDefault();
+            setOpen(true);
+          }
+        }}
+        type="button"
+      >
+        <span className="truncate">{selected?.name}</span>
+        <ChevronDown
+          aria-hidden="true"
+          className={cn(
+            "size-3.5 shrink-0 text-muted-foreground transition-transform",
+            open ? "rotate-180" : "",
+          )}
+        />
+      </button>
+
+      {open ? (
+        <div
+          className="absolute top-full left-0 z-30 mt-2 w-72 max-w-[calc(100vw-3rem)] overflow-hidden rounded-[8px] border border-border bg-card shadow-2xl shadow-ink/10"
+          id={listId}
+          role="listbox"
+        >
+          <div className="max-h-80 overflow-y-auto py-1">
+            {options.map((option) => {
+              const active = option.id === value;
+              return (
+                <button
+                  aria-selected={active}
+                  className={cn(
+                    "flex w-full items-center gap-3 px-3.5 py-2.5 text-left text-[14px] transition-colors",
+                    active
+                      ? "font-medium text-foreground"
+                      : "text-muted-foreground hover:bg-secondary hover:text-foreground",
+                  )}
+                  key={option.id}
+                  onClick={() => choose(option.id)}
+                  role="option"
+                  type="button"
+                >
+                  <Check
+                    aria-hidden="true"
+                    className={cn(
+                      "size-3.5 shrink-0",
+                      active ? "opacity-100" : "opacity-0",
+                    )}
+                  />
+                  <span className="truncate">{option.name}</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 }

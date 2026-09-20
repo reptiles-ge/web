@@ -30859,6 +30859,101 @@
       ],
       "updatedAt": "2026-08-28T21:42:44.113Z"
     },
+    "images/authors/giorgi-sheklashvili.jpg": {
+      "sourceHash": "2c61f6c13f0bf29a746e80ff08b7307acea28670303b5fbf4454730e615333e8",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/authors/giorgi-sheklashvili.jpg",
+      "originalSize": 626332,
+      "width": 2045,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/images/authors/giorgi-sheklashvili-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 321,
+          "byteSize": 11288
+        },
+        {
+          "key": "optimized/images/authors/giorgi-sheklashvili-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 321,
+          "byteSize": 14490
+        },
+        {
+          "key": "optimized/images/authors/giorgi-sheklashvili-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 401,
+          "byteSize": 16531
+        },
+        {
+          "key": "optimized/images/authors/giorgi-sheklashvili-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 401,
+          "byteSize": 21058
+        },
+        {
+          "key": "optimized/images/authors/giorgi-sheklashvili-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 641,
+          "byteSize": 37700
+        },
+        {
+          "key": "optimized/images/authors/giorgi-sheklashvili-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 641,
+          "byteSize": 47924
+        },
+        {
+          "key": "optimized/images/authors/giorgi-sheklashvili-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 801,
+          "byteSize": 55325
+        },
+        {
+          "key": "optimized/images/authors/giorgi-sheklashvili-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 801,
+          "byteSize": 69920
+        },
+        {
+          "key": "optimized/images/authors/giorgi-sheklashvili-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1202,
+          "byteSize": 101374
+        },
+        {
+          "key": "optimized/images/authors/giorgi-sheklashvili-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1202,
+          "byteSize": 125438
+        },
+        {
+          "key": "optimized/images/authors/giorgi-sheklashvili-2045.avif",
+          "format": "avif",
+          "width": 2045,
+          "height": 2048,
+          "byteSize": 221756
+        },
+        {
+          "key": "optimized/images/authors/giorgi-sheklashvili-2045.webp",
+          "format": "webp",
+          "width": 2045,
+          "height": 2048,
+          "byteSize": 245032
+        }
+      ],
+      "updatedAt": "2026-09-20T16:05:36.359Z"
+    },
     "images/authors/nika-kerdikoshvili.png": {
       "sourceHash": "adca7fa551ef4ed31f05cb118b3f3e282b437f28dc5a44bbeaeed5fe3be06471",
       "configFingerprint": "409788ee46c653d8",

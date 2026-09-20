@@ -2958,6 +2958,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1331],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/images/authors/giorgi-sheklashvili.jpg": {
+    "path": "images/authors/giorgi-sheklashvili",
+    "width": 2045,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 2045],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/images/news/theridion-huseynovi-new-spider-species-georgia-2026/theridion-huseynovi.png": {
     "path": "images/news/theridion-huseynovi-new-spider-species-georgia-2026/theridion-huseynovi",
     "width": 1497,
