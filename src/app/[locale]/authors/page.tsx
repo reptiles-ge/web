@@ -15,6 +15,7 @@ import {
   creditAuthorUrl,
   getCreditAuthorCards,
 } from "@/lib/creditAuthors";
+import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import {
   absoluteUrl,
   localePath,
@@ -104,8 +105,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = localeParam as AppLocale;
   const t = await getTranslations({ locale, namespace: "author" });
   const title = t("index.metaTitle");
-  const description = t("index.metaDescription");
   const url = creditAuthorIndexUrl(locale);
+  const description = kaMetaDescriptionOverride(
+    locale,
+    new URL(url).pathname,
+    t("index.metaDescription"),
+  );
   const featured = getCreditAuthorCards()[0];
 
   return {

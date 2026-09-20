@@ -28,6 +28,7 @@ import {
   pickLocalized,
 } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
+import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import { HOME_DEFINED_TERMS, siteKeywords } from "@/lib/seoKeywords";
 import {
   absoluteUrl,
@@ -52,8 +53,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const t = await getTranslations({ locale, namespace: "site" });
   const title = t("title");
-  const description = t("description");
-  const url = absoluteUrl(localePath(locale, "/"));
+  const path = localePath(locale, "/");
+  const description = kaMetaDescriptionOverride(locale, path, t("description"));
+  const url = absoluteUrl(path);
   const alternates = localeAlternates(locale, "/");
   const ogImage = SITE_OG_IMAGE_URL;
 
@@ -95,8 +97,13 @@ export default async function Home({ params }: Props): Promise<ReactElement> {
   setRequestLocale(locale);
 
   const t = await getTranslations({ locale, namespace: "site" });
-  const homeUrl = absoluteUrl(localePath(locale, "/"));
-  const description = t("description");
+  const homePath = localePath(locale, "/");
+  const homeUrl = absoluteUrl(homePath);
+  const description = kaMetaDescriptionOverride(
+    locale,
+    homePath,
+    t("description"),
+  );
   const stats = getAtlasStats();
   const org = organizationJsonLd({ description });
   const datasetId = `${homeUrl}#atlas`;
