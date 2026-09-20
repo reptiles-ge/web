@@ -545,11 +545,5 @@ export default withSentryConfig(withBundleAnalyzer(withNextIntl(nextConfig)), {
   org: "icleaning-06",
   project: "reptiles-ge-web",
   silent: !process.env.CI,
-  webpack: {
-    automaticVercelMonitors: true,
-    treeshake: {
-      removeDebugLogging: true,
-    },
-  },
   widenClientFileUpload: true,
 });
