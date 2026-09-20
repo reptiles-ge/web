@@ -48,6 +48,8 @@ export function createGroupHubRoute(hubId: GroupHubId) {
     const locale = localeParam as AppLocale;
     const t = await getTranslations({ locale, namespace: hub.messageKey });
     const title = t("metaTitle");
+    const metadataTitle =
+      locale === "ka" && hubId === "scorpions" ? { absolute: title } : title;
     const description = t("metaDescription");
     const url = absoluteUrl(localePath(locale, hub.path));
     const catalog = getCatalogSpeciesByGroup(hub.group);
@@ -75,7 +77,7 @@ export function createGroupHubRoute(hubId: GroupHubId) {
         follow: true,
         index: true,
       },
-      title,
+      title: metadataTitle,
       twitter: {
         card: "summary_large_image",
         description,

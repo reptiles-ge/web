@@ -86,6 +86,12 @@ const CLUSTER_PAGES: Record<
   "turtle-water": ClusterGuidePage,
 };
 
+const EXACT_KA_TITLE_GUIDES = new Set<ClusterGuideId>([
+  "lizard-darevskia",
+  "lizard-glass",
+  "snake-identify",
+]);
+
 export function createClusterGuideRoute(guideId: ClusterGuideId) {
   const guide = CLUSTER_GUIDES[guideId];
   const parent = GROUP_HUBS[guide.parentHub];
@@ -98,6 +104,10 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
     const locale = localeParam as AppLocale;
     const t = await getTranslations({ locale, namespace: guide.messageKey });
     const title = t("metaTitle");
+    const metadataTitle =
+      locale === "ka" && EXACT_KA_TITLE_GUIDES.has(guideId)
+        ? { absolute: title }
+        : title;
     const description = t("metaDescription");
     const url = absoluteUrl(localePath(locale, guide.pathname));
     const catalog = getCatalogSpecies();
@@ -136,7 +146,7 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
         follow: true,
         index: true,
       },
-      title,
+      title: metadataTitle,
       twitter: {
         card: "summary_large_image",
         description,

@@ -37,6 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = localeParam as AppLocale;
   const t = await getTranslations({ locale, namespace: "regions" });
   const title = t("metaTitle");
+  const metadataTitle = locale === "ka" ? { absolute: title } : title;
   const description = t("metaDescription");
   const path = "/regions";
   const url = absoluteUrl(localePath(locale, path));
@@ -58,7 +59,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       follow: true,
       index: true,
     },
-    title,
+    title: metadataTitle,
     twitter: {
       card: "summary_large_image",
       description,
