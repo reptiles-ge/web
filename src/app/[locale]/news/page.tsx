@@ -9,6 +9,7 @@ import { NewsIndexPage } from "@/components/NewsIndexPage";
 import { getPublishedNewsArticles } from "@/data/news";
 import { openGraphLocale } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
+import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import {
   newsArticleUrl,
   newsIndexAlternates,
@@ -40,8 +41,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = localeParam as AppLocale;
   const t = await getTranslations({ locale, namespace: "news" });
   const title = t("metaTitle");
-  const description = t("metaDescription");
   const url = newsIndexUrl(locale);
+  const description = kaMetaDescriptionOverride(
+    locale,
+    new URL(url).pathname,
+    t("metaDescription"),
+  );
   const ogImage = newsOgImageUrl();
 
   return {

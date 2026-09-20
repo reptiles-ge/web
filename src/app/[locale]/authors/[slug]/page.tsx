@@ -25,6 +25,8 @@ import {
   resolvePublishedCreditAuthor,
 } from "@/lib/creditAuthors";
 import { AUTHOR_PORTRAIT_SIZES } from "@/lib/imageSizes";
+import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
+import { shortMetaDescription } from "@/lib/metaDescription";
 import { absoluteUrl, localePath, siteConfig, siteEntityId } from "@/lib/site";
 
 type Props = {
@@ -159,14 +161,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const name = creditAuthorName(author, locale);
   const photos = getCreditAuthorPhotos(author);
   const title = t("metaTitle", { name });
-  const description =
+  const fallbackDescription = shortMetaDescription(
     creditAuthorBio(author, locale) ??
-    t("metaDescription", {
-      count: photos.length,
-      name,
-      species: getCreditAuthorSpeciesIds(photos).length,
-    });
+      t("metaDescription", {
+        count: photos.length,
+        name,
+        species: getCreditAuthorSpeciesIds(photos).length,
+      }),
+  );
   const url = creditAuthorUrl(locale, author.slug);
+  const description = kaMetaDescriptionOverride(
+    locale,
+    new URL(url).pathname,
+    fallbackDescription,
+  );
 
   return {
     alternates: creditAuthorAlternates(locale, author.slug),

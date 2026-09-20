@@ -82,7 +82,7 @@ export const BATUMI_19300_RAPTORS_2026: NewsArticle = {
       dek: "After rain and fog, the Batumi bottleneck recorded the season’s first 10,000-plus day. Nearly 19,300 birds were counted in total.",
       lead: "On 27 August, Batumi Raptor Count’s two stations recorded nearly 19,300 birds through the Batumi migration bottleneck. It was the first day of the 2026 autumn season on which the daily total passed 10,000. The organisation described a passage lasting several hours that practically created a wall of Honey Buzzards. The figures come from their field update — Reptiles.ge did not conduct the count.",
       metaDescription:
-        "On 27 August 2026, Batumi Raptor Count recorded nearly 19,300 birds through the Batumi bottleneck — the first 10,000-plus day of the autumn season, led by European Honey Buzzards.",
+        "On 27 August 2026, Batumi Raptor Count recorded nearly 19,300 birds through the Batumi bottleneck, led by European Honey Buzzards.",
       metaTitle: "Nearly 19,300 raptors counted in one day at Batumi",
       sections: [
         {
@@ -213,9 +213,8 @@ export const BATUMI_19300_RAPTORS_2026: NewsArticle = {
       dek: "წვიმისა და ნისლის შემდეგ ბათუმის დერეფანმა სეზონის პირველი 10 000-იანი დღე დააფიქსირა. ჯამში თითქმის 19 300 ფრინველი აღირიცხა.",
       lead: "27 აგვისტოს Batumi Raptor Count-ის ორმა სადგურმა ბათუმის მიგრაციულ დერეფანში თითქმის 19 300 ფრინველი დაითვალა. ეს იყო 2026 წლის შემოდგომის სეზონის პირველი დღე, როცა დღიურმა ჯამმა 10 000-ს გადააჭარბა. ორგანიზაცია წერს, რომ ნაკადი რამდენიმე საათს გაგრძელდა და პრაქტიკულად კვერნაჭამიების კედელს ქმნიდა. ციფრები მათი საველე ანგარიშიდანაა — აღრიცხვა Reptiles.ge-ს არ ჩაუტარებია.",
       metaDescription:
-        "2026 წლის 27 აგვისტოს Batumi Raptor Count-მა ბათუმის დერეფანში თითქმის 19 300 ფრინველი დაითვალა — შემოდგომის სეზონის პირველი 10 000-ზე მეტი ფრინველის დღე. ნაკადში კვერნაჭამია იდგა წინა პლანზე.",
-      metaTitle:
-        "ბათუმში ერთ დღეში თითქმის 19 300 მტაცებელი ფრინველი დაითვალეს",
+        "2026 წლის 27 აგვისტოს Batumi Raptor Count-მა ბათუმის დერეფანში თითქმის 19 300 ფრინველი დაითვალა. ნაკადში კვერნაჭამია იდგა წინა პლანზე.",
+      metaTitle: "ბათუმში 19 300 მტაცებელი ფრინველი დაითვალეს",
       sections: [
         {
           blocks: [
@@ -345,7 +344,7 @@ export const BATUMI_19300_RAPTORS_2026: NewsArticle = {
       dek: "После дождя и тумана батумский коридор зафиксировал первый 10 000-ный день сезона. Всего учтено почти 19 300 птиц.",
       lead: "27 августа две станции Batumi Raptor Count насчитали почти 19 300 птиц в батумском миграционном коридоре. Это был первый день осеннего сезона 2026 года, когда дневная сумма превысила 10 000. Организация описывает пролёт длительностью несколько часов, который практически создавал стену осоедов. Цифры взяты из их полевого отчёта — Reptiles.ge подсчёт не вёл.",
       metaDescription:
-        "27 августа 2026 года Batumi Raptor Count насчитал почти 19 300 птиц в батумском миграционном коридоре — первый день сезона с более чем 10 000 птиц. В потоке преобладал осоед.",
+        "27 августа 2026 года Batumi Raptor Count насчитал почти 19 300 птиц в батумском коридоре. В потоке преобладал осоед.",
       metaTitle: "В Батуми за один день насчитали почти 19 300 хищных птиц",
       sections: [
         {

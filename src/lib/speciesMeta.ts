@@ -3,6 +3,7 @@ import type { DangerLevel, PhotoCredit } from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
 
 import { isVenomousDanger } from "@/data/speciesAtlasMeta";
+import { shortMetaDescription } from "@/lib/metaDescription";
 
 export function speciesFallbackDescriptionKey(
   group: AnimalGroup,
@@ -36,6 +37,8 @@ export function speciesMetaTitle(
   return `${commonName} (${scientificName}) | ${intent}`;
 }
 
+const MAX_META_TITLE_LENGTH = 70;
+
 export function speciesTitleIntentKey(
   group: AnimalGroup,
   danger?: DangerLevel,
@@ -63,8 +66,12 @@ export function speciesTitleIntentKey(
   return "titleAmphibian";
 }
 
+function shortSpeciesMetaTitle(commonName: string, intent: string) {
+  return `${commonName} | ${intent}`;
+}
+
 const SPECIES_META_TITLE_OVERRIDE: Partial<
-  Record<string, { en: string; ka: string }>
+  Record<string, Partial<Record<AppLocale, string>>>
 > = {
   "araneus-diadematus": {
     en: "European garden spider (Araneus diadematus) | Cross orb-weaver in Georgia",
@@ -78,6 +85,15 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
     en: "Lobed argiope (Argiope lobata) | Orb-weaver in Georgia",
     ka: "ლობებიანი არგიოპა (Argiope lobata) | ობობა საქართველოში",
   },
+  "canis-aureus": {
+    ka: "ტურა (Canis aureus) საქართველოში — გავრცელება და ამოცნობა",
+  },
+  "canis-lupus": {
+    ka: "მგელი (Canis lupus) საქართველოში — გავრცელება და ამოცნობა",
+  },
+  "capreolus-capreolus": {
+    ka: "შველი (Capreolus capreolus) საქართველოში — გავრცელება და ამოცნობა",
+  },
   "cheiracanthium-punctorium": {
     en: "European yellow sac spider (Cheiracanthium punctorium) | Spider in Georgia",
     ka: "Cheiracanthium punctorium | ობობა საქართველოში",
@@ -88,7 +104,10 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
   },
   "dolichophis-schmidti": {
     en: "Red-bellied racer (Dolichophis schmidti) | Non-venomous snake of eastern Georgia",
-    ka: "წითელმუცელა მცურავი (Dolichophis schmidti) | უშხამო გველი აღმოსავლეთ საქართველოში",
+    ka: "წითელმუცელა მცურავი (Dolichophis schmidti) — უშხამო გველი აღმოსავლეთ საქართველოში",
+  },
+  "erinaceus-concolor": {
+    ka: "ზღარბი (Erinaceus concolor) საქართველოში — გავრცელება და ამოცნობა",
   },
   "erithacus-rubecula": {
     en: "European robin (Erithacus rubecula) | Year-round resident in Georgia",
@@ -96,11 +115,11 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
   },
   "euscorpius-italicus": {
     en: "Italian scorpion (Euscorpius italicus) | Georgia",
-    ka: "იტალიური მორიელი (Euscorpius italicus) | მორიელი საქართველოში",
+    ka: "იტალიური მორიელი (Euscorpius italicus) — გავრცელება და ამოცნობა საქართველოში",
   },
   "euscorpius-mingrelicus": {
     en: "Mingrelian scorpion (Euscorpius mingrelicus) | Western Georgia",
-    ka: "მეგრული მორიელი (Euscorpius mingrelicus) | მორიელი დასავლეთ საქართველოში",
+    ka: "მეგრული მორიელი (Euscorpius mingrelicus) — დასავლეთ საქართველოში",
   },
   "latrodectus-tredecimguttatus": {
     en: "Mediterranean black widow (Latrodectus tredecimguttatus) | Widow spider in Georgia",
@@ -124,7 +143,7 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
   },
   "mesobuthus-eupeus": {
     en: "Mottled scorpion (Mesobuthus eupeus) | Scorpion in Georgia",
-    ka: "ჭრელი მორიელი (Mesobuthus eupeus) | მორიელი საქართველოში",
+    ka: "ჭრელი მორიელი (Mesobuthus eupeus) — გავრცელება და ჩხვლეტის რისკი",
   },
   "milvus-migrans": {
     en: "Black kite (Milvus migrans) | Raptor in Georgia",
@@ -142,13 +161,19 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
     en: "Dice snake (Natrix tessellata) | Non-venomous water snake in Georgia",
     ka: "წყლის ანკარა (Natrix tessellata) | უშხამო წყლის გველი საქართველოში",
   },
+  "olivierus-caucasicus": {
+    ka: "კავკასიური მორიელი (Olivierus caucasicus) — გავრცელება და ამოცნობა",
+  },
   "ommatotriton-ophryticus": {
     en: "Northern banded newt (Ommatotriton ophryticus) | Newt in Georgia",
-    ka: "კავკასიური ტრიტონი (Ommatotriton ophryticus) | ტრიტონი საქართველოში",
+    ka: "კავკასიური ტრიტონი (Ommatotriton ophryticus) — გავრცელება და ამოცნობა",
+  },
+  "pelophylax-ridibundus": {
+    ka: "ტბორის ბაყაყი (Pelophylax ridibundus) — გავრცელება საქართველოში",
   },
   "phoenicolacerta-laevis": {
     en: "Lebanon lizard (Phoenicolacerta laevis) | Introduced lizard in Georgia",
-    ka: "ლიბანური ხვლიკი (Phoenicolacerta laevis) | შემოტანილი ხვლიკი საქართველოში",
+    ka: "ლიბანური ხვლიკი (Phoenicolacerta laevis) — შემოტანილი სახეობა საქართველოში",
   },
   "pholcus-phalangioides": {
     en: "Long-bodied cellar spider (Pholcus phalangioides) | Cellar spider in Georgia",
@@ -160,7 +185,7 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
   },
   "pseudopus-apodus": {
     en: "European glass lizard (Pseudopus apodus) | Legless lizard of eastern Georgia",
-    ka: "გველხოკერა (Pseudopus apodus) | უფეხო ხვლიკი აღმოსავლეთ საქართველოში",
+    ka: "გველხოკერა (Pseudopus apodus) — უფეხო ხვლიკი, არა გველი",
   },
   "steatoda-paykulliana": {
     en: "False black widow (Steatoda paykulliana) | Cobweb spider in Georgia",
@@ -170,9 +195,12 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
     en: "European turtle dove (Streptopelia turtur) | Migratory dove in Georgia",
     ka: "გვრიტი (Streptopelia turtur) | გადამფრენი მტრედი საქართველოში",
   },
+  "tenuidactylus-caspius": {
+    ka: "კასპიური გეკონი (Tenuidactylus caspius) — გავრცელება საქართველოში",
+  },
   "vipera-kaznakovi": {
     en: "Caucasus viper (Vipera kaznakovi) | Venomous snake of western Georgia",
-    ka: "კავკასიური გველგესლა (Vipera kaznakovi) | შხამიანი გველი დასავლეთ საქართველოში",
+    ka: "კავკასიური გველგესლა (Vipera kaznakovi) — შხამიანი გველი დასავლეთ საქართველოში",
   },
   "vipera-transcaucasiana": {
     en: "Nose-horned viper (Vipera ammodytes) | Venomous snake of the Lesser Caucasus",
@@ -183,6 +211,24 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
     ka: "გველბრუცა (Xerotyphlops vermicularis) | უშხამო ბრმა გველი საქართველოში",
   },
 };
+
+const EXACT_SPECIES_META_TITLE_OVERRIDES = new Set([
+  "canis-aureus",
+  "canis-lupus",
+  "capreolus-capreolus",
+  "dolichophis-schmidti",
+  "erinaceus-concolor",
+  "euscorpius-italicus",
+  "euscorpius-mingrelicus",
+  "mesobuthus-eupeus",
+  "olivierus-caucasicus",
+  "ommatotriton-ophryticus",
+  "pelophylax-ridibundus",
+  "phoenicolacerta-laevis",
+  "pseudopus-apodus",
+  "tenuidactylus-caspius",
+  "vipera-kaznakovi",
+]);
 
 const SPECIES_META_DESCRIPTION_OVERRIDE: Partial<
   Record<string, Partial<Record<AppLocale, string>>>
@@ -253,22 +299,15 @@ export function speciesImageAlt(
 }
 
 export function speciesMetaDescription(overview: string, maxLength = 160) {
-  const lead = firstSentence(stripInlineMarkdownLinks(overview));
-  if (lead.length <= maxLength) return lead;
-
-  const truncated = lead.slice(0, maxLength - 1);
-  const lastSpace = truncated.lastIndexOf(" ");
-  const clipped = (
-    lastSpace > 80 ? truncated.slice(0, lastSpace) : truncated
-  ).trim();
-  return `${clipped}…`;
+  return shortMetaDescription(overview, maxLength);
 }
 
 export function speciesMetaDescriptionOverride(
   speciesId: string,
   locale: AppLocale,
 ) {
-  return SPECIES_META_DESCRIPTION_OVERRIDE[speciesId]?.[locale];
+  const override = SPECIES_META_DESCRIPTION_OVERRIDE[speciesId]?.[locale];
+  return override ? shortMetaDescription(override) : undefined;
 }
 
 export function speciesPageMetaTitle(
@@ -278,11 +317,19 @@ export function speciesPageMetaTitle(
   scientificName: string,
   intent: string,
 ) {
-  const override = SPECIES_META_TITLE_OVERRIDE[speciesId];
-  if (override && (locale === "ka" || locale === "en")) {
-    return locale === "ka" ? override.ka : override.en;
+  const override = SPECIES_META_TITLE_OVERRIDE[speciesId]?.[locale];
+  if (override) {
+    return locale === "ka" &&
+      override.length > MAX_META_TITLE_LENGTH &&
+      !EXACT_SPECIES_META_TITLE_OVERRIDES.has(speciesId)
+      ? shortSpeciesMetaTitle(commonName, intent)
+      : override;
   }
-  return speciesMetaTitle(commonName, scientificName, intent);
+
+  const title = speciesMetaTitle(commonName, scientificName, intent);
+  return locale === "ka" && title.length > MAX_META_TITLE_LENGTH
+    ? shortSpeciesMetaTitle(commonName, intent)
+    : title;
 }
 
 export function speciesPhotoAlt(
@@ -296,14 +343,4 @@ export function speciesPhotoAlt(
   if (place) parts.push(place);
   if (credit?.photographer) parts.push(credit.photographer);
   return parts.join(" — ");
-}
-
-function firstSentence(text: string) {
-  const trimmed = text.trim();
-  const match = trimmed.match(/^.*?[.!?…](?=\s|$)/u);
-  return match ? match[0].trim() : trimmed;
-}
-
-function stripInlineMarkdownLinks(text: string) {
-  return text.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1");
 }

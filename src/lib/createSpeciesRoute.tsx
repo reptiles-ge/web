@@ -19,6 +19,7 @@ import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { getPathname } from "@/i18n/navigation";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { getHubIndexTitleKey } from "@/lib/clusterGuides";
+import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import { galleryImageObjects } from "@/lib/photoMeta";
 import {
   speciesAliasKeywords,
@@ -95,7 +96,7 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
       item.scientificName,
       t(speciesTitleIntentKey(group, raw.danger)),
     );
-    const description =
+    const fallbackDescription =
       speciesMetaDescriptionOverride(raw.id, locale) ??
       (isPlaceholderBody(item.overview)
         ? t(speciesFallbackDescriptionKey(group, raw.danger), {
@@ -104,6 +105,11 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
           })
         : speciesMetaDescription(item.overview));
     const url = speciesPageUrl(locale, item.id);
+    const description = kaMetaDescriptionOverride(
+      locale,
+      new URL(url).pathname,
+      fallbackDescription,
+    );
     const keywords = speciesSeoKeywords(item, locale);
 
     const ogImage = speciesOgImageUrl(item.id, item.image);

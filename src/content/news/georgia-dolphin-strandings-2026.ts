@@ -22,7 +22,7 @@ export const GEORGIA_DOLPHIN_STRANDINGS_2026: NewsArticle = {
       dek: "According to Guchmanidze’s 17-year record, this is the highest figure of the past decade. The agency has not named a cause for the strandings at this stage.",
       lead: "Ichthyologist Archil Guchmanidze told Batumelebi on 4 May that from 1 March to 1 May 2026 about 40 dolphins washed ashore on the Sarpi–Anaklia stretch alone. He called it the highest figure in the last ten years of his counts. He has monitored Georgian strandings for 17 years. The 40 are not split by species.",
       metaDescription:
-        "Archil Guchmanidze: about 40 dolphins came ashore on the Sarpi–Anaklia stretch from 1 March to 1 May — the highest in a decade. The National Environmental Agency named no cause.",
+        "Archil Guchmanidze: about 40 dolphins came ashore on Sarpi–Anaklia from 1 March to 1 May, the highest count in a decade.",
       metaTitle:
         "About 40 dolphins washed ashore from Sarpi to Anaklia in two months",
       sections: [
@@ -77,7 +77,7 @@ export const GEORGIA_DOLPHIN_STRANDINGS_2026: NewsArticle = {
       dek: "გუჩმანიძის 17-წლიანი დაკვირვების მიხედვით, ეს ბოლო ათწლეულის ყველაზე მაღალი მაჩვენებელია. დელფინების გამორიყვის მიზეზი სააგენტოს ამ ეტაპზე არ დაუსახელებია.",
       lead: "იქთიოლოგი, ბიოლოგიის დოქტორი არჩილ გუჩმანიძე „ბათუმელებს“ 4 მაისს უთხრა, რომ 2026 წლის 1 მარტიდან 1 მაისამდე მხოლოდ სარფი–ანაკლიის მონაკვეთზე ზღვამ 40-მდე დელფინი გამორიყა. ეს მისი დაკვირვებით ბოლო ათი წლის ყველაზე მაღალი მაჩვენებელია. სანაპიროზე გამორიყულ დელფინებს 17 წელია ითვლის. სახეობებად ეს 40 არ არის გაყოფილი.",
       metaDescription:
-        "არჩილ გუჩმანიძე: 1 მარტიდან 1 მაისამდე სარფი–ანაკლიის მონაკვეთზე 40-მდე დელფინი გამორიყა — ათ წელში ყველაზე მეტი. გარემოს ეროვნულმა სააგენტომ მიზეზი არ დაასახელა.",
+        "არჩილ გუჩმანიძე: 1 მარტიდან 1 მაისამდე სარფი–ანაკლიის მონაკვეთზე 40-მდე დელფინი გამორიყა — ათ წელში ყველაზე მეტი.",
       metaTitle: "სარფიდან ანაკლიამდე ორ თვეში 40-მდე დელფინი გამორიყა",
       sections: [
         {
@@ -186,7 +186,7 @@ export const GEORGIA_DOLPHIN_STRANDINGS_2026: NewsArticle = {
       dek: "Guçmanidze’nin 17 yıllık gözlemine göre bu, son on yılın en yüksek rakamı. Ajans yunusların karaya vurma nedenini bu aşamada belirtmedi.",
       lead: "İhtiyolog, biyoloji doktoru Arçil Guçmanidze 4 Mayıs’ta Batumelebi’ye, 1 Mart–1 Mayıs 2026’da yalnızca Sarpi–Anaklia kesiminde denizin 40’a yakın yunus karaya vurduğunu söyledi. Kendi sayımına göre bu, son on yılın en yüksek rakamı. Gürcistan kıyısındaki karaya vurmaları 17 yıldır izliyor. Bu 40, türlere ayrılmamış.",
       metaDescription:
-        "Arçil Guçmanidze: 1 Mart–1 Mayıs’ta yalnızca Sarpi–Anaklia kesiminde 40’a yakın yunus karaya vurdu — on yılın en yükseği. Çevre Ulusal Ajansı nedeni adlandırmadı.",
+        "Arçil Guçmanidze: 1 Mart–1 Mayıs’ta Sarpi–Anaklia hattında 40’a yakın yunus karaya vurdu, on yılın en yüksek sayısı.",
       metaTitle:
         "Sarpi’den Anaklia’ya iki ayda 40’a yakın yunus karaya vurdu",
       sections: [

@@ -8,6 +8,7 @@ import { AboutPage } from "@/components/AboutPage";
 import { JsonLd } from "@/components/JsonLd";
 import { openGraphLocale } from "@/i18n/localeMeta";
 import { routing } from "@/i18n/routing";
+import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import {
   absoluteUrl,
   localeAlternates,
@@ -61,9 +62,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const t = await getTranslations({ locale, namespace: "about" });
   const title = t("metaTitle");
-  const description = t("metaDescription");
   const pagePath = "/about";
-  const url = absoluteUrl(localePath(locale, pagePath));
+  const path = localePath(locale, pagePath);
+  const description = kaMetaDescriptionOverride(
+    locale,
+    path,
+    t("metaDescription"),
+  );
+  const url = absoluteUrl(path);
   const alternates = localeAlternates(locale, pagePath);
   const ogImage = openGraphJpeg(SITE_OG_IMAGE_URL, title);
 

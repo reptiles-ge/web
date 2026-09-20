@@ -25,7 +25,7 @@ export function Logo({
   wordmarkClassName = "",
 }: LogoProps) {
   const sizes = `${size}px`;
-  const resolvedAlt = alt ?? (showWordmark ? "" : "Reptiles");
+  const resolvedAlt = alt ?? "Reptiles";
 
   return (
     <span className={cn("inline-flex items-center gap-2.5", className)}>

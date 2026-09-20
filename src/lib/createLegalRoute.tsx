@@ -11,6 +11,7 @@ import {
 } from "@/components/LegalDocumentPage";
 import { openGraphLocale } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
+import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import {
   absoluteUrl,
   localeAlternates,
@@ -41,9 +42,14 @@ export function createLegalRoute(documentId: LegalDocumentId) {
       namespace: `legal.${documentId}`,
     });
     const title = t("metaTitle");
-    const description = t("metaDescription");
     const path = legalPaths[documentId];
-    const url = absoluteUrl(localePath(locale, path));
+    const publicPath = localePath(locale, path);
+    const description = kaMetaDescriptionOverride(
+      locale,
+      publicPath,
+      t("metaDescription"),
+    );
+    const url = absoluteUrl(publicPath);
 
     return {
       alternates: localeAlternates(locale, path),

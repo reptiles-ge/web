@@ -15,6 +15,7 @@ import {
 } from "@/data/regions";
 import { georgiaPlaceName, openGraphLocale } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
+import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import {
   absoluteUrl,
   localeAlternates,
@@ -37,13 +38,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = localeParam as AppLocale;
   const t = await getTranslations({ locale, namespace: "regions" });
   const title = t("metaTitle");
-  const description = t("metaDescription");
-  const path = "/regions";
-  const url = absoluteUrl(localePath(locale, path));
+  const metadataTitle = locale === "ka" ? { absolute: title } : title;
+  const pagePath = "/regions";
+  const path = localePath(locale, pagePath);
+  const description = kaMetaDescriptionOverride(
+    locale,
+    path,
+    t("metaDescription"),
+  );
+  const url = absoluteUrl(path);
   const ogImage = openGraphJpeg(SITE_OG_IMAGE_URL, title);
 
   return {
-    alternates: localeAlternates(locale, path),
+    alternates: localeAlternates(locale, pagePath),
     description,
     openGraph: {
       description,
@@ -58,7 +65,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       follow: true,
       index: true,
     },
-    title,
+    title: metadataTitle,
     twitter: {
       card: "summary_large_image",
       description,

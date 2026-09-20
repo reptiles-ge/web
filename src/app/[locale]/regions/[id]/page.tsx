@@ -29,6 +29,7 @@ import {
 } from "@/i18n/localeMeta";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { type AppLocale, routing } from "@/i18n/routing";
+import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import {
   absoluteUrl,
   localeAlternates,
@@ -72,7 +73,7 @@ export async function generateMetadata({
   const nameIn = localizeRegionText(region.nameIn, locale);
   const content = getRegionContent(region.id);
   const title = t("regionMetaTitle", { name, nameIn });
-  const description =
+  const fallbackDescription =
     (content.metaDescription
       ? localizeRegionTextIfPresent(content.metaDescription, locale)
       : null) ??
@@ -82,6 +83,12 @@ export async function generateMetadata({
       nameIn,
     });
   const path = regionHref(region.id);
+  const publicPath = localePath(locale, path);
+  const description = kaMetaDescriptionOverride(
+    locale,
+    publicPath,
+    fallbackDescription,
+  );
   const ogImageSrc = getRegionHeroImage(region.id);
   const ogImage = openGraphJpeg(ogImageSrc, title);
 
@@ -110,7 +117,7 @@ export async function generateMetadata({
       siteName: siteConfig.name,
       title,
       type: "article",
-      url: absoluteUrl(localePath(locale, path)),
+      url: absoluteUrl(publicPath),
     },
     robots: {
       follow: true,

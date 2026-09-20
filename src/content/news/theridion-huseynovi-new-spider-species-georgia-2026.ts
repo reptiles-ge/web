@@ -200,8 +200,7 @@ export const THERIDION_HUSEYNOVI_NEW_SPIDER_SPECIES_GEORGIA_2026: NewsArticle =
           "2026 წელს სამხრეთ კავკასიის ობობების შესწავლამ მეცნიერებისთვის კიდევ ერთი ახალი სახეობა გამოავლინა. Theridion huseynovi — Theridiidae-ს ოჯახის ობობა — ოფიციალურად ახალ სახეობად აღწერეს და მისი გავრცელება საქართველოში, აზერბაიჯანსა და ირანში დადასტურდა.",
         metaDescription:
           "მეცნიერებმა Theridion huseynovi მეცნიერებისთვის ახალ ობობის სახეობად აღწერეს. სახეობა დადასტურებულია საქართველოში, აზერბაიჯანსა და ირანში.",
-        metaTitle:
-          "ახალი ობობის სახეობა საქართველოშიც გვხვდება — Theridion huseynovi",
+        metaTitle: "Theridion huseynovi — ახალი ობობა საქართველოშიც",
         sections: [
           {
             blocks: [

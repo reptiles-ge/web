@@ -97,7 +97,7 @@ export function RelatedGuideCard({
         </div>
         <div className="relative min-h-[200px] bg-secondary sm:min-h-[260px]">
           <CoverImage
-            alt=""
+            alt={title}
             className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
             sizes="(max-width: 640px) 100vw, 65vw"
             src={imageSrc}

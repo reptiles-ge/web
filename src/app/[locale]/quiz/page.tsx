@@ -9,6 +9,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { type QuizCardModel, QuizzesPage } from "@/components/QuizzesPage";
 import { openGraphLocale } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
+import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import { liveQuizzes } from "@/lib/quizzes";
 import {
   absoluteUrl,
@@ -33,8 +34,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = localeParam as AppLocale;
   const t = await getTranslations({ locale, namespace: "quizzes" });
   const title = t("metaTitle");
-  const description = t("metaDescription");
-  const url = absoluteUrl(localePath(locale, PATH));
+  const path = localePath(locale, PATH);
+  const description = kaMetaDescriptionOverride(
+    locale,
+    path,
+    t("metaDescription"),
+  );
+  const url = absoluteUrl(path);
   const ogImage = absoluteUrl(OG_IMAGE);
 
   return {

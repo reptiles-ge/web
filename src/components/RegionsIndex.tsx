@@ -44,7 +44,7 @@ export function RegionsIndex({
           }}
         >
           <CoverImage
-            alt=""
+            alt={t("heroImageAlt")}
             aria-hidden
             className="object-cover object-[58%_45%]"
             priority

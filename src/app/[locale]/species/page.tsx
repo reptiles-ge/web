@@ -18,6 +18,7 @@ import { ATLAS_CLIENT_MESSAGE_NAMESPACES } from "@/i18n/clientMessages";
 import { georgiaPlaceName, openGraphLocale } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { getAtlasListItems, getAtlasRecentItems } from "@/lib/atlasList";
+import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import {
   absoluteUrl,
   localeAlternates,
@@ -44,15 +45,20 @@ export async function generateMetadata({
   const locale = localeParam as AppLocale;
   const t = await getTranslations({ locale, namespace: "speciesAtlas" });
   const title = t("metaTitle");
-  const description = t("metaDescription");
-  const path = "/species";
-  const url = absoluteUrl(localePath(locale, path));
+  const pagePath = "/species";
+  const path = localePath(locale, pagePath);
+  const description = kaMetaDescriptionOverride(
+    locale,
+    path,
+    t("metaDescription"),
+  );
+  const url = absoluteUrl(path);
   const hero = getSpeciesById("vipera-kaznakovi");
   const ogImage = speciesOgImageUrl("vipera-kaznakovi", hero?.image);
   const filtered = hasActiveAtlasFilters(parseAtlasFilters(await searchParams));
 
   return {
-    alternates: localeAlternates(locale, path),
+    alternates: localeAlternates(locale, pagePath),
     description,
     openGraph: {
       description,

@@ -14,6 +14,7 @@ import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { orderSpeciesByIds } from "@/lib/clusterGuides";
 import { HARMLESS_EXAMPLE_IDS } from "@/lib/dangerLevels";
+import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import {
   absoluteUrl,
   localeAlternates,
@@ -38,8 +39,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = localeParam as AppLocale;
   const t = await getTranslations({ locale, namespace: "riskToHumans" });
   const title = t("metaTitle");
-  const description = t("metaDescription");
-  const url = absoluteUrl(localePath(locale, PATH));
+  const path = localePath(locale, PATH);
+  const description = kaMetaDescriptionOverride(
+    locale,
+    path,
+    t("metaDescription"),
+  );
+  const url = absoluteUrl(path);
   const hero = getSpeciesById(OG_SPECIES);
   const ogImage = speciesOgImageUrl(OG_SPECIES, hero?.image);
 

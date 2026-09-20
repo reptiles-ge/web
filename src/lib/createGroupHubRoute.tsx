@@ -17,6 +17,7 @@ import { georgiaPlaceName, openGraphLocale } from "@/i18n/localeMeta";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { GROUP_HUBS, type GroupHubId } from "@/lib/groupHubs";
+import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import {
   absoluteUrl,
   localeAlternates,
@@ -48,8 +49,15 @@ export function createGroupHubRoute(hubId: GroupHubId) {
     const locale = localeParam as AppLocale;
     const t = await getTranslations({ locale, namespace: hub.messageKey });
     const title = t("metaTitle");
-    const description = t("metaDescription");
-    const url = absoluteUrl(localePath(locale, hub.path));
+    const metadataTitle =
+      locale === "ka" && hubId === "scorpions" ? { absolute: title } : title;
+    const path = localePath(locale, hub.path);
+    const description = kaMetaDescriptionOverride(
+      locale,
+      path,
+      t("metaDescription"),
+    );
+    const url = absoluteUrl(path);
     const catalog = getCatalogSpeciesByGroup(hub.group);
     const hero =
       catalog.find((item) => item.id === hub.heroSpeciesId) ?? catalog[0];
@@ -75,7 +83,7 @@ export function createGroupHubRoute(hubId: GroupHubId) {
         follow: true,
         index: true,
       },
-      title,
+      title: metadataTitle,
       twitter: {
         card: "summary_large_image",
         description,

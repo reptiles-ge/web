@@ -10,6 +10,7 @@ import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import { type SpeciesListItem } from "@/data/speciesListItem";
 import { Link } from "@/i18n/navigation";
 import { formatContentDate } from "@/lib/formatDate";
+import { speciesImageAlt } from "@/lib/speciesMeta";
 
 export function AtlasRecent({ species }: { species: SpeciesListItem[] }) {
   const t = useTranslations("speciesAtlas");
@@ -57,7 +58,11 @@ function RecentSpeciesRow({ species }: { species: SpeciesListItem }) {
           "species-placeholder",
         ) ? (
           <CoverImage
-            alt=""
+            alt={speciesImageAlt(
+              species.commonName,
+              species.scientificName,
+              species.location,
+            )}
             className="object-cover transition-transform duration-500 group-hover:scale-105"
             sizes="84px"
             src={species.mobileImage ?? species.image}
