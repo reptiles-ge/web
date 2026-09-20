@@ -6,12 +6,14 @@ import { notFound, permanentRedirect } from "next/navigation";
 
 import type { GroupHubId } from "@/lib/groupHubs";
 
+import { ClientMessagesProvider } from "@/components/ClientMessagesProvider";
 import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { JsonLd } from "@/components/JsonLd";
 import { NewsRelatedBlock } from "@/components/NewsRelatedBlock";
 import { SpeciesProfile } from "@/components/SpeciesProfile";
 import { getPublishedNewsForSpecies } from "@/data/news";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
+import { SPECIES_PROFILE_CLIENT_MESSAGE_NAMESPACES } from "@/i18n/clientMessages";
 import { openGraphLocale } from "@/i18n/localeMeta";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { getPathname } from "@/i18n/navigation";
@@ -321,11 +323,15 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
             (entry): entry is NonNullable<typeof entry> => Boolean(entry),
           )}
         />
-        <SpeciesProfile
-          lookalikes={lookalikes}
-          related={related}
-          species={item}
-        />
+        <ClientMessagesProvider
+          namespaces={SPECIES_PROFILE_CLIENT_MESSAGE_NAMESPACES}
+        >
+          <SpeciesProfile
+            lookalikes={lookalikes}
+            related={related}
+            species={item}
+          />
+        </ClientMessagesProvider>
         <NewsRelatedBlock
           articles={getPublishedNewsForSpecies(raw.id, locale)}
           locale={locale}

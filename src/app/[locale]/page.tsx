@@ -5,6 +5,7 @@ import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
+import { ClientMessagesProvider } from "@/components/ClientMessagesProvider";
 import { FinalCTA } from "@/components/FinalCTA";
 import { Hero } from "@/components/Hero";
 import { HomeContributors } from "@/components/home/HomeContributors";
@@ -179,9 +180,11 @@ export default async function Home({ params }: Props): Promise<ReactElement> {
         <Hero />
         <HomeGroups />
         <HomeFeatured />
-        <MapExplorer
-          tooltipSpeciesByRegion={getRegionTooltipPreviews(locale)}
-        />
+        <ClientMessagesProvider namespaces={["map"]}>
+          <MapExplorer
+            tooltipSpeciesByRegion={getRegionTooltipPreviews(locale)}
+          />
+        </ClientMessagesProvider>
         <HomeFresh />
         <HomeField />
         <HomeContributors />

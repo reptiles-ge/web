@@ -13,6 +13,10 @@ import { LogoPreload } from "@/components/LogoPreload";
 import { Navbar } from "@/components/Navbar";
 import { NotFoundContent } from "@/components/NotFoundContent";
 import { SkipLink } from "@/components/SkipLink";
+import {
+  pickClientMessages,
+  ROOT_CLIENT_MESSAGE_NAMESPACES,
+} from "@/i18n/clientMessages";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { getLocaleSwitchIndex } from "@/lib/localeSwitchData";
 import { notFoundMetadata } from "@/lib/notFoundMetadata";
@@ -24,7 +28,10 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function RootNotFound() {
   const locale = await resolveNotFoundLocale();
   setRequestLocale(locale);
-  const messages = await getMessages();
+  const messages = pickClientMessages(
+    (await getMessages()) as Record<string, unknown>,
+    ROOT_CLIENT_MESSAGE_NAMESPACES,
+  );
   const t = await getTranslations("nav");
   const switchIndex = getLocaleSwitchIndex();
 

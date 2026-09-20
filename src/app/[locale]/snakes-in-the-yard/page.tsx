@@ -4,6 +4,7 @@ import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
+import { ClientMessagesProvider } from "@/components/ClientMessagesProvider";
 import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { JsonLd } from "@/components/JsonLd";
 import { SnakesInYardPage } from "@/components/SnakesInYardPage";
@@ -168,7 +169,18 @@ export default async function SnakesInYardRoute({ params }: Props) {
       <JsonLd data={pageLd} />
       <JsonLd data={howToLd} />
       <JsonLd data={faqLd} />
-      <SnakesInYardPage coverSrc={coverSrc} heroSrc={heroSrc} />
+      <ClientMessagesProvider
+        namespaces={[
+          "card",
+          "danger",
+          "groupHubShared",
+          "profile",
+          "snakes",
+          "snakesInYard",
+        ]}
+      >
+        <SnakesInYardPage coverSrc={coverSrc} heroSrc={heroSrc} />
+      </ClientMessagesProvider>
     </>
   );
 }
