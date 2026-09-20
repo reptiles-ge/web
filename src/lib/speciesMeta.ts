@@ -3,6 +3,7 @@ import type { DangerLevel, PhotoCredit } from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
 
 import { isVenomousDanger } from "@/data/speciesAtlasMeta";
+import { shortMetaDescription } from "@/lib/metaDescription";
 
 export function speciesFallbackDescriptionKey(
   group: AnimalGroup,
@@ -259,22 +260,15 @@ export function speciesImageAlt(
 }
 
 export function speciesMetaDescription(overview: string, maxLength = 160) {
-  const lead = firstSentence(stripInlineMarkdownLinks(overview));
-  if (lead.length <= maxLength) return lead;
-
-  const truncated = lead.slice(0, maxLength - 1);
-  const lastSpace = truncated.lastIndexOf(" ");
-  const clipped = (
-    lastSpace > 80 ? truncated.slice(0, lastSpace) : truncated
-  ).trim();
-  return `${clipped}…`;
+  return shortMetaDescription(overview, maxLength);
 }
 
 export function speciesMetaDescriptionOverride(
   speciesId: string,
   locale: AppLocale,
 ) {
-  return SPECIES_META_DESCRIPTION_OVERRIDE[speciesId]?.[locale];
+  const override = SPECIES_META_DESCRIPTION_OVERRIDE[speciesId]?.[locale];
+  return override ? shortMetaDescription(override) : undefined;
 }
 
 export function speciesPageMetaTitle(
@@ -308,14 +302,4 @@ export function speciesPhotoAlt(
   if (place) parts.push(place);
   if (credit?.photographer) parts.push(credit.photographer);
   return parts.join(" — ");
-}
-
-function firstSentence(text: string) {
-  const trimmed = text.trim();
-  const match = trimmed.match(/^.*?[.!?…](?=\s|$)/u);
-  return match ? match[0].trim() : trimmed;
-}
-
-function stripInlineMarkdownLinks(text: string) {
-  return text.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1");
 }

@@ -65,4 +65,14 @@ describe("speciesMetaDescription", () => {
       "The Levantine viper is a venomous snake often confused with the Montpellier snake.",
     );
   });
+
+  it("clips long descriptions to the search snippet limit", () => {
+    const description = speciesMetaDescription(
+      "This deliberately long overview keeps going past the normal search snippet boundary so metadata does not exceed the limit used by the SEO crawl report in production.",
+      90,
+    );
+
+    expect(description.length).toBeLessThanOrEqual(90);
+    expect(description.endsWith("…")).toBe(true);
+  });
 });
