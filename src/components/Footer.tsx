@@ -94,12 +94,7 @@ export async function Footer({ regions, venomous }: FooterProps) {
               className="inline-flex transition-opacity hover:opacity-90"
               href="/"
             >
-              <Logo
-                alt=""
-                showWordmark
-                size={52}
-                wordmarkClassName="text-[19px]"
-              />
+              <Logo showWordmark size={52} wordmarkClassName="text-[19px]" />
             </Link>
             <p className="mt-5 max-w-sm text-[15px] leading-relaxed text-muted-foreground">
               {t("tagline")}

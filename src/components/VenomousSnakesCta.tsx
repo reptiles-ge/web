@@ -23,7 +23,7 @@ export function VenomousSnakesCta({ heroSrc }: { heroSrc: string }) {
   return (
     <section className="relative flex min-h-[70svh] items-center overflow-hidden bg-ink py-24">
       <CoverImage
-        alt=""
+        alt={t("heroImageAlt")}
         aria-hidden
         className="object-cover opacity-50"
         sizes="100vw"
