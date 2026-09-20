@@ -1,12 +1,19 @@
-export type ClientMessageNamespace = string;
+import type kaMessages from "../../messages/ka.json";
+
+export type ClientMessageNamespace = keyof typeof kaMessages;
+export type ClientMessages = Partial<Record<ClientMessageNamespace, unknown>>;
 
 export const ROOT_CLIENT_MESSAGE_NAMESPACES = [
-  "errorPage",
   "language",
   "nav",
   "search",
   "theme",
-] as const;
+] as const satisfies readonly ClientMessageNamespace[];
+
+export const NOT_FOUND_CLIENT_MESSAGE_NAMESPACES = [
+  ...ROOT_CLIENT_MESSAGE_NAMESPACES,
+  "errorPage",
+] as const satisfies readonly ClientMessageNamespace[];
 
 export const ATLAS_CLIENT_MESSAGE_NAMESPACES = [
   "card",
@@ -14,31 +21,22 @@ export const ATLAS_CLIENT_MESSAGE_NAMESPACES = [
   "map",
   "speciesAtlas",
   "speciesIndex",
-] as const;
+] as const satisfies readonly ClientMessageNamespace[];
 
-export const GROUP_HUB_CLIENT_MESSAGE_NAMESPACES = [
-  "amphibians",
-  "birds",
+export const GROUP_HUB_SHARED_CLIENT_MESSAGE_NAMESPACES = [
   "card",
   "danger",
   "groupHubShared",
-  "insects",
-  "lizards",
-  "mammals",
-  "scorpions",
-  "snakes",
-  "spiders",
-  "turtles",
-] as const;
+] as const satisfies readonly ClientMessageNamespace[];
 
 export const SPECIES_PROFILE_CLIENT_MESSAGE_NAMESPACES = [
   "card",
   "danger",
   "profile",
-] as const;
+] as const satisfies readonly ClientMessageNamespace[];
 
 export function pickClientMessages(
-  messages: Record<string, unknown>,
+  messages: ClientMessages,
   namespaces: readonly ClientMessageNamespace[],
 ) {
   return Object.fromEntries(

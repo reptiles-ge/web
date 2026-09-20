@@ -18,6 +18,7 @@ import { NavigationProgress } from "@/components/NavigationProgress";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { SkipLink } from "@/components/SkipLink";
 import {
+  type ClientMessages,
   pickClientMessages,
   ROOT_CLIENT_MESSAGE_NAMESPACES,
 } from "@/i18n/clientMessages";
@@ -42,7 +43,7 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   setRequestLocale(locale);
   const messages = pickClientMessages(
-    (await getMessages()) as Record<string, unknown>,
+    (await getMessages()) as ClientMessages,
     ROOT_CLIENT_MESSAGE_NAMESPACES,
   );
   const t = await getTranslations("nav");

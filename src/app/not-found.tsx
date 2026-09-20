@@ -14,8 +14,9 @@ import { Navbar } from "@/components/Navbar";
 import { NotFoundContent } from "@/components/NotFoundContent";
 import { SkipLink } from "@/components/SkipLink";
 import {
+  type ClientMessages,
+  NOT_FOUND_CLIENT_MESSAGE_NAMESPACES,
   pickClientMessages,
-  ROOT_CLIENT_MESSAGE_NAMESPACES,
 } from "@/i18n/clientMessages";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { getLocaleSwitchIndex } from "@/lib/localeSwitchData";
@@ -29,8 +30,8 @@ export default async function RootNotFound() {
   const locale = await resolveNotFoundLocale();
   setRequestLocale(locale);
   const messages = pickClientMessages(
-    (await getMessages()) as Record<string, unknown>,
-    ROOT_CLIENT_MESSAGE_NAMESPACES,
+    (await getMessages()) as ClientMessages,
+    NOT_FOUND_CLIENT_MESSAGE_NAMESPACES,
   );
   const t = await getTranslations("nav");
   const switchIndex = getLocaleSwitchIndex();

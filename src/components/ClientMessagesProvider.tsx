@@ -5,7 +5,9 @@ import { getMessages } from "next-intl/server";
 
 import {
   type ClientMessageNamespace,
+  type ClientMessages,
   pickClientMessages,
+  ROOT_CLIENT_MESSAGE_NAMESPACES,
 } from "@/i18n/clientMessages";
 
 export async function ClientMessagesProvider({
@@ -15,10 +17,15 @@ export async function ClientMessagesProvider({
   children: ReactNode;
   namespaces: readonly ClientMessageNamespace[];
 }) {
-  const messages = (await getMessages()) as Record<string, unknown>;
+  const messages = (await getMessages()) as ClientMessages;
 
   return (
-    <NextIntlClientProvider messages={pickClientMessages(messages, namespaces)}>
+    <NextIntlClientProvider
+      messages={pickClientMessages(messages, [
+        ...ROOT_CLIENT_MESSAGE_NAMESPACES,
+        ...namespaces,
+      ])}
+    >
       {children}
     </NextIntlClientProvider>
   );
