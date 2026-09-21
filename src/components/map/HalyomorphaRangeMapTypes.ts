@@ -7,6 +7,7 @@ import type {
 } from "@/lib/halyomorphaOccurrences";
 
 export const HALYOMORPHA_REGION_SELECT_EVENT = "halyomorpha-region-select";
+export const HALYOMORPHA_REGION_QUERY_PARAM = "region";
 
 export type { HalyomorphaFieldRecord };
 
