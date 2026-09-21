@@ -293,9 +293,9 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .dark [data-halyomorpha-map] .leaflet-tile-pane {
-  opacity: 0.84;
-  filter: invert(1) hue-rotate(180deg) saturate(0.58) brightness(1.22)
-    contrast(0.84);
+  opacity: 0.96;
+  filter: invert(1) hue-rotate(180deg) saturate(0.74) brightness(1.52)
+    contrast(0.82);
 }
 
 [data-halyomorpha-map] .leaflet-top.leaflet-right {
@@ -369,40 +369,122 @@ input[type="search"]::-webkit-search-results-decoration {
   background: transparent;
 }
 
+.halyomorpha-region-label-shell {
+  border: 0;
+  background: transparent;
+}
+
+.halyomorpha-region-label {
+  display: inline-flex;
+  transform: translate(-50%, -50%);
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  min-height: 1.5rem;
+  border: 0;
+  border-radius: 0.45rem;
+  background: color-mix(in oklab, var(--ink) 62%, transparent);
+  color: color-mix(in oklab, var(--ink-foreground) 88%, transparent);
+  cursor: pointer;
+  font:
+    700 0.68rem/1 var(--font-you),
+    var(--font-noto-sans),
+    sans-serif;
+  padding: 0 0.5rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.44);
+  backdrop-filter: blur(10px) saturate(120%);
+  transition:
+    background 150ms ease,
+    color 150ms ease,
+    transform 150ms ease;
+}
+
+.halyomorpha-region-label:hover,
+.halyomorpha-region-label:focus-visible {
+  transform: translate(-50%, -50%) scale(1.04);
+  background: color-mix(in oklab, var(--ink) 78%, transparent);
+  color: var(--ink-foreground);
+}
+
+.halyomorpha-region-label:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 0.18rem;
+}
+
 .halyomorpha-count-marker {
   display: grid;
-  width: 3rem;
-  height: 3rem;
+  width: 2rem;
+  height: 2rem;
   place-items: center;
-  border: 1px solid color-mix(in oklab, var(--primary) 70%, white 30%);
+  border: 1px solid color-mix(in oklab, var(--primary) 58%, white 42%);
   border-radius: 999px;
-  background: color-mix(in oklab, var(--ink) 84%, transparent);
-  box-shadow:
-    0 0 0 0.35rem color-mix(in oklab, var(--primary) 18%, transparent),
-    0 0.9rem 1.8rem -0.7rem rgba(0, 0, 0, 0.9);
+  background: color-mix(in oklab, var(--ink) 78%, transparent);
+  box-shadow: 0 0.75rem 1.4rem -0.85rem rgba(0, 0, 0, 0.9);
   color: var(--ink-foreground);
   cursor: pointer;
   font:
-    800 0.9rem/1 var(--font-you),
+    800 0.78rem/1 var(--font-you),
     var(--font-noto-sans),
     sans-serif;
-  backdrop-filter: blur(12px) saturate(140%);
+  backdrop-filter: blur(10px) saturate(120%);
   transition:
+    background 160ms ease,
     box-shadow 160ms ease,
     transform 160ms ease;
 }
 
 .halyomorpha-count-marker:hover,
 .halyomorpha-count-marker:focus-visible {
-  transform: scale(1.08);
-  box-shadow:
-    0 0 0 0.45rem color-mix(in oklab, var(--primary) 28%, transparent),
-    0 1rem 2rem -0.65rem rgba(0, 0, 0, 0.95);
+  transform: scale(1.06);
+  background: color-mix(in oklab, var(--ink) 88%, transparent);
+  box-shadow: 0 0.85rem 1.55rem -0.75rem rgba(0, 0, 0, 0.95);
 }
 
 .halyomorpha-count-marker:focus-visible {
   outline: 2px solid var(--primary);
   outline-offset: 0.2rem;
+}
+
+[data-halyomorpha-map] .halyomorpha-region-tooltip {
+  border: 0;
+  border-radius: 0.75rem;
+  background: color-mix(in oklab, var(--ink) 88%, transparent);
+  box-shadow: 0 1rem 2rem -1.35rem rgba(0, 0, 0, 0.95);
+  color: var(--ink-foreground);
+  font:
+    500 0.75rem/1.35 var(--font-you),
+    var(--font-noto-sans),
+    sans-serif;
+  padding: 0.48rem 0.58rem;
+  backdrop-filter: blur(12px) saturate(130%);
+}
+
+[data-halyomorpha-map] .halyomorpha-region-tooltip::before {
+  display: none;
+}
+
+[data-halyomorpha-map] .halyomorpha-region-tooltip strong,
+[data-halyomorpha-map] .halyomorpha-region-tooltip span,
+[data-halyomorpha-map] .halyomorpha-region-tooltip small,
+[data-halyomorpha-map] .halyomorpha-region-tooltip em {
+  display: block;
+}
+
+[data-halyomorpha-map] .halyomorpha-region-tooltip span,
+[data-halyomorpha-map] .halyomorpha-region-tooltip small {
+  color: var(--ink-muted);
+}
+
+[data-halyomorpha-map] .halyomorpha-region-tooltip small {
+  margin-top: 0.12rem;
+  font-size: 0.67rem;
+}
+
+[data-halyomorpha-map] .halyomorpha-region-tooltip em {
+  margin-top: 0.28rem;
+  color: var(--primary);
+  font-style: normal;
+  font-weight: 700;
 }
 
 .halyomorpha-field-marker {
