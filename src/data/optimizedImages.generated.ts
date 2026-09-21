@@ -2839,6 +2839,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/halyomorpha-halys-iaroslav-1.jpg": {
+    "path": "halyomorpha-halys-iaroslav-1",
+    "width": 768,
+    "height": 1024,
+    "widths": [320, 400, 640, 768],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/hemorrhois-ravergieri-1.jpg": {
     "path": "hemorrhois-ravergieri-1",
     "width": 1440,

@@ -29452,6 +29452,73 @@
       ],
       "updatedAt": "2026-09-21T06:38:55.511Z"
     },
+    "halyomorpha-halys-iaroslav-1.jpg": {
+      "sourceHash": "42e0fd54bef7b5b702213991c85166b7da2324c1fbf3e62803eee1b0cb85a484",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "halyomorpha-halys-iaroslav-1.jpg",
+      "originalSize": 162857,
+      "width": 768,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/halyomorpha-halys-iaroslav-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 17239
+        },
+        {
+          "key": "optimized/halyomorpha-halys-iaroslav-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 24270
+        },
+        {
+          "key": "optimized/halyomorpha-halys-iaroslav-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 24330
+        },
+        {
+          "key": "optimized/halyomorpha-halys-iaroslav-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 34170
+        },
+        {
+          "key": "optimized/halyomorpha-halys-iaroslav-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 49404
+        },
+        {
+          "key": "optimized/halyomorpha-halys-iaroslav-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 66486
+        },
+        {
+          "key": "optimized/halyomorpha-halys-iaroslav-1-768.avif",
+          "format": "avif",
+          "width": 768,
+          "height": 1024,
+          "byteSize": 64911
+        },
+        {
+          "key": "optimized/halyomorpha-halys-iaroslav-1-768.webp",
+          "format": "webp",
+          "width": 768,
+          "height": 1024,
+          "byteSize": 85338
+        }
+      ],
+      "updatedAt": "2026-09-21T06:40:45.317Z"
+    },
     "hemorrhois-ravergieri-1.jpg": {
       "sourceHash": "7a38c66a939943cb51512db0ed89adb17dd6e6a93601f434e6449a629c12507d",
       "configFingerprint": "a895f8e025dcc7fa",
