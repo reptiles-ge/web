@@ -29304,6 +29304,87 @@
       ],
       "updatedAt": "2026-09-06T17:24:53.083Z"
     },
+    "halyomorpha-halys-herbert-1.jpg": {
+      "sourceHash": "e6cdc1b9aae7cd949976c0082c1cba63b77701d0d0f7dc04ba8a8ae3ed21de0f",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "halyomorpha-halys-herbert-1.jpg",
+      "originalSize": 147661,
+      "width": 1024,
+      "height": 768,
+      "derivatives": [
+        {
+          "key": "optimized/halyomorpha-halys-herbert-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 9076
+        },
+        {
+          "key": "optimized/halyomorpha-halys-herbert-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 10894
+        },
+        {
+          "key": "optimized/halyomorpha-halys-herbert-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 13785
+        },
+        {
+          "key": "optimized/halyomorpha-halys-herbert-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 16736
+        },
+        {
+          "key": "optimized/halyomorpha-halys-herbert-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 29811
+        },
+        {
+          "key": "optimized/halyomorpha-halys-herbert-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 35902
+        },
+        {
+          "key": "optimized/halyomorpha-halys-herbert-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 41837
+        },
+        {
+          "key": "optimized/halyomorpha-halys-herbert-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 49122
+        },
+        {
+          "key": "optimized/halyomorpha-halys-herbert-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 60250
+        },
+        {
+          "key": "optimized/halyomorpha-halys-herbert-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 69548
+        }
+      ],
+      "updatedAt": "2026-09-21T06:38:55.511Z"
+    },
     "hemorrhois-ravergieri-1.jpg": {
       "sourceHash": "7a38c66a939943cb51512db0ed89adb17dd6e6a93601f434e6449a629c12507d",
       "configFingerprint": "a895f8e025dcc7fa",
