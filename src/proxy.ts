@@ -6,6 +6,7 @@ import type { GroupHubId } from "@/lib/groupHubs";
 import { isPrefixedLocale, type PrefixedLocale } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { legacyPhotographerRedirectPath } from "@/lib/photographerRedirects";
+import { hasRoutePlaceholder } from "@/lib/routePlaceholder";
 import {
   getSpeciesHubId,
   getSpeciesPublicSlug,
@@ -48,6 +49,15 @@ const PREFIX_SEGMENT = "en|ru|tr";
 
 export default function proxy(request: NextRequest) {
   const pathname = request.nextUrl.pathname.replace(/\/$/, "") || "/";
+
+  if (hasRoutePlaceholder(pathname)) {
+    return new NextResponse("Not found", {
+      headers: {
+        "X-Robots-Tag": "noindex, nofollow",
+      },
+      status: 404,
+    });
+  }
 
   if (pathname === "/ka" || pathname.startsWith("/ka/")) {
     return redirectTo(request, pathname.slice(3) || "/");
