@@ -29,6 +29,10 @@ const GEORGIA_BOUNDS = [
   [40.95, 39.85],
   [43.65, 46.75],
 ] satisfies LatLngBoundsExpression;
+const MAP_PAN_BOUNDS = [
+  [39.35, 35.4],
+  [45.1, 50.95],
+] satisfies LatLngBoundsExpression;
 const LEAFLET_TILE_URL = "https://tile.openstreetmap.de/{z}/{x}/{y}.png";
 const LEAFLET_FALLBACK_TILE_URL =
   "https://tile.openstreetmap.org/{z}/{x}/{y}.png";
@@ -663,8 +667,8 @@ function useHalyomorphaRangeMap({
     try {
       map = L.map(container, {
         attributionControl: false,
-        maxBounds: GEORGIA_BOUNDS,
-        maxBoundsViscosity: 0.72,
+        maxBounds: MAP_PAN_BOUNDS,
+        maxBoundsViscosity: 0.42,
         scrollWheelZoom: false,
         zoomControl: false,
       });
