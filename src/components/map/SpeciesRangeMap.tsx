@@ -44,7 +44,7 @@ type HalyomorphaRangeCopy = {
   photoRecordLabel: string;
   rangeTitle: string;
   regionLoadingLabel: string;
-  regionPageLabel: string;
+  regionPageLabel: (regionName: string) => string;
   regionRecordsLabel: string;
   regionSelectActionLabel: string;
   regionsMetricLabel: string;
@@ -87,7 +87,7 @@ const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
     photoRecordLabel: "Photo record",
     rangeTitle: "Where brown marmorated stink bug occurs in Georgia",
     regionLoadingLabel: "Loading region records",
-    regionPageLabel: "Region page",
+    regionPageLabel: (regionName) => `${regionName} region page`,
     regionRecordsLabel: "field records",
     regionSelectActionLabel: "View records",
     regionsMetricLabel: "regions",
@@ -121,7 +121,7 @@ const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
     photoRecordLabel: "ფოტოჩანაწერი",
     rangeTitle: "სად გვხვდება აზიური ფაროსანა საქართველოში",
     regionLoadingLabel: "რეგიონის ჩანაწერები იტვირთება",
-    regionPageLabel: "რეგიონის გვერდი",
+    regionPageLabel: (regionName) => `${regionName} — რეგიონის გვერდი`,
     regionRecordsLabel: "საველე ჩანაწერი",
     regionSelectActionLabel: "ჩანაწერების ნახვა",
     regionsMetricLabel: "რეგიონი",
@@ -154,7 +154,7 @@ const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
     photoRecordLabel: "Фотозапись",
     rangeTitle: "Где встречается коричнево-мраморный клоп в Грузии",
     regionLoadingLabel: "Загружаются записи региона",
-    regionPageLabel: "Страница региона",
+    regionPageLabel: (regionName) => `Страница региона: ${regionName}`,
     regionRecordsLabel: "полевых записей",
     regionSelectActionLabel: "Показать записи",
     regionsMetricLabel: "регионов",
@@ -188,7 +188,7 @@ const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
     photoRecordLabel: "Fotoğraf kaydı",
     rangeTitle: "Kahverengi kokarca Gürcistan'da nerede görülür?",
     regionLoadingLabel: "Bölge kayıtları yükleniyor",
-    regionPageLabel: "Bölge sayfası",
+    regionPageLabel: (regionName) => `${regionName} bölge sayfası`,
     regionRecordsLabel: "arazi kaydı",
     regionSelectActionLabel: "Kayıtları göster",
     regionsMetricLabel: "bölge",
@@ -409,15 +409,17 @@ function HalyomorphaRangeSection({
                       key={region.id}
                     >
                       <th className="py-3 pr-4 text-left font-medium text-foreground">
-                        <span className="flex flex-col items-start gap-1">
+                        <span className="flex items-center gap-2">
                           <HalyomorphaRegionSelectButton regionId={region.id}>
                             {region.name}
                           </HalyomorphaRegionSelectButton>
                           <Link
-                            className="text-[12px] font-normal text-muted-foreground underline decoration-border underline-offset-4 transition-colors hover:text-primary"
+                            aria-label={copy.regionPageLabel(region.name)}
+                            className="inline-flex size-6 items-center justify-center rounded-full border border-border/70 text-[12px] font-semibold text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                             href={regionHref(region.id)}
+                            title={copy.regionPageLabel(region.name)}
                           >
-                            {copy.regionPageLabel}
+                            <span aria-hidden="true">↗</span>
                           </Link>
                         </span>
                       </th>

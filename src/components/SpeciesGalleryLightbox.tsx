@@ -7,6 +7,7 @@ import {
   useCallback,
   useContext,
   useEffect,
+  useEffectEvent,
   useMemo,
   useRef,
   useState,
@@ -172,6 +173,17 @@ export function SpeciesGalleryLightbox({
     [slides.length, speciesId],
   );
 
+  const openExternalTrigger = useEffectEvent(
+    (src: string, trigger: HTMLElement) => {
+      const index = slides.findIndex((slide) => slide.src === src);
+      if (index === -1) return false;
+
+      externalTriggerRef.current = trigger;
+      openAt(index);
+      return true;
+    },
+  );
+
   useEffect(() => {
     function onClick(event: MouseEvent) {
       const target = event.target;
@@ -185,17 +197,15 @@ export function SpeciesGalleryLightbox({
       const src = trigger.dataset.speciesGallerySrc;
       if (!src) return;
 
-      const index = slides.findIndex((slide) => slide.src === src);
-      if (index === -1) return;
+      const opened = openExternalTrigger(src, trigger);
+      if (!opened) return;
 
       event.preventDefault();
-      externalTriggerRef.current = trigger;
-      openAt(index);
     }
 
     document.addEventListener("click", onClick);
     return () => document.removeEventListener("click", onClick);
-  }, [openAt, slides]);
+  }, []);
 
   const registerTrigger = useCallback(
     (index: number, node: HTMLButtonElement | null) => {

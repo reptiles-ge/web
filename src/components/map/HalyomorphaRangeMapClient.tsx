@@ -10,7 +10,7 @@ import type {
 
 import * as L from "leaflet";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import type { RegionPathId } from "@/data/georgia-paths";
 import type { HalyomorphaRegionSummary } from "@/lib/halyomorphaOccurrences";
@@ -20,6 +20,10 @@ import {
   type HalyomorphaFieldRecord,
   type HalyomorphaRangeMapProps,
 } from "@/components/map/HalyomorphaRangeMapTypes";
+import {
+  type HalyomorphaRegionOccurrenceResponse,
+  loadHalyomorphaRegionOccurrences,
+} from "@/lib/halyomorphaOccurrenceApi";
 
 const GEORGIA_BOUNDS = [
   [40.95, 39.85],
@@ -38,440 +42,17 @@ type RecordCluster = {
   records: HalyomorphaFieldRecord[];
 };
 
-type RegionOccurrenceResponse = {
-  records: HalyomorphaFieldRecord[];
-  region: HalyomorphaRegionSummary;
-};
-
-export function HalyomorphaRangeMapClient({
-  copy,
-  locale,
-  occurrenceSummary,
-  officialRange,
-  regionNames,
-}: HalyomorphaRangeMapProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const regionCacheRef = useRef(
-    new Map<RegionPathId, RegionOccurrenceResponse>(),
-  );
-  const regionRecordsRef = useRef<HalyomorphaFieldRecord[]>([]);
-  const requestIdRef = useRef(0);
-  const markerElementsRef = useRef(new Map<string, HTMLButtonElement>());
-  const syncRecordLayersRef = useRef<(() => void) | null>(null);
-  const resetMapRef = useRef<(() => void) | null>(null);
-  const [mapError, setMapError] = useState(false);
-  const [regionLoading, setRegionLoading] = useState(false);
-  const [selectedRecord, setSelectedRecord] =
-    useState<HalyomorphaFieldRecord | null>(null);
-  const [selectedRegion, setSelectedRegion] =
-    useState<HalyomorphaRegionSummary | null>(null);
-
-  useEffect(() => {
-    markerElementsRef.current.forEach((element, id) => {
-      const selected = id === selectedRecord?.id;
-      element.dataset.selected = selected ? "true" : "false";
-      element.setAttribute("aria-pressed", selected ? "true" : "false");
-    });
-  }, [selectedRecord?.id]);
-
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    let map: LeafletMap;
-    let rangeLayer: LeafletGeoJson;
-    const activeRecordMarkers: Marker[] = [];
-    const countMarkers: Marker[] = [];
-    let resetControl: Control;
-    let disposed = false;
-    let selectedRegionId: null | RegionPathId = null;
-    const markerElements = markerElementsRef.current;
-    const summaryByRegion = new Map(
-      occurrenceSummary.recordsByRegion.map((region) => [region.id, region]),
-    );
-    const namesByRegion = new Map(
-      regionNames.map((region) => [region.id, region.name]),
-    );
-    const isCompactViewport = window.innerWidth < 640;
-
-    try {
-      map = L.map(container, {
-        attributionControl: false,
-        maxBounds: GEORGIA_BOUNDS,
-        maxBoundsViscosity: 0.72,
-        scrollWheelZoom: false,
-        zoomControl: false,
-      });
-
-      L.control
-        .attribution({ position: "bottomright", prefix: false })
-        .addTo(map);
-      L.control.zoom({ position: "topright" }).addTo(map);
-      const resetToGeorgia = () => {
-        regionRecordsRef.current = [];
-        selectedRegionId = null;
-        setSelectedRecord(null);
-        setSelectedRegion(null);
-        fitInitialBounds(map);
-        applyRegionStyles();
-        syncRecordLayersRef.current?.();
-      };
-      resetMapRef.current = resetToGeorgia;
-      resetControl = createResetControl(
-        copy.resetMapLabel,
-        resetToGeorgia,
-      ).addTo(map);
-      L.tileLayer(LEAFLET_TILE_URL, {
-        attribution:
-          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-        detectRetina: true,
-        maxZoom: 19,
-        minZoom: 4,
-      }).addTo(map);
-
-      fitInitialBounds(map);
-
-      rangeLayer = L.geoJSON(officialRange, {
-        onEachFeature: (feature, layer) => {
-          const isOfficialRange = feature.properties?.isOfficialRange === true;
-          if (!(layer instanceof L.Path)) return;
-          const regionId = feature.properties.id;
-          const bounds = getLayerBounds(layer);
-          const regionSummary = summaryByRegion.get(regionId);
-          const regionName =
-            namesByRegion.get(regionId) ?? feature.properties.shapeName;
-          const regionCount = regionSummary?.count ?? 0;
-          const selectCurrentRegion = () => {
-            if (bounds) {
-              layer.closeTooltip();
-              selectRegion(regionId, bounds, regionSummary, regionName);
-            }
-          };
-
-          if (!isCompactViewport) {
-            layer.bindTooltip(
-              tooltipHtml({
-                action: copy.regionSelectActionLabel,
-                count: regionCount,
-                name: regionName,
-                noRecords: copy.noRegionRecordsLabel,
-                recordLabel: copy.regionRecordsLabel,
-                sourceConfirmed: isOfficialRange
-                  ? copy.officialRegionLabel
-                  : undefined,
-              }),
-              {
-                className: "halyomorpha-region-tooltip",
-                direction: "top",
-                opacity: 1,
-                sticky: true,
-              },
-            );
-          }
-
-          layer.on({
-            click: selectCurrentRegion,
-            mouseout: () => {
-              layer.setStyle(
-                regionStyle({
-                  compact: isCompactViewport,
-                  hovered: false,
-                  isOfficialRange,
-                  muted: Boolean(
-                    selectedRegionId && selectedRegionId !== regionId,
-                  ),
-                  selected: selectedRegionId === regionId,
-                }),
-              );
-            },
-            mouseover: () => {
-              layer.setStyle(
-                regionStyle({
-                  compact: isCompactViewport,
-                  hovered: true,
-                  isOfficialRange,
-                  muted: Boolean(
-                    selectedRegionId && selectedRegionId !== regionId,
-                  ),
-                  selected: selectedRegionId === regionId,
-                }),
-              );
-            },
-          });
-          layer.once("add", () => {
-            const element = layer.getElement();
-            if (!element) return;
-            element.setAttribute("tabindex", "0");
-            element.setAttribute("role", "button");
-            element.setAttribute(
-              "aria-label",
-              `${regionName} — ${
-                regionCount > 0
-                  ? `${regionCount} ${copy.regionRecordsLabel}`
-                  : copy.noRegionRecordsLabel
-              }`,
-            );
-            element.addEventListener("keydown", (event) => {
-              const keyboardEvent = event as KeyboardEvent;
-              if (keyboardEvent.key !== "Enter" && keyboardEvent.key !== " ") {
-                return;
-              }
-              keyboardEvent.preventDefault();
-              selectCurrentRegion();
-            });
-            element.addEventListener("focus", () => {
-              if (!isCompactViewport) layer.openTooltip();
-              layer.setStyle(
-                regionStyle({
-                  compact: isCompactViewport,
-                  hovered: true,
-                  isOfficialRange,
-                  muted: Boolean(
-                    selectedRegionId && selectedRegionId !== regionId,
-                  ),
-                  selected: selectedRegionId === regionId,
-                }),
-              );
-            });
-            element.addEventListener("blur", () => {
-              if (!isCompactViewport) layer.closeTooltip();
-              layer.setStyle(
-                regionStyle({
-                  compact: isCompactViewport,
-                  isOfficialRange,
-                  muted: Boolean(
-                    selectedRegionId && selectedRegionId !== regionId,
-                  ),
-                  selected: selectedRegionId === regionId,
-                }),
-              );
-            });
-          });
-
-          if (bounds && regionSummary && regionSummary.count > 0) {
-            countMarkers.push(
-              createCountMarker({
-                count: regionSummary.count,
-                label: `${regionName} — ${regionSummary.count} ${copy.regionRecordsLabel}`,
-                onSelect: selectCurrentRegion,
-                position: bounds.getCenter(),
-                regionName,
-              }),
-            );
-          }
-        },
-        style: (feature) =>
-          regionStyle({
-            compact: isCompactViewport,
-            isOfficialRange: feature?.properties?.isOfficialRange === true,
-          }),
-      }).addTo(map);
-
-      const syncRecordLayers = () => {
-        const zoom = map.getZoom();
-        const fieldRecords = regionRecordsRef.current;
-        activeRecordMarkers.forEach((marker) => marker.remove());
-        activeRecordMarkers.length = 0;
-        markerElements.clear();
-
-        if (fieldRecords.length === 0) {
-          setSelectedRecord(null);
-          countMarkers.forEach((marker) => {
-            if (selectedRegionId) {
-              marker.remove();
-            } else {
-              if (!map.hasLayer(marker)) marker.addTo(map);
-            }
-          });
-          return;
-        }
-
-        countMarkers.forEach((marker) => marker.remove());
-
-        if (zoom >= RECORD_PIN_ZOOM) {
-          activeRecordMarkers.push(
-            ...createRecordMarkers(
-              fieldRecords,
-              map,
-              markerElements,
-              setSelectedRecord,
-            ),
-          );
-        } else {
-          setSelectedRecord(null);
-          activeRecordMarkers.push(
-            ...clusterFieldRecords(fieldRecords, map, zoom).map((cluster) =>
-              createRecordClusterMarker(cluster, copy.fieldRecordLabel, map),
-            ),
-          );
-        }
-
-        activeRecordMarkers.forEach((marker) => marker.addTo(map));
-      };
-
-      const selectRegion = (
-        regionId: RegionPathId,
-        bounds: L.LatLngBounds,
-        regionSummary: HalyomorphaRegionSummary | undefined,
-        regionName: string,
-      ) => {
-        const center = regionSummary?.center
-          ? L.latLng(regionSummary.center.lat, regionSummary.center.lng)
-          : undefined;
-        selectedRegionId = regionId;
-        closeRegionTooltips();
-        setSelectedRecord(null);
-        setSelectedRegion(
-          regionSummary ?? {
-            count: 0,
-            id: regionId,
-            iNaturalistRecordCount: 0,
-            name: regionName,
-            photoRecordCount: 0,
-          },
-        );
-        applyRegionStyles();
-        focusRegionBounds(map, bounds, center);
-        if (!regionSummary || regionSummary.count === 0) {
-          regionRecordsRef.current = [];
-          syncRecordLayersRef.current?.();
-          return;
-        }
-        void loadRegionRecords(regionId);
-      };
-
-      const applyRegionStyles = () => {
-        rangeLayer.eachLayer((layer) => {
-          if (!(layer instanceof L.Path)) return;
-          const feature = (
-            layer as L.Path & {
-              feature?: HalyomorphaRangeMapProps["officialRange"]["features"][number];
-            }
-          ).feature;
-          const regionId = feature?.properties.id;
-          layer.setStyle(
-            regionStyle({
-              compact: isCompactViewport,
-              isOfficialRange: feature?.properties.isOfficialRange === true,
-              muted: Boolean(
-                selectedRegionId && regionId && selectedRegionId !== regionId,
-              ),
-              selected: selectedRegionId === regionId,
-            }),
-          );
-        });
-      };
-
-      const selectRegionFromEvent = (event: Event) => {
-        const regionId = (event as CustomEvent<{ regionId?: RegionPathId }>)
-          .detail?.regionId;
-        if (!regionId) return;
-
-        let matched = false;
-        rangeLayer.eachLayer((layer) => {
-          if (matched || !(layer instanceof L.Path)) return;
-          const feature = (
-            layer as L.Path & {
-              feature?: HalyomorphaRangeMapProps["officialRange"]["features"][number];
-            }
-          ).feature;
-          if (feature?.properties.id !== regionId) return;
-
-          const bounds = getLayerBounds(layer);
-          if (!bounds) return;
-
-          matched = true;
-          selectRegion(
-            regionId,
-            bounds,
-            summaryByRegion.get(regionId),
-            namesByRegion.get(regionId) ?? feature.properties.shapeName,
-          );
-        });
-      };
-
-      const closeRegionTooltips = () => {
-        rangeLayer.eachLayer((layer) => {
-          if (layer instanceof L.Path) layer.closeTooltip();
-        });
-      };
-
-      const loadRegionRecords = async (regionId: RegionPathId) => {
-        const cached = regionCacheRef.current.get(regionId);
-        if (cached) {
-          regionRecordsRef.current = cached.records;
-          setSelectedRegion(cached.region);
-          setRegionLoading(false);
-          syncRecordLayersRef.current?.();
-          return;
-        }
-
-        const requestId = requestIdRef.current + 1;
-        requestIdRef.current = requestId;
-        regionRecordsRef.current = [];
-        setRegionLoading(true);
-        syncRecordLayersRef.current?.();
-
-        try {
-          const response = await fetch(
-            `/api/species/halyomorpha-halys/occurrences?region=${regionId}&locale=${locale}`,
-          );
-          if (!response.ok) throw new Error("Occurrence request failed");
-          const payload = (await response.json()) as RegionOccurrenceResponse;
-          if (disposed || requestIdRef.current !== requestId) return;
-          regionCacheRef.current.set(regionId, payload);
-          regionRecordsRef.current = payload.records;
-          setSelectedRegion(payload.region);
-        } catch {
-          if (!disposed) regionRecordsRef.current = [];
-        } finally {
-          if (!disposed && requestIdRef.current === requestId) {
-            setRegionLoading(false);
-            syncRecordLayersRef.current?.();
-          }
-        }
-      };
-
-      syncRecordLayersRef.current = syncRecordLayers;
-      window.addEventListener(
-        HALYOMORPHA_REGION_SELECT_EVENT,
-        selectRegionFromEvent,
-      );
-      map.on("zoomend", syncRecordLayers);
-      syncRecordLayers();
-
-      const resizeFrame = window.requestAnimationFrame(() => {
-        map.invalidateSize();
-        rangeLayer.bringToBack();
-      });
-
-      return () => {
-        disposed = true;
-        window.cancelAnimationFrame(resizeFrame);
-        window.removeEventListener(
-          HALYOMORPHA_REGION_SELECT_EVENT,
-          selectRegionFromEvent,
-        );
-        map.off("zoomend", syncRecordLayers);
-        syncRecordLayersRef.current = null;
-        resetMapRef.current = null;
-        markerElements.clear();
-        activeRecordMarkers.forEach((marker) => marker.remove());
-        countMarkers.forEach((marker) => marker.remove());
-        rangeLayer.remove();
-        resetControl.remove();
-        map.remove();
-      };
-    } catch {
-      window.setTimeout(() => setMapError(true), 0);
-    }
-  }, [
-    copy,
-    locale,
-    occurrenceSummary.recordsByRegion,
-    officialRange,
-    regionNames,
-  ]);
+export function HalyomorphaRangeMapClient(props: HalyomorphaRangeMapProps) {
+  const { copy } = props;
+  const {
+    closeSelectedRecord,
+    containerRef,
+    mapError,
+    regionLoading,
+    resetMap,
+    selectedRecord,
+    selectedRegion,
+  } = useHalyomorphaRangeMap(props);
 
   return (
     <>
@@ -492,14 +73,14 @@ export function HalyomorphaRangeMapClient({
       {selectedRecord ? (
         <SelectedRecordCard
           copy={copy}
-          onClose={() => setSelectedRecord(null)}
+          onClose={closeSelectedRecord}
           record={selectedRecord}
         />
       ) : selectedRegion ? (
         <SelectedRegionCard
           copy={copy}
           loading={regionLoading}
-          onReset={() => resetMapRef.current?.()}
+          onReset={resetMap}
           region={selectedRegion}
         />
       ) : null}
@@ -992,4 +573,453 @@ function tooltipHtml({
   ]
     .filter(Boolean)
     .join("");
+}
+
+function useHalyomorphaRangeMap({
+  copy,
+  locale,
+  occurrenceSummary,
+  officialRange,
+  regionNames,
+}: HalyomorphaRangeMapProps) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const regionCacheRef = useRef(
+    new Map<RegionPathId, HalyomorphaRegionOccurrenceResponse>(),
+  );
+  const regionRecordsRef = useRef<HalyomorphaFieldRecord[]>([]);
+  const requestIdRef = useRef(0);
+  const markerElementsRef = useRef(new Map<string, HTMLButtonElement>());
+  const syncRecordLayersRef = useRef<(() => void) | null>(null);
+  const resetMapRef = useRef<(() => void) | null>(null);
+  const [mapError, setMapError] = useState(false);
+  const [loadingRegionId, setLoadingRegionId] = useState<null | RegionPathId>(
+    null,
+  );
+  const [selectedRecord, setSelectedRecord] =
+    useState<HalyomorphaFieldRecord | null>(null);
+  const [selectedRegion, setSelectedRegion] =
+    useState<HalyomorphaRegionSummary | null>(null);
+
+  useEffect(() => {
+    markerElementsRef.current.forEach((element, id) => {
+      const selected = id === selectedRecord?.id;
+      element.dataset.selected = selected ? "true" : "false";
+      element.setAttribute("aria-pressed", selected ? "true" : "false");
+    });
+  }, [selectedRecord?.id]);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    let map: LeafletMap;
+    let rangeLayer: LeafletGeoJson;
+    const activeRecordMarkers: Marker[] = [];
+    const countMarkers: Marker[] = [];
+    let resetControl: Control;
+    let disposed = false;
+    let selectedRegionId: null | RegionPathId = null;
+    const markerElements = markerElementsRef.current;
+    const summaryByRegion = new Map(
+      occurrenceSummary.recordsByRegion.map((region) => [region.id, region]),
+    );
+    const namesByRegion = new Map(
+      regionNames.map((region) => [region.id, region.name]),
+    );
+    const isCompactViewport = window.innerWidth < 640;
+
+    try {
+      map = L.map(container, {
+        attributionControl: false,
+        maxBounds: GEORGIA_BOUNDS,
+        maxBoundsViscosity: 0.72,
+        scrollWheelZoom: false,
+        zoomControl: false,
+      });
+
+      L.control
+        .attribution({ position: "bottomright", prefix: false })
+        .addTo(map);
+      L.control.zoom({ position: "topright" }).addTo(map);
+      const resetToGeorgia = () => {
+        requestIdRef.current += 1;
+        regionRecordsRef.current = [];
+        selectedRegionId = null;
+        setLoadingRegionId(null);
+        setSelectedRecord(null);
+        setSelectedRegion(null);
+        fitInitialBounds(map);
+        applyRegionStyles();
+        syncRecordLayersRef.current?.();
+      };
+      resetMapRef.current = resetToGeorgia;
+      resetControl = createResetControl(
+        copy.resetMapLabel,
+        resetToGeorgia,
+      ).addTo(map);
+      L.tileLayer(LEAFLET_TILE_URL, {
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        detectRetina: true,
+        maxZoom: 19,
+        minZoom: 4,
+      }).addTo(map);
+
+      fitInitialBounds(map);
+
+      rangeLayer = L.geoJSON(officialRange, {
+        onEachFeature: (feature, layer) => {
+          const isOfficialRange = feature.properties?.isOfficialRange === true;
+          if (!(layer instanceof L.Path)) return;
+          const regionId = feature.properties.id;
+          const bounds = getLayerBounds(layer);
+          const regionSummary = summaryByRegion.get(regionId);
+          const regionName =
+            namesByRegion.get(regionId) ?? feature.properties.shapeName;
+          const regionCount = regionSummary?.count ?? 0;
+          const selectCurrentRegion = () => {
+            if (bounds) {
+              layer.closeTooltip();
+              selectRegion(regionId, bounds, regionSummary, regionName);
+            }
+          };
+
+          if (!isCompactViewport) {
+            layer.bindTooltip(
+              tooltipHtml({
+                action: copy.regionSelectActionLabel,
+                count: regionCount,
+                name: regionName,
+                noRecords: copy.noRegionRecordsLabel,
+                recordLabel: copy.regionRecordsLabel,
+                sourceConfirmed: isOfficialRange
+                  ? copy.officialRegionLabel
+                  : undefined,
+              }),
+              {
+                className: "halyomorpha-region-tooltip",
+                direction: "top",
+                opacity: 1,
+                sticky: true,
+              },
+            );
+          }
+
+          layer.on({
+            click: selectCurrentRegion,
+            mouseout: () => {
+              layer.setStyle(
+                regionStyle({
+                  compact: isCompactViewport,
+                  hovered: false,
+                  isOfficialRange,
+                  muted: Boolean(
+                    selectedRegionId && selectedRegionId !== regionId,
+                  ),
+                  selected: selectedRegionId === regionId,
+                }),
+              );
+            },
+            mouseover: () => {
+              layer.setStyle(
+                regionStyle({
+                  compact: isCompactViewport,
+                  hovered: true,
+                  isOfficialRange,
+                  muted: Boolean(
+                    selectedRegionId && selectedRegionId !== regionId,
+                  ),
+                  selected: selectedRegionId === regionId,
+                }),
+              );
+            },
+          });
+          layer.once("add", () => {
+            const element = layer.getElement();
+            if (!element) return;
+            element.setAttribute("tabindex", "0");
+            element.setAttribute("role", "button");
+            element.setAttribute(
+              "aria-label",
+              `${regionName} — ${
+                regionCount > 0
+                  ? `${regionCount} ${copy.regionRecordsLabel}`
+                  : copy.noRegionRecordsLabel
+              }`,
+            );
+            element.addEventListener("keydown", (event) => {
+              const keyboardEvent = event as KeyboardEvent;
+              if (keyboardEvent.key !== "Enter" && keyboardEvent.key !== " ") {
+                return;
+              }
+              keyboardEvent.preventDefault();
+              selectCurrentRegion();
+            });
+            element.addEventListener("focus", () => {
+              if (!isCompactViewport) layer.openTooltip();
+              layer.setStyle(
+                regionStyle({
+                  compact: isCompactViewport,
+                  hovered: true,
+                  isOfficialRange,
+                  muted: Boolean(
+                    selectedRegionId && selectedRegionId !== regionId,
+                  ),
+                  selected: selectedRegionId === regionId,
+                }),
+              );
+            });
+            element.addEventListener("blur", () => {
+              if (!isCompactViewport) layer.closeTooltip();
+              layer.setStyle(
+                regionStyle({
+                  compact: isCompactViewport,
+                  isOfficialRange,
+                  muted: Boolean(
+                    selectedRegionId && selectedRegionId !== regionId,
+                  ),
+                  selected: selectedRegionId === regionId,
+                }),
+              );
+            });
+          });
+
+          if (bounds && regionSummary && regionSummary.count > 0) {
+            countMarkers.push(
+              createCountMarker({
+                count: regionSummary.count,
+                label: `${regionName} — ${regionSummary.count} ${copy.regionRecordsLabel}`,
+                onSelect: selectCurrentRegion,
+                position: bounds.getCenter(),
+                regionName,
+              }),
+            );
+          }
+        },
+        style: (feature) =>
+          regionStyle({
+            compact: isCompactViewport,
+            isOfficialRange: feature?.properties?.isOfficialRange === true,
+          }),
+      }).addTo(map);
+
+      const syncRecordLayers = () => {
+        const zoom = map.getZoom();
+        const fieldRecords = regionRecordsRef.current;
+        activeRecordMarkers.forEach((marker) => marker.remove());
+        activeRecordMarkers.length = 0;
+        markerElements.clear();
+
+        if (fieldRecords.length === 0) {
+          setSelectedRecord(null);
+          countMarkers.forEach((marker) => {
+            if (selectedRegionId) {
+              marker.remove();
+            } else {
+              if (!map.hasLayer(marker)) marker.addTo(map);
+            }
+          });
+          return;
+        }
+
+        countMarkers.forEach((marker) => marker.remove());
+
+        if (zoom >= RECORD_PIN_ZOOM) {
+          activeRecordMarkers.push(
+            ...createRecordMarkers(
+              fieldRecords,
+              map,
+              markerElements,
+              setSelectedRecord,
+            ),
+          );
+        } else {
+          setSelectedRecord(null);
+          activeRecordMarkers.push(
+            ...clusterFieldRecords(fieldRecords, map, zoom).map((cluster) =>
+              createRecordClusterMarker(cluster, copy.fieldRecordLabel, map),
+            ),
+          );
+        }
+
+        activeRecordMarkers.forEach((marker) => marker.addTo(map));
+      };
+
+      const selectRegion = (
+        regionId: RegionPathId,
+        bounds: L.LatLngBounds,
+        regionSummary: HalyomorphaRegionSummary | undefined,
+        regionName: string,
+      ) => {
+        const center = regionSummary?.center
+          ? L.latLng(regionSummary.center.lat, regionSummary.center.lng)
+          : undefined;
+        selectedRegionId = regionId;
+        closeRegionTooltips();
+        setSelectedRecord(null);
+        setSelectedRegion(
+          regionSummary ?? {
+            count: 0,
+            id: regionId,
+            iNaturalistRecordCount: 0,
+            name: regionName,
+            photoRecordCount: 0,
+          },
+        );
+        applyRegionStyles();
+        focusRegionBounds(map, bounds, center);
+        if (!regionSummary || regionSummary.count === 0) {
+          requestIdRef.current += 1;
+          regionRecordsRef.current = [];
+          setLoadingRegionId(null);
+          syncRecordLayersRef.current?.();
+          return;
+        }
+        void loadRegionRecords(regionId);
+      };
+
+      const applyRegionStyles = () => {
+        rangeLayer.eachLayer((layer) => {
+          if (!(layer instanceof L.Path)) return;
+          const feature = (
+            layer as L.Path & {
+              feature?: HalyomorphaRangeMapProps["officialRange"]["features"][number];
+            }
+          ).feature;
+          const regionId = feature?.properties.id;
+          layer.setStyle(
+            regionStyle({
+              compact: isCompactViewport,
+              isOfficialRange: feature?.properties.isOfficialRange === true,
+              muted: Boolean(
+                selectedRegionId && regionId && selectedRegionId !== regionId,
+              ),
+              selected: selectedRegionId === regionId,
+            }),
+          );
+        });
+      };
+
+      const selectRegionFromEvent = (event: Event) => {
+        const regionId = (event as CustomEvent<{ regionId?: RegionPathId }>)
+          .detail?.regionId;
+        if (!regionId) return;
+
+        let matched = false;
+        rangeLayer.eachLayer((layer) => {
+          if (matched || !(layer instanceof L.Path)) return;
+          const feature = (
+            layer as L.Path & {
+              feature?: HalyomorphaRangeMapProps["officialRange"]["features"][number];
+            }
+          ).feature;
+          if (feature?.properties.id !== regionId) return;
+
+          const bounds = getLayerBounds(layer);
+          if (!bounds) return;
+
+          matched = true;
+          selectRegion(
+            regionId,
+            bounds,
+            summaryByRegion.get(regionId),
+            namesByRegion.get(regionId) ?? feature.properties.shapeName,
+          );
+        });
+      };
+
+      const closeRegionTooltips = () => {
+        rangeLayer.eachLayer((layer) => {
+          if (layer instanceof L.Path) layer.closeTooltip();
+        });
+      };
+
+      const loadRegionRecords = async (regionId: RegionPathId) => {
+        const cached = regionCacheRef.current.get(regionId);
+        if (cached) {
+          regionRecordsRef.current = cached.records;
+          setSelectedRegion(cached.region);
+          setLoadingRegionId(null);
+          syncRecordLayersRef.current?.();
+          return;
+        }
+
+        const requestId = requestIdRef.current + 1;
+        requestIdRef.current = requestId;
+        regionRecordsRef.current = [];
+        setLoadingRegionId(regionId);
+        syncRecordLayersRef.current?.();
+
+        try {
+          const payload = await loadHalyomorphaRegionOccurrences(
+            regionId,
+            locale,
+          );
+          if (disposed || requestIdRef.current !== requestId) return;
+          regionCacheRef.current.set(regionId, payload);
+          regionRecordsRef.current = payload.records;
+          setSelectedRegion(payload.region);
+        } catch {
+          if (!disposed) regionRecordsRef.current = [];
+        } finally {
+          if (!disposed && requestIdRef.current === requestId) {
+            setLoadingRegionId(null);
+            syncRecordLayersRef.current?.();
+          }
+        }
+      };
+
+      syncRecordLayersRef.current = syncRecordLayers;
+      window.addEventListener(
+        HALYOMORPHA_REGION_SELECT_EVENT,
+        selectRegionFromEvent,
+      );
+      map.on("zoomend", syncRecordLayers);
+      syncRecordLayers();
+
+      const resizeFrame = window.requestAnimationFrame(() => {
+        map.invalidateSize();
+        rangeLayer.bringToBack();
+      });
+
+      return () => {
+        disposed = true;
+        window.cancelAnimationFrame(resizeFrame);
+        window.removeEventListener(
+          HALYOMORPHA_REGION_SELECT_EVENT,
+          selectRegionFromEvent,
+        );
+        map.off("zoomend", syncRecordLayers);
+        syncRecordLayersRef.current = null;
+        resetMapRef.current = null;
+        markerElements.clear();
+        activeRecordMarkers.forEach((marker) => marker.remove());
+        countMarkers.forEach((marker) => marker.remove());
+        rangeLayer.remove();
+        resetControl.remove();
+        map.remove();
+      };
+    } catch {
+      window.setTimeout(() => setMapError(true), 0);
+    }
+  }, [
+    copy,
+    locale,
+    occurrenceSummary.recordsByRegion,
+    officialRange,
+    regionNames,
+  ]);
+
+  const closeSelectedRecord = useCallback(() => setSelectedRecord(null), []);
+  const resetMap = useCallback(() => resetMapRef.current?.(), []);
+
+  return {
+    closeSelectedRecord,
+    containerRef,
+    mapError,
+    regionLoading: loadingRegionId !== null,
+    resetMap,
+    selectedRecord,
+    selectedRegion,
+  };
 }

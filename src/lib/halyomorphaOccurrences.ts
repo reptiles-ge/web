@@ -66,7 +66,7 @@ export function getHalyomorphaFieldRecords({
     ...getFieldPhotoRecords(gallery, locale, speciesName),
     ...getManualFieldRecords(fieldRecords, locale, speciesName),
   ]) {
-    const key = record.url ? sourceKey(record.url) : record.id;
+    const key = occurrenceKey(record);
     const existing = records.get(key);
     records.set(key, existing ? mergeRecords(existing, record) : record);
   }
@@ -242,6 +242,11 @@ function getRecordCenter(records: HalyomorphaFieldRecord[]) {
   };
 }
 
+function iNaturalistObservationId(value?: string) {
+  const match = value?.match(/(?:observations\/|observation\s*#)(\d+)/i);
+  return match?.[1];
+}
+
 function isINaturalistRecord(record: HalyomorphaFieldRecord) {
   return (
     record.source === "iNaturalist" || record.url?.includes("inaturalist.org")
@@ -287,6 +292,15 @@ function normalizeLocality(
   if (locale === "ka" && /[А-Яа-яЁё]/.test(stripped)) return fallback;
   if (/^[A-Z0-9]{4,}\+[A-Z0-9]{2,}$/i.test(stripped)) return fallback;
   return stripped.split(",")[0]?.trim() || fallback;
+}
+
+function occurrenceKey(record: HalyomorphaFieldRecord) {
+  const iNaturalistId =
+    iNaturalistObservationId(record.url) ??
+    iNaturalistObservationId(record.note);
+  if (iNaturalistId) return `inaturalist:${iNaturalistId}`;
+  if (record.url) return `url:${sourceKey(record.url)}`;
+  return record.id;
 }
 
 function pointInFeature(lng: number, lat: number, rings: [number, number][][]) {
