@@ -217,6 +217,43 @@ const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
 const INTERACTIVE_RANGE_MAPS: Partial<
   Record<string, InteractiveRangeMapConfig>
 > = {
+  "euscorpius-mingrelicus": {
+    copy: {
+      en: {
+        ...HALYOMORPHA_RANGE_COPY.en,
+        intro:
+          "The Mingrelian scorpion map combines Reptiles.ge editorial photo records with public iNaturalist observations. Source-confirmed regions and individual field records are separate layers, and record counts reflect observation effort rather than population density.",
+        mapAria:
+          "Mingrelian scorpion distribution evidence and field records on a map of Georgia",
+        rangeTitle: "Where Mingrelian scorpion is recorded in Georgia",
+      },
+      ka: {
+        ...HALYOMORPHA_RANGE_COPY.ka,
+        intro:
+          "მეგრული მორიელის რუკა აერთიანებს Reptiles.ge-ის სარედაქციო ფოტოჩანაწერებსა და iNaturalist-ის საჯარო დაკვირვებებს. წყაროებით დადასტურებული რეგიონები და ინდივიდუალური საველე ჩანაწერები ცალკე ფენებია; ჩანაწერების რაოდენობა დაკვირვების ინტენსივობას ასახავს და პოპულაციის სიმჭიდროვედ არ უნდა განვიხილოთ.",
+        mapAria:
+          "მეგრული მორიელის გავრცელების მტკიცებულებები და საველე ჩანაწერები საქართველოს რუკაზე",
+        rangeTitle: "სად არის მეგრული მორიელი დაფიქსირებული საქართველოში",
+      },
+      ru: {
+        ...HALYOMORPHA_RANGE_COPY.ru,
+        intro:
+          "Карта мингрельского скорпиона объединяет редакционные фотозаписи Reptiles.ge и публичные наблюдения iNaturalist. Регионы, подтверждённые источниками, и отдельные полевые записи показаны разными слоями; количество записей отражает интенсивность наблюдений, а не плотность популяции.",
+        mapAria:
+          "Данные о распространении мингрельского скорпиона и полевые записи на карте Грузии",
+        rangeTitle: "Где мингрельский скорпион отмечен в Грузии",
+      },
+      tr: {
+        ...HALYOMORPHA_RANGE_COPY.tr,
+        intro:
+          "Karadeniz akrebi haritası Reptiles.ge editoryal fotoğraf kayıtlarını ve herkese açık iNaturalist gözlemlerini birleştirir. Kaynakla doğrulanmış bölgeler ile tekil arazi kayıtları ayrı katmanlardır; kayıt sayısı gözlem yoğunluğunu yansıtır, popülasyon yoğunluğu değildir.",
+        mapAria:
+          "Karadeniz akrebinin Gürcistan'daki yayılış kanıtları ve arazi kayıtları",
+        rangeTitle: "Karadeniz akrebi Gürcistan'da nerede kaydedildi?",
+      },
+    },
+    iNaturalistTaxonId: 1654809,
+  },
   "halyomorpha-halys": {
     copy: HALYOMORPHA_RANGE_COPY,
     iNaturalistTaxonId: 81923,
