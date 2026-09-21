@@ -34,6 +34,7 @@ const MAP_PAN_BOUNDS = [
   [39.35, 35.4],
   [45.1, 50.95],
 ] satisfies LatLngBoundsExpression;
+const REGION_QUERY_PARAM = "region";
 const LEAFLET_TILE_URL = "https://tile.openstreetmap.de/{z}/{x}/{y}.png";
 const LEAFLET_FALLBACK_TILE_URL =
   "https://tile.openstreetmap.org/{z}/{x}/{y}.png";
@@ -366,6 +367,10 @@ function getLayerBounds(layer: L.Path) {
   return null;
 }
 
+function getUrlRegionId() {
+  return new URLSearchParams(window.location.search).get(REGION_QUERY_PARAM);
+}
+
 function MapLegend({ copy }: { copy: HalyomorphaRangeMapProps["copy"] }) {
   return (
     <div className="pointer-events-none absolute bottom-3 left-3 z-900 hidden max-w-[calc(100%-2rem)] gap-1 rounded-xl bg-ink/58 px-2.5 py-2 text-[10px] leading-none font-medium text-ink-foreground/82 backdrop-blur-md sm:grid sm:text-[11px]">
@@ -610,6 +615,20 @@ function tooltipHtml({
     .join("");
 }
 
+function updateRegionUrl(regionId: null | RegionPathId) {
+  const url = new URL(window.location.href);
+  if (regionId) {
+    url.searchParams.set(REGION_QUERY_PARAM, regionId);
+  } else {
+    url.searchParams.delete(REGION_QUERY_PARAM);
+  }
+  window.history.replaceState(
+    window.history.state,
+    "",
+    `${url.pathname}${url.search}${url.hash}`,
+  );
+}
+
 function useHalyomorphaRangeMap({
   copy,
   locale,
@@ -682,6 +701,7 @@ function useHalyomorphaRangeMap({
         requestIdRef.current += 1;
         regionRecordsRef.current = [];
         selectedRegionId = null;
+        updateRegionUrl(null);
         setLoadingRegionId(null);
         setSelectedRecord(null);
         setSelectedRegion(null);
@@ -928,6 +948,7 @@ function useHalyomorphaRangeMap({
         regionName: string,
       ) => {
         selectedRegionId = regionId;
+        updateRegionUrl(regionId);
         closeRegionTooltips();
         setSelectedRecord(null);
         setSelectedRegion(
@@ -974,11 +995,7 @@ function useHalyomorphaRangeMap({
         });
       };
 
-      const selectRegionFromEvent = (event: Event) => {
-        const regionId = (event as CustomEvent<{ regionId?: RegionPathId }>)
-          .detail?.regionId;
-        if (!regionId) return;
-
+      const selectRegionById = (targetRegionId: string) => {
         let matched = false;
         rangeLayer.eachLayer((layer) => {
           if (matched || !(layer instanceof L.Path)) return;
@@ -987,11 +1004,12 @@ function useHalyomorphaRangeMap({
               feature?: HalyomorphaRangeMapProps["officialRange"]["features"][number];
             }
           ).feature;
-          if (feature?.properties.id !== regionId) return;
+          if (feature?.properties.id !== targetRegionId) return;
 
           const bounds = getLayerBounds(layer);
           if (!bounds) return;
 
+          const regionId = feature.properties.id;
           matched = true;
           selectRegion(
             regionId,
@@ -1000,6 +1018,12 @@ function useHalyomorphaRangeMap({
             namesByRegion.get(regionId) ?? feature.properties.shapeName,
           );
         });
+      };
+
+      const selectRegionFromEvent = (event: Event) => {
+        const regionId = (event as CustomEvent<{ regionId?: RegionPathId }>)
+          .detail?.regionId;
+        if (regionId) selectRegionById(regionId);
       };
 
       const closeRegionTooltips = () => {
@@ -1049,10 +1073,12 @@ function useHalyomorphaRangeMap({
       map.on("zoomend", syncMapZoomLayers);
       syncRegionCountMarkers();
       syncRecordLayers();
+      const initialRegionId = getUrlRegionId();
 
       const resizeFrame = window.requestAnimationFrame(() => {
         map.invalidateSize();
         rangeLayer.bringToBack();
+        if (initialRegionId) selectRegionById(initialRegionId);
       });
 
       return () => {
@@ -1069,6 +1095,7 @@ function useHalyomorphaRangeMap({
         closeActiveRegionTooltip();
         activeRecordMarkers.forEach((marker) => marker.remove());
         regionCountMarkers.forEach((marker) => marker.remove());
+        rangeLayer.eachLayer((layer) => layer.off());
         rangeLayer.remove();
         resetControl.remove();
         tileLayer.off("tileerror", handleTileError);
@@ -1076,7 +1103,8 @@ function useHalyomorphaRangeMap({
         map.remove();
       };
     } catch {
-      window.setTimeout(() => setMapError(true), 0);
+      const mapErrorTimer = window.setTimeout(() => setMapError(true), 0);
+      return () => window.clearTimeout(mapErrorTimer);
     }
   }, [
     copy,
