@@ -29,12 +29,10 @@ const GEORGIA_BOUNDS = [
   [40.95, 39.85],
   [43.65, 46.75],
 ] satisfies LatLngBoundsExpression;
-const LEAFLET_DARK_TILE_URL =
-  "https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png";
-const LEAFLET_LIGHT_TILE_URL =
-  "https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png";
+const LEAFLET_TILE_URL =
+  "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}";
 const LEAFLET_TILE_ATTRIBUTION =
-  '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>';
+  "&copy; Esri, Maxar, Earthstar Geographics, and the GIS User Community";
 const PIN_FOCUS_ZOOM = 16;
 const RECORD_CLUSTER_ZOOM = 9;
 const RECORD_PIN_ZOOM = 16;
@@ -234,12 +232,6 @@ function createResetControl(label: string, onReset: () => void) {
     },
     options: { position: "topright" },
   }))();
-}
-
-function currentTileUrl() {
-  return document.documentElement.classList.contains("dark")
-    ? LEAFLET_DARK_TILE_URL
-    : LEAFLET_LIGHT_TILE_URL;
 }
 
 function escapeHtml(value: string) {
@@ -623,19 +615,12 @@ function useHalyomorphaRangeMap({
         copy.resetMapLabel,
         resetToGeorgia,
       ).addTo(map);
-      const tileLayer = L.tileLayer(currentTileUrl(), {
+      const tileLayer = L.tileLayer(LEAFLET_TILE_URL, {
         attribution: LEAFLET_TILE_ATTRIBUTION,
         detectRetina: true,
         maxZoom: 20,
         minZoom: 4,
       }).addTo(map);
-      const themeObserver = new MutationObserver(() => {
-        tileLayer.setUrl(currentTileUrl());
-      });
-      themeObserver.observe(document.documentElement, {
-        attributeFilter: ["class"],
-        attributes: true,
-      });
 
       fitInitialBounds(map);
 
@@ -941,7 +926,6 @@ function useHalyomorphaRangeMap({
           selectRegionFromEvent,
         );
         map.off("zoomend", syncRecordLayers);
-        themeObserver.disconnect();
         syncRecordLayersRef.current = null;
         resetMapRef.current = null;
         markerElements.clear();
