@@ -369,6 +369,49 @@ input[type="search"]::-webkit-search-results-decoration {
   background: transparent;
 }
 
+.halyomorpha-region-count-shell {
+  border: 0;
+  background: transparent;
+}
+
+.halyomorpha-region-count-marker {
+  display: grid;
+  min-width: 2.05rem;
+  height: 1.55rem;
+  place-items: center;
+  border: 1px solid color-mix(in oklab, var(--primary) 72%, white 28%);
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--primary) 42%, var(--ink) 58%);
+  box-shadow:
+    0 0.55rem 1.2rem -0.65rem rgba(0, 0, 0, 0.9),
+    0 0 0 0.22rem color-mix(in oklab, var(--primary) 22%, transparent);
+  color: var(--ink-foreground);
+  cursor: pointer;
+  font:
+    900 0.72rem/1 var(--font-you),
+    var(--font-noto-sans),
+    sans-serif;
+  backdrop-filter: blur(10px) saturate(130%);
+  transition:
+    background 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.halyomorpha-region-count-marker:hover,
+.halyomorpha-region-count-marker:focus-visible {
+  transform: scale(1.08);
+  background: color-mix(in oklab, var(--primary) 55%, var(--ink) 45%);
+  box-shadow:
+    0 0.75rem 1.35rem -0.6rem rgba(0, 0, 0, 0.95),
+    0 0 0 0.3rem color-mix(in oklab, var(--primary) 26%, transparent);
+}
+
+.halyomorpha-region-count-marker:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 0.18rem;
+}
+
 .halyomorpha-count-marker {
   display: grid;
   width: 2rem;

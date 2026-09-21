@@ -207,6 +207,43 @@ function createRecordMarkers(
   });
 }
 
+function createRegionCountMarker({
+  count,
+  label,
+  lat,
+  lng,
+  onSelect,
+  recordLabel,
+}: {
+  count: number;
+  label: string;
+  lat: number;
+  lng: number;
+  onSelect: () => void;
+  recordLabel: string;
+}) {
+  const element = document.createElement("button");
+
+  element.type = "button";
+  element.className = "halyomorpha-region-count-marker";
+  element.textContent = count.toLocaleString();
+  element.setAttribute("aria-label", `${label} — ${count} ${recordLabel}`);
+  element.addEventListener("click", onSelect);
+  L.DomEvent.disableClickPropagation(element);
+
+  const marker = L.marker([lat, lng], {
+    icon: L.divIcon({
+      className: "halyomorpha-region-count-shell",
+      html: element,
+      iconAnchor: [18, 13],
+      iconSize: [36, 26],
+    }),
+    keyboard: false,
+  });
+  marker.on("click", onSelect);
+  return marker;
+}
+
 function createResetControl(label: string, onReset: () => void) {
   return new (L.Control.extend({
     onAdd: () => {
@@ -360,26 +397,50 @@ function regionStyle({
 }) {
   if (compact) {
     return {
-      color: selected ? "#e5f9e8" : isOfficialRange ? "#bfe8c8" : "#99cfa8",
+      color: selected ? "#effff1" : isOfficialRange ? "#c7f4cf" : "#a7d5b3",
       cursor: "pointer",
-      fillColor: "#a7dfb2",
-      fillOpacity: selected ? 0.3 : hovered ? 0.26 : muted ? 0.08 : 0.22,
-      opacity: muted ? 0.36 : selected || hovered ? 0.96 : 0.72,
-      weight: selected ? 2.25 : hovered ? 1.65 : isOfficialRange ? 1.2 : 0.85,
+      fillColor: selected ? "#74d789" : isOfficialRange ? "#8ee6a1" : "#8bb897",
+      fillOpacity: selected
+        ? 0.56
+        : hovered
+          ? 0.46
+          : muted
+            ? 0.12
+            : isOfficialRange
+              ? 0.36
+              : 0.28,
+      opacity: muted
+        ? 0.42
+        : selected || hovered
+          ? 1
+          : isOfficialRange
+            ? 0.9
+            : 0.82,
+      weight: selected ? 2.65 : hovered ? 1.95 : isOfficialRange ? 1.55 : 1.2,
     };
   }
 
   return {
-    color: selected
-      ? "#dff7e5"
-      : isOfficialRange
-        ? "#9ed4ad"
-        : "rgba(255,255,255,0.22)",
+    color: selected ? "#effff1" : isOfficialRange ? "#a9f0b8" : "#8eb99a",
     cursor: "pointer",
-    fillColor: "#c9d8cb",
-    fillOpacity: selected ? 0.14 : hovered ? 0.095 : muted ? 0.018 : 0.045,
-    opacity: muted ? 0.22 : selected || hovered ? 0.95 : 0.62,
-    weight: selected ? 2.2 : hovered ? 1.6 : isOfficialRange ? 1.15 : 0.65,
+    fillColor: selected ? "#66cf7f" : isOfficialRange ? "#75d28b" : "#d6e2d8",
+    fillOpacity: selected
+      ? 0.42
+      : hovered
+        ? 0.32
+        : muted
+          ? 0.045
+          : isOfficialRange
+            ? 0.22
+            : 0.16,
+    opacity: muted
+      ? 0.34
+      : selected || hovered
+        ? 1
+        : isOfficialRange
+          ? 0.92
+          : 0.86,
+    weight: selected ? 2.6 : hovered ? 1.9 : isOfficialRange ? 1.55 : 1.15,
   };
 }
 
@@ -487,11 +548,6 @@ function SelectedRegionCard({
         {region.count.toLocaleString()} {copy.regionRecordsLabel}
         {years ? ` · ${years}` : ""}
       </p>
-      <p className="mt-3 border-t border-white/10 pt-3 text-[12px] leading-relaxed text-ink-muted">
-        {region.photoRecordCount.toLocaleString()} {copy.photoRecordLabel} ·{" "}
-        {region.iNaturalistRecordCount.toLocaleString()}{" "}
-        {copy.iNaturalistRecordLabel}
-      </p>
       {loading ? (
         <p className="mt-2 text-[12px] leading-relaxed text-ink-muted">
           {copy.regionLoadingLabel}
@@ -573,6 +629,7 @@ function useHalyomorphaRangeMap({
     let map: LeafletMap;
     let rangeLayer: LeafletGeoJson;
     const activeRecordMarkers: Marker[] = [];
+    const regionCountMarkers: Marker[] = [];
     let resetControl: Control;
     let disposed = false;
     let selectedRegionId: null | RegionPathId = null;
@@ -607,6 +664,7 @@ function useHalyomorphaRangeMap({
         setSelectedRegion(null);
         fitInitialBounds(map);
         applyRegionStyles();
+        syncRegionCountMarkers();
         syncRecordLayersRef.current?.();
       };
       resetMapRef.current = resetToGeorgia;
@@ -639,6 +697,20 @@ function useHalyomorphaRangeMap({
               selectRegion(regionId, bounds, regionSummary, regionName);
             }
           };
+
+          if (regionCount > 0 && bounds) {
+            const center = bounds.getCenter();
+            regionCountMarkers.push(
+              createRegionCountMarker({
+                count: regionCount,
+                label: regionName,
+                lat: center.lat,
+                lng: center.lng,
+                onSelect: selectCurrentRegion,
+                recordLabel: copy.regionRecordsLabel,
+              }),
+            );
+          }
 
           if (!isCompactViewport) {
             layer.bindTooltip(
@@ -747,6 +819,18 @@ function useHalyomorphaRangeMap({
           }),
       }).addTo(map);
 
+      const syncRegionCountMarkers = () => {
+        const visible =
+          !selectedRegionId && map.getZoom() < RECORD_CLUSTER_ZOOM;
+        regionCountMarkers.forEach((marker) => {
+          if (visible) {
+            if (!map.hasLayer(marker)) marker.addTo(map);
+            return;
+          }
+          marker.remove();
+        });
+      };
+
       const syncRecordLayers = () => {
         const zoom = map.getZoom();
         const fieldRecords = regionRecordsRef.current;
@@ -779,6 +863,10 @@ function useHalyomorphaRangeMap({
 
         activeRecordMarkers.forEach((marker) => marker.addTo(map));
       };
+      const syncMapZoomLayers = () => {
+        syncRecordLayers();
+        syncRegionCountMarkers();
+      };
 
       const selectRegion = (
         regionId: RegionPathId,
@@ -802,6 +890,7 @@ function useHalyomorphaRangeMap({
           },
         );
         applyRegionStyles();
+        syncRegionCountMarkers();
         focusRegionBounds(map, bounds, center);
         if (!regionSummary || regionSummary.count === 0) {
           requestIdRef.current += 1;
@@ -909,7 +998,8 @@ function useHalyomorphaRangeMap({
         HALYOMORPHA_REGION_SELECT_EVENT,
         selectRegionFromEvent,
       );
-      map.on("zoomend", syncRecordLayers);
+      map.on("zoomend", syncMapZoomLayers);
+      syncRegionCountMarkers();
       syncRecordLayers();
 
       const resizeFrame = window.requestAnimationFrame(() => {
@@ -924,11 +1014,12 @@ function useHalyomorphaRangeMap({
           HALYOMORPHA_REGION_SELECT_EVENT,
           selectRegionFromEvent,
         );
-        map.off("zoomend", syncRecordLayers);
+        map.off("zoomend", syncMapZoomLayers);
         syncRecordLayersRef.current = null;
         resetMapRef.current = null;
         markerElements.clear();
         activeRecordMarkers.forEach((marker) => marker.remove());
+        regionCountMarkers.forEach((marker) => marker.remove());
         rangeLayer.remove();
         resetControl.remove();
         tileLayer.remove();
