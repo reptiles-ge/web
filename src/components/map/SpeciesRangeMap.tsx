@@ -46,6 +46,7 @@ type HalyomorphaRangeCopy = {
   photoRecordLabel: string;
   rangeTitle: string;
   regionLoadingLabel: string;
+  regionPageLabel: string;
   regionRecordsLabel: string;
   regionSelectActionLabel: string;
   regionsMetricLabel: string;
@@ -90,6 +91,7 @@ const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
     photoRecordLabel: "Photo record",
     rangeTitle: "Where brown marmorated stink bug occurs in Georgia",
     regionLoadingLabel: "Loading region records",
+    regionPageLabel: "Region page",
     regionRecordsLabel: "field records",
     regionSelectActionLabel: "View records",
     regionsMetricLabel: "regions",
@@ -125,6 +127,7 @@ const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
     photoRecordLabel: "ფოტოჩანაწერი",
     rangeTitle: "სად გვხვდება აზიური ფაროსანა საქართველოში",
     regionLoadingLabel: "რეგიონის ჩანაწერები იტვირთება",
+    regionPageLabel: "რეგიონის გვერდი",
     regionRecordsLabel: "საველე ჩანაწერი",
     regionSelectActionLabel: "ჩანაწერების ნახვა",
     regionsMetricLabel: "რეგიონი",
@@ -159,6 +162,7 @@ const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
     photoRecordLabel: "Фотозапись",
     rangeTitle: "Где встречается коричнево-мраморный клоп в Грузии",
     regionLoadingLabel: "Загружаются записи региона",
+    regionPageLabel: "Страница региона",
     regionRecordsLabel: "полевых записей",
     regionSelectActionLabel: "Показать записи",
     regionsMetricLabel: "регионов",
@@ -194,6 +198,7 @@ const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
     photoRecordLabel: "Fotoğraf kaydı",
     rangeTitle: "Kahverengi kokarca Gürcistan'da nerede görülür?",
     regionLoadingLabel: "Bölge kayıtları yükleniyor",
+    regionPageLabel: "Bölge sayfası",
     regionRecordsLabel: "arazi kaydı",
     regionSelectActionLabel: "Kayıtları göster",
     regionsMetricLabel: "bölge",
@@ -423,9 +428,17 @@ function HalyomorphaRangeSection({
                       key={region.id}
                     >
                       <th className="py-3 pr-4 text-left font-medium text-foreground">
-                        <HalyomorphaRegionSelectButton regionId={region.id}>
-                          {region.name}
-                        </HalyomorphaRegionSelectButton>
+                        <span className="flex flex-col items-start gap-1">
+                          <HalyomorphaRegionSelectButton regionId={region.id}>
+                            {region.name}
+                          </HalyomorphaRegionSelectButton>
+                          <Link
+                            className="text-[12px] font-normal text-muted-foreground underline decoration-border underline-offset-4 transition-colors hover:text-primary"
+                            href={regionHref(region.id)}
+                          >
+                            {copy.regionPageLabel}
+                          </Link>
+                        </span>
                       </th>
                       <td className="py-3 pl-4 text-right text-muted-foreground tabular-nums">
                         {region.count.toLocaleString(locale)}
