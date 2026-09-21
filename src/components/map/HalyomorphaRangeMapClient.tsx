@@ -713,11 +713,11 @@ function escapeHtml(value: string) {
 
 function fitInitialBounds(map: LeafletMap) {
   const bounds = L.latLngBounds(GEORGIA_BOUNDS);
-  const padding = L.point(window.innerWidth < 768 ? [36, 36] : [48, 48]);
-  const zoom = Math.max(4, map.getBoundsZoom(bounds, false, padding) - 2);
 
-  map.setView(bounds.getCenter(), zoom, {
+  map.fitBounds(bounds, {
     animate: !window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+    maxZoom: window.innerWidth < 768 ? 7 : 8,
+    padding: L.point(window.innerWidth < 768 ? [24, 24] : [48, 48]),
   });
 }
 
