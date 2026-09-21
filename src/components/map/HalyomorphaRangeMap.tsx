@@ -52,7 +52,7 @@ export function HalyomorphaRangeMap(props: HalyomorphaRangeMapProps) {
   return (
     <div
       aria-label={props.copy.mapAria}
-      className="relative h-[430px] overflow-hidden rounded-media border border-white/10 bg-ink shadow-[0_24px_80px_-48px_rgba(0,0,0,0.9)] md:h-[500px] lg:h-[540px]"
+      className="relative isolate z-0 h-[430px] overflow-hidden rounded-media border border-white/10 bg-ink shadow-[0_24px_80px_-48px_rgba(0,0,0,0.9)] md:h-[500px] lg:h-[540px]"
       data-halyomorpha-map=""
       ref={wrapperRef}
       role="region"
