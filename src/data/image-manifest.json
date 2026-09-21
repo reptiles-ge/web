@@ -29371,6 +29371,87 @@
       ],
       "updatedAt": "2026-09-21T06:39:50.482Z"
     },
+    "halyomorpha-halys-elen-1.jpg": {
+      "sourceHash": "950214634eb11b80ccb3b95622c7cc98d0b3f26ab758dd39ed8ef62032e3976d",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "halyomorpha-halys-elen-1.jpg",
+      "originalSize": 73505,
+      "width": 1024,
+      "height": 769,
+      "derivatives": [
+        {
+          "key": "optimized/halyomorpha-halys-elen-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 4511
+        },
+        {
+          "key": "optimized/halyomorpha-halys-elen-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 6444
+        },
+        {
+          "key": "optimized/halyomorpha-halys-elen-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 6433
+        },
+        {
+          "key": "optimized/halyomorpha-halys-elen-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 9118
+        },
+        {
+          "key": "optimized/halyomorpha-halys-elen-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 481,
+          "byteSize": 12387
+        },
+        {
+          "key": "optimized/halyomorpha-halys-elen-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 481,
+          "byteSize": 17814
+        },
+        {
+          "key": "optimized/halyomorpha-halys-elen-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 601,
+          "byteSize": 16642
+        },
+        {
+          "key": "optimized/halyomorpha-halys-elen-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 601,
+          "byteSize": 23342
+        },
+        {
+          "key": "optimized/halyomorpha-halys-elen-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 769,
+          "byteSize": 22885
+        },
+        {
+          "key": "optimized/halyomorpha-halys-elen-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 769,
+          "byteSize": 31808
+        }
+      ],
+      "updatedAt": "2026-09-21T06:42:44.471Z"
+    },
     "halyomorpha-halys-herbert-1.jpg": {
       "sourceHash": "e6cdc1b9aae7cd949976c0082c1cba63b77701d0d0f7dc04ba8a8ae3ed21de0f",
       "configFingerprint": "409788ee46c653d8",
