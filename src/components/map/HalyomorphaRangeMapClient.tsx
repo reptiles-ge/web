@@ -674,10 +674,10 @@ function escapeHtml(value: string) {
 }
 
 function fitInitialBounds(map: LeafletMap) {
-  focusBounds(map, L.latLngBounds(GEORGIA_BOUNDS), {
+  map.fitBounds(L.latLngBounds(GEORGIA_BOUNDS), {
+    animate: !window.matchMedia("(prefers-reduced-motion: reduce)").matches,
     maxZoom: 8,
-    minZoomStep: 0,
-    padding: window.innerWidth < 768 ? [22, 22] : [48, 48],
+    padding: L.point(window.innerWidth < 768 ? [36, 36] : [48, 48]),
   });
 }
 
