@@ -29,6 +29,7 @@ import { SPECIES_SECTION_IDS } from "@/lib/toc";
 
 type HalyomorphaRangeCopy = {
   closeLabel: string;
+  confirmedStatusLabel: string;
   fieldRecordLabel: string;
   footerDataLabel: string;
   footerINaturalistLabel: string;
@@ -46,6 +47,7 @@ type HalyomorphaRangeCopy = {
   officialRegionLabel: string;
   photoRecordLabel: string;
   rangeTitle: string;
+  recordedOnlyStatusLabel: string;
   regionLoadingLabel: string;
   regionPageLabel: (regionName: string) => string;
   regionRecordsLabel: string;
@@ -55,6 +57,7 @@ type HalyomorphaRangeCopy = {
   resetMapLabel: string;
   resetToGeorgiaLabel: string;
   sourceAction: string;
+  statusColumnLabel: string;
 };
 
 type InteractiveRangeMapConfig = {
@@ -73,6 +76,7 @@ type SpeciesRangeMapProps = {
 const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
   en: {
     closeLabel: "Close field record",
+    confirmedStatusLabel: "Distribution confirmed",
     fieldRecordLabel: "field record",
     footerDataLabel: "Data",
     footerINaturalistLabel: "iNaturalist",
@@ -93,6 +97,7 @@ const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
     officialRegionLabel: "Source-confirmed region",
     photoRecordLabel: "Photo record",
     rangeTitle: "Where brown marmorated stink bug occurs in Georgia",
+    recordedOnlyStatusLabel: "Recorded only",
     regionLoadingLabel: "Loading region records",
     regionPageLabel: (regionName) => `${regionName} region page`,
     regionRecordsLabel: "field records",
@@ -102,9 +107,11 @@ const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
     resetMapLabel: "Reset map view",
     resetToGeorgiaLabel: "All Georgia",
     sourceAction: "Open source",
+    statusColumnLabel: "Status",
   },
   ka: {
     closeLabel: "საველე ჩანაწერის დახურვა",
+    confirmedStatusLabel: "გავრცელება დადასტურებულია",
     fieldRecordLabel: "საველე ჩანაწერი",
     footerDataLabel: "მონაცემები",
     footerINaturalistLabel: "iNaturalist",
@@ -125,6 +132,7 @@ const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
     officialRegionLabel: "წყაროებით დადასტურებული რეგიონი",
     photoRecordLabel: "ფოტოჩანაწერი",
     rangeTitle: "სად გვხვდება აზიური ფაროსანა საქართველოში",
+    recordedOnlyStatusLabel: "მხოლოდ დაფიქსირებულია",
     regionLoadingLabel: "რეგიონის ჩანაწერები იტვირთება",
     regionPageLabel: (regionName) => `${regionName} — რეგიონის გვერდი`,
     regionRecordsLabel: "საველე ჩანაწერი",
@@ -134,9 +142,11 @@ const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
     resetMapLabel: "რუკის საწყის ხედზე დაბრუნება",
     resetToGeorgiaLabel: "მთელი საქართველო",
     sourceAction: "წყაროს გახსნა",
+    statusColumnLabel: "სტატუსი",
   },
   ru: {
     closeLabel: "Закрыть полевую запись",
+    confirmedStatusLabel: "Распространение подтверждено",
     fieldRecordLabel: "полевая запись",
     footerDataLabel: "Данные",
     footerINaturalistLabel: "iNaturalist",
@@ -156,6 +166,7 @@ const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
     officialRegionLabel: "Регион, подтверждённый источниками",
     photoRecordLabel: "Фотозапись",
     rangeTitle: "Где встречается коричнево-мраморный клоп в Грузии",
+    recordedOnlyStatusLabel: "Только зафиксировано",
     regionLoadingLabel: "Загружаются записи региона",
     regionPageLabel: (regionName) => `Страница региона: ${regionName}`,
     regionRecordsLabel: "полевых записей",
@@ -165,9 +176,11 @@ const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
     resetMapLabel: "Вернуть начальный вид карты",
     resetToGeorgiaLabel: "Вся Грузия",
     sourceAction: "Открыть источник",
+    statusColumnLabel: "Статус",
   },
   tr: {
     closeLabel: "Arazi kaydını kapat",
+    confirmedStatusLabel: "Yayılış doğrulandı",
     fieldRecordLabel: "arazi kaydı",
     footerDataLabel: "Veri",
     footerINaturalistLabel: "iNaturalist",
@@ -188,6 +201,7 @@ const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
     officialRegionLabel: "Kaynakla doğrulanmış bölge",
     photoRecordLabel: "Fotoğraf kaydı",
     rangeTitle: "Kahverengi kokarca Gürcistan'da nerede görülür?",
+    recordedOnlyStatusLabel: "Yalnızca kaydedildi",
     regionLoadingLabel: "Bölge kayıtları yükleniyor",
     regionPageLabel: (regionName) => `${regionName} bölge sayfası`,
     regionRecordsLabel: "arazi kaydı",
@@ -197,6 +211,7 @@ const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
     resetMapLabel: "Haritayı başlangıç görünümüne döndür",
     resetToGeorgiaLabel: "Tüm Gürcistan",
     sourceAction: "Kaynağı aç",
+    statusColumnLabel: "Durum",
   },
 };
 
@@ -276,7 +291,6 @@ const INTERACTIVE_RANGE_MAPS: Partial<
       },
     },
     iNaturalistTaxonId: 53905,
-    restrictRecordsToRange: true,
   },
   "mesobuthus-eupeus": {
     copy: {
@@ -449,6 +463,7 @@ function HalyomorphaRangeSection({
 }) {
   const mapCopy: HalyomorphaRangeMapCopy = {
     closeLabel: copy.closeLabel,
+    confirmedStatusLabel: copy.confirmedStatusLabel,
     fieldRecordLabel: copy.fieldRecordLabel,
     galleryAction: copy.galleryAction,
     iNaturalistRecordLabel: copy.iNaturalistRecordLabel,
@@ -460,12 +475,14 @@ function HalyomorphaRangeSection({
     noRegionRecordsLabel: copy.noRegionRecordsLabel,
     officialRegionLabel: copy.officialRegionLabel,
     photoRecordLabel: copy.photoRecordLabel,
+    recordedOnlyStatusLabel: copy.recordedOnlyStatusLabel,
     regionLoadingLabel: copy.regionLoadingLabel,
     regionRecordsLabel: copy.regionRecordsLabel,
     regionSelectActionLabel: copy.regionSelectActionLabel,
     resetMapLabel: copy.resetMapLabel,
     resetToGeorgiaLabel: copy.resetToGeorgiaLabel,
     sourceAction: copy.sourceAction,
+    statusColumnLabel: copy.statusColumnLabel,
   };
   const metricLine = [
     `${occurrenceSummary.totalRecords.toLocaleString(locale)} ${copy.regionRecordsLabel}`,
@@ -540,13 +557,26 @@ function HalyomorphaRangeSection({
             </h3>
             <div className="mt-4 overflow-hidden border-y border-border/80">
               <table className="w-full text-[14px]">
+                <thead className="border-b border-border/60 text-[11px] tracking-[0.12em] text-muted-foreground uppercase">
+                  <tr>
+                    <th className="py-2.5 pr-3 text-left font-semibold">
+                      {copy.regionsMetricLabel}
+                    </th>
+                    <th className="w-19 px-3 py-2.5 text-right font-semibold">
+                      {copy.regionRecordsLabel}
+                    </th>
+                    <th className="py-2.5 pl-3 text-right font-semibold">
+                      {copy.statusColumnLabel}
+                    </th>
+                  </tr>
+                </thead>
                 <tbody>
                   {occurrenceSummary.recordsByRegion.map((region) => (
                     <tr
                       className="border-b border-border/60 last:border-0"
                       key={region.id}
                     >
-                      <th className="py-3 pr-4 text-left font-medium text-foreground">
+                      <th className="py-3 pr-3 text-left font-medium text-foreground">
                         <span className="flex items-center gap-2">
                           <HalyomorphaRegionSelectButton regionId={region.id}>
                             {region.name}
@@ -564,8 +594,11 @@ function HalyomorphaRangeSection({
                           </Link>
                         </span>
                       </th>
-                      <td className="py-3 pl-4 text-right text-muted-foreground tabular-nums">
+                      <td className="p-3 text-right text-muted-foreground tabular-nums">
                         {region.count.toLocaleString(locale)}
+                      </td>
+                      <td className="py-3 pl-3 text-right">
+                        <RegionStatusBadge copy={copy} status={region.status} />
                       </td>
                     </tr>
                   ))}
@@ -593,4 +626,36 @@ function officialRangeForRegions(
       },
     })),
   };
+}
+
+function RegionStatusBadge({
+  copy,
+  status,
+}: {
+  copy: HalyomorphaRangeCopy;
+  status: HalyomorphaOccurrenceSummary["recordsByRegion"][number]["status"];
+}) {
+  const confirmed = status === "confirmed";
+
+  return (
+    <span
+      className={[
+        "inline-flex max-w-[9.75rem] items-center justify-center rounded-full px-2.5 py-1 text-center text-[11px] leading-tight font-semibold sm:max-w-none",
+        confirmed
+          ? "bg-primary/10 text-primary"
+          : "bg-muted/60 text-muted-foreground",
+      ].join(" ")}
+    >
+      {regionStatusLabel(status, copy)}
+    </span>
+  );
+}
+
+function regionStatusLabel(
+  status: HalyomorphaOccurrenceSummary["recordsByRegion"][number]["status"],
+  copy: HalyomorphaRangeCopy,
+) {
+  return status === "confirmed"
+    ? copy.confirmedStatusLabel
+    : copy.recordedOnlyStatusLabel;
 }

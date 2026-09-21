@@ -8,6 +8,7 @@ import {
   getHalyomorphaFieldRecords,
   getHalyomorphaOccurrenceSummary,
   getHalyomorphaRegionRecords,
+  occurrenceStatusForCount,
 } from "@/lib/halyomorphaOccurrences";
 
 export const runtime = "nodejs";
@@ -56,6 +57,7 @@ export async function GET(
           iNaturalistRecordCount: 0,
           name: validRegionId,
           photoRecordCount: 0,
+          status: occurrenceStatusForCount(0),
         } satisfies (typeof summary.recordsByRegion)[number]),
     },
     {
