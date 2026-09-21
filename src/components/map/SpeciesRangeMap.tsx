@@ -357,7 +357,7 @@ function HalyomorphaRangeSection({
         <div>
           <AnchoredHeading
             anchorLabel={anchorLabel}
-            className="text-balance-tight mt-5 font-display text-display-title font-bold text-foreground"
+            className="mt-5 font-display text-display-title font-bold text-foreground"
             id={SPECIES_SECTION_IDS.range}
             slugSource={copy.rangeTitle}
           >
