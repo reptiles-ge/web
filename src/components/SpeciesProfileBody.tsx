@@ -546,6 +546,7 @@ export async function SpeciesProfileBody({
       ) : null}
 
       <SpeciesRangeMap
+        fieldRecords={species.fieldRecords}
         gallery={gallery}
         speciesId={species.id}
         speciesName={species.commonName}

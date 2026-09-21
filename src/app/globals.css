@@ -364,6 +364,47 @@ input[type="search"]::-webkit-search-results-decoration {
   background: transparent;
 }
 
+.halyomorpha-count-shell {
+  border: 0;
+  background: transparent;
+}
+
+.halyomorpha-count-marker {
+  display: grid;
+  width: 3rem;
+  height: 3rem;
+  place-items: center;
+  border: 1px solid color-mix(in oklab, var(--primary) 70%, white 30%);
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--ink) 84%, transparent);
+  box-shadow:
+    0 0 0 0.35rem color-mix(in oklab, var(--primary) 18%, transparent),
+    0 0.9rem 1.8rem -0.7rem rgba(0, 0, 0, 0.9);
+  color: var(--ink-foreground);
+  cursor: pointer;
+  font:
+    800 0.9rem/1 var(--font-you),
+    var(--font-noto-sans),
+    sans-serif;
+  backdrop-filter: blur(12px) saturate(140%);
+  transition:
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.halyomorpha-count-marker:hover,
+.halyomorpha-count-marker:focus-visible {
+  transform: scale(1.08);
+  box-shadow:
+    0 0 0 0.45rem color-mix(in oklab, var(--primary) 28%, transparent),
+    0 1rem 2rem -0.65rem rgba(0, 0, 0, 0.95);
+}
+
+.halyomorpha-count-marker:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 0.2rem;
+}
+
 .halyomorpha-field-marker {
   position: relative;
   width: 2.75rem;
@@ -401,6 +442,17 @@ input[type="search"]::-webkit-search-results-decoration {
   box-shadow: 0 0 0 1px color-mix(in oklab, black 36%, transparent);
 }
 
+.halyomorpha-field-marker[data-kind="location"]::before {
+  border-style: dashed;
+  background: color-mix(in oklab, var(--primary) 9%, transparent);
+}
+
+.halyomorpha-field-marker[data-kind="location"]::after {
+  inset: 1.08rem;
+  border: 2px solid color-mix(in oklab, var(--primary) 72%, white 28%);
+  background: transparent;
+}
+
 .halyomorpha-field-marker:hover::before,
 .halyomorpha-field-marker:focus-visible::before,
 .halyomorpha-field-marker[data-selected="true"]::before {
@@ -417,6 +469,7 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .halyomorpha-count-marker,
   .halyomorpha-field-marker::before,
   .halyomorpha-field-marker::after {
     transition: none;

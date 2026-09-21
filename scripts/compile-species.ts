@@ -9,6 +9,7 @@ import {
   type Species,
   type SpeciesAudio,
   type SpeciesFaq,
+  type SpeciesFieldRecord,
   type SpeciesIdentification,
   type SpeciesSource,
   type SpeciesStat,
@@ -189,6 +190,7 @@ function toSpecies(
       : {}),
     ...(fm.audio?.src ? { audio: fm.audio as SpeciesAudio } : {}),
     ...(fm.faq ? { faq: fm.faq as SpeciesFaq[] } : {}),
+    fieldRecords: (fm.fieldRecords as SpeciesFieldRecord[] | undefined) ?? [],
     publishedAt: options.publishedAt,
     updatedAt: options.updatedAt,
     sources,
@@ -212,6 +214,9 @@ function toTranslation(fm: KaFrontmatter): SpeciesTranslation {
       ? { identification: fm.identification as SpeciesIdentification }
       : {}),
     ...(fm.faq ? { faq: fm.faq as SpeciesFaq[] } : {}),
+    ...(fm.fieldRecords
+      ? { fieldRecords: fm.fieldRecords as SpeciesFieldRecord[] }
+      : {}),
     ...(fm.gallery?.length ? { gallery: fm.gallery as GalleryImage[] } : {}),
     ...(fm.imageCredit ? { imageCredit: fm.imageCredit as PhotoCredit } : {}),
     ...(fm.mobileImageCredit

@@ -38,6 +38,26 @@ const galleryImageSchema = z
   })
   .passthrough();
 
+const fieldRecordEvidenceSchema = z.enum([
+  "literature",
+  "observation",
+  "specimen",
+]);
+
+const fieldRecordSchema = z
+  .object({
+    date: z.string().optional(),
+    evidence: fieldRecordEvidenceSchema.optional(),
+    lat: z.number().min(-90).max(90),
+    lng: z.number().min(-180).max(180),
+    locality: nonempty,
+    note: z.string().optional(),
+    observer: z.string().optional(),
+    source: z.string().optional(),
+    url: z.string().optional(),
+  })
+  .passthrough();
+
 const sourceSchema = z
   .object({
     name: nonempty,
@@ -77,6 +97,7 @@ export const kaFrontmatterSchema = z
         }),
       )
       .optional(),
+    fieldRecords: z.array(fieldRecordSchema).optional(),
     gallery: z.array(galleryImageSchema).optional(),
     genus: nonempty,
     habitat: z.string().optional(),

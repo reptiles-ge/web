@@ -29,6 +29,7 @@ export type Species = {
   facts: string[];
   family: string;
   faq?: SpeciesFaq[];
+  fieldRecords?: SpeciesFieldRecord[];
   gallery: GalleryImage[];
   genus: string;
   habitat: string;
@@ -61,6 +62,18 @@ export type SpeciesFaq = {
   question: string;
 };
 
+export type SpeciesFieldRecord = {
+  date?: string;
+  evidence?: "literature" | "observation" | "specimen";
+  lat: number;
+  lng: number;
+  locality: string;
+  note?: string;
+  observer?: string;
+  source?: string;
+  url?: string;
+};
+
 export type SpeciesIdentification = {
   summary: string;
   traits: string[];
@@ -84,6 +97,7 @@ export type SpeciesTranslation = {
   diet: string;
   facts: string[];
   faq?: SpeciesFaq[];
+  fieldRecords?: SpeciesFieldRecord[];
   gallery?: GalleryImage[];
   habitat: string;
   identification?: SpeciesIdentification;
