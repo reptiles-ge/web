@@ -18,14 +18,11 @@ describe("observationToFieldRecord", () => {
       }),
     ).toEqual({
       date: "2025-09-26",
-      evidence: "observation",
       lat: 41.6858,
       lng: 44.80476,
       locality: "Old Tbilisi, Georgia",
-      note: "iNaturalist observation #316753344",
       observer: "hsde66",
       observerName: "Nino Beridze",
-      source: "iNaturalist",
       url: "https://www.inaturalist.org/observations/316753344",
     });
   });
@@ -62,7 +59,7 @@ describe("mergeINaturalistFieldRecords", () => {
           lat: 41.1,
           lng: 44.1,
           locality: "Tbilisi",
-          note: "iNaturalist observation #1",
+          url: "https://www.inaturalist.org/observations/1",
         },
         {
           date: "2024-01-02",
@@ -123,7 +120,6 @@ describe("replaceFieldRecordsInMdx", () => {
         "  - locality: New",
         "    lat: 41.2",
         "    lng: 44.3",
-        "    evidence: observation",
       ].join("\n"),
     );
   });

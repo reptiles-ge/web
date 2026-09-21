@@ -11,12 +11,13 @@ export type HalyomorphaRegionOccurrenceResponse = {
 };
 
 export async function loadHalyomorphaRegionOccurrences(
+  speciesId: string,
   regionId: RegionPathId,
   locale: AppLocale,
 ) {
   const params = new URLSearchParams({ locale, region: regionId });
   const response = await fetch(
-    `/api/species/halyomorpha-halys/occurrences?${params}`,
+    `/api/species/${encodeURIComponent(speciesId)}/occurrences?${params}`,
   );
   if (!response.ok) throw new Error("Occurrence request failed");
   return (await response.json()) as HalyomorphaRegionOccurrenceResponse;
