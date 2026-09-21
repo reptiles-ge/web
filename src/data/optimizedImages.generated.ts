@@ -2825,6 +2825,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 417],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/halyomorpha-halys-aleksei-1.jpg": {
+    "path": "halyomorpha-halys-aleksei-1",
+    "width": 722,
+    "height": 1024,
+    "widths": [320, 400, 640, 722],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/halyomorpha-halys-herbert-1.jpg": {
     "path": "halyomorpha-halys-herbert-1",
     "width": 1024,

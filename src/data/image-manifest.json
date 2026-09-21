@@ -29304,6 +29304,73 @@
       ],
       "updatedAt": "2026-09-06T17:24:53.083Z"
     },
+    "halyomorpha-halys-aleksei-1.jpg": {
+      "sourceHash": "ab6417a59d116b2861363a17afdbcc390ed61b5a3d941a0858f1641ea624b1ac",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "halyomorpha-halys-aleksei-1.jpg",
+      "originalSize": 253462,
+      "width": 722,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/halyomorpha-halys-aleksei-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 454,
+          "byteSize": 38549
+        },
+        {
+          "key": "optimized/halyomorpha-halys-aleksei-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 454,
+          "byteSize": 55486
+        },
+        {
+          "key": "optimized/halyomorpha-halys-aleksei-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 567,
+          "byteSize": 54502
+        },
+        {
+          "key": "optimized/halyomorpha-halys-aleksei-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 567,
+          "byteSize": 78324
+        },
+        {
+          "key": "optimized/halyomorpha-halys-aleksei-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 908,
+          "byteSize": 97722
+        },
+        {
+          "key": "optimized/halyomorpha-halys-aleksei-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 908,
+          "byteSize": 146578
+        },
+        {
+          "key": "optimized/halyomorpha-halys-aleksei-1-722.avif",
+          "format": "avif",
+          "width": 722,
+          "height": 1024,
+          "byteSize": 112551
+        },
+        {
+          "key": "optimized/halyomorpha-halys-aleksei-1-722.webp",
+          "format": "webp",
+          "width": 722,
+          "height": 1024,
+          "byteSize": 167784
+        }
+      ],
+      "updatedAt": "2026-09-21T06:39:50.482Z"
+    },
     "halyomorpha-halys-herbert-1.jpg": {
       "sourceHash": "e6cdc1b9aae7cd949976c0082c1cba63b77701d0d0f7dc04ba8a8ae3ed21de0f",
       "configFingerprint": "409788ee46c653d8",
