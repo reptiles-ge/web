@@ -2825,6 +2825,55 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 417],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/halyomorpha-halys-aleksei-1.jpg": {
+    "path": "halyomorpha-halys-aleksei-1",
+    "width": 722,
+    "height": 1024,
+    "widths": [320, 400, 640, 722],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/halyomorpha-halys-elen-1.jpg": {
+    "path": "halyomorpha-halys-elen-1",
+    "width": 1024,
+    "height": 769,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/halyomorpha-halys-herbert-1.jpg": {
+    "path": "halyomorpha-halys-herbert-1",
+    "width": 1024,
+    "height": 768,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/halyomorpha-halys-iaroslav-1.jpg": {
+    "path": "halyomorpha-halys-iaroslav-1",
+    "width": 768,
+    "height": 1024,
+    "widths": [320, 400, 640, 768],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/halyomorpha-halys-mishel-1.jpg": {
+    "path": "halyomorpha-halys-mishel-1",
+    "width": 1024,
+    "height": 936,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/halyomorpha-halys-nina-1.jpg": {
+    "path": "halyomorpha-halys-nina-1",
+    "width": 768,
+    "height": 1024,
+    "widths": [320, 400, 640, 768],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/halyomorpha-halys-nina-2.jpg": {
+    "path": "halyomorpha-halys-nina-2",
+    "width": 1024,
+    "height": 768,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/hemorrhois-ravergieri-1.jpg": {
     "path": "hemorrhois-ravergieri-1",
     "width": 1440,
