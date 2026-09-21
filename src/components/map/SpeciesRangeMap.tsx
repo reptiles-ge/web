@@ -9,7 +9,10 @@ import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { GeorgiaMapStatic } from "@/components/map/GeorgiaMapStatic";
 import { HalyomorphaRangeMap } from "@/components/map/HalyomorphaRangeMap";
 import { HalyomorphaRegionSelectButton } from "@/components/map/HalyomorphaRegionSelectButton";
-import { HALYOMORPHA_RANGE_GEOJSON } from "@/data/halyomorphaRangeRegions";
+import {
+  HALYOMORPHA_RANGE_GEOJSON,
+  type HalyomorphaRangeRegionFeatureCollection,
+} from "@/data/halyomorphaRangeRegions";
 import {
   getRegionsForSpecies,
   localizeRegionText,
@@ -52,6 +55,11 @@ type HalyomorphaRangeCopy = {
   resetMapLabel: string;
   resetToGeorgiaLabel: string;
   sourceAction: string;
+};
+
+type InteractiveRangeMapConfig = {
+  copy: Record<AppLocale, HalyomorphaRangeCopy>;
+  iNaturalistTaxonId: number;
 };
 
 type SpeciesRangeMapProps = {
@@ -199,6 +207,52 @@ const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
   },
 };
 
+const INTERACTIVE_RANGE_MAPS: Partial<
+  Record<string, InteractiveRangeMapConfig>
+> = {
+  "halyomorpha-halys": {
+    copy: HALYOMORPHA_RANGE_COPY,
+    iNaturalistTaxonId: 81923,
+  },
+  "macrovipera-lebetina": {
+    copy: {
+      en: {
+        ...HALYOMORPHA_RANGE_COPY.en,
+        intro:
+          "The Levantine viper map combines Reptiles.ge editorial photo records with public iNaturalist observations. Source-confirmed regions and individual field records are separate layers, and record counts reflect observation effort rather than population density.",
+        mapAria:
+          "Levantine viper distribution evidence and field records on a map of Georgia",
+        rangeTitle: "Where Levantine viper occurs in Georgia",
+      },
+      ka: {
+        ...HALYOMORPHA_RANGE_COPY.ka,
+        intro:
+          "გიურზას რუკა აერთიანებს Reptiles.ge-ის სარედაქციო ფოტოჩანაწერებსა და iNaturalist-ის საჯარო დაკვირვებებს. წყაროებით დადასტურებული რეგიონები და ინდივიდუალური საველე ჩანაწერები ცალკე ფენებია; ჩანაწერების რაოდენობა დაკვირვების ინტენსივობას ასახავს და პოპულაციის სიმჭიდროვედ არ უნდა განვიხილოთ.",
+        mapAria:
+          "გიურზას გავრცელების მტკიცებულებები და საველე ჩანაწერები საქართველოს რუკაზე",
+        rangeTitle: "სად გვხვდება გიურზა საქართველოში",
+      },
+      ru: {
+        ...HALYOMORPHA_RANGE_COPY.ru,
+        intro:
+          "Карта гюрзы объединяет редакционные фотозаписи Reptiles.ge и публичные наблюдения iNaturalist. Регионы, подтверждённые источниками, и отдельные полевые записи показаны разными слоями; количество записей отражает интенсивность наблюдений, а не плотность популяции.",
+        mapAria:
+          "Данные о распространении гюрзы и полевые записи на карте Грузии",
+        rangeTitle: "Где встречается гюрза в Грузии",
+      },
+      tr: {
+        ...HALYOMORPHA_RANGE_COPY.tr,
+        intro:
+          "Koca engerek haritası Reptiles.ge editoryal fotoğraf kayıtlarını ve herkese açık iNaturalist gözlemlerini birleştirir. Kaynakla doğrulanmış bölgeler ile tekil arazi kayıtları ayrı katmanlardır; kayıt sayısı gözlem yoğunluğunu yansıtır, popülasyon yoğunluğu değildir.",
+        mapAria:
+          "Koca engereğin Gürcistan'daki yayılış kanıtları ve arazi kayıtları",
+        rangeTitle: "Koca engerek Gürcistan'da nerede görülür?",
+      },
+    },
+    iNaturalistTaxonId: 105083,
+  },
+};
+
 export async function SpeciesRangeMap({
   fieldRecords = [],
   gallery = [],
@@ -209,11 +263,9 @@ export async function SpeciesRangeMap({
   const t = await getTranslations("profile");
   const rangeRegions = getRegionsForSpecies(speciesId);
   const highlightedIds = rangeRegions.map((region) => region.id);
-  const halyomorphaCopy =
-    speciesId === "halyomorpha-halys"
-      ? HALYOMORPHA_RANGE_COPY[locale]
-      : undefined;
-  const halyomorphaFieldRecords = halyomorphaCopy
+  const interactiveRangeConfig = INTERACTIVE_RANGE_MAPS[speciesId];
+  const interactiveRangeCopy = interactiveRangeConfig?.copy[locale];
+  const interactiveRangeFieldRecords = interactiveRangeCopy
     ? getHalyomorphaFieldRecords({
         fieldRecords,
         gallery,
@@ -221,17 +273,24 @@ export async function SpeciesRangeMap({
         speciesName,
       })
     : [];
-  const halyomorphaSummary = halyomorphaCopy
-    ? getHalyomorphaOccurrenceSummary(halyomorphaFieldRecords, locale)
+  const interactiveRangeSummary = interactiveRangeCopy
+    ? getHalyomorphaOccurrenceSummary(interactiveRangeFieldRecords, locale)
     : null;
 
-  if (halyomorphaCopy && halyomorphaSummary) {
+  if (
+    interactiveRangeConfig &&
+    interactiveRangeCopy &&
+    interactiveRangeSummary
+  ) {
     return (
       <HalyomorphaRangeSection
         anchorLabel={t("anchorLink")}
-        copy={halyomorphaCopy}
+        copy={interactiveRangeCopy}
+        iNaturalistTaxonId={interactiveRangeConfig.iNaturalistTaxonId}
         locale={locale}
-        occurrenceSummary={halyomorphaSummary}
+        occurrenceSummary={interactiveRangeSummary}
+        officialRange={officialRangeForRegions(highlightedIds)}
+        speciesId={speciesId}
       />
     );
   }
@@ -302,13 +361,19 @@ function formatYearRange(summary: HalyomorphaOccurrenceSummary) {
 function HalyomorphaRangeSection({
   anchorLabel,
   copy,
+  iNaturalistTaxonId,
   locale,
   occurrenceSummary,
+  officialRange,
+  speciesId,
 }: {
   anchorLabel: string;
   copy: HalyomorphaRangeCopy;
+  iNaturalistTaxonId: number;
   locale: AppLocale;
   occurrenceSummary: HalyomorphaOccurrenceSummary;
+  officialRange: HalyomorphaRangeRegionFeatureCollection;
+  speciesId: string;
 }) {
   const mapCopy: HalyomorphaRangeMapCopy = {
     closeLabel: copy.closeLabel,
@@ -371,8 +436,9 @@ function HalyomorphaRangeSection({
             copy={mapCopy}
             locale={locale}
             occurrenceSummary={occurrenceSummary}
-            officialRange={HALYOMORPHA_RANGE_GEOJSON}
+            officialRange={officialRange}
             regionNames={regionNames}
+            speciesId={speciesId}
           />
         </div>
 
@@ -380,7 +446,7 @@ function HalyomorphaRangeSection({
           {copy.footerDataLabel}: {copy.footerReptilesLabel} +{" "}
           <a
             className="underline decoration-border underline-offset-4 transition-colors hover:text-primary"
-            href="https://www.inaturalist.org/observations?place_id=8857&taxon_id=81923"
+            href={`https://www.inaturalist.org/observations?place_id=8857&taxon_id=${iNaturalistTaxonId}`}
             rel="noreferrer"
             target="_blank"
           >
@@ -439,4 +505,20 @@ function HalyomorphaRangeSection({
       </div>
     </section>
   );
+}
+
+function officialRangeForRegions(
+  highlightedIds: string[],
+): HalyomorphaRangeRegionFeatureCollection {
+  const officialIds = new Set(highlightedIds);
+  return {
+    ...HALYOMORPHA_RANGE_GEOJSON,
+    features: HALYOMORPHA_RANGE_GEOJSON.features.map((feature) => ({
+      ...feature,
+      properties: {
+        ...feature.properties,
+        isOfficialRange: officialIds.has(feature.properties.id),
+      },
+    })),
+  };
 }

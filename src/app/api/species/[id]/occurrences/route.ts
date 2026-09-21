@@ -17,7 +17,11 @@ const REGION_IDS = new Set<RegionPathId>(
   HALYOMORPHA_RANGE_GEOJSON.features.map((feature) => feature.properties.id),
 );
 
-export function GET(request: Request) {
+export async function GET(
+  request: Request,
+  { params }: { params: Promise<{ id: string }> },
+) {
+  const { id } = await params;
   const url = new URL(request.url);
   const regionId = url.searchParams.get("region");
   const locale = readLocale(url.searchParams.get("locale"));
@@ -27,7 +31,7 @@ export function GET(request: Request) {
   }
   const validRegionId = regionId as RegionPathId;
 
-  const species = getSpeciesById("halyomorpha-halys");
+  const species = getSpeciesById(id);
   if (!species) {
     return Response.json({ error: "Not found" }, { status: 404 });
   }

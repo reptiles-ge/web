@@ -38,4 +38,5 @@ export type HalyomorphaRangeMapProps = {
   occurrenceSummary: HalyomorphaOccurrenceSummary;
   officialRange: HalyomorphaRangeRegionFeatureCollection;
   regionNames: Pick<HalyomorphaRegionSummary, "id" | "name">[];
+  speciesId: string;
 };
