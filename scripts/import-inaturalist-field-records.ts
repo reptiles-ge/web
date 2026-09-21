@@ -1,7 +1,9 @@
+import matter from "gray-matter";
 import fs from "node:fs/promises";
 import path from "node:path";
-import matter from "gray-matter";
+
 import type { SpeciesFieldRecord } from "../src/data/speciesTypes";
+
 import {
   type INaturalistObservation,
   mergeINaturalistFieldRecords,
@@ -11,6 +13,9 @@ import {
 const DEFAULT_PLACE_ID = 8857;
 const DEFAULT_PER_PAGE = 200;
 const DEFAULT_COORDINATE_DECIMALS = 5;
+const EXCLUDED_OBSERVATION_IDS_BY_SPECIES: Record<string, readonly number[]> = {
+  "macrovipera-lebetina": [396439253],
+};
 const INATURALIST_API = "https://api.inaturalist.org/v1";
 const ROOT = process.cwd();
 
@@ -39,9 +44,81 @@ type INaturalistTaxaResponse = {
   }>;
 };
 
+async function fetchJson<T>(url: URL): Promise<T> {
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error(`${url.toString()} failed with HTTP ${response.status}.`);
+  }
+  return (await response.json()) as T;
+}
+
+async function fetchObservations(options: CliOptions, taxonId: number) {
+  const observations: INaturalistObservation[] = [];
+  let totalResults: number | undefined;
+
+  for (let page = 1; ; page += 1) {
+    const remaining = options.limit
+      ? options.limit - observations.length
+      : options.perPage;
+    if (remaining <= 0) break;
+
+    const url = new URL(`${INATURALIST_API}/observations`);
+    url.searchParams.set("geo", "true");
+    url.searchParams.set("order", "desc");
+    url.searchParams.set("order_by", "observed_on");
+    url.searchParams.set("page", String(page));
+    url.searchParams.set(
+      "per_page",
+      String(Math.min(options.perPage, remaining)),
+    );
+    url.searchParams.set("place_id", String(options.placeId));
+    url.searchParams.set("taxon_id", String(taxonId));
+    if (!options.includeWithoutPhotos) url.searchParams.set("photos", "true");
+
+    const response = await fetchJson<INaturalistObservationsResponse>(url);
+    totalResults ??= response.total_results;
+    observations.push(...response.results);
+    process.stderr.write(
+      `\rFetched ${observations.length}/${totalResults ?? "?"} observations`,
+    );
+
+    if (response.results.length === 0) break;
+    if (response.results.length < Math.min(options.perPage, remaining)) break;
+  }
+
+  process.stderr.write("\n");
+  return { observations, totalResults };
+}
+
 function fieldRecordsFromFrontmatter(value: unknown): SpeciesFieldRecord[] {
   if (!Array.isArray(value)) return [];
   return value.filter(isFieldRecord);
+}
+
+async function findTaxonId(scientificName: string): Promise<number> {
+  const url = new URL(`${INATURALIST_API}/taxa`);
+  url.searchParams.set("is_active", "true");
+  url.searchParams.set("per_page", "10");
+  url.searchParams.set("q", scientificName);
+  url.searchParams.set("rank", "species");
+
+  const response = await fetchJson<INaturalistTaxaResponse>(url);
+  const normalized = scientificName.toLowerCase();
+  const exact =
+    response.results.find(
+      (taxon) => taxon.name?.toLowerCase() === normalized,
+    ) ??
+    response.results.find(
+      (taxon) => taxon.matched_term?.toLowerCase() === normalized,
+    );
+
+  if (!exact) {
+    throw new Error(
+      `Could not resolve iNaturalist taxon for "${scientificName}". Pass --taxon-id.`,
+    );
+  }
+
+  return exact.id;
 }
 
 function helpText() {
@@ -70,8 +147,75 @@ function isFieldRecord(value: unknown): value is SpeciesFieldRecord {
   );
 }
 
+async function main() {
+  const options = parseArguments(process.argv.slice(2));
+  const filePath = mdxPathForSpecies(options.speciesId);
+  const raw = await fs.readFile(filePath, "utf8");
+  const parsed = matter(raw);
+  const frontmatter = parsed.data as {
+    fieldRecords?: unknown;
+    scientificName?: string;
+  };
+  const scientificName = frontmatter.scientificName?.trim();
+
+  if (!scientificName && !options.taxonId) {
+    throw new Error(
+      `${path.relative(ROOT, filePath)} has no scientificName. Pass --taxon-id.`,
+    );
+  }
+
+  const taxonId = options.taxonId ?? (await findTaxonId(scientificName ?? ""));
+  const existing = fieldRecordsFromFrontmatter(frontmatter.fieldRecords);
+  const { observations, totalResults } = await fetchObservations(
+    options,
+    taxonId,
+  );
+  const excludedObservationIds =
+    EXCLUDED_OBSERVATION_IDS_BY_SPECIES[options.speciesId] ?? [];
+  const importableObservations = observations.filter(
+    (observation) => !excludedObservationIds.includes(observation.id),
+  );
+  const merge = mergeINaturalistFieldRecords({
+    coordinateDecimals: options.coordinateDecimals,
+    existing,
+    observations: importableObservations,
+  });
+
+  if (!options.dryRun) {
+    await fs.writeFile(filePath, replaceFieldRecordsInMdx(raw, merge.records));
+  }
+
+  console.log(
+    JSON.stringify(
+      {
+        added: merge.added,
+        excluded: observations.length - importableObservations.length,
+        existing: existing.length,
+        fetched: observations.length,
+        file: path.relative(ROOT, filePath),
+        missingCoordinates: merge.skippedMissingCoordinates,
+        output: options.dryRun ? "dry-run" : "written",
+        skippedDuplicateCoordinates: merge.skippedDuplicateCoordinates,
+        skippedDuplicateObservations: merge.skippedDuplicateObservations,
+        skippedExistingDuplicateCoordinates:
+          merge.skippedExistingDuplicateCoordinates,
+        speciesId: options.speciesId,
+        taxonId,
+        totalResults,
+      },
+      null,
+      2,
+    ),
+  );
+}
+
 function mdxPathForSpecies(speciesId: string) {
   return path.join(ROOT, "src", "content", "species", speciesId, "ka.mdx");
+}
+
+function numberOption(name: string, value: string | undefined) {
+  if (!value) throw new Error(`${name} requires a value.`);
+  return Number(value);
 }
 
 function parseArguments(argv: string[]): CliOptions {
@@ -156,139 +300,6 @@ function parseArguments(argv: string[]): CliOptions {
     speciesId,
     taxonId,
   };
-}
-
-function numberOption(name: string, value: string | undefined) {
-  if (!value) throw new Error(`${name} requires a value.`);
-  return Number(value);
-}
-
-async function fetchJson<T>(url: URL): Promise<T> {
-  const response = await fetch(url);
-  if (!response.ok) {
-    throw new Error(`${url.toString()} failed with HTTP ${response.status}.`);
-  }
-  return (await response.json()) as T;
-}
-
-async function findTaxonId(scientificName: string): Promise<number> {
-  const url = new URL(`${INATURALIST_API}/taxa`);
-  url.searchParams.set("is_active", "true");
-  url.searchParams.set("per_page", "10");
-  url.searchParams.set("q", scientificName);
-  url.searchParams.set("rank", "species");
-
-  const response = await fetchJson<INaturalistTaxaResponse>(url);
-  const normalized = scientificName.toLowerCase();
-  const exact =
-    response.results.find(
-      (taxon) => taxon.name?.toLowerCase() === normalized,
-    ) ??
-    response.results.find(
-      (taxon) => taxon.matched_term?.toLowerCase() === normalized,
-    );
-
-  if (!exact) {
-    throw new Error(
-      `Could not resolve iNaturalist taxon for "${scientificName}". Pass --taxon-id.`,
-    );
-  }
-
-  return exact.id;
-}
-
-async function fetchObservations(options: CliOptions, taxonId: number) {
-  const observations: INaturalistObservation[] = [];
-  let totalResults: number | undefined;
-
-  for (let page = 1; ; page += 1) {
-    const remaining = options.limit
-      ? options.limit - observations.length
-      : options.perPage;
-    if (remaining <= 0) break;
-
-    const url = new URL(`${INATURALIST_API}/observations`);
-    url.searchParams.set("geo", "true");
-    url.searchParams.set("order", "desc");
-    url.searchParams.set("order_by", "observed_on");
-    url.searchParams.set("page", String(page));
-    url.searchParams.set(
-      "per_page",
-      String(Math.min(options.perPage, remaining)),
-    );
-    url.searchParams.set("place_id", String(options.placeId));
-    url.searchParams.set("taxon_id", String(taxonId));
-    if (!options.includeWithoutPhotos) url.searchParams.set("photos", "true");
-
-    const response = await fetchJson<INaturalistObservationsResponse>(url);
-    totalResults ??= response.total_results;
-    observations.push(...response.results);
-    process.stderr.write(
-      `\rFetched ${observations.length}/${totalResults ?? "?"} observations`,
-    );
-
-    if (response.results.length === 0) break;
-    if (response.results.length < Math.min(options.perPage, remaining)) break;
-  }
-
-  process.stderr.write("\n");
-  return { observations, totalResults };
-}
-
-async function main() {
-  const options = parseArguments(process.argv.slice(2));
-  const filePath = mdxPathForSpecies(options.speciesId);
-  const raw = await fs.readFile(filePath, "utf8");
-  const parsed = matter(raw);
-  const frontmatter = parsed.data as {
-    fieldRecords?: unknown;
-    scientificName?: string;
-  };
-  const scientificName = frontmatter.scientificName?.trim();
-
-  if (!scientificName && !options.taxonId) {
-    throw new Error(
-      `${path.relative(ROOT, filePath)} has no scientificName. Pass --taxon-id.`,
-    );
-  }
-
-  const taxonId = options.taxonId ?? (await findTaxonId(scientificName ?? ""));
-  const existing = fieldRecordsFromFrontmatter(frontmatter.fieldRecords);
-  const { observations, totalResults } = await fetchObservations(
-    options,
-    taxonId,
-  );
-  const merge = mergeINaturalistFieldRecords({
-    coordinateDecimals: options.coordinateDecimals,
-    existing,
-    observations,
-  });
-
-  if (!options.dryRun) {
-    await fs.writeFile(filePath, replaceFieldRecordsInMdx(raw, merge.records));
-  }
-
-  console.log(
-    JSON.stringify(
-      {
-        added: merge.added,
-        existing: existing.length,
-        fetched: observations.length,
-        file: path.relative(ROOT, filePath),
-        missingCoordinates: merge.skippedMissingCoordinates,
-        output: options.dryRun ? "dry-run" : "written",
-        skippedDuplicateCoordinates: merge.skippedDuplicateCoordinates,
-        skippedDuplicateObservations: merge.skippedDuplicateObservations,
-        skippedExistingDuplicateCoordinates:
-          merge.skippedExistingDuplicateCoordinates,
-        speciesId: options.speciesId,
-        taxonId,
-        totalResults,
-      },
-      null,
-      2,
-    ),
-  );
 }
 
 main().catch((error) => {

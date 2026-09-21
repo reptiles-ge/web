@@ -682,6 +682,7 @@ function useHalyomorphaRangeMap({
   occurrenceSummary,
   officialRange,
   regionNames,
+  speciesId,
 }: HalyomorphaRangeMapProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const regionCacheRef = useRef(
@@ -1121,6 +1122,7 @@ function useHalyomorphaRangeMap({
 
         try {
           const payload = await loadHalyomorphaRegionOccurrences(
+            speciesId,
             regionId,
             locale,
           );
@@ -1187,6 +1189,7 @@ function useHalyomorphaRangeMap({
     occurrenceSummary.totalRecords,
     officialRange,
     regionNames,
+    speciesId,
   ]);
 
   const closeSelectedRecord = useCallback(() => setSelectedRecord(null), []);

@@ -201,6 +201,20 @@ const HALYOMORPHA_ANNOTATION_COPY: Record<
   },
 };
 
+function insetAnnotationLineEnd(
+  line: (typeof HALYOMORPHA_ANNOTATION_MARKERS)[number]["line"],
+) {
+  const inset = 2.9;
+  const dx = line.x1 - line.x2;
+  const dy = line.y1 - line.y2;
+  const length = Math.hypot(dx, dy);
+  if (length === 0) return { x: line.x2, y: line.y2 };
+  return {
+    x: line.x2 + (dx / length) * inset,
+    y: line.y2 + (dy / length) * inset,
+  };
+}
+
 const HALYOMORPHA_PEST_COPY: Record<AppLocale, HalyomorphaPestCopy> = {
   en: {
     damageIntro:
@@ -747,37 +761,41 @@ function HalyomorphaIdentificationFigure({
               <defs>
                 <marker
                   id={arrowId}
-                  markerHeight="6"
+                  markerHeight="5"
                   markerUnits="strokeWidth"
-                  markerWidth="6"
+                  markerWidth="5"
                   orient="auto"
-                  refX="5"
-                  refY="3"
+                  refX="4"
+                  refY="2.5"
                 >
-                  <path className="fill-white" d="M0,0 L6,3 L0,6 Z" />
+                  <path className="fill-white" d="M0,0 L5,2.5 L0,5 Z" />
                 </marker>
               </defs>
-              {HALYOMORPHA_ANNOTATION_MARKERS.map((marker) => (
-                <g key={marker.key}>
-                  <line
-                    className="stroke-white drop-shadow-[0_1px_2px_rgb(0_0_0/0.85)]"
-                    markerEnd={`url(#${arrowId})`}
-                    strokeLinecap="round"
-                    strokeWidth="0.75"
-                    x1={marker.line.x1}
-                    x2={marker.line.x2}
-                    y1={marker.line.y1}
-                    y2={marker.line.y2}
-                  />
-                  <circle
-                    className="fill-white stroke-ink"
-                    cx={marker.point.x}
-                    cy={marker.point.y}
-                    r="1.25"
-                    strokeWidth="0.3"
-                  />
-                </g>
-              ))}
+              {HALYOMORPHA_ANNOTATION_MARKERS.map((marker) => {
+                const lineEnd = insetAnnotationLineEnd(marker.line);
+
+                return (
+                  <g key={marker.key}>
+                    <line
+                      className="stroke-white drop-shadow-[0_1px_2px_rgb(0_0_0/0.85)]"
+                      markerEnd={`url(#${arrowId})`}
+                      strokeLinecap="round"
+                      strokeWidth="0.75"
+                      x1={marker.line.x1}
+                      x2={lineEnd.x}
+                      y1={marker.line.y1}
+                      y2={lineEnd.y}
+                    />
+                    <circle
+                      className="fill-white stroke-ink"
+                      cx={marker.point.x}
+                      cy={marker.point.y}
+                      r="1.25"
+                      strokeWidth="0.3"
+                    />
+                  </g>
+                );
+              })}
             </svg>
             {HALYOMORPHA_ANNOTATION_MARKERS.map((marker, index) => (
               <div

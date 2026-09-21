@@ -4,7 +4,6 @@ import type { GalleryImage, PhotoCredit } from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
-import { PhotoCreditCaption } from "@/components/PhotoCreditCaption";
 import {
   GalleryOpenButton,
   SpeciesGalleryLightbox,
@@ -14,7 +13,6 @@ import {
   optimizedImgSrc,
   pictureSources,
 } from "@/data/optimizedImages";
-import { hasPhotoCredit } from "@/data/speciesMedia";
 import { cn } from "@/lib/cn";
 import { formatPhotoDate } from "@/lib/formatDate";
 import {
@@ -114,96 +112,48 @@ export async function SpeciesGallery({
               const entry = optimizedEntry(photo.src);
               const sizes = featured ? featuredSizes : thumbSizes;
               const showFieldRecord =
-                speciesId === "halyomorpha-halys" &&
                 (photo.photoConfidence ?? photo.credit?.photoConfidence) ===
-                  "georgia-field";
-
-              if (showFieldRecord) {
-                return (
-                  <figure
-                    className={cn(
-                      "group",
-                      featured ? "col-span-2 md:col-span-3" : "",
-                    )}
-                    key={photo.src}
-                  >
-                    <div
-                      className={cn(
-                        "relative overflow-hidden rounded-card bg-ink",
-                        featured ? "aspect-16/10" : "aspect-4/5",
-                      )}
-                    >
-                      <GalleryOpenButton alt={photoAlt} index={index}>
-                        <picture className="media-placeholder absolute inset-0 block size-full">
-                          {pictureSources(photo.src, { sizes }).map(
-                            (source) => (
-                              <source key={source.key} {...source.props} />
-                            ),
-                          )}
-                          <img
-                            alt={photoAlt}
-                            className="absolute inset-0 size-full object-cover text-transparent"
-                            decoding="async"
-                            height={entry?.height}
-                            loading="lazy"
-                            sizes={sizes}
-                            src={optimizedImgSrc(
-                              photo.src,
-                              featured ? 800 : 400,
-                            )}
-                            width={entry?.width}
-                          />
-                        </picture>
-                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20" />
-                      </GalleryOpenButton>
-                    </div>
-                    <FieldRecordCaption
-                      credit={photo.credit}
-                      label={FIELD_RECORD_LABEL[locale]}
-                      locale={locale}
-                    />
-                  </figure>
-                );
-              }
+                "georgia-field";
 
               return (
                 <figure
                   className={cn(
-                    "group relative overflow-hidden rounded-card bg-ink",
-                    featured
-                      ? "col-span-2 aspect-16/10 md:col-span-3"
-                      : "aspect-4/5",
+                    "group",
+                    featured ? "col-span-2 md:col-span-3" : "",
                   )}
                   key={photo.src}
                 >
-                  <GalleryOpenButton alt={photoAlt} index={index}>
-                    <picture className="media-placeholder absolute inset-0 block size-full">
-                      {pictureSources(photo.src, { sizes }).map((source) => (
-                        <source key={source.key} {...source.props} />
-                      ))}
-                      <img
-                        alt={photoAlt}
-                        className="absolute inset-0 size-full object-cover text-transparent"
-                        decoding="async"
-                        height={entry?.height}
-                        loading="lazy"
-                        sizes={sizes}
-                        src={optimizedImgSrc(photo.src, featured ? 800 : 400)}
-                        width={entry?.width}
-                      />
-                    </picture>
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20" />
-                    {!hasPhotoCredit(photo.credit) ? (
-                      <span className="absolute bottom-4 left-4 z-1 font-display text-[13px] text-white/0 group-hover:text-white/80">
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
-                    ) : null}
-                  </GalleryOpenButton>
-                  <PhotoCreditCaption
+                  <div
+                    className={cn(
+                      "relative overflow-hidden rounded-card bg-ink",
+                      featured ? "aspect-16/10" : "aspect-4/5",
+                    )}
+                  >
+                    <GalleryOpenButton alt={photoAlt} index={index}>
+                      <picture className="media-placeholder absolute inset-0 block size-full">
+                        {pictureSources(photo.src, { sizes }).map((source) => (
+                          <source key={source.key} {...source.props} />
+                        ))}
+                        <img
+                          alt={photoAlt}
+                          className="absolute inset-0 size-full object-cover text-transparent"
+                          decoding="async"
+                          height={entry?.height}
+                          loading="lazy"
+                          sizes={sizes}
+                          src={optimizedImgSrc(photo.src, featured ? 800 : 400)}
+                          width={entry?.width}
+                        />
+                      </picture>
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20" />
+                    </GalleryOpenButton>
+                  </div>
+                  <GalleryPhotoCaption
                     credit={photo.credit}
-                    photoConfidence={photo.photoConfidence}
-                    speciesId={speciesId}
-                    variant="thumb"
+                    fieldLabel={
+                      showFieldRecord ? FIELD_RECORD_LABEL[locale] : undefined
+                    }
+                    locale={locale}
                   />
                 </figure>
               );
@@ -215,13 +165,13 @@ export async function SpeciesGallery({
   );
 }
 
-function FieldRecordCaption({
+function GalleryPhotoCaption({
   credit,
-  label,
+  fieldLabel,
   locale,
 }: {
   credit?: PhotoCredit;
-  label: string;
+  fieldLabel?: string;
   locale: AppLocale;
 }) {
   const location = credit?.location?.trim();
@@ -233,11 +183,17 @@ function FieldRecordCaption({
 
   return (
     <figcaption className="mt-3 text-[12px] leading-relaxed text-muted-foreground sm:text-[13px]">
-      <span className="font-medium text-foreground">
-        {label}
-        {placeDate ? ` — ${placeDate}` : ""}
-      </span>
-      {photographer ? ` · ${photographer}` : null}
+      {fieldLabel ? (
+        <span className="font-medium text-foreground">
+          {fieldLabel}
+          {placeDate ? ` — ${placeDate}` : ""}
+        </span>
+      ) : placeDate ? (
+        <span className="font-medium text-foreground">{placeDate}</span>
+      ) : null}
+      {photographer
+        ? `${placeDate || fieldLabel ? " · " : ""}${photographer}`
+        : null}
     </figcaption>
   );
 }
