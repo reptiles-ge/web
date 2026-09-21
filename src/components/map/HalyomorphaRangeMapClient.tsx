@@ -10,12 +10,14 @@ import type {
 
 import * as L from "leaflet";
 import Image from "next/image";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import type {
   HalyomorphaFieldRecord,
   HalyomorphaRangeMapProps,
 } from "@/components/map/HalyomorphaRangeMapTypes";
+import type { RegionPathId } from "@/data/georgia-paths";
+import type { HalyomorphaRegionSummary } from "@/lib/halyomorphaOccurrences";
 
 const GEORGIA_BOUNDS = [
   [40.95, 39.85],
@@ -34,28 +36,39 @@ type RecordCluster = {
   records: HalyomorphaFieldRecord[];
 };
 
+type RegionOccurrenceResponse = {
+  records: HalyomorphaFieldRecord[];
+  region: HalyomorphaRegionSummary;
+};
+
 export function HalyomorphaRangeMapClient({
   copy,
-  fieldRecords,
+  locale,
+  occurrenceSummary,
   officialRange,
 }: HalyomorphaRangeMapProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const markerElementsRef = useRef(new Map<string, HTMLButtonElement>());
-  const [mapError, setMapError] = useState(false);
-  const [selectedId, setSelectedId] = useState<null | string>(null);
-
-  const selectedRecord = useMemo(
-    () => fieldRecords.find((record) => record.id === selectedId) ?? null,
-    [fieldRecords, selectedId],
+  const regionCacheRef = useRef(
+    new Map<RegionPathId, RegionOccurrenceResponse>(),
   );
+  const regionRecordsRef = useRef<HalyomorphaFieldRecord[]>([]);
+  const requestIdRef = useRef(0);
+  const markerElementsRef = useRef(new Map<string, HTMLButtonElement>());
+  const syncRecordLayersRef = useRef<(() => void) | null>(null);
+  const [mapError, setMapError] = useState(false);
+  const [regionLoading, setRegionLoading] = useState(false);
+  const [selectedRecord, setSelectedRecord] =
+    useState<HalyomorphaFieldRecord | null>(null);
+  const [selectedRegion, setSelectedRegion] =
+    useState<HalyomorphaRegionSummary | null>(null);
 
   useEffect(() => {
     markerElementsRef.current.forEach((element, id) => {
-      const selected = id === selectedId;
+      const selected = id === selectedRecord?.id;
       element.dataset.selected = selected ? "true" : "false";
       element.setAttribute("aria-pressed", selected ? "true" : "false");
     });
-  }, [selectedId]);
+  }, [selectedRecord?.id]);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -66,8 +79,11 @@ export function HalyomorphaRangeMapClient({
     const activeRecordMarkers: Marker[] = [];
     const countMarkers: Marker[] = [];
     let resetControl: Control;
+    let disposed = false;
     const markerElements = markerElementsRef.current;
-    const recordsByRegion = groupRecordsByRegion(officialRange, fieldRecords);
+    const summaryByRegion = new Map(
+      occurrenceSummary.recordsByRegion.map((region) => [region.id, region]),
+    );
 
     try {
       map = L.map(container, {
@@ -83,8 +99,11 @@ export function HalyomorphaRangeMapClient({
         .addTo(map);
       L.control.zoom({ position: "topright" }).addTo(map);
       resetControl = createResetControl(copy.resetMapLabel, () => {
-        setSelectedId(null);
+        regionRecordsRef.current = [];
+        setSelectedRecord(null);
+        setSelectedRegion(null);
         fitInitialBounds(map);
+        syncRecordLayersRef.current?.();
       }).addTo(map);
       L.tileLayer(LEAFLET_TILE_URL, {
         attribution:
@@ -101,12 +120,13 @@ export function HalyomorphaRangeMapClient({
           const isOfficialRange = feature.properties?.isOfficialRange === true;
           if (!(layer instanceof L.Path)) return;
           const bounds = getLayerBounds(layer);
-          const regionRecords = recordsByRegion.get(feature.properties.id);
+          const regionSummary = summaryByRegion.get(feature.properties.id);
 
           layer.on({
             click: () => {
-              setSelectedId(null);
-              if (bounds) focusRegionBounds(map, bounds);
+              if (bounds) {
+                selectRegion(feature.properties.id, bounds, regionSummary);
+              }
             },
             mouseout: () => {
               layer.setStyle(regionStyle(isOfficialRange));
@@ -116,16 +136,13 @@ export function HalyomorphaRangeMapClient({
             },
           });
 
-          if (bounds && regionRecords && regionRecords.length > 0) {
-            const recordBounds = getRecordBounds(regionRecords);
-            const recordCenter = getRecordCenter(regionRecords);
+          if (bounds && regionSummary && regionSummary.count > 0) {
             countMarkers.push(
               createCountMarker({
-                count: regionRecords.length,
-                focusBounds: recordBounds ?? bounds,
-                focusCenter: recordCenter,
-                label: `${feature.properties.shapeName}: ${regionRecords.length} ${copy.fieldRecordLabel}`,
-                map,
+                count: regionSummary.count,
+                label: `${feature.properties.shapeName}: ${regionSummary.count} ${copy.fieldRecordLabel}`,
+                onSelect: () =>
+                  selectRegion(feature.properties.id, bounds, regionSummary),
                 position: bounds.getCenter(),
               }),
             );
@@ -137,12 +154,13 @@ export function HalyomorphaRangeMapClient({
 
       const syncRecordLayers = () => {
         const zoom = map.getZoom();
+        const fieldRecords = regionRecordsRef.current;
         activeRecordMarkers.forEach((marker) => marker.remove());
         activeRecordMarkers.length = 0;
         markerElements.clear();
 
-        if (zoom < RECORD_CLUSTER_ZOOM) {
-          setSelectedId(null);
+        if (fieldRecords.length === 0) {
+          setSelectedRecord(null);
           countMarkers.forEach((marker) => {
             if (!map.hasLayer(marker)) marker.addTo(map);
           });
@@ -157,11 +175,11 @@ export function HalyomorphaRangeMapClient({
               fieldRecords,
               map,
               markerElements,
-              setSelectedId,
+              setSelectedRecord,
             ),
           );
         } else {
-          setSelectedId(null);
+          setSelectedRecord(null);
           activeRecordMarkers.push(
             ...clusterFieldRecords(fieldRecords, map, zoom).map((cluster) =>
               createRecordClusterMarker(cluster, copy.fieldRecordLabel, map),
@@ -172,6 +190,62 @@ export function HalyomorphaRangeMapClient({
         activeRecordMarkers.forEach((marker) => marker.addTo(map));
       };
 
+      const selectRegion = (
+        regionId: RegionPathId,
+        bounds: L.LatLngBounds,
+        regionSummary: HalyomorphaRegionSummary | undefined,
+      ) => {
+        const center = regionSummary?.center
+          ? L.latLng(regionSummary.center.lat, regionSummary.center.lng)
+          : undefined;
+        setSelectedRecord(null);
+        setSelectedRegion(regionSummary ?? null);
+        focusRegionBounds(map, bounds, center);
+        if (!regionSummary || regionSummary.count === 0) {
+          regionRecordsRef.current = [];
+          syncRecordLayersRef.current?.();
+          return;
+        }
+        void loadRegionRecords(regionId);
+      };
+
+      const loadRegionRecords = async (regionId: RegionPathId) => {
+        const cached = regionCacheRef.current.get(regionId);
+        if (cached) {
+          regionRecordsRef.current = cached.records;
+          setSelectedRegion(cached.region);
+          setRegionLoading(false);
+          syncRecordLayersRef.current?.();
+          return;
+        }
+
+        const requestId = requestIdRef.current + 1;
+        requestIdRef.current = requestId;
+        regionRecordsRef.current = [];
+        setRegionLoading(true);
+        syncRecordLayersRef.current?.();
+
+        try {
+          const response = await fetch(
+            `/api/species/halyomorpha-halys/occurrences?region=${regionId}&locale=${locale}`,
+          );
+          if (!response.ok) throw new Error("Occurrence request failed");
+          const payload = (await response.json()) as RegionOccurrenceResponse;
+          if (disposed || requestIdRef.current !== requestId) return;
+          regionCacheRef.current.set(regionId, payload);
+          regionRecordsRef.current = payload.records;
+          setSelectedRegion(payload.region);
+        } catch {
+          if (!disposed) regionRecordsRef.current = [];
+        } finally {
+          if (!disposed && requestIdRef.current === requestId) {
+            setRegionLoading(false);
+            syncRecordLayersRef.current?.();
+          }
+        }
+      };
+
+      syncRecordLayersRef.current = syncRecordLayers;
       map.on("zoomend", syncRecordLayers);
       syncRecordLayers();
 
@@ -181,8 +255,10 @@ export function HalyomorphaRangeMapClient({
       });
 
       return () => {
+        disposed = true;
         window.cancelAnimationFrame(resizeFrame);
         map.off("zoomend", syncRecordLayers);
+        syncRecordLayersRef.current = null;
         markerElements.clear();
         activeRecordMarkers.forEach((marker) => marker.remove());
         countMarkers.forEach((marker) => marker.remove());
@@ -193,7 +269,13 @@ export function HalyomorphaRangeMapClient({
     } catch {
       window.setTimeout(() => setMapError(true), 0);
     }
-  }, [copy.fieldRecordLabel, copy.resetMapLabel, fieldRecords, officialRange]);
+  }, [
+    copy.fieldRecordLabel,
+    copy.resetMapLabel,
+    locale,
+    occurrenceSummary.recordsByRegion,
+    officialRange,
+  ]);
 
   return (
     <>
@@ -214,8 +296,14 @@ export function HalyomorphaRangeMapClient({
       {selectedRecord ? (
         <SelectedRecordCard
           copy={copy}
-          onClose={() => setSelectedId(null)}
+          onClose={() => setSelectedRecord(null)}
           record={selectedRecord}
+        />
+      ) : selectedRegion ? (
+        <SelectedRegionCard
+          copy={copy}
+          loading={regionLoading}
+          region={selectedRegion}
         />
       ) : null}
     </>
@@ -262,29 +350,22 @@ function clusterFieldRecords(
 
 function createCountMarker({
   count,
-  focusBounds,
-  focusCenter,
   label,
-  map,
+  onSelect,
   position,
 }: {
   count: number;
-  focusBounds: L.LatLngBounds;
-  focusCenter: L.LatLng;
   label: string;
-  map: LeafletMap;
+  onSelect: () => void;
   position: L.LatLng;
 }) {
   const element = document.createElement("button");
-  const focusCount = () => {
-    focusRecordBounds(map, focusBounds, focusCenter);
-  };
 
   element.type = "button";
   element.className = "halyomorpha-count-marker";
   element.textContent = String(count);
   element.setAttribute("aria-label", label);
-  element.addEventListener("click", focusCount);
+  element.addEventListener("click", onSelect);
   L.DomEvent.disableClickPropagation(element);
 
   const marker = L.marker(position, {
@@ -296,7 +377,7 @@ function createCountMarker({
     }),
     keyboard: false,
   });
-  marker.on("click", focusCount);
+  marker.on("click", onSelect);
   return marker;
 }
 
@@ -341,12 +422,12 @@ function createRecordMarkers(
   fieldRecords: HalyomorphaFieldRecord[],
   map: LeafletMap,
   markerElements: Map<string, HTMLButtonElement>,
-  setSelectedId: (id: string) => void,
+  setSelectedRecord: (record: HalyomorphaFieldRecord) => void,
 ) {
   return fieldRecords.map((record) => {
     const element = document.createElement("button");
     const focusRecord = () => {
-      setSelectedId(record.id);
+      setSelectedRecord(record);
       map.setView(
         [record.lat, record.lng],
         Math.max(map.getZoom(), PIN_FOCUS_ZOOM),
@@ -443,64 +524,28 @@ function focusBounds(
   });
 }
 
-function focusRecordBounds(
+function focusRegionBounds(
   map: LeafletMap,
   bounds: L.LatLngBounds,
-  center: L.LatLng,
+  center?: L.LatLng,
 ) {
   focusBounds(map, bounds, {
     center,
-    maxZoom: 13,
-    minZoom: RECORD_CLUSTER_ZOOM,
-    padding: window.innerWidth < 768 ? [42, 42] : [96, 88],
-  });
-}
-
-function focusRegionBounds(map: LeafletMap, bounds: L.LatLngBounds) {
-  focusBounds(map, bounds, {
     maxZoom: 11,
     minZoom: RECORD_CLUSTER_ZOOM,
     padding: window.innerWidth < 768 ? [38, 38] : [120, 96],
   });
 }
 
+function formatYearRange(region: HalyomorphaRegionSummary) {
+  if (!region.firstYear || !region.lastYear) return "";
+  if (region.firstYear === region.lastYear) return String(region.firstYear);
+  return `${region.firstYear}–${region.lastYear}`;
+}
+
 function getLayerBounds(layer: L.Path) {
   if (layer instanceof L.Polyline) return layer.getBounds();
   return null;
-}
-
-function getRecordBounds(records: HalyomorphaFieldRecord[]) {
-  if (records.length === 0) return null;
-  return L.latLngBounds(records.map((record) => [record.lat, record.lng]));
-}
-
-function getRecordCenter(records: HalyomorphaFieldRecord[]) {
-  const total = records.reduce(
-    (sum, record) => ({
-      lat: sum.lat + record.lat,
-      lng: sum.lng + record.lng,
-    }),
-    { lat: 0, lng: 0 },
-  );
-  return L.latLng(total.lat / records.length, total.lng / records.length);
-}
-
-function groupRecordsByRegion(
-  officialRange: HalyomorphaRangeMapProps["officialRange"],
-  fieldRecords: HalyomorphaFieldRecord[],
-) {
-  const recordsByRegion = new Map<string, HalyomorphaFieldRecord[]>();
-  for (const record of fieldRecords) {
-    const region = officialRange.features.find((feature) =>
-      pointInFeature(record.lng, record.lat, feature.geometry.coordinates),
-    );
-    if (!region) continue;
-    recordsByRegion.set(region.properties.id, [
-      ...(recordsByRegion.get(region.properties.id) ?? []),
-      record,
-    ]);
-  }
-  return recordsByRegion;
 }
 
 function MapLegend({ copy }: { copy: HalyomorphaRangeMapProps["copy"] }) {
@@ -529,25 +574,6 @@ function MapLegend({ copy }: { copy: HalyomorphaRangeMapProps["copy"] }) {
       </span>
     </div>
   );
-}
-
-function pointInFeature(lng: number, lat: number, rings: [number, number][][]) {
-  const [outerRing, ...holes] = rings;
-  if (!outerRing || !pointInRing(lng, lat, outerRing)) return false;
-  return !holes.some((ring) => pointInRing(lng, lat, ring));
-}
-
-function pointInRing(lng: number, lat: number, ring: [number, number][]) {
-  let inside = false;
-  for (let i = 0, j = ring.length - 1; i < ring.length; j = i, i += 1) {
-    const [lngI, latI] = ring[i];
-    const [lngJ, latJ] = ring[j];
-    const intersects =
-      latI > lat !== latJ > lat &&
-      lng < ((lngJ - lngI) * (lat - latI)) / (latJ - latI) + lngI;
-    if (intersects) inside = !inside;
-  }
-  return inside;
 }
 
 function regionStyle(isOfficialRange: boolean, hovered = false) {
@@ -645,6 +671,36 @@ function SelectedRecordCard({
           ) : null}
         </div>
       </div>
+    </article>
+  );
+}
+
+function SelectedRegionCard({
+  copy,
+  loading,
+  region,
+}: {
+  copy: HalyomorphaRangeMapProps["copy"];
+  loading: boolean;
+  region: HalyomorphaRegionSummary;
+}) {
+  return (
+    <article className="pointer-events-none absolute inset-x-3 bottom-3 z-930 rounded-card border border-white/12 bg-ink/88 p-3 text-ink-foreground shadow-2xl backdrop-blur-xl md:inset-x-auto md:right-4 md:bottom-4 md:w-[300px]">
+      <p className="text-[10px] font-semibold tracking-[0.18em] text-primary uppercase">
+        {copy.fieldRecordLabel}
+      </p>
+      <h3 className="mt-1 text-[17px] leading-tight font-semibold">
+        {region.name}
+      </h3>
+      <p className="mt-1 text-[13px] leading-relaxed text-ink-muted">
+        {region.count.toLocaleString()} {copy.regionRecordsLabel}
+        {formatYearRange(region) ? ` · ${formatYearRange(region)}` : ""}
+      </p>
+      {loading ? (
+        <p className="mt-2 text-[12px] leading-relaxed text-ink-muted">
+          {copy.regionLoadingLabel}
+        </p>
+      ) : null}
     </article>
   );
 }

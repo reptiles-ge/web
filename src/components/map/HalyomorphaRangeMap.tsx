@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { useEffect, useRef, useState } from "react";
 
 import type { HalyomorphaRangeMapProps } from "@/components/map/HalyomorphaRangeMapTypes";
 
@@ -16,15 +17,38 @@ const HalyomorphaRangeMapClient = dynamic(
 );
 
 export function HalyomorphaRangeMap(props: HalyomorphaRangeMapProps) {
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const [shouldLoadMap, setShouldLoadMap] = useState(false);
+
+  useEffect(() => {
+    const wrapper = wrapperRef.current;
+    if (!wrapper || shouldLoadMap) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry?.isIntersecting) return;
+        setShouldLoadMap(true);
+        observer.disconnect();
+      },
+      { rootMargin: "420px" },
+    );
+    observer.observe(wrapper);
+    return () => observer.disconnect();
+  }, [shouldLoadMap]);
+
   return (
     <div
       aria-label={props.copy.mapAria}
       className="relative h-[360px] overflow-hidden rounded-media border border-white/10 bg-ink shadow-[0_24px_80px_-48px_rgba(0,0,0,0.9)] md:h-[620px]"
       data-halyomorpha-map=""
+      ref={wrapperRef}
       role="region"
     >
       <span className="sr-only">{props.copy.loadingLabel}</span>
-      <HalyomorphaRangeMapClient {...props} />
+      {shouldLoadMap ? (
+        <HalyomorphaRangeMapClient {...props} />
+      ) : (
+        <HalyomorphaMapFallback />
+      )}
     </div>
   );
 }

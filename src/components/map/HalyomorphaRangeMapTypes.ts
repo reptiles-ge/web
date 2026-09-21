@@ -1,23 +1,11 @@
 import type { HalyomorphaRangeRegionFeatureCollection } from "@/data/halyomorphaRangeRegions";
+import type { AppLocale } from "@/i18n/routing";
+import type {
+  HalyomorphaFieldRecord,
+  HalyomorphaOccurrenceSummary,
+} from "@/lib/halyomorphaOccurrences";
 
-export type HalyomorphaFieldRecord = {
-  accessibleLabel: string;
-  author?: string;
-  date?: string;
-  formattedDate?: string;
-  galleryHref?: string;
-  gallerySrc?: string;
-  id: string;
-  imageAlt: string;
-  kind: "location" | "photo";
-  lat: number;
-  lng: number;
-  locality: string;
-  note?: string;
-  source?: string;
-  thumbSrc?: string;
-  url?: string;
-};
+export type { HalyomorphaFieldRecord };
 
 export type HalyomorphaRangeMapCopy = {
   closeLabel: string;
@@ -30,12 +18,15 @@ export type HalyomorphaRangeMapCopy = {
   noPhotoLabel: string;
   officialRegionLabel: string;
   photoRecordLabel: string;
+  regionLoadingLabel: string;
+  regionRecordsLabel: string;
   resetMapLabel: string;
   sourceAction: string;
 };
 
 export type HalyomorphaRangeMapProps = {
   copy: HalyomorphaRangeMapCopy;
-  fieldRecords: HalyomorphaFieldRecord[];
+  locale: AppLocale;
+  occurrenceSummary: HalyomorphaOccurrenceSummary;
   officialRange: HalyomorphaRangeRegionFeatureCollection;
 };
