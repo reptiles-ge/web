@@ -332,19 +332,13 @@ function focusBounds(
   });
 }
 
-function focusRegionBounds(
-  map: LeafletMap,
-  bounds: L.LatLngBounds,
-  center?: L.LatLng,
-) {
+function focusRegionBounds(map: LeafletMap, bounds: L.LatLngBounds) {
   const compact = window.innerWidth < 768;
 
-  focusBounds(map, bounds, {
-    center,
-    maxZoom: 11,
-    minZoom: compact ? 10 : RECORD_CLUSTER_ZOOM,
-    minZoomStep: compact ? 2 : 1,
-    padding: compact ? [32, 32] : [120, 96],
+  map.fitBounds(bounds.pad(compact ? 0.18 : 0.12), {
+    animate: !window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+    maxZoom: compact ? 10 : 9,
+    padding: L.point(compact ? [42, 42] : [120, 96]),
   });
 }
 
@@ -928,9 +922,6 @@ function useHalyomorphaRangeMap({
         regionSummary: HalyomorphaRegionSummary | undefined,
         regionName: string,
       ) => {
-        const center = regionSummary?.center
-          ? L.latLng(regionSummary.center.lat, regionSummary.center.lng)
-          : undefined;
         selectedRegionId = regionId;
         closeRegionTooltips();
         setSelectedRecord(null);
@@ -945,7 +936,7 @@ function useHalyomorphaRangeMap({
         );
         applyRegionStyles();
         syncRegionCountMarkers();
-        focusRegionBounds(map, bounds, center);
+        focusRegionBounds(map, bounds);
         if (!regionSummary || regionSummary.count === 0) {
           requestIdRef.current += 1;
           regionRecordsRef.current = [];
