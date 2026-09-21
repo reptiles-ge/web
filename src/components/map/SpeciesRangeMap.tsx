@@ -31,8 +31,6 @@ type HalyomorphaRangeCopy = {
   footerMethodologyLabel: string;
   footerReptilesLabel: string;
   galleryAction: string;
-  geometryCreditLabel: string;
-  geometryCreditName: string;
   iNaturalistRecordLabel: string;
   intro: string;
   loadingLabel: string;
@@ -72,8 +70,6 @@ const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
     footerMethodologyLabel: "Methodology",
     footerReptilesLabel: "Reptiles.ge",
     galleryAction: "View photo",
-    geometryCreditLabel: "Region boundaries",
-    geometryCreditName: "geoBoundaries",
     iNaturalistRecordLabel: "iNaturalist observations",
     intro:
       "The map for Halyomorpha halys combines Reptiles.ge editorial photo records with public iNaturalist observations. Region-level literature evidence and individual occurrence records are separate layers, and record counts reflect observation effort rather than population density.",
@@ -108,8 +104,6 @@ const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
     footerMethodologyLabel: "მეთოდოლოგია",
     footerReptilesLabel: "Reptiles.ge",
     galleryAction: "ფოტოს ნახვა",
-    geometryCreditLabel: "რეგიონების საზღვრები",
-    geometryCreditName: "geoBoundaries",
     iNaturalistRecordLabel: "iNaturalist-ის დაკვირვება",
     intro:
       "აზიური ფაროსანას (Halyomorpha halys) რუკა აერთიანებს Reptiles.ge-ის სარედაქციო ფოტოჩანაწერებსა და iNaturalist-ის საჯარო დაკვირვებებს. რეგიონული ლიტერატურული მტკიცებულება და ინდივიდუალური საველე ჩანაწერები ცალკე ფენებია; ჩანაწერების რაოდენობა დაკვირვების ინტენსივობასაც ასახავს და პოპულაციის სიმჭიდროვედ არ უნდა განვიხილოთ.",
@@ -144,8 +138,6 @@ const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
     footerMethodologyLabel: "Методология",
     footerReptilesLabel: "Reptiles.ge",
     galleryAction: "Открыть фото",
-    geometryCreditLabel: "Границы регионов",
-    geometryCreditName: "geoBoundaries",
     iNaturalistRecordLabel: "наблюдений iNaturalist",
     intro:
       "Карта Halyomorpha halys объединяет редакционные фотозаписи Reptiles.ge и публичные наблюдения iNaturalist. Региональные литературные данные и отдельные полевые записи показаны разными слоями; количество записей отражает также интенсивность наблюдений, а не плотность популяции.",
@@ -179,8 +171,6 @@ const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
     footerMethodologyLabel: "Metodoloji",
     footerReptilesLabel: "Reptiles.ge",
     galleryAction: "Fotoğrafı aç",
-    geometryCreditLabel: "Bölge sınırları",
-    geometryCreditName: "geoBoundaries",
     iNaturalistRecordLabel: "iNaturalist gözlemi",
     intro:
       "Halyomorpha halys haritası Reptiles.ge editoryal fotoğraf kayıtlarını ve herkese açık iNaturalist gözlemlerini birleştirir. Bölge düzeyindeki literatür kanıtı ile tekil arazi kayıtları ayrı katmanlardır; kayıt sayısı gözlem yoğunluğunu da yansıtır, popülasyon yoğunluğu değildir.",
@@ -395,15 +385,6 @@ function HalyomorphaRangeSection({
             target="_blank"
           >
             {copy.footerINaturalistLabel}
-          </a>{" "}
-          · {copy.geometryCreditLabel}:{" "}
-          <a
-            className="underline decoration-border underline-offset-4 transition-colors hover:text-primary"
-            href="https://www.geoboundaries.org/"
-            rel="noreferrer"
-            target="_blank"
-          >
-            {copy.geometryCreditName}
           </a>{" "}
           ·{" "}
           <Link
