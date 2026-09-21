@@ -3,10 +3,11 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 
-import type { GalleryImage } from "@/data/speciesTypes";
+import type { GalleryImage, SpeciesFieldRecord } from "@/data/speciesTypes";
 import type { PhotoCoordinates } from "@/lib/photoCoordinates";
 
 import {
+  appendFieldRecordToSpecies,
   appendGalleryItemToSpecies,
   type CoverTarget,
   isSpeciesContentId,
@@ -57,6 +58,35 @@ export async function openCoverPullRequest(input: {
       "- [ ] Species profile hero shows the new cover on desktop and/or mobile",
     ].join("\n"),
     title: `Set ${label} for ${input.id}`,
+  });
+}
+
+export async function openFieldRecordPullRequest(input: {
+  id: string;
+  record: SpeciesFieldRecord;
+}): Promise<string> {
+  if (!isSpeciesContentId(input.id)) {
+    throw new Error("Invalid species id");
+  }
+
+  return withPhotoPullRequest({
+    apply: (worktree) => {
+      appendFieldRecordToSpecies(input.id, input.record, worktree);
+    },
+    commitBody: "Field location record added from the local admin.",
+    editExistingBody: false,
+    id: input.id,
+    prBody: [
+      "## Summary",
+      `- Add field location record for \`${input.id}\` from local admin`,
+      `- Location: ${input.record.locality} (${input.record.lat}, ${input.record.lng})`,
+      "- Stored as KA `fieldRecords` data; no gallery photo is added",
+      "",
+      "## Test plan",
+      "- [ ] Species profile map shows the location as a non-photo field record",
+      "- [ ] Existing gallery photo records still open the lightbox",
+    ].join("\n"),
+    title: `Add field record for ${input.id}`,
   });
 }
 

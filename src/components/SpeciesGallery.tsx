@@ -1,6 +1,7 @@
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 
-import type { GalleryImage } from "@/data/speciesTypes";
+import type { GalleryImage, PhotoCredit } from "@/data/speciesTypes";
+import type { AppLocale } from "@/i18n/routing";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { PhotoCreditCaption } from "@/components/PhotoCreditCaption";
@@ -15,6 +16,7 @@ import {
 } from "@/data/optimizedImages";
 import { hasPhotoCredit } from "@/data/speciesMedia";
 import { cn } from "@/lib/cn";
+import { formatPhotoDate } from "@/lib/formatDate";
 import {
   GALLERY_LIGHTBOX_SIZES,
   galleryFeaturedSizes,
@@ -22,6 +24,13 @@ import {
 } from "@/lib/imageSizes";
 import { speciesPhotoAlt } from "@/lib/speciesMeta";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
+
+const FIELD_RECORD_LABEL: Record<AppLocale, string> = {
+  en: "Field record",
+  ka: "საველე ჩანაწერი",
+  ru: "Полевая фотозапись",
+  tr: "Arazi kaydı",
+};
 
 type SpeciesGalleryProps = {
   images: GalleryImage[];
@@ -40,6 +49,7 @@ export async function SpeciesGallery({
   speciesId,
   tone = "background",
 }: SpeciesGalleryProps) {
+  const locale = (await getLocale()) as AppLocale;
   const t = await getTranslations("profile");
   const photos = images.filter((item) => Boolean(item.src));
 
@@ -103,6 +113,59 @@ export async function SpeciesGallery({
               const photoAlt = slides[index].alt;
               const entry = optimizedEntry(photo.src);
               const sizes = featured ? featuredSizes : thumbSizes;
+              const showFieldRecord =
+                speciesId === "halyomorpha-halys" &&
+                (photo.photoConfidence ?? photo.credit?.photoConfidence) ===
+                  "georgia-field";
+
+              if (showFieldRecord) {
+                return (
+                  <figure
+                    className={cn(
+                      "group",
+                      featured ? "col-span-2 md:col-span-3" : "",
+                    )}
+                    key={photo.src}
+                  >
+                    <div
+                      className={cn(
+                        "relative overflow-hidden rounded-card bg-ink",
+                        featured ? "aspect-16/10" : "aspect-4/5",
+                      )}
+                    >
+                      <GalleryOpenButton alt={photoAlt} index={index}>
+                        <picture className="media-placeholder absolute inset-0 block size-full">
+                          {pictureSources(photo.src, { sizes }).map(
+                            (source) => (
+                              <source key={source.key} {...source.props} />
+                            ),
+                          )}
+                          <img
+                            alt={photoAlt}
+                            className="absolute inset-0 size-full object-cover text-transparent"
+                            decoding="async"
+                            height={entry?.height}
+                            loading="lazy"
+                            sizes={sizes}
+                            src={optimizedImgSrc(
+                              photo.src,
+                              featured ? 800 : 400,
+                            )}
+                            width={entry?.width}
+                          />
+                        </picture>
+                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20" />
+                      </GalleryOpenButton>
+                    </div>
+                    <FieldRecordCaption
+                      credit={photo.credit}
+                      label={FIELD_RECORD_LABEL[locale]}
+                      locale={locale}
+                    />
+                  </figure>
+                );
+              }
+
               return (
                 <figure
                   className={cn(
@@ -149,5 +212,32 @@ export async function SpeciesGallery({
         </div>
       </section>
     </SpeciesGalleryLightbox>
+  );
+}
+
+function FieldRecordCaption({
+  credit,
+  label,
+  locale,
+}: {
+  credit?: PhotoCredit;
+  label: string;
+  locale: AppLocale;
+}) {
+  const location = credit?.location?.trim();
+  const date = credit?.date ? formatPhotoDate(credit.date, locale) : null;
+  const photographer = credit?.photographer?.trim();
+  const placeDate = [location, date].filter(Boolean).join(", ");
+
+  if (!placeDate && !photographer) return null;
+
+  return (
+    <figcaption className="mt-3 text-[12px] leading-relaxed text-muted-foreground sm:text-[13px]">
+      <span className="font-medium text-foreground">
+        {label}
+        {placeDate ? ` — ${placeDate}` : ""}
+      </span>
+      {photographer ? ` · ${photographer}` : null}
+    </figcaption>
   );
 }

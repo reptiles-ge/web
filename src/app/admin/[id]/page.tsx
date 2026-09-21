@@ -44,6 +44,7 @@ export default async function AdminSpeciesPage({ params }: Props) {
       <div className="mt-10">
         <AdminSpeciesEditor
           commonName={species.commonName}
+          fieldRecords={species.fieldRecords}
           gallery={species.gallery}
           id={id}
           image={species.image}

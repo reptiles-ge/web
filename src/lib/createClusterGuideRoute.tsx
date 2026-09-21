@@ -97,6 +97,16 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
   const guide = CLUSTER_GUIDES[guideId];
   const parent = GROUP_HUBS[guide.parentHub];
   const PageView = CLUSTER_PAGES[guideId];
+  const clientMessageNamespaces: ClientMessageNamespace[] = [
+    "card",
+    "danger",
+    "groupHubShared",
+    "map",
+    "profile",
+    "speciesIndex",
+    parent.messageKey,
+    guide.messageKey,
+  ];
 
   async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { locale: localeParam } = await params;
@@ -194,17 +204,6 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
       catalog.find((item) => item.id === guide.heroSpeciesId) ??
       catalog.find(guide.matches);
     const heroSrc = guide.heroImage ?? heroRaw?.image ?? "";
-    const clientMessageNamespaces: ClientMessageNamespace[] = [
-      "card",
-      "danger",
-      "groupHubShared",
-      "map",
-      "profile",
-      "speciesIndex",
-      parent.messageKey,
-      guide.messageKey,
-    ];
-
     const breadcrumbLd = {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",

@@ -2,7 +2,7 @@
 
 import { type Dispatch, type SetStateAction, useRef, useState } from "react";
 
-import type { GalleryImage } from "@/data/speciesTypes";
+import type { GalleryImage, SpeciesFieldRecord } from "@/data/speciesTypes";
 
 import {
   AdminCoverPreview,
@@ -16,8 +16,18 @@ import {
   resolveAdminCovers,
 } from "@/lib/adminCover";
 
+type AdminBusyState =
+  | "coordinates"
+  | "cover"
+  | "fieldRecord"
+  | "idle"
+  | "remove"
+  | "reorder"
+  | "upload";
+
 type Props = {
   commonName: string;
+  fieldRecords: SpeciesFieldRecord[];
   gallery: GalleryImage[];
   id: string;
   image: string;
@@ -27,19 +37,19 @@ type Props = {
 
 export function AdminSpeciesEditor({
   commonName,
+  fieldRecords,
   gallery,
   id,
   image,
   mobileImage,
   scientificName,
 }: Props) {
-  const [busy, setBusy] = useState<
-    "coordinates" | "cover" | "idle" | "remove" | "reorder" | "upload"
-  >("idle");
+  const [busy, setBusy] = useState<AdminBusyState>("idle");
   const [error, setError] = useState<null | string>(null);
   const [ok, setOk] = useState<null | string>(null);
   const [pullRequestUrl, setPullRequestUrl] = useState<null | string>(null);
   const [photos, setPhotos] = useState(() => gallery);
+  const [records, setRecords] = useState(() => fieldRecords);
   const [savedSrcs, setSavedSrcs] = useState(() =>
     gallery.map((item) => item.src),
   );
@@ -216,6 +226,56 @@ export function AdminSpeciesEditor({
     }
   }
 
+  async function onFieldRecordSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (busyRef.current) return;
+    busyRef.current = true;
+    const form = event.currentTarget;
+    setBusy("fieldRecord");
+    setError(null);
+    setOk(null);
+    setPullRequestUrl(null);
+    try {
+      const body = Object.fromEntries(new FormData(form).entries());
+      const response = await fetch("/api/admin/field-records", {
+        body: JSON.stringify({ ...body, id }),
+        headers: { "Content-Type": "application/json" },
+        method: "POST",
+      });
+      const payload = (await response.json()) as {
+        error?: string;
+        pullRequestUrl?: string;
+        record?: SpeciesFieldRecord;
+      };
+      if (!response.ok) {
+        throw new Error(payload.error ?? "ლოკაციის ჩანაწერი ვერ შეინახა");
+      }
+      if (payload.record) {
+        setRecords((current) =>
+          [...current, payload.record as SpeciesFieldRecord].sort((a, b) =>
+            (b.date ?? "").localeCompare(a.date ?? ""),
+          ),
+        );
+      }
+      if (payload.pullRequestUrl) {
+        setPullRequestUrl(payload.pullRequestUrl);
+        setOk("ლოკაციის ჩანაწერი PR-შია. Merge შენზეა.");
+      } else {
+        setOk("ლოკაციის ჩანაწერი PR-შია.");
+      }
+      form.reset();
+    } catch (caught) {
+      setError(
+        caught instanceof Error
+          ? caught.message
+          : "ლოკაციის ჩანაწერი ვერ შეინახა",
+      );
+    } finally {
+      busyRef.current = false;
+      setBusy("idle");
+    }
+  }
+
   async function onSaveOrder() {
     if (busyRef.current || !dirty || photos.length < 2) return;
     busyRef.current = true;
@@ -341,117 +401,132 @@ export function AdminSpeciesEditor({
         setPreview={setPreview}
       />
 
-      <form
-        className="rounded-xl border border-border bg-card p-5"
-        onSubmit={onSubmit}
-      >
-        <h2 className="font-display text-lg font-medium">ატვირთვა</h2>
-        <p className="mt-2 text-[12px] leading-relaxed text-muted-foreground">
-          ფაილი CDN-ზეა AVIF/WebP ზომებით, როგორც images:optimize. MDX და
-          კატალოგი იწერება მხოლოდ PR-ის ბრენჩზე, არა ამ ლოკალურ ბრენჩზე. Merge
-          შენზეა.
-        </p>
-        <label className="mt-5 block text-[12px] text-muted-foreground">
-          ფოტოები
-          <input
-            accept="image/jpeg,image/png,image/webp,image/heic,image/heif,image/avif"
-            className="mt-1.5 block w-full text-[13px]"
-            multiple
-            name="photos"
-            required
-            type="file"
-          />
-        </label>
-        <label className="mt-4 block text-[12px] text-muted-foreground">
-          ფოტოგრაფი
-          <input
-            className="mt-1.5 h-10 w-full rounded-md border border-border bg-background px-3 text-[14px] text-foreground outline-none focus:border-primary"
-            name="photographer"
-          />
-        </label>
-        <label className="mt-3 block text-[12px] text-muted-foreground">
-          ფოტოგრაფი (EN)
-          <input
-            className="mt-1.5 h-10 w-full rounded-md border border-border bg-background px-3 text-[14px] text-foreground outline-none focus:border-primary"
-            name="photographerEn"
-          />
-        </label>
-        <label className="mt-3 block text-[12px] text-muted-foreground">
-          ავტორის URL
-          <input
-            className="mt-1.5 h-10 w-full rounded-md border border-border bg-background px-3 text-[14px] text-foreground outline-none focus:border-primary"
-            name="url"
-            type="url"
-          />
-        </label>
-        <label className="mt-3 block text-[12px] text-muted-foreground">
-          ადგილი
-          <input
-            className="mt-1.5 h-10 w-full rounded-md border border-border bg-background px-3 text-[14px] text-foreground outline-none focus:border-primary"
-            name="location"
-          />
-        </label>
-        <label className="mt-3 block text-[12px] text-muted-foreground">
-          ადგილი (EN)
-          <input
-            className="mt-1.5 h-10 w-full rounded-md border border-border bg-background px-3 text-[14px] text-foreground outline-none focus:border-primary"
-            name="locationEn"
-          />
-        </label>
-        <div className="mt-3 grid grid-cols-2 gap-2">
-          <label className="block text-[12px] text-muted-foreground">
-            განედი (lat)
+      <div className="grid gap-5">
+        <form
+          className="rounded-xl border border-border bg-card p-5"
+          onSubmit={onSubmit}
+        >
+          <h2 className="font-display text-lg font-medium">ატვირთვა</h2>
+          <p className="mt-2 text-[12px] leading-relaxed text-muted-foreground">
+            ფაილი CDN-ზეა AVIF/WebP ზომებით, როგორც images:optimize. MDX და
+            კატალოგი იწერება მხოლოდ PR-ის ბრენჩზე, არა ამ ლოკალურ ბრენჩზე. Merge
+            შენზეა.
+          </p>
+          <label className="mt-5 block text-[12px] text-muted-foreground">
+            ფოტოები
             <input
-              className="mt-1.5 h-10 w-full rounded-md border border-border bg-background px-3 text-[14px] text-foreground outline-none focus:border-primary"
-              inputMode="decimal"
-              name="lat"
-              placeholder="41.81667"
+              accept="image/jpeg,image/png,image/webp,image/heic,image/heif,image/avif"
+              className="mt-1.5 block w-full text-[13px]"
+              multiple
+              name="photos"
+              required
+              type="file"
             />
           </label>
-          <label className="block text-[12px] text-muted-foreground">
-            გრძედი (lng)
+          <label className="mt-4 block text-[12px] text-muted-foreground">
+            ფოტოგრაფი
             <input
               className="mt-1.5 h-10 w-full rounded-md border border-border bg-background px-3 text-[14px] text-foreground outline-none focus:border-primary"
-              inputMode="decimal"
-              name="lng"
-              placeholder="45.35000"
+              name="photographer"
             />
           </label>
-        </div>
-        <p className="mt-1.5 text-[11px] leading-relaxed text-muted-foreground">
-          ორივე ველი ერთად. საიტზე რუკის ბმული და GeoCoordinates schema. იშვიათი
-          სახეობის ზუსტი ბუნაგი ნუ მიუთითო — ადგილის დონე საკმარისია.
-        </p>
-        <label className="mt-4 flex cursor-pointer items-start gap-2.5 text-[13px] text-foreground">
-          <input
-            className="mt-0.5 size-4 shrink-0 accent-primary"
-            name="georgiaField"
-            type="checkbox"
-            value="1"
-          />
-          <span>
-            <span className="font-medium">საქართველოს ველში</span>
-            <span className="mt-0.5 block text-[12px] leading-relaxed text-muted-foreground">
-              მონიშნე მხოლოდ თუ საქართველოშია გადაღებული და ადგილი იცი. თუ არა —
-              უცხოეთი / ტიპური არეალი რჩება, ბეიჯი არ გამოჩნდება.
+          <label className="mt-3 block text-[12px] text-muted-foreground">
+            ფოტოგრაფი (EN)
+            <input
+              className="mt-1.5 h-10 w-full rounded-md border border-border bg-background px-3 text-[14px] text-foreground outline-none focus:border-primary"
+              name="photographerEn"
+            />
+          </label>
+          <label className="mt-3 block text-[12px] text-muted-foreground">
+            ავტორის URL
+            <input
+              className="mt-1.5 h-10 w-full rounded-md border border-border bg-background px-3 text-[14px] text-foreground outline-none focus:border-primary"
+              name="url"
+              type="url"
+            />
+          </label>
+          <label className="mt-3 block text-[12px] text-muted-foreground">
+            ადგილი
+            <input
+              className="mt-1.5 h-10 w-full rounded-md border border-border bg-background px-3 text-[14px] text-foreground outline-none focus:border-primary"
+              name="location"
+            />
+          </label>
+          <label className="mt-3 block text-[12px] text-muted-foreground">
+            ადგილი (EN)
+            <input
+              className="mt-1.5 h-10 w-full rounded-md border border-border bg-background px-3 text-[14px] text-foreground outline-none focus:border-primary"
+              name="locationEn"
+            />
+          </label>
+          <div className="mt-3 grid grid-cols-2 gap-2">
+            <label className="block text-[12px] text-muted-foreground">
+              განედი (lat)
+              <input
+                className="mt-1.5 h-10 w-full rounded-md border border-border bg-background px-3 text-[14px] text-foreground outline-none focus:border-primary"
+                inputMode="decimal"
+                name="lat"
+                placeholder="41.81667"
+              />
+            </label>
+            <label className="block text-[12px] text-muted-foreground">
+              გრძედი (lng)
+              <input
+                className="mt-1.5 h-10 w-full rounded-md border border-border bg-background px-3 text-[14px] text-foreground outline-none focus:border-primary"
+                inputMode="decimal"
+                name="lng"
+                placeholder="45.35000"
+              />
+            </label>
+          </div>
+          <p className="mt-1.5 text-[11px] leading-relaxed text-muted-foreground">
+            ორივე ველი ერთად. საიტზე რუკის ბმული და GeoCoordinates schema.
+            იშვიათი სახეობის ზუსტი ბუნაგი ნუ მიუთითო — ადგილის დონე საკმარისია.
+          </p>
+          <label className="mt-4 flex cursor-pointer items-start gap-2.5 text-[13px] text-foreground">
+            <input
+              className="mt-0.5 size-4 shrink-0 accent-primary"
+              name="georgiaField"
+              type="checkbox"
+              value="1"
+            />
+            <span>
+              <span className="font-medium">საქართველოს ველში</span>
+              <span className="mt-0.5 block text-[12px] leading-relaxed text-muted-foreground">
+                მონიშნე მხოლოდ თუ საქართველოშია გადაღებული და ადგილი იცი. თუ არა
+                — უცხოეთი / ტიპური არეალი რჩება, ბეიჯი არ გამოჩნდება.
+              </span>
             </span>
-          </span>
-        </label>
-        <label className="mt-3 block text-[12px] text-muted-foreground">
-          თარიღი
-          <input
-            className="mt-1.5 h-10 w-full rounded-md border border-border bg-background px-3 text-[14px] text-foreground outline-none focus:border-primary"
-            name="date"
-            type="date"
-          />
-        </label>
-        {error ? (
-          <p className="mt-4 text-[13px] text-destructive">{error}</p>
-        ) : null}
-        {ok ? <p className="mt-4 text-[13px] text-primary">{ok}</p> : null}
+          </label>
+          <label className="mt-3 block text-[12px] text-muted-foreground">
+            თარიღი
+            <input
+              className="mt-1.5 h-10 w-full rounded-md border border-border bg-background px-3 text-[14px] text-foreground outline-none focus:border-primary"
+              name="date"
+              type="date"
+            />
+          </label>
+          <button
+            className="mt-5 h-11 w-full rounded-lg bg-foreground text-[14px] font-medium text-background disabled:opacity-50"
+            disabled={saving}
+            type="submit"
+          >
+            {busy === "upload" ? "იტვირთება…" : "ატვირთვა"}
+          </button>
+        </form>
+
+        <FieldRecordsPanel
+          busy={busy}
+          onSubmit={onFieldRecordSubmit}
+          records={records}
+          saving={saving}
+        />
+
+        {error ? <p className="text-[13px] text-destructive">{error}</p> : null}
+        {ok ? <p className="text-[13px] text-primary">{ok}</p> : null}
         {pullRequestUrl ? (
           <a
-            className="mt-2 inline-block text-[13px] break-all text-primary underline"
+            className="inline-block text-[13px] break-all text-primary underline"
             href={pullRequestUrl}
             rel="noreferrer"
             target="_blank"
@@ -459,14 +534,7 @@ export function AdminSpeciesEditor({
             {pullRequestUrl}
           </a>
         ) : null}
-        <button
-          className="mt-5 h-11 w-full rounded-lg bg-foreground text-[14px] font-medium text-background disabled:opacity-50"
-          disabled={saving}
-          type="submit"
-        >
-          {busy === "upload" ? "იტვირთება…" : "ატვირთვა"}
-        </button>
-      </form>
+      </div>
     </div>
   );
 }
@@ -489,7 +557,7 @@ function AdminGalleryPanel({
   scientificName,
   setPreview,
 }: {
-  busy: "coordinates" | "cover" | "idle" | "remove" | "reorder" | "upload";
+  busy: AdminBusyState;
   commonName: string;
   covers: AdminCovers;
   dirty: boolean;
@@ -566,6 +634,153 @@ function AdminGalleryPanel({
       {busy === "coordinates" ? (
         <p className="mt-4 text-[13px] text-primary">კოორდინატები ინახება…</p>
       ) : null}
+    </section>
+  );
+}
+
+function FieldRecordsPanel({
+  busy,
+  onSubmit,
+  records,
+  saving,
+}: {
+  busy: AdminBusyState;
+  onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
+  records: SpeciesFieldRecord[];
+  saving: boolean;
+}) {
+  return (
+    <section className="rounded-xl border border-border bg-card p-5">
+      <h2 className="font-display text-lg font-medium">ლოკაციის ჩანაწერები</h2>
+      <p className="mt-2 text-[12px] leading-relaxed text-muted-foreground">
+        გამოიყენე მაშინ, როცა სახეობა რეალურად დაფიქსირებულია, მაგრამ ფოტო არ
+        გვაქვს ან გამოსაქვეყნებლად არ ვარგა. ეს გალერეაში ფოტოს არ ამატებს.
+      </p>
+      {records.length > 0 ? (
+        <ul className="mt-4 grid gap-2">
+          {records.map((record) => (
+            <li
+              className="rounded-lg border border-border/70 bg-background p-3 text-[12px] leading-relaxed"
+              key={`${record.locality}-${record.lat}-${record.lng}-${record.date ?? ""}`}
+            >
+              <p className="font-medium text-foreground">{record.locality}</p>
+              <p className="mt-1 text-muted-foreground">
+                {[
+                  record.date,
+                  record.observerName ?? record.observer,
+                  record.source,
+                ]
+                  .filter(Boolean)
+                  .join(" · ")}
+              </p>
+              <p className="mt-1 text-muted-foreground">
+                {record.lat}, {record.lng}
+              </p>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p className="mt-4 text-[13px] text-muted-foreground">
+          ცალკე ლოკაციის ჩანაწერი ჯერ არ არის.
+        </p>
+      )}
+      <form className="mt-5 border-t border-border pt-5" onSubmit={onSubmit}>
+        <label className="block text-[12px] text-muted-foreground">
+          ლოკაცია
+          <input
+            className="mt-1.5 h-10 w-full rounded-md border border-border bg-background px-3 text-[14px] text-foreground outline-none focus:border-primary"
+            name="locality"
+            required
+          />
+        </label>
+        <div className="mt-3 grid grid-cols-2 gap-2">
+          <label className="block text-[12px] text-muted-foreground">
+            განედი
+            <input
+              className="mt-1.5 h-10 w-full rounded-md border border-border bg-background px-3 text-[14px] text-foreground outline-none focus:border-primary"
+              inputMode="decimal"
+              name="lat"
+              placeholder="41.81667"
+              required
+            />
+          </label>
+          <label className="block text-[12px] text-muted-foreground">
+            გრძედი
+            <input
+              className="mt-1.5 h-10 w-full rounded-md border border-border bg-background px-3 text-[14px] text-foreground outline-none focus:border-primary"
+              inputMode="decimal"
+              name="lng"
+              placeholder="45.35000"
+              required
+            />
+          </label>
+        </div>
+        <label className="mt-3 block text-[12px] text-muted-foreground">
+          დამკვირვებლის საჯარო სახელი
+          <input
+            className="mt-1.5 h-10 w-full rounded-md border border-border bg-background px-3 text-[14px] text-foreground outline-none focus:border-primary"
+            name="observerName"
+          />
+        </label>
+        <label className="mt-3 block text-[12px] text-muted-foreground">
+          დამკვირვებლის username
+          <input
+            className="mt-1.5 h-10 w-full rounded-md border border-border bg-background px-3 text-[14px] text-foreground outline-none focus:border-primary"
+            name="observer"
+          />
+        </label>
+        <label className="mt-3 block text-[12px] text-muted-foreground">
+          წყარო / დადასტურება
+          <input
+            className="mt-1.5 h-10 w-full rounded-md border border-border bg-background px-3 text-[14px] text-foreground outline-none focus:border-primary"
+            name="source"
+          />
+        </label>
+        <label className="mt-3 block text-[12px] text-muted-foreground">
+          წყაროს URL
+          <input
+            className="mt-1.5 h-10 w-full rounded-md border border-border bg-background px-3 text-[14px] text-foreground outline-none focus:border-primary"
+            name="url"
+            type="url"
+          />
+        </label>
+        <div className="mt-3 grid grid-cols-2 gap-2">
+          <label className="block text-[12px] text-muted-foreground">
+            თარიღი
+            <input
+              className="mt-1.5 h-10 w-full rounded-md border border-border bg-background px-3 text-[14px] text-foreground outline-none focus:border-primary"
+              name="date"
+              type="date"
+            />
+          </label>
+          <label className="block text-[12px] text-muted-foreground">
+            ტიპი
+            <select
+              className="mt-1.5 h-10 w-full rounded-md border border-border bg-background px-3 text-[14px] text-foreground outline-none focus:border-primary"
+              defaultValue="observation"
+              name="evidence"
+            >
+              <option value="observation">დაკვირვება</option>
+              <option value="specimen">ნიმუში</option>
+              <option value="literature">ლიტერატურა</option>
+            </select>
+          </label>
+        </div>
+        <label className="mt-3 block text-[12px] text-muted-foreground">
+          შენიშვნა
+          <textarea
+            className="mt-1.5 min-h-20 w-full rounded-md border border-border bg-background px-3 py-2 text-[14px] text-foreground outline-none focus:border-primary"
+            name="note"
+          />
+        </label>
+        <button
+          className="mt-5 h-11 w-full rounded-lg bg-foreground text-[14px] font-medium text-background disabled:opacity-50"
+          disabled={saving}
+          type="submit"
+        >
+          {busy === "fieldRecord" ? "ინახება…" : "ლოკაციის დამატება"}
+        </button>
+      </form>
     </section>
   );
 }
