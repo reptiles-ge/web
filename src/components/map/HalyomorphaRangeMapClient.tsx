@@ -716,11 +716,14 @@ function focusRegionBounds(
   bounds: L.LatLngBounds,
   center?: L.LatLng,
 ) {
+  const compact = window.innerWidth < 768;
+
   focusBounds(map, bounds, {
     center,
     maxZoom: 11,
-    minZoom: RECORD_CLUSTER_ZOOM,
-    padding: window.innerWidth < 768 ? [38, 38] : [120, 96],
+    minZoom: compact ? 10 : RECORD_CLUSTER_ZOOM,
+    minZoomStep: compact ? 2 : 1,
+    padding: compact ? [32, 32] : [120, 96],
   });
 }
 
