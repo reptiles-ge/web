@@ -274,28 +274,42 @@ input[type="search"]::-webkit-search-results-decoration {
   background:
     radial-gradient(
       circle at 32% 28%,
-      rgba(111, 173, 136, 0.2),
+      rgba(111, 173, 136, 0.18),
       transparent 32%
     ),
-    linear-gradient(135deg, #111a15 0%, #070a08 100%);
+    linear-gradient(135deg, #d9e7dd 0%, #b9cfc4 100%);
+}
+
+.dark [data-halyomorpha-map-canvas] {
+  background:
+    radial-gradient(
+      circle at 32% 28%,
+      rgba(119, 190, 145, 0.2),
+      transparent 34%
+    ),
+    linear-gradient(135deg, #22362b 0%, #14221b 100%);
 }
 
 [data-halyomorpha-map] .leaflet-container {
-  background: transparent;
+  background: #d9e7dd;
   color: var(--ink-foreground);
   font-family: var(--font-you), var(--font-noto-sans), sans-serif;
   outline: none;
 }
 
+.dark [data-halyomorpha-map] .leaflet-container {
+  background: #20342a;
+}
+
 [data-halyomorpha-map] .leaflet-tile-pane {
-  opacity: 0.92;
-  filter: saturate(0.78) brightness(0.98) contrast(0.92);
+  opacity: 0.98;
+  filter: saturate(0.9) brightness(1.02) contrast(0.94);
 }
 
 .dark [data-halyomorpha-map] .leaflet-tile-pane {
-  opacity: 0.96;
-  filter: invert(1) hue-rotate(180deg) saturate(0.74) brightness(1.52)
-    contrast(0.82);
+  opacity: 0.92;
+  filter: invert(1) hue-rotate(180deg) saturate(0.68) brightness(1.24)
+    contrast(0.84);
 }
 
 [data-halyomorpha-map] .leaflet-top.leaflet-right {

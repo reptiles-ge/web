@@ -30,6 +30,10 @@ const GEORGIA_BOUNDS = [
   [43.65, 46.75],
 ] satisfies LatLngBoundsExpression;
 const LEAFLET_TILE_URL = "https://tile.openstreetmap.de/{z}/{x}/{y}.png";
+const LEAFLET_FALLBACK_TILE_URL =
+  "https://tile.openstreetmap.org/{z}/{x}/{y}.png";
+const LEAFLET_ERROR_TILE_URL =
+  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Crect width='256' height='256' fill='%23d9e7dd'/%3E%3Cpath d='M0 128h256M128 0v256' stroke='%23bfd3c6' stroke-width='1' opacity='.45'/%3E%3C/svg%3E";
 const LEAFLET_TILE_ATTRIBUTION =
   '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
 const PIN_FOCUS_ZOOM = 16;
@@ -344,6 +348,14 @@ function focusRegionBounds(
   });
 }
 
+function formatTileUrl(template: string, coords: L.Coords) {
+  return L.Util.template(template, {
+    x: coords.x,
+    y: coords.y,
+    z: coords.z,
+  });
+}
+
 function formatYearRange(region: HalyomorphaRegionSummary) {
   if (!region.firstYear || !region.lastYear) return "";
   if (region.firstYear === region.lastYear) return String(region.firstYear);
@@ -436,18 +448,7 @@ function SelectedRecordCard({
             src={record.thumbSrc}
             width={160}
           />
-        ) : (
-          <div
-            aria-label={copy.noPhotoLabel}
-            className="grid size-20 shrink-0 place-items-center rounded-2xl border border-white/12 bg-white/6"
-            role="img"
-          >
-            <span
-              aria-hidden="true"
-              className="size-4 rounded-full border border-primary bg-transparent shadow-[0_0_0_6px_color-mix(in_oklab,var(--primary)_18%,transparent)]"
-            />
-          </div>
-        )}
+        ) : null}
         <div className="min-w-0 flex-1">
           <div className="flex items-start gap-3">
             <p className="text-[10px] font-semibold tracking-[0.18em] text-primary uppercase">
@@ -470,11 +471,6 @@ function SelectedRecordCard({
           <p className="mt-1 text-[13px] leading-relaxed text-ink-muted">
             {[record.formattedDate, record.author].filter(Boolean).join(" · ")}
           </p>
-          {record.note ? (
-            <p className="mt-2 line-clamp-2 text-[12px] leading-relaxed text-ink-muted">
-              {record.note}
-            </p>
-          ) : null}
           {record.galleryHref && record.gallerySrc ? (
             <a
               className="mt-3 inline-flex text-[12px] font-semibold text-primary transition-colors hover:text-ink-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
@@ -482,15 +478,6 @@ function SelectedRecordCard({
               href={record.galleryHref}
             >
               {copy.galleryAction}
-            </a>
-          ) : record.url ? (
-            <a
-              className="mt-3 inline-flex text-[12px] font-semibold text-primary transition-colors hover:text-ink-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-              href={record.url}
-              rel="noreferrer"
-              target="_blank"
-            >
-              {copy.sourceAction}
             </a>
           ) : null}
         </div>
@@ -603,6 +590,7 @@ function useHalyomorphaRangeMap({
     const regionCountMarkers: Marker[] = [];
     let resetControl: Control;
     let disposed = false;
+    let activeRegionTooltip: L.Tooltip | null = null;
     let selectedRegionId: null | RegionPathId = null;
     const markerElements = markerElementsRef.current;
     const summaryByRegion = new Map(
@@ -645,12 +633,38 @@ function useHalyomorphaRangeMap({
       ).addTo(map);
       const tileLayer = L.tileLayer(LEAFLET_TILE_URL, {
         attribution: LEAFLET_TILE_ATTRIBUTION,
-        detectRetina: true,
+        detectRetina: false,
+        keepBuffer: 8,
+        maxNativeZoom: 19,
         maxZoom: 19,
         minZoom: 4,
+        updateInterval: 160,
+        updateWhenIdle: true,
+        updateWhenZooming: false,
       }).addTo(map);
+      const handleTileError = (event: L.TileEvent) => {
+        const tile = event.tile as HTMLImageElement;
+        if (tile.dataset.fallback === "true") {
+          tile.onerror = null;
+          tile.src = LEAFLET_ERROR_TILE_URL;
+          return;
+        }
+
+        tile.dataset.fallback = "true";
+        tile.onerror = () => {
+          tile.onerror = null;
+          tile.src = LEAFLET_ERROR_TILE_URL;
+        };
+        tile.src = formatTileUrl(LEAFLET_FALLBACK_TILE_URL, event.coords);
+      };
+      tileLayer.on("tileerror", handleTileError);
 
       fitInitialBounds(map);
+
+      const closeActiveRegionTooltip = () => {
+        activeRegionTooltip?.remove();
+        activeRegionTooltip = null;
+      };
 
       rangeLayer = L.geoJSON(officialRange, {
         onEachFeature: (feature, layer) => {
@@ -664,14 +678,19 @@ function useHalyomorphaRangeMap({
           const regionCount = regionSummary?.count ?? 0;
           const selectCurrentRegion = () => {
             if (bounds) {
-              layer.closeTooltip();
+              closeActiveRegionTooltip();
               selectRegion(regionId, bounds, regionSummary, regionName);
             }
           };
-          const openCurrentTooltip = () => {
+          const openCurrentTooltip = (latlng?: L.LatLng) => {
             if (isCompactViewport || selectedRegionId) return;
-            layer
-              .bindTooltip(
+            closeActiveRegionTooltip();
+            activeRegionTooltip = L.tooltip({
+              className: "halyomorpha-region-tooltip",
+              direction: "top",
+              opacity: 1,
+            })
+              .setContent(
                 tooltipHtml({
                   action: copy.regionSelectActionLabel,
                   count: regionCount,
@@ -682,18 +701,9 @@ function useHalyomorphaRangeMap({
                     ? copy.officialRegionLabel
                     : undefined,
                 }),
-                {
-                  className: "halyomorpha-region-tooltip",
-                  direction: "top",
-                  opacity: 1,
-                  sticky: true,
-                },
               )
-              .openTooltip();
-          };
-          const closeCurrentTooltip = () => {
-            layer.closeTooltip();
-            layer.unbindTooltip();
+              .setLatLng(latlng ?? bounds?.getCenter() ?? map.getCenter())
+              .addTo(map);
           };
 
           if (regionCount > 0 && bounds) {
@@ -713,7 +723,7 @@ function useHalyomorphaRangeMap({
           layer.on({
             click: selectCurrentRegion,
             mouseout: () => {
-              closeCurrentTooltip();
+              closeActiveRegionTooltip();
               layer.setStyle(
                 regionStyle({
                   compact: isCompactViewport,
@@ -725,8 +735,8 @@ function useHalyomorphaRangeMap({
                 }),
               );
             },
-            mouseover: () => {
-              openCurrentTooltip();
+            mouseover: (event) => {
+              openCurrentTooltip(event.latlng);
               layer.setStyle(
                 regionStyle({
                   compact: isCompactViewport,
@@ -774,7 +784,7 @@ function useHalyomorphaRangeMap({
               );
             });
             element.addEventListener("blur", () => {
-              closeCurrentTooltip();
+              closeActiveRegionTooltip();
               layer.setStyle(
                 regionStyle({
                   compact: isCompactViewport,
@@ -926,12 +936,7 @@ function useHalyomorphaRangeMap({
       };
 
       const closeRegionTooltips = () => {
-        rangeLayer.eachLayer((layer) => {
-          if (layer instanceof L.Path) {
-            layer.closeTooltip();
-            layer.unbindTooltip();
-          }
-        });
+        closeActiveRegionTooltip();
       };
 
       const loadRegionRecords = async (regionId: RegionPathId) => {
@@ -994,10 +999,12 @@ function useHalyomorphaRangeMap({
         syncRecordLayersRef.current = null;
         resetMapRef.current = null;
         markerElements.clear();
+        closeActiveRegionTooltip();
         activeRecordMarkers.forEach((marker) => marker.remove());
         regionCountMarkers.forEach((marker) => marker.remove());
         rangeLayer.remove();
         resetControl.remove();
+        tileLayer.off("tileerror", handleTileError);
         tileLayer.remove();
         map.remove();
       };
