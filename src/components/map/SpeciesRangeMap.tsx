@@ -574,13 +574,13 @@ function HalyomorphaRangeSection({
                           </HalyomorphaRegionSelectButton>
                           <Link
                             aria-label={copy.regionPageLabel(region.name)}
-                            className="inline-flex size-6 items-center justify-center rounded-full border border-border/70 text-[12px] font-semibold text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                            className="inline-flex size-6 shrink-0 items-center justify-center rounded-full border border-border/70 text-[12px] font-semibold text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                             href={regionHref(region.id)}
                             title={copy.regionPageLabel(region.name)}
                           >
                             <ArrowUpRight
                               aria-hidden="true"
-                              className="size-3"
+                              className="size-3 shrink-0"
                             />
                           </Link>
                         </span>
@@ -634,7 +634,7 @@ function RegionStatusBadge({
         "inline-flex max-w-[9.75rem] items-center justify-center rounded-full px-2.5 py-1 text-center text-[11px] leading-tight font-semibold sm:max-w-none",
         confirmed
           ? "bg-primary/10 text-primary"
-          : "bg-muted/60 text-muted-foreground",
+          : "bg-zinc-200 text-zinc-800 dark:bg-zinc-700 dark:text-zinc-100",
       ].join(" ")}
     >
       {regionStatusLabel(status, copy)}
