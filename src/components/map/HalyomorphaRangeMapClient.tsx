@@ -126,50 +126,6 @@ function clusterFieldRecords(
   });
 }
 
-function createCountMarker({
-  count,
-  label,
-  onSelect,
-  position,
-  regionName,
-}: {
-  count: number;
-  label: string;
-  onSelect: () => void;
-  position: L.LatLng;
-  regionName: string;
-}) {
-  const element = document.createElement("button");
-  const isMobile = window.innerWidth < 640;
-
-  element.type = "button";
-  element.className = "halyomorpha-region-label";
-  element.textContent = `${regionName} · ${count}`;
-  element.setAttribute("aria-label", label);
-  element.addEventListener("click", onSelect);
-  L.DomEvent.disableClickPropagation(element);
-
-  const marker = L.marker(position, {
-    icon: L.divIcon({
-      className: "halyomorpha-region-label-shell",
-      html: element,
-      iconAnchor: isMobile ? [18, 18] : [0, 0],
-      iconSize: isMobile ? [36, 36] : [1, 1],
-    }),
-    keyboard: false,
-    zIndexOffset: count,
-  });
-  marker.on("add", () => {
-    const markerElement = marker.getElement();
-    if (!markerElement) return;
-    markerElement.addEventListener("click", (event) => {
-      if (event.target === markerElement) onSelect();
-    });
-    L.DomEvent.disableClickPropagation(markerElement);
-  });
-  return marker;
-}
-
 function createRecordClusterMarker(
   cluster: RecordCluster,
   fieldRecordLabel: string,
@@ -615,7 +571,6 @@ function useHalyomorphaRangeMap({
     let map: LeafletMap;
     let rangeLayer: LeafletGeoJson;
     const activeRecordMarkers: Marker[] = [];
-    const countMarkers: Marker[] = [];
     let resetControl: Control;
     let disposed = false;
     let selectedRegionId: null | RegionPathId = null;
@@ -783,18 +738,6 @@ function useHalyomorphaRangeMap({
               );
             });
           });
-
-          if (bounds && regionSummary && regionSummary.count > 0) {
-            countMarkers.push(
-              createCountMarker({
-                count: regionSummary.count,
-                label: `${regionName} — ${regionSummary.count} ${copy.regionRecordsLabel}`,
-                onSelect: selectCurrentRegion,
-                position: bounds.getCenter(),
-                regionName,
-              }),
-            );
-          }
         },
         style: (feature) =>
           regionStyle({
@@ -812,17 +755,8 @@ function useHalyomorphaRangeMap({
 
         if (fieldRecords.length === 0) {
           setSelectedRecord(null);
-          countMarkers.forEach((marker) => {
-            if (selectedRegionId) {
-              marker.remove();
-            } else {
-              if (!map.hasLayer(marker)) marker.addTo(map);
-            }
-          });
           return;
         }
-
-        countMarkers.forEach((marker) => marker.remove());
 
         if (zoom >= RECORD_PIN_ZOOM) {
           activeRecordMarkers.push(
@@ -994,7 +928,6 @@ function useHalyomorphaRangeMap({
         resetMapRef.current = null;
         markerElements.clear();
         activeRecordMarkers.forEach((marker) => marker.remove());
-        countMarkers.forEach((marker) => marker.remove());
         rangeLayer.remove();
         resetControl.remove();
         map.remove();
