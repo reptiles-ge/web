@@ -291,6 +291,7 @@ function getFieldPhotoRecords(
           date: credit.date,
           formattedDate,
           galleryHref: `#${SPECIES_SECTION_IDS.gallery}`,
+          gallerySrc: optimizedImgSrc(item.src, 1200),
           id,
           imageAlt: `${speciesName} — ${locality}`,
           lat: credit.lat,
@@ -452,6 +453,7 @@ function HalyomorphaRangeSection({
                         </span>
                         <a
                           className="mt-2 inline-flex text-[12px] font-semibold text-primary transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                          data-species-gallery-src={record.gallerySrc}
                           href={record.galleryHref}
                         >
                           {copy.galleryAction}

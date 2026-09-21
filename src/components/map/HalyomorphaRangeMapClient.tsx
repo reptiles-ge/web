@@ -305,6 +305,7 @@ function SelectedRecordCard({
           </p>
           <a
             className="mt-3 inline-flex text-[12px] font-semibold text-primary transition-colors hover:text-ink-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            data-species-gallery-src={record.gallerySrc}
             href={record.galleryHref}
           >
             {copy.galleryAction}

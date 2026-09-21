@@ -6,6 +6,7 @@ export type HalyomorphaFieldRecord = {
   date?: string;
   formattedDate?: string;
   galleryHref: string;
+  gallerySrc: string;
   id: string;
   imageAlt: string;
   lat: number;

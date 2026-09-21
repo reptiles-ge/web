@@ -50,6 +50,7 @@ type GallerySource = {
 };
 
 const GalleryContext = createContext<GalleryContextValue | null>(null);
+const GALLERY_TRIGGER_SELECTOR = "[data-species-gallery-src]";
 
 export function GalleryOpenButton({
   alt,
@@ -97,6 +98,7 @@ export function SpeciesGalleryLightbox({
   const opened = useRef(false);
   const dialogRef = useRef<HTMLDialogElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const externalTriggerRef = useRef<HTMLElement | null>(null);
   const triggerRefs = useRef<Array<HTMLButtonElement | null>>([]);
   const restoreIndex = useRef<null | number>(null);
   const [loadedSrc, setLoadedSrc] = useState<null | string>(null);
@@ -153,6 +155,31 @@ export function SpeciesGalleryLightbox({
     [slides.length, speciesId],
   );
 
+  useEffect(() => {
+    function onClick(event: MouseEvent) {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+
+      const trigger = target.closest<HTMLAnchorElement>(
+        GALLERY_TRIGGER_SELECTOR,
+      );
+      if (!trigger) return;
+
+      const src = trigger.dataset.speciesGallerySrc;
+      if (!src) return;
+
+      const index = slides.findIndex((slide) => slide.src === src);
+      if (index === -1) return;
+
+      event.preventDefault();
+      externalTriggerRef.current = trigger;
+      openAt(index);
+    }
+
+    document.addEventListener("click", onClick);
+    return () => document.removeEventListener("click", onClick);
+  }, [openAt, slides]);
+
   const registerTrigger = useCallback(
     (index: number, node: HTMLButtonElement | null) => {
       triggerRefs.current[index] = node;
@@ -173,8 +200,17 @@ export function SpeciesGalleryLightbox({
         className="fixed inset-0 z-100 m-0 hidden size-full max-h-none max-w-none items-center justify-center border-0 bg-transparent p-0 backdrop:bg-black/92 open:flex"
         onClose={() => {
           setActive(null);
+          const externalTrigger = externalTriggerRef.current;
+          externalTriggerRef.current = null;
+          if (externalTrigger?.isConnected) {
+            externalTrigger.focus({ preventScroll: true });
+            return;
+          }
+
           const index = restoreIndex.current;
-          if (index !== null) triggerRefs.current[index]?.focus();
+          if (index !== null) {
+            triggerRefs.current[index]?.focus({ preventScroll: true });
+          }
         }}
         ref={dialogRef}
       >
