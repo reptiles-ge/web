@@ -120,6 +120,7 @@ export async function SpeciesProfileBody({
       ) : null}
 
       <SpeciesRangeMap
+        gallery={gallery}
         speciesId={species.id}
         speciesName={species.commonName}
       />
