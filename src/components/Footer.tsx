@@ -230,21 +230,21 @@ export async function Footer({ regions, venomous }: FooterProps) {
             <TopGeCounter />
             <a
               aria-label={t("facebook")}
-              className="inline-flex size-10 items-center justify-center rounded-full border border-border bg-card text-muted-foreground transition-colors hover:border-primary/35 hover:text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
+              className="inline-flex size-10 shrink-0 items-center justify-center rounded-full border border-border bg-card text-muted-foreground transition-colors hover:border-primary/35 hover:text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
               href="https://www.facebook.com/reptiles.ge/"
               rel="noopener noreferrer"
               target="_blank"
             >
-              <FacebookGlyph className="size-4" />
+              <FacebookGlyph className="size-4 shrink-0" />
             </a>
             <a
               aria-label={t("instagram")}
-              className="inline-flex size-10 items-center justify-center rounded-full border border-border bg-card text-muted-foreground transition-colors hover:border-primary/35 hover:text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
+              className="inline-flex size-10 shrink-0 items-center justify-center rounded-full border border-border bg-card text-muted-foreground transition-colors hover:border-primary/35 hover:text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
               href="https://www.instagram.com/reptiles.ge/"
               rel="noopener noreferrer"
               target="_blank"
             >
-              <InstagramGlyph className="size-4" />
+              <InstagramGlyph className="size-4 shrink-0" />
             </a>
             <span className="tracking-wide">{t("forCurious")}</span>
           </div>
