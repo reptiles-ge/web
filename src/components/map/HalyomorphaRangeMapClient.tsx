@@ -36,11 +36,6 @@ type RecordCluster = {
   records: HalyomorphaFieldRecord[];
 };
 
-type RegionCountMarker = {
-  count: number;
-  marker: Marker;
-};
-
 type RegionOccurrenceResponse = {
   records: HalyomorphaFieldRecord[];
   region: HalyomorphaRegionSummary;
@@ -84,7 +79,7 @@ export function HalyomorphaRangeMapClient({
     let map: LeafletMap;
     let rangeLayer: LeafletGeoJson;
     const activeRecordMarkers: Marker[] = [];
-    const countMarkers: RegionCountMarker[] = [];
+    const countMarkers: Marker[] = [];
     let resetControl: Control;
     let disposed = false;
     let selectedRegionId: null | RegionPathId = null;
@@ -145,6 +140,7 @@ export function HalyomorphaRangeMapClient({
           const regionCount = regionSummary?.count ?? 0;
           const selectCurrentRegion = () => {
             if (bounds) {
+              layer.closeTooltip();
               selectRegion(regionId, bounds, regionSummary, regionName);
             }
           };
@@ -244,16 +240,15 @@ export function HalyomorphaRangeMapClient({
           });
 
           if (bounds && regionSummary && regionSummary.count > 0) {
-            countMarkers.push({
-              count: regionSummary.count,
-              marker: createCountMarker({
+            countMarkers.push(
+              createCountMarker({
                 count: regionSummary.count,
                 label: `${regionName} — ${regionSummary.count} ${copy.regionRecordsLabel}`,
                 onSelect: selectCurrentRegion,
                 position: bounds.getCenter(),
                 regionName,
               }),
-            });
+            );
           }
         },
         style: (feature) =>
@@ -271,19 +266,17 @@ export function HalyomorphaRangeMapClient({
 
         if (fieldRecords.length === 0) {
           setSelectedRecord(null);
-          countMarkers.forEach(({ count, marker }) => {
+          countMarkers.forEach((marker) => {
             if (selectedRegionId) {
               marker.remove();
-            } else if (shouldShowRegionLabel(count, zoom)) {
-              if (!map.hasLayer(marker)) marker.addTo(map);
             } else {
-              marker.remove();
+              if (!map.hasLayer(marker)) marker.addTo(map);
             }
           });
           return;
         }
 
-        countMarkers.forEach(({ marker }) => marker.remove());
+        countMarkers.forEach((marker) => marker.remove());
 
         if (zoom >= RECORD_PIN_ZOOM) {
           activeRecordMarkers.push(
@@ -316,6 +309,7 @@ export function HalyomorphaRangeMapClient({
           ? L.latLng(regionSummary.center.lat, regionSummary.center.lng)
           : undefined;
         selectedRegionId = regionId;
+        closeRegionTooltips();
         setSelectedRecord(null);
         setSelectedRegion(
           regionSummary ?? {
@@ -354,6 +348,12 @@ export function HalyomorphaRangeMapClient({
               selected: selectedRegionId === regionId,
             }),
           );
+        });
+      };
+
+      const closeRegionTooltips = () => {
+        rangeLayer.eachLayer((layer) => {
+          if (layer instanceof L.Path) layer.closeTooltip();
         });
       };
 
@@ -410,7 +410,7 @@ export function HalyomorphaRangeMapClient({
         resetMapRef.current = null;
         markerElements.clear();
         activeRecordMarkers.forEach((marker) => marker.remove());
-        countMarkers.forEach(({ marker }) => marker.remove());
+        countMarkers.forEach((marker) => marker.remove());
         rangeLayer.remove();
         resetControl.remove();
         map.remove();
@@ -512,6 +512,7 @@ function createCountMarker({
   regionName: string;
 }) {
   const element = document.createElement("button");
+  const isMobile = window.innerWidth < 640;
 
   element.type = "button";
   element.className = "halyomorpha-region-label";
@@ -524,10 +525,17 @@ function createCountMarker({
     icon: L.divIcon({
       className: "halyomorpha-region-label-shell",
       html: element,
-      iconAnchor: [0, 0],
-      iconSize: [1, 1],
+      iconAnchor: isMobile ? [18, 18] : [0, 0],
+      iconSize: isMobile ? [36, 36] : [1, 1],
     }),
     keyboard: false,
+    zIndexOffset: count,
+  });
+  marker.on("add", () => {
+    const markerElement = marker.getElement();
+    if (!markerElement) return;
+    markerElement.addEventListener("click", onSelect);
+    L.DomEvent.disableClickPropagation(markerElement);
   });
   marker.on("click", onSelect);
   return marker;
@@ -874,20 +882,11 @@ function SelectedRegionCard({
         {region.count.toLocaleString()} {copy.regionRecordsLabel}
         {years ? ` · ${years}` : ""}
       </p>
-      <dl className="mt-3 grid grid-cols-2 gap-x-4 gap-y-1 border-t border-white/10 pt-3 text-[12px] leading-relaxed">
-        <div>
-          <dt className="text-ink-muted">{copy.photoRecordLabel}</dt>
-          <dd className="font-semibold text-ink-foreground">
-            {region.photoRecordCount.toLocaleString()}
-          </dd>
-        </div>
-        <div>
-          <dt className="text-ink-muted">{copy.iNaturalistRecordLabel}</dt>
-          <dd className="font-semibold text-ink-foreground">
-            {region.iNaturalistRecordCount.toLocaleString()}
-          </dd>
-        </div>
-      </dl>
+      <p className="mt-3 border-t border-white/10 pt-3 text-[12px] leading-relaxed text-ink-muted">
+        {region.photoRecordCount.toLocaleString()} {copy.photoRecordLabel} ·{" "}
+        {region.iNaturalistRecordCount.toLocaleString()}{" "}
+        {copy.iNaturalistRecordLabel}
+      </p>
       {loading ? (
         <p className="mt-2 text-[12px] leading-relaxed text-ink-muted">
           {copy.regionLoadingLabel}
@@ -902,11 +901,6 @@ function SelectedRegionCard({
       </button>
     </article>
   );
-}
-
-function shouldShowRegionLabel(count: number, zoom: number) {
-  if (window.innerWidth < 640) return false;
-  return count > 0 || zoom >= 8.4;
 }
 
 function tooltipHtml({
