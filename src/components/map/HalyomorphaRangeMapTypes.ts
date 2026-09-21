@@ -13,6 +13,7 @@ export type { HalyomorphaFieldRecord };
 
 export type HalyomorphaRangeMapCopy = {
   closeLabel: string;
+  confirmedStatusLabel: string;
   fieldRecordLabel: string;
   galleryAction: string;
   iNaturalistRecordLabel: string;
@@ -24,12 +25,14 @@ export type HalyomorphaRangeMapCopy = {
   noRegionRecordsLabel: string;
   officialRegionLabel: string;
   photoRecordLabel: string;
+  recordedOnlyStatusLabel: string;
   regionLoadingLabel: string;
   regionRecordsLabel: string;
   regionSelectActionLabel: string;
   resetMapLabel: string;
   resetToGeorgiaLabel: string;
   sourceAction: string;
+  statusColumnLabel: string;
 };
 
 export type HalyomorphaRangeMapProps = {

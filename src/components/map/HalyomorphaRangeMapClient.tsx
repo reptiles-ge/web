@@ -446,6 +446,15 @@ function MapLegend({ copy }: { copy: HalyomorphaRangeMapProps["copy"] }) {
   );
 }
 
+function regionStatusLabel(
+  status: HalyomorphaRegionSummary["status"],
+  copy: HalyomorphaRangeMapProps["copy"],
+) {
+  return status === "confirmed"
+    ? copy.confirmedStatusLabel
+    : copy.recordedOnlyStatusLabel;
+}
+
 function regionStyle({
   compact = false,
   hovered = false,
@@ -621,6 +630,11 @@ function SelectedRegionCard({
         {region.count.toLocaleString()} {copy.regionRecordsLabel}
         {years ? ` · ${years}` : ""}
       </p>
+      {region.count > 0 ? (
+        <p className="mt-1 text-[12px] leading-relaxed text-ink-muted">
+          {regionStatusLabel(region.status, copy)}
+        </p>
+      ) : null}
       {loading ? (
         <p className="mt-2 text-[12px] leading-relaxed text-ink-muted">
           {copy.regionLoadingLabel}
@@ -644,6 +658,7 @@ function tooltipHtml({
   noRecords,
   recordLabel,
   sourceConfirmed,
+  statusLabel,
 }: {
   action: string;
   count: number;
@@ -651,10 +666,12 @@ function tooltipHtml({
   noRecords: string;
   recordLabel: string;
   sourceConfirmed?: string;
+  statusLabel?: string;
 }) {
   return [
     `<strong>${escapeHtml(name)}</strong>`,
     `<span>${count > 0 ? `${count} ${escapeHtml(recordLabel)}` : escapeHtml(noRecords)}</span>`,
+    statusLabel ? `<small>${escapeHtml(statusLabel)}</small>` : "",
     sourceConfirmed ? `<small>${escapeHtml(sourceConfirmed)}</small>` : "",
     `<em>${escapeHtml(action)} →</em>`,
   ]
@@ -846,6 +863,10 @@ function useHalyomorphaRangeMap({
                   sourceConfirmed: isOfficialRange
                     ? copy.officialRegionLabel
                     : undefined,
+                  statusLabel:
+                    regionSummary && regionCount > 0
+                      ? regionStatusLabel(regionSummary.status, copy)
+                      : undefined,
                 }),
               )
               .setLatLng(latlng ?? bounds?.getCenter() ?? map.getCenter())
@@ -1032,6 +1053,7 @@ function useHalyomorphaRangeMap({
             iNaturalistRecordCount: 0,
             name: regionName,
             photoRecordCount: 0,
+            status: "recorded-only",
           },
         );
         applyRegionStyles();

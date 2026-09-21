@@ -29,6 +29,8 @@ export type HalyomorphaFieldRecord = {
   url?: string;
 };
 
+export type HalyomorphaOccurrenceStatus = "confirmed" | "recorded-only";
+
 export type HalyomorphaOccurrenceSummary = {
   firstYear?: number;
   iNaturalistRecordCount: number;
@@ -48,6 +50,7 @@ export type HalyomorphaRegionSummary = {
   lastYear?: number;
   name: string;
   photoRecordCount: number;
+  status: HalyomorphaOccurrenceStatus;
 };
 
 export function getHalyomorphaFieldRecords({
@@ -105,6 +108,7 @@ export function getHalyomorphaOccurrenceSummary(
       photoRecordCount: regionRecords.filter(
         (record) => record.kind === "photo",
       ).length,
+      status: occurrenceStatusForCount(regionRecords.length),
     };
   }).sort((a, b) => b.count - a.count);
 
@@ -125,6 +129,12 @@ export function getHalyomorphaRegionRecords(
   regionId: RegionPathId,
 ) {
   return records.filter((record) => record.regionId === regionId);
+}
+
+export function occurrenceStatusForCount(
+  count: number,
+): HalyomorphaOccurrenceStatus {
+  return count < 5 ? "recorded-only" : "confirmed";
 }
 
 function fieldRecordAuthor(record: SpeciesFieldRecord) {
