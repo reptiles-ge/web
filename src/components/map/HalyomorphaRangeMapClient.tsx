@@ -1,6 +1,7 @@
 "use client";
 
 import type {
+  Control,
   LatLngBoundsExpression,
   GeoJSON as LeafletGeoJson,
   Map as LeafletMap,
@@ -52,6 +53,7 @@ export function HalyomorphaRangeMapClient({
     let map: LeafletMap;
     let rangeLayer: LeafletGeoJson;
     let markers: Marker[] = [];
+    let resetControl: Control;
     const markerElements = markerElementsRef.current;
 
     try {
@@ -67,6 +69,10 @@ export function HalyomorphaRangeMapClient({
         .attribution({ position: "bottomright", prefix: false })
         .addTo(map);
       L.control.zoom({ position: "topright" }).addTo(map);
+      resetControl = createResetControl(copy.resetMapLabel, () => {
+        setSelectedId(null);
+        fitInitialBounds(map);
+      }).addTo(map);
       L.tileLayer(LEAFLET_TILE_URL, {
         attribution:
           '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
@@ -75,10 +81,7 @@ export function HalyomorphaRangeMapClient({
         minZoom: 4,
       }).addTo(map);
 
-      map.fitBounds(GEORGIA_BOUNDS, {
-        animate: !window.matchMedia("(prefers-reduced-motion: reduce)").matches,
-        padding: window.innerWidth < 768 ? [22, 22] : [48, 48],
-      });
+      fitInitialBounds(map);
 
       rangeLayer = L.geoJSON(officialRange, {
         onEachFeature: (feature, layer) => {
@@ -130,12 +133,13 @@ export function HalyomorphaRangeMapClient({
         markerElements.clear();
         markers.forEach((marker) => marker.remove());
         rangeLayer.remove();
+        resetControl.remove();
         map.remove();
       };
     } catch {
       window.setTimeout(() => setMapError(true), 0);
     }
-  }, [fieldRecords, officialRange]);
+  }, [copy.resetMapLabel, fieldRecords, officialRange]);
 
   return (
     <>
@@ -162,6 +166,39 @@ export function HalyomorphaRangeMapClient({
       ) : null}
     </>
   );
+}
+
+function createResetControl(label: string, onReset: () => void) {
+  return new (L.Control.extend({
+    onAdd: () => {
+      const wrapper = L.DomUtil.create(
+        "div",
+        "leaflet-bar halyomorpha-reset-control",
+      );
+      const button = L.DomUtil.create("button", "", wrapper);
+
+      button.type = "button";
+      button.title = label;
+      button.setAttribute("aria-label", label);
+      button.textContent = "↺";
+
+      L.DomEvent.disableClickPropagation(wrapper);
+      L.DomEvent.on(button, "click", (event) => {
+        L.DomEvent.preventDefault(event);
+        onReset();
+      });
+
+      return wrapper;
+    },
+    options: { position: "topright" },
+  }))();
+}
+
+function fitInitialBounds(map: LeafletMap) {
+  map.fitBounds(GEORGIA_BOUNDS, {
+    animate: !window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+    padding: window.innerWidth < 768 ? [22, 22] : [48, 48],
+  });
 }
 
 function MapLegend({ copy }: { copy: HalyomorphaRangeMapProps["copy"] }) {

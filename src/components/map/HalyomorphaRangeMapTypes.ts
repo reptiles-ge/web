@@ -22,6 +22,7 @@ export type HalyomorphaRangeMapCopy = {
   mapAria: string;
   mapError: string;
   officialRegionLabel: string;
+  resetMapLabel: string;
 };
 
 export type HalyomorphaRangeMapProps = {

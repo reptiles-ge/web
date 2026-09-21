@@ -39,6 +39,7 @@ type HalyomorphaRangeCopy = {
   officialRegionsLabel: string;
   officialRegionsPrefix: string;
   rangeTitle: string;
+  resetMapLabel: string;
 };
 
 type SpeciesRangeMapProps = {
@@ -72,6 +73,7 @@ const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
       "Source-confirmed regions for brown marmorated stink bug in Georgia",
     officialRegionsPrefix: "Source-confirmed regions:",
     rangeTitle: "Where brown marmorated stink bug occurs in Georgia",
+    resetMapLabel: "Reset map view",
   },
   ka: {
     closeLabel: "საველე ჩანაწერის დახურვა",
@@ -97,6 +99,7 @@ const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
       "აზიური ფაროსანას წყაროებით დადასტურებული რეგიონები საქართველოში",
     officialRegionsPrefix: "წყაროებით დადასტურებული რეგიონები:",
     rangeTitle: "სად გვხვდება აზიური ფაროსანა საქართველოში",
+    resetMapLabel: "რუკის საწყის ხედზე დაბრუნება",
   },
   ru: {
     closeLabel: "Закрыть полевую запись",
@@ -121,6 +124,7 @@ const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
       "Подтверждённые источниками регионы для коричнево-мраморного клопа в Грузии",
     officialRegionsPrefix: "Подтверждённые источниками регионы:",
     rangeTitle: "Где встречается коричнево-мраморный клоп в Грузии",
+    resetMapLabel: "Вернуть начальный вид карты",
   },
   tr: {
     closeLabel: "Arazi kaydını kapat",
@@ -146,6 +150,7 @@ const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
       "Gürcistan'da kahverengi kokarca için kaynakla doğrulanmış bölgeler",
     officialRegionsPrefix: "Kaynakla doğrulanmış bölgeler:",
     rangeTitle: "Kahverengi kokarca Gürcistan'da nerede görülür?",
+    resetMapLabel: "Haritayı başlangıç görünümüne döndür",
   },
 };
 
@@ -327,6 +332,7 @@ function HalyomorphaRangeSection({
     mapAria: copy.mapAria,
     mapError: copy.mapError,
     officialRegionLabel: copy.officialRegionLabel,
+    resetMapLabel: copy.resetMapLabel,
   };
 
   return (

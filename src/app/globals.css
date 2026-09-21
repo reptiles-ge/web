@@ -303,6 +303,7 @@ input[type="search"]::-webkit-search-results-decoration {
   right: 0.9rem;
 }
 
+[data-halyomorpha-map] .halyomorpha-reset-control,
 [data-halyomorpha-map] .leaflet-control-zoom {
   overflow: hidden;
   border: 1px solid color-mix(in oklab, white 14%, transparent);
@@ -312,6 +313,7 @@ input[type="search"]::-webkit-search-results-decoration {
   backdrop-filter: blur(14px) saturate(140%);
 }
 
+[data-halyomorpha-map] .halyomorpha-reset-control button,
 [data-halyomorpha-map] .leaflet-control-zoom a {
   width: 2rem;
   height: 2rem;
@@ -328,12 +330,15 @@ input[type="search"]::-webkit-search-results-decoration {
   border-top: 1px solid color-mix(in oklab, white 10%, transparent);
 }
 
+[data-halyomorpha-map] .halyomorpha-reset-control button:hover,
+[data-halyomorpha-map] .halyomorpha-reset-control button:focus,
 [data-halyomorpha-map] .leaflet-control-zoom a:hover,
 [data-halyomorpha-map] .leaflet-control-zoom a:focus {
   background: color-mix(in oklab, white 8%, transparent);
   color: var(--ink-foreground);
 }
 
+[data-halyomorpha-map] .halyomorpha-reset-control button:focus-visible,
 [data-halyomorpha-map] .leaflet-control-zoom a:focus-visible {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
