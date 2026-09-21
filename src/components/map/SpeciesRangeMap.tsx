@@ -314,6 +314,7 @@ const INTERACTIVE_RANGE_MAPS: Partial<
       },
     },
     iNaturalistTaxonId: 709915,
+    restrictRecordsToRange: true,
   },
 };
 
@@ -341,7 +342,7 @@ export async function SpeciesRangeMap({
   const interactiveRangeFieldRecords =
     interactiveRangeConfig?.restrictRecordsToRange
       ? allInteractiveRangeFieldRecords.filter(
-          (record) => record.regionId && highlightedIdSet.has(record.regionId),
+          (record) => !record.regionId || highlightedIdSet.has(record.regionId),
         )
       : allInteractiveRangeFieldRecords;
   const interactiveRangeSummary = interactiveRangeCopy
