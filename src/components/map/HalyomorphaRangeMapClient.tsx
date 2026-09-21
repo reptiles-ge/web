@@ -22,6 +22,7 @@ const GEORGIA_BOUNDS = [
   [43.65, 46.75],
 ] satisfies LatLngBoundsExpression;
 const LEAFLET_TILE_URL = "https://tile.openstreetmap.de/{z}/{x}/{y}.png";
+const PIN_FOCUS_ZOOM = 10;
 
 export function HalyomorphaRangeMapClient({
   copy,
@@ -89,6 +90,10 @@ export function HalyomorphaRangeMapClient({
           if (!(layer instanceof L.Path)) return;
 
           layer.on({
+            click: () => {
+              setSelectedId(null);
+              fitRegionLayerBounds(map, layer);
+            },
             mouseout: () => {
               layer.setStyle(regionStyle(isOfficialRange));
             },
@@ -103,13 +108,25 @@ export function HalyomorphaRangeMapClient({
 
       markers = fieldRecords.map((record) => {
         const element = document.createElement("button");
+        const focusRecord = () => {
+          setSelectedId(record.id);
+          map.setView(
+            [record.lat, record.lng],
+            Math.max(map.getZoom(), PIN_FOCUS_ZOOM),
+            {
+              animate: !window.matchMedia("(prefers-reduced-motion: reduce)")
+                .matches,
+            },
+          );
+        };
+
         element.type = "button";
         element.className = "halyomorpha-field-marker";
         element.setAttribute("aria-label", record.accessibleLabel);
         element.setAttribute("aria-pressed", "false");
         element.dataset.selected = "false";
-        element.addEventListener("click", () => setSelectedId(record.id));
-        element.addEventListener("focus", () => setSelectedId(record.id));
+        element.addEventListener("click", focusRecord);
+        element.addEventListener("focus", focusRecord);
         markerElements.set(record.id, element);
 
         return L.marker([record.lat, record.lng], {
@@ -201,6 +218,15 @@ function fitInitialBounds(map: LeafletMap) {
   });
 }
 
+function fitRegionLayerBounds(map: LeafletMap, layer: L.Path) {
+  if (!(layer instanceof L.Polygon)) return;
+
+  map.fitBounds(layer.getBounds(), {
+    animate: !window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+    padding: window.innerWidth < 768 ? [38, 38] : [120, 96],
+  });
+}
+
 function MapLegend({ copy }: { copy: HalyomorphaRangeMapProps["copy"] }) {
   return (
     <div className="pointer-events-none absolute top-4 left-4 z-900 flex max-w-[calc(100%-2rem)] flex-wrap gap-2 rounded-full border border-white/18 bg-ink/92 px-3 py-2 text-[11px] leading-none font-semibold text-ink-foreground shadow-2xl backdrop-blur-md sm:text-[12px]">
@@ -229,6 +255,7 @@ function regionStyle(isOfficialRange: boolean, hovered = false) {
         ? "#dff7e5"
         : "#9ed4ad"
       : "rgba(255,255,255,0.18)",
+    cursor: "pointer",
     fillColor: isOfficialRange ? "#6fad88" : "#c9d8cb",
     fillOpacity: isOfficialRange ? (hovered ? 0.34 : 0.22) : 0.045,
     opacity: isOfficialRange ? (hovered ? 0.96 : 0.78) : 0.3,
