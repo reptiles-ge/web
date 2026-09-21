@@ -57,6 +57,7 @@
     "images:optimize:news": "tsx scripts/compile-species.ts && tsx scripts/optimize-images.ts --news",
     "images:optimize:site": "tsx scripts/compile-species.ts && tsx scripts/optimize-images.ts --site",
     "images:emit": "tsx scripts/compile-species.ts && tsx scripts/optimize-images.ts --emit-only",
+    "inaturalist:field-records": "tsx scripts/import-inaturalist-field-records.ts",
     "format": "prettier --write .",
     "prepare": "husky"
   },
