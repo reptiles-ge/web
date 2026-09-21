@@ -63,6 +63,7 @@ type HalyomorphaRangeCopy = {
 type InteractiveRangeMapConfig = {
   copy: Record<AppLocale, HalyomorphaRangeCopy>;
   iNaturalistTaxonId: number;
+  rangeSource?: "map-regions" | "record-summary";
 };
 
 type SpeciesRangeMapProps = {
@@ -222,37 +223,42 @@ const INTERACTIVE_RANGE_MAPS: Partial<
       en: {
         ...HALYOMORPHA_RANGE_COPY.en,
         intro:
-          "The Mingrelian scorpion map combines Reptiles.ge editorial photo records with public iNaturalist observations. Source-confirmed regions and individual field records are separate layers, and record counts reflect observation effort rather than population density.",
+          "The Mingrelian scorpion map combines Reptiles.ge editorial photo records with public iNaturalist observations. Regions are taken from the records-by-region table, and the status column separates confirmed distribution from recorded-only regions.",
         mapAria:
           "Mingrelian scorpion distribution evidence and field records on a map of Georgia",
+        officialRegionLabel: "Region with records",
         rangeTitle: "Where Mingrelian scorpion is recorded in Georgia",
       },
       ka: {
         ...HALYOMORPHA_RANGE_COPY.ka,
         intro:
-          "მეგრული მორიელის რუკა აერთიანებს Reptiles.ge-ის სარედაქციო ფოტოჩანაწერებსა და iNaturalist-ის საჯარო დაკვირვებებს. წყაროებით დადასტურებული რეგიონები და ინდივიდუალური საველე ჩანაწერები ცალკე ფენებია; ჩანაწერების რაოდენობა დაკვირვების ინტენსივობას ასახავს და პოპულაციის სიმჭიდროვედ არ უნდა განვიხილოთ.",
+          "მეგრული მორიელის რუკა აერთიანებს Reptiles.ge-ის სარედაქციო ფოტოჩანაწერებსა და iNaturalist-ის საჯარო დაკვირვებებს. რეგიონები აღებულია ჩანაწერების რეგიონული ცხრილიდან, ხოლო სტატუსი ერთმანეთისგან გამოყოფს დადასტურებულ გავრცელებასა და მხოლოდ დაფიქსირებულ რეგიონებს.",
         mapAria:
           "მეგრული მორიელის გავრცელების მტკიცებულებები და საველე ჩანაწერები საქართველოს რუკაზე",
+        officialRegionLabel: "ჩანაწერების მქონე რეგიონი",
         rangeTitle: "სად არის მეგრული მორიელი დაფიქსირებული საქართველოში",
       },
       ru: {
         ...HALYOMORPHA_RANGE_COPY.ru,
         intro:
-          "Карта мингрельского скорпиона объединяет редакционные фотозаписи Reptiles.ge и публичные наблюдения iNaturalist. Регионы, подтверждённые источниками, и отдельные полевые записи показаны разными слоями; количество записей отражает интенсивность наблюдений, а не плотность популяции.",
+          "Карта мингрельского скорпиона объединяет редакционные фотозаписи Reptiles.ge и публичные наблюдения iNaturalist. Регионы взяты из таблицы записей по регионам, а статус отделяет подтверждённое распространение от регионов, где вид только зафиксирован.",
         mapAria:
           "Данные о распространении мингрельского скорпиона и полевые записи на карте Грузии",
+        officialRegionLabel: "Регион с записями",
         rangeTitle: "Где мингрельский скорпион отмечен в Грузии",
       },
       tr: {
         ...HALYOMORPHA_RANGE_COPY.tr,
         intro:
-          "Karadeniz akrebi haritası Reptiles.ge editoryal fotoğraf kayıtlarını ve herkese açık iNaturalist gözlemlerini birleştirir. Kaynakla doğrulanmış bölgeler ile tekil arazi kayıtları ayrı katmanlardır; kayıt sayısı gözlem yoğunluğunu yansıtır, popülasyon yoğunluğu değildir.",
+          "Karadeniz akrebi haritası Reptiles.ge editoryal fotoğraf kayıtlarını ve herkese açık iNaturalist gözlemlerini birleştirir. Bölgeler, bölgelere göre kayıt tablosundan alınır; durum sütunu doğrulanmış yayılış ile yalnızca kaydedilen bölgeleri ayırır.",
         mapAria:
           "Karadeniz akrebinin Gürcistan'daki yayılış kanıtları ve arazi kayıtları",
+        officialRegionLabel: "Kayıt bulunan bölge",
         rangeTitle: "Karadeniz akrebi Gürcistan'da nerede kaydedildi?",
       },
     },
     iNaturalistTaxonId: 1654809,
+    rangeSource: "record-summary",
   },
   "halyomorpha-halys": {
     copy: HALYOMORPHA_RANGE_COPY,
@@ -403,7 +409,11 @@ export async function SpeciesRangeMap({
         iNaturalistTaxonId={interactiveRangeConfig.iNaturalistTaxonId}
         locale={locale}
         occurrenceSummary={interactiveRangeSummary}
-        officialRange={officialRangeForRegions(highlightedIds)}
+        officialRange={officialRangeForRegions(
+          interactiveRangeConfig.rangeSource === "record-summary"
+            ? interactiveRangeSummary.recordsByRegion.map((region) => region.id)
+            : highlightedIds,
+        )}
         speciesId={speciesId}
       />
     );
