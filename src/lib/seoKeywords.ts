@@ -906,6 +906,22 @@ const SPECIES_ALIASES: Record<
       "Vultur fulvus",
     ],
   },
+  "halyomorpha-halys": {
+    en: [
+      "brown marmorated stink bug",
+      "Halyomorpha halys",
+      "stink bug Georgia",
+      "BMSB",
+    ],
+    ka: [
+      "აზიური ფაროსანა",
+      "აზიური ბაღლინჯო",
+      "Halyomorpha halys",
+      "ფაროსანა საქართველოში",
+    ],
+    ru: ["коричнево-мраморный клоп", "азиатский клоп", "Halyomorpha halys"],
+    tr: ["kahverengi kokarca", "Halyomorpha halys", "Gürcistan kokarca"],
+  },
   "jynx-torquilla": {
     en: [
       "wryneck",

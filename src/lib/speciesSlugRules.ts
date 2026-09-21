@@ -163,6 +163,16 @@ const KA_SLUG_ALIASES: Record<string, string[]> = {
     "griffon",
     "eurasian-griffon",
   ],
+  "halyomorpha-halys": [
+    "aziuri-baghlindo",
+    "aziuri-baghlindjo",
+    "halyomorpha-halys",
+    "brown-marmorated-stink-bug",
+    "brown-marmorated-stinkbug",
+    "asian-stink-bug",
+    "asian-stinkbug",
+    "bmsb",
+  ],
   "jynx-torquilla": ["chveulebrivi-maktsia", "maqcia"],
   "larus-fuscus": [
     "shavzurga-tolia",

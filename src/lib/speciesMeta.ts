@@ -121,6 +121,10 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
     en: "Mingrelian scorpion (Euscorpius mingrelicus) | Western Georgia",
     ka: "მეგრული მორიელი (Euscorpius mingrelicus) — დასავლეთ საქართველოში",
   },
+  "halyomorpha-halys": {
+    en: "Brown marmorated stink bug (Halyomorpha halys) | Georgia",
+    ka: "აზიური ფაროსანა (Halyomorpha halys) | მავნებელი საქართველოში",
+  },
   "latrodectus-tredecimguttatus": {
     en: "Mediterranean black widow (Latrodectus tredecimguttatus) | Widow spider in Georgia",
     ka: "ყარაყურთი (Latrodectus tredecimguttatus) | შავი ქვრივი საქართველოში",
@@ -259,6 +263,10 @@ const SPECIES_META_DESCRIPTION_OVERRIDE: Partial<
   "euscorpius-mingrelicus": {
     en: "Mingrelian scorpion (Euscorpius mingrelicus) in Georgia: taxonomy, western Georgian range, identification, humid forest habitat, and sting risk.",
     ka: "მეგრული მორიელი (Euscorpius mingrelicus) საქართველოში — ტაქსონომია, დასავლეთ საქართველოს არეალი, ამოცნობა, ნოტიო ტყის ჰაბიტატი და ჩხვლეტის რისკი.",
+  },
+  "halyomorpha-halys": {
+    en: "Brown marmorated stink bug (Halyomorpha halys) in Georgia: invasive pest status, identification, confirmed western records, crops, seasonality, and household safety.",
+    ka: "აზიური ფაროსანა (Halyomorpha halys) საქართველოში — ინვაზიური მავნებლის ამოცნობა, დასავლეთ საქართველოს ჩანაწერები, კულტურები, სეზონურობა და უსაფრთხოება.",
   },
   "lutra-lutra": {
     ka: "ჩვეულებრივი წავი (Lutra lutra) საქართველოში — როგორ ამოიცნოთ, სად გვხვდება, რა ზომისაა, რას ჭამს და რა სტატუსით არის დაცული.",
