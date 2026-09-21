@@ -3,7 +3,10 @@
 import dynamic from "next/dynamic";
 import { useEffect, useRef, useState } from "react";
 
-import type { HalyomorphaRangeMapProps } from "@/components/map/HalyomorphaRangeMapTypes";
+import {
+  HALYOMORPHA_REGION_QUERY_PARAM,
+  type HalyomorphaRangeMapProps,
+} from "@/components/map/HalyomorphaRangeMapTypes";
 
 const HalyomorphaRangeMapClient = dynamic(
   () =>
@@ -23,6 +26,17 @@ export function HalyomorphaRangeMap(props: HalyomorphaRangeMapProps) {
   useEffect(() => {
     const wrapper = wrapperRef.current;
     if (!wrapper || shouldLoadMap) return;
+    if (
+      new URLSearchParams(window.location.search).has(
+        HALYOMORPHA_REGION_QUERY_PARAM,
+      )
+    ) {
+      const frame = window.requestAnimationFrame(() => {
+        setShouldLoadMap(true);
+        wrapper.scrollIntoView({ behavior: "smooth", block: "center" });
+      });
+      return () => window.cancelAnimationFrame(frame);
+    }
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry?.isIntersecting) return;

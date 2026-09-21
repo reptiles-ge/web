@@ -17,6 +17,7 @@ import type { RegionPathId } from "@/data/georgia-paths";
 import type { HalyomorphaRegionSummary } from "@/lib/halyomorphaOccurrences";
 
 import {
+  HALYOMORPHA_REGION_QUERY_PARAM,
   HALYOMORPHA_REGION_SELECT_EVENT,
   type HalyomorphaFieldRecord,
   type HalyomorphaRangeMapProps,
@@ -34,7 +35,6 @@ const MAP_PAN_BOUNDS = [
   [39.35, 35.4],
   [45.1, 50.95],
 ] satisfies LatLngBoundsExpression;
-const REGION_QUERY_PARAM = "region";
 const LEAFLET_TILE_URL = "https://tile.openstreetmap.de/{z}/{x}/{y}.png";
 const LEAFLET_FALLBACK_TILE_URL =
   "https://tile.openstreetmap.org/{z}/{x}/{y}.png";
@@ -368,7 +368,9 @@ function getLayerBounds(layer: L.Path) {
 }
 
 function getUrlRegionId() {
-  return new URLSearchParams(window.location.search).get(REGION_QUERY_PARAM);
+  return new URLSearchParams(window.location.search).get(
+    HALYOMORPHA_REGION_QUERY_PARAM,
+  );
 }
 
 function MapLegend({ copy }: { copy: HalyomorphaRangeMapProps["copy"] }) {
@@ -618,9 +620,9 @@ function tooltipHtml({
 function updateRegionUrl(regionId: null | RegionPathId) {
   const url = new URL(window.location.href);
   if (regionId) {
-    url.searchParams.set(REGION_QUERY_PARAM, regionId);
+    url.searchParams.set(HALYOMORPHA_REGION_QUERY_PARAM, regionId);
   } else {
-    url.searchParams.delete(REGION_QUERY_PARAM);
+    url.searchParams.delete(HALYOMORPHA_REGION_QUERY_PARAM);
   }
   window.history.replaceState(
     window.history.state,
