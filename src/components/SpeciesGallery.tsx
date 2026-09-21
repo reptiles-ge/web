@@ -114,9 +114,8 @@ export async function SpeciesGallery({
               const entry = optimizedEntry(photo.src);
               const sizes = featured ? featuredSizes : thumbSizes;
               const showFieldRecord =
-                speciesId === "halyomorpha-halys" &&
                 (photo.photoConfidence ?? photo.credit?.photoConfidence) ===
-                  "georgia-field";
+                "georgia-field";
 
               if (showFieldRecord) {
                 return (
