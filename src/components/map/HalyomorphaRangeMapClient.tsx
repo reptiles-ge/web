@@ -193,6 +193,7 @@ function createRecordMarkers(
     element.dataset.selected = "false";
     element.addEventListener("click", focusRecord);
     element.addEventListener("focus", focusRecord);
+    L.DomEvent.disableClickPropagation(element);
     markerElements.set(record.id, element);
 
     return L.marker([record.lat, record.lng], {
@@ -385,62 +386,32 @@ function MapLegend({ copy }: { copy: HalyomorphaRangeMapProps["copy"] }) {
 function regionStyle({
   compact = false,
   hovered = false,
-  isOfficialRange,
   muted = false,
   selected = false,
 }: {
   compact?: boolean;
   hovered?: boolean;
-  isOfficialRange: boolean;
   muted?: boolean;
   selected?: boolean;
 }) {
   if (compact) {
     return {
-      color: selected ? "#effff1" : isOfficialRange ? "#c7f4cf" : "#a7d5b3",
+      color: selected ? "#effff1" : "#c7f4cf",
       cursor: "pointer",
-      fillColor: selected ? "#74d789" : isOfficialRange ? "#8ee6a1" : "#8bb897",
-      fillOpacity: selected
-        ? 0.56
-        : hovered
-          ? 0.46
-          : muted
-            ? 0.12
-            : isOfficialRange
-              ? 0.36
-              : 0.28,
-      opacity: muted
-        ? 0.42
-        : selected || hovered
-          ? 1
-          : isOfficialRange
-            ? 0.9
-            : 0.82,
-      weight: selected ? 2.65 : hovered ? 1.95 : isOfficialRange ? 1.55 : 1.2,
+      fillColor: selected ? "#74d789" : "#8ee6a1",
+      fillOpacity: selected ? 0.56 : hovered ? 0.46 : muted ? 0.16 : 0.36,
+      opacity: muted ? 0.52 : selected || hovered ? 1 : 0.9,
+      weight: selected ? 2.65 : hovered ? 1.95 : 1.55,
     };
   }
 
   return {
-    color: selected ? "#effff1" : isOfficialRange ? "#a9f0b8" : "#8eb99a",
+    color: selected ? "#effff1" : "#a9f0b8",
     cursor: "pointer",
-    fillColor: selected ? "#66cf7f" : isOfficialRange ? "#75d28b" : "#d6e2d8",
-    fillOpacity: selected
-      ? 0.42
-      : hovered
-        ? 0.32
-        : muted
-          ? 0.045
-          : isOfficialRange
-            ? 0.22
-            : 0.16,
-    opacity: muted
-      ? 0.34
-      : selected || hovered
-        ? 1
-        : isOfficialRange
-          ? 0.92
-          : 0.86,
-    weight: selected ? 2.6 : hovered ? 1.9 : isOfficialRange ? 1.55 : 1.15,
+    fillColor: selected ? "#66cf7f" : "#75d28b",
+    fillOpacity: selected ? 0.42 : hovered ? 0.32 : muted ? 0.075 : 0.22,
+    opacity: muted ? 0.42 : selected || hovered ? 1 : 0.92,
+    weight: selected ? 2.6 : hovered ? 1.9 : 1.55,
   };
 }
 
@@ -697,6 +668,33 @@ function useHalyomorphaRangeMap({
               selectRegion(regionId, bounds, regionSummary, regionName);
             }
           };
+          const openCurrentTooltip = () => {
+            if (isCompactViewport || selectedRegionId) return;
+            layer
+              .bindTooltip(
+                tooltipHtml({
+                  action: copy.regionSelectActionLabel,
+                  count: regionCount,
+                  name: regionName,
+                  noRecords: copy.noRegionRecordsLabel,
+                  recordLabel: copy.regionRecordsLabel,
+                  sourceConfirmed: isOfficialRange
+                    ? copy.officialRegionLabel
+                    : undefined,
+                }),
+                {
+                  className: "halyomorpha-region-tooltip",
+                  direction: "top",
+                  opacity: 1,
+                  sticky: true,
+                },
+              )
+              .openTooltip();
+          };
+          const closeCurrentTooltip = () => {
+            layer.closeTooltip();
+            layer.unbindTooltip();
+          };
 
           if (regionCount > 0 && bounds) {
             const center = bounds.getCenter();
@@ -712,35 +710,14 @@ function useHalyomorphaRangeMap({
             );
           }
 
-          if (!isCompactViewport) {
-            layer.bindTooltip(
-              tooltipHtml({
-                action: copy.regionSelectActionLabel,
-                count: regionCount,
-                name: regionName,
-                noRecords: copy.noRegionRecordsLabel,
-                recordLabel: copy.regionRecordsLabel,
-                sourceConfirmed: isOfficialRange
-                  ? copy.officialRegionLabel
-                  : undefined,
-              }),
-              {
-                className: "halyomorpha-region-tooltip",
-                direction: "top",
-                opacity: 1,
-                sticky: true,
-              },
-            );
-          }
-
           layer.on({
             click: selectCurrentRegion,
             mouseout: () => {
+              closeCurrentTooltip();
               layer.setStyle(
                 regionStyle({
                   compact: isCompactViewport,
                   hovered: false,
-                  isOfficialRange,
                   muted: Boolean(
                     selectedRegionId && selectedRegionId !== regionId,
                   ),
@@ -749,11 +726,11 @@ function useHalyomorphaRangeMap({
               );
             },
             mouseover: () => {
+              openCurrentTooltip();
               layer.setStyle(
                 regionStyle({
                   compact: isCompactViewport,
                   hovered: true,
-                  isOfficialRange,
                   muted: Boolean(
                     selectedRegionId && selectedRegionId !== regionId,
                   ),
@@ -784,12 +761,11 @@ function useHalyomorphaRangeMap({
               selectCurrentRegion();
             });
             element.addEventListener("focus", () => {
-              if (!isCompactViewport) layer.openTooltip();
+              openCurrentTooltip();
               layer.setStyle(
                 regionStyle({
                   compact: isCompactViewport,
                   hovered: true,
-                  isOfficialRange,
                   muted: Boolean(
                     selectedRegionId && selectedRegionId !== regionId,
                   ),
@@ -798,11 +774,10 @@ function useHalyomorphaRangeMap({
               );
             });
             element.addEventListener("blur", () => {
-              if (!isCompactViewport) layer.closeTooltip();
+              closeCurrentTooltip();
               layer.setStyle(
                 regionStyle({
                   compact: isCompactViewport,
-                  isOfficialRange,
                   muted: Boolean(
                     selectedRegionId && selectedRegionId !== regionId,
                   ),
@@ -812,10 +787,9 @@ function useHalyomorphaRangeMap({
             });
           });
         },
-        style: (feature) =>
+        style: () =>
           regionStyle({
             compact: isCompactViewport,
-            isOfficialRange: feature?.properties?.isOfficialRange === true,
           }),
       }).addTo(map);
 
@@ -914,7 +888,6 @@ function useHalyomorphaRangeMap({
           layer.setStyle(
             regionStyle({
               compact: isCompactViewport,
-              isOfficialRange: feature?.properties.isOfficialRange === true,
               muted: Boolean(
                 selectedRegionId && regionId && selectedRegionId !== regionId,
               ),
@@ -954,7 +927,10 @@ function useHalyomorphaRangeMap({
 
       const closeRegionTooltips = () => {
         rangeLayer.eachLayer((layer) => {
-          if (layer instanceof L.Path) layer.closeTooltip();
+          if (layer instanceof L.Path) {
+            layer.closeTooltip();
+            layer.unbindTooltip();
+          }
         });
       };
 
