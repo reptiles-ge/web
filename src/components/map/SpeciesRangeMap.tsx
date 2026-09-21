@@ -1,3 +1,4 @@
+import { ArrowUpRight } from "lucide-react";
 import { getLocale, getTranslations } from "next-intl/server";
 
 import type { HalyomorphaRangeMapCopy } from "@/components/map/HalyomorphaRangeMapTypes";
@@ -518,7 +519,10 @@ function HalyomorphaRangeSection({
                             href={regionHref(region.id)}
                             title={copy.regionPageLabel(region.name)}
                           >
-                            <span aria-hidden="true">↗</span>
+                            <ArrowUpRight
+                              aria-hidden="true"
+                              className="size-3"
+                            />
                           </Link>
                         </span>
                       </th>
