@@ -265,8 +265,8 @@ const SPECIES_META_DESCRIPTION_OVERRIDE: Partial<
     ka: "მეგრული მორიელი (Euscorpius mingrelicus) საქართველოში — ტაქსონომია, დასავლეთ საქართველოს არეალი, ამოცნობა, ნოტიო ტყის ჰაბიტატი და ჩხვლეტის რისკი.",
   },
   "halyomorpha-halys": {
-    en: "Brown marmorated stink bug (Halyomorpha halys) in Georgia: invasive pest status, identification, distribution evidence, crops, seasonality, and household safety.",
-    ka: "აზიური ფაროსანა (Halyomorpha halys) საქართველოში — ინვაზიური მავნებლის ამოცნობა, გავრცელების მტკიცებულებები, კულტურები, სეზონურობა და უსაფრთხოება.",
+    en: "Brown marmorated stink bug (Halyomorpha halys) in Georgia: identification, distribution evidence, crop damage, control, and indoor removal.",
+    ka: "აზიური ფაროსანა (Halyomorpha halys) საქართველოში — ამოცნობა, გავრცელების მტკიცებულებები, ზიანი კულტურებზე, კონტროლი და სახლში მოცილება.",
   },
   "lutra-lutra": {
     ka: "ჩვეულებრივი წავი (Lutra lutra) საქართველოში — როგორ ამოიცნოთ, სად გვხვდება, რა ზომისაა, რას ჭამს და რა სტატუსით არის დაცული.",
