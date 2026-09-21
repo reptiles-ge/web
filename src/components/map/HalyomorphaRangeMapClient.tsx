@@ -398,32 +398,96 @@ function MapLegend({ copy }: { copy: HalyomorphaRangeMapProps["copy"] }) {
 function regionStyle({
   compact = false,
   hovered = false,
+  isDark = false,
   muted = false,
   selected = false,
 }: {
   compact?: boolean;
   hovered?: boolean;
+  isDark?: boolean;
   muted?: boolean;
   selected?: boolean;
 }) {
-  if (compact) {
-    return {
-      color: selected ? "#effff1" : "#c7f4cf",
-      cursor: "pointer",
-      fillColor: selected ? "#74d789" : "#8ee6a1",
-      fillOpacity: selected ? 0.56 : hovered ? 0.46 : muted ? 0.16 : 0.36,
-      opacity: muted ? 0.52 : selected || hovered ? 1 : 0.9,
-      weight: selected ? 2.65 : hovered ? 1.95 : 1.55,
-    };
-  }
-
+  const style = compact
+    ? isDark
+      ? {
+          color: "#c7f4cf",
+          fillColor: "#8ee6a1",
+          fillOpacity: 0.36,
+          hoverFillOpacity: 0.46,
+          hoverWeight: 1.95,
+          mutedFillOpacity: 0.16,
+          mutedOpacity: 0.52,
+          opacity: 0.9,
+          selectedFillColor: "#74d789",
+          selectedFillOpacity: 0.56,
+          selectedWeight: 2.65,
+          weight: 1.55,
+        }
+      : {
+          color: "#2f7f47",
+          fillColor: "#3f9a59",
+          fillOpacity: 0.42,
+          hoverFillOpacity: 0.5,
+          hoverWeight: 2.15,
+          mutedFillOpacity: 0.2,
+          mutedOpacity: 0.58,
+          opacity: 0.95,
+          selectedFillColor: "#4bae67",
+          selectedFillOpacity: 0.56,
+          selectedWeight: 2.65,
+          weight: 1.8,
+        }
+    : isDark
+      ? {
+          color: "#a9f0b8",
+          fillColor: "#75d28b",
+          fillOpacity: 0.22,
+          hoverFillOpacity: 0.32,
+          hoverWeight: 1.9,
+          mutedFillOpacity: 0.075,
+          mutedOpacity: 0.42,
+          opacity: 0.92,
+          selectedFillColor: "#66cf7f",
+          selectedFillOpacity: 0.42,
+          selectedWeight: 2.6,
+          weight: 1.55,
+        }
+      : {
+          color: "#2c7c43",
+          fillColor: "#3f9658",
+          fillOpacity: 0.3,
+          hoverFillOpacity: 0.38,
+          hoverWeight: 2.1,
+          mutedFillOpacity: 0.12,
+          mutedOpacity: 0.5,
+          opacity: 0.96,
+          selectedFillColor: "#4da965",
+          selectedFillOpacity: 0.46,
+          selectedWeight: 2.6,
+          weight: 1.8,
+        };
   return {
-    color: selected ? "#effff1" : "#a9f0b8",
+    color: selected ? "#effff1" : style.color,
     cursor: "pointer",
-    fillColor: selected ? "#66cf7f" : "#75d28b",
-    fillOpacity: selected ? 0.42 : hovered ? 0.32 : muted ? 0.075 : 0.22,
-    opacity: muted ? 0.42 : selected || hovered ? 1 : 0.92,
-    weight: selected ? 2.6 : hovered ? 1.9 : 1.55,
+    fillColor: selected ? style.selectedFillColor : style.fillColor,
+    fillOpacity: selected
+      ? style.selectedFillOpacity
+      : hovered
+        ? style.hoverFillOpacity
+        : muted
+          ? style.mutedFillOpacity
+          : style.fillOpacity,
+    opacity: muted
+      ? style.mutedOpacity
+      : selected || hovered
+        ? 1
+        : style.opacity,
+    weight: selected
+      ? style.selectedWeight
+      : hovered
+        ? style.hoverWeight
+        : style.weight,
   };
 }
 
@@ -600,6 +664,7 @@ function useHalyomorphaRangeMap({
       regionNames.map((region) => [region.id, region.name]),
     );
     const isCompactViewport = window.innerWidth < 640;
+    const isDarkMode = document.documentElement.classList.contains("dark");
 
     try {
       map = L.map(container, {
@@ -728,6 +793,7 @@ function useHalyomorphaRangeMap({
                 regionStyle({
                   compact: isCompactViewport,
                   hovered: false,
+                  isDark: isDarkMode,
                   muted: Boolean(
                     selectedRegionId && selectedRegionId !== regionId,
                   ),
@@ -741,6 +807,7 @@ function useHalyomorphaRangeMap({
                 regionStyle({
                   compact: isCompactViewport,
                   hovered: true,
+                  isDark: isDarkMode,
                   muted: Boolean(
                     selectedRegionId && selectedRegionId !== regionId,
                   ),
@@ -776,6 +843,7 @@ function useHalyomorphaRangeMap({
                 regionStyle({
                   compact: isCompactViewport,
                   hovered: true,
+                  isDark: isDarkMode,
                   muted: Boolean(
                     selectedRegionId && selectedRegionId !== regionId,
                   ),
@@ -788,6 +856,7 @@ function useHalyomorphaRangeMap({
               layer.setStyle(
                 regionStyle({
                   compact: isCompactViewport,
+                  isDark: isDarkMode,
                   muted: Boolean(
                     selectedRegionId && selectedRegionId !== regionId,
                   ),
@@ -800,6 +869,7 @@ function useHalyomorphaRangeMap({
         style: () =>
           regionStyle({
             compact: isCompactViewport,
+            isDark: isDarkMode,
           }),
       }).addTo(map);
 
@@ -898,6 +968,7 @@ function useHalyomorphaRangeMap({
           layer.setStyle(
             regionStyle({
               compact: isCompactViewport,
+              isDark: isDarkMode,
               muted: Boolean(
                 selectedRegionId && regionId && selectedRegionId !== regionId,
               ),
