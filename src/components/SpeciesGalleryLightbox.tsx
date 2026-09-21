@@ -137,6 +137,23 @@ export function SpeciesGalleryLightbox({
     return () => window.removeEventListener("keydown", onKey);
   }, [active, slides.length]);
 
+  useEffect(() => {
+    if (active === null) return;
+
+    const root = document.documentElement;
+    const body = document.body;
+    const previousRootOverflow = root.style.overflow;
+    const previousBodyOverflow = body.style.overflow;
+
+    root.style.overflow = "hidden";
+    body.style.overflow = "hidden";
+
+    return () => {
+      root.style.overflow = previousRootOverflow;
+      body.style.overflow = previousBodyOverflow;
+    };
+  }, [active]);
+
   const activeSlide = active !== null ? slides[active] : null;
   const imageLoaded = activeSlide ? loadedSrc === activeSlide.src : false;
 
