@@ -8,7 +8,7 @@ import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { GeorgiaMapStatic } from "@/components/map/GeorgiaMapStatic";
 import { getRegionsForSpecies, localizeRegionText } from "@/data/mapRegions";
 import { Link } from "@/i18n/navigation";
-import { formatContentDate } from "@/lib/formatDate";
+import { formatPhotoDate } from "@/lib/formatDate";
 import { regionHref } from "@/lib/regionHref";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 
@@ -21,10 +21,9 @@ type FieldPhotoRecord = {
 
 type HalyomorphaRangeCopy = {
   fieldBody: string;
+  fieldRecordLabel: string;
   fieldTitle: string;
   mapAria: string;
-  photoCreditLabel: string;
-  photoDateLabel: string;
   rangeSubtitle: string;
 };
 
@@ -38,42 +37,38 @@ const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
   en: {
     fieldBody:
       "These points are individual field photo records published in the gallery: place, date, author, and photograph. They are a separate evidence layer and do not automatically imply even regional distribution.",
-    fieldTitle: "Reptiles.ge field photo records",
+    fieldRecordLabel: "Field record",
+    fieldTitle: "Reptiles.ge records",
     mapAria:
       "Brown marmorated stink bug field photo records on the map of Georgia",
-    photoCreditLabel: "Photo",
-    photoDateLabel: "Date",
     rangeSubtitle:
       "Highlighted regions show regional records supported by the official and peer-reviewed sources used on this page. Individual Reptiles.ge field photo records are shown separately and do not automatically mean even distribution across a region.",
   },
   ka: {
     fieldBody:
       "ეს წერტილები არის გალერეაში გამოქვეყნებული ინდივიდუალური საველე ფოტოჩანაწერები: ადგილი, თარიღი, ავტორი და ფოტო. ისინი ცალკე მტკიცებულების ფენაა და ავტომატურად არ ნიშნავს რეგიონის ერთნაირ დაფარვას.",
-    fieldTitle: "Reptiles.ge-ის საველე ფოტოჩანაწერები",
+    fieldRecordLabel: "საველე ჩანაწერი",
+    fieldTitle: "Reptiles.ge-ის ჩანაწერები",
     mapAria: "აზიური ფაროსანას საველე ფოტოჩანაწერები საქართველოს რუკაზე",
-    photoCreditLabel: "ფოტო",
-    photoDateLabel: "თარიღი",
     rangeSubtitle:
       "გამოკვეთილი რეგიონები აჩვენებს ამ გვერდზე გამოყენებული ოფიციალური და რეცენზირებული წყაროებით რეგიონულ დონეზე დადასტურებულ ჩანაწერებს. Reptiles.ge-ის ინდივიდუალური საველე ფოტოჩანაწერები ცალკე არის ნაჩვენები და ავტომატურად არ ნიშნავს რეგიონში ერთნაირ გავრცელებას.",
   },
   ru: {
     fieldBody:
       "Эти точки — отдельные полевые фотозаписи из галереи: место, дата, автор и фотография. Это отдельный слой данных, который не означает равномерное распространение по региону.",
-    fieldTitle: "Полевые фотозаписи Reptiles.ge",
+    fieldRecordLabel: "Полевая фотозапись",
+    fieldTitle: "Записи Reptiles.ge",
     mapAria: "Полевые фотозаписи коричнево-мраморного клопа на карте Грузии",
-    photoCreditLabel: "Фото",
-    photoDateLabel: "Дата",
     rangeSubtitle:
       "Подсвеченные регионы показывают региональные записи, подтверждённые официальными и рецензируемыми источниками, использованными на этой странице. Отдельные полевые фотозаписи Reptiles.ge показаны отдельно и не означают равномерное распространение по региону.",
   },
   tr: {
     fieldBody:
       "Bu noktalar galeride yayımlanan tekil arazi fotoğraf kayıtlarıdır: yer, tarih, fotoğrafçı ve fotoğraf. Ayrı bir kanıt katmanıdır ve bölge genelinde eşit yayılış anlamına gelmez.",
-    fieldTitle: "Reptiles.ge arazi fotoğraf kayıtları",
+    fieldRecordLabel: "Arazi kaydı",
+    fieldTitle: "Reptiles.ge kayıtları",
     mapAria:
       "Kahverengi kokarca arazi fotoğraf kayıtları Gürcistan haritasında",
-    photoCreditLabel: "Fotoğraf",
-    photoDateLabel: "Tarih",
     rangeSubtitle:
       "Vurgulanan bölgeler, bu sayfada kullanılan resmî ve hakemli kaynaklarla bölgesel düzeyde doğrulanan kayıtları gösterir. Reptiles.ge'nin tekil arazi fotoğraf kayıtları ayrı gösterilir ve bir bölgede eşit yayılış anlamına gelmez.",
   },
@@ -231,26 +226,30 @@ function FieldPhotoRecords({
               />
             </span>
             <span className="min-w-0">
-              <span className="block text-[14px] font-medium text-foreground">
-                {record.credit.location}
+              <span className="block text-[14px] leading-relaxed font-medium text-foreground">
+                {fieldRecordLine(record.credit, copy.fieldRecordLabel, locale)}
               </span>
-              {record.credit.date ? (
-                <span className="mt-1 block text-[12px] leading-relaxed text-muted-foreground">
-                  {copy.photoDateLabel}:{" "}
-                  {formatContentDate(record.credit.date, locale)}
-                </span>
-              ) : null}
-              {record.credit.photographer ? (
-                <span className="block text-[12px] leading-relaxed text-muted-foreground">
-                  {copy.photoCreditLabel}: {record.credit.photographer}
-                </span>
-              ) : null}
             </span>
           </article>
         ))}
       </div>
     </div>
   );
+}
+
+function fieldRecordLine(
+  credit: PhotoCredit,
+  label: string,
+  locale: AppLocale,
+) {
+  const location = credit.location?.trim();
+  const date = credit.date ? formatPhotoDate(credit.date, locale) : null;
+  const photographer = credit.photographer?.trim();
+  const placeDate = [location, date].filter(Boolean).join(", ");
+
+  return `${label}${placeDate ? ` — ${placeDate}` : ""}${
+    photographer ? ` · ${photographer}` : ""
+  }`;
 }
 
 function getFieldPhotoRecords(gallery: GalleryImage[]): FieldPhotoRecord[] {
