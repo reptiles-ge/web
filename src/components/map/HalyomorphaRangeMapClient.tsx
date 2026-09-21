@@ -29,10 +29,9 @@ const GEORGIA_BOUNDS = [
   [40.95, 39.85],
   [43.65, 46.75],
 ] satisfies LatLngBoundsExpression;
-const LEAFLET_TILE_URL =
-  "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}";
+const LEAFLET_TILE_URL = "https://tile.openstreetmap.de/{z}/{x}/{y}.png";
 const LEAFLET_TILE_ATTRIBUTION =
-  "&copy; Esri, Maxar, Earthstar Geographics, and the GIS User Community";
+  '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
 const PIN_FOCUS_ZOOM = 16;
 const RECORD_CLUSTER_ZOOM = 9;
 const RECORD_PIN_ZOOM = 16;
@@ -618,7 +617,7 @@ function useHalyomorphaRangeMap({
       const tileLayer = L.tileLayer(LEAFLET_TILE_URL, {
         attribution: LEAFLET_TILE_ATTRIBUTION,
         detectRetina: true,
-        maxZoom: 20,
+        maxZoom: 19,
         minZoom: 4,
       }).addTo(map);
 
