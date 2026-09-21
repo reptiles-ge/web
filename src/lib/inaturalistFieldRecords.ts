@@ -124,12 +124,10 @@ export function observationToFieldRecord(
     observation.place_guess?.trim() ||
     `iNaturalist observation #${observation.id}`;
   const record: SpeciesFieldRecord = {
-    evidence: "observation",
     lat: roundCoordinate(coordinates.lat, coordinateDecimals),
     lng: roundCoordinate(coordinates.lng, coordinateDecimals),
     locality,
     note: `iNaturalist observation #${observation.id}`,
-    source: "iNaturalist",
     url: `https://www.inaturalist.org/observations/${observation.id}`,
   };
   if (date) record.date = date;
@@ -182,10 +180,14 @@ function fieldRecordEntries(
   if (record.date) entries.push(["date", record.date]);
   if (record.observer) entries.push(["observer", record.observer]);
   if (record.observerName) entries.push(["observerName", record.observerName]);
-  if (record.source) entries.push(["source", record.source]);
+  if (record.source && record.source !== "iNaturalist") {
+    entries.push(["source", record.source]);
+  }
   if (record.url) entries.push(["url", record.url]);
   if (record.note) entries.push(["note", record.note]);
-  if (record.evidence) entries.push(["evidence", record.evidence]);
+  if (record.evidence && record.evidence !== "observation") {
+    entries.push(["evidence", record.evidence]);
+  }
   return entries;
 }
 
