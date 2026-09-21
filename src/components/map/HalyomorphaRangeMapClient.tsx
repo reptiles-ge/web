@@ -714,7 +714,7 @@ function escapeHtml(value: string) {
 function fitInitialBounds(map: LeafletMap) {
   const bounds = L.latLngBounds(GEORGIA_BOUNDS);
   const padding = L.point(window.innerWidth < 768 ? [36, 36] : [48, 48]);
-  const zoom = Math.max(4, map.getBoundsZoom(bounds, false, padding) - 1);
+  const zoom = Math.max(4, map.getBoundsZoom(bounds, false, padding) - 2);
 
   map.setView(bounds.getCenter(), zoom, {
     animate: !window.matchMedia("(prefers-reduced-motion: reduce)").matches,
