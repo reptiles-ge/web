@@ -9,6 +9,7 @@ import type {
 } from "leaflet";
 
 import * as L from "leaflet";
+import { X } from "lucide-react";
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 
@@ -520,11 +521,11 @@ function SelectedRecordCard({
             </p>
             <button
               aria-label={copy.closeLabel}
-              className="ml-auto inline-flex size-7 items-center justify-center rounded-full border border-white/10 text-[18px] leading-none text-ink-muted transition-colors hover:border-white/20 hover:text-ink-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+              className="ml-auto inline-flex size-7 items-center justify-center rounded-full border border-white/10 text-ink-muted transition-colors hover:border-white/20 hover:text-ink-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
               onClick={onClose}
               type="button"
             >
-              ×
+              <X aria-hidden="true" className="size-4" />
             </button>
           </div>
           <h3 className="mt-1 truncate text-[17px] leading-tight font-semibold">
