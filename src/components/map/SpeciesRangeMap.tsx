@@ -43,7 +43,6 @@ type HalyomorphaRangeCopy = {
   mapError: string;
   noPhotoLabel: string;
   noRegionRecordsLabel: string;
-  observationDisclaimer: string;
   officialRegionLabel: string;
   photoRecordLabel: string;
   rangeTitle: string;
@@ -91,8 +90,6 @@ const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
       "The interactive map could not load, but the confirmed regions and field records are still listed below.",
     noPhotoLabel: "No public photo for this record",
     noRegionRecordsLabel: "No field records",
-    observationDisclaimer:
-      "Record counts show observation effort in the available dataset; they are not a measure of population density or even spread across a region.",
     officialRegionLabel: "Source-confirmed region",
     photoRecordLabel: "Photo record",
     rangeTitle: "Where brown marmorated stink bug occurs in Georgia",
@@ -125,8 +122,6 @@ const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
       "ინტერაქტიული რუკა ვერ ჩაიტვირთა, მაგრამ დადასტურებული რეგიონები და საველე ჩანაწერები ქვემოთ ტექსტურად ჩანს.",
     noPhotoLabel: "ამ ჩანაწერს საჯაროდ გამოსაქვეყნებელი ფოტო არ აქვს",
     noRegionRecordsLabel: "ჩანაწერი არ არის",
-    observationDisclaimer:
-      "ჩანაწერების რაოდენობა აჩვენებს ხელმისაწვდომ მონაცემებსა და დაკვირვების ინტენსივობას; ეს არ არის პოპულაციის სიმჭიდროვე და არ ნიშნავს რეგიონში თანაბარ გავრცელებას.",
     officialRegionLabel: "წყაროებით დადასტურებული რეგიონი",
     photoRecordLabel: "ფოტოჩანაწერი",
     rangeTitle: "სად გვხვდება აზიური ფაროსანა საქართველოში",
@@ -158,8 +153,6 @@ const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
       "Интерактивная карта не загрузилась, но подтверждённые регионы и полевые записи остаются доступными ниже.",
     noPhotoLabel: "У этой записи нет публичного фото",
     noRegionRecordsLabel: "Записей нет",
-    observationDisclaimer:
-      "Количество записей отражает доступные данные и интенсивность наблюдений; это не показатель плотности популяции или равномерного распространения.",
     officialRegionLabel: "Регион, подтверждённый источниками",
     photoRecordLabel: "Фотозапись",
     rangeTitle: "Где встречается коричнево-мраморный клоп в Грузии",
@@ -192,8 +185,6 @@ const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
       "Etkileşimli harita yüklenemedi, ancak doğrulanmış bölgeler ve arazi kayıtları aşağıda metin olarak duruyor.",
     noPhotoLabel: "Bu kayıt için herkese açık fotoğraf yok",
     noRegionRecordsLabel: "Kayıt yok",
-    observationDisclaimer:
-      "Kayıt sayıları mevcut veriyi ve gözlem yoğunluğunu gösterir; popülasyon yoğunluğu ya da bölge içinde eşit dağılım anlamına gelmez.",
     officialRegionLabel: "Kaynakla doğrulanmış bölge",
     photoRecordLabel: "Fotoğraf kaydı",
     rangeTitle: "Kahverengi kokarca Gürcistan'da nerede görülür?",
@@ -543,9 +534,6 @@ function HalyomorphaRangeSection({
                 </tbody>
               </table>
             </div>
-            <p className="mt-4 text-[12px] leading-relaxed text-muted-foreground">
-              {copy.observationDisclaimer}
-            </p>
           </section>
         ) : null}
       </div>
