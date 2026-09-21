@@ -29519,6 +29519,87 @@
       ],
       "updatedAt": "2026-09-21T06:40:45.317Z"
     },
+    "halyomorpha-halys-mishel-1.jpg": {
+      "sourceHash": "ab2a6d7a5fc53cba394c7e7c7d29c582f93bb4e4904dcb4a99e61c6f9952f5f3",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "halyomorpha-halys-mishel-1.jpg",
+      "originalSize": 130358,
+      "width": 1024,
+      "height": 936,
+      "derivatives": [
+        {
+          "key": "optimized/halyomorpha-halys-mishel-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 293,
+          "byteSize": 9294
+        },
+        {
+          "key": "optimized/halyomorpha-halys-mishel-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 293,
+          "byteSize": 11282
+        },
+        {
+          "key": "optimized/halyomorpha-halys-mishel-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 366,
+          "byteSize": 12463
+        },
+        {
+          "key": "optimized/halyomorpha-halys-mishel-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 366,
+          "byteSize": 14976
+        },
+        {
+          "key": "optimized/halyomorpha-halys-mishel-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 585,
+          "byteSize": 22683
+        },
+        {
+          "key": "optimized/halyomorpha-halys-mishel-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 585,
+          "byteSize": 28110
+        },
+        {
+          "key": "optimized/halyomorpha-halys-mishel-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 731,
+          "byteSize": 30339
+        },
+        {
+          "key": "optimized/halyomorpha-halys-mishel-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 731,
+          "byteSize": 37354
+        },
+        {
+          "key": "optimized/halyomorpha-halys-mishel-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 936,
+          "byteSize": 43255
+        },
+        {
+          "key": "optimized/halyomorpha-halys-mishel-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 936,
+          "byteSize": 51992
+        }
+      ],
+      "updatedAt": "2026-09-21T06:41:52.387Z"
+    },
     "hemorrhois-ravergieri-1.jpg": {
       "sourceHash": "7a38c66a939943cb51512db0ed89adb17dd6e6a93601f434e6449a629c12507d",
       "configFingerprint": "a895f8e025dcc7fa",
