@@ -8,6 +8,7 @@ import type { HalyomorphaOccurrenceSummary } from "@/lib/halyomorphaOccurrences"
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { GeorgiaMapStatic } from "@/components/map/GeorgiaMapStatic";
 import { HalyomorphaRangeMap } from "@/components/map/HalyomorphaRangeMap";
+import { HalyomorphaRegionSelectButton } from "@/components/map/HalyomorphaRegionSelectButton";
 import { HALYOMORPHA_RANGE_GEOJSON } from "@/data/halyomorphaRangeRegions";
 import {
   getRegionsForSpecies,
@@ -422,12 +423,9 @@ function HalyomorphaRangeSection({
                       key={region.id}
                     >
                       <th className="py-3 pr-4 text-left font-medium text-foreground">
-                        <Link
-                          className="transition-colors hover:text-primary"
-                          href={regionHref(region.id)}
-                        >
+                        <HalyomorphaRegionSelectButton regionId={region.id}>
                           {region.name}
-                        </Link>
+                        </HalyomorphaRegionSelectButton>
                       </th>
                       <td className="py-3 pl-4 text-right text-muted-foreground tabular-nums">
                         {region.count.toLocaleString(locale)}

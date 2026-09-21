@@ -12,12 +12,14 @@ import * as L from "leaflet";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
-import type {
-  HalyomorphaFieldRecord,
-  HalyomorphaRangeMapProps,
-} from "@/components/map/HalyomorphaRangeMapTypes";
 import type { RegionPathId } from "@/data/georgia-paths";
 import type { HalyomorphaRegionSummary } from "@/lib/halyomorphaOccurrences";
+
+import {
+  HALYOMORPHA_REGION_SELECT_EVENT,
+  type HalyomorphaFieldRecord,
+  type HalyomorphaRangeMapProps,
+} from "@/components/map/HalyomorphaRangeMapTypes";
 
 const GEORGIA_BOUNDS = [
   [40.95, 39.85],
@@ -360,6 +362,34 @@ export function HalyomorphaRangeMapClient({
         });
       };
 
+      const selectRegionFromEvent = (event: Event) => {
+        const regionId = (event as CustomEvent<{ regionId?: RegionPathId }>)
+          .detail?.regionId;
+        if (!regionId) return;
+
+        let matched = false;
+        rangeLayer.eachLayer((layer) => {
+          if (matched || !(layer instanceof L.Path)) return;
+          const feature = (
+            layer as L.Path & {
+              feature?: HalyomorphaRangeMapProps["officialRange"]["features"][number];
+            }
+          ).feature;
+          if (feature?.properties.id !== regionId) return;
+
+          const bounds = getLayerBounds(layer);
+          if (!bounds) return;
+
+          matched = true;
+          selectRegion(
+            regionId,
+            bounds,
+            summaryByRegion.get(regionId),
+            namesByRegion.get(regionId) ?? feature.properties.shapeName,
+          );
+        });
+      };
+
       const closeRegionTooltips = () => {
         rangeLayer.eachLayer((layer) => {
           if (layer instanceof L.Path) layer.closeTooltip();
@@ -403,6 +433,10 @@ export function HalyomorphaRangeMapClient({
       };
 
       syncRecordLayersRef.current = syncRecordLayers;
+      window.addEventListener(
+        HALYOMORPHA_REGION_SELECT_EVENT,
+        selectRegionFromEvent,
+      );
       map.on("zoomend", syncRecordLayers);
       syncRecordLayers();
 
@@ -414,6 +448,10 @@ export function HalyomorphaRangeMapClient({
       return () => {
         disposed = true;
         window.cancelAnimationFrame(resizeFrame);
+        window.removeEventListener(
+          HALYOMORPHA_REGION_SELECT_EVENT,
+          selectRegionFromEvent,
+        );
         map.off("zoomend", syncRecordLayers);
         syncRecordLayersRef.current = null;
         resetMapRef.current = null;
@@ -674,10 +712,12 @@ function escapeHtml(value: string) {
 }
 
 function fitInitialBounds(map: LeafletMap) {
-  map.fitBounds(L.latLngBounds(GEORGIA_BOUNDS), {
+  const bounds = L.latLngBounds(GEORGIA_BOUNDS);
+  const padding = L.point(window.innerWidth < 768 ? [36, 36] : [48, 48]);
+  const zoom = Math.max(4, map.getBoundsZoom(bounds, false, padding) - 2);
+
+  map.setView(bounds.getCenter(), zoom, {
     animate: !window.matchMedia("(prefers-reduced-motion: reduce)").matches,
-    maxZoom: 8,
-    padding: L.point(window.innerWidth < 768 ? [36, 36] : [48, 48]),
   });
 }
 

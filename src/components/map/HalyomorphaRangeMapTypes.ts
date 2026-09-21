@@ -6,6 +6,8 @@ import type {
   HalyomorphaRegionSummary,
 } from "@/lib/halyomorphaOccurrences";
 
+export const HALYOMORPHA_REGION_SELECT_EVENT = "halyomorpha-region-select";
+
 export type { HalyomorphaFieldRecord };
 
 export type HalyomorphaRangeMapCopy = {
