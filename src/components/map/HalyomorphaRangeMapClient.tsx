@@ -719,7 +719,7 @@ function getLayerBounds(layer: L.Path) {
 
 function MapLegend({ copy }: { copy: HalyomorphaRangeMapProps["copy"] }) {
   return (
-    <div className="pointer-events-none absolute bottom-3 left-3 z-900 grid max-w-[calc(100%-2rem)] gap-1 rounded-xl bg-ink/58 px-2.5 py-2 text-[10px] leading-none font-medium text-ink-foreground/82 backdrop-blur-md sm:text-[11px]">
+    <div className="pointer-events-none absolute bottom-3 left-3 z-900 hidden max-w-[calc(100%-2rem)] gap-1 rounded-xl bg-ink/58 px-2.5 py-2 text-[10px] leading-none font-medium text-ink-foreground/82 backdrop-blur-md sm:grid sm:text-[11px]">
       <span className="inline-flex items-center gap-2">
         <span
           aria-hidden="true"
@@ -905,8 +905,8 @@ function SelectedRegionCard({
 }
 
 function shouldShowRegionLabel(count: number, zoom: number) {
-  if (window.innerWidth >= 640 || zoom >= 8.4) return true;
-  return count >= 47;
+  if (window.innerWidth < 640) return false;
+  return count > 0 || zoom >= 8.4;
 }
 
 function tooltipHtml({
