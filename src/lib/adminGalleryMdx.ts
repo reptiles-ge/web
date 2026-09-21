@@ -785,6 +785,7 @@ function fieldRecordEntries(
   const entries: Array<[string, string]> = [];
   if (record.date) entries.push(["date", record.date]);
   if (record.observer) entries.push(["observer", record.observer]);
+  if (record.observerName) entries.push(["observerName", record.observerName]);
   if (record.source) entries.push(["source", record.source]);
   if (record.url) entries.push(["url", record.url]);
   if (record.note) entries.push(["note", record.note]);
@@ -965,6 +966,9 @@ function normalizeFieldRecords(value: unknown): SpeciesFieldRecord[] {
     }
     if (typeof record.observer === "string" && record.observer.trim()) {
       next.observer = record.observer.trim();
+    }
+    if (typeof record.observerName === "string" && record.observerName.trim()) {
+      next.observerName = record.observerName.trim();
     }
     if (typeof record.source === "string" && record.source.trim()) {
       next.source = record.source.trim();

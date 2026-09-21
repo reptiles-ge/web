@@ -53,6 +53,7 @@ const fieldRecordSchema = z
     locality: nonempty,
     note: z.string().optional(),
     observer: z.string().optional(),
+    observerName: z.string().optional(),
     source: z.string().optional(),
     url: z.string().optional(),
   })

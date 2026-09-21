@@ -51,11 +51,13 @@ export async function POST(request: Request) {
     const date = readString(body, "date");
     const note = readString(body, "note");
     const observer = readString(body, "observer");
+    const observerName = readString(body, "observerName");
     const source = readString(body, "source");
     const url = readString(body, "url");
     if (date) record.date = date;
     if (note) record.note = note;
     if (observer) record.observer = observer;
+    if (observerName) record.observerName = observerName;
     if (source) record.source = source;
     if (url) record.url = url;
     const pullRequestUrl = await openFieldRecordPullRequest({ id, record });

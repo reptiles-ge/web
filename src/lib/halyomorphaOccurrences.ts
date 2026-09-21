@@ -127,6 +127,18 @@ export function getHalyomorphaRegionRecords(
   return records.filter((record) => record.regionId === regionId);
 }
 
+function fieldRecordAuthor(record: SpeciesFieldRecord) {
+  const name = record.observerName?.trim();
+  const handle = record.observer?.trim();
+  const source = record.source?.trim();
+  if (name && handle && name !== handle && source === "iNaturalist") {
+    return `${name} (@${handle})`;
+  }
+  if (name) return name;
+  if (handle && source === "iNaturalist") return `@${handle}`;
+  return handle || source;
+}
+
 function fieldRecordId(value: string, index: number) {
   const filename = value
     .split("/")
@@ -202,11 +214,11 @@ function getManualFieldRecords(
     const formattedDate = record.date
       ? formatPhotoDate(record.date, locale)
       : undefined;
-    const author = record.observer?.trim() || record.source?.trim();
+    const author = fieldRecordAuthor(record);
     const id = fieldRecordId(record.url || rawLocality, index);
 
     return {
-      accessibleLabel: [`${speciesName} — ${locality}`, formattedDate]
+      accessibleLabel: [`${speciesName} — ${locality}`, formattedDate, author]
         .filter(Boolean)
         .join(", "),
       author,

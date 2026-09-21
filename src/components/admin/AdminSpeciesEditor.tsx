@@ -665,7 +665,11 @@ function FieldRecordsPanel({
             >
               <p className="font-medium text-foreground">{record.locality}</p>
               <p className="mt-1 text-muted-foreground">
-                {[record.date, record.observer, record.source]
+                {[
+                  record.date,
+                  record.observerName ?? record.observer,
+                  record.source,
+                ]
                   .filter(Boolean)
                   .join(" · ")}
               </p>
@@ -712,7 +716,14 @@ function FieldRecordsPanel({
           </label>
         </div>
         <label className="mt-3 block text-[12px] text-muted-foreground">
-          დამკვირვებელი
+          დამკვირვებლის საჯარო სახელი
+          <input
+            className="mt-1.5 h-10 w-full rounded-md border border-border bg-background px-3 text-[14px] text-foreground outline-none focus:border-primary"
+            name="observerName"
+          />
+        </label>
+        <label className="mt-3 block text-[12px] text-muted-foreground">
+          დამკვირვებლის username
           <input
             className="mt-1.5 h-10 w-full rounded-md border border-border bg-background px-3 text-[14px] text-foreground outline-none focus:border-primary"
             name="observer"

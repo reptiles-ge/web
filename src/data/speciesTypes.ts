@@ -70,6 +70,7 @@ export type SpeciesFieldRecord = {
   locality: string;
   note?: string;
   observer?: string;
+  observerName?: string;
   source?: string;
   url?: string;
 };
