@@ -17,6 +17,11 @@ import { SpeciesOverviewText } from "@/components/SpeciesOverviewText";
 import { SpeciesProfileFacts } from "@/components/SpeciesProfileFacts";
 import { SpeciesProfileRelated } from "@/components/SpeciesProfileRelated";
 import { SpeciesSources } from "@/components/SpeciesSources";
+import {
+  optimizedEntry,
+  optimizedImgSrc,
+  pictureSources,
+} from "@/data/optimizedImages";
 import { Link } from "@/i18n/navigation";
 import {
   type HubClusterCard,
@@ -24,7 +29,7 @@ import {
   isSnakeSpecies,
 } from "@/lib/clusterGuides";
 import { cn } from "@/lib/cn";
-import { formatContentDate } from "@/lib/formatDate";
+import { formatContentDate, formatPhotoDate } from "@/lib/formatDate";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 
 type BiologyBlockItem = {
@@ -32,6 +37,20 @@ type BiologyBlockItem = {
   id: string;
   title: string;
 };
+
+type HalyomorphaAnnotationCopy = {
+  alt: string;
+  caption: string;
+  creditLabel: string;
+  intro: string;
+  label: string;
+  labels: Record<HalyomorphaAnnotationMarkerKey, string>;
+  note: string;
+  title: string;
+};
+
+type HalyomorphaAnnotationMarkerKey =
+  "abdomen" | "antenna" | "legs" | "shoulders";
 
 type HalyomorphaPestCopy = {
   damageIntro: string;
@@ -70,6 +89,115 @@ type SpeciesProfileBodyProps = {
   related: Species[];
   showIdentification: boolean;
   species: Species;
+};
+
+const HALYOMORPHA_ANNOTATED_IMAGE_SRC =
+  "https://cdn.reptiles.ge/halyomorpha-halys-mishel-1.jpg";
+
+const HALYOMORPHA_ANNOTATION_MARKERS: Array<{
+  key: HalyomorphaAnnotationMarkerKey;
+  label: { x: number; y: number };
+  line: { x1: number; x2: number; y1: number; y2: number };
+  point: { x: number; y: number };
+}> = [
+  {
+    key: "antenna",
+    label: { x: 6, y: 8 },
+    line: { x1: 22, x2: 27, y1: 21, y2: 35 },
+    point: { x: 27, y: 35 },
+  },
+  {
+    key: "abdomen",
+    label: { x: 5, y: 78 },
+    line: { x1: 29, x2: 39, y1: 80, y2: 64 },
+    point: { x: 39, y: 64 },
+  },
+  {
+    key: "shoulders",
+    label: { x: 94, y: 10 },
+    line: { x1: 73, x2: 43, y1: 24, y2: 40 },
+    point: { x: 43, y: 40 },
+  },
+  {
+    key: "legs",
+    label: { x: 96, y: 77 },
+    line: { x1: 78, x2: 67, y1: 79, y2: 52 },
+    point: { x: 67, y: 52 },
+  },
+];
+
+const HALYOMORPHA_ANNOTATION_COPY: Record<
+  AppLocale,
+  HalyomorphaAnnotationCopy
+> = {
+  en: {
+    alt: "Annotated field photo of brown marmorated stink bug showing pale antennal bands, the pale-dark abdomen edge, rounded shoulders, and pale leg bands.",
+    caption:
+      "A single mark is not enough; compare the antennae, abdomen edge, shoulders, and legs together.",
+    creditLabel: "Photo",
+    intro:
+      "Several native and introduced stink bugs can look brown at first glance. For Halyomorpha halys, identification is strongest when the same photo shows the pale-banded antennae, alternating abdominal edge, rounded shoulder corners, and pale-banded legs.",
+    label: "Comparison",
+    labels: {
+      abdomen: "Pale-dark abdomen edge",
+      antenna: "Two pale antennal bands",
+      legs: "Pale bands on the legs",
+      shoulders: "Rounded shoulders",
+    },
+    note: "Brown colour or an unpleasant smell alone is not enough for identification.",
+    title: "How is it different from other stink bugs?",
+  },
+  ka: {
+    alt: "აზიური ფაროსანას ანოტირებული საველე ფოტო: მონიშნულია ულვაშის ღია ზოლები, მუცლის ღია-მუქი კიდე, მომრგვალებული მხრები და ფეხების ღია ზოლები.",
+    caption:
+      "ერთი ნიშანი საკმარისი არ არის; ერთად შეადარეთ ულვაში, მუცლის კიდე, მხრები და ფეხები.",
+    creditLabel: "ფოტო",
+    intro:
+      "საქართველოში სხვა ფაროსანებიც შეიძლება ერთი შეხედვით ყავისფერი ჩანდეს. Halyomorpha halys-ის ამოცნობა ყველაზე სანდოა მაშინ, როცა ერთ ფოტოში ჩანს ულვაშის ღია ზოლები, მუცლის მონაცვლე ღია-მუქი კიდე, მომრგვალებული მხრები და ფეხების ღია ზოლები.",
+    label: "შედარება",
+    labels: {
+      abdomen: "მუცლის ღია-მუქი კიდე",
+      antenna: "ულვაშის ორი ღია ზოლი",
+      legs: "ფეხების ღია ზოლები",
+      shoulders: "მომრგვალებული „მხრები“",
+    },
+    note: "მხოლოდ ყავისფერი ფერი ან უსიამოვნო სუნი საკმარისი არ არის ამოსაცნობად.",
+    title: "რით განსხვავდება სხვა ფაროსანებისგან?",
+  },
+  ru: {
+    alt: "Аннотированная полевая фотография коричнево-мраморного клопа: отмечены светлые полосы на усиках, светло-тёмный край брюшка, округлые плечи и светлые полосы на ногах.",
+    caption:
+      "Одного признака недостаточно; сравнивайте усики, край брюшка, плечи и ноги вместе.",
+    creditLabel: "Фото",
+    intro:
+      "Другие клопы тоже могут казаться просто коричневыми. У Halyomorpha halys надёжнее всего искать сочетание признаков: светлые полосы на усиках, чередующийся край брюшка, округлые плечевые углы и светлые полосы на ногах.",
+    label: "Сравнение",
+    labels: {
+      abdomen: "Светло-тёмный край брюшка",
+      antenna: "Две светлые полосы на усиках",
+      legs: "Светлые полосы на ногах",
+      shoulders: "Округлые плечи",
+    },
+    note: "Только коричневого цвета или неприятного запаха недостаточно для распознавания.",
+    title: "Чем он отличается от других клопов?",
+  },
+  tr: {
+    alt: "Kahverengi kokarcanın açıklamalı arazi fotoğrafı: açık anten bantları, açık-koyu karın kenarı, yuvarlak omuzlar ve bacaklardaki açık bantlar işaretlenmiştir.",
+    caption:
+      "Tek bir işaret yeterli değildir; antenleri, karın kenarını, omuzları ve bacakları birlikte karşılaştırın.",
+    creditLabel: "Fotoğraf",
+    intro:
+      "Diğer kokarcalar da ilk bakışta kahverengi görünebilir. Halyomorpha halys için en güvenilir tanı, aynı fotoğrafta açık bantlı antenler, dönüşümlü açık-koyu karın kenarı, yuvarlak omuz köşeleri ve bacaklardaki açık bantlar görüldüğünde yapılır.",
+    label: "Karşılaştırma",
+    labels: {
+      abdomen: "Açık-koyu karın kenarı",
+      antenna: "Antende iki açık bant",
+      legs: "Bacaklarda açık bantlar",
+      shoulders: "Yuvarlak omuzlar",
+    },
+    note: "Yalnızca kahverengi renk veya hoş olmayan koku tanı için yeterli değildir.",
+    title: "Diğer kokarcalardan nasıl ayrılır?",
+  },
 };
 
 const HALYOMORPHA_PEST_COPY: Record<AppLocale, HalyomorphaPestCopy> = {
@@ -426,6 +554,14 @@ export async function SpeciesProfileBody({
       ) : null}
 
       {species.id === "halyomorpha-halys" ? (
+        <HalyomorphaIdentificationFigure
+          anchorLabel={t("anchorLink")}
+          gallery={gallery}
+          locale={locale}
+        />
+      ) : null}
+
+      {species.id === "halyomorpha-halys" ? (
         <HalyomorphaPestSections
           anchorLabel={t("anchorLink")}
           locale={locale}
@@ -521,6 +657,171 @@ function biologyGridClass(count: number) {
     return "md:grid-cols-3";
   }
   return "md:grid-cols-1";
+}
+
+function HalyomorphaIdentificationFigure({
+  anchorLabel,
+  gallery,
+  locale,
+}: {
+  anchorLabel: string;
+  gallery: GalleryImage[];
+  locale: AppLocale;
+}) {
+  const copy = HALYOMORPHA_ANNOTATION_COPY[locale];
+  const photo =
+    gallery.find((item) => item.src === HALYOMORPHA_ANNOTATED_IMAGE_SRC) ??
+    gallery[0];
+  const src = photo?.src ?? HALYOMORPHA_ANNOTATED_IMAGE_SRC;
+  const credit = photo?.credit;
+  const creditParts = [
+    credit?.photographer,
+    credit?.location,
+    credit?.date ? formatPhotoDate(credit.date, locale) : null,
+  ].filter((item): item is string => Boolean(item));
+  const entry = optimizedEntry(src);
+  const arrowId = "halyomorpha-identification-arrow";
+  const sizes =
+    "(max-width: 1023px) calc(100vw - 3rem), (max-width: 1479px) calc((min(1400px, 100vw - 5rem) - 2.5rem) * 0.58), 800px";
+
+  return (
+    <section className="bg-surface py-20 lg:py-28">
+      <div className="mx-auto grid max-w-[1400px] gap-10 px-6 lg:grid-cols-[minmax(0,0.78fr)_minmax(420px,1fr)] lg:items-center lg:gap-16 lg:px-10">
+        <div>
+          <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
+            {copy.label}
+          </p>
+          <AnchoredHeading
+            anchorLabel={anchorLabel}
+            className="mt-5 max-w-3xl font-display text-display-title font-bold"
+            id="stink-bug-comparison"
+            slugSource={copy.title}
+          >
+            {copy.title}
+          </AnchoredHeading>
+          <p className="mt-6 max-w-2xl text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
+            {copy.intro}
+          </p>
+          <p className="mt-6 max-w-2xl border-l-2 border-primary/55 pl-5 text-[15px] leading-relaxed font-medium text-foreground">
+            {copy.note}
+          </p>
+        </div>
+
+        <figure className="group">
+          <div className="relative aspect-1024/936 overflow-hidden rounded-card bg-ink">
+            <picture className="media-placeholder absolute inset-0 block size-full">
+              {pictureSources(src, { sizes }).map((source) => (
+                <source key={source.key} {...source.props} />
+              ))}
+              <img
+                alt={copy.alt}
+                className="absolute inset-0 size-full object-cover text-transparent"
+                decoding="async"
+                height={entry?.height}
+                loading="lazy"
+                sizes={sizes}
+                src={optimizedImgSrc(src, 800)}
+                width={entry?.width}
+              />
+            </picture>
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 bg-linear-to-b from-black/20 via-transparent to-black/25"
+            />
+            <svg
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 hidden size-full sm:block"
+              preserveAspectRatio="none"
+              viewBox="0 0 100 100"
+            >
+              <defs>
+                <marker
+                  id={arrowId}
+                  markerHeight="6"
+                  markerUnits="strokeWidth"
+                  markerWidth="6"
+                  orient="auto"
+                  refX="5"
+                  refY="3"
+                >
+                  <path className="fill-white" d="M0,0 L6,3 L0,6 Z" />
+                </marker>
+              </defs>
+              {HALYOMORPHA_ANNOTATION_MARKERS.map((marker) => (
+                <g key={marker.key}>
+                  <line
+                    className="stroke-white drop-shadow-[0_1px_2px_rgb(0_0_0/0.85)]"
+                    markerEnd={`url(#${arrowId})`}
+                    strokeLinecap="round"
+                    strokeWidth="0.75"
+                    x1={marker.line.x1}
+                    x2={marker.line.x2}
+                    y1={marker.line.y1}
+                    y2={marker.line.y2}
+                  />
+                  <circle
+                    className="fill-white stroke-ink"
+                    cx={marker.point.x}
+                    cy={marker.point.y}
+                    r="1.25"
+                    strokeWidth="0.3"
+                  />
+                </g>
+              ))}
+            </svg>
+            {HALYOMORPHA_ANNOTATION_MARKERS.map((marker, index) => (
+              <div
+                className="absolute z-2 hidden max-w-48 items-center gap-2 border border-white/35 bg-ink/80 px-3 py-2 text-[11px] leading-snug font-medium text-white shadow-lg backdrop-blur-sm sm:flex"
+                key={marker.key}
+                style={{
+                  left: `${marker.label.x}%`,
+                  top: `${marker.label.y}%`,
+                  transform:
+                    marker.label.x > 50 ? "translateX(-100%)" : undefined,
+                }}
+              >
+                <span className="flex size-5 shrink-0 items-center justify-center border border-white/45 text-[10px]">
+                  {index + 1}
+                </span>
+                <span>{copy.labels[marker.key]}</span>
+              </div>
+            ))}
+            {HALYOMORPHA_ANNOTATION_MARKERS.map((marker, index) => (
+              <span
+                aria-hidden="true"
+                className="absolute z-2 flex size-7 -translate-1/2 items-center justify-center border border-white/75 bg-ink/75 text-[12px] font-semibold text-white shadow-lg sm:hidden"
+                key={marker.key}
+                style={{
+                  left: `${marker.point.x}%`,
+                  top: `${marker.point.y}%`,
+                }}
+              >
+                {index + 1}
+              </span>
+            ))}
+          </div>
+          <figcaption className="mt-4 text-[13px] leading-relaxed text-muted-foreground">
+            {copy.caption}
+            {creditParts.length > 0 ? (
+              <span className="mt-1 block text-[12px] text-muted-foreground/80">
+                {copy.creditLabel}: {creditParts.join(" · ")}
+              </span>
+            ) : null}
+          </figcaption>
+          <ol className="mt-4 grid gap-2 text-[13px] leading-snug text-foreground sm:hidden">
+            {HALYOMORPHA_ANNOTATION_MARKERS.map((marker, index) => (
+              <li className="grid grid-cols-[auto_1fr] gap-3" key={marker.key}>
+                <span className="flex size-6 items-center justify-center border border-border text-[11px] font-semibold">
+                  {index + 1}
+                </span>
+                <span className="self-center">{copy.labels[marker.key]}</span>
+              </li>
+            ))}
+          </ol>
+        </figure>
+      </div>
+    </section>
+  );
 }
 
 function HalyomorphaPestSections({
