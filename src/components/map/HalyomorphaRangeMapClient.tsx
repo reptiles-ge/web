@@ -45,6 +45,7 @@ const LEAFLET_TILE_ATTRIBUTION =
 const PIN_FOCUS_ZOOM = 16;
 const RECORD_CLUSTER_ZOOM = 9;
 const RECORD_PIN_ZOOM = 16;
+const REGION_COUNT_ZOOM = 8;
 
 type RecordCluster = {
   bounds: L.LatLngBounds;
@@ -279,6 +280,50 @@ function createResetControl(label: string, onReset: () => void) {
     },
     options: { position: "topright" },
   }))();
+}
+
+function createTotalCountMarker({
+  count,
+  label,
+  map,
+  recordLabel,
+  regionCountZoom,
+}: {
+  count: string;
+  label: string;
+  map: LeafletMap;
+  recordLabel: string;
+  regionCountZoom: number;
+}) {
+  const element = document.createElement("button");
+  const bounds = L.latLngBounds(GEORGIA_BOUNDS);
+  const center = bounds.getCenter();
+  const focusRegions = () => {
+    focusBounds(map, bounds, {
+      maxZoom: regionCountZoom,
+      minZoom: regionCountZoom,
+      padding: window.innerWidth < 768 ? [32, 32] : [64, 64],
+    });
+  };
+
+  element.type = "button";
+  element.className = "halyomorpha-total-count-marker";
+  element.textContent = count;
+  element.setAttribute("aria-label", `${label} — ${count} ${recordLabel}`);
+  element.addEventListener("click", focusRegions);
+  L.DomEvent.disableClickPropagation(element);
+
+  const marker = L.marker(center, {
+    icon: L.divIcon({
+      className: "halyomorpha-count-shell",
+      html: element,
+      iconAnchor: [28, 28],
+      iconSize: [56, 56],
+    }),
+    keyboard: false,
+  });
+  marker.on("click", focusRegions);
+  return marker;
 }
 
 function escapeHtml(value: string) {
@@ -672,6 +717,7 @@ function useHalyomorphaRangeMap({
     let rangeLayer: LeafletGeoJson;
     const activeRecordMarkers: Marker[] = [];
     const regionCountMarkers: Marker[] = [];
+    let totalCountMarker: Marker | null = null;
     let resetControl: Control;
     let disposed = false;
     let activeRegionTooltip: L.Tooltip | null = null;
@@ -746,6 +792,19 @@ function useHalyomorphaRangeMap({
       tileLayer.on("tileerror", handleTileError);
 
       fitInitialBounds(map);
+      const regionCountZoom = isCompactViewport
+        ? map.getZoom() + 1
+        : REGION_COUNT_ZOOM;
+      totalCountMarker =
+        occurrenceSummary.totalRecords > 0
+          ? createTotalCountMarker({
+              count: occurrenceSummary.totalRecords.toLocaleString(locale),
+              label: copy.mapAria,
+              map,
+              recordLabel: copy.regionRecordsLabel,
+              regionCountZoom,
+            })
+          : null;
 
       const closeActiveRegionTooltip = () => {
         activeRegionTooltip?.remove();
@@ -895,10 +954,22 @@ function useHalyomorphaRangeMap({
       }).addTo(map);
 
       const syncRegionCountMarkers = () => {
-        const visible =
-          !selectedRegionId && map.getZoom() < RECORD_CLUSTER_ZOOM;
+        const zoom = map.getZoom();
+        const totalVisible = !selectedRegionId && zoom < regionCountZoom;
+        if (totalCountMarker) {
+          if (totalVisible) {
+            if (!map.hasLayer(totalCountMarker)) totalCountMarker.addTo(map);
+          } else {
+            totalCountMarker.remove();
+          }
+        }
+
+        const regionVisible =
+          !selectedRegionId &&
+          zoom >= regionCountZoom &&
+          zoom < RECORD_CLUSTER_ZOOM;
         regionCountMarkers.forEach((marker) => {
-          if (visible) {
+          if (regionVisible) {
             if (!map.hasLayer(marker)) marker.addTo(map);
             return;
           }
@@ -1096,6 +1167,7 @@ function useHalyomorphaRangeMap({
         markerElements.clear();
         closeActiveRegionTooltip();
         activeRecordMarkers.forEach((marker) => marker.remove());
+        totalCountMarker?.remove();
         regionCountMarkers.forEach((marker) => marker.remove());
         rangeLayer.eachLayer((layer) => layer.off());
         rangeLayer.remove();
@@ -1112,6 +1184,7 @@ function useHalyomorphaRangeMap({
     copy,
     locale,
     occurrenceSummary.recordsByRegion,
+    occurrenceSummary.totalRecords,
     officialRange,
     regionNames,
   ]);

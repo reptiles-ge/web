@@ -460,6 +460,44 @@ input[type="search"]::-webkit-search-results-decoration {
   outline-offset: 0.2rem;
 }
 
+.halyomorpha-total-count-marker {
+  display: grid;
+  min-width: 3.35rem;
+  height: 3.35rem;
+  place-items: center;
+  border: 1px solid color-mix(in oklab, var(--primary) 76%, white 24%);
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--primary) 48%, var(--ink) 52%);
+  box-shadow:
+    0 1rem 1.8rem -0.9rem rgba(0, 0, 0, 0.92),
+    0 0 0 0.28rem color-mix(in oklab, var(--primary) 22%, transparent);
+  color: var(--ink-foreground);
+  cursor: pointer;
+  font:
+    900 0.96rem/1 var(--font-you),
+    var(--font-noto-sans),
+    sans-serif;
+  backdrop-filter: blur(12px) saturate(140%);
+  transition:
+    background 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.halyomorpha-total-count-marker:hover,
+.halyomorpha-total-count-marker:focus-visible {
+  transform: scale(1.06);
+  background: color-mix(in oklab, var(--primary) 58%, var(--ink) 42%);
+  box-shadow:
+    0 1.1rem 2rem -0.85rem rgba(0, 0, 0, 0.95),
+    0 0 0 0.34rem color-mix(in oklab, var(--primary) 28%, transparent);
+}
+
+.halyomorpha-total-count-marker:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 0.2rem;
+}
+
 [data-halyomorpha-map] .halyomorpha-region-tooltip {
   border: 0;
   border-radius: 0.75rem;
