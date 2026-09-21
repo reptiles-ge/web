@@ -29748,6 +29748,87 @@
       ],
       "updatedAt": "2026-09-21T06:45:29.590Z"
     },
+    "halyomorpha-halys-nina-2.jpg": {
+      "sourceHash": "fe77e9f8c59a0c64a3dc11ca7ea2e4441fc25d92da5534c1ff5e188cae7073ba",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "halyomorpha-halys-nina-2.jpg",
+      "originalSize": 319331,
+      "width": 1024,
+      "height": 768,
+      "derivatives": [
+        {
+          "key": "optimized/halyomorpha-halys-nina-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 16203
+        },
+        {
+          "key": "optimized/halyomorpha-halys-nina-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 25212
+        },
+        {
+          "key": "optimized/halyomorpha-halys-nina-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 26558
+        },
+        {
+          "key": "optimized/halyomorpha-halys-nina-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 40790
+        },
+        {
+          "key": "optimized/halyomorpha-halys-nina-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 63488
+        },
+        {
+          "key": "optimized/halyomorpha-halys-nina-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 99674
+        },
+        {
+          "key": "optimized/halyomorpha-halys-nina-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 92289
+        },
+        {
+          "key": "optimized/halyomorpha-halys-nina-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 148882
+        },
+        {
+          "key": "optimized/halyomorpha-halys-nina-2-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 145448
+        },
+        {
+          "key": "optimized/halyomorpha-halys-nina-2-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 225726
+        }
+      ],
+      "updatedAt": "2026-09-21T06:46:11.681Z"
+    },
     "hemorrhois-ravergieri-1.jpg": {
       "sourceHash": "7a38c66a939943cb51512db0ed89adb17dd6e6a93601f434e6449a629c12507d",
       "configFingerprint": "a895f8e025dcc7fa",
