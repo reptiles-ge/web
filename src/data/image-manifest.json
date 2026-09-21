@@ -29681,6 +29681,73 @@
       ],
       "updatedAt": "2026-09-21T06:41:52.387Z"
     },
+    "halyomorpha-halys-nina-1.jpg": {
+      "sourceHash": "a6b6c0649e2d20709de9ccaba64552a6c49c86e1edb899c3f79ddf5e0bf56fd5",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "halyomorpha-halys-nina-1.jpg",
+      "originalSize": 91688,
+      "width": 768,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/halyomorpha-halys-nina-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 8024
+        },
+        {
+          "key": "optimized/halyomorpha-halys-nina-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 10336
+        },
+        {
+          "key": "optimized/halyomorpha-halys-nina-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 11008
+        },
+        {
+          "key": "optimized/halyomorpha-halys-nina-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 14126
+        },
+        {
+          "key": "optimized/halyomorpha-halys-nina-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 20711
+        },
+        {
+          "key": "optimized/halyomorpha-halys-nina-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 26838
+        },
+        {
+          "key": "optimized/halyomorpha-halys-nina-1-768.avif",
+          "format": "avif",
+          "width": 768,
+          "height": 1024,
+          "byteSize": 26754
+        },
+        {
+          "key": "optimized/halyomorpha-halys-nina-1-768.webp",
+          "format": "webp",
+          "width": 768,
+          "height": 1024,
+          "byteSize": 33860
+        }
+      ],
+      "updatedAt": "2026-09-21T06:45:29.590Z"
+    },
     "hemorrhois-ravergieri-1.jpg": {
       "sourceHash": "7a38c66a939943cb51512db0ed89adb17dd6e6a93601f434e6449a629c12507d",
       "configFingerprint": "a895f8e025dcc7fa",
