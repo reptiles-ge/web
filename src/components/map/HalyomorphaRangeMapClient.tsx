@@ -9,6 +9,7 @@ import type {
 } from "leaflet";
 
 import * as L from "leaflet";
+import { X } from "lucide-react";
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 
@@ -16,6 +17,7 @@ import type { RegionPathId } from "@/data/georgia-paths";
 import type { HalyomorphaRegionSummary } from "@/lib/halyomorphaOccurrences";
 
 import {
+  HALYOMORPHA_REGION_QUERY_PARAM,
   HALYOMORPHA_REGION_SELECT_EVENT,
   type HalyomorphaFieldRecord,
   type HalyomorphaRangeMapProps,
@@ -28,6 +30,10 @@ import {
 const GEORGIA_BOUNDS = [
   [40.95, 39.85],
   [43.65, 46.75],
+] satisfies LatLngBoundsExpression;
+const MAP_PAN_BOUNDS = [
+  [39.35, 35.4],
+  [45.1, 50.95],
 ] satisfies LatLngBoundsExpression;
 const LEAFLET_TILE_URL = "https://tile.openstreetmap.de/{z}/{x}/{y}.png";
 const LEAFLET_FALLBACK_TILE_URL =
@@ -332,19 +338,13 @@ function focusBounds(
   });
 }
 
-function focusRegionBounds(
-  map: LeafletMap,
-  bounds: L.LatLngBounds,
-  center?: L.LatLng,
-) {
+function focusRegionBounds(map: LeafletMap, bounds: L.LatLngBounds) {
   const compact = window.innerWidth < 768;
 
-  focusBounds(map, bounds, {
-    center,
-    maxZoom: 11,
-    minZoom: compact ? 10 : RECORD_CLUSTER_ZOOM,
-    minZoomStep: compact ? 2 : 1,
-    padding: compact ? [32, 32] : [120, 96],
+  map.fitBounds(bounds.pad(compact ? 0.18 : 0.12), {
+    animate: !window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+    maxZoom: compact ? 10 : 9,
+    padding: L.point(compact ? [42, 42] : [120, 96]),
   });
 }
 
@@ -365,6 +365,12 @@ function formatYearRange(region: HalyomorphaRegionSummary) {
 function getLayerBounds(layer: L.Path) {
   if (layer instanceof L.Polyline) return layer.getBounds();
   return null;
+}
+
+function getUrlRegionId() {
+  return new URLSearchParams(window.location.search).get(
+    HALYOMORPHA_REGION_QUERY_PARAM,
+  );
 }
 
 function MapLegend({ copy }: { copy: HalyomorphaRangeMapProps["copy"] }) {
@@ -522,11 +528,11 @@ function SelectedRecordCard({
             </p>
             <button
               aria-label={copy.closeLabel}
-              className="ml-auto inline-flex size-7 items-center justify-center rounded-full border border-white/10 text-[18px] leading-none text-ink-muted transition-colors hover:border-white/20 hover:text-ink-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+              className="ml-auto inline-flex size-7 items-center justify-center rounded-full border border-white/10 text-ink-muted transition-colors hover:border-white/20 hover:text-ink-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
               onClick={onClose}
               type="button"
             >
-              ×
+              <X aria-hidden="true" className="size-4" />
             </button>
           </div>
           <h3 className="mt-1 truncate text-[17px] leading-tight font-semibold">
@@ -611,6 +617,20 @@ function tooltipHtml({
     .join("");
 }
 
+function updateRegionUrl(regionId: null | RegionPathId) {
+  const url = new URL(window.location.href);
+  if (regionId) {
+    url.searchParams.set(HALYOMORPHA_REGION_QUERY_PARAM, regionId);
+  } else {
+    url.searchParams.delete(HALYOMORPHA_REGION_QUERY_PARAM);
+  }
+  window.history.replaceState(
+    window.history.state,
+    "",
+    `${url.pathname}${url.search}${url.hash}`,
+  );
+}
+
 function useHalyomorphaRangeMap({
   copy,
   locale,
@@ -669,8 +689,8 @@ function useHalyomorphaRangeMap({
     try {
       map = L.map(container, {
         attributionControl: false,
-        maxBounds: GEORGIA_BOUNDS,
-        maxBoundsViscosity: 0.72,
+        maxBounds: MAP_PAN_BOUNDS,
+        maxBoundsViscosity: 0.42,
         scrollWheelZoom: false,
         zoomControl: false,
       });
@@ -683,6 +703,7 @@ function useHalyomorphaRangeMap({
         requestIdRef.current += 1;
         regionRecordsRef.current = [];
         selectedRegionId = null;
+        updateRegionUrl(null);
         setLoadingRegionId(null);
         setSelectedRecord(null);
         setSelectedRegion(null);
@@ -928,10 +949,8 @@ function useHalyomorphaRangeMap({
         regionSummary: HalyomorphaRegionSummary | undefined,
         regionName: string,
       ) => {
-        const center = regionSummary?.center
-          ? L.latLng(regionSummary.center.lat, regionSummary.center.lng)
-          : undefined;
         selectedRegionId = regionId;
+        updateRegionUrl(regionId);
         closeRegionTooltips();
         setSelectedRecord(null);
         setSelectedRegion(
@@ -945,7 +964,7 @@ function useHalyomorphaRangeMap({
         );
         applyRegionStyles();
         syncRegionCountMarkers();
-        focusRegionBounds(map, bounds, center);
+        focusRegionBounds(map, bounds);
         if (!regionSummary || regionSummary.count === 0) {
           requestIdRef.current += 1;
           regionRecordsRef.current = [];
@@ -978,11 +997,7 @@ function useHalyomorphaRangeMap({
         });
       };
 
-      const selectRegionFromEvent = (event: Event) => {
-        const regionId = (event as CustomEvent<{ regionId?: RegionPathId }>)
-          .detail?.regionId;
-        if (!regionId) return;
-
+      const selectRegionById = (targetRegionId: string) => {
         let matched = false;
         rangeLayer.eachLayer((layer) => {
           if (matched || !(layer instanceof L.Path)) return;
@@ -991,11 +1006,12 @@ function useHalyomorphaRangeMap({
               feature?: HalyomorphaRangeMapProps["officialRange"]["features"][number];
             }
           ).feature;
-          if (feature?.properties.id !== regionId) return;
+          if (feature?.properties.id !== targetRegionId) return;
 
           const bounds = getLayerBounds(layer);
           if (!bounds) return;
 
+          const regionId = feature.properties.id;
           matched = true;
           selectRegion(
             regionId,
@@ -1004,6 +1020,12 @@ function useHalyomorphaRangeMap({
             namesByRegion.get(regionId) ?? feature.properties.shapeName,
           );
         });
+      };
+
+      const selectRegionFromEvent = (event: Event) => {
+        const regionId = (event as CustomEvent<{ regionId?: RegionPathId }>)
+          .detail?.regionId;
+        if (regionId) selectRegionById(regionId);
       };
 
       const closeRegionTooltips = () => {
@@ -1053,10 +1075,12 @@ function useHalyomorphaRangeMap({
       map.on("zoomend", syncMapZoomLayers);
       syncRegionCountMarkers();
       syncRecordLayers();
+      const initialRegionId = getUrlRegionId();
 
       const resizeFrame = window.requestAnimationFrame(() => {
         map.invalidateSize();
         rangeLayer.bringToBack();
+        if (initialRegionId) selectRegionById(initialRegionId);
       });
 
       return () => {
@@ -1073,6 +1097,7 @@ function useHalyomorphaRangeMap({
         closeActiveRegionTooltip();
         activeRecordMarkers.forEach((marker) => marker.remove());
         regionCountMarkers.forEach((marker) => marker.remove());
+        rangeLayer.eachLayer((layer) => layer.off());
         rangeLayer.remove();
         resetControl.remove();
         tileLayer.off("tileerror", handleTileError);
@@ -1080,7 +1105,8 @@ function useHalyomorphaRangeMap({
         map.remove();
       };
     } catch {
-      window.setTimeout(() => setMapError(true), 0);
+      const mapErrorTimer = window.setTimeout(() => setMapError(true), 0);
+      return () => window.clearTimeout(mapErrorTimer);
     }
   }, [
     copy,
