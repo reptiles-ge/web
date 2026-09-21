@@ -110,7 +110,10 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
       new URL(url).pathname,
       fallbackDescription,
     );
-    const keywords = speciesSeoKeywords(item, locale);
+    const keywords =
+      raw.id === "halyomorpha-halys"
+        ? undefined
+        : speciesSeoKeywords(item, locale);
 
     const ogImage = speciesOgImageUrl(item.id, item.image);
     const ogImageTag = openGraphJpeg(ogImage, title);

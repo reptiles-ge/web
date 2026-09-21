@@ -266,7 +266,7 @@ const SPECIES_META_DESCRIPTION_OVERRIDE: Partial<
   },
   "halyomorpha-halys": {
     en: "Brown marmorated stink bug (Halyomorpha halys) in Georgia: identification, distribution evidence, crop damage, control, and indoor removal.",
-    ka: "აზიური ფაროსანა (Halyomorpha halys) საქართველოში — ამოცნობა, გავრცელების მტკიცებულებები, ზიანი კულტურებზე, კონტროლი და სახლში მოცილება.",
+    ka: "აზიური ფაროსანა (Halyomorpha halys) საქართველოში — როგორ ამოვიცნოთ, რას აზიანებს, სად გვხვდება, რატომ შედის სახლში და როგორ მოვიქცეთ უსაფრთხოდ.",
   },
   "lutra-lutra": {
     ka: "ჩვეულებრივი წავი (Lutra lutra) საქართველოში — როგორ ამოიცნოთ, სად გვხვდება, რა ზომისაა, რას ჭამს და რა სტატუსით არის დაცული.",
