@@ -354,7 +354,7 @@ function HalyomorphaRangeSection({
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_60%_at_50%_0%,color-mix(in_oklab,var(--primary)_10%,transparent),transparent_70%)]" />
 
       <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10">
-        <div className="mx-auto max-w-3xl">
+        <div>
           <AnchoredHeading
             anchorLabel={anchorLabel}
             className="text-balance-tight font-display text-display-title font-semibold text-foreground"
@@ -366,7 +366,7 @@ function HalyomorphaRangeSection({
           <p className="mt-3 text-[13px] font-semibold tracking-[0.08em] text-primary uppercase">
             {metricLine}
           </p>
-          <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
+          <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">
             {copy.intro}
           </p>
         </div>
@@ -381,7 +381,7 @@ function HalyomorphaRangeSection({
           />
         </div>
 
-        <p className="mx-auto mt-4 max-w-5xl text-[12px] leading-relaxed text-muted-foreground">
+        <p className="mt-4 text-[12px] leading-relaxed text-muted-foreground">
           {copy.footerDataLabel}: {copy.footerReptilesLabel} +{" "}
           <a
             className="underline decoration-border underline-offset-4 transition-colors hover:text-primary"
@@ -410,7 +410,7 @@ function HalyomorphaRangeSection({
         </p>
 
         {occurrenceSummary.totalRecords > 0 ? (
-          <section className="mx-auto mt-10 max-w-5xl">
+          <section className="mt-10">
             <h3 className="font-display text-[1.35rem] leading-tight font-semibold text-foreground">
               {copy.regionSummaryTitle}
             </h3>
@@ -435,7 +435,7 @@ function HalyomorphaRangeSection({
                 </tbody>
               </table>
             </div>
-            <p className="mt-4 max-w-3xl text-[12px] leading-relaxed text-muted-foreground">
+            <p className="mt-4 text-[12px] leading-relaxed text-muted-foreground">
               {copy.observationDisclaimer}
             </p>
           </section>
