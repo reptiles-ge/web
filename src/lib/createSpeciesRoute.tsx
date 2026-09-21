@@ -62,6 +62,18 @@ type PageProps = {
   params: Promise<{ locale: string; slug: string }>;
 };
 
+const HALYOMORPHA_TAXON_SAME_AS = [
+  "https://gd.eppo.int/taxon/HALYHA",
+  "https://www.gbif.org/species/4485843",
+  "https://biodiversity.iliauni.edu.ge/ka/species/14072",
+  "https://www.wikidata.org/wiki/Q3270185",
+];
+
+type SpeciesSource = {
+  name: string;
+  url?: string;
+};
+
 export function createSpeciesHubRoute(hubId: GroupHubId) {
   function generateStaticParams() {
     return speciesStaticParams(hubId);
@@ -207,9 +219,19 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
       url: ogImage,
     };
 
-    const sameAs = raw.sources
-      .map((source) => source.url)
-      .filter((url): url is string => Boolean(url));
+    const sameAs =
+      raw.id === "halyomorpha-halys"
+        ? HALYOMORPHA_TAXON_SAME_AS
+        : raw.sources
+            .map((source) => source.url)
+            .filter((url): url is string => Boolean(url));
+    const sameAsUrls = new Set(sameAs);
+    const taxonSubjectOf =
+      raw.id === "halyomorpha-halys"
+        ? raw.sources
+            .filter((source) => !source.url || !sameAsUrls.has(source.url))
+            .map(sourceCreativeWork)
+        : [];
 
     const aliases = speciesAliasKeywords(item.id, locale);
     const taxon = {
@@ -225,6 +247,7 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
       },
       taxonRank: "Species",
       ...(sameAs.length > 0 ? { sameAs } : {}),
+      ...(taxonSubjectOf.length > 0 ? { subjectOf: taxonSubjectOf } : {}),
     };
 
     const org = organizationJsonLd();
@@ -235,18 +258,7 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
       about: taxon,
       associatedMedia: photoObjects,
       author: org,
-      citation: raw.sources.map((source) =>
-        source.url
-          ? {
-              "@type": "CreativeWork",
-              name: source.name,
-              url: source.url,
-            }
-          : {
-              "@type": "CreativeWork",
-              name: source.name,
-            },
-      ),
+      citation: raw.sources.map(sourceCreativeWork),
       dateModified: raw.updatedAt,
       datePublished: raw.publishedAt,
       description: item.description,
@@ -290,7 +302,7 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
         : null;
 
     const faqJsonLd =
-      item.faq && item.faq.length > 0
+      raw.id !== "halyomorpha-halys" && item.faq && item.faq.length > 0
         ? {
             "@context": "https://schema.org",
             "@type": "FAQPage",
@@ -354,4 +366,17 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
     generateStaticParams,
     Page,
   };
+}
+
+function sourceCreativeWork(source: SpeciesSource) {
+  return source.url
+    ? {
+        "@type": "CreativeWork",
+        name: source.name,
+        url: source.url,
+      }
+    : {
+        "@type": "CreativeWork",
+        name: source.name,
+      };
 }
