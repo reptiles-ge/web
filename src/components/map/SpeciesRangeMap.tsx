@@ -61,6 +61,7 @@ type HalyomorphaRangeCopy = {
 type InteractiveRangeMapConfig = {
   copy: Record<AppLocale, HalyomorphaRangeCopy>;
   iNaturalistTaxonId: number;
+  restrictRecordsToRange?: boolean;
 };
 
 type SpeciesRangeMapProps = {
@@ -284,6 +285,7 @@ const INTERACTIVE_RANGE_MAPS: Partial<
       },
     },
     iNaturalistTaxonId: 53905,
+    restrictRecordsToRange: true,
   },
 };
 
@@ -297,9 +299,10 @@ export async function SpeciesRangeMap({
   const t = await getTranslations("profile");
   const rangeRegions = getRegionsForSpecies(speciesId);
   const highlightedIds = rangeRegions.map((region) => region.id);
+  const highlightedIdSet = new Set(highlightedIds);
   const interactiveRangeConfig = INTERACTIVE_RANGE_MAPS[speciesId];
   const interactiveRangeCopy = interactiveRangeConfig?.copy[locale];
-  const interactiveRangeFieldRecords = interactiveRangeCopy
+  const allInteractiveRangeFieldRecords = interactiveRangeCopy
     ? getHalyomorphaFieldRecords({
         fieldRecords,
         gallery,
@@ -307,6 +310,12 @@ export async function SpeciesRangeMap({
         speciesName,
       })
     : [];
+  const interactiveRangeFieldRecords =
+    interactiveRangeConfig?.restrictRecordsToRange
+      ? allInteractiveRangeFieldRecords.filter(
+          (record) => record.regionId && highlightedIdSet.has(record.regionId),
+        )
+      : allInteractiveRangeFieldRecords;
   const interactiveRangeSummary = interactiveRangeCopy
     ? getHalyomorphaOccurrenceSummary(interactiveRangeFieldRecords, locale)
     : null;
