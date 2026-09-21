@@ -22,6 +22,7 @@ import {
   optimizedImgSrc,
   pictureSources,
 } from "@/data/optimizedImages";
+import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
 import { Link } from "@/i18n/navigation";
 import {
   type HubClusterCard,
@@ -486,6 +487,10 @@ export async function SpeciesProfileBody({
   const t = await getTranslations("profile");
   const snake = isSnakeSpecies(species);
   const lizard = isLizardSpecies(species);
+  const relatedLabelVariant =
+    getSpeciesAtlasMeta(species.id).group === "insect"
+      ? "otherInsects"
+      : "related";
 
   return (
     <>
@@ -644,7 +649,11 @@ export async function SpeciesProfileBody({
         </section>
       ) : null}
 
-      <SpeciesProfileRelated locale={locale} related={related} />
+      <SpeciesProfileRelated
+        labelVariant={relatedLabelVariant}
+        locale={locale}
+        related={related}
+      />
     </>
   );
 }
