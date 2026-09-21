@@ -15,14 +15,6 @@ export type HalyomorphaRangeRegionFeatureCollection = {
   type: "FeatureCollection";
 };
 
-export const HALYOMORPHA_OFFICIAL_RANGE_REGION_IDS = [
-  "abkhazia",
-  "samegrelo-zemo-svaneti",
-  "guria",
-  "adjara",
-  "imereti",
-] satisfies RegionPathId[];
-
 export const HALYOMORPHA_RANGE_GEOJSON = {
   features: [
     {

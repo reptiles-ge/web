@@ -22,8 +22,6 @@ const CONTENT_ROOT = path.join(process.cwd(), "src/content/species");
 const SPECIES_ID_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const TOP_LEVEL_KEY = /^[A-Za-z][A-Za-z0-9]*:/;
 
-export type AdminSpeciesFieldRecord = SpeciesFieldRecord;
-
 export type AdminSpeciesSummary = {
   commonName: string;
   galleryCount: number;
