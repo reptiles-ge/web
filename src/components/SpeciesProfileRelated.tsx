@@ -14,12 +14,14 @@ import { speciesImageAlt } from "@/lib/speciesMeta";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 
 type SpeciesProfileRelatedProps = {
+  labelVariant?: "otherInsects" | "related";
   locale: AppLocale;
   related: Species[];
   variant?: "lookalikes" | "related";
 };
 
 export async function SpeciesProfileRelated({
+  labelVariant = "related",
   locale,
   related,
   variant = "related",
@@ -30,6 +32,12 @@ export async function SpeciesProfileRelated({
 
   const t = await getTranslations("profile");
   const lookalikes = variant === "lookalikes";
+  const relatedEyebrow =
+    labelVariant === "otherInsects" ? t("otherInsects") : t("related");
+  const relatedTitle =
+    labelVariant === "otherInsects"
+      ? t("otherInsectsTitle")
+      : t("relatedTitle");
 
   return (
     <section className="border-t border-border bg-background py-20 lg:py-28">
@@ -37,7 +45,7 @@ export async function SpeciesProfileRelated({
         <div className="flex items-end justify-between gap-6">
           <div>
             <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
-              {lookalikes ? t("lookalikes") : t("related")}
+              {lookalikes ? t("lookalikes") : relatedEyebrow}
             </p>
             <AnchoredHeading
               anchorLabel={t("anchorLink")}
@@ -48,7 +56,7 @@ export async function SpeciesProfileRelated({
                   : SPECIES_SECTION_IDS.related
               }
             >
-              {lookalikes ? t("lookalikesTitle") : t("relatedTitle")}
+              {lookalikes ? t("lookalikesTitle") : relatedTitle}
             </AnchoredHeading>
           </div>
           {lookalikes ? null : (

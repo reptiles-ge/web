@@ -53,14 +53,18 @@ export function getPublishedNewsArticleBySlug(slug: string) {
 }
 
 export function getPublishedNewsArticles(locale?: AppLocale) {
-  return NEWS_ARTICLES.filter((article) => article.status === "published")
-    .filter((article) => (locale ? Boolean(article.copy[locale]) : true))
-    .slice()
-    .sort((a, b) => {
-      const byDate = b.publishedAt.localeCompare(a.publishedAt);
-      if (byDate !== 0) return byDate;
-      return NEWS_ARTICLES.indexOf(a) - NEWS_ARTICLES.indexOf(b);
-    });
+  const articles: NewsArticle[] = [];
+  for (const article of NEWS_ARTICLES) {
+    if (article.status !== "published") continue;
+    if (locale && !article.copy[locale]) continue;
+    articles.push(article);
+  }
+
+  return articles.sort((a, b) => {
+    const byDate = b.publishedAt.localeCompare(a.publishedAt);
+    if (byDate !== 0) return byDate;
+    return NEWS_ARTICLES.indexOf(a) - NEWS_ARTICLES.indexOf(b);
+  });
 }
 
 export function getPublishedNewsForHub(hubId: GroupHubId, locale?: AppLocale) {

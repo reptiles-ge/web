@@ -4,6 +4,7 @@ import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound, permanentRedirect } from "next/navigation";
 
+import type { Species } from "@/data/species";
 import type { GroupHubId } from "@/lib/groupHubs";
 
 import { ClientMessagesProvider } from "@/components/ClientMessagesProvider";
@@ -62,6 +63,18 @@ type PageProps = {
   params: Promise<{ locale: string; slug: string }>;
 };
 
+const HALYOMORPHA_TAXON_SAME_AS = [
+  "https://gd.eppo.int/taxon/HALYHA",
+  "https://www.gbif.org/species/4485843",
+  "https://biodiversity.iliauni.edu.ge/ka/species/14072",
+  "https://www.wikidata.org/wiki/Q3270185",
+];
+
+type SpeciesSource = {
+  name: string;
+  url?: string;
+};
+
 export function createSpeciesHubRoute(hubId: GroupHubId) {
   function generateStaticParams() {
     return speciesStaticParams(hubId);
@@ -110,7 +123,10 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
       new URL(url).pathname,
       fallbackDescription,
     );
-    const keywords = speciesSeoKeywords(item, locale);
+    const keywords =
+      raw.id === "halyomorpha-halys"
+        ? undefined
+        : speciesSeoKeywords(item, locale);
 
     const ogImage = speciesOgImageUrl(item.id, item.image);
     const ogImageTag = openGraphJpeg(ogImage, title);
@@ -168,15 +184,7 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
     }
 
     const item = localizeSpecies(raw, locale);
-    const lookalikeSpecies = getLookalikeSpecies(raw.id);
-    const lookalikeIds = new Set(lookalikeSpecies.map((entry) => entry.id));
-    const lookalikes = lookalikeSpecies.map((entry) =>
-      localizeSpecies(entry, locale),
-    );
-    const related = getRelatedSpecies(raw.id, 8)
-      .filter((entry) => !lookalikeIds.has(entry.id))
-      .slice(0, 4)
-      .map((entry) => localizeSpecies(entry, locale));
+    const { lookalikes, related } = localizedSpeciesRelations(raw, locale);
     const tProfile = await getTranslations({ locale, namespace: "profile" });
     const tHubs = await getTranslations({
       locale,
@@ -196,139 +204,24 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
 
     const pageUrl = speciesPageUrl(locale, item.id);
     const ogImage = speciesOgImageUrl(item.id, item.image);
-    const photoObjects = galleryImageObjects(item.gallery, item, locale);
-    const ogImageObject = {
-      "@type": "ImageObject",
-      contentUrl: ogImage,
-      name: `${item.commonName} (${item.scientificName})`,
-      url: ogImage,
-    };
-
-    const sameAs = raw.sources
-      .map((source) => source.url)
-      .filter((url): url is string => Boolean(url));
-
-    const aliases = speciesAliasKeywords(item.id, locale);
-    const taxon = {
-      "@type": "Taxon",
-      alternateName: [item.commonName, ...aliases].filter(
-        (name, index, list) => list.indexOf(name) === index,
-      ),
-      name: item.scientificName,
-      parentTaxon: {
-        "@type": "Taxon",
-        name: item.genus,
-        taxonRank: "Genus",
-      },
-      taxonRank: "Species",
-      ...(sameAs.length > 0 ? { sameAs } : {}),
-    };
-
-    const org = organizationJsonLd();
-
-    const jsonLd = {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      about: taxon,
-      associatedMedia: photoObjects,
-      author: org,
-      citation: raw.sources.map((source) =>
-        source.url
-          ? {
-              "@type": "CreativeWork",
-              name: source.name,
-              url: source.url,
-            }
-          : {
-              "@type": "CreativeWork",
-              name: source.name,
-            },
-      ),
-      dateModified: raw.updatedAt,
-      datePublished: raw.publishedAt,
-      description: item.description,
-      headline: `${item.commonName} (${item.scientificName})`,
-      image: [ogImageObject, ...photoObjects],
-      inLanguage: locale,
-      keywords: speciesJsonLdKeywords(item, locale),
-      mainEntity: taxon,
-      mainEntityOfPage: {
-        "@id": pageUrl,
-        "@type": "WebPage",
-      },
-      publisher: org,
-      spatialCoverage: speciesArticleSpatialCoverage(item.id, locale),
-    };
-
-    const breadcrumbLd = {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: breadcrumbCrumbs.map((crumb, index) => ({
-        "@type": "ListItem",
-        item: crumb.href
-          ? absoluteUrl(localePath(locale, crumb.href))
-          : pageUrl,
-        name: crumb.name,
-        position: index + 1,
-      })),
-    };
-
-    const galleryLd =
-      photoObjects.length > 0
-        ? {
-            "@context": "https://schema.org",
-            "@type": "ImageGallery",
-            about: taxon,
-            associatedMedia: photoObjects,
-            inLanguage: locale,
-            name: `${item.commonName} ${tProfile("galleryTitle")}`,
-            url: `${pageUrl}#${SPECIES_SECTION_IDS.gallery}`,
-          }
-        : null;
-
-    const faqJsonLd =
-      item.faq && item.faq.length > 0
-        ? {
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            mainEntity: item.faq.map((entry) => ({
-              "@type": "Question",
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: entry.answer,
-              },
-              name: entry.question,
-            })),
-          }
-        : null;
-
+    const structuredData = speciesStructuredData({
+      breadcrumbCrumbs,
+      galleryTitle: tProfile("galleryTitle"),
+      item,
+      locale,
+      ogImage,
+      pageUrl,
+      raw,
+    });
     const { desktopHeroSrc, mobileHeroSrc } = getSpeciesHeroSources(raw);
 
     return (
       <>
-        {desktopHeroSrc ? (
-          mobileHeroSrc ? (
-            <>
-              <CoverImagePreload
-                media="(max-width: 1023px)"
-                sizes="100vw"
-                src={mobileHeroSrc}
-              />
-              <CoverImagePreload
-                media="(min-width: 1024px)"
-                sizes="100vw"
-                src={desktopHeroSrc}
-              />
-            </>
-          ) : (
-            <CoverImagePreload sizes="100vw" src={desktopHeroSrc} />
-          )
-        ) : null}
-        <JsonLd
-          data={[jsonLd, breadcrumbLd, galleryLd, faqJsonLd].filter(
-            (entry): entry is NonNullable<typeof entry> => Boolean(entry),
-          )}
+        <SpeciesHeroPreloads
+          desktopHeroSrc={desktopHeroSrc}
+          mobileHeroSrc={mobileHeroSrc}
         />
+        <JsonLd data={structuredData} />
         <ClientMessagesProvider
           namespaces={SPECIES_PROFILE_CLIENT_MESSAGE_NAMESPACES}
         >
@@ -350,5 +243,200 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
     generateMetadata,
     generateStaticParams,
     Page,
+  };
+}
+
+function localizedSpeciesRelations(raw: Species, locale: AppLocale) {
+  const lookalikeSpecies = getLookalikeSpecies(raw.id);
+  const lookalikeIds = new Set(lookalikeSpecies.map((entry) => entry.id));
+  const related: Species[] = [];
+
+  for (const entry of getRelatedSpecies(raw.id, 8)) {
+    if (lookalikeIds.has(entry.id)) continue;
+    related.push(localizeSpecies(entry, locale));
+    if (related.length === 4) break;
+  }
+
+  return {
+    lookalikes: lookalikeSpecies.map((entry) => localizeSpecies(entry, locale)),
+    related,
+  };
+}
+
+function sourceCreativeWork(source: SpeciesSource) {
+  return source.url
+    ? {
+        "@type": "CreativeWork",
+        name: source.name,
+        url: source.url,
+      }
+    : {
+        "@type": "CreativeWork",
+        name: source.name,
+      };
+}
+
+function SpeciesHeroPreloads({
+  desktopHeroSrc,
+  mobileHeroSrc,
+}: {
+  desktopHeroSrc?: null | string;
+  mobileHeroSrc?: null | string;
+}) {
+  if (!desktopHeroSrc) return null;
+
+  if (!mobileHeroSrc) {
+    return <CoverImagePreload sizes="100vw" src={desktopHeroSrc} />;
+  }
+
+  return (
+    <>
+      <CoverImagePreload
+        media="(max-width: 1023px)"
+        sizes="100vw"
+        src={mobileHeroSrc}
+      />
+      <CoverImagePreload
+        media="(min-width: 1024px)"
+        sizes="100vw"
+        src={desktopHeroSrc}
+      />
+    </>
+  );
+}
+
+function speciesSameAs(raw: Species) {
+  if (raw.id === "halyomorpha-halys") return HALYOMORPHA_TAXON_SAME_AS;
+
+  const urls: string[] = [];
+  for (const source of raw.sources) {
+    if (source.url) urls.push(source.url);
+  }
+  return urls;
+}
+
+function speciesStructuredData({
+  breadcrumbCrumbs,
+  galleryTitle,
+  item,
+  locale,
+  ogImage,
+  pageUrl,
+  raw,
+}: {
+  breadcrumbCrumbs: ReturnType<typeof buildSpeciesBreadcrumbs>;
+  galleryTitle: string;
+  item: Species;
+  locale: AppLocale;
+  ogImage: string;
+  pageUrl: string;
+  raw: Species;
+}) {
+  const photoObjects = galleryImageObjects(item.gallery, item, locale);
+  const taxon = speciesTaxonJsonLd(raw, item, locale);
+  const org = organizationJsonLd();
+  const ogImageObject = {
+    "@type": "ImageObject",
+    contentUrl: ogImage,
+    name: `${item.commonName} (${item.scientificName})`,
+    url: ogImage,
+  };
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    about: taxon,
+    associatedMedia: photoObjects,
+    author: org,
+    citation: raw.sources.map(sourceCreativeWork),
+    dateModified: raw.updatedAt,
+    datePublished: raw.publishedAt,
+    description: item.description,
+    headline: `${item.commonName} (${item.scientificName})`,
+    image: [ogImageObject, ...photoObjects],
+    inLanguage: locale,
+    keywords: speciesJsonLdKeywords(item, locale),
+    mainEntity: taxon,
+    mainEntityOfPage: {
+      "@id": pageUrl,
+      "@type": "WebPage",
+    },
+    publisher: org,
+    spatialCoverage: speciesArticleSpatialCoverage(item.id, locale),
+  };
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: breadcrumbCrumbs.map((crumb, index) => ({
+      "@type": "ListItem",
+      item: crumb.href ? absoluteUrl(localePath(locale, crumb.href)) : pageUrl,
+      name: crumb.name,
+      position: index + 1,
+    })),
+  };
+  const galleryLd =
+    photoObjects.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "ImageGallery",
+          about: taxon,
+          associatedMedia: photoObjects,
+          inLanguage: locale,
+          name: `${item.commonName} ${galleryTitle}`,
+          url: `${pageUrl}#${SPECIES_SECTION_IDS.gallery}`,
+        }
+      : null;
+  const faqJsonLd =
+    raw.id !== "halyomorpha-halys" && item.faq && item.faq.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: item.faq.map((entry) => ({
+            "@type": "Question",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: entry.answer,
+            },
+            name: entry.question,
+          })),
+        }
+      : null;
+
+  return [jsonLd, breadcrumbLd, galleryLd, faqJsonLd].filter(
+    (entry): entry is NonNullable<typeof entry> => Boolean(entry),
+  );
+}
+
+function speciesTaxonJsonLd(raw: Species, item: Species, locale: AppLocale) {
+  const aliases = speciesAliasKeywords(item.id, locale);
+  const alternateName: string[] = [];
+  const seenAlternateNames = new Set<string>();
+  for (const name of [item.commonName, ...aliases]) {
+    if (seenAlternateNames.has(name)) continue;
+    seenAlternateNames.add(name);
+    alternateName.push(name);
+  }
+
+  const sameAs = speciesSameAs(raw);
+  const sameAsUrls = new Set(sameAs);
+  const subjectOf = [];
+  if (raw.id === "halyomorpha-halys") {
+    for (const source of raw.sources) {
+      if (!source.url || sameAsUrls.has(source.url)) continue;
+      subjectOf.push(sourceCreativeWork(source));
+    }
+  }
+
+  return {
+    "@type": "Taxon",
+    alternateName,
+    name: item.scientificName,
+    parentTaxon: {
+      "@type": "Taxon",
+      name: item.genus,
+      taxonRank: "Genus",
+    },
+    taxonRank: "Species",
+    ...(sameAs.length > 0 ? { sameAs } : {}),
+    ...(subjectOf.length > 0 ? { subjectOf } : {}),
   };
 }

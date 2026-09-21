@@ -12,13 +12,21 @@ import {
 } from "@/components/ClusterSectionIntro";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { Link } from "@/i18n/navigation";
-import { type SpeciesSection } from "@/lib/clusterGuides";
+import { HUB_INDEX_PATH, type SpeciesSection } from "@/lib/clusterGuides";
 
 type GroupHubSpeciesListProps = {
   hubId: GroupHubId;
   sections: SpeciesSection[];
   speciesCount: number;
 };
+
+const HUBS_WITH_INDEX_CTA = new Set<GroupHubId>([
+  "birds",
+  "insects",
+  "mammals",
+  "spiders",
+  "turtles",
+]);
 
 export async function GroupHubSpeciesList({
   hubId,
@@ -65,32 +73,30 @@ export async function GroupHubSpeciesList({
           ))}
         </div>
 
-        {hubId === "turtles" ||
-        hubId === "birds" ||
-        hubId === "insects" ||
-        hubId === "mammals" ||
-        hubId === "spiders" ? (
-          <div>
-            <Link
-              className="mt-10 inline-flex items-center gap-2 text-[14px] font-medium text-foreground transition-colors hover:text-primary"
-              href={
-                hubId === "turtles"
-                  ? "/turtles/saxeoebebi"
-                  : hubId === "birds"
-                    ? "/birds/saxeoebebi"
-                    : hubId === "insects"
-                      ? "/insects/saxeoebebi"
-                      : hubId === "mammals"
-                        ? "/mammals/saxeoebebi"
-                        : "/spiders/saxeoebebi"
-              }
-            >
-              {t("speciesIndexCta")}
-              <ArrowUpRight className="size-4" />
-            </Link>
-          </div>
-        ) : null}
+        <GroupHubSpeciesIndexCta hubId={hubId} label={t("speciesIndexCta")} />
       </div>
     </section>
+  );
+}
+
+function GroupHubSpeciesIndexCta({
+  hubId,
+  label,
+}: {
+  hubId: GroupHubId;
+  label: string;
+}) {
+  if (!HUBS_WITH_INDEX_CTA.has(hubId)) return null;
+
+  return (
+    <div>
+      <Link
+        className="mt-10 inline-flex items-center gap-2 text-[14px] font-medium text-foreground transition-colors hover:text-primary"
+        href={HUB_INDEX_PATH[hubId]}
+      >
+        {label}
+        <ArrowUpRight className="size-4" />
+      </Link>
+    </div>
   );
 }

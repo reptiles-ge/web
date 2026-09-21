@@ -5,6 +5,7 @@ import path from "node:path";
 import {
   type GalleryImage,
   type PhotoCredit,
+  type SpeciesFieldRecord,
   unpublishedSpeciesIds,
 } from "@/data/species";
 import { type AnimalGroup, speciesAtlasMeta } from "@/data/speciesAtlas";
@@ -45,6 +46,75 @@ export function speciesContentDir(id: string) {
 const OVERLAY_LOCALES = ["en", "ru", "tr"] as const;
 
 export type GalleryOverlayLocale = (typeof OVERLAY_LOCALES)[number];
+
+export function appendFieldRecordToMdx(
+  raw: string,
+  record: SpeciesFieldRecord,
+): string {
+  const parsed = matter(raw);
+  const records = normalizeFieldRecords(parsed.data.fieldRecords);
+  if (
+    records.some(
+      (entry) =>
+        entry.locality === record.locality &&
+        entry.lat === record.lat &&
+        entry.lng === record.lng &&
+        entry.date === record.date,
+    )
+  ) {
+    throw new Error(`Field record already exists: ${record.locality}`);
+  }
+
+  const newline = raw.includes("\r\n") ? "\r\n" : "\n";
+  const lines = raw.split(/\r?\n/);
+  const itemLines = formatFieldRecordYaml(record)
+    .replace(/\n$/, "")
+    .split("\n");
+  const range = findTopLevelRange(lines, "fieldRecords");
+
+  if (!range) {
+    const galleryRange = findGalleryRange(lines);
+    const commonName = lines.findIndex((line) => /^commonName:/.test(line));
+    const insertAt =
+      galleryRange?.end ?? (commonName === -1 ? lines.length : commonName);
+    lines.splice(insertAt, 0, "fieldRecords:", ...itemLines);
+  } else {
+    if (/^fieldRecords:\s*\[\]\s*$/.test(lines[range.start])) {
+      lines[range.start] = "fieldRecords:";
+    }
+    lines.splice(range.end, 0, ...itemLines);
+  }
+
+  const next = lines.join(newline);
+  const check = normalizeFieldRecords(matter(next).data.fieldRecords);
+  const added = check.find(
+    (entry) =>
+      entry.locality === record.locality &&
+      entry.lat === record.lat &&
+      entry.lng === record.lng &&
+      entry.date === record.date,
+  );
+  if (!added) {
+    throw new Error("Failed to append field record");
+  }
+  return next;
+}
+
+export function appendFieldRecordToSpecies(
+  id: string,
+  record: SpeciesFieldRecord,
+  repoRoot = process.cwd(),
+) {
+  const kaPath = path.join(repoRoot, "src/content/species", id, "ka.mdx");
+  if (!fs.existsSync(kaPath)) {
+    throw new Error(`Missing ${id}/ka.mdx`);
+  }
+  fs.writeFileSync(
+    kaPath,
+    appendFieldRecordToMdx(fs.readFileSync(kaPath, "utf8"), record),
+    "utf8",
+  );
+}
 
 export function appendGalleryItemToMdx(
   raw: string,
@@ -131,6 +201,16 @@ export function creditsEqual(a?: PhotoCredit, b?: PhotoCredit): boolean {
   return true;
 }
 
+export function formatFieldRecordYaml(record: SpeciesFieldRecord): string {
+  const lines = [`  - locality: ${yamlScalar(record.locality)}`];
+  lines.push(`    lat: ${record.lat}`);
+  lines.push(`    lng: ${record.lng}`);
+  for (const [key, value] of fieldRecordEntries(record)) {
+    lines.push(`    ${formatCreditField(key, value)}`);
+  }
+  return `${lines.join("\n")}\n`;
+}
+
 export function formatGalleryItemYaml(item: GalleryImage): string {
   const lines = [`  - src: "${item.src}"`];
   const credit = item.credit;
@@ -194,6 +274,7 @@ export function listAdminSpecies(): AdminSpeciesSummary[] {
 
 export function readAdminSpeciesGallery(id: string): {
   commonName: string;
+  fieldRecords: SpeciesFieldRecord[];
   gallery: GalleryImage[];
   group: AnimalGroup | null;
   image: string;
@@ -209,6 +290,7 @@ export function readAdminSpeciesGallery(id: string): {
   const gallery = normalizeGallery(data.gallery);
   return {
     commonName: typeof data.commonName === "string" ? data.commonName : id,
+    fieldRecords: normalizeFieldRecords(data.fieldRecords),
     gallery,
     group: speciesAtlasMeta[id]?.group ?? null,
     image: typeof data.image === "string" ? data.image : "",
@@ -683,9 +765,7 @@ function coverTargetForSrc(
   return null;
 }
 
-function creditEntries(
-  credit: PhotoCredit,
-): Array<[string, number | string]> {
+function creditEntries(credit: PhotoCredit): Array<[string, number | string]> {
   const entries: Array<[string, number | string]> = [];
   if (credit.photographer) entries.push(["photographer", credit.photographer]);
   if (credit.url) entries.push(["url", credit.url]);
@@ -696,6 +776,20 @@ function creditEntries(
   if (credit.photoConfidence) {
     entries.push(["photoConfidence", credit.photoConfidence]);
   }
+  return entries;
+}
+
+function fieldRecordEntries(
+  record: SpeciesFieldRecord,
+): Array<[string, string]> {
+  const entries: Array<[string, string]> = [];
+  if (record.date) entries.push(["date", record.date]);
+  if (record.observer) entries.push(["observer", record.observer]);
+  if (record.observerName) entries.push(["observerName", record.observerName]);
+  if (record.source) entries.push(["source", record.source]);
+  if (record.url) entries.push(["url", record.url]);
+  if (record.note) entries.push(["note", record.note]);
+  if (record.evidence) entries.push(["evidence", record.evidence]);
   return entries;
 }
 
@@ -843,6 +937,51 @@ function normalizeCredit(value: unknown): PhotoCredit | undefined {
     credit.photoConfidence = record.photoConfidence;
   }
   return Object.keys(credit).length > 0 ? credit : undefined;
+}
+
+function normalizeFieldRecords(value: unknown): SpeciesFieldRecord[] {
+  if (!Array.isArray(value)) return [];
+  const out: SpeciesFieldRecord[] = [];
+  for (const item of value) {
+    if (!item || typeof item !== "object") continue;
+    const record = item as Record<string, unknown>;
+    const locality =
+      typeof record.locality === "string" ? record.locality.trim() : "";
+    const coordinates = normalizePhotoCoordinates(record.lat, record.lng);
+    if (!locality || !coordinates) continue;
+    const next: SpeciesFieldRecord = {
+      lat: coordinates.lat,
+      lng: coordinates.lng,
+      locality,
+    };
+    if (typeof record.date === "string" && record.date.trim()) {
+      next.date = record.date.trim();
+    }
+    if (
+      record.evidence === "literature" ||
+      record.evidence === "observation" ||
+      record.evidence === "specimen"
+    ) {
+      next.evidence = record.evidence;
+    }
+    if (typeof record.observer === "string" && record.observer.trim()) {
+      next.observer = record.observer.trim();
+    }
+    if (typeof record.observerName === "string" && record.observerName.trim()) {
+      next.observerName = record.observerName.trim();
+    }
+    if (typeof record.source === "string" && record.source.trim()) {
+      next.source = record.source.trim();
+    }
+    if (typeof record.url === "string" && record.url.trim()) {
+      next.url = record.url.trim();
+    }
+    if (typeof record.note === "string" && record.note.trim()) {
+      next.note = record.note.trim();
+    }
+    out.push(next);
+  }
+  return out;
 }
 
 function normalizeGallery(value: unknown): GalleryImage[] {

@@ -17,7 +17,7 @@ const PHONE_LINK_CLASS_NAME =
   "font-medium underline decoration-current/40 underline-offset-[3px] transition-colors hover:decoration-current";
 const INLINE_LINK_CLASS_NAME =
   "font-medium underline decoration-current/40 underline-offset-[3px] transition-colors hover:decoration-current";
-const INTERNAL_ROUTE_LINK = /\[([^\]]+)\]\((\/[^)]+)\)/g;
+const INLINE_MARKDOWN_LINK = /\[([^\]]+)\]\((https?:\/\/[^)\s]+|\/[^)]+)\)/g;
 
 type RouteLinkPart =
   | {
@@ -25,6 +25,12 @@ type RouteLinkPart =
       key: string;
       label: string;
       type: "route";
+    }
+  | {
+      href: string;
+      key: string;
+      label: string;
+      type: "external";
     }
   | { key: string; type: "text"; value: string };
 
@@ -66,6 +72,20 @@ function renderPhoneLinkedString(text: string): ReactNode {
           >
             {part.label}
           </Link>
+        );
+      }
+
+      if (part.type === "external") {
+        return (
+          <a
+            className={INLINE_LINK_CLASS_NAME}
+            href={part.href}
+            key={part.key}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            {part.label}
+          </a>
         );
       }
 
@@ -132,7 +152,7 @@ function renderSpeciesAndPhoneLinks(text: string): ReactNode {
 
 function splitInternalRouteLinks(text: string): RouteLinkPart[] {
   const parts: RouteLinkPart[] = [];
-  const pattern = new RegExp(INTERNAL_ROUTE_LINK.source, "g");
+  const pattern = new RegExp(INLINE_MARKDOWN_LINK.source, "g");
   let lastIndex = 0;
   let match: null | RegExpExecArray;
 
@@ -144,12 +164,22 @@ function splitInternalRouteLinks(text: string): RouteLinkPart[] {
         value: text.slice(lastIndex, match.index),
       });
     }
-    parts.push({
-      href: match[2] as ComponentProps<typeof Link>["href"],
-      key: `r:${match.index}:${match[2]}`,
-      label: match[1],
-      type: "route",
-    });
+    const href = match[2];
+    if (href.startsWith("/")) {
+      parts.push({
+        href: href as ComponentProps<typeof Link>["href"],
+        key: `r:${match.index}:${href}`,
+        label: match[1],
+        type: "route",
+      });
+    } else {
+      parts.push({
+        href,
+        key: `e:${match.index}:${href}`,
+        label: match[1],
+        type: "external",
+      });
+    }
     lastIndex = match.index + match[0].length;
   }
 

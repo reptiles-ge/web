@@ -30,6 +30,46 @@ type SpeciesProfileProps = {
   species: Species;
 };
 
+const HALYOMORPHA_BIOLOGY_COPY: Record<
+  AppLocale,
+  {
+    behavior: string;
+    biologyTitle: string;
+    conservation: string;
+    diet: string;
+    habitat: string;
+  }
+> = {
+  en: {
+    behavior: "Life cycle",
+    biologyTitle: "Habitat · diet · life cycle · control",
+    conservation: "Control and management",
+    diet: "Diet",
+    habitat: "Habitat and range",
+  },
+  ka: {
+    behavior: "სიცოცხლის ციკლი",
+    biologyTitle: "ჰაბიტატი · კვება · სიცოცხლის ციკლი · კონტროლი",
+    conservation: "კონტროლი და მართვა",
+    diet: "კვება",
+    habitat: "ჰაბიტატი და გავრცელება",
+  },
+  ru: {
+    behavior: "Жизненный цикл",
+    biologyTitle: "Местообитание · питание · жизненный цикл · контроль",
+    conservation: "Контроль и управление",
+    diet: "Питание",
+    habitat: "Местообитание и ареал",
+  },
+  tr: {
+    behavior: "Yaşam döngüsü",
+    biologyTitle: "Yaşam alanı · beslenme · yaşam döngüsü · kontrol",
+    conservation: "Kontrol ve yönetim",
+    diet: "Beslenme",
+    habitat: "Yaşam alanı ve yayılış",
+  },
+};
+
 export async function SpeciesProfile({
   lookalikes,
   related,
@@ -83,18 +123,26 @@ export async function SpeciesProfile({
   const dangerValue = species.danger ? tDanger(species.danger) : null;
   const linkDangerStats = usesDangerScale(group) && Boolean(species.danger);
   const showIdentification = hasRealIdentification(species.identification);
+  const biologyCopy =
+    species.id === "halyomorpha-halys"
+      ? HALYOMORPHA_BIOLOGY_COPY[locale]
+      : undefined;
   const biologyBlocks = [
     {
       body: species.habitat,
       id: "habitat",
-      title: t("habitat"),
+      title: biologyCopy?.habitat ?? t("habitat"),
     },
-    { body: species.diet, id: "diet", title: t("diet") },
-    { body: species.behavior, id: "behavior", title: t("behavior") },
+    { body: species.diet, id: "diet", title: biologyCopy?.diet ?? t("diet") },
+    {
+      body: species.behavior,
+      id: "behavior",
+      title: biologyCopy?.behavior ?? t("behavior"),
+    },
     {
       body: species.conservation,
       id: "conservation",
-      title: t("conservation"),
+      title: biologyCopy?.conservation ?? t("conservation"),
     },
   ].filter((block) => !isPlaceholderBody(block.body));
 
@@ -120,6 +168,7 @@ export async function SpeciesProfile({
       />
       <SpeciesProfileBody
         biologyBlocks={biologyBlocks}
+        biologyTitle={biologyCopy?.biologyTitle}
         breadcrumbs={breadcrumbs}
         dangerValue={dangerValue}
         displayStats={displayStats}

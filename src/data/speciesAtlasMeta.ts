@@ -295,6 +295,10 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "bird",
     habitats: ["mountain", "grassland"],
   },
+  "halyomorpha-halys": {
+    group: "insect",
+    habitats: ["grassland", "forest"],
+  },
   "hemorrhois-ravergieri": {
     group: "snake",
     habitats: ["grassland", "mountain"],
