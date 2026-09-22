@@ -3,9 +3,7 @@ import type { AppLocale } from "@/i18n/routing";
 import type { GroupHubId } from "@/lib/groupHubs";
 
 export type NewsArticle = {
-  copy: Partial<Record<AppLocale, NewsLocaleCopy>> & {
-    ka: NewsLocaleCopy;
-  };
+  copy: Record<AppLocale, NewsLocaleCopy>;
   gallery?: readonly NewsPhoto[];
   id: string;
   image?: NewsPhoto;
