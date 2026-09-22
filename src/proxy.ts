@@ -329,6 +329,9 @@ function configuredRedirectPath(pathname: string): [string, 301 | 302] | null {
     new RegExp(`^\\/(${PREFIX_SEGMENT})(\\/.*)$`),
   );
   if (prefixed && isPrefixedLocale(prefixed[1])) {
+    const quiz = prefixedQuizRedirectPath(prefixed[1], prefixed[2]);
+    if (quiz) return [quiz, 301];
+
     const temporary = PREFIXED_TEMPORARY_REDIRECTS[prefixed[2]];
     if (temporary) return [`/${prefixed[1]}${temporary}`, 302];
 
@@ -340,6 +343,32 @@ function configuredRedirectPath(pathname: string): [string, 301 | 302] | null {
     );
     if (contributor)
       return [`/${prefixed[1]}/contributors/${contributor[1]}`, 301];
+  }
+
+  return null;
+}
+
+function prefixedQuizRedirectPath(
+  locale: PrefixedLocale,
+  pathname: string,
+): null | string {
+  if (
+    pathname === "/quiz/gvelis-identifikacia" ||
+    pathname === "/quiz/romeli-gvelia" ||
+    pathname === "/quiz/which-snake"
+  ) {
+    if (locale === "ru") return "/ru/quiz/kakaya-zmeya";
+    if (locale === "tr") return "/tr/quiz/hangi-yilan";
+    return "/en/quiz/which-snake";
+  }
+
+  if (
+    pathname === "/quiz/romeli-xvlikia" ||
+    pathname === "/quiz/which-lizard"
+  ) {
+    if (locale === "ru") return "/ru/quiz/kakaya-yashcheritsa";
+    if (locale === "tr") return "/tr/quiz/hangi-kertenkele";
+    return "/en/quiz/which-lizard";
   }
 
   return null;
