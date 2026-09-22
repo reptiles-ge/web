@@ -5,20 +5,7 @@
   "compatibility_flags": [
     "nodejs_compat"
   ],
-  "main": "dist/server/index.js",
-  "build": {
-    "command": "pnpm build:vinext"
-  },
-  "no_bundle": true,
-  "rules": [
-    {
-      "type": "ESModule",
-      "globs": [
-        "**/*.js",
-        "**/*.mjs"
-      ]
-    }
-  ],
+  "main": "vinext/server/fetch-handler",
   "assets": {
     "directory": "dist/client",
     "not_found_handling": "none",
