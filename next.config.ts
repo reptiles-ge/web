@@ -35,7 +35,7 @@ const nextConfig: NextConfig = {
       "img-src 'self' data: blob: https://cdn.reptiles.ge https://upload.wikimedia.org https://tile.openstreetmap.de https://tile.openstreetmap.org https://www.googletagmanager.com https://www.google-analytics.com https://stats.g.doubleclick.net https://*.google.com https://*.google.ge https://counter.top.ge",
       "media-src 'self' https://cdn.reptiles.ge",
       "font-src 'self' data:",
-      "connect-src 'self' https://cdn.reptiles.ge https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://*.google-analytics.com https://*.analytics.google.com https://stats.g.doubleclick.net",
+      "connect-src 'self' https://cdn.reptiles.ge https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://*.google-analytics.com https://*.analytics.google.com https://stats.g.doubleclick.net https://o4510170297073664.ingest.us.sentry.io",
       "frame-src https://www.googletagmanager.com",
       "base-uri 'self'",
       "form-action 'self'",
