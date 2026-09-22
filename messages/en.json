@@ -694,6 +694,8 @@
     "statSpecies": "species",
     "gallery": "Gallery",
     "speciesList": "Species in the atlas",
+    "relatedNews": "News",
+    "relatedNewsIntro": "Articles where {name} appears as a source, author, or related researcher.",
     "portraitAlt": "{name}",
     "metaTitle": "{name}",
     "metaDescription": "{count} photographs of {species} species by {name}, in the atlas of animals of Georgia.",

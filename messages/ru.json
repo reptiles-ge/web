@@ -694,6 +694,8 @@
     "statSpecies": "видов",
     "gallery": "Галерея",
     "speciesList": "Виды в атласе",
+    "relatedNews": "Новости",
+    "relatedNewsIntro": "Материалы, где {name} указан как источник, автор или связанный исследователь.",
     "portraitAlt": "{name}",
     "metaTitle": "{name}",
     "metaDescription": "{count} фотографий {name} — {species} видов в атласе животных Грузии.",

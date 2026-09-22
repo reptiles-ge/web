@@ -4,11 +4,13 @@ import { ExternalLink } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import type { CreditAuthor } from "@/data/creditAuthors";
+import type { NewsArticle } from "@/data/news";
 import type { AppLocale } from "@/i18n/routing";
 import type { CreditAuthorPhoto } from "@/lib/creditAuthors";
 
 import { AuthorGallery } from "@/components/AuthorGallery";
 import { CoverImage } from "@/components/CoverImage";
+import { NewsArticleCard } from "@/components/NewsArticleCard";
 import {
   creditAuthorBio,
   creditAuthorIndexHref,
@@ -30,10 +32,12 @@ export async function AuthorPage({
   author,
   locale,
   photos,
+  relatedNews,
 }: {
   author: CreditAuthor;
   locale: AppLocale;
   photos: CreditAuthorPhoto[];
+  relatedNews: NewsArticle[];
 }) {
   const [t, tShared, tProfile] = await Promise.all([
     getTranslations("author"),
@@ -195,6 +199,26 @@ export async function AuthorPage({
                 })}
               </ul>
             </div>
+          ) : null}
+
+          {relatedNews.length > 0 ? (
+            <section className="mt-20 border-t border-border pt-12 sm:mt-24 sm:pt-16">
+              <div className="max-w-3xl">
+                <h2 className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
+                  {t("relatedNews")}
+                </h2>
+                <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">
+                  {t("relatedNewsIntro", { name })}
+                </p>
+              </div>
+              <ul className="mt-8 grid gap-x-8 gap-y-12 sm:grid-cols-2 xl:grid-cols-3">
+                {relatedNews.map((article) => (
+                  <li className="h-full" key={article.id}>
+                    <NewsArticleCard article={article} locale={locale} />
+                  </li>
+                ))}
+              </ul>
+            </section>
           ) : null}
 
           <div className="mt-20 border-t border-border pt-12 sm:mt-24 sm:pt-16">
