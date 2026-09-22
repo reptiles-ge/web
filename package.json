@@ -61,10 +61,10 @@
     "inaturalist:field-records": "tsx scripts/import-inaturalist-field-records.ts",
     "format": "prettier --write .",
     "prepare": "husky",
-    "dev:vinext": "vinext dev --port 3001",
-    "build:vinext": "vinext build",
+    "dev:vinext": "VINEXT=1 vinext dev --port 3001",
+    "build:vinext": "VINEXT=1 vinext build",
     "start:vinext": "wrangler dev --config dist/server/wrangler.json",
-    "deploy:vinext": "vinext-cloudflare deploy --config dist/server/wrangler.json --experimental-warm-cdn-cache",
+    "deploy:vinext": "pnpm run build:vinext && vinext-cloudflare deploy --config dist/server/wrangler.json --experimental-warm-cdn-cache",
     "deploy:response-store": "wrangler deploy --config wrangler.response-store.jsonc"
   },
   "lint-staged": {

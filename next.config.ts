@@ -12,6 +12,7 @@ const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
 const LATIN_LOCALES = ["en", "ru", "tr"] as const;
 const isDevelopment = process.env.NODE_ENV === "development";
+const isVinext = process.env.VINEXT === "1";
 
 function latinRedirects(
   pairs: Array<[string, string, number?]>,
@@ -108,6 +109,8 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   async redirects() {
+    if (isVinext) return [];
+
     return [
       {
         destination: "https://reptiles.ge/:path*",
