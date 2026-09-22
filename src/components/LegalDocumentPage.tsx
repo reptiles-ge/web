@@ -1,11 +1,10 @@
 import type { ReactNode } from "react";
 
-import { readFileSync } from "node:fs";
-import path from "node:path";
-
 import type { AppLocale } from "@/i18n/routing";
 
-export type LegalDocumentId = "privacy" | "terms";
+import { type LegalDocumentId, legalDocuments } from "@/content/legalDocuments";
+
+export type { LegalDocumentId } from "@/content/legalDocuments";
 
 type Block =
   | { items: TextPart[]; key: string; type: "list" }
@@ -21,11 +20,6 @@ type TableRow = {
 type TextPart = {
   key: string;
   text: string;
-};
-
-const documentFiles: Record<LegalDocumentId, string> = {
-  privacy: "reptiles-ge-privacy-policy-ka.md",
-  terms: "reptiles-ge-terms-of-use-ka.md",
 };
 
 export function LegalDocumentPage({
@@ -175,10 +169,7 @@ function parseMarkdown(markdown: string) {
 }
 
 function readDocument(documentId: LegalDocumentId) {
-  return readFileSync(
-    path.join(process.cwd(), "docs/legal", documentFiles[documentId]),
-    "utf8",
-  );
+  return legalDocuments[documentId];
 }
 
 function renderBlock(block: Block) {
