@@ -3,7 +3,6 @@
   "ignore": {
     "files": [
       "src/data/*.generated.ts",
-      "index.html",
       "src/app/admin/**",
       "src/app/api/admin/**",
       "src/components/admin/**",
