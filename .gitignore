@@ -58,3 +58,6 @@ cdn-unused-images.txt
 /blob-report/
 /playwright/.cache/
 .env.sentry-build-plugin
+/dist/
+.vinext/
+.wrangler/
