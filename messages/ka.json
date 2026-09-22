@@ -694,6 +694,8 @@
     "statSpecies": "სახეობა",
     "gallery": "გალერეა",
     "speciesList": "სახეობები ატლასში",
+    "relatedNews": "სიახლეები",
+    "relatedNewsIntro": "სტატიები, სადაც {name} წყაროდ, ავტორად ან დაკავშირებულ მკვლევრად ფიგურირებს.",
     "portraitAlt": "{name}",
     "metaTitle": "{name}",
     "metaDescription": "{name}-ის {count} ფოტო {species} სახეობაზე — საქართველოს ცხოველთა ატლასში.",

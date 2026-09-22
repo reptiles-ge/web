@@ -12,6 +12,7 @@ import {
   creditAuthorName,
   creditAuthorSameAs,
 } from "@/data/creditAuthors";
+import { getPublishedNewsForCreditAuthor } from "@/data/news";
 import { getSpeciesById } from "@/data/species";
 import { georgiaPlaceName, openGraphLocale } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
@@ -58,6 +59,7 @@ export default async function AuthorRoute({ params }: Props) {
   const url = creditAuthorUrl(locale, author.slug);
   const indexUrl = creditAuthorIndexUrl(locale);
   const speciesIds = getCreditAuthorSpeciesIds(photos);
+  const relatedNews = getPublishedNewsForCreditAuthor(author, locale);
 
   const breadcrumbLd = {
     "@context": "https://schema.org",
@@ -133,7 +135,12 @@ export default async function AuthorRoute({ params }: Props) {
       />
       <JsonLd data={breadcrumbLd} />
       <JsonLd data={pageLd} />
-      <AuthorPage author={author} locale={locale} photos={photos} />
+      <AuthorPage
+        author={author}
+        locale={locale}
+        photos={photos}
+        relatedNews={relatedNews}
+      />
     </>
   );
 }
