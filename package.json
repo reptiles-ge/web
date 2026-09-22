@@ -2,6 +2,7 @@
   "name": "reptiles",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "packageManager": "pnpm@10.34.5",
   "pnpm": {
     "overrides": {
@@ -59,7 +60,12 @@
     "images:emit": "tsx scripts/compile-species.ts && tsx scripts/optimize-images.ts --emit-only",
     "inaturalist:field-records": "tsx scripts/import-inaturalist-field-records.ts",
     "format": "prettier --write .",
-    "prepare": "husky"
+    "prepare": "husky",
+    "dev:vinext": "vinext dev --port 3001",
+    "build:vinext": "vinext build",
+    "start:vinext": "wrangler dev --config dist/server/wrangler.json",
+    "deploy:vinext": "vinext-cloudflare deploy --config dist/server/wrangler.json --experimental-warm-cdn-cache",
+    "deploy:response-store": "wrangler deploy --config wrangler.response-store.jsonc"
   },
   "lint-staged": {
     "*.{js,jsx,mjs,cjs,ts,tsx}": [
@@ -71,7 +77,9 @@
     ]
   },
   "dependencies": {
+    "@cloudflare/workers-response-store": "0.1.0-beta.0",
     "@sentry/nextjs": "^10.74.0",
+    "@vinext/cloudflare": "1.0.0-beta.8",
     "clsx": "^2.1.1",
     "framer-motion": "^12.43.0",
     "fuse.js": "^7.5.0",
@@ -82,12 +90,15 @@
     "next-intl": "^4.13.4",
     "nprogress": "^0.2.0",
     "nuqs": "2.10.1",
-    "react": "19.2.4",
-    "react-dom": "19.2.4",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "react-server-dom-webpack": "^19.3.0",
     "tailwind-merge": "^3.6.0",
-    "vaul": "^1.1.2"
+    "vaul": "^1.1.2",
+    "vinext": "1.0.0-beta.10"
   },
   "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.54.9",
     "@next/bundle-analyzer": "16.3.3",
     "@playwright/test": "1.55.1",
     "@reptiles-ge/img-compression": "github:reptiles-ge/img-compression#feat/og-images",
@@ -97,6 +108,8 @@
     "@types/nprogress": "^0.2.3",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@vitejs/plugin-react": "^6.1.1",
+    "@vitejs/plugin-rsc": "^0.5.34",
     "axe-core": "^4.13.0",
     "eslint": "^9",
     "eslint-config-next": "16.2.12",
@@ -118,7 +131,9 @@
     "tailwindcss": "^4",
     "tsx": "^4.23.5",
     "typescript": "^5",
+    "vite": "^8.3.0",
     "vitest": "4.1.11",
+    "wrangler": "^4.131.2",
     "zod": "3.25.76"
   }
 }

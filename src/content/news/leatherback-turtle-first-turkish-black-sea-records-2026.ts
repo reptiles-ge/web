@@ -10,7 +10,10 @@ const PHOTO_DIR =
 
 const PHOTO_LEATHERBACK: NewsPhoto = {
   alt: {
+    en: "A leatherback sea turtle underwater.",
     ka: "ტყავისებრი ზღვის კუ წყალქვეშ.",
+    ru: "Кожистая морская черепаха под водой.",
+    tr: "Sualtinda bir deri sirtli deniz kaplumbagasi.",
   },
   src: `${PHOTO_DIR}/leatherback-turtle.png`,
 };
@@ -18,6 +21,130 @@ const PHOTO_LEATHERBACK: NewsPhoto = {
 export const LEATHERBACK_TURTLE_FIRST_TURKISH_BLACK_SEA_RECORDS_2026: NewsArticle =
   {
     copy: {
+      en: {
+        dek: "A new paper describes the first confirmed records of the leatherback turtle on Turkey's Black Sea coast. One animal was found dead in Sakarya in 2025, and another was seen alive off Rize in April 2026.",
+        lead: "The world's largest living sea turtle has now been officially confirmed from Turkey's Black Sea coast. A 2026 paper in the Journal of the Black Sea / Mediterranean Environment reports two records of the leatherback turtle (Dermochelys coriacea).",
+        metaDescription:
+          "Leatherback turtle has been confirmed for the first time from Turkey's Black Sea coast, including a live animal seen near Rize in 2026.",
+        metaTitle:
+          "Leatherback turtle in the Black Sea - first Turkish records",
+        sections: [
+          {
+            blocks: [
+              {
+                parts: [
+                  "According to the authors, these are the first confirmed records of ",
+                  { name: "Dermochelys coriacea", type: "sci" },
+                  " from Turkey's Black Sea coast.",
+                ],
+                type: "p",
+              },
+              {
+                parts: [
+                  "The second record is especially relevant regionally: a live leatherback was observed on 7 April 2026 off Rize Province, in the eastern Black Sea. That makes the record interesting for the wider context of Georgia's Black Sea coast, although it is not a Georgian record.",
+                ],
+                type: "p",
+              },
+            ],
+            heading: "What the study confirmed",
+          },
+          {
+            blocks: [
+              {
+                parts: [
+                  "The first case was recorded on 13 April 2025, when a female leatherback turtle was found dead on Karasu Beach in Sakarya Province on Turkey's western Black Sea coast. Researchers performed a necropsy, including external and internal examination, morphometrics, and biological sampling.",
+                ],
+                type: "p",
+              },
+              {
+                parts: [
+                  "The second case followed almost a year later. On 7 April 2026, a live leatherback turtle was observed near the coast of Rize Province. The authors treat the two cases together as the first confirmed leatherback records for Turkey's Black Sea coast and note that they are the northernmost confirmed records of the species in Turkish seas.",
+                ],
+                type: "p",
+              },
+            ],
+            heading: "Two Black Sea records",
+          },
+          {
+            blocks: [
+              {
+                parts: [
+                  "Leatherbacks are the largest living sea turtles. Unlike hard-shelled sea turtles, they have a dense, rubbery skin over the body surface, which gives the species its English name. They move over very long distances and feed largely on soft-bodied marine animals, including jellyfish.",
+                ],
+                type: "p",
+              },
+              {
+                parts: [
+                  "The Black Sea is not part of the species' usual regular range. Historically, sea turtle records in the region are rare, with occasional records better known for loggerhead turtles (",
+                  { name: "Caretta caretta", type: "sci" },
+                  ") and green turtles (",
+                  { name: "Chelonia mydas", type: "sci" },
+                  ").",
+                ],
+                type: "p",
+              },
+            ],
+            heading: "Why the record is unusual",
+          },
+          {
+            blocks: [
+              {
+                parts: [
+                  "This paper does not confirm ",
+                  { name: "Dermochelys coriacea", type: "sci" },
+                  " from Georgia. It documents two cases from Turkey's Black Sea coast. The Rize observation matters for Georgia because it comes from the eastern Black Sea, but a confirmed record from Georgia's coast would still be needed before adding the species to Georgia's fauna.",
+                ],
+                type: "p",
+              },
+              {
+                parts: [
+                  "The authors also discuss plastic pollution in the Black Sea as a growing threat. They do not identify plastic as the cause of death for the dead individual, but floating plastic can be important for leatherbacks because some debris can resemble soft-bodied prey.",
+                ],
+                type: "p",
+              },
+            ],
+            heading: "What it means for Georgia",
+          },
+          {
+            blocks: [
+              {
+                parts: [
+                  {
+                    href: BLACK_SEA_PAPER_URL,
+                    label:
+                      "First records of leatherback turtle Dermochelys coriacea in the Black Sea, Turkiye",
+                    type: "external",
+                  },
+                  ". ",
+                  { name: "Journal of the Black Sea / Mediterranean Environment", type: "sci" },
+                  ", 2026.",
+                ],
+                type: "p",
+              },
+              {
+                parts: [
+                  {
+                    href: ISTANBUL_STRAIT_PAPER_URL,
+                    label: "2024 Istanbul Strait record",
+                    type: "external",
+                  },
+                  " and ",
+                  {
+                    href: NOAA_URL,
+                    label: "NOAA Fisheries species profile",
+                    type: "external",
+                  },
+                  ".",
+                ],
+                type: "p",
+              },
+            ],
+            heading: "Sources",
+          },
+        ],
+        title:
+          "World's largest sea turtle confirmed for the first time in Turkey's Black Sea",
+      },
       ka: {
         dek: "ახალი კვლევა ტყავისებრი ზღვის კუს თურქეთის შავი ზღვის სანაპიროზე პირველ დადასტურებულ ჩანაწერებს აღწერს. ერთი ინდივიდი 2025 წელს საკარიაში მკვდარი იპოვეს, მეორე კი 2026 წლის აპრილში რიზეს სანაპიროსთან ცოცხლად ნახეს.",
         lead: "მსოფლიოში ყველაზე დიდი თანამედროვე ზღვის კუ თურქეთის შავი ზღვის სანაპიროზე პირველად ოფიციალურად დაადასტურეს. 2026 წელს Journal of the Black Sea / Mediterranean Environment-ში გამოქვეყნებული კვლევა ტყავისებრი ზღვის კუს (Dermochelys coriacea) ორ შემთხვევას აღწერს.",
@@ -219,6 +346,254 @@ export const LEATHERBACK_TURTLE_FIRST_TURKISH_BLACK_SEA_RECORDS_2026: NewsArticl
         ],
         title:
           "მსოფლიოს ყველაზე დიდი ზღვის კუ პირველად დაადასტურეს თურქეთის შავ ზღვაში",
+      },
+      ru: {
+        dek: "Новая статья описывает первые подтвержденные находки кожистой черепахи на турецком побережье Черного моря. Одну особь нашли мертвой в Сакарье в 2025 году, другую живой наблюдали у Ризе в апреле 2026 года.",
+        lead: "Крупнейшая современная морская черепаха впервые официально подтверждена на турецком побережье Черного моря. Работа 2026 года в Journal of the Black Sea / Mediterranean Environment описывает два случая кожистой черепахи (Dermochelys coriacea).",
+        metaDescription:
+          "Кожистая черепаха впервые подтверждена на турецком побережье Черного моря, включая живую особь у Ризе в 2026 году.",
+        metaTitle:
+          "Кожистая черепаха в Черном море - первые записи в Турции",
+        sections: [
+          {
+            blocks: [
+              {
+                parts: [
+                  "По данным авторов, это первые подтвержденные записи ",
+                  { name: "Dermochelys coriacea", type: "sci" },
+                  " с турецкого побережья Черного моря.",
+                ],
+                type: "p",
+              },
+              {
+                parts: [
+                  "Особенно интересна вторая находка: 7 апреля 2026 года живую кожистую черепаху наблюдали у провинции Ризе в восточной части Черного моря. Для Грузии это важно в региональном контексте, хотя сама запись не является грузинской.",
+                ],
+                type: "p",
+              },
+            ],
+            heading: "Что подтвердило исследование",
+          },
+          {
+            blocks: [
+              {
+                parts: [
+                  "Первый случай зарегистрирован 13 апреля 2025 года: самку кожистой черепахи нашли мертвой на пляже Карасу в провинции Сакарья, на западном черноморском побережье Турции. Исследователи провели некропсию, морфометрические измерения и отбор биологических образцов.",
+                ],
+                type: "p",
+              },
+              {
+                parts: [
+                  "Второй случай произошел почти через год. 7 апреля 2026 года живую кожистую черепаху наблюдали у побережья провинции Ризе. Авторы рассматривают оба случая как первые подтвержденные записи вида для турецкого побережья Черного моря и отмечают, что это самые северные подтвержденные записи вида в морях Турции.",
+                ],
+                type: "p",
+              },
+            ],
+            heading: "Две черноморские записи",
+          },
+          {
+            blocks: [
+              {
+                parts: [
+                  "Кожистые черепахи - крупнейшие современные морские черепахи. В отличие от видов с твердым панцирем, поверхность их тела покрыта плотной, кожистой тканью. Они способны к дальним перемещениям и питаются в основном мягкотелыми морскими организмами, включая медуз.",
+                ],
+                type: "p",
+              },
+              {
+                parts: [
+                  "Черное море не является обычной регулярной частью ареала вида. Исторически записи морских черепах здесь редки; чаще упоминаются случайные находки логгерхеда (",
+                  { name: "Caretta caretta", type: "sci" },
+                  ") и зеленой черепахи (",
+                  { name: "Chelonia mydas", type: "sci" },
+                  ").",
+                ],
+                type: "p",
+              },
+            ],
+            heading: "Почему запись необычна",
+          },
+          {
+            blocks: [
+              {
+                parts: [
+                  "Эта статья не подтверждает ",
+                  { name: "Dermochelys coriacea", type: "sci" },
+                  " для Грузии. Она описывает два случая на турецком побережье Черного моря. Наблюдение у Ризе важно для Грузии потому, что относится к восточной части Черного моря, но для включения вида в фауну Грузии нужна подтвержденная запись с грузинского побережья.",
+                ],
+                type: "p",
+              },
+              {
+                parts: [
+                  "Авторы также обращают внимание на пластиковое загрязнение Черного моря. Они не называют пластик причиной гибели найденной особи, но для кожистых черепах плавающий пластик особенно опасен, поскольку может напоминать мягкотелую добычу.",
+                ],
+                type: "p",
+              },
+            ],
+            heading: "Что это значит для Грузии",
+          },
+          {
+            blocks: [
+              {
+                parts: [
+                  {
+                    href: BLACK_SEA_PAPER_URL,
+                    label:
+                      "First records of leatherback turtle Dermochelys coriacea in the Black Sea, Turkiye",
+                    type: "external",
+                  },
+                  ". ",
+                  { name: "Journal of the Black Sea / Mediterranean Environment", type: "sci" },
+                  ", 2026.",
+                ],
+                type: "p",
+              },
+              {
+                parts: [
+                  {
+                    href: ISTANBUL_STRAIT_PAPER_URL,
+                    label: "запись из Стамбульского пролива 2024 года",
+                    type: "external",
+                  },
+                  " и ",
+                  {
+                    href: NOAA_URL,
+                    label: "профиль вида NOAA Fisheries",
+                    type: "external",
+                  },
+                  ".",
+                ],
+                type: "p",
+              },
+            ],
+            heading: "Источники",
+          },
+        ],
+        title:
+          "Крупнейшую морскую черепаху мира впервые подтвердили в турецком Черном море",
+      },
+      tr: {
+        dek: "Yeni bir calisma, deri sirtli deniz kaplumbagasinin Turkiye'nin Karadeniz kiyilarindaki ilk dogrulanmis kayitlarini acikliyor. Bir birey 2025'te Sakarya'da olu bulundu, digeri Nisan 2026'da Rize aciklarinda canli goruldu.",
+        lead: "Dunyanin yasayan en buyuk deniz kaplumbagasi Turkiye'nin Karadeniz kiyisindan ilk kez resmi olarak dogrulandi. Journal of the Black Sea / Mediterranean Environment'ta yayimlanan 2026 tarihli calisma, deri sirtli deniz kaplumbagasina (Dermochelys coriacea) ait iki kaydi bildiriyor.",
+        metaDescription:
+          "Deri sirtli deniz kaplumbagasi Turkiye'nin Karadeniz kiyisindan ilk kez dogrulandi; 2026'da Rize yakininda canli bir birey de goruldu.",
+        metaTitle:
+          "Karadeniz'de deri sirtli kaplumbaga - Turkiye'deki ilk kayitlar",
+        sections: [
+          {
+            blocks: [
+              {
+                parts: [
+                  "Yazarlara gore bunlar ",
+                  { name: "Dermochelys coriacea", type: "sci" },
+                  " icin Turkiye'nin Karadeniz kiyisindan ilk dogrulanmis kayitlar.",
+                ],
+                type: "p",
+              },
+              {
+                parts: [
+                  "Ikinci kayit bolgesel acidan ozellikle onemli: 7 Nisan 2026'da Dogu Karadeniz'deki Rize ili aciklarinda canli bir deri sirtli kaplumbaga gozlemlendi. Bu kayit Gurcistan'in Karadeniz kiyisi baglami icin ilginctir, ancak Gurcistan kaydi degildir.",
+                ],
+                type: "p",
+              },
+            ],
+            heading: "Calisma neyi dogruladi",
+          },
+          {
+            blocks: [
+              {
+                parts: [
+                  "Ilk olay 13 Nisan 2025'te kaydedildi: Turkiye'nin bati Karadeniz kiyisindaki Sakarya ili Karasu Plaji'nda disi bir deri sirtli deniz kaplumbagasi olu bulundu. Arastirmacilar nekropsi, morfometrik olcumler ve biyolojik ornekleme yapti.",
+                ],
+                type: "p",
+              },
+              {
+                parts: [
+                  "Ikinci olay neredeyse bir yil sonra geldi. 7 Nisan 2026'da Rize ili kiyisi yakininda canli bir deri sirtli kaplumbaga gozlemlendi. Yazarlar iki olayi birlikte Turkiye'nin Karadeniz kiyisi icin ilk dogrulanmis kayitlar olarak degerlendiriyor ve bunlarin Turkiye denizlerinde turun en kuzeydeki dogrulanmis kayitlari oldugunu belirtiyor.",
+                ],
+                type: "p",
+              },
+            ],
+            heading: "Iki Karadeniz kaydi",
+          },
+          {
+            blocks: [
+              {
+                parts: [
+                  "Deri sirtli kaplumbagalar yasayan en buyuk deniz kaplumbagalaridir. Sert kabuklu deniz kaplumbagalarindan farkli olarak vucut yuzeyleri yogun, derimsi bir doku ile kaplidir. Cok uzun mesafeler kat edebilirler ve besinlerinin onemli bir bolumunu meduzeler dahil yumusak vucutlu deniz canlilari olusturur.",
+                ],
+                type: "p",
+              },
+              {
+                parts: [
+                  "Karadeniz bu turun duzenli yayilis alaninin tipik bir parcasi degildir. Bolgede deniz kaplumbagasi kayitlari tarihsel olarak nadirdir; daha cok caretta caretta (",
+                  { name: "Caretta caretta", type: "sci" },
+                  ") ve yesil deniz kaplumbagasi (",
+                  { name: "Chelonia mydas", type: "sci" },
+                  ") icin rastlantisal kayitlar bilinir.",
+                ],
+                type: "p",
+              },
+            ],
+            heading: "Kayit neden olagan disi",
+          },
+          {
+            blocks: [
+              {
+                parts: [
+                  "Bu calisma ",
+                  { name: "Dermochelys coriacea", type: "sci" },
+                  " turunu Gurcistan icin dogrulamaz. Yalnizca Turkiye'nin Karadeniz kiyisindaki iki olayi belgelemektedir. Rize gozlemi Dogu Karadeniz'de oldugu icin Gurcistan acisindan ilgi cekicidir, ancak turun Gurcistan faunasina eklenmesi icin Gurcistan kiyisindan dogrulanmis bir kayit gerekir.",
+                ],
+                type: "p",
+              },
+              {
+                parts: [
+                  "Yazarlar Karadeniz'deki plastik kirliligine de dikkat cekiyor. Plastigi olu bireyin olum nedeni olarak gostermiyorlar, ancak yuzeydeki plastikler yumusak vucutlu avlara benzeyebildigi icin deri sirtli kaplumbagalar acisindan onemli bir risk olusturabilir.",
+                ],
+                type: "p",
+              },
+            ],
+            heading: "Gurcistan icin anlami",
+          },
+          {
+            blocks: [
+              {
+                parts: [
+                  {
+                    href: BLACK_SEA_PAPER_URL,
+                    label:
+                      "First records of leatherback turtle Dermochelys coriacea in the Black Sea, Turkiye",
+                    type: "external",
+                  },
+                  ". ",
+                  { name: "Journal of the Black Sea / Mediterranean Environment", type: "sci" },
+                  ", 2026.",
+                ],
+                type: "p",
+              },
+              {
+                parts: [
+                  {
+                    href: ISTANBUL_STRAIT_PAPER_URL,
+                    label: "2024 Istanbul Bogazi kaydi",
+                    type: "external",
+                  },
+                  " ve ",
+                  {
+                    href: NOAA_URL,
+                    label: "NOAA Fisheries tur profili",
+                    type: "external",
+                  },
+                  ".",
+                ],
+                type: "p",
+              },
+            ],
+            heading: "Kaynaklar",
+          },
+        ],
+        title:
+          "Dunyanin en buyuk deniz kaplumbagasi Turkiye'nin Karadeniz'inde ilk kez dogrulandi",
       },
     },
     id: "leatherback-turtle-first-turkish-black-sea-records-2026",
