@@ -73,7 +73,9 @@ export async function GroupHubSpeciesList({
           ))}
         </div>
 
-        <GroupHubSpeciesIndexCta hubId={hubId} label={t("speciesIndexCta")} />
+        {HUBS_WITH_INDEX_CTA.has(hubId) ? (
+          <GroupHubSpeciesIndexCta hubId={hubId} label={t("speciesIndexCta")} />
+        ) : null}
       </div>
     </section>
   );
@@ -86,8 +88,6 @@ function GroupHubSpeciesIndexCta({
   hubId: GroupHubId;
   label: string;
 }) {
-  if (!HUBS_WITH_INDEX_CTA.has(hubId)) return null;
-
   return (
     <div>
       <Link
