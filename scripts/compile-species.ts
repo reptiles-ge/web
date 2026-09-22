@@ -1,4 +1,3 @@
-import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
@@ -40,50 +39,6 @@ const slugOutFile = path.join(
   process.cwd(),
   "src/data/speciesSlugs.generated.ts",
 );
-const GIT_COMMITTER_DATE = /^\d{4}-\d{2}-\d{2}T/;
-
-function toRepoPath(filePath: string) {
-  return path.relative(process.cwd(), filePath).split(path.sep).join("/");
-}
-
-function loadGitFileDates(rootRel: string) {
-  const firstByPath = new Map<string, string>();
-  const lastByPath = new Map<string, string>();
-  try {
-    const out = execFileSync(
-      "git",
-      ["log", "--name-only", "--pretty=format:%cI", "--", rootRel],
-      { encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] },
-    );
-    let date: null | string = null;
-    for (const rawLine of out.split("\n")) {
-      const line = rawLine.trim();
-      if (!line) continue;
-      if (GIT_COMMITTER_DATE.test(line)) {
-        date = parseToSiteDateTime(line);
-        continue;
-      }
-      if (!date) continue;
-      if (!lastByPath.has(line)) lastByPath.set(line, date);
-      firstByPath.set(line, date);
-    }
-  } catch {
-    return { firstByPath, lastByPath };
-  }
-  return { firstByPath, lastByPath };
-}
-
-const gitFileDates = loadGitFileDates(contentRootRel);
-
-function getGitFirstCommitDate(filePaths: string[]): string | null {
-  let oldest: string | null = null;
-  for (const filePath of filePaths) {
-    if (!fs.existsSync(filePath)) continue;
-    const parsed = gitFileDates.firstByPath.get(toRepoPath(filePath));
-    if (parsed && (!oldest || parsed < oldest)) oldest = parsed;
-  }
-  return oldest;
-}
 
 function resolveUpdatedAt(
   filePaths: string[],
@@ -101,14 +56,14 @@ function resolveUpdatedAt(
 function resolvePublishedAt(
   filePaths: string[],
   override: string | undefined,
-  updatedAt: string,
 ): string {
   if (override) {
     const parsed = parseToSiteDateTime(override);
     if (parsed) return parsed;
+    throw new Error(`Invalid datePublished: ${override}`);
   }
-  const gitDate = getGitFirstCommitDate(filePaths);
-  return gitDate && gitDate <= updatedAt ? gitDate : updatedAt;
+
+  throw new Error(`Missing datePublished: ${filePaths[0]}`);
 }
 
 function creditLacksLocation(credit?: PhotoCredit) {
@@ -303,7 +258,6 @@ for (const id of ids) {
   const publishedAt = resolvePublishedAt(
     [kaPath, ...localePaths],
     fm.datePublished,
-    updatedAt,
   );
   species.push(toSpecies(fm, { publishedAt, updatedAt }));
   warnGeorgiaFieldWithoutLocation(kaPath, fm);
