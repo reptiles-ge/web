@@ -47,8 +47,179 @@ const KA_HUB_SEGMENT =
   "gvelebi|xvlikebi|kuebi|amfibiebi|prinvelebi|dzuzumtsovrebi|morieli|moriebi|obobebi|mtserebi";
 const PREFIX_SEGMENT = "en|ru|tr";
 
+const PERMANENT_REDIRECTS: Record<string, string> = {
+  "/amphibians": "/amfibiebi",
+  "/amphibians/bayayi": "/amfibiebi/bayayi",
+  "/amphibians/bayayi/saxeoebebi": "/amfibiebi/bayayi/saxeoebebi",
+  "/amphibians/frogs": "/amfibiebi/bayayi",
+  "/amphibians/frogs/species": "/amfibiebi/bayayi/saxeoebebi",
+  "/amphibians/newts": "/amfibiebi/tritoni-salamandra",
+  "/amphibians/saxeoebebi": "/amfibiebi/saxeoebebi",
+  "/amphibians/species": "/amfibiebi/saxeoebebi",
+  "/amphibians/tritoni-salamandra": "/amfibiebi/tritoni-salamandra",
+  "/authors": "/kontributorebi",
+  "/contributors": "/kontributorebi",
+  "/fotografebi": "/kontributorebi",
+  "/gvelebi/sakartvelos-gvelebi": "/gvelebi/saxeoebebi",
+  "/gvelebi/vipera-ammodytes": "/gvelebi/tsxvirrkosani-gvelgesla",
+  "/identify": "/species",
+  "/lizards": "/xvlikebi",
+  "/lizards/darevskia": "/xvlikebi/darevskia",
+  "/lizards/identifikacia": "/xvlikebi/identifikacia",
+  "/lizards/identify": "/xvlikebi/identifikacia",
+  "/lizards/in-the-house": "/xvlikebi/xvliki-saxlshi",
+  "/lizards/lizard-or-glass-lizard":
+    "/xvlikebi/xvlikis-da-gvelxokeras-gansxvaveba",
+  "/lizards/saxeoebebi": "/xvlikebi/saxeoebebi",
+  "/lizards/species": "/xvlikebi/saxeoebebi",
+  "/lizards/xvliki-saxlshi": "/xvlikebi/xvliki-saxlshi",
+  "/lizards/xvlikis-da-gvelxokeras-gansxvaveba":
+    "/xvlikebi/xvlikis-da-gvelxokeras-gansxvaveba",
+  "/mammals/bear-encounter": "/dzuzumtsovrebi/datvi-shekhvedra",
+  "/mammals/datvi-shekhvedra": "/dzuzumtsovrebi/datvi-shekhvedra",
+  "/mammals/jackal-in-the-yard": "/dzuzumtsovrebi/tura-ezoshi",
+  "/mammals/saxeoebebi": "/dzuzumtsovrebi/saxeoebebi",
+  "/mammals/species": "/dzuzumtsovrebi/saxeoebebi",
+  "/mammals/tura-ezoshi": "/dzuzumtsovrebi/tura-ezoshi",
+  "/photographers": "/kontributorebi",
+  "/quiz/gvelis-identifikacia": "/quiz/romeli-gvelia",
+  "/quiz/which-lizard": "/quiz/romeli-xvlikia",
+  "/quiz/which-snake": "/quiz/romeli-gvelia",
+  "/regions/samegrelo": "/regions/samegrelo-zemo-svaneti",
+  "/regions/zemo-svaneti": "/regions/samegrelo-zemo-svaneti",
+  "/snakes": "/gvelebi",
+  "/snakes-in-the-yard": "/gvelebi/gveli-ezoshi",
+  "/snakes/bite": "/gvelebi/gvelis-nakbeni",
+  "/snakes/didi-gvelebi": "/gvelebi/didi-gvelebi",
+  "/snakes/gavrtseleba": "/gvelebi/gavrtseleba",
+  "/snakes/gveli-ezoshi": "/gvelebi/gveli-ezoshi",
+  "/snakes/gvelis-nakbeni": "/gvelebi/gvelis-nakbeni",
+  "/snakes/identify-venomous": "/gvelebi/shxamiani-gvelis-amocnoba",
+  "/snakes/largest": "/gvelebi/didi-gvelebi",
+  "/snakes/range": "/gvelebi/gavrtseleba",
+  "/snakes/sakartvelos-gvelebi": "/gvelebi/saxeoebebi",
+  "/snakes/saxeoebebi": "/gvelebi/saxeoebebi",
+  "/snakes/shxamiani-gvelis-amocnoba": "/gvelebi/shxamiani-gvelis-amocnoba",
+  "/snakes/species": "/gvelebi/saxeoebebi",
+  "/snakes/venomous": "/gvelebi/shxamiani-gvelebi",
+  "/snakes/vipera-ammodytes": "/gvelebi/tsxvirrkosani-gvelgesla",
+  "/species/vipera-ammodytes": "/gvelebi/tsxvirrkosani-gvelgesla",
+  "/spiders/bite": "/obobebi/obobis-nakbeni",
+  "/spiders/obobis-nakbeni": "/obobebi/obobis-nakbeni",
+  "/spiders/saxeoebebi": "/obobebi/saxeoebebi",
+  "/spiders/shxamiani-obobebi": "/obobebi/shxamiani-obobebi",
+  "/spiders/species": "/obobebi/saxeoebebi",
+  "/spiders/venomous": "/obobebi/shxamiani-obobebi",
+  "/terms": "/terms-and-conditions",
+  "/turtles": "/kuebi",
+  "/turtles/freshwater": "/kuebi/tsqlis-kuebi",
+  "/turtles/identifikacia": "/kuebi/identifikacia",
+  "/turtles/identify": "/kuebi/identifikacia",
+  "/turtles/land": "/kuebi/xmelis-kuebi",
+  "/turtles/saxeoebebi": "/kuebi/saxeoebebi",
+  "/turtles/species": "/kuebi/saxeoebebi",
+  "/turtles/tsqlis-kuebi": "/kuebi/tsqlis-kuebi",
+  "/turtles/xmelis-kuebi": "/kuebi/xmelis-kuebi",
+  "/venomous-snakes": "/gvelebi/shxamiani-gvelebi",
+};
+
+const TEMPORARY_REDIRECTS: Record<string, string> = {
+  "/gvelebi/dolichophis-caspius": "/gvelebi",
+  "/gvelebi/qvitelmutsela-mtsuravi": "/gvelebi",
+  "/snakes/dolichophis-caspius": "/gvelebi",
+  "/species/dolichophis-caspius": "/gvelebi",
+};
+
+const PREFIXED_PERMANENT_REDIRECTS: Record<string, string> = {
+  "/amfibiebi": "/amphibians",
+  "/amfibiebi/bayayi": "/amphibians/frogs",
+  "/amfibiebi/bayayi/saxeoebebi": "/amphibians/frogs/species",
+  "/amfibiebi/saxeoebebi": "/amphibians/species",
+  "/amfibiebi/tritoni-salamandra": "/amphibians/newts",
+  "/amphibians/bayayi": "/amphibians/frogs",
+  "/amphibians/bayayi/saxeoebebi": "/amphibians/frogs/species",
+  "/amphibians/saxeoebebi": "/amphibians/species",
+  "/amphibians/tritoni-salamandra": "/amphibians/newts",
+  "/authors": "/contributors",
+  "/avtorebi": "/contributors",
+  "/dzuzumtsovrebi": "/mammals",
+  "/dzuzumtsovrebi/datvi-shekhvedra": "/mammals/bear-encounter",
+  "/dzuzumtsovrebi/saxeoebebi": "/mammals/species",
+  "/dzuzumtsovrebi/tura-ezoshi": "/mammals/jackal-in-the-yard",
+  "/fotografebi": "/contributors",
+  "/gvelebi": "/snakes",
+  "/gvelebi/didi-gvelebi": "/snakes/largest",
+  "/gvelebi/gavrtseleba": "/snakes/range",
+  "/gvelebi/gveli-ezoshi": "/snakes-in-the-yard",
+  "/gvelebi/gvelis-nakbeni": "/snakes/bite",
+  "/gvelebi/sakartvelos-gvelebi": "/snakes/species",
+  "/gvelebi/saxeoebebi": "/snakes/species",
+  "/gvelebi/shxamiani-gvelebi": "/venomous-snakes",
+  "/gvelebi/shxamiani-gvelis-amocnoba": "/snakes/identify-venomous",
+  "/gvelebi/vipera-ammodytes": "/snakes/vipera-transcaucasiana",
+  "/identify": "/species",
+  "/kontributorebi": "/contributors",
+  "/kuebi": "/turtles",
+  "/kuebi/identifikacia": "/turtles/identify",
+  "/kuebi/saxeoebebi": "/turtles/species",
+  "/kuebi/tsqlis-kuebi": "/turtles/freshwater",
+  "/kuebi/xmelis-kuebi": "/turtles/land",
+  "/lizards/identifikacia": "/lizards/identify",
+  "/lizards/saxeoebebi": "/lizards/species",
+  "/lizards/xvliki-saxlshi": "/lizards/in-the-house",
+  "/lizards/xvlikis-da-gvelxokeras-gansxvaveba":
+    "/lizards/lizard-or-glass-lizard",
+  "/mammals/datvi-shekhvedra": "/mammals/bear-encounter",
+  "/mammals/saxeoebebi": "/mammals/species",
+  "/mammals/tura-ezoshi": "/mammals/jackal-in-the-yard",
+  "/obobebi": "/spiders",
+  "/obobebi/obobis-nakbeni": "/spiders/bite",
+  "/obobebi/saxeoebebi": "/spiders/species",
+  "/obobebi/shxamiani-obobebi": "/spiders/venomous",
+  "/photographers": "/contributors",
+  "/prinvelebi": "/birds",
+  "/prinvelebi/saxeoebebi": "/birds/species",
+  "/regions/samegrelo": "/regions/samegrelo-zemo-svaneti",
+  "/regions/zemo-svaneti": "/regions/samegrelo-zemo-svaneti",
+  "/snakes/didi-gvelebi": "/snakes/largest",
+  "/snakes/gavrtseleba": "/snakes/range",
+  "/snakes/gvelis-nakbeni": "/snakes/bite",
+  "/snakes/sakartvelos-gvelebi": "/snakes/species",
+  "/snakes/saxeoebebi": "/snakes/species",
+  "/snakes/shxamiani-gvelis-amocnoba": "/snakes/identify-venomous",
+  "/snakes/vipera-ammodytes": "/snakes/vipera-transcaucasiana",
+  "/species/vipera-ammodytes": "/snakes/vipera-transcaucasiana",
+  "/spiders/obobis-nakbeni": "/spiders/bite",
+  "/spiders/saxeoebebi": "/spiders/species",
+  "/spiders/shxamiani-obobebi": "/spiders/venomous",
+  "/terms": "/terms-and-conditions",
+  "/turtles/identifikacia": "/turtles/identify",
+  "/turtles/saxeoebebi": "/turtles/species",
+  "/turtles/tsqlis-kuebi": "/turtles/freshwater",
+  "/turtles/xmelis-kuebi": "/turtles/land",
+  "/xvlikebi": "/lizards",
+  "/xvlikebi/darevskia": "/lizards/darevskia",
+  "/xvlikebi/identifikacia": "/lizards/identify",
+  "/xvlikebi/saxeoebebi": "/lizards/species",
+  "/xvlikebi/xvliki-saxlshi": "/lizards/in-the-house",
+  "/xvlikebi/xvlikis-da-gvelxokeras-gansxvaveba":
+    "/lizards/lizard-or-glass-lizard",
+};
+
+const PREFIXED_TEMPORARY_REDIRECTS: Record<string, string> = {
+  "/gvelebi/qvitelmutsela-mtsuravi": "/snakes",
+  "/snakes/dolichophis-caspius": "/snakes",
+  "/species/dolichophis-caspius": "/snakes",
+};
+
 export default function proxy(request: NextRequest) {
   const pathname = request.nextUrl.pathname.replace(/\/$/, "") || "/";
+
+  if (request.nextUrl.hostname === "www.reptiles.ge") {
+    const url = request.nextUrl.clone();
+    url.hostname = "reptiles.ge";
+    return NextResponse.redirect(url, 301);
+  }
 
   if (hasRoutePlaceholder(pathname)) {
     return new NextResponse("Not found", {
@@ -61,6 +232,11 @@ export default function proxy(request: NextRequest) {
 
   if (pathname === "/ka" || pathname.startsWith("/ka/")) {
     return redirectTo(request, pathname.slice(3) || "/");
+  }
+
+  const configuredRedirect = configuredRedirectPath(pathname);
+  if (configuredRedirect) {
+    return redirectTo(request, configuredRedirect[0], configuredRedirect[1]);
   }
 
   const photographer = legacyPhotographerRedirectPath(pathname);
@@ -137,10 +313,46 @@ export default function proxy(request: NextRequest) {
   return intlMiddleware(request);
 }
 
-function redirectTo(request: NextRequest, pathname: string) {
+function configuredRedirectPath(pathname: string): [string, 301 | 302] | null {
+  const temporary = TEMPORARY_REDIRECTS[pathname];
+  if (temporary) return [temporary, 302];
+
+  const permanent = PERMANENT_REDIRECTS[pathname];
+  if (permanent) return [permanent, 301];
+
+  const contributor = pathname.match(
+    /^\/(?:avtorebi|authors|contributors|fotografebi|photographers)\/([^/]+)$/,
+  );
+  if (contributor) return [`/kontributorebi/${contributor[1]}`, 301];
+
+  const prefixed = pathname.match(
+    new RegExp(`^\\/(${PREFIX_SEGMENT})(\\/.*)$`),
+  );
+  if (prefixed && isPrefixedLocale(prefixed[1])) {
+    const temporary = PREFIXED_TEMPORARY_REDIRECTS[prefixed[2]];
+    if (temporary) return [`/${prefixed[1]}${temporary}`, 302];
+
+    const permanent = PREFIXED_PERMANENT_REDIRECTS[prefixed[2]];
+    if (permanent) return [`/${prefixed[1]}${permanent}`, 301];
+
+    const contributor = prefixed[2].match(
+      /^\/(?:avtorebi|authors|fotografebi|kontributorebi|photographers)\/([^/]+)$/,
+    );
+    if (contributor)
+      return [`/${prefixed[1]}/contributors/${contributor[1]}`, 301];
+  }
+
+  return null;
+}
+
+function redirectTo(
+  request: NextRequest,
+  pathname: string,
+  status: 301 | 302 = 301,
+) {
   const url = request.nextUrl.clone();
   url.pathname = pathname;
-  return NextResponse.redirect(url, 301);
+  return NextResponse.redirect(url, status);
 }
 
 function speciesPath(locale: AppLocale, id: string) {
