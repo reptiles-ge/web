@@ -6,6 +6,7 @@ import { BATUMI_19300_RAPTORS_2026 } from "@/content/news/batumi-19300-raptors-2
 import { DAREVSKIA_UZZELLI_ARMENIA_2026 } from "@/content/news/darevskia-uzzelli-armenia-2026";
 import { GEORGIA_DOLPHIN_STRANDINGS_2026 } from "@/content/news/georgia-dolphin-strandings-2026";
 import { GEORGIA_HERPETOFAUNA_CHECKLIST_2026 } from "@/content/news/georgia-herpetofauna-checklist-2026";
+import { GEORGIAN_SNAKES_AREA_OF_OCCUPANCY_2026 } from "@/content/news/georgian-snakes-area-of-occupancy-2026";
 import { LEATHERBACK_TURTLE_FIRST_TURKISH_BLACK_SEA_RECORDS_2026 } from "@/content/news/leatherback-turtle-first-turkish-black-sea-records-2026";
 import { THERIDION_HUSEYNOVI_NEW_SPIDER_SPECIES_GEORGIA_2026 } from "@/content/news/theridion-huseynovi-new-spider-species-georgia-2026";
 import { VIPERA_PONTICA_HYBRID_GEORGIA_2026 } from "@/content/news/vipera-pontica-hybrid-georgia-2026";
@@ -16,6 +17,7 @@ import { GROUP_HUBS } from "@/lib/groupHubs";
 export type { NewsArticle, NewsPhoto } from "@/data/newsTypes";
 
 const NEWS_ARTICLES: readonly NewsArticle[] = [
+  GEORGIAN_SNAKES_AREA_OF_OCCUPANCY_2026,
   LEATHERBACK_TURTLE_FIRST_TURKISH_BLACK_SEA_RECORDS_2026,
   THERIDION_HUSEYNOVI_NEW_SPIDER_SPECIES_GEORGIA_2026,
   DAREVSKIA_UZZELLI_ARMENIA_2026,
