@@ -3,6 +3,7 @@ import type { KnipConfig } from "knip";
 const config: KnipConfig = {
   ignore: ["src/lib/creditAuthors.ts"],
   ignoreDependencies: [
+    "@cloudflare/workers-response-store",
     "eslint-plugin-import",
     "eslint-plugin-jsx-a11y",
     "eslint-plugin-react-hooks",
