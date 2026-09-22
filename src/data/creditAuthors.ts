@@ -132,17 +132,17 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     slug: "giorgi-iankoshvili",
   },
   {
-    aliases: ["Zakro Songulashvili", "ზაქრო სონგულაშვილი"],
+    aliases: ["Zakro Songulashvili", "ზაქრო სონღულაშვილი"],
     bio: {
       en: "Zakro Songulashvili is a Georgian researcher, naturalist, and photographer who is actively engaged in studying and documenting biodiversity in Georgia, especially herpetofauna (amphibians/reptiles) and arthropods.",
-      ka: "ზაქრო სონგულაშვილი არის ქართველი მკვლევარი, ნატურალისტი და ფოტოგრაფი, რომელიც აქტიურად არის დაკავებული საქართველოში ბიომრავალფეროვნების, განსაკუთრებით კი ქვეწარმავლებისა (ამფიბიები/რეპტილიები) და ფეხსახსრიანების შესწავლითა და დოკუმენტირებით.",
+      ka: "ზაქრო სონღულაშვილი არის ქართველი მკვლევარი, ნატურალისტი და ფოტოგრაფი, რომელიც აქტიურად არის დაკავებული საქართველოში ბიომრავალფეროვნების, განსაკუთრებით კი ქვეწარმავლებისა (ამფიბიები/რეპტილიები) და ფეხსახსრიანების შესწავლითა და დოკუმენტირებით.",
       ru: "Закро Сонгулашвили — грузинский исследователь, натуралист и фотограф, который активно занимается изучением и документированием биоразнообразия Грузии, особенно герпетофауны (амфибии/рептилии) и членистоногих.",
       tr: "Zakro Songulashvili Gürcü araştırmacı, natüralist ve fotoğrafçıdır; Gürcistan’da biyoçeşitliliği, özellikle herpetofaunayı (amfibiler/sürüngenler) ve eklembacaklıları incelemek ve belgelemekle aktif olarak uğraşır.",
     },
     id: "zakro-songulashvili",
     name: {
       en: "Zakro Songulashvili",
-      ka: "ზაქრო სონგულაშვილი",
+      ka: "ზაქრო სონღულაშვილი",
       ru: "Закро Сонгулашвили",
       tr: "Zakro Songulashvili",
     },

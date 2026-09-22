@@ -84,9 +84,7 @@ test("unpublished caspius 302s to the snake hub", async ({ request }) => {
   expect(locationPath(enSlug.headers())).toBe("/en/snakes");
 });
 
-test("vipera-ammodytes 301s to vipera-transcaucasiana", async ({
-  request,
-}) => {
+test("vipera-ammodytes 301s to vipera-transcaucasiana", async ({ request }) => {
   const legacy = await request.get("/species/vipera-ammodytes", {
     maxRedirects: 0,
   });
@@ -197,7 +195,7 @@ test("Giorgi Iankoshvili contributor page is indexable", async ({ page }) => {
 test("Zakro Songulashvili contributor page is indexable", async ({ page }) => {
   const response = await page.goto("/kontributorebi/zakro-songulashvili");
   expect(response?.status()).toBe(200);
-  await expect(page.locator("h1")).toContainText("ზაქრო სონგულაშვილი");
+  await expect(page.locator("h1")).toContainText("ზაქრო სონღულაშვილი");
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
     "href",
     /\/kontributorebi\/zakro-songulashvili\/?$/,
@@ -259,7 +257,7 @@ test("contributor index is indexable and lists published authors", async ({
     page.getByRole("heading", { name: "ველურ ბუნებასთან ახლოს" }),
   ).toBeVisible();
   await expect(
-    page.getByRole("heading", { name: "ზაქრო სონგულაშვილი" }),
+    page.getByRole("heading", { name: "ზაქრო სონღულაშვილი" }),
   ).toBeVisible();
   const jsonLd = await page
     .locator('script[type="application/ld+json"]')
