@@ -1471,6 +1471,126 @@
     "speciesTitle": "Turtle species of Georgia",
     "speciesBody": "The atlas currently lists four taxa. Each card shows type, status, scientific name, and a short context line — the profile holds photos, field marks, and sources.",
     "speciesIndexCta": "Turtle species index",
+    "basics": {
+      "whatIs": {
+        "title": "What is a turtle?",
+        "p1": "A turtle is a reptile in the order Testudines, best recognised by a shell that is part of its body. In everyday language, “turtle” can refer to a land tortoise, a freshwater turtle, or a sea turtle, but all share the same basic plan: a shell, a horny beak, and reproduction by eggs.",
+        "p2": "Turtles are not lizards or amphibians. They are a separate reptile lineage: some live fully on land, some are tied to ponds and rivers, and sea turtles are adapted to marine life. In Georgia, the Reptiles.ge atlas covers land and freshwater turtles; sea turtles are not presented here as ordinary local Georgian turtle species."
+      },
+      "shell": {
+        "title": "The turtle shell and body structure",
+        "p1": "A turtle’s shell is part of its body. From outside it looks like a hard protective shield, but inside it is connected to the spine and ribs. A turtle cannot leave its shell. The short answer to “can a turtle come out of its shell?” is no: it is body, not a house.",
+        "p2": "The upper part of the shell is called the carapace. That is the shield we see from above. The lower part is the plastron — the shield on the belly side. Together they protect the body and vary among species in shape, height, and pattern.",
+        "p3": "Turtles do not have teeth; they cut or tear food with strong jaws and a horny beak. Land tortoises usually have stronger, column-like legs for walking. Freshwater turtles often have webbed feet, while sea turtle limbs look like flippers. These differences reflect how they live, although one sign alone is not always enough to identify a species."
+      },
+      "types": {
+        "title": "Land, freshwater, and sea turtles — what is the difference?",
+        "intro": "Turtle groups differ mainly by habitat and movement. These traits are useful first clues, but not absolute rules: shape, colour, and behaviour vary among species.",
+        "columns": {
+          "type": "Type",
+          "habitat": "Habitat",
+          "shell": "General shell shape",
+          "limbs": "Feet / flippers",
+          "adaptations": "Movement adaptations"
+        },
+        "rows": {
+          "land": {
+            "type": "Land tortoises",
+            "habitat": "Land: steppe, scrub, dry open areas, and other terrestrial habitats.",
+            "shell": "Often higher and dome-shaped, though shape depends on the species.",
+            "limbs": "Strong legs and claws; swimming webs are usually not a key feature.",
+            "adaptations": "Walking on land, digging, and moving through terrestrial vegetation."
+          },
+          "freshwater": {
+            "type": "Freshwater turtles",
+            "habitat": "Ponds, lakes, wetlands, old channels, and slow waters.",
+            "shell": "Often lower and flatter, which helps movement in water.",
+            "limbs": "Often webbed feet; they can also come onto banks.",
+            "adaptations": "Swimming, basking on banks or vegetation, and laying eggs on land."
+          },
+          "sea": {
+            "type": "Sea turtles",
+            "habitat": "Seas and oceans; they come ashore to lay eggs.",
+            "shell": "Usually smoother and adapted for moving through water.",
+            "limbs": "Flipper-like limbs instead of walking feet.",
+            "adaptations": "Long-distance swimming; movement on land is comparatively awkward."
+          }
+        },
+        "outro": "In Georgia, the Reptiles.ge atlas presents <land>land</land> and <freshwater>freshwater</freshwater> species. Sea turtles are included here as general biology context and not as ordinary local Georgian turtles."
+      },
+      "diet": {
+        "title": "What does a turtle eat?",
+        "p1": "There is no single universal answer to “what does a turtle eat?” Diet depends on species, age, and environment. Land tortoises often eat plant material — grasses, leaves, flowers, and other soft vegetation. That does not mean every species feeds in exactly the same way.",
+        "p2": "Freshwater turtles often use a wider range of food: invertebrates, small aquatic animals, carrion, or plant material depending on the species and age. Sea turtle diets also differ: some are associated with jellyfish, others with seagrass or other marine organisms. Feeding a wild turtle in nature is not needed and can cause harm."
+      },
+      "lifespan": {
+        "title": "How long does a turtle live?",
+        "p1": "Turtle lifespan cannot be reduced to one number. It depends on species, size, environment, food, predators, disease, and whether the animal lives in the wild or under human care. Many turtles are associated with long lives, but that does not mean every turtle lives for 100 years.",
+        "p2": "Large land tortoises and some sea turtles are often linked with longer lifespans, while smaller species or turtles in riskier environments may live much less. For a specific species, it is better to rely on its profile, a reliable scientific source, or a conservation assessment rather than a general myth."
+      },
+      "reproduction": {
+        "title": "How do turtles reproduce?",
+        "p1": "Turtles are egg-laying animals. Turtle reproduction is tied to land in the sense that turtle eggs are not left in the water: freshwater turtles and sea turtles also come onto a bank or beach to lay eggs.",
+        "p2": "The female digs a turtle nest in soil, lays the eggs, and covers them. Hatching time, nest site, and clutch size differ among species, so one number cannot be correct for all turtles. Hatchlings leave the nest on their own and move toward suitable habitat. Details for Georgian species should be used only when a profile or source states them directly."
+      },
+      "georgiaComparison": {
+        "title": "Comparison of Georgia’s turtles",
+        "intro1": "The comparison below summarises the four species currently covered in the Reptiles.ge atlas. It uses data from the same site’s species profiles and does not add unverified distribution, size, or threat categories.",
+        "intro2": "Use this table for quick orientation. Full photos, sources, and additional field marks are on each species profile.",
+        "columns": {
+          "species": "Species",
+          "type": "Type",
+          "status": "Status in Georgia",
+          "traits": "Main identification traits",
+          "habitat": "Main habitat",
+          "conservation": "Conservation status"
+        },
+        "rows": {
+          "testudo": {
+            "species": "Spur-thighed tortoise",
+            "scientific": "Testudo graeca",
+            "type": "Land tortoise",
+            "status": "Native, confirmed",
+            "traits": "High, domed shell; thick column-like legs; no swimming webs.",
+            "habitat": "Dry open terrestrial habitats — steppe, scrub, semi-desert, and open woodland edge.",
+            "conservation": "Georgia: VU; IUCN: VU, old assessment."
+          },
+          "emys": {
+            "species": "European pond turtle",
+            "scientific": "Emys orbicularis",
+            "type": "Freshwater turtle",
+            "status": "Native, confirmed",
+            "traits": "Low oval shell; dark background with yellow dots or short streaks; no broad red stripe behind the eye.",
+            "habitat": "Still or slow freshwaters — ponds, lakes, wetlands, old channels, and slow rivers.",
+            "conservation": "IUCN: NT; not included in Georgia’s 2014 Red List."
+          },
+          "mauremys": {
+            "species": "Caspian turtle",
+            "scientific": "Mauremys caspica",
+            "type": "Freshwater turtle",
+            "status": "Native, biologically confirmed",
+            "traits": "Relatively flat shell; often pale lengthwise stripes on the neck; no broad red stripe behind the eye.",
+            "habitat": "Ponds, lakes, and slow freshwater bodies.",
+            "conservation": "Data not specified"
+          },
+          "trachemys": {
+            "species": "Red-eared slider",
+            "scientific": "Trachemys scripta",
+            "type": "Freshwater turtle",
+            "status": "Introduced",
+            "traits": "T. s. elegans often has a broad red stripe behind the eye; relatively flat shell; webbed feet.",
+            "habitat": "Lakes, ponds, and other freshwater bodies; breeding populations are known near Tbilisi and Batumi.",
+            "conservation": "Data not specified"
+          }
+        },
+        "note": "External appearance alone is not always enough for exact identification. In uncertain cases, use the <identify>turtle identification</identify> guide and compare several traits together."
+      },
+      "conservation": {
+        "title": "Turtle conservation in Georgia",
+        "p1": "Georgia’s native turtles are the spur-thighed tortoise, European pond turtle, and Caspian turtle. Of these, the spur-thighed tortoise is listed as Vulnerable (VU) in Georgia’s Red List. For this species, and for wild turtles in general, key problems include habitat loss, changes to wetlands and banks, road mortality, and removal of individuals from nature.",
+        "p2": "Wild turtles should not be taken home or moved elsewhere. That can harm the animal and local populations. The red-eared slider is an introduced species in Georgia. Releasing a pet slider into nature is not a solution: it may start a new population, compete with native freshwater turtles, and affect the ecosystem. If the legal side matters, check a current official source."
+      }
+    },
     "section": {
       "native": {
         "title": "Native species — {count}",
