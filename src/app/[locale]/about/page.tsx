@@ -19,6 +19,7 @@ import {
   siteConfig,
   siteEntityId,
 } from "@/lib/site";
+import { pageDateFields } from "@/lib/structuredDataDates";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -38,6 +39,7 @@ export default async function About({ params }: Props) {
   const aboutJsonLd = {
     "@context": "https://schema.org",
     "@type": "AboutPage",
+    ...pageDateFields("/about"),
     description: t("metaDescription"),
     inLanguage: locale,
     isPartOf: { "@id": siteEntityId("website") },

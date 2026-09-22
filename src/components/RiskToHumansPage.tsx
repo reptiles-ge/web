@@ -20,6 +20,8 @@ type RiskToHumansPageProps = {
   harmlessExamples: Species[];
   high: Species[];
   moderate: Species[];
+  publishedAt: string;
+  updatedAt: string;
 };
 
 const FAQ_ITEMS = [1, 2, 3, 4, 5] as const;
@@ -29,6 +31,8 @@ export async function RiskToHumansPage({
   harmlessExamples,
   high,
   moderate,
+  publishedAt,
+  updatedAt,
 }: RiskToHumansPageProps) {
   const t = await getTranslations("riskToHumans");
   const speciesByLevel: Record<DangerLevel, Species[]> = {
@@ -60,7 +64,7 @@ export async function RiskToHumansPage({
           }))}
         />
 
-        <ContentAttribution />
+        <ContentAttribution publishedAt={publishedAt} updatedAt={updatedAt} />
 
         <section className="border-t border-border bg-ink py-20 lg:py-28">
           <div className="mx-auto w-full max-w-[1400px] px-6 lg:px-10">

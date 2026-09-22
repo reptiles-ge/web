@@ -31,6 +31,7 @@ import {
 } from "@/lib/clusterGuides";
 import { cn } from "@/lib/cn";
 import { formatContentDate, formatPhotoDate } from "@/lib/formatDate";
+import { hasMeaningfulUpdate } from "@/lib/structuredDataDates";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 
 type BiologyBlockItem = {
@@ -539,11 +540,22 @@ export async function SpeciesProfileBody({
             readLess={t("readLess")}
             readMore={t("readMore")}
           />
-          <p className="mt-6 text-[12px] tracking-wide text-muted-foreground">
-            {t("lastUpdated")}{" "}
-            <time dateTime={species.updatedAt}>
-              {formatContentDate(species.updatedAt, locale)}
-            </time>
+          <p className="mt-6 text-[12px] leading-relaxed tracking-wide text-muted-foreground">
+            <span>
+              {t("publishedOn")}{" "}
+              <time dateTime={species.publishedAt}>
+                {formatContentDate(species.publishedAt, locale)}
+              </time>
+            </span>
+            {hasMeaningfulUpdate(species.publishedAt, species.updatedAt) ? (
+              <span>
+                {" "}
+                · {t("updatedOn")}{" "}
+                <time dateTime={species.updatedAt}>
+                  {formatContentDate(species.updatedAt, locale)}
+                </time>
+              </span>
+            ) : null}
           </p>
         </div>
       </section>
@@ -636,6 +648,7 @@ export async function SpeciesProfileBody({
       ) : null}
 
       <ContentAttribution
+        publishedAt={species.publishedAt}
         sourcesHref={
           species.sources.length > 0
             ? `#${SPECIES_SECTION_IDS.sources}`

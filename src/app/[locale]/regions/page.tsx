@@ -26,6 +26,7 @@ import {
   siteEntityId,
 } from "@/lib/site";
 import { regionHref } from "@/lib/speciesRoutes";
+import { pageDateFields } from "@/lib/structuredDataDates";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -98,6 +99,7 @@ export default async function RegionsPage({ params }: Props) {
       "@type": "Place",
       name: georgiaPlaceName(locale),
     },
+    ...pageDateFields("/regions"),
     description: t("metaDescription"),
     hasPart: regions.map((region) => ({
       "@type": "WebPage",
