@@ -10,6 +10,7 @@ export function TopGeCounter() {
         className="pointer-events-none opacity-0"
         data-site-id="118888"
         id="top-ge-counter-container"
+        inert
       />
       <Script
         src="https://counter.top.ge/counter.js"
