@@ -4,6 +4,7 @@ import { getCatalogSpecies } from "@/data/species";
 import {
   AI_CITATION_USER_AGENTS,
   buildLlmsFullText,
+  buildLlmsIndexText,
   buildRobotsTxt,
 } from "@/lib/llmsFiles";
 
@@ -21,6 +22,27 @@ describe("buildRobotsTxt", () => {
     for (const agent of AI_CITATION_USER_AGENTS) {
       expect(body).toContain(`User-agent: ${agent}`);
     }
+  });
+});
+
+describe("buildLlmsIndexText", () => {
+  it("keeps the public llms index synced with current atlas data", () => {
+    const body = buildLlmsIndexText();
+
+    expect(body.startsWith("# Reptiles.ge")).toBe(true);
+    expect(body).toContain(
+      `Catalog of published profiles (${getCatalogSpecies().length} live pages)`,
+    );
+    expect(body).toContain("## News");
+    expect(body).toContain("caucasian-toad-bufo-verrucosissimus-taxonomy-2026");
+    expect(body).toContain("georgian-snakes-area-of-occupancy-2026");
+    expect(body).toContain(
+      "leatherback-turtle-first-turkish-black-sea-records-2026",
+    );
+    expect(body).toContain("## Scorpions species");
+    expect(body).toContain("/morieli/chreli-morieli");
+    expect(body).toContain("## Insects species");
+    expect(body).toContain("/mtserebi/aziuri-farosana");
   });
 });
 
