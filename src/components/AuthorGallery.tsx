@@ -119,6 +119,7 @@ export async function AuthorGallery({
                 <Link
                   className="inline-flex min-h-11 items-center font-display text-[14px] font-medium text-foreground/80 transition-colors hover:text-foreground"
                   href={slide.href}
+                  prefetch={false}
                 >
                   {slide.name}
                 </Link>

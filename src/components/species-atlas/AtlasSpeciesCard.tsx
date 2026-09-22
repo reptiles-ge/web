@@ -19,6 +19,7 @@ type AtlasSpeciesCardProps = {
   eager?: boolean;
   index?: number;
   locale: AppLocale;
+  prefetch?: boolean;
   species: SpeciesListItem;
 };
 
@@ -26,6 +27,7 @@ export function AtlasSpeciesCard({
   eager = false,
   index = 0,
   locale,
+  prefetch,
   species,
 }: AtlasSpeciesCardProps) {
   const t = useTranslations("speciesAtlas");
@@ -63,6 +65,7 @@ export function AtlasSpeciesCard({
             species_id: species.id,
           })
         }
+        prefetch={prefetch}
       />
 
       <div className="relative aspect-4/5 overflow-hidden bg-ink sm:aspect-5/6">

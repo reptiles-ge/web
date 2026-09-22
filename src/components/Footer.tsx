@@ -118,6 +118,7 @@ export async function Footer({ regions, venomous }: FooterProps) {
                   <Link
                     className="text-[14px] text-foreground/80 transition-colors hover:text-primary"
                     href={link.href}
+                    prefetch={false}
                   >
                     {t(link.labelKey)}
                   </Link>
@@ -136,6 +137,7 @@ export async function Footer({ regions, venomous }: FooterProps) {
                   <Link
                     className="text-[14px] text-foreground/80 transition-colors hover:text-primary"
                     href={link.href}
+                    prefetch={false}
                   >
                     {t(link.labelKey)}
                   </Link>
@@ -154,6 +156,7 @@ export async function Footer({ regions, venomous }: FooterProps) {
                   <Link
                     className="text-[14px] text-foreground/80 transition-colors hover:text-primary"
                     href={link.href}
+                    prefetch={false}
                   >
                     {t(link.labelKey)}
                   </Link>
@@ -182,6 +185,7 @@ export async function Footer({ regions, venomous }: FooterProps) {
                   <Link
                     className="group block focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
                     href={item.href}
+                    prefetch={false}
                   >
                     <span className="block text-[14px] font-medium text-foreground transition-colors group-hover:text-primary">
                       {item.commonName}
@@ -213,6 +217,7 @@ export async function Footer({ regions, venomous }: FooterProps) {
                   <Link
                     className="text-[13px] text-foreground/75 transition-colors hover:text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
                     href={region.href}
+                    prefetch={false}
                   >
                     {region.name}
                   </Link>

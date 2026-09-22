@@ -39,6 +39,7 @@ export function SpeciesCard({ species }: SpeciesCardProps) {
           species_id: species.id,
         })
       }
+      prefetch={false}
     >
       <div className="relative size-[72px] shrink-0 overflow-hidden rounded-xl bg-secondary">
         <CoverImage

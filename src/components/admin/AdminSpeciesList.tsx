@@ -95,6 +95,7 @@ export function AdminSpeciesList({
             <Link
               className="flex items-center gap-4 px-4 py-3 transition-colors hover:bg-secondary/60"
               href={`/admin/${item.id}`}
+              prefetch={false}
             >
               <span className="media-placeholder relative size-12 shrink-0 overflow-hidden rounded-md bg-secondary">
                 {item.image ? (
