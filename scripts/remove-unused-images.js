@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 
-const fs = require("fs");
-const path = require("path");
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-const ROOT = path.resolve(__dirname, "..");
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const IMAGES_DIR = path.join(ROOT, "public", "images");
 const SEARCH_DIRS = ["src", "public"];
 const IMAGE_EXTS = new Set([
