@@ -42,6 +42,7 @@ import {
   speciesPageUrl,
   websiteJsonLd,
 } from "@/lib/site";
+import { pageDateFields } from "@/lib/structuredDataDates";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -119,6 +120,7 @@ export default async function Home({ params }: Props): Promise<ReactElement> {
         "@id": homeUrl,
         "@type": "WebPage",
         about: [{ "@id": datasetId }, { "@id": termsId }],
+        ...pageDateFields("/"),
         description,
         inLanguage: locale,
         isPartOf: { "@id": siteEntityId("website") },

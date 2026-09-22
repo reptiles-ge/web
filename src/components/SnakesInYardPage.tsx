@@ -29,6 +29,8 @@ import {
 type SnakesInYardPageProps = {
   coverSrc: string;
   heroSrc: string;
+  publishedAt: string;
+  updatedAt: string;
 };
 
 const FAQ_KEYS = [1, 2, 3, 4, 5, 6] as const;
@@ -36,6 +38,8 @@ const FAQ_KEYS = [1, 2, 3, 4, 5, 6] as const;
 export async function SnakesInYardPage({
   coverSrc,
   heroSrc,
+  publishedAt,
+  updatedAt,
 }: SnakesInYardPageProps) {
   const t = await getTranslations("snakesInYard");
   const locale = (await getLocale()) as AppLocale;
@@ -154,7 +158,7 @@ export async function SnakesInYardPage({
           surface="background"
         />
 
-        <ContentAttribution />
+        <ContentAttribution publishedAt={publishedAt} updatedAt={updatedAt} />
 
         <section className="relative flex min-h-[60svh] items-center overflow-hidden bg-ink py-24">
           <CoverImage

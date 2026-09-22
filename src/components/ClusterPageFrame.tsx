@@ -26,6 +26,7 @@ import {
 } from "@/lib/clusterGuides";
 import { cn } from "@/lib/cn";
 import { GROUP_HUBS } from "@/lib/groupHubs";
+import { pageDateFields } from "@/lib/structuredDataDates";
 
 type ClusterPageFrameProps = {
   attributionSourcesHref?: string;
@@ -48,6 +49,7 @@ export async function ClusterPageFrame({
 }: ClusterPageFrameProps) {
   const guide = CLUSTER_GUIDES[guideId];
   const parent = GROUP_HUBS[guide.parentHub];
+  const dates = pageDateFields(guide.pathname);
   const [t, tShared, tParent, locale] = await Promise.all([
     getTranslations(guide.messageKey),
     getTranslations("groupHubShared"),
@@ -179,7 +181,11 @@ export async function ClusterPageFrame({
           items={faqItems}
         />
 
-        <ContentAttribution sourcesHref={attributionSourcesHref} />
+        <ContentAttribution
+          publishedAt={dates.datePublished}
+          sourcesHref={attributionSourcesHref}
+          updatedAt={dates.dateModified}
+        />
 
         <section className="relative flex min-h-[70svh] items-center overflow-hidden bg-ink py-24">
           <CoverImage

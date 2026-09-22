@@ -23,6 +23,7 @@ import {
   siteConfig,
   siteEntityId,
 } from "@/lib/site";
+import { pageDateFields } from "@/lib/structuredDataDates";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -72,6 +73,7 @@ export default async function AuthorIndexRoute({ params }: Props) {
   const collectionLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
+    ...pageDateFields("/authors"),
     description: t("index.metaDescription"),
     inLanguage: locale,
     isPartOf: { "@id": siteEntityId("website") },

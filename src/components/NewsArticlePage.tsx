@@ -36,6 +36,7 @@ import { photoCreditSourceLabel } from "@/lib/photoCreditSource";
 import { isPlaceholderMedia } from "@/lib/speciesContent";
 import { speciesPhotoAlt } from "@/lib/speciesMeta";
 import { regionHref, speciesHref, type SpeciesHref } from "@/lib/speciesRoutes";
+import { hasMeaningfulUpdate } from "@/lib/structuredDataDates";
 
 type NewsArticlePageProps = {
   article: NewsArticle;
@@ -58,6 +59,9 @@ export async function NewsArticlePage({
   if (!copy) return null;
 
   const dateLabel = formatContentDate(article.publishedAt, locale);
+  const updatedLabel = article.updatedAt
+    ? formatContentDate(article.updatedAt, locale)
+    : null;
   const sourceOrg = newsSourceOrg(article);
   const hub = newsCategoryHub(article);
   const category = hub ? tNav(hub) : null;
@@ -120,7 +124,19 @@ export async function NewsArticlePage({
             <p className="text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
               {category ? <span>{category}</span> : null}
               {category ? <span aria-hidden="true"> · </span> : null}
-              <time dateTime={article.publishedAt}>{dateLabel}</time>
+              <time dateTime={article.publishedAt}>
+                {t("published", { date: dateLabel })}
+              </time>
+              {hasMeaningfulUpdate(article.publishedAt, article.updatedAt) &&
+              article.updatedAt &&
+              updatedLabel ? (
+                <>
+                  <span aria-hidden="true"> · </span>
+                  <time dateTime={article.updatedAt}>
+                    {t("updated", { date: updatedLabel })}
+                  </time>
+                </>
+              ) : null}
             </p>
             <h1 className="text-balance-tight mt-5 font-display text-display-lead font-semibold text-foreground">
               {copy.title}
@@ -295,7 +311,11 @@ export async function NewsArticlePage({
             </Link>
           </p>
         </article>
-        <ContentAttribution sourcesHref="#sources" />
+        <ContentAttribution
+          publishedAt={article.publishedAt}
+          sourcesHref="#sources"
+          updatedAt={article.updatedAt}
+        />
       </div>
     </div>
   );

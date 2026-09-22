@@ -19,6 +19,7 @@ import {
   siteConfig,
   siteEntityId,
 } from "@/lib/site";
+import { pageDateFields } from "@/lib/structuredDataDates";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -128,6 +129,7 @@ export default async function QuizzesIndexRoute({ params }: Props) {
   const pageLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
+    ...pageDateFields(PATH),
     description: t("metaDescription"),
     hasPart: liveQuizzes().map((quiz) => ({
       "@type": "Quiz",

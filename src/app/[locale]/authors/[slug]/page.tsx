@@ -29,6 +29,7 @@ import { AUTHOR_PORTRAIT_SIZES } from "@/lib/imageSizes";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import { shortMetaDescription } from "@/lib/metaDescription";
 import { absoluteUrl, localePath, siteConfig, siteEntityId } from "@/lib/site";
+import { authorDateFields } from "@/lib/structuredDataDates";
 
 type Props = {
   params: Promise<{ locale: string; slug: string }>;
@@ -113,6 +114,7 @@ export default async function AuthorRoute({ params }: Props) {
         name,
         species: speciesIds.length,
       }),
+    ...authorDateFields(author.slug),
     inLanguage: locale,
     isPartOf: { "@id": siteEntityId("website") },
     mainEntity: {

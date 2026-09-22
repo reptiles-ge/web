@@ -50,6 +50,7 @@ import {
   speciesOgImageUrl,
   speciesPageUrl,
 } from "@/lib/site";
+import { pageDateFields } from "@/lib/structuredDataDates";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -239,6 +240,7 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
               name: georgiaPlaceName(locale),
             },
             author: { "@id": siteEntityId("organization") },
+            ...pageDateFields(guide.pathname),
             description: t("metaDescription"),
             inLanguage: locale,
             isPartOf: { "@id": siteEntityId("website") },
@@ -264,6 +266,7 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
               name: georgiaPlaceName(locale),
             },
             author: { "@id": siteEntityId("organization") },
+            ...pageDateFields(guide.pathname),
             description: t("metaDescription"),
             inLanguage: locale,
             isPartOf: { "@id": siteEntityId("website") },

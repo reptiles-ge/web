@@ -6,14 +6,17 @@ import { Link } from "@/i18n/navigation";
 import { type AppLocale } from "@/i18n/routing";
 import { formatContentDate } from "@/lib/formatDate";
 import { siteEntityId } from "@/lib/site";
+import { hasMeaningfulUpdate } from "@/lib/structuredDataDates";
 
 type ContentAttributionProps = {
+  publishedAt?: string;
   showMethodology?: boolean;
   sourcesHref?: string;
   updatedAt?: string;
 };
 
 export async function ContentAttribution({
+  publishedAt,
   showMethodology = true,
   sourcesHref,
   updatedAt,
@@ -23,6 +26,7 @@ export async function ContentAttribution({
   const headingId = "content-attribution-heading";
   const showSources = Boolean(sourcesHref);
   const showLinks = showSources || showMethodology;
+  const showUpdatedAt = hasMeaningfulUpdate(publishedAt, updatedAt);
 
   return (
     <section className="border-t border-border bg-background py-10 lg:py-12">
@@ -68,14 +72,25 @@ export async function ContentAttribution({
             >
               {t("body")}
             </p>
-            {updatedAt ? (
-              <p className="col-span-2 text-[12px] text-muted-foreground sm:col-span-1 sm:col-start-2">
-                <time dateTime={updatedAt}>
-                  {t("updated", {
-                    date: formatContentDate(updatedAt, locale),
-                  })}
-                </time>
-              </p>
+            {publishedAt ? (
+              <div className="col-span-2 space-y-1 text-[12px] text-muted-foreground sm:col-span-1 sm:col-start-2">
+                <p>
+                  <time dateTime={publishedAt}>
+                    {t("published", {
+                      date: formatContentDate(publishedAt, locale),
+                    })}
+                  </time>
+                </p>
+                {showUpdatedAt && updatedAt ? (
+                  <p>
+                    <time dateTime={updatedAt}>
+                      {t("updated", {
+                        date: formatContentDate(updatedAt, locale),
+                      })}
+                    </time>
+                  </p>
+                ) : null}
+              </div>
             ) : null}
             {showLinks ? (
               <p className="col-span-2 flex flex-wrap items-center gap-x-4 gap-y-2 text-[13px] font-medium sm:col-span-1 sm:col-start-2">
