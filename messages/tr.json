@@ -694,6 +694,8 @@
     "statSpecies": "tür",
     "gallery": "Galeri",
     "speciesList": "Atlastaki türler",
+    "relatedNews": "Haberler",
+    "relatedNewsIntro": "{name} adlı kişinin kaynak, yazar veya ilgili araştırmacı olarak geçtiği yazılar.",
     "portraitAlt": "{name}",
     "metaTitle": "{name}",
     "metaDescription": "{name}: Gürcistan hayvanlar atlasında {species} türe ait {count} fotoğraf.",

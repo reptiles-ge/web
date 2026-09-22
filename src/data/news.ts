@@ -1,3 +1,4 @@
+import type { CreditAuthor } from "@/data/creditAuthors";
 import type { NewsArticle, NewsPhoto } from "@/data/newsTypes";
 import type { AppLocale } from "@/i18n/routing";
 import type { GroupHubId } from "@/lib/groupHubs";
@@ -67,6 +68,15 @@ export function getPublishedNewsArticles(locale?: AppLocale) {
     if (byDate !== 0) return byDate;
     return NEWS_ARTICLES.indexOf(a) - NEWS_ARTICLES.indexOf(b);
   });
+}
+
+export function getPublishedNewsForCreditAuthor(
+  author: CreditAuthor,
+  locale?: AppLocale,
+) {
+  return getPublishedNewsArticles(locale).filter((article) =>
+    newsMentionsCreditAuthor(article, author),
+  );
 }
 
 export function getPublishedNewsForHub(hubId: GroupHubId, locale?: AppLocale) {
@@ -144,4 +154,52 @@ export function newsSearchKeywords(article: NewsArticle) {
 export function newsSourceOrg(article: NewsArticle) {
   const name = article.sources[0]?.name ?? "";
   return name.split(" — ")[0]?.trim() || name;
+}
+
+function newsMentionsCreditAuthor(article: NewsArticle, author: CreditAuthor) {
+  const aliases = new Set([
+    author.slug,
+    ...author.aliases,
+    ...Object.values(author.name),
+  ]);
+  const haystack = [
+    ...article.sources.flatMap((source) => [source.name, source.url]),
+    ...Object.values(article.copy).flatMap((copy) =>
+      copy
+        ? [
+            copy.dek,
+            copy.lead,
+            copy.metaDescription,
+            copy.metaTitle,
+            copy.title,
+            ...copy.sections.flatMap((section) => [
+              section.heading,
+              ...section.blocks.flatMap((block) =>
+                block.type === "p"
+                  ? block.parts.map((part) =>
+                      typeof part === "string"
+                        ? part
+                        : part.type === "sci"
+                          ? part.name
+                          : part.type === "credit-author"
+                            ? `${part.slug} ${part.label}`
+                            : "label" in part
+                              ? part.label
+                              : "",
+                    )
+                  : [],
+              ),
+            ]),
+          ]
+        : [],
+    ),
+  ]
+    .join("\n")
+    .toLocaleLowerCase();
+
+  for (const alias of aliases) {
+    const needle = alias.trim().toLocaleLowerCase();
+    if (needle && haystack.includes(needle)) return true;
+  }
+  return false;
 }
