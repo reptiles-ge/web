@@ -4,6 +4,7 @@ import type { AppLocale } from "@/i18n/routing";
 import type { GroupHubId } from "@/lib/groupHubs";
 
 import { BATUMI_19300_RAPTORS_2026 } from "@/content/news/batumi-19300-raptors-2026";
+import { CAUCASIAN_TOAD_BUFO_VERRUCOSISSIMUS_TAXONOMY_2026 } from "@/content/news/caucasian-toad-bufo-verrucosissimus-taxonomy-2026";
 import { DAREVSKIA_UZZELLI_ARMENIA_2026 } from "@/content/news/darevskia-uzzelli-armenia-2026";
 import { GEORGIA_DOLPHIN_STRANDINGS_2026 } from "@/content/news/georgia-dolphin-strandings-2026";
 import { GEORGIA_HERPETOFAUNA_CHECKLIST_2026 } from "@/content/news/georgia-herpetofauna-checklist-2026";
@@ -18,6 +19,7 @@ import { GROUP_HUBS } from "@/lib/groupHubs";
 export type { NewsArticle, NewsPhoto } from "@/data/newsTypes";
 
 const NEWS_ARTICLES: readonly NewsArticle[] = [
+  CAUCASIAN_TOAD_BUFO_VERRUCOSISSIMUS_TAXONOMY_2026,
   GEORGIAN_SNAKES_AREA_OF_OCCUPANCY_2026,
   LEATHERBACK_TURTLE_FIRST_TURKISH_BLACK_SEA_RECORDS_2026,
   THERIDION_HUSEYNOVI_NEW_SPIDER_SPECIES_GEORGIA_2026,
