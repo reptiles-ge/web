@@ -1471,6 +1471,126 @@
     "speciesTitle": "Gürcistan’ın kaplumbağa türleri",
     "speciesBody": "Atlas şu anda dört takson listeler. Her kart türü, statüyü, bilimsel adı ve kısa bir bağlam satırını gösterir — profil fotoğrafları, saha işaretlerini ve kaynakları tutar.",
     "speciesIndexCta": "Kaplumbağa türleri dizini",
+    "basics": {
+      "whatIs": {
+        "title": "Kaplumbağa nedir?",
+        "p1": "Kaplumbağa, Testudines takımından bir sürüngendir; en belirgin özelliği vücudunun parçası olan kabuktur. Günlük dilde “kaplumbağa” kara kaplumbağasını, tatlısu kaplumbağasını veya deniz kaplumbağasını anlatabilir, ama hepsinde ortak temel yapı aynıdır: kabuk, boynuzsu gaga ve yumurtayla üreme.",
+        "p2": "Kaplumbağalar kertenkele ya da amfibi değildir. Sürüngenler içinde ayrı bir soydur: bazı türler tamamen karada yaşar, bazıları gölet ve ırmaklarla bağlantılıdır, deniz kaplumbağaları ise deniz yaşamına uyumludur. Gürcistan’da Reptiles.ge atlası kara ve tatlısu kaplumbağalarını kapsar; deniz kaplumbağaları burada Gürcistan’ın sıradan yerli türleri gibi sunulmaz."
+      },
+      "shell": {
+        "title": "Kaplumbağa kabuğu ve vücut yapısı",
+        "p1": "Kaplumbağanın kabuğu vücudunun parçasıdır. Dışarıdan sert bir koruyucu kalkan gibi görünür, ama içeride omurga ve kaburgalarla bağlantılıdır. Kaplumbağa kabuğundan çıkamaz. “Kaplumbağa kabuğundan çıkabilir mi?” sorusunun kısa cevabı hayırdır: bu bir ev değil, vücuttur.",
+        "p2": "Kabuğun üst bölümüne karapaks denir. Yukarıdan gördüğümüz kalkan budur. Alt bölüm plastrondur — karın tarafındaki kalkan. İkisi birlikte vücudu korur ve türler arasında şekil, yükseklik ve desen bakımından değişir.",
+        "p3": "Kaplumbağaların dişleri yoktur; besini güçlü çeneleri ve boynuzsu gagalarıyla keser ya da koparırlar. Kara kaplumbağalarında yürümeye uygun daha güçlü, sütun gibi bacaklar olur. Tatlısu kaplumbağalarında çoğu zaman perdeli ayaklar vardır; deniz kaplumbağalarının uzuvları ise yüzgeç gibidir. Bu farklar yaşam biçimiyle bağlantılıdır, ancak tek bir işaret türü belirlemek için her zaman yeterli değildir."
+      },
+      "types": {
+        "title": "Kara, tatlısu ve deniz kaplumbağaları — fark nedir?",
+        "intro": "Kaplumbağa grupları en çok yaşadıkları ortam ve hareket biçimiyle ayrılır. Bu özellikler iyi bir ilk ipucudur, ama kesin kural değildir: şekil, renk ve davranış türlere göre değişebilir.",
+        "columns": {
+          "type": "Tip",
+          "habitat": "Yaşam ortamı",
+          "shell": "Genel kabuk şekli",
+          "limbs": "Ayaklar / yüzgeçler",
+          "adaptations": "Hareket uyumları"
+        },
+        "rows": {
+          "land": {
+            "type": "Kara kaplumbağaları",
+            "habitat": "Kara: bozkır, çalılık, kuru açık alanlar ve diğer karasal habitatlar.",
+            "shell": "Çoğu zaman daha yüksek ve kubbeli; şekil türe bağlıdır.",
+            "limbs": "Güçlü bacaklar ve tırnaklar; yüzme perdeleri genellikle temel işaret değildir.",
+            "adaptations": "Karada yürüme, kazma ve karasal bitki örtüsü içinde hareket."
+          },
+          "freshwater": {
+            "type": "Tatlısu kaplumbağaları",
+            "habitat": "Göletler, göller, sulak alanlar, eski yataklar ve yavaş sular.",
+            "shell": "Çoğu zaman daha alçak ve yassı; bu suda hareket etmeye yardım eder.",
+            "limbs": "Çoğu zaman perdeli ayaklar; kıyıya da çıkabilirler.",
+            "adaptations": "Yüzme, kıyıda veya bitkiler üzerinde güneşlenme ve yumurtaları karaya bırakma."
+          },
+          "sea": {
+            "type": "Deniz kaplumbağaları",
+            "habitat": "Denizler ve okyanuslar; yumurtlamak için kıyıya çıkarlar.",
+            "shell": "Genellikle daha pürüzsüz ve suda harekete uyumludur.",
+            "limbs": "Yürüme ayakları yerine yüzgece benzer uzuvlar.",
+            "adaptations": "Uzun mesafe yüzme; karada hareket nispeten hantaldır."
+          }
+        },
+        "outro": "Gürcistan’da Reptiles.ge atlasında <land>kara</land> ve <freshwater>tatlısu</freshwater> türleri yer alır. Deniz kaplumbağalarından burada genel biyoloji bağlamında söz edilir; bu, onların Gürcistan’ın sıradan yerli kaplumbağaları olduğu anlamına gelmez."
+      },
+      "diet": {
+        "title": "Kaplumbağa ne yer?",
+        "p1": "“Kaplumbağa ne yer?” sorusunun tek bir evrensel cevabı yoktur. Beslenme türe, yaşa ve çevreye bağlıdır. Kara kaplumbağaları çoğu zaman bitkisel besin yer — otlar, yapraklar, çiçekler ve yumuşak bitkiler. Bu, bütün türlerin aynı şekilde beslendiği anlamına gelmez.",
+        "p2": "Tatlısu kaplumbağaları genellikle daha çeşitli besin kullanır: omurgasızlar, küçük su hayvanları, leş veya bitkisel madde — türe ve yaşa bağlı olarak. Deniz kaplumbağalarında da diyet farklıdır: bazıları denizanalarıyla, bazıları deniz çayırları veya başka deniz canlılarıyla ilişkilidir. Doğadaki yabani kaplumbağayı beslemek gerekmez ve zarar verebilir."
+      },
+      "lifespan": {
+        "title": "Kaplumbağa ne kadar yaşar?",
+        "p1": "Kaplumbağanın ömrü tek bir sayıyla anlatılamaz. Tür, boyut, çevre, besin, yırtıcılar, hastalıklar ve hayvanın doğada mı yoksa insan bakımı altında mı yaşadığı buna etki eder. Birçok kaplumbağa uzun yaşamla ilişkilendirilir, ama bu her kaplumbağanın 100 yıl yaşadığı anlamına gelmez.",
+        "p2": "Büyük kara kaplumbağaları ve bazı deniz kaplumbağaları çoğu zaman daha uzun yaşamla ilişkilidir; küçük türler veya daha riskli ortamlarda yaşayanlar çok daha kısa yaşayabilir. Belirli bir tür için genel bir efsane yerine tür profiline, güvenilir bilimsel kaynağa veya koruma değerlendirmesine dayanmak daha doğru olur."
+      },
+      "reproduction": {
+        "title": "Kaplumbağalar nasıl ürer?",
+        "p1": "Kaplumbağalar yumurtlayan hayvanlardır. Kaplumbağa üremesi şu anlamda karayla bağlantılıdır: kaplumbağa yumurtaları suda bırakılmaz. Tatlısu kaplumbağaları ve deniz kaplumbağaları da yumurtlamak için kıyıya veya karaya çıkar.",
+        "p2": "Dişi toprakta bir yuva kazar, yumurtaları bırakır ve üzerini kapatır. Kuluçka süresi, yuva yeri ve yumurta sayısı türlere göre değişir; bu yüzden tek bir sayı bütün kaplumbağalar için doğru olmaz. Yavrular yuvadan kendi başlarına çıkar ve uygun ortama yönelir. Gürcistan türleriyle ilgili ayrıntılar yalnızca profil veya kaynak açıkça belirttiğinde kullanılmalıdır."
+      },
+      "georgiaComparison": {
+        "title": "Gürcistan kaplumbağalarının karşılaştırması",
+        "intro1": "Aşağıdaki karşılaştırma Reptiles.ge atlasında bulunan dört türü özetler. Tablo aynı sitenin tür profillerindeki verilere dayanır ve doğrulanmamış yayılış, boyut veya tehdit kategorisi eklemez.",
+        "intro2": "Bu tablo hızlı yön bulmak içindir. Tam fotoğraflar, kaynaklar ve ek saha işaretleri her tür profilindedir.",
+        "columns": {
+          "species": "Tür",
+          "type": "Tip",
+          "status": "Gürcistan’daki statü",
+          "traits": "Başlıca tanıma işaretleri",
+          "habitat": "Temel habitat",
+          "conservation": "Koruma statüsü"
+        },
+        "rows": {
+          "testudo": {
+            "species": "Mahmuzlu kara kaplumbağası",
+            "scientific": "Testudo graeca",
+            "type": "Kara kaplumbağası",
+            "status": "Yerli, doğrulanmış",
+            "traits": "Yüksek kubbeli kabuk; kalın sütun gibi bacaklar; yüzme perdesi yok.",
+            "habitat": "Kuru açık karasal habitatlar — bozkır, çalılık, yarı çöl ve açık orman kenarı.",
+            "conservation": "Gürcistan: VU; IUCN: VU, eski değerlendirme."
+          },
+          "emys": {
+            "species": "Avrupa bataklık kaplumbağası",
+            "scientific": "Emys orbicularis",
+            "type": "Tatlısu kaplumbağası",
+            "status": "Yerli, doğrulanmış",
+            "traits": "Alçak oval kabuk; koyu zemin üzerinde sarı noktalar veya kısa çizgiler; göz arkasında geniş kırmızı şerit yok.",
+            "habitat": "Durgun veya yavaş tatlı sular — göletler, göller, sulak alanlar, eski yataklar ve yavaş ırmaklar.",
+            "conservation": "IUCN: NT; Gürcistan’ın 2014 Kırmızı Listesi’nde yer almıyor."
+          },
+          "mauremys": {
+            "species": "Hazar kaplumbağası",
+            "scientific": "Mauremys caspica",
+            "type": "Tatlısu kaplumbağası",
+            "status": "Yerli, biyolojik olarak doğrulanmış",
+            "traits": "Görece yassı kabuk; boyunda çoğu zaman uzunlamasına açık çizgiler; göz arkasında geniş kırmızı şerit yok.",
+            "habitat": "Göletler, göller ve yavaş tatlısu kütleleri.",
+            "conservation": "Veri belirtilmemiş"
+          },
+          "trachemys": {
+            "species": "Kırmızı yanaklı su kaplumbağası",
+            "scientific": "Trachemys scripta",
+            "type": "Tatlısu kaplumbağası",
+            "status": "Getirilmiş",
+            "traits": "T. s. elegans’ta çoğu zaman göz arkasında geniş kırmızı şerit vardır; görece yassı kabuk; perdeli ayaklar.",
+            "habitat": "Göller, göletler ve diğer tatlısu kütleleri; üreyen popülasyonlar Tiflis ve Batum yakınından bilinir.",
+            "conservation": "Veri belirtilmemiş"
+          }
+        },
+        "note": "Dış görünüşteki tek bir işaret kesin tanı için her zaman yeterli değildir. Şüpheli durumlarda <identify>kaplumbağa tanıma</identify> rehberini kullanın ve birkaç işareti birlikte karşılaştırın."
+      },
+      "conservation": {
+        "title": "Gürcistan’da kaplumbağaların korunması",
+        "p1": "Gürcistan’ın yerli kaplumbağaları mahmuzlu kara kaplumbağası, Avrupa bataklık kaplumbağası ve Hazar kaplumbağasıdır. Bunlardan mahmuzlu kara kaplumbağası Gürcistan Kırmızı Listesi’nde Hassas (VU) olarak yer alır. Bu tür ve genel olarak yabani kaplumbağalar için önemli sorunlar habitat kaybı, sulak alan ve kıyı değişimleri, yollarda ölüm ve bireylerin doğadan alınmasıdır.",
+        "p2": "Yabani kaplumbağalar eve götürülmemeli ve başka yere taşınmamalıdır. Bu hem hayvana hem de yerel popülasyonlara zarar verebilir. Kırmızı yanaklı su kaplumbağası Gürcistan’da getirilmiş bir türdür. Evcil bir kırmızı yanaklıyı doğaya bırakmak çözüm değildir: yeni bir popülasyon oluşturabilir, yerli tatlısu kaplumbağalarıyla rekabete girebilir ve ekosistemi etkileyebilir. Hukuki taraf önemliyse güncel resmî kaynak kontrol edilmelidir."
+      }
+    },
     "section": {
       "native": {
         "title": "Yerli türler — {count}",
