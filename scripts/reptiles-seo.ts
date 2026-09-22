@@ -4,9 +4,22 @@ import path from "node:path";
 
 import { getPublishedCreditAuthors } from "../src/data/creditAuthors";
 import { getPublishedNewsArticles } from "../src/data/news";
+import {
+  sitemapAuthorDatePublished,
+  sitemapAuthorLastModified,
+  sitemapPathDatePublished,
+  sitemapPathLastModified,
+  sitemapQuizDatePublished,
+  sitemapQuizLastModified,
+  sitemapRegionDatePublished,
+  sitemapRegionLastModified,
+} from "../src/data/pageLastModified";
 import { regions } from "../src/data/regions";
 import { getCatalogSpecies } from "../src/data/species";
-import { getSpeciesAtlasMeta, type AnimalGroup } from "../src/data/speciesAtlas";
+import {
+  getSpeciesAtlasMeta,
+  type AnimalGroup,
+} from "../src/data/speciesAtlas";
 import { localizeSpecies } from "../src/i18n/localizeSpecies";
 import { type AppLocale, routing } from "../src/i18n/routing";
 import { CLUSTER_GUIDE_LIST } from "../src/lib/clusterGuides";
@@ -15,11 +28,7 @@ import { GROUP_HUB_LIST } from "../src/lib/groupHubs";
 import { buildRobotsTxt } from "../src/lib/llmsFiles";
 import { newsArticleUrl } from "../src/lib/news";
 import { liveQuizzes } from "../src/lib/quizzes";
-import {
-  localePath,
-  quizPageUrl,
-  speciesPageUrl,
-} from "../src/lib/site";
+import { localePath, quizPageUrl, speciesPageUrl } from "../src/lib/site";
 import { regionHref } from "../src/lib/speciesRoutes";
 
 process.env.NEXT_PUBLIC_SITE_URL ??= "https://reptiles.ge";
@@ -94,6 +103,7 @@ type InventoryItem = {
   indexable: boolean;
   internalLinksIn: null | number;
   internalLinksOut: null | number;
+  datePublished: null | string;
   lastModified: null | string;
   locale: AppLocale;
   pageType: PageType;
@@ -249,7 +259,7 @@ async function main() {
 
   if (args.command === "serp") {
     const query = String(args.flags.query ?? "");
-    if (!query) throw new Error("Use --query=\"...\" for SERP collection");
+    if (!query) throw new Error('Use --query="..." for SERP collection');
     const result = await collectSerp(query);
     await writeJsonReport("serp-raw", { generatedAt: now(), result });
     console.log(`Collected SERP data for "${query}"`);
@@ -262,7 +272,9 @@ async function main() {
   const gscData =
     args.command === "technical"
       ? { current: [], previous: [] }
-      : await maybeCollectGscComparison(dateWindow(Number(args.flags.days) || 28));
+      : await maybeCollectGscComparison(
+          dateWindow(Number(args.flags.days) || 28),
+        );
   const ga4Rows =
     args.command === "technical"
       ? []
@@ -272,7 +284,11 @@ async function main() {
       ? technicalIssues
       : [
           ...technicalIssues,
-          ...buildGscOpportunities(gscData.current, inventory, gscData.previous),
+          ...buildGscOpportunities(
+            gscData.current,
+            inventory,
+            gscData.previous,
+          ),
           ...buildGa4Opportunities(ga4Rows, inventory),
           ...buildGeoOpportunities(gscData.current, inventory),
         ];
@@ -388,7 +404,9 @@ function buildGeoOpportunities(rows: GscRow[], inventory: InventoryItem[]) {
     .sort((a, b) => b.impressions - a.impressions)
     .slice(0, 25)
     .map((row): Opportunity => {
-      const page = inventory.find((item) => item.url === normalizeUrl(row.page));
+      const page = inventory.find(
+        (item) => item.url === normalizeUrl(row.page),
+      );
       return {
         autoFixable: false,
         confidence: 0.68,
@@ -415,9 +433,14 @@ function buildGeoOpportunities(rows: GscRow[], inventory: InventoryItem[]) {
         id: stableId("geo-observed", row.query, row.page),
         locale: "ka",
         pageType: page?.pageType ?? "unknown",
-        priority: row.impressions >= percentile(rows.map((item) => item.impressions), 0.8)
-          ? "MEDIUM"
-          : "LOW",
+        priority:
+          row.impressions >=
+          percentile(
+            rows.map((item) => item.impressions),
+            0.8,
+          )
+            ? "MEDIUM"
+            : "LOW",
         problemType: "AI_CITATION_GAP",
         queryOrTopic: row.query,
         recommendedAction:
@@ -532,7 +555,9 @@ function buildGscOpportunities(
 
   opportunities.push(...cannibalizationOpportunities(current, inventoryByUrl));
   opportunities.push(...internalLinkOpportunities(current, inventory));
-  opportunities.push(...trendOpportunities(current, previousRows, inventoryByUrl));
+  opportunities.push(
+    ...trendOpportunities(current, previousRows, inventoryByUrl),
+  );
   return opportunities;
 }
 
@@ -570,6 +595,7 @@ function buildInventory(graph: SeoGraph): InventoryItem[] {
       indexable: route.inSitemap ?? true,
       internalLinksIn: null,
       internalLinksOut: null,
+      datePublished: null,
       lastModified: null,
       locale: route.locale,
       pageType: pageTypeFromRoute(route.type),
@@ -583,17 +609,36 @@ function buildInventory(graph: SeoGraph): InventoryItem[] {
 
 function buildTechnicalIssues(graph: SeoGraph, inventory: InventoryItem[]) {
   const issues: Opportunity[] = [];
-  const routeByUrl = new Map(graph.routes.map((route) => [route.canonicalUrl, route]));
+  const routeByUrl = new Map(
+    graph.routes.map((route) => [route.canonicalUrl, route]),
+  );
   const titleBuckets = bucketInventory(inventory, (item) => item.title);
-  const descriptionBuckets = bucketInventory(inventory, (item) => item.description);
+  const descriptionBuckets = bucketInventory(
+    inventory,
+    (item) => item.description,
+  );
   const robots = buildRobotsTxt();
 
   if (!robots.includes("Sitemap: https://reptiles.ge/sitemap.xml")) {
-    issues.push(technicalIssue("robots-sitemap", "https://reptiles.ge/robots.txt", "Robots.txt should reference the production sitemap.", "HIGH"));
+    issues.push(
+      technicalIssue(
+        "robots-sitemap",
+        "https://reptiles.ge/robots.txt",
+        "Robots.txt should reference the production sitemap.",
+        "HIGH",
+      ),
+    );
   }
 
   if (/Disallow:\s*\/\s*$/m.test(robots)) {
-    issues.push(technicalIssue("robots-block", "https://reptiles.ge/robots.txt", "Robots.txt appears to block the full site.", "CRITICAL"));
+    issues.push(
+      technicalIssue(
+        "robots-block",
+        "https://reptiles.ge/robots.txt",
+        "Robots.txt appears to block the full site.",
+        "CRITICAL",
+      ),
+    );
   }
 
   for (const item of inventory) {
@@ -602,30 +647,81 @@ function buildTechnicalIssues(graph: SeoGraph, inventory: InventoryItem[]) {
     const localeAlternate = route.alternates[item.locale];
     const kaAlternate = route.alternates.ka;
     if (!localeAlternate) {
-      issues.push(technicalIssue("hreflang-self", item.url, "Missing self-referencing hreflang alternate.", "HIGH"));
+      issues.push(
+        technicalIssue(
+          "hreflang-self",
+          item.url,
+          "Missing self-referencing hreflang alternate.",
+          "HIGH",
+        ),
+      );
     }
     if (route.alternates["x-default"] !== kaAlternate) {
-      issues.push(technicalIssue("hreflang-x-default", item.url, "x-default should point at the Georgian canonical URL.", "HIGH"));
+      issues.push(
+        technicalIssue(
+          "hreflang-x-default",
+          item.url,
+          "x-default should point at the Georgian canonical URL.",
+          "HIGH",
+        ),
+      );
     }
     if (!Object.values(route.alternates).includes(route.canonicalUrl)) {
-      issues.push(technicalIssue("canonical-hreflang", item.url, "Canonical URL is not present in its hreflang set.", "HIGH"));
+      issues.push(
+        technicalIssue(
+          "canonical-hreflang",
+          item.url,
+          "Canonical URL is not present in its hreflang set.",
+          "HIGH",
+        ),
+      );
     }
     if (item.locale === "ka" && item.path.startsWith("/ka")) {
-      issues.push(technicalIssue("ka-prefix", item.url, "Default Georgian locale should not use a /ka prefix.", "HIGH"));
+      issues.push(
+        technicalIssue(
+          "ka-prefix",
+          item.url,
+          "Default Georgian locale should not use a /ka prefix.",
+          "HIGH",
+        ),
+      );
     }
     if (item.indexable && !item.inSitemap) {
-      issues.push(technicalIssue("sitemap-indexable", item.url, "Indexable page is missing from the sitemap graph.", "MEDIUM"));
+      issues.push(
+        technicalIssue(
+          "sitemap-indexable",
+          item.url,
+          "Indexable page is missing from the sitemap graph.",
+          "MEDIUM",
+        ),
+      );
     }
   }
 
   for (const [title, items] of titleBuckets) {
     if (items.length <= 1 || !title) continue;
-    issues.push(technicalIssue("duplicate-title", items[0].url, `Duplicate title across ${items.length} inventory pages: ${title}`, "MEDIUM", items.map((item) => item.url)));
+    issues.push(
+      technicalIssue(
+        "duplicate-title",
+        items[0].url,
+        `Duplicate title across ${items.length} inventory pages: ${title}`,
+        "MEDIUM",
+        items.map((item) => item.url),
+      ),
+    );
   }
 
   for (const [description, items] of descriptionBuckets) {
     if (items.length <= 1 || !description) continue;
-    issues.push(technicalIssue("duplicate-description", items[0].url, `Duplicate description across ${items.length} inventory pages.`, "LOW", items.map((item) => item.url)));
+    issues.push(
+      technicalIssue(
+        "duplicate-description",
+        items[0].url,
+        `Duplicate description across ${items.length} inventory pages.`,
+        "LOW",
+        items.map((item) => item.url),
+      ),
+    );
   }
 
   return issues;
@@ -659,7 +755,10 @@ function cannibalizationOpportunities(
   for (const [query, group] of byQuery) {
     const urls = [...new Set(group.map((row) => row.page))];
     if (urls.length < 2) continue;
-    const totalImpressions = group.reduce((sum, row) => sum + row.impressions, 0);
+    const totalImpressions = group.reduce(
+      (sum, row) => sum + row.impressions,
+      0,
+    );
     if (totalImpressions < 20) continue;
     const top = group.sort((a, b) => b.impressions - a.impressions)[0];
     const page = inventoryByUrl.get(normalizeUrl(top.page));
@@ -707,7 +806,9 @@ async function collectGa4(window: DateWindow) {
       "I need one thing from you: the GA4 property ID for reptiles.ge. Find it in Google Analytics Admin > Property details; it is not a secret. Add it as GA4_PROPERTY_ID in .env, while keeping the service-account JSON in GOOGLE_APPLICATION_CREDENTIALS or GOOGLE_SERVICE_ACCOUNT_JSON.",
     );
   }
-  const token = await googleAccessToken(["https://www.googleapis.com/auth/analytics.readonly"]);
+  const token = await googleAccessToken([
+    "https://www.googleapis.com/auth/analytics.readonly",
+  ]);
   const body = {
     dateRanges: [{ endDate: window.endDate, startDate: window.startDate }],
     dimensions: [
@@ -762,14 +863,20 @@ async function collectGscComparison(window: DateWindow, country = "geo") {
   return { current, previous };
 }
 
-async function collectGscRows(startDate: string, endDate: string, country = "geo") {
+async function collectGscRows(
+  startDate: string,
+  endDate: string,
+  country = "geo",
+) {
   const siteUrl = process.env.GSC_SITE_URL;
   if (!siteUrl) {
     throw new MissingInput(
       "I need one thing from you: the Google Search Console property string for reptiles.ge, usually https://reptiles.ge/ or sc-domain:reptiles.ge. Find it in Search Console's property selector; it is not a password. Add it as GSC_SITE_URL in .env.",
     );
   }
-  const token = await googleAccessToken(["https://www.googleapis.com/auth/webmasters.readonly"]);
+  const token = await googleAccessToken([
+    "https://www.googleapis.com/auth/webmasters.readonly",
+  ]);
   const baseBody = {
     dataState: "final",
     dimensionFilterGroups: [
@@ -839,8 +946,16 @@ async function collectSerp(query: string) {
     );
   }
   const [locations, languages] = await Promise.all([
-    dataForSeoGet<Array<{ country_iso_code?: string; location_code?: number; location_name?: string }>>("/v3/serp/google/locations"),
-    dataForSeoGet<Array<{ language_code?: string; language_name?: string }>>("/v3/serp/google/languages"),
+    dataForSeoGet<
+      Array<{
+        country_iso_code?: string;
+        location_code?: number;
+        location_name?: string;
+      }>
+    >("/v3/serp/google/locations"),
+    dataForSeoGet<Array<{ language_code?: string; language_name?: string }>>(
+      "/v3/serp/google/languages",
+    ),
   ]);
   const location = locations.find(
     (item) =>
@@ -853,7 +968,9 @@ async function collectSerp(query: string) {
       String(item.language_name ?? "").toLowerCase() === "georgian",
   );
   if (!location?.location_code || !language?.language_code) {
-    throw new Error("DataForSEO did not return a verified Georgia + Georgian configuration.");
+    throw new Error(
+      "DataForSEO did not return a verified Georgia + Georgian configuration.",
+    );
   }
   const task = {
     depth: 20,
@@ -910,13 +1027,21 @@ function dataForSeoHeaders() {
 function dataLimitations(gscRows: GscRow[], ga4Rows: Ga4Row[]) {
   const limitations: string[] = [];
   if (gscRows.length === 0) {
-    limitations.push("Search Console was not collected in this run; query opportunity findings are limited to repository-derived checks and synthetic GEO prompts.");
+    limitations.push(
+      "Search Console was not collected in this run; query opportunity findings are limited to repository-derived checks and synthetic GEO prompts.",
+    );
   }
   if (ga4Rows.length === 0) {
-    limitations.push("GA4 was not collected in this run; organic/referral trend and AI-referral attribution findings are unavailable.");
+    limitations.push(
+      "GA4 was not collected in this run; organic/referral trend and AI-referral attribution findings are unavailable.",
+    );
   }
-  limitations.push("Synthetic Georgian query expansions are hypotheses only until supported by GSC, SERP, or another observed source.");
-  limitations.push("No traffic gains are estimated; impact is ranked HIGH/MEDIUM/LOW from evidence strength and page importance.");
+  limitations.push(
+    "Synthetic Georgian query expansions are hypotheses only until supported by GSC, SERP, or another observed source.",
+  );
+  limitations.push(
+    "No traffic gains are estimated; impact is ranked HIGH/MEDIUM/LOW from evidence strength and page importance.",
+  );
   return limitations;
 }
 
@@ -943,11 +1068,15 @@ function filterReportOpportunities(opportunities: Opportunity[], args: Args) {
   if (args.flags.url) {
     const needle = normalizeUrl(String(args.flags.url));
     filtered = filtered.filter(
-      (item) => normalizeUrl(item.url) === needle || item.supportingUrls.some((url) => normalizeUrl(url) === needle),
+      (item) =>
+        normalizeUrl(item.url) === needle ||
+        item.supportingUrls.some((url) => normalizeUrl(url) === needle),
     );
   }
   if (args.command === "geo") {
-    filtered = filtered.filter((item) => item.problemType === "AI_CITATION_GAP");
+    filtered = filtered.filter(
+      (item) => item.problemType === "AI_CITATION_GAP",
+    );
   }
   if (args.command === "technical") {
     filtered = filtered.filter((item) => item.problemType === "TECHNICAL");
@@ -955,15 +1084,25 @@ function filterReportOpportunities(opportunities: Opportunity[], args: Args) {
   return filtered.sort(sortOpportunities);
 }
 
-function internalLinkOpportunities(rows: GscAggregate[], inventory: InventoryItem[]) {
-  const species = inventory.filter((item) => item.pageType.endsWith("profile") && item.locale === "ka" && item.title);
+function internalLinkOpportunities(
+  rows: GscAggregate[],
+  inventory: InventoryItem[],
+) {
+  const species = inventory.filter(
+    (item) =>
+      item.pageType.endsWith("profile") && item.locale === "ka" && item.title,
+  );
   const opportunities: Opportunity[] = [];
   for (const row of rows) {
     if (row.impressions < 20) continue;
-    const current = inventory.find((item) => item.url === normalizeUrl(row.page));
+    const current = inventory.find(
+      (item) => item.url === normalizeUrl(row.page),
+    );
     if (!current || current.pageType.endsWith("profile")) continue;
     const query = row.query.toLowerCase();
-    const target = species.find((item) => item.title && query.includes(item.title.toLowerCase()));
+    const target = species.find(
+      (item) => item.title && query.includes(item.title.toLowerCase()),
+    );
     if (!target) continue;
     opportunities.push({
       autoFixable: false,
@@ -1027,7 +1166,8 @@ function trendOpportunities(
     const after = current.get(url) ?? { clicks: 0, impressions: 0 };
     const impressionDelta = after.impressions - before.impressions;
     const clickDelta = after.clicks - before.clicks;
-    const ratio = before.impressions === 0 ? 0 : impressionDelta / before.impressions;
+    const ratio =
+      before.impressions === 0 ? 0 : impressionDelta / before.impressions;
     if (Math.abs(ratio) < 0.3 && Math.abs(impressionDelta) < 50) continue;
     const page = inventoryByUrl.get(url);
     const declining = impressionDelta < 0;
@@ -1108,7 +1248,8 @@ async function googleAccessToken(scopes: string[]) {
   });
   if (!response.ok) throw new Error(await response.text());
   const json = (await response.json()) as { access_token?: string };
-  if (!json.access_token) throw new Error("Google OAuth did not return an access token.");
+  if (!json.access_token)
+    throw new Error("Google OAuth did not return an access token.");
   return json.access_token;
 }
 
@@ -1125,7 +1266,8 @@ function hubInventory(): InventoryItem[] {
       indexable: true,
       internalLinksIn: null,
       internalLinksOut: null,
-      lastModified: null,
+      datePublished: sitemapPathDatePublished(hub.path),
+      lastModified: sitemapPathLastModified(hub.path),
       locale,
       pageType: "hub/index",
       path: localePath(locale, hub.path),
@@ -1142,14 +1284,16 @@ function guideInventory(): InventoryItem[] {
       alternates: {},
       canonicalUrl: "",
       description: null,
-      group: GROUP_HUB_LIST.find((hub) => hub.id === guide.parentHub)?.group ?? null,
+      group:
+        GROUP_HUB_LIST.find((hub) => hub.id === guide.parentHub)?.group ?? null,
       h1: null,
       id: guide.id,
       inSitemap: true,
       indexable: true,
       internalLinksIn: null,
       internalLinksOut: null,
-      lastModified: null,
+      datePublished: sitemapPathDatePublished(guide.pathname),
+      lastModified: sitemapPathLastModified(guide.pathname),
       locale,
       pageType: "guide",
       path: localePath(locale, guide.pathname),
@@ -1179,6 +1323,7 @@ function newsInventory(): InventoryItem[] {
         indexable: true,
         internalLinksIn: null,
         internalLinksOut: null,
+        datePublished: article.publishedAt,
         lastModified: article.updatedAt ?? article.publishedAt,
         locale,
         pageType: "news",
@@ -1206,7 +1351,8 @@ function authorInventory(): InventoryItem[] {
         indexable: true,
         internalLinksIn: null,
         internalLinksOut: null,
-        lastModified: null,
+        datePublished: sitemapAuthorDatePublished(author.slug),
+        lastModified: sitemapAuthorLastModified(author.slug),
         locale,
         pageType: "author",
         path: new URL(creditAuthorUrl(locale, author.slug)).pathname,
@@ -1233,7 +1379,8 @@ function regionInventory(): InventoryItem[] {
         indexable: true,
         internalLinksIn: null,
         internalLinksOut: null,
-        lastModified: null,
+        datePublished: sitemapRegionDatePublished(region.id),
+        lastModified: sitemapRegionLastModified(region.id),
         locale,
         pageType: "region page",
         path: localePath(locale, regionHref(region.id)),
@@ -1258,7 +1405,8 @@ function quizInventory(): InventoryItem[] {
       indexable: true,
       internalLinksIn: null,
       internalLinksOut: null,
-      lastModified: null,
+      datePublished: sitemapQuizDatePublished(quiz.id),
+      lastModified: sitemapQuizLastModified(quiz.id),
       locale,
       pageType: "quiz",
       path: new URL(quizPageUrl(locale, quiz.id)).pathname,
@@ -1286,6 +1434,7 @@ function speciesInventory(): InventoryItem[] {
         indexable: true,
         internalLinksIn: null,
         internalLinksOut: null,
+        datePublished: raw.publishedAt,
         lastModified: raw.updatedAt,
         locale,
         pageType: speciesPageType(group),
@@ -1324,7 +1473,9 @@ function parseServiceAccount(raw: string): GoogleServiceAccount {
     : Buffer.from(trimmed, "base64").toString("utf8");
   const parsed = JSON.parse(jsonText) as Partial<GoogleServiceAccount>;
   if (!parsed.client_email || !parsed.private_key) {
-    throw new Error("Google service-account JSON is missing client_email or private_key.");
+    throw new Error(
+      "Google service-account JSON is missing client_email or private_key.",
+    );
   }
   return {
     client_email: parsed.client_email,
@@ -1343,7 +1494,10 @@ async function loadDotEnv() {
         const index = trimmed.indexOf("=");
         if (index === -1) continue;
         const key = trimmed.slice(0, index).trim();
-        const value = trimmed.slice(index + 1).trim().replace(/^["']|["']$/g, "");
+        const value = trimmed
+          .slice(index + 1)
+          .trim()
+          .replace(/^["']|["']$/g, "");
         process.env[key] ??= value;
       }
     } catch {}
@@ -1360,15 +1514,25 @@ function medianCtrByPosition(rows: GscAggregate[]) {
     const bucket = positionBucket(row.position);
     values.set(bucket, [...(values.get(bucket) ?? []), row.ctr]);
   }
-  return new Map([...values].map(([key, ctrs]) => [key, percentile(ctrs, 0.5)]));
+  return new Map(
+    [...values].map(([key, ctrs]) => [key, percentile(ctrs, 0.5)]),
+  );
 }
 
 function metricEvidence(row: GscAggregate): Evidence[] {
   return [
     { label: "clicks", source: "OBSERVED", value: String(row.clicks) },
-    { label: "impressions", source: "OBSERVED", value: String(row.impressions) },
+    {
+      label: "impressions",
+      source: "OBSERVED",
+      value: String(row.impressions),
+    },
     { label: "CTR", source: "OBSERVED", value: formatPercent(row.ctr) },
-    { label: "average position", source: "OBSERVED", value: row.position.toFixed(1) },
+    {
+      label: "average position",
+      source: "OBSERVED",
+      value: row.position.toFixed(1),
+    },
   ];
 }
 
@@ -1395,7 +1559,10 @@ async function maybeCollectGscComparison(window: DateWindow) {
 }
 
 function hasGoogleEnv() {
-  return Boolean(process.env.GOOGLE_APPLICATION_CREDENTIALS || process.env.GOOGLE_SERVICE_ACCOUNT_JSON);
+  return Boolean(
+    process.env.GOOGLE_APPLICATION_CREDENTIALS ||
+    process.env.GOOGLE_SERVICE_ACCOUNT_JSON,
+  );
 }
 
 function pageTypeFromRoute(routeType: string): PageType {
@@ -1415,7 +1582,8 @@ function pageTypeFromRoute(routeType: string): PageType {
 function schemaTypesFromRoute(routeType: string) {
   if (routeType === "species") return ["Article", "Taxon", "BreadcrumbList"];
   if (routeType === "guide") return ["WebPage", "BreadcrumbList"];
-  if (routeType === "hub" || routeType === "region") return ["CollectionPage", "BreadcrumbList"];
+  if (routeType === "hub" || routeType === "region")
+    return ["CollectionPage", "BreadcrumbList"];
   if (routeType === "news") return ["NewsArticle", "BreadcrumbList"];
   if (routeType === "home") return ["WebSite", "Organization"];
   return ["WebPage"];
@@ -1456,7 +1624,11 @@ function pageTotals(rows: GscAggregate[]) {
   return totals;
 }
 
-async function postJson<T>(url: string, body: unknown, headers: Record<string, string>) {
+async function postJson<T>(
+  url: string,
+  body: unknown,
+  headers: Record<string, string>,
+) {
   const response = await fetch(url, {
     body: JSON.stringify(body),
     headers: {
@@ -1471,7 +1643,10 @@ async function postJson<T>(url: string, body: unknown, headers: Record<string, s
 
 function syntheticGeoQueries(inventory: InventoryItem[]) {
   const profiles = inventory
-    .filter((item) => item.locale === "ka" && item.pageType.endsWith("profile") && item.title)
+    .filter(
+      (item) =>
+        item.locale === "ka" && item.pageType.endsWith("profile") && item.title,
+    )
     .slice(0, 30);
   return profiles.flatMap((item) => {
     const name = item.h1 ?? item.title ?? "";
@@ -1487,7 +1662,8 @@ function syntheticGeoQueries(inventory: InventoryItem[]) {
         {
           label: "query source",
           source: "SYNTHETIC",
-          value: "Generated from the reptiles.ge species inventory, not search volume.",
+          value:
+            "Generated from the reptiles.ge species inventory, not search volume.",
         },
       ],
       geoImpact: "UNKNOWN",
@@ -1518,9 +1694,15 @@ function technicalIssue(
   supportingUrls: string[] = [url],
 ): Opportunity {
   return {
-    autoFixable: ["canonical-hreflang", "hreflang-self", "sitemap-indexable"].includes(seed),
+    autoFixable: [
+      "canonical-hreflang",
+      "hreflang-self",
+      "sitemap-indexable",
+    ].includes(seed),
     confidence: 0.9,
-    evidence: [{ label: "repository graph check", source: "OBSERVED", value: message }],
+    evidence: [
+      { label: "repository graph check", source: "OBSERVED", value: message },
+    ],
     geoImpact: "LOW",
     humanReviewRequired: false,
     id: stableId("technical", seed, url),
@@ -1530,7 +1712,8 @@ function technicalIssue(
     problemType: "TECHNICAL",
     queryOrTopic: seed,
     recommendedAction: message,
-    seoImpact: priority === "CRITICAL" || priority === "HIGH" ? "HIGH" : "MEDIUM",
+    seoImpact:
+      priority === "CRITICAL" || priority === "HIGH" ? "HIGH" : "MEDIUM",
     source: "REPOSITORY",
     supportingUrls,
     timestamp: now(),
@@ -1647,7 +1830,10 @@ function dedupeOpportunities(items: Opportunity[]) {
 function percentile(values: number[], p: number) {
   const sorted = values.filter(Number.isFinite).sort((a, b) => a - b);
   if (sorted.length === 0) return 0;
-  const index = Math.min(sorted.length - 1, Math.max(0, Math.floor((sorted.length - 1) * p)));
+  const index = Math.min(
+    sorted.length - 1,
+    Math.max(0, Math.floor((sorted.length - 1) * p)),
+  );
   return sorted[index];
 }
 

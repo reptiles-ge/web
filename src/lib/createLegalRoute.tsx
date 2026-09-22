@@ -21,6 +21,7 @@ import {
   siteConfig,
   siteEntityId,
 } from "@/lib/site";
+import { pageDateFields } from "@/lib/structuredDataDates";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -93,6 +94,7 @@ export function createLegalRoute(documentId: LegalDocumentId) {
     const webPageJsonLd = {
       "@context": "https://schema.org",
       "@type": "WebPage",
+      ...pageDateFields(path),
       description: title("metaDescription"),
       inLanguage: locale,
       isPartOf: { "@id": siteEntityId("website") },

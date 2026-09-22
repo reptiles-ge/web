@@ -22,7 +22,8 @@ import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
 import { TurtlesHubSections } from "@/components/TurtlesHubSections";
 import { Link } from "@/i18n/navigation";
 import { HUB_CLUSTER_CARDS, splitHubSpecies } from "@/lib/clusterGuides";
-import { GROUP_HUB_LIST } from "@/lib/groupHubs";
+import { GROUP_HUB_LIST, GROUP_HUBS } from "@/lib/groupHubs";
+import { pageDateFields } from "@/lib/structuredDataDates";
 
 type GroupHubPageProps = {
   heroMobileSrc?: string;
@@ -46,6 +47,7 @@ export async function GroupHubPage({
   const relatedBody = t.has("relatedBody")
     ? t("relatedBody")
     : tShared("relatedBody");
+  const dates = pageDateFields(GROUP_HUBS[hubId].path);
 
   return (
     <div className="min-h-screen bg-background">
@@ -134,7 +136,10 @@ export async function GroupHubPage({
 
         <GroupHubFaqSection hubId={hubId} />
 
-        <ContentAttribution />
+        <ContentAttribution
+          publishedAt={dates.datePublished}
+          updatedAt={dates.dateModified}
+        />
 
         <section className="relative flex min-h-[70svh] items-center overflow-hidden bg-ink py-24">
           <CoverImage

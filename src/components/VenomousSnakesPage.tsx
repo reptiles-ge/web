@@ -29,12 +29,16 @@ const faqInlineLinkClassName =
 
 type VenomousSnakesPageProps = {
   heroSrc: string;
+  publishedAt: string;
   species: Species[];
+  updatedAt: string;
 };
 
 export async function VenomousSnakesPage({
   heroSrc,
+  publishedAt,
   species,
+  updatedAt,
 }: VenomousSnakesPageProps) {
   const t = await getTranslations("venomousSnakes");
   const locale = (await getLocale()) as AppLocale;
@@ -123,7 +127,7 @@ export async function VenomousSnakesPage({
           }))}
         />
 
-        <ContentAttribution />
+        <ContentAttribution publishedAt={publishedAt} updatedAt={updatedAt} />
 
         <VenomousSnakesCta heroSrc={heroSrc} />
       </div>

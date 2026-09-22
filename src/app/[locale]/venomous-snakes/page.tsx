@@ -24,6 +24,7 @@ import {
   speciesOgImageUrl,
   speciesPageUrl,
 } from "@/lib/site";
+import { pageDateFields } from "@/lib/structuredDataDates";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -159,6 +160,7 @@ export default async function VenomousSnakesRoute({ params }: Props) {
       name: georgiaPlaceName(locale),
     },
     author: { "@id": siteEntityId("organization") },
+    ...pageDateFields(PATH),
     description: t("metaDescription"),
     inLanguage: locale,
     isPartOf: { "@id": siteEntityId("website") },
@@ -176,6 +178,7 @@ export default async function VenomousSnakesRoute({ params }: Props) {
     publisher: { "@id": siteEntityId("organization") },
     url,
   };
+  const dates = pageDateFields(PATH);
 
   return (
     <>
@@ -195,7 +198,12 @@ export default async function VenomousSnakesRoute({ params }: Props) {
           "venomousSnakes",
         ]}
       >
-        <VenomousSnakesPage heroSrc={heroSrc} species={venomous} />
+        <VenomousSnakesPage
+          heroSrc={heroSrc}
+          publishedAt={dates.datePublished}
+          species={venomous}
+          updatedAt={dates.dateModified}
+        />
       </ClientMessagesProvider>
     </>
   );

@@ -40,6 +40,7 @@ import {
   speciesPageUrl,
 } from "@/lib/site";
 import { regionHref } from "@/lib/speciesRoutes";
+import { regionDateFields } from "@/lib/structuredDataDates";
 
 type PageProps = {
   params: Promise<{ id: string; locale: string }>;
@@ -160,6 +161,7 @@ export default async function RegionPage({ params }: PageProps) {
   const overview =
     localizeRegionTextIfPresent(content.overview, locale) ?? name;
   const pageUrl = absoluteUrl(localePath(locale, regionHref(region.id)));
+  const dates = regionDateFields(region.id);
   const species = getRegionSpecies(region).map((item) =>
     localizeSpecies(item, locale),
   );
@@ -180,6 +182,7 @@ export default async function RegionPage({ params }: PageProps) {
       name,
     },
     author: { "@id": siteEntityId("organization") },
+    ...regionDateFields(region.id),
     description: overview,
     inLanguage: locale,
     isPartOf: { "@id": siteEntityId("website") },
@@ -260,7 +263,12 @@ export default async function RegionPage({ params }: PageProps) {
         namespaces={["card", "danger", "groupHubShared", "map", "regions"]}
       >
         <RegionProfile
-          attribution={<ContentAttribution />}
+          attribution={
+            <ContentAttribution
+              publishedAt={dates.datePublished}
+              updatedAt={dates.dateModified}
+            />
+          }
           region={region}
           species={species}
           venomous={venomous}
