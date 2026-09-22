@@ -1,6 +1,8 @@
 import { getPublishedNewsArticles } from "@/data/news";
+import { regions } from "@/data/regions";
 import { getCatalogSpecies, type Species } from "@/data/species";
 import { type AnimalGroup, getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
+import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { pathnames } from "@/i18n/pathnames";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { absoluteUrl } from "@/lib/site";
@@ -43,6 +45,29 @@ const GROUP_HEADING: Record<AnimalGroup, string> = {
   snake: "Snakes",
   spider: "Spiders",
   turtle: "Turtles",
+};
+
+const GROUP_INDEX_PATH: Partial<Record<AnimalGroup, string>> = {
+  amphibian: "/amphibians/saxeoebebi",
+  bird: "/birds/saxeoebebi",
+  insect: "/insects/saxeoebebi",
+  lizard: "/lizards/saxeoebebi",
+  mammal: "/mammals/saxeoebebi",
+  snake: "/snakes/saxeoebebi",
+  spider: "/spiders/saxeoebebi",
+  turtle: "/turtles/saxeoebebi",
+};
+
+const GROUP_HUB_PATH: Record<AnimalGroup, string> = {
+  amphibian: "/amphibians",
+  bird: "/birds",
+  insect: "/insects",
+  lizard: "/lizards",
+  mammal: "/mammals",
+  scorpion: "/scorpions",
+  snake: "/snakes",
+  spider: "/spiders",
+  turtle: "/turtles",
 };
 
 const PRIORITY_PAGES: ReadonlyArray<{
@@ -118,7 +143,7 @@ export function buildLlmsFullText() {
     "",
     "> Digital atlas of animals of Georgia. Georgian URLs are canonical (`x-default`). Prefixed locales: `/en`, `/ru`, `/tr`.",
     "",
-    "Reptiles.ge is an editorial compilation, not a government agency and not a substitute for the papers it cites. Amphibians and reptiles follow Tarkhnishvili et al. 2026; birds, mammals, spiders, and insects are thinner published-profile sets, not complete national checklists. Empty size, region, IUCN, or Red List fields stay hidden. Checklist candidates stay candidates. Bite and venom pages are educational: call 112; they are not medical protocol.",
+    "Reptiles.ge is an editorial compilation, not a government agency and not a substitute for the papers it cites. Amphibians and reptiles follow Tarkhnishvili et al. 2026; birds, mammals, spiders, scorpions, and insects are published-profile sets, not complete national checklists. Empty size, region, IUCN, or Red List fields stay hidden. Checklist candidates stay candidates. Bite and venom pages are educational: call 112; they are not medical protocol.",
     "",
     `Generated: ${generatedAt}`,
     `Published species cards: ${species.length}`,
@@ -131,7 +156,7 @@ export function buildLlmsFullText() {
     "- For navigation and the full link map, use llms.txt.",
     "- Prefer the live profile URL when quoting; this file can lag a deploy by minutes.",
     "- Do not invent localities, measurements, or Red List status beyond what each card states.",
-    "- Herpetofauna and spiders use fuller cards; birds, mammals, and insects stay compact (thinner atlas layer).",
+    "- Herpetofauna, spiders, scorpions, and insects use fuller cards; birds and mammals stay compact (thinner atlas layer).",
     "",
     "## Priority pages",
     "",
@@ -186,6 +211,149 @@ export function buildLlmsFullText() {
   );
   parts.push(`- About / methods: ${absoluteUrl("/about")}`);
   parts.push("");
+
+  return parts.join("\n");
+}
+
+export function buildLlmsIndexText() {
+  const species = sortSpecies(getCatalogSpecies());
+  const news = getPublishedNewsArticles();
+  const byGroup = new Map<AnimalGroup, Species[]>();
+  for (const item of species) {
+    const group = getSpeciesAtlasMeta(item.id).group;
+    byGroup.set(group, [...(byGroup.get(group) ?? []), item]);
+  }
+
+  const parts: string[] = [
+    "# Reptiles.ge",
+    "",
+    "> Digital atlas of animals of Georgia: species profiles, identification, regional records, and educational safety pages. Georgian is canonical. Herpetofauna is the deepest layer.",
+    "",
+    "Reptiles.ge is an editorial compilation, not a government agency and not a substitute for the papers it cites. Amphibians and reptiles follow Tarkhnishvili et al. 2026; birds, mammals, spiders, scorpions, and insects are published-profile sets, not complete national checklists. Empty size, region, IUCN, or Red List fields stay hidden. Checklist candidates stay candidates. Bite and venom pages are educational: call 112; they are not medical protocol.",
+    "",
+    "Use Georgian URLs below as canonical (`x-default`). Prefixed locales are `/en`, `/ru`, and `/tr`. Default-locale group paths are Georgian (`/gvelebi`); prefixed locales use English pathnames (`/en/snakes`). Species slugs are Georgian on `ka` and the catalog id on `en`/`ru`/`tr` (example: `https://reptiles.ge/en/snakes/macrovipera-lebetina`). Do not use `/ka` prefixes or unprefixed English hub paths such as `/snakes` on the default locale.",
+    "",
+    "Priority order: About (methods) → 2026 herpetofauna checklist article → species atlas → group hubs and indexes → species profiles → identification and safety guides → region pages (only taxa with an administrative-unit record in the atlas).",
+    "",
+    "## Machine-readable",
+    "",
+    `- [llms.txt](${absoluteUrl(LLMS_TXT_PATH)}): This index (navigation + scope).`,
+    `- [llms-full.txt](${absoluteUrl(LLMS_FULL_PATH)}): One-shot extractable corpus — methods, priority guides, news, and published species cards. Prefer for ingestion; prefer live profile URLs when quoting.`,
+    `- [Sitemap](${absoluteUrl("/sitemap.xml")}): Full indexable URL set, including locale alternates.`,
+    "",
+    "## Core",
+    "",
+    `- [Home](${absoluteUrl("/")}): Georgian homepage for the atlas.`,
+    `- [Species atlas](${absoluteUrl("/species")}): Catalog of published profiles (${species.length} live pages). Not a complete national fauna.`,
+    `- [About](${absoluteUrl("/about")}): What the atlas is, what it will not infer, photography credits, and herpetofauna sources.`,
+    `- [Georgia herpetofauna checklist 2026](${absoluteUrl("/news/georgia-herpetofauna-checklist-2026")}): Editorial article on Tarkhnishvili et al. 2026 (12 amphibians, 56 reptiles in that paper).`,
+    "",
+    "## Group hubs",
+    "",
+  ];
+
+  for (const group of GROUP_ORDER) {
+    const items = byGroup.get(group) ?? [];
+    if (items.length === 0) continue;
+    parts.push(
+      `- [${GROUP_HEADING[group]}](${absoluteUrl(localizedPath("ka", GROUP_HUB_PATH[group]))}): ${groupSummary(group, items.length)}.`,
+    );
+  }
+
+  parts.push("", "## Species indexes", "");
+  for (const group of GROUP_ORDER) {
+    const path = GROUP_INDEX_PATH[group];
+    const items = byGroup.get(group) ?? [];
+    if (!path || items.length === 0) continue;
+    parts.push(
+      `- [${GROUP_HEADING[group]} index](${absoluteUrl(localizedPath("ka", path))}): Table of published ${group} profiles.`,
+    );
+  }
+
+  parts.push(
+    "",
+    "## Identification and field guides",
+    "",
+    `- [Venomous vs harmless snakes](${absoluteUrl("/gvelebi/shxamiani-gvelis-amocnoba")}): Visual cues are not universal; compare lookalikes and profiles.`,
+    `- [Lizard identification](${absoluteUrl("/xvlikebi/identifikacia")}): Field marks, lookalikes, and Darevskia caution (colour is not ID).`,
+    `- [Darevskia](${absoluteUrl("/xvlikebi/darevskia")}): Sixteen rock-lizard profiles kept separate. Colour is not identification. Candidates stay candidates.`,
+    `- [Lizard or glass lizard](${absoluteUrl("/xvlikebi/xvlikis-da-gvelxokeras-gansxvaveba")}): Glass lizard vs slow worm vs snakes. None of the three is venomous on this page.`,
+    `- [Turtle identification](${absoluteUrl("/kuebi/identifikacia")}): Four-taxon comparison (land, native freshwater, introduced slider).`,
+    `- [Frogs of Georgia](${absoluteUrl("/amfibiebi/bayayi")}): Anura guide (8 species in the atlas).`,
+    `- [Frog index](${absoluteUrl("/amfibiebi/bayayi/saxeoebebi")}): Frog and toad index table.`,
+    `- [Newts and salamanders](${absoluteUrl("/amfibiebi/tritoni-salamandra")}): Caudata guide (4 species in the atlas).`,
+    `- [Land turtles](${absoluteUrl("/kuebi/xmelis-kuebi")}): Spur-thighed tortoise cluster.`,
+    `- [Freshwater turtles](${absoluteUrl("/kuebi/tsqlis-kuebi")}): Pond turtle, Caspian turtle, and introduced slider.`,
+    `- [Snake range](${absoluteUrl("/gvelebi/gavrtseleba")}): Snake occurrence across the 12 regions as recorded in the atlas.`,
+    `- [Largest snakes](${absoluteUrl("/gvelebi/didi-gvelebi")}): Size only where profiles cite it. Glass lizard is a lizard.`,
+    `- [Venomous spiders](${absoluteUrl("/obobebi/shxamiani-obobebi")}): Spider risk guide for published atlas profiles.`,
+    `- [Spider bite](${absoluteUrl("/obobebi/obobis-nakbeni")}): Educational page. Call 112 for severe symptoms or uncertainty.`,
+    "",
+    "## Safety",
+    "",
+    `- [Venomous snakes in Georgia](${absoluteUrl("/gvelebi/shxamiani-gvelebi")}): Medically significant vipers in the atlas, plus identification links. Educational.`,
+    `- [Snakebite](${absoluteUrl("/gvelebi/gvelis-nakbeni")}): Educational page. Call 112. Not a medical protocol and not first-aid instruction for unsupervised use.`,
+    `- [Snakes in the yard](${absoluteUrl("/gvelebi/gveli-ezoshi")}): Practical notes on snakes near houses. Not a guaranteed repellent method.`,
+    `- [Risk to humans](${absoluteUrl("/riskis-doneebi")}): What Harmless, Moderate, and High mean on atlas profiles.`,
+    "",
+    "## Regions",
+    "",
+    "Region lists include only taxa assigned to that administrative unit in the atlas. Absence is not a national-range claim.",
+    "",
+    `- [Regions](${absoluteUrl("/regions")}): Map of Georgia’s 12 regions used by the atlas.`,
+  );
+
+  for (const region of regions) {
+    parts.push(
+      `- [${region.name.en}](${absoluteUrl(`/regions/${region.id}`)}): Atlas records for ${region.name.en}.`,
+    );
+  }
+
+  parts.push(
+    "",
+    "## News",
+    "",
+    "Editorial pieces with cited sources. The species profile remains the atlas record.",
+    "",
+    `- [News](${absoluteUrl("/news")}): Index of published articles.`,
+  );
+  for (const article of news) {
+    const copy = article.copy.en;
+    parts.push(
+      `- [${copy.title}](${localizedNewsUrl("ka", article.slug)}): ${copy.dek}`,
+    );
+  }
+
+  for (const group of GROUP_ORDER) {
+    const items = byGroup.get(group) ?? [];
+    if (items.length === 0) continue;
+    parts.push("", `## ${GROUP_HEADING[group]} species`, "");
+    if (group === "bird" || group === "mammal" || group === "spider") {
+      parts.push(
+        `Published ${GROUP_HEADING[group].toLowerCase()} profiles only. Not a complete national ${group === "bird" ? "avifauna" : "fauna"} list.`,
+        "",
+      );
+    }
+    for (const item of items) {
+      parts.push(formatSpeciesIndexLine(item));
+    }
+  }
+
+  parts.push(
+    "",
+    "## Secondary resources",
+    "",
+    `- [English](${absoluteUrl("/en")}): English homepage. Same catalog; English pathnames and scientific species slugs.`,
+    `- [Russian](${absoluteUrl("/ru")}): Russian homepage (\`/ru/…\` + English pathnames).`,
+    `- [Turkish](${absoluteUrl("/tr")}): Turkish homepage (\`/tr/…\` + English pathnames).`,
+    `- [Contact](${absoluteUrl("/contact")}): Corrections and questions.`,
+    `- [Quizzes](${absoluteUrl("/quiz")}): Quiz index. Turtle quiz is listed as coming soon (no URL).`,
+    `- [Which snake?](${absoluteUrl("/quiz/romeli-gvelia")}): Snake photo quiz. Practice, not field ID. No result URLs.`,
+    `- [Which lizard?](${absoluteUrl("/quiz/romeli-xvlikia")}): Lizard photo quiz. Practice, not field ID. No result URLs.`,
+    `- [Tarkhnishvili et al. 2026](https://doi.org/10.3897/caucasiana.5.e189214): Annotated checklist cited for amphibians and reptiles.`,
+    `- [Iankoshvili & Tarkhnishvili 2021](https://doi.org/10.1080/09397140.2021.1957208): Snake distribution paper cited on About and some snake profiles.`,
+    "",
+  );
 
   return parts.join("\n");
 }
@@ -318,8 +486,49 @@ function formatSpeciesCard(item: Species) {
   return lines.join("\n");
 }
 
+function formatSpeciesIndexLine(item: Species) {
+  const english = localizeSpecies(item, "en");
+  const details = [
+    english.commonName || item.commonName,
+    item.danger,
+    `Catalog id \`${item.id}\``,
+  ].filter(Boolean);
+  return `- [${item.scientificName}](${localizedSpeciesUrl("ka", item.id)}): ${details.join(". ")}.`;
+}
+
+function groupSummary(group: AnimalGroup, count: number) {
+  const countLabel = `${count} published ${count === 1 ? "profile" : "profiles"}`;
+  switch (group) {
+    case "amphibian":
+      return `Amphibian hub (${countLabel})`;
+    case "bird":
+      return `Bird hub (${countLabel}; published atlas profiles only, not a national avifauna list)`;
+    case "insect":
+      return `Insect hub (${countLabel}; published atlas profiles only)`;
+    case "lizard":
+      return `Lizard hub, including Darevskia and the glass lizard (${countLabel})`;
+    case "mammal":
+      return `Mammal hub (${countLabel}; published atlas profiles only, not a national mammal list)`;
+    case "scorpion":
+      return `Scorpion hub (${countLabel}; published atlas profiles only)`;
+    case "snake":
+      return `Snake hub for Georgia (${countLabel})`;
+    case "spider":
+      return `Spider hub (${countLabel}; published atlas profiles only, not a complete arachnofauna list)`;
+    case "turtle":
+      return `Turtle hub (${countLabel}, including one introduced slider)`;
+  }
+}
+
 function localizedNewsUrl(locale: AppLocale, slug: string) {
   return absoluteUrl(withLocalePrefix(locale, `/news/${slug}`));
+}
+
+function localizedPath(locale: AppLocale, path: string) {
+  const mapped = pathnames[path as keyof typeof pathnames];
+  if (!mapped) return withLocalePrefix(locale, path);
+  const template = typeof mapped === "string" ? mapped : mapped[locale];
+  return withLocalePrefix(locale, template);
 }
 
 function localizedSpeciesUrl(locale: AppLocale, id: string) {
