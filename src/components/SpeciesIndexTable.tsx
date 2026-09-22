@@ -210,7 +210,11 @@ export function SpeciesIndexTable({
               </thead>
               <tbody>
                 {filtered.map((item, rowIndex) => {
-                  const href = speciesHrefFromIndex(switchIndex, item.id, locale);
+                  const href = speciesHrefFromIndex(
+                    switchIndex,
+                    item.id,
+                    locale,
+                  );
                   const range = formatRange(
                     item.id,
                     locale,
@@ -231,7 +235,12 @@ export function SpeciesIndexTable({
                       key={item.id}
                     >
                       <td className="py-3 pr-4">
-                        <Link className="block" href={href} onClick={onClick}>
+                        <Link
+                          className="block"
+                          href={href}
+                          onClick={onClick}
+                          prefetch={false}
+                        >
                           <span className="relative block size-14 overflow-hidden rounded-xl bg-ink">
                             <CoverImage
                               alt={speciesImageAlt(
@@ -251,6 +260,7 @@ export function SpeciesIndexTable({
                           className="group block"
                           href={href}
                           onClick={onClick}
+                          prefetch={false}
                         >
                           <span className="font-display text-[16px] font-semibold text-foreground transition-colors group-hover:text-primary">
                             {item.commonName}
@@ -333,6 +343,7 @@ function IndexCard({
           species_id: species.id,
         })
       }
+      prefetch={false}
     >
       <span className="relative aspect-5/4 overflow-hidden rounded-2xl bg-ink sm:aspect-square">
         <CoverImage

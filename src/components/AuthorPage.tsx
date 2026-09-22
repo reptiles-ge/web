@@ -191,6 +191,7 @@ export async function AuthorPage({
                       <Link
                         className="inline-flex min-h-11 items-center text-[15px] text-muted-foreground transition-colors hover:text-foreground"
                         href={speciesHref(id, locale)}
+                        prefetch={false}
                       >
                         {localized.commonName}
                       </Link>
