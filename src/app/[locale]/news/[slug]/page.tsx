@@ -122,6 +122,7 @@ export default async function NewsArticleRoute({ params }: Props) {
   const url = newsArticleUrl(locale, article.slug);
   const ogImage = newsOgImageUrl(article);
   const published = newsDateTime(article.publishedAt);
+  const modified = newsDateTime(article.updatedAt ?? article.publishedAt);
   const org = organizationJsonLd();
 
   const breadcrumbLd = {
@@ -173,12 +174,6 @@ export default async function NewsArticleRoute({ params }: Props) {
   const articleLd = {
     "@context": "https://schema.org",
     "@type": "NewsArticle",
-    datePublished: published,
-    description: copy.metaDescription,
-    headline: copy.title,
-    ...(article.updatedAt
-      ? { dateModified: newsDateTime(article.updatedAt) }
-      : {}),
     about: [
       ...aboutPlaces,
       {
@@ -192,6 +187,10 @@ export default async function NewsArticleRoute({ params }: Props) {
       name: source.name,
       url: source.url,
     })),
+    dateModified: modified,
+    datePublished: published,
+    description: copy.metaDescription,
+    headline: copy.title,
     image: {
       "@type": "ImageObject",
       contentUrl: ogImage,

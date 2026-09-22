@@ -29,6 +29,7 @@ import {
   speciesPageUrl,
 } from "@/lib/site";
 import { isPlaceholderMedia } from "@/lib/speciesContent";
+import { pageDateFields } from "@/lib/structuredDataDates";
 
 type HubTranslator = Awaited<ReturnType<typeof getTranslations>>;
 
@@ -148,6 +149,7 @@ export function createGroupHubRoute(hubId: GroupHubId) {
         name: georgiaPlaceName(locale),
       },
       author: { "@id": siteEntityId("organization") },
+      ...pageDateFields(hub.path),
       description: t("metaDescription"),
       inLanguage: locale,
       isPartOf: { "@id": siteEntityId("website") },

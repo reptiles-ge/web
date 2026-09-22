@@ -29,6 +29,7 @@ import {
   speciesOgImageUrl,
   speciesPageUrl,
 } from "@/lib/site";
+import { pageDateFields } from "@/lib/structuredDataDates";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -102,6 +103,7 @@ export default async function SpeciesIndexPage({ params }: Props) {
   const recent = getAtlasRecentItems(locale);
   const tooltipSpeciesByRegion = getRegionTooltipPreviews(locale);
   const stats = getAtlasStats();
+  const dates = pageDateFields("/species");
 
   const breadcrumbLd = {
     "@context": "https://schema.org",
@@ -129,7 +131,8 @@ export default async function SpeciesIndexPage({ params }: Props) {
       "@type": "Place",
       name: georgiaPlaceName(locale),
     },
-    dateModified: stats.lastUpdated ?? undefined,
+    ...dates,
+    dateModified: stats.lastUpdated ?? dates.dateModified,
     description: t("metaDescription"),
     inLanguage: locale,
     isPartOf: { "@id": siteEntityId("website") },

@@ -27,6 +27,7 @@ import {
   getSnakeQuizCatalog,
   QUIZ_LENGTH,
 } from "@/lib/snakeQuiz";
+import { quizDateFields } from "@/lib/structuredDataDates";
 
 type Props = {
   params: Promise<{ locale: string; slug: string }>;
@@ -164,6 +165,7 @@ export default async function QuizSlugRoute({ params }: Props) {
       "@type": "Thing",
       name: t("title"),
     },
+    ...quizDateFields(quiz.id),
     description: t("metaDescription"),
     educationalLevel: "beginner",
     inLanguage: locale,
