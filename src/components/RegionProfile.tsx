@@ -137,6 +137,7 @@ function PhotoSpeciesCard({
           species_id: species.id,
         })
       }
+      prefetch={false}
     >
       <CoverImage
         alt={speciesImageAlt(

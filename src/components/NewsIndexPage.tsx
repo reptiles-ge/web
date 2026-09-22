@@ -87,6 +87,7 @@ export async function NewsIndexPage({ articles, locale }: NewsIndexPageProps) {
                           <NewsArticleCard
                             article={article}
                             locale={locale}
+                            prefetch={false}
                             variant="grid"
                           />
                         </li>

@@ -61,6 +61,7 @@ export function AtlasSpeciesGrid({ locale, species }: AtlasSpeciesGridProps) {
               eager={index < 3}
               index={index}
               locale={locale}
+              prefetch={false}
               species={item}
             />
           </li>

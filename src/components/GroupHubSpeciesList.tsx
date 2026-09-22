@@ -66,6 +66,7 @@ export async function GroupHubSpeciesList({
               </p>
               <SpeciesGuideList
                 locale={locale}
+                prefetch={false}
                 source="hub"
                 species={section.items}
               />
