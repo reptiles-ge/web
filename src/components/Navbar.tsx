@@ -4,13 +4,11 @@
 import { useTranslations } from "next-intl";
 import { useEffect, useId, useState } from "react";
 
-import type { LocaleSwitchIndex } from "@/lib/localeSwitch";
-
 import { NavbarChrome } from "@/components/NavbarChrome";
 import { NavbarMenu } from "@/components/NavbarMenu";
 import { usePathname } from "@/i18n/navigation";
 
-export function Navbar({ switchIndex }: { switchIndex: LocaleSwitchIndex }) {
+export function Navbar() {
   const t = useTranslations("nav");
   const pathname = usePathname();
   const darkHero = hasDarkHeroTop(pathname);
@@ -121,7 +119,6 @@ export function Navbar({ switchIndex }: { switchIndex: LocaleSwitchIndex }) {
         scrolled={scrolled}
         speciesHref="/species"
         speciesLabel={t("species")}
-        switchIndex={switchIndex}
       />
       <NavbarMenu
         closeMenuLabel={t("closeMenu")}
