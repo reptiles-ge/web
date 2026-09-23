@@ -184,6 +184,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     new URL(url).pathname,
     fallbackDescription,
   );
+  const portraitType = author.portraitSrc.endsWith(".webp")
+    ? "image/webp"
+    : "image/jpeg";
 
   return {
     alternates: creditAuthorAlternates(locale, author.slug),
@@ -193,7 +196,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       images: [
         {
           alt: title,
-          type: "image/jpeg",
+          type: portraitType,
           url: author.portraitSrc,
         },
       ],
