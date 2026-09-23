@@ -142,6 +142,7 @@ export function Navbar({ switchIndex }: { switchIndex: LocaleSwitchIndex }) {
 
 function hasDarkHeroTop(pathname: string) {
   if (pathname === "/contact") return false;
+  if (pathname === "/insects/krazanis-bude") return false;
   if (pathname === "/") return true;
   if (pathname === "/about") return true;
   if (pathname === "/venomous-snakes") return true;

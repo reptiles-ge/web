@@ -8,6 +8,7 @@ import {
   sitemapRegionDatePublished,
   sitemapRegionLastModified,
 } from "@/data/pageLastModified";
+import { formatContentDate } from "@/lib/formatDate";
 
 export function authorDateFields(slug: string) {
   return {
@@ -26,7 +27,10 @@ export function hasMeaningfulUpdate(
   if (Number.isNaN(published) || Number.isNaN(updated)) {
     return publishedAt !== updatedAt;
   }
-  return updated > published;
+  return (
+    updated > published &&
+    formatContentDate(publishedAt, "en") !== formatContentDate(updatedAt, "en")
+  );
 }
 
 export function pageDateFields(path: string) {

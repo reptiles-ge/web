@@ -581,6 +581,7 @@ export type HubClusterCard =
       href:
         | "/birds"
         | "/insects"
+        | "/insects/krazanis-bude"
         | "/lizards"
         | "/mammals"
         | "/scorpions"
@@ -625,6 +626,7 @@ export type HubClusterCard =
         | "turtleLand"
         | "turtleWater"
         | "venomous"
+        | "waspNest"
         | "yard";
       kind: "page";
     }
@@ -647,7 +649,10 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
     { href: "/amphibians/tritoni-salamandra", key: "newts", kind: "page" },
   ],
   birds: [{ href: "/birds/saxeoebebi", key: "birdIndex", kind: "page" }],
-  insects: [{ href: "/insects/saxeoebebi", key: "insectIndex", kind: "page" }],
+  insects: [
+    { href: "/insects/saxeoebebi", key: "insectIndex", kind: "page" },
+    { href: "/insects/krazanis-bude", key: "waspNest", kind: "page" },
+  ],
   lizards: [
     { href: "/lizards/saxeoebebi", key: "lizardIndex", kind: "page" },
     { id: "lizard", key: "lizardQuiz", kind: "quiz" },
