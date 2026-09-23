@@ -37,7 +37,9 @@ export const BEZOAR_GOAT_RESTORATION_JAVAKHETI_2026: NewsArticle = {
           blocks: [
             {
               parts: [
-                "The ministry says the project will be carried out jointly by the National Wildlife Agency, the Agency of Protected Areas and Tbilisi Zoo. Its stated aim is to restore the bezoar goat population and strengthen the Javakheti ecosystem.",
+                "The ministry says the project will be carried out jointly by the National Wildlife Agency, the Agency of Protected Areas and Tbilisi Zoo. Its stated aim is to restore the bezoar goat population and strengthen the ",
+                { id: "samtskhe-javakheti", label: "Javakheti", type: "region" },
+                " ecosystem.",
               ],
               type: "p",
             },
@@ -121,7 +123,13 @@ export const BEZOAR_GOAT_RESTORATION_JAVAKHETI_2026: NewsArticle = {
           blocks: [
             {
               parts: [
-                "სამინისტროს განცხადება ჯავახეთის დაცულ ტერიტორიებზე გამართულ მედიატურს უკავშირდება. ტექსტში ნათქვამია, რომ ჯავახეთის ბუნებრივი მემკვიდრეობის დაცვის მიმართულებით, თეთრობის აღკვეთილში ნიამორის აღდგენის პროექტი იწყება. პროექტს კოორდინირებულად განახორციელებენ ველური ბუნების ეროვნული სააგენტო, დაცული ტერიტორიების სააგენტო და თბილისის ზოოპარკი.",
+                "სამინისტროს განცხადება ",
+                {
+                  id: "samtskhe-javakheti",
+                  label: "ჯავახეთის დაცულ ტერიტორიებზე",
+                  type: "region",
+                },
+                " გამართულ მედიატურს უკავშირდება. ტექსტში ნათქვამია, რომ ჯავახეთის ბუნებრივი მემკვიდრეობის დაცვის მიმართულებით, თეთრობის აღკვეთილში ნიამორის აღდგენის პროექტი იწყება. პროექტს კოორდინირებულად განახორციელებენ ველური ბუნების ეროვნული სააგენტო, დაცული ტერიტორიების სააგენტო და თბილისის ზოოპარკი.",
               ],
               type: "p",
             },
@@ -284,7 +292,9 @@ export const BEZOAR_GOAT_RESTORATION_JAVAKHETI_2026: NewsArticle = {
           blocks: [
             {
               parts: [
-                "По заявлению министерства, проект координированно будут вести Национальное агентство дикой природы, Агентство охраняемых территорий и Тбилисский зоопарк. Цель названа как восстановление популяции безоарового козла и укрепление экосистемы Джавахети.",
+                "По заявлению министерства, проект координированно будут вести Национальное агентство дикой природы, Агентство охраняемых территорий и Тбилисский зоопарк. Цель названа как восстановление популяции безоарового козла и укрепление экосистемы ",
+                { id: "samtskhe-javakheti", label: "Джавахети", type: "region" },
+                ".",
               ],
               type: "p",
             },
@@ -362,7 +372,9 @@ export const BEZOAR_GOAT_RESTORATION_JAVAKHETI_2026: NewsArticle = {
           blocks: [
             {
               parts: [
-                "Bakanlığa göre proje Ulusal Yaban Hayatı Ajansı, Korunan Alanlar Ajansı ve Tiflis Hayvanat Bahçesi tarafından koordineli yürütülecek. Amaç, yaban keçisi popülasyonunun restorasyonu ve Cavakheti ekosisteminin güçlendirilmesi olarak açıklanıyor.",
+                "Bakanlığa göre proje Ulusal Yaban Hayatı Ajansı, Korunan Alanlar Ajansı ve Tiflis Hayvanat Bahçesi tarafından koordineli yürütülecek. Amaç, yaban keçisi popülasyonunun restorasyonu ve ",
+                { id: "samtskhe-javakheti", label: "Cavakheti", type: "region" },
+                " ekosisteminin güçlendirilmesi olarak açıklanıyor.",
               ],
               type: "p",
             },
@@ -432,7 +444,7 @@ export const BEZOAR_GOAT_RESTORATION_JAVAKHETI_2026: NewsArticle = {
   },
   id: "bezoar-goat-restoration-javakheti-2026",
   image: PHOTO_BEZOAR_GOAT,
-  publishedAt: "2026-09-21",
+  publishedAt: "2026-09-23T15:25:26+04:00",
   relatedHubIds: ["mammals"],
   relatedRegionIds: ["samtskhe-javakheti"],
   relatedSpeciesIds: ["capra-aegagrus"],
@@ -460,5 +472,5 @@ export const BEZOAR_GOAT_RESTORATION_JAVAKHETI_2026: NewsArticle = {
     },
   ],
   status: "published",
-  updatedAt: "2026-09-23",
+  updatedAt: "2026-09-23T15:25:26+04:00",
 };
