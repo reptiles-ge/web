@@ -85,6 +85,12 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
     en: "Lobed argiope (Argiope lobata) | Orb-weaver in Georgia",
     ka: "ლობებიანი არგიოპა (Argiope lobata) | ობობა საქართველოში",
   },
+  "blatta-orientalis": {
+    en: "Oriental cockroach (Blatta orientalis) in Georgia",
+    ka: "შავი ტარაკანა (Blatta orientalis) საქართველოში — ამოცნობა",
+    ru: "Чёрный таракан (Blatta orientalis) в Грузии",
+    tr: "Doğu hamam böceği (Blatta orientalis) Gürcistan'da",
+  },
   "canis-aureus": {
     ka: "ტურა (Canis aureus) საქართველოში — გავრცელება და ამოცნობა",
   },
@@ -248,6 +254,12 @@ const SPECIES_META_DESCRIPTION_OVERRIDE: Partial<
   },
   "argiope-bruennichi": {
     ka: "არგიოპა (Argiope bruennichi) საქართველოში — როგორ ამოიცნოთ ყვითელ-შავი ობობა, სად გვხვდება, რა ზომისაა და რატომ არ ითვლება ადამიანისთვის სამედიცინო რისკად.",
+  },
+  "blatta-orientalis": {
+    en: "Oriental cockroach in Georgia: map records and regional status, identification, size, damp refuges and household risks.",
+    ka: "შავი ტარაკანა საქართველოში — რუკის ჩანაწერები და რეგიონული სტატუსი, ამოცნობა, ზომა, ნოტიო სამალავები და საყოფაცხოვრებო რისკები.",
+    ru: "Чёрный таракан в Грузии: записи на карте и региональный статус, признаки, размер, влажные укрытия и домашние риски.",
+    tr: "Gürcistan'da Doğu hamam böceği: harita kayıtları ve bölgesel durum, tanıma, boy, nemli saklanma yerleri ve ev içi riskler.",
   },
   "buteo-buteo": {
     ka: "ჩვეულებრივი კაკაჩა (Buteo buteo) საქართველოში — ამოცნობის ნიშნები, გავრცელება, ჰაბიტატი, კვება, მიგრაცია ბათუმის გავლით და რატომ არის ადამიანისთვის უვნებელი.",

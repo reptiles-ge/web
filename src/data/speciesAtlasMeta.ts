@@ -71,6 +71,10 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "bird",
     habitats: ["grassland"],
   },
+  "blatta-orientalis": {
+    group: "insect",
+    habitats: [],
+  },
   "bubo-bubo": {
     group: "bird",
     habitats: ["mountain", "forest", "grassland"],

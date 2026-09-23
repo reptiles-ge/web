@@ -564,6 +564,41 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 480],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/blatta-orientalis-denis-1.jpg": {
+    "path": "blatta-orientalis-denis-1",
+    "width": 783,
+    "height": 1024,
+    "widths": [320, 400, 640, 783],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/blatta-orientalis-elena-u-1.jpg": {
+    "path": "blatta-orientalis-elena-u-1",
+    "width": 768,
+    "height": 1024,
+    "widths": [320, 400, 640, 768],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/blatta-orientalis-kiril-2.jpg": {
+    "path": "blatta-orientalis-kiril-2",
+    "width": 771,
+    "height": 1024,
+    "widths": [320, 400, 640, 771],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/blatta-orientalis-krunku-1.jpg": {
+    "path": "blatta-orientalis-krunku-1",
+    "width": 1024,
+    "height": 964,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/blatta-orientalis-zj-adram-1.jpg": {
+    "path": "blatta-orientalis-zj-adram-1",
+    "width": 1024,
+    "height": 861,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/bubo-bubo-aiken-1.jpg": {
     "path": "bubo-bubo-aiken-1",
     "width": 1024,
