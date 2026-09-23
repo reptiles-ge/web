@@ -4487,6 +4487,87 @@
       ],
       "updatedAt": "2026-09-23T13:31:06.569Z"
     },
+    "blatta-orientalis-zj-adram-1.jpg": {
+      "sourceHash": "616b9c2dd850b6b2676cceda003c610c3cfa6e4db11eece6ea83bc915aeb9f17",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "blatta-orientalis-zj-adram-1.jpg",
+      "originalSize": 389801,
+      "width": 1024,
+      "height": 861,
+      "derivatives": [
+        {
+          "key": "optimized/blatta-orientalis-zj-adram-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 269,
+          "byteSize": 23600
+        },
+        {
+          "key": "optimized/blatta-orientalis-zj-adram-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 269,
+          "byteSize": 35554
+        },
+        {
+          "key": "optimized/blatta-orientalis-zj-adram-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 336,
+          "byteSize": 38392
+        },
+        {
+          "key": "optimized/blatta-orientalis-zj-adram-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 336,
+          "byteSize": 56422
+        },
+        {
+          "key": "optimized/blatta-orientalis-zj-adram-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 538,
+          "byteSize": 92435
+        },
+        {
+          "key": "optimized/blatta-orientalis-zj-adram-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 538,
+          "byteSize": 142858
+        },
+        {
+          "key": "optimized/blatta-orientalis-zj-adram-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 673,
+          "byteSize": 129580
+        },
+        {
+          "key": "optimized/blatta-orientalis-zj-adram-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 673,
+          "byteSize": 212808
+        },
+        {
+          "key": "optimized/blatta-orientalis-zj-adram-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 861,
+          "byteSize": 188931
+        },
+        {
+          "key": "optimized/blatta-orientalis-zj-adram-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 861,
+          "byteSize": 316772
+        }
+      ],
+      "updatedAt": "2026-09-23T13:32:12.328Z"
+    },
     "bubo-bubo-aiken-1.jpg": {
       "sourceHash": "700e2cc2e3ac402f4b766828f2678ce6461bd7575f883e3465b78f883afb8db3",
       "configFingerprint": "409788ee46c653d8",
