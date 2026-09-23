@@ -9,6 +9,7 @@ import { notFound } from "next/navigation";
 import { ContentAttribution } from "@/components/ContentAttribution";
 import { JsonLd } from "@/components/JsonLd";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
+import { WaspNestFaqItems } from "@/components/WaspNestFaqItems";
 import { WASP_NEST_COPY, WASP_NEST_SOURCES } from "@/content/guides/waspNest";
 import { openGraphLocale } from "@/i18n/localeMeta";
 import { Link } from "@/i18n/navigation";
@@ -268,18 +269,7 @@ export default async function WaspNestPage({ params }: Props) {
             <h2 className="font-display text-display-card font-semibold text-foreground">
               {LABELS[locale].faq}
             </h2>
-            <div className="mt-7 space-y-8">
-              {copy.faq.map((item) => (
-                <div key={item.question}>
-                  <h3 className="font-display text-xl font-semibold text-foreground">
-                    {item.question}
-                  </h3>
-                  <p className="mt-2 text-[16px] leading-[1.8] text-muted-foreground">
-                    <PhoneLinkedText>{item.answer}</PhoneLinkedText>
-                  </p>
-                </div>
-              ))}
-            </div>
+            <WaspNestFaqItems items={copy.faq} />
           </section>
 
           <section className="mt-16 border-t border-border pt-10">
