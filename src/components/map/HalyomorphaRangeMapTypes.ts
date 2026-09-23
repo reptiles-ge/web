@@ -25,6 +25,7 @@ export type HalyomorphaRangeMapCopy = {
   galleryAction: string;
   iNaturalistRecordLabel: string;
   loadingLabel: string;
+  loadingText: string;
   locationRecordLabel: string;
   mapAria: string;
   mapError: string;
