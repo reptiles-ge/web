@@ -1,4 +1,5 @@
 import { getLocale, getTranslations } from "next-intl/server";
+import type { ReactNode } from "react";
 
 import type { AppLocale } from "@/i18n/routing";
 import type { ClusterGuideViewProps } from "@/lib/clusterGuides";
@@ -28,7 +29,7 @@ export async function ClusterGuidePage({
   const guideP3 = t.has("guideP3") ? t("guideP3") : null;
   const familyCount = new Set(species.map((item) => item.family)).size;
   const richLinks = {
-    amphibianIndex: (chunks) => (
+    amphibianIndex: (chunks: ReactNode) => (
       <Link
         className="font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
         href="/amphibians/saxeoebebi"
@@ -36,7 +37,7 @@ export async function ClusterGuidePage({
         {chunks}
       </Link>
     ),
-    anura: (chunks) => (
+    anura: (chunks: ReactNode) => (
       <Link
         className="font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
         href="/amphibians/bayayi"
@@ -44,7 +45,7 @@ export async function ClusterGuidePage({
         {chunks}
       </Link>
     ),
-    caudata: (chunks) => (
+    caudata: (chunks: ReactNode) => (
       <Link
         className="font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
         href="/amphibians/tritoni-salamandra"
@@ -52,15 +53,15 @@ export async function ClusterGuidePage({
         {chunks}
       </Link>
     ),
-    caucasianBrownFrog: (chunks) => (
+    caucasianBrownFrog: (chunks: ReactNode) => (
       <SpeciesInlineLink id="rana-macrocnemis">{chunks}</SpeciesInlineLink>
     ),
-    caucasianSalamander: (chunks) => (
+    caucasianSalamander: (chunks: ReactNode) => (
       <SpeciesInlineLink id="mertensiella-caucasica">
         {chunks}
       </SpeciesInlineLink>
     ),
-    marshFrog: (chunks) => (
+    marshFrog: (chunks: ReactNode) => (
       <SpeciesInlineLink id="pelophylax-ridibundus">
         {chunks}
       </SpeciesInlineLink>
