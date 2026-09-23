@@ -10066,6 +10066,59 @@
       ],
       "updatedAt": "2026-09-19T07:36:50.969Z"
     },
+    "cimex-lectularius-gernotkunz-1.jpg": {
+      "sourceHash": "184760661bca5ebb5332b007baa08c54964b6bbfe13f5792f4ed8ff4f5306128",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "cimex-lectularius-gernotkunz-1.jpg",
+      "originalSize": 40680,
+      "width": 500,
+      "height": 333,
+      "derivatives": [
+        {
+          "key": "optimized/cimex-lectularius-gernotkunz-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8348
+        },
+        {
+          "key": "optimized/cimex-lectularius-gernotkunz-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10600
+        },
+        {
+          "key": "optimized/cimex-lectularius-gernotkunz-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 12168
+        },
+        {
+          "key": "optimized/cimex-lectularius-gernotkunz-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 15052
+        },
+        {
+          "key": "optimized/cimex-lectularius-gernotkunz-1-500.avif",
+          "format": "avif",
+          "width": 500,
+          "height": 333,
+          "byteSize": 17733
+        },
+        {
+          "key": "optimized/cimex-lectularius-gernotkunz-1-500.webp",
+          "format": "webp",
+          "width": 500,
+          "height": 333,
+          "byteSize": 22084
+        }
+      ],
+      "updatedAt": "2026-09-23T12:22:29.440Z"
+    },
     "coronella-austriaca-1.jpg": {
       "sourceHash": "b53893e4de09a7fbefeb940d157baa7efc173567c8d8935dc368843879d16e4e",
       "configFingerprint": "409788ee46c653d8",
