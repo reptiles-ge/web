@@ -11,6 +11,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { WaspNestFaqItems } from "@/components/WaspNestFaqItems";
 import { WASP_NEST_COPY, WASP_NEST_SOURCES } from "@/content/guides/waspNest";
+import { optimizedImgSrc } from "@/data/optimizedImages";
 import { openGraphLocale } from "@/i18n/localeMeta";
 import { Link } from "@/i18n/navigation";
 import { type AppLocale, routing } from "@/i18n/routing";
@@ -75,7 +76,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     new URL(url).pathname,
     copy.description,
   );
-  const imageUrl = absoluteUrl(HERO_IMAGE);
+  const imageUrl = optimizedImgSrc(HERO_IMAGE);
 
   return {
     alternates: localeAlternates(locale, PATH),
@@ -160,9 +161,9 @@ export default async function WaspNestPage({ params }: Props) {
     headline: copy.title,
     image: {
       "@type": "ImageObject",
-      contentUrl: absoluteUrl(HERO_IMAGE),
+      contentUrl: optimizedImgSrc(HERO_IMAGE),
       height: 1107,
-      url: absoluteUrl(HERO_IMAGE),
+      url: optimizedImgSrc(HERO_IMAGE),
       width: 1421,
     },
     inLanguage: locale,
@@ -231,7 +232,7 @@ export default async function WaspNestPage({ params }: Props) {
               height={1107}
               preload
               sizes="(max-width: 1023px) 100vw, 1400px"
-              src={HERO_IMAGE}
+              src={optimizedImgSrc(HERO_IMAGE)}
               width={1421}
             />
           </figure>
@@ -256,7 +257,7 @@ export default async function WaspNestPage({ params }: Props) {
                       className="h-auto w-full rounded-card"
                       height={1024}
                       sizes="(max-width: 1023px) 100vw, 1400px"
-                      src={COMB_IMAGE}
+                      src={optimizedImgSrc(COMB_IMAGE)}
                       width={1536}
                     />
                   </figure>
