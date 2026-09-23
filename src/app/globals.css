@@ -603,6 +603,10 @@ input[type="search"]::-webkit-search-results-decoration {
   outline-offset: 0.25rem;
 }
 
+[data-not-found-shell]:has([data-not-found-rich]) > [data-not-found-fallback] {
+  display: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .halyomorpha-count-marker,
   .halyomorpha-field-marker::before,

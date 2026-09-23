@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import { getLocale } from "next-intl/server";
 
-import { NotFoundContent } from "@/components/NotFoundContent";
+import { NotFoundShell } from "@/components/NotFoundShell";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { notFoundMetadata } from "@/lib/notFoundMetadata";
 
@@ -12,5 +12,5 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function NotFound() {
-  return <NotFoundContent />;
+  return <NotFoundShell />;
 }
