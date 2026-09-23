@@ -12,6 +12,7 @@ import { WASP_NEST_COPY, WASP_NEST_SOURCES } from "@/content/guides/waspNest";
 import { openGraphLocale } from "@/i18n/localeMeta";
 import { Link } from "@/i18n/navigation";
 import { type AppLocale, routing } from "@/i18n/routing";
+import { formatContentDate } from "@/lib/formatDate";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import {
   absoluteUrl,
@@ -21,7 +22,7 @@ import {
   siteConfig,
   siteEntityId,
 } from "@/lib/site";
-import { pageDateFields } from "@/lib/structuredDataDates";
+import { hasMeaningfulUpdate, pageDateFields } from "@/lib/structuredDataDates";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -114,9 +115,10 @@ export default async function WaspNestPage({ params }: Props) {
   const locale = value as AppLocale;
   setRequestLocale(locale);
 
-  const [tShared, tInsects] = await Promise.all([
+  const [tShared, tInsects, tNews] = await Promise.all([
     getTranslations({ locale, namespace: "groupHubShared" }),
     getTranslations({ locale, namespace: "insects" }),
+    getTranslations({ locale, namespace: "news" }),
   ]);
   const copy = WASP_NEST_COPY[locale];
   const photoAlt = PHOTO_ALT[locale];
@@ -190,7 +192,24 @@ export default async function WaspNestPage({ params }: Props) {
               <li className="text-foreground">{copy.title}</li>
             </ol>
           </nav>
-          <h1 className="mt-8 font-display text-display-lead font-semibold text-foreground">
+          <p className="text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
+            <time dateTime={dates.datePublished}>
+              {tNews("published", {
+                date: formatContentDate(dates.datePublished, locale),
+              })}
+            </time>
+            {hasMeaningfulUpdate(dates.datePublished, dates.dateModified) ? (
+              <>
+                <span aria-hidden="true"> · </span>
+                <time dateTime={dates.dateModified}>
+                  {tNews("updated", {
+                    date: formatContentDate(dates.dateModified, locale),
+                  })}
+                </time>
+              </>
+            ) : null}
+          </p>
+          <h1 className="mt-5 font-display text-display-lead font-semibold text-foreground">
             {copy.title}
           </h1>
           <p className="mt-7 border-l-4 border-primary pl-5 text-[18px] leading-[1.7] text-foreground">
