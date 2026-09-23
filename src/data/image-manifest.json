@@ -10066,6 +10066,165 @@
       ],
       "updatedAt": "2026-09-19T07:36:50.969Z"
     },
+    "cimex-lectularius-gernotkunz-1.jpg": {
+      "sourceHash": "184760661bca5ebb5332b007baa08c54964b6bbfe13f5792f4ed8ff4f5306128",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "cimex-lectularius-gernotkunz-1.jpg",
+      "originalSize": 40680,
+      "width": 500,
+      "height": 333,
+      "derivatives": [
+        {
+          "key": "optimized/cimex-lectularius-gernotkunz-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8348
+        },
+        {
+          "key": "optimized/cimex-lectularius-gernotkunz-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10600
+        },
+        {
+          "key": "optimized/cimex-lectularius-gernotkunz-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 12168
+        },
+        {
+          "key": "optimized/cimex-lectularius-gernotkunz-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 15052
+        },
+        {
+          "key": "optimized/cimex-lectularius-gernotkunz-1-500.avif",
+          "format": "avif",
+          "width": 500,
+          "height": 333,
+          "byteSize": 17733
+        },
+        {
+          "key": "optimized/cimex-lectularius-gernotkunz-1-500.webp",
+          "format": "webp",
+          "width": 500,
+          "height": 333,
+          "byteSize": 22084
+        }
+      ],
+      "updatedAt": "2026-09-23T12:22:29.440Z"
+    },
+    "cimex-lectularius-gilles-1.jpg": {
+      "sourceHash": "fff9d5df609f537311a7d5efb47e9ce879549aacc9abaa200800d045bdabdfb7",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "cimex-lectularius-gilles-1.jpg",
+      "originalSize": 59692,
+      "width": 500,
+      "height": 331,
+      "derivatives": [
+        {
+          "key": "optimized/cimex-lectularius-gilles-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 212,
+          "byteSize": 13430
+        },
+        {
+          "key": "optimized/cimex-lectularius-gilles-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 212,
+          "byteSize": 18046
+        },
+        {
+          "key": "optimized/cimex-lectularius-gilles-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 265,
+          "byteSize": 19474
+        },
+        {
+          "key": "optimized/cimex-lectularius-gilles-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 265,
+          "byteSize": 26526
+        },
+        {
+          "key": "optimized/cimex-lectularius-gilles-1-500.avif",
+          "format": "avif",
+          "width": 500,
+          "height": 331,
+          "byteSize": 28441
+        },
+        {
+          "key": "optimized/cimex-lectularius-gilles-1-500.webp",
+          "format": "webp",
+          "width": 500,
+          "height": 331,
+          "byteSize": 39318
+        }
+      ],
+      "updatedAt": "2026-09-23T12:20:42.376Z"
+    },
+    "cimex-lectularius-katja-1.jpg": {
+      "sourceHash": "487d371368ae750f60a4fff58465fe642a6e939126858dffe80579aab2076463",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "cimex-lectularius-katja-1.jpg",
+      "originalSize": 36687,
+      "width": 500,
+      "height": 375,
+      "derivatives": [
+        {
+          "key": "optimized/cimex-lectularius-katja-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 6766
+        },
+        {
+          "key": "optimized/cimex-lectularius-katja-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 8786
+        },
+        {
+          "key": "optimized/cimex-lectularius-katja-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 9454
+        },
+        {
+          "key": "optimized/cimex-lectularius-katja-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 12108
+        },
+        {
+          "key": "optimized/cimex-lectularius-katja-1-500.avif",
+          "format": "avif",
+          "width": 500,
+          "height": 375,
+          "byteSize": 13569
+        },
+        {
+          "key": "optimized/cimex-lectularius-katja-1-500.webp",
+          "format": "webp",
+          "width": 500,
+          "height": 375,
+          "byteSize": 17154
+        }
+      ],
+      "updatedAt": "2026-09-23T12:21:58.354Z"
+    },
     "coronella-austriaca-1.jpg": {
       "sourceHash": "b53893e4de09a7fbefeb940d157baa7efc173567c8d8935dc368843879d16e4e",
       "configFingerprint": "409788ee46c653d8",

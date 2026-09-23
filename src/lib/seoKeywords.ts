@@ -11,6 +11,12 @@ const SPECIES_ALIASES: Record<
     en: ["Asian snake-eyed skink", "lidless skink", "snake-eyed skink"],
     ka: ["აზიური შიშველთვალა", "შიშველთვალა"],
   },
+  "cimex-lectularius": {
+    en: ["bed bug"],
+    ka: ["ლოგინის ბაღლინჯო"],
+    ru: ["обыкновенный постельный клоп"],
+    tr: ["yatak böceği"],
+  },
   "coronella-austriaca": {
     en: ["smooth snake", "Coronella"],
     ka: ["გლუვი გველი", "სპილენძა გველი"],
