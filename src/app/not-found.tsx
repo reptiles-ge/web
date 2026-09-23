@@ -11,7 +11,7 @@ import { cookies } from "next/headers";
 import { LocaleSwitchProvider } from "@/components/LocaleSwitchProvider";
 import { LogoPreload } from "@/components/LogoPreload";
 import { Navbar } from "@/components/Navbar";
-import { NotFoundContent } from "@/components/NotFoundContent";
+import { NotFoundShell } from "@/components/NotFoundShell";
 import { SkipLink } from "@/components/SkipLink";
 import {
   type ClientMessages,
@@ -40,7 +40,7 @@ export default async function RootNotFound() {
         <LogoPreload />
         <Navbar />
         <main id="main" tabIndex={-1}>
-          <NotFoundContent />
+          <NotFoundShell />
         </main>
       </LocaleSwitchProvider>
     </NextIntlClientProvider>
