@@ -714,9 +714,13 @@ export async function SpeciesRangeMap({
         occurrenceSummary={interactiveRangeSummary}
         officialRange={officialRangeForRegions(
           interactiveRangeConfig.rangeSource === "record-summary"
-            ? interactiveRangeSummary.recordsByRegion
-                .filter((region) => region.status === "confirmed")
-                .map((region) => region.id)
+            ? interactiveRangeSummary.recordsByRegion.reduce<string[]>(
+                (ids, region) => {
+                  if (region.status === "confirmed") ids.push(region.id);
+                  return ids;
+                },
+                [],
+              )
             : highlightedIds,
         )}
         speciesId={speciesId}

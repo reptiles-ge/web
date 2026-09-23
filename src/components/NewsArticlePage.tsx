@@ -62,14 +62,9 @@ export async function NewsArticlePage({
   const updatedLabel = article.updatedAt
     ? formatContentDate(article.updatedAt, locale)
     : null;
-  const sourceOrg = newsSourceOrg(article);
   const hub = newsCategoryHub(article);
   const category = hub ? tNav(hub) : null;
   const visual = getNewsVisual(article, locale);
-  const primarySource = article.sources[0];
-  const moreSources = article.sources.slice(1);
-  const sourceHeading =
-    article.sources.length > 1 ? t("sourceHeadingPlural") : t("sourceHeading");
   const species = newsRelatedSpecies(article).map((item) =>
     localizeSpecies(item, locale),
   );
@@ -199,52 +194,7 @@ export async function NewsArticlePage({
               </section>
             ))}
 
-            {primarySource ? (
-              <aside className="mt-16 border-t border-border pt-10 sm:mt-20">
-                <AnchoredHeading
-                  anchorLabel={t("anchorLink")}
-                  as="h2"
-                  className="font-display text-display-card font-semibold text-foreground"
-                  id="sources"
-                >
-                  {sourceHeading}
-                </AnchoredHeading>
-                <a
-                  className="group mt-6 inline-flex min-h-11 max-w-full items-center gap-2 font-display text-display-card font-semibold text-foreground transition-colors hover:text-primary"
-                  href={primarySource.url}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  {sourceOrg}
-                  <ArrowUpRight
-                    aria-hidden="true"
-                    className="size-4 shrink-0 text-muted-foreground group-hover:text-primary motion-safe:transition-transform motion-safe:duration-300 motion-safe:group-hover:translate-x-0.5 motion-safe:group-hover:-translate-y-0.5"
-                  />
-                </a>
-                {moreSources.length > 0 ? (
-                  <ul className="mt-6 space-y-2">
-                    {moreSources.map((source) => (
-                      <li key={source.url}>
-                        <a
-                          className="group inline-flex max-w-full items-start gap-2 text-[14px] text-muted-foreground transition-colors hover:text-foreground"
-                          href={source.url}
-                          rel="noopener noreferrer"
-                          target="_blank"
-                        >
-                          <span className="border-b border-border pb-0.5 transition-colors group-hover:border-foreground/40">
-                            {source.name}
-                          </span>
-                          <ArrowUpRight
-                            aria-hidden="true"
-                            className="mt-0.5 size-3.5 shrink-0"
-                          />
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                ) : null}
-              </aside>
-            ) : null}
+            <NewsArticleSources article={article} locale={locale} />
           </div>
 
           {hasRelated ? (
@@ -318,6 +268,63 @@ export async function NewsArticlePage({
         />
       </div>
     </div>
+  );
+}
+
+async function NewsArticleSources({ article, locale }: NewsArticlePageProps) {
+  const primarySource = article.sources[0];
+  if (!primarySource) return null;
+
+  const t = await getTranslations({ locale, namespace: "news" });
+  const moreSources = article.sources.slice(1);
+  const sourceHeading =
+    article.sources.length > 1 ? t("sourceHeadingPlural") : t("sourceHeading");
+
+  return (
+    <aside className="mt-16 border-t border-border pt-10 sm:mt-20">
+      <AnchoredHeading
+        anchorLabel={t("anchorLink")}
+        as="h2"
+        className="font-display text-display-card font-semibold text-foreground"
+        id="sources"
+      >
+        {sourceHeading}
+      </AnchoredHeading>
+      <a
+        className="group mt-6 inline-flex min-h-11 max-w-full items-center gap-2 font-display text-display-card font-semibold text-foreground transition-colors hover:text-primary"
+        href={primarySource.url}
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        {newsSourceOrg(article)}
+        <ArrowUpRight
+          aria-hidden="true"
+          className="size-4 shrink-0 text-muted-foreground group-hover:text-primary motion-safe:transition-transform motion-safe:duration-300 motion-safe:group-hover:translate-x-0.5 motion-safe:group-hover:-translate-y-0.5"
+        />
+      </a>
+      {moreSources.length > 0 ? (
+        <ul className="mt-6 space-y-2">
+          {moreSources.map((source) => (
+            <li key={source.url}>
+              <a
+                className="group inline-flex max-w-full items-start gap-2 text-[14px] text-muted-foreground transition-colors hover:text-foreground"
+                href={source.url}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <span className="border-b border-border pb-0.5 transition-colors group-hover:border-foreground/40">
+                  {source.name}
+                </span>
+                <ArrowUpRight
+                  aria-hidden="true"
+                  className="mt-0.5 size-3.5 shrink-0"
+                />
+              </a>
+            </li>
+          ))}
+        </ul>
+      ) : null}
+    </aside>
   );
 }
 

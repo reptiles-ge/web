@@ -12,7 +12,9 @@ export function WaspNestFaqItems({
   items: { answer: string; question: string }[];
 }) {
   const id = useId();
-  const [open, setOpen] = useState(items.map((_, index) => index === 0));
+  const [open, setOpen] = useState(() =>
+    items.map((_, index) => index === 0),
+  );
 
   return (
     <div className="mt-7">
