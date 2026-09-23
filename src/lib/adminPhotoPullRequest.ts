@@ -314,10 +314,10 @@ function currentBranchName(cwd: string) {
   }
 }
 
-function findOpenPhotoPullRequest(
+async function findOpenPhotoPullRequest(
   baseBranch: string,
   id: string,
-): null | { branch: string; url: string } {
+): Promise<null | { branch: string; url: string }> {
   try {
     const raw = run(
       "gh",
@@ -347,8 +347,59 @@ function findOpenPhotoPullRequest(
         typeof pr.url === "string" &&
         pr.url.startsWith("http"),
     );
-    if (!match?.headRefName || !match.url) return null;
-    return { branch: match.headRefName, url: match.url };
+    if (match?.headRefName && match.url) {
+      return { branch: match.headRefName, url: match.url };
+    }
+  } catch {}
+
+  try {
+    const remote = run("git", ["remote", "get-url", "origin"], REPO_ROOT);
+    const match = remote.match(/github\.com[:/]([^/]+)\/([^/]+?)(?:\.git)?$/);
+    if (!match) return null;
+    const [, owner, repo] = match;
+    const response = await fetch(
+      `https://api.github.com/repos/${owner}/${repo}/pulls?state=open&base=${encodeURIComponent(baseBranch)}&per_page=100`,
+      { cache: "no-store" },
+    );
+    if (!response.ok) return null;
+    const prs = (await response.json()) as Array<{
+      head?: { ref?: string };
+      html_url?: string;
+    }>;
+    const matchPr = prs.find((pr) => pr.head?.ref?.startsWith(`photos/${id}-`));
+    return matchPr?.head?.ref && matchPr.html_url
+      ? { branch: matchPr.head.ref, url: matchPr.html_url }
+      : null;
+  } catch {
+    return null;
+  }
+}
+
+async function findOpenPullRequestForHead(
+  branch: string,
+): Promise<null | string> {
+  try {
+    const raw = run(
+      "gh",
+      ["pr", "list", "--head", branch, "--state", "open", "--json", "url"],
+      REPO_ROOT,
+    );
+    const prs = JSON.parse(raw) as Array<{ url?: string }>;
+    if (prs[0]?.url) return prs[0].url;
+  } catch {}
+
+  try {
+    const remote = run("git", ["remote", "get-url", "origin"], REPO_ROOT);
+    const match = remote.match(/github\.com[:/]([^/]+)\/([^/]+?)(?:\.git)?$/);
+    if (!match) return null;
+    const [, owner, repo] = match;
+    const response = await fetch(
+      `https://api.github.com/repos/${owner}/${repo}/pulls?state=open&head=${encodeURIComponent(`${owner}:${branch}`)}`,
+      { cache: "no-store" },
+    );
+    if (!response.ok) return null;
+    const prs = (await response.json()) as Array<{ html_url?: string }>;
+    return prs[0]?.html_url ?? null;
   } catch {
     return null;
   }
@@ -446,7 +497,37 @@ async function withPhotoPullRequest(input: {
 }): Promise<string> {
   const rel = speciesMdxRel(input.id);
   const base = resolvePhotoBase(input.id);
-  const existing = findOpenPhotoPullRequest(base.branch, input.id);
+
+  if (base.ref === "HEAD") {
+    if (run("git", ["status", "--porcelain"], REPO_ROOT)) {
+      throw new Error(
+        "Commit or stash local changes before using admin photos",
+      );
+    }
+    await input.apply(REPO_ROOT);
+    run("git", ["add", "--", ...rel, ...(input.extraFiles ?? [])], REPO_ROOT);
+    if (!hasStagedChanges(REPO_ROOT)) {
+      throw new Error("No gallery changes to open a pull request for");
+    }
+    run(
+      "git",
+      ["commit", "-m", input.title, "-m", input.commitBody],
+      REPO_ROOT,
+    );
+    run(
+      "git",
+      ["push", "-u", "origin", `HEAD:refs/heads/${base.branch}`],
+      REPO_ROOT,
+    );
+    const url = await findOpenPullRequestForHead(base.branch);
+    if (!url)
+      throw new Error(
+        `Changes pushed to ${base.branch}, but no open PR was found`,
+      );
+    return url;
+  }
+
+  const existing = await findOpenPhotoPullRequest(base.branch, input.id);
   const branch = existing?.branch ?? `photos/${input.id}-${stamp()}`;
   const onPhotoBranch =
     Boolean(existing) && currentBranchName(REPO_ROOT) === branch;

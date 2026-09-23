@@ -4420,6 +4420,369 @@
       ],
       "updatedAt": "2026-09-06T13:11:15.286Z"
     },
+    "blatta-orientalis-denis-1.jpg": {
+      "sourceHash": "ac3c2372f42516ec40138fa1425039d55cde5966653e16e164175778d7cbfb78",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "blatta-orientalis-denis-1.jpg",
+      "originalSize": 184496,
+      "width": 783,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/blatta-orientalis-denis-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 418,
+          "byteSize": 21408
+        },
+        {
+          "key": "optimized/blatta-orientalis-denis-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 418,
+          "byteSize": 28816
+        },
+        {
+          "key": "optimized/blatta-orientalis-denis-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 523,
+          "byteSize": 31517
+        },
+        {
+          "key": "optimized/blatta-orientalis-denis-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 523,
+          "byteSize": 41274
+        },
+        {
+          "key": "optimized/blatta-orientalis-denis-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 837,
+          "byteSize": 62561
+        },
+        {
+          "key": "optimized/blatta-orientalis-denis-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 837,
+          "byteSize": 80134
+        },
+        {
+          "key": "optimized/blatta-orientalis-denis-1-783.avif",
+          "format": "avif",
+          "width": 783,
+          "height": 1024,
+          "byteSize": 82399
+        },
+        {
+          "key": "optimized/blatta-orientalis-denis-1-783.webp",
+          "format": "webp",
+          "width": 783,
+          "height": 1024,
+          "byteSize": 103434
+        }
+      ],
+      "updatedAt": "2026-09-23T13:37:25.090Z"
+    },
+    "blatta-orientalis-elena-u-1.jpg": {
+      "sourceHash": "ecd7bb4034d029e5848db887329b72f3f78c1e839f1be3e7f73fc8d4145cded1",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "blatta-orientalis-elena-u-1.jpg",
+      "originalSize": 223093,
+      "width": 768,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/blatta-orientalis-elena-u-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 24165
+        },
+        {
+          "key": "optimized/blatta-orientalis-elena-u-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 35504
+        },
+        {
+          "key": "optimized/blatta-orientalis-elena-u-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 35254
+        },
+        {
+          "key": "optimized/blatta-orientalis-elena-u-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 52780
+        },
+        {
+          "key": "optimized/blatta-orientalis-elena-u-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 76140
+        },
+        {
+          "key": "optimized/blatta-orientalis-elena-u-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 110596
+        },
+        {
+          "key": "optimized/blatta-orientalis-elena-u-1-768.avif",
+          "format": "avif",
+          "width": 768,
+          "height": 1024,
+          "byteSize": 101861
+        },
+        {
+          "key": "optimized/blatta-orientalis-elena-u-1-768.webp",
+          "format": "webp",
+          "width": 768,
+          "height": 1024,
+          "byteSize": 142344
+        }
+      ],
+      "updatedAt": "2026-09-23T13:31:06.569Z"
+    },
+    "blatta-orientalis-kiril-2.jpg": {
+      "sourceHash": "7c59d877521fcce4a98825646587fb02ecd939990388d322b734ae553a40095b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "blatta-orientalis-kiril-2.jpg",
+      "originalSize": 49137,
+      "width": 771,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/blatta-orientalis-kiril-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 425,
+          "byteSize": 4201
+        },
+        {
+          "key": "optimized/blatta-orientalis-kiril-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 425,
+          "byteSize": 5140
+        },
+        {
+          "key": "optimized/blatta-orientalis-kiril-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 531,
+          "byteSize": 5890
+        },
+        {
+          "key": "optimized/blatta-orientalis-kiril-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 531,
+          "byteSize": 7314
+        },
+        {
+          "key": "optimized/blatta-orientalis-kiril-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 850,
+          "byteSize": 11800
+        },
+        {
+          "key": "optimized/blatta-orientalis-kiril-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 850,
+          "byteSize": 15148
+        },
+        {
+          "key": "optimized/blatta-orientalis-kiril-2-771.avif",
+          "format": "avif",
+          "width": 771,
+          "height": 1024,
+          "byteSize": 15735
+        },
+        {
+          "key": "optimized/blatta-orientalis-kiril-2-771.webp",
+          "format": "webp",
+          "width": 771,
+          "height": 1024,
+          "byteSize": 20456
+        }
+      ],
+      "updatedAt": "2026-09-23T13:38:22.432Z"
+    },
+    "blatta-orientalis-krunku-1.jpg": {
+      "sourceHash": "e8b821a10b24d46168712e0ba55b578cca9862447d75ab676485c217f2afa78d",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "blatta-orientalis-krunku-1.jpg",
+      "originalSize": 347767,
+      "width": 1024,
+      "height": 964,
+      "derivatives": [
+        {
+          "key": "optimized/blatta-orientalis-krunku-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 301,
+          "byteSize": 23000
+        },
+        {
+          "key": "optimized/blatta-orientalis-krunku-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 301,
+          "byteSize": 37462
+        },
+        {
+          "key": "optimized/blatta-orientalis-krunku-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 377,
+          "byteSize": 34473
+        },
+        {
+          "key": "optimized/blatta-orientalis-krunku-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 377,
+          "byteSize": 56240
+        },
+        {
+          "key": "optimized/blatta-orientalis-krunku-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 603,
+          "byteSize": 73575
+        },
+        {
+          "key": "optimized/blatta-orientalis-krunku-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 603,
+          "byteSize": 118304
+        },
+        {
+          "key": "optimized/blatta-orientalis-krunku-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 753,
+          "byteSize": 104150
+        },
+        {
+          "key": "optimized/blatta-orientalis-krunku-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 753,
+          "byteSize": 164560
+        },
+        {
+          "key": "optimized/blatta-orientalis-krunku-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 964,
+          "byteSize": 155524
+        },
+        {
+          "key": "optimized/blatta-orientalis-krunku-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 964,
+          "byteSize": 233238
+        }
+      ],
+      "updatedAt": "2026-09-23T13:39:30.006Z"
+    },
+    "blatta-orientalis-zj-adram-1.jpg": {
+      "sourceHash": "616b9c2dd850b6b2676cceda003c610c3cfa6e4db11eece6ea83bc915aeb9f17",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "blatta-orientalis-zj-adram-1.jpg",
+      "originalSize": 389801,
+      "width": 1024,
+      "height": 861,
+      "derivatives": [
+        {
+          "key": "optimized/blatta-orientalis-zj-adram-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 269,
+          "byteSize": 23600
+        },
+        {
+          "key": "optimized/blatta-orientalis-zj-adram-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 269,
+          "byteSize": 35554
+        },
+        {
+          "key": "optimized/blatta-orientalis-zj-adram-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 336,
+          "byteSize": 38392
+        },
+        {
+          "key": "optimized/blatta-orientalis-zj-adram-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 336,
+          "byteSize": 56422
+        },
+        {
+          "key": "optimized/blatta-orientalis-zj-adram-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 538,
+          "byteSize": 92435
+        },
+        {
+          "key": "optimized/blatta-orientalis-zj-adram-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 538,
+          "byteSize": 142858
+        },
+        {
+          "key": "optimized/blatta-orientalis-zj-adram-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 673,
+          "byteSize": 129580
+        },
+        {
+          "key": "optimized/blatta-orientalis-zj-adram-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 673,
+          "byteSize": 212808
+        },
+        {
+          "key": "optimized/blatta-orientalis-zj-adram-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 861,
+          "byteSize": 188931
+        },
+        {
+          "key": "optimized/blatta-orientalis-zj-adram-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 861,
+          "byteSize": 316772
+        }
+      ],
+      "updatedAt": "2026-09-23T13:32:12.328Z"
+    },
     "bubo-bubo-aiken-1.jpg": {
       "sourceHash": "700e2cc2e3ac402f4b766828f2678ce6461bd7575f883e3465b78f883afb8db3",
       "configFingerprint": "409788ee46c653d8",
@@ -10065,6 +10428,165 @@
         }
       ],
       "updatedAt": "2026-09-19T07:36:50.969Z"
+    },
+    "cimex-lectularius-gernotkunz-1.jpg": {
+      "sourceHash": "184760661bca5ebb5332b007baa08c54964b6bbfe13f5792f4ed8ff4f5306128",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "cimex-lectularius-gernotkunz-1.jpg",
+      "originalSize": 40680,
+      "width": 500,
+      "height": 333,
+      "derivatives": [
+        {
+          "key": "optimized/cimex-lectularius-gernotkunz-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8348
+        },
+        {
+          "key": "optimized/cimex-lectularius-gernotkunz-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10600
+        },
+        {
+          "key": "optimized/cimex-lectularius-gernotkunz-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 12168
+        },
+        {
+          "key": "optimized/cimex-lectularius-gernotkunz-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 15052
+        },
+        {
+          "key": "optimized/cimex-lectularius-gernotkunz-1-500.avif",
+          "format": "avif",
+          "width": 500,
+          "height": 333,
+          "byteSize": 17733
+        },
+        {
+          "key": "optimized/cimex-lectularius-gernotkunz-1-500.webp",
+          "format": "webp",
+          "width": 500,
+          "height": 333,
+          "byteSize": 22084
+        }
+      ],
+      "updatedAt": "2026-09-23T12:22:29.440Z"
+    },
+    "cimex-lectularius-gilles-1.jpg": {
+      "sourceHash": "fff9d5df609f537311a7d5efb47e9ce879549aacc9abaa200800d045bdabdfb7",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "cimex-lectularius-gilles-1.jpg",
+      "originalSize": 59692,
+      "width": 500,
+      "height": 331,
+      "derivatives": [
+        {
+          "key": "optimized/cimex-lectularius-gilles-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 212,
+          "byteSize": 13430
+        },
+        {
+          "key": "optimized/cimex-lectularius-gilles-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 212,
+          "byteSize": 18046
+        },
+        {
+          "key": "optimized/cimex-lectularius-gilles-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 265,
+          "byteSize": 19474
+        },
+        {
+          "key": "optimized/cimex-lectularius-gilles-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 265,
+          "byteSize": 26526
+        },
+        {
+          "key": "optimized/cimex-lectularius-gilles-1-500.avif",
+          "format": "avif",
+          "width": 500,
+          "height": 331,
+          "byteSize": 28441
+        },
+        {
+          "key": "optimized/cimex-lectularius-gilles-1-500.webp",
+          "format": "webp",
+          "width": 500,
+          "height": 331,
+          "byteSize": 39318
+        }
+      ],
+      "updatedAt": "2026-09-23T12:20:42.376Z"
+    },
+    "cimex-lectularius-katja-1.jpg": {
+      "sourceHash": "487d371368ae750f60a4fff58465fe642a6e939126858dffe80579aab2076463",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "cimex-lectularius-katja-1.jpg",
+      "originalSize": 36687,
+      "width": 500,
+      "height": 375,
+      "derivatives": [
+        {
+          "key": "optimized/cimex-lectularius-katja-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 6766
+        },
+        {
+          "key": "optimized/cimex-lectularius-katja-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 8786
+        },
+        {
+          "key": "optimized/cimex-lectularius-katja-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 9454
+        },
+        {
+          "key": "optimized/cimex-lectularius-katja-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 12108
+        },
+        {
+          "key": "optimized/cimex-lectularius-katja-1-500.avif",
+          "format": "avif",
+          "width": 500,
+          "height": 375,
+          "byteSize": 13569
+        },
+        {
+          "key": "optimized/cimex-lectularius-katja-1-500.webp",
+          "format": "webp",
+          "width": 500,
+          "height": 375,
+          "byteSize": 17154
+        }
+      ],
+      "updatedAt": "2026-09-23T12:21:58.354Z"
     },
     "coronella-austriaca-1.jpg": {
       "sourceHash": "b53893e4de09a7fbefeb940d157baa7efc173567c8d8935dc368843879d16e4e",

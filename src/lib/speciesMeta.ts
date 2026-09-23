@@ -85,6 +85,12 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
     en: "Lobed argiope (Argiope lobata) | Orb-weaver in Georgia",
     ka: "ლობებიანი არგიოპა (Argiope lobata) | ობობა საქართველოში",
   },
+  "blatta-orientalis": {
+    en: "Oriental cockroach (Blatta orientalis) in Georgia",
+    ka: "შავი ტარაკანა (Blatta orientalis) საქართველოში — ამოცნობა",
+    ru: "Чёрный таракан (Blatta orientalis) в Грузии",
+    tr: "Doğu hamam böceği (Blatta orientalis) Gürcistan'da",
+  },
   "canis-aureus": {
     ka: "ტურა (Canis aureus) საქართველოში — გავრცელება და ამოცნობა",
   },
@@ -97,6 +103,12 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
   "cheiracanthium-punctorium": {
     en: "European yellow sac spider (Cheiracanthium punctorium) | Spider in Georgia",
     ka: "Cheiracanthium punctorium | ობობა საქართველოში",
+  },
+  "cimex-lectularius": {
+    en: "Common bed bug (Cimex lectularius) in Georgia",
+    ka: "საწოლის ბაღლინჯო (Cimex lectularius) საქართველოში",
+    ru: "Постельный клоп (Cimex lectularius) в Грузии",
+    tr: "Tahta kurusu (Cimex lectularius) Gürcistan'da",
   },
   "columba-palumbus": {
     en: "Common woodpigeon (Columba palumbus) | Wood pigeon in Georgia",
@@ -243,12 +255,24 @@ const SPECIES_META_DESCRIPTION_OVERRIDE: Partial<
   "argiope-bruennichi": {
     ka: "არგიოპა (Argiope bruennichi) საქართველოში — როგორ ამოიცნოთ ყვითელ-შავი ობობა, სად გვხვდება, რა ზომისაა და რატომ არ ითვლება ადამიანისთვის სამედიცინო რისკად.",
   },
+  "blatta-orientalis": {
+    en: "Oriental cockroach in Georgia: map records and regional status, identification, size, damp refuges and household risks.",
+    ka: "შავი ტარაკანა საქართველოში — რუკის ჩანაწერები და რეგიონული სტატუსი, ამოცნობა, ზომა, ნოტიო სამალავები და საყოფაცხოვრებო რისკები.",
+    ru: "Чёрный таракан в Грузии: записи на карте и региональный статус, признаки, размер, влажные укрытия и домашние риски.",
+    tr: "Gürcistan'da Doğu hamam böceği: harita kayıtları ve bölgesel durum, tanıma, boy, nemli saklanma yerleri ve ev içi riskler.",
+  },
   "buteo-buteo": {
     ka: "ჩვეულებრივი კაკაჩა (Buteo buteo) საქართველოში — ამოცნობის ნიშნები, გავრცელება, ჰაბიტატი, კვება, მიგრაცია ბათუმის გავლით და რატომ არის ადამიანისთვის უვნებელი.",
   },
   "cheiracanthium-punctorium": {
     en: "European yellow sac spider (Cheiracanthium punctorium) in Georgia: confirmed records, identification, habitat, size, and realistic bite risk.",
     ka: "Cheiracanthium punctorium საქართველოში — დადასტურებული ჩანაწერები, ამოცნობის ნიშნები, ჰაბიტატი, ზომა და მტკივნეული ნაკბენის რეალური რისკი.",
+  },
+  "cimex-lectularius": {
+    en: "Common bed bug in Georgia: published records near Gremi and Pichkhovani, identification, hiding places, bites and what to check indoors.",
+    ka: "საწოლის ბაღლინჯო საქართველოში: გრემისა და ფიჩხოვნის დადასტურებული ჩანაწერები, ამოცნობის ნიშნები, სამალავები და ნაკბენის რეალური რისკი.",
+    ru: "Постельный клоп в Грузии: подтверждённые находки у Греми и Пичховани, признаки, укрытия и последствия укусов.",
+    tr: "Gürcistan'da tahta kurusu: Gremi ve Pichkhovani yakınındaki doğrulanmış kayıtlar, tanıma, saklanma yerleri ve ısırıklar.",
   },
   "dolichophis-schmidti": {
     ka: "წითელმუცელა მცურავი (Dolichophis schmidti) საქართველოში — ამოცნობის ნიშნები, აღმოსავლეთ საქართველოს ჰაბიტატები, ზომა, ქცევა და რამდენად საშიშია ადამიანისთვის.",

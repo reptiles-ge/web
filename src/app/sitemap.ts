@@ -67,6 +67,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     push(pageEntry(locale, "/terms-and-conditions"));
     push(pageEntry(locale, "/privacy"));
     push(pageEntry(locale, "/news"));
+    push(pageEntry(locale, "/insects/krazanis-bude"));
     push(pageEntry(locale, "/authors"));
     push(pageEntry(locale, "/species"));
     push(pageEntry(locale, "/venomous-snakes"));

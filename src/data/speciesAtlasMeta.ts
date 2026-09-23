@@ -71,6 +71,10 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "bird",
     habitats: ["grassland"],
   },
+  "blatta-orientalis": {
+    group: "insect",
+    habitats: [],
+  },
   "bubo-bubo": {
     group: "bird",
     habitats: ["mountain", "forest", "grassland"],
@@ -118,6 +122,10 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
   "ciconia-ciconia": {
     group: "bird",
     habitats: ["wetland", "grassland"],
+  },
+  "cimex-lectularius": {
+    group: "insect",
+    habitats: [],
   },
   "columba-palumbus": {
     group: "bird",

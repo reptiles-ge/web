@@ -119,6 +119,12 @@ const nextConfig: NextConfig = {
         statusCode: 301,
       },
       {
+        destination: "/mtserebi/krazanis-bude",
+        source: "/insects/wasp-nest",
+        statusCode: 301,
+      },
+      ...latinRedirects([["/insects/krazanis-bude", "/insects/wasp-nest"]]),
+      {
         destination: "/terms-and-conditions",
         source: "/terms",
         statusCode: 301,
