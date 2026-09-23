@@ -54,7 +54,7 @@ export const WASP_NEST_COPY: Record<AppLocale, GuideCopy> = {
         heading: "What does a wasp nest look like?",
         image: "open-comb",
         paragraphs: [
-          "Some nests are exposed, umbrella-like combs; others have a papery outer envelope. A nest may be out of sight inside a wall or underground. Shape and colour alone do not reliably identify the species.",
+          "Some nests are exposed, umbrella-like combs; others have a papery outer envelope. A nest may be out of sight inside a wall or underground. Shape and colour alone do not reliably identify the species. If you cannot tell whether the insects are wasps or bees, do not disturb the nest and leave the assessment to a professional.",
         ],
       },
       {
@@ -164,7 +164,7 @@ export const WASP_NEST_COPY: Record<AppLocale, GuideCopy> = {
         heading: "როგორ გამოიყურება კრაზანის ბუდე?",
         image: "open-comb",
         paragraphs: [
-          "ზოგი ბუდე ღია, ქოლგისებრი ფიჭაა; სხვას ქაღალდის მსგავსი გარსი ფარავს. ბუდე შეიძლება მთლიანად ღია იყოს ან საერთოდ არ ჩანდეს — მაგალითად, კედლისა თუ მიწის ღრუში. მხოლოდ ფორმით ან ფერით სახეობის ზუსტად განსაზღვრა არ სცადოთ.",
+          "ზოგი ბუდე ღია, ქოლგისებრი ფიჭაა; სხვას ქაღალდის მსგავსი გარსი ფარავს. ბუდე შეიძლება მთლიანად ღია იყოს ან საერთოდ არ ჩანდეს — მაგალითად, კედლისა თუ მიწის ღრუში. მხოლოდ ფორმით ან ფერით სახეობის ზუსტად განსაზღვრა არ სცადოთ. თუ ვერ არჩევთ, კრაზანაა თუ ფუტკარი, ბუდეს ნუ შეეხებით და შეფასება სპეციალისტს მიანდეთ.",
         ],
       },
       {
@@ -275,7 +275,7 @@ export const WASP_NEST_COPY: Record<AppLocale, GuideCopy> = {
         heading: "Как выглядит осиное гнездо?",
         image: "open-comb",
         paragraphs: [
-          "Одни гнёзда выглядят как открытые соты, другие окружены бумагообразной оболочкой. Гнездо может быть скрыто в стене или под землёй. По форме и цвету нельзя надёжно определить вид.",
+          "Одни гнёзда выглядят как открытые соты, другие окружены бумагообразной оболочкой. Гнездо может быть скрыто в стене или под землёй. По форме и цвету нельзя надёжно определить вид. Если вы не можете понять, осы это или пчёлы, не трогайте гнездо и доверьте оценку специалисту.",
         ],
       },
       {
@@ -385,7 +385,7 @@ export const WASP_NEST_COPY: Record<AppLocale, GuideCopy> = {
         heading: "Yuva nasıl görünür?",
         image: "open-comb",
         paragraphs: [
-          "Bazı yuvalar açık, şemsiye benzeri peteklerdir; bazılarının kâğıdı andıran dış kılıfı vardır. Yuva duvarın içinde veya toprağın altında görünmeyebilir. Yalnızca şekil ve renkle tür kesin olarak belirlenemez.",
+          "Bazı yuvalar açık, şemsiye benzeri peteklerdir; bazılarının kâğıdı andıran dış kılıfı vardır. Yuva duvarın içinde veya toprağın altında görünmeyebilir. Yalnızca şekil ve renkle tür kesin olarak belirlenemez. Böceklerin eşek arısı mı yoksa arı mı olduğunu ayırt edemiyorsanız yuvaya dokunmayın; değerlendirmeyi bir uzmana bırakın.",
         ],
       },
       {
