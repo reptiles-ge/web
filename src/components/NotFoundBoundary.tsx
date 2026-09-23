@@ -6,9 +6,16 @@ export function NotFoundBoundary() {
   const [RichNotFound, setRichNotFound] = useState<ComponentType | null>(null);
 
   useEffect(() => {
-    import("@/components/NotFoundContent").then((mod) =>
-      setRichNotFound(() => mod.NotFoundContent),
-    );
+    async function loadNotFoundContent() {
+      try {
+        const mod = await import("@/components/NotFoundContent");
+        setRichNotFound(() => mod.NotFoundContent);
+      } catch {
+        return;
+      }
+    }
+
+    void loadNotFoundContent();
   }, []);
 
   return RichNotFound ? <RichNotFound /> : null;
