@@ -330,7 +330,7 @@ function configuredRedirectPath(pathname: string): [string, 301 | 302] | null {
   );
   if (prefixed && isPrefixedLocale(prefixed[1])) {
     const quiz = prefixedQuizRedirectPath(prefixed[1], prefixed[2]);
-    if (quiz) return [quiz, 301];
+    if (quiz && quiz !== pathname) return [quiz, 301];
 
     const temporary = PREFIXED_TEMPORARY_REDIRECTS[prefixed[2]];
     if (temporary) return [`/${prefixed[1]}${temporary}`, 302];
