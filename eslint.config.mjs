@@ -243,6 +243,7 @@ const eslintConfig = defineConfig([
     ".pnpm-store/**",
     "out/**",
     "build/**",
+    "dist/**",
     "next-env.d.ts",
     "src/data/species.generated.ts",
     "src/data/speciesSlugs.generated.ts",
