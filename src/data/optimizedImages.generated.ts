@@ -585,6 +585,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 771],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/blatta-orientalis-krunku-1.jpg": {
+    "path": "blatta-orientalis-krunku-1",
+    "width": 1024,
+    "height": 964,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/blatta-orientalis-zj-adram-1.jpg": {
     "path": "blatta-orientalis-zj-adram-1",
     "width": 1024,
