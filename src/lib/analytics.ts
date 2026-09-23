@@ -1,7 +1,4 @@
-import {
-  type AnimalGroup,
-  getSpeciesAtlasMeta,
-} from "@/data/speciesAtlasMeta";
+import { type AnimalGroup, getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
 
 export type AnalyticsValue = boolean | number | string;
@@ -73,6 +70,27 @@ export function currentLanguage(): AppLocale {
   return "ka";
 }
 
+export function currentPageContext(): {
+  entity_id?: string;
+  page_type: PageType;
+} {
+  const entries = window.dataLayer ?? [];
+  for (let index = entries.length - 1; index >= 0; index--) {
+    const entry = entries[index];
+    if (entry.event === "page_context") {
+      return {
+        entity_id:
+          typeof entry.entity_id === "string" ? entry.entity_id : undefined,
+        page_type:
+          typeof entry.page_type === "string"
+            ? (entry.page_type as PageType)
+            : "other",
+      };
+    }
+  }
+  return { page_type: "other" };
+}
+
 export function pushPageContext(params: {
   entity_id?: string;
   group?: AnimalGroup | string;
@@ -107,8 +125,7 @@ export function trackSpeciesClick(params: {
   source: SpeciesClickSource;
   species_id: string;
 }) {
-  const group =
-    params.group ?? getSpeciesAtlasMeta(params.species_id).group;
+  const group = params.group ?? getSpeciesAtlasMeta(params.species_id).group;
   trackEvent("species_click", {
     group,
     position: params.position,

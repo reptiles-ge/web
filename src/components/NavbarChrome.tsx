@@ -3,7 +3,6 @@
 import { ChevronDown, Menu, X } from "lucide-react";
 
 import type { NavLink } from "@/components/NavbarMenu";
-import type { LocaleSwitchIndex } from "@/lib/localeSwitch";
 
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Logo, LOGO_NAV_SIZE } from "@/components/Logo";
@@ -34,7 +33,6 @@ export function NavbarChrome({
   scrolled,
   speciesHref,
   speciesLabel,
-  switchIndex,
 }: {
   chromeVariant: ChromeVariant;
   closeMenuLabel: string;
@@ -55,7 +53,6 @@ export function NavbarChrome({
   scrolled: boolean;
   speciesHref: "/species";
   speciesLabel: string;
-  switchIndex: LocaleSwitchIndex;
 }) {
   const elevated = scrolled || menuOpen;
 
@@ -120,7 +117,7 @@ export function NavbarChrome({
       <div className="relative z-10 flex items-center justify-end gap-2.5 sm:gap-3">
         <SpeciesSearch variant={chromeVariant} />
         <ThemeToggle variant={chromeVariant} />
-        <LanguageSwitcher switchIndex={switchIndex} variant={chromeVariant} />
+        <LanguageSwitcher variant={chromeVariant} />
         <Link
           className={cn(
             "hidden rounded-full px-5 py-2 text-[13px] font-medium transition-all lg:inline-flex",

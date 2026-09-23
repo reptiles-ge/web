@@ -24,7 +24,6 @@ import {
 } from "@/i18n/clientMessages";
 import { routing } from "@/i18n/routing";
 import { getFooterData } from "@/lib/footerData";
-import { getLocaleSwitchIndex } from "@/lib/localeSwitchData";
 
 type Props = {
   children: ReactNode;
@@ -48,17 +47,15 @@ export default async function LocaleLayout({ children, params }: Props) {
   );
   const t = await getTranslations("nav");
   const footerData = getFooterData(locale);
-  const switchIndex = getLocaleSwitchIndex();
-
   return (
     <NextIntlClientProvider messages={messages}>
-      <LocaleSwitchProvider index={switchIndex}>
+      <LocaleSwitchProvider>
         <SkipLink label={t("skipToContent")} />
         <NavigationProgress />
         <ScrollToTop />
         <LogoPreload />
-        <AnalyticsPageContext switchIndex={switchIndex} />
-        <Navbar switchIndex={switchIndex} />
+        <AnalyticsPageContext />
+        <Navbar />
         <main id="main" tabIndex={-1}>
           {children}
         </main>

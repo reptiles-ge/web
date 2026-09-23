@@ -2,74 +2,20 @@
 
 import { Globe } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
-import { useParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useCallback, useId, useRef, useState } from "react";
 
 import { OverlayPanel } from "@/components/OverlayPanel";
-import { usePathname, useRouter } from "@/i18n/navigation";
 import { type AppLocale, routing } from "@/i18n/routing";
-import { pushPageContext, trackEvent } from "@/lib/analytics";
+import { currentPageContext, trackEvent } from "@/lib/analytics";
 import {
   chromeIconButtonBase,
   chromeIconButtonClass,
   chromeShellClass,
 } from "@/lib/chromeStyles";
 import { cn } from "@/lib/cn";
-import {
-  type LocaleSwitchIndex,
-  quizHrefFromIndex,
-  resolvePageContextFromIndex,
-  resolveSpeciesIdFromIndex,
-  speciesHrefFromIndex,
-} from "@/lib/localeSwitch";
-
-const STATIC_LOCALE_PATHS = [
-  "/",
-  "/about",
-  "/contact",
-  "/species",
-  "/snakes",
-  "/lizards",
-  "/turtles",
-  "/amphibians",
-  "/birds",
-  "/mammals",
-  "/scorpions",
-  "/spiders",
-  "/spiders/shxamiani-obobebi",
-  "/spiders/obobis-nakbeni",
-  "/venomous-snakes",
-  "/snakes-in-the-yard",
-  "/risk-to-humans",
-  "/amphibians/bayayi",
-  "/snakes/saxeoebebi",
-  "/snakes/shxamiani-gvelis-amocnoba",
-  "/snakes/gvelis-nakbeni",
-  "/snakes/gavrtseleba",
-  "/snakes/didi-gvelebi",
-  "/lizards/saxeoebebi",
-  "/lizards/identifikacia",
-  "/lizards/darevskia",
-  "/lizards/xvliki-saxlshi",
-  "/lizards/xvlikis-da-gvelxokeras-gansxvaveba",
-  "/turtles/saxeoebebi",
-  "/turtles/xmelis-kuebi",
-  "/turtles/tsqlis-kuebi",
-  "/turtles/identifikacia",
-  "/amphibians/saxeoebebi",
-  "/amphibians/bayayi/saxeoebebi",
-  "/amphibians/tritoni-salamandra",
-  "/birds/saxeoebebi",
-  "/mammals/saxeoebebi",
-  "/mammals/tura-ezoshi",
-  "/mammals/datvi-shekhvedra",
-  "/regions",
-  "/quiz",
-  "/news",
-] as const;
 
 type LanguageSwitcherProps = {
-  switchIndex: LocaleSwitchIndex;
   variant?: "dark" | "light";
 };
 
@@ -81,17 +27,10 @@ type LocaleOptionsProps = {
   title: string;
 };
 
-type StaticLocalePath = (typeof STATIC_LOCALE_PATHS)[number];
-
-export function LanguageSwitcher({
-  switchIndex,
-  variant = "light",
-}: LanguageSwitcherProps) {
+export function LanguageSwitcher({ variant = "light" }: LanguageSwitcherProps) {
   const locale = useLocale() as AppLocale;
   const t = useTranslations("language");
   const router = useRouter();
-  const pathname = usePathname();
-  const params = useParams();
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const listId = useId();
@@ -107,109 +46,27 @@ export function LanguageSwitcher({
   };
 
   function selectLocale(code: AppLocale) {
-    const slug = typeof params.slug === "string" ? params.slug : undefined;
-    const id = typeof params.id === "string" ? params.id : undefined;
-    if (code !== locale) {
-      const context = resolvePageContextFromIndex(
-        switchIndex,
-        pathname,
-        locale,
-        {
-          id,
-          slug,
-        },
-      );
-      trackEvent("language_change", {
-        entity_id: context.entity_id,
-        language: code,
-        page_type: context.page_type,
-        previous_language: locale,
-      });
-      pushPageContext({
-        entity_id: context.entity_id,
-        group: context.group,
-        language: code,
-        page_type: context.page_type,
-      });
-    }
-    const hub = (
-      [
-        "snakes",
-        "lizards",
-        "turtles",
-        "amphibians",
-        "birds",
-        "mammals",
-        "scorpions",
-        "spiders",
-      ] as const
-    ).find((item) => pathname === `/${item}/[slug]`);
-
-    if (hub && slug) {
-      const speciesId = resolveSpeciesIdFromIndex(switchIndex, slug);
-      if (speciesId && switchIndex.hubById[speciesId] === hub) {
-        router.replace(speciesHrefFromIndex(switchIndex, speciesId, code), {
-          locale: code,
-        });
-        close();
-        return;
-      }
-    }
-
-    if (pathname === "/quiz/[slug]" && slug) {
-      const quiz = switchIndex.quizzes.find(
-        (item) => item.slugs[locale] === slug,
-      );
-      if (quiz) {
-        router.replace(quizHrefFromIndex(switchIndex, quiz.id, code), {
-          locale: code,
-        });
-        close();
-        return;
-      }
-    }
-
-    if (pathname === "/regions/[id]" && id) {
-      router.replace(
-        { params: { id }, pathname: "/regions/[id]" },
-        { locale: code },
-      );
+    if (code === locale) {
       close();
       return;
     }
 
-    if (pathname === "/news/[slug]" && slug) {
-      router.replace(
-        { params: { slug }, pathname: "/news/[slug]" },
-        { locale: code },
-      );
+    const alternate = document.querySelector<HTMLLinkElement>(
+      `link[rel="alternate"][hreflang="${code}"]`,
+    );
+    if (!alternate) {
       close();
       return;
     }
 
-    if (pathname === "/authors/[slug]" && slug) {
-      router.replace(
-        { params: { slug }, pathname: "/authors/[slug]" },
-        { locale: code },
-      );
-      close();
-      return;
-    }
-
-    if (pathname === "/species/[id]" && id) {
-      const speciesId = resolveSpeciesIdFromIndex(switchIndex, id);
-      if (speciesId) {
-        router.replace(speciesHrefFromIndex(switchIndex, speciesId, code), {
-          locale: code,
-        });
-        close();
-        return;
-      }
-    }
-
-    if (isStaticLocalePath(pathname)) {
-      router.replace(pathname, { locale: code });
-    }
+    const context = currentPageContext();
+    trackEvent("language_change", {
+      entity_id: context.entity_id,
+      language: code,
+      page_type: context.page_type,
+      previous_language: locale,
+    });
+    router.replace(new URL(alternate.href).pathname);
     close();
   }
 
@@ -399,10 +256,6 @@ function FlagUnitedKingdom() {
       </defs>
     </svg>
   );
-}
-
-function isStaticLocalePath(pathname: string): pathname is StaticLocalePath {
-  return (STATIC_LOCALE_PATHS as readonly string[]).includes(pathname);
 }
 
 function LocaleFlag({ code }: { code: AppLocale }) {
