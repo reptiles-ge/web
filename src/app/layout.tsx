@@ -162,6 +162,7 @@ export default async function RootLayout({ children }: Props) {
             />
           </noscript>
         ) : null}
+
         <NuqsAdapter>
           <ThemeProvider>
             {children}
