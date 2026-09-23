@@ -12,10 +12,10 @@
     }
   },
   "scripts": {
-    "predev": "tsx scripts/compile-species.ts && tsx scripts/compile-search.ts && tsx scripts/compile-georgia-map.ts",
+    "predev": "tsx scripts/compile-species.ts && tsx scripts/compile-locale-switch-index.ts && tsx scripts/compile-search.ts && tsx scripts/compile-georgia-map.ts",
     "dev": "next dev",
-    "prebuild": "tsx scripts/compile-species.ts && tsx scripts/compile-search.ts && tsx scripts/compile-georgia-map.ts",
-    "pretest": "tsx scripts/compile-species.ts && tsx scripts/compile-search.ts && tsx scripts/compile-georgia-map.ts",
+    "prebuild": "tsx scripts/compile-species.ts && tsx scripts/compile-locale-switch-index.ts && tsx scripts/compile-search.ts && tsx scripts/compile-georgia-map.ts",
+    "pretest": "tsx scripts/compile-species.ts && tsx scripts/compile-locale-switch-index.ts && tsx scripts/compile-search.ts && tsx scripts/compile-georgia-map.ts",
     "build": "next build",
     "analyze": "pnpm run prebuild && ANALYZE=true pnpm exec next build --webpack",
     "start": "next start",
@@ -44,7 +44,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
-    "species:compile": "tsx scripts/compile-species.ts",
+    "species:compile": "tsx scripts/compile-species.ts && tsx scripts/compile-locale-switch-index.ts",
+    "locale-switch:compile": "tsx scripts/compile-locale-switch-index.ts",
     "search:compile": "tsx scripts/compile-search.ts",
     "map:compile": "tsx scripts/compile-georgia-map.ts",
     "images:check": "tsx scripts/check-image-urls.ts",

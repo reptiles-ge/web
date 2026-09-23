@@ -1,7 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import { getLocale, getTranslations } from "next-intl/server";
 
-import type { HalyomorphaRangeMapCopy } from "@/components/map/HalyomorphaRangeMapTypes";
 import type { GalleryImage, SpeciesFieldRecord } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
 import type { HalyomorphaOccurrenceSummary } from "@/lib/halyomorphaOccurrences";
@@ -10,17 +9,10 @@ import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { GeorgiaMapStatic } from "@/components/map/GeorgiaMapStatic";
 import { HalyomorphaRangeMap } from "@/components/map/HalyomorphaRangeMap";
 import { HalyomorphaRegionSelectButton } from "@/components/map/HalyomorphaRegionSelectButton";
-import {
-  HALYOMORPHA_RANGE_GEOJSON,
-  type HalyomorphaRangeRegionFeatureCollection,
-} from "@/data/halyomorphaRangeRegions";
-import {
-  getRegionsForSpecies,
-  localizeRegionText,
-  regions,
-} from "@/data/mapRegions";
+import { getRegionsForSpecies, localizeRegionText } from "@/data/mapRegions";
 import { Link } from "@/i18n/navigation";
 import {
+  confirmedRecordThresholdForSpecies,
   getHalyomorphaFieldRecords,
   getHalyomorphaOccurrenceSummary,
 } from "@/lib/halyomorphaOccurrences";
@@ -39,6 +31,7 @@ type HalyomorphaRangeCopy = {
   iNaturalistRecordLabel: string;
   intro: string;
   loadingLabel: string;
+  loadingText: string;
   locationRecordLabel: string;
   mapAria: string;
   mapError: string;
@@ -61,7 +54,6 @@ type HalyomorphaRangeCopy = {
 };
 
 type InteractiveRangeMapConfig = {
-  confirmedRecordThreshold?: number;
   copy: Record<AppLocale, HalyomorphaRangeCopy>;
   iNaturalistTaxonId: number;
   rangeSource?: "map-regions" | "record-summary";
@@ -88,6 +80,7 @@ const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
     intro:
       "The map for Halyomorpha halys combines Reptiles.ge editorial photo records with public iNaturalist observations. Region-level literature evidence and individual occurrence records are separate layers, and record counts reflect observation effort rather than population density.",
     loadingLabel: "Interactive map is loading.",
+    loadingText: "Loading...",
     locationRecordLabel: "Field observation",
     mapAria:
       "Brown marmorated stink bug distribution evidence and field records on a map of Georgia",
@@ -123,6 +116,7 @@ const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
     intro:
       "აზიური ფაროსანას (Halyomorpha halys) რუკა აერთიანებს Reptiles.ge-ის სარედაქციო ფოტოჩანაწერებსა და iNaturalist-ის საჯარო დაკვირვებებს. რეგიონული ლიტერატურული მტკიცებულება და ინდივიდუალური საველე ჩანაწერები ცალკე ფენებია; ჩანაწერების რაოდენობა დაკვირვების ინტენსივობასაც ასახავს და პოპულაციის სიმჭიდროვედ არ უნდა განვიხილოთ.",
     loadingLabel: "ინტერაქტიული რუკა იტვირთება.",
+    loadingText: "იტვირთება...",
     locationRecordLabel: "საველე ჩანაწერი",
     mapAria:
       "აზიური ფაროსანას გავრცელების მტკიცებულებები და საველე ჩანაწერები საქართველოს რუკაზე",
@@ -158,6 +152,7 @@ const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
     intro:
       "Карта Halyomorpha halys объединяет редакционные фотозаписи Reptiles.ge и публичные наблюдения iNaturalist. Региональные литературные данные и отдельные полевые записи показаны разными слоями; количество записей отражает также интенсивность наблюдений, а не плотность популяции.",
     loadingLabel: "Интерактивная карта загружается.",
+    loadingText: "Загрузка...",
     locationRecordLabel: "Полевое наблюдение",
     mapAria: "Полевые записи коричнево-мраморного клопа на карте Грузии",
     mapError:
@@ -192,6 +187,7 @@ const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
     intro:
       "Halyomorpha halys haritası Reptiles.ge editoryal fotoğraf kayıtlarını ve herkese açık iNaturalist gözlemlerini birleştirir. Bölge düzeyindeki literatür kanıtı ile tekil arazi kayıtları ayrı katmanlardır; kayıt sayısı gözlem yoğunluğunu da yansıtır, popülasyon yoğunluğu değildir.",
     loadingLabel: "Etkileşimli harita yükleniyor.",
+    loadingText: "Yükleniyor...",
     locationRecordLabel: "Arazi gözlemi",
     mapAria:
       "Kahverengi kokarcanın yayılış kanıtları ve arazi kayıtları Gürcistan haritasında",
@@ -347,7 +343,6 @@ const INTERACTIVE_RANGE_MAPS: Partial<
     rangeSource: "record-summary",
   },
   "cheiracanthium-punctorium": {
-    confirmedRecordThreshold: 1,
     copy: {
       en: {
         ...HALYOMORPHA_RANGE_COPY.en,
@@ -738,7 +733,7 @@ export async function SpeciesRangeMap({
     ? getHalyomorphaOccurrenceSummary(
         allInteractiveRangeFieldRecords,
         locale,
-        interactiveRangeConfig?.confirmedRecordThreshold,
+        confirmedRecordThresholdForSpecies(speciesId),
       )
     : null;
 
@@ -754,7 +749,7 @@ export async function SpeciesRangeMap({
         iNaturalistTaxonId={interactiveRangeConfig.iNaturalistTaxonId}
         locale={locale}
         occurrenceSummary={interactiveRangeSummary}
-        officialRange={officialRangeForRegions(
+        officialRegionIds={
           interactiveRangeConfig.rangeSource === "record-summary"
             ? interactiveRangeSummary.recordsByRegion.reduce<string[]>(
                 (ids, region) => {
@@ -763,8 +758,8 @@ export async function SpeciesRangeMap({
                 },
                 [],
               )
-            : highlightedIds,
-        )}
+            : highlightedIds
+        }
         speciesId={speciesId}
       />
     );
@@ -839,7 +834,7 @@ function HalyomorphaRangeSection({
   iNaturalistTaxonId,
   locale,
   occurrenceSummary,
-  officialRange,
+  officialRegionIds,
   speciesId,
 }: {
   anchorLabel: string;
@@ -847,16 +842,17 @@ function HalyomorphaRangeSection({
   iNaturalistTaxonId: number;
   locale: AppLocale;
   occurrenceSummary: HalyomorphaOccurrenceSummary;
-  officialRange: HalyomorphaRangeRegionFeatureCollection;
+  officialRegionIds: string[];
   speciesId: string;
 }) {
-  const mapCopy: HalyomorphaRangeMapCopy = {
+  const mapCopy = {
     closeLabel: copy.closeLabel,
     confirmedStatusLabel: copy.confirmedStatusLabel,
     fieldRecordLabel: copy.fieldRecordLabel,
     galleryAction: copy.galleryAction,
     iNaturalistRecordLabel: copy.iNaturalistRecordLabel,
     loadingLabel: copy.loadingLabel,
+    loadingText: copy.loadingText,
     locationRecordLabel: copy.locationRecordLabel,
     mapAria: copy.mapAria,
     mapError: copy.mapError,
@@ -878,11 +874,6 @@ function HalyomorphaRangeSection({
     formatYearRange(occurrenceSummary),
     `${occurrenceSummary.regionsWithRecords.toLocaleString(locale)} ${copy.regionsMetricLabel}`,
   ].join(" · ");
-  const regionNames = regions.map((region) => ({
-    id: region.id,
-    name: localizeRegionText(region.name, locale),
-  }));
-
   return (
     <section className="map-explorer relative overflow-hidden py-16 lg:py-22">
       <div
@@ -913,9 +904,7 @@ function HalyomorphaRangeSection({
           <HalyomorphaRangeMap
             copy={mapCopy}
             locale={locale}
-            occurrenceSummary={occurrenceSummary}
-            officialRange={officialRange}
-            regionNames={regionNames}
+            officialRegionIds={officialRegionIds}
             speciesId={speciesId}
           />
         </div>
@@ -999,22 +988,6 @@ function HalyomorphaRangeSection({
       </div>
     </section>
   );
-}
-
-function officialRangeForRegions(
-  highlightedIds: string[],
-): HalyomorphaRangeRegionFeatureCollection {
-  const officialIds = new Set(highlightedIds);
-  return {
-    ...HALYOMORPHA_RANGE_GEOJSON,
-    features: HALYOMORPHA_RANGE_GEOJSON.features.map((feature) => ({
-      ...feature,
-      properties: {
-        ...feature.properties,
-        isOfficialRange: officialIds.has(feature.properties.id),
-      },
-    })),
-  };
 }
 
 function RegionStatusBadge({

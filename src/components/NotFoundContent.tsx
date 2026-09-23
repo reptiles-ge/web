@@ -1,9 +1,10 @@
+"use client";
+
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { getTranslations } from "next-intl/server";
+import { useTranslations } from "next-intl";
 
 import { CoverImage } from "@/components/CoverImage";
 import { NotFoundAnalytics } from "@/components/NotFoundAnalytics";
-import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { images } from "@/data/speciesMedia";
 import { Link } from "@/i18n/navigation";
 
@@ -14,13 +15,14 @@ const pathways = [
   { href: "/venomous-snakes" as const, key: "venomous" as const },
 ] as const;
 
-export async function NotFoundContent() {
-  const t = await getTranslations("notFound");
+export function NotFoundContent() {
+  const t = useTranslations("notFound");
 
   return (
     <div
       className="relative flex min-h-svh flex-col overflow-hidden bg-ink text-ink-foreground"
       data-hide-footer
+      data-not-found-rich
     >
       <NotFoundAnalytics />
       <div className="absolute inset-0">
@@ -53,7 +55,7 @@ export async function NotFoundContent() {
             {t("title")}
           </h1>
           <p className="mt-5 max-w-md text-[15px] leading-relaxed text-white/60 sm:mt-6 sm:text-[16px]">
-            <PhoneLinkedText>{t("body")}</PhoneLinkedText>
+            {t("body")}
           </p>
 
           <div className="mt-9 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:items-center">
