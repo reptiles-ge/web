@@ -81,6 +81,7 @@ export function getHalyomorphaFieldRecords({
 export function getHalyomorphaOccurrenceSummary(
   records: HalyomorphaFieldRecord[],
   locale: AppLocale,
+  confirmedRecordThreshold = 5,
 ): HalyomorphaOccurrenceSummary {
   const years = records.flatMap((record) => yearFromDate(record.date));
   const byRegion = new Map<RegionPathId, HalyomorphaFieldRecord[]>();
@@ -108,7 +109,10 @@ export function getHalyomorphaOccurrenceSummary(
       photoRecordCount: regionRecords.filter(
         (record) => record.kind === "photo",
       ).length,
-      status: occurrenceStatusForCount(regionRecords.length),
+      status: occurrenceStatusForCount(
+        regionRecords.length,
+        confirmedRecordThreshold,
+      ),
     };
   }).sort((a, b) => b.count - a.count);
 
@@ -133,8 +137,9 @@ export function getHalyomorphaRegionRecords(
 
 export function occurrenceStatusForCount(
   count: number,
+  confirmedRecordThreshold = 5,
 ): HalyomorphaOccurrenceStatus {
-  return count < 5 ? "recorded-only" : "confirmed";
+  return count < confirmedRecordThreshold ? "recorded-only" : "confirmed";
 }
 
 function fieldRecordAuthor(record: SpeciesFieldRecord) {

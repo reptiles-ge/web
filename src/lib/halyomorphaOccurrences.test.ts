@@ -8,4 +8,9 @@ describe("occurrenceStatusForCount", () => {
     expect(occurrenceStatusForCount(4)).toBe("recorded-only");
     expect(occurrenceStatusForCount(5)).toBe("confirmed");
   });
+
+  it("allows species-specific confirmation thresholds", () => {
+    expect(occurrenceStatusForCount(0, 1)).toBe("recorded-only");
+    expect(occurrenceStatusForCount(1, 1)).toBe("confirmed");
+  });
 });
