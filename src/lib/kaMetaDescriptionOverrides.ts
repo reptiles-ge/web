@@ -43,7 +43,7 @@ const KA_META_DESCRIPTION_OVERRIDES: Record<string, string> = {
   "/dzuzumtsovrebi/aghmosavletkavkasiuri-jixvi":
     "აღმოსავლეთკავკასიური ჯიხვი (Capra cylindricornis), იგივე დაღესტნური ჯიხვი, მსხვილი ველური თხაა; საქართველოში ძირითადად აღმოსავლეთ დიდ კავკასიონს უკავშირდება.",
   "/dzuzumtsovrebi/chveulebrivi-tsavi":
-    "ჩვეულებრივი წავი (Lutra lutra) საქართველოში — როგორ ამოიცნოთ, სად გვხვდება, რა ზომისაა, რას ჭამს და რა სტატუსით არის დაცული.",
+    "წავი (Lutra lutra) საქართველოში — როგორ ამოიცნოთ, სად გვხვდება, რა ზომისაა, რას ჭამს და რა სტატუსით არის დაცული.",
   "/dzuzumtsovrebi/chveulebrivi-tura":
     "ჩვეულებრივი ტურა (Canis aureus) საქართველოში მშობლიური ძუძუმწოვარია; IUCN ქვეყანას მის ბუნებრივ არეალში ასახელებს და სახეობა ეროვნულ ჩამონათვალებშიც შედის.",
   "/dzuzumtsovrebi/datvi-shekhvedra":

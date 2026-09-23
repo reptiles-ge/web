@@ -10,6 +10,11 @@ const CORRECT_NENTWIG_DOI = "https://doi.org/10.1016/j.toxicon.2013.07.010";
 const OLD_NENTWIG_DOI = "https://doi.org/10.1016/j.toxicon.2013.07.020";
 const GEORGIAN_RED_LIST_URL =
   "https://matsne.gov.ge/ka/document/view/2256983/0";
+const OTTER_AUDIO_URL = "https://xeno-canto.org/961007";
+const OTTER_CURRENT_IUCN_URL =
+  "https://www.iucnredlist.org/species/12419/218069689";
+const OTTER_REPORT_URL =
+  "https://media.rufford.org/media/project_reports/11302-B%20Final%20Report.pdf";
 
 type ArticleJsonLd = {
   about: TaxonJsonLd;
@@ -31,6 +36,7 @@ type GalleryJsonLd = {
 };
 
 type TaxonJsonLd = {
+  alternateName?: string[];
   sameAs?: string[];
 };
 
@@ -93,5 +99,50 @@ describe("species structured data", () => {
     expect(article?.mainEntity.sameAs).toEqual(sameAs);
     expect(article?.about.sameAs).toEqual(sameAs);
     expect(gallery?.about.sameAs).toEqual(sameAs);
+  });
+
+  it("uses წავი as the Georgian otter label without leaking citations into sameAs", () => {
+    const raw = getSpeciesById("lutra-lutra");
+    expect(raw).toBeDefined();
+
+    const species = raw!;
+    const localized = localizeSpecies(species, "ka");
+    const sameAs = speciesSameAs(species);
+
+    expect(localized.commonName).toBe("წავი");
+    expect(sameAs).toEqual([
+      OTTER_CURRENT_IUCN_URL,
+      "https://www.iucnredlist.org/species/12419/21935287",
+    ]);
+    expect(sameAs).not.toContain(OTTER_REPORT_URL);
+    expect(sameAs).not.toContain(GEORGIAN_RED_LIST_URL);
+    expect(sameAs).not.toContain(OTTER_AUDIO_URL);
+
+    const jsonLd = speciesStructuredData({
+      breadcrumbCrumbs: [
+        { href: "/", name: "მთავარი" },
+        { href: "/mammals", name: "ძუძუმწოვრები" },
+        { href: "/species", name: "სახეობები" },
+        { name: localized.commonName },
+      ],
+      galleryTitle: "გალერეა",
+      item: localized,
+      locale: "ka",
+      ogImage: localized.image,
+      pageUrl: "https://reptiles.ge/dzuzumtsovrebi/chveulebrivi-tsavi",
+      raw: species,
+    });
+    const article = jsonLd.find(
+      (entry) => entry["@type"] === "Article",
+    ) as ArticleJsonLd;
+
+    expect(article?.mainEntity.alternateName?.[0]).toBe("წავი");
+    expect(article?.mainEntity.sameAs).toEqual(sameAs);
+    expect(article?.citation.map((source) => source.url)).toContain(
+      OTTER_REPORT_URL,
+    );
+    expect(article?.citation.map((source) => source.url)).toContain(
+      GEORGIAN_RED_LIST_URL,
+    );
   });
 });
