@@ -19,6 +19,10 @@ export const revalidate = 86400;
 const REGION_IDS = new Set<RegionPathId>(
   HALYOMORPHA_RANGE_GEOJSON.features.map((feature) => feature.properties.id),
 );
+const CACHE_HEADERS = {
+  "Cache-Control":
+    "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800",
+};
 
 export async function GET(
   request: Request,
@@ -45,11 +49,6 @@ export async function GET(
     speciesName: species.commonName,
   });
   const confirmedRecordThreshold = confirmedRecordThresholdForSpecies(id);
-  const headers = {
-    "Cache-Control":
-      "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800",
-  };
-
   if (!regionId) {
     return Response.json(
       {
@@ -63,7 +62,7 @@ export async function GET(
           confirmedRecordThreshold,
         ),
       },
-      { headers },
+      { headers: CACHE_HEADERS },
     );
   }
 
@@ -89,7 +88,7 @@ export async function GET(
           status: occurrenceStatusForCount(0),
         } satisfies (typeof summary.recordsByRegion)[number]),
     },
-    { headers },
+    { headers: CACHE_HEADERS },
   );
 }
 
