@@ -197,7 +197,7 @@ const KA_META_DESCRIPTION_OVERRIDES: Record<string, string> = {
   "/morieli/megruli-morieli":
     "მეგრული მორიელი (Euscorpius mingrelicus) საქართველოში — ტაქსონომია, დასავლეთ საქართველოს არეალი, ამოცნობა, ნოტიო ტყის ჰაბიტატი და ჩხვლეტის რისკი.",
   "/mtserebi":
-    "საქართველოს მწერები reptiles.ge-ზე: ამოცნობა, ტაქსონომია, ჰაბიტატი და წყაროები. ატლასში ამჟამად არის ჩოქელა (Mantis religiosa).",
+    "საქართველოს მწერები reptiles.ge-ზე: რა არის მწერი, ამოცნობა, ტაქსონომია, ჰაბიტატი და წყაროები. ატლასშია ჩოქელა და აზიური ფაროსანა.",
   "/mtserebi/chokela":
     "ჩოქელა (Mantis religiosa) მწერია და არა ქვეწარმავალი; მიეკუთვნება Mantodea-ს რიგსა და Mantidae-ს ოჯახს. პროფილშია ამოცნობა, ჰაბიტატი და წყაროები.",
   "/mtserebi/saxeoebebi":
