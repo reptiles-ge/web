@@ -4420,6 +4420,73 @@
       ],
       "updatedAt": "2026-09-06T13:11:15.286Z"
     },
+    "blatta-orientalis-elena-u-1.jpg": {
+      "sourceHash": "ecd7bb4034d029e5848db887329b72f3f78c1e839f1be3e7f73fc8d4145cded1",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "blatta-orientalis-elena-u-1.jpg",
+      "originalSize": 223093,
+      "width": 768,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/blatta-orientalis-elena-u-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 24165
+        },
+        {
+          "key": "optimized/blatta-orientalis-elena-u-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 35504
+        },
+        {
+          "key": "optimized/blatta-orientalis-elena-u-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 35254
+        },
+        {
+          "key": "optimized/blatta-orientalis-elena-u-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 52780
+        },
+        {
+          "key": "optimized/blatta-orientalis-elena-u-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 76140
+        },
+        {
+          "key": "optimized/blatta-orientalis-elena-u-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 110596
+        },
+        {
+          "key": "optimized/blatta-orientalis-elena-u-1-768.avif",
+          "format": "avif",
+          "width": 768,
+          "height": 1024,
+          "byteSize": 101861
+        },
+        {
+          "key": "optimized/blatta-orientalis-elena-u-1-768.webp",
+          "format": "webp",
+          "width": 768,
+          "height": 1024,
+          "byteSize": 142344
+        }
+      ],
+      "updatedAt": "2026-09-23T13:31:06.569Z"
+    },
     "bubo-bubo-aiken-1.jpg": {
       "sourceHash": "700e2cc2e3ac402f4b766828f2678ce6461bd7575f883e3465b78f883afb8db3",
       "configFingerprint": "409788ee46c653d8",
