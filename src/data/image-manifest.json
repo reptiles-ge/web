@@ -10066,6 +10066,59 @@
       ],
       "updatedAt": "2026-09-19T07:36:50.969Z"
     },
+    "cimex-lectularius-gilles-1.jpg": {
+      "sourceHash": "fff9d5df609f537311a7d5efb47e9ce879549aacc9abaa200800d045bdabdfb7",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "cimex-lectularius-gilles-1.jpg",
+      "originalSize": 59692,
+      "width": 500,
+      "height": 331,
+      "derivatives": [
+        {
+          "key": "optimized/cimex-lectularius-gilles-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 212,
+          "byteSize": 13430
+        },
+        {
+          "key": "optimized/cimex-lectularius-gilles-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 212,
+          "byteSize": 18046
+        },
+        {
+          "key": "optimized/cimex-lectularius-gilles-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 265,
+          "byteSize": 19474
+        },
+        {
+          "key": "optimized/cimex-lectularius-gilles-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 265,
+          "byteSize": 26526
+        },
+        {
+          "key": "optimized/cimex-lectularius-gilles-1-500.avif",
+          "format": "avif",
+          "width": 500,
+          "height": 331,
+          "byteSize": 28441
+        },
+        {
+          "key": "optimized/cimex-lectularius-gilles-1-500.webp",
+          "format": "webp",
+          "width": 500,
+          "height": 331,
+          "byteSize": 39318
+        }
+      ],
+      "updatedAt": "2026-09-23T12:20:42.376Z"
+    },
     "coronella-austriaca-1.jpg": {
       "sourceHash": "b53893e4de09a7fbefeb940d157baa7efc173567c8d8935dc368843879d16e4e",
       "configFingerprint": "409788ee46c653d8",

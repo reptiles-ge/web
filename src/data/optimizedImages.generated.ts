@@ -1103,6 +1103,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/cimex-lectularius-gilles-1.jpg": {
+    "path": "cimex-lectularius-gilles-1",
+    "width": 500,
+    "height": 331,
+    "widths": [320, 400, 500],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/coronella-austriaca-1.jpg": {
     "path": "coronella-austriaca-1",
     "width": 1024,
