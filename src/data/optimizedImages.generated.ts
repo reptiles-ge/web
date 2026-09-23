@@ -4,6 +4,20 @@ import type { OptimizedImageEntry } from "./optimizedImages";
 export const optimizedBaseUrl = "https://cdn.reptiles.ge/optimized/";
 
 export const optimizedImages: Record<string, OptimizedImageEntry> = {
+  "/images/guides/wasp-nest-enclosed.jpg": {
+    "path": "images/guides/wasp-nest-enclosed",
+    "width": 1421,
+    "height": 1107,
+    "widths": [320, 400, 640, 800, 1200, 1421],
+    "formats": ["avif", "webp"]
+  },
+  "/images/guides/wasp-nest-open-comb.jpg": {
+    "path": "images/guides/wasp-nest-open-comb",
+    "width": 1536,
+    "height": 1024,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
   "/images/home/groups/amphibians.jpg": {
     "path": "images/home/groups/amphibians",
     "width": 1800,

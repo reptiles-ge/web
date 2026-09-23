@@ -226,6 +226,11 @@ function collectTargets(
   }
 
   if (all || site) {
+    if (site) {
+      for (const src of Object.values(siteImages)) {
+        if (src.startsWith("/")) add(src);
+      }
+    }
     for (const src of Object.values(GROUP_HUB_ILLUSTRATIONS)) add(src);
     for (const author of CREDIT_AUTHORS) add(author.portraitSrc);
   }
