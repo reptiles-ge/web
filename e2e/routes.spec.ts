@@ -132,6 +132,26 @@ test("quiz landing is indexable and play stays on the same URL", async ({
   expect(page.url()).not.toMatch(/result/);
 });
 
+test("English quiz hreflang targets return 200 directly", async ({
+  page,
+  request,
+}) => {
+  for (const [kaSlug, enSlug] of [
+    ["romeli-gvelia", "which-snake"],
+    ["romeli-xvlikia", "which-lizard"],
+  ]) {
+    await page.goto(`/quiz/${kaSlug}`);
+    const href = await page
+      .locator('link[rel="alternate"][hreflang="en"]')
+      .getAttribute("href");
+    expect(href).toMatch(new RegExp(`/en/quiz/${enSlug}$`));
+    const response = await request.get(new URL(href!).pathname, {
+      maxRedirects: 0,
+    });
+    expect(response.status()).toBe(200);
+  }
+});
+
 test("Sandro Khakhva contributor page is indexable", async ({ page }) => {
   const response = await page.goto("/kontributorebi/sandro-khakhva");
   expect(response?.status()).toBe(200);
