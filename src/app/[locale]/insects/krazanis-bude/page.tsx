@@ -8,6 +8,7 @@ import { notFound } from "next/navigation";
 
 import { ContentAttribution } from "@/components/ContentAttribution";
 import { JsonLd } from "@/components/JsonLd";
+import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { WASP_NEST_COPY, WASP_NEST_SOURCES } from "@/content/guides/waspNest";
 import { openGraphLocale } from "@/i18n/localeMeta";
 import { Link } from "@/i18n/navigation";
@@ -193,6 +194,13 @@ export default async function WaspNestPage({ params }: Props) {
             </ol>
           </nav>
           <p className="text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
+            <Link
+              className="transition-colors hover:text-foreground"
+              href="/insects"
+            >
+              {tInsects("breadcrumbCurrent")}
+            </Link>
+            <span aria-hidden="true"> · </span>
             <time dateTime={dates.datePublished}>
               {tNews("published", {
                 date: formatContentDate(dates.datePublished, locale),
@@ -213,7 +221,7 @@ export default async function WaspNestPage({ params }: Props) {
             {copy.title}
           </h1>
           <p className="mt-7 border-l-4 border-primary pl-5 text-[18px] leading-[1.7] text-foreground">
-            {copy.lead}
+            <PhoneLinkedText>{copy.lead}</PhoneLinkedText>
           </p>
           <figure className="mt-10">
             <Image
@@ -235,7 +243,9 @@ export default async function WaspNestPage({ params }: Props) {
                 </h2>
                 <div className="mt-5 space-y-4 text-[16px] leading-[1.8] text-muted-foreground sm:text-[17px]">
                   {section.paragraphs.map((paragraph) => (
-                    <p key={paragraph}>{paragraph}</p>
+                    <p key={paragraph}>
+                      <PhoneLinkedText>{paragraph}</PhoneLinkedText>
+                    </p>
                   ))}
                 </div>
                 {section.image === "open-comb" ? (
@@ -265,7 +275,7 @@ export default async function WaspNestPage({ params }: Props) {
                     {item.question}
                   </h3>
                   <p className="mt-2 text-[16px] leading-[1.8] text-muted-foreground">
-                    {item.answer}
+                    <PhoneLinkedText>{item.answer}</PhoneLinkedText>
                   </p>
                 </div>
               ))}
@@ -304,7 +314,9 @@ export default async function WaspNestPage({ params }: Props) {
                       {source.name}
                     </a>
                     <p className="mt-1 text-muted-foreground">
-                      {source.supports[locale]}
+                      <PhoneLinkedText>
+                        {source.supports[locale]}
+                      </PhoneLinkedText>
                     </p>
                   </li>
                 ))}
