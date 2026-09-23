@@ -5,9 +5,9 @@ import type { GalleryImage, PhotoCredit } from "./speciesTypes";
 export function hasPhotoCredit(credit?: PhotoCredit): credit is PhotoCredit {
   return Boolean(
     credit?.photographer ||
-      credit?.location ||
-      credit?.date ||
-      hasPhotoCoordinates(credit),
+    credit?.location ||
+    credit?.date ||
+    hasPhotoCoordinates(credit),
   );
 }
 
@@ -62,4 +62,6 @@ export const images = {
   cta: "https://cdn.reptiles.ge/landing-cta-cover.jpeg",
   detail: "https://cdn.reptiles.ge/vipera-dinnik-3.webp",
   hero: "https://cdn.reptiles.ge/hero-img.webp",
+  waspNestComb: "/images/guides/wasp-nest-open-comb.jpg",
+  waspNestHero: "/images/guides/wasp-nest-enclosed.jpg",
 };
