@@ -1,5 +1,6 @@
-import { getLocale, getTranslations } from "next-intl/server";
 import type { ReactNode } from "react";
+
+import { getLocale, getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
 import type { ClusterGuideViewProps } from "@/lib/clusterGuides";
@@ -13,9 +14,9 @@ import {
   ClusterSectionIntro,
   ClusterStat,
 } from "@/components/ClusterSectionIntro";
+import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { SpeciesInlineLink } from "@/components/SpeciesInlineLink";
 import { Link } from "@/i18n/navigation";
-import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { CLUSTER_GUIDES } from "@/lib/clusterGuides";
 
 export async function ClusterGuidePage({
@@ -45,14 +46,6 @@ export async function ClusterGuidePage({
         {chunks}
       </Link>
     ),
-    caudata: (chunks: ReactNode) => (
-      <Link
-        className="font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
-        href="/amphibians/tritoni-salamandra"
-      >
-        {chunks}
-      </Link>
-    ),
     caucasianBrownFrog: (chunks: ReactNode) => (
       <SpeciesInlineLink id="rana-macrocnemis">{chunks}</SpeciesInlineLink>
     ),
@@ -60,6 +53,14 @@ export async function ClusterGuidePage({
       <SpeciesInlineLink id="mertensiella-caucasica">
         {chunks}
       </SpeciesInlineLink>
+    ),
+    caudata: (chunks: ReactNode) => (
+      <Link
+        className="font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
+        href="/amphibians/tritoni-salamandra"
+      >
+        {chunks}
+      </Link>
     ),
     marshFrog: (chunks: ReactNode) => (
       <SpeciesInlineLink id="pelophylax-ridibundus">
