@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 
 import { ContentAttribution } from "@/components/ContentAttribution";
@@ -24,6 +25,27 @@ import { pageDateFields } from "@/lib/structuredDataDates";
 type Props = { params: Promise<{ locale: string }> };
 
 const PATH = "/insects/krazanis-bude";
+const HERO_IMAGE = "/images/guides/wasp-nest-enclosed.jpg";
+const COMB_IMAGE = "/images/guides/wasp-nest-open-comb.jpg";
+
+const PHOTO_ALT: Record<AppLocale, { comb: string; hero: string }> = {
+  en: {
+    comb: "Black-and-yellow wasps on the open cells of a papery nest",
+    hero: "Enclosed papery wasp nest beneath a wooden roof edge",
+  },
+  ka: {
+    comb: "შავ-ყვითელი მწერები ქაღალდისმაგვარი ბუდის ღია ფიჭაზე",
+    hero: "დახურული, ქაღალდისებრი კრაზანის ბუდე ხის გადახურვის ქვეშ",
+  },
+  ru: {
+    comb: "Чёрно-жёлтые осы на открытых ячейках бумагообразного гнезда",
+    hero: "Закрытое бумагообразное осиное гнездо под деревянным краем крыши",
+  },
+  tr: {
+    comb: "Kâğıt benzeri yuvanın açık hücreleri üzerindeki siyah-sarı eşek arıları",
+    hero: "Ahşap çatı kenarı altındaki kapalı, kâğıt benzeri eşek arısı yuvası",
+  },
+};
 
 const LABELS: Record<AppLocale, { faq: string; sources: string }> = {
   en: {
@@ -49,12 +71,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     new URL(url).pathname,
     copy.description,
   );
+  const imageUrl = absoluteUrl(HERO_IMAGE);
 
   return {
     alternates: localeAlternates(locale, PATH),
     description,
     openGraph: {
       description,
+      images: [
+        {
+          alt: PHOTO_ALT[locale].hero,
+          height: 1107,
+          url: imageUrl,
+          width: 1421,
+        },
+      ],
       locale: openGraphLocale(locale),
       siteName: siteConfig.name,
       title: copy.metaTitle,
@@ -63,7 +94,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     robots: { follow: true, index: true },
     title: { absolute: copy.metaTitle },
-    twitter: { card: "summary", description, title: copy.metaTitle },
+    twitter: {
+      card: "summary_large_image",
+      description,
+      images: [imageUrl],
+      title: copy.metaTitle,
+    },
   };
 }
 
@@ -82,6 +118,7 @@ export default async function WaspNestPage({ params }: Props) {
     getTranslations({ locale, namespace: "insects" }),
   ]);
   const copy = WASP_NEST_COPY[locale];
+  const photoAlt = PHOTO_ALT[locale];
   const url = absoluteUrl(localePath(locale, PATH));
   const dates = pageDateFields(PATH);
   const breadcrumbLd = {
@@ -116,6 +153,13 @@ export default async function WaspNestPage({ params }: Props) {
     datePublished: dates.datePublished,
     description: copy.description,
     headline: copy.title,
+    image: {
+      "@type": "ImageObject",
+      contentUrl: absoluteUrl(HERO_IMAGE),
+      height: 1107,
+      url: absoluteUrl(HERO_IMAGE),
+      width: 1421,
+    },
     inLanguage: locale,
     isPartOf: { "@id": siteEntityId("website") },
     mainEntityOfPage: { "@id": url, "@type": "WebPage" },
@@ -128,10 +172,7 @@ export default async function WaspNestPage({ params }: Props) {
       <JsonLd data={[articleLd, breadcrumbLd]} />
       <main className="min-h-screen bg-background">
         <article className="mx-auto max-w-[900px] px-6 pt-30 pb-16 sm:pt-36 sm:pb-24">
-          <nav
-            aria-label="Breadcrumb"
-            className="text-sm text-muted-foreground"
-          >
+          <nav aria-label="Breadcrumb" className="sr-only">
             <ol className="flex flex-wrap gap-x-2 gap-y-1">
               <li>
                 <Link className="hover:text-foreground" href="/">
@@ -154,6 +195,17 @@ export default async function WaspNestPage({ params }: Props) {
           <p className="mt-7 border-l-4 border-primary pl-5 text-[18px] leading-[1.7] text-foreground">
             {copy.lead}
           </p>
+          <figure className="mt-10">
+            <Image
+              alt={photoAlt.hero}
+              className="h-auto w-full rounded-card"
+              height={1107}
+              preload
+              sizes="(max-width: 900px) 100vw, 900px"
+              src={HERO_IMAGE}
+              width={1421}
+            />
+          </figure>
 
           <div className="mt-16 space-y-14">
             {copy.sections.map((section) => (
@@ -166,6 +218,18 @@ export default async function WaspNestPage({ params }: Props) {
                     <p key={paragraph}>{paragraph}</p>
                   ))}
                 </div>
+                {section.image === "open-comb" ? (
+                  <figure className="mt-7">
+                    <Image
+                      alt={photoAlt.comb}
+                      className="h-auto w-full rounded-card"
+                      height={1024}
+                      sizes="(max-width: 900px) 100vw, 900px"
+                      src={COMB_IMAGE}
+                      width={1536}
+                    />
+                  </figure>
+                ) : null}
               </section>
             ))}
           </div>

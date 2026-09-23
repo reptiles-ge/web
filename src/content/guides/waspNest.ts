@@ -5,7 +5,7 @@ type GuideCopy = {
   faq: { answer: string; question: string }[];
   lead: string;
   metaTitle: string;
-  sections: { heading: string; paragraphs: string[] }[];
+  sections: { heading: string; image?: "open-comb"; paragraphs: string[] }[];
   title: string;
 };
 
@@ -41,7 +41,7 @@ export const WASP_NEST_COPY: Record<AppLocale, GuideCopy> = {
         question: "Can I seal the entrance?",
       },
     ],
-    lead: "If you find a suspected wasp nest, step away and do not disturb it. Keep children and pets clear. From a safe place, consider whether people regularly pass nearby. Ask a pest management professional to assess a nest by a doorway, balcony, wall or other busy area. After a sting, breathing difficulty, tongue or throat swelling, fainting or rapidly spreading symptoms need emergency medical help. In Georgia, call 112.",
+    lead: "Finding a nest is not automatically an emergency. Step away, leave it undisturbed, and keep children and pets clear. Have a professional assess a nest by a busy entrance; after a sting, call 112 in Georgia for breathing difficulty or throat swelling.",
     metaTitle: "Wasp nest near your home: what to do safely",
     sections: [
       {
@@ -52,6 +52,7 @@ export const WASP_NEST_COPY: Record<AppLocale, GuideCopy> = {
       },
       {
         heading: "What does a wasp nest look like?",
+        image: "open-comb",
         paragraphs: [
           "Some nests are exposed, umbrella-like combs; others have a papery outer envelope. A nest may be out of sight inside a wall or underground. Shape and colour alone do not reliably identify the species.",
         ],
@@ -150,7 +151,7 @@ export const WASP_NEST_COPY: Record<AppLocale, GuideCopy> = {
         question: "შეიძლება ბუდის შესასვლელის დახშობა?",
       },
     ],
-    lead: "თუ კრაზანის ბუდე იპოვეთ, მოშორდით და ნუ შეეხებით. ბავშვები და შინაური ცხოველები ბუდეს მოარიდეთ. მხოლოდ შორიდან შეაფასეთ, რამდენად ხშირად მოძრაობენ ადამიანები მის ახლოს. თუ ბუდე კართან, აივანზე, კედელში ან სხვა დატვირთულ ადგილასაა, მიმართეთ მავნებლების მართვის სპეციალისტს. დანესტვრის შემდეგ სუნთქვის გაძნელების, ყელის ან ენის შეშუპების, გონების დაკარგვის ან სწრაფად განვითარებული საერთო სიმპტომების შემთხვევაში დაუყოვნებლივ დარეკეთ 112-ზე.",
+    lead: "ბუდის დანახვა თავისთავად გადაუდებელ საფრთხეს არ ნიშნავს. მოშორდით, ნუ შეეხებით და ბავშვები და ცხოველები მოარიდეთ. თუ ბუდე ყოველდღიურ გასასვლელთანაა, სპეციალისტს შეაფასებინეთ; დანესტვრის შემდეგ სუნთქვის გაძნელების ან ყელის შეშუპებისას დარეკეთ 112-ზე.",
     metaTitle: "კრაზანის ბუდე — რამდენად საშიშია და როგორ მოვიქცეთ?",
     sections: [
       {
@@ -161,6 +162,7 @@ export const WASP_NEST_COPY: Record<AppLocale, GuideCopy> = {
       },
       {
         heading: "როგორ გამოიყურება კრაზანის ბუდე?",
+        image: "open-comb",
         paragraphs: [
           "ზოგი ბუდე ღია, ქოლგისებრი ფიჭაა; სხვას ქაღალდის მსგავსი გარსი ფარავს. ბუდე შეიძლება მთლიანად ღია იყოს ან საერთოდ არ ჩანდეს — მაგალითად, კედლისა თუ მიწის ღრუში. მხოლოდ ფორმით ან ფერით სახეობის ზუსტად განსაზღვრა არ სცადოთ.",
         ],
@@ -260,7 +262,7 @@ export const WASP_NEST_COPY: Record<AppLocale, GuideCopy> = {
         question: "Можно ли закрыть вход в гнездо?",
       },
     ],
-    lead: "Если вы обнаружили предполагаемое осиное гнездо, отойдите и не тревожьте его. Не подпускайте детей и домашних животных. Из безопасного места оцените, часто ли рядом ходят люди. Если гнездо у входа, на балконе, в стене или в другом оживлённом месте, обратитесь к специалисту. Затруднение дыхания, отёк языка или горла, обморок и быстро нарастающие общие симптомы после ужаления требуют неотложной помощи. В Грузии звоните 112.",
+    lead: "Обнаружение гнезда само по себе не означает чрезвычайной ситуации. Отойдите, не тревожьте его и не подпускайте детей и животных. Гнездо у часто используемого входа должен оценить специалист; при затруднении дыхания или отёке горла после ужаления звоните 112 в Грузии.",
     metaTitle: "Осиное гнездо у дома: как действовать безопасно",
     sections: [
       {
@@ -271,6 +273,7 @@ export const WASP_NEST_COPY: Record<AppLocale, GuideCopy> = {
       },
       {
         heading: "Как выглядит осиное гнездо?",
+        image: "open-comb",
         paragraphs: [
           "Одни гнёзда выглядят как открытые соты, другие окружены бумагообразной оболочкой. Гнездо может быть скрыто в стене или под землёй. По форме и цвету нельзя надёжно определить вид.",
         ],
@@ -369,7 +372,7 @@ export const WASP_NEST_COPY: Record<AppLocale, GuideCopy> = {
         question: "Yuva girişini kapatabilir miyim?",
       },
     ],
-    lead: "Bir eşek arısı yuvası bulduğunuzu düşünüyorsanız uzaklaşın ve yuvayı rahatsız etmeyin. Çocukları ve evcil hayvanları uzak tutun. Güvenli bir yerden insanların yakınından sık geçip geçmediğini değerlendirin. Giriş, balkon, duvar veya sık kullanılan bir alandaki yuva için profesyonel değerlendirme isteyin. Sokma sonrası solunum güçlüğü, dil veya boğaz şişmesi, bayılma ya da hızla yayılan belirtiler acil tıbbi yardım gerektirir. Gürcistan'da 112'yi arayın.",
+    lead: "Bir yuva görmek tek başına acil durum anlamına gelmez. Uzaklaşın, yuvayı rahatsız etmeyin ve çocuklarla evcil hayvanları yaklaştırmayın. Sık kullanılan girişteki yuvayı bir uzmana değerlendirtin; sokma sonrası solunum güçlüğü veya boğaz şişmesinde Gürcistan'da 112'yi arayın.",
     metaTitle: "Eşek arısı yuvası: ne zaman tehlikeli, ne yapmalı?",
     sections: [
       {
@@ -380,6 +383,7 @@ export const WASP_NEST_COPY: Record<AppLocale, GuideCopy> = {
       },
       {
         heading: "Yuva nasıl görünür?",
+        image: "open-comb",
         paragraphs: [
           "Bazı yuvalar açık, şemsiye benzeri peteklerdir; bazılarının kâğıdı andıran dış kılıfı vardır. Yuva duvarın içinde veya toprağın altında görünmeyebilir. Yalnızca şekil ve renkle tür kesin olarak belirlenemez.",
         ],
