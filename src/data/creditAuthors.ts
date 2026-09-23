@@ -391,7 +391,8 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
       tr: "Kakhaber Sukhitashvili",
     },
     portraitClass: "object-[50%_38%]",
-    portraitSrc: "/images/authors/kakhaber-sukhitashvili.jpg",
+    portraitSrc:
+      "https://cdn.reptiles.ge/optimized/images/authors/kakhaber-sukhitashvili-480.webp",
     published: true,
     role: "researcher",
     slug: "kakhaber-sukhitashvili",
