@@ -2,9 +2,11 @@ import type { RegionPathId } from "@/data/georgia-paths";
 import type { AppLocale } from "@/i18n/routing";
 
 import { HALYOMORPHA_RANGE_GEOJSON } from "@/data/halyomorphaRangeRegions";
+import { localizeRegionText, regions } from "@/data/mapRegions";
 import { getSpeciesById } from "@/data/species";
 import { routing } from "@/i18n/routing";
 import {
+  confirmedRecordThresholdForSpecies,
   getHalyomorphaFieldRecords,
   getHalyomorphaOccurrenceSummary,
   getHalyomorphaRegionRecords,
@@ -27,10 +29,9 @@ export async function GET(
   const regionId = url.searchParams.get("region");
   const locale = readLocale(url.searchParams.get("locale"));
 
-  if (!regionId || !REGION_IDS.has(regionId as RegionPathId)) {
+  if (regionId && !REGION_IDS.has(regionId as RegionPathId)) {
     return Response.json({ error: "Invalid region" }, { status: 400 });
   }
-  const validRegionId = regionId as RegionPathId;
 
   const species = getSpeciesById(id);
   if (!species) {
@@ -43,8 +44,36 @@ export async function GET(
     locale,
     speciesName: species.commonName,
   });
+  const confirmedRecordThreshold = confirmedRecordThresholdForSpecies(id);
+  const headers = {
+    "Cache-Control":
+      "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800",
+  };
+
+  if (!regionId) {
+    return Response.json(
+      {
+        regionNames: regions.map((region) => ({
+          id: region.id,
+          name: localizeRegionText(region.name, locale),
+        })),
+        summary: getHalyomorphaOccurrenceSummary(
+          records,
+          locale,
+          confirmedRecordThreshold,
+        ),
+      },
+      { headers },
+    );
+  }
+
+  const validRegionId = regionId as RegionPathId;
   const regionRecords = getHalyomorphaRegionRecords(records, validRegionId);
-  const summary = getHalyomorphaOccurrenceSummary(regionRecords, locale);
+  const summary = getHalyomorphaOccurrenceSummary(
+    regionRecords,
+    locale,
+    confirmedRecordThreshold,
+  );
 
   return Response.json(
     {
@@ -60,12 +89,7 @@ export async function GET(
           status: occurrenceStatusForCount(0),
         } satisfies (typeof summary.recordsByRegion)[number]),
     },
-    {
-      headers: {
-        "Cache-Control":
-          "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800",
-      },
-    },
+    { headers },
   );
 }
 

@@ -11,6 +11,13 @@ export const HALYOMORPHA_REGION_QUERY_PARAM = "region";
 
 export type { HalyomorphaFieldRecord };
 
+export type HalyomorphaLazyMapProps = Pick<
+  HalyomorphaRangeMapProps,
+  "copy" | "locale" | "speciesId"
+> & {
+  officialRegionIds: string[];
+};
+
 export type HalyomorphaRangeMapCopy = {
   closeLabel: string;
   confirmedStatusLabel: string;

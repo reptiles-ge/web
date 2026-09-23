@@ -3,10 +3,15 @@
 import dynamic from "next/dynamic";
 import { useEffect, useRef, useState } from "react";
 
+import type { HalyomorphaRangeRegionFeatureCollection } from "@/data/halyomorphaRangeRegions";
+
 import {
   HALYOMORPHA_REGION_QUERY_PARAM,
+  HALYOMORPHA_REGION_SELECT_EVENT,
+  type HalyomorphaLazyMapProps,
   type HalyomorphaRangeMapProps,
 } from "@/components/map/HalyomorphaRangeMapTypes";
+import { loadHalyomorphaMapSummary } from "@/lib/halyomorphaOccurrenceApi";
 
 const HalyomorphaRangeMapClient = dynamic(
   () =>
@@ -19,9 +24,14 @@ const HalyomorphaRangeMapClient = dynamic(
   },
 );
 
-export function HalyomorphaRangeMap(props: HalyomorphaRangeMapProps) {
+export function HalyomorphaRangeMap(props: HalyomorphaLazyMapProps) {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const [shouldLoadMap, setShouldLoadMap] = useState(false);
+  const [mapData, setMapData] = useState<null | Pick<
+    HalyomorphaRangeMapProps,
+    "occurrenceSummary" | "officialRange" | "regionNames"
+  >>(null);
+  const [loadError, setLoadError] = useState(false);
 
   useEffect(() => {
     const wrapper = wrapperRef.current;
@@ -49,6 +59,64 @@ export function HalyomorphaRangeMap(props: HalyomorphaRangeMapProps) {
     return () => observer.disconnect();
   }, [shouldLoadMap]);
 
+  useEffect(() => {
+    const selectRegion = (event: Event) => {
+      const regionId = (event as CustomEvent<{ regionId?: string }>).detail
+        ?.regionId;
+      if (!regionId) return;
+      const url = new URL(window.location.href);
+      url.searchParams.set(HALYOMORPHA_REGION_QUERY_PARAM, regionId);
+      window.history.replaceState(
+        window.history.state,
+        "",
+        `${url.pathname}${url.search}${url.hash}`,
+      );
+      setShouldLoadMap(true);
+    };
+    window.addEventListener(HALYOMORPHA_REGION_SELECT_EVENT, selectRegion);
+    return () =>
+      window.removeEventListener(HALYOMORPHA_REGION_SELECT_EVENT, selectRegion);
+  }, []);
+
+  useEffect(() => {
+    if (!shouldLoadMap) return;
+    const controller = new AbortController();
+    Promise.all([
+      loadHalyomorphaMapSummary(
+        props.speciesId,
+        props.locale,
+        controller.signal,
+      ),
+      fetch("/geodata/georgia-regions-v1.json", {
+        signal: controller.signal,
+      }).then((response) => {
+        if (!response.ok) throw new Error("Georgia regions request failed");
+        return response.json() as Promise<HalyomorphaRangeRegionFeatureCollection>;
+      }),
+    ])
+      .then(([{ regionNames, summary }, georgiaRegions]) => {
+        const officialIds = new Set(props.officialRegionIds);
+        setMapData({
+          occurrenceSummary: summary,
+          officialRange: {
+            ...georgiaRegions,
+            features: georgiaRegions.features.map((feature) => ({
+              ...feature,
+              properties: {
+                ...feature.properties,
+                isOfficialRange: officialIds.has(feature.properties.id),
+              },
+            })),
+          },
+          regionNames,
+        });
+      })
+      .catch(() => {
+        if (!controller.signal.aborted) setLoadError(true);
+      });
+    return () => controller.abort();
+  }, [shouldLoadMap, props.locale, props.officialRegionIds, props.speciesId]);
+
   return (
     <div
       aria-label={props.copy.mapAria}
@@ -57,9 +125,15 @@ export function HalyomorphaRangeMap(props: HalyomorphaRangeMapProps) {
       ref={wrapperRef}
       role="region"
     >
-      <span className="sr-only">{props.copy.loadingLabel}</span>
-      {shouldLoadMap ? (
-        <HalyomorphaRangeMapClient {...props} />
+      {!mapData && !loadError ? (
+        <span className="sr-only">{props.copy.loadingLabel}</span>
+      ) : null}
+      {mapData ? (
+        <HalyomorphaRangeMapClient {...props} {...mapData} />
+      ) : loadError ? (
+        <div className="absolute inset-0 flex items-center justify-center bg-ink p-6 text-center text-[13px] text-ink-foreground">
+          {props.copy.mapError}
+        </div>
       ) : (
         <HalyomorphaMapFallback />
       )}
