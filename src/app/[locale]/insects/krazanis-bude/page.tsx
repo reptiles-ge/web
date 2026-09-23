@@ -174,7 +174,7 @@ export default async function WaspNestPage({ params }: Props) {
     <>
       <JsonLd data={[articleLd, breadcrumbLd]} />
       <main className="min-h-screen bg-background">
-        <article className="mx-auto max-w-[1400px] px-6 pt-30 pb-16 sm:pt-36 sm:pb-24 lg:px-10">
+        <article className="mx-auto max-w-[1400px] px-6 pt-30 pb-16 sm:pt-33 sm:pb-24 lg:px-10">
           <nav aria-label="Breadcrumb" className="sr-only">
             <ol className="flex flex-wrap gap-x-2 gap-y-1">
               <li>
