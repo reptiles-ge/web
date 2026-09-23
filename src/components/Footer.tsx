@@ -59,6 +59,10 @@ const guideLinks = [
   },
   { href: "/spiders/obobis-nakbeni" as const, labelKey: "spiderBite" as const },
   {
+    href: "/mammals/ghamura-saxlshi" as const,
+    labelKey: "batInHouse" as const,
+  },
+  {
     href: "/mammals/tura-ezoshi" as const,
     labelKey: "jackalYard" as const,
   },

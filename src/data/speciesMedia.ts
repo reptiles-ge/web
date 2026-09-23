@@ -59,6 +59,9 @@ export function resolvePhotoCredit(
 }
 
 export const images = {
+  batInHouseHero: "/images/guides/bat-house-hero.jpg",
+  batInHouseRoost: "/images/guides/bat-roost-natural.jpg",
+  batInHouseWall: "/images/guides/bat-on-wall.jpg",
   cta: "https://cdn.reptiles.ge/landing-cta-cover.jpeg",
   detail: "https://cdn.reptiles.ge/vipera-dinnik-3.webp",
   hero: "https://cdn.reptiles.ge/hero-img.webp",

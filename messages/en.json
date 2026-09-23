@@ -245,7 +245,8 @@
         "spiderBite": "Spider bite",
         "jackalYard": "A jackal in the yard",
         "bearEncounter": "If you meet a bear",
-        "lizardHouse": "A lizard in the house"
+        "lizardHouse": "A lizard in the house",
+        "batInHouse": "A bat in the house"
       }
     }
   },
@@ -311,7 +312,8 @@
     "spiderBite": "Spider bite",
     "jackalYard": "Jackal in the yard",
     "bearEncounter": "Bear encounter",
-    "lizardHouse": "Lizard in the house"
+    "lizardHouse": "Lizard in the house",
+    "batInHouse": "Bat in the house"
   },
   "legal": {
     "canonicalNotice": "The legal text on this page is currently provided in Georgian; treat the Georgian version as the canonical text.",
@@ -1348,6 +1350,12 @@
         "title": "Meeting a bear",
         "body": "Only brown bear. Do not approach. Call 112 if injured.",
         "cta": "Encounter guide"
+      },
+      "batInHouse": {
+        "eyebrow": "Practical",
+        "title": "A bat in the house",
+        "body": "Stay calm, open an exit, avoid bare hands. After contact, seek medical advice.",
+        "cta": "House guide"
       },
       "lizardHouse": {
         "eyebrow": "Practice",

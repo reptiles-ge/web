@@ -6,7 +6,7 @@ import { useId, useState } from "react";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { cn } from "@/lib/cn";
 
-export function WaspNestFaqItems({
+export function GuideFaqItems({
   items,
 }: {
   items: { answer: string; question: string }[];

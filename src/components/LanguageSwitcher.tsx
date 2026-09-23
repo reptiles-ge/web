@@ -63,6 +63,7 @@ const STATIC_LOCALE_PATHS = [
   "/mammals/saxeoebebi",
   "/mammals/tura-ezoshi",
   "/mammals/datvi-shekhvedra",
+  "/mammals/ghamura-saxlshi",
   "/regions",
   "/quiz",
   "/news",
