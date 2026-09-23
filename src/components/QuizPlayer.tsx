@@ -62,7 +62,13 @@ const initialSession: QuizSession = {
 };
 
 export function QuizPlayer(props: QuizPlayerProps) {
-  return <QuizPlayerSession key={props.quizId} {...props} />;
+  return (
+    <QuizCopyProvider
+      namespace={props.quizId === "lizard" ? "lizardQuiz" : "snakeQuiz"}
+    >
+      <QuizPlayerSession key={props.quizId} {...props} />
+    </QuizCopyProvider>
+  );
 }
 
 function quizCoverState({
@@ -215,41 +221,37 @@ function QuizPlayerSession({ pool, quizId, shareUrl }: QuizPlayerProps) {
     questions && index + 1 >= questions.length ? t("seeResult") : t("next");
 
   return (
-    <QuizCopyProvider
-      namespace={quizId === "lizard" ? "lizardQuiz" : "snakeQuiz"}
-    >
-      <QuizStage
-        answers={answers}
-        byId={byId}
-        complete={complete}
-        correctCount={correctCount}
-        correctSpecies={correctSpecies}
-        coverKey={cover.coverKey}
-        coverMobileSrc={cover.coverMobileSrc}
-        coverSrc={cover.coverSrc}
-        feedbackRef={feedbackRef}
-        headingId={headingId}
-        hintedQuestions={hintedQuestions}
-        hintOpen={hintOpen}
-        index={index}
-        nextLabel={nextLabel}
-        nextQuestion={nextQuestion}
-        onHintToggle={(open) => dispatch({ open, type: "setHintOpen" })}
-        onNext={onNext}
-        onRestart={() => startRound("restart")}
-        onSelect={onSelect}
-        onStart={() => startRound("start")}
-        optionRefs={optionRefs}
-        playing={playing}
-        question={question}
-        questions={questions}
-        quizId={quizId}
-        revealed={revealed}
-        selectedId={selectedId}
-        shareUrl={shareUrl}
-        total={total}
-      />
-    </QuizCopyProvider>
+    <QuizStage
+      answers={answers}
+      byId={byId}
+      complete={complete}
+      correctCount={correctCount}
+      correctSpecies={correctSpecies}
+      coverKey={cover.coverKey}
+      coverMobileSrc={cover.coverMobileSrc}
+      coverSrc={cover.coverSrc}
+      feedbackRef={feedbackRef}
+      headingId={headingId}
+      hintedQuestions={hintedQuestions}
+      hintOpen={hintOpen}
+      index={index}
+      nextLabel={nextLabel}
+      nextQuestion={nextQuestion}
+      onHintToggle={(open) => dispatch({ open, type: "setHintOpen" })}
+      onNext={onNext}
+      onRestart={() => startRound("restart")}
+      onSelect={onSelect}
+      onStart={() => startRound("start")}
+      optionRefs={optionRefs}
+      playing={playing}
+      question={question}
+      questions={questions}
+      quizId={quizId}
+      revealed={revealed}
+      selectedId={selectedId}
+      shareUrl={shareUrl}
+      total={total}
+    />
   );
 }
 
