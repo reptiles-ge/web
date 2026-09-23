@@ -31,6 +31,7 @@ type HalyomorphaRangeCopy = {
   iNaturalistRecordLabel: string;
   intro: string;
   loadingLabel: string;
+  loadingText: string;
   locationRecordLabel: string;
   mapAria: string;
   mapError: string;
@@ -79,6 +80,7 @@ const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
     intro:
       "The map for Halyomorpha halys combines Reptiles.ge editorial photo records with public iNaturalist observations. Region-level literature evidence and individual occurrence records are separate layers, and record counts reflect observation effort rather than population density.",
     loadingLabel: "Interactive map is loading.",
+    loadingText: "Loading...",
     locationRecordLabel: "Field observation",
     mapAria:
       "Brown marmorated stink bug distribution evidence and field records on a map of Georgia",
@@ -114,6 +116,7 @@ const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
     intro:
       "აზიური ფაროსანას (Halyomorpha halys) რუკა აერთიანებს Reptiles.ge-ის სარედაქციო ფოტოჩანაწერებსა და iNaturalist-ის საჯარო დაკვირვებებს. რეგიონული ლიტერატურული მტკიცებულება და ინდივიდუალური საველე ჩანაწერები ცალკე ფენებია; ჩანაწერების რაოდენობა დაკვირვების ინტენსივობასაც ასახავს და პოპულაციის სიმჭიდროვედ არ უნდა განვიხილოთ.",
     loadingLabel: "ინტერაქტიული რუკა იტვირთება.",
+    loadingText: "იტვირთება...",
     locationRecordLabel: "საველე ჩანაწერი",
     mapAria:
       "აზიური ფაროსანას გავრცელების მტკიცებულებები და საველე ჩანაწერები საქართველოს რუკაზე",
@@ -149,6 +152,7 @@ const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
     intro:
       "Карта Halyomorpha halys объединяет редакционные фотозаписи Reptiles.ge и публичные наблюдения iNaturalist. Региональные литературные данные и отдельные полевые записи показаны разными слоями; количество записей отражает также интенсивность наблюдений, а не плотность популяции.",
     loadingLabel: "Интерактивная карта загружается.",
+    loadingText: "Загрузка...",
     locationRecordLabel: "Полевое наблюдение",
     mapAria: "Полевые записи коричнево-мраморного клопа на карте Грузии",
     mapError:
@@ -183,6 +187,7 @@ const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
     intro:
       "Halyomorpha halys haritası Reptiles.ge editoryal fotoğraf kayıtlarını ve herkese açık iNaturalist gözlemlerini birleştirir. Bölge düzeyindeki literatür kanıtı ile tekil arazi kayıtları ayrı katmanlardır; kayıt sayısı gözlem yoğunluğunu da yansıtır, popülasyon yoğunluğu değildir.",
     loadingLabel: "Etkileşimli harita yükleniyor.",
+    loadingText: "Yükleniyor...",
     locationRecordLabel: "Arazi gözlemi",
     mapAria:
       "Kahverengi kokarcanın yayılış kanıtları ve arazi kayıtları Gürcistan haritasında",
@@ -847,6 +852,7 @@ function HalyomorphaRangeSection({
     galleryAction: copy.galleryAction,
     iNaturalistRecordLabel: copy.iNaturalistRecordLabel,
     loadingLabel: copy.loadingLabel,
+    loadingText: copy.loadingText,
     locationRecordLabel: copy.locationRecordLabel,
     mapAria: copy.mapAria,
     mapError: copy.mapError,

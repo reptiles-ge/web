@@ -1,7 +1,6 @@
 "use client";
 
-import dynamic from "next/dynamic";
-import { useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 
 import type { HalyomorphaRangeRegionFeatureCollection } from "@/data/halyomorphaRangeRegions";
 
@@ -13,15 +12,10 @@ import {
 } from "@/components/map/HalyomorphaRangeMapTypes";
 import { loadHalyomorphaMapSummary } from "@/lib/halyomorphaOccurrenceApi";
 
-const HalyomorphaRangeMapClient = dynamic(
-  () =>
-    import("@/components/map/HalyomorphaRangeMapClient").then(
-      (mod) => mod.HalyomorphaRangeMapClient,
-    ),
-  {
-    loading: () => <HalyomorphaMapFallback />,
-    ssr: false,
-  },
+const HalyomorphaRangeMapClient = lazy(() =>
+  import("@/components/map/HalyomorphaRangeMapClient").then((mod) => ({
+    default: mod.HalyomorphaRangeMapClient,
+  })),
 );
 
 export function HalyomorphaRangeMap(props: HalyomorphaLazyMapProps) {
@@ -125,29 +119,49 @@ export function HalyomorphaRangeMap(props: HalyomorphaLazyMapProps) {
       ref={wrapperRef}
       role="region"
     >
-      {!mapData && !loadError ? (
-        <span className="sr-only">{props.copy.loadingLabel}</span>
-      ) : null}
       {mapData ? (
-        <HalyomorphaRangeMapClient {...props} {...mapData} />
+        <Suspense fallback={<HalyomorphaMapFallback copy={props.copy} />}>
+          <HalyomorphaRangeMapClient {...props} {...mapData} />
+        </Suspense>
       ) : loadError ? (
         <div className="absolute inset-0 flex items-center justify-center bg-ink p-6 text-center text-[13px] text-ink-foreground">
           {props.copy.mapError}
         </div>
       ) : (
-        <HalyomorphaMapFallback />
+        <HalyomorphaMapFallback copy={props.copy} />
       )}
     </div>
   );
 }
 
-function HalyomorphaMapFallback() {
+function HalyomorphaMapFallback({
+  copy,
+}: {
+  copy: HalyomorphaLazyMapProps["copy"];
+}) {
   return (
     <div
-      aria-hidden="true"
-      className="absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(111,173,136,0.16),transparent_42%),linear-gradient(135deg,#111a15,#060908)]"
+      aria-label={copy.loadingLabel}
+      className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-[radial-gradient(circle_at_50%_35%,rgba(111,173,136,0.16),transparent_42%),linear-gradient(135deg,#111a15,#060908)] px-6 text-center"
+      role="status"
     >
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-size-[42px_42px] opacity-25" />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-size-[42px_42px] opacity-25"
+      />
+      <div
+        aria-hidden="true"
+        className="relative flex size-14 items-center justify-center rounded-full border border-white/10 bg-white/5 shadow-[0_0_36px_rgba(111,173,136,0.16)]"
+      >
+        <span className="absolute size-10 animate-spin rounded-full border-[3px] border-white/10 border-t-emerald-300 motion-reduce:animate-none" />
+        <span className="size-2 rounded-full bg-emerald-300/90" />
+      </div>
+      <p
+        aria-hidden="true"
+        className="relative text-sm font-medium text-white/85"
+      >
+        {copy.loadingText}
+      </p>
     </div>
   );
 }
