@@ -31479,6 +31479,59 @@
       ],
       "updatedAt": "2026-09-20T16:05:36.359Z"
     },
+    "images/authors/kakhaber-sukhitashvili.jpg": {
+      "sourceHash": "7fc2ccbdfd551922d40feb1670656dead2f415abceaf78ae2fd2d0af2ed6bad1",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/authors/kakhaber-sukhitashvili.jpg",
+      "originalSize": 114109,
+      "width": 480,
+      "height": 479,
+      "derivatives": [
+        {
+          "key": "optimized/images/authors/kakhaber-sukhitashvili-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 319,
+          "byteSize": 22999
+        },
+        {
+          "key": "optimized/images/authors/kakhaber-sukhitashvili-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 319,
+          "byteSize": 36006
+        },
+        {
+          "key": "optimized/images/authors/kakhaber-sukhitashvili-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 399,
+          "byteSize": 32108
+        },
+        {
+          "key": "optimized/images/authors/kakhaber-sukhitashvili-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 399,
+          "byteSize": 49134
+        },
+        {
+          "key": "optimized/images/authors/kakhaber-sukhitashvili-480.avif",
+          "format": "avif",
+          "width": 480,
+          "height": 479,
+          "byteSize": 41990
+        },
+        {
+          "key": "optimized/images/authors/kakhaber-sukhitashvili-480.webp",
+          "format": "webp",
+          "width": 480,
+          "height": 479,
+          "byteSize": 62954
+        }
+      ],
+      "updatedAt": "2026-09-23T10:37:19.726Z"
+    },
     "images/authors/nika-kerdikoshvili.png": {
       "sourceHash": "adca7fa551ef4ed31f05cb118b3f3e282b437f28dc5a44bbeaeed5fe3be06471",
       "configFingerprint": "409788ee46c653d8",
@@ -31625,7 +31678,7 @@
           "byteSize": 272276
         }
       ],
-      "updatedAt": "2026-09-19T10:46:26.323Z"
+      "updatedAt": "2026-09-23T10:37:30.301Z"
     },
     "images/home/groups/birds.jpg": {
       "sourceHash": "d03c8925303f88a828fb31e4e3562553ed92ea2500c90d6ea877d20fed35fd00",
@@ -31706,7 +31759,7 @@
           "byteSize": 131548
         }
       ],
-      "updatedAt": "2026-09-19T10:46:31.359Z"
+      "updatedAt": "2026-09-23T10:37:30.189Z"
     },
     "images/home/groups/insects.jpg": {
       "sourceHash": "5cdb9c2b740a71d71c5a6700ab5f39ee6ebe969381964b3601ef273566c2cfb5",
@@ -31787,7 +31840,7 @@
           "byteSize": 93506
         }
       ],
-      "updatedAt": "2026-09-19T10:46:38.925Z"
+      "updatedAt": "2026-09-23T10:37:25.151Z"
     },
     "images/home/groups/lizards.jpg": {
       "sourceHash": "066e1cc066206326ab10437dc3fe3c9c1f27540673608d9dbf89b310b6bd8702",
@@ -31882,7 +31935,7 @@
           "byteSize": 344598
         }
       ],
-      "updatedAt": "2026-09-19T10:46:49.615Z"
+      "updatedAt": "2026-09-23T10:37:28.763Z"
     },
     "images/home/groups/mammals.jpg": {
       "sourceHash": "e84e26f71a016ebd729eab74a5d537383d9721855d90a4d27527721ceb940739",
@@ -31963,7 +32016,7 @@
           "byteSize": 178278
         }
       ],
-      "updatedAt": "2026-09-19T10:46:55.268Z"
+      "updatedAt": "2026-09-23T10:37:31.633Z"
     },
     "images/home/groups/scorpions.jpg": {
       "sourceHash": "e3cb4dd5c659564c67cfce918d1a438d13675c51876be3fd10b8540a7ed46215",
@@ -32044,7 +32097,7 @@
           "byteSize": 14224
         }
       ],
-      "updatedAt": "2026-09-19T10:47:06.911Z"
+      "updatedAt": "2026-09-23T10:37:32.687Z"
     },
     "images/home/groups/snakes.jpg": {
       "sourceHash": "40913797bd7a37477ae447364c3a7106609e7104b774351c0aa089cfc18e92df",
@@ -32139,7 +32192,7 @@
           "byteSize": 249742
         }
       ],
-      "updatedAt": "2026-09-19T10:47:15.425Z"
+      "updatedAt": "2026-09-23T10:37:40.371Z"
     },
     "images/home/groups/spiders.jpg": {
       "sourceHash": "d97fae0b550f0760f7cf89bfb18b376b87ce2b40a6bd5fe1e086bff908918f1c",
@@ -32220,7 +32273,7 @@
           "byteSize": 126958
         }
       ],
-      "updatedAt": "2026-09-19T10:47:22.138Z"
+      "updatedAt": "2026-09-23T10:37:37.745Z"
     },
     "images/home/groups/turtles.jpg": {
       "sourceHash": "865e39fdba02b04b4981d8c5d4d97c28510ec069dd186d3acc4ec3c43a3f52ef",
@@ -32315,7 +32368,7 @@
           "byteSize": 298432
         }
       ],
-      "updatedAt": "2026-09-19T10:47:37.262Z"
+      "updatedAt": "2026-09-23T10:37:41.841Z"
     },
     "images/news/theridion-huseynovi-new-spider-species-georgia-2026/theridion-huseynovi.png": {
       "sourceHash": "d4a1a13fbf943fc87f371418a57eca878129fcd41f735deb5bfbca43c80fe9f3",
@@ -56660,6 +56713,59 @@
         }
       ],
       "updatedAt": "2026-08-28T21:55:26.982Z"
+    },
+    "optimized/images/authors/nika-kerdikoshvili-480.webp": {
+      "sourceHash": "b885a25f61d0526d2de17e2fa8f1e84c9a3481bc6a339718ceed6f0fb93cd3bf",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "optimized/images/authors/nika-kerdikoshvili-480.webp",
+      "originalSize": 43030,
+      "width": 480,
+      "height": 480,
+      "derivatives": [
+        {
+          "key": "optimized/optimized/images/authors/nika-kerdikoshvili-480-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 320,
+          "byteSize": 15167
+        },
+        {
+          "key": "optimized/optimized/images/authors/nika-kerdikoshvili-480-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 320,
+          "byteSize": 19932
+        },
+        {
+          "key": "optimized/optimized/images/authors/nika-kerdikoshvili-480-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 400,
+          "byteSize": 20830
+        },
+        {
+          "key": "optimized/optimized/images/authors/nika-kerdikoshvili-480-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 400,
+          "byteSize": 27416
+        },
+        {
+          "key": "optimized/optimized/images/authors/nika-kerdikoshvili-480-480.avif",
+          "format": "avif",
+          "width": 480,
+          "height": 480,
+          "byteSize": 31416
+        },
+        {
+          "key": "optimized/optimized/images/authors/nika-kerdikoshvili-480-480.webp",
+          "format": "webp",
+          "width": 480,
+          "height": 480,
+          "byteSize": 42306
+        }
+      ],
+      "updatedAt": "2026-09-23T10:37:36.422Z"
     },
     "panthera-pardus-assaf-1.jpg": {
       "sourceHash": "9729a36ca545d25d78ee60127a2e685a406524f0e6f4ad72bf5cbfd06f41c821",

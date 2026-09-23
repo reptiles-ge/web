@@ -349,18 +349,16 @@ function NewsFigure({
   return (
     <figure className={compact ? "py-3 sm:py-4" : "mt-10 lg:mt-14"}>
       {visual.plate ? (
-        <CoverImage
-          alt={visual.alt}
-          className={
-            compact
-              ? "h-auto w-full rounded-card bg-surface"
-              : "h-auto w-full rounded-card bg-surface"
-          }
-          fill={false}
-          priority={priority}
-          sizes={sizes}
-          src={visual.src}
-        />
+        <div className="media-placeholder overflow-hidden rounded-card bg-surface">
+          <CoverImage
+            alt={visual.alt}
+            className="h-auto w-full"
+            fill={false}
+            priority={priority}
+            sizes={sizes}
+            src={visual.src}
+          />
+        </div>
       ) : (
         <div
           className={

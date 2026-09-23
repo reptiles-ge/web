@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+
 import { getLocale, getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
@@ -13,6 +15,8 @@ import {
   ClusterStat,
 } from "@/components/ClusterSectionIntro";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
+import { SpeciesInlineLink } from "@/components/SpeciesInlineLink";
+import { Link } from "@/i18n/navigation";
 import { CLUSTER_GUIDES } from "@/lib/clusterGuides";
 
 export async function ClusterGuidePage({
@@ -25,6 +29,45 @@ export async function ClusterGuidePage({
   const locale = (await getLocale()) as AppLocale;
   const guideP3 = t.has("guideP3") ? t("guideP3") : null;
   const familyCount = new Set(species.map((item) => item.family)).size;
+  const richLinks = {
+    amphibianIndex: (chunks: ReactNode) => (
+      <Link
+        className="font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
+        href="/amphibians/saxeoebebi"
+      >
+        {chunks}
+      </Link>
+    ),
+    anura: (chunks: ReactNode) => (
+      <Link
+        className="font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
+        href="/amphibians/bayayi"
+      >
+        {chunks}
+      </Link>
+    ),
+    caucasianBrownFrog: (chunks: ReactNode) => (
+      <SpeciesInlineLink id="rana-macrocnemis">{chunks}</SpeciesInlineLink>
+    ),
+    caucasianSalamander: (chunks: ReactNode) => (
+      <SpeciesInlineLink id="mertensiella-caucasica">
+        {chunks}
+      </SpeciesInlineLink>
+    ),
+    caudata: (chunks: ReactNode) => (
+      <Link
+        className="font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
+        href="/amphibians/tritoni-salamandra"
+      >
+        {chunks}
+      </Link>
+    ),
+    marshFrog: (chunks: ReactNode) => (
+      <SpeciesInlineLink id="pelophylax-ridibundus">
+        {chunks}
+      </SpeciesInlineLink>
+    ),
+  };
 
   return (
     <ClusterPageFrame
@@ -44,9 +87,9 @@ export async function ClusterGuidePage({
       <ClusterGuideLead
         body={
           <>
-            <p>{t("guideP1")}</p>
-            <p>{t("guideP2")}</p>
-            {guideP3 ? <p>{guideP3}</p> : null}
+            <p>{t.rich("guideP1", richLinks)}</p>
+            <p>{t.rich("guideP2", richLinks)}</p>
+            {guideP3 ? <p>{t.rich("guideP3", richLinks)}</p> : null}
           </>
         }
         eyebrow={t("guideEyebrow")}

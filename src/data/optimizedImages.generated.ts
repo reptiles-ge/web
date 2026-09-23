@@ -2538,13 +2538,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1000],
     "formats": ["avif", "webp"]
   },
-  "https://cdn.reptiles.ge/euscorpius-italicus-manuel-1.jpg": {
-    "path": "euscorpius-italicus-manuel-1",
-    "width": 500,
-    "height": 333,
-    "widths": [320, 400, 500],
-    "formats": ["avif", "webp"]
-  },
   "https://cdn.reptiles.ge/euscorpius-italicus-markus-1.jpg": {
     "path": "euscorpius-italicus-markus-1",
     "width": 1024,
@@ -5098,6 +5091,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 2048,
     "height": 1536,
     "widths": [400, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/optimized/images/authors/nika-kerdikoshvili-480.webp": {
+    "path": "optimized/images/authors/nika-kerdikoshvili-480",
+    "width": 480,
+    "height": 480,
+    "widths": [320, 400, 480],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/panthera-pardus-assaf-1.jpg": {

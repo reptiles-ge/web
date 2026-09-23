@@ -70,6 +70,25 @@ const HALYOMORPHA_TAXON_SAME_AS = [
   "https://www.wikidata.org/wiki/Q3270185",
 ];
 
+const TAXON_SAME_AS_URL_PATTERNS = [
+  /^https:\/\/amphibiaweb\.org\/cgi\/amphib_query\?/,
+  /^https:\/\/amphibiansoftheworld\.amnh\.org\/Amphibia\//,
+  /^https:\/\/arages\.de\/arachnologie-vernetzt\/spinne-des-jahres\//,
+  /^https:\/\/araneae\.nmbe\.ch\/data\//,
+  /^https:\/\/aves\.biodiversity-georgia\.iliauni\.edu\.ge\//,
+  /^https:\/\/avibase\.bsc-eoc\.org\/species\.jsp\?/,
+  /^https:\/\/biodiversity\.iliauni\.edu\.ge\/(?:[a-z]{2}\/)?species\//,
+  /^https:\/\/birdsoftheworld\.org\/bow\/species\//,
+  /^https:\/\/caucasus-spiders\.info\/checklist\/species-datasheet\//,
+  /^https:\/\/gd\.eppo\.int\/taxon\//,
+  /^https:\/\/reptile-database\.reptarium\.cz\/species\?/,
+  /^https:\/\/wsc\.nmbe\.ch\/spec-data\//,
+  /^https:\/\/www\.gbif\.org\/species\//,
+  /^https:\/\/www\.iucnredlist\.org\/species\//,
+  /^https:\/\/www\.mammaldiversity\.org\/explore\.html#species-id=/,
+  /^https:\/\/www\.wikidata\.org\/wiki\//,
+];
+
 type SpeciesSource = {
   name: string;
   url?: string;
@@ -246,6 +265,10 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
   };
 }
 
+function isTaxonSameAsUrl(url: string) {
+  return TAXON_SAME_AS_URL_PATTERNS.some((pattern) => pattern.test(url));
+}
+
 function localizedSpeciesRelations(raw: Species, locale: AppLocale) {
   const lookalikeSpecies = getLookalikeSpecies(raw.id);
   const lookalikeIds = new Set(lookalikeSpecies.map((entry) => entry.id));
@@ -310,7 +333,7 @@ function speciesSameAs(raw: Species) {
 
   const urls: string[] = [];
   for (const source of raw.sources) {
-    if (source.url) urls.push(source.url);
+    if (source.url && isTaxonSameAsUrl(source.url)) urls.push(source.url);
   }
   return urls;
 }
@@ -440,3 +463,5 @@ function speciesTaxonJsonLd(raw: Species, item: Species, locale: AppLocale) {
     ...(subjectOf.length > 0 ? { subjectOf } : {}),
   };
 }
+
+export { speciesSameAs, speciesStructuredData };

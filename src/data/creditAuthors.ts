@@ -372,6 +372,35 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     role: "researcher",
     slug: "lasha-gogodze",
   },
+  {
+    aliases: [
+      "Kakhaber Sukhitashvili",
+      "კახაბერ სუხიტაშვილი",
+      "კახაბერ სუხითაშვილი",
+    ],
+    bio: {
+      en: "Kakhaber Sukhitashvili is a Georgian ecologist, botanist, and environmentalist. He has been active in environmental work for more than 25 years. He is currently a representative of NatureHistorium and the director of the Georgian Society of Nature Friends.",
+      ka: "კახაბერ სუხიტაშვილი არის ქართველი ეკოლოგი, ბოტანიკოსი და გარემოსდამცველი. იგი უკვე 25 წელზე მეტია აქტიურად მოღვაწეობს გარემოსდაცვით სფეროში. ამჟამად ის არის NatureHistorium-ის წარმომადგენელი და ორგანიზაციის „საქართველოს ბუნების მეგობრები“ (Georgian Society of Nature Friends) დირექტორი.",
+      ru: "Кахабер Сухиташвили — грузинский эколог, ботаник и защитник природы. Он активно работает в природоохранной сфере более 25 лет. В настоящее время он является представителем NatureHistorium и директором Georgian Society of Nature Friends.",
+      tr: "Kakhaber Sukhitashvili Gürcü bir ekolog, botanikçi ve çevre korumacıdır. 25 yılı aşkın süredir çevre alanında aktif olarak çalışmaktadır. Şu anda NatureHistorium temsilcisi ve Georgian Society of Nature Friends direktörüdür.",
+    },
+    id: "kakhaber-sukhitashvili",
+    links: {
+      facebook: "https://www.facebook.com/kakha.sukhitashvili",
+    },
+    name: {
+      en: "Kakhaber Sukhitashvili",
+      ka: "კახაბერ სუხიტაშვილი",
+      ru: "Кахабер Сухиташвили",
+      tr: "Kakhaber Sukhitashvili",
+    },
+    portraitClass: "object-[50%_38%]",
+    portraitSrc:
+      "https://cdn.reptiles.ge/optimized/images/authors/kakhaber-sukhitashvili-480.webp",
+    published: true,
+    role: "researcher",
+    slug: "kakhaber-sukhitashvili",
+  },
 ];
 
 const bySlug = new Map(CREDIT_AUTHORS.map((author) => [author.slug, author]));

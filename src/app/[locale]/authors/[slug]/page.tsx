@@ -5,6 +5,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
 import { AuthorPage } from "@/components/AuthorPage";
+import { ClientMessagesProvider } from "@/components/ClientMessagesProvider";
 import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { JsonLd } from "@/components/JsonLd";
 import {
@@ -14,6 +15,7 @@ import {
 } from "@/data/creditAuthors";
 import { getPublishedNewsForCreditAuthor } from "@/data/news";
 import { getSpeciesById } from "@/data/species";
+import { SPECIES_PROFILE_CLIENT_MESSAGE_NAMESPACES } from "@/i18n/clientMessages";
 import { georgiaPlaceName, openGraphLocale } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
 import {
@@ -137,12 +139,16 @@ export default async function AuthorRoute({ params }: Props) {
       />
       <JsonLd data={breadcrumbLd} />
       <JsonLd data={pageLd} />
-      <AuthorPage
-        author={author}
-        locale={locale}
-        photos={photos}
-        relatedNews={relatedNews}
-      />
+      <ClientMessagesProvider
+        namespaces={SPECIES_PROFILE_CLIENT_MESSAGE_NAMESPACES}
+      >
+        <AuthorPage
+          author={author}
+          locale={locale}
+          photos={photos}
+          relatedNews={relatedNews}
+        />
+      </ClientMessagesProvider>
     </>
   );
 }
@@ -184,6 +190,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     new URL(url).pathname,
     fallbackDescription,
   );
+  const portraitType = author.portraitSrc.endsWith(".webp")
+    ? "image/webp"
+    : "image/jpeg";
 
   return {
     alternates: creditAuthorAlternates(locale, author.slug),
@@ -193,7 +202,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       images: [
         {
           alt: title,
-          type: "image/jpeg",
+          type: portraitType,
           url: author.portraitSrc,
         },
       ],

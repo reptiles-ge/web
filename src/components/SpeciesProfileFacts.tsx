@@ -44,13 +44,16 @@ export async function SpeciesProfileFacts({
           {t("atAGlanceTitle")}
         </AnchoredHeading>
         {displayStats.length > 0 ? (
-          <div className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-media bg-border md:grid-cols-3">
+          <div className="mt-12 grid gap-px overflow-hidden rounded-media bg-border sm:grid-cols-2 md:grid-cols-3">
             {displayStats.map((stat) => (
-              <div className="bg-background p-6 lg:p-8" key={stat.label}>
-                <p className="text-[10px] tracking-[0.16em] text-muted-foreground">
+              <div
+                className="min-w-0 bg-background p-5 sm:p-6 lg:p-8"
+                key={stat.label}
+              >
+                <p className="wrap-break-word text-[10px] leading-relaxed tracking-[0.16em] text-muted-foreground">
                   {stat.label}
                 </p>
-                <p className="mt-3 font-display text-[20px] leading-tight font-medium lg:text-[24px]">
+                <p className="mt-3 wrap-anywhere font-display text-[20px] leading-tight font-medium lg:text-[24px]">
                   <SpeciesProfileStatValue
                     danger={danger}
                     dangerValue={dangerValue}
