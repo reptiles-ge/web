@@ -98,6 +98,12 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
     en: "European yellow sac spider (Cheiracanthium punctorium) | Spider in Georgia",
     ka: "Cheiracanthium punctorium | ობობა საქართველოში",
   },
+  "cimex-lectularius": {
+    en: "Common bed bug (Cimex lectularius) in Georgia",
+    ka: "საწოლის ბაღლინჯო (Cimex lectularius) საქართველოში",
+    ru: "Постельный клоп (Cimex lectularius) в Грузии",
+    tr: "Tahta kurusu (Cimex lectularius) Gürcistan'da",
+  },
   "columba-palumbus": {
     en: "Common woodpigeon (Columba palumbus) | Wood pigeon in Georgia",
     ka: "ქედანი (Columba palumbus) | ტყის მტრედი საქართველოში",
@@ -249,6 +255,12 @@ const SPECIES_META_DESCRIPTION_OVERRIDE: Partial<
   "cheiracanthium-punctorium": {
     en: "European yellow sac spider (Cheiracanthium punctorium) in Georgia: confirmed records, identification, habitat, size, and realistic bite risk.",
     ka: "Cheiracanthium punctorium საქართველოში — დადასტურებული ჩანაწერები, ამოცნობის ნიშნები, ჰაბიტატი, ზომა და მტკივნეული ნაკბენის რეალური რისკი.",
+  },
+  "cimex-lectularius": {
+    en: "Common bed bug in Georgia: published records near Gremi and Pichkhovani, identification, hiding places, bites and what to check indoors.",
+    ka: "საწოლის ბაღლინჯო საქართველოში: გრემისა და ფიჩხოვნის დადასტურებული ჩანაწერები, ამოცნობის ნიშნები, სამალავები და ნაკბენის რეალური რისკი.",
+    ru: "Постельный клоп в Грузии: подтверждённые находки у Греми и Пичховани, признаки, укрытия и последствия укусов.",
+    tr: "Gürcistan'da tahta kurusu: Gremi ve Pichkhovani yakınındaki doğrulanmış kayıtlar, tanıma, saklanma yerleri ve ısırıklar.",
   },
   "dolichophis-schmidti": {
     ka: "წითელმუცელა მცურავი (Dolichophis schmidti) საქართველოში — ამოცნობის ნიშნები, აღმოსავლეთ საქართველოს ჰაბიტატები, ზომა, ქცევა და რამდენად საშიშია ადამიანისთვის.",

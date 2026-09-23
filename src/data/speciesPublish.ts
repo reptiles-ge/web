@@ -125,6 +125,7 @@ export const featuredSpeciesIds = [
   "capra-cylindricornis",
   "mantis-religiosa",
   "halyomorpha-halys",
+  "cimex-lectularius",
   "argiope-bruennichi",
   "argiope-lobata",
   "araneus-diadematus",
