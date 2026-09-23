@@ -4554,6 +4554,73 @@
       ],
       "updatedAt": "2026-09-23T13:31:06.569Z"
     },
+    "blatta-orientalis-kiril-2.jpg": {
+      "sourceHash": "7c59d877521fcce4a98825646587fb02ecd939990388d322b734ae553a40095b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "blatta-orientalis-kiril-2.jpg",
+      "originalSize": 49137,
+      "width": 771,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/blatta-orientalis-kiril-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 425,
+          "byteSize": 4201
+        },
+        {
+          "key": "optimized/blatta-orientalis-kiril-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 425,
+          "byteSize": 5140
+        },
+        {
+          "key": "optimized/blatta-orientalis-kiril-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 531,
+          "byteSize": 5890
+        },
+        {
+          "key": "optimized/blatta-orientalis-kiril-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 531,
+          "byteSize": 7314
+        },
+        {
+          "key": "optimized/blatta-orientalis-kiril-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 850,
+          "byteSize": 11800
+        },
+        {
+          "key": "optimized/blatta-orientalis-kiril-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 850,
+          "byteSize": 15148
+        },
+        {
+          "key": "optimized/blatta-orientalis-kiril-2-771.avif",
+          "format": "avif",
+          "width": 771,
+          "height": 1024,
+          "byteSize": 15735
+        },
+        {
+          "key": "optimized/blatta-orientalis-kiril-2-771.webp",
+          "format": "webp",
+          "width": 771,
+          "height": 1024,
+          "byteSize": 20456
+        }
+      ],
+      "updatedAt": "2026-09-23T13:38:22.432Z"
+    },
     "blatta-orientalis-zj-adram-1.jpg": {
       "sourceHash": "616b9c2dd850b6b2676cceda003c610c3cfa6e4db11eece6ea83bc915aeb9f17",
       "configFingerprint": "409788ee46c653d8",
