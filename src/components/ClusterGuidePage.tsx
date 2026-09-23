@@ -12,6 +12,8 @@ import {
   ClusterSectionIntro,
   ClusterStat,
 } from "@/components/ClusterSectionIntro";
+import { SpeciesInlineLink } from "@/components/SpeciesInlineLink";
+import { Link } from "@/i18n/navigation";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { CLUSTER_GUIDES } from "@/lib/clusterGuides";
 
@@ -25,6 +27,45 @@ export async function ClusterGuidePage({
   const locale = (await getLocale()) as AppLocale;
   const guideP3 = t.has("guideP3") ? t("guideP3") : null;
   const familyCount = new Set(species.map((item) => item.family)).size;
+  const richLinks = {
+    amphibianIndex: (chunks) => (
+      <Link
+        className="font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
+        href="/amphibians/saxeoebebi"
+      >
+        {chunks}
+      </Link>
+    ),
+    anura: (chunks) => (
+      <Link
+        className="font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
+        href="/amphibians/bayayi"
+      >
+        {chunks}
+      </Link>
+    ),
+    caudata: (chunks) => (
+      <Link
+        className="font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
+        href="/amphibians/tritoni-salamandra"
+      >
+        {chunks}
+      </Link>
+    ),
+    caucasianBrownFrog: (chunks) => (
+      <SpeciesInlineLink id="rana-macrocnemis">{chunks}</SpeciesInlineLink>
+    ),
+    caucasianSalamander: (chunks) => (
+      <SpeciesInlineLink id="mertensiella-caucasica">
+        {chunks}
+      </SpeciesInlineLink>
+    ),
+    marshFrog: (chunks) => (
+      <SpeciesInlineLink id="pelophylax-ridibundus">
+        {chunks}
+      </SpeciesInlineLink>
+    ),
+  };
 
   return (
     <ClusterPageFrame
@@ -44,9 +85,9 @@ export async function ClusterGuidePage({
       <ClusterGuideLead
         body={
           <>
-            <p>{t("guideP1")}</p>
-            <p>{t("guideP2")}</p>
-            {guideP3 ? <p>{guideP3}</p> : null}
+            <p>{t.rich("guideP1", richLinks)}</p>
+            <p>{t.rich("guideP2", richLinks)}</p>
+            {guideP3 ? <p>{t.rich("guideP3", richLinks)}</p> : null}
           </>
         }
         eyebrow={t("guideEyebrow")}
