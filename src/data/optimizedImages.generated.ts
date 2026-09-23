@@ -564,6 +564,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 480],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/blatta-orientalis-denis-1.jpg": {
+    "path": "blatta-orientalis-denis-1",
+    "width": 783,
+    "height": 1024,
+    "widths": [320, 400, 640, 783],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/blatta-orientalis-elena-u-1.jpg": {
     "path": "blatta-orientalis-elena-u-1",
     "width": 768,

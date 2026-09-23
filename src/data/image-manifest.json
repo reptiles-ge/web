@@ -4420,6 +4420,73 @@
       ],
       "updatedAt": "2026-09-06T13:11:15.286Z"
     },
+    "blatta-orientalis-denis-1.jpg": {
+      "sourceHash": "ac3c2372f42516ec40138fa1425039d55cde5966653e16e164175778d7cbfb78",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "blatta-orientalis-denis-1.jpg",
+      "originalSize": 184496,
+      "width": 783,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/blatta-orientalis-denis-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 418,
+          "byteSize": 21408
+        },
+        {
+          "key": "optimized/blatta-orientalis-denis-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 418,
+          "byteSize": 28816
+        },
+        {
+          "key": "optimized/blatta-orientalis-denis-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 523,
+          "byteSize": 31517
+        },
+        {
+          "key": "optimized/blatta-orientalis-denis-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 523,
+          "byteSize": 41274
+        },
+        {
+          "key": "optimized/blatta-orientalis-denis-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 837,
+          "byteSize": 62561
+        },
+        {
+          "key": "optimized/blatta-orientalis-denis-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 837,
+          "byteSize": 80134
+        },
+        {
+          "key": "optimized/blatta-orientalis-denis-1-783.avif",
+          "format": "avif",
+          "width": 783,
+          "height": 1024,
+          "byteSize": 82399
+        },
+        {
+          "key": "optimized/blatta-orientalis-denis-1-783.webp",
+          "format": "webp",
+          "width": 783,
+          "height": 1024,
+          "byteSize": 103434
+        }
+      ],
+      "updatedAt": "2026-09-23T13:37:25.090Z"
+    },
     "blatta-orientalis-elena-u-1.jpg": {
       "sourceHash": "ecd7bb4034d029e5848db887329b72f3f78c1e839f1be3e7f73fc8d4145cded1",
       "configFingerprint": "409788ee46c653d8",
