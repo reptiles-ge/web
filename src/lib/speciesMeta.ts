@@ -256,10 +256,10 @@ const SPECIES_META_DESCRIPTION_OVERRIDE: Partial<
     ka: "არგიოპა (Argiope bruennichi) საქართველოში — როგორ ამოიცნოთ ყვითელ-შავი ობობა, სად გვხვდება, რა ზომისაა და რატომ არ ითვლება ადამიანისთვის სამედიცინო რისკად.",
   },
   "blatta-orientalis": {
-    en: "Oriental cockroach in Georgia: documented records from Tbilisi and Batumi, identification, size, damp hiding places and household risks.",
-    ka: "შავი ტარაკანა საქართველოში: თბილისის, ბათუმისა და სხვა ადგილების ჩანაწერები, ამოცნობის ნიშნები, ზომა, ნოტიო სამალავები და სახლში აღმოჩენისას მოქმედება.",
-    ru: "Чёрный таракан в Грузии: находки в Тбилиси и Батуми, признаки, размер, влажные укрытия и что делать при обнаружении дома.",
-    tr: "Gürcistan'da Doğu hamam böceği: Tiflis ve Batum kayıtları, ayırt edici özellikler, boy, nemli saklanma yerleri ve evde yapılacaklar.",
+    en: "Oriental cockroach in Georgia: map records and regional status, identification, size, damp refuges and household risks.",
+    ka: "შავი ტარაკანა საქართველოში — რუკის ჩანაწერები და რეგიონული სტატუსი, ამოცნობა, ზომა, ნოტიო სამალავები და საყოფაცხოვრებო რისკები.",
+    ru: "Чёрный таракан в Грузии: записи на карте и региональный статус, признаки, размер, влажные укрытия и домашние риски.",
+    tr: "Gürcistan'da Doğu hamam böceği: harita kayıtları ve bölgesel durum, tanıma, boy, nemli saklanma yerleri ve ev içi riskler.",
   },
   "buteo-buteo": {
     ka: "ჩვეულებრივი კაკაჩა (Buteo buteo) საქართველოში — ამოცნობის ნიშნები, გავრცელება, ჰაბიტატი, კვება, მიგრაცია ბათუმის გავლით და რატომ არის ადამიანისთვის უვნებელი.",
