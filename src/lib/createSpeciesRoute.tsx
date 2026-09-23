@@ -433,7 +433,9 @@ function speciesTaxonJsonLd(raw: Species, item: Species, locale: AppLocale) {
   const aliases = speciesAliasKeywords(item.id, locale);
   const alternateName: string[] = [];
   const seenAlternateNames = new Set<string>();
-  for (const name of [item.commonName, ...aliases]) {
+  const georgianAliases =
+    raw.id === "blatta-orientalis" ? ["შავი ტარაკანა", "შავი ტარაკანი"] : [];
+  for (const name of [item.commonName, ...aliases, ...georgianAliases]) {
     if (seenAlternateNames.has(name)) continue;
     seenAlternateNames.add(name);
     alternateName.push(name);

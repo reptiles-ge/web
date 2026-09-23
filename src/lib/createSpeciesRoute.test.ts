@@ -41,6 +41,39 @@ type TaxonJsonLd = {
 };
 
 describe("species structured data", () => {
+  it("includes both Georgian cockroach names in every Taxon instance", () => {
+    const raw = getSpeciesById("blatta-orientalis");
+    expect(raw).toBeDefined();
+
+    for (const locale of ["ka", "en", "ru", "tr"] as const) {
+      const localized = localizeSpecies(raw!, locale);
+      const jsonLd = speciesStructuredData({
+        breadcrumbCrumbs: [{ name: localized.commonName }],
+        galleryTitle: "gallery",
+        item: localized,
+        locale,
+        ogImage: localized.image,
+        pageUrl: "https://reptiles.ge/mtserebi/shavi-tarakana",
+        raw: raw!,
+      });
+      const article = jsonLd.find(
+        (entry) => entry["@type"] === "Article",
+      ) as ArticleJsonLd;
+      const expectedNames = ["შავი ტარაკანა", "შავი ტარაკანი"];
+
+      expect(article.about.alternateName).toEqual(
+        expect.arrayContaining(expectedNames),
+      );
+      expect(article.mainEntity.alternateName).toEqual(
+        expect.arrayContaining(expectedNames),
+      );
+      if (locale === "ka") {
+        expect(localized.commonName).toBe("შავი ტარაკანა");
+        expect(article.mainEntity.alternateName).toEqual(expectedNames);
+      }
+    }
+  });
+
   it("keeps Cheiracanthium identity URLs in sameAs and source URLs in citation", () => {
     const raw = getSpeciesById("cheiracanthium-punctorium");
     expect(raw).toBeDefined();
