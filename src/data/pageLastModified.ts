@@ -10,7 +10,7 @@ export const SITEMAP_PATH_LAST_MODIFIED: Record<string, string> = {
   "/birds": "2026-09-20T02:45:00+04:00",
   "/birds/saxeoebebi": "2026-09-16T09:46:00+04:00",
   "/contact": "2026-09-16T09:57:00+04:00",
-  "/insects": "2026-09-20T02:45:00+04:00",
+  "/insects": "2026-09-23T12:45:00+04:00",
   "/insects/saxeoebebi": "2026-09-18T18:00:00+04:00",
   "/lizards": "2026-09-16T10:08:00+04:00",
   "/lizards/darevskia": "2026-09-16T10:19:00+04:00",

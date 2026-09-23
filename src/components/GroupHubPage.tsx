@@ -32,6 +32,13 @@ type GroupHubPageProps = {
   species: Species[];
 };
 
+const INSECT_DEFINITION: Record<AppLocale, string> = {
+  en: "Insects are arthropods that, as adults, have six legs, three main body parts, and often one or two pairs of wings.",
+  ka: "მწერები არიან ფეხსახსრიანები, რომლებსაც ზრდასრულ სტადიაზე აქვთ ექვსი ფეხი, სამი ძირითადი სხეულის ნაწილი და ხშირად ერთი ან ორი წყვილი ფრთა.",
+  ru: "Насекомые — членистоногие, у которых во взрослом состоянии шесть ног, три основные части тела и часто одна или две пары крыльев.",
+  tr: "Böcekler, ergin dönemde altı bacağı, üç ana vücut bölümü ve çoğu zaman bir ya da iki çift kanadı olan eklembacaklılardır.",
+};
+
 export async function GroupHubPage({
   heroMobileSrc,
   heroSrc,
@@ -47,6 +54,10 @@ export async function GroupHubPage({
   const relatedBody = t.has("relatedBody")
     ? t("relatedBody")
     : tShared("relatedBody");
+  const guideP1 =
+    hubId === "insects"
+      ? `${INSECT_DEFINITION[locale]} ${t("guideP1")}`
+      : t("guideP1");
   const dates = pageDateFields(GROUP_HUBS[hubId].path);
 
   return (
@@ -73,7 +84,7 @@ export async function GroupHubPage({
               <div>
                 <div className="space-y-4 text-[15px] leading-relaxed text-muted-foreground">
                   <p>
-                    <PhoneLinkedText>{t("guideP1")}</PhoneLinkedText>
+                    <PhoneLinkedText>{guideP1}</PhoneLinkedText>
                   </p>
                   {hubId === "spiders" ? null : (
                     <p>
