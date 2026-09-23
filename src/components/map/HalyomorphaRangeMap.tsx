@@ -19,7 +19,6 @@ const HalyomorphaRangeMapClient = lazy(() =>
 );
 
 export function HalyomorphaRangeMap(props: HalyomorphaLazyMapProps) {
-  const showLoader = true;
   const wrapperRef = useRef<HTMLDivElement>(null);
   const [shouldLoadMap, setShouldLoadMap] = useState(false);
   const [mapData, setMapData] = useState<null | Pick<
@@ -29,7 +28,6 @@ export function HalyomorphaRangeMap(props: HalyomorphaLazyMapProps) {
   const [loadError, setLoadError] = useState(false);
 
   useEffect(() => {
-    if (showLoader) return;
     const wrapper = wrapperRef.current;
     if (!wrapper || shouldLoadMap) return;
     if (
@@ -53,10 +51,9 @@ export function HalyomorphaRangeMap(props: HalyomorphaLazyMapProps) {
     );
     observer.observe(wrapper);
     return () => observer.disconnect();
-  }, [shouldLoadMap, showLoader]);
+  }, [shouldLoadMap]);
 
   useEffect(() => {
-    if (showLoader) return;
     const selectRegion = (event: Event) => {
       const regionId = (event as CustomEvent<{ regionId?: string }>).detail
         ?.regionId;
@@ -73,10 +70,10 @@ export function HalyomorphaRangeMap(props: HalyomorphaLazyMapProps) {
     window.addEventListener(HALYOMORPHA_REGION_SELECT_EVENT, selectRegion);
     return () =>
       window.removeEventListener(HALYOMORPHA_REGION_SELECT_EVENT, selectRegion);
-  }, [showLoader]);
+  }, []);
 
   useEffect(() => {
-    if (!shouldLoadMap || showLoader) return;
+    if (!shouldLoadMap) return;
     const controller = new AbortController();
     Promise.all([
       loadHalyomorphaMapSummary(
@@ -112,13 +109,7 @@ export function HalyomorphaRangeMap(props: HalyomorphaLazyMapProps) {
         if (!controller.signal.aborted) setLoadError(true);
       });
     return () => controller.abort();
-  }, [
-    shouldLoadMap,
-    showLoader,
-    props.locale,
-    props.officialRegionIds,
-    props.speciesId,
-  ]);
+  }, [shouldLoadMap, props.locale, props.officialRegionIds, props.speciesId]);
 
   return (
     <div
@@ -128,9 +119,7 @@ export function HalyomorphaRangeMap(props: HalyomorphaLazyMapProps) {
       ref={wrapperRef}
       role="region"
     >
-      {showLoader ? (
-        <HalyomorphaMapFallback copy={props.copy} />
-      ) : mapData ? (
+      {mapData ? (
         <Suspense fallback={<HalyomorphaMapFallback copy={props.copy} />}>
           <HalyomorphaRangeMapClient {...props} {...mapData} />
         </Suspense>
