@@ -111,7 +111,7 @@ This is a public scientific atlas, not a blog.
 - **Darevskia:** 16 species; colour is not ID. Do not collapse them.
 - **Medical:** bite / venom / yard pages are educational. Call **112**. Not first-aid protocol, not `MedicalWebPage` schema. `malpolon-insignitus` is Moderate / rear-fanged — not გიურზა.
 - **Photos:** CDN URLs are often generic. Do not mark Georgia-field-verified without evidence. Keep credit; placeholder is OK.
-- FAQ schema only for FAQs that are actually on the page.
+- No `FAQPage` schema on guide pages (guide articles, cluster guides, `/snakes-in-the-yard`, `/venomous-snakes`). Google retired FAQ rich results on 2026-05-07. Keep the visible FAQ sections.
 
 Sources we trust: Tarkhnishvili et al. 2026; Iankoshvili & Tarkhnishvili 2021 (when the checklist cites it); IUCN **species-specific** URL; Georgia Red List only when the profile already cites it.
 
@@ -184,7 +184,7 @@ Long-form, answer-first practical guides (bat in the house, wasp nest, …) use 
 
 - Unique title / H1 / description. Species: H1 = common name; title often `absolute` (no ` — Reptiles` double suffix).
 - `hreflang` via `localeAlternates` / `speciesAlternates` (`x-default` = KA).
-- BreadcrumbList on cluster and species pages. FAQPage only if FAQ is visible.
+- BreadcrumbList on cluster and species pages. No FAQPage on guides; elsewhere FAQPage only if the FAQ is visible.
 - Bite page: `WebPage`, not medical schema.
 - `www.reptiles.ge` → apex 301. API routes send `X-Robots-Tag: noindex`.
 

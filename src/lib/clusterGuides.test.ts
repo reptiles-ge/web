@@ -77,8 +77,6 @@ describe("bird and mammal indexes", () => {
       "/spiders/obobis-nakbeni",
     );
     expect(CLUSTER_GUIDES["spider-index"].pathname).toBe("/spiders/saxeoebebi");
-    expect(CLUSTER_GUIDES["snake-bite"].emitFaqSchema).toBe(false);
-    expect(CLUSTER_GUIDES["spider-bite"].emitFaqSchema).toBe(false);
     expect(CLUSTER_GUIDES["lizard-house"].pathname).toBe(
       "/lizards/xvliki-saxlshi",
     );

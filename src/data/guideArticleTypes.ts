@@ -5,7 +5,6 @@ import type { SearchIcon } from "@/lib/siteSearch";
 
 export type GuideArticle<ImageKey extends string = string> = {
   copy: Record<AppLocale, GuideArticleCopy<ImageKey>>;
-  emitFaqSchema?: boolean;
   hero: GuideArticleImage;
   id: string;
   images?: Record<ImageKey, GuideArticleImage>;

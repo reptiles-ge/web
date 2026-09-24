@@ -28,7 +28,7 @@ This is **not** the model for news (`src/data/news.ts`), species profiles (MDX),
 | Generated 301s                     | `src/i18n/guideArticleRedirects.ts` (used by `src/proxy.ts` and `next.config.ts`) |
 | Guard test                         | `src/data/guideArticles.test.ts`                                                  |
 
-The builder emits, per locale: title/description, canonical + hreflang (`x-default` = KA), Open Graph + Twitter card, `Article` + `BreadcrumbList` + `FAQPage` JSON-LD, an answer-first lead, a table of contents with section anchors, FAQ accordion, related guides + parent hub links, the sources accordion, and the attribution block.
+The builder emits, per locale: title/description, canonical + hreflang (`x-default` = KA), Open Graph + Twitter card, `Article` + `BreadcrumbList` JSON-LD, an answer-first lead, a table of contents with section anchors, FAQ accordion, related guides + parent hub links, the sources accordion, and the attribution block.
 
 The registry feeds these automatically. **Do not hand-edit them for a guide article:** sitemap, search index, `llms.txt` / `llms-full.txt`, footer and home SEO links, navbar hero style, and the proxy / `next.config.ts` redirects.
 
@@ -81,7 +81,7 @@ The registry feeds these automatically. **Do not hand-edit them for a guide arti
 - **`description`**: 120–160 characters (the test allows 110–165). State the problem, the action, and the safety hook. It must differ from the lead.
 - **`lead`**: answer-first, 2–4 sentences (40–80 words). This is the featured-snippet and AI-overview candidate: what to do right now. If there is any medical risk, say to call 112 in Georgia.
 - **`sections`**: 6–12 H2s phrased as real questions or tasks (for example "What should you never do?"). Use one idea per section and short paragraphs. Use `list` for steps (`ordered: true`) or do/don't lists. Headings must be unique; they become `#anchors` in the table of contents.
-- **`faq`**: 4–10 real follow-up questions that the headings do not already answer word for word. Each answer is 1–3 self-contained sentences. They are emitted as `FAQPage` schema. Set `emitFaqSchema: false` only for a deliberate opt-out.
+- **`faq`**: 4–10 real follow-up questions that the headings do not already answer word for word. Each answer is 1–3 self-contained sentences. They stay visible on the page and in `llms-full.txt`. Do not add `FAQPage` schema: Google retired FAQ rich results on 2026-05-07, and the guard test fails if a guide emits it.
 - **Internal links**: inside any paragraph, list item, lead, or FAQ answer, `[label](/internal/path)` renders a localized link. Use internal static pathnames from `pathnames.ts` (for example `/mammals`, `/snakes/gvelis-nakbeni`). Use `relatedSpeciesIds` for published profiles only.
 - **`search.keywords`**: Georgian script, Latin transliteration, EN, RU, and TR. Include colloquial synonyms (for example `კრაზანა` / `ბზიკი`).
 - **Alt text**: describe what is visible, in each locale. Do not claim a species, a locality, or "photographed in Georgia" unless it is verified.

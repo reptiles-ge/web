@@ -74,6 +74,26 @@ describe("guide article registry", () => {
   });
 });
 
+describe("guide structured data", () => {
+  it("keeps FAQ visible but never emits FAQPage schema on guides", () => {
+    for (const file of [
+      "src/lib/createGuideArticleRoute.tsx",
+      "src/lib/createClusterGuideRoute.tsx",
+      "src/app/[locale]/snakes-in-the-yard/page.tsx",
+      "src/app/[locale]/venomous-snakes/page.tsx",
+    ]) {
+      const source = fs.readFileSync(path.join(process.cwd(), file), "utf8");
+      expect(source, file).not.toContain("FAQPage");
+    }
+    expect(
+      fs.readFileSync(
+        path.join(process.cwd(), "src/components/GuideArticlePage.tsx"),
+        "utf8",
+      ),
+    ).toContain("<GuideFaqItems");
+  });
+});
+
 describe.each(articles.map((article) => [article.id, article] as const))(
   "guide article %s",
   (_id, article) => {

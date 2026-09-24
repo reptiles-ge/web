@@ -146,29 +146,11 @@ export function createGuideArticleRoute(pathname: GuideArticlePath) {
       publisher: organizationJsonLd(),
       url,
     };
-    const faqLd =
-      article.emitFaqSchema === false || copy.faq.length === 0
-        ? null
-        : {
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            inLanguage: locale,
-            mainEntity: copy.faq.map((item) => ({
-              "@type": "Question",
-              acceptedAnswer: { "@type": "Answer", text: item.answer },
-              name: item.question,
-            })),
-            url,
-          };
 
     return (
       <>
         <CoverImagePreload sizes={HERO_SIZES} src={article.hero.src} />
-        <JsonLd
-          data={
-            faqLd ? [articleLd, breadcrumbLd, faqLd] : [articleLd, breadcrumbLd]
-          }
-        />
+        <JsonLd data={[articleLd, breadcrumbLd]} />
         <GuideArticlePage
           article={article}
           dates={dates}
