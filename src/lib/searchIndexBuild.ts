@@ -989,6 +989,41 @@ const STATIC_PAGES: Array<
     },
     title: { en: "Contact", ka: "კონტაქტი" },
   },
+  {
+    heroImage: "/images/guides/wasp-nest-enclosed.jpg",
+    href: "/insects/krazanis-bude",
+    icon: "safety",
+    id: "wasp-nest",
+    keywords: [
+      "კრაზანა",
+      "კრაზანის ბუდე",
+      "ბზიკი",
+      "ბზიკის ბუდე",
+      "wasp",
+      "hornet",
+      "nest",
+      "оса",
+      "осиное гнездо",
+      "eşek arısı",
+      "yuva",
+      "დანესტვრა",
+      "აივანი",
+    ],
+    rank: 5,
+    subtitle: {
+      en: "When to leave a nest alone, and when to call for help",
+      ka: "როდის დატოვოთ ბუდე მშვიდად და როდის მიმართოთ სპეციალისტს",
+      ru: "Когда гнездо не трогать и когда нужен специалист",
+      tr: "Yuvayı ne zaman bırakmalı, ne zaman uzman çağırmalı",
+    },
+    suggested: true,
+    title: {
+      en: "Wasp nest near your home",
+      ka: "კრაზანის ბუდე",
+      ru: "Осиное гнездо у дома",
+      tr: "Eşek arısı yuvası",
+    },
+  },
 ];
 
 const SNAKE_QUIZ_COPY: PageCopy = {
