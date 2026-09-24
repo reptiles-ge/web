@@ -22,8 +22,8 @@ export default function AdminCdnUploadPage() {
       <p className="mt-3 max-w-2xl text-[14px] leading-relaxed text-muted-foreground">
         ფოტოები აიტვირთება იმავე კომპრესიით, როგორც სახეობის ფოტოები. ძირითადი
         JPEG/PNG URL-ები და AVIF/WebP ზომები გამოჩნდება ქვემოთ. Image manifest
-        და ოპტიმიზებული სურათების კატალოგი PR-ში განახლდება; merge შენზეა.
-        სახეობის გალერეა და MDX არ შეიცვლება.
+        და ოპტიმიზებული სურათების კატალოგი მიმდინარე ბრენჩზე გახსნილ PR-ში
+        განახლდება; merge შენზეა. სახეობის გალერეა და MDX არ შეიცვლება.
       </p>
       <div className="mt-8">
         <AdminCdnUpload />

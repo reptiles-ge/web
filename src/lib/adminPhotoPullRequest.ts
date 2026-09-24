@@ -269,6 +269,7 @@ export async function openStandalonePhotoPullRequest(
 
   return withPhotoPullRequest({
     apply: (worktree) => applyOptimizeCatalog(worktree, catalog),
+    baseFromCurrentBranch: true,
     commitBody:
       "Standalone originals and AVIF/WebP derivatives are already on the CDN.",
     extraFiles: optimizeCatalogFiles(catalog),
@@ -517,6 +518,7 @@ function stamp() {
 
 async function withPhotoPullRequest(input: {
   apply: (worktree: string) => Promise<void> | void;
+  baseFromCurrentBranch?: boolean;
   commitBody: string;
   editExistingBody?: boolean;
   extraFiles?: string[];
@@ -525,9 +527,18 @@ async function withPhotoPullRequest(input: {
   title: string;
 }): Promise<string> {
   const rel = speciesMdxRel(input.id);
-  const base = resolvePhotoBase(input.id);
+  const currentBranch = input.baseFromCurrentBranch
+    ? currentBranchName(REPO_ROOT)
+    : "";
+  if (input.baseFromCurrentBranch && !currentBranch) {
+    throw new Error("Check out a branch before uploading standalone photos");
+  }
+  const base =
+    currentBranch && currentBranch !== BASE_BRANCH
+      ? { branch: currentBranch, ref: "HEAD" }
+      : resolvePhotoBase(input.id);
 
-  if (base.ref === "HEAD") {
+  if (base.ref === "HEAD" && !input.baseFromCurrentBranch) {
     if (run("git", ["status", "--porcelain"], REPO_ROOT)) {
       throw new Error(
         "Commit or stash local changes before using admin photos",
@@ -554,6 +565,14 @@ async function withPhotoPullRequest(input: {
         `Changes pushed to ${base.branch}, but no open PR was found`,
       );
     return url;
+  }
+
+  if (base.ref === "HEAD") {
+    run(
+      "git",
+      ["push", "-u", "origin", `HEAD:refs/heads/${base.branch}`],
+      REPO_ROOT,
+    );
   }
 
   const existing = await findOpenPhotoPullRequest(base.branch, input.id);
