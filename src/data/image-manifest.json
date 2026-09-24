@@ -28271,6 +28271,101 @@
       ],
       "updatedAt": "2026-09-19T12:45:43.643Z"
     },
+    "external/ants-entering-through-pipe-gap-kitchen.jpg": {
+      "sourceHash": "89ae65b0e1f7937c718f2c037ed91abdc1fcb74472637165f785acf191fc9013",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "external/ants-entering-through-pipe-gap-kitchen.jpg",
+      "originalSize": 163981,
+      "width": 1672,
+      "height": 941,
+      "derivatives": [
+        {
+          "key": "optimized/external/ants-entering-through-pipe-gap-kitchen-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 5019
+        },
+        {
+          "key": "optimized/external/ants-entering-through-pipe-gap-kitchen-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 6402
+        },
+        {
+          "key": "optimized/external/ants-entering-through-pipe-gap-kitchen-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 7137
+        },
+        {
+          "key": "optimized/external/ants-entering-through-pipe-gap-kitchen-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 9286
+        },
+        {
+          "key": "optimized/external/ants-entering-through-pipe-gap-kitchen-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 14170
+        },
+        {
+          "key": "optimized/external/ants-entering-through-pipe-gap-kitchen-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 19230
+        },
+        {
+          "key": "optimized/external/ants-entering-through-pipe-gap-kitchen-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 19642
+        },
+        {
+          "key": "optimized/external/ants-entering-through-pipe-gap-kitchen-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 26630
+        },
+        {
+          "key": "optimized/external/ants-entering-through-pipe-gap-kitchen-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 35389
+        },
+        {
+          "key": "optimized/external/ants-entering-through-pipe-gap-kitchen-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 46782
+        },
+        {
+          "key": "optimized/external/ants-entering-through-pipe-gap-kitchen-1672.avif",
+          "format": "avif",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 53878
+        },
+        {
+          "key": "optimized/external/ants-entering-through-pipe-gap-kitchen-1672.webp",
+          "format": "webp",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 71440
+        }
+      ],
+      "updatedAt": "2026-09-24T22:01:54.144Z"
+    },
     "external/ants-kitchen-trail-crumbs-spilled-juice.jpg": {
       "sourceHash": "b30d1f335d8dac7a8f47910df01c7c94f947ced712b64cf05f7cb30c7290789f",
       "configFingerprint": "409788ee46c653d8",
