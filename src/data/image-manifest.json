@@ -1793,6 +1793,87 @@
       ],
       "updatedAt": "2026-09-24T18:04:47.721Z"
     },
+    "anas-platyrhynchos-donsky-7.jpg": {
+      "sourceHash": "153f39c9fc6d3fc8ff24d9653bc11d457c3f0d681f2c6205c4d83ef1034d4a40",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "anas-platyrhynchos-donsky-7.jpg",
+      "originalSize": 114296,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/anas-platyrhynchos-donsky-7-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 7736
+        },
+        {
+          "key": "optimized/anas-platyrhynchos-donsky-7-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11408
+        },
+        {
+          "key": "optimized/anas-platyrhynchos-donsky-7-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 10707
+        },
+        {
+          "key": "optimized/anas-platyrhynchos-donsky-7-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 15728
+        },
+        {
+          "key": "optimized/anas-platyrhynchos-donsky-7-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 20195
+        },
+        {
+          "key": "optimized/anas-platyrhynchos-donsky-7-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 29826
+        },
+        {
+          "key": "optimized/anas-platyrhynchos-donsky-7-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 27743
+        },
+        {
+          "key": "optimized/anas-platyrhynchos-donsky-7-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 40260
+        },
+        {
+          "key": "optimized/anas-platyrhynchos-donsky-7-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 39008
+        },
+        {
+          "key": "optimized/anas-platyrhynchos-donsky-7-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 56958
+        }
+      ],
+      "updatedAt": "2026-09-24T18:05:40.263Z"
+    },
     "anguis-colchica-2.jpg": {
       "sourceHash": "90c01b21f20afb76c54a27a5d123fa54aa6d56fbe6100dc30fc0d53f633779c6",
       "configFingerprint": "a895f8e025dcc7fa",
