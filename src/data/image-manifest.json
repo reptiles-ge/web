@@ -27623,6 +27623,101 @@
       ],
       "updatedAt": "2026-09-19T12:45:43.643Z"
     },
+    "external/house-mouse-kitchen-skirting-board-gap.jpg": {
+      "sourceHash": "dbda53708611fdd2a7a2cf6b15cc3710cc9238b2d347f2180b469d2ec775b68b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "external/house-mouse-kitchen-skirting-board-gap.jpg",
+      "originalSize": 135631,
+      "width": 1672,
+      "height": 941,
+      "derivatives": [
+        {
+          "key": "optimized/external/house-mouse-kitchen-skirting-board-gap-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 4084
+        },
+        {
+          "key": "optimized/external/house-mouse-kitchen-skirting-board-gap-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 5354
+        },
+        {
+          "key": "optimized/external/house-mouse-kitchen-skirting-board-gap-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 5769
+        },
+        {
+          "key": "optimized/external/house-mouse-kitchen-skirting-board-gap-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 7298
+        },
+        {
+          "key": "optimized/external/house-mouse-kitchen-skirting-board-gap-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 10811
+        },
+        {
+          "key": "optimized/external/house-mouse-kitchen-skirting-board-gap-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 14230
+        },
+        {
+          "key": "optimized/external/house-mouse-kitchen-skirting-board-gap-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 14670
+        },
+        {
+          "key": "optimized/external/house-mouse-kitchen-skirting-board-gap-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 19694
+        },
+        {
+          "key": "optimized/external/house-mouse-kitchen-skirting-board-gap-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 25874
+        },
+        {
+          "key": "optimized/external/house-mouse-kitchen-skirting-board-gap-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 34900
+        },
+        {
+          "key": "optimized/external/house-mouse-kitchen-skirting-board-gap-1672.avif",
+          "format": "avif",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 40313
+        },
+        {
+          "key": "optimized/external/house-mouse-kitchen-skirting-board-gap-1672.webp",
+          "format": "webp",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 54574
+        }
+      ],
+      "updatedAt": "2026-09-24T16:09:03.319Z"
+    },
     "ficedula-hypoleuca-crowbared-1.jpg": {
       "sourceHash": "bcfd4aab32fdfa6c66f19e8591a529b2d80cbeb860dc5218bcf86f06e7673edf",
       "configFingerprint": "a895f8e025dcc7fa",
