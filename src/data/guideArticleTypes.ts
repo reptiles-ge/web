@@ -33,6 +33,7 @@ export type GuideArticleImage = {
   height: number;
   src:
     | `/images/guides/${string}`
+    | `https://cdn.reptiles.ge/external/${string}`
     | `https://cdn.reptiles.ge/images/guides/${string}`;
   width: number;
 };

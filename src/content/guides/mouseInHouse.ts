@@ -6,7 +6,7 @@ import {
   type GuideArticleSource,
 } from "@/data/guideArticleTypes";
 
-type ImageKey = "trap-placement";
+type ImageKey = "cleanup" | "sealing" | "signs" | "trap";
 
 const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
   en: {
@@ -60,6 +60,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       },
       {
         heading: "How can you tell if there is a mouse in the house?",
+        image: "signs",
         list: {
           items: [
             "Droppings: small, pointed, about the size of a grain of rice, often along walls, near food or near shelter. Fresh droppings are shiny and soft; old ones are dry, lighter in colour and crumble easily.",
@@ -91,6 +92,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       },
       {
         heading: "Found mouse droppings? How to clean up safely",
+        image: "cleanup",
         list: {
           items: [
             "Before cleaning, open doors and windows for at least 30 minutes and leave the room while it airs out.",
@@ -127,7 +129,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       },
       {
         heading: "Where should you put a mouse trap?",
-        image: "trap-placement",
+        image: "trap",
         list: {
           items: [
             "Put traps where you have seen a mouse, droppings, gnaw marks or nesting material.",
@@ -151,6 +153,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       },
       {
         heading: "How do you keep mice from getting back in?",
+        image: "sealing",
         list: {
           items: [
             "Fill small holes with steel wool and secure it with caulk around the edges, or use spray foam.",
@@ -242,6 +245,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       },
       {
         heading: "როგორ გავიგოთ, სახლში თაგვია თუ არა?",
+        image: "signs",
         list: {
           items: [
             "ექსკრემენტი: პატარა, წაწვეტებული, დაახლოებით ბრინჯის მარცვლის ზომის; ხშირად კედლის გასწვრივ, საკვებთან ან თავშესაფართან. ახალი ექსკრემენტი პრიალა და რბილია, ძველი — მშრალი, უფრო ღია ფერის და ადვილად იფშვნება.",
@@ -273,6 +277,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       },
       {
         heading: "თაგვის ექსკრემენტი ვიპოვე — როგორ გავწმინდოთ უსაფრთხოდ?",
+        image: "cleanup",
         list: {
           items: [
             "გაწმენდამდე გააღეთ კარები და ფანჯრები მინიმუმ 30 წუთით და განიავების დროს ოთახიდან გადით.",
@@ -309,7 +314,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       },
       {
         heading: "სად დავდგათ თაგვის ხაფანგი?",
-        image: "trap-placement",
+        image: "trap",
         list: {
           items: [
             "დადგით იქ, სადაც თაგვი, ექსკრემენტი, ღრღნის კვალი ან ბუდის მასალა ნახეთ.",
@@ -333,6 +338,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       },
       {
         heading: "როგორ აღარ შემოვუშვათ თაგვი სახლში?",
+        image: "sealing",
         list: {
           items: [
             "პატარა ხვრელები ამოავსეთ ფოლადის ბურბუშელით (steel wool) და კიდეებზე ჰერმეტიკით დაამაგრეთ, ან გამოიყენეთ სამონტაჟო ქაფი.",
@@ -424,6 +430,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       },
       {
         heading: "Как понять, есть ли в доме мышь?",
+        image: "signs",
         list: {
           items: [
             "Помёт: мелкий, заострённый, примерно с рисовое зерно; часто вдоль стен, рядом с едой или укрытием. Свежий помёт блестящий и мягкий, старый — сухой, светлее и легко крошится.",
@@ -455,6 +462,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       },
       {
         heading: "Нашли мышиный помёт? Как безопасно убрать",
+        image: "cleanup",
         list: {
           items: [
             "Перед уборкой откройте двери и окна минимум на 30 минут и на время проветривания выйдите из помещения.",
@@ -491,7 +499,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       },
       {
         heading: "Где ставить мышеловку?",
-        image: "trap-placement",
+        image: "trap",
         list: {
           items: [
             "Ставьте ловушки там, где видели мышь, помёт, следы грызения или материал гнезда.",
@@ -515,6 +523,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       },
       {
         heading: "Как не пустить мышей в дом снова?",
+        image: "sealing",
         list: {
           items: [
             "Маленькие отверстия заполните стальной ватой и закрепите по краям герметиком или используйте монтажную пену.",
@@ -606,6 +615,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       },
       {
         heading: "Evde fare olup olmadığı nasıl anlaşılır?",
+        image: "signs",
         list: {
           items: [
             "Dışkı: küçük, sivri, yaklaşık pirinç tanesi büyüklüğünde; sıklıkla duvar boyunca, yiyeceğin veya barınağın yakınında. Taze dışkı parlak ve yumuşaktır; eskisi kuru, daha açık renkli ve kolay ufalanır.",
@@ -637,6 +647,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       },
       {
         heading: "Fare dışkısı buldunuz mu? Güvenli temizlik",
+        image: "cleanup",
         list: {
           items: [
             "Temizlikten önce kapı ve pencereleri en az 30 dakika açın ve havalandırma sırasında odadan çıkın.",
@@ -673,7 +684,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       },
       {
         heading: "Fare kapanı nereye kurulmalı?",
-        image: "trap-placement",
+        image: "trap",
         list: {
           items: [
             "Kapanları fare, dışkı, kemirme izi veya yuva malzemesi gördüğünüz yerlere kurun.",
@@ -697,6 +708,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       },
       {
         heading: "Farelerin eve yeniden girmesi nasıl önlenir?",
+        image: "sealing",
         list: {
           items: [
             "Küçük delikleri çelik yünle doldurun ve kenarlarını dolgu macunuyla sabitleyin ya da poliüretan köpük kullanın.",
@@ -886,27 +898,60 @@ export const MOUSE_IN_HOUSE = defineGuideArticle({
   copy: COPY,
   hero: {
     alt: {
-      en: "Illustration: a small mouse by a gap in the skirting board below a kitchen shelf with food jars",
-      ka: "ილუსტრაცია: პატარა თაგვი პლინტუსის ღრიჭოსთან, სამზარეულოს თაროს ქვეშ, საკვების ქილებით",
-      ru: "Иллюстрация: маленькая мышь у щели в плинтусе под кухонной полкой с банками продуктов",
-      tr: "İllüstrasyon: yiyecek kavanozlu bir mutfak rafının altında süpürgelik aralığının yanında küçük bir fare",
+      en: "A small grey-brown mouse next to a gap at the base of a white skirting board in a kitchen",
+      ka: "პატარა რუხი-მოყავისფრო თაგვი სამზარეულოში, თეთრი პლინტუსის ძირში არსებულ ღრიჭოსთან",
+      ru: "Маленькая серо-коричневая мышь у щели в основании белого плинтуса на кухне",
+      tr: "Mutfakta beyaz süpürgeliğin dibindeki aralığın yanında küçük gri-kahverengi bir fare",
     },
-    height: 1067,
-    src: "/images/guides/mouse-house-hero.jpg",
-    width: 1600,
+    height: 941,
+    src: "https://cdn.reptiles.ge/external/house-mouse-kitchen-skirting-board-gap.jpg",
+    width: 1672,
   },
   id: "mouse-in-house",
   images: {
-    "trap-placement": {
+    cleanup: {
       alt: {
-        en: "Diagram: a snap trap set at a right angle to the wall with the bait end against the wall, and a mouse's path running along the wall",
-        ka: "სქემა: მარწუხა ხაფანგი კედლის პერპენდიკულარულად, სატყუარიანი ბოლოთი კედლისკენ, და თაგვის გზა კედლის გასწვრივ",
-        ru: "Схема: пружинная ловушка перпендикулярно стене, приманкой к стене, и путь мыши вдоль стены",
-        tr: "Şema: yemli ucu duvara bakan, duvara dik kurulmuş yaylı kapan ve duvar boyunca uzanan fare yolu",
+        en: "A hand in a rubber glove spraying disinfectant on the floor by a skirting board, the other holding a paper towel, with an open window behind",
+        ka: "რეზინის ხელთათმანიანი ხელი პლინტუსთან იატაკზე სადეზინფექციო საშუალებას აპკურებს, მეორე ხელში ქაღალდის ხელსახოცია, ფონზე ღია ფანჯარაა",
+        ru: "Рука в резиновой перчатке распыляет дезинфицирующее средство на пол у плинтуса, в другой руке бумажное полотенце, за ними открытое окно",
+        tr: "Lastik eldivenli bir el süpürgelik dibindeki zemine dezenfektan püskürtüyor, diğer elde kâğıt havlu var, arkada açık bir pencere",
       },
-      height: 720,
-      src: "/images/guides/mouse-trap-placement.jpg",
-      width: 1600,
+      height: 941,
+      src: "https://cdn.reptiles.ge/external/mouse-dropping-disinfectant-cleanup.jpg",
+      width: 1672,
+    },
+    sealing: {
+      alt: {
+        en: "A gloved hand pushing steel wool into a gap around a pipe under a kitchen sink, with a caulking gun and fresh sealant nearby",
+        ka: "ხელთათმანიანი ხელი სამზარეულოს ნიჟარის ქვეშ მილის გარშემო ღრიჭოში ფოლადის ბურბუშელას ტენის, გვერდით ჰერმეტიკის პისტოლეტი და ახალი ჰერმეტიკია",
+        ru: "Рука в перчатке заталкивает стальную вату в щель вокруг трубы под кухонной мойкой, рядом пистолет для герметика и свежий герметик",
+        tr: "Eldivenli bir el mutfak lavabosunun altında borunun çevresindeki aralığa çelik yün dolduruyor, yanında dolgu tabancası ve taze dolgu macunu var",
+      },
+      height: 941,
+      src: "https://cdn.reptiles.ge/external/mouse-entry-gap-steel-wool-sealant.jpg",
+      width: 1672,
+    },
+    signs: {
+      alt: {
+        en: "A food package on a pantry shelf with a chewed hole at the corner, spilled grains and small droppings nearby",
+        ka: "საკუჭნაოს თაროზე საკვების შეფუთვა კუთხეში დაღრღნილი ხვრელით, გვერდით მიმოფანტული მარცვლები და პატარა ექსკრემენტი",
+        ru: "Упаковка продуктов на полке кладовой с прогрызенной дырой в углу, рядом рассыпанные зёрна и мелкий помёт",
+        tr: "Kiler rafında köşesi kemirilmiş bir gıda paketi, yanında dökülmüş taneler ve küçük dışkılar",
+      },
+      height: 941,
+      src: "https://cdn.reptiles.ge/external/mouse-signs-pantry-chewed-package.jpg",
+      width: 1672,
+    },
+    trap: {
+      alt: {
+        en: "A snap trap set at a right angle to a white skirting board, with the baited end against the wall",
+        ka: "მარწუხა ხაფანგი თეთრი პლინტუსის პერპენდიკულარულად, სატყუარიანი ბოლოთი კედელთან",
+        ru: "Пружинная мышеловка перпендикулярно белому плинтусу, стороной с приманкой к стене",
+        tr: "Beyaz süpürgeliğe dik kurulmuş, yemli ucu duvara dayalı yaylı kapan",
+      },
+      height: 941,
+      src: "https://cdn.reptiles.ge/external/mouse-snap-trap-against-skirting-board.jpg",
+      width: 1672,
     },
   },
   messageKey: "mouseInHouse",
