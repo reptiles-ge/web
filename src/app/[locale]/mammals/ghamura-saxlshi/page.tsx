@@ -140,10 +140,19 @@ export default async function BatInHousePage({ params }: Props) {
     publisher: organizationJsonLd(),
     url,
   };
+  const faqLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: copy.faq.map((item) => ({
+      "@type": "Question",
+      acceptedAnswer: { "@type": "Answer", text: item.answer },
+      name: item.question,
+    })),
+  };
 
   return (
     <>
-      <JsonLd data={[articleLd, breadcrumbLd]} />
+      <JsonLd data={[articleLd, breadcrumbLd, faqLd]} />
       <main className="min-h-screen bg-background">
         <article className="mx-auto max-w-[1400px] px-6 pt-30 pb-16 sm:pt-33 sm:pb-24 lg:px-10">
           <nav aria-label="Breadcrumb" className="sr-only">
@@ -290,7 +299,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "article",
       url,
     },
-    robots: { follow: true, index: true },
+    robots: { follow: true, index: true, "max-image-preview": "large" },
     title: { absolute: copy.metaTitle },
     twitter: {
       card: "summary_large_image",
