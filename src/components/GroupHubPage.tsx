@@ -112,8 +112,6 @@ export async function GroupHubPage({
           </div>
         </section>
 
-        <GuideArticleRelatedBlock articles={articles} locale={locale} />
-
         <GroupHubSpeciesList
           hubId={hubId}
           sections={sections}
@@ -121,6 +119,8 @@ export async function GroupHubPage({
         />
 
         {hubId === "turtles" ? <TurtlesHubSections /> : null}
+
+        <GuideArticleRelatedBlock articles={articles} locale={locale} />
 
         <section className="bg-background py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">

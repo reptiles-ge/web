@@ -24,7 +24,7 @@ export async function GuideArticleRelatedBlock({
   const t = await getTranslations({ locale, namespace: "groupHubShared" });
 
   return (
-    <section className="border-t border-border bg-background py-16 lg:py-20">
+    <section className="border-t border-border bg-surface py-16 lg:py-20">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
           {t("articlesEyebrow")}
