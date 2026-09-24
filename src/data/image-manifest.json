@@ -28271,6 +28271,481 @@
       ],
       "updatedAt": "2026-09-19T12:45:43.643Z"
     },
+    "external/ant-bait-station-along-skirting-board.jpg": {
+      "sourceHash": "4b6c4323eb87a8857562b5db9f2728b30f08dfb7351884d9a9dae2e7794eecfe",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "external/ant-bait-station-along-skirting-board.jpg",
+      "originalSize": 137782,
+      "width": 1672,
+      "height": 941,
+      "derivatives": [
+        {
+          "key": "optimized/external/ant-bait-station-along-skirting-board-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 4050
+        },
+        {
+          "key": "optimized/external/ant-bait-station-along-skirting-board-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 4754
+        },
+        {
+          "key": "optimized/external/ant-bait-station-along-skirting-board-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 5665
+        },
+        {
+          "key": "optimized/external/ant-bait-station-along-skirting-board-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 6840
+        },
+        {
+          "key": "optimized/external/ant-bait-station-along-skirting-board-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 10833
+        },
+        {
+          "key": "optimized/external/ant-bait-station-along-skirting-board-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 13588
+        },
+        {
+          "key": "optimized/external/ant-bait-station-along-skirting-board-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 14616
+        },
+        {
+          "key": "optimized/external/ant-bait-station-along-skirting-board-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 19080
+        },
+        {
+          "key": "optimized/external/ant-bait-station-along-skirting-board-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 25459
+        },
+        {
+          "key": "optimized/external/ant-bait-station-along-skirting-board-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 33766
+        },
+        {
+          "key": "optimized/external/ant-bait-station-along-skirting-board-1672.avif",
+          "format": "avif",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 39036
+        },
+        {
+          "key": "optimized/external/ant-bait-station-along-skirting-board-1672.webp",
+          "format": "webp",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 55236
+        }
+      ],
+      "updatedAt": "2026-09-24T22:03:07.417Z"
+    },
+    "external/ants-countertop-cleaning-soapy-water.jpg": {
+      "sourceHash": "4a3da81384aa02f5f7abf32cbeec635cd99818b74075512b8fe7f71d914a2b69",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "external/ants-countertop-cleaning-soapy-water.jpg",
+      "originalSize": 204688,
+      "width": 1672,
+      "height": 941,
+      "derivatives": [
+        {
+          "key": "optimized/external/ants-countertop-cleaning-soapy-water-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 6610
+        },
+        {
+          "key": "optimized/external/ants-countertop-cleaning-soapy-water-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 8868
+        },
+        {
+          "key": "optimized/external/ants-countertop-cleaning-soapy-water-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 9488
+        },
+        {
+          "key": "optimized/external/ants-countertop-cleaning-soapy-water-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 12510
+        },
+        {
+          "key": "optimized/external/ants-countertop-cleaning-soapy-water-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 18156
+        },
+        {
+          "key": "optimized/external/ants-countertop-cleaning-soapy-water-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 24000
+        },
+        {
+          "key": "optimized/external/ants-countertop-cleaning-soapy-water-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 25086
+        },
+        {
+          "key": "optimized/external/ants-countertop-cleaning-soapy-water-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 32766
+        },
+        {
+          "key": "optimized/external/ants-countertop-cleaning-soapy-water-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 43250
+        },
+        {
+          "key": "optimized/external/ants-countertop-cleaning-soapy-water-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 57488
+        },
+        {
+          "key": "optimized/external/ants-countertop-cleaning-soapy-water-1672.avif",
+          "format": "avif",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 66643
+        },
+        {
+          "key": "optimized/external/ants-countertop-cleaning-soapy-water-1672.webp",
+          "format": "webp",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 88838
+        }
+      ],
+      "updatedAt": "2026-09-24T22:02:29.036Z"
+    },
+    "external/ants-entering-through-pipe-gap-kitchen.jpg": {
+      "sourceHash": "89ae65b0e1f7937c718f2c037ed91abdc1fcb74472637165f785acf191fc9013",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "external/ants-entering-through-pipe-gap-kitchen.jpg",
+      "originalSize": 163981,
+      "width": 1672,
+      "height": 941,
+      "derivatives": [
+        {
+          "key": "optimized/external/ants-entering-through-pipe-gap-kitchen-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 5019
+        },
+        {
+          "key": "optimized/external/ants-entering-through-pipe-gap-kitchen-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 6402
+        },
+        {
+          "key": "optimized/external/ants-entering-through-pipe-gap-kitchen-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 7137
+        },
+        {
+          "key": "optimized/external/ants-entering-through-pipe-gap-kitchen-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 9286
+        },
+        {
+          "key": "optimized/external/ants-entering-through-pipe-gap-kitchen-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 14170
+        },
+        {
+          "key": "optimized/external/ants-entering-through-pipe-gap-kitchen-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 19230
+        },
+        {
+          "key": "optimized/external/ants-entering-through-pipe-gap-kitchen-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 19642
+        },
+        {
+          "key": "optimized/external/ants-entering-through-pipe-gap-kitchen-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 26630
+        },
+        {
+          "key": "optimized/external/ants-entering-through-pipe-gap-kitchen-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 35389
+        },
+        {
+          "key": "optimized/external/ants-entering-through-pipe-gap-kitchen-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 46782
+        },
+        {
+          "key": "optimized/external/ants-entering-through-pipe-gap-kitchen-1672.avif",
+          "format": "avif",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 53878
+        },
+        {
+          "key": "optimized/external/ants-entering-through-pipe-gap-kitchen-1672.webp",
+          "format": "webp",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 71440
+        }
+      ],
+      "updatedAt": "2026-09-24T22:01:54.144Z"
+    },
+    "external/ants-home-sealing-skirting-board-crack.jpg": {
+      "sourceHash": "47950476ac1fa6b98217de281282651417b53c61f566613a38713954c335a014",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "external/ants-home-sealing-skirting-board-crack.jpg",
+      "originalSize": 155238,
+      "width": 1672,
+      "height": 941,
+      "derivatives": [
+        {
+          "key": "optimized/external/ants-home-sealing-skirting-board-crack-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 4291
+        },
+        {
+          "key": "optimized/external/ants-home-sealing-skirting-board-crack-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 5610
+        },
+        {
+          "key": "optimized/external/ants-home-sealing-skirting-board-crack-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 5904
+        },
+        {
+          "key": "optimized/external/ants-home-sealing-skirting-board-crack-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 7846
+        },
+        {
+          "key": "optimized/external/ants-home-sealing-skirting-board-crack-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 11334
+        },
+        {
+          "key": "optimized/external/ants-home-sealing-skirting-board-crack-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 15082
+        },
+        {
+          "key": "optimized/external/ants-home-sealing-skirting-board-crack-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 15793
+        },
+        {
+          "key": "optimized/external/ants-home-sealing-skirting-board-crack-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 20436
+        },
+        {
+          "key": "optimized/external/ants-home-sealing-skirting-board-crack-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 27887
+        },
+        {
+          "key": "optimized/external/ants-home-sealing-skirting-board-crack-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 36446
+        },
+        {
+          "key": "optimized/external/ants-home-sealing-skirting-board-crack-1672.avif",
+          "format": "avif",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 43781
+        },
+        {
+          "key": "optimized/external/ants-home-sealing-skirting-board-crack-1672.webp",
+          "format": "webp",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 58968
+        }
+      ],
+      "updatedAt": "2026-09-24T22:03:45.823Z"
+    },
+    "external/ants-kitchen-trail-crumbs-spilled-juice.jpg": {
+      "sourceHash": "b30d1f335d8dac7a8f47910df01c7c94f947ced712b64cf05f7cb30c7290789f",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "external/ants-kitchen-trail-crumbs-spilled-juice.jpg",
+      "originalSize": 151704,
+      "width": 1672,
+      "height": 941,
+      "derivatives": [
+        {
+          "key": "optimized/external/ants-kitchen-trail-crumbs-spilled-juice-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 4493
+        },
+        {
+          "key": "optimized/external/ants-kitchen-trail-crumbs-spilled-juice-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 5276
+        },
+        {
+          "key": "optimized/external/ants-kitchen-trail-crumbs-spilled-juice-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 6387
+        },
+        {
+          "key": "optimized/external/ants-kitchen-trail-crumbs-spilled-juice-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 7448
+        },
+        {
+          "key": "optimized/external/ants-kitchen-trail-crumbs-spilled-juice-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 12601
+        },
+        {
+          "key": "optimized/external/ants-kitchen-trail-crumbs-spilled-juice-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 15420
+        },
+        {
+          "key": "optimized/external/ants-kitchen-trail-crumbs-spilled-juice-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 17609
+        },
+        {
+          "key": "optimized/external/ants-kitchen-trail-crumbs-spilled-juice-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 20932
+        },
+        {
+          "key": "optimized/external/ants-kitchen-trail-crumbs-spilled-juice-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 31185
+        },
+        {
+          "key": "optimized/external/ants-kitchen-trail-crumbs-spilled-juice-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 39000
+        },
+        {
+          "key": "optimized/external/ants-kitchen-trail-crumbs-spilled-juice-1672.avif",
+          "format": "avif",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 48969
+        },
+        {
+          "key": "optimized/external/ants-kitchen-trail-crumbs-spilled-juice-1672.webp",
+          "format": "webp",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 61864
+        }
+      ],
+      "updatedAt": "2026-09-24T22:00:42.912Z"
+    },
     "external/house-mouse-kitchen-skirting-board-gap.jpg": {
       "sourceHash": "dbda53708611fdd2a7a2cf6b15cc3710cc9238b2d347f2180b469d2ec775b68b",
       "configFingerprint": "409788ee46c653d8",

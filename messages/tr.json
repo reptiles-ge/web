@@ -249,6 +249,7 @@
         "batInHouse": "Evde yarasa",
         "waspNest": "Eşek arısı yuvası",
         "stinkBugInHouse": "Evde kokarca böceği",
+        "antsInHouse": "Evde karınca",
         "mouseInHouse": "Evde fare"
       }
     }
@@ -319,6 +320,7 @@
     "batInHouse": "Evde yarasa",
     "waspNest": "Eşek arısı yuvası",
     "stinkBugInHouse": "Evde kokarca böceği",
+    "antsInHouse": "Evde karınca",
     "mouseInHouse": "Evde fare"
   },
   "legal": {
@@ -1341,6 +1343,12 @@
         "eyebrow": "Pratik rehber",
         "title": "Evde kokarca böceği",
         "body": "Kokarca neden sonbaharda eve girer, zararlı mıdır ve ezmeden nasıl uzaklaştırılır.",
+        "cta": "Rehberi oku"
+      },
+      "antsInHouse": {
+        "eyebrow": "Pratik rehber",
+        "title": "Evde karınca",
+        "body": "Karıncalar nereden girer, nasıl uzaklaştırılır ve yem, etkisini bozmadan nasıl kullanılır.",
         "cta": "Rehberi oku"
       },
       "mouseInHouse": {

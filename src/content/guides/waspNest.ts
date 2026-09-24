@@ -568,7 +568,7 @@ export const WASP_NEST = defineGuideArticle({
     },
   },
   messageKey: "waspNest",
-  ogImage: "/og/images/guides/wasp-nest.jpg",
+  ogImage: "https://cdn.reptiles.ge/og/images/guides/wasp-nest.jpg",
   parentHub: "insects",
   pathname: "/insects/krazanis-bude",
   search: {

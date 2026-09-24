@@ -59,6 +59,16 @@ export function resolvePhotoCredit(
 }
 
 export const images = {
+  antsInHouseBait:
+    "https://cdn.reptiles.ge/external/ant-bait-station-along-skirting-board.jpg",
+  antsInHouseCleaning:
+    "https://cdn.reptiles.ge/external/ants-countertop-cleaning-soapy-water.jpg",
+  antsInHouseGap:
+    "https://cdn.reptiles.ge/external/ants-entering-through-pipe-gap-kitchen.jpg",
+  antsInHouseHero:
+    "https://cdn.reptiles.ge/external/ants-kitchen-trail-crumbs-spilled-juice.jpg",
+  antsInHouseSealing:
+    "https://cdn.reptiles.ge/external/ants-home-sealing-skirting-board-crack.jpg",
   batInHouseHero: "/images/guides/bat-house-hero.jpg",
   batInHouseRoost: "/images/guides/bat-roost-natural.jpg",
   batInHouseWall: "/images/guides/bat-on-wall.jpg",

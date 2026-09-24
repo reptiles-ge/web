@@ -39,7 +39,11 @@ export type GuideArticleImage = {
 };
 
 export type GuideArticleMessageKey =
-  "batInHouse" | "mouseInHouse" | "stinkBugInHouse" | "waspNest";
+  | "antsInHouse"
+  | "batInHouse"
+  | "mouseInHouse"
+  | "stinkBugInHouse"
+  | "waspNest";
 
 export type GuideArticleOgImage =
   | `/og/images/guides/${string}.jpg`
