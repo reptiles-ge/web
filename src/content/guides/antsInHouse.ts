@@ -6,7 +6,9 @@ import {
   type GuideArticleSource,
 } from "@/data/guideArticleTypes";
 
-const COPY: Record<AppLocale, GuideArticleCopy> = {
+type ImageKey = "bait" | "cleaning" | "gap" | "sealing";
+
+const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
   en: {
     description:
       "Ants in the house? Learn how to find where they get in, remove food and moisture, use bait safely, and when to call a pest management professional.",
@@ -36,6 +38,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
     sections: [
       {
         heading: "How do you get rid of ants in the house?",
+        image: "cleaning",
         list: {
           items: [
             "Watch before you wipe. Follow the ant trail for a few minutes and see where the ants come in and where they are heading. Once the trail is cleaned, this is much harder to work out.",
@@ -54,6 +57,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "Why do ants come into the house?",
+        image: "gap",
         paragraphs: [
           "Ants mostly come indoors looking for food and water, and sometimes for shelter. According to the University of California Statewide Integrated Pest Management Program (UC IPM), a sudden appearance often follows a change in the weather, such as heat, drought or heavy rain, or a drop in food outdoors.",
           "When a worker ant finds food, it leaves a scent trail (a pheromone) back to the nest, and others follow it. That is why ants often move in a single line along the same route.",
@@ -63,6 +67,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "Bait or spray: what is the difference?",
+        image: "bait",
         list: {
           items: [
             "Choose a product whose label lists ants and the place where you want to use it, for example indoor living areas. The label sets the rules for placement, replacement and safety.",
@@ -147,6 +152,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "How do you keep ants from coming back?",
+        image: "sealing",
         list: {
           items: [
             "Wipe up sweet spills and crumbs straight away, and keep open food in closed containers.",
@@ -194,6 +200,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
     sections: [
       {
         heading: "როგორ მოვიშოროთ ჭიანჭველები სახლიდან?",
+        image: "cleaning",
         list: {
           items: [
             "დააკვირდით, სანამ ბილიკს წაშლით. რამდენიმე წუთით გაჰყევით ჭიანჭველების ბილიკს და ნახეთ, სად შემოდიან და რისკენ მიდიან. გაწმენდის შემდეგ ამის გარკვევა გაცილებით რთულია.",
@@ -212,6 +219,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "რატომ ჩნდებიან ჭიანჭველები სახლში?",
+        image: "gap",
         paragraphs: [
           "ჭიანჭველები შენობაში ძირითადად საკვებისა და წყლის საძებნელად შემოდიან, ზოგჯერ კი თავშესაფრისთვის. კალიფორნიის უნივერსიტეტის მავნებლების ინტეგრირებული მართვის პროგრამის (UC IPM) მიხედვით, მათი უეცარი გამოჩენა ხშირად ამინდის ცვლილებას, მაგალითად, სიცხეს, გვალვას ან ძლიერ წვიმას, ან გარეთ საკვების შემცირებას მოჰყვება.",
           "როცა მუშა ჭიანჭველა საკვებს იპოვის, ბუდემდე სუნის კვალს (ფერომონს) ტოვებს, სხვები კი ამ კვალს მიჰყვებიან. ამიტომ ჭიანჭველები ხშირად ერთ ხაზად, ერთი და იმავე გზით მოძრაობენ.",
@@ -221,6 +229,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "სატყუარა თუ სპრეი: რა განსხვავებაა?",
+        image: "bait",
         list: {
           items: [
             "აირჩიეთ პროდუქტი, რომლის ეტიკეტზეც ჭიანჭველები და გამოყენების ადგილი, მაგალითად, საცხოვრებელი სივრცე, არის მითითებული. დადების, შეცვლისა და უსაფრთხოების წესებს ეტიკეტი განსაზღვრავს.",
@@ -303,6 +312,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "როგორ ავიცილოთ თავიდან ჭიანჭველების დაბრუნება?",
+        image: "sealing",
         list: {
           items: [
             "ტკბილი სითხე და ნამცეცი მაშინვე აიღეთ, ღია საკვები კი დახურულ ჭურჭელში შეინახეთ.",
@@ -350,6 +360,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
     sections: [
       {
         heading: "Как избавиться от муравьёв в доме?",
+        image: "cleaning",
         list: {
           items: [
             "Сначала понаблюдайте, потом убирайте. Несколько минут проследите за муравьиной дорожкой: откуда муравьи заходят и куда направляются. После уборки это выяснить гораздо сложнее.",
@@ -368,6 +379,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "Почему муравьи появляются в доме?",
+        image: "gap",
         paragraphs: [
           "Муравьи заходят в здания в основном в поисках еды и воды, иногда в поисках укрытия. По данным Программы интегрированной защиты от вредителей Калифорнийского университета (UC IPM), их внезапное появление часто следует за сменой погоды, например жарой, засухой или сильным дождём, или за сокращением пищи снаружи.",
           "Найдя еду, рабочий муравей оставляет по пути к гнезду пахучий след (феромон), и другие муравьи идут по нему. Поэтому муравьи часто движутся цепочкой по одному и тому же маршруту.",
@@ -377,6 +389,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "Приманка или спрей: в чём разница?",
+        image: "bait",
         list: {
           items: [
             "Выберите средство, на этикетке которого указаны муравьи и место применения, например жилые помещения. Правила размещения, замены и безопасности задаёт этикетка.",
@@ -459,6 +472,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "Как не допустить возвращения муравьёв?",
+        image: "sealing",
         list: {
           items: [
             "Сразу вытирайте сладкие пролитые жидкости и крошки, а открытые продукты храните в закрытых контейнерах.",
@@ -506,6 +520,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
     sections: [
       {
         heading: "Evdeki karıncalardan nasıl kurtulunur?",
+        image: "cleaning",
         list: {
           items: [
             "Silmeden önce gözlemleyin. Karınca yolunu birkaç dakika izleyin ve karıncaların nereden girip nereye gittiğine bakın. Yol temizlendikten sonra bunu anlamak çok daha zordur.",
@@ -524,6 +539,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "Karıncalar neden eve girer?",
+        image: "gap",
         paragraphs: [
           "Karıncalar binalara çoğunlukla yiyecek ve su aramak için, bazen de barınak için girer. Kaliforniya Üniversitesi Entegre Zararlı Yönetimi Programı'na (UC IPM) göre ani ortaya çıkışlar çoğu zaman sıcak, kuraklık veya şiddetli yağmur gibi bir hava değişikliğini ya da dışarıdaki yiyeceğin azalmasını izler.",
           "Bir işçi karınca yiyecek bulduğunda yuvaya kadar bir koku izi (feromon) bırakır ve diğerleri bu izi takip eder. Bu yüzden karıncalar çoğu zaman aynı yol üzerinde tek sıra hâlinde ilerler.",
@@ -533,6 +549,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "Yem mi, sprey mi: fark nedir?",
+        image: "bait",
         list: {
           items: [
             "Etiketinde karıncaların ve kullanmak istediğiniz yerin, örneğin yaşam alanlarının, yazdığı bir ürün seçin. Yerleştirme, değiştirme ve güvenlik kurallarını etiket belirler.",
@@ -615,6 +632,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "Karıncaların geri gelmesi nasıl önlenir?",
+        image: "sealing",
         list: {
           items: [
             "Dökülen tatlı sıvıları ve kırıntıları hemen silin, açık yiyecekleri kapalı kaplarda saklayın.",
@@ -742,16 +760,62 @@ export const ANTS_IN_HOUSE = defineGuideArticle({
   copy: COPY,
   hero: {
     alt: {
-      en: "Illustration: a thin trail of small ants in a kitchen, running from a gap under the skirting board to crumbs by the base of a cabinet",
-      ka: "ილუსტრაცია: წვრილი ჭიანჭველების ბილიკი სამზარეულოში, პლინტუსის ქვედა ღრიჭოდან კარადის ძირთან დაყრილ ნამცეცებამდე",
-      ru: "Иллюстрация: тонкая дорожка мелких муравьёв на кухне от щели под плинтусом к крошкам у основания шкафа",
-      tr: "İllüstrasyon: mutfakta süpürgeliğin altındaki aralıktan dolap tabanındaki kırıntılara uzanan ince bir küçük karınca yolu",
+      en: "A thin trail of small dark ants along a white skirting board in a kitchen, heading from a gap at the floor towards crumbs and a drop of spilled juice by a cabinet",
+      ka: "წვრილი მუქი ჭიანჭველების ბილიკი სამზარეულოში, თეთრი პლინტუსის გასწვრივ: იატაკთან ღრიჭოდან კარადასთან დაყრილი ნამცეცებისა და დაღვრილი წვენის წვეთისკენ",
+      ru: "Тонкая дорожка мелких тёмных муравьёв вдоль белого плинтуса на кухне: от щели у пола к крошкам и капле пролитого сока у шкафа",
+      tr: "Mutfakta beyaz süpürgelik boyunca ilerleyen ince bir küçük koyu karınca yolu: zemindeki aralıktan dolabın yanındaki kırıntılara ve dökülmüş meyve suyu damlasına",
     },
-    height: 900,
-    src: "/images/guides/ants-in-house-hero.jpg",
-    width: 1600,
+    height: 941,
+    src: "https://cdn.reptiles.ge/external/ants-kitchen-trail-crumbs-spilled-juice.jpg",
+    width: 1672,
   },
   id: "ants-in-house",
+  images: {
+    bait: {
+      alt: {
+        en: "A closed, unbranded round bait station on the floor beside a trail of small ants along a skirting board, with ants going into its entry holes",
+        ka: "დახურული, მარკის გარეშე მრგვალი სატყუარა-კონტეინერი იატაკზე, პლინტუსის გასწვრივ მიმავალი ჭიანჭველების ბილიკის გვერდით; ჭიანჭველები მის ხვრელებში შედიან",
+        ru: "Закрытая круглая приманочная станция без маркировки на полу рядом с дорожкой мелких муравьёв вдоль плинтуса; муравьи заходят в её отверстия",
+        tr: "Süpürgelik boyunca uzanan küçük karınca yolunun yanında, zeminde duran markasız, kapalı yuvarlak bir yem istasyonu; karıncalar giriş deliklerine giriyor",
+      },
+      height: 941,
+      src: "https://cdn.reptiles.ge/external/ant-bait-station-along-skirting-board.jpg",
+      width: 1672,
+    },
+    cleaning: {
+      alt: {
+        en: "Hands wiping the edge of a kitchen countertop with a damp cloth next to a bowl of soapy water, with a few small ants further along the edge",
+        ka: "ხელები სველი ტილოთი წმენდს სამზარეულოს დახლის კიდეს, გვერდით საპნიანი წყლის ჯამია, კიდეზე მოშორებით რამდენიმე პატარა ჭიანჭველაა",
+        ru: "Руки протирают край кухонной столешницы влажной тряпкой рядом с миской мыльной воды; дальше по краю видны несколько мелких муравьёв",
+        tr: "Eller, yanında sabunlu su kasesi olan mutfak tezgâhının kenarını nemli bir bezle siliyor; kenarın ilerisinde birkaç küçük karınca var",
+      },
+      height: 941,
+      src: "https://cdn.reptiles.ge/external/ants-countertop-cleaning-soapy-water.jpg",
+      width: 1672,
+    },
+    gap: {
+      alt: {
+        en: "Close-up of small ants walking in and out of a narrow gap where a pipe passes through the wall under a kitchen sink",
+        ka: "ახლო ხედი: პატარა ჭიანჭველები შედიან და გამოდიან ვიწრო ღრიჭოდან, სადაც სამზარეულოს ნიჟარის ქვეშ მილი კედელში გადის",
+        ru: "Крупный план: мелкие муравьи заходят в узкую щель и выходят из неё там, где труба под кухонной раковиной проходит через стену",
+        tr: "Yakın plan: küçük karıncalar, mutfak lavabosunun altında borunun duvardan geçtiği dar aralığa girip çıkıyor",
+      },
+      height: 941,
+      src: "https://cdn.reptiles.ge/external/ants-entering-through-pipe-gap-kitchen.jpg",
+      width: 1672,
+    },
+    sealing: {
+      alt: {
+        en: "Hands using a caulking gun to seal a thin crack along the bottom of a white skirting board with a bead of white sealant",
+        ka: "ხელები ჰერმეტიკის პისტოლეტით თეთრი ჰერმეტიკით ავსებენ წვრილ ნაპრალს თეთრი პლინტუსის ქვედა კიდის გასწვრივ",
+        ru: "Руки с пистолетом для герметика заделывают белым герметиком тонкую щель вдоль нижнего края белого плинтуса",
+        tr: "Eller, dolgu tabancasıyla beyaz süpürgeliğin alt kenarı boyunca uzanan ince çatlağı beyaz dolgu macunuyla kapatıyor",
+      },
+      height: 941,
+      src: "https://cdn.reptiles.ge/external/ants-home-sealing-skirting-board-crack.jpg",
+      width: 1672,
+    },
+  },
   messageKey: "antsInHouse",
   ogImage: "/og/images/guides/ants-in-house.jpg",
   parentHub: "insects",
