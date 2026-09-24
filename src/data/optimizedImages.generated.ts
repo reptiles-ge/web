@@ -291,6 +291,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/anas-platyrhynchos-donsky-2.jpg": {
+    "path": "anas-platyrhynchos-donsky-2",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/anguis-colchica-2.jpg": {
     "path": "anguis-colchica-2",
     "width": 1200,
