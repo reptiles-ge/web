@@ -3,7 +3,6 @@ import type { AppLocale } from "@/i18n/routing";
 type GuideCopy = {
   description: string;
   faq: { answer: string; question: string }[];
-  lead: string;
   metaTitle: string;
   sections: { heading: string; image?: "open-comb"; paragraphs: string[] }[];
   title: string;
@@ -41,7 +40,6 @@ export const WASP_NEST_COPY: Record<AppLocale, GuideCopy> = {
         question: "Can I seal the entrance?",
       },
     ],
-    lead: "Finding a nest is not automatically an emergency. Step away, leave it undisturbed, and keep children and pets clear. Have a professional assess a nest by a busy entrance; after a sting, call 112 in Georgia for breathing difficulty or throat swelling.",
     metaTitle: "Wasp nest near your home: what to do safely",
     sections: [
       {
@@ -67,6 +65,7 @@ export const WASP_NEST_COPY: Record<AppLocale, GuideCopy> = {
         heading: "Is a wasp nest dangerous?",
         paragraphs: [
           "Simply finding a nest is not an emergency. Risk depends on its location and activity: whether people pass close by, children play nearby, pets can reach it, or someone has a history of severe allergy. Disturbing an active colony can provoke defensive behaviour and multiple stings.",
+          "Step away, leave it undisturbed, and keep children and pets clear. Have a professional assess a nest by a busy entrance; after a sting, call 112 in Georgia for breathing difficulty or throat swelling.",
         ],
       },
       {
@@ -151,7 +150,6 @@ export const WASP_NEST_COPY: Record<AppLocale, GuideCopy> = {
         question: "შეიძლება ბუდის შესასვლელის დახშობა?",
       },
     ],
-    lead: "ბუდის დანახვა თავისთავად გადაუდებელ საფრთხეს არ ნიშნავს. მოშორდით, ნუ შეეხებით და ბავშვები და ცხოველები მოარიდეთ. თუ ბუდე ყოველდღიურ გასასვლელთანაა, სპეციალისტს შეაფასებინეთ; დანესტვრის შემდეგ სუნთქვის გაძნელების ან ყელის შეშუპებისას დარეკეთ 112-ზე.",
     metaTitle: "კრაზანის ბუდე — რამდენად საშიშია და როგორ მოვიქცეთ?",
     sections: [
       {
@@ -177,6 +175,7 @@ export const WASP_NEST_COPY: Record<AppLocale, GuideCopy> = {
         heading: "რამდენად საშიშია კრაზანის ბუდე?",
         paragraphs: [
           "ბუდის დანახვა თავისთავად გადაუდებელ საფრთხეს არ ნიშნავს. რისკს განსაზღვრავს მდებარეობა და აქტივობა: გადიან თუ არა ადამიანები ბუდესთან, თამაშობენ თუ არა იქ ბავშვები, შეუძლიათ თუ არა შინაურ ცხოველებს მიახლოება და აქვს თუ არა ვინმეს მძიმე ალერგიული რეაქციის ისტორია. აქტიური ბუდის შეწუხებისას კოლონია შეიძლება თავდაცვითი გახდეს და ადამიანმა რამდენიმე ნესტარი მიიღოს.",
+          "მოშორდით, ნუ შეეხებით და ბავშვები და ცხოველები მოარიდეთ. თუ ბუდე ყოველდღიურ გასასვლელთანაა, სპეციალისტს შეაფასებინეთ; დანესტვრის შემდეგ სუნთქვის გაძნელების ან ყელის შეშუპებისას დარეკეთ 112-ზე.",
         ],
       },
       {
@@ -262,7 +261,6 @@ export const WASP_NEST_COPY: Record<AppLocale, GuideCopy> = {
         question: "Можно ли закрыть вход в гнездо?",
       },
     ],
-    lead: "Обнаружение гнезда само по себе не означает чрезвычайной ситуации. Отойдите, не тревожьте его и не подпускайте детей и животных. Гнездо у часто используемого входа должен оценить специалист; при затруднении дыхания или отёке горла после ужаления звоните 112 в Грузии.",
     metaTitle: "Осиное гнездо у дома: как действовать безопасно",
     sections: [
       {
@@ -288,6 +286,7 @@ export const WASP_NEST_COPY: Record<AppLocale, GuideCopy> = {
         heading: "Насколько опасно осиное гнездо?",
         paragraphs: [
           "Само обнаружение гнезда не означает чрезвычайную ситуацию. Риск зависит от места и активности: проходят ли рядом люди, играют ли дети, могут ли добраться животные, есть ли у кого-то тяжёлая аллергия в анамнезе. Потревоженная колония может защищаться и нанести несколько ужалений.",
+          "Отойдите, не тревожьте его и не подпускайте детей и животных. Гнездо у часто используемого входа должен оценить специалист; при затруднении дыхания или отёке горла после ужаления звоните 112 в Грузии.",
         ],
       },
       {
@@ -372,7 +371,6 @@ export const WASP_NEST_COPY: Record<AppLocale, GuideCopy> = {
         question: "Yuva girişini kapatabilir miyim?",
       },
     ],
-    lead: "Bir yuva görmek tek başına acil durum anlamına gelmez. Uzaklaşın, yuvayı rahatsız etmeyin ve çocuklarla evcil hayvanları yaklaştırmayın. Sık kullanılan girişteki yuvayı bir uzmana değerlendirtin; sokma sonrası solunum güçlüğü veya boğaz şişmesinde Gürcistan'da 112'yi arayın.",
     metaTitle: "Eşek arısı yuvası: ne zaman tehlikeli, ne yapmalı?",
     sections: [
       {
@@ -398,6 +396,7 @@ export const WASP_NEST_COPY: Record<AppLocale, GuideCopy> = {
         heading: "Yuva ne kadar tehlikelidir?",
         paragraphs: [
           "Yuva görmek tek başına acil durum değildir. Risk konumuna ve etkinliğine bağlıdır: insanlar yakından geçiyor mu, çocuklar orada oynuyor mu, evcil hayvanlar ulaşabiliyor mu, birinin ağır alerji öyküsü var mı? Aktif koloniyi rahatsız etmek savunma davranışına ve çok sayıda sokmaya yol açabilir.",
+          "Uzaklaşın, yuvayı rahatsız etmeyin ve çocuklarla evcil hayvanları yaklaştırmayın. Sık kullanılan girişteki yuvayı bir uzmana değerlendirtin; sokma sonrası solunum güçlüğü veya boğaz şişmesinde Gürcistan'da 112'yi arayın.",
         ],
       },
       {

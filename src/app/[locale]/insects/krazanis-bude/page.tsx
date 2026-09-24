@@ -97,7 +97,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "article",
       url,
     },
-    robots: { follow: true, index: true },
+    robots: { follow: true, index: true, "max-image-preview": "large" },
     title: { absolute: copy.metaTitle },
     twitter: {
       card: "summary_large_image",
@@ -172,10 +172,19 @@ export default async function WaspNestPage({ params }: Props) {
     publisher: organizationJsonLd(),
     url,
   };
+  const faqLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: copy.faq.map((item) => ({
+      "@type": "Question",
+      acceptedAnswer: { "@type": "Answer", text: item.answer },
+      name: item.question,
+    })),
+  };
 
   return (
     <>
-      <JsonLd data={[articleLd, breadcrumbLd]} />
+      <JsonLd data={[articleLd, breadcrumbLd, faqLd]} />
       <main className="min-h-screen bg-background">
         <article className="mx-auto max-w-[1400px] px-6 pt-30 pb-16 sm:pt-33 sm:pb-24 lg:px-10">
           <nav aria-label="Breadcrumb" className="sr-only">
@@ -222,9 +231,6 @@ export default async function WaspNestPage({ params }: Props) {
           <h1 className="mt-5 font-display text-display-lead font-semibold text-foreground">
             {copy.title}
           </h1>
-          <p className="mt-7 border-l-4 border-primary pl-5 text-[18px] leading-[1.7] text-foreground">
-            <PhoneLinkedText>{copy.lead}</PhoneLinkedText>
-          </p>
           <figure className="mt-10">
             <Image
               alt={photoAlt.hero}
