@@ -675,6 +675,7 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
   mammals: [
     { href: "/mammals/saxeoebebi", key: "mammalIndex", kind: "page" },
     { href: "/mammals/ghamura-sakhlshi", key: "batInHouse", kind: "page" },
+    { href: "/mammals/tagvi-sakhlshi", key: "mouseInHouse", kind: "page" },
     { href: "/mammals/tura-ezoshi", key: "jackalYard", kind: "page" },
     { href: "/mammals/datvi-shekhvedra", key: "bearEncounter", kind: "page" },
   ],

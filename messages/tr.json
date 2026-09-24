@@ -248,7 +248,8 @@
         "lizardHouse": "Evde kertenkele",
         "batInHouse": "Evde yarasa",
         "waspNest": "Eşek arısı yuvası",
-        "stinkBugInHouse": "Evde kokarca böceği"
+        "stinkBugInHouse": "Evde kokarca böceği",
+        "mouseInHouse": "Evde fare"
       }
     }
   },
@@ -317,7 +318,8 @@
     "lizardHouse": "Evde kertenkele",
     "batInHouse": "Evde yarasa",
     "waspNest": "Eşek arısı yuvası",
-    "stinkBugInHouse": "Evde kokarca böceği"
+    "stinkBugInHouse": "Evde kokarca böceği",
+    "mouseInHouse": "Evde fare"
   },
   "legal": {
     "canonicalNotice": "Bu sayfadaki hukuki metin şu anda Gürcüce olarak sunulmaktadır; Gürcüce sürüm esas metin kabul edilmelidir.",
@@ -1337,6 +1339,12 @@
         "eyebrow": "Pratik rehber",
         "title": "Evde kokarca böceği",
         "body": "Kokarca neden sonbaharda eve girer, zararlı mıdır ve ezmeden nasıl uzaklaştırılır.",
+        "cta": "Rehberi oku"
+      },
+      "mouseInHouse": {
+        "eyebrow": "Pratik rehber",
+        "title": "Evde fare",
+        "body": "İzleri tanıyın, fareyi yakalayın, dışkıyı güvenle temizleyin ve girdiği aralıkları kapatın.",
         "cta": "Rehberi oku"
       },
       "lizardQuiz": {
