@@ -333,6 +333,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/anas-platyrhynchos-giorgi-1.jpg": {
+    "path": "anas-platyrhynchos-giorgi-1",
+    "width": 834,
+    "height": 1024,
+    "widths": [320, 400, 640, 800, 834],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/anguis-colchica-2.jpg": {
     "path": "anguis-colchica-2",
     "width": 1200,

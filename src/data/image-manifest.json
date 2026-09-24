@@ -1874,6 +1874,87 @@
       ],
       "updatedAt": "2026-09-24T18:05:40.263Z"
     },
+    "anas-platyrhynchos-giorgi-1.jpg": {
+      "sourceHash": "2627fa594d86b8dd60d191930e456d2d0169ee9a4d7504d53f12e0c7453627f3",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "anas-platyrhynchos-giorgi-1.jpg",
+      "originalSize": 124990,
+      "width": 834,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/anas-platyrhynchos-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 393,
+          "byteSize": 9674
+        },
+        {
+          "key": "optimized/anas-platyrhynchos-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 393,
+          "byteSize": 13368
+        },
+        {
+          "key": "optimized/anas-platyrhynchos-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 491,
+          "byteSize": 13361
+        },
+        {
+          "key": "optimized/anas-platyrhynchos-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 491,
+          "byteSize": 18710
+        },
+        {
+          "key": "optimized/anas-platyrhynchos-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 786,
+          "byteSize": 26395
+        },
+        {
+          "key": "optimized/anas-platyrhynchos-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 786,
+          "byteSize": 37766
+        },
+        {
+          "key": "optimized/anas-platyrhynchos-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 982,
+          "byteSize": 35930
+        },
+        {
+          "key": "optimized/anas-platyrhynchos-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 982,
+          "byteSize": 52104
+        },
+        {
+          "key": "optimized/anas-platyrhynchos-giorgi-1-834.avif",
+          "format": "avif",
+          "width": 834,
+          "height": 1024,
+          "byteSize": 39785
+        },
+        {
+          "key": "optimized/anas-platyrhynchos-giorgi-1-834.webp",
+          "format": "webp",
+          "width": 834,
+          "height": 1024,
+          "byteSize": 57358
+        }
+      ],
+      "updatedAt": "2026-09-24T18:06:23.687Z"
+    },
     "anguis-colchica-2.jpg": {
       "sourceHash": "90c01b21f20afb76c54a27a5d123fa54aa6d56fbe6100dc30fc0d53f633779c6",
       "configFingerprint": "a895f8e025dcc7fa",
