@@ -16,6 +16,7 @@ export function AdminCdnUpload() {
   const [uploaded, setUploaded] = useState<UploadedPhoto[]>([]);
   const [errors, setErrors] = useState<string[]>([]);
   const [message, setMessage] = useState("");
+  const [pullRequestUrl, setPullRequestUrl] = useState<null | string>(null);
 
   async function copy(value: string) {
     try {
@@ -31,6 +32,7 @@ export function AdminCdnUpload() {
     setBusy(true);
     setErrors([]);
     setMessage("");
+    setPullRequestUrl(null);
     try {
       const body = new FormData();
       for (const file of files) body.append("photos", file);
@@ -41,17 +43,23 @@ export function AdminCdnUpload() {
       const result = (await response.json()) as {
         error?: string;
         errors?: Array<{ filename: string; message: string }>;
+        pullRequestError?: string;
+        pullRequestUrl?: string;
         uploaded?: UploadedPhoto[];
       };
       if (!response.ok)
         throw new Error(result.error ?? "ატვირთვა ვერ მოხერხდა");
       const added = result.uploaded ?? [];
       setUploaded((current) => [...current, ...added]);
-      setErrors(
-        (result.errors ?? []).map(
+      setErrors([
+        ...(result.errors ?? []).map(
           (item) => `${item.filename}: ${item.message}`,
         ),
-      );
+        ...(result.pullRequestError
+          ? [`კატალოგის PR ვერ გაიხსნა: ${result.pullRequestError}`]
+          : []),
+      ]);
+      setPullRequestUrl(result.pullRequestUrl ?? null);
       if (added.length > 0) setMessage(`${added.length} ფოტო აიტვირთა CDN-ზე`);
       setFiles([]);
       if (inputRef.current) inputRef.current.value = "";
@@ -127,6 +135,16 @@ export function AdminCdnUpload() {
         <p className="text-[13px] text-primary" role="status">
           {message}
         </p>
+      ) : null}
+      {pullRequestUrl ? (
+        <a
+          className="text-[13px] break-all text-primary underline"
+          href={pullRequestUrl}
+          rel="noreferrer"
+          target="_blank"
+        >
+          კატალოგის PR: {pullRequestUrl}
+        </a>
       ) : null}
 
       {uploaded.length > 0 ? (

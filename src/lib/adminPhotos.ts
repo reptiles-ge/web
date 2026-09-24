@@ -181,6 +181,7 @@ export async function uploadStandalonePhotos(
   files: Array<{ bytes: Buffer; filename: string }>,
   storage: StorageAdapter = createStorage(),
 ): Promise<{
+  catalog: OptimizeCatalogUpdate[];
   errors: Array<{ filename: string; message: string }>;
   uploaded: StandalonePhoto[];
 }> {
@@ -199,18 +200,26 @@ export async function uploadStandalonePhotos(
         storage,
       });
       return {
-        derivatives:
-          optimized?.entry.derivatives.map((item) => ({
-            format: item.format,
-            url: storage.urlFor(item.key),
-            width: item.width,
-          })) ?? [],
-        filename,
-        url,
+        optimized,
+        photo: {
+          derivatives:
+            optimized?.entry.derivatives.map((item) => ({
+              format: item.format,
+              url: storage.urlFor(item.key),
+              width: item.width,
+            })) ?? [],
+          filename,
+          url,
+        },
       };
     }),
   );
   return {
+    catalog: results.flatMap((result) =>
+      result.status === "fulfilled" && result.value.optimized
+        ? [result.value.optimized]
+        : [],
+    ),
     errors: results.flatMap((result, index) =>
       result.status === "rejected"
         ? [
@@ -225,7 +234,7 @@ export async function uploadStandalonePhotos(
         : [],
     ),
     uploaded: results.flatMap((result) =>
-      result.status === "fulfilled" ? [result.value] : [],
+      result.status === "fulfilled" ? [result.value.photo] : [],
     ),
   };
 }

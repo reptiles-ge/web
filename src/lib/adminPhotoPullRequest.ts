@@ -186,15 +186,7 @@ export async function openPhotoPullRequest(input: {
 
   const catalog = input.catalog ?? [];
   const noun = input.items.length === 1 ? "photo" : "photos";
-  const catalogFiles =
-    catalog.length > 0
-      ? [
-          "src/data/image-manifest.json",
-          ...(catalog.some((item) => item.asset)
-            ? ["src/data/optimizedImages.generated.ts"]
-            : []),
-        ]
-      : [];
+  const catalogFiles = optimizeCatalogFiles(catalog);
 
   return withPhotoPullRequest({
     apply: async (worktree) => {
@@ -266,6 +258,33 @@ export async function openRemovePhotoPullRequest(input: {
   });
 
   return { ...covers, pullRequestUrl };
+}
+
+export async function openStandalonePhotoPullRequest(
+  catalog: OptimizeCatalogUpdate[],
+): Promise<string> {
+  if (catalog.length === 0) {
+    throw new Error("No optimized photos to catalog");
+  }
+
+  return withPhotoPullRequest({
+    apply: (worktree) => applyOptimizeCatalog(worktree, catalog),
+    commitBody:
+      "Standalone originals and AVIF/WebP derivatives are already on the CDN.",
+    extraFiles: optimizeCatalogFiles(catalog),
+    id: "external",
+    prBody: [
+      "## Summary",
+      "- Register standalone CDN photos in `image-manifest.json` and `optimizedImages.generated.ts`",
+      "- Originals and AVIF/WebP derivatives are already on `cdn.reptiles.ge`",
+      "- No species gallery or MDX changes",
+      "",
+      "## Test plan",
+      "- [ ] Uploaded URLs resolve on the CDN",
+      "- [ ] Optimized image lookup returns AVIF/WebP sources for the originals",
+    ].join("\n"),
+    title: "Catalog standalone CDN photos",
+  });
 }
 
 function createPullRequest(input: {
@@ -425,6 +444,16 @@ function hasStagedChanges(cwd: string) {
   } catch {
     return true;
   }
+}
+
+function optimizeCatalogFiles(catalog: OptimizeCatalogUpdate[]) {
+  if (catalog.length === 0) return [];
+  return [
+    "src/data/image-manifest.json",
+    ...(catalog.some((item) => item.asset)
+      ? ["src/data/optimizedImages.generated.ts"]
+      : []),
+  ];
 }
 
 function refHasSpeciesFiles(ref: string, id: string) {
