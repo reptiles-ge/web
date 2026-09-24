@@ -817,7 +817,7 @@ export const ANTS_IN_HOUSE = defineGuideArticle({
     },
   },
   messageKey: "antsInHouse",
-  ogImage: "/og/images/guides/ants-in-house.jpg",
+  ogImage: "https://cdn.reptiles.ge/og/images/guides/ants-in-house.jpg",
   parentHub: "insects",
   pathname: "/insects/chianchvelebi-sakhlshi",
   search: {
