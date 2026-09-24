@@ -29,8 +29,6 @@ import { hasMeaningfulUpdate, pageDateFields } from "@/lib/structuredDataDates";
 
 type Props = { params: Promise<{ locale: string }> };
 
-export const revalidate = 86400;
-
 const PATH = "/insects/krazanis-bude";
 const HERO_IMAGE = "/images/guides/wasp-nest-enclosed.jpg";
 const COMB_IMAGE = "/images/guides/wasp-nest-open-comb.jpg";
