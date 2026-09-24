@@ -128,6 +128,8 @@ export const RESERVED_HUB_SLUGS: Record<GroupHubId, readonly string[]> = {
     "wasp-nest",
     "farosana-sakhlshi",
     "stink-bug-in-house",
+    "chianchvelebi-sakhlshi",
+    "ants-in-house",
   ],
   lizards: [
     "saxeoebebi",

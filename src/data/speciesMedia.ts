@@ -59,6 +59,7 @@ export function resolvePhotoCredit(
 }
 
 export const images = {
+  antsInHouseHero: "/images/guides/ants-in-house-hero.jpg",
   batInHouseHero: "/images/guides/bat-house-hero.jpg",
   batInHouseRoost: "/images/guides/bat-roost-natural.jpg",
   batInHouseWall: "/images/guides/bat-on-wall.jpg",
