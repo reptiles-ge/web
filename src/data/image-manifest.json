@@ -28271,6 +28271,101 @@
       ],
       "updatedAt": "2026-09-19T12:45:43.643Z"
     },
+    "external/ant-bait-station-along-skirting-board.jpg": {
+      "sourceHash": "4b6c4323eb87a8857562b5db9f2728b30f08dfb7351884d9a9dae2e7794eecfe",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "external/ant-bait-station-along-skirting-board.jpg",
+      "originalSize": 137782,
+      "width": 1672,
+      "height": 941,
+      "derivatives": [
+        {
+          "key": "optimized/external/ant-bait-station-along-skirting-board-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 4050
+        },
+        {
+          "key": "optimized/external/ant-bait-station-along-skirting-board-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 4754
+        },
+        {
+          "key": "optimized/external/ant-bait-station-along-skirting-board-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 5665
+        },
+        {
+          "key": "optimized/external/ant-bait-station-along-skirting-board-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 6840
+        },
+        {
+          "key": "optimized/external/ant-bait-station-along-skirting-board-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 10833
+        },
+        {
+          "key": "optimized/external/ant-bait-station-along-skirting-board-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 13588
+        },
+        {
+          "key": "optimized/external/ant-bait-station-along-skirting-board-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 14616
+        },
+        {
+          "key": "optimized/external/ant-bait-station-along-skirting-board-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 19080
+        },
+        {
+          "key": "optimized/external/ant-bait-station-along-skirting-board-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 25459
+        },
+        {
+          "key": "optimized/external/ant-bait-station-along-skirting-board-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 33766
+        },
+        {
+          "key": "optimized/external/ant-bait-station-along-skirting-board-1672.avif",
+          "format": "avif",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 39036
+        },
+        {
+          "key": "optimized/external/ant-bait-station-along-skirting-board-1672.webp",
+          "format": "webp",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 55236
+        }
+      ],
+      "updatedAt": "2026-09-24T22:03:07.417Z"
+    },
     "external/ants-countertop-cleaning-soapy-water.jpg": {
       "sourceHash": "4a3da81384aa02f5f7abf32cbeec635cd99818b74075512b8fe7f71d914a2b69",
       "configFingerprint": "409788ee46c653d8",
