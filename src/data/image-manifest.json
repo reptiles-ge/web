@@ -28271,6 +28271,101 @@
       ],
       "updatedAt": "2026-09-19T12:45:43.643Z"
     },
+    "external/ants-countertop-cleaning-soapy-water.jpg": {
+      "sourceHash": "4a3da81384aa02f5f7abf32cbeec635cd99818b74075512b8fe7f71d914a2b69",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "external/ants-countertop-cleaning-soapy-water.jpg",
+      "originalSize": 204688,
+      "width": 1672,
+      "height": 941,
+      "derivatives": [
+        {
+          "key": "optimized/external/ants-countertop-cleaning-soapy-water-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 6610
+        },
+        {
+          "key": "optimized/external/ants-countertop-cleaning-soapy-water-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 8868
+        },
+        {
+          "key": "optimized/external/ants-countertop-cleaning-soapy-water-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 9488
+        },
+        {
+          "key": "optimized/external/ants-countertop-cleaning-soapy-water-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 12510
+        },
+        {
+          "key": "optimized/external/ants-countertop-cleaning-soapy-water-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 18156
+        },
+        {
+          "key": "optimized/external/ants-countertop-cleaning-soapy-water-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 24000
+        },
+        {
+          "key": "optimized/external/ants-countertop-cleaning-soapy-water-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 25086
+        },
+        {
+          "key": "optimized/external/ants-countertop-cleaning-soapy-water-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 32766
+        },
+        {
+          "key": "optimized/external/ants-countertop-cleaning-soapy-water-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 43250
+        },
+        {
+          "key": "optimized/external/ants-countertop-cleaning-soapy-water-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 57488
+        },
+        {
+          "key": "optimized/external/ants-countertop-cleaning-soapy-water-1672.avif",
+          "format": "avif",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 66643
+        },
+        {
+          "key": "optimized/external/ants-countertop-cleaning-soapy-water-1672.webp",
+          "format": "webp",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 88838
+        }
+      ],
+      "updatedAt": "2026-09-24T22:02:29.036Z"
+    },
     "external/ants-entering-through-pipe-gap-kitchen.jpg": {
       "sourceHash": "89ae65b0e1f7937c718f2c037ed91abdc1fcb74472637165f785acf191fc9013",
       "configFingerprint": "409788ee46c653d8",
