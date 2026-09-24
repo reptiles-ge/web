@@ -2699,6 +2699,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1672],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/external/mouse-signs-pantry-chewed-package.jpg": {
+    "path": "external/mouse-signs-pantry-chewed-package",
+    "width": 1672,
+    "height": 941,
+    "widths": [320, 400, 640, 800, 1200, 1672],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/ficedula-hypoleuca-crowbared-1.jpg": {
     "path": "ficedula-hypoleuca-crowbared-1",
     "width": 2400,
