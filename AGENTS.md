@@ -162,6 +162,7 @@ Long-form, answer-first practical guides (bat in the house, wasp nest, …) use 
 - Register it in `src/data/guideArticles.ts` and `src/data/guideArticlePaths.ts`. The route is a 3-line `createGuideArticleRoute(path)` page.
 - Sitemap, site search, `llms.txt`, footer and home SEO links, navbar, and the KA↔Latin 301s (proxy + `next.config.ts`) derive from the registry. Do not hand-add them.
 - `src/data/guideArticles.test.ts` fails on any missing wiring: pathnames, reserved slugs, dates, hub card, messages, images, and locale parity. Do not weaken it.
+- The `summary` renders as an "In short" (მოკლედ) box after the last section. Never render it under the H1 (owner decision, enforced by the guard test).
 - Every guide needs a 1200×630 JPEG share image: `pnpm images:og-guides --guide <id>` renders it from the hero with `@reptiles-ge/img-compression` (`--upload` sends it to the CDN).
 - `src/proxy.ts` and client components import `guideArticlePaths.ts` only, never the registry with copy.
 

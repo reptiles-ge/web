@@ -40,7 +40,6 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         question: "Can I seal the entrance?",
       },
     ],
-    lead: "Finding a nest is not automatically an emergency. Step away, leave it undisturbed, and keep children and pets clear. Have a professional assess a nest by a busy entrance; after a sting, call 112 in Georgia for breathing difficulty or throat swelling.",
     metaTitle: "Wasp nest near your home: what to do safely",
     sections: [
       {
@@ -118,6 +117,8 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         ],
       },
     ],
+    summary:
+      "Finding a nest is not automatically an emergency. Step away, leave it undisturbed, and keep children and pets clear. Have a professional assess a nest by a busy entrance; after a sting, call 112 in Georgia for breathing difficulty or throat swelling.",
     title: "Wasp nest near your home: how dangerous is it?",
   },
   ka: {
@@ -150,7 +151,6 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         question: "შეიძლება ბუდის შესასვლელის დახშობა?",
       },
     ],
-    lead: "ბუდის დანახვა თავისთავად გადაუდებელ საფრთხეს არ ნიშნავს. მოშორდით, ნუ შეეხებით და ბავშვები და ცხოველები მოარიდეთ. თუ ბუდე ყოველდღიურ გასასვლელთანაა, სპეციალისტს შეაფასებინეთ; დანესტვრის შემდეგ სუნთქვის გაძნელების ან ყელის შეშუპებისას დარეკეთ 112-ზე.",
     metaTitle: "კრაზანის ბუდე — რამდენად საშიშია და როგორ მოვიქცეთ?",
     sections: [
       {
@@ -228,6 +228,8 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         ],
       },
     ],
+    summary:
+      "ბუდის დანახვა თავისთავად გადაუდებელ საფრთხეს არ ნიშნავს. მოშორდით, ნუ შეეხებით და ბავშვები და ცხოველები მოარიდეთ. თუ ბუდე ყოველდღიურ გასასვლელთანაა, სპეციალისტს შეაფასებინეთ; დანესტვრის შემდეგ სუნთქვის გაძნელების ან ყელის შეშუპებისას დარეკეთ 112-ზე.",
     title: "კრაზანის ბუდე: რამდენად საშიშია და როგორ მოვიქცეთ?",
   },
   ru: {
@@ -261,7 +263,6 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         question: "Можно ли закрыть вход в гнездо?",
       },
     ],
-    lead: "Обнаружение гнезда само по себе не означает чрезвычайной ситуации. Отойдите, не тревожьте его и не подпускайте детей и животных. Гнездо у часто используемого входа должен оценить специалист; при затруднении дыхания или отёке горла после ужаления звоните 112 в Грузии.",
     metaTitle: "Осиное гнездо у дома: как действовать безопасно",
     sections: [
       {
@@ -339,6 +340,8 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         ],
       },
     ],
+    summary:
+      "Обнаружение гнезда само по себе не означает чрезвычайной ситуации. Отойдите, не тревожьте его и не подпускайте детей и животных. Гнездо у часто используемого входа должен оценить специалист; при затруднении дыхания или отёке горла после ужаления звоните 112 в Грузии.",
     title: "Осиное гнездо у дома: насколько это опасно?",
   },
   tr: {
@@ -371,7 +374,6 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         question: "Yuva girişini kapatabilir miyim?",
       },
     ],
-    lead: "Bir yuva görmek tek başına acil durum anlamına gelmez. Uzaklaşın, yuvayı rahatsız etmeyin ve çocuklarla evcil hayvanları yaklaştırmayın. Sık kullanılan girişteki yuvayı bir uzmana değerlendirtin; sokma sonrası solunum güçlüğü veya boğaz şişmesinde Gürcistan'da 112'yi arayın.",
     metaTitle: "Eşek arısı yuvası: ne zaman tehlikeli, ne yapmalı?",
     sections: [
       {
@@ -449,6 +451,8 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         ],
       },
     ],
+    summary:
+      "Bir yuva görmek tek başına acil durum anlamına gelmez. Uzaklaşın, yuvayı rahatsız etmeyin ve çocuklarla evcil hayvanları yaklaştırmayın. Sık kullanılan girişteki yuvayı bir uzmana değerlendirtin; sokma sonrası solunum güçlüğü veya boğaz şişmesinde Gürcistan'da 112'yi arayın.",
     title: "Evin yakınında eşek arısı yuvası: ne yapmalı?",
   },
 };

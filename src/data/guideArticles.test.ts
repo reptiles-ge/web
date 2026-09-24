@@ -88,6 +88,7 @@ describe("guide article registry", () => {
         "related",
         "relatedSpecies",
         "sources",
+        "summary",
       ]) {
         expect(
           messageAt(locale, `guideArticle.${key}`),
@@ -115,6 +116,17 @@ describe("guide structured data", () => {
         "utf8",
       ),
     ).toContain("<GuideFaqItems");
+  });
+
+  it("renders the summary after the sections, never under the H1", () => {
+    const page = fs.readFileSync(
+      path.join(process.cwd(), "src/components/GuideArticlePage.tsx"),
+      "utf8",
+    );
+    const summaryAt = page.indexOf("{copy.summary}");
+    expect(summaryAt).toBeGreaterThan(-1);
+    expect(summaryAt).toBeGreaterThan(page.indexOf("<GuideArticleSectionView"));
+    expect(summaryAt).toBeLessThan(page.indexOf("<GuideFaqItems"));
   });
 });
 
@@ -147,8 +159,10 @@ describe.each(articles.map((article) => [article.id, article] as const))(
           copy.description.length,
           `${locale} description`,
         ).toBeLessThanOrEqual(165);
-        expect(copy.lead.length, `${locale} lead`).toBeGreaterThan(80);
-        expect(copy.lead.length, `${locale} lead`).toBeLessThanOrEqual(600);
+        expect(copy.summary.length, `${locale} summary`).toBeGreaterThan(80);
+        expect(copy.summary.length, `${locale} summary`).toBeLessThanOrEqual(
+          600,
+        );
         expect(copy.sections.length, `${locale} sections`).toBe(
           ka.sections.length,
         );

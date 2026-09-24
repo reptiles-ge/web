@@ -179,7 +179,7 @@ export function buildLlmsFullText() {
     parts.push("");
     parts.push(`- URL: ${absoluteUrl(localizedPath("ka", article.pathname))}`);
     parts.push(`- EN: ${absoluteUrl(localizedPath("en", article.pathname))}`);
-    parts.push(`- ${copy.lead}`);
+    parts.push(`- ${copy.summary}`);
     for (const item of copy.faq) {
       parts.push(`- Q: ${item.question} A: ${item.answer}`);
     }

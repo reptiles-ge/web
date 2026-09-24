@@ -100,9 +100,6 @@ export async function GuideArticlePage({
         <h1 className="mt-5 font-display text-display-lead font-semibold text-foreground">
           {copy.title}
         </h1>
-        <p className="mt-7 border-l-4 border-primary pl-5 text-[18px] leading-[1.7] text-foreground">
-          <PhoneLinkedText>{copy.lead}</PhoneLinkedText>
-        </p>
         <figure className="mt-10">
           <CoverImage
             alt={article.hero.alt[locale]}
@@ -151,6 +148,21 @@ export async function GuideArticlePage({
             />
           ))}
         </div>
+
+        <aside
+          aria-labelledby={`${article.id}-summary`}
+          className="mt-16 rounded-card border border-border bg-card p-6 sm:p-8"
+        >
+          <h2
+            className="text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase"
+            id={`${article.id}-summary`}
+          >
+            {t("summary")}
+          </h2>
+          <p className="mt-4 border-l-4 border-primary pl-5 text-[17px] leading-[1.75] text-foreground">
+            <PhoneLinkedText>{copy.summary}</PhoneLinkedText>
+          </p>
+        </aside>
 
         {copy.faq.length > 0 ? (
           <section className="mt-16 border-t border-border pt-10">

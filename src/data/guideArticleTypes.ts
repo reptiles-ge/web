@@ -20,9 +20,9 @@ export type GuideArticle<ImageKey extends string = string> = {
 export type GuideArticleCopy<ImageKey extends string = string> = {
   description: string;
   faq: GuideArticleFaq[];
-  lead: string;
   metaTitle: string;
   sections: GuideArticleSection<ImageKey>[];
+  summary: string;
   title: string;
 };
 

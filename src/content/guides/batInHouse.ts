@@ -59,7 +59,6 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         question: "What if a child or pet is in the house?",
       },
     ],
-    lead: "If a bat is indoors: stay calm, keep people and pets away, and avoid bare hands. If there was a bite, a scratch, or possible direct contact and you are not sure it can be ruled out, get medical advice first and do not release the bat on your own. If safe, isolate it to one room and open an exterior window or door so it can leave. Do not chase or strike it. After a bite, scratch, or uncertain direct contact, wash and seek medical advice; in Georgia call 112 for emergencies.",
     metaTitle: "A bat flew into the house — what should you do?",
     sections: [
       {
@@ -131,6 +130,8 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         ],
       },
     ],
+    summary:
+      "If a bat is indoors: stay calm, keep people and pets away, and avoid bare hands. If there was a bite, a scratch, or possible direct contact and you are not sure it can be ruled out, get medical advice first and do not release the bat on your own. If safe, isolate it to one room and open an exterior window or door so it can leave. Do not chase or strike it. After a bite, scratch, or uncertain direct contact, wash and seek medical advice; in Georgia call 112 for emergencies.",
     title: "A bat flew into the house — what should you do?",
   },
   ka: {
@@ -183,7 +184,6 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         question: "როგორ მოვიქცეთ, თუ სახლში ბავშვი ან შინაური ცხოველია?",
       },
     ],
-    lead: "თუ ღამურა სახლშია: შეინარჩუნეთ სიმშვიდე, ადამიანები და ცხოველები მოარიდეთ, შიშველი ხელით ნუ შეეხებით. თუ ნაკბენი, ნაკაწრი ან შესაძლო პირდაპირი კონტაქტი იყო და მის გამორიცხვაში დარწმუნებული არ ხართ, ჯერ სამედიცინო რჩევა მიიღეთ და ღამურა თვითნებურად ნუ გაათავისუფლებთ. უსაფრთხოების შემთხვევაში ერთ ოთახში შემოფარგლეთ და გახსენით გარე ფანჯარა ან კარი. ნუ დაედევნებით და ნუ დაარტყამთ. ნაკბენის, ნაკაწრის ან გაურკვეველი პირდაპირი კონტაქტის შემდეგ დაიბანეთ და მიმართეთ სამედიცინო რჩევას; საქართველოში გადაუდებელ შემთხვევაში — 112.",
     metaTitle: "ღამურა სახლში შემოფრინდა — როგორ მოვიქცეთ?",
     sections: [
       {
@@ -255,6 +255,8 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         ],
       },
     ],
+    summary:
+      "თუ ღამურა სახლშია: შეინარჩუნეთ სიმშვიდე, ადამიანები და ცხოველები მოარიდეთ, შიშველი ხელით ნუ შეეხებით. თუ ნაკბენი, ნაკაწრი ან შესაძლო პირდაპირი კონტაქტი იყო და მის გამორიცხვაში დარწმუნებული არ ხართ, ჯერ სამედიცინო რჩევა მიიღეთ და ღამურა თვითნებურად ნუ გაათავისუფლებთ. უსაფრთხოების შემთხვევაში ერთ ოთახში შემოფარგლეთ და გახსენით გარე ფანჯარა ან კარი. ნუ დაედევნებით და ნუ დაარტყამთ. ნაკბენის, ნაკაწრის ან გაურკვეველი პირდაპირი კონტაქტის შემდეგ დაიბანეთ და მიმართეთ სამედიცინო რჩევას; საქართველოში გადაუდებელ შემთხვევაში — 112.",
     title: "ღამურა სახლში შემოფრინდა — რა უნდა გავაკეთოთ?",
   },
   ru: {
@@ -307,7 +309,6 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         question: "Что делать, если в доме ребёнок или питомец?",
       },
     ],
-    lead: "Если летучая мышь в доме: сохраняйте спокойствие, уберите людей и животных, не трогайте голыми руками. Если был укус, царапина или возможный прямой контакт и вы не уверены, что его можно исключить, сначала получите медицинскую консультацию и не выпускайте летучую мышь самостоятельно. Если это безопасно, ограничьте её одной комнатой и откройте наружное окно или дверь. Не гоняйте и не бейте. После укуса, царапины или неясного прямого контакта промойте рану и обратитесь за медицинской помощью; в Грузии при неотложке — 112.",
     metaTitle: "В дом влетела летучая мышь — что делать?",
     sections: [
       {
@@ -379,6 +380,8 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         ],
       },
     ],
+    summary:
+      "Если летучая мышь в доме: сохраняйте спокойствие, уберите людей и животных, не трогайте голыми руками. Если был укус, царапина или возможный прямой контакт и вы не уверены, что его можно исключить, сначала получите медицинскую консультацию и не выпускайте летучую мышь самостоятельно. Если это безопасно, ограничьте её одной комнатой и откройте наружное окно или дверь. Не гоняйте и не бейте. После укуса, царапины или неясного прямого контакта промойте рану и обратитесь за медицинской помощью; в Грузии при неотложке — 112.",
     title: "В дом влетела летучая мышь — что делать?",
   },
   tr: {
@@ -431,7 +434,6 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         question: "Evde çocuk veya evcil hayvan varsa ne yapmalı?",
       },
     ],
-    lead: "Evde yarasa varsa: sakin kalın, insanları ve evcil hayvanları uzak tutun, çıplak elle dokunmayın. Isırık, tırmık veya olası doğrudan temas olduysa ve bunu dışlayabildiğinizden emin değilseniz, önce tıbbi danışmanlık alın ve yarasayı kendiliğinizden salmayın. Güvenliyse tek odaya sınırlayın ve dış pencere veya kapıyı açın. Kovalamayın ve vurmayın. Isırık, tırmık veya belirsiz doğrudan temas sonrası yıkayın ve tıbbi danışmanlık alın; Gürcistan’da acilde 112.",
     metaTitle: "Eve yarasa girdi — ne yapmalı?",
     sections: [
       {
@@ -503,6 +505,8 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         ],
       },
     ],
+    summary:
+      "Evde yarasa varsa: sakin kalın, insanları ve evcil hayvanları uzak tutun, çıplak elle dokunmayın. Isırık, tırmık veya olası doğrudan temas olduysa ve bunu dışlayabildiğinizden emin değilseniz, önce tıbbi danışmanlık alın ve yarasayı kendiliğinizden salmayın. Güvenliyse tek odaya sınırlayın ve dış pencere veya kapıyı açın. Kovalamayın ve vurmayın. Isırık, tırmık veya belirsiz doğrudan temas sonrası yıkayın ve tıbbi danışmanlık alın; Gürcistan’da acilde 112.",
     title: "Eve yarasa girdi — ne yapmalı?",
   },
 };
