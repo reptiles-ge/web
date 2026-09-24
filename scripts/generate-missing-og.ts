@@ -10,10 +10,11 @@ import {
   BunnyStorageAdapter,
   type StorageAdapter,
 } from "@reptiles-ge/img-compression/storage";
+import { getGuideArticles } from "../src/data/guideArticles";
 import { optimizedBaseUrl } from "../src/data/optimizedImages.generated";
 import { optimizedEntry } from "../src/data/optimizedImages";
 import { getCatalogSpecies } from "../src/data/species";
-import { CDN_BASE, speciesOgImageUrl } from "../src/lib/site";
+import { absoluteImageUrl, CDN_BASE, speciesOgImageUrl } from "../src/lib/site";
 
 const PUBLIC_ROOT = path.join(process.cwd(), "public");
 
@@ -21,18 +22,32 @@ type SpeciesOgTarget = {
   id: string;
   image: string;
   key: string;
+  kind: "species";
   ogUrl: string;
 };
+
+type GuideOgTarget = {
+  heroAlt: string;
+  heroSrc: string;
+  id: string;
+  key: string;
+  kind: "guide";
+  ogUrl: string;
+};
+
+type OgTarget = GuideOgTarget | SpeciesOgTarget;
 
 type CliOptions = {
   concurrency: number;
   dryRun: boolean;
   force: boolean;
+  guideIds: string[];
   speciesIds: string[];
   timeoutMs: number;
 };
 
 function parseArguments(argv: string[]): CliOptions {
+  const guideIds: string[] = [];
   const speciesIds: string[] = [];
   let concurrency = 2;
   let dryRun = false;
@@ -52,15 +67,35 @@ function parseArguments(argv: string[]): CliOptions {
       case "--force":
         force = true;
         break;
+      case "--guide":
+        index += 1;
+        {
+          const value = argv[index];
+          if (!value || value.startsWith("--")) {
+            throw new Error("--guide requires a comma-separated list of ids.");
+          }
+          for (const id of value.split(",")) {
+            if (id.trim()) guideIds.push(id.trim());
+          }
+        }
+        break;
       case "--species":
         index += 1;
-        for (const id of (argv[index] ?? "").split(",")) {
-          if (id.trim()) speciesIds.push(id.trim());
+        {
+          const value = argv[index];
+          if (!value || value.startsWith("--")) {
+            throw new Error("--species requires a comma-separated list of ids.");
+          }
+          for (const id of value.split(",")) {
+            if (id.trim()) speciesIds.push(id.trim());
+          }
         }
         break;
       case "--timeout":
         index += 1;
         timeoutMs = Number(argv[index]);
+        break;
+      case "--":
         break;
       default:
         throw new Error(`Unknown argument "${argument}".`);
@@ -74,7 +109,7 @@ function parseArguments(argv: string[]): CliOptions {
     throw new Error("--timeout requires a positive integer (milliseconds).");
   }
 
-  return { concurrency, dryRun, force, speciesIds, timeoutMs };
+  return { concurrency, dryRun, force, guideIds, speciesIds, timeoutMs };
 }
 
 function loadEnv() {
@@ -85,7 +120,7 @@ function loadEnv() {
   }
 }
 
-function createStorage(): StorageAdapter {
+function createBunnyStorage(): StorageAdapter {
   const zone = process.env.BUNNY_STORAGE_ZONE;
   const accessKey = process.env.BUNNY_STORAGE_ACCESS_KEY;
 
@@ -113,7 +148,7 @@ function storageKeyFromSrc(src: string): string | null {
   return null;
 }
 
-function collectTargets(ids: string[]): SpeciesOgTarget[] {
+function collectSpeciesTargets(ids: string[]): SpeciesOgTarget[] {
   const wanted = new Set(ids);
   const catalog = getCatalogSpecies();
   const known = new Set(catalog.map((item) => item.id));
@@ -133,10 +168,49 @@ function collectTargets(ids: string[]): SpeciesOgTarget[] {
         id: item.id,
         image: item.image,
         key,
+        kind: "species" as const,
         ogUrl: speciesOgImageUrl(item.id, item.image),
       };
     })
     .sort((a, b) => a.id.localeCompare(b.id));
+}
+
+function collectGuideTargets(ids: string[]): GuideOgTarget[] {
+  const wanted = new Set(ids);
+  const articles = getGuideArticles();
+  const known = new Set(articles.map((article) => article.id));
+
+  for (const id of wanted) {
+    if (!known.has(id)) throw new Error(`Unknown guide id "${id}".`);
+  }
+
+  return articles
+    .filter((article) => wanted.size === 0 || wanted.has(article.id))
+    .map((article) => ({
+      heroAlt: article.hero.alt.en,
+      heroSrc: article.hero.src,
+      id: article.id,
+      key: `images/guides/${article.id}.jpg`,
+      kind: "guide" as const,
+      ogUrl: absoluteImageUrl(article.ogImage),
+    }))
+    .sort((a, b) => a.id.localeCompare(b.id));
+}
+
+function collectTargets(options: CliOptions): OgTarget[] {
+  const hasSpeciesFilter = options.speciesIds.length > 0;
+  const hasGuideFilter = options.guideIds.length > 0;
+
+  const species =
+    hasGuideFilter && !hasSpeciesFilter
+      ? []
+      : collectSpeciesTargets(options.speciesIds);
+  const guides =
+    hasSpeciesFilter && !hasGuideFilter
+      ? []
+      : collectGuideTargets(options.guideIds);
+
+  return [...species, ...guides];
 }
 
 async function fetchBuffer(
@@ -198,7 +272,14 @@ async function readLocalCover(key: string): Promise<Buffer | null> {
   return fs.promises.readFile(absolute);
 }
 
-async function readCover(
+async function ogAlreadyPresent(
+  target: OgTarget,
+  timeoutMs: number,
+): Promise<boolean> {
+  return headOk(target.ogUrl, timeoutMs);
+}
+
+async function readSpeciesCover(
   target: SpeciesOgTarget,
   storage: StorageAdapter,
   timeoutMs: number,
@@ -218,6 +299,22 @@ async function readCover(
   if (local) return { buffer: local, from: `public/${target.key}` };
 
   throw new Error(`No cover source for ${target.id} (${target.image})`);
+}
+
+async function readGuideCover(
+  target: GuideOgTarget,
+  timeoutMs: number,
+): Promise<{ buffer: Buffer; from: string }> {
+  if (target.heroSrc.startsWith("/")) {
+    const local = await readLocalCover(target.heroSrc.slice(1));
+    if (local) return { buffer: local, from: `public${target.heroSrc}` };
+    throw new Error(`No local hero for ${target.id} (${target.heroSrc})`);
+  }
+
+  const remote = await fetchBuffer(target.heroSrc, timeoutMs);
+  if (remote) return { buffer: remote, from: target.heroSrc };
+
+  throw new Error(`No hero source for ${target.id} (${target.heroSrc})`);
 }
 
 function formatBytes(bytes: number) {
@@ -254,12 +351,16 @@ async function main() {
 
   const og = resolveOgImageConfig();
   const config = resolveImageConfig();
-  const storage = createStorage();
-  const targets = collectTargets(options.speciesIds);
+  const targets = collectTargets(options);
+  const storage = createBunnyStorage();
+
+  const speciesCount = targets.filter((t) => t.kind === "species").length;
+  const guideCount = targets.filter((t) => t.kind === "guide").length;
 
   console.log(
     `Storage: ${storage.name}. OG ${og.width}×${og.height} JPEG. ` +
-      `${targets.length} species${options.dryRun ? " (dry run)" : ""}.`,
+      `${speciesCount} species, ${guideCount} guides` +
+      `${options.dryRun ? " (dry run)" : ""}.`,
   );
 
   let written = 0;
@@ -268,24 +369,28 @@ async function main() {
   const failures: string[] = [];
 
   await mapPool(targets, options.concurrency, async (target) => {
+    const label = `${target.kind}/${target.id}`;
     try {
-      if (!options.force && (await headOk(target.ogUrl, options.timeoutMs))) {
+      if (!options.force && (await ogAlreadyPresent(target, options.timeoutMs))) {
         skipped += 1;
-        console.log(`skipped  ${target.id} ${target.ogUrl}`);
+        console.log(`skipped  ${label} ${target.ogUrl}`);
         return;
       }
 
-      const cover = await readCover(target, storage, options.timeoutMs);
+      const cover =
+        target.kind === "species"
+          ? await readSpeciesCover(target, storage, options.timeoutMs)
+          : await readGuideCover(target, options.timeoutMs);
       const key = ogImageKey(og, target.key);
 
       if (options.dryRun) {
         planned += 1;
-        console.log(`planned  ${target.id} ${key} ← ${cover.from}`);
+        console.log(`planned  ${label} ${key} ← ${cover.from}`);
         return;
       }
 
       const stored = await renderAndStoreOgImage({
-        alt: target.id,
+        alt: target.kind === "guide" ? target.heroAlt : target.id,
         config,
         key: target.key,
         og,
@@ -295,13 +400,13 @@ async function main() {
 
       written += 1;
       console.log(
-        `written  ${target.id} ${stored.key} ${formatBytes(stored.byteSize)} q${stored.quality}` +
+        `written  ${label} ${stored.key} ${formatBytes(stored.byteSize)} q${stored.quality}` +
           `${stored.enlarged ? " enlarged" : ""} ← ${cover.from}`,
       );
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
-      failures.push(`${target.id}: ${message}`);
-      console.error(`failed   ${target.id}: ${message}`);
+      failures.push(`${label}: ${message}`);
+      console.error(`failed   ${label}: ${message}`);
     }
   });
 
