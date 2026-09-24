@@ -2,12 +2,16 @@ import fs from "node:fs";
 import path from "node:path";
 import readline from "node:readline/promises";
 import { stdin as input, stdout as output } from "node:process";
+import type { Manifest } from "@reptiles-ge/img-compression";
 import { BunnyStorageAdapter } from "@reptiles-ge/img-compression/storage";
 import {
   optimizedBaseUrl,
   optimizedImages,
 } from "../src/data/optimizedImages.generated";
-import { georgiaRegionPaths, type RegionPathId } from "../src/data/georgia-paths";
+import {
+  georgiaRegionPaths,
+  type RegionPathId,
+} from "../src/data/georgia-paths";
 import { getRegionHeroImage } from "../src/data/regionImages";
 import { images as siteImages } from "../src/data/speciesMedia";
 import {
@@ -143,6 +147,15 @@ function collectUsedKeys(): Set<string> {
   markUsed(used, FALLBACK_OG_IMAGE_URL);
   markUsed(used, `${CDN_BASE}/logo.webp`);
   used.add("image-manifest.json");
+
+  const manifest = JSON.parse(
+    fs.readFileSync(path.join(ROOT, "src/data/image-manifest.json"), "utf8"),
+  ) as Manifest;
+  for (const [key, entry] of Object.entries(manifest.entries)) {
+    if (!key.startsWith("external/")) continue;
+    used.add(entry.originalKey);
+    for (const derivative of entry.derivatives) used.add(derivative.key);
+  }
 
   return used;
 }

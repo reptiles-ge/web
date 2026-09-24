@@ -10,12 +10,13 @@ type UploadedPhoto = {
 
 export function AdminCdnUpload() {
   const inputRef = useRef<HTMLInputElement>(null);
-  const [files, setFiles] = useState<File[]>([]);
+  const [files, setFiles] = useState<Array<{ file: File; name: string }>>([]);
   const [dragging, setDragging] = useState(false);
   const [busy, setBusy] = useState(false);
   const [uploaded, setUploaded] = useState<UploadedPhoto[]>([]);
   const [errors, setErrors] = useState<string[]>([]);
   const [message, setMessage] = useState("");
+  const [pullRequestUrl, setPullRequestUrl] = useState<null | string>(null);
 
   async function copy(value: string) {
     try {
@@ -31,9 +32,13 @@ export function AdminCdnUpload() {
     setBusy(true);
     setErrors([]);
     setMessage("");
+    setPullRequestUrl(null);
     try {
       const body = new FormData();
-      for (const file of files) body.append("photos", file);
+      for (const { file, name } of files) {
+        body.append("photos", file);
+        body.append("names", name);
+      }
       const response = await fetch("/api/admin/cdn-upload", {
         body,
         method: "POST",
@@ -41,17 +46,23 @@ export function AdminCdnUpload() {
       const result = (await response.json()) as {
         error?: string;
         errors?: Array<{ filename: string; message: string }>;
+        pullRequestError?: string;
+        pullRequestUrl?: string;
         uploaded?: UploadedPhoto[];
       };
       if (!response.ok)
         throw new Error(result.error ?? "ატვირთვა ვერ მოხერხდა");
       const added = result.uploaded ?? [];
       setUploaded((current) => [...current, ...added]);
-      setErrors(
-        (result.errors ?? []).map(
+      setErrors([
+        ...(result.errors ?? []).map(
           (item) => `${item.filename}: ${item.message}`,
         ),
-      );
+        ...(result.pullRequestError
+          ? [`კატალოგის PR ვერ გაიხსნა: ${result.pullRequestError}`]
+          : []),
+      ]);
+      setPullRequestUrl(result.pullRequestUrl ?? null);
       if (added.length > 0) setMessage(`${added.length} ფოტო აიტვირთა CDN-ზე`);
       setFiles([]);
       if (inputRef.current) inputRef.current.value = "";
@@ -82,7 +93,12 @@ export function AdminCdnUpload() {
             event.preventDefault();
             setDragging(false);
             if (busy) return;
-            setFiles(Array.from(event.dataTransfer.files));
+            setFiles(
+              Array.from(event.dataTransfer.files, (file) => ({
+                file,
+                name: "",
+              })),
+            );
           }}
         >
           <span className="font-medium">
@@ -96,15 +112,46 @@ export function AdminCdnUpload() {
             className="sr-only"
             disabled={busy}
             multiple
-            onChange={(event) => setFiles(Array.from(event.target.files ?? []))}
+            onChange={(event) =>
+              setFiles(
+                Array.from(event.target.files ?? [], (file) => ({
+                  file,
+                  name: "",
+                })),
+              )
+            }
             ref={inputRef}
             type="file"
           />
         </label>
         {files.length > 0 ? (
-          <p className="mt-4 text-[13px] wrap-break-word text-muted-foreground">
-            {files.length} ფოტო: {files.map((file) => file.name).join(", ")}
-          </p>
+          <ul className="mt-4 grid gap-3">
+            {files.map(({ file, name }, index) => (
+              <li className="min-w-0" key={`${index}-${file.name}`}>
+                <label className="block text-[12px] text-muted-foreground">
+                  <span className="block wrap-break-word">
+                    Name (არასავალდებულო) — {file.name}
+                  </span>
+                  <input
+                    className="mt-1.5 h-10 w-full rounded-md border border-border bg-background px-3 text-[14px] text-foreground outline-none focus:border-primary"
+                    disabled={busy}
+                    onChange={(event) =>
+                      setFiles((current) =>
+                        current.map((item, itemIndex) =>
+                          itemIndex === index
+                            ? { ...item, name: event.target.value }
+                            : item,
+                        ),
+                      )
+                    }
+                    placeholder="ცარიელი = ფაილის საწყისი სახელი"
+                    type="text"
+                    value={name}
+                  />
+                </label>
+              </li>
+            ))}
+          </ul>
         ) : null}
         <button
           className="mt-5 h-11 rounded-lg bg-foreground px-6 text-[14px] font-medium text-background disabled:opacity-50"
@@ -127,6 +174,16 @@ export function AdminCdnUpload() {
         <p className="text-[13px] text-primary" role="status">
           {message}
         </p>
+      ) : null}
+      {pullRequestUrl ? (
+        <a
+          className="text-[13px] break-all text-primary underline"
+          href={pullRequestUrl}
+          rel="noreferrer"
+          target="_blank"
+        >
+          კატალოგის PR: {pullRequestUrl}
+        </a>
       ) : null}
 
       {uploaded.length > 0 ? (

@@ -186,15 +186,7 @@ export async function openPhotoPullRequest(input: {
 
   const catalog = input.catalog ?? [];
   const noun = input.items.length === 1 ? "photo" : "photos";
-  const catalogFiles =
-    catalog.length > 0
-      ? [
-          "src/data/image-manifest.json",
-          ...(catalog.some((item) => item.asset)
-            ? ["src/data/optimizedImages.generated.ts"]
-            : []),
-        ]
-      : [];
+  const catalogFiles = optimizeCatalogFiles(catalog);
 
   return withPhotoPullRequest({
     apply: async (worktree) => {
@@ -266,6 +258,34 @@ export async function openRemovePhotoPullRequest(input: {
   });
 
   return { ...covers, pullRequestUrl };
+}
+
+export async function openStandalonePhotoPullRequest(
+  catalog: OptimizeCatalogUpdate[],
+): Promise<string> {
+  if (catalog.length === 0) {
+    throw new Error("No optimized photos to catalog");
+  }
+
+  return withPhotoPullRequest({
+    apply: (worktree) => applyOptimizeCatalog(worktree, catalog),
+    baseFromCurrentBranch: true,
+    commitBody:
+      "Standalone originals and AVIF/WebP derivatives are already on the CDN.",
+    extraFiles: optimizeCatalogFiles(catalog),
+    id: "external",
+    prBody: [
+      "## Summary",
+      "- Register standalone CDN photos in `image-manifest.json` and `optimizedImages.generated.ts`",
+      "- Originals and AVIF/WebP derivatives are already on `cdn.reptiles.ge`",
+      "- No species gallery or MDX changes",
+      "",
+      "## Test plan",
+      "- [ ] Uploaded URLs resolve on the CDN",
+      "- [ ] Optimized image lookup returns AVIF/WebP sources for the originals",
+    ].join("\n"),
+    title: "Catalog standalone CDN photos",
+  });
 }
 
 function createPullRequest(input: {
@@ -427,6 +447,16 @@ function hasStagedChanges(cwd: string) {
   }
 }
 
+function optimizeCatalogFiles(catalog: OptimizeCatalogUpdate[]) {
+  if (catalog.length === 0) return [];
+  return [
+    "src/data/image-manifest.json",
+    ...(catalog.some((item) => item.asset)
+      ? ["src/data/optimizedImages.generated.ts"]
+      : []),
+  ];
+}
+
 function refHasSpeciesFiles(ref: string, id: string) {
   try {
     const files = run("git", ["ls-tree", "-r", "--name-only", ref], REPO_ROOT);
@@ -488,6 +518,7 @@ function stamp() {
 
 async function withPhotoPullRequest(input: {
   apply: (worktree: string) => Promise<void> | void;
+  baseFromCurrentBranch?: boolean;
   commitBody: string;
   editExistingBody?: boolean;
   extraFiles?: string[];
@@ -496,9 +527,18 @@ async function withPhotoPullRequest(input: {
   title: string;
 }): Promise<string> {
   const rel = speciesMdxRel(input.id);
-  const base = resolvePhotoBase(input.id);
+  const currentBranch = input.baseFromCurrentBranch
+    ? currentBranchName(REPO_ROOT)
+    : "";
+  if (input.baseFromCurrentBranch && !currentBranch) {
+    throw new Error("Check out a branch before uploading standalone photos");
+  }
+  const base =
+    currentBranch && currentBranch !== BASE_BRANCH
+      ? { branch: currentBranch, ref: "HEAD" }
+      : resolvePhotoBase(input.id);
 
-  if (base.ref === "HEAD") {
+  if (base.ref === "HEAD" && !input.baseFromCurrentBranch) {
     if (run("git", ["status", "--porcelain"], REPO_ROOT)) {
       throw new Error(
         "Commit or stash local changes before using admin photos",
@@ -525,6 +565,14 @@ async function withPhotoPullRequest(input: {
         `Changes pushed to ${base.branch}, but no open PR was found`,
       );
     return url;
+  }
+
+  if (base.ref === "HEAD") {
+    run(
+      "git",
+      ["push", "-u", "origin", `HEAD:refs/heads/${base.branch}`],
+      REPO_ROOT,
+    );
   }
 
   const existing = await findOpenPhotoPullRequest(base.branch, input.id);
