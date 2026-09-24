@@ -24,7 +24,7 @@ import {
 } from "@/lib/imageOptimize";
 import { parsePhotoCoordinatesInput } from "@/lib/photoCoordinates";
 import { CDN_BASE } from "@/lib/site";
-import { kaToSlug } from "@/lib/slugify";
+import { kaToSlug, transliterateKa } from "@/lib/slugify";
 
 const MAX_UPLOAD_BYTES = 12 * 1024 * 1024;
 const OUTPUT_EXT: Record<"jpeg" | "png" | "webp", string> = {
@@ -178,16 +178,36 @@ export function creditFromInput(
 }
 
 export async function uploadStandalonePhotos(
-  files: Array<{ bytes: Buffer; filename: string }>,
+  files: Array<{ bytes: Buffer; filename: string; name?: string }>,
   storage: StorageAdapter = createStorage(),
 ): Promise<{
+  catalog: OptimizeCatalogUpdate[];
   errors: Array<{ filename: string; message: string }>;
   uploaded: StandalonePhoto[];
 }> {
+  const reservedNames = new Set<string>();
   const results = await Promise.allSettled(
-    files.map(async ({ bytes, filename }) => {
+    files.map(async ({ bytes, filename, name }) => {
       const prepared = await prepareOriginal(bytes);
-      const key = `external/${slugifyFileName(filename)}-${randomUUID()}.${prepared.ext}`;
+      const customName = name?.trim();
+      const baseName = customName
+        ? slugifyFileName(transliterateKa(customName), "")
+        : slugifyFileName(filename);
+      if (!baseName) throw new Error("ფოტოს სახელი არასწორია");
+      if (customName) {
+        const existing = await Promise.all(
+          ["jpg", "jpeg", "png", "webp", "avif"].map((ext) =>
+            storage.exists(`external/${baseName}.${ext}`),
+          ),
+        );
+        if (reservedNames.has(baseName) || existing.some(Boolean)) {
+          throw new Error("ამ სახელით ფოტო უკვე არსებობს");
+        }
+        reservedNames.add(baseName);
+      }
+      const key = customName
+        ? `external/${baseName}.${prepared.ext}`
+        : `external/${baseName}-${randomUUID()}.${prepared.ext}`;
       await storage.put(key, prepared.buffer, {
         contentType: prepared.contentType,
       });
@@ -199,18 +219,26 @@ export async function uploadStandalonePhotos(
         storage,
       });
       return {
-        derivatives:
-          optimized?.entry.derivatives.map((item) => ({
-            format: item.format,
-            url: storage.urlFor(item.key),
-            width: item.width,
-          })) ?? [],
-        filename,
-        url,
+        optimized,
+        photo: {
+          derivatives:
+            optimized?.entry.derivatives.map((item) => ({
+              format: item.format,
+              url: storage.urlFor(item.key),
+              width: item.width,
+            })) ?? [],
+          filename: customName || filename,
+          url,
+        },
       };
     }),
   );
   return {
+    catalog: results.flatMap((result) =>
+      result.status === "fulfilled" && result.value.optimized
+        ? [result.value.optimized]
+        : [],
+    ),
     errors: results.flatMap((result, index) =>
       result.status === "rejected"
         ? [
@@ -225,7 +253,7 @@ export async function uploadStandalonePhotos(
         : [],
     ),
     uploaded: results.flatMap((result) =>
-      result.status === "fulfilled" ? [result.value] : [],
+      result.status === "fulfilled" ? [result.value.photo] : [],
     ),
   };
 }
