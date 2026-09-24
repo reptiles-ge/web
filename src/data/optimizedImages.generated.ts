@@ -284,6 +284,62 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/anas-platyrhynchos-donsky-1.jpg": {
+    "path": "anas-platyrhynchos-donsky-1",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/anas-platyrhynchos-donsky-2.jpg": {
+    "path": "anas-platyrhynchos-donsky-2",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/anas-platyrhynchos-donsky-3.jpg": {
+    "path": "anas-platyrhynchos-donsky-3",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/anas-platyrhynchos-donsky-4.jpg": {
+    "path": "anas-platyrhynchos-donsky-4",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/anas-platyrhynchos-donsky-5.jpg": {
+    "path": "anas-platyrhynchos-donsky-5",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/anas-platyrhynchos-donsky-6.jpg": {
+    "path": "anas-platyrhynchos-donsky-6",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/anas-platyrhynchos-donsky-7.jpg": {
+    "path": "anas-platyrhynchos-donsky-7",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/anas-platyrhynchos-giorgi-1.jpg": {
+    "path": "anas-platyrhynchos-giorgi-1",
+    "width": 834,
+    "height": 1024,
+    "widths": [320, 400, 640, 800, 834],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/anguis-colchica-2.jpg": {
     "path": "anguis-colchica-2",
     "width": 1200,
@@ -2690,6 +2746,41 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1024,
     "height": 682,
     "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/external/house-mouse-kitchen-skirting-board-gap.jpg": {
+    "path": "external/house-mouse-kitchen-skirting-board-gap",
+    "width": 1672,
+    "height": 941,
+    "widths": [320, 400, 640, 800, 1200, 1672],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/external/mouse-dropping-disinfectant-cleanup.jpg": {
+    "path": "external/mouse-dropping-disinfectant-cleanup",
+    "width": 1672,
+    "height": 941,
+    "widths": [320, 400, 640, 800, 1200, 1672],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/external/mouse-entry-gap-steel-wool-sealant.jpg": {
+    "path": "external/mouse-entry-gap-steel-wool-sealant",
+    "width": 1672,
+    "height": 941,
+    "widths": [320, 400, 640, 800, 1200, 1672],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/external/mouse-signs-pantry-chewed-package.jpg": {
+    "path": "external/mouse-signs-pantry-chewed-package",
+    "width": 1672,
+    "height": 941,
+    "widths": [320, 400, 640, 800, 1200, 1672],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/external/mouse-snap-trap-against-skirting-board.jpg": {
+    "path": "external/mouse-snap-trap-against-skirting-board",
+    "width": 1672,
+    "height": 941,
+    "widths": [320, 400, 640, 800, 1200, 1672],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/ficedula-hypoleuca-crowbared-1.jpg": {

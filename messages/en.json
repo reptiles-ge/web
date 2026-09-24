@@ -248,7 +248,8 @@
         "lizardHouse": "A lizard in the house",
         "batInHouse": "A bat in the house",
         "waspNest": "Wasp nest near your home",
-        "stinkBugInHouse": "Stink bugs in the house"
+        "stinkBugInHouse": "Stink bugs in the house",
+        "mouseInHouse": "Mouse in the house"
       }
     }
   },
@@ -317,7 +318,8 @@
     "lizardHouse": "Lizard in the house",
     "batInHouse": "Bat in the house",
     "waspNest": "Wasp nest",
-    "stinkBugInHouse": "Stink bugs in the house"
+    "stinkBugInHouse": "Stink bugs in the house",
+    "mouseInHouse": "Mouse in the house"
   },
   "legal": {
     "canonicalNotice": "The legal text on this page is currently provided in Georgian; treat the Georgian version as the canonical text.",
@@ -1337,6 +1339,12 @@
         "eyebrow": "Practical guide",
         "title": "Stink bugs in the house",
         "body": "Why stink bugs come indoors in autumn, whether they are harmful, and how to remove them without crushing.",
+        "cta": "Read the guide"
+      },
+      "mouseInHouse": {
+        "eyebrow": "Practical guide",
+        "title": "Mouse in the house",
+        "body": "Spot the signs, trap mice, clean up droppings safely and seal the gaps they use to get in.",
         "cta": "Read the guide"
       },
       "lizardQuiz": {

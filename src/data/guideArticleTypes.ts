@@ -33,12 +33,13 @@ export type GuideArticleImage = {
   height: number;
   src:
     | `/images/guides/${string}`
+    | `https://cdn.reptiles.ge/external/${string}`
     | `https://cdn.reptiles.ge/images/guides/${string}`;
   width: number;
 };
 
 export type GuideArticleMessageKey =
-  "batInHouse" | "stinkBugInHouse" | "waspNest";
+  "batInHouse" | "mouseInHouse" | "stinkBugInHouse" | "waspNest";
 
 export type GuideArticleOgImage =
   | `/og/images/guides/${string}.jpg`

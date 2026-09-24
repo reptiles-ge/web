@@ -249,6 +249,11 @@ const EXACT_SPECIES_META_TITLE_OVERRIDES = new Set([
 const SPECIES_META_DESCRIPTION_OVERRIDE: Partial<
   Record<string, Partial<Record<AppLocale, string>>>
 > = {
+  "anas-platyrhynchos": {
+    en: "Mallard (Anas platyrhynchos) in Georgia: mapped records, Javakheti breeding lakes, winter sites, identification, hunting seasons and limits.",
+    ru: "Кряква (Anas platyrhynchos) в Грузии: записи на карте, гнездовые озёра Джавахети, зимовки, признаки, сезоны и лимиты охоты.",
+    tr: "Gürcistan'da yeşilbaş (Anas platyrhynchos): harita kayıtları, Cavaheti üreme gölleri, kışlama alanları, tanıma, av sezonu ve limitler.",
+  },
   "araneus-diadematus": {
     ka: "ჩვეულებრივი ჯვრიანა (Araneus diadematus) საქართველოში — ამოცნობის ნიშნები, დადასტურებული გავრცელება, ჰაბიტატი, ზომა და რამდენად საშიშია ადამიანისთვის.",
   },
