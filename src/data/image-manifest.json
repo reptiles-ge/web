@@ -28003,6 +28003,101 @@
       ],
       "updatedAt": "2026-09-24T16:17:46.535Z"
     },
+    "external/mouse-snap-trap-against-skirting-board.jpg": {
+      "sourceHash": "0d7f761ce7ee5928fd9d588f8fa15fe30ad6965c3a5795fa9eb2a720d6ff4019",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "external/mouse-snap-trap-against-skirting-board.jpg",
+      "originalSize": 146844,
+      "width": 1672,
+      "height": 941,
+      "derivatives": [
+        {
+          "key": "optimized/external/mouse-snap-trap-against-skirting-board-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 4057
+        },
+        {
+          "key": "optimized/external/mouse-snap-trap-against-skirting-board-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 5448
+        },
+        {
+          "key": "optimized/external/mouse-snap-trap-against-skirting-board-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 5766
+        },
+        {
+          "key": "optimized/external/mouse-snap-trap-against-skirting-board-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 7650
+        },
+        {
+          "key": "optimized/external/mouse-snap-trap-against-skirting-board-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 10687
+        },
+        {
+          "key": "optimized/external/mouse-snap-trap-against-skirting-board-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 14752
+        },
+        {
+          "key": "optimized/external/mouse-snap-trap-against-skirting-board-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 14430
+        },
+        {
+          "key": "optimized/external/mouse-snap-trap-against-skirting-board-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 19922
+        },
+        {
+          "key": "optimized/external/mouse-snap-trap-against-skirting-board-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 26043
+        },
+        {
+          "key": "optimized/external/mouse-snap-trap-against-skirting-board-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 35424
+        },
+        {
+          "key": "optimized/external/mouse-snap-trap-against-skirting-board-1672.avif",
+          "format": "avif",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 40696
+        },
+        {
+          "key": "optimized/external/mouse-snap-trap-against-skirting-board-1672.webp",
+          "format": "webp",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 56710
+        }
+      ],
+      "updatedAt": "2026-09-24T16:21:59.593Z"
+    },
     "ficedula-hypoleuca-crowbared-1.jpg": {
       "sourceHash": "bcfd4aab32fdfa6c66f19e8591a529b2d80cbeb860dc5218bcf86f06e7673edf",
       "configFingerprint": "a895f8e025dcc7fa",
