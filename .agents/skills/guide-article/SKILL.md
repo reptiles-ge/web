@@ -28,22 +28,23 @@ This is **not** the model for news (`src/data/news.ts`), species profiles (MDX),
 | Generated 301s                     | `src/i18n/guideArticleRedirects.ts` (used by `src/proxy.ts` and `next.config.ts`) |
 | Guard test                         | `src/data/guideArticles.test.ts`                                                  |
 
-The builder emits, per locale: title/description, canonical + hreflang (`x-default` = KA), Open Graph + Twitter card, `Article` + `BreadcrumbList` JSON-LD, an answer-first lead, a table of contents with section anchors, FAQ accordion, related guides + parent hub links, the sources accordion, and the attribution block.
+The builder emits, per locale: title/description, a 1200×630 JPEG share image, canonical + hreflang (`x-default` = KA), Open Graph + Twitter card, `Article` + `BreadcrumbList` JSON-LD, an answer-first lead, a table of contents with section anchors, FAQ accordion, related guides + parent hub links, the sources accordion, and the attribution block.
 
-The registry feeds these automatically. **Do not hand-edit them for a guide article:** sitemap, search index, `llms.txt` / `llms-full.txt`, footer and home SEO links, navbar hero style, and the proxy / `next.config.ts` redirects.
+The registry feeds these automatically. **Do not hand-edit them for a guide article:** sitemap (including the hero in the image sitemap), search index, `llms.txt` / `llms-full.txt`, footer and home SEO links, navbar hero style, and the proxy / `next.config.ts` redirects.
 
 ## Add a new article
 
 1. **Intent check.** One search intent per URL. Grep `src/i18n/pathnames.ts`, `src/lib/clusterGuides.ts`, and `src/lib/quizzes.ts`. If an existing page already answers the query, improve that page instead.
-2. **Images.** Add JPEGs under `public/images/guides/`. Register each `src` in `images` in `src/data/speciesMedia.ts`, then run `pnpm images:optimize:site` so `src/data/optimizedImages.generated.ts` gets the entry and width/height. This needs the private `@reptiles-ge/img-compression` package and CDN credentials. If they are unavailable, stop and ask the owner. Optional: a 1200×630 JPEG share image at `https://cdn.reptiles.ge/og/images/guides/<id>.jpg` set as `ogImage`. Without it the hero is used.
+2. **Images.** Add JPEGs under `public/images/guides/`. Register each `src` in `images` in `src/data/speciesMedia.ts`, then run `pnpm images:optimize:site` so `src/data/optimizedImages.generated.ts` gets the entry and width/height. This uses the public [`reptiles-ge/img-compression`](https://github.com/reptiles-ge/img-compression) package and needs CDN (Bunny) credentials to upload. If the install fails with a 403 from `codeload.github.com`, clone the repo at the lockfile commit, run `npm ci && npm run build` in it, and symlink it to `node_modules/@reptiles-ge/img-compression`. If there are no CDN credentials, stop and ask the owner.
 3. **Content file.** Create `src/content/guides/<camelCaseId>.ts` from the template below. KA is written natively first. EN, RU, and TR keep the same structure.
 4. **Register.**
    - `src/data/guideArticlePaths.ts`: add the internal path.
    - `src/data/guideArticles.ts`: import the article and add it to `GUIDE_ARTICLES`.
    - `src/data/guideArticleTypes.ts`: add the camelCase key to `GuideArticleMessageKey`.
-5. **Pathname.** In `src/i18n/pathnames.ts`, add `"/<hub>/<ka-slug>": kaLatin("/<ka-hub>/<ka-slug>", "/<hub>/<english-slug>")`. The folder under `src/app/[locale]/` is the internal path.
-6. **Reserved slugs.** In `RESERVED_HUB_SLUGS[<hub>]` in `src/lib/groupHubs.ts`, add both the KA slug and the English slug.
-7. **Route file.** Create `src/app/[locale]/<hub>/<ka-slug>/page.tsx`:
+5. **Share image (required).** Run `pnpm images:og-guides --guide <id>`. It renders a 1200×630 JPEG (under 300 KB, attention crop) from the hero into `public/og/images/guides/<id>.jpg`. Set `ogImage: "/og/images/guides/<id>.jpg"`. With Bunny credentials, `pnpm images:og-guides --guide <id> --upload` puts it on the CDN instead; then set `ogImage` to the printed `https://cdn.reptiles.ge/og/images/guides/<id>.jpg`. Open the JPEG and check that the subject is in frame.
+6. **Pathname.** In `src/i18n/pathnames.ts`, add `"/<hub>/<ka-slug>": kaLatin("/<ka-hub>/<ka-slug>", "/<hub>/<english-slug>")`. The folder under `src/app/[locale]/` is the internal path.
+7. **Reserved slugs.** In `RESERVED_HUB_SLUGS[<hub>]` in `src/lib/groupHubs.ts`, add both the KA slug and the English slug.
+8. **Route file.** Create `src/app/[locale]/<hub>/<ka-slug>/page.tsx`:
 
    ```tsx
    import { createGuideArticleRoute } from "@/lib/createGuideArticleRoute";
@@ -55,15 +56,16 @@ The registry feeds these automatically. **Do not hand-edit them for a guide arti
    export default guide.Page;
    ```
 
-8. **Dates.** Add the internal path to both `SITEMAP_PATH_LAST_MODIFIED` and `SITEMAP_PATH_DATE_PUBLISHED` in `src/data/pageLastModified.ts` (ISO with `+04:00`). On every meaningful content edit later, bump only the last-modified value.
-9. **Hub card and nav labels, in all 4 locales** (`messages/{ka,en,ru,tr}.json`):
-   - `groupHubShared.cluster.<key>`: `eyebrow`, `title`, `body`, `cta`
-   - `footer.<key>`
-   - `home.seo.links.<key>`
+9. **Dates.** Add the internal path to both `SITEMAP_PATH_LAST_MODIFIED` and `SITEMAP_PATH_DATE_PUBLISHED` in `src/data/pageLastModified.ts` (ISO with `+04:00`). On every meaningful content edit later, bump only the last-modified value.
+10. **Hub card and nav labels, in all 4 locales** (`messages/{ka,en,ru,tr}.json`):
 
-   Then add `{ href: "<internal path>", key: "<key>", kind: "page" }` to `HUB_CLUSTER_CARDS[<hub>]` in `src/lib/clusterGuides.ts`.
+- `groupHubShared.cluster.<key>`: `eyebrow`, `title`, `body`, `cta`
+- `footer.<key>`
+- `home.seo.links.<key>`
 
-10. **Verify.**
+Then add `{ href: "<internal path>", key: "<key>", kind: "page" }` to `HUB_CLUSTER_CARDS[<hub>]` in `src/lib/clusterGuides.ts`.
+
+11. **Verify.**
 
     ```bash
     pnpm species:compile && pnpm search:compile
@@ -159,6 +161,7 @@ export const EXAMPLE_GUIDE = defineGuideArticle({
     },
   },
   messageKey: "exampleGuide",
+  ogImage: "/og/images/guides/example-guide.jpg",
   parentHub: "mammals",
   pathname: "/mammals/example-ka-slug",
   search: {

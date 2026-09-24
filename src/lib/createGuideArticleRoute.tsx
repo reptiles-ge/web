@@ -126,20 +126,17 @@ export function createGuideArticleRoute(pathname: GuideArticlePath) {
       datePublished: dates.datePublished,
       description: copy.description,
       headline: copy.title,
-      image:
-        shareImage.url === heroImage.url
-          ? [heroImage]
-          : [
-              {
-                "@type": "ImageObject",
-                caption: shareImage.alt,
-                contentUrl: shareImage.url,
-                height: shareImage.height,
-                url: shareImage.url,
-                width: shareImage.width,
-              },
-              heroImage,
-            ],
+      image: [
+        {
+          "@type": "ImageObject",
+          caption: shareImage.alt,
+          contentUrl: shareImage.url,
+          height: shareImage.height,
+          url: shareImage.url,
+          width: shareImage.width,
+        },
+        heroImage,
+      ],
       inLanguage: locale,
       isPartOf: { "@id": siteEntityId("website") },
       mainEntityOfPage: { "@id": url, "@type": "WebPage" },
@@ -181,10 +178,10 @@ function guideImageObject(image: GuideArticleImage, locale: AppLocale) {
 }
 
 function guideShareImage(article: GuideArticle, locale: AppLocale) {
-  const alt = article.hero.alt[locale];
-  if (article.ogImage) return openGraphJpeg(article.ogImage, alt);
-  const { height, url, width } = renderedImage(article.hero);
-  return { alt, height, url, width };
+  return openGraphJpeg(
+    absoluteImageUrl(article.ogImage),
+    article.hero.alt[locale],
+  );
 }
 
 function relatedGuideArticles(article: GuideArticle) {

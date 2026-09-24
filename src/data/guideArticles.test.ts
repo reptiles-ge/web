@@ -31,6 +31,30 @@ const messages = Object.fromEntries(
   ]),
 );
 
+function jpegSize(bytes: Buffer) {
+  if (bytes[0] !== 0xff || bytes[1] !== 0xd8) return null;
+  let offset = 2;
+  while (offset + 9 < bytes.length) {
+    if (bytes[offset] !== 0xff) return null;
+    const marker = bytes[offset + 1];
+    const length = bytes.readUInt16BE(offset + 2);
+    const isFrame =
+      marker >= 0xc0 &&
+      marker <= 0xcf &&
+      marker !== 0xc4 &&
+      marker !== 0xc8 &&
+      marker !== 0xcc;
+    if (isFrame) {
+      return {
+        height: bytes.readUInt16BE(offset + 5),
+        width: bytes.readUInt16BE(offset + 7),
+      };
+    }
+    offset += 2 + length;
+  }
+  return null;
+}
+
 function messageAt(locale: string, keyPath: string) {
   return keyPath
     .split(".")
@@ -189,10 +213,21 @@ describe.each(articles.map((article) => [article.id, article] as const))(
       for (const image of images) {
         expect(optimizerSources.has(image.src), image.src).toBe(true);
       }
-      if (article.ogImage) {
-        expect(article.ogImage).toMatch(
-          /^https:\/\/cdn\.reptiles\.ge\/og\/.+\.jpg$/,
+    });
+
+    it("has a 1200x630 JPEG share image", () => {
+      expect(
+        article.ogImage.endsWith(`/og/images/guides/${article.id}.jpg`),
+        article.ogImage,
+      ).toBe(true);
+      if (article.ogImage.startsWith("/")) {
+        const file = path.join(process.cwd(), "public", article.ogImage);
+        expect(fs.existsSync(file), `${file}: run pnpm images:og-guides`).toBe(
+          true,
         );
+        const bytes = fs.readFileSync(file);
+        expect(bytes.byteLength).toBeLessThanOrEqual(300_000);
+        expect(jpegSize(bytes)).toEqual({ height: 630, width: 1200 });
       }
     });
 

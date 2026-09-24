@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
 import { getPublishedCreditAuthors } from "@/data/creditAuthors";
-import { GUIDE_ARTICLE_PATHS } from "@/data/guideArticlePaths";
+import { getGuideArticles } from "@/data/guideArticles";
 import { getPublishedNewsArticles } from "@/data/news";
 import {
   sitemapAuthorDatePublished,
@@ -40,6 +40,7 @@ import {
 } from "@/lib/site";
 import {
   creditAuthorPageImageUrls,
+  guidePageImageUrls,
   speciesPageImageUrls,
 } from "@/lib/sitemapImages";
 import { regionHref } from "@/lib/speciesRoutes";
@@ -68,8 +69,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     push(pageEntry(locale, "/terms-and-conditions"));
     push(pageEntry(locale, "/privacy"));
     push(pageEntry(locale, "/news"));
-    for (const path of GUIDE_ARTICLE_PATHS) {
-      push(pageEntry(locale, path));
+    for (const article of getGuideArticles()) {
+      push({
+        ...pageEntry(locale, article.pathname),
+        images: guidePageImageUrls([article.hero.src]),
+      });
     }
     push(pageEntry(locale, "/authors"));
     push(pageEntry(locale, "/species"));
@@ -88,7 +92,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
 
     for (const guide of CLUSTER_GUIDE_LIST) {
-      push(pageEntry(locale, guide.pathname));
+      const images = guidePageImageUrls([guide.heroImage]);
+      push({
+        ...pageEntry(locale, guide.pathname),
+        ...(images.length > 0 ? { images } : {}),
+      });
     }
 
     for (const hub of GROUP_HUB_LIST) {

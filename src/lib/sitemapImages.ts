@@ -31,6 +31,18 @@ export function creditAuthorPageImageUrls(
   return urls;
 }
 
+export function guidePageImageUrls(srcs: Array<string | undefined>) {
+  const urls: string[] = [];
+  for (const src of srcs) {
+    if (!src || isPlaceholderMedia(src) || urls.length >= MAX_SITEMAP_IMAGES) {
+      continue;
+    }
+    const url = absoluteImageUrl(optimizedImgSrc(src));
+    if (!urls.includes(url)) urls.push(url);
+  }
+  return urls;
+}
+
 export function speciesPageImageUrls(species: Species): string[] {
   const urls: string[] = [];
   const seen = new Set<string>();

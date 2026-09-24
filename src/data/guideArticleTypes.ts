@@ -9,7 +9,7 @@ export type GuideArticle<ImageKey extends string = string> = {
   id: string;
   images?: Record<ImageKey, GuideArticleImage>;
   messageKey: GuideArticleMessageKey;
-  ogImage?: string;
+  ogImage: GuideArticleOgImage;
   parentHub: GroupHubId;
   pathname: GuideArticlePath;
   relatedSpeciesIds?: readonly string[];
@@ -36,6 +36,10 @@ export type GuideArticleImage = {
 };
 
 export type GuideArticleMessageKey = "batInHouse" | "waspNest";
+
+export type GuideArticleOgImage =
+  | `/og/images/guides/${string}.jpg`
+  | `https://cdn.reptiles.ge/og/images/guides/${string}.jpg`;
 
 export type GuideArticleSearch = {
   icon: SearchIcon;
