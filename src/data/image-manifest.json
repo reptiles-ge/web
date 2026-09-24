@@ -28556,6 +28556,101 @@
       ],
       "updatedAt": "2026-09-24T22:01:54.144Z"
     },
+    "external/ants-home-sealing-skirting-board-crack.jpg": {
+      "sourceHash": "47950476ac1fa6b98217de281282651417b53c61f566613a38713954c335a014",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "external/ants-home-sealing-skirting-board-crack.jpg",
+      "originalSize": 155238,
+      "width": 1672,
+      "height": 941,
+      "derivatives": [
+        {
+          "key": "optimized/external/ants-home-sealing-skirting-board-crack-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 4291
+        },
+        {
+          "key": "optimized/external/ants-home-sealing-skirting-board-crack-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 5610
+        },
+        {
+          "key": "optimized/external/ants-home-sealing-skirting-board-crack-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 5904
+        },
+        {
+          "key": "optimized/external/ants-home-sealing-skirting-board-crack-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 7846
+        },
+        {
+          "key": "optimized/external/ants-home-sealing-skirting-board-crack-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 11334
+        },
+        {
+          "key": "optimized/external/ants-home-sealing-skirting-board-crack-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 15082
+        },
+        {
+          "key": "optimized/external/ants-home-sealing-skirting-board-crack-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 15793
+        },
+        {
+          "key": "optimized/external/ants-home-sealing-skirting-board-crack-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 20436
+        },
+        {
+          "key": "optimized/external/ants-home-sealing-skirting-board-crack-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 27887
+        },
+        {
+          "key": "optimized/external/ants-home-sealing-skirting-board-crack-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 36446
+        },
+        {
+          "key": "optimized/external/ants-home-sealing-skirting-board-crack-1672.avif",
+          "format": "avif",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 43781
+        },
+        {
+          "key": "optimized/external/ants-home-sealing-skirting-board-crack-1672.webp",
+          "format": "webp",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 58968
+        }
+      ],
+      "updatedAt": "2026-09-24T22:03:45.823Z"
+    },
     "external/ants-kitchen-trail-crumbs-spilled-juice.jpg": {
       "sourceHash": "b30d1f335d8dac7a8f47910df01c7c94f947ced712b64cf05f7cb30c7290789f",
       "configFingerprint": "409788ee46c653d8",
