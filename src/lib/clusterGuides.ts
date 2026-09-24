@@ -652,6 +652,11 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
   insects: [
     { href: "/insects/saxeoebebi", key: "insectIndex", kind: "page" },
     { href: "/insects/krazanis-bude", key: "waspNest", kind: "page" },
+    {
+      href: "/insects/farosana-sakhlshi",
+      key: "stinkBugInHouse",
+      kind: "page",
+    },
   ],
   lizards: [
     { href: "/lizards/saxeoebebi", key: "lizardIndex", kind: "page" },
@@ -999,6 +1004,13 @@ export function getSpeciesGuideLinks(id: string): HubClusterCard[] {
       key: "insectIndex",
       kind: "page",
     });
+    if (id === "halyomorpha-halys") {
+      links.push({
+        href: "/insects/farosana-sakhlshi",
+        key: "stinkBugInHouse",
+        kind: "page",
+      });
+    }
   } else if (group === "mammal") {
     links.push({
       href: "/mammals/saxeoebebi",

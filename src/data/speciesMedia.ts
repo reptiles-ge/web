@@ -65,6 +65,7 @@ export const images = {
   cta: "https://cdn.reptiles.ge/landing-cta-cover.jpeg",
   detail: "https://cdn.reptiles.ge/vipera-dinnik-3.webp",
   hero: "https://cdn.reptiles.ge/hero-img.webp",
+  stinkBugInHouseHero: "/images/guides/stink-bug-house-hero.jpg",
   waspNestComb: "/images/guides/wasp-nest-open-comb.jpg",
   waspNestHero: "/images/guides/wasp-nest-enclosed.jpg",
 };

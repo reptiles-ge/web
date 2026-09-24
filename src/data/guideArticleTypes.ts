@@ -35,7 +35,8 @@ export type GuideArticleImage = {
   width: number;
 };
 
-export type GuideArticleMessageKey = "batInHouse" | "waspNest";
+export type GuideArticleMessageKey =
+  "batInHouse" | "stinkBugInHouse" | "waspNest";
 
 export type GuideArticleOgImage =
   | `/og/images/guides/${string}.jpg`
