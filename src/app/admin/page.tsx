@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { AdminSpeciesList } from "@/components/admin/AdminSpeciesList";
 import { assertLocalAdminPage } from "@/lib/adminAccess";
 import { listAdminSpecies } from "@/lib/adminGalleryMdx";
@@ -17,6 +19,12 @@ export default function AdminIndexPage() {
         ატვირთვა წერს CDN-ს და ხსნის PR-ს. ლოკალური ბრენჩი არ იცვლება.
         reptiles.ge იცვლება მხოლოდ merge-ის შემდეგ.
       </p>
+      <Link
+        className="mt-6 inline-flex rounded-lg border border-border bg-card px-4 py-3 text-[14px] font-medium hover:bg-secondary"
+        href="/admin/cdn-upload"
+      >
+        ცალკე ფოტოების CDN-ზე ატვირთვა →
+      </Link>
       <div className="mt-8">
         <AdminSpeciesList species={species} />
       </div>
