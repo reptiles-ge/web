@@ -262,6 +262,26 @@ const nextConfig: NextConfig = {
         statusCode: 301,
       },
       {
+        destination: "/xvlikebi/xvliki-sakhlshi",
+        source: "/xvlikebi/xvliki-saxlshi",
+        statusCode: 301,
+      },
+      {
+        destination: "/xvlikebi/xvliki-sakhlshi",
+        source: "/lizards/xvliki-saxlshi",
+        statusCode: 301,
+      },
+      {
+        destination: "/dzuzumtsovrebi/ghamura-sakhlshi",
+        source: "/dzuzumtsovrebi/ghamura-saxlshi",
+        statusCode: 301,
+      },
+      {
+        destination: "/dzuzumtsovrebi/ghamura-sakhlshi",
+        source: "/mammals/ghamura-saxlshi",
+        statusCode: 301,
+      },
+      {
         destination: "/dzuzumtsovrebi/tura-ezoshi",
         source: "/mammals/jackal-in-the-yard",
         statusCode: 301,
@@ -450,6 +470,10 @@ const nextConfig: NextConfig = {
         ["/spiders/saxeoebebi", "/spiders/species"],
         ["/xvlikebi/xvliki-sakhlshi", "/lizards/in-the-house"],
         ["/lizards/xvliki-sakhlshi", "/lizards/in-the-house"],
+        ["/xvlikebi/xvliki-saxlshi", "/lizards/in-the-house"],
+        ["/lizards/xvliki-saxlshi", "/lizards/in-the-house"],
+        ["/dzuzumtsovrebi/ghamura-saxlshi", "/mammals/bat-in-the-house"],
+        ["/mammals/ghamura-saxlshi", "/mammals/bat-in-the-house"],
         ["/dzuzumtsovrebi/tura-ezoshi", "/mammals/jackal-in-the-yard"],
         ["/mammals/tura-ezoshi", "/mammals/jackal-in-the-yard"],
         ["/dzuzumtsovrebi/datvi-shekhvedra", "/mammals/bear-encounter"],

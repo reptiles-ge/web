@@ -138,6 +138,7 @@ export const RESERVED_HUB_SLUGS: Record<GroupHubId, readonly string[]> = {
     "identify",
     "lizard-or-glass-lizard",
     "xvliki-sakhlshi",
+    "xvliki-saxlshi",
     "in-the-house",
   ],
   mammals: [
@@ -146,6 +147,7 @@ export const RESERVED_HUB_SLUGS: Record<GroupHubId, readonly string[]> = {
     "tura-ezoshi",
     "datvi-shekhvedra",
     "ghamura-sakhlshi",
+    "ghamura-saxlshi",
     "jackal-in-the-yard",
     "bear-encounter",
     "bat-in-the-house",

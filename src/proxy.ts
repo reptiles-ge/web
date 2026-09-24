@@ -63,6 +63,7 @@ const PERMANENT_REDIRECTS: Record<string, string> = {
   "/amphibians/tritoni-salamandra": "/amfibiebi/tritoni-salamandra",
   "/authors": "/kontributorebi",
   "/contributors": "/kontributorebi",
+  "/dzuzumtsovrebi/ghamura-saxlshi": "/dzuzumtsovrebi/ghamura-sakhlshi",
   "/fotografebi": "/kontributorebi",
   "/gvelebi/sakartvelos-gvelebi": "/gvelebi/saxeoebebi",
   "/gvelebi/vipera-ammodytes": "/gvelebi/tsxvirrkosani-gvelgesla",
@@ -77,10 +78,12 @@ const PERMANENT_REDIRECTS: Record<string, string> = {
   "/lizards/saxeoebebi": "/xvlikebi/saxeoebebi",
   "/lizards/species": "/xvlikebi/saxeoebebi",
   "/lizards/xvliki-sakhlshi": "/xvlikebi/xvliki-sakhlshi",
+  "/lizards/xvliki-saxlshi": "/xvlikebi/xvliki-sakhlshi",
   "/lizards/xvlikis-da-gvelxokeras-gansxvaveba":
     "/xvlikebi/xvlikis-da-gvelxokeras-gansxvaveba",
   "/mammals/bear-encounter": "/dzuzumtsovrebi/datvi-shekhvedra",
   "/mammals/datvi-shekhvedra": "/dzuzumtsovrebi/datvi-shekhvedra",
+  "/mammals/ghamura-saxlshi": "/dzuzumtsovrebi/ghamura-sakhlshi",
   "/mammals/jackal-in-the-yard": "/dzuzumtsovrebi/tura-ezoshi",
   "/mammals/saxeoebebi": "/dzuzumtsovrebi/saxeoebebi",
   "/mammals/species": "/dzuzumtsovrebi/saxeoebebi",
@@ -125,6 +128,7 @@ const PERMANENT_REDIRECTS: Record<string, string> = {
   "/turtles/tsqlis-kuebi": "/kuebi/tsqlis-kuebi",
   "/turtles/xmelis-kuebi": "/kuebi/xmelis-kuebi",
   "/venomous-snakes": "/gvelebi/shxamiani-gvelebi",
+  "/xvlikebi/xvliki-saxlshi": "/xvlikebi/xvliki-sakhlshi",
 };
 
 const TEMPORARY_REDIRECTS: Record<string, string> = {
@@ -149,6 +153,7 @@ const PREFIXED_PERMANENT_REDIRECTS: Record<string, string> = {
   "/avtorebi": "/contributors",
   "/dzuzumtsovrebi": "/mammals",
   "/dzuzumtsovrebi/datvi-shekhvedra": "/mammals/bear-encounter",
+  "/dzuzumtsovrebi/ghamura-saxlshi": "/mammals/bat-in-the-house",
   "/dzuzumtsovrebi/saxeoebebi": "/mammals/species",
   "/dzuzumtsovrebi/tura-ezoshi": "/mammals/jackal-in-the-yard",
   "/fotografebi": "/contributors",
@@ -172,9 +177,11 @@ const PREFIXED_PERMANENT_REDIRECTS: Record<string, string> = {
   "/lizards/identifikacia": "/lizards/identify",
   "/lizards/saxeoebebi": "/lizards/species",
   "/lizards/xvliki-sakhlshi": "/lizards/in-the-house",
+  "/lizards/xvliki-saxlshi": "/lizards/in-the-house",
   "/lizards/xvlikis-da-gvelxokeras-gansxvaveba":
     "/lizards/lizard-or-glass-lizard",
   "/mammals/datvi-shekhvedra": "/mammals/bear-encounter",
+  "/mammals/ghamura-saxlshi": "/mammals/bat-in-the-house",
   "/mammals/saxeoebebi": "/mammals/species",
   "/mammals/tura-ezoshi": "/mammals/jackal-in-the-yard",
   "/obobebi": "/spiders",
@@ -207,6 +214,7 @@ const PREFIXED_PERMANENT_REDIRECTS: Record<string, string> = {
   "/xvlikebi/identifikacia": "/lizards/identify",
   "/xvlikebi/saxeoebebi": "/lizards/species",
   "/xvlikebi/xvliki-sakhlshi": "/lizards/in-the-house",
+  "/xvlikebi/xvliki-saxlshi": "/lizards/in-the-house",
   "/xvlikebi/xvlikis-da-gvelxokeras-gansxvaveba":
     "/lizards/lizard-or-glass-lizard",
 };
