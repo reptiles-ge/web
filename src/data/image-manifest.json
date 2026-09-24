@@ -27718,6 +27718,101 @@
       ],
       "updatedAt": "2026-09-24T16:09:03.319Z"
     },
+    "external/mouse-dropping-disinfectant-cleanup.jpg": {
+      "sourceHash": "e5320ceee8fcaea1bfa12bf3ed46887527bcef4a709a5dfaf7af0d0e37f75463",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "external/mouse-dropping-disinfectant-cleanup.jpg",
+      "originalSize": 181953,
+      "width": 1672,
+      "height": 941,
+      "derivatives": [
+        {
+          "key": "optimized/external/mouse-dropping-disinfectant-cleanup-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 5721
+        },
+        {
+          "key": "optimized/external/mouse-dropping-disinfectant-cleanup-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 7882
+        },
+        {
+          "key": "optimized/external/mouse-dropping-disinfectant-cleanup-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 7876
+        },
+        {
+          "key": "optimized/external/mouse-dropping-disinfectant-cleanup-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 10890
+        },
+        {
+          "key": "optimized/external/mouse-dropping-disinfectant-cleanup-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 14839
+        },
+        {
+          "key": "optimized/external/mouse-dropping-disinfectant-cleanup-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 19528
+        },
+        {
+          "key": "optimized/external/mouse-dropping-disinfectant-cleanup-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 20196
+        },
+        {
+          "key": "optimized/external/mouse-dropping-disinfectant-cleanup-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 26528
+        },
+        {
+          "key": "optimized/external/mouse-dropping-disinfectant-cleanup-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 35661
+        },
+        {
+          "key": "optimized/external/mouse-dropping-disinfectant-cleanup-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 46522
+        },
+        {
+          "key": "optimized/external/mouse-dropping-disinfectant-cleanup-1672.avif",
+          "format": "avif",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 55914
+        },
+        {
+          "key": "optimized/external/mouse-dropping-disinfectant-cleanup-1672.webp",
+          "format": "webp",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 73264
+        }
+      ],
+      "updatedAt": "2026-09-24T16:19:30.904Z"
+    },
     "external/mouse-signs-pantry-chewed-package.jpg": {
       "sourceHash": "a6d929955381b7b9b33c8265d78490050b13c572b1eef27bd8d0554074399f8a",
       "configFingerprint": "409788ee46c653d8",
