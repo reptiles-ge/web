@@ -11,7 +11,7 @@ import { cookies } from "next/headers";
 import { LocaleSwitchProvider } from "@/components/LocaleSwitchProvider";
 import { LogoPreload } from "@/components/LogoPreload";
 import { Navbar } from "@/components/Navbar";
-import { NotFoundContent } from "@/components/NotFoundContent";
+import { NotFoundShell } from "@/components/NotFoundShell";
 import { SkipLink } from "@/components/SkipLink";
 import {
   type ClientMessages,
@@ -19,7 +19,6 @@ import {
   pickClientMessages,
 } from "@/i18n/clientMessages";
 import { type AppLocale, routing } from "@/i18n/routing";
-import { getLocaleSwitchIndex } from "@/lib/localeSwitchData";
 import { notFoundMetadata } from "@/lib/notFoundMetadata";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -34,16 +33,14 @@ export default async function RootNotFound() {
     NOT_FOUND_CLIENT_MESSAGE_NAMESPACES,
   );
   const t = await getTranslations("nav");
-  const switchIndex = getLocaleSwitchIndex();
-
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
-      <LocaleSwitchProvider index={switchIndex}>
+      <LocaleSwitchProvider>
         <SkipLink label={t("skipToContent")} />
         <LogoPreload />
-        <Navbar switchIndex={switchIndex} />
+        <Navbar />
         <main id="main" tabIndex={-1}>
-          <NotFoundContent />
+          <NotFoundShell />
         </main>
       </LocaleSwitchProvider>
     </NextIntlClientProvider>

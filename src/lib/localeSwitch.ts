@@ -86,22 +86,6 @@ const STANDALONE_GUIDES = new Set([
   "/venomous-snakes",
 ]);
 
-export function quizHrefFromIndex(
-  index: LocaleSwitchIndex,
-  id: string,
-  locale: AppLocale,
-) {
-  const quiz = index.quizzes.find((item) => item.id === id);
-  const slug = quiz?.slugs[locale];
-  if (!slug) {
-    return {
-      params: { slug: "romeli-gvelia" },
-      pathname: "/quiz/[slug]" as const,
-    };
-  }
-  return { params: { slug }, pathname: "/quiz/[slug]" as const };
-}
-
 export function resolvePageContextFromIndex(
   index: LocaleSwitchIndex,
   pathname: string,

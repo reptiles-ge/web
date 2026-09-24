@@ -53,6 +53,10 @@ export type HalyomorphaRegionSummary = {
   status: HalyomorphaOccurrenceStatus;
 };
 
+export function confirmedRecordThresholdForSpecies(speciesId: string) {
+  return speciesId === "cheiracanthium-punctorium" ? 1 : 5;
+}
+
 export function getHalyomorphaFieldRecords({
   fieldRecords,
   gallery,

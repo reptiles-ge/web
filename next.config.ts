@@ -73,6 +73,15 @@ const nextConfig: NextConfig = {
       },
       {
         headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+        source: "/geodata/georgia-regions-v1.json",
+      },
+      {
+        headers: [
           ...security,
           { key: "X-Robots-Tag", value: "noindex, nofollow" },
         ],

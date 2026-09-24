@@ -243,6 +243,7 @@ const eslintConfig = defineConfig([
     ".pnpm-store/**",
     "out/**",
     "build/**",
+    "dist/**",
     "next-env.d.ts",
     "src/data/species.generated.ts",
     "src/data/speciesSlugs.generated.ts",
@@ -250,6 +251,7 @@ const eslintConfig = defineConfig([
     "src/data/search-index.*.generated.ts",
     "src/data/georgia-paths.generated.ts",
     "src/data/optimizedImages.generated.ts",
+    "src/data/localeSwitchIndex.generated.ts",
     "scripts/**",
   ]),
 ]);

@@ -6,6 +6,7 @@ export type ClientMessages = Partial<Record<ClientMessageNamespace, unknown>>;
 export const ROOT_CLIENT_MESSAGE_NAMESPACES = [
   "language",
   "nav",
+  "notFound",
   "search",
   "theme",
 ] as const satisfies readonly ClientMessageNamespace[];
