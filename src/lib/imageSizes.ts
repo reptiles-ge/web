@@ -6,8 +6,7 @@ export const GALLERY_LIGHTBOX_SIZES = "(max-width: 1196px) 92vw, 1100px";
 export const HOME_CONTRIBUTOR_MOSAIC_SIZES =
   "(max-width: 639px) 50vw, (max-width: 1023px) 28vw, 360px";
 
-export const HOME_CONTRIBUTOR_PORTRAIT_SIZES =
-  "(max-width: 1023px) 80px, 96px";
+export const HOME_CONTRIBUTOR_PORTRAIT_SIZES = "(max-width: 1023px) 80px, 96px";
 
 export const LOOKALIKE_SIZES =
   "(max-width: 639px) calc((100vw - 3rem - 2rem - 0.75rem) / 2), 280px";

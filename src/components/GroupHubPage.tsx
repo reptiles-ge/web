@@ -17,9 +17,11 @@ import { CoverImage } from "@/components/CoverImage";
 import { GroupHubFaqSection } from "@/components/GroupHubFaqSection";
 import { GroupHubHero } from "@/components/GroupHubHero";
 import { GroupHubSpeciesList } from "@/components/GroupHubSpeciesList";
+import { GuideArticleRelatedBlock } from "@/components/GuideArticleRelatedBlock";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
 import { TurtlesHubSections } from "@/components/TurtlesHubSections";
+import { getGuideArticlesForHub } from "@/data/guideArticles";
 import { Link } from "@/i18n/navigation";
 import { HUB_CLUSTER_CARDS, splitHubSpecies } from "@/lib/clusterGuides";
 import { GROUP_HUB_LIST, GROUP_HUBS } from "@/lib/groupHubs";
@@ -49,7 +51,13 @@ export async function GroupHubPage({
   const tShared = await getTranslations("groupHubShared");
   const locale = (await getLocale()) as AppLocale;
   const relatedHubs = GROUP_HUB_LIST.filter((hub) => hub.id !== hubId);
-  const clusterCards = HUB_CLUSTER_CARDS[hubId];
+  const articles = getGuideArticlesForHub(hubId);
+  const articlePaths = new Set<string>(
+    articles.map((article) => article.pathname),
+  );
+  const clusterCards = HUB_CLUSTER_CARDS[hubId].filter(
+    (card) => card.kind !== "page" || !articlePaths.has(card.href),
+  );
   const sections = splitHubSpecies(hubId, species);
   const relatedBody = t.has("relatedBody")
     ? t("relatedBody")
@@ -111,6 +119,8 @@ export async function GroupHubPage({
         />
 
         {hubId === "turtles" ? <TurtlesHubSections /> : null}
+
+        <GuideArticleRelatedBlock articles={articles} locale={locale} />
 
         <section className="bg-background py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
