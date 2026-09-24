@@ -222,9 +222,6 @@ export default async function WaspNestPage({ params }: Props) {
           <h1 className="mt-5 font-display text-display-lead font-semibold text-foreground">
             {copy.title}
           </h1>
-          <p className="mt-7 border-l-4 border-primary pl-5 text-[18px] leading-[1.7] text-foreground">
-            <PhoneLinkedText>{copy.lead}</PhoneLinkedText>
-          </p>
           <figure className="mt-10">
             <Image
               alt={photoAlt.hero}
