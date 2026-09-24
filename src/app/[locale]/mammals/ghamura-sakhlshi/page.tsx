@@ -1,6 +1,6 @@
 import { createGuideArticleRoute } from "@/lib/createGuideArticleRoute";
 
-const guide = createGuideArticleRoute("/mammals/ghamura-saxlshi");
+const guide = createGuideArticleRoute("/mammals/ghamura-sakhlshi");
 
 export const generateStaticParams = guide.generateStaticParams;
 export const generateMetadata = guide.generateMetadata;
