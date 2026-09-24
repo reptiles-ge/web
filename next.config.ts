@@ -4,6 +4,8 @@ import createBundleAnalyzer from "@next/bundle-analyzer";
 import { withSentryConfig } from "@sentry/nextjs/config";
 import createNextIntlPlugin from "next-intl/plugin";
 
+import { guideArticleRedirects } from "./src/i18n/guideArticleRedirects";
+
 const withBundleAnalyzer = createBundleAnalyzer({
   enabled: process.env.ANALYZE === "true",
 });
@@ -13,6 +15,7 @@ const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 const LATIN_LOCALES = ["en", "ru", "tr"] as const;
 const isDevelopment = process.env.NODE_ENV === "development";
 const isVinext = process.env.VINEXT === "1";
+const GUIDE_REDIRECTS = guideArticleRedirects();
 
 function latinRedirects(
   pairs: Array<[string, string, number?]>,
@@ -127,12 +130,12 @@ const nextConfig: NextConfig = {
         source: "/:path*",
         statusCode: 301,
       },
-      {
-        destination: "/mtserebi/krazanis-bude",
-        source: "/insects/wasp-nest",
+      ...Object.entries(GUIDE_REDIRECTS.ka).map(([source, destination]) => ({
+        destination,
+        source,
         statusCode: 301,
-      },
-      ...latinRedirects([["/insects/krazanis-bude", "/insects/wasp-nest"]]),
+      })),
+      ...latinRedirects(Object.entries(GUIDE_REDIRECTS.prefixed)),
       {
         destination: "/terms-and-conditions",
         source: "/terms",
@@ -266,11 +269,6 @@ const nextConfig: NextConfig = {
       {
         destination: "/dzuzumtsovrebi/datvi-shekhvedra",
         source: "/mammals/bear-encounter",
-        statusCode: 301,
-      },
-      {
-        destination: "/dzuzumtsovrebi/ghamura-saxlshi",
-        source: "/mammals/bat-in-the-house",
         statusCode: 301,
       },
       {
@@ -456,8 +454,6 @@ const nextConfig: NextConfig = {
         ["/mammals/tura-ezoshi", "/mammals/jackal-in-the-yard"],
         ["/dzuzumtsovrebi/datvi-shekhvedra", "/mammals/bear-encounter"],
         ["/mammals/datvi-shekhvedra", "/mammals/bear-encounter"],
-        ["/dzuzumtsovrebi/ghamura-saxlshi", "/mammals/bat-in-the-house"],
-        ["/mammals/ghamura-saxlshi", "/mammals/bat-in-the-house"],
         ["/obobebi/shxamiani-obobebi", "/spiders/venomous"],
         ["/spiders/shxamiani-obobebi", "/spiders/venomous"],
         ["/obobebi/obobis-nakbeni", "/spiders/bite"],

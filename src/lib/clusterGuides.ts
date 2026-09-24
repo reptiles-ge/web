@@ -1,3 +1,6 @@
+import type { GuideArticlePath } from "@/data/guideArticlePaths";
+import type { GuideArticleMessageKey } from "@/data/guideArticleTypes";
+
 import { getRegionSpecies, type Region } from "@/data/regions";
 import { getSpeciesById, type Species } from "@/data/species";
 import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlasMeta";
@@ -581,19 +584,17 @@ export type HubClusterCard =
       href:
         | "/birds"
         | "/insects"
-        | "/insects/krazanis-bude"
         | "/lizards"
         | "/mammals"
-        | "/mammals/ghamura-saxlshi"
         | "/scorpions"
         | "/snakes"
         | "/snakes-in-the-yard"
         | "/spiders"
         | "/venomous-snakes"
-        | ClusterGuidePath;
+        | ClusterGuidePath
+        | GuideArticlePath;
       key:
         | "amphibianIndex"
-        | "batInHouse"
         | "bearEncounter"
         | "birdIndex"
         | "birdsHub"
@@ -628,8 +629,8 @@ export type HubClusterCard =
         | "turtleLand"
         | "turtleWater"
         | "venomous"
-        | "waspNest"
-        | "yard";
+        | "yard"
+        | GuideArticleMessageKey;
       kind: "page";
     }
   | {

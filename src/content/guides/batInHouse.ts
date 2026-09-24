@@ -1,19 +1,14 @@
 import type { AppLocale } from "@/i18n/routing";
 
-type GuideCopy = {
-  description: string;
-  faq: { answer: string; question: string }[];
-  lead: string;
-  metaTitle: string;
-  sections: {
-    heading: string;
-    image?: "on-wall" | "roost";
-    paragraphs: string[];
-  }[];
-  title: string;
-};
+import {
+  defineGuideArticle,
+  type GuideArticleCopy,
+  type GuideArticleSource,
+} from "@/data/guideArticleTypes";
 
-export const BAT_IN_HOUSE_COPY: Record<AppLocale, GuideCopy> = {
+type ImageKey = "on-wall" | "roost";
+
+const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
   en: {
     description:
       "A bat flew into your home? Stay calm, keep people and pets away, open an exterior exit, and learn when medical advice is needed after contact.",
@@ -512,7 +507,7 @@ export const BAT_IN_HOUSE_COPY: Record<AppLocale, GuideCopy> = {
   },
 };
 
-export const BAT_IN_HOUSE_SOURCES = [
+const SOURCES: readonly GuideArticleSource[] = [
   {
     name: "Bat Conservation Trust — Instructions for release",
     supports: {
@@ -593,4 +588,77 @@ export const BAT_IN_HOUSE_SOURCES = [
     },
     url: "https://112.gov.ge/?page_id=599",
   },
-] as const;
+];
+
+export const BAT_IN_HOUSE = defineGuideArticle({
+  copy: COPY,
+  hero: {
+    alt: {
+      en: "Small bat near an open residential window at dusk",
+      ka: "პატარა ღამურა საცხოვრებელი ფანჯრის ღიობთან ბინდობაში",
+      ru: "Небольшая летучая мышь у открытого окна дома в сумерках",
+      tr: "Alacakaranlıkta açık konut penceresi yakınında küçük yarasa",
+    },
+    height: 864,
+    src: "/images/guides/bat-house-hero.jpg",
+    width: 1152,
+  },
+  id: "bat-in-house",
+  images: {
+    "on-wall": {
+      alt: {
+        en: "Small bat resting on an interior wall near a curtain",
+        ka: "პატარა ღამურა შიდა კედელზე ფარდასთან",
+        ru: "Небольшая летучая мышь на внутренней стене у занавески",
+        tr: "Perde yakınında iç duvarda dinlenen küçük yarasa",
+      },
+      height: 864,
+      src: "/images/guides/bat-on-wall.jpg",
+      width: 1152,
+    },
+    roost: {
+      alt: {
+        en: "Bat roosting naturally in a rocky outdoor crevice at dusk",
+        ka: "ღამურა ბუნებრივ ქვის ნაპრალში ბინდობაში",
+        ru: "Летучая мышь в природной каменной расщелине в сумерках",
+        tr: "Alacakaranlıkta doğal kayalık yarıkta tüneyen yarasa",
+      },
+      height: 864,
+      src: "/images/guides/bat-roost-natural.jpg",
+      width: 1152,
+    },
+  },
+  messageKey: "batInHouse",
+  ogImage: "https://cdn.reptiles.ge/og/images/guides/bat-in-house.jpg",
+  parentHub: "mammals",
+  pathname: "/mammals/ghamura-saxlshi",
+  search: {
+    icon: "safety",
+    keywords: [
+      "ღამურა",
+      "ghamura",
+      "bat",
+      "სახლში",
+      "შემოფრინდა",
+      "летучая мышь",
+      "yarasa",
+      "ცოფი",
+      "rabies",
+      "ნაკბენი",
+    ],
+    rank: 5,
+    subtitle: {
+      en: "Stay calm, open an exit, avoid bare hands",
+      ka: "სიმშვიდე, გასასვლელი, შიშველი ხელით ნუ შეეხებით",
+      ru: "Спокойствие, выход наружу, не трогайте голыми руками",
+      tr: "Sakin kalın, çıkış açın, çıplak elle dokunmayın",
+    },
+    title: {
+      en: "A bat flew into the house",
+      ka: "ღამურა სახლში შემოფრინდა",
+      ru: "В дом влетела летучая мышь",
+      tr: "Eve yarasa girdi",
+    },
+  },
+  sources: SOURCES,
+});

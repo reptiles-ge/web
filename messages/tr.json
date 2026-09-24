@@ -246,7 +246,8 @@
         "jackalYard": "Bahçede çakal",
         "bearEncounter": "Ayı ile karşılaşırsam",
         "lizardHouse": "Evde kertenkele",
-        "batInHouse": "Evde yarasa"
+        "batInHouse": "Evde yarasa",
+        "waspNest": "Eşek arısı yuvası"
       }
     }
   },
@@ -313,7 +314,8 @@
     "jackalYard": "Bahçede çakal",
     "bearEncounter": "Ayı karşılaşması",
     "lizardHouse": "Evde kertenkele",
-    "batInHouse": "Evde yarasa"
+    "batInHouse": "Evde yarasa",
+    "waspNest": "Eşek arısı yuvası"
   },
   "legal": {
     "canonicalNotice": "Bu sayfadaki hukuki metin şu anda Gürcüce olarak sunulmaktadır; Gürcüce sürüm esas metin kabul edilmelidir.",
@@ -730,6 +732,13 @@
     "updated": "Güncellendi: {date}",
     "sources": "Kaynaklar",
     "methodology": "Yöntemimiz"
+  },
+  "guideArticle": {
+    "contents": "Bu rehberde",
+    "faq": "Sık sorulan sorular",
+    "related": "İlgili rehberler",
+    "relatedSpecies": "İlgili türler",
+    "sources": "Kaynaklar ve destekledikleri bilgiler"
   },
   "site": {
     "title": "Reptiles — Gürcistan hayvanları atlası",

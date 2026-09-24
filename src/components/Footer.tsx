@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 
 import { Logo } from "@/components/Logo";
 import { TopGeCounter } from "@/components/TopGeCounter";
+import { getGuideArticles } from "@/data/guideArticles";
 import { Link } from "@/i18n/navigation";
 
 type FooterProps = {
@@ -58,10 +59,10 @@ const guideLinks = [
     labelKey: "spiderVenomous" as const,
   },
   { href: "/spiders/obobis-nakbeni" as const, labelKey: "spiderBite" as const },
-  {
-    href: "/mammals/ghamura-saxlshi" as const,
-    labelKey: "batInHouse" as const,
-  },
+  ...getGuideArticles().map((article) => ({
+    href: article.pathname,
+    labelKey: article.messageKey,
+  })),
   {
     href: "/mammals/tura-ezoshi" as const,
     labelKey: "jackalYard" as const,

@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 
 import { getPublishedCreditAuthors } from "@/data/creditAuthors";
+import { GUIDE_ARTICLE_PATHS } from "@/data/guideArticlePaths";
 import { getPublishedNewsArticles } from "@/data/news";
 import {
   sitemapAuthorDatePublished,
@@ -67,8 +68,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     push(pageEntry(locale, "/terms-and-conditions"));
     push(pageEntry(locale, "/privacy"));
     push(pageEntry(locale, "/news"));
-    push(pageEntry(locale, "/insects/krazanis-bude"));
-    push(pageEntry(locale, "/mammals/ghamura-saxlshi"));
+    for (const path of GUIDE_ARTICLE_PATHS) {
+      push(pageEntry(locale, path));
+    }
     push(pageEntry(locale, "/authors"));
     push(pageEntry(locale, "/species"));
     push(pageEntry(locale, "/venomous-snakes"));

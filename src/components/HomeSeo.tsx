@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 
+import { getGuideArticles } from "@/data/guideArticles";
 import { Link } from "@/i18n/navigation";
 
 const hubs = [
@@ -19,7 +20,10 @@ const hubs = [
   { href: "/spiders/obobis-nakbeni", key: "spiderBite" as const },
   { href: "/mammals/tura-ezoshi", key: "jackalYard" as const },
   { href: "/mammals/datvi-shekhvedra", key: "bearEncounter" as const },
-  { href: "/mammals/ghamura-saxlshi", key: "batInHouse" as const },
+  ...getGuideArticles().map((article) => ({
+    href: article.pathname,
+    key: article.messageKey,
+  })),
   { href: "/lizards/xvliki-saxlshi", key: "lizardHouse" as const },
   { href: "/lizards/identifikacia", key: "lizardIdentify" as const },
   { href: "/amphibians/bayayi", key: "frogs" as const },

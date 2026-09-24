@@ -1,15 +1,14 @@
 import type { AppLocale } from "@/i18n/routing";
 
-type GuideCopy = {
-  description: string;
-  faq: { answer: string; question: string }[];
-  lead: string;
-  metaTitle: string;
-  sections: { heading: string; image?: "open-comb"; paragraphs: string[] }[];
-  title: string;
-};
+import {
+  defineGuideArticle,
+  type GuideArticleCopy,
+  type GuideArticleSource,
+} from "@/data/guideArticleTypes";
 
-export const WASP_NEST_COPY: Record<AppLocale, GuideCopy> = {
+type ImageKey = "open-comb";
+
+const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
   en: {
     description:
       "Found a wasp or hornet nest? Learn when to leave it alone, when to call a professional, and which sting symptoms need urgent help.",
@@ -454,7 +453,7 @@ export const WASP_NEST_COPY: Record<AppLocale, GuideCopy> = {
   },
 };
 
-export const WASP_NEST_SOURCES = [
+const SOURCES: readonly GuideArticleSource[] = [
   {
     name: "Penn State Extension — Getting Rid of Paper Wasps, Yellowjackets, and Other Stinging Insects",
     supports: {
@@ -535,4 +534,68 @@ export const WASP_NEST_SOURCES = [
     },
     url: "https://www.nplg.gov.ge/gwdict/index.php?a=term&d=17&t=50797",
   },
-] as const;
+];
+
+export const WASP_NEST = defineGuideArticle({
+  copy: COPY,
+  hero: {
+    alt: {
+      en: "Enclosed papery wasp nest beneath a wooden roof edge",
+      ka: "დახურული, ქაღალდისებრი კრაზანის ბუდე ხის გადახურვის ქვეშ",
+      ru: "Закрытое бумагообразное осиное гнездо под деревянным краем крыши",
+      tr: "Ahşap çatı kenarı altındaki kapalı, kâğıt benzeri eşek arısı yuvası",
+    },
+    height: 1107,
+    src: "/images/guides/wasp-nest-enclosed.jpg",
+    width: 1421,
+  },
+  id: "wasp-nest",
+  images: {
+    "open-comb": {
+      alt: {
+        en: "Black-and-yellow wasps on the open cells of a papery nest",
+        ka: "შავ-ყვითელი მწერები ქაღალდისმაგვარი ბუდის ღია ფიჭაზე",
+        ru: "Чёрно-жёлтые осы на открытых ячейках бумагообразного гнезда",
+        tr: "Kâğıt benzeri yuvanın açık hücreleri üzerindeki siyah-sarı eşek arıları",
+      },
+      height: 1024,
+      src: "/images/guides/wasp-nest-open-comb.jpg",
+      width: 1536,
+    },
+  },
+  messageKey: "waspNest",
+  parentHub: "insects",
+  pathname: "/insects/krazanis-bude",
+  search: {
+    icon: "safety",
+    keywords: [
+      "კრაზანა",
+      "კრაზანის ბუდე",
+      "ბზიკი",
+      "ბზიკის ბუდე",
+      "wasp",
+      "hornet",
+      "nest",
+      "оса",
+      "осиное гнездо",
+      "eşek arısı",
+      "yuva",
+      "დანესტვრა",
+      "აივანი",
+    ],
+    rank: 5,
+    subtitle: {
+      en: "When to leave a nest alone, and when to call for help",
+      ka: "როდის დატოვოთ ბუდე მშვიდად და როდის მიმართოთ სპეციალისტს",
+      ru: "Когда гнездо не трогать и когда нужен специалист",
+      tr: "Yuvayı ne zaman bırakmalı, ne zaman uzman çağırmalı",
+    },
+    title: {
+      en: "Wasp nest near your home",
+      ka: "კრაზანის ბუდე",
+      ru: "Осиное гнездо у дома",
+      tr: "Eşek arısı yuvası",
+    },
+  },
+  sources: SOURCES,
+});

@@ -1,3 +1,4 @@
+import { getGuideArticles } from "@/data/guideArticles";
 import { getPublishedNewsArticles } from "@/data/news";
 import { regions } from "@/data/regions";
 import { getCatalogSpecies, type Species } from "@/data/species";
@@ -170,6 +171,25 @@ export function buildLlmsFullText() {
     parts.push("");
   }
 
+  parts.push("## Practical guides");
+  parts.push("");
+  for (const article of getGuideArticles()) {
+    const copy = article.copy.en;
+    parts.push(`### ${copy.title}`);
+    parts.push("");
+    parts.push(`- URL: ${absoluteUrl(localizedPath("ka", article.pathname))}`);
+    parts.push(`- EN: ${absoluteUrl(localizedPath("en", article.pathname))}`);
+    parts.push(`- ${copy.lead}`);
+    for (const item of copy.faq) {
+      parts.push(`- Q: ${item.question} A: ${item.answer}`);
+    }
+    parts.push("- Sources:");
+    for (const source of article.sources) {
+      parts.push(`  - ${source.name}: ${source.url}`);
+    }
+    parts.push("");
+  }
+
   parts.push("## News");
   parts.push("");
   for (const article of news) {
@@ -295,6 +315,10 @@ export function buildLlmsIndexText() {
     `- [Snakebite](${absoluteUrl("/gvelebi/gvelis-nakbeni")}): Educational page. Call 112. Not a medical protocol and not first-aid instruction for unsupervised use.`,
     `- [Snakes in the yard](${absoluteUrl("/gvelebi/gveli-ezoshi")}): Practical notes on snakes near houses. Not a guaranteed repellent method.`,
     `- [Risk to humans](${absoluteUrl("/riskis-doneebi")}): What Harmless, Moderate, and High mean on atlas profiles.`,
+    ...getGuideArticles().map(
+      (article) =>
+        `- [${article.copy.en.title}](${absoluteUrl(localizedPath("ka", article.pathname))}): ${article.copy.en.description}`,
+    ),
     "",
     "## Regions",
     "",
