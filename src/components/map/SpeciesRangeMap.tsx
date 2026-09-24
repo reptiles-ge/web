@@ -215,6 +215,48 @@ const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
 const INTERACTIVE_RANGE_MAPS: Partial<
   Record<string, InteractiveRangeMapConfig>
 > = {
+  "aegypius-monachus": {
+    copy: {
+      en: {
+        ...HALYOMORPHA_RANGE_COPY.en,
+        intro:
+          "The cinereous vulture map combines Reptiles.ge editorial photo records with public iNaturalist observations. Regions are taken from the records-by-region table, and the status column separates confirmed distribution from recorded-only regions.",
+        mapAria:
+          "Cinereous vulture distribution evidence and field records on a map of Georgia",
+        officialRegionLabel: "Region with records",
+        rangeTitle: "Where cinereous vulture is recorded in Georgia",
+      },
+      ka: {
+        ...HALYOMORPHA_RANGE_COPY.ka,
+        intro:
+          "სვავის რუკა აერთიანებს Reptiles.ge-ის სარედაქციო ფოტოჩანაწერებსა და iNaturalist-ის საჯარო დაკვირვებებს. რეგიონები აღებულია ჩანაწერების რეგიონული ცხრილიდან, ხოლო სტატუსი ერთმანეთისგან გამოყოფს დადასტურებულ გავრცელებასა და მხოლოდ დაფიქსირებულ რეგიონებს.",
+        mapAria:
+          "სვავის გავრცელების მტკიცებულებები და საველე ჩანაწერები საქართველოს რუკაზე",
+        officialRegionLabel: "ჩანაწერების მქონე რეგიონი",
+        rangeTitle: "სად არის სვავი დაფიქსირებული საქართველოში",
+      },
+      ru: {
+        ...HALYOMORPHA_RANGE_COPY.ru,
+        intro:
+          "Карта чёрного грифа объединяет редакционные фотозаписи Reptiles.ge и публичные наблюдения iNaturalist. Регионы взяты из таблицы записей по регионам, а статус отделяет подтверждённое распространение от регионов, где вид только зафиксирован.",
+        mapAria:
+          "Данные о распространении чёрного грифа и полевые записи на карте Грузии",
+        officialRegionLabel: "Регион с записями",
+        rangeTitle: "Где чёрный гриф отмечен в Грузии",
+      },
+      tr: {
+        ...HALYOMORPHA_RANGE_COPY.tr,
+        intro:
+          "Kara akbaba haritası Reptiles.ge editoryal fotoğraf kayıtlarını ve herkese açık iNaturalist gözlemlerini birleştirir. Bölgeler, bölgelere göre kayıt tablosundan alınır; durum sütunu doğrulanmış yayılış ile yalnızca kaydedilen bölgeleri ayırır.",
+        mapAria:
+          "Kara akbabanın Gürcistan'daki yayılış kanıtları ve arazi kayıtları",
+        officialRegionLabel: "Kayıt bulunan bölge",
+        rangeTitle: "Kara akbaba Gürcistan'da nerede kaydedildi?",
+      },
+    },
+    iNaturalistTaxonId: 5382,
+    rangeSource: "record-summary",
+  },
   "anas-platyrhynchos": {
     copy: {
       en: {
@@ -377,6 +419,48 @@ const INTERACTIVE_RANGE_MAPS: Partial<
       },
     },
     iNaturalistTaxonId: 154213,
+    rangeSource: "record-summary",
+  },
+  "capreolus-capreolus": {
+    copy: {
+      en: {
+        ...HALYOMORPHA_RANGE_COPY.en,
+        intro:
+          "The European roe deer map combines Reptiles.ge editorial photo records with public iNaturalist observations. Regions are taken from the records-by-region table, and the status column separates confirmed distribution from recorded-only regions.",
+        mapAria:
+          "European roe deer distribution evidence and field records on a map of Georgia",
+        officialRegionLabel: "Region with records",
+        rangeTitle: "Where European roe deer is recorded in Georgia",
+      },
+      ka: {
+        ...HALYOMORPHA_RANGE_COPY.ka,
+        intro:
+          "ევროპული შვლის რუკა აერთიანებს Reptiles.ge-ის სარედაქციო ფოტოჩანაწერებსა და iNaturalist-ის საჯარო დაკვირვებებს. რეგიონები აღებულია ჩანაწერების რეგიონული ცხრილიდან, ხოლო სტატუსი ერთმანეთისგან გამოყოფს დადასტურებულ გავრცელებასა და მხოლოდ დაფიქსირებულ რეგიონებს.",
+        mapAria:
+          "ევროპული შვლის გავრცელების მტკიცებულებები და საველე ჩანაწერები საქართველოს რუკაზე",
+        officialRegionLabel: "ჩანაწერების მქონე რეგიონი",
+        rangeTitle: "სად არის ევროპული შველი დაფიქსირებული საქართველოში",
+      },
+      ru: {
+        ...HALYOMORPHA_RANGE_COPY.ru,
+        intro:
+          "Карта европейской косули объединяет редакционные фотозаписи Reptiles.ge и публичные наблюдения iNaturalist. Регионы взяты из таблицы записей по регионам, а статус отделяет подтверждённое распространение от регионов, где вид только зафиксирован.",
+        mapAria:
+          "Данные о распространении европейской косули и полевые записи на карте Грузии",
+        officialRegionLabel: "Регион с записями",
+        rangeTitle: "Где европейская косуля отмечена в Грузии",
+      },
+      tr: {
+        ...HALYOMORPHA_RANGE_COPY.tr,
+        intro:
+          "Avrupa karacası haritası Reptiles.ge editoryal fotoğraf kayıtlarını ve herkese açık iNaturalist gözlemlerini birleştirir. Bölgeler, bölgelere göre kayıt tablosundan alınır; durum sütunu doğrulanmış yayılış ile yalnızca kaydedilen bölgeleri ayırır.",
+        mapAria:
+          "Avrupa karacasının Gürcistan'daki yayılış kanıtları ve arazi kayıtları",
+        officialRegionLabel: "Kayıt bulunan bölge",
+        rangeTitle: "Avrupa karacası Gürcistan'da nerede kaydedildi?",
+      },
+    },
+    iNaturalistTaxonId: 42184,
     rangeSource: "record-summary",
   },
   "cheiracanthium-punctorium": {
@@ -742,6 +826,48 @@ const INTERACTIVE_RANGE_MAPS: Partial<
       },
     },
     iNaturalistTaxonId: 343356,
+    rangeSource: "record-summary",
+  },
+  "telescopus-fallax": {
+    copy: {
+      en: {
+        ...HALYOMORPHA_RANGE_COPY.en,
+        intro:
+          "The European cat snake map combines Reptiles.ge editorial photo records, hand-curated localities, and public iNaturalist observations. Regions are taken from the records-by-region table, and the status column separates confirmed distribution from recorded-only regions.",
+        mapAria:
+          "European cat snake distribution evidence and field records on a map of Georgia",
+        officialRegionLabel: "Region with records",
+        rangeTitle: "Where European cat snake is recorded in Georgia",
+      },
+      ka: {
+        ...HALYOMORPHA_RANGE_COPY.ka,
+        intro:
+          "კატისთვალას რუკა აერთიანებს Reptiles.ge-ის სარედაქციო ფოტოჩანაწერებს, ხელით შერჩეულ ლოკალიტეტებსა და iNaturalist-ის საჯარო დაკვირვებებს. რეგიონები აღებულია ჩანაწერების რეგიონული ცხრილიდან, ხოლო სტატუსი ერთმანეთისგან გამოყოფს დადასტურებულ გავრცელებასა და მხოლოდ დაფიქსირებულ რეგიონებს.",
+        mapAria:
+          "კატისთვალას გავრცელების მტკიცებულებები და საველე ჩანაწერები საქართველოს რუკაზე",
+        officialRegionLabel: "ჩანაწერების მქონე რეგიონი",
+        rangeTitle: "სად არის კატისთვალა დაფიქსირებული საქართველოში",
+      },
+      ru: {
+        ...HALYOMORPHA_RANGE_COPY.ru,
+        intro:
+          "Карта европейского кошачьего ужа объединяет редакционные фотозаписи Reptiles.ge, вручную отобранные локалитеты и публичные наблюдения iNaturalist. Регионы взяты из таблицы записей по регионам, а статус отделяет подтверждённое распространение от регионов, где вид только зафиксирован.",
+        mapAria:
+          "Данные о распространении европейского кошачьего ужа и полевые записи на карте Грузии",
+        officialRegionLabel: "Регион с записями",
+        rangeTitle: "Где европейский кошачий уж отмечен в Грузии",
+      },
+      tr: {
+        ...HALYOMORPHA_RANGE_COPY.tr,
+        intro:
+          "Avrupa kedi yılanı haritası Reptiles.ge editoryal fotoğraf kayıtlarını, elle seçilmiş lokaliteleri ve herkese açık iNaturalist gözlemlerini birleştirir. Bölgeler, bölgelere göre kayıt tablosundan alınır; durum sütunu doğrulanmış yayılış ile yalnızca kaydedilen bölgeleri ayırır.",
+        mapAria:
+          "Avrupa kedi yılanının Gürcistan'daki yayılış kanıtları ve arazi kayıtları",
+        officialRegionLabel: "Kayıt bulunan bölge",
+        rangeTitle: "Avrupa kedi yılanı Gürcistan'da nerede kaydedildi?",
+      },
+    },
+    iNaturalistTaxonId: 64078,
     rangeSource: "record-summary",
   },
 };
