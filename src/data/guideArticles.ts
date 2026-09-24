@@ -3,6 +3,7 @@ import type { GuideArticle } from "@/data/guideArticleTypes";
 import type { AppLocale } from "@/i18n/routing";
 
 import { BAT_IN_HOUSE } from "@/content/guides/batInHouse";
+import { MOUSE_IN_HOUSE } from "@/content/guides/mouseInHouse";
 import { STINK_BUG_IN_HOUSE } from "@/content/guides/stinkBugInHouse";
 import { WASP_NEST } from "@/content/guides/waspNest";
 import { slugify, transliterateKa } from "@/lib/slugify";
@@ -17,6 +18,7 @@ const GUIDE_ARTICLES: readonly GuideArticle[] = [
   BAT_IN_HOUSE,
   WASP_NEST,
   STINK_BUG_IN_HOUSE,
+  MOUSE_IN_HOUSE,
 ];
 
 const byPath = new Map<GuideArticlePath, GuideArticle>();

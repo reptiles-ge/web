@@ -65,10 +65,24 @@ export const images = {
   cta: "https://cdn.reptiles.ge/landing-cta-cover.jpeg",
   detail: "https://cdn.reptiles.ge/vipera-dinnik-3.webp",
   hero: "https://cdn.reptiles.ge/hero-img.webp",
-  stinkBugInHouseGap: "https://cdn.reptiles.ge/images/guides/stink-bug-window-gap.jpg",
-  stinkBugInHouseHero: "https://cdn.reptiles.ge/images/guides/stink-bug-house-hero.jpg",
-  stinkBugInHouseSealing: "https://cdn.reptiles.ge/images/guides/stink-bug-sealing-frame.jpg",
-  stinkBugInHouseSoapyWater: "https://cdn.reptiles.ge/images/guides/stink-bug-soapy-water.jpg",
+  mouseInHouseCleanup:
+    "https://cdn.reptiles.ge/external/mouse-dropping-disinfectant-cleanup.jpg",
+  mouseInHouseHero:
+    "https://cdn.reptiles.ge/external/house-mouse-kitchen-skirting-board-gap.jpg",
+  mouseInHouseSealing:
+    "https://cdn.reptiles.ge/external/mouse-entry-gap-steel-wool-sealant.jpg",
+  mouseInHouseSigns:
+    "https://cdn.reptiles.ge/external/mouse-signs-pantry-chewed-package.jpg",
+  mouseInHouseTrap:
+    "https://cdn.reptiles.ge/external/mouse-snap-trap-against-skirting-board.jpg",
+  stinkBugInHouseGap:
+    "https://cdn.reptiles.ge/images/guides/stink-bug-window-gap.jpg",
+  stinkBugInHouseHero:
+    "https://cdn.reptiles.ge/images/guides/stink-bug-house-hero.jpg",
+  stinkBugInHouseSealing:
+    "https://cdn.reptiles.ge/images/guides/stink-bug-sealing-frame.jpg",
+  stinkBugInHouseSoapyWater:
+    "https://cdn.reptiles.ge/images/guides/stink-bug-soapy-water.jpg",
   waspNestComb: "/images/guides/wasp-nest-open-comb.jpg",
   waspNestHero: "/images/guides/wasp-nest-enclosed.jpg",
 };

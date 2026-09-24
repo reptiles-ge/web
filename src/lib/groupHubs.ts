@@ -151,6 +151,8 @@ export const RESERVED_HUB_SLUGS: Record<GroupHubId, readonly string[]> = {
     "jackal-in-the-yard",
     "bear-encounter",
     "bat-in-the-house",
+    "tagvi-sakhlshi",
+    "mouse-in-house",
   ],
   scorpions: ["saxeoebebi", "species"],
   snakes: [

@@ -27718,6 +27718,386 @@
       ],
       "updatedAt": "2026-09-24T16:09:03.319Z"
     },
+    "external/mouse-dropping-disinfectant-cleanup.jpg": {
+      "sourceHash": "e5320ceee8fcaea1bfa12bf3ed46887527bcef4a709a5dfaf7af0d0e37f75463",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "external/mouse-dropping-disinfectant-cleanup.jpg",
+      "originalSize": 181953,
+      "width": 1672,
+      "height": 941,
+      "derivatives": [
+        {
+          "key": "optimized/external/mouse-dropping-disinfectant-cleanup-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 5721
+        },
+        {
+          "key": "optimized/external/mouse-dropping-disinfectant-cleanup-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 7882
+        },
+        {
+          "key": "optimized/external/mouse-dropping-disinfectant-cleanup-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 7876
+        },
+        {
+          "key": "optimized/external/mouse-dropping-disinfectant-cleanup-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 10890
+        },
+        {
+          "key": "optimized/external/mouse-dropping-disinfectant-cleanup-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 14839
+        },
+        {
+          "key": "optimized/external/mouse-dropping-disinfectant-cleanup-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 19528
+        },
+        {
+          "key": "optimized/external/mouse-dropping-disinfectant-cleanup-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 20196
+        },
+        {
+          "key": "optimized/external/mouse-dropping-disinfectant-cleanup-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 26528
+        },
+        {
+          "key": "optimized/external/mouse-dropping-disinfectant-cleanup-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 35661
+        },
+        {
+          "key": "optimized/external/mouse-dropping-disinfectant-cleanup-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 46522
+        },
+        {
+          "key": "optimized/external/mouse-dropping-disinfectant-cleanup-1672.avif",
+          "format": "avif",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 55914
+        },
+        {
+          "key": "optimized/external/mouse-dropping-disinfectant-cleanup-1672.webp",
+          "format": "webp",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 73264
+        }
+      ],
+      "updatedAt": "2026-09-24T16:19:30.904Z"
+    },
+    "external/mouse-entry-gap-steel-wool-sealant.jpg": {
+      "sourceHash": "9ef35bf0923edcf74c042a51f5a19168e7f8f3d84c22d9c2d60df6dae4c8ba91",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "external/mouse-entry-gap-steel-wool-sealant.jpg",
+      "originalSize": 195715,
+      "width": 1672,
+      "height": 941,
+      "derivatives": [
+        {
+          "key": "optimized/external/mouse-entry-gap-steel-wool-sealant-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 6331
+        },
+        {
+          "key": "optimized/external/mouse-entry-gap-steel-wool-sealant-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 8280
+        },
+        {
+          "key": "optimized/external/mouse-entry-gap-steel-wool-sealant-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 8986
+        },
+        {
+          "key": "optimized/external/mouse-entry-gap-steel-wool-sealant-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 11642
+        },
+        {
+          "key": "optimized/external/mouse-entry-gap-steel-wool-sealant-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 17117
+        },
+        {
+          "key": "optimized/external/mouse-entry-gap-steel-wool-sealant-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 22698
+        },
+        {
+          "key": "optimized/external/mouse-entry-gap-steel-wool-sealant-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 23503
+        },
+        {
+          "key": "optimized/external/mouse-entry-gap-steel-wool-sealant-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 30440
+        },
+        {
+          "key": "optimized/external/mouse-entry-gap-steel-wool-sealant-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 40263
+        },
+        {
+          "key": "optimized/external/mouse-entry-gap-steel-wool-sealant-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 52994
+        },
+        {
+          "key": "optimized/external/mouse-entry-gap-steel-wool-sealant-1672.avif",
+          "format": "avif",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 61424
+        },
+        {
+          "key": "optimized/external/mouse-entry-gap-steel-wool-sealant-1672.webp",
+          "format": "webp",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 83450
+        }
+      ],
+      "updatedAt": "2026-09-24T16:20:53.144Z"
+    },
+    "external/mouse-signs-pantry-chewed-package.jpg": {
+      "sourceHash": "a6d929955381b7b9b33c8265d78490050b13c572b1eef27bd8d0554074399f8a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "external/mouse-signs-pantry-chewed-package.jpg",
+      "originalSize": 203677,
+      "width": 1672,
+      "height": 941,
+      "derivatives": [
+        {
+          "key": "optimized/external/mouse-signs-pantry-chewed-package-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 5457
+        },
+        {
+          "key": "optimized/external/mouse-signs-pantry-chewed-package-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 7630
+        },
+        {
+          "key": "optimized/external/mouse-signs-pantry-chewed-package-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 8200
+        },
+        {
+          "key": "optimized/external/mouse-signs-pantry-chewed-package-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 11148
+        },
+        {
+          "key": "optimized/external/mouse-signs-pantry-chewed-package-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 16431
+        },
+        {
+          "key": "optimized/external/mouse-signs-pantry-chewed-package-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 23086
+        },
+        {
+          "key": "optimized/external/mouse-signs-pantry-chewed-package-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 22819
+        },
+        {
+          "key": "optimized/external/mouse-signs-pantry-chewed-package-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 31746
+        },
+        {
+          "key": "optimized/external/mouse-signs-pantry-chewed-package-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 41749
+        },
+        {
+          "key": "optimized/external/mouse-signs-pantry-chewed-package-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 56076
+        },
+        {
+          "key": "optimized/external/mouse-signs-pantry-chewed-package-1672.avif",
+          "format": "avif",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 66138
+        },
+        {
+          "key": "optimized/external/mouse-signs-pantry-chewed-package-1672.webp",
+          "format": "webp",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 90590
+        }
+      ],
+      "updatedAt": "2026-09-24T16:17:46.535Z"
+    },
+    "external/mouse-snap-trap-against-skirting-board.jpg": {
+      "sourceHash": "0d7f761ce7ee5928fd9d588f8fa15fe30ad6965c3a5795fa9eb2a720d6ff4019",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "external/mouse-snap-trap-against-skirting-board.jpg",
+      "originalSize": 146844,
+      "width": 1672,
+      "height": 941,
+      "derivatives": [
+        {
+          "key": "optimized/external/mouse-snap-trap-against-skirting-board-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 4057
+        },
+        {
+          "key": "optimized/external/mouse-snap-trap-against-skirting-board-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 5448
+        },
+        {
+          "key": "optimized/external/mouse-snap-trap-against-skirting-board-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 5766
+        },
+        {
+          "key": "optimized/external/mouse-snap-trap-against-skirting-board-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 7650
+        },
+        {
+          "key": "optimized/external/mouse-snap-trap-against-skirting-board-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 10687
+        },
+        {
+          "key": "optimized/external/mouse-snap-trap-against-skirting-board-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 14752
+        },
+        {
+          "key": "optimized/external/mouse-snap-trap-against-skirting-board-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 14430
+        },
+        {
+          "key": "optimized/external/mouse-snap-trap-against-skirting-board-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 19922
+        },
+        {
+          "key": "optimized/external/mouse-snap-trap-against-skirting-board-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 26043
+        },
+        {
+          "key": "optimized/external/mouse-snap-trap-against-skirting-board-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 35424
+        },
+        {
+          "key": "optimized/external/mouse-snap-trap-against-skirting-board-1672.avif",
+          "format": "avif",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 40696
+        },
+        {
+          "key": "optimized/external/mouse-snap-trap-against-skirting-board-1672.webp",
+          "format": "webp",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 56710
+        }
+      ],
+      "updatedAt": "2026-09-24T16:21:59.593Z"
+    },
     "ficedula-hypoleuca-crowbared-1.jpg": {
       "sourceHash": "bcfd4aab32fdfa6c66f19e8591a529b2d80cbeb860dc5218bcf86f06e7673edf",
       "configFingerprint": "a895f8e025dcc7fa",
