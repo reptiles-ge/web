@@ -72,7 +72,7 @@ Route pages are thin factories:
 - Hub: `createGroupHubRoute("snakes")` in `src/app/[locale]/snakes/page.tsx`
 - Guide: `createClusterGuideRoute("snake-bite")` in `…/snakes/gvelis-nakbeni/page.tsx`
 - Species: `createSpeciesHubRoute("snakes")` in `…/snakes/[slug]/page.tsx`
-- Guide article: `createGuideArticleRoute("/mammals/ghamura-saxlshi")` in `…/mammals/ghamura-saxlshi/page.tsx`
+- Guide article: `createGuideArticleRoute("/mammals/ghamura-sakhlshi")` in `…/mammals/ghamura-sakhlshi/page.tsx`
 
 Internal hrefs use English pathnames (`/snakes`, `/snakes/[slug]`). Public KA URLs are Georgian (`/gvelebi`, `/gvelebi/giurza`). EN keeps English/scientific slugs (`/en/snakes/macrovipera-lebetina`). `Link` / `getPathname` from `@/i18n/navigation` — never hardcode locale prefixes.
 
@@ -138,7 +138,7 @@ KA is canonical. EN uses the English pathname. Old `/species/{id}` 301s in `prox
 | `/amfibiebi` …                                         | `/en/amphibians` …                                          | Hub + index + frogs guide + frogs index + newts     |
 | `/prinvelebi`, `/prinvelebi/saxeoebebi`                | `/en/birds`, `/en/birds/species`                            | Hub + published-profile index                       |
 | `/dzuzumtsovrebi`, `/dzuzumtsovrebi/saxeoebebi`        | `/en/mammals`, `/en/mammals/species`                        | Hub + published-profile index                       |
-| `/dzuzumtsovrebi/ghamura-saxlshi`                      | `/en/mammals/bat-in-the-house`                              | Guide article                                       |
+| `/dzuzumtsovrebi/ghamura-sakhlshi`                      | `/en/mammals/bat-in-the-house`                              | Guide article                                       |
 | `/mtserebi/krazanis-bude`                              | `/en/insects/wasp-nest`                                     | Guide article                                       |
 | `/regions`, `/regions/{id}`                            | same                                                        | 12 regions                                          |
 | `/quiz`, `/quiz/romeli-gvelia`, `/quiz/romeli-xvlikia` | `/en/quiz`, `/en/quiz/which-snake`, `/en/quiz/which-lizard` | Hub + two live quizzes                              |

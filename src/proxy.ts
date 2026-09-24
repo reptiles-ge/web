@@ -71,12 +71,12 @@ const PERMANENT_REDIRECTS: Record<string, string> = {
   "/lizards/darevskia": "/xvlikebi/darevskia",
   "/lizards/identifikacia": "/xvlikebi/identifikacia",
   "/lizards/identify": "/xvlikebi/identifikacia",
-  "/lizards/in-the-house": "/xvlikebi/xvliki-saxlshi",
+  "/lizards/in-the-house": "/xvlikebi/xvliki-sakhlshi",
   "/lizards/lizard-or-glass-lizard":
     "/xvlikebi/xvlikis-da-gvelxokeras-gansxvaveba",
   "/lizards/saxeoebebi": "/xvlikebi/saxeoebebi",
   "/lizards/species": "/xvlikebi/saxeoebebi",
-  "/lizards/xvliki-saxlshi": "/xvlikebi/xvliki-saxlshi",
+  "/lizards/xvliki-sakhlshi": "/xvlikebi/xvliki-sakhlshi",
   "/lizards/xvlikis-da-gvelxokeras-gansxvaveba":
     "/xvlikebi/xvlikis-da-gvelxokeras-gansxvaveba",
   "/mammals/bear-encounter": "/dzuzumtsovrebi/datvi-shekhvedra",
@@ -171,7 +171,7 @@ const PREFIXED_PERMANENT_REDIRECTS: Record<string, string> = {
   "/kuebi/xmelis-kuebi": "/turtles/land",
   "/lizards/identifikacia": "/lizards/identify",
   "/lizards/saxeoebebi": "/lizards/species",
-  "/lizards/xvliki-saxlshi": "/lizards/in-the-house",
+  "/lizards/xvliki-sakhlshi": "/lizards/in-the-house",
   "/lizards/xvlikis-da-gvelxokeras-gansxvaveba":
     "/lizards/lizard-or-glass-lizard",
   "/mammals/datvi-shekhvedra": "/mammals/bear-encounter",
@@ -206,7 +206,7 @@ const PREFIXED_PERMANENT_REDIRECTS: Record<string, string> = {
   "/xvlikebi/darevskia": "/lizards/darevskia",
   "/xvlikebi/identifikacia": "/lizards/identify",
   "/xvlikebi/saxeoebebi": "/lizards/species",
-  "/xvlikebi/xvliki-saxlshi": "/lizards/in-the-house",
+  "/xvlikebi/xvliki-sakhlshi": "/lizards/in-the-house",
   "/xvlikebi/xvlikis-da-gvelxokeras-gansxvaveba":
     "/lizards/lizard-or-glass-lizard",
 };

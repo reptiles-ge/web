@@ -78,7 +78,7 @@ describe("bird and mammal indexes", () => {
     );
     expect(CLUSTER_GUIDES["spider-index"].pathname).toBe("/spiders/saxeoebebi");
     expect(CLUSTER_GUIDES["lizard-house"].pathname).toBe(
-      "/lizards/xvliki-saxlshi",
+      "/lizards/xvliki-sakhlshi",
     );
     const catalog = getCatalogSpecies();
     const birds = catalog.filter(isBirdSpecies);

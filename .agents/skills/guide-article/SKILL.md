@@ -11,7 +11,7 @@ Guide articles are evergreen, answer-first, sourced pages that sit under a group
 
 | Article            | Content file                       | KA URL                            | EN URL                         |
 | ------------------ | ---------------------------------- | --------------------------------- | ------------------------------ |
-| Bat in the house   | `src/content/guides/batInHouse.ts` | `/dzuzumtsovrebi/ghamura-saxlshi` | `/en/mammals/bat-in-the-house` |
+| Bat in the house   | `src/content/guides/batInHouse.ts` | `/dzuzumtsovrebi/ghamura-sakhlshi` | `/en/mammals/bat-in-the-house` |
 | Wasp nest near you | `src/content/guides/waspNest.ts`   | `/mtserebi/krazanis-bude`         | `/en/insects/wasp-nest`        |
 
 This is **not** the model for news (`src/data/news.ts`), species profiles (MDX), or species-list cluster pages (`src/lib/clusterGuides.ts`).

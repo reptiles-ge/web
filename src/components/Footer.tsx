@@ -72,7 +72,7 @@ const guideLinks = [
     labelKey: "bearEncounter" as const,
   },
   {
-    href: "/lizards/xvliki-saxlshi" as const,
+    href: "/lizards/xvliki-sakhlshi" as const,
     labelKey: "lizardHouse" as const,
   },
   { href: "/risk-to-humans" as const, labelKey: "riskLevels" as const },
