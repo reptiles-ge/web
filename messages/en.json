@@ -247,7 +247,8 @@
         "bearEncounter": "If you meet a bear",
         "lizardHouse": "A lizard in the house",
         "batInHouse": "A bat in the house",
-        "waspNest": "Wasp nest near your home"
+        "waspNest": "Wasp nest near your home",
+        "stinkBugInHouse": "Stink bugs in the house"
       }
     }
   },
@@ -315,7 +316,8 @@
     "bearEncounter": "Bear encounter",
     "lizardHouse": "Lizard in the house",
     "batInHouse": "Bat in the house",
-    "waspNest": "Wasp nest"
+    "waspNest": "Wasp nest",
+    "stinkBugInHouse": "Stink bugs in the house"
   },
   "legal": {
     "canonicalNotice": "The legal text on this page is currently provided in Georgian; treat the Georgian version as the canonical text.",
@@ -1329,6 +1331,12 @@
         "eyebrow": "Practical guide",
         "title": "Wasp nest near your home",
         "body": "Assess the risk, decide when to leave a nest alone, and know when to ask a professional.",
+        "cta": "Read the guide"
+      },
+      "stinkBugInHouse": {
+        "eyebrow": "Practical guide",
+        "title": "Stink bugs in the house",
+        "body": "Why stink bugs come indoors in autumn, whether they are harmful, and how to remove them without crushing.",
         "cta": "Read the guide"
       },
       "lizardQuiz": {

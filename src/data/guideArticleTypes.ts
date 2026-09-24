@@ -31,11 +31,14 @@ export type GuideArticleFaq = { answer: string; question: string };
 export type GuideArticleImage = {
   alt: Record<AppLocale, string>;
   height: number;
-  src: `/images/guides/${string}`;
+  src:
+    | `/images/guides/${string}`
+    | `https://cdn.reptiles.ge/images/guides/${string}`;
   width: number;
 };
 
-export type GuideArticleMessageKey = "batInHouse" | "waspNest";
+export type GuideArticleMessageKey =
+  "batInHouse" | "stinkBugInHouse" | "waspNest";
 
 export type GuideArticleOgImage =
   | `/og/images/guides/${string}.jpg`
