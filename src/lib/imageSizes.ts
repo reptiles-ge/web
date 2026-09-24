@@ -25,8 +25,3 @@ export function galleryThumbSizes(count: number) {
   }
   return "(max-width: 639px) calc((100vw - 3rem - 0.75rem) / 2), (max-width: 767px) calc((100vw - 3rem - 1rem) / 2), (max-width: 1023px) calc((100vw - 3rem - 2rem) / 3), (max-width: 1479px) calc((min(1400px, 100vw - 5rem) - 2rem) / 3), 456px";
 }
-
-export const ARTICLE_CARD_SIZES =
-  "(max-width: 639px) 78vw, (max-width: 1023px) calc((100vw - 3rem - 1.5rem) / 2), calc((min(1400px, 100vw - 5rem) - 3rem) / 3)";
-
-export const ARTICLE_TEASER_SIZES = "(max-width: 639px) 96px, 144px";
