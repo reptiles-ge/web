@@ -245,7 +245,8 @@
         "spiderBite": "Örümcek ısırığı",
         "jackalYard": "Bahçede çakal",
         "bearEncounter": "Ayı ile karşılaşırsam",
-        "lizardHouse": "Evde kertenkele"
+        "lizardHouse": "Evde kertenkele",
+        "batInHouse": "Evde yarasa"
       }
     }
   },
@@ -311,7 +312,8 @@
     "spiderBite": "Örümcek ısırığı",
     "jackalYard": "Bahçede çakal",
     "bearEncounter": "Ayı karşılaşması",
-    "lizardHouse": "Evde kertenkele"
+    "lizardHouse": "Evde kertenkele",
+    "batInHouse": "Evde yarasa"
   },
   "legal": {
     "canonicalNotice": "Bu sayfadaki hukuki metin şu anda Gürcüce olarak sunulmaktadır; Gürcüce sürüm esas metin kabul edilmelidir.",
@@ -1348,6 +1350,12 @@
         "title": "Ayı karşılaşması",
         "body": "Yalnızca boz ayı. Yaklaşmayın. Yaralanırsanız 112.",
         "cta": "Karşılaşma rehberi"
+      },
+      "batInHouse": {
+        "eyebrow": "Pratik",
+        "title": "Evde yarasa",
+        "body": "Sakin kalın, çıkış açın, çıplak elle dokunmayın. Temastan sonra tıbbi danışmanlık.",
+        "cta": "Ev rehberi"
       },
       "lizardHouse": {
         "eyebrow": "Uygulama",

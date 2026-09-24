@@ -269,6 +269,11 @@ const nextConfig: NextConfig = {
         statusCode: 301,
       },
       {
+        destination: "/dzuzumtsovrebi/ghamura-saxlshi",
+        source: "/mammals/bat-in-the-house",
+        statusCode: 301,
+      },
+      {
         destination: "/obobebi/shxamiani-obobebi",
         source: "/spiders/venomous",
         statusCode: 301,
@@ -451,6 +456,8 @@ const nextConfig: NextConfig = {
         ["/mammals/tura-ezoshi", "/mammals/jackal-in-the-yard"],
         ["/dzuzumtsovrebi/datvi-shekhvedra", "/mammals/bear-encounter"],
         ["/mammals/datvi-shekhvedra", "/mammals/bear-encounter"],
+        ["/dzuzumtsovrebi/ghamura-saxlshi", "/mammals/bat-in-the-house"],
+        ["/mammals/ghamura-saxlshi", "/mammals/bat-in-the-house"],
         ["/obobebi/shxamiani-obobebi", "/spiders/venomous"],
         ["/spiders/shxamiani-obobebi", "/spiders/venomous"],
         ["/obobebi/obobis-nakbeni", "/spiders/bite"],

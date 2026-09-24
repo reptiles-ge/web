@@ -58,6 +58,10 @@ export const pathnames = {
     "/dzuzumtsovrebi/datvi-shekhvedra",
     "/mammals/bear-encounter",
   ),
+  "/mammals/ghamura-saxlshi": kaLatin(
+    "/dzuzumtsovrebi/ghamura-saxlshi",
+    "/mammals/bat-in-the-house",
+  ),
   "/mammals/saxeoebebi": kaLatin(
     "/dzuzumtsovrebi/saxeoebebi",
     "/mammals/species",

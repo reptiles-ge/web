@@ -584,6 +584,7 @@ export type HubClusterCard =
         | "/insects/krazanis-bude"
         | "/lizards"
         | "/mammals"
+        | "/mammals/ghamura-saxlshi"
         | "/scorpions"
         | "/snakes"
         | "/snakes-in-the-yard"
@@ -592,6 +593,7 @@ export type HubClusterCard =
         | ClusterGuidePath;
       key:
         | "amphibianIndex"
+        | "batInHouse"
         | "bearEncounter"
         | "birdIndex"
         | "birdsHub"
@@ -669,6 +671,7 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
   ],
   mammals: [
     { href: "/mammals/saxeoebebi", key: "mammalIndex", kind: "page" },
+    { href: "/mammals/ghamura-saxlshi", key: "batInHouse", kind: "page" },
     { href: "/mammals/tura-ezoshi", key: "jackalYard", kind: "page" },
     { href: "/mammals/datvi-shekhvedra", key: "bearEncounter", kind: "page" },
   ],
