@@ -249,6 +249,7 @@
         "batInHouse": "A bat in the house",
         "waspNest": "Wasp nest near your home",
         "stinkBugInHouse": "Stink bugs in the house",
+        "antsInHouse": "Ants in the house",
         "mouseInHouse": "Mouse in the house"
       }
     }
@@ -319,6 +320,7 @@
     "batInHouse": "Bat in the house",
     "waspNest": "Wasp nest",
     "stinkBugInHouse": "Stink bugs in the house",
+    "antsInHouse": "Ants in the house",
     "mouseInHouse": "Mouse in the house"
   },
   "legal": {
@@ -1341,6 +1343,12 @@
         "eyebrow": "Practical guide",
         "title": "Stink bugs in the house",
         "body": "Why stink bugs come indoors in autumn, whether they are harmful, and how to remove them without crushing.",
+        "cta": "Read the guide"
+      },
+      "antsInHouse": {
+        "eyebrow": "Practical guide",
+        "title": "Ants in the house",
+        "body": "Where ants get in, how to get rid of them, and how to use bait without undermining it.",
         "cta": "Read the guide"
       },
       "mouseInHouse": {

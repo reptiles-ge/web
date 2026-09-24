@@ -22,7 +22,7 @@ BUNNY_CDN_BASE_URL=https://cdn.reptiles.ge   # optional
 | Refresh Georgia map paths | `npm run map:compile` |
 | Spot broken CDN image URLs | `npm run images:check` |
 | Are species OG images live? | `npm run images:check-og` |
-| Upload missing OG images | `npm run images:og-missing` |
+| Upload missing OG images (species + guides) | `npm run images:og-missing` |
 | AVIF/WebP + OG optimize on Bunny | `npm run images:optimize …` |
 | Regenerate only `optimizedImages.generated.ts` | `npm run images:emit` |
 | Unused files under `public/images` | `npm run images:unused` |
@@ -99,7 +99,7 @@ Other flags: `--force`, `--limit N`, `--concurrency N`.
 
 ### `generate-missing-og.ts` → `npm run images:og-missing`
 
-Generates and uploads OG images for species that are missing them. Dry-run: `--dry-run`. Specific ids: `--species id1,id2`.
+Generates and uploads OG images to Bunny for species and guide articles that are missing them. Dry-run: `--dry-run`. Specific ids: `--species id1,id2`, `--guide id1,id2`.
 
 ---
 
