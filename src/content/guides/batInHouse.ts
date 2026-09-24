@@ -64,7 +64,7 @@ export const BAT_IN_HOUSE_COPY: Record<AppLocale, GuideCopy> = {
         question: "What if a child or pet is in the house?",
       },
     ],
-    lead: "If a bat is indoors: stay calm, keep people and pets away, avoid bare hands, isolate it to one room if safe, and open an exterior window or door so it can leave. Do not chase or strike it. After a bite, scratch, or uncertain direct contact, wash and seek medical advice; in Georgia call 112 for emergencies.",
+    lead: "If a bat is indoors: stay calm, keep people and pets away, and avoid bare hands. If there was a bite, a scratch, or possible direct contact and you are not sure it can be ruled out, get medical advice first and do not release the bat on your own. If safe, isolate it to one room and open an exterior window or door so it can leave. Do not chase or strike it. After a bite, scratch, or uncertain direct contact, wash and seek medical advice; in Georgia call 112 for emergencies.",
     metaTitle: "A bat flew into the house — what should you do?",
     sections: [
       {
@@ -90,7 +90,7 @@ export const BAT_IN_HOUSE_COPY: Record<AppLocale, GuideCopy> = {
       {
         heading: "How to help a bat leave safely",
         paragraphs: [
-          "The preferred public approach in wildlife guidance is passive exit: one room, open exterior openings, quieter indoor lights, and time. Do not try to grab a flying bat.",
+          "Wildlife guidance prefers passive exit for a bat flying indoors in the evening: one room, open exterior openings, quieter indoor lights, and time. If it is cold or very windy outside, or the bat is flying during the day, do not try to send it outside immediately — wait for it to settle and get professional advice before acting. Do not try to grab a flying bat.",
           "If the bat has landed and will not leave, some wildlife organisations describe covering it with a box and sliding card underneath while wearing thick gloves, then releasing outdoors at an appropriate time. That is a last resort for a calm, grounded bat — not for chasing a flying one — and it is inappropriate if you cannot do it safely. Prefer advice from a wildlife professional when unsure.",
         ],
       },
@@ -188,7 +188,7 @@ export const BAT_IN_HOUSE_COPY: Record<AppLocale, GuideCopy> = {
         question: "როგორ მოვიქცეთ, თუ სახლში ბავშვი ან შინაური ცხოველია?",
       },
     ],
-    lead: "თუ ღამურა სახლშია: შეინარჩუნეთ სიმშვიდე, ადამიანები და ცხოველები მოარიდეთ, შიშველი ხელით ნუ შეეხებით, უსაფრთხოების შემთხვევაში ერთ ოთახში შემოფარგლეთ და გახსენით გარე ფანჯარა ან კარი. ნუ დაედევნებით და ნუ დაარტყამთ. ნაკბენის, ნაკაწრის ან გაურკვეველი პირდაპირი კონტაქტის შემდეგ დაიბანეთ და მიმართეთ სამედიცინო რჩევას; საქართველოში გადაუდებელ შემთხვევაში — 112.",
+    lead: "თუ ღამურა სახლშია: შეინარჩუნეთ სიმშვიდე, ადამიანები და ცხოველები მოარიდეთ, შიშველი ხელით ნუ შეეხებით. თუ ნაკბენი, ნაკაწრი ან შესაძლო პირდაპირი კონტაქტი იყო და მის გამორიცხვაში დარწმუნებული არ ხართ, ჯერ სამედიცინო რჩევა მიიღეთ და ღამურა თვითნებურად ნუ გაათავისუფლებთ. უსაფრთხოების შემთხვევაში ერთ ოთახში შემოფარგლეთ და გახსენით გარე ფანჯარა ან კარი. ნუ დაედევნებით და ნუ დაარტყამთ. ნაკბენის, ნაკაწრის ან გაურკვეველი პირდაპირი კონტაქტის შემდეგ დაიბანეთ და მიმართეთ სამედიცინო რჩევას; საქართველოში გადაუდებელ შემთხვევაში — 112.",
     metaTitle: "ღამურა სახლში შემოფრინდა — როგორ მოვიქცეთ?",
     sections: [
       {
@@ -214,7 +214,7 @@ export const BAT_IN_HOUSE_COPY: Record<AppLocale, GuideCopy> = {
       {
         heading: "როგორ გავიყვანოთ ღამურა სახლიდან უსაფრთხოდ?",
         paragraphs: [
-          "ველური ბუნების სახელმძღვანელოებში სასურველი საჯარო მიდგომაა პასიური გასვლა: ერთი ოთახი, ღია გარე ღიობები, უფრო მშვიდი შიდა განათება და დრო. მფრინავი ცხოველის ხელით დაჭერა ნუ სცადოთ.",
+          "ველური ბუნების სახელმძღვანელოებში საღამოს მფრინავი ღამურისთვის სასურველი მიდგომაა პასიური გასვლა: ერთი ოთახი, ღია გარე ღიობები, უფრო მშვიდი შიდა განათება და დრო. თუ გარეთ ცივა, ძლიერი ქარია ან ღამურა დღისით დაფრინავს, მისი დაუყოვნებლივ გარეთ გაშვება ნუ სცადეთ — დაელოდეთ მის დაჯდომას და უსაფრთხო მოქმედებისთვის პროფესიონალური რჩევა მიიღეთ. მფრინავი ცხოველის ხელით დაჭერა ნუ სცადოთ.",
           "თუ ღამურა დაჯდა და არ გადის, ზოგი ორგანიზაცია აღწერს ყუთით გადაფარვას და ქვემოდან მუყაოს შეყვანას სქელი ხელთათმანებით, შემდეგ გარეთ გაშვებას შესაფერის დროს. ეს უკანასკნელი გამოსავალია მშვიდად მყოფი ცხოველისთვის — არა მფრინავის დასაჭერად — და შეუფერებელია, თუ უსაფრთხოდ ვერ ასრულებთ. გაურკვევლობისას პროფესიონალური რჩევა უპირატესია.",
         ],
       },
@@ -312,7 +312,7 @@ export const BAT_IN_HOUSE_COPY: Record<AppLocale, GuideCopy> = {
         question: "Что делать, если в доме ребёнок или питомец?",
       },
     ],
-    lead: "Если летучая мышь в доме: сохраняйте спокойствие, уберите людей и животных, не трогайте голыми руками, по возможности ограничьте одной комнатой и откройте наружное окно или дверь. Не гоняйте и не бейте. После укуса, царапины или неясного прямого контакта промойте рану и обратитесь за медицинской помощью; в Грузии при неотложке — 112.",
+    lead: "Если летучая мышь в доме: сохраняйте спокойствие, уберите людей и животных, не трогайте голыми руками. Если был укус, царапина или возможный прямой контакт и вы не уверены, что его можно исключить, сначала получите медицинскую консультацию и не выпускайте летучую мышь самостоятельно. Если это безопасно, ограничьте её одной комнатой и откройте наружное окно или дверь. Не гоняйте и не бейте. После укуса, царапины или неясного прямого контакта промойте рану и обратитесь за медицинской помощью; в Грузии при неотложке — 112.",
     metaTitle: "В дом влетела летучая мышь — что делать?",
     sections: [
       {
@@ -338,7 +338,7 @@ export const BAT_IN_HOUSE_COPY: Record<AppLocale, GuideCopy> = {
       {
         heading: "Как помочь летучей мыши безопасно уйти",
         paragraphs: [
-          "Предпочтительный публичный подход в рекомендациях по дикой природе — пассивный выход: одна комната, открытые наружные проёмы, более спокойный свет и время. Не пытайтесь схватить летящее животное.",
+          "В рекомендациях по дикой природе для летучей мыши, летающей в помещении вечером, предпочтителен пассивный выход: одна комната, открытые наружные проёмы, более спокойный свет и время. Если на улице холодно, сильный ветер или животное летает днём, не пытайтесь сразу выпустить его наружу — дождитесь, пока оно сядет, и получите профессиональный совет, прежде чем действовать. Не пытайтесь схватить летящее животное.",
           "Если оно село и не уходит, некоторые организации описывают накрытие коробкой и подсовывание картона снизу в плотных перчатках с последующим выпуском на улицу в подходящее время. Это крайняя мера для спокойного животного на поверхности — не для ловли на лету — и она неуместна, если вы не можете сделать это безопасно. При сомнениях лучше совет специалиста.",
         ],
       },
@@ -436,7 +436,7 @@ export const BAT_IN_HOUSE_COPY: Record<AppLocale, GuideCopy> = {
         question: "Evde çocuk veya evcil hayvan varsa ne yapmalı?",
       },
     ],
-    lead: "Evde yarasa varsa: sakin kalın, insanları ve evcil hayvanları uzak tutun, çıplak elle dokunmayın, güvenliyse tek odaya sınırlayın ve dış pencere veya kapıyı açın. Kovalamayın ve vurmayın. Isırık, tırmık veya belirsiz doğrudan temas sonrası yıkayın ve tıbbi danışmanlık alın; Gürcistan’da acilde 112.",
+    lead: "Evde yarasa varsa: sakin kalın, insanları ve evcil hayvanları uzak tutun, çıplak elle dokunmayın. Isırık, tırmık veya olası doğrudan temas olduysa ve bunu dışlayabildiğinizden emin değilseniz, önce tıbbi danışmanlık alın ve yarasayı kendiliğinizden salmayın. Güvenliyse tek odaya sınırlayın ve dış pencere veya kapıyı açın. Kovalamayın ve vurmayın. Isırık, tırmık veya belirsiz doğrudan temas sonrası yıkayın ve tıbbi danışmanlık alın; Gürcistan’da acilde 112.",
     metaTitle: "Eve yarasa girdi — ne yapmalı?",
     sections: [
       {
@@ -462,7 +462,7 @@ export const BAT_IN_HOUSE_COPY: Record<AppLocale, GuideCopy> = {
       {
         heading: "Yarasanın güvenle çıkmasına nasıl yardımcı olunur",
         paragraphs: [
-          "Yaban hayatı rehberlerinde tercih edilen kamuya açık yaklaşım pasif çıkıştır: tek oda, açık dış açıklıklar, daha sakin iç ışık ve zaman. Uçan hayvanı yakalamaya çalışmayın.",
+          "Yaban hayatı rehberlerinde akşam içeride uçan yarasa için tercih edilen yaklaşım pasif çıkıştır: tek oda, açık dış açıklıklar, daha sakin iç ışık ve zaman. Dışarısı soğuksa, rüzgâr şiddetliyse veya yarasa gündüz uçuyorsa hemen dışarı salmaya çalışmayın — konmasını bekleyin ve harekete geçmeden profesyonel tavsiye alın. Uçan hayvanı yakalamaya çalışmayın.",
           "Hayvan konduysa ve çıkmıyorsa bazı kuruluşlar kalın eldivenle kutu kapatıp alttan karton kaydırma ve uygun zamanda dışarı bırakmayı anlatır. Bu, sakin ve yere inmiş hayvan için son çaredir — uçanı kovalamak için değil — ve güvenle yapamıyorsanız uygun değildir. Emin değilseniz profesyonel tavsiye tercih edin.",
         ],
       },

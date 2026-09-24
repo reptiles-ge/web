@@ -21,6 +21,7 @@ import { type AppLocale, routing } from "@/i18n/routing";
 import { formatContentDate } from "@/lib/formatDate";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import {
+  absoluteImageUrl,
   absoluteUrl,
   localeAlternates,
   localePath,
@@ -90,6 +91,7 @@ export default async function BatInHousePage({ params }: Props) {
   const copy = BAT_IN_HOUSE_COPY[locale];
   const photoAlt = PHOTO_ALT[locale];
   const url = absoluteUrl(localePath(locale, PATH));
+  const imageUrl = absoluteImageUrl(optimizedImgSrc(HERO_IMAGE));
   const dates = pageDateFields(PATH);
   const breadcrumbLd = {
     "@context": "https://schema.org",
@@ -125,9 +127,9 @@ export default async function BatInHousePage({ params }: Props) {
     headline: copy.title,
     image: {
       "@type": "ImageObject",
-      contentUrl: optimizedImgSrc(HERO_IMAGE),
+      contentUrl: imageUrl,
       height: 864,
-      url: optimizedImgSrc(HERO_IMAGE),
+      url: imageUrl,
       width: 1152,
     },
     inLanguage: locale,
@@ -276,7 +278,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     new URL(url).pathname,
     copy.description,
   );
-  const imageUrl = optimizedImgSrc(HERO_IMAGE);
+  const imageUrl = absoluteImageUrl(optimizedImgSrc(HERO_IMAGE));
 
   return {
     alternates: localeAlternates(locale, PATH),
