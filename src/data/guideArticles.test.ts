@@ -5,6 +5,7 @@ import { describe, expect, it } from "vitest";
 import { GUIDE_ARTICLE_PATHS } from "@/data/guideArticlePaths";
 import {
   getGuideArticles,
+  getGuideArticlesForHub,
   guideArticleSectionAnchor,
 } from "@/data/guideArticles";
 import { optimizedEntry } from "@/data/optimizedImages";
@@ -314,6 +315,10 @@ describe.each(articles.map((article) => [article.id, article] as const))(
       expect(Date.parse(dates.dateModified)).toBeGreaterThanOrEqual(
         Date.parse(dates.datePublished),
       );
+    });
+
+    it("is shown as an article card on its hub", () => {
+      expect(getGuideArticlesForHub(article.parentHub)).toContain(article);
     });
 
     it("is linked from its hub, the footer, and the home SEO block", () => {

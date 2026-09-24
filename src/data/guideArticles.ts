@@ -1,11 +1,13 @@
 import type { GuideArticlePath } from "@/data/guideArticlePaths";
 import type { GuideArticle } from "@/data/guideArticleTypes";
 import type { AppLocale } from "@/i18n/routing";
+import type { GroupHubId } from "@/lib/groupHubs";
 
 import { BAT_IN_HOUSE } from "@/content/guides/batInHouse";
 import { MOUSE_IN_HOUSE } from "@/content/guides/mouseInHouse";
 import { STINK_BUG_IN_HOUSE } from "@/content/guides/stinkBugInHouse";
 import { WASP_NEST } from "@/content/guides/waspNest";
+import { sitemapPathDatePublished } from "@/data/pageLastModified";
 import { slugify, transliterateKa } from "@/lib/slugify";
 
 export type {
@@ -43,6 +45,17 @@ export function getGuideArticleByPath(pathname: GuideArticlePath) {
 
 export function getGuideArticles() {
   return GUIDE_ARTICLES;
+}
+
+export function getGuideArticlesForHub(hubId: GroupHubId) {
+  return GUIDE_ARTICLES.filter((article) => article.parentHub === hubId).sort(
+    (a, b) =>
+      guideArticleDatePublished(b).localeCompare(guideArticleDatePublished(a)),
+  );
+}
+
+export function guideArticleDatePublished(article: GuideArticle) {
+  return sitemapPathDatePublished(article.pathname);
 }
 
 export function guideArticleSectionAnchor(heading: string, locale: AppLocale) {
