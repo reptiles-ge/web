@@ -27718,6 +27718,101 @@
       ],
       "updatedAt": "2026-09-24T16:09:03.319Z"
     },
+    "external/mouse-signs-pantry-chewed-package.jpg": {
+      "sourceHash": "a6d929955381b7b9b33c8265d78490050b13c572b1eef27bd8d0554074399f8a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "external/mouse-signs-pantry-chewed-package.jpg",
+      "originalSize": 203677,
+      "width": 1672,
+      "height": 941,
+      "derivatives": [
+        {
+          "key": "optimized/external/mouse-signs-pantry-chewed-package-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 5457
+        },
+        {
+          "key": "optimized/external/mouse-signs-pantry-chewed-package-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 7630
+        },
+        {
+          "key": "optimized/external/mouse-signs-pantry-chewed-package-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 8200
+        },
+        {
+          "key": "optimized/external/mouse-signs-pantry-chewed-package-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 11148
+        },
+        {
+          "key": "optimized/external/mouse-signs-pantry-chewed-package-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 16431
+        },
+        {
+          "key": "optimized/external/mouse-signs-pantry-chewed-package-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 23086
+        },
+        {
+          "key": "optimized/external/mouse-signs-pantry-chewed-package-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 22819
+        },
+        {
+          "key": "optimized/external/mouse-signs-pantry-chewed-package-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 31746
+        },
+        {
+          "key": "optimized/external/mouse-signs-pantry-chewed-package-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 41749
+        },
+        {
+          "key": "optimized/external/mouse-signs-pantry-chewed-package-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 56076
+        },
+        {
+          "key": "optimized/external/mouse-signs-pantry-chewed-package-1672.avif",
+          "format": "avif",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 66138
+        },
+        {
+          "key": "optimized/external/mouse-signs-pantry-chewed-package-1672.webp",
+          "format": "webp",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 90590
+        }
+      ],
+      "updatedAt": "2026-09-24T16:17:46.535Z"
+    },
     "ficedula-hypoleuca-crowbared-1.jpg": {
       "sourceHash": "bcfd4aab32fdfa6c66f19e8591a529b2d80cbeb860dc5218bcf86f06e7673edf",
       "configFingerprint": "a895f8e025dcc7fa",
