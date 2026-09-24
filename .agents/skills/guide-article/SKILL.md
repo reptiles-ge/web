@@ -72,9 +72,10 @@ Then add `{ href: "<internal path>", key: "<key>", kind: "page" }` to `HUB_CLUST
     npx vitest run src/data/guideArticles.test.ts
     pnpm typecheck
     pnpm lint
+    git fetch origin staging && pnpm doctor:changed --base origin/staging
     ```
 
-    The guard test names any missing step. Do not weaken it to get green.
+    The guard test names any missing step. Do not weaken it to get green. React Doctor must report no new issues against the PR's base branch (CI blocks below 100); without `--base` it compares against the wrong branch and can miss issues CI will flag.
 
 ## Writing for search and AI answers
 

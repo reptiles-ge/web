@@ -33,12 +33,15 @@ export function creditAuthorPageImageUrls(
 
 export function guidePageImageUrls(srcs: Array<string | undefined>) {
   const urls: string[] = [];
+  const seen = new Set<string>();
   for (const src of srcs) {
     if (!src || isPlaceholderMedia(src) || urls.length >= MAX_SITEMAP_IMAGES) {
       continue;
     }
     const url = absoluteImageUrl(optimizedImgSrc(src));
-    if (!urls.includes(url)) urls.push(url);
+    if (seen.has(url)) continue;
+    seen.add(url);
+    urls.push(url);
   }
   return urls;
 }
