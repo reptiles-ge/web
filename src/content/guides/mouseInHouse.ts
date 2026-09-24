@@ -955,7 +955,7 @@ export const MOUSE_IN_HOUSE = defineGuideArticle({
     },
   },
   messageKey: "mouseInHouse",
-  ogImage: "/og/images/guides/mouse-in-house.jpg",
+  ogImage: "https://cdn.reptiles.ge/og/images/guides/mouse-in-house.jpg",
   parentHub: "mammals",
   pathname: "/mammals/tagvi-sakhlshi",
   search: {
