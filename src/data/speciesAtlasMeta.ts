@@ -283,6 +283,10 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "bird",
     habitats: ["mountain", "grassland", "wetland"],
   },
+  "falco-tinnunculus": {
+    group: "bird",
+    habitats: ["grassland"],
+  },
   "ficedula-hypoleuca": {
     group: "bird",
     habitats: ["forest"],
