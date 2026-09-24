@@ -2748,6 +2748,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/external/ants-kitchen-trail-crumbs-spilled-juice.jpg": {
+    "path": "external/ants-kitchen-trail-crumbs-spilled-juice",
+    "width": 1672,
+    "height": 941,
+    "widths": [320, 400, 640, 800, 1200, 1672],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/external/house-mouse-kitchen-skirting-board-gap.jpg": {
     "path": "external/house-mouse-kitchen-skirting-board-gap",
     "width": 1672,

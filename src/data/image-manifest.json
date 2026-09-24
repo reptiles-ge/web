@@ -28271,6 +28271,101 @@
       ],
       "updatedAt": "2026-09-19T12:45:43.643Z"
     },
+    "external/ants-kitchen-trail-crumbs-spilled-juice.jpg": {
+      "sourceHash": "b30d1f335d8dac7a8f47910df01c7c94f947ced712b64cf05f7cb30c7290789f",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "external/ants-kitchen-trail-crumbs-spilled-juice.jpg",
+      "originalSize": 151704,
+      "width": 1672,
+      "height": 941,
+      "derivatives": [
+        {
+          "key": "optimized/external/ants-kitchen-trail-crumbs-spilled-juice-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 4493
+        },
+        {
+          "key": "optimized/external/ants-kitchen-trail-crumbs-spilled-juice-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 5276
+        },
+        {
+          "key": "optimized/external/ants-kitchen-trail-crumbs-spilled-juice-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 6387
+        },
+        {
+          "key": "optimized/external/ants-kitchen-trail-crumbs-spilled-juice-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 7448
+        },
+        {
+          "key": "optimized/external/ants-kitchen-trail-crumbs-spilled-juice-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 12601
+        },
+        {
+          "key": "optimized/external/ants-kitchen-trail-crumbs-spilled-juice-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 15420
+        },
+        {
+          "key": "optimized/external/ants-kitchen-trail-crumbs-spilled-juice-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 17609
+        },
+        {
+          "key": "optimized/external/ants-kitchen-trail-crumbs-spilled-juice-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 20932
+        },
+        {
+          "key": "optimized/external/ants-kitchen-trail-crumbs-spilled-juice-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 31185
+        },
+        {
+          "key": "optimized/external/ants-kitchen-trail-crumbs-spilled-juice-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 39000
+        },
+        {
+          "key": "optimized/external/ants-kitchen-trail-crumbs-spilled-juice-1672.avif",
+          "format": "avif",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 48969
+        },
+        {
+          "key": "optimized/external/ants-kitchen-trail-crumbs-spilled-juice-1672.webp",
+          "format": "webp",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 61864
+        }
+      ],
+      "updatedAt": "2026-09-24T22:00:42.912Z"
+    },
     "external/house-mouse-kitchen-skirting-board-gap.jpg": {
       "sourceHash": "dbda53708611fdd2a7a2cf6b15cc3710cc9238b2d347f2180b469d2ec775b68b",
       "configFingerprint": "409788ee46c653d8",
