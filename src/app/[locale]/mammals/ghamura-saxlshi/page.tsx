@@ -25,6 +25,7 @@ import {
   absoluteUrl,
   localeAlternates,
   localePath,
+  openGraphJpeg,
   organizationJsonLd,
   siteConfig,
   siteEntityId,
@@ -35,6 +36,7 @@ type Props = { params: Promise<{ locale: string }> };
 
 const PATH = "/mammals/ghamura-saxlshi";
 const HERO_IMAGE = "/images/guides/bat-house-hero.jpg";
+const OG_IMAGE = "https://cdn.reptiles.ge/og/images/guides/bat-in-house.jpg";
 const WALL_IMAGE = "/images/guides/bat-on-wall.jpg";
 const ROOST_IMAGE = "/images/guides/bat-roost-natural.jpg";
 
@@ -278,21 +280,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     new URL(url).pathname,
     copy.description,
   );
-  const imageUrl = absoluteImageUrl(optimizedImgSrc(HERO_IMAGE));
 
   return {
     alternates: localeAlternates(locale, PATH),
     description,
     openGraph: {
       description,
-      images: [
-        {
-          alt: PHOTO_ALT[locale].hero,
-          height: 864,
-          url: imageUrl,
-          width: 1152,
-        },
-      ],
+      images: [openGraphJpeg(OG_IMAGE, PHOTO_ALT[locale].hero)],
       locale: openGraphLocale(locale),
       siteName: siteConfig.name,
       title: copy.metaTitle,
@@ -304,7 +298,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     twitter: {
       card: "summary_large_image",
       description,
-      images: [imageUrl],
+      images: [OG_IMAGE],
       title: copy.metaTitle,
     },
   };
