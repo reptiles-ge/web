@@ -1,8 +1,11 @@
 import {
   BunnyStorageAdapter,
   INPUT_MIME_TYPES,
+  slugifyFileName,
+  type StorageAdapter,
   type SupportedInputFormat,
 } from "@reptiles-ge/img-compression";
+import { randomUUID } from "node:crypto";
 import { createRequire } from "node:module";
 import path from "node:path";
 
@@ -46,6 +49,12 @@ export type AdminPhotoCreditInput = {
   photographer?: string;
   photographerEn?: string;
   url?: string;
+};
+
+export type StandalonePhoto = {
+  derivatives: Array<{ format: string; url: string; width: number }>;
+  filename: string;
+  url: string;
 };
 
 type SharpFn = (input: Buffer) => SharpInstance;
@@ -166,6 +175,59 @@ export function creditFromInput(
     ...(georgiaField ? { photoConfidence: "georgia-field" } : {}),
   };
   return Object.keys(credit).length > 0 ? credit : undefined;
+}
+
+export async function uploadStandalonePhotos(
+  files: Array<{ bytes: Buffer; filename: string }>,
+  storage: StorageAdapter = createStorage(),
+): Promise<{
+  errors: Array<{ filename: string; message: string }>;
+  uploaded: StandalonePhoto[];
+}> {
+  const results = await Promise.allSettled(
+    files.map(async ({ bytes, filename }) => {
+      const prepared = await prepareOriginal(bytes);
+      const key = `external/${slugifyFileName(filename)}-${randomUUID()}.${prepared.ext}`;
+      await storage.put(key, prepared.buffer, {
+        contentType: prepared.contentType,
+      });
+      const url = storage.urlFor(key);
+      const optimized = await optimizeUploadedOriginal({
+        key,
+        source: prepared.buffer,
+        src: url,
+        storage,
+      });
+      return {
+        derivatives:
+          optimized?.entry.derivatives.map((item) => ({
+            format: item.format,
+            url: storage.urlFor(item.key),
+            width: item.width,
+          })) ?? [],
+        filename,
+        url,
+      };
+    }),
+  );
+  return {
+    errors: results.flatMap((result, index) =>
+      result.status === "rejected"
+        ? [
+            {
+              filename: files[index]?.filename ?? "photo",
+              message:
+                result.reason instanceof Error
+                  ? result.reason.message
+                  : "Upload failed",
+            },
+          ]
+        : [],
+    ),
+    uploaded: results.flatMap((result) =>
+      result.status === "fulfilled" ? [result.value] : [],
+    ),
+  };
 }
 
 async function allocateUploadKeys(
