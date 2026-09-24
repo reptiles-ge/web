@@ -3098,6 +3098,34 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 2045],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/images/guides/stink-bug-house-hero.jpg": {
+    "path": "images/guides/stink-bug-house-hero",
+    "width": 1672,
+    "height": 941,
+    "widths": [320, 400, 640, 800, 1200, 1672],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/guides/stink-bug-sealing-frame.jpg": {
+    "path": "images/guides/stink-bug-sealing-frame",
+    "width": 1672,
+    "height": 941,
+    "widths": [320, 400, 640, 800, 1200, 1672],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/guides/stink-bug-soapy-water.jpg": {
+    "path": "images/guides/stink-bug-soapy-water",
+    "width": 1672,
+    "height": 941,
+    "widths": [320, 400, 640, 800, 1200, 1672],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/guides/stink-bug-window-gap.jpg": {
+    "path": "images/guides/stink-bug-window-gap",
+    "width": 1672,
+    "height": 941,
+    "widths": [320, 400, 640, 800, 1200, 1672],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/images/news/theridion-huseynovi-new-spider-species-georgia-2026/theridion-huseynovi.png": {
     "path": "images/news/theridion-huseynovi-new-spider-species-georgia-2026/theridion-huseynovi",
     "width": 1497,
@@ -5182,6 +5210,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 2048,
     "height": 1536,
     "widths": [400, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/optimized/images/authors/kakhaber-sukhitashvili-480.webp": {
+    "path": "optimized/images/authors/kakhaber-sukhitashvili-480",
+    "width": 480,
+    "height": 479,
+    "widths": [320, 400, 480],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/optimized/images/authors/nika-kerdikoshvili-480.webp": {

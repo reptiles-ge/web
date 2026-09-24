@@ -32186,7 +32186,7 @@
           "byteSize": 68748
         }
       ],
-      "updatedAt": "2026-09-24T08:04:20.079Z"
+      "updatedAt": "2026-09-24T13:10:27.761Z"
     },
     "images/guides/bat-on-wall.jpg": {
       "sourceHash": "31aff5359cba83072f5c4ba95770e6a5b8f1a8288b05165cea805b05e359fb74",
@@ -32267,7 +32267,7 @@
           "byteSize": 127124
         }
       ],
-      "updatedAt": "2026-09-24T08:04:25.956Z"
+      "updatedAt": "2026-09-24T13:10:30.707Z"
     },
     "images/guides/bat-roost-natural.jpg": {
       "sourceHash": "4fba551b926274198eb19500008ae3f54284a5c192777c1f1033aeca640987f1",
@@ -32348,7 +32348,387 @@
           "byteSize": 110248
         }
       ],
-      "updatedAt": "2026-09-24T08:04:30.560Z"
+      "updatedAt": "2026-09-24T13:10:28.654Z"
+    },
+    "images/guides/stink-bug-house-hero.jpg": {
+      "sourceHash": "617ab2c24a1b21b86f97bf83aefc1617ca9b9eeea0b203e5b11d754413c0b851",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/stink-bug-house-hero.jpg",
+      "originalSize": 159013,
+      "width": 1672,
+      "height": 941,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/stink-bug-house-hero-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 6052
+        },
+        {
+          "key": "optimized/images/guides/stink-bug-house-hero-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 8414
+        },
+        {
+          "key": "optimized/images/guides/stink-bug-house-hero-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 8487
+        },
+        {
+          "key": "optimized/images/guides/stink-bug-house-hero-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 11678
+        },
+        {
+          "key": "optimized/images/guides/stink-bug-house-hero-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 16455
+        },
+        {
+          "key": "optimized/images/guides/stink-bug-house-hero-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 21918
+        },
+        {
+          "key": "optimized/images/guides/stink-bug-house-hero-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 22973
+        },
+        {
+          "key": "optimized/images/guides/stink-bug-house-hero-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 30364
+        },
+        {
+          "key": "optimized/images/guides/stink-bug-house-hero-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 40726
+        },
+        {
+          "key": "optimized/images/guides/stink-bug-house-hero-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 53204
+        },
+        {
+          "key": "optimized/images/guides/stink-bug-house-hero-1672.avif",
+          "format": "avif",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 64019
+        },
+        {
+          "key": "optimized/images/guides/stink-bug-house-hero-1672.webp",
+          "format": "webp",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 82764
+        }
+      ],
+      "updatedAt": "2026-09-24T13:10:33.462Z"
+    },
+    "images/guides/stink-bug-sealing-frame.jpg": {
+      "sourceHash": "5475ec2c2c7923059d1b1139b5628ae642283c3e50c3df7e57249b782702671b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/stink-bug-sealing-frame.jpg",
+      "originalSize": 264835,
+      "width": 1672,
+      "height": 941,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/stink-bug-sealing-frame-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 8340
+        },
+        {
+          "key": "optimized/images/guides/stink-bug-sealing-frame-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 12294
+        },
+        {
+          "key": "optimized/images/guides/stink-bug-sealing-frame-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 12322
+        },
+        {
+          "key": "optimized/images/guides/stink-bug-sealing-frame-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 18192
+        },
+        {
+          "key": "optimized/images/guides/stink-bug-sealing-frame-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 26329
+        },
+        {
+          "key": "optimized/images/guides/stink-bug-sealing-frame-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 41996
+        },
+        {
+          "key": "optimized/images/guides/stink-bug-sealing-frame-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 38432
+        },
+        {
+          "key": "optimized/images/guides/stink-bug-sealing-frame-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 60972
+        },
+        {
+          "key": "optimized/images/guides/stink-bug-sealing-frame-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 72974
+        },
+        {
+          "key": "optimized/images/guides/stink-bug-sealing-frame-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 109892
+        },
+        {
+          "key": "optimized/images/guides/stink-bug-sealing-frame-1672.avif",
+          "format": "avif",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 116247
+        },
+        {
+          "key": "optimized/images/guides/stink-bug-sealing-frame-1672.webp",
+          "format": "webp",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 173754
+        }
+      ],
+      "updatedAt": "2026-09-24T13:10:39.317Z"
+    },
+    "images/guides/stink-bug-soapy-water.jpg": {
+      "sourceHash": "0bd96e6a4ce3c589982667072bf7d8020d506e6032be9970808928eeffa15577",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/stink-bug-soapy-water.jpg",
+      "originalSize": 175565,
+      "width": 1672,
+      "height": 941,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/stink-bug-soapy-water-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 7142
+        },
+        {
+          "key": "optimized/images/guides/stink-bug-soapy-water-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 9610
+        },
+        {
+          "key": "optimized/images/guides/stink-bug-soapy-water-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 10110
+        },
+        {
+          "key": "optimized/images/guides/stink-bug-soapy-water-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 13428
+        },
+        {
+          "key": "optimized/images/guides/stink-bug-soapy-water-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 19290
+        },
+        {
+          "key": "optimized/images/guides/stink-bug-soapy-water-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 26058
+        },
+        {
+          "key": "optimized/images/guides/stink-bug-soapy-water-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 26585
+        },
+        {
+          "key": "optimized/images/guides/stink-bug-soapy-water-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 35964
+        },
+        {
+          "key": "optimized/images/guides/stink-bug-soapy-water-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 46939
+        },
+        {
+          "key": "optimized/images/guides/stink-bug-soapy-water-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 62406
+        },
+        {
+          "key": "optimized/images/guides/stink-bug-soapy-water-1672.avif",
+          "format": "avif",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 73072
+        },
+        {
+          "key": "optimized/images/guides/stink-bug-soapy-water-1672.webp",
+          "format": "webp",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 97542
+        }
+      ],
+      "updatedAt": "2026-09-24T13:10:38.220Z"
+    },
+    "images/guides/stink-bug-window-gap.jpg": {
+      "sourceHash": "fb3c9800ad49c931bc7e8c76fb863780b21a4fac119e678943debd0f5c50e80c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/stink-bug-window-gap.jpg",
+      "originalSize": 224210,
+      "width": 1672,
+      "height": 941,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/stink-bug-window-gap-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 7731
+        },
+        {
+          "key": "optimized/images/guides/stink-bug-window-gap-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 11904
+        },
+        {
+          "key": "optimized/images/guides/stink-bug-window-gap-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 11683
+        },
+        {
+          "key": "optimized/images/guides/stink-bug-window-gap-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 17972
+        },
+        {
+          "key": "optimized/images/guides/stink-bug-window-gap-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 24577
+        },
+        {
+          "key": "optimized/images/guides/stink-bug-window-gap-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 37156
+        },
+        {
+          "key": "optimized/images/guides/stink-bug-window-gap-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 34986
+        },
+        {
+          "key": "optimized/images/guides/stink-bug-window-gap-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 51378
+        },
+        {
+          "key": "optimized/images/guides/stink-bug-window-gap-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 63862
+        },
+        {
+          "key": "optimized/images/guides/stink-bug-window-gap-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 91474
+        },
+        {
+          "key": "optimized/images/guides/stink-bug-window-gap-1672.avif",
+          "format": "avif",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 100369
+        },
+        {
+          "key": "optimized/images/guides/stink-bug-window-gap-1672.webp",
+          "format": "webp",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 138576
+        }
+      ],
+      "updatedAt": "2026-09-24T13:10:40.064Z"
     },
     "images/guides/wasp-nest-enclosed.jpg": {
       "sourceHash": "bd28f4db04adf032e4b758c2e65a0736cff4e5c43305bad920928f959b8c1fd0",
@@ -32443,7 +32823,7 @@
           "byteSize": 180688
         }
       ],
-      "updatedAt": "2026-09-23T18:23:56.930Z"
+      "updatedAt": "2026-09-24T13:10:40.763Z"
     },
     "images/guides/wasp-nest-open-comb.jpg": {
       "sourceHash": "4b6185537b5da6e992cd1e6c200b66d8565558865e2c762c674624a102c3b7b2",
@@ -32538,7 +32918,7 @@
           "byteSize": 135048
         }
       ],
-      "updatedAt": "2026-09-23T18:23:54.449Z"
+      "updatedAt": "2026-09-24T13:10:43.515Z"
     },
     "images/home/groups/amphibians.jpg": {
       "sourceHash": "93be3de896c76e82e0182df5b4b1d97ac92bde9f93d1393be8fb2cc98e1cbc3b",
@@ -32633,7 +33013,7 @@
           "byteSize": 272276
         }
       ],
-      "updatedAt": "2026-09-23T10:37:30.301Z"
+      "updatedAt": "2026-09-24T13:10:47.619Z"
     },
     "images/home/groups/birds.jpg": {
       "sourceHash": "d03c8925303f88a828fb31e4e3562553ed92ea2500c90d6ea877d20fed35fd00",
@@ -32714,7 +33094,7 @@
           "byteSize": 131548
         }
       ],
-      "updatedAt": "2026-09-23T10:37:30.189Z"
+      "updatedAt": "2026-09-24T13:10:55.285Z"
     },
     "images/home/groups/insects.jpg": {
       "sourceHash": "5cdb9c2b740a71d71c5a6700ab5f39ee6ebe969381964b3601ef273566c2cfb5",
@@ -32795,7 +33175,7 @@
           "byteSize": 93506
         }
       ],
-      "updatedAt": "2026-09-23T10:37:25.151Z"
+      "updatedAt": "2026-09-24T13:10:48.779Z"
     },
     "images/home/groups/lizards.jpg": {
       "sourceHash": "066e1cc066206326ab10437dc3fe3c9c1f27540673608d9dbf89b310b6bd8702",
@@ -32890,7 +33270,7 @@
           "byteSize": 344598
         }
       ],
-      "updatedAt": "2026-09-23T10:37:28.763Z"
+      "updatedAt": "2026-09-24T13:10:50.834Z"
     },
     "images/home/groups/mammals.jpg": {
       "sourceHash": "e84e26f71a016ebd729eab74a5d537383d9721855d90a4d27527721ceb940739",
@@ -32971,7 +33351,7 @@
           "byteSize": 178278
         }
       ],
-      "updatedAt": "2026-09-23T10:37:31.633Z"
+      "updatedAt": "2026-09-24T13:10:52.694Z"
     },
     "images/home/groups/scorpions.jpg": {
       "sourceHash": "e3cb4dd5c659564c67cfce918d1a438d13675c51876be3fd10b8540a7ed46215",
@@ -33052,7 +33432,7 @@
           "byteSize": 14224
         }
       ],
-      "updatedAt": "2026-09-23T10:37:32.687Z"
+      "updatedAt": "2026-09-24T13:10:53.576Z"
     },
     "images/home/groups/snakes.jpg": {
       "sourceHash": "40913797bd7a37477ae447364c3a7106609e7104b774351c0aa089cfc18e92df",
@@ -33147,7 +33527,7 @@
           "byteSize": 249742
         }
       ],
-      "updatedAt": "2026-09-23T10:37:40.371Z"
+      "updatedAt": "2026-09-24T13:10:57.362Z"
     },
     "images/home/groups/spiders.jpg": {
       "sourceHash": "d97fae0b550f0760f7cf89bfb18b376b87ce2b40a6bd5fe1e086bff908918f1c",
@@ -33228,7 +33608,7 @@
           "byteSize": 126958
         }
       ],
-      "updatedAt": "2026-09-23T10:37:37.745Z"
+      "updatedAt": "2026-09-24T13:10:57.247Z"
     },
     "images/home/groups/turtles.jpg": {
       "sourceHash": "865e39fdba02b04b4981d8c5d4d97c28510ec069dd186d3acc4ec3c43a3f52ef",
@@ -33323,7 +33703,7 @@
           "byteSize": 298432
         }
       ],
-      "updatedAt": "2026-09-23T10:37:41.841Z"
+      "updatedAt": "2026-09-24T13:11:01.536Z"
     },
     "images/news/theridion-huseynovi-new-spider-species-georgia-2026/theridion-huseynovi.png": {
       "sourceHash": "d4a1a13fbf943fc87f371418a57eca878129fcd41f735deb5bfbca43c80fe9f3",
@@ -57668,6 +58048,59 @@
         }
       ],
       "updatedAt": "2026-08-28T21:55:26.982Z"
+    },
+    "optimized/images/authors/kakhaber-sukhitashvili-480.webp": {
+      "sourceHash": "840bfc8d5d387a9a4a97633d03633bd70b96c0a6aafe0eac7ff4c92032ea3ab4",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "optimized/images/authors/kakhaber-sukhitashvili-480.webp",
+      "originalSize": 62954,
+      "width": 480,
+      "height": 479,
+      "derivatives": [
+        {
+          "key": "optimized/optimized/images/authors/kakhaber-sukhitashvili-480-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 319,
+          "byteSize": 21526
+        },
+        {
+          "key": "optimized/optimized/images/authors/kakhaber-sukhitashvili-480-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 319,
+          "byteSize": 32778
+        },
+        {
+          "key": "optimized/optimized/images/authors/kakhaber-sukhitashvili-480-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 399,
+          "byteSize": 29333
+        },
+        {
+          "key": "optimized/optimized/images/authors/kakhaber-sukhitashvili-480-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 399,
+          "byteSize": 44608
+        },
+        {
+          "key": "optimized/optimized/images/authors/kakhaber-sukhitashvili-480-480.avif",
+          "format": "avif",
+          "width": 480,
+          "height": 479,
+          "byteSize": 41909
+        },
+        {
+          "key": "optimized/optimized/images/authors/kakhaber-sukhitashvili-480-480.webp",
+          "format": "webp",
+          "width": 480,
+          "height": 479,
+          "byteSize": 62072
+        }
+      ],
+      "updatedAt": "2026-09-24T13:11:02.262Z"
     },
     "optimized/images/authors/nika-kerdikoshvili-480.webp": {
       "sourceHash": "b885a25f61d0526d2de17e2fa8f1e84c9a3481bc6a339718ceed6f0fb93cd3bf",
