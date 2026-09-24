@@ -6,7 +6,9 @@ import {
   type GuideArticleSource,
 } from "@/data/guideArticleTypes";
 
-const COPY: Record<AppLocale, GuideArticleCopy> = {
+type ImageKey = "gap" | "sealing" | "soapy-water";
+
+const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
   en: {
     description:
       "Stink bugs move indoors in autumn to overwinter. Learn whether they are harmful, how to remove them without crushing, and how to seal entry points.",
@@ -50,6 +52,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "Why do stink bugs come into the house?",
+        image: "gap",
         paragraphs: [
           "The brown marmorated stink bug spends the winter as an adult. In autumn, as days shorten and temperatures drop, adults look for a dry, protected overwintering site. In a laboratory study of the invasive population in the Caucasus, short days induced winter diapause, a pause in reproduction, in all adults.",
           "Outdoors, such shelter is a tree hollow or a thick layer of fallen leaves; in a settlement, it is a building. Stink bugs can get into attics, gaps in window and door frames, cracks in walls and foundations, under the roof edge, around chimneys, and where pipes or cables pass through a wall.",
@@ -88,6 +91,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "How do you get stink bugs out of the house?",
+        image: "soapy-water",
         list: {
           items: [
             "Prepare a container with water and a little liquid soap or detergent at the bottom. A stink bug that falls into soapy water cannot climb out.",
@@ -104,6 +108,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "How do you keep stink bugs from getting in?",
+        image: "sealing",
         list: {
           items: [
             "Window and door frames: fill gaps and cracks with good-quality silicone or silicone-latex caulk; expanding foam can be used for larger gaps.",
@@ -189,6 +194,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "რატომ შემოდის ფაროსანა სახლში?",
+        image: "gap",
         paragraphs: [
           "აზიური ფაროსანა ზამთარს ზრდასრული მწერის სახით ატარებს. შემოდგომით, როცა დღე მოკლდება და ცივდება, ზრდასრულები გამოსაზამთრებლად მშრალ, დაცულ თავშესაფარს ეძებენ. კავკასიაში გავრცელებული ინვაზიური პოპულაციის ლაბორატორიულ კვლევაში მოკლე დღე ყველა ზრდასრულში ზამთრის დიაპაუზას — გამრავლების შეჩერებას — იწვევდა.",
           "ბუნებაში ასეთი თავშესაფარია ხის ფუღურო ან ჩამოცვენილი ფოთლების სქელი ფენა, დასახლებაში კი — შენობა. ფაროსანა შეიძლება შეძვრეს სხვენში, კარისა და ფანჯრის ჩარჩოების ღრიჭოებში, კედლისა და საძირკვლის ნაპრალებში, სახურავის კიდის ქვეშ, საკვამურის გარშემო და იქ, სადაც მილები ან კაბელები კედელში გადის.",
@@ -227,6 +233,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "როგორ მოვიშოროთ ფაროსანა სახლიდან?",
+        image: "soapy-water",
         list: {
           items: [
             "მოამზადეთ ჭურჭელი, რომლის ძირზეც წყალი და ცოტა თხევადი საპონი ან სარეცხი საშუალებაა. საპნიან წყალში ჩავარდნილი ფაროსანა ვეღარ ამოძვრება.",
@@ -243,6 +250,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "როგორ ავიცილოთ თავიდან ფაროსანას სახლში შემოსვლა?",
+        image: "sealing",
         list: {
           items: [
             "ფანჯრისა და კარის ჩარჩოები: ღრიჭოები და ნაპრალები ამოავსეთ ხარისხიანი სილიკონის ან სილიკონ-ლატექსის ჰერმეტიკით; უფრო დიდი ღიობებისთვის შეიძლება სამონტაჟო ქაფის გამოყენება.",
@@ -327,6 +335,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "Почему клоп заходит в дом?",
+        image: "gap",
         paragraphs: [
           "Коричнево-мраморный клоп зимует во взрослой стадии. Осенью, когда день сокращается и холодает, взрослые особи ищут сухое защищённое место для зимовки. В лабораторном исследовании инвазивной популяции Кавказа короткий день вызывал у всех взрослых особей зимнюю диапаузу — приостановку размножения.",
           "В природе такое укрытие — дупло дерева или толстый слой опавших листьев, в населённом пункте — здание. Клопы могут забираться на чердак, в щели оконных и дверных рам, трещины стен и фундамента, под край крыши, вокруг дымохода и туда, где трубы или кабели проходят через стену.",
@@ -365,6 +374,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "Как избавиться от клопов в доме?",
+        image: "soapy-water",
         list: {
           items: [
             "Подготовьте ёмкость, на дне которой вода с небольшим количеством жидкого мыла или моющего средства. Упавший в мыльную воду клоп не сможет выбраться.",
@@ -381,6 +391,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "Как не пустить клопов в дом?",
+        image: "sealing",
         list: {
           items: [
             "Оконные и дверные рамы: заполните щели и трещины качественным силиконовым или силикон-латексным герметиком; для крупных щелей подойдёт монтажная пена.",
@@ -467,6 +478,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "Kokarca neden eve girer?",
+        image: "gap",
         paragraphs: [
           "Kahverengi kokarca kışı ergin olarak geçirir. Sonbaharda günler kısalıp havalar soğudukça erginler kışlamak için kuru ve korunaklı bir sığınak arar. Kafkasya'daki istilacı popülasyon üzerinde yapılan bir laboratuvar çalışmasında kısa gün, tüm erginlerde kış diyapozuna, yani üremenin durmasına yol açtı.",
           "Doğada bu sığınak bir ağaç kovuğu ya da kalın bir dökülmüş yaprak tabakasıdır; yerleşim yerlerinde ise binalardır. Kokarcalar çatı arasına, pencere ve kapı çerçevelerindeki aralıklara, duvar ve temel çatlaklarına, çatı kenarının altına, baca çevresine ve boru ya da kabloların duvardan geçtiği yerlere girebilir.",
@@ -505,6 +517,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "Kokarca evden nasıl uzaklaştırılır?",
+        image: "soapy-water",
         list: {
           items: [
             "Dibinde su ve biraz sıvı sabun ya da deterjan olan bir kap hazırlayın. Sabunlu suya düşen kokarca dışarı çıkamaz.",
@@ -521,6 +534,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "Kokarcanın eve girmesi nasıl önlenir?",
+        image: "sealing",
         list: {
           items: [
             "Pencere ve kapı çerçeveleri: aralıkları ve çatlakları kaliteli silikon ya da silikon-lateks dolgu macunuyla doldurun; büyük boşluklar için poliüretan köpük kullanılabilir.",
@@ -692,16 +706,51 @@ export const STINK_BUG_IN_HOUSE = defineGuideArticle({
   copy: COPY,
   hero: {
     alt: {
-      en: "Illustration: brown shield-shaped stink bugs on a window frame and glass in autumn",
-      ka: "ილუსტრაცია: ყავისფერი, ფარისებრი ფაროსანები ფანჯრის ჩარჩოსა და მინაზე შემოდგომით",
-      ru: "Иллюстрация: коричневые клопы-щитники на оконной раме и стекле осенью",
-      tr: "İllüstrasyon: sonbaharda pencere çerçevesi ve camı üzerinde kahverengi, kalkan biçimli kokarcalar",
+      en: "Several brown stink bugs on the inside of a white window frame and glass, with autumn trees outside",
+      ka: "რამდენიმე ყავისფერი ფაროსანა თეთრი ფანჯრის ჩარჩოსა და მინაზე, გარეთ შემოდგომის ხეები ჩანს",
+      ru: "Несколько коричневых клопов на белой оконной раме и стекле, за окном осенние деревья",
+      tr: "Beyaz pencere çerçevesi ve camı üzerinde birkaç kahverengi kokarca, dışarıda sonbahar ağaçları",
     },
-    height: 1067,
+    height: 941,
     src: "/images/guides/stink-bug-house-hero.jpg",
-    width: 1600,
+    width: 1672,
   },
   id: "stink-bug-in-house",
+  images: {
+    gap: {
+      alt: {
+        en: "Two stink bugs at a crack between a window frame and a plastered outside wall",
+        ka: "ორი ფაროსანა ფანჯრის ჩარჩოსა და შელესილ გარე კედელს შორის ნაპრალთან",
+        ru: "Два клопа у щели между оконной рамой и оштукатуренной наружной стеной",
+        tr: "Pencere çerçevesi ile sıvalı dış duvar arasındaki çatlakta iki kokarca",
+      },
+      height: 941,
+      src: "/images/guides/stink-bug-window-gap.jpg",
+      width: 1672,
+    },
+    sealing: {
+      alt: {
+        en: "Hands sealing the gap between a window frame and wall siding with a caulking gun; the window has a screen and a stink bug sits on the wall",
+        ka: "ხელები ჰერმეტიკის პისტოლეტით ავსებენ ღრიჭოს ფანჯრის ჩარჩოსა და კედელს შორის; ფანჯარაზე ბადეა, კედელზე ფაროსანა ზის",
+        ru: "Руки заделывают герметиком щель между оконной рамой и обшивкой стены; на окне москитная сетка, на стене сидит клоп",
+        tr: "Eller dolgu tabancasıyla pencere çerçevesi ile duvar kaplaması arasındaki aralığı dolduruyor; pencerede sineklik var, duvarda bir kokarca duruyor",
+      },
+      height: 941,
+      src: "/images/guides/stink-bug-sealing-frame.jpg",
+      width: 1672,
+    },
+    "soapy-water": {
+      alt: {
+        en: "A jar of soapy water held under a stink bug on a window frame, with a piece of cardboard ready to brush it in",
+        ka: "საპნიანი წყლიანი ქილა ფანჯრის ჩარჩოზე მსხდომი ფაროსანას ქვეშ და მუყაოს ნაჭერი მის ჩასაგდებად",
+        ru: "Банка с мыльной водой под клопом на оконной раме и кусок картона, чтобы смахнуть его внутрь",
+        tr: "Pencere çerçevesindeki kokarcanın altında sabunlu su dolu kavanoz ve onu içine düşürmek için karton parçası",
+      },
+      height: 941,
+      src: "/images/guides/stink-bug-soapy-water.jpg",
+      width: 1672,
+    },
+  },
   messageKey: "stinkBugInHouse",
   ogImage: "/og/images/guides/stink-bug-in-house.jpg",
   parentHub: "insects",
