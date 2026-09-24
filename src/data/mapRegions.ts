@@ -66,6 +66,7 @@ export const regions: Region[] = [
       "halyomorpha-halys",
       "mantis-religiosa",
       "euscorpius-italicus",
+      "anas-platyrhynchos",
     ],
   },
   {
@@ -201,6 +202,7 @@ export const regions: Region[] = [
       "mantis-religiosa",
       "euscorpius-italicus",
       "euscorpius-mingrelicus",
+      "anas-platyrhynchos",
     ],
   },
   {
@@ -400,6 +402,7 @@ export const regions: Region[] = [
       "mantis-religiosa",
       "euscorpius-italicus",
       "mesobuthus-eupeus",
+      "anas-platyrhynchos",
     ],
   },
   {
@@ -455,6 +458,7 @@ export const regions: Region[] = [
       "mantis-religiosa",
       "euscorpius-italicus",
       "mesobuthus-eupeus",
+      "anas-platyrhynchos",
     ],
   },
   {
@@ -513,6 +517,7 @@ export const regions: Region[] = [
       "halyomorpha-halys",
       "mantis-religiosa",
       "mesobuthus-eupeus",
+      "anas-platyrhynchos",
     ],
   },
   {
@@ -581,6 +586,7 @@ export const regions: Region[] = [
       "halyomorpha-halys",
       "mantis-religiosa",
       "mesobuthus-eupeus",
+      "anas-platyrhynchos",
     ],
   },
   {
@@ -635,6 +641,7 @@ export const regions: Region[] = [
       "euscorpius-italicus",
       "mesobuthus-eupeus",
       "olivierus-caucasicus",
+      "anas-platyrhynchos",
     ],
   },
 ];
