@@ -10,7 +10,8 @@ import { pictureSources } from "@/data/optimizedImages";
 import { type Species } from "@/data/species";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
 import { resolvePhotoCredit } from "@/data/speciesMedia";
-import { getHubIndexTitleKey, getSpeciesGuideLinks } from "@/lib/clusterGuides";
+import { getHubIndexTitleKey } from "@/lib/clusterGuides";
+import { getSpeciesReading } from "@/lib/speciesArticles";
 import {
   buildSpeciesBreadcrumbs,
   getSpeciesParentHub,
@@ -81,7 +82,7 @@ export async function SpeciesProfile({
     getTranslations("groupHubShared"),
     getTranslations("danger"),
   ]);
-  const guideLinks = getSpeciesGuideLinks(species.id);
+  const reading = getSpeciesReading(species.id);
   const parent = getSpeciesParentHub(species);
   const groupLabel = tHubs(`hubs.${parent.hubId}`);
   const breadcrumbs = buildSpeciesBreadcrumbs({
@@ -173,10 +174,10 @@ export async function SpeciesProfile({
         dangerValue={dangerValue}
         displayStats={displayStats}
         gallery={gallery}
-        guideLinks={guideLinks}
         linkDangerStats={linkDangerStats}
         locale={locale}
         lookalikes={lookalikes}
+        reading={reading}
         related={related}
         showIdentification={showIdentification}
         species={species}

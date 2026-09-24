@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 
 import type { GalleryImage, Species, SpeciesStat } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
+import type { SpeciesReading } from "@/lib/speciesArticles";
 import type { SpeciesBreadcrumbCrumb } from "@/lib/speciesBreadcrumbs";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
@@ -9,7 +10,10 @@ import { BiologyBlock } from "@/components/BiologyBlock";
 import { ContentAttribution } from "@/components/ContentAttribution";
 import { SpeciesRangeMap } from "@/components/map/SpeciesRangeMap";
 import { QuizPracticeCta } from "@/components/QuizPracticeCta";
-import { RelatedGuideStaticGrid } from "@/components/RelatedGuideStaticGrid";
+import {
+  SpeciesArticlesSection,
+  SpeciesArticleTeaser,
+} from "@/components/SpeciesArticles";
 import { SpeciesFaqSection } from "@/components/SpeciesFaqSection";
 import { SpeciesGallery } from "@/components/SpeciesGallery";
 import { SpeciesIdentification } from "@/components/SpeciesIdentification";
@@ -24,11 +28,7 @@ import {
 } from "@/data/optimizedImages";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
 import { Link } from "@/i18n/navigation";
-import {
-  type HubClusterCard,
-  isLizardSpecies,
-  isSnakeSpecies,
-} from "@/lib/clusterGuides";
+import { isLizardSpecies, isSnakeSpecies } from "@/lib/clusterGuides";
 import { cn } from "@/lib/cn";
 import { formatContentDate, formatPhotoDate } from "@/lib/formatDate";
 import { hasMeaningfulUpdate } from "@/lib/structuredDataDates";
@@ -84,10 +84,10 @@ type SpeciesProfileBodyProps = {
   dangerValue: null | string;
   displayStats: SpeciesStat[];
   gallery: GalleryImage[];
-  guideLinks: HubClusterCard[];
   linkDangerStats: boolean;
   locale: AppLocale;
   lookalikes: Species[];
+  reading: SpeciesReading;
   related: Species[];
   showIdentification: boolean;
   species: Species;
@@ -491,10 +491,10 @@ export async function SpeciesProfileBody({
   dangerValue,
   displayStats,
   gallery,
-  guideLinks,
   linkDangerStats,
   locale,
   lookalikes,
+  reading,
   related,
   showIdentification,
   species,
@@ -557,6 +557,7 @@ export async function SpeciesProfileBody({
               </span>
             ) : null}
           </p>
+          <SpeciesArticleTeaser article={reading.featured} />
         </div>
       </section>
 
@@ -659,23 +660,10 @@ export async function SpeciesProfileBody({
 
       <SpeciesSources sources={species.sources} speciesId={species.id} />
 
-      {guideLinks.length > 0 ? (
-        <section className="border-t border-border bg-surface py-16 lg:py-20">
-          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-            <p className="text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
-              {t("guidesEyebrow")}
-            </p>
-            <h2 className="mt-4 max-w-2xl font-display text-display-card font-semibold">
-              {t("guidesTitle")}
-            </h2>
-            <RelatedGuideStaticGrid
-              cards={guideLinks}
-              className="mt-8"
-              locale={locale}
-            />
-          </div>
-        </section>
-      ) : null}
+      <SpeciesArticlesSection
+        articles={reading.articles}
+        shortcuts={reading.shortcuts}
+      />
 
       <SpeciesProfileRelated
         labelVariant={relatedLabelVariant}

@@ -1072,12 +1072,10 @@ export function getSpeciesGuideLinks(id: string): HubClusterCard[] {
   }
 
   const seen = new Set<string>();
-  return links
-    .filter((link) => {
-      const key = link.kind === "page" ? link.href : `${link.kind}:${link.id}`;
-      if (seen.has(key)) return false;
-      seen.add(key);
-      return true;
-    })
-    .slice(0, 4);
+  return links.filter((link) => {
+    const key = link.kind === "page" ? link.href : `${link.kind}:${link.id}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
 }
