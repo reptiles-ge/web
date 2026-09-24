@@ -791,7 +791,7 @@ const INTERACTIVE_RANGE_MAPS: Partial<
       en: {
         ...HALYOMORPHA_RANGE_COPY.en,
         intro:
-          "The grass snake map combines Reptiles.ge editorial photo records with public iNaturalist observations. Regions are taken from the records-by-region table, and only regions with confirmed status are treated as distribution.",
+          "The grass snake map combines Reptiles.ge editorial photo records with public iNaturalist observations. Regions are taken from the records-by-region table; for this species, a region with at least one record is treated as confirmed distribution.",
         mapAria:
           "Grass snake distribution evidence and field records on a map of Georgia",
         officialRegionLabel: "Confirmed distribution region",
@@ -800,7 +800,7 @@ const INTERACTIVE_RANGE_MAPS: Partial<
       ka: {
         ...HALYOMORPHA_RANGE_COPY.ka,
         intro:
-          "ჩვეულებრივი ანკარის რუკა აერთიანებს Reptiles.ge-ის სარედაქციო ფოტოჩანაწერებსა და iNaturalist-ის საჯარო დაკვირვებებს. რეგიონები აღებულია ჩანაწერების რეგიონული ცხრილიდან და გავრცელებად ითვლება მხოლოდ ის რეგიონი, სადაც სტატუსი დადასტურებულია.",
+          "ჩვეულებრივი ანკარის რუკა აერთიანებს Reptiles.ge-ის სარედაქციო ფოტოჩანაწერებსა და iNaturalist-ის საჯარო დაკვირვებებს. რეგიონები აღებულია ჩანაწერების რეგიონული ცხრილიდან; ამ სახეობაზე ერთი ჩანაწერიც საკმარისია, რომ რეგიონი დადასტურებულ გავრცელებად ჩაითვალოს.",
         mapAria:
           "ჩვეულებრივი ანკარის გავრცელების მტკიცებულებები და საველე ჩანაწერები საქართველოს რუკაზე",
         officialRegionLabel: "დადასტურებული გავრცელების რეგიონი",
@@ -810,7 +810,7 @@ const INTERACTIVE_RANGE_MAPS: Partial<
       ru: {
         ...HALYOMORPHA_RANGE_COPY.ru,
         intro:
-          "Карта обыкновенного ужа объединяет редакционные фотозаписи Reptiles.ge и публичные наблюдения iNaturalist. Регионы взяты из таблицы записей по регионам; распространением считаются только регионы со статусом подтверждения.",
+          "Карта обыкновенного ужа объединяет редакционные фотозаписи Reptiles.ge и публичные наблюдения iNaturalist. Регионы взяты из таблицы записей по регионам; для этого вида одного наблюдения достаточно, чтобы регион считался подтверждённым распространением.",
         mapAria:
           "Данные о распространении обыкновенного ужа и полевые записи на карте Грузии",
         officialRegionLabel: "Регион с подтверждённым распространением",
@@ -820,7 +820,7 @@ const INTERACTIVE_RANGE_MAPS: Partial<
       tr: {
         ...HALYOMORPHA_RANGE_COPY.tr,
         intro:
-          "Çim yılanı haritası Reptiles.ge editoryal fotoğraf kayıtlarını ve herkese açık iNaturalist gözlemlerini birleştirir. Bölgeler, bölgelere göre kayıt tablosundan alınır; yalnızca doğrulanmış durumdaki bölgeler yayılış kabul edilir.",
+          "Çim yılanı haritası Reptiles.ge editoryal fotoğraf kayıtlarını ve herkese açık iNaturalist gözlemlerini birleştirir. Bölgeler, bölgelere göre kayıt tablosundan alınır; bu tür için en az bir kayıt bulunan bölge doğrulanmış yayılış kabul edilir.",
         mapAria:
           "Çim yılanının Gürcistan'daki yayılış kanıtları ve arazi kayıtları",
         officialRegionLabel: "Doğrulanmış yayılış bölgesi",
