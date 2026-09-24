@@ -32107,6 +32107,439 @@
       ],
       "updatedAt": "2026-09-19T21:09:17.292Z"
     },
+    "images/guides/bat-house-hero.jpg": {
+      "sourceHash": "c79b23a3bde698f828087cb2c57995be80867b1bcbb1c54cc4c4537833223abb",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/bat-house-hero.jpg",
+      "originalSize": 199783,
+      "width": 1152,
+      "height": 864,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/bat-house-hero-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 6147
+        },
+        {
+          "key": "optimized/images/guides/bat-house-hero-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 8472
+        },
+        {
+          "key": "optimized/images/guides/bat-house-hero-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 8438
+        },
+        {
+          "key": "optimized/images/guides/bat-house-hero-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 11928
+        },
+        {
+          "key": "optimized/images/guides/bat-house-hero-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 18209
+        },
+        {
+          "key": "optimized/images/guides/bat-house-hero-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 25096
+        },
+        {
+          "key": "optimized/images/guides/bat-house-hero-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 27501
+        },
+        {
+          "key": "optimized/images/guides/bat-house-hero-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 36704
+        },
+        {
+          "key": "optimized/images/guides/bat-house-hero-1152.avif",
+          "format": "avif",
+          "width": 1152,
+          "height": 864,
+          "byteSize": 52633
+        },
+        {
+          "key": "optimized/images/guides/bat-house-hero-1152.webp",
+          "format": "webp",
+          "width": 1152,
+          "height": 864,
+          "byteSize": 68748
+        }
+      ],
+      "updatedAt": "2026-09-24T08:04:20.079Z"
+    },
+    "images/guides/bat-on-wall.jpg": {
+      "sourceHash": "31aff5359cba83072f5c4ba95770e6a5b8f1a8288b05165cea805b05e359fb74",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/bat-on-wall.jpg",
+      "originalSize": 275962,
+      "width": 1152,
+      "height": 864,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/bat-on-wall-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 4562
+        },
+        {
+          "key": "optimized/images/guides/bat-on-wall-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 5870
+        },
+        {
+          "key": "optimized/images/guides/bat-on-wall-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 8948
+        },
+        {
+          "key": "optimized/images/guides/bat-on-wall-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 12192
+        },
+        {
+          "key": "optimized/images/guides/bat-on-wall-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 30197
+        },
+        {
+          "key": "optimized/images/guides/bat-on-wall-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 42472
+        },
+        {
+          "key": "optimized/images/guides/bat-on-wall-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 48071
+        },
+        {
+          "key": "optimized/images/guides/bat-on-wall-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 68324
+        },
+        {
+          "key": "optimized/images/guides/bat-on-wall-1152.avif",
+          "format": "avif",
+          "width": 1152,
+          "height": 864,
+          "byteSize": 88557
+        },
+        {
+          "key": "optimized/images/guides/bat-on-wall-1152.webp",
+          "format": "webp",
+          "width": 1152,
+          "height": 864,
+          "byteSize": 127124
+        }
+      ],
+      "updatedAt": "2026-09-24T08:04:25.956Z"
+    },
+    "images/guides/bat-roost-natural.jpg": {
+      "sourceHash": "4fba551b926274198eb19500008ae3f54284a5c192777c1f1033aeca640987f1",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/bat-roost-natural.jpg",
+      "originalSize": 248952,
+      "width": 1152,
+      "height": 864,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/bat-roost-natural-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 9939
+        },
+        {
+          "key": "optimized/images/guides/bat-roost-natural-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 14718
+        },
+        {
+          "key": "optimized/images/guides/bat-roost-natural-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 14761
+        },
+        {
+          "key": "optimized/images/guides/bat-roost-natural-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 22184
+        },
+        {
+          "key": "optimized/images/guides/bat-roost-natural-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 30695
+        },
+        {
+          "key": "optimized/images/guides/bat-roost-natural-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 47324
+        },
+        {
+          "key": "optimized/images/guides/bat-roost-natural-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 43146
+        },
+        {
+          "key": "optimized/images/guides/bat-roost-natural-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 67098
+        },
+        {
+          "key": "optimized/images/guides/bat-roost-natural-1152.avif",
+          "format": "avif",
+          "width": 1152,
+          "height": 864,
+          "byteSize": 68674
+        },
+        {
+          "key": "optimized/images/guides/bat-roost-natural-1152.webp",
+          "format": "webp",
+          "width": 1152,
+          "height": 864,
+          "byteSize": 110248
+        }
+      ],
+      "updatedAt": "2026-09-24T08:04:30.560Z"
+    },
+    "images/guides/wasp-nest-enclosed.jpg": {
+      "sourceHash": "bd28f4db04adf032e4b758c2e65a0736cff4e5c43305bad920928f959b8c1fd0",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/wasp-nest-enclosed.jpg",
+      "originalSize": 478945,
+      "width": 1421,
+      "height": 1107,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/wasp-nest-enclosed-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 249,
+          "byteSize": 11350
+        },
+        {
+          "key": "optimized/images/guides/wasp-nest-enclosed-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 249,
+          "byteSize": 16590
+        },
+        {
+          "key": "optimized/images/guides/wasp-nest-enclosed-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 312,
+          "byteSize": 15498
+        },
+        {
+          "key": "optimized/images/guides/wasp-nest-enclosed-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 312,
+          "byteSize": 23786
+        },
+        {
+          "key": "optimized/images/guides/wasp-nest-enclosed-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 499,
+          "byteSize": 35958
+        },
+        {
+          "key": "optimized/images/guides/wasp-nest-enclosed-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 499,
+          "byteSize": 53056
+        },
+        {
+          "key": "optimized/images/guides/wasp-nest-enclosed-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 623,
+          "byteSize": 52890
+        },
+        {
+          "key": "optimized/images/guides/wasp-nest-enclosed-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 623,
+          "byteSize": 76678
+        },
+        {
+          "key": "optimized/images/guides/wasp-nest-enclosed-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 935,
+          "byteSize": 99482
+        },
+        {
+          "key": "optimized/images/guides/wasp-nest-enclosed-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 935,
+          "byteSize": 139636
+        },
+        {
+          "key": "optimized/images/guides/wasp-nest-enclosed-1421.avif",
+          "format": "avif",
+          "width": 1421,
+          "height": 1107,
+          "byteSize": 128769
+        },
+        {
+          "key": "optimized/images/guides/wasp-nest-enclosed-1421.webp",
+          "format": "webp",
+          "width": 1421,
+          "height": 1107,
+          "byteSize": 180688
+        }
+      ],
+      "updatedAt": "2026-09-23T18:23:56.930Z"
+    },
+    "images/guides/wasp-nest-open-comb.jpg": {
+      "sourceHash": "4b6185537b5da6e992cd1e6c200b66d8565558865e2c762c674624a102c3b7b2",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/wasp-nest-open-comb.jpg",
+      "originalSize": 376505,
+      "width": 1536,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/wasp-nest-open-comb-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9226
+        },
+        {
+          "key": "optimized/images/guides/wasp-nest-open-comb-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14238
+        },
+        {
+          "key": "optimized/images/guides/wasp-nest-open-comb-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 12640
+        },
+        {
+          "key": "optimized/images/guides/wasp-nest-open-comb-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 20102
+        },
+        {
+          "key": "optimized/images/guides/wasp-nest-open-comb-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 25792
+        },
+        {
+          "key": "optimized/images/guides/wasp-nest-open-comb-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 40168
+        },
+        {
+          "key": "optimized/images/guides/wasp-nest-open-comb-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 35579
+        },
+        {
+          "key": "optimized/images/guides/wasp-nest-open-comb-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 55890
+        },
+        {
+          "key": "optimized/images/guides/wasp-nest-open-comb-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 64797
+        },
+        {
+          "key": "optimized/images/guides/wasp-nest-open-comb-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 96054
+        },
+        {
+          "key": "optimized/images/guides/wasp-nest-open-comb-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 1024,
+          "byteSize": 91306
+        },
+        {
+          "key": "optimized/images/guides/wasp-nest-open-comb-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 1024,
+          "byteSize": 135048
+        }
+      ],
+      "updatedAt": "2026-09-23T18:23:54.449Z"
+    },
     "images/home/groups/amphibians.jpg": {
       "sourceHash": "93be3de896c76e82e0182df5b4b1d97ac92bde9f93d1393be8fb2cc98e1cbc3b",
       "configFingerprint": "409788ee46c653d8",
@@ -79134,196 +79567,6 @@
         }
       ],
       "updatedAt": "2026-08-28T22:02:36.689Z"
-    },
-    "images/guides/wasp-nest-enclosed.jpg": {
-      "sourceHash": "bd28f4db04adf032e4b758c2e65a0736cff4e5c43305bad920928f959b8c1fd0",
-      "configFingerprint": "409788ee46c653d8",
-      "originalKey": "images/guides/wasp-nest-enclosed.jpg",
-      "originalSize": 478945,
-      "width": 1421,
-      "height": 1107,
-      "derivatives": [
-        {
-          "key": "optimized/images/guides/wasp-nest-enclosed-320.avif",
-          "format": "avif",
-          "width": 320,
-          "height": 249,
-          "byteSize": 11350
-        },
-        {
-          "key": "optimized/images/guides/wasp-nest-enclosed-320.webp",
-          "format": "webp",
-          "width": 320,
-          "height": 249,
-          "byteSize": 16590
-        },
-        {
-          "key": "optimized/images/guides/wasp-nest-enclosed-400.avif",
-          "format": "avif",
-          "width": 400,
-          "height": 312,
-          "byteSize": 15498
-        },
-        {
-          "key": "optimized/images/guides/wasp-nest-enclosed-400.webp",
-          "format": "webp",
-          "width": 400,
-          "height": 312,
-          "byteSize": 23786
-        },
-        {
-          "key": "optimized/images/guides/wasp-nest-enclosed-640.avif",
-          "format": "avif",
-          "width": 640,
-          "height": 499,
-          "byteSize": 35958
-        },
-        {
-          "key": "optimized/images/guides/wasp-nest-enclosed-640.webp",
-          "format": "webp",
-          "width": 640,
-          "height": 499,
-          "byteSize": 53056
-        },
-        {
-          "key": "optimized/images/guides/wasp-nest-enclosed-800.avif",
-          "format": "avif",
-          "width": 800,
-          "height": 623,
-          "byteSize": 52890
-        },
-        {
-          "key": "optimized/images/guides/wasp-nest-enclosed-800.webp",
-          "format": "webp",
-          "width": 800,
-          "height": 623,
-          "byteSize": 76678
-        },
-        {
-          "key": "optimized/images/guides/wasp-nest-enclosed-1200.avif",
-          "format": "avif",
-          "width": 1200,
-          "height": 935,
-          "byteSize": 99482
-        },
-        {
-          "key": "optimized/images/guides/wasp-nest-enclosed-1200.webp",
-          "format": "webp",
-          "width": 1200,
-          "height": 935,
-          "byteSize": 139636
-        },
-        {
-          "key": "optimized/images/guides/wasp-nest-enclosed-1421.avif",
-          "format": "avif",
-          "width": 1421,
-          "height": 1107,
-          "byteSize": 128769
-        },
-        {
-          "key": "optimized/images/guides/wasp-nest-enclosed-1421.webp",
-          "format": "webp",
-          "width": 1421,
-          "height": 1107,
-          "byteSize": 180688
-        }
-      ],
-      "updatedAt": "2026-09-23T18:23:56.930Z"
-    },
-    "images/guides/wasp-nest-open-comb.jpg": {
-      "sourceHash": "4b6185537b5da6e992cd1e6c200b66d8565558865e2c762c674624a102c3b7b2",
-      "configFingerprint": "409788ee46c653d8",
-      "originalKey": "images/guides/wasp-nest-open-comb.jpg",
-      "originalSize": 376505,
-      "width": 1536,
-      "height": 1024,
-      "derivatives": [
-        {
-          "key": "optimized/images/guides/wasp-nest-open-comb-320.avif",
-          "format": "avif",
-          "width": 320,
-          "height": 213,
-          "byteSize": 9226
-        },
-        {
-          "key": "optimized/images/guides/wasp-nest-open-comb-320.webp",
-          "format": "webp",
-          "width": 320,
-          "height": 213,
-          "byteSize": 14238
-        },
-        {
-          "key": "optimized/images/guides/wasp-nest-open-comb-400.avif",
-          "format": "avif",
-          "width": 400,
-          "height": 267,
-          "byteSize": 12640
-        },
-        {
-          "key": "optimized/images/guides/wasp-nest-open-comb-400.webp",
-          "format": "webp",
-          "width": 400,
-          "height": 267,
-          "byteSize": 20102
-        },
-        {
-          "key": "optimized/images/guides/wasp-nest-open-comb-640.avif",
-          "format": "avif",
-          "width": 640,
-          "height": 427,
-          "byteSize": 25792
-        },
-        {
-          "key": "optimized/images/guides/wasp-nest-open-comb-640.webp",
-          "format": "webp",
-          "width": 640,
-          "height": 427,
-          "byteSize": 40168
-        },
-        {
-          "key": "optimized/images/guides/wasp-nest-open-comb-800.avif",
-          "format": "avif",
-          "width": 800,
-          "height": 533,
-          "byteSize": 35579
-        },
-        {
-          "key": "optimized/images/guides/wasp-nest-open-comb-800.webp",
-          "format": "webp",
-          "width": 800,
-          "height": 533,
-          "byteSize": 55890
-        },
-        {
-          "key": "optimized/images/guides/wasp-nest-open-comb-1200.avif",
-          "format": "avif",
-          "width": 1200,
-          "height": 800,
-          "byteSize": 64797
-        },
-        {
-          "key": "optimized/images/guides/wasp-nest-open-comb-1200.webp",
-          "format": "webp",
-          "width": 1200,
-          "height": 800,
-          "byteSize": 96054
-        },
-        {
-          "key": "optimized/images/guides/wasp-nest-open-comb-1536.avif",
-          "format": "avif",
-          "width": 1536,
-          "height": 1024,
-          "byteSize": 91306
-        },
-        {
-          "key": "optimized/images/guides/wasp-nest-open-comb-1536.webp",
-          "format": "webp",
-          "width": 1536,
-          "height": 1024,
-          "byteSize": 135048
-        }
-      ],
-      "updatedAt": "2026-09-23T18:23:54.449Z"
     }
   }
 }

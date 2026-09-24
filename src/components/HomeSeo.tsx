@@ -19,6 +19,7 @@ const hubs = [
   { href: "/spiders/obobis-nakbeni", key: "spiderBite" as const },
   { href: "/mammals/tura-ezoshi", key: "jackalYard" as const },
   { href: "/mammals/datvi-shekhvedra", key: "bearEncounter" as const },
+  { href: "/mammals/ghamura-saxlshi", key: "batInHouse" as const },
   { href: "/lizards/xvliki-saxlshi", key: "lizardHouse" as const },
   { href: "/lizards/identifikacia", key: "lizardIdentify" as const },
   { href: "/amphibians/bayayi", key: "frogs" as const },

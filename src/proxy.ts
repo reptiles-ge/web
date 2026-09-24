@@ -75,8 +75,10 @@ const PERMANENT_REDIRECTS: Record<string, string> = {
   "/lizards/xvliki-saxlshi": "/xvlikebi/xvliki-saxlshi",
   "/lizards/xvlikis-da-gvelxokeras-gansxvaveba":
     "/xvlikebi/xvlikis-da-gvelxokeras-gansxvaveba",
+  "/mammals/bat-in-the-house": "/dzuzumtsovrebi/ghamura-saxlshi",
   "/mammals/bear-encounter": "/dzuzumtsovrebi/datvi-shekhvedra",
   "/mammals/datvi-shekhvedra": "/dzuzumtsovrebi/datvi-shekhvedra",
+  "/mammals/ghamura-saxlshi": "/dzuzumtsovrebi/ghamura-saxlshi",
   "/mammals/jackal-in-the-yard": "/dzuzumtsovrebi/tura-ezoshi",
   "/mammals/saxeoebebi": "/dzuzumtsovrebi/saxeoebebi",
   "/mammals/species": "/dzuzumtsovrebi/saxeoebebi",
@@ -144,6 +146,7 @@ const PREFIXED_PERMANENT_REDIRECTS: Record<string, string> = {
   "/avtorebi": "/contributors",
   "/dzuzumtsovrebi": "/mammals",
   "/dzuzumtsovrebi/datvi-shekhvedra": "/mammals/bear-encounter",
+  "/dzuzumtsovrebi/ghamura-saxlshi": "/mammals/bat-in-the-house",
   "/dzuzumtsovrebi/saxeoebebi": "/mammals/species",
   "/dzuzumtsovrebi/tura-ezoshi": "/mammals/jackal-in-the-yard",
   "/fotografebi": "/contributors",
@@ -170,6 +173,7 @@ const PREFIXED_PERMANENT_REDIRECTS: Record<string, string> = {
   "/lizards/xvlikis-da-gvelxokeras-gansxvaveba":
     "/lizards/lizard-or-glass-lizard",
   "/mammals/datvi-shekhvedra": "/mammals/bear-encounter",
+  "/mammals/ghamura-saxlshi": "/mammals/bat-in-the-house",
   "/mammals/saxeoebebi": "/mammals/species",
   "/mammals/tura-ezoshi": "/mammals/jackal-in-the-yard",
   "/obobebi": "/spiders",

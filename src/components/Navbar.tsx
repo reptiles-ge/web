@@ -140,6 +140,7 @@ export function Navbar() {
 function hasDarkHeroTop(pathname: string) {
   if (pathname === "/contact") return false;
   if (pathname === "/insects/krazanis-bude") return false;
+  if (pathname === "/mammals/ghamura-saxlshi") return false;
   if (pathname === "/") return true;
   if (pathname === "/about") return true;
   if (pathname === "/venomous-snakes") return true;
