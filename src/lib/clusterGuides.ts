@@ -1,3 +1,6 @@
+import type { GuideArticlePath } from "@/data/guideArticlePaths";
+import type { GuideArticleMessageKey } from "@/data/guideArticleTypes";
+
 import { getRegionSpecies, type Region } from "@/data/regions";
 import { getSpeciesById, type Species } from "@/data/species";
 import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlasMeta";
@@ -105,7 +108,6 @@ export const YARD_CANID_IDS = [
 export const VENOMOUS_SPIDER_IDS = ["latrodectus-tredecimguttatus"] as const;
 
 export type ClusterGuideConfig = {
-  emitFaqSchema?: boolean;
   faqCount: 4 | 5 | 6 | 8 | 10;
   heroImage?: string;
   heroSpeciesId: string;
@@ -424,7 +426,6 @@ export const CLUSTER_GUIDES: Record<ClusterGuideId, ClusterGuideConfig> = {
     schema: "article",
   },
   "snake-bite": {
-    emitFaqSchema: false,
     faqCount: 8,
     heroImage: "/images/guides/snake-bite-cover.png",
     heroSpeciesId: "macrovipera-lebetina",
@@ -488,7 +489,6 @@ export const CLUSTER_GUIDES: Record<ClusterGuideId, ClusterGuideConfig> = {
     schema: "article",
   },
   "spider-bite": {
-    emitFaqSchema: false,
     faqCount: 8,
     heroSpeciesId: "latrodectus-tredecimguttatus",
     id: "spider-bite",
@@ -581,19 +581,17 @@ export type HubClusterCard =
       href:
         | "/birds"
         | "/insects"
-        | "/insects/krazanis-bude"
         | "/lizards"
         | "/mammals"
-        | "/mammals/ghamura-saxlshi"
         | "/scorpions"
         | "/snakes"
         | "/snakes-in-the-yard"
         | "/spiders"
         | "/venomous-snakes"
-        | ClusterGuidePath;
+        | ClusterGuidePath
+        | GuideArticlePath;
       key:
         | "amphibianIndex"
-        | "batInHouse"
         | "bearEncounter"
         | "birdIndex"
         | "birdsHub"
@@ -628,8 +626,8 @@ export type HubClusterCard =
         | "turtleLand"
         | "turtleWater"
         | "venomous"
-        | "waspNest"
-        | "yard";
+        | "yard"
+        | GuideArticleMessageKey;
       kind: "page";
     }
   | {

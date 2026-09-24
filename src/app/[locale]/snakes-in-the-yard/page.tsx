@@ -140,19 +140,6 @@ export default async function SnakesInYardRoute({ params }: Props) {
     })),
   };
 
-  const faqLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: ([1, 2, 3, 4, 5, 6] as const).map((n) => ({
-      "@type": "Question",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: t(`faq${n}A`),
-      },
-      name: t(`faq${n}Q`),
-    })),
-  };
-
   const pageLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -177,7 +164,6 @@ export default async function SnakesInYardRoute({ params }: Props) {
       <JsonLd data={breadcrumbLd} />
       <JsonLd data={pageLd} />
       <JsonLd data={howToLd} />
-      <JsonLd data={faqLd} />
       <ClientMessagesProvider
         namespaces={[
           "card",

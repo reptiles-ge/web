@@ -5,6 +5,7 @@ import {
   type CreditAuthorRole,
   getPublishedCreditAuthors,
 } from "@/data/creditAuthors";
+import { getGuideArticles } from "@/data/guideArticles";
 import {
   getPublishedNewsArticles,
   newsLocalizedDek,
@@ -881,38 +882,6 @@ const STATIC_PAGES: Array<
     },
   },
   {
-    heroImage: "/images/guides/bat-house-hero.jpg",
-    href: "/mammals/ghamura-saxlshi",
-    icon: "safety",
-    id: "bat-in-house",
-    keywords: [
-      "ღამურა",
-      "ghamura",
-      "bat",
-      "სახლში",
-      "შემოფრინდა",
-      "летучая мышь",
-      "yarasa",
-      "ცოფი",
-      "rabies",
-      "ნაკბენი",
-    ],
-    rank: 5,
-    subtitle: {
-      en: "Stay calm, open an exit, avoid bare hands",
-      ka: "სიმშვიდე, გასასვლელი, შიშველი ხელით ნუ შეეხებით",
-      ru: "Спокойствие, выход наружу, не трогайте голыми руками",
-      tr: "Sakin kalın, çıkış açın, çıplak elle dokunmayın",
-    },
-    suggested: true,
-    title: {
-      en: "A bat flew into the house",
-      ka: "ღამურა სახლში შემოფრინდა",
-      ru: "В дом влетела летучая мышь",
-      tr: "Eve yarasa girdi",
-    },
-  },
-  {
     heroImage: GROUP_HUB_ILLUSTRATIONS.snakes,
     href: "/quiz",
     icon: "identify",
@@ -1021,41 +990,6 @@ const STATIC_PAGES: Array<
     },
     title: { en: "Contact", ka: "კონტაქტი" },
   },
-  {
-    heroImage: "/images/guides/wasp-nest-enclosed.jpg",
-    href: "/insects/krazanis-bude",
-    icon: "safety",
-    id: "wasp-nest",
-    keywords: [
-      "კრაზანა",
-      "კრაზანის ბუდე",
-      "ბზიკი",
-      "ბზიკის ბუდე",
-      "wasp",
-      "hornet",
-      "nest",
-      "оса",
-      "осиное гнездо",
-      "eşek arısı",
-      "yuva",
-      "დანესტვრა",
-      "აივანი",
-    ],
-    rank: 5,
-    subtitle: {
-      en: "When to leave a nest alone, and when to call for help",
-      ka: "როდის დატოვოთ ბუდე მშვიდად და როდის მიმართოთ სპეციალისტს",
-      ru: "Когда гнездо не трогать и когда нужен специалист",
-      tr: "Yuvayı ne zaman bırakmalı, ne zaman uzman çağırmalı",
-    },
-    suggested: true,
-    title: {
-      en: "Wasp nest near your home",
-      ka: "კრაზანის ბუდე",
-      ru: "Осиное гнездо у дома",
-      tr: "Eşek arısı yuvası",
-    },
-  },
 ];
 
 const SNAKE_QUIZ_COPY: PageCopy = {
@@ -1109,6 +1043,15 @@ export function buildSearchIndex(locale: AppLocale): SearchDocument[] {
         page.href,
         page,
         coverFromSpecies(page.heroSpeciesId, page.heroImage),
+      ),
+    ),
+    ...getGuideArticles().map((article) =>
+      toPageDocument(
+        locale,
+        article.id,
+        article.pathname,
+        { ...article.search, suggested: true },
+        article.hero.src,
       ),
     ),
     toPageDocument(

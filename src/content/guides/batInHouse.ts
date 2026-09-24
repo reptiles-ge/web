@@ -1,18 +1,14 @@
 import type { AppLocale } from "@/i18n/routing";
 
-type GuideCopy = {
-  description: string;
-  faq: { answer: string; question: string }[];
-  metaTitle: string;
-  sections: {
-    heading: string;
-    image?: "on-wall" | "roost";
-    paragraphs: string[];
-  }[];
-  title: string;
-};
+import {
+  defineGuideArticle,
+  type GuideArticleCopy,
+  type GuideArticleSource,
+} from "@/data/guideArticleTypes";
 
-export const BAT_IN_HOUSE_COPY: Record<AppLocale, GuideCopy> = {
+type ImageKey = "on-wall" | "roost";
+
+const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
   en: {
     description:
       "A bat flew into your home? Stay calm, keep people and pets away, open an exterior exit, and learn when medical advice is needed after contact.",
@@ -68,7 +64,6 @@ export const BAT_IN_HOUSE_COPY: Record<AppLocale, GuideCopy> = {
       {
         heading: "What to do if a bat flies into your home",
         paragraphs: [
-          "If a bat is indoors: stay calm, keep people and pets away, and avoid bare hands. If there was a bite, a scratch, or possible direct contact and you are not sure it can be ruled out, get medical advice first and do not release the bat on your own. If safe, isolate it to one room and open an exterior window or door so it can leave. Do not chase or strike it. After a bite, scratch, or uncertain direct contact, wash and seek medical advice; in Georgia call 112 for emergencies.",
           "A bat indoors is usually trying to escape, not to attack. Close doors to other rooms so it cannot move deeper into the building. Keep children and pets out. Open one or more exterior windows or an exterior door as wide as practical, clear curtains, blinds, and furniture that block the opening, and turn off unnecessary indoor lights so the outdoor exit is easier to find.",
           "Then step back. Bat Conservation Trust guidance for a bat flying indoors in the evening is to give it time to orient and leave rather than chasing it around the room. Check later — including curtain folds and behind furniture — to confirm it has gone.",
         ],
@@ -135,6 +130,8 @@ export const BAT_IN_HOUSE_COPY: Record<AppLocale, GuideCopy> = {
         ],
       },
     ],
+    summary:
+      "If a bat is indoors: stay calm, keep people and pets away, and avoid bare hands. If there was a bite, a scratch, or possible direct contact and you are not sure it can be ruled out, get medical advice first and do not release the bat on your own. If safe, isolate it to one room and open an exterior window or door so it can leave. Do not chase or strike it. After a bite, scratch, or uncertain direct contact, wash and seek medical advice; in Georgia call 112 for emergencies.",
     title: "A bat flew into the house — what should you do?",
   },
   ka: {
@@ -192,7 +189,6 @@ export const BAT_IN_HOUSE_COPY: Record<AppLocale, GuideCopy> = {
       {
         heading: "რა გავაკეთოთ, თუ ღამურა სახლში შემოფრინდა?",
         paragraphs: [
-          "თუ ღამურა სახლშია: შეინარჩუნეთ სიმშვიდე, ადამიანები და ცხოველები მოარიდეთ, შიშველი ხელით ნუ შეეხებით. თუ ნაკბენი, ნაკაწრი ან შესაძლო პირდაპირი კონტაქტი იყო და მის გამორიცხვაში დარწმუნებული არ ხართ, ჯერ სამედიცინო რჩევა მიიღეთ და ღამურა თვითნებურად ნუ გაათავისუფლებთ. უსაფრთხოების შემთხვევაში ერთ ოთახში შემოფარგლეთ და გახსენით გარე ფანჯარა ან კარი. ნუ დაედევნებით და ნუ დაარტყამთ. ნაკბენის, ნაკაწრის ან გაურკვეველი პირდაპირი კონტაქტის შემდეგ დაიბანეთ და მიმართეთ სამედიცინო რჩევას; საქართველოში გადაუდებელ შემთხვევაში — 112.",
           "სახლში შემოფრენილი ღამურა ჩვეულებრივ გასასვლელს ეძებს და არა თავდასხმას. დახურეთ სხვა ოთახებისკენ მიმავალი კარები, რომ ცხოველი უფრო ღრმად არ გადაინაცვლოს. ბავშვები და შინაური ცხოველები გამოიყვანეთ. ერთი ან რამდენიმე გარე ფანჯარა ან გარე კარი რაც შეიძლება ფართოდ გახსენით, გაასუფთავეთ ფარდები, ჟალუზები და ავეჯი, რომლებიც გასასვლელს ბლოკავს, და გამორთეთ ზედმეტი შიდა შუქი, რომ გარე ღიობი უფრო ადვილად მოინახოს.",
           "შემდეგ უკან დაიხიეთ. Bat Conservation Trust-ის რჩევა საღამოს შიდა ფრენისას არის დროის მიცემა ორიენტაციისა და გასვლისთვის და არა ოთახში დევნა. მოგვიანებით შეამოწმეთ — ფარდების ნაოჭებისა და ავეჯის უკანაც — რომ ცხოველი მართლაც გასულია.",
         ],
@@ -259,6 +255,8 @@ export const BAT_IN_HOUSE_COPY: Record<AppLocale, GuideCopy> = {
         ],
       },
     ],
+    summary:
+      "თუ ღამურა სახლშია: შეინარჩუნეთ სიმშვიდე, ადამიანები და ცხოველები მოარიდეთ, შიშველი ხელით ნუ შეეხებით. თუ ნაკბენი, ნაკაწრი ან შესაძლო პირდაპირი კონტაქტი იყო და მის გამორიცხვაში დარწმუნებული არ ხართ, ჯერ სამედიცინო რჩევა მიიღეთ და ღამურა თვითნებურად ნუ გაათავისუფლებთ. უსაფრთხოების შემთხვევაში ერთ ოთახში შემოფარგლეთ და გახსენით გარე ფანჯარა ან კარი. ნუ დაედევნებით და ნუ დაარტყამთ. ნაკბენის, ნაკაწრის ან გაურკვეველი პირდაპირი კონტაქტის შემდეგ დაიბანეთ და მიმართეთ სამედიცინო რჩევას; საქართველოში გადაუდებელ შემთხვევაში — 112.",
     title: "ღამურა სახლში შემოფრინდა — რა უნდა გავაკეთოთ?",
   },
   ru: {
@@ -316,7 +314,6 @@ export const BAT_IN_HOUSE_COPY: Record<AppLocale, GuideCopy> = {
       {
         heading: "Что делать, если летучая мышь влетела в дом",
         paragraphs: [
-          "Если летучая мышь в доме: сохраняйте спокойствие, уберите людей и животных, не трогайте голыми руками. Если был укус, царапина или возможный прямой контакт и вы не уверены, что его можно исключить, сначала получите медицинскую консультацию и не выпускайте летучую мышь самостоятельно. Если это безопасно, ограничьте её одной комнатой и откройте наружное окно или дверь. Не гоняйте и не бейте. После укуса, царапины или неясного прямого контакта промойте рану и обратитесь за медицинской помощью; в Грузии при неотложке — 112.",
           "Летучая мышь в помещении обычно ищет выход, а не нападает. Закройте двери в другие комнаты, чтобы она не ушла глубже в здание. Уберите детей и животных. Широко откройте одно или несколько наружных окон или наружную дверь, уберите шторы, жалюзи и мебель, перекрывающие проём, и выключите лишний свет в комнате, чтобы выход наружу было легче найти.",
           "Затем отойдите. Рекомендация Bat Conservation Trust при вечернем полёте в помещении — дать время сориентироваться и уйти, а не гонять животное по комнате. Позже проверьте — в том числе складки штор и пространство за мебелью — что оно действительно ушло.",
         ],
@@ -383,6 +380,8 @@ export const BAT_IN_HOUSE_COPY: Record<AppLocale, GuideCopy> = {
         ],
       },
     ],
+    summary:
+      "Если летучая мышь в доме: сохраняйте спокойствие, уберите людей и животных, не трогайте голыми руками. Если был укус, царапина или возможный прямой контакт и вы не уверены, что его можно исключить, сначала получите медицинскую консультацию и не выпускайте летучую мышь самостоятельно. Если это безопасно, ограничьте её одной комнатой и откройте наружное окно или дверь. Не гоняйте и не бейте. После укуса, царапины или неясного прямого контакта промойте рану и обратитесь за медицинской помощью; в Грузии при неотложке — 112.",
     title: "В дом влетела летучая мышь — что делать?",
   },
   tr: {
@@ -440,7 +439,6 @@ export const BAT_IN_HOUSE_COPY: Record<AppLocale, GuideCopy> = {
       {
         heading: "Eve yarasa girerse ne yapmalı",
         paragraphs: [
-          "Evde yarasa varsa: sakin kalın, insanları ve evcil hayvanları uzak tutun, çıplak elle dokunmayın. Isırık, tırmık veya olası doğrudan temas olduysa ve bunu dışlayabildiğinizden emin değilseniz, önce tıbbi danışmanlık alın ve yarasayı kendiliğinizden salmayın. Güvenliyse tek odaya sınırlayın ve dış pencere veya kapıyı açın. Kovalamayın ve vurmayın. Isırık, tırmık veya belirsiz doğrudan temas sonrası yıkayın ve tıbbi danışmanlık alın; Gürcistan’da acilde 112.",
           "İçerideki yarasa genellikle saldırmaz; çıkış arar. Binaya daha derin gitmesin diye diğer odalara giden kapıları kapatın. Çocukları ve evcil hayvanları çıkarın. Bir veya birkaç dış pencereyi ya da dış kapıyı olabildiğince geniş açın, çıkışı engelleyen perde, panjur ve mobilyayı temizleyin ve gereksiz iç ışıkları kapatın ki dış açıklık daha kolay bulunsun.",
           "Sonra geri çekilin. Bat Conservation Trust’ın akşam iç mekân uçuşu için önerisi, odada kovalamak yerine yönünü bulup çıkması için zaman vermektir. Daha sonra — perde kıvrımları ve mobilya arkası dahil — gerçekten gittiğini kontrol edin.",
         ],
@@ -507,11 +505,13 @@ export const BAT_IN_HOUSE_COPY: Record<AppLocale, GuideCopy> = {
         ],
       },
     ],
+    summary:
+      "Evde yarasa varsa: sakin kalın, insanları ve evcil hayvanları uzak tutun, çıplak elle dokunmayın. Isırık, tırmık veya olası doğrudan temas olduysa ve bunu dışlayabildiğinizden emin değilseniz, önce tıbbi danışmanlık alın ve yarasayı kendiliğinizden salmayın. Güvenliyse tek odaya sınırlayın ve dış pencere veya kapıyı açın. Kovalamayın ve vurmayın. Isırık, tırmık veya belirsiz doğrudan temas sonrası yıkayın ve tıbbi danışmanlık alın; Gürcistan’da acilde 112.",
     title: "Eve yarasa girdi — ne yapmalı?",
   },
 };
 
-export const BAT_IN_HOUSE_SOURCES = [
+const SOURCES: readonly GuideArticleSource[] = [
   {
     name: "Bat Conservation Trust — Instructions for release",
     supports: {
@@ -592,4 +592,77 @@ export const BAT_IN_HOUSE_SOURCES = [
     },
     url: "https://112.gov.ge/?page_id=599",
   },
-] as const;
+];
+
+export const BAT_IN_HOUSE = defineGuideArticle({
+  copy: COPY,
+  hero: {
+    alt: {
+      en: "Small bat near an open residential window at dusk",
+      ka: "პატარა ღამურა საცხოვრებელი ფანჯრის ღიობთან ბინდობაში",
+      ru: "Небольшая летучая мышь у открытого окна дома в сумерках",
+      tr: "Alacakaranlıkta açık konut penceresi yakınında küçük yarasa",
+    },
+    height: 864,
+    src: "/images/guides/bat-house-hero.jpg",
+    width: 1152,
+  },
+  id: "bat-in-house",
+  images: {
+    "on-wall": {
+      alt: {
+        en: "Small bat resting on an interior wall near a curtain",
+        ka: "პატარა ღამურა შიდა კედელზე ფარდასთან",
+        ru: "Небольшая летучая мышь на внутренней стене у занавески",
+        tr: "Perde yakınında iç duvarda dinlenen küçük yarasa",
+      },
+      height: 864,
+      src: "/images/guides/bat-on-wall.jpg",
+      width: 1152,
+    },
+    roost: {
+      alt: {
+        en: "Bat roosting naturally in a rocky outdoor crevice at dusk",
+        ka: "ღამურა ბუნებრივ ქვის ნაპრალში ბინდობაში",
+        ru: "Летучая мышь в природной каменной расщелине в сумерках",
+        tr: "Alacakaranlıkta doğal kayalık yarıkta tüneyen yarasa",
+      },
+      height: 864,
+      src: "/images/guides/bat-roost-natural.jpg",
+      width: 1152,
+    },
+  },
+  messageKey: "batInHouse",
+  ogImage: "https://cdn.reptiles.ge/og/images/guides/bat-in-house.jpg",
+  parentHub: "mammals",
+  pathname: "/mammals/ghamura-saxlshi",
+  search: {
+    icon: "safety",
+    keywords: [
+      "ღამურა",
+      "ghamura",
+      "bat",
+      "სახლში",
+      "შემოფრინდა",
+      "летучая мышь",
+      "yarasa",
+      "ცოფი",
+      "rabies",
+      "ნაკბენი",
+    ],
+    rank: 5,
+    subtitle: {
+      en: "Stay calm, open an exit, avoid bare hands",
+      ka: "სიმშვიდე, გასასვლელი, შიშველი ხელით ნუ შეეხებით",
+      ru: "Спокойствие, выход наружу, не трогайте голыми руками",
+      tr: "Sakin kalın, çıkış açın, çıplak elle dokunmayın",
+    },
+    title: {
+      en: "A bat flew into the house",
+      ka: "ღამურა სახლში შემოფრინდა",
+      ru: "В дом влетела летучая мышь",
+      tr: "Eve yarasa girdi",
+    },
+  },
+  sources: SOURCES,
+});

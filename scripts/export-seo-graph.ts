@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 import { getPublishedCreditAuthors } from "../src/data/creditAuthors";
+import { GUIDE_ARTICLE_PATHS } from "../src/data/guideArticlePaths";
 import {
   getNewsArticleLocales,
   getPublishedNewsArticles,
@@ -78,14 +79,18 @@ function addAuthors() {
 }
 
 function addGuides() {
-  for (const guide of CLUSTER_GUIDE_LIST) {
+  const guidePaths = [
+    ...CLUSTER_GUIDE_LIST.map((guide) => guide.pathname),
+    ...GUIDE_ARTICLE_PATHS,
+  ];
+  for (const pathname of guidePaths) {
     for (const locale of routing.locales) {
-      const { canonical, languages } = localeAlternates(locale, guide.pathname);
+      const { canonical, languages } = localeAlternates(locale, pathname);
       addRoute({
         alternates: languages,
         canonicalUrl: canonical,
         locale,
-        path: localePath(locale, guide.pathname),
+        path: localePath(locale, pathname),
         type: "guide",
       });
     }
