@@ -264,7 +264,6 @@ export const regions: Region[] = [
     speciesIds: [
       "vipera-dinniki",
       "vipera-kaznakovi",
-      "natrix-tessellata",
       "anguis-colchica",
       "hyla-orientalis",
       "rana-macrocnemis",
@@ -368,7 +367,6 @@ export const regions: Region[] = [
       "vipera-transcaucasiana",
       "vipera-kaznakovi",
       "dolichophis-schmidti",
-      "natrix-tessellata",
       "anguis-colchica",
       "hyla-orientalis",
       "rana-macrocnemis",
