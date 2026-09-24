@@ -4,6 +4,27 @@ import type { OptimizedImageEntry } from "./optimizedImages";
 export const optimizedBaseUrl = "https://cdn.reptiles.ge/optimized/";
 
 export const optimizedImages: Record<string, OptimizedImageEntry> = {
+  "/images/guides/bat-house-hero.jpg": {
+    "path": "images/guides/bat-house-hero",
+    "width": 1152,
+    "height": 864,
+    "widths": [320, 400, 640, 800, 1152],
+    "formats": ["avif", "webp"]
+  },
+  "/images/guides/bat-on-wall.jpg": {
+    "path": "images/guides/bat-on-wall",
+    "width": 1152,
+    "height": 864,
+    "widths": [320, 400, 640, 800, 1152],
+    "formats": ["avif", "webp"]
+  },
+  "/images/guides/bat-roost-natural.jpg": {
+    "path": "images/guides/bat-roost-natural",
+    "width": 1152,
+    "height": 864,
+    "widths": [320, 400, 640, 800, 1152],
+    "formats": ["avif", "webp"]
+  },
   "/images/guides/wasp-nest-enclosed.jpg": {
     "path": "images/guides/wasp-nest-enclosed",
     "width": 1421,
