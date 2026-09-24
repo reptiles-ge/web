@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 
 import { getPublishedCreditAuthors } from "@/data/creditAuthors";
+import { getGuideArticles } from "@/data/guideArticles";
 import { getPublishedNewsArticles } from "@/data/news";
 import {
   sitemapAuthorDatePublished,
@@ -39,6 +40,7 @@ import {
 } from "@/lib/site";
 import {
   creditAuthorPageImageUrls,
+  guidePageImageUrls,
   speciesPageImageUrls,
 } from "@/lib/sitemapImages";
 import { regionHref } from "@/lib/speciesRoutes";
@@ -67,8 +69,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     push(pageEntry(locale, "/terms-and-conditions"));
     push(pageEntry(locale, "/privacy"));
     push(pageEntry(locale, "/news"));
-    push(pageEntry(locale, "/insects/krazanis-bude"));
-    push(pageEntry(locale, "/mammals/ghamura-saxlshi"));
+    for (const article of getGuideArticles()) {
+      push({
+        ...pageEntry(locale, article.pathname),
+        images: guidePageImageUrls([article.hero.src]),
+      });
+    }
     push(pageEntry(locale, "/authors"));
     push(pageEntry(locale, "/species"));
     push(pageEntry(locale, "/venomous-snakes"));
@@ -86,7 +92,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
 
     for (const guide of CLUSTER_GUIDE_LIST) {
-      push(pageEntry(locale, guide.pathname));
+      const images = guidePageImageUrls([guide.heroImage]);
+      push({
+        ...pageEntry(locale, guide.pathname),
+        ...(images.length > 0 ? { images } : {}),
+      });
     }
 
     for (const hub of GROUP_HUB_LIST) {

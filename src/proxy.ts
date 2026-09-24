@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 import type { GroupHubId } from "@/lib/groupHubs";
 
+import { guideArticleRedirects } from "@/i18n/guideArticleRedirects";
 import { isPrefixedLocale, type PrefixedLocale } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { legacyPhotographerRedirectPath } from "@/lib/photographerRedirects";
@@ -47,7 +48,10 @@ const KA_HUB_SEGMENT =
   "gvelebi|xvlikebi|kuebi|amfibiebi|prinvelebi|dzuzumtsovrebi|morieli|moriebi|obobebi|mtserebi";
 const PREFIX_SEGMENT = "en|ru|tr";
 
+const GUIDE_REDIRECTS = guideArticleRedirects();
+
 const PERMANENT_REDIRECTS: Record<string, string> = {
+  ...GUIDE_REDIRECTS.ka,
   "/amphibians": "/amfibiebi",
   "/amphibians/bayayi": "/amfibiebi/bayayi",
   "/amphibians/bayayi/saxeoebebi": "/amfibiebi/bayayi/saxeoebebi",
@@ -75,10 +79,8 @@ const PERMANENT_REDIRECTS: Record<string, string> = {
   "/lizards/xvliki-saxlshi": "/xvlikebi/xvliki-saxlshi",
   "/lizards/xvlikis-da-gvelxokeras-gansxvaveba":
     "/xvlikebi/xvlikis-da-gvelxokeras-gansxvaveba",
-  "/mammals/bat-in-the-house": "/dzuzumtsovrebi/ghamura-saxlshi",
   "/mammals/bear-encounter": "/dzuzumtsovrebi/datvi-shekhvedra",
   "/mammals/datvi-shekhvedra": "/dzuzumtsovrebi/datvi-shekhvedra",
-  "/mammals/ghamura-saxlshi": "/dzuzumtsovrebi/ghamura-saxlshi",
   "/mammals/jackal-in-the-yard": "/dzuzumtsovrebi/tura-ezoshi",
   "/mammals/saxeoebebi": "/dzuzumtsovrebi/saxeoebebi",
   "/mammals/species": "/dzuzumtsovrebi/saxeoebebi",
@@ -133,6 +135,7 @@ const TEMPORARY_REDIRECTS: Record<string, string> = {
 };
 
 const PREFIXED_PERMANENT_REDIRECTS: Record<string, string> = {
+  ...GUIDE_REDIRECTS.prefixed,
   "/amfibiebi": "/amphibians",
   "/amfibiebi/bayayi": "/amphibians/frogs",
   "/amfibiebi/bayayi/saxeoebebi": "/amphibians/frogs/species",
@@ -146,7 +149,6 @@ const PREFIXED_PERMANENT_REDIRECTS: Record<string, string> = {
   "/avtorebi": "/contributors",
   "/dzuzumtsovrebi": "/mammals",
   "/dzuzumtsovrebi/datvi-shekhvedra": "/mammals/bear-encounter",
-  "/dzuzumtsovrebi/ghamura-saxlshi": "/mammals/bat-in-the-house",
   "/dzuzumtsovrebi/saxeoebebi": "/mammals/species",
   "/dzuzumtsovrebi/tura-ezoshi": "/mammals/jackal-in-the-yard",
   "/fotografebi": "/contributors",
@@ -173,7 +175,6 @@ const PREFIXED_PERMANENT_REDIRECTS: Record<string, string> = {
   "/lizards/xvlikis-da-gvelxokeras-gansxvaveba":
     "/lizards/lizard-or-glass-lizard",
   "/mammals/datvi-shekhvedra": "/mammals/bear-encounter",
-  "/mammals/ghamura-saxlshi": "/mammals/bat-in-the-house",
   "/mammals/saxeoebebi": "/mammals/species",
   "/mammals/tura-ezoshi": "/mammals/jackal-in-the-yard",
   "/obobebi": "/spiders",

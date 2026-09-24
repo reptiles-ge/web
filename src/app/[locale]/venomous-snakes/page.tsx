@@ -130,28 +130,6 @@ export default async function VenomousSnakesRoute({ params }: Props) {
     ],
   };
 
-  const faqRichPlain = {
-    bite: (chunks: string) => chunks,
-    giurza: (chunks: string) => chunks,
-    malpolon: (chunks: string) => chunks,
-  };
-
-  const faqLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: ([1, 2, 3, 4, 5] as const).map((n) => ({
-      "@type": "Question",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text:
-          n === 1 || n === 2 || n === 4 || n === 5
-            ? t.markup(`faq${n}A`, faqRichPlain)
-            : t(`faq${n}A`),
-      },
-      name: t(`faq${n}Q`),
-    })),
-  };
-
   const pageLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -185,7 +163,6 @@ export default async function VenomousSnakesRoute({ params }: Props) {
       {heroSrc ? <CoverImagePreload sizes="100vw" src={heroSrc} /> : null}
       <JsonLd data={breadcrumbLd} />
       <JsonLd data={pageLd} />
-      <JsonLd data={faqLd} />
       <ClientMessagesProvider
         namespaces={[
           "card",

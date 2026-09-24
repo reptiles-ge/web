@@ -1,15 +1,14 @@
 import type { AppLocale } from "@/i18n/routing";
 
-type GuideCopy = {
-  description: string;
-  faq: { answer: string; question: string }[];
-  lead: string;
-  metaTitle: string;
-  sections: { heading: string; image?: "open-comb"; paragraphs: string[] }[];
-  title: string;
-};
+import {
+  defineGuideArticle,
+  type GuideArticleCopy,
+  type GuideArticleSource,
+} from "@/data/guideArticleTypes";
 
-export const WASP_NEST_COPY: Record<AppLocale, GuideCopy> = {
+type ImageKey = "open-comb";
+
+const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
   en: {
     description:
       "Found a wasp or hornet nest? Learn when to leave it alone, when to call a professional, and which sting symptoms need urgent help.",
@@ -41,7 +40,6 @@ export const WASP_NEST_COPY: Record<AppLocale, GuideCopy> = {
         question: "Can I seal the entrance?",
       },
     ],
-    lead: "Finding a nest is not automatically an emergency. Step away, leave it undisturbed, and keep children and pets clear. Have a professional assess a nest by a busy entrance; after a sting, call 112 in Georgia for breathing difficulty or throat swelling.",
     metaTitle: "Wasp nest near your home: what to do safely",
     sections: [
       {
@@ -119,6 +117,8 @@ export const WASP_NEST_COPY: Record<AppLocale, GuideCopy> = {
         ],
       },
     ],
+    summary:
+      "Finding a nest is not automatically an emergency. Step away, leave it undisturbed, and keep children and pets clear. Have a professional assess a nest by a busy entrance; after a sting, call 112 in Georgia for breathing difficulty or throat swelling.",
     title: "Wasp nest near your home: how dangerous is it?",
   },
   ka: {
@@ -151,7 +151,6 @@ export const WASP_NEST_COPY: Record<AppLocale, GuideCopy> = {
         question: "შეიძლება ბუდის შესასვლელის დახშობა?",
       },
     ],
-    lead: "ბუდის დანახვა თავისთავად გადაუდებელ საფრთხეს არ ნიშნავს. მოშორდით, ნუ შეეხებით და ბავშვები და ცხოველები მოარიდეთ. თუ ბუდე ყოველდღიურ გასასვლელთანაა, სპეციალისტს შეაფასებინეთ; დანესტვრის შემდეგ სუნთქვის გაძნელების ან ყელის შეშუპებისას დარეკეთ 112-ზე.",
     metaTitle: "კრაზანის ბუდე — რამდენად საშიშია და როგორ მოვიქცეთ?",
     sections: [
       {
@@ -229,6 +228,8 @@ export const WASP_NEST_COPY: Record<AppLocale, GuideCopy> = {
         ],
       },
     ],
+    summary:
+      "ბუდის დანახვა თავისთავად გადაუდებელ საფრთხეს არ ნიშნავს. მოშორდით, ნუ შეეხებით და ბავშვები და ცხოველები მოარიდეთ. თუ ბუდე ყოველდღიურ გასასვლელთანაა, სპეციალისტს შეაფასებინეთ; დანესტვრის შემდეგ სუნთქვის გაძნელების ან ყელის შეშუპებისას დარეკეთ 112-ზე.",
     title: "კრაზანის ბუდე: რამდენად საშიშია და როგორ მოვიქცეთ?",
   },
   ru: {
@@ -262,7 +263,6 @@ export const WASP_NEST_COPY: Record<AppLocale, GuideCopy> = {
         question: "Можно ли закрыть вход в гнездо?",
       },
     ],
-    lead: "Обнаружение гнезда само по себе не означает чрезвычайной ситуации. Отойдите, не тревожьте его и не подпускайте детей и животных. Гнездо у часто используемого входа должен оценить специалист; при затруднении дыхания или отёке горла после ужаления звоните 112 в Грузии.",
     metaTitle: "Осиное гнездо у дома: как действовать безопасно",
     sections: [
       {
@@ -340,6 +340,8 @@ export const WASP_NEST_COPY: Record<AppLocale, GuideCopy> = {
         ],
       },
     ],
+    summary:
+      "Обнаружение гнезда само по себе не означает чрезвычайной ситуации. Отойдите, не тревожьте его и не подпускайте детей и животных. Гнездо у часто используемого входа должен оценить специалист; при затруднении дыхания или отёке горла после ужаления звоните 112 в Грузии.",
     title: "Осиное гнездо у дома: насколько это опасно?",
   },
   tr: {
@@ -372,7 +374,6 @@ export const WASP_NEST_COPY: Record<AppLocale, GuideCopy> = {
         question: "Yuva girişini kapatabilir miyim?",
       },
     ],
-    lead: "Bir yuva görmek tek başına acil durum anlamına gelmez. Uzaklaşın, yuvayı rahatsız etmeyin ve çocuklarla evcil hayvanları yaklaştırmayın. Sık kullanılan girişteki yuvayı bir uzmana değerlendirtin; sokma sonrası solunum güçlüğü veya boğaz şişmesinde Gürcistan'da 112'yi arayın.",
     metaTitle: "Eşek arısı yuvası: ne zaman tehlikeli, ne yapmalı?",
     sections: [
       {
@@ -450,11 +451,13 @@ export const WASP_NEST_COPY: Record<AppLocale, GuideCopy> = {
         ],
       },
     ],
+    summary:
+      "Bir yuva görmek tek başına acil durum anlamına gelmez. Uzaklaşın, yuvayı rahatsız etmeyin ve çocuklarla evcil hayvanları yaklaştırmayın. Sık kullanılan girişteki yuvayı bir uzmana değerlendirtin; sokma sonrası solunum güçlüğü veya boğaz şişmesinde Gürcistan'da 112'yi arayın.",
     title: "Evin yakınında eşek arısı yuvası: ne yapmalı?",
   },
 };
 
-export const WASP_NEST_SOURCES = [
+const SOURCES: readonly GuideArticleSource[] = [
   {
     name: "Penn State Extension — Getting Rid of Paper Wasps, Yellowjackets, and Other Stinging Insects",
     supports: {
@@ -535,4 +538,69 @@ export const WASP_NEST_SOURCES = [
     },
     url: "https://www.nplg.gov.ge/gwdict/index.php?a=term&d=17&t=50797",
   },
-] as const;
+];
+
+export const WASP_NEST = defineGuideArticle({
+  copy: COPY,
+  hero: {
+    alt: {
+      en: "Enclosed papery wasp nest beneath a wooden roof edge",
+      ka: "დახურული, ქაღალდისებრი კრაზანის ბუდე ხის გადახურვის ქვეშ",
+      ru: "Закрытое бумагообразное осиное гнездо под деревянным краем крыши",
+      tr: "Ahşap çatı kenarı altındaki kapalı, kâğıt benzeri eşek arısı yuvası",
+    },
+    height: 1107,
+    src: "/images/guides/wasp-nest-enclosed.jpg",
+    width: 1421,
+  },
+  id: "wasp-nest",
+  images: {
+    "open-comb": {
+      alt: {
+        en: "Black-and-yellow wasps on the open cells of a papery nest",
+        ka: "შავ-ყვითელი მწერები ქაღალდისმაგვარი ბუდის ღია ფიჭაზე",
+        ru: "Чёрно-жёлтые осы на открытых ячейках бумагообразного гнезда",
+        tr: "Kâğıt benzeri yuvanın açık hücreleri üzerindeki siyah-sarı eşek arıları",
+      },
+      height: 1024,
+      src: "/images/guides/wasp-nest-open-comb.jpg",
+      width: 1536,
+    },
+  },
+  messageKey: "waspNest",
+  ogImage: "/og/images/guides/wasp-nest.jpg",
+  parentHub: "insects",
+  pathname: "/insects/krazanis-bude",
+  search: {
+    icon: "safety",
+    keywords: [
+      "კრაზანა",
+      "კრაზანის ბუდე",
+      "ბზიკი",
+      "ბზიკის ბუდე",
+      "wasp",
+      "hornet",
+      "nest",
+      "оса",
+      "осиное гнездо",
+      "eşek arısı",
+      "yuva",
+      "დანესტვრა",
+      "აივანი",
+    ],
+    rank: 5,
+    subtitle: {
+      en: "When to leave a nest alone, and when to call for help",
+      ka: "როდის დატოვოთ ბუდე მშვიდად და როდის მიმართოთ სპეციალისტს",
+      ru: "Когда гнездо не трогать и когда нужен специалист",
+      tr: "Yuvayı ne zaman bırakmalı, ne zaman uzman çağırmalı",
+    },
+    title: {
+      en: "Wasp nest near your home",
+      ka: "კრაზანის ბუდე",
+      ru: "Осиное гнездо у дома",
+      tr: "Eşek arısı yuvası",
+    },
+  },
+  sources: SOURCES,
+});

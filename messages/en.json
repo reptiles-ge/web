@@ -246,7 +246,8 @@
         "jackalYard": "A jackal in the yard",
         "bearEncounter": "If you meet a bear",
         "lizardHouse": "A lizard in the house",
-        "batInHouse": "A bat in the house"
+        "batInHouse": "A bat in the house",
+        "waspNest": "Wasp nest near your home"
       }
     }
   },
@@ -313,7 +314,8 @@
     "jackalYard": "Jackal in the yard",
     "bearEncounter": "Bear encounter",
     "lizardHouse": "Lizard in the house",
-    "batInHouse": "Bat in the house"
+    "batInHouse": "Bat in the house",
+    "waspNest": "Wasp nest"
   },
   "legal": {
     "canonicalNotice": "The legal text on this page is currently provided in Georgian; treat the Georgian version as the canonical text.",
@@ -730,6 +732,14 @@
     "updated": "Updated: {date}",
     "sources": "Sources",
     "methodology": "Our methodology"
+  },
+  "guideArticle": {
+    "contents": "In this guide",
+    "faq": "Frequently asked questions",
+    "related": "Related guides",
+    "relatedSpecies": "Related species",
+    "sources": "Sources and supported claims",
+    "summary": "In short"
   },
   "site": {
     "title": "Reptiles — atlas of animals of Georgia",

@@ -4,6 +4,7 @@ import type { Species } from "@/data/species";
 
 import {
   creditAuthorPageImageUrls,
+  guidePageImageUrls,
   speciesPageImageUrls,
 } from "@/lib/sitemapImages";
 
@@ -108,6 +109,20 @@ describe("creditAuthorPageImageUrls", () => {
       "https://cdn.reptiles.ge/authors/sandro.jpg",
       "https://cdn.reptiles.ge/a.jpg",
       "https://cdn.reptiles.ge/b.jpg",
+    ]);
+  });
+});
+
+describe("guidePageImageUrls", () => {
+  it("lists optimized guide heroes without requiring a photo credit", () => {
+    expect(
+      guidePageImageUrls([
+        "/images/guides/wasp-nest-enclosed.jpg",
+        undefined,
+        "/images/guides/wasp-nest-enclosed.jpg",
+      ]),
+    ).toEqual([
+      "https://cdn.reptiles.ge/optimized/images/guides/wasp-nest-enclosed-1200.webp",
     ]);
   });
 });

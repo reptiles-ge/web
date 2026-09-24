@@ -1,19 +1,14 @@
 import type { AppLocale } from "@/i18n/routing";
 
-type GuideCopy = {
-  description: string;
-  faq: { answer: string; question: string }[];
-  lead: string;
-  metaTitle: string;
-  sections: {
-    heading: string;
-    image?: "on-wall" | "roost";
-    paragraphs: string[];
-  }[];
-  title: string;
-};
+import {
+  defineGuideArticle,
+  type GuideArticleCopy,
+  type GuideArticleSource,
+} from "@/data/guideArticleTypes";
 
-export const BAT_IN_HOUSE_COPY: Record<AppLocale, GuideCopy> = {
+type ImageKey = "on-wall" | "roost";
+
+const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
   en: {
     description:
       "A bat flew into your home? Stay calm, keep people and pets away, open an exterior exit, and learn when medical advice is needed after contact.",
@@ -64,7 +59,6 @@ export const BAT_IN_HOUSE_COPY: Record<AppLocale, GuideCopy> = {
         question: "What if a child or pet is in the house?",
       },
     ],
-    lead: "If a bat is indoors: stay calm, keep people and pets away, and avoid bare hands. If there was a bite, a scratch, or possible direct contact and you are not sure it can be ruled out, get medical advice first and do not release the bat on your own. If safe, isolate it to one room and open an exterior window or door so it can leave. Do not chase or strike it. After a bite, scratch, or uncertain direct contact, wash and seek medical advice; in Georgia call 112 for emergencies.",
     metaTitle: "A bat flew into the house — what should you do?",
     sections: [
       {
@@ -136,6 +130,8 @@ export const BAT_IN_HOUSE_COPY: Record<AppLocale, GuideCopy> = {
         ],
       },
     ],
+    summary:
+      "If a bat is indoors: stay calm, keep people and pets away, and avoid bare hands. If there was a bite, a scratch, or possible direct contact and you are not sure it can be ruled out, get medical advice first and do not release the bat on your own. If safe, isolate it to one room and open an exterior window or door so it can leave. Do not chase or strike it. After a bite, scratch, or uncertain direct contact, wash and seek medical advice; in Georgia call 112 for emergencies.",
     title: "A bat flew into the house — what should you do?",
   },
   ka: {
@@ -188,7 +184,6 @@ export const BAT_IN_HOUSE_COPY: Record<AppLocale, GuideCopy> = {
         question: "როგორ მოვიქცეთ, თუ სახლში ბავშვი ან შინაური ცხოველია?",
       },
     ],
-    lead: "თუ ღამურა სახლშია: შეინარჩუნეთ სიმშვიდე, ადამიანები და ცხოველები მოარიდეთ, შიშველი ხელით ნუ შეეხებით. თუ ნაკბენი, ნაკაწრი ან შესაძლო პირდაპირი კონტაქტი იყო და მის გამორიცხვაში დარწმუნებული არ ხართ, ჯერ სამედიცინო რჩევა მიიღეთ და ღამურა თვითნებურად ნუ გაათავისუფლებთ. უსაფრთხოების შემთხვევაში ერთ ოთახში შემოფარგლეთ და გახსენით გარე ფანჯარა ან კარი. ნუ დაედევნებით და ნუ დაარტყამთ. ნაკბენის, ნაკაწრის ან გაურკვეველი პირდაპირი კონტაქტის შემდეგ დაიბანეთ და მიმართეთ სამედიცინო რჩევას; საქართველოში გადაუდებელ შემთხვევაში — 112.",
     metaTitle: "ღამურა სახლში შემოფრინდა — როგორ მოვიქცეთ?",
     sections: [
       {
@@ -260,6 +255,8 @@ export const BAT_IN_HOUSE_COPY: Record<AppLocale, GuideCopy> = {
         ],
       },
     ],
+    summary:
+      "თუ ღამურა სახლშია: შეინარჩუნეთ სიმშვიდე, ადამიანები და ცხოველები მოარიდეთ, შიშველი ხელით ნუ შეეხებით. თუ ნაკბენი, ნაკაწრი ან შესაძლო პირდაპირი კონტაქტი იყო და მის გამორიცხვაში დარწმუნებული არ ხართ, ჯერ სამედიცინო რჩევა მიიღეთ და ღამურა თვითნებურად ნუ გაათავისუფლებთ. უსაფრთხოების შემთხვევაში ერთ ოთახში შემოფარგლეთ და გახსენით გარე ფანჯარა ან კარი. ნუ დაედევნებით და ნუ დაარტყამთ. ნაკბენის, ნაკაწრის ან გაურკვეველი პირდაპირი კონტაქტის შემდეგ დაიბანეთ და მიმართეთ სამედიცინო რჩევას; საქართველოში გადაუდებელ შემთხვევაში — 112.",
     title: "ღამურა სახლში შემოფრინდა — რა უნდა გავაკეთოთ?",
   },
   ru: {
@@ -312,7 +309,6 @@ export const BAT_IN_HOUSE_COPY: Record<AppLocale, GuideCopy> = {
         question: "Что делать, если в доме ребёнок или питомец?",
       },
     ],
-    lead: "Если летучая мышь в доме: сохраняйте спокойствие, уберите людей и животных, не трогайте голыми руками. Если был укус, царапина или возможный прямой контакт и вы не уверены, что его можно исключить, сначала получите медицинскую консультацию и не выпускайте летучую мышь самостоятельно. Если это безопасно, ограничьте её одной комнатой и откройте наружное окно или дверь. Не гоняйте и не бейте. После укуса, царапины или неясного прямого контакта промойте рану и обратитесь за медицинской помощью; в Грузии при неотложке — 112.",
     metaTitle: "В дом влетела летучая мышь — что делать?",
     sections: [
       {
@@ -384,6 +380,8 @@ export const BAT_IN_HOUSE_COPY: Record<AppLocale, GuideCopy> = {
         ],
       },
     ],
+    summary:
+      "Если летучая мышь в доме: сохраняйте спокойствие, уберите людей и животных, не трогайте голыми руками. Если был укус, царапина или возможный прямой контакт и вы не уверены, что его можно исключить, сначала получите медицинскую консультацию и не выпускайте летучую мышь самостоятельно. Если это безопасно, ограничьте её одной комнатой и откройте наружное окно или дверь. Не гоняйте и не бейте. После укуса, царапины или неясного прямого контакта промойте рану и обратитесь за медицинской помощью; в Грузии при неотложке — 112.",
     title: "В дом влетела летучая мышь — что делать?",
   },
   tr: {
@@ -436,7 +434,6 @@ export const BAT_IN_HOUSE_COPY: Record<AppLocale, GuideCopy> = {
         question: "Evde çocuk veya evcil hayvan varsa ne yapmalı?",
       },
     ],
-    lead: "Evde yarasa varsa: sakin kalın, insanları ve evcil hayvanları uzak tutun, çıplak elle dokunmayın. Isırık, tırmık veya olası doğrudan temas olduysa ve bunu dışlayabildiğinizden emin değilseniz, önce tıbbi danışmanlık alın ve yarasayı kendiliğinizden salmayın. Güvenliyse tek odaya sınırlayın ve dış pencere veya kapıyı açın. Kovalamayın ve vurmayın. Isırık, tırmık veya belirsiz doğrudan temas sonrası yıkayın ve tıbbi danışmanlık alın; Gürcistan’da acilde 112.",
     metaTitle: "Eve yarasa girdi — ne yapmalı?",
     sections: [
       {
@@ -508,11 +505,13 @@ export const BAT_IN_HOUSE_COPY: Record<AppLocale, GuideCopy> = {
         ],
       },
     ],
+    summary:
+      "Evde yarasa varsa: sakin kalın, insanları ve evcil hayvanları uzak tutun, çıplak elle dokunmayın. Isırık, tırmık veya olası doğrudan temas olduysa ve bunu dışlayabildiğinizden emin değilseniz, önce tıbbi danışmanlık alın ve yarasayı kendiliğinizden salmayın. Güvenliyse tek odaya sınırlayın ve dış pencere veya kapıyı açın. Kovalamayın ve vurmayın. Isırık, tırmık veya belirsiz doğrudan temas sonrası yıkayın ve tıbbi danışmanlık alın; Gürcistan’da acilde 112.",
     title: "Eve yarasa girdi — ne yapmalı?",
   },
 };
 
-export const BAT_IN_HOUSE_SOURCES = [
+const SOURCES: readonly GuideArticleSource[] = [
   {
     name: "Bat Conservation Trust — Instructions for release",
     supports: {
@@ -593,4 +592,77 @@ export const BAT_IN_HOUSE_SOURCES = [
     },
     url: "https://112.gov.ge/?page_id=599",
   },
-] as const;
+];
+
+export const BAT_IN_HOUSE = defineGuideArticle({
+  copy: COPY,
+  hero: {
+    alt: {
+      en: "Small bat near an open residential window at dusk",
+      ka: "პატარა ღამურა საცხოვრებელი ფანჯრის ღიობთან ბინდობაში",
+      ru: "Небольшая летучая мышь у открытого окна дома в сумерках",
+      tr: "Alacakaranlıkta açık konut penceresi yakınında küçük yarasa",
+    },
+    height: 864,
+    src: "/images/guides/bat-house-hero.jpg",
+    width: 1152,
+  },
+  id: "bat-in-house",
+  images: {
+    "on-wall": {
+      alt: {
+        en: "Small bat resting on an interior wall near a curtain",
+        ka: "პატარა ღამურა შიდა კედელზე ფარდასთან",
+        ru: "Небольшая летучая мышь на внутренней стене у занавески",
+        tr: "Perde yakınında iç duvarda dinlenen küçük yarasa",
+      },
+      height: 864,
+      src: "/images/guides/bat-on-wall.jpg",
+      width: 1152,
+    },
+    roost: {
+      alt: {
+        en: "Bat roosting naturally in a rocky outdoor crevice at dusk",
+        ka: "ღამურა ბუნებრივ ქვის ნაპრალში ბინდობაში",
+        ru: "Летучая мышь в природной каменной расщелине в сумерках",
+        tr: "Alacakaranlıkta doğal kayalık yarıkta tüneyen yarasa",
+      },
+      height: 864,
+      src: "/images/guides/bat-roost-natural.jpg",
+      width: 1152,
+    },
+  },
+  messageKey: "batInHouse",
+  ogImage: "https://cdn.reptiles.ge/og/images/guides/bat-in-house.jpg",
+  parentHub: "mammals",
+  pathname: "/mammals/ghamura-saxlshi",
+  search: {
+    icon: "safety",
+    keywords: [
+      "ღამურა",
+      "ghamura",
+      "bat",
+      "სახლში",
+      "შემოფრინდა",
+      "летучая мышь",
+      "yarasa",
+      "ცოფი",
+      "rabies",
+      "ნაკბენი",
+    ],
+    rank: 5,
+    subtitle: {
+      en: "Stay calm, open an exit, avoid bare hands",
+      ka: "სიმშვიდე, გასასვლელი, შიშველი ხელით ნუ შეეხებით",
+      ru: "Спокойствие, выход наружу, не трогайте голыми руками",
+      tr: "Sakin kalın, çıkış açın, çıplak elle dokunmayın",
+    },
+    title: {
+      en: "A bat flew into the house",
+      ka: "ღამურა სახლში შემოფრინდა",
+      ru: "В дом влетела летучая мышь",
+      tr: "Eve yarasa girdi",
+    },
+  },
+  sources: SOURCES,
+});

@@ -6,7 +6,10 @@ import { useEffect, useId, useState } from "react";
 
 import { NavbarChrome } from "@/components/NavbarChrome";
 import { NavbarMenu } from "@/components/NavbarMenu";
+import { GUIDE_ARTICLE_PATHS } from "@/data/guideArticlePaths";
 import { usePathname } from "@/i18n/navigation";
+
+const GUIDE_ARTICLE_PATH_SET = new Set<string>(GUIDE_ARTICLE_PATHS);
 
 export function Navbar() {
   const t = useTranslations("nav");
@@ -139,8 +142,7 @@ export function Navbar() {
 
 function hasDarkHeroTop(pathname: string) {
   if (pathname === "/contact") return false;
-  if (pathname === "/insects/krazanis-bude") return false;
-  if (pathname === "/mammals/ghamura-saxlshi") return false;
+  if (GUIDE_ARTICLE_PATH_SET.has(pathname)) return false;
   if (pathname === "/") return true;
   if (pathname === "/about") return true;
   if (pathname === "/venomous-snakes") return true;

@@ -30,23 +30,24 @@ Do not add code comments. Do not invent UI copy in one locale only.
 
 ## Read first
 
-| Task                           | Start here                                                                |
-| ------------------------------ | ------------------------------------------------------------------------- |
-| Species profile / MDX          | `src/content/species/{id}/{ka,en}.mdx`, then `scripts/compile-species.ts` |
-| Catalog, publish, danger       | `src/data/species.ts`                                                     |
-| Group (snake/lizard/…)         | `src/data/speciesAtlas.ts`                                                |
+| Task                           | Start here                                                                               |
+| ------------------------------ | ---------------------------------------------------------------------------------------- |
+| Species profile / MDX          | `src/content/species/{id}/{ka,en}.mdx`, then `scripts/compile-species.ts`                |
+| Catalog, publish, danger       | `src/data/species.ts`                                                                    |
+| Group (snake/lizard/…)         | `src/data/speciesAtlas.ts`                                                               |
 | Public URL / slug / lookalikes | `src/lib/speciesSlugRules.ts`, `src/lib/speciesSlugTable.ts`, `src/lib/speciesRoutes.ts` |
-| Localized pathnames            | `src/i18n/pathnames.ts`                                                   |
-| Group hubs                     | `src/lib/groupHubs.ts`, `src/lib/createGroupHubRoute.tsx`                 |
-| Cluster guides                 | `src/lib/clusterGuides.ts`, `src/lib/createClusterGuideRoute.tsx`         |
-| Species page factory           | `src/lib/createSpeciesRoute.tsx`                                          |
-| Regions + map IDs              | `src/data/regions.ts` — **never infer** `speciesIds`                      |
-| Checklist authority            | `src/data/herpetofauna-checklist.ts`                                      |
-| Quiz registry                  | `src/lib/quizzes.ts`, `src/lib/snakeQuiz.ts`                              |
-| Contributors                   | `src/data/creditAuthors.ts`, `src/lib/creditAuthors.ts`                   |
-| News                           | `src/data/news.ts`, `src/content/news/`, `src/lib/news.ts`                |
-| 301 map                        | `next.config.ts` **and** `src/proxy.ts` (slug table: `speciesSlugTable.ts`) |
-| UI strings                     | `messages/ka.json` + `messages/en.json` (same keys)                       |
+| Localized pathnames            | `src/i18n/pathnames.ts`                                                                  |
+| Group hubs                     | `src/lib/groupHubs.ts`, `src/lib/createGroupHubRoute.tsx`                                |
+| Cluster guides                 | `src/lib/clusterGuides.ts`, `src/lib/createClusterGuideRoute.tsx`                        |
+| Guide articles (bat, wasp, …)  | `.agents/skills/guide-article/SKILL.md` (playbook), `src/data/guideArticles.ts`          |
+| Species page factory           | `src/lib/createSpeciesRoute.tsx`                                                         |
+| Regions + map IDs              | `src/data/regions.ts` — **never infer** `speciesIds`                                     |
+| Checklist authority            | `src/data/herpetofauna-checklist.ts`                                                     |
+| Quiz registry                  | `src/lib/quizzes.ts`, `src/lib/snakeQuiz.ts`                                             |
+| Contributors                   | `src/data/creditAuthors.ts`, `src/lib/creditAuthors.ts`                                  |
+| News                           | `src/data/news.ts`, `src/content/news/`, `src/lib/news.ts`                               |
+| 301 map                        | `next.config.ts` **and** `src/proxy.ts` (slug table: `speciesSlugTable.ts`)              |
+| UI strings                     | `messages/ka.json` + `messages/en.json` (same keys)                                      |
 
 ## Architecture
 
@@ -58,6 +59,7 @@ src/data/species.generated.ts   gitignored
 src/data/speciesSlugs.generated.ts gitignored (Edge slug table)
 src/data/search-index.{ka,en,ru,tr}.generated.ts gitignored
 src/content/news/{slug}.ts first-class news articles (all locales)
+src/content/guides/{id}.ts long-form guide articles (all locales) → src/data/guideArticles.ts
 src/data/news.ts           published news registry
 src/lib/                   routing, SEO, quiz, clusters, news
 src/i18n/                  next-intl routing + pathnames
@@ -70,6 +72,7 @@ Route pages are thin factories:
 - Hub: `createGroupHubRoute("snakes")` in `src/app/[locale]/snakes/page.tsx`
 - Guide: `createClusterGuideRoute("snake-bite")` in `…/snakes/gvelis-nakbeni/page.tsx`
 - Species: `createSpeciesHubRoute("snakes")` in `…/snakes/[slug]/page.tsx`
+- Guide article: `createGuideArticleRoute("/mammals/ghamura-saxlshi")` in `…/mammals/ghamura-saxlshi/page.tsx`
 
 Internal hrefs use English pathnames (`/snakes`, `/snakes/[slug]`). Public KA URLs are Georgian (`/gvelebi`, `/gvelebi/giurza`). EN keeps English/scientific slugs (`/en/snakes/macrovipera-lebetina`). `Link` / `getPathname` from `@/i18n/navigation` — never hardcode locale prefixes.
 
@@ -108,7 +111,7 @@ This is a public scientific atlas, not a blog.
 - **Darevskia:** 16 species; colour is not ID. Do not collapse them.
 - **Medical:** bite / venom / yard pages are educational. Call **112**. Not first-aid protocol, not `MedicalWebPage` schema. `malpolon-insignitus` is Moderate / rear-fanged — not გიურზა.
 - **Photos:** CDN URLs are often generic. Do not mark Georgia-field-verified without evidence. Keep credit; placeholder is OK.
-- FAQ schema only for FAQs that are actually on the page.
+- No `FAQPage` schema on guide pages (guide articles, cluster guides, `/snakes-in-the-yard`, `/venomous-snakes`). Google retired FAQ rich results on 2026-05-07. Keep the visible FAQ sections.
 
 Sources we trust: Tarkhnishvili et al. 2026; Iankoshvili & Tarkhnishvili 2021 (when the checklist cites it); IUCN **species-specific** URL; Georgia Red List only when the profile already cites it.
 
@@ -135,6 +138,8 @@ KA is canonical. EN uses the English pathname. Old `/species/{id}` 301s in `prox
 | `/amfibiebi` …                                         | `/en/amphibians` …                                          | Hub + index + frogs guide + frogs index + newts     |
 | `/prinvelebi`, `/prinvelebi/saxeoebebi`                | `/en/birds`, `/en/birds/species`                            | Hub + published-profile index                       |
 | `/dzuzumtsovrebi`, `/dzuzumtsovrebi/saxeoebebi`        | `/en/mammals`, `/en/mammals/species`                        | Hub + published-profile index                       |
+| `/dzuzumtsovrebi/ghamura-saxlshi`                      | `/en/mammals/bat-in-the-house`                              | Guide article                                       |
+| `/mtserebi/krazanis-bude`                              | `/en/insects/wasp-nest`                                     | Guide article                                       |
 | `/regions`, `/regions/{id}`                            | same                                                        | 12 regions                                          |
 | `/quiz`, `/quiz/romeli-gvelia`, `/quiz/romeli-xvlikia` | `/en/quiz`, `/en/quiz/which-snake`, `/en/quiz/which-lizard` | Hub + two live quizzes                              |
 | `/riskis-doneebi`                                      | `/en/risk-to-humans`                                        | Risk legend                                         |
@@ -148,6 +153,18 @@ There is **no** `/konservacia` cluster. Conservation copy lives on profiles, not
 `src/app/[locale]/[...rest]/page.tsx` is 404 `noindex`. Do not create thin duplicate URLs.
 
 New cluster page checklist: `pathnames.ts` → `RESERVED_HUB_SLUGS` → `CLUSTER_GUIDES` + factory page → messages in KA/EN/RU/TR → 301s in `next.config.ts` for any old/cross-locale slug.
+
+## Guide articles
+
+Long-form, answer-first practical guides (bat in the house, wasp nest, …) use one shared builder. **Before adding or editing one, read `.agents/skills/guide-article/SKILL.md`.**
+
+- One content file per article: `src/content/guides/{id}.ts` with `defineGuideArticle({...})`. It holds copy (4 locales), images, sources, and search keywords.
+- Register it in `src/data/guideArticles.ts` and `src/data/guideArticlePaths.ts`. The route is a 3-line `createGuideArticleRoute(path)` page.
+- Sitemap, site search, `llms.txt`, footer and home SEO links, navbar, and the KA↔Latin 301s (proxy + `next.config.ts`) derive from the registry. Do not hand-add them.
+- `src/data/guideArticles.test.ts` fails on any missing wiring: pathnames, reserved slugs, dates, hub card, messages, images, and locale parity. Do not weaken it.
+- The `summary` renders as an "In short" (მოკლედ) box after the last section. Never render it under the H1 (owner decision, enforced by the guard test).
+- Every guide needs a 1200×630 JPEG share image: `pnpm images:og-guides --guide <id>` renders it from the hero with `@reptiles-ge/img-compression` (`--upload` sends it to the CDN).
+- `src/proxy.ts` and client components import `guideArticlePaths.ts` only, never the registry with copy.
 
 ## Quiz
 
@@ -169,7 +186,7 @@ New cluster page checklist: `pathnames.ts` → `RESERVED_HUB_SLUGS` → `CLUSTER
 
 - Unique title / H1 / description. Species: H1 = common name; title often `absolute` (no ` — Reptiles` double suffix).
 - `hreflang` via `localeAlternates` / `speciesAlternates` (`x-default` = KA).
-- BreadcrumbList on cluster and species pages. FAQPage only if FAQ is visible.
+- BreadcrumbList on cluster and species pages. No FAQPage on guides; elsewhere FAQPage only if the FAQ is visible.
 - Bite page: `WebPage`, not medical schema.
 - `www.reptiles.ge` → apex 301. API routes send `X-Robots-Tag: noindex`.
 

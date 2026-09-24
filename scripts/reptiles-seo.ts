@@ -1299,9 +1299,8 @@ function guideInventory(): InventoryItem[] {
       path: localePath(locale, guide.pathname),
       schemaTypes: [
         guide.schema === "collection" ? "CollectionPage" : "WebPage",
-        guide.emitFaqSchema === false ? "" : "FAQPage",
         "BreadcrumbList",
-      ].filter(Boolean),
+      ],
       title: guide.id,
       url: absoluteFromPath(localePath(locale, guide.pathname)),
     })),
