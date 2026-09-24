@@ -24,7 +24,7 @@ const hubs = [
     href: article.pathname,
     key: article.messageKey,
   })),
-  { href: "/lizards/xvliki-saxlshi", key: "lizardHouse" as const },
+  { href: "/lizards/xvliki-sakhlshi", key: "lizardHouse" as const },
   { href: "/lizards/identifikacia", key: "lizardIdentify" as const },
   { href: "/amphibians/bayayi", key: "frogs" as const },
   { href: "/turtles/identifikacia", key: "turtleIdentify" as const },

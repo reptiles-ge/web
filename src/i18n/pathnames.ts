@@ -48,8 +48,8 @@ export const pathnames = {
     "/lizards/identify",
   ),
   "/lizards/saxeoebebi": kaLatin("/xvlikebi/saxeoebebi", "/lizards/species"),
-  "/lizards/xvliki-saxlshi": kaLatin(
-    "/xvlikebi/xvliki-saxlshi",
+  "/lizards/xvliki-sakhlshi": kaLatin(
+    "/xvlikebi/xvliki-sakhlshi",
     "/lizards/in-the-house",
   ),
   "/lizards/xvlikis-da-gvelxokeras-gansxvaveba": kaLatin(
@@ -62,8 +62,8 @@ export const pathnames = {
     "/dzuzumtsovrebi/datvi-shekhvedra",
     "/mammals/bear-encounter",
   ),
-  "/mammals/ghamura-saxlshi": kaLatin(
-    "/dzuzumtsovrebi/ghamura-saxlshi",
+  "/mammals/ghamura-sakhlshi": kaLatin(
+    "/dzuzumtsovrebi/ghamura-sakhlshi",
     "/mammals/bat-in-the-house",
   ),
   "/mammals/saxeoebebi": kaLatin(

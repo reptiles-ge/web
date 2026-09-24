@@ -160,7 +160,7 @@ export type ClusterGuidePath =
   | "/lizards/darevskia"
   | "/lizards/identifikacia"
   | "/lizards/saxeoebebi"
-  | "/lizards/xvliki-saxlshi"
+  | "/lizards/xvliki-sakhlshi"
   | "/lizards/xvlikis-da-gvelxokeras-gansxvaveba"
   | "/mammals"
   | "/mammals/datvi-shekhvedra"
@@ -362,7 +362,7 @@ export const CLUSTER_GUIDES: Record<ClusterGuideId, ClusterGuideConfig> = {
       (HOUSE_LIZARD_IDS as readonly string[]).includes(species.id),
     messageKey: "lizardHouse",
     parentHub: "lizards",
-    pathname: "/lizards/xvliki-saxlshi",
+    pathname: "/lizards/xvliki-sakhlshi",
     primaryCta: "hash",
     schema: "article",
   },
@@ -662,7 +662,7 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
     { href: "/lizards/saxeoebebi", key: "lizardIndex", kind: "page" },
     { id: "lizard", key: "lizardQuiz", kind: "quiz" },
     { href: "/lizards/identifikacia", key: "lizardIdentify", kind: "page" },
-    { href: "/lizards/xvliki-saxlshi", key: "lizardHouse", kind: "page" },
+    { href: "/lizards/xvliki-sakhlshi", key: "lizardHouse", kind: "page" },
     { href: "/lizards/darevskia", key: "lizardDarevskia", kind: "page" },
     {
       href: "/lizards/xvlikis-da-gvelxokeras-gansxvaveba",
@@ -674,7 +674,7 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
   ],
   mammals: [
     { href: "/mammals/saxeoebebi", key: "mammalIndex", kind: "page" },
-    { href: "/mammals/ghamura-saxlshi", key: "batInHouse", kind: "page" },
+    { href: "/mammals/ghamura-sakhlshi", key: "batInHouse", kind: "page" },
     { href: "/mammals/tura-ezoshi", key: "jackalYard", kind: "page" },
     { href: "/mammals/datvi-shekhvedra", key: "bearEncounter", kind: "page" },
   ],
@@ -960,7 +960,7 @@ export function getSpeciesGuideLinks(id: string): HubClusterCard[] {
     });
     if (houseLizardIdSet.has(id)) {
       links.push({
-        href: "/lizards/xvliki-saxlshi",
+        href: "/lizards/xvliki-sakhlshi",
         key: "lizardHouse",
         kind: "page",
       });

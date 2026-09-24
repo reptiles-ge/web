@@ -635,7 +635,7 @@ export const BAT_IN_HOUSE = defineGuideArticle({
   messageKey: "batInHouse",
   ogImage: "https://cdn.reptiles.ge/og/images/guides/bat-in-house.jpg",
   parentHub: "mammals",
-  pathname: "/mammals/ghamura-saxlshi",
+  pathname: "/mammals/ghamura-sakhlshi",
   search: {
     icon: "safety",
     keywords: [
