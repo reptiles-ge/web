@@ -18,10 +18,18 @@ export async function POST(request: Request) {
     return Response.json({ error: "Invalid form" }, { status: 400 });
   }
 
-  const files = form
+  const names = form.getAll("names");
+  const uploads = form
     .getAll("photos")
-    .filter((item): item is File => item instanceof File && item.size > 0);
-  if (files.length === 0) {
+    .map((item, index) => ({
+      file: item,
+      name: typeof names[index] === "string" ? names[index] : "",
+    }))
+    .filter(
+      (item): item is { file: File; name: string } =>
+        item.file instanceof File && item.file.size > 0,
+    );
+  if (uploads.length === 0) {
     return Response.json(
       { error: "Choose at least one photo" },
       { status: 400 },
@@ -31,9 +39,10 @@ export async function POST(request: Request) {
   try {
     const { catalog, ...result } = await uploadStandalonePhotos(
       await Promise.all(
-        files.map(async (file) => ({
+        uploads.map(async ({ file, name }) => ({
           bytes: Buffer.from(await file.arrayBuffer()),
           filename: file.name,
+          name,
         })),
       ),
     );

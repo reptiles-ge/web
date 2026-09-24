@@ -18,7 +18,8 @@ describe("uploadStandalonePhotos", () => {
       const bytes = await readFile("public/images/logo-88.webp");
       const result = await uploadStandalonePhotos(
         [
-          { bytes, filename: "Outside Photo.webp" },
+          { bytes, filename: "Outside Photo.webp", name: "  " },
+          { bytes, filename: "Camera 123.webp", name: "გიურზა" },
           { bytes: Buffer.from("not an image"), filename: "broken.jpg" },
         ],
         storage,
@@ -26,14 +27,18 @@ describe("uploadStandalonePhotos", () => {
 
       expect(result.errors).toHaveLength(1);
       expect(result.errors[0]?.filename).toBe("broken.jpg");
-      expect(result.uploaded).toHaveLength(1);
-      expect(result.catalog).toHaveLength(1);
+      expect(result.uploaded).toHaveLength(2);
+      expect(result.catalog).toHaveLength(2);
       const photo = result.uploaded[0];
       expect(photo?.url).toMatch(
         /^https:\/\/cdn\.reptiles\.ge\/external\/outside-photo-[\da-f-]+\.jpg$/,
       );
       expect(photo?.derivatives.map((item) => item.format)).toContain("avif");
       expect(photo?.derivatives.map((item) => item.format)).toContain("webp");
+      expect(result.uploaded[1]?.url).toBe(
+        "https://cdn.reptiles.ge/external/giurza.jpg",
+      );
+      expect(result.uploaded[1]?.filename).toBe("გიურზა");
       expect(
         await storage.get(
           photo?.url.replace("https://cdn.reptiles.ge/", "") ?? "",
@@ -63,6 +68,15 @@ describe("uploadStandalonePhotos", () => {
         "utf8",
       );
       expect(generated).toContain(JSON.stringify(photo?.url));
+      expect(generated).toContain(JSON.stringify(result.uploaded[1]?.url));
+
+      const duplicate = await uploadStandalonePhotos(
+        [{ bytes, filename: "other.webp", name: "გიურზა" }],
+        storage,
+      );
+      expect(duplicate.uploaded).toEqual([]);
+      expect(duplicate.catalog).toEqual([]);
+      expect(duplicate.errors[0]?.message).toMatch(/უკვე არსებობს/);
     } finally {
       await rm(root, { force: true, recursive: true });
     }
