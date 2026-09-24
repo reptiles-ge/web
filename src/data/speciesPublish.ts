@@ -94,6 +94,7 @@ export const featuredSpeciesIds = [
   "accipiter-nisus",
   "accipiter-gentilis",
   "falco-peregrinus",
+  "falco-tinnunculus",
   "corvus-corax",
   "pica-pica",
   "garrulus-glandarius",
