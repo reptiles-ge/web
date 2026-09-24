@@ -67,7 +67,6 @@ export function createGuideArticleRoute(pathname: GuideArticlePath) {
         type: "article",
         url,
       },
-      robots: { follow: true, index: true },
       title: { absolute: copy.metaTitle },
       twitter: {
         card: "summary_large_image",
