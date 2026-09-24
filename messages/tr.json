@@ -247,7 +247,8 @@
         "bearEncounter": "Ayı ile karşılaşırsam",
         "lizardHouse": "Evde kertenkele",
         "batInHouse": "Evde yarasa",
-        "waspNest": "Eşek arısı yuvası"
+        "waspNest": "Eşek arısı yuvası",
+        "stinkBugInHouse": "Evde kokarca böceği"
       }
     }
   },
@@ -315,7 +316,8 @@
     "bearEncounter": "Ayı karşılaşması",
     "lizardHouse": "Evde kertenkele",
     "batInHouse": "Evde yarasa",
-    "waspNest": "Eşek arısı yuvası"
+    "waspNest": "Eşek arısı yuvası",
+    "stinkBugInHouse": "Evde kokarca böceği"
   },
   "legal": {
     "canonicalNotice": "Bu sayfadaki hukuki metin şu anda Gürcüce olarak sunulmaktadır; Gürcüce sürüm esas metin kabul edilmelidir.",
@@ -1329,6 +1331,12 @@
         "eyebrow": "Pratik rehber",
         "title": "Evin yakınında eşek arısı yuvası",
         "body": "Riski değerlendirin, yuvayı ne zaman bırakabileceğinizi ve ne zaman uzmana danışacağınızı öğrenin.",
+        "cta": "Rehberi oku"
+      },
+      "stinkBugInHouse": {
+        "eyebrow": "Pratik rehber",
+        "title": "Evde kokarca böceği",
+        "body": "Kokarca neden sonbaharda eve girer, zararlı mıdır ve ezmeden nasıl uzaklaştırılır.",
         "cta": "Rehberi oku"
       },
       "lizardQuiz": {

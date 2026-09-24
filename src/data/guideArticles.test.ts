@@ -206,10 +206,12 @@ describe.each(articles.map((article) => [article.id, article] as const))(
         expect(entry, image.src).not.toBeNull();
         expect(entry?.width, image.src).toBe(image.width);
         expect(entry?.height, image.src).toBe(image.height);
-        expect(
-          fs.existsSync(path.join(process.cwd(), "public", image.src)),
-          image.src,
-        ).toBe(true);
+        if (image.src.startsWith("/")) {
+          expect(
+            fs.existsSync(path.join(process.cwd(), "public", image.src)),
+            image.src,
+          ).toBe(true);
+        }
         for (const locale of routing.locales) {
           expect(
             image.alt[locale]?.trim(),

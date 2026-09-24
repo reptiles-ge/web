@@ -116,7 +116,9 @@ async function main() {
       continue;
     }
 
-    const source = fs.readFileSync(path.join(PUBLIC_ROOT, article.hero.src));
+    const source = article.hero.src.startsWith("/")
+      ? fs.readFileSync(path.join(PUBLIC_ROOT, article.hero.src))
+      : Buffer.from(await (await fetch(article.hero.src)).arrayBuffer());
     const result = await renderAndStoreOgImage({
       alt: article.hero.alt.en,
       key: `images/guides/${article.id}.jpg`,
