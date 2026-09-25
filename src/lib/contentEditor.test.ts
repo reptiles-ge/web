@@ -226,6 +226,15 @@ describe("selection content editor", () => {
         start: 0,
       }),
     ).rejects.toThrow("ambiguous");
+    const explicit = await resolveEditorTarget({
+      end: 1,
+      field: "home.knowledge.title",
+      id: "messages",
+      kind: "message",
+      renderedText: "გიდები რეალური კითხვებისთვის",
+      start: 0,
+    });
+    expect(explicit.source).toBe("გიდები რეალური კითხვებისთვის");
   });
 
   it("resolves region copy in both existing content files", async () => {
@@ -259,11 +268,20 @@ describe("selection content editor", () => {
     for (const target of [
       { field: "identification.traits.0", id, kind: "species" },
       { field: "sections.0.paragraphs.0", id: "bat-in-house", kind: "guide" },
-      { field: "sections.0.blocks.0.parts.0", id: "georgian-snakes-area-of-occupancy-2026", kind: "news" },
+      {
+        field: "sections.0.blocks.0.parts.0",
+        id: "georgian-snakes-area-of-occupancy-2026",
+        kind: "news",
+      },
       { field: "habitats.0", id: "abkhazia", kind: "region" },
       { field: "faq.0.answer", id: "abkhazia", kind: "region" },
     ] as const) {
-      const resolved = await resolveEditorTarget({ ...target, end: 1, renderedText: "test", start: 0 });
+      const resolved = await resolveEditorTarget({
+        ...target,
+        end: 1,
+        renderedText: "test",
+        start: 0,
+      });
       expect(resolved.source.trim().length).toBeGreaterThan(0);
     }
   });

@@ -23,6 +23,7 @@ import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
 import { TurtlesHubSections } from "@/components/TurtlesHubSections";
 import { getGuideArticlesForHub } from "@/data/guideArticles";
 import { Link } from "@/i18n/navigation";
+import { isLocalAdminEnabled } from "@/lib/adminAccess";
 import { HUB_CLUSTER_CARDS, splitHubSpecies } from "@/lib/clusterGuides";
 import { GROUP_HUB_LIST, GROUP_HUBS } from "@/lib/groupHubs";
 import { pageDateFields } from "@/lib/structuredDataDates";
@@ -50,6 +51,7 @@ export async function GroupHubPage({
   const t = await getTranslations(hubId);
   const tShared = await getTranslations("groupHubShared");
   const locale = (await getLocale()) as AppLocale;
+  const editable = locale === "ka" && isLocalAdminEnabled();
   const relatedHubs = GROUP_HUB_LIST.filter((hub) => hub.id !== hubId);
   const articles = getGuideArticlesForHub(hubId);
   const articlePaths = new Set<string>(
@@ -91,11 +93,29 @@ export async function GroupHubPage({
               </div>
               <div>
                 <div className="space-y-4 text-[15px] leading-relaxed text-muted-foreground">
-                  <p>
+                  <p
+                    data-content-field={
+                      editable && hubId !== "insects"
+                        ? `${hubId}.guideP1`
+                        : undefined
+                    }
+                    data-content-id={
+                      editable && hubId !== "insects" ? "messages" : undefined
+                    }
+                    data-content-kind={
+                      editable && hubId !== "insects" ? "message" : undefined
+                    }
+                  >
                     <PhoneLinkedText>{guideP1}</PhoneLinkedText>
                   </p>
                   {hubId === "spiders" ? null : (
-                    <p>
+                    <p
+                      data-content-field={
+                        editable ? `${hubId}.guideP2` : undefined
+                      }
+                      data-content-id={editable ? "messages" : undefined}
+                      data-content-kind={editable ? "message" : undefined}
+                    >
                       <PhoneLinkedText>{t("guideP2")}</PhoneLinkedText>
                     </p>
                   )}
@@ -176,10 +196,20 @@ export async function GroupHubPage({
               <p className="text-[11px] font-medium tracking-[0.18em] text-white/45 uppercase">
                 {t("ctaEyebrow")}
               </p>
-              <h2 className="mt-5 max-w-3xl font-display text-display-lead font-semibold text-white">
+              <h2
+                className="mt-5 max-w-3xl font-display text-display-lead font-semibold text-white"
+                data-content-field={editable ? `${hubId}.ctaTitle` : undefined}
+                data-content-id={editable ? "messages" : undefined}
+                data-content-kind={editable ? "message" : undefined}
+              >
                 {t("ctaTitle")}
               </h2>
-              <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-white/60">
+              <p
+                className="mt-5 max-w-xl text-[15px] leading-relaxed text-white/60"
+                data-content-field={editable ? `${hubId}.ctaBody` : undefined}
+                data-content-id={editable ? "messages" : undefined}
+                data-content-kind={editable ? "message" : undefined}
+              >
                 {t("ctaBody")}
               </p>
               <div className="mt-10 flex flex-wrap gap-3">
