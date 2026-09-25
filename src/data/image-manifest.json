@@ -28746,6 +28746,87 @@
       ],
       "updatedAt": "2026-09-24T16:21:59.593Z"
     },
+    "falco-tinnunculus-david-1.jpg": {
+      "sourceHash": "53fdca7595dd2c5ef12f7f42ee82134da6b93cff1e877418b777adb2464afcaa",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "falco-tinnunculus-david-1.jpg",
+      "originalSize": 22759,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/falco-tinnunculus-david-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 1309
+        },
+        {
+          "key": "optimized/falco-tinnunculus-david-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 1616
+        },
+        {
+          "key": "optimized/falco-tinnunculus-david-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 1938
+        },
+        {
+          "key": "optimized/falco-tinnunculus-david-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 2252
+        },
+        {
+          "key": "optimized/falco-tinnunculus-david-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 3608
+        },
+        {
+          "key": "optimized/falco-tinnunculus-david-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 4862
+        },
+        {
+          "key": "optimized/falco-tinnunculus-david-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 5259
+        },
+        {
+          "key": "optimized/falco-tinnunculus-david-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 7076
+        },
+        {
+          "key": "optimized/falco-tinnunculus-david-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 7179
+        },
+        {
+          "key": "optimized/falco-tinnunculus-david-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 10882
+        }
+      ],
+      "updatedAt": "2026-09-25T06:35:51.321Z"
+    },
     "falco-tinnunculus-donsky-2.jpg": {
       "sourceHash": "9833aecd5f5a07dba90d93eb3c776070c8868f6abc83869d20b5f7cc02a51947",
       "configFingerprint": "409788ee46c653d8",
