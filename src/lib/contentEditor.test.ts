@@ -54,6 +54,12 @@ describe("selection content editor", () => {
     expect(
       editorRequestSchema.safeParse({ ...request, id: "../secret" }).success,
     ).toBe(false);
+    expect(
+      editorRequestSchema.safeParse({
+        ...request,
+        pathname: "/გველები/გიურზა",
+      }).success,
+    ).toBe(true);
     expect(() =>
       verifyEditorSelection(source, { ...request, end: source.length + 1 }),
     ).toThrow();
