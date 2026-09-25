@@ -144,6 +144,11 @@ const KA_SLUG_ALIASES: Record<string, string[]> = {
     "peregrine",
     "peregrine-falcon",
   ],
+  "falco-tinnunculus": [
+    "chveulebrivi-kirkita",
+    "common-kestrel",
+    "eurasian-kestrel",
+  ],
   "ficedula-hypoleuca": ["chreli-buzicheria"],
   "ficedula-semitorquata": [
     "naxevartetqela-mematlia",

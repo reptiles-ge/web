@@ -187,6 +187,7 @@ const LOOKALIKES: Record<string, string[]> = {
     "olivierus-caucasicus",
   ],
   "falco-peregrinus": ["accipiter-nisus", "buteo-buteo", "aquila-chrysaetos"],
+  "falco-tinnunculus": ["falco-peregrinus"],
   "ficedula-hypoleuca": ["ficedula-semitorquata"],
   "ficedula-semitorquata": ["ficedula-hypoleuca"],
   "garrulus-glandarius": ["pica-pica", "corvus-corax"],
