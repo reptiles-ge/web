@@ -138,6 +138,19 @@ describe("selection content editor", () => {
     }
   });
 
+  it("preserves line breaks when replacing a folded species field", () => {
+    const replacement = "პირველი ხაზი\nმეორე ხაზი\n\nმეორე აბზაცი";
+    const updated = replaceSpeciesField(files.ka, "interaction", replacement);
+    expect(readSpeciesField(updated, "interaction")).toBe(replacement);
+    expect(readSpeciesField(updated, "overview")).toBe(source);
+    expect(
+      readSpeciesField(
+        replaceSpeciesField(updated, "interaction", replacement),
+        "interaction",
+      ),
+    ).toBe(replacement);
+  });
+
   it("prevents a species name edit from changing its public slug", async () => {
     const target = await resolveEditorTarget({
       end: 1,
