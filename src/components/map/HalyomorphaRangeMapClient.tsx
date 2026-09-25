@@ -457,17 +457,29 @@ function regionStatusLabel(
 
 function regionStyle({
   compact = false,
+  confirmed,
   hovered = false,
   isDark = false,
   muted = false,
   selected = false,
 }: {
   compact?: boolean;
+  confirmed: boolean;
   hovered?: boolean;
   isDark?: boolean;
   muted?: boolean;
   selected?: boolean;
 }) {
+  if (!confirmed) {
+    return {
+      color: isDark ? "#94a3b8" : "#64748b",
+      cursor: "pointer",
+      fillColor: isDark ? "#94a3b8" : "#64748b",
+      fillOpacity: selected ? 0.18 : hovered ? 0.12 : muted ? 0.02 : 0.05,
+      opacity: muted ? 0.3 : selected || hovered ? 0.9 : 0.5,
+      weight: selected ? 2.3 : hovered ? 1.5 : 1,
+    };
+  }
   const style = compact
     ? isDark
       ? {
@@ -894,6 +906,7 @@ function useHalyomorphaRangeMap({
               layer.setStyle(
                 regionStyle({
                   compact: isCompactViewport,
+                  confirmed: isOfficialRange,
                   hovered: false,
                   isDark: isDarkMode,
                   muted: Boolean(
@@ -908,6 +921,7 @@ function useHalyomorphaRangeMap({
               layer.setStyle(
                 regionStyle({
                   compact: isCompactViewport,
+                  confirmed: isOfficialRange,
                   hovered: true,
                   isDark: isDarkMode,
                   muted: Boolean(
@@ -944,6 +958,7 @@ function useHalyomorphaRangeMap({
               layer.setStyle(
                 regionStyle({
                   compact: isCompactViewport,
+                  confirmed: isOfficialRange,
                   hovered: true,
                   isDark: isDarkMode,
                   muted: Boolean(
@@ -958,6 +973,7 @@ function useHalyomorphaRangeMap({
               layer.setStyle(
                 regionStyle({
                   compact: isCompactViewport,
+                  confirmed: isOfficialRange,
                   isDark: isDarkMode,
                   muted: Boolean(
                     selectedRegionId && selectedRegionId !== regionId,
@@ -968,9 +984,10 @@ function useHalyomorphaRangeMap({
             });
           });
         },
-        style: () =>
+        style: (feature) =>
           regionStyle({
             compact: isCompactViewport,
+            confirmed: feature?.properties.isOfficialRange === true,
             isDark: isDarkMode,
           }),
       }).addTo(map);
@@ -1081,6 +1098,7 @@ function useHalyomorphaRangeMap({
           layer.setStyle(
             regionStyle({
               compact: isCompactViewport,
+              confirmed: feature?.properties.isOfficialRange === true,
               isDark: isDarkMode,
               muted: Boolean(
                 selectedRegionId && regionId && selectedRegionId !== regionId,
