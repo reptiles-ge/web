@@ -13,6 +13,7 @@ import { HomeFeatured } from "@/components/home/HomeFeatured";
 import { HomeField } from "@/components/home/HomeField";
 import { HomeFresh } from "@/components/home/HomeFresh";
 import { HomeGroups } from "@/components/home/HomeGroups";
+import { HomeGuides } from "@/components/home/HomeGuides";
 import { HomeSeo } from "@/components/HomeSeo";
 import { JsonLd } from "@/components/JsonLd";
 import { MapExplorer } from "@/components/map/MapExplorer";
@@ -196,6 +197,7 @@ export default async function Home({ params }: Props): Promise<ReactElement> {
         </ClientMessagesProvider>
         <HomeFresh />
         <HomeField />
+        <HomeGuides />
         <HomeContributors />
         <HomeSeo />
         <FinalCTA />
