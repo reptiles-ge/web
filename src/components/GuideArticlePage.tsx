@@ -311,11 +311,6 @@ function GuideArticleSectionView({
             sizes={IMAGE_SIZES}
             src={image.src}
           />
-          {image.credit ? (
-            <figcaption className="mt-3 text-right text-[12px] text-muted-foreground">
-              {image.credit[locale]}
-            </figcaption>
-          ) : null}
         </figure>
       ) : null}
     </section>

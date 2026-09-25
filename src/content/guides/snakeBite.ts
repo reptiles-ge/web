@@ -6,13 +6,6 @@ import {
   type GuideArticleSource,
 } from "@/data/guideArticleTypes";
 
-const AI_IMAGE_CREDIT: Record<AppLocale, string> = {
-  en: "AI-generated illustration · not an actual incident",
-  ka: "AI-ით შექმნილი ილუსტრაცია · არა რეალური შემთხვევა",
-  ru: "Иллюстрация, созданная ИИ · не реальный случай",
-  tr: "Yapay zekâ ile oluşturulmuş görsel · gerçek bir olay değil",
-};
-
 const COPY: Record<AppLocale, GuideArticleCopy> = {
   en: {
     description:
@@ -572,7 +565,6 @@ export const SNAKE_BITE = defineGuideArticle({
       ru: "Двое туристов на каменистой тропе: один сидит, другая звонит за помощью; змея находится вдали",
       tr: "Taşlı patikada iki yürüyüşçü: biri otururken diğeri yardım çağırıyor; yılan uzakta görünüyor",
     },
-    credit: AI_IMAGE_CREDIT,
     height: 909,
     src: "/images/guides/snake-bite-hero.jpg",
     width: 1730,
@@ -586,7 +578,6 @@ export const SNAKE_BITE = defineGuideArticle({
         ru: "Сидящий турист звонит за помощью, рядом ждёт спутница",
         tr: "Oturan yürüyüşçü telefonda yardım çağırıyor, yanında bir arkadaşı bekliyor",
       },
-      credit: AI_IMAGE_CREDIT,
       height: 1024,
       src: "/images/guides/snake-bite-call-112.jpg",
       width: 1536,
@@ -598,7 +589,6 @@ export const SNAKE_BITE = defineGuideArticle({
         ru: "Врач беседует с пациентом и его спутницей в кабинете",
         tr: "Klinisyen muayene odasında oturan hasta ve yakınıyla konuşuyor",
       },
-      credit: AI_IMAGE_CREDIT,
       height: 1024,
       src: "/images/guides/snake-bite-clinical-assessment.jpg",
       width: 1536,
@@ -610,7 +600,6 @@ export const SNAKE_BITE = defineGuideArticle({
         ru: "Двое туристов останавливаются в нескольких метрах от змеи на каменистой тропе",
         tr: "İki yürüyüşçü taşlı patikadaki yılandan birkaç metre uzakta duruyor",
       },
-      credit: AI_IMAGE_CREDIT,
       height: 1024,
       src: "/images/guides/snake-bite-keep-distance.jpg",
       width: 1536,
@@ -622,7 +611,6 @@ export const SNAKE_BITE = defineGuideArticle({
         ru: "Сидящий на улице человек осторожно снимает кольцо с пальца",
         tr: "Dışarıda oturan kişi parmağındaki yüzüğü çıkarıyor",
       },
-      credit: AI_IMAGE_CREDIT,
       height: 1024,
       src: "/images/guides/snake-bite-remove-ring.jpg",
       width: 1536,
