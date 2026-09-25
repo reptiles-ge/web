@@ -19,7 +19,7 @@ export async function editorDateChange(
   cwd: string,
   now = new Date(),
 ) {
-  const timestamp = now.toISOString();
+  const timestamp = `${new Date(now.getTime() + 4 * 60 * 60_000).toISOString().slice(0, 19)}+04:00`;
   let kind = input.kind;
   let id = input.id;
   let section = "";
