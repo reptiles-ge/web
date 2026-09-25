@@ -1,16 +1,18 @@
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import { Fragment } from "react";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { SpeciesInlineLink } from "@/components/SpeciesInlineLink";
 import { type SpeciesIdentification as Identification } from "@/data/speciesTypes";
+import { isLocalAdminEnabled } from "@/lib/adminAccess";
 import { splitSpeciesInlineLinks } from "@/lib/speciesInlineLinks";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 
 type SpeciesIdentificationProps = {
   identification: Identification;
   name: string;
+  speciesId: string;
 };
 
 const inlineSpeciesLinkClassName =
@@ -19,8 +21,10 @@ const inlineSpeciesLinkClassName =
 export async function SpeciesIdentification({
   identification,
   name,
+  speciesId,
 }: SpeciesIdentificationProps) {
   const t = await getTranslations("profile");
+  const editable = (await getLocale()) === "ka" && isLocalAdminEnabled();
 
   return (
     <section className="bg-background py-20 lg:py-28">
@@ -36,7 +40,12 @@ export async function SpeciesIdentification({
         >
           {t("identificationTitle", { name })}
         </AnchoredHeading>
-        <p className="mt-5 max-w-2xl text-[15px] leading-relaxed whitespace-pre-line text-muted-foreground sm:text-[16px]">
+        <p
+          className="mt-5 max-w-2xl text-[15px] leading-relaxed whitespace-pre-line text-muted-foreground sm:text-[16px]"
+          data-content-field={editable ? "identification.summary" : undefined}
+          data-content-id={editable ? speciesId : undefined}
+          data-content-kind={editable ? "species" : undefined}
+        >
           <IdentificationRichText text={identification.summary} />
         </p>
 
@@ -53,7 +62,14 @@ export async function SpeciesIdentification({
                 >
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <p className="max-w-2xl self-center text-[16px] leading-relaxed whitespace-pre-line text-foreground/85 sm:text-[18px]">
+                <p
+                  className="max-w-2xl self-center text-[16px] leading-relaxed whitespace-pre-line text-foreground/85 sm:text-[18px]"
+                  data-content-field={
+                    editable ? `identification.traits.${index}` : undefined
+                  }
+                  data-content-id={editable ? speciesId : undefined}
+                  data-content-kind={editable ? "species" : undefined}
+                >
                   <IdentificationRichText text={trait} />
                 </p>
               </li>

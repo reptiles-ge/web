@@ -7,16 +7,20 @@ import { cn } from "@/lib/cn";
 
 type BiologyExpandableProps = {
   body: string;
+  editorField?: string;
   needsExpand: boolean;
   readLess: string;
   readMore: string;
+  speciesId?: string;
 };
 
 export function BiologyExpandable({
   body,
+  editorField,
   needsExpand,
   readLess,
   readMore,
+  speciesId,
 }: BiologyExpandableProps) {
   const [open, setOpen] = useState(false);
 
@@ -28,6 +32,8 @@ export function BiologyExpandable({
           "whitespace-pre-line",
           !open && needsExpand ? "line-clamp-3" : "",
         )}
+        data-content-field={editorField}
+        data-content-id={speciesId}
       >
         <PhoneLinkedText>{body}</PhoneLinkedText>
       </p>

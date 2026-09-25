@@ -1,4 +1,17 @@
 {
+  "contentEditor": {
+    "action": "Düzenle",
+    "processing": "İşleniyor...",
+    "success": "İşlendi",
+    "error": "Hata",
+    "jobs": "Metin düzenlemeleri",
+    "openPr": "PR'yi aç",
+    "retry": "Yeniden dene",
+    "requestError": "Seçilen metin tek bir içerik alanına bağlanamadı, değişti veya birden fazla alanı kapsıyor. Sayfayı yenileyip tek paragraftaki metni seçin.",
+    "codexError": "Codex metni işleyemedi veya geçersiz sonuç döndürdü. Yerel Codex kurulumunu kontrol edip yeniden deneyin.",
+    "gitError": "Doğrulama veya PR oluşturma başarısız oldu. Ayrıntılar yerel terminalde; bu çalışma kopyası değişmedi.",
+    "networkError": "Bağlantı kurulamadı. Yeniden deneyin."
+  },
   "nav": {
     "species": "Türler",
     "about": "Hakkında",
@@ -202,6 +215,11 @@
         "title": "Bu hangi yılan?",
         "body": "Gürcistan yılanları fotoğraf quizi — dört seçenek, hesap yok."
       }
+    },
+    "guides": {
+      "eyebrow": "Pratik rehberler",
+      "title": "Evde veya bahçede: ne yapmalı",
+      "subtitle": "Evde yarasa, eşek arısı yuvası, akrep sokması ve diğer durumlar — size uygun rehberi bulun."
     },
     "contributors": {
       "eyebrow": "Katkıda bulunanlar",

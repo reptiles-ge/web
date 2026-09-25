@@ -10,12 +10,14 @@ import { type PageType, trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
 
 type SpeciesFaqItemsProps = {
+  editable: boolean;
   entityId: string;
   items: SpeciesFaq[];
   pageType: PageType;
 };
 
 export function SpeciesFaqItems({
+  editable,
   entityId,
   items,
   pageType,
@@ -47,7 +49,14 @@ export function SpeciesFaqItems({
               }}
               type="button"
             >
-              <span className="font-display text-[17px] leading-snug font-medium text-foreground sm:text-[19px]">
+              <span
+                className="font-display text-[17px] leading-snug font-medium text-foreground sm:text-[19px]"
+                data-content-field={
+                  editable ? `faq.${index}.question` : undefined
+                }
+                data-content-id={editable ? entityId : undefined}
+                data-content-kind={editable ? "species" : undefined}
+              >
                 {item.question}
               </span>
               <span
@@ -68,7 +77,14 @@ export function SpeciesFaqItems({
               )}
             >
               <div className="overflow-hidden">
-                <p className="pr-12 pb-7 text-[15px] leading-relaxed whitespace-pre-line text-muted-foreground sm:text-[16px]">
+                <p
+                  className="pr-12 pb-7 text-[15px] leading-relaxed whitespace-pre-line text-muted-foreground sm:text-[16px]"
+                  data-content-field={
+                    editable ? `faq.${index}.answer` : undefined
+                  }
+                  data-content-id={editable ? entityId : undefined}
+                  data-content-kind={editable ? "species" : undefined}
+                >
                   <PhoneLinkedText>{item.answer}</PhoneLinkedText>
                 </p>
               </div>
