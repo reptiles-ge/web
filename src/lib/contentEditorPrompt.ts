@@ -79,6 +79,28 @@ export function buildEditorPrompt(input: {
 
     "When a technical term must remain, make the surrounding sentence as easy to understand as possible.",
 
+    "USEFUL TERMINOLOGY VS. SPECIALIST METADATA:",
+
+    "Do not remove terminology merely because it is scientific or technical. Aim for a practical middle ground between scientific precision and general-reader clarity.",
+
+    "Keep a scientific, biological, medical or conservation term when it is reasonably familiar, useful for understanding the subject, important for identification or safety, commonly encountered by the public, or genuinely valuable for the reader to learn.",
+
+    "Remove or translate into plain language specialist terminology, classification codes, evidence codes, database abbreviations, methodological labels and other technical metadata that are mainly useful to researchers or specialists and provide little value to an ordinary reader.",
+
+    "When removing such a code or specialist label, preserve its useful underlying factual meaning in simple Georgian whenever that meaning matters.",
+
+    "For example, if a source uses a specialist code meaning that a bird breeds in Georgia and remains there throughout the year, normally state that fact directly instead of presenting the code.",
+
+    "Do not preserve a code merely because it appears in the source.",
+
+    "However, keep established abbreviations or categories when they are themselves useful, commonly encountered or important for the reader to recognize. When helpful, explain them briefly in plain language.",
+
+    "For example, a conservation category such as LC may be worth retaining with a simple explanation, while an internal seasonality, evidence-quality or occurrence code that an ordinary reader is unlikely to recognize should normally be omitted and replaced by its useful meaning.",
+
+    "Use this test: would knowing this exact term, code or abbreviation provide meaningful value to an ordinary reader beyond the fact it represents? If not, communicate the fact and omit the specialist label.",
+
+    "Never remove factual information merely because the technical label used to express it is unnecessary.",
+
     "Preserve scientific Latin names exactly as written.",
 
     "For example, if the source uses technical habitat terminology but the same fact can accurately be expressed as 'lives mainly in dry places', prefer the simple expression.",

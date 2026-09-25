@@ -4,6 +4,7 @@
     "processing": "İşleniyor...",
     "success": "İşlendi",
     "error": "Hata",
+    "jobs": "Metin düzenlemeleri",
     "openPr": "PR'yi aç",
     "retry": "Yeniden dene",
     "requestError": "Seçilen metin tek bir içerik alanına bağlanamadı, değişti veya birden fazla alanı kapsıyor. Sayfayı yenileyip tek paragraftaki metni seçin.",

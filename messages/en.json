@@ -4,6 +4,7 @@
     "processing": "Processing...",
     "success": "Processed",
     "error": "Error",
+    "jobs": "Text edits",
     "openPr": "Open PR",
     "retry": "Try again",
     "requestError": "The selected text has no unique content field, changed, or crosses fields. Reload and select text in one paragraph.",

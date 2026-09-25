@@ -70,6 +70,7 @@ export default async function LocaleLayout({ children, params }: Props) {
                 codexError: editorT("codexError"),
                 error: editorT("error"),
                 gitError: editorT("gitError"),
+                jobs: editorT("jobs"),
                 networkError: editorT("networkError"),
                 openPr: editorT("openPr"),
                 processing: editorT("processing"),
