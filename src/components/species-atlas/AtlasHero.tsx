@@ -80,7 +80,7 @@ export async function AtlasHero({ stats }: AtlasHeroProps) {
               <ArrowRight aria-hidden="true" className="size-3.5" />
             </p>
 
-            <div className="mt-3 flex snap-x snap-mandatory gap-2.5 overflow-x-auto overscroll-x-contain pr-6 pb-3 sm:mt-4 sm:snap-none sm:flex-wrap sm:gap-3 sm:overflow-visible sm:pr-0 sm:pb-0">
+            <div className="no-scrollbar mt-3 flex snap-x snap-mandatory gap-2.5 overflow-x-auto overscroll-x-contain sm:mt-4 sm:snap-none sm:flex-wrap sm:gap-3 sm:overflow-visible">
               <HeroPathway
                 delay={0}
                 eyebrow={t("groups.snake")}
