@@ -114,6 +114,11 @@ export async function GuideArticlePage({
             sizes={IMAGE_SIZES}
             src={article.hero.src}
           />
+          {article.hero.credit ? (
+            <figcaption className="mt-3 text-right text-[12px] text-muted-foreground">
+              {article.hero.credit[locale]}
+            </figcaption>
+          ) : null}
         </figure>
 
         {sections.length > 2 ? (

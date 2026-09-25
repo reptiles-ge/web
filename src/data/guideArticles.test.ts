@@ -278,6 +278,16 @@ describe.each(articles.map((article) => [article.id, article] as const))(
       }
     });
 
+    it("links only to other registered guides", () => {
+      for (const id of article.relatedGuideIds ?? []) {
+        expect(id, id).not.toBe(article.id);
+        expect(
+          articles.some((item) => item.id === id),
+          id,
+        ).toBe(true);
+      }
+    });
+
     it("is routed with localized pathnames, reserved slugs, and redirects", () => {
       const localized: Record<"en" | "ka" | "ru" | "tr", string> =
         pathnames[article.pathname];

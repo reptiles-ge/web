@@ -70,7 +70,9 @@ describe("buildLlmsFullText", () => {
   it("keeps bite pages educational and omits medical schema claims", () => {
     const body = buildLlmsFullText();
 
-    expect(body).toContain("Not a medical protocol");
+    expect(body).toContain(
+      "Symptoms may be absent early; medical staff must assess the bite.",
+    );
     expect(body).not.toContain("MedicalWebPage");
   });
 });

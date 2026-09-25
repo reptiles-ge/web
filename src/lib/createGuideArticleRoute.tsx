@@ -185,6 +185,11 @@ function guideShareImage(article: GuideArticle, locale: AppLocale) {
 
 function relatedGuideArticles(article: GuideArticle) {
   const others = getGuideArticles().filter((item) => item.id !== article.id);
+  if (article.relatedGuideIds) {
+    return article.relatedGuideIds.flatMap((id) =>
+      others.filter((item) => item.id === id),
+    );
+  }
   return [
     ...others.filter((item) => item.parentHub === article.parentHub),
     ...others.filter((item) => item.parentHub !== article.parentHub),
