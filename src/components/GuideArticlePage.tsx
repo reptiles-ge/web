@@ -100,6 +100,11 @@ export async function GuideArticlePage({
         <h1 className="mt-5 font-display text-display-lead font-semibold text-foreground">
           {copy.title}
         </h1>
+        {copy.intro ? (
+          <p className="mt-6 max-w-3xl text-[17px] leading-[1.75] text-muted-foreground sm:text-[19px]">
+            <PhoneLinkedText>{copy.intro}</PhoneLinkedText>
+          </p>
+        ) : null}
         <figure className="mt-10">
           <CoverImage
             alt={article.hero.alt[locale]}
