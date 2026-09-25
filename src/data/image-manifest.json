@@ -34800,6 +34800,291 @@
       ],
       "updatedAt": "2026-09-25T14:08:25.550Z"
     },
+    "images/guides/gyurza-bite-clinical-assessment.jpg": {
+      "sourceHash": "c723b5140aba0a814948b1621b01ca1604893c06d36bdcd9b9676d1fdd23f11d",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/gyurza-bite-clinical-assessment.jpg",
+      "originalSize": 400468,
+      "width": 1536,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/gyurza-bite-clinical-assessment-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10141
+        },
+        {
+          "key": "optimized/images/guides/gyurza-bite-clinical-assessment-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 13804
+        },
+        {
+          "key": "optimized/images/guides/gyurza-bite-clinical-assessment-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 13976
+        },
+        {
+          "key": "optimized/images/guides/gyurza-bite-clinical-assessment-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 18600
+        },
+        {
+          "key": "optimized/images/guides/gyurza-bite-clinical-assessment-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 27496
+        },
+        {
+          "key": "optimized/images/guides/gyurza-bite-clinical-assessment-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 37074
+        },
+        {
+          "key": "optimized/images/guides/gyurza-bite-clinical-assessment-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 37221
+        },
+        {
+          "key": "optimized/images/guides/gyurza-bite-clinical-assessment-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 48624
+        },
+        {
+          "key": "optimized/images/guides/gyurza-bite-clinical-assessment-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 64603
+        },
+        {
+          "key": "optimized/images/guides/gyurza-bite-clinical-assessment-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 82290
+        },
+        {
+          "key": "optimized/images/guides/gyurza-bite-clinical-assessment-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 1024,
+          "byteSize": 90259
+        },
+        {
+          "key": "optimized/images/guides/gyurza-bite-clinical-assessment-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 1024,
+          "byteSize": 114936
+        }
+      ],
+      "updatedAt": "2026-09-25T16:06:11.924Z"
+    },
+    "images/guides/gyurza-bite-hero.jpg": {
+      "sourceHash": "896747364cad769b353e7807ab9d41220f9bd98df6c0581734b506ed646567da",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/gyurza-bite-hero.jpg",
+      "originalSize": 711593,
+      "width": 1536,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/gyurza-bite-hero-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 17941
+        },
+        {
+          "key": "optimized/images/guides/gyurza-bite-hero-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 28388
+        },
+        {
+          "key": "optimized/images/guides/gyurza-bite-hero-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 26564
+        },
+        {
+          "key": "optimized/images/guides/gyurza-bite-hero-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 42708
+        },
+        {
+          "key": "optimized/images/guides/gyurza-bite-hero-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 56576
+        },
+        {
+          "key": "optimized/images/guides/gyurza-bite-hero-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 95178
+        },
+        {
+          "key": "optimized/images/guides/gyurza-bite-hero-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 77100
+        },
+        {
+          "key": "optimized/images/guides/gyurza-bite-hero-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 132434
+        },
+        {
+          "key": "optimized/images/guides/gyurza-bite-hero-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 131459
+        },
+        {
+          "key": "optimized/images/guides/gyurza-bite-hero-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 230836
+        },
+        {
+          "key": "optimized/images/guides/gyurza-bite-hero-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 1024,
+          "byteSize": 177560
+        },
+        {
+          "key": "optimized/images/guides/gyurza-bite-hero-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 1024,
+          "byteSize": 318444
+        }
+      ],
+      "updatedAt": "2026-09-25T16:06:06.807Z"
+    },
+    "images/guides/gyurza-bite-viper-portrait.jpg": {
+      "sourceHash": "fa16c9f9c471f4cc6bccf7c60bc3e97122d4465b1b5447084ad22b79f43f0524",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/gyurza-bite-viper-portrait.jpg",
+      "originalSize": 774990,
+      "width": 1536,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/gyurza-bite-viper-portrait-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 18363
+        },
+        {
+          "key": "optimized/images/guides/gyurza-bite-viper-portrait-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 29240
+        },
+        {
+          "key": "optimized/images/guides/gyurza-bite-viper-portrait-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 26733
+        },
+        {
+          "key": "optimized/images/guides/gyurza-bite-viper-portrait-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 44318
+        },
+        {
+          "key": "optimized/images/guides/gyurza-bite-viper-portrait-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 59217
+        },
+        {
+          "key": "optimized/images/guides/gyurza-bite-viper-portrait-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 98848
+        },
+        {
+          "key": "optimized/images/guides/gyurza-bite-viper-portrait-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 82302
+        },
+        {
+          "key": "optimized/images/guides/gyurza-bite-viper-portrait-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 138656
+        },
+        {
+          "key": "optimized/images/guides/gyurza-bite-viper-portrait-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 145088
+        },
+        {
+          "key": "optimized/images/guides/gyurza-bite-viper-portrait-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 253696
+        },
+        {
+          "key": "optimized/images/guides/gyurza-bite-viper-portrait-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 1024,
+          "byteSize": 199497
+        },
+        {
+          "key": "optimized/images/guides/gyurza-bite-viper-portrait-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 1024,
+          "byteSize": 364966
+        }
+      ],
+      "updatedAt": "2026-09-25T16:06:26.514Z"
+    },
     "images/guides/scorpion-sting-cool-compress.jpg": {
       "sourceHash": "7707ca0cb7f28ffd3abe3fb445d3f9ef5ab60849b453c469ed0f18a086a2b270",
       "configFingerprint": "409788ee46c653d8",
