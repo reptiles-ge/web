@@ -95,11 +95,6 @@ const PRIORITY_PAGES: ReadonlyArray<{
     urlPath: "/gvelebi/shxamiani-gvelebi",
   },
   {
-    blurb: "Educational snakebite page. Call 112. Not a medical protocol.",
-    title: "Snakebite",
-    urlPath: "/gvelebi/gvelis-nakbeni",
-  },
-  {
     blurb: "Visual cues are not universal; compare lookalikes and profiles.",
     title: "Venomous vs harmless snakes",
     urlPath: "/gvelebi/shxamiani-gvelis-amocnoba",
@@ -312,7 +307,6 @@ export function buildLlmsIndexText() {
     "## Safety",
     "",
     `- [Venomous snakes in Georgia](${absoluteUrl("/gvelebi/shxamiani-gvelebi")}): Medically significant vipers in the atlas, plus identification links. Educational.`,
-    `- [Snakebite](${absoluteUrl("/gvelebi/gvelis-nakbeni")}): Educational page. Call 112. Not a medical protocol and not first-aid instruction for unsupervised use.`,
     `- [Snakes in the yard](${absoluteUrl("/gvelebi/gveli-ezoshi")}): Practical notes on snakes near houses. Not a guaranteed repellent method.`,
     `- [Risk to humans](${absoluteUrl("/riskis-doneebi")}): What Harmless, Moderate, and High mean on atlas profiles.`,
     ...getGuideArticles().map(

@@ -14,7 +14,6 @@ const hubs = [
   { href: "/spiders", key: "spiders" as const },
   { href: "/venomous-snakes", key: "venomous" as const },
   { href: "/snakes/shxamiani-gvelis-amocnoba", key: "identify" as const },
-  { href: "/snakes/gvelis-nakbeni", key: "bite" as const },
   { href: "/snakes-in-the-yard", key: "yard" as const },
   { href: "/spiders/shxamiani-obobebi", key: "spiderVenomous" as const },
   { href: "/spiders/obobis-nakbeni", key: "spiderBite" as const },

@@ -52,7 +52,6 @@ const guideLinks = [
     href: "/snakes/shxamiani-gvelis-amocnoba" as const,
     labelKey: "snakeIdentify" as const,
   },
-  { href: "/snakes/gvelis-nakbeni" as const, labelKey: "snakeBite" as const },
   { href: "/snakes-in-the-yard" as const, labelKey: "yard" as const },
   {
     href: "/spiders/shxamiani-obobebi" as const,

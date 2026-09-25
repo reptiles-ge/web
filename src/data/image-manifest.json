@@ -34636,7 +34636,7 @@
           "byteSize": 68748
         }
       ],
-      "updatedAt": "2026-09-24T13:10:27.761Z"
+      "updatedAt": "2026-09-25T14:08:27.790Z"
     },
     "images/guides/bat-on-wall.jpg": {
       "sourceHash": "31aff5359cba83072f5c4ba95770e6a5b8f1a8288b05165cea805b05e359fb74",
@@ -34717,7 +34717,7 @@
           "byteSize": 127124
         }
       ],
-      "updatedAt": "2026-09-24T13:10:30.707Z"
+      "updatedAt": "2026-09-25T14:08:26.794Z"
     },
     "images/guides/bat-roost-natural.jpg": {
       "sourceHash": "4fba551b926274198eb19500008ae3f54284a5c192777c1f1033aeca640987f1",
@@ -34798,7 +34798,7 @@
           "byteSize": 110248
         }
       ],
-      "updatedAt": "2026-09-24T13:10:28.654Z"
+      "updatedAt": "2026-09-25T14:08:25.550Z"
     },
     "images/guides/scorpion-sting-cool-compress.jpg": {
       "sourceHash": "7707ca0cb7f28ffd3abe3fb445d3f9ef5ab60849b453c469ed0f18a086a2b270",
@@ -34989,6 +34989,481 @@
         }
       ],
       "updatedAt": "2026-09-25T10:50:41.821Z"
+    },
+    "images/guides/snake-bite-call-112.jpg": {
+      "sourceHash": "158d67eac731fae6f2a678a862ab1ce5b20a5ba1e40f7a7d36586d403a3d455f",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/snake-bite-call-112.jpg",
+      "originalSize": 621496,
+      "width": 1536,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/snake-bite-call-112-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14498
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-call-112-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 21240
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-call-112-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 21486
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-call-112-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 31862
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-call-112-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 48233
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-call-112-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 72716
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-call-112-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 68529
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-call-112-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 103290
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-call-112-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 121829
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-call-112-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 185392
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-call-112-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 1024,
+          "byteSize": 170631
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-call-112-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 1024,
+          "byteSize": 264928
+        }
+      ],
+      "updatedAt": "2026-09-25T14:08:27.114Z"
+    },
+    "images/guides/snake-bite-clinical-assessment.jpg": {
+      "sourceHash": "1e957e1a56650dd1d0c2da1e9a38159d210c1d294d9f0029d7451f917bd75c8e",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/snake-bite-clinical-assessment.jpg",
+      "originalSize": 363889,
+      "width": 1536,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/snake-bite-clinical-assessment-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9333
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-clinical-assessment-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12902
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-clinical-assessment-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 12910
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-clinical-assessment-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 17314
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-clinical-assessment-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 24778
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-clinical-assessment-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 32828
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-clinical-assessment-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 33521
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-clinical-assessment-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 43126
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-clinical-assessment-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 56689
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-clinical-assessment-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 73248
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-clinical-assessment-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 1024,
+          "byteSize": 78750
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-clinical-assessment-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 1024,
+          "byteSize": 102312
+        }
+      ],
+      "updatedAt": "2026-09-25T14:08:31.006Z"
+    },
+    "images/guides/snake-bite-hero.jpg": {
+      "sourceHash": "cb36b156d68a25d16857d3b614da5b86fddc4a80eded5a727ac2984715bdfccd",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/snake-bite-hero.jpg",
+      "originalSize": 704478,
+      "width": 1730,
+      "height": 909,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/snake-bite-hero-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 168,
+          "byteSize": 12404
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-hero-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 168,
+          "byteSize": 19910
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-hero-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 210,
+          "byteSize": 19764
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-hero-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 210,
+          "byteSize": 30902
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-hero-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 336,
+          "byteSize": 43790
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-hero-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 336,
+          "byteSize": 69094
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-hero-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 420,
+          "byteSize": 62978
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-hero-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 420,
+          "byteSize": 100578
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-hero-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 631,
+          "byteSize": 113610
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-hero-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 631,
+          "byteSize": 186610
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-hero-1730.avif",
+          "format": "avif",
+          "width": 1730,
+          "height": 909,
+          "byteSize": 184660
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-hero-1730.webp",
+          "format": "webp",
+          "width": 1730,
+          "height": 909,
+          "byteSize": 308056
+        }
+      ],
+      "updatedAt": "2026-09-25T14:08:33.386Z"
+    },
+    "images/guides/snake-bite-keep-distance.jpg": {
+      "sourceHash": "1175eb503b6f4149f2883fb3a32eab84a7ab696fbe6af480437a3750616a2b0f",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/snake-bite-keep-distance.jpg",
+      "originalSize": 727758,
+      "width": 1536,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/snake-bite-keep-distance-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 17178
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-keep-distance-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 26890
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-keep-distance-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 25674
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-keep-distance-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 40966
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-keep-distance-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 59606
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-keep-distance-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 95178
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-keep-distance-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 84487
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-keep-distance-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 135878
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-keep-distance-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 148240
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-keep-distance-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 243362
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-keep-distance-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 1024,
+          "byteSize": 202731
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-keep-distance-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 1024,
+          "byteSize": 348282
+        }
+      ],
+      "updatedAt": "2026-09-25T14:08:37.871Z"
+    },
+    "images/guides/snake-bite-remove-ring.jpg": {
+      "sourceHash": "b5d27a7052d54fa79db28bc56b362a970b6d394aa3123a46b71e6f8f0499dfef",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/snake-bite-remove-ring.jpg",
+      "originalSize": 323124,
+      "width": 1536,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/snake-bite-remove-ring-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 7405
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-remove-ring-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9770
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-remove-ring-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 9779
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-remove-ring-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 13102
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-remove-ring-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 18480
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-remove-ring-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 24460
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-remove-ring-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 25082
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-remove-ring-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 33148
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-remove-ring-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 43055
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-remove-ring-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 58038
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-remove-ring-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 1024,
+          "byteSize": 61935
+        },
+        {
+          "key": "optimized/images/guides/snake-bite-remove-ring-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 1024,
+          "byteSize": 81950
+        }
+      ],
+      "updatedAt": "2026-09-25T14:08:40.518Z"
     },
     "images/guides/stink-bug-house-hero.jpg": {
       "sourceHash": "617ab2c24a1b21b86f97bf83aefc1617ca9b9eeea0b203e5b11d754413c0b851",
@@ -35463,7 +35938,7 @@
           "byteSize": 180688
         }
       ],
-      "updatedAt": "2026-09-24T13:10:40.763Z"
+      "updatedAt": "2026-09-25T14:08:36.511Z"
     },
     "images/guides/wasp-nest-open-comb.jpg": {
       "sourceHash": "4b6185537b5da6e992cd1e6c200b66d8565558865e2c762c674624a102c3b7b2",
@@ -35558,7 +36033,7 @@
           "byteSize": 135048
         }
       ],
-      "updatedAt": "2026-09-24T13:10:43.515Z"
+      "updatedAt": "2026-09-25T14:08:40.271Z"
     },
     "images/home/groups/amphibians.jpg": {
       "sourceHash": "93be3de896c76e82e0182df5b4b1d97ac92bde9f93d1393be8fb2cc98e1cbc3b",
@@ -35653,7 +36128,7 @@
           "byteSize": 272276
         }
       ],
-      "updatedAt": "2026-09-24T13:10:47.619Z"
+      "updatedAt": "2026-09-25T14:08:45.105Z"
     },
     "images/home/groups/birds.jpg": {
       "sourceHash": "d03c8925303f88a828fb31e4e3562553ed92ea2500c90d6ea877d20fed35fd00",
@@ -35734,7 +36209,7 @@
           "byteSize": 131548
         }
       ],
-      "updatedAt": "2026-09-24T13:10:55.285Z"
+      "updatedAt": "2026-09-25T14:08:41.551Z"
     },
     "images/home/groups/insects.jpg": {
       "sourceHash": "5cdb9c2b740a71d71c5a6700ab5f39ee6ebe969381964b3601ef273566c2cfb5",
@@ -35815,7 +36290,7 @@
           "byteSize": 93506
         }
       ],
-      "updatedAt": "2026-09-24T13:10:48.779Z"
+      "updatedAt": "2026-09-25T14:08:44.436Z"
     },
     "images/home/groups/lizards.jpg": {
       "sourceHash": "066e1cc066206326ab10437dc3fe3c9c1f27540673608d9dbf89b310b6bd8702",
@@ -35910,7 +36385,7 @@
           "byteSize": 344598
         }
       ],
-      "updatedAt": "2026-09-24T13:10:50.834Z"
+      "updatedAt": "2026-09-25T14:08:47.547Z"
     },
     "images/home/groups/mammals.jpg": {
       "sourceHash": "e84e26f71a016ebd729eab74a5d537383d9721855d90a4d27527721ceb940739",
@@ -35991,7 +36466,7 @@
           "byteSize": 178278
         }
       ],
-      "updatedAt": "2026-09-24T13:10:52.694Z"
+      "updatedAt": "2026-09-25T14:08:49.847Z"
     },
     "images/home/groups/scorpions.jpg": {
       "sourceHash": "e3cb4dd5c659564c67cfce918d1a438d13675c51876be3fd10b8540a7ed46215",
@@ -36072,7 +36547,7 @@
           "byteSize": 14224
         }
       ],
-      "updatedAt": "2026-09-24T13:10:53.576Z"
+      "updatedAt": "2026-09-25T14:08:46.892Z"
     },
     "images/home/groups/snakes.jpg": {
       "sourceHash": "40913797bd7a37477ae447364c3a7106609e7104b774351c0aa089cfc18e92df",
@@ -36167,7 +36642,7 @@
           "byteSize": 249742
         }
       ],
-      "updatedAt": "2026-09-24T13:10:57.362Z"
+      "updatedAt": "2026-09-25T14:08:52.424Z"
     },
     "images/home/groups/spiders.jpg": {
       "sourceHash": "d97fae0b550f0760f7cf89bfb18b376b87ce2b40a6bd5fe1e086bff908918f1c",
@@ -36248,7 +36723,7 @@
           "byteSize": 126958
         }
       ],
-      "updatedAt": "2026-09-24T13:10:57.247Z"
+      "updatedAt": "2026-09-25T14:08:51.414Z"
     },
     "images/home/groups/turtles.jpg": {
       "sourceHash": "865e39fdba02b04b4981d8c5d4d97c28510ec069dd186d3acc4ec3c43a3f52ef",
@@ -36343,7 +36818,7 @@
           "byteSize": 298432
         }
       ],
-      "updatedAt": "2026-09-24T13:11:01.536Z"
+      "updatedAt": "2026-09-25T14:08:52.850Z"
     },
     "images/news/theridion-huseynovi-new-spider-species-georgia-2026/theridion-huseynovi.png": {
       "sourceHash": "d4a1a13fbf943fc87f371418a57eca878129fcd41f735deb5bfbca43c80fe9f3",

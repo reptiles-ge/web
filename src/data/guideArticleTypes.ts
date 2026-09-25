@@ -12,6 +12,7 @@ export type GuideArticle<ImageKey extends string = string> = {
   ogImage: GuideArticleOgImage;
   parentHub: GroupHubId;
   pathname: GuideArticlePath;
+  relatedGuideIds?: readonly string[];
   relatedSpeciesIds?: readonly string[];
   search: GuideArticleSearch;
   sources: readonly GuideArticleSource[];
@@ -31,17 +32,16 @@ export type GuideArticleFaq = { answer: string; question: string };
 
 export type GuideArticleImage = {
   alt: Record<AppLocale, string>;
+  credit?: Record<AppLocale, string>;
   height: number;
-  src:
-    | `/images/guides/${string}`
-    | `https://cdn.reptiles.ge/external/${string}`
-    | `https://cdn.reptiles.ge/images/guides/${string}`;
+  src: `/images/guides/${string}` | `https://cdn.reptiles.ge/${string}`;
   width: number;
 };
 
 export type GuideArticleMessageKey =
   | "antsInHouse"
   | "batInHouse"
+  | "bite"
   | "mouseInHouse"
   | "scorpionSting"
   | "stinkBugInHouse"

@@ -89,6 +89,12 @@ export const images = {
     "https://cdn.reptiles.ge/images/guides/scorpion-sting-cool-compress.jpg",
   scorpionStingHero:
     "https://cdn.reptiles.ge/images/guides/scorpion-sting-hero.jpg",
+  snakeBiteCall112: "/images/guides/snake-bite-call-112.jpg",
+  snakeBiteClinicalAssessment:
+    "/images/guides/snake-bite-clinical-assessment.jpg",
+  snakeBiteHero: "/images/guides/snake-bite-hero.jpg",
+  snakeBiteKeepDistance: "/images/guides/snake-bite-keep-distance.jpg",
+  snakeBiteRemoveRing: "/images/guides/snake-bite-remove-ring.jpg",
   stinkBugInHouseGap:
     "https://cdn.reptiles.ge/images/guides/stink-bug-window-gap.jpg",
   stinkBugInHouseHero:

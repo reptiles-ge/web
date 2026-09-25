@@ -1,6 +1,6 @@
-import { createClusterGuideRoute } from "@/lib/createClusterGuideRoute";
+import { createGuideArticleRoute } from "@/lib/createGuideArticleRoute";
 
-const guide = createClusterGuideRoute("snake-bite");
+const guide = createGuideArticleRoute("/snakes/gvelis-nakbeni");
 
 export const generateStaticParams = guide.generateStaticParams;
 export const generateMetadata = guide.generateMetadata;

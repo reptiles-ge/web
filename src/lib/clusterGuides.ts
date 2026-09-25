@@ -135,7 +135,6 @@ export type ClusterGuideId =
   | "mammal-bear"
   | "mammal-index"
   | "mammal-jackal-yard"
-  | "snake-bite"
   | "snake-identify"
   | "snake-index"
   | "snake-largest"
@@ -169,7 +168,6 @@ export type ClusterGuidePath =
   | "/scorpions"
   | "/snakes/didi-gvelebi"
   | "/snakes/gavrtseleba"
-  | "/snakes/gvelis-nakbeni"
   | "/snakes/saxeoebebi"
   | "/snakes/shxamiani-gvelis-amocnoba"
   | "/spiders"
@@ -196,7 +194,6 @@ export type ClusterMessageKey =
   | "mammalBear"
   | "mammalIndex"
   | "mammalJackalYard"
-  | "snakeBite"
   | "snakeIdentify"
   | "snakeIndex"
   | "snakeLargest"
@@ -423,19 +420,6 @@ export const CLUSTER_GUIDES: Record<ClusterGuideId, ClusterGuideConfig> = {
     parentHub: "mammals",
     pathname: "/mammals/tura-ezoshi",
     primaryCta: "hash",
-    schema: "article",
-  },
-  "snake-bite": {
-    faqCount: 8,
-    heroImage: "/images/guides/snake-bite-cover.png",
-    heroSpeciesId: "macrovipera-lebetina",
-    id: "snake-bite",
-    matches: (species) =>
-      isSnakeSpecies(species) && isVenomousDanger(species.danger),
-    messageKey: "snakeBite",
-    parentHub: "snakes",
-    pathname: "/snakes/gvelis-nakbeni",
-    primaryCta: "tel",
     schema: "article",
   },
   "snake-identify": {
