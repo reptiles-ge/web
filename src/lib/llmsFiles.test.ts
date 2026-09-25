@@ -71,7 +71,7 @@ describe("buildLlmsFullText", () => {
     const body = buildLlmsFullText();
 
     expect(body).toContain(
-      "This guide is educational and does not replace medical care.",
+      "Symptoms may be absent early; medical staff must assess the bite.",
     );
     expect(body).not.toContain("MedicalWebPage");
   });
