@@ -28746,6 +28746,196 @@
       ],
       "updatedAt": "2026-09-24T16:21:59.593Z"
     },
+    "falco-tinnunculus-alexis-1.jpg": {
+      "sourceHash": "6b77e86a057812eb1d73e5ab68783861dc761ca2b80f9cb3d9c8b9c0c891413a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "falco-tinnunculus-alexis-1.jpg",
+      "originalSize": 1795580,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/falco-tinnunculus-alexis-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 214,
+          "byteSize": 8845
+        },
+        {
+          "key": "optimized/falco-tinnunculus-alexis-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 214,
+          "byteSize": 11902
+        },
+        {
+          "key": "optimized/falco-tinnunculus-alexis-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 10580
+        },
+        {
+          "key": "optimized/falco-tinnunculus-alexis-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 14668
+        },
+        {
+          "key": "optimized/falco-tinnunculus-alexis-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 17025
+        },
+        {
+          "key": "optimized/falco-tinnunculus-alexis-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 24738
+        },
+        {
+          "key": "optimized/falco-tinnunculus-alexis-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 21470
+        },
+        {
+          "key": "optimized/falco-tinnunculus-alexis-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 31462
+        },
+        {
+          "key": "optimized/falco-tinnunculus-alexis-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 36695
+        },
+        {
+          "key": "optimized/falco-tinnunculus-alexis-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 53020
+        },
+        {
+          "key": "optimized/falco-tinnunculus-alexis-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 104112
+        },
+        {
+          "key": "optimized/falco-tinnunculus-alexis-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 143590
+        }
+      ],
+      "updatedAt": "2026-09-25T06:49:25.468Z"
+    },
+    "falco-tinnunculus-charles-1.jpg": {
+      "sourceHash": "45af43bf5983fbc474a026b7d1c2855fc65b8526d32530c50774472914e5975c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "falco-tinnunculus-charles-1.jpg",
+      "originalSize": 4403347,
+      "width": 1591,
+      "height": 2387,
+      "derivatives": [
+        {
+          "key": "optimized/falco-tinnunculus-charles-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 480,
+          "byteSize": 6170
+        },
+        {
+          "key": "optimized/falco-tinnunculus-charles-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 480,
+          "byteSize": 7460
+        },
+        {
+          "key": "optimized/falco-tinnunculus-charles-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 600,
+          "byteSize": 8064
+        },
+        {
+          "key": "optimized/falco-tinnunculus-charles-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 600,
+          "byteSize": 10008
+        },
+        {
+          "key": "optimized/falco-tinnunculus-charles-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 960,
+          "byteSize": 16232
+        },
+        {
+          "key": "optimized/falco-tinnunculus-charles-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 960,
+          "byteSize": 20950
+        },
+        {
+          "key": "optimized/falco-tinnunculus-charles-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1200,
+          "byteSize": 23096
+        },
+        {
+          "key": "optimized/falco-tinnunculus-charles-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1200,
+          "byteSize": 30102
+        },
+        {
+          "key": "optimized/falco-tinnunculus-charles-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1800,
+          "byteSize": 45910
+        },
+        {
+          "key": "optimized/falco-tinnunculus-charles-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1800,
+          "byteSize": 59802
+        },
+        {
+          "key": "optimized/falco-tinnunculus-charles-1-1591.avif",
+          "format": "avif",
+          "width": 1591,
+          "height": 2387,
+          "byteSize": 73554
+        },
+        {
+          "key": "optimized/falco-tinnunculus-charles-1-1591.webp",
+          "format": "webp",
+          "width": 1591,
+          "height": 2387,
+          "byteSize": 97698
+        }
+      ],
+      "updatedAt": "2026-09-25T06:49:29.103Z"
+    },
     "falco-tinnunculus-david-1.jpg": {
       "sourceHash": "53fdca7595dd2c5ef12f7f42ee82134da6b93cff1e877418b777adb2464afcaa",
       "configFingerprint": "409788ee46c653d8",
@@ -29231,6 +29421,101 @@
         }
       ],
       "updatedAt": "2026-09-25T06:39:53.266Z"
+    },
+    "falco-tinnunculus-paul-1.jpg": {
+      "sourceHash": "32c909d90a180647bb6fdf1e9ecb33b3ef51289fa32b78735ba9b16e34969c94",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "falco-tinnunculus-paul-1.jpg",
+      "originalSize": 472351,
+      "width": 1341,
+      "height": 735,
+      "derivatives": [
+        {
+          "key": "optimized/falco-tinnunculus-paul-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 175,
+          "byteSize": 5239
+        },
+        {
+          "key": "optimized/falco-tinnunculus-paul-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 175,
+          "byteSize": 6918
+        },
+        {
+          "key": "optimized/falco-tinnunculus-paul-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 219,
+          "byteSize": 8051
+        },
+        {
+          "key": "optimized/falco-tinnunculus-paul-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 219,
+          "byteSize": 10754
+        },
+        {
+          "key": "optimized/falco-tinnunculus-paul-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 351,
+          "byteSize": 25313
+        },
+        {
+          "key": "optimized/falco-tinnunculus-paul-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 351,
+          "byteSize": 37756
+        },
+        {
+          "key": "optimized/falco-tinnunculus-paul-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 438,
+          "byteSize": 46665
+        },
+        {
+          "key": "optimized/falco-tinnunculus-paul-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 438,
+          "byteSize": 68400
+        },
+        {
+          "key": "optimized/falco-tinnunculus-paul-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 658,
+          "byteSize": 115245
+        },
+        {
+          "key": "optimized/falco-tinnunculus-paul-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 658,
+          "byteSize": 171948
+        },
+        {
+          "key": "optimized/falco-tinnunculus-paul-1-1341.avif",
+          "format": "avif",
+          "width": 1341,
+          "height": 735,
+          "byteSize": 153447
+        },
+        {
+          "key": "optimized/falco-tinnunculus-paul-1-1341.webp",
+          "format": "webp",
+          "width": 1341,
+          "height": 735,
+          "byteSize": 227784
+        }
+      ],
+      "updatedAt": "2026-09-25T06:49:34.826Z"
     },
     "falco-tinnunculus-peter-1.jpg": {
       "sourceHash": "89b61a506210339a48c919640fbd44b475d8e0c8259074a793811c62696143dd",
