@@ -70,7 +70,9 @@ describe("buildLlmsFullText", () => {
   it("keeps bite pages educational and omits medical schema claims", () => {
     const body = buildLlmsFullText();
 
-    expect(body).toContain("Not a medical protocol");
+    expect(body).toContain(
+      "This guide is educational and does not replace medical care.",
+    );
     expect(body).not.toContain("MedicalWebPage");
   });
 });

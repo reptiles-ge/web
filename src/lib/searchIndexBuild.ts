@@ -557,32 +557,6 @@ const CLUSTER_COPY: Record<ClusterGuideId, PageCopy> = {
       tr: "Bahçede çakal",
     },
   },
-  "snake-bite": {
-    icon: "safety",
-    keywords: [
-      "ნაკბენი",
-      "nakbeni",
-      "bite",
-      "snakebite",
-      "112",
-      "პირველადი",
-      "first aid",
-      "სიმპტომები",
-      "symptoms",
-      "მიკბინა",
-      "შხამი",
-    ],
-    rank: 3,
-    subtitle: {
-      en: "112, what to do and what not to do",
-      ka: "112, რა გააკეთო და რა არ გააკეთო",
-    },
-    suggested: true,
-    title: {
-      en: "Snakebite in Georgia — what should you do?",
-      ka: "გველის ნაკბენი საქართველოში — რა უნდა გავაკეთოთ?",
-    },
-  },
   "snake-identify": {
     icon: "identify",
     keywords: [

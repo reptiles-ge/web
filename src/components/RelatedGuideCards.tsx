@@ -29,7 +29,8 @@ const GUIDE_HERO_IMAGES: Partial<
 > = {
   "/snakes/didi-gvelebi": "/images/guides/largest-snakes-cover.png",
   "/snakes/gavrtseleba": "/images/guides/snake-range-cover.png",
-  "/snakes/gvelis-nakbeni": "/images/guides/snake-bite-cover.png",
+  "/snakes/gvelis-nakbeni":
+    "https://cdn.reptiles.ge/macrovipera-lebetina-laura-1.jpg",
   "/snakes/saxeoebebi": "/images/guides/snake-species-cover.png",
   "/snakes/shxamiani-gvelis-amocnoba":
     "/images/guides/identify-venomous-cover.png",

@@ -89,6 +89,7 @@ export const images = {
     "https://cdn.reptiles.ge/images/guides/scorpion-sting-cool-compress.jpg",
   scorpionStingHero:
     "https://cdn.reptiles.ge/images/guides/scorpion-sting-hero.jpg",
+  snakeBiteHero: "https://cdn.reptiles.ge/macrovipera-lebetina-laura-1.jpg",
   stinkBugInHouseGap:
     "https://cdn.reptiles.ge/images/guides/stink-bug-window-gap.jpg",
   stinkBugInHouseHero:
