@@ -1,6 +1,13 @@
 "use client";
 
-import { type Dispatch, type SetStateAction, useRef, useState } from "react";
+import Image from "next/image";
+import {
+  type Dispatch,
+  type SetStateAction,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 
 import type { GalleryImage, SpeciesFieldRecord } from "@/data/speciesTypes";
 
@@ -21,6 +28,7 @@ type AdminBusyState =
   | "cover"
   | "fieldRecord"
   | "idle"
+  | "inaturalist"
   | "remove"
   | "reorder"
   | "upload";
@@ -58,7 +66,14 @@ export function AdminSpeciesEditor({
     mobile: string;
   }>(null);
   const [preview, setPreview] = useState<AdminCoverPreviewState | null>(null);
+  const [inaturalistUrl, setInaturalistUrl] = useState("");
+  const [importedPhoto, setImportedPhoto] = useState<null | {
+    file: File;
+    license: string;
+    previewUrl: string;
+  }>(null);
   const busyRef = useRef(false);
+  const uploadFormRef = useRef<HTMLFormElement>(null);
   const dirty =
     photos.map((item) => item.src).join("\0") !== savedSrcs.join("\0");
   const saving = busy !== "idle";
@@ -66,6 +81,87 @@ export function AdminSpeciesEditor({
     coverOverride?.desktop ?? image,
     coverOverride?.mobile ?? mobileImage,
   );
+
+  useEffect(() => {
+    return () => {
+      if (importedPhoto) URL.revokeObjectURL(importedPhoto.previewUrl);
+    };
+  }, [importedPhoto]);
+
+  async function onImportPhoto(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (busyRef.current) return;
+    busyRef.current = true;
+    setBusy("inaturalist");
+    setError(null);
+    setOk(null);
+    setImportedPhoto(null);
+    try {
+      const response = await fetch("/api/admin/inaturalist-photo", {
+        body: JSON.stringify({ url: inaturalistUrl }),
+        headers: { "Content-Type": "application/json" },
+        method: "POST",
+      });
+      if (!response.ok) {
+        const result = (await response.json()) as { error?: string };
+        throw new Error(result.error ?? "iNaturalist-ის ფოტო ვერ მოიძებნა");
+      }
+      const result = await response.formData();
+      const file = result.get("photo");
+      const rawMetadata = result.get("metadata");
+      if (!(file instanceof File) || typeof rawMetadata !== "string") {
+        throw new Error("iNaturalist-ის პასუხი არასრულია");
+      }
+      const metadata = JSON.parse(rawMetadata) as {
+        date: string;
+        georgiaField: boolean;
+        lat: number | string;
+        license: string;
+        lng: number | string;
+        location: string;
+        photographer: string;
+        url: string;
+      };
+      const form = uploadFormRef.current;
+      if (!form) throw new Error("ატვირთვის ფორმა ვერ მოიძებნა");
+      for (const [name, value] of Object.entries({
+        date: metadata.date,
+        lat: String(metadata.lat),
+        lng: String(metadata.lng),
+        location: metadata.location,
+        locationEn: metadata.location,
+        photographer: metadata.photographer,
+        photographerEn: metadata.photographer,
+        url: metadata.url,
+      })) {
+        const field = form.elements.namedItem(name);
+        if (field instanceof HTMLInputElement) field.value = value;
+      }
+      const georgiaField = form.elements.namedItem("georgiaField");
+      if (georgiaField instanceof HTMLInputElement) {
+        georgiaField.checked = metadata.georgiaField;
+      }
+      const photoInput = form.elements.namedItem("photos");
+      if (photoInput instanceof HTMLInputElement) photoInput.value = "";
+      setImportedPhoto({
+        file,
+        license: metadata.license,
+        previewUrl: URL.createObjectURL(file),
+      });
+      setOk(
+        "პირველი ფოტო და დაკვირვების მონაცემები ატვირთვის ფორმაში ჩაიწერა.",
+      );
+    } catch (caught) {
+      setError(
+        caught instanceof Error
+          ? caught.message
+          : "iNaturalist-ის ფოტო ვერ მოიძებნა",
+      );
+    } finally {
+      busyRef.current = false;
+      setBusy("idle");
+    }
+  }
 
   async function onSetCover(src: string, target: CoverTarget) {
     if (busyRef.current) return;
@@ -175,6 +271,15 @@ export function AdminSpeciesEditor({
     setPullRequestUrl(null);
     try {
       const body = new FormData(form);
+      if (
+        importedPhoto &&
+        !body
+          .getAll("photos")
+          .some((item) => item instanceof File && item.size > 0)
+      ) {
+        body.delete("photos");
+        body.append("photos", importedPhoto.file);
+      }
       body.set("id", id);
       const response = await fetch("/api/admin/photos", {
         body,
@@ -216,6 +321,8 @@ export function AdminSpeciesEditor({
         }
       }
       form.reset();
+      setImportedPhoto(null);
+      setInaturalistUrl("");
     } catch (caught) {
       setError(
         caught instanceof Error ? caught.message : "ატვირთვა ვერ მოხერხდა",
@@ -404,7 +511,61 @@ export function AdminSpeciesEditor({
       <div className="grid gap-5">
         <form
           className="rounded-xl border border-border bg-card p-5"
+          onSubmit={onImportPhoto}
+        >
+          <h2 className="font-display text-lg font-medium">
+            iNaturalist-იდან ფოტოს წამოღება
+          </h2>
+          <p className="mt-2 text-[12px] leading-relaxed text-muted-foreground">
+            ჩასვი დაკვირვების URL. პირველი ფოტო და მისი მონაცემები ქვემოთ
+            ატვირთვის ფორმაში ჩაიწერება; CDN-ზე ატვირთვა ცალკე ღილაკით ხდება.
+            დამალული კოორდინატები ავტომატურად არ ივსება.
+          </p>
+          <label className="mt-4 block text-[12px] text-muted-foreground">
+            დაკვირვების URL
+            <input
+              className="mt-1.5 h-10 w-full rounded-md border border-border bg-background px-3 text-[14px] text-foreground outline-none focus:border-primary"
+              disabled={saving}
+              onChange={(event) => {
+                setInaturalistUrl(event.target.value);
+                setImportedPhoto(null);
+              }}
+              placeholder="https://www.inaturalist.org/observations/123456"
+              required
+              type="url"
+              value={inaturalistUrl}
+            />
+          </label>
+          <button
+            className="mt-4 h-10 rounded-lg border border-border px-4 text-[13px] font-medium disabled:opacity-50"
+            disabled={saving}
+            type="submit"
+          >
+            {busy === "inaturalist" ? "მოაქვს…" : "პირველი ფოტოს წამოღება"}
+          </button>
+          {importedPhoto ? (
+            <div className="mt-4 flex items-center gap-4 rounded-lg border border-border p-3">
+              <Image
+                alt="iNaturalist-ის პირველი ფოტო"
+                className="size-24 rounded-md object-cover"
+                height={96}
+                src={importedPhoto.previewUrl}
+                unoptimized
+                width={96}
+              />
+              <div className="min-w-0 text-[12px] text-muted-foreground">
+                <p className="break-all text-foreground">
+                  {importedPhoto.file.name}
+                </p>
+                <p>ლიცენზია: {importedPhoto.license}</p>
+              </div>
+            </div>
+          ) : null}
+        </form>
+        <form
+          className="rounded-xl border border-border bg-card p-5"
           onSubmit={onSubmit}
+          ref={uploadFormRef}
         >
           <h2 className="font-display text-lg font-medium">ატვირთვა</h2>
           <p className="mt-2 text-[12px] leading-relaxed text-muted-foreground">
@@ -419,7 +580,8 @@ export function AdminSpeciesEditor({
               className="mt-1.5 block w-full text-[13px]"
               multiple
               name="photos"
-              required
+              onChange={() => setImportedPhoto(null)}
+              required={!importedPhoto}
               type="file"
             />
           </label>
