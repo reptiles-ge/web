@@ -2818,6 +2818,55 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1672],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/falco-tinnunculus-david-1.jpg": {
+    "path": "falco-tinnunculus-david-1",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/falco-tinnunculus-donsky-2.jpg": {
+    "path": "falco-tinnunculus-donsky-2",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/falco-tinnunculus-donsky-3.jpg": {
+    "path": "falco-tinnunculus-donsky-3",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/falco-tinnunculus-donsky-4.jpg": {
+    "path": "falco-tinnunculus-donsky-4",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/falco-tinnunculus-donsky-5.jpg": {
+    "path": "falco-tinnunculus-donsky-5",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/falco-tinnunculus-gogopopo-1.jpg": {
+    "path": "falco-tinnunculus-gogopopo-1",
+    "width": 1024,
+    "height": 1024,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/falco-tinnunculus-peter-1.jpg": {
+    "path": "falco-tinnunculus-peter-1",
+    "width": 1024,
+    "height": 683,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/ficedula-hypoleuca-crowbared-1.jpg": {
     "path": "ficedula-hypoleuca-crowbared-1",
     "width": 2400,

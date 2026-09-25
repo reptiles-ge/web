@@ -133,6 +133,12 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
     en: "Mingrelian scorpion (Euscorpius mingrelicus) | Western Georgia",
     ka: "მეგრული მორიელი (Euscorpius mingrelicus) — დასავლეთ საქართველოში",
   },
+  "falco-tinnunculus": {
+    en: "Common kestrel (Falco tinnunculus) in Georgia | Identification",
+    ka: "კირკიტა (Falco tinnunculus) საქართველოში — ამოცნობა",
+    ru: "Обыкновенная пустельга (Falco tinnunculus) в Грузии",
+    tr: "Kerkenez (Falco tinnunculus) Gürcistan'da",
+  },
   "halyomorpha-halys": {
     en: "Brown marmorated stink bug (Halyomorpha halys) | Georgia",
     ka: "აზიური ფაროსანა (Halyomorpha halys) | მავნებელი საქართველოში",
@@ -292,6 +298,12 @@ const SPECIES_META_DESCRIPTION_OVERRIDE: Partial<
   "euscorpius-mingrelicus": {
     en: "Mingrelian scorpion (Euscorpius mingrelicus) in Georgia: taxonomy, western Georgian range, identification, humid forest habitat, and sting risk.",
     ka: "მეგრული მორიელი (Euscorpius mingrelicus) საქართველოში — ტაქსონომია, დასავლეთ საქართველოს არეალი, ამოცნობა, ნოტიო ტყის ჰაბიტატი და ჩხვლეტის რისკი.",
+  },
+  "falco-tinnunculus": {
+    en: "Common kestrel in Georgia: map-confirmed distribution in nine regions, breeding resident and migrant. Identification and lesser kestrel comparison.",
+    ka: "კირკიტა საქართველოში — რუკაზე გავრცელება დადასტურებულია ცხრა რეგიონში; მობუდარი და გადამფრენი. ამოცნობა და განსხვავება მცირე კირკიტასგან.",
+    ru: "Обыкновенная пустельга в Грузии: распространение подтверждено на карте в девяти регионах; гнездится и встречается на пролёте. Признаки и отличие от малой пустельги.",
+    tr: "Gürcistan'da kerkenez: haritada dokuz bölgede doğrulanmış yayılış; üreyen yerleşik tür ve göçmen. Tanıma ve küçük kerkenezden ayırma.",
   },
   "halyomorpha-halys": {
     en: "Brown marmorated stink bug (Halyomorpha halys) in Georgia: identification, distribution evidence, crop damage, control, and indoor removal.",
