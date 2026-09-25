@@ -9,6 +9,7 @@
     "retry": "Try again",
     "requestError": "The selected text has no unique content field, changed, or crosses fields. Reload and select text in one paragraph.",
     "codexError": "Codex could not process the text or returned invalid content. Check the local Codex installation and retry.",
+    "limitError": "The Codex usage limit is exhausted. Do not start another edit yet; the terminal will show a green message when it is available again.",
     "gitError": "Validation or PR creation failed. See the local terminal for details; this checkout was not changed.",
     "networkError": "Connection failed. Try again."
   },

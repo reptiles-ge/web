@@ -9,6 +9,7 @@
     "retry": "Yeniden dene",
     "requestError": "Seçilen metin tek bir içerik alanına bağlanamadı, değişti veya birden fazla alanı kapsıyor. Sayfayı yenileyip tek paragraftaki metni seçin.",
     "codexError": "Codex metni işleyemedi veya geçersiz sonuç döndürdü. Yerel Codex kurulumunu kontrol edip yeniden deneyin.",
+    "limitError": "Codex kullanım sınırına ulaşıldı. Şimdilik yeni bir düzenleme başlatmayın; sınır yenilendiğinde terminalde yeşil bir mesaj görünecek.",
     "gitError": "Doğrulama veya PR oluşturma başarısız oldu. Ayrıntılar yerel terminalde; bu çalışma kopyası değişmedi.",
     "networkError": "Bağlantı kurulamadı. Yeniden deneyin."
   },

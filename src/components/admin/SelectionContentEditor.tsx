@@ -8,6 +8,7 @@ type EditorCopy = {
   error: string;
   gitError: string;
   jobs: string;
+  limitError: string;
   networkError: string;
   openPr: string;
   processing: string;
@@ -175,6 +176,8 @@ export function SelectionContentEditor({ copy }: { copy: EditorCopy }) {
             ? copy.requestError
             : result.error === "codex"
               ? copy.codexError
+              : result.error === "limit"
+                ? copy.limitError
               : copy.gitError,
         );
       }
