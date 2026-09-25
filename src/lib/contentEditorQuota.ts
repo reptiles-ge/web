@@ -3,8 +3,8 @@ import readline from "node:readline";
 
 type QuotaSnapshot = {
   exhausted: boolean;
-  remainingPercent: number | null;
-  resetsAt: number | null;
+  remainingPercent: null | number;
+  resetsAt: null | number;
 };
 
 const RED = "\u001b[31m";
@@ -12,7 +12,15 @@ const GREEN = "\u001b[32m";
 const RESET = "\u001b[0m";
 let blocked = false;
 let pollTimer: NodeJS.Timeout | null = null;
-let pendingRead: Promise<null | QuotaSnapshot> | null = null;
+let pendingRead: null | Promise<null | QuotaSnapshot> = null;
+
+type QuotaBucket = {
+  primary?: null | QuotaWindow;
+  rateLimitReachedType?: null | string;
+  secondary?: null | QuotaWindow;
+};
+
+type QuotaWindow = { resetsAt?: null | number; usedPercent?: null | number };
 
 export class CodexQuotaError extends Error {
   constructor() {
@@ -26,11 +34,59 @@ export async function assertCodexQuota(operationId: string) {
     if (quota?.exhausted) blockQuota(operationId, quota);
   }
   if (blocked) {
-    console.error(`${RED}content-editor [${operationId}] გაჩერდი — Codex-ის ლიმიტი ამოიწურა. ახალი ტექსტი არ გაუშვა.${RESET}`);
+    console.error(
+      `${RED}content-editor [${operationId}] გაჩერდი — Codex-ის ლიმიტი ამოიწურა. ახალი ტექსტი არ გაუშვა.${RESET}`,
+    );
     throw new CodexQuotaError();
   }
 }
 
+export function isCodexLimitError(error: unknown) {
+  return (
+    error instanceof CodexQuotaError ||
+    (error instanceof Error &&
+      /usage limit|rate limit|quota exceeded|insufficient credits|too many requests/i.test(
+        error.message,
+      ))
+  );
+}
+
+export function parseCodexQuota(value: unknown): null | QuotaSnapshot {
+  if (!value || typeof value !== "object") return null;
+  const response = value as {
+    rateLimits?: null | QuotaBucket;
+    rateLimitsByLimitId?: Record<string, QuotaBucket>;
+  };
+  const bucket = response.rateLimitsByLimitId?.codex ?? response.rateLimits;
+  if (!bucket) return null;
+  let hasWindow = false;
+  let exhausted = Boolean(bucket.rateLimitReachedType);
+  let remainingPercent: null | number = null;
+  let resetsAt: null | number = null;
+  let exhaustedResetsAt: null | number = null;
+  for (const window of [bucket.primary, bucket.secondary]) {
+    if (!window) continue;
+    hasWindow = true;
+    if (typeof window.usedPercent === "number") {
+      remainingPercent = Math.min(
+        remainingPercent ?? 100,
+        Math.max(0, Math.round(100 - window.usedPercent)),
+      );
+      if (window.usedPercent >= 100) exhausted = true;
+    }
+    if (typeof window.resetsAt === "number") {
+      resetsAt = Math.max(resetsAt ?? 0, window.resetsAt);
+      if (typeof window.usedPercent === "number" && window.usedPercent >= 100)
+        exhaustedResetsAt = Math.max(exhaustedResetsAt ?? 0, window.resetsAt);
+    }
+  }
+  if (!hasWindow && !bucket.rateLimitReachedType) return null;
+  return {
+    exhausted,
+    remainingPercent,
+    resetsAt: exhaustedResetsAt ?? resetsAt,
+  };
+}
 export async function reportCodexQuota(operationId: string, failure?: unknown) {
   const limitError = isCodexLimitError(failure);
   if (limitError) blockQuota(operationId);
@@ -38,81 +94,35 @@ export async function reportCodexQuota(operationId: string, failure?: unknown) {
   if (quota?.exhausted) blockQuota(operationId, quota);
   if (blocked) {
     if (!limitError) {
-      console.error(`${RED}content-editor [${operationId}] გაჩერდი — Codex-ის ლიმიტი ამოიწურა. ახალი ტექსტი არ გაუშვა.${RESET}`);
+      console.error(
+        `${RED}content-editor [${operationId}] გაჩერდი — Codex-ის ლიმიტი ამოიწურა. ახალი ტექსტი არ გაუშვა.${RESET}`,
+      );
     }
     return true;
   }
   if (quota) {
-    const remaining = quota.remainingPercent === null ? "" : ` (${quota.remainingPercent}% დარჩა)`;
-    console.info(`${GREEN}content-editor [${operationId}] ლიმიტი ხელმისაწვდომია${remaining} — შეგიძლია ახალი ტექსტი გაუშვა.${RESET}`);
+    const remaining =
+      quota.remainingPercent === null
+        ? ""
+        : ` (${quota.remainingPercent}% დარჩა)`;
+    console.info(
+      `${GREEN}content-editor [${operationId}] ლიმიტი ხელმისაწვდომია${remaining} — შეგიძლია ახალი ტექსტი გაუშვა.${RESET}`,
+    );
   }
   return false;
 }
-
-export function isCodexLimitError(error: unknown) {
-  return error instanceof CodexQuotaError ||
-    (error instanceof Error && /usage limit|rate limit|quota exceeded|insufficient credits|too many requests/i.test(error.message));
-}
-
-export function parseCodexQuota(value: unknown): null | QuotaSnapshot {
-  if (!value || typeof value !== "object") return null;
-  const response = value as {
-    rateLimits?: QuotaBucket | null;
-    rateLimitsByLimitId?: Record<string, QuotaBucket>;
-  };
-  const bucket = response.rateLimitsByLimitId?.codex ?? response.rateLimits;
-  if (!bucket) return null;
-  const windows = [bucket.primary, bucket.secondary].filter(
-    (window): window is QuotaWindow => Boolean(window),
-  );
-  if (!windows.length && !bucket.rateLimitReachedType) return null;
-  const exhaustedWindows = windows.filter(
-    (window) => typeof window.usedPercent === "number" && window.usedPercent >= 100,
-  );
-  const remaining = windows
-    .filter((window) => typeof window.usedPercent === "number")
-    .map((window) => Math.max(0, Math.round(100 - window.usedPercent!)));
-  const resets = (exhaustedWindows.length ? exhaustedWindows : windows)
-    .map((window) => window.resetsAt)
-    .filter((time): time is number => typeof time === "number");
-  return {
-    exhausted: Boolean(bucket.rateLimitReachedType) || exhaustedWindows.length > 0,
-    remainingPercent: remaining.length ? Math.min(...remaining) : null,
-    resetsAt: resets.length ? Math.max(...resets) : null,
-  };
-}
-
-type QuotaWindow = { resetsAt?: number | null; usedPercent?: number | null };
-type QuotaBucket = {
-  primary?: QuotaWindow | null;
-  rateLimitReachedType?: string | null;
-  secondary?: QuotaWindow | null;
-};
 
 function blockQuota(operationId: string, quota?: QuotaSnapshot) {
   if (!blocked) {
     const reset = quota?.resetsAt
       ? ` სავარაუდო აღდგენა: ${new Date(quota.resetsAt * 1000).toLocaleString("ka-GE")}.`
       : "";
-    console.error(`${RED}content-editor [${operationId}] გაჩერდი — Codex-ის ლიმიტი ამოიწურა.${reset}${RESET}`);
+    console.error(
+      `${RED}content-editor [${operationId}] გაჩერდი — Codex-ის ლიმიტი ამოიწურა.${reset}${RESET}`,
+    );
   }
   blocked = true;
   schedulePoll();
-}
-
-function schedulePoll() {
-  if (pollTimer) return;
-  pollTimer = setTimeout(async () => {
-    pollTimer = null;
-    const quota = await readQuota();
-    if (quota && !quota.exhausted) {
-      blocked = false;
-      console.info(`${GREEN}content-editor ლიმიტი ისევ ხელმისაწვდომია — შეგიძლია ახალი ტექსტი გაუშვა.${RESET}`);
-    } else if (blocked) {
-      schedulePoll();
-    }
-  }, 60_000);
-  pollTimer.unref();
 }
 
 function readQuota() {
@@ -132,7 +142,10 @@ function readQuotaFromCodex(): Promise<QuotaSnapshot> {
       stdio: ["pipe", "pipe", "ignore"],
     });
     let done = false;
-    const timeout = setTimeout(() => finish(new Error("Quota check timed out")), 10_000);
+    const timeout = setTimeout(
+      () => finish(new Error("Quota check timed out")),
+      10_000,
+    );
     const finish = (error?: Error, quota?: QuotaSnapshot) => {
       if (done) return;
       done = true;
@@ -142,7 +155,8 @@ function readQuotaFromCodex(): Promise<QuotaSnapshot> {
       else if (quota) resolve(quota);
       else reject(new Error("Quota status unavailable"));
     };
-    const send = (message: unknown) => child.stdin.write(`${JSON.stringify(message)}\n`);
+    const send = (message: unknown) =>
+      child.stdin.write(`${JSON.stringify(message)}\n`);
     child.on("error", finish);
     child.stdin.on("error", finish);
     child.on("close", () => finish(new Error("Codex app-server closed")));
@@ -163,7 +177,9 @@ function readQuotaFromCodex(): Promise<QuotaSnapshot> {
           finish(undefined, parseCodexQuota(message.result) ?? undefined);
         }
       } catch (error) {
-        finish(error instanceof Error ? error : new Error("Invalid quota response"));
+        finish(
+          error instanceof Error ? error : new Error("Invalid quota response"),
+        );
       }
     });
     send({
@@ -178,4 +194,21 @@ function readQuotaFromCodex(): Promise<QuotaSnapshot> {
       },
     });
   });
+}
+
+function schedulePoll() {
+  if (pollTimer) return;
+  pollTimer = setTimeout(async () => {
+    pollTimer = null;
+    const quota = await readQuota();
+    if (quota && !quota.exhausted) {
+      blocked = false;
+      console.info(
+        `${GREEN}content-editor ლიმიტი ისევ ხელმისაწვდომია — შეგიძლია ახალი ტექსტი გაუშვა.${RESET}`,
+      );
+    } else if (blocked) {
+      schedulePoll();
+    }
+  }, 60_000);
+  pollTimer.unref();
 }

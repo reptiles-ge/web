@@ -178,7 +178,7 @@ export function SelectionContentEditor({ copy }: { copy: EditorCopy }) {
               ? copy.codexError
               : result.error === "limit"
                 ? copy.limitError
-              : copy.gitError,
+                : copy.gitError,
         );
       }
       setJobs((current) =>

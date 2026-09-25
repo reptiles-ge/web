@@ -20,11 +20,14 @@ const OUTPUT_SCHEMA = {
   type: "object",
 };
 
-export async function transformWithCodex(input: {
-  after: string;
-  before: string;
-  selected: string;
-}, operationId: string): Promise<EditorResult> {
+export async function transformWithCodex(
+  input: {
+    after: string;
+    before: string;
+    selected: string;
+  },
+  operationId: string,
+): Promise<EditorResult> {
   await assertCodexQuota(operationId);
   const directory = await fs.mkdtemp(
     path.join(os.tmpdir(), "reptiles-editor-codex-"),
