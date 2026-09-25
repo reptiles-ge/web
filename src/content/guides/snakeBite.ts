@@ -18,12 +18,12 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         answer:
-          "No. WHO and CDC advise against cutting the wound or trying to suck out venom. These actions do not replace prompt medical assessment.",
+          "No. CDC advises against cutting the wound or trying to suck out venom. These actions do not replace prompt medical assessment.",
         question: "Can I cut the bite or suck out venom?",
       },
       {
         answer:
-          "No. WHO advises against a tight arterial tourniquet. Do not improvise a pressure bandage: the method depends on the type of snake and is not a general first aid measure for Georgian bites.",
+          "No. A tight arterial tourniquet is not recommended. Do not improvise a pressure bandage: the method depends on the type of snake and is not a general first aid measure for Georgian bites.",
         question: "Should I use a tourniquet or pressure bandage?",
       },
       {
@@ -60,7 +60,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
           ordered: true,
         },
         paragraphs: [
-          "WHO recommends rapid transport to a health facility for suspected venomous bites. In Georgia, 112 is the emergency dispatch number, not a general information line. Follow the dispatcher's instructions while help is arranged.",
+          "Rapid transport to a health facility is recommended for suspected venomous bites. In Georgia, 112 is the emergency dispatch number, not a general information line. Follow the dispatcher's instructions while help is arranged.",
         ],
       },
       {
@@ -75,7 +75,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
           ],
         },
         paragraphs: [
-          "These methods can cause harm or waste time needed for medical care. WHO and CDC advise against them in public first aid guidance.",
+          "These methods can cause harm or waste time needed for medical care. CDC advises against them in public first aid guidance.",
         ],
       },
       {
@@ -124,7 +124,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
         heading: "Who decides whether antivenom is needed?",
         image: "clinical-assessment",
         paragraphs: [
-          "Clinicians assess the person and decide whether antivenom or other treatment is indicated. WHO describes antivenom as a treatment for envenoming, but this page cannot determine a need, dose, product, or availability at a Georgian hospital.",
+          "Clinicians assess the person and decide whether antivenom or other treatment is indicated. Antivenom is used to treat envenoming, but this page cannot determine a need, dose, product, or availability at a Georgian hospital.",
           "Emergency dispatch and medical professionals make decisions about transport, observation, and treatment.",
         ],
       },
@@ -144,12 +144,12 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         answer:
-          "არა. WHO და CDC არ გირჩევენ ჭრილობის გაჭრას ან შხამის ამოწოვას. ეს ქმედებები ვერ ჩაანაცვლებს დროულ სამედიცინო შეფასებას.",
+          "არა. CDC არ გირჩევს ჭრილობის გაჭრას ან შხამის ამოწოვას. ეს ქმედებები ვერ ჩაანაცვლებს დროულ სამედიცინო შეფასებას.",
         question: "შეიძლება ნაკბენის გაჭრა ან შხამის ამოწოვა?",
       },
       {
         answer:
-          "არა. WHO არ გირჩევს მჭიდრო არტერიულ ტურნიკეტს. თვითნებურად არც ზეწოლითი სახვევი გაიკეთო: ეს მეთოდი გველის სახეობაზეა დამოკიდებული და საქართველოში ნებისმიერი ნაკბენის უნივერსალური პირველადი დახმარება არ არის.",
+          "არა. მჭიდრო არტერიული ტურნიკეტი რეკომენდებული არ არის. თვითნებურად არც ზეწოლითი სახვევი გაიკეთო: ეს მეთოდი გველის სახეობაზეა დამოკიდებული და საქართველოში ნებისმიერი ნაკბენის უნივერსალური პირველადი დახმარება არ არის.",
         question: "უნდა გამოვიყენო ტურნიკეტი ან ზეწოლითი სახვევი?",
       },
       {
@@ -186,7 +186,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
           ordered: true,
         },
         paragraphs: [
-          "WHO შხამიანი ნაკბენის ეჭვისას სამედიცინო დაწესებულებაში სწრაფ გადაყვანას ურჩევს. საქართველოში 112 გადაუდებელი დახმარების ნომერია და არა ზოგადი საინფორმაციო ხაზი. დახმარების მოლოდინში მიჰყევი ოპერატორის მითითებებს.",
+          "შხამიანი ნაკბენის ეჭვისას რეკომენდებულია სამედიცინო დაწესებულებაში სწრაფი გადაყვანა. საქართველოში 112 გადაუდებელი დახმარების ნომერია და არა ზოგადი საინფორმაციო ხაზი. დახმარების მოლოდინში მიჰყევი ოპერატორის მითითებებს.",
         ],
       },
       {
@@ -201,7 +201,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
           ],
         },
         paragraphs: [
-          "ამ მეთოდებმა შეიძლება ზიანი გამოიწვიოს ან სამედიცინო დახმარებისთვის საჭირო დრო დაკარგოს. WHO და CDC საჯარო პირველადი დახმარების რეკომენდაციებში მათ არ გირჩევენ.",
+          "ამ მეთოდებმა შეიძლება ზიანი გამოიწვიოს ან სამედიცინო დახმარებისთვის საჭირო დრო დაკარგოს. CDC საჯარო პირველადი დახმარების რეკომენდაციებში მათ არ გირჩევს.",
         ],
       },
       {
@@ -250,7 +250,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
         heading: "ვინ წყვეტს, საჭიროა თუ არა ანტიშხამი?",
         image: "clinical-assessment",
         paragraphs: [
-          "ადამიანის მდგომარეობას სამედიცინო პერსონალი აფასებს და წყვეტს, საჭიროა თუ არა ანტიშხამი ან სხვა მკურნალობა. WHO ანტიშხამს შხამით მოწამვლის სამკურნალო საშუალებად აღწერს, მაგრამ ეს გვერდი ვერ განსაზღვრავს მის საჭიროებას, დოზას, სახეობას ან საქართველოს საავადმყოფოში ხელმისაწვდომობას.",
+          "ადამიანის მდგომარეობას სამედიცინო პერსონალი აფასებს და წყვეტს, საჭიროა თუ არა ანტიშხამი ან სხვა მკურნალობა. ანტიშხამი შხამით მოწამვლის სამკურნალო საშუალებაა, მაგრამ ეს გვერდი ვერ განსაზღვრავს მის საჭიროებას, დოზას, სახეობას ან საქართველოს საავადმყოფოში ხელმისაწვდომობას.",
           "ტრანსპორტის, მეთვალყურეობისა და მკურნალობის გადაწყვეტილებებს გადაუდებელი დახმარების სამსახური და მედიკოსები იღებენ.",
         ],
       },
@@ -270,12 +270,12 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         answer:
-          "Нет. ВОЗ и CDC не советуют разрезать рану или пытаться отсосать яд. Эти действия не заменяют своевременную медицинскую оценку.",
+          "Нет. CDC не советует разрезать рану или пытаться отсосать яд. Эти действия не заменяют своевременную медицинскую оценку.",
         question: "Можно ли разрезать укус или отсосать яд?",
       },
       {
         answer:
-          "Нет. ВОЗ не советует тугой артериальный жгут. Не накладывайте самостоятельно и давящую повязку: этот метод зависит от вида змеи и не является универсальной первой помощью при укусах в Грузии.",
+          "Нет. Тугой артериальный жгут не рекомендуется. Не накладывайте самостоятельно и давящую повязку: этот метод зависит от вида змеи и не является универсальной первой помощью при укусах в Грузии.",
         question: "Нужен ли жгут или давящая повязка?",
       },
       {
@@ -312,7 +312,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
           ordered: true,
         },
         paragraphs: [
-          "ВОЗ рекомендует быстро доставить человека в медицинское учреждение при подозрении на ядовитый укус. В Грузии 112 — номер экстренной помощи, а не общая справочная линия. Пока помощь организуется, следуйте указаниям оператора.",
+          "При подозрении на ядовитый укус рекомендуется быстро доставить человека в медицинское учреждение. В Грузии 112 — номер экстренной помощи, а не общая справочная линия. Пока помощь организуется, следуйте указаниям оператора.",
         ],
       },
       {
@@ -327,7 +327,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
           ],
         },
         paragraphs: [
-          "Такие действия могут навредить или отнять время, нужное для медицинской помощи. ВОЗ и CDC не советуют их в публичных рекомендациях по первой помощи.",
+          "Такие действия могут навредить или отнять время, нужное для медицинской помощи. CDC не советует их в публичных рекомендациях по первой помощи.",
         ],
       },
       {
@@ -376,7 +376,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
         heading: "Кто решает, нужно ли противоядие?",
         image: "clinical-assessment",
         paragraphs: [
-          "Медицинские работники оценивают состояние человека и решают, показано ли противоядие или иное лечение. ВОЗ описывает противоядие как средство лечения отравления ядом, но эта страница не может определить необходимость, дозу, препарат или его наличие в больнице Грузии.",
+          "Медицинские работники оценивают состояние человека и решают, показано ли противоядие или иное лечение. Противоядие применяется для лечения отравления ядом, но эта страница не может определить необходимость, дозу, препарат или его наличие в больнице Грузии.",
           "Решения о перевозке, наблюдении и лечении принимают служба экстренной помощи и медики.",
         ],
       },
@@ -396,12 +396,12 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         answer:
-          "Hayır. WHO ve CDC yarayı kesmeyi veya zehri emmeye çalışmayı önermiyor. Bunlar zamanında tıbbi değerlendirmeye alternatif değildir.",
+          "Hayır. CDC yarayı kesmeyi veya zehri emmeye çalışmayı önermiyor. Bunlar zamanında tıbbi değerlendirmeye alternatif değildir.",
         question: "Isırığı kesebilir veya zehri emebilir miyim?",
       },
       {
         answer:
-          "Hayır. WHO sıkı atardamar turnikesini önermiyor. Basınçlı bandajı da kendi başınıza uygulamayın: yöntem yılan türüne bağlıdır ve Gürcistan’daki her ısırık için genel ilk yardım değildir.",
+          "Hayır. Sıkı atardamar turnikesi önerilmez. Basınçlı bandajı da kendi başınıza uygulamayın: yöntem yılan türüne bağlıdır ve Gürcistan’daki her ısırık için genel ilk yardım değildir.",
         question: "Turnike veya basınçlı bandaj kullanmalı mıyım?",
       },
       {
@@ -438,7 +438,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
           ordered: true,
         },
         paragraphs: [
-          "WHO, zehirli ısırık şüphesinde sağlık kuruluşuna hızla ulaşılmasını önerir. Gürcistan’da 112 genel bilgi hattı değil, acil yardım numarasıdır. Yardım düzenlenirken operatörün talimatlarını izleyin.",
+          "Zehirli ısırık şüphesinde sağlık kuruluşuna hızla ulaşılması önerilir. Gürcistan’da 112 genel bilgi hattı değil, acil yardım numarasıdır. Yardım düzenlenirken operatörün talimatlarını izleyin.",
         ],
       },
       {
@@ -453,7 +453,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
           ],
         },
         paragraphs: [
-          "Bu yöntemler zarar verebilir veya tıbbi bakım için gerekli zamanı kaybettirebilir. WHO ve CDC bunları halka yönelik ilk yardım önerilerinde tavsiye etmez.",
+          "Bu yöntemler zarar verebilir veya tıbbi bakım için gerekli zamanı kaybettirebilir. CDC bunları halka yönelik ilk yardım önerilerinde tavsiye etmez.",
         ],
       },
       {
@@ -502,7 +502,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
         heading: "Antivenom gerekip gerekmediğine kim karar verir?",
         image: "clinical-assessment",
         paragraphs: [
-          "Sağlık çalışanları kişiyi değerlendirip antivenom veya başka tedavi gerekip gerekmediğine karar verir. WHO antivenomu zehirlenme tedavisi olarak tanımlar; bu sayfa Gürcistan’daki bir hastanede gerekliliğini, dozunu, ürününü veya bulunurluğunu belirleyemez.",
+          "Sağlık çalışanları kişiyi değerlendirip antivenom veya başka tedavi gerekip gerekmediğine karar verir. Antivenom zehirlenme tedavisinde kullanılır; bu sayfa Gürcistan’daki bir hastanede gerekliliğini, dozunu, ürününü veya bulunurluğunu belirleyemez.",
           "Nakil, gözlem ve tedavi kararlarını acil yardım hizmeti ve sağlık çalışanları verir.",
         ],
       },
