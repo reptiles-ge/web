@@ -25,6 +25,7 @@ import { hasPhotoCredit } from "@/data/speciesMedia";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { Link } from "@/i18n/navigation";
 import { isLocalAdminEnabled } from "@/lib/adminAccess";
+import { contentEditorAttributes } from "@/lib/contentEditorAttributes";
 import { formatContentDate, formatPhotoDate } from "@/lib/formatDate";
 import { newsIndexHref } from "@/lib/news";
 import {
@@ -137,17 +138,21 @@ export async function NewsArticlePage({
             </p>
             <h1
               className="text-balance-tight mt-5 font-display text-display-lead font-semibold text-foreground"
-              data-content-field={editable ? "title" : undefined}
-              data-content-id={editable ? article.id : undefined}
-              data-content-kind={editable ? "news" : undefined}
+              {...contentEditorAttributes(
+                "news",
+                editable ? article.id : undefined,
+                "title",
+              )}
             >
               {copy.title}
             </h1>
             <p
               className="mt-5 text-[17px] leading-[1.65] text-foreground sm:text-[19px]"
-              data-content-field={editable ? "dek" : undefined}
-              data-content-id={editable ? article.id : undefined}
-              data-content-kind={editable ? "news" : undefined}
+              {...contentEditorAttributes(
+                "news",
+                editable ? article.id : undefined,
+                "dek",
+              )}
             >
               {copy.dek}
             </p>
@@ -167,9 +172,11 @@ export async function NewsArticlePage({
           <div className="pt-10 sm:pt-12">
             <p
               className="text-[17px] leading-[1.75] text-muted-foreground sm:text-[18px]"
-              data-content-field={editable ? "lead" : undefined}
-              data-content-id={editable ? article.id : undefined}
-              data-content-kind={editable ? "news" : undefined}
+              {...contentEditorAttributes(
+                "news",
+                editable ? article.id : undefined,
+                "lead",
+              )}
             >
               {copy.lead}
             </p>
@@ -183,11 +190,11 @@ export async function NewsArticlePage({
                   slugSource={section.heading}
                 >
                   <span
-                    data-content-field={
-                      editable ? `sections.${sectionIndex}.heading` : undefined
-                    }
-                    data-content-id={editable ? article.id : undefined}
-                    data-content-kind={editable ? "news" : undefined}
+                    {...contentEditorAttributes(
+                      "news",
+                      editable ? article.id : undefined,
+                      `sections.${sectionIndex}.heading`,
+                    )}
                   >
                     {section.heading}
                   </span>
