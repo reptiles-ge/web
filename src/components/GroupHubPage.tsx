@@ -25,6 +25,7 @@ import { getGuideArticlesForHub } from "@/data/guideArticles";
 import { Link } from "@/i18n/navigation";
 import { isLocalAdminEnabled } from "@/lib/adminAccess";
 import { HUB_CLUSTER_CARDS, splitHubSpecies } from "@/lib/clusterGuides";
+import { contentEditorAttributes } from "@/lib/contentEditorAttributes";
 import { GROUP_HUB_LIST, GROUP_HUBS } from "@/lib/groupHubs";
 import { pageDateFields } from "@/lib/structuredDataDates";
 
@@ -94,27 +95,21 @@ export async function GroupHubPage({
               <div>
                 <div className="space-y-4 text-[15px] leading-relaxed text-muted-foreground">
                   <p
-                    data-content-field={
-                      editable && hubId !== "insects"
-                        ? `${hubId}.guideP1`
-                        : undefined
-                    }
-                    data-content-id={
-                      editable && hubId !== "insects" ? "messages" : undefined
-                    }
-                    data-content-kind={
-                      editable && hubId !== "insects" ? "message" : undefined
-                    }
+                    {...contentEditorAttributes(
+                      "message",
+                      editable && hubId !== "insects" ? "messages" : undefined,
+                      `${hubId}.guideP1`,
+                    )}
                   >
                     <PhoneLinkedText>{guideP1}</PhoneLinkedText>
                   </p>
                   {hubId === "spiders" ? null : (
                     <p
-                      data-content-field={
-                        editable ? `${hubId}.guideP2` : undefined
-                      }
-                      data-content-id={editable ? "messages" : undefined}
-                      data-content-kind={editable ? "message" : undefined}
+                      {...contentEditorAttributes(
+                        "message",
+                        editable ? "messages" : undefined,
+                        `${hubId}.guideP2`,
+                      )}
                     >
                       <PhoneLinkedText>{t("guideP2")}</PhoneLinkedText>
                     </p>
@@ -198,17 +193,21 @@ export async function GroupHubPage({
               </p>
               <h2
                 className="mt-5 max-w-3xl font-display text-display-lead font-semibold text-white"
-                data-content-field={editable ? `${hubId}.ctaTitle` : undefined}
-                data-content-id={editable ? "messages" : undefined}
-                data-content-kind={editable ? "message" : undefined}
+                {...contentEditorAttributes(
+                  "message",
+                  editable ? "messages" : undefined,
+                  `${hubId}.ctaTitle`,
+                )}
               >
                 {t("ctaTitle")}
               </h2>
               <p
                 className="mt-5 max-w-xl text-[15px] leading-relaxed text-white/60"
-                data-content-field={editable ? `${hubId}.ctaBody` : undefined}
-                data-content-id={editable ? "messages" : undefined}
-                data-content-kind={editable ? "message" : undefined}
+                {...contentEditorAttributes(
+                  "message",
+                  editable ? "messages" : undefined,
+                  `${hubId}.ctaBody`,
+                )}
               >
                 {t("ctaBody")}
               </p>

@@ -91,7 +91,7 @@ export function SelectionContentEditor({ copy }: { copy: EditorCopy }) {
       const end = start + range.toString().length;
       if (!range.toString().trim()) return;
       const rect = range.getBoundingClientRect();
-      const above = rect.top > 110;
+      const above = rect.top > 110 || rect.bottom > window.innerHeight - 90;
       const next = {
         above,
         end,
@@ -105,7 +105,9 @@ export function SelectionContentEditor({ copy }: { copy: EditorCopy }) {
         ),
         renderedText: fieldElement.textContent ?? "",
         start,
-        top: above ? rect.top - 8 : rect.bottom + 8,
+        top: above
+          ? Math.max(90, Math.min(window.innerHeight - 8, rect.top - 8))
+          : Math.max(8, Math.min(window.innerHeight - 90, rect.bottom + 8)),
       };
       activeJob.current = null;
       setSelection(next);

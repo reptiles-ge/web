@@ -134,6 +134,7 @@ async function createPullRequest(
     const target = await resolveEditorTarget(input, worktree);
     verifyEditorSelection(target.source, input);
     const files = target.files;
+    const allowedFiles = new Set(files);
     const updated = target.updated(result);
     for (const [index, file] of files.entries()) {
       await fs.writeFile(path.join(worktree, file), updated[index]);
@@ -148,7 +149,7 @@ async function createPullRequest(
       .split("\n")
       .filter(Boolean)
       .map((line) => line.slice(3));
-    if (changed.length === 0 || changed.some((file) => !files.includes(file))) {
+    if (changed.length === 0 || changed.some((file) => !allowedFiles.has(file))) {
       throw new Error("Unexpected changed files in editor worktree");
     }
     await fs.symlink(
@@ -172,7 +173,7 @@ async function createPullRequest(
     )
       .split("\n")
       .filter(Boolean);
-    if (staged.length === 0 || staged.some((file) => !files.includes(file))) {
+    if (staged.length === 0 || staged.some((file) => !allowedFiles.has(file))) {
       throw new Error("Unexpected staged files");
     }
     await run(

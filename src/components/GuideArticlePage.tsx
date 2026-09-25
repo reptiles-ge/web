@@ -14,6 +14,7 @@ import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { Link } from "@/i18n/navigation";
 import { type AppLocale } from "@/i18n/routing";
 import { isLocalAdminEnabled } from "@/lib/adminAccess";
+import { contentEditorAttributes } from "@/lib/contentEditorAttributes";
 import { formatContentDate } from "@/lib/formatDate";
 import { GROUP_HUBS } from "@/lib/groupHubs";
 import { speciesHref } from "@/lib/speciesRoutes";
@@ -102,18 +103,22 @@ export async function GuideArticlePage({
         </p>
         <h1
           className="mt-5 font-display text-display-lead font-semibold text-foreground"
-          data-content-field={editable ? "title" : undefined}
-          data-content-id={editable ? article.id : undefined}
-          data-content-kind={editable ? "guide" : undefined}
+          {...contentEditorAttributes(
+            "guide",
+            editable ? article.id : undefined,
+            "title",
+          )}
         >
           {copy.title}
         </h1>
         {copy.intro ? (
           <p
             className="mt-6 max-w-3xl text-[17px] leading-[1.75] text-muted-foreground sm:text-[19px]"
-            data-content-field={editable ? "intro" : undefined}
-            data-content-id={editable ? article.id : undefined}
-            data-content-kind={editable ? "guide" : undefined}
+            {...contentEditorAttributes(
+              "guide",
+              editable ? article.id : undefined,
+              "intro",
+            )}
           >
             <PhoneLinkedText>{copy.intro}</PhoneLinkedText>
           </p>
@@ -150,11 +155,11 @@ export async function GuideArticlePage({
                 <li key={anchor}>
                   <a
                     className="text-foreground/80 underline decoration-border underline-offset-4 transition-colors hover:text-primary hover:decoration-primary/40"
-                    data-content-field={
-                      editable ? `sections.${index}.heading` : undefined
-                    }
-                    data-content-id={editable ? article.id : undefined}
-                    data-content-kind={editable ? "guide" : undefined}
+                    {...contentEditorAttributes(
+                      "guide",
+                      editable ? article.id : undefined,
+                      `sections.${index}.heading`,
+                    )}
                     href={`#${anchor}`}
                   >
                     {section.heading}
@@ -191,9 +196,11 @@ export async function GuideArticlePage({
           </h2>
           <p
             className="mt-4 border-l-4 border-primary pl-5 text-[17px] leading-[1.75] text-foreground"
-            data-content-field={editable ? "summary" : undefined}
-            data-content-id={editable ? article.id : undefined}
-            data-content-kind={editable ? "guide" : undefined}
+            {...contentEditorAttributes(
+              "guide",
+              editable ? article.id : undefined,
+              "summary",
+            )}
           >
             <PhoneLinkedText>{copy.summary}</PhoneLinkedText>
           </p>
@@ -309,9 +316,11 @@ function GuideArticleSectionView({
     <section aria-labelledby={anchor}>
       <h2
         className="scroll-mt-28 font-display text-display-card font-semibold text-foreground"
-        data-content-field={editable ? `sections.${index}.heading` : undefined}
-        data-content-id={editable ? article.id : undefined}
-        data-content-kind={editable ? "guide" : undefined}
+        {...contentEditorAttributes(
+          "guide",
+          editable ? article.id : undefined,
+          `sections.${index}.heading`,
+        )}
         id={anchor}
       >
         {section.heading}
@@ -319,13 +328,11 @@ function GuideArticleSectionView({
       <div className="mt-5 space-y-4 text-[16px] leading-[1.8] text-muted-foreground sm:text-[17px]">
         {section.paragraphs.map((paragraph, paragraphIndex) => (
           <p
-            data-content-field={
-              editable
-                ? `sections.${index}.paragraphs.${paragraphIndex}`
-                : undefined
-            }
-            data-content-id={editable ? article.id : undefined}
-            data-content-kind={editable ? "guide" : undefined}
+            {...contentEditorAttributes(
+              "guide",
+              editable ? article.id : undefined,
+              `sections.${index}.paragraphs.${paragraphIndex}`,
+            )}
             key={paragraph}
           >
             <PhoneLinkedText>{paragraph}</PhoneLinkedText>
@@ -341,13 +348,11 @@ function GuideArticleSectionView({
           >
             {section.list.items.map((item, itemIndex) => (
               <li
-                data-content-field={
-                  editable
-                    ? `sections.${index}.list.items.${itemIndex}`
-                    : undefined
-                }
-                data-content-id={editable ? article.id : undefined}
-                data-content-kind={editable ? "guide" : undefined}
+                {...contentEditorAttributes(
+                  "guide",
+                  editable ? article.id : undefined,
+                  `sections.${index}.list.items.${itemIndex}`,
+                )}
                 key={item}
               >
                 <PhoneLinkedText>{item}</PhoneLinkedText>
