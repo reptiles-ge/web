@@ -69,6 +69,7 @@ async function fetchObservations(options: CliOptions, taxonId: number) {
     if (remaining <= 0) break;
 
     const url = new URL(`${INATURALIST_API}/observations`);
+    url.searchParams.set("captive", "false");
     url.searchParams.set("geo", "true");
     url.searchParams.set("order", "desc");
     url.searchParams.set("order_by", "observed_on");
