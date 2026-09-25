@@ -24,6 +24,7 @@ import { getSpeciesById } from "@/data/species";
 import { hasPhotoCredit } from "@/data/speciesMedia";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { Link } from "@/i18n/navigation";
+import { isLocalAdminEnabled } from "@/lib/adminAccess";
 import { formatContentDate, formatPhotoDate } from "@/lib/formatDate";
 import { newsIndexHref } from "@/lib/news";
 import {
@@ -57,6 +58,7 @@ export async function NewsArticlePage({
   ]);
   const copy = getNewsCopy(article, locale);
   if (!copy) return null;
+  const editable = locale === "ka" && isLocalAdminEnabled();
 
   const dateLabel = formatContentDate(article.publishedAt, locale);
   const updatedLabel = article.updatedAt
@@ -133,10 +135,20 @@ export async function NewsArticlePage({
                 </>
               ) : null}
             </p>
-            <h1 className="text-balance-tight mt-5 font-display text-display-lead font-semibold text-foreground">
+            <h1
+              className="text-balance-tight mt-5 font-display text-display-lead font-semibold text-foreground"
+              data-content-field={editable ? "title" : undefined}
+              data-content-id={editable ? article.id : undefined}
+              data-content-kind={editable ? "news" : undefined}
+            >
               {copy.title}
             </h1>
-            <p className="mt-5 text-[17px] leading-[1.65] text-foreground sm:text-[19px]">
+            <p
+              className="mt-5 text-[17px] leading-[1.65] text-foreground sm:text-[19px]"
+              data-content-field={editable ? "dek" : undefined}
+              data-content-id={editable ? article.id : undefined}
+              data-content-kind={editable ? "news" : undefined}
+            >
               {copy.dek}
             </p>
           </header>
@@ -153,11 +165,16 @@ export async function NewsArticlePage({
           ) : null}
 
           <div className="pt-10 sm:pt-12">
-            <p className="text-[17px] leading-[1.75] text-muted-foreground sm:text-[18px]">
+            <p
+              className="text-[17px] leading-[1.75] text-muted-foreground sm:text-[18px]"
+              data-content-field={editable ? "lead" : undefined}
+              data-content-id={editable ? article.id : undefined}
+              data-content-kind={editable ? "news" : undefined}
+            >
               {copy.lead}
             </p>
 
-            {copy.sections.map((section) => (
+            {copy.sections.map((section, sectionIndex) => (
               <section className="mt-14 sm:mt-16" key={section.heading}>
                 <AnchoredHeading
                   anchorLabel={t("anchorLink")}
@@ -165,7 +182,15 @@ export async function NewsArticlePage({
                   className="font-display text-display-card font-semibold text-foreground"
                   slugSource={section.heading}
                 >
-                  {section.heading}
+                  <span
+                    data-content-field={
+                      editable ? `sections.${sectionIndex}.heading` : undefined
+                    }
+                    data-content-id={editable ? article.id : undefined}
+                    data-content-kind={editable ? "news" : undefined}
+                  >
+                    {section.heading}
+                  </span>
                 </AnchoredHeading>
                 <div className="mt-5 space-y-5 text-[16px] leading-[1.8] text-muted-foreground sm:text-[17px]">
                   {section.blocks.map((block, index) => {
@@ -186,7 +211,14 @@ export async function NewsArticlePage({
                     }
                     return (
                       <p key={`p:${section.heading}:${index}`}>
-                        <NewsRichText locale={locale} parts={block.parts} />
+                        <NewsRichText
+                          articleId={article.id}
+                          blockIndex={index}
+                          editable={editable}
+                          locale={locale}
+                          parts={block.parts}
+                          sectionIndex={sectionIndex}
+                        />
                       </p>
                     );
                   })}

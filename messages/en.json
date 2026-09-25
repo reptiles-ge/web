@@ -1,4 +1,16 @@
 {
+  "contentEditor": {
+    "action": "Process",
+    "processing": "Processing...",
+    "success": "Processed",
+    "error": "Error",
+    "openPr": "Open PR",
+    "retry": "Try again",
+    "requestError": "The text changed or the selection crosses fields. Reload and select plain text in one field.",
+    "codexError": "Codex could not process the text or returned invalid content. Check the local Codex installation and retry.",
+    "gitError": "Validation or PR creation failed. See the local terminal for details; this checkout was not changed.",
+    "networkError": "Connection failed. Try again."
+  },
   "nav": {
     "species": "Species",
     "about": "About",

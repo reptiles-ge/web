@@ -1,4 +1,16 @@
 {
+  "contentEditor": {
+    "action": "Düzenle",
+    "processing": "İşleniyor...",
+    "success": "İşlendi",
+    "error": "Hata",
+    "openPr": "PR'yi aç",
+    "retry": "Yeniden dene",
+    "requestError": "Metin değişti veya seçim birden fazla alanı kapsıyor. Sayfayı yenileyip tek alandaki düz metni seçin.",
+    "codexError": "Codex metni işleyemedi veya geçersiz sonuç döndürdü. Yerel Codex kurulumunu kontrol edip yeniden deneyin.",
+    "gitError": "Doğrulama veya PR oluşturma başarısız oldu. Ayrıntılar yerel terminalde; bu çalışma kopyası değişmedi.",
+    "networkError": "Bağlantı kurulamadı. Yeniden deneyin."
+  },
   "nav": {
     "species": "Türler",
     "about": "Hakkında",

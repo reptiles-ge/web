@@ -5,7 +5,9 @@ import { BiologyExpandable } from "@/components/BiologyExpandable";
 
 type BiologyBlockProps = {
   body: string;
+  editable?: boolean;
   headingId?: string;
+  speciesId?: string;
   title: string;
 };
 
@@ -13,7 +15,9 @@ const PREVIEW_LENGTH = 140;
 
 export async function BiologyBlock({
   body,
+  editable,
   headingId,
+  speciesId,
   title,
 }: BiologyBlockProps) {
   const t = await getTranslations("profile");
@@ -33,9 +37,11 @@ export async function BiologyBlock({
       </AnchoredHeading>
       <BiologyExpandable
         body={body}
+        editorField={editable ? headingId : undefined}
         needsExpand={needsExpand}
         readLess={t("readLess")}
         readMore={t("readMore")}
+        speciesId={editable ? speciesId : undefined}
       />
     </div>
   );

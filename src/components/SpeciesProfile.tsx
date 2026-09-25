@@ -10,6 +10,7 @@ import { pictureSources } from "@/data/optimizedImages";
 import { type Species } from "@/data/species";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
 import { resolvePhotoCredit } from "@/data/speciesMedia";
+import { isLocalAdminEnabled } from "@/lib/adminAccess";
 import { getHubIndexTitleKey, getSpeciesGuideLinks } from "@/lib/clusterGuides";
 import {
   buildSpeciesBreadcrumbs,
@@ -145,6 +146,7 @@ export async function SpeciesProfile({
       title: biologyCopy?.conservation ?? t("conservation"),
     },
   ].filter((block) => !isPlaceholderBody(block.body));
+  const editable = locale === "ka" && isLocalAdminEnabled();
 
   return (
     <div className="min-h-screen bg-background">
@@ -172,6 +174,7 @@ export async function SpeciesProfile({
         breadcrumbs={breadcrumbs}
         dangerValue={dangerValue}
         displayStats={displayStats}
+        editable={editable}
         gallery={gallery}
         guideLinks={guideLinks}
         linkDangerStats={linkDangerStats}

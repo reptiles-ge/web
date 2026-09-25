@@ -8,16 +8,26 @@ import { GROUP_HUBS } from "@/lib/groupHubs";
 import { regionHref, speciesHref } from "@/lib/speciesRoutes";
 
 export function NewsRichText({
+  articleId,
+  blockIndex,
+  editable,
   locale,
   parts,
+  sectionIndex,
 }: {
+  articleId: string;
+  blockIndex: number;
+  editable: boolean;
   locale: AppLocale;
   parts: NewsMark[];
+  sectionIndex: number;
 }) {
   return (
     <>
       {parts.map((mark, index) => (
         <NewsMarkNode
+          editorField={`sections.${sectionIndex}.blocks.${blockIndex}.parts.${index}`}
+          editorId={editable ? articleId : undefined}
           key={newsMarkKey(mark, index)}
           locale={locale}
           mark={mark}
@@ -38,18 +48,47 @@ function newsMarkKey(mark: NewsMark, index: number) {
   return `sp:${index}:${mark.id}`;
 }
 
-function NewsMarkNode({ locale, mark }: { locale: AppLocale; mark: NewsMark }) {
+function NewsMarkNode({
+  editorField,
+  editorId,
+  locale,
+  mark,
+}: {
+  editorField: string;
+  editorId?: string;
+  locale: AppLocale;
+  mark: NewsMark;
+}) {
   if (typeof mark === "string")
-    return <PhoneLinkedText>{mark}</PhoneLinkedText>;
+    return (
+      <span
+        data-content-field={editorId ? editorField : undefined}
+        data-content-id={editorId}
+        data-content-kind={editorId ? "news" : undefined}
+      >
+        <PhoneLinkedText>{mark}</PhoneLinkedText>
+      </span>
+    );
 
   if (mark.type === "sci") {
-    return <i>{mark.name}</i>;
+    return (
+      <i
+        data-content-field={editorId ? `${editorField}.name` : undefined}
+        data-content-id={editorId}
+        data-content-kind={editorId ? "news" : undefined}
+      >
+        {mark.name}
+      </i>
+    );
   }
 
   if (mark.type === "external") {
     return (
       <a
         className="text-foreground underline decoration-foreground/20 underline-offset-[3px] transition-colors hover:decoration-primary"
+        data-content-field={editorId ? `${editorField}.label` : undefined}
+        data-content-id={editorId}
+        data-content-kind={editorId ? "news" : undefined}
         href={mark.href}
         rel="noopener noreferrer"
         target="_blank"
@@ -63,6 +102,9 @@ function NewsMarkNode({ locale, mark }: { locale: AppLocale; mark: NewsMark }) {
     return (
       <Link
         className="text-foreground underline decoration-foreground/20 underline-offset-[3px] transition-colors hover:decoration-primary"
+        data-content-field={editorId ? `${editorField}.label` : undefined}
+        data-content-id={editorId}
+        data-content-kind={editorId ? "news" : undefined}
         href={creditAuthorHref(mark.slug)}
       >
         {mark.label}
@@ -74,6 +116,9 @@ function NewsMarkNode({ locale, mark }: { locale: AppLocale; mark: NewsMark }) {
     return (
       <Link
         className="text-foreground underline decoration-foreground/20 underline-offset-[3px] transition-colors hover:decoration-primary"
+        data-content-field={editorId ? `${editorField}.label` : undefined}
+        data-content-id={editorId}
+        data-content-kind={editorId ? "news" : undefined}
         href="/news"
       >
         {mark.label}
@@ -85,6 +130,9 @@ function NewsMarkNode({ locale, mark }: { locale: AppLocale; mark: NewsMark }) {
     return (
       <Link
         className="text-foreground underline decoration-foreground/20 underline-offset-[3px] transition-colors hover:decoration-primary"
+        data-content-field={editorId ? `${editorField}.label` : undefined}
+        data-content-id={editorId}
+        data-content-kind={editorId ? "news" : undefined}
         href={GROUP_HUBS[mark.id].path}
       >
         {mark.label}
@@ -96,6 +144,9 @@ function NewsMarkNode({ locale, mark }: { locale: AppLocale; mark: NewsMark }) {
     return (
       <Link
         className="text-foreground underline decoration-foreground/20 underline-offset-[3px] transition-colors hover:decoration-primary"
+        data-content-field={editorId ? `${editorField}.label` : undefined}
+        data-content-id={editorId}
+        data-content-kind={editorId ? "news" : undefined}
         href={regionHref(mark.id)}
       >
         {mark.label}
@@ -106,6 +157,9 @@ function NewsMarkNode({ locale, mark }: { locale: AppLocale; mark: NewsMark }) {
   return (
     <Link
       className="text-foreground underline decoration-foreground/20 underline-offset-[3px] transition-colors hover:decoration-primary"
+      data-content-field={editorId ? `${editorField}.label` : undefined}
+      data-content-id={editorId}
+      data-content-kind={editorId ? "news" : undefined}
       href={speciesHref(mark.id, locale)}
     >
       {mark.label}
