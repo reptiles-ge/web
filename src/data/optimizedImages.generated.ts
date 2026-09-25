@@ -5744,6 +5744,27 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/phasianus-colchicus-anastasiia-1.jpg": {
+    "path": "phasianus-colchicus-anastasiia-1",
+    "width": 988,
+    "height": 988,
+    "widths": [320, 400, 640, 800, 988],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/phasianus-colchicus-donsky-1.jpg": {
+    "path": "phasianus-colchicus-donsky-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/phasianus-colchicus-donsky-2.jpg": {
+    "path": "phasianus-colchicus-donsky-2",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/phasianus-colchicus-giorgi-1.jpg": {
     "path": "phasianus-colchicus-giorgi-1",
     "width": 1024,
