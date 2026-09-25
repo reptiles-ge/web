@@ -643,12 +643,6 @@ export const GYURZA_BITE = defineGuideArticle({
         ru: "Иллюстративная сцена: врач беседует с пациентом и сопровождающим в кабинете осмотра",
         tr: "Temsili sahne: hekim muayene odasında hasta ve yakınıyla konuşuyor",
       },
-      credit: {
-        en: "AI-generated illustrative scene · not a real patient",
-        ka: "AI-ით შექმნილი ილუსტრაციული სცენა · რეალური პაციენტი არ არის",
-        ru: "Иллюстративная сцена, созданная ИИ · не реальный пациент",
-        tr: "Yapay zekâ ile oluşturulmuş temsili sahne · gerçek hasta değildir",
-      },
       height: 1024,
       src: "/images/guides/gyurza-bite-clinical-assessment.jpg",
       width: 1536,
