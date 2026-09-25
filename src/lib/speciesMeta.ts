@@ -300,10 +300,10 @@ const SPECIES_META_DESCRIPTION_OVERRIDE: Partial<
     ka: "მეგრული მორიელი (Euscorpius mingrelicus) საქართველოში — ტაქსონომია, დასავლეთ საქართველოს არეალი, ამოცნობა, ნოტიო ტყის ჰაბიტატი და ჩხვლეტის რისკი.",
   },
   "falco-tinnunculus": {
-    en: "Common kestrel in Georgia: breeding resident and migrant, documented in Lagodekhi. Identification, hunting habitat and lesser kestrel comparison.",
-    ka: "კირკიტა საქართველოში მობუდარი და გადამფრენი ფრინველია; დადასტურებულია ლაგოდეხში. როგორ ამოიცნოთ და გაარჩიოთ მცირე კირკიტასგან.",
-    ru: "Обыкновенная пустельга в Грузии: гнездится и встречается на пролёте, указана для Лагодехи. Признаки и отличие от малой пустельги.",
-    tr: "Gürcistan'da kerkenez: üreyen yerleşik tür ve göçmen, Lagodekhi'de kayıtlı. Tanıma ve küçük kerkenezden ayırma ipuçları.",
+    en: "Common kestrel in Georgia: map-confirmed distribution in nine regions, breeding resident and migrant. Identification and lesser kestrel comparison.",
+    ka: "კირკიტა საქართველოში — რუკაზე გავრცელება დადასტურებულია ცხრა რეგიონში; მობუდარი და გადამფრენი. ამოცნობა და განსხვავება მცირე კირკიტასგან.",
+    ru: "Обыкновенная пустельга в Грузии: распространение подтверждено на карте в девяти регионах; гнездится и встречается на пролёте. Признаки и отличие от малой пустельги.",
+    tr: "Gürcistan'da kerkenez: haritada dokuz bölgede doğrulanmış yayılış; üreyen yerleşik tür ve göçmen. Tanıma ve küçük kerkenezden ayırma.",
   },
   "halyomorpha-halys": {
     en: "Brown marmorated stink bug (Halyomorpha halys) in Georgia: identification, distribution evidence, crop damage, control, and indoor removal.",

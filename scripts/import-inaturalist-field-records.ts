@@ -44,12 +44,18 @@ type INaturalistTaxaResponse = {
   }>;
 };
 
-async function fetchJson<T>(url: URL): Promise<T> {
-  const response = await fetch(url);
-  if (!response.ok) {
-    throw new Error(`${url.toString()} failed with HTTP ${response.status}.`);
+async function fetchJson<T>(url: URL, attempt = 1): Promise<T> {
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`${url.toString()} failed with HTTP ${response.status}.`);
+    }
+    return (await response.json()) as T;
+  } catch (error) {
+    if (attempt >= 5) throw error;
+    await new Promise((resolve) => setTimeout(resolve, 1000 * attempt));
+    return fetchJson(url, attempt + 1);
   }
-  return (await response.json()) as T;
 }
 
 async function fetchObservations(options: CliOptions, taxonId: number) {
