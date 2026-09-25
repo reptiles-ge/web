@@ -6,7 +6,7 @@
     "error": "Hata",
     "openPr": "PR'yi aç",
     "retry": "Yeniden dene",
-    "requestError": "Metin değişti veya seçim birden fazla alanı kapsıyor. Sayfayı yenileyip tek alandaki düz metni seçin.",
+    "requestError": "Seçilen metin tek bir içerik alanına bağlanamadı, değişti veya birden fazla alanı kapsıyor. Sayfayı yenileyip tek paragraftaki metni seçin.",
     "codexError": "Codex metni işleyemedi veya geçersiz sonuç döndürdü. Yerel Codex kurulumunu kontrol edip yeniden deneyin.",
     "gitError": "Doğrulama veya PR oluşturma başarısız oldu. Ayrıntılar yerel terminalde; bu çalışma kopyası değişmedi.",
     "networkError": "Bağlantı kurulamadı. Yeniden deneyin."
