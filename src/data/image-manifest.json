@@ -64434,6 +64434,87 @@
       ],
       "updatedAt": "2026-08-28T21:56:09.510Z"
     },
+    "phasianus-colchicus-giorgi-1.jpg": {
+      "sourceHash": "a0a5ce422d0110a5a80b07db84636c3741c2f70636f4da09a367a6bc1e0f8363",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "phasianus-colchicus-giorgi-1.jpg",
+      "originalSize": 270390,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/phasianus-colchicus-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 17526
+        },
+        {
+          "key": "optimized/phasianus-colchicus-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 26616
+        },
+        {
+          "key": "optimized/phasianus-colchicus-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 25862
+        },
+        {
+          "key": "optimized/phasianus-colchicus-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 39916
+        },
+        {
+          "key": "optimized/phasianus-colchicus-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 56559
+        },
+        {
+          "key": "optimized/phasianus-colchicus-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 88384
+        },
+        {
+          "key": "optimized/phasianus-colchicus-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 79972
+        },
+        {
+          "key": "optimized/phasianus-colchicus-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 124230
+        },
+        {
+          "key": "optimized/phasianus-colchicus-giorgi-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 118856
+        },
+        {
+          "key": "optimized/phasianus-colchicus-giorgi-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 179090
+        }
+      ],
+      "updatedAt": "2026-09-25T19:56:06.112Z"
+    },
     "phoenicolacerta-laevis-2.jpg": {
       "sourceHash": "f31768f8b613bd9a0919dbc30493cf8d47317793af886cbda8c82cd1745985d7",
       "configFingerprint": "a895f8e025dcc7fa",
