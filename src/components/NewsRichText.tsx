@@ -5,6 +5,7 @@ import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { creditAuthorHref } from "@/data/creditAuthors";
 import { Link } from "@/i18n/navigation";
 import { GROUP_HUBS } from "@/lib/groupHubs";
+import { contentEditorAttributes } from "@/lib/contentEditorAttributes";
 import { regionHref, speciesHref } from "@/lib/speciesRoutes";
 
 export function NewsRichText({
@@ -62,9 +63,7 @@ function NewsMarkNode({
   if (typeof mark === "string")
     return (
       <span
-        data-content-field={editorId ? editorField : undefined}
-        data-content-id={editorId}
-        data-content-kind={editorId ? "news" : undefined}
+        {...contentEditorAttributes("news", editorId, editorField)}
       >
         <PhoneLinkedText>{mark}</PhoneLinkedText>
       </span>
@@ -73,9 +72,7 @@ function NewsMarkNode({
   if (mark.type === "sci") {
     return (
       <i
-        data-content-field={editorId ? `${editorField}.name` : undefined}
-        data-content-id={editorId}
-        data-content-kind={editorId ? "news" : undefined}
+        {...contentEditorAttributes("news", editorId, `${editorField}.name`)}
       >
         {mark.name}
       </i>
@@ -86,9 +83,7 @@ function NewsMarkNode({
     return (
       <a
         className="text-foreground underline decoration-foreground/20 underline-offset-[3px] transition-colors hover:decoration-primary"
-        data-content-field={editorId ? `${editorField}.label` : undefined}
-        data-content-id={editorId}
-        data-content-kind={editorId ? "news" : undefined}
+        {...contentEditorAttributes("news", editorId, `${editorField}.label`)}
         href={mark.href}
         rel="noopener noreferrer"
         target="_blank"
@@ -102,9 +97,7 @@ function NewsMarkNode({
     return (
       <Link
         className="text-foreground underline decoration-foreground/20 underline-offset-[3px] transition-colors hover:decoration-primary"
-        data-content-field={editorId ? `${editorField}.label` : undefined}
-        data-content-id={editorId}
-        data-content-kind={editorId ? "news" : undefined}
+        {...contentEditorAttributes("news", editorId, `${editorField}.label`)}
         href={creditAuthorHref(mark.slug)}
       >
         {mark.label}
@@ -116,9 +109,7 @@ function NewsMarkNode({
     return (
       <Link
         className="text-foreground underline decoration-foreground/20 underline-offset-[3px] transition-colors hover:decoration-primary"
-        data-content-field={editorId ? `${editorField}.label` : undefined}
-        data-content-id={editorId}
-        data-content-kind={editorId ? "news" : undefined}
+        {...contentEditorAttributes("news", editorId, `${editorField}.label`)}
         href="/news"
       >
         {mark.label}
@@ -130,9 +121,7 @@ function NewsMarkNode({
     return (
       <Link
         className="text-foreground underline decoration-foreground/20 underline-offset-[3px] transition-colors hover:decoration-primary"
-        data-content-field={editorId ? `${editorField}.label` : undefined}
-        data-content-id={editorId}
-        data-content-kind={editorId ? "news" : undefined}
+        {...contentEditorAttributes("news", editorId, `${editorField}.label`)}
         href={GROUP_HUBS[mark.id].path}
       >
         {mark.label}
@@ -144,9 +133,7 @@ function NewsMarkNode({
     return (
       <Link
         className="text-foreground underline decoration-foreground/20 underline-offset-[3px] transition-colors hover:decoration-primary"
-        data-content-field={editorId ? `${editorField}.label` : undefined}
-        data-content-id={editorId}
-        data-content-kind={editorId ? "news" : undefined}
+        {...contentEditorAttributes("news", editorId, `${editorField}.label`)}
         href={regionHref(mark.id)}
       >
         {mark.label}
@@ -157,9 +144,7 @@ function NewsMarkNode({
   return (
     <Link
       className="text-foreground underline decoration-foreground/20 underline-offset-[3px] transition-colors hover:decoration-primary"
-      data-content-field={editorId ? `${editorField}.label` : undefined}
-      data-content-id={editorId}
-      data-content-kind={editorId ? "news" : undefined}
+      {...contentEditorAttributes("news", editorId, `${editorField}.label`)}
       href={speciesHref(mark.id, locale)}
     >
       {mark.label}

@@ -12,6 +12,7 @@ import { optimizedEntry, optimizedImgSrc } from "@/data/optimizedImages";
 import { Link } from "@/i18n/navigation";
 import { isLocalAdminEnabled } from "@/lib/adminAccess";
 import { cn } from "@/lib/cn";
+import { contentEditorAttributes } from "@/lib/contentEditorAttributes";
 import { dangerPageHref } from "@/lib/dangerLevels";
 import { getSpeciesRiskChip, usesDangerScale } from "@/lib/speciesRisk";
 import {
@@ -96,9 +97,11 @@ export async function SpeciesProfileHero({
       <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
         <h1
           className="text-balance-tight max-w-4xl font-display text-display-hero font-semibold text-white"
-          data-content-field={editable ? "commonName" : undefined}
-          data-content-id={editable ? species.id : undefined}
-          data-content-kind={editable ? "species" : undefined}
+          {...contentEditorAttributes(
+            "species",
+            editable ? species.id : undefined,
+            "commonName",
+          )}
         >
           {species.commonName}
         </h1>
@@ -110,9 +113,11 @@ export async function SpeciesProfileHero({
           <span className="inline-flex items-center gap-1.5 rounded-full border border-white/12 bg-white/5 px-3 py-2 text-[13px] text-white/60 backdrop-blur-md sm:px-3.5">
             <MapPin aria-hidden="true" className="size-3.5 text-white/45" />
             <span
-              data-content-field={editable ? "location" : undefined}
-              data-content-id={editable ? species.id : undefined}
-              data-content-kind={editable ? "species" : undefined}
+              {...contentEditorAttributes(
+                "species",
+                editable ? species.id : undefined,
+                "location",
+              )}
             >
               {species.location}
             </span>
