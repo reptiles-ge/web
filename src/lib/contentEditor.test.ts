@@ -227,4 +227,24 @@ describe("selection content editor", () => {
       }),
     ).rejects.toThrow("ambiguous");
   });
+
+  it("resolves region copy in both existing content files", async () => {
+    for (const field of ["description", "overview"]) {
+      const target = await resolveEditorTarget({
+        end: 1,
+        field,
+        id: "abkhazia",
+        kind: "region",
+        renderedText: "test",
+        start: 0,
+      });
+      const result = { en: "English", ka: "ქართული", ru: "Русский", tr: "Türkçe" };
+      const updated = target.updated(result);
+      expect(updated).toHaveLength(1);
+      const root = field === "description" ? "regionMap" : "regionContent";
+      for (const locale of ["ka", "en", "ru", "tr"] as const) {
+        expect(readContentLiteral(updated[0], root, "abkhazia", [field, locale])).toBe(result[locale]);
+      }
+    }
+  });
 });
