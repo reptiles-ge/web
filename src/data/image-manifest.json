@@ -29232,6 +29232,87 @@
       ],
       "updatedAt": "2026-09-25T06:39:53.266Z"
     },
+    "falco-tinnunculus-peter-1.jpg": {
+      "sourceHash": "89b61a506210339a48c919640fbd44b475d8e0c8259074a793811c62696143dd",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "falco-tinnunculus-peter-1.jpg",
+      "originalSize": 86937,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/falco-tinnunculus-peter-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6395
+        },
+        {
+          "key": "optimized/falco-tinnunculus-peter-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9062
+        },
+        {
+          "key": "optimized/falco-tinnunculus-peter-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 8973
+        },
+        {
+          "key": "optimized/falco-tinnunculus-peter-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 12322
+        },
+        {
+          "key": "optimized/falco-tinnunculus-peter-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 17397
+        },
+        {
+          "key": "optimized/falco-tinnunculus-peter-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 24018
+        },
+        {
+          "key": "optimized/falco-tinnunculus-peter-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 23601
+        },
+        {
+          "key": "optimized/falco-tinnunculus-peter-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 32986
+        },
+        {
+          "key": "optimized/falco-tinnunculus-peter-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 33981
+        },
+        {
+          "key": "optimized/falco-tinnunculus-peter-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 47174
+        }
+      ],
+      "updatedAt": "2026-09-25T06:40:46.878Z"
+    },
     "ficedula-hypoleuca-crowbared-1.jpg": {
       "sourceHash": "bcfd4aab32fdfa6c66f19e8591a529b2d80cbeb860dc5218bcf86f06e7673edf",
       "configFingerprint": "a895f8e025dcc7fa",
