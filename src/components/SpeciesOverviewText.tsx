@@ -7,16 +7,20 @@ import { cn } from "@/lib/cn";
 
 type SpeciesOverviewTextProps = {
   body: string;
+  editable?: boolean;
   readLess: string;
   readMore: string;
+  speciesId?: string;
 };
 
 const PREVIEW_LENGTH = 520;
 
 export function SpeciesOverviewText({
   body,
+  editable,
   readLess,
   readMore,
+  speciesId,
 }: SpeciesOverviewTextProps) {
   const [open, setOpen] = useState(false);
   const needsExpand = body.length > PREVIEW_LENGTH;
@@ -29,6 +33,8 @@ export function SpeciesOverviewText({
           "whitespace-pre-line",
           !open && needsExpand ? "line-clamp-6" : "",
         )}
+        data-content-field={editable ? "overview" : undefined}
+        data-content-id={editable ? speciesId : undefined}
       >
         <PhoneLinkedText>{body}</PhoneLinkedText>
       </p>

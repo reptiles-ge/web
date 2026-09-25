@@ -83,6 +83,7 @@ type SpeciesProfileBodyProps = {
   breadcrumbs: SpeciesBreadcrumbCrumb[];
   dangerValue: null | string;
   displayStats: SpeciesStat[];
+  editable: boolean;
   gallery: GalleryImage[];
   guideLinks: HubClusterCard[];
   linkDangerStats: boolean;
@@ -490,6 +491,7 @@ export async function SpeciesProfileBody({
   breadcrumbs,
   dangerValue,
   displayStats,
+  editable,
   gallery,
   guideLinks,
   linkDangerStats,
@@ -518,8 +520,11 @@ export async function SpeciesProfileBody({
         danger={species.danger}
         dangerValue={dangerValue}
         displayStats={displayStats}
+        editable={editable}
         interaction={species.interaction}
         linkDangerStats={linkDangerStats}
+        speciesId={species.id}
+        stats={species.stats}
       />
 
       <section className="bg-surface py-20 lg:py-28">
@@ -537,8 +542,10 @@ export async function SpeciesProfileBody({
           </AnchoredHeading>
           <SpeciesOverviewText
             body={species.overview}
+            editable={editable}
             readLess={t("readLess")}
             readMore={t("readMore")}
+            speciesId={species.id}
           />
           <p className="mt-6 text-[12px] leading-relaxed tracking-wide text-muted-foreground">
             <span>
@@ -582,6 +589,7 @@ export async function SpeciesProfileBody({
         <SpeciesIdentification
           identification={species.identification}
           name={species.commonName}
+          speciesId={species.id}
         />
       ) : null}
 
@@ -634,7 +642,9 @@ export async function SpeciesProfileBody({
 
       <SpeciesProfileBiology
         blocks={biologyBlocks}
+        editable={editable}
         isSnake={snake}
+        speciesId={species.id}
         title={biologyTitle}
       />
 
@@ -1017,11 +1027,15 @@ function SpeciesBreadcrumbTrailItem({
 
 async function SpeciesProfileBiology({
   blocks,
+  editable,
   isSnake,
+  speciesId,
   title,
 }: {
   blocks: BiologyBlockItem[];
+  editable: boolean;
   isSnake: boolean;
+  speciesId: string;
   title?: string;
 }) {
   if (blocks.length === 0) {
@@ -1057,8 +1071,10 @@ async function SpeciesProfileBiology({
           {blocks.map((block) => (
             <BiologyBlock
               body={block.body}
+              editable={editable}
               headingId={block.id}
               key={block.title}
+              speciesId={speciesId}
               title={block.title}
             />
           ))}

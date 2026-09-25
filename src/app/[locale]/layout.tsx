@@ -8,6 +8,7 @@ import {
 } from "next-intl/server";
 import { notFound } from "next/navigation";
 
+import { SelectionContentEditor } from "@/components/admin/SelectionContentEditor";
 import { AnalyticsPageContext } from "@/components/AnalyticsPageContext";
 import { Footer } from "@/components/Footer";
 import { FooterGate } from "@/components/FooterGate";
@@ -23,6 +24,7 @@ import {
   ROOT_CLIENT_MESSAGE_NAMESPACES,
 } from "@/i18n/clientMessages";
 import { routing } from "@/i18n/routing";
+import { isLocalAdminEnabled } from "@/lib/adminAccess";
 import { getFooterData } from "@/lib/footerData";
 
 type Props = {
@@ -47,6 +49,10 @@ export default async function LocaleLayout({ children, params }: Props) {
   );
   const t = await getTranslations("nav");
   const footerData = getFooterData(locale);
+  const editorT =
+    locale === "ka" && isLocalAdminEnabled()
+      ? await getTranslations("contentEditor")
+      : null;
   return (
     <NextIntlClientProvider messages={messages}>
       <LocaleSwitchProvider>
@@ -57,6 +63,23 @@ export default async function LocaleLayout({ children, params }: Props) {
         <AnalyticsPageContext />
         <Navbar />
         <main id="main" tabIndex={-1}>
+          {editorT ? (
+            <SelectionContentEditor
+              copy={{
+                action: editorT("action"),
+                codexError: editorT("codexError"),
+                error: editorT("error"),
+                gitError: editorT("gitError"),
+                jobs: editorT("jobs"),
+                networkError: editorT("networkError"),
+                openPr: editorT("openPr"),
+                processing: editorT("processing"),
+                requestError: editorT("requestError"),
+                retry: editorT("retry"),
+                success: editorT("success"),
+              }}
+            />
+          ) : null}
           {children}
         </main>
         <FooterGate>

@@ -7,14 +7,16 @@ import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { cn } from "@/lib/cn";
 
 export function GuideFaqItems({
+  editable,
+  id: articleId,
   items,
 }: {
+  editable?: boolean;
+  id?: string;
   items: { answer: string; question: string }[];
 }) {
   const id = useId();
-  const [open, setOpen] = useState(() =>
-    items.map((_, index) => index === 0),
-  );
+  const [open, setOpen] = useState(() => items.map((_, index) => index === 0));
 
   return (
     <div className="mt-7">
@@ -43,7 +45,14 @@ export function GuideFaqItems({
                 }
                 type="button"
               >
-                <span className="font-display text-xl font-semibold text-foreground">
+                <span
+                  className="font-display text-xl font-semibold text-foreground"
+                  data-content-field={
+                    editable ? `faq.${index}.question` : undefined
+                  }
+                  data-content-id={editable ? articleId : undefined}
+                  data-content-kind={editable ? "guide" : undefined}
+                >
                   {item.question}
                 </span>
                 <span
@@ -71,7 +80,14 @@ export function GuideFaqItems({
               role="region"
             >
               <div className="overflow-hidden">
-                <p className="pr-12 pb-7 text-[16px] leading-[1.8] text-muted-foreground">
+                <p
+                  className="pr-12 pb-7 text-[16px] leading-[1.8] text-muted-foreground"
+                  data-content-field={
+                    editable ? `faq.${index}.answer` : undefined
+                  }
+                  data-content-id={editable ? articleId : undefined}
+                  data-content-kind={editable ? "guide" : undefined}
+                >
                   <PhoneLinkedText>{item.answer}</PhoneLinkedText>
                 </p>
               </div>

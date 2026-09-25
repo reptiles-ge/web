@@ -11,7 +11,9 @@ import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { QuizCtaLink } from "@/components/QuizCtaLink";
 import { isVenomousDanger } from "@/data/speciesAtlas";
 import { Link } from "@/i18n/navigation";
+import { isLocalAdminEnabled } from "@/lib/adminAccess";
 import { cn } from "@/lib/cn";
+import { contentEditorAttributes } from "@/lib/contentEditorAttributes";
 import { quizHref } from "@/lib/quizzes";
 
 type GroupHubHeroProps = {
@@ -38,6 +40,7 @@ export async function GroupHubHero({
   ).length;
   const familyCount = new Set(species.map((item) => item.family)).size;
   const extraItems = readStatExtraItems(t);
+  const editable = locale === "ka" && isLocalAdminEnabled();
 
   return (
     <>
@@ -78,10 +81,24 @@ export async function GroupHubHero({
                 {tShared(`hubs.${hubId}`)}
               </p>
             )}
-            <h1 className="text-balance-tight mt-3 max-w-4xl font-display text-display-hero font-semibold text-white sm:mt-4">
+            <h1
+              className="text-balance-tight mt-3 max-w-4xl font-display text-display-hero font-semibold text-white sm:mt-4"
+              {...contentEditorAttributes(
+                "message",
+                editable ? "messages" : undefined,
+                `${hubId}.title`,
+              )}
+            >
               {t("title")}
             </h1>
-            <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-white/65 sm:mt-6 sm:text-[16px]">
+            <p
+              className="mt-5 max-w-xl text-[15px] leading-relaxed text-white/65 sm:mt-6 sm:text-[16px]"
+              {...contentEditorAttributes(
+                "message",
+                editable ? "messages" : undefined,
+                `${hubId}.subtitle`,
+              )}
+            >
               <PhoneLinkedText>{t("subtitle")}</PhoneLinkedText>
             </p>
             <div className="mt-9 flex flex-wrap items-center gap-3 sm:mt-11">

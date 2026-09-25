@@ -13,16 +13,22 @@ type SpeciesProfileFactsProps = {
   danger?: DangerLevel;
   dangerValue: null | string;
   displayStats: SpeciesStat[];
+  editable: boolean;
   interaction?: string;
   linkDangerStats: boolean;
+  speciesId: string;
+  stats: SpeciesStat[];
 };
 
 export async function SpeciesProfileFacts({
   danger,
   dangerValue,
   displayStats,
+  editable,
   interaction,
   linkDangerStats,
+  speciesId,
+  stats,
 }: SpeciesProfileFactsProps) {
   if (displayStats.length === 0) {
     return null;
@@ -50,10 +56,24 @@ export async function SpeciesProfileFacts({
                 className="min-w-0 bg-background p-5 sm:p-6 lg:p-8"
                 key={stat.label}
               >
-                <p className="wrap-break-word text-[10px] leading-relaxed tracking-[0.16em] text-muted-foreground">
+                <p
+                  className="text-[10px] leading-relaxed tracking-[0.16em] wrap-break-word text-muted-foreground"
+                  data-content-field={
+                    editable ? `stats.${stats.indexOf(stat)}.label` : undefined
+                  }
+                  data-content-id={editable ? speciesId : undefined}
+                  data-content-kind={editable ? "species" : undefined}
+                >
                   {stat.label}
                 </p>
-                <p className="mt-3 wrap-anywhere font-display text-[20px] leading-tight font-medium lg:text-[24px]">
+                <p
+                  className="mt-3 font-display text-[20px] leading-tight font-medium wrap-anywhere lg:text-[24px]"
+                  data-content-field={
+                    editable ? `stats.${stats.indexOf(stat)}.value` : undefined
+                  }
+                  data-content-id={editable ? speciesId : undefined}
+                  data-content-kind={editable ? "species" : undefined}
+                >
                   <SpeciesProfileStatValue
                     danger={danger}
                     dangerValue={dangerValue}
@@ -72,9 +92,11 @@ export async function SpeciesProfileFacts({
             </h3>
             <BiologyExpandable
               body={interaction}
+              editorField={editable ? "interaction" : undefined}
               needsExpand={interaction.length > 260}
               readLess={t("readLess")}
               readMore={t("readMore")}
+              speciesId={editable ? speciesId : undefined}
             />
           </aside>
         ) : null}

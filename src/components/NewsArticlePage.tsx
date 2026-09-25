@@ -2,6 +2,7 @@ import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import type { NewsArticle } from "@/data/news";
+import type { NewsSectionBlock } from "@/data/newsTypes";
 import type { AppLocale } from "@/i18n/routing";
 import type { GroupHubId } from "@/lib/groupHubs";
 
@@ -24,6 +25,8 @@ import { getSpeciesById } from "@/data/species";
 import { hasPhotoCredit } from "@/data/speciesMedia";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { Link } from "@/i18n/navigation";
+import { isLocalAdminEnabled } from "@/lib/adminAccess";
+import { contentEditorAttributes } from "@/lib/contentEditorAttributes";
 import { formatContentDate, formatPhotoDate } from "@/lib/formatDate";
 import { newsIndexHref } from "@/lib/news";
 import {
@@ -57,6 +60,7 @@ export async function NewsArticlePage({
   ]);
   const copy = getNewsCopy(article, locale);
   if (!copy) return null;
+  const editable = locale === "ka" && isLocalAdminEnabled();
 
   const dateLabel = formatContentDate(article.publishedAt, locale);
   const updatedLabel = article.updatedAt
@@ -70,17 +74,11 @@ export async function NewsArticlePage({
   );
   const regions = newsRelatedRegions(article);
   const hubs = newsRelatedHubs(article);
-  const hasRelated =
-    species.length > 0 || regions.length > 0 || hubs.length > 0;
+  const hasRelated = [species, regions, hubs].some((items) => items.length > 0);
 
   return (
     <div className="min-h-screen bg-background">
-      {visual ? (
-        <CoverImagePreload
-          sizes="(max-width: 1023px) 100vw, 1400px"
-          src={visual.src}
-        />
-      ) : null}
+      <NewsVisualPreload visual={visual} />
       <div>
         <article className="mx-auto max-w-[1400px] px-6 pt-30 pb-16 sm:pt-33 sm:pb-20 lg:px-10">
           <header>
@@ -133,10 +131,24 @@ export async function NewsArticlePage({
                 </>
               ) : null}
             </p>
-            <h1 className="text-balance-tight mt-5 font-display text-display-lead font-semibold text-foreground">
+            <h1
+              className="text-balance-tight mt-5 font-display text-display-lead font-semibold text-foreground"
+              {...contentEditorAttributes(
+                "news",
+                editable ? article.id : undefined,
+                "title",
+              )}
+            >
               {copy.title}
             </h1>
-            <p className="mt-5 text-[17px] leading-[1.65] text-foreground sm:text-[19px]">
+            <p
+              className="mt-5 text-[17px] leading-[1.65] text-foreground sm:text-[19px]"
+              {...contentEditorAttributes(
+                "news",
+                editable ? article.id : undefined,
+                "dek",
+              )}
+            >
               {copy.dek}
             </p>
           </header>
@@ -153,11 +165,18 @@ export async function NewsArticlePage({
           ) : null}
 
           <div className="pt-10 sm:pt-12">
-            <p className="text-[17px] leading-[1.75] text-muted-foreground sm:text-[18px]">
+            <p
+              className="text-[17px] leading-[1.75] text-muted-foreground sm:text-[18px]"
+              {...contentEditorAttributes(
+                "news",
+                editable ? article.id : undefined,
+                "lead",
+              )}
+            >
               {copy.lead}
             </p>
 
-            {copy.sections.map((section) => (
+            {copy.sections.map((section, sectionIndex) => (
               <section className="mt-14 sm:mt-16" key={section.heading}>
                 <AnchoredHeading
                   anchorLabel={t("anchorLink")}
@@ -165,31 +184,30 @@ export async function NewsArticlePage({
                   className="font-display text-display-card font-semibold text-foreground"
                   slugSource={section.heading}
                 >
-                  {section.heading}
+                  <span
+                    {...contentEditorAttributes(
+                      "news",
+                      editable ? article.id : undefined,
+                      `sections.${sectionIndex}.heading`,
+                    )}
+                  >
+                    {section.heading}
+                  </span>
                 </AnchoredHeading>
                 <div className="mt-5 space-y-5 text-[16px] leading-[1.8] text-muted-foreground sm:text-[17px]">
-                  {section.blocks.map((block, index) => {
-                    if (block.type === "figure") {
-                      const photo = newsPhotoBySrc(article, block.src);
-                      if (!photo) return null;
-                      return (
-                        <NewsFigure
-                          compact
-                          key={block.src}
-                          locale={locale}
-                          photoCreditLabel={t("photoCredit")}
-                          photoFromAtlas={t("photoFromAtlas")}
-                          sizes="(max-width: 1023px) 100vw, 1400px"
-                          visual={localizeNewsPhoto(photo, locale)}
-                        />
-                      );
-                    }
-                    return (
-                      <p key={`p:${section.heading}:${index}`}>
-                        <NewsRichText locale={locale} parts={block.parts} />
-                      </p>
-                    );
-                  })}
+                  {section.blocks.map((block, index) => (
+                    <NewsArticleBlock
+                      article={article}
+                      block={block}
+                      blockIndex={index}
+                      editable={editable}
+                      key={`${section.heading}:${index}`}
+                      locale={locale}
+                      photoCreditLabel={t("photoCredit")}
+                      photoFromAtlas={t("photoFromAtlas")}
+                      sectionIndex={sectionIndex}
+                    />
+                  ))}
                 </div>
               </section>
             ))}
@@ -268,6 +286,52 @@ export async function NewsArticlePage({
         />
       </div>
     </div>
+  );
+}
+
+function NewsArticleBlock({
+  article,
+  block,
+  blockIndex,
+  editable,
+  locale,
+  photoCreditLabel,
+  photoFromAtlas,
+  sectionIndex,
+}: {
+  article: NewsArticle;
+  block: NewsSectionBlock;
+  blockIndex: number;
+  editable: boolean;
+  locale: AppLocale;
+  photoCreditLabel: string;
+  photoFromAtlas: string;
+  sectionIndex: number;
+}) {
+  if (block.type === "figure") {
+    const photo = newsPhotoBySrc(article, block.src);
+    return photo ? (
+      <NewsFigure
+        compact
+        locale={locale}
+        photoCreditLabel={photoCreditLabel}
+        photoFromAtlas={photoFromAtlas}
+        sizes="(max-width: 1023px) 100vw, 1400px"
+        visual={localizeNewsPhoto(photo, locale)}
+      />
+    ) : null;
+  }
+  return (
+    <p>
+      <NewsRichText
+        articleId={article.id}
+        blockIndex={blockIndex}
+        editable={editable}
+        locale={locale}
+        parts={block.parts}
+        sectionIndex={sectionIndex}
+      />
+    </p>
   );
 }
 
@@ -442,6 +506,16 @@ function NewsFigureCredit({
         </span>
       ) : null}
     </>
+  );
+}
+
+function NewsVisualPreload({ visual }: { visual: NewsVisual | null }) {
+  if (!visual) return null;
+  return (
+    <CoverImagePreload
+      sizes="(max-width: 1023px) 100vw, 1400px"
+      src={visual.src}
+    />
   );
 }
 
