@@ -1042,6 +1042,48 @@ const INTERACTIVE_RANGE_MAPS: Partial<
     iNaturalistTaxonId: 64078,
     rangeSource: "record-summary",
   },
+  "vipera-dinniki": {
+    copy: {
+      en: {
+        ...HALYOMORPHA_RANGE_COPY.en,
+        intro:
+          "The Dinnik's viper map combines Reptiles.ge editorial photo records with public iNaturalist observations. Regions are taken from the records-by-region table, and only confirmed status counts as distribution; record counts do not measure population density.",
+        mapAria:
+          "Dinnik's viper distribution evidence and field records on a map of Georgia",
+        officialRegionLabel: "Confirmed distribution region",
+        rangeTitle: "Where Dinnik's viper is recorded in Georgia",
+      },
+      ka: {
+        ...HALYOMORPHA_RANGE_COPY.ka,
+        intro:
+          "დინიკის გველგესლას რუკა აერთიანებს Reptiles.ge-ის სარედაქციო ფოტოჩანაწერებსა და iNaturalist-ის საჯარო დაკვირვებებს. რეგიონები აღებულია ჩანაწერების რეგიონული ცხრილიდან და გავრცელებად ითვლება მხოლოდ დადასტურებული სტატუსის მქონე რეგიონი; ჩანაწერების რაოდენობა პოპულაციის სიმჭიდროვეს არ ზომავს.",
+        mapAria:
+          "დინიკის გველგესლას გავრცელების მტკიცებულებები და საველე ჩანაწერები საქართველოს რუკაზე",
+        officialRegionLabel: "დადასტურებული გავრცელების რეგიონი",
+        rangeTitle: "სად არის დინიკის გველგესლა დაფიქსირებული საქართველოში",
+      },
+      ru: {
+        ...HALYOMORPHA_RANGE_COPY.ru,
+        intro:
+          "Карта гадюки Динника объединяет редакционные фотозаписи Reptiles.ge и публичные наблюдения iNaturalist. Регионы взяты из таблицы записей по регионам; распространением считаются только регионы с подтверждённым статусом, а число записей не измеряет плотность популяции.",
+        mapAria:
+          "Данные о распространении гадюки Динника и полевые записи на карте Грузии",
+        officialRegionLabel: "Регион с подтверждённым распространением",
+        rangeTitle: "Где гадюка Динника отмечена в Грузии",
+      },
+      tr: {
+        ...HALYOMORPHA_RANGE_COPY.tr,
+        intro:
+          "Dinnik engereği haritası Reptiles.ge editoryal fotoğraf kayıtlarını ve herkese açık iNaturalist gözlemlerini birleştirir. Bölgeler, bölgelere göre kayıt tablosundan alınır; yalnızca doğrulanmış durumdaki bölgeler yayılış sayılır ve kayıt sayısı popülasyon yoğunluğunu ölçmez.",
+        mapAria:
+          "Dinnik engereğinin Gürcistan'daki yayılış kanıtları ve arazi kayıtları",
+        officialRegionLabel: "Yayılışı doğrulanmış bölge",
+        rangeTitle: "Dinnik engereği Gürcistan'da nerede kaydedildi?",
+      },
+    },
+    iNaturalistTaxonId: 73996,
+    rangeSource: "record-summary",
+  },
   "vipera-kaznakovi": {
     copy: {
       en: {
@@ -1082,6 +1124,91 @@ const INTERACTIVE_RANGE_MAPS: Partial<
       },
     },
     iNaturalistTaxonId: 73999,
+    rangeSource: "record-summary",
+  },
+  "vipera-darevskii": {
+    copy: {
+      en: {
+        ...HALYOMORPHA_RANGE_COPY.en,
+        intro:
+          "The Darevsky's viper map uses public iNaturalist observations. Regions are taken from the records-by-region table; only regions with confirmed status count as distribution, while recorded-only regions do not.",
+        mapAria:
+          "Darevsky's viper observations and confirmed regions on a map of Georgia",
+        officialRegionLabel: "Confirmed distribution region",
+        rangeTitle: "Where Darevsky's viper distribution is confirmed in Georgia",
+      },
+      ka: {
+        ...HALYOMORPHA_RANGE_COPY.ka,
+        intro:
+          "დარევსკის გველგესლას რუკა იყენებს iNaturalist-ის საჯარო დაკვირვებებს. რეგიონები აღებულია ჩანაწერების რეგიონული ცხრილიდან; გავრცელებად ითვლება მხოლოდ დადასტურებული სტატუსის მქონე რეგიონი, ხოლო მხოლოდ დაფიქსირებული რეგიონები გავრცელებად არ ითვლება.",
+        mapAria:
+          "დარევსკის გველგესლას დაკვირვებები და დადასტურებული რეგიონები საქართველოს რუკაზე",
+        officialRegionLabel: "დადასტურებული გავრცელების რეგიონი",
+        rangeTitle: "სად არის დარევსკის გველგესლას გავრცელება დადასტურებული საქართველოში",
+      },
+      ru: {
+        ...HALYOMORPHA_RANGE_COPY.ru,
+        intro:
+          "Карта гадюки Даревского использует публичные наблюдения iNaturalist. Регионы взяты из таблицы записей по регионам; распространением считаются только регионы с подтверждённым статусом, а регионы только с находками не считаются распространением.",
+        mapAria:
+          "Наблюдения гадюки Даревского и подтверждённые регионы на карте Грузии",
+        officialRegionLabel: "Регион с подтверждённым распространением",
+        rangeTitle: "Где распространение гадюки Даревского подтверждено в Грузии",
+      },
+      tr: {
+        ...HALYOMORPHA_RANGE_COPY.tr,
+        intro:
+          "Darevsky engereği haritası herkese açık iNaturalist gözlemlerini kullanır. Bölgeler, bölgelere göre kayıt tablosundan alınır; yalnızca doğrulanmış durumdaki bölgeler yayılış sayılır, yalnızca kayıt bulunan bölgeler sayılmaz.",
+        mapAria:
+          "Darevsky engereğinin gözlemleri ve doğrulanmış bölgeleri Gürcistan haritasında",
+        officialRegionLabel: "Doğrulanmış yayılış bölgesi",
+        rangeTitle: "Darevsky engereğinin yayılışı Gürcistan'da nerede doğrulandı?",
+      },
+    },
+    iNaturalistTaxonId: 73995,
+    rangeSource: "record-summary",
+  },
+  "vipera-transcaucasiana": {
+    copy: {
+      en: {
+        ...HALYOMORPHA_RANGE_COPY.en,
+        intro:
+          "The nose-horned viper map uses public iNaturalist observations filed as Vipera meridionalis transcaucasiana. Only regions marked confirmed in the records table count as distribution. Public coordinates are obscured, so points near regional borders are approximate; record counts do not measure population density.",
+        mapAria:
+          "Nose-horned viper observations and confirmed regions on a map of Georgia",
+        officialRegionLabel: "Confirmed distribution region",
+        rangeTitle: "Where the nose-horned viper is recorded in Georgia",
+      },
+      ka: {
+        ...HALYOMORPHA_RANGE_COPY.ka,
+        intro:
+          "ცხვირრქოსანი გველგესლას რუკა იყენებს iNaturalist-ის საჯარო დაკვირვებებს, რომლებიც Vipera meridionalis transcaucasiana-ს სახელითაა შეტანილი. გავრცელებად ითვლება მხოლოდ ცხრილში დადასტურებული სტატუსის მქონე რეგიონი. საჯარო კოორდინატები დაფარულია, ამიტომ რეგიონების საზღვართან წერტილები მიახლოებითია; ჩანაწერების რაოდენობა პოპულაციის სიმჭიდროვეს არ ზომავს.",
+        mapAria:
+          "ცხვირრქოსანი გველგესლას დაკვირვებები და დადასტურებული რეგიონები საქართველოს რუკაზე",
+        officialRegionLabel: "დადასტურებული გავრცელების რეგიონი",
+        rangeTitle:
+          "სად არის ცხვირრქოსანი გველგესლა დაფიქსირებული საქართველოში",
+      },
+      ru: {
+        ...HALYOMORPHA_RANGE_COPY.ru,
+        intro:
+          "Карта носатой гадюки использует публичные наблюдения iNaturalist под названием Vipera meridionalis transcaucasiana. Распространением считаются только регионы со статусом подтверждения в таблице. Публичные координаты скрыты, поэтому точки у границ регионов приблизительны; число записей не измеряет плотность популяции.",
+        mapAria:
+          "Наблюдения носатой гадюки и подтверждённые регионы на карте Грузии",
+        officialRegionLabel: "Регион с подтверждённым распространением",
+        rangeTitle: "Где носатая гадюка отмечена в Грузии",
+      },
+      tr: {
+        ...HALYOMORPHA_RANGE_COPY.tr,
+        intro:
+          "Boynuzlu engerek haritası, iNaturalist'te Vipera meridionalis transcaucasiana adıyla kayıtlı halka açık gözlemleri kullanır. Yalnızca tablodaki durumu doğrulanmış bölgeler yayılış sayılır. Halka açık koordinatlar gizlendiğinden bölge sınırlarına yakın noktalar yaklaşıktır; kayıt sayısı popülasyon yoğunluğunu ölçmez.",
+        mapAria:
+          "Boynuzlu engerek gözlemleri ve doğrulanmış bölgeler Gürcistan haritasında",
+        officialRegionLabel: "Yayılışı doğrulanmış bölge",
+        rangeTitle: "Boynuzlu engerek Gürcistan'da nerede kaydedildi?",
+      },
+    },
+    iNaturalistTaxonId: 1701183,
     rangeSource: "record-summary",
   },
 };
