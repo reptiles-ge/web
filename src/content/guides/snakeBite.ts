@@ -617,7 +617,7 @@ export const SNAKE_BITE = defineGuideArticle({
     },
   },
   messageKey: "bite",
-  ogImage: "/og/images/guides/snake-bite.jpg",
+  ogImage: "https://cdn.reptiles.ge/og/images/guides/snake-bite.jpg",
   parentHub: "snakes",
   pathname: "/snakes/gvelis-nakbeni",
   relatedGuideIds: ["scorpion-sting"],
