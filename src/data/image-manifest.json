@@ -64434,6 +64434,87 @@
       ],
       "updatedAt": "2026-08-28T21:56:09.510Z"
     },
+    "phasianus-colchicus-anastasiia-1.jpg": {
+      "sourceHash": "ba48db96f4a271c458e544c64ed3c9195034a341f5135d01ccd3c2f06e4f8f67",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "phasianus-colchicus-anastasiia-1.jpg",
+      "originalSize": 320842,
+      "width": 988,
+      "height": 988,
+      "derivatives": [
+        {
+          "key": "optimized/phasianus-colchicus-anastasiia-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 320,
+          "byteSize": 24325
+        },
+        {
+          "key": "optimized/phasianus-colchicus-anastasiia-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 320,
+          "byteSize": 39974
+        },
+        {
+          "key": "optimized/phasianus-colchicus-anastasiia-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 400,
+          "byteSize": 36328
+        },
+        {
+          "key": "optimized/phasianus-colchicus-anastasiia-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 400,
+          "byteSize": 59916
+        },
+        {
+          "key": "optimized/phasianus-colchicus-anastasiia-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 640,
+          "byteSize": 71975
+        },
+        {
+          "key": "optimized/phasianus-colchicus-anastasiia-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 640,
+          "byteSize": 122364
+        },
+        {
+          "key": "optimized/phasianus-colchicus-anastasiia-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 800,
+          "byteSize": 96355
+        },
+        {
+          "key": "optimized/phasianus-colchicus-anastasiia-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 800,
+          "byteSize": 164224
+        },
+        {
+          "key": "optimized/phasianus-colchicus-anastasiia-1-988.avif",
+          "format": "avif",
+          "width": 988,
+          "height": 988,
+          "byteSize": 129491
+        },
+        {
+          "key": "optimized/phasianus-colchicus-anastasiia-1-988.webp",
+          "format": "webp",
+          "width": 988,
+          "height": 988,
+          "byteSize": 214214
+        }
+      ],
+      "updatedAt": "2026-09-25T20:22:26.620Z"
+    },
     "phoenicolacerta-laevis-2.jpg": {
       "sourceHash": "f31768f8b613bd9a0919dbc30493cf8d47317793af886cbda8c82cd1745985d7",
       "configFingerprint": "a895f8e025dcc7fa",

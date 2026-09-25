@@ -5744,6 +5744,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/phasianus-colchicus-anastasiia-1.jpg": {
+    "path": "phasianus-colchicus-anastasiia-1",
+    "width": 988,
+    "height": 988,
+    "widths": [320, 400, 640, 800, 988],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/phoenicolacerta-laevis-3.jpg": {
     "path": "phoenicolacerta-laevis-3",
     "width": 2048,
