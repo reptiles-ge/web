@@ -2,6 +2,7 @@ import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import type { NewsArticle } from "@/data/news";
+import type { NewsSectionBlock } from "@/data/newsTypes";
 import type { AppLocale } from "@/i18n/routing";
 import type { GroupHubId } from "@/lib/groupHubs";
 
@@ -73,8 +74,7 @@ export async function NewsArticlePage({
   );
   const regions = newsRelatedRegions(article);
   const hubs = newsRelatedHubs(article);
-  const hasRelated =
-    species.length > 0 || regions.length > 0 || hubs.length > 0;
+  const hasRelated = [species, regions, hubs].some((items) => items.length > 0);
 
   return (
     <div className="min-h-screen bg-background">
@@ -200,35 +200,19 @@ export async function NewsArticlePage({
                   </span>
                 </AnchoredHeading>
                 <div className="mt-5 space-y-5 text-[16px] leading-[1.8] text-muted-foreground sm:text-[17px]">
-                  {section.blocks.map((block, index) => {
-                    if (block.type === "figure") {
-                      const photo = newsPhotoBySrc(article, block.src);
-                      if (!photo) return null;
-                      return (
-                        <NewsFigure
-                          compact
-                          key={block.src}
-                          locale={locale}
-                          photoCreditLabel={t("photoCredit")}
-                          photoFromAtlas={t("photoFromAtlas")}
-                          sizes="(max-width: 1023px) 100vw, 1400px"
-                          visual={localizeNewsPhoto(photo, locale)}
-                        />
-                      );
-                    }
-                    return (
-                      <p key={`p:${section.heading}:${index}`}>
-                        <NewsRichText
-                          articleId={article.id}
-                          blockIndex={index}
-                          editable={editable}
-                          locale={locale}
-                          parts={block.parts}
-                          sectionIndex={sectionIndex}
-                        />
-                      </p>
-                    );
-                  })}
+                  {section.blocks.map((block, index) => (
+                    <NewsArticleBlock
+                      article={article}
+                      block={block}
+                      blockIndex={index}
+                      editable={editable}
+                      key={`${section.heading}:${index}`}
+                      locale={locale}
+                      photoCreditLabel={t("photoCredit")}
+                      photoFromAtlas={t("photoFromAtlas")}
+                      sectionIndex={sectionIndex}
+                    />
+                  ))}
                 </div>
               </section>
             ))}
@@ -307,6 +291,52 @@ export async function NewsArticlePage({
         />
       </div>
     </div>
+  );
+}
+
+function NewsArticleBlock({
+  article,
+  block,
+  blockIndex,
+  editable,
+  locale,
+  photoCreditLabel,
+  photoFromAtlas,
+  sectionIndex,
+}: {
+  article: NewsArticle;
+  block: NewsSectionBlock;
+  blockIndex: number;
+  editable: boolean;
+  locale: AppLocale;
+  photoCreditLabel: string;
+  photoFromAtlas: string;
+  sectionIndex: number;
+}) {
+  if (block.type === "figure") {
+    const photo = newsPhotoBySrc(article, block.src);
+    return photo ? (
+      <NewsFigure
+        compact
+        locale={locale}
+        photoCreditLabel={photoCreditLabel}
+        photoFromAtlas={photoFromAtlas}
+        sizes="(max-width: 1023px) 100vw, 1400px"
+        visual={localizeNewsPhoto(photo, locale)}
+      />
+    ) : null;
+  }
+  return (
+    <p>
+      <NewsRichText
+        articleId={article.id}
+        blockIndex={blockIndex}
+        editable={editable}
+        locale={locale}
+        parts={block.parts}
+        sectionIndex={sectionIndex}
+      />
+    </p>
   );
 }
 
