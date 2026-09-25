@@ -64434,6 +64434,358 @@
       ],
       "updatedAt": "2026-08-28T21:56:09.510Z"
     },
+    "phasianus-colchicus-anastasiia-1.jpg": {
+      "sourceHash": "ba48db96f4a271c458e544c64ed3c9195034a341f5135d01ccd3c2f06e4f8f67",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "phasianus-colchicus-anastasiia-1.jpg",
+      "originalSize": 320842,
+      "width": 988,
+      "height": 988,
+      "derivatives": [
+        {
+          "key": "optimized/phasianus-colchicus-anastasiia-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 320,
+          "byteSize": 24325
+        },
+        {
+          "key": "optimized/phasianus-colchicus-anastasiia-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 320,
+          "byteSize": 39974
+        },
+        {
+          "key": "optimized/phasianus-colchicus-anastasiia-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 400,
+          "byteSize": 36328
+        },
+        {
+          "key": "optimized/phasianus-colchicus-anastasiia-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 400,
+          "byteSize": 59916
+        },
+        {
+          "key": "optimized/phasianus-colchicus-anastasiia-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 640,
+          "byteSize": 71975
+        },
+        {
+          "key": "optimized/phasianus-colchicus-anastasiia-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 640,
+          "byteSize": 122364
+        },
+        {
+          "key": "optimized/phasianus-colchicus-anastasiia-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 800,
+          "byteSize": 96355
+        },
+        {
+          "key": "optimized/phasianus-colchicus-anastasiia-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 800,
+          "byteSize": 164224
+        },
+        {
+          "key": "optimized/phasianus-colchicus-anastasiia-1-988.avif",
+          "format": "avif",
+          "width": 988,
+          "height": 988,
+          "byteSize": 129491
+        },
+        {
+          "key": "optimized/phasianus-colchicus-anastasiia-1-988.webp",
+          "format": "webp",
+          "width": 988,
+          "height": 988,
+          "byteSize": 214214
+        }
+      ],
+      "updatedAt": "2026-09-25T20:22:26.620Z"
+    },
+    "phasianus-colchicus-donsky-1.jpg": {
+      "sourceHash": "7d847557b5d4bb69198d2345e1c430b8fa46e4ab0281ec7dbc8695839179b12f",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "phasianus-colchicus-donsky-1.jpg",
+      "originalSize": 492169,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/phasianus-colchicus-donsky-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 13049
+        },
+        {
+          "key": "optimized/phasianus-colchicus-donsky-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 19688
+        },
+        {
+          "key": "optimized/phasianus-colchicus-donsky-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 17738
+        },
+        {
+          "key": "optimized/phasianus-colchicus-donsky-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 27812
+        },
+        {
+          "key": "optimized/phasianus-colchicus-donsky-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 36654
+        },
+        {
+          "key": "optimized/phasianus-colchicus-donsky-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 54930
+        },
+        {
+          "key": "optimized/phasianus-colchicus-donsky-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 50487
+        },
+        {
+          "key": "optimized/phasianus-colchicus-donsky-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 73894
+        },
+        {
+          "key": "optimized/phasianus-colchicus-donsky-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 86605
+        },
+        {
+          "key": "optimized/phasianus-colchicus-donsky-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 121716
+        },
+        {
+          "key": "optimized/phasianus-colchicus-donsky-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 172414
+        },
+        {
+          "key": "optimized/phasianus-colchicus-donsky-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 227966
+        }
+      ],
+      "updatedAt": "2026-09-25T20:23:14.730Z"
+    },
+    "phasianus-colchicus-donsky-2.jpg": {
+      "sourceHash": "1d3f89ab8f85ec61c6e771ec926e842438f6dd5905a3a989b0bf1b72abfbd46b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "phasianus-colchicus-donsky-2.jpg",
+      "originalSize": 850105,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/phasianus-colchicus-donsky-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 17198
+        },
+        {
+          "key": "optimized/phasianus-colchicus-donsky-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 27666
+        },
+        {
+          "key": "optimized/phasianus-colchicus-donsky-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 25530
+        },
+        {
+          "key": "optimized/phasianus-colchicus-donsky-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 41186
+        },
+        {
+          "key": "optimized/phasianus-colchicus-donsky-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 59956
+        },
+        {
+          "key": "optimized/phasianus-colchicus-donsky-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 96430
+        },
+        {
+          "key": "optimized/phasianus-colchicus-donsky-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 87059
+        },
+        {
+          "key": "optimized/phasianus-colchicus-donsky-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 142912
+        },
+        {
+          "key": "optimized/phasianus-colchicus-donsky-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 162004
+        },
+        {
+          "key": "optimized/phasianus-colchicus-donsky-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 265522
+        },
+        {
+          "key": "optimized/phasianus-colchicus-donsky-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 341049
+        },
+        {
+          "key": "optimized/phasianus-colchicus-donsky-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 521076
+        }
+      ],
+      "updatedAt": "2026-09-25T20:23:59.200Z"
+    },
+    "phasianus-colchicus-giorgi-1.jpg": {
+      "sourceHash": "a0a5ce422d0110a5a80b07db84636c3741c2f70636f4da09a367a6bc1e0f8363",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "phasianus-colchicus-giorgi-1.jpg",
+      "originalSize": 270390,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/phasianus-colchicus-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 17526
+        },
+        {
+          "key": "optimized/phasianus-colchicus-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 26616
+        },
+        {
+          "key": "optimized/phasianus-colchicus-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 25862
+        },
+        {
+          "key": "optimized/phasianus-colchicus-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 39916
+        },
+        {
+          "key": "optimized/phasianus-colchicus-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 56559
+        },
+        {
+          "key": "optimized/phasianus-colchicus-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 88384
+        },
+        {
+          "key": "optimized/phasianus-colchicus-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 79972
+        },
+        {
+          "key": "optimized/phasianus-colchicus-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 124230
+        },
+        {
+          "key": "optimized/phasianus-colchicus-giorgi-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 118856
+        },
+        {
+          "key": "optimized/phasianus-colchicus-giorgi-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 179090
+        }
+      ],
+      "updatedAt": "2026-09-25T19:56:06.112Z"
+    },
     "phoenicolacerta-laevis-2.jpg": {
       "sourceHash": "f31768f8b613bd9a0919dbc30493cf8d47317793af886cbda8c82cd1745985d7",
       "configFingerprint": "a895f8e025dcc7fa",
