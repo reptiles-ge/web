@@ -17,7 +17,9 @@ export const editorRequestSchema = z
       .regex(/^[A-Za-z][A-Za-z0-9]*(?:\.\d+|\.[A-Za-z][A-Za-z0-9]*)*$/)
       .max(120),
     id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
-    kind: z.enum(["species", "guide", "news", "message", "region"]).default("species"),
+    kind: z
+      .enum(["species", "guide", "news", "message", "region"])
+      .default("species"),
     renderedText: z.string().min(1).max(20000),
     start: z.number().int().nonnegative(),
   })

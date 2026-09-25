@@ -238,12 +238,19 @@ describe("selection content editor", () => {
         renderedText: "test",
         start: 0,
       });
-      const result = { en: "English", ka: "ქართული", ru: "Русский", tr: "Türkçe" };
+      const result = {
+        en: "English",
+        ka: "ქართული",
+        ru: "Русский",
+        tr: "Türkçe",
+      };
       const updated = target.updated(result);
       expect(updated).toHaveLength(1);
       const root = field === "description" ? "regionMap" : "regionContent";
       for (const locale of ["ka", "en", "ru", "tr"] as const) {
-        expect(readContentLiteral(updated[0], root, "abkhazia", [field, locale])).toBe(result[locale]);
+        expect(
+          readContentLiteral(updated[0], root, "abkhazia", [field, locale]),
+        ).toBe(result[locale]);
       }
     }
   });

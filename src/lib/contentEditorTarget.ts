@@ -2,8 +2,8 @@ import fs from "node:fs/promises";
 import path from "node:path";
 
 import { getGuideArticles } from "@/data/guideArticles";
-import { getPublishedNewsArticleBySlug } from "@/data/news";
 import { getRegionById } from "@/data/mapRegions";
+import { getPublishedNewsArticleBySlug } from "@/data/news";
 import {
   editorFields,
   type EditorRequest,
@@ -24,7 +24,8 @@ const guideField =
   /^(?:title|intro|summary|sections\.\d+\.(?:heading|paragraphs\.\d+|list\.items\.\d+)|faq\.\d+\.(?:question|answer))$/;
 const newsField =
   /^(?:title|dek|lead|sections\.\d+\.(?:heading|blocks\.\d+\.parts\.\d+(?:\.(?:label|name))?))$/;
-const regionField = /^(?:name|description|overview|biome|habitats\.\d+|faq\.\d+\.(?:question|answer))$/;
+const regionField =
+  /^(?:name|description|overview|biome|habitats\.\d+|faq\.\d+\.(?:question|answer))$/;
 
 export async function resolveEditorTarget(
   input: EditorRequest,
@@ -57,8 +58,13 @@ export async function resolveEditorTarget(
       throw new Error("Unknown news field");
     files = [`src/content/news/${input.id}.ts`];
   } else if (input.kind === "region") {
-    if (!regionField.test(field) || !getRegionById(input.id)) throw new Error("Unknown region field");
-    files = [field === "name" || field === "description" ? "src/data/mapRegions.ts" : "src/data/regionContent.ts"];
+    if (!regionField.test(field) || !getRegionById(input.id))
+      throw new Error("Unknown region field");
+    files = [
+      field === "name" || field === "description"
+        ? "src/data/mapRegions.ts"
+        : "src/data/regionContent.ts",
+    ];
   } else {
     if (input.id !== "messages" || field !== "auto")
       throw new Error("Invalid message target");
@@ -86,13 +92,26 @@ export async function resolveEditorTarget(
         ...segments,
       ]);
     if (input.kind === "region")
-      return readContentLiteral(raw, field === "name" || field === "description" ? "regionMap" : "regionContent", input.id, [...segments, locale]);
+      return readContentLiteral(
+        raw,
+        field === "name" || field === "description"
+          ? "regionMap"
+          : "regionContent",
+        input.id,
+        [...segments, locale],
+      );
     return readContentLiteral(raw, "message", input.id, segments);
   };
   const source = read(originals[0], "ka");
   for (const [index, locale] of locales.entries()) {
     const value = read(
-      originals[input.kind === "guide" || input.kind === "news" || input.kind === "region" ? 0 : index],
+      originals[
+        input.kind === "guide" ||
+        input.kind === "news" ||
+        input.kind === "region"
+          ? 0
+          : index
+      ],
       locale,
     );
     if (!value.trim()) throw new Error(`Missing ${locale} content`);
@@ -133,7 +152,16 @@ export async function resolveEditorTarget(
       }
       if (input.kind === "region") {
         let raw = originals[0];
-        for (const locale of locales) raw = replaceContentLiteral(raw, field === "name" || field === "description" ? "regionMap" : "regionContent", input.id, [...segments, locale], result[locale]);
+        for (const locale of locales)
+          raw = replaceContentLiteral(
+            raw,
+            field === "name" || field === "description"
+              ? "regionMap"
+              : "regionContent",
+            input.id,
+            [...segments, locale],
+            result[locale],
+          );
         return [raw];
       }
       return locales.map((locale, index) =>

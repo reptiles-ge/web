@@ -232,7 +232,14 @@ function RegionFaqSection({
                       }}
                       type="button"
                     >
-                      <span className="font-display text-[17px] leading-snug font-medium text-foreground sm:text-[19px]" data-content-field={editable ? `faq.${index}.question` : undefined} data-content-id={editable ? regionId : undefined} data-content-kind={editable ? "region" : undefined}>
+                      <span
+                        className="font-display text-[17px] leading-snug font-medium text-foreground sm:text-[19px]"
+                        data-content-field={
+                          editable ? `faq.${index}.question` : undefined
+                        }
+                        data-content-id={editable ? regionId : undefined}
+                        data-content-kind={editable ? "region" : undefined}
+                      >
                         {item.question}
                       </span>
                       <span
@@ -253,7 +260,14 @@ function RegionFaqSection({
                       )}
                     >
                       <div className="overflow-hidden">
-                        <p className="pr-12 pb-7 text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]" data-content-field={editable ? `faq.${index}.answer` : undefined} data-content-id={editable ? regionId : undefined} data-content-kind={editable ? "region" : undefined}>
+                        <p
+                          className="pr-12 pb-7 text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]"
+                          data-content-field={
+                            editable ? `faq.${index}.answer` : undefined
+                          }
+                          data-content-id={editable ? regionId : undefined}
+                          data-content-kind={editable ? "region" : undefined}
+                        >
                           <PhoneLinkedText>{item.answer}</PhoneLinkedText>
                         </p>
                       </div>
@@ -298,7 +312,12 @@ function RegionProfileHabitats({
             >
               {t("habitatsTitle")}
             </AnchoredHeading>
-            <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground" data-content-field={editable ? "description" : undefined} data-content-id={editable ? regionId : undefined} data-content-kind={editable ? "region" : undefined}>
+            <p
+              className="mt-5 text-[15px] leading-relaxed text-muted-foreground"
+              data-content-field={editable ? "description" : undefined}
+              data-content-id={editable ? regionId : undefined}
+              data-content-kind={editable ? "region" : undefined}
+            >
               {localizeRegionText(description, locale)}
             </p>
           </div>
@@ -308,7 +327,14 @@ function RegionProfileHabitats({
                 className="flex items-baseline justify-between gap-6 py-5"
                 key={habitat.ka}
               >
-                <span className="font-display text-[18px] font-medium text-foreground sm:text-[20px]" data-content-field={editable ? `habitats.${index}` : undefined} data-content-id={editable ? regionId : undefined} data-content-kind={editable ? "region" : undefined}>
+                <span
+                  className="font-display text-[18px] font-medium text-foreground sm:text-[20px]"
+                  data-content-field={
+                    editable ? `habitats.${index}` : undefined
+                  }
+                  data-content-id={editable ? regionId : undefined}
+                  data-content-kind={editable ? "region" : undefined}
+                >
                   {localizeRegionText(habitat, locale)}
                 </span>
                 <span className="text-[11px] tracking-[0.18em] text-muted-foreground">
@@ -388,13 +414,23 @@ function RegionProfileHero({
           {t("regionTitle", { name, nameIn })}
         </h1>
         {overview ? (
-          <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-white/70 sm:mt-5 sm:text-[16px]" data-content-field={editable ? "overview" : undefined} data-content-id={editable ? regionId : undefined} data-content-kind={editable ? "region" : undefined}>
+          <p
+            className="mt-4 max-w-2xl text-[15px] leading-relaxed text-white/70 sm:mt-5 sm:text-[16px]"
+            data-content-field={editable ? "overview" : undefined}
+            data-content-id={editable ? regionId : undefined}
+            data-content-kind={editable ? "region" : undefined}
+          >
             {overview}
           </p>
         ) : null}
         <div className="mt-5 flex flex-wrap items-center gap-2.5 sm:mt-7">
           {biome ? (
-            <span className="rounded-full border border-white/12 bg-white/5 px-3.5 py-2 text-[12px] text-white/70 backdrop-blur-md" data-content-field={editable ? "biome" : undefined} data-content-id={editable ? regionId : undefined} data-content-kind={editable ? "region" : undefined}>
+            <span
+              className="rounded-full border border-white/12 bg-white/5 px-3.5 py-2 text-[12px] text-white/70 backdrop-blur-md"
+              data-content-field={editable ? "biome" : undefined}
+              data-content-id={editable ? regionId : undefined}
+              data-content-kind={editable ? "region" : undefined}
+            >
               {biome}
             </span>
           ) : null}

@@ -29,8 +29,8 @@ import {
 } from "@/i18n/localeMeta";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { type AppLocale, routing } from "@/i18n/routing";
-import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import { isLocalAdminEnabled } from "@/lib/adminAccess";
+import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import {
   absoluteUrl,
   localeAlternates,
