@@ -25,41 +25,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1152],
     "formats": ["avif", "webp"]
   },
-  "/images/guides/snake-bite-call-112.jpg": {
-    "path": "images/guides/snake-bite-call-112",
-    "width": 1536,
-    "height": 1024,
-    "widths": [320, 400, 640, 800, 1200, 1536],
-    "formats": ["avif", "webp"]
-  },
-  "/images/guides/snake-bite-clinical-assessment.jpg": {
-    "path": "images/guides/snake-bite-clinical-assessment",
-    "width": 1536,
-    "height": 1024,
-    "widths": [320, 400, 640, 800, 1200, 1536],
-    "formats": ["avif", "webp"]
-  },
-  "/images/guides/snake-bite-hero.jpg": {
-    "path": "images/guides/snake-bite-hero",
-    "width": 1730,
-    "height": 909,
-    "widths": [320, 400, 640, 800, 1200, 1730],
-    "formats": ["avif", "webp"]
-  },
-  "/images/guides/snake-bite-keep-distance.jpg": {
-    "path": "images/guides/snake-bite-keep-distance",
-    "width": 1536,
-    "height": 1024,
-    "widths": [320, 400, 640, 800, 1200, 1536],
-    "formats": ["avif", "webp"]
-  },
-  "/images/guides/snake-bite-remove-ring.jpg": {
-    "path": "images/guides/snake-bite-remove-ring",
-    "width": 1536,
-    "height": 1024,
-    "widths": [320, 400, 640, 800, 1200, 1536],
-    "formats": ["avif", "webp"]
-  },
   "/images/guides/wasp-nest-enclosed.jpg": {
     "path": "images/guides/wasp-nest-enclosed",
     "width": 1421,
@@ -3338,6 +3303,41 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
   },
   "https://cdn.reptiles.ge/images/guides/scorpion-sting-hero.jpg": {
     "path": "images/guides/scorpion-sting-hero",
+    "width": 1536,
+    "height": 1024,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/guides/snake-bite-call-112.jpg": {
+    "path": "images/guides/snake-bite-call-112",
+    "width": 1536,
+    "height": 1024,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/guides/snake-bite-clinical-assessment.jpg": {
+    "path": "images/guides/snake-bite-clinical-assessment",
+    "width": 1536,
+    "height": 1024,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/guides/snake-bite-hero.jpg": {
+    "path": "images/guides/snake-bite-hero",
+    "width": 1730,
+    "height": 909,
+    "widths": [320, 400, 640, 800, 1200, 1730],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/guides/snake-bite-keep-distance.jpg": {
+    "path": "images/guides/snake-bite-keep-distance",
+    "width": 1536,
+    "height": 1024,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/guides/snake-bite-remove-ring.jpg": {
+    "path": "images/guides/snake-bite-remove-ring",
     "width": 1536,
     "height": 1024,
     "widths": [320, 400, 640, 800, 1200, 1536],
