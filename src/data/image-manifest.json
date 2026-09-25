@@ -29070,6 +29070,87 @@
       ],
       "updatedAt": "2026-09-25T06:37:17.245Z"
     },
+    "falco-tinnunculus-donsky-5.jpg": {
+      "sourceHash": "ddd63635116cb694e5af79b5cbfb312704bad02e0818ec5fc3cc6c7e84f31425",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "falco-tinnunculus-donsky-5.jpg",
+      "originalSize": 296401,
+      "width": 1024,
+      "height": 683,
+      "derivatives": [
+        {
+          "key": "optimized/falco-tinnunculus-donsky-5-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 22188
+        },
+        {
+          "key": "optimized/falco-tinnunculus-donsky-5-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 33512
+        },
+        {
+          "key": "optimized/falco-tinnunculus-donsky-5-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 32344
+        },
+        {
+          "key": "optimized/falco-tinnunculus-donsky-5-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 49394
+        },
+        {
+          "key": "optimized/falco-tinnunculus-donsky-5-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 65320
+        },
+        {
+          "key": "optimized/falco-tinnunculus-donsky-5-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 100738
+        },
+        {
+          "key": "optimized/falco-tinnunculus-donsky-5-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 89343
+        },
+        {
+          "key": "optimized/falco-tinnunculus-donsky-5-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 136732
+        },
+        {
+          "key": "optimized/falco-tinnunculus-donsky-5-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 126506
+        },
+        {
+          "key": "optimized/falco-tinnunculus-donsky-5-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 683,
+          "byteSize": 195540
+        }
+      ],
+      "updatedAt": "2026-09-25T06:38:37.214Z"
+    },
     "ficedula-hypoleuca-crowbared-1.jpg": {
       "sourceHash": "bcfd4aab32fdfa6c66f19e8591a529b2d80cbeb860dc5218bcf86f06e7673edf",
       "configFingerprint": "a895f8e025dcc7fa",
