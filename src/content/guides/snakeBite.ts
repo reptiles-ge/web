@@ -6,6 +6,13 @@ import {
   type GuideArticleSource,
 } from "@/data/guideArticleTypes";
 
+const AI_IMAGE_CREDIT: Record<AppLocale, string> = {
+  en: "AI-generated illustration · not an actual incident",
+  ka: "AI-ით შექმნილი ილუსტრაცია · არა რეალური შემთხვევა",
+  ru: "Иллюстрация, созданная ИИ · не реальный случай",
+  tr: "Yapay zekâ ile oluşturulmuş görsel · gerçek bir olay değil",
+};
+
 const COPY: Record<AppLocale, GuideArticleCopy> = {
   en: {
     description:
@@ -48,6 +55,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
     sections: [
       {
         heading: "What should you do immediately after a snakebite?",
+        image: "remove-ring",
         list: {
           items: [
             "Move away from the snake to a safe place. Do not approach it again.",
@@ -64,6 +72,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "What should you not do?",
+        image: "keep-distance",
         list: {
           items: [
             "Do not cut or excise the wound, and do not try to suck out venom by mouth or device.",
@@ -105,6 +114,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "What if you did not see the snake?",
+        image: "call-112",
         paragraphs: [
           "If you suspect a snakebite but did not see the animal, treat its identity as unknown. Call 112 in Georgia and seek emergency assessment; do not search for the snake before asking for help.",
           "If the animal is still visible, a photograph from a safe distance may help later, but only if it does not delay care. Never approach or handle it for identification.",
@@ -119,6 +129,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "Who decides whether antivenom is needed?",
+        image: "clinical-assessment",
         paragraphs: [
           "Clinicians assess the person and decide whether antivenom or other treatment is indicated. WHO describes antivenom as a treatment for envenoming, but this page cannot determine a need, dose, product, or availability at a Georgian hospital.",
           "The information here is educational. Emergency dispatch and medical professionals make decisions about transport, observation, and treatment.",
@@ -170,6 +181,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
     sections: [
       {
         heading: "გველმა მიკბინა — რა გავაკეთო დაუყოვნებლივ?",
+        image: "remove-ring",
         list: {
           items: [
             "მოშორდი გველს და გადადი უსაფრთხო ადგილას. მას ხელახლა ნუ მიუახლოვდები.",
@@ -186,6 +198,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "რა არ უნდა გავაკეთოთ?",
+        image: "keep-distance",
         list: {
           items: [
             "ნუ გაჭრი ან ამოკვეთ ჭრილობას და ნუ ეცდები შხამის პირით ან მოწყობილობით ამოწოვას.",
@@ -227,6 +240,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "რა გავაკეთოთ, თუ გველი ვერ დავინახეთ?",
+        image: "call-112",
         paragraphs: [
           "თუ გველის ნაკბენზე ეჭვი გაქვს, მაგრამ ცხოველი ვერ დაინახე, მისი სახეობა უცნობად მიიჩნიე. საქართველოში დარეკე 112-ზე და მოითხოვე გადაუდებელი შეფასება; დახმარების თხოვნამდე გველის ძებნას ნუ დაიწყებ.",
           "თუ ცხოველი ჯერ კიდევ ჩანს, უსაფრთხო მანძილიდან გადაღებული ფოტო შეიძლება მოგვიანებით გამოდგეს, ოღონდ დახმარებას არ უნდა აყოვნებდეს. ამოცნობისთვის გველს არასოდეს მიუახლოვდე და არ შეეხო.",
@@ -241,6 +255,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "ვინ წყვეტს, საჭიროა თუ არა ანტიშხამი?",
+        image: "clinical-assessment",
         paragraphs: [
           "ადამიანის მდგომარეობას სამედიცინო პერსონალი აფასებს და წყვეტს, საჭიროა თუ არა ანტიშხამი ან სხვა მკურნალობა. WHO ანტიშხამს შხამით მოწამვლის სამკურნალო საშუალებად აღწერს, მაგრამ ეს გვერდი ვერ განსაზღვრავს მის საჭიროებას, დოზას, სახეობას ან საქართველოს საავადმყოფოში ხელმისაწვდომობას.",
           "აქ მოცემული ინფორმაცია საგანმანათლებლოა. ტრანსპორტის, მეთვალყურეობისა და მკურნალობის გადაწყვეტილებებს გადაუდებელი დახმარების სამსახური და მედიკოსები იღებენ.",
@@ -292,6 +307,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
     sections: [
       {
         heading: "Что делать сразу после укуса змеи?",
+        image: "remove-ring",
         list: {
           items: [
             "Отойдите от змеи в безопасное место. Не приближайтесь к ней снова.",
@@ -308,6 +324,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "Чего нельзя делать?",
+        image: "keep-distance",
         list: {
           items: [
             "Не разрезайте и не иссекайте рану, не пытайтесь отсосать яд ртом или устройством.",
@@ -349,6 +366,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "Что делать, если вы не видели змею?",
+        image: "call-112",
         paragraphs: [
           "Если вы подозреваете укус змеи, но не видели животное, считайте вид неизвестным. В Грузии звоните 112 и обращайтесь за экстренной оценкой; не ищите змею до обращения за помощью.",
           "Если животное ещё видно, фотография с безопасного расстояния может пригодиться позже, только если она не задержит помощь. Никогда не приближайтесь к змее и не трогайте её ради определения вида.",
@@ -363,6 +381,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "Кто решает, нужно ли противоядие?",
+        image: "clinical-assessment",
         paragraphs: [
           "Медицинские работники оценивают состояние человека и решают, показано ли противоядие или иное лечение. ВОЗ описывает противоядие как средство лечения отравления ядом, но эта страница не может определить необходимость, дозу, препарат или его наличие в больнице Грузии.",
           "Информация здесь образовательная. Решения о перевозке, наблюдении и лечении принимают служба экстренной помощи и медики.",
@@ -414,6 +433,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
     sections: [
       {
         heading: "Yılan ısırığından hemen sonra ne yapmalısınız?",
+        image: "remove-ring",
         list: {
           items: [
             "Yılandan uzaklaşıp güvenli bir yere geçin. Tekrar yaklaşmayın.",
@@ -430,6 +450,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "Neler yapmamalısınız?",
+        image: "keep-distance",
         list: {
           items: [
             "Yarayı kesmeyin veya çıkarmaya çalışmayın; zehri ağızla ya da cihazla emmeyin.",
@@ -471,6 +492,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "Yılanı görmediyseniz ne yapmalısınız?",
+        image: "call-112",
         paragraphs: [
           "Yılan ısırığından şüpheleniyor ancak hayvanı görmediyseniz türünü bilinmiyor kabul edin. Gürcistan’da 112’yi arayıp acil değerlendirme isteyin; yardım istemeden önce yılanı aramayın.",
           "Hayvan hâlâ görünüyorsa güvenli mesafeden bir fotoğraf sonra yardımcı olabilir; yalnızca bakımı geciktirmiyorsa çekin. Tanımak için asla yaklaşmayın veya dokunmayın.",
@@ -485,6 +507,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "Antivenom gerekip gerekmediğine kim karar verir?",
+        image: "clinical-assessment",
         paragraphs: [
           "Sağlık çalışanları kişiyi değerlendirip antivenom veya başka tedavi gerekip gerekmediğine karar verir. WHO antivenomu zehirlenme tedavisi olarak tanımlar; bu sayfa Gürcistan’daki bir hastanede gerekliliğini, dozunu, ürününü veya bulunurluğunu belirleyemez.",
           "Buradaki bilgiler eğitim amaçlıdır. Nakil, gözlem ve tedavi kararlarını acil yardım hizmeti ve sağlık çalışanları verir.",
@@ -544,22 +567,67 @@ export const SNAKE_BITE = defineGuideArticle({
   copy: COPY,
   hero: {
     alt: {
-      en: "Levantine viper resting on rocky ground in Vashlovani, Georgia",
-      ka: "ვაშლოვანში, კლდოვან მიწაზე მყოფი გიურზა",
-      ru: "Гюрза на каменистой земле в Вашловани, Грузия",
-      tr: "Gürcistan Vashlovani'de taşlı zeminde duran Levant engereği",
+      en: "Two hikers on a rocky trail, one seated while the other calls for help; a snake is farther away",
+      ka: "კლდოვან ბილიკზე ორი მოლაშქრეა: ერთი ზის, მეორე ტელეფონით დახმარებას იძახებს; გველი მოშორებით ჩანს",
+      ru: "Двое туристов на каменистой тропе: один сидит, другая звонит за помощью; змея находится вдали",
+      tr: "Taşlı patikada iki yürüyüşçü: biri otururken diğeri yardım çağırıyor; yılan uzakta görünüyor",
     },
-    credit: {
-      en: "Photo: Laura and Bobby Bok · Vashlovani Protected Areas",
-      ka: "ფოტო: ლორა და ბობი ბოკები · ვაშლოვანის დაცული ტერიტორია",
-      ru: "Фото: Лора и Бобби Бок · охраняемые территории Вашловани",
-      tr: "Fotoğraf: Laura ve Bobby Bok · Vashlovani Koruma Alanları",
-    },
-    height: 1066,
-    src: "https://cdn.reptiles.ge/macrovipera-lebetina-laura-1.jpg",
-    width: 1600,
+    credit: AI_IMAGE_CREDIT,
+    height: 909,
+    src: "/images/guides/snake-bite-hero.jpg",
+    width: 1730,
   },
   id: "snake-bite",
+  images: {
+    "call-112": {
+      alt: {
+        en: "Seated hiker calling for help on a phone while a companion waits nearby",
+        ka: "მჯდომარე მოლაშქრე ტელეფონით დახმარებას იძახებს, გვერდით თანამგზავრი ელოდება",
+        ru: "Сидящий турист звонит за помощью, рядом ждёт спутница",
+        tr: "Oturan yürüyüşçü telefonda yardım çağırıyor, yanında bir arkadaşı bekliyor",
+      },
+      credit: AI_IMAGE_CREDIT,
+      height: 1024,
+      src: "/images/guides/snake-bite-call-112.jpg",
+      width: 1536,
+    },
+    "clinical-assessment": {
+      alt: {
+        en: "Clinician speaking with a seated patient and companion in a consultation room",
+        ka: "ექიმი საკონსულტაციო ოთახში მჯდომ პაციენტსა და მის თანამგზავრს ესაუბრება",
+        ru: "Врач беседует с пациентом и его спутницей в кабинете",
+        tr: "Klinisyen muayene odasında oturan hasta ve yakınıyla konuşuyor",
+      },
+      credit: AI_IMAGE_CREDIT,
+      height: 1024,
+      src: "/images/guides/snake-bite-clinical-assessment.jpg",
+      width: 1536,
+    },
+    "keep-distance": {
+      alt: {
+        en: "Two hikers stop several metres from a snake on a rocky trail",
+        ka: "ორი მოლაშქრე კლდოვან ბილიკზე გველისგან რამდენიმე მეტრის მოშორებით ჩერდება",
+        ru: "Двое туристов останавливаются в нескольких метрах от змеи на каменистой тропе",
+        tr: "İki yürüyüşçü taşlı patikadaki yılandan birkaç metre uzakta duruyor",
+      },
+      credit: AI_IMAGE_CREDIT,
+      height: 1024,
+      src: "/images/guides/snake-bite-keep-distance.jpg",
+      width: 1536,
+    },
+    "remove-ring": {
+      alt: {
+        en: "Seated person gently removing a ring from their finger outdoors",
+        ka: "გარეთ მჯდომი ადამიანი თითიდან ბეჭედს იხსნის",
+        ru: "Сидящий на улице человек осторожно снимает кольцо с пальца",
+        tr: "Dışarıda oturan kişi parmağındaki yüzüğü çıkarıyor",
+      },
+      credit: AI_IMAGE_CREDIT,
+      height: 1024,
+      src: "/images/guides/snake-bite-remove-ring.jpg",
+      width: 1536,
+    },
+  },
   messageKey: "bite",
   ogImage: "/og/images/guides/snake-bite.jpg",
   parentHub: "snakes",
