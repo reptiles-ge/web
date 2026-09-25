@@ -9,7 +9,7 @@ import {
 const COPY: Record<AppLocale, GuideArticleCopy> = {
   en: {
     description:
-      "Snakebite in Georgia: if the snake is venomous or unidentified, call 112. Do not cut, suck venom, or apply a tight tourniquet. Educational guide.",
+      "Snakebite in Georgia: if the snake is venomous or unidentified, call 112. Do not cut, suck venom, or apply a tight tourniquet.",
     faq: [
       {
         answer:
@@ -43,7 +43,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
     ],
     intro:
-      "If a venomous or unidentified snake has bitten you in Georgia, move away from it and call 112 for emergency medical help. Keep movement to a minimum and remove rings or other tight items near the bite. Do not cut the wound, suck out venom, or apply a tight tourniquet. This guide is educational and does not replace medical care.",
+      "If a venomous or unidentified snake has bitten you in Georgia, move away from it and call 112 for emergency medical help. Keep movement to a minimum and remove rings or other tight items near the bite. Do not cut the wound, suck out venom, or apply a tight tourniquet.",
     metaTitle: "Snakebite in Georgia — call 112 | what not to do",
     sections: [
       {
@@ -125,12 +125,12 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
         image: "clinical-assessment",
         paragraphs: [
           "Clinicians assess the person and decide whether antivenom or other treatment is indicated. WHO describes antivenom as a treatment for envenoming, but this page cannot determine a need, dose, product, or availability at a Georgian hospital.",
-          "The information here is educational. Emergency dispatch and medical professionals make decisions about transport, observation, and treatment.",
+          "Emergency dispatch and medical professionals make decisions about transport, observation, and treatment.",
         ],
       },
     ],
     summary:
-      "After a possible venomous or unidentified snakebite in Georgia, move away from the snake and call 112. Keep the person and bitten limb as still as practical, and remove tight items near the bite. Do not cut, suck, apply a tight tourniquet, or delay care to catch the snake. Symptoms may be absent early; medical staff must assess the bite. This guide is educational and does not replace medical care.",
+      "After a possible venomous or unidentified snakebite in Georgia, move away from the snake and call 112. Keep the person and bitten limb as still as practical, and remove tight items near the bite. Do not cut, suck, apply a tight tourniquet, or delay care to catch the snake. Symptoms may be absent early; medical staff must assess the bite.",
     title: "Snakebite in Georgia — what should you do?",
   },
   ka: {
@@ -169,7 +169,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
     ],
     intro:
-      "თუ საქართველოში შხამიანმა ან უცნობმა გველმა გიკბინა, მოშორდი მას და გადაუდებელი სამედიცინო დახმარებისთვის დარეკე 112-ზე. შეამცირე მოძრაობა და მოიხსენი ბეჭედი ან სხვა მჭიდრო ნივთი ნაკბენთან ახლოს. ნუ გაჭრი ჭრილობას, ნუ ამოიწოვ შხამს და ნუ გაიკეთებ მჭიდრო ტურნიკეტს. ეს გიდი საგანმანათლებლოა და სამედიცინო დახმარებას არ ცვლის.",
+      "თუ საქართველოში შხამიანმა ან უცნობმა გველმა გიკბინა, მოშორდი მას და გადაუდებელი სამედიცინო დახმარებისთვის დარეკე 112-ზე. შეამცირე მოძრაობა და მოიხსენი ბეჭედი ან სხვა მჭიდრო ნივთი ნაკბენთან ახლოს. ნუ გაჭრი ჭრილობას, ნუ ამოიწოვ შხამს და ნუ გაიკეთებ მჭიდრო ტურნიკეტს.",
     metaTitle: "გველის ნაკბენი საქართველოში — დარეკე 112 | რა არ გააკეთო",
     sections: [
       {
@@ -251,12 +251,12 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
         image: "clinical-assessment",
         paragraphs: [
           "ადამიანის მდგომარეობას სამედიცინო პერსონალი აფასებს და წყვეტს, საჭიროა თუ არა ანტიშხამი ან სხვა მკურნალობა. WHO ანტიშხამს შხამით მოწამვლის სამკურნალო საშუალებად აღწერს, მაგრამ ეს გვერდი ვერ განსაზღვრავს მის საჭიროებას, დოზას, სახეობას ან საქართველოს საავადმყოფოში ხელმისაწვდომობას.",
-          "აქ მოცემული ინფორმაცია საგანმანათლებლოა. ტრანსპორტის, მეთვალყურეობისა და მკურნალობის გადაწყვეტილებებს გადაუდებელი დახმარების სამსახური და მედიკოსები იღებენ.",
+          "ტრანსპორტის, მეთვალყურეობისა და მკურნალობის გადაწყვეტილებებს გადაუდებელი დახმარების სამსახური და მედიკოსები იღებენ.",
         ],
       },
     ],
     summary:
-      "საქართველოში შესაძლო შხამიანი ან უცნობი გველის ნაკბენის შემდეგ მოშორდი გველს და დარეკე 112-ზე. ადამიანი და დაკბენილი კიდური შეძლებისდაგვარად უძრავად შეინარჩუნე, ნაკბენთან მჭიდრო ნივთები მოიხსენი. ნუ გაჭრი, ნუ ამოიწოვ, ნუ გაიკეთებ მჭიდრო ტურნიკეტს და გველის დაჭერისთვის დახმარებას ნუ გადადებ. სიმპტომები შეიძლება თავიდან არ ჩანდეს; ნაკბენი მედიკოსმა უნდა შეაფასოს. ეს გიდი საგანმანათლებლოა და სამედიცინო დახმარებას არ ცვლის.",
+      "საქართველოში შესაძლო შხამიანი ან უცნობი გველის ნაკბენის შემდეგ მოშორდი გველს და დარეკე 112-ზე. ადამიანი და დაკბენილი კიდური შეძლებისდაგვარად უძრავად შეინარჩუნე, ნაკბენთან მჭიდრო ნივთები მოიხსენი. ნუ გაჭრი, ნუ ამოიწოვ, ნუ გაიკეთებ მჭიდრო ტურნიკეტს და გველის დაჭერისთვის დახმარებას ნუ გადადებ. სიმპტომები შეიძლება თავიდან არ ჩანდეს; ნაკბენი მედიკოსმა უნდა შეაფასოს.",
     title: "გველის ნაკბენი საქართველოში — რა უნდა გავაკეთოთ?",
   },
   ru: {
@@ -295,7 +295,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
     ],
     intro:
-      "Если в Грузии вас укусила ядовитая или неопознанная змея, отойдите от неё и звоните 112 для неотложной медицинской помощи. Старайтесь меньше двигаться и снимите кольца и другие тесные предметы рядом с укусом. Не разрезайте рану, не отсасывайте яд и не накладывайте тугой жгут. Этот материал образовательный и не заменяет медицинскую помощь.",
+      "Если в Грузии вас укусила ядовитая или неопознанная змея, отойдите от неё и звоните 112 для неотложной медицинской помощи. Старайтесь меньше двигаться и снимите кольца и другие тесные предметы рядом с укусом. Не разрезайте рану, не отсасывайте яд и не накладывайте тугой жгут.",
     metaTitle: "Укус змеи в Грузии — звоните 112 | чего не делать",
     sections: [
       {
@@ -377,12 +377,12 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
         image: "clinical-assessment",
         paragraphs: [
           "Медицинские работники оценивают состояние человека и решают, показано ли противоядие или иное лечение. ВОЗ описывает противоядие как средство лечения отравления ядом, но эта страница не может определить необходимость, дозу, препарат или его наличие в больнице Грузии.",
-          "Информация здесь образовательная. Решения о перевозке, наблюдении и лечении принимают служба экстренной помощи и медики.",
+          "Решения о перевозке, наблюдении и лечении принимают служба экстренной помощи и медики.",
         ],
       },
     ],
     summary:
-      "После возможного укуса ядовитой или неопознанной змеи в Грузии отойдите от неё и звоните 112. Старайтесь держать человека и укушенную конечность неподвижно и снимите тесные предметы рядом с укусом. Не разрезайте рану, не отсасывайте яд, не накладывайте тугой жгут и не задерживайте помощь ради поимки змеи. Ранних симптомов может не быть; укус должен оценить медик. Этот материал образовательный и не заменяет медицинскую помощь.",
+      "После возможного укуса ядовитой или неопознанной змеи в Грузии отойдите от неё и звоните 112. Старайтесь держать человека и укушенную конечность неподвижно и снимите тесные предметы рядом с укусом. Не разрезайте рану, не отсасывайте яд, не накладывайте тугой жгут и не задерживайте помощь ради поимки змеи. Ранних симптомов может не быть; укус должен оценить медик.",
     title: "Укус змеи в Грузии — что делать?",
   },
   tr: {
@@ -421,7 +421,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
     ],
     intro:
-      "Gürcistan’da zehirli veya tanınmayan bir yılan sizi ısırdıysa yılandan uzaklaşın ve acil tıbbi yardım için 112’yi arayın. Hareketi azaltın; ısırık yakınındaki yüzük ve diğer sıkı eşyaları çıkarın. Yarayı kesmeyin, zehri emmeyin ve sıkı turnike uygulamayın. Bu rehber eğitim amaçlıdır ve tıbbi bakımın yerini tutmaz.",
+      "Gürcistan’da zehirli veya tanınmayan bir yılan sizi ısırdıysa yılandan uzaklaşın ve acil tıbbi yardım için 112’yi arayın. Hareketi azaltın; ısırık yakınındaki yüzük ve diğer sıkı eşyaları çıkarın. Yarayı kesmeyin, zehri emmeyin ve sıkı turnike uygulamayın.",
     metaTitle: "Gürcistan’da yılan ısırığı — 112’yi arayın | ne yapmayın",
     sections: [
       {
@@ -503,12 +503,12 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
         image: "clinical-assessment",
         paragraphs: [
           "Sağlık çalışanları kişiyi değerlendirip antivenom veya başka tedavi gerekip gerekmediğine karar verir. WHO antivenomu zehirlenme tedavisi olarak tanımlar; bu sayfa Gürcistan’daki bir hastanede gerekliliğini, dozunu, ürününü veya bulunurluğunu belirleyemez.",
-          "Buradaki bilgiler eğitim amaçlıdır. Nakil, gözlem ve tedavi kararlarını acil yardım hizmeti ve sağlık çalışanları verir.",
+          "Nakil, gözlem ve tedavi kararlarını acil yardım hizmeti ve sağlık çalışanları verir.",
         ],
       },
     ],
     summary:
-      "Gürcistan’da olası zehirli veya tanınmayan yılan ısırığından sonra yılandan uzaklaşın ve 112’yi arayın. Kişiyi ve ısırılan uzvu mümkün olduğunca hareketsiz tutun; ısırık yakınındaki sıkı eşyaları çıkarın. Yarayı kesmeyin, zehri emmeyin, sıkı turnike uygulamayın ve yılanı yakalamak için bakımı geciktirmeyin. Belirtiler başlangıçta olmayabilir; ısırığı sağlık çalışanları değerlendirmelidir. Bu rehber eğitim amaçlıdır ve tıbbi bakımın yerini tutmaz.",
+      "Gürcistan’da olası zehirli veya tanınmayan yılan ısırığından sonra yılandan uzaklaşın ve 112’yi arayın. Kişiyi ve ısırılan uzvu mümkün olduğunca hareketsiz tutun; ısırık yakınındaki sıkı eşyaları çıkarın. Yarayı kesmeyin, zehri emmeyin, sıkı turnike uygulamayın ve yılanı yakalamak için bakımı geciktirmeyin. Belirtiler başlangıçta olmayabilir; ısırığı sağlık çalışanları değerlendirmelidir.",
     title: "Gürcistan’da yılan ısırığı — ne yapmalısınız?",
   },
 };
