@@ -92,6 +92,10 @@ export const pathnames = {
   "/risk-to-humans": kaLatin("/riskis-doneebi", "/risk-to-humans"),
   "/scorpions": kaLatin("/morieli", "/scorpions"),
   "/scorpions/[slug]": kaLatin("/morieli/[slug]", "/scorpions/[slug]"),
+  "/scorpions/morielis-nakbeni": kaLatin(
+    "/morieli/morielis-nakbeni",
+    "/scorpions/scorpion-sting",
+  ),
   "/snakes": kaLatin("/gvelebi", "/snakes"),
   "/snakes-in-the-yard": kaLatin(
     "/gvelebi/gveli-ezoshi",

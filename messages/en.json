@@ -247,6 +247,7 @@
         "bearEncounter": "If you meet a bear",
         "lizardHouse": "A lizard in the house",
         "batInHouse": "A bat in the house",
+        "scorpionSting": "Scorpion sting: what to do",
         "waspNest": "Wasp nest near your home",
         "stinkBugInHouse": "Stink bugs in the house",
         "antsInHouse": "Ants in the house",
@@ -318,6 +319,7 @@
     "bearEncounter": "Bear encounter",
     "lizardHouse": "Lizard in the house",
     "batInHouse": "Bat in the house",
+    "scorpionSting": "Scorpion sting",
     "waspNest": "Wasp nest",
     "stinkBugInHouse": "Stink bugs in the house",
     "antsInHouse": "Ants in the house",
@@ -1333,6 +1335,12 @@
         "body": "Published insect profiles in one table — names, families, habitat, and links.",
         "cta": "Index"
       },
+      "scorpionSting": {
+        "eyebrow": "Practical guide",
+        "title": "Scorpion sting",
+        "body": "First steps, warning signs, and when to call 112 in Georgia.",
+        "cta": "Read the guide"
+      },
       "waspNest": {
         "eyebrow": "Practical guide",
         "title": "Wasp nest near your home",
@@ -1919,7 +1927,7 @@
     "faq4Q": "Are regional maps shown for scorpions?",
     "faq4A": "A region is marked only when the profile has a relevant local or regional record. Knowing only that a species occurs in Georgia does not mean it occurs in every Georgian region.",
     "faq5Q": "Should I handle wild scorpions?",
-    "faq5A": "No. Not all scorpion stings are the same, and some may be painful or cause other symptoms. Do not touch scorpions by hand. If the pain is severe, the affected person is a child, allergic or other systemic symptoms develop, or the situation is unclear, call 112 and seek medical help.",
+    "faq5A": "Do not handle the scorpion. Seek timely medical advice for severe pain or a child who has been stung. Call 112 in Georgia for breathing difficulty, loss of consciousness, or other serious symptoms beyond the sting site. See the [sting guide](/scorpions/morielis-nakbeni) for first steps.",
     "ctaEyebrow": "Next step",
     "ctaTitle": "From scorpion list to profile",
     "ctaBody": "Open a species, or continue in the reptile, amphibian, bird, mammal, spider, and insect guides."

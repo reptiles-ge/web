@@ -684,7 +684,9 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
     { href: "/mammals/tura-ezoshi", key: "jackalYard", kind: "page" },
     { href: "/mammals/datvi-shekhvedra", key: "bearEncounter", kind: "page" },
   ],
-  scorpions: [],
+  scorpions: [
+    { href: "/scorpions/morielis-nakbeni", key: "scorpionSting", kind: "page" },
+  ],
   snakes: [
     { href: "/snakes/saxeoebebi", key: "index", kind: "page" },
     { href: "/venomous-snakes", key: "venomous", kind: "page" },

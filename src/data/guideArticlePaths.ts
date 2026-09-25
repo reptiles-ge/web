@@ -4,6 +4,7 @@ export const GUIDE_ARTICLE_PATHS = [
   "/insects/krazanis-bude",
   "/mammals/ghamura-sakhlshi",
   "/mammals/tagvi-sakhlshi",
+  "/scorpions/morielis-nakbeni",
 ] as const;
 
 export type GuideArticlePath = (typeof GUIDE_ARTICLE_PATHS)[number];

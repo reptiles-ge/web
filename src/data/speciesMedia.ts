@@ -85,6 +85,7 @@ export const images = {
     "https://cdn.reptiles.ge/external/mouse-signs-pantry-chewed-package.jpg",
   mouseInHouseTrap:
     "https://cdn.reptiles.ge/external/mouse-snap-trap-against-skirting-board.jpg",
+  scorpionStingHero: "/images/guides/scorpion-sting-hero.jpg",
   stinkBugInHouseGap:
     "https://cdn.reptiles.ge/images/guides/stink-bug-window-gap.jpg",
   stinkBugInHouseHero:
