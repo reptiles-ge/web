@@ -5,6 +5,11 @@ import path from "node:path";
 
 import { type EditorResult, editorResultSchema } from "@/lib/contentEditor";
 import { buildEditorPrompt } from "@/lib/contentEditorPrompt";
+import {
+  assertCodexQuota,
+  CodexQuotaError,
+  reportCodexQuota,
+} from "@/lib/contentEditorQuota";
 
 const OUTPUT_SCHEMA = {
   additionalProperties: false,
@@ -19,7 +24,8 @@ export async function transformWithCodex(input: {
   after: string;
   before: string;
   selected: string;
-}): Promise<EditorResult> {
+}, operationId: string): Promise<EditorResult> {
+  await assertCodexQuota(operationId);
   const directory = await fs.mkdtemp(
     path.join(os.tmpdir(), "reptiles-editor-codex-"),
   );
@@ -74,9 +80,14 @@ export async function transformWithCodex(input: {
       });
       child.stdin.end(prompt);
     });
-    return editorResultSchema.parse(
+    const result = editorResultSchema.parse(
       JSON.parse(await fs.readFile(output, "utf8")),
     );
+    await reportCodexQuota(operationId);
+    return result;
+  } catch (error) {
+    if (await reportCodexQuota(operationId, error)) throw new CodexQuotaError();
+    throw error;
   } finally {
     await fs.rm(directory, { force: true, recursive: true });
   }

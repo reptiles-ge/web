@@ -11,6 +11,7 @@ import {
 } from "@/lib/contentEditor";
 import { transformWithCodex } from "@/lib/contentEditorCodex";
 import { createEditorPullRequest } from "@/lib/contentEditorPullRequest";
+import { CodexQuotaError } from "@/lib/contentEditorQuota";
 import { resolveEditorTarget } from "@/lib/contentEditorTarget";
 
 export const runtime = "nodejs";
@@ -47,7 +48,7 @@ export async function POST(request: Request) {
     );
     phase = "codex";
     const result = validateEditorResult(
-      await transformWithCodex(selection),
+      await transformWithCodex(selection, operationId),
       selection,
     );
     console.info(
@@ -73,18 +74,19 @@ export async function POST(request: Request) {
       { headers: { "X-Robots-Tag": "noindex" } },
     );
   } catch (error) {
+    const limited = error instanceof CodexQuotaError;
     console.error(
       "content-editor",
       JSON.stringify({
         durationMs: Date.now() - started,
-        error: error instanceof Error ? error.name : "unknown",
+        error: error instanceof Error ? error.message : "unknown",
         operationId,
         phase,
       }),
     );
     return Response.json(
-      { error: phase },
-      { headers: { "X-Robots-Tag": "noindex" }, status: 400 },
+      { error: limited ? "limit" : phase },
+      { headers: { "X-Robots-Tag": "noindex" }, status: limited ? 429 : 400 },
     );
   }
 }
