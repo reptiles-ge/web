@@ -681,6 +681,7 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
       kind: "page",
     },
     { href: "/snakes/gvelis-nakbeni", key: "bite", kind: "page" },
+    { href: "/snakes/giurzas-nakbeni", key: "gyurzaBite", kind: "page" },
     { href: "/snakes/gavrtseleba", key: "range", kind: "page" },
     { href: "/snakes/didi-gvelebi", key: "largest", kind: "page" },
     { href: "/snakes-in-the-yard", key: "yard", kind: "page" },

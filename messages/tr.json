@@ -238,6 +238,7 @@
         "insects": "Gürcistan’daki böcekler",
         "identify": "Zehirli yılanı tanı",
         "bite": "Yılan ısırığında ilk adımlar",
+        "gyurzaBite": "Levant engereği ısırığı",
         "lizardIdentify": "Kertenkeleyi tanı",
         "frogs": "Gürcistan kurbağaları",
         "turtleIdentify": "Kaplumbağayı tanı",
@@ -323,7 +324,8 @@
     "stinkBugInHouse": "Evde kokarca böceği",
     "antsInHouse": "Evde karınca",
     "mouseInHouse": "Evde fare",
-    "bite": "Yılan ısırığında ilk adımlar"
+    "bite": "Yılan ısırığında ilk adımlar",
+    "gyurzaBite": "Levant engereği ısırığı"
   },
   "legal": {
     "canonicalNotice": "Bu sayfadaki hukuki metin şu anda Gürcüce olarak sunulmaktadır; Gürcüce sürüm esas metin kabul edilmelidir.",
@@ -1148,6 +1150,12 @@
         "title": "Yılan ısırığı",
         "body": "Eğitici ilk adımlar: 112’yi arayın. Kesmeyin, emmeyin, turnike kullanmayın.",
         "cta": "Isırık rehberi"
+      },
+      "gyurzaBite": {
+        "eyebrow": "Gyurza",
+        "title": "Levant engereği ısırığı",
+        "body": "Tıbbi önem, olası belirtiler ve şüpheli bir ısırık sonrası yapılacaklar.",
+        "cta": "Yazıyı oku"
       },
       "range": {
         "eyebrow": "Harita",

@@ -74,6 +74,12 @@ export const images = {
   batInHouseWall: "/images/guides/bat-on-wall.jpg",
   cta: "https://cdn.reptiles.ge/landing-cta-cover.jpeg",
   detail: "https://cdn.reptiles.ge/vipera-dinnik-3.webp",
+  gyurzaBiteClinicalAssessment:
+    "/images/guides/gyurza-bite-clinical-assessment.jpg",
+  gyurzaBiteFieldPhoto:
+    "https://cdn.reptiles.ge/macrovipera-lebetina-laura-1.jpg",
+  gyurzaBiteHero: "/images/guides/gyurza-bite-hero.jpg",
+  gyurzaBiteViperPortrait: "/images/guides/gyurza-bite-viper-portrait.jpg",
   hero: "https://cdn.reptiles.ge/hero-img.webp",
   mouseInHouseCleanup:
     "https://cdn.reptiles.ge/external/mouse-dropping-disinfectant-cleanup.jpg",
@@ -89,12 +95,15 @@ export const images = {
     "https://cdn.reptiles.ge/images/guides/scorpion-sting-cool-compress.jpg",
   scorpionStingHero:
     "https://cdn.reptiles.ge/images/guides/scorpion-sting-hero.jpg",
-  snakeBiteCall112: "/images/guides/snake-bite-call-112.jpg",
+  snakeBiteCall112:
+    "https://cdn.reptiles.ge/images/guides/snake-bite-call-112.jpg",
   snakeBiteClinicalAssessment:
-    "/images/guides/snake-bite-clinical-assessment.jpg",
-  snakeBiteHero: "/images/guides/snake-bite-hero.jpg",
-  snakeBiteKeepDistance: "/images/guides/snake-bite-keep-distance.jpg",
-  snakeBiteRemoveRing: "/images/guides/snake-bite-remove-ring.jpg",
+    "https://cdn.reptiles.ge/images/guides/snake-bite-clinical-assessment.jpg",
+  snakeBiteHero: "https://cdn.reptiles.ge/images/guides/snake-bite-hero.jpg",
+  snakeBiteKeepDistance:
+    "https://cdn.reptiles.ge/images/guides/snake-bite-keep-distance.jpg",
+  snakeBiteRemoveRing:
+    "https://cdn.reptiles.ge/images/guides/snake-bite-remove-ring.jpg",
   stinkBugInHouseGap:
     "https://cdn.reptiles.ge/images/guides/stink-bug-window-gap.jpg",
   stinkBugInHouseHero:
