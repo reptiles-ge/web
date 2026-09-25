@@ -247,6 +247,7 @@
         "bearEncounter": "Ayı ile karşılaşırsam",
         "lizardHouse": "Evde kertenkele",
         "batInHouse": "Evde yarasa",
+        "scorpionSting": "Akrep sokması: ne yapmalı?",
         "waspNest": "Eşek arısı yuvası",
         "stinkBugInHouse": "Evde kokarca böceği",
         "antsInHouse": "Evde karınca",
@@ -318,6 +319,7 @@
     "bearEncounter": "Ayı karşılaşması",
     "lizardHouse": "Evde kertenkele",
     "batInHouse": "Evde yarasa",
+    "scorpionSting": "Akrep sokması",
     "waspNest": "Eşek arısı yuvası",
     "stinkBugInHouse": "Evde kokarca böceği",
     "antsInHouse": "Evde karınca",
@@ -1333,6 +1335,12 @@
         "body": "Yayımlanmış profiller tek tabloda — adlar, familyalar, yaşam alanı ve bağlantılar.",
         "cta": "Dizin"
       },
+      "scorpionSting": {
+        "eyebrow": "Pratik rehber",
+        "title": "Akrep sokması",
+        "body": "İlk adımlar, uyarı belirtileri ve Gürcistan'da 112'nin ne zaman aranacağı.",
+        "cta": "Rehberi oku"
+      },
       "waspNest": {
         "eyebrow": "Pratik rehber",
         "title": "Evin yakınında eşek arısı yuvası",
@@ -1919,7 +1927,7 @@
     "faq4Q": "Akrepler için bölgesel haritalar gösterilir mi?",
     "faq4A": "Bir bölge yalnızca profilde ilgili yerel veya bölgesel kayıt varsa işaretlenir. Türün Gürcistan’da bulunduğunu bilmek, ülkenin tüm bölgelerinde bulunduğu anlamına gelmez.",
     "faq5Q": "Yabani akrepleri elle tutmak gerekir mi?",
-    "faq5A": "Hayır. Tüm akrep sokmaları aynı değildir; bazıları ağrılı olabilir veya başka belirtilere yol açabilir. Akrebe elle dokunmayın. Ağrı şiddetliyse, etkilenen kişi çocuksa, alerjik veya başka genel belirtiler gelişirse ya da durum belirsizse 112’yi arayın ve tıbbi yardım alın.",
+    "faq5A": "Akrebi elle tutmayın. Şiddetli ağrı veya bir çocuğun sokulması halinde zamanında tıbbi görüş alın. Solunum güçlüğü, bilinç kaybı veya diğer ciddi genel belirtilerde Gürcistan'da 112'yi arayın. İlk adımlar için [rehbere](/scorpions/morielis-nakbeni) bakın.",
     "ctaEyebrow": "Sonraki adım",
     "ctaTitle": "Akrep listesinden profile",
     "ctaBody": "Bir tür açın veya sürüngen, amfibi, kuş, memeli, örümcek ve böcek rehberlerinde devam edin."
