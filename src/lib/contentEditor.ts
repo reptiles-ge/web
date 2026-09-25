@@ -20,6 +20,7 @@ export const editorRequestSchema = z
     kind: z
       .enum(["species", "guide", "news", "message", "region"])
       .default("species"),
+    pathname: z.string().regex(/^\/[A-Za-z0-9/-]*$/).max(200).optional(),
     renderedText: z.string().min(1).max(20000),
     start: z.number().int().nonnegative(),
   })

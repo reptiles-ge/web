@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 
+import { usePathname } from "@/i18n/navigation";
+
 type EditorCopy = {
   action: string;
   codexError: string;
@@ -33,12 +35,14 @@ type Selection = {
   invalid: boolean;
   kind: "guide" | "message" | "news" | "region" | "species";
   left: number;
+  pathname: string;
   renderedText: string;
   start: number;
   top: number;
 };
 
 export function SelectionContentEditor({ copy }: { copy: EditorCopy }) {
+  const pathname = usePathname();
   const pending = useRef(new Set<string>());
   const activeJob = useRef<null | string>(null);
   const [selection, setSelection] = useState<null | Selection>(null);
@@ -104,6 +108,7 @@ export function SelectionContentEditor({ copy }: { copy: EditorCopy }) {
           140,
           Math.min(window.innerWidth - 140, rect.left + rect.width / 2),
         ),
+        pathname,
         renderedText: fieldElement.textContent ?? "",
         start,
         top: above
@@ -129,7 +134,7 @@ export function SelectionContentEditor({ copy }: { copy: EditorCopy }) {
       document.removeEventListener("mouseup", handleMouseUp);
       document.removeEventListener("keyup", update);
     };
-  }, [copy.requestError]);
+  }, [copy.requestError, pathname]);
 
   async function launch(target: Selection, retryId?: string) {
     if (target.invalid) return;
@@ -160,6 +165,7 @@ export function SelectionContentEditor({ copy }: { copy: EditorCopy }) {
           field: target.field,
           id: target.id,
           kind: target.kind,
+          pathname: target.pathname,
           renderedText: target.renderedText,
           start: target.start,
         }),
