@@ -72,6 +72,9 @@ export function AdminSpeciesEditor({
     license: string;
     previewUrl: string;
   }>(null);
+  const [selectedPhotoPreviews, setSelectedPhotoPreviews] = useState<
+    Array<{ name: string; url: string }>
+  >([]);
   const busyRef = useRef(false);
   const uploadFormRef = useRef<HTMLFormElement>(null);
   const dirty =
@@ -87,6 +90,12 @@ export function AdminSpeciesEditor({
       if (importedPhoto) URL.revokeObjectURL(importedPhoto.previewUrl);
     };
   }, [importedPhoto]);
+
+  useEffect(() => {
+    return () => {
+      selectedPhotoPreviews.forEach((photo) => URL.revokeObjectURL(photo.url));
+    };
+  }, [selectedPhotoPreviews]);
 
   async function onImportPhoto(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -143,6 +152,7 @@ export function AdminSpeciesEditor({
       }
       const photoInput = form.elements.namedItem("photos");
       if (photoInput instanceof HTMLInputElement) photoInput.value = "";
+      setSelectedPhotoPreviews([]);
       setImportedPhoto({
         file,
         license: metadata.license,
@@ -322,6 +332,7 @@ export function AdminSpeciesEditor({
       }
       form.reset();
       setImportedPhoto(null);
+      setSelectedPhotoPreviews([]);
       setInaturalistUrl("");
     } catch (caught) {
       setError(
@@ -580,11 +591,43 @@ export function AdminSpeciesEditor({
               className="mt-1.5 block w-full text-[13px]"
               multiple
               name="photos"
-              onChange={() => setImportedPhoto(null)}
+              onChange={(event) => {
+                setImportedPhoto(null);
+                setSelectedPhotoPreviews(
+                  Array.from(event.currentTarget.files ?? [], (file) => ({
+                    name: file.name,
+                    url: URL.createObjectURL(file),
+                  })),
+                );
+              }}
               required={!importedPhoto}
               type="file"
             />
           </label>
+          {selectedPhotoPreviews.length > 0 ? (
+            <ul className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
+              {selectedPhotoPreviews.map((photo) => (
+                <li className="min-w-0" key={photo.url}>
+                  <div className="media-placeholder relative aspect-4/3 overflow-hidden rounded-lg">
+                    <Image
+                      alt={photo.name}
+                      className="object-cover"
+                      fill
+                      sizes="(max-width: 640px) 50vw, 160px"
+                      src={photo.url}
+                      unoptimized
+                    />
+                  </div>
+                  <p
+                    className="mt-1 truncate text-[11px] text-muted-foreground"
+                    title={photo.name}
+                  >
+                    {photo.name}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          ) : null}
           <label className="mt-4 block text-[12px] text-muted-foreground">
             ფოტოგრაფი
             <input

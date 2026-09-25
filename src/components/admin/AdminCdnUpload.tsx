@@ -1,6 +1,9 @@
 "use client";
 
-import { useRef, useState } from "react";
+import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
+
+import { CoverImage } from "@/components/CoverImage";
 
 type UploadedPhoto = {
   derivatives: Array<{ format: string; url: string; width: number }>;
@@ -11,12 +14,22 @@ type UploadedPhoto = {
 export function AdminCdnUpload() {
   const inputRef = useRef<HTMLInputElement>(null);
   const [files, setFiles] = useState<Array<{ file: File; name: string }>>([]);
+  const [previewUrls, setPreviewUrls] = useState<string[]>([]);
   const [dragging, setDragging] = useState(false);
   const [busy, setBusy] = useState(false);
   const [uploaded, setUploaded] = useState<UploadedPhoto[]>([]);
   const [errors, setErrors] = useState<string[]>([]);
   const [message, setMessage] = useState("");
   const [pullRequestUrl, setPullRequestUrl] = useState<null | string>(null);
+
+  useEffect(() => {
+    return () => previewUrls.forEach((url) => URL.revokeObjectURL(url));
+  }, [previewUrls]);
+
+  function selectFiles(selected: File[]) {
+    setFiles(selected.map((file) => ({ file, name: "" })));
+    setPreviewUrls(selected.map((file) => URL.createObjectURL(file)));
+  }
 
   async function copy(value: string) {
     try {
@@ -65,6 +78,7 @@ export function AdminCdnUpload() {
       setPullRequestUrl(result.pullRequestUrl ?? null);
       if (added.length > 0) setMessage(`${added.length} ფოტო აიტვირთა CDN-ზე`);
       setFiles([]);
+      setPreviewUrls([]);
       if (inputRef.current) inputRef.current.value = "";
     } catch (error) {
       setErrors([
@@ -93,12 +107,7 @@ export function AdminCdnUpload() {
             event.preventDefault();
             setDragging(false);
             if (busy) return;
-            setFiles(
-              Array.from(event.dataTransfer.files, (file) => ({
-                file,
-                name: "",
-              })),
-            );
+            selectFiles(Array.from(event.dataTransfer.files));
           }}
         >
           <span className="font-medium">
@@ -113,12 +122,7 @@ export function AdminCdnUpload() {
             disabled={busy}
             multiple
             onChange={(event) =>
-              setFiles(
-                Array.from(event.target.files ?? [], (file) => ({
-                  file,
-                  name: "",
-                })),
-              )
+              selectFiles(Array.from(event.target.files ?? []))
             }
             ref={inputRef}
             type="file"
@@ -128,6 +132,18 @@ export function AdminCdnUpload() {
           <ul className="mt-4 grid gap-3">
             {files.map(({ file, name }, index) => (
               <li className="min-w-0" key={`${index}-${file.name}`}>
+                {previewUrls[index] ? (
+                  <div className="media-placeholder relative mb-2 aspect-4/3 max-w-xs overflow-hidden rounded-lg">
+                    <Image
+                      alt={file.name}
+                      className="object-cover"
+                      fill
+                      sizes="320px"
+                      src={previewUrls[index]}
+                      unoptimized
+                    />
+                  </div>
+                ) : null}
                 <label className="block text-[12px] text-muted-foreground">
                   <span className="block wrap-break-word">
                     Name (არასავალდებულო) — {file.name}
@@ -208,6 +224,14 @@ export function AdminCdnUpload() {
                 className="min-w-0 rounded-xl border border-border bg-card p-4"
                 key={item.url}
               >
+                <div className="media-placeholder relative mb-4 aspect-4/3 max-w-xs overflow-hidden rounded-lg">
+                  <CoverImage
+                    alt={item.filename}
+                    className="object-contain"
+                    sizes="320px"
+                    src={item.url}
+                  />
+                </div>
                 <p className="text-[13px] font-medium wrap-break-word">
                   {item.filename}
                 </p>
