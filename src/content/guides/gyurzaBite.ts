@@ -6,7 +6,9 @@ import {
   type GuideArticleSource,
 } from "@/data/guideArticleTypes";
 
-const COPY: Record<AppLocale, GuideArticleCopy> = {
+type ImageKey = "clinical-assessment" | "field-gyurza" | "viper-portrait";
+
+const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
   en: {
     description:
       "A suspected blunt-nosed viper bite needs urgent care. Learn possible local and systemic effects, what to do now, and why to call 112 in Georgia.",
@@ -43,6 +45,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
     sections: [
       {
         heading: "How dangerous is a gyurza bite?",
+        image: "viper-portrait",
         paragraphs: [
           "The gyurza, called Macrovipera lebetinus in this atlas, is a medically important viper. A bite may deliver little or no venom, or it may cause significant local and systemic envenoming. Serious cases can be life-threatening; neither the wound's appearance nor the atlas risk label predicts an individual's outcome.",
           "Published Macrovipera cases and the 2025 clinical review describe a range of severity. These reports come from other populations and cannot establish the frequency or outcome of bites in Georgia.",
@@ -106,6 +109,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "Will antivenom be needed?",
+        image: "clinical-assessment",
         paragraphs: [
           "Not every bite requires antivenom. In hospital, clinicians assess symptoms, examine the person, and may check blood clotting and other complications. They decide whether an appropriate antivenom is indicated and monitor treatment because serious reactions are possible.",
           "An antivenom tested against venom from another population cannot simply be assumed effective or available in Georgia. We have not verified Georgian hospital stock or a national gyurza treatment protocol. Do not try to obtain or administer antivenom yourself.",
@@ -113,6 +117,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "What is known about gyurza in Georgia?",
+        image: "field-gyurza",
         paragraphs: [
           "The atlas documents the species in eastern Georgia. Its [gyurza profile](/snakes/macrovipera-lebetina) covers identification, distribution, and taxonomy; this article focuses on a suspected bite. The atlas uses Macrovipera lebetinus, while much clinical literature uses M. lebetina for the corresponding taxon.",
           "We found no reliable Georgian clinical series establishing local symptom frequencies, mortality, or current antivenom availability. International cases guide cautious wording but do not replace local evidence.",
@@ -166,6 +171,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
     sections: [
       {
         heading: "რამდენად საშიშია გიურზას ნაკბენი?",
+        image: "viper-portrait",
         paragraphs: [
           "გიურზა, რომელსაც ეს ატლასი Macrovipera lebetinus-ს უწოდებს, სამედიცინო თვალსაზრისით მნიშვნელოვანი გველგესლაა. ნაკბენისას შესაძლოა შხამი საერთოდ არ შევიდეს, ან განვითარდეს ძლიერი ადგილობრივი და საერთო მოწამვლა. მძიმე შემთხვევა სიცოცხლისთვის საშიშიც შეიძლება იყოს; ჭრილობის გარეგნობა და ატლასის რისკის ნიშანი კონკრეტული ადამიანის მდგომარეობას ვერ განსაზღვრავს.",
           "Macrovipera-ს გამოქვეყნებულ შემთხვევებსა და 2025 წლის კლინიკურ მიმოხილვაში სიმძიმე განსხვავდება. ეს მონაცემები სხვა პოპულაციებიდან მოდის და საქართველოში ნაკბენის სიხშირეს ან შედეგს ვერ გვიჩვენებს.",
@@ -229,6 +235,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "საჭიროა თუ არა ანტიშხამი?",
+        image: "clinical-assessment",
         paragraphs: [
           "ანტიშხამი ყველა ნაკბენისას არ არის საჭირო. საავადმყოფოში ექიმები სიმპტომებს აფასებენ, ადამიანს აკვირდებიან და საჭიროებისას სისხლის შედედებასა და სხვა გართულებებს ამოწმებენ. ისინი წყვეტენ, საჭიროა თუ არა შესაფერისი ანტიშხამი, და მკურნალობას აკონტროლებენ, რადგან მძიმე არასასურველი რეაქციებიც შესაძლებელია.",
           "სხვა პოპულაციის შხამზე გამოცდილი ანტიშხამის ეფექტურობა და საქართველოში ხელმისაწვდომობა თავისთავად არ დასტურდება. საქართველოს საავადმყოფოების მარაგი ან გიურზას მკურნალობის ეროვნული პროტოკოლი ვერ გადავამოწმეთ. ანტიშხამი თვითნებურად არ შეიძინოთ და არ გაიკეთოთ.",
@@ -236,6 +243,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "რა ვიცით გიურზაზე საქართველოში?",
+        image: "field-gyurza",
         paragraphs: [
           "ატლასი სახეობას აღმოსავლეთ საქართველოში ადასტურებს. [გიურზას პროფილი](/snakes/macrovipera-lebetina) ამოცნობას, გავრცელებასა და ტაქსონომიას ეხება; ეს სტატია სავარაუდო ნაკბენზეა. ატლასი იყენებს სახელს Macrovipera lebetinus, საერთაშორისო კლინიკურ ლიტერატურაში კი შესაბამისი ტაქსონისთვის ხშირად M. lebetina წერია.",
           "საქართველოს კლინიკური შემთხვევების სანდო სერია, ადგილობრივი სიმპტომების სიხშირე, სიკვდილიანობის მაჩვენებელი და ანტიშხამის მიმდინარე ხელმისაწვდომობა ვერ მოვიძიეთ. საერთაშორისო შემთხვევები ფრთხილ ფორმულირებას ეხმარება, მაგრამ ადგილობრივ მონაცემებს ვერ ანაცვლებს.",
@@ -288,6 +296,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
     sections: [
       {
         heading: "Насколько опасен укус гюрзы?",
+        image: "viper-portrait",
         paragraphs: [
           "Гюрза, которую атлас называет Macrovipera lebetinus, — медицински значимая гадюка. При укусе яд может почти не попасть в организм или вызвать тяжёлое местное и системное отравление. Тяжёлые случаи могут угрожать жизни; по виду раны и отметке риска в атласе нельзя предсказать исход для конкретного человека.",
           "Опубликованные случаи укусов Macrovipera и клинический обзор 2025 года описывают разную тяжесть. Данные получены для других популяций и не определяют частоту или исходы укусов в Грузии.",
@@ -351,6 +360,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "Понадобится ли противоядие?",
+        image: "clinical-assessment",
         paragraphs: [
           "Противоядие нужно не при каждом укусе. В больнице врачи оценивают симптомы, наблюдают пациента и при необходимости проверяют свёртывание крови и другие осложнения. Они решают, показан ли подходящий препарат, и контролируют лечение, поскольку возможны серьёзные нежелательные реакции.",
           "Эффективность противоядия, проверенного на яде другой популяции, и его доступность в Грузии нельзя считать доказанными. Мы не подтвердили запасы в грузинских больницах или национальный протокол лечения укуса гюрзы. Не покупайте и не вводите противоядие самостоятельно.",
@@ -358,6 +368,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "Что известно о гюрзе в Грузии?",
+        image: "field-gyurza",
         paragraphs: [
           "Атлас подтверждает вид на востоке Грузии. [Профиль гюрзы](/snakes/macrovipera-lebetina) посвящён определению, распространению и таксономии; эта статья — подозреваемому укусу. В атласе используется имя Macrovipera lebetinus, а в международной клинической литературе для соответствующего таксона часто пишут M. lebetina.",
           "Надёжную грузинскую клиническую серию, местную частоту симптомов, смертность и текущую доступность противоядия мы не нашли. Зарубежные случаи помогают формулировать осторожно, но не заменяют местные данные.",
@@ -410,6 +421,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
     sections: [
       {
         heading: "Gyurza ısırığı ne kadar tehlikelidir?",
+        image: "viper-portrait",
         paragraphs: [
           "Bu atlasın Macrovipera lebetinus dediği Levant engereği tıbbi açıdan önemli bir engerektir. Isırık az miktarda veya hiç zehir vermeyebilir; ciddi yerel ve sistemik zehirlenmeye de yol açabilir. Ağır olgular yaşamı tehdit edebilir. Yaranın görünüşü veya atlasın risk etiketi bir kişinin sonucunu öngöremez.",
           "Yayımlanmış Macrovipera vakaları ve 2025 klinik derlemesi farklı ağırlıklar bildirir. Veriler başka popülasyonlardan gelir; Gürcistan’daki ısırıkların sıklığını veya sonuçlarını göstermez.",
@@ -473,6 +485,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "Antivenom gerekli midir?",
+        image: "clinical-assessment",
         paragraphs: [
           "Her ısırıkta antivenom gerekmez. Hastanede klinisyenler belirtileri değerlendirir, kişiyi izler ve gerektiğinde pıhtılaşmayı ve diğer komplikasyonları kontrol eder. Uygun antivenomun gerekli olup olmadığına onlar karar verir; ciddi yan etkiler olabileceği için tedavi izlenir.",
           "Başka popülasyonun zehrine karşı test edilen antivenomun Gürcistan’da etkili veya mevcut olduğu varsayılamaz. Gürcü hastanelerinin güncel stokunu ya da ulusal gyurza tedavi protokolünü doğrulayamadık. Antivenomu kendiniz satın almayın veya uygulamayın.",
@@ -480,6 +493,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "Gürcistan’daki gyurza hakkında ne biliniyor?",
+        image: "field-gyurza",
         paragraphs: [
           "Atlas türün doğu Gürcistan’da bulunduğunu belgeliyor. [Levant engereği profili](/snakes/macrovipera-lebetina) tanıma, dağılım ve taksonomiyi anlatır; bu yazı şüpheli ısırığa odaklanır. Atlas Macrovipera lebetinus adını kullanırken uluslararası klinik yayınlar ilgili takson için sıklıkla M. lebetina yazar.",
           "Gürcistan’a ait güvenilir bir klinik vaka serisi, yerel belirti sıklıkları, ölüm oranı veya güncel antivenom erişimi bulamadık. Uluslararası vakalar dikkatli ifade kurmaya yardımcı olur ama yerel verilerin yerini tutmaz.",
@@ -605,22 +619,75 @@ export const GYURZA_BITE = defineGuideArticle({
   copy: COPY,
   hero: {
     alt: {
-      en: "Coiled blunt-nosed viper on stony ground beside rocks and grass",
-      ka: "დახვეული გიურზა ქვიან მიწაზე, კლდის ნატეხებისა და ბალახის გვერდით",
-      ru: "Свернувшаяся гюрза на каменистой земле рядом с камнями и травой",
-      tr: "Taş ve otların yanında kayalık zeminde kıvrılmış Levant engereği",
+      en: "Illustrative scene: a viper on rocky ground, with two hikers calling for help at a distance",
+      ka: "ილუსტრაციული სცენა: გველი ქვიან მიწაზე, მოშორებით ორი მოლაშქრე დახმარებას იძახებს",
+      ru: "Иллюстративная сцена: змея на каменистой земле, вдали двое туристов вызывают помощь",
+      tr: "Temsili sahne: kayalık zeminde bir engerek, uzakta iki yürüyüşçü yardım çağırıyor",
     },
     credit: {
-      en: "Photo: Laura and Bobby Bok · Vashlovani Protected Areas",
-      ka: "ფოტო: Laura and Bobby Bok · ვაშლოვანის დაცული ტერიტორია",
-      ru: "Фото: Laura and Bobby Bok · охраняемые территории Вашловани",
-      tr: "Fotoğraf: Laura and Bobby Bok · Vaşlovani Koruma Alanları",
+      en: "AI-generated illustrative scene · not for species identification",
+      ka: "AI-ით შექმნილი ილუსტრაციული სცენა · სახეობის ამოცნობისთვის არ გამოიყენოთ",
+      ru: "Иллюстративная сцена, созданная ИИ · не для определения вида",
+      tr: "Yapay zekâ ile oluşturulmuş temsili sahne · tür tanımlamak için kullanılmamalıdır",
     },
-    height: 1066,
-    src: "https://cdn.reptiles.ge/macrovipera-lebetina-laura-1.jpg",
-    width: 1600,
+    height: 1024,
+    src: "/images/guides/gyurza-bite-hero.jpg",
+    width: 1536,
   },
   id: "gyurza-bite",
+  images: {
+    "clinical-assessment": {
+      alt: {
+        en: "Illustrative scene of a clinician speaking with a patient and companion in an examination room",
+        ka: "ილუსტრაციული სცენა: ექიმი გასინჯვის ოთახში პაციენტსა და მის თანმხლებ პირს ესაუბრება",
+        ru: "Иллюстративная сцена: врач беседует с пациентом и сопровождающим в кабинете осмотра",
+        tr: "Temsili sahne: hekim muayene odasında hasta ve yakınıyla konuşuyor",
+      },
+      credit: {
+        en: "AI-generated illustrative scene · not a real patient",
+        ka: "AI-ით შექმნილი ილუსტრაციული სცენა · რეალური პაციენტი არ არის",
+        ru: "Иллюстративная сцена, созданная ИИ · не реальный пациент",
+        tr: "Yapay zekâ ile oluşturulmuş temsili sahne · gerçek hasta değildir",
+      },
+      height: 1024,
+      src: "/images/guides/gyurza-bite-clinical-assessment.jpg",
+      width: 1536,
+    },
+    "field-gyurza": {
+      alt: {
+        en: "Gyurza coiled on stony ground beside rocks and sparse grass",
+        ka: "გიურზა დახვეულია ქვიან მიწაზე, კლდის ნატეხებისა და ბალახის გვერდით",
+        ru: "Гюрза свернулась на каменистой земле среди камней и редкой травы",
+        tr: "Levant engereği taşlar ve seyrek otlar arasında kıvrılmış halde",
+      },
+      credit: {
+        en: "Photo: Laura and Bobby Bok · Vashlovani Protected Areas",
+        ka: "ფოტო: Laura and Bobby Bok · ვაშლოვანის დაცული ტერიტორია",
+        ru: "Фото: Laura and Bobby Bok · охраняемые территории Вашловани",
+        tr: "Fotoğraf: Laura and Bobby Bok · Vaşlovani Koruma Alanları",
+      },
+      height: 1066,
+      src: "https://cdn.reptiles.ge/macrovipera-lebetina-laura-1.jpg",
+      width: 1600,
+    },
+    "viper-portrait": {
+      alt: {
+        en: "Illustrative close view of a broad-bodied viper coiled among rocks",
+        ka: "ილუსტრაციული ახლო კადრი: მსხვილტანიანი გველი ქვებს შორისაა დახვეული",
+        ru: "Иллюстративный крупный план: массивная змея свернулась среди камней",
+        tr: "Temsili yakın görünüm: iri gövdeli bir engerek taşların arasında kıvrılmış",
+      },
+      credit: {
+        en: "AI-generated illustrative image · not for species identification",
+        ka: "AI-ით შექმნილი ილუსტრაციული ფოტო · სახეობის ამოცნობისთვის არ გამოიყენოთ",
+        ru: "Иллюстративное изображение, созданное ИИ · не для определения вида",
+        tr: "Yapay zekâ ile oluşturulmuş temsili görsel · tür tanımlamak için kullanılmamalıdır",
+      },
+      height: 1024,
+      src: "/images/guides/gyurza-bite-viper-portrait.jpg",
+      width: 1536,
+    },
+  },
   messageKey: "gyurzaBite",
   ogImage: "/og/images/guides/gyurza-bite.jpg",
   parentHub: "snakes",

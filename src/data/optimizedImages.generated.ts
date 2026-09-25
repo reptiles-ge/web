@@ -25,6 +25,27 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1152],
     "formats": ["avif", "webp"]
   },
+  "/images/guides/gyurza-bite-clinical-assessment.jpg": {
+    "path": "images/guides/gyurza-bite-clinical-assessment",
+    "width": 1536,
+    "height": 1024,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
+  "/images/guides/gyurza-bite-hero.jpg": {
+    "path": "images/guides/gyurza-bite-hero",
+    "width": 1536,
+    "height": 1024,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
+  "/images/guides/gyurza-bite-viper-portrait.jpg": {
+    "path": "images/guides/gyurza-bite-viper-portrait",
+    "width": 1536,
+    "height": 1024,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
   "/images/guides/wasp-nest-enclosed.jpg": {
     "path": "images/guides/wasp-nest-enclosed",
     "width": 1421,
