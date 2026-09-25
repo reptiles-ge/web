@@ -60,6 +60,20 @@ export function buildEditorPrompt(input: {
     "- Keep the tone professional while making the language simple.",
     "- The result must sound like it was written by an excellent native Georgian editor for ordinary readers.",
 
+    "REDUNDANCY AND LENGTH:",
+
+    "When SELECTED is long, improve its efficiency as well as its language.",
+
+    "Remove unnecessary repetition, duplicated facts, redundant explanations and sentences that merely restate information already clearly communicated within SELECTED.",
+
+    "If the same factual point appears multiple times in SELECTED, it may normally be stated once in the clearest and most natural place.",
+
+    "Combine overlapping sentences when this makes the passage shorter and clearer without losing factual meaning, qualifications, uncertainty or useful context.",
+
+    "Do not shorten for the sake of brevity alone. Remove only material that is genuinely repetitive, redundant or adds no meaningful information.",
+
+    "The goal is not to make every passage short. The goal is to make it no longer than necessary while preserving all meaningful information.",
+
     "SIMPLIFY SPECIALIST LANGUAGE:",
 
     "This requirement is especially important.",
