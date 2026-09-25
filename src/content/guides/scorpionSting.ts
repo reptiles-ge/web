@@ -6,7 +6,9 @@ import {
   type GuideArticleSource,
 } from "@/data/guideArticleTypes";
 
-const COPY: Record<AppLocale, GuideArticleCopy> = {
+type ImageKey = "cool-compress";
+
+const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
   en: {
     description:
       "Stung by a scorpion? Learn the first steps, warning signs, when to seek medical advice or call 112 in Georgia, and what is known about local species.",
@@ -52,6 +54,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "What should you do in the first minutes?",
+        image: "cool-compress",
         list: {
           items: [
             "Gently wash the sting site with soap and water.",
@@ -166,6 +169,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "რა უნდა გავაკეთოთ პირველ წუთებში?",
+        image: "cool-compress",
         list: {
           items: [
             "ჩხვლეტის ადგილი ნაზად დაიბანეთ საპნითა და წყლით.",
@@ -280,6 +284,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "Что делать в первые минуты?",
+        image: "cool-compress",
         list: {
           items: [
             "Осторожно промойте место укола водой с мылом.",
@@ -394,6 +399,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "İlk dakikalarda ne yapmalı?",
+        image: "cool-compress",
         list: {
           items: [
             "Sokulan bölgeyi nazikçe sabun ve suyla yıkayın.",
@@ -642,6 +648,19 @@ export const SCORPION_STING = defineGuideArticle({
     width: 1536,
   },
   id: "scorpion-sting",
+  images: {
+    "cool-compress": {
+      alt: {
+        en: "A cool pack wrapped in cloth held against a person's ankle — illustrative image",
+        ka: "ადამიანის კოჭთან ქსოვილში გახვეული გრილი საფენი — ილუსტრაციული გამოსახულება",
+        ru: "Прохладный компресс, завёрнутый в ткань, у щиколотки человека — иллюстративное изображение",
+        tr: "Bir kişinin ayak bileğine tutulan, beze sarılmış serin kompres — temsili görsel",
+      },
+      height: 1148,
+      src: "/images/guides/scorpion-sting-cool-compress.jpg",
+      width: 1370,
+    },
+  },
   messageKey: "scorpionSting",
   ogImage: "/og/images/guides/scorpion-sting.jpg",
   parentHub: "scorpions",
