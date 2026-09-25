@@ -135,7 +135,10 @@ async function createPullRequest(
     const target = await resolveEditorTarget(input, worktree);
     verifyEditorSelection(target.source, input);
     const updated = target.updated(result);
-    if (updated.every((raw, index) => raw === target.originals[index]))
+    if (
+      updated.length === target.originals.length &&
+      updated.every((raw, index) => raw === target.originals[index])
+    )
       throw new Error("The selected text did not change");
     for (const [index, file] of target.files.entries()) {
       await fs.writeFile(path.join(worktree, file), updated[index]);
