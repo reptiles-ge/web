@@ -78,12 +78,7 @@ export async function NewsArticlePage({
 
   return (
     <div className="min-h-screen bg-background">
-      {visual ? (
-        <CoverImagePreload
-          sizes="(max-width: 1023px) 100vw, 1400px"
-          src={visual.src}
-        />
-      ) : null}
+      <NewsVisualPreload visual={visual} />
       <div>
         <article className="mx-auto max-w-[1400px] px-6 pt-30 pb-16 sm:pt-33 sm:pb-20 lg:px-10">
           <header>
@@ -511,6 +506,16 @@ function NewsFigureCredit({
         </span>
       ) : null}
     </>
+  );
+}
+
+function NewsVisualPreload({ visual }: { visual: NewsVisual | null }) {
+  if (!visual) return null;
+  return (
+    <CoverImagePreload
+      sizes="(max-width: 1023px) 100vw, 1400px"
+      src={visual.src}
+    />
   );
 }
 
