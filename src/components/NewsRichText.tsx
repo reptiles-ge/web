@@ -4,8 +4,8 @@ import type { AppLocale } from "@/i18n/routing";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { creditAuthorHref } from "@/data/creditAuthors";
 import { Link } from "@/i18n/navigation";
-import { GROUP_HUBS } from "@/lib/groupHubs";
 import { contentEditorAttributes } from "@/lib/contentEditorAttributes";
+import { GROUP_HUBS } from "@/lib/groupHubs";
 import { regionHref, speciesHref } from "@/lib/speciesRoutes";
 
 export function NewsRichText({
