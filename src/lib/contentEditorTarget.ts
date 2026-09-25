@@ -66,15 +66,16 @@ export async function resolveEditorTarget(
         : "src/data/regionContent.ts",
     ];
   } else {
-    if (input.id !== "messages" || field !== "auto")
-      throw new Error("Invalid message target");
-    const ka = JSON.parse(
-      await fs.readFile(path.join(cwd, "messages/ka.json"), "utf8"),
-    ) as unknown;
-    const matches = messageMatches(ka, input.renderedText);
-    if (matches.length !== 1)
-      throw new Error("Message text is missing or ambiguous");
-    field = matches[0].join(".");
+    if (input.id !== "messages") throw new Error("Invalid message target");
+    if (field === "auto") {
+      const ka = JSON.parse(
+        await fs.readFile(path.join(cwd, "messages/ka.json"), "utf8"),
+      ) as unknown;
+      const matches = messageMatches(ka, input.renderedText);
+      if (matches.length !== 1)
+        throw new Error("Message text is missing or ambiguous");
+      field = matches[0].join(".");
+    }
     files = locales.map((locale) => `messages/${locale}.json`);
   }
   const originals = await Promise.all(

@@ -254,4 +254,17 @@ describe("selection content editor", () => {
       }
     }
   });
+
+  it("resolves nested text blocks across content types", async () => {
+    for (const target of [
+      { field: "identification.traits.0", id, kind: "species" },
+      { field: "sections.0.paragraphs.0", id: "bat-in-house", kind: "guide" },
+      { field: "sections.0.blocks.0.parts.0", id: "georgian-snakes-area-of-occupancy-2026", kind: "news" },
+      { field: "habitats.0", id: "abkhazia", kind: "region" },
+      { field: "faq.0.answer", id: "abkhazia", kind: "region" },
+    ] as const) {
+      const resolved = await resolveEditorTarget({ ...target, end: 1, renderedText: "test", start: 0 });
+      expect(resolved.source.trim().length).toBeGreaterThan(0);
+    }
+  });
 });

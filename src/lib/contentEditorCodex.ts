@@ -29,7 +29,7 @@ export async function transformWithCodex(input: {
     await fs.writeFile(schema, JSON.stringify(OUTPUT_SCHEMA));
     const prompt = buildEditorPrompt(input);
     await new Promise<void>((resolve, reject) => {
-      const process = spawn(
+      const child = spawn(
         "codex",
         [
           "exec",
@@ -47,24 +47,32 @@ export async function transformWithCodex(input: {
         ],
         {
           cwd: directory,
+          env: {
+            CODEX_HOME: process.env.CODEX_HOME,
+            HOME: process.env.HOME,
+            LANG: process.env.LANG,
+            NODE_ENV: process.env.NODE_ENV,
+            PATH: process.env.PATH,
+            TMPDIR: process.env.TMPDIR,
+          },
           signal: AbortSignal.timeout(180000),
           stdio: ["pipe", "ignore", "pipe"],
         },
       );
       let errorText = "";
-      process.stderr.setEncoding("utf8");
-      process.stderr.on("data", (chunk: string) => {
+      child.stderr.setEncoding("utf8");
+      child.stderr.on("data", (chunk: string) => {
         errorText = (errorText + chunk).slice(-4000);
       });
-      process.on("error", reject);
-      process.on("close", (code) => {
+      child.on("error", reject);
+      child.on("close", (code) => {
         if (code === 0) resolve();
         else
           reject(
             new Error(`Codex exited with ${code}: ${errorText.slice(-500)}`),
           );
       });
-      process.stdin.end(prompt);
+      child.stdin.end(prompt);
     });
     return editorResultSchema.parse(
       JSON.parse(await fs.readFile(output, "utf8")),
