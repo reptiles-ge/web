@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import type { AtlasStats } from "@/data/speciesAtlas";
@@ -75,8 +75,12 @@ export async function AtlasHero({ stats }: AtlasHeroProps) {
             <p className="mt-5 text-[11px] font-medium tracking-[0.18em] text-white/50 uppercase">
               {t("stats.pathwaysLabel")}
             </p>
+            <p className="mt-2 flex items-center gap-1.5 text-[12px] text-white/70 sm:hidden">
+              {t("stats.pathwaysHint")}
+              <ArrowRight aria-hidden="true" className="size-3.5" />
+            </p>
 
-            <div className="no-scrollbar mt-3 flex gap-2.5 overflow-x-auto pb-1 sm:mt-4 sm:flex-wrap sm:gap-3 sm:overflow-visible">
+            <div className="mt-3 flex snap-x snap-mandatory gap-2.5 overflow-x-auto overscroll-x-contain pr-6 pb-3 sm:mt-4 sm:snap-none sm:flex-wrap sm:gap-3 sm:overflow-visible sm:pr-0 sm:pb-0">
               <HeroPathway
                 delay={0}
                 eyebrow={t("groups.snake")}
@@ -184,7 +188,7 @@ export async function AtlasHero({ stats }: AtlasHeroProps) {
                 />
               ) : null}
               <Link
-                className="group flex min-w-42 flex-1 flex-col items-start rounded-card border border-white/10 bg-white/4 p-4 text-left backdrop-blur-md transition-[border-color,background-color] duration-300 hover:border-white/25 hover:bg-white/8 sm:min-w-48 sm:p-5"
+                className="group flex w-[78vw] max-w-76 shrink-0 snap-start flex-col items-start rounded-card border border-white/10 bg-white/4 p-4 text-left backdrop-blur-md transition-[border-color,background-color] duration-300 hover:border-white/25 hover:bg-white/8 sm:w-auto sm:max-w-none sm:min-w-48 sm:flex-1 sm:p-5"
                 href="/regions"
               >
                 <span className="text-[10px] font-medium tracking-[0.16em] text-white/50 uppercase">
@@ -238,7 +242,7 @@ function HeroPathway({
   title: string;
 }) {
   const className =
-    "group flex min-w-[10.5rem] flex-1 flex-col items-start rounded-card border border-white/10 bg-white/[0.04] px-4 py-4 text-left backdrop-blur-md transition-[border-color,background-color] duration-300 hover:border-white/25 hover:bg-white/[0.08] sm:min-w-[12rem] sm:px-5 sm:py-5";
+    "group flex w-[78vw] max-w-76 shrink-0 snap-start flex-col items-start rounded-card border border-white/10 bg-white/[0.04] px-4 py-4 text-left backdrop-blur-md transition-[border-color,background-color] duration-300 hover:border-white/25 hover:bg-white/[0.08] sm:w-auto sm:max-w-none sm:min-w-48 sm:flex-1 sm:px-5 sm:py-5";
   const style = { animationDelay: `${delay}ms` };
   const content = (
     <>

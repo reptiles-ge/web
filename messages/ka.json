@@ -839,6 +839,7 @@
       "catalogTitle": "სახეობა ატლასში",
       "catalogMeta": "{photos} ფოტო · {regions} რეგიონი",
       "pathwaysLabel": "დაიწყე აქედან",
+      "pathwaysHint": "გადაფურცლე ბარათები",
       "pathwayRisk": "უსაფრთხოება",
       "pathwayPlace": "გეოგრაფია",
       "pathwayExplore": "კატალოგში ნახვა",

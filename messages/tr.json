@@ -839,6 +839,7 @@
       "catalogTitle": "atlasdaki türler",
       "catalogMeta": "{photos} fotoğraf · {regions} bölge",
       "pathwaysLabel": "Keşfe başla",
+      "pathwaysHint": "Diğer kartlar için kaydırın",
       "pathwayRisk": "Güvenlik",
       "pathwayPlace": "Coğrafya",
       "pathwayExplore": "Katalogda aç",

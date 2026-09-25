@@ -839,6 +839,7 @@
       "catalogTitle": "species in the atlas",
       "catalogMeta": "{photos} photos · {regions} regions",
       "pathwaysLabel": "Start exploring",
+      "pathwaysHint": "Swipe to see more",
       "pathwayRisk": "Safety",
       "pathwayPlace": "Geography",
       "pathwayExplore": "Open in catalog",
