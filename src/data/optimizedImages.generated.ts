@@ -25,20 +25,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1152],
     "formats": ["avif", "webp"]
   },
-  "/images/guides/scorpion-sting-cool-compress.jpg": {
-    "path": "images/guides/scorpion-sting-cool-compress",
-    "width": 1370,
-    "height": 1148,
-    "widths": [320, 400, 640, 800, 1200, 1370],
-    "formats": ["avif", "webp"]
-  },
-  "/images/guides/scorpion-sting-hero.jpg": {
-    "path": "images/guides/scorpion-sting-hero",
-    "width": 1536,
-    "height": 1024,
-    "widths": [320, 400, 640, 800, 1200, 1536],
-    "formats": ["avif", "webp"]
-  },
   "/images/guides/wasp-nest-enclosed.jpg": {
     "path": "images/guides/wasp-nest-enclosed",
     "width": 1421,
@@ -3306,6 +3292,20 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 2045,
     "height": 2048,
     "widths": [320, 400, 640, 800, 1200, 2045],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/guides/scorpion-sting-cool-compress.jpg": {
+    "path": "images/guides/scorpion-sting-cool-compress",
+    "width": 1370,
+    "height": 1148,
+    "widths": [320, 400, 640, 800, 1200, 1370],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/guides/scorpion-sting-hero.jpg": {
+    "path": "images/guides/scorpion-sting-hero",
+    "width": 1536,
+    "height": 1024,
+    "widths": [320, 400, 640, 800, 1200, 1536],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/images/guides/stink-bug-house-hero.jpg": {
