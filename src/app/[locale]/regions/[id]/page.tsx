@@ -30,6 +30,7 @@ import {
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
+import { isLocalAdminEnabled } from "@/lib/adminAccess";
 import {
   absoluteUrl,
   localeAlternates,
@@ -269,6 +270,7 @@ export default async function RegionPage({ params }: PageProps) {
               updatedAt={dates.dateModified}
             />
           }
+          editable={locale === "ka" && isLocalAdminEnabled()}
           region={region}
           species={species}
           venomous={venomous}
