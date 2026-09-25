@@ -61,7 +61,8 @@ export function SelectionContentEditor({ copy }: { copy: EditorCopy }) {
         !fieldElement ||
         !endNode ||
         !fieldElement.closest("#main") ||
-        fieldElement.closest("nav,footer,button,[role='navigation']")
+        fieldElement.closest("nav,footer,[role='navigation']") ||
+        (fieldElement.closest("button") && !fieldElement.dataset.contentField)
       ) {
         setSelection(null);
         return;
