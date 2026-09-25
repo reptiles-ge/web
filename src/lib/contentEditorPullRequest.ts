@@ -149,7 +149,10 @@ async function createPullRequest(
       .split("\n")
       .filter(Boolean)
       .map((line) => line.slice(3));
-    if (changed.length === 0 || changed.some((file) => !allowedFiles.has(file))) {
+    if (
+      changed.length === 0 ||
+      changed.some((file) => !allowedFiles.has(file))
+    ) {
       throw new Error("Unexpected changed files in editor worktree");
     }
     await fs.symlink(

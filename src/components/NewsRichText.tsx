@@ -62,18 +62,14 @@ function NewsMarkNode({
 }) {
   if (typeof mark === "string")
     return (
-      <span
-        {...contentEditorAttributes("news", editorId, editorField)}
-      >
+      <span {...contentEditorAttributes("news", editorId, editorField)}>
         <PhoneLinkedText>{mark}</PhoneLinkedText>
       </span>
     );
 
   if (mark.type === "sci") {
     return (
-      <i
-        {...contentEditorAttributes("news", editorId, `${editorField}.name`)}
-      >
+      <i {...contentEditorAttributes("news", editorId, `${editorField}.name`)}>
         {mark.name}
       </i>
     );
