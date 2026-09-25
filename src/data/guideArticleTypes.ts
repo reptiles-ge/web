@@ -50,7 +50,8 @@ export type GuideArticleMessageKey =
 
 export type GuideArticleOgImage =
   | `/og/images/guides/${string}.jpg`
-  | `https://cdn.reptiles.ge/og/images/guides/${string}.jpg`;
+  | `https://cdn.reptiles.ge/og/images/guides/${string}.jpg`
+  | `https://cdn.reptiles.ge/v2/og/images/guides/${string}.jpg`;
 
 export type GuideArticleSearch = {
   icon: SearchIcon;

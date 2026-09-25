@@ -671,7 +671,7 @@ export const GYURZA_BITE = defineGuideArticle({
     },
   },
   messageKey: "gyurzaBite",
-  ogImage: "/og/images/guides/gyurza-bite.jpg",
+  ogImage: "https://cdn.reptiles.ge/v2/og/images/guides/gyurza-bite.jpg",
   parentHub: "snakes",
   pathname: "/snakes/giurzas-nakbeni",
   relatedGuideIds: ["snake-bite"],
