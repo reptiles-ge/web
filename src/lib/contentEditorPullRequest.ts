@@ -10,6 +10,7 @@ import {
   type EditorResult,
   verifyEditorSelection,
 } from "@/lib/contentEditor";
+import { editorDateChange } from "@/lib/contentEditorDate";
 import { resolveEditorTarget } from "@/lib/contentEditorTarget";
 
 const exec = promisify(execFile);
@@ -133,12 +134,16 @@ async function createPullRequest(
     ]);
     const target = await resolveEditorTarget(input, worktree);
     verifyEditorSelection(target.source, input);
-    const files = target.files;
-    const allowedFiles = new Set(files);
     const updated = target.updated(result);
-    for (const [index, file] of files.entries()) {
+    if (updated.every((raw, index) => raw === target.originals[index]))
+      throw new Error("The selected text did not change");
+    for (const [index, file] of target.files.entries()) {
       await fs.writeFile(path.join(worktree, file), updated[index]);
     }
+    const dateChange = await editorDateChange(input, worktree);
+    await fs.writeFile(path.join(worktree, dateChange.file), dateChange.updated);
+    const files = [...new Set([...target.files, dateChange.file])];
+    const allowedFiles = new Set(files);
     const changed = (
       await run(
         "git",

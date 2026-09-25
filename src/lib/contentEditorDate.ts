@@ -82,7 +82,7 @@ export async function editorDateChange(
     updated = replaceUnique(raw, /^dateModified: "[^"]+"$/gm, `dateModified: "${timestamp}"`);
   } else if (kind === "news") {
     const pattern = /^  updatedAt: "[^"]+",?$/gm;
-    updated = pattern.test(raw)
+    updated = /^  updatedAt: "[^"]+",?$/m.test(raw)
       ? replaceUnique(raw, pattern, `  updatedAt: "${timestamp}",`)
       : raw.replace(/\n};\s*$/, `\n  updatedAt: "${timestamp}",\n};\n`);
     if (updated === raw) throw new Error("News dateModified source unavailable");
