@@ -102,7 +102,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
         heading: "Is every snakebite venomous?",
         paragraphs: [
           "No. Many snakes in Georgia are not medically venomous, although their bites can still injure the skin. If the species is uncertain or venom is possible, seek emergency assessment first.",
-          "The [venomous snakes guide](/venomous-snakes) and [identification guide](/snakes/shxamiani-gvelis-amocnoba) explain species differences. Neither is a substitute for a clinical assessment after a bite.",
+          "The [venomous snakes guide](/venomous-snakes) and [identification guide](/snakes/shxamiani-gvelis-amocnoba) explain species differences.",
         ],
       },
       {
@@ -228,7 +228,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
         heading: "ყველა გველის ნაკბენი შხამიანია?",
         paragraphs: [
           "არა. საქართველოში ბევრი გველი ადამიანისთვის სამედიცინოდ შხამიანი არ არის, მაგრამ მათმა ნაკბენმა კანი მაინც შეიძლება დააზიანოს. თუ სახეობა უცნობია ან შხამი შესაძლებელია, ჯერ გადაუდებელ შეფასებას მიმართე.",
-          "[შხამიანი გველების გიდი](/venomous-snakes) და [ამოცნობის გიდი](/snakes/shxamiani-gvelis-amocnoba) სახეობებს ადარებს. ნაკბენის შემდეგ ისინი სამედიცინო შეფასებას არ ცვლის.",
+          "[შხამიანი გველების გიდი](/venomous-snakes) და [ამოცნობის გიდი](/snakes/shxamiani-gvelis-amocnoba) სახეობებს ადარებს.",
         ],
       },
       {
@@ -354,7 +354,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
         heading: "Каждый ли укус змеи ядовит?",
         paragraphs: [
           "Нет. Многие змеи в Грузии не являются медицински ядовитыми для человека, но их укус может повредить кожу. Если вид неизвестен или яд возможен, сначала обратитесь за экстренной оценкой.",
-          "[Гид по ядовитым змеям](/venomous-snakes) и [гид по определению](/snakes/shxamiani-gvelis-amocnoba) сравнивают виды. После укуса они не заменяют медицинскую оценку.",
+          "[Гид по ядовитым змеям](/venomous-snakes) и [гид по определению](/snakes/shxamiani-gvelis-amocnoba) сравнивают виды.",
         ],
       },
       {
@@ -480,7 +480,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
         heading: "Her yılan ısırığı zehirli midir?",
         paragraphs: [
           "Hayır. Gürcistan’daki birçok yılan insanlar için tıbben zehirli değildir, ancak ısırıkları deriyi yaralayabilir. Tür bilinmiyorsa veya zehir olasılığı varsa önce acil değerlendirme isteyin.",
-          "[Zehirli yılanlar rehberi](/venomous-snakes) ve [tanıma rehberi](/snakes/shxamiani-gvelis-amocnoba) türleri karşılaştırır. Isırık sonrasında tıbbi değerlendirmenin yerini tutmazlar.",
+          "[Zehirli yılanlar rehberi](/venomous-snakes) ve [tanıma rehberi](/snakes/shxamiani-gvelis-amocnoba) türleri karşılaştırır.",
         ],
       },
       {

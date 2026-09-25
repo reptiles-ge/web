@@ -38,7 +38,7 @@ export const SITEMAP_PATH_LAST_MODIFIED: Record<string, string> = {
   "/snakes-in-the-yard": "2026-09-19T12:33:28+04:00",
   "/snakes/didi-gvelebi": "2026-09-16T13:04:00+04:00",
   "/snakes/gavrtseleba": "2026-09-16T13:15:00+04:00",
-  "/snakes/gvelis-nakbeni": "2026-09-25T18:19:17+04:00",
+  "/snakes/gvelis-nakbeni": "2026-09-25T18:24:47+04:00",
   "/snakes/saxeoebebi": "2026-09-16T13:37:00+04:00",
   "/snakes/shxamiani-gvelis-amocnoba": "2026-09-19T12:17:05+04:00",
   "/species": "2026-09-16T13:59:00+04:00",
