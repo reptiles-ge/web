@@ -662,7 +662,7 @@ export const SCORPION_STING = defineGuideArticle({
     },
   },
   messageKey: "scorpionSting",
-  ogImage: "/og/images/guides/scorpion-sting.jpg",
+  ogImage: "https://cdn.reptiles.ge/og/images/guides/scorpion-sting.jpg",
   parentHub: "scorpions",
   pathname: "/scorpions/morielis-nakbeni",
   relatedSpeciesIds: [
