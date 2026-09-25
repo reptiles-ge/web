@@ -74,6 +74,7 @@ export const images = {
   batInHouseWall: "/images/guides/bat-on-wall.jpg",
   cta: "https://cdn.reptiles.ge/landing-cta-cover.jpeg",
   detail: "https://cdn.reptiles.ge/vipera-dinnik-3.webp",
+  gyurzaBiteHero: "https://cdn.reptiles.ge/macrovipera-lebetina-laura-1.jpg",
   hero: "https://cdn.reptiles.ge/hero-img.webp",
   mouseInHouseCleanup:
     "https://cdn.reptiles.ge/external/mouse-dropping-disinfectant-cleanup.jpg",

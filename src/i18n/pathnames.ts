@@ -104,6 +104,10 @@ export const pathnames = {
   "/snakes/[slug]": kaLatin("/gvelebi/[slug]", "/snakes/[slug]"),
   "/snakes/didi-gvelebi": kaLatin("/gvelebi/didi-gvelebi", "/snakes/largest"),
   "/snakes/gavrtseleba": kaLatin("/gvelebi/gavrtseleba", "/snakes/range"),
+  "/snakes/giurzas-nakbeni": kaLatin(
+    "/gvelebi/giurzas-nakbeni",
+    "/snakes/blunt-nosed-viper-bite",
+  ),
   "/snakes/gvelis-nakbeni": kaLatin("/gvelebi/gvelis-nakbeni", "/snakes/bite"),
   "/snakes/saxeoebebi": kaLatin("/gvelebi/saxeoebebi", "/snakes/species"),
   "/snakes/shxamiani-gvelis-amocnoba": kaLatin(

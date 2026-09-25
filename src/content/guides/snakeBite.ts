@@ -116,7 +116,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       {
         heading: "Which snakes in Georgia are medically relevant?",
         paragraphs: [
-          "The atlas describes Georgia's [venomous snakes](/venomous-snakes), including the [Levantine viper](macrovipera-lebetina). The rear-fanged [Montpellier snake](malpolon-insignitus) has a different atlas risk label. These labels describe species profiles; they cannot grade an individual bite.",
+          "The atlas describes Georgia's [venomous snakes](/venomous-snakes), including the [Levantine viper](macrovipera-lebetina). For a known or strongly suspected bite from that species, see the [blunt-nosed viper bite article](/snakes/giurzas-nakbeni). The rear-fanged [Montpellier snake](malpolon-insignitus) has a different atlas risk label. These labels describe species profiles; they cannot grade an individual bite.",
           "After medical help is underway, use the [snake species index](/snakes/saxeoebebi) and [range guide](/snakes/gavrtseleba) for context. The [yard guide](/snakes-in-the-yard) covers prevention and encounters, not bite treatment.",
         ],
       },
@@ -242,7 +242,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       {
         heading: "საქართველოში რომელი გველებია სამედიცინოდ მნიშვნელოვანი?",
         paragraphs: [
-          "ატლასი აღწერს საქართველოს [შხამიან გველებს](/venomous-snakes), მათ შორის [გიურზას](macrovipera-lebetina). უკანა შხამკბილა [ხვლიკიჭამია გველს](malpolon-insignitus) ატლასში სხვა რისკის ნიშანი აქვს. ეს ნიშნები სახეობების პროფილებს აღწერს და კონკრეტული ნაკბენის სიმძიმეს ვერ განსაზღვრავს.",
+          "ატლასი აღწერს საქართველოს [შხამიან გველებს](/venomous-snakes), მათ შორის [გიურზას](macrovipera-lebetina). მისი დადასტურებული ან ძლიერ საეჭვო ნაკბენის შესახებ იხილეთ [გიურზას ნაკბენის სტატია](/snakes/giurzas-nakbeni). უკანა შხამკბილა [ხვლიკიჭამია გველს](malpolon-insignitus) ატლასში სხვა რისკის ნიშანი აქვს. ეს ნიშნები სახეობების პროფილებს აღწერს და კონკრეტული ნაკბენის სიმძიმეს ვერ განსაზღვრავს.",
           "სამედიცინო დახმარების ორგანიზების შემდეგ კონტექსტისთვის ნახე [გველების ინდექსი](/snakes/saxeoebebi) და [გავრცელების გიდი](/snakes/gavrtseleba). [ეზოს გიდი](/snakes-in-the-yard) პრევენციასა და შეხვედრას ეხება და არა ნაკბენის მკურნალობას.",
         ],
       },
@@ -368,7 +368,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       {
         heading: "Какие змеи Грузии имеют медицинское значение?",
         paragraphs: [
-          "Атлас описывает [ядовитых змей Грузии](/venomous-snakes), включая [гюрзу](macrovipera-lebetina). У заднебороздчатой [ящеричной змеи](malpolon-insignitus) другая отметка риска в атласе. Эти отметки описывают виды, а не тяжесть отдельного укуса.",
+          "Атлас описывает [ядовитых змей Грузии](/venomous-snakes), включая [гюрзу](macrovipera-lebetina). При подтверждённом или весьма вероятном укусе этого вида читайте [статью об укусе гюрзы](/snakes/giurzas-nakbeni). У заднебороздчатой [ящеричной змеи](malpolon-insignitus) другая отметка риска в атласе. Эти отметки описывают виды, а не тяжесть отдельного укуса.",
           "После организации медицинской помощи посмотрите [указатель видов](/snakes/saxeoebebi) и [гид по распространению](/snakes/gavrtseleba). [Гид по змеям во дворе](/snakes-in-the-yard) посвящён профилактике и встречам, а не лечению укуса.",
         ],
       },
@@ -494,7 +494,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       {
         heading: "Gürcistan’da hangi yılanlar tıbben önemlidir?",
         paragraphs: [
-          "Atlas, [Gürcistan’ın zehirli yılanlarını](/venomous-snakes), bunlar arasında [Levant engereğini](macrovipera-lebetina) anlatır. Arka zehir dişli [Montpellier yılanının](malpolon-insignitus) atlas risk etiketi farklıdır. Bu etiketler tür profillerini tanımlar; tek bir ısırığın ağırlığını belirlemez.",
+          "Atlas, [Gürcistan’ın zehirli yılanlarını](/venomous-snakes), bunlar arasında [Levant engereğini](macrovipera-lebetina) anlatır. Bu türün kesin veya güçlü şüpheli ısırığı için [Levant engereği ısırığı yazısını](/snakes/giurzas-nakbeni) okuyun. Arka zehir dişli [Montpellier yılanının](malpolon-insignitus) atlas risk etiketi farklıdır. Bu etiketler tür profillerini tanımlar; tek bir ısırığın ağırlığını belirlemez.",
           "Tıbbi yardım düzenlendikten sonra bağlam için [yılan türleri dizinine](/snakes/saxeoebebi) ve [yayılış rehberine](/snakes/gavrtseleba) bakın. [Bahçe rehberi](/snakes-in-the-yard) önleme ve karşılaşmalarla ilgilidir; ısırık tedavisiyle değil.",
         ],
       },

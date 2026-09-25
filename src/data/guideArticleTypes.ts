@@ -42,6 +42,7 @@ export type GuideArticleMessageKey =
   | "antsInHouse"
   | "batInHouse"
   | "bite"
+  | "gyurzaBite"
   | "mouseInHouse"
   | "scorpionSting"
   | "stinkBugInHouse"
