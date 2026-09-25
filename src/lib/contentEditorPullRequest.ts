@@ -43,7 +43,6 @@ export async function createEditorPullRequest(
     path.join(os.tmpdir(), "reptiles-editor-git-"),
   );
   const worktree = path.join(temporary, "checkout");
-  let added = false;
   let pushed = false;
   let pullRequestUrl = "";
   try {
@@ -56,7 +55,6 @@ export async function createEditorPullRequest(
       worktree,
       `origin/${base}`,
     ]);
-    added = true;
     const target = await resolveEditorTarget(input, worktree);
     verifyEditorSelection(target.source, input);
     const files = target.files;
@@ -162,12 +160,10 @@ export async function createEditorPullRequest(
     );
     return pullRequestUrl;
   } finally {
-    if (added) {
-      await run("git", ["worktree", "remove", "--force", worktree]).catch(
-        () => undefined,
-      );
-      await run("git", ["branch", "-D", branch]).catch(() => undefined);
-    }
+    await run("git", ["worktree", "remove", "--force", worktree]).catch(
+      () => undefined,
+    );
+    await run("git", ["branch", "-D", branch]).catch(() => undefined);
     if (
       pushed &&
       !/^https:\/\/github\.com\/[^\s]+\/pull\/\d+$/.test(pullRequestUrl)
