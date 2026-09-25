@@ -47,8 +47,8 @@ describe("content editor dateModified", () => {
       root,
       now,
     );
-    expect(change.updated).toMatch(
-      new RegExp(`  updatedAt: "${timestamp}".*\\n};\\n$`),
+    expect(change.updated.endsWith(`  updatedAt: "${timestamp}",\n};\n`)).toBe(
+      true,
     );
   });
 

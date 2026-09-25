@@ -45,9 +45,12 @@ export async function editorDateChange(
     } else if (pathname.startsWith("/quiz/")) {
       section = "SITEMAP_QUIZ_LAST_MODIFIED";
       const slug = pathname.slice(6);
-      key = QUIZ_INDEX.find((quiz) =>
-        quiz.slugs && Object.values(quiz.slugs).some((value) => value === slug),
-      )?.id ?? "";
+      key =
+        QUIZ_INDEX.find(
+          (quiz) =>
+            "slugs" in quiz &&
+            Object.values(quiz.slugs).some((value) => value === slug),
+        )?.id ?? "";
       if (!Object.hasOwn(SITEMAP_QUIZ_LAST_MODIFIED, key))
         throw new Error("Unknown quiz date");
     } else {
