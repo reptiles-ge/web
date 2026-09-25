@@ -1,6 +1,8 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 
+import type { EditorRequest } from "@/lib/contentEditor";
+
 import { getGuideArticles } from "@/data/guideArticles";
 import {
   SITEMAP_AUTHOR_LAST_MODIFIED,
@@ -8,9 +10,8 @@ import {
   SITEMAP_QUIZ_LAST_MODIFIED,
   SITEMAP_REGION_LAST_MODIFIED,
 } from "@/data/pageLastModified";
-import type { EditorRequest } from "@/lib/contentEditor";
-import { getSpeciesHubId, resolveSpeciesId } from "@/lib/speciesSlugTable";
 import { QUIZ_INDEX } from "@/lib/quizzes";
+import { getSpeciesHubId, resolveSpeciesId } from "@/lib/speciesSlugTable";
 
 type DateInput = Pick<EditorRequest, "id" | "kind" | "pathname">;
 
@@ -64,7 +65,8 @@ export async function editorDateChange(
   }
   if (kind === "guide" && !section) {
     section = "SITEMAP_PATH_LAST_MODIFIED";
-    key = getGuideArticles().find((article) => article.id === id)?.pathname ?? "";
+    key =
+      getGuideArticles().find((article) => article.id === id)?.pathname ?? "";
     if (!key) throw new Error("Unknown guide date");
   }
   if (kind === "region") {
@@ -82,21 +84,33 @@ export async function editorDateChange(
   const raw = await fs.readFile(path.join(cwd, file), "utf8");
   let updated: string;
   if (kind === "species") {
-    updated = replaceUnique(raw, /^dateModified: "[^"]+"$/gm, `dateModified: "${timestamp}"`);
+    updated = replaceUnique(
+      raw,
+      /^dateModified: "[^"]+"$/gm,
+      `dateModified: "${timestamp}"`,
+    );
   } else if (kind === "news") {
     const pattern = /^  updatedAt: "[^"]+",?$/gm;
     updated = /^  updatedAt: "[^"]+",?$/m.test(raw)
       ? replaceUnique(raw, pattern, `  updatedAt: "${timestamp}",`)
       : raw.replace(/\n};\s*$/, `\n  updatedAt: "${timestamp}",\n};\n`);
-    if (updated === raw) throw new Error("News dateModified source unavailable");
+    if (updated === raw)
+      throw new Error("News dateModified source unavailable");
   } else {
     updated = replaceDateMap(raw, section, key, timestamp);
   }
   return { file, updated };
 }
 
-function replaceDateMap(raw: string, section: string, key: string, date: string) {
-  const start = raw.indexOf(`export const ${section}: Record<string, string> = {`);
+function replaceDateMap(
+  raw: string,
+  section: string,
+  key: string,
+  date: string,
+) {
+  const start = raw.indexOf(
+    `export const ${section}: Record<string, string> = {`,
+  );
   if (start < 0) throw new Error(`Missing date section: ${section}`);
   const end = raw.indexOf("\n};", start);
   if (end < 0) throw new Error(`Invalid date section: ${section}`);
@@ -110,7 +124,11 @@ function replaceDateMap(raw: string, section: string, key: string, date: string)
   const original = source.slice(lineStart, lineEnd < 0 ? undefined : lineEnd);
   const updated = original.replace(/: "[^"]+"(,?)$/, `: "${date}"$1`);
   if (updated === original) throw new Error(`Invalid dateModified: ${key}`);
-  return raw.slice(0, start + lineStart) + updated + raw.slice(start + lineStart + original.length);
+  return (
+    raw.slice(0, start + lineStart) +
+    updated +
+    raw.slice(start + lineStart + original.length)
+  );
 }
 
 function replaceUnique(raw: string, pattern: RegExp, value: string) {

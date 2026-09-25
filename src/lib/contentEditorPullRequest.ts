@@ -141,7 +141,10 @@ async function createPullRequest(
       await fs.writeFile(path.join(worktree, file), updated[index]);
     }
     const dateChange = await editorDateChange(input, worktree);
-    await fs.writeFile(path.join(worktree, dateChange.file), dateChange.updated);
+    await fs.writeFile(
+      path.join(worktree, dateChange.file),
+      dateChange.updated,
+    );
     const files = [...new Set([...target.files, dateChange.file])];
     const allowedFiles = new Set(files);
     const changed = (

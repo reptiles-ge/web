@@ -68,7 +68,9 @@ describe("content editor dateModified", () => {
       root,
       now,
     );
-    expect(species.file).toBe("src/content/species/macrovipera-lebetina/ka.mdx");
+    expect(species.file).toBe(
+      "src/content/species/macrovipera-lebetina/ka.mdx",
+    );
     await expect(
       editorDateChange(
         { id: "messages", kind: "message", pathname: "/unknown" },
