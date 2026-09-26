@@ -66947,6 +66947,101 @@
       ],
       "updatedAt": "2026-09-11T13:36:38.197Z"
     },
+    "platyceps-najadum-marcus-1.jpg": {
+      "sourceHash": "d03d645d58302e8f46590efffac0cac8e075f20e84ed07120b79c410519f94bb",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "platyceps-najadum-marcus-1.jpg",
+      "originalSize": 870146,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/platyceps-najadum-marcus-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 19304
+        },
+        {
+          "key": "optimized/platyceps-najadum-marcus-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 31398
+        },
+        {
+          "key": "optimized/platyceps-najadum-marcus-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 27976
+        },
+        {
+          "key": "optimized/platyceps-najadum-marcus-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 45246
+        },
+        {
+          "key": "optimized/platyceps-najadum-marcus-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 60769
+        },
+        {
+          "key": "optimized/platyceps-najadum-marcus-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 101230
+        },
+        {
+          "key": "optimized/platyceps-najadum-marcus-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 88961
+        },
+        {
+          "key": "optimized/platyceps-najadum-marcus-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 145930
+        },
+        {
+          "key": "optimized/platyceps-najadum-marcus-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 161694
+        },
+        {
+          "key": "optimized/platyceps-najadum-marcus-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 262606
+        },
+        {
+          "key": "optimized/platyceps-najadum-marcus-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 346331
+        },
+        {
+          "key": "optimized/platyceps-najadum-marcus-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 524216
+        }
+      ],
+      "updatedAt": "2026-09-26T11:29:09.262Z"
+    },
     "platyceps-najadum-saba-1.jpg": {
       "sourceHash": "f821eebf2f10e91c539e5cc0a0558e56a9e935a0e059d410b00d9caf2bf3e156",
       "configFingerprint": "409788ee46c653d8",
