@@ -501,6 +501,34 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1600],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/aquila-chrysaetos-alexander-1.jpg": {
+    "path": "aquila-chrysaetos-alexander-1",
+    "width": 1739,
+    "height": 1159,
+    "widths": [320, 400, 640, 800, 1200, 1739],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/aquila-chrysaetos-fanis-1.jpg": {
+    "path": "aquila-chrysaetos-fanis-1",
+    "width": 2048,
+    "height": 1267,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/aquila-chrysaetos-frank-1.jpg": {
+    "path": "aquila-chrysaetos-frank-1",
+    "width": 1509,
+    "height": 1138,
+    "widths": [320, 400, 640, 800, 1200, 1509],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/aquila-chrysaetos-rodenberger-1.jpg": {
+    "path": "aquila-chrysaetos-rodenberger-1",
+    "width": 1536,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/argiope-bruennichi-anamarija-1.jpg": {
     "path": "argiope-bruennichi-anamarija-1",
     "width": 1536,
