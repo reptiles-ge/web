@@ -88,7 +88,7 @@ export function replaceSpeciesField(raw: string, field: string, value: string) {
   const key = field.split(".").at(-1);
   const prefix = /^\d+$/.test(key ?? "") ? marker : `${marker}${key}:`;
   const currentScalar = line.trimStart().slice(prefix.length).trim();
-  if (currentScalar === ">-" || currentScalar === "|") {
+  if (currentScalar === ">-" || currentScalar === "|" || currentScalar === "|-") {
     let end = matchIndex + 1;
     while (
       end < closing &&
@@ -99,6 +99,8 @@ export function replaceSpeciesField(raw: string, field: string, value: string) {
     const block = value
       .split("\n")
       .map((part) => (part ? `${" ".repeat(matchIndent + 2)}${part}` : ""));
+    if (value.includes("\n") || currentScalar === "|" || currentScalar === "|-")
+      lines[matchIndex] = `${" ".repeat(matchIndent)}${prefix} |-`;
     lines.splice(matchIndex + 1, end - matchIndex - 1, ...block);
   } else {
     if (value.includes("\n"))

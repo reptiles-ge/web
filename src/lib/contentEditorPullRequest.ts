@@ -217,7 +217,7 @@ async function createPullRequest(
           ],
           worktree,
         );
-      } catch {
+      } catch (error) {
         pullRequestUrl = await run(
           "gh",
           [
@@ -232,7 +232,9 @@ async function createPullRequest(
             ".url",
           ],
           worktree,
-        ).catch(() => "");
+        ).catch(() => {
+          throw error;
+        });
       }
     }
     if (!/^https:\/\/github\.com\/[^\s]+\/pull\/\d+$/.test(pullRequestUrl))

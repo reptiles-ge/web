@@ -99,8 +99,42 @@ describe("selection content editor", () => {
       expect(readSpeciesField(updated[index], "overview")).toBe(values[locale]);
       expect(
         updated[index].replace(/^overview: >-\n(?:^  .*\n|^\n)*/m, ""),
-      ).toBe(files[locale].replace(/^overview: >-\n(?:^  .*\n|^\n)*/m, ""));
+      ).toBe(
+        files[locale]
+          .replace(/^overview: >-\n(?:^  .*\n|^\n)*/m, "")
+          .replace(
+            /^dateModified: .*$/m,
+            `dateModified: "${readSpeciesField(updated[0], "dateModified")}"`,
+          ),
+      );
     }
+  });
+
+  it("updates species dateModified only when text changes", async () => {
+    const target = await resolveEditorTarget(request);
+    const original = Object.fromEntries(
+      (["ka", "en", "ru", "tr"] as const).map((locale) => [
+        locale,
+        readSpeciesField(files[locale], "overview"),
+      ]),
+    ) as Record<"en" | "ka" | "ru" | "tr", string>;
+    expect(target.updated(original)).toEqual(target.originals);
+
+    const before = Date.now();
+    const updated = target.updated({
+      ...original,
+      en: `${original.en} Updated.`,
+    });
+    const modified = readSpeciesField(updated[0], "dateModified");
+    expect(modified).toMatch(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\+04:00$/);
+    expect(Date.parse(modified)).toBeGreaterThanOrEqual(before - 1000);
+    expect(Date.parse(modified)).toBeLessThanOrEqual(Date.now());
+    expect(readSpeciesField(updated[0], "datePublished")).toBe(
+      readSpeciesField(files.ka, "datePublished"),
+    );
+    expect(updated[0]).not.toBe(files.ka);
+    expect(updated[2]).toBe(files.ru);
+    expect(updated[3]).toBe(files.tr);
   });
 
   it("refuses unsupported field formatting and invalid targets", async () => {
@@ -136,6 +170,19 @@ describe("selection content editor", () => {
         readSpeciesField(files.ka, "commonName"),
       );
     }
+  });
+
+  it("preserves line breaks when replacing a folded species field", () => {
+    const replacement = "პირველი ხაზი\nმეორე ხაზი\n\nმეორე აბზაცი";
+    const updated = replaceSpeciesField(files.ka, "interaction", replacement);
+    expect(readSpeciesField(updated, "interaction")).toBe(replacement);
+    expect(readSpeciesField(updated, "overview")).toBe(source);
+    expect(
+      readSpeciesField(
+        replaceSpeciesField(updated, "interaction", replacement),
+        "interaction",
+      ),
+    ).toBe(replacement);
   });
 
   it("prevents a species name edit from changing its public slug", async () => {

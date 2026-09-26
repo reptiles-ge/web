@@ -77,7 +77,7 @@ export async function POST(request: Request) {
       "content-editor",
       JSON.stringify({
         durationMs: Date.now() - started,
-        error: error instanceof Error ? error.name : "unknown",
+        error: error instanceof Error ? error.message : String(error),
         operationId,
         phase,
       }),
