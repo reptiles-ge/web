@@ -3497,6 +3497,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 766],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/images/species/alectoris-chukar-soukup.jpg": {
+    "path": "images/species/alectoris-chukar-soukup",
+    "width": 1920,
+    "height": 1280,
+    "widths": [320, 400, 640, 800, 1200, 1920],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/images/species/anas-platyrhynchos-ducklings-1.jpg": {
     "path": "images/species/anas-platyrhynchos-ducklings-1",
     "width": 1944,

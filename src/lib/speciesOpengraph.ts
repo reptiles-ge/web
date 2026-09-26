@@ -21,13 +21,6 @@ export async function speciesOpengraphResponse(param: string) {
   const item = getSpeciesById(id);
   const url = speciesOgImageUrl(id, item?.image);
 
-  if (id === "alectoris-chukar") {
-    const localOg = await readLocalImage(
-      "og/images/species/alectoris-chukar-soukup.jpg",
-    );
-    if (localOg) return jpegResponse(localOg);
-  }
-
   const fromCdn = await fetchOg(url);
   if (fromCdn) return jpegResponse(fromCdn);
 
