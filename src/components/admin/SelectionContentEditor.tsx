@@ -387,19 +387,24 @@ function playStatusSound(
   if (!context || context.state === "closed") return;
   try {
     void context.resume().catch(() => {});
-    const notes = status === "success" ? [660, 880] : [440, 330];
+    const notes =
+      status === "success" ? [523, 659, 784, 1047] : [440, 349, 262];
     notes.forEach((frequency, index) => {
-      const start = context.currentTime + index * 0.14;
+      const start = context.currentTime + index * 0.17;
+      const duration = index === notes.length - 1 ? 0.32 : 0.15;
       const oscillator = context.createOscillator();
       const gain = context.createGain();
-      oscillator.type = "sine";
+      oscillator.type = status === "success" ? "triangle" : "sawtooth";
       oscillator.frequency.value = frequency;
       gain.gain.setValueAtTime(0.0001, start);
-      gain.gain.exponentialRampToValueAtTime(0.08, start + 0.02);
-      gain.gain.exponentialRampToValueAtTime(0.0001, start + 0.12);
+      gain.gain.exponentialRampToValueAtTime(
+        status === "success" ? 0.2 : 0.16,
+        start + 0.02,
+      );
+      gain.gain.exponentialRampToValueAtTime(0.0001, start + duration);
       oscillator.connect(gain).connect(context.destination);
       oscillator.start(start);
-      oscillator.stop(start + 0.12);
+      oscillator.stop(start + duration);
     });
   } catch {
     return;
