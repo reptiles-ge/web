@@ -84,8 +84,16 @@ export async function resolveEditorTarget(
     files.map((file) => fs.readFile(path.join(cwd, file), "utf8")),
   );
   const segments = field.split(".");
+  const allowMissingSpeciesTranslation =
+    input.kind === "species" &&
+    editorFields.some((candidate) => candidate === field);
   const read = (raw: string, locale: (typeof locales)[number]) => {
-    if (input.kind === "species") return readSpeciesField(raw, field);
+    if (input.kind === "species")
+      return readSpeciesField(
+        raw,
+        field,
+        allowMissingSpeciesTranslation && locale !== "ka",
+      );
     if (input.kind === "guide")
       return readContentLiteral(raw, "guide", input.id, [locale, ...segments]);
     if (input.kind === "news")
@@ -117,7 +125,8 @@ export async function resolveEditorTarget(
       ],
       locale,
     );
-    if (!value.trim()) throw new Error(`Missing ${locale} content`);
+    if (!value.trim() && !(allowMissingSpeciesTranslation && locale !== "ka"))
+      throw new Error(`Missing ${locale} content`);
   }
   return {
     field,
@@ -136,7 +145,7 @@ export async function resolveEditorTarget(
           ],
           locale,
         );
-        assertInlineLinksPreserved(original, result[locale]);
+        assertInlineLinksPreserved(original || result.ka, result[locale]);
       }
       if (input.kind === "species") {
         if (
@@ -146,7 +155,7 @@ export async function resolveEditorTarget(
           throw new Error("Species name edit would change its public URL");
         }
         const updated = locales.map((locale, index) =>
-          readSpeciesField(originals[index], field) === result[locale]
+          read(originals[index], locale) === result[locale]
             ? originals[index]
             : replaceSpeciesField(originals[index], field, result[locale]),
         );

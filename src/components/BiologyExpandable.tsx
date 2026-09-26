@@ -30,14 +30,14 @@ export function BiologyExpandable({
         className={cn(
           "mt-4 text-[15px] leading-relaxed text-muted-foreground",
           "whitespace-pre-line",
-          !open && needsExpand ? "line-clamp-3" : "",
+          !open && needsExpand && !editorField ? "line-clamp-3" : "",
         )}
         data-content-field={editorField}
         data-content-id={speciesId}
       >
         <PhoneLinkedText>{body}</PhoneLinkedText>
       </p>
-      {needsExpand ? (
+      {needsExpand && !editorField ? (
         <button
           className="mt-4 text-[13px] font-medium text-primary transition-colors hover:text-primary/80"
           onClick={() => setOpen((value) => !value)}

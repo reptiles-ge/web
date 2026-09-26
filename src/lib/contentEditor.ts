@@ -46,18 +46,31 @@ export function assertInlineLinksPreserved(original: string, updated: string) {
     throw new Error("Content edit changed inline links");
 }
 
-export function readSpeciesField(raw: string, field: string) {
-  return speciesValue(raw, field);
+export function readSpeciesField(
+  raw: string,
+  field: string,
+  allowMissing = false,
+) {
+  return speciesValue(raw, field, allowMissing);
 }
 
 export function replaceSpeciesField(raw: string, field: string, value: string) {
-  speciesValue(raw, field);
+  const exists = speciesValue(raw, field, true);
   if (!value.trim() || value.includes("\r"))
     throw new Error("Invalid replacement text");
   const lines = raw.split("\n");
   if (lines[0] !== "---") throw new Error("Unsupported frontmatter format");
   const closing = lines.findIndex((line, index) => index > 0 && line === "---");
   if (closing < 0) throw new Error("Unsupported frontmatter format");
+  if (!exists) {
+    if (!editorFields.some((candidate) => candidate === field))
+      throw new Error("This content field is unavailable");
+    lines.splice(closing, 0, `${field}: ${JSON.stringify(value)}`);
+    const updated = lines.join("\n");
+    if (speciesValue(updated, field) !== value)
+      throw new Error("Replacement did not round-trip through YAML");
+    return updated;
+  }
   const stack: Array<{ indent: number; path: string }> = [];
   const counts = new Map<string, number>();
   let matchIndex = -1;
@@ -158,12 +171,26 @@ export function verifyEditorSelection(
   ) {
     throw new Error("Select text inside one content field");
   }
-  const start = sourceOffset(source, input.start, "start");
-  const end = sourceOffset(source, input.end, "end");
+  let { end, start } = input;
+  const wordCharacter = /[\p{L}\p{N}]/u;
+  if (
+    wordCharacter.test(rendered[start - 1] ?? "") &&
+    wordCharacter.test(rendered[start])
+  ) {
+    while (start > 0 && wordCharacter.test(rendered[start - 1])) start--;
+  }
+  if (
+    wordCharacter.test(rendered[end - 1]) &&
+    wordCharacter.test(rendered[end] ?? "")
+  ) {
+    while (end < rendered.length && wordCharacter.test(rendered[end])) end++;
+  }
+  const sourceStart = sourceOffset(source, start, "start");
+  const sourceEnd = sourceOffset(source, end, "end");
   return {
-    after: source.slice(end),
-    before: source.slice(0, start),
-    selected: source.slice(start, end),
+    after: source.slice(sourceEnd),
+    before: source.slice(0, sourceStart),
+    selected: source.slice(sourceStart, sourceEnd),
   };
 }
 
@@ -192,11 +219,16 @@ function sourceOffset(source: string, offset: number, edge: "end" | "start") {
   return sourceCursor + offset - renderedCursor;
 }
 
-function speciesValue(raw: string, field: string): string {
+function speciesValue(
+  raw: string,
+  field: string,
+  allowMissing = false,
+): string {
   const value = field.split(".").reduce<unknown>((current, segment) => {
     if (!current || typeof current !== "object") return undefined;
     return (current as Record<string, unknown>)[segment];
   }, matter(raw).data);
+  if (allowMissing && value == null) return "";
   if (typeof value !== "string" || !value.trim())
     throw new Error("This content field is unavailable");
   return value;

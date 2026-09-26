@@ -51,6 +51,17 @@ describe("selection content editor", () => {
     expect(`${match.before}სხვა${match.after}`).toBe("სხვა ერთი");
   });
 
+  it("includes the full word when a selection ends inside Georgian text", () => {
+    const renderedText = "ეს პართენოგენეტიკური ფორმაა";
+    const selection = verifyEditorSelection(renderedText, {
+      end: "ეს პართენ".length,
+      renderedText,
+      start: 0,
+    });
+    expect(selection.selected).toBe("ეს პართენოგენეტიკური");
+    expect(selection.after).toBe(" ფორმაა");
+  });
+
   it("maps rendered selections through inline links and keeps their destinations", () => {
     const raw =
       "წინ [გიურზა](macrovipera-lebetina) და [გიდი](/snakes/bite) შემდეგ";
@@ -77,10 +88,9 @@ describe("selection content editor", () => {
       renderedText,
       start: renderedText.indexOf("გიურზა") + 1,
     });
-    expect(partial.selected).toBe("იურზა".slice(0, 2));
-    expect(`${partial.before}სხვა${partial.after}`).toContain(
-      "[გსხვარზა](macrovipera-lebetina)",
-    );
+    expect(partial.selected).toBe("[გიურზა](macrovipera-lebetina)");
+    expect(partial.before).toBe("წინ ");
+    expect(partial.after).toBe(" და [გიდი](/snakes/bite) შემდეგ");
     expect(() =>
       assertInlineLinksPreserved(
         raw,
@@ -130,6 +140,29 @@ describe("selection content editor", () => {
     for (const raw of target.originals) {
       expect(readSpeciesField(raw, "interaction").trim()).not.toBe("");
     }
+  });
+
+  it("creates missing behavior translations for the Armenian rock lizard", async () => {
+    const target = await resolveEditorTarget({
+      end: 1,
+      field: "behavior",
+      id: "darevskia-armeniaca",
+      kind: "species",
+      renderedText: "ignored",
+      start: 0,
+    });
+    const updated = target.updated({
+      en: "Females can reproduce without males.",
+      ka: target.source,
+      ru: "Самки могут размножаться без самцов.",
+      tr: "Dişiler erkek olmadan üreyebilir.",
+    });
+    expect(readSpeciesField(updated[2], "behavior")).toBe(
+      "Самки могут размножаться без самцов.",
+    );
+    expect(readSpeciesField(updated[3], "behavior")).toBe(
+      "Dişiler erkek olmadan üreyebilir.",
+    );
   });
 
   it("rejects invalid ids, ranges crossing fields, malformed output and missing locales", () => {
