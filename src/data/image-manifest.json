@@ -29981,6 +29981,87 @@
       ],
       "updatedAt": "2026-09-26T19:25:23.312Z"
     },
+    "falco-peregrinus-giorgi-4.jpg": {
+      "sourceHash": "4975b88989fe21eb05454ed2fb1ac652cab30b29c3cd53a28875bf7485b40313",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "falco-peregrinus-giorgi-4.jpg",
+      "originalSize": 38497,
+      "width": 1108,
+      "height": 739,
+      "derivatives": [
+        {
+          "key": "optimized/falco-peregrinus-giorgi-4-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 2351
+        },
+        {
+          "key": "optimized/falco-peregrinus-giorgi-4-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 2562
+        },
+        {
+          "key": "optimized/falco-peregrinus-giorgi-4-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 3424
+        },
+        {
+          "key": "optimized/falco-peregrinus-giorgi-4-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 3896
+        },
+        {
+          "key": "optimized/falco-peregrinus-giorgi-4-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 6276
+        },
+        {
+          "key": "optimized/falco-peregrinus-giorgi-4-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 8014
+        },
+        {
+          "key": "optimized/falco-peregrinus-giorgi-4-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 8524
+        },
+        {
+          "key": "optimized/falco-peregrinus-giorgi-4-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 11162
+        },
+        {
+          "key": "optimized/falco-peregrinus-giorgi-4-1108.avif",
+          "format": "avif",
+          "width": 1108,
+          "height": 739,
+          "byteSize": 14059
+        },
+        {
+          "key": "optimized/falco-peregrinus-giorgi-4-1108.webp",
+          "format": "webp",
+          "width": 1108,
+          "height": 739,
+          "byteSize": 17934
+        }
+      ],
+      "updatedAt": "2026-09-26T19:26:05.776Z"
+    },
     "falco-peregrinus-leekelai-1.jpg": {
       "sourceHash": "136eaf1df803b984253fe1c6008fabd7e2c9071a8adb70cda49078df97142e62",
       "configFingerprint": "409788ee46c653d8",
