@@ -1,6 +1,7 @@
 {
   "contentEditor": {
     "action": "Düzenle",
+    "close": "Kapat",
     "processing": "İşleniyor...",
     "success": "İşlendi",
     "error": "Hata",

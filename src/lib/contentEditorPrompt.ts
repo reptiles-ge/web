@@ -191,6 +191,30 @@ export function buildEditorPrompt(input: {
 
     "Prefer the actual useful fact over academic framing.",
 
+    "SOURCE NAMES, DATABASES AND INSTITUTIONAL ATTRIBUTION:",
+
+    "Prefer the useful factual information itself over naming the source, database, organization, institution, catalogue or reference system from which that information comes.",
+
+    "When SELECTED mentions sources such as Georgian Biodiversity Database, IUCN, GBIF, scientific databases, catalogues, monitoring systems, institutions, organizations or similar reference sources, normally remove the source name and express the useful underlying fact directly in natural Georgian.",
+
+    "Do not preserve source names merely to make the passage sound authoritative, academic or well-referenced.",
+
+    "For example, instead of wording such as 'According to the Georgian Biodiversity Database, the species has been recorded in eastern Georgia', normally write the underlying fact directly, such as 'The species has been recorded in eastern Georgia', provided that removing the attribution does not change the factual meaning, scope, uncertainty or evidentiary strength of the statement.",
+
+    "Similarly, prefer a plain description of conservation status over unnecessary institutional framing when possible. For example, if the useful information is that a species is classified as Least Concern (LC), communicate that status clearly without unnecessarily repeating the name of the organization or database that assigned it.",
+
+    "Remove citation-style phrases such as 'according to the database', 'according to the catalogue', 'the database indicates', 'the source reports' or similar wording when the attribution itself provides no meaningful information to an ordinary reader.",
+
+    "However, NEVER remove the source, organization, database or attribution when doing so would materially change the meaning, reliability, scope, uncertainty or nature of the claim.",
+
+    "Keep attribution when the identity of the source is itself important information, when different sources may reasonably disagree, when the statement is explicitly source-dependent, or when removing the attribution would incorrectly present a source-specific claim as an established general fact.",
+
+    "Do not replace a removed source name with vague academic wording. State the useful fact directly and naturally.",
+
+    "Do not invent a replacement source or attribution.",
+
+    "The goal is not to hide evidence. The goal is to prevent reader-facing wildlife descriptions from being cluttered with database names, institutional labels and citation-style framing that add no useful meaning for a general reader.",
+
     "For example, a sentence structured like 'researcher X reported that species Y demonstrates...' should normally be expressed as the underlying factual statement when removing the academic framing does not change the meaning or evidentiary qualification.",
 
     "Do not unnecessarily emphasize:",
@@ -395,6 +419,7 @@ export function buildEditorPrompt(input: {
     "18. Turkish is natural and simple.",
     "19. All four versions communicate the same factual meaning.",
     "20. The result contains no commentary outside the required JSON.",
+    "21. Unnecessary source names, database names, institutional labels and citation-style attribution were removed when the useful underlying fact could be stated directly without changing its meaning or evidentiary strength.",
 
     "OUTPUT FORMAT:",
 

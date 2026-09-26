@@ -1,6 +1,7 @@
 {
   "contentEditor": {
     "action": "დამუშავება",
+    "close": "დახურვა",
     "processing": "მუშავდება...",
     "success": "დამუშავდა",
     "error": "შეცდომა",

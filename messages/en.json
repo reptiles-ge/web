@@ -1,6 +1,7 @@
 {
   "contentEditor": {
     "action": "Process",
+    "close": "Close",
     "processing": "Processing...",
     "success": "Processed",
     "error": "Error",

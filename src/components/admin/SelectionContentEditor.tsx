@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 type EditorCopy = {
   action: string;
+  close: string;
   codexError: string;
   error: string;
   gitError: string;
@@ -330,6 +331,18 @@ export function SelectionContentEditor({ copy }: { copy: EditorCopy }) {
               ) : null}
             </div>
           )}
+          <button
+            className="mt-2 w-full rounded-lg border border-border px-3 py-2 font-medium text-foreground hover:bg-secondary"
+            onClick={() => {
+              activeJob.current = null;
+              window.getSelection()?.removeAllRanges();
+              setSelection(null);
+            }}
+            onMouseDown={(event) => event.preventDefault()}
+            type="button"
+          >
+            {copy.close}
+          </button>
         </div>
       ) : null}
     </>
