@@ -1402,6 +1402,101 @@
       ],
       "updatedAt": "2026-09-26T17:20:49.190Z"
     },
+    "alectoris-chukar-daria-1.jpg": {
+      "sourceHash": "54858502c4d7ffe307069b28fa8926ab760011db44d9ea0b719046ba738fb3b9",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "alectoris-chukar-daria-1.jpg",
+      "originalSize": 999958,
+      "width": 2048,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/alectoris-chukar-daria-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 320,
+          "byteSize": 19866
+        },
+        {
+          "key": "optimized/alectoris-chukar-daria-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 320,
+          "byteSize": 34034
+        },
+        {
+          "key": "optimized/alectoris-chukar-daria-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 400,
+          "byteSize": 28084
+        },
+        {
+          "key": "optimized/alectoris-chukar-daria-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 400,
+          "byteSize": 48626
+        },
+        {
+          "key": "optimized/alectoris-chukar-daria-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 640,
+          "byteSize": 59981
+        },
+        {
+          "key": "optimized/alectoris-chukar-daria-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 640,
+          "byteSize": 99528
+        },
+        {
+          "key": "optimized/alectoris-chukar-daria-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 800,
+          "byteSize": 86046
+        },
+        {
+          "key": "optimized/alectoris-chukar-daria-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 800,
+          "byteSize": 141394
+        },
+        {
+          "key": "optimized/alectoris-chukar-daria-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1200,
+          "byteSize": 156085
+        },
+        {
+          "key": "optimized/alectoris-chukar-daria-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1200,
+          "byteSize": 254196
+        },
+        {
+          "key": "optimized/alectoris-chukar-daria-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 2048,
+          "byteSize": 342380
+        },
+        {
+          "key": "optimized/alectoris-chukar-daria-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 2048,
+          "byteSize": 538338
+        }
+      ],
+      "updatedAt": "2026-09-26T17:22:37.273Z"
+    },
     "alectoris-chukar-donsky-1.jpg": {
       "sourceHash": "5df58d44acc4084187afe54eedaac7a07d1f96c33d8691cabafc9e1c863cbdaa",
       "configFingerprint": "409788ee46c653d8",
