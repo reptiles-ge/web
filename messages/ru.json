@@ -1,6 +1,7 @@
 {
   "contentEditor": {
     "action": "Обработать",
+    "close": "Закрыть",
     "processing": "Обработка...",
     "success": "Готово",
     "error": "Ошибка",

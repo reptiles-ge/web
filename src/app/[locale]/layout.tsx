@@ -67,6 +67,7 @@ export default async function LocaleLayout({ children, params }: Props) {
             <SelectionContentEditor
               copy={{
                 action: editorT("action"),
+                close: editorT("close"),
                 codexError: editorT("codexError"),
                 error: editorT("error"),
                 gitError: editorT("gitError"),
