@@ -9,6 +9,7 @@ import {
 
 describe("species slug table", () => {
   it("uses KA slug overrides for public URLs", () => {
+    expect(getSpeciesPublicSlug("coturnix-coturnix", "ka")).toBe("mtskeri");
     expect(getSpeciesPublicSlug("macrovipera-lebetina", "ka")).toBe("giurza");
     expect(getSpeciesPublicSlug("paralaudakia-caucasia", "ka")).toBe("jojo");
     expect(getSpeciesPublicSlug("pseudopus-apodus", "ka")).toBe("gvelxokera");
@@ -21,6 +22,7 @@ describe("species slug table", () => {
   });
 
   it("resolves KA aliases and ids to the same taxon", () => {
+    expect(resolveSpeciesIdInHub("birds", "mtsqeri")).toBe("coturnix-coturnix");
     expect(resolveSpeciesId("giurza")).toBe("macrovipera-lebetina");
     expect(resolveSpeciesId("macrovipera-lebetina")).toBe(
       "macrovipera-lebetina",
