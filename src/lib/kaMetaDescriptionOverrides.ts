@@ -292,7 +292,7 @@ const KA_META_DESCRIPTION_OVERRIDES: Record<string, string> = {
     "მდელოს მერცხალა (Glareola pratincola) გრძელფრთიანი სირბილაა, რომელიც მერცხლის მსგავსად დაფრინავს და ძირითადად მწერებით იკვებება.",
   "/prinvelebi/mtis-artsivi":
     "მთის არწივი (Aquila chrysaetos), ასევე ოქროსფერ არწივად ცნობილი, დიდი დღის მტაცებელი ფრინველია Accipitridae-ს ოჯახიდან.",
-  "/prinvelebi/mtsqeri":
+  "/prinvelebi/mtskeri":
     "მწყერი (Coturnix coturnix) პატარა გადამფრენი ქათმისნაირი ფრინველია Phasianidae-ს ოჯახიდან; საქართველოში მისი სეზონურობა წყაროებითაა აღწერილი.",
   "/prinvelebi/mtsvane-kodala":
     "მწვანე კოდალა (Picus viridis) საშუალო ზომის კოდალაა, რომელიც საქართველოში მთელი წლის განმავლობაში გვხვდება და აქვე ბუდობს.",

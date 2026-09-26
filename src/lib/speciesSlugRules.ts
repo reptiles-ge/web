@@ -14,6 +14,7 @@ export type SpeciesSlugRow = {
 };
 
 const KA_SLUG_OVERRIDES: Record<string, string> = {
+  "coturnix-coturnix": "mtskeri",
   "lutra-lutra": "chveulebrivi-tsavi",
   "macrovipera-lebetina": "giurza",
   "paralaudakia-caucasia": "jojo",
