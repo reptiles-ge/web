@@ -62,7 +62,7 @@ export function replaceSpeciesField(raw: string, field: string, value: string) {
   if (lines[0] !== "---") throw new Error("Unsupported frontmatter format");
   const closing = lines.findIndex((line, index) => index > 0 && line === "---");
   if (closing < 0) throw new Error("Unsupported frontmatter format");
-  if (!exists) {
+  if (!exists && !Object.hasOwn(matter(raw).data, field)) {
     if (!editorFields.some((candidate) => candidate === field))
       throw new Error("This content field is unavailable");
     lines.splice(closing, 0, `${field}: ${JSON.stringify(value)}`);
@@ -113,7 +113,9 @@ export function replaceSpeciesField(raw: string, field: string, value: string) {
   if (
     currentScalar === ">-" ||
     currentScalar === "|" ||
-    currentScalar === "|-"
+    currentScalar === "|-" ||
+    (value.includes("\n") &&
+      editorFields.some((candidate) => candidate === field))
   ) {
     let end = matchIndex + 1;
     while (
@@ -228,7 +230,11 @@ function speciesValue(
     if (!current || typeof current !== "object") return undefined;
     return (current as Record<string, unknown>)[segment];
   }, matter(raw).data);
-  if (allowMissing && value == null) return "";
+  if (
+    allowMissing &&
+    (value == null || (typeof value === "string" && !value.trim()))
+  )
+    return "";
   if (typeof value !== "string" || !value.trim())
     throw new Error("This content field is unavailable");
   return value;

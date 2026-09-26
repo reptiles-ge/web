@@ -165,6 +165,30 @@ describe("selection content editor", () => {
     );
   });
 
+  it("fills an empty behavior field without duplicating it", async () => {
+    const target = await resolveEditorTarget({
+      end: 1,
+      field: "behavior",
+      id: "darevskia-brauneri",
+      kind: "species",
+      renderedText: "ignored",
+      start: 0,
+    });
+    const values = {
+      en: "English behavior.\nSecond paragraph.",
+      ka: target.source,
+      ru: "Поведение.",
+      tr: "Davranış.",
+    };
+    const updated = target.updated(values);
+    for (const [index, locale] of (
+      ["ka", "en", "ru", "tr"] as const
+    ).entries()) {
+      expect(readSpeciesField(updated[index], "behavior")).toBe(values[locale]);
+      expect(updated[index].match(/^behavior:/gm)).toHaveLength(1);
+    }
+  });
+
   it("rejects invalid ids, ranges crossing fields, malformed output and missing locales", () => {
     expect(
       editorRequestSchema.safeParse({ ...request, id: "../secret" }).success,
