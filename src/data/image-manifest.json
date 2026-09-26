@@ -30115,6 +30115,101 @@
       ],
       "updatedAt": "2026-09-26T19:24:00.439Z"
     },
+    "falco-peregrinus-pavel-1.jpg": {
+      "sourceHash": "fd113b4d60566545222fa7b2808cde662183143e85bf0ab3541ce5159ce73111",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "falco-peregrinus-pavel-1.jpg",
+      "originalSize": 262464,
+      "width": 1302,
+      "height": 872,
+      "derivatives": [
+        {
+          "key": "optimized/falco-peregrinus-pavel-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 214,
+          "byteSize": 1559
+        },
+        {
+          "key": "optimized/falco-peregrinus-pavel-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 214,
+          "byteSize": 1692
+        },
+        {
+          "key": "optimized/falco-peregrinus-pavel-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 268,
+          "byteSize": 2114
+        },
+        {
+          "key": "optimized/falco-peregrinus-pavel-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 268,
+          "byteSize": 2358
+        },
+        {
+          "key": "optimized/falco-peregrinus-pavel-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 429,
+          "byteSize": 4515
+        },
+        {
+          "key": "optimized/falco-peregrinus-pavel-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 429,
+          "byteSize": 5890
+        },
+        {
+          "key": "optimized/falco-peregrinus-pavel-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 536,
+          "byteSize": 7655
+        },
+        {
+          "key": "optimized/falco-peregrinus-pavel-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 536,
+          "byteSize": 21268
+        },
+        {
+          "key": "optimized/falco-peregrinus-pavel-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 804,
+          "byteSize": 91078
+        },
+        {
+          "key": "optimized/falco-peregrinus-pavel-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 804,
+          "byteSize": 130064
+        },
+        {
+          "key": "optimized/falco-peregrinus-pavel-1-1302.avif",
+          "format": "avif",
+          "width": 1302,
+          "height": 872,
+          "byteSize": 131035
+        },
+        {
+          "key": "optimized/falco-peregrinus-pavel-1-1302.webp",
+          "format": "webp",
+          "width": 1302,
+          "height": 872,
+          "byteSize": 175740
+        }
+      ],
+      "updatedAt": "2026-09-26T19:26:52.745Z"
+    },
     "falco-tinnunculus-alexis-1.jpg": {
       "sourceHash": "6b77e86a057812eb1d73e5ab68783861dc761ca2b80f9cb3d9c8b9c0c891413a",
       "configFingerprint": "409788ee46c653d8",
