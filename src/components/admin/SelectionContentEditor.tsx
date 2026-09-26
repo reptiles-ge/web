@@ -41,6 +41,8 @@ type Selection = {
 export function SelectionContentEditor({ copy }: { copy: EditorCopy }) {
   const pending = useRef(new Set<string>());
   const activeJob = useRef<null | string>(null);
+  const audio = useRef<AudioContext | null>(null);
+  const allSucceeded = useRef(false);
   const [selection, setSelection] = useState<null | Selection>(null);
   const [jobs, setJobs] = useState<Job[]>([]);
   const [status, setStatus] = useState<
@@ -48,6 +50,22 @@ export function SelectionContentEditor({ copy }: { copy: EditorCopy }) {
   >("idle");
   const [error, setError] = useState("");
   const [url, setUrl] = useState("");
+
+  useEffect(() => {
+    const complete =
+      jobs.length > 0 && jobs.every((job) => job.status === "success");
+    if (complete && !allSucceeded.current)
+      playStatusSound(audio.current, "success");
+    allSucceeded.current = complete;
+  }, [jobs]);
+
+  useEffect(
+    () => () => {
+      void audio.current?.close().catch(() => {});
+      audio.current = null;
+    },
+    [],
+  );
 
   useEffect(() => {
     const update = () => {
@@ -140,7 +158,14 @@ export function SelectionContentEditor({ copy }: { copy: EditorCopy }) {
     if (target.invalid) return;
     const key = selectionKey(target);
     if (pending.current.has(key)) return;
+    try {
+      audio.current ??= new AudioContext();
+      void audio.current.resume().catch(() => {});
+    } catch {
+      audio.current = null;
+    }
     pending.current.add(key);
+    allSucceeded.current = false;
     const id = retryId ?? crypto.randomUUID();
     const nextJob: Job = {
       error: "",
@@ -207,6 +232,7 @@ export function SelectionContentEditor({ copy }: { copy: EditorCopy }) {
         setError(message);
         setStatus("error");
       }
+      playStatusSound(audio.current, "error");
     } finally {
       pending.current.delete(key);
     }
@@ -352,6 +378,37 @@ export function SelectionContentEditor({ copy }: { copy: EditorCopy }) {
       ) : null}
     </>
   );
+}
+
+function playStatusSound(
+  context: AudioContext | null,
+  status: "error" | "success",
+) {
+  if (!context || context.state === "closed") return;
+  try {
+    void context.resume().catch(() => {});
+    const notes =
+      status === "success" ? [523, 659, 784, 1047] : [440, 349, 262];
+    notes.forEach((frequency, index) => {
+      const start = context.currentTime + index * 0.17;
+      const duration = index === notes.length - 1 ? 0.32 : 0.15;
+      const oscillator = context.createOscillator();
+      const gain = context.createGain();
+      oscillator.type = status === "success" ? "triangle" : "sawtooth";
+      oscillator.frequency.value = frequency;
+      gain.gain.setValueAtTime(0.0001, start);
+      gain.gain.exponentialRampToValueAtTime(
+        status === "success" ? 0.2 : 0.16,
+        start + 0.02,
+      );
+      gain.gain.exponentialRampToValueAtTime(0.0001, start + duration);
+      oscillator.connect(gain).connect(context.destination);
+      oscillator.start(start);
+      oscillator.stop(start + duration);
+    });
+  } catch {
+    return;
+  }
 }
 
 function selectionKey(selection: Selection) {

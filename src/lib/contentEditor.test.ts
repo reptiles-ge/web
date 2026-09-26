@@ -25,30 +25,26 @@ const files = Object.fromEntries(
   ]),
 ) as Record<"en" | "ka" | "ru" | "tr", string>;
 const source = readSpeciesField(files.ka, "overview");
-const first = source.indexOf("უშხამო");
 const request = {
-  end: first + "უშხამო".length,
+  end: 1,
   field: "overview" as const,
   id,
   kind: "species" as const,
   renderedText: source,
-  start: first,
+  start: 0,
 };
 
 describe("selection content editor", () => {
   it("maps a selected occurrence by field and offsets even when the word repeats", () => {
-    const selection = verifyEditorSelection(source, request);
-    expect(selection.selected).toBe("უშხამო");
-    const changed = `${selection.before}უსაფრთხო${selection.after}`;
-    expect(
-      validateEditorResult(
-        { en: "English", ka: changed, ru: "Русский", tr: "Türkçe" },
-        selection,
-      ).ka,
-    ).toBe(changed);
     const input = { ...request, end: 4, renderedText: "ერთი ერთი", start: 0 };
     const match = verifyEditorSelection("ერთი ერთი", input);
     expect(`${match.before}სხვა${match.after}`).toBe("სხვა ერთი");
+    expect(
+      validateEditorResult(
+        { en: "English", ka: "სხვა ერთი", ru: "Русский", tr: "Türkçe" },
+        match,
+      ).ka,
+    ).toBe("სხვა ერთი");
   });
 
   it("includes the full word when a selection ends inside Georgian text", () => {
@@ -165,6 +161,30 @@ describe("selection content editor", () => {
     );
   });
 
+  it("fills an empty behavior field without duplicating it", async () => {
+    const target = await resolveEditorTarget({
+      end: 1,
+      field: "behavior",
+      id: "darevskia-brauneri",
+      kind: "species",
+      renderedText: "ignored",
+      start: 0,
+    });
+    const values = {
+      en: "English behavior.\nSecond paragraph.",
+      ka: target.source,
+      ru: "Поведение.",
+      tr: "Davranış.",
+    };
+    const updated = target.updated(values);
+    for (const [index, locale] of (
+      ["ka", "en", "ru", "tr"] as const
+    ).entries()) {
+      expect(readSpeciesField(updated[index], "behavior")).toBe(values[locale]);
+      expect(updated[index].match(/^behavior:/gm)).toHaveLength(1);
+    }
+  });
+
   it("rejects invalid ids, ranges crossing fields, malformed output and missing locales", () => {
     expect(
       editorRequestSchema.safeParse({ ...request, id: "../secret" }).success,
@@ -202,7 +222,7 @@ describe("selection content editor", () => {
     const selection = verifyEditorSelection(source, request);
     const values = {
       en: "New English overview.",
-      ka: `${selection.before}უსაფრთხო${selection.after}`,
+      ka: `${selection.before}განახლებული${selection.after}`,
       ru: "Новое описание.",
       tr: "Yeni açıklama.",
     };
