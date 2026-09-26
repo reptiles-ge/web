@@ -51,6 +51,17 @@ describe("selection content editor", () => {
     expect(`${match.before}სხვა${match.after}`).toBe("სხვა ერთი");
   });
 
+  it("includes the full word when a selection ends inside Georgian text", () => {
+    const renderedText = "ეს პართენოგენეტიკური ფორმაა";
+    const selection = verifyEditorSelection(renderedText, {
+      end: "ეს პართენ".length,
+      renderedText,
+      start: 0,
+    });
+    expect(selection.selected).toBe("ეს პართენოგენეტიკური");
+    expect(selection.after).toBe(" ფორმაა");
+  });
+
   it("maps rendered selections through inline links and keeps their destinations", () => {
     const raw =
       "წინ [გიურზა](macrovipera-lebetina) და [გიდი](/snakes/bite) შემდეგ";
@@ -77,10 +88,9 @@ describe("selection content editor", () => {
       renderedText,
       start: renderedText.indexOf("გიურზა") + 1,
     });
-    expect(partial.selected).toBe("იურზა".slice(0, 2));
-    expect(`${partial.before}სხვა${partial.after}`).toContain(
-      "[გსხვარზა](macrovipera-lebetina)",
-    );
+    expect(partial.selected).toBe("[გიურზა](macrovipera-lebetina)");
+    expect(partial.before).toBe("წინ ");
+    expect(partial.after).toBe(" და [გიდი](/snakes/bite) შემდეგ");
     expect(() =>
       assertInlineLinksPreserved(
         raw,

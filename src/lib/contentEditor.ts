@@ -158,12 +158,26 @@ export function verifyEditorSelection(
   ) {
     throw new Error("Select text inside one content field");
   }
-  const start = sourceOffset(source, input.start, "start");
-  const end = sourceOffset(source, input.end, "end");
+  let { end, start } = input;
+  const wordCharacter = /[\p{L}\p{N}]/u;
+  if (
+    wordCharacter.test(rendered[start - 1] ?? "") &&
+    wordCharacter.test(rendered[start])
+  ) {
+    while (start > 0 && wordCharacter.test(rendered[start - 1])) start--;
+  }
+  if (
+    wordCharacter.test(rendered[end - 1]) &&
+    wordCharacter.test(rendered[end] ?? "")
+  ) {
+    while (end < rendered.length && wordCharacter.test(rendered[end])) end++;
+  }
+  const sourceStart = sourceOffset(source, start, "start");
+  const sourceEnd = sourceOffset(source, end, "end");
   return {
-    after: source.slice(end),
-    before: source.slice(0, start),
-    selected: source.slice(start, end),
+    after: source.slice(sourceEnd),
+    before: source.slice(0, sourceStart),
+    selected: source.slice(sourceStart, sourceEnd),
   };
 }
 

@@ -52,8 +52,10 @@ export function SelectionContentEditor({ copy }: { copy: EditorCopy }) {
   useEffect(() => {
     const update = () => {
       const selected = window.getSelection();
-      if (!selected || selected.isCollapsed || selected.rangeCount !== 1)
+      if (!selected || selected.isCollapsed || selected.rangeCount !== 1) {
+        setSelection(null);
         return;
+      }
       const range = selected.getRangeAt(0);
       const startNode =
         range.startContainer.nodeType === Node.ELEMENT_NODE
@@ -90,7 +92,10 @@ export function SelectionContentEditor({ copy }: { copy: EditorCopy }) {
       }
       const start = invalid ? 0 : before.toString().length;
       const end = start + range.toString().length;
-      if (!range.toString().trim()) return;
+      if (!range.toString().trim()) {
+        setSelection(null);
+        return;
+      }
       const rect = range.getBoundingClientRect();
       const above = rect.top > 110 || rect.bottom > window.innerHeight - 90;
       const next = {
