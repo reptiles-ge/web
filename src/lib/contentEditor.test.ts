@@ -117,6 +117,21 @@ describe("selection content editor", () => {
     ).toThrow("inline links");
   });
 
+  it("opens the glass lizard interaction in every locale", async () => {
+    const target = await resolveEditorTarget({
+      end: 1,
+      field: "interaction",
+      id: "pseudopus-apodus",
+      kind: "species",
+      renderedText: "ignored",
+      start: 0,
+    });
+    expect(target.source).toContain("ადამიანისთვის უვნებელია და შხამი არ აქვს");
+    for (const raw of target.originals) {
+      expect(readSpeciesField(raw, "interaction").trim()).not.toBe("");
+    }
+  });
+
   it("rejects invalid ids, ranges crossing fields, malformed output and missing locales", () => {
     expect(
       editorRequestSchema.safeParse({ ...request, id: "../secret" }).success,
