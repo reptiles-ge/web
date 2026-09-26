@@ -29696,6 +29696,101 @@
       ],
       "updatedAt": "2026-09-24T16:21:59.593Z"
     },
+    "falco-peregrinus-giorgi-1.jpg": {
+      "sourceHash": "cf09699a441c57bf13bbcf830ee1cee0f19138c43a3034368f2397035fe07204",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "falco-peregrinus-giorgi-1.jpg",
+      "originalSize": 64417,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/falco-peregrinus-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 1647
+        },
+        {
+          "key": "optimized/falco-peregrinus-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 1618
+        },
+        {
+          "key": "optimized/falco-peregrinus-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 2010
+        },
+        {
+          "key": "optimized/falco-peregrinus-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 2192
+        },
+        {
+          "key": "optimized/falco-peregrinus-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 3995
+        },
+        {
+          "key": "optimized/falco-peregrinus-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 4634
+        },
+        {
+          "key": "optimized/falco-peregrinus-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 5221
+        },
+        {
+          "key": "optimized/falco-peregrinus-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 6362
+        },
+        {
+          "key": "optimized/falco-peregrinus-giorgi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 8908
+        },
+        {
+          "key": "optimized/falco-peregrinus-giorgi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 11262
+        },
+        {
+          "key": "optimized/falco-peregrinus-giorgi-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 21734
+        },
+        {
+          "key": "optimized/falco-peregrinus-giorgi-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 27556
+        }
+      ],
+      "updatedAt": "2026-09-26T19:22:08.867Z"
+    },
     "falco-tinnunculus-alexis-1.jpg": {
       "sourceHash": "6b77e86a057812eb1d73e5ab68783861dc761ca2b80f9cb3d9c8b9c0c891413a",
       "configFingerprint": "409788ee46c653d8",
