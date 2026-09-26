@@ -305,6 +305,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/alectoris-chukar-attila-1.jpg": {
+    "path": "alectoris-chukar-attila-1",
+    "width": 1600,
+    "height": 1200,
+    "widths": [320, 400, 640, 800, 1200, 1600],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/alectoris-chukar-donsky-1.jpg": {
     "path": "alectoris-chukar-donsky-1",
     "width": 2048,

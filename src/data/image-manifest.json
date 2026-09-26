@@ -1307,6 +1307,101 @@
       ],
       "updatedAt": "2026-09-06T16:27:45.771Z"
     },
+    "alectoris-chukar-attila-1.jpg": {
+      "sourceHash": "7e35bc6adc2dd0cabadc38bd303b0f8fc5eba94295a5a2c183244de26934dd64",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "alectoris-chukar-attila-1.jpg",
+      "originalSize": 403277,
+      "width": 1600,
+      "height": 1200,
+      "derivatives": [
+        {
+          "key": "optimized/alectoris-chukar-attila-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 7823
+        },
+        {
+          "key": "optimized/alectoris-chukar-attila-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 10530
+        },
+        {
+          "key": "optimized/alectoris-chukar-attila-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 12349
+        },
+        {
+          "key": "optimized/alectoris-chukar-attila-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 17378
+        },
+        {
+          "key": "optimized/alectoris-chukar-attila-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 31146
+        },
+        {
+          "key": "optimized/alectoris-chukar-attila-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 43986
+        },
+        {
+          "key": "optimized/alectoris-chukar-attila-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 47646
+        },
+        {
+          "key": "optimized/alectoris-chukar-attila-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 68194
+        },
+        {
+          "key": "optimized/alectoris-chukar-attila-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 93726
+        },
+        {
+          "key": "optimized/alectoris-chukar-attila-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 136890
+        },
+        {
+          "key": "optimized/alectoris-chukar-attila-1-1600.avif",
+          "format": "avif",
+          "width": 1600,
+          "height": 1200,
+          "byteSize": 140562
+        },
+        {
+          "key": "optimized/alectoris-chukar-attila-1-1600.webp",
+          "format": "webp",
+          "width": 1600,
+          "height": 1200,
+          "byteSize": 202922
+        }
+      ],
+      "updatedAt": "2026-09-26T17:20:49.190Z"
+    },
     "alectoris-chukar-donsky-1.jpg": {
       "sourceHash": "5df58d44acc4084187afe54eedaac7a07d1f96c33d8691cabafc9e1c863cbdaa",
       "configFingerprint": "409788ee46c653d8",
