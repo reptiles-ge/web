@@ -37,6 +37,8 @@ export async function transformWithCodex(input: {
           "--skip-git-repo-check",
           "--sandbox",
           "read-only",
+          "--config",
+          'model_reasoning_effort="medium"',
           "--cd",
           directory,
           "--output-schema",
@@ -55,7 +57,7 @@ export async function transformWithCodex(input: {
             PATH: process.env.PATH,
             TMPDIR: process.env.TMPDIR,
           },
-          signal: AbortSignal.timeout(180000),
+          signal: AbortSignal.timeout(600000),
           stdio: ["pipe", "ignore", "pipe"],
         },
       );
