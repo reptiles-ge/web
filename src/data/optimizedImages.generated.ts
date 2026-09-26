@@ -501,6 +501,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1600],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/aquila-chrysaetos-alexander-1.jpg": {
+    "path": "aquila-chrysaetos-alexander-1",
+    "width": 1739,
+    "height": 1159,
+    "widths": [320, 400, 640, 800, 1200, 1739],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/aquila-chrysaetos-fanis-1.jpg": {
     "path": "aquila-chrysaetos-fanis-1",
     "width": 2048,

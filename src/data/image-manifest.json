@@ -3323,6 +3323,101 @@
       ],
       "updatedAt": "2026-08-29T07:20:45.931Z"
     },
+    "aquila-chrysaetos-alexander-1.jpg": {
+      "sourceHash": "91161c0e42084c0abb970b8c2083b9a06fdf36c5788e3b3fff2949183c838588",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "aquila-chrysaetos-alexander-1.jpg",
+      "originalSize": 691030,
+      "width": 1739,
+      "height": 1159,
+      "derivatives": [
+        {
+          "key": "optimized/aquila-chrysaetos-alexander-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 15866
+        },
+        {
+          "key": "optimized/aquila-chrysaetos-alexander-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 25648
+        },
+        {
+          "key": "optimized/aquila-chrysaetos-alexander-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 25453
+        },
+        {
+          "key": "optimized/aquila-chrysaetos-alexander-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 40898
+        },
+        {
+          "key": "optimized/aquila-chrysaetos-alexander-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 63093
+        },
+        {
+          "key": "optimized/aquila-chrysaetos-alexander-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 101594
+        },
+        {
+          "key": "optimized/aquila-chrysaetos-alexander-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 92268
+        },
+        {
+          "key": "optimized/aquila-chrysaetos-alexander-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 150660
+        },
+        {
+          "key": "optimized/aquila-chrysaetos-alexander-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 172531
+        },
+        {
+          "key": "optimized/aquila-chrysaetos-alexander-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 289394
+        },
+        {
+          "key": "optimized/aquila-chrysaetos-alexander-1-1739.avif",
+          "format": "avif",
+          "width": 1739,
+          "height": 1159,
+          "byteSize": 297647
+        },
+        {
+          "key": "optimized/aquila-chrysaetos-alexander-1-1739.webp",
+          "format": "webp",
+          "width": 1739,
+          "height": 1159,
+          "byteSize": 476588
+        }
+      ],
+      "updatedAt": "2026-09-26T20:18:26.044Z"
+    },
     "aquila-chrysaetos-fanis-1.jpg": {
       "sourceHash": "dae0ce5ed4a2ff181d6ce1ae0d0706b18d9a1865ca292af1c27b3bce0f13eccf",
       "configFingerprint": "409788ee46c653d8",
