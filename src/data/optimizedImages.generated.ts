@@ -522,6 +522,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1509],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/aquila-chrysaetos-rodenberger-1.jpg": {
+    "path": "aquila-chrysaetos-rodenberger-1",
+    "width": 1536,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/argiope-bruennichi-anamarija-1.jpg": {
     "path": "argiope-bruennichi-anamarija-1",
     "width": 1536,

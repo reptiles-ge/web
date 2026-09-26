@@ -3608,6 +3608,101 @@
       ],
       "updatedAt": "2026-09-26T20:17:19.761Z"
     },
+    "aquila-chrysaetos-rodenberger-1.jpg": {
+      "sourceHash": "3667eaf6ac2b1d516bbb58d8c6d5df252de2480814f4b6c84d7c9883dfaba173",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "aquila-chrysaetos-rodenberger-1.jpg",
+      "originalSize": 804775,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/aquila-chrysaetos-rodenberger-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 33312
+        },
+        {
+          "key": "optimized/aquila-chrysaetos-rodenberger-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 52572
+        },
+        {
+          "key": "optimized/aquila-chrysaetos-rodenberger-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 48175
+        },
+        {
+          "key": "optimized/aquila-chrysaetos-rodenberger-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 77076
+        },
+        {
+          "key": "optimized/aquila-chrysaetos-rodenberger-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 103512
+        },
+        {
+          "key": "optimized/aquila-chrysaetos-rodenberger-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 163052
+        },
+        {
+          "key": "optimized/aquila-chrysaetos-rodenberger-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 142235
+        },
+        {
+          "key": "optimized/aquila-chrysaetos-rodenberger-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 222616
+        },
+        {
+          "key": "optimized/aquila-chrysaetos-rodenberger-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 237673
+        },
+        {
+          "key": "optimized/aquila-chrysaetos-rodenberger-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 353472
+        },
+        {
+          "key": "optimized/aquila-chrysaetos-rodenberger-1-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 319724
+        },
+        {
+          "key": "optimized/aquila-chrysaetos-rodenberger-1-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 466022
+        }
+      ],
+      "updatedAt": "2026-09-26T20:19:06.136Z"
+    },
     "argiope-bruennichi-anamarija-1.jpg": {
       "sourceHash": "8105e8a7052c82fdff29d8a2efb645190bacd82199880d425b48a782bdb281fe",
       "configFingerprint": "a895f8e025dcc7fa",
