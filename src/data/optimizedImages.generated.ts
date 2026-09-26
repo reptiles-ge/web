@@ -2881,6 +2881,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/falco-peregrinus-giorgi-2.jpg": {
+    "path": "falco-peregrinus-giorgi-2",
+    "width": 1709,
+    "height": 1140,
+    "widths": [320, 400, 640, 800, 1200, 1709],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/falco-tinnunculus-alexis-1.jpg": {
     "path": "falco-tinnunculus-alexis-1",
     "width": 2400,
