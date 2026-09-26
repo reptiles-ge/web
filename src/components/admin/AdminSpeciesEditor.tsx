@@ -410,6 +410,7 @@ export function AdminSpeciesEditor({
         method: "POST",
       });
       const payload = (await response.json()) as {
+        alreadySaved?: boolean;
         error?: string;
         pullRequestUrl?: string;
       };
@@ -417,7 +418,9 @@ export function AdminSpeciesEditor({
         throw new Error(payload.error ?? "რიგი ვერ შეინახა");
       }
       setSavedSrcs(photos.map((item) => item.src));
-      if (payload.pullRequestUrl) {
+      if (payload.alreadySaved) {
+        setOk("რიგი უკვე შენახულია.");
+      } else if (payload.pullRequestUrl) {
         setPullRequestUrl(payload.pullRequestUrl);
         setOk("რიგი PR-შია. Merge შენზეა.");
       } else {
