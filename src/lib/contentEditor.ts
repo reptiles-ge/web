@@ -142,6 +142,33 @@ export function replaceSpeciesField(raw: string, field: string, value: string) {
   return updated;
 }
 
+export function restoreInlineLinkTargets(
+  original: string,
+  updated: string,
+  source: string,
+) {
+  const targets = [...original.matchAll(/\[[^\]]+\]\(([^)]+)\)/g)].map(
+    (match) => match[1],
+  );
+  const sourceTargets = [...source.matchAll(/\[[^\]]+\]\(([^)]+)\)/g)].map(
+    (match) => match[1],
+  );
+  let index = 0;
+  const restored = updated.replace(
+    /\[([^\]]+)\]\(([^)]+)\)/g,
+    (_, label, target) => {
+      const originalTarget = targets[index];
+      if (target !== originalTarget && target !== sourceTargets[index])
+        throw new Error("Content edit changed inline links");
+      index++;
+      return `[${label}](${originalTarget})`;
+    },
+  );
+  if (index !== targets.length)
+    throw new Error("Content edit changed inline links");
+  return restored;
+}
+
 export function validateEditorResult(
   value: unknown,
   selection: ReturnType<typeof verifyEditorSelection>,

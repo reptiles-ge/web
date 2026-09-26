@@ -123,6 +123,29 @@ describe("selection content editor", () => {
     ).toThrow("inline links");
   });
 
+  it("keeps each locale's existing link destinations when translations use Georgian links", async () => {
+    const target = await resolveEditorTarget({
+      ...request,
+      id: "halyomorpha-halys",
+    });
+    const values = Object.fromEntries(
+      (["ka", "en", "ru", "tr"] as const).map((locale, index) => [
+        locale,
+        readSpeciesField(target.originals[index], "overview").replace(
+          "/en/species/14072",
+          "/ka/species/14072",
+        ),
+      ]),
+    ) as Record<"en" | "ka" | "ru" | "tr", string>;
+    expect(target.updated(values)).toEqual(target.originals);
+    expect(() =>
+      target.updated({
+        ...values,
+        en: values.en.replace("/ka/species/14072", "/wrong/species/14072"),
+      }),
+    ).toThrow("inline links");
+  });
+
   it("opens the glass lizard interaction in every locale", async () => {
     const target = await resolveEditorTarget({
       end: 1,

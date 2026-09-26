@@ -11,6 +11,7 @@ import {
   type EditorResult,
   readSpeciesField,
   replaceSpeciesField,
+  restoreInlineLinkTargets,
 } from "@/lib/contentEditor";
 import {
   readContentLiteral,
@@ -134,6 +135,7 @@ export async function resolveEditorTarget(
     originals,
     source,
     updated(result: EditorResult) {
+      const values = { ...result };
       for (const [index, locale] of locales.entries()) {
         const original = read(
           originals[
@@ -145,19 +147,25 @@ export async function resolveEditorTarget(
           ],
           locale,
         );
-        assertInlineLinksPreserved(original || result.ka, result[locale]);
+        if (locale !== "ka" && original)
+          values[locale] = restoreInlineLinkTargets(
+            original,
+            values[locale],
+            values.ka,
+          );
+        assertInlineLinksPreserved(original || values.ka, values[locale]);
       }
       if (input.kind === "species") {
         if (
           field === "commonName" &&
-          kaToSlug(result.ka) !== kaToSlug(source)
+          kaToSlug(values.ka) !== kaToSlug(source)
         ) {
           throw new Error("Species name edit would change its public URL");
         }
         const updated = locales.map((locale, index) =>
-          read(originals[index], locale) === result[locale]
+          read(originals[index], locale) === values[locale]
             ? originals[index]
-            : replaceSpeciesField(originals[index], field, result[locale]),
+            : replaceSpeciesField(originals[index], field, values[locale]),
         );
         if (updated.some((raw, index) => raw !== originals[index])) {
           updated[0] = replaceSpeciesField(
@@ -178,7 +186,7 @@ export async function resolveEditorTarget(
             input.kind === "guide"
               ? [locale, ...segments]
               : ["copy", locale, ...segments],
-            result[locale],
+            values[locale],
           );
         }
         return [raw];
@@ -193,7 +201,7 @@ export async function resolveEditorTarget(
               : "regionContent",
             input.id,
             [...segments, locale],
-            result[locale],
+            values[locale],
           );
         return [raw];
       }
@@ -203,7 +211,7 @@ export async function resolveEditorTarget(
           "message",
           input.id,
           segments,
-          result[locale],
+          values[locale],
         ),
       );
     },
