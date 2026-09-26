@@ -262,10 +262,10 @@ const SPECIES_META_DESCRIPTION_OVERRIDE: Partial<
   Record<string, Partial<Record<AppLocale, string>>>
 > = {
   "alectoris-chukar": {
-    en: "Chukar in Georgia: documented rocky slopes, identification, size, breeding and the unresolved national conservation-category conflict.",
-    ka: "კაკაბი საქართველოში: ივრის ზეგანი და წყაროებში აღწერილი სხვა ადგილები, ამოცნობის ნიშნები, ზომა და ეროვნული სტატუსის წყაროებს შორის განსხვავება.",
-    ru: "Кеклик в Грузии: опубликованные районы обитания, признаки, размер, гнездование и расхождение в национальной охранной оценке.",
-    tr: "Gürcistan'da kınalı keklik: belgelenmiş alanlar, tanıma, boy, üreme ve ulusal koruma kategorisindeki kaynak çelişkisi.",
+    en: "Chukar in Georgia: regional map status from iNaturalist records, rocky-slope habitat, identification, breeding and conservation evidence.",
+    ka: "კაკაბი საქართველოში: iNaturalist-ის ჩანაწერებზე დაფუძნებული რეგიონული რუკა, ქვიანი ფერდობების ჰაბიტატი, ამოცნობა და დაცვის სტატუსი.",
+    ru: "Кеклик в Грузии: карта с региональным статусом по наблюдениям iNaturalist, каменистые склоны, признаки, гнездование и охрана.",
+    tr: "Gürcistan'da kınalı keklik: iNaturalist kayıtlarına dayalı bölgesel harita, kayalık yamaçlar, tanıma, üreme ve koruma durumu.",
   },
   "anas-platyrhynchos": {
     en: "Mallard (Anas platyrhynchos) in Georgia: mapped records, Javakheti breeding lakes, winter sites, identification, hunting seasons and limits.",
