@@ -54,10 +54,13 @@ export type HalyomorphaRegionSummary = {
 };
 
 export function confirmedRecordThresholdForSpecies(speciesId: string) {
-  return speciesId === "cheiracanthium-punctorium" ||
+  if (
+    speciesId === "cheiracanthium-punctorium" ||
     speciesId === "natrix-natrix"
-    ? 1
-    : 5;
+  )
+    return 1;
+  if (speciesId === "platyceps-najadum") return 3;
+  return 5;
 }
 
 export function getHalyomorphaFieldRecords({

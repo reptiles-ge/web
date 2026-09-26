@@ -225,6 +225,7 @@ export const regions: Region[] = [
       "bufo-verrucosissimus",
       "zamenis-longissimus",
       "zamenis-hohenackeri",
+      "platyceps-najadum",
       "triturus-karelinii",
       "ommatotriton-ophryticus",
       "lissotriton-lantzi",
