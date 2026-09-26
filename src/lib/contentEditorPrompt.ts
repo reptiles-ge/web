@@ -314,6 +314,8 @@ export function buildEditorPrompt(input: {
 
     "Only SELECTED may be rewritten.",
 
+    "Keep every Markdown link and its URL in its original order. You may improve the visible link label without changing its destination.",
+
     "TRANSLATIONS:",
 
     "After constructing the final ka value, translate the ENTIRE final ka value into English, Russian and Turkish.",

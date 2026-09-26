@@ -3,6 +3,7 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 
 import {
+  assertInlineLinksPreserved,
   editorRequestSchema,
   editorResultSchema,
   readSpeciesField,
@@ -48,6 +49,72 @@ describe("selection content editor", () => {
     const input = { ...request, end: 4, renderedText: "ერთი ერთი", start: 0 };
     const match = verifyEditorSelection("ერთი ერთი", input);
     expect(`${match.before}სხვა${match.after}`).toBe("სხვა ერთი");
+  });
+
+  it("maps rendered selections through inline links and keeps their destinations", () => {
+    const raw =
+      "წინ [გიურზა](macrovipera-lebetina) და [გიდი](/snakes/bite) შემდეგ";
+    const renderedText = "წინ გიურზა და გიდი შემდეგ";
+    const whole = verifyEditorSelection(raw, {
+      end: renderedText.indexOf(" შემდეგ"),
+      renderedText,
+      start: renderedText.indexOf("გიურზა"),
+    });
+    expect(whole.selected).toBe(
+      "[გიურზა](macrovipera-lebetina) და [გიდი](/snakes/bite)",
+    );
+    const following = verifyEditorSelection(raw, {
+      end: renderedText.length,
+      renderedText,
+      start: renderedText.indexOf("შემდეგ"),
+    });
+    expect(following.selected).toBe("შემდეგ");
+    expect(following.before).toBe(
+      "წინ [გიურზა](macrovipera-lebetina) და [გიდი](/snakes/bite) ",
+    );
+    const partial = verifyEditorSelection(raw, {
+      end: renderedText.indexOf("გიურზა") + 3,
+      renderedText,
+      start: renderedText.indexOf("გიურზა") + 1,
+    });
+    expect(partial.selected).toBe("იურზა".slice(0, 2));
+    expect(`${partial.before}სხვა${partial.after}`).toContain(
+      "[გსხვარზა](macrovipera-lebetina)",
+    );
+    expect(() =>
+      assertInlineLinksPreserved(
+        raw,
+        raw.replace("/snakes/bite", "/snakes/range"),
+      ),
+    ).toThrow();
+    expect(() =>
+      assertInlineLinksPreserved(raw, raw.replace("გიდი", "სახელმძღვანელო")),
+    ).not.toThrow();
+  });
+
+  it("opens and updates a linked species field", async () => {
+    const linkedId = "macrovipera-lebetina";
+    const linked = await resolveEditorTarget({
+      end: 1,
+      field: "overview",
+      id: linkedId,
+      kind: "species",
+      renderedText: "ignored",
+      start: 0,
+    });
+    const original = Object.fromEntries(
+      (["ka", "en", "ru", "tr"] as const).map((locale, index) => [
+        locale,
+        readSpeciesField(linked.originals[index], "overview"),
+      ]),
+    ) as Record<"en" | "ka" | "ru" | "tr", string>;
+    expect(linked.updated(original)).toEqual(linked.originals);
+    expect(() =>
+      linked.updated({
+        ...original,
+        ka: original.ka.replace("/venomous-snakes", "/snakes"),
+      }),
+    ).toThrow("inline links");
   });
 
   it("rejects invalid ids, ranges crossing fields, malformed output and missing locales", () => {
