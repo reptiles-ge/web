@@ -29886,6 +29886,59 @@
       ],
       "updatedAt": "2026-09-26T19:23:04.110Z"
     },
+    "falco-peregrinus-leekelai-1.jpg": {
+      "sourceHash": "136eaf1df803b984253fe1c6008fabd7e2c9071a8adb70cda49078df97142e62",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "falco-peregrinus-leekelai-1.jpg",
+      "originalSize": 9406,
+      "width": 591,
+      "height": 394,
+      "derivatives": [
+        {
+          "key": "optimized/falco-peregrinus-leekelai-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 1664
+        },
+        {
+          "key": "optimized/falco-peregrinus-leekelai-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 1854
+        },
+        {
+          "key": "optimized/falco-peregrinus-leekelai-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 2232
+        },
+        {
+          "key": "optimized/falco-peregrinus-leekelai-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 2582
+        },
+        {
+          "key": "optimized/falco-peregrinus-leekelai-1-591.avif",
+          "format": "avif",
+          "width": 591,
+          "height": 394,
+          "byteSize": 3711
+        },
+        {
+          "key": "optimized/falco-peregrinus-leekelai-1-591.webp",
+          "format": "webp",
+          "width": 591,
+          "height": 394,
+          "byteSize": 4834
+        }
+      ],
+      "updatedAt": "2026-09-26T19:24:00.439Z"
+    },
     "falco-tinnunculus-alexis-1.jpg": {
       "sourceHash": "6b77e86a057812eb1d73e5ab68783861dc761ca2b80f9cb3d9c8b9c0c891413a",
       "configFingerprint": "409788ee46c653d8",
