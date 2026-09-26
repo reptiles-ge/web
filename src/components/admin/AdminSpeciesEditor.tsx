@@ -23,6 +23,8 @@ import {
   resolveAdminCovers,
 } from "@/lib/adminCover";
 
+const buttonNoRestoreProps = { autoComplete: "off" };
+
 type AdminBusyState =
   | "coordinates"
   | "cover"
@@ -551,6 +553,7 @@ export function AdminSpeciesEditor({
             />
           </label>
           <button
+            {...buttonNoRestoreProps}
             className="mt-4 h-10 rounded-lg border border-border px-4 text-[13px] font-medium disabled:opacity-50"
             disabled={saving}
             type="submit"
@@ -715,6 +718,7 @@ export function AdminSpeciesEditor({
             />
           </label>
           <button
+            {...buttonNoRestoreProps}
             className="mt-5 h-11 w-full rounded-lg bg-foreground text-[14px] font-medium text-background disabled:opacity-50"
             disabled={saving}
             type="submit"
@@ -825,6 +829,7 @@ function AdminGalleryPanel({
       />
       {photos.length > 1 ? (
         <button
+          {...buttonNoRestoreProps}
           className="mt-4 h-11 rounded-lg bg-foreground px-4 text-[14px] font-medium text-background disabled:opacity-50"
           disabled={saving || !dirty}
           onClick={onSaveOrder}
@@ -982,6 +987,7 @@ function FieldRecordsPanel({
           />
         </label>
         <button
+          {...buttonNoRestoreProps}
           className="mt-5 h-11 w-full rounded-lg bg-foreground text-[14px] font-medium text-background disabled:opacity-50"
           disabled={saving}
           type="submit"

@@ -9,12 +9,7 @@ import {
   Smartphone,
   Trash2,
 } from "lucide-react";
-import {
-  type Dispatch,
-  type SetStateAction,
-  useRef,
-  useState,
-} from "react";
+import { type Dispatch, type SetStateAction, useRef, useState } from "react";
 
 import type { GalleryImage } from "@/data/speciesTypes";
 
@@ -28,6 +23,8 @@ import {
 } from "@/lib/adminCover";
 import { cn } from "@/lib/cn";
 import { hasPhotoCoordinates } from "@/lib/photoCoordinates";
+
+const buttonNoRestoreProps = { autoComplete: "off" };
 
 type Props = {
   covers: AdminCovers;
@@ -109,6 +106,7 @@ export function AdminGalleryReorder({
               </span>
               {sortable ? (
                 <button
+                  {...buttonNoRestoreProps}
                   className="absolute top-2 right-2 flex size-8 cursor-grab items-center justify-center rounded-md bg-background/85 text-foreground active:cursor-grabbing disabled:cursor-default disabled:opacity-40"
                   disabled={!canDrag}
                   draggable={canDrag}
@@ -146,7 +144,7 @@ export function AdminGalleryReorder({
                     {item.credit?.photographer ?? "—"}
                   </p>
                   <p
-                    className="mt-0.5 break-all font-mono text-[10px] leading-snug text-muted-foreground/80 select-all"
+                    className="mt-0.5 font-mono text-[10px] leading-snug break-all text-muted-foreground/80 select-all"
                     title={item.src}
                   >
                     {item.src}
@@ -155,6 +153,7 @@ export function AdminGalleryReorder({
                 {sortable ? (
                   <span className="flex shrink-0">
                     <button
+                      {...buttonNoRestoreProps}
                       className="flex size-7 items-center justify-center rounded-md text-muted-foreground hover:bg-secondary hover:text-foreground disabled:opacity-30"
                       disabled={disabled || index === 0}
                       onClick={() => move(index, index - 1)}
@@ -164,6 +163,7 @@ export function AdminGalleryReorder({
                       <span className="sr-only">ზემოთ</span>
                     </button>
                     <button
+                      {...buttonNoRestoreProps}
                       className="flex size-7 items-center justify-center rounded-md text-muted-foreground hover:bg-secondary hover:text-foreground disabled:opacity-30"
                       disabled={disabled || index === photos.length - 1}
                       onClick={() => move(index, index + 1)}
@@ -180,6 +180,7 @@ export function AdminGalleryReorder({
                 onChange={(target) => onSetCover(item.src, target)}
               />
               <button
+                {...buttonNoRestoreProps}
                 className={cn(
                   "mt-1.5 inline-flex h-8 w-full items-center justify-center gap-1.5 rounded-md border text-[11px] hover:bg-secondary disabled:opacity-40",
                   hasCoords
@@ -226,6 +227,7 @@ export function AdminGalleryReorder({
                 />
               ) : null}
               <button
+                {...buttonNoRestoreProps}
                 className="mt-1.5 inline-flex h-8 w-full items-center justify-center gap-1.5 rounded-md border border-border text-[11px] text-destructive hover:bg-secondary disabled:opacity-40"
                 disabled={!canRemove}
                 onClick={() => onRemove(item.src)}
@@ -330,6 +332,7 @@ function PhotoCoordinatesForm({
         />
       </div>
       <button
+        {...buttonNoRestoreProps}
         className="inline-flex h-8 w-full items-center justify-center rounded-md bg-foreground text-[11px] font-medium text-background disabled:opacity-40"
         disabled={disabled || !latValue.trim() || !lngValue.trim()}
         onClick={() => onSave(latValue, lngValue)}
@@ -339,6 +342,7 @@ function PhotoCoordinatesForm({
       </button>
       {lat || lng ? (
         <button
+          {...buttonNoRestoreProps}
           className="inline-flex h-7 w-full items-center justify-center rounded-md text-[11px] text-muted-foreground hover:bg-secondary disabled:opacity-40"
           disabled={disabled}
           onClick={onClear}
