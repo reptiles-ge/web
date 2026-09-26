@@ -3323,6 +3323,101 @@
       ],
       "updatedAt": "2026-08-29T07:20:45.931Z"
     },
+    "aquila-chrysaetos-fanis-1.jpg": {
+      "sourceHash": "dae0ce5ed4a2ff181d6ce1ae0d0706b18d9a1865ca292af1c27b3bce0f13eccf",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "aquila-chrysaetos-fanis-1.jpg",
+      "originalSize": 230172,
+      "width": 2048,
+      "height": 1267,
+      "derivatives": [
+        {
+          "key": "optimized/aquila-chrysaetos-fanis-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 198,
+          "byteSize": 2560
+        },
+        {
+          "key": "optimized/aquila-chrysaetos-fanis-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 198,
+          "byteSize": 2944
+        },
+        {
+          "key": "optimized/aquila-chrysaetos-fanis-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 247,
+          "byteSize": 3625
+        },
+        {
+          "key": "optimized/aquila-chrysaetos-fanis-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 247,
+          "byteSize": 3946
+        },
+        {
+          "key": "optimized/aquila-chrysaetos-fanis-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 396,
+          "byteSize": 6194
+        },
+        {
+          "key": "optimized/aquila-chrysaetos-fanis-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 396,
+          "byteSize": 7510
+        },
+        {
+          "key": "optimized/aquila-chrysaetos-fanis-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 495,
+          "byteSize": 8534
+        },
+        {
+          "key": "optimized/aquila-chrysaetos-fanis-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 495,
+          "byteSize": 10192
+        },
+        {
+          "key": "optimized/aquila-chrysaetos-fanis-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 742,
+          "byteSize": 14491
+        },
+        {
+          "key": "optimized/aquila-chrysaetos-fanis-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 742,
+          "byteSize": 17548
+        },
+        {
+          "key": "optimized/aquila-chrysaetos-fanis-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1267,
+          "byteSize": 37671
+        },
+        {
+          "key": "optimized/aquila-chrysaetos-fanis-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1267,
+          "byteSize": 41732
+        }
+      ],
+      "updatedAt": "2026-09-26T20:16:33.136Z"
+    },
     "argiope-bruennichi-anamarija-1.jpg": {
       "sourceHash": "8105e8a7052c82fdff29d8a2efb645190bacd82199880d425b48a782bdb281fe",
       "configFingerprint": "a895f8e025dcc7fa",
