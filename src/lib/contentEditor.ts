@@ -37,6 +37,15 @@ export const editorResultSchema = z
 export type EditorRequest = z.infer<typeof editorRequestSchema>;
 export type EditorResult = z.infer<typeof editorResultSchema>;
 
+const inlineLink = /\[([^\]]+)\]\((https?:\/\/[^)\s]+|\/[^)]+|[a-z0-9-]+)\)/g;
+
+export function assertInlineLinksPreserved(original: string, updated: string) {
+  const targets = (value: string) =>
+    [...value.matchAll(/\[[^\]]+\]\(([^)]+)\)/g)].map((match) => match[1]);
+  if (JSON.stringify(targets(original)) !== JSON.stringify(targets(updated)))
+    throw new Error("Content edit changed inline links");
+}
+
 export function readSpeciesField(raw: string, field: string) {
   return speciesValue(raw, field);
 }
@@ -88,7 +97,11 @@ export function replaceSpeciesField(raw: string, field: string, value: string) {
   const key = field.split(".").at(-1);
   const prefix = /^\d+$/.test(key ?? "") ? marker : `${marker}${key}:`;
   const currentScalar = line.trimStart().slice(prefix.length).trim();
-  if (currentScalar === ">-" || currentScalar === "|" || currentScalar === "|-") {
+  if (
+    currentScalar === ">-" ||
+    currentScalar === "|" ||
+    currentScalar === "|-"
+  ) {
     let end = matchIndex + 1;
     while (
       end < closing &&
@@ -135,23 +148,48 @@ export function verifyEditorSelection(
   source: string,
   input: Pick<EditorRequest, "end" | "renderedText" | "start">,
 ) {
-  if (source !== input.renderedText) {
-    throw new Error(
-      "Content changed or this field contains rendered links; reload and select plain text",
-    );
-  }
+  const rendered = source.replace(inlineLink, "$1");
+  if (rendered !== input.renderedText)
+    throw new Error("Content changed; reload and select text again");
   if (
     input.end <= input.start ||
-    input.end > source.length ||
-    !source.slice(input.start, input.end).trim()
+    input.end > rendered.length ||
+    !rendered.slice(input.start, input.end).trim()
   ) {
     throw new Error("Select text inside one content field");
   }
+  const start = sourceOffset(source, input.start, "start");
+  const end = sourceOffset(source, input.end, "end");
   return {
-    after: source.slice(input.end),
-    before: source.slice(0, input.start),
-    selected: source.slice(input.start, input.end),
+    after: source.slice(end),
+    before: source.slice(0, start),
+    selected: source.slice(start, end),
   };
+}
+
+function sourceOffset(source: string, offset: number, edge: "end" | "start") {
+  let sourceCursor = 0;
+  let renderedCursor = 0;
+  for (const match of source.matchAll(inlineLink)) {
+    const gap = match.index - sourceCursor;
+    if (
+      offset < renderedCursor + gap ||
+      (edge === "end" && offset === renderedCursor + gap)
+    )
+      return sourceCursor + offset - renderedCursor;
+    renderedCursor += gap;
+    if (offset < renderedCursor + match[1].length)
+      return (
+        match.index +
+        (offset === renderedCursor && edge === "start"
+          ? 0
+          : 1 + offset - renderedCursor)
+      );
+    renderedCursor += match[1].length;
+    sourceCursor = match.index + match[0].length;
+    if (offset === renderedCursor) return sourceCursor;
+  }
+  return sourceCursor + offset - renderedCursor;
 }
 
 function speciesValue(raw: string, field: string): string {

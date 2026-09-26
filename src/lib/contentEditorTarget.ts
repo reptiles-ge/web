@@ -5,6 +5,7 @@ import { getGuideArticles } from "@/data/guideArticles";
 import { getRegionById } from "@/data/mapRegions";
 import { getPublishedNewsArticleBySlug } from "@/data/news";
 import {
+  assertInlineLinksPreserved,
   editorFields,
   type EditorRequest,
   type EditorResult,
@@ -117,8 +118,6 @@ export async function resolveEditorTarget(
       locale,
     );
     if (!value.trim()) throw new Error(`Missing ${locale} content`);
-    if (/\[[^\]]+\]\([^)]+\)/.test(value))
-      throw new Error("Fields with inline links are not supported yet");
   }
   return {
     field,
@@ -126,6 +125,19 @@ export async function resolveEditorTarget(
     originals,
     source,
     updated(result: EditorResult) {
+      for (const [index, locale] of locales.entries()) {
+        const original = read(
+          originals[
+            input.kind === "guide" ||
+            input.kind === "news" ||
+            input.kind === "region"
+              ? 0
+              : index
+          ],
+          locale,
+        );
+        assertInlineLinksPreserved(original, result[locale]);
+      }
       if (input.kind === "species") {
         if (
           field === "commonName" &&
