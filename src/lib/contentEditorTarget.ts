@@ -15,6 +15,7 @@ import {
   readContentLiteral,
   replaceContentLiteral,
 } from "@/lib/contentEditorLiterals";
+import { toSiteDateTime } from "@/lib/siteTime";
 import { kaToSlug } from "@/lib/slugify";
 
 const locales = ["ka", "en", "ru", "tr"] as const;
@@ -132,9 +133,19 @@ export async function resolveEditorTarget(
         ) {
           throw new Error("Species name edit would change its public URL");
         }
-        return locales.map((locale, index) =>
-          replaceSpeciesField(originals[index], field, result[locale]),
+        const updated = locales.map((locale, index) =>
+          readSpeciesField(originals[index], field) === result[locale]
+            ? originals[index]
+            : replaceSpeciesField(originals[index], field, result[locale]),
         );
+        if (updated.some((raw, index) => raw !== originals[index])) {
+          updated[0] = replaceSpeciesField(
+            updated[0],
+            "dateModified",
+            toSiteDateTime(new Date()),
+          );
+        }
+        return updated;
       }
       if (input.kind === "guide" || input.kind === "news") {
         let raw = originals[0];
