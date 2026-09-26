@@ -2888,6 +2888,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1709],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/falco-peregrinus-giorgi-3.jpg": {
+    "path": "falco-peregrinus-giorgi-3",
+    "width": 1577,
+    "height": 1052,
+    "widths": [320, 400, 640, 800, 1200, 1577],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/falco-peregrinus-leekelai-1.jpg": {
     "path": "falco-peregrinus-leekelai-1",
     "width": 591,
