@@ -335,6 +335,47 @@ const INTERACTIVE_RANGE_MAPS: Partial<
     },
     iNaturalistTaxonId: 6930,
   },
+  "aquila-chrysaetos": {
+    copy: {
+      en: {
+        ...HALYOMORPHA_RANGE_COPY.en,
+        intro:
+          "The golden eagle map uses public iNaturalist observations from Georgia. Only regions marked ‘Distribution confirmed’ in the records-by-region table count as distribution; other regions have individual records only. Record counts reflect observation effort, not population density or breeding status.",
+        mapAria:
+          "Golden eagle observations and confirmed regions on a map of Georgia",
+        officialRegionLabel: "Confirmed distribution region",
+        rangeTitle: "Where golden eagle is recorded in Georgia",
+      },
+      ka: {
+        ...HALYOMORPHA_RANGE_COPY.ka,
+        intro:
+          "მთის არწივის რუკა იყენებს iNaturalist-ის საჯარო დაკვირვებებს საქართველოდან. გავრცელებად ითვლება მხოლოდ ჩანაწერების რეგიონულ ცხრილში დადასტურებული სტატუსის მქონე რეგიონი; სხვაგან მხოლოდ ცალკეული ჩანაწერებია. ჩანაწერების რაოდენობა ასახავს დაკვირვების ინტენსივობას და არა პოპულაციის სიმჭიდროვეს ან ბუდობის სტატუსს.",
+        mapAria:
+          "მთის არწივის დაკვირვებები და დადასტურებული რეგიონები საქართველოს რუკაზე",
+        officialRegionLabel: "დადასტურებული გავრცელების რეგიონი",
+        rangeTitle: "სად არის მთის არწივი დაფიქსირებული საქართველოში",
+      },
+      ru: {
+        ...HALYOMORPHA_RANGE_COPY.ru,
+        intro:
+          "Карта беркута использует публичные наблюдения iNaturalist из Грузии. Распространением считаются только регионы со статусом «Распространение подтверждено» в таблице; в остальных есть лишь отдельные записи. Число записей отражает активность наблюдателей, а не плотность популяции или статус гнездования.",
+        mapAria: "Наблюдения беркута и подтверждённые регионы на карте Грузии",
+        officialRegionLabel: "Регион с подтверждённым распространением",
+        rangeTitle: "Где беркут отмечен в Грузии",
+      },
+      tr: {
+        ...HALYOMORPHA_RANGE_COPY.tr,
+        intro:
+          "Kaya kartalı haritası Gürcistan'daki herkese açık iNaturalist gözlemlerini kullanır. Yalnızca kayıt tablosunda durumu ‘Yayılış doğrulandı’ olan bölgeler yayılış sayılır; diğerlerinde yalnızca tekil kayıtlar vardır. Kayıt sayısı gözlem çabasını yansıtır, popülasyon yoğunluğunu veya üreme durumunu değil.",
+        mapAria:
+          "Kaya kartalı gözlemleri ve doğrulanmış bölgeler Gürcistan haritasında",
+        officialRegionLabel: "Yayılışı doğrulanmış bölge",
+        rangeTitle: "Kaya kartalı Gürcistan'da nerede kaydedildi?",
+      },
+    },
+    iNaturalistTaxonId: 5074,
+    rangeSource: "record-summary",
+  },
   "araneus-diadematus": {
     copy: {
       en: {

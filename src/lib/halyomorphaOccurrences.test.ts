@@ -13,6 +13,10 @@ describe("occurrenceStatusForCount", () => {
   });
 
   it("allows species-specific confirmation thresholds", () => {
+    const aquilaThreshold =
+      confirmedRecordThresholdForSpecies("aquila-chrysaetos");
+    expect(occurrenceStatusForCount(3, aquilaThreshold)).toBe("recorded-only");
+    expect(occurrenceStatusForCount(4, aquilaThreshold)).toBe("confirmed");
     expect(occurrenceStatusForCount(0, 1)).toBe("recorded-only");
     expect(occurrenceStatusForCount(1, 1)).toBe("confirmed");
     const platycepsThreshold =
