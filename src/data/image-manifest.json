@@ -1402,6 +1402,101 @@
       ],
       "updatedAt": "2026-09-26T17:19:25.901Z"
     },
+    "alectoris-chukar-gogopopo-1.jpg": {
+      "sourceHash": "529771cf729c0c4c8eaeedefc1379168d1de2f06887bf3e25356e6e4bbb4ab72",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "alectoris-chukar-gogopopo-1.jpg",
+      "originalSize": 459232,
+      "width": 1638,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/alectoris-chukar-gogopopo-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 401,
+          "byteSize": 11323
+        },
+        {
+          "key": "optimized/alectoris-chukar-gogopopo-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 401,
+          "byteSize": 15030
+        },
+        {
+          "key": "optimized/alectoris-chukar-gogopopo-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 500,
+          "byteSize": 15574
+        },
+        {
+          "key": "optimized/alectoris-chukar-gogopopo-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 500,
+          "byteSize": 20672
+        },
+        {
+          "key": "optimized/alectoris-chukar-gogopopo-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 800,
+          "byteSize": 30601
+        },
+        {
+          "key": "optimized/alectoris-chukar-gogopopo-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 800,
+          "byteSize": 39542
+        },
+        {
+          "key": "optimized/alectoris-chukar-gogopopo-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1000,
+          "byteSize": 42713
+        },
+        {
+          "key": "optimized/alectoris-chukar-gogopopo-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1000,
+          "byteSize": 55718
+        },
+        {
+          "key": "optimized/alectoris-chukar-gogopopo-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1500,
+          "byteSize": 79612
+        },
+        {
+          "key": "optimized/alectoris-chukar-gogopopo-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1500,
+          "byteSize": 101958
+        },
+        {
+          "key": "optimized/alectoris-chukar-gogopopo-1-1638.avif",
+          "format": "avif",
+          "width": 1638,
+          "height": 2048,
+          "byteSize": 133263
+        },
+        {
+          "key": "optimized/alectoris-chukar-gogopopo-1-1638.webp",
+          "format": "webp",
+          "width": 1638,
+          "height": 2048,
+          "byteSize": 170324
+        }
+      ],
+      "updatedAt": "2026-09-26T17:20:20.564Z"
+    },
     "anas-platyrhynchos-donsky-1.jpg": {
       "sourceHash": "fe314ad429a7dc69407d8996eb728da802f2d0d049d5b3a91dcfc62c92af22b8",
       "configFingerprint": "409788ee46c653d8",
