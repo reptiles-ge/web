@@ -154,7 +154,10 @@ export async function SpeciesProfile({
         galleryCount={gallery.length}
         group={group}
         hasIdentification={showIdentification}
-        hasRange={getRegionsForSpecies(species.id).length > 0}
+        hasRange={
+          getRegionsForSpecies(species.id).length > 0 ||
+          Boolean(species.fieldRecords?.length)
+        }
         scientificName={species.scientificName}
         speciesId={species.id}
       />
