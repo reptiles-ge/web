@@ -1008,7 +1008,7 @@ const INTERACTIVE_RANGE_MAPS: Partial<
       en: {
         ...HALYOMORPHA_RANGE_COPY.en,
         intro:
-          "The Dahl's whip snake map combines Reptiles.ge field photos with public iNaturalist observations. The records-by-region table determines the shaded range: only regions marked as confirmed count as distribution. Individual records elsewhere do not confirm regional distribution, and record counts do not measure population density.",
+          "The Dahl's whip snake map combines Reptiles.ge field photos with public iNaturalist observations. The records-by-region table determines the shaded range: three or more field records confirm regional distribution; one or two remain recorded-only. Record counts do not measure population density.",
         mapAria:
           "Dahl's whip snake observations and confirmed regions on a map of Georgia",
         officialRegionLabel: "Region with confirmed distribution",
@@ -1017,7 +1017,7 @@ const INTERACTIVE_RANGE_MAPS: Partial<
       ka: {
         ...HALYOMORPHA_RANGE_COPY.ka,
         intro:
-          "წენგოსფერი მცურავის რუკა აერთიანებს Reptiles.ge-ის საველე ფოტოებსა და iNaturalist-ის საჯარო დაკვირვებებს. შეფერილი გავრცელება რეგიონული ჩანაწერების ცხრილის სტატუსს ეფუძნება: გავრცელებულად მხოლოდ დადასტურებული რეგიონები ითვლება. სხვაგან ცალკეული ჩანაწერი რეგიონულ გავრცელებას არ ადასტურებს; ჩანაწერების რაოდენობა პოპულაციის სიმჭიდროვე არ არის.",
+          "წენგოსფერი მცურავის რუკა აერთიანებს Reptiles.ge-ის საველე ფოტოებსა და iNaturalist-ის საჯარო დაკვირვებებს. შეფერილი გავრცელება რეგიონული ცხრილის სტატუსს ეფუძნება: სულ მცირე 3 საველე ჩანაწერი რეგიონს დადასტურებულ სტატუსს ანიჭებს; 1–2 ჩანაწერი მხოლოდ დაფიქსირებულად ითვლება. ჩანაწერების რაოდენობა პოპულაციის სიმჭიდროვე არ არის.",
         mapAria:
           "წენგოსფერი მცურავის დაკვირვებები და დადასტურებული რეგიონები საქართველოს რუკაზე",
         officialRegionLabel: "დადასტურებული გავრცელების რეგიონი",
@@ -1026,7 +1026,7 @@ const INTERACTIVE_RANGE_MAPS: Partial<
       ru: {
         ...HALYOMORPHA_RANGE_COPY.ru,
         intro:
-          "Карта оливкового полоза объединяет полевые фотографии Reptiles.ge и публичные наблюдения iNaturalist. Закрашенный ареал определяется статусом в таблице по регионам: распространением считаются только подтверждённые регионы. Отдельные записи в других регионах этого статуса не дают; число записей не отражает плотность популяции.",
+          "Карта оливкового полоза объединяет полевые фотографии Reptiles.ge и публичные наблюдения iNaturalist. Закрашенный ареал определяется региональной таблицей: три и более полевых записи подтверждают распространение в регионе; одна или две означают лишь наличие записей. Число записей не отражает плотность популяции.",
         mapAria:
           "Наблюдения оливкового полоза и подтверждённые регионы на карте Грузии",
         officialRegionLabel: "Регион с подтверждённым распространением",
@@ -1035,7 +1035,7 @@ const INTERACTIVE_RANGE_MAPS: Partial<
       tr: {
         ...HALYOMORPHA_RANGE_COPY.tr,
         intro:
-          "Dahl kırbaç yılanı haritası Reptiles.ge arazi fotoğraflarını ve herkese açık iNaturalist gözlemlerini birleştirir. Boyalı yayılış, bölgesel kayıt tablosundaki duruma dayanır: yalnızca doğrulanmış bölgeler yayılış sayılır. Diğer bölgelerdeki tekil kayıtlar bölgesel yayılışı doğrulamaz; kayıt sayısı popülasyon yoğunluğunu göstermez.",
+          "Dahl kırbaç yılanı haritası Reptiles.ge arazi fotoğraflarını ve herkese açık iNaturalist gözlemlerini birleştirir. Boyalı yayılış bölgesel tabloya dayanır: üç veya daha fazla arazi kaydı bölgesel yayılışı doğrular; bir veya iki kayıt yalnızca kaydedilmiş sayılır. Kayıt sayısı popülasyon yoğunluğunu göstermez.",
         mapAria:
           "Dahl kırbaç yılanı gözlemleri ve doğrulanmış bölgeler Gürcistan haritasında",
         officialRegionLabel: "Yayılışı doğrulanmış bölge",
