@@ -167,7 +167,7 @@ export function speciesAlternates(locale: AppLocale, id: string) {
 }
 
 export function speciesOgImageUrl(
-  _speciesId: string,
+  speciesId: string,
   fallbackImageSrc?: string,
 ) {
   if (fallbackImageSrc) {

@@ -39,6 +39,7 @@ const LOOKALIKES: Record<string, string[]> = {
   "accipiter-nisus": ["accipiter-gentilis", "falco-peregrinus", "buteo-buteo"],
   "aegolius-funereus": ["strix-aluco", "otus-scops", "athene-noctua"],
   "aegypius-monachus": ["aquila-chrysaetos", "buteo-buteo"],
+  "alectoris-chukar": ["coturnix-coturnix", "phasianus-colchicus"],
   "anguis-colchica": ["pseudopus-apodus", "natrix-natrix"],
   "araneus-diadematus": ["argiope-bruennichi", "argiope-lobata"],
   "argiope-bruennichi": ["argiope-lobata"],

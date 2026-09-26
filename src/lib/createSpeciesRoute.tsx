@@ -274,7 +274,9 @@ function localizedSpeciesRelations(raw: Species, locale: AppLocale) {
   const lookalikeIds = new Set(lookalikeSpecies.map((entry) => entry.id));
   const related: Species[] = [];
 
-  for (const entry of getRelatedSpecies(raw.id, 8)) {
+  for (const entry of raw.id === "alectoris-chukar"
+    ? []
+    : getRelatedSpecies(raw.id, 8)) {
     if (lookalikeIds.has(entry.id)) continue;
     related.push(localizeSpecies(entry, locale));
     if (related.length === 4) break;

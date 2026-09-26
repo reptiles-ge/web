@@ -1307,6 +1307,481 @@
       ],
       "updatedAt": "2026-09-06T16:27:45.771Z"
     },
+    "alectoris-chukar-attila-1.jpg": {
+      "sourceHash": "7e35bc6adc2dd0cabadc38bd303b0f8fc5eba94295a5a2c183244de26934dd64",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "alectoris-chukar-attila-1.jpg",
+      "originalSize": 403277,
+      "width": 1600,
+      "height": 1200,
+      "derivatives": [
+        {
+          "key": "optimized/alectoris-chukar-attila-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 7823
+        },
+        {
+          "key": "optimized/alectoris-chukar-attila-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 10530
+        },
+        {
+          "key": "optimized/alectoris-chukar-attila-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 12349
+        },
+        {
+          "key": "optimized/alectoris-chukar-attila-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 17378
+        },
+        {
+          "key": "optimized/alectoris-chukar-attila-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 31146
+        },
+        {
+          "key": "optimized/alectoris-chukar-attila-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 43986
+        },
+        {
+          "key": "optimized/alectoris-chukar-attila-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 47646
+        },
+        {
+          "key": "optimized/alectoris-chukar-attila-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 68194
+        },
+        {
+          "key": "optimized/alectoris-chukar-attila-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 93726
+        },
+        {
+          "key": "optimized/alectoris-chukar-attila-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 136890
+        },
+        {
+          "key": "optimized/alectoris-chukar-attila-1-1600.avif",
+          "format": "avif",
+          "width": 1600,
+          "height": 1200,
+          "byteSize": 140562
+        },
+        {
+          "key": "optimized/alectoris-chukar-attila-1-1600.webp",
+          "format": "webp",
+          "width": 1600,
+          "height": 1200,
+          "byteSize": 202922
+        }
+      ],
+      "updatedAt": "2026-09-26T17:20:49.190Z"
+    },
+    "alectoris-chukar-daria-1.jpg": {
+      "sourceHash": "54858502c4d7ffe307069b28fa8926ab760011db44d9ea0b719046ba738fb3b9",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "alectoris-chukar-daria-1.jpg",
+      "originalSize": 999958,
+      "width": 2048,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/alectoris-chukar-daria-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 320,
+          "byteSize": 19866
+        },
+        {
+          "key": "optimized/alectoris-chukar-daria-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 320,
+          "byteSize": 34034
+        },
+        {
+          "key": "optimized/alectoris-chukar-daria-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 400,
+          "byteSize": 28084
+        },
+        {
+          "key": "optimized/alectoris-chukar-daria-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 400,
+          "byteSize": 48626
+        },
+        {
+          "key": "optimized/alectoris-chukar-daria-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 640,
+          "byteSize": 59981
+        },
+        {
+          "key": "optimized/alectoris-chukar-daria-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 640,
+          "byteSize": 99528
+        },
+        {
+          "key": "optimized/alectoris-chukar-daria-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 800,
+          "byteSize": 86046
+        },
+        {
+          "key": "optimized/alectoris-chukar-daria-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 800,
+          "byteSize": 141394
+        },
+        {
+          "key": "optimized/alectoris-chukar-daria-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1200,
+          "byteSize": 156085
+        },
+        {
+          "key": "optimized/alectoris-chukar-daria-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1200,
+          "byteSize": 254196
+        },
+        {
+          "key": "optimized/alectoris-chukar-daria-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 2048,
+          "byteSize": 342380
+        },
+        {
+          "key": "optimized/alectoris-chukar-daria-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 2048,
+          "byteSize": 538338
+        }
+      ],
+      "updatedAt": "2026-09-26T17:22:37.273Z"
+    },
+    "alectoris-chukar-donsky-1.jpg": {
+      "sourceHash": "5df58d44acc4084187afe54eedaac7a07d1f96c33d8691cabafc9e1c863cbdaa",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "alectoris-chukar-donsky-1.jpg",
+      "originalSize": 347255,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/alectoris-chukar-donsky-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6392
+        },
+        {
+          "key": "optimized/alectoris-chukar-donsky-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8536
+        },
+        {
+          "key": "optimized/alectoris-chukar-donsky-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 8758
+        },
+        {
+          "key": "optimized/alectoris-chukar-donsky-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 11390
+        },
+        {
+          "key": "optimized/alectoris-chukar-donsky-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 17315
+        },
+        {
+          "key": "optimized/alectoris-chukar-donsky-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 22802
+        },
+        {
+          "key": "optimized/alectoris-chukar-donsky-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 24600
+        },
+        {
+          "key": "optimized/alectoris-chukar-donsky-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 32462
+        },
+        {
+          "key": "optimized/alectoris-chukar-donsky-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 46764
+        },
+        {
+          "key": "optimized/alectoris-chukar-donsky-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 63530
+        },
+        {
+          "key": "optimized/alectoris-chukar-donsky-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 113562
+        },
+        {
+          "key": "optimized/alectoris-chukar-donsky-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 158568
+        }
+      ],
+      "updatedAt": "2026-09-26T17:19:25.901Z"
+    },
+    "alectoris-chukar-giorgi-1.jpg": {
+      "sourceHash": "11c3c417b7966d6a75a58ea868f3d00f33c88b3008cbb1390418658b7dc48a5c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "alectoris-chukar-giorgi-1.jpg",
+      "originalSize": 1206029,
+      "width": 2048,
+      "height": 1366,
+      "derivatives": [
+        {
+          "key": "optimized/alectoris-chukar-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 19632
+        },
+        {
+          "key": "optimized/alectoris-chukar-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 27002
+        },
+        {
+          "key": "optimized/alectoris-chukar-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 29354
+        },
+        {
+          "key": "optimized/alectoris-chukar-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 42626
+        },
+        {
+          "key": "optimized/alectoris-chukar-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 72813
+        },
+        {
+          "key": "optimized/alectoris-chukar-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 107598
+        },
+        {
+          "key": "optimized/alectoris-chukar-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 107009
+        },
+        {
+          "key": "optimized/alectoris-chukar-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 164580
+        },
+        {
+          "key": "optimized/alectoris-chukar-giorgi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 219689
+        },
+        {
+          "key": "optimized/alectoris-chukar-giorgi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 339462
+        },
+        {
+          "key": "optimized/alectoris-chukar-giorgi-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1366,
+          "byteSize": 555497
+        },
+        {
+          "key": "optimized/alectoris-chukar-giorgi-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1366,
+          "byteSize": 838498
+        }
+      ],
+      "updatedAt": "2026-09-26T17:21:21.536Z"
+    },
+    "alectoris-chukar-gogopopo-1.jpg": {
+      "sourceHash": "529771cf729c0c4c8eaeedefc1379168d1de2f06887bf3e25356e6e4bbb4ab72",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "alectoris-chukar-gogopopo-1.jpg",
+      "originalSize": 459232,
+      "width": 1638,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/alectoris-chukar-gogopopo-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 401,
+          "byteSize": 11323
+        },
+        {
+          "key": "optimized/alectoris-chukar-gogopopo-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 401,
+          "byteSize": 15030
+        },
+        {
+          "key": "optimized/alectoris-chukar-gogopopo-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 500,
+          "byteSize": 15574
+        },
+        {
+          "key": "optimized/alectoris-chukar-gogopopo-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 500,
+          "byteSize": 20672
+        },
+        {
+          "key": "optimized/alectoris-chukar-gogopopo-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 800,
+          "byteSize": 30601
+        },
+        {
+          "key": "optimized/alectoris-chukar-gogopopo-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 800,
+          "byteSize": 39542
+        },
+        {
+          "key": "optimized/alectoris-chukar-gogopopo-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1000,
+          "byteSize": 42713
+        },
+        {
+          "key": "optimized/alectoris-chukar-gogopopo-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1000,
+          "byteSize": 55718
+        },
+        {
+          "key": "optimized/alectoris-chukar-gogopopo-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1500,
+          "byteSize": 79612
+        },
+        {
+          "key": "optimized/alectoris-chukar-gogopopo-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1500,
+          "byteSize": 101958
+        },
+        {
+          "key": "optimized/alectoris-chukar-gogopopo-1-1638.avif",
+          "format": "avif",
+          "width": 1638,
+          "height": 2048,
+          "byteSize": 133263
+        },
+        {
+          "key": "optimized/alectoris-chukar-gogopopo-1-1638.webp",
+          "format": "webp",
+          "width": 1638,
+          "height": 2048,
+          "byteSize": 170324
+        }
+      ],
+      "updatedAt": "2026-09-26T17:20:20.564Z"
+    },
     "anas-platyrhynchos-donsky-1.jpg": {
       "sourceHash": "fe314ad429a7dc69407d8996eb728da802f2d0d049d5b3a91dcfc62c92af22b8",
       "configFingerprint": "409788ee46c653d8",
@@ -38140,6 +38615,101 @@
         }
       ],
       "updatedAt": "2026-08-28T22:31:00.060Z"
+    },
+    "images/species/alectoris-chukar-soukup.jpg": {
+      "sourceHash": "ef292b21515edb9424c43e1c2a0370a23284e342d42e1b9f360c2a4533c661b3",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/species/alectoris-chukar-soukup.jpg",
+      "originalSize": 267415,
+      "width": 1920,
+      "height": 1280,
+      "derivatives": [
+        {
+          "key": "optimized/images/species/alectoris-chukar-soukup-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9984
+        },
+        {
+          "key": "optimized/images/species/alectoris-chukar-soukup-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14330
+        },
+        {
+          "key": "optimized/images/species/alectoris-chukar-soukup-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 14034
+        },
+        {
+          "key": "optimized/images/species/alectoris-chukar-soukup-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 20432
+        },
+        {
+          "key": "optimized/images/species/alectoris-chukar-soukup-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 27924
+        },
+        {
+          "key": "optimized/images/species/alectoris-chukar-soukup-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 40698
+        },
+        {
+          "key": "optimized/images/species/alectoris-chukar-soukup-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 39638
+        },
+        {
+          "key": "optimized/images/species/alectoris-chukar-soukup-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 57728
+        },
+        {
+          "key": "optimized/images/species/alectoris-chukar-soukup-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 73844
+        },
+        {
+          "key": "optimized/images/species/alectoris-chukar-soukup-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 105810
+        },
+        {
+          "key": "optimized/images/species/alectoris-chukar-soukup-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 157830
+        },
+        {
+          "key": "optimized/images/species/alectoris-chukar-soukup-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 212546
+        }
+      ],
+      "updatedAt": "2026-09-26T18:12:09.353Z"
     },
     "images/species/anas-platyrhynchos-ducklings-1.jpg": {
       "sourceHash": "fed559e8de569eec054344a4e95b88ec07d1358cf1a9d6570173baf8e9b9787f",

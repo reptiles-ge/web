@@ -2,7 +2,10 @@ import {
   isLocalAdminEnabled,
   localAdminForbiddenResponse,
 } from "@/lib/adminAccess";
-import { isSpeciesContentId } from "@/lib/adminGalleryMdx";
+import {
+  isSpeciesContentId,
+  readAdminSpeciesGallery,
+} from "@/lib/adminGalleryMdx";
 import { openGalleryReorderPullRequest } from "@/lib/adminPhotoPullRequest";
 
 export const runtime = "nodejs";
@@ -35,6 +38,14 @@ export async function POST(request: Request) {
     return Response.json({ pullRequestUrl });
   } catch (error) {
     const message = error instanceof Error ? error.message : "Reorder failed";
+    if (
+      message === "No gallery changes to open a pull request for" &&
+      readAdminSpeciesGallery(id)
+        .gallery.map((item) => item.src)
+        .join("\0") === srcs.join("\0")
+    ) {
+      return Response.json({ alreadySaved: true });
+    }
     return Response.json({ error: message }, { status: 400 });
   }
 }

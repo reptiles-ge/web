@@ -73,6 +73,12 @@ function shortSpeciesMetaTitle(commonName: string, intent: string) {
 const SPECIES_META_TITLE_OVERRIDE: Partial<
   Record<string, Partial<Record<AppLocale, string>>>
 > = {
+  "alectoris-chukar": {
+    en: "Chukar Partridge (Alectoris chukar) in Georgia | Range and ID",
+    ka: "კაკაბი (Alectoris chukar) საქართველოში — გავრცელება და ამოცნობა",
+    ru: "Кеклик (Alectoris chukar) в Грузии — ареал и признаки",
+    tr: "Gürcistan'da kınalı keklik (Alectoris chukar) — yayılış ve tanıma",
+  },
   "araneus-diadematus": {
     en: "European garden spider (Araneus diadematus) | Cross orb-weaver in Georgia",
     ka: "ჩვეულებრივი ჯვრიანა (Araneus diadematus) | ობობა საქართველოში",
@@ -255,6 +261,12 @@ const EXACT_SPECIES_META_TITLE_OVERRIDES = new Set([
 const SPECIES_META_DESCRIPTION_OVERRIDE: Partial<
   Record<string, Partial<Record<AppLocale, string>>>
 > = {
+  "alectoris-chukar": {
+    en: "Chukar in Georgia: regional map status from iNaturalist records, rocky-slope habitat, identification, breeding and conservation evidence.",
+    ka: "კაკაბი საქართველოში: iNaturalist-ის ჩანაწერებზე დაფუძნებული რეგიონული რუკა, ქვიანი ფერდობების ჰაბიტატი, ამოცნობა და დაცვის სტატუსი.",
+    ru: "Кеклик в Грузии: карта с региональным статусом по наблюдениям iNaturalist, каменистые склоны, признаки, гнездование и охрана.",
+    tr: "Gürcistan'da kınalı keklik: iNaturalist kayıtlarına dayalı bölgesel harita, kayalık yamaçlar, tanıma, üreme ve koruma durumu.",
+  },
   "anas-platyrhynchos": {
     en: "Mallard (Anas platyrhynchos) in Georgia: mapped records, Javakheti breeding lakes, winter sites, identification, hunting seasons and limits.",
     ru: "Кряква (Anas platyrhynchos) в Грузии: записи на карте, гнездовые озёра Джавахети, зимовки, признаки, сезоны и лимиты охоты.",

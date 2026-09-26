@@ -305,6 +305,41 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/alectoris-chukar-attila-1.jpg": {
+    "path": "alectoris-chukar-attila-1",
+    "width": 1600,
+    "height": 1200,
+    "widths": [320, 400, 640, 800, 1200, 1600],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/alectoris-chukar-daria-1.jpg": {
+    "path": "alectoris-chukar-daria-1",
+    "width": 2048,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/alectoris-chukar-donsky-1.jpg": {
+    "path": "alectoris-chukar-donsky-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/alectoris-chukar-giorgi-1.jpg": {
+    "path": "alectoris-chukar-giorgi-1",
+    "width": 2048,
+    "height": 1366,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/alectoris-chukar-gogopopo-1.jpg": {
+    "path": "alectoris-chukar-gogopopo-1",
+    "width": 1638,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1638],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/anas-platyrhynchos-donsky-1.jpg": {
     "path": "anas-platyrhynchos-donsky-1",
     "width": 1024,
@@ -3460,6 +3495,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 766,
     "height": 1100,
     "widths": [400, 766],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/species/alectoris-chukar-soukup.jpg": {
+    "path": "images/species/alectoris-chukar-soukup",
+    "width": 1920,
+    "height": 1280,
+    "widths": [320, 400, 640, 800, 1200, 1920],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/images/species/anas-platyrhynchos-ducklings-1.jpg": {

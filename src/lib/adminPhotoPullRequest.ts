@@ -544,6 +544,12 @@ async function withPhotoPullRequest(input: {
         "Commit or stash local changes before using admin photos",
       );
     }
+  }
+  const currentPullRequestUrl =
+    base.ref === "HEAD" && !input.baseFromCurrentBranch
+      ? await findOpenPullRequestForHead(base.branch)
+      : null;
+  if (currentPullRequestUrl) {
     await input.apply(REPO_ROOT);
     run("git", ["add", "--", ...rel, ...(input.extraFiles ?? [])], REPO_ROOT);
     if (!hasStagedChanges(REPO_ROOT)) {
@@ -559,12 +565,7 @@ async function withPhotoPullRequest(input: {
       ["push", "-u", "origin", `HEAD:refs/heads/${base.branch}`],
       REPO_ROOT,
     );
-    const url = await findOpenPullRequestForHead(base.branch);
-    if (!url)
-      throw new Error(
-        `Changes pushed to ${base.branch}, but no open PR was found`,
-      );
-    return url;
+    return currentPullRequestUrl;
   }
 
   if (base.ref === "HEAD") {
