@@ -39,6 +39,10 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "bird",
     habitats: ["grassland"],
   },
+  "alectoris-chukar": {
+    group: "bird",
+    habitats: ["mountain", "grassland"],
+  },
   "anas-platyrhynchos": {
     group: "bird",
     habitats: ["wetland"],

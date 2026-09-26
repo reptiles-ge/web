@@ -167,9 +167,12 @@ export function speciesAlternates(locale: AppLocale, id: string) {
 }
 
 export function speciesOgImageUrl(
-  _speciesId: string,
+  speciesId: string,
   fallbackImageSrc?: string,
 ) {
+  if (speciesId === "alectoris-chukar") {
+    return absoluteUrl("/og/images/species/alectoris-chukar-soukup.jpg");
+  }
   if (fallbackImageSrc) {
     const fromPipeline = ogImageUrlFromSrc(fallbackImageSrc);
     if (fromPipeline) return fromPipeline;

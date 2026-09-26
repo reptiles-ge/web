@@ -103,6 +103,7 @@ export const featuredSpeciesIds = [
   "larus-fuscus",
   "phasianus-colchicus",
   "coturnix-coturnix",
+  "alectoris-chukar",
   "turdus-merula",
   "columba-palumbus",
   "streptopelia-turtur",
