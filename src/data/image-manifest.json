@@ -1497,6 +1497,101 @@
       ],
       "updatedAt": "2026-09-26T17:19:25.901Z"
     },
+    "alectoris-chukar-giorgi-1.jpg": {
+      "sourceHash": "11c3c417b7966d6a75a58ea868f3d00f33c88b3008cbb1390418658b7dc48a5c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "alectoris-chukar-giorgi-1.jpg",
+      "originalSize": 1206029,
+      "width": 2048,
+      "height": 1366,
+      "derivatives": [
+        {
+          "key": "optimized/alectoris-chukar-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 19632
+        },
+        {
+          "key": "optimized/alectoris-chukar-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 27002
+        },
+        {
+          "key": "optimized/alectoris-chukar-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 29354
+        },
+        {
+          "key": "optimized/alectoris-chukar-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 42626
+        },
+        {
+          "key": "optimized/alectoris-chukar-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 72813
+        },
+        {
+          "key": "optimized/alectoris-chukar-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 107598
+        },
+        {
+          "key": "optimized/alectoris-chukar-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 107009
+        },
+        {
+          "key": "optimized/alectoris-chukar-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 164580
+        },
+        {
+          "key": "optimized/alectoris-chukar-giorgi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 219689
+        },
+        {
+          "key": "optimized/alectoris-chukar-giorgi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 339462
+        },
+        {
+          "key": "optimized/alectoris-chukar-giorgi-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1366,
+          "byteSize": 555497
+        },
+        {
+          "key": "optimized/alectoris-chukar-giorgi-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1366,
+          "byteSize": 838498
+        }
+      ],
+      "updatedAt": "2026-09-26T17:21:21.536Z"
+    },
     "alectoris-chukar-gogopopo-1.jpg": {
       "sourceHash": "529771cf729c0c4c8eaeedefc1379168d1de2f06887bf3e25356e6e4bbb4ab72",
       "configFingerprint": "409788ee46c653d8",

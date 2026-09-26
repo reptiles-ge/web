@@ -319,6 +319,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/alectoris-chukar-giorgi-1.jpg": {
+    "path": "alectoris-chukar-giorgi-1",
+    "width": 2048,
+    "height": 1366,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/alectoris-chukar-gogopopo-1.jpg": {
     "path": "alectoris-chukar-gogopopo-1",
     "width": 1638,
