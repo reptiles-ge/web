@@ -338,7 +338,7 @@ export function buildEditorPrompt(input: {
 
     "Only SELECTED may be rewritten.",
 
-    "Keep every Markdown link and its URL in its original order. You may improve the visible link label without changing its destination.",
+    "Keep every Markdown link and its URL in its original order. You may improve the visible link label without changing its destination. Linked source attribution must remain linked even when simplifying source names; the source-name removal preference applies only to unlinked text.",
 
     "TRANSLATIONS:",
 
