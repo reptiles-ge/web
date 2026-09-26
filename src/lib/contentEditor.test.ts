@@ -142,6 +142,29 @@ describe("selection content editor", () => {
     }
   });
 
+  it("creates missing behavior translations for the Armenian rock lizard", async () => {
+    const target = await resolveEditorTarget({
+      end: 1,
+      field: "behavior",
+      id: "darevskia-armeniaca",
+      kind: "species",
+      renderedText: "ignored",
+      start: 0,
+    });
+    const updated = target.updated({
+      en: "Females can reproduce without males.",
+      ka: target.source,
+      ru: "Самки могут размножаться без самцов.",
+      tr: "Dişiler erkek olmadan üreyebilir.",
+    });
+    expect(readSpeciesField(updated[2], "behavior")).toBe(
+      "Самки могут размножаться без самцов.",
+    );
+    expect(readSpeciesField(updated[3], "behavior")).toBe(
+      "Dişiler erkek olmadan üreyebilir.",
+    );
+  });
+
   it("rejects invalid ids, ranges crossing fields, malformed output and missing locales", () => {
     expect(
       editorRequestSchema.safeParse({ ...request, id: "../secret" }).success,
