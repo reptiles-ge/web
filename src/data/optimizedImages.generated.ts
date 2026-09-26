@@ -305,6 +305,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/alectoris-chukar-donsky-1.jpg": {
+    "path": "alectoris-chukar-donsky-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/anas-platyrhynchos-donsky-1.jpg": {
     "path": "anas-platyrhynchos-donsky-1",
     "width": 1024,

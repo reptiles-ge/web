@@ -1307,6 +1307,101 @@
       ],
       "updatedAt": "2026-09-06T16:27:45.771Z"
     },
+    "alectoris-chukar-donsky-1.jpg": {
+      "sourceHash": "5df58d44acc4084187afe54eedaac7a07d1f96c33d8691cabafc9e1c863cbdaa",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "alectoris-chukar-donsky-1.jpg",
+      "originalSize": 347255,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/alectoris-chukar-donsky-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6392
+        },
+        {
+          "key": "optimized/alectoris-chukar-donsky-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8536
+        },
+        {
+          "key": "optimized/alectoris-chukar-donsky-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 8758
+        },
+        {
+          "key": "optimized/alectoris-chukar-donsky-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 11390
+        },
+        {
+          "key": "optimized/alectoris-chukar-donsky-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 17315
+        },
+        {
+          "key": "optimized/alectoris-chukar-donsky-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 22802
+        },
+        {
+          "key": "optimized/alectoris-chukar-donsky-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 24600
+        },
+        {
+          "key": "optimized/alectoris-chukar-donsky-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 32462
+        },
+        {
+          "key": "optimized/alectoris-chukar-donsky-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 46764
+        },
+        {
+          "key": "optimized/alectoris-chukar-donsky-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 63530
+        },
+        {
+          "key": "optimized/alectoris-chukar-donsky-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 113562
+        },
+        {
+          "key": "optimized/alectoris-chukar-donsky-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 158568
+        }
+      ],
+      "updatedAt": "2026-09-26T17:19:25.901Z"
+    },
     "anas-platyrhynchos-donsky-1.jpg": {
       "sourceHash": "fe314ad429a7dc69407d8996eb728da802f2d0d049d5b3a91dcfc62c92af22b8",
       "configFingerprint": "409788ee46c653d8",
