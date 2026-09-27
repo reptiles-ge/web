@@ -13,6 +13,14 @@
     "gitError": "Validation or PR creation failed. See the local terminal for details; this checkout was not changed.",
     "networkError": "Connection failed. Try again."
   },
+  "pageAnalysis": {
+    "action": "Analyze page",
+    "processing": "Codex is researching this page. This may take several minutes…",
+    "error": "Analysis could not finish. See the local terminal for details.",
+    "noChanges": "Analysis finished. The content is unchanged, so no PR was created.",
+    "openPr": "Open PR",
+    "report": "AI report"
+  },
   "nav": {
     "species": "Species",
     "about": "About",

@@ -13,6 +13,14 @@
     "gitError": "Doğrulama veya PR oluşturma başarısız oldu. Ayrıntılar yerel terminalde; bu çalışma kopyası değişmedi.",
     "networkError": "Bağlantı kurulamadı. Yeniden deneyin."
   },
+  "pageAnalysis": {
+    "action": "Sayfayı analiz et",
+    "processing": "Codex sayfayı araştırıyor. Bu birkaç dakika sürebilir…",
+    "error": "Analiz tamamlanamadı. Ayrıntılar yerel terminalde.",
+    "noChanges": "Analiz tamamlandı. İçerik değişmediği için PR oluşturulmadı.",
+    "openPr": "PR'yi aç",
+    "report": "Yapay zekâ raporu"
+  },
   "nav": {
     "species": "Türler",
     "about": "Hakkında",

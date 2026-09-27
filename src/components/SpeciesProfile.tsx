@@ -2,6 +2,7 @@ import { getLocale, getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
 
+import { SpeciesPageAnalysis } from "@/components/admin/SpeciesPageAnalysis";
 import { SpeciesProfileBody } from "@/components/SpeciesProfileBody";
 import { SpeciesProfileHero } from "@/components/SpeciesProfileHero";
 import { SpeciesViewTracker } from "@/components/SpeciesViewTracker";
@@ -76,11 +77,12 @@ export async function SpeciesProfile({
   related,
   species,
 }: SpeciesProfileProps) {
-  const [locale, t, tHubs, tDanger] = await Promise.all([
+  const [locale, t, tHubs, tDanger, tAnalysis] = await Promise.all([
     getLocale() as Promise<AppLocale>,
     getTranslations("profile"),
     getTranslations("groupHubShared"),
     getTranslations("danger"),
+    getTranslations("pageAnalysis"),
   ]);
   const guideLinks = getSpeciesGuideLinks(species.id);
   const parent = getSpeciesParentHub(species);
@@ -146,7 +148,8 @@ export async function SpeciesProfile({
       title: biologyCopy?.conservation ?? t("conservation"),
     },
   ].filter((block) => !isPlaceholderBody(block.body));
-  const editable = locale === "ka" && isLocalAdminEnabled();
+  const localAdmin = isLocalAdminEnabled();
+  const editable = locale === "ka" && localAdmin;
 
   return (
     <div className="min-h-screen bg-background">
@@ -187,6 +190,19 @@ export async function SpeciesProfile({
         showIdentification={showIdentification}
         species={species}
       />
+      {localAdmin ? (
+        <SpeciesPageAnalysis
+          copy={{
+            action: tAnalysis("action"),
+            error: tAnalysis("error"),
+            noChanges: tAnalysis("noChanges"),
+            openPr: tAnalysis("openPr"),
+            processing: tAnalysis("processing"),
+            report: tAnalysis("report"),
+          }}
+          id={species.id}
+        />
+      ) : null}
     </div>
   );
 }
