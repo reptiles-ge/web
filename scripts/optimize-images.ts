@@ -21,7 +21,12 @@ import {
   type StorageAdapter,
 } from "@reptiles-ge/img-compression/storage";
 import { CREDIT_AUTHORS } from "../src/data/creditAuthors";
+import {
+  georgiaRegionPaths,
+  type RegionPathId,
+} from "../src/data/georgia-paths";
 import { getAllNewsArticles, newsArticlePhotos } from "../src/data/news";
+import { getRegionHeroImage } from "../src/data/regionImages";
 import {
   species,
   speciesEn,
@@ -58,6 +63,7 @@ type Target = {
 
 type CliOptions = {
   speciesIds: string[];
+  regionId: RegionPathId | undefined;
   all: boolean;
   news: boolean;
   site: boolean;
@@ -70,6 +76,7 @@ type CliOptions = {
 
 function parseArguments(argv: string[]): CliOptions {
   const speciesIds: string[] = [];
+  let regionId: RegionPathId | undefined;
   let all = false;
   let news = false;
   let site = false;
@@ -88,6 +95,14 @@ function parseArguments(argv: string[]): CliOptions {
           if (id.trim()) speciesIds.push(id.trim());
         }
         break;
+      case "--region": {
+        const id = argv[++index];
+        if (!id || !Object.hasOwn(georgiaRegionPaths, id)) {
+          throw new Error(`Unknown region id "${id}".`);
+        }
+        regionId = id as RegionPathId;
+        break;
+      }
       case "--all":
         all = true;
         break;
@@ -119,15 +134,24 @@ function parseArguments(argv: string[]): CliOptions {
     }
   }
 
-  const scopes = [all, news, site, speciesIds.length > 0].filter(
+  const scopes = [all, news, site, speciesIds.length > 0, !!regionId].filter(
     Boolean,
   ).length;
   if (scopes > 1) {
-    throw new Error("Pass only one of --all, --species, --news, or --site.");
-  }
-  if (!all && !news && !site && !emitOnly && speciesIds.length === 0) {
     throw new Error(
-      "Pass --species <id> (comma-separated for several), --news for news photos, --site for homepage group photos, or --all for every image.",
+      "Pass only one of --all, --species, --region, --news, or --site.",
+    );
+  }
+  if (
+    !all &&
+    !news &&
+    !site &&
+    !emitOnly &&
+    speciesIds.length === 0 &&
+    !regionId
+  ) {
+    throw new Error(
+      "Pass --species <id>, --region <id>, --news, --site, or --all.",
     );
   }
   if (limit !== undefined && (!Number.isInteger(limit) || limit < 1)) {
@@ -139,6 +163,7 @@ function parseArguments(argv: string[]): CliOptions {
 
   return {
     speciesIds,
+    regionId,
     all,
     news,
     site,
@@ -183,6 +208,9 @@ function collectSources(): Map<string, string> {
   for (const src of Object.values(siteImages)) add(src);
   for (const src of Object.values(GROUP_HUB_ILLUSTRATIONS)) add(src);
   for (const author of CREDIT_AUTHORS) add(author.portraitSrc);
+  for (const id of Object.keys(georgiaRegionPaths) as RegionPathId[]) {
+    add(getRegionHeroImage(id));
+  }
 
   for (const article of getAllNewsArticles()) {
     for (const photo of newsArticlePhotos(article)) add(photo.src);
@@ -203,6 +231,7 @@ function collectSources(): Map<string, string> {
 
 function collectTargets(
   ids: string[],
+  regionId: RegionPathId | undefined,
   all: boolean,
   news: boolean,
   site: boolean,
@@ -233,7 +262,12 @@ function collectTargets(
     }
     for (const src of Object.values(GROUP_HUB_ILLUSTRATIONS)) add(src);
     for (const author of CREDIT_AUTHORS) add(author.portraitSrc);
+    for (const id of Object.keys(georgiaRegionPaths) as RegionPathId[]) {
+      add(getRegionHeroImage(id));
+    }
   }
+
+  if (regionId) add(getRegionHeroImage(regionId));
 
   if (all || news) {
     for (const article of getAllNewsArticles()) {
@@ -548,6 +582,7 @@ async function run() {
 
   const discovered = collectTargets(
     options.speciesIds,
+    options.regionId,
     options.all,
     options.news,
     options.site,
@@ -577,7 +612,7 @@ async function run() {
       `OG ${og.width}×${og.height} JPEG q${og.quality}–${og.minQuality}, ≤${formatBytes(og.maxBytes)}.`,
   );
   console.log(
-    `Scope: ${options.all ? "all" : options.news ? "news" : options.site ? "site" : options.speciesIds.join(", ")}. ` +
+    `Scope: ${options.all ? "all" : options.news ? "news" : options.site ? "site" : (options.regionId ?? options.speciesIds.join(", "))}. ` +
       `${targets.length} image(s)${options.dryRun ? " (dry run)" : ""}.`,
   );
 
