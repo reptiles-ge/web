@@ -202,10 +202,6 @@ export function buildEditorPrompt(input: {
 
     "Apply the same distinction in translations: readable factual prose without unnecessary source-name repetition, while preserving evidence and meaningful qualifications.",
 
-    "READABILITY TEST:",
-
-    "Assume the reader has no education in biology or zoology.",
-
     "RESEARCH-GAP COMMENTARY — REMOVE, DO NOT REPHRASE:",
 
     "HIGH PRIORITY: In ordinary descriptive prose within SELECTED, remove commentary whose only purpose is to say that information was not found in the reviewed sources, a separate local study is unavailable, or the Georgian population was not separately assessed. Do not add such commentary.",
@@ -237,6 +233,10 @@ export function buildEditorPrompt(input: {
     "Apply these edits only within SELECTED. BEFORE and AFTER remain exactly unchanged. Construct ka as required, then translate the final ka; do not restore deleted commentary in English, Russian or Turkish.",
 
     "FINAL TEST: Does this sentence teach the reader a useful fact, or merely announce that a source, study or separate local assessment was not found? If it only announces the gap and is not essential to the accuracy or safety of retained content, REMOVE IT.",
+
+    "READABILITY TEST:",
+
+    "Assume the reader has no education in biology or zoology.",
 
     "Before finalizing, silently review the rewritten Georgian and ask:",
 
