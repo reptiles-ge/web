@@ -1,8 +1,21 @@
 import { describe, expect, it } from "vitest";
 
 import { getRegionContent } from "@/data/regionContent";
-import { localizeRegionTextIfPresent, regions } from "@/data/regions";
-import { getCatalogSpecies, unpublishedSpeciesIds } from "@/data/species";
+import {
+  getRegionsForSpecies,
+  localizeRegionTextIfPresent,
+  regions,
+} from "@/data/regions";
+import {
+  getCatalogSpecies,
+  getSpeciesById,
+  unpublishedSpeciesIds,
+} from "@/data/species";
+import {
+  confirmedRecordThresholdForSpecies,
+  getHalyomorphaFieldRecords,
+  getHalyomorphaOccurrenceSummary,
+} from "@/lib/halyomorphaOccurrences";
 
 describe("region speciesIds", () => {
   it("only lists published catalog ids", () => {
@@ -13,6 +26,34 @@ describe("region speciesIds", () => {
         expect(published.has(id), `${region.id}:${id}`).toBe(true);
       }
     }
+  });
+
+  it("lists Common Quail only where the record table confirms distribution", () => {
+    const id = "coturnix-coturnix";
+    const species = getSpeciesById(id);
+    expect(species).toBeDefined();
+    if (!species) return;
+    const records = getHalyomorphaFieldRecords({
+      fieldRecords: species.fieldRecords ?? [],
+      gallery: species.gallery,
+      locale: "ka",
+      speciesName: species.commonName,
+    });
+    const summary = getHalyomorphaOccurrenceSummary(
+      records,
+      "ka",
+      confirmedRecordThresholdForSpecies(id),
+    );
+    expect(
+      getRegionsForSpecies(id)
+        .map((region) => region.id)
+        .sort(),
+    ).toEqual(
+      summary.recordsByRegion
+        .filter((region) => region.status === "confirmed")
+        .map((region) => region.id)
+        .sort(),
+    );
   });
 });
 
