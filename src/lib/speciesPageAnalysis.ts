@@ -62,22 +62,16 @@ async function run(command: string, args: string[], cwd = root) {
 }
 
 async function runAnalysis(id: string, onReport: (report: string) => void) {
-  const base = await run("gh", [
-    "repo",
-    "view",
-    "--json",
-    "defaultBranchRef",
-    "--jq",
-    ".defaultBranchRef.name",
-  ]);
-  const repository = await run("gh", [
-    "repo",
-    "view",
-    "--json",
-    "nameWithOwner",
-    "--jq",
-    ".nameWithOwner",
-  ]);
+  const repositoryInfo = JSON.parse(
+    await run("gh", [
+      "repo",
+      "view",
+      "--json",
+      "defaultBranchRef,nameWithOwner",
+    ]),
+  ) as { defaultBranchRef: { name: string }; nameWithOwner: string };
+  const base = repositoryInfo.defaultBranchRef.name;
+  const repository = repositoryInfo.nameWithOwner;
   if (!/^[a-zA-Z0-9._/-]+$/.test(base))
     throw new Error("Invalid target branch");
   const existing = findSpeciesPullRequest(
@@ -134,19 +128,20 @@ async function runAnalysis(id: string, onReport: (report: string) => void) {
       `origin/${existing ? remoteBranch : base}`,
     ]);
     if (!existing) {
-      for (const locale of ["ka", "en", "ru", "tr"]) {
-        const file = `src/content/species/${id}/${locale}.mdx`;
-        const local = await fs
-          .readFile(path.join(root, file), "utf8")
-          .catch(() => "");
-        const remote = await fs
-          .readFile(path.join(worktree, file), "utf8")
-          .catch(() => "");
-        if (local !== remote)
-          throw new Error(
-            "Species content differs from the PR base; update the local page first",
-          );
-      }
+      const differences = await Promise.all(
+        ["ka", "en", "ru", "tr"].map(async (locale) => {
+          const file = `src/content/species/${id}/${locale}.mdx`;
+          const [local, remote] = await Promise.all([
+            fs.readFile(path.join(root, file), "utf8").catch(() => ""),
+            fs.readFile(path.join(worktree, file), "utf8").catch(() => ""),
+          ]);
+          return local !== remote;
+        }),
+      );
+      if (differences.some(Boolean))
+        throw new Error(
+          "Species content differs from the PR base; update the local page first",
+        );
     }
     await fs.symlink(
       path.join(root, "node_modules"),
