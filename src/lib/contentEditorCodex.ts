@@ -15,11 +15,14 @@ const OUTPUT_SCHEMA = {
   type: "object",
 };
 
-export async function transformWithCodex(input: {
-  after: string;
-  before: string;
-  selected: string;
-}): Promise<EditorResult> {
+export async function transformWithCodex(
+  input: {
+    after: string;
+    before: string;
+    selected: string;
+  },
+  reasoningEffort: "medium" | "xhigh" = "medium",
+): Promise<EditorResult> {
   const directory = await fs.mkdtemp(
     path.join(os.tmpdir(), "reptiles-editor-codex-"),
   );
@@ -38,7 +41,7 @@ export async function transformWithCodex(input: {
           "--sandbox",
           "read-only",
           "--config",
-          'model_reasoning_effort="medium"',
+          `model_reasoning_effort="${reasoningEffort}"`,
           "--cd",
           directory,
           "--output-schema",

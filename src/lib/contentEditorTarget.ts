@@ -31,7 +31,8 @@ const regionField =
   /^(?:name|description|overview|biome|habitats\.\d+|faq\.\d+\.(?:question|answer))$/;
 
 export async function resolveEditorTarget(
-  input: EditorRequest,
+  input: Partial<Pick<EditorRequest, "end" | "renderedText" | "start">> &
+    Pick<EditorRequest, "field" | "id" | "kind">,
   cwd = process.cwd(),
 ) {
   let files: string[];
@@ -71,6 +72,7 @@ export async function resolveEditorTarget(
   } else {
     if (input.id !== "messages") throw new Error("Invalid message target");
     if (field === "auto") {
+      if (!input.renderedText) throw new Error("Missing message text");
       const ka = JSON.parse(
         await fs.readFile(path.join(cwd, "messages/ka.json"), "utf8"),
       ) as unknown;

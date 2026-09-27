@@ -2,6 +2,7 @@ import matter from "gray-matter";
 import { z } from "zod";
 
 export const editorFields = [
+  "interaction",
   "overview",
   "habitat",
   "diet",
