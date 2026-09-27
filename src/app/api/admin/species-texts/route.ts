@@ -1,3 +1,5 @@
+import { randomUUID } from "node:crypto";
+
 import {
   isLocalAdminEnabled,
   localAdminForbiddenResponse,
@@ -7,7 +9,7 @@ import {
   readAdminSpeciesGallery,
 } from "@/lib/adminGalleryMdx";
 import { notifyAdminTelegram } from "@/lib/adminTelegram";
-import { analyzeSpeciesPage } from "@/lib/speciesPageAnalysis";
+import { processSpeciesTexts } from "@/lib/speciesTextProcessing";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -21,8 +23,6 @@ export async function POST(request: Request) {
   ) {
     return localAdminForbiddenResponse();
   }
-
-  let report = "";
   let speciesName = "";
   try {
     const text = await request.text();
@@ -31,22 +31,17 @@ export async function POST(request: Request) {
     if (typeof id !== "string" || !isSpeciesContentId(id))
       throw new Error("Invalid species id");
     speciesName = readAdminSpeciesGallery(id).commonName;
-    const result = await analyzeSpeciesPage(id, (value) => {
-      report = value;
-    });
-    const response = Response.json(result, {
+    const result = await processSpeciesTexts(id, randomUUID());
+    await notifyAdminTelegram(`✅ texts done ${speciesName}`);
+    return Response.json(result, {
       headers: { "Cache-Control": "no-store", "X-Robots-Tag": "noindex" },
     });
-    await notifyAdminTelegram(`✅ done ${speciesName}`);
-    return response;
   } catch (error) {
-    console.error("species-analysis", error);
-    if (speciesName) await notifyAdminTelegram(`❌ failed ${speciesName}`);
+    console.error("species-texts", error);
+    if (speciesName)
+      await notifyAdminTelegram(`❌ texts failed ${speciesName}`);
     return Response.json(
-      {
-        error: error instanceof Error ? error.message : "Analysis failed",
-        report,
-      },
+      { error: "Text processing failed" },
       {
         headers: { "Cache-Control": "no-store", "X-Robots-Tag": "noindex" },
         status: 400,

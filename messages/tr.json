@@ -19,7 +19,12 @@
     "error": "Analiz tamamlanamadı. Ayrıntılar yerel terminalde.",
     "noChanges": "Analiz tamamlandı. İçerik değişmediği için PR oluşturulmadı.",
     "openPr": "PR'yi aç",
-    "report": "Yapay zekâ raporu"
+    "report": "Yapay zekâ raporu",
+    "textsAction": "Sayfa metinlerini düzenle",
+    "textsProcessing": "Codex sayfa metinlerini düzenliyor. Bu birkaç dakika sürebilir…",
+    "textsError": "Metin düzenleme tamamlanamadı. Ayrıntılar yerel terminalde.",
+    "textsNoChanges": "Metinler işlendi, ancak değişiklik yok ve PR oluşturulmadı.",
+    "textsReport": "Yapay zekâ tarafından düzenlenen metinler"
   },
   "nav": {
     "species": "Türler",

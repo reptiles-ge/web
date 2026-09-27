@@ -199,6 +199,11 @@ export async function SpeciesProfile({
             openPr: tAnalysis("openPr"),
             processing: tAnalysis("processing"),
             report: tAnalysis("report"),
+            textsAction: tAnalysis("textsAction"),
+            textsError: tAnalysis("textsError"),
+            textsNoChanges: tAnalysis("textsNoChanges"),
+            textsProcessing: tAnalysis("textsProcessing"),
+            textsReport: tAnalysis("textsReport"),
           }}
           id={species.id}
         />

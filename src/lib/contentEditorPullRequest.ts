@@ -16,6 +16,14 @@ const exec = promisify(execFile);
 const root = process.cwd();
 const queues = new Map<string, Promise<unknown>>();
 
+type Edit = {
+  field: string;
+  id: string;
+  kind: EditorRequest["kind"];
+  result: EditorResult;
+  selection?: EditorRequest;
+  source?: string;
+};
 type OpenPullRequest = {
   baseRefName: string;
   files: Array<{ path: string }>;
@@ -29,17 +37,19 @@ export async function createEditorPullRequest(
   result: EditorResult,
   operationId: string,
 ) {
-  const key = `${input.kind}:${input.id}`;
-  const previous = queues.get(key) ?? Promise.resolve();
-  const current = previous
-    .catch(() => undefined)
-    .then(() => createPullRequest(input, result, operationId));
-  queues.set(key, current);
-  try {
-    return await current;
-  } finally {
-    if (queues.get(key) === current) queues.delete(key);
-  }
+  return enqueue([{ ...input, result, selection: input }], operationId);
+}
+
+export async function createSpeciesTextsPullRequest(
+  id: string,
+  updates: Array<{ field: string; result: EditorResult; source: string }>,
+  operationId: string,
+) {
+  if (!updates.length) throw new Error("No species texts to edit");
+  return enqueue(
+    updates.map((update) => ({ ...update, id, kind: "species" })),
+    operationId,
+  );
 }
 
 export function findSpeciesPullRequest(
@@ -62,11 +72,8 @@ export function findSpeciesPullRequest(
   return match ?? null;
 }
 
-async function createPullRequest(
-  input: EditorRequest,
-  result: EditorResult,
-  operationId: string,
-) {
+async function createPullRequest(edits: Edit[], operationId: string) {
+  const input = edits[0];
   const base = await run("gh", [
     "repo",
     "view",
@@ -131,14 +138,19 @@ async function createPullRequest(
       worktree,
       `origin/${existing ? remoteBranch : base}`,
     ]);
-    const target = await resolveEditorTarget(input, worktree);
-    verifyEditorSelection(target.source, input);
-    const files = target.files;
-    const allowedFiles = new Set(files);
-    const updated = target.updated(result);
-    for (const [index, file] of files.entries()) {
-      await fs.writeFile(path.join(worktree, file), updated[index]);
+    const allowedFiles = new Set<string>();
+    for (const edit of edits) {
+      const target = await resolveEditorTarget(edit, worktree);
+      if (edit.selection) verifyEditorSelection(target.source, edit.selection);
+      else if (target.source !== edit.source)
+        throw new Error(`Content changed for ${edit.field}; reload and retry`);
+      const updated = target.updated(edit.result);
+      for (const [index, file] of target.files.entries()) {
+        allowedFiles.add(file);
+        await fs.writeFile(path.join(worktree, file), updated[index]);
+      }
     }
+    const files = [...allowedFiles];
     const changed = (
       await run(
         "git",
@@ -149,12 +161,12 @@ async function createPullRequest(
       .split("\n")
       .filter(Boolean)
       .map((line) => line.slice(3));
-    if (
-      changed.length === 0 ||
-      changed.some((file) => !allowedFiles.has(file))
-    ) {
+    if (changed.some((file) => !allowedFiles.has(file))) {
       throw new Error("Unexpected changed files in editor worktree");
     }
+    if (!changed.length && edits.length > 1) return null;
+    if (!changed.length)
+      throw new Error("No content changes to create a pull request");
     await fs.symlink(
       path.join(root, "node_modules"),
       path.join(worktree, "node_modules"),
@@ -181,7 +193,11 @@ async function createPullRequest(
     }
     await run(
       "git",
-      ["commit", "-m", `content: edit ${input.id} ${input.field}`],
+      [
+        "commit",
+        "-m",
+        `content: edit ${input.id} ${edits.length > 1 ? "page texts" : input.field}`,
+      ],
       worktree,
     );
     await run(
@@ -196,7 +212,7 @@ async function createPullRequest(
       const body = path.join(temporary, "pr-body.md");
       await fs.writeFile(
         body,
-        `## Summary\n\n- Edit ${input.field} for ${input.id} in KA, EN, RU and TR through the local selection editor\n\n## Validation\n\n- pnpm run pretest\n- pnpm run typecheck\n`,
+        `## Summary\n\n- Edit ${edits.map((edit) => edit.field).join(", ")} for ${input.id} in KA, EN, RU and TR through the local content editor\n\n## Validation\n\n- pnpm run pretest\n- pnpm run typecheck\n`,
       );
       try {
         pullRequestUrl = await run(
@@ -211,7 +227,7 @@ async function createPullRequest(
             "--head",
             branch,
             "--title",
-            `Edit ${input.id} ${input.field} in four locales`,
+            `Edit ${input.id} ${edits.length > 1 ? "page texts" : input.field} in four locales`,
             "--body-file",
             body,
           ],
@@ -265,6 +281,21 @@ async function createPullRequest(
       );
     }
     await fs.rm(temporary, { force: true, recursive: true });
+  }
+}
+
+async function enqueue(edits: Edit[], operationId: string) {
+  const { id, kind } = edits[0];
+  const key = `${kind}:${id}`;
+  const previous = queues.get(key) ?? Promise.resolve();
+  const current = previous
+    .catch(() => undefined)
+    .then(() => createPullRequest(edits, operationId));
+  queues.set(key, current);
+  try {
+    return await current;
+  } finally {
+    if (queues.get(key) === current) queues.delete(key);
   }
 }
 
