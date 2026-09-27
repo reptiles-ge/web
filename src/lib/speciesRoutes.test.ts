@@ -95,4 +95,16 @@ describe("species routes", () => {
       "pseudopus-apodus",
     );
   });
+
+  it("keeps the mottled scorpion comparison to the visual match", () => {
+    expect(getSpeciesLookalikes("mesobuthus-eupeus")).toEqual([
+      "olivierus-caucasicus",
+    ]);
+    expect(getSpeciesLookalikes("olivierus-caucasicus")).toContain(
+      "mesobuthus-eupeus",
+    );
+    for (const id of ["euscorpius-italicus", "euscorpius-mingrelicus"]) {
+      expect(getSpeciesLookalikes(id)).not.toContain("mesobuthus-eupeus");
+    }
+  });
 });
