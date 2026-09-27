@@ -10,30 +10,64 @@ import { findSpeciesPullRequest } from "@/lib/contentEditorPullRequest";
 const exec = promisify(execFile);
 const root = process.cwd();
 const running = new Set<string>();
+export type SpeciesAnalysisMode = "analysis" | "links" | "lookalikes";
+
+const modeConfig = {
+  analysis: {
+    commit: "analyze",
+    prompt: "species-page-analysis.md",
+    title: "Analyze species page for",
+  },
+  links: {
+    commit: "link",
+    prompt: "species-internal-links.md",
+    title: "Improve internal links on",
+  },
+  lookalikes: {
+    commit: "review lookalikes for",
+    prompt: "species-lookalikes.md",
+    title: "Review lookalikes for",
+  },
+} satisfies Record<
+  SpeciesAnalysisMode,
+  { commit: string; prompt: string; title: string }
+>;
 
 export async function analyzeSpeciesPage(
   id: string,
   onReport: (report: string) => void,
+  mode: SpeciesAnalysisMode = "analysis",
 ) {
   if (running.has(id)) throw new Error("Analysis is already running");
   running.add(id);
   try {
-    return await runAnalysis(id, onReport);
+    return await runAnalysis(id, onReport, mode);
   } finally {
     running.delete(id);
   }
 }
 
-export function assertSpeciesAnalysisFiles(files: string[], id: string) {
+export function assertSpeciesAnalysisFiles(
+  files: string[],
+  id: string,
+  mode: SpeciesAnalysisMode = "analysis",
+) {
   const prefix = `src/content/species/${id}/`;
   if (
     files.some(
       (file) =>
-        !file.startsWith(prefix) ||
-        !/^(ka|en|ru|tr)\.mdx$/.test(file.slice(prefix.length)),
+        !(
+          (file.startsWith(prefix) &&
+            /^(ka|en|ru|tr)\.mdx$/.test(file.slice(prefix.length))) ||
+          (mode === "lookalikes" &&
+            [
+              "src/lib/speciesRoutes.test.ts",
+              "src/lib/speciesRoutes.ts",
+            ].includes(file))
+        ),
     )
   ) {
-    throw new Error("Codex changed files outside the target species content");
+    throw new Error("Codex changed files outside this task's scope");
   }
 }
 
@@ -61,7 +95,11 @@ async function run(command: string, args: string[], cwd = root) {
   return stdout.trimEnd();
 }
 
-async function runAnalysis(id: string, onReport: (report: string) => void) {
+async function runAnalysis(
+  id: string,
+  onReport: (report: string) => void,
+  mode: SpeciesAnalysisMode,
+) {
   const repositoryInfo = JSON.parse(
     await run("gh", [
       "repo",
@@ -74,36 +112,54 @@ async function runAnalysis(id: string, onReport: (report: string) => void) {
   const repository = repositoryInfo.nameWithOwner;
   if (!/^[a-zA-Z0-9._/-]+$/.test(base))
     throw new Error("Invalid target branch");
-  const existing = findSpeciesPullRequest(
-    JSON.parse(
-      await run("gh", [
-        "pr",
-        "list",
-        "--repo",
-        repository,
-        "--state",
-        "open",
-        "--base",
-        base,
-        "--limit",
-        "1000",
-        "--json",
-        "baseRefName,files,headRefName,isCrossRepository,url",
-      ]),
-    ) as Parameters<typeof findSpeciesPullRequest>[0],
-    id,
-    base,
+  const pullRequests = JSON.parse(
+    await run("gh", [
+      "pr",
+      "list",
+      "--repo",
+      repository,
+      "--state",
+      "open",
+      "--base",
+      base,
+      "--limit",
+      "1000",
+      "--json",
+      "baseRefName,files,headRefName,isCrossRepository,url",
+    ]),
+  ) as Parameters<typeof findSpeciesPullRequest>[0];
+  const taskPullRequests = pullRequests.filter(
+    (pullRequest) =>
+      pullRequest.baseRefName === base &&
+      pullRequest.headRefName.startsWith(`feature/species-${mode}-${id}-`),
   );
-  const branch = `feature/species-analysis-${id}-${randomUUID().slice(0, 8)}`;
+  if (taskPullRequests.length > 1)
+    throw new Error("Multiple open pull requests exist for this task");
+  if (taskPullRequests[0]?.isCrossRepository)
+    throw new Error("The existing pull request is from a fork");
+  const existing =
+    taskPullRequests[0] ??
+    (mode === "analysis"
+      ? findSpeciesPullRequest(
+          pullRequests.filter(
+            (pullRequest) =>
+              !/^(feature\/species-(links|lookalikes)-)/.test(
+                pullRequest.headRefName,
+              ),
+          ),
+          id,
+          base,
+        )
+      : null);
+  const branch = `feature/species-${mode}-${id}-${randomUUID().slice(0, 8)}`;
   const remoteBranch = existing?.headRefName ?? branch;
-  if (
-    await run("git", [
-      "status",
-      "--porcelain",
-      "--",
-      `src/content/species/${id}`,
-    ])
-  ) {
+  const targetPaths = [
+    `src/content/species/${id}`,
+    ...(mode === "lookalikes"
+      ? ["src/lib/speciesRoutes.ts", "src/lib/speciesRoutes.test.ts"]
+      : []),
+  ];
+  if (await run("git", ["status", "--porcelain", "--", ...targetPaths])) {
     throw new Error("The species has local changes; save them before analysis");
   }
   const directory = await fs.mkdtemp(
@@ -128,9 +184,16 @@ async function runAnalysis(id: string, onReport: (report: string) => void) {
       `origin/${existing ? remoteBranch : base}`,
     ]);
     if (!existing) {
+      const sourceFiles = [
+        ...["ka", "en", "ru", "tr"].map(
+          (locale) => `src/content/species/${id}/${locale}.mdx`,
+        ),
+        ...(mode === "lookalikes"
+          ? ["src/lib/speciesRoutes.ts", "src/lib/speciesRoutes.test.ts"]
+          : []),
+      ];
       const differences = await Promise.all(
-        ["ka", "en", "ru", "tr"].map(async (locale) => {
-          const file = `src/content/species/${id}/${locale}.mdx`;
+        sourceFiles.map(async (file) => {
           const [local, remote] = await Promise.all([
             fs.readFile(path.join(root, file), "utf8").catch(() => ""),
             fs.readFile(path.join(worktree, file), "utf8").catch(() => ""),
@@ -149,7 +212,7 @@ async function runAnalysis(id: string, onReport: (report: string) => void) {
       "dir",
     );
     const promptTemplate = await fs.readFile(
-      path.join(root, "src/prompts/species-page-analysis.md"),
+      path.join(root, "src/prompts", modeConfig[mode].prompt),
       "utf8",
     );
     const prompt = promptTemplate.replace(
@@ -167,18 +230,29 @@ async function runAnalysis(id: string, onReport: (report: string) => void) {
     onReport(report);
 
     const files = await changedFiles(worktree);
-    assertSpeciesAnalysisFiles(files, id);
-    if (files.length === 0) return { pullRequestUrl: null, report };
+    assertSpeciesAnalysisFiles(files, id, mode);
+    if (files.length === 0)
+      return { pullRequestUrl: existing?.url ?? null, report };
 
     await run("pnpm", ["run", "pretest"], worktree);
     await run("pnpm", ["run", "typecheck"], worktree);
+    if (mode === "lookalikes")
+      await run(
+        "pnpm",
+        ["exec", "vitest", "run", "src/lib/speciesRoutes.test.ts"],
+        worktree,
+      );
     const verifiedFiles = await changedFiles(worktree);
-    assertSpeciesAnalysisFiles(verifiedFiles, id);
+    assertSpeciesAnalysisFiles(verifiedFiles, id, mode);
     if (verifiedFiles.sort().join("\0") !== files.sort().join("\0"))
       throw new Error("Validation changed the working tree");
     await run("git", ["diff", "--check", "--", ...files], worktree);
     await run("git", ["add", "--", ...files], worktree);
-    await run("git", ["commit", "-m", `content: analyze ${id}`], worktree);
+    await run(
+      "git",
+      ["commit", "-m", `content: ${modeConfig[mode].commit} ${id}`],
+      worktree,
+    );
     await run(
       "git",
       existing
@@ -191,7 +265,7 @@ async function runAnalysis(id: string, onReport: (report: string) => void) {
       const body = path.join(directory, "pr-body.md");
       await fs.writeFile(
         body,
-        `## Summary\n\n- Research and edit ${id} with the species page analysis prompt\n\n## Validation\n\n- pnpm run pretest\n- pnpm run typecheck\n\n## AI report\n\n${report.slice(0, 55000)}\n`,
+        `## Summary\n\n- ${modeConfig[mode].title} ${id}\n\n## Validation\n\n- pnpm run pretest\n- pnpm run typecheck\n${mode === "lookalikes" ? "- pnpm exec vitest run src/lib/speciesRoutes.test.ts\n" : ""}\n## AI report\n\n${report.slice(0, 55000)}\n`,
       );
       try {
         pullRequestUrl = await run(
@@ -206,7 +280,9 @@ async function runAnalysis(id: string, onReport: (report: string) => void) {
             "--head",
             branch,
             "--title",
-            `Analyze ${id} species page`,
+            mode === "analysis"
+              ? `Analyze ${id} species page`
+              : `${modeConfig[mode].title} ${id}`,
             "--body-file",
             body,
           ],

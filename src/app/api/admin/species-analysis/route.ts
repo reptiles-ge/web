@@ -27,13 +27,22 @@ export async function POST(request: Request) {
   try {
     const text = await request.text();
     if (text.length > 1000) throw new Error("Invalid request");
-    const { id } = JSON.parse(text) as { id?: unknown };
+    const { id, mode = "analysis" } = JSON.parse(text) as {
+      id?: unknown;
+      mode?: unknown;
+    };
     if (typeof id !== "string" || !isSpeciesContentId(id))
       throw new Error("Invalid species id");
+    if (mode !== "analysis" && mode !== "links" && mode !== "lookalikes")
+      throw new Error("Invalid analysis mode");
     speciesName = readAdminSpeciesGallery(id).commonName;
-    const result = await analyzeSpeciesPage(id, (value) => {
-      report = value;
-    });
+    const result = await analyzeSpeciesPage(
+      id,
+      (value) => {
+        report = value;
+      },
+      mode,
+    );
     const response = Response.json(result, {
       headers: { "Cache-Control": "no-store", "X-Robots-Tag": "noindex" },
     });

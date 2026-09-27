@@ -28,6 +28,11 @@ describe("occurrenceStatusForCount", () => {
       confirmedRecordThresholdForSpecies("coturnix-coturnix");
     expect(occurrenceStatusForCount(0, quailThreshold)).toBe("recorded-only");
     expect(occurrenceStatusForCount(1, quailThreshold)).toBe("confirmed");
+    const zamenisThreshold = confirmedRecordThresholdForSpecies(
+      "zamenis-hohenackeri",
+    );
+    expect(occurrenceStatusForCount(0, zamenisThreshold)).toBe("recorded-only");
+    expect(occurrenceStatusForCount(1, zamenisThreshold)).toBe("confirmed");
     const platycepsThreshold =
       confirmedRecordThresholdForSpecies("platyceps-najadum");
     expect(occurrenceStatusForCount(2, platycepsThreshold)).toBe(
@@ -94,7 +99,13 @@ describe("occurrenceStatusForCount", () => {
       .map((region) => region.id)
       .sort();
 
-    expect(confirmedIds).toEqual(["samtskhe-javakheti", "tbilisi"]);
+    expect(confirmedIds).toEqual([
+      "kvemo-kartli",
+      "mtskheta-mtianeti",
+      "samtskhe-javakheti",
+      "shida-kartli",
+      "tbilisi",
+    ]);
     expect(
       getRegionsForSpecies(species.id)
         .map((region) => region.id)

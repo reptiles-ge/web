@@ -5,6 +5,10 @@ import { useState } from "react";
 type Copy = {
   action: string;
   error: string;
+  linksAction: string;
+  linksProcessing: string;
+  lookalikesAction: string;
+  lookalikesProcessing: string;
   noChanges: string;
   openPr: string;
   processing: string;
@@ -17,15 +21,17 @@ type Copy = {
   textsStale: string;
 };
 
+type Mode = "analysis" | "links" | "lookalikes" | "texts";
+
 export function SpeciesPageAnalysis({ copy, id }: { copy: Copy; id: string }) {
   const [processing, setProcessing] = useState(false);
   const [report, setReport] = useState("");
   const [error, setError] = useState("");
   const [pullRequestUrl, setPullRequestUrl] = useState<null | string>(null);
   const [complete, setComplete] = useState(false);
-  const [mode, setMode] = useState<"analysis" | "texts">("analysis");
+  const [mode, setMode] = useState<Mode>("analysis");
 
-  async function launch(nextMode: "analysis" | "texts") {
+  async function launch(nextMode: Mode) {
     if (processing) return;
     setMode(nextMode);
     setProcessing(true);
@@ -35,11 +41,11 @@ export function SpeciesPageAnalysis({ copy, id }: { copy: Copy; id: string }) {
     setComplete(false);
     try {
       const response = await fetch(
-        nextMode === "analysis"
-          ? "/api/admin/species-analysis"
-          : "/api/admin/species-texts",
+        nextMode === "texts"
+          ? "/api/admin/species-texts"
+          : "/api/admin/species-analysis",
         {
-          body: JSON.stringify({ id }),
+          body: JSON.stringify({ id, mode: nextMode }),
           headers: { "Content-Type": "application/json" },
           method: "POST",
         },
@@ -52,11 +58,11 @@ export function SpeciesPageAnalysis({ copy, id }: { copy: Copy; id: string }) {
       setReport(result.report ?? "");
       if (!response.ok)
         throw new Error(
-          nextMode === "analysis"
-            ? copy.error
-            : result.error === "stale"
-              ? copy.textsStale
-              : copy.textsError,
+          nextMode === "texts" && result.error === "stale"
+            ? copy.textsStale
+            : nextMode === "texts"
+              ? copy.textsError
+              : copy.error,
         );
       setPullRequestUrl(result.pullRequestUrl ?? null);
       setComplete(true);
@@ -64,9 +70,9 @@ export function SpeciesPageAnalysis({ copy, id }: { copy: Copy; id: string }) {
       setError(
         caught instanceof Error
           ? caught.message
-          : nextMode === "analysis"
-            ? copy.error
-            : copy.textsError,
+          : nextMode === "texts"
+            ? copy.textsError
+            : copy.error,
       );
     } finally {
       setProcessing(false);
@@ -94,19 +100,41 @@ export function SpeciesPageAnalysis({ copy, id }: { copy: Copy; id: string }) {
       >
         {copy.textsAction}
       </button>
+      <button
+        className="mt-2 w-full min-w-44 rounded-lg border border-border px-4 py-2.5 text-sm font-medium disabled:opacity-60"
+        disabled={processing}
+        onClick={() => void launch("lookalikes")}
+        type="button"
+      >
+        {copy.lookalikesAction}
+      </button>
+      <button
+        className="mt-2 w-full min-w-44 rounded-lg border border-border px-4 py-2.5 text-sm font-medium disabled:opacity-60"
+        disabled={processing}
+        onClick={() => void launch("links")}
+        type="button"
+      >
+        {copy.linksAction}
+      </button>
       <div
         aria-live="polite"
         className="max-w-[min(22rem,calc(100vw-4rem))] text-sm"
       >
         {processing ? (
           <p className="mt-3 text-muted-foreground">
-            {mode === "analysis" ? copy.processing : copy.textsProcessing}
+            {mode === "analysis"
+              ? copy.processing
+              : mode === "texts"
+                ? copy.textsProcessing
+                : mode === "lookalikes"
+                  ? copy.lookalikesProcessing
+                  : copy.linksProcessing}
           </p>
         ) : null}
         {error ? <p className="mt-3 text-destructive">{error}</p> : null}
         {complete && !pullRequestUrl ? (
           <p className="mt-3 text-muted-foreground">
-            {mode === "analysis" ? copy.noChanges : copy.textsNoChanges}
+            {mode === "texts" ? copy.textsNoChanges : copy.noChanges}
           </p>
         ) : null}
         {pullRequestUrl ? (
@@ -122,7 +150,7 @@ export function SpeciesPageAnalysis({ copy, id }: { copy: Copy; id: string }) {
         {report ? (
           <div className="mt-4 border-t border-border pt-4">
             <h2 className="font-semibold">
-              {mode === "analysis" ? copy.report : copy.textsReport}
+              {mode === "texts" ? copy.textsReport : copy.report}
             </h2>
             <pre className="mt-3 font-sans text-[13px] leading-relaxed wrap-break-word whitespace-pre-wrap">
               {report}

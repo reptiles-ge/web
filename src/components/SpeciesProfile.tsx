@@ -195,6 +195,10 @@ export async function SpeciesProfile({
           copy={{
             action: tAnalysis("action"),
             error: tAnalysis("error"),
+            linksAction: tAnalysis("linksAction"),
+            linksProcessing: tAnalysis("linksProcessing"),
+            lookalikesAction: tAnalysis("lookalikesAction"),
+            lookalikesProcessing: tAnalysis("lookalikesProcessing"),
             noChanges: tAnalysis("noChanges"),
             openPr: tAnalysis("openPr"),
             processing: tAnalysis("processing"),

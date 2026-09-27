@@ -12,9 +12,9 @@ vi.mock("@/lib/speciesPageAnalysis", () => ({
 import { POST } from "@/app/api/admin/species-analysis/route";
 import { analyzeSpeciesPage } from "@/lib/speciesPageAnalysis";
 
-const request = (origin = "http://localhost") =>
+const request = (origin = "http://localhost", mode?: string) =>
   new Request("http://localhost/api/admin/species-analysis", {
-    body: JSON.stringify({ id: "macrovipera-lebetina" }),
+    body: JSON.stringify({ id: "macrovipera-lebetina", mode }),
     headers: { "Content-Type": "application/json", origin },
     method: "POST",
   });
@@ -46,6 +46,7 @@ describe("POST /api/admin/species-analysis", () => {
     expect(analyzeSpeciesPage).toHaveBeenCalledWith(
       "macrovipera-lebetina",
       expect.any(Function),
+      "analysis",
     );
     expect(fetch).toHaveBeenCalledWith(
       "https://api.telegram.org/bottest-token/sendMessage",
@@ -53,6 +54,26 @@ describe("POST /api/admin/species-analysis", () => {
         body: JSON.stringify({ chat_id: "test-chat", text: "✅ done გიურზა" }),
       }),
     );
+  });
+
+  it.each(["links", "lookalikes"] as const)(
+    "runs the %s review for the requested species",
+    async (mode) => {
+      const response = await POST(request("http://localhost", mode));
+      expect(response.status).toBe(200);
+      expect(analyzeSpeciesPage).toHaveBeenCalledWith(
+        "macrovipera-lebetina",
+        expect.any(Function),
+        mode,
+      );
+    },
+  );
+
+  it("rejects an unsupported review mode", async () => {
+    vi.spyOn(console, "error").mockImplementation(() => undefined);
+    const response = await POST(request("http://localhost", "unknown"));
+    expect(response.status).toBe(400);
+    expect(analyzeSpeciesPage).not.toHaveBeenCalled();
   });
 
   it("sends a short failure notification", async () => {
