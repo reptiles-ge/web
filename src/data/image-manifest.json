@@ -13632,6 +13632,101 @@
       ],
       "updatedAt": "2026-08-31T20:01:02.448Z"
     },
+    "coturnix-coturnix-alexey-1.jpg": {
+      "sourceHash": "419ef2db9cceb078416c722274fb1f4cb17e118f6deaa60a6347cc1b1a87a67d",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "coturnix-coturnix-alexey-1.jpg",
+      "originalSize": 485046,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/coturnix-coturnix-alexey-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11569
+        },
+        {
+          "key": "optimized/coturnix-coturnix-alexey-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 17518
+        },
+        {
+          "key": "optimized/coturnix-coturnix-alexey-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 16024
+        },
+        {
+          "key": "optimized/coturnix-coturnix-alexey-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 23932
+        },
+        {
+          "key": "optimized/coturnix-coturnix-alexey-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 32392
+        },
+        {
+          "key": "optimized/coturnix-coturnix-alexey-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 48490
+        },
+        {
+          "key": "optimized/coturnix-coturnix-alexey-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 43915
+        },
+        {
+          "key": "optimized/coturnix-coturnix-alexey-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 66098
+        },
+        {
+          "key": "optimized/coturnix-coturnix-alexey-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 75430
+        },
+        {
+          "key": "optimized/coturnix-coturnix-alexey-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 113738
+        },
+        {
+          "key": "optimized/coturnix-coturnix-alexey-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 151959
+        },
+        {
+          "key": "optimized/coturnix-coturnix-alexey-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 231250
+        }
+      ],
+      "updatedAt": "2026-09-27T07:50:12.974Z"
+    },
     "cuculus-canorus-chick-1.jpg": {
       "sourceHash": "9f8db4ae80b122d7c1ebf1063cb867d44252bc3d90cc2c872176663762570c6d",
       "configFingerprint": "a895f8e025dcc7fa",
