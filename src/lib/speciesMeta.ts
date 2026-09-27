@@ -212,7 +212,7 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
     ka: "წენგოსფერი მცურავი (Platyceps najadum) | უშხამო გველი საქართველოში",
   },
   "pseudopus-apodus": {
-    en: "European glass lizard (Pseudopus apodus) | Legless lizard of eastern Georgia",
+    en: "European glass lizard (Pseudopus apodus) | Legless lizard in Georgia",
     ka: "გველხოკერა (Pseudopus apodus) — უფეხო ხვლიკი, არა გველი",
   },
   "steatoda-paykulliana": {
