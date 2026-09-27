@@ -55,4 +55,19 @@ describe("species routes", () => {
       "elaphe-urartica",
     ]);
   });
+
+  it("limits Transcaucasian ratsnake lookalikes to visual confusion candidates", () => {
+    expect(getSpeciesLookalikes("zamenis-hohenackeri")).toEqual([
+      "elaphe-dione",
+      "coronella-austriaca",
+      "hemorrhois-ravergieri",
+      "vipera-transcaucasiana",
+    ]);
+    expect(getSpeciesLookalikes("zamenis-longissimus")).not.toContain(
+      "zamenis-hohenackeri",
+    );
+    expect(getSpeciesLookalikes("elaphe-urartica")).not.toContain(
+      "zamenis-hohenackeri",
+    );
+  });
 });
