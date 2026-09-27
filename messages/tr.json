@@ -24,7 +24,8 @@
     "textsProcessing": "Codex sayfa metinlerini düzenliyor. Bu birkaç dakika sürebilir…",
     "textsError": "Metin düzenleme tamamlanamadı. Ayrıntılar yerel terminalde.",
     "textsNoChanges": "Metinler işlendi, ancak değişiklik yok ve PR oluşturulmadı.",
-    "textsReport": "Yapay zekâ tarafından düzenlenen metinler"
+    "textsReport": "Yapay zekâ tarafından düzenlenen metinler",
+    "textsStale": "Tür metni PR hedef dalından farklı. Bu dalı ve sayfayı güncelleyip tekrar deneyin."
   },
   "nav": {
     "species": "Türler",

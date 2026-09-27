@@ -204,6 +204,7 @@ export async function SpeciesProfile({
             textsNoChanges: tAnalysis("textsNoChanges"),
             textsProcessing: tAnalysis("textsProcessing"),
             textsReport: tAnalysis("textsReport"),
+            textsStale: tAnalysis("textsStale"),
           }}
           id={species.id}
         />

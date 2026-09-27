@@ -9,6 +9,7 @@ import {
   readAdminSpeciesGallery,
 } from "@/lib/adminGalleryMdx";
 import { notifyAdminTelegram } from "@/lib/adminTelegram";
+import { StaleSpeciesContentError } from "@/lib/contentEditorPullRequest";
 import { processSpeciesTexts } from "@/lib/speciesTextProcessing";
 
 export const runtime = "nodejs";
@@ -40,11 +41,14 @@ export async function POST(request: Request) {
     console.error("species-texts", error);
     if (speciesName)
       await notifyAdminTelegram(`❌ texts failed ${speciesName}`);
+    const stale = error instanceof StaleSpeciesContentError;
     return Response.json(
-      { error: "Text processing failed" },
+      {
+        error: stale ? "stale" : "Text processing failed",
+      },
       {
         headers: { "Cache-Control": "no-store", "X-Robots-Tag": "noindex" },
-        status: 400,
+        status: stale ? 409 : 400,
       },
     );
   }

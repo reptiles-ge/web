@@ -32,6 +32,38 @@ type OpenPullRequest = {
   url: string;
 };
 
+export class StaleSpeciesContentError extends Error {}
+
+export async function assertSpeciesTextSourceCurrent(id: string) {
+  const { base, existing } = await pullRequestTarget("species", id);
+  const remoteBranch = existing?.headRefName ?? base;
+  await run("git", [
+    "fetch",
+    "origin",
+    base,
+    ...(existing ? [remoteBranch] : []),
+  ]);
+  const differences = await Promise.all(
+    ["ka", "en", "ru", "tr"].map(async (locale) => {
+      const file = `src/content/species/${id}/${locale}.mdx`;
+      const [local, remote] = await Promise.all([
+        fs.readFile(path.join(root, file), "utf8"),
+        exec("git", ["show", `origin/${remoteBranch}:${file}`], {
+          cwd: root,
+          encoding: "utf8",
+          maxBuffer: 1024 * 1024,
+          timeout: 180000,
+        }).then(({ stdout }) => stdout),
+      ]);
+      return local !== remote;
+    }),
+  );
+  if (differences.some(Boolean))
+    throw new StaleSpeciesContentError(
+      "Species content differs from the PR target branch",
+    );
+}
+
 export async function createEditorPullRequest(
   input: EditorRequest,
   result: EditorResult,
@@ -79,47 +111,10 @@ async function createPullRequest(
   allowNoChanges: boolean,
 ) {
   const input = edits[0];
-  const base = await run("gh", [
-    "repo",
-    "view",
-    "--json",
-    "defaultBranchRef",
-    "--jq",
-    ".defaultBranchRef.name",
-  ]);
-  if (!/^[a-zA-Z0-9._/-]+$/.test(base))
-    throw new Error("Invalid target branch");
-  const repository = await run("gh", [
-    "repo",
-    "view",
-    "--json",
-    "nameWithOwner",
-    "--jq",
-    ".nameWithOwner",
-  ]);
-  const existing =
-    input.kind === "species"
-      ? findSpeciesPullRequest(
-          JSON.parse(
-            await run("gh", [
-              "pr",
-              "list",
-              "--repo",
-              repository,
-              "--state",
-              "open",
-              "--base",
-              base,
-              "--limit",
-              "1000",
-              "--json",
-              "baseRefName,files,headRefName,isCrossRepository,url",
-            ]),
-          ) as OpenPullRequest[],
-          input.id,
-          base,
-        )
-      : null;
+  const { base, existing, repository } = await pullRequestTarget(
+    input.kind,
+    input.id,
+  );
   const branch = `feature/content-editor-${input.id}-${randomUUID().slice(0, 8)}`;
   const remoteBranch = existing?.headRefName ?? branch;
   const temporary = await fs.mkdtemp(
@@ -306,6 +301,45 @@ async function enqueue(
   } finally {
     if (queues.get(key) === current) queues.delete(key);
   }
+}
+
+async function pullRequestTarget(kind: EditorRequest["kind"], id: string) {
+  const info = JSON.parse(
+    await run("gh", [
+      "repo",
+      "view",
+      "--json",
+      "defaultBranchRef,nameWithOwner",
+    ]),
+  ) as { defaultBranchRef: { name: string }; nameWithOwner: string };
+  const base = info.defaultBranchRef.name;
+  if (!/^[a-zA-Z0-9._/-]+$/.test(base))
+    throw new Error("Invalid target branch");
+  const repository = info.nameWithOwner;
+  const existing =
+    kind === "species"
+      ? findSpeciesPullRequest(
+          JSON.parse(
+            await run("gh", [
+              "pr",
+              "list",
+              "--repo",
+              repository,
+              "--state",
+              "open",
+              "--base",
+              base,
+              "--limit",
+              "1000",
+              "--json",
+              "baseRefName,files,headRefName,isCrossRepository,url",
+            ]),
+          ) as OpenPullRequest[],
+          id,
+          base,
+        )
+      : null;
+  return { base, existing, repository };
 }
 
 async function run(command: string, args: string[], cwd = root) {

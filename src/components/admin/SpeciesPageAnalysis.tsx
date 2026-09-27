@@ -14,6 +14,7 @@ type Copy = {
   textsNoChanges: string;
   textsProcessing: string;
   textsReport: string;
+  textsStale: string;
 };
 
 export function SpeciesPageAnalysis({ copy, id }: { copy: Copy; id: string }) {
@@ -50,7 +51,13 @@ export function SpeciesPageAnalysis({ copy, id }: { copy: Copy; id: string }) {
       };
       setReport(result.report ?? "");
       if (!response.ok)
-        throw new Error(nextMode === "analysis" ? copy.error : copy.textsError);
+        throw new Error(
+          nextMode === "analysis"
+            ? copy.error
+            : result.error === "stale"
+              ? copy.textsStale
+              : copy.textsError,
+        );
       setPullRequestUrl(result.pullRequestUrl ?? null);
       setComplete(true);
     } catch (caught) {
@@ -96,7 +103,7 @@ export function SpeciesPageAnalysis({ copy, id }: { copy: Copy; id: string }) {
             {mode === "analysis" ? copy.processing : copy.textsProcessing}
           </p>
         ) : null}
-        {error ? <p className="mt-3 text-red-600">{error}</p> : null}
+        {error ? <p className="mt-3 text-destructive">{error}</p> : null}
         {complete && !pullRequestUrl ? (
           <p className="mt-3 text-muted-foreground">
             {mode === "analysis" ? copy.noChanges : copy.textsNoChanges}

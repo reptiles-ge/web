@@ -4,7 +4,10 @@ import path from "node:path";
 
 import { readSpeciesField, validateEditorResult } from "@/lib/contentEditor";
 import { transformWithCodex } from "@/lib/contentEditorCodex";
-import { createSpeciesTextsPullRequest } from "@/lib/contentEditorPullRequest";
+import {
+  assertSpeciesTextSourceCurrent,
+  createSpeciesTextsPullRequest,
+} from "@/lib/contentEditorPullRequest";
 import { resolveEditorTarget } from "@/lib/contentEditorTarget";
 
 const running = new Set<string>();
@@ -37,6 +40,7 @@ export async function processSpeciesTexts(id: string, operationId: string) {
   if (running.has(id)) throw new Error("Text processing is already running");
   running.add(id);
   try {
+    await assertSpeciesTextSourceCurrent(id);
     const raw = await fs.readFile(
       path.join(process.cwd(), "src/content/species", id, "ka.mdx"),
       "utf8",
