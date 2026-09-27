@@ -16,6 +16,14 @@ const exec = promisify(execFile);
 const root = process.cwd();
 const queues = new Map<string, Promise<unknown>>();
 
+type Edit = {
+  field: string;
+  id: string;
+  kind: EditorRequest["kind"];
+  result: EditorResult;
+  selection?: EditorRequest;
+  source?: string;
+};
 type OpenPullRequest = {
   baseRefName: string;
   files: Array<{ path: string }>;
@@ -24,22 +32,57 @@ type OpenPullRequest = {
   url: string;
 };
 
+export class StaleSpeciesContentError extends Error {}
+
+export async function assertSpeciesTextSourceCurrent(id: string) {
+  const { base, existing } = await pullRequestTarget("species", id);
+  const remoteBranch = existing?.headRefName ?? base;
+  await run("git", [
+    "fetch",
+    "origin",
+    base,
+    ...(existing ? [remoteBranch] : []),
+  ]);
+  const differences = await Promise.all(
+    ["ka", "en", "ru", "tr"].map(async (locale) => {
+      const file = `src/content/species/${id}/${locale}.mdx`;
+      const [local, remote] = await Promise.all([
+        fs.readFile(path.join(root, file), "utf8"),
+        exec("git", ["show", `origin/${remoteBranch}:${file}`], {
+          cwd: root,
+          encoding: "utf8",
+          maxBuffer: 1024 * 1024,
+          timeout: 180000,
+        }).then(({ stdout }) => stdout),
+      ]);
+      return local !== remote;
+    }),
+  );
+  if (differences.some(Boolean))
+    throw new StaleSpeciesContentError(
+      "Species content differs from the PR target branch",
+    );
+}
+
 export async function createEditorPullRequest(
   input: EditorRequest,
   result: EditorResult,
   operationId: string,
 ) {
-  const key = `${input.kind}:${input.id}`;
-  const previous = queues.get(key) ?? Promise.resolve();
-  const current = previous
-    .catch(() => undefined)
-    .then(() => createPullRequest(input, result, operationId));
-  queues.set(key, current);
-  try {
-    return await current;
-  } finally {
-    if (queues.get(key) === current) queues.delete(key);
-  }
+  return enqueue([{ ...input, result, selection: input }], operationId, false);
+}
+
+export async function createSpeciesTextsPullRequest(
+  id: string,
+  updates: Array<{ field: string; result: EditorResult; source: string }>,
+  operationId: string,
+) {
+  if (!updates.length) throw new Error("No species texts to edit");
+  return enqueue(
+    updates.map((update) => ({ ...update, id, kind: "species" })),
+    operationId,
+    true,
+  );
 }
 
 export function findSpeciesPullRequest(
@@ -63,51 +106,15 @@ export function findSpeciesPullRequest(
 }
 
 async function createPullRequest(
-  input: EditorRequest,
-  result: EditorResult,
+  edits: Edit[],
   operationId: string,
+  batchSpeciesTexts: boolean,
 ) {
-  const base = await run("gh", [
-    "repo",
-    "view",
-    "--json",
-    "defaultBranchRef",
-    "--jq",
-    ".defaultBranchRef.name",
-  ]);
-  if (!/^[a-zA-Z0-9._/-]+$/.test(base))
-    throw new Error("Invalid target branch");
-  const repository = await run("gh", [
-    "repo",
-    "view",
-    "--json",
-    "nameWithOwner",
-    "--jq",
-    ".nameWithOwner",
-  ]);
-  const existing =
-    input.kind === "species"
-      ? findSpeciesPullRequest(
-          JSON.parse(
-            await run("gh", [
-              "pr",
-              "list",
-              "--repo",
-              repository,
-              "--state",
-              "open",
-              "--base",
-              base,
-              "--limit",
-              "1000",
-              "--json",
-              "baseRefName,files,headRefName,isCrossRepository,url",
-            ]),
-          ) as OpenPullRequest[],
-          input.id,
-          base,
-        )
-      : null;
+  const input = edits[0];
+  const { base, existing, repository } = await pullRequestTarget(
+    input.kind,
+    input.id,
+  );
   const branch = `feature/content-editor-${input.id}-${randomUUID().slice(0, 8)}`;
   const remoteBranch = existing?.headRefName ?? branch;
   const temporary = await fs.mkdtemp(
@@ -131,14 +138,19 @@ async function createPullRequest(
       worktree,
       `origin/${existing ? remoteBranch : base}`,
     ]);
-    const target = await resolveEditorTarget(input, worktree);
-    verifyEditorSelection(target.source, input);
-    const files = target.files;
-    const allowedFiles = new Set(files);
-    const updated = target.updated(result);
-    for (const [index, file] of files.entries()) {
-      await fs.writeFile(path.join(worktree, file), updated[index]);
+    const allowedFiles = new Set<string>();
+    for (const edit of edits) {
+      const target = await resolveEditorTarget(edit, worktree);
+      if (edit.selection) verifyEditorSelection(target.source, edit.selection);
+      else if (target.source !== edit.source)
+        throw new Error(`Content changed for ${edit.field}; reload and retry`);
+      const updated = target.updated(edit.result);
+      for (const [index, file] of target.files.entries()) {
+        allowedFiles.add(file);
+        await fs.writeFile(path.join(worktree, file), updated[index]);
+      }
     }
+    const files = [...allowedFiles];
     const changed = (
       await run(
         "git",
@@ -149,25 +161,27 @@ async function createPullRequest(
       .split("\n")
       .filter(Boolean)
       .map((line) => line.slice(3));
-    if (
-      changed.length === 0 ||
-      changed.some((file) => !allowedFiles.has(file))
-    ) {
+    if (changed.some((file) => !allowedFiles.has(file))) {
       throw new Error("Unexpected changed files in editor worktree");
     }
-    await fs.symlink(
-      path.join(root, "node_modules"),
-      path.join(worktree, "node_modules"),
-      "dir",
-    );
-    await run("pnpm", ["run", "pretest"], worktree);
-    await run("pnpm", ["run", "typecheck"], worktree);
-    if (input.kind === "guide") {
-      await run(
-        "pnpm",
-        ["exec", "vitest", "run", "src/data/guideArticles.test.ts"],
-        worktree,
+    if (!changed.length && batchSpeciesTexts) return null;
+    if (!changed.length)
+      throw new Error("No content changes to create a pull request");
+    if (!batchSpeciesTexts) {
+      await fs.symlink(
+        path.join(root, "node_modules"),
+        path.join(worktree, "node_modules"),
+        "dir",
       );
+      await run("pnpm", ["run", "pretest"], worktree);
+      await run("pnpm", ["run", "typecheck"], worktree);
+      if (input.kind === "guide") {
+        await run(
+          "pnpm",
+          ["exec", "vitest", "run", "src/data/guideArticles.test.ts"],
+          worktree,
+        );
+      }
     }
     await run("git", ["diff", "--check", "--", ...files], worktree);
     await run("git", ["add", "--", ...files], worktree);
@@ -181,7 +195,12 @@ async function createPullRequest(
     }
     await run(
       "git",
-      ["commit", "-m", `content: edit ${input.id} ${input.field}`],
+      [
+        ...(batchSpeciesTexts ? ["-c", "core.hooksPath=/dev/null"] : []),
+        "commit",
+        "-m",
+        `content: edit ${input.id} ${edits.length > 1 ? "page texts" : input.field}`,
+      ],
       worktree,
     );
     await run(
@@ -196,7 +215,7 @@ async function createPullRequest(
       const body = path.join(temporary, "pr-body.md");
       await fs.writeFile(
         body,
-        `## Summary\n\n- Edit ${input.field} for ${input.id} in KA, EN, RU and TR through the local selection editor\n\n## Validation\n\n- pnpm run pretest\n- pnpm run typecheck\n`,
+        `## Summary\n\n- Edit ${edits.map((edit) => edit.field).join(", ")} for ${input.id} in KA, EN, RU and TR through the local content editor\n\n## Checks\n\n${batchSpeciesTexts ? "- Automated checks not run; owner will review" : "- pnpm run pretest\n- pnpm run typecheck"}\n`,
       );
       try {
         pullRequestUrl = await run(
@@ -211,7 +230,7 @@ async function createPullRequest(
             "--head",
             branch,
             "--title",
-            `Edit ${input.id} ${input.field} in four locales`,
+            `Edit ${input.id} ${edits.length > 1 ? "page texts" : input.field} in four locales`,
             "--body-file",
             body,
           ],
@@ -266,6 +285,64 @@ async function createPullRequest(
     }
     await fs.rm(temporary, { force: true, recursive: true });
   }
+}
+
+async function enqueue(
+  edits: Edit[],
+  operationId: string,
+  batchSpeciesTexts: boolean,
+) {
+  const { id, kind } = edits[0];
+  const key = `${kind}:${id}`;
+  const previous = queues.get(key) ?? Promise.resolve();
+  const current = previous
+    .catch(() => undefined)
+    .then(() => createPullRequest(edits, operationId, batchSpeciesTexts));
+  queues.set(key, current);
+  try {
+    return await current;
+  } finally {
+    if (queues.get(key) === current) queues.delete(key);
+  }
+}
+
+async function pullRequestTarget(kind: EditorRequest["kind"], id: string) {
+  const info = JSON.parse(
+    await run("gh", [
+      "repo",
+      "view",
+      "--json",
+      "defaultBranchRef,nameWithOwner",
+    ]),
+  ) as { defaultBranchRef: { name: string }; nameWithOwner: string };
+  const base = info.defaultBranchRef.name;
+  if (!/^[a-zA-Z0-9._/-]+$/.test(base))
+    throw new Error("Invalid target branch");
+  const repository = info.nameWithOwner;
+  const existing =
+    kind === "species"
+      ? findSpeciesPullRequest(
+          JSON.parse(
+            await run("gh", [
+              "pr",
+              "list",
+              "--repo",
+              repository,
+              "--state",
+              "open",
+              "--base",
+              base,
+              "--limit",
+              "1000",
+              "--json",
+              "baseRefName,files,headRefName,isCrossRepository,url",
+            ]),
+          ) as OpenPullRequest[],
+          id,
+          base,
+        )
+      : null;
+  return { base, existing, repository };
 }
 
 async function run(command: string, args: string[], cwd = root) {

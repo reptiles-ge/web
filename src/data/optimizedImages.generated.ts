@@ -7445,6 +7445,27 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/zamenis-hohenackeri-alex-1.jpg": {
+    "path": "zamenis-hohenackeri-alex-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/zamenis-hohenackeri-armen-1.jpg": {
+    "path": "zamenis-hohenackeri-armen-1",
+    "width": 2048,
+    "height": 1340,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/zamenis-hohenackeri-david-1.jpg": {
+    "path": "zamenis-hohenackeri-david-1",
+    "width": 2048,
+    "height": 1356,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/zamenis-hohenackeri-ioane-1.jpg": {
     "path": "zamenis-hohenackeri-ioane-1",
     "width": 1080,
@@ -7459,12 +7480,26 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1080],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/zamenis-hohenackeri-lennart-1.jpg": {
+    "path": "zamenis-hohenackeri-lennart-1",
+    "width": 2048,
+    "height": 1367,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/zamenis-hohenackeri-mobile.jpg": {
     "path": "zamenis-hohenackeri-mobile",
     "width": 1280,
     "height": 960,
     "widths": [400, 800, 1200, 1280],
     "formats": ["avif"]
+  },
+  "https://cdn.reptiles.ge/zamenis-hohenackeri-tom-1.jpg": {
+    "path": "zamenis-hohenackeri-tom-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/zamenis-hohenackeri-zauri-1.jpg": {
     "path": "zamenis-hohenackeri-zauri-1",

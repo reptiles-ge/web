@@ -1,6 +1,5 @@
-import type { PhotoCredit, Species } from "@/data/species";
+import type { Species } from "@/data/species";
 
-import { hasPublishedCreditAuthorPage } from "@/data/creditAuthors";
 import { optimizedImgSrc } from "@/data/optimizedImages";
 import { absoluteImageUrl } from "@/lib/site";
 import { isPlaceholderMedia } from "@/lib/speciesContent";
@@ -50,21 +49,18 @@ export function speciesPageImageUrls(species: Species): string[] {
   const urls: string[] = [];
   const seen = new Set<string>();
 
-  function push(src?: string, credit?: PhotoCredit) {
-    if (!src || isPlaceholderMedia(src) || urls.length >= MAX_SITEMAP_IMAGES) {
-      return;
-    }
-    if (!hasPublishedCreditAuthorPage(credit?.photographer)) return;
+  function push(src?: string) {
+    if (!src || isPlaceholderMedia(src)) return;
     const url = absoluteImageUrl(optimizedImgSrc(src));
     if (seen.has(url)) return;
     seen.add(url);
     urls.push(url);
   }
 
-  push(species.image, species.imageCredit);
-  push(species.mobileImage, species.mobileImageCredit);
+  push(species.image);
+  push(species.mobileImage);
   for (const photo of species.gallery) {
-    push(photo.src, photo.credit);
+    push(photo.src);
   }
   return urls;
 }

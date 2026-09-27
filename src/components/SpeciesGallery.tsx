@@ -1,3 +1,4 @@
+import { ArrowUpRight, Images } from "lucide-react";
 import { getLocale, getTranslations } from "next-intl/server";
 
 import type { GalleryImage, PhotoCredit } from "@/data/speciesTypes";
@@ -30,6 +31,11 @@ const FIELD_RECORD_LABEL: Record<AppLocale, string> = {
   tr: "Arazi kaydı",
 };
 
+const MOSAIC_WIDE_SIZES =
+  "(max-width: 1023px) calc(100vw - 3rem), (max-width: 1479px) calc((100vw - 6rem) / 2), 692px";
+const MOSAIC_THUMB_SIZES =
+  "(max-width: 1023px) calc((100vw - 4rem) / 2), (max-width: 1479px) calc((100vw - 8rem) / 4), 338px";
+
 type SpeciesGalleryProps = {
   images: GalleryImage[];
   location: string;
@@ -50,6 +56,8 @@ export async function SpeciesGallery({
   const locale = (await getLocale()) as AppLocale;
   const t = await getTranslations("profile");
   const photos = images.filter((item) => Boolean(item.src));
+  const visiblePhotos = photos.slice(0, 5);
+  const morePhoto = photos[5];
 
   if (photos.length === 0) return null;
 
@@ -74,6 +82,7 @@ export async function SpeciesGallery({
       galleryLabel={t("gallery")}
       nextLabel={t("nextPhoto")}
       prevLabel={t("prevPhoto")}
+      renderAllSlides
       slides={slides}
       speciesId={speciesId}
     >
@@ -99,18 +108,26 @@ export async function SpeciesGallery({
           <div
             className={cn(
               "mt-14 grid gap-3 sm:gap-4",
-              photos.length === 1
-                ? "grid-cols-1"
-                : photos.length === 2
-                  ? "grid-cols-1 sm:grid-cols-2"
-                  : "grid-cols-2 md:grid-cols-3",
+              morePhoto
+                ? "grid-cols-2 lg:grid-cols-4"
+                : photos.length === 1
+                  ? "grid-cols-1"
+                  : photos.length === 2
+                    ? "grid-cols-1 sm:grid-cols-2"
+                    : "grid-cols-2 md:grid-cols-3",
             )}
           >
-            {photos.map((photo, index) => {
+            {visiblePhotos.map((photo, index) => {
               const featured = photos.length >= 3 && index === 0;
               const photoAlt = slides[index].alt;
               const entry = optimizedEntry(photo.src);
-              const sizes = featured ? featuredSizes : thumbSizes;
+              const sizes = morePhoto
+                ? featured
+                  ? MOSAIC_WIDE_SIZES
+                  : MOSAIC_THUMB_SIZES
+                : featured
+                  ? featuredSizes
+                  : thumbSizes;
               const showFieldRecord =
                 (photo.photoConfidence ?? photo.credit?.photoConfidence) ===
                 "georgia-field";
@@ -119,14 +136,24 @@ export async function SpeciesGallery({
                 <figure
                   className={cn(
                     "group",
-                    featured ? "col-span-2 md:col-span-3" : "",
+                    featured
+                      ? morePhoto
+                        ? "col-span-2"
+                        : "col-span-2 md:col-span-3"
+                      : "",
                   )}
                   key={photo.src}
                 >
                   <div
                     className={cn(
                       "relative overflow-hidden rounded-card bg-ink",
-                      featured ? "aspect-16/10" : "aspect-4/5",
+                      featured
+                        ? morePhoto
+                          ? "aspect-16/10 lg:aspect-2/1"
+                          : "aspect-16/10"
+                        : morePhoto
+                          ? "aspect-square"
+                          : "aspect-4/5",
                     )}
                   >
                     <GalleryOpenButton alt={photoAlt} index={index}>
@@ -136,7 +163,7 @@ export async function SpeciesGallery({
                         ))}
                         <img
                           alt={photoAlt}
-                          className="absolute inset-0 size-full object-cover text-transparent"
+                          className="absolute inset-0 size-full object-cover text-transparent transition-transform duration-500 group-focus-within:scale-[1.03] group-hover:scale-[1.03] motion-reduce:transition-none"
                           decoding="async"
                           height={entry?.height}
                           loading="lazy"
@@ -145,7 +172,7 @@ export async function SpeciesGallery({
                           width={entry?.width}
                         />
                       </picture>
-                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20" />
+                      <div className="absolute inset-0 bg-black/0 transition-colors duration-300 group-focus-within:bg-black/20 group-hover:bg-black/20" />
                     </GalleryOpenButton>
                   </div>
                   <GalleryPhotoCaption
@@ -158,6 +185,59 @@ export async function SpeciesGallery({
                 </figure>
               );
             })}
+            {morePhoto ? (
+              <div className="group relative col-span-2 aspect-16/10 overflow-hidden rounded-card bg-ink text-white lg:aspect-2/1">
+                <GalleryOpenButton
+                  alt={t("galleryOpenSixth", { total: photos.length })}
+                  index={5}
+                >
+                  <picture className="media-placeholder absolute inset-0 block size-full">
+                    {pictureSources(morePhoto.src, {
+                      sizes: MOSAIC_WIDE_SIZES,
+                    }).map((source) => (
+                      <source key={source.key} {...source.props} />
+                    ))}
+                    <img
+                      alt=""
+                      className="absolute inset-0 size-full object-cover text-transparent transition-transform duration-700 group-focus-within:scale-105 group-hover:scale-105 motion-reduce:transition-none"
+                      decoding="async"
+                      loading="lazy"
+                      sizes={MOSAIC_WIDE_SIZES}
+                      src={optimizedImgSrc(morePhoto.src, 800)}
+                    />
+                  </picture>
+                  <span className="absolute inset-0 bg-linear-to-t from-black/85 via-black/45 to-black/15" />
+                  <span className="absolute inset-0 ring-1 ring-white/20 ring-inset" />
+                  <span className="absolute inset-0 flex flex-col justify-between p-5 sm:p-7 lg:p-8">
+                    <span className="flex items-start justify-between gap-4">
+                      <span className="flex size-10 items-center justify-center rounded-full border border-white/30 bg-black/25 backdrop-blur-sm">
+                        <Images
+                          aria-hidden="true"
+                          className="size-5"
+                          strokeWidth={1.5}
+                        />
+                      </span>
+                      <span className="pt-2 text-[11px] font-medium tracking-[0.18em] text-white/80 uppercase">
+                        {t("gallery")}
+                      </span>
+                    </span>
+                    <span className="flex items-end justify-between gap-4">
+                      <span className="flex flex-col gap-1">
+                        <span className="font-display text-6xl leading-none font-bold tracking-tight sm:text-7xl">
+                          +{photos.length - 5}
+                        </span>
+                        <span className="text-sm font-medium text-white/90 sm:text-base">
+                          {t("morePhotos")}
+                        </span>
+                      </span>
+                      <span className="flex size-11 shrink-0 items-center justify-center rounded-full border border-white/35 bg-white/15 backdrop-blur-sm transition-colors group-focus-within:bg-white/25 group-hover:bg-white/25">
+                        <ArrowUpRight aria-hidden="true" className="size-5" />
+                      </span>
+                    </span>
+                  </span>
+                </GalleryOpenButton>
+              </div>
+            ) : null}
           </div>
         </div>
       </section>

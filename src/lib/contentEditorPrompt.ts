@@ -74,64 +74,49 @@ export function buildEditorPrompt(input: {
 
     "The goal is not to make every passage short. The goal is to make it no longer than necessary while preserving all meaningful information.",
 
-    "SIMPLIFY SPECIALIST LANGUAGE:",
+    "SIMPLIFY SPECIALIST LANGUAGE — STRICT:",
 
-    "This requirement is especially important.",
+    "Write for an ordinary reader, not a biologist. Preserve the useful biological information, but express it in natural everyday language instead of specialist terminology.",
 
-    "Replace biological, zoological, ecological, medical, anatomical, taxonomic and other specialist jargon with simple everyday Georgian whenever the same information can be communicated accurately without the specialist term.",
+    "Do not merely correct the grammar of a difficult sentence. Replace its unnecessary technical vocabulary and academic structure with clear, direct wording.",
 
-    "Do not preserve technical terminology merely because it appears in the source.",
+    "Do not keep a difficult biological, zoological, ecological, anatomical, medical or taxonomic term merely because it appears in the input, sounds precise, or might teach the reader a new word.",
 
-    "If an ordinary reader would probably not understand a term, prefer a simple accurate equivalent or a short plain-language explanation.",
+    "When a simple expression accurately communicates the same information, use it instead of the specialist term. Do not add the removed term back in parentheses.",
 
-    "Keep a technical term only when:",
+    "If a concept needs several ordinary words to explain accurately, use those words. Do not replace one unfamiliar term with another unfamiliar term.",
 
-    "- it is necessary for factual accuracy;",
-    "- replacing it would materially change the meaning;",
-    "- there is no reasonably accurate simple Georgian alternative;",
-    "- or the term itself is important information the reader needs to know.",
+    "Keep a specialist term only when it is genuinely necessary for identification, safety or factual accuracy AND no reasonably accurate plain-language alternative exists. Explain it briefly using only information supported by the supplied text.",
 
-    "When a technical term must remain, make the surrounding sentence as easy to understand as possible.",
+    "CONSERVATION CODES AND SPECIALIST LABELS:",
 
-    "USEFUL TERMINOLOGY VS. SPECIALIST METADATA:",
+    "In ordinary descriptive prose, do not retain classification codes such as LC, NT, VU, EN, CR, DD or NE merely to identify the category. Communicate the supported meaning in plain language instead.",
 
-    "Do not remove terminology merely because it is scientific or technical. Aim for a practical middle ground between scientific precision and general-reader clarity.",
+    "Do not write a plain-language explanation followed by the same code in parentheses. The reader should receive the useful information, not an additional classification label.",
 
-    "Keep a scientific, biological, medical or conservation term when it is reasonably familiar, useful for understanding the subject, important for identification or safety, commonly encountered by the public, or genuinely valuable for the reader to learn.",
+    "Preserve the assessment's geographic scope, relevant date, uncertainty and limitations. Do not turn a classification into an unsupported claim about population size, local abundance, legal protection or the absence of threats.",
 
-    "Remove or translate into plain language specialist terminology, classification codes, evidence codes, database abbreviations, methodological labels and other technical metadata that are mainly useful to researchers or specialists and provide little value to an ordinary reader.",
+    "Interpret a code only when its meaning is unambiguous from the supplied text. If an essential code cannot be explained without guessing, follow FACTUAL PROBLEM HANDLING rather than inventing a meaning or deleting the underlying factual information.",
 
-    "When removing such a code or specialist label, preserve its useful underlying factual meaning in simple Georgian whenever that meaning matters.",
+    "These rules concern reader-facing prose. They do not authorize changes to scientific Latin names, meaningful measurements, URLs, citation identifiers or dedicated bibliographic entries.",
 
-    "For example, if a source uses a specialist code meaning that a bird breeds in Georgia and remains there throughout the year, normally state that fact directly instead of presenting the code.",
+    "Preserve scientific Latin names exactly as written. Preserve useful facts, numbers, conditions and uncertainty even when their technical wording is removed.",
 
-    "Do not preserve a code merely because it appears in the source.",
-
-    "However, keep established abbreviations or categories when they are themselves useful, commonly encountered or important for the reader to recognize. When helpful, explain them briefly in plain language.",
-
-    "For example, a conservation category such as LC may be worth retaining with a simple explanation, while an internal seasonality, evidence-quality or occurrence code that an ordinary reader is unlikely to recognize should normally be omitted and replaced by its useful meaning.",
-
-    "Use this test: would knowing this exact term, code or abbreviation provide meaningful value to an ordinary reader beyond the fact it represents? If not, communicate the fact and omit the specialist label.",
-
-    "Never remove factual information merely because the technical label used to express it is unnecessary.",
-
-    "Preserve scientific Latin names exactly as written.",
-
-    "For example, if the source uses technical habitat terminology but the same fact can accurately be expressed as 'lives mainly in dry places', prefer the simple expression.",
-
-    "If the source says that an animal shows 'crepuscular activity' and the same meaning can accurately be expressed as being 'most active around dusk or dawn', prefer the plain-language expression.",
-
-    "Do not replace precise terminology with a simpler expression if the simpler expression would broaden, narrow or otherwise change the factual claim.",
+    "Apply the same plain-language choices to the corresponding English, Russian and Turkish translations. Do not reintroduce jargon or codes that were removed from the rewritten Georgian.",
 
     "FACTUAL FIDELITY — CRITICAL:",
 
     "Simplification must NEVER change the factual meaning.",
 
-    "- Preserve every factual claim contained in SELECTED.",
-    "- Preserve every important qualification.",
-    "- Preserve every limitation.",
-    "- Preserve every condition.",
-    "- Preserve every uncertainty.",
+    "- Preserve every substantive factual claim about the subject. Omit only the non-informative commentary explicitly allowed for removal under RESEARCH-GAP COMMENTARY — REMOVE, DO NOT REPHRASE.",
+
+    "- Preserve every important qualification needed to understand retained factual claims accurately.",
+
+    "- Preserve every limitation that affects the meaning, geographic scope, reliability or safety of retained factual claims; do not preserve redundant research-gap commentary merely because it is worded as a limitation.",
+
+    "- Preserve every condition that affects the meaning of retained factual claims.",
+
+    "- Preserve meaningful uncertainty about retained factual claims. Removing unnecessary commentary about missing sources or absent local studies must never make those claims more certain or more broadly applicable.",
     "- Preserve geographic context.",
     "- Preserve relationships between facts.",
     "- Preserve the strength and confidence of every claim.",
@@ -191,45 +176,63 @@ export function buildEditorPrompt(input: {
 
     "Prefer the actual useful fact over academic framing.",
 
-    "SOURCE NAMES, DATABASES AND INSTITUTIONAL ATTRIBUTION:",
+    "SOURCE NAMES AND ACADEMIC ATTRIBUTION — STRICT:",
 
-    "Prefer the useful factual information itself over naming the source, database, organization, institution, catalogue or reference system from which that information comes.",
+    "The site's references are separate from its descriptive prose. Do not make ordinary wildlife descriptions read like a bibliography or a literature review.",
 
-    "When SELECTED mentions sources such as Georgian Biodiversity Database, IUCN, GBIF, scientific databases, catalogues, monitoring systems, institutions, organizations or similar reference sources, normally remove the source name and express the useful underlying fact directly in natural Georgian.",
+    "In ordinary descriptive prose, remove unnecessary author names, university names, institution names, organization names, database names and publication titles used merely to introduce or support a factual statement.",
 
-    "Do not preserve source names merely to make the passage sound authoritative, academic or well-referenced.",
+    "This includes names such as Georgian Biodiversity Database, IUCN, GBIF and similar source labels. State the supported underlying fact directly instead of repeatedly naming where it came from.",
 
-    "For example, instead of wording such as 'According to the Georgian Biodiversity Database, the species has been recorded in eastern Georgia', normally write the underlying fact directly, such as 'The species has been recorded in eastern Georgia', provided that removing the attribution does not change the factual meaning, scope, uncertainty or evidentiary strength of the statement.",
+    "Do not keep an unnecessary source name by translating it into Georgian, abbreviating it, putting it in parentheses, or moving it to the end of the sentence.",
 
-    "Similarly, prefer a plain description of conservation status over unnecessary institutional framing when possible. For example, if the useful information is that a species is classified as Least Concern (LC), communicate that status clearly without unnecessarily repeating the name of the organization or database that assigned it.",
+    "Do not mechanically replace removed names with repeated phrases such as 'according to researchers', 'according to sources', 'studies show' or 'the database indicates'. Remove unnecessary academic framing rather than replacing it with different academic framing.",
 
-    "Remove citation-style phrases such as 'according to the database', 'according to the catalogue', 'the database indicates', 'the source reports' or similar wording when the attribution itself provides no meaningful information to an ordinary reader.",
+    "Remove author-year parentheticals from ordinary prose when they serve only as redundant attribution. Preserve dates that are necessary to understand an observation, assessment or historical limitation.",
 
-    "However, NEVER remove the source, organization, database or attribution when doing so would materially change the meaning, reliability, scope, uncertainty or nature of the claim.",
+    "Removing attribution must never strengthen a claim. Preserve whether something is a reported observation, an estimate, an uncertain identification, a proposal or an assessment limited to a particular place or time.",
 
-    "Keep attribution when the identity of the source is itself important information, when different sources may reasonably disagree, when the statement is explicitly source-dependent, or when removing the attribution would incorrectly present a source-specific claim as an established general fact.",
+    "Retain a source's identity only when that identity is itself essential to the factual meaning and no accurate wording can preserve the distinction without it. Mere authority, academic appearance or the fact that the source was named in the input is not sufficient.",
 
-    "Do not replace a removed source name with vague academic wording. State the useful fact directly and naturally.",
+    "Preserve dedicated bibliographic entries and reference lists. For inline links, citation markers and source URLs, follow the Markdown-link rules below, including the narrow exception for references belonging exclusively to deleted research-gap commentary. Removing unnecessary source names must not remove evidence for retained factual claims.",
 
-    "Do not invent a replacement source or attribution.",
+    "When a source name is linked, follow the Markdown-link rule below: preserve the link and its destination while using accurate, natural visible wording wherever possible.",
 
-    "The goal is not to hide evidence. The goal is to prevent reader-facing wildlife descriptions from being cluttered with database names, institutional labels and citation-style framing that add no useful meaning for a general reader.",
+    "Do not move references outside SELECTED, modify BEFORE or AFTER, or claim to have checked the site's separate references. Work only with the supplied text.",
 
-    "For example, a sentence structured like 'researcher X reported that species Y demonstrates...' should normally be expressed as the underlying factual statement when removing the academic framing does not change the meaning or evidentiary qualification.",
+    "Apply the same distinction in translations: readable factual prose without unnecessary source-name repetition, while preserving evidence and meaningful qualifications.",
 
-    "Do not unnecessarily emphasize:",
+    "RESEARCH-GAP COMMENTARY — REMOVE, DO NOT REPHRASE:",
 
-    "- researcher names;",
-    "- publication years;",
-    "- morphometric terminology;",
-    "- methodological language;",
-    "- taxonomic jargon;",
-    "- academic framing;",
-    "- citation-style prose;",
+    "HIGH PRIORITY: In ordinary descriptive prose within SELECTED, remove commentary whose only purpose is to say that information was not found in the reviewed sources, a separate local study is unavailable, or the Georgian population was not separately assessed. Do not add such commentary.",
 
-    "when the same factual information can be communicated plainly.",
+    "The reader is here to learn about the subject, not to read an account of what the author could not find. Missing-source commentary must not be used to fill a paragraph, complete a section or make the text appear scientifically cautious.",
 
-    "However, never remove attribution, uncertainty or another detail when doing so would change the meaning, reliability or scope of the claim.",
+    "Remove sentences such as: 'ამ წყაროებში არ გვხვდება ცალკე კვლევა იმის შესახებ, რას ჭამს საქართველოში.'; 'ამ წყაროებიდან არ ჩანს, როდის მრავლდება საქართველოში.'; 'ამ შეფასებაში საქართველოს პოპულაცია ცალკე არ არის შეფასებული.'",
+
+    "Apply this rule by meaning, not just by matching these examples. It also covers unnecessary statements such as 'local data are unavailable', 'the reviewed sources do not specify', 'this has not been separately studied in Georgia' and 'further research is needed' when they merely describe a research gap.",
+
+    "DELETE this unnecessary commentary. Do not replace it with a shorter synonym, a parenthetical note, 'უცნობია', 'მონაცემები მწირია', 'დამატებითი კვლევაა საჭირო', or another sentence communicating the same unnecessary gap. Do not move it to the beginning or end of the paragraph.",
+
+    "When useful factual information and research-gap commentary appear together, remove only the unnecessary commentary and preserve the useful information with its actual meaning and scope.",
+
+    "Preserve species-level biological information already supported by the supplied text without automatically appending a disclaimer that it has not been separately studied in Georgia. However, never turn a finding about one foreign population into a general species trait or a Georgian fact.",
+
+    "When the supplied text gives a global assessment, preserve its global scope in the factual sentence itself. Remove a redundant separate sentence saying that the Georgian population was not separately assessed. Never present a global assessment as an assessment of the Georgian population.",
+
+    "This is a narrow exception to general instructions to preserve every claim, limitation and uncertainty: unnecessary research-process commentary may be omitted. This exception does NOT authorize removing substantive negative findings, meaningful uncertainty, safety information or qualifications needed to interpret a retained factual statement accurately.",
+
+    "Preserve necessary qualifiers such as 'may', 'usually', 'in some populations' and an assessment's actual geographic scope. Express an essential limitation briefly as part of the relevant fact, rather than adding a separate account of missing research. Do not use this safeguard as an excuse to restore redundant research-gap commentary.",
+
+    "Never replace missing information with a guess, outside knowledge or an unsupported answer. Do not infer that a species lacks a trait, does not occur somewhere, or poses no risk merely because the supplied sources do not document it. Do not infer that no research exists merely because the author did not find any.",
+
+    "If all of SELECTED consists solely of removable research-gap commentary, the improved SELECTED may be empty, apart from any whitespace necessary to join the unchanged BEFORE and AFTER. Do not invent replacement content to keep the passage non-empty.",
+
+    "Preserve dedicated reference lists, bibliographic entries and evidence supporting retained factual claims. An inline link or citation belonging exclusively to deleted research-gap commentary may be removed with that commentary; this is a narrow exception to blanket link-preservation rules. Never transfer that citation to a different claim merely to keep the link.",
+
+    "Apply these edits only within SELECTED. BEFORE and AFTER remain exactly unchanged. Construct ka as required, then translate the final ka; do not restore deleted commentary in English, Russian or Turkish.",
+
+    "FINAL TEST: Does this sentence teach the reader a useful fact, or merely announce that a source, study or separate local assessment was not found? If it only announces the gap and is not essential to the accuracy or safety of retained content, REMOVE IT.",
 
     "READABILITY TEST:",
 
@@ -250,9 +253,9 @@ export function buildEditorPrompt(input: {
     "- Is there unnecessary repetition?",
     "- Is there filler?",
     "- Did simplification change any factual meaning?",
-    "- Was any qualification lost?",
-    "- Was any uncertainty lost?",
-    "- Was any geographic limitation lost?",
+    "- Was any qualification necessary to understand a retained factual claim accurately lost?",
+    "- Was any meaningful uncertainty about a retained factual claim lost?",
+    "- Was the geographic scope of any retained factual claim changed or made misleading by removing commentary?",
     "- Was any new fact introduced?",
 
     "If simpler wording communicates exactly the same information, ALWAYS choose the simpler wording.",
@@ -338,7 +341,13 @@ export function buildEditorPrompt(input: {
 
     "Only SELECTED may be rewritten.",
 
-    "Keep every Markdown link and its URL in its original order. You may improve the visible link label without changing its destination. Linked source attribution must remain linked even when simplifying source names; the source-name removal preference applies only to unlinked text.",
+    "Within SELECTED, preserve all Markdown links in retained content, their exact destination URLs and their relative order. An inline link or citation may be removed only when it belongs exclusively to research-gap commentary deleted under RESEARCH-GAP COMMENTARY — REMOVE, DO NOT REPHRASE. Do not remove shared references or evidence for retained factual claims.",
+
+    "When an unnecessary source name is the visible label of a link in descriptive prose, replace that label with a natural phrase expressing the specific fact supported by the link. Preserve the destination and keep the link attached to the same claim.",
+
+    "Do not attach a source link to a different or broader claim, invent a new claim to create a convenient link label, or replace the label with repetitive filler such as 'source' or 'research'. If no accurate natural label is possible, retain only the essential attribution.",
+
+    "Do not apply descriptive-prose source-name removal to dedicated bibliographic entries or reference lists. Preserve citation markers and reference identifiers for retained content; apply only the explicit research-gap exception to inline references belonging exclusively to deleted commentary. BEFORE and AFTER remain exactly unchanged.",
 
     "TRANSLATIONS:",
 
@@ -407,10 +416,10 @@ export function buildEditorPrompt(input: {
     "6. The passage is easy for a general reader.",
     "7. Unnecessary specialist vocabulary has been removed.",
     "8. Difficult concepts have been expressed as simply as accuracy allows.",
-    "9. Useful scientific terminology was retained where it benefits the reader, while specialist codes, metadata and jargon with no meaningful general-reader value were removed or expressed in plain language.",
+    "9. Ordinary descriptive prose uses plain language rather than unnecessary specialist terminology or classification codes. Removed jargon and codes were not added back in parentheses. Useful facts, scientific Latin names and essential qualifications remain accurate; unresolved meanings were not guessed.",
     "10. Unnecessary repetition, duplicated facts and redundant explanations were removed without losing meaningful information.",
-    "11. No factual claim has changed.",
-    "12. No qualification or uncertainty has disappeared.",
+    "11. All substantive factual claims were preserved accurately. Any omitted material falls within the explicitly permitted removal of unnecessary editorial or research-gap commentary.",
+    "12. No qualification necessary for the accuracy, scope or safety of retained claims was lost. Removing research-gap commentary did not make any retained claim stronger, broader or more certain.",
     "13. No new fact has been added.",
     "14. Scientific Latin names are preserved.",
     "15. Numbers and measurements remain accurate.",
@@ -419,7 +428,8 @@ export function buildEditorPrompt(input: {
     "18. Turkish is natural and simple.",
     "19. All four versions communicate the same factual meaning.",
     "20. The result contains no commentary outside the required JSON.",
-    "21. Unnecessary source names, database names, institutional labels and citation-style attribution were removed when the useful underlying fact could be stated directly without changing its meaning or evidentiary strength.",
+    "21. Ordinary descriptive prose contains no unnecessary source-name repetition or citation-style framing. Dedicated references and evidence for retained factual claims remain intact. Only inline references belonging exclusively to deleted research-gap commentary may have been removed; no citation was reassigned to a different claim.",
+    "22. The rewritten SELECTED contains no unnecessary commentary about missing sources, unavailable local studies or the Georgian population not being separately assessed. Such commentary was deleted, not paraphrased, relocated or restored in translations. Essential factual and safety qualifications remain intact.",
 
     "OUTPUT FORMAT:",
 
