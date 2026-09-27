@@ -133,7 +133,6 @@ const LOOKALIKES: Record<string, string[]> = {
     "platyceps-najadum",
     "hemorrhois-ravergieri",
     "elaphe-urartica",
-    "macrovipera-lebetina",
     "elaphe-dione",
   ],
   "eirenis-collaris": [
@@ -149,7 +148,6 @@ const LOOKALIKES: Record<string, string[]> = {
     "zamenis-hohenackeri",
     "hemorrhois-ravergieri",
     "dolichophis-schmidti",
-    "macrovipera-lebetina",
     "platyceps-najadum",
     "telescopus-fallax",
   ],
@@ -190,6 +188,7 @@ const LOOKALIKES: Record<string, string[]> = {
     "elaphe-urartica",
     "dolichophis-schmidti",
     "vipera-transcaucasiana",
+    "macrovipera-lebetina",
   ],
   "hyla-orientalis": [
     "hyla-savignyi",
@@ -213,13 +212,10 @@ const LOOKALIKES: Record<string, string[]> = {
   "luscinia-megarhynchos": ["erithacus-rubecula"],
   "lynx-lynx": ["panthera-pardus", "canis-lupus"],
   "macrovipera-lebetina": [
-    "malpolon-insignitus",
-    "dolichophis-schmidti",
-    "elaphe-dione",
     "elaphe-urartica",
+    "hemorrhois-ravergieri",
   ],
   "malpolon-insignitus": [
-    "macrovipera-lebetina",
     "dolichophis-schmidti",
     "hemorrhois-ravergieri",
   ],

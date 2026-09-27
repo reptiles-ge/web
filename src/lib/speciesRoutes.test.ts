@@ -47,13 +47,21 @@ describe("species routes", () => {
     });
   });
 
-  it("keeps giurza lookalikes to the curated four species", () => {
+  it("keeps giurza lookalikes to supported visual matches", () => {
     expect(getSpeciesLookalikes("macrovipera-lebetina")).toEqual([
+      "elaphe-urartica",
+      "hemorrhois-ravergieri",
+    ]);
+    for (const id of ["elaphe-urartica", "hemorrhois-ravergieri"]) {
+      expect(getSpeciesLookalikes(id)).toContain("macrovipera-lebetina");
+    }
+    for (const id of [
       "malpolon-insignitus",
       "dolichophis-schmidti",
       "elaphe-dione",
-      "elaphe-urartica",
-    ]);
+    ]) {
+      expect(getSpeciesLookalikes(id)).not.toContain("macrovipera-lebetina");
+    }
   });
 
   it("keeps smooth snake lookalikes to supported visual comparisons", () => {
