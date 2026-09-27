@@ -66,24 +66,18 @@ export async function analyzeSpeciesPage(
   }
 }
 
-export function assertSpeciesAnalysisFiles(
+export function selectSpeciesAnalysisFiles(
   files: string[],
   id: string,
   mode: SpeciesAnalysisMode = "analysis",
 ) {
   const prefix = `src/content/species/${id}/`;
-  if (
-    files.some(
-      (file) =>
-        !(
-          (file.startsWith(prefix) &&
-            /^(ka|en|ru|tr)\.mdx$/.test(file.slice(prefix.length))) ||
-          sharedFiles[mode].includes(file)
-        ),
-    )
-  ) {
-    throw new Error("Codex changed files outside this task's scope");
-  }
+  return files.filter(
+    (file) =>
+      (file.startsWith(prefix) &&
+        /^(ka|en|ru|tr)\.mdx$/.test(file.slice(prefix.length))) ||
+      sharedFiles[mode].includes(file),
+  );
 }
 
 async function changedFiles(worktree: string) {
@@ -169,6 +163,12 @@ async function runAnalysis(
   const branch = `feature/species-${mode}-${id}-${randomUUID().slice(0, 8)}`;
   const remoteBranch = existing?.headRefName ?? branch;
   const targetPaths = [`src/content/species/${id}`, ...sharedFiles[mode]];
+  const allowedFiles = [
+    ...["ka", "en", "ru", "tr"].map(
+      (locale) => `src/content/species/${id}/${locale}.mdx`,
+    ),
+    ...sharedFiles[mode],
+  ];
   if (await run("git", ["status", "--porcelain", "--", ...targetPaths])) {
     throw new Error("The species has local changes; save them before analysis");
   }
@@ -194,14 +194,8 @@ async function runAnalysis(
       `origin/${existing ? remoteBranch : base}`,
     ]);
     if (!existing) {
-      const sourceFiles = [
-        ...["ka", "en", "ru", "tr"].map(
-          (locale) => `src/content/species/${id}/${locale}.mdx`,
-        ),
-        ...sharedFiles[mode],
-      ];
       const differences = await Promise.all(
-        sourceFiles.map(async (file) => {
+        allowedFiles.map(async (file) => {
           const [local, remote] = await Promise.all([
             fs.readFile(path.join(root, file), "utf8").catch(() => ""),
             fs.readFile(path.join(worktree, file), "utf8").catch(() => ""),
@@ -231,14 +225,16 @@ async function runAnalysis(
     await runCodex(
       worktree,
       output,
-      `${prompt}\n\nარ გაუშვა ტესტები, lint, typecheck, build ან კონტენტის გენერაციის ბრძანებები; ჩანაწერების იმპორტის სკრიპტი ამ შეზღუდვის გამონაკლისია. არ შეასრულო commit, push ან PR-ის შექმნა; ამას აპლიკაცია გააკეთებს. საბოლოო ანგარიში დააბრუნე ჩატში ქართულად.`,
+      `${prompt}\n\nშეცვალე მხოლოდ ეს ფაილები: ${allowedFiles.join(", ")}. სხვა ფაილების ცვლილებები შედეგში არ მოხვდება. არ გაუშვა ტესტები, lint, typecheck, build ან კონტენტის გენერაციის ბრძანებები; ჩანაწერების იმპორტის სკრიპტი ამ შეზღუდვის გამონაკლისია. არ შეასრულო commit, push ან PR-ის შექმნა; ამას აპლიკაცია გააკეთებს. საბოლოო ანგარიში დააბრუნე ჩატში ქართულად.`,
     );
-    const report = (await fs.readFile(output, "utf8")).trim();
+    let report = (await fs.readFile(output, "utf8")).trim();
     if (!report) throw new Error("Codex returned an empty report");
+    const changed = await changedFiles(worktree);
+    const files = selectSpeciesAnalysisFiles(changed, id, mode);
+    const skipped = changed.filter((file) => !files.includes(file));
+    if (skipped.length)
+      report += `\n\nდავალების ფარგლებს გარეთ შეცვლილი ფაილები გამოტოვებულია: ${skipped.join(", ")}.`;
     onReport(report);
-
-    const files = await changedFiles(worktree);
-    assertSpeciesAnalysisFiles(files, id, mode);
     if (files.length === 0)
       return { pullRequestUrl: existing?.url ?? null, report };
 
