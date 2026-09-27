@@ -70,4 +70,14 @@ describe("species routes", () => {
       "zamenis-hohenackeri",
     );
   });
+
+  it("keeps glass lizard lookalikes to supported visual comparisons", () => {
+    expect(getSpeciesLookalikes("pseudopus-apodus")).toEqual([
+      "anguis-colchica",
+      "natrix-tessellata",
+    ]);
+    expect(getSpeciesLookalikes("natrix-natrix")).not.toContain(
+      "pseudopus-apodus",
+    );
+  });
 });
