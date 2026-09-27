@@ -1453,6 +1453,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/coturnix-coturnix-giorgi-1.jpg": {
+    "path": "coturnix-coturnix-giorgi-1",
+    "width": 1503,
+    "height": 1003,
+    "widths": [320, 400, 640, 800, 1200, 1503],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/cuculus-canorus-chick-1.jpg": {
     "path": "cuculus-canorus-chick-1",
     "width": 1160,
