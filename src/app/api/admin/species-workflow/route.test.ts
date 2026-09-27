@@ -6,9 +6,9 @@ vi.mock("@/lib/speciesPageAnalysis", async (importOriginal) => ({
     async (
       _id: string,
       modes: string[],
-      onStep: (mode: string, report: string) => void,
+      onStep: (mode: string, report: string) => Promise<void> | void,
     ) => {
-      for (const mode of modes) onStep(mode, mode);
+      for (const mode of modes) await onStep(mode, mode);
       return { pullRequestUrl: "https://github.com/reptiles-ge/web/pull/999" };
     },
   ),
@@ -52,6 +52,36 @@ describe("POST /api/admin/species-workflow", () => {
       { mode: "records", report: "records" },
       { mode: "analysis", report: "analysis" },
     ]);
+    expect(
+      vi
+        .mocked(fetch)
+        .mock.calls.map(
+          ([, options]) => JSON.parse(String(options?.body)).text,
+        ),
+    ).toEqual([
+      "✅ 1/3 done გიურზა (records)",
+      "✅ 2/3 done გიურზა (analysis)",
+      "✅ 3/3 done გიურზა (workflow)",
+    ]);
+  });
+
+  it("does not report the final stage when the workflow fails", async () => {
+    vi.mocked(runSpeciesWorkflow).mockImplementationOnce(
+      async (_id, modes, onStep) => {
+        await onStep(modes[0], "records");
+        throw new Error("Next step failed");
+      },
+    );
+    vi.spyOn(console, "error").mockImplementation(() => undefined);
+    const response = await POST(request(["records", "analysis"]));
+    expect(response.status).toBe(400);
+    expect(
+      vi
+        .mocked(fetch)
+        .mock.calls.map(
+          ([, options]) => JSON.parse(String(options?.body)).text,
+        ),
+    ).toEqual(["✅ 1/3 done გიურზა (records)", "❌ workflow failed გიურზა"]);
   });
 
   it("rejects duplicate steps and cross-origin requests", async () => {

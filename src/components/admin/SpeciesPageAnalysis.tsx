@@ -123,13 +123,16 @@ export function SpeciesPageAnalysis({ copy, id }: { copy: Copy; id: string }) {
     });
   }
 
-  async function requestStep(mode: Mode): Promise<Result> {
+  async function requestStep(
+    mode: Mode,
+    progress?: { current: number; total: number },
+  ): Promise<Result> {
     const response = await fetch(
       mode === "texts"
         ? "/api/admin/species-texts"
         : "/api/admin/species-analysis",
       {
-        body: JSON.stringify({ id, mode }),
+        body: JSON.stringify({ id, mode, progress }),
         headers: { "Content-Type": "application/json" },
         method: "POST",
       },
@@ -201,9 +204,12 @@ export function SpeciesPageAnalysis({ copy, id }: { copy: Copy; id: string }) {
         );
         if (!response.ok) throw new Error(result.error ?? copy.workflowError);
       } else {
-        for (const mode of selected) {
+        for (const [index, mode] of selected.entries()) {
           setCurrentMode(mode);
-          const result = await requestStep(mode);
+          const result = await requestStep(mode, {
+            current: index + 1,
+            total: selected.length,
+          });
           setResults((current) => [...current, result]);
         }
       }

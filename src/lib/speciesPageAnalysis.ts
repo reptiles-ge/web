@@ -103,7 +103,7 @@ export async function analyzeSpeciesPage(
 export async function runSpeciesWorkflow(
   id: string,
   modes: SpeciesWorkflowMode[],
-  onStep: (mode: SpeciesWorkflowMode, report: string) => void,
+  onStep: (mode: SpeciesWorkflowMode, report: string) => Promise<void> | void,
 ) {
   if (running.has(id)) throw new Error("Analysis is already running");
   running.add(id);
@@ -221,7 +221,7 @@ export async function runSpeciesWorkflow(
             worktree,
           );
         }
-        onStep(mode, report);
+        await onStep(mode, report);
       });
       if (
         (await run(

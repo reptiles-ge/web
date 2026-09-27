@@ -39,11 +39,16 @@ export async function POST(request: Request) {
     const result = await runSpeciesWorkflow(
       id,
       selectedModes,
-      (mode, report) => {
+      async (mode, report) => {
         steps.push({ mode, report });
+        await notifyAdminTelegram(
+          `✅ ${steps.length}/${selectedModes.length + 1} done ${speciesName} (${mode})`,
+        );
       },
     );
-    await notifyAdminTelegram(`✅ workflow done ${speciesName}`);
+    await notifyAdminTelegram(
+      `✅ ${selectedModes.length + 1}/${selectedModes.length + 1} done ${speciesName} (workflow)`,
+    );
     return Response.json(
       { ...result, steps },
       { headers: { "Cache-Control": "no-store", "X-Robots-Tag": "noindex" } },
