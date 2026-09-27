@@ -85810,6 +85810,101 @@
       ],
       "updatedAt": "2026-08-28T22:02:17.183Z"
     },
+    "zamenis-hohenackeri-tom-1.jpg": {
+      "sourceHash": "1658bfe92dde5c1987ba25a3a5236df48b945f62e74a2b64989d351aea84d021",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "zamenis-hohenackeri-tom-1.jpg",
+      "originalSize": 897254,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/zamenis-hohenackeri-tom-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 17108
+        },
+        {
+          "key": "optimized/zamenis-hohenackeri-tom-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 26482
+        },
+        {
+          "key": "optimized/zamenis-hohenackeri-tom-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 25892
+        },
+        {
+          "key": "optimized/zamenis-hohenackeri-tom-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 41184
+        },
+        {
+          "key": "optimized/zamenis-hohenackeri-tom-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 62419
+        },
+        {
+          "key": "optimized/zamenis-hohenackeri-tom-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 101728
+        },
+        {
+          "key": "optimized/zamenis-hohenackeri-tom-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 92292
+        },
+        {
+          "key": "optimized/zamenis-hohenackeri-tom-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 150596
+        },
+        {
+          "key": "optimized/zamenis-hohenackeri-tom-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 176877
+        },
+        {
+          "key": "optimized/zamenis-hohenackeri-tom-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 262538
+        },
+        {
+          "key": "optimized/zamenis-hohenackeri-tom-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 371783
+        },
+        {
+          "key": "optimized/zamenis-hohenackeri-tom-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 503850
+        }
+      ],
+      "updatedAt": "2026-09-27T11:22:34.022Z"
+    },
     "zamenis-hohenackeri-zauri-1.jpg": {
       "sourceHash": "c6cd4f80f6d23bfc6f1dbfe06da3441f342ba52ee50c9aed7c5343d6613cb564",
       "configFingerprint": "a895f8e025dcc7fa",
