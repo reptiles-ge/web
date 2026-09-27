@@ -10,7 +10,6 @@ import {
   type HalyomorphaLazyMapProps,
   type HalyomorphaRangeMapProps,
 } from "@/components/map/HalyomorphaRangeMapTypes";
-import { loadHalyomorphaMapSummary } from "@/lib/halyomorphaOccurrenceApi";
 
 const HalyomorphaRangeMapClient = lazy(() =>
   import("@/components/map/HalyomorphaRangeMapClient").then((mod) => ({
@@ -23,7 +22,7 @@ export function HalyomorphaRangeMap(props: HalyomorphaLazyMapProps) {
   const [shouldLoadMap, setShouldLoadMap] = useState(false);
   const [mapData, setMapData] = useState<null | Pick<
     HalyomorphaRangeMapProps,
-    "occurrenceSummary" | "officialRange" | "regionNames"
+    "officialRange"
   >>(null);
   const [loadError, setLoadError] = useState(false);
 
@@ -75,23 +74,16 @@ export function HalyomorphaRangeMap(props: HalyomorphaLazyMapProps) {
   useEffect(() => {
     if (!shouldLoadMap) return;
     const controller = new AbortController();
-    Promise.all([
-      loadHalyomorphaMapSummary(
-        props.speciesId,
-        props.locale,
-        controller.signal,
-      ),
-      fetch("/geodata/georgia-regions-v1.json", {
-        signal: controller.signal,
-      }).then((response) => {
+    fetch("/geodata/georgia-regions-v1.json", {
+      signal: controller.signal,
+    })
+      .then((response) => {
         if (!response.ok) throw new Error("Georgia regions request failed");
         return response.json() as Promise<HalyomorphaRangeRegionFeatureCollection>;
-      }),
-    ])
-      .then(([{ regionNames, summary }, georgiaRegions]) => {
+      })
+      .then((georgiaRegions) => {
         const officialIds = new Set(props.officialRegionIds);
         setMapData({
-          occurrenceSummary: summary,
           officialRange: {
             ...georgiaRegions,
             features: georgiaRegions.features.map((feature) => ({
@@ -102,7 +94,6 @@ export function HalyomorphaRangeMap(props: HalyomorphaLazyMapProps) {
               },
             })),
           },
-          regionNames,
         });
       })
       .catch(() => {

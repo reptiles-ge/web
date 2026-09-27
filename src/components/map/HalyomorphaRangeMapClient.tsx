@@ -707,6 +707,7 @@ function updateRegionUrl(regionId: null | RegionPathId) {
 
 function useHalyomorphaRangeMap({
   copy,
+  dataRevision,
   locale,
   occurrenceSummary,
   officialRange,
@@ -1165,11 +1166,12 @@ function useHalyomorphaRangeMap({
             speciesId,
             regionId,
             locale,
+            dataRevision,
           );
           if (disposed || requestIdRef.current !== requestId) return;
           regionCacheRef.current.set(regionId, payload);
           regionRecordsRef.current = payload.records;
-          setSelectedRegion(payload.region);
+          setSelectedRegion(summaryByRegion.get(regionId) ?? payload.region);
         } catch {
           if (!disposed) regionRecordsRef.current = [];
         } finally {
@@ -1224,6 +1226,7 @@ function useHalyomorphaRangeMap({
     }
   }, [
     copy,
+    dataRevision,
     locale,
     occurrenceSummary.recordsByRegion,
     occurrenceSummary.totalRecords,

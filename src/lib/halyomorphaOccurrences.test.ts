@@ -19,6 +19,10 @@ describe("occurrenceStatusForCount", () => {
     expect(occurrenceStatusForCount(4, aquilaThreshold)).toBe("confirmed");
     expect(occurrenceStatusForCount(0, 1)).toBe("recorded-only");
     expect(occurrenceStatusForCount(1, 1)).toBe("confirmed");
+    const quailThreshold =
+      confirmedRecordThresholdForSpecies("coturnix-coturnix");
+    expect(occurrenceStatusForCount(0, quailThreshold)).toBe("recorded-only");
+    expect(occurrenceStatusForCount(1, quailThreshold)).toBe("confirmed");
     const platycepsThreshold =
       confirmedRecordThresholdForSpecies("platyceps-najadum");
     expect(occurrenceStatusForCount(2, platycepsThreshold)).toBe(
