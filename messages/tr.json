@@ -404,6 +404,8 @@
     "copyShareDetails": "Ayrıntılar",
     "gallery": "Galeri",
     "galleryTitle": "fotoğraflarda",
+    "morePhotos": "Diğer fotoğraflar",
+    "galleryOpenSixth": "Toplam {total} fotoğraftan 6. fotoğrafı aç",
     "photo": "Fotoğraf",
     "photoCredit": "Fotoğraf:",
     "photoLocation": "Yer:",

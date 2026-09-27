@@ -404,6 +404,8 @@
     "copyShareDetails": "Details",
     "gallery": "Gallery",
     "galleryTitle": "in photos",
+    "morePhotos": "More photos",
+    "galleryOpenSixth": "Open photo 6 of {total}",
     "photo": "Photo",
     "photoCredit": "Photo:",
     "photoLocation": "Location:",
