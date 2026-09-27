@@ -11,9 +11,9 @@ import { POST } from "@/app/api/admin/species-texts/route";
 import { StaleSpeciesContentError } from "@/lib/contentEditorPullRequest";
 import { processSpeciesTexts } from "@/lib/speciesTextProcessing";
 
-const request = (origin = "http://localhost") =>
+const request = (origin = "http://localhost", progress?: unknown) =>
   new Request("http://localhost/api/admin/species-texts", {
-    body: JSON.stringify({ id: "zamenis-hohenackeri" }),
+    body: JSON.stringify({ id: "zamenis-hohenackeri", progress }),
     headers: { "Content-Type": "application/json", origin },
     method: "POST",
   });
@@ -52,6 +52,22 @@ describe("POST /api/admin/species-texts", () => {
         body: JSON.stringify({
           chat_id: "test-chat",
           text: "✅ texts done ამიერკავკასიური მცურავი",
+        }),
+      }),
+    );
+  });
+
+  it("sends numbered progress for a workflow step", async () => {
+    const response = await POST(
+      request("http://localhost", { current: 1, total: 2 }),
+    );
+    expect(response.status).toBe(200);
+    expect(fetch).toHaveBeenCalledWith(
+      "https://api.telegram.org/bottest-token/sendMessage",
+      expect.objectContaining({
+        body: JSON.stringify({
+          chat_id: "test-chat",
+          text: "✅ 1/2 done ამიერკავკასიური მცურავი (texts)",
         }),
       }),
     );

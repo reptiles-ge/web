@@ -12,9 +12,13 @@ vi.mock("@/lib/speciesPageAnalysis", () => ({
 import { POST } from "@/app/api/admin/species-analysis/route";
 import { analyzeSpeciesPage } from "@/lib/speciesPageAnalysis";
 
-const request = (origin = "http://localhost", mode?: string) =>
+const request = (
+  origin = "http://localhost",
+  mode?: string,
+  progress?: unknown,
+) =>
   new Request("http://localhost/api/admin/species-analysis", {
-    body: JSON.stringify({ id: "macrovipera-lebetina", mode }),
+    body: JSON.stringify({ id: "macrovipera-lebetina", mode, progress }),
     headers: { "Content-Type": "application/json", origin },
     method: "POST",
   });
@@ -68,6 +72,31 @@ describe("POST /api/admin/species-analysis", () => {
       );
     },
   );
+
+  it("sends numbered progress for a workflow step", async () => {
+    const response = await POST(
+      request("http://localhost", "links", { current: 2, total: 5 }),
+    );
+    expect(response.status).toBe(200);
+    expect(fetch).toHaveBeenCalledWith(
+      "https://api.telegram.org/bottest-token/sendMessage",
+      expect.objectContaining({
+        body: JSON.stringify({
+          chat_id: "test-chat",
+          text: "✅ 2/5 done გიურზა (links)",
+        }),
+      }),
+    );
+  });
+
+  it("rejects invalid workflow progress before starting analysis", async () => {
+    vi.spyOn(console, "error").mockImplementation(() => undefined);
+    const response = await POST(
+      request("http://localhost", "links", { current: 6, total: 5 }),
+    );
+    expect(response.status).toBe(400);
+    expect(analyzeSpeciesPage).not.toHaveBeenCalled();
+  });
 
   it("rejects an unsupported review mode", async () => {
     vi.spyOn(console, "error").mockImplementation(() => undefined);

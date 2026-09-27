@@ -8,7 +8,10 @@ import {
   isSpeciesContentId,
   readAdminSpeciesGallery,
 } from "@/lib/adminGalleryMdx";
-import { notifyAdminTelegram } from "@/lib/adminTelegram";
+import {
+  formatAdminWorkflowProgress,
+  notifyAdminTelegram,
+} from "@/lib/adminTelegram";
 import { StaleSpeciesContentError } from "@/lib/contentEditorPullRequest";
 import { processSpeciesTexts } from "@/lib/speciesTextProcessing";
 
@@ -25,22 +28,35 @@ export async function POST(request: Request) {
     return localAdminForbiddenResponse();
   }
   let speciesName = "";
+  let progress = "";
   try {
     const text = await request.text();
     if (text.length > 1000) throw new Error("Invalid request");
-    const { id } = JSON.parse(text) as { id?: unknown };
+    const { id, progress: workflowProgress } = JSON.parse(text) as {
+      id?: unknown;
+      progress?: unknown;
+    };
     if (typeof id !== "string" || !isSpeciesContentId(id))
       throw new Error("Invalid species id");
+    progress = formatAdminWorkflowProgress(workflowProgress);
     speciesName = readAdminSpeciesGallery(id).commonName;
     const result = await processSpeciesTexts(id, randomUUID());
-    await notifyAdminTelegram(`✅ texts done ${speciesName}`);
+    await notifyAdminTelegram(
+      progress
+        ? `✅ ${progress}done ${speciesName} (texts)`
+        : `✅ texts done ${speciesName}`,
+    );
     return Response.json(result, {
       headers: { "Cache-Control": "no-store", "X-Robots-Tag": "noindex" },
     });
   } catch (error) {
     console.error("species-texts", error);
     if (speciesName)
-      await notifyAdminTelegram(`❌ texts failed ${speciesName}`);
+      await notifyAdminTelegram(
+        progress
+          ? `❌ ${progress}failed ${speciesName} (texts)`
+          : `❌ texts failed ${speciesName}`,
+      );
     const stale = error instanceof StaleSpeciesContentError;
     return Response.json(
       {

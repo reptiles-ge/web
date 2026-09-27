@@ -6,7 +6,10 @@ import {
   isSpeciesContentId,
   readAdminSpeciesGallery,
 } from "@/lib/adminGalleryMdx";
-import { notifyAdminTelegram } from "@/lib/adminTelegram";
+import {
+  formatAdminWorkflowProgress,
+  notifyAdminTelegram,
+} from "@/lib/adminTelegram";
 import { analyzeSpeciesPage } from "@/lib/speciesPageAnalysis";
 
 export const runtime = "nodejs";
@@ -24,12 +27,18 @@ export async function POST(request: Request) {
 
   let report = "";
   let speciesName = "";
+  let progress = "";
   try {
     const text = await request.text();
     if (text.length > 1000) throw new Error("Invalid request");
-    const { id, mode = "analysis" } = JSON.parse(text) as {
+    const {
+      id,
+      mode = "analysis",
+      progress: workflowProgress,
+    } = JSON.parse(text) as {
       id?: unknown;
       mode?: unknown;
+      progress?: unknown;
     };
     if (typeof id !== "string" || !isSpeciesContentId(id))
       throw new Error("Invalid species id");
@@ -40,6 +49,7 @@ export async function POST(request: Request) {
       mode !== "records"
     )
       throw new Error("Invalid analysis mode");
+    progress = formatAdminWorkflowProgress(workflowProgress);
     speciesName = readAdminSpeciesGallery(id).commonName;
     const result = await analyzeSpeciesPage(
       id,
@@ -51,11 +61,14 @@ export async function POST(request: Request) {
     const response = Response.json(result, {
       headers: { "Cache-Control": "no-store", "X-Robots-Tag": "noindex" },
     });
-    await notifyAdminTelegram(`✅ done ${speciesName}`);
+    await notifyAdminTelegram(
+      `✅ ${progress}done ${speciesName}${progress ? ` (${mode})` : ""}`,
+    );
     return response;
   } catch (error) {
     console.error("species-analysis", error);
-    if (speciesName) await notifyAdminTelegram(`❌ failed ${speciesName}`);
+    if (speciesName)
+      await notifyAdminTelegram(`❌ ${progress}failed ${speciesName}`);
     return Response.json(
       {
         error: error instanceof Error ? error.message : "Analysis failed",

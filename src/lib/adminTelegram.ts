@@ -1,3 +1,21 @@
+export function formatAdminWorkflowProgress(value: unknown) {
+  if (value === undefined) return "";
+  if (
+    !value ||
+    typeof value !== "object" ||
+    !("current" in value) ||
+    !("total" in value) ||
+    typeof value.current !== "number" ||
+    typeof value.total !== "number" ||
+    !Number.isInteger(value.current) ||
+    !Number.isInteger(value.total) ||
+    value.current < 1 ||
+    value.current > value.total
+  )
+    throw new Error("Invalid workflow progress");
+  return `${value.current}/${value.total} `;
+}
+
 export async function notifyAdminTelegram(message: string) {
   const token = process.env.TELEGRAM_BOT_TOKEN;
   const chatId = process.env.TELEGRAM_CHAT_ID;

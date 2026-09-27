@@ -5,13 +5,47 @@ import os from "node:os";
 import path from "node:path";
 import { promisify } from "node:util";
 
+import { validateEditorResult } from "@/lib/contentEditor";
+import { transformWithCodex } from "@/lib/contentEditorCodex";
 import { findSpeciesPullRequest } from "@/lib/contentEditorPullRequest";
+import { resolveEditorTarget } from "@/lib/contentEditorTarget";
+import { getSpeciesTextFields } from "@/lib/speciesTextProcessing";
 
 const exec = promisify(execFile);
 const root = process.cwd();
 const running = new Set<string>();
 export type SpeciesAnalysisMode =
   "analysis" | "links" | "lookalikes" | "records";
+export type SpeciesWorkflowMode = "texts" | SpeciesAnalysisMode;
+export const speciesWorkflowModes: SpeciesWorkflowMode[] = [
+  "analysis",
+  "texts",
+  "lookalikes",
+  "links",
+  "records",
+];
+
+export async function runSpeciesWorkflowSteps<T extends string>(
+  steps: T[],
+  runStep: (step: T) => Promise<void>,
+) {
+  for (const step of steps) await runStep(step);
+}
+
+export function validateSpeciesWorkflowModes(
+  value: unknown,
+): SpeciesWorkflowMode[] {
+  if (
+    !Array.isArray(value) ||
+    value.length === 0 ||
+    value.length > speciesWorkflowModes.length ||
+    value.some((mode) => !speciesWorkflowModes.includes(mode)) ||
+    new Set(value).size !== value.length
+  ) {
+    throw new Error("Invalid workflow steps");
+  }
+  return value as SpeciesWorkflowMode[];
+}
 
 const modeConfig = {
   analysis: {
@@ -66,6 +100,204 @@ export async function analyzeSpeciesPage(
   }
 }
 
+export async function runSpeciesWorkflow(
+  id: string,
+  modes: SpeciesWorkflowMode[],
+  onStep: (mode: SpeciesWorkflowMode, report: string) => Promise<void> | void,
+) {
+  if (running.has(id)) throw new Error("Analysis is already running");
+  running.add(id);
+  try {
+    const repositoryInfo = JSON.parse(
+      await run("gh", [
+        "repo",
+        "view",
+        "--json",
+        "defaultBranchRef,nameWithOwner",
+      ]),
+    ) as { defaultBranchRef: { name: string }; nameWithOwner: string };
+    const base = repositoryInfo.defaultBranchRef.name;
+    const repository = repositoryInfo.nameWithOwner;
+    if (!/^[a-zA-Z0-9._/-]+$/.test(base))
+      throw new Error("Invalid target branch");
+    const branch = `feature/species-workflow-${id}-${randomUUID().slice(0, 8)}`;
+    const allowedFiles = [
+      ...["ka", "en", "ru", "tr"].map(
+        (locale) => `src/content/species/${id}/${locale}.mdx`,
+      ),
+      ...new Set(
+        modes.flatMap((mode) => (mode === "texts" ? [] : sharedFiles[mode])),
+      ),
+    ];
+    if (await run("git", ["status", "--porcelain", "--", ...allowedFiles]))
+      throw new Error(
+        "The species has local changes; save them before analysis",
+      );
+    const directory = await fs.mkdtemp(
+      path.join(os.tmpdir(), "reptiles-species-workflow-"),
+    );
+    const worktree = path.join(directory, "checkout");
+    let pushed = false;
+    let pullRequestUrl = "";
+    try {
+      await run("git", ["fetch", "origin", base]);
+      await run("git", [
+        "worktree",
+        "add",
+        "-b",
+        branch,
+        worktree,
+        `origin/${base}`,
+      ]);
+      const differences = await Promise.all(
+        allowedFiles.map(async (file) => {
+          const [local, remote] = await Promise.all([
+            fs.readFile(path.join(root, file), "utf8").catch(() => ""),
+            fs.readFile(path.join(worktree, file), "utf8").catch(() => ""),
+          ]);
+          return local !== remote;
+        }),
+      );
+      if (differences.some(Boolean))
+        throw new Error(
+          "Species content differs from the PR base; update the local page first",
+        );
+      await fs.symlink(
+        path.join(root, "node_modules"),
+        path.join(worktree, "node_modules"),
+        "dir",
+      );
+      await runSpeciesWorkflowSteps(modes, async (mode) => {
+        let report: string;
+        if (mode === "texts") {
+          report = await processWorkflowTexts(id, worktree);
+        } else {
+          const template = await fs.readFile(
+            path.join(root, "src/prompts", modeConfig[mode].prompt),
+            "utf8",
+          );
+          const prompt = template.replace(
+            /^სამიზნე გვერდი \/ სახეობა:.*$/m,
+            `სამიზნე გვერდი / სახეობა: src/content/species/${id}/ka.mdx (species ID: ${id})`,
+          );
+          const output = path.join(directory, `${mode}-report.md`);
+          const stepFiles = allowedFiles.filter(
+            (file) =>
+              file.startsWith(`src/content/species/${id}/`) ||
+              sharedFiles[mode].includes(file),
+          );
+          await runCodex(
+            worktree,
+            output,
+            `${prompt}\n\nშეცვალე მხოლოდ ეს ფაილები: ${stepFiles.join(", ")}. სხვა ფაილების ცვლილებები შედეგში არ მოხვდება. არ გაუშვა ტესტები, lint, typecheck, build ან კონტენტის გენერაციის ბრძანებები; ჩანაწერების იმპორტის სკრიპტი ამ შეზღუდვის გამონაკლისია. არ შეასრულო commit, push ან PR-ის შექმნა; ამას აპლიკაცია გააკეთებს. საბოლოო ანგარიში დააბრუნე ჩატში ქართულად.`,
+          );
+          report = (await fs.readFile(output, "utf8")).trim();
+          if (!report) throw new Error("Codex returned an empty report");
+        }
+        const changed = await changedFiles(worktree);
+        const stepFiles =
+          mode === "texts"
+            ? changed.filter(
+                (file) =>
+                  file.startsWith(`src/content/species/${id}/`) &&
+                  /\/(ka|en|ru|tr)\.mdx$/.test(file),
+              )
+            : selectSpeciesAnalysisFiles(changed, id, mode);
+        const skipped = changed.filter((file) => !stepFiles.includes(file));
+        if (skipped.length)
+          throw new Error(`Unexpected changed files: ${skipped.join(", ")}`);
+        if (stepFiles.length) {
+          await run("git", ["diff", "--check", "--", ...stepFiles], worktree);
+          await run("git", ["add", "--", ...stepFiles], worktree);
+          await run(
+            "git",
+            [
+              "-c",
+              "core.hooksPath=/dev/null",
+              "commit",
+              "-m",
+              `content: ${mode} ${id}`,
+            ],
+            worktree,
+          );
+        }
+        await onStep(mode, report);
+      });
+      if (
+        (await run(
+          "git",
+          ["rev-list", "--count", `origin/${base}..HEAD`],
+          worktree,
+        )) === "0"
+      )
+        return { pullRequestUrl: null };
+      await run("git", ["push", "-u", "origin", branch], worktree);
+      pushed = true;
+      const body = path.join(directory, "pr-body.md");
+      await fs.writeFile(
+        body,
+        `## Summary\n\n- Run ${modes.join(" → ")} for ${id}\n\n## Checks\n\n- Automated checks not run; owner will review\n`,
+      );
+      try {
+        pullRequestUrl = await run(
+          "gh",
+          [
+            "pr",
+            "create",
+            "--repo",
+            repository,
+            "--base",
+            base,
+            "--head",
+            branch,
+            "--title",
+            `Review ${id} species page`,
+            "--body-file",
+            body,
+          ],
+          worktree,
+        );
+      } catch (error) {
+        pullRequestUrl = await run(
+          "gh",
+          [
+            "pr",
+            "view",
+            branch,
+            "--repo",
+            repository,
+            "--json",
+            "url",
+            "--jq",
+            ".url",
+          ],
+          worktree,
+        ).catch(() => {
+          throw error;
+        });
+      }
+      if (!/^https:\/\/github\.com\/[^\s]+\/pull\/\d+$/.test(pullRequestUrl))
+        throw new Error("Pull request creation failed");
+      return { pullRequestUrl };
+    } finally {
+      await run("git", ["worktree", "remove", "--force", worktree]).catch(
+        () => undefined,
+      );
+      await run("git", ["branch", "-D", branch]).catch(() => undefined);
+      if (
+        pushed &&
+        !/^https:\/\/github\.com\/[^\s]+\/pull\/\d+$/.test(pullRequestUrl)
+      )
+        await run("git", ["push", "origin", "--delete", branch]).catch(
+          () => undefined,
+        );
+      await fs.rm(directory, { force: true, recursive: true });
+    }
+  } finally {
+    running.delete(id);
+  }
+}
+
 export function selectSpeciesAnalysisFiles(
   files: string[],
   id: string,
@@ -91,6 +323,32 @@ async function changedFiles(worktree: string) {
     .split("\n")
     .filter(Boolean)
     .map((line) => line.slice(3));
+}
+
+async function processWorkflowTexts(id: string, worktree: string) {
+  const raw = await fs.readFile(
+    path.join(worktree, "src/content/species", id, "ka.mdx"),
+    "utf8",
+  );
+  const fields = getSpeciesTextFields(raw);
+  if (!fields.length) throw new Error("No page texts to process");
+  const report: string[] = [];
+  for (const field of fields) {
+    const target = await resolveEditorTarget(
+      { field, id, kind: "species" },
+      worktree,
+    );
+    const selection = { after: "", before: "", selected: target.source };
+    const result = validateEditorResult(
+      await transformWithCodex(selection, "xhigh"),
+      selection,
+    );
+    const updated = target.updated(result);
+    for (const [index, file] of target.files.entries())
+      await fs.writeFile(path.join(worktree, file), updated[index]);
+    report.push(`${field}\n${result.ka}`);
+  }
+  return report.join("\n\n");
 }
 
 async function run(command: string, args: string[], cwd = root) {
