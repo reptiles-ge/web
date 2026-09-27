@@ -85257,6 +85257,101 @@
       ],
       "updatedAt": "2026-08-28T22:02:16.274Z"
     },
+    "zamenis-hohenackeri-armen-1.jpg": {
+      "sourceHash": "3110c2f53c899f7412c9e4559678b16ec28c713e2ed62a64d5160dc3db5aa779",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "zamenis-hohenackeri-armen-1.jpg",
+      "originalSize": 374362,
+      "width": 2048,
+      "height": 1340,
+      "derivatives": [
+        {
+          "key": "optimized/zamenis-hohenackeri-armen-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 209,
+          "byteSize": 8540
+        },
+        {
+          "key": "optimized/zamenis-hohenackeri-armen-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 209,
+          "byteSize": 12284
+        },
+        {
+          "key": "optimized/zamenis-hohenackeri-armen-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 262,
+          "byteSize": 11351
+        },
+        {
+          "key": "optimized/zamenis-hohenackeri-armen-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 262,
+          "byteSize": 16870
+        },
+        {
+          "key": "optimized/zamenis-hohenackeri-armen-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 419,
+          "byteSize": 22119
+        },
+        {
+          "key": "optimized/zamenis-hohenackeri-armen-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 419,
+          "byteSize": 32834
+        },
+        {
+          "key": "optimized/zamenis-hohenackeri-armen-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 523,
+          "byteSize": 29811
+        },
+        {
+          "key": "optimized/zamenis-hohenackeri-armen-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 523,
+          "byteSize": 45544
+        },
+        {
+          "key": "optimized/zamenis-hohenackeri-armen-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 785,
+          "byteSize": 50546
+        },
+        {
+          "key": "optimized/zamenis-hohenackeri-armen-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 785,
+          "byteSize": 78850
+        },
+        {
+          "key": "optimized/zamenis-hohenackeri-armen-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1340,
+          "byteSize": 103602
+        },
+        {
+          "key": "optimized/zamenis-hohenackeri-armen-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1340,
+          "byteSize": 156602
+        }
+      ],
+      "updatedAt": "2026-09-27T11:18:11.431Z"
+    },
     "zamenis-hohenackeri-ioane-1.jpg": {
       "sourceHash": "3f9d62cdbc0491285d74c37585e86a0792f04fbc9dcc429cebf43b67376caf30",
       "configFingerprint": "a895f8e025dcc7fa",
