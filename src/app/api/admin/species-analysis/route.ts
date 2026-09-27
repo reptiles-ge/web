@@ -1,11 +1,11 @@
-import fs from "node:fs/promises";
-import path from "node:path";
-
 import {
   isLocalAdminEnabled,
   localAdminForbiddenResponse,
 } from "@/lib/adminAccess";
-import { isSpeciesContentId } from "@/lib/adminGalleryMdx";
+import {
+  isSpeciesContentId,
+  readAdminSpeciesGallery,
+} from "@/lib/adminGalleryMdx";
 import { analyzeSpeciesPage } from "@/lib/speciesPageAnalysis";
 
 export const runtime = "nodejs";
@@ -22,23 +22,25 @@ export async function POST(request: Request) {
   }
 
   let report = "";
+  let speciesName = "";
   try {
     const text = await request.text();
     if (text.length > 1000) throw new Error("Invalid request");
     const { id } = JSON.parse(text) as { id?: unknown };
     if (typeof id !== "string" || !isSpeciesContentId(id))
       throw new Error("Invalid species id");
-    await fs.access(
-      path.join(process.cwd(), "src/content/species", id, "ka.mdx"),
-    );
+    speciesName = readAdminSpeciesGallery(id).commonName;
     const result = await analyzeSpeciesPage(id, (value) => {
       report = value;
     });
-    return Response.json(result, {
+    const response = Response.json(result, {
       headers: { "Cache-Control": "no-store", "X-Robots-Tag": "noindex" },
     });
+    await notifyTelegram("done", speciesName);
+    return response;
   } catch (error) {
     console.error("species-analysis", error);
+    if (speciesName) await notifyTelegram("failed", speciesName);
     return Response.json(
       {
         error: error instanceof Error ? error.message : "Analysis failed",
@@ -49,5 +51,33 @@ export async function POST(request: Request) {
         status: 400,
       },
     );
+  }
+}
+
+async function notifyTelegram(status: "done" | "failed", speciesName: string) {
+  const token = process.env.TELEGRAM_BOT_TOKEN;
+  const chatId = process.env.TELEGRAM_CHAT_ID;
+  if (!token || !chatId) {
+    console.error("species-analysis Telegram is not configured");
+    return;
+  }
+  try {
+    const response = await fetch(
+      `https://api.telegram.org/bot${token}/sendMessage`,
+      {
+        body: JSON.stringify({
+          chat_id: chatId,
+          text: `${status === "done" ? "✅ done" : "❌ failed"} ${speciesName}`,
+        }),
+        headers: { "Content-Type": "application/json" },
+        method: "POST",
+        signal: AbortSignal.timeout(10000),
+      },
+    );
+    const result = (await response.json()) as { ok?: boolean };
+    if (!response.ok || !result.ok)
+      console.error("species-analysis Telegram notification failed");
+  } catch {
+    console.error("species-analysis Telegram notification failed");
   }
 }
