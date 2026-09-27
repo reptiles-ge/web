@@ -30,7 +30,14 @@ export async function runSpeciesWorkflowSteps<T extends string>(
   steps: T[],
   runStep: (step: T) => Promise<void>,
 ) {
-  for (const step of steps) await runStep(step);
+  for (const step of steps) {
+    try {
+      await runStep(step);
+    } catch (error) {
+      return { error, step };
+    }
+  }
+  return null;
 }
 
 export function validateSpeciesWorkflowModes(
@@ -138,8 +145,9 @@ export async function runSpeciesWorkflow(
       path.join(os.tmpdir(), "reptiles-species-workflow-"),
     );
     const worktree = path.join(directory, "checkout");
-    let pushed = false;
     let pullRequestUrl = "";
+    let keepLocalBranch = false;
+    const completedModes: SpeciesWorkflowMode[] = [];
     try {
       await run("git", ["fetch", "origin", base]);
       await run("git", [
@@ -168,7 +176,7 @@ export async function runSpeciesWorkflow(
         path.join(worktree, "node_modules"),
         "dir",
       );
-      await runSpeciesWorkflowSteps(modes, async (mode) => {
+      const failure = await runSpeciesWorkflowSteps(modes, async (mode) => {
         let report: string;
         if (mode === "texts") {
           report = await processWorkflowTexts(id, worktree);
@@ -229,8 +237,14 @@ export async function runSpeciesWorkflow(
             worktree,
           );
         }
+        completedModes.push(mode);
         await onStep(mode, report);
       });
+      const stepError = failure
+        ? failure.error instanceof Error
+          ? failure.error.message
+          : "Workflow step failed"
+        : null;
       if (
         (await run(
           "git",
@@ -238,13 +252,23 @@ export async function runSpeciesWorkflow(
           worktree,
         )) === "0"
       )
-        return { pullRequestUrl: null };
-      await run("git", ["push", "-u", "origin", branch], worktree);
-      pushed = true;
+        return {
+          error: stepError,
+          failedStep: failure?.step ?? null,
+          pullRequestUrl: null,
+        };
+      try {
+        await run("git", ["push", "-u", "origin", branch], worktree);
+      } catch (error) {
+        keepLocalBranch = true;
+        throw new Error(
+          `Could not publish the PR; completed commits remain on local branch ${branch}: ${error instanceof Error ? error.message : String(error)}`,
+        );
+      }
       const body = path.join(directory, "pr-body.md");
       await fs.writeFile(
         body,
-        `## Summary\n\n- Run ${modes.join(" → ")} for ${id}\n\n## Checks\n\n- Automated checks not run; owner will review\n`,
+        `## Summary\n\n- Completed ${completedModes.join(" → ")} for ${id}\n${failure ? `- Stopped at ${failure.step}; later steps were not run\n` : ""}\n## Checks\n\n- Automated checks not run; owner will review\n`,
       );
       try {
         pullRequestUrl = await run(
@@ -281,24 +305,26 @@ export async function runSpeciesWorkflow(
           ],
           worktree,
         ).catch(() => {
-          throw error;
+          throw new Error(
+            `PR creation failed; completed changes remain on ${branch}: ${error instanceof Error ? error.message : String(error)}`,
+          );
         });
       }
       if (!/^https:\/\/github\.com\/[^\s]+\/pull\/\d+$/.test(pullRequestUrl))
-        throw new Error("Pull request creation failed");
-      return { pullRequestUrl };
+        throw new Error(
+          `Pull request creation failed; completed changes remain on ${branch}`,
+        );
+      return {
+        error: stepError,
+        failedStep: failure?.step ?? null,
+        pullRequestUrl,
+      };
     } finally {
       await run("git", ["worktree", "remove", "--force", worktree]).catch(
         () => undefined,
       );
-      await run("git", ["branch", "-D", branch]).catch(() => undefined);
-      if (
-        pushed &&
-        !/^https:\/\/github\.com\/[^\s]+\/pull\/\d+$/.test(pullRequestUrl)
-      )
-        await run("git", ["push", "origin", "--delete", branch]).catch(
-          () => undefined,
-        );
+      if (!keepLocalBranch)
+        await run("git", ["branch", "-D", branch]).catch(() => undefined);
       await fs.rm(directory, { force: true, recursive: true });
     }
   } finally {

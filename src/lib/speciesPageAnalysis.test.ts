@@ -86,23 +86,26 @@ describe("species workflow", () => {
 
   it("runs steps in the supplied order and stops when a step fails", async () => {
     const events: string[] = [];
-    await expect(
-      runSpeciesWorkflowSteps(
-        ["records", "analysis", "links"],
-        async (step) => {
-          events.push(`start:${step}`);
-          await Promise.resolve();
-          events.push(`end:${step}`);
-          if (step === "analysis") throw new Error("failed");
-        },
-      ),
-    ).rejects.toThrow("failed");
+    const result = await runSpeciesWorkflowSteps(
+      ["records", "analysis", "links"],
+      async (step) => {
+        events.push(`start:${step}`);
+        await Promise.resolve();
+        events.push(`end:${step}`);
+        if (step === "analysis") throw new Error("failed");
+      },
+    );
+    expect(result?.step).toBe("analysis");
+    expect(result?.error).toEqual(new Error("failed"));
     expect(events).toEqual([
       "start:records",
       "end:records",
       "start:analysis",
       "end:analysis",
     ]);
+    expect(
+      await runSpeciesWorkflowSteps(["records"], async () => undefined),
+    ).toBeNull();
   });
 
   it("rejects duplicate or unknown steps", () => {

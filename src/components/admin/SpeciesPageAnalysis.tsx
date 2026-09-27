@@ -193,6 +193,7 @@ export function SpeciesPageAnalysis({ copy, id }: { copy: Copy; id: string }) {
         });
         const result = (await response.json()) as {
           error?: string;
+          failedStep?: Mode | null;
           pullRequestUrl?: null | string;
           steps?: Array<{ mode: Mode; report: string }>;
         };
@@ -202,7 +203,12 @@ export function SpeciesPageAnalysis({ copy, id }: { copy: Copy; id: string }) {
             pullRequestUrl: result.pullRequestUrl,
           })),
         );
-        if (!response.ok) throw new Error(result.error ?? copy.workflowError);
+        if (result.failedStep)
+          setError(
+            `${labels[result.failedStep]}: ${result.error ?? copy.workflowError}`,
+          );
+        else if (!response.ok)
+          throw new Error(result.error ?? copy.workflowError);
       } else {
         for (const [index, mode] of selected.entries()) {
           setCurrentMode(mode);
