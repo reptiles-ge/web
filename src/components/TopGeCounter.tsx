@@ -11,7 +11,11 @@ export function TopGeCounter() {
         inert
       />
       <Script
-        src="https://counter.top.ge/counter.js"
+        src={
+          process.env.NODE_ENV === "production"
+            ? "https://counter.top.ge/counter.js"
+            : "/api/dev/top-ge?script"
+        }
         strategy="afterInteractive"
       />
     </>
