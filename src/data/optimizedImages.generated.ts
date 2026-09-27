@@ -6136,6 +6136,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2200],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/pseudopus-apodus-bertogcliment-1.jpg": {
+    "path": "pseudopus-apodus-bertogcliment-1",
+    "width": 1536,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/pseudopus-apodus-cristian-1.jpg": {
     "path": "pseudopus-apodus-cristian-1",
     "width": 2048,
