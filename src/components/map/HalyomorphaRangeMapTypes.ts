@@ -13,7 +13,12 @@ export type { HalyomorphaFieldRecord };
 
 export type HalyomorphaLazyMapProps = Pick<
   HalyomorphaRangeMapProps,
-  "copy" | "locale" | "speciesId"
+  | "copy"
+  | "dataRevision"
+  | "locale"
+  | "occurrenceSummary"
+  | "regionNames"
+  | "speciesId"
 > & {
   officialRegionIds: string[];
 };
@@ -45,6 +50,7 @@ export type HalyomorphaRangeMapCopy = {
 
 export type HalyomorphaRangeMapProps = {
   copy: HalyomorphaRangeMapCopy;
+  dataRevision: string;
   locale: AppLocale;
   occurrenceSummary: HalyomorphaOccurrenceSummary;
   officialRange: HalyomorphaRangeRegionFeatureCollection;

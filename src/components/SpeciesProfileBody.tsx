@@ -583,6 +583,7 @@ export async function SpeciesProfileBody({
         gallery={gallery}
         speciesId={species.id}
         speciesName={species.commonName}
+        updatedAt={species.updatedAt}
       />
 
       {showIdentification && species.identification ? (
