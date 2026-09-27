@@ -154,6 +154,11 @@ const nextConfig: NextConfig = {
         statusCode: 301,
       },
       {
+        destination: "/gvelebi/tsklis-ankara",
+        source: "/gvelebi/tsqlis-ankara",
+        statusCode: 301,
+      },
+      {
         destination: "/xvlikebi",
         source: "/lizards",
         statusCode: 301,

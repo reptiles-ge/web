@@ -17,6 +17,7 @@ const KA_SLUG_OVERRIDES: Record<string, string> = {
   "coturnix-coturnix": "mtskeri",
   "lutra-lutra": "chveulebrivi-tsavi",
   "macrovipera-lebetina": "giurza",
+  "natrix-tessellata": "tsklis-ankara",
   "paralaudakia-caucasia": "jojo",
   "pseudopus-apodus": "gvelxokera",
   "tyto-alba": "bukhrintsa",
@@ -244,6 +245,7 @@ const KA_SLUG_ALIASES: Record<string, string[]> = {
     "white-wagtail",
     "pied-wagtail",
   ],
+  "natrix-tessellata": ["tsqlis-ankara"],
   "olivierus-caucasicus": [
     "kavkasiuri-morieli",
     "caucasian-scorpion",

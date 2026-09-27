@@ -16,6 +16,18 @@ describe("species slug rules", () => {
     expect(maps.hubById["macrovipera-lebetina"]).toBe("snakes");
   });
 
+  it("keeps the former water snake slug as an alias", () => {
+    const maps = buildSpeciesSlugMaps([
+      {
+        commonName: "წყლის ანკარა",
+        hub: "snakes",
+        id: "natrix-tessellata",
+      },
+    ]);
+    expect(maps.kaSlugById["natrix-tessellata"]).toBe("tsklis-ankara");
+    expect(maps.idByAnySlug["tsqlis-ankara"]).toBe("natrix-tessellata");
+  });
+
   it("does not collide with reserved hub slugs", () => {
     const maps = buildSpeciesSlugMaps([
       {
