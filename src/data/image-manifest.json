@@ -85648,6 +85648,101 @@
       ],
       "updatedAt": "2026-09-05T11:18:25.162Z"
     },
+    "zamenis-hohenackeri-lennart-1.jpg": {
+      "sourceHash": "a627ff454c4b34089e778e5cd02a1dfe1b812247562e19ffc7295f0e41b5e995",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "zamenis-hohenackeri-lennart-1.jpg",
+      "originalSize": 692368,
+      "width": 2048,
+      "height": 1367,
+      "derivatives": [
+        {
+          "key": "optimized/zamenis-hohenackeri-lennart-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14706
+        },
+        {
+          "key": "optimized/zamenis-hohenackeri-lennart-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 24608
+        },
+        {
+          "key": "optimized/zamenis-hohenackeri-lennart-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 21110
+        },
+        {
+          "key": "optimized/zamenis-hohenackeri-lennart-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 35088
+        },
+        {
+          "key": "optimized/zamenis-hohenackeri-lennart-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 44829
+        },
+        {
+          "key": "optimized/zamenis-hohenackeri-lennart-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 74930
+        },
+        {
+          "key": "optimized/zamenis-hohenackeri-lennart-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 63457
+        },
+        {
+          "key": "optimized/zamenis-hohenackeri-lennart-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 105462
+        },
+        {
+          "key": "optimized/zamenis-hohenackeri-lennart-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 113172
+        },
+        {
+          "key": "optimized/zamenis-hohenackeri-lennart-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 184588
+        },
+        {
+          "key": "optimized/zamenis-hohenackeri-lennart-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1367,
+          "byteSize": 261173
+        },
+        {
+          "key": "optimized/zamenis-hohenackeri-lennart-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1367,
+          "byteSize": 399022
+        }
+      ],
+      "updatedAt": "2026-09-27T11:21:37.128Z"
+    },
     "zamenis-hohenackeri-mobile.jpg": {
       "sourceHash": "076651c6a25bed49be0723f7cb2c3da8ab2262d599e1a05e4897fcf619f30398",
       "configFingerprint": "a895f8e025dcc7fa",
