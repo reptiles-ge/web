@@ -77,12 +77,7 @@ const LOOKALIKES: Record<string, string[]> = {
   "capreolus-capreolus": ["cervus-elaphus", "sus-scrofa", "capra-aegagrus"],
   "cervus-elaphus": ["capreolus-capreolus", "capra-aegagrus", "sus-scrofa"],
   "columba-palumbus": ["streptopelia-turtur"],
-  "coronella-austriaca": [
-    "vipera-transcaucasiana",
-    "vipera-kaznakovi",
-    "vipera-dinniki",
-    "vipera-darevskii",
-  ],
+  "coronella-austriaca": ["vipera-transcaucasiana"],
   "coturnix-coturnix": ["phasianus-colchicus"],
   "darevskia-adjarica": [
     "darevskia-clarkorum",
@@ -143,12 +138,10 @@ const LOOKALIKES: Record<string, string[]> = {
   ],
   "eirenis-collaris": [
     "eirenis-modestus",
-    "coronella-austriaca",
     "xerotyphlops-vermicularis",
   ],
   "eirenis-modestus": [
     "eirenis-collaris",
-    "coronella-austriaca",
     "xerotyphlops-vermicularis",
   ],
   "elaphe-dione": [
@@ -323,7 +316,6 @@ const LOOKALIKES: Record<string, string[]> = {
   "streptopelia-turtur": ["columba-palumbus"],
   "telescopus-fallax": [
     "vipera-transcaucasiana",
-    "coronella-austriaca",
     "elaphe-dione",
   ],
   "testudo-graeca": [
@@ -351,12 +343,10 @@ const LOOKALIKES: Record<string, string[]> = {
   "vipera-dinniki": [
     "vipera-kaznakovi",
     "vipera-darevskii",
-    "coronella-austriaca",
   ],
   "vipera-kaznakovi": [
     "natrix-natrix",
     "vipera-dinniki",
-    "coronella-austriaca",
     "vipera-transcaucasiana",
   ],
   "vipera-transcaucasiana": [
@@ -375,7 +365,6 @@ const LOOKALIKES: Record<string, string[]> = {
   ],
   "zamenis-longissimus": [
     "natrix-natrix",
-    "coronella-austriaca",
     "vipera-kaznakovi",
   ],
 };

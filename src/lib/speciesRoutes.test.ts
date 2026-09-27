@@ -56,6 +56,13 @@ describe("species routes", () => {
     ]);
   });
 
+  it("keeps smooth snake lookalikes to supported visual comparisons", () => {
+    expect(getSpeciesLookalikes("coronella-austriaca")).toEqual([
+      "vipera-transcaucasiana",
+      "zamenis-hohenackeri",
+    ]);
+  });
+
   it("limits Transcaucasian ratsnake lookalikes to visual confusion candidates", () => {
     expect(getSpeciesLookalikes("zamenis-hohenackeri")).toEqual([
       "elaphe-dione",
