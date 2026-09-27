@@ -84,6 +84,7 @@ export function SpeciesGalleryLightbox({
   galleryLabel,
   nextLabel,
   prevLabel,
+  renderAllSlides = false,
   slides,
   speciesId,
 }: {
@@ -92,6 +93,7 @@ export function SpeciesGalleryLightbox({
   galleryLabel: string;
   nextLabel: string;
   prevLabel: string;
+  renderAllSlides?: boolean;
   slides: GallerySlide[];
   speciesId?: string;
 }) {
@@ -102,7 +104,7 @@ export function SpeciesGalleryLightbox({
   const externalTriggerRef = useRef<HTMLElement | null>(null);
   const triggerRefs = useRef<Array<HTMLButtonElement | null>>([]);
   const restoreIndex = useRef<null | number>(null);
-  const [loadedSrc, setLoadedSrc] = useState<null | string>(null);
+  const [loadedSrcs, setLoadedSrcs] = useState(() => new Set<string>());
 
   useEffect(() => {
     const dialog = dialogRef.current;
@@ -154,9 +156,6 @@ export function SpeciesGalleryLightbox({
       body.style.overflow = previousBodyOverflow;
     };
   }, [active]);
-
-  const activeSlide = active !== null ? slides[active] : null;
-  const imageLoaded = activeSlide ? loadedSrc === activeSlide.src : false;
 
   const openAt = useCallback(
     (index: number) => {
@@ -241,7 +240,7 @@ export function SpeciesGalleryLightbox({
         }}
         ref={dialogRef}
       >
-        {activeSlide ? (
+        {renderAllSlides || active !== null ? (
           <>
             <button
               aria-label={closeLabel}
@@ -292,66 +291,123 @@ export function SpeciesGalleryLightbox({
               </>
             ) : null}
 
-            <div
-              className="relative z-10 mx-auto flex h-[78svh] w-[min(92vw,1100px)] flex-col"
-              onClick={(event) => event.stopPropagation()}
-            >
-              <div className="relative min-h-0 flex-1">
-                {!imageLoaded ? (
-                  <div className="media-placeholder absolute inset-0 size-full" />
-                ) : null}
-                <picture className="absolute inset-0 block size-full">
-                  {activeSlide.sources.map((source) => (
-                    <source key={source.key} {...source.props} />
-                  ))}
-                  <img
-                    alt={activeSlide.alt}
-                    className="absolute inset-0 size-full object-contain text-transparent"
-                    decoding="async"
-                    fetchPriority="high"
-                    height={activeSlide.height}
-                    key={activeSlide.src}
-                    onLoad={() => setLoadedSrc(activeSlide.src)}
-                    sizes={GALLERY_LIGHTBOX_SIZES}
-                    src={activeSlide.src}
-                    width={activeSlide.width}
-                  />
-                </picture>
-              </div>
-              <div className="flex shrink-0 flex-col items-center gap-1.5 pt-4 pb-1">
-                {activeSlide.subject ? (
-                  <p className="text-center text-[13px] leading-snug tracking-[0.02em] text-white/80">
-                    <Link
-                      className="underline decoration-white/25 underline-offset-2 transition-colors hover:decoration-white/70"
-                      href={activeSlide.subject.href}
-                    >
-                      {activeSlide.subject.name}
-                    </Link>
-                  </p>
-                ) : null}
-                <PhotoCreditCaption
-                  credit={
-                    activeSlide.subject
-                      ? {
-                          date: activeSlide.credit?.date,
-                          lat: activeSlide.credit?.lat,
-                          lng: activeSlide.credit?.lng,
-                          location: activeSlide.credit?.location,
-                        }
-                      : activeSlide.credit
-                  }
-                  photoConfidence={activeSlide.photoConfidence}
-                  speciesId={speciesId}
-                  variant="lightbox"
-                />
-                <p className="text-[12px] tracking-[0.2em] text-white/50">
-                  {(active ?? 0) + 1} / {slides.length}
-                </p>
-              </div>
-            </div>
+            <GalleryPhotoViewer
+              active={active}
+              loadedSrcs={loadedSrcs}
+              onLoad={(src) =>
+                setLoadedSrcs((current) => new Set(current).add(src))
+              }
+              renderAllSlides={renderAllSlides}
+              slides={slides}
+              speciesId={speciesId}
+            />
           </>
         ) : null}
       </dialog>
     </GalleryContext.Provider>
+  );
+}
+
+function GalleryPhotoViewer({
+  active,
+  loadedSrcs,
+  onLoad,
+  renderAllSlides,
+  slides,
+  speciesId,
+}: {
+  active: null | number;
+  loadedSrcs: Set<string>;
+  onLoad: (src: string) => void;
+  renderAllSlides: boolean;
+  slides: GallerySlide[];
+  speciesId?: string;
+}) {
+  const activeSlide = active === null ? null : slides[active];
+  const imageLoaded = activeSlide ? loadedSrcs.has(activeSlide.src) : false;
+
+  return (
+    <div
+      className="relative z-10 mx-auto flex h-[78svh] w-[min(92vw,1100px)] flex-col"
+      onClick={(event) => event.stopPropagation()}
+    >
+      <div className="relative min-h-0 flex-1">
+        {!imageLoaded ? (
+          <div className="media-placeholder absolute inset-0 size-full" />
+        ) : null}
+        {slides.map((slide, index) =>
+          renderAllSlides || active === index ? (
+            <GallerySlidePicture
+              active={active === index}
+              key={slide.src}
+              onLoad={onLoad}
+              slide={slide}
+            />
+          ) : null,
+        )}
+      </div>
+      <div className="flex shrink-0 flex-col items-center gap-1.5 pt-4 pb-1">
+        {activeSlide?.subject ? (
+          <p className="text-center text-[13px] leading-snug tracking-[0.02em] text-white/80">
+            <Link
+              className="underline decoration-white/25 underline-offset-2 transition-colors hover:decoration-white/70"
+              href={activeSlide.subject.href}
+            >
+              {activeSlide.subject.name}
+            </Link>
+          </p>
+        ) : null}
+        {activeSlide ? (
+          <PhotoCreditCaption
+            credit={
+              activeSlide.subject
+                ? {
+                    date: activeSlide.credit?.date,
+                    lat: activeSlide.credit?.lat,
+                    lng: activeSlide.credit?.lng,
+                    location: activeSlide.credit?.location,
+                  }
+                : activeSlide.credit
+            }
+            photoConfidence={activeSlide.photoConfidence}
+            speciesId={speciesId}
+            variant="lightbox"
+          />
+        ) : null}
+        <p className="text-[12px] tracking-[0.2em] text-white/50">
+          {(active ?? 0) + 1} / {slides.length}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function GallerySlidePicture({
+  active,
+  onLoad,
+  slide,
+}: {
+  active: boolean;
+  onLoad: (src: string) => void;
+  slide: GallerySlide;
+}) {
+  return (
+    <picture className={active ? "absolute inset-0 block size-full" : "hidden"}>
+      {slide.sources.map((source) => (
+        <source key={source.key} {...source.props} />
+      ))}
+      <img
+        alt={slide.alt}
+        className="absolute inset-0 size-full object-contain text-transparent"
+        decoding="async"
+        fetchPriority={active ? "high" : "auto"}
+        height={slide.height}
+        loading={active ? "eager" : "lazy"}
+        onLoad={() => onLoad(slide.src)}
+        sizes={GALLERY_LIGHTBOX_SIZES}
+        src={slide.src}
+        width={slide.width}
+      />
+    </picture>
   );
 }
