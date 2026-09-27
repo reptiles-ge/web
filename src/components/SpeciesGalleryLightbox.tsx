@@ -84,6 +84,7 @@ export function SpeciesGalleryLightbox({
   galleryLabel,
   nextLabel,
   prevLabel,
+  renderAllSlides = false,
   slides,
   speciesId,
 }: {
@@ -92,6 +93,7 @@ export function SpeciesGalleryLightbox({
   galleryLabel: string;
   nextLabel: string;
   prevLabel: string;
+  renderAllSlides?: boolean;
   slides: GallerySlide[];
   speciesId?: string;
 }) {
@@ -102,7 +104,7 @@ export function SpeciesGalleryLightbox({
   const externalTriggerRef = useRef<HTMLElement | null>(null);
   const triggerRefs = useRef<Array<HTMLButtonElement | null>>([]);
   const restoreIndex = useRef<null | number>(null);
-  const [loadedSrc, setLoadedSrc] = useState<null | string>(null);
+  const [loadedSrcs, setLoadedSrcs] = useState(() => new Set<string>());
 
   useEffect(() => {
     const dialog = dialogRef.current;
@@ -156,7 +158,7 @@ export function SpeciesGalleryLightbox({
   }, [active]);
 
   const activeSlide = active !== null ? slides[active] : null;
-  const imageLoaded = activeSlide ? loadedSrc === activeSlide.src : false;
+  const imageLoaded = activeSlide ? loadedSrcs.has(activeSlide.src) : false;
 
   const openAt = useCallback(
     (index: number) => {
@@ -241,7 +243,7 @@ export function SpeciesGalleryLightbox({
         }}
         ref={dialogRef}
       >
-        {activeSlide ? (
+        {renderAllSlides || activeSlide ? (
           <>
             <button
               aria-label={closeLabel}
@@ -300,26 +302,41 @@ export function SpeciesGalleryLightbox({
                 {!imageLoaded ? (
                   <div className="media-placeholder absolute inset-0 size-full" />
                 ) : null}
-                <picture className="absolute inset-0 block size-full">
-                  {activeSlide.sources.map((source) => (
-                    <source key={source.key} {...source.props} />
-                  ))}
-                  <img
-                    alt={activeSlide.alt}
-                    className="absolute inset-0 size-full object-contain text-transparent"
-                    decoding="async"
-                    fetchPriority="high"
-                    height={activeSlide.height}
-                    key={activeSlide.src}
-                    onLoad={() => setLoadedSrc(activeSlide.src)}
-                    sizes={GALLERY_LIGHTBOX_SIZES}
-                    src={activeSlide.src}
-                    width={activeSlide.width}
-                  />
-                </picture>
+                {slides.map((slide, index) =>
+                  renderAllSlides || active === index ? (
+                    <picture
+                      className={
+                        active === index
+                          ? "absolute inset-0 block size-full"
+                          : "hidden"
+                      }
+                      key={`${slide.src}-${index}`}
+                    >
+                      {slide.sources.map((source) => (
+                        <source key={source.key} {...source.props} />
+                      ))}
+                      <img
+                        alt={slide.alt}
+                        className="absolute inset-0 size-full object-contain text-transparent"
+                        decoding="async"
+                        fetchPriority={active === index ? "high" : "auto"}
+                        height={slide.height}
+                        loading={active === index ? "eager" : "lazy"}
+                        onLoad={() =>
+                          setLoadedSrcs((current) =>
+                            new Set(current).add(slide.src),
+                          )
+                        }
+                        sizes={GALLERY_LIGHTBOX_SIZES}
+                        src={slide.src}
+                        width={slide.width}
+                      />
+                    </picture>
+                  ) : null,
+                )}
               </div>
               <div className="flex shrink-0 flex-col items-center gap-1.5 pt-4 pb-1">
-                {activeSlide.subject ? (
+                {activeSlide?.subject ? (
                   <p className="text-center text-[13px] leading-snug tracking-[0.02em] text-white/80">
                     <Link
                       className="underline decoration-white/25 underline-offset-2 transition-colors hover:decoration-white/70"
@@ -329,21 +346,23 @@ export function SpeciesGalleryLightbox({
                     </Link>
                   </p>
                 ) : null}
-                <PhotoCreditCaption
-                  credit={
-                    activeSlide.subject
-                      ? {
-                          date: activeSlide.credit?.date,
-                          lat: activeSlide.credit?.lat,
-                          lng: activeSlide.credit?.lng,
-                          location: activeSlide.credit?.location,
-                        }
-                      : activeSlide.credit
-                  }
-                  photoConfidence={activeSlide.photoConfidence}
-                  speciesId={speciesId}
-                  variant="lightbox"
-                />
+                {activeSlide ? (
+                  <PhotoCreditCaption
+                    credit={
+                      activeSlide.subject
+                        ? {
+                            date: activeSlide.credit?.date,
+                            lat: activeSlide.credit?.lat,
+                            lng: activeSlide.credit?.lng,
+                            location: activeSlide.credit?.location,
+                          }
+                        : activeSlide.credit
+                    }
+                    photoConfidence={activeSlide.photoConfidence}
+                    speciesId={speciesId}
+                    variant="lightbox"
+                  />
+                ) : null}
                 <p className="text-[12px] tracking-[0.2em] text-white/50">
                   {(active ?? 0) + 1} / {slides.length}
                 </p>

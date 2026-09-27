@@ -29,7 +29,7 @@ const base = {
 } satisfies Partial<Species>;
 
 describe("speciesPageImageUrls", () => {
-  it("includes only photos credited to a published author with a page", () => {
+  it("includes every distinct published image, regardless of author page", () => {
     const urls = speciesPageImageUrls({
       ...base,
       gallery: [
@@ -66,7 +66,9 @@ describe("speciesPageImageUrls", () => {
     expect(urls).toEqual([
       "https://cdn.reptiles.ge/hero.jpg",
       "https://cdn.reptiles.ge/sandro-1.jpg",
+      "https://cdn.reptiles.ge/commons.jpg",
       "https://cdn.reptiles.ge/nika.jpg",
+      "https://cdn.reptiles.ge/uncredited.jpg",
       "https://cdn.reptiles.ge/zauri.jpg",
     ]);
   });
@@ -85,7 +87,7 @@ describe("speciesPageImageUrls", () => {
     ]);
   });
 
-  it("returns an empty list when no photo has a published author page", () => {
+  it("returns an empty list when every image is a placeholder", () => {
     expect(
       speciesPageImageUrls({
         ...base,
@@ -93,6 +95,20 @@ describe("speciesPageImageUrls", () => {
         image: "/images/species-placeholder.png",
       } as Species),
     ).toEqual([]);
+  });
+
+  it("includes gallery images past the old eight-photo limit", () => {
+    const gallery = Array.from({ length: 12 }, (_, index) => ({
+      src: `https://cdn.reptiles.ge/photo-${index + 1}.jpg`,
+    }));
+    const urls = speciesPageImageUrls({
+      ...base,
+      gallery,
+      image: "",
+    } as Species);
+
+    expect(urls).toHaveLength(12);
+    expect(urls.at(-1)).toBe("https://cdn.reptiles.ge/photo-12.jpg");
   });
 });
 

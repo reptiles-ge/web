@@ -82,6 +82,7 @@ export async function SpeciesGallery({
       galleryLabel={t("gallery")}
       nextLabel={t("nextPhoto")}
       prevLabel={t("prevPhoto")}
+      renderAllSlides
       slides={slides}
       speciesId={speciesId}
     >
