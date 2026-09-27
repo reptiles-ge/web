@@ -69570,6 +69570,101 @@
       ],
       "updatedAt": "2026-08-28T21:57:11.403Z"
     },
+    "pseudopus-apodus-cristian-1.jpg": {
+      "sourceHash": "daef2007d99c5e34948dc311bcc70b064a4242f35deff57b2bc1dda10e427c49",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pseudopus-apodus-cristian-1.jpg",
+      "originalSize": 492669,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/pseudopus-apodus-cristian-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 8437
+        },
+        {
+          "key": "optimized/pseudopus-apodus-cristian-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 12238
+        },
+        {
+          "key": "optimized/pseudopus-apodus-cristian-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 11943
+        },
+        {
+          "key": "optimized/pseudopus-apodus-cristian-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 17064
+        },
+        {
+          "key": "optimized/pseudopus-apodus-cristian-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 24798
+        },
+        {
+          "key": "optimized/pseudopus-apodus-cristian-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 35770
+        },
+        {
+          "key": "optimized/pseudopus-apodus-cristian-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 35440
+        },
+        {
+          "key": "optimized/pseudopus-apodus-cristian-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 50974
+        },
+        {
+          "key": "optimized/pseudopus-apodus-cristian-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 65651
+        },
+        {
+          "key": "optimized/pseudopus-apodus-cristian-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 92076
+        },
+        {
+          "key": "optimized/pseudopus-apodus-cristian-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 146325
+        },
+        {
+          "key": "optimized/pseudopus-apodus-cristian-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 200440
+        }
+      ],
+      "updatedAt": "2026-09-27T08:16:23.950Z"
+    },
     "pseudopus-apodus-mobile.webp": {
       "sourceHash": "f6f9772b3e6da9d5da5b11a4c940678de89f7407e842b7b62129ed1d211a5c23",
       "configFingerprint": "a895f8e025dcc7fa",
