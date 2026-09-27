@@ -6206,6 +6206,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/regions/tbilisi.jpg": {
+    "path": "regions/tbilisi",
+    "width": 1200,
+    "height": 1600,
+    "widths": [320, 400, 640, 800, 1200],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/sciurus-anomalus-alacam-1.jpg": {
     "path": "sciurus-anomalus-alacam-1",
     "width": 2400,
