@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest";
 import {
   runSpeciesWorkflowSteps,
   selectSpeciesAnalysisFiles,
+  speciesFrontmatterError,
   validateSpeciesWorkflowModes,
 } from "@/lib/speciesPageAnalysis";
 
@@ -72,6 +73,17 @@ describe("species page analysis file scope", () => {
 });
 
 describe("species workflow", () => {
+  it("detects the unquoted colon that broke the analysis-to-texts handoff", () => {
+    const raw = (value: string) =>
+      `---\nstats:\n  - label: სიგრძე\n    value: ${value}\n---\n`;
+    expect(speciesFrontmatterError(raw("ზამთრის ჯგუფი: 82–158 სმ"))).toMatch(
+      /incomplete explicit mapping pair/,
+    );
+    expect(
+      speciesFrontmatterError(raw('"ზამთრის ჯგუფი: 82–158 სმ"')),
+    ).toBeNull();
+  });
+
   it("runs steps in the supplied order and stops when a step fails", async () => {
     const events: string[] = [];
     await expect(

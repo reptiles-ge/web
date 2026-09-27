@@ -1,3 +1,4 @@
+import matter from "gray-matter";
 import { execFile, spawn } from "node:child_process";
 import { randomUUID } from "node:crypto";
 import fs from "node:fs/promises";
@@ -191,6 +192,13 @@ export async function runSpeciesWorkflow(
             output,
             `${prompt}\n\nშეცვალე მხოლოდ ეს ფაილები: ${stepFiles.join(", ")}. სხვა ფაილების ცვლილებები შედეგში არ მოხვდება. არ გაუშვა ტესტები, lint, typecheck, build ან კონტენტის გენერაციის ბრძანებები; ჩანაწერების იმპორტის სკრიპტი ამ შეზღუდვის გამონაკლისია. არ შეასრულო commit, push ან PR-ის შექმნა; ამას აპლიკაცია გააკეთებს. საბოლოო ანგარიში დააბრუნე ჩატში ქართულად.`,
           );
+          await repairSpeciesFrontmatter(
+            worktree,
+            directory,
+            (await changedFiles(worktree)).filter((file) =>
+              stepFiles.includes(file),
+            ),
+          );
           report = (await fs.readFile(output, "utf8")).trim();
           if (!report) throw new Error("Codex returned an empty report");
         }
@@ -312,6 +320,15 @@ export function selectSpeciesAnalysisFiles(
   );
 }
 
+export function speciesFrontmatterError(raw: string) {
+  try {
+    matter(raw);
+    return null;
+  } catch (error) {
+    return error instanceof Error ? error.message : String(error);
+  }
+}
+
 async function changedFiles(worktree: string) {
   return (
     await run(
@@ -349,6 +366,35 @@ async function processWorkflowTexts(id: string, worktree: string) {
     report.push(`${field}\n${result.ka}`);
   }
   return report.join("\n\n");
+}
+
+async function repairSpeciesFrontmatter(
+  worktree: string,
+  directory: string,
+  files: string[],
+) {
+  const mdxFiles = files.filter((file) => file.endsWith(".mdx"));
+  const errors = async () =>
+    (
+      await Promise.all(
+        mdxFiles.map(async (file) => {
+          const error = speciesFrontmatterError(
+            await fs.readFile(path.join(worktree, file), "utf8"),
+          );
+          return error ? `${file}: ${error}` : "";
+        }),
+      )
+    ).filter(Boolean);
+  const invalid = await errors();
+  if (!invalid.length) return;
+  await runCodex(
+    worktree,
+    path.join(directory, "frontmatter-repair.md"),
+    `Fix only the YAML frontmatter syntax errors below. Preserve all values and prose. Quote plain string values containing ": " where needed. Change only these files: ${mdxFiles.join(", ")}. Do not run tests, lint, typecheck, build, or content generation.\n\n${invalid.join("\n")}`,
+  );
+  const remaining = await errors();
+  if (remaining.length)
+    throw new Error(`Invalid species frontmatter: ${remaining.join("; ")}`);
 }
 
 async function run(command: string, args: string[], cwd = root) {
@@ -484,6 +530,13 @@ async function runAnalysis(
       worktree,
       output,
       `${prompt}\n\nშეცვალე მხოლოდ ეს ფაილები: ${allowedFiles.join(", ")}. სხვა ფაილების ცვლილებები შედეგში არ მოხვდება. არ გაუშვა ტესტები, lint, typecheck, build ან კონტენტის გენერაციის ბრძანებები; ჩანაწერების იმპორტის სკრიპტი ამ შეზღუდვის გამონაკლისია. არ შეასრულო commit, push ან PR-ის შექმნა; ამას აპლიკაცია გააკეთებს. საბოლოო ანგარიში დააბრუნე ჩატში ქართულად.`,
+    );
+    await repairSpeciesFrontmatter(
+      worktree,
+      directory,
+      (await changedFiles(worktree)).filter((file) =>
+        allowedFiles.includes(file),
+      ),
     );
     let report = (await fs.readFile(output, "utf8")).trim();
     if (!report) throw new Error("Codex returned an empty report");
