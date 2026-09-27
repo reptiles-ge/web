@@ -69855,6 +69855,101 @@
       ],
       "updatedAt": "2026-09-27T08:16:23.950Z"
     },
+    "pseudopus-apodus-kattttrin-1.jpg": {
+      "sourceHash": "ca21e4ae6a3c0556cba3fd4c962b91900498d0e189762f7f365bba0f3557e5a2",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pseudopus-apodus-kattttrin-1.jpg",
+      "originalSize": 653418,
+      "width": 2048,
+      "height": 1907,
+      "derivatives": [
+        {
+          "key": "optimized/pseudopus-apodus-kattttrin-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 298,
+          "byteSize": 6327
+        },
+        {
+          "key": "optimized/pseudopus-apodus-kattttrin-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 298,
+          "byteSize": 7522
+        },
+        {
+          "key": "optimized/pseudopus-apodus-kattttrin-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 372,
+          "byteSize": 8058
+        },
+        {
+          "key": "optimized/pseudopus-apodus-kattttrin-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 372,
+          "byteSize": 9844
+        },
+        {
+          "key": "optimized/pseudopus-apodus-kattttrin-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 596,
+          "byteSize": 14651
+        },
+        {
+          "key": "optimized/pseudopus-apodus-kattttrin-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 596,
+          "byteSize": 18490
+        },
+        {
+          "key": "optimized/pseudopus-apodus-kattttrin-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 745,
+          "byteSize": 19670
+        },
+        {
+          "key": "optimized/pseudopus-apodus-kattttrin-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 745,
+          "byteSize": 25534
+        },
+        {
+          "key": "optimized/pseudopus-apodus-kattttrin-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1117,
+          "byteSize": 38299
+        },
+        {
+          "key": "optimized/pseudopus-apodus-kattttrin-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1117,
+          "byteSize": 60880
+        },
+        {
+          "key": "optimized/pseudopus-apodus-kattttrin-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1907,
+          "byteSize": 223317
+        },
+        {
+          "key": "optimized/pseudopus-apodus-kattttrin-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1907,
+          "byteSize": 252094
+        }
+      ],
+      "updatedAt": "2026-09-27T08:19:01.053Z"
+    },
     "pseudopus-apodus-mobile.webp": {
       "sourceHash": "f6f9772b3e6da9d5da5b11a4c940678de89f7407e842b7b62129ed1d211a5c23",
       "configFingerprint": "a895f8e025dcc7fa",
