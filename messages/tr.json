@@ -31,7 +31,22 @@
     "textsError": "Metin düzenleme tamamlanamadı. Ayrıntılar yerel terminalde.",
     "textsNoChanges": "Metinler işlendi, ancak değişiklik yok ve PR oluşturulmadı.",
     "textsReport": "Yapay zekâ tarafından düzenlenen metinler",
-    "textsStale": "Tür metni PR hedef dalından farklı. Bu dalı ve sayfayı güncelleyip tekrar deneyin."
+    "textsStale": "Tür metni PR hedef dalından farklı. Bu dalı ve sayfayı güncelleyip tekrar deneyin.",
+    "runWorkflow": "İş akışını çalıştır",
+    "configureWorkflow": "İş akışını düzenle",
+    "workflowTitle": "Sayfa iş akışı",
+    "workflowDescription": "Adımları sıralayın. İstemler bu sırayla teker teker çalışır.",
+    "workflowProcessing": "İş akışı çalışıyor. Adımlar sırayla yürütülüyor…",
+    "workflowError": "İş akışı tamamlanamadı.",
+    "sameBranch": "Tüm adımlar tek dalda",
+    "sameBranchHint": "Tüm adımlar tek çalışma dalında yürütülür ve tek PR oluşturulur.",
+    "availableSteps": "Kullanılabilir adımlar",
+    "emptyWorkflow": "En az bir adım ekleyin.",
+    "addStep": "Ekle",
+    "removeStep": "Kaldır",
+    "moveUp": "Yukarı taşı",
+    "moveDown": "Aşağı taşı",
+    "closeWorkflow": "Kapat"
   },
   "nav": {
     "species": "Türler",

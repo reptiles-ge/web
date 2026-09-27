@@ -31,7 +31,22 @@
     "textsError": "Text editing could not finish. See the local terminal for details.",
     "textsNoChanges": "Texts were processed, but nothing changed and no PR was created.",
     "textsReport": "AI-edited texts",
-    "textsStale": "Species text differs from the PR target branch. Update this branch and reload the page, then try again."
+    "textsStale": "Species text differs from the PR target branch. Update this branch and reload the page, then try again.",
+    "runWorkflow": "Run workflow",
+    "configureWorkflow": "Configure workflow",
+    "workflowTitle": "Page workflow",
+    "workflowDescription": "Reorder the steps. Prompts run one at a time in this order.",
+    "workflowProcessing": "Workflow is running. Steps execute in order…",
+    "workflowError": "Workflow could not finish.",
+    "sameBranch": "Use one branch for all steps",
+    "sameBranchHint": "All steps run in one worktree and create one pull request.",
+    "availableSteps": "Available steps",
+    "emptyWorkflow": "Add at least one step.",
+    "addStep": "Add",
+    "removeStep": "Remove",
+    "moveUp": "Move up",
+    "moveDown": "Move down",
+    "closeWorkflow": "Close"
   },
   "nav": {
     "species": "Species",
