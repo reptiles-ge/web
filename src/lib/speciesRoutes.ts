@@ -162,7 +162,6 @@ const LOOKALIKES: Record<string, string[]> = {
   ],
   "elaphe-urartica": [
     "elaphe-dione",
-    "zamenis-hohenackeri",
     "dolichophis-schmidti",
     "hemorrhois-ravergieri",
     "macrovipera-lebetina",
@@ -370,15 +369,12 @@ const LOOKALIKES: Record<string, string[]> = {
   "vulpes-vulpes": ["canis-lupus"],
   "xerotyphlops-vermicularis": ["eryx-jaculus"],
   "zamenis-hohenackeri": [
-    "zamenis-longissimus",
     "elaphe-dione",
-    "elaphe-urartica",
     "coronella-austriaca",
     "hemorrhois-ravergieri",
     "vipera-transcaucasiana",
   ],
   "zamenis-longissimus": [
-    "zamenis-hohenackeri",
     "natrix-natrix",
     "coronella-austriaca",
     "vipera-kaznakovi",
