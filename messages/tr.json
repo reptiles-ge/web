@@ -21,6 +21,8 @@
     "linksProcessing": "Codex bu sayfadaki iç bağlantıları inceliyor. Bu birkaç dakika sürebilir…",
     "lookalikesAction": "Benzer türleri incele",
     "lookalikesProcessing": "Codex benzer türler listesini araştırıyor. Bu birkaç dakika sürebilir…",
+    "recordsAction": "Saha kayıtlarını içe aktar",
+    "recordsProcessing": "Codex iNaturalist kayıtlarını içe aktarıp haritayı ve dağılımı kontrol ediyor. Bu birkaç dakika sürebilir…",
     "noChanges": "Analiz tamamlandı. İçerik değişmediği için PR oluşturulmadı.",
     "openPr": "PR'yi aç",
     "report": "Yapay zekâ raporu",

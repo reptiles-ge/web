@@ -56,7 +56,7 @@ describe("POST /api/admin/species-analysis", () => {
     );
   });
 
-  it.each(["links", "lookalikes"] as const)(
+  it.each(["links", "lookalikes", "records"] as const)(
     "runs the %s review for the requested species",
     async (mode) => {
       const response = await POST(request("http://localhost", mode));

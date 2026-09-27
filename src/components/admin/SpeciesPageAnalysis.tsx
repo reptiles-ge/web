@@ -12,6 +12,8 @@ type Copy = {
   noChanges: string;
   openPr: string;
   processing: string;
+  recordsAction: string;
+  recordsProcessing: string;
   report: string;
   textsAction: string;
   textsError: string;
@@ -21,7 +23,7 @@ type Copy = {
   textsStale: string;
 };
 
-type Mode = "analysis" | "links" | "lookalikes" | "texts";
+type Mode = "analysis" | "links" | "lookalikes" | "records" | "texts";
 
 export function SpeciesPageAnalysis({ copy, id }: { copy: Copy; id: string }) {
   const [processing, setProcessing] = useState(false);
@@ -116,6 +118,14 @@ export function SpeciesPageAnalysis({ copy, id }: { copy: Copy; id: string }) {
       >
         {copy.linksAction}
       </button>
+      <button
+        className="mt-2 w-full min-w-44 rounded-lg border border-border px-4 py-2.5 text-sm font-medium disabled:opacity-60"
+        disabled={processing}
+        onClick={() => void launch("records")}
+        type="button"
+      >
+        {copy.recordsAction}
+      </button>
       <div
         aria-live="polite"
         className="max-w-[min(22rem,calc(100vw-4rem))] text-sm"
@@ -128,7 +138,9 @@ export function SpeciesPageAnalysis({ copy, id }: { copy: Copy; id: string }) {
                 ? copy.textsProcessing
                 : mode === "lookalikes"
                   ? copy.lookalikesProcessing
-                  : copy.linksProcessing}
+                  : mode === "links"
+                    ? copy.linksProcessing
+                    : copy.recordsProcessing}
           </p>
         ) : null}
         {error ? <p className="mt-3 text-destructive">{error}</p> : null}

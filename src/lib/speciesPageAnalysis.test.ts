@@ -47,4 +47,28 @@ describe("species page analysis file scope", () => {
       ),
     ).toThrow();
   });
+
+  it("allows record, map, and region edits only for the target species review", () => {
+    const files = [
+      "src/content/species/natrix-natrix/ka.mdx",
+      "src/components/map/SpeciesRangeMap.tsx",
+      "src/data/mapRegions.ts",
+      "src/data/regions.test.ts",
+      "src/lib/halyomorphaOccurrences.ts",
+      "src/lib/halyomorphaOccurrences.test.ts",
+    ];
+    expect(() =>
+      assertSpeciesAnalysisFiles(files, "natrix-natrix", "records"),
+    ).not.toThrow();
+    expect(() =>
+      assertSpeciesAnalysisFiles(files, "natrix-natrix", "analysis"),
+    ).toThrow();
+    expect(() =>
+      assertSpeciesAnalysisFiles(
+        ["src/content/species/natrix-tessellata/ka.mdx"],
+        "natrix-natrix",
+        "records",
+      ),
+    ).toThrow();
+  });
 });

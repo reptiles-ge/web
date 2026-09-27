@@ -10,7 +10,8 @@ import { findSpeciesPullRequest } from "@/lib/contentEditorPullRequest";
 const exec = promisify(execFile);
 const root = process.cwd();
 const running = new Set<string>();
-export type SpeciesAnalysisMode = "analysis" | "links" | "lookalikes";
+export type SpeciesAnalysisMode =
+  "analysis" | "links" | "lookalikes" | "records";
 
 const modeConfig = {
   analysis: {
@@ -28,10 +29,28 @@ const modeConfig = {
     prompt: "species-lookalikes.md",
     title: "Review lookalikes for",
   },
+  records: {
+    commit: "import field records for",
+    prompt: "species-field-records.md",
+    title: "Import field records for",
+  },
 } satisfies Record<
   SpeciesAnalysisMode,
   { commit: string; prompt: string; title: string }
 >;
+
+const sharedFiles: Record<SpeciesAnalysisMode, string[]> = {
+  analysis: [],
+  links: [],
+  lookalikes: ["src/lib/speciesRoutes.ts", "src/lib/speciesRoutes.test.ts"],
+  records: [
+    "src/components/map/SpeciesRangeMap.tsx",
+    "src/data/mapRegions.ts",
+    "src/data/regions.test.ts",
+    "src/lib/halyomorphaOccurrences.ts",
+    "src/lib/halyomorphaOccurrences.test.ts",
+  ],
+};
 
 export async function analyzeSpeciesPage(
   id: string,
@@ -59,11 +78,7 @@ export function assertSpeciesAnalysisFiles(
         !(
           (file.startsWith(prefix) &&
             /^(ka|en|ru|tr)\.mdx$/.test(file.slice(prefix.length))) ||
-          (mode === "lookalikes" &&
-            [
-              "src/lib/speciesRoutes.test.ts",
-              "src/lib/speciesRoutes.ts",
-            ].includes(file))
+          sharedFiles[mode].includes(file)
         ),
     )
   ) {
@@ -143,7 +158,7 @@ async function runAnalysis(
       ? findSpeciesPullRequest(
           pullRequests.filter(
             (pullRequest) =>
-              !/^(feature\/species-(links|lookalikes)-)/.test(
+              !/^(feature\/species-(links|lookalikes|records)-)/.test(
                 pullRequest.headRefName,
               ),
           ),
@@ -153,12 +168,7 @@ async function runAnalysis(
       : null);
   const branch = `feature/species-${mode}-${id}-${randomUUID().slice(0, 8)}`;
   const remoteBranch = existing?.headRefName ?? branch;
-  const targetPaths = [
-    `src/content/species/${id}`,
-    ...(mode === "lookalikes"
-      ? ["src/lib/speciesRoutes.ts", "src/lib/speciesRoutes.test.ts"]
-      : []),
-  ];
+  const targetPaths = [`src/content/species/${id}`, ...sharedFiles[mode]];
   if (await run("git", ["status", "--porcelain", "--", ...targetPaths])) {
     throw new Error("The species has local changes; save them before analysis");
   }
@@ -188,9 +198,7 @@ async function runAnalysis(
         ...["ka", "en", "ru", "tr"].map(
           (locale) => `src/content/species/${id}/${locale}.mdx`,
         ),
-        ...(mode === "lookalikes"
-          ? ["src/lib/speciesRoutes.ts", "src/lib/speciesRoutes.test.ts"]
-          : []),
+        ...sharedFiles[mode],
       ];
       const differences = await Promise.all(
         sourceFiles.map(async (file) => {
@@ -242,6 +250,19 @@ async function runAnalysis(
         ["exec", "vitest", "run", "src/lib/speciesRoutes.test.ts"],
         worktree,
       );
+    if (mode === "records")
+      await run(
+        "pnpm",
+        [
+          "exec",
+          "vitest",
+          "run",
+          "src/lib/inaturalistFieldRecords.test.ts",
+          "src/lib/halyomorphaOccurrences.test.ts",
+          "src/data/regions.test.ts",
+        ],
+        worktree,
+      );
     const verifiedFiles = await changedFiles(worktree);
     assertSpeciesAnalysisFiles(verifiedFiles, id, mode);
     if (verifiedFiles.sort().join("\0") !== files.sort().join("\0"))
@@ -263,9 +284,15 @@ async function runAnalysis(
     pushed = true;
     if (!existing) {
       const body = path.join(directory, "pr-body.md");
+      const extraValidation =
+        mode === "lookalikes"
+          ? "- pnpm exec vitest run src/lib/speciesRoutes.test.ts\n"
+          : mode === "records"
+            ? "- pnpm exec vitest run src/lib/inaturalistFieldRecords.test.ts src/lib/halyomorphaOccurrences.test.ts src/data/regions.test.ts\n"
+            : "";
       await fs.writeFile(
         body,
-        `## Summary\n\n- ${modeConfig[mode].title} ${id}\n\n## Validation\n\n- pnpm run pretest\n- pnpm run typecheck\n${mode === "lookalikes" ? "- pnpm exec vitest run src/lib/speciesRoutes.test.ts\n" : ""}\n## AI report\n\n${report.slice(0, 55000)}\n`,
+        `## Summary\n\n- ${modeConfig[mode].title} ${id}\n\n## Validation\n\n- pnpm run pretest\n- pnpm run typecheck\n${extraValidation}\n## AI report\n\n${report.slice(0, 55000)}\n`,
       );
       try {
         pullRequestUrl = await run(

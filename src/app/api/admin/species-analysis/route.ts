@@ -33,7 +33,12 @@ export async function POST(request: Request) {
     };
     if (typeof id !== "string" || !isSpeciesContentId(id))
       throw new Error("Invalid species id");
-    if (mode !== "analysis" && mode !== "links" && mode !== "lookalikes")
+    if (
+      mode !== "analysis" &&
+      mode !== "links" &&
+      mode !== "lookalikes" &&
+      mode !== "records"
+    )
       throw new Error("Invalid analysis mode");
     speciesName = readAdminSpeciesGallery(id).commonName;
     const result = await analyzeSpeciesPage(

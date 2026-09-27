@@ -21,6 +21,8 @@
     "linksProcessing": "Codex is reviewing internal links on this page. This may take several minutes…",
     "lookalikesAction": "Review lookalike species",
     "lookalikesProcessing": "Codex is researching the lookalike species list. This may take several minutes…",
+    "recordsAction": "Import field records",
+    "recordsProcessing": "Codex is importing iNaturalist records and checking the map and distribution. This may take several minutes…",
     "noChanges": "Analysis finished. The content is unchanged, so no PR was created.",
     "openPr": "Open PR",
     "report": "AI report",

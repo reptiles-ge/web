@@ -202,6 +202,8 @@ export async function SpeciesProfile({
             noChanges: tAnalysis("noChanges"),
             openPr: tAnalysis("openPr"),
             processing: tAnalysis("processing"),
+            recordsAction: tAnalysis("recordsAction"),
+            recordsProcessing: tAnalysis("recordsProcessing"),
             report: tAnalysis("report"),
             textsAction: tAnalysis("textsAction"),
             textsError: tAnalysis("textsError"),
