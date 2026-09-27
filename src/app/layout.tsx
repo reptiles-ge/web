@@ -143,7 +143,7 @@ export default async function RootLayout({ children }: Props) {
         {isProd ? null : (
           <Script
             crossOrigin="anonymous"
-            src="//unpkg.com/react-scan/dist/auto.global.js"
+            src="https://unpkg.com/react-scan/dist/auto.global.js"
             strategy="beforeInteractive"
           />
         )}

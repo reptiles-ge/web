@@ -1,8 +1,6 @@
 import Script from "next/script";
 
 export function TopGeCounter() {
-  if (process.env.NODE_ENV !== "production") return null;
-
   return (
     <>
       <div
