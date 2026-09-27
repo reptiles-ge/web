@@ -66,6 +66,7 @@ const PERMANENT_REDIRECTS: Record<string, string> = {
   "/dzuzumtsovrebi/ghamura-saxlshi": "/dzuzumtsovrebi/ghamura-sakhlshi",
   "/fotografebi": "/kontributorebi",
   "/gvelebi/sakartvelos-gvelebi": "/gvelebi/saxeoebebi",
+  "/gvelebi/tsqlis-ankara": "/gvelebi/tsklis-ankara",
   "/gvelebi/vipera-ammodytes": "/gvelebi/tsxvirrkosani-gvelgesla",
   "/identify": "/species",
   "/lizards": "/xvlikebi",

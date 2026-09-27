@@ -15,18 +15,18 @@ BUNNY_CDN_BASE_URL=https://cdn.reptiles.ge   # optional
 
 ## When to use what
 
-| Goal | Run |
-| --- | --- |
-| MDX → catalog (new/changed species) | `npm run species:compile` |
-| Refresh search indexes | `npm run search:compile` (species first) |
-| Refresh Georgia map paths | `npm run map:compile` |
-| Spot broken CDN image URLs | `npm run images:check` |
-| Are species OG images live? | `npm run images:check-og` |
-| Upload missing OG images (species + guides) | `npm run images:og-missing` |
-| AVIF/WebP + OG optimize on Bunny | `npm run images:optimize …` |
-| Regenerate only `optimizedImages.generated.ts` | `npm run images:emit` |
-| Unused files under `public/images` | `npm run images:unused` |
-| Unused photos on BunnyCDN | `npm run images:cdn-unused` |
+| Goal                                           | Run                                      |
+| ---------------------------------------------- | ---------------------------------------- |
+| MDX → catalog (new/changed species)            | `npm run species:compile`                |
+| Refresh search indexes                         | `npm run search:compile` (species first) |
+| Refresh Georgia map paths                      | `npm run map:compile`                    |
+| Spot broken CDN image URLs                     | `npm run images:check`                   |
+| Are species OG images live?                    | `npm run images:check-og`                |
+| Upload missing OG images (species + guides)    | `npm run images:og-missing`              |
+| AVIF/WebP + OG optimize on Bunny               | `npm run images:optimize …`              |
+| Regenerate only `optimizedImages.generated.ts` | `npm run images:emit`                    |
+| Unused files under `public/images`             | `npm run images:unused`                  |
+| Unused photos on BunnyCDN                      | `npm run images:cdn-unused`              |
 
 `npm run dev` / `build` / `test` already run the three compile scripts (`predev` / `prebuild` / `pretest`).
 
@@ -86,14 +86,15 @@ Builds `optimized/` derivatives (AVIF/WebP), OG JPEGs when needed, and updates:
 
 **Pick one scope:**
 
-| npm | Meaning |
-| --- | --- |
-| `images:optimize -- --all` | Every catalog image |
-| `images:optimize -- --species id1,id2` | Specific species |
-| `images:optimize:news` | News article photos |
-| `images:optimize:site` | Site / home images |
-| `images:optimize:dry` | Dry-run (no storage writes) |
-| `images:emit` | Regenerate TS from the manifest only (`--emit-only`) |
+| npm                                    | Meaning                                              |
+| -------------------------------------- | ---------------------------------------------------- |
+| `images:optimize -- --all`             | Every catalog image                                  |
+| `images:optimize -- --species id1,id2` | Specific species                                     |
+| `images:optimize -- --region tbilisi`  | One region hero                                      |
+| `images:optimize:news`                 | News article photos                                  |
+| `images:optimize:site`                 | Site / home / region images                          |
+| `images:optimize:dry`                  | Dry-run (no storage writes)                          |
+| `images:emit`                          | Regenerate TS from the manifest only (`--emit-only`) |
 
 Other flags: `--force`, `--limit N`, `--concurrency N`.
 
@@ -107,10 +108,10 @@ Generates and uploads OG images to Bunny for species and guide articles that are
 
 Two different stores — do not mix them up:
 
-| Script | Compares | Delete |
-| --- | --- | --- |
+| Script                    | Compares                           | Delete                               |
+| ------------------------- | ---------------------------------- | ------------------------------------ |
 | `remove-unused-images.js` | `public/images` vs repo references | `--delete` or `images:unused:delete` |
-| `cdn-unused-images.ts` | BunnyCDN storage vs repo CDN URLs | Interactive **Y/N** at the end |
+| `cdn-unused-images.ts`    | BunnyCDN storage vs repo CDN URLs  | Interactive **Y/N** at the end       |
 
 ### `remove-unused-images.js` → `npm run images:unused`
 
@@ -127,6 +128,7 @@ Local `public/images`. Dry-run by default. Delete with `npm run images:unused:de
 **Y** deletes the listed image files from storage. **N** deletes nothing.
 
 Notes:
+
 - Old `optimized/*.webp` may show up as unused when the manifest now serves AVIF only — that is expected.
 - Nested paths (`authors/`, `regions/`, `images/`, `og/`, `optimized/`, …) are only deleted when unreferenced. Root JPEGs are always candidates.
 

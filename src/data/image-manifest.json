@@ -70765,6 +70765,87 @@
       ],
       "updatedAt": "2026-09-17T15:22:50.678Z"
     },
+    "regions/tbilisi.jpg": {
+      "sourceHash": "4923e5dc06292f09a63116cdee13d25e7ee2b0db7b15d198d2026c8b2522e3aa",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "regions/tbilisi.jpg",
+      "originalSize": 233512,
+      "width": 1200,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/regions/tbilisi-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 19667
+        },
+        {
+          "key": "optimized/regions/tbilisi-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 28210
+        },
+        {
+          "key": "optimized/regions/tbilisi-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 28588
+        },
+        {
+          "key": "optimized/regions/tbilisi-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 41100
+        },
+        {
+          "key": "optimized/regions/tbilisi-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 62699
+        },
+        {
+          "key": "optimized/regions/tbilisi-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 88454
+        },
+        {
+          "key": "optimized/regions/tbilisi-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 90367
+        },
+        {
+          "key": "optimized/regions/tbilisi-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 127208
+        },
+        {
+          "key": "optimized/regions/tbilisi-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 170221
+        },
+        {
+          "key": "optimized/regions/tbilisi-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 230610
+        }
+      ],
+      "updatedAt": "2026-09-27T08:36:16.418Z"
+    },
     "sciurus-anomalus-alacam-1.jpg": {
       "sourceHash": "65ec92758c8207376f6b1094cdf1b8c6307dcd16c3fc56cfa34d9b586958cdcb",
       "configFingerprint": "a895f8e025dcc7fa",
