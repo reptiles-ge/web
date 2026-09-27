@@ -404,6 +404,8 @@
     "copyShareDetails": "Подробности",
     "gallery": "Галерея",
     "galleryTitle": "на фото",
+    "morePhotos": "Больше фото",
+    "galleryOpenSixth": "Открыть фото 6 из {total}",
     "photo": "Фото",
     "photoCredit": "Фото:",
     "photoLocation": "Место:",
