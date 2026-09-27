@@ -1439,6 +1439,27 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/coturnix-coturnix-alexandre-1.jpg": {
+    "path": "coturnix-coturnix-alexandre-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/coturnix-coturnix-alexey-1.jpg": {
+    "path": "coturnix-coturnix-alexey-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/coturnix-coturnix-giorgi-1.jpg": {
+    "path": "coturnix-coturnix-giorgi-1",
+    "width": 1503,
+    "height": 1003,
+    "widths": [320, 400, 640, 800, 1200, 1503],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/cuculus-canorus-chick-1.jpg": {
     "path": "cuculus-canorus-chick-1",
     "width": 1160,
@@ -6115,6 +6136,34 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2200],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/pseudopus-apodus-bertogcliment-1.jpg": {
+    "path": "pseudopus-apodus-bertogcliment-1",
+    "width": 1536,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/pseudopus-apodus-brechtheusequin-1.jpg": {
+    "path": "pseudopus-apodus-brechtheusequin-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/pseudopus-apodus-cristian-1.jpg": {
+    "path": "pseudopus-apodus-cristian-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/pseudopus-apodus-kattttrin-1.jpg": {
+    "path": "pseudopus-apodus-kattttrin-1",
+    "width": 2048,
+    "height": 1907,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/pseudopus-apodus-mobile.webp": {
     "path": "pseudopus-apodus-mobile",
     "width": 1200,
@@ -7396,6 +7445,27 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/zamenis-hohenackeri-alex-1.jpg": {
+    "path": "zamenis-hohenackeri-alex-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/zamenis-hohenackeri-armen-1.jpg": {
+    "path": "zamenis-hohenackeri-armen-1",
+    "width": 2048,
+    "height": 1340,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/zamenis-hohenackeri-david-1.jpg": {
+    "path": "zamenis-hohenackeri-david-1",
+    "width": 2048,
+    "height": 1356,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/zamenis-hohenackeri-ioane-1.jpg": {
     "path": "zamenis-hohenackeri-ioane-1",
     "width": 1080,
@@ -7410,12 +7480,26 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1080],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/zamenis-hohenackeri-lennart-1.jpg": {
+    "path": "zamenis-hohenackeri-lennart-1",
+    "width": 2048,
+    "height": 1367,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/zamenis-hohenackeri-mobile.jpg": {
     "path": "zamenis-hohenackeri-mobile",
     "width": 1280,
     "height": 960,
     "widths": [400, 800, 1200, 1280],
     "formats": ["avif"]
+  },
+  "https://cdn.reptiles.ge/zamenis-hohenackeri-tom-1.jpg": {
+    "path": "zamenis-hohenackeri-tom-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/zamenis-hohenackeri-zauri-1.jpg": {
     "path": "zamenis-hohenackeri-zauri-1",
