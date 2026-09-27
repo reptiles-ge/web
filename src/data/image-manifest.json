@@ -13632,6 +13632,101 @@
       ],
       "updatedAt": "2026-08-31T20:01:02.448Z"
     },
+    "coturnix-coturnix-alexandre-1.jpg": {
+      "sourceHash": "91a4137ab089fe7a133e1319f6ed9862a61c14fcfbae5612e93f96dcd57d2058",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "coturnix-coturnix-alexandre-1.jpg",
+      "originalSize": 390139,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/coturnix-coturnix-alexandre-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9629
+        },
+        {
+          "key": "optimized/coturnix-coturnix-alexandre-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14450
+        },
+        {
+          "key": "optimized/coturnix-coturnix-alexandre-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 12854
+        },
+        {
+          "key": "optimized/coturnix-coturnix-alexandre-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 19738
+        },
+        {
+          "key": "optimized/coturnix-coturnix-alexandre-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 25450
+        },
+        {
+          "key": "optimized/coturnix-coturnix-alexandre-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 38760
+        },
+        {
+          "key": "optimized/coturnix-coturnix-alexandre-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 34812
+        },
+        {
+          "key": "optimized/coturnix-coturnix-alexandre-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 53036
+        },
+        {
+          "key": "optimized/coturnix-coturnix-alexandre-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 60760
+        },
+        {
+          "key": "optimized/coturnix-coturnix-alexandre-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 91176
+        },
+        {
+          "key": "optimized/coturnix-coturnix-alexandre-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 125734
+        },
+        {
+          "key": "optimized/coturnix-coturnix-alexandre-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 191262
+        }
+      ],
+      "updatedAt": "2026-09-27T07:50:49.086Z"
+    },
     "coturnix-coturnix-alexey-1.jpg": {
       "sourceHash": "419ef2db9cceb078416c722274fb1f4cb17e118f6deaa60a6347cc1b1a87a67d",
       "configFingerprint": "409788ee46c653d8",
