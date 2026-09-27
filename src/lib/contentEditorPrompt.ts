@@ -108,11 +108,15 @@ export function buildEditorPrompt(input: {
 
     "Simplification must NEVER change the factual meaning.",
 
-    "- Preserve every factual claim contained in SELECTED.",
-    "- Preserve every important qualification.",
-    "- Preserve every limitation.",
-    "- Preserve every condition.",
-    "- Preserve every uncertainty.",
+    "- Preserve every substantive factual claim about the subject. Omit only the non-informative commentary explicitly allowed for removal under RESEARCH-GAP COMMENTARY — REMOVE, DO NOT REPHRASE.",
+
+    "- Preserve every important qualification needed to understand retained factual claims accurately.",
+
+    "- Preserve every limitation that affects the meaning, geographic scope, reliability or safety of retained factual claims; do not preserve redundant research-gap commentary merely because it is worded as a limitation.",
+
+    "- Preserve every condition that affects the meaning of retained factual claims.",
+
+    "- Preserve meaningful uncertainty about retained factual claims. Removing unnecessary commentary about missing sources or absent local studies must never make those claims more certain or more broadly applicable.",
     "- Preserve geographic context.",
     "- Preserve relationships between facts.",
     "- Preserve the strength and confidence of every claim.",
@@ -190,7 +194,7 @@ export function buildEditorPrompt(input: {
 
     "Retain a source's identity only when that identity is itself essential to the factual meaning and no accurate wording can preserve the distinction without it. Mere authority, academic appearance or the fact that the source was named in the input is not sufficient.",
 
-    "Do not delete dedicated bibliographic entries, reference lists, citation markers or source URLs. Removing unnecessary names from descriptive sentences does not mean removing the evidence.",
+    "Preserve dedicated bibliographic entries and reference lists. For inline links, citation markers and source URLs, follow the Markdown-link rules below, including the narrow exception for references belonging exclusively to deleted research-gap commentary. Removing unnecessary source names must not remove evidence for retained factual claims.",
 
     "When a source name is linked, follow the Markdown-link rule below: preserve the link and its destination while using accurate, natural visible wording wherever possible.",
 
@@ -201,6 +205,38 @@ export function buildEditorPrompt(input: {
     "READABILITY TEST:",
 
     "Assume the reader has no education in biology or zoology.",
+
+    "RESEARCH-GAP COMMENTARY — REMOVE, DO NOT REPHRASE:",
+
+    "HIGH PRIORITY: In ordinary descriptive prose within SELECTED, remove commentary whose only purpose is to say that information was not found in the reviewed sources, a separate local study is unavailable, or the Georgian population was not separately assessed. Do not add such commentary.",
+
+    "The reader is here to learn about the subject, not to read an account of what the author could not find. Missing-source commentary must not be used to fill a paragraph, complete a section or make the text appear scientifically cautious.",
+
+    "Remove sentences such as: 'ამ წყაროებში არ გვხვდება ცალკე კვლევა იმის შესახებ, რას ჭამს საქართველოში.'; 'ამ წყაროებიდან არ ჩანს, როდის მრავლდება საქართველოში.'; 'ამ შეფასებაში საქართველოს პოპულაცია ცალკე არ არის შეფასებული.'",
+
+    "Apply this rule by meaning, not just by matching these examples. It also covers unnecessary statements such as 'local data are unavailable', 'the reviewed sources do not specify', 'this has not been separately studied in Georgia' and 'further research is needed' when they merely describe a research gap.",
+
+    "DELETE this unnecessary commentary. Do not replace it with a shorter synonym, a parenthetical note, 'უცნობია', 'მონაცემები მწირია', 'დამატებითი კვლევაა საჭირო', or another sentence communicating the same unnecessary gap. Do not move it to the beginning or end of the paragraph.",
+
+    "When useful factual information and research-gap commentary appear together, remove only the unnecessary commentary and preserve the useful information with its actual meaning and scope.",
+
+    "Preserve species-level biological information already supported by the supplied text without automatically appending a disclaimer that it has not been separately studied in Georgia. However, never turn a finding about one foreign population into a general species trait or a Georgian fact.",
+
+    "When the supplied text gives a global assessment, preserve its global scope in the factual sentence itself. Remove a redundant separate sentence saying that the Georgian population was not separately assessed. Never present a global assessment as an assessment of the Georgian population.",
+
+    "This is a narrow exception to general instructions to preserve every claim, limitation and uncertainty: unnecessary research-process commentary may be omitted. This exception does NOT authorize removing substantive negative findings, meaningful uncertainty, safety information or qualifications needed to interpret a retained factual statement accurately.",
+
+    "Preserve necessary qualifiers such as 'may', 'usually', 'in some populations' and an assessment's actual geographic scope. Express an essential limitation briefly as part of the relevant fact, rather than adding a separate account of missing research. Do not use this safeguard as an excuse to restore redundant research-gap commentary.",
+
+    "Never replace missing information with a guess, outside knowledge or an unsupported answer. Do not infer that a species lacks a trait, does not occur somewhere, or poses no risk merely because the supplied sources do not document it. Do not infer that no research exists merely because the author did not find any.",
+
+    "If all of SELECTED consists solely of removable research-gap commentary, the improved SELECTED may be empty, apart from any whitespace necessary to join the unchanged BEFORE and AFTER. Do not invent replacement content to keep the passage non-empty.",
+
+    "Preserve dedicated reference lists, bibliographic entries and evidence supporting retained factual claims. An inline link or citation belonging exclusively to deleted research-gap commentary may be removed with that commentary; this is a narrow exception to blanket link-preservation rules. Never transfer that citation to a different claim merely to keep the link.",
+
+    "Apply these edits only within SELECTED. BEFORE and AFTER remain exactly unchanged. Construct ka as required, then translate the final ka; do not restore deleted commentary in English, Russian or Turkish.",
+
+    "FINAL TEST: Does this sentence teach the reader a useful fact, or merely announce that a source, study or separate local assessment was not found? If it only announces the gap and is not essential to the accuracy or safety of retained content, REMOVE IT.",
 
     "Before finalizing, silently review the rewritten Georgian and ask:",
 
@@ -217,9 +253,9 @@ export function buildEditorPrompt(input: {
     "- Is there unnecessary repetition?",
     "- Is there filler?",
     "- Did simplification change any factual meaning?",
-    "- Was any qualification lost?",
-    "- Was any uncertainty lost?",
-    "- Was any geographic limitation lost?",
+    "- Was any qualification necessary to understand a retained factual claim accurately lost?",
+    "- Was any meaningful uncertainty about a retained factual claim lost?",
+    "- Was the geographic scope of any retained factual claim changed or made misleading by removing commentary?",
     "- Was any new fact introduced?",
 
     "If simpler wording communicates exactly the same information, ALWAYS choose the simpler wording.",
@@ -305,13 +341,13 @@ export function buildEditorPrompt(input: {
 
     "Only SELECTED may be rewritten.",
 
-    "Within SELECTED, preserve every Markdown link, its exact destination URL and its original order. Do not delete evidence to simplify the prose.",
+    "Within SELECTED, preserve all Markdown links in retained content, their exact destination URLs and their relative order. An inline link or citation may be removed only when it belongs exclusively to research-gap commentary deleted under RESEARCH-GAP COMMENTARY — REMOVE, DO NOT REPHRASE. Do not remove shared references or evidence for retained factual claims.",
 
     "When an unnecessary source name is the visible label of a link in descriptive prose, replace that label with a natural phrase expressing the specific fact supported by the link. Preserve the destination and keep the link attached to the same claim.",
 
     "Do not attach a source link to a different or broader claim, invent a new claim to create a convenient link label, or replace the label with repetitive filler such as 'source' or 'research'. If no accurate natural label is possible, retain only the essential attribution.",
 
-    "Do not apply descriptive-prose source-name removal to dedicated bibliographic entries or reference lists. Preserve citation markers and reference identifiers. BEFORE and AFTER remain exactly unchanged.",
+    "Do not apply descriptive-prose source-name removal to dedicated bibliographic entries or reference lists. Preserve citation markers and reference identifiers for retained content; apply only the explicit research-gap exception to inline references belonging exclusively to deleted commentary. BEFORE and AFTER remain exactly unchanged.",
 
     "TRANSLATIONS:",
 
@@ -382,8 +418,8 @@ export function buildEditorPrompt(input: {
     "8. Difficult concepts have been expressed as simply as accuracy allows.",
     "9. Ordinary descriptive prose uses plain language rather than unnecessary specialist terminology or classification codes. Removed jargon and codes were not added back in parentheses. Useful facts, scientific Latin names and essential qualifications remain accurate; unresolved meanings were not guessed.",
     "10. Unnecessary repetition, duplicated facts and redundant explanations were removed without losing meaningful information.",
-    "11. No factual claim has changed.",
-    "12. No qualification or uncertainty has disappeared.",
+    "11. All substantive factual claims were preserved accurately. Any omitted material falls within the explicitly permitted removal of unnecessary editorial or research-gap commentary.",
+    "12. No qualification necessary for the accuracy, scope or safety of retained claims was lost. Removing research-gap commentary did not make any retained claim stronger, broader or more certain.",
     "13. No new fact has been added.",
     "14. Scientific Latin names are preserved.",
     "15. Numbers and measurements remain accurate.",
@@ -392,7 +428,8 @@ export function buildEditorPrompt(input: {
     "18. Turkish is natural and simple.",
     "19. All four versions communicate the same factual meaning.",
     "20. The result contains no commentary outside the required JSON.",
-    "21. Ordinary descriptive prose contains no unnecessary author, university, institution, organization or database names, and no repetitive citation-style framing. Removing attribution did not strengthen any claim. Existing links, citation markers and dedicated bibliographic information remain intact.",
+    "21. Ordinary descriptive prose contains no unnecessary source-name repetition or citation-style framing. Dedicated references and evidence for retained factual claims remain intact. Only inline references belonging exclusively to deleted research-gap commentary may have been removed; no citation was reassigned to a different claim.",
+    "22. The rewritten SELECTED contains no unnecessary commentary about missing sources, unavailable local studies or the Georgian population not being separately assessed. Such commentary was deleted, not paraphrased, relocated or restored in translations. Essential factual and safety qualifications remain intact.",
 
     "OUTPUT FORMAT:",
 
