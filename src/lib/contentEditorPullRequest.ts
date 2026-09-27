@@ -37,7 +37,7 @@ export async function createEditorPullRequest(
   result: EditorResult,
   operationId: string,
 ) {
-  return enqueue([{ ...input, result, selection: input }], operationId);
+  return enqueue([{ ...input, result, selection: input }], operationId, false);
 }
 
 export async function createSpeciesTextsPullRequest(
@@ -49,6 +49,7 @@ export async function createSpeciesTextsPullRequest(
   return enqueue(
     updates.map((update) => ({ ...update, id, kind: "species" })),
     operationId,
+    true,
   );
 }
 
@@ -72,7 +73,11 @@ export function findSpeciesPullRequest(
   return match ?? null;
 }
 
-async function createPullRequest(edits: Edit[], operationId: string) {
+async function createPullRequest(
+  edits: Edit[],
+  operationId: string,
+  allowNoChanges: boolean,
+) {
   const input = edits[0];
   const base = await run("gh", [
     "repo",
@@ -164,7 +169,7 @@ async function createPullRequest(edits: Edit[], operationId: string) {
     if (changed.some((file) => !allowedFiles.has(file))) {
       throw new Error("Unexpected changed files in editor worktree");
     }
-    if (!changed.length && edits.length > 1) return null;
+    if (!changed.length && allowNoChanges) return null;
     if (!changed.length)
       throw new Error("No content changes to create a pull request");
     await fs.symlink(
@@ -284,13 +289,17 @@ async function createPullRequest(edits: Edit[], operationId: string) {
   }
 }
 
-async function enqueue(edits: Edit[], operationId: string) {
+async function enqueue(
+  edits: Edit[],
+  operationId: string,
+  allowNoChanges: boolean,
+) {
   const { id, kind } = edits[0];
   const key = `${kind}:${id}`;
   const previous = queues.get(key) ?? Promise.resolve();
   const current = previous
     .catch(() => undefined)
-    .then(() => createPullRequest(edits, operationId));
+    .then(() => createPullRequest(edits, operationId, allowNoChanges));
   queues.set(key, current);
   try {
     return await current;
