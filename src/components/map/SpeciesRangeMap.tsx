@@ -1524,7 +1524,7 @@ const INTERACTIVE_RANGE_MAPS: Partial<
       en: {
         ...HALYOMORPHA_RANGE_COPY.en,
         intro:
-          "The Transcaucasian rat snake map combines Reptiles.ge field photos with public iNaturalist observations. Regions come from the records-by-region table: only confirmed status counts as distribution; other regions remain recorded only. Record counts reflect observation effort, not population density.",
+          "The Transcaucasian rat snake map combines Reptiles.ge field photos with public iNaturalist observations. Regions come from the records-by-region table: only confirmed status counts as distribution; other regions remain recorded only. Some iNaturalist coordinates are obscured, so points near regional borders are approximate. Record counts reflect observation effort, not population density.",
         mapAria:
           "Transcaucasian rat snake observations and confirmed regions on a map of Georgia",
         officialRegionLabel: "Confirmed distribution region",
@@ -1534,7 +1534,7 @@ const INTERACTIVE_RANGE_MAPS: Partial<
       ka: {
         ...HALYOMORPHA_RANGE_COPY.ka,
         intro:
-          "ამიერკავკასიური მცურავის რუკა აერთიანებს Reptiles.ge-ის საველე ფოტოებსა და iNaturalist-ის საჯარო დაკვირვებებს. რეგიონები აღებულია ჩანაწერების რეგიონული ცხრილიდან: გავრცელებად ითვლება მხოლოდ დადასტურებული სტატუსის მქონე რეგიონი; დანარჩენებში სახეობა მხოლოდ დაფიქსირებულია. ჩანაწერების რაოდენობა დაკვირვების ინტენსივობას ასახავს და პოპულაციის სიმჭიდროვეს არ ზომავს.",
+          "ამიერკავკასიური მცურავის რუკა აერთიანებს Reptiles.ge-ის საველე ფოტოებსა და iNaturalist-ის საჯარო დაკვირვებებს. რეგიონები აღებულია ჩანაწერების რეგიონული ცხრილიდან: გავრცელებად ითვლება მხოლოდ დადასტურებული სტატუსის მქონე რეგიონი; დანარჩენებში სახეობა მხოლოდ დაფიქსირებულია. iNaturalist-ის ზოგი კოორდინატი დაფარულია, ამიტომ რეგიონების საზღვრებთან მდებარე წერტილები მიახლოებითია. ჩანაწერების რაოდენობა დაკვირვების ინტენსივობას ასახავს და პოპულაციის სიმჭიდროვეს არ ზომავს.",
         mapAria:
           "ამიერკავკასიური მცურავის დაკვირვებები და დადასტურებული რეგიონები საქართველოს რუკაზე",
         officialRegionLabel: "დადასტურებული გავრცელების რეგიონი",
@@ -1544,7 +1544,7 @@ const INTERACTIVE_RANGE_MAPS: Partial<
       ru: {
         ...HALYOMORPHA_RANGE_COPY.ru,
         intro:
-          "Карта закавказского полоза объединяет полевые фотографии Reptiles.ge и публичные наблюдения iNaturalist. Регионы взяты из таблицы записей: распространением считаются только регионы с подтверждённым статусом; в остальных вид лишь зарегистрирован. Число записей отражает активность наблюдателей, а не плотность популяции.",
+          "Карта закавказского полоза объединяет полевые фотографии Reptiles.ge и публичные наблюдения iNaturalist. Регионы взяты из таблицы записей: распространением считаются только регионы с подтверждённым статусом; в остальных вид лишь зарегистрирован. Координаты некоторых наблюдений iNaturalist скрыты, поэтому точки у границ регионов приблизительны. Число записей отражает активность наблюдателей, а не плотность популяции.",
         mapAria:
           "Наблюдения закавказского полоза и регионы с подтверждённым распространением на карте Грузии",
         officialRegionLabel: "Регион с подтверждённым распространением",
@@ -1554,7 +1554,7 @@ const INTERACTIVE_RANGE_MAPS: Partial<
       tr: {
         ...HALYOMORPHA_RANGE_COPY.tr,
         intro:
-          "Transkafkas sıçan yılanı haritası Reptiles.ge arazi fotoğraflarını ve herkese açık iNaturalist gözlemlerini birleştirir. Bölgeler, bölgelere göre kayıt tablosundan alınır: yalnızca doğrulanmış durumdaki bölgeler yayılış sayılır; diğerlerinde tür sadece kaydedilmiştir. Kayıt sayısı gözlem çabasını yansıtır, nüfus yoğunluğunu ölçmez.",
+          "Transkafkas sıçan yılanı haritası Reptiles.ge arazi fotoğraflarını ve herkese açık iNaturalist gözlemlerini birleştirir. Bölgeler, bölgelere göre kayıt tablosundan alınır: yalnızca doğrulanmış durumdaki bölgeler yayılış sayılır; diğerlerinde tür sadece kaydedilmiştir. Bazı iNaturalist koordinatları gizlendiğinden bölge sınırlarındaki noktalar yaklaşıktır. Kayıt sayısı gözlem çabasını yansıtır, nüfus yoğunluğunu ölçmez.",
         mapAria:
           "Transkafkas sıçan yılanının gözlemleri ve doğrulanmış bölgeleri Gürcistan haritasında",
         officialRegionLabel: "Doğrulanmış yayılış bölgesi",

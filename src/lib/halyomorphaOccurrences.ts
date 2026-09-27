@@ -77,11 +77,22 @@ export function getHalyomorphaFieldRecords({
   speciesName: string;
 }) {
   const records = new Map<string, HalyomorphaFieldRecord>();
+  const photoRecords = getFieldPhotoRecords(gallery, locale, speciesName);
+  const photoKeys = new Map(
+    photoRecords.flatMap((record) => {
+      const key = photoMatchKey(record);
+      return key ? [[key, occurrenceKey(record)] as const] : [];
+    }),
+  );
   for (const record of [
-    ...getFieldPhotoRecords(gallery, locale, speciesName),
+    ...photoRecords,
     ...getManualFieldRecords(fieldRecords, locale, speciesName),
   ]) {
-    const key = occurrenceKey(record);
+    const match =
+      record.kind === "location" && isINaturalistRecord(record)
+        ? photoKeys.get(photoMatchKey(record))
+        : undefined;
+    const key = match ?? occurrenceKey(record);
     const existing = records.get(key);
     records.set(key, existing ? mergeRecords(existing, record) : record);
   }
@@ -305,7 +316,9 @@ function mergeRecords(
       ...existing,
       note: existing.note ?? next.note,
       source: existing.source ?? next.source,
-      url: existing.url ?? next.url,
+      url: iNaturalistObservationId(next.url)
+        ? next.url
+        : (existing.url ?? next.url),
     };
   }
   if (next.kind === "photo") return mergeRecords(next, existing);
@@ -340,6 +353,11 @@ function occurrenceKey(record: HalyomorphaFieldRecord) {
   if (iNaturalistId) return `inaturalist:${iNaturalistId}`;
   if (record.url) return `url:${sourceKey(record.url)}`;
   return record.id;
+}
+
+function photoMatchKey(record: HalyomorphaFieldRecord) {
+  if (!record.date || !record.author) return "";
+  return `${record.lat.toFixed(5)}:${record.lng.toFixed(5)}:${record.date}:${record.author.trim().toLowerCase()}`;
 }
 
 function pointInFeature(lng: number, lat: number, rings: [number, number][][]) {
