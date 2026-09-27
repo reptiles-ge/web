@@ -1,18 +1,33 @@
-import fs from "node:fs";
-import path from "node:path";
 import { describe, expect, it } from "vitest";
 
 import { getSpeciesTextFields } from "@/lib/speciesTextProcessing";
 
 describe("species page text fields", () => {
   it("includes every identification trait and FAQ answer", () => {
-    const raw = fs.readFileSync(
-      path.join(
-        process.cwd(),
-        "src/content/species/zamenis-hohenackeri/ka.mdx",
-      ),
-      "utf8",
-    );
+    const raw = `---
+interaction: Interaction
+overview: Overview
+habitat: Habitat
+diet: Diet
+behavior: Behavior
+conservation: Conservation
+identification:
+  summary: Summary
+  traits:
+    - First trait
+    - Second trait
+    - Third trait
+faq:
+  - question: First question
+    answer: First answer
+  - question: Second question
+    answer: Second answer
+  - question: Third question
+    answer: Third answer
+  - question: Fourth question
+    answer: Fourth answer
+---
+`;
     expect(getSpeciesTextFields(raw)).toEqual([
       "interaction",
       "overview",
@@ -20,7 +35,6 @@ describe("species page text fields", () => {
       "identification.traits.0",
       "identification.traits.1",
       "identification.traits.2",
-      "identification.traits.3",
       "habitat",
       "diet",
       "behavior",
@@ -29,10 +43,6 @@ describe("species page text fields", () => {
       "faq.1.answer",
       "faq.2.answer",
       "faq.3.answer",
-      "faq.4.answer",
-      "faq.5.answer",
-      "faq.6.answer",
-      "faq.7.answer",
     ]);
   });
 });
