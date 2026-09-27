@@ -6136,6 +6136,34 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2200],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/pseudopus-apodus-bertogcliment-1.jpg": {
+    "path": "pseudopus-apodus-bertogcliment-1",
+    "width": 1536,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/pseudopus-apodus-brechtheusequin-1.jpg": {
+    "path": "pseudopus-apodus-brechtheusequin-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/pseudopus-apodus-cristian-1.jpg": {
+    "path": "pseudopus-apodus-cristian-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/pseudopus-apodus-kattttrin-1.jpg": {
+    "path": "pseudopus-apodus-kattttrin-1",
+    "width": 2048,
+    "height": 1907,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/pseudopus-apodus-mobile.webp": {
     "path": "pseudopus-apodus-mobile",
     "width": 1200,

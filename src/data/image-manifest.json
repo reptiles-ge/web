@@ -69570,6 +69570,386 @@
       ],
       "updatedAt": "2026-08-28T21:57:11.403Z"
     },
+    "pseudopus-apodus-bertogcliment-1.jpg": {
+      "sourceHash": "9b6dde927754d08c83fb06cbeadf7e71a01ad360bc8cdf0b02c973f785eb269d",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pseudopus-apodus-bertogcliment-1.jpg",
+      "originalSize": 715564,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/pseudopus-apodus-bertogcliment-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 27784
+        },
+        {
+          "key": "optimized/pseudopus-apodus-bertogcliment-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 47122
+        },
+        {
+          "key": "optimized/pseudopus-apodus-bertogcliment-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 39220
+        },
+        {
+          "key": "optimized/pseudopus-apodus-bertogcliment-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 66122
+        },
+        {
+          "key": "optimized/pseudopus-apodus-bertogcliment-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 80514
+        },
+        {
+          "key": "optimized/pseudopus-apodus-bertogcliment-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 136248
+        },
+        {
+          "key": "optimized/pseudopus-apodus-bertogcliment-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 112000
+        },
+        {
+          "key": "optimized/pseudopus-apodus-bertogcliment-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 183698
+        },
+        {
+          "key": "optimized/pseudopus-apodus-bertogcliment-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 191120
+        },
+        {
+          "key": "optimized/pseudopus-apodus-bertogcliment-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 306234
+        },
+        {
+          "key": "optimized/pseudopus-apodus-bertogcliment-1-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 263227
+        },
+        {
+          "key": "optimized/pseudopus-apodus-bertogcliment-1-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 415104
+        }
+      ],
+      "updatedAt": "2026-09-27T08:17:23.201Z"
+    },
+    "pseudopus-apodus-brechtheusequin-1.jpg": {
+      "sourceHash": "087e4cab90a96dea32064d68e3628f53663fe1783a5b215d687c2e6a9d8244f0",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pseudopus-apodus-brechtheusequin-1.jpg",
+      "originalSize": 627245,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/pseudopus-apodus-brechtheusequin-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12663
+        },
+        {
+          "key": "optimized/pseudopus-apodus-brechtheusequin-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 19922
+        },
+        {
+          "key": "optimized/pseudopus-apodus-brechtheusequin-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 18373
+        },
+        {
+          "key": "optimized/pseudopus-apodus-brechtheusequin-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 29242
+        },
+        {
+          "key": "optimized/pseudopus-apodus-brechtheusequin-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 40925
+        },
+        {
+          "key": "optimized/pseudopus-apodus-brechtheusequin-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 64004
+        },
+        {
+          "key": "optimized/pseudopus-apodus-brechtheusequin-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 58701
+        },
+        {
+          "key": "optimized/pseudopus-apodus-brechtheusequin-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 90138
+        },
+        {
+          "key": "optimized/pseudopus-apodus-brechtheusequin-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 109247
+        },
+        {
+          "key": "optimized/pseudopus-apodus-brechtheusequin-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 162204
+        },
+        {
+          "key": "optimized/pseudopus-apodus-brechtheusequin-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 238816
+        },
+        {
+          "key": "optimized/pseudopus-apodus-brechtheusequin-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 339360
+        }
+      ],
+      "updatedAt": "2026-09-27T08:18:28.310Z"
+    },
+    "pseudopus-apodus-cristian-1.jpg": {
+      "sourceHash": "daef2007d99c5e34948dc311bcc70b064a4242f35deff57b2bc1dda10e427c49",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pseudopus-apodus-cristian-1.jpg",
+      "originalSize": 492669,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/pseudopus-apodus-cristian-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 8437
+        },
+        {
+          "key": "optimized/pseudopus-apodus-cristian-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 12238
+        },
+        {
+          "key": "optimized/pseudopus-apodus-cristian-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 11943
+        },
+        {
+          "key": "optimized/pseudopus-apodus-cristian-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 17064
+        },
+        {
+          "key": "optimized/pseudopus-apodus-cristian-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 24798
+        },
+        {
+          "key": "optimized/pseudopus-apodus-cristian-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 35770
+        },
+        {
+          "key": "optimized/pseudopus-apodus-cristian-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 35440
+        },
+        {
+          "key": "optimized/pseudopus-apodus-cristian-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 50974
+        },
+        {
+          "key": "optimized/pseudopus-apodus-cristian-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 65651
+        },
+        {
+          "key": "optimized/pseudopus-apodus-cristian-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 92076
+        },
+        {
+          "key": "optimized/pseudopus-apodus-cristian-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 146325
+        },
+        {
+          "key": "optimized/pseudopus-apodus-cristian-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 200440
+        }
+      ],
+      "updatedAt": "2026-09-27T08:16:23.950Z"
+    },
+    "pseudopus-apodus-kattttrin-1.jpg": {
+      "sourceHash": "ca21e4ae6a3c0556cba3fd4c962b91900498d0e189762f7f365bba0f3557e5a2",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pseudopus-apodus-kattttrin-1.jpg",
+      "originalSize": 653418,
+      "width": 2048,
+      "height": 1907,
+      "derivatives": [
+        {
+          "key": "optimized/pseudopus-apodus-kattttrin-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 298,
+          "byteSize": 6327
+        },
+        {
+          "key": "optimized/pseudopus-apodus-kattttrin-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 298,
+          "byteSize": 7522
+        },
+        {
+          "key": "optimized/pseudopus-apodus-kattttrin-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 372,
+          "byteSize": 8058
+        },
+        {
+          "key": "optimized/pseudopus-apodus-kattttrin-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 372,
+          "byteSize": 9844
+        },
+        {
+          "key": "optimized/pseudopus-apodus-kattttrin-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 596,
+          "byteSize": 14651
+        },
+        {
+          "key": "optimized/pseudopus-apodus-kattttrin-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 596,
+          "byteSize": 18490
+        },
+        {
+          "key": "optimized/pseudopus-apodus-kattttrin-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 745,
+          "byteSize": 19670
+        },
+        {
+          "key": "optimized/pseudopus-apodus-kattttrin-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 745,
+          "byteSize": 25534
+        },
+        {
+          "key": "optimized/pseudopus-apodus-kattttrin-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1117,
+          "byteSize": 38299
+        },
+        {
+          "key": "optimized/pseudopus-apodus-kattttrin-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1117,
+          "byteSize": 60880
+        },
+        {
+          "key": "optimized/pseudopus-apodus-kattttrin-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1907,
+          "byteSize": 223317
+        },
+        {
+          "key": "optimized/pseudopus-apodus-kattttrin-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1907,
+          "byteSize": 252094
+        }
+      ],
+      "updatedAt": "2026-09-27T08:19:01.053Z"
+    },
     "pseudopus-apodus-mobile.webp": {
       "sourceHash": "f6f9772b3e6da9d5da5b11a4c940678de89f7407e842b7b62129ed1d211a5c23",
       "configFingerprint": "a895f8e025dcc7fa",
