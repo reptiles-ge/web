@@ -303,6 +303,7 @@
         "lizardHouse": "A lizard in the house",
         "batInHouse": "A bat in the house",
         "scorpionSting": "Scorpion sting: what to do",
+        "tickBite": "Tick bite",
         "waspNest": "Wasp nest near your home",
         "stinkBugInHouse": "Stink bugs in the house",
         "antsInHouse": "Ants in the house",
@@ -374,6 +375,7 @@
     "lizardHouse": "Lizard in the house",
     "batInHouse": "Bat in the house",
     "scorpionSting": "Scorpion sting",
+    "tickBite": "Tick bite",
     "waspNest": "Wasp nest",
     "stinkBugInHouse": "Stink bugs in the house",
     "antsInHouse": "Ants in the house",
@@ -465,6 +467,7 @@
     "rangeTitle": "Where {name} lives in Georgia",
     "rangeSubtitle": "Highlighted regions show where this species has been recorded.",
     "rangeRegionsLabel": "Range",
+    "regionCount": "{count, plural, one {# region} other {# regions}}",
     "lastUpdated": "Last updated",
     "publishedOn": "Published:",
     "updatedOn": "Updated:",
@@ -1403,6 +1406,12 @@
         "eyebrow": "Practical guide",
         "title": "Scorpion sting",
         "body": "First steps, warning signs, and when to call 112 in Georgia.",
+        "cta": "Read the guide"
+      },
+      "tickBite": {
+        "eyebrow": "Practical guide",
+        "title": "Tick bite",
+        "body": "How to remove a tick correctly, what to watch afterwards, and when to contact a doctor.",
         "cta": "Read the guide"
       },
       "waspNest": {

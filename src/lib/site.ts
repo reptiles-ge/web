@@ -51,7 +51,7 @@ export function getSiteUrl() {
   }
 
   if (process.env.NODE_ENV === "development") {
-    return "http://localhost:3000";
+    return "http://localhost:3333";
   }
 
   return "https://reptiles.ge";

@@ -46,6 +46,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1536],
     "formats": ["avif", "webp"]
   },
+  "/images/guides/tick-bite-hero-1200.webp": {
+    "path": "images/guides/tick-bite-hero-1200",
+    "width": 1200,
+    "height": 630,
+    "widths": [320, 400, 640, 800, 1200],
+    "formats": ["avif", "webp"]
+  },
   "/images/guides/wasp-nest-enclosed.jpg": {
     "path": "images/guides/wasp-nest-enclosed",
     "width": 1421,
@@ -3516,6 +3523,34 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1672,
     "height": 941,
     "widths": [320, 400, 640, 800, 1200, 1672],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/guides/tick-bite-after.jpg": {
+    "path": "images/guides/tick-bite-after",
+    "width": 1024,
+    "height": 768,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/guides/tick-bite-grass.jpg": {
+    "path": "images/guides/tick-bite-grass",
+    "width": 1024,
+    "height": 935,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/guides/tick-bite-hero.jpg": {
+    "path": "images/guides/tick-bite-hero",
+    "width": 1024,
+    "height": 768,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/guides/tick-bite-removal.jpg": {
+    "path": "images/guides/tick-bite-removal",
+    "width": 1024,
+    "height": 768,
+    "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/images/news/theridion-huseynovi-new-spider-species-georgia-2026/theridion-huseynovi.png": {

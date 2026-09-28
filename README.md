@@ -19,7 +19,7 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000). Species MDX is compiled automatically (`predev` / `prebuild`).
+Open [http://localhost:3333](http://localhost:3333). Species MDX is compiled automatically (`predev` / `prebuild`).
 
 ```bash
 npm run lint

@@ -76,11 +76,35 @@ describe("species routes", () => {
     );
   });
 
+  it("keeps Urartian ratsnake lookalikes to supported visual matches", () => {
+    expect(getSpeciesLookalikes("elaphe-urartica")).toEqual([
+      "elaphe-dione",
+      "dolichophis-schmidti",
+      "hemorrhois-ravergieri",
+      "macrovipera-lebetina",
+    ]);
+    expect(getSpeciesLookalikes("platyceps-najadum")).not.toContain(
+      "elaphe-urartica",
+    );
+  });
+
   it("keeps smooth snake lookalikes to supported visual comparisons", () => {
     expect(getSpeciesLookalikes("coronella-austriaca")).toEqual([
       "vipera-transcaucasiana",
       "zamenis-hohenackeri",
     ]);
+  });
+
+  it("keeps dice snake lookalikes to supported water-snake comparisons", () => {
+    expect(getSpeciesLookalikes("natrix-tessellata")).toEqual([
+      "natrix-natrix",
+    ]);
+    expect(getSpeciesLookalikes("vipera-kaznakovi")).not.toContain(
+      "natrix-tessellata",
+    );
+    expect(getSpeciesLookalikes("pseudopus-apodus")).not.toContain(
+      "natrix-tessellata",
+    );
   });
 
   it("limits Transcaucasian ratsnake lookalikes to visual confusion candidates", () => {
@@ -101,10 +125,20 @@ describe("species routes", () => {
   it("keeps glass lizard lookalikes to supported visual comparisons", () => {
     expect(getSpeciesLookalikes("pseudopus-apodus")).toEqual([
       "anguis-colchica",
-      "natrix-tessellata",
     ]);
     expect(getSpeciesLookalikes("natrix-natrix")).not.toContain(
       "pseudopus-apodus",
+    );
+  });
+
+  it("keeps grass snake lookalikes to supported field-confusion candidates", () => {
+    expect(getSpeciesLookalikes("natrix-natrix")).toEqual([
+      "natrix-tessellata",
+      "vipera-kaznakovi",
+      "zamenis-longissimus",
+    ]);
+    expect(getSpeciesLookalikes("anguis-colchica")).not.toContain(
+      "natrix-natrix",
     );
   });
 
@@ -118,5 +152,11 @@ describe("species routes", () => {
     for (const id of ["euscorpius-italicus", "euscorpius-mingrelicus"]) {
       expect(getSpeciesLookalikes(id)).not.toContain("mesobuthus-eupeus");
     }
+  });
+
+  it("keeps brown bear lookalikes empty without supported visual confusion", () => {
+    expect(getSpeciesLookalikes("ursus-arctos")).toEqual([]);
+    expect(getSpeciesLookalikes("canis-lupus")).not.toContain("ursus-arctos");
+    expect(getSpeciesLookalikes("sus-scrofa")).not.toContain("ursus-arctos");
   });
 });

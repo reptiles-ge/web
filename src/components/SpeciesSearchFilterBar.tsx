@@ -32,7 +32,7 @@ export function SpeciesSearchFilterBar({
             className={cn(
               "shrink-0 rounded-full px-3 py-1 text-[11px] font-semibold tracking-wide transition-colors",
               active
-                ? "bg-primary text-white dark:text-ink"
+                ? "bg-primary text-white"
                 : "bg-secondary/80 text-muted-foreground hover:bg-secondary hover:text-foreground",
             )}
             key={item}

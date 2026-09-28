@@ -303,6 +303,7 @@
         "lizardHouse": "Evde kertenkele",
         "batInHouse": "Evde yarasa",
         "scorpionSting": "Akrep sokması: ne yapmalı?",
+        "tickBite": "Kene ısırığı",
         "waspNest": "Eşek arısı yuvası",
         "stinkBugInHouse": "Evde kokarca böceği",
         "antsInHouse": "Evde karınca",
@@ -374,6 +375,7 @@
     "lizardHouse": "Evde kertenkele",
     "batInHouse": "Evde yarasa",
     "scorpionSting": "Akrep sokması",
+    "tickBite": "Kene ısırığı",
     "waspNest": "Eşek arısı yuvası",
     "stinkBugInHouse": "Evde kokarca böceği",
     "antsInHouse": "Evde karınca",
@@ -465,6 +467,7 @@
     "rangeTitle": "{name} Gürcistan’da nerede yaşar",
     "rangeSubtitle": "Vurgulanan bölgeler bu türün kaydedildiği yerleri gösterir.",
     "rangeRegionsLabel": "Yayılış",
+    "regionCount": "{count, plural, one {# bölge} other {# bölge}}",
     "lastUpdated": "Son güncelleme",
     "publishedOn": "Yayımlandı:",
     "updatedOn": "Güncellendi:",
@@ -1403,6 +1406,12 @@
         "eyebrow": "Pratik rehber",
         "title": "Akrep sokması",
         "body": "İlk adımlar, uyarı belirtileri ve Gürcistan'da 112'nin ne zaman aranacağı.",
+        "cta": "Rehberi oku"
+      },
+      "tickBite": {
+        "eyebrow": "Pratik rehber",
+        "title": "Kene ısırığı",
+        "body": "Keneyi doğru çıkarma, sonrasında neyi izleme ve ne zaman doktora başvurma.",
         "cta": "Rehberi oku"
       },
       "waspNest": {

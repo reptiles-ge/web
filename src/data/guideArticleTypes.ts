@@ -46,6 +46,7 @@ export type GuideArticleMessageKey =
   | "mouseInHouse"
   | "scorpionSting"
   | "stinkBugInHouse"
+  | "tickBite"
   | "waspNest";
 
 export type GuideArticleOgImage =

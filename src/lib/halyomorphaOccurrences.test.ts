@@ -28,6 +28,9 @@ describe("occurrenceStatusForCount", () => {
       confirmedRecordThresholdForSpecies("coturnix-coturnix");
     expect(occurrenceStatusForCount(0, quailThreshold)).toBe("recorded-only");
     expect(occurrenceStatusForCount(1, quailThreshold)).toBe("confirmed");
+    const bearThreshold = confirmedRecordThresholdForSpecies("ursus-arctos");
+    expect(occurrenceStatusForCount(7, bearThreshold)).toBe("recorded-only");
+    expect(occurrenceStatusForCount(8, bearThreshold)).toBe("confirmed");
     const zamenisThreshold = confirmedRecordThresholdForSpecies(
       "zamenis-hohenackeri",
     );
