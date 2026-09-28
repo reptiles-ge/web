@@ -6,7 +6,9 @@ import {
   type GuideArticleSource,
 } from "@/data/guideArticleTypes";
 
-const COPY: Record<AppLocale, GuideArticleCopy> = {
+type ImageKey = "after" | "grass" | "removal";
+
+const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
   en: {
     description:
       "How to remove an attached tick correctly, what to avoid, what to watch after a bite, and when to contact a doctor.",
@@ -53,6 +55,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "How do you remove a tick correctly?",
+        image: "removal",
         list: {
           items: [
             "Use clean fine-tipped tweezers if you have them.",
@@ -84,6 +87,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "What should you do after removing it?",
+        image: "after",
         list: {
           items: [
             "Clean the bite area and your hands.",
@@ -126,6 +130,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "How can you reduce tick bites?",
+        image: "grass",
         list: {
           items: [
             "Wear long sleeves and long trousers in grassy, brushy, or wooded areas.",
@@ -190,6 +195,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "როგორ მოვიშოროთ ტკიპა სწორად?",
+        image: "removal",
         list: {
           items: [
             "თუ გაქვთ, გამოიყენეთ სუფთა, წვრილწვერიანი პინცეტი.",
@@ -221,6 +227,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "ტკიპის მოცილების შემდეგ რა გავაკეთოთ?",
+        image: "after",
         list: {
           items: [
             "ნაკბენის ადგილი და ხელები გაიწმინდეთ.",
@@ -263,6 +270,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "როგორ ავიცილოთ ტკიპის ნაკბენი",
+        image: "grass",
         list: {
           items: [
             "ბალახიან, ბუჩქნარიან ან ტყიან ადგილებში ჩაიცვით გრძელსახელოიანი ზედა და გრძელი შარვალი.",
@@ -278,7 +286,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
     ],
     summary:
       "კანზე მიმაგრებული ტკიპა სწრაფად მოიცილეთ სუფთა, წვრილწვერიანი პინცეტით: ჩაავლეთ კანთან ახლოს და თანაბარი მოძრაობით ამოიყვანეთ. არ გამოიყენოთ ზეთი, ვაზელინი, ლაქი, სიცხე, გაჭრა ან გაჭყლეტა. გაიწმინდეთ ადგილი და ხელები, შეამოწმეთ სხეულზე სხვა ტკიპებიც და სიცხის, გამონაყარის, გაფართოებული ლაქის ან გაუარესებული სიმპტომებისას ექიმს მიმართეთ. საქართველოში 112 მხოლოდ რეალური გადაუდებელი მდგომარეობისას გამოიყენეთ.",
-    title: "ტკიპა დაგესვა? როგორ მოვიშოროთ სწორად და როდის მივმართოთ ექიმს",
+    title: "ტკიპის ნაკბენი — როგორ მოვიშოროთ სწორად და როდის მივმართოთ ექიმს",
   },
   ru: {
     description:
@@ -326,6 +334,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "Как правильно удалить клеща?",
+        image: "removal",
         list: {
           items: [
             "Используйте чистый пинцет с тонкими концами, если он есть.",
@@ -357,6 +366,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "Что делать после удаления?",
+        image: "after",
         list: {
           items: [
             "Очистите место укуса и руки.",
@@ -399,6 +409,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "Как снизить риск укуса клеща",
+        image: "grass",
         list: {
           items: [
             "Носите длинные рукава и длинные брюки в травянистых, кустарниковых или лесных местах.",
@@ -462,6 +473,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "Kene doğru nasıl çıkarılır?",
+        image: "removal",
         list: {
           items: [
             "Varsa temiz, ince uçlu cımbız kullanın.",
@@ -493,6 +505,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "Çıkardıktan sonra ne yapmalısınız?",
+        image: "after",
         list: {
           items: [
             "Isırık yerini ve ellerinizi temizleyin.",
@@ -535,6 +548,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "Kene ısırığını nasıl azaltabilirsiniz?",
+        image: "grass",
         list: {
           items: [
             "Otluk, çalılık veya ormanlık alanlarda uzun kollu üst ve uzun pantolon giyin.",
@@ -611,18 +625,53 @@ export const TICK_BITE = defineGuideArticle({
   copy: COPY,
   hero: {
     alt: {
-      en: "Attached tick on human skin with fine-tipped tweezers positioned close to the skin",
-      ka: "კანზე მიმაგრებული ტკიპა და წვრილწვერიანი პინცეტი კანთან ახლოს",
-      ru: "Клещ на коже человека и тонкий пинцет, расположенный близко к коже",
-      tr: "İnsan derisine tutunmuş kene ve deriye yakın ince uçlu cımbız",
+      en: "Fine-tipped metal tweezers gripping an attached brown tick close to the skin on a hairy forearm",
+      ka: "წვრილწვერიანი ლითონის პინცეტი თმიანი წინამხრის კანზე მიმაგრებულ ყავისფერ ტკიპას კანთან ახლოს ჩასჭერია",
+      ru: "Тонкий металлический пинцет захватывает присосавшегося коричневого клеща у самой кожи на волосистом предплечье",
+      tr: "İnce uçlu metal cımbız, kıllı bir önkoldaki deriye tutunmuş kahverengi keneyi deriye yakın yerden tutuyor",
     },
-    height: 630,
-    src: "/images/guides/tick-bite-hero-1200.webp",
-    width: 1200,
+    height: 768,
+    src: "https://cdn.reptiles.ge/images/guides/tick-bite-hero.jpg",
+    width: 1024,
   },
   id: "tick-bite",
+  images: {
+    after: {
+      alt: {
+        en: "A small brown tick inside a closed glass jar on a bathroom counter, next to a bar of soap and a plain bottle of clear liquid",
+        ka: "პატარა ყავისფერი ტკიპა დახურულ შუშის ქილაში აბაზანის ზედაპირზე, გვერდით საპონი და უწარწერო გამჭვირვალე ბოთლი",
+        ru: "Небольшой коричневый клещ в закрытой стеклянной банке на столешнице, рядом мыло и бутылка без этикетки с прозрачной жидкостью",
+        tr: "Banyo tezgahında kapalı bir cam kavanozun içindeki küçük kahverengi kene, yanında sabun ve etiketsiz şeffaf bir şişe",
+      },
+      height: 768,
+      src: "https://cdn.reptiles.ge/images/guides/tick-bite-after.jpg",
+      width: 1024,
+    },
+    grass: {
+      alt: {
+        en: "A brown tick at the tip of a grass blade, with its front legs raised",
+        ka: "ყავისფერი ტკიპა ბალახის წვერზე, წინა ფეხები აწეული",
+        ru: "Коричневый клещ на кончике травинки, передние ноги подняты",
+        tr: "Bir çimen yaprağının ucunda, ön bacakları kalkık kahverengi bir kene",
+      },
+      height: 935,
+      src: "https://cdn.reptiles.ge/images/guides/tick-bite-grass.jpg",
+      width: 1024,
+    },
+    removal: {
+      alt: {
+        en: "A hand pulling an attached tick straight off a forearm with fine-tipped tweezers",
+        ka: "ხელი წვრილწვერიანი პინცეტით წინამხრის კანზე მიმაგრებულ ტკიპას პირდაპირ ზევით იწევს",
+        ru: "Рука тонким пинцетом тянет присосавшегося клеща прямо от кожи предплечья",
+        tr: "Bir el, ince uçlu cımbızla önkola tutunmuş keneyi deriden düz yukarı çekiyor",
+      },
+      height: 768,
+      src: "https://cdn.reptiles.ge/images/guides/tick-bite-removal.jpg",
+      width: 1024,
+    },
+  },
   messageKey: "tickBite",
-  ogImage: "/og/images/guides/tick-bite.jpg",
+  ogImage: "https://cdn.reptiles.ge/og/images/guides/tick-bite.jpg",
   parentHub: "insects",
   pathname: "/insects/tkipis-nakbeni",
   relatedGuideIds: ["wasp-nest", "scorpion-sting", "snake-bite"],

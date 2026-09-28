@@ -37784,6 +37784,330 @@
       ],
       "updatedAt": "2026-09-24T13:10:40.064Z"
     },
+    "images/guides/tick-bite-after.jpg": {
+      "sourceHash": "240acec77ba63c85bfb15c90a9e94ab00cca3da1e3d883ca7ce010bc75a5b31b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/tick-bite-after.jpg",
+      "originalSize": 112347,
+      "width": 1024,
+      "height": 768,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/tick-bite-after-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 7107
+        },
+        {
+          "key": "optimized/images/guides/tick-bite-after-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 8774
+        },
+        {
+          "key": "optimized/images/guides/tick-bite-after-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 9958
+        },
+        {
+          "key": "optimized/images/guides/tick-bite-after-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 12398
+        },
+        {
+          "key": "optimized/images/guides/tick-bite-after-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 18558
+        },
+        {
+          "key": "optimized/images/guides/tick-bite-after-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 23350
+        },
+        {
+          "key": "optimized/images/guides/tick-bite-after-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 24812
+        },
+        {
+          "key": "optimized/images/guides/tick-bite-after-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 31500
+        },
+        {
+          "key": "optimized/images/guides/tick-bite-after-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 35391
+        },
+        {
+          "key": "optimized/images/guides/tick-bite-after-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 44404
+        }
+      ],
+      "updatedAt": "2026-09-28T14:22:25.373Z"
+    },
+    "images/guides/tick-bite-grass.jpg": {
+      "sourceHash": "96c7cb5b92e74894c926b56fc4743050fe2930a2ef43f5b2ddbf48488f2a3695",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/tick-bite-grass.jpg",
+      "originalSize": 115386,
+      "width": 1024,
+      "height": 935,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/tick-bite-grass-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 292,
+          "byteSize": 8555
+        },
+        {
+          "key": "optimized/images/guides/tick-bite-grass-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 292,
+          "byteSize": 11524
+        },
+        {
+          "key": "optimized/images/guides/tick-bite-grass-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 365,
+          "byteSize": 11002
+        },
+        {
+          "key": "optimized/images/guides/tick-bite-grass-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 365,
+          "byteSize": 15450
+        },
+        {
+          "key": "optimized/images/guides/tick-bite-grass-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 584,
+          "byteSize": 19792
+        },
+        {
+          "key": "optimized/images/guides/tick-bite-grass-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 584,
+          "byteSize": 27794
+        },
+        {
+          "key": "optimized/images/guides/tick-bite-grass-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 730,
+          "byteSize": 25926
+        },
+        {
+          "key": "optimized/images/guides/tick-bite-grass-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 730,
+          "byteSize": 36820
+        },
+        {
+          "key": "optimized/images/guides/tick-bite-grass-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 935,
+          "byteSize": 35815
+        },
+        {
+          "key": "optimized/images/guides/tick-bite-grass-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 935,
+          "byteSize": 49322
+        }
+      ],
+      "updatedAt": "2026-09-28T14:22:30.100Z"
+    },
+    "images/guides/tick-bite-hero.jpg": {
+      "sourceHash": "241b8cb7917bd15d8212df1b178097b3c752f94f7898e2e329384fb7b7b42575",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/tick-bite-hero.jpg",
+      "originalSize": 142358,
+      "width": 1024,
+      "height": 768,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/tick-bite-hero-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 7749
+        },
+        {
+          "key": "optimized/images/guides/tick-bite-hero-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 9826
+        },
+        {
+          "key": "optimized/images/guides/tick-bite-hero-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 11864
+        },
+        {
+          "key": "optimized/images/guides/tick-bite-hero-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 14134
+        },
+        {
+          "key": "optimized/images/guides/tick-bite-hero-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 24875
+        },
+        {
+          "key": "optimized/images/guides/tick-bite-hero-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 30178
+        },
+        {
+          "key": "optimized/images/guides/tick-bite-hero-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 35611
+        },
+        {
+          "key": "optimized/images/guides/tick-bite-hero-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 41838
+        },
+        {
+          "key": "optimized/images/guides/tick-bite-hero-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 53808
+        },
+        {
+          "key": "optimized/images/guides/tick-bite-hero-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 61182
+        }
+      ],
+      "updatedAt": "2026-09-28T14:22:08.650Z"
+    },
+    "images/guides/tick-bite-removal.jpg": {
+      "sourceHash": "3cf5b4d987cb47e82fcdaf5d7bdef8ea4c54120015f76ef3b4b7f65a02cb8023",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/tick-bite-removal.jpg",
+      "originalSize": 148420,
+      "width": 1024,
+      "height": 768,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/tick-bite-removal-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 8429
+        },
+        {
+          "key": "optimized/images/guides/tick-bite-removal-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 10556
+        },
+        {
+          "key": "optimized/images/guides/tick-bite-removal-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 12513
+        },
+        {
+          "key": "optimized/images/guides/tick-bite-removal-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 15666
+        },
+        {
+          "key": "optimized/images/guides/tick-bite-removal-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 26371
+        },
+        {
+          "key": "optimized/images/guides/tick-bite-removal-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 33106
+        },
+        {
+          "key": "optimized/images/guides/tick-bite-removal-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 37470
+        },
+        {
+          "key": "optimized/images/guides/tick-bite-removal-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 47328
+        },
+        {
+          "key": "optimized/images/guides/tick-bite-removal-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 56877
+        },
+        {
+          "key": "optimized/images/guides/tick-bite-removal-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 70094
+        }
+      ],
+      "updatedAt": "2026-09-28T14:22:19.551Z"
+    },
     "images/guides/wasp-nest-enclosed.jpg": {
       "sourceHash": "bd28f4db04adf032e4b758c2e65a0736cff4e5c43305bad920928f959b8c1fd0",
       "configFingerprint": "409788ee46c653d8",
