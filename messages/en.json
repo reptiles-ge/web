@@ -467,6 +467,7 @@
     "rangeTitle": "Where {name} lives in Georgia",
     "rangeSubtitle": "Highlighted regions show where this species has been recorded.",
     "rangeRegionsLabel": "Range",
+    "regionCount": "{count, plural, one {# region} other {# regions}}",
     "lastUpdated": "Last updated",
     "publishedOn": "Published:",
     "updatedOn": "Updated:",

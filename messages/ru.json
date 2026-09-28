@@ -467,6 +467,7 @@
     "rangeTitle": "Где {name} живёт в Грузии",
     "rangeSubtitle": "Подсвеченные регионы показывают, где вид зарегистрирован.",
     "rangeRegionsLabel": "Ареал",
+    "regionCount": "{count, plural, one {# регион} few {# региона} many {# регионов} other {# региона}}",
     "lastUpdated": "Обновлено",
     "publishedOn": "Опубликовано:",
     "updatedOn": "Обновлено:",

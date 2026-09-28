@@ -1,6 +1,7 @@
 import { MapPin, Shield } from "lucide-react";
 import { getLocale, getTranslations } from "next-intl/server";
 
+import { getRegionsForSpecies } from "@/data/mapRegions";
 import type { PictureSource } from "@/data/optimizedImages";
 import type { DangerLevel, Species } from "@/data/species";
 import type { AnimalGroup } from "@/data/speciesAtlas";
@@ -76,6 +77,7 @@ export async function SpeciesProfileHero({
       ? tDanger("linkAria", { label: dangerLabel, value: dangerValue })
       : "";
   const editable = locale === "ka" && isLocalAdminEnabled();
+  const regionCount = getRegionsForSpecies(species.id).length;
 
   return (
     <section
@@ -110,18 +112,12 @@ export async function SpeciesProfileHero({
           <SpeciesScientificNameCopy speciesId={species.id} text={shareText} />
         </p>
         <div className="mt-5 flex flex-wrap items-center gap-2 sm:mt-6 sm:gap-3">
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-white/12 bg-white/5 px-3 py-2 text-[13px] text-white/60 backdrop-blur-md sm:px-3.5">
-            <MapPin aria-hidden="true" className="size-3.5 text-white/45" />
-            <span
-              {...contentEditorAttributes(
-                "species",
-                editable ? species.id : undefined,
-                "location",
-              )}
-            >
-              {species.location}
+          {regionCount > 0 ? (
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-white/12 bg-white/5 px-3 py-2 text-[13px] text-white/60 backdrop-blur-md sm:px-3.5">
+              <MapPin aria-hidden="true" className="size-3.5 text-white/45" />
+              <span>{t("regionCount", { count: regionCount })}</span>
             </span>
-          </span>
+          ) : null}
           {species.audio ? (
             <SpeciesVoicePlayer audio={species.audio} speciesId={species.id} />
           ) : null}

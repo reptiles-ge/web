@@ -467,6 +467,7 @@
     "rangeTitle": "სად გვხვდება {name} საქართველოში",
     "rangeSubtitle": "გამოკვეთილი რეგიონები აჩვენებს, სად არის ეს სახეობა დაფიქსირებული.",
     "rangeRegionsLabel": "გავრცელება",
+    "regionCount": "{count} რეგიონი",
     "lastUpdated": "ბოლო განახლება",
     "publishedOn": "გამოქვეყნდა:",
     "updatedOn": "განახლდა:",
