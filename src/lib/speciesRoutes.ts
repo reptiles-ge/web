@@ -133,7 +133,6 @@ const LOOKALIKES: Record<string, string[]> = {
     "platyceps-najadum",
     "hemorrhois-ravergieri",
     "elaphe-urartica",
-    "elaphe-dione",
   ],
   "eirenis-collaris": [
     "eirenis-modestus",
@@ -147,7 +146,6 @@ const LOOKALIKES: Record<string, string[]> = {
     "elaphe-urartica",
     "zamenis-hohenackeri",
     "hemorrhois-ravergieri",
-    "dolichophis-schmidti",
     "platyceps-najadum",
     "telescopus-fallax",
   ],
