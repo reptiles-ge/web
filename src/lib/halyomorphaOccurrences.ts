@@ -55,6 +55,7 @@ export type HalyomorphaRegionSummary = {
 
 export function confirmedRecordThresholdForSpecies(speciesId: string) {
   if (speciesId === "aquila-chrysaetos") return 4;
+  if (speciesId === "ursus-arctos") return 8;
   if (
     speciesId === "cheiracanthium-punctorium" ||
     speciesId === "coturnix-coturnix" ||
