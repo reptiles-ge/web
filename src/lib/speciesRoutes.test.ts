@@ -108,6 +108,17 @@ describe("species routes", () => {
     );
   });
 
+  it("keeps grass snake lookalikes to supported field-confusion candidates", () => {
+    expect(getSpeciesLookalikes("natrix-natrix")).toEqual([
+      "natrix-tessellata",
+      "vipera-kaznakovi",
+      "zamenis-longissimus",
+    ]);
+    expect(getSpeciesLookalikes("anguis-colchica")).not.toContain(
+      "natrix-natrix",
+    );
+  });
+
   it("keeps the mottled scorpion comparison to the visual match", () => {
     expect(getSpeciesLookalikes("mesobuthus-eupeus")).toEqual([
       "olivierus-caucasicus",
