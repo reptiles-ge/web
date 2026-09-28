@@ -1,7 +1,6 @@
 import { MapPin, Shield } from "lucide-react";
 import { getLocale, getTranslations } from "next-intl/server";
 
-import { getRegionsForSpecies } from "@/data/mapRegions";
 import type { PictureSource } from "@/data/optimizedImages";
 import type { DangerLevel, Species } from "@/data/species";
 import type { AnimalGroup } from "@/data/speciesAtlas";
@@ -9,6 +8,7 @@ import type { AppLocale } from "@/i18n/routing";
 
 import { SpeciesScientificNameCopy } from "@/components/SpeciesScientificNameCopy";
 import { SpeciesVoicePlayer } from "@/components/SpeciesVoicePlayer";
+import { getRegionsForSpecies } from "@/data/mapRegions";
 import { optimizedEntry, optimizedImgSrc } from "@/data/optimizedImages";
 import { Link } from "@/i18n/navigation";
 import { isLocalAdminEnabled } from "@/lib/adminAccess";
