@@ -322,7 +322,6 @@ const LOOKALIKES: Record<string, string[]> = {
     "aegolius-funereus",
     "athene-noctua",
   ],
-  "ursus-arctos": ["canis-lupus", "sus-scrofa"],
   "vipera-dinniki": [
     "vipera-kaznakovi",
     "vipera-darevskii",

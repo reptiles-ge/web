@@ -153,4 +153,10 @@ describe("species routes", () => {
       expect(getSpeciesLookalikes(id)).not.toContain("mesobuthus-eupeus");
     }
   });
+
+  it("keeps brown bear lookalikes empty without supported visual confusion", () => {
+    expect(getSpeciesLookalikes("ursus-arctos")).toEqual([]);
+    expect(getSpeciesLookalikes("canis-lupus")).not.toContain("ursus-arctos");
+    expect(getSpeciesLookalikes("sus-scrofa")).not.toContain("ursus-arctos");
+  });
 });
