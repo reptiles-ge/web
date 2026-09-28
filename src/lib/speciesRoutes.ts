@@ -232,11 +232,7 @@ const LOOKALIKES: Record<string, string[]> = {
     "natrix-tessellata",
     "vipera-kaznakovi",
   ],
-  "natrix-tessellata": [
-    "natrix-natrix",
-    "vipera-kaznakovi",
-    "pseudopus-apodus",
-  ],
+  "natrix-tessellata": ["natrix-natrix"],
   "olivierus-caucasicus": [
     "mesobuthus-eupeus",
     "euscorpius-italicus",
@@ -294,7 +290,7 @@ const LOOKALIKES: Record<string, string[]> = {
     "vipera-transcaucasiana",
   ],
   "procyon-lotor": ["meles-canescens", "vulpes-vulpes"],
-  "pseudopus-apodus": ["anguis-colchica", "natrix-tessellata"],
+  "pseudopus-apodus": ["anguis-colchica"],
   "rana-macrocnemis": [
     "pelophylax-ridibundus",
     "pelodytes-caucasicus",

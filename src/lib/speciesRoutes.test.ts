@@ -83,6 +83,18 @@ describe("species routes", () => {
     ]);
   });
 
+  it("keeps dice snake lookalikes to supported water-snake comparisons", () => {
+    expect(getSpeciesLookalikes("natrix-tessellata")).toEqual([
+      "natrix-natrix",
+    ]);
+    expect(getSpeciesLookalikes("vipera-kaznakovi")).not.toContain(
+      "natrix-tessellata",
+    );
+    expect(getSpeciesLookalikes("pseudopus-apodus")).not.toContain(
+      "natrix-tessellata",
+    );
+  });
+
   it("limits Transcaucasian ratsnake lookalikes to visual confusion candidates", () => {
     expect(getSpeciesLookalikes("zamenis-hohenackeri")).toEqual([
       "elaphe-dione",
@@ -101,7 +113,6 @@ describe("species routes", () => {
   it("keeps glass lizard lookalikes to supported visual comparisons", () => {
     expect(getSpeciesLookalikes("pseudopus-apodus")).toEqual([
       "anguis-colchica",
-      "natrix-tessellata",
     ]);
     expect(getSpeciesLookalikes("natrix-natrix")).not.toContain(
       "pseudopus-apodus",
