@@ -288,7 +288,6 @@ const LOOKALIKES: Record<string, string[]> = {
   "platyceps-najadum": [
     "hemorrhois-ravergieri",
     "dolichophis-schmidti",
-    "elaphe-urartica",
     "elaphe-dione",
     "telescopus-fallax",
     "vipera-transcaucasiana",
