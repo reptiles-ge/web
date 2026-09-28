@@ -10,6 +10,7 @@ import { MOUSE_IN_HOUSE } from "@/content/guides/mouseInHouse";
 import { SCORPION_STING } from "@/content/guides/scorpionSting";
 import { SNAKE_BITE } from "@/content/guides/snakeBite";
 import { STINK_BUG_IN_HOUSE } from "@/content/guides/stinkBugInHouse";
+import { TICK_BITE } from "@/content/guides/tickBite";
 import { WASP_NEST } from "@/content/guides/waspNest";
 import { sitemapPathDatePublished } from "@/data/pageLastModified";
 import { slugify, transliterateKa } from "@/lib/slugify";
@@ -29,6 +30,7 @@ const GUIDE_ARTICLES: readonly GuideArticle[] = [
   SCORPION_STING,
   SNAKE_BITE,
   GYURZA_BITE,
+  TICK_BITE,
 ];
 
 const byPath = new Map<GuideArticlePath, GuideArticle>();

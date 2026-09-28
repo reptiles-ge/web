@@ -2,6 +2,7 @@ export const GUIDE_ARTICLE_PATHS = [
   "/insects/chianchvelebi-sakhlshi",
   "/insects/farosana-sakhlshi",
   "/insects/krazanis-bude",
+  "/insects/tkipis-nakbeni",
   "/mammals/ghamura-sakhlshi",
   "/mammals/tagvi-sakhlshi",
   "/scorpions/morielis-nakbeni",

@@ -44,6 +44,10 @@ export const pathnames = {
     "/insects/wasp-nest",
   ),
   "/insects/saxeoebebi": kaLatin("/mtserebi/saxeoebebi", "/insects/species"),
+  "/insects/tkipis-nakbeni": kaLatin(
+    "/mtserebi/tkipis-nakbeni",
+    "/insects/tick-bite",
+  ),
   "/lizards": kaLatin("/xvlikebi", "/lizards"),
   "/lizards/[slug]": kaLatin("/xvlikebi/[slug]", "/lizards/[slug]"),
   "/lizards/darevskia": kaLatin("/xvlikebi/darevskia", "/lizards/darevskia"),

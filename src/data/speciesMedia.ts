@@ -112,6 +112,7 @@ export const images = {
     "https://cdn.reptiles.ge/images/guides/stink-bug-sealing-frame.jpg",
   stinkBugInHouseSoapyWater:
     "https://cdn.reptiles.ge/images/guides/stink-bug-soapy-water.jpg",
+  tickBiteHero: "/images/guides/tick-bite-hero-1200.webp",
   waspNestComb: "/images/guides/wasp-nest-open-comb.jpg",
   waspNestHero: "/images/guides/wasp-nest-enclosed.jpg",
 };
