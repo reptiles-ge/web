@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest";
 import {
   runSpeciesWorkflowSteps,
   selectSpeciesAnalysisFiles,
+  speciesFrontmatterError,
   validateSpeciesWorkflowModes,
 } from "@/lib/speciesPageAnalysis";
 
@@ -72,25 +73,39 @@ describe("species page analysis file scope", () => {
 });
 
 describe("species workflow", () => {
+  it("detects the unquoted colon that broke the analysis-to-texts handoff", () => {
+    const raw = (value: string) =>
+      `---\nstats:\n  - label: სიგრძე\n    value: ${value}\n---\n`;
+    expect(speciesFrontmatterError(raw("ზამთრის ჯგუფი: 82–158 სმ"))).toMatch(
+      /incomplete explicit mapping pair/,
+    );
+    expect(
+      speciesFrontmatterError(raw('"ზამთრის ჯგუფი: 82–158 სმ"')),
+    ).toBeNull();
+  });
+
   it("runs steps in the supplied order and stops when a step fails", async () => {
     const events: string[] = [];
-    await expect(
-      runSpeciesWorkflowSteps(
-        ["records", "analysis", "links"],
-        async (step) => {
-          events.push(`start:${step}`);
-          await Promise.resolve();
-          events.push(`end:${step}`);
-          if (step === "analysis") throw new Error("failed");
-        },
-      ),
-    ).rejects.toThrow("failed");
+    const result = await runSpeciesWorkflowSteps(
+      ["records", "analysis", "links"],
+      async (step) => {
+        events.push(`start:${step}`);
+        await Promise.resolve();
+        events.push(`end:${step}`);
+        if (step === "analysis") throw new Error("failed");
+      },
+    );
+    expect(result?.step).toBe("analysis");
+    expect(result?.error).toEqual(new Error("failed"));
     expect(events).toEqual([
       "start:records",
       "end:records",
       "start:analysis",
       "end:analysis",
     ]);
+    expect(
+      await runSpeciesWorkflowSteps(["records"], async () => undefined),
+    ).toBeNull();
   });
 
   it("rejects duplicate or unknown steps", () => {

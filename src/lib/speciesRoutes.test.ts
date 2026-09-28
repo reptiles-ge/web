@@ -64,6 +64,18 @@ describe("species routes", () => {
     }
   });
 
+  it("keeps red-bellied racer lookalikes to supported visual matches", () => {
+    expect(getSpeciesLookalikes("dolichophis-schmidti")).toEqual([
+      "malpolon-insignitus",
+      "platyceps-najadum",
+      "hemorrhois-ravergieri",
+      "elaphe-urartica",
+    ]);
+    expect(getSpeciesLookalikes("elaphe-dione")).not.toContain(
+      "dolichophis-schmidti",
+    );
+  });
+
   it("keeps smooth snake lookalikes to supported visual comparisons", () => {
     expect(getSpeciesLookalikes("coronella-austriaca")).toEqual([
       "vipera-transcaucasiana",

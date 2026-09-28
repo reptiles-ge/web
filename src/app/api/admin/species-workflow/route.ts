@@ -47,11 +47,16 @@ export async function POST(request: Request) {
       },
     );
     await notifyAdminTelegram(
-      `✅ ${selectedModes.length + 1}/${selectedModes.length + 1} done ${speciesName} (workflow)`,
+      result.failedStep
+        ? `⚠️ workflow stopped ${speciesName} (${result.failedStep})${result.pullRequestUrl ? ` — ${result.pullRequestUrl}` : ""}`
+        : `✅ ${selectedModes.length + 1}/${selectedModes.length + 1} done ${speciesName} (workflow)`,
     );
     return Response.json(
       { ...result, steps },
-      { headers: { "Cache-Control": "no-store", "X-Robots-Tag": "noindex" } },
+      {
+        headers: { "Cache-Control": "no-store", "X-Robots-Tag": "noindex" },
+        status: result.failedStep && !result.pullRequestUrl ? 400 : 200,
+      },
     );
   } catch (error) {
     console.error("species-workflow", error);

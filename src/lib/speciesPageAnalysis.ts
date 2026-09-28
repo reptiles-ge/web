@@ -1,3 +1,4 @@
+import matter from "gray-matter";
 import { execFile, spawn } from "node:child_process";
 import { randomUUID } from "node:crypto";
 import fs from "node:fs/promises";
@@ -29,7 +30,14 @@ export async function runSpeciesWorkflowSteps<T extends string>(
   steps: T[],
   runStep: (step: T) => Promise<void>,
 ) {
-  for (const step of steps) await runStep(step);
+  for (const step of steps) {
+    try {
+      await runStep(step);
+    } catch (error) {
+      return { error, step };
+    }
+  }
+  return null;
 }
 
 export function validateSpeciesWorkflowModes(
@@ -137,8 +145,9 @@ export async function runSpeciesWorkflow(
       path.join(os.tmpdir(), "reptiles-species-workflow-"),
     );
     const worktree = path.join(directory, "checkout");
-    let pushed = false;
     let pullRequestUrl = "";
+    let keepLocalBranch = false;
+    const completedModes: SpeciesWorkflowMode[] = [];
     try {
       await run("git", ["fetch", "origin", base]);
       await run("git", [
@@ -167,7 +176,7 @@ export async function runSpeciesWorkflow(
         path.join(worktree, "node_modules"),
         "dir",
       );
-      await runSpeciesWorkflowSteps(modes, async (mode) => {
+      const failure = await runSpeciesWorkflowSteps(modes, async (mode) => {
         let report: string;
         if (mode === "texts") {
           report = await processWorkflowTexts(id, worktree);
@@ -190,6 +199,13 @@ export async function runSpeciesWorkflow(
             worktree,
             output,
             `${prompt}\n\nშეცვალე მხოლოდ ეს ფაილები: ${stepFiles.join(", ")}. სხვა ფაილების ცვლილებები შედეგში არ მოხვდება. არ გაუშვა ტესტები, lint, typecheck, build ან კონტენტის გენერაციის ბრძანებები; ჩანაწერების იმპორტის სკრიპტი ამ შეზღუდვის გამონაკლისია. არ შეასრულო commit, push ან PR-ის შექმნა; ამას აპლიკაცია გააკეთებს. საბოლოო ანგარიში დააბრუნე ჩატში ქართულად.`,
+          );
+          await repairSpeciesFrontmatter(
+            worktree,
+            directory,
+            (await changedFiles(worktree)).filter((file) =>
+              stepFiles.includes(file),
+            ),
           );
           report = (await fs.readFile(output, "utf8")).trim();
           if (!report) throw new Error("Codex returned an empty report");
@@ -221,8 +237,14 @@ export async function runSpeciesWorkflow(
             worktree,
           );
         }
+        completedModes.push(mode);
         await onStep(mode, report);
       });
+      const stepError = failure
+        ? failure.error instanceof Error
+          ? failure.error.message
+          : "Workflow step failed"
+        : null;
       if (
         (await run(
           "git",
@@ -230,13 +252,23 @@ export async function runSpeciesWorkflow(
           worktree,
         )) === "0"
       )
-        return { pullRequestUrl: null };
-      await run("git", ["push", "-u", "origin", branch], worktree);
-      pushed = true;
+        return {
+          error: stepError,
+          failedStep: failure?.step ?? null,
+          pullRequestUrl: null,
+        };
+      try {
+        await run("git", ["push", "-u", "origin", branch], worktree);
+      } catch (error) {
+        keepLocalBranch = true;
+        throw new Error(
+          `Could not publish the PR; completed commits remain on local branch ${branch}: ${error instanceof Error ? error.message : String(error)}`,
+        );
+      }
       const body = path.join(directory, "pr-body.md");
       await fs.writeFile(
         body,
-        `## Summary\n\n- Run ${modes.join(" → ")} for ${id}\n\n## Checks\n\n- Automated checks not run; owner will review\n`,
+        `## Summary\n\n- Completed ${completedModes.join(" → ")} for ${id}\n${failure ? `- Stopped at ${failure.step}; later steps were not run\n` : ""}\n## Checks\n\n- Automated checks not run; owner will review\n`,
       );
       try {
         pullRequestUrl = await run(
@@ -273,24 +305,26 @@ export async function runSpeciesWorkflow(
           ],
           worktree,
         ).catch(() => {
-          throw error;
+          throw new Error(
+            `PR creation failed; completed changes remain on ${branch}: ${error instanceof Error ? error.message : String(error)}`,
+          );
         });
       }
       if (!/^https:\/\/github\.com\/[^\s]+\/pull\/\d+$/.test(pullRequestUrl))
-        throw new Error("Pull request creation failed");
-      return { pullRequestUrl };
+        throw new Error(
+          `Pull request creation failed; completed changes remain on ${branch}`,
+        );
+      return {
+        error: stepError,
+        failedStep: failure?.step ?? null,
+        pullRequestUrl,
+      };
     } finally {
       await run("git", ["worktree", "remove", "--force", worktree]).catch(
         () => undefined,
       );
-      await run("git", ["branch", "-D", branch]).catch(() => undefined);
-      if (
-        pushed &&
-        !/^https:\/\/github\.com\/[^\s]+\/pull\/\d+$/.test(pullRequestUrl)
-      )
-        await run("git", ["push", "origin", "--delete", branch]).catch(
-          () => undefined,
-        );
+      if (!keepLocalBranch)
+        await run("git", ["branch", "-D", branch]).catch(() => undefined);
       await fs.rm(directory, { force: true, recursive: true });
     }
   } finally {
@@ -310,6 +344,15 @@ export function selectSpeciesAnalysisFiles(
         /^(ka|en|ru|tr)\.mdx$/.test(file.slice(prefix.length))) ||
       sharedFiles[mode].includes(file),
   );
+}
+
+export function speciesFrontmatterError(raw: string) {
+  try {
+    matter(raw);
+    return null;
+  } catch (error) {
+    return error instanceof Error ? error.message : String(error);
+  }
 }
 
 async function changedFiles(worktree: string) {
@@ -349,6 +392,35 @@ async function processWorkflowTexts(id: string, worktree: string) {
     report.push(`${field}\n${result.ka}`);
   }
   return report.join("\n\n");
+}
+
+async function repairSpeciesFrontmatter(
+  worktree: string,
+  directory: string,
+  files: string[],
+) {
+  const mdxFiles = files.filter((file) => file.endsWith(".mdx"));
+  const errors = async () =>
+    (
+      await Promise.all(
+        mdxFiles.map(async (file) => {
+          const error = speciesFrontmatterError(
+            await fs.readFile(path.join(worktree, file), "utf8"),
+          );
+          return error ? `${file}: ${error}` : "";
+        }),
+      )
+    ).filter(Boolean);
+  const invalid = await errors();
+  if (!invalid.length) return;
+  await runCodex(
+    worktree,
+    path.join(directory, "frontmatter-repair.md"),
+    `Fix only the YAML frontmatter syntax errors below. Preserve all values and prose. Quote plain string values containing ": " where needed. Change only these files: ${mdxFiles.join(", ")}. Do not run tests, lint, typecheck, build, or content generation.\n\n${invalid.join("\n")}`,
+  );
+  const remaining = await errors();
+  if (remaining.length)
+    throw new Error(`Invalid species frontmatter: ${remaining.join("; ")}`);
 }
 
 async function run(command: string, args: string[], cwd = root) {
@@ -484,6 +556,13 @@ async function runAnalysis(
       worktree,
       output,
       `${prompt}\n\nშეცვალე მხოლოდ ეს ფაილები: ${allowedFiles.join(", ")}. სხვა ფაილების ცვლილებები შედეგში არ მოხვდება. არ გაუშვა ტესტები, lint, typecheck, build ან კონტენტის გენერაციის ბრძანებები; ჩანაწერების იმპორტის სკრიპტი ამ შეზღუდვის გამონაკლისია. არ შეასრულო commit, push ან PR-ის შექმნა; ამას აპლიკაცია გააკეთებს. საბოლოო ანგარიში დააბრუნე ჩატში ქართულად.`,
+    );
+    await repairSpeciesFrontmatter(
+      worktree,
+      directory,
+      (await changedFiles(worktree)).filter((file) =>
+        allowedFiles.includes(file),
+      ),
     );
     let report = (await fs.readFile(output, "utf8")).trim();
     if (!report) throw new Error("Codex returned an empty report");

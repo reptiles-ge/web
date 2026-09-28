@@ -9,7 +9,11 @@ vi.mock("@/lib/speciesPageAnalysis", async (importOriginal) => ({
       onStep: (mode: string, report: string) => Promise<void> | void,
     ) => {
       for (const mode of modes) await onStep(mode, mode);
-      return { pullRequestUrl: "https://github.com/reptiles-ge/web/pull/999" };
+      return {
+        error: null,
+        failedStep: null,
+        pullRequestUrl: "https://github.com/reptiles-ge/web/pull/999",
+      };
     },
   ),
 }));
@@ -82,6 +86,53 @@ describe("POST /api/admin/species-workflow", () => {
           ([, options]) => JSON.parse(String(options?.body)).text,
         ),
     ).toEqual(["✅ 1/3 done გიურზა (records)", "❌ workflow failed გიურზა"]);
+  });
+
+  it("returns the PR and completed steps when a later step fails", async () => {
+    vi.mocked(runSpeciesWorkflow).mockImplementationOnce(
+      async (_id, modes, onStep) => {
+        await onStep(modes[0], "records");
+        return {
+          error: "Invalid YAML frontmatter",
+          failedStep: modes[1],
+          pullRequestUrl: "https://github.com/reptiles-ge/web/pull/999",
+        };
+      },
+    );
+    const response = await POST(request(["records", "analysis"]));
+    expect(response.status).toBe(200);
+    expect(await response.json()).toMatchObject({
+      error: "Invalid YAML frontmatter",
+      failedStep: "analysis",
+      pullRequestUrl: "https://github.com/reptiles-ge/web/pull/999",
+      steps: [{ mode: "records", report: "records" }],
+    });
+    expect(
+      vi
+        .mocked(fetch)
+        .mock.calls.map(
+          ([, options]) => JSON.parse(String(options?.body)).text,
+        ),
+    ).toEqual([
+      "✅ 1/3 done გიურზა (records)",
+      "⚠️ workflow stopped გიურზა (analysis) — https://github.com/reptiles-ge/web/pull/999",
+    ]);
+  });
+
+  it("reports a failed step without a PR when nothing was committed", async () => {
+    vi.mocked(runSpeciesWorkflow).mockResolvedValueOnce({
+      error: "Invalid YAML frontmatter",
+      failedStep: "analysis",
+      pullRequestUrl: null,
+    });
+    const response = await POST(request(["analysis"]));
+    expect(response.status).toBe(400);
+    expect(await response.json()).toMatchObject({
+      error: "Invalid YAML frontmatter",
+      failedStep: "analysis",
+      pullRequestUrl: null,
+      steps: [],
+    });
   });
 
   it("rejects duplicate steps and cross-origin requests", async () => {
