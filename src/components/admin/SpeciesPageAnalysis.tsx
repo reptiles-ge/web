@@ -1,6 +1,13 @@
 "use client";
 
-import { ChevronDown, ChevronUp, GripVertical, Plus, X } from "lucide-react";
+import {
+  ChevronDown,
+  ChevronUp,
+  GripVertical,
+  Minus,
+  Plus,
+  X,
+} from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 type Copy = {
@@ -55,6 +62,7 @@ export function SpeciesPageAnalysis({ copy, id }: { copy: Copy; id: string }) {
   const [sharedResult, setSharedResult] = useState(false);
   const [results, setResults] = useState<Result[]>([]);
   const [error, setError] = useState("");
+  const [collapsed, setCollapsed] = useState(true);
 
   useEffect(() => {
     let active = true;
@@ -228,13 +236,37 @@ export function SpeciesPageAnalysis({ copy, id }: { copy: Copy; id: string }) {
     }
   }
 
+  if (collapsed)
+    return (
+      <button
+        aria-expanded="false"
+        aria-label={copy.action}
+        className="fixed top-28 right-4 z-100 flex size-10 items-center justify-center rounded-full border border-border bg-background text-foreground shadow-xl transition-colors hover:bg-secondary"
+        onClick={(event) => {
+          event.stopPropagation();
+          setCollapsed(false);
+        }}
+        type="button"
+      >
+        <Plus aria-hidden className="size-5" />
+      </button>
+    );
+
   return (
     <aside
       aria-label={copy.action}
       className="fixed top-28 right-4 z-80 max-h-[calc(100vh-8rem)] w-fit max-w-[calc(100vw-2rem)] overflow-y-auto rounded-xl border border-border bg-background p-2 text-foreground shadow-xl"
     >
       <button
-        className="w-full min-w-44 rounded-lg bg-primary px-4 py-2.5 text-sm font-medium text-white disabled:opacity-60 dark:text-ink"
+        aria-label={copy.closeWorkflow}
+        className="absolute top-2 right-2 flex size-7 items-center justify-center rounded-full border border-border bg-background text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+        onClick={() => setCollapsed(true)}
+        type="button"
+      >
+        <Minus aria-hidden className="size-4" />
+      </button>
+      <button
+        className="w-full min-w-44 rounded-lg bg-primary px-4 py-2.5 pr-10 text-sm font-medium text-white disabled:opacity-60 dark:text-ink"
         disabled={processing || !selected.length}
         onClick={() => void launchWorkflow()}
         type="button"
