@@ -1843,17 +1843,17 @@ function HalyomorphaRangeSection({
             <h3 className="font-display text-[1.35rem] leading-tight font-semibold text-foreground">
               {copy.regionSummaryTitle}
             </h3>
-            <div className="mt-4 overflow-hidden border-y border-border/80">
-              <table className="w-full text-[14px]">
+            <div className="mt-4 border-y border-border/80">
+              <table className="w-full table-fixed text-[14px]">
                 <thead className="border-b border-border/60 text-[11px] tracking-[0.12em] text-muted-foreground uppercase">
                   <tr>
                     <th className="py-2.5 pr-3 text-left font-semibold">
                       {copy.regionsMetricLabel}
                     </th>
-                    <th className="w-19 px-3 py-2.5 text-right font-semibold">
+                    <th className="w-24 px-3 py-2.5 text-right font-semibold sm:w-28">
                       {copy.regionRecordsLabel}
                     </th>
-                    <th className="py-2.5 pl-3 text-right font-semibold">
+                    <th className="hidden w-52 py-2.5 pl-3 text-right font-semibold sm:table-cell">
                       {copy.statusColumnLabel}
                     </th>
                   </tr>
@@ -1864,11 +1864,15 @@ function HalyomorphaRangeSection({
                       className="border-b border-border/60 last:border-0"
                       key={region.id}
                     >
-                      <th className="py-3 pr-3 text-left font-medium text-foreground">
-                        <span className="flex items-center gap-2">
-                          <HalyomorphaRegionSelectButton regionId={region.id}>
-                            {region.name}
-                          </HalyomorphaRegionSelectButton>
+                      <th className="py-3 pr-3 text-left align-top font-medium text-foreground sm:align-middle">
+                        <span className="flex min-w-0 items-center gap-2">
+                          <span className="min-w-0 [&_button]:min-w-0">
+                            <HalyomorphaRegionSelectButton
+                              regionId={region.id}
+                            >
+                              {region.name}
+                            </HalyomorphaRegionSelectButton>
+                          </span>
                           <Link
                             aria-label={copy.regionPageLabel(region.name)}
                             className="inline-flex size-6 shrink-0 items-center justify-center rounded-full border border-border/70 text-[12px] font-semibold text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
@@ -1881,11 +1885,17 @@ function HalyomorphaRangeSection({
                             />
                           </Link>
                         </span>
+                        <span className="mt-2 flex sm:hidden">
+                          <RegionStatusBadge
+                            copy={copy}
+                            status={region.status}
+                          />
+                        </span>
                       </th>
-                      <td className="p-3 text-right text-muted-foreground tabular-nums">
+                      <td className="p-3 text-right align-top text-muted-foreground tabular-nums sm:align-middle">
                         {region.count.toLocaleString(locale)}
                       </td>
-                      <td className="py-3 pl-3 text-right">
+                      <td className="hidden py-3 pl-3 text-right sm:table-cell">
                         <RegionStatusBadge copy={copy} status={region.status} />
                       </td>
                     </tr>
@@ -1912,7 +1922,7 @@ function RegionStatusBadge({
   return (
     <span
       className={[
-        "inline-flex max-w-[9.75rem] items-center justify-center rounded-full px-2.5 py-1 text-center text-[11px] leading-tight font-semibold sm:max-w-none",
+        "inline-flex max-w-full items-center justify-center rounded-full px-2.5 py-1 text-center text-[11px] leading-tight font-semibold",
         confirmed
           ? "bg-primary/10 text-primary"
           : "bg-zinc-200 text-zinc-800 dark:bg-zinc-700 dark:text-zinc-100",
