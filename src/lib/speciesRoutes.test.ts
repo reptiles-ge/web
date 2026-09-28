@@ -76,6 +76,18 @@ describe("species routes", () => {
     );
   });
 
+  it("keeps Urartian ratsnake lookalikes to supported visual matches", () => {
+    expect(getSpeciesLookalikes("elaphe-urartica")).toEqual([
+      "elaphe-dione",
+      "dolichophis-schmidti",
+      "hemorrhois-ravergieri",
+      "macrovipera-lebetina",
+    ]);
+    expect(getSpeciesLookalikes("platyceps-najadum")).not.toContain(
+      "elaphe-urartica",
+    );
+  });
+
   it("keeps smooth snake lookalikes to supported visual comparisons", () => {
     expect(getSpeciesLookalikes("coronella-austriaca")).toEqual([
       "vipera-transcaucasiana",
