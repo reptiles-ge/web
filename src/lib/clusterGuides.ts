@@ -648,6 +648,11 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
       kind: "page",
     },
     {
+      href: "/insects/chrchili-tansatsmelshi",
+      key: "clothesMoth",
+      kind: "page",
+    },
+    {
       href: "/insects/taraknebi-sakhlshi",
       key: "cockroachesInHouse",
       kind: "page",

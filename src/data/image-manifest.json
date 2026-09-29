@@ -36454,6 +36454,291 @@
       ],
       "updatedAt": "2026-09-25T14:08:25.550Z"
     },
+    "images/guides/clothes-moth-adult.jpg": {
+      "sourceHash": "883a8edf251496ef7502800637edf0f238c014e276ce7ea3f53e5caa62e68ba5",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/clothes-moth-adult.jpg",
+      "originalSize": 234489,
+      "width": 1500,
+      "height": 1000,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/clothes-moth-adult-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6168
+        },
+        {
+          "key": "optimized/images/guides/clothes-moth-adult-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8024
+        },
+        {
+          "key": "optimized/images/guides/clothes-moth-adult-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 8109
+        },
+        {
+          "key": "optimized/images/guides/clothes-moth-adult-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 11298
+        },
+        {
+          "key": "optimized/images/guides/clothes-moth-adult-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 16669
+        },
+        {
+          "key": "optimized/images/guides/clothes-moth-adult-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 23554
+        },
+        {
+          "key": "optimized/images/guides/clothes-moth-adult-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 22665
+        },
+        {
+          "key": "optimized/images/guides/clothes-moth-adult-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 32638
+        },
+        {
+          "key": "optimized/images/guides/clothes-moth-adult-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 39791
+        },
+        {
+          "key": "optimized/images/guides/clothes-moth-adult-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 58616
+        },
+        {
+          "key": "optimized/images/guides/clothes-moth-adult-1500.avif",
+          "format": "avif",
+          "width": 1500,
+          "height": 1000,
+          "byteSize": 62553
+        },
+        {
+          "key": "optimized/images/guides/clothes-moth-adult-1500.webp",
+          "format": "webp",
+          "width": 1500,
+          "height": 1000,
+          "byteSize": 89424
+        }
+      ],
+      "updatedAt": "2026-09-29T07:38:50.976Z"
+    },
+    "images/guides/clothes-moth-closet.jpg": {
+      "sourceHash": "f0df92180d35a7e2f17dc69cf383c5432b1ece01e2fbed4fd1c3f0f2c72f5571",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/clothes-moth-closet.jpg",
+      "originalSize": 239806,
+      "width": 1280,
+      "height": 720,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/clothes-moth-closet-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 5110
+        },
+        {
+          "key": "optimized/images/guides/clothes-moth-closet-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 8120
+        },
+        {
+          "key": "optimized/images/guides/clothes-moth-closet-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 6801
+        },
+        {
+          "key": "optimized/images/guides/clothes-moth-closet-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 11218
+        },
+        {
+          "key": "optimized/images/guides/clothes-moth-closet-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 15762
+        },
+        {
+          "key": "optimized/images/guides/clothes-moth-closet-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 24488
+        },
+        {
+          "key": "optimized/images/guides/clothes-moth-closet-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 23386
+        },
+        {
+          "key": "optimized/images/guides/clothes-moth-closet-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 34300
+        },
+        {
+          "key": "optimized/images/guides/clothes-moth-closet-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 43886
+        },
+        {
+          "key": "optimized/images/guides/clothes-moth-closet-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 61142
+        },
+        {
+          "key": "optimized/images/guides/clothes-moth-closet-1280.avif",
+          "format": "avif",
+          "width": 1280,
+          "height": 720,
+          "byteSize": 47547
+        },
+        {
+          "key": "optimized/images/guides/clothes-moth-closet-1280.webp",
+          "format": "webp",
+          "width": 1280,
+          "height": 720,
+          "byteSize": 66920
+        }
+      ],
+      "updatedAt": "2026-09-29T11:36:36.387Z"
+    },
+    "images/guides/clothes-moth-larva.jpg": {
+      "sourceHash": "a938a00b7ae047b899323cf013d7576615ef776cd749b5abc2f85c8a2866e10c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/clothes-moth-larva.jpg",
+      "originalSize": 3897785,
+      "width": 2400,
+      "height": 1616,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/clothes-moth-larva-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 215,
+          "byteSize": 14472
+        },
+        {
+          "key": "optimized/images/guides/clothes-moth-larva-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 215,
+          "byteSize": 17542
+        },
+        {
+          "key": "optimized/images/guides/clothes-moth-larva-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 269,
+          "byteSize": 20233
+        },
+        {
+          "key": "optimized/images/guides/clothes-moth-larva-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 269,
+          "byteSize": 23380
+        },
+        {
+          "key": "optimized/images/guides/clothes-moth-larva-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 431,
+          "byteSize": 38776
+        },
+        {
+          "key": "optimized/images/guides/clothes-moth-larva-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 431,
+          "byteSize": 46662
+        },
+        {
+          "key": "optimized/images/guides/clothes-moth-larva-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 539,
+          "byteSize": 51320
+        },
+        {
+          "key": "optimized/images/guides/clothes-moth-larva-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 539,
+          "byteSize": 61290
+        },
+        {
+          "key": "optimized/images/guides/clothes-moth-larva-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 808,
+          "byteSize": 86783
+        },
+        {
+          "key": "optimized/images/guides/clothes-moth-larva-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 808,
+          "byteSize": 106556
+        },
+        {
+          "key": "optimized/images/guides/clothes-moth-larva-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1616,
+          "byteSize": 239984
+        },
+        {
+          "key": "optimized/images/guides/clothes-moth-larva-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1616,
+          "byteSize": 295810
+        }
+      ],
+      "updatedAt": "2026-09-29T07:38:54.338Z"
+    },
     "images/guides/cockroaches-at-home-hero.jpg": {
       "sourceHash": "ce57c7956826d10f754a9cd99edd032d8b691ecd634e43304aee1d7af4b61b10",
       "configFingerprint": "409788ee46c653d8",

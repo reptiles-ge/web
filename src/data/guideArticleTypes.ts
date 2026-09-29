@@ -35,7 +35,9 @@ export type GuideArticleFaq = { answer: string; question: string };
 export type GuideArticleImage = {
   alt: Record<AppLocale, string>;
   credit?: Record<AppLocale, string>;
+  creditUrl?: string;
   height: number;
+  license?: { name: string; url: string };
   src: `/images/guides/${string}` | `https://cdn.reptiles.ge/${string}`;
   width: number;
 };
@@ -44,6 +46,7 @@ export type GuideArticleMessageKey =
   | "antsInHouse"
   | "batInHouse"
   | "bite"
+  | "clothesMoth"
   | "cockroachesInHouse"
   | "gyurzaBite"
   | "mouseInHouse"
