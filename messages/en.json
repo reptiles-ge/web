@@ -307,6 +307,7 @@
         "waspNest": "Wasp nest near your home",
         "stinkBugInHouse": "Stink bugs in the house",
         "antsInHouse": "Ants in the house",
+        "cockroachesInHouse": "Cockroaches at home",
         "mouseInHouse": "Mouse in the house"
       }
     }
@@ -379,6 +380,7 @@
     "waspNest": "Wasp nest",
     "stinkBugInHouse": "Stink bugs in the house",
     "antsInHouse": "Ants in the house",
+    "cockroachesInHouse": "Cockroaches at home",
     "mouseInHouse": "Mouse in the house",
     "bite": "Snakebite first steps",
     "gyurzaBite": "Blunt-nosed viper bite"
@@ -1431,6 +1433,12 @@
         "title": "Ants in the house",
         "body": "Where ants get in, how to get rid of them, and how to use bait without undermining it.",
         "cta": "Read the guide"
+      },
+      "cockroachesInHouse": {
+        "eyebrow": "Practical guide",
+        "title": "Cockroaches at home",
+        "body": "Find activity, reduce hiding places and moisture, monitor traps and use bait safely.",
+        "cta": "Read guide"
       },
       "mouseInHouse": {
         "eyebrow": "Practical guide",
