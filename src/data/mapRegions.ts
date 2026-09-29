@@ -580,6 +580,7 @@ export const regions: Region[] = [
       "testudo-graeca",
       "capra-aegagrus",
       "ursus-arctos",
+      "canis-aureus",
       "aegypius-monachus",
       "gyps-fulvus",
       "tyto-alba",

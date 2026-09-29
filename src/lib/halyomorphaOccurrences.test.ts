@@ -115,4 +115,38 @@ describe("occurrenceStatusForCount", () => {
         .sort(),
     ).toEqual(confirmedIds);
   });
+
+  it("keeps Golden Jackal distribution aligned with reviewed field records", () => {
+    const species = getSpeciesById("canis-aureus");
+    expect(species).toBeDefined();
+    if (!species) return;
+
+    const records = getHalyomorphaFieldRecords({
+      fieldRecords: species.fieldRecords ?? [],
+      gallery: species.gallery,
+      locale: "ka",
+      speciesName: species.commonName,
+    });
+    const summary = getHalyomorphaOccurrenceSummary(
+      records,
+      "ka",
+      confirmedRecordThresholdForSpecies(species.id),
+    );
+
+    expect(summary.totalRecords).toBe(16);
+    expect(
+      summary.recordsByRegion
+        .map(({ id, count, status }) => ({ id, count, status }))
+        .sort((a, b) => a.id.localeCompare(b.id)),
+    ).toEqual([
+      { id: "adjara", count: 3, status: "recorded-only" },
+      { id: "kakheti", count: 5, status: "confirmed" },
+      { id: "kvemo-kartli", count: 3, status: "recorded-only" },
+      { id: "mtskheta-mtianeti", count: 4, status: "recorded-only" },
+      { id: "samtskhe-javakheti", count: 1, status: "recorded-only" },
+    ]);
+    expect(getRegionsForSpecies(species.id).map((region) => region.id)).toEqual([
+      "kakheti",
+    ]);
+  });
 });
