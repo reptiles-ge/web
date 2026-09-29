@@ -165,4 +165,15 @@ describe("species routes", () => {
     expect(getSpeciesLookalikes("canis-lupus")).not.toContain("ursus-arctos");
     expect(getSpeciesLookalikes("sus-scrofa")).not.toContain("ursus-arctos");
   });
+
+  it("keeps golden eagle lookalikes to supported flight comparisons", () => {
+    const peers = ["aegypius-monachus", "buteo-buteo", "gyps-fulvus"];
+    expect(getSpeciesLookalikes("aquila-chrysaetos")).toEqual(peers);
+    for (const id of peers) {
+      expect(getSpeciesLookalikes(id)).toContain("aquila-chrysaetos");
+    }
+    for (const id of ["falco-peregrinus", "milvus-migrans"]) {
+      expect(getSpeciesLookalikes(id)).not.toContain("aquila-chrysaetos");
+    }
+  });
 });

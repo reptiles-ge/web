@@ -173,7 +173,7 @@ const LOOKALIKES: Record<string, string[]> = {
     "euscorpius-italicus",
     "olivierus-caucasicus",
   ],
-  "falco-peregrinus": ["accipiter-nisus", "buteo-buteo", "aquila-chrysaetos"],
+  "falco-peregrinus": ["accipiter-nisus", "buteo-buteo"],
   "falco-tinnunculus": ["falco-peregrinus"],
   "ficedula-hypoleuca": ["ficedula-semitorquata"],
   "ficedula-semitorquata": ["ficedula-hypoleuca"],
@@ -227,7 +227,7 @@ const LOOKALIKES: Record<string, string[]> = {
     "triturus-karelinii",
   ],
   "mesobuthus-eupeus": ["olivierus-caucasicus"],
-  "milvus-migrans": ["buteo-buteo", "pernis-apivorus", "aquila-chrysaetos"],
+  "milvus-migrans": ["buteo-buteo", "pernis-apivorus"],
   "natrix-natrix": [
     "natrix-tessellata",
     "vipera-kaznakovi",
