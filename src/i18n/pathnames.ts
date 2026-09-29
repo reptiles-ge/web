@@ -43,6 +43,10 @@ export const pathnames = {
     "/mtserebi/farosana-sakhlshi",
     "/insects/stink-bug-in-house",
   ),
+  "/insects/koghoebi-sakhlshi-da-ezoshi": kaLatin(
+    "/mtserebi/koghoebi-sakhlshi-da-ezoshi",
+    "/insects/mosquitoes-at-home",
+  ),
   "/insects/krazanis-bude": kaLatin(
     "/mtserebi/krazanis-bude",
     "/insects/wasp-nest",

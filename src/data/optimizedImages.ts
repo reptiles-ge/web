@@ -1,6 +1,7 @@
 import { optimizedBaseUrl, optimizedImages } from "./optimizedImages.generated";
 
 export type OptimizedImageEntry = {
+  baseUrl?: string;
   formats: OptimizedImageFormat[];
   height: number;
   path: string;
@@ -26,11 +27,22 @@ export type PictureSource = {
   };
 };
 
+const localOptimizedImages: Record<string, OptimizedImageEntry> = {
+  "/images/guides/mosquitoes-at-home-hero.jpg": {
+    baseUrl: "/optimized/",
+    formats: ["webp"],
+    height: 941,
+    path: "images/guides/mosquitoes-at-home-hero",
+    width: 1672,
+    widths: [400, 800, 1200, 1672],
+  },
+};
+
 export function optimizedEntry(
   src: null | string | undefined,
 ): null | OptimizedImageEntry {
   if (!src) return null;
-  return optimizedImages[src] ?? null;
+  return optimizedImages[src] ?? localOptimizedImages[src] ?? null;
 }
 
 export function optimizedImgSrc(src: string, minWidth = 1200): string {
@@ -40,7 +52,7 @@ export function optimizedImgSrc(src: string, minWidth = 1200): string {
   const width =
     entry.widths.find((item) => item >= minWidth) ??
     entry.widths[entry.widths.length - 1];
-  return `${optimizedBaseUrl}${entry.path}-${width}.${format}`;
+  return `${entry.baseUrl ?? optimizedBaseUrl}${entry.path}-${width}.${format}`;
 }
 
 export function optimizedSrcSet(
@@ -50,7 +62,7 @@ export function optimizedSrcSet(
   return entry.widths
     .map(
       (width) =>
-        `${optimizedBaseUrl}${entry.path}-${width}.${format} ${width}w`,
+        `${entry.baseUrl ?? optimizedBaseUrl}${entry.path}-${width}.${format} ${width}w`,
     )
     .join(", ");
 }
