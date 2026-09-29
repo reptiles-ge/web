@@ -67,6 +67,7 @@ type CliOptions = {
   all: boolean;
   news: boolean;
   site: boolean;
+  siteKeys: string[];
   emitOnly: boolean;
   dryRun: boolean;
   force: boolean;
@@ -80,6 +81,7 @@ function parseArguments(argv: string[]): CliOptions {
   let all = false;
   let news = false;
   let site = false;
+  const siteKeys: string[] = [];
   let emitOnly = false;
   let dryRun = false;
   let force = false;
@@ -112,6 +114,9 @@ function parseArguments(argv: string[]): CliOptions {
       case "--site":
         site = true;
         break;
+      case "--site-key":
+        siteKeys.push(...(argv[++index] ?? "").split(",").filter(Boolean));
+        break;
       case "--emit-only":
         emitOnly = true;
         break;
@@ -134,24 +139,30 @@ function parseArguments(argv: string[]): CliOptions {
     }
   }
 
-  const scopes = [all, news, site, speciesIds.length > 0, !!regionId].filter(
-    Boolean,
-  ).length;
+  const scopes = [
+    all,
+    news,
+    site,
+    siteKeys.length > 0,
+    speciesIds.length > 0,
+    !!regionId,
+  ].filter(Boolean).length;
   if (scopes > 1) {
     throw new Error(
-      "Pass only one of --all, --species, --region, --news, or --site.",
+      "Pass only one of --all, --species, --region, --news, --site, or --site-key.",
     );
   }
   if (
     !all &&
     !news &&
     !site &&
+    siteKeys.length === 0 &&
     !emitOnly &&
     speciesIds.length === 0 &&
     !regionId
   ) {
     throw new Error(
-      "Pass --species <id>, --region <id>, --news, --site, or --all.",
+      "Pass --species <id>, --region <id>, --news, --site, --site-key <key>, or --all.",
     );
   }
   if (limit !== undefined && (!Number.isInteger(limit) || limit < 1)) {
@@ -167,6 +178,7 @@ function parseArguments(argv: string[]): CliOptions {
     all,
     news,
     site,
+    siteKeys,
     emitOnly,
     dryRun,
     force,
@@ -235,6 +247,7 @@ function collectTargets(
   all: boolean,
   news: boolean,
   site: boolean,
+  siteKeys: string[],
 ): Target[] {
   const wanted = new Set(ids);
   const known = new Set(species.map((item) => item.id));
@@ -252,6 +265,12 @@ function collectTargets(
 
   if (all) {
     for (const src of Object.values(siteImages)) add(src);
+  }
+
+  for (const key of siteKeys) {
+    if (!Object.hasOwn(siteImages, key))
+      throw new Error(`Unknown site image key "${key}".`);
+    add(siteImages[key as keyof typeof siteImages]);
   }
 
   if (all || site) {
@@ -586,6 +605,7 @@ async function run() {
     options.all,
     options.news,
     options.site,
+    options.siteKeys,
   );
   const coverKeys = collectCoverKeys(
     options.speciesIds,
@@ -612,7 +632,7 @@ async function run() {
       `OG ${og.width}×${og.height} JPEG q${og.quality}–${og.minQuality}, ≤${formatBytes(og.maxBytes)}.`,
   );
   console.log(
-    `Scope: ${options.all ? "all" : options.news ? "news" : options.site ? "site" : (options.regionId ?? options.speciesIds.join(", "))}. ` +
+    `Scope: ${options.all ? "all" : options.news ? "news" : options.site ? "site" : options.siteKeys.length > 0 ? options.siteKeys.join(", ") : (options.regionId ?? options.speciesIds.join(", "))}. ` +
       `${targets.length} image(s)${options.dryRun ? " (dry run)" : ""}.`,
   );
 
