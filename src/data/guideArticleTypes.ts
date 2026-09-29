@@ -23,6 +23,7 @@ export type GuideArticleCopy<ImageKey extends string = string> = {
   faq: GuideArticleFaq[];
   intro?: string;
   metaTitle: string;
+  quickSteps?: { heading: string; items: string[] };
   sections: GuideArticleSection<ImageKey>[];
   summary: string;
   title: string;
@@ -33,7 +34,9 @@ export type GuideArticleFaq = { answer: string; question: string };
 export type GuideArticleImage = {
   alt: Record<AppLocale, string>;
   credit?: Record<AppLocale, string>;
+  creditUrl?: string;
   height: number;
+  license?: { name: string; url: string };
   src: `/images/guides/${string}` | `https://cdn.reptiles.ge/${string}`;
   width: number;
 };
@@ -42,6 +45,7 @@ export type GuideArticleMessageKey =
   | "antsInHouse"
   | "batInHouse"
   | "bite"
+  | "clothesMoth"
   | "gyurzaBite"
   | "mouseInHouse"
   | "scorpionSting"

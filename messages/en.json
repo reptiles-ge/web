@@ -307,7 +307,8 @@
         "waspNest": "Wasp nest near your home",
         "stinkBugInHouse": "Stink bugs in the house",
         "antsInHouse": "Ants in the house",
-        "mouseInHouse": "Mouse in the house"
+        "mouseInHouse": "Mouse in the house",
+        "clothesMoth": "Clothes moths"
       }
     }
   },
@@ -381,7 +382,8 @@
     "antsInHouse": "Ants in the house",
     "mouseInHouse": "Mouse in the house",
     "bite": "Snakebite first steps",
-    "gyurzaBite": "Blunt-nosed viper bite"
+    "gyurzaBite": "Blunt-nosed viper bite",
+    "clothesMoth": "Clothes moths"
   },
   "legal": {
     "canonicalNotice": "The legal text on this page is currently provided in Georgian; treat the Georgian version as the canonical text.",
@@ -1479,6 +1481,12 @@
         "title": "A lizard in the house",
         "body": "Harmless. Do not kill it. Often a Caspian gecko on the wall.",
         "cta": "House guide"
+      },
+      "clothesMoth": {
+        "eyebrow": "Practical guide",
+        "title": "Clothes moths",
+        "body": "Identify damage, care for fabrics and protect stored clothes",
+        "cta": "Read the guide"
       }
     }
   },

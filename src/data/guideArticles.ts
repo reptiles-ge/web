@@ -5,6 +5,7 @@ import type { GroupHubId } from "@/lib/groupHubs";
 
 import { ANTS_IN_HOUSE } from "@/content/guides/antsInHouse";
 import { BAT_IN_HOUSE } from "@/content/guides/batInHouse";
+import { CLOTHES_MOTH } from "@/content/guides/clothesMoth";
 import { GYURZA_BITE } from "@/content/guides/gyurzaBite";
 import { MOUSE_IN_HOUSE } from "@/content/guides/mouseInHouse";
 import { SCORPION_STING } from "@/content/guides/scorpionSting";
@@ -27,6 +28,7 @@ const GUIDE_ARTICLES: readonly GuideArticle[] = [
   STINK_BUG_IN_HOUSE,
   MOUSE_IN_HOUSE,
   ANTS_IN_HOUSE,
+  CLOTHES_MOTH,
   SCORPION_STING,
   SNAKE_BITE,
   GYURZA_BITE,

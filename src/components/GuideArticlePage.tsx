@@ -1,7 +1,11 @@
 import { ArrowUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
-import type { GuideArticle, GuideArticleSection } from "@/data/guideArticles";
+import type {
+  GuideArticle,
+  GuideArticleImage,
+  GuideArticleSection,
+} from "@/data/guideArticles";
 
 import { ContentAttribution } from "@/components/ContentAttribution";
 import { CoverImage } from "@/components/CoverImage";
@@ -123,6 +127,18 @@ export async function GuideArticlePage({
             <PhoneLinkedText>{copy.intro}</PhoneLinkedText>
           </p>
         ) : null}
+        {copy.quickSteps ? (
+          <aside className="mt-7 rounded-card border border-border bg-card p-5 sm:p-6">
+            <h2 className="font-display text-[19px] font-semibold text-foreground">
+              {copy.quickSteps.heading}
+            </h2>
+            <ol className="mt-3 list-decimal space-y-1.5 pl-5 text-[15px] leading-relaxed text-foreground/85">
+              {copy.quickSteps.items.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ol>
+          </aside>
+        ) : null}
         <figure className="mt-10">
           <CoverImage
             alt={article.hero.alt[locale]}
@@ -132,11 +148,7 @@ export async function GuideArticlePage({
             sizes={IMAGE_SIZES}
             src={article.hero.src}
           />
-          {article.hero.credit ? (
-            <figcaption className="mt-3 text-right text-[12px] text-muted-foreground">
-              {article.hero.credit[locale]}
-            </figcaption>
-          ) : null}
+          <GuideImageCredit image={article.hero} locale={locale} />
         </figure>
 
         {sections.length > 2 ? (
@@ -370,13 +382,38 @@ function GuideArticleSectionView({
             sizes={IMAGE_SIZES}
             src={image.src}
           />
-          {image.credit ? (
-            <figcaption className="mt-3 text-right text-[12px] text-muted-foreground">
-              {image.credit[locale]}
-            </figcaption>
-          ) : null}
+          <GuideImageCredit image={image} locale={locale} />
         </figure>
       ) : null}
     </section>
+  );
+}
+
+function GuideImageCredit({
+  image,
+  locale,
+}: {
+  image: GuideArticleImage;
+  locale: AppLocale;
+}) {
+  if (!image.credit) return null;
+  return (
+    <figcaption className="mt-3 text-right text-[12px] text-muted-foreground">
+      {image.creditUrl ? (
+        <a href={image.creditUrl} rel="noopener noreferrer" target="_blank">
+          {image.credit[locale]}
+        </a>
+      ) : (
+        image.credit[locale]
+      )}
+      {image.license ? (
+        <>
+          {" · "}
+          <a href={image.license.url} rel="noopener noreferrer" target="_blank">
+            {image.license.name}
+          </a>
+        </>
+      ) : null}
+    </figcaption>
   );
 }

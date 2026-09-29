@@ -307,7 +307,8 @@
         "waspNest": "Eşek arısı yuvası",
         "stinkBugInHouse": "Evde kokarca böceği",
         "antsInHouse": "Evde karınca",
-        "mouseInHouse": "Evde fare"
+        "mouseInHouse": "Evde fare",
+        "clothesMoth": "Giysi güvesi"
       }
     }
   },
@@ -381,7 +382,8 @@
     "antsInHouse": "Evde karınca",
     "mouseInHouse": "Evde fare",
     "bite": "Yılan ısırığında ilk adımlar",
-    "gyurzaBite": "Levant engereği ısırığı"
+    "gyurzaBite": "Levant engereği ısırığı",
+    "clothesMoth": "Giysi güvesi"
   },
   "legal": {
     "canonicalNotice": "Bu sayfadaki hukuki metin şu anda Gürcüce olarak sunulmaktadır; Gürcüce sürüm esas metin kabul edilmelidir.",
@@ -1479,6 +1481,12 @@
         "title": "Evde kertenkele",
         "body": "Zararsızdır. Öldürmeyin. Çoğu zaman duvardaki Hazar gekosu.",
         "cta": "Ev rehberi"
+      },
+      "clothesMoth": {
+        "eyebrow": "Pratik rehber",
+        "title": "Giysi güvesi",
+        "body": "Hasarı tanıyın, kumaşları temizleyin ve dolabı koruyun",
+        "cta": "Rehberi oku"
       }
     }
   },
