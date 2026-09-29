@@ -599,13 +599,13 @@ export const CLOTHES_MOTH = defineGuideArticle({
     },
     creditUrl:
       "https://commons.wikimedia.org/wiki/File:Clothes_hanged_inside_a_closet.jpg",
-    height: 3024,
+    height: 1800,
     license: {
       name: "CC BY-SA 4.0",
       url: "https://creativecommons.org/licenses/by-sa/4.0/",
     },
     src: "/images/guides/clothes-moth-closet.jpg",
-    width: 4032,
+    width: 2400,
   },
   id: "clothes-moth",
   images: {
@@ -647,13 +647,13 @@ export const CLOTHES_MOTH = defineGuideArticle({
       },
       creditUrl:
         "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1790_Fabric_Pest_The_Clothes_Moth_Larvae.jpg",
-      height: 1789,
+      height: 1616,
       license: {
         name: "CC BY 3.0",
         url: "https://creativecommons.org/licenses/by/3.0/",
       },
       src: "/images/guides/clothes-moth-larva.jpg",
-      width: 2657,
+      width: 2400,
     },
   },
   messageKey: "clothesMoth",

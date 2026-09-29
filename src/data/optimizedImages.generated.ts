@@ -25,6 +25,27 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1152],
     "formats": ["avif", "webp"]
   },
+  "/images/guides/clothes-moth-adult.jpg": {
+    "path": "images/guides/clothes-moth-adult",
+    "width": 1500,
+    "height": 1000,
+    "widths": [320, 400, 640, 800, 1200, 1500],
+    "formats": ["avif", "webp"]
+  },
+  "/images/guides/clothes-moth-closet.jpg": {
+    "path": "images/guides/clothes-moth-closet",
+    "width": 2400,
+    "height": 1800,
+    "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
+  "/images/guides/clothes-moth-larva.jpg": {
+    "path": "images/guides/clothes-moth-larva",
+    "width": 2400,
+    "height": 1616,
+    "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
   "/images/guides/gyurza-bite-clinical-assessment.jpg": {
     "path": "images/guides/gyurza-bite-clinical-assessment",
     "width": 1536,
@@ -44,13 +65,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1536,
     "height": 1024,
     "widths": [320, 400, 640, 800, 1200, 1536],
-    "formats": ["avif", "webp"]
-  },
-  "/images/guides/tick-bite-hero-1200.webp": {
-    "path": "images/guides/tick-bite-hero-1200",
-    "width": 1200,
-    "height": 630,
-    "widths": [320, 400, 640, 800, 1200],
     "formats": ["avif", "webp"]
   },
   "/images/guides/wasp-nest-enclosed.jpg": {
@@ -6129,13 +6143,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2400],
     "formats": ["avif", "webp"]
   },
-  "https://cdn.reptiles.ge/pseudopus-apodus-2.webp": {
-    "path": "pseudopus-apodus-2",
-    "width": 2200,
-    "height": 990,
-    "widths": [400, 800, 1200, 2200],
-    "formats": ["avif", "webp"]
-  },
   "https://cdn.reptiles.ge/pseudopus-apodus-3.webp": {
     "path": "pseudopus-apodus-3",
     "width": 2200,
@@ -6147,13 +6154,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "path": "pseudopus-apodus-4",
     "width": 2200,
     "height": 1650,
-    "widths": [400, 800, 1200, 2200],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/pseudopus-apodus-5.webp": {
-    "path": "pseudopus-apodus-5",
-    "width": 2200,
-    "height": 1466,
     "widths": [400, 800, 1200, 2200],
     "formats": ["avif", "webp"]
   },
@@ -7503,13 +7503,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
   },
   "https://cdn.reptiles.ge/zamenis-hohenackeri-ioane-1.jpg": {
     "path": "zamenis-hohenackeri-ioane-1",
-    "width": 1080,
-    "height": 1434,
-    "widths": [400, 800, 1080],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/zamenis-hohenackeri-ioane-2.jpg": {
-    "path": "zamenis-hohenackeri-ioane-2",
     "width": 1080,
     "height": 1434,
     "widths": [400, 800, 1080],

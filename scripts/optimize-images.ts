@@ -63,6 +63,7 @@ type Target = {
 
 type CliOptions = {
   speciesIds: string[];
+  imageSources: string[];
   regionId: RegionPathId | undefined;
   all: boolean;
   news: boolean;
@@ -76,6 +77,7 @@ type CliOptions = {
 
 function parseArguments(argv: string[]): CliOptions {
   const speciesIds: string[] = [];
+  const imageSources: string[] = [];
   let regionId: RegionPathId | undefined;
   let all = false;
   let news = false;
@@ -93,6 +95,12 @@ function parseArguments(argv: string[]): CliOptions {
         index += 1;
         for (const id of (argv[index] ?? "").split(",")) {
           if (id.trim()) speciesIds.push(id.trim());
+        }
+        break;
+      case "--images":
+        index += 1;
+        for (const src of (argv[index] ?? "").split(",")) {
+          if (src.trim()) imageSources.push(src.trim());
         }
         break;
       case "--region": {
@@ -134,12 +142,17 @@ function parseArguments(argv: string[]): CliOptions {
     }
   }
 
-  const scopes = [all, news, site, speciesIds.length > 0, !!regionId].filter(
-    Boolean,
-  ).length;
+  const scopes = [
+    all,
+    news,
+    site,
+    speciesIds.length > 0,
+    imageSources.length > 0,
+    !!regionId,
+  ].filter(Boolean).length;
   if (scopes > 1) {
     throw new Error(
-      "Pass only one of --all, --species, --region, --news, or --site.",
+      "Pass only one of --all, --species, --images, --region, --news, or --site.",
     );
   }
   if (
@@ -148,10 +161,11 @@ function parseArguments(argv: string[]): CliOptions {
     !site &&
     !emitOnly &&
     speciesIds.length === 0 &&
+    imageSources.length === 0 &&
     !regionId
   ) {
     throw new Error(
-      "Pass --species <id>, --region <id>, --news, --site, or --all.",
+      "Pass --species <id>, --images <paths>, --region <id>, --news, --site, or --all.",
     );
   }
   if (limit !== undefined && (!Number.isInteger(limit) || limit < 1)) {
@@ -163,6 +177,7 @@ function parseArguments(argv: string[]): CliOptions {
 
   return {
     speciesIds,
+    imageSources,
     regionId,
     all,
     news,
@@ -231,6 +246,7 @@ function collectSources(): Map<string, string> {
 
 function collectTargets(
   ids: string[],
+  imageSources: string[],
   regionId: RegionPathId | undefined,
   all: boolean,
   news: boolean,
@@ -249,6 +265,17 @@ function collectTargets(
     const key = toStorageKey(src);
     if (key) targets.set(key, { key, src });
   };
+
+  if (imageSources.length > 0) {
+    const siteImageSources = new Set(Object.values(siteImages));
+    for (const src of imageSources) {
+      if (!siteImageSources.has(src)) {
+        throw new Error(`Unknown site image "${src}".`);
+      }
+      add(src);
+    }
+    return [...targets.values()].sort((a, b) => a.key.localeCompare(b.key));
+  }
 
   if (all) {
     for (const src of Object.values(siteImages)) add(src);
@@ -582,6 +609,7 @@ async function run() {
 
   const discovered = collectTargets(
     options.speciesIds,
+    options.imageSources,
     options.regionId,
     options.all,
     options.news,
@@ -612,7 +640,7 @@ async function run() {
       `OG ${og.width}×${og.height} JPEG q${og.quality}–${og.minQuality}, ≤${formatBytes(og.maxBytes)}.`,
   );
   console.log(
-    `Scope: ${options.all ? "all" : options.news ? "news" : options.site ? "site" : (options.regionId ?? options.speciesIds.join(", "))}. ` +
+    `Scope: ${options.all ? "all" : options.news ? "news" : options.site ? "site" : (options.regionId ?? (options.imageSources.length ? options.imageSources.join(", ") : options.speciesIds.join(", ")))}. ` +
       `${targets.length} image(s)${options.dryRun ? " (dry run)" : ""}.`,
   );
 
