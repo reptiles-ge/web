@@ -128,6 +128,24 @@ export async function GuideArticlePage({
             <PhoneLinkedText>{copy.notice}</PhoneLinkedText>
           </aside>
         ) : null}
+        {copy.quickSteps ? (
+          <section
+            aria-labelledby={`${article.id}-quick-steps`}
+            className="mt-8 max-w-3xl"
+          >
+            <h2
+              className="font-display text-xl font-semibold text-foreground"
+              id={`${article.id}-quick-steps`}
+            >
+              {copy.quickSteps.heading}
+            </h2>
+            <ol className="mt-3 list-decimal space-y-2 pl-6 text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
+              {copy.quickSteps.items.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ol>
+          </section>
+        ) : null}
         <figure className="mt-10">
           <CoverImage
             alt={article.hero.alt[locale]}

@@ -25,6 +25,27 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1152],
     "formats": ["avif", "webp"]
   },
+  "/images/guides/cockroaches-at-home-hero.jpg": {
+    "path": "images/guides/cockroaches-at-home-hero",
+    "width": 1672,
+    "height": 941,
+    "widths": [320, 400, 640, 800, 1200, 1672],
+    "formats": ["avif", "webp"]
+  },
+  "/images/guides/cockroaches-at-home-inspection.jpg": {
+    "path": "images/guides/cockroaches-at-home-inspection",
+    "width": 1672,
+    "height": 941,
+    "widths": [320, 400, 640, 800, 1200, 1672],
+    "formats": ["avif", "webp"]
+  },
+  "/images/guides/cockroaches-at-home-trap.jpg": {
+    "path": "images/guides/cockroaches-at-home-trap",
+    "width": 1672,
+    "height": 941,
+    "widths": [320, 400, 640, 800, 1200, 1672],
+    "formats": ["avif", "webp"]
+  },
   "/images/guides/gyurza-bite-clinical-assessment.jpg": {
     "path": "images/guides/gyurza-bite-clinical-assessment",
     "width": 1536,
