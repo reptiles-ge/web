@@ -307,6 +307,7 @@
         "waspNest": "Eşek arısı yuvası",
         "stinkBugInHouse": "Evde kokarca böceği",
         "antsInHouse": "Evde karınca",
+        "cockroachesInHouse": "Evde hamam böceği",
         "mouseInHouse": "Evde fare"
       }
     }
@@ -379,6 +380,7 @@
     "waspNest": "Eşek arısı yuvası",
     "stinkBugInHouse": "Evde kokarca böceği",
     "antsInHouse": "Evde karınca",
+    "cockroachesInHouse": "Evde hamam böceği",
     "mouseInHouse": "Evde fare",
     "bite": "Yılan ısırığında ilk adımlar",
     "gyurzaBite": "Levant engereği ısırığı"
@@ -1430,6 +1432,12 @@
         "eyebrow": "Pratik rehber",
         "title": "Evde karınca",
         "body": "Karıncalar nereden girer, nasıl uzaklaştırılır ve yem, etkisini bozmadan nasıl kullanılır.",
+        "cta": "Rehberi oku"
+      },
+      "cockroachesInHouse": {
+        "eyebrow": "Pratik rehber",
+        "title": "Evde hamam böceği",
+        "body": "İzleri bulma, saklanma yerlerini ve nemi azaltma, izleme ve yemi güvenle kullanma.",
         "cta": "Rehberi oku"
       },
       "mouseInHouse": {
