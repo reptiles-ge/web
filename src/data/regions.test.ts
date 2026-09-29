@@ -28,33 +28,35 @@ describe("region speciesIds", () => {
     }
   });
 
-  it("lists Common Quail only where the record table confirms distribution", () => {
-    const id = "coturnix-coturnix";
-    const species = getSpeciesById(id);
-    expect(species).toBeDefined();
-    if (!species) return;
-    const records = getHalyomorphaFieldRecords({
-      fieldRecords: species.fieldRecords ?? [],
-      gallery: species.gallery,
-      locale: "ka",
-      speciesName: species.commonName,
-    });
-    const summary = getHalyomorphaOccurrenceSummary(
-      records,
-      "ka",
-      confirmedRecordThresholdForSpecies(id),
-    );
-    expect(
-      getRegionsForSpecies(id)
-        .map((region) => region.id)
-        .sort(),
-    ).toEqual(
-      summary.recordsByRegion
-        .filter((region) => region.status === "confirmed")
-        .map((region) => region.id)
-        .sort(),
-    );
-  });
+  it.each(["coturnix-coturnix", "columba-palumbus"])(
+    "lists %s only where the record table confirms distribution",
+    (id) => {
+      const species = getSpeciesById(id);
+      expect(species).toBeDefined();
+      if (!species) return;
+      const records = getHalyomorphaFieldRecords({
+        fieldRecords: species.fieldRecords ?? [],
+        gallery: species.gallery,
+        locale: "ka",
+        speciesName: species.commonName,
+      });
+      const summary = getHalyomorphaOccurrenceSummary(
+        records,
+        "ka",
+        confirmedRecordThresholdForSpecies(id),
+      );
+      expect(
+        getRegionsForSpecies(id)
+          .map((region) => region.id)
+          .sort(),
+      ).toEqual(
+        summary.recordsByRegion
+          .filter((region) => region.status === "confirmed")
+          .map((region) => region.id)
+          .sort(),
+      );
+    },
+  );
 
   it("lists Brown Bear only where the record table confirms distribution", () => {
     const id = "ursus-arctos";
