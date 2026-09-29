@@ -115,4 +115,31 @@ describe("occurrenceStatusForCount", () => {
         .sort(),
     ).toEqual(confirmedIds);
   });
+
+  it("uses checklist localities, not obscured point counts, for Caucasian Salamander regions", () => {
+    const species = getSpeciesById("mertensiella-caucasica");
+    expect(species).toBeDefined();
+    if (!species) return;
+
+    const records = getHalyomorphaFieldRecords({
+      fieldRecords: species.fieldRecords ?? [],
+      gallery: species.gallery,
+      locale: "ka",
+      speciesName: species.commonName,
+    });
+    const summary = getHalyomorphaOccurrenceSummary(records, "ka");
+
+    expect(summary.totalRecords).toBe(19);
+    expect(
+      summary.recordsByRegion
+        .filter((region) => region.status === "confirmed")
+        .map((region) => region.id)
+        .sort(),
+    ).toEqual(["adjara", "guria", "samtskhe-javakheti", "shida-kartli"]);
+    expect(
+      summary.recordsByRegion.filter(
+        (region) => region.status === "recorded-only",
+      ),
+    ).toEqual([]);
+  });
 });
