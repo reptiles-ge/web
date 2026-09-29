@@ -640,12 +640,6 @@ export const FLEAS_IN_HOUSE = defineGuideArticle({
       ru: "Иллюстративная домашняя сцена: человек бережно расчёсывает спокойную собаку рядом с её лежанкой; в комнате виден пылесос",
       tr: "Örnek ev sahnesi: bir yetişkin sakin bir köpeği yatağının yanında nazikçe tarıyor; odada süpürge görülüyor",
     },
-    credit: {
-      en: "Illustrative image generated with AI; not a field photograph.",
-      ka: "AI-ით შექმნილი საილუსტრაციო გამოსახულება; არ არის საველე ფოტო.",
-      ru: "Иллюстративное изображение создано ИИ; это не полевая фотография.",
-      tr: "Yapay zekâ ile oluşturulmuş örnek görsel; saha fotoğrafı değildir.",
-    },
     height: 941,
     src: "/images/guides/fleas-home-pet-care-hero.jpg",
     width: 1672,
