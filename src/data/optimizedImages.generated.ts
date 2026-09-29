@@ -67,27 +67,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1536],
     "formats": ["avif", "webp"]
   },
-  "/images/guides/scorpion-in-house-gap.jpg": {
-    "path": "images/guides/scorpion-in-house-gap",
-    "width": 1024,
-    "height": 576,
-    "widths": [320, 400, 640, 800, 1024],
-    "formats": ["avif", "webp"]
-  },
-  "/images/guides/scorpion-in-house-hero.jpg": {
-    "path": "images/guides/scorpion-in-house-hero",
-    "width": 1024,
-    "height": 576,
-    "widths": [320, 400, 640, 800, 1024],
-    "formats": ["avif", "webp"]
-  },
-  "/images/guides/scorpion-in-house-jar.jpg": {
-    "path": "images/guides/scorpion-in-house-jar",
-    "width": 1024,
-    "height": 576,
-    "widths": [320, 400, 640, 800, 1024],
-    "formats": ["avif", "webp"]
-  },
   "/images/guides/wasp-nest-enclosed.jpg": {
     "path": "images/guides/wasp-nest-enclosed",
     "width": 1421,
@@ -3481,6 +3460,27 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 2045,
     "height": 2048,
     "widths": [320, 400, 640, 800, 1200, 2045],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/guides/scorpion-in-house-gap.jpg": {
+    "path": "images/guides/scorpion-in-house-gap",
+    "width": 1024,
+    "height": 576,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/guides/scorpion-in-house-hero.jpg": {
+    "path": "images/guides/scorpion-in-house-hero",
+    "width": 1024,
+    "height": 576,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/guides/scorpion-in-house-jar.jpg": {
+    "path": "images/guides/scorpion-in-house-jar",
+    "width": 1024,
+    "height": 576,
+    "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/images/guides/scorpion-sting-cool-compress.jpg": {
