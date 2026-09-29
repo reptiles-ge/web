@@ -1,7 +1,11 @@
 import { ArrowUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
-import type { GuideArticle, GuideArticleSection } from "@/data/guideArticles";
+import type {
+  GuideArticle,
+  GuideArticleImage,
+  GuideArticleSection,
+} from "@/data/guideArticles";
 
 import { ContentAttribution } from "@/components/ContentAttribution";
 import { CoverImage } from "@/components/CoverImage";
@@ -123,6 +127,11 @@ export async function GuideArticlePage({
             <PhoneLinkedText>{copy.intro}</PhoneLinkedText>
           </p>
         ) : null}
+        {copy.notice ? (
+          <aside className="mt-6 max-w-3xl rounded-card border-l-4 border-primary bg-card px-5 py-4 text-[15px] leading-[1.7] text-foreground sm:text-[16px]">
+            <PhoneLinkedText>{copy.notice}</PhoneLinkedText>
+          </aside>
+        ) : null}
         {copy.quickSteps ? (
           <section
             aria-labelledby={`${article.id}-quick-steps`}
@@ -150,11 +159,7 @@ export async function GuideArticlePage({
             sizes={IMAGE_SIZES}
             src={article.hero.src}
           />
-          {article.hero.credit ? (
-            <figcaption className="mt-3 text-right text-[12px] text-muted-foreground">
-              {article.hero.credit[locale]}
-            </figcaption>
-          ) : null}
+          <GuideImageCredit image={article.hero} locale={locale} />
         </figure>
 
         {sections.length > 2 ? (
@@ -388,13 +393,38 @@ function GuideArticleSectionView({
             sizes={IMAGE_SIZES}
             src={image.src}
           />
-          {image.credit ? (
-            <figcaption className="mt-3 text-right text-[12px] text-muted-foreground">
-              {image.credit[locale]}
-            </figcaption>
-          ) : null}
+          <GuideImageCredit image={image} locale={locale} />
         </figure>
       ) : null}
     </section>
+  );
+}
+
+function GuideImageCredit({
+  image,
+  locale,
+}: {
+  image: GuideArticleImage;
+  locale: AppLocale;
+}) {
+  if (!image.credit) return null;
+  return (
+    <figcaption className="mt-3 text-right text-[12px] text-muted-foreground">
+      {image.creditUrl ? (
+        <a href={image.creditUrl} rel="noopener noreferrer" target="_blank">
+          {image.credit[locale]}
+        </a>
+      ) : (
+        image.credit[locale]
+      )}
+      {image.license ? (
+        <>
+          {" · "}
+          <a href={image.license.url} rel="noopener noreferrer" target="_blank">
+            {image.license.name}
+          </a>
+        </>
+      ) : null}
+    </figcaption>
   );
 }

@@ -86,15 +86,16 @@ Builds `optimized/` derivatives (AVIF/WebP), OG JPEGs when needed, and updates:
 
 **Pick one scope:**
 
-| npm                                    | Meaning                                              |
-| -------------------------------------- | ---------------------------------------------------- |
-| `images:optimize -- --all`             | Every catalog image                                  |
-| `images:optimize -- --species id1,id2` | Specific species                                     |
-| `images:optimize -- --region tbilisi`  | One region hero                                      |
-| `images:optimize:news`                 | News article photos                                  |
-| `images:optimize:site`                 | Site / home / region images                          |
-| `images:optimize:dry`                  | Dry-run (no storage writes)                          |
-| `images:emit`                          | Regenerate TS from the manifest only (`--emit-only`) |
+| npm                                       | Meaning                                              |
+| ----------------------------------------- | ---------------------------------------------------- |
+| `images:optimize -- --all`                | Every catalog image                                  |
+| `images:optimize -- --species id1,id2`    | Specific species                                     |
+| `images:optimize -- --images path1,path2` | Specific registered site images                      |
+| `images:optimize -- --region tbilisi`     | One region hero                                      |
+| `images:optimize:news`                    | News article photos                                  |
+| `images:optimize:site`                    | Site / home / region images                          |
+| `images:optimize:dry`                     | Dry-run (no storage writes)                          |
+| `images:emit`                             | Regenerate TS from the manifest only (`--emit-only`) |
 
 Other flags: `--force`, `--limit N`, `--concurrency N`.
 
