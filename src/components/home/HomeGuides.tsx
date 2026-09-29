@@ -7,9 +7,23 @@ import { CoverImage } from "@/components/CoverImage";
 import { getGuideArticles } from "@/data/guideArticles";
 import { Link } from "@/i18n/navigation";
 
+const FEATURED_GUIDE_IDS = [
+  "snake-bite",
+  "scorpion-sting",
+  "bat-in-house",
+  "wasp-nest",
+];
+
 export async function HomeGuides() {
   const locale = (await getLocale()) as AppLocale;
   const t = await getTranslations("home.guides");
+  const articles = getGuideArticles();
+  const featured = FEATURED_GUIDE_IDS.map((id) =>
+    articles.find((article) => article.id === id),
+  ).filter((article) => article != null);
+  const rest = articles.filter(
+    (article) => !FEATURED_GUIDE_IDS.includes(article.id),
+  );
 
   return (
     <section
@@ -30,8 +44,8 @@ export async function HomeGuides() {
           {t("subtitle")}
         </p>
 
-        <ul className="mt-10 grid gap-3 sm:grid-cols-2 lg:mt-14 lg:grid-cols-3 lg:gap-4">
-          {getGuideArticles().map((article) => (
+        <ul className="mt-10 grid gap-3 sm:grid-cols-2 lg:mt-14 lg:gap-4">
+          {featured.map((article) => (
             <li key={article.id}>
               <Link
                 className="group flex h-full min-h-32 items-center gap-4 rounded-xl border border-border bg-card/70 p-3 transition-colors hover:border-primary/40 hover:bg-card focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none sm:p-4"
@@ -61,6 +75,24 @@ export async function HomeGuides() {
             </li>
           ))}
         </ul>
+
+        <nav aria-label={t("more")} className="mt-8 lg:mt-10">
+          <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
+            {t("more")}
+          </p>
+          <ul className="mt-3 flex flex-wrap gap-x-5 gap-y-2">
+            {rest.map((article) => (
+              <li key={article.id}>
+                <Link
+                  className="text-[14px] text-foreground underline decoration-border underline-offset-4 transition-colors hover:text-primary hover:decoration-primary"
+                  href={article.pathname}
+                >
+                  {article.search.title[locale]}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </div>
     </section>
   );
