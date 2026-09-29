@@ -591,21 +591,9 @@ export const CLOTHES_MOTH = defineGuideArticle({
       ru: "Одежда плотно висит на плечиках в шкафу; моли на фото нет",
       tr: "Dolapta askılarda yan yana duran giysiler; fotoğrafta güve görünmüyor",
     },
-    credit: {
-      en: "Photo: mycurrency.com, Wikimedia Commons",
-      ka: "ფოტო: mycurrency.com, Wikimedia Commons",
-      ru: "Фото: mycurrency.com, Wikimedia Commons",
-      tr: "Fotoğraf: mycurrency.com, Wikimedia Commons",
-    },
-    creditUrl:
-      "https://commons.wikimedia.org/wiki/File:Clothes_hanged_inside_a_closet.jpg",
-    height: 1800,
-    license: {
-      name: "CC BY-SA 4.0",
-      url: "https://creativecommons.org/licenses/by-sa/4.0/",
-    },
-    src: "/images/guides/clothes-moth-closet.jpg",
-    width: 2400,
+    height: 720,
+    src: "https://cdn.reptiles.ge/images/guides/clothes-moth-closet.jpg",
+    width: 1280,
   },
   id: "clothes-moth",
   images: {
@@ -657,7 +645,7 @@ export const CLOTHES_MOTH = defineGuideArticle({
     },
   },
   messageKey: "clothesMoth",
-  ogImage: "/og/images/guides/clothes-moth.jpg",
+  ogImage: "https://cdn.reptiles.ge/og/images/guides/clothes-moth.jpg",
   parentHub: "insects",
   pathname: "/insects/chrchili-tansatsmelshi",
   search: {

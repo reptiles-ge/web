@@ -32,13 +32,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1500],
     "formats": ["avif", "webp"]
   },
-  "/images/guides/clothes-moth-closet.jpg": {
-    "path": "images/guides/clothes-moth-closet",
-    "width": 2400,
-    "height": 1800,
-    "widths": [320, 400, 640, 800, 1200, 2400],
-    "formats": ["avif", "webp"]
-  },
   "/images/guides/clothes-moth-larva.jpg": {
     "path": "images/guides/clothes-moth-larva",
     "width": 2400,
@@ -3481,6 +3474,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 2045,
     "height": 2048,
     "widths": [320, 400, 640, 800, 1200, 2045],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/guides/clothes-moth-closet.jpg": {
+    "path": "images/guides/clothes-moth-closet",
+    "width": 1280,
+    "height": 720,
+    "widths": [320, 400, 640, 800, 1200, 1280],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/images/guides/scorpion-in-house-gap.jpg": {

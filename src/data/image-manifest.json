@@ -36550,99 +36550,99 @@
       "updatedAt": "2026-09-29T07:38:50.976Z"
     },
     "images/guides/clothes-moth-closet.jpg": {
-      "sourceHash": "71e077ab678b3b692e579d8cd9423d03967816e5f62919f071c0554f8b0f05d0",
+      "sourceHash": "f0df92180d35a7e2f17dc69cf383c5432b1ece01e2fbed4fd1c3f0f2c72f5571",
       "configFingerprint": "409788ee46c653d8",
       "originalKey": "images/guides/clothes-moth-closet.jpg",
-      "originalSize": 2346351,
-      "width": 2400,
-      "height": 1800,
+      "originalSize": 239806,
+      "width": 1280,
+      "height": 720,
       "derivatives": [
         {
           "key": "optimized/images/guides/clothes-moth-closet-320.avif",
           "format": "avif",
           "width": 320,
-          "height": 240,
-          "byteSize": 10542
+          "height": 180,
+          "byteSize": 5110
         },
         {
           "key": "optimized/images/guides/clothes-moth-closet-320.webp",
           "format": "webp",
           "width": 320,
-          "height": 240,
-          "byteSize": 15342
+          "height": 180,
+          "byteSize": 8120
         },
         {
           "key": "optimized/images/guides/clothes-moth-closet-400.avif",
           "format": "avif",
           "width": 400,
-          "height": 300,
-          "byteSize": 14344
+          "height": 225,
+          "byteSize": 6801
         },
         {
           "key": "optimized/images/guides/clothes-moth-closet-400.webp",
           "format": "webp",
           "width": 400,
-          "height": 300,
-          "byteSize": 20626
+          "height": 225,
+          "byteSize": 11218
         },
         {
           "key": "optimized/images/guides/clothes-moth-closet-640.avif",
           "format": "avif",
           "width": 640,
-          "height": 480,
-          "byteSize": 28877
+          "height": 360,
+          "byteSize": 15762
         },
         {
           "key": "optimized/images/guides/clothes-moth-closet-640.webp",
           "format": "webp",
           "width": 640,
-          "height": 480,
-          "byteSize": 40252
+          "height": 360,
+          "byteSize": 24488
         },
         {
           "key": "optimized/images/guides/clothes-moth-closet-800.avif",
           "format": "avif",
           "width": 800,
-          "height": 600,
-          "byteSize": 40309
+          "height": 450,
+          "byteSize": 23386
         },
         {
           "key": "optimized/images/guides/clothes-moth-closet-800.webp",
           "format": "webp",
           "width": 800,
-          "height": 600,
-          "byteSize": 55986
+          "height": 450,
+          "byteSize": 34300
         },
         {
           "key": "optimized/images/guides/clothes-moth-closet-1200.avif",
           "format": "avif",
           "width": 1200,
-          "height": 900,
-          "byteSize": 86098
+          "height": 675,
+          "byteSize": 43886
         },
         {
           "key": "optimized/images/guides/clothes-moth-closet-1200.webp",
           "format": "webp",
           "width": 1200,
-          "height": 900,
-          "byteSize": 116208
+          "height": 675,
+          "byteSize": 61142
         },
         {
-          "key": "optimized/images/guides/clothes-moth-closet-2400.avif",
+          "key": "optimized/images/guides/clothes-moth-closet-1280.avif",
           "format": "avif",
-          "width": 2400,
-          "height": 1800,
-          "byteSize": 340042
+          "width": 1280,
+          "height": 720,
+          "byteSize": 47547
         },
         {
-          "key": "optimized/images/guides/clothes-moth-closet-2400.webp",
+          "key": "optimized/images/guides/clothes-moth-closet-1280.webp",
           "format": "webp",
-          "width": 2400,
-          "height": 1800,
-          "byteSize": 411218
+          "width": 1280,
+          "height": 720,
+          "byteSize": 66920
         }
       ],
-      "updatedAt": "2026-09-29T07:38:53.813Z"
+      "updatedAt": "2026-09-29T11:36:36.387Z"
     },
     "images/guides/clothes-moth-larva.jpg": {
       "sourceHash": "a938a00b7ae047b899323cf013d7576615ef776cd749b5abc2f85c8a2866e10c",

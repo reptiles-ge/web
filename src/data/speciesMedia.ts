@@ -73,7 +73,8 @@ export const images = {
   batInHouseRoost: "/images/guides/bat-roost-natural.jpg",
   batInHouseWall: "/images/guides/bat-on-wall.jpg",
   clothesMothAdult: "/images/guides/clothes-moth-adult.jpg",
-  clothesMothCloset: "/images/guides/clothes-moth-closet.jpg",
+  clothesMothCloset:
+    "https://cdn.reptiles.ge/images/guides/clothes-moth-closet.jpg",
   clothesMothLarva: "/images/guides/clothes-moth-larva.jpg",
   cockroachesInHouseHero: "/images/guides/cockroaches-at-home-hero.jpg",
   cockroachesInHouseInspection:
