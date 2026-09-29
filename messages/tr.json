@@ -303,6 +303,7 @@
         "lizardHouse": "Evde kertenkele",
         "batInHouse": "Evde yarasa",
         "scorpionSting": "Akrep sokması: ne yapmalı?",
+        "scorpionInHouse": "Evde akrep",
         "tickBite": "Kene ısırığı",
         "waspNest": "Eşek arısı yuvası",
         "stinkBugInHouse": "Evde kokarca böceği",
@@ -375,6 +376,7 @@
     "lizardHouse": "Evde kertenkele",
     "batInHouse": "Evde yarasa",
     "scorpionSting": "Akrep sokması",
+    "scorpionInHouse": "Evde akrep",
     "tickBite": "Kene ısırığı",
     "waspNest": "Eşek arısı yuvası",
     "stinkBugInHouse": "Evde kokarca böceği",
@@ -1406,6 +1408,12 @@
         "eyebrow": "Pratik rehber",
         "title": "Akrep sokması",
         "body": "İlk adımlar, uyarı belirtileri ve Gürcistan'da 112'nin ne zaman aranacağı.",
+        "cta": "Rehberi oku"
+      },
+      "scorpionInHouse": {
+        "eyebrow": "Pratik rehber",
+        "title": "Evde akrep",
+        "body": "Güvenli adımlar, giriş boşlukları ve yeni karşılaşmaları azaltma.",
         "cta": "Rehberi oku"
       },
       "tickBite": {

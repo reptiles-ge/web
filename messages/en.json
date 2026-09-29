@@ -303,6 +303,7 @@
         "lizardHouse": "A lizard in the house",
         "batInHouse": "A bat in the house",
         "scorpionSting": "Scorpion sting: what to do",
+        "scorpionInHouse": "Scorpion in the house",
         "tickBite": "Tick bite",
         "waspNest": "Wasp nest near your home",
         "stinkBugInHouse": "Stink bugs in the house",
@@ -375,6 +376,7 @@
     "lizardHouse": "Lizard in the house",
     "batInHouse": "Bat in the house",
     "scorpionSting": "Scorpion sting",
+    "scorpionInHouse": "Scorpion in the house",
     "tickBite": "Tick bite",
     "waspNest": "Wasp nest",
     "stinkBugInHouse": "Stink bugs in the house",
@@ -1406,6 +1408,12 @@
         "eyebrow": "Practical guide",
         "title": "Scorpion sting",
         "body": "First steps, warning signs, and when to call 112 in Georgia.",
+        "cta": "Read the guide"
+      },
+      "scorpionInHouse": {
+        "eyebrow": "Practical guide",
+        "title": "Scorpion in the house",
+        "body": "Safe steps, entry gaps and ways to reduce another encounter.",
         "cta": "Read the guide"
       },
       "tickBite": {
