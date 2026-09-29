@@ -493,13 +493,6 @@ const SOURCES: readonly GuideArticleSource[] = [
   },
 ];
 
-const ILLUSTRATION_CREDIT = {
-  en: "Synthetic illustration",
-  ka: "სინთეზური ილუსტრაცია",
-  ru: "Синтетическая иллюстрация",
-  tr: "Yapay görsel",
-};
-
 export const COCKROACHES_IN_HOUSE = defineGuideArticle({
   copy: COPY,
   hero: {
@@ -509,7 +502,6 @@ export const COCKROACHES_IN_HOUSE = defineGuideArticle({
       ru: "Иллюстрация таракана у плинтуса на домашней кухне",
       tr: "Ev mutfağında süpürgelik yanındaki hamam böceği çizimi",
     },
-    credit: ILLUSTRATION_CREDIT,
     height: 941,
     src: "/images/guides/cockroaches-at-home-hero.jpg",
     width: 1672,
@@ -523,7 +515,6 @@ export const COCKROACHES_IN_HOUSE = defineGuideArticle({
         ru: "Иллюстрация осмотра места под кухонной мойкой с фонарём",
         tr: "Mutfak lavabosunun altını el feneriyle inceleyen kişinin görseli",
       },
-      credit: ILLUSTRATION_CREDIT,
       height: 941,
       src: "/images/guides/cockroaches-at-home-inspection.jpg",
       width: 1672,
@@ -535,14 +526,13 @@ export const COCKROACHES_IN_HOUSE = defineGuideArticle({
         ru: "Иллюстрация картонной клеевой ловушки у кухонного плинтуса",
         tr: "Mutfak süpürgeliği yanındaki karton yapışkan izleme tuzağı görseli",
       },
-      credit: ILLUSTRATION_CREDIT,
       height: 941,
       src: "/images/guides/cockroaches-at-home-trap.jpg",
       width: 1672,
     },
   },
   messageKey: "cockroachesInHouse",
-  ogImage: "/og/images/guides/cockroaches-at-home.jpg",
+  ogImage: "https://cdn.reptiles.ge/og/images/guides/cockroaches-at-home.jpg",
   parentHub: "insects",
   pathname: "/insects/taraknebi-sakhlshi",
   relatedGuideIds: ["ants-in-house"],
