@@ -83,9 +83,15 @@ describe("species routes", () => {
       "hemorrhois-ravergieri",
       "macrovipera-lebetina",
     ]);
-    expect(getSpeciesLookalikes("platyceps-najadum")).not.toContain(
-      "elaphe-urartica",
-    );
+  });
+
+  it("keeps Dahl's whip snake lookalikes to supported visual matches", () => {
+    expect(getSpeciesLookalikes("platyceps-najadum")).toEqual([
+      "hemorrhois-ravergieri",
+      "dolichophis-schmidti",
+      "elaphe-dione",
+      "telescopus-fallax",
+    ]);
   });
 
   it("keeps smooth snake lookalikes to supported visual comparisons", () => {
