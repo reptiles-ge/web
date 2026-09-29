@@ -303,10 +303,13 @@
         "lizardHouse": "Evde kertenkele",
         "batInHouse": "Evde yarasa",
         "scorpionSting": "Akrep sokması: ne yapmalı?",
+        "scorpionInHouse": "Evde akrep",
         "tickBite": "Kene ısırığı",
         "waspNest": "Eşek arısı yuvası",
         "stinkBugInHouse": "Evde kokarca böceği",
         "antsInHouse": "Evde karınca",
+        "clothesMoth": "Giysi güvesi",
+        "cockroachesInHouse": "Evde hamam böceği",
         "fleasInHouse": "Evde pire",
         "mouseInHouse": "Evde fare"
       }
@@ -376,14 +379,17 @@
     "lizardHouse": "Evde kertenkele",
     "batInHouse": "Evde yarasa",
     "scorpionSting": "Akrep sokması",
+    "scorpionInHouse": "Evde akrep",
     "tickBite": "Kene ısırığı",
     "waspNest": "Eşek arısı yuvası",
     "stinkBugInHouse": "Evde kokarca böceği",
     "antsInHouse": "Evde karınca",
+    "cockroachesInHouse": "Evde hamam böceği",
     "fleasInHouse": "Evde pire",
     "mouseInHouse": "Evde fare",
     "bite": "Yılan ısırığında ilk adımlar",
-    "gyurzaBite": "Levant engereği ısırığı"
+    "gyurzaBite": "Levant engereği ısırığı",
+    "clothesMoth": "Giysi güvesi"
   },
   "legal": {
     "canonicalNotice": "Bu sayfadaki hukuki metin şu anda Gürcüce olarak sunulmaktadır; Gürcüce sürüm esas metin kabul edilmelidir.",
@@ -1410,6 +1416,12 @@
         "body": "İlk adımlar, uyarı belirtileri ve Gürcistan'da 112'nin ne zaman aranacağı.",
         "cta": "Rehberi oku"
       },
+      "scorpionInHouse": {
+        "eyebrow": "Pratik rehber",
+        "title": "Evde akrep",
+        "body": "Güvenli adımlar, giriş boşlukları ve yeni karşılaşmaları azaltma.",
+        "cta": "Rehberi oku"
+      },
       "tickBite": {
         "eyebrow": "Pratik rehber",
         "title": "Kene ısırığı",
@@ -1438,6 +1450,12 @@
         "eyebrow": "Pratik rehber",
         "title": "Evde karınca",
         "body": "Karıncalar nereden girer, nasıl uzaklaştırılır ve yem, etkisini bozmadan nasıl kullanılır.",
+        "cta": "Rehberi oku"
+      },
+      "cockroachesInHouse": {
+        "eyebrow": "Pratik rehber",
+        "title": "Evde hamam böceği",
+        "body": "İzleri bulma, saklanma yerlerini ve nemi azaltma, izleme ve yemi güvenle kullanma.",
         "cta": "Rehberi oku"
       },
       "mouseInHouse": {
@@ -1487,6 +1505,12 @@
         "title": "Evde kertenkele",
         "body": "Zararsızdır. Öldürmeyin. Çoğu zaman duvardaki Hazar gekosu.",
         "cta": "Ev rehberi"
+      },
+      "clothesMoth": {
+        "eyebrow": "Pratik rehber",
+        "title": "Giysi güvesi",
+        "body": "Hasarı tanıyın, kumaşları temizleyin ve dolabı koruyun",
+        "cta": "Rehberi oku"
       }
     }
   },

@@ -303,10 +303,13 @@
         "lizardHouse": "A lizard in the house",
         "batInHouse": "A bat in the house",
         "scorpionSting": "Scorpion sting: what to do",
+        "scorpionInHouse": "Scorpion in the house",
         "tickBite": "Tick bite",
         "waspNest": "Wasp nest near your home",
         "stinkBugInHouse": "Stink bugs in the house",
         "antsInHouse": "Ants in the house",
+        "clothesMoth": "Clothes moths",
+        "cockroachesInHouse": "Cockroaches at home",
         "fleasInHouse": "Fleas in the house",
         "mouseInHouse": "Mouse in the house"
       }
@@ -376,14 +379,17 @@
     "lizardHouse": "Lizard in the house",
     "batInHouse": "Bat in the house",
     "scorpionSting": "Scorpion sting",
+    "scorpionInHouse": "Scorpion in the house",
     "tickBite": "Tick bite",
     "waspNest": "Wasp nest",
     "stinkBugInHouse": "Stink bugs in the house",
     "antsInHouse": "Ants in the house",
+    "cockroachesInHouse": "Cockroaches at home",
     "fleasInHouse": "Fleas in the house",
     "mouseInHouse": "Mouse in the house",
     "bite": "Snakebite first steps",
-    "gyurzaBite": "Blunt-nosed viper bite"
+    "gyurzaBite": "Blunt-nosed viper bite",
+    "clothesMoth": "Clothes moths"
   },
   "legal": {
     "canonicalNotice": "The legal text on this page is currently provided in Georgian; treat the Georgian version as the canonical text.",
@@ -1410,6 +1416,12 @@
         "body": "First steps, warning signs, and when to call 112 in Georgia.",
         "cta": "Read the guide"
       },
+      "scorpionInHouse": {
+        "eyebrow": "Practical guide",
+        "title": "Scorpion in the house",
+        "body": "Safe steps, entry gaps and ways to reduce another encounter.",
+        "cta": "Read the guide"
+      },
       "tickBite": {
         "eyebrow": "Practical guide",
         "title": "Tick bite",
@@ -1439,6 +1451,12 @@
         "title": "Ants in the house",
         "body": "Where ants get in, how to get rid of them, and how to use bait without undermining it.",
         "cta": "Read the guide"
+      },
+      "cockroachesInHouse": {
+        "eyebrow": "Practical guide",
+        "title": "Cockroaches at home",
+        "body": "Find activity, reduce hiding places and moisture, monitor traps and use bait safely.",
+        "cta": "Read guide"
       },
       "mouseInHouse": {
         "eyebrow": "Practical guide",
@@ -1487,6 +1505,12 @@
         "title": "A lizard in the house",
         "body": "Harmless. Do not kill it. Often a Caspian gecko on the wall.",
         "cta": "House guide"
+      },
+      "clothesMoth": {
+        "eyebrow": "Practical guide",
+        "title": "Clothes moths",
+        "body": "Identify damage, care for fabrics and protect stored clothes",
+        "cta": "Read the guide"
       }
     }
   },

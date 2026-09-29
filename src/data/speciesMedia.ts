@@ -72,6 +72,14 @@ export const images = {
   batInHouseHero: "/images/guides/bat-house-hero.jpg",
   batInHouseRoost: "/images/guides/bat-roost-natural.jpg",
   batInHouseWall: "/images/guides/bat-on-wall.jpg",
+  clothesMothAdult: "/images/guides/clothes-moth-adult.jpg",
+  clothesMothCloset:
+    "https://cdn.reptiles.ge/images/guides/clothes-moth-closet.jpg",
+  clothesMothLarva: "/images/guides/clothes-moth-larva.jpg",
+  cockroachesInHouseHero: "/images/guides/cockroaches-at-home-hero.jpg",
+  cockroachesInHouseInspection:
+    "/images/guides/cockroaches-at-home-inspection.jpg",
+  cockroachesInHouseTrap: "/images/guides/cockroaches-at-home-trap.jpg",
   cta: "https://cdn.reptiles.ge/landing-cta-cover.jpeg",
   detail: "https://cdn.reptiles.ge/vipera-dinnik-3.webp",
   fleaAdultMacro: "/images/guides/flea-adult-macro-fedaro.jpg",
@@ -93,6 +101,12 @@ export const images = {
     "https://cdn.reptiles.ge/external/mouse-signs-pantry-chewed-package.jpg",
   mouseInHouseTrap:
     "https://cdn.reptiles.ge/external/mouse-snap-trap-against-skirting-board.jpg",
+  scorpionInHouseGap:
+    "https://cdn.reptiles.ge/images/guides/scorpion-in-house-gap.jpg",
+  scorpionInHouseHero:
+    "https://cdn.reptiles.ge/images/guides/scorpion-in-house-hero.jpg",
+  scorpionInHouseJar:
+    "https://cdn.reptiles.ge/images/guides/scorpion-in-house-jar.jpg",
   scorpionStingCoolCompress:
     "https://cdn.reptiles.ge/images/guides/scorpion-sting-cool-compress.jpg",
   scorpionStingHero:

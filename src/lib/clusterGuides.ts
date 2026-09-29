@@ -648,6 +648,16 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
       key: "antsInHouse",
       kind: "page",
     },
+    {
+      href: "/insects/chrchili-tansatsmelshi",
+      key: "clothesMoth",
+      kind: "page",
+    },
+    {
+      href: "/insects/taraknebi-sakhlshi",
+      key: "cockroachesInHouse",
+      kind: "page",
+    },
   ],
   lizards: [
     { href: "/lizards/saxeoebebi", key: "lizardIndex", kind: "page" },
@@ -671,6 +681,11 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
     { href: "/mammals/datvi-shekhvedra", key: "bearEncounter", kind: "page" },
   ],
   scorpions: [
+    {
+      href: "/scorpions/morieli-sakhlshi",
+      key: "scorpionInHouse",
+      kind: "page",
+    },
     { href: "/scorpions/morielis-nakbeni", key: "scorpionSting", kind: "page" },
   ],
   snakes: [

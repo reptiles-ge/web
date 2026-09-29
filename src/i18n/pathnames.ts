@@ -35,6 +35,10 @@ export const pathnames = {
     "/mtserebi/chianchvelebi-sakhlshi",
     "/insects/ants-in-house",
   ),
+  "/insects/chrchili-tansatsmelshi": kaLatin(
+    "/mtserebi/chrchili-tansatsmelshi",
+    "/insects/clothes-moths",
+  ),
   "/insects/farosana-sakhlshi": kaLatin(
     "/mtserebi/farosana-sakhlshi",
     "/insects/stink-bug-in-house",
@@ -48,6 +52,10 @@ export const pathnames = {
     "/insects/fleas-in-house",
   ),
   "/insects/saxeoebebi": kaLatin("/mtserebi/saxeoebebi", "/insects/species"),
+  "/insects/taraknebi-sakhlshi": kaLatin(
+    "/mtserebi/taraknebi-sakhlshi",
+    "/insects/cockroaches-at-home",
+  ),
   "/insects/tkipis-nakbeni": kaLatin(
     "/mtserebi/tkipis-nakbeni",
     "/insects/tick-bite",
@@ -100,6 +108,10 @@ export const pathnames = {
   "/risk-to-humans": kaLatin("/riskis-doneebi", "/risk-to-humans"),
   "/scorpions": kaLatin("/morieli", "/scorpions"),
   "/scorpions/[slug]": kaLatin("/morieli/[slug]", "/scorpions/[slug]"),
+  "/scorpions/morieli-sakhlshi": kaLatin(
+    "/morieli/morieli-sakhlshi",
+    "/scorpions/scorpion-in-house",
+  ),
   "/scorpions/morielis-nakbeni": kaLatin(
     "/morieli/morielis-nakbeni",
     "/scorpions/scorpion-sting",
