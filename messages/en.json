@@ -307,6 +307,7 @@
         "waspNest": "Wasp nest near your home",
         "stinkBugInHouse": "Stink bugs in the house",
         "antsInHouse": "Ants in the house",
+        "fleasInHouse": "Fleas in the house",
         "mouseInHouse": "Mouse in the house"
       }
     }
@@ -379,6 +380,7 @@
     "waspNest": "Wasp nest",
     "stinkBugInHouse": "Stink bugs in the house",
     "antsInHouse": "Ants in the house",
+    "fleasInHouse": "Fleas in the house",
     "mouseInHouse": "Mouse in the house",
     "bite": "Snakebite first steps",
     "gyurzaBite": "Blunt-nosed viper bite"
@@ -1424,6 +1426,12 @@
         "eyebrow": "Practical guide",
         "title": "Stink bugs in the house",
         "body": "Why stink bugs come indoors in autumn, whether they are harmful, and how to remove them without crushing.",
+        "cta": "Read the guide"
+      },
+      "fleasInHouse": {
+        "eyebrow": "Practical guide",
+        "title": "Fleas in the house",
+        "body": "Clean the home, protect the pet, and plan safe care with a vet.",
         "cta": "Read the guide"
       },
       "antsInHouse": {

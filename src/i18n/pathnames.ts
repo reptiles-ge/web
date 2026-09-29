@@ -43,6 +43,10 @@ export const pathnames = {
     "/mtserebi/krazanis-bude",
     "/insects/wasp-nest",
   ),
+  "/insects/rtsqilebi-sakhlshi": kaLatin(
+    "/mtserebi/rtsqilebi-sakhlshi",
+    "/insects/fleas-in-house",
+  ),
   "/insects/saxeoebebi": kaLatin("/mtserebi/saxeoebebi", "/insects/species"),
   "/insects/tkipis-nakbeni": kaLatin(
     "/mtserebi/tkipis-nakbeni",

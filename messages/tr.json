@@ -307,6 +307,7 @@
         "waspNest": "Eşek arısı yuvası",
         "stinkBugInHouse": "Evde kokarca böceği",
         "antsInHouse": "Evde karınca",
+        "fleasInHouse": "Evde pire",
         "mouseInHouse": "Evde fare"
       }
     }
@@ -379,6 +380,7 @@
     "waspNest": "Eşek arısı yuvası",
     "stinkBugInHouse": "Evde kokarca böceği",
     "antsInHouse": "Evde karınca",
+    "fleasInHouse": "Evde pire",
     "mouseInHouse": "Evde fare",
     "bite": "Yılan ısırığında ilk adımlar",
     "gyurzaBite": "Levant engereği ısırığı"
@@ -1424,6 +1426,12 @@
         "eyebrow": "Pratik rehber",
         "title": "Evde kokarca böceği",
         "body": "Kokarca neden sonbaharda eve girer, zararlı mıdır ve ezmeden nasıl uzaklaştırılır.",
+        "cta": "Rehberi oku"
+      },
+      "fleasInHouse": {
+        "eyebrow": "Pratik rehber",
+        "title": "Evde pire",
+        "body": "Ev temizliği, hayvanın korunması ve veterinerle güvenli plan.",
         "cta": "Rehberi oku"
       },
       "antsInHouse": {

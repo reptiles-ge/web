@@ -74,6 +74,8 @@ export const images = {
   batInHouseWall: "/images/guides/bat-on-wall.jpg",
   cta: "https://cdn.reptiles.ge/landing-cta-cover.jpeg",
   detail: "https://cdn.reptiles.ge/vipera-dinnik-3.webp",
+  fleaAdultMacro: "/images/guides/flea-adult-macro-fedaro.jpg",
+  fleasInHouseHero: "/images/guides/fleas-home-pet-care-hero.jpg",
   gyurzaBiteClinicalAssessment:
     "/images/guides/gyurza-bite-clinical-assessment.jpg",
   gyurzaBiteFieldPhoto:

@@ -636,6 +636,7 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
   insects: [
     { href: "/insects/saxeoebebi", key: "insectIndex", kind: "page" },
     { href: "/insects/tkipis-nakbeni", key: "tickBite", kind: "page" },
+    { href: "/insects/rtsqilebi-sakhlshi", key: "fleasInHouse", kind: "page" },
     { href: "/insects/krazanis-bude", key: "waspNest", kind: "page" },
     {
       href: "/insects/farosana-sakhlshi",
