@@ -334,7 +334,6 @@ const LOOKALIKES: Record<string, string[]> = {
     "vipera-kaznakovi",
     "coronella-austriaca",
     "vipera-dinniki",
-    "vipera-darevskii",
   ],
   "vulpes-vulpes": ["canis-lupus"],
   "xerotyphlops-vermicularis": ["eryx-jaculus"],
