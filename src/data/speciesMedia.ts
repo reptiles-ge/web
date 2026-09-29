@@ -72,6 +72,9 @@ export const images = {
   batInHouseHero: "/images/guides/bat-house-hero.jpg",
   batInHouseRoost: "/images/guides/bat-roost-natural.jpg",
   batInHouseWall: "/images/guides/bat-on-wall.jpg",
+  beeWaspHornetBee: "/images/guides/bee-wasp-hornet-apis.jpg",
+  beeWaspHornetHornet: "/images/guides/bee-wasp-hornet-vespa.jpg",
+  beeWaspHornetWasp: "/images/guides/bee-wasp-hornet-polistes.jpg",
   cta: "https://cdn.reptiles.ge/landing-cta-cover.jpeg",
   detail: "https://cdn.reptiles.ge/vipera-dinnik-3.webp",
   gyurzaBiteClinicalAssessment:

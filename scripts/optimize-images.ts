@@ -21,6 +21,7 @@ import {
   type StorageAdapter,
 } from "@reptiles-ge/img-compression/storage";
 import { CREDIT_AUTHORS } from "../src/data/creditAuthors";
+import { getGuideArticles } from "../src/data/guideArticles";
 import {
   georgiaRegionPaths,
   type RegionPathId,
@@ -62,6 +63,7 @@ type Target = {
 };
 
 type CliOptions = {
+  guideId: string | undefined;
   speciesIds: string[];
   regionId: RegionPathId | undefined;
   all: boolean;
@@ -76,6 +78,7 @@ type CliOptions = {
 
 function parseArguments(argv: string[]): CliOptions {
   const speciesIds: string[] = [];
+  let guideId: string | undefined;
   let regionId: RegionPathId | undefined;
   let all = false;
   let news = false;
@@ -103,6 +106,15 @@ function parseArguments(argv: string[]): CliOptions {
         regionId = id as RegionPathId;
         break;
       }
+      case "--guide":
+        guideId = argv[++index];
+        if (
+          !guideId ||
+          !getGuideArticles().some((item) => item.id === guideId)
+        ) {
+          throw new Error(`Unknown guide id "${guideId}".`);
+        }
+        break;
       case "--all":
         all = true;
         break;
@@ -134,24 +146,30 @@ function parseArguments(argv: string[]): CliOptions {
     }
   }
 
-  const scopes = [all, news, site, speciesIds.length > 0, !!regionId].filter(
-    Boolean,
-  ).length;
+  const scopes = [
+    all,
+    news,
+    site,
+    speciesIds.length > 0,
+    !!regionId,
+    !!guideId,
+  ].filter(Boolean).length;
   if (scopes > 1) {
     throw new Error(
-      "Pass only one of --all, --species, --region, --news, or --site.",
+      "Pass only one of --all, --species, --region, --guide, --news, or --site.",
     );
   }
   if (
     !all &&
     !news &&
     !site &&
+    !guideId &&
     !emitOnly &&
     speciesIds.length === 0 &&
     !regionId
   ) {
     throw new Error(
-      "Pass --species <id>, --region <id>, --news, --site, or --all.",
+      "Pass --species <id>, --region <id>, --guide <id>, --news, --site, or --all.",
     );
   }
   if (limit !== undefined && (!Number.isInteger(limit) || limit < 1)) {
@@ -162,6 +180,7 @@ function parseArguments(argv: string[]): CliOptions {
   }
 
   return {
+    guideId,
     speciesIds,
     regionId,
     all,
@@ -232,6 +251,7 @@ function collectSources(): Map<string, string> {
 function collectTargets(
   ids: string[],
   regionId: RegionPathId | undefined,
+  guideId: string | undefined,
   all: boolean,
   news: boolean,
   site: boolean,
@@ -268,6 +288,13 @@ function collectTargets(
   }
 
   if (regionId) add(getRegionHeroImage(regionId));
+
+  if (guideId) {
+    const article = getGuideArticles().find((item) => item.id === guideId);
+    if (!article) throw new Error(`Unknown guide id "${guideId}".`);
+    add(article.hero.src);
+    for (const image of Object.values(article.images ?? {})) add(image.src);
+  }
 
   if (all || news) {
     for (const article of getAllNewsArticles()) {
@@ -583,6 +610,7 @@ async function run() {
   const discovered = collectTargets(
     options.speciesIds,
     options.regionId,
+    options.guideId,
     options.all,
     options.news,
     options.site,
@@ -612,7 +640,7 @@ async function run() {
       `OG ${og.width}×${og.height} JPEG q${og.quality}–${og.minQuality}, ≤${formatBytes(og.maxBytes)}.`,
   );
   console.log(
-    `Scope: ${options.all ? "all" : options.news ? "news" : options.site ? "site" : (options.regionId ?? options.speciesIds.join(", "))}. ` +
+    `Scope: ${options.all ? "all" : options.news ? "news" : options.site ? "site" : (options.regionId ?? options.guideId ?? options.speciesIds.join(", "))}. ` +
       `${targets.length} image(s)${options.dryRun ? " (dry run)" : ""}.`,
   );
 

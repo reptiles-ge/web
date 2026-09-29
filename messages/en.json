@@ -305,6 +305,7 @@
         "scorpionSting": "Scorpion sting: what to do",
         "tickBite": "Tick bite",
         "waspNest": "Wasp nest near your home",
+        "beeWaspHornet": "Bee, wasp or hornet?",
         "stinkBugInHouse": "Stink bugs in the house",
         "antsInHouse": "Ants in the house",
         "mouseInHouse": "Mouse in the house"
@@ -377,6 +378,7 @@
     "scorpionSting": "Scorpion sting",
     "tickBite": "Tick bite",
     "waspNest": "Wasp nest",
+    "beeWaspHornet": "Bee, wasp or hornet?",
     "stinkBugInHouse": "Stink bugs in the house",
     "antsInHouse": "Ants in the house",
     "mouseInHouse": "Mouse in the house",
@@ -1418,6 +1420,12 @@
         "eyebrow": "Practical guide",
         "title": "Wasp nest near your home",
         "body": "Assess the risk, decide when to leave a nest alone, and know when to ask a professional.",
+        "cta": "Read the guide"
+      },
+      "beeWaspHornet": {
+        "eyebrow": "Photo identification guide",
+        "title": "Bee, wasp or hornet?",
+        "body": "Compare real photos, visible body features and the limits of identifying an insect from one image.",
         "cta": "Read the guide"
       },
       "stinkBugInHouse": {

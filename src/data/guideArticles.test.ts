@@ -232,6 +232,25 @@ describe.each(articles.map((article) => [article.id, article] as const))(
       }
     });
 
+    it("keeps comparison photos, taxa, and localized captions aligned", () => {
+      if (!article.comparison) return;
+      const photoKeys = article.comparison.photos.map((photo) => photo.image);
+      expect(new Set(photoKeys).size).toBe(photoKeys.length);
+      for (const locale of routing.locales) {
+        const cards = article.copy[locale].comparison?.cards;
+        expect(cards?.map((card) => card.image).sort()).toEqual(
+          [...photoKeys].sort(),
+        );
+        for (const photo of article.comparison.photos) {
+          const card = cards?.find((item) => item.image === photo.image);
+          expect(card?.taxon).toContain(photo.taxon);
+          expect(photo.sourceUrl).toMatch(/^https:\/\//);
+          expect(photo.licenseUrl).toMatch(/^https:\/\//);
+          expect(photo.changes[locale]?.trim()).toBeTruthy();
+        }
+      }
+    });
+
     it("has a 1200x630 JPEG share image", () => {
       expect(
         article.ogImage.endsWith(`/og/images/guides/${article.id}.jpg`),

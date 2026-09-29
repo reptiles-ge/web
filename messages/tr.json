@@ -305,6 +305,7 @@
         "scorpionSting": "Akrep sokması: ne yapmalı?",
         "tickBite": "Kene ısırığı",
         "waspNest": "Eşek arısı yuvası",
+        "beeWaspHornet": "Arı, yaban arısı veya Vespa?",
         "stinkBugInHouse": "Evde kokarca böceği",
         "antsInHouse": "Evde karınca",
         "mouseInHouse": "Evde fare"
@@ -377,6 +378,7 @@
     "scorpionSting": "Akrep sokması",
     "tickBite": "Kene ısırığı",
     "waspNest": "Eşek arısı yuvası",
+    "beeWaspHornet": "Arı, yaban arısı veya Vespa?",
     "stinkBugInHouse": "Evde kokarca böceği",
     "antsInHouse": "Evde karınca",
     "mouseInHouse": "Evde fare",
@@ -1418,6 +1420,12 @@
         "eyebrow": "Pratik rehber",
         "title": "Evin yakınında eşek arısı yuvası",
         "body": "Riski değerlendirin, yuvayı ne zaman bırakabileceğinizi ve ne zaman uzmana danışacağınızı öğrenin.",
+        "cta": "Rehberi oku"
+      },
+      "beeWaspHornet": {
+        "eyebrow": "Fotoğraflı tanıma rehberi",
+        "title": "Arı, yaban arısı veya Vespa?",
+        "body": "Gerçek fotoğrafları ve görünen vücut özelliklerini karşılaştırın; tek fotoğrafın sınırlarını öğrenin.",
         "cta": "Rehberi oku"
       },
       "stinkBugInHouse": {

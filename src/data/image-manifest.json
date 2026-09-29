@@ -36454,6 +36454,291 @@
       ],
       "updatedAt": "2026-09-25T14:08:25.550Z"
     },
+    "images/guides/bee-wasp-hornet-apis.jpg": {
+      "sourceHash": "80d9c3dadf53eba56d0a0aab3824fc259c048d24b5699772e4677a018a593f7d",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/bee-wasp-hornet-apis.jpg",
+      "originalSize": 142174,
+      "width": 1280,
+      "height": 960,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/bee-wasp-hornet-apis-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 8689
+        },
+        {
+          "key": "optimized/images/guides/bee-wasp-hornet-apis-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 12580
+        },
+        {
+          "key": "optimized/images/guides/bee-wasp-hornet-apis-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 13404
+        },
+        {
+          "key": "optimized/images/guides/bee-wasp-hornet-apis-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 18964
+        },
+        {
+          "key": "optimized/images/guides/bee-wasp-hornet-apis-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 30459
+        },
+        {
+          "key": "optimized/images/guides/bee-wasp-hornet-apis-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 45168
+        },
+        {
+          "key": "optimized/images/guides/bee-wasp-hornet-apis-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 43130
+        },
+        {
+          "key": "optimized/images/guides/bee-wasp-hornet-apis-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 64080
+        },
+        {
+          "key": "optimized/images/guides/bee-wasp-hornet-apis-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 72764
+        },
+        {
+          "key": "optimized/images/guides/bee-wasp-hornet-apis-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 111844
+        },
+        {
+          "key": "optimized/images/guides/bee-wasp-hornet-apis-1280.avif",
+          "format": "avif",
+          "width": 1280,
+          "height": 960,
+          "byteSize": 79715
+        },
+        {
+          "key": "optimized/images/guides/bee-wasp-hornet-apis-1280.webp",
+          "format": "webp",
+          "width": 1280,
+          "height": 960,
+          "byteSize": 115892
+        }
+      ],
+      "updatedAt": "2026-09-29T06:45:56.305Z"
+    },
+    "images/guides/bee-wasp-hornet-polistes.jpg": {
+      "sourceHash": "449b59ec912ad6f4665670ccf9b7ffaea99b77673afb8981a044e8fc51828397",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/bee-wasp-hornet-polistes.jpg",
+      "originalSize": 1328110,
+      "width": 2200,
+      "height": 1650,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/bee-wasp-hornet-polistes-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 15173
+        },
+        {
+          "key": "optimized/images/guides/bee-wasp-hornet-polistes-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 24198
+        },
+        {
+          "key": "optimized/images/guides/bee-wasp-hornet-polistes-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 22109
+        },
+        {
+          "key": "optimized/images/guides/bee-wasp-hornet-polistes-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 35350
+        },
+        {
+          "key": "optimized/images/guides/bee-wasp-hornet-polistes-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 49617
+        },
+        {
+          "key": "optimized/images/guides/bee-wasp-hornet-polistes-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 81720
+        },
+        {
+          "key": "optimized/images/guides/bee-wasp-hornet-polistes-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 75823
+        },
+        {
+          "key": "optimized/images/guides/bee-wasp-hornet-polistes-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 126776
+        },
+        {
+          "key": "optimized/images/guides/bee-wasp-hornet-polistes-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 172446
+        },
+        {
+          "key": "optimized/images/guides/bee-wasp-hornet-polistes-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 277298
+        },
+        {
+          "key": "optimized/images/guides/bee-wasp-hornet-polistes-2200.avif",
+          "format": "avif",
+          "width": 2200,
+          "height": 1650,
+          "byteSize": 584949
+        },
+        {
+          "key": "optimized/images/guides/bee-wasp-hornet-polistes-2200.webp",
+          "format": "webp",
+          "width": 2200,
+          "height": 1650,
+          "byteSize": 876654
+        }
+      ],
+      "updatedAt": "2026-09-29T06:45:58.464Z"
+    },
+    "images/guides/bee-wasp-hornet-vespa.jpg": {
+      "sourceHash": "f44d034aa8eef1e80f20663f4f4ff3639fdec4c2680d6132f58f056d857b17fd",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/bee-wasp-hornet-vespa.jpg",
+      "originalSize": 1020738,
+      "width": 2398,
+      "height": 1721,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/bee-wasp-hornet-vespa-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 230,
+          "byteSize": 10356
+        },
+        {
+          "key": "optimized/images/guides/bee-wasp-hornet-vespa-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 230,
+          "byteSize": 13938
+        },
+        {
+          "key": "optimized/images/guides/bee-wasp-hornet-vespa-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 287,
+          "byteSize": 14237
+        },
+        {
+          "key": "optimized/images/guides/bee-wasp-hornet-vespa-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 287,
+          "byteSize": 18994
+        },
+        {
+          "key": "optimized/images/guides/bee-wasp-hornet-vespa-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 459,
+          "byteSize": 28659
+        },
+        {
+          "key": "optimized/images/guides/bee-wasp-hornet-vespa-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 459,
+          "byteSize": 37676
+        },
+        {
+          "key": "optimized/images/guides/bee-wasp-hornet-vespa-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 574,
+          "byteSize": 40359
+        },
+        {
+          "key": "optimized/images/guides/bee-wasp-hornet-vespa-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 574,
+          "byteSize": 52304
+        },
+        {
+          "key": "optimized/images/guides/bee-wasp-hornet-vespa-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 861,
+          "byteSize": 73871
+        },
+        {
+          "key": "optimized/images/guides/bee-wasp-hornet-vespa-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 861,
+          "byteSize": 95066
+        },
+        {
+          "key": "optimized/images/guides/bee-wasp-hornet-vespa-2398.avif",
+          "format": "avif",
+          "width": 2398,
+          "height": 1721,
+          "byteSize": 231320
+        },
+        {
+          "key": "optimized/images/guides/bee-wasp-hornet-vespa-2398.webp",
+          "format": "webp",
+          "width": 2398,
+          "height": 1721,
+          "byteSize": 294710
+        }
+      ],
+      "updatedAt": "2026-09-29T06:46:02.049Z"
+    },
     "images/guides/gyurza-bite-clinical-assessment.jpg": {
       "sourceHash": "c723b5140aba0a814948b1621b01ca1604893c06d36bdcd9b9676d1fdd23f11d",
       "configFingerprint": "409788ee46c653d8",

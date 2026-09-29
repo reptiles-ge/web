@@ -6,6 +6,7 @@ import type { GuideArticle, GuideArticleSection } from "@/data/guideArticles";
 import { ContentAttribution } from "@/components/ContentAttribution";
 import { CoverImage } from "@/components/CoverImage";
 import { GuideFaqItems } from "@/components/GuideFaqItems";
+import { GuidePhotoComparison } from "@/components/GuidePhotoComparison";
 import { GuideSources } from "@/components/GuideSources";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { guideArticleSectionAnchor } from "@/data/guideArticles";
@@ -123,21 +124,7 @@ export async function GuideArticlePage({
             <PhoneLinkedText>{copy.intro}</PhoneLinkedText>
           </p>
         ) : null}
-        <figure className="mt-10">
-          <CoverImage
-            alt={article.hero.alt[locale]}
-            className="h-auto w-full rounded-card"
-            fill={false}
-            priority
-            sizes={IMAGE_SIZES}
-            src={article.hero.src}
-          />
-          {article.hero.credit ? (
-            <figcaption className="mt-3 text-right text-[12px] text-muted-foreground">
-              {article.hero.credit[locale]}
-            </figcaption>
-          ) : null}
-        </figure>
+        <GuideArticleVisual article={article} locale={locale} />
 
         {sections.length > 2 ? (
           <nav
@@ -151,6 +138,16 @@ export async function GuideArticlePage({
               {t("contents")}
             </h2>
             <ol className="mt-4 grid gap-x-10 gap-y-2.5 text-[15px] leading-snug sm:grid-cols-2">
+              {copy.comparison ? (
+                <li>
+                  <a
+                    className="text-foreground/80 underline decoration-border underline-offset-4 transition-colors hover:text-primary hover:decoration-primary/40"
+                    href="#photo-comparison"
+                  >
+                    {copy.comparison.heading}
+                  </a>
+                </li>
+              ) : null}
               {sections.map(({ anchor, index, section }) => (
                 <li key={anchor}>
                   <a
@@ -378,5 +375,35 @@ function GuideArticleSectionView({
         </figure>
       ) : null}
     </section>
+  );
+}
+
+function GuideArticleVisual({
+  article,
+  locale,
+}: {
+  article: GuideArticle;
+  locale: AppLocale;
+}) {
+  if (article.comparison) {
+    return <GuidePhotoComparison article={article} locale={locale} />;
+  }
+
+  return (
+    <figure className="mt-10">
+      <CoverImage
+        alt={article.hero.alt[locale]}
+        className="h-auto w-full rounded-card"
+        fill={false}
+        priority
+        sizes={IMAGE_SIZES}
+        src={article.hero.src}
+      />
+      {article.hero.credit ? (
+        <figcaption className="mt-3 text-right text-[12px] text-muted-foreground">
+          {article.hero.credit[locale]}
+        </figcaption>
+      ) : null}
+    </figure>
   );
 }

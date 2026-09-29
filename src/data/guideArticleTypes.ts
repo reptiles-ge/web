@@ -4,6 +4,7 @@ import type { GroupHubId } from "@/lib/groupHubs";
 import type { SearchIcon } from "@/lib/siteSearch";
 
 export type GuideArticle<ImageKey extends string = string> = {
+  comparison?: GuideArticleComparison<ImageKey>;
   copy: Record<AppLocale, GuideArticleCopy<ImageKey>>;
   hero: GuideArticleImage;
   id: string;
@@ -18,7 +19,31 @@ export type GuideArticle<ImageKey extends string = string> = {
   sources: readonly GuideArticleSource[];
 };
 
+export type GuideArticleComparison<ImageKey extends string> = {
+  photos: {
+    author: string;
+    changes: Record<AppLocale, string>;
+    image: ImageKey;
+    license: string;
+    licenseUrl: string;
+    sourceUrl: string;
+    taxon: string;
+  }[];
+};
+
 export type GuideArticleCopy<ImageKey extends string = string> = {
+  comparison?: {
+    cards: {
+      caveat: string;
+      features: string[];
+      image: ImageKey;
+      label: string;
+      taxon: string;
+    }[];
+    heading: string;
+    intro: string;
+    scaleNote: string;
+  };
   description: string;
   faq: GuideArticleFaq[];
   intro?: string;
@@ -41,6 +66,7 @@ export type GuideArticleImage = {
 export type GuideArticleMessageKey =
   | "antsInHouse"
   | "batInHouse"
+  | "beeWaspHornet"
   | "bite"
   | "gyurzaBite"
   | "mouseInHouse"

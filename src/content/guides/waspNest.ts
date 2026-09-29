@@ -52,7 +52,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         heading: "What does a wasp nest look like?",
         image: "open-comb",
         paragraphs: [
-          "Some nests are exposed, umbrella-like combs; others have a papery outer envelope. A nest may be out of sight inside a wall or underground. Shape and colour alone do not reliably identify the species. If you cannot tell whether the insects are wasps or bees, do not disturb the nest and leave the assessment to a professional.",
+          "Some nests are exposed, umbrella-like combs; others have a papery outer envelope. A nest may be out of sight inside a wall or underground. Shape and colour alone do not reliably identify the species. Our [bee, wasp and hornet photo guide](/insects/futkari-krazana-onavari) compares visible insects. If you cannot tell whether the insects are wasps or bees, do not disturb the nest and leave the assessment to a professional.",
         ],
       },
       {
@@ -163,7 +163,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         heading: "როგორ გამოიყურება კრაზანის ბუდე?",
         image: "open-comb",
         paragraphs: [
-          "ზოგი ბუდე ღია, ქოლგისებრი ფიჭაა; სხვას ქაღალდის მსგავსი გარსი ფარავს. ბუდე შეიძლება მთლიანად ღია იყოს ან საერთოდ არ ჩანდეს — მაგალითად, კედლისა თუ მიწის ღრუში. მხოლოდ ფორმით ან ფერით სახეობის ზუსტად განსაზღვრა არ სცადოთ. თუ ვერ არჩევთ, კრაზანაა თუ ფუტკარი, ბუდეს ნუ შეეხებით და შეფასება სპეციალისტს მიანდეთ.",
+          "ზოგი ბუდე ღია, ქოლგისებრი ფიჭაა; სხვას ქაღალდის მსგავსი გარსი ფარავს. ბუდე შეიძლება მთლიანად ღია იყოს ან საერთოდ არ ჩანდეს — მაგალითად, კედლისა თუ მიწის ღრუში. მხოლოდ ფორმით ან ფერით სახეობის ზუსტად განსაზღვრა არ სცადოთ. მწერების ხილული ნიშნები შეადარეთ [ფუტკრის, კრაზანისა და ონავრის ფოტოგიდში](/insects/futkari-krazana-onavari). თუ ვერ არჩევთ, კრაზანაა თუ ფუტკარი, ბუდეს ნუ შეეხებით და შეფასება სპეციალისტს მიანდეთ.",
         ],
       },
       {
@@ -275,7 +275,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         heading: "Как выглядит осиное гнездо?",
         image: "open-comb",
         paragraphs: [
-          "Одни гнёзда выглядят как открытые соты, другие окружены бумагообразной оболочкой. Гнездо может быть скрыто в стене или под землёй. По форме и цвету нельзя надёжно определить вид. Если вы не можете понять, осы это или пчёлы, не трогайте гнездо и доверьте оценку специалисту.",
+          "Одни гнёзда выглядят как открытые соты, другие окружены бумагообразной оболочкой. Гнездо может быть скрыто в стене или под землёй. По форме и цвету нельзя надёжно определить вид. Видимые признаки насекомых сравните в [фотогиде о пчёлах, осах и шершнях](/insects/futkari-krazana-onavari). Если вы не можете понять, осы это или пчёлы, не трогайте гнездо и доверьте оценку специалисту.",
         ],
       },
       {
@@ -386,7 +386,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         heading: "Yuva nasıl görünür?",
         image: "open-comb",
         paragraphs: [
-          "Bazı yuvalar açık, şemsiye benzeri peteklerdir; bazılarının kâğıdı andıran dış kılıfı vardır. Yuva duvarın içinde veya toprağın altında görünmeyebilir. Yalnızca şekil ve renkle tür kesin olarak belirlenemez. Böceklerin eşek arısı mı yoksa arı mı olduğunu ayırt edemiyorsanız yuvaya dokunmayın; değerlendirmeyi bir uzmana bırakın.",
+          "Bazı yuvalar açık, şemsiye benzeri peteklerdir; bazılarının kâğıdı andıran dış kılıfı vardır. Yuva duvarın içinde veya toprağın altında görünmeyebilir. Yalnızca şekil ve renkle tür kesin olarak belirlenemez. Böceklerin görünen özelliklerini [arı, yaban arısı ve Vespa fotoğraf rehberinde](/insects/futkari-krazana-onavari) karşılaştırın. Böceklerin eşek arısı mı yoksa arı mı olduğunu ayırt edemiyorsanız yuvaya dokunmayın; değerlendirmeyi bir uzmana bırakın.",
         ],
       },
       {
