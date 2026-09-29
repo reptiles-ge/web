@@ -37024,6 +37024,249 @@
       ],
       "updatedAt": "2026-09-25T16:06:26.514Z"
     },
+    "images/guides/scorpion-in-house-gap.jpg": {
+      "sourceHash": "c0e54cdff416ea618b69b548c1470d1845d1f79bcda21aaa99e632821df35743",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/scorpion-in-house-gap.jpg",
+      "originalSize": 111334,
+      "width": 1024,
+      "height": 576,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/scorpion-in-house-gap-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 5683
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-gap-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 8076
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-gap-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 8171
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-gap-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 11788
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-gap-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 16683
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-gap-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 24404
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-gap-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 23804
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-gap-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 34672
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-gap-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 576,
+          "byteSize": 37100
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-gap-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 576,
+          "byteSize": 53396
+        }
+      ],
+      "updatedAt": "2026-09-29T11:17:32.671Z"
+    },
+    "images/guides/scorpion-in-house-hero.jpg": {
+      "sourceHash": "6f0e8f79ee6ea777d5ac59e7d6ceae63a31ee1cf5402073a026011114d3f4a95",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/scorpion-in-house-hero.jpg",
+      "originalSize": 101237,
+      "width": 1024,
+      "height": 576,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/scorpion-in-house-hero-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 6941
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-hero-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 8544
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-hero-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 9850
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-hero-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 12256
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-hero-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 18636
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-hero-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 22976
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-hero-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 25590
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-hero-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 31282
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-hero-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 576,
+          "byteSize": 36933
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-hero-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 576,
+          "byteSize": 45780
+        }
+      ],
+      "updatedAt": "2026-09-29T11:17:16.170Z"
+    },
+    "images/guides/scorpion-in-house-jar.jpg": {
+      "sourceHash": "65f3f610a8ff7f1dc9b858d5a6e3cc1ba0c213585d047a4cb8b13c690c39d51b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/scorpion-in-house-jar.jpg",
+      "originalSize": 106397,
+      "width": 1024,
+      "height": 576,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/scorpion-in-house-jar-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 6812
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-jar-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 8570
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-jar-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 9387
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-jar-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 11970
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-jar-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 18344
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-jar-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 23238
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-jar-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 24734
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-jar-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 31862
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-jar-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 576,
+          "byteSize": 36767
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-jar-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 576,
+          "byteSize": 47668
+        }
+      ],
+      "updatedAt": "2026-09-29T11:17:22.454Z"
+    },
     "images/guides/scorpion-sting-cool-compress.jpg": {
       "sourceHash": "7707ca0cb7f28ffd3abe3fb445d3f9ef5ab60849b453c469ed0f18a086a2b270",
       "configFingerprint": "409788ee46c653d8",

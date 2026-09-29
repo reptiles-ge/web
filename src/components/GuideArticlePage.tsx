@@ -123,6 +123,11 @@ export async function GuideArticlePage({
             <PhoneLinkedText>{copy.intro}</PhoneLinkedText>
           </p>
         ) : null}
+        {copy.notice ? (
+          <aside className="mt-6 max-w-3xl rounded-card border-l-4 border-primary bg-card px-5 py-4 text-[15px] leading-[1.7] text-foreground sm:text-[16px]">
+            <PhoneLinkedText>{copy.notice}</PhoneLinkedText>
+          </aside>
+        ) : null}
         {copy.quickSteps ? (
           <section
             aria-labelledby={`${article.id}-quick-steps`}
