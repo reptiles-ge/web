@@ -6,7 +6,9 @@ import {
   type GuideArticleSource,
 } from "@/data/guideArticleTypes";
 
-const COPY: Record<AppLocale, GuideArticleCopy> = {
+type ImageKey = "gap" | "jar";
+
+const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
   en: {
     description:
       "Found a scorpion in your home? Keep children and pets away, avoid handling it, check possible entry gaps, and learn how to reduce another encounter.",
@@ -59,6 +61,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "Can you move it without touching it?",
+        image: "jar",
         paragraphs: [
           "You do not have to catch it yourself. An adult should consider the container method only if the whole scorpion is visible and easily accessible, and the action requires neither reaching into a gap nor moving heavy furniture. If you are afraid, unsure or cannot keep control of the container, get help instead.",
           "If those conditions are met, place a glass jar over the scorpion, slide a firm sheet of paper fully under the opening, hold it securely against the jar, turn the jar upright and fasten a secure lid. Keep hands clear of the opening throughout. This does not remove every risk; seek appropriate help for what to do with the contained animal, especially if its origin is unknown or it may have escaped from a terrarium. Do not release an animal of uncertain origin into nature.",
@@ -73,6 +76,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "Where might it have entered?",
+        image: "gap",
         paragraphs: [
           "Check the gap under doors, loose window fittings, damaged screens and openings around pipes. These are possible routes, not proof of the exact route this scorpion used. There is no reason to assume every scorpion comes through a drain.",
         ],
@@ -162,6 +166,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "შეიძლება თუ არა შეხების გარეშე მოცილება?",
+        image: "jar",
         paragraphs: [
           "მორიელის დაჭერა თქვენი ვალდებულება არ არის. კონტეინერის მეთოდი ზრდასრულმა მხოლოდ მაშინ შეიძლება განიხილოს, როცა მორიელი მთლიანად ჩანს, მისადგომ ადგილასაა და მოქმედებას არც ღრიჭოში ხელის შეყოფა სჭირდება, არც მძიმე ავეჯის გადაადგილება. შიშის, გაურკვევლობის ან მოუხერხებელი პირობებისას დახმარება ითხოვეთ.",
           "თუ ეს პირობები სრულდება, მორიელს ზემოდან მინის ქილა დააფარეთ, ქვეშ მყარი ქაღალდი ბოლომდე შეაცურეთ, ქილას მჭიდროდ მიაჭირეთ, ქილა სწორად გადააბრუნეთ და მჭიდრო თავსახური დაახურეთ. ხელი ქილის ღია მხარეს არ მიიტანოთ. ეს სრულ უსაფრთხოებას არ ნიშნავს. კონტეინერში მოქცეული ცხოველის შემდგომ მოპყრობაზე დახმარება ითხოვეთ, განსაკუთრებით თუ მისი წარმოშობა უცნობია ან შეიძლება ტერარიუმიდან იყოს გაქცეული; ასეთ ცხოველს ბუნებაში ნუ გაუშვებთ.",
@@ -176,6 +181,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "საიდან შეიძლება შემოსულიყო მორიელი?",
+        image: "gap",
         paragraphs: [
           "შეამოწმეთ კარის ქვედა ნაპრალი, ფანჯრის მორყეული ჩარჩო, დაზიანებული ბადე და მილების გარშემო ღიობები. ეს შესაძლო შემოსასვლელებია და არა მტკიცება, რომ სწორედ აქედან შემოვიდა თქვენ მიერ ნანახი მორიელი. არც იმის საფუძველია, რომ ყველა მორიელი კანალიზაციიდან მოდის.",
         ],
@@ -266,6 +272,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "Можно ли убрать скорпиона, не прикасаясь к нему?",
+        image: "jar",
         paragraphs: [
           "Вы не обязаны ловить его сами. Взрослый может рассмотреть способ с контейнером, только если скорпион полностью виден и находится в доступном месте, а для этого не нужно засовывать руку в щель или двигать тяжёлую мебель. При страхе, сомнениях или неудобных условиях лучше попросить помощи.",
           "Если условия соблюдены, накройте скорпиона стеклянной банкой, полностью подсуньте под неё плотный лист бумаги, крепко прижмите лист, переверните банку и плотно закройте крышкой. Не подносите руку к открытому краю банки. Риск всё равно остаётся. С дальнейшим обращением с пойманным животным попросите помощи, особенно если его происхождение неизвестно или оно могло сбежать из террариума; такое животное не выпускайте в природу.",
@@ -280,6 +287,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "Откуда скорпион мог попасть в дом?",
+        image: "gap",
         paragraphs: [
           "Проверьте зазор под дверью, неплотные оконные рамы, повреждённые сетки и отверстия вокруг труб. Это возможные пути проникновения, но не доказательство того, каким воспользовался именно этот скорпион. Нет оснований считать, что все скорпионы приходят из канализации.",
         ],
@@ -370,6 +378,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "Dokunmadan uzaklaştırmak mümkün mü?",
+        image: "jar",
         paragraphs: [
           "Akrebi kendiniz yakalamak zorunda değilsiniz. Kap yöntemi yalnızca akrep bütünüyle görünür ve kolay erişilir durumdaysa, ayrıca elinizi aralığa sokmanız veya ağır mobilya taşımanız gerekmiyorsa bir yetişkin tarafından düşünülebilir. Korku, belirsizlik veya elverişsiz koşullarda yardım istemek daha iyidir.",
           "Bu koşullar sağlanıyorsa akrebin üzerine cam kavanoz kapatın, ağzının altına sert bir kâğıdı tamamen kaydırın, kâğıdı sıkıca tutarak kavanozu düz çevirin ve kapağını güvenle kapatın. Elinizi açık ağızdan uzak tutun. Risk tamamen ortadan kalkmaz. Kavanozdaki hayvanla sonra ne yapılacağı için, özellikle kökeni bilinmiyorsa veya teraryumdan kaçmış olabilirse yardım isteyin; kökeni belirsiz hayvanı doğaya bırakmayın.",
@@ -384,6 +393,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "Akrep eve nereden girmiş olabilir?",
+        image: "gap",
         paragraphs: [
           "Kapı altı boşluklarını, gevşek pencere çerçevelerini, hasarlı sineklikleri ve boru çevresindeki açıklıkları kontrol edin. Bunlar olası girişlerdir; gördüğünüz akrebin tam olarak nereden girdiğini kanıtlamaz. Her akrebin giderden geldiğini varsaymayın.",
         ],
@@ -461,18 +471,42 @@ export const SCORPION_IN_HOUSE = defineGuideArticle({
   copy: COPY,
   hero: {
     alt: {
-      en: "A scorpion on a stone floor away from a shoe — illustrative image",
-      ka: "ქვის იატაკზე მორიელი ფეხსაცმლისგან მოშორებით — ილუსტრაციული გამოსახულება",
-      ru: "Скорпион на каменном полу вдали от обуви — иллюстративное изображение",
-      tr: "Taş zeminde ayakkabıdan uzakta akrep — temsili görsel",
+      en: "A small scorpion on a stone floor, away from a shoe by a closed door",
+      ka: "ქვის იატაკზე პატარა მორიელი, დახურულ კართან დადებული ფეხსაცმლისგან მოშორებით",
+      ru: "Небольшой скорпион на каменном полу, в стороне от обуви у закрытой двери",
+      tr: "Kapalı bir kapının yanındaki ayakkabıdan uzakta, taş zeminde küçük bir akrep",
     },
-    height: 1024,
-    src: "https://cdn.reptiles.ge/images/guides/scorpion-sting-hero.jpg",
-    width: 1536,
+    height: 576,
+    src: "https://cdn.reptiles.ge/images/guides/scorpion-in-house-hero.jpg",
+    width: 1024,
   },
   id: "scorpion-in-house",
+  images: {
+    gap: {
+      alt: {
+        en: "A gap under a closed door, with a worn seal and daylight outside",
+        ka: "დახურული კარის ქვეშ ნაპრალი, გაცვეთილი ზოლი და გარეთ დღის სინათლე",
+        ru: "Щель под закрытой дверью: изношенный уплотнитель и дневной свет снаружи",
+        tr: "Kapalı bir kapının altında boşluk, yıpranmış fitil ve dışarıda gün ışığı",
+      },
+      height: 576,
+      src: "https://cdn.reptiles.ge/images/guides/scorpion-in-house-gap.jpg",
+      width: 1024,
+    },
+    jar: {
+      alt: {
+        en: "A glass jar over a small scorpion on a sheet of paper on a tiled floor",
+        ka: "მინის ქილა პატარა მორიელზე, ფილის იატაკზე დადებულ ქაღალდზე",
+        ru: "Стеклянная банка над небольшим скорпионом на листе бумаги на кафельном полу",
+        tr: "Fayans zemindeki kâğıdın üzerinde, küçük bir akrebin üzerine kapatılmış cam kavanoz",
+      },
+      height: 576,
+      src: "https://cdn.reptiles.ge/images/guides/scorpion-in-house-jar.jpg",
+      width: 1024,
+    },
+  },
   messageKey: "scorpionInHouse",
-  ogImage: "/og/images/guides/scorpion-in-house.jpg",
+  ogImage: "https://cdn.reptiles.ge/og/images/guides/scorpion-in-house.jpg",
   parentHub: "scorpions",
   pathname: "/scorpions/morieli-sakhlshi",
   relatedGuideIds: ["scorpion-sting"],
