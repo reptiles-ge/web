@@ -48,6 +48,10 @@ export const pathnames = {
     "/insects/wasp-nest",
   ),
   "/insects/saxeoebebi": kaLatin("/mtserebi/saxeoebebi", "/insects/species"),
+  "/insects/taraknebi-sakhlshi": kaLatin(
+    "/mtserebi/taraknebi-sakhlshi",
+    "/insects/cockroaches-at-home",
+  ),
   "/insects/tkipis-nakbeni": kaLatin(
     "/mtserebi/tkipis-nakbeni",
     "/insects/tick-bite",
@@ -100,6 +104,10 @@ export const pathnames = {
   "/risk-to-humans": kaLatin("/riskis-doneebi", "/risk-to-humans"),
   "/scorpions": kaLatin("/morieli", "/scorpions"),
   "/scorpions/[slug]": kaLatin("/morieli/[slug]", "/scorpions/[slug]"),
+  "/scorpions/morieli-sakhlshi": kaLatin(
+    "/morieli/morieli-sakhlshi",
+    "/scorpions/scorpion-in-house",
+  ),
   "/scorpions/morielis-nakbeni": kaLatin(
     "/morieli/morielis-nakbeni",
     "/scorpions/scorpion-sting",

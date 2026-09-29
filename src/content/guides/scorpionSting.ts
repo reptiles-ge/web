@@ -117,6 +117,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         heading: "What happens in hospital?",
         paragraphs: [
           "Clinicians assess symptoms and may observe the person, treat symptoms, or monitor breathing and heart function as needed. Care depends on the clinical picture and local resources; medicine and antivenom decisions belong to professionals.",
+          "Once immediate care is addressed, see [scorpion in the house](/scorpions/morieli-sakhlshi) for ways to check entry gaps and reduce another encounter.",
         ],
       },
     ],
@@ -232,6 +233,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         heading: "როგორ ეხმარებიან საავადმყოფოში?",
         paragraphs: [
           "ექიმი აფასებს ნიშნებს და საჭიროების მიხედვით აკვირდება ადამიანს, უმსუბუქებს სიმპტომებს ან ამოწმებს სუნთქვასა და გულის მუშაობას. მკურნალობა დამოკიდებულია კლინიკურ მდგომარეობასა და ადგილობრივ შესაძლებლობებზე; მედიკამენტებისა და ანტიშხამის არჩევა პროფესიონალების საქმეა.",
+          "გადაუდებელი საკითხის მოგვარების შემდეგ, სახლის ღრიჭოებისა და განმეორებითი შეხვედრის პრევენციისთვის ნახეთ [მორიელი სახლში](/scorpions/morieli-sakhlshi).",
         ],
       },
     ],
@@ -347,6 +349,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         heading: "Как помогают в больнице?",
         paragraphs: [
           "Врачи оценивают симптомы и при необходимости наблюдают пациента, облегчают симптомы или контролируют дыхание и работу сердца. Помощь зависит от состояния и местных возможностей; выбор лекарств и противоядия остаётся за специалистами.",
+          "После решения неотложных вопросов прочитайте [«Скорпион дома»](/scorpions/morieli-sakhlshi), чтобы проверить щели и снизить вероятность новой встречи.",
         ],
       },
     ],
@@ -462,6 +465,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         heading: "Hastanede nasıl yardım edilir?",
         paragraphs: [
           "Hekimler belirtileri değerlendirir; gerekirse kişiyi gözlemler, belirtileri hafifletir veya solunum ve kalp işlevini izler. Bakım klinik duruma ve yerel olanaklara bağlıdır; ilaç ve antivenom kararları sağlık uzmanlarına aittir.",
+          "Acil bakım sağlandıktan sonra giriş boşluklarını kontrol etmek ve yeniden karşılaşma olasılığını azaltmak için [Evde akrep](/scorpions/morieli-sakhlshi) rehberine bakın.",
         ],
       },
     ],

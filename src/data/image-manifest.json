@@ -36739,6 +36739,291 @@
       ],
       "updatedAt": "2026-09-29T07:38:54.338Z"
     },
+    "images/guides/cockroaches-at-home-hero.jpg": {
+      "sourceHash": "ce57c7956826d10f754a9cd99edd032d8b691ecd634e43304aee1d7af4b61b10",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/cockroaches-at-home-hero.jpg",
+      "originalSize": 293123,
+      "width": 1672,
+      "height": 941,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/cockroaches-at-home-hero-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 5093
+        },
+        {
+          "key": "optimized/images/guides/cockroaches-at-home-hero-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 6702
+        },
+        {
+          "key": "optimized/images/guides/cockroaches-at-home-hero-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 7008
+        },
+        {
+          "key": "optimized/images/guides/cockroaches-at-home-hero-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 9644
+        },
+        {
+          "key": "optimized/images/guides/cockroaches-at-home-hero-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 14075
+        },
+        {
+          "key": "optimized/images/guides/cockroaches-at-home-hero-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 18804
+        },
+        {
+          "key": "optimized/images/guides/cockroaches-at-home-hero-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 19883
+        },
+        {
+          "key": "optimized/images/guides/cockroaches-at-home-hero-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 26120
+        },
+        {
+          "key": "optimized/images/guides/cockroaches-at-home-hero-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 35731
+        },
+        {
+          "key": "optimized/images/guides/cockroaches-at-home-hero-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 47582
+        },
+        {
+          "key": "optimized/images/guides/cockroaches-at-home-hero-1672.avif",
+          "format": "avif",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 55105
+        },
+        {
+          "key": "optimized/images/guides/cockroaches-at-home-hero-1672.webp",
+          "format": "webp",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 74282
+        }
+      ],
+      "updatedAt": "2026-09-29T05:56:11.485Z"
+    },
+    "images/guides/cockroaches-at-home-inspection.jpg": {
+      "sourceHash": "b76949bbf9b7d64b997748620bd9fb3c233743bdffaf4f8c9d20effd5428cc4a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/cockroaches-at-home-inspection.jpg",
+      "originalSize": 354090,
+      "width": 1672,
+      "height": 941,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/cockroaches-at-home-inspection-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 7107
+        },
+        {
+          "key": "optimized/images/guides/cockroaches-at-home-inspection-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 9844
+        },
+        {
+          "key": "optimized/images/guides/cockroaches-at-home-inspection-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 10095
+        },
+        {
+          "key": "optimized/images/guides/cockroaches-at-home-inspection-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 14058
+        },
+        {
+          "key": "optimized/images/guides/cockroaches-at-home-inspection-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 20499
+        },
+        {
+          "key": "optimized/images/guides/cockroaches-at-home-inspection-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 28172
+        },
+        {
+          "key": "optimized/images/guides/cockroaches-at-home-inspection-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 28663
+        },
+        {
+          "key": "optimized/images/guides/cockroaches-at-home-inspection-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 38648
+        },
+        {
+          "key": "optimized/images/guides/cockroaches-at-home-inspection-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 51275
+        },
+        {
+          "key": "optimized/images/guides/cockroaches-at-home-inspection-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 67612
+        },
+        {
+          "key": "optimized/images/guides/cockroaches-at-home-inspection-1672.avif",
+          "format": "avif",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 78932
+        },
+        {
+          "key": "optimized/images/guides/cockroaches-at-home-inspection-1672.webp",
+          "format": "webp",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 103302
+        }
+      ],
+      "updatedAt": "2026-09-29T05:56:12.324Z"
+    },
+    "images/guides/cockroaches-at-home-trap.jpg": {
+      "sourceHash": "19a466c669802581aec8afb3a2f4e8bdadac7e95da7590e4c41d0b0d40df89b5",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/cockroaches-at-home-trap.jpg",
+      "originalSize": 336083,
+      "width": 1672,
+      "height": 941,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/cockroaches-at-home-trap-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 5706
+        },
+        {
+          "key": "optimized/images/guides/cockroaches-at-home-trap-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 7714
+        },
+        {
+          "key": "optimized/images/guides/cockroaches-at-home-trap-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 8620
+        },
+        {
+          "key": "optimized/images/guides/cockroaches-at-home-trap-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 11252
+        },
+        {
+          "key": "optimized/images/guides/cockroaches-at-home-trap-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 17496
+        },
+        {
+          "key": "optimized/images/guides/cockroaches-at-home-trap-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 23458
+        },
+        {
+          "key": "optimized/images/guides/cockroaches-at-home-trap-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 24372
+        },
+        {
+          "key": "optimized/images/guides/cockroaches-at-home-trap-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 33358
+        },
+        {
+          "key": "optimized/images/guides/cockroaches-at-home-trap-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 45459
+        },
+        {
+          "key": "optimized/images/guides/cockroaches-at-home-trap-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 60574
+        },
+        {
+          "key": "optimized/images/guides/cockroaches-at-home-trap-1672.avif",
+          "format": "avif",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 72612
+        },
+        {
+          "key": "optimized/images/guides/cockroaches-at-home-trap-1672.webp",
+          "format": "webp",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 99532
+        }
+      ],
+      "updatedAt": "2026-09-29T05:56:12.229Z"
+    },
     "images/guides/gyurza-bite-clinical-assessment.jpg": {
       "sourceHash": "c723b5140aba0a814948b1621b01ca1604893c06d36bdcd9b9676d1fdd23f11d",
       "configFingerprint": "409788ee46c653d8",
@@ -37023,6 +37308,249 @@
         }
       ],
       "updatedAt": "2026-09-25T16:06:26.514Z"
+    },
+    "images/guides/scorpion-in-house-gap.jpg": {
+      "sourceHash": "c0e54cdff416ea618b69b548c1470d1845d1f79bcda21aaa99e632821df35743",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/scorpion-in-house-gap.jpg",
+      "originalSize": 111334,
+      "width": 1024,
+      "height": 576,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/scorpion-in-house-gap-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 5683
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-gap-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 8076
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-gap-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 8171
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-gap-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 11788
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-gap-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 16683
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-gap-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 24404
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-gap-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 23804
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-gap-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 34672
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-gap-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 576,
+          "byteSize": 37100
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-gap-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 576,
+          "byteSize": 53396
+        }
+      ],
+      "updatedAt": "2026-09-29T11:17:32.671Z"
+    },
+    "images/guides/scorpion-in-house-hero.jpg": {
+      "sourceHash": "6f0e8f79ee6ea777d5ac59e7d6ceae63a31ee1cf5402073a026011114d3f4a95",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/scorpion-in-house-hero.jpg",
+      "originalSize": 101237,
+      "width": 1024,
+      "height": 576,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/scorpion-in-house-hero-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 6941
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-hero-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 8544
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-hero-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 9850
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-hero-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 12256
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-hero-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 18636
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-hero-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 22976
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-hero-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 25590
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-hero-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 31282
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-hero-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 576,
+          "byteSize": 36933
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-hero-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 576,
+          "byteSize": 45780
+        }
+      ],
+      "updatedAt": "2026-09-29T11:17:16.170Z"
+    },
+    "images/guides/scorpion-in-house-jar.jpg": {
+      "sourceHash": "65f3f610a8ff7f1dc9b858d5a6e3cc1ba0c213585d047a4cb8b13c690c39d51b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/scorpion-in-house-jar.jpg",
+      "originalSize": 106397,
+      "width": 1024,
+      "height": 576,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/scorpion-in-house-jar-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 6812
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-jar-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 8570
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-jar-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 9387
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-jar-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 11970
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-jar-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 18344
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-jar-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 23238
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-jar-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 24734
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-jar-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 31862
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-jar-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 576,
+          "byteSize": 36767
+        },
+        {
+          "key": "optimized/images/guides/scorpion-in-house-jar-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 576,
+          "byteSize": 47668
+        }
+      ],
+      "updatedAt": "2026-09-29T11:17:22.454Z"
     },
     "images/guides/scorpion-sting-cool-compress.jpg": {
       "sourceHash": "7707ca0cb7f28ffd3abe3fb445d3f9ef5ab60849b453c469ed0f18a086a2b270",

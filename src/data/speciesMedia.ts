@@ -75,6 +75,10 @@ export const images = {
   clothesMothAdult: "/images/guides/clothes-moth-adult.jpg",
   clothesMothCloset: "/images/guides/clothes-moth-closet.jpg",
   clothesMothLarva: "/images/guides/clothes-moth-larva.jpg",
+  cockroachesInHouseHero: "/images/guides/cockroaches-at-home-hero.jpg",
+  cockroachesInHouseInspection:
+    "/images/guides/cockroaches-at-home-inspection.jpg",
+  cockroachesInHouseTrap: "/images/guides/cockroaches-at-home-trap.jpg",
   cta: "https://cdn.reptiles.ge/landing-cta-cover.jpeg",
   detail: "https://cdn.reptiles.ge/vipera-dinnik-3.webp",
   gyurzaBiteClinicalAssessment:
@@ -94,6 +98,12 @@ export const images = {
     "https://cdn.reptiles.ge/external/mouse-signs-pantry-chewed-package.jpg",
   mouseInHouseTrap:
     "https://cdn.reptiles.ge/external/mouse-snap-trap-against-skirting-board.jpg",
+  scorpionInHouseGap:
+    "https://cdn.reptiles.ge/images/guides/scorpion-in-house-gap.jpg",
+  scorpionInHouseHero:
+    "https://cdn.reptiles.ge/images/guides/scorpion-in-house-hero.jpg",
+  scorpionInHouseJar:
+    "https://cdn.reptiles.ge/images/guides/scorpion-in-house-jar.jpg",
   scorpionStingCoolCompress:
     "https://cdn.reptiles.ge/images/guides/scorpion-sting-cool-compress.jpg",
   scorpionStingHero:

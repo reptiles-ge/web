@@ -127,17 +127,28 @@ export async function GuideArticlePage({
             <PhoneLinkedText>{copy.intro}</PhoneLinkedText>
           </p>
         ) : null}
+        {copy.notice ? (
+          <aside className="mt-6 max-w-3xl rounded-card border-l-4 border-primary bg-card px-5 py-4 text-[15px] leading-[1.7] text-foreground sm:text-[16px]">
+            <PhoneLinkedText>{copy.notice}</PhoneLinkedText>
+          </aside>
+        ) : null}
         {copy.quickSteps ? (
-          <aside className="mt-7 rounded-card border border-border bg-card p-5 sm:p-6">
-            <h2 className="font-display text-[19px] font-semibold text-foreground">
+          <section
+            aria-labelledby={`${article.id}-quick-steps`}
+            className="mt-8 max-w-3xl"
+          >
+            <h2
+              className="font-display text-xl font-semibold text-foreground"
+              id={`${article.id}-quick-steps`}
+            >
               {copy.quickSteps.heading}
             </h2>
-            <ol className="mt-3 list-decimal space-y-1.5 pl-5 text-[15px] leading-relaxed text-foreground/85">
+            <ol className="mt-3 list-decimal space-y-2 pl-6 text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
               {copy.quickSteps.items.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ol>
-          </aside>
+          </section>
         ) : null}
         <figure className="mt-10">
           <CoverImage
