@@ -76,7 +76,6 @@ const LOOKALIKES: Record<string, string[]> = {
   ],
   "capreolus-capreolus": ["cervus-elaphus", "sus-scrofa", "capra-aegagrus"],
   "cervus-elaphus": ["capreolus-capreolus", "capra-aegagrus", "sus-scrofa"],
-  "columba-palumbus": ["streptopelia-turtur"],
   "coronella-austriaca": ["vipera-transcaucasiana"],
   "coturnix-coturnix": ["phasianus-colchicus"],
   "darevskia-adjarica": [
@@ -295,7 +294,6 @@ const LOOKALIKES: Record<string, string[]> = {
     "bufo-verrucosissimus",
     "bufotes-viridis",
   ],
-  "streptopelia-turtur": ["columba-palumbus"],
   "telescopus-fallax": [
     "vipera-transcaucasiana",
     "elaphe-dione",

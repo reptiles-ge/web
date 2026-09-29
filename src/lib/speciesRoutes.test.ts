@@ -165,4 +165,11 @@ describe("species routes", () => {
     expect(getSpeciesLookalikes("canis-lupus")).not.toContain("ursus-arctos");
     expect(getSpeciesLookalikes("sus-scrofa")).not.toContain("ursus-arctos");
   });
+
+  it("does not pair woodpigeon and turtle dove as visual lookalikes", () => {
+    expect(getSpeciesLookalikes("columba-palumbus")).toEqual([]);
+    expect(getSpeciesLookalikes("streptopelia-turtur")).not.toContain(
+      "columba-palumbus",
+    );
+  });
 });
