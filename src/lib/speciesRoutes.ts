@@ -203,7 +203,6 @@ const LOOKALIKES: Record<string, string[]> = {
   "lissotriton-lantzi": [
     "ommatotriton-ophryticus",
     "triturus-karelinii",
-    "mertensiella-caucasica",
   ],
   "luscinia-megarhynchos": ["erithacus-rubecula"],
   "lynx-lynx": ["panthera-pardus", "canis-lupus"],
@@ -221,11 +220,6 @@ const LOOKALIKES: Record<string, string[]> = {
     "testudo-graeca",
   ],
   "meles-canescens": ["mustela-nivalis"],
-  "mertensiella-caucasica": [
-    "lissotriton-lantzi",
-    "ommatotriton-ophryticus",
-    "triturus-karelinii",
-  ],
   "mesobuthus-eupeus": ["olivierus-caucasicus"],
   "milvus-migrans": ["buteo-buteo", "pernis-apivorus", "aquila-chrysaetos"],
   "natrix-natrix": [
@@ -241,7 +235,6 @@ const LOOKALIKES: Record<string, string[]> = {
   "ommatotriton-ophryticus": [
     "lissotriton-lantzi",
     "triturus-karelinii",
-    "mertensiella-caucasica",
   ],
   "ophisops-elegans": ["ablepharus-pannonicus"],
   "otus-scops": ["strix-aluco", "athene-noctua"],
@@ -313,7 +306,6 @@ const LOOKALIKES: Record<string, string[]> = {
   "triturus-karelinii": [
     "ommatotriton-ophryticus",
     "lissotriton-lantzi",
-    "mertensiella-caucasica",
   ],
   "tyto-alba": [
     "strix-aluco",

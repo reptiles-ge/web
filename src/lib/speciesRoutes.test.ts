@@ -165,4 +165,15 @@ describe("species routes", () => {
     expect(getSpeciesLookalikes("canis-lupus")).not.toContain("ursus-arctos");
     expect(getSpeciesLookalikes("sus-scrofa")).not.toContain("ursus-arctos");
   });
+
+  it("leaves Caucasian salamander lookalikes empty without supported visual confusion", () => {
+    expect(getSpeciesLookalikes("mertensiella-caucasica")).toEqual([]);
+    for (const id of [
+      "lissotriton-lantzi",
+      "ommatotriton-ophryticus",
+      "triturus-karelinii",
+    ]) {
+      expect(getSpeciesLookalikes(id)).not.toContain("mertensiella-caucasica");
+    }
+  });
 });
