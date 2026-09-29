@@ -255,7 +255,8 @@
     "guides": {
       "eyebrow": "Practical guides",
       "title": "At home or in the yard: what to do",
-      "subtitle": "A bat indoors, a wasp nest, a scorpion sting, and more — find the guide for your situation."
+      "subtitle": "A bat indoors, a wasp nest, a scorpion sting, and more — find the guide for your situation.",
+      "more": "Other situations"
     },
     "contributors": {
       "eyebrow": "Contributors",
@@ -310,6 +311,7 @@
         "antsInHouse": "Ants in the house",
         "clothesMoth": "Clothes moths",
         "cockroachesInHouse": "Cockroaches at home",
+        "fleasInHouse": "Fleas in the house",
         "mouseInHouse": "Mouse in the house"
       }
     }
@@ -384,6 +386,7 @@
     "stinkBugInHouse": "Stink bugs in the house",
     "antsInHouse": "Ants in the house",
     "cockroachesInHouse": "Cockroaches at home",
+    "fleasInHouse": "Fleas in the house",
     "mouseInHouse": "Mouse in the house",
     "bite": "Snakebite first steps",
     "gyurzaBite": "Blunt-nosed viper bite",
@@ -1436,6 +1439,12 @@
         "eyebrow": "Practical guide",
         "title": "Stink bugs in the house",
         "body": "Why stink bugs come indoors in autumn, whether they are harmful, and how to remove them without crushing.",
+        "cta": "Read the guide"
+      },
+      "fleasInHouse": {
+        "eyebrow": "Practical guide",
+        "title": "Fleas in the house",
+        "body": "Clean the home, protect the pet, and plan safe care with a vet.",
         "cta": "Read the guide"
       },
       "antsInHouse": {

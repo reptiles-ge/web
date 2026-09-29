@@ -7,6 +7,7 @@ import { ANTS_IN_HOUSE } from "@/content/guides/antsInHouse";
 import { BAT_IN_HOUSE } from "@/content/guides/batInHouse";
 import { CLOTHES_MOTH } from "@/content/guides/clothesMoth";
 import { COCKROACHES_IN_HOUSE } from "@/content/guides/cockroachesInHouse";
+import { FLEAS_IN_HOUSE } from "@/content/guides/fleasInHouse";
 import { GYURZA_BITE } from "@/content/guides/gyurzaBite";
 import { MOUSE_IN_HOUSE } from "@/content/guides/mouseInHouse";
 import { SCORPION_IN_HOUSE } from "@/content/guides/scorpionInHouse";
@@ -32,6 +33,7 @@ const GUIDE_ARTICLES: readonly GuideArticle[] = [
   ANTS_IN_HOUSE,
   CLOTHES_MOTH,
   COCKROACHES_IN_HOUSE,
+  FLEAS_IN_HOUSE,
   SCORPION_IN_HOUSE,
   SCORPION_STING,
   SNAKE_BITE,

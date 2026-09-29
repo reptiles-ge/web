@@ -82,6 +82,8 @@ export const images = {
   cockroachesInHouseTrap: "/images/guides/cockroaches-at-home-trap.jpg",
   cta: "https://cdn.reptiles.ge/landing-cta-cover.jpeg",
   detail: "https://cdn.reptiles.ge/vipera-dinnik-3.webp",
+  fleaAdultMacro: "/images/guides/flea-adult-macro-fedaro.jpg",
+  fleasInHouseHero: "/images/guides/fleas-home-pet-care-hero.jpg",
   gyurzaBiteClinicalAssessment:
     "/images/guides/gyurza-bite-clinical-assessment.jpg",
   gyurzaBiteFieldPhoto:

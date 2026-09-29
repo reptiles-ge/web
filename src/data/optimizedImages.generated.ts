@@ -60,6 +60,20 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1672],
     "formats": ["avif", "webp"]
   },
+  "/images/guides/flea-adult-macro-fedaro.jpg": {
+    "path": "images/guides/flea-adult-macro-fedaro",
+    "width": 1400,
+    "height": 1003,
+    "widths": [320, 400, 640, 800, 1200, 1400],
+    "formats": ["avif", "webp"]
+  },
+  "/images/guides/fleas-home-pet-care-hero.jpg": {
+    "path": "images/guides/fleas-home-pet-care-hero",
+    "width": 1672,
+    "height": 941,
+    "widths": [320, 400, 640, 800, 1200, 1672],
+    "formats": ["avif", "webp"]
+  },
   "/images/guides/gyurza-bite-clinical-assessment.jpg": {
     "path": "images/guides/gyurza-bite-clinical-assessment",
     "width": 1536,

@@ -24,6 +24,7 @@ export type GuideArticleCopy<ImageKey extends string = string> = {
   intro?: string;
   metaTitle: string;
   notice?: string;
+  quickActions?: { heading: string; items: string[]; warning: string };
   quickSteps?: { heading: string; items: string[] };
   sections: GuideArticleSection<ImageKey>[];
   summary: string;
@@ -48,6 +49,7 @@ export type GuideArticleMessageKey =
   | "bite"
   | "clothesMoth"
   | "cockroachesInHouse"
+  | "fleasInHouse"
   | "gyurzaBite"
   | "mouseInHouse"
   | "scorpionInHouse"

@@ -37024,6 +37024,196 @@
       ],
       "updatedAt": "2026-09-29T05:56:12.229Z"
     },
+    "images/guides/flea-adult-macro-fedaro.jpg": {
+      "sourceHash": "631dcee637fa575d93406c8dd4b715a3dc15158a3f36e9aaa4971357d926f69a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/flea-adult-macro-fedaro.jpg",
+      "originalSize": 344002,
+      "width": 1400,
+      "height": 1003,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/flea-adult-macro-fedaro-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 229,
+          "byteSize": 9565
+        },
+        {
+          "key": "optimized/images/guides/flea-adult-macro-fedaro-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 229,
+          "byteSize": 12108
+        },
+        {
+          "key": "optimized/images/guides/flea-adult-macro-fedaro-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 286,
+          "byteSize": 13051
+        },
+        {
+          "key": "optimized/images/guides/flea-adult-macro-fedaro-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 286,
+          "byteSize": 16896
+        },
+        {
+          "key": "optimized/images/guides/flea-adult-macro-fedaro-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 459,
+          "byteSize": 26553
+        },
+        {
+          "key": "optimized/images/guides/flea-adult-macro-fedaro-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 459,
+          "byteSize": 34212
+        },
+        {
+          "key": "optimized/images/guides/flea-adult-macro-fedaro-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 573,
+          "byteSize": 37735
+        },
+        {
+          "key": "optimized/images/guides/flea-adult-macro-fedaro-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 573,
+          "byteSize": 48570
+        },
+        {
+          "key": "optimized/images/guides/flea-adult-macro-fedaro-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 860,
+          "byteSize": 71489
+        },
+        {
+          "key": "optimized/images/guides/flea-adult-macro-fedaro-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 860,
+          "byteSize": 90130
+        },
+        {
+          "key": "optimized/images/guides/flea-adult-macro-fedaro-1400.avif",
+          "format": "avif",
+          "width": 1400,
+          "height": 1003,
+          "byteSize": 93779
+        },
+        {
+          "key": "optimized/images/guides/flea-adult-macro-fedaro-1400.webp",
+          "format": "webp",
+          "width": 1400,
+          "height": 1003,
+          "byteSize": 115270
+        }
+      ],
+      "updatedAt": "2026-09-29T11:42:08.128Z"
+    },
+    "images/guides/fleas-home-pet-care-hero.jpg": {
+      "sourceHash": "9a1a427f2c875f689f539ca526c37d7df86407d9d72e6ae98d474849b36b26a2",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/fleas-home-pet-care-hero.jpg",
+      "originalSize": 494058,
+      "width": 1672,
+      "height": 941,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/fleas-home-pet-care-hero-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 10171
+        },
+        {
+          "key": "optimized/images/guides/fleas-home-pet-care-hero-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 16776
+        },
+        {
+          "key": "optimized/images/guides/fleas-home-pet-care-hero-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 15052
+        },
+        {
+          "key": "optimized/images/guides/fleas-home-pet-care-hero-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 24100
+        },
+        {
+          "key": "optimized/images/guides/fleas-home-pet-care-hero-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 31432
+        },
+        {
+          "key": "optimized/images/guides/fleas-home-pet-care-hero-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 48020
+        },
+        {
+          "key": "optimized/images/guides/fleas-home-pet-care-hero-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 44600
+        },
+        {
+          "key": "optimized/images/guides/fleas-home-pet-care-hero-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 67740
+        },
+        {
+          "key": "optimized/images/guides/fleas-home-pet-care-hero-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 81123
+        },
+        {
+          "key": "optimized/images/guides/fleas-home-pet-care-hero-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 116972
+        },
+        {
+          "key": "optimized/images/guides/fleas-home-pet-care-hero-1672.avif",
+          "format": "avif",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 126504
+        },
+        {
+          "key": "optimized/images/guides/fleas-home-pet-care-hero-1672.webp",
+          "format": "webp",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 183494
+        }
+      ],
+      "updatedAt": "2026-09-29T11:42:05.942Z"
+    },
     "images/guides/gyurza-bite-clinical-assessment.jpg": {
       "sourceHash": "c723b5140aba0a814948b1621b01ca1604893c06d36bdcd9b9676d1fdd23f11d",
       "configFingerprint": "409788ee46c653d8",

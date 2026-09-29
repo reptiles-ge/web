@@ -168,6 +168,19 @@ describe.each(articles.map((article) => [article.id, article] as const))(
           ka.sections.length,
         );
         expect(copy.faq.length, `${locale} faq`).toBe(ka.faq.length);
+        if (ka.quickActions) {
+          expect(
+            copy.quickActions?.heading.trim(),
+            `${locale} quick heading`,
+          ).toBeTruthy();
+          expect(copy.quickActions?.items.length, `${locale} quick items`).toBe(
+            4,
+          );
+          expect(
+            copy.quickActions?.warning.trim(),
+            `${locale} quick warning`,
+          ).toBeTruthy();
+        }
         expect(
           copy.sections.map((section) => section.image ?? null),
           `${locale} images`,

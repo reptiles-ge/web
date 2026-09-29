@@ -127,6 +127,21 @@ export async function GuideArticlePage({
             <PhoneLinkedText>{copy.intro}</PhoneLinkedText>
           </p>
         ) : null}
+        {copy.quickActions ? (
+          <aside className="mt-5 rounded-card border border-border bg-card p-4 sm:p-6">
+            <h2 className="font-display text-[17px] font-semibold text-foreground sm:text-[19px]">
+              {copy.quickActions.heading}
+            </h2>
+            <ol className="mt-2 grid gap-x-8 gap-y-1 pl-5 text-[14px] leading-snug text-foreground/85 marker:font-semibold marker:text-primary sm:grid-cols-2 sm:gap-y-2 sm:text-[15px]">
+              {copy.quickActions.items.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ol>
+            <p className="mt-3 border-l-4 border-primary pl-3 text-sm font-semibold text-foreground">
+              {copy.quickActions.warning}
+            </p>
+          </aside>
+        ) : null}
         {copy.notice ? (
           <aside className="mt-6 max-w-3xl rounded-card border-l-4 border-primary bg-card px-5 py-4 text-[15px] leading-[1.7] text-foreground sm:text-[16px]">
             <PhoneLinkedText>{copy.notice}</PhoneLinkedText>
