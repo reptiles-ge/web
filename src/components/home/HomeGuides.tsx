@@ -12,7 +12,6 @@ const FEATURED_GUIDE_IDS = [
   "scorpion-sting",
   "bat-in-house",
   "wasp-nest",
-  "mosquitoes-at-home",
 ];
 
 export async function HomeGuides() {
