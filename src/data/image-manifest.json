@@ -8659,6 +8659,87 @@
       ],
       "updatedAt": "2026-09-30T08:05:06.135Z"
     },
+    "canis-aureus-archil-2.jpg": {
+      "sourceHash": "027472ae42454426ad6c5d6f79ff1262aecd6f649292ee16ad5e6fdfa7c0500d",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "canis-aureus-archil-2.jpg",
+      "originalSize": 257409,
+      "width": 1024,
+      "height": 905,
+      "derivatives": [
+        {
+          "key": "optimized/canis-aureus-archil-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 283,
+          "byteSize": 17084
+        },
+        {
+          "key": "optimized/canis-aureus-archil-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 283,
+          "byteSize": 22288
+        },
+        {
+          "key": "optimized/canis-aureus-archil-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 354,
+          "byteSize": 27386
+        },
+        {
+          "key": "optimized/canis-aureus-archil-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 354,
+          "byteSize": 36588
+        },
+        {
+          "key": "optimized/canis-aureus-archil-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 566,
+          "byteSize": 60774
+        },
+        {
+          "key": "optimized/canis-aureus-archil-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 566,
+          "byteSize": 88368
+        },
+        {
+          "key": "optimized/canis-aureus-archil-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 707,
+          "byteSize": 84252
+        },
+        {
+          "key": "optimized/canis-aureus-archil-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 707,
+          "byteSize": 125216
+        },
+        {
+          "key": "optimized/canis-aureus-archil-2-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 905,
+          "byteSize": 117722
+        },
+        {
+          "key": "optimized/canis-aureus-archil-2-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 905,
+          "byteSize": 175588
+        }
+      ],
+      "updatedAt": "2026-09-30T08:16:44.122Z"
+    },
     "canis-aureus-bukvic-1.jpg": {
       "sourceHash": "2725e768b7b0ecb410eb5b235e900bd0f5313f2cf72e11e66986bcaac4cd2e39",
       "configFingerprint": "a895f8e025dcc7fa",

@@ -133,7 +133,7 @@ describe("occurrenceStatusForCount", () => {
       confirmedRecordThresholdForSpecies(species.id),
     );
 
-    expect(summary.totalRecords).toBe(20);
+    expect(summary.totalRecords).toBe(21);
     expect(
       summary.recordsByRegion
         .map(({ count, id, status }) => ({ count, id, status }))
@@ -141,7 +141,7 @@ describe("occurrenceStatusForCount", () => {
     ).toEqual([
       { count: 4, id: "adjara", status: "confirmed" },
       { count: 5, id: "kakheti", status: "confirmed" },
-      { count: 4, id: "kvemo-kartli", status: "confirmed" },
+      { count: 5, id: "kvemo-kartli", status: "confirmed" },
       { count: 5, id: "mtskheta-mtianeti", status: "confirmed" },
       { count: 1, id: "samegrelo-zemo-svaneti", status: "confirmed" },
       { count: 1, id: "samtskhe-javakheti", status: "confirmed" },
