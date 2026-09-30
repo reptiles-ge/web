@@ -68,6 +68,7 @@ export function confirmedRecordThresholdForSpecies(speciesId: string) {
   if (
     speciesId === "canis-aureus" ||
     speciesId === "cheiracanthium-punctorium" ||
+    speciesId === "columba-palumbus" ||
     speciesId === "coturnix-coturnix" ||
     speciesId === "natrix-natrix" ||
     speciesId === "zamenis-hohenackeri"
