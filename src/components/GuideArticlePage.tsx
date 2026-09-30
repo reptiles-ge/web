@@ -6,6 +6,7 @@ import type {
   GuideArticleImage,
   GuideArticleSection,
 } from "@/data/guideArticles";
+import type { GuideArticleCopy } from "@/data/guideArticleTypes";
 
 import { ContentAttribution } from "@/components/ContentAttribution";
 import { CoverImage } from "@/components/CoverImage";
@@ -128,19 +129,7 @@ export async function GuideArticlePage({
           </p>
         ) : null}
         {copy.quickActions ? (
-          <aside className="mt-5 rounded-card border border-border bg-card p-4 sm:p-6">
-            <h2 className="font-display text-[17px] font-semibold text-foreground sm:text-[19px]">
-              {copy.quickActions.heading}
-            </h2>
-            <ol className="mt-2 grid gap-x-8 gap-y-1 pl-5 text-[14px] leading-snug text-foreground/85 marker:font-semibold marker:text-primary sm:grid-cols-2 sm:gap-y-2 sm:text-[15px]">
-              {copy.quickActions.items.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ol>
-            <p className="mt-3 border-l-4 border-primary pl-3 text-sm font-semibold text-foreground">
-              {copy.quickActions.warning}
-            </p>
-          </aside>
+          <GuideQuickActions actions={copy.quickActions} locale={locale} />
         ) : null}
         {copy.notice ? (
           <aside className="mt-6 max-w-3xl rounded-card border-l-4 border-primary bg-card px-5 py-4 text-[15px] leading-[1.7] text-foreground sm:text-[16px]">
@@ -398,6 +387,36 @@ function GuideArticleSectionView({
             ))}
           </ListTag>
         ) : null}
+        {section.table ? (
+          <div className="overflow-x-auto rounded-card border border-border">
+            <table className="w-full min-w-[620px] border-collapse text-left text-sm">
+              <thead className="bg-card text-foreground">
+                <tr>
+                  {section.table.headers.map((header) => (
+                    <th
+                      className="px-4 py-3 font-semibold"
+                      key={header}
+                      scope="col"
+                    >
+                      {header}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {section.table.rows.map((row) => (
+                  <tr className="border-t border-border" key={row[0]}>
+                    {row.map((cell, cellIndex) => (
+                      <td className="px-4 py-3 align-top" key={cellIndex}>
+                        <PhoneLinkedText>{cell}</PhoneLinkedText>
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ) : null}
       </div>
       {image ? (
         <figure className="mt-7">
@@ -441,5 +460,42 @@ function GuideImageCredit({
         </>
       ) : null}
     </figcaption>
+  );
+}
+
+function GuideQuickActions({
+  actions,
+  locale,
+}: {
+  actions: NonNullable<GuideArticleCopy["quickActions"]>;
+  locale: AppLocale;
+}) {
+  return (
+    <aside className="mt-5 rounded-card border border-border bg-card p-4 sm:p-6">
+      <h2 className="font-display text-[17px] font-semibold text-foreground sm:text-[19px]">
+        {actions.heading}
+      </h2>
+      {actions.links ? (
+        <div className="mt-3 flex flex-wrap gap-x-5 gap-y-2 text-sm">
+          {actions.links.map((link) => (
+            <a
+              className="font-semibold text-primary underline underline-offset-4"
+              href={`#${guideArticleSectionAnchor(link.heading, locale)}`}
+              key={link.heading}
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+      ) : null}
+      <ol className="mt-2 grid gap-x-8 gap-y-1 pl-5 text-[14px] leading-snug text-foreground/85 marker:font-semibold marker:text-primary sm:grid-cols-2 sm:gap-y-2 sm:text-[15px]">
+        {actions.items.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ol>
+      <p className="mt-3 border-l-4 border-primary pl-3 text-sm font-semibold text-foreground">
+        {actions.warning}
+      </p>
+    </aside>
   );
 }

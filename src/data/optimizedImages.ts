@@ -1,6 +1,7 @@
 import { optimizedBaseUrl, optimizedImages } from "./optimizedImages.generated";
 
 export type OptimizedImageEntry = {
+  baseUrl?: string;
   formats: OptimizedImageFormat[];
   height: number;
   path: string;
@@ -40,7 +41,7 @@ export function optimizedImgSrc(src: string, minWidth = 1200): string {
   const width =
     entry.widths.find((item) => item >= minWidth) ??
     entry.widths[entry.widths.length - 1];
-  return `${optimizedBaseUrl}${entry.path}-${width}.${format}`;
+  return `${entry.baseUrl ?? optimizedBaseUrl}${entry.path}-${width}.${format}`;
 }
 
 export function optimizedSrcSet(
@@ -50,7 +51,7 @@ export function optimizedSrcSet(
   return entry.widths
     .map(
       (width) =>
-        `${optimizedBaseUrl}${entry.path}-${width}.${format} ${width}w`,
+        `${entry.baseUrl ?? optimizedBaseUrl}${entry.path}-${width}.${format} ${width}w`,
     )
     .join(", ");
 }

@@ -95,6 +95,34 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1536],
     "formats": ["avif", "webp"]
   },
+  "/images/guides/mosquitoes-at-home-cover.jpg": {
+    "path": "images/guides/mosquitoes-at-home-cover",
+    "width": 1024,
+    "height": 576,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "/images/guides/mosquitoes-at-home-hero.jpg": {
+    "path": "images/guides/mosquitoes-at-home-hero",
+    "width": 1672,
+    "height": 941,
+    "widths": [320, 400, 640, 800, 1200, 1672],
+    "formats": ["avif", "webp"]
+  },
+  "/images/guides/mosquitoes-at-home-screen.jpg": {
+    "path": "images/guides/mosquitoes-at-home-screen",
+    "width": 1024,
+    "height": 576,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "/images/guides/mosquitoes-at-home-yard.jpg": {
+    "path": "images/guides/mosquitoes-at-home-yard",
+    "width": 1024,
+    "height": 576,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
   "/images/guides/wasp-nest-enclosed.jpg": {
     "path": "images/guides/wasp-nest-enclosed",
     "width": 1421,
