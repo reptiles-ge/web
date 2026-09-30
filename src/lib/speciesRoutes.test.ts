@@ -113,6 +113,14 @@ describe("species routes", () => {
     );
   });
 
+  it("keeps Darevsky's viper lookalikes to supported visual matches", () => {
+    expect(getSpeciesLookalikes("vipera-darevskii")).toEqual(["vipera-dinniki"]);
+    expect(getSpeciesLookalikes("vipera-dinniki")).toContain("vipera-darevskii");
+    expect(getSpeciesLookalikes("vipera-transcaucasiana")).not.toContain(
+      "vipera-darevskii",
+    );
+  });
+
   it("limits Transcaucasian ratsnake lookalikes to visual confusion candidates", () => {
     expect(getSpeciesLookalikes("zamenis-hohenackeri")).toEqual([
       "elaphe-dione",
