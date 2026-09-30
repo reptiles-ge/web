@@ -155,7 +155,7 @@ export async function SpeciesProfile({
   const editable = locale === "ka" && localAdmin;
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background **:[[id]]:scroll-mt-40">
       <SpeciesViewTracker
         galleryCount={gallery.length}
         group={group}
