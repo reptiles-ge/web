@@ -44,28 +44,28 @@ const HALYOMORPHA_BIOLOGY_COPY: Record<
 > = {
   en: {
     behavior: "Life cycle",
-    biologyTitle: "Habitat · diet · life cycle · control",
+    biologyTitle: "Diet · life cycle · control",
     conservation: "Control and management",
     diet: "Diet",
     habitat: "Habitat and range",
   },
   ka: {
     behavior: "სიცოცხლის ციკლი",
-    biologyTitle: "ჰაბიტატი · კვება · სიცოცხლის ციკლი · კონტროლი",
+    biologyTitle: "კვება · სიცოცხლის ციკლი · კონტროლი",
     conservation: "კონტროლი და მართვა",
     diet: "კვება",
     habitat: "ჰაბიტატი და გავრცელება",
   },
   ru: {
     behavior: "Жизненный цикл",
-    biologyTitle: "Местообитание · питание · жизненный цикл · контроль",
+    biologyTitle: "Питание · жизненный цикл · контроль",
     conservation: "Контроль и управление",
     diet: "Питание",
     habitat: "Местообитание и ареал",
   },
   tr: {
     behavior: "Yaşam döngüsü",
-    biologyTitle: "Yaşam alanı · beslenme · yaşam döngüsü · kontrol",
+    biologyTitle: "Beslenme · yaşam döngüsü · kontrol",
     conservation: "Kontrol ve yönetim",
     diet: "Beslenme",
     habitat: "Yaşam alanı ve yayılış",
@@ -125,6 +125,9 @@ export async function SpeciesProfile({
   const displayStats = filterDisplayStats(species.stats, group);
   const dangerValue = species.danger ? tDanger(species.danger) : null;
   const linkDangerStats = usesDangerScale(group) && Boolean(species.danger);
+  const hasRange =
+    getRegionsForSpecies(species.id).length > 0 ||
+    Boolean(species.fieldRecords?.length);
   const showIdentification = hasRealIdentification(species.identification);
   const biologyCopy =
     species.id === "halyomorpha-halys"
@@ -152,19 +155,17 @@ export async function SpeciesProfile({
   const editable = locale === "ka" && localAdmin;
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background **:[[id]]:scroll-mt-40">
       <SpeciesViewTracker
         galleryCount={gallery.length}
         group={group}
         hasIdentification={showIdentification}
-        hasRange={
-          getRegionsForSpecies(species.id).length > 0 ||
-          Boolean(species.fieldRecords?.length)
-        }
+        hasRange={hasRange}
         scientificName={species.scientificName}
         speciesId={species.id}
       />
       <SpeciesProfileHero
+        breadcrumbs={breadcrumbs}
         desktopHeroSrc={desktopHeroSrc}
         group={group}
         heroDesktopSources={heroDesktopSources}
@@ -177,12 +178,12 @@ export async function SpeciesProfile({
       <SpeciesProfileBody
         biologyBlocks={biologyBlocks}
         biologyTitle={biologyCopy?.biologyTitle}
-        breadcrumbs={breadcrumbs}
         dangerValue={dangerValue}
         displayStats={displayStats}
         editable={editable}
         gallery={gallery}
         guideLinks={guideLinks}
+        hasRange={hasRange}
         linkDangerStats={linkDangerStats}
         locale={locale}
         lookalikes={lookalikes}

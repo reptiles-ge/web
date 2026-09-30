@@ -30,78 +30,104 @@ export async function SpeciesProfileFacts({
   speciesId,
   stats,
 }: SpeciesProfileFactsProps) {
-  if (displayStats.length === 0) {
-    return null;
-  }
-
   const t = await getTranslations("profile");
+  const interactionBody =
+    interaction && !isPlaceholderBody(interaction) ? interaction : null;
+
+  if (displayStats.length === 0 && !interactionBody) return null;
 
   return (
-    <section className="bg-background py-20 lg:py-28">
-      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
-          {t("atAGlance")}
-        </p>
-        <AnchoredHeading
-          anchorLabel={t("anchorLink")}
-          className="mt-5 max-w-2xl font-display text-display-title font-bold"
-          id={SPECIES_SECTION_IDS.atAGlance}
+    <>
+      {displayStats.length > 0 ? (
+        <section
+          className={
+            interactionBody
+              ? "bg-background pt-20 pb-8 lg:pt-28 lg:pb-10"
+              : "bg-background py-20 lg:py-28"
+          }
         >
-          {t("atAGlanceTitle")}
-        </AnchoredHeading>
-        {displayStats.length > 0 ? (
-          <div className="mt-12 grid gap-px overflow-hidden rounded-media bg-border sm:grid-cols-2 md:grid-cols-3">
-            {displayStats.map((stat) => (
-              <div
-                className="min-w-0 bg-background p-5 sm:p-6 lg:p-8"
-                key={stat.label}
-              >
-                <p
-                  className="text-[10px] leading-relaxed tracking-[0.16em] wrap-break-word text-muted-foreground"
-                  data-content-field={
-                    editable ? `stats.${stats.indexOf(stat)}.label` : undefined
-                  }
-                  data-content-id={editable ? speciesId : undefined}
-                  data-content-kind={editable ? "species" : undefined}
+          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+            <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
+              {t("atAGlance")}
+            </p>
+            <AnchoredHeading
+              anchorLabel={t("anchorLink")}
+              className="mt-5 max-w-2xl font-display text-display-title font-bold"
+              id={SPECIES_SECTION_IDS.atAGlance}
+            >
+              {t("atAGlanceTitle")}
+            </AnchoredHeading>
+            <div className="mt-12 grid gap-px overflow-hidden rounded-media bg-border sm:grid-cols-2 md:grid-cols-3">
+              {displayStats.map((stat) => (
+                <div
+                  className="min-w-0 bg-background p-5 sm:p-6 lg:p-8"
+                  key={stat.label}
                 >
-                  {stat.label}
-                </p>
-                <p
-                  className="mt-3 font-display text-[20px] leading-tight font-medium wrap-anywhere lg:text-[24px]"
-                  data-content-field={
-                    editable ? `stats.${stats.indexOf(stat)}.value` : undefined
-                  }
-                  data-content-id={editable ? speciesId : undefined}
-                  data-content-kind={editable ? "species" : undefined}
-                >
-                  <SpeciesProfileStatValue
-                    danger={danger}
-                    dangerValue={dangerValue}
-                    linkDangerStats={linkDangerStats}
-                    value={stat.value}
-                  />
-                </p>
-              </div>
-            ))}
+                  <p
+                    className="text-[10px] leading-relaxed tracking-[0.16em] wrap-break-word text-muted-foreground"
+                    data-content-field={
+                      editable
+                        ? `stats.${stats.indexOf(stat)}.label`
+                        : undefined
+                    }
+                    data-content-id={editable ? speciesId : undefined}
+                    data-content-kind={editable ? "species" : undefined}
+                  >
+                    {stat.label}
+                  </p>
+                  <p
+                    className="mt-3 font-display text-[20px] leading-tight font-medium wrap-anywhere lg:text-[24px]"
+                    data-content-field={
+                      editable
+                        ? `stats.${stats.indexOf(stat)}.value`
+                        : undefined
+                    }
+                    data-content-id={editable ? speciesId : undefined}
+                    data-content-kind={editable ? "species" : undefined}
+                  >
+                    <SpeciesProfileStatValue
+                      danger={danger}
+                      dangerValue={dangerValue}
+                      linkDangerStats={linkDangerStats}
+                      value={stat.value}
+                    />
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
-        ) : null}
-        {interaction && !isPlaceholderBody(interaction) ? (
-          <aside className="mt-8 max-w-3xl border-l-4 border-gold bg-surface p-5 sm:px-6">
-            <h3 className="font-display text-[20px] font-medium text-foreground">
-              {t("interaction")}
-            </h3>
-            <BiologyExpandable
-              body={interaction}
-              editorField={editable ? "interaction" : undefined}
-              needsExpand={interaction.length > 260}
-              readLess={t("readLess")}
-              readMore={t("readMore")}
-              speciesId={editable ? speciesId : undefined}
-            />
-          </aside>
-        ) : null}
-      </div>
-    </section>
+        </section>
+      ) : null}
+      {interactionBody ? (
+        <section
+          className={
+            displayStats.length > 0
+              ? "bg-background pb-20 lg:pb-28"
+              : "bg-background py-20 lg:py-28"
+          }
+        >
+          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+            <aside className="max-w-3xl border-l-4 border-gold bg-surface p-5 sm:px-6">
+              <AnchoredHeading
+                anchorLabel={t("anchorLink")}
+                className="font-display text-[20px] font-medium text-foreground"
+                id={SPECIES_SECTION_IDS.interaction}
+              >
+                {t("interaction")}
+              </AnchoredHeading>
+              <BiologyExpandable
+                body={interactionBody}
+                editorField={editable ? "interaction" : undefined}
+                needsExpand={interactionBody.length > 260}
+                readLess={t("readLess")}
+                readMore={t("readMore")}
+                speciesId={editable ? speciesId : undefined}
+              />
+            </aside>
+          </div>
+        </section>
+      ) : null}
+    </>
   );
 }
 

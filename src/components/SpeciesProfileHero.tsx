@@ -5,6 +5,7 @@ import type { PictureSource } from "@/data/optimizedImages";
 import type { DangerLevel, Species } from "@/data/species";
 import type { AnimalGroup } from "@/data/speciesAtlas";
 import type { AppLocale } from "@/i18n/routing";
+import type { SpeciesBreadcrumbCrumb } from "@/lib/speciesBreadcrumbs";
 
 import { SpeciesScientificNameCopy } from "@/components/SpeciesScientificNameCopy";
 import { SpeciesVoicePlayer } from "@/components/SpeciesVoicePlayer";
@@ -23,6 +24,7 @@ import {
 } from "@/lib/speciesShareText";
 
 type SpeciesProfileHeroProps = {
+  breadcrumbs: SpeciesBreadcrumbCrumb[];
   desktopHeroSrc: null | string;
   group: AnimalGroup;
   heroDesktopSources: PictureSource[];
@@ -34,6 +36,7 @@ type SpeciesProfileHeroProps = {
 };
 
 export async function SpeciesProfileHero({
+  breadcrumbs,
   desktopHeroSrc,
   group,
   heroDesktopSources,
@@ -96,6 +99,10 @@ export async function SpeciesProfileHero({
       />
       <div className="absolute inset-0 bg-linear-to-b from-black/65 via-black/25 to-black/90" />
       <div className="absolute inset-0 bg-[radial-gradient(100%_70%_at_50%_30%,transparent_30%,rgba(0,0,0,0.55)_100%)]" />
+      <SpeciesBreadcrumbTrail
+        ariaLabel={t("breadcrumbAria")}
+        breadcrumbs={breadcrumbs}
+      />
       <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
         <h1
           className="text-balance-tight max-w-4xl font-display text-display-hero font-semibold text-white"
@@ -133,6 +140,52 @@ export async function SpeciesProfileHero({
         </div>
       </div>
     </section>
+  );
+}
+
+function SpeciesBreadcrumbTrail({
+  ariaLabel,
+  breadcrumbs,
+}: {
+  ariaLabel: string;
+  breadcrumbs: SpeciesBreadcrumbCrumb[];
+}) {
+  return (
+    <nav aria-label={ariaLabel} className="sr-only">
+      <ol className="mx-auto flex max-w-[1400px] flex-wrap items-center gap-x-2 gap-y-1 px-6 text-[12px] text-white/60 lg:px-10">
+        {breadcrumbs.map((crumb, index) => {
+          const isLast = index === breadcrumbs.length - 1;
+
+          return (
+            <li
+              className="inline-flex items-center gap-2"
+              key={crumb.href ? `${crumb.href}:${crumb.name}` : crumb.name}
+            >
+              {index > 0 ? (
+                <span aria-hidden="true" className="text-white/30">
+                  /
+                </span>
+              ) : null}
+              {crumb.href && !isLast ? (
+                <Link
+                  className="transition-colors hover:text-white"
+                  href={crumb.href}
+                >
+                  {crumb.name}
+                </Link>
+              ) : (
+                <span
+                  aria-current={isLast ? "page" : undefined}
+                  className={isLast ? "font-medium text-white/85" : undefined}
+                >
+                  {crumb.name}
+                </span>
+              )}
+            </li>
+          );
+        })}
+      </ol>
+    </nav>
   );
 }
 

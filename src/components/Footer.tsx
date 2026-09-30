@@ -53,19 +53,14 @@ const guideLinks = [
     labelKey: "snakeIdentify" as const,
   },
   { href: "/snakes-in-the-yard" as const, labelKey: "yard" as const },
-  {
-    href: "/spiders/shxamiani-obobebi" as const,
-    labelKey: "spiderVenomous" as const,
-  },
-  { href: "/spiders/obobis-nakbeni" as const, labelKey: "spiderBite" as const },
-  ...getGuideArticles().map((article) => ({
-    href: article.pathname,
-    labelKey: article.messageKey,
-  })),
-  {
-    href: "/mammals/tura-ezoshi" as const,
-    labelKey: "jackalYard" as const,
-  },
+  ...getGuideArticles()
+    .filter((article) =>
+      ["scorpion-sting", "snake-bite", "tick-bite"].includes(article.id),
+    )
+    .map((article) => ({
+      href: article.pathname,
+      labelKey: article.messageKey,
+    })),
   {
     href: "/mammals/datvi-shekhvedra" as const,
     labelKey: "bearEncounter" as const,
