@@ -55,6 +55,8 @@ export type HalyomorphaRegionSummary = {
 
 const MERTENSIELLA_OBSCURED_RECORD_NOTE =
   "Mertensiella caucasica: iNaturalist public coordinates obscured (~27 km)";
+const LACERTA_TIANETI_SOURCE_NOTE =
+  "Lacerta agilis — Tianeti (Tarkhnishvili et al. 2026, DOI: 10.3897/caucasiana.5.e189214)";
 const MERTENSIELLA_SOURCE_CONFIRMED_REGIONS = new Set<RegionPathId>([
   "adjara",
   "guria",
@@ -137,14 +139,18 @@ export function getHalyomorphaOccurrenceSummary(
       yearFromDate(record.date),
     );
     const center = getRecordCenter(regionRecords);
-    const status: HalyomorphaOccurrenceStatus = mertensiellaRecords
-      ? MERTENSIELLA_SOURCE_CONFIRMED_REGIONS.has(id)
+    const status: HalyomorphaOccurrenceStatus =
+      id === "mtskheta-mtianeti" &&
+      regionRecords.some((record) => record.note === LACERTA_TIANETI_SOURCE_NOTE)
         ? "confirmed"
-        : "recorded-only"
-      : occurrenceStatusForCount(
-          regionRecords.length,
-          confirmedRecordThreshold,
-        );
+        : mertensiellaRecords
+          ? MERTENSIELLA_SOURCE_CONFIRMED_REGIONS.has(id)
+            ? "confirmed"
+            : "recorded-only"
+          : occurrenceStatusForCount(
+              regionRecords.length,
+              confirmedRecordThreshold,
+            );
     return {
       center,
       count: regionRecords.length,

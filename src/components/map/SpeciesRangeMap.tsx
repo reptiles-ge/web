@@ -980,6 +980,44 @@ const INTERACTIVE_RANGE_MAPS: Partial<
     copy: HALYOMORPHA_RANGE_COPY,
     iNaturalistTaxonId: 81923,
   },
+  "lacerta-agilis": {
+    copy: {
+      en: {
+        ...HALYOMORPHA_RANGE_COPY.en,
+        intro:
+          "This map shows public iNaturalist photo observations of the sand lizard screened for coordinate consistency. The records-by-region table confirms Adjara and Samtskhe–Javakheti through multiple records, and Mtskheta–Mtianeti through the published Tianeti locality. Other regions in the table have individual records only. Shading does not imply continuous presence throughout a region. Public coordinates may be approximate, and record counts reflect observation effort, not population density.",
+        mapAria: "Sand lizard field records and confirmed regions on a map of Georgia",
+        officialRegionLabel: "Confirmed distribution region",
+        rangeTitle: "Sand lizard records and confirmed distribution in Georgia",
+      },
+      ka: {
+        ...HALYOMORPHA_RANGE_COPY.ka,
+        intro:
+          "რუკაზე ნაჩვენებია მარდი ხვლიკის ფოტოთი გამყარებული iNaturalist-ის საჯარო დაკვირვებები, რომელთა კოორდინატების შესაბამისობა შემოწმდა. რეგიონული ცხრილი აჭარასა და სამცხე — ჯავახეთში გავრცელებას მრავალი ჩანაწერით ადასტურებს, მცხეთა — მთიანეთში კი — გამოქვეყნებული თიანეთის ლოკალიტეტით. ცხრილის სხვა რეგიონებში მხოლოდ ცალკეული ჩანაწერებია. შეფერილი რეგიონი მთელ მის ტერიტორიაზე უწყვეტ გავრცელებას არ ნიშნავს. საჯარო კოორდინატები ზოგჯერ მიახლოებითია; ჩანაწერების რაოდენობა პოპულაციის სიმჭიდროვე არ არის.",
+        mapAria: "მარდი ხვლიკის საველე ჩანაწერები და დადასტურებული რეგიონები საქართველოს რუკაზე",
+        officialRegionLabel: "დადასტურებული გავრცელების რეგიონი",
+        rangeTitle: "მარდი ხვლიკის ჩანაწერები და დადასტურებული გავრცელება საქართველოში",
+      },
+      ru: {
+        ...HALYOMORPHA_RANGE_COPY.ru,
+        intro:
+          "Карта показывает публичные наблюдения прыткой ящерицы с фотографиями на iNaturalist, проверенные на согласованность координат. В региональной таблице распространение в Аджарии и Самцхе–Джавахети подтверждают многочисленные записи, а в Мцхета–Мтианети — опубликованный локалитет Тианети. В остальных регионах таблицы есть только отдельные записи. Закраска не означает присутствия на всей территории региона. Публичные координаты могут быть приблизительными; число записей не измеряет плотность популяции.",
+        mapAria: "Полевые записи прыткой ящерицы и подтверждённые регионы на карте Грузии",
+        officialRegionLabel: "Регион с подтверждённым распространением",
+        rangeTitle: "Записи прыткой ящерицы и подтверждённое распространение в Грузии",
+      },
+      tr: {
+        ...HALYOMORPHA_RANGE_COPY.tr,
+        intro:
+          "Harita, kum kertenkelesine ait koordinat tutarlılığı incelenmiş, fotoğraflı ve herkese açık iNaturalist gözlemlerini gösterir. Bölgesel tablo Acara ve Samtskhe–Cavaheti'deki yayılışı çok sayıda kayıtla, Mtsheta–Mtianeti'dekini ise yayımlanmış Tianeti lokalitesiyle doğrular. Tablodaki diğer bölgelerde yalnızca tekil kayıtlar vardır. Taralı alan türün bölgenin her yerinde bulunduğu anlamına gelmez. Açık koordinatlar yaklaşık olabilir; kayıt sayısı popülasyon yoğunluğu değildir.",
+        mapAria: "Kum kertenkelesinin arazi kayıtları ve doğrulanmış bölgeleri Gürcistan haritasında",
+        officialRegionLabel: "Yayılışı doğrulanmış bölge",
+        rangeTitle: "Gürcistan'da kum kertenkelesi kayıtları ve doğrulanmış yayılış",
+      },
+    },
+    iNaturalistTaxonId: 35912,
+    rangeSource: "record-summary",
+  },
   "lutra-lutra": {
     copy: {
       en: {

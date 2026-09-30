@@ -81,6 +81,34 @@ describe("occurrenceStatusForCount", () => {
     });
   });
 
+  it("keeps the sourced Tianeti region confirmed without lowering the record threshold", () => {
+    const species = getSpeciesById("lacerta-agilis");
+    expect(species).toBeDefined();
+    if (!species) return;
+    const records = getHalyomorphaFieldRecords({
+      fieldRecords: species.fieldRecords ?? [],
+      gallery: species.gallery,
+      locale: "ka",
+      speciesName: species.commonName,
+    });
+    const summary = getHalyomorphaOccurrenceSummary(
+      records,
+      "ka",
+      confirmedRecordThresholdForSpecies(species.id),
+    );
+    expect(summary.totalRecords).toBe(107);
+    expect(
+      summary.recordsByRegion
+        .filter((region) => region.status === "confirmed")
+        .map((region) => region.id)
+        .sort(),
+    ).toEqual(["adjara", "mtskheta-mtianeti", "samtskhe-javakheti"]);
+    expect(
+      summary.recordsByRegion.find((region) => region.id === "mtskheta-mtianeti")
+        ?.count,
+    ).toBe(4);
+  });
+
   it("uses only confirmed Zamenis regions as distribution", () => {
     const species = getSpeciesById("zamenis-hohenackeri");
     expect(species).toBeDefined();
