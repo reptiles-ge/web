@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 const PATCHED = Symbol.for("reptiles.topGePush");
 
-type PushState = History["pushState"] & { [PATCHED]?: true };
+type PushState = History["pushState"] & { [PATCHED]?: boolean };
 
 export function TopGeCounter() {
   useEffect(() => {
