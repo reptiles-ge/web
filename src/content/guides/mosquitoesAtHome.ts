@@ -6,7 +6,9 @@ import {
   type GuideArticleSource,
 } from "@/data/guideArticleTypes";
 
-const COPY: Record<AppLocale, GuideArticleCopy> = {
+type ImageKey = "cover" | "screen" | "yard";
+
+const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
   en: {
     description:
       "Mosquitoes at home or in the yard? Check standing water and screens, repeat a weekly inspection, and understand when products can be used safely.",
@@ -70,6 +72,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
     sections: [
       {
         heading: "What should you check in the yard and on the balcony?",
+        image: "yard",
         paragraphs: [
           "Once a week, inspect items that hold water. CDC advises emptying and scrubbing, turning over, covering, or discarding them. Emptying alone does not replace scrubbing.",
           "Use the table for places you actually have. Do not divert water onto a neighbor's property or into broken drainage. This plan does not call for draining natural wetlands or water bodies.",
@@ -102,6 +105,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "What if you cannot empty the water?",
+        image: "cover",
         paragraphs: [
           "First see whether the container can be covered or repaired. For standing water that will not be used for drinking and cannot be covered, dumped, or removed, CDC discusses larvicides: products for mosquito larvae and pupae developing in water. They do not kill flying adults.",
           "Check the product label for its purpose and directions; dose and repeat timing depend on the product. This guide does not direct treatment of drinking water, pet water, natural water bodies, or tanks of unknown purpose. Ask a specialist to assess inaccessible or uncertain sites; do not climb onto a roof unprotected or alter shared infrastructure yourself.",
@@ -109,6 +113,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "How can you keep mosquitoes out of the house?",
+        image: "screen",
         paragraphs: [
           "Install or repair and use door and window screens. Check for holes, gaps at the frame, and doors left open. Air conditioning can help when available; buying it is not a required step. Keep safe ventilation and indoor temperatures in mind.",
           "Once a week, also inspect indoor water-holding containers such as vases and flowerpot saucers: empty and scrub them. A dark, damp spot under a sink or furniture may be a resting place for adult mosquitoes; without water, it is not itself a breeding site.",
@@ -208,6 +213,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
     sections: [
       {
         heading: "რა შევამოწმოთ ეზოსა და აივანზე?",
+        image: "yard",
         paragraphs: [
           "კვირაში ერთხელ დაათვალიერეთ ნივთები, რომლებშიც წყალი ჩერდება. CDC ურჩევს მათ დაცლას და გაწმენდას, გადაბრუნებას, დაფარვას ან საჭიროებისას მოცილებას. მხოლოდ წყლის გადაღვრა გაწმენდის შემცვლელი არ არის.",
           "ცხრილი შეარჩიეთ თქვენი გარემოს მიხედვით. ნუ გადაამისამართებთ წყალს მეზობლის ტერიტორიაზე ან დაზიანებულ სადრენაჟო სისტემაში. ბუნებრივი ჭაობისა თუ წყალსატევის დაშრობა ამ გეგმის ნაწილი არ არის.",
@@ -240,6 +246,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "რა ვქნათ წყალთან, რომელსაც ვერ ვცლით?",
+        image: "cover",
         paragraphs: [
           "ჯერ გაარკვიეთ, შესაძლებელია თუ არა ჭურჭლის დაფარვა ან პრობლემის შეკეთება. თუ მდგარი წყალი სასმელად არ გამოიყენება და მისი დაფარვა, დაცლა ან მოცილება ვერ ხერხდება, CDC ასეთ შემთხვევებში განიხილავს ლარვიციდს — წყალში განვითარებული კოღოს მატლებისა და ჭუპრების საწინააღმდეგო საშუალებას. ის მფრინავ კოღოებს არ ანადგურებს.",
           "პროდუქტის დანიშნულება და გამოყენება ეტიკეტით უნდა შეამოწმოთ; დოზა და გამეორების დრო პროდუქტზეა დამოკიდებული. ამ გიდით ნუ დაამუშავებთ სასმელ წყალს, ცხოველის წყალს, ბუნებრივ წყალსატევს ან უცნობი დანიშნულების ავზს. გაურკვეველ ან მიუდგომელ ადგილზე სპეციალისტის შეფასება მოითხოვეთ; არ ახვიდეთ დაუცველად სახურავზე და არ შეცვალოთ საერთო სისტემა თვითნებურად.",
@@ -247,6 +254,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "როგორ შევამციროთ სახლში შემოსვლა?",
+        image: "screen",
         paragraphs: [
           "დააყენეთ ან შეაკეთეთ კარ-ფანჯრის ბადეები და გამოიყენეთ ისინი; შეამოწმეთ ნახვრეტები, ჩარჩოს კიდეები და კარის ხანგრძლივად ღიად დატოვება. კონდიციონერი შეიძლება დაგეხმაროთ, თუ ხელმისაწვდომია, მაგრამ მისი ყიდვა აუცილებელი ნაბიჯი არ არის. განიავებისა და ოთახის ტემპერატურის უსაფრთხო პირობებიც გაითვალისწინეთ.",
           "შიგნითაც კვირაში ერთხელ შეამოწმეთ წყლის დამგროვებელი ჭურჭელი, მაგალითად ვაზა და ქოთნის ლანგარი: დაცალეთ და გაწმინდეთ. ნიჟარის ქვეშ ან ავეჯთან ბნელი, ნესტიანი ადგილი შეიძლება ზრდასრული კოღოს დასვენების ადგილი იყოს; ის თავისთავად წყალში გამრავლების კერა არ არის.",
@@ -349,6 +357,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
     sections: [
       {
         heading: "Что проверить во дворе и на балконе?",
+        image: "yard",
         paragraphs: [
           "Раз в неделю осматривайте предметы, в которых задерживается вода. CDC советует опорожнять и очищать, переворачивать, накрывать или убирать их. Слить воду — не то же самое, что очистить ёмкость.",
           "Выберите из таблицы то, что есть у вас. Не направляйте воду на соседний участок или в повреждённый водоотвод. Осушение природных водоёмов и болот в этот план не входит.",
@@ -381,6 +390,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "Что делать с водой, которую нельзя слить?",
+        image: "cover",
         paragraphs: [
           "Сначала проверьте, можно ли накрыть ёмкость или устранить неисправность. Для стоячей воды, не предназначенной для питья, которую нельзя закрыть, слить или убрать, CDC рассматривает ларвициды — средства против личинок и куколок комаров в воде. Летающих взрослых комаров они не уничтожают.",
           "Назначение, дозу и повторное применение определяет этикетка конкретного продукта. Эта статья не предлагает обрабатывать питьевую воду, воду животных, природные водоёмы и резервуары неизвестного назначения. Недоступное или неясное место должен оценить специалист; не поднимайтесь на крышу без защиты и не меняйте общие системы самостоятельно.",
@@ -388,6 +398,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "Как ограничить проникновение комаров в дом?",
+        image: "screen",
         paragraphs: [
           "Установите или почините сетки на окнах и дверях. Проверьте отверстия, края рам и двери, которые остаются открытыми. Кондиционер может помочь, если он есть, но покупать его необязательно. Учитывайте безопасное проветривание и температуру в доме.",
           "Раз в неделю проверяйте и домашние ёмкости с водой, например вазы и поддоны: опорожняйте и очищайте их. Тёмное влажное место под раковиной или мебелью может быть местом отдыха взрослых комаров, но без воды само по себе не является местом размножения.",
@@ -490,6 +501,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
     sections: [
       {
         heading: "Bahçede ve balkonda neleri kontrol etmeliyiz?",
+        image: "yard",
         paragraphs: [
           "Haftada bir su tutan eşyaları inceleyin. CDC bunları boşaltıp fırçalamayı, ters çevirmeyi, örtmeyi veya gereksizse kaldırmayı önerir. Suyu boşaltmak, temizlemenin yerini tutmaz.",
           "Tablodan kendi alanınızdakileri seçin. Suyu komşunun alanına veya bozuk drenaja yönlendirmeyin. Doğal sulak alanları ya da su kütlelerini kurutmak bu planın parçası değildir.",
@@ -522,6 +534,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "Boşaltılamayan su için ne yapılır?",
+        image: "cover",
         paragraphs: [
           "Önce kabın örtülüp örtülemeyeceğine veya sorunun onarılıp onarılamayacağına bakın. İçme için kullanılmayan, örtülemeyen, boşaltılamayan veya kaldırılamayan durgun suda CDC larvisitleri ele alır: bunlar suda gelişen sivrisinek larvaları ve pupalarına yöneliktir. Uçan erişkinleri öldürmezler.",
           "Ürünün amacı ve talimatı etiketinden doğrulanmalıdır; miktar ve tekrar zamanı ürüne bağlıdır. Bu rehber içme suyunu, evcil hayvan suyunu, doğal suları veya amacı bilinmeyen depoları işlemeyi önermez. Ulaşılamayan veya belirsiz alanı uzman değerlendirsin; korunmasız çatıya çıkmayın, ortak sistemi kendiniz değiştirmeyin.",
@@ -529,6 +542,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       },
       {
         heading: "Sivrisineklerin eve girmesi nasıl azaltılır?",
+        image: "screen",
         paragraphs: [
           "Kapı ve pencere sinekliklerini takın veya onarın ve kullanın. Delikleri, çerçeve kenarlarını ve açık bırakılan kapıları kontrol edin. Klima varsa yardımcı olabilir; satın almak zorunlu değildir. Güvenli havalandırma ve iç ortam sıcaklığını da gözetin.",
           "Vazo ve saksı tabakları gibi ev içindeki su tutan kapları da haftada bir boşaltıp temizleyin. Lavabo altında veya mobilya yanında karanlık, nemli bir yer erişkin sivrisineklerin dinlenme yeri olabilir; su yoksa tek başına üreme alanı değildir.",
@@ -658,6 +672,41 @@ export const MOSQUITOES_AT_HOME = defineGuideArticle({
     width: 1672,
   },
   id: "mosquitoes-at-home",
+  images: {
+    cover: {
+      alt: {
+        en: "Hands press a fitted lid onto a dark green outdoor water barrel beside a downspout",
+        ka: "ხელები მჭიდრო სახურავს აჭერს მუქ მწვანე გარე წყლის კასრს, წვიმის მილის გვერდით",
+        ru: "Руки прижимают плотную крышку к тёмно-зелёной уличной бочке для воды рядом с водосточной трубой",
+        tr: "Eller, yağmur oluğunun yanında duran koyu yeşil dış mekân su varilinin kapağını sıkıca bastırıyor",
+      },
+      height: 576,
+      src: "/images/guides/mosquitoes-at-home-cover.jpg",
+      width: 1024,
+    },
+    screen: {
+      alt: {
+        en: "A person points to a small tear where a window screen has pulled away from its white frame",
+        ka: "ადამიანი თითით უთითებს პატარა ნახეთქს, სადაც ფანჯრის ბადე თეთრ ჩარჩოს მოშორებია",
+        ru: "Человек указывает на небольшую прореху, где оконная сетка отошла от белой рамы",
+        tr: "Bir kişi, pencere sinekliğinin beyaz kasadan ayrıldığı küçük yırtığı gösteriyor",
+      },
+      height: 576,
+      src: "/images/guides/mosquitoes-at-home-screen.jpg",
+      width: 1024,
+    },
+    yard: {
+      alt: {
+        en: "A person crouches in a yard and scrubs the inside of a tipped white bucket as water pours out; a toy truck and a tire nearby hold standing water",
+        ka: "ადამიანი ეზოში ჩაჯდომილი წმენდს გადაბრუნებული თეთრი ვედროს შიგნით, საიდანაც წყალი იღვრება; ახლოს სათამაშო მანქანასა და საბურავში წყალი დგას",
+        ru: "Человек сидит на корточках во дворе и чистит опрокинутое белое ведро, из которого льётся вода; рядом вода стоит в игрушечной машинке и в покрышке",
+        tr: "Bir kişi bahçede çömelmiş, içinden su dökülen devrilmiş beyaz kovayı fırçalıyor; yakındaki oyuncak kamyonda ve lastikte su duruyor",
+      },
+      height: 576,
+      src: "/images/guides/mosquitoes-at-home-yard.jpg",
+      width: 1024,
+    },
+  },
   messageKey: "mosquitoesAtHome",
   ogImage: "/og/images/guides/mosquitoes-at-home.jpg",
   parentHub: "insects",

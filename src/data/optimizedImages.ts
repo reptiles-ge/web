@@ -27,15 +27,45 @@ export type PictureSource = {
   };
 };
 
+const localGuideImage = (
+  name: string,
+  width: number,
+  height: number,
+  widths: number[],
+): OptimizedImageEntry => ({
+  baseUrl: "/optimized/",
+  formats: ["webp"],
+  height,
+  path: `images/guides/${name}`,
+  width,
+  widths,
+});
+
 const localOptimizedImages: Record<string, OptimizedImageEntry> = {
-  "/images/guides/mosquitoes-at-home-hero.jpg": {
-    baseUrl: "/optimized/",
-    formats: ["webp"],
-    height: 941,
-    path: "images/guides/mosquitoes-at-home-hero",
-    width: 1672,
-    widths: [400, 800, 1200, 1672],
-  },
+  "/images/guides/mosquitoes-at-home-cover.jpg": localGuideImage(
+    "mosquitoes-at-home-cover",
+    1024,
+    576,
+    [400, 800, 1024],
+  ),
+  "/images/guides/mosquitoes-at-home-hero.jpg": localGuideImage(
+    "mosquitoes-at-home-hero",
+    1672,
+    941,
+    [400, 800, 1200, 1672],
+  ),
+  "/images/guides/mosquitoes-at-home-screen.jpg": localGuideImage(
+    "mosquitoes-at-home-screen",
+    1024,
+    576,
+    [400, 800, 1024],
+  ),
+  "/images/guides/mosquitoes-at-home-yard.jpg": localGuideImage(
+    "mosquitoes-at-home-yard",
+    1024,
+    576,
+    [400, 800, 1024],
+  ),
 };
 
 export function optimizedEntry(

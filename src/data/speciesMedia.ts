@@ -91,7 +91,10 @@ export const images = {
   gyurzaBiteHero: "/images/guides/gyurza-bite-hero.jpg",
   gyurzaBiteViperPortrait: "/images/guides/gyurza-bite-viper-portrait.jpg",
   hero: "https://cdn.reptiles.ge/hero-img.webp",
+  mosquitoesAtHomeCover: "/images/guides/mosquitoes-at-home-cover.jpg",
   mosquitoesAtHomeHero: "/images/guides/mosquitoes-at-home-hero.jpg",
+  mosquitoesAtHomeScreen: "/images/guides/mosquitoes-at-home-screen.jpg",
+  mosquitoesAtHomeYard: "/images/guides/mosquitoes-at-home-yard.jpg",
   mouseInHouseCleanup:
     "https://cdn.reptiles.ge/external/mouse-dropping-disinfectant-cleanup.jpg",
   mouseInHouseHero:
