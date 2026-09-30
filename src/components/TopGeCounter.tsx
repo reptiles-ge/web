@@ -1,36 +1,58 @@
 "use client";
 
-import { usePathname } from "next/navigation";
 import Script from "next/script";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 
-const SITE_ID = "118888";
+const PATCHED = Symbol.for("reptiles.topGePush");
+
+type PushState = History["pushState"] & { [PATCHED]?: true };
 
 export function TopGeCounter() {
-  const pathname = usePathname();
-  const referrer = useRef("");
-  const landed = useRef(false);
-
   useEffect(() => {
-    const previous = referrer.current;
-    referrer.current = location.href;
-    if (!landed.current) {
-      landed.current = true;
-      return;
+    const state = (
+      window as unknown as Record<symbol, { originalPushState?: PushState }>
+    )[Symbol.for("vinext.clientNavigationState")];
+    const native = state?.originalPushState;
+    if (!state || !native || native[PATCHED]) return;
+
+    function topGePush(
+      this: History,
+      ...args: Parameters<History["pushState"]>
+    ) {
+      const result = native!.apply(this, args);
+      const img = document.querySelector("#top-ge-counter-container img");
+      if (!(img instanceof HTMLImageElement) || !img.src.includes("count222")) {
+        return result;
+      }
+      const previous = decodeURIComponent(
+        img.src.match(/JL:([^+]*)/)?.[1] ?? "",
+      );
+      img.src = img.src
+        .replace(
+          /RAND:[^+]*/,
+          `RAND:${encodeURIComponent(String(10_000 * Math.random()))}`,
+        )
+        .replace(
+          /REFERER:[^+]*/,
+          `REFERER:${encodeURIComponent(previous.slice(0, 1000))}`,
+        )
+        .replace(
+          /JL:[^+]*/,
+          `JL:${encodeURIComponent(location.href.slice(0, 1000))}`,
+        );
+      return result;
     }
-    const img = document.querySelector("#top-ge-counter-container img");
-    if (img instanceof HTMLImageElement && hitHref(img.src) === location.href) {
-      return;
-    }
-    sendTopGeHit(previous);
-  }, [pathname]);
+
+    topGePush[PATCHED] = true;
+    state.originalPushState = topGePush;
+  }, []);
 
   return (
     <>
       <div
         aria-hidden="true"
         className="pointer-events-none opacity-0"
-        data-site-id={SITE_ID}
+        data-site-id="118888"
         id="top-ge-counter-container"
         inert
       />
@@ -40,32 +62,4 @@ export function TopGeCounter() {
       />
     </>
   );
-}
-
-function hitHref(src: string) {
-  const encoded = src.match(/(?:^|[+?])JL:([^+]*)/)?.[1];
-  return encoded ? decodeURIComponent(encoded) : "";
-}
-
-function sendTopGeHit(referrer: string) {
-  const src =
-    "https://counter.top.ge/cgi-bin/count222?" +
-    [
-      ["ID", SITE_ID],
-      ["JS", "11"],
-      ["RAND", String(10_000 * Math.random())],
-      ["ISFRM", window.self === window.top ? "0" : "1"],
-      ["REFERER", referrer.slice(0, 1000)],
-      ["RESOLUTION", `${screen.width}x${screen.height}`],
-      ["JL", location.href.slice(0, 1000)],
-      ["DEPT", String(screen.colorDepth || screen.pixelDepth)],
-    ]
-      .map(([key, value]) => `${key}:${encodeURIComponent(value)}`)
-      .join("+");
-  const img = document.querySelector("#top-ge-counter-container img");
-  if (img instanceof HTMLImageElement) {
-    img.src = src;
-    return;
-  }
-  new Image().src = src;
 }
