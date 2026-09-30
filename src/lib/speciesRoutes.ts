@@ -195,7 +195,6 @@ const LOOKALIKES: Record<string, string[]> = {
   "mauremys-caspica": [
     "emys-orbicularis",
     "trachemys-scripta",
-    "testudo-graeca",
   ],
   "meles-canescens": ["mustela-nivalis"],
   "mesobuthus-eupeus": ["olivierus-caucasicus"],
@@ -263,7 +262,6 @@ const LOOKALIKES: Record<string, string[]> = {
   "telescopus-fallax": ["vipera-transcaucasiana", "elaphe-dione"],
   "testudo-graeca": [
     "emys-orbicularis",
-    "mauremys-caspica",
     "trachemys-scripta",
   ],
   "trachemys-scripta": [

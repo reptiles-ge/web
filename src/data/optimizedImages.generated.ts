@@ -5156,6 +5156,20 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/mauremys-caspica-david-1.jpg": {
+    "path": "mauremys-caspica-david-1",
+    "width": 2048,
+    "height": 1356,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/mauremys-caspica-donsky-1.jpg": {
+    "path": "mauremys-caspica-donsky-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/mauremys-caspica-giorgi-1.jpg": {
     "path": "mauremys-caspica-giorgi-1",
     "width": 1440,
@@ -5168,6 +5182,27 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 960,
     "height": 640,
     "widths": [320, 400, 640, 800, 960],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/mauremys-caspica-giorgi-3.jpg": {
+    "path": "mauremys-caspica-giorgi-3",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/mauremys-caspica-ka-1.jpg": {
+    "path": "mauremys-caspica-ka-1",
+    "width": 1049,
+    "height": 1007,
+    "widths": [320, 400, 640, 800, 1049],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/mauremys-caspica-l%C3%A9o-1.jpg": {
+    "path": "mauremys-caspica-l%C3%A9o-1",
+    "width": 1620,
+    "height": 1080,
+    "widths": [320, 400, 640, 800, 1200, 1620],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/mauremys-caspica-laura-2.jpg": {
@@ -5183,6 +5218,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "height": 1536,
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif"]
+  },
+  "https://cdn.reptiles.ge/mauremys-caspica-ward-1.jpg": {
+    "path": "mauremys-caspica-ward-1",
+    "width": 1799,
+    "height": 1200,
+    "widths": [320, 400, 640, 800, 1200, 1799],
+    "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/mauremys-caspica-zakro-1.jpg": {
     "path": "mauremys-caspica-zakro-1",

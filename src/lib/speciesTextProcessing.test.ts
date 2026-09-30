@@ -1,5 +1,8 @@
+import fs from "node:fs";
+import path from "node:path";
 import { describe, expect, it } from "vitest";
 
+import { resolveEditorTarget } from "@/lib/contentEditorTarget";
 import { getSpeciesTextFields } from "@/lib/speciesTextProcessing";
 
 describe("species page text fields", () => {
@@ -44,5 +47,18 @@ faq:
       "faq.2.answer",
       "faq.3.answer",
     ]);
+  });
+
+  it("resolves every Caspian turtle text field in all four locales", async () => {
+    const id = "mauremys-caspica";
+    const raw = fs.readFileSync(
+      path.join(process.cwd(), "src/content/species", id, "ka.mdx"),
+      "utf8",
+    );
+    for (const field of getSpeciesTextFields(raw)) {
+      await expect(
+        resolveEditorTarget({ field, id, kind: "species" }),
+      ).resolves.toHaveProperty("source");
+    }
   });
 });
