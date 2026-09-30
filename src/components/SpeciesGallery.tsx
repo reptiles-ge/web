@@ -10,10 +10,16 @@ import {
   SpeciesGalleryLightbox,
 } from "@/components/SpeciesGalleryLightbox";
 import {
+  creditAuthorHref,
+  creditAuthorName,
+  getPublishedCreditAuthorByName,
+} from "@/data/creditAuthors";
+import {
   optimizedEntry,
   optimizedImgSrc,
   pictureSources,
 } from "@/data/optimizedImages";
+import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
 import { formatPhotoDate } from "@/lib/formatDate";
 import {
@@ -257,9 +263,15 @@ function GalleryPhotoCaption({
   const location = credit?.location?.trim();
   const date = credit?.date ? formatPhotoDate(credit.date, locale) : null;
   const photographer = credit?.photographer?.trim();
+  const author = photographer
+    ? getPublishedCreditAuthorByName(photographer)
+    : undefined;
+  const photographerLabel = author
+    ? creditAuthorName(author, locale)
+    : photographer;
   const placeDate = [location, date].filter(Boolean).join(", ");
 
-  if (!placeDate && !photographer) return null;
+  if (!placeDate && !photographerLabel) return null;
 
   return (
     <figcaption className="mt-3 text-[12px] leading-relaxed text-muted-foreground sm:text-[13px]">
@@ -271,9 +283,21 @@ function GalleryPhotoCaption({
       ) : placeDate ? (
         <span className="font-medium text-foreground">{placeDate}</span>
       ) : null}
-      {photographer
-        ? `${placeDate || fieldLabel ? " · " : ""}${photographer}`
-        : null}
+      {photographerLabel ? (
+        <>
+          {placeDate || fieldLabel ? " · " : ""}
+          {author ? (
+            <Link
+              className="underline decoration-current/40 underline-offset-[3px] transition-colors hover:text-foreground hover:decoration-foreground"
+              href={creditAuthorHref(author.slug)}
+            >
+              {photographerLabel}
+            </Link>
+          ) : (
+            photographerLabel
+          )}
+        </>
+      ) : null}
     </figcaption>
   );
 }

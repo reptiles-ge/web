@@ -1,5 +1,4 @@
 import { getLocale, getTranslations } from "next-intl/server";
-import { Fragment } from "react";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
@@ -86,30 +85,20 @@ function IdentificationRichText({ text }: { text: string }) {
 
   return (
     <>
-      {parts.map((part) => {
-        const key =
-          part.type === "text"
-            ? `t:${part.value}`
-            : `s:${part.id}:${part.label}`;
-        if (part.type === "text") {
-          return (
-            <Fragment key={key}>
-              <PhoneLinkedText>{part.value}</PhoneLinkedText>
-            </Fragment>
-          );
-        }
-
-        return (
+      {parts.map((part) =>
+        part.type === "text" ? (
+          <PhoneLinkedText key={part.key}>{part.value}</PhoneLinkedText>
+        ) : (
           <SpeciesInlineLink
             className={inlineSpeciesLinkClassName}
             id={part.id}
-            key={key}
+            key={part.key}
             source="identification"
           >
             {part.label}
           </SpeciesInlineLink>
-        );
-      })}
+        ),
+      )}
     </>
   );
 }
