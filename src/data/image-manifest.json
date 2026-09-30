@@ -8578,6 +8578,87 @@
       ],
       "updatedAt": "2026-08-28T21:29:20.260Z"
     },
+    "canis-aureus-anton-1.jpg": {
+      "sourceHash": "7c2a534c28e8b0d1a8b3e675eaa1d0ba1731666353660268d9dcf285a28233de",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "canis-aureus-anton-1.jpg",
+      "originalSize": 214299,
+      "width": 1071,
+      "height": 714,
+      "derivatives": [
+        {
+          "key": "optimized/canis-aureus-anton-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 214,
+          "byteSize": 14534
+        },
+        {
+          "key": "optimized/canis-aureus-anton-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 214,
+          "byteSize": 23000
+        },
+        {
+          "key": "optimized/canis-aureus-anton-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 20905
+        },
+        {
+          "key": "optimized/canis-aureus-anton-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 32268
+        },
+        {
+          "key": "optimized/canis-aureus-anton-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 40690
+        },
+        {
+          "key": "optimized/canis-aureus-anton-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 61074
+        },
+        {
+          "key": "optimized/canis-aureus-anton-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 56372
+        },
+        {
+          "key": "optimized/canis-aureus-anton-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 82104
+        },
+        {
+          "key": "optimized/canis-aureus-anton-1-1071.avif",
+          "format": "avif",
+          "width": 1071,
+          "height": 714,
+          "byteSize": 87203
+        },
+        {
+          "key": "optimized/canis-aureus-anton-1-1071.webp",
+          "format": "webp",
+          "width": 1071,
+          "height": 714,
+          "byteSize": 119874
+        }
+      ],
+      "updatedAt": "2026-09-30T08:43:19.405Z"
+    },
     "canis-aureus-bukvic-1.jpg": {
       "sourceHash": "2725e768b7b0ecb410eb5b235e900bd0f5313f2cf72e11e66986bcaac4cd2e39",
       "configFingerprint": "a895f8e025dcc7fa",
