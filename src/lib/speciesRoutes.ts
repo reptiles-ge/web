@@ -196,7 +196,6 @@ const LOOKALIKES: Record<string, string[]> = {
     "emys-orbicularis",
     "trachemys-scripta",
   ],
-  "meles-canescens": ["mustela-nivalis"],
   "mesobuthus-eupeus": ["olivierus-caucasicus"],
   "milvus-migrans": ["buteo-buteo", "pernis-apivorus"],
   "natrix-natrix": ["natrix-tessellata", "vipera-kaznakovi"],

@@ -31,6 +31,10 @@ describe("occurrenceStatusForCount", () => {
     const bearThreshold = confirmedRecordThresholdForSpecies("ursus-arctos");
     expect(occurrenceStatusForCount(7, bearThreshold)).toBe("recorded-only");
     expect(occurrenceStatusForCount(8, bearThreshold)).toBe("confirmed");
+    const weaselThreshold =
+      confirmedRecordThresholdForSpecies("mustela-nivalis");
+    expect(occurrenceStatusForCount(0, weaselThreshold)).toBe("recorded-only");
+    expect(occurrenceStatusForCount(1, weaselThreshold)).toBe("confirmed");
     const zamenisThreshold = confirmedRecordThresholdForSpecies(
       "zamenis-hohenackeri",
     );
