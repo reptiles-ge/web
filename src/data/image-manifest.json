@@ -58804,6 +58804,101 @@
       ],
       "updatedAt": "2026-09-08T16:19:36.863Z"
     },
+    "mauremys-caspica-giorgi-3.jpg": {
+      "sourceHash": "819227d118e051e4ac291c2d3467316e7117122bd3dceaab70d65054dd97a83a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "mauremys-caspica-giorgi-3.jpg",
+      "originalSize": 498485,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/mauremys-caspica-giorgi-3-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8399
+        },
+        {
+          "key": "optimized/mauremys-caspica-giorgi-3-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11524
+        },
+        {
+          "key": "optimized/mauremys-caspica-giorgi-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 12060
+        },
+        {
+          "key": "optimized/mauremys-caspica-giorgi-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 16918
+        },
+        {
+          "key": "optimized/mauremys-caspica-giorgi-3-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 27956
+        },
+        {
+          "key": "optimized/mauremys-caspica-giorgi-3-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 39786
+        },
+        {
+          "key": "optimized/mauremys-caspica-giorgi-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 41584
+        },
+        {
+          "key": "optimized/mauremys-caspica-giorgi-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 59638
+        },
+        {
+          "key": "optimized/mauremys-caspica-giorgi-3-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 80320
+        },
+        {
+          "key": "optimized/mauremys-caspica-giorgi-3-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 114890
+        },
+        {
+          "key": "optimized/mauremys-caspica-giorgi-3-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 183464
+        },
+        {
+          "key": "optimized/mauremys-caspica-giorgi-3-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 255604
+        }
+      ],
+      "updatedAt": "2026-09-30T19:26:00.910Z"
+    },
     "mauremys-caspica-laura-1.jpg": {
       "sourceHash": "f5feb2efd3652662b6a6552cdd2e2213f98525a6b36e47335691aa6b91ea91dd",
       "configFingerprint": "409788ee46c653d8",

@@ -5184,6 +5184,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 960],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/mauremys-caspica-giorgi-3.jpg": {
+    "path": "mauremys-caspica-giorgi-3",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/mauremys-caspica-l%C3%A9o-1.jpg": {
     "path": "mauremys-caspica-l%C3%A9o-1",
     "width": 1620,
