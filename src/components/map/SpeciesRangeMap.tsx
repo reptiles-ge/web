@@ -508,6 +508,48 @@ const INTERACTIVE_RANGE_MAPS: Partial<
     iNaturalistTaxonId: 154213,
     rangeSource: "record-summary",
   },
+  "canis-aureus": {
+    copy: {
+      en: {
+        ...HALYOMORPHA_RANGE_COPY.en,
+        intro:
+          "The golden jackal map uses reviewed public iNaturalist photo observations from Georgia. Only regions marked confirmed in the records-by-region table are shaded as distribution; other points are individual records. Record counts reflect observation effort, not population density.",
+        mapAria:
+          "Golden jackal field records and confirmed distribution on a map of Georgia",
+        officialRegionLabel: "Confirmed distribution region",
+        rangeTitle: "Where golden jackal is recorded in Georgia",
+      },
+      ka: {
+        ...HALYOMORPHA_RANGE_COPY.ka,
+        intro:
+          "ტურას რუკა იყენებს საქართველოში გადამოწმებულ iNaturalist-ის საჯარო ფოტოდაკვირვებებს. გავრცელებად შეფერილია მხოლოდ რეგიონი, რომელსაც ქვემოთ მოცემულ ცხრილში დადასტურებული სტატუსი აქვს; სხვა წერტილები ცალკეული ჩანაწერებია. ჩანაწერების რაოდენობა დაკვირვების ინტენსივობას ასახავს და არა პოპულაციის სიმჭიდროვეს.",
+        mapAria:
+          "ტურას საველე ჩანაწერები და დადასტურებული გავრცელება საქართველოს რუკაზე",
+        officialRegionLabel: "დადასტურებული გავრცელების რეგიონი",
+        rangeTitle: "სად არის ტურა დაფიქსირებული საქართველოში",
+      },
+      ru: {
+        ...HALYOMORPHA_RANGE_COPY.ru,
+        intro:
+          "Карта шакала использует проверенные публичные фотонаблюдения iNaturalist из Грузии. Как распространение окрашены только регионы с подтверждённым статусом в таблице записей; остальные точки — отдельные находки. Число записей отражает активность наблюдателей, а не плотность популяции.",
+        mapAria:
+          "Полевые записи шакала и подтверждённое распространение на карте Грузии",
+        officialRegionLabel: "Регион с подтверждённым распространением",
+        rangeTitle: "Где шакал отмечен в Грузии",
+      },
+      tr: {
+        ...HALYOMORPHA_RANGE_COPY.tr,
+        intro:
+          "Çakal haritası Gürcistan'daki incelenmiş herkese açık iNaturalist fotoğraflı gözlemlerini kullanır. Yalnızca kayıt tablosunda doğrulanmış durumdaki bölgeler yayılış olarak boyanır; diğer noktalar tekil kayıtlardır. Kayıt sayısı gözlem çabasını yansıtır, nüfus yoğunluğunu değil.",
+        mapAria:
+          "Çakalın Gürcistan'daki arazi kayıtları ve doğrulanmış yayılışı",
+        officialRegionLabel: "Yayılışı doğrulanmış bölge",
+        rangeTitle: "Çakal Gürcistan'da nerede kaydedildi?",
+      },
+    },
+    iNaturalistTaxonId: 851014,
+    rangeSource: "record-summary",
+  },
   "capreolus-capreolus": {
     copy: {
       en: {
@@ -591,6 +633,47 @@ const INTERACTIVE_RANGE_MAPS: Partial<
       },
     },
     iNaturalistTaxonId: 61866,
+    rangeSource: "record-summary",
+  },
+  "columba-palumbus": {
+    copy: {
+      en: {
+        ...HALYOMORPHA_RANGE_COPY.en,
+        intro:
+          "This map uses public, photo-backed iNaturalist observations in Georgia. A region with at least one retained record is highlighted as confirmed. Points and shading show evidence of occurrence, not continuous presence across a region. Some public coordinates are approximate. Record counts reflect observation effort, not population density.",
+        mapAria:
+          "Common woodpigeon observations and confirmed regions on a map of Georgia",
+        officialRegionLabel: "Region with confirmed records",
+        rangeTitle: "Where common woodpigeon is recorded in Georgia",
+      },
+      ka: {
+        ...HALYOMORPHA_RANGE_COPY.ka,
+        intro:
+          "რუკა საქართველოში iNaturalist-ის საჯარო, ფოტოდადასტურებულ დაკვირვებებს ეყრდნობა. რეგიონი დადასტურებულად გამოიკვეთება, თუ მასში სულ მცირე ერთი შენარჩუნებული ჩანაწერია. წერტილები და გამოკვეთილი რეგიონები არსებობის მტკიცებულებაა და არა მთელ რეგიონში უწყვეტი გავრცელება. ზოგი საჯარო კოორდინატი მიახლოებითია. ჩანაწერების რაოდენობა დაკვირვების ინტენსივობას ასახავს და არა პოპულაციის სიმჭიდროვეს.",
+        mapAria:
+          "ქედანის დაკვირვებები და დადასტურებული რეგიონები საქართველოს რუკაზე",
+        officialRegionLabel: "დადასტურებული ჩანაწერების მქონე რეგიონი",
+        rangeTitle: "სად არის ქედანი დაფიქსირებული საქართველოში",
+      },
+      ru: {
+        ...HALYOMORPHA_RANGE_COPY.ru,
+        intro:
+          "Карта использует публичные наблюдения iNaturalist с фотографиями из Грузии. Регион выделяется как подтверждённый при наличии не менее одной сохранённой записи. Точки и выделение показывают свидетельства присутствия, а не сплошное распространение по региону. Некоторые публичные координаты приблизительны. Число записей отражает усилия наблюдателей, а не плотность популяции.",
+        mapAria: "Наблюдения вяхиря и подтверждённые регионы на карте Грузии",
+        officialRegionLabel: "Регион с подтверждёнными записями",
+        rangeTitle: "Где вяхирь отмечен в Грузии",
+      },
+      tr: {
+        ...HALYOMORPHA_RANGE_COPY.tr,
+        intro:
+          "Harita, Gürcistan'daki fotoğraflı halka açık iNaturalist gözlemlerini kullanır. En az bir tutulan kaydı olan bölge doğrulanmış olarak vurgulanır. Noktalar ve vurgular, bölgenin tamamında kesintisiz yayılışı değil, varlık kanıtını gösterir. Bazı açık koordinatlar yaklaşıktır. Kayıt sayısı popülasyon yoğunluğunu değil gözlem çabasını yansıtır.",
+        mapAria:
+          "Tahtalı gözlemleri ve doğrulanmış bölgeler Gürcistan haritasında",
+        officialRegionLabel: "Doğrulanmış kayıtları olan bölge",
+        rangeTitle: "Tahtalı Gürcistan'da nerede kaydedildi?",
+      },
+    },
+    iNaturalistTaxonId: 3048,
     rangeSource: "record-summary",
   },
   "coronella-austriaca": {
@@ -1035,7 +1118,8 @@ const INTERACTIVE_RANGE_MAPS: Partial<
           "В чек-листе 2026 года названы местонахождения в Аджарии, Гурии, Самцхе–Джавахети и Шида-Картли. Статус подтверждённых регионов основан на этих местонахождениях, а не на числе наблюдений. iNaturalist учитывает M. djanaschvilii отдельно, поэтому здесь показаны записи только таксона M. caucasica по iNaturalist. Публичные координаты скрыты примерно на 27 км; точки и их распределение по регионам приблизительны и могут пересекать границы. Число записей не измеряет плотность популяции и не означает сплошное распространение по всему региону.",
         mapAria:
           "Подтверждённые источником регионы и приблизительные наблюдения кавказской саламандры на карте Грузии",
-        officialRegionLabel: "Регион распространения, подтверждённый источником",
+        officialRegionLabel:
+          "Регион распространения, подтверждённый источником",
         rangeTitle: "Где кавказская саламандра отмечена в Грузии",
       },
       tr: {
@@ -1909,9 +1993,7 @@ function HalyomorphaRangeSection({
                       <th className="py-3 pr-3 text-left align-top font-medium text-foreground sm:align-middle">
                         <span className="flex min-w-0 items-center gap-2">
                           <span className="min-w-0 [&_button]:min-w-0">
-                            <HalyomorphaRegionSelectButton
-                              regionId={region.id}
-                            >
+                            <HalyomorphaRegionSelectButton regionId={region.id}>
                               {region.name}
                             </HalyomorphaRegionSelectButton>
                           </span>

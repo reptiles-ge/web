@@ -126,6 +126,8 @@ export const RESERVED_HUB_SLUGS: Record<GroupHubId, readonly string[]> = {
     "species",
     "krazanis-bude",
     "wasp-nest",
+    "koghoebi-sakhlshi-da-ezoshi",
+    "mosquitoes-at-home",
     "farosana-sakhlshi",
     "stink-bug-in-house",
     "chianchvelebi-sakhlshi",
