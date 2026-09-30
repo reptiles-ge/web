@@ -78,11 +78,7 @@ const LOOKALIKES: Record<string, string[]> = {
   "cervus-elaphus": ["capreolus-capreolus", "capra-aegagrus", "sus-scrofa"],
   "coronella-austriaca": ["vipera-transcaucasiana"],
   "coturnix-coturnix": ["phasianus-colchicus"],
-  "darevskia-adjarica": [
-    "darevskia-clarkorum",
-    "darevskia-derjugini",
-    "darevskia-mixta",
-  ],
+  "darevskia-adjarica": ["darevskia-clarkorum"],
   "darevskia-alpina": ["darevskia-caucasica", "darevskia-brauneri"],
   "darevskia-armeniaca": [
     "darevskia-valentini",
@@ -110,7 +106,6 @@ const LOOKALIKES: Record<string, string[]> = {
     "darevskia-clarkorum",
     "darevskia-caucasica",
     "darevskia-derjugini",
-    "darevskia-adjarica",
     "darevskia-brauneri",
   ],
   "darevskia-pontica": [

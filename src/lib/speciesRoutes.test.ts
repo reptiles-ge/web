@@ -64,6 +64,18 @@ describe("species routes", () => {
     }
   });
 
+  it("keeps Ajarian rock lizard lookalikes to the supported visual match", () => {
+    expect(getSpeciesLookalikes("darevskia-adjarica")).toEqual([
+      "darevskia-clarkorum",
+    ]);
+    expect(getSpeciesLookalikes("darevskia-clarkorum")).toContain(
+      "darevskia-adjarica",
+    );
+    for (const id of ["darevskia-derjugini", "darevskia-mixta"]) {
+      expect(getSpeciesLookalikes(id)).not.toContain("darevskia-adjarica");
+    }
+  });
+
   it("keeps red-bellied racer lookalikes to supported visual matches", () => {
     expect(getSpeciesLookalikes("dolichophis-schmidti")).toEqual([
       "malpolon-insignitus",
