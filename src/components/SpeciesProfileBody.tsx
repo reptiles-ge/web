@@ -1114,7 +1114,7 @@ async function SpeciesProfileNavigation({
       aria-label={t("contents")}
       className="sticky top-[68px] z-30 border-y border-border bg-background/95 backdrop-blur-xl"
     >
-      <ul className="mx-auto flex h-11 max-w-[1400px] scrollbar-none items-center gap-5 overflow-x-auto px-6 text-[13px] leading-none lg:px-10 [&::-webkit-scrollbar]:hidden">
+      <ul className="mx-auto flex h-11 max-w-[1400px] scrollbar-none items-center gap-5 overflow-x-auto pr-16 pl-6 text-[13px] leading-none lg:px-10 [&::-webkit-scrollbar]:hidden">
         {ids.map((id) => (
           <li className="shrink-0 translate-y-[3px]" key={id}>
             <a
@@ -1126,6 +1126,10 @@ async function SpeciesProfileNavigation({
           </li>
         ))}
       </ul>
+      <span
+        aria-hidden
+        className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-linear-to-r from-transparent to-background lg:hidden"
+      />
     </nav>
   );
 }
