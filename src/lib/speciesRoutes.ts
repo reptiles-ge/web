@@ -116,14 +116,13 @@ const LOOKALIKES: Record<string, string[]> = {
   "darevskia-pontica": [
     "darevskia-praticola",
     "darevskia-derjugini",
-    "lacerta-agilis",
   ],
   "darevskia-portschinskii": [
     "darevskia-dahli",
     "darevskia-obscura",
     "darevskia-valentini",
   ],
-  "darevskia-praticola": ["darevskia-pontica", "lacerta-agilis"],
+  "darevskia-praticola": ["darevskia-pontica"],
   "darevskia-raddei": ["darevskia-obscura"],
   "darevskia-valentini": ["darevskia-obscura", "darevskia-armeniaca"],
   "dendrocopos-major": ["picus-viridis", "jynx-torquilla"],
@@ -179,11 +178,7 @@ const LOOKALIKES: Record<string, string[]> = {
     "bufotes-viridis",
   ],
   "hyla-savignyi": ["hyla-orientalis", "pelophylax-ridibundus"],
-  "lacerta-agilis": [
-    "lacerta-strigata",
-    "lacerta-media",
-    "darevskia-derjugini",
-  ],
+  "lacerta-agilis": ["lacerta-strigata", "lacerta-media"],
   "lacerta-media": ["lacerta-strigata", "lacerta-agilis"],
   "lacerta-strigata": ["lacerta-agilis", "lacerta-media", "ophisops-elegans"],
   "latrodectus-tredecimguttatus": ["steatoda-paykulliana"],
@@ -243,7 +238,7 @@ const LOOKALIKES: Record<string, string[]> = {
     "falco-peregrinus",
   ],
   "phasianus-colchicus": ["coturnix-coturnix"],
-  "phoenicolacerta-laevis": ["darevskia-pontica", "lacerta-agilis"],
+  "phoenicolacerta-laevis": ["darevskia-pontica"],
   "pholcus-phalangioides": ["araneus-diadematus"],
   "pica-pica": ["corvus-corax", "garrulus-glandarius"],
   "platyceps-najadum": [

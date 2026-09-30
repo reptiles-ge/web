@@ -160,6 +160,22 @@ describe("species routes", () => {
     );
   });
 
+  it("limits sand lizard lookalikes to supported visual matches", () => {
+    const peers = ["lacerta-strigata", "lacerta-media"];
+    expect(getSpeciesLookalikes("lacerta-agilis")).toEqual(peers);
+    for (const id of peers) {
+      expect(getSpeciesLookalikes(id)).toContain("lacerta-agilis");
+    }
+    for (const id of [
+      "darevskia-derjugini",
+      "darevskia-pontica",
+      "darevskia-praticola",
+      "phoenicolacerta-laevis",
+    ]) {
+      expect(getSpeciesLookalikes(id)).not.toContain("lacerta-agilis");
+    }
+  });
+
   it("keeps the mottled scorpion comparison to the visual match", () => {
     expect(getSpeciesLookalikes("mesobuthus-eupeus")).toEqual([
       "olivierus-caucasicus",
