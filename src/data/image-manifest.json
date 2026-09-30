@@ -58994,6 +58994,101 @@
       ],
       "updatedAt": "2026-09-08T16:21:21.583Z"
     },
+    "mauremys-caspica-léo-1.jpg": {
+      "sourceHash": "023843e76bb812072972a338f9640c6f11b9cd9ee7f926509e03621ac760ccd3",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "mauremys-caspica-léo-1.jpg",
+      "originalSize": 224868,
+      "width": 1620,
+      "height": 1080,
+      "derivatives": [
+        {
+          "key": "optimized/mauremys-caspica-léo-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8015
+        },
+        {
+          "key": "optimized/mauremys-caspica-léo-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9546
+        },
+        {
+          "key": "optimized/mauremys-caspica-léo-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 11341
+        },
+        {
+          "key": "optimized/mauremys-caspica-léo-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 14068
+        },
+        {
+          "key": "optimized/mauremys-caspica-léo-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 21816
+        },
+        {
+          "key": "optimized/mauremys-caspica-léo-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 27804
+        },
+        {
+          "key": "optimized/mauremys-caspica-léo-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 29580
+        },
+        {
+          "key": "optimized/mauremys-caspica-léo-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 38796
+        },
+        {
+          "key": "optimized/mauremys-caspica-léo-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 50418
+        },
+        {
+          "key": "optimized/mauremys-caspica-léo-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 65284
+        },
+        {
+          "key": "optimized/mauremys-caspica-léo-1-1620.avif",
+          "format": "avif",
+          "width": 1620,
+          "height": 1080,
+          "byteSize": 76893
+        },
+        {
+          "key": "optimized/mauremys-caspica-léo-1-1620.webp",
+          "format": "webp",
+          "width": 1620,
+          "height": 1080,
+          "byteSize": 98144
+        }
+      ],
+      "updatedAt": "2026-09-30T19:24:04.310Z"
+    },
     "mauremys-caspica-mobile.jpg": {
       "sourceHash": "72734e41cea882a8ba626c0470239d11030a16d068d61df9db236425288d5f59",
       "configFingerprint": "a895f8e025dcc7fa",
