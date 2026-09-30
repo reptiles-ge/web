@@ -708,7 +708,7 @@ export const MOSQUITOES_AT_HOME = defineGuideArticle({
     },
   },
   messageKey: "mosquitoesAtHome",
-  ogImage: "/og/images/guides/mosquitoes-at-home.jpg",
+  ogImage: "https://cdn.reptiles.ge/og/images/guides/mosquitoes-at-home.jpg",
   parentHub: "insects",
   pathname: "/insects/koghoebi-sakhlshi-da-ezoshi",
   search: {
