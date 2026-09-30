@@ -139,15 +139,23 @@ describe("occurrenceStatusForCount", () => {
         .map(({ count, id, status }) => ({ count, id, status }))
         .sort((a, b) => a.id.localeCompare(b.id)),
     ).toEqual([
-      { count: 3, id: "adjara", status: "recorded-only" },
+      { count: 3, id: "adjara", status: "confirmed" },
       { count: 5, id: "kakheti", status: "confirmed" },
-      { count: 3, id: "kvemo-kartli", status: "recorded-only" },
-      { count: 4, id: "mtskheta-mtianeti", status: "recorded-only" },
-      { count: 1, id: "samtskhe-javakheti", status: "recorded-only" },
+      { count: 3, id: "kvemo-kartli", status: "confirmed" },
+      { count: 4, id: "mtskheta-mtianeti", status: "confirmed" },
+      { count: 1, id: "samtskhe-javakheti", status: "confirmed" },
     ]);
-    expect(getRegionsForSpecies(species.id).map((region) => region.id)).toEqual(
-      ["kakheti"],
-    );
+    expect(
+      getRegionsForSpecies(species.id)
+        .map((region) => region.id)
+        .sort(),
+    ).toEqual([
+      "adjara",
+      "kakheti",
+      "kvemo-kartli",
+      "mtskheta-mtianeti",
+      "samtskhe-javakheti",
+    ]);
   });
 
   it("uses checklist localities, not obscured point counts, for Caucasian Salamander regions", () => {
