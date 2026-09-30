@@ -123,6 +123,12 @@ export function getHalyomorphaOccurrenceSummary(
   const mertensiellaRecords = records.some(
     (record) => record.note === MERTENSIELLA_OBSCURED_RECORD_NOTE,
   );
+  const adjaricaAbastumaniSample = records.some(
+    (record) =>
+      record.note === "Darevskia adjarica — ZDEU 49/2019" &&
+      record.regionId === "samtskhe-javakheti" &&
+      record.url === "https://doi.org/10.1007/s13127-022-00540-4",
+  );
   const byRegion = new Map<RegionPathId, HalyomorphaFieldRecord[]>();
   for (const record of records) {
     if (!record.regionId) continue;
@@ -141,10 +147,12 @@ export function getHalyomorphaOccurrenceSummary(
       ? MERTENSIELLA_SOURCE_CONFIRMED_REGIONS.has(id)
         ? "confirmed"
         : "recorded-only"
-      : occurrenceStatusForCount(
-          regionRecords.length,
-          confirmedRecordThreshold,
-        );
+      : adjaricaAbastumaniSample && id === "samtskhe-javakheti"
+        ? "confirmed"
+        : occurrenceStatusForCount(
+            regionRecords.length,
+            confirmedRecordThreshold,
+          );
     return {
       center,
       count: regionRecords.length,

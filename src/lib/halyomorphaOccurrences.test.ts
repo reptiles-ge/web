@@ -81,6 +81,38 @@ describe("occurrenceStatusForCount", () => {
     });
   });
 
+  it("confirms the published Abastumani sample without lowering the record threshold", () => {
+    const records = getHalyomorphaFieldRecords({
+      fieldRecords: [
+        {
+          lat: 41.74739,
+          lng: 42.83541,
+          locality: "Abastumani",
+          note: "Darevskia adjarica — ZDEU 49/2019",
+          source: "Arribas et al. 2022",
+          url: "https://doi.org/10.1007/s13127-022-00540-4",
+        },
+        {
+          lat: 41.78446,
+          lng: 42.84246,
+          locality: "Adigeni Municipality",
+          url: "https://www.inaturalist.org/observations/237517938",
+        },
+      ],
+      gallery: [],
+      locale: "en",
+      speciesName: "Ajarian rock lizard",
+    });
+    const withSource = getHalyomorphaOccurrenceSummary(records, "en");
+    const withoutSource = getHalyomorphaOccurrenceSummary(
+      records.filter((record) => !record.note),
+      "en",
+    );
+
+    expect(withSource.recordsByRegion[0].status).toBe("confirmed");
+    expect(withoutSource.recordsByRegion[0].status).toBe("recorded-only");
+  });
+
   it("uses only confirmed Zamenis regions as distribution", () => {
     const species = getSpeciesById("zamenis-hohenackeri");
     expect(species).toBeDefined();

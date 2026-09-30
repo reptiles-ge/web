@@ -803,6 +803,48 @@ const INTERACTIVE_RANGE_MAPS: Partial<
     iNaturalistTaxonId: 73760,
     rangeSource: "record-summary",
   },
+  "darevskia-adjarica": {
+    copy: {
+      en: {
+        ...HALYOMORPHA_RANGE_COPY.en,
+        intro:
+          "The Ajarian rock lizard map combines the published Shuakhevi and Abastumani samples, editorial geolocated photos, and public iNaturalist observations. Only confirmed regions in the records-by-region table are highlighted. Individual points do not imply presence throughout a region, and record counts measure neither range coverage nor population density. Points outside the regional polygons remain unassigned. Regional confirmation does not settle the taxon's candidate species rank.",
+        mapAria:
+          "Ajarian rock lizard field records and confirmed regions on a map of Georgia",
+        officialRegionLabel: "Confirmed distribution region",
+        rangeTitle: "Where Ajarian rock lizard is recorded in Georgia",
+      },
+      ka: {
+        ...HALYOMORPHA_RANGE_COPY.ka,
+        intro:
+          "აჭარული კლდის ხვლიკის რუკა აერთიანებს შუახევისა და აბასთუმნის გამოქვეყნებულ ნიმუშებს, სარედაქციო ფოტოებს მითითებული ადგილებითა და iNaturalist-ის საჯარო დაკვირვებებს. გამოკვეთილია მხოლოდ ის რეგიონები, რომლებსაც ქვემოთ მოცემულ ჩანაწერების ცხრილში დადასტურებული სტატუსი აქვს. ცალკეული წერტილი მთელ რეგიონში გავრცელებას არ ნიშნავს, ჩანაწერების რაოდენობა კი არც არეალის სისრულეს და არც პოპულაციის სიმჭიდროვეს ზომავს. რეგიონული პოლიგონების გარეთ მდებარე წერტილები რეგიონს არ მიეკუთვნება. რეგიონის დადასტურება ტაქსონის კანდიდატურ სტატუსს არ ცვლის.",
+        mapAria:
+          "აჭარული კლდის ხვლიკის საველე ჩანაწერები და დადასტურებული რეგიონები საქართველოს რუკაზე",
+        officialRegionLabel: "დადასტურებული გავრცელების რეგიონი",
+        rangeTitle: "სად არის აჭარული კლდის ხვლიკი დაფიქსირებული საქართველოში",
+      },
+      ru: {
+        ...HALYOMORPHA_RANGE_COPY.ru,
+        intro:
+          "Карта аджарской скальной ящерицы объединяет опубликованные образцы из Шуахеви и Абастумани, редакционные фотографии с указанием места и публичные наблюдения iNaturalist. Выделены только регионы со статусом подтверждённого распространения в таблице записей. Отдельная точка не означает присутствия во всём регионе, а число записей не измеряет ни полноту изучения ареала, ни плотность популяции. Точки за пределами региональных полигонов остаются без привязки к региону. Подтверждение региона не меняет кандидатный статус таксона.",
+        mapAria:
+          "Полевые записи аджарской скальной ящерицы и подтверждённые регионы на карте Грузии",
+        officialRegionLabel: "Регион с подтверждённым распространением",
+        rangeTitle: "Где аджарская скальная ящерица отмечена в Грузии",
+      },
+      tr: {
+        ...HALYOMORPHA_RANGE_COPY.tr,
+        intro:
+          "Acar kayalık kertenkelesi haritası Şuahevi ve Abastumani'den yayımlanmış örnekleri, konum bilgili editoryal fotoğrafları ve herkese açık iNaturalist gözlemlerini birleştirir. Yalnızca bölgelere göre kayıt tablosunda doğrulanmış durumdaki bölgeler vurgulanır. Tek bir nokta tüm bölgede bulunduğu anlamına gelmez; kayıt sayısı ne yayılışın bütünü ne de nüfus yoğunluğu ölçüsüdür. Bölge çokgenlerinin dışındaki noktalar bir bölgeye atanmaz. Bölgesel doğrulama, taksonun aday tür statüsünü değiştirmez.",
+        mapAria:
+          "Acar kayalık kertenkelesinin arazi kayıtları ve doğrulanmış bölgeleri Gürcistan haritasında",
+        officialRegionLabel: "Yayılışı doğrulanmış bölge",
+        rangeTitle: "Acar kayalık kertenkelesi Gürcistan'da nerede kaydedildi?",
+      },
+    },
+    iNaturalistTaxonId: 1403134,
+    rangeSource: "record-summary",
+  },
   "euscorpius-italicus": {
     copy: {
       en: {
