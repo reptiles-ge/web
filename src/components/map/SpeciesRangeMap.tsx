@@ -812,7 +812,8 @@ const INTERACTIVE_RANGE_MAPS: Partial<
         mapAria:
           "Ring-headed dwarf snake observations and confirmed regions on a map of Georgia",
         officialRegionLabel: "Confirmed distribution region",
-        rangeTitle: "Where ring-headed dwarf snake distribution is confirmed in Georgia",
+        rangeTitle:
+          "Where ring-headed dwarf snake distribution is confirmed in Georgia",
       },
       ka: {
         ...HALYOMORPHA_RANGE_COPY.ka,
@@ -821,7 +822,8 @@ const INTERACTIVE_RANGE_MAPS: Partial<
         mapAria:
           "წყნარი ეირენისის დაკვირვებები და დადასტურებული რეგიონები საქართველოს რუკაზე",
         officialRegionLabel: "დადასტურებული გავრცელების რეგიონი",
-        rangeTitle: "სად არის წყნარი ეირენისის გავრცელება დადასტურებული საქართველოში",
+        rangeTitle:
+          "სად არის წყნარი ეირენისის გავრცელება დადასტურებული საქართველოში",
       },
       ru: {
         ...HALYOMORPHA_RANGE_COPY.ru,
@@ -830,7 +832,8 @@ const INTERACTIVE_RANGE_MAPS: Partial<
         mapAria:
           "Наблюдения скромного эйрениса и подтверждённые регионы на карте Грузии",
         officialRegionLabel: "Регион с подтверждённым распространением",
-        rangeTitle: "Где распространение скромного эйрениса подтверждено в Грузии",
+        rangeTitle:
+          "Где распространение скромного эйрениса подтверждено в Грузии",
       },
       tr: {
         ...HALYOMORPHA_RANGE_COPY.tr,
@@ -839,7 +842,8 @@ const INTERACTIVE_RANGE_MAPS: Partial<
         mapAria:
           "Halkalı başlı cüce yılan gözlemleri ve doğrulanmış bölgeler Gürcistan haritasında",
         officialRegionLabel: "Yayılışı doğrulanmış bölge",
-        rangeTitle: "Halkalı başlı cüce yılanın yayılışı Gürcistan'da nerede doğrulandı?",
+        rangeTitle:
+          "Halkalı başlı cüce yılanın yayılışı Gürcistan'da nerede doğrulandı?",
       },
     },
     iNaturalistTaxonId: 30293,
@@ -1261,7 +1265,7 @@ const INTERACTIVE_RANGE_MAPS: Partial<
       en: {
         ...HALYOMORPHA_RANGE_COPY.en,
         intro:
-          "The least weasel map combines Reptiles.ge field photos with public iNaturalist photo observations. Only Mtskheta–Mtianeti is confirmed in the records-by-region table; Adjara, Kakheti, and Samtskhe–Javakheti have individual records only. A highlighted region does not imply presence throughout it, and record counts do not measure population density.",
+          "The least weasel map combines Reptiles.ge field photos with public iNaturalist photo observations. Regions come from the records-by-region table; for this species, one record is enough to confirm distribution. A highlighted region does not imply presence throughout it, and record counts do not measure population density.",
         mapAria:
           "Least weasel photo observations and confirmed distribution on a map of Georgia",
         officialRegionLabel: "Region with confirmed distribution",
@@ -1270,7 +1274,7 @@ const INTERACTIVE_RANGE_MAPS: Partial<
       ka: {
         ...HALYOMORPHA_RANGE_COPY.ka,
         intro:
-          "დედოფალას რუკა აერთიანებს Reptiles.ge-ის საველე ფოტოებსა და iNaturalist-ის საჯარო ფოტოდაკვირვებებს. რეგიონულ ცხრილში გავრცელება დადასტურებულია მხოლოდ მცხეთა–მთიანეთში; აჭარაში, კახეთსა და სამცხე–ჯავახეთში მხოლოდ ცალკეული ჩანაწერებია. გამოკვეთილი რეგიონი მის მთელ ტერიტორიაზე არსებობას არ ნიშნავს, ხოლო ჩანაწერების რაოდენობა პოპულაციის სიმჭიდროვე არ არის.",
+          "დედოფალას რუკა აერთიანებს Reptiles.ge-ის საველე ფოტოებსა და iNaturalist-ის საჯარო ფოტოდაკვირვებებს. რეგიონები აღებულია ჩანაწერების რეგიონული ცხრილიდან; ამ სახეობაზე ერთი ჩანაწერიც საკმარისია, რომ რეგიონი დადასტურებულ გავრცელებად ჩაითვალოს. გამოკვეთილი რეგიონი მის მთელ ტერიტორიაზე არსებობას არ ნიშნავს, ხოლო ჩანაწერების რაოდენობა პოპულაციის სიმჭიდროვე არ არის.",
         mapAria:
           "დედოფალას ფოტოდაკვირვებები და დადასტურებული გავრცელება საქართველოს რუკაზე",
         officialRegionLabel: "დადასტურებული გავრცელების რეგიონი",
@@ -1279,7 +1283,7 @@ const INTERACTIVE_RANGE_MAPS: Partial<
       ru: {
         ...HALYOMORPHA_RANGE_COPY.ru,
         intro:
-          "Карта ласки объединяет полевые фотографии Reptiles.ge и публичные фотонаблюдения iNaturalist. В региональной таблице распространение подтверждено только в Мцхета–Мтианети; в Аджарии, Кахетии и Самцхе–Джавахети есть лишь отдельные записи. Выделенный регион не означает присутствия на всей его территории, а число записей не измеряет плотность популяции.",
+          "Карта ласки объединяет полевые фотографии Reptiles.ge и публичные фотонаблюдения iNaturalist. Регионы взяты из таблицы записей; для этого вида одной записи достаточно, чтобы считать распространение подтверждённым. Выделенный регион не означает присутствия на всей его территории, а число записей не измеряет плотность популяции.",
         mapAria:
           "Фотонаблюдения ласки и подтверждённое распространение на карте Грузии",
         officialRegionLabel: "Регион с подтверждённым распространением",
@@ -1288,7 +1292,7 @@ const INTERACTIVE_RANGE_MAPS: Partial<
       tr: {
         ...HALYOMORPHA_RANGE_COPY.tr,
         intro:
-          "Gelincik haritası Reptiles.ge arazi fotoğraflarını ve herkese açık iNaturalist fotoğraflı gözlemlerini birleştirir. Bölgesel tabloda yayılış yalnızca Mtsheta–Mtianeti'de doğrulanmıştır; Acara, Kaheti ve Samtshe–Cavaheti'de yalnızca tekil kayıtlar vardır. Vurgulanan bölge türün her yerinde bulunduğu anlamına gelmez; kayıt sayısı popülasyon yoğunluğunu ölçmez.",
+          "Gelincik haritası Reptiles.ge arazi fotoğraflarını ve herkese açık iNaturalist fotoğraflı gözlemlerini birleştirir. Bölgeler kayıt tablosundan alınır; bu türde tek bir kayıt yayılışın doğrulanması için yeterlidir. Vurgulanan bölge türün her yerinde bulunduğu anlamına gelmez; kayıt sayısı popülasyon yoğunluğunu ölçmez.",
         mapAria:
           "Gelincik fotoğraflı gözlemleri ve doğrulanmış yayılışı Gürcistan haritasında",
         officialRegionLabel: "Yayılışı doğrulanmış bölge",
