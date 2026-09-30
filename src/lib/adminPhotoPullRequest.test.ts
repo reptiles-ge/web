@@ -118,6 +118,68 @@ describe("photo PRs for a species on the current feature branch", () => {
     ).toBe(true);
   });
 
+  it("opens a photo PR against staging when the species is already published", async () => {
+    execFileSync.mockImplementation((command: string, args: string[]) => {
+      if (command === "gh" && args[0] === "pr" && args[1] === "list") {
+        return "[]";
+      }
+      if (command === "gh" && args[0] === "repo") {
+        return '{"nameWithOwner":"reptiles-ge/web"}';
+      }
+      if (command === "gh" && args[0] === "pr" && args[1] === "create") {
+        return "https://github.com/reptiles-ge/web/pull/1000";
+      }
+      if (args[0] === "branch" && args[1] === "--show-current") {
+        return "feature/species-workflow-mauremys-caspica-e03e30ec\n";
+      }
+      if (args[0] === "ls-tree") {
+        return [
+          "src/content/species/mauremys-caspica/ka.mdx",
+          "src/content/species/mauremys-caspica/en.mdx",
+          "src/content/species/mauremys-caspica/ru.mdx",
+          "src/content/species/mauremys-caspica/tr.mdx",
+        ].join("\n");
+      }
+      if (args[0] === "diff") throw new Error("staged changes");
+      if (args[0] === "remote") {
+        return "https://github.com/reptiles-ge/web.git\n";
+      }
+      if (args[0] === "worktree" && args[1] === "remove") {
+        rmSync(args.at(-1) as string, { force: true, recursive: true });
+      }
+      return "";
+    });
+    vi.stubGlobal(
+      "fetch",
+      vi.fn().mockResolvedValue({ json: async () => [], ok: true }),
+    );
+
+    const url = await openPhotoPullRequest({
+      id: "mauremys-caspica",
+      items: [{ ka: { src: "https://cdn.reptiles.ge/test.jpg" } }],
+    });
+
+    expect(url).toBe("https://github.com/reptiles-ge/web/pull/1000");
+    expect(
+      execFileSync.mock.calls.some(
+        ([command, args]) =>
+          command === "git" &&
+          args[0] === "worktree" &&
+          args[1] === "add" &&
+          args.at(-1) === "origin/staging",
+      ),
+    ).toBe(true);
+    expect(
+      execFileSync.mock.calls.some(
+        ([command, args]) =>
+          command === "gh" &&
+          args[0] === "pr" &&
+          args[1] === "create" &&
+          args[args.indexOf("--base") + 1] === "staging",
+      ),
+    ).toBe(true);
+  });
+
   it("creates a standalone photo branch from the current branch", async () => {
     execFileSync.mockImplementation((command: string, args: string[]) => {
       if (command === "gh" && args[0] === "pr" && args[1] === "list") {

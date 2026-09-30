@@ -22,8 +22,8 @@ import {
 } from "@/lib/imageOptimize";
 
 const REPO_ROOT = process.cwd();
-const BASE_REF = "origin/main";
-const BASE_BRANCH = "main";
+const BASE_REF = "origin/staging";
+const BASE_BRANCH = "staging";
 const MDX_FILES = ["ka.mdx", "en.mdx", "ru.mdx", "tr.mdx"] as const;
 
 export async function openCoverPullRequest(input: {
