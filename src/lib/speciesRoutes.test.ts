@@ -176,4 +176,15 @@ describe("species routes", () => {
       expect(getSpeciesLookalikes(id)).not.toContain("aquila-chrysaetos");
     }
   });
+
+  it("leaves Caucasian salamander lookalikes empty without supported visual confusion", () => {
+    expect(getSpeciesLookalikes("mertensiella-caucasica")).toEqual([]);
+    for (const id of [
+      "lissotriton-lantzi",
+      "ommatotriton-ophryticus",
+      "triturus-karelinii",
+    ]) {
+      expect(getSpeciesLookalikes(id)).not.toContain("mertensiella-caucasica");
+    }
+  });
 });

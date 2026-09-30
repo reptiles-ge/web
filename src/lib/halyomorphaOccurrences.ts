@@ -53,6 +53,15 @@ export type HalyomorphaRegionSummary = {
   status: HalyomorphaOccurrenceStatus;
 };
 
+const MERTENSIELLA_OBSCURED_RECORD_NOTE =
+  "Mertensiella caucasica: iNaturalist public coordinates obscured (~27 km)";
+const MERTENSIELLA_SOURCE_CONFIRMED_REGIONS = new Set<RegionPathId>([
+  "adjara",
+  "guria",
+  "samtskhe-javakheti",
+  "shida-kartli",
+]);
+
 export function confirmedRecordThresholdForSpecies(speciesId: string) {
   if (speciesId === "aquila-chrysaetos") return 4;
   if (speciesId === "ursus-arctos") return 8;
@@ -109,6 +118,9 @@ export function getHalyomorphaOccurrenceSummary(
   confirmedRecordThreshold = 5,
 ): HalyomorphaOccurrenceSummary {
   const years = records.flatMap((record) => yearFromDate(record.date));
+  const mertensiellaRecords = records.some(
+    (record) => record.note === MERTENSIELLA_OBSCURED_RECORD_NOTE,
+  );
   const byRegion = new Map<RegionPathId, HalyomorphaFieldRecord[]>();
   for (const record of records) {
     if (!record.regionId) continue;
@@ -123,6 +135,14 @@ export function getHalyomorphaOccurrenceSummary(
       yearFromDate(record.date),
     );
     const center = getRecordCenter(regionRecords);
+    const status: HalyomorphaOccurrenceStatus = mertensiellaRecords
+      ? MERTENSIELLA_SOURCE_CONFIRMED_REGIONS.has(id)
+        ? "confirmed"
+        : "recorded-only"
+      : occurrenceStatusForCount(
+          regionRecords.length,
+          confirmedRecordThreshold,
+        );
     return {
       center,
       count: regionRecords.length,
@@ -134,10 +154,7 @@ export function getHalyomorphaOccurrenceSummary(
       photoRecordCount: regionRecords.filter(
         (record) => record.kind === "photo",
       ).length,
-      status: occurrenceStatusForCount(
-        regionRecords.length,
-        confirmedRecordThreshold,
-      ),
+      status,
     };
   }).sort((a, b) => b.count - a.count);
 
