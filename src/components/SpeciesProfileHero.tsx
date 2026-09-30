@@ -151,7 +151,7 @@ function SpeciesBreadcrumbTrail({
   breadcrumbs: SpeciesBreadcrumbCrumb[];
 }) {
   return (
-    <nav aria-label={ariaLabel} className="absolute inset-x-0 top-0 z-10 pt-24">
+    <nav aria-label={ariaLabel} className="sr-only">
       <ol className="mx-auto flex max-w-[1400px] flex-wrap items-center gap-x-2 gap-y-1 px-6 text-[12px] text-white/60 lg:px-10">
         {breadcrumbs.map((crumb, index) => {
           const isLast = index === breadcrumbs.length - 1;
