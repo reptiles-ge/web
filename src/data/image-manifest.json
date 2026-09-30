@@ -12186,6 +12186,101 @@
       ],
       "updatedAt": "2026-09-30T09:14:19.272Z"
     },
+    "columba-palumbus-donsky-2.jpg": {
+      "sourceHash": "2d3c41de3ffdbb6d86c97c1238852a005f2032ee9d51b7216ad5fcec08e08dfa",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "columba-palumbus-donsky-2.jpg",
+      "originalSize": 343384,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/columba-palumbus-donsky-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9933
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14274
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 13313
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 18738
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 24374
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 35334
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 33350
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 45434
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 57988
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 78416
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 121023
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 156726
+        }
+      ],
+      "updatedAt": "2026-09-30T09:17:38.379Z"
+    },
     "coronella-austriaca-1.jpg": {
       "sourceHash": "b53893e4de09a7fbefeb940d157baa7efc173567c8d8935dc368843879d16e4e",
       "configFingerprint": "409788ee46c653d8",
