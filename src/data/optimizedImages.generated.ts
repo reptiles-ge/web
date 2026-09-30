@@ -5191,6 +5191,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/mauremys-caspica-ward-1.jpg": {
+    "path": "mauremys-caspica-ward-1",
+    "width": 1799,
+    "height": 1200,
+    "widths": [320, 400, 640, 800, 1200, 1799],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/mauremys-caspica-zakro-1.jpg": {
     "path": "mauremys-caspica-zakro-1",
     "width": 2048,
