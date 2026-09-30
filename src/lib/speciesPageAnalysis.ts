@@ -65,6 +65,29 @@ export function selectSpeciesCreationFiles(files: string[], id: string) {
   );
 }
 
+export async function speciesCreationCodexPrompt(input: SpeciesCreationInput) {
+  const { commonName, id, scientificName } = validateSpeciesCreationInput(
+    input.commonName,
+    input.scientificName,
+  );
+  if (id !== input.id) throw new Error("Invalid species id");
+  const template = await fs.readFile(
+    path.join(root, "src/prompts/species-page-create.md"),
+    "utf8",
+  );
+  const prompt = template
+    .replaceAll("{{COMMON_NAME}}", commonName)
+    .replaceAll("{{SCIENTIFIC_NAME}}", scientificName)
+    .replaceAll("{{SPECIES_ID}}", id);
+  const allowedFiles = [
+    ...["ka", "en", "ru", "tr"].map(
+      (locale) => `src/content/species/${id}/${locale}.mdx`,
+    ),
+    ...speciesCreationSharedFiles,
+  ];
+  return `${prompt}\n\nშეცვალე მხოლოდ ეს ფაილები: ${allowedFiles.join(", ")}. თუ სახეობა არსებულ ჯგუფურ არქიტექტურაში სანდოდ ვერ თავსდება, არაფერი შეცვალო და ანგარიშში ზუსტად ახსენი მიზეზი. სხვა ფაილის საჭიროების შემთხვევაში არაფერი მოიგონო და ანგარიშში მიუთითე რომელი ფაილი და რატომ არის საჭირო. არ გაუშვა ტესტები, lint, typecheck, build, next dev ან typegen. არ შეასრულო commit, push ან PR-ის შექმნა; ამას აპლიკაცია გააკეთებს. საბოლოო ანგარიში დააბრუნე ქართულად.`;
+}
+
 export function validateSpeciesCreationInput(
   commonNameValue: unknown,
   scientificNameValue: unknown,
@@ -178,266 +201,6 @@ export async function analyzeSpeciesPage(
   running.add(id);
   try {
     return await runAnalysis(id, onReport, mode);
-  } finally {
-    running.delete(id);
-  }
-}
-
-export async function createSpeciesPage(input: SpeciesCreationInput) {
-  const { commonName, id, scientificName } = validateSpeciesCreationInput(
-    input.commonName,
-    input.scientificName,
-  );
-  if (id !== input.id) throw new Error("Invalid species id");
-  if (running.has(id)) throw new Error("Species creation is already running");
-  running.add(id);
-  try {
-    const targetDirectory = path.join(root, "src/content/species", id);
-    if (
-      await fs.access(targetDirectory).then(
-        () => true,
-        () => false,
-      )
-    ) {
-      throw new Error(`გვერდი უკვე არსებობს: ${id}`);
-    }
-    const repositoryInfo = JSON.parse(
-      await run("gh", [
-        "repo",
-        "view",
-        "--json",
-        "defaultBranchRef,nameWithOwner",
-      ]),
-    ) as { defaultBranchRef: { name: string }; nameWithOwner: string };
-    const base = repositoryInfo.defaultBranchRef.name;
-    const repository = repositoryInfo.nameWithOwner;
-    if (!/^[a-zA-Z0-9._/-]+$/.test(base)) {
-      throw new Error("Invalid target branch");
-    }
-    const pullRequests = JSON.parse(
-      await run("gh", [
-        "pr",
-        "list",
-        "--repo",
-        repository,
-        "--state",
-        "open",
-        "--base",
-        base,
-        "--limit",
-        "1000",
-        "--json",
-        "files,url",
-      ]),
-    ) as Array<{ files: Array<{ path: string }>; url: string }>;
-    const targetKa = `src/content/species/${id}/ka.mdx`;
-    const existing = pullRequests.find((pullRequest) =>
-      pullRequest.files.some((file) => file.path === targetKa),
-    );
-    if (existing) {
-      throw new Error(`გვერდის შექმნის PR უკვე არსებობს: ${existing.url}`);
-    }
-
-    const branch = `feature/species-create-${id}-${randomUUID().slice(0, 8)}`;
-    const contentFiles = ["ka", "en", "ru", "tr"].map(
-      (locale) => `src/content/species/${id}/${locale}.mdx`,
-    );
-    const contentFileSet = new Set(contentFiles);
-    const allowedFiles = [...contentFiles, ...speciesCreationSharedFiles];
-    const targetPaths = [
-      `src/content/species/${id}`,
-      ...speciesCreationSharedFiles,
-    ];
-    if (await run("git", ["status", "--porcelain", "--", ...targetPaths])) {
-      throw new Error(
-        "შესაქმნელ გვერდთან დაკავშირებულ ფაილებს ლოკალური ცვლილებები აქვს",
-      );
-    }
-
-    const directory = await fs.mkdtemp(
-      path.join(os.tmpdir(), "reptiles-species-create-"),
-    );
-    const worktree = path.join(directory, "checkout");
-    let keepLocalBranch = false;
-    let pullRequestUrl = "";
-    try {
-      await run("git", ["fetch", "origin", base]);
-      await run("git", [
-        "worktree",
-        "add",
-        "-b",
-        branch,
-        worktree,
-        `origin/${base}`,
-      ]);
-      if (
-        await fs.access(path.join(worktree, "src/content/species", id)).then(
-          () => true,
-          () => false,
-        )
-      ) {
-        throw new Error(`გვერდი უკვე არსებობს: ${id}`);
-      }
-      const differences = await Promise.all(
-        speciesCreationSharedFiles.map(async (file) => {
-          const [local, remote] = await Promise.all([
-            fs.readFile(path.join(root, file), "utf8").catch(() => ""),
-            fs.readFile(path.join(worktree, file), "utf8").catch(() => ""),
-          ]);
-          return local !== remote;
-        }),
-      );
-      if (differences.some(Boolean)) {
-        throw new Error(
-          "ლოკალური species registry PR-ის საბაზო ვერსიისგან განსხვავდება",
-        );
-      }
-      await fs.symlink(
-        path.join(root, "node_modules"),
-        path.join(worktree, "node_modules"),
-        "dir",
-      );
-      const template = await fs.readFile(
-        path.join(root, "src/prompts/species-page-create.md"),
-        "utf8",
-      );
-      const prompt = template
-        .replaceAll("{{COMMON_NAME}}", commonName)
-        .replaceAll("{{SCIENTIFIC_NAME}}", scientificName)
-        .replaceAll("{{SPECIES_ID}}", id);
-      const output = path.join(directory, "report.md");
-      await runCodex(
-        worktree,
-        output,
-        `${prompt}\n\nშეცვალე მხოლოდ ეს ფაილები: ${allowedFiles.join(", ")}. თუ სახეობა არსებულ ჯგუფურ არქიტექტურაში სანდოდ ვერ თავსდება, არაფერი შეცვალო და ანგარიშში ზუსტად ახსენი მიზეზი. სხვა ფაილის საჭიროების შემთხვევაში არაფერი მოიგონო და ანგარიშში მიუთითე რომელი ფაილი და რატომ არის საჭირო. არ შეასრულო commit, push ან PR-ის შექმნა; ამას აპლიკაცია გააკეთებს. საბოლოო ანგარიში დააბრუნე ქართულად.`,
-      );
-      await repairSpeciesFrontmatter(
-        worktree,
-        directory,
-        (await changedFiles(worktree)).filter((file) =>
-          contentFileSet.has(file),
-        ),
-      );
-      const report = (await fs.readFile(output, "utf8")).trim();
-      if (!report) throw new Error("Codex returned an empty report");
-      const changed = await changedFiles(worktree);
-      const files = selectSpeciesCreationFiles(changed, id);
-      const fileSet = new Set(files);
-      const unexpected = changed.filter((file) => !fileSet.has(file));
-      if (unexpected.length) {
-        throw new Error(`Unexpected changed files: ${unexpected.join(", ")}`);
-      }
-      if (!files.length) {
-        return { id, pullRequestUrl: null, report };
-      }
-      const requiredFiles = [
-        ...contentFiles,
-        "src/data/speciesAtlasMeta.ts",
-        "src/data/speciesPublish.ts",
-      ];
-      const missing = requiredFiles.filter((file) => !fileSet.has(file));
-      if (missing.length) {
-        throw new Error(
-          `Species creation is incomplete: ${missing.join(", ")}`,
-        );
-      }
-
-      await run("pnpm", ["species:compile"], worktree);
-      await run("pnpm", ["typecheck"], worktree);
-      await run(
-        "pnpm",
-        [
-          "exec",
-          "vitest",
-          "run",
-          "src/data/species.test.ts",
-          "src/lib/groupHubs.test.ts",
-          "src/lib/speciesSlugRules.test.ts",
-          "src/lib/speciesRoutes.test.ts",
-        ],
-        worktree,
-      );
-      await run("git", ["diff", "--check", "--", ...files], worktree);
-      await run("git", ["add", "--", ...files], worktree);
-      await run(
-        "git",
-        [
-          "-c",
-          "core.hooksPath=/dev/null",
-          "commit",
-          "-m",
-          `content: create ${id}`,
-        ],
-        worktree,
-      );
-      try {
-        await run("git", ["push", "-u", "origin", branch], worktree);
-      } catch (error) {
-        keepLocalBranch = true;
-        throw new Error(
-          `PR ვერ გამოქვეყნდა; commit დარჩა ლოკალურ ბრენჩზე ${branch}: ${error instanceof Error ? error.message : String(error)}`,
-        );
-      }
-      const body = path.join(directory, "pr-body.md");
-      await fs.writeFile(
-        body,
-        `## Summary\n\n- Create ${commonName} (${scientificName})\n- Register ${id} in the atlas\n\n## Checks\n\n- pnpm species:compile\n- pnpm typecheck\n- targeted species routing tests\n\n## AI report\n\n${report.slice(0, 55000)}\n`,
-      );
-      try {
-        pullRequestUrl = await run(
-          "gh",
-          [
-            "pr",
-            "create",
-            "--repo",
-            repository,
-            "--base",
-            base,
-            "--head",
-            branch,
-            "--title",
-            `Create ${commonName} species page`,
-            "--body-file",
-            body,
-          ],
-          worktree,
-        );
-      } catch (error) {
-        pullRequestUrl = await run(
-          "gh",
-          [
-            "pr",
-            "view",
-            branch,
-            "--repo",
-            repository,
-            "--json",
-            "url",
-            "--jq",
-            ".url",
-          ],
-          worktree,
-        ).catch(() => {
-          keepLocalBranch = true;
-          throw new Error(
-            `PR-ის შექმნა ვერ დასრულდა; ცვლილებები დარჩა ${branch} ბრენჩზე: ${error instanceof Error ? error.message : String(error)}`,
-          );
-        });
-      }
-      if (!/^https:\/\/github\.com\/[^\s]+\/pull\/\d+$/.test(pullRequestUrl)) {
-        keepLocalBranch = true;
-        throw new Error(`PR-ის შექმნა ვერ დასრულდა; ბრენჩი: ${branch}`);
-      }
-      return { id, pullRequestUrl, report };
-    } finally {
-      await run("git", ["worktree", "remove", "--force", worktree]).catch(
-        () => undefined,
-      );
-      if (!keepLocalBranch) {
-        await run("git", ["branch", "-D", branch]).catch(() => undefined);
-      }
-      await fs.rm(directory, { force: true, recursive: true });
-    }
   } finally {
     running.delete(id);
   }
