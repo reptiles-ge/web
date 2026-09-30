@@ -1112,9 +1112,9 @@ async function SpeciesProfileNavigation({
   return (
     <nav
       aria-label={t("contents")}
-      className="sticky top-16 z-30 border-y border-border bg-background/95 backdrop-blur-xl"
+      className="sticky top-[68px] z-30 border-y border-border bg-background/95 backdrop-blur-xl"
     >
-      <ul className="mx-auto flex max-w-[1400px] scrollbar-none gap-5 overflow-x-auto px-6 py-3 text-[13px] lg:px-10 [&::-webkit-scrollbar]:hidden">
+      <ul className="mx-auto flex max-w-[1400px] scrollbar-none gap-5 overflow-x-auto px-6 py-4 text-[13px] lg:justify-center lg:px-10 [&::-webkit-scrollbar]:hidden">
         {ids.map((id) => (
           <li className="shrink-0" key={id}>
             <a
