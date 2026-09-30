@@ -113,6 +113,19 @@ describe("species routes", () => {
     );
   });
 
+  it("limits Caspian turtle lookalikes to visually confusable water turtles", () => {
+    expect(getSpeciesLookalikes("mauremys-caspica")).toEqual([
+      "emys-orbicularis",
+      "trachemys-scripta",
+    ]);
+    for (const id of ["emys-orbicularis", "trachemys-scripta"]) {
+      expect(getSpeciesLookalikes(id)).toContain("mauremys-caspica");
+    }
+    expect(getSpeciesLookalikes("testudo-graeca")).not.toContain(
+      "mauremys-caspica",
+    );
+  });
+
   it("keeps Darevsky's viper lookalikes to supported visual matches", () => {
     expect(getSpeciesLookalikes("vipera-darevskii")).toEqual([
       "vipera-dinniki",
