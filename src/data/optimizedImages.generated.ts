@@ -95,6 +95,34 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1536],
     "formats": ["avif", "webp"]
   },
+  "/images/guides/mosquitoes-at-home-cover.jpg": {
+    "path": "images/guides/mosquitoes-at-home-cover",
+    "width": 1024,
+    "height": 576,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "/images/guides/mosquitoes-at-home-hero.jpg": {
+    "path": "images/guides/mosquitoes-at-home-hero",
+    "width": 1672,
+    "height": 941,
+    "widths": [320, 400, 640, 800, 1200, 1672],
+    "formats": ["avif", "webp"]
+  },
+  "/images/guides/mosquitoes-at-home-screen.jpg": {
+    "path": "images/guides/mosquitoes-at-home-screen",
+    "width": 1024,
+    "height": 576,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "/images/guides/mosquitoes-at-home-yard.jpg": {
+    "path": "images/guides/mosquitoes-at-home-yard",
+    "width": 1024,
+    "height": 576,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
   "/images/guides/wasp-nest-enclosed.jpg": {
     "path": "images/guides/wasp-nest-enclosed",
     "width": 1421,
@@ -1061,6 +1089,27 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1920],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/canis-aureus-anton-1.jpg": {
+    "path": "canis-aureus-anton-1",
+    "width": 1071,
+    "height": 714,
+    "widths": [320, 400, 640, 800, 1071],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/canis-aureus-archil-1.jpg": {
+    "path": "canis-aureus-archil-1",
+    "width": 1024,
+    "height": 554,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/canis-aureus-archil-2.jpg": {
+    "path": "canis-aureus-archil-2",
+    "width": 1024,
+    "height": 905,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/canis-aureus-bukvic-1.jpg": {
     "path": "canis-aureus-bukvic-1",
     "width": 2400,
@@ -1073,6 +1122,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 2400,
     "height": 1620,
     "widths": [400, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/canis-aureus-fabian-1.jpg": {
+    "path": "canis-aureus-fabian-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/canis-aureus-kerkini-1.jpg": {
@@ -1381,6 +1437,41 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 500,
     "height": 375,
     "widths": [320, 400, 500],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/columba-palumbus-donsky-1.jpg": {
+    "path": "columba-palumbus-donsky-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/columba-palumbus-donsky-2.jpg": {
+    "path": "columba-palumbus-donsky-2",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/columba-palumbus-donsky-3.jpg": {
+    "path": "columba-palumbus-donsky-3",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/columba-palumbus-donsky-4.jpg": {
+    "path": "columba-palumbus-donsky-4",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/columba-palumbus-giorgi-1.jpg": {
+    "path": "columba-palumbus-giorgi-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/coronella-austriaca-1.jpg": {

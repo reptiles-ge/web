@@ -114,8 +114,12 @@ describe("species routes", () => {
   });
 
   it("keeps Darevsky's viper lookalikes to supported visual matches", () => {
-    expect(getSpeciesLookalikes("vipera-darevskii")).toEqual(["vipera-dinniki"]);
-    expect(getSpeciesLookalikes("vipera-dinniki")).toContain("vipera-darevskii");
+    expect(getSpeciesLookalikes("vipera-darevskii")).toEqual([
+      "vipera-dinniki",
+    ]);
+    expect(getSpeciesLookalikes("vipera-dinniki")).toContain(
+      "vipera-darevskii",
+    );
     expect(getSpeciesLookalikes("vipera-transcaucasiana")).not.toContain(
       "vipera-darevskii",
     );
@@ -172,6 +176,13 @@ describe("species routes", () => {
     expect(getSpeciesLookalikes("ursus-arctos")).toEqual([]);
     expect(getSpeciesLookalikes("canis-lupus")).not.toContain("ursus-arctos");
     expect(getSpeciesLookalikes("sus-scrofa")).not.toContain("ursus-arctos");
+  });
+
+  it("does not pair woodpigeon and turtle dove as visual lookalikes", () => {
+    expect(getSpeciesLookalikes("columba-palumbus")).toEqual([]);
+    expect(getSpeciesLookalikes("streptopelia-turtur")).not.toContain(
+      "columba-palumbus",
+    );
   });
 
   it("keeps golden eagle lookalikes to supported flight comparisons", () => {

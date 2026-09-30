@@ -312,6 +312,7 @@
         "clothesMoth": "Giysi güvesi",
         "cockroachesInHouse": "Evde hamam böceği",
         "fleasInHouse": "Evde pire",
+        "mosquitoesAtHome": "Evde ve bahçede sivrisinekler",
         "mouseInHouse": "Evde fare"
       }
     }
@@ -387,6 +388,7 @@
     "antsInHouse": "Evde karınca",
     "cockroachesInHouse": "Evde hamam böceği",
     "fleasInHouse": "Evde pire",
+    "mosquitoesAtHome": "Evde ve bahçede sivrisinekler",
     "mouseInHouse": "Evde fare",
     "bite": "Yılan ısırığında ilk adımlar",
     "gyurzaBite": "Levant engereği ısırığı",
@@ -1445,6 +1447,12 @@
         "eyebrow": "Pratik rehber",
         "title": "Evde pire",
         "body": "Ev temizliği, hayvanın korunması ve veterinerle güvenli plan.",
+        "cta": "Rehberi oku"
+      },
+      "mosquitoesAtHome": {
+        "eyebrow": "Pratik rehber",
+        "title": "Evde ve bahçede sivrisinekler",
+        "body": "Durgun su, sineklikler ve uygulanabilir önleme planı.",
         "cta": "Rehberi oku"
       },
       "antsInHouse": {

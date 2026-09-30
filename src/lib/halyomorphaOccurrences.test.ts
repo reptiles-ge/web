@@ -116,6 +116,50 @@ describe("occurrenceStatusForCount", () => {
     ).toEqual(confirmedIds);
   });
 
+  it("keeps Golden Jackal distribution aligned with reviewed field records", () => {
+    const species = getSpeciesById("canis-aureus");
+    expect(species).toBeDefined();
+    if (!species) return;
+
+    const records = getHalyomorphaFieldRecords({
+      fieldRecords: species.fieldRecords ?? [],
+      gallery: species.gallery,
+      locale: "ka",
+      speciesName: species.commonName,
+    });
+    const summary = getHalyomorphaOccurrenceSummary(
+      records,
+      "ka",
+      confirmedRecordThresholdForSpecies(species.id),
+    );
+
+    expect(summary.totalRecords).toBe(21);
+    expect(
+      summary.recordsByRegion
+        .map(({ count, id, status }) => ({ count, id, status }))
+        .sort((a, b) => a.id.localeCompare(b.id)),
+    ).toEqual([
+      { count: 4, id: "adjara", status: "confirmed" },
+      { count: 5, id: "kakheti", status: "confirmed" },
+      { count: 5, id: "kvemo-kartli", status: "confirmed" },
+      { count: 5, id: "mtskheta-mtianeti", status: "confirmed" },
+      { count: 1, id: "samegrelo-zemo-svaneti", status: "confirmed" },
+      { count: 1, id: "samtskhe-javakheti", status: "confirmed" },
+    ]);
+    expect(
+      getRegionsForSpecies(species.id)
+        .map((region) => region.id)
+        .sort(),
+    ).toEqual([
+      "adjara",
+      "kakheti",
+      "kvemo-kartli",
+      "mtskheta-mtianeti",
+      "samegrelo-zemo-svaneti",
+      "samtskhe-javakheti",
+    ]);
+  });
+
   it("uses checklist localities, not obscured point counts, for Caucasian Salamander regions", () => {
     const species = getSpeciesById("mertensiella-caucasica");
     expect(species).toBeDefined();

@@ -8578,6 +8578,249 @@
       ],
       "updatedAt": "2026-08-28T21:29:20.260Z"
     },
+    "canis-aureus-anton-1.jpg": {
+      "sourceHash": "7c2a534c28e8b0d1a8b3e675eaa1d0ba1731666353660268d9dcf285a28233de",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "canis-aureus-anton-1.jpg",
+      "originalSize": 214299,
+      "width": 1071,
+      "height": 714,
+      "derivatives": [
+        {
+          "key": "optimized/canis-aureus-anton-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 214,
+          "byteSize": 14534
+        },
+        {
+          "key": "optimized/canis-aureus-anton-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 214,
+          "byteSize": 23000
+        },
+        {
+          "key": "optimized/canis-aureus-anton-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 20905
+        },
+        {
+          "key": "optimized/canis-aureus-anton-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 32268
+        },
+        {
+          "key": "optimized/canis-aureus-anton-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 40690
+        },
+        {
+          "key": "optimized/canis-aureus-anton-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 61074
+        },
+        {
+          "key": "optimized/canis-aureus-anton-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 56372
+        },
+        {
+          "key": "optimized/canis-aureus-anton-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 82104
+        },
+        {
+          "key": "optimized/canis-aureus-anton-1-1071.avif",
+          "format": "avif",
+          "width": 1071,
+          "height": 714,
+          "byteSize": 87203
+        },
+        {
+          "key": "optimized/canis-aureus-anton-1-1071.webp",
+          "format": "webp",
+          "width": 1071,
+          "height": 714,
+          "byteSize": 119874
+        }
+      ],
+      "updatedAt": "2026-09-30T08:43:19.405Z"
+    },
+    "canis-aureus-archil-1.jpg": {
+      "sourceHash": "a178c10d8a2049cc0d252c8303d7537fa0c7960743024652b0193ffacdff76e4",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "canis-aureus-archil-1.jpg",
+      "originalSize": 150730,
+      "width": 1024,
+      "height": 554,
+      "derivatives": [
+        {
+          "key": "optimized/canis-aureus-archil-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 173,
+          "byteSize": 9443
+        },
+        {
+          "key": "optimized/canis-aureus-archil-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 173,
+          "byteSize": 11296
+        },
+        {
+          "key": "optimized/canis-aureus-archil-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 216,
+          "byteSize": 14232
+        },
+        {
+          "key": "optimized/canis-aureus-archil-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 216,
+          "byteSize": 17736
+        },
+        {
+          "key": "optimized/canis-aureus-archil-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 346,
+          "byteSize": 32500
+        },
+        {
+          "key": "optimized/canis-aureus-archil-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 346,
+          "byteSize": 41938
+        },
+        {
+          "key": "optimized/canis-aureus-archil-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 433,
+          "byteSize": 46653
+        },
+        {
+          "key": "optimized/canis-aureus-archil-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 433,
+          "byteSize": 61430
+        },
+        {
+          "key": "optimized/canis-aureus-archil-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 554,
+          "byteSize": 73447
+        },
+        {
+          "key": "optimized/canis-aureus-archil-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 554,
+          "byteSize": 96830
+        }
+      ],
+      "updatedAt": "2026-09-30T08:05:06.135Z"
+    },
+    "canis-aureus-archil-2.jpg": {
+      "sourceHash": "027472ae42454426ad6c5d6f79ff1262aecd6f649292ee16ad5e6fdfa7c0500d",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "canis-aureus-archil-2.jpg",
+      "originalSize": 257409,
+      "width": 1024,
+      "height": 905,
+      "derivatives": [
+        {
+          "key": "optimized/canis-aureus-archil-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 283,
+          "byteSize": 17084
+        },
+        {
+          "key": "optimized/canis-aureus-archil-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 283,
+          "byteSize": 22288
+        },
+        {
+          "key": "optimized/canis-aureus-archil-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 354,
+          "byteSize": 27386
+        },
+        {
+          "key": "optimized/canis-aureus-archil-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 354,
+          "byteSize": 36588
+        },
+        {
+          "key": "optimized/canis-aureus-archil-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 566,
+          "byteSize": 60774
+        },
+        {
+          "key": "optimized/canis-aureus-archil-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 566,
+          "byteSize": 88368
+        },
+        {
+          "key": "optimized/canis-aureus-archil-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 707,
+          "byteSize": 84252
+        },
+        {
+          "key": "optimized/canis-aureus-archil-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 707,
+          "byteSize": 125216
+        },
+        {
+          "key": "optimized/canis-aureus-archil-2-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 905,
+          "byteSize": 117722
+        },
+        {
+          "key": "optimized/canis-aureus-archil-2-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 905,
+          "byteSize": 175588
+        }
+      ],
+      "updatedAt": "2026-09-30T08:16:44.122Z"
+    },
     "canis-aureus-bukvic-1.jpg": {
       "sourceHash": "2725e768b7b0ecb410eb5b235e900bd0f5313f2cf72e11e66986bcaac4cd2e39",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -8711,6 +8954,101 @@
         }
       ],
       "updatedAt": "2026-08-28T21:29:25.437Z"
+    },
+    "canis-aureus-fabian-1.jpg": {
+      "sourceHash": "9921996c11326ea0829419d808ccd11c562b736a471821d714a3a62b0f1caa48",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "canis-aureus-fabian-1.jpg",
+      "originalSize": 595883,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/canis-aureus-fabian-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 9771
+        },
+        {
+          "key": "optimized/canis-aureus-fabian-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 12030
+        },
+        {
+          "key": "optimized/canis-aureus-fabian-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 14820
+        },
+        {
+          "key": "optimized/canis-aureus-fabian-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 18220
+        },
+        {
+          "key": "optimized/canis-aureus-fabian-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 37067
+        },
+        {
+          "key": "optimized/canis-aureus-fabian-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 47294
+        },
+        {
+          "key": "optimized/canis-aureus-fabian-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 57935
+        },
+        {
+          "key": "optimized/canis-aureus-fabian-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 74690
+        },
+        {
+          "key": "optimized/canis-aureus-fabian-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 116904
+        },
+        {
+          "key": "optimized/canis-aureus-fabian-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 149930
+        },
+        {
+          "key": "optimized/canis-aureus-fabian-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 247224
+        },
+        {
+          "key": "optimized/canis-aureus-fabian-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 302816
+        }
+      ],
+      "updatedAt": "2026-09-30T08:42:34.238Z"
     },
     "canis-aureus-kerkini-1.jpg": {
       "sourceHash": "0c87215c66e8b55435b32e75ba451d626680bf374017f8286292410ffdd86274",
@@ -12090,6 +12428,481 @@
         }
       ],
       "updatedAt": "2026-09-23T12:21:58.354Z"
+    },
+    "columba-palumbus-donsky-1.jpg": {
+      "sourceHash": "a26ec52dfc57c216d4aca80a5de74789439325512d1ac58ed22030c004e5ec34",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "columba-palumbus-donsky-1.jpg",
+      "originalSize": 582559,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/columba-palumbus-donsky-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 13615
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 20250
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 18786
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 28184
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 39644
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 57268
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 55627
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 81428
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 99384
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 143566
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 214979
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 295834
+        }
+      ],
+      "updatedAt": "2026-09-30T09:14:19.272Z"
+    },
+    "columba-palumbus-donsky-2.jpg": {
+      "sourceHash": "2d3c41de3ffdbb6d86c97c1238852a005f2032ee9d51b7216ad5fcec08e08dfa",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "columba-palumbus-donsky-2.jpg",
+      "originalSize": 343384,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/columba-palumbus-donsky-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9933
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14274
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 13313
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 18738
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 24374
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 35334
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 33350
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 45434
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 57988
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 78416
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 121023
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 156726
+        }
+      ],
+      "updatedAt": "2026-09-30T09:17:38.379Z"
+    },
+    "columba-palumbus-donsky-3.jpg": {
+      "sourceHash": "5412f642fea68536c65bd780c7f9c0267deedd6f30cd22914d4b62f8ba80bdd2",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "columba-palumbus-donsky-3.jpg",
+      "originalSize": 417305,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/columba-palumbus-donsky-3-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9947
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-3-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14930
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 13534
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 19940
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-3-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 26677
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-3-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 39560
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 37581
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 54688
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-3-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 66866
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-3-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 95472
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-3-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 144552
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-3-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 192246
+        }
+      ],
+      "updatedAt": "2026-09-30T09:18:28.564Z"
+    },
+    "columba-palumbus-donsky-4.jpg": {
+      "sourceHash": "a2fc3f060bfe1c7da4ad099220f5bcbd394d4f151686ce3862f9698579071bb2",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "columba-palumbus-donsky-4.jpg",
+      "originalSize": 313706,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/columba-palumbus-donsky-4-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8156
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-4-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10766
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-4-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 11390
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-4-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 14586
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-4-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 21446
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-4-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 28676
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-4-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 28381
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-4-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 38406
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-4-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 48259
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-4-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 65606
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-4-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 95502
+        },
+        {
+          "key": "optimized/columba-palumbus-donsky-4-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 127166
+        }
+      ],
+      "updatedAt": "2026-09-30T09:20:06.936Z"
+    },
+    "columba-palumbus-giorgi-1.jpg": {
+      "sourceHash": "9617a4ff13816afa93d70590a13483a1186e35257347764e3d5bfdd31eb1bfba",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "columba-palumbus-giorgi-1.jpg",
+      "originalSize": 58401,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/columba-palumbus-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 1232
+        },
+        {
+          "key": "optimized/columba-palumbus-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 1282
+        },
+        {
+          "key": "optimized/columba-palumbus-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 1331
+        },
+        {
+          "key": "optimized/columba-palumbus-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 1712
+        },
+        {
+          "key": "optimized/columba-palumbus-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 2483
+        },
+        {
+          "key": "optimized/columba-palumbus-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 3466
+        },
+        {
+          "key": "optimized/columba-palumbus-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 3285
+        },
+        {
+          "key": "optimized/columba-palumbus-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 4864
+        },
+        {
+          "key": "optimized/columba-palumbus-giorgi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 6120
+        },
+        {
+          "key": "optimized/columba-palumbus-giorgi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 9316
+        },
+        {
+          "key": "optimized/columba-palumbus-giorgi-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 15380
+        },
+        {
+          "key": "optimized/columba-palumbus-giorgi-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 23700
+        }
+      ],
+      "updatedAt": "2026-09-30T09:19:14.149Z"
     },
     "coronella-austriaca-1.jpg": {
       "sourceHash": "b53893e4de09a7fbefeb940d157baa7efc173567c8d8935dc368843879d16e4e",
@@ -37498,6 +38311,344 @@
         }
       ],
       "updatedAt": "2026-09-25T16:06:26.514Z"
+    },
+    "images/guides/mosquitoes-at-home-cover.jpg": {
+      "sourceHash": "34e9b8238931ea062a88e3340f2b3e8bf82b02ee8243ba172086a6117ba703cd",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/mosquitoes-at-home-cover.jpg",
+      "originalSize": 109563,
+      "width": 1024,
+      "height": 576,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/mosquitoes-at-home-cover-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 7359
+        },
+        {
+          "key": "optimized/images/guides/mosquitoes-at-home-cover-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 10584
+        },
+        {
+          "key": "optimized/images/guides/mosquitoes-at-home-cover-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 9879
+        },
+        {
+          "key": "optimized/images/guides/mosquitoes-at-home-cover-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 13806
+        },
+        {
+          "key": "optimized/images/guides/mosquitoes-at-home-cover-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 18619
+        },
+        {
+          "key": "optimized/images/guides/mosquitoes-at-home-cover-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 25008
+        },
+        {
+          "key": "optimized/images/guides/mosquitoes-at-home-cover-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 25128
+        },
+        {
+          "key": "optimized/images/guides/mosquitoes-at-home-cover-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 32870
+        },
+        {
+          "key": "optimized/images/guides/mosquitoes-at-home-cover-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 576,
+          "byteSize": 37113
+        },
+        {
+          "key": "optimized/images/guides/mosquitoes-at-home-cover-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 576,
+          "byteSize": 46766
+        }
+      ],
+      "updatedAt": "2026-09-30T07:27:10.819Z"
+    },
+    "images/guides/mosquitoes-at-home-hero.jpg": {
+      "sourceHash": "f9160e50c5c8018305781f829a076f2bac66c5ea2eea544c36a05acab9f5d8ad",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/mosquitoes-at-home-hero.jpg",
+      "originalSize": 638079,
+      "width": 1672,
+      "height": 941,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/mosquitoes-at-home-hero-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 12235
+        },
+        {
+          "key": "optimized/images/guides/mosquitoes-at-home-hero-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 18126
+        },
+        {
+          "key": "optimized/images/guides/mosquitoes-at-home-hero-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 18473
+        },
+        {
+          "key": "optimized/images/guides/mosquitoes-at-home-hero-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 27046
+        },
+        {
+          "key": "optimized/images/guides/mosquitoes-at-home-hero-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 38538
+        },
+        {
+          "key": "optimized/images/guides/mosquitoes-at-home-hero-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 59202
+        },
+        {
+          "key": "optimized/images/guides/mosquitoes-at-home-hero-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 54802
+        },
+        {
+          "key": "optimized/images/guides/mosquitoes-at-home-hero-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 84408
+        },
+        {
+          "key": "optimized/images/guides/mosquitoes-at-home-hero-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 101761
+        },
+        {
+          "key": "optimized/images/guides/mosquitoes-at-home-hero-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 157056
+        },
+        {
+          "key": "optimized/images/guides/mosquitoes-at-home-hero-1672.avif",
+          "format": "avif",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 167923
+        },
+        {
+          "key": "optimized/images/guides/mosquitoes-at-home-hero-1672.webp",
+          "format": "webp",
+          "width": 1672,
+          "height": 941,
+          "byteSize": 265990
+        }
+      ],
+      "updatedAt": "2026-09-30T07:27:13.258Z"
+    },
+    "images/guides/mosquitoes-at-home-screen.jpg": {
+      "sourceHash": "943a5252bb7fe70f8e6b64d17d35a9e43fdfa6d785f536ad7847b7aa8721aebe",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/mosquitoes-at-home-screen.jpg",
+      "originalSize": 127305,
+      "width": 1024,
+      "height": 576,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/mosquitoes-at-home-screen-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 6516
+        },
+        {
+          "key": "optimized/images/guides/mosquitoes-at-home-screen-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 8346
+        },
+        {
+          "key": "optimized/images/guides/mosquitoes-at-home-screen-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 8865
+        },
+        {
+          "key": "optimized/images/guides/mosquitoes-at-home-screen-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 11490
+        },
+        {
+          "key": "optimized/images/guides/mosquitoes-at-home-screen-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 19307
+        },
+        {
+          "key": "optimized/images/guides/mosquitoes-at-home-screen-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 27654
+        },
+        {
+          "key": "optimized/images/guides/mosquitoes-at-home-screen-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 29095
+        },
+        {
+          "key": "optimized/images/guides/mosquitoes-at-home-screen-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 43970
+        },
+        {
+          "key": "optimized/images/guides/mosquitoes-at-home-screen-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 576,
+          "byteSize": 44100
+        },
+        {
+          "key": "optimized/images/guides/mosquitoes-at-home-screen-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 576,
+          "byteSize": 67822
+        }
+      ],
+      "updatedAt": "2026-09-30T07:27:12.403Z"
+    },
+    "images/guides/mosquitoes-at-home-yard.jpg": {
+      "sourceHash": "a47e2f90678325d9e5bd58c35e65da0768072f93f1a4e5fe863575f8dc3917e6",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/mosquitoes-at-home-yard.jpg",
+      "originalSize": 176385,
+      "width": 1024,
+      "height": 576,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/mosquitoes-at-home-yard-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 12253
+        },
+        {
+          "key": "optimized/images/guides/mosquitoes-at-home-yard-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 18612
+        },
+        {
+          "key": "optimized/images/guides/mosquitoes-at-home-yard-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 17286
+        },
+        {
+          "key": "optimized/images/guides/mosquitoes-at-home-yard-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 26876
+        },
+        {
+          "key": "optimized/images/guides/mosquitoes-at-home-yard-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 34741
+        },
+        {
+          "key": "optimized/images/guides/mosquitoes-at-home-yard-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 52980
+        },
+        {
+          "key": "optimized/images/guides/mosquitoes-at-home-yard-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 48607
+        },
+        {
+          "key": "optimized/images/guides/mosquitoes-at-home-yard-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 73462
+        },
+        {
+          "key": "optimized/images/guides/mosquitoes-at-home-yard-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 576,
+          "byteSize": 72844
+        },
+        {
+          "key": "optimized/images/guides/mosquitoes-at-home-yard-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 576,
+          "byteSize": 103488
+        }
+      ],
+      "updatedAt": "2026-09-30T07:27:12.434Z"
     },
     "images/guides/scorpion-in-house-gap.jpg": {
       "sourceHash": "c0e54cdff416ea618b69b548c1470d1845d1f79bcda21aaa99e632821df35743",
