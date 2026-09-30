@@ -65,6 +65,29 @@ export function selectSpeciesCreationFiles(files: string[], id: string) {
   );
 }
 
+export async function speciesCreationCodexPrompt(input: SpeciesCreationInput) {
+  const { commonName, id, scientificName } = validateSpeciesCreationInput(
+    input.commonName,
+    input.scientificName,
+  );
+  if (id !== input.id) throw new Error("Invalid species id");
+  const template = await fs.readFile(
+    path.join(root, "src/prompts/species-page-create.md"),
+    "utf8",
+  );
+  const prompt = template
+    .replaceAll("{{COMMON_NAME}}", commonName)
+    .replaceAll("{{SCIENTIFIC_NAME}}", scientificName)
+    .replaceAll("{{SPECIES_ID}}", id);
+  const allowedFiles = [
+    ...["ka", "en", "ru", "tr"].map(
+      (locale) => `src/content/species/${id}/${locale}.mdx`,
+    ),
+    ...speciesCreationSharedFiles,
+  ];
+  return `${prompt}\n\nშეცვალე მხოლოდ ეს ფაილები: ${allowedFiles.join(", ")}. თუ სახეობა არსებულ ჯგუფურ არქიტექტურაში სანდოდ ვერ თავსდება, არაფერი შეცვალო და ანგარიშში ზუსტად ახსენი მიზეზი. სხვა ფაილის საჭიროების შემთხვევაში არაფერი მოიგონო და ანგარიშში მიუთითე რომელი ფაილი და რატომ არის საჭირო. არ გაუშვა ტესტები, lint, typecheck, build, next dev ან typegen. არ შეასრულო commit, push ან PR-ის შექმნა; ამას აპლიკაცია გააკეთებს. საბოლოო ანგარიში დააბრუნე ქართულად.`;
+}
+
 export function validateSpeciesCreationInput(
   commonNameValue: unknown,
   scientificNameValue: unknown,
@@ -243,7 +266,6 @@ export async function createSpeciesPage(input: SpeciesCreationInput) {
       (locale) => `src/content/species/${id}/${locale}.mdx`,
     );
     const contentFileSet = new Set(contentFiles);
-    const allowedFiles = [...contentFiles, ...speciesCreationSharedFiles];
     const targetPaths = [
       `src/content/species/${id}`,
       ...speciesCreationSharedFiles,
@@ -297,19 +319,11 @@ export async function createSpeciesPage(input: SpeciesCreationInput) {
         path.join(worktree, "node_modules"),
         "dir",
       );
-      const template = await fs.readFile(
-        path.join(root, "src/prompts/species-page-create.md"),
-        "utf8",
-      );
-      const prompt = template
-        .replaceAll("{{COMMON_NAME}}", commonName)
-        .replaceAll("{{SCIENTIFIC_NAME}}", scientificName)
-        .replaceAll("{{SPECIES_ID}}", id);
       const output = path.join(directory, "report.md");
       await runCodex(
         worktree,
         output,
-        `${prompt}\n\nშეცვალე მხოლოდ ეს ფაილები: ${allowedFiles.join(", ")}. თუ სახეობა არსებულ ჯგუფურ არქიტექტურაში სანდოდ ვერ თავსდება, არაფერი შეცვალო და ანგარიშში ზუსტად ახსენი მიზეზი. სხვა ფაილის საჭიროების შემთხვევაში არაფერი მოიგონო და ანგარიშში მიუთითე რომელი ფაილი და რატომ არის საჭირო. არ გაუშვა ტესტები, lint, typecheck, build, next dev ან typegen. არ შეასრულო commit, push ან PR-ის შექმნა; ამას აპლიკაცია გააკეთებს. საბოლოო ანგარიში დააბრუნე ქართულად.`,
+        await speciesCreationCodexPrompt({ commonName, id, scientificName }),
       );
       await repairSpeciesFrontmatter(
         worktree,
