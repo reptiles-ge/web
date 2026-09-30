@@ -1256,6 +1256,48 @@ const INTERACTIVE_RANGE_MAPS: Partial<
     },
     iNaturalistTaxonId: 709915,
   },
+  "mustela-nivalis": {
+    copy: {
+      en: {
+        ...HALYOMORPHA_RANGE_COPY.en,
+        intro:
+          "The least weasel map combines Reptiles.ge field photos with public iNaturalist photo observations. Only Mtskheta–Mtianeti is confirmed in the records-by-region table; Adjara, Kakheti, and Samtskhe–Javakheti have individual records only. A highlighted region does not imply presence throughout it, and record counts do not measure population density.",
+        mapAria:
+          "Least weasel photo observations and confirmed distribution on a map of Georgia",
+        officialRegionLabel: "Region with confirmed distribution",
+        rangeTitle: "Where least weasel distribution is confirmed in Georgia",
+      },
+      ka: {
+        ...HALYOMORPHA_RANGE_COPY.ka,
+        intro:
+          "დედოფალას რუკა აერთიანებს Reptiles.ge-ის საველე ფოტოებსა და iNaturalist-ის საჯარო ფოტოდაკვირვებებს. რეგიონულ ცხრილში გავრცელება დადასტურებულია მხოლოდ მცხეთა–მთიანეთში; აჭარაში, კახეთსა და სამცხე–ჯავახეთში მხოლოდ ცალკეული ჩანაწერებია. გამოკვეთილი რეგიონი მის მთელ ტერიტორიაზე არსებობას არ ნიშნავს, ხოლო ჩანაწერების რაოდენობა პოპულაციის სიმჭიდროვე არ არის.",
+        mapAria:
+          "დედოფალას ფოტოდაკვირვებები და დადასტურებული გავრცელება საქართველოს რუკაზე",
+        officialRegionLabel: "დადასტურებული გავრცელების რეგიონი",
+        rangeTitle: "სად არის დედოფალას გავრცელება დადასტურებული საქართველოში",
+      },
+      ru: {
+        ...HALYOMORPHA_RANGE_COPY.ru,
+        intro:
+          "Карта ласки объединяет полевые фотографии Reptiles.ge и публичные фотонаблюдения iNaturalist. В региональной таблице распространение подтверждено только в Мцхета–Мтианети; в Аджарии, Кахетии и Самцхе–Джавахети есть лишь отдельные записи. Выделенный регион не означает присутствия на всей его территории, а число записей не измеряет плотность популяции.",
+        mapAria:
+          "Фотонаблюдения ласки и подтверждённое распространение на карте Грузии",
+        officialRegionLabel: "Регион с подтверждённым распространением",
+        rangeTitle: "Где распространение ласки подтверждено в Грузии",
+      },
+      tr: {
+        ...HALYOMORPHA_RANGE_COPY.tr,
+        intro:
+          "Gelincik haritası Reptiles.ge arazi fotoğraflarını ve herkese açık iNaturalist fotoğraflı gözlemlerini birleştirir. Bölgesel tabloda yayılış yalnızca Mtsheta–Mtianeti'de doğrulanmıştır; Acara, Kaheti ve Samtshe–Cavaheti'de yalnızca tekil kayıtlar vardır. Vurgulanan bölge türün her yerinde bulunduğu anlamına gelmez; kayıt sayısı popülasyon yoğunluğunu ölçmez.",
+        mapAria:
+          "Gelincik fotoğraflı gözlemleri ve doğrulanmış yayılışı Gürcistan haritasında",
+        officialRegionLabel: "Yayılışı doğrulanmış bölge",
+        rangeTitle: "Gelincik yayılışı Gürcistan'da nerede doğrulandı?",
+      },
+    },
+    iNaturalistTaxonId: 569428,
+    rangeSource: "record-summary",
+  },
   "natrix-natrix": {
     copy: {
       en: {
