@@ -83,6 +83,34 @@ describe("region speciesIds", () => {
         .sort(),
     );
   });
+
+  it("lists Caucasian Salamander only where the record table confirms distribution", () => {
+    const id = "mertensiella-caucasica";
+    const species = getSpeciesById(id);
+    expect(species).toBeDefined();
+    if (!species) return;
+    const records = getHalyomorphaFieldRecords({
+      fieldRecords: species.fieldRecords ?? [],
+      gallery: species.gallery,
+      locale: "ka",
+      speciesName: species.commonName,
+    });
+    const summary = getHalyomorphaOccurrenceSummary(
+      records,
+      "ka",
+      confirmedRecordThresholdForSpecies(id),
+    );
+    expect(
+      getRegionsForSpecies(id)
+        .map((region) => region.id)
+        .sort(),
+    ).toEqual(
+      summary.recordsByRegion
+        .filter((region) => region.status === "confirmed")
+        .map((region) => region.id)
+        .sort(),
+    );
+  });
 });
 
 describe("region FAQ locale gating", () => {
