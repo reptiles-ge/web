@@ -1075,6 +1075,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2400],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/canis-aureus-fabian-1.jpg": {
+    "path": "canis-aureus-fabian-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/canis-aureus-kerkini-1.jpg": {
     "path": "canis-aureus-kerkini-1",
     "width": 2130,
