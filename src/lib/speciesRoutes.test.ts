@@ -64,6 +64,18 @@ describe("species routes", () => {
     }
   });
 
+  it("limits collared dwarf snake lookalikes to the visually similar eirenis", () => {
+    expect(getSpeciesLookalikes("eirenis-collaris")).toEqual([
+      "eirenis-modestus",
+    ]);
+    expect(getSpeciesLookalikes("eirenis-modestus")).toContain(
+      "eirenis-collaris",
+    );
+    expect(getSpeciesLookalikes("xerotyphlops-vermicularis")).not.toContain(
+      "eirenis-collaris",
+    );
+  });
+
   it("keeps red-bellied racer lookalikes to supported visual matches", () => {
     expect(getSpeciesLookalikes("dolichophis-schmidti")).toEqual([
       "malpolon-insignitus",
