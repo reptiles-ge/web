@@ -12,6 +12,7 @@ export function NavigationProgress() {
   const pathname = usePathname();
   const params = useParams();
   const key = routeKey(pathname, params);
+  const currentDocument = useRef("");
   const timer = useRef<null | number>(null);
 
   useEffect(() => {
@@ -24,6 +25,7 @@ export function NavigationProgress() {
   }, []);
 
   useEffect(() => {
+    currentDocument.current = documentKey(window.location);
     if (timer.current) {
       window.clearTimeout(timer.current);
       timer.current = null;
@@ -69,19 +71,22 @@ export function NavigationProgress() {
       }
 
       const url = new URL(href, window.location.href);
+      const nextDocument = documentKey(url);
       if (
         url.origin !== window.location.origin ||
-        url.href === window.location.href ||
-        (url.pathname === window.location.pathname &&
-          url.search === window.location.search)
+        nextDocument === currentDocument.current
       ) {
         return;
       }
 
+      currentDocument.current = nextDocument;
       start();
     }
 
     function onPopState() {
+      const nextDocument = documentKey(window.location);
+      if (nextDocument === currentDocument.current) return;
+      currentDocument.current = nextDocument;
       start();
     }
 
@@ -95,6 +100,10 @@ export function NavigationProgress() {
   }, []);
 
   return null;
+}
+
+function documentKey(location: { pathname: string; search: string }) {
+  return `${location.pathname}${location.search}`;
 }
 
 function routeKey(pathname: string, params: ReturnType<typeof useParams>) {
