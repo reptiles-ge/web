@@ -64,6 +64,13 @@ describe("species routes", () => {
     }
   });
 
+  it("leaves sand boa lookalikes empty without supported visual confusion", () => {
+    expect(getSpeciesLookalikes("eryx-jaculus")).toEqual([]);
+    for (const id of ["xerotyphlops-vermicularis", "telescopus-fallax"]) {
+      expect(getSpeciesLookalikes(id)).not.toContain("eryx-jaculus");
+    }
+  });
+
   it("keeps red-bellied racer lookalikes to supported visual matches", () => {
     expect(getSpeciesLookalikes("dolichophis-schmidti")).toEqual([
       "malpolon-insignitus",

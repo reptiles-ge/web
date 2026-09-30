@@ -156,7 +156,6 @@ const LOOKALIKES: Record<string, string[]> = {
   "eremias-arguta": ["eremias-velox", "ophisops-elegans"],
   "eremias-velox": ["eremias-arguta"],
   "erithacus-rubecula": ["luscinia-megarhynchos"],
-  "eryx-jaculus": ["xerotyphlops-vermicularis", "telescopus-fallax"],
   "eumeces-schneiderii": ["ablepharus-pannonicus", "ophisops-elegans"],
   "euscorpius-italicus": ["euscorpius-mingrelicus", "olivierus-caucasicus"],
   "euscorpius-mingrelicus": ["euscorpius-italicus", "olivierus-caucasicus"],
@@ -290,7 +289,6 @@ const LOOKALIKES: Record<string, string[]> = {
     "vipera-dinniki",
   ],
   "vulpes-vulpes": ["canis-lupus"],
-  "xerotyphlops-vermicularis": ["eryx-jaculus"],
   "zamenis-hohenackeri": [
     "elaphe-dione",
     "coronella-austriaca",
