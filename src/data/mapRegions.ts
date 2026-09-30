@@ -115,6 +115,7 @@ export const regions: Region[] = [
       "pelodytes-caucasicus",
       "lacerta-agilis",
       "ursus-arctos",
+      "canis-aureus",
       "anas-platyrhynchos",
       "larus-fuscus",
       "tyto-alba",
