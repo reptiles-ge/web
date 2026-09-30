@@ -1089,6 +1089,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1920],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/canis-aureus-anton-1.jpg": {
+    "path": "canis-aureus-anton-1",
+    "width": 1071,
+    "height": 714,
+    "widths": [320, 400, 640, 800, 1071],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/canis-aureus-archil-1.jpg": {
     "path": "canis-aureus-archil-1",
     "width": 1024,
@@ -1115,6 +1122,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 2400,
     "height": 1620,
     "widths": [400, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/canis-aureus-fabian-1.jpg": {
+    "path": "canis-aureus-fabian-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/canis-aureus-kerkini-1.jpg": {
