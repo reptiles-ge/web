@@ -803,6 +803,48 @@ const INTERACTIVE_RANGE_MAPS: Partial<
     iNaturalistTaxonId: 73760,
     rangeSource: "record-summary",
   },
+  "eirenis-collaris": {
+    copy: {
+      en: {
+        ...HALYOMORPHA_RANGE_COPY.en,
+        intro:
+          "The collared dwarf snake map shows public iNaturalist photo observations. Only Kakheti has confirmed status in the records-by-region table. Kvemo Kartli is recorded only: two points labelled Sagarejo fall across the map's regional boundary, and another public coordinate is obscured. Points do not imply a continuous range across a region; counts reflect observation effort, not population density.",
+        mapAria:
+          "Collared dwarf snake observations and confirmed region on a map of Georgia",
+        officialRegionLabel: "Region with confirmed distribution",
+        rangeTitle: "Where collared dwarf snake is recorded in Georgia",
+      },
+      ka: {
+        ...HALYOMORPHA_RANGE_COPY.ka,
+        intro:
+          "საყელოიანი ეირენისის რუკაზე ნაჩვენებია iNaturalist-ის საჯარო ფოტოდაკვირვებები. რეგიონულ ცხრილში დადასტურებული სტატუსი მხოლოდ კახეთს აქვს. ქვემო ქართლი მხოლოდ დაფიქსირებულია: საგარეჯოდ მონიშნული ორი წერტილი რუკის რეგიონულ საზღვარს მიღმა ხვდება, კიდევ ერთი საჯარო კოორდინატი კი დაფარულია. წერტილები მთელ რეგიონში უწყვეტ გავრცელებას არ ნიშნავს; მათი რაოდენობა დაკვირვების ინტენსივობას ასახავს და არა პოპულაციის სიმჭიდროვეს.",
+        mapAria:
+          "საყელოიანი ეირენისის დაკვირვებები და დადასტურებული რეგიონი საქართველოს რუკაზე",
+        officialRegionLabel: "დადასტურებული გავრცელების რეგიონი",
+        rangeTitle: "სად არის საყელოიანი ეირენისი დაფიქსირებული საქართველოში",
+      },
+      ru: {
+        ...HALYOMORPHA_RANGE_COPY.ru,
+        intro:
+          "Карта ошейникового эйрениса показывает публичные наблюдения iNaturalist с фотографиями. В таблице по регионам подтверждённый статус имеет только Кахетия. Квемо-Картли отмечен лишь как регион с записями: две точки с местом «Сагареджо» попадают за границу региона на карте, ещё одна публичная координата скрыта. Точки не означают сплошного распространения по всему региону; их число отражает усилия наблюдателей, а не плотность популяции.",
+        mapAria:
+          "Наблюдения ошейникового эйрениса и подтверждённый регион на карте Грузии",
+        officialRegionLabel: "Регион с подтверждённым распространением",
+        rangeTitle: "Где ошейниковый эйренис отмечен в Грузии",
+      },
+      tr: {
+        ...HALYOMORPHA_RANGE_COPY.tr,
+        intro:
+          "Yakalı cüce yılan haritası, iNaturalist'teki herkese açık fotoğraflı gözlemleri gösterir. Bölgesel tabloda yalnızca Kaheti doğrulanmış durumdadır. Kvemo Kartli yalnızca kayıtlıdır: Sagarejo olarak etiketlenen iki nokta haritadaki bölge sınırının ötesine düşer, bir açık koordinat ise gizlenmiştir. Noktalar bütün bölgeye kesintisiz yayılış anlamına gelmez; kayıt sayısı gözlem çabasını yansıtır, popülasyon yoğunluğunu değil.",
+        mapAria:
+          "Yakalı cüce yılan gözlemleri ve doğrulanmış bölge Gürcistan haritasında",
+        officialRegionLabel: "Yayılışı doğrulanmış bölge",
+        rangeTitle: "Yakalı cüce yılan Gürcistan'da nerede kaydedildi?",
+      },
+    },
+    iNaturalistTaxonId: 30290,
+    rangeSource: "record-summary",
+  },
   "euscorpius-italicus": {
     copy: {
       en: {
