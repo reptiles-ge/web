@@ -81,6 +81,38 @@ describe("occurrenceStatusForCount", () => {
     });
   });
 
+  it("does not use obscured public coordinates to confirm a region", () => {
+    const records = [
+      ...Array.from({ length: 4 }, (_, index) => ({
+        accessibleLabel: "Test",
+        id: `obscured-${index}`,
+        imageAlt: "Test",
+        kind: "location" as const,
+        lat: 41.3,
+        lng: 46.5,
+        locality: "Kakheti",
+        note: "iNaturalist public coordinates obscured; regional assignment approximate.",
+        regionId: "kakheti" as const,
+      })),
+      {
+        accessibleLabel: "Test",
+        id: "precise",
+        imageAlt: "Test",
+        kind: "location" as const,
+        lat: 41.3,
+        lng: 46.5,
+        locality: "Dedoplistskaro",
+        regionId: "kakheti" as const,
+      },
+    ];
+    const summary = getHalyomorphaOccurrenceSummary(records, "ka");
+    expect(summary.recordsByRegion[0]).toMatchObject({
+      count: 5,
+      id: "kakheti",
+      status: "recorded-only",
+    });
+  });
+
   it("uses only confirmed Zamenis regions as distribution", () => {
     const species = getSpeciesById("zamenis-hohenackeri");
     expect(species).toBeDefined();

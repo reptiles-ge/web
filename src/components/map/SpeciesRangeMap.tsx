@@ -803,6 +803,48 @@ const INTERACTIVE_RANGE_MAPS: Partial<
     iNaturalistTaxonId: 73760,
     rangeSource: "record-summary",
   },
+  "eryx-jaculus": {
+    copy: {
+      en: {
+        ...HALYOMORPHA_RANGE_COPY.en,
+        intro:
+          "The Javelin Sand Boa map shows public iNaturalist photo observations from Georgia. Obscured coordinates are approximate and do not confirm a region. Only regions with at least five unobscured records are highlighted; Kakheti and Mtskheta–Mtianeti have records only. Counts reflect observation effort, not population density.",
+        mapAria:
+          "Javelin Sand Boa observations and confirmed regions on a map of Georgia",
+        officialRegionLabel: "Confirmed distribution region",
+        rangeTitle: "Where Javelin Sand Boa is recorded in Georgia",
+      },
+      ka: {
+        ...HALYOMORPHA_RANGE_COPY.ka,
+        intro:
+          "დასავლური მახრჩობელას რუკაზე ნაჩვენებია iNaturalist-ის საჯარო ფოტოდაკვირვებები საქართველოდან. დაფარული კოორდინატები მიახლოებითია და რეგიონს არ ადასტურებს. გამოკვეთილია მხოლოდ რეგიონები სულ მცირე ხუთი დაუფარავი ჩანაწერით; კახეთსა და მცხეთა-მთიანეთში სახეობა მხოლოდ დაფიქსირებულია. ჩანაწერების რაოდენობა დაკვირვების ინტენსივობას ასახავს და არა პოპულაციის სიმჭიდროვეს.",
+        mapAria:
+          "დასავლური მახრჩობელას დაკვირვებები და დადასტურებული რეგიონები საქართველოს რუკაზე",
+        officialRegionLabel: "დადასტურებული გავრცელების რეგიონი",
+        rangeTitle: "სად არის დასავლური მახრჩობელა დაფიქსირებული საქართველოში",
+      },
+      ru: {
+        ...HALYOMORPHA_RANGE_COPY.ru,
+        intro:
+          "Карта западного удавчика показывает публичные фотонаблюдения iNaturalist из Грузии. Скрытые координаты приблизительны и не подтверждают регион. Выделены только регионы с не менее чем пятью наблюдениями с открытыми координатами; в Кахетии и Мцхета-Мтианети вид лишь отмечен. Число записей отражает активность наблюдателей, а не плотность популяции.",
+        mapAria:
+          "Наблюдения западного удавчика и подтверждённые регионы на карте Грузии",
+        officialRegionLabel: "Регион с подтверждённым распространением",
+        rangeTitle: "Где западный удавчик отмечен в Грузии",
+      },
+      tr: {
+        ...HALYOMORPHA_RANGE_COPY.tr,
+        intro:
+          "Cirit kum boa haritası Gürcistan'daki herkese açık iNaturalist fotoğraflı gözlemlerini gösterir. Gizlenmiş koordinatlar yaklaşık değerlerdir ve bir bölgeyi doğrulamaz. Yalnızca koordinatları gizlenmemiş en az beş kaydı olan bölgeler vurgulanır; Kaheti ve Mtsheta-Mtianeti'de tür sadece kaydedilmiştir. Kayıt sayısı gözlem çabasını yansıtır, nüfus yoğunluğunu değil.",
+        mapAria:
+          "Cirit kum boa gözlemleri ve doğrulanmış bölgeler Gürcistan haritasında",
+        officialRegionLabel: "Yayılışı doğrulanmış bölge",
+        rangeTitle: "Cirit kum boa Gürcistan'da nerede kaydedildi?",
+      },
+    },
+    iNaturalistTaxonId: 100411,
+    rangeSource: "record-summary",
+  },
   "euscorpius-italicus": {
     copy: {
       en: {

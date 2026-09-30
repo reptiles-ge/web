@@ -28,7 +28,7 @@ describe("region speciesIds", () => {
     }
   });
 
-  it.each(["coturnix-coturnix", "columba-palumbus"])(
+  it.each(["coturnix-coturnix", "columba-palumbus", "eryx-jaculus"])(
     "lists %s only where the record table confirms distribution",
     (id) => {
       const species = getSpeciesById(id);

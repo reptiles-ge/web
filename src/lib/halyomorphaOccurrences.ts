@@ -142,7 +142,10 @@ export function getHalyomorphaOccurrenceSummary(
         ? "confirmed"
         : "recorded-only"
       : occurrenceStatusForCount(
-          regionRecords.length,
+          regionRecords.filter(
+            (record) =>
+              !record.note?.startsWith("iNaturalist public coordinates obscured"),
+          ).length,
           confirmedRecordThreshold,
         );
     return {
