@@ -51,7 +51,7 @@ export function TopGeCounter() {
     <>
       <div
         aria-hidden="true"
-        className="pointer-events-none opacity-0"
+        className="pointer-events-none absolute size-0 overflow-hidden opacity-0"
         data-site-id="118888"
         id="top-ge-counter-container"
         inert
