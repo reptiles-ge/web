@@ -58899,6 +58899,87 @@
       ],
       "updatedAt": "2026-09-30T19:26:00.910Z"
     },
+    "mauremys-caspica-ka-1.jpg": {
+      "sourceHash": "ff8b0518307e952a15d052f387d225acc135e5c62f2fa6b79139b84e91cb8363",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "mauremys-caspica-ka-1.jpg",
+      "originalSize": 229446,
+      "width": 1049,
+      "height": 1007,
+      "derivatives": [
+        {
+          "key": "optimized/mauremys-caspica-ka-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 307,
+          "byteSize": 15045
+        },
+        {
+          "key": "optimized/mauremys-caspica-ka-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 307,
+          "byteSize": 20372
+        },
+        {
+          "key": "optimized/mauremys-caspica-ka-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 384,
+          "byteSize": 20939
+        },
+        {
+          "key": "optimized/mauremys-caspica-ka-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 384,
+          "byteSize": 28232
+        },
+        {
+          "key": "optimized/mauremys-caspica-ka-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 614,
+          "byteSize": 41306
+        },
+        {
+          "key": "optimized/mauremys-caspica-ka-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 614,
+          "byteSize": 54120
+        },
+        {
+          "key": "optimized/mauremys-caspica-ka-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 768,
+          "byteSize": 56747
+        },
+        {
+          "key": "optimized/mauremys-caspica-ka-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 768,
+          "byteSize": 72928
+        },
+        {
+          "key": "optimized/mauremys-caspica-ka-1-1049.avif",
+          "format": "avif",
+          "width": 1049,
+          "height": 1007,
+          "byteSize": 89050
+        },
+        {
+          "key": "optimized/mauremys-caspica-ka-1-1049.webp",
+          "format": "webp",
+          "width": 1049,
+          "height": 1007,
+          "byteSize": 111322
+        }
+      ],
+      "updatedAt": "2026-09-30T19:26:33.786Z"
+    },
     "mauremys-caspica-laura-1.jpg": {
       "sourceHash": "f5feb2efd3652662b6a6552cdd2e2213f98525a6b36e47335691aa6b91ea91dd",
       "configFingerprint": "409788ee46c653d8",
