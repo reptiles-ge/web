@@ -58438,6 +58438,101 @@
       ],
       "updatedAt": "2026-08-28T21:45:54.853Z"
     },
+    "mauremys-caspica-david-1.jpg": {
+      "sourceHash": "c854bee644ff0afa211d7c634d566bb4028a039cbbab4dc7526e2d421718b2df",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "mauremys-caspica-david-1.jpg",
+      "originalSize": 624418,
+      "width": 2048,
+      "height": 1356,
+      "derivatives": [
+        {
+          "key": "optimized/mauremys-caspica-david-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 212,
+          "byteSize": 11757
+        },
+        {
+          "key": "optimized/mauremys-caspica-david-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 212,
+          "byteSize": 16480
+        },
+        {
+          "key": "optimized/mauremys-caspica-david-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 265,
+          "byteSize": 16562
+        },
+        {
+          "key": "optimized/mauremys-caspica-david-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 265,
+          "byteSize": 23654
+        },
+        {
+          "key": "optimized/mauremys-caspica-david-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 424,
+          "byteSize": 37326
+        },
+        {
+          "key": "optimized/mauremys-caspica-david-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 424,
+          "byteSize": 53088
+        },
+        {
+          "key": "optimized/mauremys-caspica-david-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 530,
+          "byteSize": 54644
+        },
+        {
+          "key": "optimized/mauremys-caspica-david-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 530,
+          "byteSize": 76734
+        },
+        {
+          "key": "optimized/mauremys-caspica-david-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 795,
+          "byteSize": 102943
+        },
+        {
+          "key": "optimized/mauremys-caspica-david-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 795,
+          "byteSize": 142956
+        },
+        {
+          "key": "optimized/mauremys-caspica-david-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1356,
+          "byteSize": 231718
+        },
+        {
+          "key": "optimized/mauremys-caspica-david-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1356,
+          "byteSize": 307808
+        }
+      ],
+      "updatedAt": "2026-09-30T19:23:22.476Z"
+    },
     "mauremys-caspica-donsky-1.jpg": {
       "sourceHash": "ee4f59d61f580d7b18ec990ad01fac58989ad44f402699246be1a40b7f17a0ee",
       "configFingerprint": "409788ee46c653d8",
