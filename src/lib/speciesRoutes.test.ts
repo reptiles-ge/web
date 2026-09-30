@@ -191,6 +191,13 @@ describe("species routes", () => {
     expect(getSpeciesLookalikes("sus-scrofa")).not.toContain("ursus-arctos");
   });
 
+  it("does not pair least weasel and Caucasian badger as visual lookalikes", () => {
+    expect(getSpeciesLookalikes("mustela-nivalis")).toEqual([]);
+    expect(getSpeciesLookalikes("meles-canescens")).not.toContain(
+      "mustela-nivalis",
+    );
+  });
+
   it("does not pair woodpigeon and turtle dove as visual lookalikes", () => {
     expect(getSpeciesLookalikes("columba-palumbus")).toEqual([]);
     expect(getSpeciesLookalikes("streptopelia-turtur")).not.toContain(
