@@ -3,9 +3,59 @@ import { describe, expect, it } from "vitest";
 import {
   runSpeciesWorkflowSteps,
   selectSpeciesAnalysisFiles,
+  selectSpeciesCreationFiles,
   speciesFrontmatterError,
+  validateSpeciesCreationInput,
   validateSpeciesWorkflowModes,
 } from "@/lib/speciesPageAnalysis";
+
+describe("species page creation", () => {
+  it("normalizes the two editor inputs and derives the content id", () => {
+    expect(
+      validateSpeciesCreationInput(
+        "  კავკასიური   მორიელი  ",
+        "Olivierus   caucasicus",
+      ),
+    ).toEqual({
+      commonName: "კავკასიური მორიელი",
+      id: "olivierus-caucasicus",
+      scientificName: "Olivierus caucasicus",
+    });
+  });
+
+  it("rejects incomplete and multiline names", () => {
+    expect(() =>
+      validateSpeciesCreationInput("სახეობა", "Olivierus"),
+    ).toThrow();
+    expect(() =>
+      validateSpeciesCreationInput(
+        "სახეობა\nინსტრუქცია",
+        "Olivierus caucasicus",
+      ),
+    ).toThrow();
+  });
+
+  it("allows only the new page and its required registries", () => {
+    expect(
+      selectSpeciesCreationFiles(
+        [
+          "src/content/species/new-species/ka.mdx",
+          "src/content/species/new-species/en.mdx",
+          "src/content/species/other-species/ka.mdx",
+          "src/data/speciesPublish.ts",
+          "src/data/speciesAtlasMeta.ts",
+          "src/app/page.tsx",
+        ],
+        "new-species",
+      ),
+    ).toEqual([
+      "src/content/species/new-species/ka.mdx",
+      "src/content/species/new-species/en.mdx",
+      "src/data/speciesPublish.ts",
+      "src/data/speciesAtlasMeta.ts",
+    ]);
+  });
+});
 
 describe("species page analysis file scope", () => {
   it("selects only the target species translations", () => {
