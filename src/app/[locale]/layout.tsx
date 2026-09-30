@@ -18,6 +18,7 @@ import { Navbar } from "@/components/Navbar";
 import { NavigationProgress } from "@/components/NavigationProgress";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { SkipLink } from "@/components/SkipLink";
+import { TopGeCounter } from "@/components/TopGeCounter";
 import {
   type ClientMessages,
   pickClientMessages,
@@ -61,6 +62,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         <ScrollToTop />
         <LogoPreload />
         <AnalyticsPageContext />
+        <TopGeCounter />
         <Navbar />
         <main id="main" tabIndex={-1}>
           {editorT ? (

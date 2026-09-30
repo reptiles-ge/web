@@ -2,7 +2,6 @@ import { ArrowUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import { Logo } from "@/components/Logo";
-import { TopGeCounter } from "@/components/TopGeCounter";
 import { getGuideArticles } from "@/data/guideArticles";
 import { Link } from "@/i18n/navigation";
 
@@ -231,7 +230,6 @@ export async function Footer({ regions, venomous }: FooterProps) {
             © {new Date().getFullYear()} Reptiles. {t("rights")}
           </span>
           <div className="flex items-center gap-4">
-            <TopGeCounter />
             <a
               aria-label={t("facebook")}
               className="inline-flex size-10 shrink-0 items-center justify-center rounded-full border border-border bg-card text-muted-foreground transition-colors hover:border-primary/35 hover:text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
