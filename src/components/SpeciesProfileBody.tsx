@@ -2,10 +2,10 @@ import { getTranslations } from "next-intl/server";
 
 import type { GalleryImage, Species, SpeciesStat } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
-import type { SpeciesBreadcrumbCrumb } from "@/lib/speciesBreadcrumbs";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { BiologyBlock } from "@/components/BiologyBlock";
+import { BiologyExpandable } from "@/components/BiologyExpandable";
 import { ContentAttribution } from "@/components/ContentAttribution";
 import { SpeciesRangeMap } from "@/components/map/SpeciesRangeMap";
 import { QuizPracticeCta } from "@/components/QuizPracticeCta";
@@ -23,16 +23,15 @@ import {
   pictureSources,
 } from "@/data/optimizedImages";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
-import { Link } from "@/i18n/navigation";
 import {
   type HubClusterCard,
   isLizardSpecies,
   isSnakeSpecies,
 } from "@/lib/clusterGuides";
 import { cn } from "@/lib/cn";
-import { formatContentDate, formatPhotoDate } from "@/lib/formatDate";
-import { hasMeaningfulUpdate } from "@/lib/structuredDataDates";
-import { SPECIES_SECTION_IDS } from "@/lib/toc";
+import { formatPhotoDate } from "@/lib/formatDate";
+import { isPlaceholderBody } from "@/lib/speciesContent";
+import { SPECIES_SECTION_IDS, speciesProfileSectionIds } from "@/lib/toc";
 
 type BiologyBlockItem = {
   body: string;
@@ -80,12 +79,12 @@ type HalyomorphaPestCopy = {
 type SpeciesProfileBodyProps = {
   biologyBlocks: BiologyBlockItem[];
   biologyTitle?: string;
-  breadcrumbs: SpeciesBreadcrumbCrumb[];
   dangerValue: null | string;
   displayStats: SpeciesStat[];
   editable: boolean;
   gallery: GalleryImage[];
   guideLinks: HubClusterCard[];
+  hasRange: boolean;
   linkDangerStats: boolean;
   locale: AppLocale;
   lookalikes: Species[];
@@ -488,12 +487,12 @@ const HALYOMORPHA_PEST_COPY: Record<AppLocale, HalyomorphaPestCopy> = {
 export async function SpeciesProfileBody({
   biologyBlocks,
   biologyTitle,
-  breadcrumbs,
   dangerValue,
   displayStats,
   editable,
   gallery,
   guideLinks,
+  hasRange,
   linkDangerStats,
   locale,
   lookalikes,
@@ -508,12 +507,27 @@ export async function SpeciesProfileBody({
     getSpeciesAtlasMeta(species.id).group === "insect"
       ? "otherInsects"
       : "related";
+  const habitatBlock = biologyBlocks.find((block) => block.id === "habitat");
+  const naturalHistoryBlocks = biologyBlocks.filter(
+    (block) => block.id !== "habitat",
+  );
+  const hasInteraction = Boolean(
+    species.interaction && !isPlaceholderBody(species.interaction),
+  );
 
   return (
     <>
-      <SpeciesBreadcrumbTrail
-        ariaLabel={t("breadcrumbAria")}
-        breadcrumbs={breadcrumbs}
+      <SpeciesProfileNavigation
+        hasBiology={naturalHistoryBlocks.length > 0}
+        hasFacts={displayStats.length > 0}
+        hasFaq={Boolean(species.faq?.length)}
+        hasGallery={gallery.length > 0}
+        hasHabitat={Boolean(habitatBlock)}
+        hasIdentification={showIdentification}
+        hasInteraction={hasInteraction}
+        hasLookalikes={lookalikes.length > 0}
+        hasRange={hasRange}
+        hasSources={species.sources.length > 0}
       />
 
       <SpeciesProfileFacts
@@ -547,44 +561,8 @@ export async function SpeciesProfileBody({
             readMore={t("readMore")}
             speciesId={species.id}
           />
-          <p className="mt-6 text-[12px] leading-relaxed tracking-wide text-muted-foreground">
-            <span>
-              {t("publishedOn")}{" "}
-              <time dateTime={species.publishedAt}>
-                {formatContentDate(species.publishedAt, locale)}
-              </time>
-            </span>
-            {hasMeaningfulUpdate(species.publishedAt, species.updatedAt) ? (
-              <span>
-                {" "}
-                · {t("updatedOn")}{" "}
-                <time dateTime={species.updatedAt}>
-                  {formatContentDate(species.updatedAt, locale)}
-                </time>
-              </span>
-            ) : null}
-          </p>
         </div>
       </section>
-
-      {gallery.length > 0 ? (
-        <SpeciesGallery
-          images={gallery}
-          location={species.location}
-          name={species.commonName}
-          scientificName={species.scientificName}
-          speciesId={species.id}
-          tone="background"
-        />
-      ) : null}
-
-      <SpeciesRangeMap
-        fieldRecords={species.fieldRecords}
-        gallery={gallery}
-        speciesId={species.id}
-        speciesName={species.commonName}
-        updatedAt={species.updatedAt}
-      />
 
       {showIdentification && species.identification ? (
         <SpeciesIdentification
@@ -606,6 +584,17 @@ export async function SpeciesProfileBody({
         <HalyomorphaPestSections
           anchorLabel={t("anchorLink")}
           locale={locale}
+        />
+      ) : null}
+
+      {gallery.length > 0 ? (
+        <SpeciesGallery
+          images={gallery}
+          location={species.location}
+          name={species.commonName}
+          scientificName={species.scientificName}
+          speciesId={species.id}
+          tone="background"
         />
       ) : null}
 
@@ -641,10 +630,25 @@ export async function SpeciesProfileBody({
         />
       ) : null}
 
+      {habitatBlock ? (
+        <SpeciesProfileHabitat
+          block={habitatBlock}
+          editable={editable}
+          speciesId={species.id}
+        />
+      ) : null}
+
+      <SpeciesRangeMap
+        fieldRecords={species.fieldRecords}
+        gallery={gallery}
+        speciesId={species.id}
+        speciesName={species.commonName}
+        updatedAt={species.updatedAt}
+      />
+
       <SpeciesProfileBiology
-        blocks={biologyBlocks}
+        blocks={naturalHistoryBlocks}
         editable={editable}
-        isSnake={snake}
         speciesId={species.id}
         title={biologyTitle}
       />
@@ -964,78 +968,14 @@ function HalyomorphaPestSections({
   );
 }
 
-function SpeciesBreadcrumbTrail({
-  ariaLabel,
-  breadcrumbs,
-}: {
-  ariaLabel: string;
-  breadcrumbs: SpeciesBreadcrumbCrumb[];
-}) {
-  return (
-    <nav aria-label={ariaLabel} className="sr-only">
-      <ol className="mx-auto flex max-w-[1400px] flex-wrap items-center gap-x-2 gap-y-1 px-6 py-4 text-[13px] text-muted-foreground lg:px-10">
-        {breadcrumbs.map((crumb, index) => {
-          const isLast = index === breadcrumbs.length - 1;
-
-          return (
-            <SpeciesBreadcrumbTrailItem
-              crumb={crumb}
-              index={index}
-              isLast={isLast}
-              key={crumb.href ? `${crumb.href}:${crumb.name}` : crumb.name}
-            />
-          );
-        })}
-      </ol>
-    </nav>
-  );
-}
-
-function SpeciesBreadcrumbTrailItem({
-  crumb,
-  index,
-  isLast,
-}: {
-  crumb: SpeciesBreadcrumbCrumb;
-  index: number;
-  isLast: boolean;
-}) {
-  return (
-    <li className="inline-flex items-center gap-2">
-      {index > 0 ? (
-        <span aria-hidden="true" className="text-border">
-          /
-        </span>
-      ) : null}
-      {crumb.href && !isLast ? (
-        <Link
-          className="transition-colors hover:text-foreground"
-          href={crumb.href}
-        >
-          {crumb.name}
-        </Link>
-      ) : (
-        <span
-          aria-current={isLast ? "page" : undefined}
-          className={isLast ? "font-medium text-foreground" : undefined}
-        >
-          {crumb.name}
-        </span>
-      )}
-    </li>
-  );
-}
-
 async function SpeciesProfileBiology({
   blocks,
   editable,
-  isSnake,
   speciesId,
   title,
 }: {
   blocks: BiologyBlockItem[];
   editable: boolean;
-  isSnake: boolean;
   speciesId: string;
   title?: string;
 }) {
@@ -1046,12 +986,7 @@ async function SpeciesProfileBiology({
   const t = await getTranslations("profile");
 
   return (
-    <section
-      className={cn(
-        "bg-surface pb-20 lg:pb-28",
-        isSnake ? "pt-12 lg:pt-16" : "pt-20 lg:pt-28",
-      )}
-    >
+    <section className="bg-surface py-20 lg:py-28">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
           {t("biology")}
@@ -1061,7 +996,7 @@ async function SpeciesProfileBiology({
           className="mt-5 max-w-2xl font-display text-display-title font-bold"
           id={SPECIES_SECTION_IDS.biology}
         >
-          {title ?? t("biologyTitle")}
+          {title ?? t("naturalHistoryTitle")}
         </AnchoredHeading>
         <div
           className={cn(
@@ -1082,5 +1017,115 @@ async function SpeciesProfileBiology({
         </div>
       </div>
     </section>
+  );
+}
+
+async function SpeciesProfileHabitat({
+  block,
+  editable,
+  speciesId,
+}: {
+  block: BiologyBlockItem;
+  editable: boolean;
+  speciesId: string;
+}) {
+  const t = await getTranslations("profile");
+
+  return (
+    <section className="bg-surface py-20 lg:py-28">
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+        <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
+          {t("range")}
+        </p>
+        <AnchoredHeading
+          anchorLabel={t("anchorLink")}
+          className="mt-5 max-w-2xl font-display text-display-title font-bold"
+          id={SPECIES_SECTION_IDS.habitat}
+        >
+          {block.title}
+        </AnchoredHeading>
+        <div className="max-w-3xl">
+          <BiologyExpandable
+            body={block.body}
+            editorField={editable ? block.id : undefined}
+            needsExpand={block.body.length > 520}
+            readLess={t("readLess")}
+            readMore={t("readMore")}
+            speciesId={editable ? speciesId : undefined}
+          />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+async function SpeciesProfileNavigation({
+  hasBiology,
+  hasFacts,
+  hasFaq,
+  hasGallery,
+  hasHabitat,
+  hasIdentification,
+  hasInteraction,
+  hasLookalikes,
+  hasRange,
+  hasSources,
+}: {
+  hasBiology: boolean;
+  hasFacts: boolean;
+  hasFaq: boolean;
+  hasGallery: boolean;
+  hasHabitat: boolean;
+  hasIdentification: boolean;
+  hasInteraction: boolean;
+  hasLookalikes: boolean;
+  hasRange: boolean;
+  hasSources: boolean;
+}) {
+  const t = await getTranslations("profile");
+  const ids = speciesProfileSectionIds({
+    atAGlance: hasFacts,
+    biology: hasBiology,
+    faq: hasFaq,
+    gallery: hasGallery,
+    habitat: hasHabitat,
+    identification: hasIdentification,
+    interaction: hasInteraction,
+    lookalikes: hasLookalikes,
+    range: hasRange,
+    sources: hasSources,
+  });
+  const labels = {
+    [SPECIES_SECTION_IDS.atAGlance]: t("atAGlance"),
+    [SPECIES_SECTION_IDS.biology]: t("biology"),
+    [SPECIES_SECTION_IDS.faq]: t("faq"),
+    [SPECIES_SECTION_IDS.gallery]: t("gallery"),
+    [SPECIES_SECTION_IDS.habitat]: t("habitat"),
+    [SPECIES_SECTION_IDS.identification]: t("identification"),
+    [SPECIES_SECTION_IDS.interaction]: t("interaction"),
+    [SPECIES_SECTION_IDS.lookalikes]: t("lookalikes"),
+    [SPECIES_SECTION_IDS.overview]: t("overview"),
+    [SPECIES_SECTION_IDS.range]: t("range"),
+    [SPECIES_SECTION_IDS.sources]: t("sourcesTitle"),
+  };
+
+  return (
+    <nav
+      aria-label={t("contents")}
+      className="sticky top-16 z-30 border-y border-border bg-background/95 backdrop-blur-xl"
+    >
+      <ul className="mx-auto flex max-w-[1400px] scrollbar-none gap-5 overflow-x-auto px-6 py-3 text-[13px] lg:px-10 [&::-webkit-scrollbar]:hidden">
+        {ids.map((id) => (
+          <li className="shrink-0" key={id}>
+            <a
+              className="font-medium whitespace-nowrap text-foreground/70 transition-colors hover:text-primary"
+              href={`#${id}`}
+            >
+              {labels[id]}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
   );
 }
