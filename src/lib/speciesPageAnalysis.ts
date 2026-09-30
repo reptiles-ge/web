@@ -309,7 +309,7 @@ export async function createSpeciesPage(input: SpeciesCreationInput) {
       await runCodex(
         worktree,
         output,
-        `${prompt}\n\nშეცვალე მხოლოდ ეს ფაილები: ${allowedFiles.join(", ")}. თუ სახეობა არსებულ ჯგუფურ არქიტექტურაში სანდოდ ვერ თავსდება, არაფერი შეცვალო და ანგარიშში ზუსტად ახსენი მიზეზი. სხვა ფაილის საჭიროების შემთხვევაში არაფერი მოიგონო და ანგარიშში მიუთითე რომელი ფაილი და რატომ არის საჭირო. არ შეასრულო commit, push ან PR-ის შექმნა; ამას აპლიკაცია გააკეთებს. საბოლოო ანგარიში დააბრუნე ქართულად.`,
+        `${prompt}\n\nშეცვალე მხოლოდ ეს ფაილები: ${allowedFiles.join(", ")}. თუ სახეობა არსებულ ჯგუფურ არქიტექტურაში სანდოდ ვერ თავსდება, არაფერი შეცვალო და ანგარიშში ზუსტად ახსენი მიზეზი. სხვა ფაილის საჭიროების შემთხვევაში არაფერი მოიგონო და ანგარიშში მიუთითე რომელი ფაილი და რატომ არის საჭირო. არ გაუშვა ტესტები, lint, typecheck, build, next dev ან typegen. არ შეასრულო commit, push ან PR-ის შექმნა; ამას აპლიკაცია გააკეთებს. საბოლოო ანგარიში დააბრუნე ქართულად.`,
       );
       await repairSpeciesFrontmatter(
         worktree,
@@ -343,6 +343,11 @@ export async function createSpeciesPage(input: SpeciesCreationInput) {
       }
 
       await run("pnpm", ["species:compile"], worktree);
+      await fs.rm(path.join(worktree, ".next"), {
+        force: true,
+        recursive: true,
+      });
+      await fs.rm(path.join(worktree, "next-env.d.ts"), { force: true });
       await run("pnpm", ["typecheck"], worktree);
       await run(
         "pnpm",
