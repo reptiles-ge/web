@@ -136,17 +136,44 @@ describe("occurrenceStatusForCount", () => {
     expect(summary.totalRecords).toBe(16);
     expect(
       summary.recordsByRegion
-        .map(({ id, count, status }) => ({ id, count, status }))
+        .map(({ count, id, status }) => ({ count, id, status }))
         .sort((a, b) => a.id.localeCompare(b.id)),
     ).toEqual([
-      { id: "adjara", count: 3, status: "recorded-only" },
-      { id: "kakheti", count: 5, status: "confirmed" },
-      { id: "kvemo-kartli", count: 3, status: "recorded-only" },
-      { id: "mtskheta-mtianeti", count: 4, status: "recorded-only" },
-      { id: "samtskhe-javakheti", count: 1, status: "recorded-only" },
+      { count: 3, id: "adjara", status: "recorded-only" },
+      { count: 5, id: "kakheti", status: "confirmed" },
+      { count: 3, id: "kvemo-kartli", status: "recorded-only" },
+      { count: 4, id: "mtskheta-mtianeti", status: "recorded-only" },
+      { count: 1, id: "samtskhe-javakheti", status: "recorded-only" },
     ]);
-    expect(getRegionsForSpecies(species.id).map((region) => region.id)).toEqual([
-      "kakheti",
-    ]);
+    expect(getRegionsForSpecies(species.id).map((region) => region.id)).toEqual(
+      ["kakheti"],
+    );
+  });
+
+  it("uses checklist localities, not obscured point counts, for Caucasian Salamander regions", () => {
+    const species = getSpeciesById("mertensiella-caucasica");
+    expect(species).toBeDefined();
+    if (!species) return;
+
+    const records = getHalyomorphaFieldRecords({
+      fieldRecords: species.fieldRecords ?? [],
+      gallery: species.gallery,
+      locale: "ka",
+      speciesName: species.commonName,
+    });
+    const summary = getHalyomorphaOccurrenceSummary(records, "ka");
+
+    expect(summary.totalRecords).toBe(19);
+    expect(
+      summary.recordsByRegion
+        .filter((region) => region.status === "confirmed")
+        .map((region) => region.id)
+        .sort(),
+    ).toEqual(["adjara", "guria", "samtskhe-javakheti", "shida-kartli"]);
+    expect(
+      summary.recordsByRegion.filter(
+        (region) => region.status === "recorded-only",
+      ),
+    ).toEqual([]);
   });
 });

@@ -113,6 +113,14 @@ describe("species routes", () => {
     );
   });
 
+  it("keeps Darevsky's viper lookalikes to supported visual matches", () => {
+    expect(getSpeciesLookalikes("vipera-darevskii")).toEqual(["vipera-dinniki"]);
+    expect(getSpeciesLookalikes("vipera-dinniki")).toContain("vipera-darevskii");
+    expect(getSpeciesLookalikes("vipera-transcaucasiana")).not.toContain(
+      "vipera-darevskii",
+    );
+  });
+
   it("limits Transcaucasian ratsnake lookalikes to visual confusion candidates", () => {
     expect(getSpeciesLookalikes("zamenis-hohenackeri")).toEqual([
       "elaphe-dione",
@@ -164,5 +172,27 @@ describe("species routes", () => {
     expect(getSpeciesLookalikes("ursus-arctos")).toEqual([]);
     expect(getSpeciesLookalikes("canis-lupus")).not.toContain("ursus-arctos");
     expect(getSpeciesLookalikes("sus-scrofa")).not.toContain("ursus-arctos");
+  });
+
+  it("keeps golden eagle lookalikes to supported flight comparisons", () => {
+    const peers = ["aegypius-monachus", "buteo-buteo", "gyps-fulvus"];
+    expect(getSpeciesLookalikes("aquila-chrysaetos")).toEqual(peers);
+    for (const id of peers) {
+      expect(getSpeciesLookalikes(id)).toContain("aquila-chrysaetos");
+    }
+    for (const id of ["falco-peregrinus", "milvus-migrans"]) {
+      expect(getSpeciesLookalikes(id)).not.toContain("aquila-chrysaetos");
+    }
+  });
+
+  it("leaves Caucasian salamander lookalikes empty without supported visual confusion", () => {
+    expect(getSpeciesLookalikes("mertensiella-caucasica")).toEqual([]);
+    for (const id of [
+      "lissotriton-lantzi",
+      "ommatotriton-ophryticus",
+      "triturus-karelinii",
+    ]) {
+      expect(getSpeciesLookalikes(id)).not.toContain("mertensiella-caucasica");
+    }
   });
 });
