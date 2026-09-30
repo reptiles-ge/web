@@ -312,6 +312,7 @@
         "clothesMoth": "Clothes moths",
         "cockroachesInHouse": "Cockroaches at home",
         "fleasInHouse": "Fleas in the house",
+        "mosquitoesAtHome": "Mosquitoes at home and in the yard",
         "mouseInHouse": "Mouse in the house"
       }
     }
@@ -387,6 +388,7 @@
     "antsInHouse": "Ants in the house",
     "cockroachesInHouse": "Cockroaches at home",
     "fleasInHouse": "Fleas in the house",
+    "mosquitoesAtHome": "Mosquitoes at home and in the yard",
     "mouseInHouse": "Mouse in the house",
     "bite": "Snakebite first steps",
     "gyurzaBite": "Blunt-nosed viper bite",
@@ -1445,6 +1447,12 @@
         "eyebrow": "Practical guide",
         "title": "Fleas in the house",
         "body": "Clean the home, protect the pet, and plan safe care with a vet.",
+        "cta": "Read the guide"
+      },
+      "mosquitoesAtHome": {
+        "eyebrow": "Practical guide",
+        "title": "Mosquitoes at home and in the yard",
+        "body": "Standing water, screens, and a practical prevention plan.",
         "cta": "Read the guide"
       },
       "antsInHouse": {

@@ -9,6 +9,7 @@ import { CLOTHES_MOTH } from "@/content/guides/clothesMoth";
 import { COCKROACHES_IN_HOUSE } from "@/content/guides/cockroachesInHouse";
 import { FLEAS_IN_HOUSE } from "@/content/guides/fleasInHouse";
 import { GYURZA_BITE } from "@/content/guides/gyurzaBite";
+import { MOSQUITOES_AT_HOME } from "@/content/guides/mosquitoesAtHome";
 import { MOUSE_IN_HOUSE } from "@/content/guides/mouseInHouse";
 import { SCORPION_IN_HOUSE } from "@/content/guides/scorpionInHouse";
 import { SCORPION_STING } from "@/content/guides/scorpionSting";
@@ -30,6 +31,7 @@ const GUIDE_ARTICLES: readonly GuideArticle[] = [
   WASP_NEST,
   STINK_BUG_IN_HOUSE,
   MOUSE_IN_HOUSE,
+  MOSQUITOES_AT_HOME,
   ANTS_IN_HOUSE,
   CLOTHES_MOTH,
   COCKROACHES_IN_HOUSE,

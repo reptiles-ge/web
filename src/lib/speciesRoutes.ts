@@ -133,14 +133,8 @@ const LOOKALIKES: Record<string, string[]> = {
     "hemorrhois-ravergieri",
     "elaphe-urartica",
   ],
-  "eirenis-collaris": [
-    "eirenis-modestus",
-    "xerotyphlops-vermicularis",
-  ],
-  "eirenis-modestus": [
-    "eirenis-collaris",
-    "xerotyphlops-vermicularis",
-  ],
+  "eirenis-collaris": ["eirenis-modestus", "xerotyphlops-vermicularis"],
+  "eirenis-modestus": ["eirenis-collaris", "xerotyphlops-vermicularis"],
   "elaphe-dione": [
     "elaphe-urartica",
     "zamenis-hohenackeri",
@@ -164,15 +158,9 @@ const LOOKALIKES: Record<string, string[]> = {
   "erithacus-rubecula": ["luscinia-megarhynchos"],
   "eryx-jaculus": ["xerotyphlops-vermicularis", "telescopus-fallax"],
   "eumeces-schneiderii": ["ablepharus-pannonicus", "ophisops-elegans"],
-  "euscorpius-italicus": [
-    "euscorpius-mingrelicus",
-    "olivierus-caucasicus",
-  ],
-  "euscorpius-mingrelicus": [
-    "euscorpius-italicus",
-    "olivierus-caucasicus",
-  ],
-  "falco-peregrinus": ["accipiter-nisus", "buteo-buteo", "aquila-chrysaetos"],
+  "euscorpius-italicus": ["euscorpius-mingrelicus", "olivierus-caucasicus"],
+  "euscorpius-mingrelicus": ["euscorpius-italicus", "olivierus-caucasicus"],
+  "falco-peregrinus": ["accipiter-nisus", "buteo-buteo"],
   "falco-tinnunculus": ["falco-peregrinus"],
   "ficedula-hypoleuca": ["ficedula-semitorquata"],
   "ficedula-semitorquata": ["ficedula-hypoleuca"],
@@ -199,49 +187,27 @@ const LOOKALIKES: Record<string, string[]> = {
   "lacerta-media": ["lacerta-strigata", "lacerta-agilis"],
   "lacerta-strigata": ["lacerta-agilis", "lacerta-media", "ophisops-elegans"],
   "latrodectus-tredecimguttatus": ["steatoda-paykulliana"],
-  "lissotriton-lantzi": [
-    "ommatotriton-ophryticus",
-    "triturus-karelinii",
-    "mertensiella-caucasica",
-  ],
+  "lissotriton-lantzi": ["ommatotriton-ophryticus", "triturus-karelinii"],
   "luscinia-megarhynchos": ["erithacus-rubecula"],
   "lynx-lynx": ["panthera-pardus", "canis-lupus"],
-  "macrovipera-lebetina": [
-    "elaphe-urartica",
-    "hemorrhois-ravergieri",
-  ],
-  "malpolon-insignitus": [
-    "dolichophis-schmidti",
-    "hemorrhois-ravergieri",
-  ],
+  "macrovipera-lebetina": ["elaphe-urartica", "hemorrhois-ravergieri"],
+  "malpolon-insignitus": ["dolichophis-schmidti", "hemorrhois-ravergieri"],
   "mauremys-caspica": [
     "emys-orbicularis",
     "trachemys-scripta",
     "testudo-graeca",
   ],
   "meles-canescens": ["mustela-nivalis"],
-  "mertensiella-caucasica": [
-    "lissotriton-lantzi",
-    "ommatotriton-ophryticus",
-    "triturus-karelinii",
-  ],
   "mesobuthus-eupeus": ["olivierus-caucasicus"],
-  "milvus-migrans": ["buteo-buteo", "pernis-apivorus", "aquila-chrysaetos"],
-  "natrix-natrix": [
-    "natrix-tessellata",
-    "vipera-kaznakovi",
-  ],
+  "milvus-migrans": ["buteo-buteo", "pernis-apivorus"],
+  "natrix-natrix": ["natrix-tessellata", "vipera-kaznakovi"],
   "natrix-tessellata": ["natrix-natrix"],
   "olivierus-caucasicus": [
     "mesobuthus-eupeus",
     "euscorpius-italicus",
     "euscorpius-mingrelicus",
   ],
-  "ommatotriton-ophryticus": [
-    "lissotriton-lantzi",
-    "triturus-karelinii",
-    "mertensiella-caucasica",
-  ],
+  "ommatotriton-ophryticus": ["lissotriton-lantzi", "triturus-karelinii"],
   "ophisops-elegans": ["ablepharus-pannonicus"],
   "otus-scops": ["strix-aluco", "athene-noctua"],
   "paralaudakia-caucasia": [
@@ -294,10 +260,7 @@ const LOOKALIKES: Record<string, string[]> = {
     "bufo-verrucosissimus",
     "bufotes-viridis",
   ],
-  "telescopus-fallax": [
-    "vipera-transcaucasiana",
-    "elaphe-dione",
-  ],
+  "telescopus-fallax": ["vipera-transcaucasiana", "elaphe-dione"],
   "testudo-graeca": [
     "emys-orbicularis",
     "mauremys-caspica",
@@ -308,21 +271,14 @@ const LOOKALIKES: Record<string, string[]> = {
     "mauremys-caspica",
     "testudo-graeca",
   ],
-  "triturus-karelinii": [
-    "ommatotriton-ophryticus",
-    "lissotriton-lantzi",
-    "mertensiella-caucasica",
-  ],
+  "triturus-karelinii": ["ommatotriton-ophryticus", "lissotriton-lantzi"],
   "tyto-alba": [
     "strix-aluco",
     "otus-scops",
     "aegolius-funereus",
     "athene-noctua",
   ],
-  "vipera-dinniki": [
-    "vipera-kaznakovi",
-    "vipera-darevskii",
-  ],
+  "vipera-dinniki": ["vipera-kaznakovi", "vipera-darevskii"],
   "vipera-kaznakovi": [
     "natrix-natrix",
     "vipera-dinniki",
@@ -332,7 +288,6 @@ const LOOKALIKES: Record<string, string[]> = {
     "vipera-kaznakovi",
     "coronella-austriaca",
     "vipera-dinniki",
-    "vipera-darevskii",
   ],
   "vulpes-vulpes": ["canis-lupus"],
   "xerotyphlops-vermicularis": ["eryx-jaculus"],
@@ -342,10 +297,7 @@ const LOOKALIKES: Record<string, string[]> = {
     "hemorrhois-ravergieri",
     "vipera-transcaucasiana",
   ],
-  "zamenis-longissimus": [
-    "natrix-natrix",
-    "vipera-kaznakovi",
-  ],
+  "zamenis-longissimus": ["natrix-natrix", "vipera-kaznakovi"],
 };
 
 const lookalikeIndex: Record<string, Set<string>> = {};
