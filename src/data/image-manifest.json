@@ -713,6 +713,101 @@
       ],
       "updatedAt": "2026-10-01T11:18:37.610Z"
     },
+    "accipiter-nisus-giorgi-2.jpg": {
+      "sourceHash": "090a0c0ddc1b4d65638b94e21e24fd34208e95f7bfd07d2a87006cd462bc4e33",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "accipiter-nisus-giorgi-2.jpg",
+      "originalSize": 559534,
+      "width": 2048,
+      "height": 1366,
+      "derivatives": [
+        {
+          "key": "optimized/accipiter-nisus-giorgi-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 4656
+        },
+        {
+          "key": "optimized/accipiter-nisus-giorgi-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 5582
+        },
+        {
+          "key": "optimized/accipiter-nisus-giorgi-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 6082
+        },
+        {
+          "key": "optimized/accipiter-nisus-giorgi-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 8044
+        },
+        {
+          "key": "optimized/accipiter-nisus-giorgi-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 13557
+        },
+        {
+          "key": "optimized/accipiter-nisus-giorgi-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 17846
+        },
+        {
+          "key": "optimized/accipiter-nisus-giorgi-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 19099
+        },
+        {
+          "key": "optimized/accipiter-nisus-giorgi-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 25262
+        },
+        {
+          "key": "optimized/accipiter-nisus-giorgi-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 39191
+        },
+        {
+          "key": "optimized/accipiter-nisus-giorgi-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 61198
+        },
+        {
+          "key": "optimized/accipiter-nisus-giorgi-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1366,
+          "byteSize": 200058
+        },
+        {
+          "key": "optimized/accipiter-nisus-giorgi-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1366,
+          "byteSize": 247932
+        }
+      ],
+      "updatedAt": "2026-10-01T11:19:56.811Z"
+    },
     "accipiter-nisus-knoch-flight.jpg": {
       "sourceHash": "c51543106d1bce8eb04934f27d5a47ad1d83c657abc8255fd7365b7c340efc6f",
       "configFingerprint": "a895f8e025dcc7fa",
