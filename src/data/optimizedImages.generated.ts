@@ -277,6 +277,48 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/accipiter-nisus-anton-1.jpg": {
+    "path": "accipiter-nisus-anton-1",
+    "width": 1242,
+    "height": 828,
+    "widths": [320, 400, 640, 800, 1200, 1242],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/accipiter-nisus-arvidas-1.jpg": {
+    "path": "accipiter-nisus-arvidas-1",
+    "width": 1536,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/accipiter-nisus-david-1.jpg": {
+    "path": "accipiter-nisus-david-1",
+    "width": 1918,
+    "height": 1680,
+    "widths": [320, 400, 640, 800, 1200, 1918],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/accipiter-nisus-giorgi-1.jpg": {
+    "path": "accipiter-nisus-giorgi-1",
+    "width": 1945,
+    "height": 1297,
+    "widths": [320, 400, 640, 800, 1200, 1945],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/accipiter-nisus-giorgi-2.jpg": {
+    "path": "accipiter-nisus-giorgi-2",
+    "width": 2048,
+    "height": 1366,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/accipiter-nisus-giorgi-3.jpg": {
+    "path": "accipiter-nisus-giorgi-3",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/accipiter-nisus-knoch-flight.jpg": {
     "path": "accipiter-nisus-knoch-flight",
     "width": 900,
@@ -291,6 +333,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 850],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/accipiter-nisus-nikita-1.jpg": {
+    "path": "accipiter-nisus-nikita-1",
+    "width": 2048,
+    "height": 1366,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/accipiter-nisus-sharp-female.jpg": {
     "path": "accipiter-nisus-sharp-female",
     "width": 1920,
@@ -303,6 +352,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1920,
     "height": 1280,
     "widths": [400, 800, 1200, 1920],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/accipiter-nisus-vladimir-1.jpg": {
+    "path": "accipiter-nisus-vladimir-1",
+    "width": 1350,
+    "height": 900,
+    "widths": [320, 400, 640, 800, 1200, 1350],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/accipiter-nisus-zjeroen-1.jpg": {

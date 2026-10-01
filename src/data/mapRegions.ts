@@ -44,6 +44,7 @@ export const regions: Region[] = [
     },
     path: georgiaRegionPaths.abkhazia,
     speciesIds: [
+      "accipiter-nisus",
       "lanius-collurio",
       "vipera-kaznakovi",
       "vipera-dinniki",
@@ -93,6 +94,7 @@ export const regions: Region[] = [
     },
     path: georgiaRegionPaths["samegrelo-zemo-svaneti"],
     speciesIds: [
+      "accipiter-nisus",
       "lanius-collurio",
       "vipera-kaznakovi",
       "vipera-dinniki",
@@ -177,6 +179,7 @@ export const regions: Region[] = [
     nameIn: { en: "Adjara", ka: "აჭარაში", ru: "Аджарии", tr: "Acara" },
     path: georgiaRegionPaths.adjara,
     speciesIds: [
+      "accipiter-nisus",
       "lanius-collurio",
       "vipera-kaznakovi",
       "vipera-transcaucasiana",
@@ -230,6 +233,7 @@ export const regions: Region[] = [
     nameIn: { en: "Imereti", ka: "იმერეთში", ru: "Имеретии", tr: "İmereti" },
     path: georgiaRegionPaths.imereti,
     speciesIds: [
+      "accipiter-nisus",
       "lanius-collurio",
       "vipera-kaznakovi",
       "natrix-tessellata",
@@ -317,6 +321,7 @@ export const regions: Region[] = [
     },
     path: georgiaRegionPaths["samtskhe-javakheti"],
     speciesIds: [
+      "accipiter-nisus",
       "lanius-collurio",
       "vipera-transcaucasiana",
       "vipera-darevskii",
@@ -387,6 +392,7 @@ export const regions: Region[] = [
     },
     path: georgiaRegionPaths["shida-kartli"],
     speciesIds: [
+      "accipiter-nisus",
       "lanius-collurio",
       "vipera-transcaucasiana",
       "vipera-kaznakovi",
@@ -446,6 +452,7 @@ export const regions: Region[] = [
     },
     path: georgiaRegionPaths["mtskheta-mtianeti"],
     speciesIds: [
+      "accipiter-nisus",
       "lanius-collurio",
       "vipera-dinniki",
       "vipera-transcaucasiana",
@@ -509,6 +516,7 @@ export const regions: Region[] = [
     },
     path: georgiaRegionPaths["kvemo-kartli"],
     speciesIds: [
+      "accipiter-nisus",
       "lanius-collurio",
       "macrovipera-lebetina",
       "vipera-transcaucasiana",
@@ -566,6 +574,7 @@ export const regions: Region[] = [
     nameIn: { en: "Kakheti", ka: "კახეთში", ru: "Кахетии", tr: "Kaheti" },
     path: georgiaRegionPaths.kakheti,
     speciesIds: [
+      "accipiter-nisus",
       "lanius-collurio",
       "macrovipera-lebetina",
       "vipera-renardi",
@@ -641,6 +650,7 @@ export const regions: Region[] = [
     nameIn: { en: "Tbilisi", ka: "თბილისში", ru: "Тбилиси", tr: "Tiflis" },
     path: georgiaRegionPaths.tbilisi,
     speciesIds: [
+      "accipiter-nisus",
       "lanius-collurio",
       "macrovipera-lebetina",
       "vipera-transcaucasiana",

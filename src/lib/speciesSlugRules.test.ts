@@ -16,6 +16,18 @@ describe("species slug rules", () => {
     expect(maps.hubById["macrovipera-lebetina"]).toBe("snakes");
   });
 
+  it("keeps the former sparrowhawk slug as an alias", () => {
+    const maps = buildSpeciesSlugMaps([
+      {
+        commonName: "მიმინო",
+        hub: "birds",
+        id: "accipiter-nisus",
+      },
+    ]);
+    expect(maps.kaSlugById["accipiter-nisus"]).toBe("mimino");
+    expect(maps.idByAnySlug["korisebri-mimino"]).toBe("accipiter-nisus");
+  });
+
   it("keeps the former water snake slug as an alias", () => {
     const maps = buildSpeciesSlugMaps([
       {
