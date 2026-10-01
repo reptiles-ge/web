@@ -428,6 +428,576 @@
       ],
       "updatedAt": "2026-09-05T16:17:19.182Z"
     },
+    "accipiter-nisus-anton-1.jpg": {
+      "sourceHash": "6262624da644a296df4c5739bbc813d53f884921d0c138ea3455f2b1f0df5adb",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "accipiter-nisus-anton-1.jpg",
+      "originalSize": 109304,
+      "width": 1242,
+      "height": 828,
+      "derivatives": [
+        {
+          "key": "optimized/accipiter-nisus-anton-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 2686
+        },
+        {
+          "key": "optimized/accipiter-nisus-anton-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 3362
+        },
+        {
+          "key": "optimized/accipiter-nisus-anton-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 3468
+        },
+        {
+          "key": "optimized/accipiter-nisus-anton-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 4592
+        },
+        {
+          "key": "optimized/accipiter-nisus-anton-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 6311
+        },
+        {
+          "key": "optimized/accipiter-nisus-anton-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 8780
+        },
+        {
+          "key": "optimized/accipiter-nisus-anton-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 8688
+        },
+        {
+          "key": "optimized/accipiter-nisus-anton-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 12142
+        },
+        {
+          "key": "optimized/accipiter-nisus-anton-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 17683
+        },
+        {
+          "key": "optimized/accipiter-nisus-anton-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 22552
+        },
+        {
+          "key": "optimized/accipiter-nisus-anton-1-1242.avif",
+          "format": "avif",
+          "width": 1242,
+          "height": 828,
+          "byteSize": 19222
+        },
+        {
+          "key": "optimized/accipiter-nisus-anton-1-1242.webp",
+          "format": "webp",
+          "width": 1242,
+          "height": 828,
+          "byteSize": 25110
+        }
+      ],
+      "updatedAt": "2026-10-01T11:19:14.679Z"
+    },
+    "accipiter-nisus-arvidas-1.jpg": {
+      "sourceHash": "bea3ae73200758b12d4953a3ce63cc335e235f715384754d16bd25439d5e71ae",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "accipiter-nisus-arvidas-1.jpg",
+      "originalSize": 629371,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/accipiter-nisus-arvidas-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 26809
+        },
+        {
+          "key": "optimized/accipiter-nisus-arvidas-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 42754
+        },
+        {
+          "key": "optimized/accipiter-nisus-arvidas-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 36348
+        },
+        {
+          "key": "optimized/accipiter-nisus-arvidas-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 57138
+        },
+        {
+          "key": "optimized/accipiter-nisus-arvidas-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 69126
+        },
+        {
+          "key": "optimized/accipiter-nisus-arvidas-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 105682
+        },
+        {
+          "key": "optimized/accipiter-nisus-arvidas-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 95236
+        },
+        {
+          "key": "optimized/accipiter-nisus-arvidas-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 139326
+        },
+        {
+          "key": "optimized/accipiter-nisus-arvidas-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 166019
+        },
+        {
+          "key": "optimized/accipiter-nisus-arvidas-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 232138
+        },
+        {
+          "key": "optimized/accipiter-nisus-arvidas-1-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 232614
+        },
+        {
+          "key": "optimized/accipiter-nisus-arvidas-1-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 313052
+        }
+      ],
+      "updatedAt": "2026-10-01T11:20:37.015Z"
+    },
+    "accipiter-nisus-david-1.jpg": {
+      "sourceHash": "78e329aaca0d13e7894e4d380416fbb518e36551a11ca967150319e7b7001062",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "accipiter-nisus-david-1.jpg",
+      "originalSize": 397431,
+      "width": 1918,
+      "height": 1680,
+      "derivatives": [
+        {
+          "key": "optimized/accipiter-nisus-david-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 281,
+          "byteSize": 8761
+        },
+        {
+          "key": "optimized/accipiter-nisus-david-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 281,
+          "byteSize": 11772
+        },
+        {
+          "key": "optimized/accipiter-nisus-david-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 350,
+          "byteSize": 12009
+        },
+        {
+          "key": "optimized/accipiter-nisus-david-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 350,
+          "byteSize": 16556
+        },
+        {
+          "key": "optimized/accipiter-nisus-david-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 561,
+          "byteSize": 24576
+        },
+        {
+          "key": "optimized/accipiter-nisus-david-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 561,
+          "byteSize": 33312
+        },
+        {
+          "key": "optimized/accipiter-nisus-david-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 701,
+          "byteSize": 33718
+        },
+        {
+          "key": "optimized/accipiter-nisus-david-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 701,
+          "byteSize": 45198
+        },
+        {
+          "key": "optimized/accipiter-nisus-david-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1051,
+          "byteSize": 60609
+        },
+        {
+          "key": "optimized/accipiter-nisus-david-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1051,
+          "byteSize": 77966
+        },
+        {
+          "key": "optimized/accipiter-nisus-david-1-1918.avif",
+          "format": "avif",
+          "width": 1918,
+          "height": 1680,
+          "byteSize": 119124
+        },
+        {
+          "key": "optimized/accipiter-nisus-david-1-1918.webp",
+          "format": "webp",
+          "width": 1918,
+          "height": 1680,
+          "byteSize": 147690
+        }
+      ],
+      "updatedAt": "2026-10-01T11:17:41.290Z"
+    },
+    "accipiter-nisus-giorgi-1.jpg": {
+      "sourceHash": "b8aba2bccc4a409e34369675e4396fffbd8a0a2b2c9bc73a5c73087a754c23b8",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "accipiter-nisus-giorgi-1.jpg",
+      "originalSize": 127209,
+      "width": 1945,
+      "height": 1297,
+      "derivatives": [
+        {
+          "key": "optimized/accipiter-nisus-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 3195
+        },
+        {
+          "key": "optimized/accipiter-nisus-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 3914
+        },
+        {
+          "key": "optimized/accipiter-nisus-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 4370
+        },
+        {
+          "key": "optimized/accipiter-nisus-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 5484
+        },
+        {
+          "key": "optimized/accipiter-nisus-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 8204
+        },
+        {
+          "key": "optimized/accipiter-nisus-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 11674
+        },
+        {
+          "key": "optimized/accipiter-nisus-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 11812
+        },
+        {
+          "key": "optimized/accipiter-nisus-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 16868
+        },
+        {
+          "key": "optimized/accipiter-nisus-giorgi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 21424
+        },
+        {
+          "key": "optimized/accipiter-nisus-giorgi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 31804
+        },
+        {
+          "key": "optimized/accipiter-nisus-giorgi-1-1945.avif",
+          "format": "avif",
+          "width": 1945,
+          "height": 1297,
+          "byteSize": 42719
+        },
+        {
+          "key": "optimized/accipiter-nisus-giorgi-1-1945.webp",
+          "format": "webp",
+          "width": 1945,
+          "height": 1297,
+          "byteSize": 63488
+        }
+      ],
+      "updatedAt": "2026-10-01T11:18:37.610Z"
+    },
+    "accipiter-nisus-giorgi-2.jpg": {
+      "sourceHash": "090a0c0ddc1b4d65638b94e21e24fd34208e95f7bfd07d2a87006cd462bc4e33",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "accipiter-nisus-giorgi-2.jpg",
+      "originalSize": 559534,
+      "width": 2048,
+      "height": 1366,
+      "derivatives": [
+        {
+          "key": "optimized/accipiter-nisus-giorgi-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 4656
+        },
+        {
+          "key": "optimized/accipiter-nisus-giorgi-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 5582
+        },
+        {
+          "key": "optimized/accipiter-nisus-giorgi-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 6082
+        },
+        {
+          "key": "optimized/accipiter-nisus-giorgi-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 8044
+        },
+        {
+          "key": "optimized/accipiter-nisus-giorgi-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 13557
+        },
+        {
+          "key": "optimized/accipiter-nisus-giorgi-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 17846
+        },
+        {
+          "key": "optimized/accipiter-nisus-giorgi-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 19099
+        },
+        {
+          "key": "optimized/accipiter-nisus-giorgi-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 25262
+        },
+        {
+          "key": "optimized/accipiter-nisus-giorgi-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 39191
+        },
+        {
+          "key": "optimized/accipiter-nisus-giorgi-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 61198
+        },
+        {
+          "key": "optimized/accipiter-nisus-giorgi-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1366,
+          "byteSize": 200058
+        },
+        {
+          "key": "optimized/accipiter-nisus-giorgi-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1366,
+          "byteSize": 247932
+        }
+      ],
+      "updatedAt": "2026-10-01T11:19:56.811Z"
+    },
+    "accipiter-nisus-giorgi-3.jpg": {
+      "sourceHash": "8974dc39a8085a109a42dc35e580b49387ef313a62980cc55d2519e15c8b09fd",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "accipiter-nisus-giorgi-3.jpg",
+      "originalSize": 508375,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/accipiter-nisus-giorgi-3-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8631
+        },
+        {
+          "key": "optimized/accipiter-nisus-giorgi-3-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12754
+        },
+        {
+          "key": "optimized/accipiter-nisus-giorgi-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 11639
+        },
+        {
+          "key": "optimized/accipiter-nisus-giorgi-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 16270
+        },
+        {
+          "key": "optimized/accipiter-nisus-giorgi-3-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 21221
+        },
+        {
+          "key": "optimized/accipiter-nisus-giorgi-3-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 30558
+        },
+        {
+          "key": "optimized/accipiter-nisus-giorgi-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 28905
+        },
+        {
+          "key": "optimized/accipiter-nisus-giorgi-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 41188
+        },
+        {
+          "key": "optimized/accipiter-nisus-giorgi-3-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 51414
+        },
+        {
+          "key": "optimized/accipiter-nisus-giorgi-3-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 75306
+        },
+        {
+          "key": "optimized/accipiter-nisus-giorgi-3-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 155475
+        },
+        {
+          "key": "optimized/accipiter-nisus-giorgi-3-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 207676
+        }
+      ],
+      "updatedAt": "2026-10-01T11:22:02.504Z"
+    },
     "accipiter-nisus-knoch-flight.jpg": {
       "sourceHash": "c51543106d1bce8eb04934f27d5a47ad1d83c657abc8255fd7365b7c340efc6f",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -533,6 +1103,101 @@
         }
       ],
       "updatedAt": "2026-08-28T21:28:37.422Z"
+    },
+    "accipiter-nisus-nikita-1.jpg": {
+      "sourceHash": "9fee735691067ce0e9050bbdfa34eb93dcda73588dcbc3c74db1c8672b8445ba",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "accipiter-nisus-nikita-1.jpg",
+      "originalSize": 960069,
+      "width": 2048,
+      "height": 1366,
+      "derivatives": [
+        {
+          "key": "optimized/accipiter-nisus-nikita-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11265
+        },
+        {
+          "key": "optimized/accipiter-nisus-nikita-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 16276
+        },
+        {
+          "key": "optimized/accipiter-nisus-nikita-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 16059
+        },
+        {
+          "key": "optimized/accipiter-nisus-nikita-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 23434
+        },
+        {
+          "key": "optimized/accipiter-nisus-nikita-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 34913
+        },
+        {
+          "key": "optimized/accipiter-nisus-nikita-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 51834
+        },
+        {
+          "key": "optimized/accipiter-nisus-nikita-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 51541
+        },
+        {
+          "key": "optimized/accipiter-nisus-nikita-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 78740
+        },
+        {
+          "key": "optimized/accipiter-nisus-nikita-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 124728
+        },
+        {
+          "key": "optimized/accipiter-nisus-nikita-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 211076
+        },
+        {
+          "key": "optimized/accipiter-nisus-nikita-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1366,
+          "byteSize": 501343
+        },
+        {
+          "key": "optimized/accipiter-nisus-nikita-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1366,
+          "byteSize": 714356
+        }
+      ],
+      "updatedAt": "2026-10-01T11:22:38.298Z"
     },
     "accipiter-nisus-sharp-female.jpg": {
       "sourceHash": "5854c2eab7b4e5e87803ad6bf7f8d0850a2fdc9d2ad9f135ea4f1133c428c728",
@@ -667,6 +1332,101 @@
         }
       ],
       "updatedAt": "2026-08-28T21:28:44.771Z"
+    },
+    "accipiter-nisus-vladimir-1.jpg": {
+      "sourceHash": "59eb1339d0f3ac65ff315c64fcbc53a05e86e1d6ce2c8661a9a57d93a29a2d5a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "accipiter-nisus-vladimir-1.jpg",
+      "originalSize": 105603,
+      "width": 1350,
+      "height": 900,
+      "derivatives": [
+        {
+          "key": "optimized/accipiter-nisus-vladimir-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 3728
+        },
+        {
+          "key": "optimized/accipiter-nisus-vladimir-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 4734
+        },
+        {
+          "key": "optimized/accipiter-nisus-vladimir-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 5001
+        },
+        {
+          "key": "optimized/accipiter-nisus-vladimir-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 6264
+        },
+        {
+          "key": "optimized/accipiter-nisus-vladimir-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 8401
+        },
+        {
+          "key": "optimized/accipiter-nisus-vladimir-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 11460
+        },
+        {
+          "key": "optimized/accipiter-nisus-vladimir-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 11246
+        },
+        {
+          "key": "optimized/accipiter-nisus-vladimir-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 14888
+        },
+        {
+          "key": "optimized/accipiter-nisus-vladimir-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 19081
+        },
+        {
+          "key": "optimized/accipiter-nisus-vladimir-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 25570
+        },
+        {
+          "key": "optimized/accipiter-nisus-vladimir-1-1350.avif",
+          "format": "avif",
+          "width": 1350,
+          "height": 900,
+          "byteSize": 23725
+        },
+        {
+          "key": "optimized/accipiter-nisus-vladimir-1-1350.webp",
+          "format": "webp",
+          "width": 1350,
+          "height": 900,
+          "byteSize": 31174
+        }
+      ],
+      "updatedAt": "2026-10-01T11:21:14.827Z"
     },
     "accipiter-nisus-zjeroen-1.jpg": {
       "sourceHash": "890a7af55152af71e0c0d866bf92e6aac79557f6fbd8008923cb28052b47b004",
