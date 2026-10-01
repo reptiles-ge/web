@@ -1026,6 +1026,48 @@ const INTERACTIVE_RANGE_MAPS: Partial<
     copy: HALYOMORPHA_RANGE_COPY,
     iNaturalistTaxonId: 81923,
   },
+  "lanius-collurio": {
+    copy: {
+      en: {
+        ...HALYOMORPHA_RANGE_COPY.en,
+        intro:
+          "The map uses public, photo-backed iNaturalist observations of the Red-backed Shrike in Georgia. One retained record is enough for confirmed regional status, but does not imply occurrence throughout that region. Obscured, imprecise and contradictory locations were excluded; record counts do not measure population density.",
+        mapAria:
+          "Red-backed Shrike observations and confirmed regions on a map of Georgia",
+        officialRegionLabel: "Confirmed distribution region",
+        rangeTitle: "Where the Red-backed Shrike is recorded in Georgia",
+      },
+      ka: {
+        ...HALYOMORPHA_RANGE_COPY.ka,
+        intro:
+          "რუკა ჩვეულებრივი ღაჟოს საქართველოში გამოქვეყნებულ ფოტოიან iNaturalist დაკვირვებებს ეყრდნობა. ერთი შენარჩუნებული ჩანაწერი რეგიონის დადასტურებული სტატუსისთვის საკმარისია, თუმცა ეს მთელ რეგიონში თანაბარ გავრცელებას არ ნიშნავს. დაფარული, მეტისმეტად მიახლოებითი და ლოკალიტეტთან შეუსაბამო წერტილები გამოტოვებულია; ჩანაწერების რაოდენობა პოპულაციის სიმჭიდროვეს არ ზომავს.",
+        mapAria:
+          "ჩვეულებრივი ღაჟოს დაკვირვებები და დადასტურებული რეგიონები საქართველოს რუკაზე",
+        officialRegionLabel: "დადასტურებული გავრცელების რეგიონი",
+        rangeTitle: "სად არის ჩვეულებრივი ღაჟო დაფიქსირებული საქართველოში",
+      },
+      ru: {
+        ...HALYOMORPHA_RANGE_COPY.ru,
+        intro:
+          "Карта основана на публичных наблюдениях обыкновенного жулана с фотографиями в iNaturalist из Грузии. Одной сохранённой записи достаточно для подтверждённого статуса региона, но это не означает распространения по всей его территории. Скрытые, слишком неточные и противоречащие указанному месту точки исключены; число записей не показывает плотность популяции.",
+        mapAria:
+          "Наблюдения обыкновенного жулана и подтверждённые регионы на карте Грузии",
+        officialRegionLabel: "Регион с подтверждённым распространением",
+        rangeTitle: "Где обыкновенный жулан отмечен в Грузии",
+      },
+      tr: {
+        ...HALYOMORPHA_RANGE_COPY.tr,
+        intro:
+          "Harita, kızılsırtlı örümcekkuşunun Gürcistan'daki fotoğraflı ve herkese açık iNaturalist gözlemlerine dayanır. Korunan tek bir kayıt bölgenin doğrulanmış durumu için yeterlidir; bu, türün bölgenin her yerinde bulunduğu anlamına gelmez. Gizlenmiş, çok belirsiz ve yer adıyla çelişen noktalar çıkarılmıştır; kayıt sayısı nüfus yoğunluğunu göstermez.",
+        mapAria:
+          "Kızılsırtlı örümcekkuşu gözlemleri ve doğrulanmış bölgeler Gürcistan haritasında",
+        officialRegionLabel: "Yayılışı doğrulanmış bölge",
+        rangeTitle: "Kızılsırtlı örümcekkuşu Gürcistan'da nerede kaydedildi?",
+      },
+    },
+    iNaturalistTaxonId: 12038,
+    rangeSource: "record-summary",
+  },
   "lutra-lutra": {
     copy: {
       en: {
