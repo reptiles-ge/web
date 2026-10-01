@@ -12270,6 +12270,101 @@
       ],
       "updatedAt": "2026-09-19T07:36:50.969Z"
     },
+    "ciconia-ciconia-gogopopo-1.jpg": {
+      "sourceHash": "66b2561856662ba2f02a818d8a3b0317bd1a47b9c66dea85f9eb54c1a3f74f6a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "ciconia-ciconia-gogopopo-1.jpg",
+      "originalSize": 275195,
+      "width": 1638,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/ciconia-ciconia-gogopopo-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 401,
+          "byteSize": 7632
+        },
+        {
+          "key": "optimized/ciconia-ciconia-gogopopo-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 401,
+          "byteSize": 9042
+        },
+        {
+          "key": "optimized/ciconia-ciconia-gogopopo-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 500,
+          "byteSize": 10976
+        },
+        {
+          "key": "optimized/ciconia-ciconia-gogopopo-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 500,
+          "byteSize": 13078
+        },
+        {
+          "key": "optimized/ciconia-ciconia-gogopopo-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 800,
+          "byteSize": 22421
+        },
+        {
+          "key": "optimized/ciconia-ciconia-gogopopo-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 800,
+          "byteSize": 27156
+        },
+        {
+          "key": "optimized/ciconia-ciconia-gogopopo-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1000,
+          "byteSize": 31794
+        },
+        {
+          "key": "optimized/ciconia-ciconia-gogopopo-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1000,
+          "byteSize": 37812
+        },
+        {
+          "key": "optimized/ciconia-ciconia-gogopopo-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1500,
+          "byteSize": 57038
+        },
+        {
+          "key": "optimized/ciconia-ciconia-gogopopo-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1500,
+          "byteSize": 68088
+        },
+        {
+          "key": "optimized/ciconia-ciconia-gogopopo-1-1638.avif",
+          "format": "avif",
+          "width": 1638,
+          "height": 2048,
+          "byteSize": 88078
+        },
+        {
+          "key": "optimized/ciconia-ciconia-gogopopo-1-1638.webp",
+          "format": "webp",
+          "width": 1638,
+          "height": 2048,
+          "byteSize": 103066
+        }
+      ],
+      "updatedAt": "2026-10-01T10:26:59.583Z"
+    },
     "ciconia-ciconia-timoteo-b-1.jpg": {
       "sourceHash": "f9d0527232f06e0167cc27af5dfa85fb283d04ad9faa4bea3f4097628aa59d48",
       "configFingerprint": "409788ee46c653d8",
