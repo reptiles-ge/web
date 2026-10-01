@@ -284,6 +284,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1918],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/accipiter-nisus-giorgi-1.jpg": {
+    "path": "accipiter-nisus-giorgi-1",
+    "width": 1945,
+    "height": 1297,
+    "widths": [320, 400, 640, 800, 1200, 1945],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/accipiter-nisus-knoch-flight.jpg": {
     "path": "accipiter-nisus-knoch-flight",
     "width": 900,
