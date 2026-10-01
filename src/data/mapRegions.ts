@@ -127,6 +127,7 @@ export const regions: Region[] = [
       "halyomorpha-halys",
       "euscorpius-italicus",
       "euscorpius-mingrelicus",
+      "gypaetus-barbatus",
     ],
   },
   {
@@ -360,6 +361,7 @@ export const regions: Region[] = [
       "halyomorpha-halys",
       "mantis-religiosa",
       "mesobuthus-eupeus",
+      "gypaetus-barbatus",
     ],
   },
   {
@@ -538,6 +540,7 @@ export const regions: Region[] = [
       "ciconia-ciconia",
       "tyto-alba",
       "aegypius-monachus",
+      "gypaetus-barbatus",
       "canis-aureus",
       "phasianus-colchicus",
       "argiope-bruennichi",
