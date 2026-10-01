@@ -343,6 +343,10 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "lizard",
     habitats: ["grassland"],
   },
+  "lanius-collurio": {
+    group: "bird",
+    habitats: ["grassland"],
+  },
   "larus-fuscus": {
     group: "bird",
     habitats: ["wetland"],
