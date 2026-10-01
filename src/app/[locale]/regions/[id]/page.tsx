@@ -16,10 +16,11 @@ import { getRegionHeroImage } from "@/data/regionImages";
 import {
   getRegionById,
   getRegionSpecies,
-  getRegionVenomousSpecies,
+  isRegionCardVenomous,
   localizeRegionText,
   localizeRegionTextIfPresent,
   regions,
+  toRegionSpeciesCard,
 } from "@/data/regions";
 import {
   georgiaPlaceName,
@@ -27,7 +28,6 @@ import {
   openGraphLocale,
   pickLocalized,
 } from "@/i18n/localeMeta";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { isLocalAdminEnabled } from "@/lib/adminAccess";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
@@ -164,11 +164,9 @@ export default async function RegionPage({ params }: PageProps) {
   const pageUrl = absoluteUrl(localePath(locale, regionHref(region.id)));
   const dates = regionDateFields(region.id);
   const species = getRegionSpecies(region).map((item) =>
-    localizeSpecies(item, locale),
+    toRegionSpeciesCard(item, locale),
   );
-  const venomous = getRegionVenomousSpecies(region).map((item) =>
-    localizeSpecies(item, locale),
-  );
+  const venomous = species.filter(isRegionCardVenomous);
 
   const jsonLd = {
     "@context": "https://schema.org",
