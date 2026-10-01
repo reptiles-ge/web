@@ -53018,6 +53018,73 @@
       ],
       "updatedAt": "2026-10-01T06:07:37.073Z"
     },
+    "lanius-collurio-james-1.jpg": {
+      "sourceHash": "fe5b3947b447a502bfb02da66842a8d71110df03dc7ee434c583e42e57e513cf",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lanius-collurio-james-1.jpg",
+      "originalSize": 131764,
+      "width": 724,
+      "height": 1086,
+      "derivatives": [
+        {
+          "key": "optimized/lanius-collurio-james-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 480,
+          "byteSize": 12712
+        },
+        {
+          "key": "optimized/lanius-collurio-james-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 480,
+          "byteSize": 16686
+        },
+        {
+          "key": "optimized/lanius-collurio-james-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 600,
+          "byteSize": 17183
+        },
+        {
+          "key": "optimized/lanius-collurio-james-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 600,
+          "byteSize": 22342
+        },
+        {
+          "key": "optimized/lanius-collurio-james-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 960,
+          "byteSize": 33460
+        },
+        {
+          "key": "optimized/lanius-collurio-james-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 960,
+          "byteSize": 40618
+        },
+        {
+          "key": "optimized/lanius-collurio-james-1-724.avif",
+          "format": "avif",
+          "width": 724,
+          "height": 1086,
+          "byteSize": 41324
+        },
+        {
+          "key": "optimized/lanius-collurio-james-1-724.webp",
+          "format": "webp",
+          "width": 724,
+          "height": 1086,
+          "byteSize": 49922
+        }
+      ],
+      "updatedAt": "2026-10-01T06:09:30.706Z"
+    },
     "lanius-collurio-katherine-1.jpg": {
       "sourceHash": "df9ef614ccbec9b667849ffb9cb375419f93bc794aa626b53bf3a218ee08662e",
       "configFingerprint": "409788ee46c653d8",
