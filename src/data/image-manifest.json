@@ -53208,6 +53208,87 @@
       ],
       "updatedAt": "2026-10-01T06:07:04.549Z"
     },
+    "lanius-collurio-xoltc11-1.jpg": {
+      "sourceHash": "aa7bfd6bb0d23f58a240e01ccc6753eb400d5e9c7c3f05afac36e72a1bd1aae6",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lanius-collurio-xoltc11-1.jpg",
+      "originalSize": 227980,
+      "width": 1194,
+      "height": 1791,
+      "derivatives": [
+        {
+          "key": "optimized/lanius-collurio-xoltc11-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 480,
+          "byteSize": 6553
+        },
+        {
+          "key": "optimized/lanius-collurio-xoltc11-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 480,
+          "byteSize": 8378
+        },
+        {
+          "key": "optimized/lanius-collurio-xoltc11-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 600,
+          "byteSize": 9711
+        },
+        {
+          "key": "optimized/lanius-collurio-xoltc11-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 600,
+          "byteSize": 12720
+        },
+        {
+          "key": "optimized/lanius-collurio-xoltc11-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 960,
+          "byteSize": 22546
+        },
+        {
+          "key": "optimized/lanius-collurio-xoltc11-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 960,
+          "byteSize": 28658
+        },
+        {
+          "key": "optimized/lanius-collurio-xoltc11-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1200,
+          "byteSize": 33542
+        },
+        {
+          "key": "optimized/lanius-collurio-xoltc11-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1200,
+          "byteSize": 42310
+        },
+        {
+          "key": "optimized/lanius-collurio-xoltc11-1-1194.avif",
+          "format": "avif",
+          "width": 1194,
+          "height": 1791,
+          "byteSize": 79805
+        },
+        {
+          "key": "optimized/lanius-collurio-xoltc11-1-1194.webp",
+          "format": "webp",
+          "width": 1194,
+          "height": 1791,
+          "byteSize": 84296
+        }
+      ],
+      "updatedAt": "2026-10-01T06:08:57.957Z"
+    },
     "latrodectus-tredecimguttatus-1.jpg": {
       "sourceHash": "ecde5ece5769ba40d21194706e0297e9671eafb1ebdc340a79591917e8cda60e",
       "configFingerprint": "a895f8e025dcc7fa",
