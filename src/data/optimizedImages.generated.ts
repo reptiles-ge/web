@@ -3322,6 +3322,55 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2400],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/gypaetus-barbatus-aleksandre-1.jpg": {
+    "path": "gypaetus-barbatus-aleksandre-1",
+    "width": 1024,
+    "height": 700,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/gypaetus-barbatus-andreas-1.jpg": {
+    "path": "gypaetus-barbatus-andreas-1",
+    "width": 1270,
+    "height": 888,
+    "widths": [320, 400, 640, 800, 1200, 1270],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/gypaetus-barbatus-boaz-1.jpg": {
+    "path": "gypaetus-barbatus-boaz-1",
+    "width": 1620,
+    "height": 1080,
+    "widths": [320, 400, 640, 800, 1200, 1620],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/gypaetus-barbatus-elenailina-1.jpg": {
+    "path": "gypaetus-barbatus-elenailina-1",
+    "width": 2048,
+    "height": 1197,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/gypaetus-barbatus-giorgi-1.jpg": {
+    "path": "gypaetus-barbatus-giorgi-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/gypaetus-barbatus-kenny-1.jpg": {
+    "path": "gypaetus-barbatus-kenny-1",
+    "width": 2048,
+    "height": 1463,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/gypaetus-barbatus-nikita-1.jpg": {
+    "path": "gypaetus-barbatus-nikita-1",
+    "width": 1563,
+    "height": 1044,
+    "widths": [320, 400, 640, 800, 1200, 1563],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/gyps-fulvus-giorgi-1.jpg": {
     "path": "gyps-fulvus-giorgi-1",
     "width": 1714,
