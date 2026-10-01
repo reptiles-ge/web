@@ -34025,6 +34025,101 @@
       ],
       "updatedAt": "2026-10-01T08:08:37.087Z"
     },
+    "gypaetus-barbatus-boaz-1.jpg": {
+      "sourceHash": "6d48110b84e555a68530d902bd0359ed6702e8463e4b4be69b2842b409264696",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "gypaetus-barbatus-boaz-1.jpg",
+      "originalSize": 183198,
+      "width": 1620,
+      "height": 1080,
+      "derivatives": [
+        {
+          "key": "optimized/gypaetus-barbatus-boaz-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 5093
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-boaz-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 5340
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-boaz-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 7181
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-boaz-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 7592
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-boaz-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 12999
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-boaz-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 14360
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-boaz-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 16961
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-boaz-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 19578
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-boaz-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 27727
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-boaz-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 34094
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-boaz-1-1620.avif",
+          "format": "avif",
+          "width": 1620,
+          "height": 1080,
+          "byteSize": 42021
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-boaz-1-1620.webp",
+          "format": "webp",
+          "width": 1620,
+          "height": 1080,
+          "byteSize": 54122
+        }
+      ],
+      "updatedAt": "2026-10-01T08:09:23.096Z"
+    },
     "gypaetus-barbatus-elenailina-1.jpg": {
       "sourceHash": "cf919a68a0ef8e1cd051311b9ab2fa82183bcdbe93f614ab3821c8cc51bcf9cc",
       "configFingerprint": "409788ee46c653d8",

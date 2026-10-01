@@ -3336,6 +3336,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1270],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/gypaetus-barbatus-boaz-1.jpg": {
+    "path": "gypaetus-barbatus-boaz-1",
+    "width": 1620,
+    "height": 1080,
+    "widths": [320, 400, 640, 800, 1200, 1620],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/gypaetus-barbatus-elenailina-1.jpg": {
     "path": "gypaetus-barbatus-elenailina-1",
     "width": 2048,
