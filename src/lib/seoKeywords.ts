@@ -455,7 +455,7 @@ const SPECIES_ALIASES: Record<
   },
   "accipiter-nisus": {
     en: ["sparrowhawk", "northern sparrowhawk", "Accipiter nisus nisus"],
-    ka: ["მიმინო", "ქორისებრნი", "Accipiter nisus nisus"],
+    ka: ["ქორისებრი მიმინო", "ქორისებრნი", "Accipiter nisus nisus"],
   },
   "aegolius-funereus": {
     en: [

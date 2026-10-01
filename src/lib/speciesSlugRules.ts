@@ -31,7 +31,7 @@ const KA_SLUG_ALIASES: Record<string, string[]> = {
     "eurasian-goshawk",
     "astur-gentilis",
   ],
-  "accipiter-nisus": ["mimino", "korisebri-mimino"],
+  "accipiter-nisus": ["korisebri-mimino"],
   "aegolius-funereus": [
     "bukioti",
     "mikoti",

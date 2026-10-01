@@ -284,12 +284,12 @@ const KA_META_DESCRIPTION_OVERRIDES: Record<string, string> = {
     "ქედანი (Columba palumbus) დიდი ტყის მტრედია Columbidae-ს ოჯახიდან; საქართველოში გვხვდება როგორც რეზიდენტი, მიგრანტი და მოზამთრე.",
   "/prinvelebi/kori":
     "ქორი (Accipiter gentilis) ტყის მსხვილი მტაცებელი ფრინველია Accipitridae-ს ოჯახიდან; მიმინოსგან გასარჩევად ზოგჯერ „დიდ ქორსაც“ ეძახიან.",
-  "/prinvelebi/korisebri-mimino":
-    "ქორისებრი მიმინო (Accipiter nisus) ტყის პატარა ქორია; საქართველოში დადასტურებულია როგორც მთელი წლის რეზიდენტი და მიგრანტი.",
   "/prinvelebi/maktsia":
     "მაქცია (Jynx torquilla) პატარა კოდალასნაირი ფრინველია Picidae-ს ოჯახიდან; საქართველოში დადასტურებულია როგორც მობუდარი მიგრანტი.",
   "/prinvelebi/mdelos-mertsxala":
     "მდელოს მერცხალა (Glareola pratincola) გრძელფრთიანი სირბილაა, რომელიც მერცხლის მსგავსად დაფრინავს და ძირითადად მწერებით იკვებება.",
+  "/prinvelebi/mimino":
+    "მიმინო (Accipiter nisus) ტყის პატარა ქორია; საქართველოში დადასტურებულია როგორც მთელი წლის რეზიდენტი და მიგრანტი.",
   "/prinvelebi/mtis-artsivi":
     "მთის არწივი (Aquila chrysaetos), ასევე ოქროსფერ არწივად ცნობილი, დიდი დღის მტაცებელი ფრინველია Accipitridae-ს ოჯახიდან.",
   "/prinvelebi/mtskeri":
