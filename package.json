@@ -66,7 +66,7 @@
     "dev:vinext": "VINEXT=1 vinext dev --port 3001",
     "build:vinext": "VINEXT=1 vinext build",
     "start:vinext": "wrangler dev --config dist/server/wrangler.json",
-    "deploy:vinext": "pnpm run build:vinext && vinext-cloudflare deploy --config dist/server/wrangler.json --experimental-warm-cdn-cache",
+    "deploy:vinext": "pnpm run build:vinext && vinext-cloudflare deploy --config dist/server/wrangler.json --warm-cache",
     "deploy:response-store": "wrangler deploy --config wrangler.response-store.jsonc"
   },
   "lint-staged": {
@@ -79,9 +79,9 @@
     ]
   },
   "dependencies": {
-    "@cloudflare/workers-response-store": "0.1.0-beta.0",
+    "@cloudflare/workers-response-store": "1.0.1",
     "@sentry/nextjs": "^10.74.0",
-    "@vinext/cloudflare": "1.0.0-beta.8",
+    "@vinext/cloudflare": "1.0.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.43.0",
     "fuse.js": "^7.5.0",
@@ -97,7 +97,7 @@
     "react-server-dom-webpack": "^19.3.0",
     "tailwind-merge": "^3.6.0",
     "vaul": "^1.1.2",
-    "vinext": "1.0.0-beta.10"
+    "vinext": "1.0.1"
   },
   "devDependencies": {
     "@cloudflare/vite-plugin": "^1.54.9",
