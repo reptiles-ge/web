@@ -206,7 +206,12 @@ describe("species routes", () => {
   });
 
   it("keeps golden eagle lookalikes to supported flight comparisons", () => {
-    const peers = ["aegypius-monachus", "buteo-buteo", "gyps-fulvus"];
+    const peers = [
+      "aegypius-monachus",
+      "buteo-buteo",
+      "gypaetus-barbatus",
+      "gyps-fulvus",
+    ];
     expect(getSpeciesLookalikes("aquila-chrysaetos")).toEqual(peers);
     for (const id of peers) {
       expect(getSpeciesLookalikes(id)).toContain("aquila-chrysaetos");
@@ -214,6 +219,17 @@ describe("species routes", () => {
     for (const id of ["falco-peregrinus", "milvus-migrans"]) {
       expect(getSpeciesLookalikes(id)).not.toContain("aquila-chrysaetos");
     }
+  });
+
+  it("keeps bearded vulture lookalikes to supported flight comparisons", () => {
+    const peers = ["gyps-fulvus", "aquila-chrysaetos"];
+    expect(getSpeciesLookalikes("gypaetus-barbatus")).toEqual(peers);
+    for (const id of peers) {
+      expect(getSpeciesLookalikes(id)).toContain("gypaetus-barbatus");
+    }
+    expect(getSpeciesLookalikes("aegypius-monachus")).not.toContain(
+      "gypaetus-barbatus",
+    );
   });
 
   it("leaves Caucasian salamander lookalikes empty without supported visual confusion", () => {
