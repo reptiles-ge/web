@@ -165,6 +165,7 @@ const KA_SLUG_ALIASES: Record<string, string[]> = {
     "mdelos-mertskhala",
     "collared-pratincole",
   ],
+  "gypaetus-barbatus": ["kravichamia", "lammergeier", "bearded-vulture"],
   "gyps-fulvus": [
     "orbi",
     "tetrtava-orbi",
@@ -172,7 +173,6 @@ const KA_SLUG_ALIASES: Record<string, string[]> = {
     "griffon",
     "eurasian-griffon",
   ],
-  "gypaetus-barbatus": ["kravichamia", "lammergeier", "bearded-vulture"],
   "halyomorpha-halys": [
     "aziuri-baghlindo",
     "aziuri-baghlindjo",

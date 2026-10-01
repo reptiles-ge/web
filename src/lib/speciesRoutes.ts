@@ -165,8 +165,8 @@ const LOOKALIKES: Record<string, string[]> = {
   "ficedula-hypoleuca": ["ficedula-semitorquata"],
   "ficedula-semitorquata": ["ficedula-hypoleuca"],
   "garrulus-glandarius": ["pica-pica", "corvus-corax"],
-  "gyps-fulvus": ["aegypius-monachus", "aquila-chrysaetos", "buteo-buteo"],
   "gypaetus-barbatus": ["gyps-fulvus", "aegypius-monachus"],
+  "gyps-fulvus": ["aegypius-monachus", "aquila-chrysaetos", "buteo-buteo"],
   "hemorrhois-ravergieri": [
     "platyceps-najadum",
     "elaphe-urartica",
@@ -193,10 +193,7 @@ const LOOKALIKES: Record<string, string[]> = {
   "lynx-lynx": ["panthera-pardus", "canis-lupus"],
   "macrovipera-lebetina": ["elaphe-urartica", "hemorrhois-ravergieri"],
   "malpolon-insignitus": ["dolichophis-schmidti", "hemorrhois-ravergieri"],
-  "mauremys-caspica": [
-    "emys-orbicularis",
-    "trachemys-scripta",
-  ],
+  "mauremys-caspica": ["emys-orbicularis", "trachemys-scripta"],
   "mesobuthus-eupeus": ["olivierus-caucasicus"],
   "milvus-migrans": ["buteo-buteo", "pernis-apivorus"],
   "natrix-natrix": ["natrix-tessellata", "vipera-kaznakovi"],
@@ -260,10 +257,7 @@ const LOOKALIKES: Record<string, string[]> = {
     "bufotes-viridis",
   ],
   "telescopus-fallax": ["vipera-transcaucasiana", "elaphe-dione"],
-  "testudo-graeca": [
-    "emys-orbicularis",
-    "trachemys-scripta",
-  ],
+  "testudo-graeca": ["emys-orbicularis", "trachemys-scripta"],
   "trachemys-scripta": [
     "emys-orbicularis",
     "mauremys-caspica",
