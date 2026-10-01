@@ -53208,6 +53208,101 @@
       ],
       "updatedAt": "2026-10-01T06:07:37.073Z"
     },
+    "lanius-collurio-giorgi-2.jpg": {
+      "sourceHash": "4a2a4f380a2d0e4ce46d337abe97cf03d1153ce91ef102ecea8b6e7510ae4020",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lanius-collurio-giorgi-2.jpg",
+      "originalSize": 144060,
+      "width": 1408,
+      "height": 2028,
+      "derivatives": [
+        {
+          "key": "optimized/lanius-collurio-giorgi-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 461,
+          "byteSize": 14207
+        },
+        {
+          "key": "optimized/lanius-collurio-giorgi-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 461,
+          "byteSize": 18142
+        },
+        {
+          "key": "optimized/lanius-collurio-giorgi-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 576,
+          "byteSize": 19032
+        },
+        {
+          "key": "optimized/lanius-collurio-giorgi-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 576,
+          "byteSize": 24462
+        },
+        {
+          "key": "optimized/lanius-collurio-giorgi-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 922,
+          "byteSize": 35524
+        },
+        {
+          "key": "optimized/lanius-collurio-giorgi-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 922,
+          "byteSize": 44890
+        },
+        {
+          "key": "optimized/lanius-collurio-giorgi-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1152,
+          "byteSize": 46427
+        },
+        {
+          "key": "optimized/lanius-collurio-giorgi-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1152,
+          "byteSize": 58676
+        },
+        {
+          "key": "optimized/lanius-collurio-giorgi-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1728,
+          "byteSize": 77630
+        },
+        {
+          "key": "optimized/lanius-collurio-giorgi-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1728,
+          "byteSize": 94524
+        },
+        {
+          "key": "optimized/lanius-collurio-giorgi-2-1408.avif",
+          "format": "avif",
+          "width": 1408,
+          "height": 2028,
+          "byteSize": 92205
+        },
+        {
+          "key": "optimized/lanius-collurio-giorgi-2-1408.webp",
+          "format": "webp",
+          "width": 1408,
+          "height": 2028,
+          "byteSize": 111652
+        }
+      ],
+      "updatedAt": "2026-10-01T06:12:19.192Z"
+    },
     "lanius-collurio-james-1.jpg": {
       "sourceHash": "fe5b3947b447a502bfb02da66842a8d71110df03dc7ee434c583e42e57e513cf",
       "configFingerprint": "409788ee46c653d8",
