@@ -428,6 +428,101 @@
       ],
       "updatedAt": "2026-09-05T16:17:19.182Z"
     },
+    "accipiter-nisus-anton-1.jpg": {
+      "sourceHash": "6262624da644a296df4c5739bbc813d53f884921d0c138ea3455f2b1f0df5adb",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "accipiter-nisus-anton-1.jpg",
+      "originalSize": 109304,
+      "width": 1242,
+      "height": 828,
+      "derivatives": [
+        {
+          "key": "optimized/accipiter-nisus-anton-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 2686
+        },
+        {
+          "key": "optimized/accipiter-nisus-anton-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 3362
+        },
+        {
+          "key": "optimized/accipiter-nisus-anton-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 3468
+        },
+        {
+          "key": "optimized/accipiter-nisus-anton-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 4592
+        },
+        {
+          "key": "optimized/accipiter-nisus-anton-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 6311
+        },
+        {
+          "key": "optimized/accipiter-nisus-anton-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 8780
+        },
+        {
+          "key": "optimized/accipiter-nisus-anton-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 8688
+        },
+        {
+          "key": "optimized/accipiter-nisus-anton-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 12142
+        },
+        {
+          "key": "optimized/accipiter-nisus-anton-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 17683
+        },
+        {
+          "key": "optimized/accipiter-nisus-anton-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 22552
+        },
+        {
+          "key": "optimized/accipiter-nisus-anton-1-1242.avif",
+          "format": "avif",
+          "width": 1242,
+          "height": 828,
+          "byteSize": 19222
+        },
+        {
+          "key": "optimized/accipiter-nisus-anton-1-1242.webp",
+          "format": "webp",
+          "width": 1242,
+          "height": 828,
+          "byteSize": 25110
+        }
+      ],
+      "updatedAt": "2026-10-01T11:19:14.679Z"
+    },
     "accipiter-nisus-david-1.jpg": {
       "sourceHash": "78e329aaca0d13e7894e4d380416fbb518e36551a11ca967150319e7b7001062",
       "configFingerprint": "409788ee46c653d8",

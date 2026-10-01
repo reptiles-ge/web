@@ -277,6 +277,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/accipiter-nisus-anton-1.jpg": {
+    "path": "accipiter-nisus-anton-1",
+    "width": 1242,
+    "height": 828,
+    "widths": [320, 400, 640, 800, 1200, 1242],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/accipiter-nisus-david-1.jpg": {
     "path": "accipiter-nisus-david-1",
     "width": 1918,
