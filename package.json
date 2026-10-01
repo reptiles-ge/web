@@ -13,6 +13,7 @@
   },
   "scripts": {
     "predev": "tsx scripts/compile-species.ts && tsx scripts/compile-locale-switch-index.ts && tsx scripts/compile-search.ts && tsx scripts/compile-georgia-map.ts",
+    "browse": "tsx scripts/browse-reptiles.ts",
     "dev": "next dev --port 3333",
     "prebuild": "tsx scripts/compile-species.ts && tsx scripts/compile-locale-switch-index.ts && tsx scripts/compile-search.ts && tsx scripts/compile-georgia-map.ts",
     "pretest": "tsx scripts/compile-species.ts && tsx scripts/compile-locale-switch-index.ts && tsx scripts/compile-search.ts && tsx scripts/compile-georgia-map.ts",
