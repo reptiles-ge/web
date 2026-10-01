@@ -12460,6 +12460,101 @@
       ],
       "updatedAt": "2026-10-01T10:26:59.583Z"
     },
+    "ciconia-ciconia-mikhail-1.jpg": {
+      "sourceHash": "a0913aa6630497121d37c345fa57483b142ba1dd7d6f87a342bf14952dbfbee8",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "ciconia-ciconia-mikhail-1.jpg",
+      "originalSize": 213135,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/ciconia-ciconia-mikhail-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 4693
+        },
+        {
+          "key": "optimized/ciconia-ciconia-mikhail-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6580
+        },
+        {
+          "key": "optimized/ciconia-ciconia-mikhail-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 6333
+        },
+        {
+          "key": "optimized/ciconia-ciconia-mikhail-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 8970
+        },
+        {
+          "key": "optimized/ciconia-ciconia-mikhail-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 12707
+        },
+        {
+          "key": "optimized/ciconia-ciconia-mikhail-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 18510
+        },
+        {
+          "key": "optimized/ciconia-ciconia-mikhail-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 17844
+        },
+        {
+          "key": "optimized/ciconia-ciconia-mikhail-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 26090
+        },
+        {
+          "key": "optimized/ciconia-ciconia-mikhail-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 31036
+        },
+        {
+          "key": "optimized/ciconia-ciconia-mikhail-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 45312
+        },
+        {
+          "key": "optimized/ciconia-ciconia-mikhail-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 66237
+        },
+        {
+          "key": "optimized/ciconia-ciconia-mikhail-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 94152
+        }
+      ],
+      "updatedAt": "2026-10-01T10:28:26.440Z"
+    },
     "ciconia-ciconia-timoteo-b-1.jpg": {
       "sourceHash": "f9d0527232f06e0167cc27af5dfa85fb283d04ad9faa4bea3f4097628aa59d48",
       "configFingerprint": "409788ee46c653d8",

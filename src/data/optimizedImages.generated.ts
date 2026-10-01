@@ -1432,6 +1432,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1638],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/ciconia-ciconia-mikhail-1.jpg": {
+    "path": "ciconia-ciconia-mikhail-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/ciconia-ciconia-timoteo-b-1.jpg": {
     "path": "ciconia-ciconia-timoteo-b-1",
     "width": 1153,
