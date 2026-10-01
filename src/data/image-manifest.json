@@ -1104,6 +1104,101 @@
       ],
       "updatedAt": "2026-08-28T21:28:37.422Z"
     },
+    "accipiter-nisus-nikita-1.jpg": {
+      "sourceHash": "9fee735691067ce0e9050bbdfa34eb93dcda73588dcbc3c74db1c8672b8445ba",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "accipiter-nisus-nikita-1.jpg",
+      "originalSize": 960069,
+      "width": 2048,
+      "height": 1366,
+      "derivatives": [
+        {
+          "key": "optimized/accipiter-nisus-nikita-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11265
+        },
+        {
+          "key": "optimized/accipiter-nisus-nikita-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 16276
+        },
+        {
+          "key": "optimized/accipiter-nisus-nikita-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 16059
+        },
+        {
+          "key": "optimized/accipiter-nisus-nikita-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 23434
+        },
+        {
+          "key": "optimized/accipiter-nisus-nikita-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 34913
+        },
+        {
+          "key": "optimized/accipiter-nisus-nikita-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 51834
+        },
+        {
+          "key": "optimized/accipiter-nisus-nikita-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 51541
+        },
+        {
+          "key": "optimized/accipiter-nisus-nikita-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 78740
+        },
+        {
+          "key": "optimized/accipiter-nisus-nikita-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 124728
+        },
+        {
+          "key": "optimized/accipiter-nisus-nikita-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 211076
+        },
+        {
+          "key": "optimized/accipiter-nisus-nikita-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1366,
+          "byteSize": 501343
+        },
+        {
+          "key": "optimized/accipiter-nisus-nikita-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1366,
+          "byteSize": 714356
+        }
+      ],
+      "updatedAt": "2026-10-01T11:22:38.298Z"
+    },
     "accipiter-nisus-sharp-female.jpg": {
       "sourceHash": "5854c2eab7b4e5e87803ad6bf7f8d0850a2fdc9d2ad9f135ea4f1133c428c728",
       "configFingerprint": "a895f8e025dcc7fa",
