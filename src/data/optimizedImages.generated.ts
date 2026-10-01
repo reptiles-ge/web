@@ -4799,6 +4799,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1484],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/lanius-collurio-katherine-1.jpg": {
+    "path": "lanius-collurio-katherine-1",
+    "width": 1280,
+    "height": 800,
+    "widths": [320, 400, 640, 800, 1200, 1280],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/latrodectus-tredecimguttatus-armen-1.jpg": {
     "path": "latrodectus-tredecimguttatus-armen-1",
     "width": 1280,

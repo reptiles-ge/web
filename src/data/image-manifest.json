@@ -52828,6 +52828,101 @@
       ],
       "updatedAt": "2026-10-01T06:03:53.789Z"
     },
+    "lanius-collurio-katherine-1.jpg": {
+      "sourceHash": "df9ef614ccbec9b667849ffb9cb375419f93bc794aa626b53bf3a218ee08662e",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lanius-collurio-katherine-1.jpg",
+      "originalSize": 194826,
+      "width": 1280,
+      "height": 800,
+      "derivatives": [
+        {
+          "key": "optimized/lanius-collurio-katherine-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 200,
+          "byteSize": 9450
+        },
+        {
+          "key": "optimized/lanius-collurio-katherine-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 200,
+          "byteSize": 14774
+        },
+        {
+          "key": "optimized/lanius-collurio-katherine-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 250,
+          "byteSize": 13013
+        },
+        {
+          "key": "optimized/lanius-collurio-katherine-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 250,
+          "byteSize": 19938
+        },
+        {
+          "key": "optimized/lanius-collurio-katherine-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 400,
+          "byteSize": 24368
+        },
+        {
+          "key": "optimized/lanius-collurio-katherine-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 400,
+          "byteSize": 36960
+        },
+        {
+          "key": "optimized/lanius-collurio-katherine-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 500,
+          "byteSize": 32875
+        },
+        {
+          "key": "optimized/lanius-collurio-katherine-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 500,
+          "byteSize": 49506
+        },
+        {
+          "key": "optimized/lanius-collurio-katherine-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 750,
+          "byteSize": 55065
+        },
+        {
+          "key": "optimized/lanius-collurio-katherine-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 750,
+          "byteSize": 80054
+        },
+        {
+          "key": "optimized/lanius-collurio-katherine-1-1280.avif",
+          "format": "avif",
+          "width": 1280,
+          "height": 800,
+          "byteSize": 61582
+        },
+        {
+          "key": "optimized/lanius-collurio-katherine-1-1280.webp",
+          "format": "webp",
+          "width": 1280,
+          "height": 800,
+          "byteSize": 89538
+        }
+      ],
+      "updatedAt": "2026-10-01T06:06:10.549Z"
+    },
     "latrodectus-tredecimguttatus-1.jpg": {
       "sourceHash": "ecde5ece5769ba40d21194706e0297e9671eafb1ebdc340a79591917e8cda60e",
       "configFingerprint": "a895f8e025dcc7fa",
