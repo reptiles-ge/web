@@ -1143,6 +1143,101 @@
       ],
       "updatedAt": "2026-08-28T21:28:44.771Z"
     },
+    "accipiter-nisus-vladimir-1.jpg": {
+      "sourceHash": "59eb1339d0f3ac65ff315c64fcbc53a05e86e1d6ce2c8661a9a57d93a29a2d5a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "accipiter-nisus-vladimir-1.jpg",
+      "originalSize": 105603,
+      "width": 1350,
+      "height": 900,
+      "derivatives": [
+        {
+          "key": "optimized/accipiter-nisus-vladimir-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 3728
+        },
+        {
+          "key": "optimized/accipiter-nisus-vladimir-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 4734
+        },
+        {
+          "key": "optimized/accipiter-nisus-vladimir-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 5001
+        },
+        {
+          "key": "optimized/accipiter-nisus-vladimir-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 6264
+        },
+        {
+          "key": "optimized/accipiter-nisus-vladimir-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 8401
+        },
+        {
+          "key": "optimized/accipiter-nisus-vladimir-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 11460
+        },
+        {
+          "key": "optimized/accipiter-nisus-vladimir-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 11246
+        },
+        {
+          "key": "optimized/accipiter-nisus-vladimir-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 14888
+        },
+        {
+          "key": "optimized/accipiter-nisus-vladimir-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 19081
+        },
+        {
+          "key": "optimized/accipiter-nisus-vladimir-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 25570
+        },
+        {
+          "key": "optimized/accipiter-nisus-vladimir-1-1350.avif",
+          "format": "avif",
+          "width": 1350,
+          "height": 900,
+          "byteSize": 23725
+        },
+        {
+          "key": "optimized/accipiter-nisus-vladimir-1-1350.webp",
+          "format": "webp",
+          "width": 1350,
+          "height": 900,
+          "byteSize": 31174
+        }
+      ],
+      "updatedAt": "2026-10-01T11:21:14.827Z"
+    },
     "accipiter-nisus-zjeroen-1.jpg": {
       "sourceHash": "890a7af55152af71e0c0d866bf92e6aac79557f6fbd8008923cb28052b47b004",
       "configFingerprint": "a895f8e025dcc7fa",
