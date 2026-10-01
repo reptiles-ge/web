@@ -71,6 +71,7 @@ export const featuredSpeciesIds = [
   "picus-viridis",
   "dendrocopos-major",
   "jynx-torquilla",
+  "lanius-collurio",
   "cuculus-canorus",
   "upupa-epops",
   "apus-apus",

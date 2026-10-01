@@ -70,6 +70,7 @@ export function confirmedRecordThresholdForSpecies(speciesId: string) {
     speciesId === "cheiracanthium-punctorium" ||
     speciesId === "columba-palumbus" ||
     speciesId === "coturnix-coturnix" ||
+    speciesId === "lanius-collurio" ||
     speciesId === "mustela-nivalis" ||
     speciesId === "natrix-natrix" ||
     speciesId === "zamenis-hohenackeri"

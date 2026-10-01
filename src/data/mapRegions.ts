@@ -44,6 +44,7 @@ export const regions: Region[] = [
     },
     path: georgiaRegionPaths.abkhazia,
     speciesIds: [
+      "lanius-collurio",
       "vipera-kaznakovi",
       "vipera-dinniki",
       "natrix-tessellata",
@@ -92,6 +93,7 @@ export const regions: Region[] = [
     },
     path: georgiaRegionPaths["samegrelo-zemo-svaneti"],
     speciesIds: [
+      "lanius-collurio",
       "vipera-kaznakovi",
       "vipera-dinniki",
       "natrix-tessellata",
@@ -139,6 +141,7 @@ export const regions: Region[] = [
     nameIn: { en: "Guria", ka: "გურიაში", ru: "Гурии", tr: "Gurya" },
     path: georgiaRegionPaths.guria,
     speciesIds: [
+      "lanius-collurio",
       "vipera-kaznakovi",
       "natrix-tessellata",
       "natrix-natrix",
@@ -173,6 +176,7 @@ export const regions: Region[] = [
     nameIn: { en: "Adjara", ka: "აჭარაში", ru: "Аджарии", tr: "Acara" },
     path: georgiaRegionPaths.adjara,
     speciesIds: [
+      "lanius-collurio",
       "vipera-kaznakovi",
       "vipera-transcaucasiana",
       "natrix-tessellata",
@@ -224,6 +228,7 @@ export const regions: Region[] = [
     nameIn: { en: "Imereti", ka: "იმერეთში", ru: "Имеретии", tr: "İmereti" },
     path: georgiaRegionPaths.imereti,
     speciesIds: [
+      "lanius-collurio",
       "vipera-kaznakovi",
       "natrix-tessellata",
       "natrix-natrix",
@@ -271,6 +276,7 @@ export const regions: Region[] = [
     },
     path: georgiaRegionPaths.racha,
     speciesIds: [
+      "lanius-collurio",
       "vipera-dinniki",
       "vipera-kaznakovi",
       "anguis-colchica",
@@ -309,6 +315,7 @@ export const regions: Region[] = [
     },
     path: georgiaRegionPaths["samtskhe-javakheti"],
     speciesIds: [
+      "lanius-collurio",
       "vipera-transcaucasiana",
       "vipera-darevskii",
       "vipera-kaznakovi",
@@ -377,6 +384,7 @@ export const regions: Region[] = [
     },
     path: georgiaRegionPaths["shida-kartli"],
     speciesIds: [
+      "lanius-collurio",
       "vipera-transcaucasiana",
       "vipera-kaznakovi",
       "dolichophis-schmidti",
@@ -435,6 +443,7 @@ export const regions: Region[] = [
     },
     path: georgiaRegionPaths["mtskheta-mtianeti"],
     speciesIds: [
+      "lanius-collurio",
       "vipera-dinniki",
       "vipera-transcaucasiana",
       "coronella-austriaca",
@@ -496,6 +505,7 @@ export const regions: Region[] = [
     },
     path: georgiaRegionPaths["kvemo-kartli"],
     speciesIds: [
+      "lanius-collurio",
       "macrovipera-lebetina",
       "vipera-transcaucasiana",
       "elaphe-urartica",
@@ -551,6 +561,7 @@ export const regions: Region[] = [
     nameIn: { en: "Kakheti", ka: "კახეთში", ru: "Кахетии", tr: "Kaheti" },
     path: georgiaRegionPaths.kakheti,
     speciesIds: [
+      "lanius-collurio",
       "macrovipera-lebetina",
       "vipera-renardi",
       "elaphe-urartica",
@@ -624,6 +635,7 @@ export const regions: Region[] = [
     nameIn: { en: "Tbilisi", ka: "თბილისში", ru: "Тбилиси", tr: "Tiflis" },
     path: georgiaRegionPaths.tbilisi,
     speciesIds: [
+      "lanius-collurio",
       "macrovipera-lebetina",
       "vipera-transcaucasiana",
       "vipera-renardi",
