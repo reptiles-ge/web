@@ -60,7 +60,9 @@ export async function transformWithCodex(
             PATH: process.env.PATH,
             TMPDIR: process.env.TMPDIR,
           },
-          signal: AbortSignal.timeout(600000),
+          signal: AbortSignal.timeout(
+            reasoningEffort === "xhigh" ? 45 * 60 * 1000 : 600_000,
+          ),
           stdio: ["pipe", "ignore", "pipe"],
         },
       );
