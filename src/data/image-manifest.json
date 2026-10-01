@@ -12270,6 +12270,738 @@
       ],
       "updatedAt": "2026-09-19T07:36:50.969Z"
     },
+    "ciconia-ciconia-achot-1.jpg": {
+      "sourceHash": "7c4ff6ed2390806d9446375c5c43b5daeccd3758d0cd97701793f3d25385d755",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "ciconia-ciconia-achot-1.jpg",
+      "originalSize": 246324,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/ciconia-ciconia-achot-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 5582
+        },
+        {
+          "key": "optimized/ciconia-ciconia-achot-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 7244
+        },
+        {
+          "key": "optimized/ciconia-ciconia-achot-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 7367
+        },
+        {
+          "key": "optimized/ciconia-ciconia-achot-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 9408
+        },
+        {
+          "key": "optimized/ciconia-ciconia-achot-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 13626
+        },
+        {
+          "key": "optimized/ciconia-ciconia-achot-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 17846
+        },
+        {
+          "key": "optimized/ciconia-ciconia-achot-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 18382
+        },
+        {
+          "key": "optimized/ciconia-ciconia-achot-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 24276
+        },
+        {
+          "key": "optimized/ciconia-ciconia-achot-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 31207
+        },
+        {
+          "key": "optimized/ciconia-ciconia-achot-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 40226
+        },
+        {
+          "key": "optimized/ciconia-ciconia-achot-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 65394
+        },
+        {
+          "key": "optimized/ciconia-ciconia-achot-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 85804
+        }
+      ],
+      "updatedAt": "2026-10-01T10:32:56.156Z"
+    },
+    "ciconia-ciconia-aleksandre-1.jpg": {
+      "sourceHash": "2bc3a09393e94add2f2ecb9904fa3ee95ec1138105511d739808b175d86d6ab2",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "ciconia-ciconia-aleksandre-1.jpg",
+      "originalSize": 26083,
+      "width": 1024,
+      "height": 643,
+      "derivatives": [
+        {
+          "key": "optimized/ciconia-ciconia-aleksandre-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 201,
+          "byteSize": 2017
+        },
+        {
+          "key": "optimized/ciconia-ciconia-aleksandre-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 201,
+          "byteSize": 2150
+        },
+        {
+          "key": "optimized/ciconia-ciconia-aleksandre-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 251,
+          "byteSize": 2592
+        },
+        {
+          "key": "optimized/ciconia-ciconia-aleksandre-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 251,
+          "byteSize": 2922
+        },
+        {
+          "key": "optimized/ciconia-ciconia-aleksandre-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 402,
+          "byteSize": 4436
+        },
+        {
+          "key": "optimized/ciconia-ciconia-aleksandre-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 402,
+          "byteSize": 5258
+        },
+        {
+          "key": "optimized/ciconia-ciconia-aleksandre-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 502,
+          "byteSize": 5724
+        },
+        {
+          "key": "optimized/ciconia-ciconia-aleksandre-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 502,
+          "byteSize": 6918
+        },
+        {
+          "key": "optimized/ciconia-ciconia-aleksandre-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 643,
+          "byteSize": 8013
+        },
+        {
+          "key": "optimized/ciconia-ciconia-aleksandre-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 643,
+          "byteSize": 9866
+        }
+      ],
+      "updatedAt": "2026-10-01T10:33:47.960Z"
+    },
+    "ciconia-ciconia-ekaterina-1.jpg": {
+      "sourceHash": "c88a69cdfa4e2685d8ba8edb1cf13ea1b0f0b2ce9d564aa48b44d4a7db52c812",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "ciconia-ciconia-ekaterina-1.jpg",
+      "originalSize": 280497,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/ciconia-ciconia-ekaterina-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 5123
+        },
+        {
+          "key": "optimized/ciconia-ciconia-ekaterina-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 7034
+        },
+        {
+          "key": "optimized/ciconia-ciconia-ekaterina-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 6853
+        },
+        {
+          "key": "optimized/ciconia-ciconia-ekaterina-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 9520
+        },
+        {
+          "key": "optimized/ciconia-ciconia-ekaterina-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 12083
+        },
+        {
+          "key": "optimized/ciconia-ciconia-ekaterina-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 17942
+        },
+        {
+          "key": "optimized/ciconia-ciconia-ekaterina-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 15978
+        },
+        {
+          "key": "optimized/ciconia-ciconia-ekaterina-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 23212
+        },
+        {
+          "key": "optimized/ciconia-ciconia-ekaterina-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 25629
+        },
+        {
+          "key": "optimized/ciconia-ciconia-ekaterina-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 37138
+        },
+        {
+          "key": "optimized/ciconia-ciconia-ekaterina-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 50497
+        },
+        {
+          "key": "optimized/ciconia-ciconia-ekaterina-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 70382
+        }
+      ],
+      "updatedAt": "2026-10-01T10:27:35.066Z"
+    },
+    "ciconia-ciconia-giorgi-1.jpg": {
+      "sourceHash": "1a67eaa303dd4fd96dad72678577b1928eaf2945be8d4c3344f57509d1bc9c35",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "ciconia-ciconia-giorgi-1.jpg",
+      "originalSize": 156515,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/ciconia-ciconia-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 3659
+        },
+        {
+          "key": "optimized/ciconia-ciconia-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 4428
+        },
+        {
+          "key": "optimized/ciconia-ciconia-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 4734
+        },
+        {
+          "key": "optimized/ciconia-ciconia-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 5942
+        },
+        {
+          "key": "optimized/ciconia-ciconia-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 9150
+        },
+        {
+          "key": "optimized/ciconia-ciconia-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 12054
+        },
+        {
+          "key": "optimized/ciconia-ciconia-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 12687
+        },
+        {
+          "key": "optimized/ciconia-ciconia-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 17124
+        },
+        {
+          "key": "optimized/ciconia-ciconia-giorgi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 23185
+        },
+        {
+          "key": "optimized/ciconia-ciconia-giorgi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 32220
+        },
+        {
+          "key": "optimized/ciconia-ciconia-giorgi-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 54499
+        },
+        {
+          "key": "optimized/ciconia-ciconia-giorgi-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 76606
+        }
+      ],
+      "updatedAt": "2026-10-01T10:30:48.017Z"
+    },
+    "ciconia-ciconia-gogopopo-1.jpg": {
+      "sourceHash": "66b2561856662ba2f02a818d8a3b0317bd1a47b9c66dea85f9eb54c1a3f74f6a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "ciconia-ciconia-gogopopo-1.jpg",
+      "originalSize": 275195,
+      "width": 1638,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/ciconia-ciconia-gogopopo-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 401,
+          "byteSize": 7632
+        },
+        {
+          "key": "optimized/ciconia-ciconia-gogopopo-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 401,
+          "byteSize": 9042
+        },
+        {
+          "key": "optimized/ciconia-ciconia-gogopopo-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 500,
+          "byteSize": 10976
+        },
+        {
+          "key": "optimized/ciconia-ciconia-gogopopo-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 500,
+          "byteSize": 13078
+        },
+        {
+          "key": "optimized/ciconia-ciconia-gogopopo-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 800,
+          "byteSize": 22421
+        },
+        {
+          "key": "optimized/ciconia-ciconia-gogopopo-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 800,
+          "byteSize": 27156
+        },
+        {
+          "key": "optimized/ciconia-ciconia-gogopopo-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1000,
+          "byteSize": 31794
+        },
+        {
+          "key": "optimized/ciconia-ciconia-gogopopo-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1000,
+          "byteSize": 37812
+        },
+        {
+          "key": "optimized/ciconia-ciconia-gogopopo-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1500,
+          "byteSize": 57038
+        },
+        {
+          "key": "optimized/ciconia-ciconia-gogopopo-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1500,
+          "byteSize": 68088
+        },
+        {
+          "key": "optimized/ciconia-ciconia-gogopopo-1-1638.avif",
+          "format": "avif",
+          "width": 1638,
+          "height": 2048,
+          "byteSize": 88078
+        },
+        {
+          "key": "optimized/ciconia-ciconia-gogopopo-1-1638.webp",
+          "format": "webp",
+          "width": 1638,
+          "height": 2048,
+          "byteSize": 103066
+        }
+      ],
+      "updatedAt": "2026-10-01T10:26:59.583Z"
+    },
+    "ciconia-ciconia-hoiman-1.jpg": {
+      "sourceHash": "7877e5d8a8a6f2d97b412993bfc50032b3c03422296aa0dcb9390e2853f643b5",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "ciconia-ciconia-hoiman-1.jpg",
+      "originalSize": 701576,
+      "width": 1365,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/ciconia-ciconia-hoiman-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 480,
+          "byteSize": 27594
+        },
+        {
+          "key": "optimized/ciconia-ciconia-hoiman-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 480,
+          "byteSize": 40754
+        },
+        {
+          "key": "optimized/ciconia-ciconia-hoiman-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 601,
+          "byteSize": 39559
+        },
+        {
+          "key": "optimized/ciconia-ciconia-hoiman-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 601,
+          "byteSize": 58726
+        },
+        {
+          "key": "optimized/ciconia-ciconia-hoiman-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 960,
+          "byteSize": 81387
+        },
+        {
+          "key": "optimized/ciconia-ciconia-hoiman-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 960,
+          "byteSize": 119596
+        },
+        {
+          "key": "optimized/ciconia-ciconia-hoiman-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1200,
+          "byteSize": 114496
+        },
+        {
+          "key": "optimized/ciconia-ciconia-hoiman-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1200,
+          "byteSize": 161294
+        },
+        {
+          "key": "optimized/ciconia-ciconia-hoiman-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1800,
+          "byteSize": 210701
+        },
+        {
+          "key": "optimized/ciconia-ciconia-hoiman-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1800,
+          "byteSize": 286078
+        },
+        {
+          "key": "optimized/ciconia-ciconia-hoiman-1-1365.avif",
+          "format": "avif",
+          "width": 1365,
+          "height": 2048,
+          "byteSize": 264671
+        },
+        {
+          "key": "optimized/ciconia-ciconia-hoiman-1-1365.webp",
+          "format": "webp",
+          "width": 1365,
+          "height": 2048,
+          "byteSize": 349606
+        }
+      ],
+      "updatedAt": "2026-10-01T10:29:27.559Z"
+    },
+    "ciconia-ciconia-mikhail-1.jpg": {
+      "sourceHash": "a0913aa6630497121d37c345fa57483b142ba1dd7d6f87a342bf14952dbfbee8",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "ciconia-ciconia-mikhail-1.jpg",
+      "originalSize": 213135,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/ciconia-ciconia-mikhail-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 4693
+        },
+        {
+          "key": "optimized/ciconia-ciconia-mikhail-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6580
+        },
+        {
+          "key": "optimized/ciconia-ciconia-mikhail-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 6333
+        },
+        {
+          "key": "optimized/ciconia-ciconia-mikhail-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 8970
+        },
+        {
+          "key": "optimized/ciconia-ciconia-mikhail-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 12707
+        },
+        {
+          "key": "optimized/ciconia-ciconia-mikhail-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 18510
+        },
+        {
+          "key": "optimized/ciconia-ciconia-mikhail-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 17844
+        },
+        {
+          "key": "optimized/ciconia-ciconia-mikhail-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 26090
+        },
+        {
+          "key": "optimized/ciconia-ciconia-mikhail-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 31036
+        },
+        {
+          "key": "optimized/ciconia-ciconia-mikhail-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 45312
+        },
+        {
+          "key": "optimized/ciconia-ciconia-mikhail-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 66237
+        },
+        {
+          "key": "optimized/ciconia-ciconia-mikhail-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 94152
+        }
+      ],
+      "updatedAt": "2026-10-01T10:28:26.440Z"
+    },
+    "ciconia-ciconia-timoteo-b-1.jpg": {
+      "sourceHash": "f9d0527232f06e0167cc27af5dfa85fb283d04ad9faa4bea3f4097628aa59d48",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "ciconia-ciconia-timoteo-b-1.jpg",
+      "originalSize": 1164873,
+      "width": 1153,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/ciconia-ciconia-timoteo-b-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 569,
+          "byteSize": 58437
+        },
+        {
+          "key": "optimized/ciconia-ciconia-timoteo-b-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 569,
+          "byteSize": 89606
+        },
+        {
+          "key": "optimized/ciconia-ciconia-timoteo-b-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 710,
+          "byteSize": 96434
+        },
+        {
+          "key": "optimized/ciconia-ciconia-timoteo-b-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 710,
+          "byteSize": 144060
+        },
+        {
+          "key": "optimized/ciconia-ciconia-timoteo-b-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 1137,
+          "byteSize": 242344
+        },
+        {
+          "key": "optimized/ciconia-ciconia-timoteo-b-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 1137,
+          "byteSize": 364824
+        },
+        {
+          "key": "optimized/ciconia-ciconia-timoteo-b-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1421,
+          "byteSize": 348626
+        },
+        {
+          "key": "optimized/ciconia-ciconia-timoteo-b-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1421,
+          "byteSize": 535970
+        },
+        {
+          "key": "optimized/ciconia-ciconia-timoteo-b-1-1153.avif",
+          "format": "avif",
+          "width": 1153,
+          "height": 2048,
+          "byteSize": 569817
+        },
+        {
+          "key": "optimized/ciconia-ciconia-timoteo-b-1-1153.webp",
+          "format": "webp",
+          "width": 1153,
+          "height": 2048,
+          "byteSize": 953580
+        }
+      ],
+      "updatedAt": "2026-10-01T10:26:20.917Z"
+    },
     "cimex-lectularius-gernotkunz-1.jpg": {
       "sourceHash": "184760661bca5ebb5332b007baa08c54964b6bbfe13f5792f4ed8ff4f5306128",
       "configFingerprint": "409788ee46c653d8",
