@@ -12365,6 +12365,87 @@
       ],
       "updatedAt": "2026-10-01T10:32:56.156Z"
     },
+    "ciconia-ciconia-aleksandre-1.jpg": {
+      "sourceHash": "2bc3a09393e94add2f2ecb9904fa3ee95ec1138105511d739808b175d86d6ab2",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "ciconia-ciconia-aleksandre-1.jpg",
+      "originalSize": 26083,
+      "width": 1024,
+      "height": 643,
+      "derivatives": [
+        {
+          "key": "optimized/ciconia-ciconia-aleksandre-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 201,
+          "byteSize": 2017
+        },
+        {
+          "key": "optimized/ciconia-ciconia-aleksandre-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 201,
+          "byteSize": 2150
+        },
+        {
+          "key": "optimized/ciconia-ciconia-aleksandre-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 251,
+          "byteSize": 2592
+        },
+        {
+          "key": "optimized/ciconia-ciconia-aleksandre-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 251,
+          "byteSize": 2922
+        },
+        {
+          "key": "optimized/ciconia-ciconia-aleksandre-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 402,
+          "byteSize": 4436
+        },
+        {
+          "key": "optimized/ciconia-ciconia-aleksandre-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 402,
+          "byteSize": 5258
+        },
+        {
+          "key": "optimized/ciconia-ciconia-aleksandre-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 502,
+          "byteSize": 5724
+        },
+        {
+          "key": "optimized/ciconia-ciconia-aleksandre-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 502,
+          "byteSize": 6918
+        },
+        {
+          "key": "optimized/ciconia-ciconia-aleksandre-1-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 643,
+          "byteSize": 8013
+        },
+        {
+          "key": "optimized/ciconia-ciconia-aleksandre-1-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 643,
+          "byteSize": 9866
+        }
+      ],
+      "updatedAt": "2026-10-01T10:33:47.960Z"
+    },
     "ciconia-ciconia-ekaterina-1.jpg": {
       "sourceHash": "c88a69cdfa4e2685d8ba8edb1cf13ea1b0f0b2ce9d564aa48b44d4a7db52c812",
       "configFingerprint": "409788ee46c653d8",
