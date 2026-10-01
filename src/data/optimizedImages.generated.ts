@@ -4792,6 +4792,76 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/lanius-collurio-alexander-1.jpg": {
+    "path": "lanius-collurio-alexander-1",
+    "width": 1483,
+    "height": 1398,
+    "widths": [320, 400, 640, 800, 1200, 1483],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/lanius-collurio-anton-1.jpg": {
+    "path": "lanius-collurio-anton-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/lanius-collurio-birdyday-1.jpg": {
+    "path": "lanius-collurio-birdyday-1",
+    "width": 1484,
+    "height": 2002,
+    "widths": [320, 400, 640, 800, 1200, 1484],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/lanius-collurio-denis-1.jpg": {
+    "path": "lanius-collurio-denis-1",
+    "width": 1744,
+    "height": 1308,
+    "widths": [320, 400, 640, 800, 1200, 1744],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/lanius-collurio-giorgi-1.jpg": {
+    "path": "lanius-collurio-giorgi-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/lanius-collurio-giorgi-2.jpg": {
+    "path": "lanius-collurio-giorgi-2",
+    "width": 1408,
+    "height": 2028,
+    "widths": [320, 400, 640, 800, 1200, 1408],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/lanius-collurio-james-1.jpg": {
+    "path": "lanius-collurio-james-1",
+    "width": 724,
+    "height": 1086,
+    "widths": [320, 400, 640, 724],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/lanius-collurio-katherine-1.jpg": {
+    "path": "lanius-collurio-katherine-1",
+    "width": 1280,
+    "height": 800,
+    "widths": [320, 400, 640, 800, 1200, 1280],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/lanius-collurio-katherine-2.jpg": {
+    "path": "lanius-collurio-katherine-2",
+    "width": 1280,
+    "height": 800,
+    "widths": [320, 400, 640, 800, 1200, 1280],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/lanius-collurio-xoltc11-1.jpg": {
+    "path": "lanius-collurio-xoltc11-1",
+    "width": 1194,
+    "height": 1791,
+    "widths": [320, 400, 640, 800, 1194],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/latrodectus-tredecimguttatus-armen-1.jpg": {
     "path": "latrodectus-tredecimguttatus-armen-1",
     "width": 1280,

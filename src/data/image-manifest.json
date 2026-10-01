@@ -52733,6 +52733,914 @@
       ],
       "updatedAt": "2026-08-28T21:44:19.358Z"
     },
+    "lanius-collurio-alexander-1.jpg": {
+      "sourceHash": "5176f20c6fcc1739042af3e547c10056a4f2758f3132393f0ab80a52beb6ee27",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lanius-collurio-alexander-1.jpg",
+      "originalSize": 148086,
+      "width": 1483,
+      "height": 1398,
+      "derivatives": [
+        {
+          "key": "optimized/lanius-collurio-alexander-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 302,
+          "byteSize": 6529
+        },
+        {
+          "key": "optimized/lanius-collurio-alexander-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 302,
+          "byteSize": 8772
+        },
+        {
+          "key": "optimized/lanius-collurio-alexander-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 377,
+          "byteSize": 9391
+        },
+        {
+          "key": "optimized/lanius-collurio-alexander-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 377,
+          "byteSize": 12522
+        },
+        {
+          "key": "optimized/lanius-collurio-alexander-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 603,
+          "byteSize": 19063
+        },
+        {
+          "key": "optimized/lanius-collurio-alexander-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 603,
+          "byteSize": 27218
+        },
+        {
+          "key": "optimized/lanius-collurio-alexander-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 754,
+          "byteSize": 27680
+        },
+        {
+          "key": "optimized/lanius-collurio-alexander-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 754,
+          "byteSize": 38584
+        },
+        {
+          "key": "optimized/lanius-collurio-alexander-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1131,
+          "byteSize": 50824
+        },
+        {
+          "key": "optimized/lanius-collurio-alexander-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1131,
+          "byteSize": 70638
+        },
+        {
+          "key": "optimized/lanius-collurio-alexander-1-1483.avif",
+          "format": "avif",
+          "width": 1483,
+          "height": 1398,
+          "byteSize": 73752
+        },
+        {
+          "key": "optimized/lanius-collurio-alexander-1-1483.webp",
+          "format": "webp",
+          "width": 1483,
+          "height": 1398,
+          "byteSize": 101840
+        }
+      ],
+      "updatedAt": "2026-10-01T06:10:25.379Z"
+    },
+    "lanius-collurio-anton-1.jpg": {
+      "sourceHash": "3a3a351ca375b12dbbb013822cfb589c6f29a5af46dd47b6a9437f0d606923b8",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lanius-collurio-anton-1.jpg",
+      "originalSize": 428202,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/lanius-collurio-anton-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 7711
+        },
+        {
+          "key": "optimized/lanius-collurio-anton-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10138
+        },
+        {
+          "key": "optimized/lanius-collurio-anton-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 11026
+        },
+        {
+          "key": "optimized/lanius-collurio-anton-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 13584
+        },
+        {
+          "key": "optimized/lanius-collurio-anton-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 20800
+        },
+        {
+          "key": "optimized/lanius-collurio-anton-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 26836
+        },
+        {
+          "key": "optimized/lanius-collurio-anton-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 28314
+        },
+        {
+          "key": "optimized/lanius-collurio-anton-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 36732
+        },
+        {
+          "key": "optimized/lanius-collurio-anton-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 48082
+        },
+        {
+          "key": "optimized/lanius-collurio-anton-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 60640
+        },
+        {
+          "key": "optimized/lanius-collurio-anton-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 113386
+        },
+        {
+          "key": "optimized/lanius-collurio-anton-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 144980
+        }
+      ],
+      "updatedAt": "2026-10-01T06:11:23.171Z"
+    },
+    "lanius-collurio-birdyday-1.jpg": {
+      "sourceHash": "659fbd7d64893e0bec17256d9d09729028a330a0a129925f94d3728c548b27cf",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lanius-collurio-birdyday-1.jpg",
+      "originalSize": 792525,
+      "width": 1484,
+      "height": 2002,
+      "derivatives": [
+        {
+          "key": "optimized/lanius-collurio-birdyday-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 432,
+          "byteSize": 16362
+        },
+        {
+          "key": "optimized/lanius-collurio-birdyday-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 432,
+          "byteSize": 25404
+        },
+        {
+          "key": "optimized/lanius-collurio-birdyday-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 540,
+          "byteSize": 23384
+        },
+        {
+          "key": "optimized/lanius-collurio-birdyday-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 540,
+          "byteSize": 36652
+        },
+        {
+          "key": "optimized/lanius-collurio-birdyday-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 863,
+          "byteSize": 50179
+        },
+        {
+          "key": "optimized/lanius-collurio-birdyday-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 863,
+          "byteSize": 82234
+        },
+        {
+          "key": "optimized/lanius-collurio-birdyday-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1079,
+          "byteSize": 71799
+        },
+        {
+          "key": "optimized/lanius-collurio-birdyday-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1079,
+          "byteSize": 126038
+        },
+        {
+          "key": "optimized/lanius-collurio-birdyday-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1619,
+          "byteSize": 186534
+        },
+        {
+          "key": "optimized/lanius-collurio-birdyday-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1619,
+          "byteSize": 301854
+        },
+        {
+          "key": "optimized/lanius-collurio-birdyday-1-1484.avif",
+          "format": "avif",
+          "width": 1484,
+          "height": 2002,
+          "byteSize": 318631
+        },
+        {
+          "key": "optimized/lanius-collurio-birdyday-1-1484.webp",
+          "format": "webp",
+          "width": 1484,
+          "height": 2002,
+          "byteSize": 476720
+        }
+      ],
+      "updatedAt": "2026-10-01T06:03:53.789Z"
+    },
+    "lanius-collurio-denis-1.jpg": {
+      "sourceHash": "8662b80163b3aed7ab28c5f906423ebeb606b6a0cb2baea434162d38678d8a6d",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lanius-collurio-denis-1.jpg",
+      "originalSize": 205944,
+      "width": 1744,
+      "height": 1308,
+      "derivatives": [
+        {
+          "key": "optimized/lanius-collurio-denis-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 6133
+        },
+        {
+          "key": "optimized/lanius-collurio-denis-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 7578
+        },
+        {
+          "key": "optimized/lanius-collurio-denis-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 8497
+        },
+        {
+          "key": "optimized/lanius-collurio-denis-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 10196
+        },
+        {
+          "key": "optimized/lanius-collurio-denis-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 15878
+        },
+        {
+          "key": "optimized/lanius-collurio-denis-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 19038
+        },
+        {
+          "key": "optimized/lanius-collurio-denis-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 21567
+        },
+        {
+          "key": "optimized/lanius-collurio-denis-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 25712
+        },
+        {
+          "key": "optimized/lanius-collurio-denis-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 36608
+        },
+        {
+          "key": "optimized/lanius-collurio-denis-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 43388
+        },
+        {
+          "key": "optimized/lanius-collurio-denis-1-1744.avif",
+          "format": "avif",
+          "width": 1744,
+          "height": 1308,
+          "byteSize": 58799
+        },
+        {
+          "key": "optimized/lanius-collurio-denis-1-1744.webp",
+          "format": "webp",
+          "width": 1744,
+          "height": 1308,
+          "byteSize": 70692
+        }
+      ],
+      "updatedAt": "2026-10-01T06:08:24.895Z"
+    },
+    "lanius-collurio-giorgi-1.jpg": {
+      "sourceHash": "8f9a965bf7159e7272e8ac51bb512c4124cd80112d456df8e212eb0fea1c4707",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lanius-collurio-giorgi-1.jpg",
+      "originalSize": 464840,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/lanius-collurio-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 4669
+        },
+        {
+          "key": "optimized/lanius-collurio-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 5960
+        },
+        {
+          "key": "optimized/lanius-collurio-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 6296
+        },
+        {
+          "key": "optimized/lanius-collurio-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 8190
+        },
+        {
+          "key": "optimized/lanius-collurio-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 12313
+        },
+        {
+          "key": "optimized/lanius-collurio-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 17390
+        },
+        {
+          "key": "optimized/lanius-collurio-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 17460
+        },
+        {
+          "key": "optimized/lanius-collurio-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 24942
+        },
+        {
+          "key": "optimized/lanius-collurio-giorgi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 34144
+        },
+        {
+          "key": "optimized/lanius-collurio-giorgi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 48714
+        },
+        {
+          "key": "optimized/lanius-collurio-giorgi-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 101497
+        },
+        {
+          "key": "optimized/lanius-collurio-giorgi-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 141756
+        }
+      ],
+      "updatedAt": "2026-10-01T06:07:37.073Z"
+    },
+    "lanius-collurio-giorgi-2.jpg": {
+      "sourceHash": "4a2a4f380a2d0e4ce46d337abe97cf03d1153ce91ef102ecea8b6e7510ae4020",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lanius-collurio-giorgi-2.jpg",
+      "originalSize": 144060,
+      "width": 1408,
+      "height": 2028,
+      "derivatives": [
+        {
+          "key": "optimized/lanius-collurio-giorgi-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 461,
+          "byteSize": 14207
+        },
+        {
+          "key": "optimized/lanius-collurio-giorgi-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 461,
+          "byteSize": 18142
+        },
+        {
+          "key": "optimized/lanius-collurio-giorgi-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 576,
+          "byteSize": 19032
+        },
+        {
+          "key": "optimized/lanius-collurio-giorgi-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 576,
+          "byteSize": 24462
+        },
+        {
+          "key": "optimized/lanius-collurio-giorgi-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 922,
+          "byteSize": 35524
+        },
+        {
+          "key": "optimized/lanius-collurio-giorgi-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 922,
+          "byteSize": 44890
+        },
+        {
+          "key": "optimized/lanius-collurio-giorgi-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1152,
+          "byteSize": 46427
+        },
+        {
+          "key": "optimized/lanius-collurio-giorgi-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1152,
+          "byteSize": 58676
+        },
+        {
+          "key": "optimized/lanius-collurio-giorgi-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1728,
+          "byteSize": 77630
+        },
+        {
+          "key": "optimized/lanius-collurio-giorgi-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1728,
+          "byteSize": 94524
+        },
+        {
+          "key": "optimized/lanius-collurio-giorgi-2-1408.avif",
+          "format": "avif",
+          "width": 1408,
+          "height": 2028,
+          "byteSize": 92205
+        },
+        {
+          "key": "optimized/lanius-collurio-giorgi-2-1408.webp",
+          "format": "webp",
+          "width": 1408,
+          "height": 2028,
+          "byteSize": 111652
+        }
+      ],
+      "updatedAt": "2026-10-01T06:12:19.192Z"
+    },
+    "lanius-collurio-james-1.jpg": {
+      "sourceHash": "fe5b3947b447a502bfb02da66842a8d71110df03dc7ee434c583e42e57e513cf",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lanius-collurio-james-1.jpg",
+      "originalSize": 131764,
+      "width": 724,
+      "height": 1086,
+      "derivatives": [
+        {
+          "key": "optimized/lanius-collurio-james-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 480,
+          "byteSize": 12712
+        },
+        {
+          "key": "optimized/lanius-collurio-james-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 480,
+          "byteSize": 16686
+        },
+        {
+          "key": "optimized/lanius-collurio-james-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 600,
+          "byteSize": 17183
+        },
+        {
+          "key": "optimized/lanius-collurio-james-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 600,
+          "byteSize": 22342
+        },
+        {
+          "key": "optimized/lanius-collurio-james-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 960,
+          "byteSize": 33460
+        },
+        {
+          "key": "optimized/lanius-collurio-james-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 960,
+          "byteSize": 40618
+        },
+        {
+          "key": "optimized/lanius-collurio-james-1-724.avif",
+          "format": "avif",
+          "width": 724,
+          "height": 1086,
+          "byteSize": 41324
+        },
+        {
+          "key": "optimized/lanius-collurio-james-1-724.webp",
+          "format": "webp",
+          "width": 724,
+          "height": 1086,
+          "byteSize": 49922
+        }
+      ],
+      "updatedAt": "2026-10-01T06:09:30.706Z"
+    },
+    "lanius-collurio-katherine-1.jpg": {
+      "sourceHash": "df9ef614ccbec9b667849ffb9cb375419f93bc794aa626b53bf3a218ee08662e",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lanius-collurio-katherine-1.jpg",
+      "originalSize": 194826,
+      "width": 1280,
+      "height": 800,
+      "derivatives": [
+        {
+          "key": "optimized/lanius-collurio-katherine-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 200,
+          "byteSize": 9450
+        },
+        {
+          "key": "optimized/lanius-collurio-katherine-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 200,
+          "byteSize": 14774
+        },
+        {
+          "key": "optimized/lanius-collurio-katherine-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 250,
+          "byteSize": 13013
+        },
+        {
+          "key": "optimized/lanius-collurio-katherine-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 250,
+          "byteSize": 19938
+        },
+        {
+          "key": "optimized/lanius-collurio-katherine-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 400,
+          "byteSize": 24368
+        },
+        {
+          "key": "optimized/lanius-collurio-katherine-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 400,
+          "byteSize": 36960
+        },
+        {
+          "key": "optimized/lanius-collurio-katherine-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 500,
+          "byteSize": 32875
+        },
+        {
+          "key": "optimized/lanius-collurio-katherine-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 500,
+          "byteSize": 49506
+        },
+        {
+          "key": "optimized/lanius-collurio-katherine-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 750,
+          "byteSize": 55065
+        },
+        {
+          "key": "optimized/lanius-collurio-katherine-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 750,
+          "byteSize": 80054
+        },
+        {
+          "key": "optimized/lanius-collurio-katherine-1-1280.avif",
+          "format": "avif",
+          "width": 1280,
+          "height": 800,
+          "byteSize": 61582
+        },
+        {
+          "key": "optimized/lanius-collurio-katherine-1-1280.webp",
+          "format": "webp",
+          "width": 1280,
+          "height": 800,
+          "byteSize": 89538
+        }
+      ],
+      "updatedAt": "2026-10-01T06:06:10.549Z"
+    },
+    "lanius-collurio-katherine-2.jpg": {
+      "sourceHash": "e5c9cbf78c2e62c6f6a1d81e697871c9a872650796d985c702f4e4384dbdca7b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lanius-collurio-katherine-2.jpg",
+      "originalSize": 296907,
+      "width": 1280,
+      "height": 800,
+      "derivatives": [
+        {
+          "key": "optimized/lanius-collurio-katherine-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 200,
+          "byteSize": 13646
+        },
+        {
+          "key": "optimized/lanius-collurio-katherine-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 200,
+          "byteSize": 20546
+        },
+        {
+          "key": "optimized/lanius-collurio-katherine-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 250,
+          "byteSize": 19534
+        },
+        {
+          "key": "optimized/lanius-collurio-katherine-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 250,
+          "byteSize": 29482
+        },
+        {
+          "key": "optimized/lanius-collurio-katherine-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 400,
+          "byteSize": 41198
+        },
+        {
+          "key": "optimized/lanius-collurio-katherine-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 400,
+          "byteSize": 64214
+        },
+        {
+          "key": "optimized/lanius-collurio-katherine-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 500,
+          "byteSize": 58091
+        },
+        {
+          "key": "optimized/lanius-collurio-katherine-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 500,
+          "byteSize": 92194
+        },
+        {
+          "key": "optimized/lanius-collurio-katherine-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 750,
+          "byteSize": 103055
+        },
+        {
+          "key": "optimized/lanius-collurio-katherine-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 750,
+          "byteSize": 161092
+        },
+        {
+          "key": "optimized/lanius-collurio-katherine-2-1280.avif",
+          "format": "avif",
+          "width": 1280,
+          "height": 800,
+          "byteSize": 114560
+        },
+        {
+          "key": "optimized/lanius-collurio-katherine-2-1280.webp",
+          "format": "webp",
+          "width": 1280,
+          "height": 800,
+          "byteSize": 174578
+        }
+      ],
+      "updatedAt": "2026-10-01T06:07:04.549Z"
+    },
+    "lanius-collurio-xoltc11-1.jpg": {
+      "sourceHash": "aa7bfd6bb0d23f58a240e01ccc6753eb400d5e9c7c3f05afac36e72a1bd1aae6",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lanius-collurio-xoltc11-1.jpg",
+      "originalSize": 227980,
+      "width": 1194,
+      "height": 1791,
+      "derivatives": [
+        {
+          "key": "optimized/lanius-collurio-xoltc11-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 480,
+          "byteSize": 6553
+        },
+        {
+          "key": "optimized/lanius-collurio-xoltc11-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 480,
+          "byteSize": 8378
+        },
+        {
+          "key": "optimized/lanius-collurio-xoltc11-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 600,
+          "byteSize": 9711
+        },
+        {
+          "key": "optimized/lanius-collurio-xoltc11-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 600,
+          "byteSize": 12720
+        },
+        {
+          "key": "optimized/lanius-collurio-xoltc11-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 960,
+          "byteSize": 22546
+        },
+        {
+          "key": "optimized/lanius-collurio-xoltc11-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 960,
+          "byteSize": 28658
+        },
+        {
+          "key": "optimized/lanius-collurio-xoltc11-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1200,
+          "byteSize": 33542
+        },
+        {
+          "key": "optimized/lanius-collurio-xoltc11-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1200,
+          "byteSize": 42310
+        },
+        {
+          "key": "optimized/lanius-collurio-xoltc11-1-1194.avif",
+          "format": "avif",
+          "width": 1194,
+          "height": 1791,
+          "byteSize": 79805
+        },
+        {
+          "key": "optimized/lanius-collurio-xoltc11-1-1194.webp",
+          "format": "webp",
+          "width": 1194,
+          "height": 1791,
+          "byteSize": 84296
+        }
+      ],
+      "updatedAt": "2026-10-01T06:08:57.957Z"
+    },
     "latrodectus-tredecimguttatus-1.jpg": {
       "sourceHash": "ecde5ece5769ba40d21194706e0297e9671eafb1ebdc340a79591917e8cda60e",
       "configFingerprint": "a895f8e025dcc7fa",
