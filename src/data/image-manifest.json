@@ -33930,6 +33930,101 @@
       ],
       "updatedAt": "2026-10-01T08:07:21.013Z"
     },
+    "gypaetus-barbatus-elenailina-1.jpg": {
+      "sourceHash": "cf919a68a0ef8e1cd051311b9ab2fa82183bcdbe93f614ab3821c8cc51bcf9cc",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "gypaetus-barbatus-elenailina-1.jpg",
+      "originalSize": 93767,
+      "width": 2048,
+      "height": 1197,
+      "derivatives": [
+        {
+          "key": "optimized/gypaetus-barbatus-elenailina-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 187,
+          "byteSize": 1710
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-elenailina-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 187,
+          "byteSize": 1976
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-elenailina-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 234,
+          "byteSize": 2334
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-elenailina-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 234,
+          "byteSize": 2608
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-elenailina-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 374,
+          "byteSize": 3980
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-elenailina-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 374,
+          "byteSize": 5036
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-elenailina-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 468,
+          "byteSize": 5383
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-elenailina-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 468,
+          "byteSize": 6946
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-elenailina-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 701,
+          "byteSize": 9020
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-elenailina-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 701,
+          "byteSize": 12358
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-elenailina-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1197,
+          "byteSize": 17996
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-elenailina-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1197,
+          "byteSize": 27292
+        }
+      ],
+      "updatedAt": "2026-10-01T08:07:57.823Z"
+    },
     "gypaetus-barbatus-kenny-1.jpg": {
       "sourceHash": "4d7fd466e26c3a3280013df09baf6b8b8092325c20d2c99e7aa82644058388b4",
       "configFingerprint": "409788ee46c653d8",
