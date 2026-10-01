@@ -52828,6 +52828,101 @@
       ],
       "updatedAt": "2026-10-01T06:10:25.379Z"
     },
+    "lanius-collurio-anton-1.jpg": {
+      "sourceHash": "3a3a351ca375b12dbbb013822cfb589c6f29a5af46dd47b6a9437f0d606923b8",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lanius-collurio-anton-1.jpg",
+      "originalSize": 428202,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/lanius-collurio-anton-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 7711
+        },
+        {
+          "key": "optimized/lanius-collurio-anton-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10138
+        },
+        {
+          "key": "optimized/lanius-collurio-anton-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 11026
+        },
+        {
+          "key": "optimized/lanius-collurio-anton-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 13584
+        },
+        {
+          "key": "optimized/lanius-collurio-anton-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 20800
+        },
+        {
+          "key": "optimized/lanius-collurio-anton-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 26836
+        },
+        {
+          "key": "optimized/lanius-collurio-anton-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 28314
+        },
+        {
+          "key": "optimized/lanius-collurio-anton-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 36732
+        },
+        {
+          "key": "optimized/lanius-collurio-anton-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 48082
+        },
+        {
+          "key": "optimized/lanius-collurio-anton-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 60640
+        },
+        {
+          "key": "optimized/lanius-collurio-anton-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 113386
+        },
+        {
+          "key": "optimized/lanius-collurio-anton-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 144980
+        }
+      ],
+      "updatedAt": "2026-10-01T06:11:23.171Z"
+    },
     "lanius-collurio-birdyday-1.jpg": {
       "sourceHash": "659fbd7d64893e0bec17256d9d09729028a330a0a129925f94d3728c548b27cf",
       "configFingerprint": "409788ee46c653d8",
