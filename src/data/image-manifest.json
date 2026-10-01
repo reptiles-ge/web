@@ -428,6 +428,101 @@
       ],
       "updatedAt": "2026-09-05T16:17:19.182Z"
     },
+    "accipiter-nisus-david-1.jpg": {
+      "sourceHash": "78e329aaca0d13e7894e4d380416fbb518e36551a11ca967150319e7b7001062",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "accipiter-nisus-david-1.jpg",
+      "originalSize": 397431,
+      "width": 1918,
+      "height": 1680,
+      "derivatives": [
+        {
+          "key": "optimized/accipiter-nisus-david-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 281,
+          "byteSize": 8761
+        },
+        {
+          "key": "optimized/accipiter-nisus-david-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 281,
+          "byteSize": 11772
+        },
+        {
+          "key": "optimized/accipiter-nisus-david-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 350,
+          "byteSize": 12009
+        },
+        {
+          "key": "optimized/accipiter-nisus-david-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 350,
+          "byteSize": 16556
+        },
+        {
+          "key": "optimized/accipiter-nisus-david-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 561,
+          "byteSize": 24576
+        },
+        {
+          "key": "optimized/accipiter-nisus-david-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 561,
+          "byteSize": 33312
+        },
+        {
+          "key": "optimized/accipiter-nisus-david-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 701,
+          "byteSize": 33718
+        },
+        {
+          "key": "optimized/accipiter-nisus-david-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 701,
+          "byteSize": 45198
+        },
+        {
+          "key": "optimized/accipiter-nisus-david-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1051,
+          "byteSize": 60609
+        },
+        {
+          "key": "optimized/accipiter-nisus-david-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1051,
+          "byteSize": 77966
+        },
+        {
+          "key": "optimized/accipiter-nisus-david-1-1918.avif",
+          "format": "avif",
+          "width": 1918,
+          "height": 1680,
+          "byteSize": 119124
+        },
+        {
+          "key": "optimized/accipiter-nisus-david-1-1918.webp",
+          "format": "webp",
+          "width": 1918,
+          "height": 1680,
+          "byteSize": 147690
+        }
+      ],
+      "updatedAt": "2026-10-01T11:17:41.290Z"
+    },
     "accipiter-nisus-knoch-flight.jpg": {
       "sourceHash": "c51543106d1bce8eb04934f27d5a47ad1d83c657abc8255fd7365b7c340efc6f",
       "configFingerprint": "a895f8e025dcc7fa",
