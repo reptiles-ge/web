@@ -5,6 +5,7 @@ import {
   getRegionsForSpecies,
   localizeRegionTextIfPresent,
   regions,
+  toRegionSpeciesCard,
 } from "@/data/regions";
 import {
   getCatalogSpecies,
@@ -16,6 +17,29 @@ import {
   getHalyomorphaFieldRecords,
   getHalyomorphaOccurrenceSummary,
 } from "@/lib/halyomorphaOccurrences";
+
+describe("region species cards", () => {
+  it("keeps only the fields the region cards render", () => {
+    const region = regions.find((item) => item.id === "kakheti");
+    expect(region).toBeDefined();
+    const cards = region!.speciesIds
+      .map((id) => getSpeciesById(id))
+      .filter((item) => item !== undefined)
+      .map((item) => toRegionSpeciesCard(item, "ka"));
+
+    expect(cards.length).toBeGreaterThan(0);
+    for (const card of cards) {
+      expect(card).not.toHaveProperty("description");
+      expect(card).not.toHaveProperty("faq");
+      expect(card).not.toHaveProperty("fieldRecords");
+      expect(card).not.toHaveProperty("gallery");
+      expect(card).not.toHaveProperty("habitat");
+      expect(card).not.toHaveProperty("overview");
+      expect(card).not.toHaveProperty("searchText");
+      expect(card).not.toHaveProperty("sources");
+    }
+  });
+});
 
 describe("region speciesIds", () => {
   it("only lists published catalog ids", () => {

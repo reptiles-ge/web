@@ -1,3 +1,4 @@
+import type { DangerLevel } from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
 
 import { getSpeciesById, type Species } from "@/data/species";
@@ -22,6 +23,16 @@ export {
   localizeRegionTextIfPresent,
   type Region,
   regions,
+};
+
+export type RegionSpeciesCardItem = {
+  commonName: string;
+  danger?: DangerLevel;
+  id: string;
+  image: string;
+  location: string;
+  mobileImage?: string;
+  scientificName: string;
 };
 
 export function getCatalogRegionStats() {
@@ -68,8 +79,22 @@ export function getRegionTooltipPreviews(locale: AppLocale) {
   return previews;
 }
 
-export function getRegionVenomousSpecies(region: Region): Species[] {
-  return getRegionSpecies(region).filter(
-    (item) => item.danger === "High" || item.danger === "Moderate",
-  );
+export function isRegionCardVenomous(item: RegionSpeciesCardItem) {
+  return item.danger === "High" || item.danger === "Moderate";
+}
+
+export function toRegionSpeciesCard(
+  species: Species,
+  locale: AppLocale,
+): RegionSpeciesCardItem {
+  const localized = localizeSpecies(species, locale);
+  return {
+    commonName: localized.commonName,
+    id: species.id,
+    image: species.image,
+    location: localized.location,
+    scientificName: species.scientificName,
+    ...(species.danger ? { danger: species.danger } : {}),
+    ...(species.mobileImage ? { mobileImage: species.mobileImage } : {}),
+  };
 }
