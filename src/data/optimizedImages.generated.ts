@@ -1418,6 +1418,62 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/ciconia-ciconia-achot-1.jpg": {
+    "path": "ciconia-ciconia-achot-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/ciconia-ciconia-aleksandre-1.jpg": {
+    "path": "ciconia-ciconia-aleksandre-1",
+    "width": 1024,
+    "height": 643,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/ciconia-ciconia-ekaterina-1.jpg": {
+    "path": "ciconia-ciconia-ekaterina-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/ciconia-ciconia-giorgi-1.jpg": {
+    "path": "ciconia-ciconia-giorgi-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/ciconia-ciconia-gogopopo-1.jpg": {
+    "path": "ciconia-ciconia-gogopopo-1",
+    "width": 1638,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1638],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/ciconia-ciconia-hoiman-1.jpg": {
+    "path": "ciconia-ciconia-hoiman-1",
+    "width": 1365,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1365],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/ciconia-ciconia-mikhail-1.jpg": {
+    "path": "ciconia-ciconia-mikhail-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/ciconia-ciconia-timoteo-b-1.jpg": {
+    "path": "ciconia-ciconia-timoteo-b-1",
+    "width": 1153,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1153],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/cimex-lectularius-gernotkunz-1.jpg": {
     "path": "cimex-lectularius-gernotkunz-1",
     "width": 500,
