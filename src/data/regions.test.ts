@@ -29,6 +29,7 @@ describe("region speciesIds", () => {
   });
 
   it.each([
+    "ciconia-ciconia",
     "coturnix-coturnix",
     "gypaetus-barbatus",
     "columba-palumbus",
