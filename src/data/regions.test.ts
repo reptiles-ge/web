@@ -53,6 +53,7 @@ describe("region speciesIds", () => {
   });
 
   it.each([
+    "accipiter-nisus",
     "ciconia-ciconia",
     "coturnix-coturnix",
     "gypaetus-barbatus",
