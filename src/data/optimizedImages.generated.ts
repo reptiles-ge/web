@@ -1418,6 +1418,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/ciconia-ciconia-timoteo-b-1.jpg": {
+    "path": "ciconia-ciconia-timoteo-b-1",
+    "width": 1153,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1153],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/cimex-lectularius-gernotkunz-1.jpg": {
     "path": "cimex-lectularius-gernotkunz-1",
     "width": 500,

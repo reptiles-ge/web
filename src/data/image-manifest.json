@@ -12270,6 +12270,87 @@
       ],
       "updatedAt": "2026-09-19T07:36:50.969Z"
     },
+    "ciconia-ciconia-timoteo-b-1.jpg": {
+      "sourceHash": "f9d0527232f06e0167cc27af5dfa85fb283d04ad9faa4bea3f4097628aa59d48",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "ciconia-ciconia-timoteo-b-1.jpg",
+      "originalSize": 1164873,
+      "width": 1153,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/ciconia-ciconia-timoteo-b-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 569,
+          "byteSize": 58437
+        },
+        {
+          "key": "optimized/ciconia-ciconia-timoteo-b-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 569,
+          "byteSize": 89606
+        },
+        {
+          "key": "optimized/ciconia-ciconia-timoteo-b-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 710,
+          "byteSize": 96434
+        },
+        {
+          "key": "optimized/ciconia-ciconia-timoteo-b-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 710,
+          "byteSize": 144060
+        },
+        {
+          "key": "optimized/ciconia-ciconia-timoteo-b-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 1137,
+          "byteSize": 242344
+        },
+        {
+          "key": "optimized/ciconia-ciconia-timoteo-b-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 1137,
+          "byteSize": 364824
+        },
+        {
+          "key": "optimized/ciconia-ciconia-timoteo-b-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1421,
+          "byteSize": 348626
+        },
+        {
+          "key": "optimized/ciconia-ciconia-timoteo-b-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1421,
+          "byteSize": 535970
+        },
+        {
+          "key": "optimized/ciconia-ciconia-timoteo-b-1-1153.avif",
+          "format": "avif",
+          "width": 1153,
+          "height": 2048,
+          "byteSize": 569817
+        },
+        {
+          "key": "optimized/ciconia-ciconia-timoteo-b-1-1153.webp",
+          "format": "webp",
+          "width": 1153,
+          "height": 2048,
+          "byteSize": 953580
+        }
+      ],
+      "updatedAt": "2026-10-01T10:26:20.917Z"
+    },
     "cimex-lectularius-gernotkunz-1.jpg": {
       "sourceHash": "184760661bca5ebb5332b007baa08c54964b6bbfe13f5792f4ed8ff4f5306128",
       "configFingerprint": "409788ee46c653d8",
