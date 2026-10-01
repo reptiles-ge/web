@@ -52828,6 +52828,101 @@
       ],
       "updatedAt": "2026-10-01T06:03:53.789Z"
     },
+    "lanius-collurio-denis-1.jpg": {
+      "sourceHash": "8662b80163b3aed7ab28c5f906423ebeb606b6a0cb2baea434162d38678d8a6d",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lanius-collurio-denis-1.jpg",
+      "originalSize": 205944,
+      "width": 1744,
+      "height": 1308,
+      "derivatives": [
+        {
+          "key": "optimized/lanius-collurio-denis-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 6133
+        },
+        {
+          "key": "optimized/lanius-collurio-denis-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 7578
+        },
+        {
+          "key": "optimized/lanius-collurio-denis-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 8497
+        },
+        {
+          "key": "optimized/lanius-collurio-denis-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 10196
+        },
+        {
+          "key": "optimized/lanius-collurio-denis-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 15878
+        },
+        {
+          "key": "optimized/lanius-collurio-denis-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 19038
+        },
+        {
+          "key": "optimized/lanius-collurio-denis-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 21567
+        },
+        {
+          "key": "optimized/lanius-collurio-denis-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 25712
+        },
+        {
+          "key": "optimized/lanius-collurio-denis-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 36608
+        },
+        {
+          "key": "optimized/lanius-collurio-denis-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 43388
+        },
+        {
+          "key": "optimized/lanius-collurio-denis-1-1744.avif",
+          "format": "avif",
+          "width": 1744,
+          "height": 1308,
+          "byteSize": 58799
+        },
+        {
+          "key": "optimized/lanius-collurio-denis-1-1744.webp",
+          "format": "webp",
+          "width": 1744,
+          "height": 1308,
+          "byteSize": 70692
+        }
+      ],
+      "updatedAt": "2026-10-01T06:08:24.895Z"
+    },
     "lanius-collurio-giorgi-1.jpg": {
       "sourceHash": "8f9a965bf7159e7272e8ac51bb512c4124cd80112d456df8e212eb0fea1c4707",
       "configFingerprint": "409788ee46c653d8",

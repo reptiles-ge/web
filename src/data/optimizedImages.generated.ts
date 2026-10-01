@@ -4799,6 +4799,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1484],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/lanius-collurio-denis-1.jpg": {
+    "path": "lanius-collurio-denis-1",
+    "width": 1744,
+    "height": 1308,
+    "widths": [320, 400, 640, 800, 1200, 1744],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/lanius-collurio-giorgi-1.jpg": {
     "path": "lanius-collurio-giorgi-1",
     "width": 2048,
