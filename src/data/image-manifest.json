@@ -33930,6 +33930,101 @@
       ],
       "updatedAt": "2026-10-01T08:07:21.013Z"
     },
+    "gypaetus-barbatus-andreas-1.jpg": {
+      "sourceHash": "74845eab5ca4cbfd788897f5c3c35ad55b286b8eeab1d4624b4bd1a2c204c996",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "gypaetus-barbatus-andreas-1.jpg",
+      "originalSize": 385016,
+      "width": 1270,
+      "height": 888,
+      "derivatives": [
+        {
+          "key": "optimized/gypaetus-barbatus-andreas-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 224,
+          "byteSize": 17044
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-andreas-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 224,
+          "byteSize": 24564
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-andreas-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 280,
+          "byteSize": 25608
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-andreas-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 280,
+          "byteSize": 38186
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-andreas-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 447,
+          "byteSize": 59896
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-andreas-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 447,
+          "byteSize": 93944
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-andreas-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 559,
+          "byteSize": 84524
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-andreas-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 559,
+          "byteSize": 136316
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-andreas-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 839,
+          "byteSize": 155399
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-andreas-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 839,
+          "byteSize": 241254
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-andreas-1-1270.avif",
+          "format": "avif",
+          "width": 1270,
+          "height": 888,
+          "byteSize": 176603
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-andreas-1-1270.webp",
+          "format": "webp",
+          "width": 1270,
+          "height": 888,
+          "byteSize": 261734
+        }
+      ],
+      "updatedAt": "2026-10-01T08:08:37.087Z"
+    },
     "gypaetus-barbatus-elenailina-1.jpg": {
       "sourceHash": "cf919a68a0ef8e1cd051311b9ab2fa82183bcdbe93f614ab3821c8cc51bcf9cc",
       "configFingerprint": "409788ee46c653d8",
