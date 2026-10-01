@@ -12270,6 +12270,101 @@
       ],
       "updatedAt": "2026-09-19T07:36:50.969Z"
     },
+    "ciconia-ciconia-achot-1.jpg": {
+      "sourceHash": "7c4ff6ed2390806d9446375c5c43b5daeccd3758d0cd97701793f3d25385d755",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "ciconia-ciconia-achot-1.jpg",
+      "originalSize": 246324,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/ciconia-ciconia-achot-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 5582
+        },
+        {
+          "key": "optimized/ciconia-ciconia-achot-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 7244
+        },
+        {
+          "key": "optimized/ciconia-ciconia-achot-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 7367
+        },
+        {
+          "key": "optimized/ciconia-ciconia-achot-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 9408
+        },
+        {
+          "key": "optimized/ciconia-ciconia-achot-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 13626
+        },
+        {
+          "key": "optimized/ciconia-ciconia-achot-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 17846
+        },
+        {
+          "key": "optimized/ciconia-ciconia-achot-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 18382
+        },
+        {
+          "key": "optimized/ciconia-ciconia-achot-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 24276
+        },
+        {
+          "key": "optimized/ciconia-ciconia-achot-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 31207
+        },
+        {
+          "key": "optimized/ciconia-ciconia-achot-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 40226
+        },
+        {
+          "key": "optimized/ciconia-ciconia-achot-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 65394
+        },
+        {
+          "key": "optimized/ciconia-ciconia-achot-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 85804
+        }
+      ],
+      "updatedAt": "2026-10-01T10:32:56.156Z"
+    },
     "ciconia-ciconia-ekaterina-1.jpg": {
       "sourceHash": "c88a69cdfa4e2685d8ba8edb1cf13ea1b0f0b2ce9d564aa48b44d4a7db52c812",
       "configFingerprint": "409788ee46c653d8",
