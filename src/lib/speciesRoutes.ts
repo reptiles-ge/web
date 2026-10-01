@@ -166,6 +166,7 @@ const LOOKALIKES: Record<string, string[]> = {
   "ficedula-semitorquata": ["ficedula-hypoleuca"],
   "garrulus-glandarius": ["pica-pica", "corvus-corax"],
   "gyps-fulvus": ["aegypius-monachus", "aquila-chrysaetos", "buteo-buteo"],
+  "gypaetus-barbatus": ["gyps-fulvus", "aegypius-monachus"],
   "hemorrhois-ravergieri": [
     "platyceps-najadum",
     "elaphe-urartica",

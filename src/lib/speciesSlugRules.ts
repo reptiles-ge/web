@@ -172,6 +172,7 @@ const KA_SLUG_ALIASES: Record<string, string[]> = {
     "griffon",
     "eurasian-griffon",
   ],
+  "gypaetus-barbatus": ["kravichamia", "lammergeier", "bearded-vulture"],
   "halyomorpha-halys": [
     "aziuri-baghlindo",
     "aziuri-baghlindjo",

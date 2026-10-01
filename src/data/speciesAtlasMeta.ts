@@ -311,6 +311,10 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "bird",
     habitats: ["mountain", "grassland"],
   },
+  "gypaetus-barbatus": {
+    group: "bird",
+    habitats: ["mountain"],
+  },
   "halyomorpha-halys": {
     group: "insect",
     habitats: ["grassland", "forest"],
