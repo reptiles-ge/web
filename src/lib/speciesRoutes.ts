@@ -36,7 +36,7 @@ const LOOKALIKES: Record<string, string[]> = {
     "anguis-colchica",
   ],
   "accipiter-gentilis": ["accipiter-nisus", "buteo-buteo", "falco-peregrinus"],
-  "accipiter-nisus": ["accipiter-gentilis", "falco-peregrinus", "buteo-buteo"],
+  "accipiter-nisus": ["accipiter-gentilis", "falco-peregrinus"],
   "aegolius-funereus": ["strix-aluco", "otus-scops", "athene-noctua"],
   "aegypius-monachus": ["aquila-chrysaetos", "buteo-buteo"],
   "alectoris-chukar": ["coturnix-coturnix", "phasianus-colchicus"],
@@ -65,7 +65,6 @@ const LOOKALIKES: Record<string, string[]> = {
   "buteo-buteo": [
     "pernis-apivorus",
     "aquila-chrysaetos",
-    "accipiter-nisus",
     "falco-peregrinus",
   ],
   "canis-aureus": ["vulpes-vulpes", "canis-lupus"],
@@ -234,7 +233,6 @@ const LOOKALIKES: Record<string, string[]> = {
   ],
   "pernis-apivorus": [
     "buteo-buteo",
-    "accipiter-nisus",
     "accipiter-gentilis",
     "falco-peregrinus",
   ],

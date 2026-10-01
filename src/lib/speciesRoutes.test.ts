@@ -205,6 +205,17 @@ describe("species routes", () => {
     );
   });
 
+  it("keeps sparrowhawk lookalikes to supported flight comparisons", () => {
+    const peers = ["accipiter-gentilis", "falco-peregrinus"];
+    expect(getSpeciesLookalikes("accipiter-nisus")).toEqual(peers);
+    for (const id of peers) {
+      expect(getSpeciesLookalikes(id)).toContain("accipiter-nisus");
+    }
+    for (const id of ["buteo-buteo", "pernis-apivorus"]) {
+      expect(getSpeciesLookalikes(id)).not.toContain("accipiter-nisus");
+    }
+  });
+
   it("keeps golden eagle lookalikes to supported flight comparisons", () => {
     const peers = [
       "aegypius-monachus",
