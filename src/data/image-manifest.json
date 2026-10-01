@@ -12365,6 +12365,101 @@
       ],
       "updatedAt": "2026-10-01T10:27:35.066Z"
     },
+    "ciconia-ciconia-giorgi-1.jpg": {
+      "sourceHash": "1a67eaa303dd4fd96dad72678577b1928eaf2945be8d4c3344f57509d1bc9c35",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "ciconia-ciconia-giorgi-1.jpg",
+      "originalSize": 156515,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/ciconia-ciconia-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 3659
+        },
+        {
+          "key": "optimized/ciconia-ciconia-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 4428
+        },
+        {
+          "key": "optimized/ciconia-ciconia-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 4734
+        },
+        {
+          "key": "optimized/ciconia-ciconia-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 5942
+        },
+        {
+          "key": "optimized/ciconia-ciconia-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 9150
+        },
+        {
+          "key": "optimized/ciconia-ciconia-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 12054
+        },
+        {
+          "key": "optimized/ciconia-ciconia-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 12687
+        },
+        {
+          "key": "optimized/ciconia-ciconia-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 17124
+        },
+        {
+          "key": "optimized/ciconia-ciconia-giorgi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 23185
+        },
+        {
+          "key": "optimized/ciconia-ciconia-giorgi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 32220
+        },
+        {
+          "key": "optimized/ciconia-ciconia-giorgi-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 54499
+        },
+        {
+          "key": "optimized/ciconia-ciconia-giorgi-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 76606
+        }
+      ],
+      "updatedAt": "2026-10-01T10:30:48.017Z"
+    },
     "ciconia-ciconia-gogopopo-1.jpg": {
       "sourceHash": "66b2561856662ba2f02a818d8a3b0317bd1a47b9c66dea85f9eb54c1a3f74f6a",
       "configFingerprint": "409788ee46c653d8",
