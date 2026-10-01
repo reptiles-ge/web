@@ -33849,6 +33849,101 @@
       ],
       "updatedAt": "2026-08-29T07:22:20.299Z"
     },
+    "gypaetus-barbatus-kenny-1.jpg": {
+      "sourceHash": "4d7fd466e26c3a3280013df09baf6b8b8092325c20d2c99e7aa82644058388b4",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "gypaetus-barbatus-kenny-1.jpg",
+      "originalSize": 112592,
+      "width": 2048,
+      "height": 1463,
+      "derivatives": [
+        {
+          "key": "optimized/gypaetus-barbatus-kenny-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 228,
+          "byteSize": 2081
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-kenny-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 228,
+          "byteSize": 2248
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-kenny-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 285,
+          "byteSize": 2324
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-kenny-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 285,
+          "byteSize": 3094
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-kenny-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 457,
+          "byteSize": 4677
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-kenny-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 457,
+          "byteSize": 5954
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-kenny-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 571,
+          "byteSize": 6185
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-kenny-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 571,
+          "byteSize": 8280
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-kenny-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 857,
+          "byteSize": 10781
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-kenny-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 857,
+          "byteSize": 14594
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-kenny-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1463,
+          "byteSize": 23391
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-kenny-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1463,
+          "byteSize": 32320
+        }
+      ],
+      "updatedAt": "2026-10-01T08:06:01.187Z"
+    },
     "gyps-fulvus-giorgi-1.jpg": {
       "sourceHash": "4728c984a4edfa057c3dbd1c158e3b8473593aa1fdfdd860b289e701cf28e4d4",
       "configFingerprint": "409788ee46c653d8",
