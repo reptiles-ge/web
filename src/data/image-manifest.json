@@ -33944,6 +33944,101 @@
       ],
       "updatedAt": "2026-10-01T08:06:01.187Z"
     },
+    "gypaetus-barbatus-nikita-1.jpg": {
+      "sourceHash": "ebf7c1c4fe98b36e488b8ef7f2e98a20b445b53cb8ed2e8d5d8830e7d9f77679",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "gypaetus-barbatus-nikita-1.jpg",
+      "originalSize": 80050,
+      "width": 1563,
+      "height": 1044,
+      "derivatives": [
+        {
+          "key": "optimized/gypaetus-barbatus-nikita-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 214,
+          "byteSize": 1916
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-nikita-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 214,
+          "byteSize": 1912
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-nikita-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 2346
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-nikita-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 2652
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-nikita-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 4498
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-nikita-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 5276
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-nikita-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 5852
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-nikita-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 7364
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-nikita-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 802,
+          "byteSize": 11595
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-nikita-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 802,
+          "byteSize": 15200
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-nikita-1-1563.avif",
+          "format": "avif",
+          "width": 1563,
+          "height": 1044,
+          "byteSize": 20216
+        },
+        {
+          "key": "optimized/gypaetus-barbatus-nikita-1-1563.webp",
+          "format": "webp",
+          "width": 1563,
+          "height": 1044,
+          "byteSize": 25608
+        }
+      ],
+      "updatedAt": "2026-10-01T08:06:47.344Z"
+    },
     "gyps-fulvus-giorgi-1.jpg": {
       "sourceHash": "4728c984a4edfa057c3dbd1c158e3b8473593aa1fdfdd860b289e701cf28e4d4",
       "configFingerprint": "409788ee46c653d8",

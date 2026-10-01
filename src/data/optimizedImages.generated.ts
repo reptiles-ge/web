@@ -3329,6 +3329,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/gypaetus-barbatus-nikita-1.jpg": {
+    "path": "gypaetus-barbatus-nikita-1",
+    "width": 1563,
+    "height": 1044,
+    "widths": [320, 400, 640, 800, 1200, 1563],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/gyps-fulvus-giorgi-1.jpg": {
     "path": "gyps-fulvus-giorgi-1",
     "width": 1714,
