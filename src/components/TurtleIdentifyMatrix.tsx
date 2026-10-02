@@ -3,7 +3,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 
-import type { Species } from "@/data/species";
+import type { SpeciesCard } from "@/data/speciesCard";
 import type { AppLocale } from "@/i18n/routing";
 
 import { ClusterContentSection } from "@/components/ClusterContentSection";
@@ -35,10 +35,10 @@ const EMYS_VS_ROWS = [
 ] as const;
 
 type TurtleIdentifyMatrixProps = {
-  emys?: Species;
+  emys?: SpeciesCard;
   locale: AppLocale;
-  mauremys?: Species;
-  turtles: Species[];
+  mauremys?: SpeciesCard;
+  turtles: SpeciesCard[];
 };
 
 export function TurtleIdentifyMatrix({
@@ -195,7 +195,7 @@ function ComparePhoto({
   alt: string;
   caption: string;
   locale: AppLocale;
-  species: Species;
+  species: SpeciesCard;
 }) {
   return (
     <figure>

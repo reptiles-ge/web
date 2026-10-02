@@ -8,6 +8,7 @@ import { ClusterGuideLead } from "@/components/ClusterGuideLead";
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
 import { ClusterStat } from "@/components/ClusterSectionIntro";
 import { SpeciesIndexTable } from "@/components/SpeciesIndexTable";
+import { toSpeciesIndexRows } from "@/data/speciesCard";
 import { Link } from "@/i18n/navigation";
 
 export async function FrogSpeciesIndexPage({
@@ -65,7 +66,7 @@ export async function FrogSpeciesIndexPage({
           <SpeciesIndexTable
             locale={locale}
             showDangerFilter={false}
-            species={species}
+            species={toSpeciesIndexRows(species)}
           />
         </div>
       </ClusterContentSection>

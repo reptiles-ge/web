@@ -14,6 +14,7 @@ import {
 import { ContentAttribution } from "@/components/ContentAttribution";
 import { RiskLevelList } from "@/components/RiskLevelList";
 import { RiskToHumansHero } from "@/components/RiskToHumansHero";
+import { type SpeciesCard, toSpeciesCards } from "@/data/speciesCard";
 import { Link } from "@/i18n/navigation";
 
 type RiskToHumansPageProps = {
@@ -38,10 +39,10 @@ export async function RiskToHumansPage({
   updatedAt,
 }: RiskToHumansPageProps) {
   const t = await getTranslations({ locale, namespace: "riskToHumans" });
-  const speciesByLevel: Record<DangerLevel, Species[]> = {
-    Harmless: harmlessExamples,
-    High: high,
-    Moderate: moderate,
+  const speciesByLevel: Record<DangerLevel, SpeciesCard[]> = {
+    Harmless: toSpeciesCards(harmlessExamples),
+    High: toSpeciesCards(high),
+    Moderate: toSpeciesCards(moderate),
   };
   const countByLevel: Record<DangerLevel, number> = {
     Harmless: harmlessCount,

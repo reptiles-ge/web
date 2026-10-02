@@ -13,6 +13,7 @@ import { VenomousSnakesGuides } from "@/components/VenomousSnakesGuides";
 import { VenomousSnakesHero } from "@/components/VenomousSnakesHero";
 import { VenomousSnakesSpecies } from "@/components/VenomousSnakesSpecies";
 import { getSpeciesById, type Species } from "@/data/species";
+import { toSpeciesCard, toSpeciesCards } from "@/data/speciesCard";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { Link } from "@/i18n/navigation";
 import {
@@ -103,12 +104,12 @@ export async function VenomousSnakesPage({
         />
 
         <VenomousSnakesSpecies
-          giurza={giurza}
-          kaznakovi={kaznakovi}
+          giurza={giurza && toSpeciesCard(giurza)}
+          kaznakovi={kaznakovi && toSpeciesCard(kaznakovi)}
           locale={locale}
-          rearFanged={rearFanged}
+          rearFanged={toSpeciesCards(rearFanged)}
           speciesCount={species.length}
-          vipers={vipers}
+          vipers={toSpeciesCards(vipers)}
         />
 
         <VenomousSnakesGuides locale={locale} relatedGuides={relatedGuides} />

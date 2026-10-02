@@ -3,7 +3,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 
-import type { Species } from "@/data/species";
+import type { SpeciesCard } from "@/data/speciesCard";
 import type { AppLocale } from "@/i18n/routing";
 
 import { ClusterContentSection } from "@/components/ClusterContentSection";
@@ -12,11 +12,11 @@ import { useSpeciesHref } from "@/components/LocaleSwitchProvider";
 import { Link } from "@/i18n/navigation";
 
 type TurtleIdentifyFlowProps = {
-  emys?: Species;
+  emys?: SpeciesCard;
   locale: AppLocale;
-  mauremys?: Species;
-  slider?: Species;
-  testudo?: Species;
+  mauremys?: SpeciesCard;
+  slider?: SpeciesCard;
+  testudo?: SpeciesCard;
 };
 
 export function TurtleIdentifyFlow({
@@ -207,7 +207,7 @@ function SpeciesResult({
   cue: string;
   locale: AppLocale;
   profileLabel: string;
-  species: Species;
+  species: SpeciesCard;
 }) {
   return (
     <div className="mt-6 flex flex-col gap-5 rounded-2xl border border-border bg-surface p-5 sm:flex-row sm:items-center sm:p-6">

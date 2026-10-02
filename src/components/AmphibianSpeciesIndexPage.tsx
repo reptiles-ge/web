@@ -11,6 +11,7 @@ import {
   ClusterStat,
 } from "@/components/ClusterSectionIntro";
 import { SpeciesIndexTable } from "@/components/SpeciesIndexTable";
+import { toSpeciesIndexRows } from "@/data/speciesCard";
 import { Link } from "@/i18n/navigation";
 import {
   type ClusterGuideViewProps,
@@ -93,7 +94,7 @@ export async function AmphibianSpeciesIndexPage({
             <SpeciesIndexTable
               locale={locale}
               showDangerFilter={false}
-              species={frogs}
+              species={toSpeciesIndexRows(frogs)}
             />
           </div>
         </div>
@@ -123,7 +124,7 @@ export async function AmphibianSpeciesIndexPage({
             <SpeciesIndexTable
               locale={locale}
               showDangerFilter={false}
-              species={newts}
+              species={toSpeciesIndexRows(newts)}
             />
           </div>
         </div>

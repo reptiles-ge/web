@@ -3,7 +3,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 
-import type { Species } from "@/data/species";
+import type { SpeciesCard } from "@/data/speciesCard";
 import type { AppLocale } from "@/i18n/routing";
 import type { HubClusterCard } from "@/lib/clusterGuides";
 
@@ -45,7 +45,7 @@ export function RelatedGuideCard({
   card: HubClusterCard;
   featured?: boolean;
   locale: AppLocale;
-  species?: Species[];
+  species?: SpeciesCard[];
 }) {
   const t = useTranslations("groupHubShared");
   const switchIndex = useLocaleSwitchIndex();
@@ -127,7 +127,7 @@ export function RelatedGuideGrid({
   cards: HubClusterCard[];
   className?: string;
   locale: AppLocale;
-  species?: Species[];
+  species?: SpeciesCard[];
 }) {
   if (cards.length === 0) return null;
 
@@ -156,7 +156,7 @@ export function RelatedGuideGrid({
   );
 }
 
-function hubClusterCardImage(card: HubClusterCard, species: Species[]) {
+function hubClusterCardImage(card: HubClusterCard, species: SpeciesCard[]) {
   if (card.kind === "species") {
     return speciesCardImage(card.id, species);
   }
@@ -176,7 +176,7 @@ function hubClusterCardImage(card: HubClusterCard, species: Species[]) {
   return undefined;
 }
 
-function speciesCardImage(id: string, species: Species[]) {
+function speciesCardImage(id: string, species: SpeciesCard[]) {
   const item = species.find((entry) => entry.id === id);
   const src = item?.image;
   if (!src || isPlaceholderMedia(src)) return undefined;

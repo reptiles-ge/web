@@ -15,6 +15,7 @@ import {
 } from "@/components/ClusterSectionIntro";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { SpeciesInlineLink } from "@/components/SpeciesInlineLink";
+import { toSpeciesCards } from "@/data/speciesCard";
 import { Link } from "@/i18n/navigation";
 import { CLUSTER_GUIDES } from "@/lib/clusterGuides";
 
@@ -109,7 +110,11 @@ export async function ClusterGuidePage({
               titleClassName={CLUSTER_TITLE_SECTION}
             />
           </div>
-          <SpeciesGuideList locale={locale} source="guide" species={species} />
+          <SpeciesGuideList
+            locale={locale}
+            source="guide"
+            species={toSpeciesCards(species)}
+          />
         </div>
       </section>
     </ClusterPageFrame>

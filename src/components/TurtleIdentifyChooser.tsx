@@ -3,7 +3,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 
-import type { Species } from "@/data/species";
+import type { SpeciesCard } from "@/data/speciesCard";
 import type { AppLocale } from "@/i18n/routing";
 
 import { ClusterContentSection } from "@/components/ClusterContentSection";
@@ -18,7 +18,7 @@ import { TURTLE_META, type TurtleId } from "@/lib/turtleIdentify";
 type TurtleIdentifyChooserProps = {
   locale: AppLocale;
   regions: Region[];
-  turtles: Species[];
+  turtles: SpeciesCard[];
 };
 
 export function TurtleIdentifyChooser({
@@ -39,11 +39,7 @@ export function TurtleIdentifyChooser({
       >
         <div className="mt-12 grid gap-8 sm:grid-cols-2 xl:grid-cols-4">
           {turtles.map((item) => (
-            <TurtleChooserCard
-              item={item}
-              key={item.id}
-              locale={locale}
-            />
+            <TurtleChooserCard item={item} key={item.id} locale={locale} />
           ))}
         </div>
 
@@ -101,7 +97,7 @@ function TurtleChooserCard({
   item,
   locale,
 }: {
-  item: Species;
+  item: SpeciesCard;
   locale: AppLocale;
 }) {
   const t = useTranslations("turtleIdentify");
@@ -118,7 +114,10 @@ function TurtleChooserCard({
   return (
     <div>
       <article className="flex h-full flex-col">
-        <Link className="group block" href={speciesHrefFromIndex(switchIndex, item.id, locale)}>
+        <Link
+          className="group block"
+          href={speciesHrefFromIndex(switchIndex, item.id, locale)}
+        >
           <figure>
             <span className="relative block aspect-5/4 overflow-hidden rounded-2xl bg-ink">
               <CoverImage

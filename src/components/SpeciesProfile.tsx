@@ -12,7 +12,7 @@ import { type Species } from "@/data/species";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
 import { resolvePhotoCredit } from "@/data/speciesMedia";
 import { isLocalAdminEnabled } from "@/lib/adminAccess";
-import { getHubIndexTitleKey, getSpeciesGuideLinks } from "@/lib/clusterGuides";
+import { getHubIndexTitleKey } from "@/lib/clusterGuides";
 import {
   buildSpeciesBreadcrumbs,
   getSpeciesParentHub,
@@ -23,6 +23,7 @@ import {
   hasRealIdentification,
   isPlaceholderBody,
 } from "@/lib/speciesContent";
+import { getSpeciesProfileGuideLinks } from "@/lib/speciesGuideLinks";
 import { speciesPhotoAlt } from "@/lib/speciesMeta";
 import { usesDangerScale } from "@/lib/speciesRisk";
 
@@ -85,7 +86,7 @@ export async function SpeciesProfile({
     getTranslations({ locale, namespace: "danger" }),
     getTranslations({ locale, namespace: "pageAnalysis" }),
   ]);
-  const guideLinks = getSpeciesGuideLinks(species.id);
+  const guideLinks = getSpeciesProfileGuideLinks(species.id);
   const parent = getSpeciesParentHub(species);
   const groupLabel = tHubs(`hubs.${parent.hubId}`);
   const breadcrumbs = buildSpeciesBreadcrumbs({

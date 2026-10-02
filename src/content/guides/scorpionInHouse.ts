@@ -510,6 +510,12 @@ export const SCORPION_IN_HOUSE = defineGuideArticle({
   parentHub: "scorpions",
   pathname: "/scorpions/morieli-sakhlshi",
   relatedGuideIds: ["scorpion-sting"],
+  relatedSpeciesIds: [
+    "mesobuthus-eupeus",
+    "olivierus-caucasicus",
+    "euscorpius-italicus",
+    "euscorpius-mingrelicus",
+  ],
   search: {
     icon: "safety",
     keywords: [

@@ -4,7 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 
 import type { SafetyGuideConfig } from "@/components/safetyGuideConfig";
-import type { Species } from "@/data/species";
+import type { SpeciesCard } from "@/data/speciesCard";
 import type { AppLocale } from "@/i18n/routing";
 
 import {
@@ -38,7 +38,7 @@ export function SafetyGuideSections({
   species,
 }: {
   config: SafetyGuideConfig;
-  species: Species[];
+  species: SpeciesCard[];
 }) {
   return (
     <>
@@ -247,7 +247,7 @@ function SafetySpecies({
   species,
 }: {
   config: SafetyGuideConfig;
-  species: Species[];
+  species: SpeciesCard[];
 }) {
   const t = useTranslations(config.namespace);
   const locale = useLocale() as AppLocale;
