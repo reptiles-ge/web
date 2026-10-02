@@ -20,6 +20,7 @@ export function SnakesInYardSections({ coverSrc }: { coverSrc: string }) {
       <SnakesInYardWhy coverSrc={coverSrc} />
       <SnakesInYardActions />
       <SnakesInYardMyths />
+      <SnakesInYardHouse />
     </>
   );
 }
@@ -47,6 +48,28 @@ function SnakesInYardActions() {
             id: n,
             title: t(`action${n}Title`),
           }))}
+        />
+      </div>
+    </section>
+  );
+}
+
+function SnakesInYardHouse() {
+  const t = useTranslations("snakesInYard");
+
+  return (
+    <section
+      className="border-t border-border bg-background py-20 lg:py-28"
+      id="house"
+    >
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+        <ClusterSectionIntro
+          body={t("houseBody")}
+          bodyClassName={CLUSTER_BODY}
+          eyebrow={t("houseEyebrow")}
+          eyebrowClassName={CLUSTER_EYEBROW}
+          title={t("houseTitle")}
+          titleClassName={CLUSTER_TITLE_GUIDE}
         />
       </div>
     </section>
