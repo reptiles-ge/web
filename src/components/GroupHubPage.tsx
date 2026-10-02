@@ -127,6 +127,42 @@ export async function GroupHubPage({
           </div>
         </section>
 
+        {hubId === "mammals" || hubId === "scorpions" ? (
+          <section className="border-t border-border bg-background py-20 lg:py-28">
+            <div className="mx-auto max-w-[1400px] space-y-16 px-6 lg:px-10">
+              {hubId === "mammals" ? (
+                <div className="max-w-3xl">
+                  <h2 className="font-display text-display-title font-semibold">
+                    {t("predatorsTitle")}
+                  </h2>
+                  <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">
+                    <PhoneLinkedText>{t("predatorsBody")}</PhoneLinkedText>
+                  </p>
+                </div>
+              ) : (
+                <>
+                  <div className="max-w-3xl">
+                    <h2 className="font-display text-display-title font-semibold">
+                      {t("venomTitle")}
+                    </h2>
+                    <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">
+                      <PhoneLinkedText>{t("venomBody")}</PhoneLinkedText>
+                    </p>
+                  </div>
+                  <div className="max-w-3xl">
+                    <h2 className="font-display text-display-title font-semibold">
+                      {t("westTitle")}
+                    </h2>
+                    <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">
+                      <PhoneLinkedText>{t("westBody")}</PhoneLinkedText>
+                    </p>
+                  </div>
+                </>
+              )}
+            </div>
+          </section>
+        ) : null}
+
         <GroupHubSpeciesList
           hubId={hubId}
           sections={sections}
