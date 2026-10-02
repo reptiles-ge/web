@@ -122,13 +122,15 @@ The profile keeps "საწოლის ბაღლინჯო" (what it is).
 
 ### Dangerous and venomous animals of Georgia
 
+**Done.** Live 2 October 2026.
+
 Traffic now
 
 Page title
 
 საშიში და შხამიანი ცხოველები საქართველოში
 
-URL (proposed)
+URL
 
 `/sashishi-tskhovelebi · /en/dangerous-animals`
 
@@ -1811,7 +1813,7 @@ Demand, current relevance, future seasonal potential, topical fit and traffic po
 | #   | Page                                                | Demand   | Now      | Future season | Difficulty | Fit       | Traffic  | Urgency   | Format        |
 | --- | --------------------------------------------------- | -------- | -------- | ------------- | ---------- | --------- | -------- | --------- | ------------- |
 | 1   | [Bed bugs at home](#p1)                             | High     | High     | High          | Low–Med    | High      | High     | Now       | Guide         |
-| 2   | [Dangerous and venomous animals of Georgia](#p2)    | High     | Med      | High          | Med        | High      | High     | Now       | Hub           |
+| 2   | [Dangerous and venomous animals of Georgia](#p2)    | High     | Med      | High          | Med        | High      | High     | Done      | Hub           |
 | 3   | [Rats in the house and yard](#p3)                   | Med–High | High     | Med           | Low–Med    | Med–High  | Med–High | Now       | Guide         |
 | 4   | [Reptiles of Georgia](#p4)                          | Med–High | High     | Med           | Low        | Very High | Med–High | Now       | Hub           |
 | 5   | [Spiders in the house](#p5)                         | Med      | High     | Med           | Low        | High      | Med      | Now       | Guide         |
@@ -1848,7 +1850,7 @@ Demand, current relevance, future seasonal potential, topical fit and traffic po
 October–November demand (rodents and spiders moving indoors, the school term, Batumi migration) plus problems that never stop.
 
 - [1 Bed bugs at home](#p1)Oct 2026, weeks 1–2
-- [2 Dangerous and venomous animals of Georgia](#p2)Oct 2026
+- [2 Dangerous and venomous animals of Georgia](#p2) **Done** 2 Oct 2026
 - [3 Rats in the house and yard](#p3)Oct 2026
 - [4 Reptiles of Georgia](#p4)Oct 2026
 - [5 Spiders in the house](#p5)Oct 2026
@@ -1975,7 +1977,7 @@ This assumes about five pages a month through winter, which is below the pace th
 Publish
 
 - [1 Bed bugs at home](#p1)
-- [2 Dangerous and venomous animals of Georgia](#p2)
+- [2 Dangerous and venomous animals of Georgia](#p2) **Done** 2 Oct 2026
 - [3 Rats in the house and yard](#p3)
 - [4 Reptiles of Georgia](#p4)
 - [5 Spiders in the house](#p5)
