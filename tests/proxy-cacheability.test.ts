@@ -12,13 +12,19 @@ for (const [path, rewrite] of [
   ["/tr/about", null],
 ] as const) {
   test(`${path} stays routable without request header overrides`, () => {
-    const response = proxy(new NextRequest(`https://reptiles.ge${path}`));
+    const response = proxy(
+      new NextRequest(`https://reptiles.ge${path}`, {
+        headers: { accept: "text/html", "user-agent": "cacheability-test" },
+      }),
+    );
 
     assert.equal(response.status, 200);
     assert.equal(response.headers.get("x-middleware-rewrite"), rewrite);
     assert.equal(response.headers.has("x-middleware-override-headers"), false);
     assert.equal(
-      response.headers.has("x-middleware-request-x-next-intl-locale"),
+      [...response.headers.keys()].some((name) =>
+        name.startsWith("x-middleware-request-"),
+      ),
       false,
     );
   });
@@ -39,6 +45,16 @@ test("a supplied locale header stays out of the shared cache path", () => {
     response.headers.get("x-middleware-request-x-next-intl-locale"),
     "en",
   );
+});
+
+test("incoming middleware protocol headers keep the shared cache bypass", () => {
+  const response = proxy(
+    new NextRequest("https://reptiles.ge/en/about", {
+      headers: { "x-middleware-request-example": "external" },
+    }),
+  );
+
+  assert.equal(response.headers.has("x-middleware-override-headers"), true);
 });
 
 test("prefixed Georgian URLs keep their canonical redirect", () => {

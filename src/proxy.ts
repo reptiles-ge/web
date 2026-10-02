@@ -328,9 +328,18 @@ export default function proxy(request: NextRequest) {
   }
 
   const response = intlMiddleware(request);
-  if (!request.headers.has("x-next-intl-locale")) {
+  if (
+    !request.headers.has("x-next-intl-locale") &&
+    ![...request.headers.keys()].some((name) =>
+      name.startsWith("x-middleware-"),
+    )
+  ) {
     response.headers.delete("x-middleware-override-headers");
-    response.headers.delete("x-middleware-request-x-next-intl-locale");
+    for (const name of [...response.headers.keys()]) {
+      if (name.startsWith("x-middleware-request-")) {
+        response.headers.delete(name);
+      }
+    }
   }
   return response;
 }
