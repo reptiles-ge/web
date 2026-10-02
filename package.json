@@ -65,6 +65,7 @@
     "format": "prettier --write .",
     "prepare": "husky",
     "dev:vinext": "VINEXT=1 vinext dev --port 3001",
+    "prebuild:vinext": "pnpm run prebuild",
     "build:vinext": "VINEXT=1 vinext build",
     "start:vinext": "wrangler dev --config dist/server/wrangler.json",
     "deploy:vinext": "pnpm run build:vinext && vinext-cloudflare deploy --config dist/server/wrangler.json --warm-cache",
