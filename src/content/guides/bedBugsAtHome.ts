@@ -660,7 +660,7 @@ export const BED_BUGS_AT_HOME = defineGuideArticle({
     },
   },
   messageKey: "bedBugsAtHome",
-  ogImage: "https://cdn.reptiles.ge/og/images/guides/bed-bugs-at-home.jpg",
+  ogImage: "https://cdn.reptiles.ge/v2/og/images/guides/bed-bugs-at-home.jpg",
   parentHub: "insects",
   pathname: "/insects/baghlinjo-sakhlshi",
   relatedGuideIds: [
