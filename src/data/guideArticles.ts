@@ -76,6 +76,12 @@ export function getGuideArticlesForHub(hubId: GroupHubId) {
   );
 }
 
+export function getGuideArticlesForSpecies(speciesId: string) {
+  return GUIDE_ARTICLES.filter((article) =>
+    article.relatedSpeciesIds?.includes(speciesId),
+  );
+}
+
 export function guideArticleDatePublished(article: GuideArticle) {
   return sitemapPathDatePublished(article.pathname);
 }

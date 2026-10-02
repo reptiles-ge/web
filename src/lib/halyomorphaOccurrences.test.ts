@@ -1,4 +1,8 @@
+import fs from "node:fs";
+import path from "node:path";
 import { describe, expect, it } from "vitest";
+
+import type { SpeciesFieldRecord } from "@/data/speciesTypes";
 
 import { getRegionsForSpecies } from "@/data/mapRegions";
 import { getSpeciesById } from "@/data/species";
@@ -9,6 +13,13 @@ import {
   getHalyomorphaOccurrenceSummary,
   occurrenceStatusForCount,
 } from "./halyomorphaOccurrences";
+
+const fieldRecordsById = JSON.parse(
+  fs.readFileSync(
+    path.join(process.cwd(), "src/data/fieldRecords.generated.json"),
+    "utf8",
+  ),
+) as Record<string, SpeciesFieldRecord[]>;
 
 describe("occurrenceStatusForCount", () => {
   it("marks fewer than five records as recorded only", () => {
@@ -91,7 +102,7 @@ describe("occurrenceStatusForCount", () => {
     if (!species) return;
 
     const records = getHalyomorphaFieldRecords({
-      fieldRecords: species.fieldRecords ?? [],
+      fieldRecords: fieldRecordsById[species.id] ?? [],
       gallery: species.gallery,
       locale: "ka",
       speciesName: species.commonName,
@@ -126,7 +137,7 @@ describe("occurrenceStatusForCount", () => {
     if (!species) return;
 
     const records = getHalyomorphaFieldRecords({
-      fieldRecords: species.fieldRecords ?? [],
+      fieldRecords: fieldRecordsById[species.id] ?? [],
       gallery: species.gallery,
       locale: "ka",
       speciesName: species.commonName,
@@ -170,7 +181,7 @@ describe("occurrenceStatusForCount", () => {
     if (!species) return;
 
     const records = getHalyomorphaFieldRecords({
-      fieldRecords: species.fieldRecords ?? [],
+      fieldRecords: fieldRecordsById[species.id] ?? [],
       gallery: species.gallery,
       locale: "ka",
       speciesName: species.commonName,

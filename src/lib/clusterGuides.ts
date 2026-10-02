@@ -902,6 +902,16 @@ const yardCanidIdSet = new Set<string>(YARD_CANID_IDS);
 const glassCompareIdSet = new Set<string>(GLASS_LIZARD_COMPARE_IDS);
 const racerClusterIdSet = new Set<string>(RACER_CLUSTER_IDS);
 
+export function dedupeGuideLinks(links: readonly HubClusterCard[]) {
+  const seen = new Set<string>();
+  return links.filter((link) => {
+    const key = link.kind === "page" ? link.href : `${link.kind}:${link.id}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
 export function getHubPageRelatedGuides(
   hubId: GroupHubId,
   excludeHref: Extract<HubClusterCard, { kind: "page" }>["href"],
@@ -1115,13 +1125,5 @@ export function getSpeciesGuideLinks(id: string): HubClusterCard[] {
     }
   }
 
-  const seen = new Set<string>();
-  return links
-    .filter((link) => {
-      const key = link.kind === "page" ? link.href : `${link.kind}:${link.id}`;
-      if (seen.has(key)) return false;
-      seen.add(key);
-      return true;
-    })
-    .slice(0, 4);
+  return dedupeGuideLinks(links);
 }

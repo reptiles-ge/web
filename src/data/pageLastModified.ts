@@ -40,7 +40,7 @@ export const SITEMAP_PATH_LAST_MODIFIED: Record<string, string> = {
   "/regions": "2026-09-19T22:35:37+04:00",
   "/risk-to-humans": "2026-09-16T12:31:00+04:00",
   "/scorpions": "2026-10-02T12:30:00+04:00",
-  "/scorpions/morieli-sakhlshi": "2026-09-29T15:16:00+04:00",
+  "/scorpions/morieli-sakhlshi": "2026-10-02T16:05:00+04:00",
   "/scorpions/morielis-nakbeni": "2026-09-25T15:48:18+04:00",
   "/snakes": "2026-09-16T12:42:00+04:00",
   "/snakes-in-the-yard": "2026-10-02T12:30:00+04:00",

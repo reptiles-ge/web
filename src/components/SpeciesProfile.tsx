@@ -12,7 +12,8 @@ import { type Species } from "@/data/species";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
 import { resolvePhotoCredit } from "@/data/speciesMedia";
 import { isLocalAdminEnabled } from "@/lib/adminAccess";
-import { getHubIndexTitleKey, getSpeciesGuideLinks } from "@/lib/clusterGuides";
+import { getHubIndexTitleKey } from "@/lib/clusterGuides";
+import { hasFieldRecords } from "@/lib/occurrenceSummaries";
 import {
   buildSpeciesBreadcrumbs,
   getSpeciesParentHub,
@@ -23,6 +24,7 @@ import {
   hasRealIdentification,
   isPlaceholderBody,
 } from "@/lib/speciesContent";
+import { getSpeciesProfileGuideLinks } from "@/lib/speciesGuideLinks";
 import { speciesPhotoAlt } from "@/lib/speciesMeta";
 import { usesDangerScale } from "@/lib/speciesRisk";
 
@@ -85,7 +87,7 @@ export async function SpeciesProfile({
     getTranslations({ locale, namespace: "danger" }),
     getTranslations({ locale, namespace: "pageAnalysis" }),
   ]);
-  const guideLinks = getSpeciesGuideLinks(species.id);
+  const guideLinks = getSpeciesProfileGuideLinks(species.id);
   const parent = getSpeciesParentHub(species);
   const groupLabel = tHubs(`hubs.${parent.hubId}`);
   const breadcrumbs = buildSpeciesBreadcrumbs({
@@ -127,8 +129,7 @@ export async function SpeciesProfile({
   const dangerValue = species.danger ? tDanger(species.danger) : null;
   const linkDangerStats = usesDangerScale(group) && Boolean(species.danger);
   const hasRange =
-    getRegionsForSpecies(species.id).length > 0 ||
-    Boolean(species.fieldRecords?.length);
+    getRegionsForSpecies(species.id).length > 0 || hasFieldRecords(species.id);
   const showIdentification = hasRealIdentification(species.identification);
   const biologyCopy =
     species.id === "halyomorpha-halys"

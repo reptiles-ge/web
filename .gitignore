@@ -43,6 +43,9 @@ next-env.d.ts
 
 src/data/species.generated.ts
 src/data/speciesSlugs.generated.ts
+src/data/fieldRecords.generated.json
+src/data/occurrenceSummaries.generated.ts
+public/data/occurrences/
 src/data/localeSwitchIndex.generated.ts
 src/data/search-index.generated.ts
 src/data/search-index.*.generated.ts

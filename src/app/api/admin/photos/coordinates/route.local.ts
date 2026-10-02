@@ -48,9 +48,7 @@ export async function POST(request: Request) {
       src,
     });
     return Response.json({
-      credit: coordinates
-        ? { lat: coordinates.lat, lng: coordinates.lng }
-        : {},
+      credit: coordinates ? { lat: coordinates.lat, lng: coordinates.lng } : {},
       pullRequestUrl,
     });
   } catch (error) {
