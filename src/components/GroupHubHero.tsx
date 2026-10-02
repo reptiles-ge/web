@@ -1,5 +1,5 @@
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 
 import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
@@ -20,6 +20,7 @@ type GroupHubHeroProps = {
   heroMobileSrc?: string;
   heroSrc: string;
   hubId: GroupHubId;
+  locale: AppLocale;
   species: Species[];
 };
 
@@ -27,13 +28,13 @@ export async function GroupHubHero({
   heroMobileSrc,
   heroSrc,
   hubId,
+  locale,
   species,
 }: GroupHubHeroProps) {
-  const [t, tShared, tSnakes, locale] = await Promise.all([
-    getTranslations(hubId),
-    getTranslations("groupHubShared"),
-    getTranslations("snakes"),
-    getLocale() as Promise<AppLocale>,
+  const [t, tShared, tSnakes] = await Promise.all([
+    getTranslations({ locale, namespace: hubId }),
+    getTranslations({ locale, namespace: "groupHubShared" }),
+    getTranslations({ locale, namespace: "snakes" }),
   ]);
   const venomousCount = species.filter((item) =>
     isVenomousDanger(item.danger),

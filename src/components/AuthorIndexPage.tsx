@@ -20,9 +20,9 @@ export async function AuthorIndexPage({
   locale: AppLocale;
 }) {
   const [t, tShared, tProfile] = await Promise.all([
-    getTranslations("author"),
-    getTranslations("groupHubShared"),
-    getTranslations("profile"),
+    getTranslations({ locale, namespace: "author" }),
+    getTranslations({ locale, namespace: "groupHubShared" }),
+    getTranslations({ locale, namespace: "profile" }),
   ]);
 
   return (

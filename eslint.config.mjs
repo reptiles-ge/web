@@ -128,6 +128,27 @@ const eslintConfig = defineConfig([
     },
   },
   {
+    files: ["src/**/*.{ts,tsx}"],
+    ignores: ["src/app/\\[locale\\]/not-found.tsx", "src/**/*.test.{ts,tsx}"],
+    rules: {
+      "no-restricted-syntax": [
+        "error",
+        {
+          message:
+            "Pass the locale explicitly: getTranslations({ locale, namespace }). An implicit locale falls back to headers() on vinext and makes the page uncacheable.",
+          selector:
+            "CallExpression[callee.name='getTranslations'][arguments.length>0][arguments.0.type!='ObjectExpression']",
+        },
+        {
+          message:
+            "Pass the locale explicitly. An implicit locale falls back to headers() on vinext and makes the page uncacheable.",
+          selector:
+            "CallExpression[callee.name=/^(getFormatter|getLocale|getMessages|getNow|getTimeZone|getTranslations)$/][arguments.length=0]",
+        },
+      ],
+    },
+  },
+  {
     files: ["src/proxy.ts", "middleware.ts", "src/middleware.ts"],
     ...nextEdgeBoundary.configs.recommended,
   },

@@ -242,9 +242,11 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
         />
         <JsonLd data={structuredData} />
         <ClientMessagesProvider
+          locale={locale}
           namespaces={SPECIES_PROFILE_CLIENT_MESSAGE_NAMESPACES}
         >
           <SpeciesProfile
+            locale={locale}
             lookalikes={lookalikes}
             related={related}
             species={item}

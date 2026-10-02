@@ -1,5 +1,7 @@
 import { getTranslations } from "next-intl/server";
 
+import type { AppLocale } from "@/i18n/routing";
+
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { BiologyExpandable } from "@/components/BiologyExpandable";
 
@@ -7,6 +9,7 @@ type BiologyBlockProps = {
   body: string;
   editable?: boolean;
   headingId?: string;
+  locale: AppLocale;
   speciesId?: string;
   title: string;
 };
@@ -17,10 +20,11 @@ export async function BiologyBlock({
   body,
   editable,
   headingId,
+  locale,
   speciesId,
   title,
 }: BiologyBlockProps) {
-  const t = await getTranslations("profile");
+  const t = await getTranslations({ locale, namespace: "profile" });
   const needsExpand = body.length > PREVIEW_LENGTH;
 
   return (

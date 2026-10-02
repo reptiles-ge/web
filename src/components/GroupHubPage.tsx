@@ -1,5 +1,5 @@
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 
 import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
@@ -33,6 +33,7 @@ type GroupHubPageProps = {
   heroMobileSrc?: string;
   heroSrc: string;
   hubId: GroupHubId;
+  locale: AppLocale;
   species: Species[];
 };
 
@@ -47,11 +48,14 @@ export async function GroupHubPage({
   heroMobileSrc,
   heroSrc,
   hubId,
+  locale,
   species,
 }: GroupHubPageProps) {
-  const t = await getTranslations(hubId);
-  const tShared = await getTranslations("groupHubShared");
-  const locale = (await getLocale()) as AppLocale;
+  const t = await getTranslations({ locale, namespace: hubId });
+  const tShared = await getTranslations({
+    locale,
+    namespace: "groupHubShared",
+  });
   const editable = locale === "ka" && isLocalAdminEnabled();
   const relatedHubs = GROUP_HUB_LIST.filter((hub) => hub.id !== hubId);
   const articles = getGuideArticlesForHub(hubId);
@@ -78,6 +82,7 @@ export async function GroupHubPage({
           heroMobileSrc={heroMobileSrc}
           heroSrc={heroSrc}
           hubId={hubId}
+          locale={locale}
           species={species}
         />
 
@@ -165,6 +170,7 @@ export async function GroupHubPage({
 
         <GroupHubSpeciesList
           hubId={hubId}
+          locale={locale}
           sections={sections}
           speciesCount={species.length}
         />
@@ -209,6 +215,7 @@ export async function GroupHubPage({
         <GroupHubFaqSection hubId={hubId} />
 
         <ContentAttribution
+          locale={locale}
           publishedAt={dates.datePublished}
           updatedAt={dates.dateModified}
         />

@@ -1,6 +1,5 @@
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 
-import type { AppLocale } from "@/i18n/routing";
 import type { ClusterGuideViewProps } from "@/lib/clusterGuides";
 
 import { ClusterGuideLead } from "@/components/ClusterGuideLead";
@@ -19,10 +18,10 @@ import { isVenomousDanger } from "@/data/speciesAtlas";
 export async function SnakeSpeciesIndexPage({
   guideId,
   heroSrc,
+  locale,
   species,
 }: ClusterGuideViewProps) {
-  const t = await getTranslations("snakeIndex");
-  const locale = (await getLocale()) as AppLocale;
+  const t = await getTranslations({ locale, namespace: "snakeIndex" });
   const venomousCount = species.filter((item) =>
     isVenomousDanger(item.danger),
   ).length;
@@ -34,6 +33,7 @@ export async function SnakeSpeciesIndexPage({
       guideId={guideId}
       heroObjectClass="object-[50%_70%]"
       heroSrc={heroSrc}
+      locale={locale}
       stats={
         <section className="border-b border-border bg-surface py-10 sm:py-12">
           <div className="mx-auto grid max-w-[1400px] gap-8 px-6 sm:grid-cols-3 sm:gap-6 lg:px-10">

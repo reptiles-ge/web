@@ -1,21 +1,8 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
-import { getLocale } from "next-intl/server";
-import dynamic from "next/dynamic";
-import { Noto_Sans } from "next/font/google";
-import localFont from "next/font/local";
-import Script from "next/script";
-import { NuqsAdapter } from "nuqs/adapters/next/app";
-import { preconnect } from "react-dom";
-
-import { GoogleTagManager } from "@/components/GoogleTagManager";
-import { themeInitScript, ThemeProvider } from "@/components/ThemeProvider";
-import { routing } from "@/i18n/routing";
-import { cn } from "@/lib/cn";
 import {
   absoluteUrl,
-  CDN_BASE,
   openGraphJpeg,
   SITE_OG_IMAGE_URL,
   siteConfig,
@@ -23,51 +10,11 @@ import {
 
 import "./globals.css";
 
-const GTM_ID = "GTM-NM65ZMML";
 const FACEBOOK_APP_ID = "1033733009490487";
-
-const you = localFont({
-  display: "swap",
-  preload: true,
-  src: [
-    {
-      path: "./fonts/You-Normal.woff2",
-      weight: "400",
-    },
-    {
-      path: "./fonts/You-Normal.woff2",
-      weight: "500",
-    },
-    {
-      path: "./fonts/You-Bold.woff2",
-      weight: "600",
-    },
-    {
-      path: "./fonts/You-Bold.woff2",
-      weight: "700",
-    },
-  ],
-  variable: "--font-you",
-});
-
-const notoSans = Noto_Sans({
-  display: "optional",
-  preload: false,
-  subsets: ["latin", "latin-ext", "cyrillic"],
-  variable: "--font-noto-sans",
-  weight: ["400", "500", "600", "700"],
-});
 
 type Props = {
   children: ReactNode;
 };
-
-const AxeDevConsole =
-  process.env.NODE_ENV === "production"
-    ? () => null
-    : dynamic(() =>
-        import("@/components/AxeDevConsole").then((mod) => mod.AxeDevConsole),
-      );
 
 export const metadata: Metadata = {
   applicationName: siteConfig.name,
@@ -125,51 +72,6 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function RootLayout({ children }: Props) {
-  const locale = await getLocale().catch(() => routing.defaultLocale);
-  const isProd = process.env.NODE_ENV === "production";
-
-  preconnect(CDN_BASE);
-
-  return (
-    <html
-      className={cn(you.variable, notoSans.variable, "h-full antialiased")}
-      data-scroll-behavior="smooth"
-      lang={locale}
-      suppressHydrationWarning
-    >
-      {isProd ? <GoogleTagManager gtmId={GTM_ID} /> : null}
-      <head>
-        {isProd ? null : (
-          <Script
-            crossOrigin="anonymous"
-            src="https://unpkg.com/react-scan/dist/auto.global.js"
-            strategy="beforeInteractive"
-          />
-        )}
-        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
-      </head>
-      <body className="min-h-full bg-background font-sans text-foreground transition-colors duration-300">
-        {isProd ? (
-          <noscript>
-            <iframe
-              height="0"
-              sandbox="allow-scripts"
-              src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
-              style={{ display: "none", visibility: "hidden" }}
-              title="Google Tag Manager"
-              width="0"
-            />
-          </noscript>
-        ) : null}
-
-        <NuqsAdapter>
-          <ThemeProvider>
-            {children}
-            <AxeDevConsole />
-          </ThemeProvider>
-        </NuqsAdapter>
-      </body>
-    </html>
-  );
+export default function RootLayout({ children }: Props) {
+  return children;
 }

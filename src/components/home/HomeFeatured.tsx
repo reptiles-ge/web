@@ -1,5 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
 
@@ -24,10 +24,9 @@ const SUPPORTING_IDS = [
   "mertensiella-caucasica",
 ] as const;
 
-export async function HomeFeatured() {
-  const locale = (await getLocale()) as AppLocale;
-  const t = await getTranslations("home.featured");
-  const tDetail = await getTranslations("detail");
+export async function HomeFeatured({ locale }: { locale: AppLocale }) {
+  const t = await getTranslations({ locale, namespace: "home.featured" });
+  const tDetail = await getTranslations({ locale, namespace: "detail" });
   const base = getSpeciesById(SPOTLIGHT_ID);
   if (!base) return null;
 

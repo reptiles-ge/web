@@ -1,6 +1,5 @@
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 
-import type { AppLocale } from "@/i18n/routing";
 import type { ClusterGuideViewProps } from "@/lib/clusterGuides";
 
 import { ClusterContentSection } from "@/components/ClusterContentSection";
@@ -20,10 +19,10 @@ const MYTHS = [1, 2, 3, 4] as const;
 export async function SpiderVenomousPage({
   guideId,
   heroSrc,
+  locale,
   species,
 }: ClusterGuideViewProps) {
-  const t = await getTranslations("spiderVenomous");
-  const locale = (await getLocale()) as AppLocale;
+  const t = await getTranslations({ locale, namespace: "spiderVenomous" });
   const byId = new Map(species.map((item) => [item.id, item]));
   const karakurt = byId.get("latrodectus-tredecimguttatus");
   const falseWidow = byId.get("steatoda-paykulliana");
@@ -34,6 +33,7 @@ export async function SpiderVenomousPage({
       guideId={guideId}
       heroObjectClass="object-[50%_70%]"
       heroSrc={heroSrc}
+      locale={locale}
     >
       <section
         className="scroll-mt-28 bg-background py-20 lg:py-28"

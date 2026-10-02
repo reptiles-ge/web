@@ -1,11 +1,14 @@
 import { ArrowUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
+import type { AppLocale } from "@/i18n/routing";
+
+import { LocalizedLink } from "@/components/LocalizedLink";
 import { Logo } from "@/components/Logo";
 import { getGuideArticles } from "@/data/guideArticles";
-import { Link } from "@/i18n/navigation";
 
 type FooterProps = {
+  locale: AppLocale;
   regions: Array<{
     href: { params: { id: string }; pathname: "/regions/[id]" };
     id: string;
@@ -80,30 +83,32 @@ const companyLinks = [
   { href: "/terms-and-conditions" as const, labelKey: "terms" as const },
 ];
 
-export async function Footer({ regions, venomous }: FooterProps) {
-  const t = await getTranslations("footer");
+export async function Footer({ locale, regions, venomous }: FooterProps) {
+  const t = await getTranslations({ locale, namespace: "footer" });
 
   return (
     <footer className="border-t border-border bg-background">
       <div className="mx-auto max-w-[1400px] px-6 py-16 lg:px-10 lg:py-20">
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.3fr_0.8fr_0.8fr_0.7fr] lg:gap-16">
           <div>
-            <Link
+            <LocalizedLink
               className="inline-flex transition-opacity hover:opacity-90"
               href="/"
+              locale={locale}
             >
               <Logo showWordmark size={52} wordmarkClassName="text-[19px]" />
-            </Link>
+            </LocalizedLink>
             <p className="mt-5 max-w-sm text-[15px] leading-relaxed text-muted-foreground">
               {t("tagline")}
             </p>
-            <Link
+            <LocalizedLink
               className="group mt-7 inline-flex items-center gap-1.5 text-[13px] font-medium text-primary transition-opacity hover:opacity-80"
               href="/species"
+              locale={locale}
             >
               {t("exploreCta")}
               <ArrowUpRight className="size-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </Link>
+            </LocalizedLink>
           </div>
 
           <div>
@@ -113,13 +118,14 @@ export async function Footer({ regions, venomous }: FooterProps) {
             <ul className="mt-5 space-y-3">
               {exploreLinks.map((link) => (
                 <li key={link.href}>
-                  <Link
+                  <LocalizedLink
                     className="text-[14px] text-foreground/80 transition-colors hover:text-primary"
                     href={link.href}
+                    locale={locale}
                     prefetch={false}
                   >
                     {t(link.labelKey)}
-                  </Link>
+                  </LocalizedLink>
                 </li>
               ))}
             </ul>
@@ -132,13 +138,14 @@ export async function Footer({ regions, venomous }: FooterProps) {
             <ul className="mt-5 space-y-3">
               {guideLinks.map((link) => (
                 <li key={link.href}>
-                  <Link
+                  <LocalizedLink
                     className="text-[14px] text-foreground/80 transition-colors hover:text-primary"
                     href={link.href}
+                    locale={locale}
                     prefetch={false}
                   >
                     {t(link.labelKey)}
-                  </Link>
+                  </LocalizedLink>
                 </li>
               ))}
             </ul>
@@ -151,13 +158,14 @@ export async function Footer({ regions, venomous }: FooterProps) {
             <ul className="mt-5 space-y-3">
               {companyLinks.map((link) => (
                 <li key={link.href}>
-                  <Link
+                  <LocalizedLink
                     className="text-[14px] text-foreground/80 transition-colors hover:text-primary"
                     href={link.href}
+                    locale={locale}
                     prefetch={false}
                   >
                     {t(link.labelKey)}
-                  </Link>
+                  </LocalizedLink>
                 </li>
               ))}
             </ul>
@@ -170,19 +178,21 @@ export async function Footer({ regions, venomous }: FooterProps) {
               <p className="text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
                 {t("venomousTitle")}
               </p>
-              <Link
+              <LocalizedLink
                 className="text-[12px] font-medium text-foreground transition-colors hover:text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
                 href="/venomous-snakes"
+                locale={locale}
               >
                 {t("venomousAll")}
-              </Link>
+              </LocalizedLink>
             </div>
             <ul className="mt-5 columns-2 gap-x-8">
               {venomous.map((item) => (
                 <li className="mb-3 break-inside-avoid" key={item.id}>
-                  <Link
+                  <LocalizedLink
                     className="group block focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
                     href={item.href}
+                    locale={locale}
                     prefetch={false}
                   >
                     <span className="block text-[14px] font-medium text-foreground transition-colors group-hover:text-primary">
@@ -191,7 +201,7 @@ export async function Footer({ regions, venomous }: FooterProps) {
                     <span className="mt-0.5 block text-[12px] text-muted-foreground italic">
                       {item.scientificName}
                     </span>
-                  </Link>
+                  </LocalizedLink>
                 </li>
               ))}
             </ul>
@@ -202,23 +212,25 @@ export async function Footer({ regions, venomous }: FooterProps) {
               <p className="text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
                 {t("regionsTitle")}
               </p>
-              <Link
+              <LocalizedLink
                 className="text-[12px] font-medium text-foreground transition-colors hover:text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
                 href="/regions"
+                locale={locale}
               >
                 {t("regionsAll")}
-              </Link>
+              </LocalizedLink>
             </div>
             <ul className="mt-5 columns-2 gap-x-8 sm:columns-3">
               {regions.map((region) => (
                 <li className="mb-2.5 break-inside-avoid" key={region.id}>
-                  <Link
+                  <LocalizedLink
                     className="text-[13px] text-foreground/75 transition-colors hover:text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
                     href={region.href}
+                    locale={locale}
                     prefetch={false}
                   >
                     {region.name}
-                  </Link>
+                  </LocalizedLink>
                 </li>
               ))}
             </ul>

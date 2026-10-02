@@ -1,5 +1,5 @@
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
 
@@ -29,6 +29,7 @@ import {
 type SnakesInYardPageProps = {
   coverSrc: string;
   heroSrc: string;
+  locale: AppLocale;
   publishedAt: string;
   updatedAt: string;
 };
@@ -38,11 +39,11 @@ const FAQ_KEYS = [1, 2, 3, 4, 5, 6] as const;
 export async function SnakesInYardPage({
   coverSrc,
   heroSrc,
+  locale,
   publishedAt,
   updatedAt,
 }: SnakesInYardPageProps) {
-  const t = await getTranslations("snakesInYard");
-  const locale = (await getLocale()) as AppLocale;
+  const t = await getTranslations({ locale, namespace: "snakesInYard" });
   const relatedGuides = getHubPageRelatedGuides(
     "snakes",
     "/snakes-in-the-yard",
@@ -158,7 +159,11 @@ export async function SnakesInYardPage({
           surface="background"
         />
 
-        <ContentAttribution publishedAt={publishedAt} updatedAt={updatedAt} />
+        <ContentAttribution
+          locale={locale}
+          publishedAt={publishedAt}
+          updatedAt={updatedAt}
+        />
 
         <section className="relative flex min-h-[60svh] items-center overflow-hidden bg-ink py-24">
           <CoverImage

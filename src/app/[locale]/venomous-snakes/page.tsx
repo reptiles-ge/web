@@ -164,6 +164,7 @@ export default async function VenomousSnakesRoute({ params }: Props) {
       <JsonLd data={breadcrumbLd} />
       <JsonLd data={pageLd} />
       <ClientMessagesProvider
+        locale={locale}
         namespaces={[
           "card",
           "danger",
@@ -177,6 +178,7 @@ export default async function VenomousSnakesRoute({ params }: Props) {
       >
         <VenomousSnakesPage
           heroSrc={heroSrc}
+          locale={locale}
           publishedAt={dates.datePublished}
           species={venomous}
           updatedAt={dates.dateModified}

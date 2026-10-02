@@ -2,17 +2,19 @@ import { ArrowUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import type { AtlasStats } from "@/data/speciesAtlas";
+import type { AppLocale } from "@/i18n/routing";
 
 import { CoverImage } from "@/components/CoverImage";
 import { images } from "@/data/speciesMedia";
 import { Link } from "@/i18n/navigation";
 
 type AtlasHeroProps = {
+  locale: AppLocale;
   stats: AtlasStats;
 };
 
-export async function AtlasHero({ stats }: AtlasHeroProps) {
-  const t = await getTranslations("speciesAtlas");
+export async function AtlasHero({ locale, stats }: AtlasHeroProps) {
+  const t = await getTranslations({ locale, namespace: "speciesAtlas" });
 
   return (
     <section

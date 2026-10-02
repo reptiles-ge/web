@@ -337,6 +337,7 @@ export async function GuideArticlePage({
         />
       </article>
       <ContentAttribution
+        locale={locale}
         publishedAt={dates.datePublished}
         sourcesHref="#sources"
         updatedAt={dates.dateModified}

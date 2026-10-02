@@ -1,5 +1,6 @@
 import type { GuideArticlePath } from "@/data/guideArticlePaths";
 import type { GuideArticleMessageKey } from "@/data/guideArticleTypes";
+import type { AppLocale } from "@/i18n/routing";
 
 import { getRegionSpecies, type Region } from "@/data/regions";
 import { getSpeciesById, type Species } from "@/data/species";
@@ -557,6 +558,7 @@ export const CLUSTER_GUIDE_LIST = Object.values(CLUSTER_GUIDES);
 export type ClusterGuideViewProps = {
   guideId: ClusterGuideId;
   heroSrc: string;
+  locale: AppLocale;
   species: Species[];
 };
 

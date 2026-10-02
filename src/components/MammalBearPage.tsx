@@ -7,6 +7,7 @@ import { SafetyGuideSections } from "@/components/SafetyGuideSections";
 export async function MammalBearPage({
   guideId,
   heroSrc,
+  locale,
   species,
 }: ClusterGuideViewProps) {
   return (
@@ -15,6 +16,7 @@ export async function MammalBearPage({
       guideId={guideId}
       heroObjectClass="object-[50%_45%]"
       heroSrc={heroSrc}
+      locale={locale}
     >
       <SafetyGuideSections config={BEAR_ENCOUNTER_CONFIG} species={species} />
     </ClusterPageFrame>

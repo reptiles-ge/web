@@ -1,4 +1,4 @@
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 
 import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
@@ -24,6 +24,7 @@ const LOOKALIKE_BODIES = [
 ] as const;
 
 type QuizLandingProps = {
+  locale: AppLocale;
   namespace: QuizCopyNamespace;
   pool: SnakeQuizSpecies[];
   quizId: string;
@@ -31,13 +32,13 @@ type QuizLandingProps = {
 };
 
 export async function QuizLanding({
+  locale,
   namespace,
   pool,
   quizId,
   species,
 }: QuizLandingProps) {
-  const t = await getTranslations(namespace);
-  const locale = (await getLocale()) as AppLocale;
+  const t = await getTranslations({ locale, namespace });
   const byId = new Map(species.map((item) => [item.id, item]));
   const lookalikePairs =
     quizId === "lizard" ? LIZARD_LOOKALIKE_PAIRS : SNAKE_LOOKALIKE_PAIRS;

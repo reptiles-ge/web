@@ -1,5 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 
 import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
@@ -31,11 +31,14 @@ import { regionHref, speciesHref } from "@/lib/speciesRoutes";
 export async function SnakeRangePage({
   guideId,
   heroSrc,
+  locale,
   species,
 }: ClusterGuideViewProps) {
-  const t = await getTranslations("snakeRange");
-  const tShared = await getTranslations("groupHubShared");
-  const locale = (await getLocale()) as AppLocale;
+  const t = await getTranslations({ locale, namespace: "snakeRange" });
+  const tShared = await getTranslations({
+    locale,
+    namespace: "groupHubShared",
+  });
   const mappedCount = species.filter(
     (item) => getRegionsForSpecies(item.id).length > 0,
   ).length;
@@ -52,6 +55,7 @@ export async function SnakeRangePage({
       guideId={guideId}
       heroObjectClass="object-[55%_68%]"
       heroSrc={heroSrc}
+      locale={locale}
       stats={
         <section className="border-b border-border bg-surface py-10 sm:py-12">
           <div className="mx-auto grid max-w-[1400px] gap-8 px-6 sm:grid-cols-3 sm:gap-6 lg:px-10">

@@ -1,13 +1,15 @@
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
+import type { AppLocale } from "@/i18n/routing";
+
 import { ContactMailto } from "@/components/ContactMailto";
 import { CoverImage } from "@/components/CoverImage";
 import { images } from "@/data/speciesMedia";
 import { Link } from "@/i18n/navigation";
 
-export async function ContactPage() {
-  const t = await getTranslations("contact");
+export async function ContactPage({ locale }: { locale: AppLocale }) {
+  const t = await getTranslations({ locale, namespace: "contact" });
 
   return (
     <div className="relative min-h-svh bg-background text-foreground">

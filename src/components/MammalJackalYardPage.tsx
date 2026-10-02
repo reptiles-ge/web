@@ -7,6 +7,7 @@ import { ConflictGuideSections } from "@/components/ConflictGuideSections";
 export async function MammalJackalYardPage({
   guideId,
   heroSrc,
+  locale,
   species,
 }: ClusterGuideViewProps) {
   return (
@@ -14,6 +15,7 @@ export async function MammalJackalYardPage({
       guideId={guideId}
       heroObjectClass="object-[50%_40%]"
       heroSrc={heroSrc}
+      locale={locale}
     >
       <ConflictGuideSections config={JACKAL_YARD_CONFIG} species={species} />
     </ClusterPageFrame>

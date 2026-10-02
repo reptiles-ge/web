@@ -1,7 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 
-import type { AppLocale } from "@/i18n/routing";
 import type { ClusterGuideViewProps } from "@/lib/clusterGuides";
 
 import { ClusterContentSection } from "@/components/ClusterContentSection";
@@ -14,10 +13,10 @@ import { Link } from "@/i18n/navigation";
 export async function FrogSpeciesIndexPage({
   guideId,
   heroSrc,
+  locale,
   species,
 }: ClusterGuideViewProps) {
-  const t = await getTranslations("amphibianFrogsIndex");
-  const locale = (await getLocale()) as AppLocale;
+  const t = await getTranslations({ locale, namespace: "amphibianFrogsIndex" });
   const guideP3 = t.has("guideP3") ? t("guideP3") : null;
   const familyCount = new Set(species.map((item) => item.family)).size;
 
@@ -26,6 +25,7 @@ export async function FrogSpeciesIndexPage({
       ctaHash="#index"
       guideId={guideId}
       heroSrc={heroSrc}
+      locale={locale}
       stats={
         <section className="border-b border-border bg-surface py-10 sm:py-12">
           <div className="mx-auto grid max-w-[1400px] gap-8 px-6 sm:grid-cols-3 sm:gap-6 lg:px-10">

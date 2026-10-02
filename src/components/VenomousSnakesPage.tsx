@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
 
@@ -29,6 +29,7 @@ const faqInlineLinkClassName =
 
 type VenomousSnakesPageProps = {
   heroSrc: string;
+  locale: AppLocale;
   publishedAt: string;
   species: Species[];
   updatedAt: string;
@@ -36,12 +37,12 @@ type VenomousSnakesPageProps = {
 
 export async function VenomousSnakesPage({
   heroSrc,
+  locale,
   publishedAt,
   species,
   updatedAt,
 }: VenomousSnakesPageProps) {
-  const t = await getTranslations("venomousSnakes");
-  const locale = (await getLocale()) as AppLocale;
+  const t = await getTranslations({ locale, namespace: "venomousSnakes" });
   const vipers = getViperSpecies(species);
   const rearFangedPool = [...species];
   for (const id of REAR_FANGED_SPECIES_IDS) {
@@ -127,7 +128,11 @@ export async function VenomousSnakesPage({
           }))}
         />
 
-        <ContentAttribution publishedAt={publishedAt} updatedAt={updatedAt} />
+        <ContentAttribution
+          locale={locale}
+          publishedAt={publishedAt}
+          updatedAt={updatedAt}
+        />
 
         <VenomousSnakesCta heroSrc={heroSrc} />
       </div>

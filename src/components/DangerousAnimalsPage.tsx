@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 
 import { ArrowUpRight } from "lucide-react";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
 
@@ -35,6 +35,7 @@ type DangerousAnimalsPageProps = {
   heroAlt: string;
   heroSrc: string;
   karakurtName: string;
+  locale: AppLocale;
   publishedAt: string;
   updatedAt: string;
 };
@@ -51,11 +52,11 @@ export async function DangerousAnimalsPage({
   heroAlt,
   heroSrc,
   karakurtName,
+  locale,
   publishedAt,
   updatedAt,
 }: DangerousAnimalsPageProps) {
-  const t = await getTranslations("dangerousAnimals");
-  const locale = (await getLocale()) as AppLocale;
+  const t = await getTranslations({ locale, namespace: "dangerousAnimals" });
 
   return (
     <div className="min-h-screen bg-background">
@@ -160,7 +161,11 @@ export async function DangerousAnimalsPage({
         </div>
       </section>
 
-      <ContentAttribution publishedAt={publishedAt} updatedAt={updatedAt} />
+      <ContentAttribution
+        locale={locale}
+        publishedAt={publishedAt}
+        updatedAt={updatedAt}
+      />
     </div>
   );
 }

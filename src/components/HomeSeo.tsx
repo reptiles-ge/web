@@ -1,5 +1,7 @@
 import { getTranslations } from "next-intl/server";
 
+import type { AppLocale } from "@/i18n/routing";
+
 import { getGuideArticles } from "@/data/guideArticles";
 import { Link } from "@/i18n/navigation";
 
@@ -30,8 +32,8 @@ const hubs = [
   { href: "/regions", key: "regions" as const },
 ] as const;
 
-export async function HomeSeo() {
-  const t = await getTranslations("home.seo");
+export async function HomeSeo({ locale }: { locale: AppLocale }) {
+  const t = await getTranslations({ locale, namespace: "home.seo" });
 
   return (
     <section className="border-t border-border bg-background py-20 lg:py-28">

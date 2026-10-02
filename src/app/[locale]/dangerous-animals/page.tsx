@@ -88,7 +88,7 @@ export default async function DangerousAnimalsRoute({ params }: Props) {
       <CoverImagePreload sizes="100vw" src={hero.image} />
       <JsonLd data={breadcrumbLd} />
       <JsonLd data={pageLd} />
-      <ClientMessagesProvider namespaces={["dangerousAnimals"]}>
+      <ClientMessagesProvider locale={locale} namespaces={["dangerousAnimals"]}>
         <DangerousAnimalsPage
           heroAlt={speciesImageAlt(
             hero.commonName,
@@ -97,6 +97,7 @@ export default async function DangerousAnimalsRoute({ params }: Props) {
           )}
           heroSrc={hero.image}
           karakurtName={widow.commonName}
+          locale={locale}
           publishedAt={dates.datePublished}
           updatedAt={dates.dateModified}
         />

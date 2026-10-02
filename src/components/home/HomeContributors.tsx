@@ -1,5 +1,5 @@
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
 import type { CreditAuthorPhoto } from "@/lib/creditAuthors";
@@ -25,16 +25,15 @@ import {
   HOME_CONTRIBUTOR_PORTRAIT_SIZES,
 } from "@/lib/imageSizes";
 
-export async function HomeContributors() {
-  const locale = (await getLocale()) as AppLocale;
+export async function HomeContributors({ locale }: { locale: AppLocale }) {
   const all = getCreditAuthorCards();
   if (all.length === 0) return null;
   const cards = all.slice(0, HOME_CONTRIBUTOR_LIMIT);
   const hasMore = all.length > HOME_CONTRIBUTOR_LIMIT;
 
   const [t, tAuthor] = await Promise.all([
-    getTranslations("home.contributors"),
-    getTranslations("author"),
+    getTranslations({ locale, namespace: "home.contributors" }),
+    getTranslations({ locale, namespace: "author" }),
   ]);
 
   return (

@@ -1,7 +1,6 @@
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 
 import type { Species } from "@/data/species";
-import type { AppLocale } from "@/i18n/routing";
 import type { ClusterGuideViewProps } from "@/lib/clusterGuides";
 
 import { ClusterGuideLead } from "@/components/ClusterGuideLead";
@@ -15,10 +14,10 @@ import { collectTurtleRegions, TURTLE_ORDER } from "@/lib/turtleIdentify";
 export async function TurtleIdentifyPage({
   guideId,
   heroSrc,
+  locale,
   species,
 }: ClusterGuideViewProps) {
-  const t = await getTranslations("turtleIdentify");
-  const locale = (await getLocale()) as AppLocale;
+  const t = await getTranslations({ locale, namespace: "turtleIdentify" });
   const byId = new Map(species.map((item) => [item.id, item]));
   const turtles = TURTLE_ORDER.map((id) => byId.get(id)).filter(
     (item): item is Species => Boolean(item),
@@ -30,7 +29,12 @@ export async function TurtleIdentifyPage({
   const regions = collectTurtleRegions(turtles);
 
   return (
-    <ClusterPageFrame ctaHash="#flow" guideId={guideId} heroSrc={heroSrc}>
+    <ClusterPageFrame
+      ctaHash="#flow"
+      guideId={guideId}
+      heroSrc={heroSrc}
+      locale={locale}
+    >
       <ClusterGuideLead
         body={
           <>

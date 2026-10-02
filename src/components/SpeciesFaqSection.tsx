@@ -1,4 +1,4 @@
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 
 import type { SpeciesFaq } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
@@ -13,6 +13,7 @@ import { SPECIES_SECTION_IDS } from "@/lib/toc";
 type SpeciesFaqSectionProps = {
   entityId: string;
   items: SpeciesFaq[];
+  locale: AppLocale;
   name: string;
   pageType: PageType;
 };
@@ -20,14 +21,14 @@ type SpeciesFaqSectionProps = {
 export async function SpeciesFaqSection({
   entityId,
   items,
+  locale,
   name,
   pageType,
 }: SpeciesFaqSectionProps) {
   if (items.length === 0) return null;
 
-  const [locale, t] = await Promise.all([
-    getLocale() as Promise<AppLocale>,
-    getTranslations("profile"),
+  const [t] = await Promise.all([
+    getTranslations({ locale, namespace: "profile" }),
   ]);
   const faqName = locale === "ka" ? georgianTanPhrase(name) : name;
 

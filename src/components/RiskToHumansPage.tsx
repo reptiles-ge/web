@@ -2,6 +2,7 @@ import { ArrowRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import type { DangerLevel, Species } from "@/data/species";
+import type { AppLocale } from "@/i18n/routing";
 
 import { ClusterFaqSection } from "@/components/ClusterFaqSection";
 import {
@@ -19,6 +20,7 @@ type RiskToHumansPageProps = {
   harmlessCount: number;
   harmlessExamples: Species[];
   high: Species[];
+  locale: AppLocale;
   moderate: Species[];
   publishedAt: string;
   updatedAt: string;
@@ -30,11 +32,12 @@ export async function RiskToHumansPage({
   harmlessCount,
   harmlessExamples,
   high,
+  locale,
   moderate,
   publishedAt,
   updatedAt,
 }: RiskToHumansPageProps) {
-  const t = await getTranslations("riskToHumans");
+  const t = await getTranslations({ locale, namespace: "riskToHumans" });
   const speciesByLevel: Record<DangerLevel, Species[]> = {
     Harmless: harmlessExamples,
     High: high,
@@ -64,7 +67,11 @@ export async function RiskToHumansPage({
           }))}
         />
 
-        <ContentAttribution publishedAt={publishedAt} updatedAt={updatedAt} />
+        <ContentAttribution
+          locale={locale}
+          publishedAt={publishedAt}
+          updatedAt={updatedAt}
+        />
 
         <section className="border-t border-border bg-ink py-20 lg:py-28">
           <div className="mx-auto w-full max-w-[1400px] px-6 lg:px-10">
