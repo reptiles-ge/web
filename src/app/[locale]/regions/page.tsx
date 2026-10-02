@@ -115,7 +115,7 @@ export default async function RegionsPage({ params }: Props) {
   return (
     <>
       <JsonLd data={jsonLd} />
-      <ClientMessagesProvider namespaces={["map", "regions"]}>
+      <ClientMessagesProvider locale={locale} namespaces={["map", "regions"]}>
         <RegionsIndex
           stats={getCatalogRegionStats()}
           tooltipSpeciesByRegion={getRegionTooltipPreviews(locale)}

@@ -1,5 +1,6 @@
 import type { GuideArticlePath } from "@/data/guideArticlePaths";
 import type { GuideArticleMessageKey } from "@/data/guideArticleTypes";
+import type { AppLocale } from "@/i18n/routing";
 
 import { getRegionSpecies, type Region } from "@/data/regions";
 import { getSpeciesById, type Species } from "@/data/species";
@@ -557,6 +558,7 @@ export const CLUSTER_GUIDE_LIST = Object.values(CLUSTER_GUIDES);
 export type ClusterGuideViewProps = {
   guideId: ClusterGuideId;
   heroSrc: string;
+  locale: AppLocale;
   species: Species[];
 };
 
@@ -564,6 +566,7 @@ export type HubClusterCard =
   | {
       href:
         | "/birds"
+        | "/dangerous-animals"
         | "/insects"
         | "/lizards"
         | "/mammals"
@@ -580,6 +583,7 @@ export type HubClusterCard =
         | "birdIndex"
         | "birdsHub"
         | "bite"
+        | "dangerousAnimals"
         | "frogs"
         | "frogsIndex"
         | "glassLizard"
@@ -663,6 +667,11 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
       key: "cockroachesInHouse",
       kind: "page",
     },
+    {
+      href: "/insects/baghlinjo-sakhlshi",
+      key: "bedBugsAtHome",
+      kind: "page",
+    },
   ],
   lizards: [
     { href: "/lizards/saxeoebebi", key: "lizardIndex", kind: "page" },
@@ -679,6 +688,11 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
     { id: "pseudopus-apodus", key: "gvelxokera", kind: "species" },
   ],
   mammals: [
+    {
+      href: "/dangerous-animals",
+      key: "dangerousAnimals",
+      kind: "page",
+    },
     { href: "/mammals/saxeoebebi", key: "mammalIndex", kind: "page" },
     { href: "/mammals/ghamura-sakhlshi", key: "batInHouse", kind: "page" },
     { href: "/mammals/tagvi-sakhlshi", key: "mouseInHouse", kind: "page" },
@@ -687,6 +701,11 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
   ],
   scorpions: [
     {
+      href: "/dangerous-animals",
+      key: "dangerousAnimals",
+      kind: "page",
+    },
+    {
       href: "/scorpions/morieli-sakhlshi",
       key: "scorpionInHouse",
       kind: "page",
@@ -694,6 +713,11 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
     { href: "/scorpions/morielis-nakbeni", key: "scorpionSting", kind: "page" },
   ],
   snakes: [
+    {
+      href: "/dangerous-animals",
+      key: "dangerousAnimals",
+      kind: "page",
+    },
     { href: "/snakes/saxeoebebi", key: "index", kind: "page" },
     { href: "/venomous-snakes", key: "venomous", kind: "page" },
     { id: "snake", key: "quiz", kind: "quiz" },
@@ -710,6 +734,11 @@ export const HUB_CLUSTER_CARDS: Record<GroupHubId, HubClusterCard[]> = {
     { id: "macrovipera-lebetina", key: "giurza", kind: "species" },
   ],
   spiders: [
+    {
+      href: "/dangerous-animals",
+      key: "dangerousAnimals",
+      kind: "page",
+    },
     { href: "/spiders/saxeoebebi", key: "spiderIndex", kind: "page" },
     {
       href: "/spiders/shxamiani-obobebi",

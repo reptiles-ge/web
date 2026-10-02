@@ -13,7 +13,7 @@ type AtlasAboutProps = {
 };
 
 export async function AtlasAbout({ locale, stats }: AtlasAboutProps) {
-  const t = await getTranslations("speciesAtlas");
+  const t = await getTranslations({ locale, namespace: "speciesAtlas" });
 
   return (
     <section className="border-t border-border bg-surface/60 py-20 lg:py-28">

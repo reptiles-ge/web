@@ -1,5 +1,5 @@
 import { ArrowRight } from "lucide-react";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 
 import { Logo } from "@/components/Logo";
 import { Link } from "@/i18n/navigation";
@@ -9,6 +9,7 @@ import { siteEntityId } from "@/lib/site";
 import { hasMeaningfulUpdate } from "@/lib/structuredDataDates";
 
 type ContentAttributionProps = {
+  locale: AppLocale;
   publishedAt?: string;
   showMethodology?: boolean;
   sourcesHref?: string;
@@ -16,13 +17,13 @@ type ContentAttributionProps = {
 };
 
 export async function ContentAttribution({
+  locale,
   publishedAt,
   showMethodology = true,
   sourcesHref,
   updatedAt,
 }: ContentAttributionProps) {
-  const t = await getTranslations("attribution");
-  const locale = (await getLocale()) as AppLocale;
+  const t = await getTranslations({ locale, namespace: "attribution" });
   const headingId = "content-attribution-heading";
   const showSources = Boolean(sourcesHref);
   const showLinks = showSources || showMethodology;

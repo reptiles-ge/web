@@ -280,6 +280,7 @@ export async function NewsArticlePage({
           </p>
         </article>
         <ContentAttribution
+          locale={locale}
           publishedAt={article.publishedAt}
           sourcesHref="#sources"
           updatedAt={article.updatedAt}

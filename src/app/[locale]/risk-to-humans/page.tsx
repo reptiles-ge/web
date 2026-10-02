@@ -166,12 +166,14 @@ export default async function RiskToHumansRoute({ params }: Props) {
       <JsonLd data={pageLd} />
       <JsonLd data={faqLd} />
       <ClientMessagesProvider
+        locale={locale}
         namespaces={["card", "danger", "groupHubShared", "riskToHumans"]}
       >
         <RiskToHumansPage
           harmlessCount={byDanger.Harmless.length}
           harmlessExamples={harmlessExamples}
           high={byDanger.High}
+          locale={locale}
           moderate={byDanger.Moderate}
           publishedAt={dates.datePublished}
           updatedAt={dates.dateModified}

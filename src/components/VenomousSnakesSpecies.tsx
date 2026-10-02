@@ -40,7 +40,24 @@ export function VenomousSnakesSpecies({
   return (
     <section className="scroll-mt-28 bg-background py-20 lg:py-28" id="species">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <div>
+        <div className="max-w-3xl">
+          <h2 className="font-display text-display-title font-semibold">
+            {t("mostVenomousTitle")}
+          </h2>
+          <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">
+            <PhoneLinkedText>
+              {t.rich("mostVenomousBody", {
+                giurza: (chunks) => (
+                  <SpeciesInlineLink id="macrovipera-lebetina">
+                    {chunks}
+                  </SpeciesInlineLink>
+                ),
+              })}
+            </PhoneLinkedText>
+          </p>
+        </div>
+
+        <div className="mt-16">
           <ClusterSectionIntro
             body={t("speciesBody")}
             bodyClassName={CLUSTER_BODY}

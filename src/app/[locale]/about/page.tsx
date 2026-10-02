@@ -53,7 +53,7 @@ export default async function About({ params }: Props) {
   return (
     <>
       <JsonLd data={aboutJsonLd} />
-      <AboutPage />
+      <AboutPage locale={locale} />
     </>
   );
 }

@@ -1,5 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
 import type { GroupHubId } from "@/lib/groupHubs";
@@ -16,6 +16,7 @@ import { HUB_INDEX_PATH, type SpeciesSection } from "@/lib/clusterGuides";
 
 type GroupHubSpeciesListProps = {
   hubId: GroupHubId;
+  locale: AppLocale;
   sections: SpeciesSection[];
   speciesCount: number;
 };
@@ -30,11 +31,11 @@ const HUBS_WITH_INDEX_CTA = new Set<GroupHubId>([
 
 export async function GroupHubSpeciesList({
   hubId,
+  locale,
   sections,
   speciesCount,
 }: GroupHubSpeciesListProps) {
-  const t = await getTranslations(hubId);
-  const locale = (await getLocale()) as AppLocale;
+  const t = await getTranslations({ locale, namespace: hubId });
 
   return (
     <section

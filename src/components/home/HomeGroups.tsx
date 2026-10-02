@@ -1,5 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
 
@@ -20,10 +20,9 @@ const FEATURED_HUBS = ["snakes", "lizards", "turtles", "amphibians"] as const;
 const QUIET_HUBS = ["birds", "mammals", "spiders"] as const;
 const USE_GROUP_ILLUSTRATIONS = true;
 
-export async function HomeGroups() {
-  const locale = (await getLocale()) as AppLocale;
-  const t = await getTranslations("home.groups");
-  const tNav = await getTranslations("nav");
+export async function HomeGroups({ locale }: { locale: AppLocale }) {
+  const t = await getTranslations({ locale, namespace: "home.groups" });
+  const tNav = await getTranslations({ locale, namespace: "nav" });
   const stats = getAtlasStats();
 
   return (

@@ -1,8 +1,7 @@
 import type { ReactNode } from "react";
 
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 
-import type { AppLocale } from "@/i18n/routing";
 import type { ClusterGuideViewProps } from "@/lib/clusterGuides";
 
 import { ClusterGuideLead } from "@/components/ClusterGuideLead";
@@ -22,11 +21,11 @@ import { CLUSTER_GUIDES } from "@/lib/clusterGuides";
 export async function ClusterGuidePage({
   guideId,
   heroSrc,
+  locale,
   species,
 }: ClusterGuideViewProps) {
   const guide = CLUSTER_GUIDES[guideId];
-  const t = await getTranslations(guide.messageKey);
-  const locale = (await getLocale()) as AppLocale;
+  const t = await getTranslations({ locale, namespace: guide.messageKey });
   const guideP3 = t.has("guideP3") ? t("guideP3") : null;
   const familyCount = new Set(species.map((item) => item.family)).size;
   const richLinks = {
@@ -63,9 +62,7 @@ export async function ClusterGuidePage({
       </Link>
     ),
     marshFrog: (chunks: ReactNode) => (
-      <SpeciesInlineLink id="pelophylax-ridibundus">
-        {chunks}
-      </SpeciesInlineLink>
+      <SpeciesInlineLink id="pelophylax-ridibundus">{chunks}</SpeciesInlineLink>
     ),
   };
 
@@ -74,6 +71,7 @@ export async function ClusterGuidePage({
       ctaHash="#species"
       guideId={guideId}
       heroSrc={heroSrc}
+      locale={locale}
       stats={
         <section className="border-b border-border bg-surface py-10 sm:py-12">
           <div className="mx-auto grid max-w-[1400px] gap-8 px-6 sm:grid-cols-3 sm:gap-6 lg:px-10">

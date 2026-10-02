@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
 
 import { ClientMessagesProvider } from "@/components/ClientMessagesProvider";
 import { JsonLd } from "@/components/JsonLd";
@@ -154,14 +155,19 @@ export default async function SpeciesIndexPage({ params }: Props) {
     <div className="min-h-screen bg-background">
       <JsonLd data={breadcrumbLd} />
       <JsonLd data={collectionLd} />
-      <ClientMessagesProvider namespaces={ATLAS_CLIENT_MESSAGE_NAMESPACES}>
-        <AtlasHero stats={stats} />
-        <SpeciesAtlas
-          catalog={catalog}
-          recent={recent}
-          tooltipSpeciesByRegion={tooltipSpeciesByRegion}
-        />
-        <AtlasSeo />
+      <ClientMessagesProvider
+        locale={locale}
+        namespaces={ATLAS_CLIENT_MESSAGE_NAMESPACES}
+      >
+        <AtlasHero locale={locale} stats={stats} />
+        <Suspense>
+          <SpeciesAtlas
+            catalog={catalog}
+            recent={recent}
+            tooltipSpeciesByRegion={tooltipSpeciesByRegion}
+          />
+        </Suspense>
+        <AtlasSeo locale={locale} />
         <AtlasAbout locale={locale} stats={stats} />
       </ClientMessagesProvider>
     </div>

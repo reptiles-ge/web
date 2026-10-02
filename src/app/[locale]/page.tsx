@@ -187,20 +187,20 @@ export default async function Home({ params }: Props): Promise<ReactElement> {
     <div className="min-h-screen bg-background">
       <JsonLd data={graph} />
       <div>
-        <Hero />
-        <HomeGroups />
-        <HomeFeatured />
-        <ClientMessagesProvider namespaces={["map"]}>
+        <Hero locale={locale} />
+        <HomeGroups locale={locale} />
+        <HomeFeatured locale={locale} />
+        <ClientMessagesProvider locale={locale} namespaces={["map"]}>
           <MapExplorer
             tooltipSpeciesByRegion={getRegionTooltipPreviews(locale)}
           />
         </ClientMessagesProvider>
-        <HomeFresh />
-        <HomeField />
-        <HomeGuides />
-        <HomeContributors />
-        <HomeSeo />
-        <FinalCTA />
+        <HomeFresh locale={locale} />
+        <HomeField locale={locale} />
+        <HomeGuides locale={locale} />
+        <HomeContributors locale={locale} />
+        <HomeSeo locale={locale} />
+        <FinalCTA locale={locale} />
       </div>
     </div>
   );

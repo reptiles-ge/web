@@ -7,6 +7,7 @@ import { ConflictGuideSections } from "@/components/ConflictGuideSections";
 export async function LizardHousePage({
   guideId,
   heroSrc,
+  locale,
   species,
 }: ClusterGuideViewProps) {
   return (
@@ -14,6 +15,7 @@ export async function LizardHousePage({
       guideId={guideId}
       heroObjectClass="object-[50%_55%]"
       heroSrc={heroSrc}
+      locale={locale}
     >
       <ConflictGuideSections config={LIZARD_HOUSE_CONFIG} species={species} />
     </ClusterPageFrame>

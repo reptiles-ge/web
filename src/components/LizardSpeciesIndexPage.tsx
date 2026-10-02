@@ -1,6 +1,4 @@
-import { getLocale, getTranslations } from "next-intl/server";
-
-import type { AppLocale } from "@/i18n/routing";
+import { getTranslations } from "next-intl/server";
 
 import { ClusterGuideLead } from "@/components/ClusterGuideLead";
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
@@ -21,10 +19,10 @@ import {
 export async function LizardSpeciesIndexPage({
   guideId,
   heroSrc,
+  locale,
   species,
 }: ClusterGuideViewProps) {
-  const t = await getTranslations("lizardIndex");
-  const locale = (await getLocale()) as AppLocale;
+  const t = await getTranslations({ locale, namespace: "lizardIndex" });
   const featured = species.filter(
     (item) =>
       item.id === "paralaudakia-caucasia" || item.id === "pseudopus-apodus",
@@ -43,6 +41,7 @@ export async function LizardSpeciesIndexPage({
       ctaHash="#index"
       guideId={guideId}
       heroSrc={heroSrc}
+      locale={locale}
       stats={
         <section className="border-b border-border bg-surface py-10 sm:py-12">
           <div className="mx-auto grid max-w-[1400px] gap-8 px-6 sm:grid-cols-3 sm:gap-6 lg:px-10">

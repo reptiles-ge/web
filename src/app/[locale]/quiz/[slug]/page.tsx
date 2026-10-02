@@ -194,10 +194,12 @@ export default async function QuizSlugRoute({ params }: Props) {
       <JsonLd data={pageLd} />
       <JsonLd data={faqLd} />
       <ClientMessagesProvider
+        locale={locale}
         namespaces={["groupHubShared", "quizzes", quiz.messageNamespace]}
       >
         <QuizPlayer pool={pool} quizId={quiz.id} shareUrl={url} />
         <QuizLanding
+          locale={locale}
           namespace={quiz.messageNamespace}
           pool={pool}
           quizId={quiz.id}

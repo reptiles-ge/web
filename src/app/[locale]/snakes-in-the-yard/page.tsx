@@ -165,6 +165,7 @@ export default async function SnakesInYardRoute({ params }: Props) {
       <JsonLd data={pageLd} />
       <JsonLd data={howToLd} />
       <ClientMessagesProvider
+        locale={locale}
         namespaces={[
           "card",
           "danger",
@@ -177,6 +178,7 @@ export default async function SnakesInYardRoute({ params }: Props) {
         <SnakesInYardPage
           coverSrc={coverSrc}
           heroSrc={heroSrc}
+          locale={locale}
           publishedAt={dates.datePublished}
           updatedAt={dates.dateModified}
         />

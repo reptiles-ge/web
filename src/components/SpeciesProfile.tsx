@@ -1,4 +1,4 @@
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
 
@@ -27,6 +27,7 @@ import { speciesPhotoAlt } from "@/lib/speciesMeta";
 import { usesDangerScale } from "@/lib/speciesRisk";
 
 type SpeciesProfileProps = {
+  locale: AppLocale;
   lookalikes: Species[];
   related: Species[];
   species: Species;
@@ -73,16 +74,16 @@ const HALYOMORPHA_BIOLOGY_COPY: Record<
 };
 
 export async function SpeciesProfile({
+  locale,
   lookalikes,
   related,
   species,
 }: SpeciesProfileProps) {
-  const [locale, t, tHubs, tDanger, tAnalysis] = await Promise.all([
-    getLocale() as Promise<AppLocale>,
-    getTranslations("profile"),
-    getTranslations("groupHubShared"),
-    getTranslations("danger"),
-    getTranslations("pageAnalysis"),
+  const [t, tHubs, tDanger, tAnalysis] = await Promise.all([
+    getTranslations({ locale, namespace: "profile" }),
+    getTranslations({ locale, namespace: "groupHubShared" }),
+    getTranslations({ locale, namespace: "danger" }),
+    getTranslations({ locale, namespace: "pageAnalysis" }),
   ]);
   const guideLinks = getSpeciesGuideLinks(species.id);
   const parent = getSpeciesParentHub(species);
@@ -171,6 +172,7 @@ export async function SpeciesProfile({
         heroDesktopSources={heroDesktopSources}
         heroPrimarySources={heroPrimarySources}
         imageAlt={imageAlt}
+        locale={locale}
         mobileHeroSrc={mobileHeroSrc}
         mobileImageAlt={mobileImageAlt}
         species={species}

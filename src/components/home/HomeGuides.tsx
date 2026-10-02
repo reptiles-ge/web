@@ -1,5 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
 
@@ -14,9 +14,8 @@ const FEATURED_GUIDE_IDS = [
   "wasp-nest",
 ];
 
-export async function HomeGuides() {
-  const locale = (await getLocale()) as AppLocale;
-  const t = await getTranslations("home.guides");
+export async function HomeGuides({ locale }: { locale: AppLocale }) {
+  const t = await getTranslations({ locale, namespace: "home.guides" });
   const articles = getGuideArticles();
   const featured = FEATURED_GUIDE_IDS.map((id) =>
     articles.find((article) => article.id === id),

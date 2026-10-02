@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { useLocale } from "next-intl";
 import { getLocale } from "next-intl/server";
 
 import { NotFoundShell } from "@/components/NotFoundShell";
@@ -12,5 +13,6 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function NotFound() {
-  return <NotFoundShell />;
+  const locale = useLocale() as AppLocale;
+  return <NotFoundShell locale={locale} />;
 }

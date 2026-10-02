@@ -30,7 +30,7 @@ export async function SpeciesProfileRelated({
     return null;
   }
 
-  const t = await getTranslations("profile");
+  const t = await getTranslations({ locale, namespace: "profile" });
   const lookalikes = variant === "lookalikes";
   const relatedEyebrow =
     labelVariant === "otherInsects" ? t("otherInsects") : t("related");

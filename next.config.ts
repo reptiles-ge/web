@@ -179,6 +179,11 @@ const nextConfig: NextConfig = {
         statusCode: 301,
       },
       {
+        destination: "/sashishi-tskhovelebi",
+        source: "/dangerous-animals",
+        statusCode: 301,
+      },
+      {
         destination: "/gvelebi/gveli-ezoshi",
         source: "/snakes-in-the-yard",
         statusCode: 301,
@@ -429,6 +434,7 @@ const nextConfig: NextConfig = {
         ["/kuebi", "/turtles"],
         ["/amfibiebi", "/amphibians"],
         ["/gvelebi/shxamiani-gvelebi", "/venomous-snakes"],
+        ["/sashishi-tskhovelebi", "/dangerous-animals"],
         ["/gvelebi/gveli-ezoshi", "/snakes-in-the-yard"],
         ["/species/vipera-ammodytes", "/snakes/vipera-transcaucasiana"],
         ["/snakes/vipera-ammodytes", "/snakes/vipera-transcaucasiana"],

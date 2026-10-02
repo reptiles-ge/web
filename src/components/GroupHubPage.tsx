@@ -1,5 +1,5 @@
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 
 import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
@@ -33,6 +33,7 @@ type GroupHubPageProps = {
   heroMobileSrc?: string;
   heroSrc: string;
   hubId: GroupHubId;
+  locale: AppLocale;
   species: Species[];
 };
 
@@ -47,11 +48,14 @@ export async function GroupHubPage({
   heroMobileSrc,
   heroSrc,
   hubId,
+  locale,
   species,
 }: GroupHubPageProps) {
-  const t = await getTranslations(hubId);
-  const tShared = await getTranslations("groupHubShared");
-  const locale = (await getLocale()) as AppLocale;
+  const t = await getTranslations({ locale, namespace: hubId });
+  const tShared = await getTranslations({
+    locale,
+    namespace: "groupHubShared",
+  });
   const editable = locale === "ka" && isLocalAdminEnabled();
   const relatedHubs = GROUP_HUB_LIST.filter((hub) => hub.id !== hubId);
   const articles = getGuideArticlesForHub(hubId);
@@ -78,6 +82,7 @@ export async function GroupHubPage({
           heroMobileSrc={heroMobileSrc}
           heroSrc={heroSrc}
           hubId={hubId}
+          locale={locale}
           species={species}
         />
 
@@ -127,8 +132,45 @@ export async function GroupHubPage({
           </div>
         </section>
 
+        {hubId === "mammals" || hubId === "scorpions" ? (
+          <section className="border-t border-border bg-background py-20 lg:py-28">
+            <div className="mx-auto max-w-[1400px] space-y-16 px-6 lg:px-10">
+              {hubId === "mammals" ? (
+                <div className="max-w-3xl">
+                  <h2 className="font-display text-display-title font-semibold">
+                    {t("predatorsTitle")}
+                  </h2>
+                  <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">
+                    <PhoneLinkedText>{t("predatorsBody")}</PhoneLinkedText>
+                  </p>
+                </div>
+              ) : (
+                <>
+                  <div className="max-w-3xl">
+                    <h2 className="font-display text-display-title font-semibold">
+                      {t("venomTitle")}
+                    </h2>
+                    <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">
+                      <PhoneLinkedText>{t("venomBody")}</PhoneLinkedText>
+                    </p>
+                  </div>
+                  <div className="max-w-3xl">
+                    <h2 className="font-display text-display-title font-semibold">
+                      {t("westTitle")}
+                    </h2>
+                    <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">
+                      <PhoneLinkedText>{t("westBody")}</PhoneLinkedText>
+                    </p>
+                  </div>
+                </>
+              )}
+            </div>
+          </section>
+        ) : null}
+
         <GroupHubSpeciesList
           hubId={hubId}
+          locale={locale}
           sections={sections}
           speciesCount={species.length}
         />
@@ -173,6 +215,7 @@ export async function GroupHubPage({
         <GroupHubFaqSection hubId={hubId} />
 
         <ContentAttribution
+          locale={locale}
           publishedAt={dates.datePublished}
           updatedAt={dates.dateModified}
         />

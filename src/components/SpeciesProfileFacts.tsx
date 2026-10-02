@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 
 import type { DangerLevel, SpeciesStat } from "@/data/species";
+import type { AppLocale } from "@/i18n/routing";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { BiologyExpandable } from "@/components/BiologyExpandable";
@@ -16,6 +17,7 @@ type SpeciesProfileFactsProps = {
   editable: boolean;
   interaction?: string;
   linkDangerStats: boolean;
+  locale: AppLocale;
   speciesId: string;
   stats: SpeciesStat[];
 };
@@ -27,10 +29,11 @@ export async function SpeciesProfileFacts({
   editable,
   interaction,
   linkDangerStats,
+  locale,
   speciesId,
   stats,
 }: SpeciesProfileFactsProps) {
-  const t = await getTranslations("profile");
+  const t = await getTranslations({ locale, namespace: "profile" });
   const interactionBody =
     interaction && !isPlaceholderBody(interaction) ? interaction : null;
 

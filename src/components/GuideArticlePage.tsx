@@ -27,6 +27,14 @@ import { hasMeaningfulUpdate } from "@/lib/structuredDataDates";
 
 const IMAGE_SIZES = "(max-width: 1023px) 100vw, 1400px";
 
+const DANGEROUS_ANIMALS_RELATED = new Set([
+  "gyurza-bite",
+  "scorpion-sting",
+  "snake-bite",
+  "tick-bite",
+  "wasp-nest",
+]);
+
 type GuideArticlePageProps = {
   article: GuideArticle;
   dates: { dateModified: string; datePublished: string };
@@ -281,6 +289,22 @@ export async function GuideArticlePage({
                 />
               </Link>
             </li>
+            {DANGEROUS_ANIMALS_RELATED.has(article.id) ? (
+              <li className="flex">
+                <Link
+                  className="group flex w-full flex-col justify-between gap-6 rounded-card border border-border bg-card p-6 transition-colors hover:bg-background"
+                  href="/dangerous-animals"
+                >
+                  <span className="font-display text-[18px] font-semibold text-foreground transition-colors group-hover:text-primary">
+                    {tShared("cluster.dangerousAnimals.title")}
+                  </span>
+                  <ArrowUpRight
+                    aria-hidden="true"
+                    className="size-4 text-muted-foreground"
+                  />
+                </Link>
+              </li>
+            ) : null}
           </ul>
           {relatedSpecies.length > 0 ? (
             <>
@@ -313,6 +337,7 @@ export async function GuideArticlePage({
         />
       </article>
       <ContentAttribution
+        locale={locale}
         publishedAt={dates.datePublished}
         sourcesHref="#sources"
         updatedAt={dates.dateModified}

@@ -3742,6 +3742,20 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 2045],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/images/guides/bed-bugs-at-home-hero.jpg": {
+    "path": "images/guides/bed-bugs-at-home-hero",
+    "width": 1024,
+    "height": 682,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/images/guides/bed-bugs-at-home-signs.jpg": {
+    "path": "images/guides/bed-bugs-at-home-signs",
+    "width": 1024,
+    "height": 768,
+    "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/images/guides/clothes-moth-closet.jpg": {
     "path": "images/guides/clothes-moth-closet",
     "width": 1280,

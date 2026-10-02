@@ -1,6 +1,8 @@
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
+import type { AppLocale } from "@/i18n/routing";
+
 import { CoverImage } from "@/components/CoverImage";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { images } from "@/data/speciesMedia";
@@ -19,8 +21,8 @@ const SOURCE_LINKS = [
 
 const PILLARS = ["discover", "understand", "protect"] as const;
 
-export async function AboutPage() {
-  const t = await getTranslations("about");
+export async function AboutPage({ locale }: { locale: AppLocale }) {
+  const t = await getTranslations({ locale, namespace: "about" });
 
   return (
     <div className="min-h-screen bg-background">
@@ -199,6 +201,10 @@ export async function AboutPage() {
                   {
                     href: "/venomous-snakes" as const,
                     key: "venomous" as const,
+                  },
+                  {
+                    href: "/dangerous-animals" as const,
+                    key: "dangerous" as const,
                   },
                 ] as const
               ).map((item, index) => (
