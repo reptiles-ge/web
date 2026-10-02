@@ -39,6 +39,11 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
           "CDC does not recommend them: a trapped mouse can become frightened and urinate, which increases the risk of exposure. A snap trap is the better choice.",
         question: "Should I use a live trap or a glue trap?",
       },
+      {
+        answer:
+          "This page is about mice. A rat is a different rodent, and the steps here do not transfer to it.",
+        question: "Mouse or rat?",
+      },
     ],
     metaTitle: "Mouse in the house: how to get rid of mice and keep them out",
     sections: [
@@ -223,6 +228,11 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         answer:
           "CDC მათ არ გირჩევთ: დაჭერილი თაგვი შეიძლება შეშინდეს და შარდი გამოყოს, რაც დაინფიცირების რისკს ზრდის. უმჯობესია მარწუხა ხაფანგი.",
         question: "ცოცხალი დამჭერი ხაფანგი ან წებოვანი ხაფანგი გამოვიყენო?",
+      },
+      {
+        answer:
+          "ეს გვერდი თაგვზეა. ვირთხა სხვა მღრღნელია და აქ მოცემული ნაბიჯები მასზე არ გადადის.",
+        question: "თაგვი თუ ვირთხა?",
       },
     ],
     metaTitle: "თაგვი სახლში — როგორ მოვიშოროთ და აღარ შემოვუშვათ?",
@@ -409,6 +419,11 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
           "CDC их не рекомендует: пойманная мышь может испугаться и выделить мочу, что повышает риск заражения. Лучше использовать пружинную мышеловку.",
         question: "Использовать живоловку или клеевую ловушку?",
       },
+      {
+        answer:
+          "Эта страница про мышь. Крыса — другой грызун, и здешние шаги на неё не переносятся.",
+        question: "Мышь или крыса?",
+      },
     ],
     metaTitle: "Мышь в доме: как избавиться от мышей и не пустить их снова",
     sections: [
@@ -593,6 +608,11 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
           "CDC önermez: yakalanan fare korkup idrar yapabilir, bu da bulaş riskini artırır. Yaylı kapan daha iyi bir seçimdir.",
         question:
           "Canlı yakalama kapanı mı, yapışkanlı kapan mı kullanmalıyım?",
+      },
+      {
+        answer:
+          "Bu sayfa fare hakkındadır. Sıçan başka bir kemirgendir ve buradaki adımlar ona uygulanmaz.",
+        question: "Fare mi, sıçan mı?",
       },
     ],
     metaTitle: "Evde fare: farelerden nasıl kurtulunur, nasıl uzak tutulur?",
@@ -963,6 +983,7 @@ export const MOUSE_IN_HOUSE = defineGuideArticle({
     keywords: [
       "თაგვი",
       "თაგვი სახლში",
+      "თაგვი თუ ვირთხა",
       "თაგვის ხაფანგი",
       "თაგვის ექსკრემენტი",
       "მღრღნელი",
