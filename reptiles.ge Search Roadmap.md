@@ -11,7 +11,7 @@ Thirty new pages, ranked by real demand, how realistically they can rank, and wh
 ## What the data says
 
 - **Search traffic today comes from species names, not problems.** The top GSC queries are animal names: წავი (1,194 impressions), მაჩვი (529), დედოფალა (439), ენოტი (395), შველი (350). Most rank on page one, but CTR is only 0–2.3%. The 14 practical guides were published after the GSC window, so their performance is still unknown.
-- **Most of the brief's examples already exist.** Cockroaches, ants, fleas, mosquitoes, clothes moths, mice, bats, wasp nests, stink bugs, scorpions (house and sting), tick bite, snake bite, giurza bite, spider bite, venomous spiders, snakes in the yard, lizards in the house, jackals and bears are all live. The gaps are the next layer down: bed bugs, rats, spiders in the house, ticks on dogs, stings, flies, pantry pests.
+- **Most of the brief's examples already exist.** Cockroaches, ants, fleas, mosquitoes, clothes moths, mice, bats, wasp nests, stink bugs, scorpions (house and sting), tick bite, snake bite, giurza bite, spider bite, venomous spiders, snakes in the yard, lizards in the house, jackals and bears are all live. The gaps are the next layer down: rats, spiders in the house, ticks on dogs, stings, flies, pantry pests. Bed bugs at home shipped 2 October 2026.
 - **Georgian demand is small and sharply seasonal.** Tick searches are near zero from December to March, then jump to 71 in April and 100 in July. Only head terms register in Trends for Georgia, so for long-tail queries a query's presence in autocomplete is the main demand signal. That's why demand is rated qualitatively.
 - **Russian-language demand inside Georgia matters for a few summer topics.** On a 5-year average, jellyfish (медузы) searches in Georgia are double tick (клещ) searches, and they peak in July and August. The Russian locale is already live.
 - **Georgian results pages are beatable.** Problem queries return news portals re-posting advice (kvirispalitra, ambebi, tabula), health blogs (mkurnali, redmed), pest-control sales pages and translated listicles (rogor.ge, mshoblebi). Sourced, answer-first guides can outrank them.
@@ -64,13 +64,15 @@ This is publishing order. Pages 1–5 earn traffic now. Pages 6–7 are the two 
 
 ### Bed bugs at home
 
+**Done.** Live 2 October 2026.
+
 Traffic now
 
 Page title
 
 ბაღლინჯო სახლში — როგორ ვიპოვოთ და მოვიშოროთ
 
-URL (proposed)
+URL
 
 `/mtserebi/baghlinjo-sakhlshi · /en/insects/bed-bugs-at-home`
 
@@ -1810,7 +1812,7 @@ Demand, current relevance, future seasonal potential, topical fit and traffic po
 
 | #   | Page                                                | Demand   | Now      | Future season | Difficulty | Fit       | Traffic  | Urgency   | Format        |
 | --- | --------------------------------------------------- | -------- | -------- | ------------- | ---------- | --------- | -------- | --------- | ------------- |
-| 1   | [Bed bugs at home](#p1)                             | High     | High     | High          | Low–Med    | High      | High     | Now       | Guide         |
+| 1   | [Bed bugs at home](#p1)                             | High     | High     | High          | Low–Med    | High      | High     | Done      | Guide         |
 | 2   | [Dangerous and venomous animals of Georgia](#p2)    | High     | Med      | High          | Med        | High      | High     | Now       | Hub           |
 | 3   | [Rats in the house and yard](#p3)                   | Med–High | High     | Med           | Low–Med    | Med–High  | Med–High | Now       | Guide         |
 | 4   | [Reptiles of Georgia](#p4)                          | Med–High | High     | Med           | Low        | Very High | Med–High | Now       | Hub           |
@@ -1847,7 +1849,7 @@ Demand, current relevance, future seasonal potential, topical fit and traffic po
 
 October–November demand (rodents and spiders moving indoors, the school term, Batumi migration) plus problems that never stop.
 
-- [1 Bed bugs at home](#p1)Oct 2026, weeks 1–2
+- [1 Bed bugs at home](#p1) **Done** 2 Oct 2026
 - [2 Dangerous and venomous animals of Georgia](#p2)Oct 2026
 - [3 Rats in the house and yard](#p3)Oct 2026
 - [4 Reptiles of Georgia](#p4)Oct 2026
@@ -1974,7 +1976,7 @@ This assumes about five pages a month through winter, which is below the pace th
 
 Publish
 
-- [1 Bed bugs at home](#p1)
+- [1 Bed bugs at home](#p1) — **Done** 2 Oct 2026
 - [2 Dangerous and venomous animals of Georgia](#p2)
 - [3 Rats in the house and yard](#p3)
 - [4 Reptiles of Georgia](#p4)
