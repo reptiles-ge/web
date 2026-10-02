@@ -13,14 +13,14 @@ export const SITEMAP_PATH_LAST_MODIFIED: Record<string, string> = {
   "/insects": "2026-09-23T12:45:00+04:00",
   "/insects/chianchvelebi-sakhlshi": "2026-09-25T01:29:00+04:00",
   "/insects/chrchili-tansatsmelshi": "2026-09-29T15:36:00+04:00",
-  "/insects/farosana-sakhlshi": "2026-09-24T16:36:00+04:00",
+  "/insects/farosana-sakhlshi": "2026-10-02T12:30:00+04:00",
   "/insects/koghoebi-sakhlshi-da-ezoshi": "2026-09-30T11:25:00+04:00",
   "/insects/krazanis-bude": "2026-09-23T20:34:14+04:00",
   "/insects/rtsqilebi-sakhlshi": "2026-09-29T10:30:00+04:00",
   "/insects/saxeoebebi": "2026-09-18T18:00:00+04:00",
   "/insects/taraknebi-sakhlshi": "2026-09-29T09:53:00+04:00",
   "/insects/tkipis-nakbeni": "2026-10-02T12:30:00+04:00",
-  "/lizards": "2026-09-16T10:08:00+04:00",
+  "/lizards": "2026-10-02T12:30:00+04:00",
   "/lizards/darevskia": "2026-09-16T10:19:00+04:00",
   "/lizards/identifikacia": "2026-09-16T10:30:00+04:00",
   "/lizards/saxeoebebi": "2026-09-16T10:41:00+04:00",
@@ -59,7 +59,7 @@ export const SITEMAP_PATH_LAST_MODIFIED: Record<string, string> = {
   "/turtles/saxeoebebi": "2026-09-16T15:16:00+04:00",
   "/turtles/tsqlis-kuebi": "2026-09-16T15:27:00+04:00",
   "/turtles/xmelis-kuebi": "2026-09-16T15:38:00+04:00",
-  "/venomous-snakes": "2026-09-20T02:45:00+04:00",
+  "/venomous-snakes": "2026-10-02T12:30:00+04:00",
 };
 
 const SITEMAP_PATH_DATE_PUBLISHED: Record<string, string> = {
