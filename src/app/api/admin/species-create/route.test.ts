@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 
-import { POST } from "@/app/api/admin/species-create/route";
+import { POST } from "@/app/api/admin/species-create/route.local";
 
 const request = (
   body: unknown = {

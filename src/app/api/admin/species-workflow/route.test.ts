@@ -18,7 +18,7 @@ vi.mock("@/lib/speciesPageAnalysis", async (importOriginal) => ({
   ),
 }));
 
-import { POST } from "@/app/api/admin/species-workflow/route";
+import { POST } from "@/app/api/admin/species-workflow/route.local";
 import { runSpeciesWorkflow } from "@/lib/speciesPageAnalysis";
 
 const request = (modes: unknown, origin = "http://localhost") =>

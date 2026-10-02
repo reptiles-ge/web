@@ -15,7 +15,7 @@ vi.mock("@/lib/adminPhotoPullRequest", () => ({
     Promise.reject(new Error("No gallery changes to open a pull request for")),
 }));
 
-import { POST } from "@/app/api/admin/photos/reorder/route";
+import { POST } from "@/app/api/admin/photos/reorder/route.local";
 
 describe("photo reorder route", () => {
   it("acknowledges an order that was already saved", async () => {

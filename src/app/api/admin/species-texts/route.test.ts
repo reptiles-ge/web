@@ -7,7 +7,7 @@ vi.mock("@/lib/speciesTextProcessing", () => ({
   })),
 }));
 
-import { POST } from "@/app/api/admin/species-texts/route";
+import { POST } from "@/app/api/admin/species-texts/route.local";
 import { StaleSpeciesContentError } from "@/lib/contentEditorPullRequest";
 import { processSpeciesTexts } from "@/lib/speciesTextProcessing";
 

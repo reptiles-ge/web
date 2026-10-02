@@ -39,6 +39,10 @@ const slugOutFile = path.join(
   process.cwd(),
   "src/data/speciesSlugs.generated.ts",
 );
+const fieldRecordsOutFile = path.join(
+  process.cwd(),
+  "src/data/fieldRecords.generated.json",
+);
 
 function resolveUpdatedAt(
   filePaths: string[],
@@ -145,7 +149,6 @@ function toSpecies(
       : {}),
     ...(fm.audio?.src ? { audio: fm.audio as SpeciesAudio } : {}),
     ...(fm.faq ? { faq: fm.faq as SpeciesFaq[] } : {}),
-    fieldRecords: (fm.fieldRecords as SpeciesFieldRecord[] | undefined) ?? [],
     publishedAt: options.publishedAt,
     updatedAt: options.updatedAt,
     sources,
@@ -169,9 +172,6 @@ function toTranslation(fm: KaFrontmatter): SpeciesTranslation {
       ? { identification: fm.identification as SpeciesIdentification }
       : {}),
     ...(fm.faq ? { faq: fm.faq as SpeciesFaq[] } : {}),
-    ...(fm.fieldRecords
-      ? { fieldRecords: fm.fieldRecords as SpeciesFieldRecord[] }
-      : {}),
     ...(fm.gallery?.length ? { gallery: fm.gallery as GalleryImage[] } : {}),
     ...(fm.imageCredit ? { imageCredit: fm.imageCredit as PhotoCredit } : {}),
     ...(fm.mobileImageCredit
@@ -197,6 +197,7 @@ const ids = fs
   .sort((a, b) => a.localeCompare(b));
 
 const species: Species[] = [];
+const fieldRecordsById: Record<string, SpeciesFieldRecord[]> = {};
 const speciesEn: Record<string, SpeciesTranslation> = {};
 const speciesRu: Record<string, SpeciesTranslation> = {};
 const speciesTr: Record<string, SpeciesTranslation> = {};
@@ -260,6 +261,8 @@ for (const id of ids) {
     fm.datePublished,
   );
   species.push(toSpecies(fm, { publishedAt, updatedAt }));
+  const fieldRecords = fm.fieldRecords as SpeciesFieldRecord[] | undefined;
+  if (fieldRecords?.length) fieldRecordsById[id] = fieldRecords;
   warnGeorgiaFieldWithoutLocation(kaPath, fm);
 
   for (const locale of TRANSLATION_LOCALES) {
@@ -336,5 +339,13 @@ export const idByAnySlug: Record<string, string> = ${JSON.stringify(slugMaps.idB
 
 fs.writeFileSync(outFile, source, "utf8");
 fs.writeFileSync(slugOutFile, slugSource, "utf8");
+fs.writeFileSync(
+  fieldRecordsOutFile,
+  `${JSON.stringify(fieldRecordsById)}\n`,
+  "utf8",
+);
 console.log(`Compiled ${species.length} species → ${outFile}`);
 console.log(`Compiled ${slugRows.length} published slug rows → ${slugOutFile}`);
+console.log(
+  `Compiled field records for ${Object.keys(fieldRecordsById).length} species → ${fieldRecordsOutFile}`,
+);

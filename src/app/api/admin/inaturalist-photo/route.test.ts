@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 
-import { POST } from "./route";
+import { POST } from "./route.local";
 
 const observation = {
   captive: false,
