@@ -1,7 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
-import type { GalleryImage, SpeciesFieldRecord } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
 import type { HalyomorphaOccurrenceSummary } from "@/lib/halyomorphaOccurrences";
 
@@ -15,11 +14,7 @@ import {
   regions,
 } from "@/data/mapRegions";
 import { Link } from "@/i18n/navigation";
-import {
-  confirmedRecordThresholdForSpecies,
-  getHalyomorphaFieldRecords,
-  getHalyomorphaOccurrenceSummary,
-} from "@/lib/halyomorphaOccurrences";
+import { getOccurrenceSummary } from "@/lib/occurrenceSummaries";
 import { regionHref } from "@/lib/regionHref";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 
@@ -64,8 +59,6 @@ type InteractiveRangeMapConfig = {
 };
 
 type SpeciesRangeMapProps = {
-  fieldRecords?: SpeciesFieldRecord[];
-  gallery?: GalleryImage[];
   locale: AppLocale;
   speciesId: string;
   speciesName: string;
@@ -2044,8 +2037,6 @@ const INTERACTIVE_RANGE_MAPS: Partial<
 };
 
 export async function SpeciesRangeMap({
-  fieldRecords = [],
-  gallery = [],
   locale,
   speciesId,
   speciesName,
@@ -2056,20 +2047,8 @@ export async function SpeciesRangeMap({
   const highlightedIds = rangeRegions.map((region) => region.id);
   const interactiveRangeConfig = INTERACTIVE_RANGE_MAPS[speciesId];
   const interactiveRangeCopy = interactiveRangeConfig?.copy[locale];
-  const allInteractiveRangeFieldRecords = interactiveRangeCopy
-    ? getHalyomorphaFieldRecords({
-        fieldRecords,
-        gallery,
-        locale,
-        speciesName,
-      })
-    : [];
   const interactiveRangeSummary = interactiveRangeCopy
-    ? getHalyomorphaOccurrenceSummary(
-        allInteractiveRangeFieldRecords,
-        locale,
-        confirmedRecordThresholdForSpecies(speciesId),
-      )
+    ? getOccurrenceSummary(speciesId, locale)
     : null;
 
   if (

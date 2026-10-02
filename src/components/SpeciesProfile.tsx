@@ -13,6 +13,7 @@ import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
 import { resolvePhotoCredit } from "@/data/speciesMedia";
 import { isLocalAdminEnabled } from "@/lib/adminAccess";
 import { getHubIndexTitleKey } from "@/lib/clusterGuides";
+import { hasFieldRecords } from "@/lib/occurrenceSummaries";
 import {
   buildSpeciesBreadcrumbs,
   getSpeciesParentHub,
@@ -128,8 +129,7 @@ export async function SpeciesProfile({
   const dangerValue = species.danger ? tDanger(species.danger) : null;
   const linkDangerStats = usesDangerScale(group) && Boolean(species.danger);
   const hasRange =
-    getRegionsForSpecies(species.id).length > 0 ||
-    Boolean(species.fieldRecords?.length);
+    getRegionsForSpecies(species.id).length > 0 || hasFieldRecords(species.id);
   const showIdentification = hasRealIdentification(species.identification);
   const biologyCopy =
     species.id === "halyomorpha-halys"

@@ -122,6 +122,9 @@ const nextConfig: NextConfig = {
     ],
     unoptimized: true,
   },
+  pageExtensions: isDevelopment
+    ? ["local.tsx", "local.ts", "tsx", "ts", "jsx", "js"]
+    : ["tsx", "ts", "jsx", "js"],
   async redirects() {
     if (isVinext) return [];
 

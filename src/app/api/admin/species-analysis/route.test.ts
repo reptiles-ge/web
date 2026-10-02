@@ -9,7 +9,7 @@ vi.mock("@/lib/speciesPageAnalysis", () => ({
   ),
 }));
 
-import { POST } from "@/app/api/admin/species-analysis/route";
+import { POST } from "@/app/api/admin/species-analysis/route.local";
 import { analyzeSpeciesPage } from "@/lib/speciesPageAnalysis";
 
 const request = (
