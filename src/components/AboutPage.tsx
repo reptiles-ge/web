@@ -200,6 +200,10 @@ export async function AboutPage() {
                     href: "/venomous-snakes" as const,
                     key: "venomous" as const,
                   },
+                  {
+                    href: "/dangerous-animals" as const,
+                    key: "dangerous" as const,
+                  },
                 ] as const
               ).map((item, index) => (
                 <Link

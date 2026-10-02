@@ -80,6 +80,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     push(pageEntry(locale, "/venomous-snakes"));
     push(pageEntry(locale, "/snakes-in-the-yard"));
     push(pageEntry(locale, "/risk-to-humans"));
+    push(pageEntry(locale, "/dangerous-animals"));
     push(pageEntry(locale, "/quiz"));
     for (const quiz of liveQuizzes()) {
       const { languages } = quizAlternates(locale, quiz.id);

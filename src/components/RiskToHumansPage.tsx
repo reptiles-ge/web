@@ -91,6 +91,12 @@ export async function RiskToHumansPage({
                 >
                   {t("ctaVenomous")}
                 </Link>
+                <Link
+                  className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-[14px] font-medium text-white/85 transition-colors hover:border-white/35 hover:text-white"
+                  href="/dangerous-animals"
+                >
+                  {t("ctaDangerous")}
+                </Link>
               </div>
             </div>
           </div>

@@ -165,6 +165,11 @@
         "body": "Six medically significant vipers — risk levels, identification traits, and safe encounter practice.",
         "cta": "Venomous snakes"
       },
+      "dangerous": {
+        "title": "Dangerous and venomous animals of Georgia (the country)",
+        "body": "Published safety pages across groups — snakes, spiders, scorpions, and encounters — without a new ranking.",
+        "cta": "Open the hub"
+      },
       "atlas": {
         "title": "Species atlas",
         "body": "The full catalog, filtered by type, habitat, risk, and region.",
@@ -501,6 +506,38 @@
     "High": "High risk",
     "linkAria": "{label}: {value}. What this means"
   },
+  "dangerousAnimals": {
+    "title": "Dangerous and venomous animals of Georgia (the country)",
+    "metaTitle": "Dangerous and venomous animals of Georgia (the country)",
+    "metaDescription": "Published pages on dangerous and venomous animals of Georgia, the country: snakes, spiders, scorpions, tick bite, and encounters. Risk labels stay separate.",
+    "keywords": "dangerous animals in georgia country, venomous animals in georgia, dangerous animals of georgia, poisonous animals in georgia, most dangerous animal, most venomous snake in georgia",
+    "subtitle": "This page collects Reptiles.ge pages that are already published: where venomous species are covered, and which guide to open after a bite or an encounter. It does not rank animals.",
+    "methodCta": "Risk labels",
+    "methodBody": "Harmless, Moderate, and High are already on the profiles. This page does not change those labels.",
+    "venomousTitle": "Venomous animals",
+    "venomousBody": "Only venomous groups are listed here. Bears, jackals, and tick bite are not in this list. The venomous-snakes page keeps the answer about the most venomous snake.",
+    "biteTitle": "Bites and stings",
+    "biteBody": "The steps stay on the linked guides. This page only routes you there.",
+    "encounterTitle": "Other encounters",
+    "encounterBody": "These animals are not listed as venomous. The nest, bear, and jackal guides are separate.",
+    "emergencyTitle": "Emergency",
+    "emergencyBody": "In a real emergency in Georgia, call 112. The detailed steps are on the linked pages.",
+    "breadcrumbHome": "Home",
+    "breadcrumbCurrent": "Dangerous animals",
+    "links": {
+      "venomousSnakes": "Venomous snakes",
+      "venomousSpiders": "Venomous spiders",
+      "scorpions": "Scorpions",
+      "snakeBite": "Snake bite",
+      "gyurzaBite": "Gyurza bite",
+      "spiderBite": "Spider bite",
+      "scorpionSting": "Scorpion sting",
+      "tickBite": "Tick bite",
+      "waspNest": "Wasp nest",
+      "bear": "Bear encounter",
+      "jackal": "Jackal in the yard"
+    }
+  },
   "riskToHumans": {
     "metaTitle": "Risk to humans — what harmless, moderate, and high mean",
     "metaDescription": "Georgia’s reptiles are labelled harmless, moderate, or high risk to people. What each level means, which species it covers, and what to do if you meet one.",
@@ -580,7 +617,8 @@
     "ctaTitle": "Open a species — the badge is the same three words",
     "ctaBody": "Every profile carries this label. Use it to decide distance, then read identification and range on the page.",
     "ctaAllSpecies": "All species",
-    "ctaVenomous": "Venomous snakes"
+    "ctaVenomous": "Venomous snakes",
+    "ctaDangerous": "Dangerous animals"
   },
   "map": {
     "eyebrow": "Georgia’s biodiversity",
@@ -769,7 +807,8 @@
       "scorpions": "Scorpions in Georgia",
       "spiders": "Spiders in Georgia",
       "insects": "Insects in Georgia",
-      "venomous": "Venomous snakes in Georgia"
+      "venomous": "Venomous snakes in Georgia",
+      "dangerous": "Dangerous animals of Georgia"
     }
   },
   "author": {
@@ -1191,6 +1230,12 @@
     "yardBody": "How to reduce snakes entering the yard — shelter, food, and what does not work.",
     "yardCta": "Yard guide",
     "cluster": {
+      "dangerousAnimals": {
+        "eyebrow": "Safety",
+        "title": "Dangerous and venomous animals of Georgia (the country)",
+        "body": "Published pages on one hub, without a new ranking.",
+        "cta": "Open the hub"
+      },
       "venomous": {
         "eyebrow": "Safety",
         "title": "Venomous snakes in Georgia",

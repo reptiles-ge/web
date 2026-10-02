@@ -165,6 +165,11 @@
         "body": "Tıbbi açıdan önemli altı engerek — risk düzeyleri, tanıma belirtileri ve güvenli karşılaşma.",
         "cta": "Zehirli yılanlar"
       },
+      "dangerous": {
+        "title": "Gürcistan ülkesinin tehlikeli ve zehirli hayvanları",
+        "body": "Gruplar arası yayımlanmış güvenlik sayfaları — yılanlar, örümcekler, akrepler ve karşılaşmalar — yeni bir sıralama olmadan.",
+        "cta": "Merkezi aç"
+      },
       "atlas": {
         "title": "Tür atlası",
         "body": "Türe, yaşama ortamına, riske ve bölgeye göre süzülen tam katalog.",
@@ -501,6 +506,38 @@
     "High": "Yüksek risk",
     "linkAria": "{label}: {value}. Bunun anlamı"
   },
+  "dangerousAnimals": {
+    "title": "Gürcistan ülkesinin tehlikeli ve zehirli hayvanları",
+    "metaTitle": "Gürcistan ülkesinin tehlikeli ve zehirli hayvanları",
+    "metaDescription": "Gürcistan ülkesindeki tehlikeli ve zehirli hayvanlar için yayımlanmış sayfalar: yılanlar, örümcekler, akrepler, kene ısırığı ve karşılaşmalar. Risk etiketleri ayrı kalır.",
+    "keywords": "gürcistan tehlikeli hayvanlar, gürcistan zehirli hayvanlar, tehlikeli hayvanlar, zehirli hayvanlar, en tehlikeli hayvan",
+    "subtitle": "Bu sayfa Reptiles.ge üzerinde yayımlanmış sayfaları toplar: zehirli türlerin nerede anlatıldığı ve ısırık ya da karşılaşmadan sonra hangi rehberin açılacağı. Hayvanları yeniden sıralamaz.",
+    "methodCta": "Risk etiketleri",
+    "methodBody": "Zararsız, orta ve yüksek etiketler profillerde zaten yazılıdır. Bu sayfa etiketleri değiştirmez.",
+    "venomousTitle": "Zehirli hayvanlar",
+    "venomousBody": "Burada yalnız zehirli gruplar vardır. Ayı, çakal ve kene ısırığı bu listede değildir. En zehirli yılan yanıtı zehirli yılanlar sayfasında kalır.",
+    "biteTitle": "Isırık ve sokma",
+    "biteBody": "Adımlar bağlı rehberlerde kalır. Bu sayfa yalnız oraya yönlendirir.",
+    "encounterTitle": "Diğer karşılaşmalar",
+    "encounterBody": "Bu hayvanlar zehirli listesinde değildir. Yuva, ayı ve çakal ayrı rehberlerdedir.",
+    "emergencyTitle": "Acil durum",
+    "emergencyBody": "Gürcistan'da gerçek bir acil durumda 112'yi arayın. Ayrıntılı adımlar bağlı sayfalardadır.",
+    "breadcrumbHome": "Ana sayfa",
+    "breadcrumbCurrent": "Tehlikeli hayvanlar",
+    "links": {
+      "venomousSnakes": "Zehirli yılanlar",
+      "venomousSpiders": "Zehirli örümcekler",
+      "scorpions": "Akrepler",
+      "snakeBite": "Yılan ısırığı",
+      "gyurzaBite": "Gürza ısırığı",
+      "spiderBite": "Örümcek ısırığı",
+      "scorpionSting": "Akrebin sokması",
+      "tickBite": "Kene ısırığı",
+      "waspNest": "Eşek arısı yuvası",
+      "bear": "Ayı karşılaşması",
+      "jackal": "Bahçedeki çakal"
+    }
+  },
   "riskToHumans": {
     "metaTitle": "İnsan için risk — zararsız, orta ve yüksek ne demek",
     "metaDescription": "Gürcistan sürüngenleri zararsız, orta veya yüksek risk olarak işaretlenir. Düzeylerin anlamı ve karşılaşınca ne yapılacağı.",
@@ -580,7 +617,8 @@
     "ctaTitle": "Bir tür açın — rozet aynı üç sözcük",
     "ctaBody": "Her profil bu etiketi taşır. Mesafeye karar vermek için kullanın, sonra sayfadaki tanıma ve yayılışı okuyun.",
     "ctaAllSpecies": "Tüm türler",
-    "ctaVenomous": "Zehirli yılanlar"
+    "ctaVenomous": "Zehirli yılanlar",
+    "ctaDangerous": "Tehlikeli hayvanlar"
   },
   "map": {
     "eyebrow": "Gürcistan’ın biyolojik çeşitliliği",
@@ -769,7 +807,8 @@
       "scorpions": "Gürcistan’daki akrepler",
       "spiders": "Gürcistan’daki örümcekler",
       "insects": "Gürcistan’daki böcekler",
-      "venomous": "Gürcistan’da zehirli yılanlar"
+      "venomous": "Gürcistan’da zehirli yılanlar",
+      "dangerous": "Gürcistan'ın tehlikeli hayvanları"
     }
   },
   "author": {
@@ -1191,6 +1230,12 @@
     "yardBody": "Yılanların bahçeye girişini nasıl azaltırsınız — sığınak, yiyecek ve işe yaramayanlar.",
     "yardCta": "Bahçe rehberi",
     "cluster": {
+      "dangerousAnimals": {
+        "eyebrow": "Güvenlik",
+        "title": "Gürcistan ülkesinin tehlikeli ve zehirli hayvanları",
+        "body": "Yayımlanmış sayfalar tek bir merkezde, yeni bir sıralama olmadan.",
+        "cta": "Merkezi aç"
+      },
       "venomous": {
         "eyebrow": "Güvenlik",
         "title": "Gürcistan’da zehirli yılanlar",

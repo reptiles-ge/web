@@ -166,6 +166,13 @@ export async function HomeField() {
                 {tSafety("bite")}
                 <ArrowUpRight aria-hidden="true" className="size-3.5" />
               </Link>
+              <Link
+                className="inline-flex min-h-11 items-center gap-1.5 text-[14px] font-medium text-muted-foreground transition-colors hover:text-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
+                href="/dangerous-animals"
+              >
+                {tKnowledge("dangerous.cta")}
+                <ArrowUpRight aria-hidden="true" className="size-3.5" />
+              </Link>
             </div>
           </div>
 
