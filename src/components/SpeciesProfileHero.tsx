@@ -1,5 +1,5 @@
 import { MapPin, Shield } from "lucide-react";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 
 import type { PictureSource } from "@/data/optimizedImages";
 import type { DangerLevel, Species } from "@/data/species";
@@ -30,6 +30,7 @@ type SpeciesProfileHeroProps = {
   heroDesktopSources: PictureSource[];
   heroPrimarySources: PictureSource[];
   imageAlt: string;
+  locale: AppLocale;
   mobileHeroSrc: null | string;
   mobileImageAlt: string;
   species: Species;
@@ -42,15 +43,15 @@ export async function SpeciesProfileHero({
   heroDesktopSources,
   heroPrimarySources,
   imageAlt,
+  locale,
   mobileHeroSrc,
   mobileImageAlt,
   species,
 }: SpeciesProfileHeroProps) {
-  const [locale, t, tCard, tDanger] = await Promise.all([
-    getLocale() as Promise<AppLocale>,
-    getTranslations("profile"),
-    getTranslations("card"),
-    getTranslations("danger"),
+  const [t, tCard, tDanger] = await Promise.all([
+    getTranslations({ locale, namespace: "profile" }),
+    getTranslations({ locale, namespace: "card" }),
+    getTranslations({ locale, namespace: "danger" }),
   ]);
   const riskChip = getSpeciesRiskChip(species, group);
   const shareStatusKind = speciesShareStatusKind(

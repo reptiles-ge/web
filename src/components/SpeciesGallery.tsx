@@ -1,5 +1,5 @@
 import { ArrowUpRight, Images } from "lucide-react";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 
 import type { GalleryImage, PhotoCredit } from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
@@ -44,6 +44,7 @@ const MOSAIC_THUMB_SIZES =
 
 type SpeciesGalleryProps = {
   images: GalleryImage[];
+  locale: AppLocale;
   location: string;
   name: string;
   scientificName: string;
@@ -53,14 +54,14 @@ type SpeciesGalleryProps = {
 
 export async function SpeciesGallery({
   images,
+  locale,
   location,
   name,
   scientificName,
   speciesId,
   tone = "background",
 }: SpeciesGalleryProps) {
-  const locale = (await getLocale()) as AppLocale;
-  const t = await getTranslations("profile");
+  const t = await getTranslations({ locale, namespace: "profile" });
   const photos = images.filter((item) => Boolean(item.src));
   const visiblePhotos = photos.slice(0, 5);
   const morePhoto = photos[5];

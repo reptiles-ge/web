@@ -1,5 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 
 import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
@@ -16,10 +16,9 @@ import { getNewsVisual } from "@/lib/newsVisual";
 import { isPlaceholderMedia } from "@/lib/speciesContent";
 import { speciesImageAlt } from "@/lib/speciesMeta";
 
-export async function HomeFresh() {
-  const locale = (await getLocale()) as AppLocale;
-  const t = await getTranslations("home.fresh");
-  const tNews = await getTranslations("news");
+export async function HomeFresh({ locale }: { locale: AppLocale }) {
+  const t = await getTranslations({ locale, namespace: "home.fresh" });
+  const tNews = await getTranslations({ locale, namespace: "news" });
   const articles = getPublishedNewsArticles(locale);
   const [lead, ...rest] = articles;
   const updated: Species[] = [];

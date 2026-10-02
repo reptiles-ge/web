@@ -138,7 +138,7 @@ KA is canonical. EN uses the English pathname. Old `/species/{id}` 301s in `prox
 | `/amfibiebi` …                                         | `/en/amphibians` …                                          | Hub + index + frogs guide + frogs index + newts     |
 | `/prinvelebi`, `/prinvelebi/saxeoebebi`                | `/en/birds`, `/en/birds/species`                            | Hub + published-profile index                       |
 | `/dzuzumtsovrebi`, `/dzuzumtsovrebi/saxeoebebi`        | `/en/mammals`, `/en/mammals/species`                        | Hub + published-profile index                       |
-| `/dzuzumtsovrebi/ghamura-sakhlshi`                      | `/en/mammals/bat-in-the-house`                              | Guide article                                       |
+| `/dzuzumtsovrebi/ghamura-sakhlshi`                     | `/en/mammals/bat-in-the-house`                              | Guide article                                       |
 | `/mtserebi/krazanis-bude`                              | `/en/insects/wasp-nest`                                     | Guide article                                       |
 | `/regions`, `/regions/{id}`                            | same                                                        | 12 regions                                          |
 | `/quiz`, `/quiz/romeli-gvelia`, `/quiz/romeli-xvlikia` | `/en/quiz`, `/en/quiz/which-snake`, `/en/quiz/which-lizard` | Hub + two live quizzes                              |
@@ -215,6 +215,7 @@ npm run species:compile
 - Commit or hand-edit `src/data/species.generated.ts`, `src/data/speciesSlugs.generated.ts`, or `src/data/search-index.*.generated.ts` (gitignored; `predev` / `prebuild` writes them).
 - Fill empty scientific fields with plausible prose.
 - Add `middleware.ts` (use `src/proxy.ts`).
+- Call next-intl server APIs with an implicit locale (`getTranslations("ns")`, `getLocale()`, `getMessages()`), call `setRequestLocale` outside a `[locale]` layout or page, or render the RSC `Link` from `@/i18n/navigation` in a layout-level server component (use `LocalizedLink`). On vinext an implicit locale falls back to `headers()` and makes every page uncacheable. ESLint enforces the first rule.
 - Ship one-locale copy or one-locale MDX.
 - Index quiz results or duplicate identify-guide intent on a new quiz slug.
 - Treat `CONTENT-ROADMAP.md` / `QUIZ-MODULE-AUDIT.md` as current — they were removed as stale.

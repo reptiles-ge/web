@@ -1,8 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 
 import type { Species } from "@/data/species";
-import type { AppLocale } from "@/i18n/routing";
 
 import { ClusterContentSection } from "@/components/ClusterContentSection";
 import { ClusterGuideLead } from "@/components/ClusterGuideLead";
@@ -30,10 +29,10 @@ const EDITORIAL_UPDATED = "2026-09-07";
 export async function SnakeIdentifyPage({
   guideId,
   heroSrc,
+  locale,
   species,
 }: ClusterGuideViewProps) {
-  const t = await getTranslations("snakeIdentify");
-  const locale = (await getLocale()) as AppLocale;
+  const t = await getTranslations({ locale, namespace: "snakeIdentify" });
   const byId = new Map(species.map((item) => [item.id, item]));
   const vipers = getViperSpecies(species);
   const rearFanged = getRearFangedSpecies(species).filter((item) =>
@@ -55,6 +54,7 @@ export async function SnakeIdentifyPage({
       guideId={guideId}
       heroObjectClass="object-[50%_50%]"
       heroSrc={heroSrc}
+      locale={locale}
     >
       <ClusterGuideLead
         body={
@@ -106,36 +106,36 @@ export async function SnakeIdentifyPage({
         surface="background"
         title={t("chainTitle")}
       >
-          {(giurza || kaznakovi) && (
-            <div className="mt-10 flex flex-wrap gap-3">
-              {giurza ? (
-                <Link
-                  className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-[13px] font-medium text-white dark:text-ink"
-                  href={speciesHref(giurza.id, locale)}
-                >
-                  {giurza.commonName}
-                  <ArrowUpRight className="size-3.5" />
-                </Link>
-              ) : null}
-              {kaznakovi ? (
-                <Link
-                  className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-[13px] font-medium text-foreground"
-                  href={speciesHref(kaznakovi.id, locale)}
-                >
-                  {kaznakovi.commonName}
-                  <ArrowUpRight className="size-3.5" />
-                </Link>
-              ) : null}
+        {(giurza || kaznakovi) && (
+          <div className="mt-10 flex flex-wrap gap-3">
+            {giurza ? (
               <Link
-                className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-[13px] font-medium text-foreground"
-                href="/venomous-snakes"
+                className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-[13px] font-medium text-white dark:text-ink"
+                href={speciesHref(giurza.id, locale)}
               >
-                {t("chainVenomous")}
+                {giurza.commonName}
                 <ArrowUpRight className="size-3.5" />
               </Link>
-            </div>
-          )}
-          <SpeciesGuideList locale={locale} source="guide" species={venomous} />
+            ) : null}
+            {kaznakovi ? (
+              <Link
+                className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-[13px] font-medium text-foreground"
+                href={speciesHref(kaznakovi.id, locale)}
+              >
+                {kaznakovi.commonName}
+                <ArrowUpRight className="size-3.5" />
+              </Link>
+            ) : null}
+            <Link
+              className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-[13px] font-medium text-foreground"
+              href="/venomous-snakes"
+            >
+              {t("chainVenomous")}
+              <ArrowUpRight className="size-3.5" />
+            </Link>
+          </div>
+        )}
+        <SpeciesGuideList locale={locale} source="guide" species={venomous} />
       </ClusterContentSection>
 
       <ClusterContentSection

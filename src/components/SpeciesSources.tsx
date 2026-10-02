@@ -2,23 +2,26 @@ import { ChevronDown } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import type { SpeciesSource } from "@/data/species";
+import type { AppLocale } from "@/i18n/routing";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { SourceLink } from "@/components/SourceLink";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 
 type SpeciesSourcesProps = {
+  locale: AppLocale;
   sources: SpeciesSource[];
   speciesId: string;
 };
 
 export async function SpeciesSources({
+  locale,
   sources,
   speciesId,
 }: SpeciesSourcesProps) {
   if (sources.length === 0) return null;
 
-  const t = await getTranslations("profile");
+  const t = await getTranslations({ locale, namespace: "profile" });
 
   return (
     <section className="border-t border-border bg-background py-16 lg:py-20">

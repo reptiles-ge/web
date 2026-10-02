@@ -1,12 +1,14 @@
 import { ArrowRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
+import type { AppLocale } from "@/i18n/routing";
+
 import { CoverImage } from "@/components/CoverImage";
 import { images } from "@/data/speciesMedia";
 import { Link } from "@/i18n/navigation";
 
-export async function FinalCTA() {
-  const t = await getTranslations("cta");
+export async function FinalCTA({ locale }: { locale: AppLocale }) {
+  const t = await getTranslations({ locale, namespace: "cta" });
 
   return (
     <section className="relative flex min-h-112 items-end overflow-hidden bg-ink sm:min-h-128 lg:min-h-152">

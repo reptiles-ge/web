@@ -1,5 +1,5 @@
 import { ArrowRight } from "lucide-react";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
 import type { QuizDefinition, QuizMessageKey } from "@/lib/quizzes";
@@ -22,12 +22,15 @@ type QuizCopy = {
 
 type QuizzesPageProps = {
   items: QuizCardModel[];
+  locale: AppLocale;
 };
 
-export async function QuizzesPage({ items }: QuizzesPageProps) {
-  const t = await getTranslations("quizzes");
-  const tShared = await getTranslations("groupHubShared");
-  const locale = (await getLocale()) as AppLocale;
+export async function QuizzesPage({ items, locale }: QuizzesPageProps) {
+  const t = await getTranslations({ locale, namespace: "quizzes" });
+  const tShared = await getTranslations({
+    locale,
+    namespace: "groupHubShared",
+  });
   const live = items.filter((item) => item.status === "live");
   const how = [
     { body: t("how1Body"), title: t("how1Title") },

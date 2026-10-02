@@ -40,9 +40,9 @@ export async function AuthorPage({
   relatedNews: NewsArticle[];
 }) {
   const [t, tShared, tProfile] = await Promise.all([
-    getTranslations("author"),
-    getTranslations("groupHubShared"),
-    getTranslations("profile"),
+    getTranslations({ locale, namespace: "author" }),
+    getTranslations({ locale, namespace: "groupHubShared" }),
+    getTranslations({ locale, namespace: "profile" }),
   ]);
   const name = creditAuthorName(author, locale);
   const bio = creditAuthorBio(author, locale);

@@ -1,4 +1,6 @@
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
+
+import type { AppLocale } from "@/i18n/routing";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
@@ -10,6 +12,7 @@ import { SPECIES_SECTION_IDS } from "@/lib/toc";
 
 type SpeciesIdentificationProps = {
   identification: Identification;
+  locale: AppLocale;
   name: string;
   speciesId: string;
 };
@@ -19,11 +22,12 @@ const inlineSpeciesLinkClassName =
 
 export async function SpeciesIdentification({
   identification,
+  locale,
   name,
   speciesId,
 }: SpeciesIdentificationProps) {
-  const t = await getTranslations("profile");
-  const editable = (await getLocale()) === "ka" && isLocalAdminEnabled();
+  const t = await getTranslations({ locale, namespace: "profile" });
+  const editable = locale === "ka" && isLocalAdminEnabled();
 
   return (
     <section className="bg-background py-20 lg:py-28">

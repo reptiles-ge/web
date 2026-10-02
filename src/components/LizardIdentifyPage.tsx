@@ -1,8 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 
 import type { Species } from "@/data/species";
-import type { AppLocale } from "@/i18n/routing";
 
 import { ClusterContentSection } from "@/components/ClusterContentSection";
 import { ClusterGuideLead } from "@/components/ClusterGuideLead";
@@ -21,10 +20,10 @@ import { speciesHref } from "@/lib/speciesRoutes";
 export async function LizardIdentifyPage({
   guideId,
   heroSrc,
+  locale,
   species,
 }: ClusterGuideViewProps) {
-  const t = await getTranslations("lizardIdentify");
-  const locale = (await getLocale()) as AppLocale;
+  const t = await getTranslations({ locale, namespace: "lizardIdentify" });
   const byId = new Map(species.map((item) => [item.id, item]));
   const featured = [
     byId.get("paralaudakia-caucasia"),
@@ -39,7 +38,12 @@ export async function LizardIdentifyPage({
   );
 
   return (
-    <ClusterPageFrame ctaHash="#flow" guideId={guideId} heroSrc={heroSrc}>
+    <ClusterPageFrame
+      ctaHash="#flow"
+      guideId={guideId}
+      heroSrc={heroSrc}
+      locale={locale}
+    >
       <ClusterGuideLead
         body={
           <>

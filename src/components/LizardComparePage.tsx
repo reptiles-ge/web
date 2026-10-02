@@ -1,5 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 
 import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
@@ -27,10 +27,10 @@ import { speciesHref } from "@/lib/speciesRoutes";
 export async function LizardComparePage({
   guideId,
   heroSrc,
+  locale,
   species,
 }: ClusterGuideViewProps) {
-  const t = await getTranslations("lizardCompare");
-  const locale = (await getLocale()) as AppLocale;
+  const t = await getTranslations({ locale, namespace: "lizardCompare" });
   const ordered = orderSpeciesByIds(species, GLASS_LIZARD_COMPARE_IDS);
   const glass = ordered.find((item) => item.id === "pseudopus-apodus");
   const slowWorm = ordered.find((item) => item.id === "anguis-colchica");
@@ -42,7 +42,12 @@ export async function LizardComparePage({
   );
 
   return (
-    <ClusterPageFrame ctaHash="#compare" guideId={guideId} heroSrc={heroSrc}>
+    <ClusterPageFrame
+      ctaHash="#compare"
+      guideId={guideId}
+      heroSrc={heroSrc}
+      locale={locale}
+    >
       <ClusterGuideLead
         body={
           <>

@@ -1,5 +1,5 @@
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import { type ReactNode } from "react";
 
 import type { AppLocale } from "@/i18n/routing";
@@ -35,6 +35,7 @@ type ClusterPageFrameProps = {
   guideId: ClusterGuideId;
   heroObjectClass?: string;
   heroSrc: string;
+  locale: AppLocale;
   stats?: ReactNode;
 };
 
@@ -45,16 +46,16 @@ export async function ClusterPageFrame({
   guideId,
   heroObjectClass = "object-[50%_35%]",
   heroSrc,
+  locale,
   stats,
 }: ClusterPageFrameProps) {
   const guide = CLUSTER_GUIDES[guideId];
   const parent = GROUP_HUBS[guide.parentHub];
   const dates = pageDateFields(guide.pathname);
-  const [t, tShared, tParent, locale] = await Promise.all([
-    getTranslations(guide.messageKey),
-    getTranslations("groupHubShared"),
-    getTranslations(parent.messageKey),
-    getLocale() as Promise<AppLocale>,
+  const [t, tShared, tParent] = await Promise.all([
+    getTranslations({ locale, namespace: guide.messageKey }),
+    getTranslations({ locale, namespace: "groupHubShared" }),
+    getTranslations({ locale, namespace: parent.messageKey }),
   ]);
   const relatedGuides = getRelatedGuideCards(guideId);
   const faqItems = Array.from({ length: guide.faqCount }, (_, index) => {
@@ -182,6 +183,7 @@ export async function ClusterPageFrame({
         />
 
         <ContentAttribution
+          locale={locale}
           publishedAt={dates.datePublished}
           sourcesHref={attributionSourcesHref}
           updatedAt={dates.dateModified}

@@ -146,8 +146,8 @@ export default async function QuizzesIndexRoute({ params }: Props) {
     <>
       <JsonLd data={breadcrumbLd} />
       <JsonLd data={pageLd} />
-      <ClientMessagesProvider namespaces={["quizzes"]}>
-        <QuizzesPage items={items} />
+      <ClientMessagesProvider locale={locale} namespaces={["quizzes"]}>
+        <QuizzesPage items={items} locale={locale} />
       </ClientMessagesProvider>
     </>
   );

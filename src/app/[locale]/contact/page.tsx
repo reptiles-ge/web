@@ -52,7 +52,7 @@ export default async function Contact({ params }: Props) {
   return (
     <>
       <JsonLd data={contactJsonLd} />
-      <ContactPage />
+      <ContactPage locale={locale} />
     </>
   );
 }

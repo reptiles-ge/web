@@ -1,5 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 
 import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
@@ -28,10 +28,10 @@ import { speciesHref } from "@/lib/speciesRoutes";
 export async function SnakeLargestPage({
   guideId,
   heroSrc,
+  locale,
   species,
 }: ClusterGuideViewProps) {
-  const t = await getTranslations("snakeLargest");
-  const locale = (await getLocale()) as AppLocale;
+  const t = await getTranslations({ locale, namespace: "snakeLargest" });
   const snakes = orderSpeciesByIds(species, LARGE_SNAKE_IDS);
   const lizard = species.find((item) => item.id === LARGE_SNAKE_LIZARD_ID);
 
@@ -41,6 +41,7 @@ export async function SnakeLargestPage({
       guideId={guideId}
       heroObjectClass="object-[50%_72%]"
       heroSrc={heroSrc}
+      locale={locale}
     >
       <ClusterGuideLead
         body={

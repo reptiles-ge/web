@@ -278,8 +278,16 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
         {heroSrc ? <CoverImagePreload sizes="100vw" src={heroSrc} /> : null}
         <JsonLd data={breadcrumbLd} />
         <JsonLd data={pageLd} />
-        <ClientMessagesProvider namespaces={clientMessageNamespaces}>
-          <PageView guideId={guideId} heroSrc={heroSrc} species={species} />
+        <ClientMessagesProvider
+          locale={locale}
+          namespaces={clientMessageNamespaces}
+        >
+          <PageView
+            guideId={guideId}
+            heroSrc={heroSrc}
+            locale={locale}
+            species={species}
+          />
         </ClientMessagesProvider>
       </>
     );

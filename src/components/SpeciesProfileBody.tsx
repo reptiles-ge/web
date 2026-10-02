@@ -500,7 +500,7 @@ export async function SpeciesProfileBody({
   showIdentification,
   species,
 }: SpeciesProfileBodyProps) {
-  const t = await getTranslations("profile");
+  const t = await getTranslations({ locale, namespace: "profile" });
   const snake = isSnakeSpecies(species);
   const lizard = isLizardSpecies(species);
   const relatedLabelVariant =
@@ -528,6 +528,7 @@ export async function SpeciesProfileBody({
         hasLookalikes={lookalikes.length > 0}
         hasRange={hasRange}
         hasSources={species.sources.length > 0}
+        locale={locale}
       />
 
       <SpeciesProfileFacts
@@ -537,6 +538,7 @@ export async function SpeciesProfileBody({
         editable={editable}
         interaction={species.interaction}
         linkDangerStats={linkDangerStats}
+        locale={locale}
         speciesId={species.id}
         stats={species.stats}
       />
@@ -567,6 +569,7 @@ export async function SpeciesProfileBody({
       {showIdentification && species.identification ? (
         <SpeciesIdentification
           identification={species.identification}
+          locale={locale}
           name={species.commonName}
           speciesId={species.id}
         />
@@ -590,6 +593,7 @@ export async function SpeciesProfileBody({
       {gallery.length > 0 ? (
         <SpeciesGallery
           images={gallery}
+          locale={locale}
           location={species.location}
           name={species.commonName}
           scientificName={species.scientificName}
@@ -634,6 +638,7 @@ export async function SpeciesProfileBody({
         <SpeciesProfileHabitat
           block={habitatBlock}
           editable={editable}
+          locale={locale}
           speciesId={species.id}
         />
       ) : null}
@@ -641,6 +646,7 @@ export async function SpeciesProfileBody({
       <SpeciesRangeMap
         fieldRecords={species.fieldRecords}
         gallery={gallery}
+        locale={locale}
         speciesId={species.id}
         speciesName={species.commonName}
         updatedAt={species.updatedAt}
@@ -649,6 +655,7 @@ export async function SpeciesProfileBody({
       <SpeciesProfileBiology
         blocks={naturalHistoryBlocks}
         editable={editable}
+        locale={locale}
         speciesId={species.id}
         title={biologyTitle}
       />
@@ -657,12 +664,14 @@ export async function SpeciesProfileBody({
         <SpeciesFaqSection
           entityId={species.id}
           items={species.faq}
+          locale={locale}
           name={species.commonName}
           pageType="species"
         />
       ) : null}
 
       <ContentAttribution
+        locale={locale}
         publishedAt={species.publishedAt}
         sourcesHref={
           species.sources.length > 0
@@ -672,7 +681,11 @@ export async function SpeciesProfileBody({
         updatedAt={species.updatedAt}
       />
 
-      <SpeciesSources sources={species.sources} speciesId={species.id} />
+      <SpeciesSources
+        locale={locale}
+        sources={species.sources}
+        speciesId={species.id}
+      />
 
       {guideLinks.length > 0 ? (
         <section className="border-t border-border bg-surface py-16 lg:py-20">
@@ -971,11 +984,13 @@ function HalyomorphaPestSections({
 async function SpeciesProfileBiology({
   blocks,
   editable,
+  locale,
   speciesId,
   title,
 }: {
   blocks: BiologyBlockItem[];
   editable: boolean;
+  locale: AppLocale;
   speciesId: string;
   title?: string;
 }) {
@@ -983,7 +998,7 @@ async function SpeciesProfileBiology({
     return null;
   }
 
-  const t = await getTranslations("profile");
+  const t = await getTranslations({ locale, namespace: "profile" });
 
   return (
     <section className="bg-surface py-20 lg:py-28">
@@ -1010,6 +1025,7 @@ async function SpeciesProfileBiology({
               editable={editable}
               headingId={block.id}
               key={block.title}
+              locale={locale}
               speciesId={speciesId}
               title={block.title}
             />
@@ -1023,13 +1039,15 @@ async function SpeciesProfileBiology({
 async function SpeciesProfileHabitat({
   block,
   editable,
+  locale,
   speciesId,
 }: {
   block: BiologyBlockItem;
   editable: boolean;
+  locale: AppLocale;
   speciesId: string;
 }) {
-  const t = await getTranslations("profile");
+  const t = await getTranslations({ locale, namespace: "profile" });
 
   return (
     <section className="bg-surface py-20 lg:py-28">
@@ -1070,6 +1088,7 @@ async function SpeciesProfileNavigation({
   hasLookalikes,
   hasRange,
   hasSources,
+  locale,
 }: {
   hasBiology: boolean;
   hasFacts: boolean;
@@ -1081,8 +1100,9 @@ async function SpeciesProfileNavigation({
   hasLookalikes: boolean;
   hasRange: boolean;
   hasSources: boolean;
+  locale: AppLocale;
 }) {
-  const t = await getTranslations("profile");
+  const t = await getTranslations({ locale, namespace: "profile" });
   const ids = speciesProfileSectionIds({
     atAGlance: hasFacts,
     biology: hasBiology,

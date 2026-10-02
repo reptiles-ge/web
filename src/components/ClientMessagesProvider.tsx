@@ -1,8 +1,10 @@
 import type { ReactNode } from "react";
 
-import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 
+import type { AppLocale } from "@/i18n/routing";
+
+import { IntlProvider } from "@/components/IntlProvider";
 import {
   type ClientMessageNamespace,
   type ClientMessages,
@@ -12,21 +14,24 @@ import {
 
 export async function ClientMessagesProvider({
   children,
+  locale,
   namespaces,
 }: {
   children: ReactNode;
+  locale: AppLocale;
   namespaces: readonly ClientMessageNamespace[];
 }) {
-  const messages = (await getMessages()) as ClientMessages;
+  const messages = (await getMessages({ locale })) as ClientMessages;
 
   return (
-    <NextIntlClientProvider
+    <IntlProvider
+      locale={locale}
       messages={pickClientMessages(messages, [
         ...ROOT_CLIENT_MESSAGE_NAMESPACES,
         ...namespaces,
       ])}
     >
       {children}
-    </NextIntlClientProvider>
+    </IntlProvider>
   );
 }

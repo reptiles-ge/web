@@ -1,5 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 
 import type { GalleryImage, SpeciesFieldRecord } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
@@ -66,6 +66,7 @@ type InteractiveRangeMapConfig = {
 type SpeciesRangeMapProps = {
   fieldRecords?: SpeciesFieldRecord[];
   gallery?: GalleryImage[];
+  locale: AppLocale;
   speciesId: string;
   speciesName: string;
   updatedAt: string;
@@ -2045,12 +2046,12 @@ const INTERACTIVE_RANGE_MAPS: Partial<
 export async function SpeciesRangeMap({
   fieldRecords = [],
   gallery = [],
+  locale,
   speciesId,
   speciesName,
   updatedAt,
 }: SpeciesRangeMapProps) {
-  const locale = (await getLocale()) as AppLocale;
-  const t = await getTranslations("profile");
+  const t = await getTranslations({ locale, namespace: "profile" });
   const rangeRegions = getRegionsForSpecies(speciesId);
   const highlightedIds = rangeRegions.map((region) => region.id);
   const interactiveRangeConfig = INTERACTIVE_RANGE_MAPS[speciesId];

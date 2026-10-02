@@ -7,6 +7,7 @@ import { SafetyGuideSections } from "@/components/SafetyGuideSections";
 export async function SpiderBitePage({
   guideId,
   heroSrc,
+  locale,
   species,
 }: ClusterGuideViewProps) {
   return (
@@ -15,6 +16,7 @@ export async function SpiderBitePage({
       guideId={guideId}
       heroObjectClass="object-[50%_70%]"
       heroSrc={heroSrc}
+      locale={locale}
     >
       <SafetyGuideSections config={SPIDER_BITE_CONFIG} species={species} />
     </ClusterPageFrame>

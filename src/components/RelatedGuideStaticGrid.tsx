@@ -21,7 +21,7 @@ export async function RelatedGuideStaticGrid({
 }) {
   if (cards.length === 0) return null;
 
-  const t = await getTranslations("groupHubShared");
+  const t = await getTranslations({ locale, namespace: "groupHubShared" });
   const switchIndex = getLocaleSwitchIndex();
   const featured = cards.length === 1;
   const columns = featured ? "grid-cols-1" : "sm:grid-cols-2 lg:grid-cols-3";

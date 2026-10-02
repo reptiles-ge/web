@@ -1,13 +1,9 @@
 import type { Metadata } from "next";
 
-import { NextIntlClientProvider } from "next-intl";
-import {
-  getMessages,
-  getTranslations,
-  setRequestLocale,
-} from "next-intl/server";
-import { cookies } from "next/headers";
+import { getMessages, getTranslations } from "next-intl/server";
 
+import { RootDocument } from "@/app/RootDocument";
+import { IntlProvider } from "@/components/IntlProvider";
 import { LocaleSwitchProvider } from "@/components/LocaleSwitchProvider";
 import { LogoPreload } from "@/components/LogoPreload";
 import { Navbar } from "@/components/Navbar";
@@ -18,40 +14,32 @@ import {
   NOT_FOUND_CLIENT_MESSAGE_NAMESPACES,
   pickClientMessages,
 } from "@/i18n/clientMessages";
-import { type AppLocale, routing } from "@/i18n/routing";
+import { routing } from "@/i18n/routing";
 import { notFoundMetadata } from "@/lib/notFoundMetadata";
 
-export async function generateMetadata(): Promise<Metadata> {
-  return notFoundMetadata(await resolveNotFoundLocale());
+export function generateMetadata(): Promise<Metadata> {
+  return notFoundMetadata(routing.defaultLocale);
 }
 
 export default async function RootNotFound() {
-  const locale = await resolveNotFoundLocale();
-  setRequestLocale(locale);
+  const locale = routing.defaultLocale;
   const messages = pickClientMessages(
-    (await getMessages()) as ClientMessages,
+    (await getMessages({ locale })) as ClientMessages,
     NOT_FOUND_CLIENT_MESSAGE_NAMESPACES,
   );
-  const t = await getTranslations("nav");
+  const t = await getTranslations({ locale, namespace: "nav" });
   return (
-    <NextIntlClientProvider locale={locale} messages={messages}>
-      <LocaleSwitchProvider>
-        <SkipLink label={t("skipToContent")} />
-        <LogoPreload />
-        <Navbar />
-        <main id="main" tabIndex={-1}>
-          <NotFoundShell />
-        </main>
-      </LocaleSwitchProvider>
-    </NextIntlClientProvider>
+    <RootDocument locale={locale}>
+      <IntlProvider locale={locale} messages={messages}>
+        <LocaleSwitchProvider>
+          <SkipLink label={t("skipToContent")} />
+          <LogoPreload />
+          <Navbar />
+          <main id="main" tabIndex={-1}>
+            <NotFoundShell locale={locale} />
+          </main>
+        </LocaleSwitchProvider>
+      </IntlProvider>
+    </RootDocument>
   );
-}
-
-async function resolveNotFoundLocale(): Promise<AppLocale> {
-  const jar = await cookies();
-  const fromCookie = jar.get("NEXT_LOCALE")?.value;
-  if (fromCookie && routing.locales.includes(fromCookie as AppLocale)) {
-    return fromCookie as AppLocale;
-  }
-  return routing.defaultLocale;
 }

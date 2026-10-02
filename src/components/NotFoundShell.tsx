@@ -1,10 +1,12 @@
 import { getTranslations } from "next-intl/server";
 
-import { NotFoundBoundary } from "@/components/NotFoundBoundary";
-import { Link } from "@/i18n/navigation";
+import type { AppLocale } from "@/i18n/routing";
 
-export async function NotFoundShell() {
-  const t = await getTranslations("notFound");
+import { LocalizedLink } from "@/components/LocalizedLink";
+import { NotFoundBoundary } from "@/components/NotFoundBoundary";
+
+export async function NotFoundShell({ locale }: { locale: AppLocale }) {
+  const t = await getTranslations({ locale, namespace: "notFound" });
 
   return (
     <div data-hide-footer data-not-found-shell>
@@ -14,9 +16,13 @@ export async function NotFoundShell() {
       >
         <p className="font-display text-6xl font-semibold">404</p>
         <h1 className="font-display text-3xl font-semibold">{t("title")}</h1>
-        <Link className="rounded-full bg-white px-6 py-3 text-ink" href="/">
+        <LocalizedLink
+          className="rounded-full bg-white px-6 py-3 text-ink"
+          href="/"
+          locale={locale}
+        >
           {t("home")}
-        </Link>
+        </LocalizedLink>
       </div>
       <NotFoundBoundary />
     </div>

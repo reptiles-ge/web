@@ -259,11 +259,13 @@ export default async function RegionPage({ params }: PageProps) {
         }
       />
       <ClientMessagesProvider
+        locale={locale}
         namespaces={["card", "danger", "groupHubShared", "map", "regions"]}
       >
         <RegionProfile
           attribution={
             <ContentAttribution
+              locale={locale}
               publishedAt={dates.datePublished}
               updatedAt={dates.dateModified}
             />

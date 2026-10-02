@@ -1,15 +1,17 @@
 import { ArrowRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
+import type { AppLocale } from "@/i18n/routing";
+
 import { CoverImage } from "@/components/CoverImage";
 import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { getAtlasStats } from "@/data/speciesAtlas";
 import { images } from "@/data/speciesMedia";
 import { Link } from "@/i18n/navigation";
 
-export async function Hero() {
-  const t = await getTranslations("hero");
-  const tProof = await getTranslations("home.proof");
+export async function Hero({ locale }: { locale: AppLocale }) {
+  const t = await getTranslations({ locale, namespace: "hero" });
+  const tProof = await getTranslations({ locale, namespace: "home.proof" });
   const stats = getAtlasStats();
 
   return (

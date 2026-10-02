@@ -1,5 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
 
@@ -28,14 +28,12 @@ const GUIDES = [
   },
 ];
 
-export async function HomeField() {
-  const [localeRaw, t, tSafety, tKnowledge] = await Promise.all([
-    getLocale(),
-    getTranslations("home.field"),
-    getTranslations("home.safety"),
-    getTranslations("home.knowledge"),
+export async function HomeField({ locale }: { locale: AppLocale }) {
+  const [t, tSafety, tKnowledge] = await Promise.all([
+    getTranslations({ locale, namespace: "home.field" }),
+    getTranslations({ locale, namespace: "home.safety" }),
+    getTranslations({ locale, namespace: "home.knowledge" }),
   ]);
-  const locale = localeRaw as AppLocale;
   const vipers = VENOMOUS_VIPER_IDS.map((id) => getSpeciesById(id))
     .filter((item): item is NonNullable<typeof item> => Boolean(item))
     .map((item) => localizeSpecies(item, locale));

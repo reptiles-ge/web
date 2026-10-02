@@ -181,6 +181,7 @@ export function createGroupHubRoute(hubId: GroupHubId) {
         <JsonLd data={collectionLd} />
         <JsonLd data={faqLd} />
         <ClientMessagesProvider
+          locale={locale}
           namespaces={[
             ...GROUP_HUB_SHARED_CLIENT_MESSAGE_NAMESPACES,
             hub.messageKey,
@@ -190,6 +191,7 @@ export function createGroupHubRoute(hubId: GroupHubId) {
             heroMobileSrc={heroMobileSrc}
             heroSrc={heroSrc}
             hubId={hubId}
+            locale={locale}
             species={species}
           />
         </ClientMessagesProvider>

@@ -140,6 +140,7 @@ export default async function AuthorRoute({ params }: Props) {
       <JsonLd data={breadcrumbLd} />
       <JsonLd data={pageLd} />
       <ClientMessagesProvider
+        locale={locale}
         namespaces={SPECIES_PROFILE_CLIENT_MESSAGE_NAMESPACES}
       >
         <AuthorPage
