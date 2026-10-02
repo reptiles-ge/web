@@ -140,6 +140,13 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         ],
       },
       {
+        heading: "Ladybirds in the house — is that a stink bug?",
+        paragraphs: [
+          "A round, spotted beetle is not a stink bug. University of Minnesota Extension describes the multicolored Asian lady beetle (Harmonia axyridis) gathering on buildings in autumn to find a winter shelter, then entering through gaps. It does not reproduce indoors.",
+          "This page does not cite a Georgia record for that species. If the insect does not look like a stink bug, this guide is not about it.",
+        ],
+      },
+      {
         heading: "When is professional help worth it?",
         paragraphs: [
           "A few stink bugs do not require a professional. Professional help makes sense if very large numbers get in every autumn, if entry points are out of reach, for example high on a wall or near the roof, or if you cannot find where they are getting in.",
@@ -282,6 +289,13 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         ],
       },
       {
+        heading: "ჭიამაიები სახლში — ეს ფაროსანაა?",
+        paragraphs: [
+          "მრგვალი, ლაქებიანი ხოჭო ფაროსანა არ არის. University of Minnesota Extension აღწერს, რომ მრავალფეროვანი აზიური ჭიამაია (Harmonia axyridis) შემოდგომით შენობებზე იკრიბება გამოზამთრების ადგილის საძებნელად და ღრიჭოებიდან შედის. სახლში არ მრავლდება.",
+          "ამ გვერდზე საქართველოს ჩანაწერი ამ სახეობისთვის არ არის მოყვანილი. თუ მწერი ფაროსანას არ ჰგავს, ეს გზამკვლევი მასზე არ არის.",
+        ],
+      },
+      {
         heading: "როდის არის საჭირო პროფესიონალის დახმარება?",
         paragraphs: [
           "რამდენიმე ფაროსანა სპეციალისტის გამოძახებას არ საჭიროებს. პროფესიონალური დახმარება გონივრულია, თუ ყოველ შემოდგომაზე ძალიან ბევრი ფაროსანა შემოდის, შემოსასვლელები მიუწვდომელ ადგილასაა — მაგალითად, მაღალ ფასადზე ან სახურავთან — ან ვერ ადგენთ, საიდან შემოდიან.",
@@ -420,6 +434,13 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         },
         paragraphs: [
           "Некоторые «быстрые решения» не помогают или создают новый риск.",
+        ],
+      },
+      {
+        heading: "Божьи коровки в доме — это клоп?",
+        paragraphs: [
+          "Круглый пятнистый жук — не мраморный клоп. University of Minnesota Extension описывает, что многоцветная азиатская коровка (Harmonia axyridis) осенью собирается на зданиях в поисках места для зимовки и заходит через щели. В доме она не размножается.",
+          "На этой странице нет грузинской находки этого вида. Если насекомое не похоже на клопа, этот гид не о нём.",
         ],
       },
       {
@@ -566,6 +587,13 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         ],
       },
       {
+        heading: "Evdeki uğur böcekleri — bu kokarca mı?",
+        paragraphs: [
+          "Yuvarlak, benekli bir kınkanatlı kokarca değildir. University of Minnesota Extension, çok renkli Asya uğur böceğinin (Harmonia axyridis) sonbaharda kışlayacak yer aramak için binalarda toplandığını ve aralıklardan içeri girdiğini yazar. Evde üremez.",
+          "Bu sayfa bu tür için bir Gürcistan kaydı göstermez. Böcek kokarcaya benzemiyorsa bu rehber onun hakkında değildir.",
+        ],
+      },
+      {
         heading: "Ne zaman profesyonel yardım gerekir?",
         paragraphs: [
           "Birkaç kokarca için uzman çağırmak gerekmez. Her sonbahar çok sayıda kokarca giriyorsa, girişlere ulaşılamıyorsa (örneğin yüksek bir cephede ya da çatı yakınında) veya nereden girdiklerini bulamıyorsanız profesyonel yardım mantıklıdır.",
@@ -700,6 +728,16 @@ const SOURCES: readonly GuideArticleSource[] = [
     },
     url: "https://www.epa.gov/perspectives/blog/2015/12/prevent-stink-bugs-from-overwintering-in-your-school-and-home",
   },
+  {
+    name: "University of Minnesota Extension — Multicolored Asian lady beetles",
+    supports: {
+      en: "Harmonia axyridis gathers on buildings in autumn to find winter shelter, enters through gaps, and does not reproduce indoors.",
+      ka: "Harmonia axyridis შემოდგომით შენობებზე იკრიბება გამოზამთრების ადგილის საძებნელად, ღრიჭოებიდან შედის და სახლში არ მრავლდება.",
+      ru: "Harmonia axyridis осенью собирается на зданиях в поисках зимовки, заходит через щели и в доме не размножается.",
+      tr: "Harmonia axyridis sonbaharda kışlak aramak için binalarda toplanır, aralıklardan girer ve evde üremez.",
+    },
+    url: "https://extension.umn.edu/nuisance-insects/multicolored-asian-lady-beetles",
+  },
 ];
 
 export const STINK_BUG_IN_HOUSE = defineGuideArticle({
@@ -761,6 +799,8 @@ export const STINK_BUG_IN_HOUSE = defineGuideArticle({
     keywords: [
       "ფაროსანა",
       "ფაროსანა სახლში",
+      "ჭიამაიები სახლში",
+      "ჭიამაია",
       "ფაროსანა ზამთარში",
       "ფაროსანა ფანჯარაზე",
       "farosana",

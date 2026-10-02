@@ -43,7 +43,7 @@ const KA_META_DESCRIPTION_OVERRIDES: Record<string, string> = {
   "/dzuzumtsovrebi/aghmosavletkavkasiuri-jixvi":
     "აღმოსავლეთკავკასიური ჯიხვი (Capra cylindricornis), იგივე დაღესტნური ჯიხვი, მსხვილი ველური თხაა; საქართველოში ძირითადად აღმოსავლეთ დიდ კავკასიონს უკავშირდება.",
   "/dzuzumtsovrebi/chveulebrivi-tsavi":
-    "წავი (Lutra lutra) საქართველოში — როგორ ამოიცნოთ, სად გვხვდება, რა ზომისაა, რას ჭამს და რა სტატუსით არის დაცული.",
+    "წავი საქართველოში (Lutra lutra) — როგორ ამოიცნოთ, სად გვხვდება, რა ზომისაა, რას ჭამს და რა სტატუსით არის დაცული.",
   "/dzuzumtsovrebi/chveulebrivi-tura":
     "ჩვეულებრივი ტურა (Canis aureus) საქართველოში მშობლიური ძუძუმწოვარია; IUCN ქვეყანას მის ბუნებრივ არეალში ასახელებს და სახეობა ეროვნულ ჩამონათვალებშიც შედის.",
   "/dzuzumtsovrebi/datvi-shekhvedra":
@@ -51,9 +51,9 @@ const KA_META_DESCRIPTION_OVERRIDES: Record<string, string> = {
   "/dzuzumtsovrebi/dedofala":
     "დედოფალა (Mustela nivalis) კვერნისებრთა ოჯახის პატარა მტაცებელი ძუძუმწოვარია; საქართველოში მშობლიური და მუდმივად მცხოვრები სახეობაა.",
   "/dzuzumtsovrebi/enoti":
-    "ენოტი (Procyon lotor) ჩრდილოეთ და ცენტრალური ამერიკის მშობლიური ძუძუმწოვარია; საქართველოში მისი პირდაპირი გამოშვების დოკუმენტირებული ჩანაწერი არ არის.",
+    "ენოტი (Procyon lotor) საქართველოში ენოტისებრი ძაღლი (Nyctereutes procyonoides) არ არის. ეს გვერდი ჩრდილოამერიკულ ენოტზეა.",
   "/dzuzumtsovrebi/evropuli-shveli":
-    "ევროპული შველი (Capreolus capreolus), ქართულად შველი, ირმისებრთა ოჯახის ძუძუმწოვარია და Capreolus-ის გვარის დასავლურ სახეობას წარმოადგენს.",
+    "შველი საქართველოში (Capreolus capreolus) — ევროპული შველი, ირმისებრთა ოჯახის ძუძუმწოვარი და Capreolus-ის დასავლური სახეობა.",
   "/dzuzumtsovrebi/evropuli-zgharbi":
     "ევროპული ზღარბი (Erinaceus concolor) საქართველოში — ამოცნობის ნიშნები, გავრცელება, ჰაბიტატი, კვება და რატომ არის ადამიანისთვის უვნებელი.",
   "/dzuzumtsovrebi/fotsxveri":
@@ -67,7 +67,7 @@ const KA_META_DESCRIPTION_OVERRIDES: Record<string, string> = {
   "/dzuzumtsovrebi/ketilshobili-iremi":
     "კეთილშობილი ირემი (Cervus elaphus) ირმისებრთა ოჯახის დიდი ძუძუმწოვარია; საქართველოში საუბარი, როგორც წესი, კავკასიურ კეთილშობილ ირემს ეხება.",
   "/dzuzumtsovrebi/machvi":
-    "მაჩვი (Meles canescens) საქართველოში: ამოცნობის ნიშნები, გავრცელება, ტყისა და ბუჩქნარის ჰაბიტატები, კვება, ქცევა და კონსერვაციის სტატუსი.",
+    "მაჩვი საქართველოში (Meles canescens) — ამოცნობის ნიშნები, ტყისა და ბუჩქნარის ჰაბიტატი, კვება და კონსერვაციის სტატუსი.",
   "/dzuzumtsovrebi/mela":
     "მელა (Vulpes vulpes) საქართველოში — სად გვხვდება, როგორ ამოვიცნოთ, რა ზომისაა, რას ჭამს და რა უნდა ვიცოდეთ ადამიანისთვის ცოფის შესაძლო რისკზე.",
   "/dzuzumtsovrebi/mura-datvi":
@@ -365,7 +365,7 @@ const KA_META_DESCRIPTION_OVERRIDES: Record<string, string> = {
   "/terms-and-conditions":
     "reptiles.ge-ის გამოყენების წესები, საგანმანათლებლო დათქმები, ინტელექტუალური საკუთრება და გარე წყაროების პირობები.",
   "/xvlikebi":
-    "საქართველოს ხვლიკების ატლასი — Darevskia-ს კლდის ხვლიკები, გველხოკერა (Pseudopus apodus) და სხვა სახეობები: ამოცნობა, გავრცელება, ჰაბიტატები და სრული პროფილები.",
+    "ხვლიკი საქართველოში: Darevskia-ს კლდის ხვლიკები, გველხოკერა და სხვა სახეობები — ამოცნობა, გავრცელება და სრული პროფილები.",
   "/xvlikebi/acharuli-kldis-xvliki":
     "აჭარული კლდის ხვლიკი (Darevskia adjarica) უშხამო კლდის ხვლიკია, რომელიც საქართველოში აჭარასა და აბასთუმნის მხარეში გვხვდება.",
   "/xvlikebi/afxazetis-kldis-xvliki":
