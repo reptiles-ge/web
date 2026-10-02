@@ -4,11 +4,6 @@ import { imagesOptimizer } from "@vinext/cloudflare/images/images-optimizer";
 import vinext from "vinext";
 import { defineConfig } from "vite";
 
-const responseStore = responseStoreAdapter();
-Object.assign(responseStore.cdn.capabilities, {
-  routeCacheability: "probe-manifest" as const,
-});
-
 export default defineConfig({
   build: {
     rolldownOptions: {
@@ -17,7 +12,7 @@ export default defineConfig({
   },
   plugins: [
     vinext({
-      cache: responseStore,
+      cache: responseStoreAdapter(),
       images: { optimizer: imagesOptimizer() },
     }),
     cloudflare({
