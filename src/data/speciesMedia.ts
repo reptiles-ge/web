@@ -72,9 +72,10 @@ export const images = {
   batInHouseHero: "/images/guides/bat-house-hero.jpg",
   batInHouseRoost: "/images/guides/bat-roost-natural.jpg",
   batInHouseWall: "/images/guides/bat-on-wall.jpg",
-  bedBugsAtHomeCloseup:
-    "https://cdn.reptiles.ge/cimex-lectularius-gilles-1.jpg",
-  bedBugsAtHomeHero: "https://cdn.reptiles.ge/cimex-lectularius-katja-1.jpg",
+  bedBugsAtHomeHero:
+    "https://cdn.reptiles.ge/images/guides/bed-bugs-at-home-hero.jpg",
+  bedBugsAtHomeSigns:
+    "https://cdn.reptiles.ge/images/guides/bed-bugs-at-home-signs.jpg",
   clothesMothAdult: "/images/guides/clothes-moth-adult.jpg",
   clothesMothCloset:
     "https://cdn.reptiles.ge/images/guides/clothes-moth-closet.jpg",

@@ -11,7 +11,7 @@ export const SITEMAP_PATH_LAST_MODIFIED: Record<string, string> = {
   "/birds/saxeoebebi": "2026-09-16T09:46:00+04:00",
   "/contact": "2026-09-16T09:57:00+04:00",
   "/insects": "2026-09-23T12:45:00+04:00",
-  "/insects/baghlinjo-sakhlshi": "2026-10-02T14:00:00+04:00",
+  "/insects/baghlinjo-sakhlshi": "2026-10-02T15:00:00+04:00",
   "/insects/chianchvelebi-sakhlshi": "2026-09-25T01:29:00+04:00",
   "/insects/chrchili-tansatsmelshi": "2026-09-29T15:36:00+04:00",
   "/insects/farosana-sakhlshi": "2026-10-02T12:30:00+04:00",

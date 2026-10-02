@@ -6,7 +6,7 @@ import {
   type GuideArticleSource,
 } from "@/data/guideArticleTypes";
 
-type ImageKey = "closeup";
+type ImageKey = "signs";
 
 const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
   en: {
@@ -68,7 +68,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       },
       {
         heading: "How can you tell bed bugs may be in the home?",
-        image: "closeup",
+        image: "signs",
         paragraphs: [
           "Look for the insect itself, pale eggs about 1 mm long, the skins young insects shed, rusty or reddish stains from crushed insects, and dark spots about the size of a marker dot. Those spots are excrement and can bleed into fabric.",
           "Bites on the skin are a poor indicator. They can look like mosquito or flea bites, or like other rashes, and some people do not react at all. Marks may show up one to several days later, sometimes as long as 14 days, and they may be scattered or in a line. None of that confirms the insect. For the species traits, use the [common bed bug profile](cimex-lectularius).",
@@ -205,7 +205,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       },
       {
         heading: "როგორ გავიგოთ, რომ სახლში ბაღლინჯო შეიძლება იყოს?",
-        image: "closeup",
+        image: "signs",
         paragraphs: [
           "მოძებნეთ თავად მწერი, დაახლოებით 1 მმ-ის ღია კვერცხები, ახალგაზრდა მწერის გამოცვლილი კანი, გაჭყლეტილი მწერის მოწითალო ლაქები და მარკერის წერტილის ოდენა მუქი ლაქები. ეს ლაქები განავალია და ქსოვილზე შეიძლება გაიშალოს.",
           "კანზე ნაკბენი სუსტი ნიშანია. ის შეიძლება კოღოს ან რწყილის ნაკბენს, ან სხვა გამონაყარს ჰგავდეს, ზოგი ადამიანი კი საერთოდ არ რეაგირებს. კვალი შეიძლება ერთიდან რამდენიმე დღემდე, ზოგჯერ 14 დღემდეც გამოჩნდეს და იყოს მიმოფანტული ან ხაზზე. ეს მწერს არ ადასტურებს. სახეობის ნიშნებისთვის გახსენით [საწოლის ბაღლინჯოს პროფილი](cimex-lectularius).",
@@ -342,7 +342,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       },
       {
         heading: "Как понять, что в квартире могут быть клопы?",
-        image: "closeup",
+        image: "signs",
         paragraphs: [
           "Ищите само насекомое, светлые яйца около 1 мм, шкурки после линьки, рыжие или красноватые пятна от раздавленных клопов и тёмные точки размером с точку маркера. Это экскременты, и на ткани они могут расплываться.",
           "Укусы на коже — слабый признак. Они бывают похожи на укусы комара или блохи или на другую сыпь, а некоторые люди вовсе не реагируют. Следы могут появиться через один или несколько дней, иногда до 14 дней, и лежать рассеянно или в линию. Это не подтверждает насекомое. Признаки вида — в [профиле постельного клопа](cimex-lectularius).",
@@ -479,7 +479,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       },
       {
         heading: "Evde tahtakurusu olabileceğini nasıl anlarsınız?",
-        image: "closeup",
+        image: "signs",
         paragraphs: [
           "Böceğin kendisini, yaklaşık 1 mm'lik açık renkli yumurtaları, genç böceklerin döktüğü deriyi, ezilen böcekten kalan kızıl lekeleri ve keçeli kalem noktası büyüklüğünde koyu lekeleri arayın. Bu lekeler dışkıdır ve kumaşa yayılabilir.",
           "Derideki ısırık zayıf bir işarettir. Sivrisinek veya pire ısırığına ya da başka bir dökmeye benzeyebilir; bazı insanlar hiç tepki vermez. İzler bir ila birkaç gün, bazen 14 gün sonra çıkabilir ve dağınık ya da bir çizgi halinde olabilir. Bu, böceği kanıtlamaz. Türün işaretleri için [yatak tahtakurusu profiline](cimex-lectularius) bakın.",
@@ -636,39 +636,27 @@ export const BED_BUGS_AT_HOME = defineGuideArticle({
   copy: COPY,
   hero: {
     alt: {
-      en: "Oval reddish-brown wingless bed bug (Cimex lectularius) on white woven fabric, with a banded abdomen",
-      ka: "თეთრ ქსოვილზე მოთავსებული ოვალური, მოწითალო-ყავისფერი, უფრთო საწოლის ბაღლინჯო (Cimex lectularius), ზოლებიანი მუცლით",
-      ru: "Овальный красновато-коричневый бескрылый постельный клоп (Cimex lectularius) на белой ткани, с полосатым брюшком",
-      tr: "Beyaz dokuma üzerinde oval, kırmızımsı kahverengi, kanatsız yatak tahtakurusu (Cimex lectularius), şeritli karınlı",
+      en: "Oval reddish-brown wingless insect with a banded abdomen on a cream mattress seam",
+      ka: "კრემისფერი ლეიბის ნაკერზე მოთავსებული ოვალური, მოწითალო-ყავისფერი, უფრთო მწერი ზოლებიანი მუცლით",
+      ru: "Овальное красновато-коричневое бескрылое насекомое с полосатым брюшком на кремовом шве матраса",
+      tr: "Krem rengi yatak dikişinde oval, kırmızımsı kahverengi, kanatsız, şeritli karınlı böcek",
     },
-    credit: {
-      en: "Photo: Katja Schulz, 17 May 2019",
-      ka: "ფოტო: Katja Schulz, 17 მაისი, 2019",
-      ru: "Фото: Katja Schulz, 17 мая 2019",
-      tr: "Fotoğraf: Katja Schulz, 17 Mayıs 2019",
-    },
-    height: 375,
-    src: "https://cdn.reptiles.ge/cimex-lectularius-katja-1.jpg",
-    width: 500,
+    height: 682,
+    src: "https://cdn.reptiles.ge/images/guides/bed-bugs-at-home-hero.jpg",
+    width: 1024,
   },
   id: "bed-bugs-at-home",
   images: {
-    closeup: {
+    signs: {
       alt: {
-        en: "Magnified front view of a bed bug (Cimex lectularius): hairy reddish-brown head and antennae",
-        ka: "საწოლის ბაღლინჯოს (Cimex lectularius) გადიდებული წინა ხედი: ბუსუსიანი მოწითალო-ყავისფერი თავი და ულვაშები",
-        ru: "Увеличенный вид спереди постельного клопа (Cimex lectularius): волосистая красновато-коричневая голова и усики",
-        tr: "Yatak tahtakurusunun (Cimex lectularius) büyütülmüş önden görünümü: tüylü kırmızımsı kahverengi baş ve antenler",
+        en: "Oval reddish-brown wingless insect on mattress fabric, beside two pale eggs and a few dark specks",
+        ka: "ლეიბის ქსოვილზე მოთავსებული ოვალური, მოწითალო-ყავისფერი, უფრთო მწერი, გვერდით ორი ღია კვერცხი და რამდენიმე მუქი წერტილი",
+        ru: "Овальное красновато-коричневое бескрылое насекомое на ткани матраса, рядом два светлых яйца и несколько тёмных точек",
+        tr: "Yatak kumaşında oval, kırmızımsı kahverengi, kanatsız böcek; yanında iki açık renkli yumurta ve birkaç koyu nokta",
       },
-      credit: {
-        en: "Photo: Gilles San Martin, 22 July 2011",
-        ka: "ფოტო: Gilles San Martin, 22 ივლისი, 2011",
-        ru: "Фото: Gilles San Martin, 22 июля 2011",
-        tr: "Fotoğraf: Gilles San Martin, 22 Temmuz 2011",
-      },
-      height: 331,
-      src: "https://cdn.reptiles.ge/cimex-lectularius-gilles-1.jpg",
-      width: 500,
+      height: 768,
+      src: "https://cdn.reptiles.ge/images/guides/bed-bugs-at-home-signs.jpg",
+      width: 1024,
     },
   },
   messageKey: "bedBugsAtHome",
