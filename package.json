@@ -42,7 +42,7 @@
     "seo:selfcheck": "tsx scripts/reptiles-seo.ts selfcheck",
     "seo:serp": "tsx scripts/reptiles-seo.ts serp",
     "knip": "knip",
-    "test": "vitest run",
+    "test": "vitest run && node --import tsx --test tests/proxy-cacheability.test.ts",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
     "species:compile": "tsx scripts/compile-species.ts && tsx scripts/compile-locale-switch-index.ts",
@@ -68,7 +68,7 @@
     "prebuild:vinext": "pnpm run prebuild",
     "build:vinext": "VINEXT=1 vinext build",
     "start:vinext": "wrangler dev --config dist/server/wrangler.json",
-    "deploy:vinext": "pnpm run build:vinext && vinext-cloudflare deploy --config dist/server/wrangler.json --warm-cache",
+    "deploy:vinext": "pnpm run build:vinext && vinext-cloudflare deploy --config dist/server/wrangler.json",
     "deploy:response-store": "wrangler deploy --config wrangler.response-store.jsonc"
   },
   "lint-staged": {

@@ -327,7 +327,12 @@ export default function proxy(request: NextRequest) {
     }
   }
 
-  return intlMiddleware(request);
+  const response = intlMiddleware(request);
+  if (!request.headers.has("x-next-intl-locale")) {
+    response.headers.delete("x-middleware-override-headers");
+    response.headers.delete("x-middleware-request-x-next-intl-locale");
+  }
+  return response;
 }
 
 function configuredRedirectPath(pathname: string): [string, 301 | 302] | null {
