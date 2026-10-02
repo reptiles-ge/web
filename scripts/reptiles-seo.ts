@@ -3,6 +3,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 
 import { getPublishedCreditAuthors } from "../src/data/creditAuthors";
+import { GUIDE_ARTICLE_PATHS } from "../src/data/guideArticlePaths";
 import { getPublishedNewsArticles } from "../src/data/news";
 import {
   sitemapAuthorDatePublished,
@@ -245,6 +246,27 @@ async function main() {
     await writeJsonReport("gsc-raw", { generatedAt: now(), ...data, window });
     console.log(
       `Collected ${data.current.length} current and ${data.previous.length} previous Search Console rows`,
+    );
+    return;
+  }
+
+  if (args.command === "inspect") {
+    const urls = await urlInspectionSample();
+    if (args.flags["dry-run"]) {
+      const counts = new Map<string, number>();
+      for (const item of urls) {
+        const key = `${item.family} | ${item.locale}`;
+        counts.set(key, (counts.get(key) ?? 0) + 1);
+      }
+      for (const [key, count] of [...counts].sort()) console.log(key, count);
+      console.log(`${urls.length} URLs would be inspected`);
+      return;
+    }
+    const results = await inspectUrls(urls);
+    await writeJsonReport("url-inspection", { generatedAt: now(), results });
+    await writeUrlInspectionSummary(results);
+    console.log(
+      `Inspected ${results.length} URLs; summary in .seo/reports/url-inspection.md`,
     );
     return;
   }
@@ -879,18 +901,22 @@ async function collectGscRows(
   ]);
   const baseBody = {
     dataState: "final",
-    dimensionFilterGroups: [
-      {
-        filters: [
-          {
-            dimension: "country",
-            expression: country,
-            operator: "equals",
-          },
-        ],
-        groupType: "and",
-      },
-    ],
+    ...(country === "all"
+      ? {}
+      : {
+          dimensionFilterGroups: [
+            {
+              filters: [
+                {
+                  dimension: "country",
+                  expression: country,
+                  operator: "equals",
+                },
+              ],
+              groupType: "and",
+            },
+          ],
+        }),
     dimensions: ["query", "page", "country", "device", "date"],
     endDate,
     rowLimit: 25000,
@@ -1896,6 +1922,206 @@ function now() {
 
 function safeFileName(value: string) {
   return value.replace(/[^a-zA-Z0-9._-]+/g, "-").slice(0, 180);
+}
+
+type InspectionFamily =
+  | "author"
+  | "cluster guide"
+  | "guide article"
+  | "home"
+  | "hub"
+  | "news"
+  | "other"
+  | "quiz"
+  | "region"
+  | "species";
+
+type UrlInspection = {
+  coverageState: string;
+  family: InspectionFamily;
+  googleCanonical: null | string;
+  indexingState: string;
+  lastCrawlTime: null | string;
+  locale: AppLocale;
+  pageFetchState: string;
+  url: string;
+  userCanonical: null | string;
+  verdict: string;
+};
+
+const INSPECTION_QUOTA: Record<InspectionFamily, Record<AppLocale, number>> = {
+  author: { en: 1, ka: 2, ru: 0, tr: 0 },
+  "cluster guide": { en: 3, ka: 6, ru: 2, tr: 1 },
+  "guide article": { en: 99, ka: 99, ru: 5, tr: 3 },
+  home: { en: 1, ka: 1, ru: 1, tr: 1 },
+  hub: { en: 4, ka: 9, ru: 3, tr: 2 },
+  news: { en: 2, ka: 3, ru: 1, tr: 1 },
+  other: { en: 0, ka: 0, ru: 0, tr: 0 },
+  quiz: { en: 1, ka: 2, ru: 0, tr: 0 },
+  region: { en: 2, ka: 4, ru: 1, tr: 1 },
+  species: { en: 6, ka: 14, ru: 4, tr: 3 },
+};
+
+function inspectionFamilies() {
+  const families = new Map<string, InspectionFamily>();
+  const add = (url: string, family: InspectionFamily) =>
+    families.set(normalizeUrl(url), family);
+  for (const locale of routing.locales) {
+    add(absoluteFromPath(localePath(locale, "/")), "home");
+    for (const guidePath of GUIDE_ARTICLE_PATHS)
+      add(absoluteFromPath(localePath(locale, guidePath)), "guide article");
+    for (const hub of GROUP_HUB_LIST)
+      add(absoluteFromPath(localePath(locale, hub.path)), "hub");
+    for (const guide of CLUSTER_GUIDE_LIST)
+      add(
+        absoluteFromPath(localePath(locale, guide.pathname)),
+        "cluster guide",
+      );
+    for (const region of regions)
+      add(
+        absoluteFromPath(localePath(locale, regionHref(region.id))),
+        "region",
+      );
+    for (const item of getCatalogSpecies())
+      add(speciesPageUrl(locale, item.id), "species");
+    for (const article of getPublishedNewsArticles(locale))
+      add(newsArticleUrl(locale, article.slug), "news");
+    for (const author of getPublishedCreditAuthors())
+      add(creditAuthorUrl(locale, author.slug), "author");
+    for (const quiz of liveQuizzes()) add(quizPageUrl(locale, quiz.id), "quiz");
+  }
+  return families;
+}
+
+async function urlInspectionSample() {
+  const response = await fetch(absoluteFromPath("/sitemap.xml"));
+  if (!response.ok) throw new Error(`sitemap.xml returned ${response.status}`);
+  const xml = await response.text();
+  const urls = [...xml.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) =>
+    normalizeUrl(match[1]),
+  );
+  const families = inspectionFamilies();
+  const buckets = new Map<string, string[]>();
+  for (const url of urls) {
+    const family = families.get(url) ?? "other";
+    const locale = localeOfUrl(url);
+    const key = `${family}|${locale}`;
+    buckets.set(key, [...(buckets.get(key) ?? []), url]);
+  }
+  const sample: Array<{
+    family: InspectionFamily;
+    locale: AppLocale;
+    url: string;
+  }> = [];
+  for (const [key, list] of buckets) {
+    const [family, locale] = key.split("|") as [InspectionFamily, AppLocale];
+    const quota = Math.min(INSPECTION_QUOTA[family][locale], list.length);
+    const sorted = [...list].sort();
+    for (let index = 0; index < quota; index += 1) {
+      const pick = sorted[Math.floor((index * sorted.length) / quota)];
+      sample.push({ family, locale, url: pick });
+    }
+  }
+  return sample;
+}
+
+function localeOfUrl(url: string): AppLocale {
+  const pathname = new URL(url).pathname;
+  for (const locale of routing.locales) {
+    if (pathname === `/${locale}` || pathname.startsWith(`/${locale}/`))
+      return locale;
+  }
+  return routing.defaultLocale;
+}
+
+async function inspectUrls(
+  sample: Array<{ family: InspectionFamily; locale: AppLocale; url: string }>,
+) {
+  const siteUrl = process.env.GSC_SITE_URL;
+  if (!siteUrl) {
+    throw new MissingInput(
+      "Add GSC_SITE_URL to .env (https://reptiles.ge/ or sc-domain:reptiles.ge).",
+    );
+  }
+  const token = await googleAccessToken([
+    "https://www.googleapis.com/auth/webmasters.readonly",
+  ]);
+  const results: UrlInspection[] = [];
+  for (const item of sample) {
+    const response = await postJson<{
+      inspectionResult?: {
+        indexStatusResult?: {
+          coverageState?: string;
+          googleCanonical?: string;
+          indexingState?: string;
+          lastCrawlTime?: string;
+          pageFetchState?: string;
+          userCanonical?: string;
+          verdict?: string;
+        };
+      };
+    }>(
+      "https://searchconsole.googleapis.com/v1/urlInspection/index:inspect",
+      { inspectionUrl: item.url, languageCode: "en-US", siteUrl },
+      { Authorization: `Bearer ${token}` },
+    );
+    const status = response.inspectionResult?.indexStatusResult ?? {};
+    results.push({
+      coverageState: status.coverageState ?? "UNKNOWN",
+      family: item.family,
+      googleCanonical: status.googleCanonical ?? null,
+      indexingState: status.indexingState ?? "UNKNOWN",
+      lastCrawlTime: status.lastCrawlTime ?? null,
+      locale: item.locale,
+      pageFetchState: status.pageFetchState ?? "UNKNOWN",
+      url: item.url,
+      userCanonical: status.userCanonical ?? null,
+      verdict: status.verdict ?? "UNKNOWN",
+    });
+    await new Promise((resolve) => setTimeout(resolve, 150));
+  }
+  return results;
+}
+
+async function writeUrlInspectionSummary(results: UrlInspection[]) {
+  const states = [...new Set(results.map((item) => item.coverageState))].sort();
+  const groups = new Map<string, UrlInspection[]>();
+  for (const item of results) {
+    const key = `${item.family} | ${item.locale}`;
+    groups.set(key, [...(groups.get(key) ?? []), item]);
+  }
+  const lines = [
+    "# URL Inspection baseline",
+    "",
+    `Generated: ${now()}`,
+    "",
+    `| Family / locale | Sampled | ${states.join(" | ")} |`,
+    `| --- | --- | ${states.map(() => "---").join(" | ")} |`,
+  ];
+  for (const [key, items] of [...groups].sort(([a], [b]) =>
+    a.localeCompare(b),
+  )) {
+    const counts = states.map(
+      (state) => items.filter((item) => item.coverageState === state).length,
+    );
+    lines.push(`| ${key} | ${items.length} | ${counts.join(" | ")} |`);
+  }
+  const mismatched = results.filter(
+    (item) =>
+      item.googleCanonical &&
+      item.userCanonical &&
+      normalizeUrl(item.googleCanonical) !== normalizeUrl(item.userCanonical),
+  );
+  lines.push("", `Canonical mismatches: ${mismatched.length}`);
+  for (const item of mismatched) {
+    lines.push(`- ${item.url} -> Google chose ${item.googleCanonical}`);
+  }
+  await fs.mkdir(reportRoot, { recursive: true });
+  await fs.writeFile(
+    path.join(reportRoot, "url-inspection.md"),
+    `${lines.join("\n")}\n`,
+    "utf8",
+  );
 }
 
 async function writeJsonReport(name: string, value: unknown) {
