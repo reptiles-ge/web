@@ -312,6 +312,7 @@
         "clothesMoth": "Giysi güvesi",
         "cockroachesInHouse": "Evde hamam böceği",
         "fleasInHouse": "Evde pire",
+        "bedBugsAtHome": "Evde tahtakurusu",
         "mosquitoesAtHome": "Evde ve bahçede sivrisinekler",
         "mouseInHouse": "Evde fare"
       }
@@ -388,6 +389,7 @@
     "antsInHouse": "Evde karınca",
     "cockroachesInHouse": "Evde hamam böceği",
     "fleasInHouse": "Evde pire",
+    "bedBugsAtHome": "Evde tahtakurusu",
     "mosquitoesAtHome": "Evde ve bahçede sivrisinekler",
     "mouseInHouse": "Evde fare",
     "bite": "Yılan ısırığında ilk adımlar",
@@ -1451,6 +1453,12 @@
         "eyebrow": "Pratik rehber",
         "title": "Evde pire",
         "body": "Ev temizliği, hayvanın korunması ve veterinerle güvenli plan.",
+        "cta": "Rehberi oku"
+      },
+      "bedBugsAtHome": {
+        "eyebrow": "Pratik rehber",
+        "title": "Evde tahtakurusu",
+        "body": "Nereye bakılır, ısırık neden kanıt değildir ve ne zaman uzman çağrılır.",
         "cta": "Rehberi oku"
       },
       "mosquitoesAtHome": {

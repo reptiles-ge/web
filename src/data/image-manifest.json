@@ -39410,6 +39410,168 @@
       ],
       "updatedAt": "2026-09-25T14:08:25.550Z"
     },
+    "images/guides/bed-bugs-at-home-hero.jpg": {
+      "sourceHash": "531de7133f3b247df7b9414ad210e8d04e97bbbf1e63aeb457c64c4d1ba69e54",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/bed-bugs-at-home-hero.jpg",
+      "originalSize": 132695,
+      "width": 1024,
+      "height": 682,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/bed-bugs-at-home-hero-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8773
+        },
+        {
+          "key": "optimized/images/guides/bed-bugs-at-home-hero-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12850
+        },
+        {
+          "key": "optimized/images/guides/bed-bugs-at-home-hero-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 12408
+        },
+        {
+          "key": "optimized/images/guides/bed-bugs-at-home-hero-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 18028
+        },
+        {
+          "key": "optimized/images/guides/bed-bugs-at-home-hero-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 23013
+        },
+        {
+          "key": "optimized/images/guides/bed-bugs-at-home-hero-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 34894
+        },
+        {
+          "key": "optimized/images/guides/bed-bugs-at-home-hero-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 31351
+        },
+        {
+          "key": "optimized/images/guides/bed-bugs-at-home-hero-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 46976
+        },
+        {
+          "key": "optimized/images/guides/bed-bugs-at-home-hero-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 682,
+          "byteSize": 45815
+        },
+        {
+          "key": "optimized/images/guides/bed-bugs-at-home-hero-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 682,
+          "byteSize": 67548
+        }
+      ],
+      "updatedAt": "2026-10-02T09:00:42.733Z"
+    },
+    "images/guides/bed-bugs-at-home-signs.jpg": {
+      "sourceHash": "30f1edd82889c019237c2eb3d6ce134fd80918b1a345a3e282775b26d09da4fa",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/guides/bed-bugs-at-home-signs.jpg",
+      "originalSize": 184913,
+      "width": 1024,
+      "height": 768,
+      "derivatives": [
+        {
+          "key": "optimized/images/guides/bed-bugs-at-home-signs-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 12790
+        },
+        {
+          "key": "optimized/images/guides/bed-bugs-at-home-signs-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 19348
+        },
+        {
+          "key": "optimized/images/guides/bed-bugs-at-home-signs-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 18698
+        },
+        {
+          "key": "optimized/images/guides/bed-bugs-at-home-signs-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 28636
+        },
+        {
+          "key": "optimized/images/guides/bed-bugs-at-home-signs-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 36588
+        },
+        {
+          "key": "optimized/images/guides/bed-bugs-at-home-signs-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 54006
+        },
+        {
+          "key": "optimized/images/guides/bed-bugs-at-home-signs-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 49617
+        },
+        {
+          "key": "optimized/images/guides/bed-bugs-at-home-signs-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 72580
+        },
+        {
+          "key": "optimized/images/guides/bed-bugs-at-home-signs-1024.avif",
+          "format": "avif",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 68979
+        },
+        {
+          "key": "optimized/images/guides/bed-bugs-at-home-signs-1024.webp",
+          "format": "webp",
+          "width": 1024,
+          "height": 768,
+          "byteSize": 101982
+        }
+      ],
+      "updatedAt": "2026-10-02T09:00:41.532Z"
+    },
     "images/guides/clothes-moth-adult.jpg": {
       "sourceHash": "883a8edf251496ef7502800637edf0f238c014e276ce7ea3f53e5caa62e68ba5",
       "configFingerprint": "409788ee46c653d8",
