@@ -312,6 +312,7 @@
         "clothesMoth": "Clothes moths",
         "cockroachesInHouse": "Cockroaches at home",
         "fleasInHouse": "Fleas in the house",
+        "bedBugsAtHome": "Bed bugs at home",
         "mosquitoesAtHome": "Mosquitoes at home and in the yard",
         "mouseInHouse": "Mouse in the house"
       }
@@ -388,6 +389,7 @@
     "antsInHouse": "Ants in the house",
     "cockroachesInHouse": "Cockroaches at home",
     "fleasInHouse": "Fleas in the house",
+    "bedBugsAtHome": "Bed bugs at home",
     "mosquitoesAtHome": "Mosquitoes at home and in the yard",
     "mouseInHouse": "Mouse in the house",
     "bite": "Snakebite first steps",
@@ -1451,6 +1453,12 @@
         "eyebrow": "Practical guide",
         "title": "Fleas in the house",
         "body": "Clean the home, protect the pet, and plan safe care with a vet.",
+        "cta": "Read the guide"
+      },
+      "bedBugsAtHome": {
+        "eyebrow": "Practical guide",
+        "title": "Bed bugs at home",
+        "body": "Where to look, why a bite is not proof, and when to call a specialist.",
         "cta": "Read the guide"
       },
       "mosquitoesAtHome": {

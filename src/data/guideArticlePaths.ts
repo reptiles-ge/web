@@ -1,4 +1,5 @@
 export const GUIDE_ARTICLE_PATHS = [
+  "/insects/baghlinjo-sakhlshi",
   "/insects/chianchvelebi-sakhlshi",
   "/insects/chrchili-tansatsmelshi",
   "/insects/farosana-sakhlshi",

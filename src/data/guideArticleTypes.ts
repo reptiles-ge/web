@@ -51,6 +51,7 @@ export type GuideArticleImage = {
 export type GuideArticleMessageKey =
   | "antsInHouse"
   | "batInHouse"
+  | "bedBugsAtHome"
   | "bite"
   | "clothesMoth"
   | "cockroachesInHouse"

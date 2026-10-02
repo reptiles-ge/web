@@ -5,6 +5,7 @@ import type { GroupHubId } from "@/lib/groupHubs";
 
 import { ANTS_IN_HOUSE } from "@/content/guides/antsInHouse";
 import { BAT_IN_HOUSE } from "@/content/guides/batInHouse";
+import { BED_BUGS_AT_HOME } from "@/content/guides/bedBugsAtHome";
 import { CLOTHES_MOTH } from "@/content/guides/clothesMoth";
 import { COCKROACHES_IN_HOUSE } from "@/content/guides/cockroachesInHouse";
 import { FLEAS_IN_HOUSE } from "@/content/guides/fleasInHouse";
@@ -28,6 +29,7 @@ export type {
 
 const GUIDE_ARTICLES: readonly GuideArticle[] = [
   BAT_IN_HOUSE,
+  BED_BUGS_AT_HOME,
   WASP_NEST,
   STINK_BUG_IN_HOUSE,
   MOUSE_IN_HOUSE,
