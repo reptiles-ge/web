@@ -1,6 +1,6 @@
 "use client";
 
-import type { Species } from "@/data/species";
+import type { SpeciesCard } from "@/data/speciesCard";
 import type { AppLocale } from "@/i18n/routing";
 
 import { CoverImage } from "@/components/CoverImage";
@@ -10,8 +10,8 @@ import { LOOKALIKE_SIZES } from "@/lib/imageSizes";
 import { speciesImageAlt } from "@/lib/speciesMeta";
 
 type LookalikePairProps = {
-  a: Species;
-  b: Species;
+  a: SpeciesCard;
+  b: SpeciesCard;
   locale: AppLocale;
   vs: string;
 };
@@ -33,7 +33,7 @@ function LookalikeSide({
   species,
 }: {
   locale: AppLocale;
-  species: Species;
+  species: SpeciesCard;
 }) {
   return (
     <Link className="group min-w-0" href={useSpeciesHref(species.id, locale)}>

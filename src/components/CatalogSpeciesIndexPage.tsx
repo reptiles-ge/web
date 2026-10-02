@@ -12,6 +12,7 @@ import {
   ClusterStat,
 } from "@/components/ClusterSectionIntro";
 import { SpeciesIndexTable } from "@/components/SpeciesIndexTable";
+import { toSpeciesIndexRows } from "@/data/speciesCard";
 import {
   CLUSTER_GUIDES,
   type ClusterGuideViewProps,
@@ -95,7 +96,7 @@ export async function CatalogSpeciesIndexPage({
             <SpeciesIndexTable
               locale={locale}
               showDangerFilter={false}
-              species={species}
+              species={toSpeciesIndexRows(species)}
             />
           </div>
         </div>

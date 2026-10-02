@@ -3,7 +3,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 
-import type { Species } from "@/data/species";
+import type { SpeciesCard } from "@/data/speciesCard";
 import type { AppLocale } from "@/i18n/routing";
 
 import { CoverImage } from "@/components/CoverImage";
@@ -26,7 +26,7 @@ export function SpeciesGuideList({
   locale: AppLocale;
   prefetch?: boolean;
   source?: SpeciesClickSource;
-  species: Species[];
+  species: SpeciesCard[];
 }) {
   return (
     <div className="mt-12 divide-y divide-border border-y border-border">
@@ -56,7 +56,7 @@ export function SpeciesGuideRow({
   locale: AppLocale;
   prefetch?: boolean;
   source?: SpeciesClickSource;
-  species: Species;
+  species: SpeciesCard;
 }) {
   const tShared = useTranslations("groupHubShared");
   const tDanger = useTranslations("danger");
@@ -151,7 +151,7 @@ function SpeciesGuideRowCopy({
   profileCta: string;
   regions: string[];
   riskLabel: null | string;
-  species: Species;
+  species: SpeciesCard;
   tone: { dot: string; text: string };
   turtleStatus: null | string;
   turtleType: null | string;

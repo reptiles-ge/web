@@ -11,6 +11,7 @@ import {
   ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
+import { toSpeciesCards } from "@/data/speciesCard";
 import { Link } from "@/i18n/navigation";
 import { HUB_INDEX_PATH, type SpeciesSection } from "@/lib/clusterGuides";
 
@@ -69,7 +70,7 @@ export async function GroupHubSpeciesList({
                 locale={locale}
                 prefetch={false}
                 source="hub"
-                species={section.items}
+                species={toSpeciesCards(section.items)}
               />
             </div>
           ))}

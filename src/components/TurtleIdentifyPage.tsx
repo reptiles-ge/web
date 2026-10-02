@@ -8,6 +8,7 @@ import { ClusterPageFrame } from "@/components/ClusterPageFrame";
 import { TurtleIdentifyChooser } from "@/components/TurtleIdentifyChooser";
 import { TurtleIdentifyFlow } from "@/components/TurtleIdentifyFlow";
 import { TurtleIdentifyMatrix } from "@/components/TurtleIdentifyMatrix";
+import { toSpeciesCard, toSpeciesCards } from "@/data/speciesCard";
 import { Link } from "@/i18n/navigation";
 import { collectTurtleRegions, TURTLE_ORDER } from "@/lib/turtleIdentify";
 
@@ -58,24 +59,24 @@ export async function TurtleIdentifyPage({
       />
 
       <TurtleIdentifyFlow
-        emys={emys}
+        emys={emys && toSpeciesCard(emys)}
         locale={locale}
-        mauremys={mauremys}
-        slider={slider}
-        testudo={testudo}
+        mauremys={mauremys && toSpeciesCard(mauremys)}
+        slider={slider && toSpeciesCard(slider)}
+        testudo={testudo && toSpeciesCard(testudo)}
       />
 
       <TurtleIdentifyMatrix
-        emys={emys}
+        emys={emys && toSpeciesCard(emys)}
         locale={locale}
-        mauremys={mauremys}
-        turtles={turtles}
+        mauremys={mauremys && toSpeciesCard(mauremys)}
+        turtles={toSpeciesCards(turtles)}
       />
 
       <TurtleIdentifyChooser
         locale={locale}
         regions={regions}
-        turtles={turtles}
+        turtles={toSpeciesCards(turtles)}
       />
     </ClusterPageFrame>
   );

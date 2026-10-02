@@ -9,6 +9,7 @@ import { ClusterNumberedSteps } from "@/components/ClusterNumberedSteps";
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
 import { LookalikePair } from "@/components/LookalikePair";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
+import { toSpeciesCard, toSpeciesCards } from "@/data/speciesCard";
 import { Link } from "@/i18n/navigation";
 import {
   type ClusterGuideViewProps,
@@ -75,7 +76,11 @@ export async function LizardIdentifyPage({
         surface="background"
         title={t("darevskiaTitle")}
       >
-        <SpeciesGuideList locale={locale} source="guide" species={darevskia} />
+        <SpeciesGuideList
+          locale={locale}
+          source="guide"
+          species={toSpeciesCards(darevskia)}
+        />
         <Link
           className="mt-8 inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-[13px] font-medium text-foreground"
           href="/lizards/darevskia"
@@ -121,8 +126,8 @@ export async function LizardIdentifyPage({
           {pairs.map((pair) => (
             <div key={`${pair.a.id}-${pair.b.id}`}>
               <LookalikePair
-                a={pair.a}
-                b={pair.b}
+                a={toSpeciesCard(pair.a)}
+                b={toSpeciesCard(pair.b)}
                 locale={locale}
                 vs={t("vs")}
               />

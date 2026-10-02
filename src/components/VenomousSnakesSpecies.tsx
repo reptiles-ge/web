@@ -3,7 +3,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 
-import type { Species } from "@/data/species";
+import type { SpeciesCard } from "@/data/speciesCard";
 import type { AppLocale } from "@/i18n/routing";
 
 import {
@@ -19,12 +19,12 @@ import { SpeciesInlineLink } from "@/components/SpeciesInlineLink";
 import { Link } from "@/i18n/navigation";
 
 type VenomousSnakesSpeciesProps = {
-  giurza?: Species;
-  kaznakovi?: Species;
+  giurza?: SpeciesCard;
+  kaznakovi?: SpeciesCard;
   locale: AppLocale;
-  rearFanged: Species[];
+  rearFanged: SpeciesCard[];
   speciesCount: number;
-  vipers: Species[];
+  vipers: SpeciesCard[];
 };
 
 export function VenomousSnakesSpecies({
@@ -168,7 +168,7 @@ function VenomousFeaturedCard({
   eyebrow: string;
   locale: AppLocale;
   openLabel: string;
-  species: Species;
+  species: SpeciesCard;
 }) {
   return (
     <div>
