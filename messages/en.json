@@ -1979,6 +1979,8 @@
     "guideTitle": "Mammals in the animal atlas",
     "guideP1": "Mammal profiles are added using the same evidence rules as the herpetofauna atlas: named sources, no invented regional maps.",
     "guideP2": "Country occurrence here rests on national mammal lists, IUCN, and hunting documents. This hub is not a substitute for a full list of 100+ species.",
+    "predatorsTitle": "Predatory mammals in Georgia",
+    "predatorsBody": "This hub is not a complete list of Georgia’s predators. Published profiles include wolf, fox, golden jackal, brown bear, lynx, least weasel, badger, and otter. The leopard is a rare vagrant, not a resident population.",
     "speciesEyebrow": "Catalog",
     "speciesTitle": "{count} mammals in the atlas",
     "speciesBody": "Each profile states whether the species is resident in Georgia — and what remains unmapped.",

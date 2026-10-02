@@ -1979,6 +1979,8 @@
     "guideTitle": "Hayvan atlasında memeliler",
     "guideP1": "Memeli profilleri herpetofauna atlasıyla aynı kanıt kurallarıyla eklenir: adı geçen kaynaklar, uydurulmuş bölgesel harita yok.",
     "guideP2": "Buradaki ülke varlığı ulusal memeli listelerine, IUCN’ye ve avcılık belgelerine dayanır. Bu merkez 100’den fazla türün tam listesinin yerine geçmez.",
+    "predatorsTitle": "Gürcistan'ın yırtıcı hayvanları",
+    "predatorsBody": "Bu merkez Gürcistan yırtıcılarının tam listesi değildir. Yayımlanmış profiller arasında kurt, tilki, çakal, boz ayı, vaşak, gelincik, porsuk ve su samuru vardır. Leopar nadir bir konuktur, yerleşik bir yoğunluk değildir.",
     "speciesEyebrow": "Katalog",
     "speciesTitle": "Atlasda {count} memeli",
     "speciesBody": "Her profil, türün Gürcistan’da yerli olup olmadığını — ve henüz haritalanmayanı — belirtir.",
