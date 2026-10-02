@@ -4,7 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 
 import type { ConflictGuideConfig } from "@/components/conflictGuideConfig";
-import type { Species } from "@/data/species";
+import type { SpeciesCard } from "@/data/speciesCard";
 import type { AppLocale } from "@/i18n/routing";
 
 import {
@@ -31,7 +31,7 @@ export function ConflictGuideSections({
   species,
 }: {
   config: ConflictGuideConfig;
-  species: Species[];
+  species: SpeciesCard[];
 }) {
   return (
     <>
@@ -79,7 +79,7 @@ function ConflictContact({
   species,
 }: {
   config: ConflictGuideConfig;
-  species: Species[];
+  species: SpeciesCard[];
 }) {
   const t = useTranslations(config.namespace);
   const locale = useLocale() as AppLocale;
@@ -190,7 +190,7 @@ function ConflictIdentify({
   species,
 }: {
   config: ConflictGuideConfig;
-  species: Species[];
+  species: SpeciesCard[];
 }) {
   const t = useTranslations(config.namespace);
   const locale = useLocale() as AppLocale;

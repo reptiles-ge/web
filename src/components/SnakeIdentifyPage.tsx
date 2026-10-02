@@ -13,6 +13,7 @@ import { QuizPracticeCta } from "@/components/QuizPracticeCta";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { SpeciesInlineLink } from "@/components/SpeciesInlineLink";
 import { isVenomousDanger } from "@/data/speciesAtlasMeta";
+import { toSpeciesCard, toSpeciesCards } from "@/data/speciesCard";
 import { Link } from "@/i18n/navigation";
 import {
   type ClusterGuideViewProps,
@@ -135,7 +136,11 @@ export async function SnakeIdentifyPage({
             </Link>
           </div>
         )}
-        <SpeciesGuideList locale={locale} source="guide" species={venomous} />
+        <SpeciesGuideList
+          locale={locale}
+          source="guide"
+          species={toSpeciesCards(venomous)}
+        />
       </ClusterContentSection>
 
       <ClusterContentSection
@@ -147,8 +152,8 @@ export async function SnakeIdentifyPage({
           {pairs.map((pair) => (
             <div key={`${pair.a.id}-${pair.b.id}`}>
               <LookalikePair
-                a={pair.a}
-                b={pair.b}
+                a={toSpeciesCard(pair.a)}
+                b={toSpeciesCard(pair.b)}
                 locale={locale}
                 vs={t("vs")}
               />

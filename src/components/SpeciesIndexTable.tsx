@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl";
 import { useMemo, useState } from "react";
 
-import type { Species } from "@/data/species";
+import type { SpeciesIndexRow } from "@/data/speciesCard";
 import type { AppLocale } from "@/i18n/routing";
 
 import { CoverImage } from "@/components/CoverImage";
@@ -17,11 +17,6 @@ import { Link } from "@/i18n/navigation";
 import { trackEvent, trackSpeciesClick } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
 import { speciesHrefFromIndex } from "@/lib/localeSwitch";
-import {
-  getSpeciesActivityStat,
-  getSpeciesHabitatStat,
-  getSpeciesSizeStat,
-} from "@/lib/speciesContent";
 import { speciesImageAlt } from "@/lib/speciesMeta";
 
 type DangerFilter = "all" | "harmless" | "venomous";
@@ -35,7 +30,7 @@ export function SpeciesIndexTable({
   locale: AppLocale;
   showDangerFilter?: boolean;
   showFamilyFilter?: boolean;
-  species: Species[];
+  species: SpeciesIndexRow[];
 }) {
   const t = useTranslations("speciesIndex");
   const tShared = useTranslations("groupHubShared");
@@ -220,9 +215,9 @@ export function SpeciesIndexTable({
                     locale,
                     tShared("rangePending"),
                   );
-                  const size = getSpeciesSizeStat(item) ?? dash;
-                  const habitat = getSpeciesHabitatStat(item) ?? dash;
-                  const activity = getSpeciesActivityStat(item) ?? dash;
+                  const size = item.size ?? dash;
+                  const habitat = item.habitat ?? dash;
+                  const activity = item.activity ?? dash;
                   const onClick = () =>
                     trackSpeciesClick({
                       position: rowIndex + 1,
@@ -322,15 +317,15 @@ function IndexCard({
   locale: AppLocale;
   position: number;
   rangePending: string;
-  species: Species;
+  species: SpeciesIndexRow;
   venomousNo: string;
   venomousYes: string;
 }) {
   const href = useSpeciesHref(species.id, locale);
   const range = formatRange(species.id, locale, rangePending);
-  const size = getSpeciesSizeStat(species) ?? dash;
-  const habitat = getSpeciesHabitatStat(species) ?? dash;
-  const activity = getSpeciesActivityStat(species) ?? dash;
+  const size = species.size ?? dash;
+  const habitat = species.habitat ?? dash;
+  const activity = species.activity ?? dash;
 
   return (
     <Link

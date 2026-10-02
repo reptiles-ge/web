@@ -14,6 +14,7 @@ import {
 import { SpeciesIndexTable } from "@/components/SpeciesIndexTable";
 import { SpeciesInlineLink } from "@/components/SpeciesInlineLink";
 import { isVenomousDanger } from "@/data/speciesAtlas";
+import { toSpeciesIndexRows } from "@/data/speciesCard";
 
 export async function SnakeSpeciesIndexPage({
   guideId,
@@ -79,7 +80,10 @@ export async function SnakeSpeciesIndexPage({
             />
           </div>
           <div className="mt-10">
-            <SpeciesIndexTable locale={locale} species={species} />
+            <SpeciesIndexTable
+              locale={locale}
+              species={toSpeciesIndexRows(species)}
+            />
           </div>
         </div>
       </section>

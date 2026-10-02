@@ -11,6 +11,7 @@ import {
 } from "@/components/ClusterSectionIntro";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { SpeciesIndexTable } from "@/components/SpeciesIndexTable";
+import { toSpeciesCards, toSpeciesIndexRows } from "@/data/speciesCard";
 import {
   type ClusterGuideViewProps,
   isDarevskiaSpecies,
@@ -78,7 +79,11 @@ export async function LizardSpeciesIndexPage({
               titleClassName={CLUSTER_TITLE_SECTION}
             />
           </div>
-          <SpeciesGuideList locale={locale} source="guide" species={featured} />
+          <SpeciesGuideList
+            locale={locale}
+            source="guide"
+            species={toSpeciesCards(featured)}
+          />
         </div>
       </section>
 
@@ -99,7 +104,7 @@ export async function LizardSpeciesIndexPage({
               locale={locale}
               showDangerFilter={false}
               showFamilyFilter={false}
-              species={darevskia}
+              species={toSpeciesIndexRows(darevskia)}
             />
           </div>
         </div>
@@ -121,7 +126,7 @@ export async function LizardSpeciesIndexPage({
             <SpeciesIndexTable
               locale={locale}
               showDangerFilter={false}
-              species={other}
+              species={toSpeciesIndexRows(other)}
             />
           </div>
         </div>

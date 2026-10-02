@@ -9,6 +9,7 @@ import { ClusterPageFrame } from "@/components/ClusterPageFrame";
 import { LookalikePair } from "@/components/LookalikePair";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
+import { toSpeciesCard, toSpeciesCards } from "@/data/speciesCard";
 import { Link } from "@/i18n/navigation";
 import { speciesHref } from "@/lib/speciesRoutes";
 
@@ -103,8 +104,8 @@ export async function SpiderVenomousPage({
         {karakurt && falseWidow ? (
           <div className="mt-12">
             <LookalikePair
-              a={karakurt}
-              b={falseWidow}
+              a={toSpeciesCard(karakurt)}
+              b={toSpeciesCard(falseWidow)}
               locale={locale}
               vs={t("vs")}
             />
@@ -136,7 +137,11 @@ export async function SpiderVenomousPage({
         id="species"
         title={t("speciesTitle")}
       >
-        <SpeciesGuideList locale={locale} source="guide" species={species} />
+        <SpeciesGuideList
+          locale={locale}
+          source="guide"
+          species={toSpeciesCards(species)}
+        />
         {karakurt ? (
           <Link
             className="mt-8 inline-flex items-center rounded-full border border-border px-5 py-2.5 text-[13px] font-medium text-foreground"

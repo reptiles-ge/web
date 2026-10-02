@@ -13,6 +13,7 @@ import {
   ClusterStat,
 } from "@/components/ClusterSectionIntro";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
+import { toSpeciesCards } from "@/data/speciesCard";
 import { Link } from "@/i18n/navigation";
 
 export async function DarevskiaGuidePage({
@@ -77,7 +78,11 @@ export async function DarevskiaGuidePage({
             title={t("speciesTitle", { count: species.length })}
             titleClassName={CLUSTER_TITLE_SECTION}
           />
-          <SpeciesGuideList locale={locale} source="guide" species={species} />
+          <SpeciesGuideList
+            locale={locale}
+            source="guide"
+            species={toSpeciesCards(species)}
+          />
         </div>
       </section>
     </ClusterPageFrame>

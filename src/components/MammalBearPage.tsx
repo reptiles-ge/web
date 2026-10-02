@@ -3,6 +3,7 @@ import type { ClusterGuideViewProps } from "@/lib/clusterGuides";
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
 import { BEAR_ENCOUNTER_CONFIG } from "@/components/safetyGuideConfig";
 import { SafetyGuideSections } from "@/components/SafetyGuideSections";
+import { toSpeciesCards } from "@/data/speciesCard";
 
 export async function MammalBearPage({
   guideId,
@@ -18,7 +19,10 @@ export async function MammalBearPage({
       heroSrc={heroSrc}
       locale={locale}
     >
-      <SafetyGuideSections config={BEAR_ENCOUNTER_CONFIG} species={species} />
+      <SafetyGuideSections
+        config={BEAR_ENCOUNTER_CONFIG}
+        species={toSpeciesCards(species)}
+      />
     </ClusterPageFrame>
   );
 }

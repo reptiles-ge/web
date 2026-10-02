@@ -3,6 +3,7 @@ import type { ClusterGuideViewProps } from "@/lib/clusterGuides";
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
 import { LIZARD_HOUSE_CONFIG } from "@/components/conflictGuideConfig";
 import { ConflictGuideSections } from "@/components/ConflictGuideSections";
+import { toSpeciesCards } from "@/data/speciesCard";
 
 export async function LizardHousePage({
   guideId,
@@ -17,7 +18,10 @@ export async function LizardHousePage({
       heroSrc={heroSrc}
       locale={locale}
     >
-      <ConflictGuideSections config={LIZARD_HOUSE_CONFIG} species={species} />
+      <ConflictGuideSections
+        config={LIZARD_HOUSE_CONFIG}
+        species={toSpeciesCards(species)}
+      />
     </ClusterPageFrame>
   );
 }

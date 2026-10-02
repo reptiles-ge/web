@@ -3,6 +3,7 @@ import type { ClusterGuideViewProps } from "@/lib/clusterGuides";
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
 import { SPIDER_BITE_CONFIG } from "@/components/safetyGuideConfig";
 import { SafetyGuideSections } from "@/components/SafetyGuideSections";
+import { toSpeciesCards } from "@/data/speciesCard";
 
 export async function SpiderBitePage({
   guideId,
@@ -18,7 +19,10 @@ export async function SpiderBitePage({
       heroSrc={heroSrc}
       locale={locale}
     >
-      <SafetyGuideSections config={SPIDER_BITE_CONFIG} species={species} />
+      <SafetyGuideSections
+        config={SPIDER_BITE_CONFIG}
+        species={toSpeciesCards(species)}
+      />
     </ClusterPageFrame>
   );
 }

@@ -22,6 +22,7 @@ import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
 import { TurtlesHubSections } from "@/components/TurtlesHubSections";
 import { getGuideArticlesForHub } from "@/data/guideArticles";
+import { toSpeciesCards } from "@/data/speciesCard";
 import { Link } from "@/i18n/navigation";
 import { isLocalAdminEnabled } from "@/lib/adminAccess";
 import { HUB_CLUSTER_CARDS, splitHubSpecies } from "@/lib/clusterGuides";
@@ -127,7 +128,7 @@ export async function GroupHubPage({
               cards={clusterCards}
               className="mt-14"
               locale={locale}
-              species={species}
+              species={toSpeciesCards(species)}
             />
           </div>
         </section>

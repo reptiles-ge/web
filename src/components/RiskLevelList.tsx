@@ -3,7 +3,8 @@
 import { ArrowUpRight, Shield } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 
-import type { DangerLevel, Species } from "@/data/species";
+import type { DangerLevel } from "@/data/species";
+import type { SpeciesCard } from "@/data/speciesCard";
 import type { AppLocale } from "@/i18n/routing";
 
 import { ClusterPathCard } from "@/components/ClusterPathCard";
@@ -19,7 +20,7 @@ import { cn } from "@/lib/cn";
 import { DANGER_LEVEL_HASH, DANGER_LEVEL_ORDER } from "@/lib/dangerLevels";
 
 type RiskLevelListProps = {
-  speciesByLevel: Record<DangerLevel, Species[]>;
+  speciesByLevel: Record<DangerLevel, SpeciesCard[]>;
 };
 
 export function RiskLevelList({ speciesByLevel }: RiskLevelListProps) {
