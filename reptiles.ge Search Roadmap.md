@@ -37,6 +37,25 @@ Each takes hours, not days, and avoids building a new page that would compete wi
 11. **Scorpions hub:** answer "შხამიანი მორიელი საქართველოში" and "მორიელი დასავლეთ საქართველოში" (both autocomplete) on the page.
 12. **Measure the September guides:** run `pnpm seo:audit:gsc` around 1 November. The cached data ends 17 September, before the 14 guides launched. Their indexing and first positions should decide how fast to scale everything below.
 
+### Shipped 2 October 2026
+
+Branch `fix/search-roadmap-existing-pages`. Nine items are on the branch. Three are still open, on purpose.
+
+1. **Done.** Tick-bite guide (`src/content/guides/tickBite.ts`). KA title is now „ტკიპას ნაკბენი — ამოღება და მოშორება“. The removal H2 is „ტკიპას ამოღება და ტკიპას მოშორება“. FAQ questions use „როგორ ხდება ტკიპას ამოღება?“ and „ტკიპას ნაკბენი ფოტო ნიშნავს ლაიმის დაავადებას?“. The description and keywords include ტკიპას ნაკბენი, ტკიპას ამოღება, ტკიპას მოშორება and ტკიპას ნაკბენი ფოტო. The H1 stays the standard ტკიპის form.
+2. **Done.** Snakes-in-the-yard. New section „გველი სახლში — რა ვქნა?“ (`houseTitle` / `houseBody` in all four locales, rendered by `SnakesInYardHouse`). It restates the existing rules: do not catch it, keep distance, call 112. Keywords and two myths now name the repellent product, spray and device terms. No new method was added.
+3. **Done.** Venomous-snakes page. New H2 answers „რომელია ყველაზე შხამიანი გველი საქართველოში?“ and links to the გიურზა profile (`macrovipera-lebetina`). The keyword is on the KA page. No venom-chemistry ranking was invented.
+4. **Done.** Lizard hub owns „ხვლიკი საქართველოში“ in the KA title, H1 and the live description (`/xvlikebi` in `kaMetaDescriptionOverrides.ts`). The identification page stays on „ეს რა ხვლიკია?“. English stays „Lizards in Georgia“.
+5. **Done, except the image-pack check.** KA titles and descriptions for წავი, მაჩვი and შველი now lead with „X საქართველოში“ (`speciesMeta.ts` and `kaMetaDescriptionOverrides.ts`). H1s stay the common names. Whether an image pack is taking the clicks still needs a SERP look, not a code change.
+6. **Done.** Raccoon profile opens with one line: this page is Procyon lotor, not the raccoon dog (Nyctereutes procyonoides), in all four locales. The KA snippet says the same. No raccoon-dog profile: no Georgian source records that species here.
+7. **Done.** Stink-bug guide has a section „ჭიამაიები სახლში — ეს ფაროსანაა?“, sourced to University of Minnesota Extension on Harmonia axyridis. The copy does not claim a Georgia record. A standalone page stays a decision for next autumn, after GSC.
+8. **Partial.** Mouse guide has a FAQ „თაგვი თუ ვირთხა?“: this page is about mice, a rat is a different rodent, and the steps do not transfer. There is no link yet, because `/dzuzumtsovrebi/virtkha-sakhlshi` does not exist. Add the link when page 3 of the Top 10 is live.
+9. **Not done.** Wasp-nest sting detail stays until the stings page (Top 10, page 7) exists. Cutting it now would leave the query unanswered.
+10. **Done.** Mammals hub has an H2 „მტაცებელი ცხოველები საქართველოში“. The body names published predators only (wolf, fox, golden jackal, brown bear, lynx, least weasel, badger, otter). Leopard stays a rare vagrant. Roe deer is not listed. The hub is not a national fauna list.
+11. **Done.** Scorpions hub has two H2s: „შხამიანი მორიელი საქართველოში“ and „მორიელი დასავლეთ საქართველოში“. Mesobuthus eupeus and Olivierus caucasicus stay Moderate; both Euscorpius species stay Harmless. The Mingrelian scorpion is tied to western Georgia, and place alone is not identification.
+12. **Not done.** Run `pnpm seo:audit:gsc` around 1 November 2026. Do not run it in October: the cached export ends 17 September, before the 14 September guides.
+
+Last-modified is `2026-10-02T12:30:00+04:00` on the tick, yard, venomous-snakes, lizard hub, mammals hub, scorpions hub, stink-bug and mouse pages. Published dates were not moved.
+
 ## Top 10: build these first
 
 This is publishing order. Pages 1–5 earn traffic now. Pages 6–7 are the two biggest seasonal opportunities, built early so they're indexed and ranking before April and July. Pages 8–10 catch the school year and household problems that run all year.
@@ -1964,7 +1983,7 @@ Publish
 Prepare and refresh
 
 - Start #13 (marten profile first)
-- Ship quick wins 1–8
+- Quick wins 1–7, 10 and 11 shipped 2 Oct 2026. Item 8 waits for the rats page. Item 9 waits for the stings page. Item 12 is the 1 Nov GSC audit.
 - Confirm the 14 September guides are indexed
 
 ### Nov 2026
