@@ -349,6 +349,31 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     slug: "giorgi-sheklashvili",
   },
   {
+    aliases: ["Giorgi Natsvlishvili", "გიორგი ნაცვლიშვილი"],
+    bio: {
+      en: "Giorgi Natsvlishvili is a nature guide and photographer with a deep interest in Georgia’s wildlife and biodiversity. Since 2017 he has professionally led nature-focused tours across different regions of Georgia. Through photography, Giorgi has spent years documenting Georgia’s fauna and natural environment. His work has appeared in scientific publications and in a field guide to Georgia’s wildlife. He is especially interested in species conservation, raising awareness about nature, and better understanding Georgia’s biodiversity.",
+      ka: "გიორგი ნაცვლიშვილი — ბუნების გიდი და ფოტოგრაფი, რომელიც საქართველოს ველური ბუნებისა და ბიომრავალფეროვნების შესწავლით არის დაინტერესებული. 2017 წლიდან პროფესიონალურად უძღვება ბუნებაზე ორიენტირებულ ტურებს საქართველოს სხვადასხვა რეგიონში. ფოტოგრაფიის საშუალებით გიორგი წლების განმავლობაში აფიქსირებს საქართველოს ფაუნასა და ბუნებრივ გარემოს. მისი ნამუშევრები გამოქვეყნებულია სამეცნიერო ნაშრომებსა და საქართველოს ველური ბუნების გზამკვლევში. განსაკუთრებით დაინტერესებულია სახეობების კონსერვაციით, ბუნების შესახებ ცნობიერების ამაღლებითა და საქართველოს ბიომრავალფეროვნების უკეთ შესწავლით.",
+      ru: "Гиорги Нацвлишвили — природный гид и фотограф, интересующийся изучением дикой природы и биоразнообразия Грузии. С 2017 года профессионально проводит природные туры в разных регионах Грузии. С помощью фотографии Гиорги годами фиксирует фауну и природную среду Грузии. Его работы опубликованы в научных трудах и в путеводителе по дикой природе Грузии. Особенно интересуется сохранением видов, повышением осведомлённости о природе и более глубоким изучением биоразнообразия Грузии.",
+      tr: "Giorgi Natsvlishvili, Gürcistan’ın yaban hayatı ve biyoçeşitliliğini incelemeye ilgi duyan bir doğa rehberi ve fotoğrafçıdır. 2017’den beri Gürcistan’ın farklı bölgelerinde doğa odaklı turlara profesyonel olarak rehberlik etmektedir. Giorgi, fotoğrafçılık aracılığıyla yıllardır Gürcistan’ın faunasını ve doğal çevresini belgelemektedir. Çalışmaları bilimsel yayınlarda ve Gürcistan yaban hayatı rehberinde yer almıştır. Özellikle tür koruma, doğa farkındalığını artırma ve Gürcistan’ın biyoçeşitliliğini daha iyi tanıma konularıyla ilgilenmektedir.",
+    },
+    id: "giorgi-natsvlishvili",
+    links: {
+      facebook: "https://www.facebook.com/giorgi.natsvlishvili.308",
+    },
+    name: {
+      en: "Giorgi Natsvlishvili",
+      ka: "გიორგი ნაცვლიშვილი",
+      ru: "Гиорги Нацвлишвили",
+      tr: "Giorgi Natsvlishvili",
+    },
+    portraitClass: "object-[50%_40%]",
+    portraitSrc:
+      "https://cdn.reptiles.ge/optimized/images/authors/giorgi-natsvlishvili-480.webp",
+    published: true,
+    role: "photographer",
+    slug: "giorgi-natsvlishvili",
+  },
+  {
     aliases: ["Lasha Gogodze", "ლაშა გოგოძე"],
     bio: {
       en: "Lasha Gogodze is a graduate of the Georgian-American High School who took part in the iFest international conference in Tunisia and currently studies Biochemistry and Molecular Biology at Connecticut College in the United States.",

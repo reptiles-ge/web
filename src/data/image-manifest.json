@@ -39726,6 +39726,59 @@
       ],
       "updatedAt": "2026-08-28T21:42:44.113Z"
     },
+    "images/authors/giorgi-natsvlishvili.png": {
+      "sourceHash": "c18715eda47f2925b06543b0c44f206e5b071824b3e7319b2ef0730393fe3216",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/authors/giorgi-natsvlishvili.png",
+      "originalSize": 336294,
+      "width": 480,
+      "height": 480,
+      "derivatives": [
+        {
+          "key": "optimized/images/authors/giorgi-natsvlishvili-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 320,
+          "byteSize": 13664
+        },
+        {
+          "key": "optimized/images/authors/giorgi-natsvlishvili-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 320,
+          "byteSize": 17916
+        },
+        {
+          "key": "optimized/images/authors/giorgi-natsvlishvili-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 400,
+          "byteSize": 19632
+        },
+        {
+          "key": "optimized/images/authors/giorgi-natsvlishvili-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 400,
+          "byteSize": 24956
+        },
+        {
+          "key": "optimized/images/authors/giorgi-natsvlishvili-480.avif",
+          "format": "avif",
+          "width": 480,
+          "height": 480,
+          "byteSize": 26574
+        },
+        {
+          "key": "optimized/images/authors/giorgi-natsvlishvili-480.webp",
+          "format": "webp",
+          "width": 480,
+          "height": 480,
+          "byteSize": 32504
+        }
+      ],
+      "updatedAt": "2026-10-03T18:21:22.517Z"
+    },
     "images/authors/giorgi-sheklashvili.jpg": {
       "sourceHash": "2c61f6c13f0bf29a746e80ff08b7307acea28670303b5fbf4454730e615333e8",
       "configFingerprint": "409788ee46c653d8",
@@ -40006,7 +40059,7 @@
           "byteSize": 68748
         }
       ],
-      "updatedAt": "2026-09-25T14:08:27.790Z"
+      "updatedAt": "2026-10-03T18:22:58.089Z"
     },
     "images/guides/bat-on-wall.jpg": {
       "sourceHash": "31aff5359cba83072f5c4ba95770e6a5b8f1a8288b05165cea805b05e359fb74",
@@ -40087,7 +40140,7 @@
           "byteSize": 127124
         }
       ],
-      "updatedAt": "2026-09-25T14:08:26.794Z"
+      "updatedAt": "2026-10-03T18:23:01.048Z"
     },
     "images/guides/bat-roost-natural.jpg": {
       "sourceHash": "4fba551b926274198eb19500008ae3f54284a5c192777c1f1033aeca640987f1",
@@ -40168,7 +40221,7 @@
           "byteSize": 110248
         }
       ],
-      "updatedAt": "2026-09-25T14:08:25.550Z"
+      "updatedAt": "2026-10-03T18:22:59.179Z"
     },
     "images/guides/bed-bugs-at-home-hero.jpg": {
       "sourceHash": "531de7133f3b247df7b9414ad210e8d04e97bbbf1e63aeb457c64c4d1ba69e54",
@@ -40425,7 +40478,7 @@
           "byteSize": 89424
         }
       ],
-      "updatedAt": "2026-09-29T07:38:50.976Z"
+      "updatedAt": "2026-10-03T18:22:59.666Z"
     },
     "images/guides/clothes-moth-closet.jpg": {
       "sourceHash": "f0df92180d35a7e2f17dc69cf383c5432b1ece01e2fbed4fd1c3f0f2c72f5571",
@@ -40615,7 +40668,7 @@
           "byteSize": 295810
         }
       ],
-      "updatedAt": "2026-09-29T07:38:54.338Z"
+      "updatedAt": "2026-10-03T18:23:06.043Z"
     },
     "images/guides/cockroaches-at-home-hero.jpg": {
       "sourceHash": "ce57c7956826d10f754a9cd99edd032d8b691ecd634e43304aee1d7af4b61b10",
@@ -40710,7 +40763,7 @@
           "byteSize": 74282
         }
       ],
-      "updatedAt": "2026-09-29T05:56:11.485Z"
+      "updatedAt": "2026-10-03T18:23:03.915Z"
     },
     "images/guides/cockroaches-at-home-inspection.jpg": {
       "sourceHash": "b76949bbf9b7d64b997748620bd9fb3c233743bdffaf4f8c9d20effd5428cc4a",
@@ -40805,7 +40858,7 @@
           "byteSize": 103302
         }
       ],
-      "updatedAt": "2026-09-29T05:56:12.324Z"
+      "updatedAt": "2026-10-03T18:23:05.350Z"
     },
     "images/guides/cockroaches-at-home-trap.jpg": {
       "sourceHash": "19a466c669802581aec8afb3a2f4e8bdadac7e95da7590e4c41d0b0d40df89b5",
@@ -40900,7 +40953,7 @@
           "byteSize": 99532
         }
       ],
-      "updatedAt": "2026-09-29T05:56:12.229Z"
+      "updatedAt": "2026-10-03T18:23:06.285Z"
     },
     "images/guides/flea-adult-macro-fedaro.jpg": {
       "sourceHash": "631dcee637fa575d93406c8dd4b715a3dc15158a3f36e9aaa4971357d926f69a",
@@ -40995,7 +41048,7 @@
           "byteSize": 115270
         }
       ],
-      "updatedAt": "2026-09-29T11:42:08.128Z"
+      "updatedAt": "2026-10-03T18:23:12.559Z"
     },
     "images/guides/fleas-home-pet-care-hero.jpg": {
       "sourceHash": "9a1a427f2c875f689f539ca526c37d7df86407d9d72e6ae98d474849b36b26a2",
@@ -41090,7 +41143,7 @@
           "byteSize": 183494
         }
       ],
-      "updatedAt": "2026-09-29T11:42:05.942Z"
+      "updatedAt": "2026-10-03T18:23:15.118Z"
     },
     "images/guides/gyurza-bite-clinical-assessment.jpg": {
       "sourceHash": "c723b5140aba0a814948b1621b01ca1604893c06d36bdcd9b9676d1fdd23f11d",
@@ -41185,7 +41238,7 @@
           "byteSize": 114936
         }
       ],
-      "updatedAt": "2026-09-25T16:06:11.924Z"
+      "updatedAt": "2026-10-03T18:23:12.359Z"
     },
     "images/guides/gyurza-bite-hero.jpg": {
       "sourceHash": "896747364cad769b353e7807ab9d41220f9bd98df6c0581734b506ed646567da",
@@ -41280,7 +41333,7 @@
           "byteSize": 318444
         }
       ],
-      "updatedAt": "2026-09-25T16:06:06.807Z"
+      "updatedAt": "2026-10-03T18:23:13.633Z"
     },
     "images/guides/gyurza-bite-viper-portrait.jpg": {
       "sourceHash": "fa16c9f9c471f4cc6bccf7c60bc3e97122d4465b1b5447084ad22b79f43f0524",
@@ -41375,7 +41428,7 @@
           "byteSize": 364966
         }
       ],
-      "updatedAt": "2026-09-25T16:06:26.514Z"
+      "updatedAt": "2026-10-03T18:23:21.444Z"
     },
     "images/guides/mosquitoes-at-home-cover.jpg": {
       "sourceHash": "34e9b8238931ea062a88e3340f2b3e8bf82b02ee8243ba172086a6117ba703cd",
@@ -41456,7 +41509,7 @@
           "byteSize": 46766
         }
       ],
-      "updatedAt": "2026-09-30T07:27:10.819Z"
+      "updatedAt": "2026-10-03T18:23:18.874Z"
     },
     "images/guides/mosquitoes-at-home-hero.jpg": {
       "sourceHash": "f9160e50c5c8018305781f829a076f2bac66c5ea2eea544c36a05acab9f5d8ad",
@@ -41551,7 +41604,7 @@
           "byteSize": 265990
         }
       ],
-      "updatedAt": "2026-09-30T07:27:13.258Z"
+      "updatedAt": "2026-10-03T18:23:22.497Z"
     },
     "images/guides/mosquitoes-at-home-screen.jpg": {
       "sourceHash": "943a5252bb7fe70f8e6b64d17d35a9e43fdfa6d785f536ad7847b7aa8721aebe",
@@ -41632,7 +41685,7 @@
           "byteSize": 67822
         }
       ],
-      "updatedAt": "2026-09-30T07:27:12.403Z"
+      "updatedAt": "2026-10-03T18:23:18.863Z"
     },
     "images/guides/mosquitoes-at-home-yard.jpg": {
       "sourceHash": "a47e2f90678325d9e5bd58c35e65da0768072f93f1a4e5fe863575f8dc3917e6",
@@ -41713,7 +41766,7 @@
           "byteSize": 103488
         }
       ],
-      "updatedAt": "2026-09-30T07:27:12.434Z"
+      "updatedAt": "2026-10-03T18:23:23.726Z"
     },
     "images/guides/scorpion-in-house-gap.jpg": {
       "sourceHash": "c0e54cdff416ea618b69b548c1470d1845d1f79bcda21aaa99e632821df35743",
@@ -43420,7 +43473,7 @@
           "byteSize": 180688
         }
       ],
-      "updatedAt": "2026-09-25T14:08:36.511Z"
+      "updatedAt": "2026-10-03T18:23:24.660Z"
     },
     "images/guides/wasp-nest-open-comb.jpg": {
       "sourceHash": "4b6185537b5da6e992cd1e6c200b66d8565558865e2c762c674624a102c3b7b2",
@@ -43515,7 +43568,7 @@
           "byteSize": 135048
         }
       ],
-      "updatedAt": "2026-09-25T14:08:40.271Z"
+      "updatedAt": "2026-10-03T18:23:30.639Z"
     },
     "images/home/groups/amphibians.jpg": {
       "sourceHash": "93be3de896c76e82e0182df5b4b1d97ac92bde9f93d1393be8fb2cc98e1cbc3b",
@@ -43610,7 +43663,7 @@
           "byteSize": 272276
         }
       ],
-      "updatedAt": "2026-09-25T14:08:45.105Z"
+      "updatedAt": "2026-10-03T18:23:30.348Z"
     },
     "images/home/groups/birds.jpg": {
       "sourceHash": "d03c8925303f88a828fb31e4e3562553ed92ea2500c90d6ea877d20fed35fd00",
@@ -43691,7 +43744,7 @@
           "byteSize": 131548
         }
       ],
-      "updatedAt": "2026-09-25T14:08:41.551Z"
+      "updatedAt": "2026-10-03T18:23:28.297Z"
     },
     "images/home/groups/insects.jpg": {
       "sourceHash": "5cdb9c2b740a71d71c5a6700ab5f39ee6ebe969381964b3601ef273566c2cfb5",
@@ -43772,7 +43825,7 @@
           "byteSize": 93506
         }
       ],
-      "updatedAt": "2026-09-25T14:08:44.436Z"
+      "updatedAt": "2026-10-03T18:23:29.157Z"
     },
     "images/home/groups/lizards.jpg": {
       "sourceHash": "066e1cc066206326ab10437dc3fe3c9c1f27540673608d9dbf89b310b6bd8702",
@@ -43867,7 +43920,7 @@
           "byteSize": 344598
         }
       ],
-      "updatedAt": "2026-09-25T14:08:47.547Z"
+      "updatedAt": "2026-10-03T18:23:34.746Z"
     },
     "images/home/groups/mammals.jpg": {
       "sourceHash": "e84e26f71a016ebd729eab74a5d537383d9721855d90a4d27527721ceb940739",
@@ -43948,7 +44001,7 @@
           "byteSize": 178278
         }
       ],
-      "updatedAt": "2026-09-25T14:08:49.847Z"
+      "updatedAt": "2026-10-03T18:23:34.902Z"
     },
     "images/home/groups/scorpions.jpg": {
       "sourceHash": "e3cb4dd5c659564c67cfce918d1a438d13675c51876be3fd10b8540a7ed46215",
@@ -44029,7 +44082,7 @@
           "byteSize": 14224
         }
       ],
-      "updatedAt": "2026-09-25T14:08:46.892Z"
+      "updatedAt": "2026-10-03T18:23:33.669Z"
     },
     "images/home/groups/snakes.jpg": {
       "sourceHash": "40913797bd7a37477ae447364c3a7106609e7104b774351c0aa089cfc18e92df",
@@ -44124,7 +44177,7 @@
           "byteSize": 249742
         }
       ],
-      "updatedAt": "2026-09-25T14:08:52.424Z"
+      "updatedAt": "2026-10-03T18:23:36.311Z"
     },
     "images/home/groups/spiders.jpg": {
       "sourceHash": "d97fae0b550f0760f7cf89bfb18b376b87ce2b40a6bd5fe1e086bff908918f1c",
@@ -44205,7 +44258,7 @@
           "byteSize": 126958
         }
       ],
-      "updatedAt": "2026-09-25T14:08:51.414Z"
+      "updatedAt": "2026-10-03T18:23:38.318Z"
     },
     "images/home/groups/turtles.jpg": {
       "sourceHash": "865e39fdba02b04b4981d8c5d4d97c28510ec069dd186d3acc4ec3c43a3f52ef",
@@ -44300,7 +44353,7 @@
           "byteSize": 298432
         }
       ],
-      "updatedAt": "2026-09-25T14:08:52.850Z"
+      "updatedAt": "2026-10-03T18:23:41.154Z"
     },
     "images/news/theridion-huseynovi-new-spider-species-georgia-2026/theridion-huseynovi.png": {
       "sourceHash": "d4a1a13fbf943fc87f371418a57eca878129fcd41f735deb5bfbca43c80fe9f3",
@@ -70965,6 +71018,59 @@
       ],
       "updatedAt": "2026-08-28T21:55:26.982Z"
     },
+    "optimized/images/authors/giorgi-natsvlishvili-480.webp": {
+      "sourceHash": "eec1b38a82513b714d887e3bbc5973642f12044309a32a98933675bab6ce1013",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "optimized/images/authors/giorgi-natsvlishvili-480.webp",
+      "originalSize": 32504,
+      "width": 480,
+      "height": 480,
+      "derivatives": [
+        {
+          "key": "optimized/optimized/images/authors/giorgi-natsvlishvili-480-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 320,
+          "byteSize": 12685
+        },
+        {
+          "key": "optimized/optimized/images/authors/giorgi-natsvlishvili-480-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 320,
+          "byteSize": 15634
+        },
+        {
+          "key": "optimized/optimized/images/authors/giorgi-natsvlishvili-480-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 400,
+          "byteSize": 17085
+        },
+        {
+          "key": "optimized/optimized/images/authors/giorgi-natsvlishvili-480-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 400,
+          "byteSize": 21178
+        },
+        {
+          "key": "optimized/optimized/images/authors/giorgi-natsvlishvili-480-480.avif",
+          "format": "avif",
+          "width": 480,
+          "height": 480,
+          "byteSize": 26174
+        },
+        {
+          "key": "optimized/optimized/images/authors/giorgi-natsvlishvili-480-480.webp",
+          "format": "webp",
+          "width": 480,
+          "height": 480,
+          "byteSize": 31788
+        }
+      ],
+      "updatedAt": "2026-10-03T18:23:42.966Z"
+    },
     "optimized/images/authors/kakhaber-sukhitashvili-480.webp": {
       "sourceHash": "840bfc8d5d387a9a4a97633d03633bd70b96c0a6aafe0eac7ff4c92032ea3ab4",
       "configFingerprint": "409788ee46c653d8",
@@ -78451,6 +78557,101 @@
       ],
       "updatedAt": "2026-08-28T21:57:23.008Z"
     },
+    "regions/abkhazia.jpg": {
+      "sourceHash": "0dca91066464ebf6d8f159602908a52ca65563ba06adf16debc9bcb3ce8862c4",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "regions/abkhazia.jpg",
+      "originalSize": 100310,
+      "width": 1280,
+      "height": 960,
+      "derivatives": [
+        {
+          "key": "optimized/regions/abkhazia-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 5938
+        },
+        {
+          "key": "optimized/regions/abkhazia-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 7866
+        },
+        {
+          "key": "optimized/regions/abkhazia-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 8497
+        },
+        {
+          "key": "optimized/regions/abkhazia-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 11476
+        },
+        {
+          "key": "optimized/regions/abkhazia-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 19610
+        },
+        {
+          "key": "optimized/regions/abkhazia-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 27212
+        },
+        {
+          "key": "optimized/regions/abkhazia-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 29997
+        },
+        {
+          "key": "optimized/regions/abkhazia-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 39992
+        },
+        {
+          "key": "optimized/regions/abkhazia-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 60202
+        },
+        {
+          "key": "optimized/regions/abkhazia-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 75176
+        },
+        {
+          "key": "optimized/regions/abkhazia-1280.avif",
+          "format": "avif",
+          "width": 1280,
+          "height": 960,
+          "byteSize": 69653
+        },
+        {
+          "key": "optimized/regions/abkhazia-1280.webp",
+          "format": "webp",
+          "width": 1280,
+          "height": 960,
+          "byteSize": 85410
+        }
+      ],
+      "updatedAt": "2026-10-03T18:22:15.042Z"
+    },
     "regions/adjara.jpg": {
       "sourceHash": "fec8d8af10844e36e85352fe451ac827431a1770589edb5755b836b0c1f413ac",
       "configFingerprint": "409788ee46c653d8",
@@ -78531,6 +78732,749 @@
         }
       ],
       "updatedAt": "2026-09-17T15:22:50.678Z"
+    },
+    "regions/guria.jpg": {
+      "sourceHash": "42dbe7a6db6ac2792ff4edda06250acf29e7fb8329109619b84665ea6f7a07e4",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "regions/guria.jpg",
+      "originalSize": 222054,
+      "width": 1728,
+      "height": 1152,
+      "derivatives": [
+        {
+          "key": "optimized/regions/guria-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 5030
+        },
+        {
+          "key": "optimized/regions/guria-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 5674
+        },
+        {
+          "key": "optimized/regions/guria-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 7632
+        },
+        {
+          "key": "optimized/regions/guria-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 8630
+        },
+        {
+          "key": "optimized/regions/guria-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 17268
+        },
+        {
+          "key": "optimized/regions/guria-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 20406
+        },
+        {
+          "key": "optimized/regions/guria-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 24901
+        },
+        {
+          "key": "optimized/regions/guria-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 29460
+        },
+        {
+          "key": "optimized/regions/guria-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 48191
+        },
+        {
+          "key": "optimized/regions/guria-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 56672
+        },
+        {
+          "key": "optimized/regions/guria-1728.avif",
+          "format": "avif",
+          "width": 1728,
+          "height": 1152,
+          "byteSize": 101120
+        },
+        {
+          "key": "optimized/regions/guria-1728.webp",
+          "format": "webp",
+          "width": 1728,
+          "height": 1152,
+          "byteSize": 109590
+        }
+      ],
+      "updatedAt": "2026-10-03T18:22:23.874Z"
+    },
+    "regions/imereti.jpg": {
+      "sourceHash": "305cd84b2c15e9a46da18b8240369932cdc4200cef34c69d98a267f3e661cfe1",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "regions/imereti.jpg",
+      "originalSize": 235520,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/regions/imereti-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 12568
+        },
+        {
+          "key": "optimized/regions/imereti-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 15540
+        },
+        {
+          "key": "optimized/regions/imereti-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 18058
+        },
+        {
+          "key": "optimized/regions/imereti-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 22254
+        },
+        {
+          "key": "optimized/regions/imereti-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 38509
+        },
+        {
+          "key": "optimized/regions/imereti-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 46620
+        },
+        {
+          "key": "optimized/regions/imereti-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 54804
+        },
+        {
+          "key": "optimized/regions/imereti-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 63940
+        },
+        {
+          "key": "optimized/regions/imereti-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 102015
+        },
+        {
+          "key": "optimized/regions/imereti-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 112002
+        },
+        {
+          "key": "optimized/regions/imereti-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 152956
+        },
+        {
+          "key": "optimized/regions/imereti-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 169598
+        }
+      ],
+      "updatedAt": "2026-10-03T18:22:25.844Z"
+    },
+    "regions/kakheti.jpg": {
+      "sourceHash": "c309d01767354d04b2378eaa3e9e1e85192d1a63c3b53be70b831381b8d15276",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "regions/kakheti.jpg",
+      "originalSize": 196696,
+      "width": 1920,
+      "height": 1440,
+      "derivatives": [
+        {
+          "key": "optimized/regions/kakheti-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 10353
+        },
+        {
+          "key": "optimized/regions/kakheti-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 13764
+        },
+        {
+          "key": "optimized/regions/kakheti-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 15617
+        },
+        {
+          "key": "optimized/regions/kakheti-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 20830
+        },
+        {
+          "key": "optimized/regions/kakheti-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 33652
+        },
+        {
+          "key": "optimized/regions/kakheti-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 43964
+        },
+        {
+          "key": "optimized/regions/kakheti-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 48310
+        },
+        {
+          "key": "optimized/regions/kakheti-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 63014
+        },
+        {
+          "key": "optimized/regions/kakheti-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 88156
+        },
+        {
+          "key": "optimized/regions/kakheti-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 109096
+        },
+        {
+          "key": "optimized/regions/kakheti-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1440,
+          "byteSize": 163591
+        },
+        {
+          "key": "optimized/regions/kakheti-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1440,
+          "byteSize": 191272
+        }
+      ],
+      "updatedAt": "2026-10-03T18:22:26.222Z"
+    },
+    "regions/kvemo-kartli.jpg": {
+      "sourceHash": "0f0a241353cc2698f859fc5dfb43b0f1bbbfc3cde930f099f60776a910176152",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "regions/kvemo-kartli.jpg",
+      "originalSize": 130108,
+      "width": 800,
+      "height": 533,
+      "derivatives": [
+        {
+          "key": "optimized/regions/kvemo-kartli-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 13504
+        },
+        {
+          "key": "optimized/regions/kvemo-kartli-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 20946
+        },
+        {
+          "key": "optimized/regions/kvemo-kartli-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 21062
+        },
+        {
+          "key": "optimized/regions/kvemo-kartli-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 32408
+        },
+        {
+          "key": "optimized/regions/kvemo-kartli-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 49548
+        },
+        {
+          "key": "optimized/regions/kvemo-kartli-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 75240
+        },
+        {
+          "key": "optimized/regions/kvemo-kartli-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 77133
+        },
+        {
+          "key": "optimized/regions/kvemo-kartli-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 108968
+        }
+      ],
+      "updatedAt": "2026-10-03T18:22:23.037Z"
+    },
+    "regions/mtskheta-mtianeti.jpg": {
+      "sourceHash": "9506c264feacc22a8b629e104239482fe7781573287d73ef34a5c6d3b1f7c388",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "regions/mtskheta-mtianeti.jpg",
+      "originalSize": 95359,
+      "width": 800,
+      "height": 495,
+      "derivatives": [
+        {
+          "key": "optimized/regions/mtskheta-mtianeti-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 198,
+          "byteSize": 16217
+        },
+        {
+          "key": "optimized/regions/mtskheta-mtianeti-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 198,
+          "byteSize": 25132
+        },
+        {
+          "key": "optimized/regions/mtskheta-mtianeti-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 248,
+          "byteSize": 25093
+        },
+        {
+          "key": "optimized/regions/mtskheta-mtianeti-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 248,
+          "byteSize": 38588
+        },
+        {
+          "key": "optimized/regions/mtskheta-mtianeti-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 396,
+          "byteSize": 56223
+        },
+        {
+          "key": "optimized/regions/mtskheta-mtianeti-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 396,
+          "byteSize": 86004
+        },
+        {
+          "key": "optimized/regions/mtskheta-mtianeti-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 495,
+          "byteSize": 77371
+        },
+        {
+          "key": "optimized/regions/mtskheta-mtianeti-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 495,
+          "byteSize": 117574
+        }
+      ],
+      "updatedAt": "2026-10-03T18:22:28.080Z"
+    },
+    "regions/racha.jpg": {
+      "sourceHash": "8f5d516b917643ea9ac438b2164653ef305820c1644bffd6ad115602d5e85874",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "regions/racha.jpg",
+      "originalSize": 172419,
+      "width": 1280,
+      "height": 960,
+      "derivatives": [
+        {
+          "key": "optimized/regions/racha-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 11236
+        },
+        {
+          "key": "optimized/regions/racha-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 17168
+        },
+        {
+          "key": "optimized/regions/racha-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 17474
+        },
+        {
+          "key": "optimized/regions/racha-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 25892
+        },
+        {
+          "key": "optimized/regions/racha-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 42855
+        },
+        {
+          "key": "optimized/regions/racha-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 63170
+        },
+        {
+          "key": "optimized/regions/racha-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 64313
+        },
+        {
+          "key": "optimized/regions/racha-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 95312
+        },
+        {
+          "key": "optimized/regions/racha-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 132616
+        },
+        {
+          "key": "optimized/regions/racha-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 197602
+        },
+        {
+          "key": "optimized/regions/racha-1280.avif",
+          "format": "avif",
+          "width": 1280,
+          "height": 960,
+          "byteSize": 145009
+        },
+        {
+          "key": "optimized/regions/racha-1280.webp",
+          "format": "webp",
+          "width": 1280,
+          "height": 960,
+          "byteSize": 216094
+        }
+      ],
+      "updatedAt": "2026-10-03T18:22:32.704Z"
+    },
+    "regions/samegrelo.jpg": {
+      "sourceHash": "27fa449c91d0e292a0729adbdbe30bb2fcdc48b14c62092f6c17c998d99743ea",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "regions/samegrelo.jpg",
+      "originalSize": 79244,
+      "width": 800,
+      "height": 600,
+      "derivatives": [
+        {
+          "key": "optimized/regions/samegrelo-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 10586
+        },
+        {
+          "key": "optimized/regions/samegrelo-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 14526
+        },
+        {
+          "key": "optimized/regions/samegrelo-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 16787
+        },
+        {
+          "key": "optimized/regions/samegrelo-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 23080
+        },
+        {
+          "key": "optimized/regions/samegrelo-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 40847
+        },
+        {
+          "key": "optimized/regions/samegrelo-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 58316
+        },
+        {
+          "key": "optimized/regions/samegrelo-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 62413
+        },
+        {
+          "key": "optimized/regions/samegrelo-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 92206
+        }
+      ],
+      "updatedAt": "2026-10-03T18:22:30.957Z"
+    },
+    "regions/samtskhe-javakheti.jpg": {
+      "sourceHash": "64b66c4b063d90e4965cff2ba03dc18f5c1215a70cc221dbd17834c7b22d0a50",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "regions/samtskhe-javakheti.jpg",
+      "originalSize": 232943,
+      "width": 1180,
+      "height": 1469,
+      "derivatives": [
+        {
+          "key": "optimized/regions/samtskhe-javakheti-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 398,
+          "byteSize": 24514
+        },
+        {
+          "key": "optimized/regions/samtskhe-javakheti-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 398,
+          "byteSize": 37636
+        },
+        {
+          "key": "optimized/regions/samtskhe-javakheti-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 498,
+          "byteSize": 36865
+        },
+        {
+          "key": "optimized/regions/samtskhe-javakheti-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 498,
+          "byteSize": 57362
+        },
+        {
+          "key": "optimized/regions/samtskhe-javakheti-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 797,
+          "byteSize": 77393
+        },
+        {
+          "key": "optimized/regions/samtskhe-javakheti-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 797,
+          "byteSize": 118584
+        },
+        {
+          "key": "optimized/regions/samtskhe-javakheti-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 996,
+          "byteSize": 103748
+        },
+        {
+          "key": "optimized/regions/samtskhe-javakheti-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 996,
+          "byteSize": 160874
+        },
+        {
+          "key": "optimized/regions/samtskhe-javakheti-1180.avif",
+          "format": "avif",
+          "width": 1180,
+          "height": 1469,
+          "byteSize": 177803
+        },
+        {
+          "key": "optimized/regions/samtskhe-javakheti-1180.webp",
+          "format": "webp",
+          "width": 1180,
+          "height": 1469,
+          "byteSize": 246308
+        }
+      ],
+      "updatedAt": "2026-10-03T18:22:36.542Z"
+    },
+    "regions/shida-kartli.jpg": {
+      "sourceHash": "30b09245420630b765d14895ebbb37a1bd812bd2e8a5e1669371585c222210c1",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "regions/shida-kartli.jpg",
+      "originalSize": 115519,
+      "width": 1200,
+      "height": 800,
+      "derivatives": [
+        {
+          "key": "optimized/regions/shida-kartli-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8359
+        },
+        {
+          "key": "optimized/regions/shida-kartli-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11300
+        },
+        {
+          "key": "optimized/regions/shida-kartli-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 12779
+        },
+        {
+          "key": "optimized/regions/shida-kartli-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 16962
+        },
+        {
+          "key": "optimized/regions/shida-kartli-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 31663
+        },
+        {
+          "key": "optimized/regions/shida-kartli-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 42926
+        },
+        {
+          "key": "optimized/regions/shida-kartli-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 48171
+        },
+        {
+          "key": "optimized/regions/shida-kartli-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 66392
+        },
+        {
+          "key": "optimized/regions/shida-kartli-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 96201
+        },
+        {
+          "key": "optimized/regions/shida-kartli-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 130526
+        }
+      ],
+      "updatedAt": "2026-10-03T18:22:33.478Z"
     },
     "regions/tbilisi.jpg": {
       "sourceHash": "4923e5dc06292f09a63116cdee13d25e7ee2b0db7b15d198d2026c8b2522e3aa",
