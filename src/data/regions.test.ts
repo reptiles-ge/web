@@ -71,6 +71,7 @@ describe("region speciesIds", () => {
     "gyps-fulvus",
     "neophron-percnopterus",
     "columba-palumbus",
+    "garrulus-glandarius",
     "darevskia-obscura",
     "eirenis-modestus",
     "mauremys-caspica",
