@@ -5968,6 +5968,62 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1024],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/neophron-percnopterus-attila-1.jpg": {
+    "path": "neophron-percnopterus-attila-1",
+    "width": 1600,
+    "height": 1200,
+    "widths": [320, 400, 640, 800, 1200, 1600],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/neophron-percnopterus-gernot-1.jpg": {
+    "path": "neophron-percnopterus-gernot-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/neophron-percnopterus-giorgi-1.jpg": {
+    "path": "neophron-percnopterus-giorgi-1",
+    "width": 2048,
+    "height": 1372,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/neophron-percnopterus-gogopopo-1.jpg": {
+    "path": "neophron-percnopterus-gogopopo-1",
+    "width": 2048,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/neophron-percnopterus-gogopopo-2.jpg": {
+    "path": "neophron-percnopterus-gogopopo-2",
+    "width": 1986,
+    "height": 1589,
+    "widths": [320, 400, 640, 800, 1200, 1986],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/neophron-percnopterus-jean-louis-1.jpg": {
+    "path": "neophron-percnopterus-jean-louis-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/neophron-percnopterus-stefan-1.jpg": {
+    "path": "neophron-percnopterus-stefan-1",
+    "width": 2048,
+    "height": 1311,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/neophron-percnopterus-tvp-1.jpg": {
+    "path": "neophron-percnopterus-tvp-1",
+    "width": 2048,
+    "height": 1360,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/news-batumi-19300-cosentino-kite-1.jpg": {
     "path": "news-batumi-19300-cosentino-kite-1",
     "width": 2400,
