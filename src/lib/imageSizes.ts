@@ -8,6 +8,9 @@ export const HOME_CONTRIBUTOR_MOSAIC_SIZES =
 
 export const HOME_CONTRIBUTOR_PORTRAIT_SIZES = "(max-width: 1023px) 80px, 96px";
 
+export const IDENTIFICATION_PHOTO_SIZES =
+  "(max-width: 1023px) 1px, (max-width: 1279px) 352px, (max-width: 1535px) 448px, 512px";
+
 export const LOOKALIKE_SIZES =
   "(max-width: 639px) calc((100vw - 3rem - 2rem - 0.75rem) / 2), 280px";
 
