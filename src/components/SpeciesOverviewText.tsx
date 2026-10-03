@@ -1,9 +1,8 @@
 "use client";
 
-import { useState } from "react";
-
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { cn } from "@/lib/cn";
+import { useExpandableText } from "@/lib/useExpandableText";
 
 type SpeciesOverviewTextProps = {
   body: string;
@@ -14,6 +13,7 @@ type SpeciesOverviewTextProps = {
 };
 
 const PREVIEW_LENGTH = 520;
+const PREVIEW_LINES = 6;
 
 export function SpeciesOverviewText({
   body,
@@ -22,19 +22,20 @@ export function SpeciesOverviewText({
   readMore,
   speciesId,
 }: SpeciesOverviewTextProps) {
-  const [open, setOpen] = useState(false);
+  const { buttonRef, open, textRef, toggle } = useExpandableText(PREVIEW_LINES);
   const needsExpand = body.length > PREVIEW_LENGTH;
 
   return (
     <>
       <p
         className={cn(
-          "mt-8 max-w-2xl text-[16px] leading-relaxed text-foreground/85 sm:text-[18px]",
+          "mt-8 max-w-2xl scroll-mt-40 text-[16px] leading-relaxed text-foreground/85 sm:text-[18px]",
           "whitespace-pre-line",
           !open && needsExpand ? "line-clamp-6" : "",
         )}
         data-content-field={editable ? "overview" : undefined}
         data-content-id={editable ? speciesId : undefined}
+        ref={textRef}
       >
         <PhoneLinkedText>{body}</PhoneLinkedText>
       </p>
@@ -42,7 +43,8 @@ export function SpeciesOverviewText({
         <button
           aria-expanded={open}
           className="mt-4 text-[13px] font-medium text-primary transition-colors hover:text-primary/80"
-          onClick={() => setOpen((value) => !value)}
+          onClick={toggle}
+          ref={buttonRef}
           type="button"
         >
           {open ? readLess : readMore}
