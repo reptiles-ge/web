@@ -260,7 +260,9 @@ const eslintConfig = defineConfig([
     },
   },
   globalIgnores([
+    ".claude/**",
     ".next/**",
+    "**/.next/**",
     ".pnpm-store/**",
     "out/**",
     "build/**",
