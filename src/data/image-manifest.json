@@ -68723,6 +68723,101 @@
       ],
       "updatedAt": "2026-10-03T17:12:30.941Z"
     },
+    "neophron-percnopterus-gernot-1.jpg": {
+      "sourceHash": "01cfa2f8fb71d34eb2126341e73053311c43f10010c8dd3bae4d8a4377ba5274",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "neophron-percnopterus-gernot-1.jpg",
+      "originalSize": 1081998,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/neophron-percnopterus-gernot-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 15708
+        },
+        {
+          "key": "optimized/neophron-percnopterus-gernot-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 22428
+        },
+        {
+          "key": "optimized/neophron-percnopterus-gernot-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 24650
+        },
+        {
+          "key": "optimized/neophron-percnopterus-gernot-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 35982
+        },
+        {
+          "key": "optimized/neophron-percnopterus-gernot-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 64494
+        },
+        {
+          "key": "optimized/neophron-percnopterus-gernot-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 98678
+        },
+        {
+          "key": "optimized/neophron-percnopterus-gernot-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 101669
+        },
+        {
+          "key": "optimized/neophron-percnopterus-gernot-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 157172
+        },
+        {
+          "key": "optimized/neophron-percnopterus-gernot-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 206018
+        },
+        {
+          "key": "optimized/neophron-percnopterus-gernot-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 335296
+        },
+        {
+          "key": "optimized/neophron-percnopterus-gernot-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 487972
+        },
+        {
+          "key": "optimized/neophron-percnopterus-gernot-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 792452
+        }
+      ],
+      "updatedAt": "2026-10-03T17:17:28.145Z"
+    },
     "neophron-percnopterus-giorgi-1.jpg": {
       "sourceHash": "248e19fd4b8901f9dca5981ad774f122ef384a59346a0bd17861d1f159134dcf",
       "configFingerprint": "409788ee46c653d8",
