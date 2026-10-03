@@ -123,8 +123,9 @@ function pickCorrectId(speciesId: string, pool: SnakeQuizSpecies[]) {
   const poolIds = new Set(pool.map((item) => item.id));
   const current = pool.find((item) => item.id === speciesId);
   const lookalikes = current?.lookalikeIds ?? [];
+  const lookalikeIds = new Set(lookalikes);
   const related = (current?.relatedIds ?? []).filter(
-    (id) => !lookalikes.includes(id),
+    (id) => !lookalikeIds.has(id),
   );
   const preferred = [...related, ...lookalikes].find(
     (id) => id !== speciesId && poolIds.has(id),

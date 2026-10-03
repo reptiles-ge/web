@@ -9,7 +9,7 @@ import { CoverImage } from "@/components/CoverImage";
 import { TrackedSpeciesLink } from "@/components/home/TrackedSpeciesLink";
 import { Link } from "@/i18n/navigation";
 import { RELATED_CARD_SIZES } from "@/lib/imageSizes";
-import { isPlaceholderMedia } from "@/lib/speciesContent";
+import { getSpeciesCoverSrc } from "@/lib/speciesContent";
 import { speciesImageAlt } from "@/lib/speciesMeta";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 
@@ -17,27 +17,19 @@ type SpeciesProfileRelatedProps = {
   labelVariant?: "otherInsects" | "related";
   locale: AppLocale;
   related: Species[];
-  variant?: "lookalikes" | "related";
 };
 
 export async function SpeciesProfileRelated({
   labelVariant = "related",
   locale,
   related,
-  variant = "related",
 }: SpeciesProfileRelatedProps) {
   if (related.length === 0) {
     return null;
   }
 
   const t = await getTranslations({ locale, namespace: "profile" });
-  const lookalikes = variant === "lookalikes";
-  const relatedEyebrow =
-    labelVariant === "otherInsects" ? t("otherInsects") : t("related");
-  const relatedTitle =
-    labelVariant === "otherInsects"
-      ? t("otherInsectsTitle")
-      : t("relatedTitle");
+  const insects = labelVariant === "otherInsects";
 
   return (
     <section className="border-t border-border bg-background py-20 lg:py-28">
@@ -45,29 +37,23 @@ export async function SpeciesProfileRelated({
         <div className="flex items-end justify-between gap-6">
           <div>
             <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
-              {lookalikes ? t("lookalikes") : relatedEyebrow}
+              {insects ? t("otherInsects") : t("related")}
             </p>
             <AnchoredHeading
               anchorLabel={t("anchorLink")}
               className="mt-4 font-display text-display-title font-bold"
-              id={
-                lookalikes
-                  ? SPECIES_SECTION_IDS.lookalikes
-                  : SPECIES_SECTION_IDS.related
-              }
+              id={SPECIES_SECTION_IDS.related}
             >
-              {lookalikes ? t("lookalikesTitle") : relatedTitle}
+              {insects ? t("otherInsectsTitle") : t("relatedTitle")}
             </AnchoredHeading>
           </div>
-          {lookalikes ? null : (
-            <Link
-              className="hidden items-center gap-1.5 text-[13px] font-medium text-primary sm:inline-flex"
-              href="/species"
-            >
-              {t("allSpecies")}
-              <ArrowUpRight className="size-3.5" />
-            </Link>
-          )}
+          <Link
+            className="hidden items-center gap-1.5 text-[13px] font-medium text-primary sm:inline-flex"
+            href="/species"
+          >
+            {t("allSpecies")}
+            <ArrowUpRight className="size-3.5" />
+          </Link>
         </div>
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {related.map((item, relatedIndex) => (
@@ -76,7 +62,6 @@ export async function SpeciesProfileRelated({
               key={item.id}
               locale={locale}
               position={relatedIndex + 1}
-              source={lookalikes ? "lookalike" : "related"}
             />
           ))}
         </div>
@@ -85,35 +70,23 @@ export async function SpeciesProfileRelated({
   );
 }
 
-function relatedCoverSrc(item: Species) {
-  if (item.mobileImage && !isPlaceholderMedia(item.mobileImage)) {
-    return item.mobileImage;
-  }
-  if (!isPlaceholderMedia(item.image)) {
-    return item.image;
-  }
-  return null;
-}
-
 function SpeciesProfileRelatedCard({
   item,
   locale,
   position,
-  source,
 }: {
   item: Species;
   locale: AppLocale;
   position: number;
-  source: "lookalike" | "related";
 }) {
-  const cover = relatedCoverSrc(item);
+  const cover = getSpeciesCoverSrc(item);
 
   return (
     <TrackedSpeciesLink
       className="group relative block aspect-4/5 overflow-hidden rounded-media bg-ink"
       locale={locale}
       position={position}
-      source={source}
+      source="related"
       speciesId={item.id}
     >
       {cover ? (

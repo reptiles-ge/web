@@ -466,6 +466,7 @@
     "faqIntroAfter": ".",
     "lookalikes": "Similar species",
     "lookalikesTitle": "Often confused with",
+    "lookalikesMore": "Show {count} more species",
     "related": "Related species",
     "relatedTitle": "Related species",
     "otherInsects": "Insects",

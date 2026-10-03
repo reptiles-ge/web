@@ -3,9 +3,11 @@ import { getTranslations } from "next-intl/server";
 import type { AppLocale } from "@/i18n/routing";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
+import { TrackedSpeciesLink } from "@/components/home/TrackedSpeciesLink";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { GalleryPhotoFigcaption } from "@/components/SpeciesGallery";
 import { SpeciesInlineLink } from "@/components/SpeciesInlineLink";
+import { SpeciesLookalikeList } from "@/components/SpeciesLookalikeList";
 import {
   optimizedEntry,
   optimizedImgSrc,
@@ -14,16 +16,19 @@ import {
 import {
   type GalleryImage,
   type SpeciesIdentification as Identification,
+  type Species,
 } from "@/data/speciesTypes";
 import { isLocalAdminEnabled } from "@/lib/adminAccess";
 import { cn } from "@/lib/cn";
 import { IDENTIFICATION_PHOTO_SIZES } from "@/lib/imageSizes";
+import { getSpeciesCoverSrc } from "@/lib/speciesContent";
 import { splitSpeciesInlineLinks } from "@/lib/speciesInlineLinks";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 
 type SpeciesIdentificationProps = {
   identification: Identification;
   locale: AppLocale;
+  lookalikes?: Species[];
   name: string;
   photo?: GalleryImage | null;
   photoAlt?: string;
@@ -36,6 +41,7 @@ const inlineSpeciesLinkClassName =
 export async function SpeciesIdentification({
   identification,
   locale,
+  lookalikes = [],
   name,
   photo,
   photoAlt,
@@ -73,6 +79,13 @@ export async function SpeciesIdentification({
           >
             <IdentificationRichText text={identification.summary} />
           </p>
+          <SpeciesIdentificationLookalikes
+            label={t("lookalikesTitle")}
+            locale={locale}
+            lookalikes={lookalikes}
+            moreLabel={(count) => t("lookalikesMore", { count })}
+            speciesId={speciesId}
+          />
 
           {identification.traits.length > 0 ? (
             <ol className="mt-12 space-y-0">
@@ -137,6 +150,54 @@ function IdentificationRichText({ text }: { text: string }) {
   );
 }
 
+const LOOKALIKES_COLLAPSED_COUNT = 3;
+
+function SpeciesIdentificationLookalikes({
+  label,
+  locale,
+  lookalikes,
+  moreLabel,
+  speciesId,
+}: {
+  label: string;
+  locale: AppLocale;
+  lookalikes: Species[];
+  moreLabel: (count: number) => string;
+  speciesId: string;
+}) {
+  if (lookalikes.length === 0) return null;
+
+  const labelId = `${SPECIES_SECTION_IDS.lookalikes}-label`;
+  const visibleCount =
+    lookalikes.length > LOOKALIKES_COLLAPSED_COUNT + 1
+      ? LOOKALIKES_COLLAPSED_COUNT
+      : lookalikes.length;
+
+  return (
+    <div className="mt-8" id={SPECIES_SECTION_IDS.lookalikes}>
+      <p className="text-[13px] font-medium text-foreground" id={labelId}>
+        {label}
+      </p>
+      <SpeciesLookalikeList
+        items={lookalikes.map((item, index) => ({
+          id: item.id,
+          node: (
+            <SpeciesLookalikeChip
+              item={item}
+              locale={locale}
+              position={index + 1}
+            />
+          ),
+        }))}
+        labelledBy={labelId}
+        moreLabel={moreLabel(lookalikes.length - visibleCount)}
+        speciesId={speciesId}
+        visibleCount={visibleCount}
+      />
+    </div>
+  );
+}
+
 function SpeciesIdentificationPhoto({
   alt,
   locale,
@@ -179,5 +240,46 @@ function SpeciesIdentificationPhoto({
       </a>
       <GalleryPhotoFigcaption locale={locale} photo={photo} />
     </figure>
+  );
+}
+
+function SpeciesLookalikeChip({
+  item,
+  locale,
+  position,
+}: {
+  item: Species;
+  locale: AppLocale;
+  position: number;
+}) {
+  const cover = getSpeciesCoverSrc(item);
+
+  return (
+    <TrackedSpeciesLink
+      className="inline-flex items-center gap-2.5 rounded-full border border-border bg-card py-1.5 pr-4 pl-1.5 text-[14px] font-medium text-foreground transition-colors hover:border-foreground/30 hover:bg-surface focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+      locale={locale}
+      position={position}
+      source="lookalike"
+      speciesId={item.id}
+    >
+      <span className="relative size-8 shrink-0 overflow-hidden rounded-full bg-surface">
+        {cover ? (
+          <picture>
+            {pictureSources(cover, { sizes: "32px" }).map((source) => (
+              <source key={source.key} {...source.props} />
+            ))}
+            <img
+              alt=""
+              className="size-full object-cover"
+              decoding="async"
+              loading="lazy"
+              sizes="32px"
+              src={optimizedImgSrc(cover, 400)}
+            />
+          </picture>
+        ) : null}
+      </span>
+      {item.commonName}
+    </TrackedSpeciesLink>
   );
 }
