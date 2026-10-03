@@ -347,13 +347,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1920],
     "formats": ["avif", "webp"]
   },
-  "https://cdn.reptiles.ge/accipiter-nisus-sharp-male.jpg": {
-    "path": "accipiter-nisus-sharp-male",
-    "width": 1920,
-    "height": 1280,
-    "widths": [400, 800, 1200, 1920],
-    "formats": ["avif", "webp"]
-  },
   "https://cdn.reptiles.ge/accipiter-nisus-vladimir-1.jpg": {
     "path": "accipiter-nisus-vladimir-1",
     "width": 1350,
@@ -2055,20 +2048,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1728],
     "formats": ["avif", "webp"]
   },
-  "https://cdn.reptiles.ge/darevskia-obscura-2.jpg": {
-    "path": "darevskia-obscura-2",
-    "width": 2048,
-    "height": 1536,
-    "widths": [400, 800, 1200, 2048],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/darevskia-obscura-3.jpg": {
-    "path": "darevskia-obscura-3",
-    "width": 2048,
-    "height": 1536,
-    "widths": [400, 800, 1200, 2048],
-    "formats": ["avif"]
-  },
   "https://cdn.reptiles.ge/darevskia-obscura-christian-1.jpg": {
     "path": "darevskia-obscura-christian-1",
     "width": 1802,
@@ -2118,25 +2097,11 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
-  "https://cdn.reptiles.ge/darevskia-obscura-mobile.jpg": {
-    "path": "darevskia-obscura-mobile",
-    "width": 2048,
-    "height": 1365,
-    "widths": [400, 800, 1200, 2048],
-    "formats": ["avif", "webp"]
-  },
   "https://cdn.reptiles.ge/darevskia-obscura-sandro-1.jpg": {
     "path": "darevskia-obscura-sandro-1",
     "width": 2048,
     "height": 1536,
     "widths": [320, 400, 640, 800, 1200, 2048],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/darevskia-obscura.jpg": {
-    "path": "darevskia-obscura",
-    "width": 2048,
-    "height": 1536,
-    "widths": [400, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/darevskia-pontica-2.jpg": {
@@ -4134,24 +4099,10 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2400],
     "formats": ["avif", "webp"]
   },
-  "https://cdn.reptiles.ge/images/species/ciconia-ciconia-flight-1.jpg": {
-    "path": "images/species/ciconia-ciconia-flight-1",
-    "width": 2400,
-    "height": 1602,
-    "widths": [400, 800, 1200, 2400],
-    "formats": ["avif", "webp"]
-  },
   "https://cdn.reptiles.ge/images/species/ciconia-ciconia-juvenile-1.jpg": {
     "path": "images/species/ciconia-ciconia-juvenile-1",
     "width": 2400,
     "height": 1546,
-    "widths": [400, 800, 1200, 2400],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/images/species/ciconia-ciconia-nest-1.jpg": {
-    "path": "images/species/ciconia-ciconia-nest-1",
-    "width": 2400,
-    "height": 1597,
     "widths": [400, 800, 1200, 2400],
     "formats": ["avif", "webp"]
   },
@@ -5478,13 +5429,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1440],
     "formats": ["avif", "webp"]
   },
-  "https://cdn.reptiles.ge/mauremys-caspica-giorgi-2.jpg": {
-    "path": "mauremys-caspica-giorgi-2",
-    "width": 960,
-    "height": 640,
-    "widths": [320, 400, 640, 800, 960],
-    "formats": ["avif", "webp"]
-  },
   "https://cdn.reptiles.ge/mauremys-caspica-giorgi-3.jpg": {
     "path": "mauremys-caspica-giorgi-3",
     "width": 2048,
@@ -5512,13 +5456,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "height": 1095,
     "widths": [320, 400, 640, 800, 1200, 1600],
     "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/mauremys-caspica-mobile.jpg": {
-    "path": "mauremys-caspica-mobile",
-    "width": 2048,
-    "height": 1536,
-    "widths": [400, 800, 1200, 2048],
-    "formats": ["avif"]
   },
   "https://cdn.reptiles.ge/mauremys-caspica-ward-1.jpg": {
     "path": "mauremys-caspica-ward-1",
@@ -6199,6 +6136,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/optimized/images/authors/giorgi-natsvlishvili-480.webp": {
+    "path": "optimized/images/authors/giorgi-natsvlishvili-480",
+    "width": 480,
+    "height": 480,
+    "widths": [320, 400, 480],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/optimized/images/authors/kakhaber-sukhitashvili-480.webp": {
     "path": "optimized/images/authors/kakhaber-sukhitashvili-480",
     "width": 480,
@@ -6829,10 +6773,80 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/regions/abkhazia.jpg": {
+    "path": "regions/abkhazia",
+    "width": 1280,
+    "height": 960,
+    "widths": [320, 400, 640, 800, 1200, 1280],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/regions/adjara.jpg": {
     "path": "regions/adjara",
     "width": 1200,
     "height": 767,
+    "widths": [320, 400, 640, 800, 1200],
+    "formats": ["avif"]
+  },
+  "https://cdn.reptiles.ge/regions/guria.jpg": {
+    "path": "regions/guria",
+    "width": 1728,
+    "height": 1152,
+    "widths": [320, 400, 640, 800, 1200, 1728],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/regions/imereti.jpg": {
+    "path": "regions/imereti",
+    "width": 1536,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/regions/kakheti.jpg": {
+    "path": "regions/kakheti",
+    "width": 1920,
+    "height": 1440,
+    "widths": [320, 400, 640, 800, 1200, 1920],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/regions/kvemo-kartli.jpg": {
+    "path": "regions/kvemo-kartli",
+    "width": 800,
+    "height": 533,
+    "widths": [320, 400, 640, 800],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/regions/mtskheta-mtianeti.jpg": {
+    "path": "regions/mtskheta-mtianeti",
+    "width": 800,
+    "height": 495,
+    "widths": [320, 400, 640, 800],
+    "formats": ["avif"]
+  },
+  "https://cdn.reptiles.ge/regions/racha.jpg": {
+    "path": "regions/racha",
+    "width": 1280,
+    "height": 960,
+    "widths": [320, 400, 640, 800, 1200, 1280],
+    "formats": ["avif"]
+  },
+  "https://cdn.reptiles.ge/regions/samegrelo.jpg": {
+    "path": "regions/samegrelo",
+    "width": 800,
+    "height": 600,
+    "widths": [320, 400, 640, 800],
+    "formats": ["avif"]
+  },
+  "https://cdn.reptiles.ge/regions/samtskhe-javakheti.jpg": {
+    "path": "regions/samtskhe-javakheti",
+    "width": 1180,
+    "height": 1469,
+    "widths": [320, 400, 640, 800, 1180],
+    "formats": ["avif"]
+  },
+  "https://cdn.reptiles.ge/regions/shida-kartli.jpg": {
+    "path": "regions/shida-kartli",
+    "width": 1200,
+    "height": 800,
     "widths": [320, 400, 640, 800, 1200],
     "formats": ["avif"]
   },
