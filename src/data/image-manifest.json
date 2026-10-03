@@ -68628,6 +68628,101 @@
       ],
       "updatedAt": "2026-08-28T21:55:10.408Z"
     },
+    "neophron-percnopterus-attila-1.jpg": {
+      "sourceHash": "16f9c5c2dc033e8ccf30a8b98609165b862baa4ef6ce7c9966eedf9f3605dffd",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "neophron-percnopterus-attila-1.jpg",
+      "originalSize": 135766,
+      "width": 1600,
+      "height": 1200,
+      "derivatives": [
+        {
+          "key": "optimized/neophron-percnopterus-attila-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 2555
+        },
+        {
+          "key": "optimized/neophron-percnopterus-attila-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 2930
+        },
+        {
+          "key": "optimized/neophron-percnopterus-attila-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 3314
+        },
+        {
+          "key": "optimized/neophron-percnopterus-attila-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 4206
+        },
+        {
+          "key": "optimized/neophron-percnopterus-attila-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 6277
+        },
+        {
+          "key": "optimized/neophron-percnopterus-attila-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 8264
+        },
+        {
+          "key": "optimized/neophron-percnopterus-attila-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 8253
+        },
+        {
+          "key": "optimized/neophron-percnopterus-attila-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 11394
+        },
+        {
+          "key": "optimized/neophron-percnopterus-attila-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 14484
+        },
+        {
+          "key": "optimized/neophron-percnopterus-attila-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 19604
+        },
+        {
+          "key": "optimized/neophron-percnopterus-attila-1-1600.avif",
+          "format": "avif",
+          "width": 1600,
+          "height": 1200,
+          "byteSize": 22184
+        },
+        {
+          "key": "optimized/neophron-percnopterus-attila-1-1600.webp",
+          "format": "webp",
+          "width": 1600,
+          "height": 1200,
+          "byteSize": 29340
+        }
+      ],
+      "updatedAt": "2026-10-03T17:12:30.941Z"
+    },
     "neophron-percnopterus-gogopopo-1.jpg": {
       "sourceHash": "8928c8dd0e2592c61904d8306bad4f15a3843978950f15b05a9520dc9b142f7a",
       "configFingerprint": "409788ee46c653d8",

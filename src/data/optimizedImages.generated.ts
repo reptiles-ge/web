@@ -5968,6 +5968,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1024],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/neophron-percnopterus-attila-1.jpg": {
+    "path": "neophron-percnopterus-attila-1",
+    "width": 1600,
+    "height": 1200,
+    "widths": [320, 400, 640, 800, 1200, 1600],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/neophron-percnopterus-gogopopo-1.jpg": {
     "path": "neophron-percnopterus-gogopopo-1",
     "width": 2048,
