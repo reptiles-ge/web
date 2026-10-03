@@ -24,14 +24,14 @@ export async function RelatedGuideStaticGrid({
   const t = await getTranslations({ locale, namespace: "groupHubShared" });
   const switchIndex = getLocaleSwitchIndex();
   const featured = cards.length === 1;
-  const columns = featured ? "grid-cols-1" : "sm:grid-cols-2 lg:grid-cols-3";
 
   return (
     <div
       className={cn(
         className,
-        "grid gap-px overflow-hidden rounded-card bg-border/80",
-        columns,
+        featured
+          ? "grid grid-cols-1 gap-px overflow-hidden rounded-card bg-border/80"
+          : "no-scrollbar -mx-6 flex snap-x snap-mandatory scroll-px-6 gap-3 overflow-x-auto px-6 sm:mx-0 sm:grid sm:snap-none sm:grid-cols-2 sm:gap-px sm:overflow-hidden sm:rounded-card sm:bg-border/80 sm:px-0 lg:grid-cols-3",
       )}
     >
       {cards.map((card) => {
@@ -44,7 +44,12 @@ export async function RelatedGuideStaticGrid({
 
         return (
           <Link
-            className="group flex h-full min-h-[180px] flex-col bg-card p-7 transition-colors hover:bg-background"
+            className={cn(
+              "group flex min-h-[180px] flex-col bg-card p-7 transition-colors hover:bg-background",
+              featured
+                ? "h-full"
+                : "w-[82%] shrink-0 snap-start rounded-card border border-border sm:h-full sm:w-auto sm:rounded-none sm:border-0",
+            )}
             href={href}
             key={card.key}
           >

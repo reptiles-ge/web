@@ -12,6 +12,8 @@ import {
 import { QUIZ_TEASER_SIZES } from "@/lib/imageSizes";
 import { getSpeciesQuizTeaser } from "@/lib/quizTeaser";
 
+const SPECIES_QUIZ_TEASER_ENABLED: boolean = false;
+
 type SpeciesProfileQuizProps = {
   locale: AppLocale;
   species: Species;
@@ -21,6 +23,8 @@ export async function SpeciesProfileQuiz({
   locale,
   species,
 }: SpeciesProfileQuizProps) {
+  if (!SPECIES_QUIZ_TEASER_ENABLED) return null;
+
   const teaser = getSpeciesQuizTeaser(species.id, locale);
   if (!teaser) return null;
 
