@@ -205,11 +205,7 @@ const LOOKALIKES: Record<string, string[]> = {
   "ommatotriton-ophryticus": ["lissotriton-lantzi", "triturus-karelinii"],
   "ophisops-elegans": ["ablepharus-pannonicus"],
   "otus-scops": ["strix-aluco", "athene-noctua"],
-  "paralaudakia-caucasia": [
-    "tenuidactylus-caspius",
-    "darevskia-portschinskii",
-    "eumeces-schneiderii",
-  ],
+  "paralaudakia-caucasia": ["tenuidactylus-caspius"],
   "pelobates-syriacus": [
     "pelodytes-caucasicus",
     "bufotes-viridis",
