@@ -13,15 +13,15 @@ import { BiologyBlock } from "@/components/BiologyBlock";
 import { BiologyExpandable } from "@/components/BiologyExpandable";
 import { ContentAttribution } from "@/components/ContentAttribution";
 import { SpeciesRangeMap } from "@/components/map/SpeciesRangeMap";
-import { QuizPracticeCta } from "@/components/QuizPracticeCta";
 import { RelatedGuideStaticGrid } from "@/components/RelatedGuideStaticGrid";
+import { SectionNav } from "@/components/SectionNav";
 import { SpeciesFaqSection } from "@/components/SpeciesFaqSection";
 import { SpeciesGallery } from "@/components/SpeciesGallery";
 import { SpeciesIdentification } from "@/components/SpeciesIdentification";
 import { SpeciesOverviewText } from "@/components/SpeciesOverviewText";
 import { SpeciesProfileFacts } from "@/components/SpeciesProfileFacts";
+import { SpeciesProfileQuiz } from "@/components/SpeciesProfileQuiz";
 import { SpeciesProfileRelated } from "@/components/SpeciesProfileRelated";
-import { SpeciesSectionNav } from "@/components/SpeciesSectionNav";
 import { SpeciesSources } from "@/components/SpeciesSources";
 import {
   optimizedEntry,
@@ -29,11 +29,7 @@ import {
   pictureSources,
 } from "@/data/optimizedImages";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
-import {
-  type HubClusterCard,
-  isLizardSpecies,
-  isSnakeSpecies,
-} from "@/lib/clusterGuides";
+import { type HubClusterCard } from "@/lib/clusterGuides";
 import { cn } from "@/lib/cn";
 import { formatPhotoDate } from "@/lib/formatDate";
 import {
@@ -512,8 +508,6 @@ export async function SpeciesProfileBody({
   species,
 }: SpeciesProfileBodyProps) {
   const t = await getTranslations({ locale, namespace: "profile" });
-  const snake = isSnakeSpecies(species);
-  const lizard = isLizardSpecies(species);
   const relatedLabelVariant =
     getSpeciesAtlasMeta(species.id).group === "insect"
       ? "otherInsects"
@@ -620,31 +614,7 @@ export async function SpeciesProfileBody({
         variant="lookalikes"
       />
 
-      {snake ? (
-        <QuizPracticeCta
-          body={t("quizCtaBody", { name: species.commonName })}
-          className="border-t border-border bg-surface pt-8 pb-10 lg:pt-10 lg:pb-14"
-          cta={t("quizCta")}
-          eyebrow={t("quizCtaEyebrow")}
-          locale={locale}
-          quizId="snake"
-          source="species"
-          speciesId={species.id}
-          title={t("quizCtaTitle")}
-        />
-      ) : lizard ? (
-        <QuizPracticeCta
-          body={t("quizCtaBodyLizard", { name: species.commonName })}
-          className="border-t border-border bg-surface pt-8 pb-10 lg:pt-10 lg:pb-14"
-          cta={t("quizCta")}
-          eyebrow={t("quizCtaEyebrow")}
-          locale={locale}
-          quizId="lizard"
-          source="species"
-          speciesId={species.id}
-          title={t("quizCtaTitleLizard")}
-        />
-      ) : null}
+      <SpeciesProfileQuiz locale={locale} species={species} />
 
       {habitatBlock ? (
         <SpeciesProfileHabitat
@@ -1175,7 +1145,7 @@ async function SpeciesProfileNavigation({
   };
 
   return (
-    <SpeciesSectionNav
+    <SectionNav
       ariaLabel={t("contents")}
       items={ids.map((id) => ({ id, label: labels[id] }))}
       name={name}

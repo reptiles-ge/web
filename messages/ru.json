@@ -488,7 +488,7 @@
     "rangeSubtitle": "Подсвеченные регионы показывают, где вид зарегистрирован.",
     "rangeRegionsLabel": "Ареал",
     "regionCount": "{count, plural, one {# регион} few {# региона} many {# регионов} other {# региона}}",
-    "photoCount": "{count} фото",
+    "viewPhotos": "Смотреть {count} фото",
     "lastUpdated": "Обновлено",
     "publishedOn": "Опубликовано:",
     "updatedOn": "Обновлено:",

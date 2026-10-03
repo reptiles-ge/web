@@ -34,6 +34,16 @@ const PLACEHOLDER_BODY_MARKERS = [
   "რეგიონები არ არის გამოგონილი",
 ];
 
+export function getSpeciesGalleryPreview(species: Species, count = 3) {
+  const { desktopHeroSrc, gallery, mobileHeroSrc } =
+    getSpeciesHeroSources(species);
+  const isHero = (item: GalleryImage) =>
+    item.src === desktopHeroSrc || item.src === mobileHeroSrc;
+  return [...gallery.filter((item) => !isHero(item)), ...gallery.filter(isHero)]
+    .slice(0, count)
+    .map((item) => item.src);
+}
+
 export function getSpeciesHeroSources(species: Species) {
   const gallery: GalleryImage[] = hasRealSpeciesPhotos(species)
     ? (species.gallery.length > 0

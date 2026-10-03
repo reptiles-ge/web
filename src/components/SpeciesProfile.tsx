@@ -20,6 +20,7 @@ import {
 } from "@/lib/speciesBreadcrumbs";
 import {
   filterDisplayStats,
+  getSpeciesGalleryPreview,
   getSpeciesHeroSources,
   hasRealIdentification,
   isPlaceholderBody,
@@ -172,6 +173,7 @@ export async function SpeciesProfile({
         breadcrumbs={breadcrumbs}
         desktopHeroSrc={desktopHeroSrc}
         galleryCount={gallery.length}
+        galleryPreview={getSpeciesGalleryPreview(species)}
         gallerySrc={
           heroGalleryPhoto ? optimizedImgSrc(heroGalleryPhoto.src, 1200) : null
         }

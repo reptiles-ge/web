@@ -17,16 +17,7 @@ import { Link } from "@/i18n/navigation";
 import { trackEvent, trackSpeciesClick } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
 import { speciesHrefFromIndex } from "@/lib/localeSwitch";
-
-const OPTION_MARKS: Record<
-  AppLocale,
-  readonly [string, string, string, string]
-> = {
-  en: ["A", "B", "C", "D"],
-  ka: ["ა", "ბ", "გ", "დ"],
-  ru: ["А", "Б", "В", "Г"],
-  tr: ["A", "B", "C", "D"],
-};
+import { OPTION_MARKS } from "@/lib/quizOptionMarks";
 
 type QuizRoundProps = {
   byId: Map<string, SnakeQuizSpecies>;
@@ -280,11 +271,7 @@ export function QuizRound({
           </button>
           <Link
             className="mt-4 flex items-center justify-center gap-1.5 pb-0.5 text-[13px] font-medium text-white/80"
-            href={speciesHrefFromIndex(
-              switchIndex,
-              question.correctId,
-              locale,
-            )}
+            href={speciesHrefFromIndex(switchIndex, question.correctId, locale)}
             onClick={() =>
               trackSpeciesClick({
                 position: index + 1,
