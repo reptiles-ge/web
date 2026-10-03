@@ -644,39 +644,40 @@ function GalleryPhotoViewer({
   useEffect(() => {
     const scroller = scrollerRef.current;
     if (!scroller) return;
+    const filmstrip = scroller;
 
-    function paintCount() {
+    const paintCount = () => {
       const count = countRef.current;
-      if (!count || scroller.clientWidth === 0) return;
+      if (!count || filmstrip.clientWidth === 0) return;
       const index = slideIndex(
-        scroller.scrollLeft,
-        scroller.clientWidth,
+        filmstrip.scrollLeft,
+        filmstrip.clientWidth,
         slides.length,
       );
       const label = `${index + 1} / ${slides.length}`;
       if (count.textContent !== label) count.textContent = label;
-    }
+    };
 
-    function onScroll() {
+    const onScroll = () => {
       paintCount();
       const pending = scrollTargetRef.current;
-      if (pending !== null && scroller.clientWidth > 0) {
-        const left = pending * scroller.clientWidth;
-        if (Math.abs(scroller.scrollLeft - left) <= 1) {
+      if (pending !== null && filmstrip.clientWidth > 0) {
+        const left = pending * filmstrip.clientWidth;
+        if (Math.abs(filmstrip.scrollLeft - left) <= 1) {
           scrollTargetRef.current = null;
-          scroller.style.scrollSnapType = "";
+          filmstrip.style.scrollSnapType = "";
         }
       }
       if (scrollTargetRef.current === null) publishSwipe();
-      if ("onscrollend" in scroller) return;
+      if ("onscrollend" in filmstrip) return;
       window.clearTimeout(settleTimer.current);
       settleTimer.current = window.setTimeout(syncFromScroller, 160);
-    }
+    };
 
-    function onScrollEnd() {
+    const onScrollEnd = () => {
       if (dragRef.current || pointerDownRef.current) return;
       syncFromScroller();
-    }
+    };
 
     scroller.addEventListener("scroll", onScroll, { passive: true });
     scroller.addEventListener("scrollend", onScrollEnd);
