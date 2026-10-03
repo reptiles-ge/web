@@ -13,6 +13,7 @@ import { CoverImage } from "@/components/CoverImage";
 import { GuideFaqItems } from "@/components/GuideFaqItems";
 import { GuideSources } from "@/components/GuideSources";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
+import { SectionNav } from "@/components/SectionNav";
 import { guideArticleSectionAnchor } from "@/data/guideArticles";
 import { getSpeciesById } from "@/data/species";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
@@ -71,6 +72,13 @@ export async function GuideArticlePage({
   return (
     <main className="min-h-screen bg-background">
       <article className="mx-auto max-w-[1400px] px-6 pt-30 pb-16 sm:pt-33 sm:pb-24 lg:px-10">
+        <GuideArticleSectionNav
+          items={sections.map(({ anchor, section }) => ({
+            id: anchor,
+            label: section.heading,
+          }))}
+          label={t("contents")}
+        />
         <nav aria-label="Breadcrumb" className="sr-only">
           <ol className="flex flex-wrap gap-x-2 gap-y-1">
             <li>
@@ -346,6 +354,18 @@ export async function GuideArticlePage({
   );
 }
 
+function GuideArticleSectionNav({
+  items,
+  label,
+}: {
+  items: Array<{ id: string; label: string }>;
+  label: string;
+}) {
+  if (items.length <= 2) return null;
+
+  return <SectionNav ariaLabel={label} floating items={items} />;
+}
+
 function GuideArticleSectionView({
   anchor,
   article,
@@ -367,7 +387,7 @@ function GuideArticleSectionView({
   return (
     <section aria-labelledby={anchor}>
       <h2
-        className="scroll-mt-28 font-display text-display-card font-semibold text-foreground"
+        className="scroll-mt-40 font-display text-display-card font-semibold text-foreground"
         {...contentEditorAttributes(
           "guide",
           editable ? article.id : undefined,

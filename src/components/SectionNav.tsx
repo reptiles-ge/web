@@ -6,29 +6,33 @@ import type { DangerLevel } from "@/data/speciesTypes";
 
 import { cn } from "@/lib/cn";
 
-type SpeciesSectionNavItem = {
+type SectionNavItem = {
   id: string;
   label: string;
 };
 
-type SpeciesSectionNavProps = {
+type SectionNavProps = {
   ariaLabel: string;
-  items: SpeciesSectionNavItem[];
-  name: string;
+  floating?: boolean;
+  items: SectionNavItem[];
+  name?: string;
   riskLevel?: DangerLevel;
 };
 
 const ACTIVE_LINE_OFFSET = 64;
 const ACTIVE_LINE_VIEWPORT_RATIO = 0.35;
+const FLOATING_EXIT_MARGIN = 120;
 
-export function SpeciesSectionNav({
+export function SectionNav({
   ariaLabel,
+  floating = false,
   items,
   name,
   riskLevel,
-}: SpeciesSectionNavProps) {
+}: SectionNavProps) {
   const [activeId, setActiveId] = useState<null | string>(null);
   const [pinned, setPinned] = useState(false);
+  const [shown, setShown] = useState(!floating);
   const [fade, setFade] = useState({ end: false, start: false });
   const navRef = useRef<HTMLElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
@@ -70,12 +74,18 @@ export function SpeciesSectionNav({
       }
 
       const root = nav.parentElement;
-      if (root) {
-        const rootRect = root.getBoundingClientRect();
-        const distance = rootRect.height - window.innerHeight;
-        const ratio =
-          distance > 0 ? Math.min(1, Math.max(0, -rootRect.top / distance)) : 0;
-        nav.style.setProperty("--section-progress", ratio.toFixed(4));
+      if (!root) return;
+
+      const rootRect = root.getBoundingClientRect();
+      const distance = rootRect.height - window.innerHeight;
+      const ratio =
+        distance > 0 ? Math.min(1, Math.max(0, -rootRect.top / distance)) : 0;
+      nav.style.setProperty("--section-progress", ratio.toFixed(4));
+      if (floating) {
+        setShown(
+          current !== null &&
+            rootRect.bottom > navRect.bottom + FLOATING_EXIT_MARGIN,
+        );
       }
     }
 
@@ -94,7 +104,7 @@ export function SpeciesSectionNav({
       scroller?.removeEventListener("scroll", schedule);
       if (frame !== 0) window.cancelAnimationFrame(frame);
     };
-  }, [items]);
+  }, [floating, items]);
 
   useEffect(() => {
     const list = listRef.current;
@@ -123,30 +133,39 @@ export function SpeciesSectionNav({
   return (
     <nav
       aria-label={ariaLabel}
-      className="sticky top-[75px] z-30 border-y border-border bg-background/95 backdrop-blur-xl"
+      className={cn(
+        "top-[75px] z-30 border-y border-border bg-background/95 backdrop-blur-xl",
+        floating
+          ? "fixed inset-x-0 transition-[opacity,translate] duration-300 ease-out"
+          : "sticky",
+        shown ? "opacity-100" : "pointer-events-none -translate-y-2 opacity-0",
+      )}
+      inert={!shown}
       ref={navRef}
     >
       <div className="mx-auto flex h-12 max-w-[1400px] items-center lg:px-10">
-        <div
-          aria-hidden="true"
-          className={cn(
-            "hidden shrink-0 items-center overflow-hidden transition-[max-width,opacity,margin] duration-300 ease-out lg:flex",
-            pinned ? "mr-7 max-w-72 opacity-100" : "mr-0 max-w-0 opacity-0",
-          )}
-        >
-          {riskLevel ? (
-            <span
-              className={cn(
-                "mr-2.5 size-1.5 shrink-0 rounded-full",
-                riskDotClass(riskLevel),
-              )}
-            />
-          ) : null}
-          <span className="truncate font-display text-[14px] leading-none font-semibold whitespace-nowrap text-foreground">
-            {name}
-          </span>
-          <span className="ml-4 h-4 w-px shrink-0 bg-border" />
-        </div>
+        {name ? (
+          <div
+            aria-hidden="true"
+            className={cn(
+              "hidden shrink-0 items-center overflow-hidden transition-[max-width,opacity,margin] duration-300 ease-out lg:flex",
+              pinned ? "mr-7 max-w-72 opacity-100" : "mr-0 max-w-0 opacity-0",
+            )}
+          >
+            {riskLevel ? (
+              <span
+                className={cn(
+                  "mr-2.5 size-1.5 shrink-0 rounded-full",
+                  riskDotClass(riskLevel),
+                )}
+              />
+            ) : null}
+            <span className="truncate font-display text-[14px] leading-none font-semibold whitespace-nowrap text-foreground">
+              {name}
+            </span>
+            <span className="ml-4 h-4 w-px shrink-0 bg-border" />
+          </div>
+        ) : null}
         <div className="relative h-full min-w-0 flex-1 lg:-ml-3">
           <ul
             className="flex h-full scrollbar-none items-center overflow-x-auto px-3 text-[13px] leading-none lg:px-0 [&::-webkit-scrollbar]:hidden"

@@ -13,15 +13,15 @@ import { BiologyBlock } from "@/components/BiologyBlock";
 import { BiologyExpandable } from "@/components/BiologyExpandable";
 import { ContentAttribution } from "@/components/ContentAttribution";
 import { SpeciesRangeMap } from "@/components/map/SpeciesRangeMap";
-import { QuizPracticeCta } from "@/components/QuizPracticeCta";
 import { RelatedGuideStaticGrid } from "@/components/RelatedGuideStaticGrid";
+import { SectionNav } from "@/components/SectionNav";
 import { SpeciesFaqSection } from "@/components/SpeciesFaqSection";
 import { SpeciesGallery } from "@/components/SpeciesGallery";
 import { SpeciesIdentification } from "@/components/SpeciesIdentification";
 import { SpeciesOverviewText } from "@/components/SpeciesOverviewText";
 import { SpeciesProfileFacts } from "@/components/SpeciesProfileFacts";
+import { SpeciesProfileQuiz } from "@/components/SpeciesProfileQuiz";
 import { SpeciesProfileRelated } from "@/components/SpeciesProfileRelated";
-import { SpeciesSectionNav } from "@/components/SpeciesSectionNav";
 import { SpeciesSources } from "@/components/SpeciesSources";
 import {
   optimizedEntry,
@@ -29,11 +29,7 @@ import {
   pictureSources,
 } from "@/data/optimizedImages";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
-import {
-  type HubClusterCard,
-  isLizardSpecies,
-  isSnakeSpecies,
-} from "@/lib/clusterGuides";
+import { type HubClusterCard } from "@/lib/clusterGuides";
 import { cn } from "@/lib/cn";
 import { formatPhotoDate } from "@/lib/formatDate";
 import {
@@ -42,7 +38,11 @@ import {
 } from "@/lib/speciesContent";
 import { speciesPhotoAlt } from "@/lib/speciesMeta";
 import { getSpeciesRiskChip } from "@/lib/speciesRisk";
-import { SPECIES_SECTION_IDS, speciesProfileSectionIds } from "@/lib/toc";
+import {
+  SPECIES_SECTION_IDS,
+  type SpeciesProfileSectionAvailability,
+  speciesProfileSectionIds,
+} from "@/lib/toc";
 
 type BiologyBlockItem = {
   body: string;
@@ -512,8 +512,6 @@ export async function SpeciesProfileBody({
   species,
 }: SpeciesProfileBodyProps) {
   const t = await getTranslations({ locale, namespace: "profile" });
-  const snake = isSnakeSpecies(species);
-  const lizard = isLizardSpecies(species);
   const relatedLabelVariant =
     getSpeciesAtlasMeta(species.id).group === "insect"
       ? "otherInsects"
@@ -529,19 +527,20 @@ export async function SpeciesProfileBody({
   return (
     <>
       <SpeciesProfileNavigation
-        hasBiology={naturalHistoryBlocks.length > 0}
-        hasFacts={displayStats.length > 0}
-        hasFaq={Boolean(species.faq?.length)}
-        hasGallery={gallery.length > 0}
-        hasHabitat={Boolean(habitatBlock)}
-        hasIdentification={showIdentification}
-        hasInteraction={hasInteraction}
-        hasLookalikes={lookalikes.length > 0}
-        hasRange={hasRange}
-        hasSources={species.sources.length > 0}
         locale={locale}
         name={species.commonName}
         riskLevel={getSpeciesRiskChip(species)?.level}
+        sections={{
+          atAGlance: displayStats.length > 0,
+          biology: naturalHistoryBlocks.length > 0,
+          faq: Boolean(species.faq?.length),
+          gallery: gallery.length > 0,
+          habitat: Boolean(habitatBlock),
+          identification: showIdentification,
+          interaction: hasInteraction,
+          range: hasRange,
+          sources: species.sources.length > 0,
+        }}
       />
 
       <SpeciesProfileFacts
@@ -583,6 +582,7 @@ export async function SpeciesProfileBody({
         <SpeciesProfileIdentification
           identification={species.identification}
           locale={locale}
+          lookalikes={lookalikes}
           species={species}
         />
       ) : null}
@@ -614,37 +614,7 @@ export async function SpeciesProfileBody({
         />
       ) : null}
 
-      <SpeciesProfileRelated
-        locale={locale}
-        related={lookalikes}
-        variant="lookalikes"
-      />
-
-      {snake ? (
-        <QuizPracticeCta
-          body={t("quizCtaBody", { name: species.commonName })}
-          className="border-t border-border bg-surface pt-8 pb-10 lg:pt-10 lg:pb-14"
-          cta={t("quizCta")}
-          eyebrow={t("quizCtaEyebrow")}
-          locale={locale}
-          quizId="snake"
-          source="species"
-          speciesId={species.id}
-          title={t("quizCtaTitle")}
-        />
-      ) : lizard ? (
-        <QuizPracticeCta
-          body={t("quizCtaBodyLizard", { name: species.commonName })}
-          className="border-t border-border bg-surface pt-8 pb-10 lg:pt-10 lg:pb-14"
-          cta={t("quizCta")}
-          eyebrow={t("quizCtaEyebrow")}
-          locale={locale}
-          quizId="lizard"
-          source="species"
-          speciesId={species.id}
-          title={t("quizCtaTitleLizard")}
-        />
-      ) : null}
+      <SpeciesProfileQuiz locale={locale} species={species} />
 
       {habitatBlock ? (
         <SpeciesProfileHabitat
@@ -1090,10 +1060,12 @@ async function SpeciesProfileHabitat({
 function SpeciesProfileIdentification({
   identification,
   locale,
+  lookalikes,
   species,
 }: {
   identification: NonNullable<Species["identification"]>;
   locale: AppLocale;
+  lookalikes: Species[];
   species: Species;
 }) {
   const photo =
@@ -1105,6 +1077,7 @@ function SpeciesProfileIdentification({
     <SpeciesIdentification
       identification={identification}
       locale={locale}
+      lookalikes={lookalikes}
       name={species.commonName}
       photo={photo}
       photoAlt={speciesPhotoAlt(
@@ -1119,47 +1092,18 @@ function SpeciesProfileIdentification({
 }
 
 async function SpeciesProfileNavigation({
-  hasBiology,
-  hasFacts,
-  hasFaq,
-  hasGallery,
-  hasHabitat,
-  hasIdentification,
-  hasInteraction,
-  hasLookalikes,
-  hasRange,
-  hasSources,
   locale,
   name,
   riskLevel,
+  sections,
 }: {
-  hasBiology: boolean;
-  hasFacts: boolean;
-  hasFaq: boolean;
-  hasGallery: boolean;
-  hasHabitat: boolean;
-  hasIdentification: boolean;
-  hasInteraction: boolean;
-  hasLookalikes: boolean;
-  hasRange: boolean;
-  hasSources: boolean;
   locale: AppLocale;
   name: string;
   riskLevel?: DangerLevel;
+  sections: SpeciesProfileSectionAvailability;
 }) {
   const t = await getTranslations({ locale, namespace: "profile" });
-  const ids = speciesProfileSectionIds({
-    atAGlance: hasFacts,
-    biology: hasBiology,
-    faq: hasFaq,
-    gallery: hasGallery,
-    habitat: hasHabitat,
-    identification: hasIdentification,
-    interaction: hasInteraction,
-    lookalikes: hasLookalikes,
-    range: hasRange,
-    sources: hasSources,
-  });
+  const ids = speciesProfileSectionIds(sections);
   const labels = {
     [SPECIES_SECTION_IDS.atAGlance]: t("atAGlance"),
     [SPECIES_SECTION_IDS.biology]: t("biology"),
@@ -1168,14 +1112,13 @@ async function SpeciesProfileNavigation({
     [SPECIES_SECTION_IDS.habitat]: t("habitat"),
     [SPECIES_SECTION_IDS.identification]: t("identification"),
     [SPECIES_SECTION_IDS.interaction]: t("interaction"),
-    [SPECIES_SECTION_IDS.lookalikes]: t("lookalikes"),
     [SPECIES_SECTION_IDS.overview]: t("overview"),
     [SPECIES_SECTION_IDS.range]: t("range"),
     [SPECIES_SECTION_IDS.sources]: t("sourcesTitle"),
   };
 
   return (
-    <SpeciesSectionNav
+    <SectionNav
       ariaLabel={t("contents")}
       items={ids.map((id) => ({ id, label: labels[id] }))}
       name={name}

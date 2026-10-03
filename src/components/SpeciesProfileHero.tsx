@@ -1,4 +1,4 @@
-import { Images, MapPin, Shield } from "lucide-react";
+import { MapPin, Maximize2, Shield } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import type { PictureSource } from "@/data/optimizedImages";
@@ -10,7 +10,11 @@ import type { SpeciesBreadcrumbCrumb } from "@/lib/speciesBreadcrumbs";
 import { SpeciesScientificNameCopy } from "@/components/SpeciesScientificNameCopy";
 import { SpeciesVoicePlayer } from "@/components/SpeciesVoicePlayer";
 import { getRegionsForSpecies } from "@/data/mapRegions";
-import { optimizedEntry, optimizedImgSrc } from "@/data/optimizedImages";
+import {
+  optimizedEntry,
+  optimizedImgSrc,
+  pictureSources,
+} from "@/data/optimizedImages";
 import { Link } from "@/i18n/navigation";
 import { isLocalAdminEnabled } from "@/lib/adminAccess";
 import { cn } from "@/lib/cn";
@@ -28,6 +32,7 @@ type SpeciesProfileHeroProps = {
   breadcrumbs: SpeciesBreadcrumbCrumb[];
   desktopHeroSrc: null | string;
   galleryCount: number;
+  galleryPreview: string[];
   gallerySrc: null | string;
   group: AnimalGroup;
   heroDesktopSources: PictureSource[];
@@ -46,6 +51,7 @@ export async function SpeciesProfileHero({
   breadcrumbs,
   desktopHeroSrc,
   galleryCount,
+  galleryPreview,
   gallerySrc,
   group,
   heroDesktopSources,
@@ -150,9 +156,10 @@ export async function SpeciesProfileHero({
               value={dangerValue}
             />
           ) : null}
-          <SpeciesHeroGalleryChip
+          <SpeciesHeroGalleryButton
             gallerySrc={gallerySrc}
-            label={t("photoCount", { count: galleryCount })}
+            label={t("viewPhotos", { count: galleryCount })}
+            preview={galleryPreview}
           />
         </div>
       </div>
@@ -206,23 +213,51 @@ function SpeciesBreadcrumbTrail({
   );
 }
 
-function SpeciesHeroGalleryChip({
+function SpeciesHeroGalleryButton({
   gallerySrc,
   label,
+  preview,
 }: {
   gallerySrc: null | string;
   label: string;
+  preview: string[];
 }) {
   if (!gallerySrc) return null;
 
   return (
     <a
-      className={heroChipLinkClassName}
+      className="group/gallery inline-flex items-center gap-3 rounded-full border border-white/25 bg-white/12 py-1.5 pr-4 pl-1.5 text-[13px] font-medium text-white backdrop-blur-md transition-colors hover:border-white/50 hover:bg-white/20 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white/60 sm:ml-auto"
       data-species-gallery-src={gallerySrc}
       href={`#${SPECIES_SECTION_IDS.gallery}`}
     >
-      <Images aria-hidden="true" className="size-3.5 text-white/45" />
+      <span aria-hidden="true" className="flex items-center">
+        {preview.map((src, index) => (
+          <span
+            className={cn(
+              "relative size-8 overflow-hidden rounded-full bg-ink ring-2 ring-white/80 transition-[margin] duration-300 ease-out",
+              index > 0 && "-ml-3 group-hover/gallery:-ml-1.5",
+            )}
+            key={src}
+          >
+            <picture>
+              {pictureSources(src, { sizes: "32px" }).map((source) => (
+                <source key={source.key} {...source.props} />
+              ))}
+              <img
+                alt=""
+                className="size-full object-cover"
+                decoding="async"
+                fetchPriority="low"
+                loading="lazy"
+                sizes="32px"
+                src={optimizedImgSrc(src, 400)}
+              />
+            </picture>
+          </span>
+        ))}
+      </span>
       <span>{label}</span>
+      <Maximize2 aria-hidden="true" className="size-3.5 text-white/70" />
     </a>
   );
 }
