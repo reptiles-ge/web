@@ -488,6 +488,7 @@
     "rangeSubtitle": "Highlighted regions show where this species has been recorded.",
     "rangeRegionsLabel": "Range",
     "regionCount": "{count, plural, one {# region} other {# regions}}",
+    "photoCount": "{count, plural, one {# photo} other {# photos}}",
     "lastUpdated": "Last updated",
     "publishedOn": "Published:",
     "updatedOn": "Updated:",

@@ -1,4 +1,4 @@
-import { MapPin, Shield } from "lucide-react";
+import { Images, MapPin, Shield } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import type { PictureSource } from "@/data/optimizedImages";
@@ -22,10 +22,13 @@ import {
   speciesShareText,
   speciesShareUrl,
 } from "@/lib/speciesShareText";
+import { SPECIES_SECTION_IDS } from "@/lib/toc";
 
 type SpeciesProfileHeroProps = {
   breadcrumbs: SpeciesBreadcrumbCrumb[];
   desktopHeroSrc: null | string;
+  galleryCount: number;
+  gallerySrc: null | string;
   group: AnimalGroup;
   heroDesktopSources: PictureSource[];
   heroPrimarySources: PictureSource[];
@@ -36,9 +39,14 @@ type SpeciesProfileHeroProps = {
   species: Species;
 };
 
+const heroChipLinkClassName =
+  "inline-flex items-center gap-1.5 rounded-full border border-white/12 bg-white/5 px-3 py-2 text-[13px] text-white/60 backdrop-blur-md transition-colors hover:border-white/25 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white/50 sm:px-3.5";
+
 export async function SpeciesProfileHero({
   breadcrumbs,
   desktopHeroSrc,
+  galleryCount,
+  gallerySrc,
   group,
   heroDesktopSources,
   heroPrimarySources,
@@ -100,6 +108,7 @@ export async function SpeciesProfileHero({
       />
       <div className="absolute inset-0 bg-linear-to-b from-black/65 via-black/25 to-black/90" />
       <div className="absolute inset-0 bg-[radial-gradient(100%_70%_at_50%_30%,transparent_30%,rgba(0,0,0,0.55)_100%)]" />
+      <SpeciesHeroPhotoLink gallerySrc={gallerySrc} />
       <SpeciesBreadcrumbTrail
         ariaLabel={t("breadcrumbAria")}
         breadcrumbs={breadcrumbs}
@@ -121,10 +130,13 @@ export async function SpeciesProfileHero({
         </p>
         <div className="mt-5 flex flex-wrap items-center gap-2 sm:mt-6 sm:gap-3">
           {regionCount > 0 ? (
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-white/12 bg-white/5 px-3 py-2 text-[13px] text-white/60 backdrop-blur-md sm:px-3.5">
+            <a
+              className={heroChipLinkClassName}
+              href={`#${SPECIES_SECTION_IDS.range}`}
+            >
               <MapPin aria-hidden="true" className="size-3.5 text-white/45" />
               <span>{t("regionCount", { count: regionCount })}</span>
-            </span>
+            </a>
           ) : null}
           {species.audio ? (
             <SpeciesVoicePlayer audio={species.audio} speciesId={species.id} />
@@ -138,6 +150,10 @@ export async function SpeciesProfileHero({
               value={dangerValue}
             />
           ) : null}
+          <SpeciesHeroGalleryChip
+            gallerySrc={gallerySrc}
+            label={t("photoCount", { count: galleryCount })}
+          />
         </div>
       </div>
     </section>
@@ -187,6 +203,41 @@ function SpeciesBreadcrumbTrail({
         })}
       </ol>
     </nav>
+  );
+}
+
+function SpeciesHeroGalleryChip({
+  gallerySrc,
+  label,
+}: {
+  gallerySrc: null | string;
+  label: string;
+}) {
+  if (!gallerySrc) return null;
+
+  return (
+    <a
+      className={heroChipLinkClassName}
+      data-species-gallery-src={gallerySrc}
+      href={`#${SPECIES_SECTION_IDS.gallery}`}
+    >
+      <Images aria-hidden="true" className="size-3.5 text-white/45" />
+      <span>{label}</span>
+    </a>
+  );
+}
+
+function SpeciesHeroPhotoLink({ gallerySrc }: { gallerySrc: null | string }) {
+  if (!gallerySrc) return null;
+
+  return (
+    <a
+      aria-hidden="true"
+      className="absolute inset-0 cursor-zoom-in"
+      data-species-gallery-src={gallerySrc}
+      href={`#${SPECIES_SECTION_IDS.gallery}`}
+      tabIndex={-1}
+    />
   );
 }
 

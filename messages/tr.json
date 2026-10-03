@@ -488,6 +488,7 @@
     "rangeSubtitle": "Vurgulanan bölgeler bu türün kaydedildiği yerleri gösterir.",
     "rangeRegionsLabel": "Yayılış",
     "regionCount": "{count, plural, one {# bölge} other {# bölge}}",
+    "photoCount": "{count} fotoğraf",
     "lastUpdated": "Son güncelleme",
     "publishedOn": "Yayımlandı:",
     "updatedOn": "Güncellendi:",
