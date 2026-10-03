@@ -265,6 +265,15 @@ describe("species routes", () => {
     );
   });
 
+  it("limits griffon vulture lookalikes to supported visual comparisons", () => {
+    expect(getSpeciesLookalikes("gyps-fulvus")).toEqual([
+      "aegypius-monachus",
+      "aquila-chrysaetos",
+      "gypaetus-barbatus",
+    ]);
+    expect(getSpeciesLookalikes("buteo-buteo")).not.toContain("gyps-fulvus");
+  });
+
   it("leaves Caucasian salamander lookalikes empty without supported visual confusion", () => {
     expect(getSpeciesLookalikes("mertensiella-caucasica")).toEqual([]);
     for (const id of [
