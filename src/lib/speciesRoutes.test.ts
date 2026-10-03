@@ -162,6 +162,18 @@ describe("species routes", () => {
     );
   });
 
+  it("keeps the Caucasian agama comparison to the visually confusable gecko", () => {
+    expect(getSpeciesLookalikes("paralaudakia-caucasia")).toEqual([
+      "tenuidactylus-caspius",
+    ]);
+    expect(getSpeciesLookalikes("tenuidactylus-caspius")).toContain(
+      "paralaudakia-caucasia",
+    );
+    for (const id of ["darevskia-portschinskii", "eumeces-schneiderii"]) {
+      expect(getSpeciesLookalikes(id)).not.toContain("paralaudakia-caucasia");
+    }
+  });
+
   it("keeps grass snake lookalikes to supported field-confusion candidates", () => {
     expect(getSpeciesLookalikes("natrix-natrix")).toEqual([
       "natrix-tessellata",
