@@ -495,6 +495,10 @@ const HALYOMORPHA_PEST_COPY: Record<AppLocale, HalyomorphaPestCopy> = {
   },
 };
 
+const SPLIT_SECTION_CLASS =
+  "mx-auto grid max-w-[1400px] px-6 lg:grid-cols-[0.85fr_1.15fr] lg:gap-24 lg:px-10";
+const SPLIT_SECTION_BODY_CLASS = "lg:pt-9 lg:[&>p:first-child]:mt-0";
+
 export async function SpeciesProfileBody({
   biologyBlocks,
   biologyTitle,
@@ -556,25 +560,29 @@ export async function SpeciesProfileBody({
       />
 
       <section className="bg-surface py-20 lg:py-28">
-        <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
-            {t("overview")}
-          </p>
-          <AnchoredHeading
-            anchorLabel={t("anchorLink")}
-            className="mt-5 max-w-2xl font-display text-display-title leading-[1.14] font-bold"
-            id={SPECIES_SECTION_IDS.overview}
-            slugSource={t("overviewTitle", { name: species.commonName })}
-          >
-            {t("overviewTitle", { name: species.commonName })}
-          </AnchoredHeading>
-          <SpeciesOverviewText
-            body={species.overview}
-            editable={editable}
-            readLess={t("readLess")}
-            readMore={t("readMore")}
-            speciesId={species.id}
-          />
+        <div className={SPLIT_SECTION_CLASS}>
+          <div>
+            <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
+              {t("overview")}
+            </p>
+            <AnchoredHeading
+              anchorLabel={t("anchorLink")}
+              className="mt-5 max-w-2xl font-display text-display-title leading-[1.14] font-bold"
+              id={SPECIES_SECTION_IDS.overview}
+              slugSource={t("overviewTitle", { name: species.commonName })}
+            >
+              {t("overviewTitle", { name: species.commonName })}
+            </AnchoredHeading>
+          </div>
+          <div className={SPLIT_SECTION_BODY_CLASS}>
+            <SpeciesOverviewText
+              body={species.overview}
+              editable={editable}
+              readLess={t("readLess")}
+              readMore={t("readMore")}
+              speciesId={species.id}
+            />
+          </div>
         </div>
       </section>
 
@@ -1031,18 +1039,20 @@ async function SpeciesProfileHabitat({
 
   return (
     <section className="bg-surface py-20 lg:py-28">
-      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
-          {t("range")}
-        </p>
-        <AnchoredHeading
-          anchorLabel={t("anchorLink")}
-          className="mt-5 max-w-2xl font-display text-display-title font-bold"
-          id={SPECIES_SECTION_IDS.habitat}
-        >
-          {block.title}
-        </AnchoredHeading>
-        <div className="max-w-3xl">
+      <div className={SPLIT_SECTION_CLASS}>
+        <div>
+          <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
+            {t("range")}
+          </p>
+          <AnchoredHeading
+            anchorLabel={t("anchorLink")}
+            className="mt-5 max-w-2xl font-display text-display-title font-bold"
+            id={SPECIES_SECTION_IDS.habitat}
+          >
+            {block.title}
+          </AnchoredHeading>
+        </div>
+        <div className={cn("max-w-3xl", SPLIT_SECTION_BODY_CLASS)}>
           <BiologyExpandable
             body={block.body}
             editorField={editable ? block.id : undefined}

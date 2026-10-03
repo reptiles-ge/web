@@ -8,6 +8,7 @@ import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { CoverImage } from "@/components/CoverImage";
 import { TrackedSpeciesLink } from "@/components/home/TrackedSpeciesLink";
 import { Link } from "@/i18n/navigation";
+import { cn } from "@/lib/cn";
 import { RELATED_CARD_SIZES } from "@/lib/imageSizes";
 import { getSpeciesCoverSrc } from "@/lib/speciesContent";
 import { speciesImageAlt } from "@/lib/speciesMeta";
@@ -55,13 +56,14 @@ export async function SpeciesProfileRelated({
             <ArrowUpRight className="size-3.5" />
           </Link>
         </div>
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="no-scrollbar -mx-6 mt-12 flex snap-x snap-mandatory scroll-px-6 gap-4 overflow-x-auto px-6 sm:mx-0 sm:grid sm:snap-none sm:grid-cols-2 sm:gap-5 sm:overflow-visible sm:px-0 lg:grid-cols-3">
           {related.map((item, relatedIndex) => (
             <SpeciesProfileRelatedCard
               item={item}
               key={item.id}
               locale={locale}
               position={relatedIndex + 1}
+              single={related.length === 1}
             />
           ))}
         </div>
@@ -74,16 +76,21 @@ function SpeciesProfileRelatedCard({
   item,
   locale,
   position,
+  single,
 }: {
   item: Species;
   locale: AppLocale;
   position: number;
+  single: boolean;
 }) {
   const cover = getSpeciesCoverSrc(item);
 
   return (
     <TrackedSpeciesLink
-      className="group relative block aspect-4/5 overflow-hidden rounded-media bg-ink"
+      className={cn(
+        "group relative block aspect-4/5 shrink-0 snap-start overflow-hidden rounded-media bg-ink sm:w-auto",
+        single ? "w-full" : "w-[72%]",
+      )}
       locale={locale}
       position={position}
       source="related"
