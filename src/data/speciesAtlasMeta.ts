@@ -427,6 +427,10 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "snake",
     habitats: ["wetland"],
   },
+  "neophron-percnopterus": {
+    group: "bird",
+    habitats: ["grassland"],
+  },
   "olivierus-caucasicus": {
     group: "scorpion",
     habitats: ["grassland"],
