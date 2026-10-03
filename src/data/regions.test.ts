@@ -69,6 +69,7 @@ describe("region speciesIds", () => {
     "coturnix-coturnix",
     "gypaetus-barbatus",
     "columba-palumbus",
+    "darevskia-obscura",
     "eirenis-modestus",
     "mauremys-caspica",
     "mustela-nivalis",
