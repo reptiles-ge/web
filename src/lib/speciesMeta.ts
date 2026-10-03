@@ -195,6 +195,12 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
     en: "Dice snake (Natrix tessellata) | Non-venomous water snake in Georgia",
     ka: "წყლის ანკარა (Natrix tessellata) | უშხამო წყლის გველი საქართველოში",
   },
+  "neophron-percnopterus": {
+    en: "Egyptian vulture in Georgia | Identification and breeding",
+    ka: "ფასკუნჯი საქართველოში — ამოცნობა და გავრცელება",
+    ru: "Стервятник в Грузии — признаки и гнездование",
+    tr: "Gürcistan'da küçük akbaba | Tanıma ve yuvalama",
+  },
   "olivierus-caucasicus": {
     ka: "კავკასიური მორიელი (Olivierus caucasicus) — გავრცელება და ამოცნობა",
   },
@@ -339,6 +345,12 @@ const SPECIES_META_DESCRIPTION_OVERRIDE: Partial<
   "mesobuthus-eupeus": {
     en: "Mottled scorpion (Mesobuthus eupeus) in Georgia: taxonomy, Tbilisi evidence, identification notes, habitat, sting risk, and sources.",
     ka: "ჭრელი მორიელი (Mesobuthus eupeus) საქართველოში — ტაქსონომია, თბილისის მტკიცებულება, ამოცნობა, ჰაბიტატი, ნაკბენის რისკი და წყაროები.",
+  },
+  "neophron-percnopterus": {
+    en: "Egyptian vulture in Georgia: confirmed nesting in Vashlovani, adult and juvenile identification, migration and conservation status.",
+    ka: "ფასკუნჯი საქართველოში: დადასტურებული ბუდობა ვაშლოვანში, ზრდასრულისა და ახალგაზრდის ამოცნობა, მიგრაცია და დაცვის სტატუსი.",
+    ru: "Стервятник в Грузии: подтверждённое гнездование в Вашловани, признаки взрослых и молодых птиц, миграция и охрана.",
+    tr: "Gürcistan'da küçük akbaba: Vaşlovani'de doğrulanan yuvalama, ergin ve genç kuşların tanınması, göç ve koruma durumu.",
   },
   "pholcus-phalangioides": {
     ka: "გრძელფეხა ფოლკუსი (Pholcus phalangioides) საქართველოში — სახლისა და სარდაფის გრძელფეხა ობობის ამოცნობა, დადასტურებული ჩანაწერები და ადამიანისთვის რეალური რისკი.",

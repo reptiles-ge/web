@@ -303,6 +303,12 @@ const SPECIES_ALIASES: Record<
     ru: ["обыкновенный уж", "уж"],
     tr: ["Çim yılanı"],
   },
+  "neophron-percnopterus": {
+    en: ["Vultur percnopterus"],
+    ka: ["ძერძერუკი", "Vultur percnopterus"],
+    ru: ["обыкновенный стервятник", "Vultur percnopterus"],
+    tr: ["Mısır akbabası", "Vultur percnopterus"],
+  },
   "paralaudakia-caucasia": {
     en: [
       "Caucasian rock agama",

@@ -92,6 +92,7 @@ export const featuredSpeciesIds = [
   "aegypius-monachus",
   "gyps-fulvus",
   "gypaetus-barbatus",
+  "neophron-percnopterus",
   "milvus-migrans",
   "accipiter-nisus",
   "accipiter-gentilis",
