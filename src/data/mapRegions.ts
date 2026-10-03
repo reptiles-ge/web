@@ -45,6 +45,7 @@ export const regions: Region[] = [
     path: georgiaRegionPaths.abkhazia,
     speciesIds: [
       "accipiter-nisus",
+      "garrulus-glandarius",
       "lanius-collurio",
       "vipera-kaznakovi",
       "vipera-dinniki",
@@ -95,6 +96,7 @@ export const regions: Region[] = [
     path: georgiaRegionPaths["samegrelo-zemo-svaneti"],
     speciesIds: [
       "accipiter-nisus",
+      "garrulus-glandarius",
       "gyps-fulvus",
       "lanius-collurio",
       "vipera-kaznakovi",
@@ -235,6 +237,7 @@ export const regions: Region[] = [
     path: georgiaRegionPaths.imereti,
     speciesIds: [
       "accipiter-nisus",
+      "garrulus-glandarius",
       "lanius-collurio",
       "vipera-kaznakovi",
       "natrix-tessellata",
@@ -323,6 +326,7 @@ export const regions: Region[] = [
     path: georgiaRegionPaths["samtskhe-javakheti"],
     speciesIds: [
       "accipiter-nisus",
+      "garrulus-glandarius",
       "gyps-fulvus",
       "neophron-percnopterus",
       "lanius-collurio",
@@ -457,6 +461,7 @@ export const regions: Region[] = [
     path: georgiaRegionPaths["mtskheta-mtianeti"],
     speciesIds: [
       "accipiter-nisus",
+      "garrulus-glandarius",
       "neophron-percnopterus",
       "lanius-collurio",
       "vipera-dinniki",
@@ -523,6 +528,7 @@ export const regions: Region[] = [
     path: georgiaRegionPaths["kvemo-kartli"],
     speciesIds: [
       "accipiter-nisus",
+      "garrulus-glandarius",
       "gyps-fulvus",
       "neophron-percnopterus",
       "lanius-collurio",
@@ -583,6 +589,7 @@ export const regions: Region[] = [
     path: georgiaRegionPaths.kakheti,
     speciesIds: [
       "accipiter-nisus",
+      "garrulus-glandarius",
       "neophron-percnopterus",
       "lanius-collurio",
       "macrovipera-lebetina",
@@ -660,6 +667,7 @@ export const regions: Region[] = [
     path: georgiaRegionPaths.tbilisi,
     speciesIds: [
       "accipiter-nisus",
+      "garrulus-glandarius",
       "lanius-collurio",
       "macrovipera-lebetina",
       "vipera-transcaucasiana",

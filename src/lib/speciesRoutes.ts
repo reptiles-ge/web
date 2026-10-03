@@ -163,7 +163,6 @@ const LOOKALIKES: Record<string, string[]> = {
   "falco-tinnunculus": ["falco-peregrinus"],
   "ficedula-hypoleuca": ["ficedula-semitorquata"],
   "ficedula-semitorquata": ["ficedula-hypoleuca"],
-  "garrulus-glandarius": ["pica-pica", "corvus-corax"],
   "gypaetus-barbatus": ["gyps-fulvus", "aquila-chrysaetos"],
   "gyps-fulvus": ["aegypius-monachus", "aquila-chrysaetos"],
   "hemorrhois-ravergieri": [
@@ -235,7 +234,7 @@ const LOOKALIKES: Record<string, string[]> = {
   "phasianus-colchicus": ["coturnix-coturnix"],
   "phoenicolacerta-laevis": ["darevskia-pontica", "lacerta-agilis"],
   "pholcus-phalangioides": ["araneus-diadematus"],
-  "pica-pica": ["corvus-corax", "garrulus-glandarius"],
+  "pica-pica": ["corvus-corax"],
   "platyceps-najadum": [
     "hemorrhois-ravergieri",
     "dolichophis-schmidti",
