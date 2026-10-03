@@ -62,11 +62,11 @@ export async function SpeciesProfileFacts({
             >
               {t("atAGlanceTitle")}
             </AnchoredHeading>
-            <div className="mt-12 grid gap-px overflow-hidden rounded-media bg-border sm:grid-cols-2 md:grid-cols-3">
+            <div className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-media bg-border md:grid-cols-3">
               {displayStats.map((stat, index) => (
                 <div
                   className={cn(
-                    "min-w-0 bg-background p-5 sm:p-6 lg:p-8",
+                    "min-w-0 bg-background p-4 sm:p-6 lg:p-8",
                     cellSpans[index],
                   )}
                   key={stat.label}
@@ -84,7 +84,7 @@ export async function SpeciesProfileFacts({
                     {stat.label}
                   </p>
                   <p
-                    className="mt-3 font-display text-[20px] leading-tight font-medium wrap-anywhere lg:text-[24px]"
+                    className="mt-3 font-display text-[17px] leading-tight font-medium wrap-break-word sm:text-[20px] lg:text-[24px]"
                     data-content-field={
                       editable
                         ? `stats.${stats.indexOf(stat)}.value`
@@ -171,7 +171,7 @@ function statCellSpans(count: number) {
   if (count === 0) return spans;
 
   spans[count - 1] = cn(
-    count % 2 === 1 && "sm:col-span-2",
+    count % 2 === 1 && "col-span-2",
     LAST_CELL_SPAN_MD[count % 3],
   );
   return spans;
