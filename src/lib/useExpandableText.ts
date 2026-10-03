@@ -80,17 +80,16 @@ function animateHeight(
   fill: FillMode,
 ) {
   element.style.overflow = "hidden";
-  const animation = element.animate(
-    [{ height: `${from}px` }, { height: `${to}px` }],
-    {
-      duration: Math.min(
-        MAX_DURATION,
-        Math.max(MIN_DURATION, Math.abs(to - from) * 0.6),
-      ),
-      easing: "cubic-bezier(0.4, 0, 0.2, 1)",
-      fill,
-    },
-  );
+  const fromFrame: Keyframe = { height: `${from}px` };
+  const toFrame: Keyframe = { height: `${to}px` };
+  const animation = element.animate([fromFrame, toFrame], {
+    duration: Math.min(
+      MAX_DURATION,
+      Math.max(MIN_DURATION, Math.abs(to - from) * 0.6),
+    ),
+    easing: "cubic-bezier(0.4, 0, 0.2, 1)",
+    fill,
+  });
   const release = () => {
     element.style.overflow = "";
   };

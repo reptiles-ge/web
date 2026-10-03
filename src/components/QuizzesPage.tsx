@@ -6,7 +6,7 @@ import type { QuizDefinition, QuizMessageKey } from "@/lib/quizzes";
 
 import { CoverImage } from "@/components/CoverImage";
 import { QuizCtaLink } from "@/components/QuizCtaLink";
-import { Link } from "@/i18n/navigation";
+import { ScreenReaderBreadcrumb } from "@/components/ScreenReaderBreadcrumb";
 import { quizHref } from "@/lib/quizzes";
 
 export type QuizCardModel = QuizDefinition & {
@@ -45,22 +45,10 @@ export async function QuizzesPage({ items, locale }: QuizzesPageProps) {
     <div className="min-h-screen bg-background">
       <section className="pt-28 pb-10 sm:pt-32 sm:pb-14 lg:pb-16">
         <div className="mx-auto w-full max-w-[1400px] px-6 lg:px-10">
-          <nav aria-label="Breadcrumb" className="sr-only">
-            <ol className="flex flex-wrap items-center gap-2 text-[13px] text-muted-foreground">
-              <li>
-                <Link
-                  className="transition-colors hover:text-foreground"
-                  href="/"
-                >
-                  {tShared("breadcrumbHome")}
-                </Link>
-              </li>
-              <li aria-hidden="true" className="text-border">
-                /
-              </li>
-              <li className="text-foreground">{t("breadcrumbCurrent")}</li>
-            </ol>
-          </nav>
+          <ScreenReaderBreadcrumb
+            current={t("breadcrumbCurrent")}
+            home={tShared("breadcrumbHome")}
+          />
           <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
             {t("eyebrow")}
           </p>

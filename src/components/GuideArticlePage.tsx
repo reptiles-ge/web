@@ -1,3 +1,5 @@
+import type { ComponentProps } from "react";
+
 import { ArrowUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
@@ -262,81 +264,17 @@ export async function GuideArticlePage({
           </section>
         ) : null}
 
-        <section className="mt-16 border-t border-border pt-10">
-          <h2 className="font-display text-display-card font-semibold text-foreground">
-            {t("related")}
-          </h2>
-          <ul className="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {related.map((item) => (
-              <li className="flex" key={item.id}>
-                <Link
-                  className="group flex w-full flex-col justify-between gap-6 rounded-card border border-border bg-card p-6 transition-colors hover:bg-background"
-                  href={item.pathname}
-                >
-                  <span className="font-display text-[18px] font-semibold text-foreground transition-colors group-hover:text-primary">
-                    {item.copy[locale].title}
-                  </span>
-                  <ArrowUpRight
-                    aria-hidden="true"
-                    className="size-4 text-muted-foreground"
-                  />
-                </Link>
-              </li>
-            ))}
-            <li className="flex">
-              <Link
-                className="group flex w-full flex-col justify-between gap-6 rounded-card border border-border bg-card p-6 transition-colors hover:bg-background"
-                href={parent.path}
-              >
-                <span className="font-display text-[18px] font-semibold text-foreground transition-colors group-hover:text-primary">
-                  {tShared(`hubs.${article.parentHub}`)}
-                </span>
-                <ArrowUpRight
-                  aria-hidden="true"
-                  className="size-4 text-muted-foreground"
-                />
-              </Link>
-            </li>
-            {DANGEROUS_ANIMALS_RELATED.has(article.id) ? (
-              <li className="flex">
-                <Link
-                  className="group flex w-full flex-col justify-between gap-6 rounded-card border border-border bg-card p-6 transition-colors hover:bg-background"
-                  href="/dangerous-animals"
-                >
-                  <span className="font-display text-[18px] font-semibold text-foreground transition-colors group-hover:text-primary">
-                    {tShared("cluster.dangerousAnimals.title")}
-                  </span>
-                  <ArrowUpRight
-                    aria-hidden="true"
-                    className="size-4 text-muted-foreground"
-                  />
-                </Link>
-              </li>
-            ) : null}
-          </ul>
-          {relatedSpecies.length > 0 ? (
-            <>
-              <h3 className="mt-10 text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
-                {t("relatedSpecies")}
-              </h3>
-              <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2.5 text-[15px]">
-                {relatedSpecies.map((item) => (
-                  <li key={item.id}>
-                    <Link
-                      className="text-foreground/80 underline decoration-border underline-offset-4 transition-colors hover:text-primary hover:decoration-primary/40"
-                      href={speciesHref(item.id, locale)}
-                    >
-                      {item.commonName}{" "}
-                      <i className="text-muted-foreground">
-                        {item.scientificName}
-                      </i>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </>
-          ) : null}
-        </section>
+        <GuideArticleRelated
+          articleId={article.id}
+          dangerousAnimalsLabel={tShared("cluster.dangerousAnimals.title")}
+          hubLabel={tShared(`hubs.${article.parentHub}`)}
+          locale={locale}
+          parentHref={parent.path}
+          related={related}
+          relatedLabel={t("related")}
+          relatedSpecies={relatedSpecies}
+          relatedSpeciesLabel={t("relatedSpecies")}
+        />
 
         <GuideSources
           heading={t("sources")}
@@ -351,6 +289,108 @@ export async function GuideArticlePage({
         updatedAt={dates.dateModified}
       />
     </main>
+  );
+}
+
+function GuideArticleRelated({
+  articleId,
+  dangerousAnimalsLabel,
+  hubLabel,
+  locale,
+  parentHref,
+  related,
+  relatedLabel,
+  relatedSpecies,
+  relatedSpeciesLabel,
+}: {
+  articleId: string;
+  dangerousAnimalsLabel: string;
+  hubLabel: string;
+  locale: AppLocale;
+  parentHref: ComponentProps<typeof Link>["href"];
+  related: readonly GuideArticle[];
+  relatedLabel: string;
+  relatedSpecies: ReadonlyArray<{
+    commonName: string;
+    id: string;
+    scientificName: string;
+  }>;
+  relatedSpeciesLabel: string;
+}) {
+  return (
+    <section className="mt-16 border-t border-border pt-10">
+      <h2 className="font-display text-display-card font-semibold text-foreground">
+        {relatedLabel}
+      </h2>
+      <ul className="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {related.map((item) => (
+          <li className="flex" key={item.id}>
+            <Link
+              className="group flex w-full flex-col justify-between gap-6 rounded-card border border-border bg-card p-6 transition-colors hover:bg-background"
+              href={item.pathname}
+            >
+              <span className="font-display text-[18px] font-semibold text-foreground transition-colors group-hover:text-primary">
+                {item.copy[locale].title}
+              </span>
+              <ArrowUpRight
+                aria-hidden="true"
+                className="size-4 text-muted-foreground"
+              />
+            </Link>
+          </li>
+        ))}
+        <li className="flex">
+          <Link
+            className="group flex w-full flex-col justify-between gap-6 rounded-card border border-border bg-card p-6 transition-colors hover:bg-background"
+            href={parentHref}
+          >
+            <span className="font-display text-[18px] font-semibold text-foreground transition-colors group-hover:text-primary">
+              {hubLabel}
+            </span>
+            <ArrowUpRight
+              aria-hidden="true"
+              className="size-4 text-muted-foreground"
+            />
+          </Link>
+        </li>
+        {DANGEROUS_ANIMALS_RELATED.has(articleId) ? (
+          <li className="flex">
+            <Link
+              className="group flex w-full flex-col justify-between gap-6 rounded-card border border-border bg-card p-6 transition-colors hover:bg-background"
+              href="/dangerous-animals"
+            >
+              <span className="font-display text-[18px] font-semibold text-foreground transition-colors group-hover:text-primary">
+                {dangerousAnimalsLabel}
+              </span>
+              <ArrowUpRight
+                aria-hidden="true"
+                className="size-4 text-muted-foreground"
+              />
+            </Link>
+          </li>
+        ) : null}
+      </ul>
+      {relatedSpecies.length > 0 ? (
+        <>
+          <h3 className="mt-10 text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
+            {relatedSpeciesLabel}
+          </h3>
+          <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2.5 text-[15px]">
+            {relatedSpecies.map((item) => (
+              <li key={item.id}>
+                <Link
+                  className="text-foreground/80 underline decoration-border underline-offset-4 transition-colors hover:text-primary hover:decoration-primary/40"
+                  href={speciesHref(item.id, locale)}
+                >
+                  {item.commonName}{" "}
+                  <i className="text-muted-foreground">{item.scientificName}</i>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </>
+      ) : null}
+    </section>
   );
 }
 

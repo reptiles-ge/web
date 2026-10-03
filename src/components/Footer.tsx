@@ -48,6 +48,8 @@ const exploreLinks = [
   { href: "/regions" as const, labelKey: "regions" as const },
 ];
 
+const footerGuideIds = new Set(["scorpion-sting", "snake-bite", "tick-bite"]);
+
 const guideLinks = [
   { href: "/venomous-snakes" as const, labelKey: "venomous" as const },
   {
@@ -55,14 +57,11 @@ const guideLinks = [
     labelKey: "snakeIdentify" as const,
   },
   { href: "/snakes-in-the-yard" as const, labelKey: "yard" as const },
-  ...getGuideArticles()
-    .filter((article) =>
-      ["scorpion-sting", "snake-bite", "tick-bite"].includes(article.id),
-    )
-    .map((article) => ({
-      href: article.pathname,
-      labelKey: article.messageKey,
-    })),
+  ...getGuideArticles().flatMap((article) =>
+    footerGuideIds.has(article.id)
+      ? [{ href: article.pathname, labelKey: article.messageKey }]
+      : [],
+  ),
   {
     href: "/mammals/datvi-shekhvedra" as const,
     labelKey: "bearEncounter" as const,

@@ -38,6 +38,19 @@ type GroupHubPageProps = {
   species: Species[];
 };
 
+function hubContextBlocks(hubId: GroupHubId, t: (key: string) => string) {
+  if (hubId === "mammals") {
+    return [{ body: t("predatorsBody"), title: t("predatorsTitle") }];
+  }
+  if (hubId === "scorpions") {
+    return [
+      { body: t("venomBody"), title: t("venomTitle") },
+      { body: t("westBody"), title: t("westTitle") },
+    ];
+  }
+  return [];
+}
+
 const INSECT_DEFINITION: Record<AppLocale, string> = {
   en: "Insects are arthropods that, as adults, have six legs, three main body parts, and often one or two pairs of wings.",
   ka: "მწერები არიან ფეხსახსრიანები, რომლებსაც ზრდასრულ სტადიაზე აქვთ ექვსი ფეხი, სამი ძირითადი სხეულის ნაწილი და ხშირად ერთი ან ორი წყვილი ფრთა.",
@@ -75,6 +88,7 @@ export async function GroupHubPage({
       ? `${INSECT_DEFINITION[locale]} ${t("guideP1")}`
       : t("guideP1");
   const dates = pageDateFields(GROUP_HUBS[hubId].path);
+  const contextBlocks = hubContextBlocks(hubId, (key) => t(key as never));
 
   return (
     <div className="min-h-screen bg-background">
@@ -133,41 +147,7 @@ export async function GroupHubPage({
           </div>
         </section>
 
-        {hubId === "mammals" || hubId === "scorpions" ? (
-          <section className="border-t border-border bg-background py-20 lg:py-28">
-            <div className="mx-auto max-w-[1400px] space-y-16 px-6 lg:px-10">
-              {hubId === "mammals" ? (
-                <div className="max-w-3xl">
-                  <h2 className="font-display text-display-title font-semibold">
-                    {t("predatorsTitle")}
-                  </h2>
-                  <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">
-                    <PhoneLinkedText>{t("predatorsBody")}</PhoneLinkedText>
-                  </p>
-                </div>
-              ) : (
-                <>
-                  <div className="max-w-3xl">
-                    <h2 className="font-display text-display-title font-semibold">
-                      {t("venomTitle")}
-                    </h2>
-                    <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">
-                      <PhoneLinkedText>{t("venomBody")}</PhoneLinkedText>
-                    </p>
-                  </div>
-                  <div className="max-w-3xl">
-                    <h2 className="font-display text-display-title font-semibold">
-                      {t("westTitle")}
-                    </h2>
-                    <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">
-                      <PhoneLinkedText>{t("westBody")}</PhoneLinkedText>
-                    </p>
-                  </div>
-                </>
-              )}
-            </div>
-          </section>
-        ) : null}
+        <GroupHubContextSection blocks={contextBlocks} />
 
         <GroupHubSpeciesList
           hubId={hubId}
@@ -284,5 +264,30 @@ export async function GroupHubPage({
         </section>
       </div>
     </div>
+  );
+}
+
+function GroupHubContextSection({
+  blocks,
+}: {
+  blocks: { body: string; title: string }[];
+}) {
+  if (blocks.length === 0) return null;
+
+  return (
+    <section className="border-t border-border bg-background py-20 lg:py-28">
+      <div className="mx-auto max-w-[1400px] space-y-16 px-6 lg:px-10">
+        {blocks.map((block) => (
+          <div className="max-w-3xl" key={block.title}>
+            <h2 className="font-display text-display-title font-semibold">
+              {block.title}
+            </h2>
+            <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">
+              <PhoneLinkedText>{block.body}</PhoneLinkedText>
+            </p>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }

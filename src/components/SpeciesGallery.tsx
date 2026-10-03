@@ -262,6 +262,11 @@ export async function SpeciesGallery({
   );
 }
 
+function captionLead(fieldLabel: string | undefined, placeDate: string) {
+  if (fieldLabel && placeDate) return `${fieldLabel} — ${placeDate}`;
+  return fieldLabel || placeDate || null;
+}
+
 function GalleryPhotoCaption({
   credit,
   fieldLabel,
@@ -281,34 +286,48 @@ function GalleryPhotoCaption({
     ? creditAuthorName(author, locale)
     : photographer;
   const placeDate = [location, date].filter(Boolean).join(", ");
+  const lead = captionLead(fieldLabel, placeDate);
 
-  if (!placeDate && !photographerLabel) return null;
+  if (!lead && !photographerLabel) return null;
 
   return (
     <figcaption className="mt-3 text-[12px] leading-relaxed text-muted-foreground sm:text-[13px]">
-      {fieldLabel ? (
-        <span className="font-medium text-foreground">
-          {fieldLabel}
-          {placeDate ? ` — ${placeDate}` : ""}
-        </span>
-      ) : placeDate ? (
-        <span className="font-medium text-foreground">{placeDate}</span>
+      {lead ? (
+        <span className="font-medium text-foreground">{lead}</span>
       ) : null}
       {photographerLabel ? (
-        <>
-          {placeDate || fieldLabel ? " · " : ""}
-          {author ? (
-            <Link
-              className="underline decoration-current/40 underline-offset-[3px] transition-colors hover:text-foreground hover:decoration-foreground"
-              href={creditAuthorHref(author.slug)}
-            >
-              {photographerLabel}
-            </Link>
-          ) : (
-            photographerLabel
-          )}
-        </>
+        <GalleryPhotographerCredit
+          authorSlug={author?.slug}
+          label={photographerLabel}
+          withSeparator={Boolean(lead)}
+        />
       ) : null}
     </figcaption>
+  );
+}
+
+function GalleryPhotographerCredit({
+  authorSlug,
+  label,
+  withSeparator,
+}: {
+  authorSlug?: string;
+  label: string;
+  withSeparator: boolean;
+}) {
+  return (
+    <>
+      {withSeparator ? " · " : ""}
+      {authorSlug ? (
+        <Link
+          className="underline decoration-current/40 underline-offset-[3px] transition-colors hover:text-foreground hover:decoration-foreground"
+          href={creditAuthorHref(authorSlug)}
+        >
+          {label}
+        </Link>
+      ) : (
+        label
+      )}
+    </>
   );
 }

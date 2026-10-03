@@ -8,6 +8,7 @@ import type { AppLocale } from "@/i18n/routing";
 import { ContentAttribution } from "@/components/ContentAttribution";
 import { CoverImage } from "@/components/CoverImage";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
+import { ScreenReaderBreadcrumb } from "@/components/ScreenReaderBreadcrumb";
 import { Link } from "@/i18n/navigation";
 import { speciesHref } from "@/lib/speciesRoutes";
 
@@ -62,22 +63,10 @@ export async function DangerousAnimalsPage({
     <div className="min-h-screen bg-background">
       <section className="bg-background pt-28 pb-12 sm:pt-32 sm:pb-16">
         <div className="mx-auto w-full max-w-[1400px] px-6 lg:px-10">
-          <nav aria-label="Breadcrumb" className="sr-only">
-            <ol className="flex flex-wrap items-center gap-2 text-[13px] text-muted-foreground">
-              <li>
-                <Link
-                  className="transition-colors hover:text-foreground"
-                  href="/"
-                >
-                  {t("breadcrumbHome")}
-                </Link>
-              </li>
-              <li aria-hidden="true" className="text-border">
-                /
-              </li>
-              <li className="text-foreground">{t("breadcrumbCurrent")}</li>
-            </ol>
-          </nav>
+          <ScreenReaderBreadcrumb
+            current={t("breadcrumbCurrent")}
+            home={t("breadcrumbHome")}
+          />
           <h1 className="text-balance-tight max-w-4xl font-display text-display-hero font-semibold text-foreground">
             {t("title")}
           </h1>
