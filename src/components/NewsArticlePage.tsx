@@ -11,6 +11,7 @@ import { ContentAttribution } from "@/components/ContentAttribution";
 import { CoverImage } from "@/components/CoverImage";
 import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { NewsRichText } from "@/components/NewsRichText";
+import { SectionNav } from "@/components/SectionNav";
 import {
   getNewsCopy,
   newsPhotoBySrc,
@@ -36,6 +37,7 @@ import {
   type NewsVisual,
 } from "@/lib/newsVisual";
 import { photoCreditSourceLabel } from "@/lib/photoCreditSource";
+import { slugify } from "@/lib/slugify";
 import { isPlaceholderMedia } from "@/lib/speciesContent";
 import { speciesPhotoAlt } from "@/lib/speciesMeta";
 import { regionHref, speciesHref, type SpeciesHref } from "@/lib/speciesRoutes";
@@ -50,9 +52,10 @@ export async function NewsArticlePage({
   article,
   locale,
 }: NewsArticlePageProps) {
-  const [t, tNav, tShared] = await Promise.all([
+  const [t, tNav, tProfile, tShared] = await Promise.all([
     getTranslations({ locale, namespace: "news" }),
     getTranslations({ locale, namespace: "nav" }),
+    getTranslations({ locale, namespace: "profile" }),
     getTranslations({
       locale,
       namespace: "groupHubShared",
@@ -81,6 +84,10 @@ export async function NewsArticlePage({
       <NewsVisualPreload visual={visual} />
       <div>
         <article className="mx-auto max-w-[1400px] px-6 pt-30 pb-16 sm:pt-33 sm:pb-20 lg:px-10">
+          <NewsArticleSectionNav
+            headings={copy.sections.map((section) => section.heading)}
+            label={tProfile("contents")}
+          />
           <header>
             <nav aria-label="Breadcrumb" className="sr-only">
               <ol className="flex flex-wrap items-center gap-2 text-[13px] text-muted-foreground">
@@ -181,7 +188,7 @@ export async function NewsArticlePage({
                 <AnchoredHeading
                   anchorLabel={t("anchorLink")}
                   as="h2"
-                  className="font-display text-display-card font-semibold text-foreground"
+                  className="scroll-mt-40 font-display text-display-card font-semibold text-foreground"
                   slugSource={section.heading}
                 >
                   <span
@@ -334,6 +341,23 @@ function NewsArticleBlock({
       />
     </p>
   );
+}
+
+function NewsArticleSectionNav({
+  headings,
+  label,
+}: {
+  headings: string[];
+  label: string;
+}) {
+  const items: Array<{ id: string; label: string }> = [];
+  for (const heading of headings) {
+    const id = slugify(heading);
+    if (id) items.push({ id, label: heading });
+  }
+  if (items.length < 2) return null;
+
+  return <SectionNav ariaLabel={label} floating items={items} />;
 }
 
 async function NewsArticleSources({ article, locale }: NewsArticlePageProps) {
