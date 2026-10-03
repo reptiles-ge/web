@@ -45,14 +45,19 @@ export async function runSpeciesWorkflowSteps<T extends string>(
   steps: T[],
   runStep: (step: T) => Promise<void>,
 ) {
-  for (const step of steps) {
+  const runAt = async (
+    index: number,
+  ): Promise<null | { error: unknown; step: T }> => {
+    const step = steps[index];
+    if (step === undefined) return null;
     try {
       await runStep(step);
     } catch (error) {
       return { error, step };
     }
-  }
-  return null;
+    return runAt(index + 1);
+  };
+  return runAt(0);
 }
 
 export function selectSpeciesCreationFiles(files: string[], id: string) {
@@ -288,21 +293,22 @@ export async function runSpeciesWorkflow(
             `სამიზნე გვერდი / სახეობა: src/content/species/${id}/ka.mdx (species ID: ${id})`,
           );
           const output = path.join(directory, `${mode}-report.md`);
+          const shared = new Set(sharedFiles[mode]);
           const stepFiles = allowedFiles.filter(
             (file) =>
-              file.startsWith(`src/content/species/${id}/`) ||
-              sharedFiles[mode].includes(file),
+              file.startsWith(`src/content/species/${id}/`) || shared.has(file),
           );
           await runCodex(
             worktree,
             output,
             `${prompt}\n\nშეცვალე მხოლოდ ეს ფაილები: ${stepFiles.join(", ")}. სხვა ფაილების ცვლილებები შედეგში არ მოხვდება. არ გაუშვა ტესტები, lint, typecheck, build ან კონტენტის გენერაციის ბრძანებები; ჩანაწერების იმპორტის სკრიპტი ამ შეზღუდვის გამონაკლისია. არ შეასრულო commit, push ან PR-ის შექმნა; ამას აპლიკაცია გააკეთებს. საბოლოო ანგარიში დააბრუნე ჩატში ქართულად.`,
           );
+          const chosenFiles = new Set(stepFiles);
           await repairSpeciesFrontmatter(
             worktree,
             directory,
             (await changedFiles(worktree)).filter((file) =>
-              stepFiles.includes(file),
+              chosenFiles.has(file),
             ),
           );
           report = (await fs.readFile(output, "utf8")).trim();
@@ -317,7 +323,8 @@ export async function runSpeciesWorkflow(
                   /\/(ka|en|ru|tr)\.mdx$/.test(file),
               )
             : selectSpeciesAnalysisFiles(changed, id, mode);
-        const skipped = changed.filter((file) => !stepFiles.includes(file));
+        const stepFileSet = new Set(stepFiles);
+        const skipped = changed.filter((file) => !stepFileSet.has(file));
         if (skipped.length)
           throw new Error(`Unexpected changed files: ${skipped.join(", ")}`);
         if (stepFiles.length) {
@@ -436,11 +443,12 @@ export function selectSpeciesAnalysisFiles(
   mode: SpeciesAnalysisMode = "analysis",
 ) {
   const prefix = `src/content/species/${id}/`;
+  const shared = new Set(sharedFiles[mode]);
   return files.filter(
     (file) =>
       (file.startsWith(prefix) &&
         /^(ka|en|ru|tr)\.mdx$/.test(file.slice(prefix.length))) ||
-      sharedFiles[mode].includes(file),
+      shared.has(file),
   );
 }
 
@@ -655,18 +663,18 @@ async function runAnalysis(
       output,
       `${prompt}\n\nშეცვალე მხოლოდ ეს ფაილები: ${allowedFiles.join(", ")}. სხვა ფაილების ცვლილებები შედეგში არ მოხვდება. არ გაუშვა ტესტები, lint, typecheck, build ან კონტენტის გენერაციის ბრძანებები; ჩანაწერების იმპორტის სკრიპტი ამ შეზღუდვის გამონაკლისია. არ შეასრულო commit, push ან PR-ის შექმნა; ამას აპლიკაცია გააკეთებს. საბოლოო ანგარიში დააბრუნე ჩატში ქართულად.`,
     );
+    const allowed = new Set(allowedFiles);
     await repairSpeciesFrontmatter(
       worktree,
       directory,
-      (await changedFiles(worktree)).filter((file) =>
-        allowedFiles.includes(file),
-      ),
+      (await changedFiles(worktree)).filter((file) => allowed.has(file)),
     );
     let report = (await fs.readFile(output, "utf8")).trim();
     if (!report) throw new Error("Codex returned an empty report");
     const changed = await changedFiles(worktree);
     const files = selectSpeciesAnalysisFiles(changed, id, mode);
-    const skipped = changed.filter((file) => !files.includes(file));
+    const selected = new Set(files);
+    const skipped = changed.filter((file) => !selected.has(file));
     if (skipped.length)
       report += `\n\nდავალების ფარგლებს გარეთ შეცვლილი ფაილები გამოტოვებულია: ${skipped.join(", ")}.`;
     onReport(report);
