@@ -1,0 +1,205 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+
+import type { DangerLevel } from "@/data/speciesTypes";
+
+import { cn } from "@/lib/cn";
+
+type SpeciesSectionNavItem = {
+  id: string;
+  label: string;
+};
+
+type SpeciesSectionNavProps = {
+  ariaLabel: string;
+  items: SpeciesSectionNavItem[];
+  name: string;
+  riskLevel?: DangerLevel;
+};
+
+const ACTIVE_LINE_OFFSET = 64;
+const ACTIVE_LINE_VIEWPORT_RATIO = 0.35;
+
+export function SpeciesSectionNav({
+  ariaLabel,
+  items,
+  name,
+  riskLevel,
+}: SpeciesSectionNavProps) {
+  const [activeId, setActiveId] = useState<null | string>(null);
+  const [pinned, setPinned] = useState(false);
+  const [fade, setFade] = useState({ end: false, start: false });
+  const navRef = useRef<HTMLElement>(null);
+  const listRef = useRef<HTMLUListElement>(null);
+
+  useEffect(() => {
+    let frame = 0;
+
+    function measure() {
+      frame = 0;
+      const nav = navRef.current;
+      if (!nav) return;
+
+      const navRect = nav.getBoundingClientRect();
+      const stickyTop = Number.parseFloat(window.getComputedStyle(nav).top);
+      setPinned(navRect.top <= (Number.isNaN(stickyTop) ? 0 : stickyTop) + 1);
+
+      const line = Math.max(
+        navRect.bottom + ACTIVE_LINE_OFFSET,
+        window.innerHeight * ACTIVE_LINE_VIEWPORT_RATIO,
+      );
+      let current: null | string = null;
+      for (const item of items) {
+        const target = document.getElementById(item.id);
+        if (target && target.getBoundingClientRect().top <= line) {
+          current = item.id;
+        }
+      }
+      setActiveId(current);
+
+      const list = listRef.current;
+      if (list) {
+        const end = list.scrollWidth - list.clientWidth - list.scrollLeft > 4;
+        const start = list.scrollLeft > 4;
+        setFade((previous) =>
+          previous.end === end && previous.start === start
+            ? previous
+            : { end, start },
+        );
+      }
+
+      const root = nav.parentElement;
+      if (root) {
+        const rootRect = root.getBoundingClientRect();
+        const distance = rootRect.height - window.innerHeight;
+        const ratio =
+          distance > 0 ? Math.min(1, Math.max(0, -rootRect.top / distance)) : 0;
+        nav.style.setProperty("--section-progress", ratio.toFixed(4));
+      }
+    }
+
+    function schedule() {
+      if (frame === 0) frame = window.requestAnimationFrame(measure);
+    }
+
+    const scroller = listRef.current;
+    schedule();
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule);
+    scroller?.addEventListener("scroll", schedule, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", schedule);
+      window.removeEventListener("resize", schedule);
+      scroller?.removeEventListener("scroll", schedule);
+      if (frame !== 0) window.cancelAnimationFrame(frame);
+    };
+  }, [items]);
+
+  useEffect(() => {
+    const list = listRef.current;
+    if (!list || !activeId || list.scrollWidth <= list.clientWidth) return;
+
+    const link = list.querySelector<HTMLElement>(
+      `[data-section="${activeId}"]`,
+    );
+    if (!link) return;
+
+    const listRect = list.getBoundingClientRect();
+    const linkRect = link.getBoundingClientRect();
+    const left =
+      list.scrollLeft +
+      linkRect.left -
+      listRect.left -
+      (listRect.width - linkRect.width) / 2;
+    list.scrollTo({
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? "auto"
+        : "smooth",
+      left,
+    });
+  }, [activeId]);
+
+  return (
+    <nav
+      aria-label={ariaLabel}
+      className="sticky top-[75px] z-30 border-y border-border bg-background/95 backdrop-blur-xl"
+      ref={navRef}
+    >
+      <div className="mx-auto flex h-12 max-w-[1400px] items-center lg:px-10">
+        <div
+          aria-hidden="true"
+          className={cn(
+            "hidden shrink-0 items-center overflow-hidden transition-[max-width,opacity,margin] duration-300 ease-out lg:flex",
+            pinned ? "mr-7 max-w-72 opacity-100" : "mr-0 max-w-0 opacity-0",
+          )}
+        >
+          {riskLevel ? (
+            <span
+              className={cn(
+                "mr-2.5 size-1.5 shrink-0 rounded-full",
+                riskDotClass(riskLevel),
+              )}
+            />
+          ) : null}
+          <span className="truncate font-display text-[14px] leading-none font-semibold whitespace-nowrap text-foreground">
+            {name}
+          </span>
+          <span className="ml-4 h-4 w-px shrink-0 bg-border" />
+        </div>
+        <div className="relative h-full min-w-0 flex-1 lg:-ml-3">
+          <ul
+            className="flex h-full scrollbar-none items-center overflow-x-auto px-3 text-[13px] leading-none lg:px-0 [&::-webkit-scrollbar]:hidden"
+            ref={listRef}
+          >
+            {items.map((item) => {
+              const active = item.id === activeId;
+
+              return (
+                <li className="shrink-0" key={item.id}>
+                  <a
+                    aria-current={active ? "location" : undefined}
+                    className={cn(
+                      "flex h-8 items-center rounded-full px-3 font-medium whitespace-nowrap transition-colors duration-200",
+                      active
+                        ? "bg-foreground/8 text-foreground"
+                        : "text-foreground/65 hover:text-primary",
+                    )}
+                    data-section={item.id}
+                    href={`#${item.id}`}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+          <span
+            aria-hidden="true"
+            className={cn(
+              "pointer-events-none absolute inset-y-0 left-0 w-10 bg-linear-to-l from-transparent to-background transition-opacity duration-200",
+              fade.start ? "opacity-100" : "opacity-0",
+            )}
+          />
+          <span
+            aria-hidden="true"
+            className={cn(
+              "pointer-events-none absolute inset-y-0 right-0 w-10 bg-linear-to-r from-transparent to-background transition-opacity duration-200",
+              fade.end ? "opacity-100" : "opacity-0",
+            )}
+          />
+        </div>
+      </div>
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 -bottom-px h-0.5 origin-left scale-x-(--section-progress,0) bg-primary"
+      />
+    </nav>
+  );
+}
+
+function riskDotClass(level: DangerLevel) {
+  if (level === "High") return "bg-destructive";
+  if (level === "Moderate") return "bg-gold";
+  return "bg-primary";
+}
