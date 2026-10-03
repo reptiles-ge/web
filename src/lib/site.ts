@@ -170,6 +170,9 @@ export function speciesOgImageUrl(
   speciesId: string,
   fallbackImageSrc?: string,
 ) {
+  if (speciesId === "neophron-percnopterus") {
+    return absoluteUrl("/og/images/species-neophron-percnopterus-adult.jpg");
+  }
   if (fallbackImageSrc) {
     const fromPipeline = ogImageUrlFromSrc(fallbackImageSrc);
     if (fromPipeline) return fromPipeline;

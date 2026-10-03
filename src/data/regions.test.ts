@@ -68,6 +68,7 @@ describe("region speciesIds", () => {
     "ciconia-ciconia",
     "coturnix-coturnix",
     "gypaetus-barbatus",
+    "neophron-percnopterus",
     "columba-palumbus",
     "darevskia-obscura",
     "eirenis-modestus",
