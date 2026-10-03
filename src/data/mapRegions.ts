@@ -492,6 +492,7 @@ export const regions: Region[] = [
       "mesobuthus-eupeus",
       "columba-palumbus",
       "anas-platyrhynchos",
+      "paralaudakia-caucasia",
     ],
   },
   {
