@@ -20228,6 +20228,101 @@
       ],
       "updatedAt": "2026-10-03T08:12:53.995Z"
     },
+    "darevskia-obscura-christian-2.jpg": {
+      "sourceHash": "4454f038260b022dd5718288d78ba007ebc4164370e79657683231aef77b4b0b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-obscura-christian-2.jpg",
+      "originalSize": 962369,
+      "width": 2048,
+      "height": 1366,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-obscura-christian-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 16881
+        },
+        {
+          "key": "optimized/darevskia-obscura-christian-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 27384
+        },
+        {
+          "key": "optimized/darevskia-obscura-christian-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 25543
+        },
+        {
+          "key": "optimized/darevskia-obscura-christian-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 42016
+        },
+        {
+          "key": "optimized/darevskia-obscura-christian-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 62473
+        },
+        {
+          "key": "optimized/darevskia-obscura-christian-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 103586
+        },
+        {
+          "key": "optimized/darevskia-obscura-christian-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 95525
+        },
+        {
+          "key": "optimized/darevskia-obscura-christian-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 156868
+        },
+        {
+          "key": "optimized/darevskia-obscura-christian-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 187827
+        },
+        {
+          "key": "optimized/darevskia-obscura-christian-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 312978
+        },
+        {
+          "key": "optimized/darevskia-obscura-christian-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1366,
+          "byteSize": 429560
+        },
+        {
+          "key": "optimized/darevskia-obscura-christian-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1366,
+          "byteSize": 677146
+        }
+      ],
+      "updatedAt": "2026-10-03T08:14:20.844Z"
+    },
     "darevskia-obscura-edouard-1.jpg": {
       "sourceHash": "eb2f6f5c94c8d2a28f5d694731518b0f0a334080e23d909955ebfd58865d3ec4",
       "configFingerprint": "409788ee46c653d8",
