@@ -20703,6 +20703,101 @@
       ],
       "updatedAt": "2026-10-03T08:16:48.088Z"
     },
+    "darevskia-obscura-lzazadze-3.jpg": {
+      "sourceHash": "24eb0a6af1d0d3b78361c898284466ede674a5b12604a548ce39315a567d2e4c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-obscura-lzazadze-3.jpg",
+      "originalSize": 754990,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-obscura-lzazadze-3-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 12185
+        },
+        {
+          "key": "optimized/darevskia-obscura-lzazadze-3-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 17834
+        },
+        {
+          "key": "optimized/darevskia-obscura-lzazadze-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 17809
+        },
+        {
+          "key": "optimized/darevskia-obscura-lzazadze-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 25930
+        },
+        {
+          "key": "optimized/darevskia-obscura-lzazadze-3-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 38919
+        },
+        {
+          "key": "optimized/darevskia-obscura-lzazadze-3-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 57026
+        },
+        {
+          "key": "optimized/darevskia-obscura-lzazadze-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 56867
+        },
+        {
+          "key": "optimized/darevskia-obscura-lzazadze-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 82472
+        },
+        {
+          "key": "optimized/darevskia-obscura-lzazadze-3-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 109802
+        },
+        {
+          "key": "optimized/darevskia-obscura-lzazadze-3-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 157506
+        },
+        {
+          "key": "optimized/darevskia-obscura-lzazadze-3-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 302552
+        },
+        {
+          "key": "optimized/darevskia-obscura-lzazadze-3-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 398606
+        }
+      ],
+      "updatedAt": "2026-10-03T08:17:27.485Z"
+    },
     "darevskia-obscura-mobile.jpg": {
       "sourceHash": "351661d4ba0b2a0f9e7e68a0ecc9b671874402f17102648ec5dc3920196e13f9",
       "configFingerprint": "a895f8e025dcc7fa",
