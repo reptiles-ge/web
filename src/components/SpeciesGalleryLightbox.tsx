@@ -309,7 +309,6 @@ function GalleryPhotoViewer({
     startX: number;
   }>(null);
   const suppressClickRef = useRef(false);
-  const downOnImageRef = useRef(false);
   const pointerDownRef = useRef(false);
   const swipedTo = useRef<null | number>(null);
 
