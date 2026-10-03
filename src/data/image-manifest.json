@@ -69198,6 +69198,101 @@
       ],
       "updatedAt": "2026-10-03T17:13:32.974Z"
     },
+    "neophron-percnopterus-tvp-1.jpg": {
+      "sourceHash": "f5cd296026c08e088ac26a9b254f012c1c336e7f67c0fd04008fad44c2c79c91",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "neophron-percnopterus-tvp-1.jpg",
+      "originalSize": 309996,
+      "width": 2048,
+      "height": 1360,
+      "derivatives": [
+        {
+          "key": "optimized/neophron-percnopterus-tvp-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 5908
+        },
+        {
+          "key": "optimized/neophron-percnopterus-tvp-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 7212
+        },
+        {
+          "key": "optimized/neophron-percnopterus-tvp-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 7443
+        },
+        {
+          "key": "optimized/neophron-percnopterus-tvp-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 9332
+        },
+        {
+          "key": "optimized/neophron-percnopterus-tvp-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 425,
+          "byteSize": 12782
+        },
+        {
+          "key": "optimized/neophron-percnopterus-tvp-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 425,
+          "byteSize": 16986
+        },
+        {
+          "key": "optimized/neophron-percnopterus-tvp-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 531,
+          "byteSize": 17031
+        },
+        {
+          "key": "optimized/neophron-percnopterus-tvp-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 531,
+          "byteSize": 22900
+        },
+        {
+          "key": "optimized/neophron-percnopterus-tvp-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 797,
+          "byteSize": 30141
+        },
+        {
+          "key": "optimized/neophron-percnopterus-tvp-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 797,
+          "byteSize": 38552
+        },
+        {
+          "key": "optimized/neophron-percnopterus-tvp-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1360,
+          "byteSize": 69982
+        },
+        {
+          "key": "optimized/neophron-percnopterus-tvp-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1360,
+          "byteSize": 85110
+        }
+      ],
+      "updatedAt": "2026-10-03T17:16:11.482Z"
+    },
     "news-batumi-19300-cosentino-kite-1.jpg": {
       "sourceHash": "8687d2a2fe01541e1d3db4cbc4cc938f7e01f8939108b647a236375362be3dbd",
       "configFingerprint": "a895f8e025dcc7fa",
