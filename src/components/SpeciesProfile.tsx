@@ -7,7 +7,7 @@ import { SpeciesProfileBody } from "@/components/SpeciesProfileBody";
 import { SpeciesProfileHero } from "@/components/SpeciesProfileHero";
 import { SpeciesViewTracker } from "@/components/SpeciesViewTracker";
 import { getRegionsForSpecies } from "@/data/mapRegions";
-import { pictureSources } from "@/data/optimizedImages";
+import { optimizedImgSrc, pictureSources } from "@/data/optimizedImages";
 import { type Species } from "@/data/species";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
 import { resolvePhotoCredit } from "@/data/speciesMedia";
@@ -107,6 +107,8 @@ export async function SpeciesProfile({
     sizes: "100vw",
   });
   const heroCredit = resolvePhotoCredit(species.imageCredit, primary?.credit);
+  const heroGalleryPhoto =
+    gallery.find((item) => item.src === desktopHeroSrc) ?? primary;
   const mobileHeroCredit = resolvePhotoCredit(
     species.mobileImageCredit,
     species.imageCredit,
@@ -169,6 +171,10 @@ export async function SpeciesProfile({
       <SpeciesProfileHero
         breadcrumbs={breadcrumbs}
         desktopHeroSrc={desktopHeroSrc}
+        galleryCount={gallery.length}
+        gallerySrc={
+          heroGalleryPhoto ? optimizedImgSrc(heroGalleryPhoto.src, 1200) : null
+        }
         group={group}
         heroDesktopSources={heroDesktopSources}
         heroPrimarySources={heroPrimarySources}
