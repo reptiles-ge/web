@@ -20133,6 +20133,671 @@
       ],
       "updatedAt": "2026-08-28T21:32:24.625Z"
     },
+    "darevskia-obscura-christian-1.jpg": {
+      "sourceHash": "265e70bcb9d2b7de99c69302f31c44f51849cc58718ce20fc209606e7c93fb45",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-obscura-christian-1.jpg",
+      "originalSize": 446842,
+      "width": 1802,
+      "height": 1202,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-obscura-christian-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11780
+        },
+        {
+          "key": "optimized/darevskia-obscura-christian-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 16292
+        },
+        {
+          "key": "optimized/darevskia-obscura-christian-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 19429
+        },
+        {
+          "key": "optimized/darevskia-obscura-christian-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 27046
+        },
+        {
+          "key": "optimized/darevskia-obscura-christian-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 46450
+        },
+        {
+          "key": "optimized/darevskia-obscura-christian-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 64134
+        },
+        {
+          "key": "optimized/darevskia-obscura-christian-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 65784
+        },
+        {
+          "key": "optimized/darevskia-obscura-christian-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 88656
+        },
+        {
+          "key": "optimized/darevskia-obscura-christian-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 113285
+        },
+        {
+          "key": "optimized/darevskia-obscura-christian-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 147602
+        },
+        {
+          "key": "optimized/darevskia-obscura-christian-1-1802.avif",
+          "format": "avif",
+          "width": 1802,
+          "height": 1202,
+          "byteSize": 185711
+        },
+        {
+          "key": "optimized/darevskia-obscura-christian-1-1802.webp",
+          "format": "webp",
+          "width": 1802,
+          "height": 1202,
+          "byteSize": 235754
+        }
+      ],
+      "updatedAt": "2026-10-03T08:12:53.995Z"
+    },
+    "darevskia-obscura-christian-2.jpg": {
+      "sourceHash": "4454f038260b022dd5718288d78ba007ebc4164370e79657683231aef77b4b0b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-obscura-christian-2.jpg",
+      "originalSize": 962369,
+      "width": 2048,
+      "height": 1366,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-obscura-christian-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 16881
+        },
+        {
+          "key": "optimized/darevskia-obscura-christian-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 27384
+        },
+        {
+          "key": "optimized/darevskia-obscura-christian-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 25543
+        },
+        {
+          "key": "optimized/darevskia-obscura-christian-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 42016
+        },
+        {
+          "key": "optimized/darevskia-obscura-christian-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 62473
+        },
+        {
+          "key": "optimized/darevskia-obscura-christian-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 103586
+        },
+        {
+          "key": "optimized/darevskia-obscura-christian-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 95525
+        },
+        {
+          "key": "optimized/darevskia-obscura-christian-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 156868
+        },
+        {
+          "key": "optimized/darevskia-obscura-christian-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 187827
+        },
+        {
+          "key": "optimized/darevskia-obscura-christian-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 312978
+        },
+        {
+          "key": "optimized/darevskia-obscura-christian-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1366,
+          "byteSize": 429560
+        },
+        {
+          "key": "optimized/darevskia-obscura-christian-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1366,
+          "byteSize": 677146
+        }
+      ],
+      "updatedAt": "2026-10-03T08:14:20.844Z"
+    },
+    "darevskia-obscura-edouard-1.jpg": {
+      "sourceHash": "eb2f6f5c94c8d2a28f5d694731518b0f0a334080e23d909955ebfd58865d3ec4",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-obscura-edouard-1.jpg",
+      "originalSize": 600894,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-obscura-edouard-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14674
+        },
+        {
+          "key": "optimized/darevskia-obscura-edouard-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 23256
+        },
+        {
+          "key": "optimized/darevskia-obscura-edouard-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 20467
+        },
+        {
+          "key": "optimized/darevskia-obscura-edouard-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 32468
+        },
+        {
+          "key": "optimized/darevskia-obscura-edouard-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 41583
+        },
+        {
+          "key": "optimized/darevskia-obscura-edouard-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 67248
+        },
+        {
+          "key": "optimized/darevskia-obscura-edouard-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 57803
+        },
+        {
+          "key": "optimized/darevskia-obscura-edouard-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 94254
+        },
+        {
+          "key": "optimized/darevskia-obscura-edouard-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 101417
+        },
+        {
+          "key": "optimized/darevskia-obscura-edouard-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 165658
+        },
+        {
+          "key": "optimized/darevskia-obscura-edouard-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 212924
+        },
+        {
+          "key": "optimized/darevskia-obscura-edouard-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 340234
+        }
+      ],
+      "updatedAt": "2026-10-03T08:13:33.576Z"
+    },
+    "darevskia-obscura-giorgi-1.jpg": {
+      "sourceHash": "2129c9699a904ccb21d2b24d62a513da376429b868ac12d40d0f4dde52e9d9f7",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-obscura-giorgi-1.jpg",
+      "originalSize": 536582,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-obscura-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11652
+        },
+        {
+          "key": "optimized/darevskia-obscura-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 17534
+        },
+        {
+          "key": "optimized/darevskia-obscura-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 15938
+        },
+        {
+          "key": "optimized/darevskia-obscura-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 24266
+        },
+        {
+          "key": "optimized/darevskia-obscura-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 31745
+        },
+        {
+          "key": "optimized/darevskia-obscura-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 48632
+        },
+        {
+          "key": "optimized/darevskia-obscura-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 44803
+        },
+        {
+          "key": "optimized/darevskia-obscura-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 68430
+        },
+        {
+          "key": "optimized/darevskia-obscura-giorgi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 80524
+        },
+        {
+          "key": "optimized/darevskia-obscura-giorgi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 122290
+        },
+        {
+          "key": "optimized/darevskia-obscura-giorgi-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 181382
+        },
+        {
+          "key": "optimized/darevskia-obscura-giorgi-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 256406
+        }
+      ],
+      "updatedAt": "2026-10-03T08:11:43.450Z"
+    },
+    "darevskia-obscura-lzazadze-1.jpg": {
+      "sourceHash": "9e970ab778045bae7f0e9b6f986fe95fa4fe6b815c4b6d7a77c80f7d2d93987e",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-obscura-lzazadze-1.jpg",
+      "originalSize": 904237,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-obscura-lzazadze-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 14440
+        },
+        {
+          "key": "optimized/darevskia-obscura-lzazadze-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 22978
+        },
+        {
+          "key": "optimized/darevskia-obscura-lzazadze-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 21483
+        },
+        {
+          "key": "optimized/darevskia-obscura-lzazadze-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 33488
+        },
+        {
+          "key": "optimized/darevskia-obscura-lzazadze-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 49346
+        },
+        {
+          "key": "optimized/darevskia-obscura-lzazadze-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 78006
+        },
+        {
+          "key": "optimized/darevskia-obscura-lzazadze-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 74822
+        },
+        {
+          "key": "optimized/darevskia-obscura-lzazadze-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 117092
+        },
+        {
+          "key": "optimized/darevskia-obscura-lzazadze-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 150505
+        },
+        {
+          "key": "optimized/darevskia-obscura-lzazadze-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 231436
+        },
+        {
+          "key": "optimized/darevskia-obscura-lzazadze-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 381181
+        },
+        {
+          "key": "optimized/darevskia-obscura-lzazadze-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 536770
+        }
+      ],
+      "updatedAt": "2026-10-03T08:16:11.702Z"
+    },
+    "darevskia-obscura-lzazadze-2.jpg": {
+      "sourceHash": "b0de12e6463b163511531034ad5bd0d7fdc0e87273f4f5fedb05603e5b89a2a5",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-obscura-lzazadze-2.jpg",
+      "originalSize": 706102,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-obscura-lzazadze-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 9729
+        },
+        {
+          "key": "optimized/darevskia-obscura-lzazadze-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 15304
+        },
+        {
+          "key": "optimized/darevskia-obscura-lzazadze-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 14169
+        },
+        {
+          "key": "optimized/darevskia-obscura-lzazadze-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 22244
+        },
+        {
+          "key": "optimized/darevskia-obscura-lzazadze-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 31574
+        },
+        {
+          "key": "optimized/darevskia-obscura-lzazadze-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 49562
+        },
+        {
+          "key": "optimized/darevskia-obscura-lzazadze-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 47149
+        },
+        {
+          "key": "optimized/darevskia-obscura-lzazadze-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 73906
+        },
+        {
+          "key": "optimized/darevskia-obscura-lzazadze-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 92287
+        },
+        {
+          "key": "optimized/darevskia-obscura-lzazadze-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 143030
+        },
+        {
+          "key": "optimized/darevskia-obscura-lzazadze-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 247273
+        },
+        {
+          "key": "optimized/darevskia-obscura-lzazadze-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 366412
+        }
+      ],
+      "updatedAt": "2026-10-03T08:16:48.088Z"
+    },
+    "darevskia-obscura-lzazadze-3.jpg": {
+      "sourceHash": "24eb0a6af1d0d3b78361c898284466ede674a5b12604a548ce39315a567d2e4c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-obscura-lzazadze-3.jpg",
+      "originalSize": 754990,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-obscura-lzazadze-3-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 12185
+        },
+        {
+          "key": "optimized/darevskia-obscura-lzazadze-3-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 17834
+        },
+        {
+          "key": "optimized/darevskia-obscura-lzazadze-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 17809
+        },
+        {
+          "key": "optimized/darevskia-obscura-lzazadze-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 25930
+        },
+        {
+          "key": "optimized/darevskia-obscura-lzazadze-3-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 38919
+        },
+        {
+          "key": "optimized/darevskia-obscura-lzazadze-3-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 57026
+        },
+        {
+          "key": "optimized/darevskia-obscura-lzazadze-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 56867
+        },
+        {
+          "key": "optimized/darevskia-obscura-lzazadze-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 82472
+        },
+        {
+          "key": "optimized/darevskia-obscura-lzazadze-3-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 109802
+        },
+        {
+          "key": "optimized/darevskia-obscura-lzazadze-3-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 157506
+        },
+        {
+          "key": "optimized/darevskia-obscura-lzazadze-3-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 302552
+        },
+        {
+          "key": "optimized/darevskia-obscura-lzazadze-3-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 398606
+        }
+      ],
+      "updatedAt": "2026-10-03T08:17:27.485Z"
+    },
     "darevskia-obscura-mobile.jpg": {
       "sourceHash": "351661d4ba0b2a0f9e7e68a0ecc9b671874402f17102648ec5dc3920196e13f9",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -20199,6 +20864,101 @@
         }
       ],
       "updatedAt": "2026-08-28T21:32:25.240Z"
+    },
+    "darevskia-obscura-sandro-1.jpg": {
+      "sourceHash": "b460f9c5b74765a25510e1bceb67f7d55bacd764412c6d4d0b7d2ea5dda2969c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-obscura-sandro-1.jpg",
+      "originalSize": 550404,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-obscura-sandro-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 12122
+        },
+        {
+          "key": "optimized/darevskia-obscura-sandro-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 16124
+        },
+        {
+          "key": "optimized/darevskia-obscura-sandro-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 17528
+        },
+        {
+          "key": "optimized/darevskia-obscura-sandro-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 23038
+        },
+        {
+          "key": "optimized/darevskia-obscura-sandro-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 44932
+        },
+        {
+          "key": "optimized/darevskia-obscura-sandro-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 58904
+        },
+        {
+          "key": "optimized/darevskia-obscura-sandro-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 69469
+        },
+        {
+          "key": "optimized/darevskia-obscura-sandro-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 90690
+        },
+        {
+          "key": "optimized/darevskia-obscura-sandro-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 122910
+        },
+        {
+          "key": "optimized/darevskia-obscura-sandro-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 156478
+        },
+        {
+          "key": "optimized/darevskia-obscura-sandro-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 206106
+        },
+        {
+          "key": "optimized/darevskia-obscura-sandro-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 288562
+        }
+      ],
+      "updatedAt": "2026-10-03T08:15:01.455Z"
     },
     "darevskia-obscura.jpg": {
       "sourceHash": "1c19bd4cde836a1fcc76fd6cf62d82180dde35659fb6d71698e59b2a0815d581",
