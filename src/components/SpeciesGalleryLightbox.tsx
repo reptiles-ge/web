@@ -272,222 +272,53 @@ export function SpeciesGalleryLightbox({
   );
 }
 
-function GalleryPhotoViewer({
+function GalleryPhotoStage({
   active,
+  activeSlide,
   closeButtonRef,
   closeLabel,
+  countRef,
+  dragRef,
+  endMouseDrag,
+  many,
   nextLabel,
   onClose,
   onSelect,
   onStep,
+  pointerDownRef,
   prevLabel,
+  scrollerRef,
+  scrollTargetRef,
   slides,
   speciesId,
+  stripRef,
+  suppressClickRef,
 }: {
   active: null | number;
+  activeSlide: GallerySlide | null;
   closeButtonRef: RefObject<HTMLButtonElement | null>;
   closeLabel: string;
+  countRef: RefObject<HTMLParagraphElement | null>;
+  dragRef: RefObject<null | {
+    moved: boolean;
+    startLeft: number;
+    startX: number;
+  }>;
+  endMouseDrag: (clientX: number) => void;
+  many: boolean;
   nextLabel: string;
   onClose: () => void;
   onSelect: (index: number) => void;
   onStep: (delta: number) => void;
+  pointerDownRef: RefObject<boolean>;
   prevLabel: string;
+  scrollerRef: RefObject<HTMLDivElement | null>;
+  scrollTargetRef: RefObject<null | number>;
   slides: GallerySlide[];
   speciesId?: string;
+  stripRef: RefObject<HTMLDivElement | null>;
+  suppressClickRef: RefObject<boolean>;
 }) {
-  const activeSlide = active === null ? null : slides[active];
-  const many = slides.length > 1;
-  const scrollerRef = useRef<HTMLDivElement>(null);
-  const stripRef = useRef<HTMLDivElement>(null);
-  const countRef = useRef<HTMLParagraphElement>(null);
-  const settleTimer = useRef<number | undefined>(undefined);
-  const wasOpen = useRef(false);
-  const scrollTarget = useRef<null | number>(null);
-  const dragRef = useRef<null | {
-    moved: boolean;
-    startLeft: number;
-    startX: number;
-  }>(null);
-  const suppressClickRef = useRef(false);
-  const pointerDownRef = useRef(false);
-  const swipedTo = useRef<null | number>(null);
-
-  const publishSwipe = useEffectEvent(() => {
-    const scroller = scrollerRef.current;
-    if (
-      !scroller ||
-      active === null ||
-      scrollTarget.current !== null ||
-      scroller.clientWidth === 0
-    ) {
-      return;
-    }
-    const index = slideIndex(
-      scroller.scrollLeft,
-      scroller.clientWidth,
-      slides.length,
-    );
-    if (index === active) return;
-    swipedTo.current = index;
-    onSelect(index);
-  });
-
-  const syncFromScroller = useEffectEvent(() => {
-    const scroller = scrollerRef.current;
-    if (
-      !scroller ||
-      active === null ||
-      dragRef.current ||
-      pointerDownRef.current ||
-      scrollTarget.current !== null ||
-      scroller.clientWidth === 0
-    ) {
-      return;
-    }
-    const width = scroller.clientWidth;
-    const offset = scroller.scrollLeft / width;
-    const index = slideIndex(scroller.scrollLeft, width, slides.length);
-    if (Math.abs(offset - index) > 0.04) return;
-    if (index !== active) {
-      swipedTo.current = index;
-      onSelect(index);
-    }
-  });
-
-  useLayoutEffect(() => {
-    const scroller = scrollerRef.current;
-    if (!scroller) return;
-
-    if (active === null) {
-      wasOpen.current = false;
-      scrollTarget.current = null;
-      swipedTo.current = null;
-      return;
-    }
-
-    if (swipedTo.current === active) {
-      wasOpen.current = true;
-      placeThumb(stripRef.current, active);
-      return;
-    }
-
-    scrollTarget.current = active;
-
-    const align = () => {
-      const width = scroller.clientWidth;
-      if (width === 0) return false;
-      const left = active * width;
-      if (Math.abs(scroller.scrollLeft - left) > 1) {
-        scroller.scrollTo({
-          behavior:
-            wasOpen.current && !prefersReducedMotion() ? "smooth" : "instant",
-          left,
-        });
-      }
-      if (Math.abs(scroller.scrollLeft - left) <= 1) {
-        scrollTarget.current = null;
-        scroller.style.scrollSnapType = "";
-      }
-      wasOpen.current = true;
-      placeThumb(stripRef.current, active);
-      return true;
-    };
-
-    if (align()) return;
-
-    const frame = requestAnimationFrame(align);
-    const observer = new ResizeObserver(() => {
-      if (align()) observer.disconnect();
-    });
-    observer.observe(scroller);
-    return () => {
-      cancelAnimationFrame(frame);
-      observer.disconnect();
-    };
-  }, [active]);
-
-  useEffect(() => {
-    const scroller = scrollerRef.current;
-    if (!scroller) return;
-
-    function paintCount() {
-      const count = countRef.current;
-      if (!count || scroller.clientWidth === 0) return;
-      const index = slideIndex(
-        scroller.scrollLeft,
-        scroller.clientWidth,
-        slides.length,
-      );
-      const label = `${index + 1} / ${slides.length}`;
-      if (count.textContent !== label) count.textContent = label;
-    }
-
-    function onScroll() {
-      paintCount();
-      const pending = scrollTarget.current;
-      if (pending !== null && scroller.clientWidth > 0) {
-        const left = pending * scroller.clientWidth;
-        if (Math.abs(scroller.scrollLeft - left) <= 1) {
-          scrollTarget.current = null;
-          scroller.style.scrollSnapType = "";
-        }
-      }
-      if (scrollTarget.current === null) publishSwipe();
-      if ("onscrollend" in scroller) return;
-      window.clearTimeout(settleTimer.current);
-      settleTimer.current = window.setTimeout(syncFromScroller, 160);
-    }
-
-    function onScrollEnd() {
-      if (dragRef.current || pointerDownRef.current) return;
-      syncFromScroller();
-    }
-
-    scroller.addEventListener("scroll", onScroll, { passive: true });
-    scroller.addEventListener("scrollend", onScrollEnd);
-    return () => {
-      scroller.removeEventListener("scroll", onScroll);
-      scroller.removeEventListener("scrollend", onScrollEnd);
-      window.clearTimeout(settleTimer.current);
-    };
-  }, [slides.length]);
-
-  function endMouseDrag(clientX: number) {
-    const drag = dragRef.current;
-    const scroller = scrollerRef.current;
-    dragRef.current = null;
-    if (!drag || !scroller) return;
-    if (!drag.moved || active === null || scroller.clientWidth === 0) {
-      scroller.style.scrollSnapType = "";
-      return;
-    }
-
-    suppressClickRef.current = true;
-    const width = scroller.clientWidth;
-    const delta = clientX - drag.startX;
-    let index = slideIndex(scroller.scrollLeft, width, slides.length);
-    if (Math.abs(delta) > SWIPE_THRESHOLD) {
-      const startIndex = slideIndex(drag.startLeft, width, slides.length);
-      if (index === startIndex) {
-        index = Math.min(
-          slides.length - 1,
-          Math.max(0, startIndex + (delta > 0 ? -1 : 1)),
-        );
-      }
-    }
-
-    const left = index * width;
-    const behavior = prefersReducedMotion() ? "instant" : "smooth";
-    scrollTarget.current = index;
-    scroller.style.scrollSnapType = "none";
-    scroller.scrollTo({ behavior, left });
-    if (Math.abs(scroller.scrollLeft - left) <= 1) {
-      scrollTarget.current = null;
-      scroller.style.scrollSnapType = "";
-      if (index !== active) onSelect(index);
-    }
-  }
-
   return (
     <div className="relative flex size-full flex-col transition-[opacity,scale] duration-300 ease-out starting:scale-[0.985] starting:opacity-0">
       <div
@@ -526,16 +357,6 @@ function GalleryPhotoViewer({
 
       <div
         className="no-scrollbar relative z-10 flex min-h-0 w-full min-w-0 flex-1 touch-pan-x snap-x snap-mandatory overflow-x-auto overflow-y-hidden overscroll-x-contain select-none"
-        onClick={(event) => {
-          const onImage = downOnImageRef.current;
-          downOnImageRef.current = false;
-          if (suppressClickRef.current) {
-            suppressClickRef.current = false;
-            return;
-          }
-          if (onImage || event.target instanceof HTMLImageElement) return;
-          onClose();
-        }}
         onPointerCancel={(event) => {
           pointerDownRef.current = false;
           endMouseDrag(event.clientX);
@@ -543,9 +364,8 @@ function GalleryPhotoViewer({
         onPointerDown={(event) => {
           pointerDownRef.current = true;
           suppressClickRef.current = false;
-          downOnImageRef.current = event.target instanceof HTMLImageElement;
-          if (scrollTarget.current !== null) {
-            scrollTarget.current = null;
+          if (scrollTargetRef.current !== null) {
+            scrollTargetRef.current = null;
             event.currentTarget.style.scrollSnapType = "";
             event.currentTarget.scrollTo({
               behavior: "instant",
@@ -579,9 +399,6 @@ function GalleryPhotoViewer({
           }
           pointerDownRef.current = false;
           endMouseDrag(event.clientX);
-          window.setTimeout(() => {
-            downOnImageRef.current = false;
-          }, 0);
         }}
         ref={scrollerRef}
         style={{ overflowAnchor: "none" }}
@@ -589,8 +406,11 @@ function GalleryPhotoViewer({
         {slides.map((slide, index) => (
           <GallerySlidePicture
             active={active === index}
+            closeLabel={closeLabel}
             key={slide.src}
+            onClose={onClose}
             slide={slide}
+            suppressClickRef={suppressClickRef}
           />
         ))}
       </div>
@@ -687,12 +507,260 @@ function GalleryPhotoViewer({
   );
 }
 
+function GalleryPhotoViewer({
+  active,
+  closeButtonRef,
+  closeLabel,
+  nextLabel,
+  onClose,
+  onSelect,
+  onStep,
+  prevLabel,
+  slides,
+  speciesId,
+}: {
+  active: null | number;
+  closeButtonRef: RefObject<HTMLButtonElement | null>;
+  closeLabel: string;
+  nextLabel: string;
+  onClose: () => void;
+  onSelect: (index: number) => void;
+  onStep: (delta: number) => void;
+  prevLabel: string;
+  slides: GallerySlide[];
+  speciesId?: string;
+}) {
+  const activeSlide = active === null ? null : slides[active];
+  const many = slides.length > 1;
+  const scrollerRef = useRef<HTMLDivElement>(null);
+  const stripRef = useRef<HTMLDivElement>(null);
+  const countRef = useRef<HTMLParagraphElement>(null);
+  const settleTimer = useRef<number | undefined>(undefined);
+  const wasOpen = useRef(false);
+  const scrollTargetRef = useRef<null | number>(null);
+  const dragRef = useRef<null | {
+    moved: boolean;
+    startLeft: number;
+    startX: number;
+  }>(null);
+  const suppressClickRef = useRef(false);
+  const pointerDownRef = useRef(false);
+  const swipedTo = useRef<null | number>(null);
+
+  const publishSwipe = useEffectEvent(() => {
+    const scroller = scrollerRef.current;
+    if (
+      !scroller ||
+      active === null ||
+      scrollTargetRef.current !== null ||
+      scroller.clientWidth === 0
+    ) {
+      return;
+    }
+    const index = slideIndex(
+      scroller.scrollLeft,
+      scroller.clientWidth,
+      slides.length,
+    );
+    if (index === active) return;
+    swipedTo.current = index;
+    onSelect(index);
+  });
+
+  const syncFromScroller = useEffectEvent(() => {
+    const scroller = scrollerRef.current;
+    if (
+      !scroller ||
+      active === null ||
+      dragRef.current ||
+      pointerDownRef.current ||
+      scrollTargetRef.current !== null ||
+      scroller.clientWidth === 0
+    ) {
+      return;
+    }
+    const width = scroller.clientWidth;
+    const offset = scroller.scrollLeft / width;
+    const index = slideIndex(scroller.scrollLeft, width, slides.length);
+    if (Math.abs(offset - index) > 0.04) return;
+    if (index !== active) {
+      swipedTo.current = index;
+      onSelect(index);
+    }
+  });
+
+  useLayoutEffect(() => {
+    const scroller = scrollerRef.current;
+    if (!scroller) return;
+
+    if (active === null) {
+      wasOpen.current = false;
+      scrollTargetRef.current = null;
+      swipedTo.current = null;
+      return;
+    }
+
+    if (swipedTo.current === active) {
+      wasOpen.current = true;
+      placeThumb(stripRef.current, active);
+      return;
+    }
+
+    scrollTargetRef.current = active;
+
+    const align = () => {
+      const width = scroller.clientWidth;
+      if (width === 0) return false;
+      const left = active * width;
+      if (Math.abs(scroller.scrollLeft - left) > 1) {
+        scroller.scrollTo({
+          behavior:
+            wasOpen.current && !prefersReducedMotion() ? "smooth" : "instant",
+          left,
+        });
+      }
+      if (Math.abs(scroller.scrollLeft - left) <= 1) {
+        scrollTargetRef.current = null;
+        scroller.style.scrollSnapType = "";
+      }
+      wasOpen.current = true;
+      placeThumb(stripRef.current, active);
+      return true;
+    };
+
+    if (align()) return;
+
+    const frame = requestAnimationFrame(align);
+    const observer = new ResizeObserver(() => {
+      if (align()) observer.disconnect();
+    });
+    observer.observe(scroller);
+    return () => {
+      cancelAnimationFrame(frame);
+      observer.disconnect();
+    };
+  }, [active]);
+
+  useEffect(() => {
+    const scroller = scrollerRef.current;
+    if (!scroller) return;
+
+    function paintCount() {
+      const count = countRef.current;
+      if (!count || scroller.clientWidth === 0) return;
+      const index = slideIndex(
+        scroller.scrollLeft,
+        scroller.clientWidth,
+        slides.length,
+      );
+      const label = `${index + 1} / ${slides.length}`;
+      if (count.textContent !== label) count.textContent = label;
+    }
+
+    function onScroll() {
+      paintCount();
+      const pending = scrollTargetRef.current;
+      if (pending !== null && scroller.clientWidth > 0) {
+        const left = pending * scroller.clientWidth;
+        if (Math.abs(scroller.scrollLeft - left) <= 1) {
+          scrollTargetRef.current = null;
+          scroller.style.scrollSnapType = "";
+        }
+      }
+      if (scrollTargetRef.current === null) publishSwipe();
+      if ("onscrollend" in scroller) return;
+      window.clearTimeout(settleTimer.current);
+      settleTimer.current = window.setTimeout(syncFromScroller, 160);
+    }
+
+    function onScrollEnd() {
+      if (dragRef.current || pointerDownRef.current) return;
+      syncFromScroller();
+    }
+
+    scroller.addEventListener("scroll", onScroll, { passive: true });
+    scroller.addEventListener("scrollend", onScrollEnd);
+    return () => {
+      scroller.removeEventListener("scroll", onScroll);
+      scroller.removeEventListener("scrollend", onScrollEnd);
+      window.clearTimeout(settleTimer.current);
+    };
+  }, [slides.length]);
+
+  function endMouseDrag(clientX: number) {
+    const drag = dragRef.current;
+    const scroller = scrollerRef.current;
+    dragRef.current = null;
+    if (!drag || !scroller) return;
+    if (!drag.moved || active === null || scroller.clientWidth === 0) {
+      scroller.style.scrollSnapType = "";
+      return;
+    }
+
+    suppressClickRef.current = true;
+    const width = scroller.clientWidth;
+    const delta = clientX - drag.startX;
+    let index = slideIndex(scroller.scrollLeft, width, slides.length);
+    if (Math.abs(delta) > SWIPE_THRESHOLD) {
+      const startIndex = slideIndex(drag.startLeft, width, slides.length);
+      if (index === startIndex) {
+        index = Math.min(
+          slides.length - 1,
+          Math.max(0, startIndex + (delta > 0 ? -1 : 1)),
+        );
+      }
+    }
+
+    const left = index * width;
+    const behavior = prefersReducedMotion() ? "instant" : "smooth";
+    scrollTargetRef.current = index;
+    scroller.style.scrollSnapType = "none";
+    scroller.scrollTo({ behavior, left });
+    if (Math.abs(scroller.scrollLeft - left) <= 1) {
+      scrollTargetRef.current = null;
+      scroller.style.scrollSnapType = "";
+      if (index !== active) onSelect(index);
+    }
+  }
+
+  return (
+    <GalleryPhotoStage
+      active={active}
+      activeSlide={activeSlide}
+      closeButtonRef={closeButtonRef}
+      closeLabel={closeLabel}
+      countRef={countRef}
+      dragRef={dragRef}
+      endMouseDrag={endMouseDrag}
+      many={many}
+      nextLabel={nextLabel}
+      onClose={onClose}
+      onSelect={onSelect}
+      onStep={onStep}
+      pointerDownRef={pointerDownRef}
+      prevLabel={prevLabel}
+      scrollerRef={scrollerRef}
+      scrollTargetRef={scrollTargetRef}
+      slides={slides}
+      speciesId={speciesId}
+      stripRef={stripRef}
+      suppressClickRef={suppressClickRef}
+    />
+  );
+}
+
 function GallerySlidePicture({
   active,
+  closeLabel,
+  onClose,
   slide,
+  suppressClickRef,
 }: {
   active: boolean;
+  closeLabel: string;
+  onClose: () => void;
   slide: GallerySlide;
+  suppressClickRef: RefObject<boolean>;
 }) {
   const imageRef = useRef<HTMLImageElement>(null);
   const [loaded, setLoaded] = useState(false);
@@ -704,20 +772,33 @@ function GallerySlidePicture({
 
   return (
     <div className="relative flex size-full min-w-full shrink-0 basis-full snap-center items-center justify-center overflow-hidden p-3 sm:px-24 sm:py-6">
+      <button
+        aria-label={closeLabel}
+        className="absolute inset-0 cursor-default"
+        onClick={() => {
+          if (suppressClickRef.current) {
+            suppressClickRef.current = false;
+            return;
+          }
+          onClose();
+        }}
+        tabIndex={-1}
+        type="button"
+      />
       {loaded ? null : (
         <span
           aria-hidden="true"
-          className="absolute size-9 animate-spin rounded-full border-2 border-white/15 border-t-white/75 motion-reduce:animate-none"
+          className="pointer-events-none absolute size-9 animate-spin rounded-full border-2 border-white/15 border-t-white/75 motion-reduce:animate-none"
         />
       )}
-      <picture className="flex size-full items-center justify-center">
+      <picture className="pointer-events-none relative z-10 flex size-full items-center justify-center">
         {slide.sources.map((source) => (
           <source key={source.key} {...source.props} />
         ))}
         <img
           alt={slide.alt}
           className={cn(
-            "size-auto max-h-full max-w-full rounded-xl object-contain text-transparent shadow-[0_24px_80px_rgba(0,0,0,0.55)] transition-opacity duration-500",
+            "pointer-events-auto size-auto max-h-full max-w-full rounded-xl object-contain text-transparent shadow-[0_24px_80px_rgba(0,0,0,0.55)] transition-opacity duration-500",
             loaded ? "opacity-100" : "opacity-0",
           )}
           decoding="async"
