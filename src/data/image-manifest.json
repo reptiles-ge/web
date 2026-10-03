@@ -20228,6 +20228,101 @@
       ],
       "updatedAt": "2026-10-03T08:12:53.995Z"
     },
+    "darevskia-obscura-edouard-1.jpg": {
+      "sourceHash": "eb2f6f5c94c8d2a28f5d694731518b0f0a334080e23d909955ebfd58865d3ec4",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-obscura-edouard-1.jpg",
+      "originalSize": 600894,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-obscura-edouard-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14674
+        },
+        {
+          "key": "optimized/darevskia-obscura-edouard-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 23256
+        },
+        {
+          "key": "optimized/darevskia-obscura-edouard-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 20467
+        },
+        {
+          "key": "optimized/darevskia-obscura-edouard-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 32468
+        },
+        {
+          "key": "optimized/darevskia-obscura-edouard-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 41583
+        },
+        {
+          "key": "optimized/darevskia-obscura-edouard-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 67248
+        },
+        {
+          "key": "optimized/darevskia-obscura-edouard-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 57803
+        },
+        {
+          "key": "optimized/darevskia-obscura-edouard-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 94254
+        },
+        {
+          "key": "optimized/darevskia-obscura-edouard-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 101417
+        },
+        {
+          "key": "optimized/darevskia-obscura-edouard-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 165658
+        },
+        {
+          "key": "optimized/darevskia-obscura-edouard-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 212924
+        },
+        {
+          "key": "optimized/darevskia-obscura-edouard-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 340234
+        }
+      ],
+      "updatedAt": "2026-10-03T08:13:33.576Z"
+    },
     "darevskia-obscura-giorgi-1.jpg": {
       "sourceHash": "2129c9699a904ccb21d2b24d62a513da376429b868ac12d40d0f4dde52e9d9f7",
       "configFingerprint": "409788ee46c653d8",
