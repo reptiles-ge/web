@@ -5968,6 +5968,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1024],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/neophron-percnopterus-gogopopo-1.jpg": {
+    "path": "neophron-percnopterus-gogopopo-1",
+    "width": 2048,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/news-batumi-19300-cosentino-kite-1.jpg": {
     "path": "news-batumi-19300-cosentino-kite-1",
     "width": 2400,
