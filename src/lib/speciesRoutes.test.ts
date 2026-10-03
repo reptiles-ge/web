@@ -217,6 +217,16 @@ describe("species routes", () => {
     );
   });
 
+  it("leaves Eurasian jay lookalikes empty without supported visual confusion", () => {
+    expect(getSpeciesLookalikes("garrulus-glandarius")).toEqual([]);
+    expect(getSpeciesLookalikes("pica-pica")).not.toContain(
+      "garrulus-glandarius",
+    );
+    expect(getSpeciesLookalikes("corvus-corax")).not.toContain(
+      "garrulus-glandarius",
+    );
+  });
+
   it("keeps sparrowhawk lookalikes to supported flight comparisons", () => {
     const peers = ["accipiter-gentilis", "falco-peregrinus"];
     expect(getSpeciesLookalikes("accipiter-nisus")).toEqual(peers);
