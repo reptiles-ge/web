@@ -95,6 +95,7 @@ export const regions: Region[] = [
     path: georgiaRegionPaths["samegrelo-zemo-svaneti"],
     speciesIds: [
       "accipiter-nisus",
+      "gyps-fulvus",
       "lanius-collurio",
       "vipera-kaznakovi",
       "vipera-dinniki",
@@ -322,6 +323,7 @@ export const regions: Region[] = [
     path: georgiaRegionPaths["samtskhe-javakheti"],
     speciesIds: [
       "accipiter-nisus",
+      "gyps-fulvus",
       "neophron-percnopterus",
       "lanius-collurio",
       "vipera-transcaucasiana",
@@ -521,6 +523,7 @@ export const regions: Region[] = [
     path: georgiaRegionPaths["kvemo-kartli"],
     speciesIds: [
       "accipiter-nisus",
+      "gyps-fulvus",
       "neophron-percnopterus",
       "lanius-collurio",
       "macrovipera-lebetina",
