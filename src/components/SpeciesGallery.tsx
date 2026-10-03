@@ -52,6 +52,26 @@ type SpeciesGalleryProps = {
   tone?: "background" | "surface";
 };
 
+export function GalleryPhotoFigcaption({
+  locale,
+  photo,
+}: {
+  locale: AppLocale;
+  photo: GalleryImage;
+}) {
+  const fieldRecord =
+    (photo.photoConfidence ?? photo.credit?.photoConfidence) ===
+    "georgia-field";
+
+  return (
+    <GalleryPhotoCaption
+      credit={photo.credit}
+      fieldLabel={fieldRecord ? FIELD_RECORD_LABEL[locale] : undefined}
+      locale={locale}
+    />
+  );
+}
+
 export async function SpeciesGallery({
   images,
   locale,
@@ -135,10 +155,6 @@ export async function SpeciesGallery({
                 : featured
                   ? featuredSizes
                   : thumbSizes;
-              const showFieldRecord =
-                (photo.photoConfidence ?? photo.credit?.photoConfidence) ===
-                "georgia-field";
-
               return (
                 <figure
                   className={cn(
@@ -182,13 +198,7 @@ export async function SpeciesGallery({
                       <div className="absolute inset-0 bg-black/0 transition-colors duration-300 group-focus-within:bg-black/20 group-hover:bg-black/20" />
                     </GalleryOpenButton>
                   </div>
-                  <GalleryPhotoCaption
-                    credit={photo.credit}
-                    fieldLabel={
-                      showFieldRecord ? FIELD_RECORD_LABEL[locale] : undefined
-                    }
-                    locale={locale}
-                  />
+                  <GalleryPhotoFigcaption locale={locale} photo={photo} />
                 </figure>
               );
             })}

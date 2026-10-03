@@ -36,7 +36,11 @@ import {
 } from "@/lib/clusterGuides";
 import { cn } from "@/lib/cn";
 import { formatPhotoDate } from "@/lib/formatDate";
-import { isPlaceholderBody } from "@/lib/speciesContent";
+import {
+  getSpeciesIdentificationPhoto,
+  isPlaceholderBody,
+} from "@/lib/speciesContent";
+import { speciesPhotoAlt } from "@/lib/speciesMeta";
 import { getSpeciesRiskChip } from "@/lib/speciesRisk";
 import { SPECIES_SECTION_IDS, speciesProfileSectionIds } from "@/lib/toc";
 
@@ -576,11 +580,10 @@ export async function SpeciesProfileBody({
       </section>
 
       {showIdentification && species.identification ? (
-        <SpeciesIdentification
+        <SpeciesProfileIdentification
           identification={species.identification}
           locale={locale}
-          name={species.commonName}
-          speciesId={species.id}
+          species={species}
         />
       ) : null}
 
@@ -1081,6 +1084,37 @@ async function SpeciesProfileHabitat({
         </div>
       </div>
     </section>
+  );
+}
+
+function SpeciesProfileIdentification({
+  identification,
+  locale,
+  species,
+}: {
+  identification: NonNullable<Species["identification"]>;
+  locale: AppLocale;
+  species: Species;
+}) {
+  const photo =
+    species.id === "halyomorpha-halys"
+      ? null
+      : getSpeciesIdentificationPhoto(species);
+
+  return (
+    <SpeciesIdentification
+      identification={identification}
+      locale={locale}
+      name={species.commonName}
+      photo={photo}
+      photoAlt={speciesPhotoAlt(
+        species.commonName,
+        species.scientificName,
+        species.location,
+        photo?.credit,
+      )}
+      speciesId={species.id}
+    />
   );
 }
 
