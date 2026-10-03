@@ -466,6 +466,7 @@
     "faqIntroAfter": ".",
     "lookalikes": "Схожие виды",
     "lookalikesTitle": "С какими видами можно спутать",
+    "lookalikesMore": "Показать ещё {count}",
     "related": "Связанные виды",
     "relatedTitle": "Родственные виды",
     "otherInsects": "Насекомые",

@@ -14,7 +14,7 @@ export const SPECIES_SECTION_IDS = {
   voice: "voice",
 } as const;
 
-type SpeciesProfileSectionAvailability = {
+export type SpeciesProfileSectionAvailability = {
   atAGlance: boolean;
   biology: boolean;
   faq: boolean;
@@ -22,7 +22,6 @@ type SpeciesProfileSectionAvailability = {
   habitat: boolean;
   identification: boolean;
   interaction: boolean;
-  lookalikes: boolean;
   range: boolean;
   sources: boolean;
 };
@@ -35,7 +34,6 @@ export function speciesProfileSectionIds({
   habitat,
   identification,
   interaction,
-  lookalikes,
   range,
   sources,
 }: SpeciesProfileSectionAvailability) {
@@ -45,7 +43,6 @@ export function speciesProfileSectionIds({
     SPECIES_SECTION_IDS.overview,
     ...(identification ? [SPECIES_SECTION_IDS.identification] : []),
     ...(gallery ? [SPECIES_SECTION_IDS.gallery] : []),
-    ...(lookalikes ? [SPECIES_SECTION_IDS.lookalikes] : []),
     ...(habitat
       ? [SPECIES_SECTION_IDS.habitat]
       : range
