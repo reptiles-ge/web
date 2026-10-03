@@ -6,6 +6,7 @@ import type { AppLocale } from "@/i18n/routing";
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { BiologyExpandable } from "@/components/BiologyExpandable";
 import { Link } from "@/i18n/navigation";
+import { cn } from "@/lib/cn";
 import { dangerPageHref } from "@/lib/dangerLevels";
 import { isPlaceholderBody } from "@/lib/speciesContent";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
@@ -36,6 +37,7 @@ export async function SpeciesProfileFacts({
   const t = await getTranslations({ locale, namespace: "profile" });
   const interactionBody =
     interaction && !isPlaceholderBody(interaction) ? interaction : null;
+  const cellSpans = statCellSpans(displayStats.length);
 
   if (displayStats.length === 0 && !interactionBody) return null;
 
@@ -61,9 +63,12 @@ export async function SpeciesProfileFacts({
               {t("atAGlanceTitle")}
             </AnchoredHeading>
             <div className="mt-12 grid gap-px overflow-hidden rounded-media bg-border sm:grid-cols-2 md:grid-cols-3">
-              {displayStats.map((stat) => (
+              {displayStats.map((stat, index) => (
                 <div
-                  className="min-w-0 bg-background p-5 sm:p-6 lg:p-8"
+                  className={cn(
+                    "min-w-0 bg-background p-5 sm:p-6 lg:p-8",
+                    cellSpans[index],
+                  )}
                   key={stat.label}
                 >
                   <p
@@ -134,6 +139,8 @@ export async function SpeciesProfileFacts({
   );
 }
 
+const LAST_CELL_SPAN_MD = ["md:col-span-1", "md:col-span-3", "md:col-span-2"];
+
 function SpeciesProfileStatValue({
   danger,
   dangerValue,
@@ -157,4 +164,15 @@ function SpeciesProfileStatValue({
   }
 
   return value;
+}
+
+function statCellSpans(count: number) {
+  const spans = Array.from({ length: count }, () => "");
+  if (count === 0) return spans;
+
+  spans[count - 1] = cn(
+    count % 2 === 1 && "sm:col-span-2",
+    LAST_CELL_SPAN_MD[count % 3],
+  );
+  return spans;
 }
