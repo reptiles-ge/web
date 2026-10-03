@@ -2069,6 +2069,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/darevskia-obscura-christian-1.jpg": {
+    "path": "darevskia-obscura-christian-1",
+    "width": 1802,
+    "height": 1202,
+    "widths": [320, 400, 640, 800, 1200, 1802],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/darevskia-obscura-giorgi-1.jpg": {
     "path": "darevskia-obscura-giorgi-1",
     "width": 2048,
