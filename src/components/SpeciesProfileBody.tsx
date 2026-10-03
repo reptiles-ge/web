@@ -1,6 +1,11 @@
 import { getTranslations } from "next-intl/server";
 
-import type { GalleryImage, Species, SpeciesStat } from "@/data/species";
+import type {
+  DangerLevel,
+  GalleryImage,
+  Species,
+  SpeciesStat,
+} from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
@@ -16,6 +21,7 @@ import { SpeciesIdentification } from "@/components/SpeciesIdentification";
 import { SpeciesOverviewText } from "@/components/SpeciesOverviewText";
 import { SpeciesProfileFacts } from "@/components/SpeciesProfileFacts";
 import { SpeciesProfileRelated } from "@/components/SpeciesProfileRelated";
+import { SpeciesSectionNav } from "@/components/SpeciesSectionNav";
 import { SpeciesSources } from "@/components/SpeciesSources";
 import {
   optimizedEntry,
@@ -31,6 +37,7 @@ import {
 import { cn } from "@/lib/cn";
 import { formatPhotoDate } from "@/lib/formatDate";
 import { isPlaceholderBody } from "@/lib/speciesContent";
+import { getSpeciesRiskChip } from "@/lib/speciesRisk";
 import { SPECIES_SECTION_IDS, speciesProfileSectionIds } from "@/lib/toc";
 
 type BiologyBlockItem = {
@@ -529,6 +536,8 @@ export async function SpeciesProfileBody({
         hasRange={hasRange}
         hasSources={species.sources.length > 0}
         locale={locale}
+        name={species.commonName}
+        riskLevel={getSpeciesRiskChip(species)?.level}
       />
 
       <SpeciesProfileFacts
@@ -1087,6 +1096,8 @@ async function SpeciesProfileNavigation({
   hasRange,
   hasSources,
   locale,
+  name,
+  riskLevel,
 }: {
   hasBiology: boolean;
   hasFacts: boolean;
@@ -1099,6 +1110,8 @@ async function SpeciesProfileNavigation({
   hasRange: boolean;
   hasSources: boolean;
   locale: AppLocale;
+  name: string;
+  riskLevel?: DangerLevel;
 }) {
   const t = await getTranslations({ locale, namespace: "profile" });
   const ids = speciesProfileSectionIds({
@@ -1128,26 +1141,11 @@ async function SpeciesProfileNavigation({
   };
 
   return (
-    <nav
-      aria-label={t("contents")}
-      className="sticky top-[68px] z-30 border-y border-border bg-background/95 backdrop-blur-xl"
-    >
-      <ul className="mx-auto flex h-11 max-w-[1400px] scrollbar-none items-center gap-5 overflow-x-auto pr-16 pl-6 text-[13px] leading-none lg:px-10 [&::-webkit-scrollbar]:hidden">
-        {ids.map((id) => (
-          <li className="shrink-0 translate-y-[3px]" key={id}>
-            <a
-              className="font-medium whitespace-nowrap text-foreground/70 transition-colors hover:text-primary"
-              href={`#${id}`}
-            >
-              {labels[id]}
-            </a>
-          </li>
-        ))}
-      </ul>
-      <span
-        aria-hidden
-        className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-linear-to-r from-transparent to-background lg:hidden"
-      />
-    </nav>
+    <SpeciesSectionNav
+      ariaLabel={t("contents")}
+      items={ids.map((id) => ({ id, label: labels[id] }))}
+      name={name}
+      riskLevel={riskLevel}
+    />
   );
 }
