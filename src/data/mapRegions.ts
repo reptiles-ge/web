@@ -206,7 +206,6 @@ export const regions: Region[] = [
       "lacerta-agilis",
       "coturnix-coturnix",
       "ciconia-ciconia",
-      "neophron-percnopterus",
       "tyto-alba",
       "larus-fuscus",
       "motacilla-alba",
@@ -323,6 +322,7 @@ export const regions: Region[] = [
     path: georgiaRegionPaths["samtskhe-javakheti"],
     speciesIds: [
       "accipiter-nisus",
+      "neophron-percnopterus",
       "lanius-collurio",
       "vipera-transcaucasiana",
       "vipera-darevskii",
@@ -394,6 +394,7 @@ export const regions: Region[] = [
     path: georgiaRegionPaths["shida-kartli"],
     speciesIds: [
       "accipiter-nisus",
+      "neophron-percnopterus",
       "lanius-collurio",
       "vipera-transcaucasiana",
       "vipera-kaznakovi",
@@ -454,6 +455,7 @@ export const regions: Region[] = [
     path: georgiaRegionPaths["mtskheta-mtianeti"],
     speciesIds: [
       "accipiter-nisus",
+      "neophron-percnopterus",
       "lanius-collurio",
       "vipera-dinniki",
       "vipera-transcaucasiana",
@@ -519,6 +521,7 @@ export const regions: Region[] = [
     path: georgiaRegionPaths["kvemo-kartli"],
     speciesIds: [
       "accipiter-nisus",
+      "neophron-percnopterus",
       "lanius-collurio",
       "macrovipera-lebetina",
       "vipera-transcaucasiana",
@@ -577,6 +580,7 @@ export const regions: Region[] = [
     path: georgiaRegionPaths.kakheti,
     speciesIds: [
       "accipiter-nisus",
+      "neophron-percnopterus",
       "lanius-collurio",
       "macrovipera-lebetina",
       "vipera-renardi",
@@ -627,7 +631,6 @@ export const regions: Region[] = [
       "aegypius-monachus",
       "gyps-fulvus",
       "gypaetus-barbatus",
-      "neophron-percnopterus",
       "tyto-alba",
       "argiope-bruennichi",
       "argiope-lobata",
