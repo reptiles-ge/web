@@ -54,6 +54,16 @@ export function getSpeciesHeroSources(species: Species) {
   return { desktopHeroSrc, gallery, mobileHeroSrc, primary };
 }
 
+export function getSpeciesIdentificationPhoto(species: Species) {
+  const { desktopHeroSrc, gallery, mobileHeroSrc } =
+    getSpeciesHeroSources(species);
+  return (
+    gallery.find(
+      (item) => item.src !== desktopHeroSrc && item.src !== mobileHeroSrc,
+    ) ?? null
+  );
+}
+
 export function hasRealSpeciesPhotos(species: Species) {
   if (!isPlaceholderMedia(species.image)) return true;
   if (species.mobileImage && !isPlaceholderMedia(species.mobileImage)) {
