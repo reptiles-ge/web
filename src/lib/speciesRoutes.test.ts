@@ -244,6 +244,16 @@ describe("species routes", () => {
     }
   });
 
+  it("limits cinereous vulture lookalikes to visual flight matches", () => {
+    expect(getSpeciesLookalikes("aegypius-monachus")).toEqual([
+      "aquila-chrysaetos",
+      "gyps-fulvus",
+    ]);
+    expect(getSpeciesLookalikes("buteo-buteo")).not.toContain(
+      "aegypius-monachus",
+    );
+  });
+
   it("keeps bearded vulture lookalikes to supported flight comparisons", () => {
     const peers = ["gyps-fulvus", "aquila-chrysaetos"];
     expect(getSpeciesLookalikes("gypaetus-barbatus")).toEqual(peers);
