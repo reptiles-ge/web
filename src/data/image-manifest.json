@@ -20580,6 +20580,101 @@
       ],
       "updatedAt": "2026-08-28T21:32:25.240Z"
     },
+    "darevskia-obscura-sandro-1.jpg": {
+      "sourceHash": "b460f9c5b74765a25510e1bceb67f7d55bacd764412c6d4d0b7d2ea5dda2969c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-obscura-sandro-1.jpg",
+      "originalSize": 550404,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-obscura-sandro-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 12122
+        },
+        {
+          "key": "optimized/darevskia-obscura-sandro-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 16124
+        },
+        {
+          "key": "optimized/darevskia-obscura-sandro-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 17528
+        },
+        {
+          "key": "optimized/darevskia-obscura-sandro-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 23038
+        },
+        {
+          "key": "optimized/darevskia-obscura-sandro-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 44932
+        },
+        {
+          "key": "optimized/darevskia-obscura-sandro-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 58904
+        },
+        {
+          "key": "optimized/darevskia-obscura-sandro-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 69469
+        },
+        {
+          "key": "optimized/darevskia-obscura-sandro-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 90690
+        },
+        {
+          "key": "optimized/darevskia-obscura-sandro-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 122910
+        },
+        {
+          "key": "optimized/darevskia-obscura-sandro-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 156478
+        },
+        {
+          "key": "optimized/darevskia-obscura-sandro-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 206106
+        },
+        {
+          "key": "optimized/darevskia-obscura-sandro-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 288562
+        }
+      ],
+      "updatedAt": "2026-10-03T08:15:01.455Z"
+    },
     "darevskia-obscura.jpg": {
       "sourceHash": "1c19bd4cde836a1fcc76fd6cf62d82180dde35659fb6d71698e59b2a0815d581",
       "configFingerprint": "a895f8e025dcc7fa",
