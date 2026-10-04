@@ -35674,6 +35674,101 @@
       ],
       "updatedAt": "2026-10-04T08:22:14.212Z"
     },
+    "garrulus-glandarius-donsky-2.jpg": {
+      "sourceHash": "b0356a02667194d90b0618713a4485c9c85728a2a2723731ba6f0b2bf039cf86",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "garrulus-glandarius-donsky-2.jpg",
+      "originalSize": 514571,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/garrulus-glandarius-donsky-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10739
+        },
+        {
+          "key": "optimized/garrulus-glandarius-donsky-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14714
+        },
+        {
+          "key": "optimized/garrulus-glandarius-donsky-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 14705
+        },
+        {
+          "key": "optimized/garrulus-glandarius-donsky-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 20612
+        },
+        {
+          "key": "optimized/garrulus-glandarius-donsky-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 30366
+        },
+        {
+          "key": "optimized/garrulus-glandarius-donsky-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 41738
+        },
+        {
+          "key": "optimized/garrulus-glandarius-donsky-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 43678
+        },
+        {
+          "key": "optimized/garrulus-glandarius-donsky-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 61622
+        },
+        {
+          "key": "optimized/garrulus-glandarius-donsky-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 84738
+        },
+        {
+          "key": "optimized/garrulus-glandarius-donsky-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 119332
+        },
+        {
+          "key": "optimized/garrulus-glandarius-donsky-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 187534
+        },
+        {
+          "key": "optimized/garrulus-glandarius-donsky-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 287620
+        }
+      ],
+      "updatedAt": "2026-10-04T08:22:52.537Z"
+    },
     "garrulus-glandarius-flickr-1.jpg": {
       "sourceHash": "7c7856243bf9bc4207597becf3437f34b43e31f2c173517a6a31942a81c88371",
       "configFingerprint": "a895f8e025dcc7fa",
