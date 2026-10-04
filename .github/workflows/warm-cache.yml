@@ -1,0 +1,27 @@
+name: Warm cache
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: warm-cache
+  cancel-in-progress: true
+
+jobs:
+  warm:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Wait for the deploy, then request every sitemap URL
+        run: node scripts/warm-cache.mjs --wait-for-deploy ${{ github.event_name == 'push' && '900' || '0' }}
