@@ -31438,6 +31438,101 @@
       ],
       "updatedAt": "2026-09-02T07:02:22.130Z"
     },
+    "erithacus-rubecula-tatyana-1.jpg": {
+      "sourceHash": "bded8906cced68124159f618f95e656ebc78493028a68a850ec41a754ba3e82a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "erithacus-rubecula-tatyana-1.jpg",
+      "originalSize": 518903,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/erithacus-rubecula-tatyana-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8218
+        },
+        {
+          "key": "optimized/erithacus-rubecula-tatyana-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11546
+        },
+        {
+          "key": "optimized/erithacus-rubecula-tatyana-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 10913
+        },
+        {
+          "key": "optimized/erithacus-rubecula-tatyana-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 16162
+        },
+        {
+          "key": "optimized/erithacus-rubecula-tatyana-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 22967
+        },
+        {
+          "key": "optimized/erithacus-rubecula-tatyana-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 34134
+        },
+        {
+          "key": "optimized/erithacus-rubecula-tatyana-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 32443
+        },
+        {
+          "key": "optimized/erithacus-rubecula-tatyana-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 49244
+        },
+        {
+          "key": "optimized/erithacus-rubecula-tatyana-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 60266
+        },
+        {
+          "key": "optimized/erithacus-rubecula-tatyana-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 94124
+        },
+        {
+          "key": "optimized/erithacus-rubecula-tatyana-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 181039
+        },
+        {
+          "key": "optimized/erithacus-rubecula-tatyana-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 259100
+        }
+      ],
+      "updatedAt": "2026-10-04T20:15:09.869Z"
+    },
     "eryx-jaculus-2.jpg": {
       "sourceHash": "49b66c7a5ef013c81cad647986e0cf12a3ac07cecded7e5441dc82745fd3eea6",
       "configFingerprint": "a895f8e025dcc7fa",
