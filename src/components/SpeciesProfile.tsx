@@ -108,8 +108,6 @@ export async function SpeciesProfile({
     sizes: "100vw",
   });
   const heroCredit = resolvePhotoCredit(species.imageCredit, primary?.credit);
-  const heroGalleryPhoto =
-    gallery.find((item) => item.src === desktopHeroSrc) ?? primary;
   const mobileHeroCredit = resolvePhotoCredit(
     species.mobileImageCredit,
     species.imageCredit,
@@ -174,9 +172,7 @@ export async function SpeciesProfile({
         desktopHeroSrc={desktopHeroSrc}
         galleryCount={gallery.length}
         galleryPreview={getSpeciesGalleryPreview(species)}
-        gallerySrc={
-          heroGalleryPhoto ? optimizedImgSrc(heroGalleryPhoto.src, 1200) : null
-        }
+        gallerySrc={primary ? optimizedImgSrc(primary.src, 1200) : null}
         group={group}
         heroDesktopSources={heroDesktopSources}
         heroPrimarySources={heroPrimarySources}
