@@ -3399,6 +3399,34 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1400],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/garrulus-glandarius-donsky-1.jpg": {
+    "path": "garrulus-glandarius-donsky-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/garrulus-glandarius-donsky-2.jpg": {
+    "path": "garrulus-glandarius-donsky-2",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/garrulus-glandarius-eduardo-1.jpg": {
+    "path": "garrulus-glandarius-eduardo-1",
+    "width": 2025,
+    "height": 1350,
+    "widths": [320, 400, 640, 800, 1200, 2025],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/garrulus-glandarius-fkfhof-1.jpg": {
+    "path": "garrulus-glandarius-fkfhof-1",
+    "width": 1200,
+    "height": 801,
+    "widths": [320, 400, 640, 800, 1200],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/garrulus-glandarius-flickr-1.jpg": {
     "path": "garrulus-glandarius-flickr-1",
     "width": 2400,
