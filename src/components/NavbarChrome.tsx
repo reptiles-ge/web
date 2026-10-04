@@ -4,6 +4,7 @@ import { ChevronDown, Menu, X } from "lucide-react";
 
 import type { NavLink } from "@/components/NavbarMenu";
 
+import { IntentPrefetchLink } from "@/components/IntentPrefetchLink";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Logo, LOGO_NAV_SIZE } from "@/components/Logo";
 import { SpeciesSearch } from "@/components/SpeciesSearch";
@@ -90,9 +91,12 @@ export function NavbarChrome({
         />
       </Link>
       <nav className="relative z-10 hidden items-center gap-4 lg:flex xl:gap-7">
-        <Link className={desktopNavLinkClass(scrolled)} href={speciesHref}>
+        <IntentPrefetchLink
+          className={desktopNavLinkClass(scrolled)}
+          href={speciesHref}
+        >
           {speciesLabel}
-        </Link>
+        </IntentPrefetchLink>
         <NavbarGroupsDropdown
           closeMenuLabel={closeMenuLabel}
           groupsActive={groupsActive}
@@ -105,20 +109,20 @@ export function NavbarChrome({
           scrolled={scrolled}
         />
         {restLinks.map((link) => (
-          <Link
+          <IntentPrefetchLink
             className={cn("relative", desktopNavLinkClass(scrolled))}
             href={link.href}
             key={link.href}
           >
             {link.label}
-          </Link>
+          </IntentPrefetchLink>
         ))}
       </nav>
       <div className="relative z-10 flex items-center justify-end gap-2.5 sm:gap-3">
         <SpeciesSearch variant={chromeVariant} />
         <ThemeToggle variant={chromeVariant} />
         <LanguageSwitcher variant={chromeVariant} />
-        <Link
+        <IntentPrefetchLink
           className={cn(
             "hidden rounded-full px-5 py-2 text-[13px] font-medium transition-all lg:inline-flex",
             scrolled
@@ -128,7 +132,7 @@ export function NavbarChrome({
           href={speciesHref}
         >
           {discoverLabel}
-        </Link>
+        </IntentPrefetchLink>
         <button
           aria-controls={menuId}
           aria-expanded={menuOpen}
@@ -218,25 +222,25 @@ function NavbarGroupsDropdown({
               {reptilesLabel}
             </p>
             {reptileGroupLinks.map((link) => (
-              <Link
+              <IntentPrefetchLink
                 className="block px-4 py-2 text-[13px] font-medium text-foreground/80 transition-colors hover:bg-surface hover:text-foreground"
                 href={link.href}
                 key={link.href}
                 onClick={onToggleGroups}
               >
                 {link.label}
-              </Link>
+              </IntentPrefetchLink>
             ))}
             <div className="my-2 border-t border-border" />
             {otherGroupLinks.map((link) => (
-              <Link
+              <IntentPrefetchLink
                 className="block px-4 py-2 text-[13px] font-medium text-foreground/80 transition-colors hover:bg-surface hover:text-foreground"
                 href={link.href}
                 key={link.href}
                 onClick={onToggleGroups}
               >
                 {link.label}
-              </Link>
+              </IntentPrefetchLink>
             ))}
           </div>
         </>
