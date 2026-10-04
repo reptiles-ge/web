@@ -2265,6 +2265,34 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1153],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/dendrocopos-major-donsky-1.jpg": {
+    "path": "dendrocopos-major-donsky-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/dendrocopos-major-donsky-2.jpg": {
+    "path": "dendrocopos-major-donsky-2",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/dendrocopos-major-donsky-3.jpg": {
+    "path": "dendrocopos-major-donsky-3",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/dendrocopos-major-oscar-1.jpg": {
+    "path": "dendrocopos-major-oscar-1",
+    "width": 1085,
+    "height": 723,
+    "widths": [320, 400, 640, 800, 1085],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/dendrocopos-major-rehnberg-1.jpg": {
     "path": "dendrocopos-major-rehnberg-1",
     "width": 2400,

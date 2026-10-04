@@ -23138,6 +23138,372 @@
       ],
       "updatedAt": "2026-08-28T21:36:29.279Z"
     },
+    "dendrocopos-major-donsky-1.jpg": {
+      "sourceHash": "362fb85d191ef042a6c78c84189d78739c9ddff7483b468868019cf2dcf07e26",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "dendrocopos-major-donsky-1.jpg",
+      "originalSize": 522775,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/dendrocopos-major-donsky-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10609
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 15026
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 14498
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 21178
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 30139
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 45384
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 43036
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 65080
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 83328
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 126272
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 195406
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 297066
+        }
+      ],
+      "updatedAt": "2026-10-04T18:15:41.764Z"
+    },
+    "dendrocopos-major-donsky-2.jpg": {
+      "sourceHash": "737400b81891464482a68b759389bcb6921413124795a56d1a7c26f190eccfa3",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "dendrocopos-major-donsky-2.jpg",
+      "originalSize": 391390,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/dendrocopos-major-donsky-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9323
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12666
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 12488
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 16738
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 22763
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 31086
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 30350
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 42520
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 51796
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 74512
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 110556
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 160798
+        }
+      ],
+      "updatedAt": "2026-10-04T18:17:09.895Z"
+    },
+    "dendrocopos-major-donsky-3.jpg": {
+      "sourceHash": "c22fd0093b937a012acbe5f035912e282105a19ae6cc2e90e9dd1e9f23959631",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "dendrocopos-major-donsky-3.jpg",
+      "originalSize": 659144,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/dendrocopos-major-donsky-3-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14265
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-3-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 22272
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 19975
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 31556
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-3-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 43565
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-3-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 67710
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 61904
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 97310
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-3-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 114566
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-3-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 179980
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-3-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 247608
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-3-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 378290
+        }
+      ],
+      "updatedAt": "2026-10-04T18:18:04.253Z"
+    },
+    "dendrocopos-major-oscar-1.jpg": {
+      "sourceHash": "a3fb4699ad189b22a7d588f88ff98572cb36edaf52c4f22bc4051b3c22d55949",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "dendrocopos-major-oscar-1.jpg",
+      "originalSize": 110649,
+      "width": 1085,
+      "height": 723,
+      "derivatives": [
+        {
+          "key": "optimized/dendrocopos-major-oscar-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6225
+        },
+        {
+          "key": "optimized/dendrocopos-major-oscar-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8074
+        },
+        {
+          "key": "optimized/dendrocopos-major-oscar-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 9083
+        },
+        {
+          "key": "optimized/dendrocopos-major-oscar-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 11542
+        },
+        {
+          "key": "optimized/dendrocopos-major-oscar-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 17573
+        },
+        {
+          "key": "optimized/dendrocopos-major-oscar-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 22380
+        },
+        {
+          "key": "optimized/dendrocopos-major-oscar-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 24352
+        },
+        {
+          "key": "optimized/dendrocopos-major-oscar-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 29646
+        },
+        {
+          "key": "optimized/dendrocopos-major-oscar-1-1085.avif",
+          "format": "avif",
+          "width": 1085,
+          "height": 723,
+          "byteSize": 37621
+        },
+        {
+          "key": "optimized/dendrocopos-major-oscar-1-1085.webp",
+          "format": "webp",
+          "width": 1085,
+          "height": 723,
+          "byteSize": 44368
+        }
+      ],
+      "updatedAt": "2026-10-04T18:18:37.787Z"
+    },
     "dendrocopos-major-rehnberg-1.jpg": {
       "sourceHash": "b6ceb5e26572cdb4f17269de0a8b4218601cef013bc3cd41f9bc9ce8a22ffa54",
       "configFingerprint": "a895f8e025dcc7fa",
