@@ -359,7 +359,11 @@ function speciesStructuredData({
   pageUrl: string;
   raw: Species;
 }) {
-  const photoObjects = galleryImageObjects(item.gallery, item, locale);
+  const photoObjects = galleryImageObjects(
+    getSpeciesHeroSources(item).gallery,
+    item,
+    locale,
+  );
   const taxon = speciesTaxonJsonLd(raw, item, locale);
   const org = organizationJsonLd();
   const ogImageObject = {
