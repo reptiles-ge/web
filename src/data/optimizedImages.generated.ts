@@ -3413,6 +3413,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/garrulus-glandarius-eduardo-1.jpg": {
+    "path": "garrulus-glandarius-eduardo-1",
+    "width": 2025,
+    "height": 1350,
+    "widths": [320, 400, 640, 800, 1200, 2025],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/garrulus-glandarius-fkfhof-1.jpg": {
     "path": "garrulus-glandarius-fkfhof-1",
     "width": 1200,

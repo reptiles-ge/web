@@ -35769,6 +35769,101 @@
       ],
       "updatedAt": "2026-10-04T08:22:52.537Z"
     },
+    "garrulus-glandarius-eduardo-1.jpg": {
+      "sourceHash": "c52d378c157ee8af6c0084afaf119a019d67b55d29d6980dd93217d273819a4f",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "garrulus-glandarius-eduardo-1.jpg",
+      "originalSize": 74794,
+      "width": 2025,
+      "height": 1350,
+      "derivatives": [
+        {
+          "key": "optimized/garrulus-glandarius-eduardo-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 1856
+        },
+        {
+          "key": "optimized/garrulus-glandarius-eduardo-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 2356
+        },
+        {
+          "key": "optimized/garrulus-glandarius-eduardo-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 2391
+        },
+        {
+          "key": "optimized/garrulus-glandarius-eduardo-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 3220
+        },
+        {
+          "key": "optimized/garrulus-glandarius-eduardo-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 4431
+        },
+        {
+          "key": "optimized/garrulus-glandarius-eduardo-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 6528
+        },
+        {
+          "key": "optimized/garrulus-glandarius-eduardo-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 5931
+        },
+        {
+          "key": "optimized/garrulus-glandarius-eduardo-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 9124
+        },
+        {
+          "key": "optimized/garrulus-glandarius-eduardo-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 10449
+        },
+        {
+          "key": "optimized/garrulus-glandarius-eduardo-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 15920
+        },
+        {
+          "key": "optimized/garrulus-glandarius-eduardo-1-2025.avif",
+          "format": "avif",
+          "width": 2025,
+          "height": 1350,
+          "byteSize": 21082
+        },
+        {
+          "key": "optimized/garrulus-glandarius-eduardo-1-2025.webp",
+          "format": "webp",
+          "width": 2025,
+          "height": 1350,
+          "byteSize": 34040
+        }
+      ],
+      "updatedAt": "2026-10-04T08:24:56.841Z"
+    },
     "garrulus-glandarius-fkfhof-1.jpg": {
       "sourceHash": "abbfb60921255c52590b23335182816b96b0ab8b0f9dfc034799d591c63cd796",
       "configFingerprint": "409788ee46c653d8",
