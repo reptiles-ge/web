@@ -1,6 +1,6 @@
 import type { SpeciesListItem } from "@/data/speciesListItem";
 
-import { getRegionsForSpecies, regions } from "@/data/mapRegions";
+import { getRegionsForSpecies } from "@/data/mapRegions";
 import {
   type AnimalGroup,
   getSpeciesAtlasMeta,
@@ -26,16 +26,6 @@ export const defaultAtlasFilters: AtlasFilters = {
   query: "",
   region: "all",
 };
-
-export function atlasFiltersToSearchParams(filters: AtlasFilters) {
-  const params = new URLSearchParams();
-  if (filters.group !== "all") params.set("type", filters.group);
-  if (filters.danger !== "all") params.set("danger", filters.danger);
-  if (filters.habitat !== "all") params.set("habitat", filters.habitat);
-  if (filters.region !== "all") params.set("region", filters.region);
-  if (filters.query.trim()) params.set("q", filters.query.trim());
-  return params;
-}
 
 export function countAtlasFacets(filters: AtlasFilters) {
   let count = 0;
@@ -88,65 +78,4 @@ export function filterAtlasSpecies(
 
     return true;
   });
-}
-
-export function hasActiveAtlasFilters(filters: AtlasFilters) {
-  return atlasFiltersToSearchParams(filters).toString().length > 0;
-}
-
-export function parseAtlasFilters(
-  input: Record<string, string | string[] | undefined>,
-): AtlasFilters {
-  const read = (key: string) => {
-    const value = input[key];
-    return typeof value === "string"
-      ? value
-      : Array.isArray(value)
-        ? value[0]
-        : undefined;
-  };
-
-  const group = read("type");
-  const danger = read("danger");
-  const habitat = read("habitat");
-  const region = read("region");
-  const query = read("q") ?? "";
-
-  const groups: Array<"all" | AnimalGroup> = [
-    "all",
-    "snake",
-    "lizard",
-    "turtle",
-    "amphibian",
-    "bird",
-    "insect",
-    "mammal",
-    "scorpion",
-    "spider",
-  ];
-  const dangers: AtlasDangerFilter[] = ["all", "venomous", "harmless"];
-  const habitats: Array<"all" | HabitatTag> = [
-    "all",
-    "forest",
-    "mountain",
-    "wetland",
-    "grassland",
-  ];
-
-  return {
-    danger: dangers.includes(danger as AtlasDangerFilter)
-      ? (danger as AtlasDangerFilter)
-      : "all",
-    group: groups.includes(group as "all" | AnimalGroup)
-      ? (group as "all" | AnimalGroup)
-      : "all",
-    habitat: habitats.includes(habitat as "all" | HabitatTag)
-      ? (habitat as "all" | HabitatTag)
-      : "all",
-    query,
-    region:
-      region && (region === "all" || regions.some((item) => item.id === region))
-        ? region
-        : "all",
-  };
 }

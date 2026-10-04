@@ -6,6 +6,7 @@ import type { GroupHubId } from "@/lib/groupHubs";
 import { guideArticleRedirects } from "@/i18n/guideArticleRedirects";
 import { isPrefixedLocale, type PrefixedLocale } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
+import { isFilteredAtlasRequest } from "@/lib/atlasFilterRequest";
 import { legacyPhotographerRedirectPath } from "@/lib/photographerRedirects";
 import { hasRoutePlaceholder } from "@/lib/routePlaceholder";
 import {
@@ -340,6 +341,9 @@ export default function proxy(request: NextRequest) {
         response.headers.delete(name);
       }
     }
+  }
+  if (isFilteredAtlasRequest(pathname, request.nextUrl.searchParams)) {
+    response.headers.set("X-Robots-Tag", "noindex, follow");
   }
   return response;
 }
