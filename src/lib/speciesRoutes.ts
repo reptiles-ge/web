@@ -261,6 +261,7 @@ const LOOKALIKES: Record<string, string[]> = {
     "testudo-graeca",
   ],
   "triturus-karelinii": ["ommatotriton-ophryticus", "lissotriton-lantzi"],
+  "turdus-merula": ["erithacus-rubecula"],
   "tyto-alba": [
     "strix-aluco",
     "otus-scops",
