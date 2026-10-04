@@ -45,6 +45,7 @@ export const regions: Region[] = [
     path: georgiaRegionPaths.abkhazia,
     speciesIds: [
       "accipiter-nisus",
+      "dendrocopos-major",
       "garrulus-glandarius",
       "lanius-collurio",
       "vipera-kaznakovi",
@@ -182,6 +183,7 @@ export const regions: Region[] = [
     path: georgiaRegionPaths.adjara,
     speciesIds: [
       "accipiter-nisus",
+      "dendrocopos-major",
       "lanius-collurio",
       "vipera-kaznakovi",
       "vipera-transcaucasiana",
@@ -326,6 +328,7 @@ export const regions: Region[] = [
     path: georgiaRegionPaths["samtskhe-javakheti"],
     speciesIds: [
       "accipiter-nisus",
+      "dendrocopos-major",
       "garrulus-glandarius",
       "gyps-fulvus",
       "neophron-percnopterus",
@@ -461,6 +464,7 @@ export const regions: Region[] = [
     path: georgiaRegionPaths["mtskheta-mtianeti"],
     speciesIds: [
       "accipiter-nisus",
+      "dendrocopos-major",
       "garrulus-glandarius",
       "neophron-percnopterus",
       "lanius-collurio",
@@ -528,6 +532,7 @@ export const regions: Region[] = [
     path: georgiaRegionPaths["kvemo-kartli"],
     speciesIds: [
       "accipiter-nisus",
+      "dendrocopos-major",
       "garrulus-glandarius",
       "gyps-fulvus",
       "neophron-percnopterus",
@@ -589,6 +594,7 @@ export const regions: Region[] = [
     path: georgiaRegionPaths.kakheti,
     speciesIds: [
       "accipiter-nisus",
+      "dendrocopos-major",
       "garrulus-glandarius",
       "neophron-percnopterus",
       "lanius-collurio",
@@ -667,6 +673,7 @@ export const regions: Region[] = [
     path: georgiaRegionPaths.tbilisi,
     speciesIds: [
       "accipiter-nisus",
+      "dendrocopos-major",
       "garrulus-glandarius",
       "lanius-collurio",
       "macrovipera-lebetina",
