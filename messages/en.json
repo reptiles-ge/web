@@ -108,6 +108,19 @@
     "toDark": "Switch to dark mode",
     "toLight": "Switch to light mode"
   },
+  "rating": {
+    "close": "Close",
+    "hint": "Pick a star",
+    "level1": "Poor",
+    "level2": "Weak",
+    "level3": "Okay",
+    "level4": "Good",
+    "level5": "Excellent",
+    "star": "{count} out of 5 stars",
+    "thanksBody": "Your feedback helps us",
+    "thanksTitle": "Thank you",
+    "title": "How do you like Reptiles.ge?"
+  },
   "hero": {
     "kicker": "A field atlas",
     "brand": "Reptiles",

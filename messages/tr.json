@@ -108,6 +108,19 @@
     "toDark": "Koyu moda geç",
     "toLight": "Açık moda geç"
   },
+  "rating": {
+    "close": "Kapat",
+    "hint": "Bir yıldız seçin",
+    "level1": "Kötü",
+    "level2": "Zayıf",
+    "level3": "İdare eder",
+    "level4": "İyi",
+    "level5": "Mükemmel",
+    "star": "5 üzerinden {count} yıldız",
+    "thanksBody": "Görüşünüz bize yardımcı oluyor",
+    "thanksTitle": "Teşekkürler",
+    "title": "Reptiles.ge'yi nasıl buldunuz?"
+  },
   "hero": {
     "kicker": "Saha atlası",
     "brand": "Reptiles",
