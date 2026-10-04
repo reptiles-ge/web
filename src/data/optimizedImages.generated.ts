@@ -2286,6 +2286,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/dendrocopos-major-oscar-1.jpg": {
+    "path": "dendrocopos-major-oscar-1",
+    "width": 1085,
+    "height": 723,
+    "widths": [320, 400, 640, 800, 1085],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/dendrocopos-major-rehnberg-1.jpg": {
     "path": "dendrocopos-major-rehnberg-1",
     "width": 2400,
