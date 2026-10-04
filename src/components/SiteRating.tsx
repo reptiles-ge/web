@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { cn } from "@/lib/cn";
 
 const STORAGE_KEY = "reptiles-rating";
+const SECONDS_KEY = "reptiles-rating-seconds";
 const RATED = "rated";
 const SHOW_AFTER_SECONDS = 60;
 const DISMISS_MS = 30 * 24 * 60 * 60 * 1000;
@@ -33,10 +34,11 @@ export function SiteRating() {
 
   useEffect(() => {
     if (!canAsk()) return;
-    let seconds = 0;
+    let seconds = readSeconds();
     const timer = window.setInterval(() => {
       if (document.visibilityState !== "visible") return;
       seconds += 1;
+      storeSeconds(seconds);
       if (seconds < SHOW_AFTER_SECONDS) return;
       window.clearInterval(timer);
       if (canAsk()) setPhase("ask");
@@ -151,9 +153,26 @@ function canAsk() {
   }
 }
 
+function readSeconds() {
+  try {
+    const stored = Number(window.sessionStorage.getItem(SECONDS_KEY));
+    return Number.isFinite(stored) && stored > 0 ? stored : 0;
+  } catch {
+    return 0;
+  }
+}
+
 function store(value: string) {
   try {
     window.localStorage.setItem(STORAGE_KEY, value);
+  } catch {
+    return;
+  }
+}
+
+function storeSeconds(seconds: number) {
+  try {
+    window.sessionStorage.setItem(SECONDS_KEY, String(seconds));
   } catch {
     return;
   }
