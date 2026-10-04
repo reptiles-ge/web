@@ -114,7 +114,6 @@ export async function SpeciesProfileHero({
       />
       <div className="absolute inset-0 bg-linear-to-b from-black/65 via-black/25 to-black/90" />
       <div className="absolute inset-0 bg-[radial-gradient(100%_70%_at_50%_30%,transparent_30%,rgba(0,0,0,0.55)_100%)]" />
-      <SpeciesHeroPhotoLink gallerySrc={gallerySrc} />
       <SpeciesBreadcrumbTrail
         ariaLabel={t("breadcrumbAria")}
         breadcrumbs={breadcrumbs}
@@ -259,20 +258,6 @@ function SpeciesHeroGalleryButton({
       <span>{label}</span>
       <Maximize2 aria-hidden="true" className="size-3.5 text-white/70" />
     </a>
-  );
-}
-
-function SpeciesHeroPhotoLink({ gallerySrc }: { gallerySrc: null | string }) {
-  if (!gallerySrc) return null;
-
-  return (
-    <a
-      aria-hidden="true"
-      className="absolute inset-0 cursor-zoom-in"
-      data-species-gallery-src={gallerySrc}
-      href={`#${SPECIES_SECTION_IDS.gallery}`}
-      tabIndex={-1}
-    />
   );
 }
 
