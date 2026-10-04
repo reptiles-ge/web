@@ -184,7 +184,12 @@ const LOOKALIKES: Record<string, string[]> = {
     "darevskia-derjugini",
   ],
   "lacerta-media": ["lacerta-strigata", "lacerta-agilis"],
-  "lacerta-strigata": ["lacerta-agilis", "lacerta-media", "ophisops-elegans"],
+  "lacerta-strigata": [
+    "lacerta-media",
+    "lacerta-agilis",
+    "eremias-velox",
+    "ophisops-elegans",
+  ],
   "latrodectus-tredecimguttatus": ["steatoda-paykulliana"],
   "lissotriton-lantzi": ["ommatotriton-ophryticus", "triturus-karelinii"],
   "luscinia-megarhynchos": ["erithacus-rubecula"],
