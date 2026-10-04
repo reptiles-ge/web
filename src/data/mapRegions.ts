@@ -46,6 +46,7 @@ export const regions: Region[] = [
     speciesIds: [
       "accipiter-nisus",
       "dendrocopos-major",
+      "erithacus-rubecula",
       "garrulus-glandarius",
       "lanius-collurio",
       "vipera-kaznakovi",
@@ -98,6 +99,7 @@ export const regions: Region[] = [
     path: georgiaRegionPaths["samegrelo-zemo-svaneti"],
     speciesIds: [
       "accipiter-nisus",
+      "erithacus-rubecula",
       "garrulus-glandarius",
       "gyps-fulvus",
       "lanius-collurio",
@@ -187,6 +189,7 @@ export const regions: Region[] = [
     speciesIds: [
       "accipiter-nisus",
       "dendrocopos-major",
+      "erithacus-rubecula",
       "lanius-collurio",
       "vipera-kaznakovi",
       "vipera-transcaucasiana",
@@ -334,6 +337,7 @@ export const regions: Region[] = [
     speciesIds: [
       "accipiter-nisus",
       "dendrocopos-major",
+      "erithacus-rubecula",
       "garrulus-glandarius",
       "gyps-fulvus",
       "neophron-percnopterus",
@@ -409,6 +413,7 @@ export const regions: Region[] = [
     path: georgiaRegionPaths["shida-kartli"],
     speciesIds: [
       "accipiter-nisus",
+      "erithacus-rubecula",
       "neophron-percnopterus",
       "lanius-collurio",
       "vipera-transcaucasiana",
@@ -472,6 +477,7 @@ export const regions: Region[] = [
     speciesIds: [
       "accipiter-nisus",
       "dendrocopos-major",
+      "erithacus-rubecula",
       "garrulus-glandarius",
       "neophron-percnopterus",
       "lanius-collurio",
@@ -541,6 +547,7 @@ export const regions: Region[] = [
     speciesIds: [
       "accipiter-nisus",
       "dendrocopos-major",
+      "erithacus-rubecula",
       "garrulus-glandarius",
       "gyps-fulvus",
       "neophron-percnopterus",
@@ -604,6 +611,7 @@ export const regions: Region[] = [
     speciesIds: [
       "accipiter-nisus",
       "dendrocopos-major",
+      "erithacus-rubecula",
       "garrulus-glandarius",
       "neophron-percnopterus",
       "lanius-collurio",
@@ -684,6 +692,7 @@ export const regions: Region[] = [
     speciesIds: [
       "accipiter-nisus",
       "dendrocopos-major",
+      "erithacus-rubecula",
       "garrulus-glandarius",
       "lanius-collurio",
       "macrovipera-lebetina",
