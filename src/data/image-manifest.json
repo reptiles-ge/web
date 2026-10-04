@@ -85797,6 +85797,101 @@
       ],
       "updatedAt": "2026-08-28T21:59:43.682Z"
     },
+    "turdus-merula-alexey-1.jpg": {
+      "sourceHash": "996c3e5a522de679d1faa4680c2b47c8ad0fdd740ad5a0708eb99f25c9e01918",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "turdus-merula-alexey-1.jpg",
+      "originalSize": 525842,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/turdus-merula-alexey-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 7952
+        },
+        {
+          "key": "optimized/turdus-merula-alexey-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10336
+        },
+        {
+          "key": "optimized/turdus-merula-alexey-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 10730
+        },
+        {
+          "key": "optimized/turdus-merula-alexey-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 14030
+        },
+        {
+          "key": "optimized/turdus-merula-alexey-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 21602
+        },
+        {
+          "key": "optimized/turdus-merula-alexey-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 29730
+        },
+        {
+          "key": "optimized/turdus-merula-alexey-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 29348
+        },
+        {
+          "key": "optimized/turdus-merula-alexey-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 42048
+        },
+        {
+          "key": "optimized/turdus-merula-alexey-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 53518
+        },
+        {
+          "key": "optimized/turdus-merula-alexey-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 76184
+        },
+        {
+          "key": "optimized/turdus-merula-alexey-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 148581
+        },
+        {
+          "key": "optimized/turdus-merula-alexey-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 216972
+        }
+      ],
+      "updatedAt": "2026-10-04T18:37:08.242Z"
+    },
     "turdus-merula-mikhail-1.jpg": {
       "sourceHash": "7a686e2b8ca0175c590366ca431ec1262684d883a9b80e14a41c4980efcf7245",
       "configFingerprint": "409788ee46c653d8",
