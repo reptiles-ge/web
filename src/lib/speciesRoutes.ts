@@ -125,7 +125,6 @@ const LOOKALIKES: Record<string, string[]> = {
   "darevskia-praticola": ["darevskia-pontica", "lacerta-agilis"],
   "darevskia-raddei": ["darevskia-obscura"],
   "darevskia-valentini": ["darevskia-obscura", "darevskia-armeniaca"],
-  "dendrocopos-major": ["jynx-torquilla"],
   "dolichophis-schmidti": [
     "malpolon-insignitus",
     "platyceps-najadum",
