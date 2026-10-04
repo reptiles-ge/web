@@ -1,8 +1,9 @@
 import { describe, expect, it } from "vitest";
 
-import { getSpeciesById } from "@/data/species";
+import { getCatalogSpecies, getSpeciesById } from "@/data/species";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { speciesSameAs, speciesStructuredData } from "@/lib/createSpeciesRoute";
+import { getSpeciesHeroSources } from "@/lib/speciesContent";
 
 const CHEIRACANTHIUM_URL =
   "https://reptiles.ge/en/spiders/cheiracanthium-punctorium";
@@ -33,6 +34,7 @@ type CreativeWorkJsonLd = {
 
 type GalleryJsonLd = {
   about: TaxonJsonLd;
+  associatedMedia: unknown[];
 };
 
 type TaxonJsonLd = {
@@ -41,6 +43,25 @@ type TaxonJsonLd = {
 };
 
 describe("species structured data", () => {
+  it("lists in ImageGallery exactly the photos the gallery shows", () => {
+    for (const raw of getCatalogSpecies()) {
+      const localized = localizeSpecies(raw, "ka");
+      const shown = getSpeciesHeroSources(localized).gallery.length;
+      const gallery = speciesStructuredData({
+        breadcrumbCrumbs: [{ name: localized.commonName }],
+        galleryTitle: "gallery",
+        item: localized,
+        locale: "ka",
+        ogImage: localized.image,
+        pageUrl: "https://reptiles.ge/species",
+        raw,
+      }).find((entry) => entry["@type"] === "ImageGallery") as
+        GalleryJsonLd | undefined;
+
+      expect(gallery?.associatedMedia.length ?? 0, raw.id).toBe(shown);
+    }
+  });
+
   it("includes both Georgian cockroach names in every Taxon instance", () => {
     const raw = getSpeciesById("blatta-orientalis");
     expect(raw).toBeDefined();
