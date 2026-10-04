@@ -2965,6 +2965,27 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1280],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/erithacus-rubecula-cerera1-1.jpg": {
+    "path": "erithacus-rubecula-cerera1-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/erithacus-rubecula-donsky-1.jpg": {
+    "path": "erithacus-rubecula-donsky-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/erithacus-rubecula-ellynvirr-1.jpg": {
+    "path": "erithacus-rubecula-ellynvirr-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/erithacus-rubecula-franklin-1.jpg": {
     "path": "erithacus-rubecula-franklin-1",
     "width": 2400,
@@ -2984,6 +3005,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 2253,
     "height": 1502,
     "widths": [400, 800, 1200, 2253],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/erithacus-rubecula-tatyana-1.jpg": {
+    "path": "erithacus-rubecula-tatyana-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/eryx-jaculus-2.jpg": {

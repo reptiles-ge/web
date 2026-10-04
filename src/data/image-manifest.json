@@ -30952,6 +30952,291 @@
       ],
       "updatedAt": "2026-09-02T07:02:14.642Z"
     },
+    "erithacus-rubecula-cerera1-1.jpg": {
+      "sourceHash": "23fad680a41668bf3f0ea3599c03236f74f9049ac04434278fd10123608a6809",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "erithacus-rubecula-cerera1-1.jpg",
+      "originalSize": 412124,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/erithacus-rubecula-cerera1-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 7448
+        },
+        {
+          "key": "optimized/erithacus-rubecula-cerera1-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 9082
+        },
+        {
+          "key": "optimized/erithacus-rubecula-cerera1-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 9938
+        },
+        {
+          "key": "optimized/erithacus-rubecula-cerera1-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 12416
+        },
+        {
+          "key": "optimized/erithacus-rubecula-cerera1-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 19052
+        },
+        {
+          "key": "optimized/erithacus-rubecula-cerera1-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 23412
+        },
+        {
+          "key": "optimized/erithacus-rubecula-cerera1-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 26718
+        },
+        {
+          "key": "optimized/erithacus-rubecula-cerera1-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 32874
+        },
+        {
+          "key": "optimized/erithacus-rubecula-cerera1-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 50441
+        },
+        {
+          "key": "optimized/erithacus-rubecula-cerera1-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 61792
+        },
+        {
+          "key": "optimized/erithacus-rubecula-cerera1-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 126030
+        },
+        {
+          "key": "optimized/erithacus-rubecula-cerera1-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 147350
+        }
+      ],
+      "updatedAt": "2026-10-04T20:13:06.684Z"
+    },
+    "erithacus-rubecula-donsky-1.jpg": {
+      "sourceHash": "a3e5ed59406afc6c52559d12c2d63820fd64f81cdf58673af0770cdd792e30da",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "erithacus-rubecula-donsky-1.jpg",
+      "originalSize": 347978,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/erithacus-rubecula-donsky-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9059
+        },
+        {
+          "key": "optimized/erithacus-rubecula-donsky-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12900
+        },
+        {
+          "key": "optimized/erithacus-rubecula-donsky-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 12137
+        },
+        {
+          "key": "optimized/erithacus-rubecula-donsky-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 17094
+        },
+        {
+          "key": "optimized/erithacus-rubecula-donsky-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 23197
+        },
+        {
+          "key": "optimized/erithacus-rubecula-donsky-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 31928
+        },
+        {
+          "key": "optimized/erithacus-rubecula-donsky-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 31571
+        },
+        {
+          "key": "optimized/erithacus-rubecula-donsky-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 43146
+        },
+        {
+          "key": "optimized/erithacus-rubecula-donsky-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 53124
+        },
+        {
+          "key": "optimized/erithacus-rubecula-donsky-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 74358
+        },
+        {
+          "key": "optimized/erithacus-rubecula-donsky-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 109865
+        },
+        {
+          "key": "optimized/erithacus-rubecula-donsky-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 154868
+        }
+      ],
+      "updatedAt": "2026-10-04T20:14:27.782Z"
+    },
+    "erithacus-rubecula-ellynvirr-1.jpg": {
+      "sourceHash": "f6cb9d1d17e676771474266d60b21264235bce11d0941cfc163eed4a35e19577",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "erithacus-rubecula-ellynvirr-1.jpg",
+      "originalSize": 375708,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/erithacus-rubecula-ellynvirr-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 4210
+        },
+        {
+          "key": "optimized/erithacus-rubecula-ellynvirr-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 6304
+        },
+        {
+          "key": "optimized/erithacus-rubecula-ellynvirr-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 5570
+        },
+        {
+          "key": "optimized/erithacus-rubecula-ellynvirr-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 8272
+        },
+        {
+          "key": "optimized/erithacus-rubecula-ellynvirr-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 11280
+        },
+        {
+          "key": "optimized/erithacus-rubecula-ellynvirr-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 15602
+        },
+        {
+          "key": "optimized/erithacus-rubecula-ellynvirr-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 16048
+        },
+        {
+          "key": "optimized/erithacus-rubecula-ellynvirr-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 21522
+        },
+        {
+          "key": "optimized/erithacus-rubecula-ellynvirr-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 31266
+        },
+        {
+          "key": "optimized/erithacus-rubecula-ellynvirr-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 39394
+        },
+        {
+          "key": "optimized/erithacus-rubecula-ellynvirr-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 82959
+        },
+        {
+          "key": "optimized/erithacus-rubecula-ellynvirr-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 100216
+        }
+      ],
+      "updatedAt": "2026-10-04T20:13:38.005Z"
+    },
     "erithacus-rubecula-franklin-1.jpg": {
       "sourceHash": "b641760e408ff7c178dce6a4a7a6be7d45f494df3a704c4141c63e99282d51d3",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -31152,6 +31437,101 @@
         }
       ],
       "updatedAt": "2026-09-02T07:02:22.130Z"
+    },
+    "erithacus-rubecula-tatyana-1.jpg": {
+      "sourceHash": "bded8906cced68124159f618f95e656ebc78493028a68a850ec41a754ba3e82a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "erithacus-rubecula-tatyana-1.jpg",
+      "originalSize": 518903,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/erithacus-rubecula-tatyana-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8218
+        },
+        {
+          "key": "optimized/erithacus-rubecula-tatyana-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11546
+        },
+        {
+          "key": "optimized/erithacus-rubecula-tatyana-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 10913
+        },
+        {
+          "key": "optimized/erithacus-rubecula-tatyana-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 16162
+        },
+        {
+          "key": "optimized/erithacus-rubecula-tatyana-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 22967
+        },
+        {
+          "key": "optimized/erithacus-rubecula-tatyana-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 34134
+        },
+        {
+          "key": "optimized/erithacus-rubecula-tatyana-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 32443
+        },
+        {
+          "key": "optimized/erithacus-rubecula-tatyana-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 49244
+        },
+        {
+          "key": "optimized/erithacus-rubecula-tatyana-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 60266
+        },
+        {
+          "key": "optimized/erithacus-rubecula-tatyana-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 94124
+        },
+        {
+          "key": "optimized/erithacus-rubecula-tatyana-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 181039
+        },
+        {
+          "key": "optimized/erithacus-rubecula-tatyana-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 259100
+        }
+      ],
+      "updatedAt": "2026-10-04T20:15:09.869Z"
     },
     "eryx-jaculus-2.jpg": {
       "sourceHash": "49b66c7a5ef013c81cad647986e0cf12a3ac07cecded7e5441dc82745fd3eea6",
