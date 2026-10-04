@@ -93,7 +93,7 @@ export function SiteRating() {
   return (
     <section
       aria-label={t("title")}
-      className="fixed right-4 bottom-[max(1rem,env(safe-area-inset-bottom))] z-40 w-64 max-w-[calc(100vw-2rem)] animate-[rating-in_420ms_cubic-bezier(0.22,1,0.36,1)_both] text-foreground motion-reduce:animate-none"
+      className="fixed inset-x-4 bottom-[max(1rem,env(safe-area-inset-bottom))] z-40 animate-[rating-in_420ms_cubic-bezier(0.22,1,0.36,1)_both] text-foreground motion-reduce:animate-none sm:left-auto sm:w-64"
     >
       <div className="pointer-events-none absolute right-7 bottom-full -mb-px animate-[rating-peek_560ms_cubic-bezier(0.34,1.56,0.64,1)_420ms_both] motion-reduce:animate-none">
         <SiteRatingMascot
