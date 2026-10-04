@@ -2,7 +2,7 @@
 
 import { ChevronDown } from "lucide-react";
 
-import { Link } from "@/i18n/navigation";
+import { IntentPrefetchLink } from "@/components/IntentPrefetchLink";
 import { cn } from "@/lib/cn";
 
 export type MobileNavItem =
@@ -106,14 +106,14 @@ export function NavbarMenu({
                   {mobileGroupsOpen ? (
                     <div className="mb-1 flex flex-col px-3 pb-2">
                       {groupLinks.map((group) => (
-                        <Link
+                        <IntentPrefetchLink
                           className="rounded-xl px-3 py-2.5 text-[14px] font-medium text-foreground/80 transition-colors hover:bg-surface hover:text-foreground"
                           href={group.href}
                           key={group.href}
                           onClick={onCloseMenu}
                         >
                           {group.label}
-                        </Link>
+                        </IntentPrefetchLink>
                       ))}
                     </div>
                   ) : null}
@@ -123,7 +123,7 @@ export function NavbarMenu({
 
             return (
               <li key={item.href}>
-                <Link
+                <IntentPrefetchLink
                   className="flex items-center justify-between gap-4 rounded-2xl px-3 py-3.5 transition-colors hover:bg-surface"
                   href={item.href}
                   onClick={onCloseMenu}
@@ -134,18 +134,18 @@ export function NavbarMenu({
                   <span className="text-[11px] tracking-[0.2em] text-muted-foreground">
                     {number}
                   </span>
-                </Link>
+                </IntentPrefetchLink>
               </li>
             );
           })}
         </ul>
-        <Link
+        <IntentPrefetchLink
           className="mt-5 flex w-full items-center justify-center rounded-full bg-primary px-5 py-3.5 text-[14px] font-medium text-white transition-opacity hover:opacity-90 dark:text-ink"
           href="/species"
           onClick={onCloseMenu}
         >
           {discoverLabel}
-        </Link>
+        </IntentPrefetchLink>
       </nav>
     </div>
   );
