@@ -25,6 +25,8 @@ type CropState = {
   zoom: number;
 };
 
+type Device = { height: number; label: string; width: number };
+
 type Props = {
   commonName: string;
   covers: AdminCovers;
@@ -48,6 +50,23 @@ const ASPECTS: Record<CoverCropTarget, Aspect[]> = {
     { label: "4:5", value: 4 / 5 },
     { label: "3:4", value: 3 / 4 },
     { label: "9:16", value: 9 / 16 },
+  ],
+};
+
+const HERO_HEIGHT: Record<CoverCropTarget, number> = {
+  desktop: 0.75,
+  mobile: 0.58,
+};
+const DEVICES: Record<CoverCropTarget, Device[]> = {
+  desktop: [
+    { height: 768, label: "1024×768", width: 1024 },
+    { height: 900, label: "1440×900", width: 1440 },
+    { height: 1080, label: "1920×1080", width: 1920 },
+  ],
+  mobile: [
+    { height: 568, label: "320×568", width: 320 },
+    { height: 844, label: "390×844", width: 390 },
+    { height: 1024, label: "768×1024", width: 768 },
   ],
 };
 
@@ -282,6 +301,50 @@ export function AdminCoverCrop({
             {state.zoom.toFixed(2)}×
           </span>
         </label>
+        {rect ? (
+          <div className="mt-6 w-full">
+            <p className="text-center text-[12px] text-white/55">
+              როგორ გამოჩნდება პროფილის ყდად ამ ეკრანებზე
+            </p>
+            <ul className="mt-3 flex flex-wrap items-end justify-center gap-4">
+              {DEVICES[state.target].map((device) => {
+                const heroAspect =
+                  device.width / (device.height * HERO_HEIGHT[state.target]);
+                const visible = visibleRect(rect, state.aspect, heroAspect);
+                return (
+                  <li
+                    className="flex flex-col items-center gap-1.5"
+                    key={device.label}
+                  >
+                    <div
+                      className="relative overflow-hidden rounded-md bg-ink ring-1 ring-white/20"
+                      style={{
+                        aspectRatio: heroAspect,
+                        width: state.target === "mobile" ? "6.5rem" : "11rem",
+                      }}
+                    >
+                      <img
+                        alt=""
+                        className="pointer-events-none absolute max-w-none"
+                        src={optimizedImgSrc(src)}
+                        style={{
+                          height: `${100 / visible.height}%`,
+                          left: `${(-visible.x / visible.width) * 100}%`,
+                          top: `${(-visible.y / visible.height) * 100}%`,
+                          width: `${100 / visible.width}%`,
+                        }}
+                      />
+                      <div className="pointer-events-none absolute inset-0 bg-linear-to-b from-black/45 via-transparent to-black/75" />
+                    </div>
+                    <span className="text-[11px] text-white/70 tabular-nums">
+                      {device.label}
+                    </span>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        ) : null}
         {error ? (
           <p className="mt-4 max-w-md text-center text-[13px] text-red-300">
             {error}
@@ -384,4 +447,23 @@ function initialState(
     },
     ratio,
   );
+}
+
+function visibleRect(
+  rect: CoverCropRect,
+  cropAspect: number,
+  boxAspect: number,
+): CoverCropRect {
+  const width =
+    boxAspect < cropAspect ? (rect.width * boxAspect) / cropAspect : rect.width;
+  const height =
+    boxAspect > cropAspect
+      ? (rect.height * cropAspect) / boxAspect
+      : rect.height;
+  return {
+    height,
+    width,
+    x: rect.x + (rect.width - width) / 2,
+    y: rect.y + (rect.height - height) / 2,
+  };
 }
