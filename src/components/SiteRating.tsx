@@ -45,6 +45,7 @@ export function SiteRating() {
   const [phase, setPhase] = useState<Phase>("hidden");
   const [hovered, setHovered] = useState<Stars>(0);
   const [selected, setSelected] = useState<Stars>(0);
+  const [ducks, setDucks] = useState(0);
 
   useEffect(() => {
     if (!canAsk()) return;
@@ -55,7 +56,9 @@ export function SiteRating() {
       storeSeconds(seconds);
       if (seconds < SHOW_AFTER_SECONDS) return;
       window.clearInterval(timer);
-      if (canAsk()) setPhase("ask");
+      if (!canAsk()) return;
+      setPhase("ask");
+      trackEvent("site_rating_shown");
     }, 1000);
     return () => window.clearInterval(timer);
   }, []);
@@ -90,6 +93,7 @@ export function SiteRating() {
   function dismiss() {
     setPhase("hidden");
     store(String(Date.now()));
+    trackEvent("site_rating_dismissed");
   }
 
   return (
@@ -97,12 +101,24 @@ export function SiteRating() {
       aria-label={t("title")}
       className="fixed inset-x-4 bottom-[max(1rem,env(safe-area-inset-bottom))] z-40 animate-[rating-in_420ms_cubic-bezier(0.22,1,0.36,1)_both] text-foreground motion-reduce:animate-none sm:left-auto sm:w-64"
     >
-      <div className="pointer-events-none absolute right-7 bottom-full -mb-px animate-[rating-peek_560ms_cubic-bezier(0.34,1.56,0.64,1)_420ms_both] motion-reduce:animate-none">
+      <button
+        aria-hidden="true"
+        className={cn(
+          "absolute right-7 bottom-full -mb-px cursor-pointer motion-reduce:animate-none",
+          ducks
+            ? "animate-[rating-duck_1200ms_cubic-bezier(0.45,0,0.3,1)_both]"
+            : "animate-[rating-peek_560ms_cubic-bezier(0.34,1.56,0.64,1)_420ms_both]",
+        )}
+        key={ducks}
+        onClick={() => setDucks((count) => count + 1)}
+        tabIndex={-1}
+        type="button"
+      >
         <SiteRatingMascot
           happy={phase === "thanks" && selected >= 4}
           mood={active}
         />
-      </div>
+      </button>
       <div className="relative rounded-card border border-border bg-card p-4 shadow-[0_18px_44px_-26px_rgba(14,20,17,0.5)]">
         <svg
           aria-hidden="true"
