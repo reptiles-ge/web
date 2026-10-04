@@ -66,7 +66,7 @@ describe("galleryImageObject", () => {
 });
 
 describe("galleryImageObjects", () => {
-  it("keeps only photos credited to a published author with a page", () => {
+  it("lists every photo and credits the ones that have a photographer", () => {
     const objects = galleryImageObjects(
       [
         {
@@ -92,8 +92,21 @@ describe("galleryImageObjects", () => {
     );
 
     expect(objects.map((item) => item.contentUrl)).toEqual([
+      "https://cdn.reptiles.ge/commons.jpg",
       "https://cdn.reptiles.ge/sandro.jpg",
+      "https://cdn.reptiles.ge/uncredited.jpg",
       "https://cdn.reptiles.ge/zauri.jpg",
     ]);
+    expect(objects.map((item) => item.creditText)).toEqual([
+      "Charles J. Sharp",
+      "სანდრო ხახვა",
+      undefined,
+      "ზაური ხაჩიძე",
+    ]);
+    expect(objects[0].creator).toEqual({
+      "@type": "Person",
+      name: "Charles J. Sharp",
+    });
+    expect(objects[1].creator).toHaveProperty("url");
   });
 });
