@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import {
+  fillSpeciesPrompt,
   runSpeciesWorkflowSteps,
   selectSpeciesAnalysisFiles,
   selectSpeciesCreationFiles,
@@ -54,6 +55,18 @@ describe("species page creation", () => {
       "src/data/speciesPublish.ts",
       "src/data/speciesAtlasMeta.ts",
     ]);
+  });
+});
+
+describe("species prompt header", () => {
+  it("always sets editing mode and fills the species path", () => {
+    const prompt = fillSpeciesPrompt(
+      "სამიზნე გვერდი ან სახეობა: [placeholder]\nრეჟიმი: [რედაქტირება / მხოლოდ ანგარიში].\n",
+      "picus-viridis",
+    );
+    expect(prompt).toBe(
+      "სამიზნე გვერდი / სახეობა: src/content/species/picus-viridis/ka.mdx (species ID: picus-viridis)\nრეჟიმი: რედაქტირება.\n",
+    );
   });
 });
 

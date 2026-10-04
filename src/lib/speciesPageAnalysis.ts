@@ -211,6 +211,15 @@ export async function analyzeSpeciesPage(
   }
 }
 
+export function fillSpeciesPrompt(template: string, id: string) {
+  return template
+    .replace(
+      /^სამიზნე გვერდი (?:\/|ან) სახეობა:.*$/m,
+      `სამიზნე გვერდი / სახეობა: src/content/species/${id}/ka.mdx (species ID: ${id})`,
+    )
+    .replace(/^რეჟიმი:.*$/m, "რეჟიმი: რედაქტირება.");
+}
+
 export async function runSpeciesWorkflow(
   id: string,
   modes: SpeciesWorkflowMode[],
@@ -288,10 +297,7 @@ export async function runSpeciesWorkflow(
             path.join(root, "src/prompts", modeConfig[mode].prompt),
             "utf8",
           );
-          const prompt = template.replace(
-            /^სამიზნე გვერდი \/ სახეობა:.*$/m,
-            `სამიზნე გვერდი / სახეობა: src/content/species/${id}/ka.mdx (species ID: ${id})`,
-          );
+          const prompt = fillSpeciesPrompt(template, id);
           const output = path.join(directory, `${mode}-report.md`);
           const shared = new Set(sharedFiles[mode]);
           const stepFiles = allowedFiles.filter(
@@ -653,10 +659,7 @@ async function runAnalysis(
       path.join(root, "src/prompts", modeConfig[mode].prompt),
       "utf8",
     );
-    const prompt = promptTemplate.replace(
-      /^სამიზნე გვერდი \/ სახეობა:.*$/m,
-      `სამიზნე გვერდი / სახეობა: src/content/species/${id}/ka.mdx (species ID: ${id})`,
-    );
+    const prompt = fillSpeciesPrompt(promptTemplate, id);
     const output = path.join(directory, "report.md");
     await runCodex(
       worktree,
