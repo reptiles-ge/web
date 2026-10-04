@@ -16,15 +16,16 @@ This file is the project map for agents. Humans: see `README.md`.
 
 ## Stack
 
-| Piece        | Detail                                                                            |
-| ------------ | --------------------------------------------------------------------------------- |
-| App          | Next.js 16 App Router, React 19, TypeScript strict                                |
-| i18n         | `next-intl` v4 — `src/i18n/`, `messages/ka.json`, `en.json`, `ru.json`, `tr.json` |
-| Style        | Tailwind 4, no CSS-in-JS                                                          |
-| Alias        | `@/*` → `src/*`                                                                   |
-| Request edge | `src/proxy.ts` (Next 16 proxy, **not** `middleware.ts`)                           |
-| Images       | `https://cdn.reptiles.ge` (`images.unoptimized: true`)                            |
-| Site         | `src/lib/site.ts` — `https://reptiles.ge`, default locale `ka`                    |
+| Piece        | Detail                                                                              |
+| ------------ | ----------------------------------------------------------------------------------- |
+| App          | Next.js 16 App Router, React 19, TypeScript strict                                  |
+| i18n         | `next-intl` v4 — `src/i18n/`, `messages/ka.json`, `en.json`, `ru.json`, `tr.json`   |
+| Style        | Tailwind 4, no CSS-in-JS                                                            |
+| Alias        | `@/*` → `src/*`                                                                     |
+| Request edge | `src/proxy.ts` (Next 16 proxy, **not** `middleware.ts`)                             |
+| Worker entry | `src/worker.ts` (vinext fetch handler; canonical RSC requests so navigation caches) |
+| Images       | `https://cdn.reptiles.ge` (`images.unoptimized: true`)                              |
+| Site         | `src/lib/site.ts` — `https://reptiles.ge`, default locale `ka`                      |
 
 Do not add code comments. Do not invent UI copy in one locale only.
 
