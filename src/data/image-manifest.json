@@ -85892,6 +85892,101 @@
       ],
       "updatedAt": "2026-10-04T18:33:27.200Z"
     },
+    "turdus-merula-tatyana-1.jpg": {
+      "sourceHash": "a6f57203ef746f5eaf376f822427bae115b3c8250a9da980468fa69975bfd71b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "turdus-merula-tatyana-1.jpg",
+      "originalSize": 259303,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/turdus-merula-tatyana-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 7837
+        },
+        {
+          "key": "optimized/turdus-merula-tatyana-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11062
+        },
+        {
+          "key": "optimized/turdus-merula-tatyana-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 10474
+        },
+        {
+          "key": "optimized/turdus-merula-tatyana-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 14576
+        },
+        {
+          "key": "optimized/turdus-merula-tatyana-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 18725
+        },
+        {
+          "key": "optimized/turdus-merula-tatyana-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 26070
+        },
+        {
+          "key": "optimized/turdus-merula-tatyana-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 24488
+        },
+        {
+          "key": "optimized/turdus-merula-tatyana-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 34062
+        },
+        {
+          "key": "optimized/turdus-merula-tatyana-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 37756
+        },
+        {
+          "key": "optimized/turdus-merula-tatyana-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 53744
+        },
+        {
+          "key": "optimized/turdus-merula-tatyana-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 70457
+        },
+        {
+          "key": "optimized/turdus-merula-tatyana-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 103588
+        }
+      ],
+      "updatedAt": "2026-10-04T18:36:23.186Z"
+    },
     "turdus-merula-velur-1.jpg": {
       "sourceHash": "7bd366da1b730af2be1a4a3de20d6a24eb62e0282e1c91537b8859058b1bbb0f",
       "configFingerprint": "a895f8e025dcc7fa",
