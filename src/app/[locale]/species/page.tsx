@@ -10,8 +10,10 @@ import { JsonLd } from "@/components/JsonLd";
 import { AtlasAbout } from "@/components/species-atlas/AtlasAbout";
 import { AtlasHero } from "@/components/species-atlas/AtlasHero";
 import { AtlasSeo } from "@/components/species-atlas/AtlasSeo";
-import { SpeciesAtlas } from "@/components/species-atlas/SpeciesAtlas";
-import { hasActiveAtlasFilters, parseAtlasFilters } from "@/data/atlasFilters";
+import {
+  SpeciesAtlas,
+  SpeciesAtlasFallback,
+} from "@/components/species-atlas/SpeciesAtlas";
 import { getRegionTooltipPreviews } from "@/data/regions";
 import { getSpeciesById } from "@/data/species";
 import { getAtlasStats } from "@/data/speciesAtlas";
@@ -34,13 +36,9 @@ import { pageDateFields } from "@/lib/structuredDataDates";
 
 type Props = {
   params: Promise<{ locale: string }>;
-  searchParams: Promise<Record<string, string | string[] | undefined>>;
 };
 
-export async function generateMetadata({
-  params,
-  searchParams,
-}: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: localeParam } = await params;
   if (!hasLocale(routing.locales, localeParam)) return {};
 
@@ -57,7 +55,6 @@ export async function generateMetadata({
   const url = absoluteUrl(path);
   const hero = getSpeciesById("vipera-kaznakovi");
   const ogImage = speciesOgImageUrl("vipera-kaznakovi", hero?.image);
-  const filtered = hasActiveAtlasFilters(parseAtlasFilters(await searchParams));
 
   return {
     alternates: localeAlternates(locale, pagePath),
@@ -70,10 +67,6 @@ export async function generateMetadata({
       title,
       type: "website",
       url,
-    },
-    robots: {
-      follow: true,
-      index: !filtered,
     },
     title,
     twitter: {
@@ -160,7 +153,15 @@ export default async function SpeciesIndexPage({ params }: Props) {
         namespaces={ATLAS_CLIENT_MESSAGE_NAMESPACES}
       >
         <AtlasHero locale={locale} stats={stats} />
-        <Suspense>
+        <Suspense
+          fallback={
+            <SpeciesAtlasFallback
+              catalog={catalog}
+              recent={recent}
+              tooltipSpeciesByRegion={tooltipSpeciesByRegion}
+            />
+          }
+        >
           <SpeciesAtlas
             catalog={catalog}
             recent={recent}
