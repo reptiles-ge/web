@@ -2,10 +2,18 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import { POST } from "@/app/api/rating/route";
 
-const request = (body: unknown, origin = "http://localhost") =>
+const request = (
+  body: unknown,
+  origin = "http://localhost",
+  visitor = "203.0.113.1",
+) =>
   new Request("http://localhost/api/rating", {
     body: JSON.stringify(body),
-    headers: { "Content-Type": "application/json", origin },
+    headers: {
+      "cf-connecting-ip": visitor,
+      "Content-Type": "application/json",
+      origin,
+    },
     method: "POST",
   });
 
@@ -38,6 +46,23 @@ describe("POST /api/rating", () => {
       chat_id: "test-chat",
       text: "★★★★☆ 4/5\nhttps://reptiles.ge/gvelebi/giurza\nka",
     });
+  });
+
+  it("limits repeated ratings from one visitor", async () => {
+    const send = () =>
+      POST(
+        request(
+          { locale: "ka", path: "/", rating: 5 },
+          "http://localhost",
+          "203.0.113.2",
+        ),
+      );
+
+    expect((await send()).status).toBe(204);
+    expect((await send()).status).toBe(204);
+    expect((await send()).status).toBe(204);
+    expect((await send()).status).toBe(429);
+    expect(fetch).toHaveBeenCalledTimes(3);
   });
 
   it("rejects a cross-origin request", async () => {

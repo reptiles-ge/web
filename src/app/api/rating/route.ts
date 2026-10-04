@@ -2,10 +2,14 @@ import { hasLocale } from "next-intl";
 
 import { routing } from "@/i18n/routing";
 import { notifyAdminTelegram } from "@/lib/adminTelegram";
+import { createRateLimiter } from "@/lib/rateLimit";
 import { absoluteUrl } from "@/lib/site";
 
 const noindex = { "X-Robots-Tag": "noindex, nofollow" };
 const MAX_PATH_LENGTH = 300;
+const WINDOW_MS = 60_000;
+const allowVisitor = createRateLimiter({ limit: 3, windowMs: WINDOW_MS });
+const allowAll = createRateLimiter({ limit: 30, windowMs: WINDOW_MS });
 
 type RatingBody = {
   locale?: unknown;
@@ -41,6 +45,17 @@ export async function POST(request: Request) {
     !hasLocale(routing.locales, locale)
   ) {
     return invalid();
+  }
+
+  const visitor =
+    request.headers.get("cf-connecting-ip") ??
+    request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
+    "unknown";
+  if (!allowVisitor(visitor) || !allowAll("all")) {
+    return Response.json(
+      { error: "Too many ratings" },
+      { headers: noindex, status: 429 },
+    );
   }
 
   await notifyAdminTelegram(

@@ -5,6 +5,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { type CSSProperties, useEffect, useState } from "react";
 
 import { SiteRatingMascot } from "@/components/SiteRatingMascot";
+import { trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
 
 const STORAGE_KEY = "reptiles-rating";
@@ -73,6 +74,7 @@ export function SiteRating() {
     setSelected(rating);
     setPhase("thanks");
     store(RATED);
+    trackEvent("site_rating", { rating });
     void fetch("/api/rating", {
       body: JSON.stringify({
         locale,
