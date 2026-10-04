@@ -27,6 +27,8 @@ const BASE_BRANCH = "staging";
 const MDX_FILES = ["ka.mdx", "en.mdx", "ru.mdx", "tr.mdx"] as const;
 
 export async function openCoverPullRequest(input: {
+  catalog?: OptimizeCatalogUpdate[];
+  coverSrc?: string;
   id: string;
   src: string;
   target: CoverTarget;
@@ -34,6 +36,9 @@ export async function openCoverPullRequest(input: {
   if (!isSpeciesContentId(input.id)) {
     throw new Error("Invalid species id");
   }
+
+  const catalog = input.catalog ?? [];
+  const cropped = Boolean(input.coverSrc && input.coverSrc !== input.src);
 
   const label =
     input.target === "both"
@@ -43,21 +48,36 @@ export async function openCoverPullRequest(input: {
         : "mobile cover";
 
   return withPhotoPullRequest({
-    apply: (worktree) => {
-      setCoverInSpecies(input.id, input.target, input.src, worktree);
+    apply: async (worktree) => {
+      setCoverInSpecies(
+        input.id,
+        input.target,
+        input.src,
+        worktree,
+        input.coverSrc ?? input.src,
+      );
+      await applyOptimizeCatalog(worktree, catalog);
     },
-    commitBody: "Cover photo updated from the local admin.",
+    commitBody: cropped
+      ? "Cropped cover from the local admin. The crop and its AVIF/WebP derivatives are already on the CDN; the gallery original is unchanged."
+      : "Cover photo updated from the local admin.",
     editExistingBody: false,
+    extraFiles: optimizeCatalogFiles(catalog),
     id: input.id,
     prBody: [
       "## Summary",
-      `- Set ${label} for \`${input.id}\` from local admin`,
+      `- Set ${cropped ? "cropped " : ""}${label} for \`${input.id}\` from local admin`,
       "- Updates KA `image` / `mobileImage` (and overlay credits when those keys exist)",
+      ...(cropped
+        ? [
+            "- The crop is a separate CDN file used only as the cover; the gallery keeps the original",
+          ]
+        : []),
       "",
       "## Test plan",
       "- [ ] Species profile hero shows the new cover on desktop and/or mobile",
     ].join("\n"),
-    title: `Set ${label} for ${input.id}`,
+    title: `Set ${cropped ? "cropped " : ""}${label} for ${input.id}`,
   });
 }
 

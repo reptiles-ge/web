@@ -10,6 +10,7 @@ import {
   removeGalleryItemFromSpecies,
   reorderGalleryInMdx,
   setCoverInMdx,
+  setCoverInSpecies,
   updateGalleryPhotoCoordinatesInMdx,
 } from "@/lib/adminGalleryMdx";
 
@@ -329,7 +330,6 @@ text
     expect(data.imageCredit.photographer).toBe("ანა");
     expect(data.mobileImage).toBeUndefined();
   });
-
 });
 
 describe("removeGalleryItemFromMdx", () => {
@@ -501,6 +501,79 @@ commonName: ტესტი
           root,
         ),
       ).toThrow(/last gallery photo/);
+    } finally {
+      fs.rmSync(root, { force: true, recursive: true });
+    }
+  });
+});
+
+describe("cropped covers", () => {
+  const original = "https://cdn.reptiles.ge/a.jpg";
+  const crop = "https://cdn.reptiles.ge/a-crop-250-0-600-1000.jpg";
+
+  it("sets a crop as the mobile cover and keeps the gallery original", () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), "reptiles-admin-crop-"));
+    try {
+      const dir = path.join(root, "src/content/species/test-species");
+      fs.mkdirSync(dir, { recursive: true });
+      const kaPath = path.join(dir, "ka.mdx");
+      fs.writeFileSync(
+        kaPath,
+        `---
+id: test-species
+image: "${original}"
+imageCredit:
+  photographer: ანა
+gallery:
+  - src: "${original}"
+    credit:
+      photographer: ანა
+  - src: "https://cdn.reptiles.ge/b.jpg"
+    credit:
+      photographer: ბექა
+commonName: ტესტი
+---
+
+ტექსტი
+`,
+        "utf8",
+      );
+
+      setCoverInSpecies("test-species", "mobile", original, root, crop);
+      const cropped = matter(fs.readFileSync(kaPath, "utf8")).data as {
+        gallery: Array<{ src: string }>;
+        image: string;
+        mobileImage: string;
+        mobileImageCredit: { photographer: string };
+      };
+      expect(cropped.image).toBe(original);
+      expect(cropped.mobileImage).toBe(crop);
+      expect(cropped.mobileImageCredit.photographer).toBe("ანა");
+      expect(cropped.gallery.map((item) => item.src)).toEqual([
+        original,
+        "https://cdn.reptiles.ge/b.jpg",
+      ]);
+
+      const withCoords = matter(
+        updateGalleryPhotoCoordinatesInMdx(
+          fs.readFileSync(kaPath, "utf8"),
+          original,
+          { lat: 42.1, lng: 44.2 },
+        ),
+      ).data as {
+        mobileImage: string;
+        mobileImageCredit: { lat?: number };
+      };
+      expect(withCoords.mobileImage).toBe(crop);
+      expect(withCoords.mobileImageCredit.lat).toBe(42.1);
+
+      const removed = removeGalleryItemFromSpecies(
+        "test-species",
+        original,
+        root,
+      );
+      expect(removed.image).toBe("https://cdn.reptiles.ge/b.jpg");
+      expect(removed.mobileImage).toBe("https://cdn.reptiles.ge/b.jpg");
     } finally {
       fs.rmSync(root, { force: true, recursive: true });
     }

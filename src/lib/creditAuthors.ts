@@ -13,6 +13,7 @@ import { getCatalogSpecies } from "@/data/species";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import { getPathname } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
+import { isCoverCrop } from "@/lib/coverCrop";
 import { ANIMAL_GROUP_TO_HUB, type GroupHubId } from "@/lib/groupHubs";
 import { absoluteUrl, localeAlternates } from "@/lib/site";
 import { isPlaceholderMedia } from "@/lib/speciesContent";
@@ -205,7 +206,7 @@ function addPhoto(
   src: string | undefined,
   credit: PhotoCredit | undefined,
 ) {
-  if (!src || bySrc.has(src)) return;
+  if (!src || bySrc.has(src) || isCoverCrop(src)) return;
   const name = credit?.photographer?.trim();
   if (!name || !aliases.has(name)) return;
   bySrc.set(src, { credit, speciesId, src, updatedAt });

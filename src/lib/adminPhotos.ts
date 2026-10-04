@@ -11,13 +11,23 @@ import path from "node:path";
 
 import type { GalleryImage, PhotoCredit } from "@/data/species";
 
+import { optimizedImgSrc } from "@/data/optimizedImages";
 import {
   creditsEqual,
   type GalleryOverlayLocale,
   galleryStorageKeys,
   readAdminSpeciesGallery,
 } from "@/lib/adminGalleryMdx";
-import { openPhotoPullRequest } from "@/lib/adminPhotoPullRequest";
+import {
+  openCoverPullRequest,
+  openPhotoPullRequest,
+} from "@/lib/adminPhotoPullRequest";
+import {
+  type CoverCropRect,
+  coverCropSuffix,
+  isFullCoverCrop,
+  normalizeCoverCropRect,
+} from "@/lib/coverCrop";
 import {
   type OptimizeCatalogUpdate,
   optimizeUploadedOriginal,
@@ -60,8 +70,20 @@ export type StandalonePhoto = {
 type SharpFn = (input: Buffer) => SharpInstance;
 
 type SharpInstance = {
+  extract: (region: {
+    height: number;
+    left: number;
+    top: number;
+    width: number;
+  }) => SharpInstance;
   jpeg: (options: { mozjpeg: boolean; quality: number }) => SharpInstance;
-  metadata: () => Promise<{ format?: string; hasAlpha?: boolean }>;
+  metadata: () => Promise<{
+    format?: string;
+    hasAlpha?: boolean;
+    height?: number;
+    orientation?: number;
+    width?: number;
+  }>;
   png: () => SharpInstance;
   rotate: () => SharpInstance;
   toBuffer: () => Promise<Buffer>;
@@ -175,6 +197,59 @@ export function creditFromInput(
     ...(georgiaField ? { photoConfidence: "georgia-field" } : {}),
   };
   return Object.keys(credit).length > 0 ? credit : undefined;
+}
+
+export async function cropSpeciesCover(input: {
+  crop: CoverCropRect;
+  id: string;
+  src: string;
+  target: "desktop" | "mobile";
+}): Promise<{ coverSrc: string; pullRequestUrl: string }> {
+  const { gallery } = readAdminSpeciesGallery(input.id);
+  if (!gallery.some((item) => item.src === input.src)) {
+    throw new Error(`Unknown gallery src: ${input.src}`);
+  }
+  const rect = normalizeCoverCropRect(input.crop);
+  if (!rect) throw new Error("ქროფი ძალიან პატარაა");
+
+  if (isFullCoverCrop(rect)) {
+    const pullRequestUrl = await openCoverPullRequest({
+      id: input.id,
+      src: input.src,
+      target: input.target,
+    });
+    return { coverSrc: input.src, pullRequestUrl };
+  }
+
+  const [originalKey] = galleryStorageKeys([{ src: input.src }]);
+  if (!originalKey) {
+    throw new Error("მხოლოდ CDN-ზე არსებული ფოტო იჭრება");
+  }
+  const prepared = await prepareOriginal(
+    await fetchCropSource(input.src),
+    rect,
+  );
+
+  const storage = createStorage();
+  const key = `${originalKey.replace(/\.[a-z0-9]+$/i, "")}${coverCropSuffix(rect)}.${prepared.ext}`;
+  await storage.put(key, prepared.buffer, {
+    contentType: prepared.contentType,
+  });
+  const coverSrc = storage.urlFor(key);
+  const optimized = await optimizeUploadedOriginal({
+    key,
+    source: prepared.buffer,
+    src: coverSrc,
+    storage,
+  });
+  const pullRequestUrl = await openCoverPullRequest({
+    catalog: optimized ? [optimized] : [],
+    coverSrc,
+    id: input.id,
+    src: input.src,
+    target: input.target,
+  });
+  return { coverSrc, pullRequestUrl };
 }
 
 export async function uploadStandalonePhotos(
@@ -309,6 +384,43 @@ function createStorage() {
   });
 }
 
+function cropRegion(
+  meta: { height?: number; orientation?: number; width?: number },
+  crop: CoverCropRect,
+) {
+  const sideways = (meta.orientation ?? 1) >= 5;
+  const fullWidth = (sideways ? meta.height : meta.width) ?? 0;
+  const fullHeight = (sideways ? meta.width : meta.height) ?? 0;
+  if (!fullWidth || !fullHeight) {
+    throw new Error("ფოტოს ზომა ვერ წაიკითხა");
+  }
+  const left = Math.min(fullWidth - 1, Math.round(crop.x * fullWidth));
+  const top = Math.min(fullHeight - 1, Math.round(crop.y * fullHeight));
+  return {
+    height: Math.max(
+      1,
+      Math.min(fullHeight - top, Math.round(crop.height * fullHeight)),
+    ),
+    left,
+    top,
+    width: Math.max(
+      1,
+      Math.min(fullWidth - left, Math.round(crop.width * fullWidth)),
+    ),
+  };
+}
+
+async function fetchCropSource(src: string) {
+  const widest = optimizedImgSrc(src, Number.POSITIVE_INFINITY);
+  let status = 0;
+  for (const url of widest === src ? [src] : [src, widest]) {
+    const response = await fetch(url, { cache: "no-store" });
+    if (response.ok) return Buffer.from(await response.arrayBuffer());
+    status = response.status;
+  }
+  throw new Error(`ორიგინალი ვერ ჩამოიტვირთა (${status})`);
+}
+
 function loadSharp(): SharpFn {
   const require = createRequire(
     path.join(
@@ -361,7 +473,10 @@ function photographerSlug(photographer: string | undefined) {
   return slug.slice(0, 24);
 }
 
-async function prepareOriginal(bytes: Buffer): Promise<{
+async function prepareOriginal(
+  bytes: Buffer,
+  crop?: CoverCropRect,
+): Promise<{
   buffer: Buffer;
   contentType: string;
   ext: string;
@@ -371,8 +486,10 @@ async function prepareOriginal(bytes: Buffer): Promise<{
     throw new Error("File is larger than 12 MB");
   }
   const sharp = loadSharp();
-  const image = sharp(bytes).rotate();
-  const meta = await image.metadata();
+  const meta = await sharp(bytes).metadata();
+  const image = crop
+    ? sharp(bytes).rotate().extract(cropRegion(meta, crop))
+    : sharp(bytes).rotate();
   const decoded = meta.format;
   if (
     decoded !== "jpeg" &&

@@ -23138,6 +23138,372 @@
       ],
       "updatedAt": "2026-08-28T21:36:29.279Z"
     },
+    "dendrocopos-major-donsky-1.jpg": {
+      "sourceHash": "362fb85d191ef042a6c78c84189d78739c9ddff7483b468868019cf2dcf07e26",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "dendrocopos-major-donsky-1.jpg",
+      "originalSize": 522775,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/dendrocopos-major-donsky-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10609
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 15026
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 14498
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 21178
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 30139
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 45384
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 43036
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 65080
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 83328
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 126272
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 195406
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 297066
+        }
+      ],
+      "updatedAt": "2026-10-04T18:15:41.764Z"
+    },
+    "dendrocopos-major-donsky-2.jpg": {
+      "sourceHash": "737400b81891464482a68b759389bcb6921413124795a56d1a7c26f190eccfa3",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "dendrocopos-major-donsky-2.jpg",
+      "originalSize": 391390,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/dendrocopos-major-donsky-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9323
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12666
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 12488
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 16738
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 22763
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 31086
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 30350
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 42520
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 51796
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 74512
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 110556
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 160798
+        }
+      ],
+      "updatedAt": "2026-10-04T18:17:09.895Z"
+    },
+    "dendrocopos-major-donsky-3.jpg": {
+      "sourceHash": "c22fd0093b937a012acbe5f035912e282105a19ae6cc2e90e9dd1e9f23959631",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "dendrocopos-major-donsky-3.jpg",
+      "originalSize": 659144,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/dendrocopos-major-donsky-3-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14265
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-3-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 22272
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 19975
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 31556
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-3-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 43565
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-3-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 67710
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 61904
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 97310
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-3-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 114566
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-3-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 179980
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-3-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 247608
+        },
+        {
+          "key": "optimized/dendrocopos-major-donsky-3-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 378290
+        }
+      ],
+      "updatedAt": "2026-10-04T18:18:04.253Z"
+    },
+    "dendrocopos-major-oscar-1.jpg": {
+      "sourceHash": "a3fb4699ad189b22a7d588f88ff98572cb36edaf52c4f22bc4051b3c22d55949",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "dendrocopos-major-oscar-1.jpg",
+      "originalSize": 110649,
+      "width": 1085,
+      "height": 723,
+      "derivatives": [
+        {
+          "key": "optimized/dendrocopos-major-oscar-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6225
+        },
+        {
+          "key": "optimized/dendrocopos-major-oscar-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8074
+        },
+        {
+          "key": "optimized/dendrocopos-major-oscar-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 9083
+        },
+        {
+          "key": "optimized/dendrocopos-major-oscar-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 11542
+        },
+        {
+          "key": "optimized/dendrocopos-major-oscar-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 17573
+        },
+        {
+          "key": "optimized/dendrocopos-major-oscar-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 22380
+        },
+        {
+          "key": "optimized/dendrocopos-major-oscar-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 24352
+        },
+        {
+          "key": "optimized/dendrocopos-major-oscar-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 29646
+        },
+        {
+          "key": "optimized/dendrocopos-major-oscar-1-1085.avif",
+          "format": "avif",
+          "width": 1085,
+          "height": 723,
+          "byteSize": 37621
+        },
+        {
+          "key": "optimized/dendrocopos-major-oscar-1-1085.webp",
+          "format": "webp",
+          "width": 1085,
+          "height": 723,
+          "byteSize": 44368
+        }
+      ],
+      "updatedAt": "2026-10-04T18:18:37.787Z"
+    },
     "dendrocopos-major-rehnberg-1.jpg": {
       "sourceHash": "b6ceb5e26572cdb4f17269de0a8b4218601cef013bc3cd41f9bc9ce8a22ffa54",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -30586,6 +30952,291 @@
       ],
       "updatedAt": "2026-09-02T07:02:14.642Z"
     },
+    "erithacus-rubecula-cerera1-1.jpg": {
+      "sourceHash": "23fad680a41668bf3f0ea3599c03236f74f9049ac04434278fd10123608a6809",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "erithacus-rubecula-cerera1-1.jpg",
+      "originalSize": 412124,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/erithacus-rubecula-cerera1-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 7448
+        },
+        {
+          "key": "optimized/erithacus-rubecula-cerera1-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 9082
+        },
+        {
+          "key": "optimized/erithacus-rubecula-cerera1-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 9938
+        },
+        {
+          "key": "optimized/erithacus-rubecula-cerera1-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 12416
+        },
+        {
+          "key": "optimized/erithacus-rubecula-cerera1-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 19052
+        },
+        {
+          "key": "optimized/erithacus-rubecula-cerera1-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 23412
+        },
+        {
+          "key": "optimized/erithacus-rubecula-cerera1-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 26718
+        },
+        {
+          "key": "optimized/erithacus-rubecula-cerera1-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 32874
+        },
+        {
+          "key": "optimized/erithacus-rubecula-cerera1-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 50441
+        },
+        {
+          "key": "optimized/erithacus-rubecula-cerera1-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 61792
+        },
+        {
+          "key": "optimized/erithacus-rubecula-cerera1-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 126030
+        },
+        {
+          "key": "optimized/erithacus-rubecula-cerera1-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 147350
+        }
+      ],
+      "updatedAt": "2026-10-04T20:13:06.684Z"
+    },
+    "erithacus-rubecula-donsky-1.jpg": {
+      "sourceHash": "a3e5ed59406afc6c52559d12c2d63820fd64f81cdf58673af0770cdd792e30da",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "erithacus-rubecula-donsky-1.jpg",
+      "originalSize": 347978,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/erithacus-rubecula-donsky-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9059
+        },
+        {
+          "key": "optimized/erithacus-rubecula-donsky-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12900
+        },
+        {
+          "key": "optimized/erithacus-rubecula-donsky-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 12137
+        },
+        {
+          "key": "optimized/erithacus-rubecula-donsky-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 17094
+        },
+        {
+          "key": "optimized/erithacus-rubecula-donsky-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 23197
+        },
+        {
+          "key": "optimized/erithacus-rubecula-donsky-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 31928
+        },
+        {
+          "key": "optimized/erithacus-rubecula-donsky-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 31571
+        },
+        {
+          "key": "optimized/erithacus-rubecula-donsky-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 43146
+        },
+        {
+          "key": "optimized/erithacus-rubecula-donsky-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 53124
+        },
+        {
+          "key": "optimized/erithacus-rubecula-donsky-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 74358
+        },
+        {
+          "key": "optimized/erithacus-rubecula-donsky-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 109865
+        },
+        {
+          "key": "optimized/erithacus-rubecula-donsky-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 154868
+        }
+      ],
+      "updatedAt": "2026-10-04T20:14:27.782Z"
+    },
+    "erithacus-rubecula-ellynvirr-1.jpg": {
+      "sourceHash": "f6cb9d1d17e676771474266d60b21264235bce11d0941cfc163eed4a35e19577",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "erithacus-rubecula-ellynvirr-1.jpg",
+      "originalSize": 375708,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/erithacus-rubecula-ellynvirr-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 4210
+        },
+        {
+          "key": "optimized/erithacus-rubecula-ellynvirr-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 6304
+        },
+        {
+          "key": "optimized/erithacus-rubecula-ellynvirr-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 5570
+        },
+        {
+          "key": "optimized/erithacus-rubecula-ellynvirr-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 8272
+        },
+        {
+          "key": "optimized/erithacus-rubecula-ellynvirr-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 11280
+        },
+        {
+          "key": "optimized/erithacus-rubecula-ellynvirr-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 15602
+        },
+        {
+          "key": "optimized/erithacus-rubecula-ellynvirr-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 16048
+        },
+        {
+          "key": "optimized/erithacus-rubecula-ellynvirr-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 21522
+        },
+        {
+          "key": "optimized/erithacus-rubecula-ellynvirr-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 31266
+        },
+        {
+          "key": "optimized/erithacus-rubecula-ellynvirr-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 39394
+        },
+        {
+          "key": "optimized/erithacus-rubecula-ellynvirr-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 82959
+        },
+        {
+          "key": "optimized/erithacus-rubecula-ellynvirr-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 100216
+        }
+      ],
+      "updatedAt": "2026-10-04T20:13:38.005Z"
+    },
     "erithacus-rubecula-franklin-1.jpg": {
       "sourceHash": "b641760e408ff7c178dce6a4a7a6be7d45f494df3a704c4141c63e99282d51d3",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -30786,6 +31437,101 @@
         }
       ],
       "updatedAt": "2026-09-02T07:02:22.130Z"
+    },
+    "erithacus-rubecula-tatyana-1.jpg": {
+      "sourceHash": "bded8906cced68124159f618f95e656ebc78493028a68a850ec41a754ba3e82a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "erithacus-rubecula-tatyana-1.jpg",
+      "originalSize": 518903,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/erithacus-rubecula-tatyana-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8218
+        },
+        {
+          "key": "optimized/erithacus-rubecula-tatyana-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11546
+        },
+        {
+          "key": "optimized/erithacus-rubecula-tatyana-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 10913
+        },
+        {
+          "key": "optimized/erithacus-rubecula-tatyana-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 16162
+        },
+        {
+          "key": "optimized/erithacus-rubecula-tatyana-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 22967
+        },
+        {
+          "key": "optimized/erithacus-rubecula-tatyana-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 34134
+        },
+        {
+          "key": "optimized/erithacus-rubecula-tatyana-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 32443
+        },
+        {
+          "key": "optimized/erithacus-rubecula-tatyana-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 49244
+        },
+        {
+          "key": "optimized/erithacus-rubecula-tatyana-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 60266
+        },
+        {
+          "key": "optimized/erithacus-rubecula-tatyana-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 94124
+        },
+        {
+          "key": "optimized/erithacus-rubecula-tatyana-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 181039
+        },
+        {
+          "key": "optimized/erithacus-rubecula-tatyana-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 259100
+        }
+      ],
+      "updatedAt": "2026-10-04T20:15:09.869Z"
     },
     "eryx-jaculus-2.jpg": {
       "sourceHash": "49b66c7a5ef013c81cad647986e0cf12a3ac07cecded7e5441dc82745fd3eea6",
@@ -60448,6 +61194,87 @@
       ],
       "updatedAt": "2026-09-06T09:46:53.529Z"
     },
+    "macrovipera-lebetina-laura-1-crop-381-0-533-1000.jpg": {
+      "sourceHash": "dac4c4d327d8fa97e13376fcbc8f967951bb2493e71c13a4f5cc9529d87392aa",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "macrovipera-lebetina-laura-1-crop-381-0-533-1000.jpg",
+      "originalSize": 290450,
+      "width": 853,
+      "height": 1066,
+      "derivatives": [
+        {
+          "key": "optimized/macrovipera-lebetina-laura-1-crop-381-0-533-1000-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 400,
+          "byteSize": 26110
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-laura-1-crop-381-0-533-1000-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 400,
+          "byteSize": 40486
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-laura-1-crop-381-0-533-1000-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 500,
+          "byteSize": 38580
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-laura-1-crop-381-0-533-1000-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 500,
+          "byteSize": 59932
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-laura-1-crop-381-0-533-1000-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 800,
+          "byteSize": 83236
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-laura-1-crop-381-0-533-1000-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 800,
+          "byteSize": 133188
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-laura-1-crop-381-0-533-1000-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1000,
+          "byteSize": 117344
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-laura-1-crop-381-0-533-1000-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1000,
+          "byteSize": 188632
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-laura-1-crop-381-0-533-1000-853.avif",
+          "format": "avif",
+          "width": 853,
+          "height": 1066,
+          "byteSize": 135953
+        },
+        {
+          "key": "optimized/macrovipera-lebetina-laura-1-crop-381-0-533-1000-853.webp",
+          "format": "webp",
+          "width": 853,
+          "height": 1066,
+          "byteSize": 210286
+        }
+      ],
+      "updatedAt": "2026-10-04T19:00:40.210Z"
+    },
     "macrovipera-lebetina-laura-1.jpg": {
       "sourceHash": "0f36da229366f3203d4a7ffb13d29c46601a810321f87ab5d2b306dfd83d080e",
       "configFingerprint": "409788ee46c653d8",
@@ -85430,6 +86257,291 @@
         }
       ],
       "updatedAt": "2026-08-28T21:59:43.682Z"
+    },
+    "turdus-merula-alexey-1.jpg": {
+      "sourceHash": "996c3e5a522de679d1faa4680c2b47c8ad0fdd740ad5a0708eb99f25c9e01918",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "turdus-merula-alexey-1.jpg",
+      "originalSize": 525842,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/turdus-merula-alexey-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 7952
+        },
+        {
+          "key": "optimized/turdus-merula-alexey-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10336
+        },
+        {
+          "key": "optimized/turdus-merula-alexey-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 10730
+        },
+        {
+          "key": "optimized/turdus-merula-alexey-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 14030
+        },
+        {
+          "key": "optimized/turdus-merula-alexey-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 21602
+        },
+        {
+          "key": "optimized/turdus-merula-alexey-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 29730
+        },
+        {
+          "key": "optimized/turdus-merula-alexey-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 29348
+        },
+        {
+          "key": "optimized/turdus-merula-alexey-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 42048
+        },
+        {
+          "key": "optimized/turdus-merula-alexey-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 53518
+        },
+        {
+          "key": "optimized/turdus-merula-alexey-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 76184
+        },
+        {
+          "key": "optimized/turdus-merula-alexey-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 148581
+        },
+        {
+          "key": "optimized/turdus-merula-alexey-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 216972
+        }
+      ],
+      "updatedAt": "2026-10-04T18:37:08.242Z"
+    },
+    "turdus-merula-mikhail-1.jpg": {
+      "sourceHash": "7a686e2b8ca0175c590366ca431ec1262684d883a9b80e14a41c4980efcf7245",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "turdus-merula-mikhail-1.jpg",
+      "originalSize": 222716,
+      "width": 1280,
+      "height": 853,
+      "derivatives": [
+        {
+          "key": "optimized/turdus-merula-mikhail-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8425
+        },
+        {
+          "key": "optimized/turdus-merula-mikhail-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10996
+        },
+        {
+          "key": "optimized/turdus-merula-mikhail-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 11260
+        },
+        {
+          "key": "optimized/turdus-merula-mikhail-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 14582
+        },
+        {
+          "key": "optimized/turdus-merula-mikhail-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 21532
+        },
+        {
+          "key": "optimized/turdus-merula-mikhail-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 27012
+        },
+        {
+          "key": "optimized/turdus-merula-mikhail-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 29281
+        },
+        {
+          "key": "optimized/turdus-merula-mikhail-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 38042
+        },
+        {
+          "key": "optimized/turdus-merula-mikhail-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 58373
+        },
+        {
+          "key": "optimized/turdus-merula-mikhail-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 73198
+        },
+        {
+          "key": "optimized/turdus-merula-mikhail-1-1280.avif",
+          "format": "avif",
+          "width": 1280,
+          "height": 853,
+          "byteSize": 70648
+        },
+        {
+          "key": "optimized/turdus-merula-mikhail-1-1280.webp",
+          "format": "webp",
+          "width": 1280,
+          "height": 853,
+          "byteSize": 92710
+        }
+      ],
+      "updatedAt": "2026-10-04T18:33:27.200Z"
+    },
+    "turdus-merula-tatyana-1.jpg": {
+      "sourceHash": "a6f57203ef746f5eaf376f822427bae115b3c8250a9da980468fa69975bfd71b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "turdus-merula-tatyana-1.jpg",
+      "originalSize": 259303,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/turdus-merula-tatyana-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 7837
+        },
+        {
+          "key": "optimized/turdus-merula-tatyana-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11062
+        },
+        {
+          "key": "optimized/turdus-merula-tatyana-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 10474
+        },
+        {
+          "key": "optimized/turdus-merula-tatyana-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 14576
+        },
+        {
+          "key": "optimized/turdus-merula-tatyana-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 18725
+        },
+        {
+          "key": "optimized/turdus-merula-tatyana-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 26070
+        },
+        {
+          "key": "optimized/turdus-merula-tatyana-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 24488
+        },
+        {
+          "key": "optimized/turdus-merula-tatyana-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 34062
+        },
+        {
+          "key": "optimized/turdus-merula-tatyana-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 37756
+        },
+        {
+          "key": "optimized/turdus-merula-tatyana-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 53744
+        },
+        {
+          "key": "optimized/turdus-merula-tatyana-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 70457
+        },
+        {
+          "key": "optimized/turdus-merula-tatyana-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 103588
+        }
+      ],
+      "updatedAt": "2026-10-04T18:36:23.186Z"
     },
     "turdus-merula-velur-1.jpg": {
       "sourceHash": "7bd366da1b730af2be1a4a3de20d6a24eb62e0282e1c91537b8859058b1bbb0f",
