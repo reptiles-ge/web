@@ -7,6 +7,7 @@ export const ROOT_CLIENT_MESSAGE_NAMESPACES = [
   "language",
   "nav",
   "notFound",
+  "rating",
   "search",
   "theme",
 ] as const satisfies readonly ClientMessageNamespace[];

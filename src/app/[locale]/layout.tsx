@@ -19,6 +19,7 @@ import { LogoPreload } from "@/components/LogoPreload";
 import { Navbar } from "@/components/Navbar";
 import { NavigationProgress } from "@/components/NavigationProgress";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { SiteRating } from "@/components/SiteRating";
 import { SkipLink } from "@/components/SkipLink";
 import { TopGeCounter } from "@/components/TopGeCounter";
 import {
@@ -93,6 +94,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           <FooterGate>
             <Footer locale={locale} {...footerData} />
           </FooterGate>
+          <SiteRating />
         </LocaleSwitchProvider>
       </IntlProvider>
     </RootDocument>
