@@ -22,14 +22,17 @@ const CACHE_HEADER = "x-vinext-cache";
 const POLL_INTERVAL_MS = 10_000;
 const REQUEST_TIMEOUT_MS = 30_000;
 const RETRIES = 2;
+const RSC_CACHE_PARAM = "_rsc";
 const SLOWEST_REPORTED = 5;
 const USER_AGENT = "reptiles-cache-warmer";
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-async function get(url) {
+async function get(url, rsc = false) {
   return fetch(url, {
-    headers: { "user-agent": USER_AGENT },
+    headers: rsc
+      ? { rsc: "1", "user-agent": USER_AGENT }
+      : { "user-agent": USER_AGENT },
     redirect: "manual",
     signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
   });
@@ -75,16 +78,21 @@ async function readSitemap() {
   return [...urls];
 }
 
-async function warm(url) {
+function rscUrl(url) {
+  return `${url}${url.includes("?") ? "&" : "?"}${RSC_CACHE_PARAM}`;
+}
+
+async function warm({ kind, url }) {
   let failure = "failed";
 
   for (let attempt = 0; attempt <= RETRIES; attempt += 1) {
     const started = performance.now();
     try {
-      const response = await get(url);
+      const response = await get(url, kind === "rsc");
       await response.arrayBuffer();
       if (response.status < 500) {
         return {
+          kind,
           ms: performance.now() - started,
           state:
             response.status === 200
@@ -100,18 +108,18 @@ async function warm(url) {
     await sleep(500 * (attempt + 1));
   }
 
-  return { failed: true, ms: 0, state: failure, url };
+  return { failed: true, kind, ms: 0, state: failure, url };
 }
 
-async function warmAll(urls) {
+async function warmAll(targets) {
   const results = [];
   let next = 0;
 
   async function worker() {
-    while (next < urls.length) {
-      const url = urls[next];
+    while (next < targets.length) {
+      const target = targets[next];
       next += 1;
-      results.push(await warm(url));
+      results.push(await warm(target));
     }
   }
 
@@ -119,27 +127,35 @@ async function warmAll(urls) {
   return results;
 }
 
-function report(results, seconds) {
+function summarize(results, kind) {
   const counts = {};
   for (const result of results) {
+    if (result.kind !== kind) continue;
     counts[result.state] = (counts[result.state] ?? 0) + 1;
   }
-  const summary = Object.entries(counts)
+  return Object.entries(counts)
     .sort(([a], [b]) => a.localeCompare(b))
     .map(([state, count]) => `${state} ${count}`)
     .join(", ");
-  console.log(`${results.length} urls in ${seconds.toFixed(1)}s: ${summary}`);
+}
+
+function report(results, seconds) {
+  console.log(`${results.length} requests in ${seconds.toFixed(1)}s`);
+  console.log(`  html: ${summarize(results, "html")}`);
+  console.log(`  rsc: ${summarize(results, "rsc")}`);
 
   const slowest = results
     .toSorted((a, b) => b.ms - a.ms)
     .slice(0, SLOWEST_REPORTED);
   for (const result of slowest) {
-    console.log(`  ${Math.round(result.ms)}ms ${result.state} ${result.url}`);
+    console.log(
+      `  ${Math.round(result.ms)}ms ${result.kind} ${result.state} ${result.url}`,
+    );
   }
 
   const failed = results.filter((result) => result.failed);
   for (const result of failed) {
-    console.log(`  failed ${result.state} ${result.url}`);
+    console.log(`  failed ${result.kind} ${result.state} ${result.url}`);
   }
   return failed.length;
 }
@@ -151,7 +167,10 @@ async function main() {
   console.log(`warming ${urls.length} urls on ${ORIGIN}`);
 
   const started = performance.now();
-  const results = await warmAll(urls);
+  const results = await warmAll([
+    ...urls.map((url) => ({ kind: "html", url })),
+    ...urls.map((url) => ({ kind: "rsc", url: rscUrl(url) })),
+  ]);
   return report(results, (performance.now() - started) / 1000);
 }
 
