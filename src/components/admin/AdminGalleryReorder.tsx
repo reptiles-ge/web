@@ -3,6 +3,7 @@
 import {
   ChevronDown,
   ChevronUp,
+  Crop,
   GripVertical,
   MapPin,
   Monitor,
@@ -22,6 +23,7 @@ import {
   type CoverTarget,
 } from "@/lib/adminCover";
 import { cn } from "@/lib/cn";
+import { isCoverCrop } from "@/lib/coverCrop";
 import { hasPhotoCoordinates } from "@/lib/photoCoordinates";
 
 const buttonNoRestoreProps = { autoComplete: "off" };
@@ -29,6 +31,7 @@ const buttonNoRestoreProps = { autoComplete: "off" };
 type Props = {
   covers: AdminCovers;
   disabled?: boolean;
+  onCrop: (src: string) => void;
   onPreview: (src: string) => void;
   onRemove: (src: string) => void;
   onReorder: Dispatch<SetStateAction<GalleryImage[]>>;
@@ -43,6 +46,7 @@ type Props = {
 export function AdminGalleryReorder({
   covers,
   disabled,
+  onCrop,
   onPreview,
   onRemove,
   onReorder,
@@ -129,7 +133,15 @@ export function AdminGalleryReorder({
               {roles.length > 0 ? (
                 <span className="absolute bottom-2 left-2 flex flex-wrap gap-1">
                   {roles.map((role) => (
-                    <CoverBadge key={role} role={role} />
+                    <CoverBadge
+                      cropped={isCoverCrop(
+                        role === "mobile"
+                          ? covers.mobileSrc
+                          : covers.desktopSrc,
+                      )}
+                      key={role}
+                      role={role}
+                    />
                   ))}
                 </span>
               ) : null}
@@ -179,6 +191,16 @@ export function AdminGalleryReorder({
                 disabled={disabled}
                 onChange={(target) => onSetCover(item.src, target)}
               />
+              <button
+                {...buttonNoRestoreProps}
+                className="mt-1.5 inline-flex h-8 w-full items-center justify-center gap-1.5 rounded-md border border-border text-[11px] text-foreground hover:bg-secondary disabled:opacity-40"
+                disabled={disabled}
+                onClick={() => onCrop(item.src)}
+                type="button"
+              >
+                <Crop aria-hidden className="size-3.5" />
+                ყდის ქროფი
+              </button>
               <button
                 {...buttonNoRestoreProps}
                 className={cn(
@@ -245,7 +267,13 @@ export function AdminGalleryReorder({
   );
 }
 
-function CoverBadge({ role }: { role: AdminCoverRole }) {
+function CoverBadge({
+  cropped,
+  role,
+}: {
+  cropped: boolean;
+  role: AdminCoverRole;
+}) {
   const Icon = role === "mobile" ? Smartphone : Monitor;
   const label =
     role === "cover" ? "ყდა" : role === "desktop" ? "დესკტოპი" : "მობილური";
@@ -258,6 +286,12 @@ function CoverBadge({ role }: { role: AdminCoverRole }) {
     >
       <Icon aria-hidden className="size-3" />
       {label}
+      {cropped ? (
+        <>
+          <Crop aria-hidden className="size-3" />
+          <span className="sr-only">ქროფი</span>
+        </>
+      ) : null}
     </span>
   );
 }

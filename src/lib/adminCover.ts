@@ -1,3 +1,4 @@
+import { matchesCoverSource } from "@/lib/coverCrop";
 import { isPlaceholderMedia } from "@/lib/speciesContent";
 
 export type AdminCoverRole = "cover" | "desktop" | "mobile";
@@ -14,10 +15,14 @@ export function adminCoverRoles(
   covers: AdminCovers,
 ): AdminCoverRole[] {
   if (!src) return [];
-  const isDesktop = src === covers.desktopSrc;
-  const isMobile = src === covers.mobileSrc;
+  const isDesktop = matchesCoverSource(covers.desktopSrc, src);
+  const isMobile = matchesCoverSource(covers.mobileSrc, src);
   if (!isDesktop && !isMobile) return [];
-  if (isDesktop && isMobile) return ["cover"];
+  if (isDesktop && isMobile) {
+    return covers.desktopSrc === covers.mobileSrc
+      ? ["cover"]
+      : ["desktop", "mobile"];
+  }
   if (isDesktop) return ["desktop"];
   return ["mobile"];
 }
