@@ -1,7 +1,7 @@
 import type { KnipConfig } from "knip";
 
 const config: KnipConfig = {
-  entry: ["src/app/**/{layout,page,route}.local.{ts,tsx}"],
+  entry: ["src/app/**/{layout,page,route}.local.{ts,tsx}", "src/worker.ts"],
   ignore: ["src/lib/creditAuthors.ts"],
   ignoreBinaries: ["codex", "pbcopy"],
   ignoreDependencies: [
