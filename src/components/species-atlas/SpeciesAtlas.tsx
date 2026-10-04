@@ -31,17 +31,18 @@ import {
 import { type AnimalGroup, getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import { trackEvent, truncateSearchTerm } from "@/lib/analytics";
 
-export function SpeciesAtlas({
-  catalog,
-  recent,
-  tooltipSpeciesByRegion,
-}: {
+type AtlasData = {
   catalog: SpeciesListItem[];
   recent: SpeciesListItem[];
   tooltipSpeciesByRegion: Record<string, RegionTooltipSpecies[]>;
-}) {
-  const locale = useLocale() as AppLocale;
+};
 
+type UpdateAtlasFilter = <K extends keyof AtlasFilters>(
+  key: K,
+  value: AtlasFilters[K],
+) => void;
+
+export function SpeciesAtlas(props: AtlasData) {
   const [group, setGroup] = useQueryState(
     "type",
     parseAsStringEnum([...GROUP_OPTIONS]).withDefault(
@@ -71,79 +72,10 @@ export function SpeciesAtlas({
     parseAsString.withDefault(defaultAtlasFilters.query),
   );
 
-  const [filterOpen, setFilterOpen] = useState(false);
   const filters = useMemo<AtlasFilters>(
     () => ({ danger, group, habitat, query, region }),
     [group, danger, habitat, region, query],
   );
-  const deferredQuery = useDeferredValue(filters.query);
-  const skipAtlasFilter = useRef(true);
-  const lastQuery = useRef(filters.query);
-
-  const activeFilters: AtlasFilters = useMemo(
-    () => ({
-      ...filters,
-      query: deferredQuery,
-    }),
-    [filters, deferredQuery],
-  );
-
-  const filtered = useMemo(
-    () => filterAtlasSpecies(catalog, activeFilters),
-    [catalog, activeFilters],
-  );
-
-  useEffect(() => {
-    if (skipAtlasFilter.current) {
-      skipAtlasFilter.current = false;
-      lastQuery.current = filters.query;
-      return;
-    }
-    const queryChanged = lastQuery.current !== filters.query;
-    lastQuery.current = filters.query;
-    const delay = queryChanged ? 500 : 0;
-    const timer = window.setTimeout(() => {
-      const isDefault =
-        filters.group === defaultAtlasFilters.group &&
-        filters.danger === defaultAtlasFilters.danger &&
-        filters.habitat === defaultAtlasFilters.habitat &&
-        filters.region === defaultAtlasFilters.region &&
-        !filters.query.trim();
-      trackEvent("atlas_filter", {
-        action: isDefault ? "reset" : "apply",
-        danger_filter: filters.danger,
-        group_filter: filters.group,
-        habitat_filter: filters.habitat,
-        region_filter: filters.region,
-        result_count: filtered.length,
-        search_term: filters.query.trim()
-          ? truncateSearchTerm(filters.query)
-          : undefined,
-      });
-    }, delay);
-    return () => window.clearTimeout(timer);
-  }, [filters, filtered.length]);
-
-  const groupCounts = useMemo(() => {
-    const counts: Record<"all" | AnimalGroup, number> = {
-      all: catalog.length,
-      amphibian: 0,
-      bird: 0,
-      insect: 0,
-      lizard: 0,
-      mammal: 0,
-      scorpion: 0,
-      snake: 0,
-      spider: 0,
-      turtle: 0,
-    };
-    for (const item of catalog) {
-      counts[getSpeciesAtlasMeta(item.id).group] += 1;
-    }
-    return counts;
-  }, [catalog]);
-
-  const facetCount = countAtlasFacets(filters);
 
   function updateFilter<K extends keyof AtlasFilters>(
     key: K,
@@ -242,6 +174,117 @@ export function SpeciesAtlas({
       shallow: true,
     });
   }
+
+  return (
+    <SpeciesAtlasView
+      {...props}
+      applyFilters={applyFilters}
+      filters={filters}
+      resetFilters={resetFilters}
+      updateFilter={updateFilter}
+    />
+  );
+}
+
+export function SpeciesAtlasFallback(props: AtlasData) {
+  return (
+    <SpeciesAtlasView
+      {...props}
+      applyFilters={noop}
+      filters={defaultAtlasFilters}
+      resetFilters={noop}
+      updateFilter={noop}
+    />
+  );
+}
+
+function noop() {}
+
+function SpeciesAtlasView({
+  applyFilters,
+  catalog,
+  filters,
+  recent,
+  resetFilters,
+  tooltipSpeciesByRegion,
+  updateFilter,
+}: AtlasData & {
+  applyFilters: (next: AtlasFilters) => void;
+  filters: AtlasFilters;
+  resetFilters: () => void;
+  updateFilter: UpdateAtlasFilter;
+}) {
+  const locale = useLocale() as AppLocale;
+
+  const [filterOpen, setFilterOpen] = useState(false);
+  const deferredQuery = useDeferredValue(filters.query);
+  const skipAtlasFilter = useRef(true);
+  const lastQuery = useRef(filters.query);
+
+  const activeFilters: AtlasFilters = useMemo(
+    () => ({
+      ...filters,
+      query: deferredQuery,
+    }),
+    [filters, deferredQuery],
+  );
+
+  const filtered = useMemo(
+    () => filterAtlasSpecies(catalog, activeFilters),
+    [catalog, activeFilters],
+  );
+
+  useEffect(() => {
+    if (skipAtlasFilter.current) {
+      skipAtlasFilter.current = false;
+      lastQuery.current = filters.query;
+      return;
+    }
+    const queryChanged = lastQuery.current !== filters.query;
+    lastQuery.current = filters.query;
+    const delay = queryChanged ? 500 : 0;
+    const timer = window.setTimeout(() => {
+      const isDefault =
+        filters.group === defaultAtlasFilters.group &&
+        filters.danger === defaultAtlasFilters.danger &&
+        filters.habitat === defaultAtlasFilters.habitat &&
+        filters.region === defaultAtlasFilters.region &&
+        !filters.query.trim();
+      trackEvent("atlas_filter", {
+        action: isDefault ? "reset" : "apply",
+        danger_filter: filters.danger,
+        group_filter: filters.group,
+        habitat_filter: filters.habitat,
+        region_filter: filters.region,
+        result_count: filtered.length,
+        search_term: filters.query.trim()
+          ? truncateSearchTerm(filters.query)
+          : undefined,
+      });
+    }, delay);
+    return () => window.clearTimeout(timer);
+  }, [filters, filtered.length]);
+
+  const groupCounts = useMemo(() => {
+    const counts: Record<"all" | AnimalGroup, number> = {
+      all: catalog.length,
+      amphibian: 0,
+      bird: 0,
+      insect: 0,
+      lizard: 0,
+      mammal: 0,
+      scorpion: 0,
+      snake: 0,
+      spider: 0,
+      turtle: 0,
+    };
+    for (const item of catalog) {
+      counts[getSpeciesAtlasMeta(item.id).group] += 1;
+    }
+    return counts;
+  }, [catalog]);
+
+  const facetCount = countAtlasFacets(filters);
 
   const hasActiveFilters = facetCount > 0 || filters.query.trim().length > 0;
 

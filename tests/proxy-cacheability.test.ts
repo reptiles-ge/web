@@ -63,3 +63,18 @@ test("prefixed Georgian URLs keep their canonical redirect", () => {
   assert.equal(response.status, 301);
   assert.equal(response.headers.get("location"), "https://reptiles.ge/about");
 });
+
+for (const [path, robots] of [
+  ["/species", null],
+  ["/species?utm_source=x", null],
+  ["/species?q=giurza", "noindex, follow"],
+  ["/en/species?type=snake", "noindex, follow"],
+  ["/gvelebi?q=giurza", null],
+] as const) {
+  test(`${path} robots header`, () => {
+    const response = proxy(new NextRequest(`https://reptiles.ge${path}`));
+
+    assert.equal(response.headers.get("x-robots-tag"), robots);
+    assert.equal(response.headers.has("x-middleware-override-headers"), false);
+  });
+}
