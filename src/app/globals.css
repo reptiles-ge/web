@@ -226,6 +226,20 @@ body {
   }
 }
 
+@keyframes rating-duck {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  30%,
+  62% {
+    transform: translateY(105%);
+  }
+  84% {
+    transform: translateY(-9%);
+  }
+}
+
 @keyframes rating-pop {
   0% {
     opacity: 0;
