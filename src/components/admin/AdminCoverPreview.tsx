@@ -146,7 +146,7 @@ export function AdminCoverPreview({
                       />
                       {roles.length > 0 ? (
                         <span className="absolute inset-x-0 bottom-0 bg-black/55 py-0.5 text-center text-[8px] font-semibold tracking-wide text-white">
-                          {roles[0] === "cover"
+                          {roles.length > 1 || roles[0] === "cover"
                             ? "ყდა"
                             : roles[0] === "desktop"
                               ? "დესკ."

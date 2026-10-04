@@ -4,6 +4,7 @@ import {
   type AnimalGroup,
   groupHasVenomConcept,
 } from "@/data/speciesAtlasMeta";
+import { matchesCoverSource } from "@/lib/coverCrop";
 
 const PLACEHOLDER_MEDIA = [
   "/images/species-placeholder.png",
@@ -48,7 +49,7 @@ export function getSpeciesGalleryPreview(species: Species, count = 3) {
   const { desktopHeroSrc, gallery, mobileHeroSrc } =
     getSpeciesHeroSources(species);
   const isHero = (item: GalleryImage) =>
-    item.src === desktopHeroSrc || item.src === mobileHeroSrc;
+    isHeroSource(item.src, desktopHeroSrc, mobileHeroSrc);
   return [...gallery.filter((item) => !isHero(item)), ...gallery.filter(isHero)]
     .slice(0, count)
     .map((item) => item.src);
@@ -79,7 +80,7 @@ export function getSpeciesIdentificationPhoto(species: Species) {
     getSpeciesHeroSources(species);
   return (
     gallery.find(
-      (item) => item.src !== desktopHeroSrc && item.src !== mobileHeroSrc,
+      (item) => !isHeroSource(item.src, desktopHeroSrc, mobileHeroSrc),
     ) ?? null
   );
 }
@@ -100,6 +101,17 @@ export function isPlaceholderMedia(src: null | string | undefined) {
 export function isPlaceholderStatValue(value: string) {
   const normalized = value.trim().toLowerCase();
   return PLACEHOLDER_STAT_VALUES.some((item) => normalized === item);
+}
+
+function isHeroSource(
+  src: string,
+  desktopHeroSrc: null | string,
+  mobileHeroSrc: null | string,
+) {
+  return (
+    matchesCoverSource(desktopHeroSrc ?? "", src) ||
+    matchesCoverSource(mobileHeroSrc ?? "", src)
+  );
 }
 
 const SAFETY_STAT_LABELS = new Set([
