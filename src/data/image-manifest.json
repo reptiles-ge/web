@@ -35769,6 +35769,87 @@
       ],
       "updatedAt": "2026-10-04T08:22:52.537Z"
     },
+    "garrulus-glandarius-fkfhof-1.jpg": {
+      "sourceHash": "abbfb60921255c52590b23335182816b96b0ab8b0f9dfc034799d591c63cd796",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "garrulus-glandarius-fkfhof-1.jpg",
+      "originalSize": 339268,
+      "width": 1200,
+      "height": 801,
+      "derivatives": [
+        {
+          "key": "optimized/garrulus-glandarius-fkfhof-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 15371
+        },
+        {
+          "key": "optimized/garrulus-glandarius-fkfhof-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 24178
+        },
+        {
+          "key": "optimized/garrulus-glandarius-fkfhof-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 22802
+        },
+        {
+          "key": "optimized/garrulus-glandarius-fkfhof-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 35810
+        },
+        {
+          "key": "optimized/garrulus-glandarius-fkfhof-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 53100
+        },
+        {
+          "key": "optimized/garrulus-glandarius-fkfhof-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 84432
+        },
+        {
+          "key": "optimized/garrulus-glandarius-fkfhof-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 76106
+        },
+        {
+          "key": "optimized/garrulus-glandarius-fkfhof-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 122172
+        },
+        {
+          "key": "optimized/garrulus-glandarius-fkfhof-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 144914
+        },
+        {
+          "key": "optimized/garrulus-glandarius-fkfhof-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 231590
+        }
+      ],
+      "updatedAt": "2026-10-04T08:24:21.667Z"
+    },
     "garrulus-glandarius-flickr-1.jpg": {
       "sourceHash": "7c7856243bf9bc4207597becf3437f34b43e31f2c173517a6a31942a81c88371",
       "configFingerprint": "a895f8e025dcc7fa",
