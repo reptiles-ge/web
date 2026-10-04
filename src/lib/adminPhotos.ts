@@ -11,6 +11,7 @@ import path from "node:path";
 
 import type { GalleryImage, PhotoCredit } from "@/data/species";
 
+import { optimizedImgSrc } from "@/data/optimizedImages";
 import {
   creditsEqual,
   type GalleryOverlayLocale,
@@ -224,12 +225,8 @@ export async function cropSpeciesCover(input: {
   if (!originalKey) {
     throw new Error("მხოლოდ CDN-ზე არსებული ფოტო იჭრება");
   }
-  const response = await fetch(input.src, { cache: "no-store" });
-  if (!response.ok) {
-    throw new Error(`ორიგინალი ვერ ჩამოიტვირთა (${response.status})`);
-  }
   const prepared = await prepareOriginal(
-    Buffer.from(await response.arrayBuffer()),
+    await fetchCropSource(input.src),
     rect,
   );
 
@@ -411,6 +408,17 @@ function cropRegion(
       Math.min(fullWidth - left, Math.round(crop.width * fullWidth)),
     ),
   };
+}
+
+async function fetchCropSource(src: string) {
+  const widest = optimizedImgSrc(src, Number.POSITIVE_INFINITY);
+  let status = 0;
+  for (const url of widest === src ? [src] : [src, widest]) {
+    const response = await fetch(url, { cache: "no-store" });
+    if (response.ok) return Buffer.from(await response.arrayBuffer());
+    status = response.status;
+  }
+  throw new Error(`ორიგინალი ვერ ჩამოიტვირთა (${status})`);
 }
 
 function loadSharp(): SharpFn {
