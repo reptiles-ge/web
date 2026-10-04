@@ -72,6 +72,7 @@ export const regions: Region[] = [
       "coturnix-coturnix",
       "columba-palumbus",
       "anas-platyrhynchos",
+      "turdus-merula",
     ],
   },
   {
@@ -133,6 +134,7 @@ export const regions: Region[] = [
       "euscorpius-italicus",
       "euscorpius-mingrelicus",
       "gypaetus-barbatus",
+      "turdus-merula",
     ],
   },
   {
@@ -168,6 +170,7 @@ export const regions: Region[] = [
       "halyomorpha-halys",
       "euscorpius-italicus",
       "euscorpius-mingrelicus",
+      "turdus-merula",
     ],
   },
   {
@@ -224,6 +227,7 @@ export const regions: Region[] = [
       "euscorpius-italicus",
       "euscorpius-mingrelicus",
       "anas-platyrhynchos",
+      "turdus-merula",
     ],
   },
   {
@@ -264,6 +268,7 @@ export const regions: Region[] = [
       "mantis-religiosa",
       "euscorpius-italicus",
       "euscorpius-mingrelicus",
+      "turdus-merula",
     ],
   },
   {
@@ -378,6 +383,7 @@ export const regions: Region[] = [
       "mantis-religiosa",
       "mesobuthus-eupeus",
       "gypaetus-barbatus",
+      "turdus-merula",
     ],
   },
   {
@@ -439,6 +445,7 @@ export const regions: Region[] = [
       "columba-palumbus",
       "anas-platyrhynchos",
       "aegypius-monachus",
+      "turdus-merula",
     ],
   },
   {
@@ -507,6 +514,7 @@ export const regions: Region[] = [
       "columba-palumbus",
       "anas-platyrhynchos",
       "paralaudakia-caucasia",
+      "turdus-merula",
     ],
   },
   {
@@ -579,6 +587,7 @@ export const regions: Region[] = [
       "coturnix-coturnix",
       "columba-palumbus",
       "anas-platyrhynchos",
+      "turdus-merula",
     ],
   },
   {
@@ -658,6 +667,7 @@ export const regions: Region[] = [
       "coturnix-coturnix",
       "columba-palumbus",
       "anas-platyrhynchos",
+      "turdus-merula",
     ],
   },
   {
@@ -720,6 +730,7 @@ export const regions: Region[] = [
       "anas-platyrhynchos",
       "phasianus-colchicus",
       "aegypius-monachus",
+      "turdus-merula",
     ],
   },
 ];
