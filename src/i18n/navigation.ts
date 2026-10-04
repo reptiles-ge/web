@@ -1,6 +1,3 @@
-import { createNavigation } from "next-intl/navigation";
+export { getPathname, usePathname, useRouter } from "./baseNavigation";
 
-import { routing } from "./routing";
-
-export const { getPathname, Link, redirect, usePathname, useRouter } =
-  createNavigation(routing);
+export { IntentPrefetchLink as Link } from "@/components/IntentPrefetchLink";
