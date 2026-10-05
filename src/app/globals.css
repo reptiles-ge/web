@@ -415,9 +415,10 @@ input[type="search"]::-webkit-search-results-decoration {
   filter: invert(1) grayscale(1) contrast(0.8) brightness(0.9);
 }
 
-[data-range-map] .leaflet-tile {
-  width: 258px !important;
-  height: 258px !important;
+[data-range-map] .leaflet-container img.leaflet-tile {
+  width: 257px !important;
+  height: 257px !important;
+  mix-blend-mode: normal;
 }
 
 .range-veil {
