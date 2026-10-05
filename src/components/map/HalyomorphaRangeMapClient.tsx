@@ -688,7 +688,7 @@ function RecordPopup({
       {record.thumbSrc ? (
         <Image
           alt={record.imageAlt}
-          className="size-16 shrink-0 rounded-md object-cover"
+          className="size-16 shrink-0 rounded-xl object-cover"
           height={128}
           loading="lazy"
           src={record.thumbSrc}
@@ -736,7 +736,7 @@ function RecordPopup({
       </div>
       <button
         aria-label={copy.closeLabel}
-        className="absolute top-1.5 right-1.5 inline-flex size-7 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-surface hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-primary"
+        className="absolute top-1.5 right-1.5 inline-flex size-7 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-surface hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-primary"
         onClick={onClose}
         type="button"
       >

@@ -2557,11 +2557,11 @@ export async function SpeciesRangeMap({
           </figure>
 
           <nav aria-label={t("rangeRegionsLabel")}>
-            <ol className="border-b border-border/70 text-[14px] leading-snug">
+            <ol className="rounded-card border border-border bg-card p-3 text-[14px] leading-snug sm:p-4">
               {rangeRegions.map((region, index) => (
-                <li className="border-t border-border/70" key={region.id}>
+                <li key={region.id}>
                   <Link
-                    className="group flex min-h-11 items-center gap-3 py-2 text-foreground transition-colors hover:text-primary focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-primary"
+                    className="group flex min-h-11 items-center gap-3 rounded-xl py-1 pr-1.5 pl-2.5 text-foreground transition-colors hover:bg-surface hover:text-primary focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-primary"
                     href={regionHref(region.id)}
                   >
                     <span aria-hidden="true" data-range-mark="key">
@@ -2570,10 +2570,9 @@ export async function SpeciesRangeMap({
                     <span className="min-w-0 flex-1">
                       {localizeRegionText(region.name, locale)}
                     </span>
-                    <ArrowUpRight
-                      aria-hidden="true"
-                      className="size-3.5 shrink-0 text-muted-foreground transition-colors group-hover:text-primary"
-                    />
+                    <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors group-hover:border-primary/40 group-hover:text-primary">
+                      <ArrowUpRight aria-hidden="true" className="size-3.5" />
+                    </span>
                   </Link>
                 </li>
               ))}

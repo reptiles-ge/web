@@ -239,7 +239,7 @@ export function HalyomorphaRangeMap({
       </svg>
 
       <div
-        className="relative isolate z-0 -mx-6 aspect-6/5 overflow-hidden border-y border-border bg-surface sm:mx-0 sm:aspect-3/2 sm:rounded-lg sm:border lg:col-start-1 lg:row-start-1 lg:aspect-5/3 lg:max-h-[600px]"
+        className="relative isolate z-0 -mx-6 aspect-6/5 overflow-hidden border-y border-border bg-surface sm:mx-0 sm:aspect-3/2 sm:rounded-card sm:border lg:col-start-1 lg:row-start-1 lg:aspect-5/3 lg:max-h-[600px]"
         data-range-map=""
         ref={plateRef}
       >
@@ -268,9 +268,9 @@ export function HalyomorphaRangeMap({
         )}
 
         {mapData && (selectedRegion || !atOverview) ? (
-          <div className="absolute top-3 left-3 z-800 flex max-w-[calc(100%-4.75rem)] items-stretch overflow-hidden rounded-md border border-border bg-card text-[13px] leading-none text-foreground">
+          <div className="absolute top-3 left-3 z-800 flex max-w-[calc(100%-4.75rem)] items-stretch overflow-hidden rounded-full border border-border bg-card text-[13px] leading-none text-foreground">
             <button
-              className="inline-flex min-h-9 shrink-0 items-center gap-1.5 px-2.5 font-medium transition-colors hover:bg-surface focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-primary pointer-coarse:min-h-10"
+              className="inline-flex min-h-9 shrink-0 items-center gap-1.5 pr-2.5 pl-3.5 font-medium transition-colors hover:bg-surface focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-primary pointer-coarse:min-h-10"
               onClick={reset}
               type="button"
             >
@@ -280,7 +280,7 @@ export function HalyomorphaRangeMap({
             {selectedRegion ? (
               <p
                 aria-live="polite"
-                className="flex min-w-0 items-center border-l border-border px-2.5 text-muted-foreground"
+                className="flex min-w-0 items-center border-l border-border pr-4 pl-2.5 text-muted-foreground"
               >
                 <span className="truncate">
                   <span className="font-medium text-foreground">
@@ -321,9 +321,9 @@ export function HalyomorphaRangeMap({
       </ul>
 
       {groups.length > 0 ? (
-        <div className="mt-10 lg:col-start-2 lg:row-span-3 lg:row-start-1 lg:mt-0">
-          <table className="w-full border-collapse text-[14px] leading-snug">
-            <caption className="pb-1 text-left font-display text-[1.125rem] leading-tight font-semibold text-foreground">
+        <div className="mt-10 rounded-card border border-border bg-card p-3 sm:p-4 lg:col-start-2 lg:row-span-3 lg:row-start-1 lg:mt-0">
+          <table className="w-full border-separate border-spacing-0 text-[14px] leading-snug">
+            <caption className="px-2.5 pt-1.5 text-left font-display text-[1.125rem] leading-tight font-semibold text-foreground">
               {copy.regionSummaryTitle}
             </caption>
             <thead className="sr-only">
@@ -337,7 +337,7 @@ export function HalyomorphaRangeMap({
               <tbody key={group.id}>
                 <tr>
                   <th
-                    className="pt-5 pb-2 text-left text-[11px] font-medium tracking-[0.14em] text-muted-foreground uppercase"
+                    className="px-2.5 pt-5 pb-2 text-left text-[11px] font-medium tracking-[0.14em] text-muted-foreground uppercase"
                     colSpan={3}
                     scope="rowgroup"
                   >
@@ -472,14 +472,16 @@ function LedgerRegion({
     <>
       <tr
         className={cn(
-          "border-t border-border/70 transition-colors",
-          (hovered || selected) && "bg-surface",
+          "*:transition-colors [&>*:first-child]:rounded-l-xl [&>*:last-child]:rounded-r-xl",
+          (hovered || selected) && "*:bg-surface",
+          selected &&
+            "[&>*:first-child]:rounded-bl-none [&>*:last-child]:rounded-br-none",
         )}
         onMouseEnter={() => onHover(row.id)}
         onMouseLeave={() => onHover(null)}
       >
         <th className="p-0 text-left font-normal" scope="row">
-          <span className="flex items-center gap-2.5 pl-2">
+          <span className="flex items-center gap-2.5 pl-2.5">
             {row.official ? (
               <>
                 <RangeHatchSwatch id={hatchId} />
@@ -506,10 +508,10 @@ function LedgerRegion({
         <td className="px-2 text-right text-foreground tabular-nums">
           {row.count > 0 ? row.count.toLocaleString(locale) : "—"}
         </td>
-        <td className="w-10 p-0 text-right">
+        <td className="w-12 py-1 pr-1.5 pl-0 text-right">
           <Link
             aria-label={row.pageLabel}
-            className="inline-flex size-10 items-center justify-center text-muted-foreground transition-colors hover:text-primary focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-primary"
+            className="inline-flex size-9 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-primary pointer-coarse:size-10"
             href={regionHref(row.id)}
             title={row.pageLabel}
           >
@@ -518,8 +520,11 @@ function LedgerRegion({
         </td>
       </tr>
       {selected ? (
-        <tr className="bg-surface">
-          <td className="pt-0 pr-2 pb-4 pl-7.5" colSpan={3}>
+        <tr>
+          <td
+            className="rounded-b-xl bg-surface pt-0 pr-3 pb-4 pl-8"
+            colSpan={3}
+          >
             {row.count === 0 || row.years ? (
               <p className="text-[13px] text-muted-foreground">
                 {row.count > 0 ? row.years : copy.noRegionRecordsLabel}

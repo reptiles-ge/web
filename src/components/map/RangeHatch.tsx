@@ -32,6 +32,7 @@ export function RangeHatchSwatch({ id }: { id: string }) {
         className="stroke-primary/70"
         fill={`url(#${id})`}
         height="11"
+        rx="3"
         strokeWidth="1"
         width="11"
         x="0.5"
