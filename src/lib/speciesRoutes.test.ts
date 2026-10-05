@@ -210,11 +210,13 @@ describe("species routes", () => {
     );
   });
 
-  it("does not pair woodpigeon and turtle dove as visual lookalikes", () => {
-    expect(getSpeciesLookalikes("columba-palumbus")).toEqual([]);
-    expect(getSpeciesLookalikes("streptopelia-turtur")).not.toContain(
+  it("pairs turtle dove and woodpigeon for distant juvenile comparisons", () => {
+    expect(getSpeciesLookalikes("streptopelia-turtur")).toEqual([
       "columba-palumbus",
-    );
+    ]);
+    expect(getSpeciesLookalikes("columba-palumbus")).toEqual([
+      "streptopelia-turtur",
+    ]);
   });
 
   it("does not pair green and great spotted woodpeckers as visual lookalikes", () => {
