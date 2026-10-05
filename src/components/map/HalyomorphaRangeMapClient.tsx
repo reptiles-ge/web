@@ -676,8 +676,8 @@ function RecordPopup({
   const meta = [record.formattedDate, record.author]
     .filter(Boolean)
     .join(" · ");
-  const sourceUrl =
-    record.url && /^https?:\/\//.test(record.url) ? record.url : null;
+  // const sourceUrl =
+  //   record.url && /^https?:\/\//.test(record.url) ? record.url : null;
 
   return (
     <div
@@ -709,7 +709,7 @@ function RecordPopup({
             {meta}
           </div>
         ) : null}
-        {sourceUrl || (record.galleryHref && record.gallerySrc) ? (
+        {record.galleryHref && record.gallerySrc ? (
           <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-[13px] leading-snug font-medium">
             {record.galleryHref && record.gallerySrc ? (
               <a
@@ -720,7 +720,7 @@ function RecordPopup({
                 {copy.galleryAction}
               </a>
             ) : null}
-            {sourceUrl ? (
+            {/* {sourceUrl ? (
               <a
                 className="underline decoration-primary/30 underline-offset-4 hover:decoration-primary"
                 href={sourceUrl}
@@ -730,7 +730,7 @@ function RecordPopup({
                 {copy.sourceAction}
                 <span aria-hidden="true"> ↗</span>
               </a>
-            ) : null}
+            ) : null} */}
           </div>
         ) : null}
       </div>
