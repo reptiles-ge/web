@@ -1,81 +1,79 @@
-import { useId } from "react";
-
-import { GEORGIA_MAP_VIEWBOX } from "@/data/georgia-paths";
+import { RangeHatchPattern } from "@/components/map/RangeHatch";
+import {
+  GEORGIA_MAP_VIEWBOX,
+  georgiaRegionLabelPoints,
+} from "@/data/georgia-paths";
 import { regions } from "@/data/mapRegions";
 import { cn } from "@/lib/cn";
 
 type GeorgiaMapStaticProps = {
   className?: string;
+  hatchId: string;
   highlightedIds: string[];
 };
 
+const [, , VIEWBOX_WIDTH, VIEWBOX_HEIGHT] =
+  GEORGIA_MAP_VIEWBOX.split(" ").map(Number);
+
 export function GeorgiaMapStatic({
   className,
+  hatchId,
   highlightedIds,
 }: GeorgiaMapStaticProps) {
-  const reactId = useId().replace(/:/g, "");
-  const seaGradientId = `map-sea-${reactId}`;
-  const highlightedSet = new Set(highlightedIds);
-  const hasHighlights = highlightedSet.size > 0;
+  const keys = new Map(highlightedIds.map((id, index) => [id, index + 1]));
+  const highlighted = regions.filter((region) => keys.has(region.id));
+  const rest = regions.filter((region) => !keys.has(region.id));
 
   return (
-    <div
-      aria-label="Georgia"
-      className={cn("relative mx-auto w-full max-w-[920px]", className)}
-      role="group"
-    >
+    <div className={cn("relative w-full", className)}>
       <svg
-        className="h-auto w-full drop-shadow-[0_28px_50px_-36px_rgba(47,107,79,0.45)] select-none"
+        aria-hidden="true"
+        className="block h-auto w-full select-none"
         viewBox={GEORGIA_MAP_VIEWBOX}
       >
         <defs>
-          <linearGradient
-            id={seaGradientId}
-            x1="0%"
-            x2="100%"
-            y1="0%"
-            y2="100%"
-          >
-            <stop offset="0%" stopColor="var(--map-sea-from)" />
-            <stop offset="100%" stopColor="var(--map-sea-to)" />
-          </linearGradient>
+          <RangeHatchPattern id={hatchId} size={9} />
         </defs>
-        <rect
-          fill={`url(#${seaGradientId})`}
-          height="510"
-          opacity="0.35"
-          rx="28"
-          width="1000"
-          x="0"
-          y="0"
-        />
-        <g>
-          {regions.map((region) => {
-            const isHighlighted = highlightedSet.has(region.id);
-            const isDimmed = hasHighlights && !isHighlighted;
-
-            return (
-              <path
-                aria-hidden="true"
-                d={region.path}
-                fill={
-                  isHighlighted
-                    ? "var(--map-region-active)"
-                    : isDimmed
-                      ? "var(--map-region-dim)"
-                      : "var(--map-region)"
-                }
-                key={region.id}
-                stroke="var(--map-stroke)"
-                strokeWidth={0.9}
-                style={{
-                  opacity: isDimmed ? 0.55 : 1,
-                }}
-              />
-            );
-          })}
-        </g>
+        {rest.map((region) => (
+          <path
+            className="fill-card stroke-foreground/35"
+            d={region.path}
+            key={region.id}
+            strokeLinejoin="round"
+            strokeWidth={1}
+            vectorEffect="non-scaling-stroke"
+          />
+        ))}
+        {highlighted.map((region) => (
+          <path
+            className="stroke-primary"
+            d={region.path}
+            fill={`url(#${hatchId})`}
+            key={region.id}
+            strokeLinejoin="round"
+            strokeWidth={1.25}
+            vectorEffect="non-scaling-stroke"
+          />
+        ))}
       </svg>
+      {highlighted.map((region) => {
+        const [x, y] = georgiaRegionLabelPoints[region.id];
+        return (
+          <span
+            aria-hidden="true"
+            className="absolute -translate-1/2"
+            data-compact=""
+            data-range-mark="key"
+            key={region.id}
+            style={{
+              left: `${(x / VIEWBOX_WIDTH) * 100}%`,
+              top: `${(y / VIEWBOX_HEIGHT) * 100}%`,
+            }}
+          >
+            {keys.get(region.id)}
+          </span>
+        );
+      })}
     </div>
   );
 }

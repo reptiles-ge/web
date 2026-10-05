@@ -26,6 +26,7 @@
   --map-sea-to: #e8efe4;
   --map-explorer-from: #eef3ea;
   --map-explorer-to: #f7f8f4;
+  --range-dot: color-mix(in oklab, var(--foreground) 82%, var(--primary));
 }
 
 .dark {
@@ -337,341 +338,348 @@ input[type="search"]::-webkit-search-results-decoration {
   mix-blend-mode: soft-light;
 }
 
-[data-halyomorpha-map-canvas] {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  background:
-    radial-gradient(
-      circle at 32% 28%,
-      rgba(111, 173, 136, 0.18),
-      transparent 32%
-    ),
-    linear-gradient(135deg, #d9e7dd 0%, #b9cfc4 100%);
+[data-range-mark="dot"] {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  flex: none;
+  border-radius: 999px;
+  background: var(--range-dot);
 }
 
-.dark [data-halyomorpha-map-canvas] {
-  background:
-    radial-gradient(
-      circle at 32% 28%,
-      rgba(119, 190, 145, 0.2),
-      transparent 34%
-    ),
-    linear-gradient(135deg, #22362b 0%, #14221b 100%);
+[data-range-mark="photo"] {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 0.875rem;
+  height: 0.875rem;
+  flex: none;
+  border: 2px solid var(--range-dot);
+  border-radius: 999px;
+  background: var(--card);
+  box-shadow:
+    inset 0 0 0 2px var(--card),
+    inset 0 0 0 1rem var(--range-dot);
 }
 
-[data-halyomorpha-map] .leaflet-container {
-  background: #d9e7dd;
-  color: var(--ink-foreground);
+[data-range-mark="swatch"] {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 0.75rem;
+  height: 0.75rem;
+  flex: none;
+  border: 1px solid color-mix(in oklab, var(--foreground) 30%, transparent);
+}
+
+[data-range-mark="key"] {
+  display: inline-flex;
+  width: 1.25rem;
+  height: 1.25rem;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--foreground);
+  color: var(--background);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+@media (max-width: 639px) {
+  [data-range-mark="key"][data-compact] {
+    width: 1rem;
+    height: 1rem;
+    font-size: 0.5625rem;
+  }
+}
+
+[data-range-map] .leaflet-container {
+  background: var(--surface);
+  color: var(--foreground);
   font-family: var(--font-you), var(--font-noto-sans), sans-serif;
   outline: none;
 }
 
-.dark [data-halyomorpha-map] .leaflet-container {
-  background: #20342a;
+[data-range-map] .leaflet-container:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: -2px;
 }
 
-[data-halyomorpha-map] .leaflet-tile-pane {
-  opacity: 0.98;
-  filter: saturate(0.9) brightness(1.02) contrast(0.94);
+[data-range-map] .leaflet-tile-pane {
+  filter: grayscale(1) sepia(0.14) contrast(0.8) brightness(1.08);
 }
 
-.dark [data-halyomorpha-map] .leaflet-tile-pane {
-  opacity: 0.92;
-  filter: invert(1) hue-rotate(180deg) saturate(0.68) brightness(1.24)
-    contrast(0.84);
+.dark [data-range-map] .leaflet-tile-pane {
+  filter: invert(1) grayscale(1) contrast(0.8) brightness(0.9);
 }
 
-[data-halyomorpha-map] .leaflet-top.leaflet-right {
-  top: 0.9rem;
-  right: 0.9rem;
+[data-range-map] .leaflet-tile {
+  width: 257px !important;
+  height: 257px !important;
 }
 
-[data-halyomorpha-map] .halyomorpha-reset-control,
-[data-halyomorpha-map] .leaflet-control-zoom {
+.range-veil {
+  fill: var(--background);
+  fill-opacity: 0.8;
+}
+
+.range-outline {
+  fill: none;
+  stroke: var(--foreground);
+  stroke-opacity: 0.75;
+  stroke-width: 1.25;
+}
+
+.range-region {
+  fill-opacity: 0;
+  stroke: var(--foreground);
+  stroke-opacity: 0.3;
+  stroke-width: 0.75;
+  transition: fill-opacity 200ms ease;
+}
+
+.range-region--confirmed {
+  fill-opacity: var(--range-hatch-opacity, 1);
+}
+
+.range-region--confirmed[data-muted="true"] {
+  fill-opacity: calc(var(--range-hatch-opacity, 1) * 0.35);
+}
+
+.range-highlight {
+  fill: none;
+  stroke: var(--primary);
+  stroke-opacity: 1;
+  stroke-width: 1.75;
+}
+
+.range-highlight--selected {
+  stroke: var(--foreground);
+  stroke-width: 2;
+}
+
+.range-dot {
+  fill: var(--range-dot);
+  fill-opacity: 0.9;
+  stroke: var(--card);
+  stroke-opacity: 1;
+  stroke-width: 1;
+  transform-box: fill-box;
+  transform-origin: center;
+  transition:
+    opacity 200ms ease,
+    transform 120ms ease;
+}
+
+.range-dot:hover {
+  fill-opacity: 1;
+  transform: scale(1.45);
+}
+
+.range-dot.is-dim {
+  opacity: 0.22;
+}
+
+.range-dot.is-selected {
+  fill: var(--primary);
+  fill-opacity: 1;
+  stroke: var(--foreground);
+  stroke-opacity: 1;
+  stroke-width: 2;
+  transform: scale(1.6);
+}
+
+.leaflet-marker-icon.range-photo-shell {
+  display: grid;
+  place-items: center;
+  border: 0;
+  background: transparent;
+  pointer-events: none;
+}
+
+.range-photo-marker {
+  display: grid;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  place-items: center;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: opacity 200ms ease;
+}
+
+.range-photo-marker::before {
+  box-sizing: border-box;
+  width: 0.9375rem;
+  height: 0.9375rem;
+  border: 2px solid var(--range-dot);
+  border-radius: 999px;
+  background: var(--card);
+  box-shadow:
+    inset 0 0 0 2px var(--card),
+    inset 0 0 0 1rem var(--range-dot),
+    0 0 0 1px var(--card);
+  content: "";
+  transition: transform 120ms ease;
+}
+
+.range-photo-marker:hover::before,
+.range-photo-marker[data-selected="true"]::before {
+  transform: scale(1.25);
+}
+
+.range-photo-marker[data-selected="true"]::before {
+  border-color: var(--primary);
+  box-shadow:
+    inset 0 0 0 2px var(--card),
+    inset 0 0 0 1rem var(--primary),
+    0 0 0 1px var(--card);
+}
+
+.range-photo-marker[data-dim="true"] {
+  opacity: 0.3;
+}
+
+.range-photo-marker:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
+}
+
+[data-range-map] .leaflet-top.leaflet-right {
+  top: 0.75rem;
+  right: 0.75rem;
+}
+
+[data-range-map] .leaflet-right .leaflet-control {
+  margin: 0;
+}
+
+[data-range-map] .leaflet-bar {
   overflow: hidden;
-  border: 1px solid color-mix(in oklab, white 14%, transparent);
-  border-radius: 999px;
-  background: color-mix(in oklab, var(--ink) 82%, transparent);
-  box-shadow: 0 18px 40px -28px rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(14px) saturate(140%);
+  border: 1px solid var(--border);
+  border-radius: 0.375rem;
+  box-shadow: none;
 }
 
-[data-halyomorpha-map] .halyomorpha-reset-control button,
-[data-halyomorpha-map] .leaflet-control-zoom a {
-  width: 2rem;
-  height: 2rem;
-  border: 0;
-  background: transparent;
-  color: var(--ink-foreground);
+[data-range-map] .leaflet-bar a {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-bottom: 1px solid var(--border);
+  border-radius: 0;
+  background: var(--card);
+  color: var(--foreground);
   font:
-    700 1.2rem/2rem var(--font-you),
+    400 1.125rem/2.25rem var(--font-you),
     var(--font-noto-sans),
     sans-serif;
 }
 
-[data-halyomorpha-map] .leaflet-control-zoom a + a {
-  border-top: 1px solid color-mix(in oklab, white 10%, transparent);
+[data-range-map] .leaflet-bar a:last-child {
+  border-bottom: 0;
 }
 
-[data-halyomorpha-map] .halyomorpha-reset-control button:hover,
-[data-halyomorpha-map] .halyomorpha-reset-control button:focus,
-[data-halyomorpha-map] .leaflet-control-zoom a:hover,
-[data-halyomorpha-map] .leaflet-control-zoom a:focus {
-  background: color-mix(in oklab, white 8%, transparent);
-  color: var(--ink-foreground);
+[data-range-map] .leaflet-bar a:hover,
+[data-range-map] .leaflet-bar a:focus {
+  background: var(--surface);
+  color: var(--foreground);
 }
 
-[data-halyomorpha-map] .halyomorpha-reset-control button:focus-visible,
-[data-halyomorpha-map] .leaflet-control-zoom a:focus-visible {
+[data-range-map] .leaflet-bar a.leaflet-disabled {
+  background: var(--card);
+  color: color-mix(in oklab, var(--muted-foreground) 50%, transparent);
+}
+
+[data-range-map] .leaflet-bar a:focus-visible {
   outline: 2px solid var(--primary);
-  outline-offset: 2px;
+  outline-offset: -2px;
 }
 
-[data-halyomorpha-map] .leaflet-control-attribution {
-  border-top-left-radius: 0.75rem;
-  background: color-mix(in oklab, var(--ink) 76%, transparent);
-  color: color-mix(in oklab, var(--ink-foreground) 76%, transparent);
+[data-range-map] .leaflet-control-attribution {
+  margin: 0;
+  padding: 0.0625rem 0.4rem;
+  background: color-mix(in oklab, var(--background) 86%, transparent);
+  color: var(--muted-foreground);
   font:
-    500 0.6875rem/1.4 var(--font-you),
+    400 0.625rem/1.5 var(--font-you),
     var(--font-noto-sans),
     sans-serif;
-  backdrop-filter: blur(10px);
 }
 
-[data-halyomorpha-map] .leaflet-control-attribution a {
-  color: color-mix(in oklab, var(--ink-foreground) 86%, transparent);
+[data-range-map] .leaflet-control-attribution a {
+  color: inherit;
 }
 
-.halyomorpha-marker-shell {
+[data-range-map] .range-tooltip {
+  padding: 0.3rem 0.5rem;
   border: 0;
-  background: transparent;
-}
-
-.halyomorpha-count-shell {
-  border: 0;
-  background: transparent;
-}
-
-.halyomorpha-region-count-shell {
-  border: 0;
-  background: transparent;
-}
-
-.halyomorpha-region-count-marker {
-  display: grid;
-  min-width: 2.05rem;
-  height: 1.55rem;
-  place-items: center;
-  border: 1px solid color-mix(in oklab, var(--primary) 72%, white 28%);
-  border-radius: 999px;
-  background: color-mix(in oklab, var(--primary) 42%, var(--ink) 58%);
-  box-shadow:
-    0 0.55rem 1.2rem -0.65rem rgba(0, 0, 0, 0.9),
-    0 0 0 0.22rem color-mix(in oklab, var(--primary) 22%, transparent);
-  color: var(--ink-foreground);
-  cursor: pointer;
-  font:
-    900 0.72rem/1 var(--font-you),
-    var(--font-noto-sans),
-    sans-serif;
-  backdrop-filter: blur(10px) saturate(130%);
-  transition:
-    background 160ms ease,
-    box-shadow 160ms ease,
-    transform 160ms ease;
-}
-
-.halyomorpha-region-count-marker:hover,
-.halyomorpha-region-count-marker:focus-visible {
-  transform: scale(1.08);
-  background: color-mix(in oklab, var(--primary) 55%, var(--ink) 45%);
-  box-shadow:
-    0 0.75rem 1.35rem -0.6rem rgba(0, 0, 0, 0.95),
-    0 0 0 0.3rem color-mix(in oklab, var(--primary) 26%, transparent);
-}
-
-.halyomorpha-region-count-marker:focus-visible {
-  outline: 2px solid var(--primary);
-  outline-offset: 0.18rem;
-}
-
-.halyomorpha-count-marker {
-  display: grid;
-  width: 2rem;
-  height: 2rem;
-  place-items: center;
-  border: 1px solid color-mix(in oklab, var(--primary) 58%, white 42%);
-  border-radius: 999px;
-  background: color-mix(in oklab, var(--ink) 78%, transparent);
-  box-shadow: 0 0.75rem 1.4rem -0.85rem rgba(0, 0, 0, 0.9);
-  color: var(--ink-foreground);
-  cursor: pointer;
-  font:
-    800 0.78rem/1 var(--font-you),
-    var(--font-noto-sans),
-    sans-serif;
-  backdrop-filter: blur(10px) saturate(120%);
-  transition:
-    background 160ms ease,
-    box-shadow 160ms ease,
-    transform 160ms ease;
-}
-
-.halyomorpha-count-marker:hover,
-.halyomorpha-count-marker:focus-visible {
-  transform: scale(1.06);
-  background: color-mix(in oklab, var(--ink) 88%, transparent);
-  box-shadow: 0 0.85rem 1.55rem -0.75rem rgba(0, 0, 0, 0.95);
-}
-
-.halyomorpha-count-marker:focus-visible {
-  outline: 2px solid var(--primary);
-  outline-offset: 0.2rem;
-}
-
-.halyomorpha-total-count-marker {
-  display: grid;
-  min-width: 3.35rem;
-  height: 3.35rem;
-  place-items: center;
-  border: 1px solid color-mix(in oklab, var(--primary) 76%, white 24%);
-  border-radius: 999px;
-  background: color-mix(in oklab, var(--primary) 48%, var(--ink) 52%);
-  box-shadow:
-    0 1rem 1.8rem -0.9rem rgba(0, 0, 0, 0.92),
-    0 0 0 0.28rem color-mix(in oklab, var(--primary) 22%, transparent);
-  color: var(--ink-foreground);
-  cursor: pointer;
-  font:
-    900 0.96rem/1 var(--font-you),
-    var(--font-noto-sans),
-    sans-serif;
-  backdrop-filter: blur(12px) saturate(140%);
-  transition:
-    background 160ms ease,
-    box-shadow 160ms ease,
-    transform 160ms ease;
-}
-
-.halyomorpha-total-count-marker:hover,
-.halyomorpha-total-count-marker:focus-visible {
-  transform: scale(1.06);
-  background: color-mix(in oklab, var(--primary) 58%, var(--ink) 42%);
-  box-shadow:
-    0 1.1rem 2rem -0.85rem rgba(0, 0, 0, 0.95),
-    0 0 0 0.34rem color-mix(in oklab, var(--primary) 28%, transparent);
-}
-
-.halyomorpha-total-count-marker:focus-visible {
-  outline: 2px solid var(--primary);
-  outline-offset: 0.2rem;
-}
-
-[data-halyomorpha-map] .halyomorpha-region-tooltip {
-  border: 0;
-  border-radius: 0.75rem;
-  background: color-mix(in oklab, var(--ink) 88%, transparent);
-  box-shadow: 0 1rem 2rem -1.35rem rgba(0, 0, 0, 0.95);
-  color: var(--ink-foreground);
+  border-radius: 0.3125rem;
+  background: var(--foreground);
+  box-shadow: none;
+  color: var(--background);
   font:
     500 0.75rem/1.35 var(--font-you),
     var(--font-noto-sans),
     sans-serif;
-  padding: 0.48rem 0.58rem;
-  backdrop-filter: blur(12px) saturate(130%);
 }
 
-[data-halyomorpha-map] .halyomorpha-region-tooltip::before {
-  display: none;
+[data-range-map] .range-tooltip::before {
+  border-top-color: var(--foreground);
 }
 
-[data-halyomorpha-map] .halyomorpha-region-tooltip strong,
-[data-halyomorpha-map] .halyomorpha-region-tooltip span,
-[data-halyomorpha-map] .halyomorpha-region-tooltip small,
-[data-halyomorpha-map] .halyomorpha-region-tooltip em {
+[data-range-map] .range-tooltip strong,
+[data-range-map] .range-tooltip span span {
   display: block;
 }
 
-[data-halyomorpha-map] .halyomorpha-region-tooltip span,
-[data-halyomorpha-map] .halyomorpha-region-tooltip small {
-  color: var(--ink-muted);
+[data-range-map] .range-tooltip strong {
+  font-weight: 600;
 }
 
-[data-halyomorpha-map] .halyomorpha-region-tooltip small {
-  margin-top: 0.12rem;
-  font-size: 0.67rem;
+[data-range-map] .range-tooltip span span {
+  font-weight: 400;
+  opacity: 0.72;
 }
 
-[data-halyomorpha-map] .halyomorpha-region-tooltip em {
-  margin-top: 0.28rem;
-  color: var(--primary);
-  font-style: normal;
-  font-weight: 700;
-}
-
-.halyomorpha-field-marker {
-  position: relative;
-  width: 2.75rem;
-  height: 2.75rem;
+[data-range-map] .range-popup .leaflet-popup-content-wrapper {
   padding: 0;
-  border: 0;
-  border-radius: 999px;
-  background: transparent;
-  cursor: pointer;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background: var(--card);
+  box-shadow: 0 0.75rem 1.75rem -1rem rgb(0 0 0 / 0.45);
+  color: var(--foreground);
 }
 
-.halyomorpha-field-marker::before,
-.halyomorpha-field-marker::after {
-  position: absolute;
-  content: "";
-  border-radius: 999px;
-  transition:
-    box-shadow 160ms ease,
-    opacity 160ms ease,
-    transform 160ms ease;
+[data-range-map] .range-popup .leaflet-popup-content {
+  margin: 0;
+  font: inherit;
+  line-height: inherit;
 }
 
-.halyomorpha-field-marker::before {
-  inset: 0.75rem;
-  border: 1px solid color-mix(in oklab, var(--primary) 68%, white 32%);
-  background: color-mix(in oklab, var(--primary) 22%, transparent);
-  box-shadow:
-    0 0 0 0.28rem color-mix(in oklab, var(--primary) 20%, transparent),
-    0 0.7rem 1.4rem -0.7rem rgba(0, 0, 0, 0.9);
+[data-range-map] .range-popup .leaflet-popup-tip {
+  border: 1px solid var(--border);
+  background: var(--card);
+  box-shadow: none;
 }
 
-.halyomorpha-field-marker::after {
-  inset: 1.17rem;
-  background: color-mix(in oklab, var(--primary) 70%, white 30%);
-  box-shadow: 0 0 0 1px color-mix(in oklab, black 36%, transparent);
+[data-range-map] .range-popup a {
+  color: var(--primary);
 }
 
-.halyomorpha-field-marker[data-kind="location"]::before {
-  border-style: dashed;
-  background: color-mix(in oklab, var(--primary) 9%, transparent);
-}
+@media (pointer: coarse) {
+  [data-range-map] .leaflet-bar a {
+    width: 2.5rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
+  }
 
-.halyomorpha-field-marker[data-kind="location"]::after {
-  inset: 1.08rem;
-  border: 2px solid color-mix(in oklab, var(--primary) 72%, white 28%);
-  background: transparent;
-}
-
-.halyomorpha-field-marker:hover::before,
-.halyomorpha-field-marker:focus-visible::before,
-.halyomorpha-field-marker[data-selected="true"]::before {
-  opacity: 1;
-  transform: scale(1.18);
-  box-shadow:
-    0 0 0 0.38rem color-mix(in oklab, var(--primary) 30%, transparent),
-    0 0.9rem 1.8rem -0.75rem rgba(0, 0, 0, 0.95);
-}
-
-.halyomorpha-field-marker:focus-visible {
-  outline: 2px solid var(--primary);
-  outline-offset: 0.25rem;
+  .range-photo-marker {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
 }
 
 [data-not-found-shell]:has([data-not-found-rich]) > [data-not-found-fallback] {
@@ -679,9 +687,10 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .halyomorpha-count-marker,
-  .halyomorpha-field-marker::before,
-  .halyomorpha-field-marker::after {
+  .range-region,
+  .range-dot,
+  .range-photo-marker,
+  .range-photo-marker::before {
     transition: none;
   }
 }
