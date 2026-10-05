@@ -1,15 +1,38 @@
 "use client";
 
-import { lazy, Suspense, useEffect, useRef, useState } from "react";
+import { ArrowLeft } from "lucide-react";
+import {
+  lazy,
+  type RefObject,
+  Suspense,
+  useCallback,
+  useEffect,
+  useId,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 
+import type { RegionPathId } from "@/data/georgia-paths";
 import type { HalyomorphaRangeRegionFeatureCollection } from "@/data/halyomorphaRangeRegions";
+import type { AppLocale } from "@/i18n/routing";
 
+import { HalyomorphaRangeLedger } from "@/components/map/HalyomorphaRangeLedger";
 import {
   HALYOMORPHA_REGION_QUERY_PARAM,
-  HALYOMORPHA_REGION_SELECT_EVENT,
+  type HalyomorphaFieldRecord,
   type HalyomorphaLazyMapProps,
-  type HalyomorphaRangeMapProps,
+  type HalyomorphaRangeMapCopy,
+  type HalyomorphaRangeRegionLabel,
+  type HalyomorphaRangeRegionName,
+  type HalyomorphaSelectedRecord,
 } from "@/components/map/HalyomorphaRangeMapTypes";
+import {
+  RangeHatchPattern,
+  RangeHatchSwatch,
+} from "@/components/map/RangeHatch";
+import { cn } from "@/lib/cn";
+import { loadHalyomorphaOccurrences } from "@/lib/halyomorphaOccurrenceApi";
 
 const HalyomorphaRangeMapClient = lazy(() =>
   import("@/components/map/HalyomorphaRangeMapClient").then((mod) => ({
@@ -17,74 +40,411 @@ const HalyomorphaRangeMapClient = lazy(() =>
   })),
 );
 
-export function HalyomorphaRangeMap(props: HalyomorphaLazyMapProps) {
-  const wrapperRef = useRef<HTMLDivElement>(null);
-  const [shouldLoadMap, setShouldLoadMap] = useState(false);
-  const [mapData, setMapData] = useState<null | Pick<
-    HalyomorphaRangeMapProps,
-    "officialRange"
-  >>(null);
-  const [loadError, setLoadError] = useState(false);
+const NO_RECORDS: HalyomorphaFieldRecord[] = [];
+
+type MapData = {
+  range: HalyomorphaRangeRegionFeatureCollection;
+  records: HalyomorphaFieldRecord[];
+};
+
+export function HalyomorphaRangeMap({
+  children,
+  copy,
+  dataRevision,
+  locale,
+  occurrenceSummary,
+  officialRegionIds,
+  regionNames,
+  speciesId,
+}: HalyomorphaLazyMapProps) {
+  const hatchId = `range-hatch-${useId().replace(/:/g, "")}`;
+  const plateRef = useRef<HTMLDivElement>(null);
+  const [selectedRegionId, setSelectedRegionId] = useState<null | RegionPathId>(
+    null,
+  );
+  const [hoveredRegionId, setHoveredRegionId] = useState<null | RegionPathId>(
+    null,
+  );
+  const [selectedRecord, setSelectedRecord] =
+    useState<HalyomorphaSelectedRecord | null>(null);
+  const [atOverview, setAtOverview] = useState(true);
+  const [resetSignal, setResetSignal] = useState(0);
+  const { photoRecordCount, recordsByRegion, totalRecords } = occurrenceSummary;
+  const hasLedger = recordsByRegion.length + officialRegionIds.length > 0;
+
+  const [shouldLoad, activate] = useRangeMapActivation(
+    plateRef,
+    regionNames,
+    setSelectedRegionId,
+  );
+  const { loadError, mapData } = useRangeMapData({
+    dataRevision,
+    enabled: shouldLoad,
+    hasRecords: totalRecords > 0,
+    locale,
+    officialRegionIds,
+    speciesId,
+  });
+  const mapRegions = useMemo(
+    () => regionLabels(regionNames, recordsByRegion),
+    [recordsByRegion, regionNames],
+  );
+  const selectedRegion = mapRegions.find(
+    (region) => region.id === selectedRegionId,
+  );
+
+  const selectRegion = useCallback(
+    (regionId: RegionPathId) => {
+      setSelectedRegionId(regionId);
+      setSelectedRecord(null);
+      activate();
+      updateRegionUrl(regionId);
+    },
+    [activate],
+  );
+  const reset = useCallback(() => {
+    setSelectedRegionId(null);
+    setSelectedRecord(null);
+    setResetSignal((signal) => signal + 1);
+    updateRegionUrl(null);
+  }, []);
+  const selectRecord = useCallback((recordId: null | string) => {
+    setSelectedRecord(recordId ? { id: recordId, reveal: false } : null);
+  }, []);
+  const toggleRegion = (regionId: RegionPathId) => {
+    if (selectedRegionId === regionId) {
+      reset();
+      return;
+    }
+    selectRegion(regionId);
+    revealPlate(plateRef.current);
+  };
+  const revealRecord = (recordId: string) => {
+    setSelectedRecord({ id: recordId, reveal: true });
+    revealPlate(plateRef.current);
+  };
+
+  return (
+    <div
+      className={cn(
+        "grid gap-x-12 xl:gap-x-16",
+        hasLedger &&
+          "lg:grid-cols-[minmax(0,1fr)_19rem] lg:grid-rows-[auto_auto_1fr] xl:grid-cols-[minmax(0,1fr)_21rem]",
+      )}
+    >
+      <svg
+        aria-hidden="true"
+        className="pointer-events-none absolute size-0"
+        focusable="false"
+      >
+        <defs>
+          <RangeHatchPattern id={hatchId} />
+        </defs>
+      </svg>
+
+      <div
+        className="relative isolate z-0 -mx-6 aspect-6/5 overflow-hidden border-y border-border bg-surface sm:mx-0 sm:aspect-3/2 sm:rounded-card sm:border lg:col-start-1 lg:row-start-1 lg:aspect-5/3 lg:max-h-[600px]"
+        data-range-map=""
+        ref={plateRef}
+      >
+        {mapData ? (
+          <Suspense fallback={<PlateMessage>{copy.loadingLabel}</PlateMessage>}>
+            <HalyomorphaRangeMapClient
+              copy={copy}
+              hatchId={hatchId}
+              hoveredRegionId={hoveredRegionId}
+              onHoverRegion={setHoveredRegionId}
+              onOverviewChange={setAtOverview}
+              onSelectRecord={selectRecord}
+              onSelectRegion={selectRegion}
+              range={mapData.range}
+              records={mapData.records}
+              regions={mapRegions}
+              resetSignal={resetSignal}
+              selectedRecord={selectedRecord}
+              selectedRegionId={selectedRegionId}
+            />
+          </Suspense>
+        ) : (
+          <PlateStatus copy={copy} failed={loadError} />
+        )}
+        <RangeMapStrip
+          atOverview={atOverview}
+          copy={copy}
+          locale={locale}
+          onReset={reset}
+          ready={mapData !== null}
+          region={selectedRegion}
+        />
+      </div>
+
+      <RangeMapLegend
+        copy={copy}
+        hatchId={hatchId}
+        showOfficialRegions={officialRegionIds.length > 0}
+        showPhotoRecords={photoRecordCount > 0}
+        showRecords={totalRecords > 0}
+      />
+
+      <HalyomorphaRangeLedger
+        copy={copy}
+        hatchId={hatchId}
+        hoveredRegionId={hoveredRegionId}
+        locale={locale}
+        officialRegionIds={officialRegionIds}
+        onHoverRegion={setHoveredRegionId}
+        onRevealRecord={revealRecord}
+        onToggleRegion={toggleRegion}
+        records={mapData?.records ?? NO_RECORDS}
+        recordsByRegion={recordsByRegion}
+        regionNames={regionNames}
+        selectedRecordId={selectedRecord?.id}
+        selectedRegionId={selectedRegionId}
+      />
+
+      {children ? (
+        <div className="mt-8 lg:col-start-1 lg:row-start-3 lg:mt-6">
+          {children}
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
+function PlateMessage({
+  children,
+  status = true,
+}: {
+  children: string;
+  status?: boolean;
+}) {
+  return (
+    <p
+      className="absolute inset-0 flex items-center justify-center px-8 text-center text-[13px] leading-relaxed text-muted-foreground"
+      role={status ? "status" : "alert"}
+    >
+      {children}
+    </p>
+  );
+}
+
+function PlateStatus({
+  copy,
+  failed,
+}: {
+  copy: HalyomorphaRangeMapCopy;
+  failed: boolean;
+}) {
+  return (
+    <PlateMessage status={!failed}>
+      {failed ? copy.mapError : copy.loadingLabel}
+    </PlateMessage>
+  );
+}
+
+function RangeMapLegend({
+  copy,
+  hatchId,
+  showOfficialRegions,
+  showPhotoRecords,
+  showRecords,
+}: {
+  copy: HalyomorphaRangeMapCopy;
+  hatchId: string;
+  showOfficialRegions: boolean;
+  showPhotoRecords: boolean;
+  showRecords: boolean;
+}) {
+  return (
+    <ul className="mt-3 flex flex-wrap gap-x-5 gap-y-1.5 text-[12px] leading-snug text-muted-foreground lg:col-start-1 lg:row-start-2">
+      {showRecords ? (
+        <li className="inline-flex items-center gap-2">
+          <span aria-hidden="true" data-range-mark="dot" />
+          {copy.locationRecordLabel}
+        </li>
+      ) : null}
+      {showPhotoRecords ? (
+        <li className="inline-flex items-center gap-2">
+          <span aria-hidden="true" data-range-mark="photo" />
+          {copy.photoRecordLabel}
+        </li>
+      ) : null}
+      {showOfficialRegions ? (
+        <li className="inline-flex items-center gap-2">
+          <RangeHatchSwatch id={hatchId} />
+          {copy.officialRegionLabel}
+        </li>
+      ) : null}
+    </ul>
+  );
+}
+
+function RangeMapStrip({
+  atOverview,
+  copy,
+  locale,
+  onReset,
+  ready,
+  region,
+}: {
+  atOverview: boolean;
+  copy: HalyomorphaRangeMapCopy;
+  locale: AppLocale;
+  onReset: () => void;
+  ready: boolean;
+  region?: HalyomorphaRangeRegionLabel;
+}) {
+  if (!ready) return null;
+  if (!region && atOverview) return null;
+
+  return (
+    <div className="absolute top-3 left-3 z-800 flex max-w-[calc(100%-4.75rem)] items-stretch overflow-hidden rounded-full border border-border bg-card text-[13px] leading-none text-foreground">
+      <button
+        className="inline-flex min-h-9 shrink-0 items-center gap-1.5 pr-2.5 pl-3.5 font-medium transition-colors hover:bg-surface focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-primary pointer-coarse:min-h-10"
+        onClick={onReset}
+        type="button"
+      >
+        <ArrowLeft aria-hidden="true" className="size-3.5" />
+        {copy.resetToGeorgiaLabel}
+      </button>
+      {region ? (
+        <p
+          aria-live="polite"
+          className="flex min-w-0 items-center border-l border-border pr-4 pl-2.5 text-muted-foreground"
+        >
+          <span className="truncate">
+            <span className="font-medium text-foreground">{region.name}</span>
+            <span className="hidden sm:inline">
+              {" · "}
+              {region.count > 0
+                ? `${region.count.toLocaleString(locale)} ${copy.regionRecordsLabel}`
+                : copy.noRegionRecordsLabel}
+            </span>
+          </span>
+        </p>
+      ) : null}
+    </div>
+  );
+}
+
+function regionLabels(
+  regionNames: HalyomorphaRangeRegionName[],
+  recordsByRegion: HalyomorphaLazyMapProps["occurrenceSummary"]["recordsByRegion"],
+): HalyomorphaRangeRegionLabel[] {
+  const counts = new Map(
+    recordsByRegion.map((region) => [region.id, region.count]),
+  );
+  return regionNames.map((region) => ({
+    count: counts.get(region.id) ?? 0,
+    id: region.id,
+    name: region.name,
+  }));
+}
+
+function revealPlate(plate: HTMLElement | null) {
+  if (!plate) return;
+  const { bottom, top } = plate.getBoundingClientRect();
+  if (top >= 96 && bottom <= window.innerHeight) return;
+  plate.scrollIntoView({ behavior: scrollBehavior(), block: "center" });
+}
+
+function scrollBehavior(): ScrollBehavior {
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ? "instant"
+    : "smooth";
+}
+
+function updateRegionUrl(regionId: null | RegionPathId) {
+  const url = new URL(window.location.href);
+  if (regionId) {
+    url.searchParams.set(HALYOMORPHA_REGION_QUERY_PARAM, regionId);
+  } else {
+    url.searchParams.delete(HALYOMORPHA_REGION_QUERY_PARAM);
+  }
+  window.history.replaceState(
+    window.history.state,
+    "",
+    `${url.pathname}${url.search}${url.hash}`,
+  );
+}
+
+function useRangeMapActivation(
+  plateRef: RefObject<HTMLDivElement | null>,
+  regionNames: HalyomorphaRangeRegionName[],
+  onDeepLink: (regionId: RegionPathId) => void,
+) {
+  const [shouldLoad, setShouldLoad] = useState(false);
+  const activate = useCallback(() => setShouldLoad(true), []);
 
   useEffect(() => {
-    const wrapper = wrapperRef.current;
-    if (!wrapper || shouldLoadMap) return;
-    if (
-      new URLSearchParams(window.location.search).has(
-        HALYOMORPHA_REGION_QUERY_PARAM,
-      )
-    ) {
+    const plate = plateRef.current;
+    if (!plate || shouldLoad) return;
+    const initialRegionId = new URLSearchParams(window.location.search).get(
+      HALYOMORPHA_REGION_QUERY_PARAM,
+    );
+    const initialRegion = regionNames.find(
+      (region) => region.id === initialRegionId,
+    );
+    if (initialRegion) {
       const frame = window.requestAnimationFrame(() => {
-        setShouldLoadMap(true);
-        wrapper.scrollIntoView({ behavior: "smooth", block: "center" });
+        onDeepLink(initialRegion.id);
+        setShouldLoad(true);
+        plate.scrollIntoView({ behavior: scrollBehavior(), block: "center" });
       });
       return () => window.cancelAnimationFrame(frame);
     }
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry?.isIntersecting) return;
-        setShouldLoadMap(true);
+        setShouldLoad(true);
         observer.disconnect();
       },
       { rootMargin: "420px" },
     );
-    observer.observe(wrapper);
+    observer.observe(plate);
     return () => observer.disconnect();
-  }, [shouldLoadMap]);
+  }, [onDeepLink, plateRef, regionNames, shouldLoad]);
+
+  return [shouldLoad, activate] as const;
+}
+
+function useRangeMapData({
+  dataRevision,
+  enabled,
+  hasRecords,
+  locale,
+  officialRegionIds,
+  speciesId,
+}: {
+  dataRevision: string;
+  enabled: boolean;
+  hasRecords: boolean;
+  locale: AppLocale;
+  officialRegionIds: string[];
+  speciesId: string;
+}) {
+  const [mapData, setMapData] = useState<MapData | null>(null);
+  const [loadError, setLoadError] = useState(false);
 
   useEffect(() => {
-    const selectRegion = (event: Event) => {
-      const regionId = (event as CustomEvent<{ regionId?: string }>).detail
-        ?.regionId;
-      if (!regionId) return;
-      const url = new URL(window.location.href);
-      url.searchParams.set(HALYOMORPHA_REGION_QUERY_PARAM, regionId);
-      window.history.replaceState(
-        window.history.state,
-        "",
-        `${url.pathname}${url.search}${url.hash}`,
-      );
-      setShouldLoadMap(true);
-    };
-    window.addEventListener(HALYOMORPHA_REGION_SELECT_EVENT, selectRegion);
-    return () =>
-      window.removeEventListener(HALYOMORPHA_REGION_SELECT_EVENT, selectRegion);
-  }, []);
-
-  useEffect(() => {
-    if (!shouldLoadMap) return;
+    if (!enabled) return;
     const controller = new AbortController();
-    fetch("/geodata/georgia-regions-v1.json", {
-      signal: controller.signal,
-    })
-      .then((response) => {
+    Promise.all([
+      fetch("/geodata/georgia-regions-v1.json", {
+        signal: controller.signal,
+      }).then((response) => {
         if (!response.ok) throw new Error("Georgia regions request failed");
         return response.json() as Promise<HalyomorphaRangeRegionFeatureCollection>;
-      })
-      .then((georgiaRegions) => {
-        const officialIds = new Set(props.officialRegionIds);
+      }),
+      hasRecords
+        ? loadHalyomorphaOccurrences(speciesId, locale, dataRevision)
+        : NO_RECORDS,
+    ])
+      .then(([georgiaRegions, records]) => {
+        if (controller.signal.aborted) return;
+        const officialIds = new Set(officialRegionIds);
         setMapData({
-          officialRange: {
+          range: {
             ...georgiaRegions,
             features: georgiaRegions.features.map((feature) => ({
               ...feature,
@@ -94,65 +454,14 @@ export function HalyomorphaRangeMap(props: HalyomorphaLazyMapProps) {
               },
             })),
           },
+          records,
         });
       })
       .catch(() => {
         if (!controller.signal.aborted) setLoadError(true);
       });
     return () => controller.abort();
-  }, [shouldLoadMap, props.locale, props.officialRegionIds, props.speciesId]);
+  }, [dataRevision, enabled, hasRecords, locale, officialRegionIds, speciesId]);
 
-  return (
-    <div
-      aria-label={props.copy.mapAria}
-      className="relative isolate z-0 h-[430px] overflow-hidden rounded-media border border-white/10 bg-ink shadow-[0_24px_80px_-48px_rgba(0,0,0,0.9)] md:h-[500px] lg:h-[540px]"
-      data-halyomorpha-map=""
-      ref={wrapperRef}
-      role="region"
-    >
-      {mapData ? (
-        <Suspense fallback={<HalyomorphaMapFallback copy={props.copy} />}>
-          <HalyomorphaRangeMapClient {...props} {...mapData} />
-        </Suspense>
-      ) : loadError ? (
-        <div className="absolute inset-0 flex items-center justify-center bg-ink p-6 text-center text-[13px] text-ink-foreground">
-          {props.copy.mapError}
-        </div>
-      ) : (
-        <HalyomorphaMapFallback copy={props.copy} />
-      )}
-    </div>
-  );
-}
-
-function HalyomorphaMapFallback({
-  copy,
-}: {
-  copy: HalyomorphaLazyMapProps["copy"];
-}) {
-  return (
-    <div
-      aria-label={copy.loadingLabel}
-      className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-[radial-gradient(circle_at_50%_35%,rgba(111,173,136,0.16),transparent_42%),linear-gradient(135deg,#111a15,#060908)] px-6 text-center"
-      role="status"
-    >
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-size-[42px_42px] opacity-25"
-      />
-      <div
-        aria-hidden="true"
-        className="relative flex size-14 items-center justify-center rounded-full border border-white/10 bg-white/5 shadow-[0_0_36px_rgba(111,173,136,0.16)]"
-      >
-        <span className="absolute size-10 animate-spin rounded-full border-[3px] border-white/10 border-t-emerald-300 motion-reduce:animate-none" />
-        <span className="size-2 rounded-full bg-emerald-300/90" />
-      </div>
-      <p
-        aria-hidden="true"
-        className="relative text-sm font-medium text-white/85"
-      >
-        {copy.loadingText}
-      </p>
-    </div>
-  );
+  return { loadError, mapData };
 }
