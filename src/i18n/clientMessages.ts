@@ -12,6 +12,11 @@ export const ROOT_CLIENT_MESSAGE_NAMESPACES = [
   "theme",
 ] as const satisfies readonly ClientMessageNamespace[];
 
+export const LOCALE_LAYOUT_CLIENT_MESSAGE_NAMESPACES = [
+  ...ROOT_CLIENT_MESSAGE_NAMESPACES,
+  "errorPage",
+] as const satisfies readonly ClientMessageNamespace[];
+
 export const NOT_FOUND_CLIENT_MESSAGE_NAMESPACES = [
   ...ROOT_CLIENT_MESSAGE_NAMESPACES,
   "errorPage",

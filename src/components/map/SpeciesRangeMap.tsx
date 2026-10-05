@@ -20,6 +20,7 @@ import { SPECIES_SECTION_IDS } from "@/lib/toc";
 
 type HalyomorphaRangeCopy = {
   closeLabel: string;
+  clusterLabel: string;
   confirmedStatusLabel: string;
   footerDataLabel: string;
   footerINaturalistLabel: string;
@@ -63,6 +64,7 @@ type SpeciesRangeMapProps = {
 const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
   en: {
     closeLabel: "Close field record",
+    clusterLabel: "Several records in one spot",
     confirmedStatusLabel: "Distribution confirmed",
     footerDataLabel: "Data",
     footerINaturalistLabel: "iNaturalist",
@@ -94,6 +96,7 @@ const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
   },
   ka: {
     closeLabel: "საველე ჩანაწერის დახურვა",
+    clusterLabel: "რამდენიმე ჩანაწერი ერთ ადგილას",
     confirmedStatusLabel: "გავრცელება დადასტურებულია",
     footerDataLabel: "მონაცემები",
     footerINaturalistLabel: "iNaturalist",
@@ -125,6 +128,7 @@ const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
   },
   ru: {
     closeLabel: "Закрыть полевую запись",
+    clusterLabel: "Несколько записей в одном месте",
     confirmedStatusLabel: "Распространение подтверждено",
     footerDataLabel: "Данные",
     footerINaturalistLabel: "iNaturalist",
@@ -155,6 +159,7 @@ const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
   },
   tr: {
     closeLabel: "Arazi kaydını kapat",
+    clusterLabel: "Aynı yerde birkaç kayıt",
     confirmedStatusLabel: "Yayılış doğrulandı",
     footerDataLabel: "Veri",
     footerINaturalistLabel: "iNaturalist",
@@ -2613,6 +2618,7 @@ function HalyomorphaRangeSection({
 }) {
   const mapCopy = {
     closeLabel: copy.closeLabel,
+    clusterLabel: copy.clusterLabel,
     confirmedStatusLabel: copy.confirmedStatusLabel,
     galleryAction: copy.galleryAction,
     latestRecordsLabel: copy.latestRecordsLabel,

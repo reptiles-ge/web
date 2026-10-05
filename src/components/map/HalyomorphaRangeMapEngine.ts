@@ -28,7 +28,10 @@ const REGION_MAX_ZOOM = 10.5;
 const REVEAL_ZOOM_STEP = 3.5;
 const FLY_SECONDS = 0.65;
 const TOUCH_TOLERANCE = 22;
-const CROWD_RADIUS = 24;
+const CLUSTER_RADIUS = 28;
+const CLUSTER_MAX_ZOOM = MAX_ZOOM - 1;
+const CLUSTER_MARK_RADIUS = { l: 14, m: 12, s: 10 };
+const PHOTO_MARK_RADIUS = 7.5;
 
 export type HalyomorphaRangeMapEngine = {
   destroy: () => void;
@@ -56,6 +59,17 @@ type HalyomorphaRangeMapEngineOptions = {
   range: HalyomorphaRangeRegionFeatureCollection;
   records: HalyomorphaFieldRecord[];
   regions: HalyomorphaRangeRegionLabel[];
+};
+
+type RecordGroup = {
+  center: L.Point;
+  records: HalyomorphaFieldRecord[];
+};
+
+type RecordPoint = {
+  point: L.Point;
+  radius: number;
+  record: HalyomorphaFieldRecord;
 };
 
 export function createHalyomorphaRangeMap({
@@ -93,6 +107,7 @@ export function createHalyomorphaRangeMap({
   const countryBounds = L.latLngBounds(rings.flat());
   const regionLayers = new Map<RegionPathId, L.Polygon>();
   const dots = new Map<string, L.CircleMarker>();
+  const markers = new Map<string, L.Layer>();
   const photoButtons = new Map<string, HTMLButtonElement>();
   const recordsById = new Map(records.map((record) => [record.id, record]));
   let selectedId: null | RegionPathId = null;
@@ -194,19 +209,11 @@ export function createHalyomorphaRangeMap({
     const base = records.length > 300 ? 3.25 : records.length > 60 ? 3.75 : 4.5;
     return base + Math.min(3, Math.max(0, map.getZoom() - overviewZoom) * 0.7);
   };
-  const isCrowded = (record: HalyomorphaFieldRecord) => {
-    const point = map.latLngToContainerPoint([record.lat, record.lng]);
-    return records.some(
-      (other) =>
-        other.id !== record.id &&
-        map.latLngToContainerPoint([other.lat, other.lng]).distanceTo(point) <
-          CROWD_RADIUS,
-    );
-  };
   const nearestRecord = (point: L.Point) => {
     let nearest: HalyomorphaFieldRecord | null = null;
     let nearestDistance = TOUCH_TOLERANCE;
     for (const record of records) {
+      if (!shown.has(record.id)) continue;
       const distance = map
         .latLngToContainerPoint([record.lat, record.lng])
         .distanceTo(point);
@@ -217,20 +224,6 @@ export function createHalyomorphaRangeMap({
     }
     return nearest;
   };
-  const tapRecord = (record: HalyomorphaFieldRecord) => {
-    if (
-      coarse &&
-      record.regionId &&
-      !selectedId &&
-      atOverview() &&
-      isCrowded(record)
-    ) {
-      onSelectRegion(record.regionId);
-      return;
-    }
-    onSelectRecord(record.id);
-  };
-
   const hoverTooltip = L.tooltip({
     className: "range-tooltip",
     direction: "top",
@@ -323,10 +316,10 @@ export function createHalyomorphaRangeMap({
       button.className = "range-photo-marker";
       button.setAttribute("aria-label", record.accessibleLabel);
       button.setAttribute("aria-pressed", "false");
-      button.addEventListener("click", () => tapRecord(record));
+      button.addEventListener("click", () => onSelectRecord(record.id));
       L.DomEvent.disableClickPropagation(button);
       photoButtons.set(record.id, button);
-      L.marker([record.lat, record.lng], {
+      const marker = L.marker([record.lat, record.lng], {
         icon: L.divIcon({
           className: "range-photo-shell",
           html: button,
@@ -334,7 +327,9 @@ export function createHalyomorphaRangeMap({
           iconSize: [40, 40],
         }),
         keyboard: false,
-      }).addTo(map);
+        zIndexOffset: 1000,
+      });
+      markers.set(record.id, marker);
       continue;
     }
     const dot = L.circleMarker([record.lat, record.lng], {
@@ -344,7 +339,7 @@ export function createHalyomorphaRangeMap({
     });
     dot.on("click", (event) => {
       L.DomEvent.stopPropagation(event);
-      tapRecord(record);
+      onSelectRecord(record.id);
     });
     if (!coarse) {
       dot.on("mouseover", () => {
@@ -359,9 +354,16 @@ export function createHalyomorphaRangeMap({
         onHoverRegion(null);
       });
     }
-    dot.addTo(map);
     dots.set(record.id, dot);
+    markers.set(record.id, dot);
   }
+
+  const shown = new Set<string>();
+  const clusterMarks: {
+    element: HTMLElement;
+    marker: L.Marker;
+    records: HalyomorphaFieldRecord[];
+  }[] = [];
 
   const applyStates = () => {
     regionLayers.forEach((layer, id) => {
@@ -379,6 +381,13 @@ export function createHalyomorphaRangeMap({
       );
       element.classList.toggle("is-selected", id === activeRecordId);
     });
+    for (const mark of clusterMarks) {
+      mark.element.dataset.dim =
+        selectedId &&
+        !mark.records.some((record) => record.regionId === selectedId)
+          ? "true"
+          : "";
+    }
     photoButtons.forEach((button, id) => {
       const selected = id === activeRecordId;
       button.dataset.dim =
@@ -388,6 +397,85 @@ export function createHalyomorphaRangeMap({
       button.dataset.selected = selected ? "true" : "";
       button.setAttribute("aria-pressed", selected ? "true" : "false");
     });
+  };
+
+  const openCluster = (members: HalyomorphaFieldRecord[]) => {
+    const bounds = L.latLngBounds(
+      members.map((record) => [record.lat, record.lng]),
+    );
+    const zoom = Math.min(
+      MAX_ZOOM,
+      Math.max(map.getZoom() + 1.5, map.getBoundsZoom(bounds.pad(0.4))),
+    );
+    onSelectRecord(null);
+    if (reducedMotion()) {
+      map.setView(bounds.getCenter(), zoom, { animate: false });
+      return;
+    }
+    map.flyTo(bounds.getCenter(), zoom, { duration: FLY_SECONDS });
+  };
+  const addClusterMark = (group: RecordGroup) => {
+    const count = group.records.length;
+    const latlng = map.containerPointToLatLng(group.center);
+    const element = document.createElement("div");
+    element.className = "range-cluster";
+    element.dataset.size = clusterSize(count);
+    element.setAttribute("aria-hidden", "true");
+    element.textContent = String(count);
+    element.addEventListener("click", () => openCluster(group.records));
+    L.DomEvent.disableClickPropagation(element);
+    if (!coarse) {
+      const content = tooltipContent(`${count} ${labels.regionRecordsLabel}`);
+      element.addEventListener("mouseenter", () =>
+        showTooltip(content, latlng),
+      );
+      element.addEventListener("mouseleave", () => hoverTooltip.remove());
+    }
+    clusterMarks.push({
+      element,
+      marker: L.marker(latlng, {
+        icon: L.divIcon({
+          className: "range-cluster-shell",
+          html: element,
+          iconSize: [0, 0],
+        }),
+        interactive: false,
+        keyboard: false,
+      }).addTo(map),
+      records: group.records,
+    });
+  };
+  const syncClusters = () => {
+    for (const mark of clusterMarks) mark.marker.remove();
+    clusterMarks.length = 0;
+    hoverTooltip.remove();
+    const clustered = new Set<string>();
+    if (map.getZoom() < CLUSTER_MAX_ZOOM) {
+      const items: RecordPoint[] = [];
+      const radius = dotRadius();
+      for (const record of records) {
+        if (record.id === activeRecordId) continue;
+        items.push({
+          point: map.latLngToContainerPoint([record.lat, record.lng]),
+          radius: record.kind === "photo" ? PHOTO_MARK_RADIUS : radius,
+          record,
+        });
+      }
+      for (const group of groupRecords(items)) {
+        for (const record of group.records) clustered.add(record.id);
+        addClusterMark(group);
+      }
+    }
+    markers.forEach((marker, id) => {
+      if (clustered.has(id)) {
+        if (shown.delete(id)) marker.remove();
+        return;
+      }
+      if (shown.has(id)) return;
+      shown.add(id);
+      marker.addTo(map);
+    });
+    applyStates();
   };
 
   const popup = L.popup({
@@ -426,6 +514,7 @@ export function createHalyomorphaRangeMap({
       if (map.getZoom() > overviewZoom + 0.2) map.dragging.enable();
       else map.dragging.disable();
     }
+    syncClusters();
   };
   const syncOverview = () => {
     const next = atOverview();
@@ -435,6 +524,7 @@ export function createHalyomorphaRangeMap({
   };
   map.on("zoomend", syncZoomState);
   map.on("moveend", syncOverview);
+  syncClusters();
 
   const handleWheel = (event: WheelEvent) => {
     if (!event.ctrlKey && !event.metaKey) return;
@@ -482,7 +572,7 @@ export function createHalyomorphaRangeMap({
       focusToken += 1;
       const token = focusToken;
       activeRecordId = record?.id ?? null;
-      applyStates();
+      syncClusters();
       if (!record) {
         if (map.hasLayer(popup)) map.closePopup(popup);
         return;
@@ -550,6 +640,100 @@ export function createHalyomorphaRangeMap({
       map.fitBounds(layer.getBounds(), { ...options, animate: false });
     },
   };
+}
+
+function clusterSize(count: number) {
+  if (count < 10) return "s";
+  return count < 100 ? "m" : "l";
+}
+
+function collidingGroups(groups: RecordGroup[]) {
+  for (let i = 0; i < groups.length; i += 1) {
+    for (let j = i + 1; j < groups.length; j += 1) {
+      const reach = (markRadius(groups[i]) + markRadius(groups[j])) * 0.9;
+      if (groups[i].center.distanceTo(groups[j].center) < reach) {
+        return [groups[i], groups[j]] as const;
+      }
+    }
+  }
+  return null;
+}
+
+function groupRecords(items: RecordPoint[]): RecordGroup[] {
+  const crowding = new Map<RecordPoint, number>();
+  for (const item of items) {
+    let count = 0;
+    for (const other of items) {
+      if (item.point.distanceTo(other.point) < CLUSTER_RADIUS) count += 1;
+    }
+    crowding.set(item, count);
+  }
+  const seeds = [...items].sort(
+    (a, b) => (crowding.get(b) ?? 0) - (crowding.get(a) ?? 0),
+  );
+
+  const taken = new Set<RecordPoint>();
+  const groups: RecordGroup[] = [];
+  for (const seed of seeds) {
+    if (taken.has(seed)) continue;
+    const members: RecordPoint[] = [];
+    for (const item of items) {
+      if (
+        !taken.has(item) &&
+        seed.point.distanceTo(item.point) < CLUSTER_RADIUS
+      ) {
+        members.push(item);
+      }
+    }
+    if (!hasOverlap(members)) continue;
+    let x = 0;
+    let y = 0;
+    for (const member of members) {
+      taken.add(member);
+      x += member.point.x;
+      y += member.point.y;
+    }
+    groups.push({
+      center: L.point(x / members.length, y / members.length),
+      records: members.map((member) => member.record),
+    });
+  }
+
+  for (const item of items) {
+    if (taken.has(item)) continue;
+    const group = groups.find(
+      (candidate) =>
+        candidate.center.distanceTo(item.point) < markRadius(candidate),
+    );
+    if (group) group.records.push(item.record);
+  }
+
+  let collision = collidingGroups(groups);
+  while (collision) {
+    const [keep, drop] = collision;
+    const total = keep.records.length + drop.records.length;
+    keep.center = keep.center
+      .multiplyBy(keep.records.length / total)
+      .add(drop.center.multiplyBy(drop.records.length / total));
+    keep.records.push(...drop.records);
+    groups.splice(groups.indexOf(drop), 1);
+    collision = collidingGroups(groups);
+  }
+  return groups;
+}
+
+function hasOverlap(members: RecordPoint[]) {
+  for (let i = 0; i < members.length; i += 1) {
+    for (let j = i + 1; j < members.length; j += 1) {
+      const reach = members[i].radius + members[j].radius;
+      if (members[i].point.distanceTo(members[j].point) < reach) return true;
+    }
+  }
+  return false;
+}
+
+function markRadius(group: RecordGroup) {
+  return CLUSTER_MARK_RADIUS[clusterSize(group.records.length)];
 }
 
 function outlineRings(features: HalyomorphaRangeRegionFeature[]) {
