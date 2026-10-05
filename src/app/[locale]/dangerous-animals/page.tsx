@@ -4,13 +4,12 @@ import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
-import { ClientMessagesProvider } from "@/components/ClientMessagesProvider";
 import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { DangerousAnimalsPage } from "@/components/DangerousAnimalsPage";
 import { JsonLd } from "@/components/JsonLd";
-import { getSpeciesById } from "@/data/species";
+import { dangerousAnimalsFeature } from "@/content/features/dangerousAnimals";
+import { getCatalogSpecies } from "@/data/species";
 import { openGraphLocale } from "@/i18n/localeMeta";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import {
@@ -22,7 +21,6 @@ import {
   siteEntityId,
   speciesOgImageUrl,
 } from "@/lib/site";
-import { speciesImageAlt } from "@/lib/speciesMeta";
 import { pageDateFields } from "@/lib/structuredDataDates";
 
 type Props = {
@@ -41,13 +39,12 @@ export default async function DangerousAnimalsRoute({ params }: Props) {
   const locale = localeParam as AppLocale;
   setRequestLocale(locale);
 
-  const species = getSpeciesById(OG_SPECIES);
-  const karakurt = getSpeciesById("latrodectus-tredecimguttatus");
-  if (!species || !karakurt) notFound();
+  const species = getCatalogSpecies();
+  const hero = species.find((item) => item.id === OG_SPECIES);
+  if (!hero) notFound();
 
   const t = await getTranslations({ locale, namespace: "dangerousAnimals" });
-  const hero = localizeSpecies(species, locale);
-  const widow = localizeSpecies(karakurt, locale);
+  const copy = dangerousAnimalsFeature.copy[locale];
   const url = absoluteUrl(localePath(locale, PATH));
   const dates = pageDateFields(PATH);
 
@@ -75,10 +72,10 @@ export default async function DangerousAnimalsRoute({ params }: Props) {
     "@type": "WebPage",
     author: { "@id": siteEntityId("organization") },
     ...dates,
-    description: t("metaDescription"),
+    description: copy.metaDescription,
     inLanguage: locale,
     isPartOf: { "@id": siteEntityId("website") },
-    name: t("metaTitle"),
+    name: copy.metaTitle,
     publisher: { "@id": siteEntityId("organization") },
     url,
   };
@@ -88,20 +85,12 @@ export default async function DangerousAnimalsRoute({ params }: Props) {
       <CoverImagePreload sizes="100vw" src={hero.image} />
       <JsonLd data={breadcrumbLd} />
       <JsonLd data={pageLd} />
-      <ClientMessagesProvider locale={locale} namespaces={["dangerousAnimals"]}>
-        <DangerousAnimalsPage
-          heroAlt={speciesImageAlt(
-            hero.commonName,
-            hero.scientificName,
-            hero.location,
-          )}
-          heroSrc={hero.image}
-          karakurtName={widow.commonName}
-          locale={locale}
-          publishedAt={dates.datePublished}
-          updatedAt={dates.dateModified}
-        />
-      </ClientMessagesProvider>
+      <DangerousAnimalsPage
+        locale={locale}
+        publishedAt={dates.datePublished}
+        species={species}
+        updatedAt={dates.dateModified}
+      />
     </>
   );
 }
@@ -111,25 +100,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!hasLocale(routing.locales, localeParam)) return {};
 
   const locale = localeParam as AppLocale;
-  const t = await getTranslations({ locale, namespace: "dangerousAnimals" });
-  const title = t("metaTitle");
+  const copy = dangerousAnimalsFeature.copy[locale];
+  const title = copy.metaTitle;
   const path = localePath(locale, PATH);
   const description = kaMetaDescriptionOverride(
     locale,
     path,
-    t("metaDescription"),
+    copy.metaDescription,
   );
   const url = absoluteUrl(path);
-  const hero = getSpeciesById(OG_SPECIES);
+  const hero = getCatalogSpecies().find((item) => item.id === OG_SPECIES);
   const ogImage = speciesOgImageUrl(OG_SPECIES, hero?.image);
 
   return {
     alternates: localeAlternates(locale, PATH),
     description,
-    keywords: t("keywords")
-      .split(",")
-      .map((item) => item.trim())
-      .filter(Boolean),
+    keywords: copy.keywords,
     openGraph: {
       description,
       images: [openGraphJpeg(ogImage, title)],

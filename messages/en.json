@@ -522,36 +522,8 @@
     "linkAria": "{label}: {value}. What this means"
   },
   "dangerousAnimals": {
-    "title": "Dangerous and venomous animals of Georgia (the country)",
-    "metaTitle": "Dangerous and venomous animals of Georgia (the country)",
-    "metaDescription": "Published pages on dangerous and venomous animals of Georgia, the country: snakes, spiders, scorpions, tick bite, and encounters. Risk labels stay separate.",
-    "keywords": "dangerous animals in georgia country, venomous animals in georgia, dangerous animals of georgia, poisonous animals in georgia, most dangerous animal, most venomous snake in georgia",
-    "subtitle": "This page collects Reptiles.ge pages that are already published: where venomous species are covered, and which guide to open after a bite or an encounter. It does not rank animals.",
-    "methodCta": "Risk labels",
-    "methodBody": "Harmless, Moderate, and High are already on the profiles. This page does not change those labels.",
-    "venomousTitle": "Venomous animals",
-    "venomousBody": "Only venomous groups are listed here. Bears, jackals, and tick bite are not in this list. The venomous-snakes page keeps the answer about the most venomous snake.",
-    "biteTitle": "Bites and stings",
-    "biteBody": "The steps stay on the linked guides. This page only routes you there.",
-    "encounterTitle": "Other encounters",
-    "encounterBody": "These animals are not listed as venomous. The nest, bear, and jackal guides are separate.",
-    "emergencyTitle": "Emergency",
-    "emergencyBody": "In a real emergency in Georgia, call 112. The detailed steps are on the linked pages.",
     "breadcrumbHome": "Home",
-    "breadcrumbCurrent": "Dangerous animals",
-    "links": {
-      "venomousSnakes": "Venomous snakes",
-      "venomousSpiders": "Venomous spiders",
-      "scorpions": "Scorpions",
-      "snakeBite": "Snake bite",
-      "gyurzaBite": "Gyurza bite",
-      "spiderBite": "Spider bite",
-      "scorpionSting": "Scorpion sting",
-      "tickBite": "Tick bite",
-      "waspNest": "Wasp nest",
-      "bear": "Bear encounter",
-      "jackal": "Jackal in the yard"
-    }
+    "breadcrumbCurrent": "Dangerous animals"
   },
   "riskToHumans": {
     "metaTitle": "Risk to humans — what harmless, moderate, and high mean",

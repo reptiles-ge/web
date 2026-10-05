@@ -1,5 +1,6 @@
 import type { AppLocale } from "@/i18n/routing";
 
+import { dangerousAnimalsFeature } from "@/content/features/dangerousAnimals";
 import {
   creditAuthorHref,
   type CreditAuthorRole,
@@ -846,17 +847,17 @@ const STATIC_PAGES: Array<
     ],
     rank: 2,
     subtitle: {
-      en: "Published safety pages across animal groups",
-      ka: "გამოქვეყნებული უსაფრთხოების გვერდები ჯგუფებს შორის",
-      ru: "Опубликованные страницы о безопасности по группам",
-      tr: "Gruplar arası yayımlanmış güvenlik sayfaları",
+      en: dangerousAnimalsFeature.copy.en.dek,
+      ka: dangerousAnimalsFeature.copy.ka.dek,
+      ru: dangerousAnimalsFeature.copy.ru.dek,
+      tr: dangerousAnimalsFeature.copy.tr.dek,
     },
     suggested: true,
     title: {
-      en: "Dangerous and venomous animals of Georgia (the country)",
-      ka: "საშიში და შხამიანი ცხოველები საქართველოში",
-      ru: "Опасные и ядовитые животные Грузии",
-      tr: "Gürcistan ülkesinin tehlikeli ve zehirli hayvanları",
+      en: dangerousAnimalsFeature.copy.en.title,
+      ka: dangerousAnimalsFeature.copy.ka.title,
+      ru: dangerousAnimalsFeature.copy.ru.title,
+      tr: dangerousAnimalsFeature.copy.tr.title,
     },
   },
   {
