@@ -492,6 +492,76 @@ input[type="search"]::-webkit-search-results-decoration {
   transform: scale(1.6);
 }
 
+.leaflet-marker-icon.range-cluster-shell {
+  border: 0;
+  background: transparent;
+  pointer-events: none;
+}
+
+.range-cluster,
+[data-range-mark="cluster"] {
+  display: grid;
+  box-sizing: border-box;
+  flex: none;
+  place-items: center;
+  border: 1.5px solid var(--card);
+  border-radius: 999px;
+  background: var(--range-dot);
+  color: var(--background);
+  font:
+    600 0.6875rem/1 var(--font-you),
+    var(--font-noto-sans),
+    sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+
+[data-range-mark="cluster"] {
+  width: 1.125rem;
+  height: 1.125rem;
+  border: 0;
+  font-size: 0.625rem;
+}
+
+.range-cluster {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  animation: range-cluster-in 180ms ease-out;
+  cursor: pointer;
+  pointer-events: auto;
+  transform: translate(-50%, -50%);
+  transition:
+    background-color 120ms ease,
+    opacity 200ms ease;
+}
+
+.range-cluster[data-size="m"] {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.range-cluster[data-size="l"] {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.range-cluster:hover {
+  background: var(--primary);
+}
+
+.range-cluster[data-dim="true"] {
+  opacity: 0.28;
+}
+
+@keyframes range-cluster-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.7);
+  }
+}
+
 .leaflet-marker-icon.range-photo-shell {
   display: grid;
   place-items: center;
@@ -682,6 +752,13 @@ input[type="search"]::-webkit-search-results-decoration {
     width: 2.5rem;
     height: 2.5rem;
   }
+
+  .range-cluster::before {
+    position: absolute;
+    inset: -0.5rem;
+    border-radius: 999px;
+    content: "";
+  }
 }
 
 [data-not-found-shell]:has([data-not-found-rich]) > [data-not-found-fallback] {
@@ -689,8 +766,13 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .range-cluster {
+    animation: none;
+  }
+
   .range-region,
   .range-dot,
+  .range-cluster,
   .range-photo-marker,
   .range-photo-marker::before {
     transition: none;
