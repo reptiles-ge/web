@@ -14,11 +14,10 @@ type OccurrenceFile = {
   regions: Partial<Record<RegionPathId, HalyomorphaRegionOccurrenceResponse>>;
 };
 
-const files = new Map<string, Promise<OccurrenceFile>>();
+const files = new Map<string, Promise<HalyomorphaFieldRecord[]>>();
 
-export async function loadHalyomorphaRegionOccurrences(
+export function loadHalyomorphaOccurrences(
   speciesId: string,
-  regionId: RegionPathId,
   locale: AppLocale,
   dataRevision: string,
 ) {
@@ -27,12 +26,11 @@ export async function loadHalyomorphaRegionOccurrences(
   if (!file) {
     file = fetch(url).then(async (response) => {
       if (!response.ok) throw new Error("Occurrence request failed");
-      return (await response.json()) as OccurrenceFile;
+      const { regions } = (await response.json()) as OccurrenceFile;
+      return Object.values(regions).flatMap((region) => region.records);
     });
     files.set(url, file);
     file.catch(() => files.delete(url));
   }
-  const region = (await file).regions[regionId];
-  if (!region) throw new Error("Occurrence region missing");
-  return region;
+  return file;
 }

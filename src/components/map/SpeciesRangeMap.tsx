@@ -7,7 +7,7 @@ import type { HalyomorphaOccurrenceSummary } from "@/lib/halyomorphaOccurrences"
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { GeorgiaMapStatic } from "@/components/map/GeorgiaMapStatic";
 import { HalyomorphaRangeMap } from "@/components/map/HalyomorphaRangeMap";
-import { HalyomorphaRegionSelectButton } from "@/components/map/HalyomorphaRegionSelectButton";
+import { RangeHatchSwatch } from "@/components/map/RangeHatch";
 import {
   getRegionsForSpecies,
   localizeRegionText,
@@ -21,35 +21,30 @@ import { SPECIES_SECTION_IDS } from "@/lib/toc";
 type HalyomorphaRangeCopy = {
   closeLabel: string;
   confirmedStatusLabel: string;
-  fieldRecordLabel: string;
   footerDataLabel: string;
   footerINaturalistLabel: string;
   footerMethodologyLabel: string;
   footerReptilesLabel: string;
   galleryAction: string;
-  iNaturalistRecordLabel: string;
   intro: string;
+  latestRecordsLabel: string;
   loadingLabel: string;
-  loadingText: string;
   locationRecordLabel: string;
   mapAria: string;
   mapError: string;
-  noPhotoLabel: string;
   noRegionRecordsLabel: string;
   officialRegionLabel: string;
   photoRecordLabel: string;
   rangeTitle: string;
   recordedOnlyStatusLabel: string;
-  regionLoadingLabel: string;
   regionPageLabel: (regionName: string) => string;
   regionRecordsLabel: string;
-  regionSelectActionLabel: string;
   regionsMetricLabel: string;
   regionSummaryTitle: string;
-  resetMapLabel: string;
   resetToGeorgiaLabel: string;
   sourceAction: string;
-  statusColumnLabel: string;
+  zoomInLabel: string;
+  zoomOutLabel: string;
 };
 
 type InteractiveRangeMapConfig = {
@@ -69,145 +64,125 @@ const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
   en: {
     closeLabel: "Close field record",
     confirmedStatusLabel: "Distribution confirmed",
-    fieldRecordLabel: "field record",
     footerDataLabel: "Data",
     footerINaturalistLabel: "iNaturalist",
     footerMethodologyLabel: "Methodology",
     footerReptilesLabel: "Reptiles.ge",
     galleryAction: "View photo",
-    iNaturalistRecordLabel: "iNaturalist observations",
     intro:
       "The map for Halyomorpha halys combines Reptiles.ge editorial photo records with public iNaturalist observations. Region-level literature evidence and individual occurrence records are separate layers, and record counts reflect observation effort rather than population density.",
+    latestRecordsLabel: "Latest records",
     loadingLabel: "Interactive map is loading.",
-    loadingText: "Loading...",
     locationRecordLabel: "Field observation",
     mapAria:
       "Brown marmorated stink bug distribution evidence and field records on a map of Georgia",
     mapError:
       "The interactive map could not load, but the confirmed regions and field records are still listed below.",
-    noPhotoLabel: "No public photo for this record",
     noRegionRecordsLabel: "No field records",
     officialRegionLabel: "Source-confirmed region",
     photoRecordLabel: "Photo record",
     rangeTitle: "Where brown marmorated stink bug occurs in Georgia",
     recordedOnlyStatusLabel: "Recorded only",
-    regionLoadingLabel: "Loading region records",
     regionPageLabel: (regionName) => `${regionName} region page`,
     regionRecordsLabel: "field records",
-    regionSelectActionLabel: "View records",
     regionsMetricLabel: "regions",
     regionSummaryTitle: "Records by region",
-    resetMapLabel: "Reset map view",
     resetToGeorgiaLabel: "All Georgia",
     sourceAction: "Open source",
-    statusColumnLabel: "Status",
+    zoomInLabel: "Zoom in",
+    zoomOutLabel: "Zoom out",
   },
   ka: {
     closeLabel: "საველე ჩანაწერის დახურვა",
     confirmedStatusLabel: "გავრცელება დადასტურებულია",
-    fieldRecordLabel: "საველე ჩანაწერი",
     footerDataLabel: "მონაცემები",
     footerINaturalistLabel: "iNaturalist",
     footerMethodologyLabel: "მეთოდოლოგია",
     footerReptilesLabel: "Reptiles.ge",
     galleryAction: "ფოტოს ნახვა",
-    iNaturalistRecordLabel: "iNaturalist-ის დაკვირვება",
     intro:
       "აზიური ფაროსანას (Halyomorpha halys) რუკა აერთიანებს Reptiles.ge-ის სარედაქციო ფოტოჩანაწერებსა და iNaturalist-ის საჯარო დაკვირვებებს. რეგიონული ლიტერატურული მტკიცებულება და ინდივიდუალური საველე ჩანაწერები ცალკე ფენებია; ჩანაწერების რაოდენობა დაკვირვების ინტენსივობასაც ასახავს და პოპულაციის სიმჭიდროვედ არ უნდა განვიხილოთ.",
+    latestRecordsLabel: "ბოლო ჩანაწერები",
     loadingLabel: "ინტერაქტიული რუკა იტვირთება.",
-    loadingText: "იტვირთება...",
     locationRecordLabel: "საველე ჩანაწერი",
     mapAria:
       "აზიური ფაროსანას გავრცელების მტკიცებულებები და საველე ჩანაწერები საქართველოს რუკაზე",
     mapError:
       "ინტერაქტიული რუკა ვერ ჩაიტვირთა, მაგრამ დადასტურებული რეგიონები და საველე ჩანაწერები ქვემოთ ტექსტურად ჩანს.",
-    noPhotoLabel: "ამ ჩანაწერს საჯაროდ გამოსაქვეყნებელი ფოტო არ აქვს",
     noRegionRecordsLabel: "ჩანაწერი არ არის",
     officialRegionLabel: "წყაროებით დადასტურებული რეგიონი",
     photoRecordLabel: "ფოტოჩანაწერი",
     rangeTitle: "სად გვხვდება აზიური ფაროსანა საქართველოში",
     recordedOnlyStatusLabel: "მხოლოდ დაფიქსირებულია",
-    regionLoadingLabel: "რეგიონის ჩანაწერები იტვირთება",
     regionPageLabel: (regionName) => `${regionName} — რეგიონის გვერდი`,
     regionRecordsLabel: "საველე ჩანაწერი",
-    regionSelectActionLabel: "ჩანაწერების ნახვა",
     regionsMetricLabel: "რეგიონი",
     regionSummaryTitle: "ჩანაწერები რეგიონების მიხედვით",
-    resetMapLabel: "რუკის საწყის ხედზე დაბრუნება",
     resetToGeorgiaLabel: "მთელი საქართველო",
     sourceAction: "წყაროს გახსნა",
-    statusColumnLabel: "სტატუსი",
+    zoomInLabel: "მასშტაბის გადიდება",
+    zoomOutLabel: "მასშტაბის შემცირება",
   },
   ru: {
     closeLabel: "Закрыть полевую запись",
     confirmedStatusLabel: "Распространение подтверждено",
-    fieldRecordLabel: "полевая запись",
     footerDataLabel: "Данные",
     footerINaturalistLabel: "iNaturalist",
     footerMethodologyLabel: "Методология",
     footerReptilesLabel: "Reptiles.ge",
     galleryAction: "Открыть фото",
-    iNaturalistRecordLabel: "наблюдений iNaturalist",
     intro:
       "Карта Halyomorpha halys объединяет редакционные фотозаписи Reptiles.ge и публичные наблюдения iNaturalist. Региональные литературные данные и отдельные полевые записи показаны разными слоями; количество записей отражает также интенсивность наблюдений, а не плотность популяции.",
+    latestRecordsLabel: "Последние записи",
     loadingLabel: "Интерактивная карта загружается.",
-    loadingText: "Загрузка...",
     locationRecordLabel: "Полевое наблюдение",
     mapAria: "Полевые записи коричнево-мраморного клопа на карте Грузии",
     mapError:
       "Интерактивная карта не загрузилась, но подтверждённые регионы и полевые записи остаются доступными ниже.",
-    noPhotoLabel: "У этой записи нет публичного фото",
     noRegionRecordsLabel: "Записей нет",
     officialRegionLabel: "Регион, подтверждённый источниками",
     photoRecordLabel: "Фотозапись",
     rangeTitle: "Где встречается коричнево-мраморный клоп в Грузии",
     recordedOnlyStatusLabel: "Только зафиксировано",
-    regionLoadingLabel: "Загружаются записи региона",
     regionPageLabel: (regionName) => `Страница региона: ${regionName}`,
     regionRecordsLabel: "полевых записей",
-    regionSelectActionLabel: "Показать записи",
     regionsMetricLabel: "регионов",
     regionSummaryTitle: "Записи по регионам",
-    resetMapLabel: "Вернуть начальный вид карты",
     resetToGeorgiaLabel: "Вся Грузия",
     sourceAction: "Открыть источник",
-    statusColumnLabel: "Статус",
+    zoomInLabel: "Приблизить",
+    zoomOutLabel: "Отдалить",
   },
   tr: {
     closeLabel: "Arazi kaydını kapat",
     confirmedStatusLabel: "Yayılış doğrulandı",
-    fieldRecordLabel: "arazi kaydı",
     footerDataLabel: "Veri",
     footerINaturalistLabel: "iNaturalist",
     footerMethodologyLabel: "Metodoloji",
     footerReptilesLabel: "Reptiles.ge",
     galleryAction: "Fotoğrafı aç",
-    iNaturalistRecordLabel: "iNaturalist gözlemi",
     intro:
       "Halyomorpha halys haritası Reptiles.ge editoryal fotoğraf kayıtlarını ve herkese açık iNaturalist gözlemlerini birleştirir. Bölge düzeyindeki literatür kanıtı ile tekil arazi kayıtları ayrı katmanlardır; kayıt sayısı gözlem yoğunluğunu da yansıtır, popülasyon yoğunluğu değildir.",
+    latestRecordsLabel: "Son kayıtlar",
     loadingLabel: "Etkileşimli harita yükleniyor.",
-    loadingText: "Yükleniyor...",
     locationRecordLabel: "Arazi gözlemi",
     mapAria:
       "Kahverengi kokarcanın yayılış kanıtları ve arazi kayıtları Gürcistan haritasında",
     mapError:
       "Etkileşimli harita yüklenemedi, ancak doğrulanmış bölgeler ve arazi kayıtları aşağıda metin olarak duruyor.",
-    noPhotoLabel: "Bu kayıt için herkese açık fotoğraf yok",
     noRegionRecordsLabel: "Kayıt yok",
     officialRegionLabel: "Kaynakla doğrulanmış bölge",
     photoRecordLabel: "Fotoğraf kaydı",
     rangeTitle: "Kahverengi kokarca Gürcistan'da nerede görülür?",
     recordedOnlyStatusLabel: "Yalnızca kaydedildi",
-    regionLoadingLabel: "Bölge kayıtları yükleniyor",
     regionPageLabel: (regionName) => `${regionName} bölge sayfası`,
     regionRecordsLabel: "arazi kaydı",
-    regionSelectActionLabel: "Kayıtları göster",
     regionsMetricLabel: "bölge",
     regionSummaryTitle: "Bölgelere göre kayıtlar",
-    resetMapLabel: "Haritayı başlangıç görünümüne döndür",
     resetToGeorgiaLabel: "Tüm Gürcistan",
     sourceAction: "Kaynağı aç",
-    statusColumnLabel: "Durum",
+    zoomInLabel: "Yakınlaştır",
+    zoomOutLabel: "Uzaklaştır",
   },
 };
 
@@ -1441,7 +1416,7 @@ const INTERACTIVE_RANGE_MAPS: Partial<
       en: {
         ...HALYOMORPHA_RANGE_COPY.en,
         intro:
-          "The map uses public, photo-backed iNaturalist observations of the Red-backed Shrike in Georgia. One retained record is enough for confirmed regional status, but does not imply occurrence throughout that region. Obscured, imprecise and contradictory locations were excluded; record counts do not measure population density.",
+          "The map shows public, photo-backed observations of the Red-backed Shrike in Georgia. Records whose coordinates are obscured, too approximate or do not match the stated place are left out. A confirmed region does not mean the shrike occurs evenly across the whole region. Record counts do not show how many shrikes live in a given place.",
         mapAria:
           "Red-backed Shrike observations and confirmed regions on a map of Georgia",
         officialRegionLabel: "Confirmed distribution region",
@@ -1450,7 +1425,7 @@ const INTERACTIVE_RANGE_MAPS: Partial<
       ka: {
         ...HALYOMORPHA_RANGE_COPY.ka,
         intro:
-          "რუკა ჩვეულებრივი ღაჟოს საქართველოში გამოქვეყნებულ ფოტოიან iNaturalist დაკვირვებებს ეყრდნობა. ერთი შენარჩუნებული ჩანაწერი რეგიონის დადასტურებული სტატუსისთვის საკმარისია, თუმცა ეს მთელ რეგიონში თანაბარ გავრცელებას არ ნიშნავს. დაფარული, მეტისმეტად მიახლოებითი და ლოკალიტეტთან შეუსაბამო წერტილები გამოტოვებულია; ჩანაწერების რაოდენობა პოპულაციის სიმჭიდროვეს არ ზომავს.",
+          "რუკა აჩვენებს ჩვეულებრივი ღაჟოს საჯარო, ფოტოიან დაკვირვებებს საქართველოში. გამოტოვებულია ჩანაწერები, რომელთა კოორდინატები დაფარულია, მეტისმეტად მიახლოებითია ან მითითებულ ადგილს არ ემთხვევა. დადასტურებული რეგიონი არ ნიშნავს, რომ ღაჟო მთელ რეგიონში თანაბრად გვხვდება. ჩანაწერების რაოდენობა არ გვიჩვენებს, რამდენი ღაჟო ბინადრობს ამა თუ იმ ადგილას.",
         mapAria:
           "ჩვეულებრივი ღაჟოს დაკვირვებები და დადასტურებული რეგიონები საქართველოს რუკაზე",
         officialRegionLabel: "დადასტურებული გავრცელების რეგიონი",
@@ -1459,7 +1434,7 @@ const INTERACTIVE_RANGE_MAPS: Partial<
       ru: {
         ...HALYOMORPHA_RANGE_COPY.ru,
         intro:
-          "Карта основана на публичных наблюдениях обыкновенного жулана с фотографиями в iNaturalist из Грузии. Одной сохранённой записи достаточно для подтверждённого статуса региона, но это не означает распространения по всей его территории. Скрытые, слишком неточные и противоречащие указанному месту точки исключены; число записей не показывает плотность популяции.",
+          "Карта показывает публичные наблюдения обыкновенного жулана в Грузии, подтверждённые фотографиями. Записи, у которых координаты скрыты, слишком приблизительны или не совпадают с указанным местом, не показаны. Подтверждённый регион не значит, что жулан встречается по всему региону равномерно. Число записей не показывает, сколько жуланов обитает в том или ином месте.",
         mapAria:
           "Наблюдения обыкновенного жулана и подтверждённые регионы на карте Грузии",
         officialRegionLabel: "Регион с подтверждённым распространением",
@@ -1468,7 +1443,7 @@ const INTERACTIVE_RANGE_MAPS: Partial<
       tr: {
         ...HALYOMORPHA_RANGE_COPY.tr,
         intro:
-          "Harita, kızılsırtlı örümcekkuşunun Gürcistan'daki fotoğraflı ve herkese açık iNaturalist gözlemlerine dayanır. Korunan tek bir kayıt bölgenin doğrulanmış durumu için yeterlidir; bu, türün bölgenin her yerinde bulunduğu anlamına gelmez. Gizlenmiş, çok belirsiz ve yer adıyla çelişen noktalar çıkarılmıştır; kayıt sayısı nüfus yoğunluğunu göstermez.",
+          "Harita, kızılsırtlı örümcekkuşunun Gürcistan'daki herkese açık, fotoğraflı gözlemlerini gösterir. Koordinatları gizlenmiş, fazla yaklaşık olan veya belirtilen yerle uyuşmayan kayıtlar haritaya alınmamıştır. Doğrulanmış bölge, türün bölgenin her yerinde eşit biçimde görüldüğü anlamına gelmez. Kayıt sayısı, belirli bir yerde kaç kuş yaşadığını göstermez.",
         mapAria:
           "Kızılsırtlı örümcekkuşu gözlemleri ve doğrulanmış bölgeler Gürcistan haritasında",
         officialRegionLabel: "Yayılışı doğrulanmış bölge",
@@ -2501,6 +2476,12 @@ const INTERACTIVE_RANGE_MAPS: Partial<
   },
 };
 
+const EYEBROW_CLASS =
+  "text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase";
+const HEADING_CLASS =
+  "mt-5 max-w-4xl font-display text-display-title leading-[1.14] font-bold text-foreground";
+const STATIC_HATCH_ID = "range-hatch-static";
+
 export async function SpeciesRangeMap({
   locale,
   speciesId,
@@ -2525,6 +2506,7 @@ export async function SpeciesRangeMap({
       <HalyomorphaRangeSection
         anchorLabel={t("anchorLink")}
         copy={interactiveRangeCopy}
+        eyebrow={t("range")}
         iNaturalistTaxonId={interactiveRangeConfig.iNaturalistTaxonId}
         locale={locale}
         occurrenceSummary={interactiveRangeSummary}
@@ -2548,62 +2530,62 @@ export async function SpeciesRangeMap({
   if (highlightedIds.length === 0) return null;
 
   return (
-    <section className="map-explorer relative overflow-hidden py-20 lg:py-28">
-      <div
-        aria-hidden="true"
-        className="map-explorer-texture pointer-events-none absolute inset-0"
-      />
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_60%_at_50%_0%,color-mix(in_oklab,var(--primary)_10%,transparent),transparent_70%)]" />
-
-      <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10">
-        <div className="mx-auto max-w-2xl text-center">
-          <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
-            {t("range")}
-          </p>
-          <AnchoredHeading
-            anchorLabel={t("anchorLink")}
-            className="text-balance-tight mt-5 font-display text-display-title font-semibold text-foreground"
-            id={SPECIES_SECTION_IDS.range}
-            slugSource={t("rangeTitle", { name: speciesName })}
-          >
-            {t("rangeTitle", { name: speciesName })}
-          </AnchoredHeading>
-          <p className="text-balance-tight mx-auto mt-5 max-w-lg text-[15px] leading-relaxed text-muted-foreground">
-            {t("rangeSubtitle")}
-          </p>
-        </div>
-
-        <div className="mt-14 lg:mt-16">
-          <GeorgiaMapStatic highlightedIds={highlightedIds} />
-        </div>
-
-        <nav
-          aria-label={t("rangeRegionsLabel")}
-          className="mx-auto mt-8 flex max-w-3xl flex-wrap items-center justify-center gap-x-1 gap-y-2"
+    <section className="bg-background py-20 lg:py-28">
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+        <p className={EYEBROW_CLASS}>{t("range")}</p>
+        <AnchoredHeading
+          anchorLabel={t("anchorLink")}
+          className={HEADING_CLASS}
+          id={SPECIES_SECTION_IDS.range}
+          slugSource={t("rangeTitle", { name: speciesName })}
         >
-          {rangeRegions.map((region, index) => (
-            <span className="inline-flex items-center" key={region.id}>
-              {index > 0 ? (
-                <span aria-hidden className="mr-1 text-muted-foreground/50">
-                  ·
-                </span>
-              ) : null}
-              <Link
-                className="text-[13px] leading-relaxed tracking-wide text-muted-foreground transition-colors hover:text-primary"
-                href={regionHref(region.id)}
-              >
-                {localizeRegionText(region.name, locale)}
-              </Link>
-            </span>
-          ))}
-        </nav>
+          {t("rangeTitle", { name: speciesName })}
+        </AnchoredHeading>
+
+        <div className="mt-10 grid gap-x-12 gap-y-8 lg:mt-12 lg:grid-cols-[minmax(0,1fr)_19rem] xl:grid-cols-[minmax(0,1fr)_21rem] xl:gap-x-16">
+          <figure>
+            <GeorgiaMapStatic
+              hatchId={STATIC_HATCH_ID}
+              highlightedIds={highlightedIds}
+            />
+            <figcaption className="mt-4 flex items-baseline gap-2 text-[12px] leading-snug text-muted-foreground">
+              <span className="translate-y-px">
+                <RangeHatchSwatch id={STATIC_HATCH_ID} />
+              </span>
+              {t("rangeSubtitle")}
+            </figcaption>
+          </figure>
+
+          <nav aria-label={t("rangeRegionsLabel")}>
+            <ol className="-mx-2.5 text-[14px] leading-snug">
+              {rangeRegions.map((region, index) => (
+                <li key={region.id}>
+                  <Link
+                    className="group flex min-h-11 items-center gap-3 rounded-xl px-2.5 py-1 text-foreground transition-colors hover:bg-surface hover:text-primary focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-primary"
+                    href={regionHref(region.id)}
+                  >
+                    <span aria-hidden="true" data-range-mark="key">
+                      {index + 1}
+                    </span>
+                    <span className="min-w-0 flex-1">
+                      {localizeRegionText(region.name, locale)}
+                    </span>
+                    <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors group-hover:border-primary/40 group-hover:text-primary">
+                      <ArrowUpRight aria-hidden="true" className="size-3.5" />
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ol>
+          </nav>
+        </div>
       </div>
     </section>
   );
 }
 
 function formatYearRange(summary: HalyomorphaOccurrenceSummary) {
-  if (!summary.firstYear || !summary.lastYear) return "—";
+  if (!summary.firstYear || !summary.lastYear) return "";
   if (summary.firstYear === summary.lastYear) return String(summary.firstYear);
   return `${summary.firstYear}–${summary.lastYear}`;
 }
@@ -2611,6 +2593,7 @@ function formatYearRange(summary: HalyomorphaOccurrenceSummary) {
 function HalyomorphaRangeSection({
   anchorLabel,
   copy,
+  eyebrow,
   iNaturalistTaxonId,
   locale,
   occurrenceSummary,
@@ -2620,6 +2603,7 @@ function HalyomorphaRangeSection({
 }: {
   anchorLabel: string;
   copy: HalyomorphaRangeCopy;
+  eyebrow: string;
   iNaturalistTaxonId: number;
   locale: AppLocale;
   occurrenceSummary: HalyomorphaOccurrenceSummary;
@@ -2630,57 +2614,58 @@ function HalyomorphaRangeSection({
   const mapCopy = {
     closeLabel: copy.closeLabel,
     confirmedStatusLabel: copy.confirmedStatusLabel,
-    fieldRecordLabel: copy.fieldRecordLabel,
     galleryAction: copy.galleryAction,
-    iNaturalistRecordLabel: copy.iNaturalistRecordLabel,
+    latestRecordsLabel: copy.latestRecordsLabel,
     loadingLabel: copy.loadingLabel,
-    loadingText: copy.loadingText,
     locationRecordLabel: copy.locationRecordLabel,
     mapAria: copy.mapAria,
     mapError: copy.mapError,
-    noPhotoLabel: copy.noPhotoLabel,
     noRegionRecordsLabel: copy.noRegionRecordsLabel,
     officialRegionLabel: copy.officialRegionLabel,
     photoRecordLabel: copy.photoRecordLabel,
     recordedOnlyStatusLabel: copy.recordedOnlyStatusLabel,
-    regionLoadingLabel: copy.regionLoadingLabel,
     regionRecordsLabel: copy.regionRecordsLabel,
-    regionSelectActionLabel: copy.regionSelectActionLabel,
-    resetMapLabel: copy.resetMapLabel,
+    regionsMetricLabel: copy.regionsMetricLabel,
+    regionSummaryTitle: copy.regionSummaryTitle,
     resetToGeorgiaLabel: copy.resetToGeorgiaLabel,
     sourceAction: copy.sourceAction,
-    statusColumnLabel: copy.statusColumnLabel,
+    zoomInLabel: copy.zoomInLabel,
+    zoomOutLabel: copy.zoomOutLabel,
   };
-  const metricLine = [
-    `${occurrenceSummary.totalRecords.toLocaleString(locale)} ${copy.regionRecordsLabel}`,
-    formatYearRange(occurrenceSummary),
-    `${occurrenceSummary.regionsWithRecords.toLocaleString(locale)} ${copy.regionsMetricLabel}`,
-  ].join(" · ");
-  return (
-    <section className="map-explorer relative overflow-hidden py-16 lg:py-22">
-      <div
-        aria-hidden="true"
-        className="map-explorer-texture pointer-events-none absolute inset-0"
-      />
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_60%_at_50%_0%,color-mix(in_oklab,var(--primary)_10%,transparent),transparent_70%)]" />
+  const facts = [
+    {
+      label: copy.regionRecordsLabel,
+      value: occurrenceSummary.totalRecords.toLocaleString(locale),
+    },
+    { label: "", value: formatYearRange(occurrenceSummary) },
+    {
+      label: copy.regionsMetricLabel,
+      value: occurrenceSummary.regionsWithRecords.toLocaleString(locale),
+    },
+  ].filter((fact) => fact.value);
 
-      <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10">
-        <div>
-          <AnchoredHeading
-            anchorLabel={anchorLabel}
-            className="mt-5 font-display text-display-title font-bold text-foreground"
-            id={SPECIES_SECTION_IDS.range}
-            slugSource={copy.rangeTitle}
-          >
-            {copy.rangeTitle}
-          </AnchoredHeading>
-          <p className="mt-3 text-[13px] font-semibold tracking-[0.08em] text-primary uppercase">
-            {metricLine}
-          </p>
-          <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">
-            {copy.intro}
-          </p>
-        </div>
+  return (
+    <section className="bg-background py-20 lg:py-28">
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+        <p className={EYEBROW_CLASS}>{eyebrow}</p>
+        <AnchoredHeading
+          anchorLabel={anchorLabel}
+          className={HEADING_CLASS}
+          id={SPECIES_SECTION_IDS.range}
+          slugSource={copy.rangeTitle}
+        >
+          {copy.rangeTitle}
+        </AnchoredHeading>
+        <p className="mt-5 flex flex-wrap gap-x-6 gap-y-1 text-[15px] leading-relaxed text-muted-foreground">
+          {facts.map((fact) => (
+            <span key={fact.label}>
+              <span className="font-semibold text-foreground tabular-nums">
+                {fact.value}
+              </span>
+              {fact.label ? ` ${fact.label}` : null}
+            </span>
+          ))}
+        </p>
 
         <div className="mt-10 lg:mt-12">
           <HalyomorphaRangeMap
@@ -2689,131 +2674,40 @@ function HalyomorphaRangeSection({
             locale={locale}
             occurrenceSummary={occurrenceSummary}
             officialRegionIds={officialRegionIds}
-            regionNames={regions.map((region) => ({
-              id: region.id,
-              name: localizeRegionText(region.name, locale),
-            }))}
+            regionNames={regions.map((region) => {
+              const name = localizeRegionText(region.name, locale);
+              return {
+                id: region.id,
+                name,
+                pageLabel: copy.regionPageLabel(name),
+              };
+            })}
             speciesId={speciesId}
-          />
+          >
+            <p className="max-w-[72ch] text-[13px] leading-relaxed text-muted-foreground">
+              {copy.intro}
+            </p>
+            <p className="mt-3 text-[12px] leading-relaxed text-muted-foreground">
+              {copy.footerDataLabel}: {copy.footerReptilesLabel} +{" "}
+              <a
+                className="underline decoration-border underline-offset-4 transition-colors hover:text-primary"
+                href={`https://www.inaturalist.org/observations?place_id=8857&taxon_id=${iNaturalistTaxonId}`}
+                rel="noreferrer"
+                target="_blank"
+              >
+                {copy.footerINaturalistLabel}
+              </a>{" "}
+              ·{" "}
+              <Link
+                className="underline decoration-border underline-offset-4 transition-colors hover:text-primary"
+                href={{ hash: "methodology", pathname: "/about" }}
+              >
+                {copy.footerMethodologyLabel}
+              </Link>
+            </p>
+          </HalyomorphaRangeMap>
         </div>
-
-        <p className="mt-4 text-[12px] leading-relaxed text-muted-foreground">
-          {copy.footerDataLabel}: {copy.footerReptilesLabel} +{" "}
-          <a
-            className="underline decoration-border underline-offset-4 transition-colors hover:text-primary"
-            href={`https://www.inaturalist.org/observations?place_id=8857&taxon_id=${iNaturalistTaxonId}`}
-            rel="noreferrer"
-            target="_blank"
-          >
-            {copy.footerINaturalistLabel}
-          </a>{" "}
-          ·{" "}
-          <Link
-            className="underline decoration-border underline-offset-4 transition-colors hover:text-primary"
-            href={{ hash: "methodology", pathname: "/about" }}
-          >
-            {copy.footerMethodologyLabel}
-          </Link>
-        </p>
-
-        {occurrenceSummary.totalRecords > 0 ? (
-          <section className="mt-10">
-            <h3 className="font-display text-[1.35rem] leading-tight font-semibold text-foreground">
-              {copy.regionSummaryTitle}
-            </h3>
-            <div className="mt-4 border-y border-border/80">
-              <table className="w-full table-fixed text-[14px]">
-                <thead className="border-b border-border/60 text-[11px] tracking-[0.12em] text-muted-foreground uppercase">
-                  <tr>
-                    <th className="py-2.5 pr-3 text-left font-semibold">
-                      {copy.regionsMetricLabel}
-                    </th>
-                    <th className="w-24 px-3 py-2.5 text-right font-semibold sm:w-28">
-                      {copy.regionRecordsLabel}
-                    </th>
-                    <th className="hidden w-52 py-2.5 pl-3 text-right font-semibold sm:table-cell">
-                      {copy.statusColumnLabel}
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {occurrenceSummary.recordsByRegion.map((region) => (
-                    <tr
-                      className="border-b border-border/60 last:border-0"
-                      key={region.id}
-                    >
-                      <th className="py-3 pr-3 text-left align-top font-medium text-foreground sm:align-middle">
-                        <span className="flex min-w-0 items-center gap-2">
-                          <span className="min-w-0 [&_button]:min-w-0">
-                            <HalyomorphaRegionSelectButton regionId={region.id}>
-                              {region.name}
-                            </HalyomorphaRegionSelectButton>
-                          </span>
-                          <Link
-                            aria-label={copy.regionPageLabel(region.name)}
-                            className="inline-flex size-6 shrink-0 items-center justify-center rounded-full border border-border/70 text-[12px] font-semibold text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-                            href={regionHref(region.id)}
-                            title={copy.regionPageLabel(region.name)}
-                          >
-                            <ArrowUpRight
-                              aria-hidden="true"
-                              className="size-3 shrink-0"
-                            />
-                          </Link>
-                        </span>
-                        <span className="mt-2 flex sm:hidden">
-                          <RegionStatusBadge
-                            copy={copy}
-                            status={region.status}
-                          />
-                        </span>
-                      </th>
-                      <td className="p-3 text-right align-top text-muted-foreground tabular-nums sm:align-middle">
-                        {region.count.toLocaleString(locale)}
-                      </td>
-                      <td className="hidden py-3 pl-3 text-right sm:table-cell">
-                        <RegionStatusBadge copy={copy} status={region.status} />
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </section>
-        ) : null}
       </div>
     </section>
   );
-}
-
-function RegionStatusBadge({
-  copy,
-  status,
-}: {
-  copy: HalyomorphaRangeCopy;
-  status: HalyomorphaOccurrenceSummary["recordsByRegion"][number]["status"];
-}) {
-  const confirmed = status === "confirmed";
-
-  return (
-    <span
-      className={[
-        "inline-flex max-w-full items-center justify-center rounded-full px-2.5 py-1 text-center text-[11px] leading-tight font-semibold",
-        confirmed
-          ? "bg-primary/10 text-primary"
-          : "bg-zinc-200 text-zinc-800 dark:bg-zinc-700 dark:text-zinc-100",
-      ].join(" ")}
-    >
-      {regionStatusLabel(status, copy)}
-    </span>
-  );
-}
-
-function regionStatusLabel(
-  status: HalyomorphaOccurrenceSummary["recordsByRegion"][number]["status"],
-  copy: HalyomorphaRangeCopy,
-) {
-  return status === "confirmed"
-    ? copy.confirmedStatusLabel
-    : copy.recordedOnlyStatusLabel;
 }
