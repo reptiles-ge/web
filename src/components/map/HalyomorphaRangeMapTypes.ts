@@ -41,6 +41,7 @@ export type HalyomorphaRangeMapClientProps = {
 
 export type HalyomorphaRangeMapCopy = {
   closeLabel: string;
+  clusterLabel: string;
   confirmedStatusLabel: string;
   galleryAction: string;
   latestRecordsLabel: string;

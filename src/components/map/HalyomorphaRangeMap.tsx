@@ -181,9 +181,9 @@ export function HalyomorphaRangeMap({
       <RangeMapLegend
         copy={copy}
         hatchId={hatchId}
-        showOfficialRegions={officialRegionIds.length > 0}
-        showPhotoRecords={photoRecordCount > 0}
-        showRecords={totalRecords > 0}
+        officialRegions={officialRegionIds.length}
+        photoRecords={photoRecordCount}
+        records={totalRecords}
       />
 
       <HalyomorphaRangeLedger
@@ -245,31 +245,39 @@ function PlateStatus({
 function RangeMapLegend({
   copy,
   hatchId,
-  showOfficialRegions,
-  showPhotoRecords,
-  showRecords,
+  officialRegions,
+  photoRecords,
+  records,
 }: {
   copy: HalyomorphaRangeMapCopy;
   hatchId: string;
-  showOfficialRegions: boolean;
-  showPhotoRecords: boolean;
-  showRecords: boolean;
+  officialRegions: number;
+  photoRecords: number;
+  records: number;
 }) {
   return (
     <ul className="mt-3 flex flex-wrap gap-x-5 gap-y-1.5 text-[12px] leading-snug text-muted-foreground lg:col-start-1 lg:row-start-2">
-      {showRecords ? (
+      {records > 0 ? (
         <li className="inline-flex items-center gap-2">
           <span aria-hidden="true" data-range-mark="dot" />
           {copy.locationRecordLabel}
         </li>
       ) : null}
-      {showPhotoRecords ? (
+      {records > 1 ? (
+        <li className="inline-flex items-center gap-2">
+          <span aria-hidden="true" data-range-mark="cluster">
+            5
+          </span>
+          {copy.clusterLabel}
+        </li>
+      ) : null}
+      {photoRecords > 0 ? (
         <li className="inline-flex items-center gap-2">
           <span aria-hidden="true" data-range-mark="photo" />
           {copy.photoRecordLabel}
         </li>
       ) : null}
-      {showOfficialRegions ? (
+      {officialRegions > 0 ? (
         <li className="inline-flex items-center gap-2">
           <RangeHatchSwatch id={hatchId} />
           {copy.officialRegionLabel}
