@@ -253,6 +253,7 @@ const LOOKALIKES: Record<string, string[]> = {
     "bufo-verrucosissimus",
     "bufotes-viridis",
   ],
+  "streptopelia-turtur": ["columba-palumbus"],
   "telescopus-fallax": ["vipera-transcaucasiana", "elaphe-dione"],
   "testudo-graeca": ["emys-orbicularis", "trachemys-scripta"],
   "trachemys-scripta": [
