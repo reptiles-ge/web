@@ -16,10 +16,8 @@ import {
   absoluteUrl,
   localeAlternates,
   localePath,
-  openGraphJpeg,
   siteConfig,
   siteEntityId,
-  speciesOgImageUrl,
 } from "@/lib/site";
 import { pageDateFields } from "@/lib/structuredDataDates";
 
@@ -28,7 +26,7 @@ type Props = {
 };
 
 const PATH = "/dangerous-animals";
-const OG_SPECIES = "macrovipera-lebetina";
+const HERO_ILLUSTRATION = dangerousAnimalsFeature.illustrations.hero;
 
 export default async function DangerousAnimalsRoute({ params }: Props) {
   const { locale: localeParam } = await params;
@@ -40,8 +38,6 @@ export default async function DangerousAnimalsRoute({ params }: Props) {
   setRequestLocale(locale);
 
   const species = getCatalogSpecies();
-  const hero = species.find((item) => item.id === OG_SPECIES);
-  if (!hero) notFound();
 
   const t = await getTranslations({ locale, namespace: "dangerousAnimals" });
   const copy = dangerousAnimalsFeature.copy[locale];
@@ -82,7 +78,7 @@ export default async function DangerousAnimalsRoute({ params }: Props) {
 
   return (
     <>
-      <CoverImagePreload sizes="100vw" src={hero.image} />
+      <CoverImagePreload sizes="100vw" src={HERO_ILLUSTRATION.src} />
       <JsonLd data={breadcrumbLd} />
       <JsonLd data={pageLd} />
       <DangerousAnimalsPage
@@ -109,8 +105,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     copy.metaDescription,
   );
   const url = absoluteUrl(path);
-  const hero = getCatalogSpecies().find((item) => item.id === OG_SPECIES);
-  const ogImage = speciesOgImageUrl(OG_SPECIES, hero?.image);
+  const ogImage = HERO_ILLUSTRATION.src;
 
   return {
     alternates: localeAlternates(locale, PATH),
@@ -118,7 +113,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     keywords: copy.keywords,
     openGraph: {
       description,
-      images: [openGraphJpeg(ogImage, title)],
+      images: [
+        {
+          alt: HERO_ILLUSTRATION.alt[locale],
+          height: 887,
+          type: "image/jpeg",
+          url: ogImage,
+          width: 1774,
+        },
+      ],
       locale: openGraphLocale(locale),
       siteName: siteConfig.name,
       title,

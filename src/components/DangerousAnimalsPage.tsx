@@ -1,6 +1,6 @@
 import type { ComponentProps, ReactNode } from "react";
 
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ChevronDown } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import type {
@@ -97,7 +97,11 @@ export async function DangerousAnimalsPage({
         </header>
 
         <div className="mx-auto mt-10 w-full max-w-[1400px] px-6 sm:mt-12 lg:px-10">
-          <FeaturePhotoFigure context={context} photoKey="hero" priority wide />
+          <FeatureIllustrationFigure
+            context={context}
+            illustrationKey="hero"
+            priority
+          />
         </div>
         <FeaturePhotoFade />
         <div className="mx-auto w-full max-w-[1400px] px-6 pb-18 lg:px-10">
@@ -173,37 +177,25 @@ function FeatureBlockView({
       </div>
     );
   }
+  if (block.type === "illustration") {
+    return (
+      <div className="mt-10">
+        <FeatureIllustrationFigure
+          context={context}
+          illustrationKey={block.illustration}
+        />
+      </div>
+    );
+  }
   if (block.type === "lookalikes") {
     return <FeatureLookalikes block={block} context={context} />;
-  }
-  if (block.type === "resource") {
-    return (
-      <aside className="my-9 border-y border-border py-5">
-        <p className="text-[10px] font-medium tracking-[0.14em] text-muted-foreground uppercase">
-          {context.copy.labels.readNext} · {block.eyebrow}
-        </p>
-        <Link
-          className="group mt-2 block min-h-11 font-display text-[17px] leading-snug font-semibold text-foreground transition-colors hover:text-primary"
-          href={block.href as FeatureLinkHref}
-        >
-          {block.title}
-          <ArrowUpRight
-            aria-hidden="true"
-            className="ml-1 inline size-3.5 align-baseline text-muted-foreground transition-colors group-hover:text-primary"
-          />
-        </Link>
-        <p className="mt-2 text-[13px] leading-relaxed text-muted-foreground">
-          {block.body}
-        </p>
-      </aside>
-    );
   }
   if (block.type === "speciesNote") {
     return <FeatureSpeciesNote block={block} context={context} />;
   }
   if (block.type === "pull") {
     return (
-      <blockquote className="my-12 border-l-2 border-primary pl-5 font-display text-[25px] leading-[1.35] font-semibold text-foreground sm:pl-7 sm:text-[32px]">
+      <blockquote className="my-12 font-display text-[25px] leading-[1.35] font-semibold text-foreground sm:text-[32px]">
         <FeatureRichText context={context} parts={block.parts} />
       </blockquote>
     );
@@ -212,7 +204,7 @@ function FeatureBlockView({
     return <FeatureMap block={block} context={context} />;
   }
   return (
-    <dl className="my-6 border-t border-border pt-5 sm:grid sm:grid-cols-[110px_minmax(0,1fr)] sm:gap-x-6">
+    <dl className="my-6 sm:grid sm:grid-cols-[110px_minmax(0,1fr)] sm:gap-x-6">
       <dt className="text-[11px] font-medium tracking-[0.14em] text-muted-foreground uppercase">
         {context.copy.labels.mythClaim}
       </dt>
@@ -238,7 +230,7 @@ function FeatureChapter({
 }) {
   return (
     <section className="mt-20 scroll-mt-28 sm:mt-24" id={section.id}>
-      <div className="border-t border-foreground/35 pt-7">
+      <div>
         <p className="text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
           {section.eyebrow}
         </p>
@@ -256,6 +248,36 @@ function FeatureChapter({
         ))}
       </div>
     </section>
+  );
+}
+
+function FeatureIllustrationFigure({
+  context,
+  illustrationKey,
+  priority = false,
+}: {
+  context: FeatureContext;
+  illustrationKey: string;
+  priority?: boolean;
+}) {
+  const illustration = dangerousAnimalsFeature.illustrations[illustrationKey];
+  if (!illustration) return null;
+  return (
+    <figure>
+      <div className={priority ? undefined : "max-w-[920px]"}>
+        <FeaturePhotoVisual
+          alt={illustration.alt[context.locale]}
+          aspect={priority ? "aspect-3/2 sm:aspect-2/1" : "aspect-3/2"}
+          priority={priority}
+          sizes={
+            priority
+              ? "(max-width: 1399px) 100vw, 1320px"
+              : "(max-width: 959px) 100vw, 920px"
+          }
+          src={illustration.src}
+        />
+      </div>
+    </figure>
   );
 }
 
@@ -279,12 +301,9 @@ function FeatureLookalikes({
                 src={photo.definition.src}
               />
               <div className="mt-3">
-                <Link
-                  className="inline-flex min-h-11 items-center font-display text-[17px] font-semibold text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
-                  href={speciesHref(photo.species.id, context.locale)}
-                >
+                <p className="font-display text-[17px] font-semibold text-foreground">
                   {photo.species.commonName}
-                </Link>
+                </p>
                 <p className="text-[13px] text-muted-foreground italic">
                   {photo.species.scientificName}
                 </p>
@@ -315,7 +334,7 @@ function FeatureMap({
     localizeRegionText(region.name, context.locale),
   );
   return (
-    <figure className="my-12 border-y border-border py-6">
+    <figure className="my-12">
       <div
         aria-label={(item?.commonName ?? "") + ": " + names.join(", ")}
         role="img"
@@ -507,24 +526,38 @@ function FeatureRichText({
 function FeatureSources({ context }: { context: FeatureContext }) {
   return (
     <aside className="mt-20 border-t border-border pt-10" id="sources">
-      <h2 className="font-display text-display-card font-semibold text-foreground">
-        {context.copy.labels.sourcesHeading}
-      </h2>
-      <ul className="mt-6 space-y-3">
-        {dangerousAnimalsFeature.sources.map((source) => (
-          <li key={source.url}>
-            <a
-              className="inline-flex min-h-11 items-center gap-1 text-[14px] leading-relaxed text-muted-foreground underline decoration-border underline-offset-4 transition-colors hover:text-foreground hover:decoration-foreground"
-              href={source.url}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              {source.name}
-              <ArrowUpRight aria-hidden="true" className="size-3.5 shrink-0" />
-            </a>
-          </li>
-        ))}
-      </ul>
+      <details className="group">
+        <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-1 text-left marker:content-none [&::-webkit-details-marker]:hidden">
+          <h2 className="font-display text-display-card font-semibold text-foreground">
+            {context.copy.labels.sourcesHeading}
+          </h2>
+          <span className="flex size-9 shrink-0 items-center justify-center rounded-full border border-border text-muted-foreground transition-transform duration-300 group-open:rotate-180 group-open:border-foreground/20 group-open:text-foreground">
+            <ChevronDown
+              aria-hidden="true"
+              className="size-4"
+              strokeWidth={1.75}
+            />
+          </span>
+        </summary>
+        <ul className="mt-6 space-y-3">
+          {dangerousAnimalsFeature.sources.map((source) => (
+            <li key={source.url}>
+              <a
+                className="inline-flex min-h-11 items-center gap-1 text-[14px] leading-relaxed text-muted-foreground underline decoration-border underline-offset-4 transition-colors hover:text-foreground hover:decoration-foreground"
+                href={source.url}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                {source.name}
+                <ArrowUpRight
+                  aria-hidden="true"
+                  className="size-3.5 shrink-0"
+                />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </details>
     </aside>
   );
 }
@@ -540,7 +573,7 @@ function FeatureSpeciesNote({
   if (!item) return null;
   const photo = block.photo ? resolveFeaturePhoto(block.photo, context) : null;
   return (
-    <aside className="my-10 border-y border-border py-5 sm:grid sm:grid-cols-[180px_minmax(0,1fr)] sm:gap-6">
+    <aside className="my-10 sm:grid sm:grid-cols-[180px_minmax(0,1fr)] sm:gap-6">
       {photo ? (
         <div>
           <FeaturePhotoVisual
@@ -555,12 +588,9 @@ function FeatureSpeciesNote({
         <p className="text-[10px] font-medium tracking-[0.14em] text-muted-foreground uppercase">
           {block.heading}
         </p>
-        <Link
-          className="mt-2 inline-flex min-h-11 items-center font-display text-[19px] font-semibold text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
-          href={speciesHref(item.id, context.locale)}
-        >
+        <p className="mt-2 font-display text-[19px] font-semibold text-foreground">
           {item.commonName}
-        </Link>
+        </p>
         <p className="text-[13px] text-muted-foreground italic">
           {item.scientificName}
         </p>
@@ -627,16 +657,7 @@ function FeatureTable({ context }: { context: FeatureContext }) {
                   className="block py-2 text-left font-display text-[15px] font-semibold text-foreground sm:table-cell sm:py-4 sm:pr-4 sm:align-top"
                   scope="row"
                 >
-                  <Link
-                    className="inline-flex min-h-11 items-center underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground sm:min-h-0"
-                    href={
-                      row.speciesId
-                        ? speciesHref(row.speciesId, context.locale)
-                        : (row.href as FeatureLinkHref)
-                    }
-                  >
-                    {row.subject}
-                  </Link>
+                  {row.subject}
                 </th>
                 <td className="grid grid-cols-[5.5rem_minmax(0,1fr)] gap-3 py-1.5 text-muted-foreground sm:table-cell sm:py-4 sm:pr-4 sm:align-top">
                   <span className="text-[11px] font-medium tracking-wide text-muted-foreground uppercase sm:hidden">

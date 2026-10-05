@@ -2,6 +2,7 @@ import type { AppLocale } from "@/i18n/routing";
 
 export type DangerousAnimalsFeature = {
   copy: Record<AppLocale, DangerousAnimalsLocaleCopy>;
+  illustrations: Record<string, FeatureIllustration>;
   photos: Record<string, FeaturePhoto>;
   sources: readonly { name: string; url: string }[];
 };
@@ -18,7 +19,6 @@ export type DangerousAnimalsLocaleCopy = {
     mythReality: string;
     noRisk: string;
     photoCredit: string;
-    readNext: string;
     sourcesHeading: string;
     tableAction: string;
     tableAnimal: string;
@@ -36,13 +36,6 @@ export type DangerousAnimalsLocaleCopy = {
 };
 
 export type FeatureBlock =
-  | {
-      body: string;
-      eyebrow: string;
-      href: string;
-      title: string;
-      type: "resource";
-    }
   | { caption: FeatureMark[]; left: string; right: string; type: "lookalikes" }
   | { caption: FeatureMark[]; photo: string; type: "figure"; wide?: boolean }
   | { caption: FeatureMark[]; speciesId: string; type: "map" }
@@ -54,8 +47,14 @@ export type FeatureBlock =
       speciesId: string;
       type: "speciesNote";
     }
+  | { illustration: string; type: "illustration" }
   | { parts: FeatureMark[]; type: "p" }
   | { parts: FeatureMark[]; type: "pull" };
+
+export type FeatureIllustration = {
+  alt: Record<AppLocale, string>;
+  src: string;
+};
 
 export type FeatureMark =
   | string
@@ -78,7 +77,6 @@ export type FeatureSection = {
 
 export type FeatureTableRow = {
   action: string;
-  href: string;
   id: string;
   speciesId?: string;
   subject: string;
@@ -121,7 +119,6 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
         mythReality: "In fact",
         noRisk: "No level assigned",
         photoCredit: "Photo",
-        readNext: "Read next",
         sourcesHeading: "Sources",
         tableAction: "What to do",
         tableAnimal: "Animal or situation",
@@ -210,13 +207,6 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
               speciesId: "malpolon-insignitus",
               type: "speciesNote",
             },
-            {
-              body: "A separate, sourced guide for a bite by this species.",
-              eyebrow: "Guide",
-              href: "/snakes/giurzas-nakbeni",
-              title: "If a Levantine viper bites",
-              type: "resource",
-            },
           ],
           eyebrow: "01 / Snakes",
           heading: "At a snake encounter, distance matters more than a guess",
@@ -281,13 +271,6 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
               ],
               type: "p",
             },
-            {
-              body: "Published species, identification cautions and what their atlas risk labels mean.",
-              eyebrow: "Read more",
-              href: "/spiders/shxamiani-obobebi",
-              title: "Venomous spiders in Georgia",
-              type: "resource",
-            },
           ],
           eyebrow: "02 / Spiders and scorpions",
           heading: "Venomous does not make every encounter the same",
@@ -303,6 +286,7 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
               ],
               type: "p",
             },
+            { illustration: "waspNest", type: "illustration" },
             {
               parts: [
                 "Finding a nest is not an emergency by itself; its position and activity determine the next step.",
@@ -318,13 +302,6 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
               type: "p",
             },
             {
-              body: "When it can be left undisturbed and when to seek professional assessment.",
-              eyebrow: "Read next",
-              href: "/insects/krazanis-bude",
-              title: "A wasp nest near home",
-              type: "resource",
-            },
-            {
               parts: [
                 "A tick bite is another question. An attached tick should be removed promptly, but not every bite causes infection or warrants a call to 112. The ",
                 guide("/insects/tkipis-nakbeni", "tick-bite guide"),
@@ -332,13 +309,7 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
               ],
               type: "p",
             },
-            {
-              body: "A sourced guide to removing an attached tick and watching for symptoms.",
-              eyebrow: "Read next",
-              href: "/insects/tkipis-nakbeni",
-              title: "A tick bite",
-              type: "resource",
-            },
+            { illustration: "tick", type: "illustration" },
           ],
           eyebrow: "03 / Insects and ticks",
           heading: "A nest or bite needs context, not just a name",
@@ -392,13 +363,6 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
                 " for that situation.",
               ],
               type: "p",
-            },
-            {
-              body: "Distance, cubs, food and dogs in the dedicated encounter guide.",
-              eyebrow: "Read next",
-              href: "/mammals/datvi-shekhvedra",
-              title: "Meeting a bear",
-              type: "resource",
             },
           ],
           eyebrow: "04 / Large mammals",
@@ -477,7 +441,6 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
       tableRows: [
         {
           action: "Keep clear; call 112 after a bite",
-          href: "#snakes",
           id: "gyurza",
           speciesId: "macrovipera-lebetina",
           subject: "Levantine viper",
@@ -485,7 +448,6 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
         },
         {
           action: "Keep clear; call 112 after a bite",
-          href: "#snakes",
           id: "nose-horned-viper",
           speciesId: "vipera-transcaucasiana",
           subject: "Nose-horned viper",
@@ -493,7 +455,6 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
         },
         {
           action: "Do not handle; call 112 after a bite",
-          href: "#arachnids",
           id: "karakurt",
           speciesId: "latrodectus-tredecimguttatus",
           subject: "Mediterranean black widow",
@@ -501,7 +462,6 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
         },
         {
           action: "Do not touch; call 112 for severe symptoms",
-          href: "#arachnids",
           id: "mottled-scorpion",
           speciesId: "mesobuthus-eupeus",
           subject: "Mottled scorpion",
@@ -510,21 +470,18 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
         {
           action:
             "Avoid an active nest; seek professional assessment if needed",
-          href: "/insects/krazanis-bude",
           id: "wasp-nest",
           subject: "Wasp nest",
           where: "",
         },
         {
           action: "See the guide for removal",
-          href: "/insects/tkipis-nakbeni",
           id: "tick-bite",
           subject: "Tick bite",
           where: "",
         },
         {
           action: "Keep away; open the encounter guide",
-          href: "#mammals",
           id: "bear",
           speciesId: "ursus-arctos",
           subject: "Brown bear",
@@ -532,7 +489,6 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
         },
         {
           action: "Keep away; open the yard guide",
-          href: "#mammals",
           id: "jackal",
           speciesId: "canis-aureus",
           subject: "Golden jackal",
@@ -564,7 +520,6 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
         mythReality: "სინამდვილეში",
         noRisk: "დონე არ არის მითითებული",
         photoCredit: "ფოტო",
-        readNext: "წაიკითხეთ შემდეგ",
         sourcesHeading: "წყაროები",
         tableAction: "რა ვქნათ",
         tableAnimal: "ცხოველი ან შემთხვევა",
@@ -651,13 +606,6 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
               speciesId: "malpolon-insignitus",
               type: "speciesNote",
             },
-            {
-              body: "ამ სახეობის ნაკბენის შესახებ ცალკე, წყაროებზე დამყარებული გვერდი.",
-              eyebrow: "გზამკვლევი",
-              href: "/snakes/giurzas-nakbeni",
-              title: "თუ გიურზამ გიკბინათ",
-              type: "resource",
-            },
           ],
           eyebrow: "01 / გველები",
           heading: "გველთან შეხვედრისას გამოცნობაზე მნიშვნელოვანი მანძილია",
@@ -712,13 +660,6 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
               ],
               type: "p",
             },
-            {
-              body: "როგორ განვასხვავოთ გამოქვეყნებული სახეობები და რას ნიშნავს მათი რისკის ნიშანი.",
-              eyebrow: "წაიკითხეთ მეტი",
-              href: "/spiders/shxamiani-obobebi",
-              title: "შხამიანი ობობები საქართველოში",
-              type: "resource",
-            },
           ],
           eyebrow: "02 / ობობები და მორიელები",
           heading: "შხამიანი არ ნიშნავს, რომ ყოველი შეხვედრა ერთნაირია",
@@ -733,6 +674,7 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
               ],
               type: "p",
             },
+            { illustration: "waspNest", type: "illustration" },
             {
               parts: [
                 "ბუდის აღმოჩენა თავისთავად გადაუდებელი შემთხვევა არ არის; მისი მდებარეობა და აქტიურობა განსაზღვრავს შემდეგ ნაბიჯს.",
@@ -748,13 +690,6 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
               type: "p",
             },
             {
-              body: "როდის დატოვოთ ბუდე მშვიდად და როდის მოითხოვოთ პროფესიული შეფასება.",
-              eyebrow: "წაიკითხეთ შემდეგ",
-              href: "/insects/krazanis-bude",
-              title: "კრაზანის ბუდე სახლთან",
-              type: "resource",
-            },
-            {
               parts: [
                 "ტკიპის ნაკბენიც ცალკე საკითხია. კანზე მიმაგრებული ტკიპა სწრაფად უნდა მოიცილოთ, მაგრამ ყოველი ნაკბენი ინფექციას არ ნიშნავს და ავტომატურად 112-ის შემთხვევა არ არის. ",
                 guide("/insects/tkipis-nakbeni", "ტკიპის ნაკბენის გიდში"),
@@ -762,13 +697,7 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
               ],
               type: "p",
             },
-            {
-              body: "მიმაგრებული ტკიპის მოცილება და შემდგომი დაკვირვება წყაროიანი გიდით.",
-              eyebrow: "წაიკითხეთ შემდეგ",
-              href: "/insects/tkipis-nakbeni",
-              title: "ტკიპის ნაკბენი",
-              type: "resource",
-            },
+            { illustration: "tick", type: "illustration" },
           ],
           eyebrow: "03 / მწერები და ტკიპები",
           heading:
@@ -820,13 +749,6 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
                 ".",
               ],
               type: "p",
-            },
-            {
-              body: "გზამკვლევი მანძილის, ბელების, საკვებისა და ძაღლის საკითხებზე.",
-              eyebrow: "წაიკითხეთ შემდეგ",
-              href: "/mammals/datvi-shekhvedra",
-              title: "დათვთან შეხვედრა",
-              type: "resource",
             },
           ],
           eyebrow: "04 / დიდი ძუძუმწოვრები",
@@ -894,7 +816,6 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
       tableRows: [
         {
           action: "მოერიდეთ; ნაკბენისას 112",
-          href: "#snakes",
           id: "gyurza",
           speciesId: "macrovipera-lebetina",
           subject: "გიურზა",
@@ -902,7 +823,6 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
         },
         {
           action: "მოერიდეთ; ნაკბენისას 112",
-          href: "#snakes",
           id: "nose-horned-viper",
           speciesId: "vipera-transcaucasiana",
           subject: "ცხვირრქოსანი გველგესლა",
@@ -910,7 +830,6 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
         },
         {
           action: "არ აიყვანოთ; ნაკბენისას 112",
-          href: "#arachnids",
           id: "karakurt",
           speciesId: "latrodectus-tredecimguttatus",
           subject: "ყარაყურთი",
@@ -918,7 +837,6 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
         },
         {
           action: "არ შეეხოთ; მძიმე ნიშნებისას 112",
-          href: "#arachnids",
           id: "mottled-scorpion",
           speciesId: "mesobuthus-eupeus",
           subject: "ჭრელი მორიელი",
@@ -926,21 +844,18 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
         },
         {
           action: "აქტიურ ბუდეს მოერიდეთ; საჭიროებისას სპეციალისტი",
-          href: "/insects/krazanis-bude",
           id: "wasp-nest",
           subject: "კრაზანის ბუდე",
           where: "",
         },
         {
           action: "მოცილების წესს გიდში გაეცანით",
-          href: "/insects/tkipis-nakbeni",
           id: "tick-bite",
           subject: "ტკიპის ნაკბენი",
           where: "",
         },
         {
           action: "არ მიუახლოვდეთ; გახსენით შეხვედრის გიდი",
-          href: "#mammals",
           id: "bear",
           speciesId: "ursus-arctos",
           subject: "მურა დათვი",
@@ -948,7 +863,6 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
         },
         {
           action: "არ მიუახლოვდეთ; გახსენით ეზოს გიდი",
-          href: "#mammals",
           id: "jackal",
           speciesId: "canis-aureus",
           subject: "ტურა",
@@ -980,7 +894,6 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
         mythReality: "На самом деле",
         noRisk: "Уровень не указан",
         photoCredit: "Фото",
-        readNext: "Читайте дальше",
         sourcesHeading: "Источники",
         tableAction: "Что делать",
         tableAnimal: "Животное или ситуация",
@@ -1067,13 +980,6 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
               speciesId: "malpolon-insignitus",
               type: "speciesNote",
             },
-            {
-              body: "Отдельная страница об укусе этого вида, основанная на источниках.",
-              eyebrow: "Руководство",
-              href: "/snakes/giurzas-nakbeni",
-              title: "Если укусила гюрза",
-              type: "resource",
-            },
           ],
           eyebrow: "01 / Змеи",
           heading: "При встрече со змеёй дистанция важнее догадки",
@@ -1134,13 +1040,6 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
               ],
               type: "p",
             },
-            {
-              body: "Опубликованные виды, трудности распознавания и значение меток риска.",
-              eyebrow: "Подробнее",
-              href: "/spiders/shxamiani-obobebi",
-              title: "Ядовитые пауки Грузии",
-              type: "resource",
-            },
           ],
           eyebrow: "02 / Пауки и скорпионы",
           heading: "Наличие яда не делает все встречи одинаковыми",
@@ -1158,6 +1057,7 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
               ],
               type: "p",
             },
+            { illustration: "waspNest", type: "illustration" },
             {
               parts: [
                 "Само обнаружение гнезда не является чрезвычайной ситуацией: следующий шаг зависит от его расположения и активности.",
@@ -1173,13 +1073,6 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
               type: "p",
             },
             {
-              body: "Когда оставить его в покое, а когда нужна оценка специалиста.",
-              eyebrow: "Читайте дальше",
-              href: "/insects/krazanis-bude",
-              title: "Осиное гнездо возле дома",
-              type: "resource",
-            },
-            {
               parts: [
                 "Укус клеща — отдельный вопрос. Присосавшегося клеща следует удалить как можно скорее, но не каждый укус вызывает инфекцию или требует звонка в 112. ",
                 guide("/insects/tkipis-nakbeni", "Руководство по укусу клеща"),
@@ -1187,13 +1080,7 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
               ],
               type: "p",
             },
-            {
-              body: "Руководство с источниками: удаление клеща и наблюдение за симптомами.",
-              eyebrow: "Читайте дальше",
-              href: "/insects/tkipis-nakbeni",
-              title: "Укус клеща",
-              type: "resource",
-            },
+            { illustration: "tick", type: "illustration" },
           ],
           eyebrow: "03 / Насекомые и клещи",
           heading: "Для гнезда и укуса важны обстоятельства",
@@ -1247,13 +1134,6 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
                 ".",
               ],
               type: "p",
-            },
-            {
-              body: "Дистанция, медвежата, пища и собаки в отдельном руководстве.",
-              eyebrow: "Читайте дальше",
-              href: "/mammals/datvi-shekhvedra",
-              title: "Встреча с медведем",
-              type: "resource",
             },
           ],
           eyebrow: "04 / Крупные млекопитающие",
@@ -1325,7 +1205,6 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
       tableRows: [
         {
           action: "Держитесь подальше; при укусе звоните 112",
-          href: "#snakes",
           id: "gyurza",
           speciesId: "macrovipera-lebetina",
           subject: "Гюрза",
@@ -1333,7 +1212,6 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
         },
         {
           action: "Держитесь подальше; при укусе звоните 112",
-          href: "#snakes",
           id: "nose-horned-viper",
           speciesId: "vipera-transcaucasiana",
           subject: "Носатая гадюка",
@@ -1341,7 +1219,6 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
         },
         {
           action: "Не берите в руки; при укусе звоните 112",
-          href: "#arachnids",
           id: "karakurt",
           speciesId: "latrodectus-tredecimguttatus",
           subject: "Каракурт",
@@ -1349,7 +1226,6 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
         },
         {
           action: "Не трогайте; при тяжёлых симптомах звоните 112",
-          href: "#arachnids",
           id: "mottled-scorpion",
           speciesId: "mesobuthus-eupeus",
           subject: "Пёстрый скорпион",
@@ -1358,21 +1234,18 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
         {
           action:
             "Не приближайтесь к активному гнезду; при необходимости пригласите специалиста",
-          href: "/insects/krazanis-bude",
           id: "wasp-nest",
           subject: "Осиное гнездо",
           where: "",
         },
         {
           action: "Порядок удаления есть в руководстве",
-          href: "/insects/tkipis-nakbeni",
           id: "tick-bite",
           subject: "Укус клеща",
           where: "",
         },
         {
           action: "Не приближайтесь; откройте руководство по встрече",
-          href: "#mammals",
           id: "bear",
           speciesId: "ursus-arctos",
           subject: "Бурый медведь",
@@ -1380,7 +1253,6 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
         },
         {
           action: "Не приближайтесь; откройте руководство для двора",
-          href: "#mammals",
           id: "jackal",
           speciesId: "canis-aureus",
           subject: "Золотой шакал",
@@ -1412,7 +1284,6 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
         mythReality: "Aslında",
         noRisk: "Düzey belirtilmemiş",
         photoCredit: "Fotoğraf",
-        readNext: "Sıradaki okuma",
         sourcesHeading: "Kaynaklar",
         tableAction: "Ne yapmalı",
         tableAnimal: "Hayvan veya durum",
@@ -1499,13 +1370,6 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
               speciesId: "malpolon-insignitus",
               type: "speciesNote",
             },
-            {
-              body: "Bu türün ısırığına ilişkin, kaynaklara dayalı ayrı rehber.",
-              eyebrow: "Rehber",
-              href: "/snakes/giurzas-nakbeni",
-              title: "Levant engereği ısırırsa",
-              type: "resource",
-            },
           ],
           eyebrow: "01 / Yılanlar",
           heading: "Yılanla karşılaşınca tahminden çok mesafe önemlidir",
@@ -1561,13 +1425,6 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
               ],
               type: "p",
             },
-            {
-              body: "Yayımlanmış türler, tanıma güçlükleri ve atlas risk etiketleri.",
-              eyebrow: "Ayrıntılar",
-              href: "/spiders/shxamiani-obobebi",
-              title: "Gürcistan'daki zehirli örümcekler",
-              type: "resource",
-            },
           ],
           eyebrow: "02 / Örümcekler ve akrepler",
           heading: "Zehirli olmak her karşılaşmayı aynı yapmaz",
@@ -1582,6 +1439,7 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
               ],
               type: "p",
             },
+            { illustration: "waspNest", type: "illustration" },
             {
               parts: [
                 "Bir yuva bulmak tek başına acil durum değildir; sonraki adımı konumu ve etkinliği belirler.",
@@ -1597,13 +1455,6 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
               type: "p",
             },
             {
-              body: "Ne zaman rahat bırakılabilir, ne zaman uzman değerlendirmesi gerekir?",
-              eyebrow: "Sıradaki okuma",
-              href: "/insects/krazanis-bude",
-              title: "Evin yakınında yaban arısı yuvası",
-              type: "resource",
-            },
-            {
               parts: [
                 "Kene ısırığı ayrı bir konudur. Deriye tutunmuş kene hızla çıkarılmalıdır; ancak her ısırık enfeksiyon demek değildir ve otomatik olarak 112'yi gerektirmez. ",
                 guide("/insects/tkipis-nakbeni", "Kene ısırığı rehberi"),
@@ -1611,13 +1462,7 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
               ],
               type: "p",
             },
-            {
-              body: "Tutunmuş keneyi çıkarma ve belirtileri izleme üzerine kaynaklı rehber.",
-              eyebrow: "Sıradaki okuma",
-              href: "/insects/tkipis-nakbeni",
-              title: "Kene ısırığı",
-              type: "resource",
-            },
+            { illustration: "tick", type: "illustration" },
           ],
           eyebrow: "03 / Böcekler ve keneler",
           heading: "Yuvada ve ısırıkta bağlam, isimden daha çok şey söyler",
@@ -1669,13 +1514,6 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
                 " açın.",
               ],
               type: "p",
-            },
-            {
-              body: "Mesafe, yavrular, yiyecek ve köpekler için ayrı rehber.",
-              eyebrow: "Sıradaki okuma",
-              href: "/mammals/datvi-shekhvedra",
-              title: "Ayıyla karşılaşma",
-              type: "resource",
             },
           ],
           eyebrow: "04 / Büyük memeliler",
@@ -1746,7 +1584,6 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
       tableRows: [
         {
           action: "Uzak durun; ısırıkta 112'yi arayın",
-          href: "#snakes",
           id: "gyurza",
           speciesId: "macrovipera-lebetina",
           subject: "Levant engereği",
@@ -1754,7 +1591,6 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
         },
         {
           action: "Uzak durun; ısırıkta 112'yi arayın",
-          href: "#snakes",
           id: "nose-horned-viper",
           speciesId: "vipera-transcaucasiana",
           subject: "Boynuzlu engerek",
@@ -1762,7 +1598,6 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
         },
         {
           action: "Elle tutmayın; ısırıkta 112'yi arayın",
-          href: "#arachnids",
           id: "karakurt",
           speciesId: "latrodectus-tredecimguttatus",
           subject: "Karakurt",
@@ -1770,7 +1605,6 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
         },
         {
           action: "Dokunmayın; ağır belirtilerde 112'yi arayın",
-          href: "#arachnids",
           id: "mottled-scorpion",
           speciesId: "mesobuthus-eupeus",
           subject: "Alacalı akrep",
@@ -1779,21 +1613,18 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
         {
           action:
             "Etkin yuvadan uzak durun; gerekirse uzman değerlendirmesi alın",
-          href: "/insects/krazanis-bude",
           id: "wasp-nest",
           subject: "Yaban arısı yuvası",
           where: "",
         },
         {
           action: "Çıkarma yöntemi için rehbere bakın",
-          href: "/insects/tkipis-nakbeni",
           id: "tick-bite",
           subject: "Kene ısırığı",
           where: "",
         },
         {
           action: "Yaklaşmayın; karşılaşma rehberini açın",
-          href: "#mammals",
           id: "bear",
           speciesId: "ursus-arctos",
           subject: "Boz ayı",
@@ -1801,7 +1632,6 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
         },
         {
           action: "Yaklaşmayın; bahçe rehberini açın",
-          href: "#mammals",
           id: "jackal",
           speciesId: "canis-aureus",
           subject: "Çakal",
@@ -1809,6 +1639,35 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
         },
       ],
       title: "Gürcistan'daki tehlikeli hayvanlar",
+    },
+  },
+  illustrations: {
+    hero: {
+      alt: {
+        en: "Illustration of a snake in a rocky landscape",
+        ka: "გველის ილუსტრაცია კლდოვან ლანდშაფტში",
+        ru: "Иллюстрация змеи в каменистом ландшафте",
+        tr: "Kayalık bir arazide yılan illüstrasyonu",
+      },
+      src: "https://cdn.reptiles.ge/images/features/dangerous-animals/hero-illustration-f72dc4428794.jpg",
+    },
+    tick: {
+      alt: {
+        en: "Illustration of a tick on fabric",
+        ka: "ტკიპის ილუსტრაცია ქსოვილზე",
+        ru: "Иллюстрация клеща на ткани",
+        tr: "Kumaş üzerindeki kene illüstrasyonu",
+      },
+      src: "https://cdn.reptiles.ge/images/features/dangerous-animals/tick-illustration-c7f9f844eb95.jpg",
+    },
+    waspNest: {
+      alt: {
+        en: "Illustration of a wasp nest under a house eave",
+        ka: "კრაზანის ბუდის ილუსტრაცია სახლის სახურავის ქვეშ",
+        ru: "Иллюстрация осиного гнезда под карнизом дома",
+        tr: "Bir evin saçağı altındaki yaban arısı yuvası illüstrasyonu",
+      },
+      src: "https://cdn.reptiles.ge/images/features/dangerous-animals/wasp-nest-illustration-2616dacec96d.jpg",
     },
   },
   photos: {
