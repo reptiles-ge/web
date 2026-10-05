@@ -24,8 +24,8 @@ import { SkipLink } from "@/components/SkipLink";
 import { TopGeCounter } from "@/components/TopGeCounter";
 import {
   type ClientMessages,
+  LOCALE_LAYOUT_CLIENT_MESSAGE_NAMESPACES,
   pickClientMessages,
-  ROOT_CLIENT_MESSAGE_NAMESPACES,
 } from "@/i18n/clientMessages";
 import { routing } from "@/i18n/routing";
 import { isLocalAdminEnabled } from "@/lib/adminAccess";
@@ -51,7 +51,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   setRequestLocale(locale);
   const messages = pickClientMessages(
     (await getMessages({ locale })) as ClientMessages,
-    ROOT_CLIENT_MESSAGE_NAMESPACES,
+    LOCALE_LAYOUT_CLIENT_MESSAGE_NAMESPACES,
   );
   const t = await getTranslations({ locale, namespace: "nav" });
   const footerData = getFooterData(locale);
