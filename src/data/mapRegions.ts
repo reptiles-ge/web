@@ -676,6 +676,7 @@ export const regions: Region[] = [
       "columba-palumbus",
       "anas-platyrhynchos",
       "turdus-merula",
+      "streptopelia-turtur",
     ],
   },
   {
