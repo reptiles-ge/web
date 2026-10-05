@@ -321,9 +321,9 @@ export function HalyomorphaRangeMap({
       </ul>
 
       {groups.length > 0 ? (
-        <div className="mt-10 rounded-card border border-border bg-card p-3 sm:p-4 lg:col-start-2 lg:row-span-3 lg:row-start-1 lg:mt-0">
+        <div className="-mx-2.5 mt-10 lg:col-start-2 lg:row-span-3 lg:row-start-1 lg:mt-0">
           <table className="w-full border-separate border-spacing-0 text-[14px] leading-snug">
-            <caption className="px-2.5 pt-1.5 text-left font-display text-[1.125rem] leading-tight font-semibold text-foreground">
+            <caption className="px-2.5 text-left font-display text-[1.125rem] leading-tight font-semibold text-foreground">
               {copy.regionSummaryTitle}
             </caption>
             <thead className="sr-only">
@@ -508,7 +508,7 @@ function LedgerRegion({
         <td className="px-2 text-right text-foreground tabular-nums">
           {row.count > 0 ? row.count.toLocaleString(locale) : "—"}
         </td>
-        <td className="w-12 py-1 pr-1.5 pl-0 text-right">
+        <td className="w-13 py-1 pr-2.5 pl-0 text-right">
           <Link
             aria-label={row.pageLabel}
             className="inline-flex size-9 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-primary pointer-coarse:size-10"

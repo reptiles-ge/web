@@ -2557,11 +2557,11 @@ export async function SpeciesRangeMap({
           </figure>
 
           <nav aria-label={t("rangeRegionsLabel")}>
-            <ol className="rounded-card border border-border bg-card p-3 text-[14px] leading-snug sm:p-4">
+            <ol className="-mx-2.5 text-[14px] leading-snug">
               {rangeRegions.map((region, index) => (
                 <li key={region.id}>
                   <Link
-                    className="group flex min-h-11 items-center gap-3 rounded-xl py-1 pr-1.5 pl-2.5 text-foreground transition-colors hover:bg-surface hover:text-primary focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-primary"
+                    className="group flex min-h-11 items-center gap-3 rounded-xl px-2.5 py-1 text-foreground transition-colors hover:bg-surface hover:text-primary focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-primary"
                     href={regionHref(region.id)}
                   >
                     <span aria-hidden="true" data-range-mark="key">
