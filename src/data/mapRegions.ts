@@ -45,6 +45,8 @@ export const regions: Region[] = [
     path: georgiaRegionPaths.abkhazia,
     speciesIds: [
       "accipiter-nisus",
+      "dendrocopos-major",
+      "erithacus-rubecula",
       "garrulus-glandarius",
       "lanius-collurio",
       "vipera-kaznakovi",
@@ -71,6 +73,7 @@ export const regions: Region[] = [
       "coturnix-coturnix",
       "columba-palumbus",
       "anas-platyrhynchos",
+      "turdus-merula",
     ],
   },
   {
@@ -96,6 +99,7 @@ export const regions: Region[] = [
     path: georgiaRegionPaths["samegrelo-zemo-svaneti"],
     speciesIds: [
       "accipiter-nisus",
+      "erithacus-rubecula",
       "garrulus-glandarius",
       "gyps-fulvus",
       "lanius-collurio",
@@ -132,6 +136,7 @@ export const regions: Region[] = [
       "euscorpius-italicus",
       "euscorpius-mingrelicus",
       "gypaetus-barbatus",
+      "turdus-merula",
     ],
   },
   {
@@ -167,6 +172,7 @@ export const regions: Region[] = [
       "halyomorpha-halys",
       "euscorpius-italicus",
       "euscorpius-mingrelicus",
+      "turdus-merula",
     ],
   },
   {
@@ -182,6 +188,8 @@ export const regions: Region[] = [
     path: georgiaRegionPaths.adjara,
     speciesIds: [
       "accipiter-nisus",
+      "dendrocopos-major",
+      "erithacus-rubecula",
       "lanius-collurio",
       "vipera-kaznakovi",
       "vipera-transcaucasiana",
@@ -222,6 +230,7 @@ export const regions: Region[] = [
       "euscorpius-italicus",
       "euscorpius-mingrelicus",
       "anas-platyrhynchos",
+      "turdus-merula",
     ],
   },
   {
@@ -262,6 +271,7 @@ export const regions: Region[] = [
       "mantis-religiosa",
       "euscorpius-italicus",
       "euscorpius-mingrelicus",
+      "turdus-merula",
     ],
   },
   {
@@ -326,6 +336,8 @@ export const regions: Region[] = [
     path: georgiaRegionPaths["samtskhe-javakheti"],
     speciesIds: [
       "accipiter-nisus",
+      "dendrocopos-major",
+      "erithacus-rubecula",
       "garrulus-glandarius",
       "gyps-fulvus",
       "neophron-percnopterus",
@@ -375,6 +387,7 @@ export const regions: Region[] = [
       "mantis-religiosa",
       "mesobuthus-eupeus",
       "gypaetus-barbatus",
+      "turdus-merula",
     ],
   },
   {
@@ -400,6 +413,7 @@ export const regions: Region[] = [
     path: georgiaRegionPaths["shida-kartli"],
     speciesIds: [
       "accipiter-nisus",
+      "erithacus-rubecula",
       "neophron-percnopterus",
       "lanius-collurio",
       "vipera-transcaucasiana",
@@ -436,6 +450,7 @@ export const regions: Region[] = [
       "columba-palumbus",
       "anas-platyrhynchos",
       "aegypius-monachus",
+      "turdus-merula",
     ],
   },
   {
@@ -461,6 +476,8 @@ export const regions: Region[] = [
     path: georgiaRegionPaths["mtskheta-mtianeti"],
     speciesIds: [
       "accipiter-nisus",
+      "dendrocopos-major",
+      "erithacus-rubecula",
       "garrulus-glandarius",
       "neophron-percnopterus",
       "lanius-collurio",
@@ -503,6 +520,7 @@ export const regions: Region[] = [
       "columba-palumbus",
       "anas-platyrhynchos",
       "paralaudakia-caucasia",
+      "turdus-merula",
     ],
   },
   {
@@ -528,6 +546,8 @@ export const regions: Region[] = [
     path: georgiaRegionPaths["kvemo-kartli"],
     speciesIds: [
       "accipiter-nisus",
+      "dendrocopos-major",
+      "erithacus-rubecula",
       "garrulus-glandarius",
       "gyps-fulvus",
       "neophron-percnopterus",
@@ -574,6 +594,7 @@ export const regions: Region[] = [
       "coturnix-coturnix",
       "columba-palumbus",
       "anas-platyrhynchos",
+      "turdus-merula",
     ],
   },
   {
@@ -589,6 +610,8 @@ export const regions: Region[] = [
     path: georgiaRegionPaths.kakheti,
     speciesIds: [
       "accipiter-nisus",
+      "dendrocopos-major",
+      "erithacus-rubecula",
       "garrulus-glandarius",
       "neophron-percnopterus",
       "lanius-collurio",
@@ -652,6 +675,7 @@ export const regions: Region[] = [
       "coturnix-coturnix",
       "columba-palumbus",
       "anas-platyrhynchos",
+      "turdus-merula",
     ],
   },
   {
@@ -667,6 +691,8 @@ export const regions: Region[] = [
     path: georgiaRegionPaths.tbilisi,
     speciesIds: [
       "accipiter-nisus",
+      "dendrocopos-major",
+      "erithacus-rubecula",
       "garrulus-glandarius",
       "lanius-collurio",
       "macrovipera-lebetina",
@@ -713,6 +739,7 @@ export const regions: Region[] = [
       "anas-platyrhynchos",
       "phasianus-colchicus",
       "aegypius-monachus",
+      "turdus-merula",
     ],
   },
 ];

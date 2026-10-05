@@ -2265,6 +2265,34 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1153],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/dendrocopos-major-donsky-1.jpg": {
+    "path": "dendrocopos-major-donsky-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/dendrocopos-major-donsky-2.jpg": {
+    "path": "dendrocopos-major-donsky-2",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/dendrocopos-major-donsky-3.jpg": {
+    "path": "dendrocopos-major-donsky-3",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/dendrocopos-major-oscar-1.jpg": {
+    "path": "dendrocopos-major-oscar-1",
+    "width": 1085,
+    "height": 723,
+    "widths": [320, 400, 640, 800, 1085],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/dendrocopos-major-rehnberg-1.jpg": {
     "path": "dendrocopos-major-rehnberg-1",
     "width": 2400,
@@ -2937,6 +2965,27 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1280],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/erithacus-rubecula-cerera1-1.jpg": {
+    "path": "erithacus-rubecula-cerera1-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/erithacus-rubecula-donsky-1.jpg": {
+    "path": "erithacus-rubecula-donsky-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/erithacus-rubecula-ellynvirr-1.jpg": {
+    "path": "erithacus-rubecula-ellynvirr-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/erithacus-rubecula-franklin-1.jpg": {
     "path": "erithacus-rubecula-franklin-1",
     "width": 2400,
@@ -2956,6 +3005,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 2253,
     "height": 1502,
     "widths": [400, 800, 1200, 2253],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/erithacus-rubecula-tatyana-1.jpg": {
+    "path": "erithacus-rubecula-tatyana-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/eryx-jaculus-2.jpg": {
@@ -5296,6 +5352,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 771],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/macrovipera-lebetina-laura-1-crop-381-0-533-1000.jpg": {
+    "path": "macrovipera-lebetina-laura-1-crop-381-0-533-1000",
+    "width": 853,
+    "height": 1066,
+    "widths": [320, 400, 640, 800, 853],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/macrovipera-lebetina-laura-1.jpg": {
     "path": "macrovipera-lebetina-laura-1",
     "width": 1600,
@@ -7395,6 +7458,27 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "height": 670,
     "widths": [400, 800, 1200, 1280],
     "formats": ["avif"]
+  },
+  "https://cdn.reptiles.ge/turdus-merula-alexey-1.jpg": {
+    "path": "turdus-merula-alexey-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/turdus-merula-mikhail-1.jpg": {
+    "path": "turdus-merula-mikhail-1",
+    "width": 1280,
+    "height": 853,
+    "widths": [320, 400, 640, 800, 1200, 1280],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/turdus-merula-tatyana-1.jpg": {
+    "path": "turdus-merula-tatyana-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/turdus-merula-velur-1.jpg": {
     "path": "turdus-merula-velur-1",

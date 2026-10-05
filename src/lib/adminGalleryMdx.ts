@@ -10,6 +10,7 @@ import {
 } from "@/data/species";
 import { type AnimalGroup, speciesAtlasMeta } from "@/data/speciesAtlas";
 import { type CoverTarget } from "@/lib/adminCover";
+import { matchesCoverSource } from "@/lib/coverCrop";
 import {
   normalizePhotoCoordinates,
   type PhotoCoordinates,
@@ -582,6 +583,7 @@ export function setCoverInSpecies(
   target: CoverTarget,
   src: string,
   repoRoot = process.cwd(),
+  coverSrc = src,
 ) {
   if (!isSpeciesContentId(id)) {
     throw new Error("Invalid species id");
@@ -598,7 +600,11 @@ export function setCoverInSpecies(
   if (!kaItem) {
     throw new Error(`Unknown gallery src: ${src}`);
   }
-  fs.writeFileSync(kaPath, setCoverInMdx(kaRaw, target, kaItem), "utf8");
+  fs.writeFileSync(
+    kaPath,
+    setCoverInMdx(kaRaw, target, { ...kaItem, src: coverSrc }),
+    "utf8",
+  );
 
   for (const locale of OVERLAY_LOCALES) {
     const filePath = path.join(dir, `${locale}.mdx`);
@@ -609,8 +615,8 @@ export function setCoverInSpecies(
       (item) => item.src === src,
     );
     const item: GalleryImage = overlay?.credit
-      ? { credit: overlay.credit, src }
-      : { src };
+      ? { credit: overlay.credit, src: coverSrc }
+      : { src: coverSrc };
     const hasKeys = coverKeysPresent(
       parsed.data as Record<string, unknown>,
       target,
@@ -681,11 +687,24 @@ export function updateGalleryPhotoCoordinatesInMdx(
     image?: unknown;
     mobileImage?: unknown;
   };
-  if (data.image === src) {
-    next = setCoverInMdx(next, "desktop", nextItem, false);
+  if (typeof data.image === "string" && matchesCoverSource(data.image, src)) {
+    next = setCoverInMdx(
+      next,
+      "desktop",
+      { ...nextItem, src: data.image },
+      false,
+    );
   }
-  if (data.mobileImage === src) {
-    next = setCoverInMdx(next, "mobile", nextItem, false);
+  if (
+    typeof data.mobileImage === "string" &&
+    matchesCoverSource(data.mobileImage, src)
+  ) {
+    next = setCoverInMdx(
+      next,
+      "mobile",
+      { ...nextItem, src: data.mobileImage },
+      false,
+    );
   }
 
   const check = normalizeGallery(matter(next).data.gallery).find(
@@ -757,8 +776,8 @@ function coverTargetForSrc(
   mobileImage: string,
   src: string,
 ): CoverTarget | null {
-  const desktop = image === src;
-  const mobile = mobileImage === src;
+  const desktop = matchesCoverSource(image, src);
+  const mobile = matchesCoverSource(mobileImage, src);
   if (desktop && mobile) return "both";
   if (desktop) return "desktop";
   if (mobile) return "mobile";

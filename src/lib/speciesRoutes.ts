@@ -125,7 +125,6 @@ const LOOKALIKES: Record<string, string[]> = {
   "darevskia-praticola": ["darevskia-pontica", "lacerta-agilis"],
   "darevskia-raddei": ["darevskia-obscura"],
   "darevskia-valentini": ["darevskia-obscura", "darevskia-armeniaca"],
-  "dendrocopos-major": ["picus-viridis", "jynx-torquilla"],
   "dolichophis-schmidti": [
     "malpolon-insignitus",
     "platyceps-najadum",
@@ -184,7 +183,12 @@ const LOOKALIKES: Record<string, string[]> = {
     "darevskia-derjugini",
   ],
   "lacerta-media": ["lacerta-strigata", "lacerta-agilis"],
-  "lacerta-strigata": ["lacerta-agilis", "lacerta-media", "ophisops-elegans"],
+  "lacerta-strigata": [
+    "lacerta-media",
+    "lacerta-agilis",
+    "eremias-velox",
+    "ophisops-elegans",
+  ],
   "latrodectus-tredecimguttatus": ["steatoda-paykulliana"],
   "lissotriton-lantzi": ["ommatotriton-ophryticus", "triturus-karelinii"],
   "luscinia-megarhynchos": ["erithacus-rubecula"],
@@ -257,6 +261,7 @@ const LOOKALIKES: Record<string, string[]> = {
     "testudo-graeca",
   ],
   "triturus-karelinii": ["ommatotriton-ophryticus", "lissotriton-lantzi"],
+  "turdus-merula": ["erithacus-rubecula"],
   "tyto-alba": [
     "strix-aluco",
     "otus-scops",

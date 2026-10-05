@@ -10,7 +10,12 @@ import {
 } from "react";
 
 import type { GalleryImage, SpeciesFieldRecord } from "@/data/speciesTypes";
+import type { CoverCropRect } from "@/lib/coverCrop";
 
+import {
+  AdminCoverCrop,
+  type CoverCropTarget,
+} from "@/components/admin/AdminCoverCrop";
 import {
   AdminCoverPreview,
   type AdminCoverPreviewState,
@@ -28,6 +33,7 @@ const buttonNoRestoreProps = { autoComplete: "off" };
 type AdminBusyState =
   | "coordinates"
   | "cover"
+  | "crop"
   | "fieldRecord"
   | "idle"
   | "inaturalist"
@@ -68,6 +74,7 @@ export function AdminSpeciesEditor({
     mobile: string;
   }>(null);
   const [preview, setPreview] = useState<AdminCoverPreviewState | null>(null);
+  const [cropSrc, setCropSrc] = useState<null | string>(null);
   const [inaturalistUrl, setInaturalistUrl] = useState("");
   const [importedPhoto, setImportedPhoto] = useState<null | {
     file: File;
@@ -213,6 +220,49 @@ export function AdminSpeciesEditor({
       }
     } catch (caught) {
       setError(caught instanceof Error ? caught.message : "ყდა ვერ შეინახა");
+    } finally {
+      busyRef.current = false;
+      setBusy("idle");
+    }
+  }
+
+  async function onCropCover(
+    src: string,
+    target: CoverCropTarget,
+    crop: CoverCropRect,
+  ) {
+    if (busyRef.current) return;
+    busyRef.current = true;
+    setBusy("crop");
+    setError(null);
+    setOk(null);
+    try {
+      const response = await fetch("/api/admin/photos/crop", {
+        body: JSON.stringify({ crop, id, src, target }),
+        headers: { "Content-Type": "application/json" },
+        method: "POST",
+      });
+      const payload = (await response.json()) as {
+        coverSrc?: string;
+        error?: string;
+        pullRequestUrl?: string;
+      };
+      if (!response.ok || !payload.coverSrc) {
+        throw new Error(payload.error ?? "ქროფი ვერ შეინახა");
+      }
+      const coverSrc = payload.coverSrc;
+      setCoverOverride((current) => ({
+        desktop: target === "desktop" ? coverSrc : (current?.desktop ?? image),
+        mobile:
+          target === "mobile"
+            ? coverSrc
+            : current?.mobile || mobileImage || current?.desktop || image,
+      }));
+      if (payload.pullRequestUrl) setPullRequestUrl(payload.pullRequestUrl);
+      setOk("დაქროფილი ყდა CDN-ზეა და PR-შია. Merge შენზეა.");
+      setCropSrc(null);
+    } catch (caught) {
+      setError(caught instanceof Error ? caught.message : "ქროფი ვერ შეინახა");
     } finally {
       busyRef.current = false;
       setBusy("idle");
@@ -510,6 +560,11 @@ export function AdminSpeciesEditor({
         commonName={commonName}
         covers={covers}
         dirty={dirty}
+        onCrop={(src) => {
+          setError(null);
+          setOk(null);
+          setCropSrc(src);
+        }}
         onPreview={(src) => setPreview({ src, type: "photo" })}
         onRemove={(src) => void onRemove(src)}
         onReorder={setPhotos}
@@ -523,6 +578,19 @@ export function AdminSpeciesEditor({
         scientificName={scientificName}
         setPreview={setPreview}
       />
+      {cropSrc ? (
+        <AdminCoverCrop
+          commonName={commonName}
+          covers={covers}
+          error={busy === "idle" ? error : null}
+          key={cropSrc}
+          onClose={() => setCropSrc(null)}
+          onSave={(target, crop) => void onCropCover(cropSrc, target, crop)}
+          saving={busy === "crop"}
+          scientificName={scientificName}
+          src={cropSrc}
+        />
+      ) : null}
 
       <div className="grid gap-5">
         <form
@@ -756,6 +824,7 @@ function AdminGalleryPanel({
   commonName,
   covers,
   dirty,
+  onCrop,
   onPreview,
   onRemove,
   onReorder,
@@ -773,6 +842,7 @@ function AdminGalleryPanel({
   commonName: string;
   covers: AdminCovers;
   dirty: boolean;
+  onCrop: (src: string) => void;
   onPreview: (src: string) => void;
   onRemove: (src: string) => void;
   onReorder: Dispatch<SetStateAction<GalleryImage[]>>;
@@ -810,6 +880,7 @@ function AdminGalleryPanel({
         <AdminGalleryReorder
           covers={covers}
           disabled={saving}
+          onCrop={onCrop}
           onPreview={onPreview}
           onRemove={onRemove}
           onReorder={onReorder}

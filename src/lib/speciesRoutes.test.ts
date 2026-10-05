@@ -217,6 +217,13 @@ describe("species routes", () => {
     );
   });
 
+  it("does not pair green and great spotted woodpeckers as visual lookalikes", () => {
+    expect(getSpeciesLookalikes("picus-viridis")).toEqual([]);
+    expect(getSpeciesLookalikes("dendrocopos-major")).not.toContain(
+      "picus-viridis",
+    );
+  });
+
   it("leaves Eurasian jay lookalikes empty without supported visual confusion", () => {
     expect(getSpeciesLookalikes("garrulus-glandarius")).toEqual([]);
     expect(getSpeciesLookalikes("pica-pica")).not.toContain(
