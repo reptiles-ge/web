@@ -1271,7 +1271,7 @@ const INTERACTIVE_RANGE_MAPS: Partial<
       en: {
         ...HALYOMORPHA_RANGE_COPY.en,
         intro:
-          "The map uses public, photo-backed iNaturalist observations of the Red-backed Shrike in Georgia. One retained record is enough for confirmed regional status, but does not imply occurrence throughout that region. Obscured, imprecise and contradictory locations were excluded; record counts do not measure population density.",
+          "The map shows public, photo-backed observations of the Red-backed Shrike in Georgia. Records whose coordinates are obscured, too approximate or do not match the stated place are left out. One remaining record is enough for a region's distribution to count as confirmed, but that does not mean the shrike occurs evenly across the whole region. Record counts do not show how many shrikes live in a given place.",
         mapAria:
           "Red-backed Shrike observations and confirmed regions on a map of Georgia",
         officialRegionLabel: "Confirmed distribution region",
@@ -1280,7 +1280,7 @@ const INTERACTIVE_RANGE_MAPS: Partial<
       ka: {
         ...HALYOMORPHA_RANGE_COPY.ka,
         intro:
-          "რუკა ჩვეულებრივი ღაჟოს საქართველოში გამოქვეყნებულ ფოტოიან iNaturalist დაკვირვებებს ეყრდნობა. ერთი შენარჩუნებული ჩანაწერი რეგიონის დადასტურებული სტატუსისთვის საკმარისია, თუმცა ეს მთელ რეგიონში თანაბარ გავრცელებას არ ნიშნავს. დაფარული, მეტისმეტად მიახლოებითი და ლოკალიტეტთან შეუსაბამო წერტილები გამოტოვებულია; ჩანაწერების რაოდენობა პოპულაციის სიმჭიდროვეს არ ზომავს.",
+          "რუკა აჩვენებს ჩვეულებრივი ღაჟოს საჯარო, ფოტოიან დაკვირვებებს საქართველოში. გამოტოვებულია ჩანაწერები, რომელთა კოორდინატები დაფარულია, მეტისმეტად მიახლოებითია ან მითითებულ ადგილს არ ემთხვევა. დარჩენილი ჩანაწერებიდან ერთიც საკმარისია, რომ რეგიონში გავრცელება დადასტურებულად ჩაითვალოს, თუმცა ეს არ ნიშნავს, რომ ღაჟო მთელ რეგიონში თანაბრად გვხვდება. ჩანაწერების რაოდენობა არ გვიჩვენებს, რამდენი ღაჟო ბინადრობს ამა თუ იმ ადგილას.",
         mapAria:
           "ჩვეულებრივი ღაჟოს დაკვირვებები და დადასტურებული რეგიონები საქართველოს რუკაზე",
         officialRegionLabel: "დადასტურებული გავრცელების რეგიონი",
@@ -1289,7 +1289,7 @@ const INTERACTIVE_RANGE_MAPS: Partial<
       ru: {
         ...HALYOMORPHA_RANGE_COPY.ru,
         intro:
-          "Карта основана на публичных наблюдениях обыкновенного жулана с фотографиями в iNaturalist из Грузии. Одной сохранённой записи достаточно для подтверждённого статуса региона, но это не означает распространения по всей его территории. Скрытые, слишком неточные и противоречащие указанному месту точки исключены; число записей не показывает плотность популяции.",
+          "Карта показывает публичные наблюдения обыкновенного жулана в Грузии, подтверждённые фотографиями. Записи, у которых координаты скрыты, слишком приблизительны или не совпадают с указанным местом, не показаны. Одной оставшейся записи достаточно, чтобы распространение в регионе считалось подтверждённым, но это не значит, что жулан встречается по всему региону равномерно. Число записей не показывает, сколько жуланов обитает в том или ином месте.",
         mapAria:
           "Наблюдения обыкновенного жулана и подтверждённые регионы на карте Грузии",
         officialRegionLabel: "Регион с подтверждённым распространением",
@@ -1298,7 +1298,7 @@ const INTERACTIVE_RANGE_MAPS: Partial<
       tr: {
         ...HALYOMORPHA_RANGE_COPY.tr,
         intro:
-          "Harita, kızılsırtlı örümcekkuşunun Gürcistan'daki fotoğraflı ve herkese açık iNaturalist gözlemlerine dayanır. Korunan tek bir kayıt bölgenin doğrulanmış durumu için yeterlidir; bu, türün bölgenin her yerinde bulunduğu anlamına gelmez. Gizlenmiş, çok belirsiz ve yer adıyla çelişen noktalar çıkarılmıştır; kayıt sayısı nüfus yoğunluğunu göstermez.",
+          "Harita, kızılsırtlı örümcekkuşunun Gürcistan'daki herkese açık, fotoğraflı gözlemlerini gösterir. Koordinatları gizlenmiş, fazla yaklaşık olan veya belirtilen yerle uyuşmayan kayıtlar haritaya alınmamıştır. Kalan kayıtlardan biri bile bölgedeki yayılışın doğrulanmış sayılması için yeterlidir; ancak bu, türün bölgenin her yerinde eşit biçimde görüldüğü anlamına gelmez. Kayıt sayısı, belirli bir yerde kaç kuş yaşadığını göstermez.",
         mapAria:
           "Kızılsırtlı örümcekkuşu gözlemleri ve doğrulanmış bölgeler Gürcistan haritasında",
         officialRegionLabel: "Yayılışı doğrulanmış bölge",
