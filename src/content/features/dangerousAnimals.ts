@@ -167,7 +167,7 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
             },
             {
               parts: [
-                "The Levantine viper profile has records in Kakheti and Kvemo Kartli, as well as individual Tbilisi localities. The nose-horned viper profile names Borjomi, Gori and other specific places. These are examples, not assurances that other places are safe. Observe an unidentified snake from a distance; the ",
+                "The Levantine viper profile has records in Kakheti and Kvemo Kartli, as well as individual Tbilisi localities. The nose-horned viper profile names Borjomi, Gori and other specific places. Observe an unidentified snake from a distance; the ",
                 guide(
                   "/snakes/shxamiani-gvelis-amocnoba",
                   "venomous-snake identification guide",
@@ -567,7 +567,7 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
             },
             {
               parts: [
-                "გიურზას შესახებ ჩანაწერები კახეთსა და ქვემო ქართლში, ასევე თბილისის ცალკეულ ადგილებშია. ცხვირრქოსანი გველგესლას პროფილში დასახელებულია ბორჯომი, გორი და სხვა კონკრეტული ადგილები. ეს მაგალითებია და არა რუკის გარეთ უსაფრთხოების გარანტია. დაუდგენელ გველს შორიდან დააკვირდით; ",
+                "გიურზას შესახებ ჩანაწერები კახეთსა და ქვემო ქართლში, ასევე თბილისის ცალკეულ ადგილებშია. ცხვირრქოსანი გველგესლას პროფილში დასახელებულია ბორჯომი, გორი და სხვა კონკრეტული ადგილები. დაუდგენელ გველს შორიდან დააკვირდით; ",
                 guide(
                   "/snakes/shxamiani-gvelis-amocnoba",
                   "შხამიანი გველის ამოცნობის გიდი",
@@ -941,7 +941,7 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
             },
             {
               parts: [
-                "Профиль гюрзы содержит находки в Кахетии и Квемо-Картли, а также в отдельных местах Тбилиси. Профиль носатой гадюки называет Боржоми, Гори и другие конкретные места. Это примеры, а не обещание безопасности за их пределами. Наблюдайте неизвестную змею издалека: ",
+                "Профиль гюрзы содержит находки в Кахетии и Квемо-Картли, а также в отдельных местах Тбилиси. Профиль носатой гадюки называет Боржоми, Гори и другие конкретные места. Наблюдайте неизвестную змею издалека: ",
                 guide(
                   "/snakes/shxamiani-gvelis-amocnoba",
                   "руководство по распознаванию ядовитых змей",
@@ -1331,7 +1331,7 @@ export const dangerousAnimalsFeature: DangerousAnimalsFeature = {
             },
             {
               parts: [
-                "Levant engereği profilinde Kaheti ve Kvemo Kartli ile Tiflis'in belirli noktalarından kayıtlar vardır. Boynuzlu engerek profili Borjomi, Gori ve başka belirli yerleri sayar. Bunlar örnektir; diğer yerlerin güvenli olduğuna dair bir garanti değildir. Tanımadığınız bir yılanı uzaktan gözleyin. ",
+                "Levant engereği profilinde Kaheti ve Kvemo Kartli ile Tiflis'in belirli noktalarından kayıtlar vardır. Boynuzlu engerek profili Borjomi, Gori ve başka belirli yerleri sayar. Tanımadığınız bir yılanı uzaktan gözleyin. ",
                 guide(
                   "/snakes/shxamiani-gvelis-amocnoba",
                   "zehirli yılanları tanıma rehberi",

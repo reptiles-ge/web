@@ -314,7 +314,7 @@ function FeatureLookalikes({
         })}
       </div>
       <figcaption className="mt-5 text-[13px] leading-relaxed text-muted-foreground">
-        <FeatureRichText context={context} parts={block.caption} />
+        <FeatureRichText context={context} parts={block.caption} plain />
       </figcaption>
     </figure>
   );
@@ -346,7 +346,7 @@ function FeatureMap({
         />
       </div>
       <figcaption className="mt-4 text-[13px] leading-relaxed text-muted-foreground">
-        <FeatureRichText context={context} parts={block.caption} />
+        <FeatureRichText context={context} parts={block.caption} plain />
       </figcaption>
       <p className="mt-3 text-[12px] leading-relaxed text-muted-foreground">
         {context.copy.labels.mapRegions}: {names.join(" · ")}
@@ -423,7 +423,7 @@ function FeaturePhotoFigure({
       </div>
       <figcaption className="mt-3 text-[12px] leading-relaxed text-muted-foreground">
         {caption ? (
-          <FeatureRichText context={context} parts={caption} />
+          <FeatureRichText context={context} parts={caption} plain />
         ) : (
           photo.species.commonName
         )}
@@ -469,10 +469,12 @@ function FeatureRichText({
   context,
   inverted = false,
   parts,
+  plain = false,
 }: {
   context: FeatureContext;
   inverted?: boolean;
   parts: FeatureMark[];
+  plain?: boolean;
 }) {
   return (
     <>
@@ -480,6 +482,7 @@ function FeatureRichText({
         if (typeof mark === "string") {
           return <PhoneLinkedText key={index}>{mark}</PhoneLinkedText>;
         }
+        if (plain) return <span key={index}>{mark.label}</span>;
         const linkClass = inverted
           ? "text-white underline decoration-white/40 underline-offset-4 transition-colors hover:decoration-white"
           : "text-foreground underline decoration-foreground/25 underline-offset-4 transition-colors hover:decoration-primary";
