@@ -79,6 +79,7 @@ describe("region speciesIds", () => {
     "streptopelia-turtur",
     "garrulus-glandarius",
     "darevskia-caucasica",
+    "darevskia-dahli",
     "darevskia-obscura",
     "eirenis-modestus",
     "elaphe-urartica",
