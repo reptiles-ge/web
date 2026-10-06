@@ -2048,6 +2048,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/darevskia-dahli-archil-1.jpg": {
+    "path": "darevskia-dahli-archil-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/darevskia-dahli-davit-1.jpg": {
     "path": "darevskia-dahli-davit-1",
     "width": 956,
