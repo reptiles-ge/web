@@ -20377,6 +20377,101 @@
       ],
       "updatedAt": "2026-10-06T20:10:14.097Z"
     },
+    "darevskia-dahli-nikita-1.jpg": {
+      "sourceHash": "0c3a39d2fd52ddba36910aa43031f47a4b7aa0fa86df1e396701004797cba8ff",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-dahli-nikita-1.jpg",
+      "originalSize": 478883,
+      "width": 2021,
+      "height": 941,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-dahli-nikita-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 149,
+          "byteSize": 7972
+        },
+        {
+          "key": "optimized/darevskia-dahli-nikita-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 149,
+          "byteSize": 12582
+        },
+        {
+          "key": "optimized/darevskia-dahli-nikita-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 186,
+          "byteSize": 11353
+        },
+        {
+          "key": "optimized/darevskia-dahli-nikita-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 186,
+          "byteSize": 18148
+        },
+        {
+          "key": "optimized/darevskia-dahli-nikita-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 298,
+          "byteSize": 24235
+        },
+        {
+          "key": "optimized/darevskia-dahli-nikita-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 298,
+          "byteSize": 42164
+        },
+        {
+          "key": "optimized/darevskia-dahli-nikita-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 372,
+          "byteSize": 35393
+        },
+        {
+          "key": "optimized/darevskia-dahli-nikita-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 372,
+          "byteSize": 61808
+        },
+        {
+          "key": "optimized/darevskia-dahli-nikita-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 559,
+          "byteSize": 65563
+        },
+        {
+          "key": "optimized/darevskia-dahli-nikita-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 559,
+          "byteSize": 115672
+        },
+        {
+          "key": "optimized/darevskia-dahli-nikita-1-2021.avif",
+          "format": "avif",
+          "width": 2021,
+          "height": 941,
+          "byteSize": 175107
+        },
+        {
+          "key": "optimized/darevskia-dahli-nikita-1-2021.webp",
+          "format": "webp",
+          "width": 2021,
+          "height": 941,
+          "byteSize": 263412
+        }
+      ],
+      "updatedAt": "2026-10-06T20:11:01.509Z"
+    },
     "darevskia-dahli.jpg": {
       "sourceHash": "5a2fc5fba66fca654601d0f4616618532ed0c35d87462884382e64a0758b8d27",
       "configFingerprint": "a895f8e025dcc7fa",
