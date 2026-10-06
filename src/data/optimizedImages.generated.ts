@@ -2034,11 +2034,53 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/darevskia-dahli-andrii-1.jpg": {
+    "path": "darevskia-dahli-andrii-1",
+    "width": 2048,
+    "height": 1356,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-dahli-andrii-2.jpg": {
+    "path": "darevskia-dahli-andrii-2",
+    "width": 2048,
+    "height": 1356,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-dahli-archil-1.jpg": {
+    "path": "darevskia-dahli-archil-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/darevskia-dahli-davit-1.jpg": {
     "path": "darevskia-dahli-davit-1",
     "width": 956,
     "height": 717,
     "widths": [320, 400, 640, 800, 956],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-dahli-felix-1.jpg": {
+    "path": "darevskia-dahli-felix-1",
+    "width": 1920,
+    "height": 1440,
+    "widths": [320, 400, 640, 800, 1200, 1920],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-dahli-hyrrokin-1.jpg": {
+    "path": "darevskia-dahli-hyrrokin-1",
+    "width": 1536,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-dahli-nikita-1.jpg": {
+    "path": "darevskia-dahli-nikita-1",
+    "width": 2021,
+    "height": 941,
+    "widths": [320, 400, 640, 800, 1200, 2021],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/darevskia-dahli.jpg": {

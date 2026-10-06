@@ -20201,6 +20201,291 @@
       ],
       "updatedAt": "2026-08-28T21:32:01.417Z"
     },
+    "darevskia-dahli-andrii-1.jpg": {
+      "sourceHash": "ad0819043e605787560d196b62d1a0a924b53ce6b8a79c9820a5c1c804ad4594",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-dahli-andrii-1.jpg",
+      "originalSize": 375459,
+      "width": 2048,
+      "height": 1356,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-dahli-andrii-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 212,
+          "byteSize": 7618
+        },
+        {
+          "key": "optimized/darevskia-dahli-andrii-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 212,
+          "byteSize": 10530
+        },
+        {
+          "key": "optimized/darevskia-dahli-andrii-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 265,
+          "byteSize": 10528
+        },
+        {
+          "key": "optimized/darevskia-dahli-andrii-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 265,
+          "byteSize": 14636
+        },
+        {
+          "key": "optimized/darevskia-dahli-andrii-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 424,
+          "byteSize": 21179
+        },
+        {
+          "key": "optimized/darevskia-dahli-andrii-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 424,
+          "byteSize": 31026
+        },
+        {
+          "key": "optimized/darevskia-dahli-andrii-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 530,
+          "byteSize": 30087
+        },
+        {
+          "key": "optimized/darevskia-dahli-andrii-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 530,
+          "byteSize": 45036
+        },
+        {
+          "key": "optimized/darevskia-dahli-andrii-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 795,
+          "byteSize": 52153
+        },
+        {
+          "key": "optimized/darevskia-dahli-andrii-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 795,
+          "byteSize": 79390
+        },
+        {
+          "key": "optimized/darevskia-dahli-andrii-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1356,
+          "byteSize": 108688
+        },
+        {
+          "key": "optimized/darevskia-dahli-andrii-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1356,
+          "byteSize": 167018
+        }
+      ],
+      "updatedAt": "2026-10-06T20:12:05.227Z"
+    },
+    "darevskia-dahli-andrii-2.jpg": {
+      "sourceHash": "a79c7916b5aaf9a1be6dcb5efed53acb459d5e4e35d029155cf06240a09e882c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-dahli-andrii-2.jpg",
+      "originalSize": 366548,
+      "width": 2048,
+      "height": 1356,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-dahli-andrii-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 212,
+          "byteSize": 8216
+        },
+        {
+          "key": "optimized/darevskia-dahli-andrii-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 212,
+          "byteSize": 12080
+        },
+        {
+          "key": "optimized/darevskia-dahli-andrii-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 265,
+          "byteSize": 10970
+        },
+        {
+          "key": "optimized/darevskia-dahli-andrii-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 265,
+          "byteSize": 16150
+        },
+        {
+          "key": "optimized/darevskia-dahli-andrii-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 424,
+          "byteSize": 20004
+        },
+        {
+          "key": "optimized/darevskia-dahli-andrii-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 424,
+          "byteSize": 31270
+        },
+        {
+          "key": "optimized/darevskia-dahli-andrii-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 530,
+          "byteSize": 27903
+        },
+        {
+          "key": "optimized/darevskia-dahli-andrii-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 530,
+          "byteSize": 43120
+        },
+        {
+          "key": "optimized/darevskia-dahli-andrii-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 795,
+          "byteSize": 48429
+        },
+        {
+          "key": "optimized/darevskia-dahli-andrii-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 795,
+          "byteSize": 73488
+        },
+        {
+          "key": "optimized/darevskia-dahli-andrii-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1356,
+          "byteSize": 100080
+        },
+        {
+          "key": "optimized/darevskia-dahli-andrii-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1356,
+          "byteSize": 154174
+        }
+      ],
+      "updatedAt": "2026-10-06T20:12:55.678Z"
+    },
+    "darevskia-dahli-archil-1.jpg": {
+      "sourceHash": "07e9231b019cdde18b6de078de86e34cc7384f5c86b6a18216d5c1cd23c8ed86",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-dahli-archil-1.jpg",
+      "originalSize": 441199,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-dahli-archil-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 8559
+        },
+        {
+          "key": "optimized/darevskia-dahli-archil-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 11226
+        },
+        {
+          "key": "optimized/darevskia-dahli-archil-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 11900
+        },
+        {
+          "key": "optimized/darevskia-dahli-archil-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 16354
+        },
+        {
+          "key": "optimized/darevskia-dahli-archil-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 25464
+        },
+        {
+          "key": "optimized/darevskia-dahli-archil-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 33878
+        },
+        {
+          "key": "optimized/darevskia-dahli-archil-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 36914
+        },
+        {
+          "key": "optimized/darevskia-dahli-archil-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 50172
+        },
+        {
+          "key": "optimized/darevskia-dahli-archil-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 68865
+        },
+        {
+          "key": "optimized/darevskia-dahli-archil-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 91888
+        },
+        {
+          "key": "optimized/darevskia-dahli-archil-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 146786
+        },
+        {
+          "key": "optimized/darevskia-dahli-archil-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 195962
+        }
+      ],
+      "updatedAt": "2026-10-06T20:14:06.882Z"
+    },
     "darevskia-dahli-davit-1.jpg": {
       "sourceHash": "1247d7ac85258b304dfddfc703d0e6475d5d302f8d82ca323427f3f268436900",
       "configFingerprint": "409788ee46c653d8",
@@ -20281,6 +20566,291 @@
         }
       ],
       "updatedAt": "2026-09-08T16:45:48.262Z"
+    },
+    "darevskia-dahli-felix-1.jpg": {
+      "sourceHash": "89ff6733de47376ba5c84766ec4f1ab87fa6df678d5d9bb9bac6d8aa407596cd",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-dahli-felix-1.jpg",
+      "originalSize": 801152,
+      "width": 1920,
+      "height": 1440,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-dahli-felix-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 20341
+        },
+        {
+          "key": "optimized/darevskia-dahli-felix-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 32042
+        },
+        {
+          "key": "optimized/darevskia-dahli-felix-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 31503
+        },
+        {
+          "key": "optimized/darevskia-dahli-felix-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 49204
+        },
+        {
+          "key": "optimized/darevskia-dahli-felix-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 65960
+        },
+        {
+          "key": "optimized/darevskia-dahli-felix-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 105042
+        },
+        {
+          "key": "optimized/darevskia-dahli-felix-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 96147
+        },
+        {
+          "key": "optimized/darevskia-dahli-felix-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 153644
+        },
+        {
+          "key": "optimized/darevskia-dahli-felix-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 166071
+        },
+        {
+          "key": "optimized/darevskia-dahli-felix-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 273738
+        },
+        {
+          "key": "optimized/darevskia-dahli-felix-1-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1440,
+          "byteSize": 307545
+        },
+        {
+          "key": "optimized/darevskia-dahli-felix-1-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1440,
+          "byteSize": 478368
+        }
+      ],
+      "updatedAt": "2026-10-06T20:15:11.295Z"
+    },
+    "darevskia-dahli-hyrrokin-1.jpg": {
+      "sourceHash": "f53c366fd6debb896759ab7c5c8051d0eed1f8a1a08da624102ea8a607c352cf",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-dahli-hyrrokin-1.jpg",
+      "originalSize": 1100411,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-dahli-hyrrokin-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 33527
+        },
+        {
+          "key": "optimized/darevskia-dahli-hyrrokin-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 51364
+        },
+        {
+          "key": "optimized/darevskia-dahli-hyrrokin-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 51252
+        },
+        {
+          "key": "optimized/darevskia-dahli-hyrrokin-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 79430
+        },
+        {
+          "key": "optimized/darevskia-dahli-hyrrokin-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 125081
+        },
+        {
+          "key": "optimized/darevskia-dahli-hyrrokin-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 193230
+        },
+        {
+          "key": "optimized/darevskia-dahli-hyrrokin-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 183049
+        },
+        {
+          "key": "optimized/darevskia-dahli-hyrrokin-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 286932
+        },
+        {
+          "key": "optimized/darevskia-dahli-hyrrokin-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 335264
+        },
+        {
+          "key": "optimized/darevskia-dahli-hyrrokin-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 536454
+        },
+        {
+          "key": "optimized/darevskia-dahli-hyrrokin-1-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 477309
+        },
+        {
+          "key": "optimized/darevskia-dahli-hyrrokin-1-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 759224
+        }
+      ],
+      "updatedAt": "2026-10-06T20:10:14.097Z"
+    },
+    "darevskia-dahli-nikita-1.jpg": {
+      "sourceHash": "0c3a39d2fd52ddba36910aa43031f47a4b7aa0fa86df1e396701004797cba8ff",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-dahli-nikita-1.jpg",
+      "originalSize": 478883,
+      "width": 2021,
+      "height": 941,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-dahli-nikita-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 149,
+          "byteSize": 7972
+        },
+        {
+          "key": "optimized/darevskia-dahli-nikita-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 149,
+          "byteSize": 12582
+        },
+        {
+          "key": "optimized/darevskia-dahli-nikita-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 186,
+          "byteSize": 11353
+        },
+        {
+          "key": "optimized/darevskia-dahli-nikita-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 186,
+          "byteSize": 18148
+        },
+        {
+          "key": "optimized/darevskia-dahli-nikita-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 298,
+          "byteSize": 24235
+        },
+        {
+          "key": "optimized/darevskia-dahli-nikita-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 298,
+          "byteSize": 42164
+        },
+        {
+          "key": "optimized/darevskia-dahli-nikita-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 372,
+          "byteSize": 35393
+        },
+        {
+          "key": "optimized/darevskia-dahli-nikita-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 372,
+          "byteSize": 61808
+        },
+        {
+          "key": "optimized/darevskia-dahli-nikita-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 559,
+          "byteSize": 65563
+        },
+        {
+          "key": "optimized/darevskia-dahli-nikita-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 559,
+          "byteSize": 115672
+        },
+        {
+          "key": "optimized/darevskia-dahli-nikita-1-2021.avif",
+          "format": "avif",
+          "width": 2021,
+          "height": 941,
+          "byteSize": 175107
+        },
+        {
+          "key": "optimized/darevskia-dahli-nikita-1-2021.webp",
+          "format": "webp",
+          "width": 2021,
+          "height": 941,
+          "byteSize": 263412
+        }
+      ],
+      "updatedAt": "2026-10-06T20:11:01.509Z"
     },
     "darevskia-dahli.jpg": {
       "sourceHash": "5a2fc5fba66fca654601d0f4616618532ed0c35d87462884382e64a0758b8d27",
