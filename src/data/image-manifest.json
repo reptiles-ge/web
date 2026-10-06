@@ -18366,6 +18366,671 @@
       ],
       "updatedAt": "2026-08-28T21:31:34.651Z"
     },
+    "darevskia-caucasica-clo-09-1.jpg": {
+      "sourceHash": "f78aff302f26c9ea10701f766ea50bb794582f95bb0afe29c7f2a78fb7a45ecd",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-caucasica-clo-09-1.jpg",
+      "originalSize": 201338,
+      "width": 1600,
+      "height": 1066,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-caucasica-clo-09-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6882
+        },
+        {
+          "key": "optimized/darevskia-caucasica-clo-09-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9090
+        },
+        {
+          "key": "optimized/darevskia-caucasica-clo-09-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 9967
+        },
+        {
+          "key": "optimized/darevskia-caucasica-clo-09-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 13380
+        },
+        {
+          "key": "optimized/darevskia-caucasica-clo-09-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 20882
+        },
+        {
+          "key": "optimized/darevskia-caucasica-clo-09-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 29946
+        },
+        {
+          "key": "optimized/darevskia-caucasica-clo-09-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 29398
+        },
+        {
+          "key": "optimized/darevskia-caucasica-clo-09-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 43850
+        },
+        {
+          "key": "optimized/darevskia-caucasica-clo-09-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 53353
+        },
+        {
+          "key": "optimized/darevskia-caucasica-clo-09-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 80742
+        },
+        {
+          "key": "optimized/darevskia-caucasica-clo-09-1-1600.avif",
+          "format": "avif",
+          "width": 1600,
+          "height": 1066,
+          "byteSize": 84482
+        },
+        {
+          "key": "optimized/darevskia-caucasica-clo-09-1-1600.webp",
+          "format": "webp",
+          "width": 1600,
+          "height": 1066,
+          "byteSize": 125892
+        }
+      ],
+      "updatedAt": "2026-10-06T15:27:48.263Z"
+    },
+    "darevskia-caucasica-david-1.jpg": {
+      "sourceHash": "c589699618ff9c45550775fc29b1b075d7ada2125afa0ba3143a25f227dfaf4f",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-caucasica-david-1.jpg",
+      "originalSize": 533890,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-caucasica-david-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9143
+        },
+        {
+          "key": "optimized/darevskia-caucasica-david-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 13406
+        },
+        {
+          "key": "optimized/darevskia-caucasica-david-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 13399
+        },
+        {
+          "key": "optimized/darevskia-caucasica-david-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 19798
+        },
+        {
+          "key": "optimized/darevskia-caucasica-david-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 31168
+        },
+        {
+          "key": "optimized/darevskia-caucasica-david-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 47328
+        },
+        {
+          "key": "optimized/darevskia-caucasica-david-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 45909
+        },
+        {
+          "key": "optimized/darevskia-caucasica-david-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 70524
+        },
+        {
+          "key": "optimized/darevskia-caucasica-david-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 86841
+        },
+        {
+          "key": "optimized/darevskia-caucasica-david-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 136074
+        },
+        {
+          "key": "optimized/darevskia-caucasica-david-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 191217
+        },
+        {
+          "key": "optimized/darevskia-caucasica-david-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 300912
+        }
+      ],
+      "updatedAt": "2026-10-06T15:28:30.444Z"
+    },
+    "darevskia-caucasica-evgeny-1.jpg": {
+      "sourceHash": "cf9ad14260304fc968f68e77803a008cb5faae19d92b76158b3e1702724839a5",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-caucasica-evgeny-1.jpg",
+      "originalSize": 357432,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-caucasica-evgeny-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 6810
+        },
+        {
+          "key": "optimized/darevskia-caucasica-evgeny-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 9040
+        },
+        {
+          "key": "optimized/darevskia-caucasica-evgeny-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 9305
+        },
+        {
+          "key": "optimized/darevskia-caucasica-evgeny-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 12428
+        },
+        {
+          "key": "optimized/darevskia-caucasica-evgeny-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 18431
+        },
+        {
+          "key": "optimized/darevskia-caucasica-evgeny-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 24558
+        },
+        {
+          "key": "optimized/darevskia-caucasica-evgeny-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 25781
+        },
+        {
+          "key": "optimized/darevskia-caucasica-evgeny-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 34536
+        },
+        {
+          "key": "optimized/darevskia-caucasica-evgeny-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 46117
+        },
+        {
+          "key": "optimized/darevskia-caucasica-evgeny-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 59548
+        },
+        {
+          "key": "optimized/darevskia-caucasica-evgeny-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 100270
+        },
+        {
+          "key": "optimized/darevskia-caucasica-evgeny-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 126006
+        }
+      ],
+      "updatedAt": "2026-10-06T15:25:32.505Z"
+    },
+    "darevskia-caucasica-floyd-1.jpg": {
+      "sourceHash": "3736ed1ad6f61d71f38dd61b7fa2d07b4da3e7750b071addbe365152ac0adf7b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-caucasica-floyd-1.jpg",
+      "originalSize": 376042,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-caucasica-floyd-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 8489
+        },
+        {
+          "key": "optimized/darevskia-caucasica-floyd-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 12368
+        },
+        {
+          "key": "optimized/darevskia-caucasica-floyd-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 11856
+        },
+        {
+          "key": "optimized/darevskia-caucasica-floyd-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 16962
+        },
+        {
+          "key": "optimized/darevskia-caucasica-floyd-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 22602
+        },
+        {
+          "key": "optimized/darevskia-caucasica-floyd-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 33676
+        },
+        {
+          "key": "optimized/darevskia-caucasica-floyd-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 30725
+        },
+        {
+          "key": "optimized/darevskia-caucasica-floyd-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 45154
+        },
+        {
+          "key": "optimized/darevskia-caucasica-floyd-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 50497
+        },
+        {
+          "key": "optimized/darevskia-caucasica-floyd-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 73648
+        },
+        {
+          "key": "optimized/darevskia-caucasica-floyd-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 98816
+        },
+        {
+          "key": "optimized/darevskia-caucasica-floyd-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 144030
+        }
+      ],
+      "updatedAt": "2026-10-06T15:31:13.422Z"
+    },
+    "darevskia-caucasica-jean-louis-1.jpg": {
+      "sourceHash": "9dfe4783b934a1e7ad1ff6899f99ff3cd1251c069c3a7903cd6407976f33f792",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-caucasica-jean-louis-1.jpg",
+      "originalSize": 465170,
+      "width": 2048,
+      "height": 896,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-caucasica-jean-louis-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 140,
+          "byteSize": 8803
+        },
+        {
+          "key": "optimized/darevskia-caucasica-jean-louis-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 140,
+          "byteSize": 12468
+        },
+        {
+          "key": "optimized/darevskia-caucasica-jean-louis-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 175,
+          "byteSize": 12372
+        },
+        {
+          "key": "optimized/darevskia-caucasica-jean-louis-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 175,
+          "byteSize": 18082
+        },
+        {
+          "key": "optimized/darevskia-caucasica-jean-louis-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 280,
+          "byteSize": 27514
+        },
+        {
+          "key": "optimized/darevskia-caucasica-jean-louis-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 280,
+          "byteSize": 42354
+        },
+        {
+          "key": "optimized/darevskia-caucasica-jean-louis-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 350,
+          "byteSize": 40001
+        },
+        {
+          "key": "optimized/darevskia-caucasica-jean-louis-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 350,
+          "byteSize": 61314
+        },
+        {
+          "key": "optimized/darevskia-caucasica-jean-louis-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 525,
+          "byteSize": 77565
+        },
+        {
+          "key": "optimized/darevskia-caucasica-jean-louis-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 525,
+          "byteSize": 116508
+        },
+        {
+          "key": "optimized/darevskia-caucasica-jean-louis-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 896,
+          "byteSize": 183474
+        },
+        {
+          "key": "optimized/darevskia-caucasica-jean-louis-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 896,
+          "byteSize": 263836
+        }
+      ],
+      "updatedAt": "2026-10-06T15:27:07.230Z"
+    },
+    "darevskia-caucasica-léo-1.jpg": {
+      "sourceHash": "17b4316316bb56a378435419f9bda0024a06a53299c4618185e638c720d08ef1",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-caucasica-léo-1.jpg",
+      "originalSize": 285828,
+      "width": 1620,
+      "height": 1080,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-caucasica-léo-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10331
+        },
+        {
+          "key": "optimized/darevskia-caucasica-léo-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 15698
+        },
+        {
+          "key": "optimized/darevskia-caucasica-léo-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 14898
+        },
+        {
+          "key": "optimized/darevskia-caucasica-léo-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 22476
+        },
+        {
+          "key": "optimized/darevskia-caucasica-léo-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 29102
+        },
+        {
+          "key": "optimized/darevskia-caucasica-léo-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 43938
+        },
+        {
+          "key": "optimized/darevskia-caucasica-léo-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 39529
+        },
+        {
+          "key": "optimized/darevskia-caucasica-léo-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 59096
+        },
+        {
+          "key": "optimized/darevskia-caucasica-léo-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 66292
+        },
+        {
+          "key": "optimized/darevskia-caucasica-léo-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 97480
+        },
+        {
+          "key": "optimized/darevskia-caucasica-léo-1-1620.avif",
+          "format": "avif",
+          "width": 1620,
+          "height": 1080,
+          "byteSize": 95794
+        },
+        {
+          "key": "optimized/darevskia-caucasica-léo-1-1620.webp",
+          "format": "webp",
+          "width": 1620,
+          "height": 1080,
+          "byteSize": 142640
+        }
+      ],
+      "updatedAt": "2026-10-06T15:29:19.500Z"
+    },
+    "darevskia-caucasica-michal-1.jpg": {
+      "sourceHash": "6e20afeafe6819516423436281d123336683d74ef56841c703e6c520ec13b867",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-caucasica-michal-1.jpg",
+      "originalSize": 943984,
+      "width": 2048,
+      "height": 1537,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-caucasica-michal-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 13409
+        },
+        {
+          "key": "optimized/darevskia-caucasica-michal-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 18662
+        },
+        {
+          "key": "optimized/darevskia-caucasica-michal-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 20335
+        },
+        {
+          "key": "optimized/darevskia-caucasica-michal-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 28706
+        },
+        {
+          "key": "optimized/darevskia-caucasica-michal-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 50101
+        },
+        {
+          "key": "optimized/darevskia-caucasica-michal-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 74540
+        },
+        {
+          "key": "optimized/darevskia-caucasica-michal-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 79637
+        },
+        {
+          "key": "optimized/darevskia-caucasica-michal-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 121214
+        },
+        {
+          "key": "optimized/darevskia-caucasica-michal-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 901,
+          "byteSize": 174057
+        },
+        {
+          "key": "optimized/darevskia-caucasica-michal-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 901,
+          "byteSize": 274576
+        },
+        {
+          "key": "optimized/darevskia-caucasica-michal-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1537,
+          "byteSize": 420908
+        },
+        {
+          "key": "optimized/darevskia-caucasica-michal-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1537,
+          "byteSize": 630810
+        }
+      ],
+      "updatedAt": "2026-10-06T15:30:25.025Z"
+    },
     "darevskia-caucasica-mobile.jpg": {
       "sourceHash": "a2412e285a5fb752220cd1077a9c29f6814db3c00d3e3254c42187ec08229646",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -18432,6 +19097,372 @@
         }
       ],
       "updatedAt": "2026-08-28T21:31:37.955Z"
+    },
+    "darevskia-caucasica-pcam-1.jpg": {
+      "sourceHash": "f40f6e42a7a08f3f4ca7e421141c419086f414b9fd065c50fe1a023d18d55a3f",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-caucasica-pcam-1.jpg",
+      "originalSize": 320651,
+      "width": 1542,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-caucasica-pcam-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 425,
+          "byteSize": 11666
+        },
+        {
+          "key": "optimized/darevskia-caucasica-pcam-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 425,
+          "byteSize": 15756
+        },
+        {
+          "key": "optimized/darevskia-caucasica-pcam-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 531,
+          "byteSize": 16216
+        },
+        {
+          "key": "optimized/darevskia-caucasica-pcam-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 531,
+          "byteSize": 22108
+        },
+        {
+          "key": "optimized/darevskia-caucasica-pcam-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 850,
+          "byteSize": 32704
+        },
+        {
+          "key": "optimized/darevskia-caucasica-pcam-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 850,
+          "byteSize": 45744
+        },
+        {
+          "key": "optimized/darevskia-caucasica-pcam-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1063,
+          "byteSize": 43977
+        },
+        {
+          "key": "optimized/darevskia-caucasica-pcam-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1063,
+          "byteSize": 62338
+        },
+        {
+          "key": "optimized/darevskia-caucasica-pcam-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1594,
+          "byteSize": 74807
+        },
+        {
+          "key": "optimized/darevskia-caucasica-pcam-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1594,
+          "byteSize": 104442
+        },
+        {
+          "key": "optimized/darevskia-caucasica-pcam-1-1542.avif",
+          "format": "avif",
+          "width": 1542,
+          "height": 2048,
+          "byteSize": 102726
+        },
+        {
+          "key": "optimized/darevskia-caucasica-pcam-1-1542.webp",
+          "format": "webp",
+          "width": 1542,
+          "height": 2048,
+          "byteSize": 141288
+        }
+      ],
+      "updatedAt": "2026-10-06T15:33:43.077Z"
+    },
+    "darevskia-caucasica-rudi-1.jpg": {
+      "sourceHash": "41d126409ac70141e2764493147ccc9a9ad1e152fbc8ae8b91ea4e86fed804b1",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-caucasica-rudi-1.jpg",
+      "originalSize": 147470,
+      "width": 1000,
+      "height": 667,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-caucasica-rudi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11239
+        },
+        {
+          "key": "optimized/darevskia-caucasica-rudi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 16754
+        },
+        {
+          "key": "optimized/darevskia-caucasica-rudi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 15747
+        },
+        {
+          "key": "optimized/darevskia-caucasica-rudi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 23284
+        },
+        {
+          "key": "optimized/darevskia-caucasica-rudi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 30349
+        },
+        {
+          "key": "optimized/darevskia-caucasica-rudi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 43946
+        },
+        {
+          "key": "optimized/darevskia-caucasica-rudi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 40703
+        },
+        {
+          "key": "optimized/darevskia-caucasica-rudi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 59810
+        },
+        {
+          "key": "optimized/darevskia-caucasica-rudi-1-1000.avif",
+          "format": "avif",
+          "width": 1000,
+          "height": 667,
+          "byteSize": 56428
+        },
+        {
+          "key": "optimized/darevskia-caucasica-rudi-1-1000.webp",
+          "format": "webp",
+          "width": 1000,
+          "height": 667,
+          "byteSize": 81798
+        }
+      ],
+      "updatedAt": "2026-10-06T15:24:32.095Z"
+    },
+    "darevskia-caucasica-sopo-1.jpg": {
+      "sourceHash": "870cc7bd3be266b12141e77a4fd09edcd8760bdfcb26a359312367450c7ad6a4",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-caucasica-sopo-1.jpg",
+      "originalSize": 369557,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-caucasica-sopo-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 6767
+        },
+        {
+          "key": "optimized/darevskia-caucasica-sopo-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 8728
+        },
+        {
+          "key": "optimized/darevskia-caucasica-sopo-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 8751
+        },
+        {
+          "key": "optimized/darevskia-caucasica-sopo-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 12136
+        },
+        {
+          "key": "optimized/darevskia-caucasica-sopo-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 17743
+        },
+        {
+          "key": "optimized/darevskia-caucasica-sopo-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 25672
+        },
+        {
+          "key": "optimized/darevskia-caucasica-sopo-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 25323
+        },
+        {
+          "key": "optimized/darevskia-caucasica-sopo-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 36966
+        },
+        {
+          "key": "optimized/darevskia-caucasica-sopo-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 47153
+        },
+        {
+          "key": "optimized/darevskia-caucasica-sopo-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 68146
+        },
+        {
+          "key": "optimized/darevskia-caucasica-sopo-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 104107
+        },
+        {
+          "key": "optimized/darevskia-caucasica-sopo-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 148056
+        }
+      ],
+      "updatedAt": "2026-10-06T15:32:36.983Z"
+    },
+    "darevskia-caucasica-titouan-1.jpg": {
+      "sourceHash": "ff7633d475be8c2569b1f383225544de265784a456aa515142599cd65f10c559",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-caucasica-titouan-1.jpg",
+      "originalSize": 557550,
+      "width": 1920,
+      "height": 1280,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-caucasica-titouan-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11458
+        },
+        {
+          "key": "optimized/darevskia-caucasica-titouan-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 17082
+        },
+        {
+          "key": "optimized/darevskia-caucasica-titouan-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 17860
+        },
+        {
+          "key": "optimized/darevskia-caucasica-titouan-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 26452
+        },
+        {
+          "key": "optimized/darevskia-caucasica-titouan-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 38981
+        },
+        {
+          "key": "optimized/darevskia-caucasica-titouan-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 60044
+        },
+        {
+          "key": "optimized/darevskia-caucasica-titouan-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 57924
+        },
+        {
+          "key": "optimized/darevskia-caucasica-titouan-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 89438
+        },
+        {
+          "key": "optimized/darevskia-caucasica-titouan-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 109996
+        },
+        {
+          "key": "optimized/darevskia-caucasica-titouan-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 171378
+        },
+        {
+          "key": "optimized/darevskia-caucasica-titouan-1-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 217524
+        },
+        {
+          "key": "optimized/darevskia-caucasica-titouan-1-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 348582
+        }
+      ],
+      "updatedAt": "2026-10-06T15:26:22.863Z"
     },
     "darevskia-caucasica.jpg": {
       "sourceHash": "447f83fd7bec4621a53a522e55b0092d9f527ae07668981202a9db89a055b2d5",

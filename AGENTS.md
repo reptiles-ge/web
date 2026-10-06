@@ -49,6 +49,7 @@ Do not add code comments. Do not invent UI copy in one locale only.
 | News                           | `src/data/news.ts`, `src/content/news/`, `src/lib/news.ts`                               |
 | 301 map                        | `next.config.ts` **and** `src/proxy.ts` (slug table: `speciesSlugTable.ts`)              |
 | UI strings                     | `messages/ka.json` + `messages/en.json` (same keys)                                      |
+| Maintenance mode               | `src/lib/maintenance.ts`, wired in `src/worker.ts`                                       |
 
 ## Architecture
 
@@ -190,6 +191,15 @@ Long-form, answer-first practical guides (bat in the house, wasp nest, …) use 
 - BreadcrumbList on cluster and species pages. No FAQPage on guides; elsewhere FAQPage only if the FAQ is visible.
 - Bite page: `WebPage`, not medical schema.
 - `www.reptiles.ge` → apex 301. API routes send `X-Robots-Tag: noindex`.
+
+## Maintenance mode
+
+Kill-switch only; normal deploys are atomic and need none. `src/worker.ts` answers before the app runs, so it works when the app is broken.
+
+- On: set the Worker variable `MAINTENANCE_MODE` to `on`. Off: `off`. Nothing switches it off automatically — a 503 that lasts more than a day or two costs rankings, so turn it off as soon as the work is done.
+- Every URL answers `503` + `Retry-After` + `Cache-Control: no-store` at its own address. Never a redirect, a `200`, a `noindex`, or a `robots.txt` disallow. `/robots.txt` stays live.
+- Team bypass: secret `MAINTENANCE_BYPASS_TOKEN`, sent as the `maintenance_bypass` cookie or `x-maintenance-bypass` header.
+- Copy for all four locales lives in `src/lib/maintenance.ts` (inline, no app imports). A git deploy resets the variable to the value in `wrangler.jsonc`.
 
 ## Commands
 

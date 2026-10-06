@@ -1894,12 +1894,89 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 960],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/darevskia-caucasica-clo-09-1.jpg": {
+    "path": "darevskia-caucasica-clo-09-1",
+    "width": 1600,
+    "height": 1066,
+    "widths": [320, 400, 640, 800, 1200, 1600],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-caucasica-david-1.jpg": {
+    "path": "darevskia-caucasica-david-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-caucasica-evgeny-1.jpg": {
+    "path": "darevskia-caucasica-evgeny-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-caucasica-floyd-1.jpg": {
+    "path": "darevskia-caucasica-floyd-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-caucasica-jean-louis-1.jpg": {
+    "path": "darevskia-caucasica-jean-louis-1",
+    "width": 2048,
+    "height": 896,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-caucasica-l%C3%A9o-1.jpg": {
+    "path": "darevskia-caucasica-l%C3%A9o-1",
+    "width": 1620,
+    "height": 1080,
+    "widths": [320, 400, 640, 800, 1200, 1620],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-caucasica-michal-1.jpg": {
+    "path": "darevskia-caucasica-michal-1",
+    "width": 2048,
+    "height": 1537,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/darevskia-caucasica-mobile.jpg": {
     "path": "darevskia-caucasica-mobile",
     "width": 1536,
     "height": 2048,
     "widths": [400, 800, 1200, 1536],
     "formats": ["avif"]
+  },
+  "https://cdn.reptiles.ge/darevskia-caucasica-pcam-1.jpg": {
+    "path": "darevskia-caucasica-pcam-1",
+    "width": 1542,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1542],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-caucasica-rudi-1.jpg": {
+    "path": "darevskia-caucasica-rudi-1",
+    "width": 1000,
+    "height": 667,
+    "widths": [320, 400, 640, 800, 1000],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-caucasica-sopo-1.jpg": {
+    "path": "darevskia-caucasica-sopo-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-caucasica-titouan-1.jpg": {
+    "path": "darevskia-caucasica-titouan-1",
+    "width": 1920,
+    "height": 1280,
+    "widths": [320, 400, 640, 800, 1200, 1920],
+    "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/darevskia-caucasica.jpg": {
     "path": "darevskia-caucasica",

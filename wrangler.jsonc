@@ -28,6 +28,9 @@
   "cache": {
     "enabled": false,
   },
+  "vars": {
+    "MAINTENANCE_MODE": "off",
+  },
   "services": [
     {
       "binding": "RESPONSE_STORE",
