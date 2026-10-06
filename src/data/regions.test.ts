@@ -67,6 +67,7 @@ describe("region speciesIds", () => {
     "accipiter-nisus",
     "dendrocopos-major",
     "erithacus-rubecula",
+    "jynx-torquilla",
     "turdus-merula",
     "ciconia-ciconia",
     "coturnix-coturnix",
@@ -78,9 +79,11 @@ describe("region speciesIds", () => {
     "garrulus-glandarius",
     "darevskia-obscura",
     "eirenis-modestus",
+    "elaphe-urartica",
     "mauremys-caspica",
     "paralaudakia-caucasia",
     "mustela-nivalis",
+    "procyon-lotor",
   ])("lists %s only where the record table confirms distribution", (id) => {
     const species = getSpeciesById(id);
     expect(species).toBeDefined();

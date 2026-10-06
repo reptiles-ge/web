@@ -6724,6 +6724,20 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2400],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/procyon-lotor-giorgi-1.jpg": {
+    "path": "procyon-lotor-giorgi-1",
+    "width": 1542,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1542],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/procyon-lotor-giorgi-2.jpg": {
+    "path": "procyon-lotor-giorgi-2",
+    "width": 1536,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/pseudopus-apodus-3.webp": {
     "path": "pseudopus-apodus-3",
     "width": 2200,

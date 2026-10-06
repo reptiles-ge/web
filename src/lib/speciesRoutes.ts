@@ -177,6 +177,7 @@ const LOOKALIKES: Record<string, string[]> = {
     "bufotes-viridis",
   ],
   "hyla-savignyi": ["hyla-orientalis", "pelophylax-ridibundus"],
+  "jynx-torquilla": ["lanius-collurio"],
   "lacerta-agilis": [
     "lacerta-strigata",
     "lacerta-media",
@@ -245,7 +246,7 @@ const LOOKALIKES: Record<string, string[]> = {
     "elaphe-dione",
     "telescopus-fallax",
   ],
-  "procyon-lotor": ["meles-canescens", "vulpes-vulpes"],
+  "procyon-lotor": ["meles-canescens"],
   "pseudopus-apodus": ["anguis-colchica"],
   "rana-macrocnemis": [
     "pelophylax-ridibundus",
