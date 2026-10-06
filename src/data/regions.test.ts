@@ -78,6 +78,7 @@ describe("region speciesIds", () => {
     "garrulus-glandarius",
     "darevskia-obscura",
     "eirenis-modestus",
+    "elaphe-urartica",
     "mauremys-caspica",
     "paralaudakia-caucasia",
     "mustela-nivalis",
