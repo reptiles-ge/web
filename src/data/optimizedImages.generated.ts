@@ -7508,6 +7508,55 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 844],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/tyto-alba-ahmed-1.jpg": {
+    "path": "tyto-alba-ahmed-1",
+    "width": 728,
+    "height": 546,
+    "widths": [320, 400, 640, 728],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/tyto-alba-ahmed-2.jpg": {
+    "path": "tyto-alba-ahmed-2",
+    "width": 1074,
+    "height": 806,
+    "widths": [320, 400, 640, 800, 1074],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/tyto-alba-alanvannorman-1.jpg": {
+    "path": "tyto-alba-alanvannorman-1",
+    "width": 1976,
+    "height": 1482,
+    "widths": [320, 400, 640, 800, 1200, 1976],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/tyto-alba-ina-1.jpg": {
+    "path": "tyto-alba-ina-1",
+    "width": 1596,
+    "height": 1453,
+    "widths": [320, 400, 640, 800, 1200, 1596],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/tyto-alba-isi-1.jpg": {
+    "path": "tyto-alba-isi-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/tyto-alba-mourad-1.jpg": {
+    "path": "tyto-alba-mourad-1",
+    "width": 1920,
+    "height": 1080,
+    "widths": [320, 400, 640, 800, 1200, 1920],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/tyto-alba-teddydolstra-1.jpg": {
+    "path": "tyto-alba-teddydolstra-1",
+    "width": 1536,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/ursus-arctos-cub-1.jpg": {
     "path": "ursus-arctos-cub-1",
     "width": 1280,
