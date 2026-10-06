@@ -1901,6 +1901,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1536],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/darevskia-caucasica-rudi-1.jpg": {
+    "path": "darevskia-caucasica-rudi-1",
+    "width": 1000,
+    "height": 667,
+    "widths": [320, 400, 640, 800, 1000],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/darevskia-caucasica.jpg": {
     "path": "darevskia-caucasica",
     "width": 2048,

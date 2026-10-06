@@ -18433,6 +18433,87 @@
       ],
       "updatedAt": "2026-08-28T21:31:37.955Z"
     },
+    "darevskia-caucasica-rudi-1.jpg": {
+      "sourceHash": "41d126409ac70141e2764493147ccc9a9ad1e152fbc8ae8b91ea4e86fed804b1",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-caucasica-rudi-1.jpg",
+      "originalSize": 147470,
+      "width": 1000,
+      "height": 667,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-caucasica-rudi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11239
+        },
+        {
+          "key": "optimized/darevskia-caucasica-rudi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 16754
+        },
+        {
+          "key": "optimized/darevskia-caucasica-rudi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 15747
+        },
+        {
+          "key": "optimized/darevskia-caucasica-rudi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 23284
+        },
+        {
+          "key": "optimized/darevskia-caucasica-rudi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 30349
+        },
+        {
+          "key": "optimized/darevskia-caucasica-rudi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 43946
+        },
+        {
+          "key": "optimized/darevskia-caucasica-rudi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 40703
+        },
+        {
+          "key": "optimized/darevskia-caucasica-rudi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 59810
+        },
+        {
+          "key": "optimized/darevskia-caucasica-rudi-1-1000.avif",
+          "format": "avif",
+          "width": 1000,
+          "height": 667,
+          "byteSize": 56428
+        },
+        {
+          "key": "optimized/darevskia-caucasica-rudi-1-1000.webp",
+          "format": "webp",
+          "width": 1000,
+          "height": 667,
+          "byteSize": 81798
+        }
+      ],
+      "updatedAt": "2026-10-06T15:24:32.095Z"
+    },
     "darevskia-caucasica.jpg": {
       "sourceHash": "447f83fd7bec4621a53a522e55b0092d9f527ae07668981202a9db89a055b2d5",
       "configFingerprint": "a895f8e025dcc7fa",
