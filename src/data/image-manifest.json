@@ -78329,6 +78329,101 @@
       ],
       "updatedAt": "2026-10-06T10:11:26.572Z"
     },
+    "procyon-lotor-giorgi-2.jpg": {
+      "sourceHash": "f834e8f7b900057666219fc2ac4eed1effcb5d5eb6e46ded97a5fd835c1be982",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "procyon-lotor-giorgi-2.jpg",
+      "originalSize": 1043405,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/procyon-lotor-giorgi-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 29152
+        },
+        {
+          "key": "optimized/procyon-lotor-giorgi-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 45762
+        },
+        {
+          "key": "optimized/procyon-lotor-giorgi-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 44240
+        },
+        {
+          "key": "optimized/procyon-lotor-giorgi-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 70454
+        },
+        {
+          "key": "optimized/procyon-lotor-giorgi-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 110368
+        },
+        {
+          "key": "optimized/procyon-lotor-giorgi-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 179548
+        },
+        {
+          "key": "optimized/procyon-lotor-giorgi-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 165201
+        },
+        {
+          "key": "optimized/procyon-lotor-giorgi-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 270570
+        },
+        {
+          "key": "optimized/procyon-lotor-giorgi-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 316733
+        },
+        {
+          "key": "optimized/procyon-lotor-giorgi-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 523164
+        },
+        {
+          "key": "optimized/procyon-lotor-giorgi-2-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 474674
+        },
+        {
+          "key": "optimized/procyon-lotor-giorgi-2-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 766690
+        }
+      ],
+      "updatedAt": "2026-10-06T10:12:21.776Z"
+    },
     "pseudopus-apodus-2.webp": {
       "sourceHash": "19480c1b584ce9fbc0be0f311bd0aa6fe8aa93be74655e6c00bf8f3e8c077f1a",
       "configFingerprint": "a895f8e025dcc7fa",
