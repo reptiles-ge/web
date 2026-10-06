@@ -7550,6 +7550,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1920],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/tyto-alba-teddydolstra-1.jpg": {
+    "path": "tyto-alba-teddydolstra-1",
+    "width": 1536,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/ursus-arctos-cub-1.jpg": {
     "path": "ursus-arctos-cub-1",
     "width": 1280,

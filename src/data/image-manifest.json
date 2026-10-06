@@ -87381,6 +87381,101 @@
       ],
       "updatedAt": "2026-10-06T15:07:11.582Z"
     },
+    "tyto-alba-teddydolstra-1.jpg": {
+      "sourceHash": "0860313b624374b661ff5239a47367527e7c567a0b0b5a444385d4d5efc1db67",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "tyto-alba-teddydolstra-1.jpg",
+      "originalSize": 298373,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/tyto-alba-teddydolstra-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 7519
+        },
+        {
+          "key": "optimized/tyto-alba-teddydolstra-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 9072
+        },
+        {
+          "key": "optimized/tyto-alba-teddydolstra-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 11010
+        },
+        {
+          "key": "optimized/tyto-alba-teddydolstra-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 13358
+        },
+        {
+          "key": "optimized/tyto-alba-teddydolstra-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 26131
+        },
+        {
+          "key": "optimized/tyto-alba-teddydolstra-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 32308
+        },
+        {
+          "key": "optimized/tyto-alba-teddydolstra-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 38716
+        },
+        {
+          "key": "optimized/tyto-alba-teddydolstra-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 46664
+        },
+        {
+          "key": "optimized/tyto-alba-teddydolstra-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 70989
+        },
+        {
+          "key": "optimized/tyto-alba-teddydolstra-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 83918
+        },
+        {
+          "key": "optimized/tyto-alba-teddydolstra-1-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 98896
+        },
+        {
+          "key": "optimized/tyto-alba-teddydolstra-1-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 117594
+        }
+      ],
+      "updatedAt": "2026-10-06T15:11:33.716Z"
+    },
     "ursus-arctos-cub-1.jpg": {
       "sourceHash": "9cad7c0a6a0b90d43923cdc15861d9550b8d8f6acfcf04b05a0f2b52a4ab19cd",
       "configFingerprint": "a895f8e025dcc7fa",
