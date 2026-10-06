@@ -480,8 +480,8 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
     faq: [
       {
         answer: {
-          en: "Records include nose-horned viper, Urartian and steppe ratsnakes, red-bellied and Dahl’s whip snakes, cat snake, grass snake and dice snake, smooth snake, and glass lizard.",
-          ka: "ჩანაწერებშია ცხვირრქოსანი გველგესლა, ურარტუს და სახეებიანი მცურავი, წითელმუცელა და წენგოსფერი მცურავი, კატისთვალა, ჩვეულებრივი და წყლის ანკარა, სპილენძა და გველხოკერა.",
+          en: "Records include nose-horned viper, steppe ratsnake, red-bellied and Dahl’s whip snakes, cat snake, grass snake and dice snake, smooth snake, and glass lizard.",
+          ka: "ჩანაწერებშია ცხვირრქოსანი გველგესლა, სახეებიანი მცურავი, წითელმუცელა და წენგოსფერი მცურავი, კატისთვალა, ჩვეულებრივი და წყლის ანკარა, სპილენძა და გველხოკერა.",
         },
         question: {
           en: "Which snakes occur in Shida Kartli?",
@@ -510,10 +510,10 @@ export const regionContent: Record<RegionPathId, RegionContent> = {
     faq: [
       {
         answer: {
-          en: "Tbilisi records include Levantine viper, nose-horned viper, steppe viper, Urartian ratsnake, steppe ratsnake, red-bellied racer, Dahl’s whip snake, cat snake, grass snake, dice snake, smooth snake, and glass lizard. Encounters with these species are more likely in suburbs, valleys, rocky places, and riverside areas.",
-          ka: "თბილისის ჩანაწერებში წარმოდგენილია გიურზა, ცხვირრქოსანი გველგესლა, ველის გველგესლა, ურარტუს მცურავი, სახეებიანი მცურავი, წითელმუცელა და წენგოსფერი მცურავი, კატისთვალა, ჩვეულებრივი და წყლის ანკარა, სპილენძა და გველხოკერა. ასეთი სახეობების შეხვედრა უფრო მოსალოდნელია ქალაქის გარეუბნებში, ხეობებში, კლდოვან ადგილებსა და მდინარის პირას.",
-          ru: "В записях по Тбилиси представлены гюрза, носатая гадюка, степная гадюка, урартский полоз, узорчатый полоз, краснобрюхий и Далев полозы, кошачья змея, обыкновенный и водяной ужи, медянка и желтопузик. Встречи с такими видами более вероятны на окраинах, в ущельях, на скальных участках и у реки.",
-          tr: "Tiflis kayıtlarında koca engerek, burun boynuzlu engerek, bozkır engereği, Urartu sıçan yılanı, desenli sıçan yılanı, kırmızı karınlı ve Dahl kamçı yılanları, kedi yılanı, halkalı su yılanı, su yılanı, düz yılan ve cam kertenkele yer alır. Bu türlerle karşılaşma daha çok banliyölerde, vadilerde, kayalık alanlarda ve nehir kıyısında beklenir.",
+          en: "Tbilisi records include Levantine viper, nose-horned viper, steppe viper, steppe ratsnake, red-bellied racer, Dahl’s whip snake, cat snake, grass snake, dice snake, smooth snake, and glass lizard. Encounters with these species are more likely in suburbs, valleys, rocky places, and riverside areas.",
+          ka: "თბილისის ჩანაწერებში წარმოდგენილია გიურზა, ცხვირრქოსანი გველგესლა, ველის გველგესლა, სახეებიანი მცურავი, წითელმუცელა და წენგოსფერი მცურავი, კატისთვალა, ჩვეულებრივი და წყლის ანკარა, სპილენძა და გველხოკერა. ასეთი სახეობების შეხვედრა უფრო მოსალოდნელია ქალაქის გარეუბნებში, ხეობებში, კლდოვან ადგილებსა და მდინარის პირას.",
+          ru: "В записях по Тбилиси представлены гюрза, носатая гадюка, степная гадюка, узорчатый полоз, краснобрюхий и Далев полозы, кошачья змея, обыкновенный и водяной ужи, медянка и желтопузик. Встречи с такими видами более вероятны на окраинах, в ущельях, на скальных участках и у реки.",
+          tr: "Tiflis kayıtlarında koca engerek, burun boynuzlu engerek, bozkır engereği, desenli sıçan yılanı, kırmızı karınlı ve Dahl kamçı yılanları, kedi yılanı, halkalı su yılanı, su yılanı, düz yılan ve cam kertenkele yer alır. Bu türlerle karşılaşma daha çok banliyölerde, vadilerde, kayalık alanlarda ve nehir kıyısında beklenir.",
         },
         question: {
           en: "Which snakes live in Tbilisi?",
