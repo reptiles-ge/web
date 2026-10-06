@@ -48,7 +48,6 @@ const LOOKALIKES: Record<string, string[]> = {
     "strix-aluco",
     "athene-noctua",
     "otus-scops",
-    "tyto-alba",
     "aegolius-funereus",
   ],
   "bufo-verrucosissimus": [
@@ -264,12 +263,7 @@ const LOOKALIKES: Record<string, string[]> = {
   ],
   "triturus-karelinii": ["ommatotriton-ophryticus", "lissotriton-lantzi"],
   "turdus-merula": ["erithacus-rubecula"],
-  "tyto-alba": [
-    "strix-aluco",
-    "otus-scops",
-    "aegolius-funereus",
-    "athene-noctua",
-  ],
+  "tyto-alba": ["strix-aluco"],
   "vipera-dinniki": ["vipera-kaznakovi", "vipera-darevskii"],
   "vipera-kaznakovi": [
     "natrix-natrix",
