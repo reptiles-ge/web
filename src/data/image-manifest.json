@@ -86853,6 +86853,73 @@
       ],
       "updatedAt": "2026-09-05T19:29:12.899Z"
     },
+    "tyto-alba-ahmed-1.jpg": {
+      "sourceHash": "21fe0ac1c30c99c3b8c69054c467938ef006357cc1dbffc5a9eec9d5afc265e8",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "tyto-alba-ahmed-1.jpg",
+      "originalSize": 108581,
+      "width": 728,
+      "height": 546,
+      "derivatives": [
+        {
+          "key": "optimized/tyto-alba-ahmed-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 14133
+        },
+        {
+          "key": "optimized/tyto-alba-ahmed-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 20048
+        },
+        {
+          "key": "optimized/tyto-alba-ahmed-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 20396
+        },
+        {
+          "key": "optimized/tyto-alba-ahmed-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 27834
+        },
+        {
+          "key": "optimized/tyto-alba-ahmed-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 38319
+        },
+        {
+          "key": "optimized/tyto-alba-ahmed-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 51038
+        },
+        {
+          "key": "optimized/tyto-alba-ahmed-1-728.avif",
+          "format": "avif",
+          "width": 728,
+          "height": 546,
+          "byteSize": 46759
+        },
+        {
+          "key": "optimized/tyto-alba-ahmed-1-728.webp",
+          "format": "webp",
+          "width": 728,
+          "height": 546,
+          "byteSize": 62286
+        }
+      ],
+      "updatedAt": "2026-10-06T15:07:56.670Z"
+    },
     "tyto-alba-mourad-1.jpg": {
       "sourceHash": "ed878995e1a1808cf20fef791c5f2a41a47c1461bb0bb8b2a97dcb028ae9ebc5",
       "configFingerprint": "409788ee46c653d8",
