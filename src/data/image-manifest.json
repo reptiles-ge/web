@@ -86853,6 +86853,101 @@
       ],
       "updatedAt": "2026-09-05T19:29:12.899Z"
     },
+    "tyto-alba-mourad-1.jpg": {
+      "sourceHash": "ed878995e1a1808cf20fef791c5f2a41a47c1461bb0bb8b2a97dcb028ae9ebc5",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "tyto-alba-mourad-1.jpg",
+      "originalSize": 380675,
+      "width": 1920,
+      "height": 1080,
+      "derivatives": [
+        {
+          "key": "optimized/tyto-alba-mourad-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 9427
+        },
+        {
+          "key": "optimized/tyto-alba-mourad-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 12820
+        },
+        {
+          "key": "optimized/tyto-alba-mourad-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 13339
+        },
+        {
+          "key": "optimized/tyto-alba-mourad-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 18354
+        },
+        {
+          "key": "optimized/tyto-alba-mourad-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 25428
+        },
+        {
+          "key": "optimized/tyto-alba-mourad-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 33964
+        },
+        {
+          "key": "optimized/tyto-alba-mourad-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 35772
+        },
+        {
+          "key": "optimized/tyto-alba-mourad-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 47068
+        },
+        {
+          "key": "optimized/tyto-alba-mourad-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 64370
+        },
+        {
+          "key": "optimized/tyto-alba-mourad-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 80018
+        },
+        {
+          "key": "optimized/tyto-alba-mourad-1-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1080,
+          "byteSize": 139909
+        },
+        {
+          "key": "optimized/tyto-alba-mourad-1-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1080,
+          "byteSize": 166408
+        }
+      ],
+      "updatedAt": "2026-10-06T15:07:11.582Z"
+    },
     "ursus-arctos-cub-1.jpg": {
       "sourceHash": "9cad7c0a6a0b90d43923cdc15861d9550b8d8f6acfcf04b05a0f2b52a4ab19cd",
       "configFingerprint": "a895f8e025dcc7fa",
