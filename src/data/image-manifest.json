@@ -18366,6 +18366,101 @@
       ],
       "updatedAt": "2026-08-28T21:31:34.651Z"
     },
+    "darevskia-caucasica-clo-09-1.jpg": {
+      "sourceHash": "f78aff302f26c9ea10701f766ea50bb794582f95bb0afe29c7f2a78fb7a45ecd",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-caucasica-clo-09-1.jpg",
+      "originalSize": 201338,
+      "width": 1600,
+      "height": 1066,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-caucasica-clo-09-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6882
+        },
+        {
+          "key": "optimized/darevskia-caucasica-clo-09-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9090
+        },
+        {
+          "key": "optimized/darevskia-caucasica-clo-09-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 9967
+        },
+        {
+          "key": "optimized/darevskia-caucasica-clo-09-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 13380
+        },
+        {
+          "key": "optimized/darevskia-caucasica-clo-09-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 20882
+        },
+        {
+          "key": "optimized/darevskia-caucasica-clo-09-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 29946
+        },
+        {
+          "key": "optimized/darevskia-caucasica-clo-09-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 29398
+        },
+        {
+          "key": "optimized/darevskia-caucasica-clo-09-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 43850
+        },
+        {
+          "key": "optimized/darevskia-caucasica-clo-09-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 53353
+        },
+        {
+          "key": "optimized/darevskia-caucasica-clo-09-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 80742
+        },
+        {
+          "key": "optimized/darevskia-caucasica-clo-09-1-1600.avif",
+          "format": "avif",
+          "width": 1600,
+          "height": 1066,
+          "byteSize": 84482
+        },
+        {
+          "key": "optimized/darevskia-caucasica-clo-09-1-1600.webp",
+          "format": "webp",
+          "width": 1600,
+          "height": 1066,
+          "byteSize": 125892
+        }
+      ],
+      "updatedAt": "2026-10-06T15:27:48.263Z"
+    },
     "darevskia-caucasica-evgeny-1.jpg": {
       "sourceHash": "cf9ad14260304fc968f68e77803a008cb5faae19d92b76158b3e1702724839a5",
       "configFingerprint": "409788ee46c653d8",
