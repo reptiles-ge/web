@@ -87001,6 +87001,101 @@
       ],
       "updatedAt": "2026-10-06T15:08:40.419Z"
     },
+    "tyto-alba-ina-1.jpg": {
+      "sourceHash": "87bd19095b818f6bbaf03903895042319d02049631e379fcd24291ea43cc02aa",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "tyto-alba-ina-1.jpg",
+      "originalSize": 578214,
+      "width": 1596,
+      "height": 1453,
+      "derivatives": [
+        {
+          "key": "optimized/tyto-alba-ina-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 291,
+          "byteSize": 13837
+        },
+        {
+          "key": "optimized/tyto-alba-ina-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 291,
+          "byteSize": 22186
+        },
+        {
+          "key": "optimized/tyto-alba-ina-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 364,
+          "byteSize": 19554
+        },
+        {
+          "key": "optimized/tyto-alba-ina-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 364,
+          "byteSize": 31360
+        },
+        {
+          "key": "optimized/tyto-alba-ina-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 583,
+          "byteSize": 43522
+        },
+        {
+          "key": "optimized/tyto-alba-ina-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 583,
+          "byteSize": 66254
+        },
+        {
+          "key": "optimized/tyto-alba-ina-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 728,
+          "byteSize": 64175
+        },
+        {
+          "key": "optimized/tyto-alba-ina-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 728,
+          "byteSize": 95542
+        },
+        {
+          "key": "optimized/tyto-alba-ina-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1092,
+          "byteSize": 135116
+        },
+        {
+          "key": "optimized/tyto-alba-ina-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1092,
+          "byteSize": 194096
+        },
+        {
+          "key": "optimized/tyto-alba-ina-1-1596.avif",
+          "format": "avif",
+          "width": 1596,
+          "height": 1453,
+          "byteSize": 245767
+        },
+        {
+          "key": "optimized/tyto-alba-ina-1-1596.webp",
+          "format": "webp",
+          "width": 1596,
+          "height": 1453,
+          "byteSize": 320292
+        }
+      ],
+      "updatedAt": "2026-10-06T15:09:17.598Z"
+    },
     "tyto-alba-mourad-1.jpg": {
       "sourceHash": "ed878995e1a1808cf20fef791c5f2a41a47c1461bb0bb8b2a97dcb028ae9ebc5",
       "configFingerprint": "409788ee46c653d8",

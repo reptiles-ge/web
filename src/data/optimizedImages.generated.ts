@@ -7522,6 +7522,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1074],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/tyto-alba-ina-1.jpg": {
+    "path": "tyto-alba-ina-1",
+    "width": 1596,
+    "height": 1453,
+    "widths": [320, 400, 640, 800, 1200, 1596],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/tyto-alba-mourad-1.jpg": {
     "path": "tyto-alba-mourad-1",
     "width": 1920,
