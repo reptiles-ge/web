@@ -86920,6 +86920,87 @@
       ],
       "updatedAt": "2026-10-06T15:07:56.670Z"
     },
+    "tyto-alba-ahmed-2.jpg": {
+      "sourceHash": "41da373bfc3b3c6b290a44368e45a65e6663e8afe3e1fd57944b3c7c6f459e96",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "tyto-alba-ahmed-2.jpg",
+      "originalSize": 257521,
+      "width": 1074,
+      "height": 806,
+      "derivatives": [
+        {
+          "key": "optimized/tyto-alba-ahmed-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 18068
+        },
+        {
+          "key": "optimized/tyto-alba-ahmed-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 27780
+        },
+        {
+          "key": "optimized/tyto-alba-ahmed-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 26746
+        },
+        {
+          "key": "optimized/tyto-alba-ahmed-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 40016
+        },
+        {
+          "key": "optimized/tyto-alba-ahmed-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 53792
+        },
+        {
+          "key": "optimized/tyto-alba-ahmed-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 79998
+        },
+        {
+          "key": "optimized/tyto-alba-ahmed-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 73670
+        },
+        {
+          "key": "optimized/tyto-alba-ahmed-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 109230
+        },
+        {
+          "key": "optimized/tyto-alba-ahmed-2-1074.avif",
+          "format": "avif",
+          "width": 1074,
+          "height": 806,
+          "byteSize": 112224
+        },
+        {
+          "key": "optimized/tyto-alba-ahmed-2-1074.webp",
+          "format": "webp",
+          "width": 1074,
+          "height": 806,
+          "byteSize": 163486
+        }
+      ],
+      "updatedAt": "2026-10-06T15:08:40.419Z"
+    },
     "tyto-alba-mourad-1.jpg": {
       "sourceHash": "ed878995e1a1808cf20fef791c5f2a41a47c1461bb0bb8b2a97dcb028ae9ebc5",
       "configFingerprint": "409788ee46c653d8",
