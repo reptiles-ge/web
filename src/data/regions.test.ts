@@ -69,6 +69,7 @@ describe("region speciesIds", () => {
     "erithacus-rubecula",
     "jynx-torquilla",
     "turdus-merula",
+    "tyto-alba",
     "ciconia-ciconia",
     "coturnix-coturnix",
     "gypaetus-barbatus",

@@ -86853,6 +86853,629 @@
       ],
       "updatedAt": "2026-09-05T19:29:12.899Z"
     },
+    "tyto-alba-ahmed-1.jpg": {
+      "sourceHash": "21fe0ac1c30c99c3b8c69054c467938ef006357cc1dbffc5a9eec9d5afc265e8",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "tyto-alba-ahmed-1.jpg",
+      "originalSize": 108581,
+      "width": 728,
+      "height": 546,
+      "derivatives": [
+        {
+          "key": "optimized/tyto-alba-ahmed-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 14133
+        },
+        {
+          "key": "optimized/tyto-alba-ahmed-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 20048
+        },
+        {
+          "key": "optimized/tyto-alba-ahmed-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 20396
+        },
+        {
+          "key": "optimized/tyto-alba-ahmed-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 27834
+        },
+        {
+          "key": "optimized/tyto-alba-ahmed-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 38319
+        },
+        {
+          "key": "optimized/tyto-alba-ahmed-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 51038
+        },
+        {
+          "key": "optimized/tyto-alba-ahmed-1-728.avif",
+          "format": "avif",
+          "width": 728,
+          "height": 546,
+          "byteSize": 46759
+        },
+        {
+          "key": "optimized/tyto-alba-ahmed-1-728.webp",
+          "format": "webp",
+          "width": 728,
+          "height": 546,
+          "byteSize": 62286
+        }
+      ],
+      "updatedAt": "2026-10-06T15:07:56.670Z"
+    },
+    "tyto-alba-ahmed-2.jpg": {
+      "sourceHash": "41da373bfc3b3c6b290a44368e45a65e6663e8afe3e1fd57944b3c7c6f459e96",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "tyto-alba-ahmed-2.jpg",
+      "originalSize": 257521,
+      "width": 1074,
+      "height": 806,
+      "derivatives": [
+        {
+          "key": "optimized/tyto-alba-ahmed-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 18068
+        },
+        {
+          "key": "optimized/tyto-alba-ahmed-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 27780
+        },
+        {
+          "key": "optimized/tyto-alba-ahmed-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 26746
+        },
+        {
+          "key": "optimized/tyto-alba-ahmed-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 40016
+        },
+        {
+          "key": "optimized/tyto-alba-ahmed-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 53792
+        },
+        {
+          "key": "optimized/tyto-alba-ahmed-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 79998
+        },
+        {
+          "key": "optimized/tyto-alba-ahmed-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 73670
+        },
+        {
+          "key": "optimized/tyto-alba-ahmed-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 109230
+        },
+        {
+          "key": "optimized/tyto-alba-ahmed-2-1074.avif",
+          "format": "avif",
+          "width": 1074,
+          "height": 806,
+          "byteSize": 112224
+        },
+        {
+          "key": "optimized/tyto-alba-ahmed-2-1074.webp",
+          "format": "webp",
+          "width": 1074,
+          "height": 806,
+          "byteSize": 163486
+        }
+      ],
+      "updatedAt": "2026-10-06T15:08:40.419Z"
+    },
+    "tyto-alba-alanvannorman-1.jpg": {
+      "sourceHash": "836c92e5de252ce578bcc83bccf8b1aebdc5345ffafea0483011132cb31e0cf0",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "tyto-alba-alanvannorman-1.jpg",
+      "originalSize": 275126,
+      "width": 1976,
+      "height": 1482,
+      "derivatives": [
+        {
+          "key": "optimized/tyto-alba-alanvannorman-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 4646
+        },
+        {
+          "key": "optimized/tyto-alba-alanvannorman-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 5096
+        },
+        {
+          "key": "optimized/tyto-alba-alanvannorman-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 6261
+        },
+        {
+          "key": "optimized/tyto-alba-alanvannorman-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 6888
+        },
+        {
+          "key": "optimized/tyto-alba-alanvannorman-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 11642
+        },
+        {
+          "key": "optimized/tyto-alba-alanvannorman-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 12912
+        },
+        {
+          "key": "optimized/tyto-alba-alanvannorman-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 16331
+        },
+        {
+          "key": "optimized/tyto-alba-alanvannorman-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 18406
+        },
+        {
+          "key": "optimized/tyto-alba-alanvannorman-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 28884
+        },
+        {
+          "key": "optimized/tyto-alba-alanvannorman-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 32356
+        },
+        {
+          "key": "optimized/tyto-alba-alanvannorman-1-1976.avif",
+          "format": "avif",
+          "width": 1976,
+          "height": 1482,
+          "byteSize": 62795
+        },
+        {
+          "key": "optimized/tyto-alba-alanvannorman-1-1976.webp",
+          "format": "webp",
+          "width": 1976,
+          "height": 1482,
+          "byteSize": 72496
+        }
+      ],
+      "updatedAt": "2026-10-06T15:10:38.602Z"
+    },
+    "tyto-alba-ina-1.jpg": {
+      "sourceHash": "87bd19095b818f6bbaf03903895042319d02049631e379fcd24291ea43cc02aa",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "tyto-alba-ina-1.jpg",
+      "originalSize": 578214,
+      "width": 1596,
+      "height": 1453,
+      "derivatives": [
+        {
+          "key": "optimized/tyto-alba-ina-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 291,
+          "byteSize": 13837
+        },
+        {
+          "key": "optimized/tyto-alba-ina-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 291,
+          "byteSize": 22186
+        },
+        {
+          "key": "optimized/tyto-alba-ina-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 364,
+          "byteSize": 19554
+        },
+        {
+          "key": "optimized/tyto-alba-ina-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 364,
+          "byteSize": 31360
+        },
+        {
+          "key": "optimized/tyto-alba-ina-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 583,
+          "byteSize": 43522
+        },
+        {
+          "key": "optimized/tyto-alba-ina-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 583,
+          "byteSize": 66254
+        },
+        {
+          "key": "optimized/tyto-alba-ina-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 728,
+          "byteSize": 64175
+        },
+        {
+          "key": "optimized/tyto-alba-ina-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 728,
+          "byteSize": 95542
+        },
+        {
+          "key": "optimized/tyto-alba-ina-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1092,
+          "byteSize": 135116
+        },
+        {
+          "key": "optimized/tyto-alba-ina-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1092,
+          "byteSize": 194096
+        },
+        {
+          "key": "optimized/tyto-alba-ina-1-1596.avif",
+          "format": "avif",
+          "width": 1596,
+          "height": 1453,
+          "byteSize": 245767
+        },
+        {
+          "key": "optimized/tyto-alba-ina-1-1596.webp",
+          "format": "webp",
+          "width": 1596,
+          "height": 1453,
+          "byteSize": 320292
+        }
+      ],
+      "updatedAt": "2026-10-06T15:09:17.598Z"
+    },
+    "tyto-alba-isi-1.jpg": {
+      "sourceHash": "a33739289121bdf0bc4fabf391f4a662c10dfe6411c92fad2aeaf80a3703df50",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "tyto-alba-isi-1.jpg",
+      "originalSize": 561085,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/tyto-alba-isi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 18253
+        },
+        {
+          "key": "optimized/tyto-alba-isi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 27330
+        },
+        {
+          "key": "optimized/tyto-alba-isi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 24901
+        },
+        {
+          "key": "optimized/tyto-alba-isi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 37136
+        },
+        {
+          "key": "optimized/tyto-alba-isi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 48422
+        },
+        {
+          "key": "optimized/tyto-alba-isi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 71760
+        },
+        {
+          "key": "optimized/tyto-alba-isi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 63689
+        },
+        {
+          "key": "optimized/tyto-alba-isi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 94642
+        },
+        {
+          "key": "optimized/tyto-alba-isi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 103773
+        },
+        {
+          "key": "optimized/tyto-alba-isi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 147868
+        },
+        {
+          "key": "optimized/tyto-alba-isi-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 197759
+        },
+        {
+          "key": "optimized/tyto-alba-isi-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 261494
+        }
+      ],
+      "updatedAt": "2026-10-06T15:09:52.755Z"
+    },
+    "tyto-alba-mourad-1.jpg": {
+      "sourceHash": "ed878995e1a1808cf20fef791c5f2a41a47c1461bb0bb8b2a97dcb028ae9ebc5",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "tyto-alba-mourad-1.jpg",
+      "originalSize": 380675,
+      "width": 1920,
+      "height": 1080,
+      "derivatives": [
+        {
+          "key": "optimized/tyto-alba-mourad-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 9427
+        },
+        {
+          "key": "optimized/tyto-alba-mourad-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 12820
+        },
+        {
+          "key": "optimized/tyto-alba-mourad-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 13339
+        },
+        {
+          "key": "optimized/tyto-alba-mourad-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 18354
+        },
+        {
+          "key": "optimized/tyto-alba-mourad-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 25428
+        },
+        {
+          "key": "optimized/tyto-alba-mourad-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 33964
+        },
+        {
+          "key": "optimized/tyto-alba-mourad-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 35772
+        },
+        {
+          "key": "optimized/tyto-alba-mourad-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 47068
+        },
+        {
+          "key": "optimized/tyto-alba-mourad-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 64370
+        },
+        {
+          "key": "optimized/tyto-alba-mourad-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 80018
+        },
+        {
+          "key": "optimized/tyto-alba-mourad-1-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1080,
+          "byteSize": 139909
+        },
+        {
+          "key": "optimized/tyto-alba-mourad-1-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1080,
+          "byteSize": 166408
+        }
+      ],
+      "updatedAt": "2026-10-06T15:07:11.582Z"
+    },
+    "tyto-alba-teddydolstra-1.jpg": {
+      "sourceHash": "0860313b624374b661ff5239a47367527e7c567a0b0b5a444385d4d5efc1db67",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "tyto-alba-teddydolstra-1.jpg",
+      "originalSize": 298373,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/tyto-alba-teddydolstra-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 7519
+        },
+        {
+          "key": "optimized/tyto-alba-teddydolstra-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 9072
+        },
+        {
+          "key": "optimized/tyto-alba-teddydolstra-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 11010
+        },
+        {
+          "key": "optimized/tyto-alba-teddydolstra-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 13358
+        },
+        {
+          "key": "optimized/tyto-alba-teddydolstra-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 26131
+        },
+        {
+          "key": "optimized/tyto-alba-teddydolstra-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 32308
+        },
+        {
+          "key": "optimized/tyto-alba-teddydolstra-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 38716
+        },
+        {
+          "key": "optimized/tyto-alba-teddydolstra-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 46664
+        },
+        {
+          "key": "optimized/tyto-alba-teddydolstra-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 70989
+        },
+        {
+          "key": "optimized/tyto-alba-teddydolstra-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 83918
+        },
+        {
+          "key": "optimized/tyto-alba-teddydolstra-1-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 98896
+        },
+        {
+          "key": "optimized/tyto-alba-teddydolstra-1-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 117594
+        }
+      ],
+      "updatedAt": "2026-10-06T15:11:33.716Z"
+    },
     "ursus-arctos-cub-1.jpg": {
       "sourceHash": "9cad7c0a6a0b90d43923cdc15861d9550b8d8f6acfcf04b05a0f2b52a4ab19cd",
       "configFingerprint": "a895f8e025dcc7fa",
