@@ -83,6 +83,7 @@ describe("region speciesIds", () => {
     "mauremys-caspica",
     "paralaudakia-caucasia",
     "mustela-nivalis",
+    "procyon-lotor",
   ])("lists %s only where the record table confirms distribution", (id) => {
     const species = getSpeciesById(id);
     expect(species).toBeDefined();

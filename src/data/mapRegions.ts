@@ -662,6 +662,7 @@ export const regions: Region[] = [
       "ursus-arctos",
       "canis-aureus",
       "mustela-nivalis",
+      "procyon-lotor",
       "aegypius-monachus",
       "gyps-fulvus",
       "gypaetus-barbatus",
