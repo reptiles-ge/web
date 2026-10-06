@@ -1915,6 +1915,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1000],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/darevskia-caucasica-titouan-1.jpg": {
+    "path": "darevskia-caucasica-titouan-1",
+    "width": 1920,
+    "height": 1280,
+    "widths": [320, 400, 640, 800, 1200, 1920],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/darevskia-caucasica.jpg": {
     "path": "darevskia-caucasica",
     "width": 2048,

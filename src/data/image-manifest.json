@@ -18609,6 +18609,101 @@
       ],
       "updatedAt": "2026-10-06T15:24:32.095Z"
     },
+    "darevskia-caucasica-titouan-1.jpg": {
+      "sourceHash": "ff7633d475be8c2569b1f383225544de265784a456aa515142599cd65f10c559",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-caucasica-titouan-1.jpg",
+      "originalSize": 557550,
+      "width": 1920,
+      "height": 1280,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-caucasica-titouan-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11458
+        },
+        {
+          "key": "optimized/darevskia-caucasica-titouan-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 17082
+        },
+        {
+          "key": "optimized/darevskia-caucasica-titouan-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 17860
+        },
+        {
+          "key": "optimized/darevskia-caucasica-titouan-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 26452
+        },
+        {
+          "key": "optimized/darevskia-caucasica-titouan-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 38981
+        },
+        {
+          "key": "optimized/darevskia-caucasica-titouan-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 60044
+        },
+        {
+          "key": "optimized/darevskia-caucasica-titouan-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 57924
+        },
+        {
+          "key": "optimized/darevskia-caucasica-titouan-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 89438
+        },
+        {
+          "key": "optimized/darevskia-caucasica-titouan-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 109996
+        },
+        {
+          "key": "optimized/darevskia-caucasica-titouan-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 171378
+        },
+        {
+          "key": "optimized/darevskia-caucasica-titouan-1-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 217524
+        },
+        {
+          "key": "optimized/darevskia-caucasica-titouan-1-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 348582
+        }
+      ],
+      "updatedAt": "2026-10-06T15:26:22.863Z"
+    },
     "darevskia-caucasica.jpg": {
       "sourceHash": "447f83fd7bec4621a53a522e55b0092d9f527ae07668981202a9db89a055b2d5",
       "configFingerprint": "a895f8e025dcc7fa",
