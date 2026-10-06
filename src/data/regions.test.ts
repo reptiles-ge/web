@@ -67,6 +67,7 @@ describe("region speciesIds", () => {
     "accipiter-nisus",
     "dendrocopos-major",
     "erithacus-rubecula",
+    "jynx-torquilla",
     "turdus-merula",
     "ciconia-ciconia",
     "coturnix-coturnix",

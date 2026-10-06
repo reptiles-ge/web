@@ -189,6 +189,7 @@ export const regions: Region[] = [
     speciesIds: [
       "accipiter-nisus",
       "dendrocopos-major",
+      "jynx-torquilla",
       "erithacus-rubecula",
       "lanius-collurio",
       "vipera-kaznakovi",
@@ -476,6 +477,7 @@ export const regions: Region[] = [
     speciesIds: [
       "accipiter-nisus",
       "dendrocopos-major",
+      "jynx-torquilla",
       "erithacus-rubecula",
       "garrulus-glandarius",
       "neophron-percnopterus",
@@ -609,6 +611,7 @@ export const regions: Region[] = [
     speciesIds: [
       "accipiter-nisus",
       "dendrocopos-major",
+      "jynx-torquilla",
       "erithacus-rubecula",
       "garrulus-glandarius",
       "neophron-percnopterus",
