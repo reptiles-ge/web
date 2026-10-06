@@ -246,7 +246,7 @@ const LOOKALIKES: Record<string, string[]> = {
     "elaphe-dione",
     "telescopus-fallax",
   ],
-  "procyon-lotor": ["meles-canescens", "vulpes-vulpes"],
+  "procyon-lotor": ["meles-canescens"],
   "pseudopus-apodus": ["anguis-colchica"],
   "rana-macrocnemis": [
     "pelophylax-ridibundus",
