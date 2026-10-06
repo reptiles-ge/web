@@ -20567,6 +20567,101 @@
       ],
       "updatedAt": "2026-09-08T16:45:48.262Z"
     },
+    "darevskia-dahli-felix-1.jpg": {
+      "sourceHash": "89ff6733de47376ba5c84766ec4f1ab87fa6df678d5d9bb9bac6d8aa407596cd",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-dahli-felix-1.jpg",
+      "originalSize": 801152,
+      "width": 1920,
+      "height": 1440,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-dahli-felix-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 20341
+        },
+        {
+          "key": "optimized/darevskia-dahli-felix-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 32042
+        },
+        {
+          "key": "optimized/darevskia-dahli-felix-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 31503
+        },
+        {
+          "key": "optimized/darevskia-dahli-felix-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 49204
+        },
+        {
+          "key": "optimized/darevskia-dahli-felix-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 65960
+        },
+        {
+          "key": "optimized/darevskia-dahli-felix-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 105042
+        },
+        {
+          "key": "optimized/darevskia-dahli-felix-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 96147
+        },
+        {
+          "key": "optimized/darevskia-dahli-felix-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 153644
+        },
+        {
+          "key": "optimized/darevskia-dahli-felix-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 166071
+        },
+        {
+          "key": "optimized/darevskia-dahli-felix-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 273738
+        },
+        {
+          "key": "optimized/darevskia-dahli-felix-1-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1440,
+          "byteSize": 307545
+        },
+        {
+          "key": "optimized/darevskia-dahli-felix-1-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1440,
+          "byteSize": 478368
+        }
+      ],
+      "updatedAt": "2026-10-06T20:15:11.295Z"
+    },
     "darevskia-dahli-hyrrokin-1.jpg": {
       "sourceHash": "f53c366fd6debb896759ab7c5c8051d0eed1f8a1a08da624102ea8a607c352cf",
       "configFingerprint": "409788ee46c653d8",
