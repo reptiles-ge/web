@@ -19179,6 +19179,101 @@
       ],
       "updatedAt": "2026-10-06T15:24:32.095Z"
     },
+    "darevskia-caucasica-sopo-1.jpg": {
+      "sourceHash": "870cc7bd3be266b12141e77a4fd09edcd8760bdfcb26a359312367450c7ad6a4",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-caucasica-sopo-1.jpg",
+      "originalSize": 369557,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-caucasica-sopo-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 6767
+        },
+        {
+          "key": "optimized/darevskia-caucasica-sopo-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 8728
+        },
+        {
+          "key": "optimized/darevskia-caucasica-sopo-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 8751
+        },
+        {
+          "key": "optimized/darevskia-caucasica-sopo-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 12136
+        },
+        {
+          "key": "optimized/darevskia-caucasica-sopo-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 17743
+        },
+        {
+          "key": "optimized/darevskia-caucasica-sopo-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 25672
+        },
+        {
+          "key": "optimized/darevskia-caucasica-sopo-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 25323
+        },
+        {
+          "key": "optimized/darevskia-caucasica-sopo-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 36966
+        },
+        {
+          "key": "optimized/darevskia-caucasica-sopo-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 47153
+        },
+        {
+          "key": "optimized/darevskia-caucasica-sopo-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 68146
+        },
+        {
+          "key": "optimized/darevskia-caucasica-sopo-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 104107
+        },
+        {
+          "key": "optimized/darevskia-caucasica-sopo-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 148056
+        }
+      ],
+      "updatedAt": "2026-10-06T15:32:36.983Z"
+    },
     "darevskia-caucasica-titouan-1.jpg": {
       "sourceHash": "ff7633d475be8c2569b1f383225544de265784a456aa515142599cd65f10c559",
       "configFingerprint": "409788ee46c653d8",
