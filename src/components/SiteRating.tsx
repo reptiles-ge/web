@@ -2,7 +2,8 @@
 
 import { Star, X } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
-import { type CSSProperties, useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import { type CSSProperties, useEffect, useRef, useState } from "react";
 
 import { SiteRatingMascot } from "@/components/SiteRatingMascot";
 import { trackEvent } from "@/lib/analytics";
@@ -46,17 +47,35 @@ export function SiteRating() {
   const [hovered, setHovered] = useState<Stars>(0);
   const [selected, setSelected] = useState<Stars>(0);
   const [ducks, setDucks] = useState(0);
+  const pathname = usePathname();
+  const seconds = useRef(0);
+  const pages = useRef(0);
+  const lastPathname = useRef<null | string>(null);
+
+  useEffect(() => {
+    if (lastPathname.current === pathname) return;
+    lastPathname.current = pathname;
+    pages.current += 1;
+  }, [pathname]);
 
   useEffect(() => {
     if (!canAsk()) return;
-    let seconds = readSeconds();
+    seconds.current = readSeconds();
+    let asked = false;
     const timer = window.setInterval(() => {
       if (document.visibilityState !== "visible") return;
-      seconds += 1;
-      storeSeconds(seconds);
-      if (seconds < SHOW_AFTER_SECONDS) return;
-      window.clearInterval(timer);
-      if (!canAsk()) return;
+      seconds.current += 1;
+      storeSeconds(seconds.current);
+      if (asked) {
+        if (!canAsk()) window.clearInterval(timer);
+        return;
+      }
+      if (seconds.current < SHOW_AFTER_SECONDS) return;
+      asked = true;
+      if (!canAsk()) {
+        window.clearInterval(timer);
+        return;
+      }
       setPhase("ask");
       trackEvent("site_rating_shown");
     }, 1000);
@@ -81,8 +100,11 @@ export function SiteRating() {
     void fetch("/api/rating", {
       body: JSON.stringify({
         locale,
+        pages: pages.current,
         path: window.location.pathname,
         rating,
+        referrer: externalReferrer(),
+        seconds: seconds.current,
       }),
       headers: { "Content-Type": "application/json" },
       keepalive: true,
@@ -230,6 +252,15 @@ function canAsk() {
     return Date.now() - Number(stored) > DISMISS_MS;
   } catch {
     return false;
+  }
+}
+
+function externalReferrer() {
+  try {
+    const host = new URL(document.referrer).hostname;
+    return host && host !== window.location.hostname ? host : undefined;
+  } catch {
+    return undefined;
   }
 }
 

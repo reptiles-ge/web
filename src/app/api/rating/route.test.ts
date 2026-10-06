@@ -6,6 +6,7 @@ const request = (
   body: unknown,
   origin = "http://localhost",
   visitor = "203.0.113.1",
+  headers: Record<string, string> = {},
 ) =>
   new Request("http://localhost/api/rating", {
     body: JSON.stringify(body),
@@ -13,6 +14,7 @@ const request = (
       "cf-connecting-ip": visitor,
       "Content-Type": "application/json",
       origin,
+      ...headers,
     },
     method: "POST",
   });
@@ -44,8 +46,69 @@ describe("POST /api/rating", () => {
     expect(url).toBe("https://api.telegram.org/bottest-token/sendMessage");
     expect(JSON.parse(String(init?.body))).toEqual({
       chat_id: "test-chat",
-      text: "★★★★☆ 4/5\nhttps://reptiles.ge/gvelebi/giurza\nka",
+      text: "★★★★☆ 4/5\nhttps://reptiles.ge/gvelebi/giurza\n🌐 ka",
     });
+  });
+
+  it("adds the visit details the request carries", async () => {
+    const response = await POST(
+      request(
+        {
+          locale: "en",
+          pages: 3,
+          path: "/en/snakes/macrovipera-lebetina",
+          rating: 2,
+          referrer: "www.google.com",
+          seconds: 135,
+        },
+        "http://localhost",
+        "203.0.113.3",
+        {
+          "accept-language": "ka-GE,ka;q=0.9,en;q=0.8",
+          "cf-ipcountry": "GE",
+          "user-agent":
+            "Mozilla/5.0 (Linux; Android 14; Pixel 8) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36",
+        },
+      ),
+    );
+
+    expect(response.status).toBe(204);
+    const [, init] = vi.mocked(fetch).mock.calls[0]!;
+    expect(JSON.parse(String(init?.body)).text).toBe(
+      [
+        "★★☆☆☆ 2/5",
+        "https://reptiles.ge/en/snakes/macrovipera-lebetina",
+        "🌐 en · browser ka-GE",
+        "📍 🇬🇪 Georgia",
+        "📱 Android · Chrome",
+        "⏱ 2 min 15 s on site · 3 pages",
+        "↩ www.google.com",
+      ].join("\n"),
+    );
+  });
+
+  it("keeps the rating when the visit details are malformed", async () => {
+    const response = await POST(
+      request(
+        {
+          locale: "ka",
+          pages: "many",
+          path: "/",
+          rating: 5,
+          referrer: "https://evil.example/login now",
+          seconds: -4,
+        },
+        "http://localhost",
+        "203.0.113.4",
+        { "accept-language": "<script>", "cf-ipcountry": "XX" },
+      ),
+    );
+
+    expect(response.status).toBe(204);
+    const [, init] = vi.mocked(fetch).mock.calls[0]!;
+    expect(JSON.parse(String(init?.body)).text).toBe(
+      "★★★★★ 5/5\nhttps://reptiles.ge\n🌐 ka",
+    );
   });
 
   it("limits repeated ratings from one visitor", async () => {

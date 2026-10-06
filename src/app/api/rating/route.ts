@@ -3,7 +3,7 @@ import { hasLocale } from "next-intl";
 import { routing } from "@/i18n/routing";
 import { notifyAdminTelegram } from "@/lib/adminTelegram";
 import { createRateLimiter } from "@/lib/rateLimit";
-import { absoluteUrl } from "@/lib/site";
+import { formatRatingNotification } from "@/lib/ratingNotification";
 
 const noindex = { "X-Robots-Tag": "noindex, nofollow" };
 const MAX_PATH_LENGTH = 300;
@@ -13,8 +13,11 @@ const allowAll = createRateLimiter({ limit: 30, windowMs: WINDOW_MS });
 
 type RatingBody = {
   locale?: unknown;
+  pages?: unknown;
   path?: unknown;
   rating?: unknown;
+  referrer?: unknown;
+  seconds?: unknown;
 };
 
 export async function POST(request: Request) {
@@ -59,11 +62,18 @@ export async function POST(request: Request) {
   }
 
   await notifyAdminTelegram(
-    [
-      `${"★".repeat(rating)}${"☆".repeat(5 - rating)} ${rating}/5`,
-      absoluteUrl(path),
+    formatRatingNotification({
+      acceptLanguage: request.headers.get("accept-language"),
+      country: request.headers.get("cf-ipcountry"),
+      host: new URL(request.url).hostname,
       locale,
-    ].join("\n"),
+      pages: body.pages,
+      path,
+      rating,
+      referrer: body.referrer,
+      seconds: body.seconds,
+      userAgent: request.headers.get("user-agent"),
+    }),
   );
   return new Response(null, { headers: noindex, status: 204 });
 }
