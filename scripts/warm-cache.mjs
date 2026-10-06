@@ -19,6 +19,7 @@ const WAIT_SECONDS = Math.max(
 );
 const BUILD_HEADER = "x-vinext-build-id";
 const CACHE_HEADER = "x-vinext-cache";
+const MAINTENANCE_HEADER = "x-reptiles-maintenance";
 const POLL_INTERVAL_MS = 10_000;
 const REQUEST_TIMEOUT_MS = 30_000;
 const RETRIES = 2;
@@ -67,6 +68,7 @@ async function waitForDeploy() {
 
 async function readSitemap() {
   const response = await get(`${ORIGIN}/sitemap.xml`);
+  if (response.headers.has(MAINTENANCE_HEADER)) return null;
   if (!response.ok) throw new Error(`sitemap responded ${response.status}`);
 
   const xml = await response.text();
@@ -164,6 +166,10 @@ async function main() {
   if (WAIT_SECONDS > 0) await waitForDeploy();
 
   const urls = await readSitemap();
+  if (!urls) {
+    console.log(`${ORIGIN} is under maintenance, nothing to warm`);
+    return 0;
+  }
   console.log(`warming ${urls.length} urls on ${ORIGIN}`);
 
   const started = performance.now();
