@@ -19098,6 +19098,101 @@
       ],
       "updatedAt": "2026-08-28T21:31:37.955Z"
     },
+    "darevskia-caucasica-pcam-1.jpg": {
+      "sourceHash": "f40f6e42a7a08f3f4ca7e421141c419086f414b9fd065c50fe1a023d18d55a3f",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-caucasica-pcam-1.jpg",
+      "originalSize": 320651,
+      "width": 1542,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-caucasica-pcam-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 425,
+          "byteSize": 11666
+        },
+        {
+          "key": "optimized/darevskia-caucasica-pcam-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 425,
+          "byteSize": 15756
+        },
+        {
+          "key": "optimized/darevskia-caucasica-pcam-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 531,
+          "byteSize": 16216
+        },
+        {
+          "key": "optimized/darevskia-caucasica-pcam-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 531,
+          "byteSize": 22108
+        },
+        {
+          "key": "optimized/darevskia-caucasica-pcam-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 850,
+          "byteSize": 32704
+        },
+        {
+          "key": "optimized/darevskia-caucasica-pcam-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 850,
+          "byteSize": 45744
+        },
+        {
+          "key": "optimized/darevskia-caucasica-pcam-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1063,
+          "byteSize": 43977
+        },
+        {
+          "key": "optimized/darevskia-caucasica-pcam-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1063,
+          "byteSize": 62338
+        },
+        {
+          "key": "optimized/darevskia-caucasica-pcam-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1594,
+          "byteSize": 74807
+        },
+        {
+          "key": "optimized/darevskia-caucasica-pcam-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1594,
+          "byteSize": 104442
+        },
+        {
+          "key": "optimized/darevskia-caucasica-pcam-1-1542.avif",
+          "format": "avif",
+          "width": 1542,
+          "height": 2048,
+          "byteSize": 102726
+        },
+        {
+          "key": "optimized/darevskia-caucasica-pcam-1-1542.webp",
+          "format": "webp",
+          "width": 1542,
+          "height": 2048,
+          "byteSize": 141288
+        }
+      ],
+      "updatedAt": "2026-10-06T15:33:43.077Z"
+    },
     "darevskia-caucasica-rudi-1.jpg": {
       "sourceHash": "41d126409ac70141e2764493147ccc9a9ad1e152fbc8ae8b91ea4e86fed804b1",
       "configFingerprint": "409788ee46c653d8",
