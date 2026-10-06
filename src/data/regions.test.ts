@@ -78,6 +78,7 @@ describe("region speciesIds", () => {
     "columba-palumbus",
     "streptopelia-turtur",
     "garrulus-glandarius",
+    "darevskia-caucasica",
     "darevskia-obscura",
     "eirenis-modestus",
     "elaphe-urartica",
