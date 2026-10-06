@@ -144,16 +144,16 @@ export function getHalyomorphaOccurrenceSummary(
       yearFromDate(record.date),
     );
     const center = getRecordCenter(regionRecords);
+    const confirmingCount = dahliObscuredRecords
+      ? regionRecords.filter(
+          (record) => record.note !== DAHLI_OBSCURED_RECORD_NOTE,
+        ).length
+      : regionRecords.length;
     const status: HalyomorphaOccurrenceStatus = mertensiellaRecords
       ? MERTENSIELLA_SOURCE_CONFIRMED_REGIONS.has(id)
         ? "confirmed"
         : "recorded-only"
-      : dahliObscuredRecords
-        ? "recorded-only"
-        : occurrenceStatusForCount(
-            regionRecords.length,
-            confirmedRecordThreshold,
-          );
+      : occurrenceStatusForCount(confirmingCount, confirmedRecordThreshold);
     return {
       center,
       count: regionRecords.length,
