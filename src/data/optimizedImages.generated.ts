@@ -1901,6 +1901,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/darevskia-caucasica-jean-louis-1.jpg": {
+    "path": "darevskia-caucasica-jean-louis-1",
+    "width": 2048,
+    "height": 896,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/darevskia-caucasica-mobile.jpg": {
     "path": "darevskia-caucasica-mobile",
     "width": 1536,

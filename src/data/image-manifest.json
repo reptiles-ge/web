@@ -18461,6 +18461,101 @@
       ],
       "updatedAt": "2026-10-06T15:25:32.505Z"
     },
+    "darevskia-caucasica-jean-louis-1.jpg": {
+      "sourceHash": "9dfe4783b934a1e7ad1ff6899f99ff3cd1251c069c3a7903cd6407976f33f792",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-caucasica-jean-louis-1.jpg",
+      "originalSize": 465170,
+      "width": 2048,
+      "height": 896,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-caucasica-jean-louis-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 140,
+          "byteSize": 8803
+        },
+        {
+          "key": "optimized/darevskia-caucasica-jean-louis-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 140,
+          "byteSize": 12468
+        },
+        {
+          "key": "optimized/darevskia-caucasica-jean-louis-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 175,
+          "byteSize": 12372
+        },
+        {
+          "key": "optimized/darevskia-caucasica-jean-louis-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 175,
+          "byteSize": 18082
+        },
+        {
+          "key": "optimized/darevskia-caucasica-jean-louis-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 280,
+          "byteSize": 27514
+        },
+        {
+          "key": "optimized/darevskia-caucasica-jean-louis-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 280,
+          "byteSize": 42354
+        },
+        {
+          "key": "optimized/darevskia-caucasica-jean-louis-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 350,
+          "byteSize": 40001
+        },
+        {
+          "key": "optimized/darevskia-caucasica-jean-louis-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 350,
+          "byteSize": 61314
+        },
+        {
+          "key": "optimized/darevskia-caucasica-jean-louis-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 525,
+          "byteSize": 77565
+        },
+        {
+          "key": "optimized/darevskia-caucasica-jean-louis-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 525,
+          "byteSize": 116508
+        },
+        {
+          "key": "optimized/darevskia-caucasica-jean-louis-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 896,
+          "byteSize": 183474
+        },
+        {
+          "key": "optimized/darevskia-caucasica-jean-louis-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 896,
+          "byteSize": 263836
+        }
+      ],
+      "updatedAt": "2026-10-06T15:27:07.230Z"
+    },
     "darevskia-caucasica-mobile.jpg": {
       "sourceHash": "a2412e285a5fb752220cd1077a9c29f6814db3c00d3e3254c42187ec08229646",
       "configFingerprint": "a895f8e025dcc7fa",
