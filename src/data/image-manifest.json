@@ -18651,6 +18651,101 @@
       ],
       "updatedAt": "2026-10-06T15:25:32.505Z"
     },
+    "darevskia-caucasica-floyd-1.jpg": {
+      "sourceHash": "3736ed1ad6f61d71f38dd61b7fa2d07b4da3e7750b071addbe365152ac0adf7b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-caucasica-floyd-1.jpg",
+      "originalSize": 376042,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-caucasica-floyd-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 8489
+        },
+        {
+          "key": "optimized/darevskia-caucasica-floyd-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 12368
+        },
+        {
+          "key": "optimized/darevskia-caucasica-floyd-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 11856
+        },
+        {
+          "key": "optimized/darevskia-caucasica-floyd-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 16962
+        },
+        {
+          "key": "optimized/darevskia-caucasica-floyd-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 22602
+        },
+        {
+          "key": "optimized/darevskia-caucasica-floyd-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 33676
+        },
+        {
+          "key": "optimized/darevskia-caucasica-floyd-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 30725
+        },
+        {
+          "key": "optimized/darevskia-caucasica-floyd-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 45154
+        },
+        {
+          "key": "optimized/darevskia-caucasica-floyd-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 50497
+        },
+        {
+          "key": "optimized/darevskia-caucasica-floyd-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 73648
+        },
+        {
+          "key": "optimized/darevskia-caucasica-floyd-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 98816
+        },
+        {
+          "key": "optimized/darevskia-caucasica-floyd-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 144030
+        }
+      ],
+      "updatedAt": "2026-10-06T15:31:13.422Z"
+    },
     "darevskia-caucasica-jean-louis-1.jpg": {
       "sourceHash": "9dfe4783b934a1e7ad1ff6899f99ff3cd1251c069c3a7903cd6407976f33f792",
       "configFingerprint": "409788ee46c653d8",
