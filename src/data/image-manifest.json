@@ -18746,6 +18746,101 @@
       ],
       "updatedAt": "2026-10-06T15:27:07.230Z"
     },
+    "darevskia-caucasica-léo-1.jpg": {
+      "sourceHash": "17b4316316bb56a378435419f9bda0024a06a53299c4618185e638c720d08ef1",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-caucasica-léo-1.jpg",
+      "originalSize": 285828,
+      "width": 1620,
+      "height": 1080,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-caucasica-léo-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10331
+        },
+        {
+          "key": "optimized/darevskia-caucasica-léo-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 15698
+        },
+        {
+          "key": "optimized/darevskia-caucasica-léo-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 14898
+        },
+        {
+          "key": "optimized/darevskia-caucasica-léo-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 22476
+        },
+        {
+          "key": "optimized/darevskia-caucasica-léo-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 29102
+        },
+        {
+          "key": "optimized/darevskia-caucasica-léo-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 43938
+        },
+        {
+          "key": "optimized/darevskia-caucasica-léo-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 39529
+        },
+        {
+          "key": "optimized/darevskia-caucasica-léo-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 59096
+        },
+        {
+          "key": "optimized/darevskia-caucasica-léo-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 66292
+        },
+        {
+          "key": "optimized/darevskia-caucasica-léo-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 97480
+        },
+        {
+          "key": "optimized/darevskia-caucasica-léo-1-1620.avif",
+          "format": "avif",
+          "width": 1620,
+          "height": 1080,
+          "byteSize": 95794
+        },
+        {
+          "key": "optimized/darevskia-caucasica-léo-1-1620.webp",
+          "format": "webp",
+          "width": 1620,
+          "height": 1080,
+          "byteSize": 142640
+        }
+      ],
+      "updatedAt": "2026-10-06T15:29:19.500Z"
+    },
     "darevskia-caucasica-mobile.jpg": {
       "sourceHash": "a2412e285a5fb752220cd1077a9c29f6814db3c00d3e3254c42187ec08229646",
       "configFingerprint": "a895f8e025dcc7fa",
