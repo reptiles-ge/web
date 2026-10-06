@@ -87001,6 +87001,101 @@
       ],
       "updatedAt": "2026-10-06T15:08:40.419Z"
     },
+    "tyto-alba-alanvannorman-1.jpg": {
+      "sourceHash": "836c92e5de252ce578bcc83bccf8b1aebdc5345ffafea0483011132cb31e0cf0",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "tyto-alba-alanvannorman-1.jpg",
+      "originalSize": 275126,
+      "width": 1976,
+      "height": 1482,
+      "derivatives": [
+        {
+          "key": "optimized/tyto-alba-alanvannorman-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 4646
+        },
+        {
+          "key": "optimized/tyto-alba-alanvannorman-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 5096
+        },
+        {
+          "key": "optimized/tyto-alba-alanvannorman-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 6261
+        },
+        {
+          "key": "optimized/tyto-alba-alanvannorman-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 6888
+        },
+        {
+          "key": "optimized/tyto-alba-alanvannorman-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 11642
+        },
+        {
+          "key": "optimized/tyto-alba-alanvannorman-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 12912
+        },
+        {
+          "key": "optimized/tyto-alba-alanvannorman-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 16331
+        },
+        {
+          "key": "optimized/tyto-alba-alanvannorman-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 18406
+        },
+        {
+          "key": "optimized/tyto-alba-alanvannorman-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 28884
+        },
+        {
+          "key": "optimized/tyto-alba-alanvannorman-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 32356
+        },
+        {
+          "key": "optimized/tyto-alba-alanvannorman-1-1976.avif",
+          "format": "avif",
+          "width": 1976,
+          "height": 1482,
+          "byteSize": 62795
+        },
+        {
+          "key": "optimized/tyto-alba-alanvannorman-1-1976.webp",
+          "format": "webp",
+          "width": 1976,
+          "height": 1482,
+          "byteSize": 72496
+        }
+      ],
+      "updatedAt": "2026-10-06T15:10:38.602Z"
+    },
     "tyto-alba-ina-1.jpg": {
       "sourceHash": "87bd19095b818f6bbaf03903895042319d02049631e379fcd24291ea43cc02aa",
       "configFingerprint": "409788ee46c653d8",
