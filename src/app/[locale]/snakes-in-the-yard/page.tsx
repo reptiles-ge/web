@@ -8,16 +8,9 @@ import { ClientMessagesProvider } from "@/components/ClientMessagesProvider";
 import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { JsonLd } from "@/components/JsonLd";
 import { SnakesInYardPage } from "@/components/SnakesInYardPage";
-import { openGraphLocale } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
-import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
-import {
-  absoluteUrl,
-  localeAlternates,
-  localePath,
-  siteConfig,
-  siteEntityId,
-} from "@/lib/site";
+import { buildPageMetadata } from "@/lib/pageMetadata";
+import { absoluteUrl, localePath, siteEntityId } from "@/lib/site";
 import { pageDateFields } from "@/lib/structuredDataDates";
 
 type Props = {
@@ -35,50 +28,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = localeParam as AppLocale;
   const t = await getTranslations({ locale, namespace: "snakesInYard" });
   const title = t("metaTitle");
-  const path = localePath(locale, PATH);
-  const description = kaMetaDescriptionOverride(
-    locale,
-    path,
-    t("metaDescription"),
-  );
-  const url = absoluteUrl(path);
-  const ogImage = absoluteUrl(HERO_IMAGE);
+  const ogImageUrl = absoluteUrl(HERO_IMAGE);
 
-  return {
-    alternates: localeAlternates(locale, PATH),
-    description,
-    keywords: t("keywords")
-      .split(",")
-      .map((item) => item.trim())
-      .filter(Boolean),
-    openGraph: {
-      description,
-      images: [
-        {
-          alt: title,
-          height: 572,
-          url: ogImage,
-          width: 1024,
-        },
-      ],
-      locale: openGraphLocale(locale),
-      siteName: siteConfig.name,
-      title,
-      type: "article",
-      url,
-    },
-    robots: {
-      follow: true,
-      index: true,
-    },
+  return buildPageMetadata({
+    description: t("metaDescription"),
+    indexable: true,
+    keywords: t("keywords"),
+    locale,
+    ogImageUrl,
+    openGraphImage: { alt: title, height: 572, url: ogImageUrl, width: 1024 },
+    pagePath: PATH,
     title,
-    twitter: {
-      card: "summary_large_image",
-      description,
-      images: [ogImage],
-      title,
-    },
-  };
+    type: "article",
+  });
 }
 
 export function generateStaticParams() {

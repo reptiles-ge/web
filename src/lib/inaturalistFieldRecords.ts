@@ -1,5 +1,7 @@
 import type { SpeciesFieldRecord } from "@/data/speciesTypes";
 
+import { yamlScalar } from "@/lib/yamlScalar";
+
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 const TOP_LEVEL_KEY = /^[A-Za-z][A-Za-z0-9]*:/;
 
@@ -276,16 +278,4 @@ function validCoordinates(lat: number, lng: number) {
     lng >= -180 &&
     lng <= 180
   );
-}
-
-function yamlScalar(value: string): string {
-  if (value === "") return '""';
-  if (
-    /^\d/.test(value) ||
-    /[:#{}[\],&*!|>'"%@`]/.test(value) ||
-    /^\s|\s$/.test(value)
-  ) {
-    return JSON.stringify(value);
-  }
-  return value;
 }

@@ -16,6 +16,7 @@ import {
   type PhotoCoordinates,
 } from "@/lib/photoCoordinates";
 import { CDN_BASE } from "@/lib/site";
+import { yamlScalar } from "@/lib/yamlScalar";
 
 export type { CoverTarget };
 
@@ -1088,16 +1089,4 @@ function withPhotoCoordinates(
     next.lng = coordinates.lng;
   }
   return Object.keys(next).length > 0 ? next : undefined;
-}
-
-function yamlScalar(value: string): string {
-  if (value === "") return '""';
-  if (
-    /^\d/.test(value) ||
-    /[:#{}[\],&*!|>'"%@`]/.test(value) ||
-    /^\s|\s$/.test(value)
-  ) {
-    return JSON.stringify(value);
-  }
-  return value;
 }

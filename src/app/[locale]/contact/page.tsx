@@ -6,14 +6,11 @@ import { notFound } from "next/navigation";
 
 import { ContactPage } from "@/components/ContactPage";
 import { JsonLd } from "@/components/JsonLd";
-import { openGraphLocale } from "@/i18n/localeMeta";
 import { routing } from "@/i18n/routing";
-import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
+import { buildPageMetadata } from "@/lib/pageMetadata";
 import {
   absoluteUrl,
-  localeAlternates,
   localePath,
-  openGraphJpeg,
   organizationJsonLd,
   SITE_OG_IMAGE_URL,
   siteConfig,
@@ -62,38 +59,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!hasLocale(routing.locales, locale)) return {};
 
   const t = await getTranslations({ locale, namespace: "contact" });
-  const title = t("metaTitle");
-  const pagePath = "/contact";
-  const path = localePath(locale, pagePath);
-  const description = kaMetaDescriptionOverride(
+  return buildPageMetadata({
+    description: t("metaDescription"),
     locale,
-    path,
-    t("metaDescription"),
-  );
-  const url = absoluteUrl(path);
-  const alternates = localeAlternates(locale, pagePath);
-  const ogImage = openGraphJpeg(SITE_OG_IMAGE_URL, title);
-
-  return {
-    alternates,
-    description,
-    openGraph: {
-      description,
-      images: [ogImage],
-      locale: openGraphLocale(locale),
-      siteName: siteConfig.name,
-      title,
-      type: "website",
-      url,
-    },
-    title,
-    twitter: {
-      card: "summary_large_image",
-      description,
-      images: [SITE_OG_IMAGE_URL],
-      title,
-    },
-  };
+    ogImageUrl: SITE_OG_IMAGE_URL,
+    pagePath: "/contact",
+    title: t("metaTitle"),
+  });
 }
 
 export function generateStaticParams() {

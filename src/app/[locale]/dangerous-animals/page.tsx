@@ -9,16 +9,12 @@ import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { DangerousAnimalsPage } from "@/components/DangerousAnimalsPage";
 import { JsonLd } from "@/components/JsonLd";
 import { getSpeciesById } from "@/data/species";
-import { openGraphLocale } from "@/i18n/localeMeta";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { type AppLocale, routing } from "@/i18n/routing";
-import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
+import { buildPageMetadata } from "@/lib/pageMetadata";
 import {
   absoluteUrl,
-  localeAlternates,
   localePath,
-  openGraphJpeg,
-  siteConfig,
   siteEntityId,
   speciesOgImageUrl,
 } from "@/lib/site";
@@ -112,45 +108,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const locale = localeParam as AppLocale;
   const t = await getTranslations({ locale, namespace: "dangerousAnimals" });
-  const title = t("metaTitle");
-  const path = localePath(locale, PATH);
-  const description = kaMetaDescriptionOverride(
+  return buildPageMetadata({
+    description: t("metaDescription"),
+    indexable: true,
+    keywords: t("keywords"),
     locale,
-    path,
-    t("metaDescription"),
-  );
-  const url = absoluteUrl(path);
-  const hero = getSpeciesById(OG_SPECIES);
-  const ogImage = speciesOgImageUrl(OG_SPECIES, hero?.image);
-
-  return {
-    alternates: localeAlternates(locale, PATH),
-    description,
-    keywords: t("keywords")
-      .split(",")
-      .map((item) => item.trim())
-      .filter(Boolean),
-    openGraph: {
-      description,
-      images: [openGraphJpeg(ogImage, title)],
-      locale: openGraphLocale(locale),
-      siteName: siteConfig.name,
-      title,
-      type: "website",
-      url,
-    },
-    robots: {
-      follow: true,
-      index: true,
-    },
-    title,
-    twitter: {
-      card: "summary_large_image",
-      description,
-      images: [ogImage],
-      title,
-    },
-  };
+    ogImageUrl: speciesOgImageUrl(
+      OG_SPECIES,
+      getSpeciesById(OG_SPECIES)?.image,
+    ),
+    pagePath: PATH,
+    title: t("metaTitle"),
+  });
 }
 
 export function generateStaticParams() {
