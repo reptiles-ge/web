@@ -109,7 +109,7 @@ export async function GroupHubPage({
           species={species}
         />
 
-        {hubId === "snakes" ? speciesList : null}
+        {speciesList}
 
         <section className="bg-background py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
@@ -158,8 +158,6 @@ export async function GroupHubPage({
         </section>
 
         <GroupHubContextSection blocks={contextBlocks} />
-
-        {hubId === "snakes" ? null : speciesList}
 
         {hubId === "turtles" ? <TurtlesHubSections /> : null}
 
