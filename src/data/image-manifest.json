@@ -56911,6 +56911,101 @@
       ],
       "updatedAt": "2026-08-28T21:43:46.603Z"
     },
+    "lacerta-agilis-barnabás-1.jpg": {
+      "sourceHash": "3d3f79a7de4f095ca4a849c3ac83f81e66446e6a62657588b58a3983bd56d73c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lacerta-agilis-barnabás-1.jpg",
+      "originalSize": 955331,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/lacerta-agilis-barnabás-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 18410
+        },
+        {
+          "key": "optimized/lacerta-agilis-barnabás-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 29286
+        },
+        {
+          "key": "optimized/lacerta-agilis-barnabás-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 25496
+        },
+        {
+          "key": "optimized/lacerta-agilis-barnabás-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 40936
+        },
+        {
+          "key": "optimized/lacerta-agilis-barnabás-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 51206
+        },
+        {
+          "key": "optimized/lacerta-agilis-barnabás-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 83630
+        },
+        {
+          "key": "optimized/lacerta-agilis-barnabás-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 72208
+        },
+        {
+          "key": "optimized/lacerta-agilis-barnabás-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 117096
+        },
+        {
+          "key": "optimized/lacerta-agilis-barnabás-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 134467
+        },
+        {
+          "key": "optimized/lacerta-agilis-barnabás-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 222188
+        },
+        {
+          "key": "optimized/lacerta-agilis-barnabás-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 442181
+        },
+        {
+          "key": "optimized/lacerta-agilis-barnabás-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 644460
+        }
+      ],
+      "updatedAt": "2026-10-07T12:46:47.533Z"
+    },
     "lacerta-agilis-mobile.jpg": {
       "sourceHash": "2e725c8c0fb7e1c0698298903976ec379d7feb7218390fc0ed87e207c3dbb525",
       "configFingerprint": "a895f8e025dcc7fa",
