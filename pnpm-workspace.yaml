@@ -6,6 +6,10 @@ minimumReleaseAgeExclude:
   - "@vinext/types"
   - "@cloudflare/workers-response-store"
 trustPolicy: no-downgrade
+trustPolicyExclude:
+  - eslint-import-resolver-typescript@3.10.1
+  - undici-types@6.21.0
+  - semver@6.3.1
 onlyBuiltDependencies:
   - "@reptiles-ge/img-compression@https://codeload.github.com/reptiles-ge/img-compression/tar.gz/97da0fd516ae26c42c398598376cd5c3e44c3a28"
   - sharp
