@@ -77,7 +77,7 @@ export async function GroupHubHero({
               ]}
             />
 
-            {hubId === "scorpions" ? null : (
+            {hubId === "scorpions" || hubId === "snakes" ? null : (
               <p className="font-display text-display-kicker font-semibold tracking-tight text-white/90">
                 {tShared(`hubs.${hubId}`)}
               </p>
