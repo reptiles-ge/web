@@ -65,6 +65,7 @@ import { rangeMap as viperaKaznakovi } from "@/data/speciesRangeMaps/vipera-kazn
 import { rangeMap as viperaRenardi } from "@/data/speciesRangeMaps/vipera-renardi";
 import { rangeMap as viperaTranscaucasiana } from "@/data/speciesRangeMaps/vipera-transcaucasiana";
 import { rangeMap as zamenisHohenackeri } from "@/data/speciesRangeMaps/zamenis-hohenackeri";
+import { rangeMap as zamenisLongissimus } from "@/data/speciesRangeMaps/zamenis-longissimus";
 
 export type { HalyomorphaRangeCopy } from "@/data/speciesRangeMaps/base";
 
@@ -136,4 +137,5 @@ export const INTERACTIVE_RANGE_MAPS: Partial<
   "vipera-renardi": viperaRenardi,
   "vipera-transcaucasiana": viperaTranscaucasiana,
   "zamenis-hohenackeri": zamenisHohenackeri,
+  "zamenis-longissimus": zamenisLongissimus,
 };
