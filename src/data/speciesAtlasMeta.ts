@@ -131,6 +131,10 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "insect",
     habitats: [],
   },
+  "columba-livia": {
+    group: "bird",
+    habitats: [],
+  },
   "columba-palumbus": {
     group: "bird",
     habitats: ["forest", "grassland"],

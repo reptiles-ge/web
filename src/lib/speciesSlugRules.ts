@@ -103,6 +103,7 @@ const KA_SLUG_ALIASES: Record<string, string[]> = {
   ],
   "ciconia-ciconia": ["laklaki", "tetri-qarqati"],
   "cimex-lectularius": ["loginis-baghlinjo"],
+  "columba-livia": ["rock-dove", "rock-pigeon", "feral-pigeon"],
   "columba-palumbus": [
     "kedani",
     "tqis-mtredi",

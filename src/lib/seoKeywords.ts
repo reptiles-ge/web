@@ -736,6 +736,12 @@ const SPECIES_ALIASES: Record<
       "Ardea ciconia",
     ],
   },
+  "columba-livia": {
+    en: ["rock pigeon", "feral pigeon"],
+    ka: ["ქალაქის მტრედი"],
+    ru: ["городской голубь"],
+    tr: ["şehir güvercini"],
+  },
   "columba-palumbus": {
     en: [
       "woodpigeon",
