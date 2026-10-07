@@ -194,7 +194,7 @@ const sharedFiles: Record<SpeciesAnalysisMode, string[]> = {
   lookalikes: ["src/lib/speciesRoutes.ts", "src/lib/speciesRoutes.test.ts"],
   records: [
     "src/components/map/SpeciesRangeMap.tsx",
-    "src/data/speciesRangeMaps.ts",
+    "src/data/speciesRangeMaps/index.ts",
     "src/data/mapRegions.ts",
     "src/data/regions.test.ts",
     "src/lib/halyomorphaOccurrences.ts",
@@ -305,6 +305,8 @@ export async function runSpeciesWorkflow(
           const prompt = fillSpeciesPrompt(template, id);
           const output = path.join(directory, `${mode}-report.md`);
           const shared = new Set(sharedFiles[mode]);
+          if (mode === "records")
+            shared.add(`src/data/speciesRangeMaps/${id}.ts`);
           const stepFiles = allowedFiles.filter(
             (file) =>
               file.startsWith(`src/content/species/${id}/`) || shared.has(file),
@@ -455,6 +457,7 @@ export function selectSpeciesAnalysisFiles(
 ) {
   const prefix = `src/content/species/${id}/`;
   const shared = new Set(sharedFiles[mode]);
+  if (mode === "records") shared.add(`src/data/speciesRangeMaps/${id}.ts`);
   return files.filter(
     (file) =>
       (file.startsWith(prefix) &&
