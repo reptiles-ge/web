@@ -57006,6 +57006,101 @@
       ],
       "updatedAt": "2026-10-07T12:46:47.533Z"
     },
+    "lacerta-agilis-dan-1.jpg": {
+      "sourceHash": "e38b1fd8355b9738512dc49786a2b6a50c6e494e27f1305eee7706eb16ff3d0b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lacerta-agilis-dan-1.jpg",
+      "originalSize": 409771,
+      "width": 2048,
+      "height": 1152,
+      "derivatives": [
+        {
+          "key": "optimized/lacerta-agilis-dan-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 8716
+        },
+        {
+          "key": "optimized/lacerta-agilis-dan-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 13660
+        },
+        {
+          "key": "optimized/lacerta-agilis-dan-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 11598
+        },
+        {
+          "key": "optimized/lacerta-agilis-dan-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 18620
+        },
+        {
+          "key": "optimized/lacerta-agilis-dan-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 23451
+        },
+        {
+          "key": "optimized/lacerta-agilis-dan-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 36934
+        },
+        {
+          "key": "optimized/lacerta-agilis-dan-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 32739
+        },
+        {
+          "key": "optimized/lacerta-agilis-dan-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 50496
+        },
+        {
+          "key": "optimized/lacerta-agilis-dan-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 58345
+        },
+        {
+          "key": "optimized/lacerta-agilis-dan-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 91024
+        },
+        {
+          "key": "optimized/lacerta-agilis-dan-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1152,
+          "byteSize": 126530
+        },
+        {
+          "key": "optimized/lacerta-agilis-dan-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1152,
+          "byteSize": 194354
+        }
+      ],
+      "updatedAt": "2026-10-07T12:47:28.866Z"
+    },
     "lacerta-agilis-mobile.jpg": {
       "sourceHash": "2e725c8c0fb7e1c0698298903976ec379d7feb7218390fc0ed87e207c3dbb525",
       "configFingerprint": "a895f8e025dcc7fa",
