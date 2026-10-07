@@ -5,11 +5,9 @@ import type { ClusterGuideViewProps } from "@/lib/clusterGuides";
 import { ClusterGuideLead } from "@/components/ClusterGuideLead";
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
 import {
-  CLUSTER_BODY,
-  CLUSTER_EYEBROW,
-  CLUSTER_TITLE_SECTION,
-  ClusterSectionIntro,
+  ClusterIndexSection,
   ClusterStat,
+  ClusterStatsBand,
 } from "@/components/ClusterSectionIntro";
 import { SpeciesIndexTable } from "@/components/SpeciesIndexTable";
 import { SpeciesInlineLink } from "@/components/SpeciesInlineLink";
@@ -36,13 +34,11 @@ export async function SnakeSpeciesIndexPage({
       heroSrc={heroSrc}
       locale={locale}
       stats={
-        <section className="border-b border-border bg-surface py-10 sm:py-12">
-          <div className="mx-auto grid max-w-[1400px] gap-8 px-6 sm:grid-cols-3 sm:gap-6 lg:px-10">
-            <ClusterStat label={t("statSpecies")} value={species.length} />
-            <ClusterStat label={t("statVenomous")} value={venomousCount} />
-            <ClusterStat label={t("statFamilies")} value={familyCount} />
-          </div>
-        </section>
+        <ClusterStatsBand>
+          <ClusterStat label={t("statSpecies")} value={species.length} />
+          <ClusterStat label={t("statVenomous")} value={venomousCount} />
+          <ClusterStat label={t("statFamilies")} value={familyCount} />
+        </ClusterStatsBand>
       }
     >
       <ClusterGuideLead
@@ -64,29 +60,16 @@ export async function SnakeSpeciesIndexPage({
         title={t("guideTitle")}
       />
 
-      <section
-        className="scroll-mt-28 border-t border-border bg-surface py-20 lg:py-28"
-        id="index"
+      <ClusterIndexSection
+        body={t("tableBody")}
+        eyebrow={t("tableEyebrow")}
+        title={t("tableTitle", { count: species.length })}
       >
-        <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <div>
-            <ClusterSectionIntro
-              body={t("tableBody")}
-              bodyClassName={CLUSTER_BODY}
-              eyebrow={t("tableEyebrow")}
-              eyebrowClassName={CLUSTER_EYEBROW}
-              title={t("tableTitle", { count: species.length })}
-              titleClassName={CLUSTER_TITLE_SECTION}
-            />
-          </div>
-          <div className="mt-10">
-            <SpeciesIndexTable
-              locale={locale}
-              species={toSpeciesIndexRows(species)}
-            />
-          </div>
-        </div>
-      </section>
+        <SpeciesIndexTable
+          locale={locale}
+          species={toSpeciesIndexRows(species)}
+        />
+      </ClusterIndexSection>
     </ClusterPageFrame>
   );
 }
