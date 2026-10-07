@@ -57101,6 +57101,101 @@
       ],
       "updatedAt": "2026-10-07T12:47:28.866Z"
     },
+    "lacerta-agilis-kseniia-1.jpg": {
+      "sourceHash": "3aa4dc957aefae7593a6fd4cd50a35215d613d8d8c863271692d1f8e78656ce9",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lacerta-agilis-kseniia-1.jpg",
+      "originalSize": 980422,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/lacerta-agilis-kseniia-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 18019
+        },
+        {
+          "key": "optimized/lacerta-agilis-kseniia-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 29986
+        },
+        {
+          "key": "optimized/lacerta-agilis-kseniia-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 27300
+        },
+        {
+          "key": "optimized/lacerta-agilis-kseniia-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 44980
+        },
+        {
+          "key": "optimized/lacerta-agilis-kseniia-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 63983
+        },
+        {
+          "key": "optimized/lacerta-agilis-kseniia-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 110274
+        },
+        {
+          "key": "optimized/lacerta-agilis-kseniia-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 97222
+        },
+        {
+          "key": "optimized/lacerta-agilis-kseniia-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 165728
+        },
+        {
+          "key": "optimized/lacerta-agilis-kseniia-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 187419
+        },
+        {
+          "key": "optimized/lacerta-agilis-kseniia-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 310360
+        },
+        {
+          "key": "optimized/lacerta-agilis-kseniia-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 407641
+        },
+        {
+          "key": "optimized/lacerta-agilis-kseniia-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 613668
+        }
+      ],
+      "updatedAt": "2026-10-07T12:50:27.281Z"
+    },
     "lacerta-agilis-leekelai-1.jpg": {
       "sourceHash": "8e0d352228926d642ca91bc53fee4b5df5ece26034f6cda83494338d4bbccae4",
       "configFingerprint": "409788ee46c653d8",
