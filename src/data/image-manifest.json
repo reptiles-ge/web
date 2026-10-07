@@ -57464,6 +57464,101 @@
       ],
       "updatedAt": "2026-08-28T21:43:56.220Z"
     },
+    "lacerta-agilis-titouan-1.jpg": {
+      "sourceHash": "72233052f445218fac6a8853cac4d2fdf84e4a0492135920361bf768bf4d09e2",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lacerta-agilis-titouan-1.jpg",
+      "originalSize": 296434,
+      "width": 1920,
+      "height": 1280,
+      "derivatives": [
+        {
+          "key": "optimized/lacerta-agilis-titouan-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8007
+        },
+        {
+          "key": "optimized/lacerta-agilis-titouan-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11168
+        },
+        {
+          "key": "optimized/lacerta-agilis-titouan-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 11173
+        },
+        {
+          "key": "optimized/lacerta-agilis-titouan-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 16442
+        },
+        {
+          "key": "optimized/lacerta-agilis-titouan-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 21495
+        },
+        {
+          "key": "optimized/lacerta-agilis-titouan-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 33268
+        },
+        {
+          "key": "optimized/lacerta-agilis-titouan-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 29794
+        },
+        {
+          "key": "optimized/lacerta-agilis-titouan-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 46672
+        },
+        {
+          "key": "optimized/lacerta-agilis-titouan-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 51281
+        },
+        {
+          "key": "optimized/lacerta-agilis-titouan-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 81786
+        },
+        {
+          "key": "optimized/lacerta-agilis-titouan-1-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 95575
+        },
+        {
+          "key": "optimized/lacerta-agilis-titouan-1-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 151160
+        }
+      ],
+      "updatedAt": "2026-10-07T12:49:38.563Z"
+    },
     "lacerta-agilis-ádám-1.jpg": {
       "sourceHash": "a37ad14eb90ecdc1d9f6dcb43fef28f02fe6de5086c3ecd2cd2715584d2c7bce",
       "configFingerprint": "409788ee46c653d8",
