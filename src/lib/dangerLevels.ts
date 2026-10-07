@@ -22,6 +22,29 @@ export const HARMLESS_EXAMPLE_IDS = [
   "pseudopus-apodus",
 ] as const;
 
+export function dangerLevelTone(level: DangerLevel) {
+  switch (level) {
+    case "High":
+      return {
+        chip: "bg-destructive/15 text-destructive",
+        dot: "bg-destructive",
+        value: "text-destructive",
+      };
+    case "Moderate":
+      return {
+        chip: "bg-gold/20 text-gold",
+        dot: "bg-gold",
+        value: "text-gold",
+      };
+    default:
+      return {
+        chip: "bg-primary/15 text-primary",
+        dot: "bg-primary",
+        value: "text-primary",
+      };
+  }
+}
+
 export function dangerPageHref(level?: DangerLevel) {
   if (!level) {
     return { pathname: DANGER_PAGE_PATH };

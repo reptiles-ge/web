@@ -17,6 +17,7 @@ import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
+import { dangerLevelTone } from "@/lib/dangerLevels";
 import { DANGER_LEVEL_HASH, DANGER_LEVEL_ORDER } from "@/lib/dangerLevels";
 
 type RiskLevelListProps = {
@@ -56,7 +57,7 @@ export function RiskLevelList({ speciesByLevel }: RiskLevelListProps) {
             </div>
             <ol className="space-y-0 divide-y divide-border border-y border-border">
               {DANGER_LEVEL_ORDER.map((level, index) => {
-                const tone = levelTone(level);
+                const tone = dangerLevelTone(level);
                 return (
                   <li className="flex items-start gap-5 py-6" key={level}>
                     <span className="mt-0.5 text-[11px] tracking-[0.18em] text-muted-foreground">
@@ -94,7 +95,7 @@ export function RiskLevelList({ speciesByLevel }: RiskLevelListProps) {
       </section>
 
       {DANGER_LEVEL_ORDER.map((level, index) => {
-        const tone = levelTone(level);
+        const tone = dangerLevelTone(level);
         const species = speciesByLevel[level];
         const isSurface = index % 2 === 0;
 
@@ -225,27 +226,4 @@ export function RiskLevelList({ speciesByLevel }: RiskLevelListProps) {
       </section>
     </>
   );
-}
-
-function levelTone(level: DangerLevel) {
-  switch (level) {
-    case "High":
-      return {
-        chip: "bg-destructive/15 text-destructive",
-        dot: "bg-destructive",
-        value: "text-destructive",
-      };
-    case "Moderate":
-      return {
-        chip: "bg-gold/20 text-gold",
-        dot: "bg-gold",
-        value: "text-gold",
-      };
-    default:
-      return {
-        chip: "bg-primary/15 text-primary",
-        dot: "bg-primary",
-        value: "text-primary",
-      };
-  }
 }

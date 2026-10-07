@@ -7,6 +7,7 @@ import type { DangerLevel } from "@/data/species";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
+import { dangerLevelTone } from "@/lib/dangerLevels";
 import { DANGER_LEVEL_HASH, DANGER_LEVEL_ORDER } from "@/lib/dangerLevels";
 
 type RiskToHumansHeroProps = {
@@ -58,7 +59,7 @@ export function RiskToHumansHero({ countByLevel }: RiskToHumansHeroProps) {
             </p>
             <div className="mt-9 flex flex-wrap items-center gap-3 sm:mt-11">
               {DANGER_LEVEL_ORDER.map((level) => {
-                const tone = levelTone(level);
+                const tone = dangerLevelTone(level);
                 return (
                   <a
                     className={cn(
@@ -108,27 +109,4 @@ export function RiskToHumansHero({ countByLevel }: RiskToHumansHeroProps) {
       </section>
     </>
   );
-}
-
-function levelTone(level: DangerLevel) {
-  switch (level) {
-    case "High":
-      return {
-        chip: "bg-destructive/15 text-destructive",
-        dot: "bg-destructive",
-        value: "text-destructive",
-      };
-    case "Moderate":
-      return {
-        chip: "bg-gold/20 text-gold",
-        dot: "bg-gold",
-        value: "text-gold",
-      };
-    default:
-      return {
-        chip: "bg-primary/15 text-primary",
-        dot: "bg-primary",
-        value: "text-primary",
-      };
-  }
 }
