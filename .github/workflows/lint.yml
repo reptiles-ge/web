@@ -35,6 +35,10 @@ jobs:
 
       - run: pnpm knip
 
+      - run: pnpm i18n:check
+
+      - run: pnpm cpd
+
       - run: pnpm lint
 
       - run: pnpm typecheck
