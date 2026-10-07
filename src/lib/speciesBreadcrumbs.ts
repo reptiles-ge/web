@@ -14,7 +14,7 @@ export type SpeciesBreadcrumbCrumb = {
   name: string;
 };
 
-export type SpeciesBreadcrumbHref =
+type SpeciesBreadcrumbHref =
   "/" | "/species" | "/venomous-snakes" | `/${GroupHubId}` | ClusterGuidePath;
 
 export function buildSpeciesBreadcrumbs(options: {

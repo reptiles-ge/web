@@ -24,21 +24,6 @@ export type INaturalistRecordMergeResult = {
   skippedMissingCoordinates: number;
 };
 
-export function formatFieldRecordYaml(record: SpeciesFieldRecord): string {
-  const lines = [`  - locality: ${yamlScalar(record.locality)}`];
-  lines.push(`    lat: ${record.lat}`);
-  lines.push(`    lng: ${record.lng}`);
-  for (const [key, value] of fieldRecordEntries(record)) {
-    lines.push(`    ${formatRecordField(key, value)}`);
-  }
-  return `${lines.join("\n")}\n`;
-}
-
-export function iNaturalistObservationId(value?: string) {
-  const match = value?.match(/(?:observations\/|observation\s*#)(\d+)/i);
-  return match?.[1];
-}
-
 export function mergeINaturalistFieldRecords({
   coordinateDecimals = 5,
   existing,
@@ -162,16 +147,6 @@ export function replaceFieldRecordsInMdx(
   return lines.join(newline);
 }
 
-export function sortFieldRecords(records: SpeciesFieldRecord[]) {
-  return [...records].sort((left, right) => {
-    const date = (right.date ?? "").localeCompare(left.date ?? "");
-    if (date !== 0) return date;
-    const locality = left.locality.localeCompare(right.locality);
-    if (locality !== 0) return locality;
-    return left.lat - right.lat || left.lng - right.lng;
-  });
-}
-
 function fieldRecordEntries(
   record: SpeciesFieldRecord,
 ): Array<[string, string]> {
@@ -213,9 +188,24 @@ function findTopLevelRange(
   return { end, start };
 }
 
+function formatFieldRecordYaml(record: SpeciesFieldRecord): string {
+  const lines = [`  - locality: ${yamlScalar(record.locality)}`];
+  lines.push(`    lat: ${record.lat}`);
+  lines.push(`    lng: ${record.lng}`);
+  for (const [key, value] of fieldRecordEntries(record)) {
+    lines.push(`    ${formatRecordField(key, value)}`);
+  }
+  return `${lines.join("\n")}\n`;
+}
+
 function formatRecordField(key: string, value: string): string {
   if (key === "url") return `url: ${JSON.stringify(value)}`;
   return `${key}: ${yamlScalar(value)}`;
+}
+
+function iNaturalistObservationId(value?: string) {
+  const match = value?.match(/(?:observations\/|observation\s*#)(\d+)/i);
+  return match?.[1];
 }
 
 function observationCoordinates(observation: INaturalistObservation) {
@@ -265,6 +255,16 @@ function recordsToYamlBlock(records: SpeciesFieldRecord[]) {
 
 function roundCoordinate(value: number, coordinateDecimals: number) {
   return Number(value.toFixed(coordinateDecimals));
+}
+
+function sortFieldRecords(records: SpeciesFieldRecord[]) {
+  return [...records].sort((left, right) => {
+    const date = (right.date ?? "").localeCompare(left.date ?? "");
+    if (date !== 0) return date;
+    const locality = left.locality.localeCompare(right.locality);
+    if (locality !== 0) return locality;
+    return left.lat - right.lat || left.lng - right.lng;
+  });
 }
 
 function validCoordinates(lat: number, lng: number) {

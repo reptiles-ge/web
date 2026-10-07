@@ -5,7 +5,6 @@ import type { QuizHref } from "@/lib/quizzes";
 
 export type RecentRef = { id: string; kind: SearchKind };
 
-export type ScoredDocument = SearchDocument & { score: number };
 export type SearchDocument = {
   featured?: boolean;
   href: SearchHref;
@@ -22,7 +21,6 @@ export type SearchDocument = {
   title: string;
 };
 export type SearchFilter = "all" | SearchKind;
-
 export type SearchGroup = {
   items: ScoredDocument[];
   kind: SearchKind;
@@ -67,6 +65,8 @@ export type SearchPageHref = Exclude<
   | "/spiders/[slug]"
   | "/turtles/[slug]"
 >;
+
+type ScoredDocument = SearchDocument & { score: number };
 
 type SpeciesHref = {
   params: { slug: string };
@@ -162,7 +162,7 @@ export function searchIndex(
   return { groups: groupDocuments(scored, limits), totals };
 }
 
-export const SEARCH_RECENT_KEY = "reptiles.search.recent";
+const SEARCH_RECENT_KEY = "reptiles.search.recent";
 
 export function readRecent(): RecentRef[] {
   if (typeof window === "undefined") return [];

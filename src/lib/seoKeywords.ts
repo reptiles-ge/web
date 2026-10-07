@@ -1464,7 +1464,7 @@ export function speciesSeoKeywords(species: Species, locale: AppLocale) {
   ]);
 }
 
-export function uniqueKeywords(values: Array<null | string | undefined>) {
+function uniqueKeywords(values: Array<null | string | undefined>) {
   const seen = new Set<string>();
   const keywords: string[] = [];
 

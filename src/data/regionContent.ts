@@ -10,12 +10,12 @@ export type RegionContent = {
   relatedIds: RegionPathId[];
 };
 
-export type RegionFaq = {
+type RegionFaq = {
   answer: LocalizedText;
   question: LocalizedText;
 };
 
-export const regionContent: Record<RegionPathId, RegionContent> = {
+const regionContent: Record<RegionPathId, RegionContent> = {
   abkhazia: {
     biome: { en: "Colchic · foothills", ka: "კოლხური · მთისწინეთი" },
     faq: [

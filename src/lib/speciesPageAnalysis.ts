@@ -18,7 +18,7 @@ const running = new Set<string>();
 export type SpeciesAnalysisMode =
   "analysis" | "links" | "lookalikes" | "records";
 export type SpeciesWorkflowMode = "texts" | SpeciesAnalysisMode;
-export const speciesWorkflowModes: SpeciesWorkflowMode[] = [
+const speciesWorkflowModes: SpeciesWorkflowMode[] = [
   "analysis",
   "texts",
   "lookalikes",

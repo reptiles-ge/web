@@ -66,7 +66,7 @@ const sourceSchema = z
   })
   .passthrough();
 
-export const dangerLevelSchema = z.enum(["Harmless", "High", "Moderate"]);
+const dangerLevelSchema = z.enum(["Harmless", "High", "Moderate"]);
 
 export const kaFrontmatterSchema = z
   .object({

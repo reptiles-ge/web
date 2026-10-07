@@ -6,7 +6,7 @@ export type QuizMode = "default";
 export const QUIZ_LENGTH = 10;
 export const QUIZ_OPTION_COUNT = 4;
 
-export const SCORE_BANDS = [
+const SCORE_BANDS = [
   { messageKey: "scoreExcellent", minPercent: 90 },
   { messageKey: "scoreGreat", minPercent: 70 },
   { messageKey: "scoreGood", minPercent: 50 },
@@ -15,13 +15,13 @@ export const SCORE_BANDS = [
 
 export type ScoreMessageKey = (typeof SCORE_BANDS)[number]["messageKey"];
 
-export const DEFAULT_QUIZ_MIX: Record<QuizDifficulty, number> = {
+const DEFAULT_QUIZ_MIX: Record<QuizDifficulty, number> = {
   easy: 4,
   hard: 2,
   medium: 4,
 };
 
-export const EASY_SNAKE_IDS = [
+const EASY_SNAKE_IDS = [
   "macrovipera-lebetina",
   "natrix-natrix",
   "natrix-tessellata",
@@ -32,7 +32,7 @@ export const EASY_SNAKE_IDS = [
   "zamenis-longissimus",
 ] as const;
 
-export const MEDIUM_SNAKE_IDS = [
+const MEDIUM_SNAKE_IDS = [
   "coronella-austriaca",
   "elaphe-urartica",
   "elaphe-dione",
@@ -42,7 +42,7 @@ export const MEDIUM_SNAKE_IDS = [
   "zamenis-hohenackeri",
 ] as const;
 
-export const HARD_SNAKE_IDS = [
+const HARD_SNAKE_IDS = [
   "vipera-kaznakovi",
   "vipera-dinniki",
   "vipera-darevskii",
@@ -58,7 +58,7 @@ const POOL_BY_DIFFICULTY: Record<QuizDifficulty, readonly string[]> = {
   medium: MEDIUM_SNAKE_IDS,
 };
 
-export const EASY_LIZARD_IDS = [
+const EASY_LIZARD_IDS = [
   "ablepharus-pannonicus",
   "anguis-colchica",
   "eumeces-schneiderii",
@@ -69,7 +69,7 @@ export const EASY_LIZARD_IDS = [
   "tenuidactylus-caspius",
 ] as const;
 
-export const MEDIUM_LIZARD_IDS = [
+const MEDIUM_LIZARD_IDS = [
   "eremias-arguta",
   "eremias-velox",
   "lacerta-media",
@@ -77,7 +77,7 @@ export const MEDIUM_LIZARD_IDS = [
   "phoenicolacerta-laevis",
 ] as const;
 
-export const HARD_LIZARD_IDS = [
+const HARD_LIZARD_IDS = [
   "darevskia-adjarica",
   "darevskia-alpina",
   "darevskia-armeniaca",

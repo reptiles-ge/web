@@ -1,4 +1,4 @@
-export const SITEMAP_PATH_LAST_MODIFIED: Record<string, string> = {
+const SITEMAP_PATH_LAST_MODIFIED: Record<string, string> = {
   "/": "2026-09-16T08:07:00+04:00",
   "/about": "2026-09-16T08:18:00+04:00",
   "/amphibians": "2026-09-16T08:29:00+04:00",
@@ -130,7 +130,7 @@ const SITEMAP_PATH_DATE_PUBLISHED: Record<string, string> = {
   "/venomous-snakes": "2026-09-20T02:45:00+04:00",
 };
 
-export const SITEMAP_AUTHOR_LAST_MODIFIED: Record<string, string> = {
+const SITEMAP_AUTHOR_LAST_MODIFIED: Record<string, string> = {
   "armen-seropian": "2026-09-16T16:00:00+04:00",
   "david-tarkhnishvili": "2026-09-16T16:11:00+04:00",
   "giorgi-iankoshvili": "2026-09-16T16:22:00+04:00",
@@ -168,7 +168,7 @@ const SITEMAP_AUTHOR_DATE_PUBLISHED: Record<string, string> = {
   "zauri-khachidze": "2026-09-16T18:01:00+04:00",
 };
 
-export const SITEMAP_QUIZ_LAST_MODIFIED: Record<string, string> = {
+const SITEMAP_QUIZ_LAST_MODIFIED: Record<string, string> = {
   lizard: "2026-09-16T18:12:00+04:00",
   snake: "2026-09-16T18:23:00+04:00",
 };
@@ -178,7 +178,7 @@ const SITEMAP_QUIZ_DATE_PUBLISHED: Record<string, string> = {
   snake: "2026-09-16T18:23:00+04:00",
 };
 
-export const SITEMAP_REGION_LAST_MODIFIED: Record<string, string> = {
+const SITEMAP_REGION_LAST_MODIFIED: Record<string, string> = {
   abkhazia: "2026-09-16T18:34:00+04:00",
   adjara: "2026-09-16T18:45:00+04:00",
   guria: "2026-09-17T14:32:57+04:00",

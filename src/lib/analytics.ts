@@ -61,15 +61,6 @@ declare global {
 
 const SEARCH_TERM_MAX = 100;
 
-export function currentLanguage(): AppLocale {
-  if (typeof document === "undefined") return "ka";
-  const lang = document.documentElement.lang;
-  if (routing.locales.includes(lang as AppLocale)) {
-    return lang as AppLocale;
-  }
-  return "ka";
-}
-
 export function currentPageContext(): {
   entity_id?: string;
   page_type: PageType;
@@ -144,6 +135,15 @@ function compact(params: Record<string, AnalyticsValue | undefined>) {
     if (value !== undefined) next[key] = value;
   }
   return next;
+}
+
+function currentLanguage(): AppLocale {
+  if (typeof document === "undefined") return "ka";
+  const lang = document.documentElement.lang;
+  if (routing.locales.includes(lang as AppLocale)) {
+    return lang as AppLocale;
+  }
+  return "ka";
 }
 
 function push(payload: DataLayerRecord) {

@@ -1,4 +1,4 @@
-export const ATLAS_PAGE_SIZE = 12;
+const ATLAS_PAGE_SIZE = 12;
 
 export function initialAtlasVisibleCount(
   total: number,

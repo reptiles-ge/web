@@ -33,7 +33,7 @@ export function absoluteUrl(path = "/") {
   return `${base}${path.startsWith("/") ? path : `/${path}`}`;
 }
 
-export function getSiteUrl() {
+function getSiteUrl() {
   const fromEnv = process.env.NEXT_PUBLIC_SITE_URL;
   const production =
     process.env.VERCEL_ENV === "production" ||
@@ -60,7 +60,7 @@ export function getSiteUrl() {
 export const CDN_BASE = "https://cdn.reptiles.ge";
 
 export const OG_IMAGE_WIDTH = 1200;
-export const OG_IMAGE_HEIGHT = 630;
+const OG_IMAGE_HEIGHT = 630;
 export const OG_IMAGE_TYPE = "image/jpeg";
 export const SITE_OG_IMAGE_URL = `${CDN_BASE}/og/hero-img.jpg`;
 export const FALLBACK_OG_IMAGE_URL = `${CDN_BASE}/og/vipera-dinnik.jpg`;

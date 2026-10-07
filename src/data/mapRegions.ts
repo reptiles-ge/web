@@ -764,14 +764,6 @@ export function getRegionsForSpecies(speciesId: string): Region[] {
   return regions.filter((region) => region.speciesIds.includes(speciesId));
 }
 
-export function hasLocalizedText(
-  text: Partial<LocalizedText>,
-  locale: AppLocale,
-): boolean {
-  const value = text[locale];
-  return typeof value === "string" && value.trim().length > 0;
-}
-
 export function localizeRegionText(
   text: LocalizedText,
   locale: string,
@@ -786,4 +778,12 @@ export function localizeRegionTextIfPresent(
   if (!hasLocalizedText(text, locale)) return null;
   const value = text[locale];
   return value ?? null;
+}
+
+function hasLocalizedText(
+  text: Partial<LocalizedText>,
+  locale: AppLocale,
+): boolean {
+  const value = text[locale];
+  return typeof value === "string" && value.trim().length > 0;
 }
