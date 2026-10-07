@@ -21053,6 +21053,101 @@
       ],
       "updatedAt": "2026-08-28T21:32:06.456Z"
     },
+    "darevskia-derjugini-herbert-1.jpg": {
+      "sourceHash": "9492a9bdd26f84f7c6ee153b43721730b53cc718217708687034d9d23961745a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-derjugini-herbert-1.jpg",
+      "originalSize": 467995,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-derjugini-herbert-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 10386
+        },
+        {
+          "key": "optimized/darevskia-derjugini-herbert-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 15540
+        },
+        {
+          "key": "optimized/darevskia-derjugini-herbert-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 14742
+        },
+        {
+          "key": "optimized/darevskia-derjugini-herbert-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 21972
+        },
+        {
+          "key": "optimized/darevskia-derjugini-herbert-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 30386
+        },
+        {
+          "key": "optimized/darevskia-derjugini-herbert-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 46884
+        },
+        {
+          "key": "optimized/darevskia-derjugini-herbert-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 43057
+        },
+        {
+          "key": "optimized/darevskia-derjugini-herbert-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 65686
+        },
+        {
+          "key": "optimized/darevskia-derjugini-herbert-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 75335
+        },
+        {
+          "key": "optimized/darevskia-derjugini-herbert-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 110572
+        },
+        {
+          "key": "optimized/darevskia-derjugini-herbert-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 150666
+        },
+        {
+          "key": "optimized/darevskia-derjugini-herbert-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 215896
+        }
+      ],
+      "updatedAt": "2026-10-07T17:07:03.674Z"
+    },
     "darevskia-derjugini-zauri-1.jpg": {
       "sourceHash": "fd762c34a6b901e0b4f57385657e52cb19325352ec4823bcc5a85f1dace62e3d",
       "configFingerprint": "a895f8e025dcc7fa",
