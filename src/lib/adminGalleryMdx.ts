@@ -11,6 +11,7 @@ import {
 import { type AnimalGroup, speciesAtlasMeta } from "@/data/speciesAtlas";
 import { type CoverTarget } from "@/lib/adminCover";
 import { matchesCoverSource } from "@/lib/coverCrop";
+import { formatFieldRecordYaml } from "@/lib/fieldRecordYaml";
 import {
   normalizePhotoCoordinates,
   type PhotoCoordinates,
@@ -776,20 +777,6 @@ function creditEntries(credit: PhotoCredit): Array<[string, number | string]> {
   return entries;
 }
 
-function fieldRecordEntries(
-  record: SpeciesFieldRecord,
-): Array<[string, string]> {
-  const entries: Array<[string, string]> = [];
-  if (record.date) entries.push(["date", record.date]);
-  if (record.observer) entries.push(["observer", record.observer]);
-  if (record.observerName) entries.push(["observerName", record.observerName]);
-  if (record.source) entries.push(["source", record.source]);
-  if (record.url) entries.push(["url", record.url]);
-  if (record.note) entries.push(["note", record.note]);
-  if (record.evidence) entries.push(["evidence", record.evidence]);
-  return entries;
-}
-
 function findGalleryRange(
   lines: string[],
 ): null | { end: number; start: number } {
@@ -843,16 +830,6 @@ function formatCreditField(key: string, value: number | string): string {
   if (typeof value === "number") return `${key}: ${value}`;
   if (key === "url") return `url: ${JSON.stringify(value)}`;
   return `${key}: ${yamlScalar(value)}`;
-}
-
-function formatFieldRecordYaml(record: SpeciesFieldRecord): string {
-  const lines = [`  - locality: ${yamlScalar(record.locality)}`];
-  lines.push(`    lat: ${record.lat}`);
-  lines.push(`    lng: ${record.lng}`);
-  for (const [key, value] of fieldRecordEntries(record)) {
-    lines.push(`    ${formatCreditField(key, value)}`);
-  }
-  return `${lines.join("\n")}\n`;
 }
 
 function formatGalleryItemYaml(item: GalleryImage): string {
