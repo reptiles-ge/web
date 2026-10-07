@@ -40,10 +40,6 @@ export function newsArticleHref(slug: string) {
   };
 }
 
-export function newsArticlePath(locale: AppLocale, slug: string) {
-  return getPathname({ href: newsArticleHref(slug), locale });
-}
-
 export function newsArticleUrl(locale: AppLocale, slug: string) {
   return absoluteUrl(newsArticlePath(locale, slug));
 }
@@ -58,10 +54,6 @@ export function newsIndexAlternates(locale: AppLocale) {
 
 export function newsIndexHref() {
   return "/news" as const;
-}
-
-export function newsIndexPath(locale: AppLocale) {
-  return getPathname({ href: newsIndexHref(), locale });
 }
 
 export function newsIndexUrl(locale: AppLocale) {
@@ -90,4 +82,12 @@ export function publishedNewsStaticParams() {
       slug: article.slug,
     })),
   );
+}
+
+function newsArticlePath(locale: AppLocale, slug: string) {
+  return getPathname({ href: newsArticleHref(slug), locale });
+}
+
+function newsIndexPath(locale: AppLocale) {
+  return getPathname({ href: newsIndexHref(), locale });
 }

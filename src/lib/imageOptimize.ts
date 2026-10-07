@@ -60,28 +60,7 @@ export async function applyOptimizeCatalog(
   upsertGeneratedFile(path.join(repoRoot, GENERATED_REL), assets);
 }
 
-export async function optimizeUploadedOriginal(input: {
-  key: string;
-  source: Buffer;
-  src: string;
-  storage: StorageAdapter;
-}): Promise<null | OptimizeCatalogUpdate> {
-  const result = await optimizeAndStore({
-    config: SPECIES_IMAGE_CONFIG,
-    key: input.key,
-    source: input.source,
-    storage: input.storage,
-    storeOriginal: false,
-  });
-  if (!result.entry) return null;
-
-  const entry = { ...result.entry, originalKey: input.key };
-  const prefix = `${input.storage.urlFor(SPECIES_IMAGE_CONFIG.optimizedPrefix)}/`;
-  const asset = compactAsset(input.key, entry, input.storage, prefix);
-  return { asset, entry, key: input.key, src: input.src };
-}
-
-function compactAsset(
+export function compactAsset(
   key: string,
   entry: ManifestEntry,
   storage: StorageAdapter,
@@ -144,6 +123,27 @@ function compactAsset(
     width: entry.width,
     widths,
   };
+}
+
+export async function optimizeUploadedOriginal(input: {
+  key: string;
+  source: Buffer;
+  src: string;
+  storage: StorageAdapter;
+}): Promise<null | OptimizeCatalogUpdate> {
+  const result = await optimizeAndStore({
+    config: SPECIES_IMAGE_CONFIG,
+    key: input.key,
+    source: input.source,
+    storage: input.storage,
+    storeOriginal: false,
+  });
+  if (!result.entry) return null;
+
+  const entry = { ...result.entry, originalKey: input.key };
+  const prefix = `${input.storage.urlFor(SPECIES_IMAGE_CONFIG.optimizedPrefix)}/`;
+  const asset = compactAsset(input.key, entry, input.storage, prefix);
+  return { asset, entry, key: input.key, src: input.src };
 }
 
 function formatGeneratedImages(

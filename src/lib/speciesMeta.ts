@@ -29,7 +29,7 @@ export function speciesFallbackDescriptionKey(
   return "descriptionReptile";
 }
 
-export function speciesMetaTitle(
+function speciesMetaTitle(
   commonName: string,
   scientificName: string,
   intent: string,

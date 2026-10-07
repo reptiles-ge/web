@@ -36,7 +36,65 @@ const GUIDE_HERO_IMAGES: Partial<
     "/images/guides/identify-venomous-cover.png",
 };
 
-export function RelatedGuideCard({
+export function RelatedGuideGrid({
+  cards,
+  className = "mt-12",
+  locale,
+  species = [],
+}: {
+  cards: HubClusterCard[];
+  className?: string;
+  locale: AppLocale;
+  species?: SpeciesCard[];
+}) {
+  if (cards.length === 0) return null;
+
+  const featured = cards.length === 1;
+  const columns = featured ? "grid-cols-1" : "sm:grid-cols-2 lg:grid-cols-3";
+
+  return (
+    <div
+      className={cn(
+        className,
+        "grid gap-px overflow-hidden rounded-card bg-border/80",
+        columns,
+      )}
+    >
+      {cards.map((card) => (
+        <div className="contents" key={card.key}>
+          <RelatedGuideCard
+            card={card}
+            featured={featured}
+            locale={locale}
+            species={species}
+          />
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function hubClusterCardImage(card: HubClusterCard, species: SpeciesCard[]) {
+  if (card.kind === "species") {
+    return speciesCardImage(card.id, species);
+  }
+
+  if (card.kind === "quiz") {
+    return card.id === "lizard"
+      ? GROUP_HUB_ILLUSTRATIONS.lizards
+      : GROUP_HUB_ILLUSTRATIONS.snakes;
+  }
+
+  const override = PAGE_CARD_IMAGES[card.href] ?? GUIDE_HERO_IMAGES[card.href];
+  if (override) return override;
+
+  const hub = GROUP_HUB_LIST.find((entry) => entry.path === card.href);
+  if (hub) return speciesCardImage(hub.heroSpeciesId, species);
+
+  return undefined;
+}
+
+function RelatedGuideCard({
   card,
   featured = false,
   locale,
@@ -116,64 +174,6 @@ export function RelatedGuideCard({
       {copy}
     </Link>
   );
-}
-
-export function RelatedGuideGrid({
-  cards,
-  className = "mt-12",
-  locale,
-  species = [],
-}: {
-  cards: HubClusterCard[];
-  className?: string;
-  locale: AppLocale;
-  species?: SpeciesCard[];
-}) {
-  if (cards.length === 0) return null;
-
-  const featured = cards.length === 1;
-  const columns = featured ? "grid-cols-1" : "sm:grid-cols-2 lg:grid-cols-3";
-
-  return (
-    <div
-      className={cn(
-        className,
-        "grid gap-px overflow-hidden rounded-card bg-border/80",
-        columns,
-      )}
-    >
-      {cards.map((card) => (
-        <div className="contents" key={card.key}>
-          <RelatedGuideCard
-            card={card}
-            featured={featured}
-            locale={locale}
-            species={species}
-          />
-        </div>
-      ))}
-    </div>
-  );
-}
-
-function hubClusterCardImage(card: HubClusterCard, species: SpeciesCard[]) {
-  if (card.kind === "species") {
-    return speciesCardImage(card.id, species);
-  }
-
-  if (card.kind === "quiz") {
-    return card.id === "lizard"
-      ? GROUP_HUB_ILLUSTRATIONS.lizards
-      : GROUP_HUB_ILLUSTRATIONS.snakes;
-  }
-
-  const override = PAGE_CARD_IMAGES[card.href] ?? GUIDE_HERO_IMAGES[card.href];
-  if (override) return override;
-
-  const hub = GROUP_HUB_LIST.find((entry) => entry.path === card.href);
-  if (hub) return speciesCardImage(hub.heroSpeciesId, species);
-
-  return undefined;
 }
 
 function speciesCardImage(id: string, species: SpeciesCard[]) {

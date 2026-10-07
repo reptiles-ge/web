@@ -17,7 +17,7 @@ export {
   type SpeciesStat,
 } from "./speciesTypes";
 
-export const catalogSpeciesIds = [...featuredSpeciesIds] as const;
+const catalogSpeciesIds = [...featuredSpeciesIds] as const;
 
 export function getCatalogSpecies() {
   const catalog: Species[] = [];
@@ -28,8 +28,6 @@ export function getCatalogSpecies() {
   }
   return catalog;
 }
-
-export { species };
 
 export function getSpeciesById(id: string) {
   if (!isPublishedSpeciesId(id)) return undefined;

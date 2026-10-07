@@ -16,7 +16,7 @@ Work from repository evidence first. Georgian (`ka`) is the primary market and m
 - GA4 collector: `pnpm seo:audit:ga4`
 - GEO audit: `pnpm seo:audit:geo`
 - Technical audit: `pnpm seo:audit:technical`
-- One URL: `pnpm seo:audit:url -- --url=https://reptiles.ge/gvelebi/giurza`
+- One URL: `pnpm seo:audit -- --url=https://reptiles.ge/gvelebi/giurza`
 - SERP query: `pnpm seo:serp -- --query="გიურზა საქართველოში"`
 - CLI self-check: `pnpm seo:selfcheck`
 

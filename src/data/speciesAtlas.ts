@@ -41,16 +41,6 @@ export type AtlasStats = {
   venomous: number;
 };
 
-export function getAtlasPhotoCount(catalog: Species[] = getCatalogSpecies()) {
-  const urls = new Set<string>();
-  for (const item of catalog) {
-    for (const photo of item.gallery) {
-      if (photo.src) urls.add(photo.src);
-    }
-  }
-  return urls.size;
-}
-
 export function getAtlasStats(
   catalog: Species[] = getCatalogSpecies(),
 ): AtlasStats {
@@ -156,4 +146,14 @@ export function getVenomousCatalogSpecies(
 
 function familyRank(species: Species) {
   return species.family === "Viperidae" ? 0 : 1;
+}
+
+function getAtlasPhotoCount(catalog: Species[] = getCatalogSpecies()) {
+  const urls = new Set<string>();
+  for (const item of catalog) {
+    for (const photo of item.gallery) {
+      if (photo.src) urls.add(photo.src);
+    }
+  }
+  return urls.size;
 }

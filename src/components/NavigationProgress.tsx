@@ -1,28 +1,35 @@
 "use client";
 
-import { useParams } from "next/navigation";
-import NProgress from "nprogress";
+import { ProgressProvider } from "@bprogress/next/app";
+import { useProgress } from "@bprogress/react";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef } from "react";
 
-import { usePathname } from "@/i18n/navigation";
-
-NProgress.configure({ showSpinner: false });
+const PROGRESS_OPTIONS = { showSpinner: false };
+const STALLED_NAVIGATION_MS = 10_000;
 
 export function NavigationProgress() {
+  return (
+    <ProgressProvider
+      color="var(--primary)"
+      disableAnchorClick
+      height="3px"
+      options={PROGRESS_OPTIONS}
+    >
+      <NavigationProgressTriggers />
+    </ProgressProvider>
+  );
+}
+
+function documentKey(location: { pathname: string; search: string }) {
+  return `${location.pathname}${location.search}`;
+}
+
+function NavigationProgressTriggers() {
+  const { start, stop } = useProgress();
   const pathname = usePathname();
-  const params = useParams();
-  const key = routeKey(pathname, params);
   const currentDocument = useRef("");
   const timer = useRef<null | number>(null);
-
-  useEffect(() => {
-    return () => {
-      if (timer.current) {
-        window.clearTimeout(timer.current);
-      }
-      NProgress.done();
-    };
-  }, []);
 
   useEffect(() => {
     currentDocument.current = documentKey(window.location);
@@ -30,16 +37,14 @@ export function NavigationProgress() {
       window.clearTimeout(timer.current);
       timer.current = null;
     }
-    NProgress.done();
-  }, [key]);
+  }, [pathname]);
 
   useEffect(() => {
-    function start() {
-      NProgress.start();
-      if (timer.current) {
-        window.clearTimeout(timer.current);
-      }
-      timer.current = window.setTimeout(() => NProgress.done(), 10_000);
+    function begin(nextDocument: string) {
+      currentDocument.current = nextDocument;
+      start();
+      if (timer.current) window.clearTimeout(timer.current);
+      timer.current = window.setTimeout(() => stop(), STALLED_NAVIGATION_MS);
     }
 
     function onClick(event: MouseEvent) {
@@ -66,9 +71,7 @@ export function NavigationProgress() {
       }
 
       const href = anchor.getAttribute("href");
-      if (!href) {
-        return;
-      }
+      if (!href) return;
 
       const url = new URL(href, window.location.href);
       const nextDocument = documentKey(url);
@@ -79,37 +82,23 @@ export function NavigationProgress() {
         return;
       }
 
-      currentDocument.current = nextDocument;
-      start();
+      begin(nextDocument);
     }
 
     function onPopState() {
       const nextDocument = documentKey(window.location);
       if (nextDocument === currentDocument.current) return;
-      currentDocument.current = nextDocument;
-      start();
+      begin(nextDocument);
     }
 
     document.addEventListener("click", onClick, true);
     window.addEventListener("popstate", onPopState);
-
     return () => {
       document.removeEventListener("click", onClick, true);
       window.removeEventListener("popstate", onPopState);
+      if (timer.current) window.clearTimeout(timer.current);
     };
-  }, []);
+  }, [start, stop]);
 
   return null;
-}
-
-function documentKey(location: { pathname: string; search: string }) {
-  return `${location.pathname}${location.search}`;
-}
-
-function routeKey(pathname: string, params: ReturnType<typeof useParams>) {
-  const dynamic = Object.entries(params ?? {})
-    .filter(([key]) => key !== "locale")
-    .sort(([a], [b]) => a.localeCompare(b))
-    .map(([key, value]) => `${key}=${String(value)}`);
-  return [pathname, ...dynamic].join(":");
 }

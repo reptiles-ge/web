@@ -2,7 +2,6 @@ import type { KnipConfig } from "knip";
 
 const config: KnipConfig = {
   entry: ["src/app/**/{layout,page,route}.local.{ts,tsx}", "src/worker.ts"],
-  ignore: ["src/lib/creditAuthors.ts"],
   ignoreBinaries: ["codex", "pbcopy"],
   ignoreDependencies: [
     "@cloudflare/workers-response-store",
@@ -11,7 +10,6 @@ const config: KnipConfig = {
     "eslint-plugin-react-hooks",
     "sharp",
   ],
-  ignoreExportsUsedInFile: true,
   project: ["src/**/*.{ts,tsx,css}", "!src/i18n/global.ts", "scripts/**/*.ts"],
 };
 

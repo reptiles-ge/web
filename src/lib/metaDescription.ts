@@ -1,4 +1,4 @@
-export const MAX_META_DESCRIPTION_LENGTH = 160;
+const MAX_META_DESCRIPTION_LENGTH = 160;
 
 export function shortMetaDescription(
   text: string,

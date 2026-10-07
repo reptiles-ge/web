@@ -31,21 +31,21 @@ export function cycleTab(
   }
 }
 
-export function focusableIn(root: null | ParentNode | undefined) {
-  if (!root) return [];
-  return [...root.querySelectorAll<HTMLElement>(FOCUSABLE)].filter((node) => {
-    if (node.closest("[inert]")) return false;
-    if (node.getAttribute("aria-hidden") === "true") return false;
-    return node.getClientRects().length > 0;
-  });
-}
-
 export function usePrefersReducedMotion() {
   return useSyncExternalStore(
     subscribeReducedMotion,
     prefersReducedMotion,
     () => false,
   );
+}
+
+function focusableIn(root: null | ParentNode | undefined) {
+  if (!root) return [];
+  return [...root.querySelectorAll<HTMLElement>(FOCUSABLE)].filter((node) => {
+    if (node.closest("[inert]")) return false;
+    if (node.getAttribute("aria-hidden") === "true") return false;
+    return node.getClientRects().length > 0;
+  });
 }
 
 function prefersReducedMotion() {

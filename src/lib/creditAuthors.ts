@@ -38,7 +38,7 @@ const GROUP_RANK: Record<AnimalGroup, number> = {
 };
 
 export const HOME_CONTRIBUTOR_LIMIT = 2;
-export const HOME_CONTRIBUTOR_PREVIEW_COUNT = 4;
+const HOME_CONTRIBUTOR_PREVIEW_COUNT = 4;
 
 export type CreditAuthorCard = {
   author: CreditAuthor;
@@ -170,30 +170,6 @@ export function getCreditAuthorSpeciesIds(photos: CreditAuthorPhoto[]) {
   return ids;
 }
 
-export function getHomeContributorCards() {
-  return getCreditAuthorCards().slice(0, HOME_CONTRIBUTOR_LIMIT);
-}
-
-export function pickCreditAuthorPreviewPhotos(
-  photos: CreditAuthorPhoto[],
-  limit = HOME_CONTRIBUTOR_PREVIEW_COUNT,
-) {
-  const unique: CreditAuthorPhoto[] = [];
-  const rest: CreditAuthorPhoto[] = [];
-  const seen = new Set<string>();
-  for (const photo of photos) {
-    if (!photo.src || isPlaceholderMedia(photo.src)) continue;
-    if (seen.has(photo.speciesId)) {
-      rest.push(photo);
-      continue;
-    }
-    seen.add(photo.speciesId);
-    unique.push(photo);
-    if (unique.length >= limit) return unique;
-  }
-  return [...unique, ...rest].slice(0, limit);
-}
-
 export function resolvePublishedCreditAuthor(slug: string) {
   return getPublishedCreditAuthorBySlug(slug);
 }
@@ -219,4 +195,24 @@ function compareAuthorPhotos(a: CreditAuthorPhoto, b: CreditAuthorPhoto) {
   if (a.speciesId !== b.speciesId)
     return a.speciesId.localeCompare(b.speciesId);
   return a.src.localeCompare(b.src);
+}
+
+function pickCreditAuthorPreviewPhotos(
+  photos: CreditAuthorPhoto[],
+  limit = HOME_CONTRIBUTOR_PREVIEW_COUNT,
+) {
+  const unique: CreditAuthorPhoto[] = [];
+  const rest: CreditAuthorPhoto[] = [];
+  const seen = new Set<string>();
+  for (const photo of photos) {
+    if (!photo.src || isPlaceholderMedia(photo.src)) continue;
+    if (seen.has(photo.speciesId)) {
+      rest.push(photo);
+      continue;
+    }
+    seen.add(photo.speciesId);
+    unique.push(photo);
+    if (unique.length >= limit) return unique;
+  }
+  return [...unique, ...rest].slice(0, limit);
 }

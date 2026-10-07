@@ -16,22 +16,6 @@ export type LocaleSpeciesHref = {
     | "/turtles/[slug]";
 };
 
-export type LocaleSwitchGuide = {
-  group: AnimalGroup;
-  id: string;
-};
-
-export type LocaleSwitchHubId =
-  | "amphibians"
-  | "birds"
-  | "insects"
-  | "lizards"
-  | "mammals"
-  | "scorpions"
-  | "snakes"
-  | "spiders"
-  | "turtles";
-
 export type LocaleSwitchIndex = {
   groupById: Record<string, AnimalGroup>;
   guides: Record<string, LocaleSwitchGuide>;
@@ -52,6 +36,22 @@ export type ResolvedPageContext = {
   group?: AnimalGroup;
   page_type: PageType;
 };
+
+type LocaleSwitchGuide = {
+  group: AnimalGroup;
+  id: string;
+};
+
+type LocaleSwitchHubId =
+  | "amphibians"
+  | "birds"
+  | "insects"
+  | "lizards"
+  | "mammals"
+  | "scorpions"
+  | "snakes"
+  | "spiders"
+  | "turtles";
 
 const SPECIES_PATH_TO_HUB: Record<string, LocaleSwitchHubId> = {
   "/amphibians/[slug]": "amphibians",
@@ -179,13 +179,6 @@ export function resolvePageContextFromIndex(
   return { page_type: "other" };
 }
 
-export function resolveSpeciesIdFromIndex(
-  index: LocaleSwitchIndex,
-  slug: string,
-) {
-  return index.idBySlug[slug];
-}
-
 export function speciesHrefFromIndex(
   index: LocaleSwitchIndex,
   id: string,
@@ -213,4 +206,8 @@ export function speciesHrefFromIndex(
     default:
       return { params: { slug }, pathname: "/amphibians/[slug]" };
   }
+}
+
+function resolveSpeciesIdFromIndex(index: LocaleSwitchIndex, slug: string) {
+  return index.idBySlug[slug];
 }

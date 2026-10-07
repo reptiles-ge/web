@@ -8,6 +8,7 @@ import {
   CLUSTER_TITLE_SECTION,
   ClusterSectionIntro,
   ClusterStat,
+  ClusterStatsBand,
 } from "@/components/ClusterSectionIntro";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { SpeciesIndexTable } from "@/components/SpeciesIndexTable";
@@ -44,13 +45,11 @@ export async function LizardSpeciesIndexPage({
       heroSrc={heroSrc}
       locale={locale}
       stats={
-        <section className="border-b border-border bg-surface py-10 sm:py-12">
-          <div className="mx-auto grid max-w-[1400px] gap-8 px-6 sm:grid-cols-3 sm:gap-6 lg:px-10">
-            <ClusterStat label={t("statSpecies")} value={species.length} />
-            <ClusterStat label={t("statDarevskia")} value={darevskia.length} />
-            <ClusterStat label={t("statFamilies")} value={familyCount} />
-          </div>
-        </section>
+        <ClusterStatsBand>
+          <ClusterStat label={t("statSpecies")} value={species.length} />
+          <ClusterStat label={t("statDarevskia")} value={darevskia.length} />
+          <ClusterStat label={t("statFamilies")} value={familyCount} />
+        </ClusterStatsBand>
       }
     >
       <ClusterGuideLead

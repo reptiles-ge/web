@@ -7,8 +7,10 @@ import {
   CLUSTER_BODY,
   CLUSTER_EYEBROW,
   CLUSTER_TITLE_SECTION,
+  ClusterIndexSection,
   ClusterSectionIntro,
   ClusterStat,
+  ClusterStatsBand,
 } from "@/components/ClusterSectionIntro";
 import { SpeciesIndexTable } from "@/components/SpeciesIndexTable";
 import { toSpeciesIndexRows } from "@/data/speciesCard";
@@ -37,13 +39,11 @@ export async function AmphibianSpeciesIndexPage({
       heroSrc={heroSrc}
       locale={locale}
       stats={
-        <section className="border-b border-border bg-surface py-10 sm:py-12">
-          <div className="mx-auto grid max-w-[1400px] gap-8 px-6 sm:grid-cols-3 sm:gap-6 lg:px-10">
-            <ClusterStat label={t("statSpecies")} value={species.length} />
-            <ClusterStat label={t("statFrogs")} value={frogs.length} />
-            <ClusterStat label={t("statNewts")} value={newts.length} />
-          </div>
-        </section>
+        <ClusterStatsBand>
+          <ClusterStat label={t("statSpecies")} value={species.length} />
+          <ClusterStat label={t("statFrogs")} value={frogs.length} />
+          <ClusterStat label={t("statNewts")} value={newts.length} />
+        </ClusterStatsBand>
       }
     >
       <ClusterGuideLead
@@ -58,47 +58,35 @@ export async function AmphibianSpeciesIndexPage({
         title={t("guideTitle")}
       />
 
-      <section
-        className="scroll-mt-28 border-t border-border bg-surface py-20 lg:py-28"
-        id="index"
-      >
-        <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <div>
-            <ClusterSectionIntro
-              body={t("frogsBody")}
-              bodyClassName={CLUSTER_BODY}
-              eyebrow={t("frogsEyebrow")}
-              eyebrowClassName={CLUSTER_EYEBROW}
-              title={t("frogsTitle", { count: frogs.length })}
-              titleClassName={CLUSTER_TITLE_SECTION}
+      <ClusterIndexSection
+        body={t("frogsBody")}
+        eyebrow={t("frogsEyebrow")}
+        intro={
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Link
+              className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-[13px] font-medium text-foreground"
+              href="/amphibians/bayayi"
             >
-              <div className="mt-6 flex flex-wrap gap-3">
-                <Link
-                  className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-[13px] font-medium text-foreground"
-                  href="/amphibians/bayayi"
-                >
-                  {t("frogsGuideCta")}
-                  <ArrowUpRight className="size-3.5" />
-                </Link>
-                <Link
-                  className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-[13px] font-medium text-white dark:text-ink"
-                  href="/amphibians/bayayi/saxeoebebi"
-                >
-                  {t("frogsIndexCta")}
-                  <ArrowUpRight className="size-3.5" />
-                </Link>
-              </div>
-            </ClusterSectionIntro>
+              {t("frogsGuideCta")}
+              <ArrowUpRight className="size-3.5" />
+            </Link>
+            <Link
+              className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-[13px] font-medium text-white dark:text-ink"
+              href="/amphibians/bayayi/saxeoebebi"
+            >
+              {t("frogsIndexCta")}
+              <ArrowUpRight className="size-3.5" />
+            </Link>
           </div>
-          <div className="mt-10">
-            <SpeciesIndexTable
-              locale={locale}
-              showDangerFilter={false}
-              species={toSpeciesIndexRows(frogs)}
-            />
-          </div>
-        </div>
-      </section>
+        }
+        title={t("frogsTitle", { count: frogs.length })}
+      >
+        <SpeciesIndexTable
+          locale={locale}
+          showDangerFilter={false}
+          species={toSpeciesIndexRows(frogs)}
+        />
+      </ClusterIndexSection>
 
       <section className="border-t border-border bg-background py-20 lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">

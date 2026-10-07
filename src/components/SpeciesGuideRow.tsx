@@ -45,7 +45,7 @@ export function SpeciesGuideList({
   );
 }
 
-export function SpeciesGuideRow({
+function SpeciesGuideRow({
   index,
   locale,
   prefetch,

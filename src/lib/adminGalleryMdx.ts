@@ -11,11 +11,13 @@ import {
 import { type AnimalGroup, speciesAtlasMeta } from "@/data/speciesAtlas";
 import { type CoverTarget } from "@/lib/adminCover";
 import { matchesCoverSource } from "@/lib/coverCrop";
+import { formatFieldRecordYaml } from "@/lib/fieldRecordYaml";
 import {
   normalizePhotoCoordinates,
   type PhotoCoordinates,
 } from "@/lib/photoCoordinates";
 import { CDN_BASE } from "@/lib/site";
+import { yamlScalar } from "@/lib/yamlScalar";
 
 export type { CoverTarget };
 
@@ -37,7 +39,7 @@ export function isSpeciesContentId(id: string) {
   return SPECIES_ID_RE.test(id);
 }
 
-export function speciesContentDir(id: string) {
+function speciesContentDir(id: string) {
   if (!isSpeciesContentId(id)) {
     throw new Error("Invalid species id");
   }
@@ -47,59 +49,6 @@ export function speciesContentDir(id: string) {
 const OVERLAY_LOCALES = ["en", "ru", "tr"] as const;
 
 export type GalleryOverlayLocale = (typeof OVERLAY_LOCALES)[number];
-
-export function appendFieldRecordToMdx(
-  raw: string,
-  record: SpeciesFieldRecord,
-): string {
-  const parsed = matter(raw);
-  const records = normalizeFieldRecords(parsed.data.fieldRecords);
-  if (
-    records.some(
-      (entry) =>
-        entry.locality === record.locality &&
-        entry.lat === record.lat &&
-        entry.lng === record.lng &&
-        entry.date === record.date,
-    )
-  ) {
-    throw new Error(`Field record already exists: ${record.locality}`);
-  }
-
-  const newline = raw.includes("\r\n") ? "\r\n" : "\n";
-  const lines = raw.split(/\r?\n/);
-  const itemLines = formatFieldRecordYaml(record)
-    .replace(/\n$/, "")
-    .split("\n");
-  const range = findTopLevelRange(lines, "fieldRecords");
-
-  if (!range) {
-    const galleryRange = findGalleryRange(lines);
-    const commonName = lines.findIndex((line) => /^commonName:/.test(line));
-    const insertAt =
-      galleryRange?.end ?? (commonName === -1 ? lines.length : commonName);
-    lines.splice(insertAt, 0, "fieldRecords:", ...itemLines);
-  } else {
-    if (/^fieldRecords:\s*\[\]\s*$/.test(lines[range.start])) {
-      lines[range.start] = "fieldRecords:";
-    }
-    lines.splice(range.end, 0, ...itemLines);
-  }
-
-  const next = lines.join(newline);
-  const check = normalizeFieldRecords(matter(next).data.fieldRecords);
-  const added = check.find(
-    (entry) =>
-      entry.locality === record.locality &&
-      entry.lat === record.lat &&
-      entry.lng === record.lng &&
-      entry.date === record.date,
-  );
-  if (!added) {
-    throw new Error("Failed to append field record");
-  }
-  return next;
-}
 
 export function appendFieldRecordToSpecies(
   id: string,
@@ -200,29 +149,6 @@ export function creditsEqual(a?: PhotoCredit, b?: PhotoCredit): boolean {
     if (left[key] !== right[key]) return false;
   }
   return true;
-}
-
-export function formatFieldRecordYaml(record: SpeciesFieldRecord): string {
-  const lines = [`  - locality: ${yamlScalar(record.locality)}`];
-  lines.push(`    lat: ${record.lat}`);
-  lines.push(`    lng: ${record.lng}`);
-  for (const [key, value] of fieldRecordEntries(record)) {
-    lines.push(`    ${formatCreditField(key, value)}`);
-  }
-  return `${lines.join("\n")}\n`;
-}
-
-export function formatGalleryItemYaml(item: GalleryImage): string {
-  const lines = [`  - src: "${item.src}"`];
-  const credit = item.credit;
-  const fields = credit ? creditEntries(credit) : [];
-  if (fields.length > 0) {
-    lines.push("    credit:");
-    for (const [key, value] of fields) {
-      lines.push(`      ${formatCreditField(key, value)}`);
-    }
-  }
-  return `${lines.join("\n")}\n`;
 }
 
 export function galleryStorageKeys(gallery: GalleryImage[]): Set<string> {
@@ -740,6 +666,59 @@ export function updateGalleryPhotoCoordinatesInSpecies(
   );
 }
 
+function appendFieldRecordToMdx(
+  raw: string,
+  record: SpeciesFieldRecord,
+): string {
+  const parsed = matter(raw);
+  const records = normalizeFieldRecords(parsed.data.fieldRecords);
+  if (
+    records.some(
+      (entry) =>
+        entry.locality === record.locality &&
+        entry.lat === record.lat &&
+        entry.lng === record.lng &&
+        entry.date === record.date,
+    )
+  ) {
+    throw new Error(`Field record already exists: ${record.locality}`);
+  }
+
+  const newline = raw.includes("\r\n") ? "\r\n" : "\n";
+  const lines = raw.split(/\r?\n/);
+  const itemLines = formatFieldRecordYaml(record)
+    .replace(/\n$/, "")
+    .split("\n");
+  const range = findTopLevelRange(lines, "fieldRecords");
+
+  if (!range) {
+    const galleryRange = findGalleryRange(lines);
+    const commonName = lines.findIndex((line) => /^commonName:/.test(line));
+    const insertAt =
+      galleryRange?.end ?? (commonName === -1 ? lines.length : commonName);
+    lines.splice(insertAt, 0, "fieldRecords:", ...itemLines);
+  } else {
+    if (/^fieldRecords:\s*\[\]\s*$/.test(lines[range.start])) {
+      lines[range.start] = "fieldRecords:";
+    }
+    lines.splice(range.end, 0, ...itemLines);
+  }
+
+  const next = lines.join(newline);
+  const check = normalizeFieldRecords(matter(next).data.fieldRecords);
+  const added = check.find(
+    (entry) =>
+      entry.locality === record.locality &&
+      entry.lat === record.lat &&
+      entry.lng === record.lng &&
+      entry.date === record.date,
+  );
+  if (!added) {
+    throw new Error("Failed to append field record");
+  }
+  return next;
+}
+
 function assertGalleryPermutation(current: string[], next: string[]) {
   if (next.length !== current.length) {
     throw new Error("Gallery order must include every photo once");
@@ -798,20 +777,6 @@ function creditEntries(credit: PhotoCredit): Array<[string, number | string]> {
   return entries;
 }
 
-function fieldRecordEntries(
-  record: SpeciesFieldRecord,
-): Array<[string, string]> {
-  const entries: Array<[string, string]> = [];
-  if (record.date) entries.push(["date", record.date]);
-  if (record.observer) entries.push(["observer", record.observer]);
-  if (record.observerName) entries.push(["observerName", record.observerName]);
-  if (record.source) entries.push(["source", record.source]);
-  if (record.url) entries.push(["url", record.url]);
-  if (record.note) entries.push(["note", record.note]);
-  if (record.evidence) entries.push(["evidence", record.evidence]);
-  return entries;
-}
-
 function findGalleryRange(
   lines: string[],
 ): null | { end: number; start: number } {
@@ -865,6 +830,19 @@ function formatCreditField(key: string, value: number | string): string {
   if (typeof value === "number") return `${key}: ${value}`;
   if (key === "url") return `url: ${JSON.stringify(value)}`;
   return `${key}: ${yamlScalar(value)}`;
+}
+
+function formatGalleryItemYaml(item: GalleryImage): string {
+  const lines = [`  - src: "${item.src}"`];
+  const credit = item.credit;
+  const fields = credit ? creditEntries(credit) : [];
+  if (fields.length > 0) {
+    lines.push("    credit:");
+    for (const [key, value] of fields) {
+      lines.push(`      ${formatCreditField(key, value)}`);
+    }
+  }
+  return `${lines.join("\n")}\n`;
 }
 
 function galleryItemSrc(lines: string[]): null | string {
@@ -1088,16 +1066,4 @@ function withPhotoCoordinates(
     next.lng = coordinates.lng;
   }
   return Object.keys(next).length > 0 ? next : undefined;
-}
-
-function yamlScalar(value: string): string {
-  if (value === "") return '""';
-  if (
-    /^\d/.test(value) ||
-    /[:#{}[\],&*!|>'"%@`]/.test(value) ||
-    /^\s|\s$/.test(value)
-  ) {
-    return JSON.stringify(value);
-  }
-  return value;
 }

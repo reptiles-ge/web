@@ -210,6 +210,9 @@ npm run lint
 npm run doctor           # React Doctor health scan
 npm run doctor:changed   # only issues introduced vs the base branch
 npm run species:compile
+npm run i18n:check       # locale key parity + ICU argument check (KA is the source)
+npm run i18n:unused      # report only: dynamic keys show up as false positives
+npm run cpd              # jscpd copy-paste scan, fails above the .jscpd.json threshold
 ```
 
 `npx tsc --noEmit` after routing or catalog changes (run `species:compile` first if the generated catalog is missing).

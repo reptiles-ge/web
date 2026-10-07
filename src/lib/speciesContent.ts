@@ -85,22 +85,17 @@ export function getSpeciesIdentificationPhoto(species: Species) {
   );
 }
 
-export function hasRealSpeciesPhotos(species: Species) {
-  if (!isPlaceholderMedia(species.image)) return true;
-  if (species.mobileImage && !isPlaceholderMedia(species.mobileImage)) {
-    return true;
-  }
-  return species.gallery.some((item) => !isPlaceholderMedia(item.src));
-}
-
 export function isPlaceholderMedia(src: null | string | undefined) {
   if (!src) return true;
   return PLACEHOLDER_MEDIA.some((item) => src.includes(item));
 }
 
-export function isPlaceholderStatValue(value: string) {
-  const normalized = value.trim().toLowerCase();
-  return PLACEHOLDER_STAT_VALUES.some((item) => normalized === item);
+function hasRealSpeciesPhotos(species: Species) {
+  if (!isPlaceholderMedia(species.image)) return true;
+  if (species.mobileImage && !isPlaceholderMedia(species.mobileImage)) {
+    return true;
+  }
+  return species.gallery.some((item) => !isPlaceholderMedia(item.src));
 }
 
 function isHeroSource(
@@ -112,6 +107,11 @@ function isHeroSource(
     matchesCoverSource(desktopHeroSrc ?? "", src) ||
     matchesCoverSource(mobileHeroSrc ?? "", src)
   );
+}
+
+function isPlaceholderStatValue(value: string) {
+  const normalized = value.trim().toLowerCase();
+  return PLACEHOLDER_STAT_VALUES.some((item) => normalized === item);
 }
 
 const SAFETY_STAT_LABELS = new Set([

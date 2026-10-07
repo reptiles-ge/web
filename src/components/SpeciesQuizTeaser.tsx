@@ -14,7 +14,7 @@ import { cn } from "@/lib/cn";
 import { OPTION_MARKS } from "@/lib/quizOptionMarks";
 import { quizHref } from "@/lib/quizzes";
 
-export type SpeciesQuizTeaserCopy = {
+type SpeciesQuizTeaserCopy = {
   body: string;
   correct: string;
   cta: string;
