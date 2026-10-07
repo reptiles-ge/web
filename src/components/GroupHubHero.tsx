@@ -77,7 +77,9 @@ export async function GroupHubHero({
               ]}
             />
 
-            {hubId === "scorpions" ||
+            {hubId === "amphibians" ||
+            hubId === "birds" ||
+            hubId === "scorpions" ||
             hubId === "snakes" ||
             hubId === "lizards" ||
             hubId === "turtles" ? null : (
