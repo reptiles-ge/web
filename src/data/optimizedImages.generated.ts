@@ -1565,6 +1565,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1280],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/columba-livia-floyd-1.jpg": {
+    "path": "columba-livia-floyd-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/columba-livia-giorgi-1.jpg": {
     "path": "columba-livia-giorgi-1",
     "width": 2048,
