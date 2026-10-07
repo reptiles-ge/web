@@ -21528,6 +21528,101 @@
       ],
       "updatedAt": "2026-10-07T17:07:03.674Z"
     },
+    "darevskia-derjugini-kirill-1.jpg": {
+      "sourceHash": "76f0d0f90c9bb6ffe21b6e2b78d62cce048ff424127b2a0e63c70f7bb118b119",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-derjugini-kirill-1.jpg",
+      "originalSize": 423128,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-derjugini-kirill-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 7959
+        },
+        {
+          "key": "optimized/darevskia-derjugini-kirill-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12254
+        },
+        {
+          "key": "optimized/darevskia-derjugini-kirill-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 10814
+        },
+        {
+          "key": "optimized/darevskia-derjugini-kirill-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 16892
+        },
+        {
+          "key": "optimized/darevskia-derjugini-kirill-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 22247
+        },
+        {
+          "key": "optimized/darevskia-derjugini-kirill-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 34442
+        },
+        {
+          "key": "optimized/darevskia-derjugini-kirill-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 31692
+        },
+        {
+          "key": "optimized/darevskia-derjugini-kirill-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 48494
+        },
+        {
+          "key": "optimized/darevskia-derjugini-kirill-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 58416
+        },
+        {
+          "key": "optimized/darevskia-derjugini-kirill-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 83454
+        },
+        {
+          "key": "optimized/darevskia-derjugini-kirill-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 136821
+        },
+        {
+          "key": "optimized/darevskia-derjugini-kirill-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 183920
+        }
+      ],
+      "updatedAt": "2026-10-07T17:13:49.455Z"
+    },
     "darevskia-derjugini-zauri-1.jpg": {
       "sourceHash": "fd762c34a6b901e0b4f57385657e52cb19325352ec4823bcc5a85f1dace62e3d",
       "configFingerprint": "a895f8e025dcc7fa",
