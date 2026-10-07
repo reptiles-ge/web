@@ -14111,6 +14111,101 @@
       ],
       "updatedAt": "2026-10-07T19:03:54.739Z"
     },
+    "columba-livia-ekaterina-1.jpg": {
+      "sourceHash": "28f197fb36c2f8380dd4a2b0f977cfa228763b9f8d49791aafe8dfc2ffe7e349",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "columba-livia-ekaterina-1.jpg",
+      "originalSize": 314311,
+      "width": 1280,
+      "height": 853,
+      "derivatives": [
+        {
+          "key": "optimized/columba-livia-ekaterina-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 17789
+        },
+        {
+          "key": "optimized/columba-livia-ekaterina-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 27984
+        },
+        {
+          "key": "optimized/columba-livia-ekaterina-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 25872
+        },
+        {
+          "key": "optimized/columba-livia-ekaterina-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 40836
+        },
+        {
+          "key": "optimized/columba-livia-ekaterina-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 53281
+        },
+        {
+          "key": "optimized/columba-livia-ekaterina-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 88158
+        },
+        {
+          "key": "optimized/columba-livia-ekaterina-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 73433
+        },
+        {
+          "key": "optimized/columba-livia-ekaterina-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 121786
+        },
+        {
+          "key": "optimized/columba-livia-ekaterina-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 126446
+        },
+        {
+          "key": "optimized/columba-livia-ekaterina-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 204596
+        },
+        {
+          "key": "optimized/columba-livia-ekaterina-1-1280.avif",
+          "format": "avif",
+          "width": 1280,
+          "height": 853,
+          "byteSize": 147587
+        },
+        {
+          "key": "optimized/columba-livia-ekaterina-1-1280.webp",
+          "format": "webp",
+          "width": 1280,
+          "height": 853,
+          "byteSize": 222868
+        }
+      ],
+      "updatedAt": "2026-10-07T19:05:18.245Z"
+    },
     "columba-palumbus-donsky-1.jpg": {
       "sourceHash": "a26ec52dfc57c216d4aca80a5de74789439325512d1ac58ed22030c004e5ec34",
       "configFingerprint": "409788ee46c653d8",
