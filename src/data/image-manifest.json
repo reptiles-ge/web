@@ -14206,6 +14206,101 @@
       ],
       "updatedAt": "2026-10-07T19:05:18.245Z"
     },
+    "columba-livia-giorgi-1.jpg": {
+      "sourceHash": "3df4c0f5d364286edff656ccff91863db5322294ed66c5d0db9b014ab0809e9b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "columba-livia-giorgi-1.jpg",
+      "originalSize": 502058,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/columba-livia-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6205
+        },
+        {
+          "key": "optimized/columba-livia-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 7620
+        },
+        {
+          "key": "optimized/columba-livia-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 8274
+        },
+        {
+          "key": "optimized/columba-livia-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 10350
+        },
+        {
+          "key": "optimized/columba-livia-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 16051
+        },
+        {
+          "key": "optimized/columba-livia-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 20164
+        },
+        {
+          "key": "optimized/columba-livia-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 23231
+        },
+        {
+          "key": "optimized/columba-livia-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 29464
+        },
+        {
+          "key": "optimized/columba-livia-giorgi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 47544
+        },
+        {
+          "key": "optimized/columba-livia-giorgi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 62470
+        },
+        {
+          "key": "optimized/columba-livia-giorgi-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 153641
+        },
+        {
+          "key": "optimized/columba-livia-giorgi-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 205158
+        }
+      ],
+      "updatedAt": "2026-10-07T19:07:56.902Z"
+    },
     "columba-livia-gogopopo-1.jpg": {
       "sourceHash": "134b3f0e43f97743c2d23a9f324e81ca715161adef665606ff2765ee8f987671",
       "configFingerprint": "409788ee46c653d8",
