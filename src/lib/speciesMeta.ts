@@ -116,6 +116,12 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
     ru: "Постельный клоп (Cimex lectularius) в Грузии",
     tr: "Tahta kurusu (Cimex lectularius) Gürcistan'da",
   },
+  "columba-livia": {
+    en: "Rock Dove (Columba livia) in Georgia | Identification and range",
+    ka: "გარეული მტრედი (Columba livia) საქართველოში — ამოცნობა",
+    ru: "Сизый голубь (Columba livia) в Грузии — как узнать",
+    tr: "Kaya güvercini (Columba livia) Gürcistan'da — tanıma",
+  },
   "columba-palumbus": {
     en: "Common woodpigeon (Columba palumbus) | Wood pigeon in Georgia",
     ka: "ქედანი (Columba palumbus) | ტყის მტრედი საქართველოში",
@@ -308,6 +314,12 @@ const SPECIES_META_DESCRIPTION_OVERRIDE: Partial<
     ka: "საწოლის ბაღლინჯო საქართველოში: გრემისა და ფიჩხოვნის დადასტურებული ჩანაწერები, ამოცნობის ნიშნები, სამალავები და ნაკბენის რეალური რისკი.",
     ru: "Постельный клоп в Грузии: подтверждённые находки у Греми и Пичховани, признаки, укрытия и последствия укусов.",
     tr: "Gürcistan'da tahta kurusu: Gremi ve Pichkhovani yakınındaki doğrulanmış kayıtlar, tanıma, saklanma yerleri ve ısırıklar.",
+  },
+  "columba-livia": {
+    en: "Rock Dove (Columba livia) breeds in Georgia year round. Identification, Alazani checklist evidence, habitat and differences from the woodpigeon.",
+    ka: "გარეული მტრედი (Columba livia) საქართველოში მთელი წლის განმავლობაში ბინადრობს და ბუდობს. ამოცნობა, ალაზნის სიის ჩანაწერი და განსხვავება ქედნისგან.",
+    ru: "Сизый голубь (Columba livia) живёт и гнездится в Грузии круглый год. Признаки, данные по Алазани и отличие от вяхиря.",
+    tr: "Kaya güvercini (Columba livia) Gürcistan'da yıl boyu yaşar ve ürer. Tanıma, Alazani listesi verileri ve tahtalıdan farkları.",
   },
   "dolichophis-schmidti": {
     ka: "წითელმუცელა მცურავი (Dolichophis schmidti) საქართველოში — ამოცნობის ნიშნები, აღმოსავლეთ საქართველოს ჰაბიტატები, ზომა, ქცევა და რამდენად საშიშია ადამიანისთვის.",
