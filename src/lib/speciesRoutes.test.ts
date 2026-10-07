@@ -210,11 +210,15 @@ describe("species routes", () => {
     );
   });
 
-  it("pairs turtle dove and woodpigeon for distant juvenile comparisons", () => {
+  it("keeps Rock Dove paired with woodpigeon but not turtle dove", () => {
+    expect(getSpeciesLookalikes("columba-livia")).toEqual([
+      "columba-palumbus",
+    ]);
     expect(getSpeciesLookalikes("streptopelia-turtur")).toEqual([
       "columba-palumbus",
     ]);
     expect(getSpeciesLookalikes("columba-palumbus")).toEqual([
+      "columba-livia",
       "streptopelia-turtur",
     ]);
   });
