@@ -99,7 +99,7 @@ const LOOKALIKES: Record<string, string[]> = {
     "darevskia-derjugini",
     "darevskia-mixta",
   ],
-  "darevskia-daghestanica": ["darevskia-caucasica", "darevskia-derjugini"],
+  "darevskia-daghestanica": ["darevskia-caucasica"],
   "darevskia-dahli": [
     "darevskia-portschinskii",
     "darevskia-armeniaca",
@@ -108,6 +108,8 @@ const LOOKALIKES: Record<string, string[]> = {
     "darevskia-praticola",
     "darevskia-pontica",
     "darevskia-mixta",
+    "darevskia-brauneri",
+    "darevskia-obscura",
   ],
   "darevskia-mixta": [
     "darevskia-clarkorum",
@@ -181,11 +183,7 @@ const LOOKALIKES: Record<string, string[]> = {
   ],
   "hyla-savignyi": ["hyla-orientalis", "pelophylax-ridibundus"],
   "jynx-torquilla": ["lanius-collurio"],
-  "lacerta-agilis": [
-    "lacerta-strigata",
-    "lacerta-media",
-    "darevskia-derjugini",
-  ],
+  "lacerta-agilis": ["lacerta-strigata", "lacerta-media"],
   "lacerta-media": ["lacerta-strigata", "lacerta-agilis"],
   "lacerta-strigata": [
     "lacerta-media",
