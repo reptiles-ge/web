@@ -14301,6 +14301,101 @@
       ],
       "updatedAt": "2026-10-07T19:08:53.777Z"
     },
+    "columba-livia-floyd-2.jpg": {
+      "sourceHash": "a376ed669ba8909d7837fe06fc36e58bb6c25c6f5f89bb123991c645f7f8b831",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "columba-livia-floyd-2.jpg",
+      "originalSize": 651460,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/columba-livia-floyd-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 13276
+        },
+        {
+          "key": "optimized/columba-livia-floyd-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 19976
+        },
+        {
+          "key": "optimized/columba-livia-floyd-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 19057
+        },
+        {
+          "key": "optimized/columba-livia-floyd-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 27346
+        },
+        {
+          "key": "optimized/columba-livia-floyd-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 38128
+        },
+        {
+          "key": "optimized/columba-livia-floyd-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 55300
+        },
+        {
+          "key": "optimized/columba-livia-floyd-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 53511
+        },
+        {
+          "key": "optimized/columba-livia-floyd-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 78602
+        },
+        {
+          "key": "optimized/columba-livia-floyd-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 97191
+        },
+        {
+          "key": "optimized/columba-livia-floyd-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 140176
+        },
+        {
+          "key": "optimized/columba-livia-floyd-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 246467
+        },
+        {
+          "key": "optimized/columba-livia-floyd-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 316138
+        }
+      ],
+      "updatedAt": "2026-10-07T19:09:58.127Z"
+    },
     "columba-livia-giorgi-1.jpg": {
       "sourceHash": "3df4c0f5d364286edff656ccff91863db5322294ed66c5d0db9b014ab0809e9b",
       "configFingerprint": "409788ee46c653d8",
