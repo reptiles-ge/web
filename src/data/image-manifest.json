@@ -57196,6 +57196,101 @@
       ],
       "updatedAt": "2026-10-07T12:47:28.866Z"
     },
+    "lacerta-agilis-elien-1.jpg": {
+      "sourceHash": "d57eab8a4f1c46b2148eb6c47c0961300b447a7b74f29cb90af71c7483ec2951",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lacerta-agilis-elien-1.jpg",
+      "originalSize": 354376,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/lacerta-agilis-elien-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 6081
+        },
+        {
+          "key": "optimized/lacerta-agilis-elien-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 8796
+        },
+        {
+          "key": "optimized/lacerta-agilis-elien-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 8294
+        },
+        {
+          "key": "optimized/lacerta-agilis-elien-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 12168
+        },
+        {
+          "key": "optimized/lacerta-agilis-elien-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 16520
+        },
+        {
+          "key": "optimized/lacerta-agilis-elien-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 25428
+        },
+        {
+          "key": "optimized/lacerta-agilis-elien-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 22829
+        },
+        {
+          "key": "optimized/lacerta-agilis-elien-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 35388
+        },
+        {
+          "key": "optimized/lacerta-agilis-elien-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 39505
+        },
+        {
+          "key": "optimized/lacerta-agilis-elien-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 60146
+        },
+        {
+          "key": "optimized/lacerta-agilis-elien-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 81887
+        },
+        {
+          "key": "optimized/lacerta-agilis-elien-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 121270
+        }
+      ],
+      "updatedAt": "2026-10-07T12:51:57.928Z"
+    },
     "lacerta-agilis-kseniia-1.jpg": {
       "sourceHash": "3aa4dc957aefae7593a6fd4cd50a35215d613d8d8c863271692d1f8e78656ce9",
       "configFingerprint": "409788ee46c653d8",
