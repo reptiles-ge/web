@@ -21433,6 +21433,101 @@
       ],
       "updatedAt": "2026-10-07T17:10:33.128Z"
     },
+    "darevskia-derjugini-greenstep-ias-1.jpg": {
+      "sourceHash": "ea2485f794a851b5307fe8e8c175af9554cda9227c84f85ad4446d07f5554273",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-derjugini-greenstep-ias-1.jpg",
+      "originalSize": 367609,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-derjugini-greenstep-ias-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 7379
+        },
+        {
+          "key": "optimized/darevskia-derjugini-greenstep-ias-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 11478
+        },
+        {
+          "key": "optimized/darevskia-derjugini-greenstep-ias-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 10199
+        },
+        {
+          "key": "optimized/darevskia-derjugini-greenstep-ias-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 15622
+        },
+        {
+          "key": "optimized/darevskia-derjugini-greenstep-ias-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 20654
+        },
+        {
+          "key": "optimized/darevskia-derjugini-greenstep-ias-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 31440
+        },
+        {
+          "key": "optimized/darevskia-derjugini-greenstep-ias-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 29017
+        },
+        {
+          "key": "optimized/darevskia-derjugini-greenstep-ias-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 44150
+        },
+        {
+          "key": "optimized/darevskia-derjugini-greenstep-ias-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 51126
+        },
+        {
+          "key": "optimized/darevskia-derjugini-greenstep-ias-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 79096
+        },
+        {
+          "key": "optimized/darevskia-derjugini-greenstep-ias-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 106809
+        },
+        {
+          "key": "optimized/darevskia-derjugini-greenstep-ias-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 165544
+        }
+      ],
+      "updatedAt": "2026-10-07T17:14:37.503Z"
+    },
     "darevskia-derjugini-herbert-1.jpg": {
       "sourceHash": "9492a9bdd26f84f7c6ee153b43721730b53cc718217708687034d9d23961745a",
       "configFingerprint": "409788ee46c653d8",
