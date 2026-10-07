@@ -62,8 +62,10 @@ import { rangeMap as ursusArctos } from "@/data/speciesRangeMaps/ursus-arctos";
 import { rangeMap as viperaDarevskii } from "@/data/speciesRangeMaps/vipera-darevskii";
 import { rangeMap as viperaDinniki } from "@/data/speciesRangeMaps/vipera-dinniki";
 import { rangeMap as viperaKaznakovi } from "@/data/speciesRangeMaps/vipera-kaznakovi";
+import { rangeMap as viperaRenardi } from "@/data/speciesRangeMaps/vipera-renardi";
 import { rangeMap as viperaTranscaucasiana } from "@/data/speciesRangeMaps/vipera-transcaucasiana";
 import { rangeMap as zamenisHohenackeri } from "@/data/speciesRangeMaps/zamenis-hohenackeri";
+import { rangeMap as zamenisLongissimus } from "@/data/speciesRangeMaps/zamenis-longissimus";
 
 export type { HalyomorphaRangeCopy } from "@/data/speciesRangeMaps/base";
 
@@ -132,6 +134,8 @@ export const INTERACTIVE_RANGE_MAPS: Partial<
   "vipera-darevskii": viperaDarevskii,
   "vipera-dinniki": viperaDinniki,
   "vipera-kaznakovi": viperaKaznakovi,
+  "vipera-renardi": viperaRenardi,
   "vipera-transcaucasiana": viperaTranscaucasiana,
   "zamenis-hohenackeri": zamenisHohenackeri,
+  "zamenis-longissimus": zamenisLongissimus,
 };
