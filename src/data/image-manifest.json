@@ -21813,6 +21813,101 @@
       ],
       "updatedAt": "2026-10-07T17:13:49.455Z"
     },
+    "darevskia-derjugini-kseniia-1.jpg": {
+      "sourceHash": "a755d859949bb7d3f074887201397063efd48bcf109aa913cf68593fb8be2411",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-derjugini-kseniia-1.jpg",
+      "originalSize": 346213,
+      "width": 1296,
+      "height": 972,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-derjugini-kseniia-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 16505
+        },
+        {
+          "key": "optimized/darevskia-derjugini-kseniia-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 27580
+        },
+        {
+          "key": "optimized/darevskia-derjugini-kseniia-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 23659
+        },
+        {
+          "key": "optimized/darevskia-derjugini-kseniia-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 39216
+        },
+        {
+          "key": "optimized/darevskia-derjugini-kseniia-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 48373
+        },
+        {
+          "key": "optimized/darevskia-derjugini-kseniia-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 79044
+        },
+        {
+          "key": "optimized/darevskia-derjugini-kseniia-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 67299
+        },
+        {
+          "key": "optimized/darevskia-derjugini-kseniia-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 106150
+        },
+        {
+          "key": "optimized/darevskia-derjugini-kseniia-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 118092
+        },
+        {
+          "key": "optimized/darevskia-derjugini-kseniia-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 176514
+        },
+        {
+          "key": "optimized/darevskia-derjugini-kseniia-1-1296.avif",
+          "format": "avif",
+          "width": 1296,
+          "height": 972,
+          "byteSize": 133815
+        },
+        {
+          "key": "optimized/darevskia-derjugini-kseniia-1-1296.webp",
+          "format": "webp",
+          "width": 1296,
+          "height": 972,
+          "byteSize": 193084
+        }
+      ],
+      "updatedAt": "2026-10-07T17:16:24.713Z"
+    },
     "darevskia-derjugini-zauri-1.jpg": {
       "sourceHash": "fd762c34a6b901e0b4f57385657e52cb19325352ec4823bcc5a85f1dace62e3d",
       "configFingerprint": "a895f8e025dcc7fa",

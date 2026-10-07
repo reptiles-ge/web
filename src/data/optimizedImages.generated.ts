@@ -2160,6 +2160,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/darevskia-derjugini-kseniia-1.jpg": {
+    "path": "darevskia-derjugini-kseniia-1",
+    "width": 1296,
+    "height": 972,
+    "widths": [320, 400, 640, 800, 1200, 1296],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/darevskia-derjugini-zauri-1.jpg": {
     "path": "darevskia-derjugini-zauri-1",
     "width": 1024,
