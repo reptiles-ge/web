@@ -1,0 +1,14 @@
+{
+  "gitignore": true,
+  "ignore": [
+    "**/*.generated.ts",
+    "**/*.test.ts",
+    "src/content/**",
+    "src/data/species-*.ts"
+  ],
+  "minLines": 10,
+  "minTokens": 80,
+  "path": ["src", "scripts"],
+  "reporters": ["console"],
+  "threshold": 2
+}
