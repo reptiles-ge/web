@@ -2104,6 +2104,69 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1616],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/darevskia-derjugini-arvidas-1.jpg": {
+    "path": "darevskia-derjugini-arvidas-1",
+    "width": 1542,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1542],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-derjugini-bertogcliment-1.jpg": {
+    "path": "darevskia-derjugini-bertogcliment-1",
+    "width": 1536,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-derjugini-butterfly-fly-1.jpg": {
+    "path": "darevskia-derjugini-butterfly-fly-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-derjugini-david-1.jpg": {
+    "path": "darevskia-derjugini-david-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-derjugini-david-2.jpg": {
+    "path": "darevskia-derjugini-david-2",
+    "width": 2048,
+    "height": 1356,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-derjugini-greenstep-ias-1.jpg": {
+    "path": "darevskia-derjugini-greenstep-ias-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-derjugini-herbert-1.jpg": {
+    "path": "darevskia-derjugini-herbert-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-derjugini-kirill-1.jpg": {
+    "path": "darevskia-derjugini-kirill-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-derjugini-kseniia-1.jpg": {
+    "path": "darevskia-derjugini-kseniia-1",
+    "width": 1296,
+    "height": 972,
+    "widths": [320, 400, 640, 800, 1200, 1296],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/darevskia-derjugini-zauri-1.jpg": {
     "path": "darevskia-derjugini-zauri-1",
     "width": 1024,

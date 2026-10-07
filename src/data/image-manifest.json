@@ -21053,6 +21053,861 @@
       ],
       "updatedAt": "2026-08-28T21:32:06.456Z"
     },
+    "darevskia-derjugini-arvidas-1.jpg": {
+      "sourceHash": "d7e287dfdf7c08d2c157b163a2d62863f78eb9b8b9e9efb7747293bcec43d496",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-derjugini-arvidas-1.jpg",
+      "originalSize": 340545,
+      "width": 1542,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-derjugini-arvidas-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 425,
+          "byteSize": 12677
+        },
+        {
+          "key": "optimized/darevskia-derjugini-arvidas-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 425,
+          "byteSize": 17832
+        },
+        {
+          "key": "optimized/darevskia-derjugini-arvidas-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 531,
+          "byteSize": 17161
+        },
+        {
+          "key": "optimized/darevskia-derjugini-arvidas-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 531,
+          "byteSize": 24348
+        },
+        {
+          "key": "optimized/darevskia-derjugini-arvidas-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 850,
+          "byteSize": 33071
+        },
+        {
+          "key": "optimized/darevskia-derjugini-arvidas-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 850,
+          "byteSize": 46930
+        },
+        {
+          "key": "optimized/darevskia-derjugini-arvidas-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1063,
+          "byteSize": 44145
+        },
+        {
+          "key": "optimized/darevskia-derjugini-arvidas-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1063,
+          "byteSize": 63202
+        },
+        {
+          "key": "optimized/darevskia-derjugini-arvidas-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1594,
+          "byteSize": 73022
+        },
+        {
+          "key": "optimized/darevskia-derjugini-arvidas-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1594,
+          "byteSize": 102548
+        },
+        {
+          "key": "optimized/darevskia-derjugini-arvidas-1-1542.avif",
+          "format": "avif",
+          "width": 1542,
+          "height": 2048,
+          "byteSize": 97729
+        },
+        {
+          "key": "optimized/darevskia-derjugini-arvidas-1-1542.webp",
+          "format": "webp",
+          "width": 1542,
+          "height": 2048,
+          "byteSize": 138702
+        }
+      ],
+      "updatedAt": "2026-10-07T17:12:49.439Z"
+    },
+    "darevskia-derjugini-bertogcliment-1.jpg": {
+      "sourceHash": "837cf96dc77d81b6f80d9d1b1fa35f587bbc37256138f319d5445a6d0f23eb15",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-derjugini-bertogcliment-1.jpg",
+      "originalSize": 420944,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-derjugini-bertogcliment-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 17172
+        },
+        {
+          "key": "optimized/darevskia-derjugini-bertogcliment-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 22888
+        },
+        {
+          "key": "optimized/darevskia-derjugini-bertogcliment-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 24060
+        },
+        {
+          "key": "optimized/darevskia-derjugini-bertogcliment-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 31012
+        },
+        {
+          "key": "optimized/darevskia-derjugini-bertogcliment-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 46186
+        },
+        {
+          "key": "optimized/darevskia-derjugini-bertogcliment-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 58756
+        },
+        {
+          "key": "optimized/darevskia-derjugini-bertogcliment-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 62307
+        },
+        {
+          "key": "optimized/darevskia-derjugini-bertogcliment-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 78848
+        },
+        {
+          "key": "optimized/darevskia-derjugini-bertogcliment-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 104600
+        },
+        {
+          "key": "optimized/darevskia-derjugini-bertogcliment-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 130048
+        },
+        {
+          "key": "optimized/darevskia-derjugini-bertogcliment-1-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 145171
+        },
+        {
+          "key": "optimized/darevskia-derjugini-bertogcliment-1-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 179738
+        }
+      ],
+      "updatedAt": "2026-10-07T17:08:57.191Z"
+    },
+    "darevskia-derjugini-butterfly-fly-1.jpg": {
+      "sourceHash": "1f477cce76f1ee82d8b11c1a58e815f370745679b5448d94e5b7a0d5b54c8f59",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-derjugini-butterfly-fly-1.jpg",
+      "originalSize": 1071387,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-derjugini-butterfly-fly-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 22257
+        },
+        {
+          "key": "optimized/darevskia-derjugini-butterfly-fly-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 34520
+        },
+        {
+          "key": "optimized/darevskia-derjugini-butterfly-fly-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 33476
+        },
+        {
+          "key": "optimized/darevskia-derjugini-butterfly-fly-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 52446
+        },
+        {
+          "key": "optimized/darevskia-derjugini-butterfly-fly-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 79916
+        },
+        {
+          "key": "optimized/darevskia-derjugini-butterfly-fly-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 124682
+        },
+        {
+          "key": "optimized/darevskia-derjugini-butterfly-fly-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 122484
+        },
+        {
+          "key": "optimized/darevskia-derjugini-butterfly-fly-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 190250
+        },
+        {
+          "key": "optimized/darevskia-derjugini-butterfly-fly-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 230174
+        },
+        {
+          "key": "optimized/darevskia-derjugini-butterfly-fly-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 368186
+        },
+        {
+          "key": "optimized/darevskia-derjugini-butterfly-fly-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 453336
+        },
+        {
+          "key": "optimized/darevskia-derjugini-butterfly-fly-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 750396
+        }
+      ],
+      "updatedAt": "2026-10-07T17:15:36.231Z"
+    },
+    "darevskia-derjugini-david-1.jpg": {
+      "sourceHash": "be75d318d8106283eb00380250c6e390208366fc76509cc42a6a8a793ab252b8",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-derjugini-david-1.jpg",
+      "originalSize": 487420,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-derjugini-david-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10582
+        },
+        {
+          "key": "optimized/darevskia-derjugini-david-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 15390
+        },
+        {
+          "key": "optimized/darevskia-derjugini-david-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 14629
+        },
+        {
+          "key": "optimized/darevskia-derjugini-david-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 21300
+        },
+        {
+          "key": "optimized/darevskia-derjugini-david-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 29459
+        },
+        {
+          "key": "optimized/darevskia-derjugini-david-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 44224
+        },
+        {
+          "key": "optimized/darevskia-derjugini-david-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 41780
+        },
+        {
+          "key": "optimized/darevskia-derjugini-david-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 63176
+        },
+        {
+          "key": "optimized/darevskia-derjugini-david-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 73640
+        },
+        {
+          "key": "optimized/darevskia-derjugini-david-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 113684
+        },
+        {
+          "key": "optimized/darevskia-derjugini-david-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 158308
+        },
+        {
+          "key": "optimized/darevskia-derjugini-david-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 244932
+        }
+      ],
+      "updatedAt": "2026-10-07T17:08:02.507Z"
+    },
+    "darevskia-derjugini-david-2.jpg": {
+      "sourceHash": "d698e2abe3b8d486e8ff28356b1b610812fb56a953cc61f2ed618a09aa1004c7",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-derjugini-david-2.jpg",
+      "originalSize": 194020,
+      "width": 2048,
+      "height": 1356,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-derjugini-david-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 212,
+          "byteSize": 4258
+        },
+        {
+          "key": "optimized/darevskia-derjugini-david-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 212,
+          "byteSize": 5898
+        },
+        {
+          "key": "optimized/darevskia-derjugini-david-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 265,
+          "byteSize": 5545
+        },
+        {
+          "key": "optimized/darevskia-derjugini-david-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 265,
+          "byteSize": 8132
+        },
+        {
+          "key": "optimized/darevskia-derjugini-david-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 424,
+          "byteSize": 10474
+        },
+        {
+          "key": "optimized/darevskia-derjugini-david-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 424,
+          "byteSize": 15426
+        },
+        {
+          "key": "optimized/darevskia-derjugini-david-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 530,
+          "byteSize": 13455
+        },
+        {
+          "key": "optimized/darevskia-derjugini-david-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 530,
+          "byteSize": 21024
+        },
+        {
+          "key": "optimized/darevskia-derjugini-david-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 795,
+          "byteSize": 21708
+        },
+        {
+          "key": "optimized/darevskia-derjugini-david-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 795,
+          "byteSize": 33852
+        },
+        {
+          "key": "optimized/darevskia-derjugini-david-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1356,
+          "byteSize": 42660
+        },
+        {
+          "key": "optimized/darevskia-derjugini-david-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1356,
+          "byteSize": 68090
+        }
+      ],
+      "updatedAt": "2026-10-07T17:10:33.128Z"
+    },
+    "darevskia-derjugini-greenstep-ias-1.jpg": {
+      "sourceHash": "ea2485f794a851b5307fe8e8c175af9554cda9227c84f85ad4446d07f5554273",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-derjugini-greenstep-ias-1.jpg",
+      "originalSize": 367609,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-derjugini-greenstep-ias-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 7379
+        },
+        {
+          "key": "optimized/darevskia-derjugini-greenstep-ias-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 11478
+        },
+        {
+          "key": "optimized/darevskia-derjugini-greenstep-ias-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 10199
+        },
+        {
+          "key": "optimized/darevskia-derjugini-greenstep-ias-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 15622
+        },
+        {
+          "key": "optimized/darevskia-derjugini-greenstep-ias-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 20654
+        },
+        {
+          "key": "optimized/darevskia-derjugini-greenstep-ias-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 31440
+        },
+        {
+          "key": "optimized/darevskia-derjugini-greenstep-ias-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 29017
+        },
+        {
+          "key": "optimized/darevskia-derjugini-greenstep-ias-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 44150
+        },
+        {
+          "key": "optimized/darevskia-derjugini-greenstep-ias-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 51126
+        },
+        {
+          "key": "optimized/darevskia-derjugini-greenstep-ias-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 79096
+        },
+        {
+          "key": "optimized/darevskia-derjugini-greenstep-ias-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 106809
+        },
+        {
+          "key": "optimized/darevskia-derjugini-greenstep-ias-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 165544
+        }
+      ],
+      "updatedAt": "2026-10-07T17:14:37.503Z"
+    },
+    "darevskia-derjugini-herbert-1.jpg": {
+      "sourceHash": "9492a9bdd26f84f7c6ee153b43721730b53cc718217708687034d9d23961745a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-derjugini-herbert-1.jpg",
+      "originalSize": 467995,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-derjugini-herbert-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 10386
+        },
+        {
+          "key": "optimized/darevskia-derjugini-herbert-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 15540
+        },
+        {
+          "key": "optimized/darevskia-derjugini-herbert-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 14742
+        },
+        {
+          "key": "optimized/darevskia-derjugini-herbert-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 21972
+        },
+        {
+          "key": "optimized/darevskia-derjugini-herbert-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 30386
+        },
+        {
+          "key": "optimized/darevskia-derjugini-herbert-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 46884
+        },
+        {
+          "key": "optimized/darevskia-derjugini-herbert-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 43057
+        },
+        {
+          "key": "optimized/darevskia-derjugini-herbert-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 65686
+        },
+        {
+          "key": "optimized/darevskia-derjugini-herbert-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 75335
+        },
+        {
+          "key": "optimized/darevskia-derjugini-herbert-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 110572
+        },
+        {
+          "key": "optimized/darevskia-derjugini-herbert-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 150666
+        },
+        {
+          "key": "optimized/darevskia-derjugini-herbert-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 215896
+        }
+      ],
+      "updatedAt": "2026-10-07T17:07:03.674Z"
+    },
+    "darevskia-derjugini-kirill-1.jpg": {
+      "sourceHash": "76f0d0f90c9bb6ffe21b6e2b78d62cce048ff424127b2a0e63c70f7bb118b119",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-derjugini-kirill-1.jpg",
+      "originalSize": 423128,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-derjugini-kirill-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 7959
+        },
+        {
+          "key": "optimized/darevskia-derjugini-kirill-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12254
+        },
+        {
+          "key": "optimized/darevskia-derjugini-kirill-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 10814
+        },
+        {
+          "key": "optimized/darevskia-derjugini-kirill-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 16892
+        },
+        {
+          "key": "optimized/darevskia-derjugini-kirill-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 22247
+        },
+        {
+          "key": "optimized/darevskia-derjugini-kirill-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 34442
+        },
+        {
+          "key": "optimized/darevskia-derjugini-kirill-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 31692
+        },
+        {
+          "key": "optimized/darevskia-derjugini-kirill-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 48494
+        },
+        {
+          "key": "optimized/darevskia-derjugini-kirill-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 58416
+        },
+        {
+          "key": "optimized/darevskia-derjugini-kirill-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 83454
+        },
+        {
+          "key": "optimized/darevskia-derjugini-kirill-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 136821
+        },
+        {
+          "key": "optimized/darevskia-derjugini-kirill-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 183920
+        }
+      ],
+      "updatedAt": "2026-10-07T17:13:49.455Z"
+    },
+    "darevskia-derjugini-kseniia-1.jpg": {
+      "sourceHash": "a755d859949bb7d3f074887201397063efd48bcf109aa913cf68593fb8be2411",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-derjugini-kseniia-1.jpg",
+      "originalSize": 346213,
+      "width": 1296,
+      "height": 972,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-derjugini-kseniia-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 16505
+        },
+        {
+          "key": "optimized/darevskia-derjugini-kseniia-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 27580
+        },
+        {
+          "key": "optimized/darevskia-derjugini-kseniia-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 23659
+        },
+        {
+          "key": "optimized/darevskia-derjugini-kseniia-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 39216
+        },
+        {
+          "key": "optimized/darevskia-derjugini-kseniia-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 48373
+        },
+        {
+          "key": "optimized/darevskia-derjugini-kseniia-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 79044
+        },
+        {
+          "key": "optimized/darevskia-derjugini-kseniia-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 67299
+        },
+        {
+          "key": "optimized/darevskia-derjugini-kseniia-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 106150
+        },
+        {
+          "key": "optimized/darevskia-derjugini-kseniia-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 118092
+        },
+        {
+          "key": "optimized/darevskia-derjugini-kseniia-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 176514
+        },
+        {
+          "key": "optimized/darevskia-derjugini-kseniia-1-1296.avif",
+          "format": "avif",
+          "width": 1296,
+          "height": 972,
+          "byteSize": 133815
+        },
+        {
+          "key": "optimized/darevskia-derjugini-kseniia-1-1296.webp",
+          "format": "webp",
+          "width": 1296,
+          "height": 972,
+          "byteSize": 193084
+        }
+      ],
+      "updatedAt": "2026-10-07T17:16:24.713Z"
+    },
     "darevskia-derjugini-zauri-1.jpg": {
       "sourceHash": "fd762c34a6b901e0b4f57385657e52cb19325352ec4823bcc5a85f1dace62e3d",
       "configFingerprint": "a895f8e025dcc7fa",
