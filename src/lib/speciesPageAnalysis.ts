@@ -190,6 +190,7 @@ const sharedFiles: Record<SpeciesAnalysisMode, string[]> = {
   lookalikes: ["src/lib/speciesRoutes.ts", "src/lib/speciesRoutes.test.ts"],
   records: [
     "src/components/map/SpeciesRangeMap.tsx",
+    "src/data/speciesRangeMaps.ts",
     "src/data/mapRegions.ts",
     "src/data/regions.test.ts",
     "src/lib/halyomorphaOccurrences.ts",

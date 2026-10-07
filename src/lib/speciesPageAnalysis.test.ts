@@ -114,6 +114,7 @@ describe("species page analysis file scope", () => {
     const files = [
       "src/content/species/natrix-natrix/ka.mdx",
       "src/components/map/SpeciesRangeMap.tsx",
+      "src/data/speciesRangeMaps.ts",
       "src/data/mapRegions.ts",
       "src/data/regions.test.ts",
       "src/lib/halyomorphaOccurrences.ts",
