@@ -1544,6 +1544,83 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 500],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/columba-livia-arvidas-1.jpg": {
+    "path": "columba-livia-arvidas-1",
+    "width": 1365,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1365],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/columba-livia-donsky-1.jpg": {
+    "path": "columba-livia-donsky-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/columba-livia-donsky-2.jpg": {
+    "path": "columba-livia-donsky-2",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/columba-livia-donsky-3.jpg": {
+    "path": "columba-livia-donsky-3",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/columba-livia-ekaterina-1.jpg": {
+    "path": "columba-livia-ekaterina-1",
+    "width": 1280,
+    "height": 853,
+    "widths": [320, 400, 640, 800, 1200, 1280],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/columba-livia-floyd-1.jpg": {
+    "path": "columba-livia-floyd-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/columba-livia-floyd-2.jpg": {
+    "path": "columba-livia-floyd-2",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/columba-livia-giorgi-1.jpg": {
+    "path": "columba-livia-giorgi-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/columba-livia-gogopopo-1.jpg": {
+    "path": "columba-livia-gogopopo-1",
+    "width": 937,
+    "height": 1171,
+    "widths": [320, 400, 640, 800, 937],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/columba-livia-hoiman-1.jpg": {
+    "path": "columba-livia-hoiman-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/columba-livia-mikhail-1.jpg": {
+    "path": "columba-livia-mikhail-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/columba-palumbus-donsky-1.jpg": {
     "path": "columba-palumbus-donsky-1",
     "width": 2048,

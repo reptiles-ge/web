@@ -75,6 +75,7 @@ describe("region speciesIds", () => {
     "gypaetus-barbatus",
     "gyps-fulvus",
     "neophron-percnopterus",
+    "columba-livia",
     "columba-palumbus",
     "streptopelia-turtur",
     "garrulus-glandarius",

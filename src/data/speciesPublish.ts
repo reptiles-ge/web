@@ -108,6 +108,7 @@ export const featuredSpeciesIds = [
   "coturnix-coturnix",
   "alectoris-chukar",
   "turdus-merula",
+  "columba-livia",
   "columba-palumbus",
   "streptopelia-turtur",
   "motacilla-alba",

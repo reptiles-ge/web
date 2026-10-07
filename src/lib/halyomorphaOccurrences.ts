@@ -55,12 +55,7 @@ export type HalyomorphaRegionSummary = {
 
 const DAHLI_OBSCURED_RECORD_NOTE =
   "Darevskia dahli: iNaturalist public coordinates obscured (~28 km)";
-const DERJUGINI_OBSCURED_RECORD_NOTE =
-  "Darevskia derjugini: iNaturalist public coordinates obscured (~28 km)";
-const OBSCURED_COORDINATE_NOTES = new Set([
-  DAHLI_OBSCURED_RECORD_NOTE,
-  DERJUGINI_OBSCURED_RECORD_NOTE,
-]);
+const OBSCURED_COORDINATE_NOTES = new Set([DAHLI_OBSCURED_RECORD_NOTE]);
 const MERTENSIELLA_OBSCURED_RECORD_NOTE =
   "Mertensiella caucasica: iNaturalist public coordinates obscured (~27 km)";
 const MERTENSIELLA_SOURCE_CONFIRMED_REGIONS = new Set<RegionPathId>([
