@@ -77,18 +77,6 @@ export async function GroupHubHero({
               ]}
             />
 
-            {hubId === "amphibians" ||
-            hubId === "birds" ||
-            hubId === "mammals" ||
-            hubId === "scorpions" ||
-            hubId === "spiders" ||
-            hubId === "snakes" ||
-            hubId === "lizards" ||
-            hubId === "turtles" ? null : (
-              <p className="font-display text-display-kicker font-semibold tracking-tight text-white/90">
-                {tShared(`hubs.${hubId}`)}
-              </p>
-            )}
             <h1
               className="text-balance-tight mt-3 max-w-4xl font-display text-display-hero font-semibold text-white sm:mt-4"
               {...contentEditorAttributes(
