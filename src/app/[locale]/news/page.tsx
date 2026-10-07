@@ -7,21 +7,18 @@ import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/JsonLd";
 import { NewsIndexPage } from "@/components/NewsIndexPage";
 import { getPublishedNewsArticles } from "@/data/news";
-import { openGraphLocale } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
-import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import {
   newsArticleUrl,
-  newsIndexAlternates,
+  newsIndexHref,
   newsIndexUrl,
   newsOgImageUrl,
 } from "@/lib/news";
+import { buildPageMetadata } from "@/lib/pageMetadata";
 import {
   absoluteUrl,
   localePath,
-  openGraphJpeg,
   organizationJsonLd,
-  siteConfig,
   siteEntityId,
 } from "@/lib/site";
 import { pageDateFields } from "@/lib/structuredDataDates";
@@ -41,39 +38,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const locale = localeParam as AppLocale;
   const t = await getTranslations({ locale, namespace: "news" });
-  const title = t("metaTitle");
-  const url = newsIndexUrl(locale);
-  const description = kaMetaDescriptionOverride(
+  return buildPageMetadata({
+    description: t("metaDescription"),
+    indexable: true,
     locale,
-    new URL(url).pathname,
-    t("metaDescription"),
-  );
-  const ogImage = newsOgImageUrl();
-
-  return {
-    alternates: newsIndexAlternates(locale),
-    description,
-    openGraph: {
-      description,
-      images: [openGraphJpeg(ogImage, title)],
-      locale: openGraphLocale(locale),
-      siteName: siteConfig.name,
-      title,
-      type: "website",
-      url,
-    },
-    robots: {
-      follow: true,
-      index: true,
-    },
-    title,
-    twitter: {
-      card: "summary_large_image",
-      description,
-      images: [ogImage],
-      title,
-    },
-  };
+    ogImageUrl: newsOgImageUrl(),
+    pagePath: newsIndexHref(),
+    title: t("metaTitle"),
+  });
 }
 
 export function generateStaticParams() {

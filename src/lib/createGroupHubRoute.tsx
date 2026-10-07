@@ -13,17 +13,14 @@ import { getPublishedNewsForHub } from "@/data/news";
 import { getCatalogSpeciesByGroup } from "@/data/speciesAtlas";
 import { images } from "@/data/speciesMedia";
 import { GROUP_HUB_SHARED_CLIENT_MESSAGE_NAMESPACES } from "@/i18n/clientMessages";
-import { georgiaPlaceName, openGraphLocale } from "@/i18n/localeMeta";
+import { georgiaPlaceName } from "@/i18n/localeMeta";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { GROUP_HUBS, type GroupHubId } from "@/lib/groupHubs";
-import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
+import { buildPageMetadata } from "@/lib/pageMetadata";
 import {
   absoluteUrl,
-  localeAlternates,
   localePath,
-  openGraphJpeg,
-  siteConfig,
   siteEntityId,
   speciesOgImageUrl,
   speciesPageUrl,
@@ -52,46 +49,20 @@ export function createGroupHubRoute(hubId: GroupHubId) {
     const title = t("metaTitle");
     const metadataTitle =
       locale === "ka" && hubId === "scorpions" ? { absolute: title } : title;
-    const path = localePath(locale, hub.path);
-    const description = kaMetaDescriptionOverride(
-      locale,
-      path,
-      t("metaDescription"),
-    );
-    const url = absoluteUrl(path);
     const catalog = getCatalogSpeciesByGroup(hub.group);
     const hero =
       catalog.find((item) => item.id === hub.heroSpeciesId) ?? catalog[0];
-    const ogImage = speciesOgImageUrl(hub.heroSpeciesId, hero?.image);
 
-    return {
-      alternates: localeAlternates(locale, hub.path),
-      description,
-      keywords: t("keywords")
-        .split(",")
-        .map((item) => item.trim())
-        .filter(Boolean),
-      openGraph: {
-        description,
-        images: [openGraphJpeg(ogImage, title)],
-        locale: openGraphLocale(locale),
-        siteName: siteConfig.name,
-        title,
-        type: "website",
-        url,
-      },
-      robots: {
-        follow: true,
-        index: true,
-      },
-      title: metadataTitle,
-      twitter: {
-        card: "summary_large_image",
-        description,
-        images: [ogImage],
-        title,
-      },
-    };
+    return buildPageMetadata({
+      description: t("metaDescription"),
+      indexable: true,
+      keywords: t("keywords"),
+      locale,
+      metadataTitle,
+      ogImageUrl: speciesOgImageUrl(hub.heroSpeciesId, hero?.image),
+      pagePath: hub.path,
+      title,
+    });
   }
 
   async function Page({ params }: Props) {

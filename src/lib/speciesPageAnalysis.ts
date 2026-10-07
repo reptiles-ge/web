@@ -10,6 +10,10 @@ import { validateEditorResult } from "@/lib/contentEditor";
 import { transformWithCodex } from "@/lib/contentEditorCodex";
 import { findSpeciesPullRequest } from "@/lib/contentEditorPullRequest";
 import { resolveEditorTarget } from "@/lib/contentEditorTarget";
+import {
+  createOrFindPullRequest,
+  isPullRequestUrl,
+} from "@/lib/pullRequestGit";
 import { getSpeciesTextFields } from "@/lib/speciesTextProcessing";
 
 const exec = promisify(execFile);
@@ -190,7 +194,7 @@ const sharedFiles: Record<SpeciesAnalysisMode, string[]> = {
   lookalikes: ["src/lib/speciesRoutes.ts", "src/lib/speciesRoutes.test.ts"],
   records: [
     "src/components/map/SpeciesRangeMap.tsx",
-    "src/data/speciesRangeMaps.ts",
+    "src/data/speciesRangeMaps/index.ts",
     "src/data/mapRegions.ts",
     "src/data/regions.test.ts",
     "src/lib/halyomorphaOccurrences.ts",
@@ -301,6 +305,8 @@ export async function runSpeciesWorkflow(
           const prompt = fillSpeciesPrompt(template, id);
           const output = path.join(directory, `${mode}-report.md`);
           const shared = new Set(sharedFiles[mode]);
+          if (mode === "records")
+            shared.add(`src/data/speciesRangeMaps/${id}.ts`);
           const stepFiles = allowedFiles.filter(
             (file) =>
               file.startsWith(`src/content/species/${id}/`) || shared.has(file),
@@ -422,7 +428,7 @@ export async function runSpeciesWorkflow(
           );
         });
       }
-      if (!/^https:\/\/github\.com\/[^\s]+\/pull\/\d+$/.test(pullRequestUrl))
+      if (!isPullRequestUrl(pullRequestUrl))
         throw new Error(
           `Pull request creation failed; completed changes remain on ${branch}`,
         );
@@ -451,6 +457,7 @@ export function selectSpeciesAnalysisFiles(
 ) {
   const prefix = `src/content/species/${id}/`;
   const shared = new Set(sharedFiles[mode]);
+  if (mode === "records") shared.add(`src/data/speciesRangeMaps/${id}.ts`);
   return files.filter(
     (file) =>
       (file.startsWith(prefix) &&
@@ -712,48 +719,19 @@ async function runAnalysis(
         body,
         `## Summary\n\n- ${modeConfig[mode].title} ${id}\n\n## Checks\n\n- Automated checks not run; owner will review\n\n## AI report\n\n${report.slice(0, 55000)}\n`,
       );
-      try {
-        pullRequestUrl = await run(
-          "gh",
-          [
-            "pr",
-            "create",
-            "--repo",
-            repository,
-            "--base",
-            base,
-            "--head",
-            branch,
-            "--title",
-            mode === "analysis"
-              ? `Analyze ${id} species page`
-              : `${modeConfig[mode].title} ${id}`,
-            "--body-file",
-            body,
-          ],
-          worktree,
-        );
-      } catch (error) {
-        pullRequestUrl = await run(
-          "gh",
-          [
-            "pr",
-            "view",
-            branch,
-            "--repo",
-            repository,
-            "--json",
-            "url",
-            "--jq",
-            ".url",
-          ],
-          worktree,
-        ).catch(() => {
-          throw error;
-        });
-      }
+      pullRequestUrl = await createOrFindPullRequest(run, {
+        base,
+        body,
+        branch,
+        repository,
+        title:
+          mode === "analysis"
+            ? `Analyze ${id} species page`
+            : `${modeConfig[mode].title} ${id}`,
+        worktree,
+      });
     }
-    if (!/^https:\/\/github\.com\/[^\s]+\/pull\/\d+$/.test(pullRequestUrl))
+    if (!isPullRequestUrl(pullRequestUrl))
       throw new Error("Pull request creation failed");
     return { pullRequestUrl, report };
   } finally {
@@ -761,11 +739,7 @@ async function runAnalysis(
       () => undefined,
     );
     await run("git", ["branch", "-D", branch]).catch(() => undefined);
-    if (
-      pushed &&
-      !existing &&
-      !/^https:\/\/github\.com\/[^\s]+\/pull\/\d+$/.test(pullRequestUrl)
-    ) {
+    if (pushed && !existing && !isPullRequestUrl(pullRequestUrl)) {
       await run("git", ["push", "origin", "--delete", branch]).catch(
         () => undefined,
       );

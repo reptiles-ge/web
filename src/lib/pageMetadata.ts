@@ -22,6 +22,7 @@ type PageMetadataInput = {
   indexable?: boolean;
   keywords?: string;
   locale: string;
+  metadataTitle?: Metadata["title"];
   ogImageUrl: string;
   openGraphImage?: OpenGraphImage;
   pagePath: Parameters<typeof localePath>[1];
@@ -34,6 +35,7 @@ export function buildPageMetadata({
   indexable,
   keywords,
   locale,
+  metadataTitle,
   ogImageUrl,
   openGraphImage,
   pagePath,
@@ -68,7 +70,7 @@ export function buildPageMetadata({
       url: absoluteUrl(path),
     },
     ...(indexable ? { robots: { follow: true, index: true } } : {}),
-    title,
+    title: metadataTitle ?? title,
     twitter: {
       card: "summary_large_image",
       description,

@@ -6,7 +6,10 @@ import type { ClusterGuideViewProps } from "@/lib/clusterGuides";
 import { ClusterContentSection } from "@/components/ClusterContentSection";
 import { ClusterGuideLead } from "@/components/ClusterGuideLead";
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
-import { ClusterStat } from "@/components/ClusterSectionIntro";
+import {
+  ClusterStat,
+  ClusterStatsBand,
+} from "@/components/ClusterSectionIntro";
 import { SpeciesIndexTable } from "@/components/SpeciesIndexTable";
 import { toSpeciesIndexRows } from "@/data/speciesCard";
 import { Link } from "@/i18n/navigation";
@@ -28,13 +31,11 @@ export async function FrogSpeciesIndexPage({
       heroSrc={heroSrc}
       locale={locale}
       stats={
-        <section className="border-b border-border bg-surface py-10 sm:py-12">
-          <div className="mx-auto grid max-w-[1400px] gap-8 px-6 sm:grid-cols-3 sm:gap-6 lg:px-10">
-            <ClusterStat label={t("statSpecies")} value={species.length} />
-            <ClusterStat label={t("statFamilies")} value={familyCount} />
-            <ClusterStat label={t("statExtra")} value={t("statExtraValue")} />
-          </div>
-        </section>
+        <ClusterStatsBand>
+          <ClusterStat label={t("statSpecies")} value={species.length} />
+          <ClusterStat label={t("statFamilies")} value={familyCount} />
+          <ClusterStat label={t("statExtra")} value={t("statExtraValue")} />
+        </ClusterStatsBand>
       }
     >
       <ClusterGuideLead

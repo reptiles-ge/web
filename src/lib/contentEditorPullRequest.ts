@@ -11,6 +11,10 @@ import {
   verifyEditorSelection,
 } from "@/lib/contentEditor";
 import { resolveEditorTarget } from "@/lib/contentEditorTarget";
+import {
+  createOrFindPullRequest,
+  isPullRequestUrl,
+} from "@/lib/pullRequestGit";
 
 const exec = promisify(execFile);
 const root = process.cwd();
@@ -217,46 +221,16 @@ async function createPullRequest(
         body,
         `## Summary\n\n- Edit ${edits.map((edit) => edit.field).join(", ")} for ${input.id} in KA, EN, RU and TR through the local content editor\n\n## Checks\n\n${batchSpeciesTexts ? "- Automated checks not run; owner will review" : "- pnpm run pretest\n- pnpm run typecheck"}\n`,
       );
-      try {
-        pullRequestUrl = await run(
-          "gh",
-          [
-            "pr",
-            "create",
-            "--repo",
-            repository,
-            "--base",
-            base,
-            "--head",
-            branch,
-            "--title",
-            `Edit ${input.id} ${edits.length > 1 ? "page texts" : input.field} in four locales`,
-            "--body-file",
-            body,
-          ],
-          worktree,
-        );
-      } catch (error) {
-        pullRequestUrl = await run(
-          "gh",
-          [
-            "pr",
-            "view",
-            branch,
-            "--repo",
-            repository,
-            "--json",
-            "url",
-            "--jq",
-            ".url",
-          ],
-          worktree,
-        ).catch(() => {
-          throw error;
-        });
-      }
+      pullRequestUrl = await createOrFindPullRequest(run, {
+        base,
+        body,
+        branch,
+        repository,
+        title: `Edit ${input.id} ${edits.length > 1 ? "page texts" : input.field} in four locales`,
+        worktree,
+      });
     }
-    if (!/^https:\/\/github\.com\/[^\s]+\/pull\/\d+$/.test(pullRequestUrl))
+    if (!isPullRequestUrl(pullRequestUrl))
       throw new Error("Pull request creation failed");
     console.info(
       "content-editor",
@@ -274,11 +248,7 @@ async function createPullRequest(
       () => undefined,
     );
     await run("git", ["branch", "-D", branch]).catch(() => undefined);
-    if (
-      pushed &&
-      !existing &&
-      !/^https:\/\/github\.com\/[^\s]+\/pull\/\d+$/.test(pullRequestUrl)
-    ) {
+    if (pushed && !existing && !isPullRequestUrl(pullRequestUrl)) {
       await run("git", ["push", "origin", "--delete", branch]).catch(
         () => undefined,
       );

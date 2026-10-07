@@ -1,6 +1,6 @@
 import type { SpeciesFieldRecord } from "@/data/speciesTypes";
 
-import { yamlScalar } from "@/lib/yamlScalar";
+import { formatFieldRecordYaml } from "@/lib/fieldRecordYaml";
 
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 const TOP_LEVEL_KEY = /^[A-Za-z][A-Za-z0-9]*:/;
@@ -149,26 +149,6 @@ export function replaceFieldRecordsInMdx(
   return lines.join(newline);
 }
 
-function fieldRecordEntries(
-  record: SpeciesFieldRecord,
-): Array<[string, string]> {
-  const entries: Array<[string, string]> = [];
-  if (record.date) entries.push(["date", record.date]);
-  if (record.observer) entries.push(["observer", record.observer]);
-  if (record.observerName) entries.push(["observerName", record.observerName]);
-  if (record.source && record.source !== "iNaturalist") {
-    entries.push(["source", record.source]);
-  }
-  if (record.url) entries.push(["url", record.url]);
-  if (record.note && !iNaturalistObservationId(record.note)) {
-    entries.push(["note", record.note]);
-  }
-  if (record.evidence && record.evidence !== "observation") {
-    entries.push(["evidence", record.evidence]);
-  }
-  return entries;
-}
-
 function findTopLevelRange(
   lines: string[],
   key: string,
@@ -190,24 +170,16 @@ function findTopLevelRange(
   return { end, start };
 }
 
-function formatFieldRecordYaml(record: SpeciesFieldRecord): string {
-  const lines = [`  - locality: ${yamlScalar(record.locality)}`];
-  lines.push(`    lat: ${record.lat}`);
-  lines.push(`    lng: ${record.lng}`);
-  for (const [key, value] of fieldRecordEntries(record)) {
-    lines.push(`    ${formatRecordField(key, value)}`);
-  }
-  return `${lines.join("\n")}\n`;
-}
-
-function formatRecordField(key: string, value: string): string {
-  if (key === "url") return `url: ${JSON.stringify(value)}`;
-  return `${key}: ${yamlScalar(value)}`;
-}
-
 function iNaturalistObservationId(value?: string) {
   const match = value?.match(/(?:observations\/|observation\s*#)(\d+)/i);
   return match?.[1];
+}
+
+function isNonDefaultINaturalistEntry(key: string, value: string) {
+  if (key === "source") return value !== "iNaturalist";
+  if (key === "note") return !iNaturalistObservationId(value);
+  if (key === "evidence") return value !== "observation";
+  return true;
 }
 
 function observationCoordinates(observation: INaturalistObservation) {
@@ -250,7 +222,9 @@ function recordsToYamlBlock(records: SpeciesFieldRecord[]) {
   return [
     "fieldRecords:",
     ...records.flatMap((record) =>
-      formatFieldRecordYaml(record).replace(/\n$/, "").split("\n"),
+      formatFieldRecordYaml(record, isNonDefaultINaturalistEntry)
+        .replace(/\n$/, "")
+        .split("\n"),
     ),
   ];
 }

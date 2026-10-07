@@ -29,7 +29,7 @@ import { SpiderBitePage } from "@/components/SpiderBitePage";
 import { SpiderVenomousPage } from "@/components/SpiderVenomousPage";
 import { TurtleIdentifyPage } from "@/components/TurtleIdentifyPage";
 import { getCatalogSpecies } from "@/data/species";
-import { georgiaPlaceName, openGraphLocale } from "@/i18n/localeMeta";
+import { georgiaPlaceName } from "@/i18n/localeMeta";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { type AppLocale, routing } from "@/i18n/routing";
 import {
@@ -38,13 +38,10 @@ import {
   type ClusterGuideViewProps,
 } from "@/lib/clusterGuides";
 import { GROUP_HUBS } from "@/lib/groupHubs";
-import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
+import { buildPageMetadata } from "@/lib/pageMetadata";
 import {
   absoluteUrl,
-  localeAlternates,
   localePath,
-  openGraphJpeg,
-  siteConfig,
   siteEntityId,
   speciesOgImageUrl,
   speciesPageUrl,
@@ -118,57 +115,27 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
       locale === "ka" && EXACT_KA_TITLE_GUIDES.has(guideId)
         ? { absolute: title }
         : title;
-    const path = localePath(locale, guide.pathname);
-    const description = kaMetaDescriptionOverride(
-      locale,
-      path,
-      t("metaDescription"),
-    );
-    const url = absoluteUrl(path);
     const catalog = getCatalogSpecies();
     const matched = catalog.filter(guide.matches);
     const hero =
       catalog.find((item) => item.id === guide.heroSpeciesId) ?? matched[0];
-    const ogImage = guide.heroImage
+    const ogImageUrl = guide.heroImage
       ? absoluteUrl(guide.heroImage)
       : speciesOgImageUrl(guide.heroSpeciesId, hero?.image);
-    const ogImageTag = guide.heroImage
-      ? {
-          alt: t("heroImageAlt"),
-          height: 630,
-          url: ogImage,
-          width: 1200,
-        }
-      : openGraphJpeg(ogImage, title);
 
-    return {
-      alternates: localeAlternates(locale, guide.pathname),
-      description,
-      keywords: t("keywords")
-        .split(",")
-        .map((item) => item.trim())
-        .filter(Boolean),
-      openGraph: {
-        description,
-        images: [ogImageTag],
-        locale: openGraphLocale(locale),
-        siteName: siteConfig.name,
-        title,
-        type: "website",
-        url,
-      },
-      robots: {
-        follow: true,
-        index: true,
-      },
-      title: metadataTitle,
-      twitter: {
-        card: "summary_large_image",
-        description,
-        images: [ogImage],
-        title,
-      },
-    };
+    return buildPageMetadata({
+      description: t("metaDescription"),
+      indexable: true,
+      keywords: t("keywords"),
+      locale,
+      metadataTitle,
+      ogImageUrl,
+      openGraphImage: guide.heroImage
+        ? { alt: t("heroImageAlt"), height: 630, url: ogImageUrl, width: 1200 }
+        : undefined,
+      pagePath: guide.pathname,
+      title,
+    });
   }
 
   async function Page({ params }: Props) {
