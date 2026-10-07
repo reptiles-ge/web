@@ -77,7 +77,8 @@ export function confirmedRecordThresholdForSpecies(speciesId: string) {
     speciesId === "mustela-nivalis" ||
     speciesId === "natrix-natrix" ||
     speciesId === "vipera-renardi" ||
-    speciesId === "zamenis-hohenackeri"
+    speciesId === "zamenis-hohenackeri" ||
+    speciesId === "zamenis-longissimus"
   )
     return 1;
   if (speciesId === "platyceps-najadum") return 3;
