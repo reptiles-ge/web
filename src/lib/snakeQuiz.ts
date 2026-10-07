@@ -33,31 +33,6 @@ const QUIZ_HINT_TRAIT_INDEX: Record<string, number> = {
   "vipera-dinniki": 1,
 };
 
-export function buildQuizHint(species: Species) {
-  const all = species.identification?.traits ?? [];
-  const preferredIndex = QUIZ_HINT_TRAIT_INDEX[species.id];
-  const preferred =
-    preferredIndex != null
-      ? stripSpeciesInlineLinks(all[preferredIndex]?.trim() ?? "")
-      : undefined;
-  if (preferred && !spoilsAnswer(preferred, species)) return preferred;
-
-  const traits = all.filter(
-    (trait) => trait.trim() && !spoilsAnswer(trait, species),
-  );
-  const picked = (traits.length > 0 ? traits : all)
-    .slice(0, 1)
-    .map((trait) => stripSpeciesInlineLinks(trait.trim()))
-    .filter(Boolean);
-  if (picked.length > 0) return picked.join(" ");
-
-  const habitat = species.stats.find((stat) =>
-    /ჰაბიტატი|habitat/i.test(stat.label),
-  )?.value;
-  if (habitat) return habitat;
-  return species.location;
-}
-
 export function getLizardQuizCatalog(species: Species[]): SnakeQuizSpecies[] {
   const catalog: SnakeQuizSpecies[] = [];
   for (const item of species) {
@@ -113,6 +88,31 @@ export function toSnakeQuizSpecies(species: Species): SnakeQuizSpecies {
     relatedIds: getRelatedSpecies(species.id, 8).map((item) => item.id),
     scientificName: species.scientificName,
   };
+}
+
+function buildQuizHint(species: Species) {
+  const all = species.identification?.traits ?? [];
+  const preferredIndex = QUIZ_HINT_TRAIT_INDEX[species.id];
+  const preferred =
+    preferredIndex != null
+      ? stripSpeciesInlineLinks(all[preferredIndex]?.trim() ?? "")
+      : undefined;
+  if (preferred && !spoilsAnswer(preferred, species)) return preferred;
+
+  const traits = all.filter(
+    (trait) => trait.trim() && !spoilsAnswer(trait, species),
+  );
+  const picked = (traits.length > 0 ? traits : all)
+    .slice(0, 1)
+    .map((trait) => stripSpeciesInlineLinks(trait.trim()))
+    .filter(Boolean);
+  if (picked.length > 0) return picked.join(" ");
+
+  const habitat = species.stats.find((stat) =>
+    /ჰაბიტატი|habitat/i.test(stat.label),
+  )?.value;
+  if (habitat) return habitat;
+  return species.location;
 }
 
 function spoilsAnswer(text: string, species: Species) {

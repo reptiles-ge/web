@@ -9,8 +9,6 @@ import {
   isVenomousDanger,
 } from "@/data/speciesAtlasMeta";
 
-export type AtlasDangerFilter = "all" | "harmless" | "venomous";
-
 export type AtlasFilters = {
   danger: AtlasDangerFilter;
   group: "all" | AnimalGroup;
@@ -18,6 +16,8 @@ export type AtlasFilters = {
   query: string;
   region: "all" | string;
 };
+
+type AtlasDangerFilter = "all" | "harmless" | "venomous";
 
 export const defaultAtlasFilters: AtlasFilters = {
   danger: "all",

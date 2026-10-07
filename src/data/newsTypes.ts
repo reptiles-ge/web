@@ -17,17 +17,6 @@ export type NewsArticle = {
   updatedAt?: string;
 };
 
-export type NewsArticleStatus = "draft" | "published";
-
-export type NewsLocaleCopy = {
-  dek: string;
-  lead: string;
-  metaDescription: string;
-  metaTitle: string;
-  sections: NewsSection[];
-  title: string;
-};
-
 export type NewsMark =
   | string
   | { href: string; label: string; type: "external" }
@@ -48,15 +37,26 @@ export type NewsPhoto = {
   src: string;
 };
 
-export type NewsSection = {
+export type NewsSectionBlock =
+  { parts: NewsMark[]; type: "p" } | { src: string; type: "figure" };
+
+type NewsArticleStatus = "draft" | "published";
+
+type NewsLocaleCopy = {
+  dek: string;
+  lead: string;
+  metaDescription: string;
+  metaTitle: string;
+  sections: NewsSection[];
+  title: string;
+};
+
+type NewsSection = {
   blocks: NewsSectionBlock[];
   heading: string;
 };
 
-export type NewsSectionBlock =
-  { parts: NewsMark[]; type: "p" } | { src: string; type: "figure" };
-
-export type NewsSource = {
+type NewsSource = {
   name: string;
   url: string;
 };

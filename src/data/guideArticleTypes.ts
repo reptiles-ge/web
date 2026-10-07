@@ -36,8 +36,6 @@ export type GuideArticleCopy<ImageKey extends string = string> = {
   title: string;
 };
 
-export type GuideArticleFaq = { answer: string; question: string };
-
 export type GuideArticleImage = {
   alt: Record<AppLocale, string>;
   credit?: Record<AppLocale, string>;
@@ -65,19 +63,6 @@ export type GuideArticleMessageKey =
   | "tickBite"
   | "waspNest";
 
-export type GuideArticleOgImage =
-  | `/og/images/guides/${string}.jpg`
-  | `https://cdn.reptiles.ge/og/images/guides/${string}.jpg`
-  | `https://cdn.reptiles.ge/v2/og/images/guides/${string}.jpg`;
-
-export type GuideArticleSearch = {
-  icon: SearchIcon;
-  keywords: string[];
-  rank?: number;
-  subtitle: Record<AppLocale, string>;
-  title: Record<AppLocale, string>;
-};
-
 export type GuideArticleSection<ImageKey extends string = string> = {
   heading: string;
   image?: ImageKey;
@@ -93,6 +78,21 @@ export type GuideArticleSource = {
   name: string;
   supports: Record<AppLocale, string>;
   url: string;
+};
+
+type GuideArticleFaq = { answer: string; question: string };
+
+type GuideArticleOgImage =
+  | `/og/images/guides/${string}.jpg`
+  | `https://cdn.reptiles.ge/og/images/guides/${string}.jpg`
+  | `https://cdn.reptiles.ge/v2/og/images/guides/${string}.jpg`;
+
+type GuideArticleSearch = {
+  icon: SearchIcon;
+  keywords: string[];
+  rank?: number;
+  subtitle: Record<AppLocale, string>;
+  title: Record<AppLocale, string>;
 };
 
 export function defineGuideArticle<ImageKey extends string = never>(

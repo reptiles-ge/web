@@ -4,7 +4,9 @@ import { X } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useEffectEvent, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
+import "leaflet/dist/leaflet.css";
 
+import "@/components/map/halyomorphaRangeMap.css";
 import {
   createHalyomorphaRangeMap,
   type HalyomorphaRangeMapEngine,

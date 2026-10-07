@@ -10,7 +10,7 @@ pnpm seo:audit:gsc
 pnpm seo:audit:ga4
 pnpm seo:audit:geo
 pnpm seo:audit:technical
-pnpm seo:audit:url -- --url=https://reptiles.ge/gvelebi/giurza
+pnpm seo:audit -- --url=https://reptiles.ge/gvelebi/giurza
 pnpm seo:serp -- --query="გიურზა საქართველოში"
 pnpm seo:selfcheck
 ```

@@ -9,13 +9,12 @@ export type OptimizedImageEntry = {
   widths: number[];
 };
 
-export type OptimizedImageFormat = "avif" | "webp";
+type OptimizedImageFormat = "avif" | "webp";
 
-export const OPTIMIZED_IMAGE_MIME_TYPES: Record<OptimizedImageFormat, string> =
-  {
-    avif: "image/avif",
-    webp: "image/webp",
-  };
+const OPTIMIZED_IMAGE_MIME_TYPES: Record<OptimizedImageFormat, string> = {
+  avif: "image/avif",
+  webp: "image/webp",
+};
 
 export type PictureSource = {
   key: string;
@@ -42,18 +41,6 @@ export function optimizedImgSrc(src: string, minWidth = 1200): string {
     entry.widths.find((item) => item >= minWidth) ??
     entry.widths[entry.widths.length - 1];
   return `${entry.baseUrl ?? optimizedBaseUrl}${entry.path}-${width}.${format}`;
-}
-
-export function optimizedSrcSet(
-  entry: OptimizedImageEntry,
-  format: OptimizedImageFormat,
-): string {
-  return entry.widths
-    .map(
-      (width) =>
-        `${entry.baseUrl ?? optimizedBaseUrl}${entry.path}-${width}.${format} ${width}w`,
-    )
-    .join(", ");
 }
 
 export function pictureSources(
@@ -93,4 +80,16 @@ export function srcSetPreloadUrl(srcSet: string) {
     candidates[candidates.length - 1]?.url ??
     candidates[0]?.url
   );
+}
+
+function optimizedSrcSet(
+  entry: OptimizedImageEntry,
+  format: OptimizedImageFormat,
+): string {
+  return entry.widths
+    .map(
+      (width) =>
+        `${entry.baseUrl ?? optimizedBaseUrl}${entry.path}-${width}.${format} ${width}w`,
+    )
+    .join(", ");
 }

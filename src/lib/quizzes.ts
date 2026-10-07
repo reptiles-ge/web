@@ -15,19 +15,19 @@ export type QuizDefinition = {
   slugs?: Record<AppLocale, string>;
   status: QuizStatus;
 };
-export type QuizGenerator = "lizard" | "snake";
-export type QuizGroup = "lizard" | "snake" | "turtle";
 export type QuizHref = {
   params: { slug: string };
   pathname: "/quiz/[slug]";
 };
-export type QuizId = "lizard" | "snake" | "turtle";
-
 export type QuizMessageKey = QuizId;
+type QuizGenerator = "lizard" | "snake";
+type QuizGroup = "lizard" | "snake" | "turtle";
 
-export type QuizStatus = "live" | "soon";
+type QuizId = "lizard" | "snake" | "turtle";
 
-export const QUIZ_INDEX = [
+type QuizStatus = "live" | "soon";
+
+const QUIZ_INDEX = [
   {
     generator: "snake",
     group: "snake",
@@ -78,10 +78,6 @@ export type LiveQuizDefinition = Extract<
   { status: "live" }
 >;
 
-export function getQuizById(id: string) {
-  return QUIZ_INDEX.find((quiz) => quiz.id === id);
-}
-
 export function liveQuizzes() {
   return QUIZ_INDEX.filter(
     (quiz): quiz is LiveQuizDefinition =>
@@ -109,4 +105,8 @@ export function quizStaticParams() {
 
 export function resolveQuizBySlug(locale: AppLocale, slug: string) {
   return liveQuizzes().find((quiz) => quiz.slugs[locale] === slug);
+}
+
+function getQuizById(id: string) {
+  return QUIZ_INDEX.find((quiz) => quiz.id === id);
 }

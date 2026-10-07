@@ -1,6 +1,6 @@
 import type { AppLocale } from "@/i18n/routing";
 
-export const PREFIXED_LOCALES = ["en", "ru", "tr"] as const;
+const PREFIXED_LOCALES = ["en", "ru", "tr"] as const;
 
 export type PrefixedLocale = (typeof PREFIXED_LOCALES)[number];
 

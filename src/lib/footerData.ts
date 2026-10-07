@@ -11,13 +11,13 @@ export type FooterData = {
   venomous: FooterSpeciesLink[];
 };
 
-export type FooterRegionLink = {
+type FooterRegionLink = {
   href: ReturnType<typeof regionHref>;
   id: string;
   name: string;
 };
 
-export type FooterSpeciesLink = {
+type FooterSpeciesLink = {
   commonName: string;
   href: SpeciesHref;
   id: string;

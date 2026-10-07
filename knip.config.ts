@@ -10,7 +10,6 @@ const config: KnipConfig = {
     "eslint-plugin-react-hooks",
     "sharp",
   ],
-  ignoreExportsUsedInFile: true,
   project: ["src/**/*.{ts,tsx,css}", "!src/i18n/global.ts", "scripts/**/*.ts"],
 };
 

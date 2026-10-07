@@ -6,8 +6,6 @@ export type GalleryImage = {
   src: string;
 };
 
-export type PhotoConfidence = "georgia-field" | "placeholder" | "range-typical";
-
 export type PhotoCredit = {
   date?: string;
   lat?: number;
@@ -109,3 +107,5 @@ export type SpeciesTranslation = {
   overview: string;
   stats: SpeciesStat[];
 };
+
+type PhotoConfidence = "georgia-field" | "placeholder" | "range-typical";

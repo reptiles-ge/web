@@ -18,7 +18,7 @@ export interface EditorPromptInput {
   selected: string;
 }
 
-export type RiskLevel = "Harmless" | "High" | "Moderate";
+type RiskLevel = "Harmless" | "High" | "Moderate";
 
 export function buildEditorPrompt(input: EditorPromptInput) {
   const withFlags = input.includeFlags === true;

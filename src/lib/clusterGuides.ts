@@ -7,7 +7,7 @@ import { getSpeciesById, type Species } from "@/data/species";
 import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlasMeta";
 import { type GroupHubId } from "@/lib/groupHubs";
 
-export const FROG_SPECIES_IDS = [
+const FROG_SPECIES_IDS = [
   "pelobates-syriacus",
   "pelodytes-caucasicus",
   "bufotes-viridis",
@@ -18,16 +18,16 @@ export const FROG_SPECIES_IDS = [
   "pelophylax-ridibundus",
 ] as const;
 
-export const NEWT_SPECIES_IDS = [
+const NEWT_SPECIES_IDS = [
   "mertensiella-caucasica",
   "lissotriton-lantzi",
   "ommatotriton-ophryticus",
   "triturus-karelinii",
 ] as const;
 
-export const TURTLE_LAND_IDS = ["testudo-graeca"] as const;
+const TURTLE_LAND_IDS = ["testudo-graeca"] as const;
 
-export const TURTLE_WATER_IDS = [
+const TURTLE_WATER_IDS = [
   "emys-orbicularis",
   "mauremys-caspica",
   "trachemys-scripta",
@@ -95,12 +95,12 @@ const largeSnakeIdSet = new Set<string>(LARGE_SNAKE_IDS);
 const turtleLandIdSet = new Set<string>(TURTLE_LAND_IDS);
 const turtleWaterIdSet = new Set<string>(TURTLE_WATER_IDS);
 
-export const HOUSE_LIZARD_IDS = [
+const HOUSE_LIZARD_IDS = [
   "tenuidactylus-caspius",
   "paralaudakia-caucasia",
 ] as const;
 
-export const YARD_CANID_IDS = [
+const YARD_CANID_IDS = [
   "canis-aureus",
   "vulpes-vulpes",
   "canis-lupus",
@@ -180,7 +180,7 @@ export type ClusterGuidePath =
   | "/turtles/tsqlis-kuebi"
   | "/turtles/xmelis-kuebi";
 
-export type ClusterMessageKey =
+type ClusterMessageKey =
   | "amphibianFrogs"
   | "amphibianFrogsIndex"
   | "amphibianIndex"
@@ -211,10 +211,6 @@ export function getRegionSnakeSpecies(region: Region) {
   return getRegionSpecies(region).filter(isSnakeSpecies);
 }
 
-export function isAmphibianSpecies(species: Species) {
-  return getSpeciesAtlasMeta(species.id).group === "amphibian";
-}
-
 export function isBirdSpecies(species: Species) {
   return getSpeciesAtlasMeta(species.id).group === "bird";
 }
@@ -225,10 +221,6 @@ export function isDarevskiaSpecies(species: Species) {
 
 export function isFrogSpecies(id: string) {
   return frogIdSet.has(id);
-}
-
-export function isInsectSpecies(species: Species) {
-  return getSpeciesAtlasMeta(species.id).group === "insect";
 }
 
 export function isLizardSpecies(species: Species) {
@@ -251,15 +243,23 @@ export function isSpiderSpecies(species: Species) {
   return getSpeciesAtlasMeta(species.id).group === "spider";
 }
 
-export function isTurtleSpecies(species: Species) {
-  return getSpeciesAtlasMeta(species.id).group === "turtle";
-}
-
 export function orderSpeciesByIds(species: Species[], ids: readonly string[]) {
   const map = new Map(species.map((item) => [item.id, item]));
   return ids
     .map((id) => map.get(id))
     .filter((item): item is Species => Boolean(item));
+}
+
+function isAmphibianSpecies(species: Species) {
+  return getSpeciesAtlasMeta(species.id).group === "amphibian";
+}
+
+function isInsectSpecies(species: Species) {
+  return getSpeciesAtlasMeta(species.id).group === "insect";
+}
+
+function isTurtleSpecies(species: Species) {
+  return getSpeciesAtlasMeta(species.id).group === "turtle";
 }
 
 export const CLUSTER_GUIDES: Record<ClusterGuideId, ClusterGuideConfig> = {

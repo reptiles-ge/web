@@ -1,6 +1,6 @@
 import type { DangerLevel } from "@/data/species";
 
-export const DANGER_PAGE_PATH = "/risk-to-humans" as const;
+const DANGER_PAGE_PATH = "/risk-to-humans" as const;
 
 export const DANGER_LEVEL_ORDER = [
   "High",

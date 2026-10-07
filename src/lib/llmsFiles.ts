@@ -9,8 +9,8 @@ import { type AppLocale, routing } from "@/i18n/routing";
 import { absoluteUrl } from "@/lib/site";
 import { speciesHref } from "@/lib/speciesRoutes";
 
-export const LLMS_FULL_PATH = "/llms-full.txt";
-export const LLMS_TXT_PATH = "/llms.txt";
+const LLMS_FULL_PATH = "/llms-full.txt";
+const LLMS_TXT_PATH = "/llms.txt";
 
 export const AI_CITATION_USER_AGENTS = [
   "GPTBot",
