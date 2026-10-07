@@ -1558,6 +1558,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/columba-livia-donsky-3.jpg": {
+    "path": "columba-livia-donsky-3",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/columba-livia-ekaterina-1.jpg": {
     "path": "columba-livia-ekaterina-1",
     "width": 1280,
