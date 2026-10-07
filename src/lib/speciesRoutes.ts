@@ -119,14 +119,13 @@ const LOOKALIKES: Record<string, string[]> = {
   "darevskia-pontica": [
     "darevskia-praticola",
     "darevskia-derjugini",
-    "lacerta-agilis",
   ],
   "darevskia-portschinskii": [
     "darevskia-dahli",
     "darevskia-obscura",
     "darevskia-valentini",
   ],
-  "darevskia-praticola": ["darevskia-pontica", "lacerta-agilis"],
+  "darevskia-praticola": ["darevskia-pontica"],
   "darevskia-raddei": ["darevskia-obscura"],
   "darevskia-valentini": ["darevskia-obscura", "darevskia-armeniaca"],
   "dolichophis-schmidti": [
@@ -241,7 +240,7 @@ const LOOKALIKES: Record<string, string[]> = {
     "falco-peregrinus",
   ],
   "phasianus-colchicus": ["coturnix-coturnix"],
-  "phoenicolacerta-laevis": ["darevskia-pontica", "lacerta-agilis"],
+  "phoenicolacerta-laevis": ["darevskia-pontica"],
   "pholcus-phalangioides": ["araneus-diadematus"],
   "pica-pica": ["corvus-corax"],
   "platyceps-najadum": [
