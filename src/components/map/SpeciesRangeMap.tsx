@@ -52,6 +52,7 @@ type InteractiveRangeMapConfig = {
   copy: Record<AppLocale, HalyomorphaRangeCopy>;
   iNaturalistTaxonId: number;
   rangeSource?: "map-regions" | "record-summary";
+  regionMetric?: "confirmed";
 };
 
 type SpeciesRangeMapProps = {
@@ -929,49 +930,50 @@ const INTERACTIVE_RANGE_MAPS: Partial<
       en: {
         ...HALYOMORPHA_RANGE_COPY.en,
         intro:
-          "The Artvin lizard map uses public iNaturalist photo observations in Georgia. Those public coordinates are obscured by about 28 km, so a point does not confirm a region. Regions come from the records-by-region table: only confirmed status counts as distribution; otherwise a region is not treated as part of the range. Record counts reflect observation effort, not population density.",
+          "The Artvin lizard map uses public iNaturalist photo observations in Georgia. Those public coordinates are obscured by about 28 km, so a point near a regional border is approximate. Regions come from the records-by-region table: five or more records confirm distribution; fewer records leave the region recorded only. Record counts reflect observation effort, not population density.",
         mapAria:
           "Artvin lizard observations and confirmed distribution regions on a map of Georgia",
         officialRegionLabel: "Confirmed distribution region",
         rangeTitle: "Where Artvin lizard distribution is confirmed in Georgia",
-        regionsMetricLabel: "regions with records",
+        regionsMetricLabel: "confirmed regions",
       },
       ka: {
         ...HALYOMORPHA_RANGE_COPY.ka,
         intro:
-          "ართვინის ხვლიკის რუკა საქართველოს iNaturalist-ის საჯარო ფოტოდაკვირვებებს ეყრდნობა. ეს საჯარო კოორდინატები დაახლოებით 28 კმ-ითაა დაფარული, ამიტომ წერტილი რეგიონს არ ადასტურებს. რეგიონები აღებულია ჩანაწერების რეგიონული ცხრილიდან: გავრცელებად ითვლება მხოლოდ დადასტურებული სტატუსი; სხვა შემთხვევაში რეგიონი გავრცელებულად არ ითვლება. ჩანაწერების რაოდენობა დაკვირვების ინტენსივობას ასახავს და არა პოპულაციის სიმჭიდროვეს.",
+          "ართვინის ხვლიკის რუკა საქართველოს iNaturalist-ის საჯარო ფოტოდაკვირვებებს ეყრდნობა. ეს საჯარო კოორდინატები დაახლოებით 28 კმ-ითაა დაფარული, ამიტომ საზღვართან მდებარე წერტილი მიახლოებითია. რეგიონები აღებულია ჩანაწერების რეგიონული ცხრილიდან: ხუთი ან მეტი ჩანაწერი გავრცელებას ადასტურებს; ნაკლები ჩანაწერის მქონე რეგიონი მხოლოდ დაფიქსირებულად რჩება. ჩანაწერების რაოდენობა დაკვირვების ინტენსივობას ასახავს და არა პოპულაციის სიმჭიდროვეს.",
         mapAria:
           "ართვინის ხვლიკის დაკვირვებები და დადასტურებული გავრცელების რეგიონები საქართველოს რუკაზე",
         officialRegionLabel: "დადასტურებული გავრცელების რეგიონი",
         rangeTitle:
           "სად არის ართვინის ხვლიკის გავრცელება დადასტურებული საქართველოში",
-        regionsMetricLabel: "რეგიონი ჩანაწერით",
+        regionsMetricLabel: "დადასტურებული რეგიონი",
       },
       ru: {
         ...HALYOMORPHA_RANGE_COPY.ru,
         intro:
-          "Карта артвинской ящерицы использует публичные фотонаблюдения iNaturalist в Грузии. Эти публичные координаты скрыты примерно на 28 км, поэтому точка не подтверждает регион. Регионы взяты из таблицы записей: распространением считается только подтверждённый статус; в остальных случаях регион распространением не считается. Число записей отражает активность наблюдателей, а не плотность популяции.",
+          "Карта артвинской ящерицы использует публичные фотонаблюдения iNaturalist в Грузии. Эти публичные координаты скрыты примерно на 28 км, поэтому точка у границы региона приблизительна. Регионы взяты из таблицы записей: пять и более записей подтверждают распространение; меньшее число оставляет регион только зафиксированным. Число записей отражает активность наблюдателей, а не плотность популяции.",
         mapAria:
           "Наблюдения артвинской ящерицы и регионы с подтверждённым распространением на карте Грузии",
         officialRegionLabel: "Регион с подтверждённым распространением",
         rangeTitle:
           "Где распространение артвинской ящерицы подтверждено в Грузии",
-        regionsMetricLabel: "регионов с записями",
+        regionsMetricLabel: "подтверждённых региона",
       },
       tr: {
         ...HALYOMORPHA_RANGE_COPY.tr,
         intro:
-          "Artvin kertenkelesi haritası Gürcistan'daki herkese açık iNaturalist fotoğraflı gözlemlerini kullanır. Bu açık koordinatlar yaklaşık 28 km gizlenmiştir, bu yüzden bir nokta bölgeyi doğrulamaz. Bölgeler, bölgelere göre kayıt tablosundan alınır: yalnızca doğrulanmış durum yayılış sayılır; aksi halde bölge yayılış sayılmaz. Kayıt sayısı nüfus yoğunluğunu değil, gözlem çabasını yansıtır.",
+          "Artvin kertenkelesi haritası Gürcistan'daki herkese açık iNaturalist fotoğraflı gözlemlerini kullanır. Bu açık koordinatlar yaklaşık 28 km gizlenmiştir, bu yüzden bölge sınırına yakın bir nokta yaklaşıktır. Bölgeler, bölgelere göre kayıt tablosundan alınır: beş veya daha fazla kayıt yayılışı doğrular; daha az kayıt bölgeyi yalnızca kaydedilmiş bırakır. Kayıt sayısı nüfus yoğunluğunu değil, gözlem çabasını yansıtır.",
         mapAria:
           "Artvin kertenkelesi gözlemleri ve Gürcistan'da yayılışı doğrulanmış bölgeler",
         officialRegionLabel: "Yayılışı doğrulanmış bölge",
         rangeTitle:
           "Artvin kertenkelesinin Gürcistan'da yayılışı nerede doğrulandı?",
-        regionsMetricLabel: "kayıt bulunan bölge",
+        regionsMetricLabel: "doğrulanmış bölge",
       },
     },
     iNaturalistTaxonId: 35387,
     rangeSource: "record-summary",
+    regionMetric: "confirmed",
   },
   "darevskia-obscura": {
     copy: {
@@ -2960,6 +2962,7 @@ export async function SpeciesRangeMap({
               )
             : highlightedIds
         }
+        regionMetric={interactiveRangeConfig.regionMetric}
         speciesId={speciesId}
         updatedAt={updatedAt}
       />
@@ -3037,6 +3040,7 @@ function HalyomorphaRangeSection({
   locale,
   occurrenceSummary,
   officialRegionIds,
+  regionMetric,
   speciesId,
   updatedAt,
 }: {
@@ -3047,6 +3051,7 @@ function HalyomorphaRangeSection({
   locale: AppLocale;
   occurrenceSummary: HalyomorphaOccurrenceSummary;
   officialRegionIds: string[];
+  regionMetric?: "confirmed";
   speciesId: string;
   updatedAt: string;
 }) {
@@ -3080,7 +3085,10 @@ function HalyomorphaRangeSection({
     { label: "", value: formatYearRange(occurrenceSummary) },
     {
       label: copy.regionsMetricLabel,
-      value: occurrenceSummary.regionsWithRecords.toLocaleString(locale),
+      value: (regionMetric === "confirmed"
+        ? officialRegionIds.length
+        : occurrenceSummary.regionsWithRecords
+      ).toLocaleString(locale),
     },
   ].filter((fact) => fact.value);
 
