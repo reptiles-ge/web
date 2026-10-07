@@ -46,6 +46,10 @@ describe("occurrenceStatusForCount", () => {
       confirmedRecordThresholdForSpecies("mustela-nivalis");
     expect(occurrenceStatusForCount(0, weaselThreshold)).toBe("recorded-only");
     expect(occurrenceStatusForCount(1, weaselThreshold)).toBe("confirmed");
+    const renardiThreshold =
+      confirmedRecordThresholdForSpecies("vipera-renardi");
+    expect(occurrenceStatusForCount(0, renardiThreshold)).toBe("recorded-only");
+    expect(occurrenceStatusForCount(1, renardiThreshold)).toBe("confirmed");
     const zamenisThreshold = confirmedRecordThresholdForSpecies(
       "zamenis-hohenackeri",
     );
