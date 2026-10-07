@@ -21053,6 +21053,101 @@
       ],
       "updatedAt": "2026-08-28T21:32:06.456Z"
     },
+    "darevskia-derjugini-arvidas-1.jpg": {
+      "sourceHash": "d7e287dfdf7c08d2c157b163a2d62863f78eb9b8b9e9efb7747293bcec43d496",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-derjugini-arvidas-1.jpg",
+      "originalSize": 340545,
+      "width": 1542,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-derjugini-arvidas-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 425,
+          "byteSize": 12677
+        },
+        {
+          "key": "optimized/darevskia-derjugini-arvidas-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 425,
+          "byteSize": 17832
+        },
+        {
+          "key": "optimized/darevskia-derjugini-arvidas-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 531,
+          "byteSize": 17161
+        },
+        {
+          "key": "optimized/darevskia-derjugini-arvidas-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 531,
+          "byteSize": 24348
+        },
+        {
+          "key": "optimized/darevskia-derjugini-arvidas-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 850,
+          "byteSize": 33071
+        },
+        {
+          "key": "optimized/darevskia-derjugini-arvidas-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 850,
+          "byteSize": 46930
+        },
+        {
+          "key": "optimized/darevskia-derjugini-arvidas-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1063,
+          "byteSize": 44145
+        },
+        {
+          "key": "optimized/darevskia-derjugini-arvidas-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1063,
+          "byteSize": 63202
+        },
+        {
+          "key": "optimized/darevskia-derjugini-arvidas-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1594,
+          "byteSize": 73022
+        },
+        {
+          "key": "optimized/darevskia-derjugini-arvidas-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1594,
+          "byteSize": 102548
+        },
+        {
+          "key": "optimized/darevskia-derjugini-arvidas-1-1542.avif",
+          "format": "avif",
+          "width": 1542,
+          "height": 2048,
+          "byteSize": 97729
+        },
+        {
+          "key": "optimized/darevskia-derjugini-arvidas-1-1542.webp",
+          "format": "webp",
+          "width": 1542,
+          "height": 2048,
+          "byteSize": 138702
+        }
+      ],
+      "updatedAt": "2026-10-07T17:12:49.439Z"
+    },
     "darevskia-derjugini-bertogcliment-1.jpg": {
       "sourceHash": "837cf96dc77d81b6f80d9d1b1fa35f587bbc37256138f319d5445a6d0f23eb15",
       "configFingerprint": "409788ee46c653d8",
