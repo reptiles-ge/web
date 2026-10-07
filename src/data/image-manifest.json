@@ -57101,6 +57101,101 @@
       ],
       "updatedAt": "2026-10-07T12:47:28.866Z"
     },
+    "lacerta-agilis-leekelai-1.jpg": {
+      "sourceHash": "8e0d352228926d642ca91bc53fee4b5df5ece26034f6cda83494338d4bbccae4",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lacerta-agilis-leekelai-1.jpg",
+      "originalSize": 325884,
+      "width": 1758,
+      "height": 1173,
+      "derivatives": [
+        {
+          "key": "optimized/lacerta-agilis-leekelai-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 214,
+          "byteSize": 8263
+        },
+        {
+          "key": "optimized/lacerta-agilis-leekelai-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 214,
+          "byteSize": 12324
+        },
+        {
+          "key": "optimized/lacerta-agilis-leekelai-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 12238
+        },
+        {
+          "key": "optimized/lacerta-agilis-leekelai-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 17658
+        },
+        {
+          "key": "optimized/lacerta-agilis-leekelai-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 24808
+        },
+        {
+          "key": "optimized/lacerta-agilis-leekelai-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 37016
+        },
+        {
+          "key": "optimized/lacerta-agilis-leekelai-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 33941
+        },
+        {
+          "key": "optimized/lacerta-agilis-leekelai-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 51094
+        },
+        {
+          "key": "optimized/lacerta-agilis-leekelai-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 60551
+        },
+        {
+          "key": "optimized/lacerta-agilis-leekelai-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 88924
+        },
+        {
+          "key": "optimized/lacerta-agilis-leekelai-1-1758.avif",
+          "format": "avif",
+          "width": 1758,
+          "height": 1173,
+          "byteSize": 104787
+        },
+        {
+          "key": "optimized/lacerta-agilis-leekelai-1-1758.webp",
+          "format": "webp",
+          "width": 1758,
+          "height": 1173,
+          "byteSize": 149166
+        }
+      ],
+      "updatedAt": "2026-10-07T12:48:20.115Z"
+    },
     "lacerta-agilis-mobile.jpg": {
       "sourceHash": "2e725c8c0fb7e1c0698298903976ec379d7feb7218390fc0ed87e207c3dbb525",
       "configFingerprint": "a895f8e025dcc7fa",

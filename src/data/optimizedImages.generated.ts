@@ -5065,6 +5065,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/lacerta-agilis-leekelai-1.jpg": {
+    "path": "lacerta-agilis-leekelai-1",
+    "width": 1758,
+    "height": 1173,
+    "widths": [320, 400, 640, 800, 1200, 1758],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/lacerta-agilis-mobile.jpg": {
     "path": "lacerta-agilis-mobile",
     "width": 2048,
