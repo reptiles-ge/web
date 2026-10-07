@@ -924,6 +924,55 @@ const INTERACTIVE_RANGE_MAPS: Partial<
     iNaturalistTaxonId: 73752,
     rangeSource: "record-summary",
   },
+  "darevskia-derjugini": {
+    copy: {
+      en: {
+        ...HALYOMORPHA_RANGE_COPY.en,
+        intro:
+          "The Artvin lizard map uses public iNaturalist photo observations in Georgia. Those public coordinates are obscured by about 28 km, so a point does not confirm a region. Regions come from the records-by-region table: only confirmed status counts as distribution; otherwise a region is not treated as part of the range. Record counts reflect observation effort, not population density.",
+        mapAria:
+          "Artvin lizard observations and confirmed distribution regions on a map of Georgia",
+        officialRegionLabel: "Confirmed distribution region",
+        rangeTitle: "Where Artvin lizard distribution is confirmed in Georgia",
+        regionsMetricLabel: "regions with records",
+      },
+      ka: {
+        ...HALYOMORPHA_RANGE_COPY.ka,
+        intro:
+          "ართვინის ხვლიკის რუკა საქართველოს iNaturalist-ის საჯარო ფოტოდაკვირვებებს ეყრდნობა. ეს საჯარო კოორდინატები დაახლოებით 28 კმ-ითაა დაფარული, ამიტომ წერტილი რეგიონს არ ადასტურებს. რეგიონები აღებულია ჩანაწერების რეგიონული ცხრილიდან: გავრცელებად ითვლება მხოლოდ დადასტურებული სტატუსი; სხვა შემთხვევაში რეგიონი გავრცელებულად არ ითვლება. ჩანაწერების რაოდენობა დაკვირვების ინტენსივობას ასახავს და არა პოპულაციის სიმჭიდროვეს.",
+        mapAria:
+          "ართვინის ხვლიკის დაკვირვებები და დადასტურებული გავრცელების რეგიონები საქართველოს რუკაზე",
+        officialRegionLabel: "დადასტურებული გავრცელების რეგიონი",
+        rangeTitle:
+          "სად არის ართვინის ხვლიკის გავრცელება დადასტურებული საქართველოში",
+        regionsMetricLabel: "რეგიონი ჩანაწერით",
+      },
+      ru: {
+        ...HALYOMORPHA_RANGE_COPY.ru,
+        intro:
+          "Карта артвинской ящерицы использует публичные фотонаблюдения iNaturalist в Грузии. Эти публичные координаты скрыты примерно на 28 км, поэтому точка не подтверждает регион. Регионы взяты из таблицы записей: распространением считается только подтверждённый статус; в остальных случаях регион распространением не считается. Число записей отражает активность наблюдателей, а не плотность популяции.",
+        mapAria:
+          "Наблюдения артвинской ящерицы и регионы с подтверждённым распространением на карте Грузии",
+        officialRegionLabel: "Регион с подтверждённым распространением",
+        rangeTitle:
+          "Где распространение артвинской ящерицы подтверждено в Грузии",
+        regionsMetricLabel: "регионов с записями",
+      },
+      tr: {
+        ...HALYOMORPHA_RANGE_COPY.tr,
+        intro:
+          "Artvin kertenkelesi haritası Gürcistan'daki herkese açık iNaturalist fotoğraflı gözlemlerini kullanır. Bu açık koordinatlar yaklaşık 28 km gizlenmiştir, bu yüzden bir nokta bölgeyi doğrulamaz. Bölgeler, bölgelere göre kayıt tablosundan alınır: yalnızca doğrulanmış durum yayılış sayılır; aksi halde bölge yayılış sayılmaz. Kayıt sayısı nüfus yoğunluğunu değil, gözlem çabasını yansıtır.",
+        mapAria:
+          "Artvin kertenkelesi gözlemleri ve Gürcistan'da yayılışı doğrulanmış bölgeler",
+        officialRegionLabel: "Yayılışı doğrulanmış bölge",
+        rangeTitle:
+          "Artvin kertenkelesinin Gürcistan'da yayılışı nerede doğrulandı?",
+        regionsMetricLabel: "kayıt bulunan bölge",
+      },
+    },
+    iNaturalistTaxonId: 35387,
+    rangeSource: "record-summary",
+  },
   "darevskia-obscura": {
     copy: {
       en: {

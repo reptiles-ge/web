@@ -80,6 +80,7 @@ describe("region speciesIds", () => {
     "garrulus-glandarius",
     "darevskia-caucasica",
     "darevskia-dahli",
+    "darevskia-derjugini",
     "darevskia-obscura",
     "eirenis-modestus",
     "elaphe-urartica",
