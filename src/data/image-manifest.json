@@ -13921,6 +13921,101 @@
       ],
       "updatedAt": "2026-09-23T12:21:58.354Z"
     },
+    "columba-livia-donsky-1.jpg": {
+      "sourceHash": "ae2422f70990ba860871f3e163cb6419ff3c9401f03ec22c234f30ab3ab31089",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "columba-livia-donsky-1.jpg",
+      "originalSize": 377251,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/columba-livia-donsky-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6544
+        },
+        {
+          "key": "optimized/columba-livia-donsky-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8604
+        },
+        {
+          "key": "optimized/columba-livia-donsky-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 9068
+        },
+        {
+          "key": "optimized/columba-livia-donsky-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 12056
+        },
+        {
+          "key": "optimized/columba-livia-donsky-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 18254
+        },
+        {
+          "key": "optimized/columba-livia-donsky-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 25024
+        },
+        {
+          "key": "optimized/columba-livia-donsky-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 25858
+        },
+        {
+          "key": "optimized/columba-livia-donsky-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 36918
+        },
+        {
+          "key": "optimized/columba-livia-donsky-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 49703
+        },
+        {
+          "key": "optimized/columba-livia-donsky-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 71376
+        },
+        {
+          "key": "optimized/columba-livia-donsky-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 121854
+        },
+        {
+          "key": "optimized/columba-livia-donsky-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 180036
+        }
+      ],
+      "updatedAt": "2026-10-07T19:02:38.747Z"
+    },
     "columba-palumbus-donsky-1.jpg": {
       "sourceHash": "a26ec52dfc57c216d4aca80a5de74789439325512d1ac58ed22030c004e5ec34",
       "configFingerprint": "409788ee46c653d8",
