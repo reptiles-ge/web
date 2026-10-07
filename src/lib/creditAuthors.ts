@@ -170,10 +170,6 @@ export function getCreditAuthorSpeciesIds(photos: CreditAuthorPhoto[]) {
   return ids;
 }
 
-export function getHomeContributorCards() {
-  return getCreditAuthorCards().slice(0, HOME_CONTRIBUTOR_LIMIT);
-}
-
 export function pickCreditAuthorPreviewPhotos(
   photos: CreditAuthorPhoto[],
   limit = HOME_CONTRIBUTOR_PREVIEW_COUNT,
