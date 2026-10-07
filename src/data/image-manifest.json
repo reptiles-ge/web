@@ -13921,6 +13921,101 @@
       ],
       "updatedAt": "2026-09-23T12:21:58.354Z"
     },
+    "columba-livia-arvidas-1.jpg": {
+      "sourceHash": "2060783962e41909635da919815d22403867613885b058569e250f10242267e4",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "columba-livia-arvidas-1.jpg",
+      "originalSize": 530963,
+      "width": 1365,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/columba-livia-arvidas-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 480,
+          "byteSize": 10597
+        },
+        {
+          "key": "optimized/columba-livia-arvidas-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 480,
+          "byteSize": 14324
+        },
+        {
+          "key": "optimized/columba-livia-arvidas-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 601,
+          "byteSize": 14661
+        },
+        {
+          "key": "optimized/columba-livia-arvidas-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 601,
+          "byteSize": 19988
+        },
+        {
+          "key": "optimized/columba-livia-arvidas-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 960,
+          "byteSize": 29791
+        },
+        {
+          "key": "optimized/columba-livia-arvidas-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 960,
+          "byteSize": 42084
+        },
+        {
+          "key": "optimized/columba-livia-arvidas-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1200,
+          "byteSize": 41585
+        },
+        {
+          "key": "optimized/columba-livia-arvidas-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1200,
+          "byteSize": 62816
+        },
+        {
+          "key": "optimized/columba-livia-arvidas-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1800,
+          "byteSize": 94686
+        },
+        {
+          "key": "optimized/columba-livia-arvidas-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1800,
+          "byteSize": 157738
+        },
+        {
+          "key": "optimized/columba-livia-arvidas-1-1365.avif",
+          "format": "avif",
+          "width": 1365,
+          "height": 2048,
+          "byteSize": 192398
+        },
+        {
+          "key": "optimized/columba-livia-arvidas-1-1365.webp",
+          "format": "webp",
+          "width": 1365,
+          "height": 2048,
+          "byteSize": 247900
+        }
+      ],
+      "updatedAt": "2026-10-07T19:12:50.009Z"
+    },
     "columba-livia-donsky-1.jpg": {
       "sourceHash": "ae2422f70990ba860871f3e163cb6419ff3c9401f03ec22c234f30ab3ab31089",
       "configFingerprint": "409788ee46c653d8",
