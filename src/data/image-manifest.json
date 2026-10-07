@@ -13921,6 +13921,1037 @@
       ],
       "updatedAt": "2026-09-23T12:21:58.354Z"
     },
+    "columba-livia-arvidas-1.jpg": {
+      "sourceHash": "2060783962e41909635da919815d22403867613885b058569e250f10242267e4",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "columba-livia-arvidas-1.jpg",
+      "originalSize": 530963,
+      "width": 1365,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/columba-livia-arvidas-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 480,
+          "byteSize": 10597
+        },
+        {
+          "key": "optimized/columba-livia-arvidas-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 480,
+          "byteSize": 14324
+        },
+        {
+          "key": "optimized/columba-livia-arvidas-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 601,
+          "byteSize": 14661
+        },
+        {
+          "key": "optimized/columba-livia-arvidas-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 601,
+          "byteSize": 19988
+        },
+        {
+          "key": "optimized/columba-livia-arvidas-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 960,
+          "byteSize": 29791
+        },
+        {
+          "key": "optimized/columba-livia-arvidas-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 960,
+          "byteSize": 42084
+        },
+        {
+          "key": "optimized/columba-livia-arvidas-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1200,
+          "byteSize": 41585
+        },
+        {
+          "key": "optimized/columba-livia-arvidas-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1200,
+          "byteSize": 62816
+        },
+        {
+          "key": "optimized/columba-livia-arvidas-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1800,
+          "byteSize": 94686
+        },
+        {
+          "key": "optimized/columba-livia-arvidas-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1800,
+          "byteSize": 157738
+        },
+        {
+          "key": "optimized/columba-livia-arvidas-1-1365.avif",
+          "format": "avif",
+          "width": 1365,
+          "height": 2048,
+          "byteSize": 192398
+        },
+        {
+          "key": "optimized/columba-livia-arvidas-1-1365.webp",
+          "format": "webp",
+          "width": 1365,
+          "height": 2048,
+          "byteSize": 247900
+        }
+      ],
+      "updatedAt": "2026-10-07T19:12:50.009Z"
+    },
+    "columba-livia-donsky-1.jpg": {
+      "sourceHash": "ae2422f70990ba860871f3e163cb6419ff3c9401f03ec22c234f30ab3ab31089",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "columba-livia-donsky-1.jpg",
+      "originalSize": 377251,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/columba-livia-donsky-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6544
+        },
+        {
+          "key": "optimized/columba-livia-donsky-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8604
+        },
+        {
+          "key": "optimized/columba-livia-donsky-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 9068
+        },
+        {
+          "key": "optimized/columba-livia-donsky-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 12056
+        },
+        {
+          "key": "optimized/columba-livia-donsky-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 18254
+        },
+        {
+          "key": "optimized/columba-livia-donsky-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 25024
+        },
+        {
+          "key": "optimized/columba-livia-donsky-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 25858
+        },
+        {
+          "key": "optimized/columba-livia-donsky-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 36918
+        },
+        {
+          "key": "optimized/columba-livia-donsky-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 49703
+        },
+        {
+          "key": "optimized/columba-livia-donsky-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 71376
+        },
+        {
+          "key": "optimized/columba-livia-donsky-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 121854
+        },
+        {
+          "key": "optimized/columba-livia-donsky-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 180036
+        }
+      ],
+      "updatedAt": "2026-10-07T19:02:38.747Z"
+    },
+    "columba-livia-donsky-2.jpg": {
+      "sourceHash": "6dd40bcc44f19260956b148d59c29bfb3860b192eb00034765945457283c2507",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "columba-livia-donsky-2.jpg",
+      "originalSize": 384414,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/columba-livia-donsky-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 7036
+        },
+        {
+          "key": "optimized/columba-livia-donsky-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9116
+        },
+        {
+          "key": "optimized/columba-livia-donsky-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 9921
+        },
+        {
+          "key": "optimized/columba-livia-donsky-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 12736
+        },
+        {
+          "key": "optimized/columba-livia-donsky-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 20313
+        },
+        {
+          "key": "optimized/columba-livia-donsky-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 27722
+        },
+        {
+          "key": "optimized/columba-livia-donsky-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 29645
+        },
+        {
+          "key": "optimized/columba-livia-donsky-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 41540
+        },
+        {
+          "key": "optimized/columba-livia-donsky-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 56678
+        },
+        {
+          "key": "optimized/columba-livia-donsky-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 81356
+        },
+        {
+          "key": "optimized/columba-livia-donsky-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 137246
+        },
+        {
+          "key": "optimized/columba-livia-donsky-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 199838
+        }
+      ],
+      "updatedAt": "2026-10-07T19:03:54.739Z"
+    },
+    "columba-livia-donsky-3.jpg": {
+      "sourceHash": "2472abae6012835d9838c39f81a163ea28a2c6f383c84515f1ed8bdb8bd3e11f",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "columba-livia-donsky-3.jpg",
+      "originalSize": 334122,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/columba-livia-donsky-3-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8837
+        },
+        {
+          "key": "optimized/columba-livia-donsky-3-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11764
+        },
+        {
+          "key": "optimized/columba-livia-donsky-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 12315
+        },
+        {
+          "key": "optimized/columba-livia-donsky-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 15944
+        },
+        {
+          "key": "optimized/columba-livia-donsky-3-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 23503
+        },
+        {
+          "key": "optimized/columba-livia-donsky-3-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 32262
+        },
+        {
+          "key": "optimized/columba-livia-donsky-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 31494
+        },
+        {
+          "key": "optimized/columba-livia-donsky-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 44688
+        },
+        {
+          "key": "optimized/columba-livia-donsky-3-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 52649
+        },
+        {
+          "key": "optimized/columba-livia-donsky-3-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 73206
+        },
+        {
+          "key": "optimized/columba-livia-donsky-3-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 104260
+        },
+        {
+          "key": "optimized/columba-livia-donsky-3-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 139402
+        }
+      ],
+      "updatedAt": "2026-10-07T19:10:56.001Z"
+    },
+    "columba-livia-ekaterina-1.jpg": {
+      "sourceHash": "28f197fb36c2f8380dd4a2b0f977cfa228763b9f8d49791aafe8dfc2ffe7e349",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "columba-livia-ekaterina-1.jpg",
+      "originalSize": 314311,
+      "width": 1280,
+      "height": 853,
+      "derivatives": [
+        {
+          "key": "optimized/columba-livia-ekaterina-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 17789
+        },
+        {
+          "key": "optimized/columba-livia-ekaterina-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 27984
+        },
+        {
+          "key": "optimized/columba-livia-ekaterina-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 25872
+        },
+        {
+          "key": "optimized/columba-livia-ekaterina-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 40836
+        },
+        {
+          "key": "optimized/columba-livia-ekaterina-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 53281
+        },
+        {
+          "key": "optimized/columba-livia-ekaterina-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 88158
+        },
+        {
+          "key": "optimized/columba-livia-ekaterina-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 73433
+        },
+        {
+          "key": "optimized/columba-livia-ekaterina-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 121786
+        },
+        {
+          "key": "optimized/columba-livia-ekaterina-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 126446
+        },
+        {
+          "key": "optimized/columba-livia-ekaterina-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 204596
+        },
+        {
+          "key": "optimized/columba-livia-ekaterina-1-1280.avif",
+          "format": "avif",
+          "width": 1280,
+          "height": 853,
+          "byteSize": 147587
+        },
+        {
+          "key": "optimized/columba-livia-ekaterina-1-1280.webp",
+          "format": "webp",
+          "width": 1280,
+          "height": 853,
+          "byteSize": 222868
+        }
+      ],
+      "updatedAt": "2026-10-07T19:05:18.245Z"
+    },
+    "columba-livia-floyd-1.jpg": {
+      "sourceHash": "096cc4c7c53690a82a74e6d0a96b57826bb631a0bb42af3ab07393df8b9e7933",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "columba-livia-floyd-1.jpg",
+      "originalSize": 571649,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/columba-livia-floyd-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 11992
+        },
+        {
+          "key": "optimized/columba-livia-floyd-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 18244
+        },
+        {
+          "key": "optimized/columba-livia-floyd-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 17038
+        },
+        {
+          "key": "optimized/columba-livia-floyd-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 26106
+        },
+        {
+          "key": "optimized/columba-livia-floyd-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 34480
+        },
+        {
+          "key": "optimized/columba-livia-floyd-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 53964
+        },
+        {
+          "key": "optimized/columba-livia-floyd-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 49212
+        },
+        {
+          "key": "optimized/columba-livia-floyd-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 76100
+        },
+        {
+          "key": "optimized/columba-livia-floyd-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 88468
+        },
+        {
+          "key": "optimized/columba-livia-floyd-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 132248
+        },
+        {
+          "key": "optimized/columba-livia-floyd-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 188596
+        },
+        {
+          "key": "optimized/columba-livia-floyd-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 277560
+        }
+      ],
+      "updatedAt": "2026-10-07T19:08:53.777Z"
+    },
+    "columba-livia-floyd-2.jpg": {
+      "sourceHash": "a376ed669ba8909d7837fe06fc36e58bb6c25c6f5f89bb123991c645f7f8b831",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "columba-livia-floyd-2.jpg",
+      "originalSize": 651460,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/columba-livia-floyd-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 13276
+        },
+        {
+          "key": "optimized/columba-livia-floyd-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 19976
+        },
+        {
+          "key": "optimized/columba-livia-floyd-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 19057
+        },
+        {
+          "key": "optimized/columba-livia-floyd-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 27346
+        },
+        {
+          "key": "optimized/columba-livia-floyd-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 38128
+        },
+        {
+          "key": "optimized/columba-livia-floyd-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 55300
+        },
+        {
+          "key": "optimized/columba-livia-floyd-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 53511
+        },
+        {
+          "key": "optimized/columba-livia-floyd-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 78602
+        },
+        {
+          "key": "optimized/columba-livia-floyd-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 97191
+        },
+        {
+          "key": "optimized/columba-livia-floyd-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 140176
+        },
+        {
+          "key": "optimized/columba-livia-floyd-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 246467
+        },
+        {
+          "key": "optimized/columba-livia-floyd-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 316138
+        }
+      ],
+      "updatedAt": "2026-10-07T19:09:58.127Z"
+    },
+    "columba-livia-giorgi-1.jpg": {
+      "sourceHash": "3df4c0f5d364286edff656ccff91863db5322294ed66c5d0db9b014ab0809e9b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "columba-livia-giorgi-1.jpg",
+      "originalSize": 502058,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/columba-livia-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6205
+        },
+        {
+          "key": "optimized/columba-livia-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 7620
+        },
+        {
+          "key": "optimized/columba-livia-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 8274
+        },
+        {
+          "key": "optimized/columba-livia-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 10350
+        },
+        {
+          "key": "optimized/columba-livia-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 16051
+        },
+        {
+          "key": "optimized/columba-livia-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 20164
+        },
+        {
+          "key": "optimized/columba-livia-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 23231
+        },
+        {
+          "key": "optimized/columba-livia-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 29464
+        },
+        {
+          "key": "optimized/columba-livia-giorgi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 47544
+        },
+        {
+          "key": "optimized/columba-livia-giorgi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 62470
+        },
+        {
+          "key": "optimized/columba-livia-giorgi-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 153641
+        },
+        {
+          "key": "optimized/columba-livia-giorgi-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 205158
+        }
+      ],
+      "updatedAt": "2026-10-07T19:07:56.902Z"
+    },
+    "columba-livia-gogopopo-1.jpg": {
+      "sourceHash": "134b3f0e43f97743c2d23a9f324e81ca715161adef665606ff2765ee8f987671",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "columba-livia-gogopopo-1.jpg",
+      "originalSize": 188303,
+      "width": 937,
+      "height": 1171,
+      "derivatives": [
+        {
+          "key": "optimized/columba-livia-gogopopo-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 400,
+          "byteSize": 18168
+        },
+        {
+          "key": "optimized/columba-livia-gogopopo-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 400,
+          "byteSize": 24326
+        },
+        {
+          "key": "optimized/columba-livia-gogopopo-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 500,
+          "byteSize": 26195
+        },
+        {
+          "key": "optimized/columba-livia-gogopopo-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 500,
+          "byteSize": 34502
+        },
+        {
+          "key": "optimized/columba-livia-gogopopo-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 800,
+          "byteSize": 51913
+        },
+        {
+          "key": "optimized/columba-livia-gogopopo-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 800,
+          "byteSize": 68772
+        },
+        {
+          "key": "optimized/columba-livia-gogopopo-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1000,
+          "byteSize": 70760
+        },
+        {
+          "key": "optimized/columba-livia-gogopopo-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1000,
+          "byteSize": 93706
+        },
+        {
+          "key": "optimized/columba-livia-gogopopo-1-937.avif",
+          "format": "avif",
+          "width": 937,
+          "height": 1171,
+          "byteSize": 98139
+        },
+        {
+          "key": "optimized/columba-livia-gogopopo-1-937.webp",
+          "format": "webp",
+          "width": 937,
+          "height": 1171,
+          "byteSize": 117830
+        }
+      ],
+      "updatedAt": "2026-10-07T19:05:58.570Z"
+    },
+    "columba-livia-hoiman-1.jpg": {
+      "sourceHash": "0801c33d11bfd38d2e15eb018d744601d7d0d0225a6c7617554edebb99810b43",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "columba-livia-hoiman-1.jpg",
+      "originalSize": 65891,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/columba-livia-hoiman-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 1741
+        },
+        {
+          "key": "optimized/columba-livia-hoiman-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 2026
+        },
+        {
+          "key": "optimized/columba-livia-hoiman-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 2242
+        },
+        {
+          "key": "optimized/columba-livia-hoiman-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 2630
+        },
+        {
+          "key": "optimized/columba-livia-hoiman-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 3721
+        },
+        {
+          "key": "optimized/columba-livia-hoiman-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 4806
+        },
+        {
+          "key": "optimized/columba-livia-hoiman-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 4895
+        },
+        {
+          "key": "optimized/columba-livia-hoiman-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 6428
+        },
+        {
+          "key": "optimized/columba-livia-hoiman-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 7593
+        },
+        {
+          "key": "optimized/columba-livia-hoiman-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 10680
+        },
+        {
+          "key": "optimized/columba-livia-hoiman-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 15174
+        },
+        {
+          "key": "optimized/columba-livia-hoiman-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 22484
+        }
+      ],
+      "updatedAt": "2026-10-07T19:12:02.188Z"
+    },
+    "columba-livia-mikhail-1.jpg": {
+      "sourceHash": "1b1fba8e87116c89b35193de9073e2f6c8b556c47f56343ba0709141e40c69e0",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "columba-livia-mikhail-1.jpg",
+      "originalSize": 351552,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/columba-livia-mikhail-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6844
+        },
+        {
+          "key": "optimized/columba-livia-mikhail-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9232
+        },
+        {
+          "key": "optimized/columba-livia-mikhail-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 9404
+        },
+        {
+          "key": "optimized/columba-livia-mikhail-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 12876
+        },
+        {
+          "key": "optimized/columba-livia-mikhail-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 19405
+        },
+        {
+          "key": "optimized/columba-livia-mikhail-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 26862
+        },
+        {
+          "key": "optimized/columba-livia-mikhail-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 27460
+        },
+        {
+          "key": "optimized/columba-livia-mikhail-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 38316
+        },
+        {
+          "key": "optimized/columba-livia-mikhail-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 48079
+        },
+        {
+          "key": "optimized/columba-livia-mikhail-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 66922
+        },
+        {
+          "key": "optimized/columba-livia-mikhail-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 98579
+        },
+        {
+          "key": "optimized/columba-livia-mikhail-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 137698
+        }
+      ],
+      "updatedAt": "2026-10-07T19:06:51.972Z"
+    },
     "columba-palumbus-donsky-1.jpg": {
       "sourceHash": "a26ec52dfc57c216d4aca80a5de74789439325512d1ac58ed22030c004e5ec34",
       "configFingerprint": "409788ee46c653d8",
