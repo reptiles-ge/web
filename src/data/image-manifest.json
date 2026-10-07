@@ -21243,6 +21243,101 @@
       ],
       "updatedAt": "2026-10-07T17:08:57.191Z"
     },
+    "darevskia-derjugini-butterfly-fly-1.jpg": {
+      "sourceHash": "1f477cce76f1ee82d8b11c1a58e815f370745679b5448d94e5b7a0d5b54c8f59",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-derjugini-butterfly-fly-1.jpg",
+      "originalSize": 1071387,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-derjugini-butterfly-fly-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 22257
+        },
+        {
+          "key": "optimized/darevskia-derjugini-butterfly-fly-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 34520
+        },
+        {
+          "key": "optimized/darevskia-derjugini-butterfly-fly-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 33476
+        },
+        {
+          "key": "optimized/darevskia-derjugini-butterfly-fly-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 52446
+        },
+        {
+          "key": "optimized/darevskia-derjugini-butterfly-fly-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 79916
+        },
+        {
+          "key": "optimized/darevskia-derjugini-butterfly-fly-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 124682
+        },
+        {
+          "key": "optimized/darevskia-derjugini-butterfly-fly-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 122484
+        },
+        {
+          "key": "optimized/darevskia-derjugini-butterfly-fly-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 190250
+        },
+        {
+          "key": "optimized/darevskia-derjugini-butterfly-fly-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 230174
+        },
+        {
+          "key": "optimized/darevskia-derjugini-butterfly-fly-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 368186
+        },
+        {
+          "key": "optimized/darevskia-derjugini-butterfly-fly-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 453336
+        },
+        {
+          "key": "optimized/darevskia-derjugini-butterfly-fly-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 750396
+        }
+      ],
+      "updatedAt": "2026-10-07T17:15:36.231Z"
+    },
     "darevskia-derjugini-david-1.jpg": {
       "sourceHash": "be75d318d8106283eb00380250c6e390208366fc76509cc42a6a8a793ab252b8",
       "configFingerprint": "409788ee46c653d8",
