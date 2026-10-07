@@ -55,6 +55,12 @@ export type HalyomorphaRegionSummary = {
 
 const DAHLI_OBSCURED_RECORD_NOTE =
   "Darevskia dahli: iNaturalist public coordinates obscured (~28 km)";
+const DERJUGINI_OBSCURED_RECORD_NOTE =
+  "Darevskia derjugini: iNaturalist public coordinates obscured (~28 km)";
+const OBSCURED_COORDINATE_NOTES = new Set([
+  DAHLI_OBSCURED_RECORD_NOTE,
+  DERJUGINI_OBSCURED_RECORD_NOTE,
+]);
 const MERTENSIELLA_OBSCURED_RECORD_NOTE =
   "Mertensiella caucasica: iNaturalist public coordinates obscured (~27 km)";
 const MERTENSIELLA_SOURCE_CONFIRMED_REGIONS = new Set<RegionPathId>([
@@ -124,9 +130,9 @@ export function getHalyomorphaOccurrenceSummary(
   confirmedRecordThreshold = 5,
 ): HalyomorphaOccurrenceSummary {
   const years = records.flatMap((record) => yearFromDate(record.date));
-  const dahliObscuredRecords = records.some(
-    (record) => record.note === DAHLI_OBSCURED_RECORD_NOTE,
-  );
+  const obscuredCoordinateNote = records.find((record) =>
+    record.note ? OBSCURED_COORDINATE_NOTES.has(record.note) : false,
+  )?.note;
   const mertensiellaRecords = records.some(
     (record) => record.note === MERTENSIELLA_OBSCURED_RECORD_NOTE,
   );
@@ -144,10 +150,9 @@ export function getHalyomorphaOccurrenceSummary(
       yearFromDate(record.date),
     );
     const center = getRecordCenter(regionRecords);
-    const confirmingCount = dahliObscuredRecords
-      ? regionRecords.filter(
-          (record) => record.note !== DAHLI_OBSCURED_RECORD_NOTE,
-        ).length
+    const confirmingCount = obscuredCoordinateNote
+      ? regionRecords.filter((record) => record.note !== obscuredCoordinateNote)
+          .length
       : regionRecords.length;
     const status: HalyomorphaOccurrenceStatus = mertensiellaRecords
       ? MERTENSIELLA_SOURCE_CONFIRMED_REGIONS.has(id)

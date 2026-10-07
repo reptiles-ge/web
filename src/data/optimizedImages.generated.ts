@@ -2104,6 +2104,69 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1616],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/darevskia-derjugini-arvidas-1.jpg": {
+    "path": "darevskia-derjugini-arvidas-1",
+    "width": 1542,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1542],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-derjugini-bertogcliment-1.jpg": {
+    "path": "darevskia-derjugini-bertogcliment-1",
+    "width": 1536,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-derjugini-butterfly-fly-1.jpg": {
+    "path": "darevskia-derjugini-butterfly-fly-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-derjugini-david-1.jpg": {
+    "path": "darevskia-derjugini-david-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-derjugini-david-2.jpg": {
+    "path": "darevskia-derjugini-david-2",
+    "width": 2048,
+    "height": 1356,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-derjugini-greenstep-ias-1.jpg": {
+    "path": "darevskia-derjugini-greenstep-ias-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-derjugini-herbert-1.jpg": {
+    "path": "darevskia-derjugini-herbert-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-derjugini-kirill-1.jpg": {
+    "path": "darevskia-derjugini-kirill-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-derjugini-kseniia-1.jpg": {
+    "path": "darevskia-derjugini-kseniia-1",
+    "width": 1296,
+    "height": 972,
+    "widths": [320, 400, 640, 800, 1200, 1296],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/darevskia-derjugini-zauri-1.jpg": {
     "path": "darevskia-derjugini-zauri-1",
     "width": 1024,
@@ -5030,6 +5093,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1024],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/lacerta-agilis-%C3%A1d%C3%A1m-1.jpg": {
+    "path": "lacerta-agilis-%C3%A1d%C3%A1m-1",
+    "width": 1536,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/lacerta-agilis-2.jpg": {
     "path": "lacerta-agilis-2",
     "width": 2048,
@@ -5044,11 +5114,60 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1536],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/lacerta-agilis-barnab%C3%A1s-1.jpg": {
+    "path": "lacerta-agilis-barnab%C3%A1s-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/lacerta-agilis-clo-09-1.jpg": {
+    "path": "lacerta-agilis-clo-09-1",
+    "width": 1600,
+    "height": 900,
+    "widths": [320, 400, 640, 800, 1200, 1600],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/lacerta-agilis-dan-1.jpg": {
+    "path": "lacerta-agilis-dan-1",
+    "width": 2048,
+    "height": 1152,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/lacerta-agilis-elien-1.jpg": {
+    "path": "lacerta-agilis-elien-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/lacerta-agilis-kseniia-1.jpg": {
+    "path": "lacerta-agilis-kseniia-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/lacerta-agilis-leekelai-1.jpg": {
+    "path": "lacerta-agilis-leekelai-1",
+    "width": 1758,
+    "height": 1173,
+    "widths": [320, 400, 640, 800, 1200, 1758],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/lacerta-agilis-mobile.jpg": {
     "path": "lacerta-agilis-mobile",
     "width": 2048,
     "height": 1365,
     "widths": [400, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/lacerta-agilis-oskar-schwi-1.jpg": {
+    "path": "lacerta-agilis-oskar-schwi-1",
+    "width": 2048,
+    "height": 1152,
+    "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/lacerta-agilis-sandro-1.jpg": {
@@ -5063,6 +5182,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1024,
     "height": 648,
     "widths": [400, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/lacerta-agilis-titouan-1.jpg": {
+    "path": "lacerta-agilis-titouan-1",
+    "width": 1920,
+    "height": 1280,
+    "widths": [320, 400, 640, 800, 1200, 1920],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/lacerta-agilis.jpg": {

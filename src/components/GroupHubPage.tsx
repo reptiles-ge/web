@@ -89,6 +89,14 @@ export async function GroupHubPage({
       : t("guideP1");
   const dates = pageDateFields(GROUP_HUBS[hubId].path);
   const contextBlocks = hubContextBlocks(hubId, (key) => t(key as never));
+  const speciesList = (
+    <GroupHubSpeciesList
+      hubId={hubId}
+      locale={locale}
+      sections={sections}
+      speciesCount={species.length}
+    />
+  );
 
   return (
     <div className="min-h-screen bg-background">
@@ -100,6 +108,8 @@ export async function GroupHubPage({
           locale={locale}
           species={species}
         />
+
+        {speciesList}
 
         <section className="bg-background py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
@@ -148,13 +158,6 @@ export async function GroupHubPage({
         </section>
 
         <GroupHubContextSection blocks={contextBlocks} />
-
-        <GroupHubSpeciesList
-          hubId={hubId}
-          locale={locale}
-          sections={sections}
-          speciesCount={species.length}
-        />
 
         {hubId === "turtles" ? <TurtlesHubSections /> : null}
 
