@@ -57263,6 +57263,101 @@
       ],
       "updatedAt": "2026-08-28T21:43:52.925Z"
     },
+    "lacerta-agilis-oskar-schwi-1.jpg": {
+      "sourceHash": "fe5b2c9e8307309eb8dd35d60a07e7406ead76065b54f3c2cf58aa7d5a033018",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lacerta-agilis-oskar-schwi-1.jpg",
+      "originalSize": 336484,
+      "width": 2048,
+      "height": 1152,
+      "derivatives": [
+        {
+          "key": "optimized/lacerta-agilis-oskar-schwi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 8036
+        },
+        {
+          "key": "optimized/lacerta-agilis-oskar-schwi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 11872
+        },
+        {
+          "key": "optimized/lacerta-agilis-oskar-schwi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 11117
+        },
+        {
+          "key": "optimized/lacerta-agilis-oskar-schwi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 16550
+        },
+        {
+          "key": "optimized/lacerta-agilis-oskar-schwi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 22100
+        },
+        {
+          "key": "optimized/lacerta-agilis-oskar-schwi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 34152
+        },
+        {
+          "key": "optimized/lacerta-agilis-oskar-schwi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 29897
+        },
+        {
+          "key": "optimized/lacerta-agilis-oskar-schwi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 46960
+        },
+        {
+          "key": "optimized/lacerta-agilis-oskar-schwi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 51536
+        },
+        {
+          "key": "optimized/lacerta-agilis-oskar-schwi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 80438
+        },
+        {
+          "key": "optimized/lacerta-agilis-oskar-schwi-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1152,
+          "byteSize": 101162
+        },
+        {
+          "key": "optimized/lacerta-agilis-oskar-schwi-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1152,
+          "byteSize": 154710
+        }
+      ],
+      "updatedAt": "2026-10-07T12:48:55.485Z"
+    },
     "lacerta-agilis-sandro-1.jpg": {
       "sourceHash": "b20ce69f88ea5b1e61e9d04e25abb0c9f35a6ac5faadc46cc6ea3742641ecb38",
       "configFingerprint": "a895f8e025dcc7fa",
