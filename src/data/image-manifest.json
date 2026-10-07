@@ -14287,6 +14287,101 @@
       ],
       "updatedAt": "2026-10-07T19:05:58.570Z"
     },
+    "columba-livia-mikhail-1.jpg": {
+      "sourceHash": "1b1fba8e87116c89b35193de9073e2f6c8b556c47f56343ba0709141e40c69e0",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "columba-livia-mikhail-1.jpg",
+      "originalSize": 351552,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/columba-livia-mikhail-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6844
+        },
+        {
+          "key": "optimized/columba-livia-mikhail-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9232
+        },
+        {
+          "key": "optimized/columba-livia-mikhail-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 9404
+        },
+        {
+          "key": "optimized/columba-livia-mikhail-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 12876
+        },
+        {
+          "key": "optimized/columba-livia-mikhail-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 19405
+        },
+        {
+          "key": "optimized/columba-livia-mikhail-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 26862
+        },
+        {
+          "key": "optimized/columba-livia-mikhail-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 27460
+        },
+        {
+          "key": "optimized/columba-livia-mikhail-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 38316
+        },
+        {
+          "key": "optimized/columba-livia-mikhail-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 48079
+        },
+        {
+          "key": "optimized/columba-livia-mikhail-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 66922
+        },
+        {
+          "key": "optimized/columba-livia-mikhail-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 98579
+        },
+        {
+          "key": "optimized/columba-livia-mikhail-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 137698
+        }
+      ],
+      "updatedAt": "2026-10-07T19:06:51.972Z"
+    },
     "columba-palumbus-donsky-1.jpg": {
       "sourceHash": "a26ec52dfc57c216d4aca80a5de74789439325512d1ac58ed22030c004e5ec34",
       "configFingerprint": "409788ee46c653d8",
