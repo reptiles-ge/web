@@ -21053,6 +21053,101 @@
       ],
       "updatedAt": "2026-08-28T21:32:06.456Z"
     },
+    "darevskia-derjugini-david-1.jpg": {
+      "sourceHash": "be75d318d8106283eb00380250c6e390208366fc76509cc42a6a8a793ab252b8",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-derjugini-david-1.jpg",
+      "originalSize": 487420,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-derjugini-david-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10582
+        },
+        {
+          "key": "optimized/darevskia-derjugini-david-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 15390
+        },
+        {
+          "key": "optimized/darevskia-derjugini-david-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 14629
+        },
+        {
+          "key": "optimized/darevskia-derjugini-david-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 21300
+        },
+        {
+          "key": "optimized/darevskia-derjugini-david-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 29459
+        },
+        {
+          "key": "optimized/darevskia-derjugini-david-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 44224
+        },
+        {
+          "key": "optimized/darevskia-derjugini-david-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 41780
+        },
+        {
+          "key": "optimized/darevskia-derjugini-david-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 63176
+        },
+        {
+          "key": "optimized/darevskia-derjugini-david-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 73640
+        },
+        {
+          "key": "optimized/darevskia-derjugini-david-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 113684
+        },
+        {
+          "key": "optimized/darevskia-derjugini-david-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 158308
+        },
+        {
+          "key": "optimized/darevskia-derjugini-david-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 244932
+        }
+      ],
+      "updatedAt": "2026-10-07T17:08:02.507Z"
+    },
     "darevskia-derjugini-herbert-1.jpg": {
       "sourceHash": "9492a9bdd26f84f7c6ee153b43721730b53cc718217708687034d9d23961745a",
       "configFingerprint": "409788ee46c653d8",
