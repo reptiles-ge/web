@@ -56911,6 +56911,576 @@
       ],
       "updatedAt": "2026-08-28T21:43:46.603Z"
     },
+    "lacerta-agilis-barnabás-1.jpg": {
+      "sourceHash": "3d3f79a7de4f095ca4a849c3ac83f81e66446e6a62657588b58a3983bd56d73c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lacerta-agilis-barnabás-1.jpg",
+      "originalSize": 955331,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/lacerta-agilis-barnabás-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 18410
+        },
+        {
+          "key": "optimized/lacerta-agilis-barnabás-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 29286
+        },
+        {
+          "key": "optimized/lacerta-agilis-barnabás-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 25496
+        },
+        {
+          "key": "optimized/lacerta-agilis-barnabás-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 40936
+        },
+        {
+          "key": "optimized/lacerta-agilis-barnabás-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 51206
+        },
+        {
+          "key": "optimized/lacerta-agilis-barnabás-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 83630
+        },
+        {
+          "key": "optimized/lacerta-agilis-barnabás-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 72208
+        },
+        {
+          "key": "optimized/lacerta-agilis-barnabás-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 117096
+        },
+        {
+          "key": "optimized/lacerta-agilis-barnabás-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 134467
+        },
+        {
+          "key": "optimized/lacerta-agilis-barnabás-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 222188
+        },
+        {
+          "key": "optimized/lacerta-agilis-barnabás-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 442181
+        },
+        {
+          "key": "optimized/lacerta-agilis-barnabás-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 644460
+        }
+      ],
+      "updatedAt": "2026-10-07T12:46:47.533Z"
+    },
+    "lacerta-agilis-clo-09-1.jpg": {
+      "sourceHash": "a56f636f16746cd73b78f76e7ecc1afad58853183610a1f595959089a8ae4204",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lacerta-agilis-clo-09-1.jpg",
+      "originalSize": 227243,
+      "width": 1600,
+      "height": 900,
+      "derivatives": [
+        {
+          "key": "optimized/lacerta-agilis-clo-09-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 9243
+        },
+        {
+          "key": "optimized/lacerta-agilis-clo-09-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 13220
+        },
+        {
+          "key": "optimized/lacerta-agilis-clo-09-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 13222
+        },
+        {
+          "key": "optimized/lacerta-agilis-clo-09-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 19218
+        },
+        {
+          "key": "optimized/lacerta-agilis-clo-09-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 26328
+        },
+        {
+          "key": "optimized/lacerta-agilis-clo-09-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 39300
+        },
+        {
+          "key": "optimized/lacerta-agilis-clo-09-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 36842
+        },
+        {
+          "key": "optimized/lacerta-agilis-clo-09-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 55452
+        },
+        {
+          "key": "optimized/lacerta-agilis-clo-09-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 64227
+        },
+        {
+          "key": "optimized/lacerta-agilis-clo-09-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 94656
+        },
+        {
+          "key": "optimized/lacerta-agilis-clo-09-1-1600.avif",
+          "format": "avif",
+          "width": 1600,
+          "height": 900,
+          "byteSize": 94310
+        },
+        {
+          "key": "optimized/lacerta-agilis-clo-09-1-1600.webp",
+          "format": "webp",
+          "width": 1600,
+          "height": 900,
+          "byteSize": 136298
+        }
+      ],
+      "updatedAt": "2026-10-07T12:51:09.101Z"
+    },
+    "lacerta-agilis-dan-1.jpg": {
+      "sourceHash": "e38b1fd8355b9738512dc49786a2b6a50c6e494e27f1305eee7706eb16ff3d0b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lacerta-agilis-dan-1.jpg",
+      "originalSize": 409771,
+      "width": 2048,
+      "height": 1152,
+      "derivatives": [
+        {
+          "key": "optimized/lacerta-agilis-dan-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 8716
+        },
+        {
+          "key": "optimized/lacerta-agilis-dan-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 13660
+        },
+        {
+          "key": "optimized/lacerta-agilis-dan-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 11598
+        },
+        {
+          "key": "optimized/lacerta-agilis-dan-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 18620
+        },
+        {
+          "key": "optimized/lacerta-agilis-dan-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 23451
+        },
+        {
+          "key": "optimized/lacerta-agilis-dan-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 36934
+        },
+        {
+          "key": "optimized/lacerta-agilis-dan-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 32739
+        },
+        {
+          "key": "optimized/lacerta-agilis-dan-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 50496
+        },
+        {
+          "key": "optimized/lacerta-agilis-dan-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 58345
+        },
+        {
+          "key": "optimized/lacerta-agilis-dan-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 91024
+        },
+        {
+          "key": "optimized/lacerta-agilis-dan-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1152,
+          "byteSize": 126530
+        },
+        {
+          "key": "optimized/lacerta-agilis-dan-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1152,
+          "byteSize": 194354
+        }
+      ],
+      "updatedAt": "2026-10-07T12:47:28.866Z"
+    },
+    "lacerta-agilis-elien-1.jpg": {
+      "sourceHash": "d57eab8a4f1c46b2148eb6c47c0961300b447a7b74f29cb90af71c7483ec2951",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lacerta-agilis-elien-1.jpg",
+      "originalSize": 354376,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/lacerta-agilis-elien-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 6081
+        },
+        {
+          "key": "optimized/lacerta-agilis-elien-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 8796
+        },
+        {
+          "key": "optimized/lacerta-agilis-elien-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 8294
+        },
+        {
+          "key": "optimized/lacerta-agilis-elien-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 12168
+        },
+        {
+          "key": "optimized/lacerta-agilis-elien-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 16520
+        },
+        {
+          "key": "optimized/lacerta-agilis-elien-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 25428
+        },
+        {
+          "key": "optimized/lacerta-agilis-elien-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 22829
+        },
+        {
+          "key": "optimized/lacerta-agilis-elien-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 35388
+        },
+        {
+          "key": "optimized/lacerta-agilis-elien-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 39505
+        },
+        {
+          "key": "optimized/lacerta-agilis-elien-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 60146
+        },
+        {
+          "key": "optimized/lacerta-agilis-elien-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 81887
+        },
+        {
+          "key": "optimized/lacerta-agilis-elien-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 121270
+        }
+      ],
+      "updatedAt": "2026-10-07T12:51:57.928Z"
+    },
+    "lacerta-agilis-kseniia-1.jpg": {
+      "sourceHash": "3aa4dc957aefae7593a6fd4cd50a35215d613d8d8c863271692d1f8e78656ce9",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lacerta-agilis-kseniia-1.jpg",
+      "originalSize": 980422,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/lacerta-agilis-kseniia-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 18019
+        },
+        {
+          "key": "optimized/lacerta-agilis-kseniia-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 29986
+        },
+        {
+          "key": "optimized/lacerta-agilis-kseniia-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 27300
+        },
+        {
+          "key": "optimized/lacerta-agilis-kseniia-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 44980
+        },
+        {
+          "key": "optimized/lacerta-agilis-kseniia-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 63983
+        },
+        {
+          "key": "optimized/lacerta-agilis-kseniia-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 110274
+        },
+        {
+          "key": "optimized/lacerta-agilis-kseniia-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 97222
+        },
+        {
+          "key": "optimized/lacerta-agilis-kseniia-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 165728
+        },
+        {
+          "key": "optimized/lacerta-agilis-kseniia-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 187419
+        },
+        {
+          "key": "optimized/lacerta-agilis-kseniia-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 310360
+        },
+        {
+          "key": "optimized/lacerta-agilis-kseniia-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 407641
+        },
+        {
+          "key": "optimized/lacerta-agilis-kseniia-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 613668
+        }
+      ],
+      "updatedAt": "2026-10-07T12:50:27.281Z"
+    },
+    "lacerta-agilis-leekelai-1.jpg": {
+      "sourceHash": "8e0d352228926d642ca91bc53fee4b5df5ece26034f6cda83494338d4bbccae4",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lacerta-agilis-leekelai-1.jpg",
+      "originalSize": 325884,
+      "width": 1758,
+      "height": 1173,
+      "derivatives": [
+        {
+          "key": "optimized/lacerta-agilis-leekelai-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 214,
+          "byteSize": 8263
+        },
+        {
+          "key": "optimized/lacerta-agilis-leekelai-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 214,
+          "byteSize": 12324
+        },
+        {
+          "key": "optimized/lacerta-agilis-leekelai-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 12238
+        },
+        {
+          "key": "optimized/lacerta-agilis-leekelai-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 17658
+        },
+        {
+          "key": "optimized/lacerta-agilis-leekelai-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 24808
+        },
+        {
+          "key": "optimized/lacerta-agilis-leekelai-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 37016
+        },
+        {
+          "key": "optimized/lacerta-agilis-leekelai-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 33941
+        },
+        {
+          "key": "optimized/lacerta-agilis-leekelai-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 51094
+        },
+        {
+          "key": "optimized/lacerta-agilis-leekelai-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 60551
+        },
+        {
+          "key": "optimized/lacerta-agilis-leekelai-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 88924
+        },
+        {
+          "key": "optimized/lacerta-agilis-leekelai-1-1758.avif",
+          "format": "avif",
+          "width": 1758,
+          "height": 1173,
+          "byteSize": 104787
+        },
+        {
+          "key": "optimized/lacerta-agilis-leekelai-1-1758.webp",
+          "format": "webp",
+          "width": 1758,
+          "height": 1173,
+          "byteSize": 149166
+        }
+      ],
+      "updatedAt": "2026-10-07T12:48:20.115Z"
+    },
     "lacerta-agilis-mobile.jpg": {
       "sourceHash": "2e725c8c0fb7e1c0698298903976ec379d7feb7218390fc0ed87e207c3dbb525",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -56977,6 +57547,101 @@
         }
       ],
       "updatedAt": "2026-08-28T21:43:52.925Z"
+    },
+    "lacerta-agilis-oskar-schwi-1.jpg": {
+      "sourceHash": "fe5b2c9e8307309eb8dd35d60a07e7406ead76065b54f3c2cf58aa7d5a033018",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lacerta-agilis-oskar-schwi-1.jpg",
+      "originalSize": 336484,
+      "width": 2048,
+      "height": 1152,
+      "derivatives": [
+        {
+          "key": "optimized/lacerta-agilis-oskar-schwi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 8036
+        },
+        {
+          "key": "optimized/lacerta-agilis-oskar-schwi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 11872
+        },
+        {
+          "key": "optimized/lacerta-agilis-oskar-schwi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 11117
+        },
+        {
+          "key": "optimized/lacerta-agilis-oskar-schwi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 16550
+        },
+        {
+          "key": "optimized/lacerta-agilis-oskar-schwi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 22100
+        },
+        {
+          "key": "optimized/lacerta-agilis-oskar-schwi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 34152
+        },
+        {
+          "key": "optimized/lacerta-agilis-oskar-schwi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 29897
+        },
+        {
+          "key": "optimized/lacerta-agilis-oskar-schwi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 46960
+        },
+        {
+          "key": "optimized/lacerta-agilis-oskar-schwi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 51536
+        },
+        {
+          "key": "optimized/lacerta-agilis-oskar-schwi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 80438
+        },
+        {
+          "key": "optimized/lacerta-agilis-oskar-schwi-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1152,
+          "byteSize": 101162
+        },
+        {
+          "key": "optimized/lacerta-agilis-oskar-schwi-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1152,
+          "byteSize": 154710
+        }
+      ],
+      "updatedAt": "2026-10-07T12:48:55.485Z"
     },
     "lacerta-agilis-sandro-1.jpg": {
       "sourceHash": "b20ce69f88ea5b1e61e9d04e25abb0c9f35a6ac5faadc46cc6ea3742641ecb38",
@@ -57083,6 +57748,196 @@
         }
       ],
       "updatedAt": "2026-08-28T21:43:56.220Z"
+    },
+    "lacerta-agilis-titouan-1.jpg": {
+      "sourceHash": "72233052f445218fac6a8853cac4d2fdf84e4a0492135920361bf768bf4d09e2",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lacerta-agilis-titouan-1.jpg",
+      "originalSize": 296434,
+      "width": 1920,
+      "height": 1280,
+      "derivatives": [
+        {
+          "key": "optimized/lacerta-agilis-titouan-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8007
+        },
+        {
+          "key": "optimized/lacerta-agilis-titouan-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11168
+        },
+        {
+          "key": "optimized/lacerta-agilis-titouan-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 11173
+        },
+        {
+          "key": "optimized/lacerta-agilis-titouan-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 16442
+        },
+        {
+          "key": "optimized/lacerta-agilis-titouan-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 21495
+        },
+        {
+          "key": "optimized/lacerta-agilis-titouan-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 33268
+        },
+        {
+          "key": "optimized/lacerta-agilis-titouan-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 29794
+        },
+        {
+          "key": "optimized/lacerta-agilis-titouan-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 46672
+        },
+        {
+          "key": "optimized/lacerta-agilis-titouan-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 51281
+        },
+        {
+          "key": "optimized/lacerta-agilis-titouan-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 81786
+        },
+        {
+          "key": "optimized/lacerta-agilis-titouan-1-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 95575
+        },
+        {
+          "key": "optimized/lacerta-agilis-titouan-1-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 151160
+        }
+      ],
+      "updatedAt": "2026-10-07T12:49:38.563Z"
+    },
+    "lacerta-agilis-ádám-1.jpg": {
+      "sourceHash": "a37ad14eb90ecdc1d9f6dcb43fef28f02fe6de5086c3ecd2cd2715584d2c7bce",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lacerta-agilis-ádám-1.jpg",
+      "originalSize": 838885,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/lacerta-agilis-ádám-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 39277
+        },
+        {
+          "key": "optimized/lacerta-agilis-ádám-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 61112
+        },
+        {
+          "key": "optimized/lacerta-agilis-ádám-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 55836
+        },
+        {
+          "key": "optimized/lacerta-agilis-ádám-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 89592
+        },
+        {
+          "key": "optimized/lacerta-agilis-ádám-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 112604
+        },
+        {
+          "key": "optimized/lacerta-agilis-ádám-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 188396
+        },
+        {
+          "key": "optimized/lacerta-agilis-ádám-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 147197
+        },
+        {
+          "key": "optimized/lacerta-agilis-ádám-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 249720
+        },
+        {
+          "key": "optimized/lacerta-agilis-ádám-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 231153
+        },
+        {
+          "key": "optimized/lacerta-agilis-ádám-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 391404
+        },
+        {
+          "key": "optimized/lacerta-agilis-ádám-1-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 302599
+        },
+        {
+          "key": "optimized/lacerta-agilis-ádám-1-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 504640
+        }
+      ],
+      "updatedAt": "2026-10-07T12:45:53.917Z"
     },
     "lacerta-agilis.jpg": {
       "sourceHash": "83acdf486c52a8041c1ea0ca65cbb465e1174feea94158a3f3054470baa61f59",
