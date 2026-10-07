@@ -14667,6 +14667,101 @@
       ],
       "updatedAt": "2026-10-07T19:05:58.570Z"
     },
+    "columba-livia-hoiman-1.jpg": {
+      "sourceHash": "0801c33d11bfd38d2e15eb018d744601d7d0d0225a6c7617554edebb99810b43",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "columba-livia-hoiman-1.jpg",
+      "originalSize": 65891,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/columba-livia-hoiman-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 1741
+        },
+        {
+          "key": "optimized/columba-livia-hoiman-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 2026
+        },
+        {
+          "key": "optimized/columba-livia-hoiman-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 2242
+        },
+        {
+          "key": "optimized/columba-livia-hoiman-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 2630
+        },
+        {
+          "key": "optimized/columba-livia-hoiman-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 3721
+        },
+        {
+          "key": "optimized/columba-livia-hoiman-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 4806
+        },
+        {
+          "key": "optimized/columba-livia-hoiman-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 4895
+        },
+        {
+          "key": "optimized/columba-livia-hoiman-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 6428
+        },
+        {
+          "key": "optimized/columba-livia-hoiman-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 7593
+        },
+        {
+          "key": "optimized/columba-livia-hoiman-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 10680
+        },
+        {
+          "key": "optimized/columba-livia-hoiman-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 15174
+        },
+        {
+          "key": "optimized/columba-livia-hoiman-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 22484
+        }
+      ],
+      "updatedAt": "2026-10-07T19:12:02.188Z"
+    },
     "columba-livia-mikhail-1.jpg": {
       "sourceHash": "1b1fba8e87116c89b35193de9073e2f6c8b556c47f56343ba0709141e40c69e0",
       "configFingerprint": "409788ee46c653d8",
