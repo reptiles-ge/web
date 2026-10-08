@@ -99,6 +99,7 @@ describe("species routes", () => {
     expect(getSpeciesLookalikes("coronella-austriaca")).toEqual([
       "vipera-transcaucasiana",
       "zamenis-hohenackeri",
+      "vipera-kaznakovi",
     ]);
   });
 
