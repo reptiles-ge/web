@@ -1078,24 +1078,33 @@ async function SpeciesProfileBiology({
               </details>
             ))}
           </div>
-          <div className="mt-10 hidden grid-cols-2 gap-6 lg:grid">
-            {giurzaBlocks.map((block) => (
-              <article
-                className="rounded-[28px] bg-card px-7 py-[26px] shadow-[0_10px_26px_rgba(14,20,17,0.05)]"
-                key={block.id}
-              >
-                <AnchoredHeading
-                  anchorLabel={t("anchorLink")}
-                  as="h3"
-                  className="font-display text-[20px] font-semibold"
-                  id={block.id}
-                >
-                  {block.title}
-                </AnchoredHeading>
-                <p className="mt-4 text-[15px] leading-[1.65] whitespace-pre-line text-muted-foreground">
-                  <PhoneLinkedText>{block.body}</PhoneLinkedText>
-                </p>
-              </article>
+          <div className="mt-10 hidden grid-cols-2 items-start gap-6 lg:grid">
+            {[0, 1].map((column) => (
+              <div className="flex flex-col gap-6" key={column}>
+                {giurzaBlocks
+                  .filter((_, index) => index % 2 === column)
+                  .map((block) => (
+                    <article
+                      className="rounded-[28px] bg-card px-7 py-[26px] shadow-[0_10px_26px_rgba(14,20,17,0.05)]"
+                      key={block.id}
+                    >
+                      <AnchoredHeading
+                        anchorLabel={t("anchorLink")}
+                        as="h3"
+                        className="font-display text-[20px] font-semibold"
+                        id={block.id}
+                      >
+                        {block.title}
+                      </AnchoredHeading>
+                      <BiologyExpandable
+                        body={block.body}
+                        needsExpand={block.body.length > 140}
+                        readLess={t("readLess")}
+                        readMore={t("readMore")}
+                      />
+                    </article>
+                  ))}
+              </div>
             ))}
           </div>
         </div>
