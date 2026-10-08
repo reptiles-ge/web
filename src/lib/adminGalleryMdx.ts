@@ -497,39 +497,68 @@ export function setCoverInSpecies(
   }
   const dir = path.join(repoRoot, "src/content/species", id);
   const kaPath = path.join(dir, "ka.mdx");
-  if (!fs.existsSync(kaPath)) {
-    throw new Error(`Missing ${id}/ka.mdx`);
+  const flags = fs.constants.O_RDWR | fs.constants.O_NOFOLLOW;
+  let kaFd: number;
+  try {
+    kaFd = fs.openSync(kaPath, flags);
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code === "ENOENT") {
+      throw new Error(`Missing ${id}/ka.mdx`);
+    }
+    throw error;
   }
-  const kaRaw = fs.readFileSync(kaPath, "utf8");
-  const kaItem = normalizeGallery(matter(kaRaw).data.gallery).find(
-    (item) => item.src === src,
-  );
-  if (!kaItem) {
-    throw new Error(`Unknown gallery src: ${src}`);
+
+  let kaItem: GalleryImage;
+  try {
+    if (!fs.fstatSync(kaFd).isFile()) {
+      throw new Error(`Invalid ${id}/ka.mdx`);
+    }
+    const kaRaw = fs.readFileSync(kaFd, "utf8");
+    const item = normalizeGallery(matter(kaRaw).data.gallery).find(
+      (galleryItem) => galleryItem.src === src,
+    );
+    if (!item) {
+      throw new Error(`Unknown gallery src: ${src}`);
+    }
+    kaItem = item;
+    writeOpenedMdx(
+      kaFd,
+      setCoverInMdx(kaRaw, target, { ...kaItem, src: coverSrc }),
+    );
+  } finally {
+    fs.closeSync(kaFd);
   }
-  fs.writeFileSync(
-    kaPath,
-    setCoverInMdx(kaRaw, target, { ...kaItem, src: coverSrc }),
-    "utf8",
-  );
 
   for (const locale of OVERLAY_LOCALES) {
     const filePath = path.join(dir, `${locale}.mdx`);
-    if (!fs.existsSync(filePath)) continue;
-    const raw = fs.readFileSync(filePath, "utf8");
-    const parsed = matter(raw);
-    const overlay = normalizeGallery(parsed.data.gallery).find(
-      (item) => item.src === src,
-    );
-    const item: GalleryImage = overlay?.credit
-      ? { credit: overlay.credit, src: coverSrc }
-      : { src: coverSrc };
-    const hasKeys = coverKeysPresent(
-      parsed.data as Record<string, unknown>,
-      target,
-    );
-    if (!hasKeys) continue;
-    fs.writeFileSync(filePath, setCoverInMdx(raw, target, item, false), "utf8");
+    let fd: number;
+    try {
+      fd = fs.openSync(filePath, flags);
+    } catch (error) {
+      if ((error as NodeJS.ErrnoException).code === "ENOENT") continue;
+      throw error;
+    }
+    try {
+      if (!fs.fstatSync(fd).isFile()) {
+        throw new Error(`Invalid ${id}/${locale}.mdx`);
+      }
+      const raw = fs.readFileSync(fd, "utf8");
+      const parsed = matter(raw);
+      const overlay = normalizeGallery(parsed.data.gallery).find(
+        (item) => item.src === src,
+      );
+      const item: GalleryImage = overlay?.credit
+        ? { credit: overlay.credit, src: coverSrc }
+        : { src: coverSrc };
+      const hasKeys = coverKeysPresent(
+        parsed.data as Record<string, unknown>,
+        target,
+      );
+      if (!hasKeys) continue;
+      writeOpenedMdx(fd, setCoverInMdx(raw, target, item, false));
+    } finally {
+      fs.closeSync(fd);
+    }
   }
 }
 
@@ -1028,4 +1057,23 @@ function withPhotoCoordinates(
     next.lng = coordinates.lng;
   }
   return Object.keys(next).length > 0 ? next : undefined;
+}
+
+function writeOpenedMdx(fd: number, content: string) {
+  const bytes = Buffer.from(content, "utf8");
+  let offset = 0;
+  while (offset < bytes.length) {
+    const written = fs.writeSync(
+      fd,
+      bytes,
+      offset,
+      bytes.length - offset,
+      offset,
+    );
+    if (written === 0) {
+      throw new Error("Failed to write MDX file");
+    }
+    offset += written;
+  }
+  fs.ftruncateSync(fd, bytes.length);
 }

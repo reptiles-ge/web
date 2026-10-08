@@ -2,7 +2,7 @@ import matter from "gray-matter";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 
 import {
   appendGalleryItemToMdx,
@@ -501,6 +501,119 @@ commonName: ტესტი
           root,
         ),
       ).toThrow(/last gallery photo/);
+    } finally {
+      fs.rmSync(root, { force: true, recursive: true });
+    }
+  });
+});
+
+describe("setCoverInSpecies", () => {
+  it("updates an existing overlay and skips missing locales", () => {
+    const root = fs.mkdtempSync(
+      path.join(os.tmpdir(), "reptiles-admin-cover-"),
+    );
+    try {
+      const dir = path.join(root, "src/content/species/test-species");
+      fs.mkdirSync(dir, { recursive: true });
+      fs.writeFileSync(path.join(dir, "ka.mdx"), COVER_FIXTURE);
+      fs.writeFileSync(
+        path.join(dir, "en.mdx"),
+        `---\nimage: "https://cdn.reptiles.ge/old.jpg"\nimageCredit:\n  photographer: Old\ngallery:\n  - src: "https://cdn.reptiles.ge/a.jpg"\n    credit:\n      photographer: Ana\n---\n\nText\n`,
+      );
+      fs.writeFileSync(
+        path.join(dir, "tr.mdx"),
+        `---\ncommonName: Test\n---\n\nText\n`,
+      );
+
+      setCoverInSpecies(
+        "test-species",
+        "desktop",
+        "https://cdn.reptiles.ge/a.jpg",
+        root,
+      );
+
+      const ka = matter(fs.readFileSync(path.join(dir, "ka.mdx"), "utf8"))
+        .data as { image: string; imageCredit: { photographer: string } };
+      const en = matter(fs.readFileSync(path.join(dir, "en.mdx"), "utf8"))
+        .data as { image: string; imageCredit: { photographer: string } };
+      expect(ka.image).toBe("https://cdn.reptiles.ge/a.jpg");
+      expect(ka.imageCredit.photographer).toBe("ანა");
+      expect(en.image).toBe("https://cdn.reptiles.ge/a.jpg");
+      expect(en.imageCredit.photographer).toBe("Ana");
+      expect(fs.readFileSync(path.join(dir, "tr.mdx"), "utf8")).toContain(
+        "commonName: Test",
+      );
+    } finally {
+      fs.rmSync(root, { force: true, recursive: true });
+    }
+  });
+
+  it("writes the opened file if its path changes during the update", () => {
+    const root = fs.mkdtempSync(
+      path.join(os.tmpdir(), "reptiles-admin-cover-"),
+    );
+    try {
+      const dir = path.join(root, "src/content/species/test-species");
+      fs.mkdirSync(dir, { recursive: true });
+      fs.writeFileSync(path.join(dir, "ka.mdx"), COVER_FIXTURE);
+      const enPath = path.join(dir, "en.mdx");
+      const movedPath = path.join(dir, "moved.mdx");
+      const outsidePath = path.join(root, "outside.mdx");
+      fs.writeFileSync(enPath, COVER_FIXTURE);
+      fs.writeFileSync(outsidePath, "outside content");
+
+      const openSync = fs.openSync;
+      const openSpy = vi
+        .spyOn(fs, "openSync")
+        .mockImplementation((filePath, flags, mode) => {
+          const fd = openSync(filePath, flags, mode);
+          if (filePath === enPath) {
+            fs.renameSync(enPath, movedPath);
+            fs.symlinkSync(outsidePath, enPath);
+          }
+          return fd;
+        });
+      try {
+        setCoverInSpecies(
+          "test-species",
+          "desktop",
+          "https://cdn.reptiles.ge/a.jpg",
+          root,
+        );
+      } finally {
+        openSpy.mockRestore();
+      }
+
+      expect(fs.readFileSync(outsidePath, "utf8")).toBe("outside content");
+      expect(matter(fs.readFileSync(movedPath, "utf8")).data.image).toBe(
+        "https://cdn.reptiles.ge/a.jpg",
+      );
+    } finally {
+      fs.rmSync(root, { force: true, recursive: true });
+    }
+  });
+
+  it("does not follow an overlay symlink", () => {
+    const root = fs.mkdtempSync(
+      path.join(os.tmpdir(), "reptiles-admin-cover-"),
+    );
+    try {
+      const dir = path.join(root, "src/content/species/test-species");
+      fs.mkdirSync(dir, { recursive: true });
+      fs.writeFileSync(path.join(dir, "ka.mdx"), COVER_FIXTURE);
+      const outsidePath = path.join(root, "outside.mdx");
+      fs.writeFileSync(outsidePath, "outside content");
+      fs.symlinkSync(outsidePath, path.join(dir, "en.mdx"));
+
+      expect(() =>
+        setCoverInSpecies(
+          "test-species",
+          "desktop",
+          "https://cdn.reptiles.ge/a.jpg",
+          root,
+        ),
+      ).toThrow();
+      expect(fs.readFileSync(outsidePath, "utf8")).toBe("outside content");
     } finally {
       fs.rmSync(root, { force: true, recursive: true });
     }
