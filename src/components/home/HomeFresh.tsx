@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
 
+import { CoverImage } from "@/components/CoverImage";
 import { HomeSectionHeading } from "@/components/home/HomeSectionHeading";
 import { TrackedSpeciesLink } from "@/components/home/TrackedSpeciesLink";
 import { getNewsCopy, getPublishedNewsArticles } from "@/data/news";
@@ -11,6 +12,7 @@ import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { Link } from "@/i18n/navigation";
 import { formatContentDate } from "@/lib/formatDate";
 import { newsArticleHref, newsIndexHref } from "@/lib/news";
+import { getNewsVisual } from "@/lib/newsVisual";
 
 export async function HomeFresh({ locale }: { locale: AppLocale }) {
   const [t, tNews] = await Promise.all([
@@ -23,6 +25,7 @@ export async function HomeFresh({ locale }: { locale: AppLocale }) {
   );
   if (!lead && updated.length === 0) return null;
   const leadCopy = lead ? getNewsCopy(lead, locale) : null;
+  const leadVisual = lead ? getNewsVisual(lead, locale) : null;
 
   return (
     <section className="bg-background py-11 lg:py-20">
@@ -42,21 +45,33 @@ export async function HomeFresh({ locale }: { locale: AppLocale }) {
           <div className="min-w-0">
             {lead && leadCopy ? (
               <Link
-                className="group block rounded-[24px] bg-card p-5 shadow-[0_16px_40px_rgba(14,20,17,0.06)] transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary lg:rounded-[32px] lg:px-8 lg:py-[30px]"
+                className="group flex flex-col rounded-[24px] bg-card p-3 shadow-[0_16px_40px_rgba(14,20,17,0.06)] transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary lg:flex-row lg:items-stretch lg:rounded-[32px]"
                 href={newsArticleHref(lead.slug)}
               >
-                <time
-                  className="text-[12px] text-muted-foreground"
-                  dateTime={lead.publishedAt}
-                >
-                  {formatContentDate(lead.publishedAt, locale)}
-                </time>
-                <h3 className="mt-2 max-w-[720px] font-display text-[19px] leading-snug font-semibold text-foreground lg:mt-2.5 lg:text-[26px] lg:leading-[1.22]">
-                  {leadCopy.title}
-                </h3>
-                <p className="mt-2 line-clamp-3 max-w-[680px] text-[14px] leading-[1.6] text-muted-foreground lg:mt-2.5 lg:text-[14.5px]">
-                  {leadCopy.dek}
-                </p>
+                {leadVisual ? (
+                  <span className="relative block aspect-3/2 overflow-hidden rounded-[18px] bg-ink lg:order-2 lg:aspect-auto lg:w-[40%] lg:shrink-0 lg:rounded-[24px]">
+                    <CoverImage
+                      alt={leadVisual.alt}
+                      className="object-cover transition-transform duration-700 group-hover:scale-[1.035]"
+                      sizes="(max-width: 1023px) 100vw, 320px"
+                      src={leadVisual.src}
+                    />
+                  </span>
+                ) : null}
+                <span className="block p-2 lg:flex lg:flex-1 lg:flex-col lg:justify-center lg:p-5">
+                  <time
+                    className="text-[12px] text-muted-foreground"
+                    dateTime={lead.publishedAt}
+                  >
+                    {formatContentDate(lead.publishedAt, locale)}
+                  </time>
+                  <h3 className="mt-2 max-w-[720px] font-display text-[19px] leading-snug font-semibold text-foreground lg:mt-2.5 lg:text-[26px] lg:leading-[1.22]">
+                    {leadCopy.title}
+                  </h3>
+                  <p className="mt-2 line-clamp-3 max-w-[680px] text-[14px] leading-[1.6] text-muted-foreground lg:mt-2.5 lg:text-[14.5px]">
+                    {leadCopy.dek}
+                  </p>
+                </span>
               </Link>
             ) : null}
             {rest.length > 0 ? (
