@@ -87188,6 +87188,101 @@
       ],
       "updatedAt": "2026-09-05T16:33:27.207Z"
     },
+    "steatoda-paykulliana-christian-1.jpg": {
+      "sourceHash": "40126f751daa44e0787568baa506ec85f0589ccaf74dd5ce8f2adb0e7b7ede34",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "steatoda-paykulliana-christian-1.jpg",
+      "originalSize": 515008,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/steatoda-paykulliana-christian-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11137
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-christian-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 15632
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-christian-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 15710
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-christian-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 21906
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-christian-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 34357
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-christian-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 47534
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-christian-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 49569
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-christian-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 67444
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-christian-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 91555
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-christian-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 122200
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-christian-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 199895
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-christian-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 253710
+        }
+      ],
+      "updatedAt": "2026-10-08T18:03:55.317Z"
+    },
     "steatoda-paykulliana-denis-1.jpg": {
       "sourceHash": "7d3da002457936c7987263d24d57f9505ab984a572bc78dade6ff56bb95911ae",
       "configFingerprint": "409788ee46c653d8",
