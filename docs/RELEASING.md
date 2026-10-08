@@ -44,14 +44,23 @@ Tie-breakers:
 
 Release notes are generated from merged pull requests and grouped by label using `.github/release.yml`. Put exactly one of these on every pull request into `staging`:
 
-| Label            | Use for                                                        | Section in the notes |
-| ---------------- | -------------------------------------------------------------- | -------------------- |
-| `enhancement`    | New features and new pages                                     | New                  |
-| `content`        | Species, guide, news, and translation text or photos           | Content              |
-| `bug`            | Fixes                                                          | Fixes                |
-| `documentation`  | Docs and agent instructions                                    | Maintenance          |
-| `dependencies`   | Dependency updates (Dependabot sets this itself)               | Dependencies         |
-| `skip-changelog` | `Staging to main` pull requests and anything not worth listing | Hidden               |
+| Label            | Use for                                                          | Section in the notes |
+| ---------------- | ---------------------------------------------------------------- | -------------------- |
+| `enhancement`    | New features and new pages                                       | New                  |
+| `content`        | Page text, internal links, and photos (upload, replace, reorder) | Content              |
+| `bug`            | Fixes                                                            | Fixes                |
+| `documentation`  | Docs and agent instructions                                      | Maintenance          |
+| `dependencies`   | Dependency updates (Dependabot sets this itself)                 | Dependencies         |
+| `skip-changelog` | `Staging to main` pull requests and anything not worth listing   | Hidden               |
+
+Use `content` whenever the pull request works on what a specific page says or shows, not on how the site works:
+
+- editing page text in any locale, including a typo or factual correction;
+- adding, changing, or removing internal links on a page;
+- uploading, replacing, or removing a photo;
+- reordering photos in a gallery, or changing a hero image, credit, or caption.
+
+A correction to page text or photos is `content`, not `bug`. `bug` is for broken behaviour in code. If a pull request mixes page content with a code change, label it for the code change.
 
 Unlabelled pull requests still appear, under "Other changes". Label the `Staging to main` pull request `skip-changelog` so it does not show up as noise.
 
