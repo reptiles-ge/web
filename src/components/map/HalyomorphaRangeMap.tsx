@@ -56,7 +56,8 @@ export function HalyomorphaRangeMap({
   officialRegionIds,
   regionNames,
   speciesId,
-}: HalyomorphaLazyMapProps) {
+  stacked = false,
+}: HalyomorphaLazyMapProps & { stacked?: boolean }) {
   const hatchId = `range-hatch-${useId().replace(/:/g, "")}`;
   const plateRef = useRef<HTMLDivElement>(null);
   const [selectedRegionId, setSelectedRegionId] = useState<null | RegionPathId>(
@@ -129,6 +130,7 @@ export function HalyomorphaRangeMap({
       className={cn(
         "grid gap-x-12 xl:gap-x-16",
         hasLedger &&
+          !stacked &&
           "lg:grid-cols-[minmax(0,1fr)_19rem] lg:grid-rows-[auto_auto_1fr] xl:grid-cols-[minmax(0,1fr)_21rem]",
       )}
     >
@@ -200,10 +202,15 @@ export function HalyomorphaRangeMap({
         regionNames={regionNames}
         selectedRecordId={selectedRecord?.id}
         selectedRegionId={selectedRegionId}
+        stacked={stacked}
       />
 
       {children ? (
-        <div className="mt-8 lg:col-start-1 lg:row-start-3 lg:mt-6">
+        <div
+          className={
+            stacked ? "mt-6" : "mt-8 lg:col-start-1 lg:row-start-3 lg:mt-6"
+          }
+        >
           {children}
         </div>
       ) : null}

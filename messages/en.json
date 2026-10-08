@@ -512,6 +512,17 @@
     "breadcrumbVenomous": "Venomous snakes in Georgia",
     "anchorLink": "Link to this section"
   },
+  "giurzaRange": {
+    "lead": "The gyurza lives in dry, stony and rocky places along the lower Iori, Mtkvari and Alazani rivers, in Shiraki and Gareji, and in the dry foothills of Kvemo Kartli.",
+    "regionsLabel": "Confirmed gyurza regions",
+    "rare": "Rare",
+    "placesLabel": "Confirmed localities",
+    "place1": "Kvareli",
+    "place2": "Nekresi area",
+    "place3": "Alazani Valley",
+    "place4": "Colorful Desert",
+    "regionCount": "{count} of {total} regions"
+  },
   "giurzaIdentification": {
     "color": "Color",
     "gray": "Gray",

@@ -512,6 +512,17 @@
     "breadcrumbVenomous": "Gürcistan’da zehirli yılanlar",
     "anchorLink": "Bu bölüme bağlantı"
   },
+  "giurzaRange": {
+    "lead": "Gürza; İori, Mtkvari ve Alazani nehirlerinin aşağı kesimleri boyunca, Şiraki ve Gareci'de, ayrıca Kvemo Kartli'nin kuru dağ eteklerinde bulunan kuru, taşlık ve kayalık alanlarda yaşar.",
+    "regionsLabel": "Gürza varlığı doğrulanan bölgeler",
+    "rare": "Nadir",
+    "placesLabel": "Doğrulanmış yerler",
+    "place1": "Kvareli",
+    "place2": "Nekresi çevresi",
+    "place3": "Alazani Vadisi",
+    "place4": "Renkli Çöl",
+    "regionCount": "{total} bölgenin {count}'ünde"
+  },
   "giurzaIdentification": {
     "color": "Renk",
     "gray": "Gri",

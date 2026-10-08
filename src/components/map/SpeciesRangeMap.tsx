@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
@@ -144,7 +144,7 @@ function formatYearRange(summary: HalyomorphaOccurrenceSummary) {
   return `${summary.firstYear}–${summary.lastYear}`;
 }
 
-function HalyomorphaRangeSection({
+async function HalyomorphaRangeSection({
   anchorLabel,
   copy,
   eyebrow,
@@ -203,6 +203,125 @@ function HalyomorphaRangeSection({
       ).toLocaleString(locale),
     },
   ].filter((fact) => fact.value);
+  const featured = speciesId === "macrovipera-lebetina";
+  const tGiurza = featured
+    ? await getTranslations({ locale, namespace: "giurzaRange" })
+    : null;
+  const rangeRegions = featured ? getRegionsForSpecies(speciesId) : [];
+  const map = (
+    <HalyomorphaRangeMap
+      copy={mapCopy}
+      dataRevision={updatedAt}
+      locale={locale}
+      occurrenceSummary={occurrenceSummary}
+      officialRegionIds={officialRegionIds}
+      regionNames={regions.map((region) => {
+        const name = localizeRegionText(region.name, locale);
+        return {
+          id: region.id,
+          name,
+          pageLabel: copy.regionPageLabel(name),
+        };
+      })}
+      speciesId={speciesId}
+      stacked={featured}
+    >
+      <p className="max-w-[72ch] text-[13px] leading-relaxed text-muted-foreground">
+        {copy.intro}
+      </p>
+      <p className="mt-3 text-[12px] leading-relaxed text-muted-foreground">
+        {copy.footerDataLabel}: {copy.footerReptilesLabel} +{" "}
+        <a
+          className="underline decoration-border underline-offset-4 transition-colors hover:text-primary"
+          href={`https://www.inaturalist.org/observations?place_id=8857&taxon_id=${iNaturalistTaxonId}`}
+          rel="noreferrer"
+          target="_blank"
+        >
+          {copy.footerINaturalistLabel}
+        </a>{" "}
+        ·{" "}
+        <Link
+          className="underline decoration-border underline-offset-4 transition-colors hover:text-primary"
+          href={{ hash: "methodology", pathname: "/about" }}
+        >
+          {copy.footerMethodologyLabel}
+        </Link>
+      </p>
+    </HalyomorphaRangeMap>
+  );
+
+  if (featured && tGiurza) {
+    const places = [1, 2, 3, 4] as const;
+
+    return (
+      <section className="bg-surface py-11 lg:py-20">
+        <div className="mx-auto grid max-w-[1440px] gap-10 px-6 lg:grid-cols-[minmax(0,460px)_minmax(0,1fr)] lg:items-start lg:gap-16 lg:px-[60px]">
+          <div className="min-w-0">
+            <p className={EYEBROW_CLASS}>{eyebrow}</p>
+            <AnchoredHeading
+              anchorLabel={anchorLabel}
+              className="mt-4 max-w-xl font-display text-[28px] leading-[1.15] font-semibold tracking-[-0.012em] text-foreground lg:text-[44px] lg:leading-[1.1]"
+              id={SPECIES_SECTION_IDS.range}
+              slugSource={copy.rangeTitle}
+            >
+              {copy.rangeTitle}
+            </AnchoredHeading>
+            <p className="mt-[18px] text-[16px] leading-[1.65] text-muted-foreground">
+              {tGiurza("lead")}
+            </p>
+            <nav aria-label={tGiurza("regionsLabel")} className="mt-[22px]">
+              <ul>
+                {rangeRegions.map((region) => (
+                  <li
+                    className="border-t border-border last:border-b"
+                    key={region.id}
+                  >
+                    <Link
+                      className="group flex min-h-14 items-center gap-3 text-[17px] font-semibold text-foreground transition-colors hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                      href={regionHref(region.id)}
+                    >
+                      <span className="min-w-0 flex-1">
+                        {localizeRegionText(region.name, locale)}
+                      </span>
+                      {region.id === "tbilisi" ? (
+                        <span className="rounded-full bg-[#f3ecd9] px-2.5 py-1 text-[12px] font-medium text-[#4f3f17]">
+                          {tGiurza("rare")}
+                        </span>
+                      ) : null}
+                      <ArrowRight
+                        aria-hidden="true"
+                        className="size-4 shrink-0"
+                      />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+            <p className={`${EYEBROW_CLASS} mt-7`}>{tGiurza("placesLabel")}</p>
+            <ul className="mt-2.5 flex flex-wrap gap-1.5">
+              {places.map((number) => (
+                <li
+                  className="inline-flex min-h-[34px] items-center rounded-full bg-card px-[13px] text-[13.5px] font-medium text-foreground"
+                  key={number}
+                >
+                  {tGiurza(`place${number}`)}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="min-w-0 rounded-[30px] bg-card p-4 shadow-[0_16px_40px_rgba(14,20,17,0.06)] sm:p-7 lg:rounded-[40px] lg:p-9">
+            {map}
+            <p className="mt-5 text-right text-[13.5px] font-medium text-foreground">
+              {tGiurza("regionCount", {
+                count: officialRegionIds.length,
+                total: regions.length,
+              })}
+            </p>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="bg-background py-11 lg:py-20">
@@ -227,46 +346,7 @@ function HalyomorphaRangeSection({
           ))}
         </p>
 
-        <div className="mt-10 lg:mt-12">
-          <HalyomorphaRangeMap
-            copy={mapCopy}
-            dataRevision={updatedAt}
-            locale={locale}
-            occurrenceSummary={occurrenceSummary}
-            officialRegionIds={officialRegionIds}
-            regionNames={regions.map((region) => {
-              const name = localizeRegionText(region.name, locale);
-              return {
-                id: region.id,
-                name,
-                pageLabel: copy.regionPageLabel(name),
-              };
-            })}
-            speciesId={speciesId}
-          >
-            <p className="max-w-[72ch] text-[13px] leading-relaxed text-muted-foreground">
-              {copy.intro}
-            </p>
-            <p className="mt-3 text-[12px] leading-relaxed text-muted-foreground">
-              {copy.footerDataLabel}: {copy.footerReptilesLabel} +{" "}
-              <a
-                className="underline decoration-border underline-offset-4 transition-colors hover:text-primary"
-                href={`https://www.inaturalist.org/observations?place_id=8857&taxon_id=${iNaturalistTaxonId}`}
-                rel="noreferrer"
-                target="_blank"
-              >
-                {copy.footerINaturalistLabel}
-              </a>{" "}
-              ·{" "}
-              <Link
-                className="underline decoration-border underline-offset-4 transition-colors hover:text-primary"
-                href={{ hash: "methodology", pathname: "/about" }}
-              >
-                {copy.footerMethodologyLabel}
-              </Link>
-            </p>
-          </HalyomorphaRangeMap>
-        </div>
+        <div className="mt-10 lg:mt-12">{map}</div>
       </div>
     </section>
   );
