@@ -1,0 +1,111 @@
+import { describe, expect, it } from "vitest";
+
+import {
+  CREDIT_AUTHORS,
+  creditAuthorBio,
+  creditAuthorHref,
+  creditAuthorIndexHref,
+  creditAuthorName,
+  creditAuthorSameAs,
+  getPublishedCreditAuthorByName,
+  getPublishedCreditAuthorBySlug,
+  getPublishedCreditAuthors,
+} from "@/data/creditAuthors";
+
+const published = getPublishedCreditAuthors();
+
+describe("credit author data", () => {
+  it("has unique slugs and ids", () => {
+    const slugs = CREDIT_AUTHORS.map((author) => author.slug);
+    const ids = CREDIT_AUTHORS.map((author) => author.id);
+    expect(new Set(slugs).size).toBe(slugs.length);
+    expect(new Set(ids).size).toBe(ids.length);
+  });
+
+  it("gives every author a Georgian and English name and a portrait", () => {
+    for (const author of CREDIT_AUTHORS) {
+      expect(author.name.ka, author.slug).toBeTruthy();
+      expect(author.name.en, author.slug).toBeTruthy();
+      expect(author.portraitSrc, author.slug).toBeTruthy();
+    }
+  });
+
+  it("never shares an alias between two authors", () => {
+    const seen = new Map<string, string>();
+    for (const author of CREDIT_AUTHORS) {
+      for (const alias of author.aliases) {
+        expect(seen.get(alias), alias).toBeUndefined();
+        seen.set(alias, author.slug);
+      }
+    }
+  });
+
+  it("only exposes published authors", () => {
+    expect(published.every((author) => author.published)).toBe(true);
+    for (const author of CREDIT_AUTHORS.filter((item) => !item.published)) {
+      expect(getPublishedCreditAuthorBySlug(author.slug)).toBeUndefined();
+    }
+  });
+});
+
+describe("lookups", () => {
+  const author = published[0];
+
+  it("finds a published author by slug", () => {
+    expect(getPublishedCreditAuthorBySlug(author.slug)).toBe(author);
+    expect(getPublishedCreditAuthorBySlug("no-such-author")).toBeUndefined();
+  });
+
+  it("finds a published author by any alias, ignoring surrounding spaces", () => {
+    for (const alias of author.aliases) {
+      expect(getPublishedCreditAuthorByName(`  ${alias} `)).toBe(author);
+    }
+  });
+
+  it("returns nothing for an empty or unknown name", () => {
+    expect(getPublishedCreditAuthorByName("")).toBeUndefined();
+    expect(getPublishedCreditAuthorByName("   ")).toBeUndefined();
+    expect(getPublishedCreditAuthorByName("Nobody Atall")).toBeUndefined();
+  });
+});
+
+describe("presentation helpers", () => {
+  const author = published[0];
+
+  it("builds hrefs", () => {
+    expect(creditAuthorHref("x")).toEqual({
+      params: { slug: "x" },
+      pathname: "/authors/[slug]",
+    });
+    expect(creditAuthorIndexHref()).toBe("/authors");
+  });
+
+  it("picks the name per locale, falling back to English", () => {
+    expect(creditAuthorName(author, "ka")).toBe(author.name.ka);
+    expect(creditAuthorName(author, "en")).toBe(author.name.en);
+    const noRu = { ...author, name: { en: "E", ka: "K" } };
+    expect(creditAuthorName(noRu, "ru")).toBe("E");
+  });
+
+  it("returns undefined for a missing bio and picks a locale bio otherwise", () => {
+    expect(
+      creditAuthorBio({ ...author, bio: undefined }, "en"),
+    ).toBeUndefined();
+    expect(
+      creditAuthorBio({ ...author, bio: { en: "E", ka: "K" } }, "ka"),
+    ).toBe("K");
+    expect(
+      creditAuthorBio({ ...author, bio: { en: "E", ka: "K" } }, "tr"),
+    ).toBe("E");
+  });
+
+  it("lists only the social links that exist", () => {
+    expect(creditAuthorSameAs({ ...author, links: undefined })).toEqual([]);
+    expect(
+      creditAuthorSameAs({
+        ...author,
+        links: { facebook: "https://f", researchGate: "https://r" },
+      }),
+    ).toEqual(["https://f", "https://r"]);
+  });
+});
