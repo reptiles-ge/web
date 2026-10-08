@@ -2,7 +2,7 @@ import matter from "gray-matter";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 
 import {
   appendGalleryItemToMdx,
@@ -378,6 +378,91 @@ text
 });
 
 describe("removeGalleryItemFromSpecies", () => {
+  it("writes the opened overlay when its path is replaced", () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), "reptiles-admin-race-"));
+    const dir = path.join(root, "src/content/species/test-species");
+    fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(path.join(dir, "ka.mdx"), FIXTURE, "utf8");
+    const overlayPath = path.join(dir, "en.mdx");
+    const movedPath = path.join(dir, "moved.mdx");
+    fs.writeFileSync(overlayPath, FIXTURE, "utf8");
+    const open = fs.openSync;
+    let swapped = false;
+    const spy = vi
+      .spyOn(fs, "openSync")
+      .mockImplementation((file, flags, mode) => {
+        const fd = open(file, flags, mode);
+        if (file === overlayPath && !swapped) {
+          swapped = true;
+          fs.renameSync(overlayPath, movedPath);
+          fs.writeFileSync(overlayPath, FIXTURE, "utf8");
+        }
+        return fd;
+      });
+
+    try {
+      removeGalleryItemFromSpecies(
+        "test-species",
+        "https://cdn.reptiles.ge/a.jpg",
+        root,
+      );
+      expect(swapped).toBe(true);
+      expect(fs.readFileSync(overlayPath, "utf8")).toBe(FIXTURE);
+      expect(gallerySrcs(fs.readFileSync(movedPath, "utf8"))).toEqual([
+        "https://cdn.reptiles.ge/b.jpg",
+        "https://cdn.reptiles.ge/c.jpg",
+      ]);
+    } finally {
+      spy.mockRestore();
+      fs.rmSync(root, { force: true, recursive: true });
+    }
+  });
+
+  it("does not follow a symlinked canonical MDX file", () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), "reptiles-admin-link-"));
+    try {
+      const dir = path.join(root, "src/content/species/test-species");
+      fs.mkdirSync(dir, { recursive: true });
+      const externalPath = path.join(root, "external.mdx");
+      fs.writeFileSync(externalPath, FIXTURE, "utf8");
+      fs.symlinkSync(externalPath, path.join(dir, "ka.mdx"));
+
+      expect(() =>
+        removeGalleryItemFromSpecies(
+          "test-species",
+          "https://cdn.reptiles.ge/a.jpg",
+          root,
+        ),
+      ).toThrow();
+      expect(fs.readFileSync(externalPath, "utf8")).toBe(FIXTURE);
+    } finally {
+      fs.rmSync(root, { force: true, recursive: true });
+    }
+  });
+
+  it("does not follow a symlinked overlay MDX file", () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), "reptiles-admin-link-"));
+    try {
+      const dir = path.join(root, "src/content/species/test-species");
+      fs.mkdirSync(dir, { recursive: true });
+      fs.writeFileSync(path.join(dir, "ka.mdx"), FIXTURE, "utf8");
+      const externalPath = path.join(root, "external.mdx");
+      fs.writeFileSync(externalPath, FIXTURE, "utf8");
+      fs.symlinkSync(externalPath, path.join(dir, "en.mdx"));
+
+      expect(() =>
+        removeGalleryItemFromSpecies(
+          "test-species",
+          "https://cdn.reptiles.ge/a.jpg",
+          root,
+        ),
+      ).toThrow();
+      expect(fs.readFileSync(externalPath, "utf8")).toBe(FIXTURE);
+    } finally {
+      fs.rmSync(root, { force: true, recursive: true });
+    }
+  });
+
   it("removes overlay credits and reassigns the cover", () => {
     const root = fs.mkdtempSync(
       path.join(os.tmpdir(), "reptiles-admin-remove-"),

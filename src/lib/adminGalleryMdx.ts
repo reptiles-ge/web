@@ -48,15 +48,32 @@ function rewriteMdxIfExists(
 ): boolean {
   let fd: number;
   try {
-    fd = fs.openSync(filePath, "r+");
+    fd = fs.openSync(filePath, fs.constants.O_RDWR | fs.constants.O_NOFOLLOW);
   } catch (error) {
     if ((error as NodeJS.ErrnoException).code === "ENOENT") return false;
     throw error;
   }
   try {
-    const next = transform(fs.readFileSync(fd, "utf8"));
-    fs.ftruncateSync(fd, 0);
-    fs.writeSync(fd, next, 0, "utf8");
+    if (!fs.fstatSync(fd).isFile()) {
+      throw new Error(`Not a regular file: ${filePath}`);
+    }
+    const raw = fs.readFileSync(fd, "utf8");
+    const next = transform(raw);
+    if (next === raw) return true;
+    const bytes = Buffer.from(next);
+    let position = 0;
+    while (position < bytes.length) {
+      const written = fs.writeSync(
+        fd,
+        bytes,
+        position,
+        bytes.length - position,
+        position,
+      );
+      if (written === 0) throw new Error(`Failed to write ${filePath}`);
+      position += written;
+    }
+    fs.ftruncateSync(fd, bytes.length);
   } finally {
     fs.closeSync(fd);
   }
@@ -292,71 +309,76 @@ export function removeGalleryItemFromSpecies(
   }
   const dir = path.join(repoRoot, "src/content/species", id);
   const kaPath = path.join(dir, "ka.mdx");
-  if (!fs.existsSync(kaPath)) {
+  const state: {
+    coverTarget: CoverTarget | null;
+    replacement: GalleryImage | null;
+    written: null | { image?: unknown; mobileImage?: unknown };
+  } = { coverTarget: null, replacement: null, written: null };
+  if (
+    !rewriteMdxIfExists(kaPath, (kaRaw) => {
+      const kaData = matter(kaRaw).data as {
+        gallery?: unknown;
+        image?: unknown;
+        mobileImage?: unknown;
+      };
+      const gallery = normalizeGallery(kaData.gallery);
+      if (!gallery.some((item) => item.src === src)) {
+        throw new Error(`Unknown gallery src: ${src}`);
+      }
+      const replacement = galleryReplacement(gallery, src);
+      if (!replacement) {
+        throw new Error("Cannot delete the last gallery photo");
+      }
+      state.replacement = replacement;
+      state.coverTarget = coverTargetForSrc(
+        typeof kaData.image === "string" ? kaData.image : "",
+        typeof kaData.mobileImage === "string" ? kaData.mobileImage : "",
+        src,
+      );
+      let nextKa = removeGalleryItemFromMdx(kaRaw, src);
+      if (state.coverTarget) {
+        nextKa = setCoverInMdx(nextKa, state.coverTarget, replacement);
+      }
+      state.written = matter(nextKa).data;
+      return nextKa;
+    })
+  ) {
     throw new Error(`Missing ${id}/ka.mdx`);
   }
-
-  const kaRaw = fs.readFileSync(kaPath, "utf8");
-  const kaData = matter(kaRaw).data as {
-    gallery?: unknown;
-    image?: unknown;
-    mobileImage?: unknown;
-  };
-  const gallery = normalizeGallery(kaData.gallery);
-  if (!gallery.some((item) => item.src === src)) {
-    throw new Error(`Unknown gallery src: ${src}`);
+  const { coverTarget, replacement, written } = state;
+  if (!replacement || !written) {
+    throw new Error("Failed to remove gallery photo");
   }
-  const replacement = galleryReplacement(gallery, src);
-  if (!replacement) {
-    throw new Error("Cannot delete the last gallery photo");
-  }
-
-  const image = typeof kaData.image === "string" ? kaData.image : "";
-  const mobileImage =
-    typeof kaData.mobileImage === "string" ? kaData.mobileImage : "";
-  const coverTarget = coverTargetForSrc(image, mobileImage, src);
-
-  let nextKa = removeGalleryItemFromMdx(kaRaw, src);
-  if (coverTarget) {
-    nextKa = setCoverInMdx(nextKa, coverTarget, replacement);
-  }
-  fs.writeFileSync(kaPath, nextKa, "utf8");
 
   for (const locale of OVERLAY_LOCALES) {
     const filePath = path.join(dir, `${locale}.mdx`);
-    if (!fs.existsSync(filePath)) continue;
-    const raw = fs.readFileSync(filePath, "utf8");
-    const parsed = matter(raw);
-    const overlayGallery = normalizeGallery(parsed.data.gallery);
-    let next = overlayGallery.some((item) => item.src === src)
-      ? removeGalleryItemFromMdx(raw, src)
-      : raw;
-    const overlayData = parsed.data as Record<string, unknown>;
-    const overlayTarget = coverTargetForSrc(
-      typeof overlayData.image === "string" ? overlayData.image : "",
-      typeof overlayData.mobileImage === "string"
-        ? overlayData.mobileImage
-        : "",
-      src,
-    );
-    if (overlayTarget && coverKeysPresent(overlayData, overlayTarget)) {
-      const overlayReplacement = normalizeGallery(
-        matter(next).data.gallery,
-      ).find((item) => item.src === replacement.src);
-      const item: GalleryImage = overlayReplacement?.credit
-        ? { credit: overlayReplacement.credit, src: replacement.src }
-        : { src: replacement.src };
-      next = setCoverInMdx(next, overlayTarget, item, false);
-    }
-    if (next !== raw) {
-      fs.writeFileSync(filePath, next, "utf8");
-    }
+    rewriteMdxIfExists(filePath, (raw) => {
+      const parsed = matter(raw);
+      const overlayGallery = normalizeGallery(parsed.data.gallery);
+      let next = overlayGallery.some((item) => item.src === src)
+        ? removeGalleryItemFromMdx(raw, src)
+        : raw;
+      const overlayData = parsed.data as Record<string, unknown>;
+      const overlayTarget = coverTargetForSrc(
+        typeof overlayData.image === "string" ? overlayData.image : "",
+        typeof overlayData.mobileImage === "string"
+          ? overlayData.mobileImage
+          : "",
+        src,
+      );
+      if (overlayTarget && coverKeysPresent(overlayData, overlayTarget)) {
+        const overlayReplacement = normalizeGallery(
+          matter(next).data.gallery,
+        ).find((item) => item.src === replacement.src);
+        const item: GalleryImage = overlayReplacement?.credit
+          ? { credit: overlayReplacement.credit, src: replacement.src }
+          : { src: replacement.src };
+        next = setCoverInMdx(next, overlayTarget, item, false);
+      }
+      return next;
+    });
   }
 
-  const written = matter(fs.readFileSync(kaPath, "utf8")).data as {
-    image?: unknown;
-    mobileImage?: unknown;
-  };
   return {
     coverReassigned: Boolean(coverTarget),
     image: typeof written.image === "string" ? written.image : "",
