@@ -15,7 +15,6 @@ export const SPECIES_SECTION_IDS = {
 } as const;
 
 export type SpeciesProfileSectionAvailability = {
-  atAGlance: boolean;
   biology: boolean;
   faq: boolean;
   gallery: boolean;
@@ -27,7 +26,6 @@ export type SpeciesProfileSectionAvailability = {
 };
 
 export function speciesProfileSectionIds({
-  atAGlance,
   biology,
   faq,
   gallery,
@@ -38,7 +36,6 @@ export function speciesProfileSectionIds({
   sources,
 }: SpeciesProfileSectionAvailability) {
   return [
-    ...(atAGlance ? [SPECIES_SECTION_IDS.atAGlance] : []),
     ...(interaction ? [SPECIES_SECTION_IDS.interaction] : []),
     SPECIES_SECTION_IDS.overview,
     ...(identification ? [SPECIES_SECTION_IDS.identification] : []),

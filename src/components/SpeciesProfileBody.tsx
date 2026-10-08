@@ -568,7 +568,6 @@ export async function SpeciesProfileBody({
         name={species.commonName}
         riskLevel={riskLevel}
         sections={{
-          atAGlance: displayStats.length > 0,
           biology: naturalHistoryBlocks.length > 0,
           faq: Boolean(species.faq?.length),
           gallery: gallery.length > 0,
@@ -1135,7 +1134,6 @@ async function SpeciesProfileNavigation({
   const t = await getTranslations({ locale, namespace: "profile" });
   const ids = speciesProfileSectionIds(sections);
   const labels = {
-    [SPECIES_SECTION_IDS.atAGlance]: t("atAGlance"),
     [SPECIES_SECTION_IDS.biology]: t("biology"),
     [SPECIES_SECTION_IDS.faq]: t("faq"),
     [SPECIES_SECTION_IDS.gallery]: t("gallery"),
