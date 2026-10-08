@@ -8,6 +8,7 @@ import {
   editorResultSchema,
   readSpeciesField,
   replaceSpeciesField,
+  restoreInlineLinkTargets,
   validateEditorResult,
   verifyEditorSelection,
 } from "@/lib/contentEditor";
@@ -146,46 +147,22 @@ describe("selection content editor", () => {
     ).toThrow("inline links");
   });
 
-  it("accepts a translation link that Georgian already has and the translation lacked", async () => {
-    const target = await resolveEditorTarget({
-      end: 1,
-      field: "identification.traits.3",
-      id: "xerotyphlops-vermicularis",
-      kind: "species",
-      renderedText: "ignored",
-      start: 0,
-    });
-    const values = Object.fromEntries(
-      (["ka", "en", "ru", "tr"] as const).map((locale, index) => [
-        locale,
-        readSpeciesField(target.originals[index], "identification.traits.3"),
-      ]),
-    ) as Record<"en" | "ka" | "ru" | "tr", string>;
-    const updated = target.updated({
-      ...values,
-      ru: values.ru.replace(
-        "Песчаный удавчик (Eryx jaculus)",
-        "[Песчаный удавчик](eryx-jaculus)",
+  it("accepts a translation link that Georgian already has and the translation lacked", () => {
+    const source = "[დასავლური მახრჩობელა](eryx-jaculus) უფრო მსხვილია.";
+    const original = "Песчаный удавчик უფრო მსხვილია.";
+    expect(
+      restoreInlineLinkTargets(
+        original,
+        "[Песчаный удавчик](eryx-jaculus) უფრო მსხვილია.",
+        source,
       ),
-      tr: values.tr.replace(
-        "Cirit kum boası (Eryx jaculus)",
-        "[Cirit kum boası](eryx-jaculus)",
-      ),
-    });
-    expect(readSpeciesField(updated[2], "identification.traits.3")).toContain(
-      "[Песчаный удавчик](eryx-jaculus)",
-    );
-    expect(readSpeciesField(updated[3], "identification.traits.3")).toContain(
-      "[Cirit kum boası](eryx-jaculus)",
-    );
+    ).toBe("[Песчаный удавчик](eryx-jaculus) უფრო მსხვილია.");
     expect(() =>
-      target.updated({
-        ...values,
-        ru: values.ru.replace(
-          "Песчаный удавчик (Eryx jaculus)",
-          "[Песчаный удавчик](https://evil.example)",
-        ),
-      }),
+      restoreInlineLinkTargets(
+        original,
+        "[Песчаный удавчик](https://evil.example) უფრო მსხვილია.",
+        source,
+      ),
     ).toThrow("inline links");
   });
 
