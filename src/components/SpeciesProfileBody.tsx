@@ -15,6 +15,7 @@ import { BiologyBlock } from "@/components/BiologyBlock";
 import { BiologyExpandable } from "@/components/BiologyExpandable";
 import { ContentAttribution } from "@/components/ContentAttribution";
 import { GiurzaGuideFeature } from "@/components/GiurzaGuideFeature";
+import { GiurzaSourcesRelated } from "@/components/GiurzaSourcesRelated";
 import { SpeciesRangeMap } from "@/components/map/SpeciesRangeMap";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { RelatedGuideStaticGrid } from "@/components/RelatedGuideStaticGrid";
@@ -703,11 +704,13 @@ export async function SpeciesProfileBody({
         updatedAt={species.updatedAt}
       />
 
-      <SpeciesSources
-        locale={locale}
-        sources={species.sources}
-        speciesId={species.id}
-      />
+      {species.id !== "macrovipera-lebetina" ? (
+        <SpeciesSources
+          locale={locale}
+          sources={species.sources}
+          speciesId={species.id}
+        />
+      ) : null}
 
       {guideLinks.length > 0 && species.id === "macrovipera-lebetina" ? (
         <GiurzaGuideFeature
@@ -734,11 +737,21 @@ export async function SpeciesProfileBody({
         </section>
       ) : null}
 
-      <SpeciesProfileRelated
-        labelVariant={relatedLabelVariant}
-        locale={locale}
-        related={related}
-      />
+      {species.id === "macrovipera-lebetina" ? (
+        <GiurzaSourcesRelated
+          locale={locale}
+          related={related}
+          sources={species.sources}
+          speciesId={species.id}
+          updatedAt={species.updatedAt}
+        />
+      ) : (
+        <SpeciesProfileRelated
+          labelVariant={relatedLabelVariant}
+          locale={locale}
+          related={related}
+        />
+      )}
     </>
   );
 }
