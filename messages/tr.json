@@ -431,7 +431,6 @@
     "diet": "Beslenme",
     "behavior": "Davranış",
     "conservation": "Koruma",
-    "conservationStatus": "Koruma durumu",
     "iucnStatus": {
       "LC": "Asgari endişe",
       "NT": "Tehdide yakın",

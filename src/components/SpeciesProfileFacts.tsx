@@ -83,59 +83,37 @@ export async function SpeciesProfileFacts({
                 <dt
                   className="text-[11px] leading-relaxed font-medium tracking-[0.14em] wrap-break-word text-muted-foreground"
                   data-content-field={
-                    editable && tile.visual?.kind !== "iucn"
+                    editable
                       ? `stats.${stats.indexOf(tile.stat)}.label`
                       : undefined
                   }
-                  data-content-id={
-                    editable && tile.visual?.kind !== "iucn"
-                      ? speciesId
-                      : undefined
-                  }
-                  data-content-kind={
-                    editable && tile.visual?.kind !== "iucn"
-                      ? "species"
-                      : undefined
-                  }
+                  data-content-id={editable ? speciesId : undefined}
+                  data-content-kind={editable ? "species" : undefined}
                 >
-                  {tile.visual?.kind === "iucn"
-                    ? t("conservationStatus")
-                    : tile.stat.label}
+                  {tile.stat.label}
                 </dt>
                 <dd className="mt-[7px] font-display text-[16px] leading-[1.3] font-semibold wrap-break-word text-foreground lg:mt-2 lg:text-[19px]">
-                  {tile.visual?.kind === "iucn" ? (
-                    <span className="inline-flex flex-wrap items-center gap-2">
-                      {t(`iucnStatus.${tile.visual.code}`)}
-                      <span
-                        className={cn(
-                          "inline-flex min-h-6 items-center rounded-md px-1.5 font-sans text-[11px] font-semibold",
-                          iucnTone(tile.visual.code),
-                        )}
-                      >
-                        {tile.visual.code}
-                      </span>
-                    </span>
-                  ) : (
-                    <>
-                      <span
-                        data-content-field={
-                          editable
-                            ? `stats.${stats.indexOf(tile.stat)}.value`
-                            : undefined
-                        }
-                        data-content-id={editable ? speciesId : undefined}
-                        data-content-kind={editable ? "species" : undefined}
-                      >
-                        <SpeciesProfileStatValue
-                          danger={danger}
-                          dangerValue={dangerValue}
-                          linkDangerStats={linkDangerStats}
-                          value={tile.stat.value}
-                        />
-                      </span>
-                      {tile.visual ? <FactVisual visual={tile.visual} /> : null}
-                    </>
-                  )}
+                  <span
+                    data-content-field={
+                      editable
+                        ? `stats.${stats.indexOf(tile.stat)}.value`
+                        : undefined
+                    }
+                    data-content-id={editable ? speciesId : undefined}
+                    data-content-kind={editable ? "species" : undefined}
+                  >
+                    <SpeciesProfileStatValue
+                      danger={danger}
+                      dangerValue={dangerValue}
+                      linkDangerStats={linkDangerStats}
+                      value={
+                        tile.visual?.kind === "iucn"
+                          ? t(`iucnStatus.${tile.visual.code}`)
+                          : tile.stat.value
+                      }
+                    />
+                  </span>
+                  {tile.visual ? <FactVisual visual={tile.visual} /> : null}
                 </dd>
               </div>
             ))}
@@ -181,7 +159,25 @@ function factTiles(stats: SpeciesStat[], locale: AppLocale): FactTile[] {
 }
 
 function FactVisual({ visual }: { visual: SpeciesFactVisual }) {
-  if (visual.kind === "iucn") return null;
+  if (visual.kind === "iucn") {
+    return (
+      <span aria-hidden="true" className="mt-2.5 flex gap-[3px] lg:mt-3">
+        {IUCN_SCALE.map((code) => (
+          <span
+            className={cn(
+              "flex h-[22px] flex-1 items-center justify-center rounded-[7px] font-sans text-[10px] font-semibold lg:h-[26px] lg:text-[11px]",
+              code === visual.code
+                ? iucnTone(code)
+                : "bg-surface text-muted-foreground",
+            )}
+            key={code}
+          >
+            {code}
+          </span>
+        ))}
+      </span>
+    );
+  }
 
   return (
     <span aria-hidden="true" className="mt-3 block lg:mt-3.5">

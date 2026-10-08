@@ -431,7 +431,6 @@
     "diet": "Diet",
     "behavior": "Behavior",
     "conservation": "Conservation",
-    "conservationStatus": "Conservation status",
     "iucnStatus": {
       "LC": "Least Concern",
       "NT": "Near Threatened",

@@ -431,7 +431,6 @@
     "diet": "კვება",
     "behavior": "ქცევა",
     "conservation": "კონსერვაცია",
-    "conservationStatus": "კონსერვაციული სტატუსი",
     "iucnStatus": {
       "LC": "ნაკლ. საფრთხე",
       "NT": "საფრთხესთან ახლოს",
