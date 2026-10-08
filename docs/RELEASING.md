@@ -120,6 +120,14 @@ gh release view vX.Y.Z --repo reptiles-ge/web --json tagName,targetCommitish,url
 
 Report the version, the commit, and the release URL.
 
+## Version in the footer
+
+The footer shows the latest release tag and links it to its GitHub Release. Nothing is committed for it: `scripts/compile-release-version.ts` runs with `species:compile` and writes the gitignored `src/data/releaseVersion.generated.ts`.
+
+It resolves the tag in this order: the `RELEASE_VERSION` variable, the nearest `vX.Y.Z` tag in the checked-out history, then the highest `vX.Y.Z` tag on `origin` (for shallow clones without tags). If none is found the footer shows no version.
+
+A release is tagged after its commit is already live, so the footer changes to the new version on the next deploy of `main`, not at the moment the release is published.
+
 ## Fixing things after a release
 
 - **Wrong or thin notes:** edit them with `gh release edit vX.Y.Z --notes-file <file>`. Editing notes is fine. Moving the tag is not.

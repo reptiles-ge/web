@@ -44,7 +44,7 @@
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "test:e2e": "playwright test",
-    "species:compile": "tsx scripts/compile-species.ts && tsx scripts/compile-occurrences.ts && tsx scripts/compile-locale-switch-index.ts",
+    "species:compile": "tsx scripts/compile-species.ts && tsx scripts/compile-occurrences.ts && tsx scripts/compile-locale-switch-index.ts && tsx scripts/compile-release-version.ts",
     "locale-switch:compile": "tsx scripts/compile-locale-switch-index.ts",
     "search:compile": "tsx scripts/compile-search.ts",
     "map:compile": "tsx scripts/compile-georgia-map.ts",
