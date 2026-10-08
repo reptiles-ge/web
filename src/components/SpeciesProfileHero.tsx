@@ -7,7 +7,6 @@ import type { AnimalGroup } from "@/data/speciesAtlas";
 import type { AppLocale } from "@/i18n/routing";
 import type { SpeciesBreadcrumbCrumb } from "@/lib/speciesBreadcrumbs";
 
-import { SpeciesHeroActions } from "@/components/SpeciesHeroActions";
 import {
   type MobileHeroSlide,
   SpeciesMobileHeroCarousel,
@@ -196,14 +195,6 @@ export async function SpeciesProfileHero({
                 audio={species.audio}
                 speciesId={species.id}
               />
-            ) : null}
-            {species.id !== "macrovipera-lebetina" ? (
-              <div className="hidden items-center gap-2.5 lg:flex">
-                <SpeciesHeroActions
-                  name={species.commonName}
-                  speciesId={species.id}
-                />
-              </div>
             ) : null}
           </div>
         </div>

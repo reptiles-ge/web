@@ -25,6 +25,7 @@ import { regionHref } from "@/lib/regionHref";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 
 type SpeciesRangeMapProps = {
+  editable?: boolean;
   habitatDetails?: string;
   locale: AppLocale;
   speciesId: string;
@@ -39,6 +40,7 @@ const HEADING_CLASS =
 const STATIC_HATCH_ID = "range-hatch-static";
 
 export async function SpeciesRangeMap({
+  editable,
   habitatDetails,
   locale,
   speciesId,
@@ -63,6 +65,7 @@ export async function SpeciesRangeMap({
       <HalyomorphaRangeSection
         anchorLabel={t("anchorLink")}
         copy={interactiveRangeCopy}
+        editable={editable}
         eyebrow={t("range")}
         habitatDetails={habitatDetails}
         iNaturalistTaxonId={interactiveRangeConfig.iNaturalistTaxonId}
@@ -89,7 +92,7 @@ export async function SpeciesRangeMap({
   if (highlightedIds.length === 0 && !habitatDetails) return null;
 
   return (
-    <section className="bg-background py-11 lg:py-20">
+    <section className="bg-surface py-11 lg:py-20">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <p className={EYEBROW_CLASS}>{t("range")}</p>
         <AnchoredHeading
@@ -101,14 +104,22 @@ export async function SpeciesRangeMap({
           {t("rangeTitle", { name: speciesName })}
         </AnchoredHeading>
 
-        <div className="mt-8 grid items-start gap-8 lg:grid-cols-[minmax(0,460px)_minmax(0,1fr)] lg:gap-16">
+        <div
+          className={
+            highlightedIds.length > 0
+              ? "mt-8 grid items-start gap-8 lg:grid-cols-[minmax(0,460px)_minmax(0,1fr)] lg:gap-16"
+              : "mt-8 max-w-3xl"
+          }
+        >
           <div>
             {habitatDetails ? (
               <BiologyExpandable
                 body={habitatDetails}
+                editorField={editable ? "habitat" : undefined}
                 needsExpand={habitatDetails.length > 520}
                 readLess={t("readLess")}
                 readMore={t("readMore")}
+                speciesId={editable ? speciesId : undefined}
               />
             ) : null}
             {rangeRegions.length > 0 ? (
@@ -171,6 +182,7 @@ function formatYearRange(summary: HalyomorphaOccurrenceSummary) {
 async function HalyomorphaRangeSection({
   anchorLabel,
   copy,
+  editable,
   eyebrow,
   habitatDetails,
   iNaturalistTaxonId,
@@ -183,6 +195,7 @@ async function HalyomorphaRangeSection({
 }: {
   anchorLabel: string;
   copy: HalyomorphaRangeCopy;
+  editable?: boolean;
   eyebrow: string;
   habitatDetails?: string;
   iNaturalistTaxonId: number;
@@ -415,7 +428,7 @@ async function HalyomorphaRangeSection({
   }
 
   return (
-    <section className="bg-background py-11 lg:py-20">
+    <section className="bg-surface py-11 lg:py-20">
       <div className="mx-auto grid max-w-[1400px] items-start gap-8 px-6 lg:grid-cols-[minmax(0,460px)_minmax(0,1fr)] lg:gap-16 lg:px-10">
         <div>
           <p className={EYEBROW_CLASS}>{eyebrow}</p>
@@ -431,9 +444,11 @@ async function HalyomorphaRangeSection({
             <div className="mt-5">
               <BiologyExpandable
                 body={habitatDetails}
+                editorField={editable ? "habitat" : undefined}
                 needsExpand={habitatDetails.length > 520}
                 readLess={tProfile("readLess")}
                 readMore={tProfile("readMore")}
+                speciesId={editable ? speciesId : undefined}
               />
             </div>
           ) : null}

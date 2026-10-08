@@ -631,20 +631,10 @@ export async function SpeciesProfileBody({
         />
       ) : null}
 
-      {gallery.length > 0 && species.id === "halyomorpha-halys" ? (
-        <SpeciesGallery
-          images={gallery}
-          locale={locale}
-          location={species.location}
-          name={species.commonName}
-          scientificName={species.scientificName}
-          speciesId={species.id}
-        />
-      ) : null}
-
       <SpeciesProfileQuiz locale={locale} species={species} />
 
       <SpeciesRangeMap
+        editable={editable}
         habitatDetails={habitatBlock?.body}
         locale={locale}
         speciesId={species.id}
@@ -660,7 +650,7 @@ export async function SpeciesProfileBody({
         title={biologyTitle}
       />
 
-      {gallery.length > 0 && species.id !== "halyomorpha-halys" ? (
+      {gallery.length > 0 ? (
         <SpeciesGallery
           images={gallery}
           locale={locale}
@@ -707,6 +697,7 @@ export async function SpeciesProfileBody({
 
       <SpeciesSourcesRelated
         locale={locale}
+        publishedAt={species.publishedAt}
         related={related}
         sources={species.sources}
         speciesId={species.id}
@@ -1163,7 +1154,7 @@ async function SpeciesProfileNavigation({
 }) {
   const t = await getTranslations({ locale, namespace: "profile" });
   const availableIds = speciesProfileSectionIds(sections);
-  const giurzaOrder = [
+  const sectionOrder = [
     SPECIES_SECTION_IDS.interaction,
     SPECIES_SECTION_IDS.overview,
     SPECIES_SECTION_IDS.identification,
@@ -1173,7 +1164,7 @@ async function SpeciesProfileNavigation({
     SPECIES_SECTION_IDS.faq,
     SPECIES_SECTION_IDS.sources,
   ];
-  const ids = giurzaOrder.filter((id) => availableIds.includes(id));
+  const ids = sectionOrder.filter((id) => availableIds.includes(id));
   const labels = {
     [SPECIES_SECTION_IDS.biology]: t("biology"),
     [SPECIES_SECTION_IDS.faq]: t("faq"),

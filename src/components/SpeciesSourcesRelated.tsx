@@ -14,6 +14,7 @@ import { formatContentDate } from "@/lib/formatDate";
 import { getSpeciesCoverSrc } from "@/lib/speciesContent";
 import { speciesImageAlt } from "@/lib/speciesMeta";
 import { getSpeciesRiskChip } from "@/lib/speciesRisk";
+import { hasMeaningfulUpdate } from "@/lib/structuredDataDates";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 
 const featuredSourceStarts = [
@@ -24,6 +25,7 @@ const featuredSourceStarts = [
 
 type Props = {
   locale: AppLocale;
+  publishedAt?: string;
   related: Species[];
   sources: SpeciesSource[];
   speciesId: string;
@@ -32,6 +34,7 @@ type Props = {
 
 export async function SpeciesSourcesRelated({
   locale,
+  publishedAt,
   related,
   sources,
   speciesId,
@@ -113,9 +116,22 @@ export async function SpeciesSourcesRelated({
           </div>
 
           <p className="mt-4 px-5 text-[12.5px] leading-relaxed text-muted-foreground sm:px-6 lg:px-0 lg:text-[13px]">
-            {updatedAt
-              ? `${t("updatedOn")} ${formatContentDate(updatedAt, locale)}. `
-              : null}
+            {publishedAt ? (
+              <time dateTime={publishedAt}>
+                {tAttribution("published", {
+                  date: formatContentDate(publishedAt, locale),
+                })}
+              </time>
+            ) : null}
+            {updatedAt && hasMeaningfulUpdate(publishedAt, updatedAt) ? (
+              <time className="ml-2" dateTime={updatedAt}>
+                {tAttribution("updated", {
+                  date: formatContentDate(updatedAt, locale),
+                })}
+              </time>
+            ) : null}
+          </p>
+          <p className="mt-2 px-5 text-[12.5px] leading-relaxed text-muted-foreground sm:px-6 lg:px-0 lg:text-[13px]">
             {t("sourcesNote")}
           </p>
           <p className="mt-2 px-5 text-[12.5px] leading-relaxed text-muted-foreground sm:px-6 lg:px-0 lg:text-[13px]">
