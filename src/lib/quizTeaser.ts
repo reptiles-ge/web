@@ -79,11 +79,7 @@ export function getSpeciesQuizTeaser(
 }
 
 export function quizTeaserOptionIds(speciesId: string, quizId: QuizTeaserId) {
-  const catalog = getCatalogSpecies();
-  const pool =
-    quizId === "snake"
-      ? getSnakeQuizCatalog(catalog)
-      : getLizardQuizCatalog(catalog);
+  const pool = getQuizPool(quizId);
   if (pool.length < QUIZ_OPTION_COUNT) return null;
 
   const correctId = pickCorrectId(speciesId, pool);
@@ -108,6 +104,21 @@ export function quizTeaserOptionIds(speciesId: string, quizId: QuizTeaserId) {
       .sort((a, b) => a.order - b.order || a.id.localeCompare(b.id))
       .map((item) => item.id),
   };
+}
+
+const quizPools = new Map<QuizTeaserId, SnakeQuizSpecies[]>();
+
+function getQuizPool(quizId: QuizTeaserId) {
+  const cached = quizPools.get(quizId);
+  if (cached) return cached;
+
+  const catalog = getCatalogSpecies();
+  const pool =
+    quizId === "snake"
+      ? getSnakeQuizCatalog(catalog)
+      : getLizardQuizCatalog(catalog);
+  quizPools.set(quizId, pool);
+  return pool;
 }
 
 function hashString(value: string) {

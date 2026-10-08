@@ -1,5 +1,7 @@
-import { afterEach, describe, expect, it, vi } from "vitest";
+import { http, HttpResponse } from "msw";
+import { describe, expect, it } from "vitest";
 
+import { recordRequests, server } from "../../../../../tests/msw/server";
 import { POST } from "./route.local";
 
 const observation = {
@@ -24,7 +26,9 @@ const observation = {
   user: { login: "vanmeetin" },
 };
 
-afterEach(() => vi.unstubAllGlobals());
+const API = "https://api.inaturalist.org/v1/observations/294797151";
+const ORIGINAL =
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/530655415/original.jpg";
 
 function request(url: string) {
   return new Request("http://localhost/api/admin/inaturalist-photo", {
@@ -34,20 +38,28 @@ function request(url: string) {
   });
 }
 
+function useObservation(result: object) {
+  server.use(
+    http.get(API, () => HttpResponse.json({ results: [result] })),
+    http.get(
+      ORIGINAL,
+      () =>
+        new HttpResponse(new Uint8Array([1, 2, 3]), {
+          headers: { "Content-Type": "image/jpeg" },
+        }),
+    ),
+  );
+}
+
+const OBSERVATION_URL = "https://www.inaturalist.org/observations/294797151";
+
 describe("POST /api/admin/inaturalist-photo", () => {
   it("fetches the first photo and returns the observation credit fields", async () => {
-    const fetchMock = vi.fn(async (url: string) =>
-      url.includes("api.inaturalist.org")
-        ? Response.json({ results: [observation] })
-        : new Response(new Uint8Array([1, 2, 3]), {
-            headers: { "Content-Type": "image/jpeg" },
-          }),
-    );
-    vi.stubGlobal("fetch", fetchMock);
+    useObservation(observation);
+    const requests = recordRequests();
 
-    const response = await POST(
-      request("https://www.inaturalist.org/observations/294797151"),
-    );
+    const response = await POST(request(OBSERVATION_URL));
+    requests.stop();
     expect(response.status).toBe(200);
     const result = await response.formData();
     const photo = result.get("photo");
@@ -63,25 +75,13 @@ describe("POST /api/admin/inaturalist-photo", () => {
       photographer: "vanmeetin",
       url: "https://www.inaturalist.org/photos/530655415",
     });
-    expect(fetchMock.mock.calls[1]?.[0]).toBe(
-      "https://inaturalist-open-data.s3.amazonaws.com/photos/530655415/original.jpg",
-    );
+    expect(requests.urls[1]).toBe(ORIGINAL);
   });
 
   it("does not mark captive or obscured observations as Georgia field photos", async () => {
-    vi.stubGlobal("fetch", async (url: string) =>
-      url.includes("api.inaturalist.org")
-        ? Response.json({
-            results: [{ ...observation, captive: true, obscured: true }],
-          })
-        : new Response(new Uint8Array([1]), {
-            headers: { "Content-Type": "image/jpeg" },
-          }),
-    );
+    useObservation({ ...observation, captive: true, obscured: true });
 
-    const response = await POST(
-      request("https://www.inaturalist.org/observations/294797151"),
-    );
+    const response = await POST(request(OBSERVATION_URL));
     const result = await response.formData();
     expect(JSON.parse(String(result.get("metadata")))).toMatchObject({
       georgiaField: false,
@@ -91,19 +91,9 @@ describe("POST /api/admin/inaturalist-photo", () => {
   });
 
   it("requires a Georgian locality before checking the field photo flag", async () => {
-    vi.stubGlobal("fetch", async (url: string) =>
-      url.includes("api.inaturalist.org")
-        ? Response.json({
-            results: [{ ...observation, place_guess: "Georgia" }],
-          })
-        : new Response(new Uint8Array([1]), {
-            headers: { "Content-Type": "image/jpeg" },
-          }),
-    );
+    useObservation({ ...observation, place_guess: "Georgia" });
 
-    const response = await POST(
-      request("https://www.inaturalist.org/observations/294797151"),
-    );
+    const response = await POST(request(OBSERVATION_URL));
     const result = await response.formData();
     expect(JSON.parse(String(result.get("metadata")))).toMatchObject({
       georgiaField: false,
@@ -112,37 +102,45 @@ describe("POST /api/admin/inaturalist-photo", () => {
   });
 
   it("rejects unrelated URLs before making a network request", async () => {
-    const fetchMock = vi.fn();
-    vi.stubGlobal("fetch", fetchMock);
+    const requests = recordRequests();
     const response = await POST(
       request("https://example.com/observations/294797151"),
     );
+    requests.stop();
     expect(response.status).toBe(400);
-    expect(fetchMock).not.toHaveBeenCalled();
+    expect(requests.urls).toEqual([]);
   });
 
   it("does not fetch photo URLs outside the iNaturalist image hosts", async () => {
-    const fetchMock = vi.fn(async () =>
-      Response.json({
-        results: [
-          {
-            ...observation,
-            photos: [
-              {
-                id: 530655415,
-                url: "https://example.com/photos/530655415/square.jpg",
-              },
-            ],
-          },
-        ],
-      }),
+    server.use(
+      http.get(API, () =>
+        HttpResponse.json({
+          results: [
+            {
+              ...observation,
+              photos: [
+                {
+                  id: 530655415,
+                  url: "https://example.com/photos/530655415/square.jpg",
+                },
+              ],
+            },
+          ],
+        }),
+      ),
     );
-    vi.stubGlobal("fetch", fetchMock);
+    const requests = recordRequests();
 
-    const response = await POST(
-      request("https://www.inaturalist.org/observations/294797151"),
-    );
+    const response = await POST(request(OBSERVATION_URL));
+    requests.stop();
     expect(response.status).toBe(422);
-    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(requests.urls).toHaveLength(1);
+  });
+
+  it("fails clearly when iNaturalist is unavailable", async () => {
+    server.use(http.get(API, () => new HttpResponse(null, { status: 503 })));
+
+    const response = await POST(request(OBSERVATION_URL));
+    expect(response.ok).toBe(false);
   });
 });
