@@ -417,7 +417,7 @@ function SpeciesIdentificationPhoto({
     <figure
       className={cn(
         "mt-5 lg:col-start-1 lg:row-span-2 lg:row-start-1 lg:mt-0",
-        featured ? "lg:self-start" : "lg:sticky lg:top-36 lg:self-start",
+        "lg:sticky lg:top-36 lg:self-start",
       )}
     >
       <a
