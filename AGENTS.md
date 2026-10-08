@@ -50,6 +50,7 @@ Do not add code comments. Do not invent UI copy in one locale only.
 | 301 map                        | `next.config.ts` **and** `src/proxy.ts` (slug table: `speciesSlugTable.ts`)              |
 | UI strings                     | `messages/ka.json` + `messages/en.json` (same keys)                                      |
 | Maintenance mode               | `src/lib/maintenance.ts`, wired in `src/worker.ts`                                       |
+| Releases, versions, tags       | `docs/RELEASING.md` (playbook), `.github/release.yml`                                    |
 
 ## Architecture
 
@@ -200,6 +201,15 @@ Kill-switch only; normal deploys are atomic and need none. `src/worker.ts` answe
 - Every URL answers `503` + `Retry-After` + `Cache-Control: no-store` at its own address. Never a redirect, a `200`, a `noindex`, or a `robots.txt` disallow. `/robots.txt` stays live.
 - Team bypass: secret `MAINTENANCE_BYPASS_TOKEN`, sent as the `maintenance_bypass` cookie or `x-maintenance-bypass` header.
 - Copy for all four locales lives in `src/lib/maintenance.ts` (inline, no app imports). A git deploy resets the variable to the value in `wrangler.jsonc`.
+
+## Releases
+
+**Before cutting a release or writing release notes, read `docs/RELEASING.md`.**
+
+- A release is a `vMAJOR.MINOR.PATCH` tag plus a GitHub Release on a `main` commit that is already live. It is not a deploy; `main` deploys on every push.
+- Only the owner decides when to release. Never cut one unprompted, never move or delete a tag.
+- The tag is the version. Do not bump `package.json` or add a `CHANGELOG.md`.
+- Label every pull request into `staging` (`enhancement`, `content`, `bug`, `documentation`, `dependencies`); label `Staging to main` pull requests `skip-changelog`.
 
 ## Commands
 
