@@ -55,9 +55,13 @@ export function HalyomorphaRangeMap({
   occurrenceSummary,
   officialRegionIds,
   regionNames,
+  showLedger = true,
   speciesId,
   stacked = false,
-}: HalyomorphaLazyMapProps & { stacked?: boolean }) {
+}: HalyomorphaLazyMapProps & {
+  showLedger?: boolean;
+  stacked?: boolean;
+}) {
   const hatchId = `range-hatch-${useId().replace(/:/g, "")}`;
   const plateRef = useRef<HTMLDivElement>(null);
   const [selectedRegionId, setSelectedRegionId] = useState<null | RegionPathId>(
@@ -71,7 +75,8 @@ export function HalyomorphaRangeMap({
   const [atOverview, setAtOverview] = useState(true);
   const [resetSignal, setResetSignal] = useState(0);
   const { photoRecordCount, recordsByRegion, totalRecords } = occurrenceSummary;
-  const hasLedger = recordsByRegion.length + officialRegionIds.length > 0;
+  const hasLedger =
+    showLedger && recordsByRegion.length + officialRegionIds.length > 0;
 
   const [shouldLoad, activate] = useRangeMapActivation(
     plateRef,
@@ -193,22 +198,23 @@ export function HalyomorphaRangeMap({
         records={totalRecords}
       />
 
-      <HalyomorphaRangeLedger
-        copy={copy}
-        hatchId={hatchId}
-        hoveredRegionId={hoveredRegionId}
-        locale={locale}
-        officialRegionIds={officialRegionIds}
-        onHoverRegion={setHoveredRegionId}
-        onRevealRecord={revealRecord}
-        onToggleRegion={toggleRegion}
-        records={mapData?.records ?? NO_RECORDS}
-        recordsByRegion={recordsByRegion}
-        regionNames={regionNames}
-        selectedRecordId={selectedRecord?.id}
-        selectedRegionId={selectedRegionId}
-        stacked={stacked}
-      />
+      {showLedger ? (
+        <HalyomorphaRangeLedger
+          copy={copy}
+          hatchId={hatchId}
+          hoveredRegionId={hoveredRegionId}
+          locale={locale}
+          officialRegionIds={officialRegionIds}
+          onHoverRegion={setHoveredRegionId}
+          onRevealRecord={revealRecord}
+          onToggleRegion={toggleRegion}
+          records={mapData?.records ?? NO_RECORDS}
+          recordsByRegion={recordsByRegion}
+          regionNames={regionNames}
+          selectedRecordId={selectedRecord?.id}
+          selectedRegionId={selectedRegionId}
+        />
+      ) : null}
 
       {children ? (
         <div

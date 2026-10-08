@@ -33,7 +33,6 @@ type HalyomorphaRangeLedgerProps = {
   regionNames: HalyomorphaRangeRegionName[];
   selectedRecordId?: string;
   selectedRegionId: null | RegionPathId;
-  stacked?: boolean;
 };
 
 type LedgerGroup = {
@@ -65,7 +64,6 @@ export function HalyomorphaRangeLedger({
   regionNames,
   selectedRecordId,
   selectedRegionId,
-  stacked = false,
 }: HalyomorphaRangeLedgerProps) {
   const groups = useMemo(
     () => ledgerGroups(copy, recordsByRegion, officialRegionIds, regionNames),
@@ -79,12 +77,7 @@ export function HalyomorphaRangeLedger({
   if (groups.length === 0) return null;
 
   return (
-    <div
-      className={cn(
-        "-mx-2.5 mt-10",
-        !stacked && "lg:col-start-2 lg:row-span-3 lg:row-start-1 lg:mt-0",
-      )}
-    >
+    <div className="-mx-2.5 mt-10 lg:col-start-2 lg:row-span-3 lg:row-start-1 lg:mt-0">
       <table className="w-full border-separate border-spacing-0 text-[14px] leading-snug">
         <caption className="px-2.5 text-left font-display text-[1.125rem] leading-tight font-semibold text-foreground">
           {copy.regionSummaryTitle}
