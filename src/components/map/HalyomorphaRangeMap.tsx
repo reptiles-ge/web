@@ -145,7 +145,12 @@ export function HalyomorphaRangeMap({
       </svg>
 
       <div
-        className="relative isolate z-0 -mx-6 aspect-6/5 overflow-hidden border-y border-border bg-surface sm:mx-0 sm:aspect-3/2 sm:rounded-card sm:border lg:col-start-1 lg:row-start-1 lg:aspect-5/3 lg:max-h-[600px]"
+        className={cn(
+          "relative isolate z-0 aspect-6/5 overflow-hidden border-border bg-surface sm:aspect-3/2 lg:col-start-1 lg:row-start-1 lg:aspect-5/3 lg:max-h-[600px]",
+          stacked
+            ? "rounded-[20px] border"
+            : "-mx-6 border-y sm:mx-0 sm:rounded-card sm:border",
+        )}
         data-range-map=""
         ref={plateRef}
       >
