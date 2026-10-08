@@ -41,9 +41,10 @@ export type EditorResult = z.infer<typeof editorResultSchema>;
 const inlineLink = /\[([^\]]+)\]\((https?:\/\/[^)\s]+|\/[^)]+|[a-z0-9-]+)\)/g;
 
 export function assertInlineLinksPreserved(original: string, updated: string) {
-  const targets = (value: string) =>
-    [...value.matchAll(/\[[^\]]+\]\(([^)]+)\)/g)].map((match) => match[1]);
-  if (JSON.stringify(targets(original)) !== JSON.stringify(targets(updated)))
+  if (
+    JSON.stringify(linkTargets(original)) !==
+    JSON.stringify(linkTargets(updated))
+  )
     throw new Error("Content edit changed inline links");
 }
 
@@ -148,24 +149,22 @@ export function restoreInlineLinkTargets(
   updated: string,
   source: string,
 ) {
-  const targets = [...original.matchAll(/\[[^\]]+\]\(([^)]+)\)/g)].map(
-    (match) => match[1],
-  );
-  const sourceTargets = [...source.matchAll(/\[[^\]]+\]\(([^)]+)\)/g)].map(
-    (match) => match[1],
-  );
+  const targets = linkTargets(original);
+  const sourceTargets = linkTargets(source);
+  const sameCount = targets.length === sourceTargets.length;
   let index = 0;
   const restored = updated.replace(
     /\[([^\]]+)\]\(([^)]+)\)/g,
-    (_, label, target) => {
+    (_, label: string, target: string) => {
+      const sourceTarget = sourceTargets[index];
       const originalTarget = targets[index];
-      if (target !== originalTarget && target !== sourceTargets[index])
+      if (target !== sourceTarget && !(sameCount && target === originalTarget))
         throw new Error("Content edit changed inline links");
       index++;
-      return `[${label}](${originalTarget})`;
+      return `[${label}](${sameCount ? originalTarget : sourceTarget})`;
     },
   );
-  if (index !== targets.length)
+  if (index !== sourceTargets.length)
     throw new Error("Content edit changed inline links");
   return restored;
 }
@@ -222,6 +221,10 @@ export function verifyEditorSelection(
     before: source.slice(0, sourceStart),
     selected: source.slice(sourceStart, sourceEnd),
   };
+}
+
+function linkTargets(value: string) {
+  return [...value.matchAll(/\[[^\]]+\]\(([^)]+)\)/g)].map((match) => match[1]);
 }
 
 function sourceOffset(source: string, offset: number, edge: "end" | "start") {

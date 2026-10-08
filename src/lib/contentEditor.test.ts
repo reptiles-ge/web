@@ -146,6 +146,49 @@ describe("selection content editor", () => {
     ).toThrow("inline links");
   });
 
+  it("accepts a translation link that Georgian already has and the translation lacked", async () => {
+    const target = await resolveEditorTarget({
+      end: 1,
+      field: "identification.traits.3",
+      id: "xerotyphlops-vermicularis",
+      kind: "species",
+      renderedText: "ignored",
+      start: 0,
+    });
+    const values = Object.fromEntries(
+      (["ka", "en", "ru", "tr"] as const).map((locale, index) => [
+        locale,
+        readSpeciesField(target.originals[index], "identification.traits.3"),
+      ]),
+    ) as Record<"en" | "ka" | "ru" | "tr", string>;
+    const updated = target.updated({
+      ...values,
+      ru: values.ru.replace(
+        "Песчаный удавчик (Eryx jaculus)",
+        "[Песчаный удавчик](eryx-jaculus)",
+      ),
+      tr: values.tr.replace(
+        "Cirit kum boası (Eryx jaculus)",
+        "[Cirit kum boası](eryx-jaculus)",
+      ),
+    });
+    expect(readSpeciesField(updated[2], "identification.traits.3")).toContain(
+      "[Песчаный удавчик](eryx-jaculus)",
+    );
+    expect(readSpeciesField(updated[3], "identification.traits.3")).toContain(
+      "[Cirit kum boası](eryx-jaculus)",
+    );
+    expect(() =>
+      target.updated({
+        ...values,
+        ru: values.ru.replace(
+          "Песчаный удавчик (Eryx jaculus)",
+          "[Песчаный удавчик](https://evil.example)",
+        ),
+      }),
+    ).toThrow("inline links");
+  });
+
   it("opens the glass lizard interaction in every locale", async () => {
     const target = await resolveEditorTarget({
       end: 1,
