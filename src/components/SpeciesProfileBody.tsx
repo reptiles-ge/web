@@ -639,7 +639,6 @@ export async function SpeciesProfileBody({
           name={species.commonName}
           scientificName={species.scientificName}
           speciesId={species.id}
-          tone="background"
         />
       ) : null}
 

@@ -1,4 +1,4 @@
-import { ArrowUpRight, Images } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import type { GalleryImage, PhotoCredit } from "@/data/speciesTypes";
@@ -38,9 +38,9 @@ const FIELD_RECORD_LABEL: Record<AppLocale, string> = {
 };
 
 const MOSAIC_WIDE_SIZES =
-  "(max-width: 1023px) calc(100vw - 3rem), (max-width: 1479px) calc((100vw - 6rem) / 2), 692px";
+  "(max-width: 1023px) calc(100vw - 3rem), (max-width: 1479px) calc((100vw - 6rem) / 2), 660px";
 const MOSAIC_THUMB_SIZES =
-  "(max-width: 1023px) calc((100vw - 4rem) / 2), (max-width: 1479px) calc((100vw - 8rem) / 4), 338px";
+  "(max-width: 1023px) calc((100vw - 4rem) / 2), (max-width: 1479px) calc((100vw - 8rem) / 4), 318px";
 
 type SpeciesGalleryProps = {
   images: GalleryImage[];
@@ -49,7 +49,6 @@ type SpeciesGalleryProps = {
   name: string;
   scientificName: string;
   speciesId: string;
-  tone?: "background" | "surface";
 };
 
 export function GalleryPhotoFigcaption({
@@ -79,12 +78,14 @@ export async function SpeciesGallery({
   name,
   scientificName,
   speciesId,
-  tone = "background",
 }: SpeciesGalleryProps) {
   const t = await getTranslations({ locale, namespace: "profile" });
   const photos = images.filter((item) => Boolean(item.src));
   const visiblePhotos = photos.slice(0, 5);
-  const morePhoto = photos[5];
+  const hasMore = photos.length > 5;
+  const authorCount = new Set(
+    photos.map((photo) => photo.credit?.photographer?.trim()).filter(Boolean),
+  ).size;
 
   if (photos.length === 0) return null;
 
@@ -113,148 +114,110 @@ export async function SpeciesGallery({
       slides={slides}
       speciesId={speciesId}
     >
-      <section
-        className={cn(
-          "py-11 lg:py-20",
-          tone === "surface" ? "bg-surface" : "bg-background",
-        )}
-      >
-        <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
-            {t("gallery")}
-          </p>
-          <AnchoredHeading
-            anchorLabel={t("anchorLink")}
-            className="mt-5 font-display text-display-title font-bold"
-            id={SPECIES_SECTION_IDS.gallery}
-            slugSource={`${name} ${t("galleryTitle")}`}
-          >
-            {name} {t("galleryTitle")}
-          </AnchoredHeading>
+      <section className="bg-ink py-12 text-white lg:py-[76px]">
+        <div className="mx-auto max-w-[1440px] px-6 lg:px-[60px]">
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <div>
+              <p className="text-[11px] font-medium tracking-[0.18em] text-white/60 uppercase">
+                {t("gallery")}
+              </p>
+              <AnchoredHeading
+                anchorLabel={t("anchorLink")}
+                className="mt-4 font-display text-display-title font-semibold text-white"
+                id={SPECIES_SECTION_IDS.gallery}
+                slugSource={`${name} ${t("galleryTitle")}`}
+              >
+                {t("galleryTitle")}
+              </AnchoredHeading>
+            </div>
+            <div className="flex flex-wrap items-center gap-5 lg:pb-2">
+              <span className="text-sm text-white/65">
+                {t("gallerySummary", {
+                  authors: authorCount,
+                  photos: photos.length,
+                })}
+              </span>
+              <a
+                className="inline-flex h-12 items-center gap-2 rounded-full border border-white/30 px-6 text-[14.5px] font-medium text-white transition-[transform,background-color] hover:-translate-y-0.5 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                data-species-gallery-src={slides[0].src}
+                href={`#${SPECIES_SECTION_IDS.gallery}`}
+              >
+                {t("viewAllPhotos")}
+                <ArrowRight aria-hidden="true" className="size-4" />
+              </a>
+            </div>
+          </div>
 
           <div
             className={cn(
-              "mt-14 grid gap-3 sm:gap-4",
-              morePhoto
-                ? "grid-cols-2 lg:grid-cols-4"
+              "mt-10 grid gap-3 sm:gap-4",
+              photos.length >= 5
+                ? "grid-cols-2 lg:auto-rows-[250px] lg:grid-cols-4"
                 : photos.length === 1
                   ? "grid-cols-1"
-                  : photos.length === 2
-                    ? "grid-cols-1 sm:grid-cols-2"
-                    : "grid-cols-2 md:grid-cols-3",
+                  : "grid-cols-2",
             )}
           >
             {visiblePhotos.map((photo, index) => {
-              const featured = photos.length >= 3 && index === 0;
-              const photoAlt = slides[index].alt;
+              const featured = index === 0 && photos.length >= 3;
               const entry = optimizedEntry(photo.src);
-              const sizes = morePhoto
-                ? featured
-                  ? MOSAIC_WIDE_SIZES
-                  : MOSAIC_THUMB_SIZES
-                : featured
-                  ? featuredSizes
-                  : thumbSizes;
+              const sizes =
+                photos.length >= 5
+                  ? featured
+                    ? MOSAIC_WIDE_SIZES
+                    : MOSAIC_THUMB_SIZES
+                  : featured
+                    ? featuredSizes
+                    : thumbSizes;
+              const photographer = photo.credit?.photographer?.trim();
+              const author = photographer
+                ? getPublishedCreditAuthorByName(photographer)
+                : undefined;
+              const creditName = author
+                ? creditAuthorName(author, locale)
+                : photographer;
+              const creditLine = [creditName, photo.credit?.location?.trim()]
+                .filter(Boolean)
+                .join(" · ");
               return (
-                <figure
+                <div
                   className={cn(
-                    "group",
+                    "group relative overflow-hidden bg-ink",
                     featured
-                      ? morePhoto
-                        ? "col-span-2"
-                        : "col-span-2 md:col-span-3"
-                      : "",
+                      ? "col-span-2 aspect-16/10 rounded-[30px] lg:row-span-2 lg:aspect-auto"
+                      : "aspect-square rounded-[24px] lg:aspect-auto",
                   )}
                   key={photo.src}
                 >
-                  <div
-                    className={cn(
-                      "relative overflow-hidden rounded-card bg-ink",
-                      featured
-                        ? morePhoto
-                          ? "aspect-16/10 lg:aspect-2/1"
-                          : "aspect-16/10"
-                        : morePhoto
-                          ? "aspect-square"
-                          : "aspect-4/5",
-                    )}
-                  >
-                    <GalleryOpenButton alt={photoAlt} index={index}>
-                      <picture className="media-placeholder absolute inset-0 block size-full">
-                        {pictureSources(photo.src, { sizes }).map((source) => (
-                          <source key={source.key} {...source.props} />
-                        ))}
-                        <img
-                          alt={photoAlt}
-                          className="absolute inset-0 size-full object-cover text-transparent transition-transform duration-500 group-focus-within:scale-[1.03] group-hover:scale-[1.03] motion-reduce:transition-none"
-                          decoding="async"
-                          height={entry?.height}
-                          loading="lazy"
-                          sizes={sizes}
-                          src={optimizedImgSrc(photo.src, featured ? 800 : 400)}
-                          width={entry?.width}
-                        />
-                      </picture>
-                      <div className="absolute inset-0 bg-black/0 transition-colors duration-300 group-focus-within:bg-black/20 group-hover:bg-black/20" />
-                    </GalleryOpenButton>
-                  </div>
-                  <GalleryPhotoFigcaption locale={locale} photo={photo} />
-                </figure>
+                  <GalleryOpenButton alt={slides[index].alt} index={index}>
+                    <picture className="media-placeholder absolute inset-0 block size-full">
+                      {pictureSources(photo.src, { sizes }).map((source) => (
+                        <source key={source.key} {...source.props} />
+                      ))}
+                      <img
+                        alt=""
+                        className="absolute inset-0 size-full object-cover transition-transform duration-700 group-focus-within:scale-[1.04] group-hover:scale-[1.04] motion-reduce:transition-none"
+                        decoding="async"
+                        height={entry?.height}
+                        loading="lazy"
+                        sizes={sizes}
+                        src={optimizedImgSrc(photo.src, featured ? 800 : 400)}
+                        width={entry?.width}
+                      />
+                    </picture>
+                    {hasMore && index === 4 ? (
+                      <span className="absolute inset-0 flex items-center justify-center bg-ink/60 text-[28px] font-semibold text-white">
+                        +{photos.length - 5}
+                      </span>
+                    ) : creditLine ? (
+                      <span className="absolute bottom-3 left-3 max-w-[calc(100%-1.5rem)] truncate rounded-full bg-ink/70 px-2.5 py-1.5 text-[11.5px] text-white/90">
+                        {creditLine}
+                      </span>
+                    ) : null}
+                  </GalleryOpenButton>
+                </div>
               );
             })}
-            {morePhoto ? (
-              <div className="group relative col-span-2 aspect-16/10 overflow-hidden rounded-card bg-ink text-white lg:aspect-2/1">
-                <GalleryOpenButton
-                  alt={t("galleryOpenSixth", { total: photos.length })}
-                  index={5}
-                >
-                  <picture className="media-placeholder absolute inset-0 block size-full">
-                    {pictureSources(morePhoto.src, {
-                      sizes: MOSAIC_WIDE_SIZES,
-                    }).map((source) => (
-                      <source key={source.key} {...source.props} />
-                    ))}
-                    <img
-                      alt=""
-                      className="absolute inset-0 size-full object-cover text-transparent transition-transform duration-700 group-focus-within:scale-105 group-hover:scale-105 motion-reduce:transition-none"
-                      decoding="async"
-                      loading="lazy"
-                      sizes={MOSAIC_WIDE_SIZES}
-                      src={optimizedImgSrc(morePhoto.src, 800)}
-                    />
-                  </picture>
-                  <span className="absolute inset-0 bg-linear-to-t from-black/85 via-black/45 to-black/15" />
-                  <span className="absolute inset-0 ring-1 ring-white/20 ring-inset" />
-                  <span className="absolute inset-0 flex flex-col justify-between p-5 sm:p-7 lg:p-8">
-                    <span className="flex items-start justify-between gap-4">
-                      <span className="flex size-10 items-center justify-center rounded-full border border-white/30 bg-black/25 backdrop-blur-sm">
-                        <Images
-                          aria-hidden="true"
-                          className="size-5"
-                          strokeWidth={1.5}
-                        />
-                      </span>
-                      <span className="pt-2 text-[11px] font-medium tracking-[0.18em] text-white/80 uppercase">
-                        {t("gallery")}
-                      </span>
-                    </span>
-                    <span className="flex items-end justify-between gap-4">
-                      <span className="flex flex-col gap-1">
-                        <span className="font-display text-6xl leading-none font-bold tracking-tight sm:text-7xl">
-                          +{photos.length - 5}
-                        </span>
-                        <span className="text-sm font-medium text-white/90 sm:text-base">
-                          {t("morePhotos")}
-                        </span>
-                      </span>
-                      <span className="flex size-11 shrink-0 items-center justify-center rounded-full border border-white/35 bg-white/15 backdrop-blur-sm transition-colors group-focus-within:bg-white/25 group-hover:bg-white/25">
-                        <ArrowUpRight aria-hidden="true" className="size-5" />
-                      </span>
-                    </span>
-                  </span>
-                </GalleryOpenButton>
-              </div>
-            ) : null}
           </div>
         </div>
       </section>

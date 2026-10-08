@@ -21,7 +21,6 @@ import {
 } from "@/lib/speciesBreadcrumbs";
 import {
   filterDisplayStats,
-  getSpeciesGalleryPreview,
   getSpeciesHeroSources,
   hasRealIdentification,
   isPlaceholderBody,
@@ -190,7 +189,7 @@ export async function SpeciesProfile({
         desktopHeroSrc={desktopHeroSrc}
         emergency={emergency}
         galleryCount={gallery.length}
-        galleryPreview={getSpeciesGalleryPreview(species)}
+        galleryPreview={gallery.slice(0, 5).map((photo) => photo.src)}
         gallerySrc={gallerySrc}
         group={group}
         heroDesktopSources={heroDesktopSources}

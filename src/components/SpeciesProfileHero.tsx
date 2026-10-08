@@ -1,4 +1,4 @@
-import { Camera, ChevronLeft, MapPin, Maximize2, Phone } from "lucide-react";
+import { Camera, ChevronLeft, Phone } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import type { PictureSource } from "@/data/optimizedImages";
@@ -7,9 +7,9 @@ import type { AnimalGroup } from "@/data/speciesAtlas";
 import type { AppLocale } from "@/i18n/routing";
 import type { SpeciesBreadcrumbCrumb } from "@/lib/speciesBreadcrumbs";
 
+import { SpeciesHeroActions } from "@/components/SpeciesHeroActions";
 import { SpeciesScientificNameCopy } from "@/components/SpeciesScientificNameCopy";
 import { SpeciesVoicePlayer } from "@/components/SpeciesVoicePlayer";
-import { getRegionsForSpecies } from "@/data/mapRegions";
 import {
   optimizedEntry,
   optimizedImgSrc,
@@ -42,8 +42,6 @@ type SpeciesProfileHeroProps = {
   species: Species;
 };
 
-const heroChipLinkClassName =
-  "inline-flex min-h-11 items-center gap-1.5 rounded-full border border-white/20 bg-white/8 px-4 text-[13.5px] font-medium text-white/85 backdrop-blur-md transition-colors hover:border-white/40 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white/60";
 const heroTopChipClassName =
   "inline-flex h-11 items-center gap-1.5 rounded-full bg-ink/50 text-[13.5px] font-medium text-white backdrop-blur-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/70";
 
@@ -78,7 +76,6 @@ export async function SpeciesProfileHero({
   const dangerLabel = tCard("dangerLevel");
   const dangerValue = riskChip ? tDanger(riskChip.level) : "";
   const editable = locale === "ka" && isLocalAdminEnabled();
-  const regionCount = getRegionsForSpecies(species.id).length;
   const parent = getSpeciesParentHub(species);
 
   return (
@@ -162,7 +159,7 @@ export async function SpeciesProfileHero({
             {emergency ? (
               <a
                 aria-label={tSafety("call")}
-                className="hidden h-[52px] items-center gap-2.5 rounded-full bg-destructive pr-6 pl-5 text-[16px] font-bold text-white transition-[filter] hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white lg:inline-flex"
+                className="hidden h-[52px] items-center gap-2.5 rounded-full bg-destructive pr-6 pl-5 text-[16px] font-bold text-white transition-[transform,filter] hover:-translate-y-0.5 hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white lg:inline-flex"
                 href="tel:112"
               >
                 <Phone aria-hidden="true" className="size-4" strokeWidth={2} />
@@ -178,23 +175,59 @@ export async function SpeciesProfileHero({
                 speciesId={species.id}
               />
             ) : null}
-            {regionCount > 0 ? (
-              <a
-                className={cn(heroChipLinkClassName, "hidden lg:inline-flex")}
-                href={`#${SPECIES_SECTION_IDS.range}`}
-              >
-                <MapPin aria-hidden="true" className="size-3.5 text-white/55" />
-                {t("regionCount", { count: regionCount })}
-              </a>
-            ) : null}
-            <SpeciesHeroGalleryButton
-              gallerySrc={gallerySrc}
-              label={t("viewPhotos", { count: galleryCount })}
-              preview={galleryPreview}
-            />
+            <div className="hidden items-center gap-2.5 lg:flex">
+              <SpeciesHeroActions
+                name={species.commonName}
+                speciesId={species.id}
+              />
+            </div>
           </div>
         </div>
       </div>
+      {galleryPreview.length > 0 ? (
+        <div className="absolute right-[60px] bottom-[118px] z-10 hidden items-center gap-2 lg:flex">
+          {species.imageCredit?.photographer ? (
+            <span className="mr-1 rounded-full bg-ink/65 px-3 py-1.5 text-xs text-white/85 backdrop-blur-sm">
+              {t("photoCredit")} {species.imageCredit.photographer}
+            </span>
+          ) : null}
+          {galleryPreview.map((src, index) => (
+            <a
+              aria-label={t("galleryOpenPhoto", {
+                index: index + 1,
+                total: galleryCount,
+              })}
+              className={cn(
+                "relative block h-14 w-[76px] overflow-hidden rounded-[14px] bg-ink transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white",
+                index === 0 && "ring-2 ring-white",
+              )}
+              data-species-gallery-src={optimizedImgSrc(src, 1200)}
+              href={`#${SPECIES_SECTION_IDS.gallery}`}
+              key={src}
+            >
+              <picture>
+                {pictureSources(src, { sizes: "76px" }).map((source) => (
+                  <source key={source.key} {...source.props} />
+                ))}
+                <img
+                  alt=""
+                  className="size-full object-cover"
+                  decoding="async"
+                  loading="lazy"
+                  sizes="76px"
+                  src={optimizedImgSrc(src, 200)}
+                />
+              </picture>
+              {index === galleryPreview.length - 1 &&
+              galleryCount > galleryPreview.length ? (
+                <span className="absolute inset-0 flex items-center justify-center bg-ink/60 text-sm font-semibold text-white">
+                  +{galleryCount - galleryPreview.length}
+                </span>
+              ) : null}
+            </a>
+          ))}
+        </div>
+      ) : null}
     </section>
   );
 }
@@ -207,7 +240,7 @@ function SpeciesBreadcrumbTrail({
   breadcrumbs: SpeciesBreadcrumbCrumb[];
 }) {
   return (
-    <nav aria-label={ariaLabel} className="sr-only lg:not-sr-only lg:mb-7">
+    <nav aria-label={ariaLabel} className="sr-only">
       <ol className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-[13px] text-white/60">
         {breadcrumbs.map((crumb, index) => {
           const isLast = index === breadcrumbs.length - 1;
@@ -242,55 +275,6 @@ function SpeciesBreadcrumbTrail({
         })}
       </ol>
     </nav>
-  );
-}
-
-function SpeciesHeroGalleryButton({
-  gallerySrc,
-  label,
-  preview,
-}: {
-  gallerySrc: null | string;
-  label: string;
-  preview: string[];
-}) {
-  if (!gallerySrc) return null;
-
-  return (
-    <a
-      className="group/gallery hidden min-h-11 items-center gap-3 rounded-full border border-white/25 bg-white/12 py-1.5 pr-4 pl-1.5 text-[13.5px] font-medium text-white backdrop-blur-md transition-colors hover:border-white/50 hover:bg-white/20 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white/60 lg:inline-flex"
-      data-species-gallery-src={gallerySrc}
-      href={`#${SPECIES_SECTION_IDS.gallery}`}
-    >
-      <span aria-hidden="true" className="flex items-center">
-        {preview.map((src, index) => (
-          <span
-            className={cn(
-              "relative size-8 overflow-hidden rounded-full bg-ink ring-2 ring-white/80 transition-[margin] duration-300 ease-out",
-              index > 0 && "-ml-3 group-hover/gallery:-ml-1.5",
-            )}
-            key={src}
-          >
-            <picture>
-              {pictureSources(src, { sizes: "32px" }).map((source) => (
-                <source key={source.key} {...source.props} />
-              ))}
-              <img
-                alt=""
-                className="size-full object-cover"
-                decoding="async"
-                fetchPriority="low"
-                loading="lazy"
-                sizes="32px"
-                src={optimizedImgSrc(src, 400)}
-              />
-            </picture>
-          </span>
-        ))}
-      </span>
-      <span>{label}</span>
-      <Maximize2 aria-hidden="true" className="size-3.5 text-white/70" />
-    </a>
   );
 }
 
