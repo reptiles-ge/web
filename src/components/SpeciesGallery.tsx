@@ -236,32 +236,32 @@ export async function SpeciesGallery({
                 </div>
               );
             })}
-            {speciesId === "macrovipera-lebetina" ? (
-              <p className="mt-5 text-[12px] leading-relaxed text-white/65">
-                {photographers.map((photographer, index) => {
-                  const author = getPublishedCreditAuthorByName(photographer);
-                  const label = author
-                    ? creditAuthorName(author, locale)
-                    : photographer;
-                  return (
-                    <span key={photographer}>
-                      {index > 0 ? " · " : null}
-                      {author ? (
-                        <Link
-                          className="underline decoration-white/35 underline-offset-2 transition-colors hover:text-white hover:decoration-white"
-                          href={creditAuthorHref(author.slug)}
-                        >
-                          {label}
-                        </Link>
-                      ) : (
-                        label
-                      )}
-                    </span>
-                  );
-                })}
-              </p>
-            ) : null}
           </div>
+          {speciesId === "macrovipera-lebetina" ? (
+            <p className="mt-5 text-[12px] leading-relaxed text-white/65">
+              {photographers.map((photographer, index) => {
+                const author = getPublishedCreditAuthorByName(photographer);
+                const label = author
+                  ? creditAuthorName(author, locale)
+                  : photographer;
+                return (
+                  <span key={photographer}>
+                    {index > 0 ? " · " : null}
+                    {author ? (
+                      <Link
+                        className="underline decoration-white/35 underline-offset-2 transition-colors hover:text-white hover:decoration-white"
+                        href={creditAuthorHref(author.slug)}
+                      >
+                        {label}
+                      </Link>
+                    ) : (
+                      label
+                    )}
+                  </span>
+                );
+              })}
+            </p>
+          ) : null}
         </div>
       </section>
     </SpeciesGalleryLightbox>
