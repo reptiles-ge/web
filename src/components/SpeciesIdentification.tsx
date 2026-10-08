@@ -72,7 +72,7 @@ export async function SpeciesIdentification({
 
     return (
       <section className="bg-background py-11 lg:py-20">
-        <div className="mx-auto max-w-[1440px] px-6 lg:grid lg:grid-cols-[minmax(0,520px)_minmax(0,1fr)] lg:items-center lg:gap-x-16 lg:px-[60px]">
+        <div className="mx-auto max-w-[1440px] px-6 lg:grid lg:grid-cols-[minmax(0,520px)_minmax(0,1fr)] lg:items-start lg:gap-x-16 lg:px-[60px]">
           <div className="min-w-0 lg:col-start-2 lg:row-start-1 lg:self-end">
             <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
               {t("identification")}
@@ -417,7 +417,7 @@ function SpeciesIdentificationPhoto({
     <figure
       className={cn(
         "mt-5 lg:col-start-1 lg:row-span-2 lg:row-start-1 lg:mt-0",
-        featured ? "lg:self-center" : "lg:sticky lg:top-36 lg:self-start",
+        featured ? "lg:self-start" : "lg:sticky lg:top-36 lg:self-start",
       )}
     >
       <a
