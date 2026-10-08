@@ -577,6 +577,7 @@ export async function SpeciesProfileBody({
       </div>
 
       <SpeciesProfileNavigation
+        giurzaLayout={species.id === "macrovipera-lebetina"}
         locale={locale}
         name={species.commonName}
         riskLevel={riskLevel}
@@ -643,7 +644,7 @@ export async function SpeciesProfileBody({
         />
       ) : null}
 
-      {gallery.length > 0 ? (
+      {gallery.length > 0 && species.id !== "macrovipera-lebetina" ? (
         <SpeciesGallery
           images={gallery}
           locale={locale}
@@ -683,7 +684,20 @@ export async function SpeciesProfileBody({
         title={biologyTitle}
       />
 
-      {species.faq && species.faq.length > 0 ? (
+      {gallery.length > 0 && species.id === "macrovipera-lebetina" ? (
+        <SpeciesGallery
+          images={gallery}
+          locale={locale}
+          location={species.location}
+          name={species.commonName}
+          scientificName={species.scientificName}
+          speciesId={species.id}
+        />
+      ) : null}
+
+      {species.id !== "macrovipera-lebetina" &&
+      species.faq &&
+      species.faq.length > 0 ? (
         <SpeciesFaqSection
           entityId={species.id}
           items={species.faq}
@@ -737,6 +751,18 @@ export async function SpeciesProfileBody({
             />
           </div>
         </section>
+      ) : null}
+
+      {species.id === "macrovipera-lebetina" &&
+      species.faq &&
+      species.faq.length > 0 ? (
+        <SpeciesFaqSection
+          entityId={species.id}
+          items={species.faq}
+          locale={locale}
+          name={species.commonName}
+          pageType="species"
+        />
       ) : null}
 
       {species.id === "macrovipera-lebetina" ? (
