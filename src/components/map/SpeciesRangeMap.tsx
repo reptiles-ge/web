@@ -307,10 +307,7 @@ async function HalyomorphaRangeSection({
             >
               <ul>
                 {rangeRegions.map((region) => (
-                  <li
-                    className="border-t border-border last:border-b"
-                    key={region.id}
-                  >
+                  <li className="border-t border-border" key={region.id}>
                     <Link
                       className="group flex min-h-[52px] items-center gap-3 text-[15.5px] font-semibold text-foreground transition-colors hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary lg:min-h-14 lg:text-[17px]"
                       href={regionHref(region.id)}
