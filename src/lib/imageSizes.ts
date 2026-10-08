@@ -3,9 +3,6 @@ export const AUTHOR_PORTRAIT_SIZES =
 
 export const GALLERY_LIGHTBOX_SIZES = "(max-width: 639px) 96vw, 86vw";
 
-export const HOME_CONTRIBUTOR_MOSAIC_SIZES =
-  "(max-width: 639px) 50vw, (max-width: 1023px) 28vw, 360px";
-
 export const HOME_CONTRIBUTOR_PORTRAIT_SIZES = "(max-width: 1023px) 80px, 96px";
 
 export const IDENTIFICATION_PHOTO_SIZES =

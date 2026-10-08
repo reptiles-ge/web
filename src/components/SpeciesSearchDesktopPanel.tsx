@@ -60,7 +60,7 @@ export function SearchDesktopPanel({
   toCloseLabel: string;
 }) {
   return (
-    <div className="flex max-h-[min(480px,68vh)] flex-col">
+    <div className="flex max-h-[min(68vh,var(--search-panel-max,480px))] flex-col">
       <div className="border-b border-border/60">
         <SpeciesSearchFilterBar
           labels={filterLabels}

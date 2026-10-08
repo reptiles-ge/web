@@ -35,6 +35,7 @@ export type SpeciesClickSource =
   | "home_contributors"
   | "home_featured"
   | "home_fresh"
+  | "home_hero"
   | "home_safety"
   | "home_spotlight"
   | "hub"

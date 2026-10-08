@@ -21,6 +21,7 @@ export function NavbarChrome({
   groupsActive,
   groupsLabel,
   groupsOpen,
+  heroSearch,
   menuId,
   menuOpen,
   onCloseMenu,
@@ -41,6 +42,7 @@ export function NavbarChrome({
   groupsActive: boolean;
   groupsLabel: string;
   groupsOpen: boolean;
+  heroSearch: boolean;
   menuId: string;
   menuOpen: boolean;
   onCloseMenu: () => void;
@@ -119,7 +121,11 @@ export function NavbarChrome({
         ))}
       </nav>
       <div className="relative z-10 flex items-center justify-end gap-2.5 sm:gap-3">
-        <SpeciesSearch variant={chromeVariant} />
+        <SpeciesSearch
+          hidden={heroSearch && !scrolled}
+          shortcut={heroSearch ? "scrolled" : undefined}
+          variant={chromeVariant}
+        />
         <ThemeToggle variant={chromeVariant} />
         <LanguageSwitcher variant={chromeVariant} />
         <IntentPrefetchLink

@@ -4,170 +4,148 @@ import { getTranslations } from "next-intl/server";
 import type { AppLocale } from "@/i18n/routing";
 
 import { CoverImage } from "@/components/CoverImage";
+import { HomeSectionHeading } from "@/components/home/HomeSectionHeading";
 import { TrackedSpeciesLink } from "@/components/home/TrackedSpeciesLink";
 import { getSpeciesById } from "@/data/species";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
+import { GROUP_HUB_ILLUSTRATIONS } from "@/lib/groupHubs";
 import { speciesSeoAnchor } from "@/lib/seoKeywords";
-import {
-  filterDisplayStats,
-  getSpeciesHeroSources,
-  isPlaceholderBody,
-  isPlaceholderMedia,
-} from "@/lib/speciesContent";
-import { speciesImageAlt } from "@/lib/speciesMeta";
+import { filterDisplayStats } from "@/lib/speciesContent";
 
 const SPOTLIGHT_ID = "vipera-dinniki";
-const SUPPORTING_IDS = [
-  "pseudopus-apodus",
-  "paralaudakia-caucasia",
-  "mertensiella-caucasica",
+const SUPPORTING = [
+  { id: "pseudopus-apodus", image: GROUP_HUB_ILLUSTRATIONS.lizards },
+  { id: "testudo-graeca", image: GROUP_HUB_ILLUSTRATIONS.turtles },
+  { id: "mertensiella-caucasica", image: GROUP_HUB_ILLUSTRATIONS.amphibians },
 ] as const;
 
 export async function HomeFeatured({ locale }: { locale: AppLocale }) {
-  const t = await getTranslations({ locale, namespace: "home.featured" });
-  const tDetail = await getTranslations({ locale, namespace: "detail" });
+  const [t, tDetail, tGroups] = await Promise.all([
+    getTranslations({ locale, namespace: "home.featured" }),
+    getTranslations({ locale, namespace: "detail" }),
+    getTranslations({ locale, namespace: "home.groups" }),
+  ]);
   const base = getSpeciesById(SPOTLIGHT_ID);
   if (!base) return null;
 
   const spotlight = localizeSpecies(base, locale);
-  const hero = getSpeciesHeroSources(spotlight);
-  const imageSrc = hero.mobileHeroSrc ?? hero.desktopHeroSrc ?? spotlight.image;
   const group = getSpeciesAtlasMeta(spotlight.id).group;
   const stats = filterDisplayStats(spotlight.stats, group).slice(0, 4);
-  const supporting = SUPPORTING_IDS.map((id) => getSpeciesById(id))
-    .filter((item): item is NonNullable<typeof item> => Boolean(item))
-    .map((item) => localizeSpecies(item, locale))
-    .filter((item) => !isPlaceholderMedia(item.image));
+  const supporting = SUPPORTING.flatMap(({ id, image }) => {
+    const species = getSpeciesById(id);
+    return species
+      ? [{ image, species: localizeSpecies(species, locale) }]
+      : [];
+  });
 
   return (
-    <section className="bg-surface py-20 lg:py-28" id="species">
-      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <div className="max-w-xl">
-          <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
-            {t("eyebrow")}
-          </p>
-          <h2 className="text-balance-tight mt-4 font-display text-display-title font-semibold">
-            {t("title")}
-          </h2>
-          <p className="mt-4 max-w-md text-[15px] leading-relaxed text-muted-foreground">
-            {t("subtitle")}
-          </p>
-        </div>
+    <section className="bg-background py-11 lg:py-20" id="species">
+      <div className="mx-auto max-w-[1440px] px-6 lg:px-[60px]">
+        <HomeSectionHeading
+          eyebrow={t("eyebrow")}
+          subtitle={t("subtitle")}
+          title={t("title")}
+        />
 
-        <article className="mt-12 lg:mt-16">
-          <div className="grid gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:items-end lg:gap-16">
+        <article className="mt-6 grid gap-5 lg:mt-11 lg:grid-cols-[minmax(0,640px)_minmax(0,1fr)] lg:items-center lg:gap-14">
+          <TrackedSpeciesLink
+            aria-label={spotlight.commonName}
+            className="group relative block h-[248px] overflow-hidden rounded-[24px] bg-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary sm:h-[360px] lg:h-[440px] lg:rounded-[32px]"
+            locale={locale}
+            source="home_spotlight"
+            speciesId={spotlight.id}
+          >
+            <CoverImage
+              alt={tGroups("illustrationAlt", { name: spotlight.commonName })}
+              className="object-cover object-[78%_center] transition-transform duration-700 group-hover:scale-[1.035]"
+              sizes="(max-width: 1023px) 100vw, 640px"
+              src="/images/home/vipera-dinniki-landing.jpg"
+            />
+            <span className="absolute top-4 left-4 rounded-full bg-white px-3 py-1.5 text-[12px] font-medium text-[#1a211c]">
+              {tDetail("eyebrow")}
+            </span>
+          </TrackedSpeciesLink>
+          <div className="min-w-0 lg:py-2">
+            <h3 className="font-display text-[28px] leading-[1.15] font-semibold text-foreground lg:text-[40px]">
+              {spotlight.commonName}
+            </h3>
+            <p className="mt-1.5 text-[15px] text-muted-foreground italic lg:text-[16px]">
+              {spotlight.scientificName}
+            </p>
+            <p className="mt-4 max-w-xl text-[16px] leading-normal text-foreground lg:mt-[18px] lg:text-[17px]">
+              {tDetail("lead")}
+            </p>
+            <p className="mt-2.5 max-w-xl text-[14px] leading-[1.65] text-muted-foreground lg:text-[15px]">
+              {tDetail("body")}
+            </p>
+            {stats.length > 0 ? (
+              <dl className="mt-5 grid grid-cols-2 gap-2.5 lg:mt-6 lg:grid-cols-4">
+                {stats.map((stat) => (
+                  <div
+                    className="rounded-[16px] bg-surface p-3 lg:rounded-[18px] lg:px-4 lg:py-3.5"
+                    key={stat.label}
+                  >
+                    <dt className="text-[11px] tracking-widest text-muted-foreground">
+                      {stat.label}
+                    </dt>
+                    <dd className="mt-1.5 font-display text-[13px] leading-[1.35] font-medium text-foreground lg:text-[14px]">
+                      {stat.value}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            ) : null}
             <TrackedSpeciesLink
-              aria-label={tDetail("imageAlt")}
-              className="group relative block overflow-hidden bg-ink focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
+              className="mt-5 inline-flex min-h-11 items-center gap-1.5 text-[14px] font-medium text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary lg:mt-6"
               locale={locale}
               source="home_spotlight"
               speciesId={spotlight.id}
             >
-              <div className="relative aspect-4/5 sm:aspect-5/6 lg:aspect-4/5">
-                <CoverImage
-                  alt={tDetail("imageAlt")}
-                  className="object-cover object-center motion-safe:transition-transform motion-safe:duration-700 motion-safe:ease-out motion-safe:group-hover:scale-[1.03]"
-                  sizes="(max-width: 1023px) 100vw, 55vw"
-                  src={imageSrc}
-                />
-              </div>
+              <span className="border-b border-foreground/30 pb-0.5">
+                {tDetail("viewProfile")}
+              </span>
+              <ArrowUpRight aria-hidden="true" className="size-4" />
+              <span className="sr-only">
+                {speciesSeoAnchor(
+                  spotlight.commonName,
+                  spotlight.scientificName,
+                )}
+              </span>
             </TrackedSpeciesLink>
-
-            <div className="lg:pb-4">
-              <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
-                {tDetail("eyebrow")}
-              </p>
-              <h3 className="mt-4 font-display text-display-title font-semibold text-foreground">
-                {spotlight.commonName}
-              </h3>
-              <p className="mt-2 text-[15px] text-muted-foreground italic">
-                {spotlight.scientificName}
-              </p>
-              <p className="mt-6 max-w-md text-[17px] leading-snug text-foreground/90 sm:text-[18px]">
-                {tDetail("lead")}
-              </p>
-              <p className="mt-4 max-w-md text-[15px] leading-relaxed text-muted-foreground">
-                {tDetail("body")}
-              </p>
-              {stats.length > 0 ? (
-                <dl className="mt-8 grid grid-cols-2 gap-x-6 gap-y-5 border-t border-border pt-6">
-                  {stats.map((stat) => (
-                    <div key={stat.label}>
-                      <dt className="text-[11px] tracking-[0.14em] text-muted-foreground">
-                        {stat.label}
-                      </dt>
-                      <dd className="mt-1.5 font-display text-[15px] leading-snug font-medium text-foreground">
-                        {stat.value}
-                      </dd>
-                    </div>
-                  ))}
-                </dl>
-              ) : null}
-              <TrackedSpeciesLink
-                className="group mt-8 inline-flex min-h-11 items-center gap-2 text-[14px] font-medium text-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
-                locale={locale}
-                source="home_spotlight"
-                speciesId={spotlight.id}
-              >
-                <span className="border-b border-foreground/25 pb-0.5 transition-colors group-hover:border-foreground">
-                  {speciesSeoAnchor(
-                    spotlight.commonName,
-                    spotlight.scientificName,
-                  )}
-                </span>
-                <ArrowUpRight aria-hidden="true" className="size-4" />
-              </TrackedSpeciesLink>
-            </div>
           </div>
         </article>
 
         {supporting.length > 0 ? (
-          <ul className="mt-12 grid gap-8 border-t border-border pt-10 sm:grid-cols-3 sm:gap-6 lg:mt-16 lg:pt-12">
-            {supporting.map((species, index) => {
-              const cover = !isPlaceholderMedia(species.mobileImage)
-                ? species.mobileImage
-                : species.image;
-              const blurb = isPlaceholderBody(species.description)
-                ? null
-                : species.description;
-
-              return (
-                <li key={species.id}>
-                  <TrackedSpeciesLink
-                    className="group block focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
-                    locale={locale}
-                    position={index + 1}
-                    source="home_featured"
-                    speciesId={species.id}
-                  >
-                    <div className="relative aspect-4/5 overflow-hidden bg-ink">
-                      <CoverImage
-                        alt={speciesImageAlt(
-                          species.commonName,
-                          species.scientificName,
-                          species.location,
-                        )}
-                        className="object-cover motion-safe:transition-transform motion-safe:duration-700 motion-safe:ease-out motion-safe:group-hover:scale-[1.03]"
-                        sizes="(max-width: 639px) 100vw, 33vw"
-                        src={cover ?? species.image}
-                      />
-                    </div>
-                    <p className="mt-4 text-[13px] text-muted-foreground italic">
-                      {species.scientificName}
-                    </p>
-                    <h3 className="mt-1 font-display text-[1.2rem] leading-tight font-semibold text-foreground">
+          <ul className="mt-5 grid gap-2.5 lg:mt-9 lg:grid-cols-3 lg:gap-6">
+            {supporting.map(({ image, species }, index) => (
+              <li key={species.id}>
+                <TrackedSpeciesLink
+                  className="group flex min-h-[80px] items-center gap-3 rounded-[22px] bg-card p-2.5 shadow-[0_14px_36px_rgba(14,20,17,0.06)] transition-colors hover:bg-background focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary lg:min-h-[124px] lg:gap-[18px] lg:rounded-[26px] lg:p-3"
+                  locale={locale}
+                  position={index + 1}
+                  source="home_featured"
+                  speciesId={species.id}
+                >
+                  <span className="relative h-14 w-[84px] shrink-0 overflow-hidden rounded-xl bg-ink lg:h-[100px] lg:w-[150px] lg:rounded-2xl">
+                    <CoverImage
+                      alt=""
+                      className="object-cover transition-transform duration-700 group-hover:scale-[1.035]"
+                      sizes="150px"
+                      src={image}
+                    />
+                  </span>
+                  <span className="min-w-0">
+                    <span className="block font-display text-[15px] leading-[1.2] font-semibold text-foreground lg:text-[18px]">
                       {species.commonName}
-                    </h3>
-                    {blurb ? (
-                      <p className="mt-2 line-clamp-2 text-[13px] leading-relaxed text-muted-foreground">
-                        {blurb}
-                      </p>
-                    ) : null}
-                  </TrackedSpeciesLink>
-                </li>
-              );
-            })}
+                    </span>
+                    <span className="mt-0.5 block truncate text-[12px] text-muted-foreground italic lg:text-[13px]">
+                      {species.scientificName}
+                    </span>
+                  </span>
+                </TrackedSpeciesLink>
+              </li>
+            ))}
           </ul>
         ) : null}
       </div>

@@ -40,6 +40,7 @@ type GeorgiaMapProps = {
   interactive?: boolean;
   mapContext?: MapContext;
   selectionMode?: "navigate" | "panel";
+  showBackground?: boolean;
   speciesByRegion?: Record<string, SpeciesListItem[]>;
   tooltipSpeciesByRegion?: Record<string, RegionTooltipSpecies[]>;
 };
@@ -54,6 +55,7 @@ export function GeorgiaMap({
   interactive = true,
   mapContext = "home",
   selectionMode = "navigate",
+  showBackground = true,
   speciesByRegion = EMPTY_SPECIES_BY_REGION,
   tooltipSpeciesByRegion = EMPTY_TOOLTIP_SPECIES,
 }: GeorgiaMapProps) {
@@ -178,15 +180,17 @@ export function GeorgiaMap({
               </linearGradient>
             </defs>
 
-            <rect
-              fill={`url(#${seaGradientId})`}
-              height="510"
-              opacity="0.35"
-              rx="28"
-              width="1000"
-              x="0"
-              y="0"
-            />
+            {showBackground ? (
+              <rect
+                fill={`url(#${seaGradientId})`}
+                height="510"
+                opacity="0.35"
+                rx="28"
+                width="1000"
+                x="0"
+                y="0"
+              />
+            ) : null}
 
             <g>
               {regions.map((region: RegionData) => {
@@ -235,9 +239,7 @@ export function GeorgiaMap({
             onClose={handleClose}
             region={selectedRegion}
             species={
-              selectedRegion
-                ? (speciesByRegion[selectedRegion.id] ?? [])
-                : []
+              selectedRegion ? (speciesByRegion[selectedRegion.id] ?? []) : []
             }
           />
         ) : null}

@@ -11,9 +11,11 @@ import { Hero } from "@/components/Hero";
 import { HomeContributors } from "@/components/home/HomeContributors";
 import { HomeFeatured } from "@/components/home/HomeFeatured";
 import { HomeField } from "@/components/home/HomeField";
+import { HomeFooter } from "@/components/home/HomeFooter";
 import { HomeFresh } from "@/components/home/HomeFresh";
 import { HomeGroups } from "@/components/home/HomeGroups";
 import { HomeGuides } from "@/components/home/HomeGuides";
+import { HomeSafetyStrip } from "@/components/home/HomeSafetyStrip";
 import { HomeSeo } from "@/components/HomeSeo";
 import { JsonLd } from "@/components/JsonLd";
 import { MapExplorer } from "@/components/map/MapExplorer";
@@ -188,19 +190,21 @@ export default async function Home({ params }: Props): Promise<ReactElement> {
       <JsonLd data={graph} />
       <div>
         <Hero locale={locale} />
+        <HomeSafetyStrip locale={locale} />
         <HomeGroups locale={locale} />
-        <HomeFeatured locale={locale} />
         <ClientMessagesProvider locale={locale} namespaces={["map"]}>
           <MapExplorer
             tooltipSpeciesByRegion={getRegionTooltipPreviews(locale)}
           />
         </ClientMessagesProvider>
-        <HomeFresh locale={locale} />
+        <HomeFeatured locale={locale} />
         <HomeField locale={locale} />
         <HomeGuides locale={locale} />
+        <HomeFresh locale={locale} />
         <HomeContributors locale={locale} />
         <HomeSeo locale={locale} />
         <FinalCTA locale={locale} />
+        <HomeFooter locale={locale} />
       </div>
     </div>
   );
