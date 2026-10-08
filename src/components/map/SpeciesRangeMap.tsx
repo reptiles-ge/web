@@ -1,11 +1,10 @@
-import { ArrowRight, ArrowUpRight, ChevronDown } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
 import type { HalyomorphaOccurrenceSummary } from "@/lib/halyomorphaOccurrences";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
-import { BiologyExpandable } from "@/components/BiologyExpandable";
 import { GeorgiaMapStatic } from "@/components/map/GeorgiaMapStatic";
 import { HalyomorphaRangeMap } from "@/components/map/HalyomorphaRangeMap";
 import { RangeHatchSwatch } from "@/components/map/RangeHatch";
@@ -35,8 +34,6 @@ type SpeciesRangeMapProps = {
 
 const EYEBROW_CLASS =
   "text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase";
-const HEADING_CLASS =
-  "mt-5 max-w-4xl font-display text-display-title leading-[1.14] font-bold text-foreground";
 const STATIC_HATCH_ID = "range-hatch-static";
 
 export async function SpeciesRangeMap({
@@ -91,82 +88,71 @@ export async function SpeciesRangeMap({
   if (highlightedIds.length === 0 && !habitatDetails) return null;
 
   return (
-    <section className="bg-surface py-11 lg:py-20">
-      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <p className={EYEBROW_CLASS}>{t("range")}</p>
-        <AnchoredHeading
-          anchorLabel={t("anchorLink")}
-          className={HEADING_CLASS}
-          id={SPECIES_SECTION_IDS.range}
-          slugSource={t("rangeTitle", { name: speciesName })}
-        >
-          {t("rangeTitle", { name: speciesName })}
-        </AnchoredHeading>
-
-        <div
-          className={
-            highlightedIds.length > 0
-              ? "mt-8 grid items-start gap-8 lg:grid-cols-[minmax(0,460px)_minmax(0,1fr)] lg:gap-16"
-              : "mt-8 max-w-3xl"
-          }
-        >
-          <div>
-            {habitatDetails ? (
-              <BiologyExpandable
+    <section className="bg-surface py-9 lg:py-20">
+      <div className="mx-auto grid max-w-[1440px] grid-cols-1 px-4 lg:grid-cols-[minmax(0,460px)_minmax(0,1fr)] lg:items-start lg:gap-16 lg:px-[60px]">
+        <div className="contents lg:col-start-1 lg:row-start-1 lg:block lg:min-w-0">
+          <div className="order-1">
+            <p className={EYEBROW_CLASS}>{t("range")}</p>
+            <AnchoredHeading
+              anchorLabel={t("anchorLink")}
+              className="mt-4 max-w-xl font-display text-[28px] leading-[1.15] font-semibold tracking-[-0.012em] text-foreground lg:text-[44px] lg:leading-[1.1]"
+              id={SPECIES_SECTION_IDS.range}
+              slugSource={t("rangeTitle", { name: speciesName })}
+            >
+              {t("rangeTitle", { name: speciesName })}
+            </AnchoredHeading>
+          </div>
+          {habitatDetails ? (
+            <div className="order-4 mt-4 lg:mt-[18px]">
+              <RangeHabitatDetails
                 body={habitatDetails}
                 editorField={editable ? "habitat" : undefined}
-                needsExpand={habitatDetails.length > 520}
                 readLess={t("readLess")}
                 readMore={t("readMore")}
                 speciesId={editable ? speciesId : undefined}
               />
-            ) : null}
-            {rangeRegions.length > 0 ? (
-              <nav
-                aria-label={t("rangeRegionsLabel")}
-                className={habitatDetails ? "mt-6" : undefined}
-              >
-                <ol className="text-[15px] leading-snug">
-                  {rangeRegions.map((region, index) => (
-                    <li key={region.id}>
-                      <Link
-                        className="group flex min-h-14 items-center gap-3 border-t border-border text-foreground transition-colors hover:text-primary focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-primary"
-                        href={regionHref(region.id)}
-                      >
-                        <span aria-hidden="true" data-range-mark="key">
-                          {index + 1}
-                        </span>
-                        <span className="min-w-0 flex-1">
-                          {localizeRegionText(region.name, locale)}
-                        </span>
-                        <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors group-hover:border-primary/40 group-hover:text-primary">
-                          <ArrowUpRight
-                            aria-hidden="true"
-                            className="size-3.5"
-                          />
-                        </span>
-                      </Link>
-                    </li>
-                  ))}
-                </ol>
-              </nav>
-            ) : null}
-          </div>
-          {highlightedIds.length > 0 ? (
-            <figure className="rounded-[30px] bg-card p-5 lg:rounded-[40px] lg:p-9">
-              <GeorgiaMapStatic
-                hatchId={STATIC_HATCH_ID}
-                highlightedIds={highlightedIds}
-              />
-              <figcaption className="mt-4 flex items-baseline gap-2 text-[12px] leading-snug text-muted-foreground">
-                <span className="translate-y-px">
-                  <RangeHatchSwatch id={STATIC_HATCH_ID} />
-                </span>
-                {t("rangeSubtitle")}
-              </figcaption>
-            </figure>
+            </div>
+          ) : null}
+          {rangeRegions.length > 0 ? (
+            <nav
+              aria-label={t("rangeRegionsLabel")}
+              className="order-3 rounded-b-[30px] bg-card px-4 pb-2 shadow-[0_16px_40px_rgba(14,20,17,0.06)] lg:mt-6 lg:rounded-none lg:bg-transparent lg:p-0 lg:shadow-none"
+            >
+              <ul>
+                {rangeRegions.map((region) => (
+                  <li className="border-t border-border" key={region.id}>
+                    <Link
+                      className="group flex min-h-[52px] items-center gap-3 text-[15.5px] font-semibold text-foreground transition-colors hover:text-primary focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-primary lg:min-h-14 lg:text-[17px]"
+                      href={regionHref(region.id)}
+                    >
+                      <span className="min-w-0 flex-1">
+                        {localizeRegionText(region.name, locale)}
+                      </span>
+                      <ArrowRight
+                        aria-hidden="true"
+                        className="size-4 shrink-0"
+                      />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
           ) : null}
         </div>
+        {highlightedIds.length > 0 ? (
+          <figure className="order-2 mt-5 min-w-0 rounded-t-[30px] bg-card p-4 pb-2 shadow-[0_16px_40px_rgba(14,20,17,0.06)] lg:col-start-2 lg:row-start-1 lg:mt-0 lg:rounded-[40px] lg:p-9">
+            <GeorgiaMapStatic
+              hatchId={STATIC_HATCH_ID}
+              highlightedIds={highlightedIds}
+            />
+            <figcaption className="mt-4 flex items-baseline gap-2 text-[12px] leading-snug text-muted-foreground">
+              <span className="translate-y-px">
+                <RangeHatchSwatch id={STATIC_HATCH_ID} />
+              </span>
+              {t("rangeSubtitle")}
+            </figcaption>
+          </figure>
+        ) : null}
       </div>
     </section>
   );
