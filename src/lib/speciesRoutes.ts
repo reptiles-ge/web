@@ -243,9 +243,10 @@ const LOOKALIKES: Record<string, string[]> = {
   "tyto-alba": ["strix-aluco"],
   "vipera-dinniki": ["vipera-kaznakovi", "vipera-darevskii"],
   "vipera-kaznakovi": [
-    "natrix-natrix",
     "vipera-dinniki",
     "vipera-transcaucasiana",
+    "natrix-natrix",
+    "coronella-austriaca",
   ],
   "vipera-transcaucasiana": [
     "coronella-austriaca",
@@ -263,7 +264,7 @@ const LOOKALIKES: Record<string, string[]> = {
     "coronella-austriaca",
     "hemorrhois-ravergieri",
   ],
-  "zamenis-longissimus": ["natrix-natrix", "vipera-kaznakovi"],
+  "zamenis-longissimus": ["natrix-natrix"],
 };
 
 const lookalikeIndex: Record<string, Set<string>> = {};
