@@ -661,18 +661,6 @@ export async function SpeciesProfileBody({
         />
       ) : null}
 
-      {species.id !== "macrovipera-lebetina" &&
-      species.faq &&
-      species.faq.length > 0 ? (
-        <SpeciesFaqSection
-          entityId={species.id}
-          items={species.faq}
-          locale={locale}
-          name={species.commonName}
-          pageType="species"
-        />
-      ) : null}
-
       {guideLinks.length > 0 ? (
         <SpeciesGuideFeature
           gallery={gallery}
@@ -683,9 +671,7 @@ export async function SpeciesProfileBody({
         />
       ) : null}
 
-      {species.id === "macrovipera-lebetina" &&
-      species.faq &&
-      species.faq.length > 0 ? (
+      {species.faq && species.faq.length > 0 ? (
         <SpeciesFaqSection
           entityId={species.id}
           items={species.faq}
