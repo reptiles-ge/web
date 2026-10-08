@@ -83,9 +83,14 @@ export async function SpeciesGallery({
   const photos = images.filter((item) => Boolean(item.src));
   const visiblePhotos = photos.slice(0, 5);
   const hasMore = photos.length > 5;
-  const authorCount = new Set(
-    photos.map((photo) => photo.credit?.photographer?.trim()).filter(Boolean),
-  ).size;
+  const photographers = [
+    ...new Set(
+      photos
+        .map((photo) => photo.credit?.photographer?.trim())
+        .filter((name): name is string => Boolean(name)),
+    ),
+  ];
+  const authorCount = photographers.length;
 
   if (photos.length === 0) return null;
 
@@ -231,6 +236,31 @@ export async function SpeciesGallery({
                 </div>
               );
             })}
+            {speciesId === "macrovipera-lebetina" ? (
+              <p className="mt-5 text-[12px] leading-relaxed text-white/65">
+                {photographers.map((photographer, index) => {
+                  const author = getPublishedCreditAuthorByName(photographer);
+                  const label = author
+                    ? creditAuthorName(author, locale)
+                    : photographer;
+                  return (
+                    <span key={photographer}>
+                      {index > 0 ? " · " : null}
+                      {author ? (
+                        <Link
+                          className="underline decoration-white/35 underline-offset-2 transition-colors hover:text-white hover:decoration-white"
+                          href={creditAuthorHref(author.slug)}
+                        >
+                          {label}
+                        </Link>
+                      ) : (
+                        label
+                      )}
+                    </span>
+                  );
+                })}
+              </p>
+            ) : null}
           </div>
         </div>
       </section>
