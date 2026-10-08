@@ -185,47 +185,49 @@ export async function SpeciesProfileHero({
         </div>
       </div>
       {galleryPreview.length > 0 ? (
-        <div className="absolute right-[60px] bottom-[118px] z-10 hidden items-center gap-2 lg:flex">
-          {species.imageCredit?.photographer ? (
-            <span className="mr-1 rounded-full bg-ink/65 px-3 py-1.5 text-xs text-white/85 backdrop-blur-sm">
-              {t("photoCredit")} {species.imageCredit.photographer}
-            </span>
-          ) : null}
-          {galleryPreview.map((src, index) => (
-            <a
-              aria-label={t("galleryOpenPhoto", {
-                index: index + 1,
-                total: galleryCount,
-              })}
-              className={cn(
-                "relative block h-14 w-[76px] overflow-hidden rounded-[14px] bg-ink transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white",
-                index === 0 && "ring-2 ring-white",
-              )}
-              data-species-gallery-src={optimizedImgSrc(src, 1200)}
-              href={`#${SPECIES_SECTION_IDS.gallery}`}
-              key={src}
-            >
-              <picture>
-                {pictureSources(src, { sizes: "76px" }).map((source) => (
-                  <source key={source.key} {...source.props} />
-                ))}
-                <img
-                  alt=""
-                  className="size-full object-cover"
-                  decoding="async"
-                  loading="lazy"
-                  sizes="76px"
-                  src={optimizedImgSrc(src, 200)}
-                />
-              </picture>
-              {index === galleryPreview.length - 1 &&
-              galleryCount > galleryPreview.length ? (
-                <span className="absolute inset-0 flex items-center justify-center bg-ink/60 text-sm font-semibold text-white">
-                  +{galleryCount - galleryPreview.length}
-                </span>
-              ) : null}
-            </a>
-          ))}
+        <div className="absolute inset-x-0 bottom-[118px] z-10 hidden lg:block">
+          <div className="mx-auto flex max-w-[1440px] items-center justify-end gap-2 px-[60px]">
+            {species.imageCredit?.photographer ? (
+              <span className="mr-1 hidden rounded-full bg-ink/65 px-3 py-1.5 text-xs text-white/85 backdrop-blur-sm xl:inline-flex">
+                {t("photoCredit")} {species.imageCredit.photographer}
+              </span>
+            ) : null}
+            {galleryPreview.map((src, index) => (
+              <a
+                aria-label={t("galleryOpenPhoto", {
+                  index: index + 1,
+                  total: galleryCount,
+                })}
+                className={cn(
+                  "relative block h-14 w-[76px] overflow-hidden rounded-[14px] bg-ink transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white",
+                  index === 0 && "ring-2 ring-white",
+                )}
+                data-species-gallery-src={optimizedImgSrc(src, 1200)}
+                href={`#${SPECIES_SECTION_IDS.gallery}`}
+                key={src}
+              >
+                <picture>
+                  {pictureSources(src, { sizes: "76px" }).map((source) => (
+                    <source key={source.key} {...source.props} />
+                  ))}
+                  <img
+                    alt=""
+                    className="size-full object-cover"
+                    decoding="async"
+                    loading="lazy"
+                    sizes="76px"
+                    src={optimizedImgSrc(src, 200)}
+                  />
+                </picture>
+                {index === galleryPreview.length - 1 &&
+                galleryCount > galleryPreview.length ? (
+                  <span className="absolute inset-0 flex items-center justify-center bg-ink/60 text-sm font-semibold text-white">
+                    +{galleryCount - galleryPreview.length}
+                  </span>
+                ) : null}
+              </a>
+            ))}
+          </div>
         </div>
       ) : null}
     </section>
