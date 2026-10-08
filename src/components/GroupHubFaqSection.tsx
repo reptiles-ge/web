@@ -1,6 +1,5 @@
 "use client";
 
-import { Plus } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useMemo, useState } from "react";
 
@@ -12,10 +11,10 @@ import {
   CLUSTER_FAQ_TITLE,
   ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
+import { FaqAnswerPanel, FaqToggleIcon } from "@/components/FaqAccordionParts";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { Link } from "@/i18n/navigation";
 import { trackEvent } from "@/lib/analytics";
-import { cn } from "@/lib/cn";
 
 const faqLinkClassName = "text-foreground underline-offset-4 hover:underline";
 
@@ -63,35 +62,19 @@ export function GroupHubFaqSection({ hubId }: { hubId: GroupHubId }) {
                       <span className="font-display text-[17px] leading-snug font-medium text-foreground sm:text-[19px]">
                         {t(`faq${n}Q`)}
                       </span>
-                      <span
-                        className={cn(
-                          "mt-1 flex size-8 shrink-0 items-center justify-center rounded-full border border-border transition-transform duration-300",
-                          isOpen
-                            ? "rotate-45 bg-ink text-ink-foreground"
-                            : "text-foreground",
-                        )}
-                      >
-                        <Plus className="size-4" strokeWidth={1.75} />
-                      </span>
+                      <FaqToggleIcon isOpen={isOpen} />
                     </button>
-                    <div
-                      className={cn(
-                        "grid transition-[grid-template-rows] duration-300 ease-out",
-                        isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
-                      )}
-                    >
-                      <div className="overflow-hidden">
-                        <p className="pr-12 pb-7 text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
-                          {hubId === "snakes" && n === 5 ? (
-                            <SnakesFaq5Answer />
-                          ) : hubId === "turtles" && n === 4 ? (
-                            <TurtlesFaq4Answer />
-                          ) : (
-                            <PhoneLinkedText>{t(`faq${n}A`)}</PhoneLinkedText>
-                          )}
-                        </p>
-                      </div>
-                    </div>
+                    <FaqAnswerPanel isOpen={isOpen}>
+                      <p className="pr-12 pb-7 text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
+                        {hubId === "snakes" && n === 5 ? (
+                          <SnakesFaq5Answer />
+                        ) : hubId === "turtles" && n === 4 ? (
+                          <TurtlesFaq4Answer />
+                        ) : (
+                          <PhoneLinkedText>{t(`faq${n}A`)}</PhoneLinkedText>
+                        )}
+                      </p>
+                    </FaqAnswerPanel>
                   </div>
                 </div>
               );

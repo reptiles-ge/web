@@ -28,6 +28,7 @@ import {
   isFullCoverCrop,
   normalizeCoverCropRect,
 } from "@/lib/coverCrop";
+import { serverEnv } from "@/lib/env";
 import {
   type OptimizeCatalogUpdate,
   optimizeUploadedOriginal,
@@ -367,20 +368,17 @@ async function allocateUploadKeys(
 }
 
 function createStorage() {
-  const zone = process.env.BUNNY_STORAGE_ZONE;
-  const accessKey = process.env.BUNNY_STORAGE_ACCESS_KEY;
-  if (!zone || !accessKey) {
+  const env = serverEnv();
+  if (!env.BUNNY_STORAGE_ZONE || !env.BUNNY_STORAGE_ACCESS_KEY) {
     throw new Error(
       "BUNNY_STORAGE_ZONE and BUNNY_STORAGE_ACCESS_KEY must be in .env.local",
     );
   }
   return new BunnyStorageAdapter({
-    accessKey,
-    cdnBaseUrl: process.env.BUNNY_CDN_BASE_URL ?? CDN_BASE,
-    storageZone: zone,
-    ...(process.env.BUNNY_STORAGE_REGION
-      ? { region: process.env.BUNNY_STORAGE_REGION }
-      : {}),
+    accessKey: env.BUNNY_STORAGE_ACCESS_KEY,
+    cdnBaseUrl: env.BUNNY_CDN_BASE_URL ?? CDN_BASE,
+    storageZone: env.BUNNY_STORAGE_ZONE,
+    ...(env.BUNNY_STORAGE_REGION ? { region: env.BUNNY_STORAGE_REGION } : {}),
   });
 }
 

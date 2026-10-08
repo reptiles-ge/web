@@ -8,6 +8,7 @@ import {
   editorResultSchema,
   readSpeciesField,
   replaceSpeciesField,
+  restoreInlineLinkTargets,
   validateEditorResult,
   verifyEditorSelection,
 } from "@/lib/contentEditor";
@@ -143,6 +144,25 @@ describe("selection content editor", () => {
         ...values,
         en: values.en.replace("/ka/species/14072", "/wrong/species/14072"),
       }),
+    ).toThrow("inline links");
+  });
+
+  it("accepts a translation link that Georgian already has and the translation lacked", () => {
+    const source = "[დასავლური მახრჩობელა](eryx-jaculus) უფრო მსხვილია.";
+    const original = "Песчаный удавчик უფრო მსხვილია.";
+    expect(
+      restoreInlineLinkTargets(
+        original,
+        "[Песчаный удавчик](eryx-jaculus) უფრო მსხვილია.",
+        source,
+      ),
+    ).toBe("[Песчаный удавчик](eryx-jaculus) უფრო მსხვილია.");
+    expect(() =>
+      restoreInlineLinkTargets(
+        original,
+        "[Песчаный удавчик](https://evil.example) უფრო მსხვილია.",
+        source,
+      ),
     ).toThrow("inline links");
   });
 

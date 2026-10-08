@@ -47,6 +47,7 @@ src/data/fieldRecords.generated.json
 src/data/occurrenceSummaries.generated.ts
 public/data/occurrences/
 src/data/localeSwitchIndex.generated.ts
+src/data/releaseVersion.generated.ts
 src/data/search-index.generated.ts
 src/data/search-index.*.generated.ts
 index.html

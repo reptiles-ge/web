@@ -1,0 +1,126 @@
+version: 2
+
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "06:00"
+      timezone: Asia/Tbilisi
+    open-pull-requests-limit: 8
+    cooldown:
+      default-days: 7
+      semver-major-days: 14
+    labels:
+      - dependencies
+    ignore:
+      - dependency-name: "@types/node"
+        update-types:
+          - version-update:semver-major
+    groups:
+      nextjs:
+        patterns:
+          - next
+          - "@next/*"
+          - eslint-config-next
+        update-types:
+          - minor
+          - patch
+      nextjs-major:
+        patterns:
+          - next
+          - "@next/*"
+          - eslint-config-next
+        update-types:
+          - major
+      react:
+        patterns:
+          - react
+          - react-dom
+          - react-server-dom-webpack
+          - "@types/react"
+          - "@types/react-dom"
+        update-types:
+          - minor
+          - patch
+      react-major:
+        patterns:
+          - react
+          - react-dom
+          - react-server-dom-webpack
+          - "@types/react"
+          - "@types/react-dom"
+        update-types:
+          - major
+      worker-build:
+        patterns:
+          - vinext
+          - "@vinext/*"
+          - "@cloudflare/*"
+          - wrangler
+          - vite
+          - "@vitejs/*"
+        update-types:
+          - minor
+          - patch
+      testing:
+        patterns:
+          - vitest
+          - "@vitest/*"
+          - "@playwright/test"
+          - axe-core
+        update-types:
+          - minor
+          - patch
+      vitest-major:
+        patterns:
+          - vitest
+          - "@vitest/*"
+        update-types:
+          - major
+      lint-and-format:
+        patterns:
+          - eslint
+          - "eslint-*"
+          - "@eslint/*"
+          - prettier
+          - "prettier-*"
+          - knip
+          - jscpd
+          - "@lingual/i18n-check"
+          - husky
+          - lint-staged
+        update-types:
+          - minor
+          - patch
+      production:
+        dependency-type: production
+        update-types:
+          - minor
+          - patch
+      development:
+        dependency-type: development
+        exclude-patterns:
+          - react-doctor
+          - typescript
+        update-types:
+          - minor
+          - patch
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "06:00"
+      timezone: Asia/Tbilisi
+    open-pull-requests-limit: 3
+    cooldown:
+      default-days: 7
+    labels:
+      - dependencies
+    groups:
+      actions:
+        patterns:
+          - "*"

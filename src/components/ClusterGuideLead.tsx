@@ -8,16 +8,27 @@ import {
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 
 type ClusterGuideLeadProps = {
-  body: ReactNode;
+  body?: ReactNode;
   eyebrow: string;
+  paragraphs?: readonly [ReactNode?, ReactNode?, ReactNode?];
   title: string;
 };
 
 export function ClusterGuideLead({
   body,
   eyebrow,
+  paragraphs = [],
   title,
 }: ClusterGuideLeadProps) {
+  const [first, second, third] = paragraphs;
+  const content = body ?? (
+    <>
+      {first ? <p>{first}</p> : null}
+      {second ? <p>{second}</p> : null}
+      {third ? <p>{third}</p> : null}
+    </>
+  );
+
   return (
     <section className="bg-background py-20 lg:py-28">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
@@ -32,7 +43,7 @@ export function ClusterGuideLead({
           </div>
           <div>
             <div className="space-y-4 text-[15px] leading-relaxed text-muted-foreground">
-              <PhoneLinkedText>{body}</PhoneLinkedText>
+              <PhoneLinkedText>{content}</PhoneLinkedText>
             </div>
           </div>
         </div>

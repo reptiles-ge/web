@@ -153,6 +153,29 @@ export function GuideFactList({
   );
 }
 
+export function GuideMythList({
+  className = "mt-10 divide-y divide-border border-y border-border",
+  myths,
+  truthClassName = "mt-2 max-w-3xl text-[15px] leading-relaxed text-muted-foreground",
+}: {
+  className?: string;
+  myths: readonly { claim: ReactNode; id: number | string; truth: ReactNode }[];
+  truthClassName?: string;
+}) {
+  return (
+    <ul className={className}>
+      {myths.map((myth) => (
+        <li className="py-5 sm:py-6" key={myth.id}>
+          <p className="font-display text-[17px] leading-snug font-medium text-foreground sm:text-[19px]">
+            {myth.claim}
+          </p>
+          <p className={truthClassName}>{myth.truth}</p>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 export function GuideNumberedSteps({
   items,
 }: {
@@ -179,6 +202,42 @@ export function GuideNumberedSteps({
         </li>
       ))}
     </ol>
+  );
+}
+
+export function GuideSummaryBlock({
+  eyebrow,
+  items,
+  lead,
+  title,
+}: {
+  eyebrow: string;
+  items: readonly { id: number | string; text: string }[];
+  lead: string;
+  title: string;
+}) {
+  return (
+    <>
+      <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
+        {eyebrow}
+      </p>
+      <h2 className="mt-5 max-w-3xl font-display text-display-title font-semibold">
+        <PhoneLinkedText>{title}</PhoneLinkedText>
+      </h2>
+      <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
+        <PhoneLinkedText>{lead}</PhoneLinkedText>
+      </p>
+      <ul className="mt-8 max-w-2xl divide-y divide-border border-y border-border">
+        {items.map((item) => (
+          <li
+            className="py-4 text-[15px] leading-relaxed text-foreground"
+            key={item.id}
+          >
+            <PhoneLinkedText>{item.text}</PhoneLinkedText>
+          </li>
+        ))}
+      </ul>
+    </>
   );
 }
 

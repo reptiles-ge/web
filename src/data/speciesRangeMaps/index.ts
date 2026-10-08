@@ -64,6 +64,7 @@ import { rangeMap as viperaDinniki } from "@/data/speciesRangeMaps/vipera-dinnik
 import { rangeMap as viperaKaznakovi } from "@/data/speciesRangeMaps/vipera-kaznakovi";
 import { rangeMap as viperaRenardi } from "@/data/speciesRangeMaps/vipera-renardi";
 import { rangeMap as viperaTranscaucasiana } from "@/data/speciesRangeMaps/vipera-transcaucasiana";
+import { rangeMap as xerotyphlopsVermicularis } from "@/data/speciesRangeMaps/xerotyphlops-vermicularis";
 import { rangeMap as zamenisHohenackeri } from "@/data/speciesRangeMaps/zamenis-hohenackeri";
 import { rangeMap as zamenisLongissimus } from "@/data/speciesRangeMaps/zamenis-longissimus";
 
@@ -136,6 +137,7 @@ export const INTERACTIVE_RANGE_MAPS: Partial<
   "vipera-kaznakovi": viperaKaznakovi,
   "vipera-renardi": viperaRenardi,
   "vipera-transcaucasiana": viperaTranscaucasiana,
+  "xerotyphlops-vermicularis": xerotyphlopsVermicularis,
   "zamenis-hohenackeri": zamenisHohenackeri,
   "zamenis-longissimus": zamenisLongissimus,
 };

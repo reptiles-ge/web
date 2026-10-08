@@ -149,13 +149,15 @@ export async function resolveEditorTarget(
           ],
           locale,
         );
-        if (locale !== "ka" && original)
+        if (locale !== "ka" && original) {
           values[locale] = restoreInlineLinkTargets(
             original,
             values[locale],
             values.ka,
           );
-        assertInlineLinksPreserved(original || values.ka, values[locale]);
+        } else {
+          assertInlineLinksPreserved(original || values.ka, values[locale]);
+        }
       }
       if (input.kind === "species") {
         if (

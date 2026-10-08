@@ -1,9 +1,9 @@
 import type { SpeciesFieldRecord } from "@/data/speciesTypes";
 
 import { formatFieldRecordYaml } from "@/lib/fieldRecordYaml";
+import { topLevelRangeFrom } from "@/lib/frontmatterRange";
 
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
-const TOP_LEVEL_KEY = /^[A-Za-z][A-Za-z0-9]*:/;
 
 export type INaturalistObservation = {
   geojson?: { coordinates?: unknown };
@@ -149,25 +149,12 @@ export function replaceFieldRecordsInMdx(
   return lines.join(newline);
 }
 
-function findTopLevelRange(
-  lines: string[],
-  key: string,
-): null | { end: number; start: number } {
-  const start = lines.findIndex((line) =>
-    new RegExp(`^${key}:(?:\\s|$)`).test(line),
+function findTopLevelRange(lines: string[], key: string) {
+  const pattern = new RegExp(`^${key}:(?:\\s|$)`);
+  return topLevelRangeFrom(
+    lines,
+    lines.findIndex((line) => pattern.test(line)),
   );
-  if (start === -1) return null;
-  let end = start + 1;
-  while (end < lines.length) {
-    const line = lines[end];
-    if (line.trim() === "") {
-      end += 1;
-      continue;
-    }
-    if (TOP_LEVEL_KEY.test(line) || /^---\s*$/.test(line)) break;
-    end += 1;
-  }
-  return { end, start };
 }
 
 function iNaturalistObservationId(value?: string) {

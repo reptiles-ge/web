@@ -20,6 +20,7 @@ import { openGraphLocale } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { GROUP_HUBS } from "@/lib/groupHubs";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
+import { breadcrumbListLd, localePageUrl } from "@/lib/pageStructuredData";
 import {
   absoluteImageUrl,
   absoluteUrl,
@@ -92,25 +93,14 @@ export function createGuideArticleRoute(pathname: GuideArticlePath) {
     const dates = pageDateFields(pathname);
     const shareImage = guideShareImage(article, locale);
     const heroImage = guideImageObject(article.hero, locale);
-    const breadcrumbLd = {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          item: absoluteUrl(localePath(locale, "/")),
-          name: tShared("breadcrumbHome"),
-          position: 1,
-        },
-        {
-          "@type": "ListItem",
-          item: absoluteUrl(localePath(locale, parent.path)),
-          name: tParent("breadcrumbCurrent"),
-          position: 2,
-        },
-        { "@type": "ListItem", item: url, name: copy.title, position: 3 },
-      ],
-    };
+    const breadcrumbLd = breadcrumbListLd([
+      { item: localePageUrl(locale, "/"), name: tShared("breadcrumbHome") },
+      {
+        item: localePageUrl(locale, parent.path),
+        name: tParent("breadcrumbCurrent"),
+      },
+      { item: url, name: copy.title },
+    ]);
     const articleLd = {
       "@context": "https://schema.org",
       "@type": "Article",

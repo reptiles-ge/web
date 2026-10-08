@@ -6,6 +6,7 @@ import {
 } from "@/data/species";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { type GroupHubId } from "@/lib/groupHubs";
+import { type LocaleSpeciesHref, speciesHrefForHub } from "@/lib/localeSwitch";
 import {
   getSpeciesHubId,
   getSpeciesPublicSlug,
@@ -13,19 +14,7 @@ import {
   resolveSpeciesIdInHub,
 } from "@/lib/speciesSlugTable";
 
-export type SpeciesHref = {
-  params: { slug: string };
-  pathname:
-    | "/amphibians/[slug]"
-    | "/birds/[slug]"
-    | "/insects/[slug]"
-    | "/lizards/[slug]"
-    | "/mammals/[slug]"
-    | "/scorpions/[slug]"
-    | "/snakes/[slug]"
-    | "/spiders/[slug]"
-    | "/turtles/[slug]";
-};
+export type SpeciesHref = LocaleSpeciesHref;
 
 export { regionHref } from "@/lib/regionHref";
 
@@ -61,11 +50,7 @@ const LOOKALIKES: Record<string, string[]> = {
     "pelobates-syriacus",
     "hyla-orientalis",
   ],
-  "buteo-buteo": [
-    "pernis-apivorus",
-    "aquila-chrysaetos",
-    "falco-peregrinus",
-  ],
+  "buteo-buteo": ["pernis-apivorus", "aquila-chrysaetos", "falco-peregrinus"],
   "canis-aureus": ["vulpes-vulpes", "canis-lupus"],
   "capra-cylindricornis": [
     "capra-aegagrus",
@@ -75,7 +60,11 @@ const LOOKALIKES: Record<string, string[]> = {
   "capreolus-capreolus": ["cervus-elaphus", "sus-scrofa", "capra-aegagrus"],
   "cervus-elaphus": ["capreolus-capreolus", "capra-aegagrus", "sus-scrofa"],
   "columba-livia": ["columba-palumbus"],
-  "coronella-austriaca": ["vipera-transcaucasiana"],
+  "coronella-austriaca": [
+    "vipera-transcaucasiana",
+    "zamenis-hohenackeri",
+    "vipera-kaznakovi",
+  ],
   "coturnix-coturnix": ["phasianus-colchicus"],
   "darevskia-adjarica": [
     "darevskia-clarkorum",
@@ -101,10 +90,7 @@ const LOOKALIKES: Record<string, string[]> = {
     "darevskia-mixta",
   ],
   "darevskia-daghestanica": ["darevskia-caucasica"],
-  "darevskia-dahli": [
-    "darevskia-portschinskii",
-    "darevskia-armeniaca",
-  ],
+  "darevskia-dahli": ["darevskia-portschinskii", "darevskia-armeniaca"],
   "darevskia-derjugini": [
     "darevskia-praticola",
     "darevskia-pontica",
@@ -119,10 +105,7 @@ const LOOKALIKES: Record<string, string[]> = {
     "darevskia-adjarica",
     "darevskia-brauneri",
   ],
-  "darevskia-pontica": [
-    "darevskia-praticola",
-    "darevskia-derjugini",
-  ],
+  "darevskia-pontica": ["darevskia-praticola", "darevskia-derjugini"],
   "darevskia-portschinskii": [
     "darevskia-dahli",
     "darevskia-obscura",
@@ -137,8 +120,8 @@ const LOOKALIKES: Record<string, string[]> = {
     "hemorrhois-ravergieri",
     "elaphe-urartica",
   ],
-  "eirenis-collaris": ["eirenis-modestus", "xerotyphlops-vermicularis"],
-  "eirenis-modestus": ["eirenis-collaris", "xerotyphlops-vermicularis"],
+  "eirenis-collaris": ["eirenis-modestus"],
+  "eirenis-modestus": ["eirenis-collaris"],
   "elaphe-dione": [
     "elaphe-urartica",
     "zamenis-hohenackeri",
@@ -174,7 +157,6 @@ const LOOKALIKES: Record<string, string[]> = {
     "platyceps-najadum",
     "elaphe-urartica",
     "dolichophis-schmidti",
-    "vipera-transcaucasiana",
     "macrovipera-lebetina",
   ],
   "hyla-orientalis": [
@@ -233,11 +215,7 @@ const LOOKALIKES: Record<string, string[]> = {
     "bufotes-viridis",
     "pelodytes-caucasicus",
   ],
-  "pernis-apivorus": [
-    "buteo-buteo",
-    "accipiter-gentilis",
-    "falco-peregrinus",
-  ],
+  "pernis-apivorus": ["buteo-buteo", "accipiter-gentilis", "falco-peregrinus"],
   "phasianus-colchicus": ["coturnix-coturnix"],
   "phoenicolacerta-laevis": ["darevskia-pontica"],
   "pholcus-phalangioides": ["araneus-diadematus"],
@@ -269,14 +247,19 @@ const LOOKALIKES: Record<string, string[]> = {
   "tyto-alba": ["strix-aluco"],
   "vipera-dinniki": ["vipera-kaznakovi", "vipera-darevskii"],
   "vipera-kaznakovi": [
-    "natrix-natrix",
     "vipera-dinniki",
     "vipera-transcaucasiana",
+    "natrix-natrix",
+    "coronella-austriaca",
   ],
   "vipera-transcaucasiana": [
-    "vipera-kaznakovi",
     "coronella-austriaca",
-    "vipera-dinniki",
+    "zamenis-hohenackeri",
+    "hemorrhois-ravergieri",
+    "vipera-darevskii",
+    "vipera-renardi",
+    "vipera-kaznakovi",
+    "macrovipera-lebetina",
   ],
   "vulpes-vulpes": ["canis-lupus"],
   "xerotyphlops-vermicularis": ["eryx-jaculus"],
@@ -284,9 +267,8 @@ const LOOKALIKES: Record<string, string[]> = {
     "elaphe-dione",
     "coronella-austriaca",
     "hemorrhois-ravergieri",
-    "vipera-transcaucasiana",
   ],
-  "zamenis-longissimus": ["natrix-natrix", "vipera-kaznakovi"],
+  "zamenis-longissimus": ["natrix-natrix"],
 };
 
 const lookalikeIndex: Record<string, Set<string>> = {};
@@ -339,26 +321,7 @@ export function resolveSpeciesInHub(
 export function speciesHref(id: string, locale: AppLocale): SpeciesHref {
   const hub = getSpeciesHubId(id);
   const slug = getSpeciesPublicSlug(id, locale);
-  switch (hub) {
-    case "birds":
-      return { params: { slug }, pathname: "/birds/[slug]" };
-    case "insects":
-      return { params: { slug }, pathname: "/insects/[slug]" };
-    case "lizards":
-      return { params: { slug }, pathname: "/lizards/[slug]" };
-    case "mammals":
-      return { params: { slug }, pathname: "/mammals/[slug]" };
-    case "scorpions":
-      return { params: { slug }, pathname: "/scorpions/[slug]" };
-    case "snakes":
-      return { params: { slug }, pathname: "/snakes/[slug]" };
-    case "spiders":
-      return { params: { slug }, pathname: "/spiders/[slug]" };
-    case "turtles":
-      return { params: { slug }, pathname: "/turtles/[slug]" };
-    default:
-      return { params: { slug }, pathname: "/amphibians/[slug]" };
-  }
+  return speciesHrefForHub(hub, slug);
 }
 
 export function speciesStaticParams(hubId: GroupHubId) {

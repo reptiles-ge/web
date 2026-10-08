@@ -275,6 +275,7 @@ const eslintConfig = defineConfig([
     "src/data/georgia-paths.generated.ts",
     "src/data/optimizedImages.generated.ts",
     "src/data/localeSwitchIndex.generated.ts",
+    "src/data/releaseVersion.generated.ts",
     "scripts/**",
   ]),
 ]);

@@ -1,7 +1,8 @@
+import { localAdminForbiddenResponse } from "@/lib/adminAccess";
 import {
-  isLocalAdminEnabled,
-  localAdminForbiddenResponse,
-} from "@/lib/adminAccess";
+  isLocalAdminOriginRequest,
+  readAdminJsonText,
+} from "@/lib/adminRequest";
 import {
   speciesCreationCodexPrompt,
   validateSpeciesCreationInput,
@@ -11,22 +12,15 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 export async function POST(request: Request) {
-  const url = new URL(request.url);
-  if (
-    !isLocalAdminEnabled() ||
-    !["127.0.0.1", "[::1]", "localhost"].includes(url.hostname) ||
-    request.headers.get("origin") !== url.origin
-  ) {
+  if (!isLocalAdminOriginRequest(request)) {
     return localAdminForbiddenResponse();
   }
 
   try {
-    const text = await request.text();
-    if (text.length > 1000) throw new Error("Invalid request");
-    const body = JSON.parse(text) as {
+    const body = await readAdminJsonText<{
       commonName?: unknown;
       scientificName?: unknown;
-    };
+    }>(request);
     const input = validateSpeciesCreationInput(
       body.commonName,
       body.scientificName,

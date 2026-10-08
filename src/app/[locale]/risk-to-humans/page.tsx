@@ -4,48 +4,40 @@ import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
+import type { LocalePageProps } from "@/lib/pageMetadata";
+
 import { ClientMessagesProvider } from "@/components/ClientMessagesProvider";
 import { JsonLd } from "@/components/JsonLd";
 import { RiskToHumansPage } from "@/components/RiskToHumansPage";
-import { getCatalogSpecies, getSpeciesById } from "@/data/species";
+import { getCatalogSpecies } from "@/data/species";
 import { getCatalogByDanger } from "@/data/speciesAtlas";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { orderSpeciesByIds } from "@/lib/clusterGuides";
 import { HARMLESS_EXAMPLE_IDS } from "@/lib/dangerLevels";
-import { buildPageMetadata } from "@/lib/pageMetadata";
 import {
-  absoluteUrl,
-  localePath,
-  siteEntityId,
-  speciesOgImageUrl,
-} from "@/lib/site";
+  breadcrumbListLd,
+  localePageUrl,
+  sitePageLd,
+} from "@/lib/pageStructuredData";
+import { absoluteUrl, localePath } from "@/lib/site";
+import { speciesOgPageMetadata } from "@/lib/speciesOgPageMetadata";
 import { pageDateFields } from "@/lib/structuredDataDates";
-
-type Props = {
-  params: Promise<{ locale: string }>;
-};
 
 const PATH = "/risk-to-humans";
 const OG_SPECIES = "macrovipera-lebetina";
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: LocalePageProps): Promise<Metadata> {
   const { locale: localeParam } = await params;
   if (!hasLocale(routing.locales, localeParam)) return {};
 
-  const locale = localeParam as AppLocale;
-  const t = await getTranslations({ locale, namespace: "riskToHumans" });
-  return buildPageMetadata({
-    description: t("metaDescription"),
-    indexable: true,
-    keywords: t("keywords"),
-    locale,
-    ogImageUrl: speciesOgImageUrl(
-      OG_SPECIES,
-      getSpeciesById(OG_SPECIES)?.image,
-    ),
+  return speciesOgPageMetadata({
+    locale: localeParam as AppLocale,
+    namespace: "riskToHumans",
+    ogSpeciesId: OG_SPECIES,
     pagePath: PATH,
-    title: t("metaTitle"),
     type: "article",
   });
 }
@@ -54,7 +46,7 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-export default async function RiskToHumansRoute({ params }: Props) {
+export default async function RiskToHumansRoute({ params }: LocalePageProps) {
   const { locale: localeParam } = await params;
   if (!hasLocale(routing.locales, localeParam)) {
     notFound();
@@ -74,30 +66,11 @@ export default async function RiskToHumansRoute({ params }: Props) {
     HARMLESS_EXAMPLE_IDS,
   );
 
-  const breadcrumbLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        item: absoluteUrl(localePath(locale, "/")),
-        name: t("breadcrumbHome"),
-        position: 1,
-      },
-      {
-        "@type": "ListItem",
-        item: absoluteUrl(localePath(locale, "/species")),
-        name: t("breadcrumbSpecies"),
-        position: 2,
-      },
-      {
-        "@type": "ListItem",
-        item: url,
-        name: t("breadcrumbCurrent"),
-        position: 3,
-      },
-    ],
-  };
+  const breadcrumbLd = breadcrumbListLd([
+    { item: localePageUrl(locale, "/"), name: t("breadcrumbHome") },
+    { item: localePageUrl(locale, "/species"), name: t("breadcrumbSpecies") },
+    { item: url, name: t("breadcrumbCurrent") },
+  ]);
 
   const faqLd = {
     "@context": "https://schema.org",
@@ -112,23 +85,16 @@ export default async function RiskToHumansRoute({ params }: Props) {
     })),
   };
 
-  const pageLd = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    about: {
-      "@type": "Thing",
-      name: t("title"),
-    },
-    author: { "@id": siteEntityId("organization") },
-    ...pageDateFields(PATH),
-    description: t("metaDescription"),
-    inLanguage: locale,
-    isPartOf: { "@id": siteEntityId("website") },
-    name: t("metaTitle"),
-    publisher: { "@id": siteEntityId("organization") },
-    url,
-  };
   const dates = pageDateFields(PATH);
+  const pageLd = sitePageLd({
+    about: { "@type": "Thing", name: t("title") },
+    dates,
+    description: t("metaDescription"),
+    locale,
+    name: t("metaTitle"),
+    type: "WebPage",
+    url,
+  });
 
   return (
     <>

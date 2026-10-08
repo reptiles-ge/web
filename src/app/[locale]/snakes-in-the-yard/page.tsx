@@ -9,19 +9,22 @@ import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { JsonLd } from "@/components/JsonLd";
 import { SnakesInYardPage } from "@/components/SnakesInYardPage";
 import { type AppLocale, routing } from "@/i18n/routing";
-import { buildPageMetadata } from "@/lib/pageMetadata";
-import { absoluteUrl, localePath, siteEntityId } from "@/lib/site";
+import { buildPageMetadata, type LocalePageProps } from "@/lib/pageMetadata";
+import {
+  breadcrumbListLd,
+  localePageUrl,
+  sitePageLd,
+} from "@/lib/pageStructuredData";
+import { absoluteUrl, localePath } from "@/lib/site";
 import { pageDateFields } from "@/lib/structuredDataDates";
-
-type Props = {
-  params: Promise<{ locale: string }>;
-};
 
 const PATH = "/snakes-in-the-yard";
 const HERO_IMAGE = "/images/guides/snakes-in-the-yard-cover.jpg";
 const WHY_IMAGE = "/images/guides/snakes-in-the-yard-why.jpg";
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: LocalePageProps): Promise<Metadata> {
   const { locale: localeParam } = await params;
   if (!hasLocale(routing.locales, localeParam)) return {};
 
@@ -47,7 +50,7 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-export default async function SnakesInYardRoute({ params }: Props) {
+export default async function SnakesInYardRoute({ params }: LocalePageProps) {
   const { locale: localeParam } = await params;
   if (!hasLocale(routing.locales, localeParam)) {
     notFound();
@@ -63,30 +66,14 @@ export default async function SnakesInYardRoute({ params }: Props) {
   const heroSrc = HERO_IMAGE;
   const coverSrc = WHY_IMAGE;
 
-  const breadcrumbLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        item: absoluteUrl(localePath(locale, "/")),
-        name: t("breadcrumbHome"),
-        position: 1,
-      },
-      {
-        "@type": "ListItem",
-        item: absoluteUrl(localePath(locale, "/snakes")),
-        name: tSnakes("breadcrumbCurrent"),
-        position: 2,
-      },
-      {
-        "@type": "ListItem",
-        item: url,
-        name: t("breadcrumbCurrent"),
-        position: 3,
-      },
-    ],
-  };
+  const breadcrumbLd = breadcrumbListLd([
+    { item: localePageUrl(locale, "/"), name: t("breadcrumbHome") },
+    {
+      item: localePageUrl(locale, "/snakes"),
+      name: tSnakes("breadcrumbCurrent"),
+    },
+    { item: url, name: t("breadcrumbCurrent") },
+  ]);
 
   const howToLd = {
     "@context": "https://schema.org",
@@ -102,23 +89,16 @@ export default async function SnakesInYardRoute({ params }: Props) {
     })),
   };
 
-  const pageLd = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    about: {
-      "@type": "Thing",
-      name: t("title"),
-    },
-    author: { "@id": siteEntityId("organization") },
-    ...pageDateFields(PATH),
-    description: t("metaDescription"),
-    inLanguage: locale,
-    isPartOf: { "@id": siteEntityId("website") },
-    name: t("metaTitle"),
-    publisher: { "@id": siteEntityId("organization") },
-    url,
-  };
   const dates = pageDateFields(PATH);
+  const pageLd = sitePageLd({
+    about: { "@type": "Thing", name: t("title") },
+    dates,
+    description: t("metaDescription"),
+    locale,
+    name: t("metaTitle"),
+    type: "WebPage",
+    url,
+  });
 
   return (
     <>

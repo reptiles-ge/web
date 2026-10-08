@@ -4,6 +4,8 @@ import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
+import type { LocalePageProps } from "@/lib/pageMetadata";
+
 import { ClientMessagesProvider } from "@/components/ClientMessagesProvider";
 import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { DangerousAnimalsPage } from "@/components/DangerousAnimalsPage";
@@ -11,24 +13,22 @@ import { JsonLd } from "@/components/JsonLd";
 import { getSpeciesById } from "@/data/species";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { type AppLocale, routing } from "@/i18n/routing";
-import { buildPageMetadata } from "@/lib/pageMetadata";
 import {
-  absoluteUrl,
-  localePath,
-  siteEntityId,
-  speciesOgImageUrl,
-} from "@/lib/site";
+  breadcrumbListLd,
+  localePageUrl,
+  sitePageLd,
+} from "@/lib/pageStructuredData";
+import { absoluteUrl, localePath } from "@/lib/site";
 import { speciesImageAlt } from "@/lib/speciesMeta";
+import { speciesOgPageMetadata } from "@/lib/speciesOgPageMetadata";
 import { pageDateFields } from "@/lib/structuredDataDates";
-
-type Props = {
-  params: Promise<{ locale: string }>;
-};
 
 const PATH = "/dangerous-animals";
 const OG_SPECIES = "macrovipera-lebetina";
 
-export default async function DangerousAnimalsRoute({ params }: Props) {
+export default async function DangerousAnimalsRoute({
+  params,
+}: LocalePageProps) {
   const { locale: localeParam } = await params;
   if (!hasLocale(routing.locales, localeParam)) {
     notFound();
@@ -47,37 +47,19 @@ export default async function DangerousAnimalsRoute({ params }: Props) {
   const url = absoluteUrl(localePath(locale, PATH));
   const dates = pageDateFields(PATH);
 
-  const breadcrumbLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        item: absoluteUrl(localePath(locale, "/")),
-        name: t("breadcrumbHome"),
-        position: 1,
-      },
-      {
-        "@type": "ListItem",
-        item: url,
-        name: t("breadcrumbCurrent"),
-        position: 2,
-      },
-    ],
-  };
+  const breadcrumbLd = breadcrumbListLd([
+    { item: localePageUrl(locale, "/"), name: t("breadcrumbHome") },
+    { item: url, name: t("breadcrumbCurrent") },
+  ]);
 
-  const pageLd = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    author: { "@id": siteEntityId("organization") },
-    ...dates,
+  const pageLd = sitePageLd({
+    dates,
     description: t("metaDescription"),
-    inLanguage: locale,
-    isPartOf: { "@id": siteEntityId("website") },
+    locale,
     name: t("metaTitle"),
-    publisher: { "@id": siteEntityId("organization") },
+    type: "WebPage",
     url,
-  };
+  });
 
   return (
     <>
@@ -102,23 +84,17 @@ export default async function DangerousAnimalsRoute({ params }: Props) {
   );
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: LocalePageProps): Promise<Metadata> {
   const { locale: localeParam } = await params;
   if (!hasLocale(routing.locales, localeParam)) return {};
 
-  const locale = localeParam as AppLocale;
-  const t = await getTranslations({ locale, namespace: "dangerousAnimals" });
-  return buildPageMetadata({
-    description: t("metaDescription"),
-    indexable: true,
-    keywords: t("keywords"),
-    locale,
-    ogImageUrl: speciesOgImageUrl(
-      OG_SPECIES,
-      getSpeciesById(OG_SPECIES)?.image,
-    ),
+  return speciesOgPageMetadata({
+    locale: localeParam as AppLocale,
+    namespace: "dangerousAnimals",
+    ogSpeciesId: OG_SPECIES,
     pagePath: PATH,
-    title: t("metaTitle"),
   });
 }
 

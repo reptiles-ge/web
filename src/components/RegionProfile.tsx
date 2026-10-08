@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowLeft, ArrowUpRight, Plus, Shield } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Shield } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { type ReactNode, useMemo, useState } from "react";
 
@@ -10,6 +10,7 @@ import type { AppLocale } from "@/i18n/routing";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { CoverImage } from "@/components/CoverImage";
+import { FaqAnswerPanel, FaqToggleIcon } from "@/components/FaqAccordionParts";
 import { useSpeciesHref } from "@/components/LocaleSwitchProvider";
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
@@ -242,36 +243,20 @@ function RegionFaqSection({
                       >
                         {item.question}
                       </span>
-                      <span
-                        className={cn(
-                          "mt-1 flex size-8 shrink-0 items-center justify-center rounded-full border border-border transition-transform duration-300",
-                          isOpen
-                            ? "rotate-45 bg-ink text-ink-foreground"
-                            : "text-foreground",
-                        )}
-                      >
-                        <Plus className="size-4" strokeWidth={1.75} />
-                      </span>
+                      <FaqToggleIcon isOpen={isOpen} />
                     </button>
-                    <div
-                      className={cn(
-                        "grid transition-[grid-template-rows] duration-300 ease-out",
-                        isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
-                      )}
-                    >
-                      <div className="overflow-hidden">
-                        <p
-                          className="pr-12 pb-7 text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]"
-                          data-content-field={
-                            editable ? `faq.${index}.answer` : undefined
-                          }
-                          data-content-id={editable ? regionId : undefined}
-                          data-content-kind={editable ? "region" : undefined}
-                        >
-                          <PhoneLinkedText>{item.answer}</PhoneLinkedText>
-                        </p>
-                      </div>
-                    </div>
+                    <FaqAnswerPanel isOpen={isOpen}>
+                      <p
+                        className="pr-12 pb-7 text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]"
+                        data-content-field={
+                          editable ? `faq.${index}.answer` : undefined
+                        }
+                        data-content-id={editable ? regionId : undefined}
+                        data-content-kind={editable ? "region" : undefined}
+                      >
+                        <PhoneLinkedText>{item.answer}</PhoneLinkedText>
+                      </p>
+                    </FaqAnswerPanel>
                   </div>
                 </div>
               );

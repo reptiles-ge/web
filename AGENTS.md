@@ -209,6 +209,7 @@ Kill-switch only; normal deploys are atomic and need none. `src/worker.ts` answe
 - A release is a `vMAJOR.MINOR.PATCH` tag plus a GitHub Release on a `main` commit that is already live. It is not a deploy; `main` deploys on every push.
 - Only the owner decides when to release. Never cut one unprompted, never move or delete a tag.
 - The tag is the version. Do not bump `package.json` or add a `CHANGELOG.md`.
+- The footer version comes from the latest tag at build time (`scripts/compile-release-version.ts` → gitignored `src/data/releaseVersion.generated.ts`). Do not hardcode it.
 - Label every pull request into `staging` (`enhancement`, `content`, `bug`, `documentation`, `dependencies`); label `Staging to main` pull requests `skip-changelog`.
 
 ## Commands
@@ -219,10 +220,14 @@ npm run build
 npm run lint
 npm run doctor           # React Doctor health scan
 npm run doctor:changed   # only issues introduced vs the base branch
+npm run doctor:check     # fails unless the React Doctor score is exactly 100
 npm run species:compile
 npm run i18n:check       # locale key parity + ICU argument check (KA is the source)
-npm run i18n:unused      # report only: dynamic keys show up as false positives
-npm run cpd              # jscpd copy-paste scan, fails above the .jscpd.json threshold
+npm run i18n:usage       # fails on any unused or undefined key; filters i18n-check's dynamic-key false positives
+npm run test:coverage   # vitest with v8 coverage; fails below the thresholds in vitest.config.ts
+
+Tests: `src/**/*.test.ts` run in Node (network mocked with MSW, `tests/msw/server.ts`; an unhandled request fails the test). `src/**/*.test.tsx` run in happy-dom with Testing Library. A component counts toward coverage unless it is listed in `coverage.exclude` in `vitest.config.ts`; remove it from that list when you add its test.
+npm run cpd              # jscpd copy-paste scan, fails on any clone (threshold 0)
 ```
 
 `npx tsc --noEmit` after routing or catalog changes (run `species:compile` first if the generated catalog is missing).
@@ -241,5 +246,6 @@ npm run cpd              # jscpd copy-paste scan, fails above the .jscpd.json th
 - Add `middleware.ts` (use `src/proxy.ts`).
 - Call next-intl server APIs with an implicit locale (`getTranslations("ns")`, `getLocale()`, `getMessages()`), call `setRequestLocale` outside a `[locale]` layout or page, or render the RSC `Link` from `@/i18n/navigation` in a layout-level server component (use `LocalizedLink`). On vinext an implicit locale falls back to `headers()` and makes every page uncacheable. ESLint enforces the first rule.
 - Ship one-locale copy or one-locale MDX.
+- Read `process.env` directly for the variables in `src/lib/env.ts`; use `publicEnv()` / `serverEnv()` (Zod-validated, checked at startup in `instrumentation.ts`).
 - Index quiz results or duplicate identify-guide intent on a new quiz slug.
 - Treat `CONTENT-ROADMAP.md` / `QUIZ-MODULE-AUDIT.md` as current — they were removed as stale.

@@ -31,6 +31,7 @@ import {
 import { type AppLocale, routing } from "@/i18n/routing";
 import { isLocalAdminEnabled } from "@/lib/adminAccess";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
+import { speciesItemListLd } from "@/lib/pageStructuredData";
 import {
   absoluteUrl,
   localeAlternates,
@@ -38,7 +39,6 @@ import {
   openGraphJpeg,
   siteConfig,
   siteEntityId,
-  speciesPageUrl,
 } from "@/lib/site";
 import { regionHref } from "@/lib/speciesRoutes";
 import { regionDateFields } from "@/lib/structuredDataDates";
@@ -185,16 +185,7 @@ export default async function RegionPage({ params }: PageProps) {
     description: overview,
     inLanguage: locale,
     isPartOf: { "@id": siteEntityId("website") },
-    mainEntity: {
-      "@type": "ItemList",
-      itemListElement: species.map((item, index) => ({
-        "@type": "ListItem",
-        name: `${item.commonName} (${item.scientificName})`,
-        position: index + 1,
-        url: speciesPageUrl(locale, item.id),
-      })),
-      numberOfItems: species.length,
-    },
+    mainEntity: speciesItemListLd(locale, species),
     name: t("regionMetaTitle", { name, nameIn }),
     publisher: { "@id": siteEntityId("organization") },
     url: pageUrl,

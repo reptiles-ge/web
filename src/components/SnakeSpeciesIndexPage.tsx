@@ -42,21 +42,17 @@ export async function SnakeSpeciesIndexPage({
       }
     >
       <ClusterGuideLead
-        body={
-          <>
-            <p>{t("guideP1")}</p>
-            <p>
-              {t.rich("guideP2", {
-                kaznakovi: (chunks) => (
-                  <SpeciesInlineLink id="vipera-kaznakovi">
-                    {chunks}
-                  </SpeciesInlineLink>
-                ),
-              })}
-            </p>
-          </>
-        }
         eyebrow={t("guideEyebrow")}
+        paragraphs={[
+          t("guideP1"),
+          t.rich("guideP2", {
+            kaznakovi: (chunks) => (
+              <SpeciesInlineLink id="vipera-kaznakovi">
+                {chunks}
+              </SpeciesInlineLink>
+            ),
+          }),
+        ]}
         title={t("guideTitle")}
       />
 

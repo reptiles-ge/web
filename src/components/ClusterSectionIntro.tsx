@@ -22,6 +22,26 @@ export const CLUSTER_FAQ_TITLE = "mt-5 font-display text-display-title";
 export const CLUSTER_FAQ_BODY =
   "mt-5 max-w-sm whitespace-pre-line text-[15px] leading-relaxed text-muted-foreground";
 
+export function ClusterFamilyStatsBand({
+  species,
+  t,
+}: {
+  species: readonly { family: string }[];
+  t: (
+    key: "statExtra" | "statExtraValue" | "statFamilies" | "statSpecies",
+  ) => string;
+}) {
+  const familyCount = new Set(species.map((item) => item.family)).size;
+
+  return (
+    <ClusterStatsBand>
+      <ClusterStat label={t("statSpecies")} value={species.length} />
+      <ClusterStat label={t("statFamilies")} value={familyCount} />
+      <ClusterStat label={t("statExtra")} value={t("statExtraValue")} />
+    </ClusterStatsBand>
+  );
+}
+
 export function ClusterIndexSection({
   body,
   children,

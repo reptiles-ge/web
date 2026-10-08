@@ -1,9 +1,7 @@
 import { randomUUID } from "node:crypto";
 
-import {
-  isLocalAdminEnabled,
-  localAdminForbiddenResponse,
-} from "@/lib/adminAccess";
+import { localAdminForbiddenResponse } from "@/lib/adminAccess";
+import { isLocalAdminOriginRequest } from "@/lib/adminRequest";
 import {
   editorRequestSchema,
   validateEditorResult,
@@ -17,12 +15,7 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 export async function POST(request: Request) {
-  const url = new URL(request.url);
-  if (
-    !isLocalAdminEnabled() ||
-    !["127.0.0.1", "[::1]", "localhost"].includes(url.hostname) ||
-    request.headers.get("origin") !== url.origin
-  ) {
+  if (!isLocalAdminOriginRequest(request)) {
     return localAdminForbiddenResponse();
   }
   const operationId = randomUUID();

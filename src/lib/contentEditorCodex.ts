@@ -1,8 +1,8 @@
-import { spawn } from "node:child_process";
 import fs from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 
+import { runCodexProcess } from "@/lib/codexProcess";
 import { type EditorResult, editorResultSchema } from "@/lib/contentEditor";
 import { buildEditorPrompt } from "@/lib/contentEditorPrompt";
 
@@ -31,55 +31,23 @@ export async function transformWithCodex(
     const output = path.join(directory, "output.json");
     await fs.writeFile(schema, JSON.stringify(OUTPUT_SCHEMA));
     const prompt = buildEditorPrompt(input);
-    await new Promise<void>((resolve, reject) => {
-      const child = spawn(
-        "codex",
-        [
-          "exec",
-          "--ephemeral",
-          "--skip-git-repo-check",
-          "--sandbox",
-          "read-only",
-          "--config",
-          `model_reasoning_effort="${reasoningEffort}"`,
-          "--cd",
-          directory,
-          "--output-schema",
-          schema,
-          "--output-last-message",
-          output,
-          "-",
-        ],
-        {
-          cwd: directory,
-          env: {
-            CODEX_HOME: process.env.CODEX_HOME,
-            HOME: process.env.HOME,
-            LANG: process.env.LANG,
-            NODE_ENV: process.env.NODE_ENV,
-            PATH: process.env.PATH,
-            TMPDIR: process.env.TMPDIR,
-          },
-          signal: AbortSignal.timeout(
-            reasoningEffort === "xhigh" ? 45 * 60 * 1000 : 600_000,
-          ),
-          stdio: ["pipe", "ignore", "pipe"],
-        },
-      );
-      let errorText = "";
-      child.stderr.setEncoding("utf8");
-      child.stderr.on("data", (chunk: string) => {
-        errorText = (errorText + chunk).slice(-4000);
-      });
-      child.on("error", reject);
-      child.on("close", (code) => {
-        if (code === 0) resolve();
-        else
-          reject(
-            new Error(`Codex exited with ${code}: ${errorText.slice(-500)}`),
-          );
-      });
-      child.stdin.end(prompt);
+    await runCodexProcess({
+      args: [
+        "exec",
+        "--ephemeral",
+        "--skip-git-repo-check",
+        "--sandbox",
+        "read-only",
+        "--config",
+        `model_reasoning_effort="${reasoningEffort}"`,
+        "--output-schema",
+        schema,
+        "--output-last-message",
+        output,
+      ],
+      cwd: directory,
+      prompt,
+      timeoutMs: reasoningEffort === "xhigh" ? 45 * 60 * 1000 : 600_000,
     });
     return editorResultSchema.parse(
       JSON.parse(await fs.readFile(output, "utf8")),

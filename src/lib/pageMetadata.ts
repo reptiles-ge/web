@@ -10,6 +10,10 @@ import {
   siteConfig,
 } from "@/lib/site";
 
+export type LocalePageProps = {
+  params: Promise<{ locale: string }>;
+};
+
 type OpenGraphImage = {
   alt: string;
   height: number;
