@@ -37,6 +37,7 @@ import { rangeMap as jynxTorquilla } from "@/data/speciesRangeMaps/jynx-torquill
 import { rangeMap as lacertaAgilis } from "@/data/speciesRangeMaps/lacerta-agilis";
 import { rangeMap as lacertaStrigata } from "@/data/speciesRangeMaps/lacerta-strigata";
 import { rangeMap as laniusCollurio } from "@/data/speciesRangeMaps/lanius-collurio";
+import { rangeMap as latrodectusTredecimguttatus } from "@/data/speciesRangeMaps/latrodectus-tredecimguttatus";
 import { rangeMap as lutraLutra } from "@/data/speciesRangeMaps/lutra-lutra";
 import { rangeMap as macroviperaLebetina } from "@/data/speciesRangeMaps/macrovipera-lebetina";
 import { rangeMap as mantisReligiosa } from "@/data/speciesRangeMaps/mantis-religiosa";
@@ -110,6 +111,7 @@ export const INTERACTIVE_RANGE_MAPS: Partial<
   "lacerta-agilis": lacertaAgilis,
   "lacerta-strigata": lacertaStrigata,
   "lanius-collurio": laniusCollurio,
+  "latrodectus-tredecimguttatus": latrodectusTredecimguttatus,
   "lutra-lutra": lutraLutra,
   "macrovipera-lebetina": macroviperaLebetina,
   "mantis-religiosa": mantisReligiosa,

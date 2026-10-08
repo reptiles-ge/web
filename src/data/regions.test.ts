@@ -68,6 +68,7 @@ describe("region speciesIds", () => {
     "dendrocopos-major",
     "erithacus-rubecula",
     "jynx-torquilla",
+    "latrodectus-tredecimguttatus",
     "turdus-merula",
     "tyto-alba",
     "ciconia-ciconia",
