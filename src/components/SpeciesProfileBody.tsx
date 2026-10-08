@@ -14,6 +14,7 @@ import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { BiologyBlock } from "@/components/BiologyBlock";
 import { BiologyExpandable } from "@/components/BiologyExpandable";
 import { ContentAttribution } from "@/components/ContentAttribution";
+import { GiurzaGuideFeature } from "@/components/GiurzaGuideFeature";
 import { SpeciesRangeMap } from "@/components/map/SpeciesRangeMap";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { RelatedGuideStaticGrid } from "@/components/RelatedGuideStaticGrid";
@@ -708,7 +709,14 @@ export async function SpeciesProfileBody({
         speciesId={species.id}
       />
 
-      {guideLinks.length > 0 ? (
+      {guideLinks.length > 0 && species.id === "macrovipera-lebetina" ? (
+        <GiurzaGuideFeature
+          gallery={gallery}
+          guideLinks={guideLinks}
+          locale={locale}
+          speciesName={species.commonName}
+        />
+      ) : guideLinks.length > 0 ? (
         <section className="border-t border-border bg-surface py-11 lg:py-16">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <p className="text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
