@@ -1,3 +1,5 @@
+import { serverEnv } from "@/lib/env";
+
 export function formatAdminWorkflowProgress(value: unknown) {
   if (value === undefined) return "";
   if (
@@ -17,8 +19,7 @@ export function formatAdminWorkflowProgress(value: unknown) {
 }
 
 export async function notifyAdminTelegram(message: string) {
-  const token = process.env.TELEGRAM_BOT_TOKEN;
-  const chatId = process.env.TELEGRAM_CHAT_ID;
+  const { TELEGRAM_BOT_TOKEN: token, TELEGRAM_CHAT_ID: chatId } = serverEnv();
   if (!token || !chatId) {
     console.error("Admin Telegram is not configured");
     return;
