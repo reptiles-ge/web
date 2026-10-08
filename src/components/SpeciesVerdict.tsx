@@ -1,4 +1,4 @@
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Phone } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import type { DangerLevel, PhotoCredit } from "@/data/species";
@@ -33,12 +33,13 @@ export async function SpeciesVerdict({
   locale: AppLocale;
   speciesId: string;
 }) {
-  const [t, tCard, tDanger, tRisk, tHubs] = await Promise.all([
+  const [t, tCard, tDanger, tRisk, tHubs, tSafety] = await Promise.all([
     getTranslations({ locale, namespace: "profile" }),
     getTranslations({ locale, namespace: "card" }),
     getTranslations({ locale, namespace: "danger" }),
     getTranslations({ locale, namespace: "riskToHumans" }),
     getTranslations({ locale, namespace: "groupHubShared" }),
+    getTranslations({ locale, namespace: "home.safetyStrip" }),
   ]);
   const links = guideLinks
     .filter((card) => card.kind === "page")
@@ -99,6 +100,16 @@ export async function SpeciesVerdict({
                 ? t("verdictHarmlessBody")
                 : description}
           </p>
+          {level === "High" || level === "Moderate" ? (
+            <a
+              aria-label={tSafety("call")}
+              className="mt-3 inline-flex min-h-10 items-center gap-2 self-start rounded-full border border-destructive/25 px-3.5 text-[13px] font-semibold text-destructive focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-destructive lg:hidden"
+              href="tel:112"
+            >
+              <Phone aria-hidden="true" className="size-3.5" />
+              112 · {t("emergencyShort")}
+            </a>
+          ) : null}
           {links.length > 0 ? (
             <ul className="mt-2.5 flex flex-wrap items-center gap-x-5 border-t border-border lg:mt-auto lg:gap-x-6">
               {links.map((card) =>

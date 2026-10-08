@@ -3,12 +3,11 @@ import { getTranslations } from "next-intl/server";
 import type { AppLocale } from "@/i18n/routing";
 
 import { SpeciesPageAnalysis } from "@/components/admin/SpeciesPageAnalysis";
-import { SpeciesActionBar } from "@/components/SpeciesActionBar";
 import { SpeciesProfileBody } from "@/components/SpeciesProfileBody";
 import { SpeciesProfileHero } from "@/components/SpeciesProfileHero";
 import { SpeciesViewTracker } from "@/components/SpeciesViewTracker";
 import { getRegionsForSpecies } from "@/data/mapRegions";
-import { optimizedImgSrc, pictureSources } from "@/data/optimizedImages";
+import { pictureSources } from "@/data/optimizedImages";
 import { type Species } from "@/data/species";
 import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlas";
 import { resolvePhotoCredit } from "@/data/speciesMedia";
@@ -144,7 +143,6 @@ export async function SpeciesProfile({
     locale,
     scientificName: species.scientificName,
   });
-  const gallerySrc = primary ? optimizedImgSrc(primary.src, 1200) : null;
   const linkDangerStats = usesDangerScale(group) && Boolean(species.danger);
   const hasRange =
     getRegionsForSpecies(species.id).length > 0 || hasFieldRecords(species.id);
@@ -217,15 +215,6 @@ export async function SpeciesProfile({
         related={related}
         showIdentification={showIdentification}
         species={species}
-      />
-      <SpeciesActionBar
-        emergency={emergency}
-        galleryCount={gallery.length}
-        gallerySrc={gallerySrc}
-        locale={locale}
-        shareText={shareText}
-        shareTitle={species.commonName}
-        speciesId={species.id}
       />
       {localAdmin ? (
         <SpeciesPageAnalysis
