@@ -13,9 +13,7 @@ import type { AppLocale } from "@/i18n/routing";
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { BiologyBlock } from "@/components/BiologyBlock";
 import { BiologyExpandable } from "@/components/BiologyExpandable";
-import { ContentAttribution } from "@/components/ContentAttribution";
 import { GiurzaGuideFeature } from "@/components/GiurzaGuideFeature";
-import { GiurzaSourcesRelated } from "@/components/GiurzaSourcesRelated";
 import { SpeciesRangeMap } from "@/components/map/SpeciesRangeMap";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { RelatedGuideStaticGrid } from "@/components/RelatedGuideStaticGrid";
@@ -26,8 +24,7 @@ import { SpeciesIdentification } from "@/components/SpeciesIdentification";
 import { SpeciesOverviewText } from "@/components/SpeciesOverviewText";
 import { SpeciesProfileFacts } from "@/components/SpeciesProfileFacts";
 import { SpeciesProfileQuiz } from "@/components/SpeciesProfileQuiz";
-import { SpeciesProfileRelated } from "@/components/SpeciesProfileRelated";
-import { SpeciesSources } from "@/components/SpeciesSources";
+import { SpeciesSourcesRelated } from "@/components/SpeciesSourcesRelated";
 import { SpeciesVerdict } from "@/components/SpeciesVerdict";
 import {
   optimizedEntry,
@@ -525,10 +522,6 @@ export async function SpeciesProfileBody({
 }: SpeciesProfileBodyProps) {
   const t = await getTranslations({ locale, namespace: "profile" });
   const riskLevel = getSpeciesRiskChip(species)?.level;
-  const relatedLabelVariant =
-    getSpeciesAtlasMeta(species.id).group === "insect"
-      ? "otherInsects"
-      : "related";
   const habitatBlock = biologyBlocks.find((block) => block.id === "habitat");
   const naturalHistoryBlocks = biologyBlocks.filter(
     (block) => block.id !== "habitat",
@@ -693,27 +686,6 @@ export async function SpeciesProfileBody({
         />
       ) : null}
 
-      {species.id !== "macrovipera-lebetina" ? (
-        <ContentAttribution
-          locale={locale}
-          publishedAt={species.publishedAt}
-          sourcesHref={
-            species.sources.length > 0
-              ? `#${SPECIES_SECTION_IDS.sources}`
-              : undefined
-          }
-          updatedAt={species.updatedAt}
-        />
-      ) : null}
-
-      {species.id !== "macrovipera-lebetina" ? (
-        <SpeciesSources
-          locale={locale}
-          sources={species.sources}
-          speciesId={species.id}
-        />
-      ) : null}
-
       {guideLinks.length > 0 && species.id === "macrovipera-lebetina" ? (
         <GiurzaGuideFeature
           gallery={gallery}
@@ -751,21 +723,13 @@ export async function SpeciesProfileBody({
         />
       ) : null}
 
-      {species.id === "macrovipera-lebetina" ? (
-        <GiurzaSourcesRelated
-          locale={locale}
-          related={related}
-          sources={species.sources}
-          speciesId={species.id}
-          updatedAt={species.updatedAt}
-        />
-      ) : (
-        <SpeciesProfileRelated
-          labelVariant={relatedLabelVariant}
-          locale={locale}
-          related={related}
-        />
-      )}
+      <SpeciesSourcesRelated
+        locale={locale}
+        related={related}
+        sources={species.sources}
+        speciesId={species.id}
+        updatedAt={species.updatedAt}
+      />
     </>
   );
 }
