@@ -525,14 +525,14 @@ export function setCoverInSpecies(
   const dir = path.join(repoRoot, "src/content/species", id);
   const kaPath = path.join(dir, "ka.mdx");
   if (
-    !rewriteMdxIfExists(kaPath, (raw) => {
-      const kaItem = normalizeGallery(matter(raw).data.gallery).find(
+    !rewriteMdxIfExists(kaPath, (kaRaw) => {
+      const kaItem = normalizeGallery(matter(kaRaw).data.gallery).find(
         (item) => item.src === src,
       );
       if (!kaItem) {
         throw new Error(`Unknown gallery src: ${src}`);
       }
-      return setCoverInMdx(raw, target, { ...kaItem, src: coverSrc });
+      return setCoverInMdx(kaRaw, target, { ...kaItem, src: coverSrc });
     })
   ) {
     throw new Error(`Missing ${id}/ka.mdx`);
@@ -542,11 +542,9 @@ export function setCoverInSpecies(
     const filePath = path.join(dir, `${locale}.mdx`);
     rewriteMdxIfExists(filePath, (raw) => {
       const parsed = matter(raw);
-      const hasKeys = coverKeysPresent(
-        parsed.data as Record<string, unknown>,
-        target,
-      );
-      if (!hasKeys) return raw;
+      if (!coverKeysPresent(parsed.data as Record<string, unknown>, target)) {
+        return raw;
+      }
       const overlay = normalizeGallery(parsed.data.gallery).find(
         (item) => item.src === src,
       );

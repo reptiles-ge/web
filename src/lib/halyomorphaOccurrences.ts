@@ -341,9 +341,17 @@ function iNaturalistObservationId(value?: string) {
 }
 
 function isINaturalistRecord(record: HalyomorphaFieldRecord) {
-  return (
-    record.source === "iNaturalist" || record.url?.includes("inaturalist.org")
-  );
+  if (record.source === "iNaturalist") return true;
+  if (!record.url) return false;
+
+  try {
+    const hostname = new URL(record.url).hostname.toLowerCase();
+    return (
+      hostname === "inaturalist.org" || hostname.endsWith(".inaturalist.org")
+    );
+  } catch {
+    return false;
+  }
 }
 
 function max(values: number[]) {
