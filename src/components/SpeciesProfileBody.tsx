@@ -1279,18 +1279,32 @@ function SpeciesProfileIdentification({
 }
 
 async function SpeciesProfileNavigation({
+  giurzaLayout = false,
   locale,
   name,
   riskLevel,
   sections,
 }: {
+  giurzaLayout?: boolean;
   locale: AppLocale;
   name: string;
   riskLevel?: DangerLevel;
   sections: SpeciesProfileSectionAvailability;
 }) {
   const t = await getTranslations({ locale, namespace: "profile" });
-  const ids = speciesProfileSectionIds(sections);
+  const availableIds = speciesProfileSectionIds(sections);
+  const giurzaOrder = [
+    SPECIES_SECTION_IDS.overview,
+    SPECIES_SECTION_IDS.identification,
+    SPECIES_SECTION_IDS.range,
+    SPECIES_SECTION_IDS.biology,
+    SPECIES_SECTION_IDS.gallery,
+    SPECIES_SECTION_IDS.faq,
+    SPECIES_SECTION_IDS.sources,
+  ];
+  const ids = giurzaLayout
+    ? giurzaOrder.filter((id) => availableIds.includes(id))
+    : availableIds;
   const labels = {
     [SPECIES_SECTION_IDS.biology]: t("biology"),
     [SPECIES_SECTION_IDS.faq]: t("faq"),
