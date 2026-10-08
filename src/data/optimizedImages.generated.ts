@@ -151,11 +151,11 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 900],
     "formats": ["avif", "webp"]
   },
-  "/images/home/groups/insects.jpg": {
-    "path": "images/home/groups/insects",
-    "width": 900,
-    "height": 900,
-    "widths": [320, 400, 640, 800, 900],
+  "/images/home/groups/insects-mantis.jpg": {
+    "path": "images/home/groups/insects-mantis",
+    "width": 1536,
+    "height": 1024,
+    "widths": [320, 400, 640, 800, 1200, 1536],
     "formats": ["avif", "webp"]
   },
   "/images/home/groups/lizards.jpg": {
@@ -172,11 +172,11 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 900],
     "formats": ["avif", "webp"]
   },
-  "/images/home/groups/scorpions.jpg": {
-    "path": "images/home/groups/scorpions",
-    "width": 900,
-    "height": 900,
-    "widths": [320, 400, 640, 800, 900],
+  "/images/home/groups/scorpions-mesobuthus.jpg": {
+    "path": "images/home/groups/scorpions-mesobuthus",
+    "width": 1536,
+    "height": 1024,
+    "widths": [320, 400, 640, 800, 1200, 1536],
     "formats": ["avif", "webp"]
   },
   "/images/home/groups/snakes.jpg": {
@@ -1957,20 +1957,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
-  "https://cdn.reptiles.ge/darevskia-caucasica-2.jpg": {
-    "path": "darevskia-caucasica-2",
-    "width": 900,
-    "height": 600,
-    "widths": [400, 800, 900],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/darevskia-caucasica-3.jpg": {
-    "path": "darevskia-caucasica-3",
-    "width": 960,
-    "height": 720,
-    "widths": [400, 800, 960],
-    "formats": ["avif"]
-  },
   "https://cdn.reptiles.ge/darevskia-caucasica-clo-09-1.jpg": {
     "path": "darevskia-caucasica-clo-09-1",
     "width": 1600,
@@ -2019,13 +2005,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "height": 1537,
     "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/darevskia-caucasica-mobile.jpg": {
-    "path": "darevskia-caucasica-mobile",
-    "width": 1536,
-    "height": 2048,
-    "widths": [400, 800, 1200, 1536],
-    "formats": ["avif"]
   },
   "https://cdn.reptiles.ge/darevskia-caucasica-pcam-1.jpg": {
     "path": "darevskia-caucasica-pcam-1",
@@ -5233,13 +5212,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1758],
     "formats": ["avif", "webp"]
   },
-  "https://cdn.reptiles.ge/lacerta-agilis-mobile.jpg": {
-    "path": "lacerta-agilis-mobile",
-    "width": 2048,
-    "height": 1365,
-    "widths": [400, 800, 1200, 2048],
-    "formats": ["avif", "webp"]
-  },
   "https://cdn.reptiles.ge/lacerta-agilis-oskar-schwi-1.jpg": {
     "path": "lacerta-agilis-oskar-schwi-1",
     "width": 2048,
@@ -5251,13 +5223,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "path": "lacerta-agilis-sandro-1",
     "width": 1024,
     "height": 682,
-    "widths": [400, 800, 1024],
-    "formats": ["avif", "webp"]
-  },
-  "https://cdn.reptiles.ge/lacerta-agilis-sandro-2.jpg": {
-    "path": "lacerta-agilis-sandro-2",
-    "width": 1024,
-    "height": 648,
     "widths": [400, 800, 1024],
     "formats": ["avif", "webp"]
   },

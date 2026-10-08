@@ -48345,6 +48345,101 @@
       ],
       "updatedAt": "2026-10-03T18:23:28.297Z"
     },
+    "images/home/groups/insects-mantis.jpg": {
+      "sourceHash": "5b43bcf38fe9d98f6a37aa7d03c419ca8e6b6b1fad6094356e112f6d6a44c402",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/home/groups/insects-mantis.jpg",
+      "originalSize": 390572,
+      "width": 1536,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/images/home/groups/insects-mantis-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10928
+        },
+        {
+          "key": "optimized/images/home/groups/insects-mantis-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 16196
+        },
+        {
+          "key": "optimized/images/home/groups/insects-mantis-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 14752
+        },
+        {
+          "key": "optimized/images/home/groups/insects-mantis-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 21854
+        },
+        {
+          "key": "optimized/images/home/groups/insects-mantis-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 27373
+        },
+        {
+          "key": "optimized/images/home/groups/insects-mantis-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 41222
+        },
+        {
+          "key": "optimized/images/home/groups/insects-mantis-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 36838
+        },
+        {
+          "key": "optimized/images/home/groups/insects-mantis-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 55096
+        },
+        {
+          "key": "optimized/images/home/groups/insects-mantis-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 61285
+        },
+        {
+          "key": "optimized/images/home/groups/insects-mantis-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 89896
+        },
+        {
+          "key": "optimized/images/home/groups/insects-mantis-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 1024,
+          "byteSize": 83129
+        },
+        {
+          "key": "optimized/images/home/groups/insects-mantis-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 1024,
+          "byteSize": 123426
+        }
+      ],
+      "updatedAt": "2026-10-08T20:22:25.637Z"
+    },
     "images/home/groups/insects.jpg": {
       "sourceHash": "5cdb9c2b740a71d71c5a6700ab5f39ee6ebe969381964b3601ef273566c2cfb5",
       "configFingerprint": "409788ee46c653d8",
@@ -48601,6 +48696,101 @@
         }
       ],
       "updatedAt": "2026-10-03T18:23:34.902Z"
+    },
+    "images/home/groups/scorpions-mesobuthus.jpg": {
+      "sourceHash": "649ea17bed0db1f1acd72863a477bb7bc5cab07628d1ec9a228b3ae2e14c2796",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/home/groups/scorpions-mesobuthus.jpg",
+      "originalSize": 797450,
+      "width": 1536,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/images/home/groups/scorpions-mesobuthus-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 18096
+        },
+        {
+          "key": "optimized/images/home/groups/scorpions-mesobuthus-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 29274
+        },
+        {
+          "key": "optimized/images/home/groups/scorpions-mesobuthus-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 26618
+        },
+        {
+          "key": "optimized/images/home/groups/scorpions-mesobuthus-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 44124
+        },
+        {
+          "key": "optimized/images/home/groups/scorpions-mesobuthus-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 59858
+        },
+        {
+          "key": "optimized/images/home/groups/scorpions-mesobuthus-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 97604
+        },
+        {
+          "key": "optimized/images/home/groups/scorpions-mesobuthus-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 85184
+        },
+        {
+          "key": "optimized/images/home/groups/scorpions-mesobuthus-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 141024
+        },
+        {
+          "key": "optimized/images/home/groups/scorpions-mesobuthus-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 155042
+        },
+        {
+          "key": "optimized/images/home/groups/scorpions-mesobuthus-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 258732
+        },
+        {
+          "key": "optimized/images/home/groups/scorpions-mesobuthus-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 1024,
+          "byteSize": 216768
+        },
+        {
+          "key": "optimized/images/home/groups/scorpions-mesobuthus-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 1024,
+          "byteSize": 376854
+        }
+      ],
+      "updatedAt": "2026-10-08T20:22:29.017Z"
     },
     "images/home/groups/scorpions.jpg": {
       "sourceHash": "e3cb4dd5c659564c67cfce918d1a438d13675c51876be3fd10b8540a7ed46215",

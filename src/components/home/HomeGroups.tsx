@@ -18,6 +18,8 @@ const GROUPS = [
   "birds",
   "mammals",
   "spiders",
+  "scorpions",
+  "insects",
 ] as const;
 
 export async function HomeGroups({ locale }: { locale: AppLocale }) {
@@ -57,7 +59,7 @@ export async function HomeGroups({ locale }: { locale: AppLocale }) {
           const name = tNav(hubId);
           return (
             <Link
-              className={`group w-[300px] shrink-0 snap-start focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary ${index < 4 ? "lg:w-[495px]" : "lg:w-[330px]"}`}
+              className={`group w-[300px] shrink-0 snap-start focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary ${index < 4 || hubId === "scorpions" || hubId === "insects" ? "lg:w-[495px]" : "lg:w-[330px]"}`}
               href={hub.path}
               key={hubId}
             >
