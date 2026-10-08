@@ -132,6 +132,19 @@ export async function HomeFresh({ locale }: { locale: AppLocale }) {
                       source="home_fresh"
                       speciesId={species.id}
                     >
+                      <span className="relative size-14 shrink-0 overflow-hidden rounded-[12px] bg-ink sm:size-16">
+                        {(species.mobileImage || species.image) &&
+                        !(species.mobileImage ?? species.image).includes(
+                          "species-placeholder",
+                        ) ? (
+                          <CoverImage
+                            alt=""
+                            className="object-cover transition-transform duration-500 group-hover:scale-105"
+                            sizes="64px"
+                            src={species.mobileImage ?? species.image}
+                          />
+                        ) : null}
+                      </span>
                       <span className="min-w-0 flex-1">
                         <span className="block font-display text-[14px] leading-snug font-semibold text-foreground">
                           {species.commonName}

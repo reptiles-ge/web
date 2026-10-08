@@ -112,7 +112,7 @@ export async function Hero({ locale }: { locale: AppLocale }) {
         </div>
       </div>
 
-      <div className="absolute inset-x-0 bottom-[30px] hidden lg:block">
+      <div className="absolute inset-x-0 bottom-[30px] z-20 hidden lg:block">
         <div className="mx-auto flex max-w-[1440px] items-center justify-between gap-6 px-[60px]">
           <a
             className="group flex items-center gap-3 text-[13px] font-medium text-white/80 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#6fad88]"

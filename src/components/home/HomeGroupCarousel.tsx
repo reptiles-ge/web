@@ -1,7 +1,13 @@
 "use client";
 
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { type ReactNode, useEffect, useRef, useState } from "react";
+import {
+  type PointerEvent,
+  type ReactNode,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 
 type StripEdge = "both" | "end" | "middle" | "start";
 
@@ -21,6 +27,12 @@ export function HomeGroupCarousel({
 }) {
   const strip = useRef<HTMLDivElement>(null);
   const thumb = useRef<HTMLSpanElement>(null);
+  const pointer = useRef({
+    active: false,
+    moved: false,
+    scrollLeft: 0,
+    startX: 0,
+  });
   const [edge, setEdge] = useState<StripEdge>("start");
 
   useEffect(() => {
@@ -40,6 +52,18 @@ export function HomeGroupCarousel({
       behavior: "smooth",
       left: direction * Math.max(el.clientWidth * 0.6, 312),
     });
+  }
+
+  function stopDrag(event: PointerEvent<HTMLDivElement>) {
+    const el = strip.current;
+    pointer.current.active = false;
+    if (!el) return;
+    if (el.hasPointerCapture(event.pointerId)) {
+      el.releasePointerCapture(event.pointerId);
+    }
+    el.style.scrollSnapType = "";
+    el.style.scrollBehavior = "";
+    el.classList.remove("cursor-grabbing", "select-none");
   }
 
   return (
@@ -68,7 +92,40 @@ export function HomeGroupCarousel({
         </div>
       </div>
       <div
-        className="no-scrollbar mt-6 flex snap-x snap-mandatory scroll-pl-(--strip-gutter) gap-3 overflow-x-auto overscroll-x-contain scroll-smooth pr-6 pb-2 pl-(--strip-gutter) [--strip-gutter:24px] lg:mt-[22px] lg:gap-4 lg:pr-[60px] lg:[--strip-gutter:max(60px,calc((100%-1320px)/2))]"
+        className="no-scrollbar mt-6 flex cursor-grab snap-x snap-mandatory scroll-pl-(--strip-gutter) gap-3 overflow-x-auto overscroll-x-contain scroll-smooth pr-6 pb-2 pl-(--strip-gutter) [--strip-gutter:24px] lg:mt-[22px] lg:gap-4 lg:pr-[60px] lg:[--strip-gutter:max(60px,calc((100%-1320px)/2))]"
+        onClickCapture={(event) => {
+          if (!pointer.current.moved) return;
+          event.preventDefault();
+          event.stopPropagation();
+          pointer.current.moved = false;
+        }}
+        onDragStart={(event) => event.preventDefault()}
+        onPointerCancel={stopDrag}
+        onPointerDown={(event) => {
+          if (event.pointerType !== "mouse" || event.button !== 0) return;
+          pointer.current = {
+            active: true,
+            moved: false,
+            scrollLeft: event.currentTarget.scrollLeft,
+            startX: event.clientX,
+          };
+        }}
+        onPointerMove={(event) => {
+          const drag = pointer.current;
+          if (!drag.active) return;
+          const distance = event.clientX - drag.startX;
+          if (!drag.moved && Math.abs(distance) < 6) return;
+          if (!drag.moved) {
+            drag.moved = true;
+            event.currentTarget.setPointerCapture(event.pointerId);
+            event.currentTarget.style.scrollSnapType = "none";
+            event.currentTarget.style.scrollBehavior = "auto";
+            event.currentTarget.classList.add("cursor-grabbing", "select-none");
+          }
+          event.preventDefault();
+          event.currentTarget.scrollLeft = drag.scrollLeft - distance;
+        }}
+        onPointerUp={stopDrag}
         onScroll={(event) =>
           setEdge(syncStrip(event.currentTarget, thumb.current))
         }
