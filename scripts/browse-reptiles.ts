@@ -193,6 +193,13 @@ function assertRoute() {
   if (clickSource("/gvelebi").includes("scrollIntoView")) {
     throw new Error("click jumps the page");
   }
+  const literal = sourceLiteral("/a</script>\u2028");
+  if (
+    /[<>/\u2028]/.test(literal) ||
+    JSON.parse(literal) !== "/a</script>\u2028"
+  ) {
+    throw new Error("source literal");
+  }
 }
 
 function between(min: number, max: number) {
@@ -269,8 +276,17 @@ end tell`);
   }
 }
 
+const UNSAFE_IN_SOURCE = /[<>/\u2028\u2029]/g;
+
+function sourceLiteral(value: string) {
+  return JSON.stringify(value).replace(
+    UNSAFE_IN_SOURCE,
+    (char) => `\\u${char.charCodeAt(0).toString(16).padStart(4, "0")}`,
+  );
+}
+
 function clickSource(pathname: string) {
-  const path = JSON.stringify(pathname);
+  const path = sourceLiteral(pathname);
   return `(() => { const path = ${path}; const links = [...document.querySelectorAll("main a[href]"), ...document.querySelectorAll("header a[href]")]; const link = links.find((a) => { try { return new URL(a.href).pathname.replace(/\\/$/, "") === path; } catch (e) { return false; } }); if (!link || link.target === "_blank") { copy("MISS"); return; } link.click(); copy(link.href); })()`;
 }
 
