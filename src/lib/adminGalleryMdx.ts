@@ -54,9 +54,12 @@ function rewriteMdxIfExists(
     throw error;
   }
   try {
-    const next = transform(fs.readFileSync(fd, "utf8"));
-    fs.ftruncateSync(fd, 0);
-    fs.writeSync(fd, next, 0, "utf8");
+    const raw = fs.readFileSync(fd, "utf8");
+    const next = transform(raw);
+    if (next !== raw) {
+      fs.ftruncateSync(fd, 0);
+      fs.writeSync(fd, next, 0, "utf8");
+    }
   } finally {
     fs.closeSync(fd);
   }
@@ -497,39 +500,35 @@ export function setCoverInSpecies(
   }
   const dir = path.join(repoRoot, "src/content/species", id);
   const kaPath = path.join(dir, "ka.mdx");
-  if (!fs.existsSync(kaPath)) {
+  if (
+    !rewriteMdxIfExists(kaPath, (kaRaw) => {
+      const kaItem = normalizeGallery(matter(kaRaw).data.gallery).find(
+        (item) => item.src === src,
+      );
+      if (!kaItem) {
+        throw new Error(`Unknown gallery src: ${src}`);
+      }
+      return setCoverInMdx(kaRaw, target, { ...kaItem, src: coverSrc });
+    })
+  ) {
     throw new Error(`Missing ${id}/ka.mdx`);
   }
-  const kaRaw = fs.readFileSync(kaPath, "utf8");
-  const kaItem = normalizeGallery(matter(kaRaw).data.gallery).find(
-    (item) => item.src === src,
-  );
-  if (!kaItem) {
-    throw new Error(`Unknown gallery src: ${src}`);
-  }
-  fs.writeFileSync(
-    kaPath,
-    setCoverInMdx(kaRaw, target, { ...kaItem, src: coverSrc }),
-    "utf8",
-  );
 
   for (const locale of OVERLAY_LOCALES) {
     const filePath = path.join(dir, `${locale}.mdx`);
-    if (!fs.existsSync(filePath)) continue;
-    const raw = fs.readFileSync(filePath, "utf8");
-    const parsed = matter(raw);
-    const overlay = normalizeGallery(parsed.data.gallery).find(
-      (item) => item.src === src,
-    );
-    const item: GalleryImage = overlay?.credit
-      ? { credit: overlay.credit, src: coverSrc }
-      : { src: coverSrc };
-    const hasKeys = coverKeysPresent(
-      parsed.data as Record<string, unknown>,
-      target,
-    );
-    if (!hasKeys) continue;
-    fs.writeFileSync(filePath, setCoverInMdx(raw, target, item, false), "utf8");
+    rewriteMdxIfExists(filePath, (raw) => {
+      const parsed = matter(raw);
+      if (!coverKeysPresent(parsed.data as Record<string, unknown>, target)) {
+        return raw;
+      }
+      const overlay = normalizeGallery(parsed.data.gallery).find(
+        (item) => item.src === src,
+      );
+      const item: GalleryImage = overlay?.credit
+        ? { credit: overlay.credit, src: coverSrc }
+        : { src: coverSrc };
+      return setCoverInMdx(raw, target, item, false);
+    });
   }
 }
 
