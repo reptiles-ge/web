@@ -31,7 +31,6 @@ import {
   optimizedImgSrc,
   pictureSources,
 } from "@/data/optimizedImages";
-import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
 import { type HubClusterCard } from "@/lib/clusterGuides";
 import { cn } from "@/lib/cn";
 import { formatPhotoDate } from "@/lib/formatDate";
