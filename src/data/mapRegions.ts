@@ -518,6 +518,7 @@ export const regions: Region[] = [
       "gypaetus-barbatus",
       "aegypius-monachus",
       "argiope-bruennichi",
+      "latrodectus-tredecimguttatus",
       "halyomorpha-halys",
       "mantis-religiosa",
       "euscorpius-italicus",
