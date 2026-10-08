@@ -197,12 +197,14 @@ export async function SpeciesProfileHero({
                 speciesId={species.id}
               />
             ) : null}
-            <div className="hidden items-center gap-2.5 lg:flex">
-              <SpeciesHeroActions
-                name={species.commonName}
-                speciesId={species.id}
-              />
-            </div>
+            {species.id !== "macrovipera-lebetina" ? (
+              <div className="hidden items-center gap-2.5 lg:flex">
+                <SpeciesHeroActions
+                  name={species.commonName}
+                  speciesId={species.id}
+                />
+              </div>
+            ) : null}
           </div>
         </div>
       </div>

@@ -693,16 +693,18 @@ export async function SpeciesProfileBody({
         />
       ) : null}
 
-      <ContentAttribution
-        locale={locale}
-        publishedAt={species.publishedAt}
-        sourcesHref={
-          species.sources.length > 0
-            ? `#${SPECIES_SECTION_IDS.sources}`
-            : undefined
-        }
-        updatedAt={species.updatedAt}
-      />
+      {species.id !== "macrovipera-lebetina" ? (
+        <ContentAttribution
+          locale={locale}
+          publishedAt={species.publishedAt}
+          sourcesHref={
+            species.sources.length > 0
+              ? `#${SPECIES_SECTION_IDS.sources}`
+              : undefined
+          }
+          updatedAt={species.updatedAt}
+        />
+      ) : null}
 
       {species.id !== "macrovipera-lebetina" ? (
         <SpeciesSources
