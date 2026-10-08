@@ -1,4 +1,4 @@
-import { ChevronDown, TriangleAlert } from "lucide-react";
+import { TriangleAlert } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import type { DangerLevel } from "@/data/species";
@@ -42,7 +42,6 @@ type SpeciesIdentificationProps = {
 const inlineSpeciesLinkClassName =
   "font-medium text-primary underline decoration-primary/30 underline-offset-4 transition-colors hover:decoration-primary";
 const LOOKALIKE_COVER_SIZES = "(max-width: 1023px) 264px, 420px";
-const TRAITS_VISIBLE_COUNT = 3;
 
 export async function SpeciesIdentification({
   identification,
@@ -218,33 +217,13 @@ export async function SpeciesIdentification({
           />
         ) : null}
         {identification.traits.length > 0 ? (
-          <div className="mt-3 min-w-0 rounded-[28px] bg-card px-5 py-1 shadow-[0_14px_36px_rgba(14,20,17,0.06)] lg:col-start-2 lg:row-start-2 lg:mt-6 lg:self-start lg:rounded-[32px] lg:px-7 lg:py-2">
+          <div className="mt-6 min-w-0 lg:col-start-2 lg:row-start-2 lg:self-start">
             <IdentificationTraits
               editable={editable}
               offset={0}
               speciesId={speciesId}
-              traits={identification.traits.slice(0, TRAITS_VISIBLE_COUNT)}
+              traits={identification.traits}
             />
-            {identification.traits.length > TRAITS_VISIBLE_COUNT ? (
-              <details className="group border-t border-border">
-                <summary className="flex min-h-[52px] cursor-pointer list-none items-center justify-between gap-3 text-[14.5px] font-semibold text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary [&::-webkit-details-marker]:hidden">
-                  <span className="group-open:hidden">{t("readMore")}</span>
-                  <span className="hidden group-open:inline">
-                    {t("readLess")}
-                  </span>
-                  <ChevronDown
-                    aria-hidden="true"
-                    className="size-4 transition-transform group-open:rotate-180"
-                  />
-                </summary>
-                <IdentificationTraits
-                  editable={editable}
-                  offset={TRAITS_VISIBLE_COUNT}
-                  speciesId={speciesId}
-                  traits={identification.traits.slice(TRAITS_VISIBLE_COUNT)}
-                />
-              </details>
-            ) : null}
           </div>
         ) : null}
       </div>
@@ -302,17 +281,17 @@ function IdentificationTraits({
     <ol start={offset + 1}>
       {traits.map((trait, index) => (
         <li
-          className="flex items-start gap-3.5 border-t border-border py-4 first:border-t-0 lg:gap-4 lg:py-5"
+          className="flex items-start gap-4 border-t border-border py-4 last:border-b lg:py-5"
           key={trait}
         >
           <span
             aria-hidden="true"
-            className="flex size-7 shrink-0 items-center justify-center rounded-full bg-foreground text-[13px] font-bold text-background tabular-nums lg:size-8 lg:text-[14px]"
+            className="flex size-8 shrink-0 items-center justify-center rounded-full bg-foreground text-[14px] font-bold text-background tabular-nums"
           >
             {offset + index + 1}
           </span>
           <p
-            className="min-w-0 text-[14.5px] leading-[1.6] whitespace-pre-line text-foreground/85 lg:text-[16px] lg:leading-[1.65]"
+            className="min-w-0 text-[16px] leading-[1.65] whitespace-pre-line text-foreground/85"
             data-content-field={
               editable ? `identification.traits.${offset + index}` : undefined
             }
