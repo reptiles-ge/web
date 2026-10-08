@@ -40,6 +40,10 @@ export async function GiurzaSourcesRelated({
 
   const t = await getTranslations({ locale, namespace: "profile" });
   const tDanger = await getTranslations({ locale, namespace: "danger" });
+  const tAttribution = await getTranslations({
+    locale,
+    namespace: "attribution",
+  });
   const featured = featuredSourceStarts
     .map((name) => sources.find((source) => source.name.startsWith(name)))
     .filter((source): source is SpeciesSource => Boolean(source));
@@ -108,6 +112,15 @@ export async function GiurzaSourcesRelated({
               ? `${t("updatedOn")} ${formatContentDate(updatedAt, locale)}. `
               : null}
             {t("sourcesNote")}
+          </p>
+          <p className="mt-2 px-5 text-[12.5px] leading-relaxed text-muted-foreground sm:px-6 lg:px-0 lg:text-[13px]">
+            <Link
+              className="underline decoration-current/40 underline-offset-2 transition-colors hover:text-foreground"
+              href="/about"
+              rel="author"
+            >
+              {tAttribution("body")}
+            </Link>
           </p>
         </div>
 

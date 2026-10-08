@@ -176,9 +176,7 @@ export async function SpeciesGallery({
               const creditName = author
                 ? creditAuthorName(author, locale)
                 : photographer;
-              const creditLine = [creditName, photo.credit?.location?.trim()]
-                .filter(Boolean)
-                .join(" · ");
+              const creditLocation = photo.credit?.location?.trim();
               return (
                 <div
                   className={cn(
@@ -209,12 +207,27 @@ export async function SpeciesGallery({
                       <span className="absolute inset-0 flex items-center justify-center bg-ink/60 text-[28px] font-semibold text-white">
                         +{photos.length - 5}
                       </span>
-                    ) : creditLine ? (
-                      <span className="absolute bottom-3 left-3 max-w-[calc(100%-1.5rem)] truncate rounded-full bg-ink/70 px-2.5 py-1.5 text-[11.5px] text-white/90">
-                        {creditLine}
-                      </span>
                     ) : null}
                   </GalleryOpenButton>
+                  {!(hasMore && index === 4) &&
+                  (creditName || creditLocation) ? (
+                    <span className="pointer-events-none absolute bottom-3 left-3 z-10 max-w-[calc(100%-1.5rem)] truncate rounded-full bg-ink/70 px-2.5 py-1.5 text-[11.5px] text-white/90">
+                      {creditName ? (
+                        author ? (
+                          <Link
+                            className="pointer-events-auto rounded-sm underline decoration-white/40 underline-offset-2 transition-colors hover:text-white hover:decoration-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                            href={creditAuthorHref(author.slug)}
+                          >
+                            {creditName}
+                          </Link>
+                        ) : (
+                          creditName
+                        )
+                      ) : null}
+                      {creditName && creditLocation ? " · " : null}
+                      {creditLocation}
+                    </span>
+                  ) : null}
                 </div>
               );
             })}
