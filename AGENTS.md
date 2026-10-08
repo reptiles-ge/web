@@ -209,6 +209,7 @@ Kill-switch only; normal deploys are atomic and need none. `src/worker.ts` answe
 - A release is a `vMAJOR.MINOR.PATCH` tag plus a GitHub Release on a `main` commit that is already live. It is not a deploy; `main` deploys on every push.
 - Only the owner decides when to release. Never cut one unprompted, never move or delete a tag.
 - The tag is the version. Do not bump `package.json` or add a `CHANGELOG.md`.
+- The footer version comes from the latest tag at build time (`scripts/compile-release-version.ts` → gitignored `src/data/releaseVersion.generated.ts`). Do not hardcode it.
 - Label every pull request into `staging` (`enhancement`, `content`, `bug`, `documentation`, `dependencies`); label `Staging to main` pull requests `skip-changelog`.
 
 ## Commands

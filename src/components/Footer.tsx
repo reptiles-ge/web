@@ -9,6 +9,7 @@ import { LocalizedLink } from "@/components/LocalizedLink";
 import { Logo } from "@/components/Logo";
 import { FacebookGlyph, InstagramGlyph } from "@/components/SocialGlyphs";
 import { getGuideArticles } from "@/data/guideArticles";
+import { releaseVersion } from "@/data/releaseVersion.generated";
 
 type FooterLinkColumnProps = {
   links: Array<{
@@ -242,6 +243,7 @@ export async function Footer({ locale, regions, venomous }: FooterProps) {
         <div className="mt-14 flex flex-col gap-3 border-t border-border pt-8 text-[12px] text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
           <span>
             © {new Date().getFullYear()} Reptiles. {t("rights")}
+            {releaseVersion ? ` · ${releaseVersion}` : null}
           </span>
           <div className="flex items-center gap-4">
             <a
