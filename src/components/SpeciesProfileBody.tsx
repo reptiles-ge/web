@@ -963,9 +963,19 @@ async function SpeciesProfileBiology({
 
   const behavior = blocks.find((block) => block.id === "behavior");
   const behaviorParagraphs = behavior?.body.split(/\n+/).filter(Boolean) ?? [];
+  const blockOrder = new Map([
+    ["behavior", 1],
+    ["conservation", 3],
+    ["diet", 0],
+    ["reproduction", 2],
+  ]);
+  const orderedBlocks = [...blocks].sort(
+    (left, right) =>
+      (blockOrder.get(left.id) ?? 4) - (blockOrder.get(right.id) ?? 4),
+  );
   const displayBlocks =
     speciesId === "macrovipera-lebetina"
-      ? blocks.flatMap((block) => {
+      ? orderedBlocks.flatMap((block) => {
           if (block.id !== "behavior" || behaviorParagraphs.length < 2) {
             return [block];
           }
@@ -984,7 +994,43 @@ async function SpeciesProfileBiology({
             },
           ];
         })
-      : blocks;
+      : orderedBlocks;
+  const pairedBlocks =
+    displayBlocks.length % 2 === 0 ? displayBlocks : displayBlocks.slice(0, -1);
+  const finalBlock =
+    displayBlocks.length % 2 === 0 ? null : displayBlocks.at(-1);
+  const renderDesktopCard = (block: BiologyBlockItem) => (
+    <article
+      className="min-h-[208px] rounded-[28px] bg-card px-7 py-[26px] shadow-[0_10px_26px_rgba(14,20,17,0.05)]"
+      key={block.id}
+    >
+      <AnchoredHeading
+        anchorLabel={t("anchorLink")}
+        as="h3"
+        className="font-display text-[20px] font-semibold"
+        id={block.id}
+      >
+        {block.title}
+      </AnchoredHeading>
+      <BiologyExpandable
+        body={block.body}
+        collapseEditable
+        editorField={
+          editable && speciesId !== "macrovipera-lebetina"
+            ? block.id
+            : undefined
+        }
+        needsExpand
+        readLess={t("readLess")}
+        readMore={t("readMore")}
+        speciesId={
+          editable && speciesId !== "macrovipera-lebetina"
+            ? speciesId
+            : undefined
+        }
+      />
+    </article>
+  );
 
   return (
     <section className="bg-background py-9 lg:py-20">
@@ -1037,44 +1083,19 @@ async function SpeciesProfileBiology({
             </details>
           ))}
         </div>
-        <div className="mt-10 hidden grid-cols-2 items-start gap-6 lg:grid">
-          {[0, 1].map((column) => (
-            <div className="flex flex-col gap-6" key={column}>
-              {displayBlocks
-                .filter((_, index) => index % 2 === column)
-                .map((block) => (
-                  <article
-                    className="min-h-[208px] rounded-[28px] bg-card px-7 py-[26px] shadow-[0_10px_26px_rgba(14,20,17,0.05)]"
-                    key={block.id}
-                  >
-                    <AnchoredHeading
-                      anchorLabel={t("anchorLink")}
-                      as="h3"
-                      className="font-display text-[20px] font-semibold"
-                      id={block.id}
-                    >
-                      {block.title}
-                    </AnchoredHeading>
-                    <BiologyExpandable
-                      body={block.body}
-                      editorField={
-                        editable && speciesId !== "macrovipera-lebetina"
-                          ? block.id
-                          : undefined
-                      }
-                      needsExpand
-                      readLess={t("readLess")}
-                      readMore={t("readMore")}
-                      speciesId={
-                        editable && speciesId !== "macrovipera-lebetina"
-                          ? speciesId
-                          : undefined
-                      }
-                    />
-                  </article>
-                ))}
-            </div>
-          ))}
+        <div className="mt-10 hidden lg:block">
+          <div className="grid grid-cols-2 items-start gap-6">
+            {[0, 1].map((column) => (
+              <div className="flex flex-col gap-6" key={column}>
+                {pairedBlocks
+                  .filter((_, index) => index % 2 === column)
+                  .map(renderDesktopCard)}
+              </div>
+            ))}
+          </div>
+          {finalBlock ? (
+            <div className="mt-6">{renderDesktopCard(finalBlock)}</div>
+          ) : null}
         </div>
       </div>
     </section>

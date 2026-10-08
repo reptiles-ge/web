@@ -8,6 +8,7 @@ import { useExpandableText } from "@/lib/useExpandableText";
 
 type BiologyExpandableProps = {
   body: string;
+  collapseEditable?: boolean;
   editorField?: string;
   needsExpand: boolean;
   readLess: string;
@@ -19,6 +20,7 @@ const PREVIEW_LINES = 3;
 
 export function BiologyExpandable({
   body,
+  collapseEditable = false,
   editorField,
   needsExpand,
   readLess,
@@ -27,10 +29,11 @@ export function BiologyExpandable({
 }: BiologyExpandableProps) {
   const { buttonRef, open, textRef, toggle } = useExpandableText(PREVIEW_LINES);
   const [overflows, setOverflows] = useState(false);
+  const canCollapse = needsExpand && (collapseEditable || !editorField);
 
   useEffect(() => {
     const text = textRef.current;
-    if (!text || !needsExpand || editorField) return;
+    if (!text || !canCollapse) return;
 
     const measure = () => {
       const lineHeight = Number.parseFloat(getComputedStyle(text).lineHeight);
@@ -44,7 +47,7 @@ export function BiologyExpandable({
       observer.disconnect();
       window.cancelAnimationFrame(frame);
     };
-  }, [body, editorField, needsExpand, textRef]);
+  }, [body, canCollapse, textRef]);
 
   return (
     <>
@@ -52,7 +55,7 @@ export function BiologyExpandable({
         className={cn(
           "mt-4 scroll-mt-40 text-[15px] leading-relaxed text-muted-foreground",
           "whitespace-pre-line",
-          !open && needsExpand && !editorField ? "line-clamp-3" : "",
+          !open && canCollapse ? "line-clamp-3" : "",
         )}
         data-content-field={editorField}
         data-content-id={speciesId}
@@ -60,7 +63,7 @@ export function BiologyExpandable({
       >
         <PhoneLinkedText>{body}</PhoneLinkedText>
       </p>
-      {needsExpand && overflows && !editorField ? (
+      {canCollapse && overflows ? (
         <button
           aria-expanded={open}
           className="mt-4 text-[13px] font-medium text-primary transition-colors hover:text-primary/80"
