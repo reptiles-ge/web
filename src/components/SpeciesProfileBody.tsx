@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 import type {
   DangerLevel,
   GalleryImage,
+  PhotoCredit,
   Species,
   SpeciesStat,
 } from "@/data/species";
@@ -23,6 +24,7 @@ import { SpeciesProfileFacts } from "@/components/SpeciesProfileFacts";
 import { SpeciesProfileQuiz } from "@/components/SpeciesProfileQuiz";
 import { SpeciesProfileRelated } from "@/components/SpeciesProfileRelated";
 import { SpeciesSources } from "@/components/SpeciesSources";
+import { SpeciesVerdict } from "@/components/SpeciesVerdict";
 import {
   optimizedEntry,
   optimizedImgSrc,
@@ -96,6 +98,7 @@ type SpeciesProfileBodyProps = {
   gallery: GalleryImage[];
   guideLinks: HubClusterCard[];
   hasRange: boolean;
+  heroCredit?: PhotoCredit;
   linkDangerStats: boolean;
   locale: AppLocale;
   lookalikes: Species[];
@@ -508,6 +511,7 @@ export async function SpeciesProfileBody({
   gallery,
   guideLinks,
   hasRange,
+  heroCredit,
   linkDangerStats,
   locale,
   lookalikes,
@@ -516,6 +520,7 @@ export async function SpeciesProfileBody({
   species,
 }: SpeciesProfileBodyProps) {
   const t = await getTranslations({ locale, namespace: "profile" });
+  const riskLevel = getSpeciesRiskChip(species)?.level;
   const relatedLabelVariant =
     getSpeciesAtlasMeta(species.id).group === "insect"
       ? "otherInsects"
@@ -530,10 +535,38 @@ export async function SpeciesProfileBody({
 
   return (
     <>
+      <div className="relative z-10 -mt-7 rounded-t-[32px] bg-background pt-4 pb-6 lg:mt-[-86px] lg:rounded-none lg:bg-transparent lg:pt-0 lg:pb-14">
+        <div
+          className={cn(
+            "mx-auto max-w-[1440px] lg:grid lg:items-stretch lg:gap-4 lg:px-[60px]",
+            displayStats.length > 0 && "lg:grid-cols-[430px_minmax(0,1fr)]",
+          )}
+        >
+          <SpeciesVerdict
+            credit={heroCredit}
+            description={species.description}
+            guideLinks={guideLinks}
+            level={riskLevel}
+            locale={locale}
+          />
+          <SpeciesProfileFacts
+            danger={species.danger}
+            dangerValue={dangerValue}
+            displayStats={displayStats}
+            editable={editable}
+            interaction={species.interaction}
+            linkDangerStats={linkDangerStats}
+            locale={locale}
+            speciesId={species.id}
+            stats={species.stats}
+          />
+        </div>
+      </div>
+
       <SpeciesProfileNavigation
         locale={locale}
         name={species.commonName}
-        riskLevel={getSpeciesRiskChip(species)?.level}
+        riskLevel={riskLevel}
         sections={{
           atAGlance: displayStats.length > 0,
           biology: naturalHistoryBlocks.length > 0,
@@ -547,19 +580,7 @@ export async function SpeciesProfileBody({
         }}
       />
 
-      <SpeciesProfileFacts
-        danger={species.danger}
-        dangerValue={dangerValue}
-        displayStats={displayStats}
-        editable={editable}
-        interaction={species.interaction}
-        linkDangerStats={linkDangerStats}
-        locale={locale}
-        speciesId={species.id}
-        stats={species.stats}
-      />
-
-      <section className="bg-surface py-20 lg:py-28">
+      <section className="bg-surface py-11 lg:py-20">
         <div className={SPLIT_SECTION_CLASS}>
           <div>
             <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
@@ -676,7 +697,7 @@ export async function SpeciesProfileBody({
       />
 
       {guideLinks.length > 0 ? (
-        <section className="border-t border-border bg-surface py-16 lg:py-20">
+        <section className="border-t border-border bg-surface py-11 lg:py-16">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <p className="text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
               {t("guidesEyebrow")}
@@ -738,7 +759,7 @@ function HalyomorphaIdentificationFigure({
     "(max-width: 1023px) calc(100vw - 3rem), (max-width: 1479px) calc((min(1400px, 100vw - 5rem) - 2.5rem) * 0.58), 800px";
 
   return (
-    <section className="bg-surface py-20 lg:py-28">
+    <section className="bg-surface py-11 lg:py-20">
       <div className="mx-auto grid max-w-[1400px] gap-10 px-6 lg:grid-cols-[minmax(0,0.78fr)_minmax(420px,1fr)] lg:items-center lg:gap-16 lg:px-10">
         <div>
           <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
@@ -891,7 +912,7 @@ function HalyomorphaPestSections({
   const copy = HALYOMORPHA_PEST_COPY[locale];
 
   return (
-    <section className="bg-background py-20 lg:py-28">
+    <section className="bg-background py-11 lg:py-20">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
           {copy.label}
@@ -989,21 +1010,21 @@ async function SpeciesProfileBiology({
   const t = await getTranslations({ locale, namespace: "profile" });
 
   return (
-    <section className="bg-surface py-20 lg:py-28">
-      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
+    <section className="bg-background py-11 lg:py-20">
+      <div className="mx-auto max-w-[1440px] px-4 lg:px-[60px]">
+        <p className="px-2 text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase lg:px-0">
           {t("biology")}
         </p>
         <AnchoredHeading
           anchorLabel={t("anchorLink")}
-          className="mt-5 max-w-2xl font-display text-display-title font-bold"
+          className="mt-3 max-w-2xl px-2 font-display text-[28px] leading-[1.15] font-semibold tracking-[-0.012em] lg:mt-4 lg:px-0 lg:text-[44px] lg:leading-[1.1]"
           id={SPECIES_SECTION_IDS.biology}
         >
           {title ?? t("naturalHistoryTitle")}
         </AnchoredHeading>
         <div
           className={cn(
-            "mt-14 grid gap-12 md:gap-10",
+            "mt-6 grid gap-2 md:gap-4 lg:mt-10 lg:gap-6",
             biologyGridClass(blocks.length),
           )}
         >
@@ -1038,7 +1059,7 @@ async function SpeciesProfileHabitat({
   const t = await getTranslations({ locale, namespace: "profile" });
 
   return (
-    <section className="bg-surface py-20 lg:py-28">
+    <section className="bg-surface py-11 lg:py-20">
       <div className={SPLIT_SECTION_CLASS}>
         <div>
           <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">

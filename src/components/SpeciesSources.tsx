@@ -24,7 +24,7 @@ export async function SpeciesSources({
   const t = await getTranslations({ locale, namespace: "profile" });
 
   return (
-    <section className="border-t border-border bg-background py-16 lg:py-20">
+    <section className="border-t border-border bg-background py-11 lg:py-16">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <details className="group max-w-2xl">
           <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-1 text-left marker:content-none [&::-webkit-details-marker]:hidden">

@@ -176,6 +176,13 @@ const ACTIVITY_LABELS = new Set([
   "სტატუსი საქართველოში",
 ]);
 
+const ELEVATION_LABELS = new Set([
+  "Elevation",
+  "Yükseklik",
+  "Высота",
+  "ზღვის დონიდან",
+]);
+
 export function getSpeciesActivityStat(species: Species) {
   return getStatByLabels(species, ACTIVITY_LABELS);
 }
@@ -212,10 +219,18 @@ export function hasRealIdentification(
   return !metaOnly;
 }
 
+export function isElevationStatLabel(label: string) {
+  return ELEVATION_LABELS.has(label);
+}
+
 export function isPlaceholderBody(text: string) {
   const normalized = text.trim().toLowerCase();
   if (!normalized) return true;
   return PLACEHOLDER_BODY_MARKERS.some((marker) => normalized.includes(marker));
+}
+
+export function isSizeStatLabel(label: string) {
+  return SIZE_LABELS.has(label);
 }
 
 function getStatByLabels(species: Species, labels: Set<string>) {

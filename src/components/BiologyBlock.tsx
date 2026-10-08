@@ -28,12 +28,11 @@ export async function BiologyBlock({
   const needsExpand = body.length > PREVIEW_LENGTH;
 
   return (
-    <div>
-      <div className="h-px w-12 bg-gold" />
+    <div className="rounded-[22px] bg-card p-5 shadow-[0_10px_26px_rgba(14,20,17,0.05)] lg:rounded-[28px] lg:px-7 lg:py-[26px]">
       <AnchoredHeading
         anchorLabel={t("anchorLink")}
         as="h3"
-        className="mt-6 font-display text-[22px] font-medium"
+        className="font-display text-[19px] font-semibold lg:text-[20px]"
         id={headingId}
         slugSource={title}
       >

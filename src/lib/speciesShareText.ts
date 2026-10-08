@@ -13,10 +13,34 @@ const SHARE_ORIGIN = "https://reptiles.ge";
 
 const REAR_FANGED_SHARE_IDS = new Set(["telescopus-fallax"]);
 
-export type SpeciesShareStatusKind =
-  | "harmless"
-  | "rearFanged"
-  | "venomous";
+export type SpeciesShareStatusKind = "harmless" | "rearFanged" | "venomous";
+
+export function speciesShareMessage({
+  commonName,
+  danger,
+  group,
+  id,
+  labels,
+  locale,
+  scientificName,
+}: {
+  commonName: string;
+  danger?: DangerLevel;
+  group: AnimalGroup;
+  id: string;
+  labels: Record<"details" | SpeciesShareStatusKind, string>;
+  locale: AppLocale;
+  scientificName: string;
+}) {
+  const kind = speciesShareStatusKind(id, group, danger);
+  return speciesShareText({
+    commonName,
+    detailsLabel: labels.details,
+    scientificName,
+    status: kind ? labels[kind] : null,
+    url: speciesShareUrl(locale, id),
+  });
+}
 
 export function speciesShareStatusKind(
   id: string,
@@ -46,14 +70,14 @@ export function speciesShareText({
   return `${heading}\n\n🔗 ${detailsLabel}: ${url}`;
 }
 
-export function speciesShareUrl(locale: AppLocale, id: string) {
-  return `${SHARE_ORIGIN}${localePath(locale, speciesHref(id, locale))}`;
-}
-
 export function speciesShareVenomous(
   group: AnimalGroup,
   danger?: DangerLevel,
 ): boolean | null {
   if (!groupHasVenomConcept(group) || !danger) return null;
   return isVenomousDanger(danger);
+}
+
+function speciesShareUrl(locale: AppLocale, id: string) {
+  return `${SHARE_ORIGIN}${localePath(locale, speciesHref(id, locale))}`;
 }
