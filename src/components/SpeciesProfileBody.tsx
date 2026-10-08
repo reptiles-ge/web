@@ -526,6 +526,8 @@ export async function SpeciesProfileBody({
       ? "otherInsects"
       : "related";
   const habitatBlock = biologyBlocks.find((block) => block.id === "habitat");
+  const showStandaloneHabitat =
+    Boolean(habitatBlock) && species.id !== "macrovipera-lebetina";
   const naturalHistoryBlocks = biologyBlocks.filter(
     (block) => block.id !== "habitat",
   );
@@ -578,7 +580,7 @@ export async function SpeciesProfileBody({
           biology: naturalHistoryBlocks.length > 0,
           faq: Boolean(species.faq?.length),
           gallery: gallery.length > 0,
-          habitat: Boolean(habitatBlock),
+          habitat: showStandaloneHabitat,
           identification: showIdentification,
           interaction: hasInteraction,
           range: hasRange,
@@ -650,7 +652,7 @@ export async function SpeciesProfileBody({
 
       <SpeciesProfileQuiz locale={locale} species={species} />
 
-      {habitatBlock ? (
+      {habitatBlock && showStandaloneHabitat ? (
         <SpeciesProfileHabitat
           block={habitatBlock}
           editable={editable}
@@ -660,6 +662,9 @@ export async function SpeciesProfileBody({
       ) : null}
 
       <SpeciesRangeMap
+        habitatDetails={
+          species.id === "macrovipera-lebetina" ? habitatBlock?.body : undefined
+        }
         locale={locale}
         speciesId={species.id}
         speciesName={species.commonName}

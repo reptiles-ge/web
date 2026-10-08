@@ -1,4 +1,4 @@
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight, ChevronDown } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
@@ -8,6 +8,7 @@ import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { GeorgiaMapStatic } from "@/components/map/GeorgiaMapStatic";
 import { HalyomorphaRangeMap } from "@/components/map/HalyomorphaRangeMap";
 import { RangeHatchSwatch } from "@/components/map/RangeHatch";
+import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import {
   getRegionsForSpecies,
   localizeRegionText,
@@ -23,6 +24,7 @@ import { regionHref } from "@/lib/regionHref";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 
 type SpeciesRangeMapProps = {
+  habitatDetails?: string;
   locale: AppLocale;
   speciesId: string;
   speciesName: string;
@@ -36,6 +38,7 @@ const HEADING_CLASS =
 const STATIC_HATCH_ID = "range-hatch-static";
 
 export async function SpeciesRangeMap({
+  habitatDetails,
   locale,
   speciesId,
   speciesName,
@@ -60,6 +63,7 @@ export async function SpeciesRangeMap({
         anchorLabel={t("anchorLink")}
         copy={interactiveRangeCopy}
         eyebrow={t("range")}
+        habitatDetails={habitatDetails}
         iNaturalistTaxonId={interactiveRangeConfig.iNaturalistTaxonId}
         locale={locale}
         occurrenceSummary={interactiveRangeSummary}
@@ -148,6 +152,7 @@ async function HalyomorphaRangeSection({
   anchorLabel,
   copy,
   eyebrow,
+  habitatDetails,
   iNaturalistTaxonId,
   locale,
   occurrenceSummary,
@@ -159,6 +164,7 @@ async function HalyomorphaRangeSection({
   anchorLabel: string;
   copy: HalyomorphaRangeCopy;
   eyebrow: string;
+  habitatDetails?: string;
   iNaturalistTaxonId: number;
   locale: AppLocale;
   occurrenceSummary: HalyomorphaOccurrenceSummary;
@@ -207,9 +213,11 @@ async function HalyomorphaRangeSection({
   const tGiurza = featured
     ? await getTranslations({ locale, namespace: "giurzaRange" })
     : null;
-  const readMoreLabel = featured
-    ? (await getTranslations({ locale, namespace: "profile" }))("readMore")
+  const tProfile = featured
+    ? await getTranslations({ locale, namespace: "profile" })
     : null;
+  const detailParagraphs = habitatDetails?.split(/\n+/).slice(1).join("\n\n");
+  const extraHabitat = detailParagraphs || habitatDetails;
   const recordCounts = new Map(
     occurrenceSummary.recordsByRegion.map((record) => [
       record.id,
@@ -290,13 +298,25 @@ async function HalyomorphaRangeSection({
             <p className="order-5 mt-4 text-[16px] leading-[1.65] text-muted-foreground lg:mt-[18px]">
               {tGiurza("lead")}
             </p>
-            <a
-              className="order-5 mt-1 inline-flex items-center gap-1.5 text-[14px] font-medium text-foreground underline decoration-foreground/30 underline-offset-4 lg:hidden"
-              href={`#${SPECIES_SECTION_IDS.habitat}`}
-            >
-              {readMoreLabel}
-              <ArrowRight aria-hidden="true" className="size-4" />
-            </a>
+            {extraHabitat && tProfile ? (
+              <details className="group order-5 mt-1 lg:mt-4">
+                <summary className="inline-flex cursor-pointer list-none items-center gap-1.5 text-[14px] font-medium text-foreground underline decoration-foreground/30 underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary [&::-webkit-details-marker]:hidden">
+                  <span className="group-open:hidden">
+                    {tProfile("readMore")}
+                  </span>
+                  <span className="hidden group-open:inline">
+                    {tProfile("readLess")}
+                  </span>
+                  <ChevronDown
+                    aria-hidden="true"
+                    className="size-4 transition-transform group-open:rotate-180"
+                  />
+                </summary>
+                <p className="mt-4 text-[15px] leading-[1.7] whitespace-pre-line text-muted-foreground">
+                  <PhoneLinkedText>{extraHabitat}</PhoneLinkedText>
+                </p>
+              </details>
+            ) : null}
             <div className="mt-[22px] hidden items-baseline justify-between gap-3 text-[11px] font-medium tracking-[0.14em] text-muted-foreground uppercase lg:flex">
               <span>{tGiurza("regionsLabel")}</span>
               <span>{copy.regionRecordsLabel}</span>
