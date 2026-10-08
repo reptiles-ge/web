@@ -8,6 +8,7 @@ import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { CoverImage } from "@/components/CoverImage";
 import { TrackedSpeciesLink } from "@/components/home/TrackedSpeciesLink";
 import { SourceLink } from "@/components/SourceLink";
+import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
 import { Link } from "@/i18n/navigation";
 import { formatContentDate } from "@/lib/formatDate";
 import { getSpeciesCoverSrc } from "@/lib/speciesContent";
@@ -29,7 +30,7 @@ type Props = {
   updatedAt?: string;
 };
 
-export async function GiurzaSourcesRelated({
+export async function SpeciesSourcesRelated({
   locale,
   related,
   sources,
@@ -44,9 +45,13 @@ export async function GiurzaSourcesRelated({
     locale,
     namespace: "attribution",
   });
-  const featured = featuredSourceStarts
-    .map((name) => sources.find((source) => source.name.startsWith(name)))
-    .filter((source): source is SpeciesSource => Boolean(source));
+  const giurza = speciesId === "macrovipera-lebetina";
+  const insect = getSpeciesAtlasMeta(speciesId).group === "insect";
+  const featured = giurza
+    ? featuredSourceStarts
+        .map((name) => sources.find((source) => source.name.startsWith(name)))
+        .filter((source): source is SpeciesSource => Boolean(source))
+    : [];
   const featuredNames = new Set(featured.map((source) => source.name));
   const remaining = sources.filter((source) => !featuredNames.has(source.name));
   const visible = featured.length > 0 ? featured : sources.slice(0, 3);
@@ -133,13 +138,13 @@ export async function GiurzaSourcesRelated({
                 id={SPECIES_SECTION_IDS.related}
                 showAnchor={false}
               >
-                {t("relatedTitle")}
+                {insect ? t("otherInsectsTitle") : t("relatedTitle")}
               </AnchoredHeading>
               <Link
                 className="shrink-0 text-[13px] font-medium text-primary"
-                href="/snakes/saxeoebebi"
+                href={giurza ? "/snakes/saxeoebebi" : "/species"}
               >
-                {t("allSnakes")}
+                {giurza ? t("allSnakes") : t("allSpecies")}
                 <ArrowUpRight
                   aria-hidden="true"
                   className="ml-1 inline size-3.5"
