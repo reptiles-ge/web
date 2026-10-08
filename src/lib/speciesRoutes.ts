@@ -174,7 +174,6 @@ const LOOKALIKES: Record<string, string[]> = {
     "platyceps-najadum",
     "elaphe-urartica",
     "dolichophis-schmidti",
-    "vipera-transcaucasiana",
     "macrovipera-lebetina",
   ],
   "hyla-orientalis": [
@@ -274,9 +273,13 @@ const LOOKALIKES: Record<string, string[]> = {
     "vipera-transcaucasiana",
   ],
   "vipera-transcaucasiana": [
-    "vipera-kaznakovi",
     "coronella-austriaca",
-    "vipera-dinniki",
+    "zamenis-hohenackeri",
+    "hemorrhois-ravergieri",
+    "vipera-darevskii",
+    "vipera-renardi",
+    "vipera-kaznakovi",
+    "macrovipera-lebetina",
   ],
   "vulpes-vulpes": ["canis-lupus"],
   "xerotyphlops-vermicularis": ["eryx-jaculus"],
@@ -284,7 +287,6 @@ const LOOKALIKES: Record<string, string[]> = {
     "elaphe-dione",
     "coronella-austriaca",
     "hemorrhois-ravergieri",
-    "vipera-transcaucasiana",
   ],
   "zamenis-longissimus": ["natrix-natrix", "vipera-kaznakovi"],
 };
