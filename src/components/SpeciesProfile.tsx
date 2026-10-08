@@ -190,12 +190,12 @@ export async function SpeciesProfile({
         emergency={emergency}
         galleryCount={gallery.length}
         galleryPreview={gallery.slice(0, 5).map((photo) => photo.src)}
-        gallerySrc={gallerySrc}
         group={group}
         heroDesktopSources={heroDesktopSources}
         heroPrimarySources={heroPrimarySources}
         imageAlt={imageAlt}
         locale={locale}
+        mobileGallery={gallery}
         mobileHeroSrc={mobileHeroSrc}
         mobileImageAlt={mobileImageAlt}
         shareText={shareText}

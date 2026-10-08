@@ -1,10 +1,11 @@
-import { ArrowRight, ArrowUpRight, Camera, Check } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import type { DangerLevel, PhotoCredit } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
 import type { HubClusterCard } from "@/lib/clusterGuides";
 
+import { SpeciesMobileHeroCredit } from "@/components/SpeciesMobileHeroCredit";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
 import { dangerPageHref } from "@/lib/dangerLevels";
@@ -18,17 +19,19 @@ const TONE: Record<DangerLevel, { band: string; label: string }> = {
 };
 
 export async function SpeciesVerdict({
-  credit,
+  credits,
   description,
   guideLinks,
   level,
   locale,
+  speciesId,
 }: {
-  credit?: PhotoCredit;
+  credits: Array<PhotoCredit | undefined>;
   description: string;
   guideLinks: HubClusterCard[];
   level?: DangerLevel;
   locale: AppLocale;
+  speciesId: string;
 }) {
   const [t, tCard, tDanger, tRisk, tHubs] = await Promise.all([
     getTranslations({ locale, namespace: "profile" }),
@@ -46,24 +49,11 @@ export async function SpeciesVerdict({
 
   return (
     <div className="flex min-w-0 flex-col">
-      {credit?.photographer ? (
-        <p className="flex min-h-6 items-center gap-2 px-6 text-[12px] text-muted-foreground lg:hidden">
-          <Camera aria-hidden="true" className="size-3.5 shrink-0" />
-          <span className="min-w-0 flex-1 truncate">
-            {[credit.photographer, credit.location].filter(Boolean).join(" · ")}
-          </span>
-          {credit.photoConfidence === "georgia-field" ? (
-            <span className="inline-flex shrink-0 items-center gap-1 font-medium text-primary">
-              <Check
-                aria-hidden="true"
-                className="size-3.5"
-                strokeWidth={2.2}
-              />
-              {t("georgiaFieldPhoto")}
-            </span>
-          ) : null}
-        </p>
-      ) : null}
+      <SpeciesMobileHeroCredit
+        credits={credits}
+        key={speciesId}
+        speciesId={speciesId}
+      />
       <section className="mx-4 mt-3 flex flex-1 flex-col overflow-hidden rounded-[28px] bg-card shadow-[0_14px_36px_rgba(14,20,17,0.06)] lg:mx-0 lg:mt-0 lg:rounded-[32px] lg:shadow-[0_16px_40px_rgba(14,20,17,0.08)]">
         {level && tone ? (
           <div

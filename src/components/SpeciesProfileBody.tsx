@@ -543,11 +543,18 @@ export async function SpeciesProfileBody({
           )}
         >
           <SpeciesVerdict
-            credit={heroCredit}
+            credits={
+              gallery.length > 0
+                ? gallery.map((photo, index) =>
+                    index === 0 ? heroCredit : photo.credit,
+                  )
+                : [heroCredit]
+            }
             description={species.description}
             guideLinks={guideLinks}
             level={riskLevel}
             locale={locale}
+            speciesId={species.id}
           />
           <SpeciesProfileFacts
             danger={species.danger}

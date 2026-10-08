@@ -1,13 +1,17 @@
-import { Camera, ChevronLeft, Phone } from "lucide-react";
+import { ChevronLeft, Phone } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import type { PictureSource } from "@/data/optimizedImages";
-import type { DangerLevel, Species } from "@/data/species";
+import type { DangerLevel, GalleryImage, Species } from "@/data/species";
 import type { AnimalGroup } from "@/data/speciesAtlas";
 import type { AppLocale } from "@/i18n/routing";
 import type { SpeciesBreadcrumbCrumb } from "@/lib/speciesBreadcrumbs";
 
 import { SpeciesHeroActions } from "@/components/SpeciesHeroActions";
+import {
+  type MobileHeroSlide,
+  SpeciesMobileHeroCarousel,
+} from "@/components/SpeciesMobileHeroCarousel";
 import { SpeciesScientificNameCopy } from "@/components/SpeciesScientificNameCopy";
 import { SpeciesVoicePlayer } from "@/components/SpeciesVoicePlayer";
 import {
@@ -21,6 +25,7 @@ import { cn } from "@/lib/cn";
 import { contentEditorAttributes } from "@/lib/contentEditorAttributes";
 import { dangerPageHref } from "@/lib/dangerLevels";
 import { getSpeciesParentHub } from "@/lib/speciesBreadcrumbs";
+import { speciesPhotoAlt } from "@/lib/speciesMeta";
 import { getSpeciesRiskChip, usesDangerScale } from "@/lib/speciesRisk";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 
@@ -30,12 +35,12 @@ type SpeciesProfileHeroProps = {
   emergency: boolean;
   galleryCount: number;
   galleryPreview: string[];
-  gallerySrc: null | string;
   group: AnimalGroup;
   heroDesktopSources: PictureSource[];
   heroPrimarySources: PictureSource[];
   imageAlt: string;
   locale: AppLocale;
+  mobileGallery: GalleryImage[];
   mobileHeroSrc: null | string;
   mobileImageAlt: string;
   shareText: string;
@@ -54,12 +59,12 @@ export async function SpeciesProfileHero({
   emergency,
   galleryCount,
   galleryPreview,
-  gallerySrc,
   group,
   heroDesktopSources,
   heroPrimarySources,
   imageAlt,
   locale,
+  mobileGallery,
   mobileHeroSrc,
   mobileImageAlt,
   shareText,
@@ -77,10 +82,28 @@ export async function SpeciesProfileHero({
   const dangerValue = riskChip ? tDanger(riskChip.level) : "";
   const editable = locale === "ka" && isLocalAdminEnabled();
   const parent = getSpeciesParentHub(species);
+  const mobileSlides: MobileHeroSlide[] = mobileGallery.map((photo, index) => ({
+    alt:
+      index === 0
+        ? mobileImageAlt
+        : speciesPhotoAlt(
+            species.commonName,
+            species.scientificName,
+            species.location,
+            photo.credit,
+          ),
+    displaySrc: index === 0 ? (mobileHeroSrc ?? photo.src) : photo.src,
+    gallerySrc: optimizedImgSrc(photo.src, 1200),
+  }));
 
   return (
     <section className="relative h-[440px] w-full overflow-hidden bg-ink text-white lg:h-[660px]">
-      <div className="absolute inset-0 lg:left-auto lg:w-[62%]">
+      <div
+        className={cn(
+          "absolute inset-0 lg:left-auto lg:w-[62%]",
+          mobileSlides.length > 0 && "hidden lg:block",
+        )}
+      >
         <SpeciesProfileHeroMedia
           desktopHeroSrc={desktopHeroSrc}
           heroDesktopSources={heroDesktopSources}
@@ -90,9 +113,16 @@ export async function SpeciesProfileHero({
           mobileImageAlt={mobileImageAlt}
         />
       </div>
-      <div className="absolute inset-x-0 top-0 h-[150px] bg-linear-to-b from-ink/80 to-transparent lg:h-[190px]" />
-      <div className="absolute inset-x-0 bottom-0 h-[260px] bg-linear-to-t from-ink via-ink/70 to-transparent lg:h-[240px] lg:from-ink/95 lg:via-ink/40" />
-      <div className="absolute inset-y-0 left-[38%] hidden w-[30%] bg-linear-to-r from-ink via-ink/85 to-transparent lg:block" />
+      {mobileSlides.length > 0 ? (
+        <SpeciesMobileHeroCarousel
+          label={t("gallery")}
+          slides={mobileSlides}
+          speciesId={species.id}
+        />
+      ) : null}
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-[150px] bg-linear-to-b from-ink/80 to-transparent lg:h-[190px]" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[260px] bg-linear-to-t from-ink via-ink/70 to-transparent lg:h-[240px] lg:from-ink/95 lg:via-ink/40" />
+      <div className="pointer-events-none absolute inset-y-0 left-[38%] hidden w-[30%] bg-linear-to-r from-ink via-ink/85 to-transparent lg:block" />
 
       <div className="absolute inset-x-6 top-[88px] z-10 flex items-center justify-between lg:hidden">
         <Link
@@ -102,20 +132,9 @@ export async function SpeciesProfileHero({
           <ChevronLeft aria-hidden="true" className="size-4" />
           {tNav(parent.hubId)}
         </Link>
-        {gallerySrc ? (
-          <a
-            aria-label={t("viewPhotos", { count: galleryCount })}
-            className={cn(heroTopChipClassName, "px-3.5 tabular-nums")}
-            data-species-gallery-src={gallerySrc}
-            href={`#${SPECIES_SECTION_IDS.gallery}`}
-          >
-            <Camera aria-hidden="true" className="size-[15px]" />
-            {galleryCount}
-          </a>
-        ) : null}
       </div>
 
-      <div className="relative z-10 mx-auto flex h-full max-w-[1440px] flex-col justify-end px-6 pb-[38px] lg:justify-center lg:px-[60px] lg:pt-12 lg:pb-[86px]">
+      <div className="pointer-events-none relative z-10 mx-auto flex h-full max-w-[1440px] flex-col justify-end px-6 pb-[38px] lg:pointer-events-auto lg:justify-center lg:px-[60px] lg:pt-12 lg:pb-[86px]">
         <div className="lg:max-w-[600px]">
           <SpeciesBreadcrumbTrail
             ariaLabel={t("breadcrumbAria")}
@@ -135,6 +154,7 @@ export async function SpeciesProfileHero({
           <h1
             className={cn(
               "text-balance-tight mt-2 font-display font-bold tracking-[-0.015em] text-white lg:mt-3.5",
+              editable && "pointer-events-auto",
               titleSizeClass(species.commonName),
             )}
             {...contentEditorAttributes(
@@ -147,10 +167,12 @@ export async function SpeciesProfileHero({
           </h1>
           <p className="group/sci mt-1 flex min-h-11 items-center gap-1 font-display text-[16px] text-white/85 lg:mt-2 lg:text-[20px]">
             <span className="italic">{species.scientificName}</span>
-            <SpeciesScientificNameCopy
-              speciesId={species.id}
-              text={shareText}
-            />
+            <span className="pointer-events-auto">
+              <SpeciesScientificNameCopy
+                speciesId={species.id}
+                text={shareText}
+              />
+            </span>
           </p>
           <p className="mt-3 hidden max-w-[520px] text-[17px] leading-[1.6] text-white/75 lg:block">
             {species.description}
@@ -314,7 +336,7 @@ function SpeciesHeroRiskChip({
   return (
     <Link
       aria-label={ariaLabel}
-      className="inline-flex rounded-full outline-offset-4 transition-opacity hover:opacity-85 focus-visible:outline-2 focus-visible:outline-white/60"
+      className="pointer-events-auto inline-flex rounded-full outline-offset-4 transition-opacity hover:opacity-85 focus-visible:outline-2 focus-visible:outline-white/60"
       href={dangerPageHref(level)}
     >
       {chip}
