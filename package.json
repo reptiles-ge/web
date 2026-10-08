@@ -39,7 +39,7 @@
     "knip": "knip",
     "cpd": "jscpd",
     "i18n:check": "i18n-check --locales messages --source ka --format next-intl --ignore regions.regionTitle regions.speciesTitle regions.venomousTitle regions.faqIntro regions.regionMetaTitle regions.regionMetaDescription amphibianFrogs.guideP2",
-    "i18n:unused": "i18n-check --locales messages --source ka --format next-intl --only unused undefined --unused src --reporter summary",
+    "i18n:unused": "node scripts/check-i18n-unused.mjs",
     "test": "vitest run && node --import tsx --test tests/proxy-cacheability.test.ts",
     "test:watch": "vitest",
     "test:e2e": "playwright test",

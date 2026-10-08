@@ -134,7 +134,6 @@
     "eyebrow": "Tür keşfi",
     "title": "Sahada tanıyabileceğiniz türler",
     "subtitle": "Bilimsel ve yaygın adlar, risk ve saha fotoğrafları — doğrulanmış profiller.",
-    "prev": "Önceki tür",
     "next": "Sonraki tür"
   },
   "card": {
@@ -157,7 +156,6 @@
   },
   "home": {
     "proof": {
-      "aria": "Atlasa bir bakışta",
       "species": "Türler",
       "regions": "Bölgeler",
       "venomous": "Zehirli",
@@ -169,8 +167,7 @@
       "subtitle": "Zehirli yılan tanıma, tür kataloğu ve diğer hayvan grupları.",
       "yard": {
         "title": "Bahçedeki yılanlar",
-        "body": "Yılanları bahçeden nasıl uzaklaştırırsınız — ne işe yarar, ne yaramaz ve biri zaten çıktıysa ne yapılır.",
-        "cta": "Bahçe rehberi"
+        "body": "Yılanları bahçeden nasıl uzaklaştırırsınız — ne işe yarar, ne yaramaz ve biri zaten çıktıysa ne yapılır."
       },
       "venomous": {
         "title": "Gürcistan’da zehirli yılanlar",
@@ -184,53 +181,43 @@
       },
       "atlas": {
         "title": "Tür atlası",
-        "body": "Türe, yaşama ortamına, riske ve bölgeye göre süzülen tam katalog.",
-        "cta": "Türler"
+        "body": "Türe, yaşama ortamına, riske ve bölgeye göre süzülen tam katalog."
       },
       "snakes": {
         "title": "Gürcistan’daki yılanlar",
-        "body": "Yılanlara tam rehber — zehirli ve zararsız türler bir arada.",
-        "cta": "Yılanlar"
+        "body": "Yılanlara tam rehber — zehirli ve zararsız türler bir arada."
       },
       "quiz": {
         "title": "Bu hangi yılan?",
-        "body": "Gürcistan yılanları fotoğraf quizi — dört seçenek, anında geri bildirim, hesap yok.",
-        "cta": "Quiz’e başla"
+        "body": "Gürcistan yılanları fotoğraf quizi — dört seçenek, anında geri bildirim, hesap yok."
       },
       "lizards": {
         "title": "Gürcistan’daki kertenkeleler",
-        "body": "Darevskia, Kafkas agaması ve cam kertenkele — katalogdan tam profillere.",
-        "cta": "Kertenkeleler"
+        "body": "Darevskia, Kafkas agaması ve cam kertenkele — katalogdan tam profillere."
       },
       "amphibians": {
         "title": "Gürcistan’daki amfibiler",
-        "body": "Kontrol listesinden 12 tür — kurbağalar ve semenderler ayrı rehberlerde.",
-        "cta": "Amfibiler"
+        "body": "Kontrol listesinden 12 tür — kurbağalar ve semenderler ayrı rehberlerde."
       },
       "turtles": {
         "title": "Gürcistan’daki kaplumbağalar",
-        "body": "Bir kara kaplumbağası, iki yerli tatlısu kaplumbağası ve getirilmiş kırmızı yanaklı.",
-        "cta": "Kaplumbağalar"
+        "body": "Bir kara kaplumbağası, iki yerli tatlısu kaplumbağası ve getirilmiş kırmızı yanaklı."
       },
       "birds": {
         "title": "Gürcistan’daki kuşlar",
-        "body": "Adı geçen kaynaklı tür profilleri — henüz tam ulusal liste değil.",
-        "cta": "Kuşlar"
+        "body": "Adı geçen kaynaklı tür profilleri — henüz tam ulusal liste değil."
       },
       "mammals": {
         "title": "Gürcistan’daki memeliler",
-        "body": "Adı geçen kaynaklı tür profilleri — henüz tam ulusal liste değil.",
-        "cta": "Memeliler"
+        "body": "Adı geçen kaynaklı tür profilleri — henüz tam ulusal liste değil."
       },
       "spiders": {
         "title": "Gürcistan’daki örümcekler",
-        "body": "Kaynaklı profiller, fotoğraflar, tanıma ve güvenlik rehberleriyle.",
-        "cta": "Örümcekler"
+        "body": "Kaynaklı profiller, fotoğraflar, tanıma ve güvenlik rehberleriyle."
       },
       "insects": {
         "title": "Gürcistan’daki böcekler",
-        "body": "Taksonomi, tanıma, yaşam alanı ve kaynaklarla yayımlanmış böcek profilleri.",
-        "cta": "Böcekler"
+        "body": "Taksonomi, tanıma, yaşam alanı ve kaynaklarla yayımlanmış böcek profilleri."
       }
     },
     "groups": {
@@ -286,9 +273,7 @@
       "bite": "Yılan ısırığı"
     },
     "regions": {
-      "eyebrow": "Yer önemlidir",
-      "title": "Gürcistan’ın üç bölgesinden başlayın",
-      "imageAlt": "{name} — bölgesel peyzaj"
+      "title": "Gürcistan’ın üç bölgesinden başlayın"
     },
     "seo": {
       "eyebrow": "Dijital atlas",
@@ -441,7 +426,6 @@
     "interaction": "İnsanla etkileşim",
     "readMore": "Devamını oku",
     "readLess": "Daha az göster",
-    "facts": "İlginç bilgiler",
     "identification": "Tanıma",
     "identificationTitle": "{name} nasıl tanınır",
     "voice": "Ses",

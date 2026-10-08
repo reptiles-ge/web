@@ -212,7 +212,7 @@ npm run doctor:changed   # only issues introduced vs the base branch
 npm run doctor:check     # fails unless the React Doctor score is exactly 100
 npm run species:compile
 npm run i18n:check       # locale key parity + ICU argument check (KA is the source)
-npm run i18n:unused      # report only: dynamic keys show up as false positives
+npm run i18n:unused      # fails on any unused key; filters i18n-check's dynamic-key false positives
 npm run cpd              # jscpd copy-paste scan, fails on any clone (threshold 0)
 ```
 

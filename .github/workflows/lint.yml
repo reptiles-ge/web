@@ -37,6 +37,8 @@ jobs:
 
       - run: pnpm i18n:check
 
+      - run: pnpm i18n:unused
+
       - run: pnpm cpd
 
       - run: pnpm doctor:check
