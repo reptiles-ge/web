@@ -114,6 +114,39 @@ describe("occurrenceStatusForCount", () => {
     });
   });
 
+  it("counts iNaturalist records only for trusted sources or hostnames", () => {
+    const count = (url?: string, source?: string) =>
+      getHalyomorphaOccurrenceSummary(
+        [
+          {
+            accessibleLabel: "Test record",
+            id: "test-record",
+            imageAlt: "Test record",
+            kind: "location",
+            lat: 41.7,
+            lng: 44.8,
+            locality: "Tbilisi",
+            source,
+            url,
+          },
+        ],
+        "en",
+      ).iNaturalistRecordCount;
+
+    expect(count("https://inaturalist.org/observations/123")).toBe(1);
+    expect(count("https://www.inaturalist.org/observations/123")).toBe(1);
+    expect(count("https://INATURALIST.ORG/observations/123")).toBe(1);
+    expect(count("https://inaturalist.org.evil.example/observations/123")).toBe(
+      0,
+    );
+    expect(count("https://evil.example/inaturalist.org")).toBe(0);
+    expect(count("https://inaturalist.org@evil.example/observations/123")).toBe(
+      0,
+    );
+    expect(count("not a URL with inaturalist.org")).toBe(0);
+    expect(count(undefined, "iNaturalist")).toBe(1);
+  });
+
   it("uses only confirmed Zamenis regions as distribution", () => {
     const species = getSpeciesById("zamenis-hohenackeri");
     expect(species).toBeDefined();

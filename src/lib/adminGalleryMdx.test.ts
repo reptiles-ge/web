@@ -586,6 +586,33 @@ commonName: ტესტი
           root,
         ),
       ).toThrow(/last gallery photo/);
+      expect(fs.readFileSync(path.join(dir, "ka.mdx"), "utf8")).toContain(
+        'src: "https://cdn.reptiles.ge/a.jpg"',
+      );
+    } finally {
+      fs.rmSync(root, { force: true, recursive: true });
+    }
+  });
+
+  it("rejects a symlink without modifying its target", () => {
+    const root = fs.mkdtempSync(
+      path.join(os.tmpdir(), "reptiles-admin-remove-link-"),
+    );
+    try {
+      const dir = path.join(root, "src/content/species/test-species");
+      fs.mkdirSync(dir, { recursive: true });
+      const target = path.join(root, "target.mdx");
+      fs.writeFileSync(target, FIXTURE, "utf8");
+      fs.symlinkSync(target, path.join(dir, "ka.mdx"));
+
+      expect(() =>
+        removeGalleryItemFromSpecies(
+          "test-species",
+          "https://cdn.reptiles.ge/a.jpg",
+          root,
+        ),
+      ).toThrow();
+      expect(fs.readFileSync(target, "utf8")).toBe(FIXTURE);
     } finally {
       fs.rmSync(root, { force: true, recursive: true });
     }
@@ -660,6 +687,49 @@ commonName: ტესტი
       expect(removed.image).toBe("https://cdn.reptiles.ge/b.jpg");
       expect(removed.mobileImage).toBe("https://cdn.reptiles.ge/b.jpg");
     } finally {
+      fs.rmSync(root, { force: true, recursive: true });
+    }
+  });
+});
+
+describe("setCoverInSpecies", () => {
+  it("writes to the opened file when its path is replaced", () => {
+    const root = fs.mkdtempSync(
+      path.join(os.tmpdir(), "reptiles-admin-cover-race-"),
+    );
+    const dir = path.join(root, "src/content/species/test-species");
+    fs.mkdirSync(dir, { recursive: true });
+    const kaPath = path.join(dir, "ka.mdx");
+    const movedPath = path.join(dir, "moved.mdx");
+    fs.writeFileSync(kaPath, COVER_FIXTURE, "utf8");
+    const open = fs.openSync;
+    let swapped = false;
+    const spy = vi
+      .spyOn(fs, "openSync")
+      .mockImplementation((file, flags, mode) => {
+        const fd = open(file, flags, mode);
+        if (file === kaPath) {
+          fs.renameSync(kaPath, movedPath);
+          fs.writeFileSync(kaPath, COVER_FIXTURE, "utf8");
+          swapped = true;
+        }
+        return fd;
+      });
+
+    try {
+      setCoverInSpecies(
+        "test-species",
+        "desktop",
+        "https://cdn.reptiles.ge/a.jpg",
+        root,
+      );
+      expect(swapped).toBe(true);
+      expect(fs.readFileSync(kaPath, "utf8")).toBe(COVER_FIXTURE);
+      expect(matter(fs.readFileSync(movedPath, "utf8")).data.image).toBe(
+        "https://cdn.reptiles.ge/a.jpg",
+      );
+    } finally {
+      spy.mockRestore();
       fs.rmSync(root, { force: true, recursive: true });
     }
   });

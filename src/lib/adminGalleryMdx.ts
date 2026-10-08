@@ -45,12 +45,12 @@ export function isSpeciesContentId(id: string) {
 function rewriteMdxIfExists(
   filePath: string,
   transform: (raw: string) => string,
-): boolean {
+): undefined | { next: string; raw: string } {
   let fd: number;
   try {
     fd = fs.openSync(filePath, fs.constants.O_RDWR | fs.constants.O_NOFOLLOW);
   } catch (error) {
-    if ((error as NodeJS.ErrnoException).code === "ENOENT") return false;
+    if ((error as NodeJS.ErrnoException).code === "ENOENT") return;
     throw error;
   }
   try {
@@ -59,25 +59,26 @@ function rewriteMdxIfExists(
     }
     const raw = fs.readFileSync(fd, "utf8");
     const next = transform(raw);
-    if (next === raw) return true;
-    const bytes = Buffer.from(next);
-    let position = 0;
-    while (position < bytes.length) {
-      const written = fs.writeSync(
-        fd,
-        bytes,
-        position,
-        bytes.length - position,
-        position,
-      );
-      if (written === 0) throw new Error(`Failed to write ${filePath}`);
-      position += written;
+    if (next !== raw) {
+      const bytes = Buffer.from(next, "utf8");
+      let offset = 0;
+      while (offset < bytes.length) {
+        const written = fs.writeSync(
+          fd,
+          bytes,
+          offset,
+          bytes.length - offset,
+          offset,
+        );
+        if (written === 0) throw new Error(`Failed to write ${filePath}`);
+        offset += written;
+      }
+      fs.ftruncateSync(fd, bytes.length);
     }
-    fs.ftruncateSync(fd, bytes.length);
+    return { next, raw };
   } finally {
     fs.closeSync(fd);
   }
-  return true;
 }
 
 function speciesContentDir(id: string) {
@@ -309,46 +310,46 @@ export function removeGalleryItemFromSpecies(
   }
   const dir = path.join(repoRoot, "src/content/species", id);
   const kaPath = path.join(dir, "ka.mdx");
-  const state: {
-    coverTarget: CoverTarget | null;
-    replacement: GalleryImage | null;
-    written: null | { image?: unknown; mobileImage?: unknown };
-  } = { coverTarget: null, replacement: null, written: null };
-  if (
-    !rewriteMdxIfExists(kaPath, (kaRaw) => {
-      const kaData = matter(kaRaw).data as {
-        gallery?: unknown;
-        image?: unknown;
-        mobileImage?: unknown;
-      };
-      const gallery = normalizeGallery(kaData.gallery);
-      if (!gallery.some((item) => item.src === src)) {
-        throw new Error(`Unknown gallery src: ${src}`);
-      }
-      const replacement = galleryReplacement(gallery, src);
-      if (!replacement) {
-        throw new Error("Cannot delete the last gallery photo");
-      }
-      state.replacement = replacement;
-      state.coverTarget = coverTargetForSrc(
-        typeof kaData.image === "string" ? kaData.image : "",
-        typeof kaData.mobileImage === "string" ? kaData.mobileImage : "",
-        src,
-      );
-      let nextKa = removeGalleryItemFromMdx(kaRaw, src);
-      if (state.coverTarget) {
-        nextKa = setCoverInMdx(nextKa, state.coverTarget, replacement);
-      }
-      state.written = matter(nextKa).data;
-      return nextKa;
-    })
-  ) {
+  const rewritten = rewriteMdxIfExists(kaPath, (raw) => {
+    const data = matter(raw).data as {
+      gallery?: unknown;
+      image?: unknown;
+      mobileImage?: unknown;
+    };
+    const gallery = normalizeGallery(data.gallery);
+    if (!gallery.some((item) => item.src === src)) {
+      throw new Error(`Unknown gallery src: ${src}`);
+    }
+    const replacement = galleryReplacement(gallery, src);
+    if (!replacement) {
+      throw new Error("Cannot delete the last gallery photo");
+    }
+    const coverTarget = coverTargetForSrc(
+      typeof data.image === "string" ? data.image : "",
+      typeof data.mobileImage === "string" ? data.mobileImage : "",
+      src,
+    );
+    const next = removeGalleryItemFromMdx(raw, src);
+    return coverTarget ? setCoverInMdx(next, coverTarget, replacement) : next;
+  });
+  if (!rewritten) {
     throw new Error(`Missing ${id}/ka.mdx`);
   }
-  const { coverTarget, replacement, written } = state;
-  if (!replacement || !written) {
-    throw new Error("Failed to remove gallery photo");
+  const { next: nextKa, raw: kaRaw } = rewritten;
+  const kaData = matter(kaRaw).data as {
+    gallery?: unknown;
+    image?: unknown;
+    mobileImage?: unknown;
+  };
+  const replacement = galleryReplacement(normalizeGallery(kaData.gallery), src);
+  if (!replacement) {
+    throw new Error("Cannot delete the last gallery photo");
   }
+  const coverTarget = coverTargetForSrc(
+    typeof kaData.image === "string" ? kaData.image : "",
+    typeof kaData.mobileImage === "string" ? kaData.mobileImage : "",
+    src,
+  );
 
   for (const locale of OVERLAY_LOCALES) {
     const filePath = path.join(dir, `${locale}.mdx`);
@@ -379,6 +380,10 @@ export function removeGalleryItemFromSpecies(
     });
   }
 
+  const written = matter(nextKa).data as {
+    image?: unknown;
+    mobileImage?: unknown;
+  };
   return {
     coverReassigned: Boolean(coverTarget),
     image: typeof written.image === "string" ? written.image : "",
@@ -519,39 +524,35 @@ export function setCoverInSpecies(
   }
   const dir = path.join(repoRoot, "src/content/species", id);
   const kaPath = path.join(dir, "ka.mdx");
-  if (!fs.existsSync(kaPath)) {
+  if (
+    !rewriteMdxIfExists(kaPath, (kaRaw) => {
+      const kaItem = normalizeGallery(matter(kaRaw).data.gallery).find(
+        (item) => item.src === src,
+      );
+      if (!kaItem) {
+        throw new Error(`Unknown gallery src: ${src}`);
+      }
+      return setCoverInMdx(kaRaw, target, { ...kaItem, src: coverSrc });
+    })
+  ) {
     throw new Error(`Missing ${id}/ka.mdx`);
   }
-  const kaRaw = fs.readFileSync(kaPath, "utf8");
-  const kaItem = normalizeGallery(matter(kaRaw).data.gallery).find(
-    (item) => item.src === src,
-  );
-  if (!kaItem) {
-    throw new Error(`Unknown gallery src: ${src}`);
-  }
-  fs.writeFileSync(
-    kaPath,
-    setCoverInMdx(kaRaw, target, { ...kaItem, src: coverSrc }),
-    "utf8",
-  );
 
   for (const locale of OVERLAY_LOCALES) {
     const filePath = path.join(dir, `${locale}.mdx`);
-    if (!fs.existsSync(filePath)) continue;
-    const raw = fs.readFileSync(filePath, "utf8");
-    const parsed = matter(raw);
-    const overlay = normalizeGallery(parsed.data.gallery).find(
-      (item) => item.src === src,
-    );
-    const item: GalleryImage = overlay?.credit
-      ? { credit: overlay.credit, src: coverSrc }
-      : { src: coverSrc };
-    const hasKeys = coverKeysPresent(
-      parsed.data as Record<string, unknown>,
-      target,
-    );
-    if (!hasKeys) continue;
-    fs.writeFileSync(filePath, setCoverInMdx(raw, target, item, false), "utf8");
+    rewriteMdxIfExists(filePath, (raw) => {
+      const parsed = matter(raw);
+      if (!coverKeysPresent(parsed.data as Record<string, unknown>, target)) {
+        return raw;
+      }
+      const overlay = normalizeGallery(parsed.data.gallery).find(
+        (item) => item.src === src,
+      );
+      const item: GalleryImage = overlay?.credit
+        ? { credit: overlay.credit, src: coverSrc }
+        : { src: coverSrc };
+      return setCoverInMdx(raw, target, item, false);
+    });
   }
 }
 
