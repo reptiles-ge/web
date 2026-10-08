@@ -225,6 +225,9 @@ const AI_REFERRERS = [
   "bing/chat",
 ];
 
+const SERP_LOCATION_CODE = 2268;
+const SERP_LANGUAGE_CODE = "ka";
+
 const cacheRoot = path.join(process.cwd(), ".seo/cache");
 const reportRoot = path.join(process.cwd(), ".seo/reports");
 
@@ -983,17 +986,16 @@ async function collectSerp(query: string) {
       "/v3/serp/google/languages",
     ),
   ]);
-  const location = locations.find(
+  const hasLocation = locations.some(
     (item) =>
       item.country_iso_code === "GE" &&
+      item.location_code === SERP_LOCATION_CODE &&
       String(item.location_name ?? "").toLowerCase() === "georgia",
   );
-  const language = languages.find(
-    (item) =>
-      item.language_code === "ka" ||
-      String(item.language_name ?? "").toLowerCase() === "georgian",
+  const hasLanguage = languages.some(
+    (item) => item.language_code === SERP_LANGUAGE_CODE,
   );
-  if (!location?.location_code || !language?.language_code) {
+  if (!hasLocation || !hasLanguage) {
     throw new Error(
       "DataForSEO did not return a verified Georgia + Georgian configuration.",
     );
@@ -1001,8 +1003,8 @@ async function collectSerp(query: string) {
   const task = {
     depth: 20,
     keyword: query,
-    language_code: language.language_code,
-    location_code: location.location_code,
+    language_code: SERP_LANGUAGE_CODE,
+    location_code: SERP_LOCATION_CODE,
   };
   return cachedJson({
     fetcher: () =>
