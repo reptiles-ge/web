@@ -91,6 +91,7 @@ describe("region speciesIds", () => {
     "procyon-lotor",
     "vipera-renardi",
     "zamenis-longissimus",
+    "xerotyphlops-vermicularis",
   ])("lists %s only where the record table confirms distribution", (id) => {
     const species = getSpeciesById(id);
     expect(species).toBeDefined();

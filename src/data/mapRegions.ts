@@ -579,6 +579,7 @@ export const regions: Region[] = [
       "eryx-jaculus",
       "eirenis-modestus",
       "eirenis-collaris",
+      "xerotyphlops-vermicularis",
       "paralaudakia-caucasia",
       "lissotriton-lantzi",
       "pelobates-syriacus",
