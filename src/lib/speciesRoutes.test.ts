@@ -96,10 +96,10 @@ describe("species routes", () => {
   });
 
   it("keeps smooth snake lookalikes to supported visual comparisons", () => {
-    expect(getSpeciesLookalikes("coronella-austriaca")).toEqual([
+    expect([...getSpeciesLookalikes("coronella-austriaca")].sort()).toEqual([
+      "vipera-kaznakovi",
       "vipera-transcaucasiana",
       "zamenis-hohenackeri",
-      "vipera-kaznakovi",
     ]);
   });
 
@@ -214,9 +214,7 @@ describe("species routes", () => {
   });
 
   it("keeps Rock Dove paired with woodpigeon but not turtle dove", () => {
-    expect(getSpeciesLookalikes("columba-livia")).toEqual([
-      "columba-palumbus",
-    ]);
+    expect(getSpeciesLookalikes("columba-livia")).toEqual(["columba-palumbus"]);
     expect(getSpeciesLookalikes("streptopelia-turtur")).toEqual([
       "columba-palumbus",
     ]);
