@@ -1,4 +1,5 @@
-import { afterEach, describe, expect, it, vi } from "vitest";
+import { http, HttpResponse } from "msw";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import { getSpeciesById } from "@/data/species";
 import { getVenomousCatalogSpecies } from "@/data/speciesAtlas";
@@ -22,6 +23,8 @@ import {
   speciesSeoKeywords,
 } from "@/lib/seoKeywords";
 import { getSpeciesRiskChip, usesDangerScale } from "@/lib/speciesRisk";
+
+import { recordRequests, server } from "../../tests/msw/server";
 
 afterEach(() => {
   vi.unstubAllGlobals();
@@ -172,54 +175,66 @@ describe("occurrence summaries", () => {
 });
 
 describe("loadHalyomorphaOccurrences", () => {
+  beforeEach(() => {
+    const interceptedFetch = globalThis.fetch;
+    vi.stubGlobal("fetch", (input: RequestInfo | URL, init?: RequestInit) =>
+      interceptedFetch(
+        typeof input === "string" ? new URL(input, "http://site.test") : input,
+        init,
+      ),
+    );
+  });
+
   it("fetches once per URL and flattens the region records", async () => {
-    const fetchMock = vi.fn().mockResolvedValue({
-      json: async () => ({
-        regions: {
-          imereti: { records: [{ id: 3 }] },
-          kakheti: { records: [{ id: 1 }, { id: 2 }] },
-        },
+    let calls = 0;
+    server.use(
+      http.get("http://site.test/data/occurrences/species-a/en.json", () => {
+        calls += 1;
+        return HttpResponse.json({
+          regions: {
+            imereti: { records: [{ id: 3 }] },
+            kakheti: { records: [{ id: 1 }, { id: 2 }] },
+          },
+        });
       }),
-      ok: true,
-    });
-    vi.stubGlobal("fetch", fetchMock);
+    );
     const first = await loadHalyomorphaOccurrences("species-a", "en", "r1");
     const second = await loadHalyomorphaOccurrences("species-a", "en", "r1");
     expect(first).toHaveLength(3);
     expect(second).toBe(first);
-    expect(fetchMock).toHaveBeenCalledTimes(1);
-    expect(fetchMock.mock.calls[0][0]).toBe(
-      "/data/occurrences/species-a/en.json?v=r1",
-    );
+    expect(calls).toBe(1);
   });
 
   it("forgets a failed request so it can be retried", async () => {
-    const fetchMock = vi
-      .fn()
-      .mockResolvedValueOnce({ ok: false })
-      .mockResolvedValueOnce({
-        json: async () => ({ regions: {} }),
-        ok: true,
-      });
-    vi.stubGlobal("fetch", fetchMock);
+    let calls = 0;
+    server.use(
+      http.get("http://site.test/data/occurrences/species-b/ka.json", () => {
+        calls += 1;
+        return calls === 1
+          ? new HttpResponse(null, { status: 500 })
+          : HttpResponse.json({ regions: {} });
+      }),
+    );
     await expect(
       loadHalyomorphaOccurrences("species-b", "ka", "r1"),
     ).rejects.toThrow("Occurrence request failed");
     await expect(
       loadHalyomorphaOccurrences("species-b", "ka", "r1"),
     ).resolves.toEqual([]);
-    expect(fetchMock).toHaveBeenCalledTimes(2);
+    expect(calls).toBe(2);
   });
 
   it("encodes the species id and revision in the URL", async () => {
-    const fetchMock = vi.fn().mockResolvedValue({
-      json: async () => ({ regions: {} }),
-      ok: true,
-    });
-    vi.stubGlobal("fetch", fetchMock);
+    const requests = recordRequests();
+    server.use(
+      http.get("http://site.test/data/occurrences/:id/ru.json", () =>
+        HttpResponse.json({ regions: {} }),
+      ),
+    );
     await loadHalyomorphaOccurrences("a b", "ru", "x&y");
-    expect(fetchMock.mock.calls[0][0]).toBe(
-      "/data/occurrences/a%20b/ru.json?v=x%26y",
+    requests.stop();
+    expect(requests.urls[0]).toBe(
+      "http://site.test/data/occurrences/a%20b/ru.json?v=x%26y",
     );
   });
 });

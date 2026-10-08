@@ -7,6 +7,7 @@ import type {
 
 import { getPathname } from "@/i18n/navigation";
 import { type AppLocale, routing } from "@/i18n/routing";
+import { publicEnv } from "@/lib/env";
 import { quizHref } from "@/lib/quizzes";
 import { speciesHref } from "@/lib/speciesRoutes";
 
@@ -34,23 +35,17 @@ export function absoluteUrl(path = "/") {
 }
 
 function getSiteUrl() {
-  const fromEnv = process.env.NEXT_PUBLIC_SITE_URL;
-  const production =
-    process.env.VERCEL_ENV === "production" ||
-    process.env.NODE_ENV === "production";
+  const { NEXT_PUBLIC_SITE_URL, NODE_ENV, VERCEL_ENV } = publicEnv();
+  const production = VERCEL_ENV === "production" || NODE_ENV === "production";
 
-  if (fromEnv) {
-    const withProtocol = fromEnv.startsWith("http")
-      ? fromEnv
-      : `https://${fromEnv}`;
-    const cleaned = withProtocol.replace(/\/$/, "");
-    if (production && isLocalhostOrigin(cleaned)) {
+  if (NEXT_PUBLIC_SITE_URL) {
+    if (production && isLocalhostOrigin(NEXT_PUBLIC_SITE_URL)) {
       return "https://reptiles.ge";
     }
-    return cleaned;
+    return NEXT_PUBLIC_SITE_URL;
   }
 
-  if (process.env.NODE_ENV === "development") {
+  if (NODE_ENV === "development") {
     return "http://localhost:3333";
   }
 
