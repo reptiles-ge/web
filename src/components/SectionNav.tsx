@@ -134,7 +134,7 @@ export function SectionNav({
     <nav
       aria-label={ariaLabel}
       className={cn(
-        "top-[75px] z-30 border-y border-border bg-background/95 backdrop-blur-xl",
+        "top-[75px] z-30 border-y border-border bg-surface/95 backdrop-blur-xl",
         floating
           ? "fixed inset-x-0 transition-[opacity,translate] duration-300 ease-out"
           : "sticky",
@@ -143,7 +143,7 @@ export function SectionNav({
       inert={!shown}
       ref={navRef}
     >
-      <div className="mx-auto flex h-12 max-w-[1400px] items-center lg:px-10">
+      <div className="mx-auto flex h-14 max-w-[1440px] items-center lg:px-[60px]">
         {name ? (
           <div
             aria-hidden="true"
@@ -168,7 +168,7 @@ export function SectionNav({
         ) : null}
         <div className="relative h-full min-w-0 flex-1 lg:-ml-3">
           <ul
-            className="flex h-full scrollbar-none items-center overflow-x-auto px-3 text-[13px] leading-none lg:px-0 [&::-webkit-scrollbar]:hidden"
+            className="flex h-full scrollbar-none items-center gap-1.5 overflow-x-auto px-4 text-[13.5px] leading-none lg:px-0 [&::-webkit-scrollbar]:hidden"
             ref={listRef}
           >
             {items.map((item) => {
@@ -179,10 +179,10 @@ export function SectionNav({
                   <a
                     aria-current={active ? "location" : undefined}
                     className={cn(
-                      "flex h-8 items-center rounded-full px-3 font-medium whitespace-nowrap transition-colors duration-200",
+                      "flex h-10 items-center rounded-full px-[15px] font-medium whitespace-nowrap transition-colors duration-200",
                       active
-                        ? "bg-foreground/8 text-foreground"
-                        : "text-foreground/65 hover:text-primary",
+                        ? "bg-foreground text-background"
+                        : "bg-card text-foreground hover:text-primary",
                     )}
                     data-section={item.id}
                     href={`#${item.id}`}
@@ -196,14 +196,14 @@ export function SectionNav({
           <span
             aria-hidden="true"
             className={cn(
-              "pointer-events-none absolute inset-y-0 left-0 w-10 bg-linear-to-l from-transparent to-background transition-opacity duration-200",
+              "pointer-events-none absolute inset-y-0 left-0 w-10 bg-linear-to-l from-transparent to-surface transition-opacity duration-200",
               fade.start ? "opacity-100" : "opacity-0",
             )}
           />
           <span
             aria-hidden="true"
             className={cn(
-              "pointer-events-none absolute inset-y-0 right-0 w-10 bg-linear-to-r from-transparent to-background transition-opacity duration-200",
+              "pointer-events-none absolute inset-y-0 right-0 w-10 bg-linear-to-r from-transparent to-surface transition-opacity duration-200",
               fade.end ? "opacity-100" : "opacity-0",
             )}
           />

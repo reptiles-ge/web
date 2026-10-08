@@ -3,13 +3,14 @@ import { getTranslations } from "next-intl/server";
 import type { AppLocale } from "@/i18n/routing";
 
 import { SpeciesPageAnalysis } from "@/components/admin/SpeciesPageAnalysis";
+import { SpeciesActionBar } from "@/components/SpeciesActionBar";
 import { SpeciesProfileBody } from "@/components/SpeciesProfileBody";
 import { SpeciesProfileHero } from "@/components/SpeciesProfileHero";
 import { SpeciesViewTracker } from "@/components/SpeciesViewTracker";
 import { getRegionsForSpecies } from "@/data/mapRegions";
 import { optimizedImgSrc, pictureSources } from "@/data/optimizedImages";
 import { type Species } from "@/data/species";
-import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
+import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlas";
 import { resolvePhotoCredit } from "@/data/speciesMedia";
 import { isLocalAdminEnabled } from "@/lib/adminAccess";
 import { getHubIndexTitleKey } from "@/lib/clusterGuides";
@@ -28,6 +29,7 @@ import {
 import { getSpeciesProfileGuideLinks } from "@/lib/speciesGuideLinks";
 import { speciesPhotoAlt } from "@/lib/speciesMeta";
 import { usesDangerScale } from "@/lib/speciesRisk";
+import { speciesShareMessage } from "@/lib/speciesShareText";
 
 type SpeciesProfileProps = {
   locale: AppLocale;
@@ -128,6 +130,22 @@ export async function SpeciesProfile({
   const group = getSpeciesAtlasMeta(species.id).group;
   const displayStats = filterDisplayStats(species.stats, group);
   const dangerValue = species.danger ? tDanger(species.danger) : null;
+  const emergency = usesDangerScale(group) && isVenomousDanger(species.danger);
+  const shareText = speciesShareMessage({
+    commonName: species.commonName,
+    danger: species.danger,
+    group,
+    id: species.id,
+    labels: {
+      details: t("copyShareDetails"),
+      harmless: t("copyShareHarmless"),
+      rearFanged: t("copyShareRearFanged"),
+      venomous: t("copyShareVenomous"),
+    },
+    locale,
+    scientificName: species.scientificName,
+  });
+  const gallerySrc = primary ? optimizedImgSrc(primary.src, 1200) : null;
   const linkDangerStats = usesDangerScale(group) && Boolean(species.danger);
   const hasRange =
     getRegionsForSpecies(species.id).length > 0 || hasFieldRecords(species.id);
@@ -170,9 +188,10 @@ export async function SpeciesProfile({
       <SpeciesProfileHero
         breadcrumbs={breadcrumbs}
         desktopHeroSrc={desktopHeroSrc}
+        emergency={emergency}
         galleryCount={gallery.length}
         galleryPreview={getSpeciesGalleryPreview(species)}
-        gallerySrc={primary ? optimizedImgSrc(primary.src, 1200) : null}
+        gallerySrc={gallerySrc}
         group={group}
         heroDesktopSources={heroDesktopSources}
         heroPrimarySources={heroPrimarySources}
@@ -180,6 +199,7 @@ export async function SpeciesProfile({
         locale={locale}
         mobileHeroSrc={mobileHeroSrc}
         mobileImageAlt={mobileImageAlt}
+        shareText={shareText}
         species={species}
       />
       <SpeciesProfileBody
@@ -191,12 +211,22 @@ export async function SpeciesProfile({
         gallery={gallery}
         guideLinks={guideLinks}
         hasRange={hasRange}
+        heroCredit={mobileHeroCredit}
         linkDangerStats={linkDangerStats}
         locale={locale}
         lookalikes={lookalikes}
         related={related}
         showIdentification={showIdentification}
         species={species}
+      />
+      <SpeciesActionBar
+        emergency={emergency}
+        galleryCount={gallery.length}
+        gallerySrc={gallerySrc}
+        locale={locale}
+        shareText={shareText}
+        shareTitle={species.commonName}
+        speciesId={species.id}
       />
       {localAdmin ? (
         <SpeciesPageAnalysis

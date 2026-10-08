@@ -115,7 +115,7 @@ export async function SpeciesGallery({
     >
       <section
         className={cn(
-          "py-24 lg:py-32",
+          "py-11 lg:py-20",
           tone === "surface" ? "bg-surface" : "bg-background",
         )}
       >

@@ -33,7 +33,7 @@ export async function SpeciesProfileRelated({
   const insects = labelVariant === "otherInsects";
 
   return (
-    <section className="border-t border-border bg-background py-20 lg:py-28">
+    <section className="border-t border-border bg-background py-11 lg:py-20">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="flex items-end justify-between gap-6">
           <div>

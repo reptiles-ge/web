@@ -1,6 +1,6 @@
 "use client";
 
-import { Check, Copy } from "lucide-react";
+import { Check, Copy, Share } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 
@@ -8,9 +8,13 @@ import { trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
 
 export function SpeciesScientificNameCopy({
+  className,
+  shareTitle,
   speciesId,
   text,
 }: {
+  className?: string;
+  shareTitle?: string;
   speciesId: string;
   text: string;
 }) {
@@ -28,6 +32,10 @@ export function SpeciesScientificNameCopy({
 
   async function onCopy() {
     try {
+      if (shareTitle && typeof navigator.share === "function") {
+        await navigator.share({ text, title: shareTitle });
+        return;
+      }
       await navigator.clipboard.writeText(text);
     } catch {
       return;
@@ -41,14 +49,18 @@ export function SpeciesScientificNameCopy({
     timeoutRef.current = window.setTimeout(() => setCopied(false), 2000);
   }
 
-  const label = copied ? t("copiedSpecies") : t("copySpecies");
+  const idleLabel = shareTitle ? t("share") : t("copySpecies");
+  const label = copied ? t("copiedSpecies") : idleLabel;
+  const Icon = shareTitle ? Share : Copy;
 
   return (
     <button
       aria-label={label}
       className={cn(
-        "not-italic inline-flex size-8 shrink-0 items-center justify-center rounded-full text-white/35 transition-colors hover:bg-white/10 hover:text-white/80 focus-visible:text-white/80 focus-visible:outline-2 focus-visible:outline-white/50 group-hover/sci:text-white/70",
-        copied && "text-white/80",
+        "inline-flex shrink-0 items-center justify-center rounded-full not-italic transition-colors focus-visible:outline-2",
+        className ??
+          "size-11 text-white/55 group-hover/sci:text-white/80 hover:bg-white/10 hover:text-white focus-visible:text-white focus-visible:outline-white/50",
+        copied && !className && "text-white",
       )}
       onClick={onCopy}
       title={label}
@@ -57,7 +69,7 @@ export function SpeciesScientificNameCopy({
       {copied ? (
         <Check aria-hidden="true" className="size-3.5" strokeWidth={2} />
       ) : (
-        <Copy aria-hidden="true" className="size-3.5" strokeWidth={2} />
+        <Icon aria-hidden="true" className="size-3.5" strokeWidth={2} />
       )}
       <span aria-live="polite" className="sr-only">
         {copied ? t("copiedSpecies") : ""}

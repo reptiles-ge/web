@@ -1,5 +1,7 @@
+import { ChevronDown } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
+import type { DangerLevel } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
@@ -20,9 +22,11 @@ import {
 } from "@/data/speciesTypes";
 import { isLocalAdminEnabled } from "@/lib/adminAccess";
 import { cn } from "@/lib/cn";
+import { dangerLevelTone } from "@/lib/dangerLevels";
 import { IDENTIFICATION_PHOTO_SIZES } from "@/lib/imageSizes";
 import { getSpeciesCoverSrc } from "@/lib/speciesContent";
 import { splitSpeciesInlineLinks } from "@/lib/speciesInlineLinks";
+import { getSpeciesRiskChip } from "@/lib/speciesRisk";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 
 type SpeciesIdentificationProps = {
@@ -37,6 +41,8 @@ type SpeciesIdentificationProps = {
 
 const inlineSpeciesLinkClassName =
   "font-medium text-primary underline decoration-primary/30 underline-offset-4 transition-colors hover:decoration-primary";
+const LOOKALIKE_COVER_SIZES = "(max-width: 1023px) 264px, 420px";
+const TRAITS_VISIBLE_COUNT = 3;
 
 export async function SpeciesIdentification({
   identification,
@@ -47,73 +53,41 @@ export async function SpeciesIdentification({
   photoAlt,
   speciesId,
 }: SpeciesIdentificationProps) {
-  const t = await getTranslations({ locale, namespace: "profile" });
+  const [t, tDanger] = await Promise.all([
+    getTranslations({ locale, namespace: "profile" }),
+    getTranslations({ locale, namespace: "danger" }),
+  ]);
   const editable = locale === "ka" && isLocalAdminEnabled();
 
   return (
-    <section className="bg-background py-20 lg:py-28">
+    <section className="bg-background py-11 lg:py-20">
       <div
         className={cn(
-          "mx-auto max-w-[1400px] px-6 lg:px-10",
+          "mx-auto max-w-[1440px] px-6 lg:px-[60px]",
           photo &&
-            "lg:grid lg:grid-cols-[minmax(0,1fr)_22rem] lg:gap-14 xl:grid-cols-[minmax(0,1fr)_28rem] xl:gap-16 2xl:grid-cols-[minmax(0,1fr)_32rem] 2xl:gap-20",
+            "lg:grid lg:grid-cols-[minmax(0,520px)_minmax(0,1fr)] lg:gap-x-16",
         )}
       >
-        <div className="min-w-0">
+        <div className="min-w-0 lg:col-start-2 lg:row-start-1 lg:self-end">
           <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
             {t("identification")}
           </p>
           <AnchoredHeading
             anchorLabel={t("anchorLink")}
-            className="mt-5 max-w-3xl font-display text-display-title font-bold"
+            className="mt-3 max-w-3xl font-display text-[28px] leading-[1.15] font-semibold tracking-[-0.012em] lg:mt-4 lg:text-[44px] lg:leading-[1.1]"
             id={SPECIES_SECTION_IDS.identification}
             slugSource={t("identificationTitle", { name })}
           >
             {t("identificationTitle", { name })}
           </AnchoredHeading>
           <p
-            className="mt-5 max-w-2xl text-[15px] leading-relaxed whitespace-pre-line text-muted-foreground sm:text-[16px]"
+            className="mt-3 max-w-2xl text-[15px] leading-[1.6] whitespace-pre-line text-muted-foreground lg:mt-[18px] lg:text-[16px] lg:leading-[1.65]"
             data-content-field={editable ? "identification.summary" : undefined}
             data-content-id={editable ? speciesId : undefined}
             data-content-kind={editable ? "species" : undefined}
           >
             <IdentificationRichText text={identification.summary} />
           </p>
-          <SpeciesIdentificationLookalikes
-            label={t("lookalikesTitle")}
-            locale={locale}
-            lookalikes={lookalikes}
-            moreLabel={(count) => t("lookalikesMore", { count })}
-            speciesId={speciesId}
-          />
-
-          {identification.traits.length > 0 ? (
-            <ol className="mt-12 space-y-0">
-              {identification.traits.map((trait, index) => (
-                <li
-                  className="grid grid-cols-[auto_1fr] gap-6 border-t border-border py-7 lg:gap-10 lg:py-9"
-                  key={trait}
-                >
-                  <span
-                    aria-hidden="true"
-                    className="font-display text-[28px] font-light text-muted-foreground lg:text-[36px]"
-                  >
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <p
-                    className="max-w-2xl self-center text-[16px] leading-relaxed whitespace-pre-line text-foreground/85 sm:text-[18px]"
-                    data-content-field={
-                      editable ? `identification.traits.${index}` : undefined
-                    }
-                    data-content-id={editable ? speciesId : undefined}
-                    data-content-kind={editable ? "species" : undefined}
-                  >
-                    <IdentificationRichText text={trait} />
-                  </p>
-                </li>
-              ))}
-            </ol>
-          ) : null}
         </div>
         {photo ? (
           <SpeciesIdentificationPhoto
@@ -122,7 +96,49 @@ export async function SpeciesIdentification({
             photo={photo}
           />
         ) : null}
+        {identification.traits.length > 0 ? (
+          <div className="mt-3 min-w-0 rounded-[28px] bg-card px-5 py-1 shadow-[0_14px_36px_rgba(14,20,17,0.06)] lg:col-start-2 lg:row-start-2 lg:mt-6 lg:self-start lg:rounded-[32px] lg:px-7 lg:py-2">
+            <IdentificationTraits
+              editable={editable}
+              offset={0}
+              speciesId={speciesId}
+              traits={identification.traits.slice(0, TRAITS_VISIBLE_COUNT)}
+            />
+            {identification.traits.length > TRAITS_VISIBLE_COUNT ? (
+              <details className="group border-t border-border">
+                <summary className="flex min-h-[52px] cursor-pointer list-none items-center justify-between gap-3 text-[14.5px] font-semibold text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary [&::-webkit-details-marker]:hidden">
+                  <span className="group-open:hidden">{t("readMore")}</span>
+                  <span className="hidden group-open:inline">
+                    {t("readLess")}
+                  </span>
+                  <ChevronDown
+                    aria-hidden="true"
+                    className="size-4 transition-transform group-open:rotate-180"
+                  />
+                </summary>
+                <IdentificationTraits
+                  editable={editable}
+                  offset={TRAITS_VISIBLE_COUNT}
+                  speciesId={speciesId}
+                  traits={identification.traits.slice(TRAITS_VISIBLE_COUNT)}
+                />
+              </details>
+            ) : null}
+          </div>
+        ) : null}
       </div>
+      <SpeciesIdentificationLookalikes
+        label={t("lookalikesTitle")}
+        locale={locale}
+        lookalikes={lookalikes}
+        moreLabel={(count) => t("lookalikesMore", { count })}
+        riskLabels={{
+          Harmless: tDanger("Harmless"),
+          High: tDanger("High"),
+          Moderate: tDanger("Moderate"),
+        }}
+        speciesId={speciesId}
+      />
     </section>
   );
 }
@@ -150,6 +166,46 @@ function IdentificationRichText({ text }: { text: string }) {
   );
 }
 
+function IdentificationTraits({
+  editable,
+  offset,
+  speciesId,
+  traits,
+}: {
+  editable: boolean;
+  offset: number;
+  speciesId: string;
+  traits: string[];
+}) {
+  return (
+    <ol start={offset + 1}>
+      {traits.map((trait, index) => (
+        <li
+          className="flex items-start gap-3.5 border-t border-border py-4 first:border-t-0 lg:gap-4 lg:py-5"
+          key={trait}
+        >
+          <span
+            aria-hidden="true"
+            className="flex size-7 shrink-0 items-center justify-center rounded-full bg-foreground text-[13px] font-bold text-background tabular-nums lg:size-8 lg:text-[14px]"
+          >
+            {offset + index + 1}
+          </span>
+          <p
+            className="min-w-0 text-[14.5px] leading-[1.6] whitespace-pre-line text-foreground/85 lg:text-[16px] lg:leading-[1.65]"
+            data-content-field={
+              editable ? `identification.traits.${offset + index}` : undefined
+            }
+            data-content-id={editable ? speciesId : undefined}
+            data-content-kind={editable ? "species" : undefined}
+          >
+            <IdentificationRichText text={trait} />
+          </p>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
 const LOOKALIKES_COLLAPSED_COUNT = 3;
 
 function SpeciesIdentificationLookalikes({
@@ -157,12 +213,14 @@ function SpeciesIdentificationLookalikes({
   locale,
   lookalikes,
   moreLabel,
+  riskLabels,
   speciesId,
 }: {
   label: string;
   locale: AppLocale;
   lookalikes: Species[];
   moreLabel: (count: number) => string;
+  riskLabels: Record<DangerLevel, string>;
   speciesId: string;
 }) {
   if (lookalikes.length === 0) return null;
@@ -174,18 +232,25 @@ function SpeciesIdentificationLookalikes({
       : lookalikes.length;
 
   return (
-    <div className="mt-8" id={SPECIES_SECTION_IDS.lookalikes}>
-      <p className="text-[13px] font-medium text-foreground" id={labelId}>
+    <div
+      className="mx-auto mt-8 max-w-[1440px] px-6 lg:mt-[72px] lg:px-[60px]"
+      id={SPECIES_SECTION_IDS.lookalikes}
+    >
+      <h3
+        className="font-display text-[21px] leading-tight font-semibold text-foreground lg:text-[28px]"
+        id={labelId}
+      >
         {label}
-      </p>
+      </h3>
       <SpeciesLookalikeList
         items={lookalikes.map((item, index) => ({
           id: item.id,
           node: (
-            <SpeciesLookalikeChip
+            <SpeciesLookalikeCard
               item={item}
               locale={locale}
               position={index + 1}
+              riskLabels={riskLabels}
             />
           ),
         }))}
@@ -211,11 +276,11 @@ function SpeciesIdentificationPhoto({
   const portrait = Boolean(entry && entry.height > entry.width);
 
   return (
-    <figure className="hidden lg:sticky lg:top-36 lg:block lg:self-start">
+    <figure className="mt-5 lg:sticky lg:top-36 lg:col-start-1 lg:row-span-2 lg:row-start-1 lg:mt-0 lg:self-start">
       <a
         className={cn(
-          "group relative block max-h-[calc(100svh-13rem)] cursor-zoom-in overflow-hidden rounded-card bg-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary",
-          portrait ? "aspect-4/5" : "aspect-4/3",
+          "group relative block max-h-[calc(100svh-13rem)] cursor-zoom-in overflow-hidden rounded-[28px] bg-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary lg:rounded-[36px]",
+          portrait ? "aspect-3/4" : "aspect-4/3",
         )}
         data-species-gallery-src={optimizedImgSrc(photo.src, 1200)}
         href={`#${SPECIES_SECTION_IDS.gallery}`}
@@ -243,43 +308,65 @@ function SpeciesIdentificationPhoto({
   );
 }
 
-function SpeciesLookalikeChip({
+function SpeciesLookalikeCard({
   item,
   locale,
   position,
+  riskLabels,
 }: {
   item: Species;
   locale: AppLocale;
   position: number;
+  riskLabels: Record<DangerLevel, string>;
 }) {
   const cover = getSpeciesCoverSrc(item);
+  const risk = getSpeciesRiskChip(item);
 
   return (
     <TrackedSpeciesLink
-      className="inline-flex items-center gap-2.5 rounded-full border border-border bg-card py-1.5 pr-4 pl-1.5 text-[14px] font-medium text-foreground transition-colors hover:border-foreground/30 hover:bg-surface focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+      className="group block h-full rounded-[26px] bg-card p-2 pb-4 shadow-[0_14px_36px_rgba(14,20,17,0.06)] transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary lg:rounded-[30px] lg:p-3 lg:pb-[22px]"
       locale={locale}
       position={position}
       source="lookalike"
       speciesId={item.id}
     >
-      <span className="relative size-8 shrink-0 overflow-hidden rounded-full bg-surface">
+      <span className="relative block h-[164px] overflow-hidden rounded-[19px] bg-ink lg:aspect-3/2 lg:h-auto lg:rounded-[20px]">
         {cover ? (
           <picture>
-            {pictureSources(cover, { sizes: "32px" }).map((source) => (
-              <source key={source.key} {...source.props} />
-            ))}
+            {pictureSources(cover, { sizes: LOOKALIKE_COVER_SIZES }).map(
+              (source) => (
+                <source key={source.key} {...source.props} />
+              ),
+            )}
             <img
               alt=""
-              className="size-full object-cover"
+              className="absolute inset-0 size-full object-cover transition-transform duration-700 group-hover:scale-[1.04] motion-reduce:transition-none"
               decoding="async"
               loading="lazy"
-              sizes="32px"
-              src={optimizedImgSrc(cover, 400)}
+              sizes={LOOKALIKE_COVER_SIZES}
+              src={optimizedImgSrc(cover, 800)}
             />
           </picture>
         ) : null}
+        {risk ? (
+          <span className="absolute top-2.5 left-2.5 inline-flex h-[26px] items-center gap-1.5 rounded-full bg-white px-2.5 text-[11.5px] font-medium text-[#1a211c] shadow-[0_2px_8px_rgba(14,20,17,0.18)] lg:top-3 lg:left-3 lg:h-7 lg:text-[12px]">
+            <span
+              aria-hidden="true"
+              className={cn(
+                "size-[7px] rounded-full",
+                dangerLevelTone(risk.level).dot,
+              )}
+            />
+            {riskLabels[risk.level]}
+          </span>
+        ) : null}
       </span>
-      {item.commonName}
+      <span className="mt-3 block px-2 font-display text-[17px] leading-tight font-semibold text-foreground lg:mt-4 lg:text-[19px]">
+        {item.commonName}
+      </span>
+      <span className="mt-0.5 block px-2 text-[12.5px] text-muted-foreground italic lg:text-[13.5px]">
+        {item.scientificName}
+      </span>
     </TrackedSpeciesLink>
   );
 }

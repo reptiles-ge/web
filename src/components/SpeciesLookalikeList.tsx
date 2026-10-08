@@ -33,12 +33,12 @@ export function SpeciesLookalikeList({
   return (
     <ul
       aria-labelledby={labelledBy}
-      className="mt-3 flex flex-wrap gap-2"
+      className="no-scrollbar -mx-6 mt-3.5 flex snap-x snap-mandatory scroll-px-6 gap-2.5 overflow-x-auto overscroll-x-contain px-6 pb-3 lg:mx-0 lg:mt-6 lg:grid lg:grid-cols-3 lg:gap-6 lg:overflow-visible lg:px-0 lg:pb-0"
       ref={listRef}
     >
       {items.map((item, index) => (
         <li
-          className="transition-[opacity,translate] duration-300 ease-out starting:translate-y-1 starting:opacity-0"
+          className="w-[264px] shrink-0 snap-start transition-[opacity,translate] duration-300 ease-out lg:w-auto starting:translate-y-1 starting:opacity-0"
           hidden={!expanded && index >= visibleCount}
           key={item.id}
         >
@@ -46,7 +46,7 @@ export function SpeciesLookalikeList({
         </li>
       ))}
       {hiddenCount > 0 && !expanded ? (
-        <li>
+        <li className="flex shrink-0 snap-start items-center">
           <button
             aria-expanded={false}
             aria-label={moreLabel}

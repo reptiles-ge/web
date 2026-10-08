@@ -84,7 +84,7 @@ export async function SpeciesRangeMap({
   if (highlightedIds.length === 0) return null;
 
   return (
-    <section className="bg-background py-20 lg:py-28">
+    <section className="bg-background py-11 lg:py-20">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <p className={EYEBROW_CLASS}>{t("range")}</p>
         <AnchoredHeading
@@ -205,7 +205,7 @@ function HalyomorphaRangeSection({
   ].filter((fact) => fact.value);
 
   return (
-    <section className="bg-background py-20 lg:py-28">
+    <section className="bg-background py-11 lg:py-20">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <p className={EYEBROW_CLASS}>{eyebrow}</p>
         <AnchoredHeading
