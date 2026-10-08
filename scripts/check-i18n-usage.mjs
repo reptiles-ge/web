@@ -25,33 +25,49 @@ function collectSourceFiles(dir, out = []) {
   return out;
 }
 
+function readOpenedFile(fd) {
+  const size = fs.fstatSync(fd).size;
+  const buffer = Buffer.alloc(size);
+  let offset = 0;
+  while (offset < size) {
+    const bytes = fs.readSync(fd, buffer, offset, size - offset, offset);
+    if (bytes === 0) break;
+    offset += bytes;
+  }
+  return buffer.toString("utf8", 0, offset);
+}
+
 function readReport() {
   const directory = fs.mkdtempSync(path.join(os.tmpdir(), "i18n-usage-"));
-  const reportPath = path.join(directory, "report.txt");
-  const report = fs.openSync(reportPath, "w");
-  const result = spawnSync(
-    "i18n-check",
-    [
-      "--locales",
-      "messages",
-      "--source",
-      "ka",
-      "--format",
-      "next-intl",
-      "--only",
-      "unused",
-      "undefined",
-      "--unused",
-      SOURCE_ROOT,
-    ],
-    {
-      shell: process.platform === "win32",
-      stdio: ["ignore", report, "inherit"],
-    },
-  );
-  fs.closeSync(report);
-  const output = fs.readFileSync(reportPath, "utf8");
-  fs.rmSync(directory, { force: true, recursive: true });
+  const report = fs.openSync(path.join(directory, "report.txt"), "w+");
+  let result;
+  let output = "";
+  try {
+    result = spawnSync(
+      "i18n-check",
+      [
+        "--locales",
+        "messages",
+        "--source",
+        "ka",
+        "--format",
+        "next-intl",
+        "--only",
+        "unused",
+        "undefined",
+        "--unused",
+        SOURCE_ROOT,
+      ],
+      {
+        shell: process.platform === "win32",
+        stdio: ["ignore", report, "inherit"],
+      },
+    );
+    output = readOpenedFile(report);
+  } finally {
+    fs.closeSync(report);
+    fs.rmSync(directory, { force: true, recursive: true });
+  }
   if (result.error) {
     console.error(`i18n-check failed to start: ${result.error.message}`);
     process.exit(1);
