@@ -87473,6 +87473,101 @@
       ],
       "updatedAt": "2026-10-08T18:04:55.158Z"
     },
+    "steatoda-paykulliana-teimuraz-1.jpg": {
+      "sourceHash": "700e6604b9c30d67b1328037e581a8c40caea29e1bb08a7fc85ff13c89178c4d",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "steatoda-paykulliana-teimuraz-1.jpg",
+      "originalSize": 557900,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/steatoda-paykulliana-teimuraz-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 7380
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-teimuraz-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 8974
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-teimuraz-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 10623
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-teimuraz-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 13048
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-teimuraz-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 25570
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-teimuraz-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 31194
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-teimuraz-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 41350
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-teimuraz-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 50042
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-teimuraz-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 90563
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-teimuraz-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 104784
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-teimuraz-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 215136
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-teimuraz-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 238784
+        }
+      ],
+      "updatedAt": "2026-10-08T18:05:42.635Z"
+    },
     "strix-aluco-1.jpg": {
       "sourceHash": "bbfc9b7bc6333ef808a755785b1730a84a1abc80a8ae0180ce74e281b2aab904",
       "configFingerprint": "409788ee46c653d8",
