@@ -124,7 +124,7 @@ export async function GiurzaSourcesRelated({
               </AnchoredHeading>
               <Link
                 className="shrink-0 text-[13px] font-medium text-primary"
-                href="/snakes/species"
+                href="/snakes/saxeoebebi"
               >
                 {t("allSnakes")}
                 <ArrowUpRight
