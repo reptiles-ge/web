@@ -1,3 +1,4 @@
+import { ChevronDown } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import type {
@@ -14,6 +15,7 @@ import { BiologyBlock } from "@/components/BiologyBlock";
 import { BiologyExpandable } from "@/components/BiologyExpandable";
 import { ContentAttribution } from "@/components/ContentAttribution";
 import { SpeciesRangeMap } from "@/components/map/SpeciesRangeMap";
+import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { RelatedGuideStaticGrid } from "@/components/RelatedGuideStaticGrid";
 import { SectionNav } from "@/components/SectionNav";
 import { SpeciesFaqSection } from "@/components/SpeciesFaqSection";
@@ -1018,6 +1020,88 @@ async function SpeciesProfileBiology({
   }
 
   const t = await getTranslations({ locale, namespace: "profile" });
+
+  if (speciesId === "macrovipera-lebetina") {
+    const behavior = blocks.find((block) => block.id === "behavior");
+    const behaviorParagraphs =
+      behavior?.body.split(/\n+/).filter(Boolean) ?? [];
+    const giurzaBlocks = blocks.flatMap((block) => {
+      if (block.id !== "behavior" || behaviorParagraphs.length < 2) {
+        return [block];
+      }
+      return [
+        {
+          ...block,
+          body: [behaviorParagraphs[0], ...behaviorParagraphs.slice(2)].join(
+            "\n\n",
+          ),
+        },
+        {
+          body: behaviorParagraphs[1],
+          id: "reproduction",
+          title: t("reproduction"),
+        },
+      ];
+    });
+
+    return (
+      <section className="bg-background py-9 lg:py-20">
+        <div className="mx-auto max-w-[1440px] px-4 lg:px-[60px]">
+          <div className="px-2 lg:px-0">
+            <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
+              {t("biology")}
+            </p>
+            <AnchoredHeading
+              anchorLabel={t("anchorLink")}
+              className="mt-3 font-display text-[28px] leading-[1.15] font-semibold tracking-[-0.012em] lg:mt-4 lg:text-[44px] lg:leading-[1.1]"
+              id={SPECIES_SECTION_IDS.biology}
+            >
+              {title ?? t("naturalHistoryTitle")}
+            </AnchoredHeading>
+          </div>
+          <div className="mt-5 flex flex-col gap-2 lg:hidden">
+            {giurzaBlocks.map((block, index) => (
+              <details
+                className="group rounded-[22px] bg-card p-5 shadow-[0_10px_26px_rgba(14,20,17,0.05)]"
+                key={block.id}
+                open={index === 0}
+              >
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-[17px] font-semibold text-foreground [&::-webkit-details-marker]:hidden">
+                  <span>{block.title}</span>
+                  <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-background text-foreground transition-transform group-open:rotate-180">
+                    <ChevronDown aria-hidden="true" className="size-4" />
+                  </span>
+                </summary>
+                <p className="mt-4 text-[15px] leading-[1.65] whitespace-pre-line text-muted-foreground">
+                  <PhoneLinkedText>{block.body}</PhoneLinkedText>
+                </p>
+              </details>
+            ))}
+          </div>
+          <div className="mt-10 hidden grid-cols-2 gap-6 lg:grid">
+            {giurzaBlocks.map((block) => (
+              <article
+                className="rounded-[28px] bg-card px-7 py-[26px] shadow-[0_10px_26px_rgba(14,20,17,0.05)]"
+                key={block.id}
+              >
+                <AnchoredHeading
+                  anchorLabel={t("anchorLink")}
+                  as="h3"
+                  className="font-display text-[20px] font-semibold"
+                  id={block.id}
+                >
+                  {block.title}
+                </AnchoredHeading>
+                <p className="mt-4 text-[15px] leading-[1.65] whitespace-pre-line text-muted-foreground">
+                  <PhoneLinkedText>{block.body}</PhoneLinkedText>
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="bg-background py-11 lg:py-20">
