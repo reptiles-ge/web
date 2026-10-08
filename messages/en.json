@@ -521,7 +521,7 @@
     "place2": "Nekresi area",
     "place3": "Alazani Valley",
     "place4": "Colorful Desert",
-    "regionCount": "{count} of {total} regions"
+    "recordNote": "The regions are source-confirmed. Field record counts reflect observation effort, not population density."
   },
   "giurzaIdentification": {
     "color": "Color",

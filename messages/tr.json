@@ -521,7 +521,7 @@
     "place2": "Nekresi çevresi",
     "place3": "Alazani Vadisi",
     "place4": "Renkli Çöl",
-    "regionCount": "{total} bölgenin {count}'ünde"
+    "recordNote": "Bölgeler kaynaklarla doğrulanmıştır. Arazi kaydı sayıları popülasyon yoğunluğunu değil, gözlem yoğunluğunu yansıtır."
   },
   "giurzaIdentification": {
     "color": "Renk",

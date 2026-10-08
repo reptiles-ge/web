@@ -207,7 +207,18 @@ async function HalyomorphaRangeSection({
   const tGiurza = featured
     ? await getTranslations({ locale, namespace: "giurzaRange" })
     : null;
-  const rangeRegions = featured ? getRegionsForSpecies(speciesId) : [];
+  const recordCounts = new Map(
+    occurrenceSummary.recordsByRegion.map((record) => [
+      record.id,
+      record.count,
+    ]),
+  );
+  const rangeRegions = featured
+    ? getRegionsForSpecies(speciesId).sort(
+        (left, right) =>
+          (recordCounts.get(right.id) ?? 0) - (recordCounts.get(left.id) ?? 0),
+      )
+    : [];
   const map = (
     <HalyomorphaRangeMap
       copy={mapCopy}
@@ -223,30 +234,35 @@ async function HalyomorphaRangeSection({
           pageLabel: copy.regionPageLabel(name),
         };
       })}
+      showLedger={!featured}
       speciesId={speciesId}
       stacked={featured}
     >
-      <p className="max-w-[72ch] text-[13px] leading-relaxed text-muted-foreground">
-        {copy.intro}
-      </p>
-      <p className="mt-3 text-[12px] leading-relaxed text-muted-foreground">
-        {copy.footerDataLabel}: {copy.footerReptilesLabel} +{" "}
-        <a
-          className="underline decoration-border underline-offset-4 transition-colors hover:text-primary"
-          href={`https://www.inaturalist.org/observations?place_id=8857&taxon_id=${iNaturalistTaxonId}`}
-          rel="noreferrer"
-          target="_blank"
-        >
-          {copy.footerINaturalistLabel}
-        </a>{" "}
-        ·{" "}
-        <Link
-          className="underline decoration-border underline-offset-4 transition-colors hover:text-primary"
-          href={{ hash: "methodology", pathname: "/about" }}
-        >
-          {copy.footerMethodologyLabel}
-        </Link>
-      </p>
+      {!featured ? (
+        <>
+          <p className="max-w-[72ch] text-[13px] leading-relaxed text-muted-foreground">
+            {copy.intro}
+          </p>
+          <p className="mt-3 text-[12px] leading-relaxed text-muted-foreground">
+            {copy.footerDataLabel}: {copy.footerReptilesLabel} +{" "}
+            <a
+              className="underline decoration-border underline-offset-4 transition-colors hover:text-primary"
+              href={`https://www.inaturalist.org/observations?place_id=8857&taxon_id=${iNaturalistTaxonId}`}
+              rel="noreferrer"
+              target="_blank"
+            >
+              {copy.footerINaturalistLabel}
+            </a>{" "}
+            ·{" "}
+            <Link
+              className="underline decoration-border underline-offset-4 transition-colors hover:text-primary"
+              href={{ hash: "methodology", pathname: "/about" }}
+            >
+              {copy.footerMethodologyLabel}
+            </Link>
+          </p>
+        </>
+      ) : null}
     </HalyomorphaRangeMap>
   );
 
@@ -269,7 +285,11 @@ async function HalyomorphaRangeSection({
             <p className="mt-[18px] text-[16px] leading-[1.65] text-muted-foreground">
               {tGiurza("lead")}
             </p>
-            <nav aria-label={tGiurza("regionsLabel")} className="mt-[22px]">
+            <div className="mt-[22px] flex items-baseline justify-between gap-3 text-[11px] font-medium tracking-[0.14em] text-muted-foreground uppercase">
+              <span>{tGiurza("regionsLabel")}</span>
+              <span>{copy.regionRecordsLabel}</span>
+            </div>
+            <nav aria-label={tGiurza("regionsLabel")} className="mt-2">
               <ul>
                 {rangeRegions.map((region) => (
                   <li
@@ -288,6 +308,10 @@ async function HalyomorphaRangeSection({
                           {tGiurza("rare")}
                         </span>
                       ) : null}
+                      <span className="min-w-6 text-right text-[15px] font-medium text-muted-foreground tabular-nums">
+                        {recordCounts.get(region.id)?.toLocaleString(locale) ??
+                          "—"}
+                      </span>
                       <ArrowRight
                         aria-hidden="true"
                         className="size-4 shrink-0"
@@ -308,15 +332,30 @@ async function HalyomorphaRangeSection({
                 </li>
               ))}
             </ul>
+            <p className="mt-6 text-[13px] leading-[1.6] text-muted-foreground">
+              {tGiurza("recordNote")}
+            </p>
+            <p className="mt-3 text-[12px] leading-relaxed text-muted-foreground">
+              {copy.footerDataLabel}: {copy.footerReptilesLabel} +{" "}
+              <a
+                className="underline decoration-border underline-offset-4 transition-colors hover:text-primary"
+                href={`https://www.inaturalist.org/observations?place_id=8857&taxon_id=${iNaturalistTaxonId}`}
+                rel="noreferrer"
+                target="_blank"
+              >
+                {copy.footerINaturalistLabel}
+              </a>{" "}
+              ·{" "}
+              <Link
+                className="underline decoration-border underline-offset-4 transition-colors hover:text-primary"
+                href={{ hash: "methodology", pathname: "/about" }}
+              >
+                {copy.footerMethodologyLabel}
+              </Link>
+            </p>
           </div>
           <div className="min-w-0 rounded-[30px] bg-card p-4 shadow-[0_16px_40px_rgba(14,20,17,0.06)] sm:p-7 lg:rounded-[40px] lg:p-9">
             {map}
-            <p className="mt-5 text-right text-[13.5px] font-medium text-foreground">
-              {tGiurza("regionCount", {
-                count: officialRegionIds.length,
-                total: regions.length,
-              })}
-            </p>
           </div>
         </div>
       </section>
