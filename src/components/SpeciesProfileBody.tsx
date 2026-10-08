@@ -11,7 +11,6 @@ import type {
 import type { AppLocale } from "@/i18n/routing";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
-import { BiologyBlock } from "@/components/BiologyBlock";
 import { BiologyExpandable } from "@/components/BiologyExpandable";
 import { SpeciesRangeMap } from "@/components/map/SpeciesRangeMap";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
@@ -717,16 +716,6 @@ export async function SpeciesProfileBody({
   );
 }
 
-function biologyGridClass(count: number) {
-  if (count >= 4 || count === 2) {
-    return "md:grid-cols-2";
-  }
-  if (count >= 3) {
-    return "md:grid-cols-3";
-  }
-  return "md:grid-cols-1";
-}
-
 function HalyomorphaIdentificationFigure({
   anchorLabel,
   gallery,
@@ -1003,126 +992,119 @@ async function SpeciesProfileBiology({
 
   const t = await getTranslations({ locale, namespace: "profile" });
 
-  if (speciesId === "macrovipera-lebetina") {
-    const behavior = blocks.find((block) => block.id === "behavior");
-    const behaviorParagraphs =
-      behavior?.body.split(/\n+/).filter(Boolean) ?? [];
-    const giurzaBlocks = blocks.flatMap((block) => {
-      if (block.id !== "behavior" || behaviorParagraphs.length < 2) {
-        return [block];
-      }
-      return [
-        {
-          ...block,
-          body: [behaviorParagraphs[0], ...behaviorParagraphs.slice(2)].join(
-            "\n\n",
-          ),
-        },
-        {
-          body: behaviorParagraphs[1],
-          id: "reproduction",
-          title: t("reproduction"),
-        },
-      ];
-    });
-
-    return (
-      <section className="bg-background py-9 lg:py-20">
-        <div className="mx-auto max-w-[1440px] px-4 lg:px-[60px]">
-          <div className="px-2 lg:px-0">
-            <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
-              {t("biology")}
-            </p>
-            <AnchoredHeading
-              anchorLabel={t("anchorLink")}
-              className="mt-3 font-display text-[28px] leading-[1.15] font-semibold tracking-[-0.012em] lg:mt-4 lg:text-[44px] lg:leading-[1.1]"
-              id={SPECIES_SECTION_IDS.biology}
-            >
-              {title ?? t("naturalHistoryTitle")}
-            </AnchoredHeading>
-          </div>
-          <div className="mt-5 flex flex-col gap-2 lg:hidden">
-            {giurzaBlocks.map((block, index) => (
-              <details
-                className="group rounded-[22px] bg-card p-5 shadow-[0_10px_26px_rgba(14,20,17,0.05)]"
-                key={block.id}
-                open={index === 0}
-              >
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-[17px] font-semibold text-foreground [&::-webkit-details-marker]:hidden">
-                  <span>{block.title}</span>
-                  <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-background text-foreground transition-transform group-open:rotate-180">
-                    <ChevronDown aria-hidden="true" className="size-4" />
-                  </span>
-                </summary>
-                <p className="mt-4 text-[15px] leading-[1.65] whitespace-pre-line text-muted-foreground">
-                  <PhoneLinkedText>{block.body}</PhoneLinkedText>
-                </p>
-              </details>
-            ))}
-          </div>
-          <div className="mt-10 hidden grid-cols-2 items-start gap-6 lg:grid">
-            {[0, 1].map((column) => (
-              <div className="flex flex-col gap-6" key={column}>
-                {giurzaBlocks
-                  .filter((_, index) => index % 2 === column)
-                  .map((block) => (
-                    <article
-                      className="min-h-[208px] rounded-[28px] bg-card px-7 py-[26px] shadow-[0_10px_26px_rgba(14,20,17,0.05)]"
-                      key={block.id}
-                    >
-                      <AnchoredHeading
-                        anchorLabel={t("anchorLink")}
-                        as="h3"
-                        className="font-display text-[20px] font-semibold"
-                        id={block.id}
-                      >
-                        {block.title}
-                      </AnchoredHeading>
-                      <BiologyExpandable
-                        body={block.body}
-                        needsExpand
-                        readLess={t("readLess")}
-                        readMore={t("readMore")}
-                      />
-                    </article>
-                  ))}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-    );
-  }
+  const behavior = blocks.find((block) => block.id === "behavior");
+  const behaviorParagraphs = behavior?.body.split(/\n+/).filter(Boolean) ?? [];
+  const displayBlocks =
+    speciesId === "macrovipera-lebetina"
+      ? blocks.flatMap((block) => {
+          if (block.id !== "behavior" || behaviorParagraphs.length < 2) {
+            return [block];
+          }
+          return [
+            {
+              ...block,
+              body: [
+                behaviorParagraphs[0],
+                ...behaviorParagraphs.slice(2),
+              ].join("\n\n"),
+            },
+            {
+              body: behaviorParagraphs[1],
+              id: "reproduction",
+              title: t("reproduction"),
+            },
+          ];
+        })
+      : blocks;
 
   return (
-    <section className="bg-background py-11 lg:py-20">
+    <section className="bg-background py-9 lg:py-20">
       <div className="mx-auto max-w-[1440px] px-4 lg:px-[60px]">
-        <p className="px-2 text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase lg:px-0">
-          {t("biology")}
-        </p>
-        <AnchoredHeading
-          anchorLabel={t("anchorLink")}
-          className="mt-3 max-w-2xl px-2 font-display text-[28px] leading-[1.15] font-semibold tracking-[-0.012em] lg:mt-4 lg:px-0 lg:text-[44px] lg:leading-[1.1]"
-          id={SPECIES_SECTION_IDS.biology}
-        >
-          {title ?? t("naturalHistoryTitle")}
-        </AnchoredHeading>
-        <div
-          className={cn(
-            "mt-6 grid gap-2 md:gap-4 lg:mt-10 lg:gap-6",
-            biologyGridClass(blocks.length),
-          )}
-        >
-          {blocks.map((block) => (
-            <BiologyBlock
-              body={block.body}
-              editable={editable}
-              headingId={block.id}
-              key={block.title}
-              locale={locale}
-              speciesId={speciesId}
-              title={block.title}
-            />
+        <div className="px-2 lg:px-0">
+          <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
+            {t("biology")}
+          </p>
+          <AnchoredHeading
+            anchorLabel={t("anchorLink")}
+            className="mt-3 font-display text-[28px] leading-[1.15] font-semibold tracking-[-0.012em] lg:mt-4 lg:text-[44px] lg:leading-[1.1]"
+            id={SPECIES_SECTION_IDS.biology}
+          >
+            {title ?? t("naturalHistoryTitle")}
+          </AnchoredHeading>
+        </div>
+        <div className="mt-5 flex flex-col gap-2 lg:hidden">
+          {displayBlocks.map((block, index) => (
+            <details
+              className="group rounded-[22px] bg-card p-5 shadow-[0_10px_26px_rgba(14,20,17,0.05)]"
+              key={block.id}
+              open={index === 0}
+            >
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-[17px] font-semibold text-foreground [&::-webkit-details-marker]:hidden">
+                <span>{block.title}</span>
+                <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-background text-foreground transition-transform group-open:rotate-180">
+                  <ChevronDown aria-hidden="true" className="size-4" />
+                </span>
+              </summary>
+              <p
+                className="mt-4 text-[15px] leading-[1.65] whitespace-pre-line text-muted-foreground"
+                data-content-field={
+                  editable && speciesId !== "macrovipera-lebetina"
+                    ? block.id
+                    : undefined
+                }
+                data-content-id={
+                  editable && speciesId !== "macrovipera-lebetina"
+                    ? speciesId
+                    : undefined
+                }
+                data-content-kind={
+                  editable && speciesId !== "macrovipera-lebetina"
+                    ? "species"
+                    : undefined
+                }
+              >
+                <PhoneLinkedText>{block.body}</PhoneLinkedText>
+              </p>
+            </details>
+          ))}
+        </div>
+        <div className="mt-10 hidden grid-cols-2 items-start gap-6 lg:grid">
+          {[0, 1].map((column) => (
+            <div className="flex flex-col gap-6" key={column}>
+              {displayBlocks
+                .filter((_, index) => index % 2 === column)
+                .map((block) => (
+                  <article
+                    className="min-h-[208px] rounded-[28px] bg-card px-7 py-[26px] shadow-[0_10px_26px_rgba(14,20,17,0.05)]"
+                    key={block.id}
+                  >
+                    <AnchoredHeading
+                      anchorLabel={t("anchorLink")}
+                      as="h3"
+                      className="font-display text-[20px] font-semibold"
+                      id={block.id}
+                    >
+                      {block.title}
+                    </AnchoredHeading>
+                    <BiologyExpandable
+                      body={block.body}
+                      editorField={
+                        editable && speciesId !== "macrovipera-lebetina"
+                          ? block.id
+                          : undefined
+                      }
+                      needsExpand
+                      readLess={t("readLess")}
+                      readMore={t("readMore")}
+                      speciesId={
+                        editable && speciesId !== "macrovipera-lebetina"
+                          ? speciesId
+                          : undefined
+                      }
+                    />
+                  </article>
+                ))}
+            </div>
           ))}
         </div>
       </div>
