@@ -13,13 +13,12 @@ import type { AppLocale } from "@/i18n/routing";
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { BiologyBlock } from "@/components/BiologyBlock";
 import { BiologyExpandable } from "@/components/BiologyExpandable";
-import { GiurzaGuideFeature } from "@/components/GiurzaGuideFeature";
 import { SpeciesRangeMap } from "@/components/map/SpeciesRangeMap";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
-import { RelatedGuideStaticGrid } from "@/components/RelatedGuideStaticGrid";
 import { SectionNav } from "@/components/SectionNav";
 import { SpeciesFaqSection } from "@/components/SpeciesFaqSection";
 import { SpeciesGallery } from "@/components/SpeciesGallery";
+import { SpeciesGuideFeature } from "@/components/SpeciesGuideFeature";
 import { SpeciesIdentification } from "@/components/SpeciesIdentification";
 import { SpeciesOverviewText } from "@/components/SpeciesOverviewText";
 import { SpeciesProfileFacts } from "@/components/SpeciesProfileFacts";
@@ -685,29 +684,14 @@ export async function SpeciesProfileBody({
         />
       ) : null}
 
-      {guideLinks.length > 0 && species.id === "macrovipera-lebetina" ? (
-        <GiurzaGuideFeature
+      {guideLinks.length > 0 ? (
+        <SpeciesGuideFeature
           gallery={gallery}
           guideLinks={guideLinks}
           locale={locale}
+          speciesId={species.id}
           speciesName={species.commonName}
         />
-      ) : guideLinks.length > 0 ? (
-        <section className="border-t border-border bg-surface py-11 lg:py-16">
-          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-            <p className="text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
-              {t("guidesEyebrow")}
-            </p>
-            <h2 className="mt-4 max-w-2xl font-display text-display-card font-semibold">
-              {t("guidesTitle")}
-            </h2>
-            <RelatedGuideStaticGrid
-              cards={guideLinks}
-              className="mt-8"
-              locale={locale}
-            />
-          </div>
-        </section>
       ) : null}
 
       {species.id === "macrovipera-lebetina" &&
