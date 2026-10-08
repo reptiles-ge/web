@@ -26,6 +26,7 @@
     "typecheck": "tsc --noEmit",
     "doctor": "react-doctor -y --verbose",
     "doctor:changed": "react-doctor -y --verbose --scope changed",
+    "doctor:check": "node scripts/check-doctor-score.mjs",
     "doctor:full": "react-doctor -y --verbose --scope full",
     "seo:audit": "pnpm run seo:graph && tsx scripts/reptiles-seo.ts audit",
     "seo:audit:ga4": "pnpm run seo:graph && tsx scripts/reptiles-seo.ts ga4",

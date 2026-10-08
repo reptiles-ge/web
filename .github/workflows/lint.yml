@@ -39,6 +39,8 @@ jobs:
 
       - run: pnpm cpd
 
+      - run: pnpm doctor:check
+
       - run: pnpm lint
 
       - run: pnpm typecheck

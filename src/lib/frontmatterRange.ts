@@ -1,4 +1,4 @@
-export const TOP_LEVEL_KEY = /^[A-Za-z][A-Za-z0-9]*:/;
+const TOP_LEVEL_KEY = /^[A-Za-z][A-Za-z0-9]*:/;
 
 export type FrontmatterRange = { end: number; start: number };
 

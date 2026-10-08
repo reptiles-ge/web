@@ -10,5 +10,5 @@
   "minTokens": 80,
   "path": ["src", "scripts"],
   "reporters": ["console"],
-  "threshold": 2
+  "threshold": 0
 }
