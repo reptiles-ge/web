@@ -2,7 +2,7 @@ import matter from "gray-matter";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 
 import {
   appendGalleryItemToMdx,
@@ -575,6 +575,49 @@ commonName: ტესტი
       expect(removed.image).toBe("https://cdn.reptiles.ge/b.jpg");
       expect(removed.mobileImage).toBe("https://cdn.reptiles.ge/b.jpg");
     } finally {
+      fs.rmSync(root, { force: true, recursive: true });
+    }
+  });
+});
+
+describe("setCoverInSpecies", () => {
+  it("writes to the opened file when its path is replaced", () => {
+    const root = fs.mkdtempSync(
+      path.join(os.tmpdir(), "reptiles-admin-cover-race-"),
+    );
+    const dir = path.join(root, "src/content/species/test-species");
+    fs.mkdirSync(dir, { recursive: true });
+    const kaPath = path.join(dir, "ka.mdx");
+    const movedPath = path.join(dir, "moved.mdx");
+    fs.writeFileSync(kaPath, COVER_FIXTURE, "utf8");
+    const open = fs.openSync;
+    let swapped = false;
+    const spy = vi
+      .spyOn(fs, "openSync")
+      .mockImplementation((file, flags, mode) => {
+        const fd = open(file, flags, mode);
+        if (file === kaPath) {
+          fs.renameSync(kaPath, movedPath);
+          fs.writeFileSync(kaPath, COVER_FIXTURE, "utf8");
+          swapped = true;
+        }
+        return fd;
+      });
+
+    try {
+      setCoverInSpecies(
+        "test-species",
+        "desktop",
+        "https://cdn.reptiles.ge/a.jpg",
+        root,
+      );
+      expect(swapped).toBe(true);
+      expect(fs.readFileSync(kaPath, "utf8")).toBe(COVER_FIXTURE);
+      expect(matter(fs.readFileSync(movedPath, "utf8")).data.image).toBe(
+        "https://cdn.reptiles.ge/a.jpg",
+      );
+    } finally {
+      spy.mockRestore();
       fs.rmSync(root, { force: true, recursive: true });
     }
   });
