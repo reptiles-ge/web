@@ -32,10 +32,7 @@ import {
 import { type HubClusterCard } from "@/lib/clusterGuides";
 import { cn } from "@/lib/cn";
 import { formatPhotoDate } from "@/lib/formatDate";
-import {
-  getSpeciesIdentificationPhoto,
-  isPlaceholderBody,
-} from "@/lib/speciesContent";
+import { getSpeciesIdentificationPhoto } from "@/lib/speciesContent";
 import { speciesPhotoAlt } from "@/lib/speciesMeta";
 import { getSpeciesRiskChip } from "@/lib/speciesRisk";
 import {
@@ -523,10 +520,6 @@ export async function SpeciesProfileBody({
   const naturalHistoryBlocks = biologyBlocks.filter(
     (block) => block.id !== "habitat",
   );
-  const hasInteraction = Boolean(
-    species.interaction && !isPlaceholderBody(species.interaction),
-  );
-
   return (
     <>
       <div className="relative z-10 -mt-7 rounded-t-[32px] bg-background pt-4 pb-6 lg:mt-[-86px] lg:rounded-none lg:bg-transparent lg:pt-0 lg:pb-14">
@@ -574,7 +567,6 @@ export async function SpeciesProfileBody({
           gallery: gallery.length > 0,
           habitat: false,
           identification: showIdentification,
-          interaction: hasInteraction,
           range: hasRange || Boolean(habitatBlock),
           sources: species.sources.length > 0,
         }}
@@ -1141,7 +1133,6 @@ async function SpeciesProfileNavigation({
   const t = await getTranslations({ locale, namespace: "profile" });
   const availableIds = speciesProfileSectionIds(sections);
   const sectionOrder = [
-    SPECIES_SECTION_IDS.interaction,
     SPECIES_SECTION_IDS.overview,
     SPECIES_SECTION_IDS.identification,
     SPECIES_SECTION_IDS.range,
@@ -1157,7 +1148,6 @@ async function SpeciesProfileNavigation({
     [SPECIES_SECTION_IDS.gallery]: t("gallery"),
     [SPECIES_SECTION_IDS.habitat]: t("habitat"),
     [SPECIES_SECTION_IDS.identification]: t("identification"),
-    [SPECIES_SECTION_IDS.interaction]: t("interaction"),
     [SPECIES_SECTION_IDS.overview]: t("overview"),
     [SPECIES_SECTION_IDS.range]: t("range"),
     [SPECIES_SECTION_IDS.sources]: t("sourcesTitle"),

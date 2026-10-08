@@ -11,7 +11,6 @@ describe("speciesProfileSectionIds", () => {
         gallery: true,
         habitat: true,
         identification: true,
-        interaction: false,
         range: true,
         sources: true,
       }),

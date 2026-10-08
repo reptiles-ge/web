@@ -20,7 +20,6 @@ export type SpeciesProfileSectionAvailability = {
   gallery: boolean;
   habitat: boolean;
   identification: boolean;
-  interaction: boolean;
   range: boolean;
   sources: boolean;
 };
@@ -31,12 +30,10 @@ export function speciesProfileSectionIds({
   gallery,
   habitat,
   identification,
-  interaction,
   range,
   sources,
 }: SpeciesProfileSectionAvailability) {
   return [
-    ...(interaction ? [SPECIES_SECTION_IDS.interaction] : []),
     SPECIES_SECTION_IDS.overview,
     ...(identification ? [SPECIES_SECTION_IDS.identification] : []),
     ...(gallery ? [SPECIES_SECTION_IDS.gallery] : []),
