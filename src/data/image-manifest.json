@@ -87378,6 +87378,101 @@
       ],
       "updatedAt": "2026-10-08T18:03:07.339Z"
     },
+    "steatoda-paykulliana-fabian-1.jpg": {
+      "sourceHash": "3ff1ccd4d31c7d5876dcbea9251676a421153d10eed6610c313126ef094a3a7b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "steatoda-paykulliana-fabian-1.jpg",
+      "originalSize": 401809,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/steatoda-paykulliana-fabian-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11016
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-fabian-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 13898
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-fabian-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 14663
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-fabian-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 18816
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-fabian-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 29960
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-fabian-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 38232
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-fabian-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 41342
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-fabian-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 53098
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-fabian-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 70737
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-fabian-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 92074
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-fabian-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 142575
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-fabian-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 185352
+        }
+      ],
+      "updatedAt": "2026-10-08T18:04:55.158Z"
+    },
     "strix-aluco-1.jpg": {
       "sourceHash": "bbfc9b7bc6333ef808a755785b1730a84a1abc80a8ae0180ce74e281b2aab904",
       "configFingerprint": "409788ee46c653d8",
