@@ -8,6 +8,7 @@ import { NavbarChrome } from "@/components/NavbarChrome";
 import { NavbarMenu } from "@/components/NavbarMenu";
 import { GUIDE_ARTICLE_PATHS } from "@/data/guideArticlePaths";
 import { usePathname } from "@/i18n/navigation";
+import { NAVBAR_SCROLL_OFFSET } from "@/lib/chromeStyles";
 
 const GUIDE_ARTICLE_PATH_SET = new Set<string>(GUIDE_ARTICLE_PATHS);
 
@@ -64,7 +65,7 @@ export function Navbar() {
     }
 
     function onScroll() {
-      setScrolled(window.scrollY > 40);
+      setScrolled(window.scrollY > NAVBAR_SCROLL_OFFSET);
     }
 
     onScroll();
@@ -109,6 +110,7 @@ export function Navbar() {
         groupsActive={groupsActive}
         groupsLabel={t("groups")}
         groupsOpen={groupsOpen}
+        heroSearch={pathname === "/"}
         menuId={menuId}
         menuOpen={menuOpen}
         onCloseMenu={() => setMenuOpen(false)}

@@ -124,11 +124,15 @@
   "hero": {
     "kicker": "A field atlas",
     "brand": "Reptiles",
-    "title": "Animals of Georgia — species, range, identification",
-    "subtitle": "Species profiles, regional maps, identification guides, and field photos in one atlas.",
-    "viewSpecies": "Species",
-    "exploreRegions": "By region",
-    "imageAlt": "A viper on a mossy rock in a misty mountain valley"
+    "title": "Atlas of Georgia's animals",
+    "subtitle": "Find an animal by name, group, or region.",
+    "statSpecies": "{count} species",
+    "statRegions": "{count} regions",
+    "statPhotos": "{count} field photos",
+    "statAnd": "and",
+    "popular": "Popular searches",
+    "searchSubmit": "Search the atlas",
+    "scrollToGroups": "Explore groups"
   },
   "carousel": {
     "eyebrow": "Species discovery",
@@ -155,11 +159,13 @@
     "imageAlt": "Misty Caucasus ridge at dusk"
   },
   "home": {
-    "proof": {
-      "species": "Species",
-      "regions": "Regions",
-      "venomous": "Venomous",
-      "photos": "Photos"
+    "safetyStrip": {
+      "call": "Emergency help — call 112",
+      "body": "For a bite or another emergency in Georgia, call 112.",
+      "navLabel": "Safety guides",
+      "snakeBite": "Snake bite",
+      "scorpionSting": "Scorpion sting",
+      "safetyGuides": "Safety guides"
     },
     "knowledge": {
       "eyebrow": "Guides",
@@ -176,8 +182,7 @@
       },
       "dangerous": {
         "title": "Dangerous and venomous animals of Georgia (the country)",
-        "body": "Published safety pages across groups — snakes, spiders, scorpions, and encounters — without a new ranking.",
-        "cta": "Open the hub"
+        "body": "Published safety pages across groups — snakes, spiders, scorpions, and encounters — without a new ranking."
       },
       "atlas": {
         "title": "Species atlas",
@@ -221,12 +226,14 @@
       }
     },
     "groups": {
-      "eyebrow": "Atlas",
+      "eyebrow": "By group",
       "title": "Explore by group",
       "subtitle": "Snakes, lizards, turtles, amphibians, birds, mammals, and spiders — open a group for profiles, photos, and guides.",
       "count": "{count, plural, one {# species} other {# species}}",
       "catalog": "Full atlas",
-      "illustrationAlt": "Illustration — {name}"
+      "illustrationAlt": "Illustration — {name}",
+      "previous": "Previous groups",
+      "next": "Next groups"
     },
     "featured": {
       "eyebrow": "Species",
@@ -280,6 +287,9 @@
       "title": "Georgia’s animals in one atlas",
       "p1": "Reptiles.ge is a four-language atlas of animals in Georgia. Identification, habitat, region, and safer encounters — for hikers, students, and researchers. Reptiles are still the deepest layer.",
       "p2": "Species profiles with field photos, maps for twelve regions, and a guide to medically significant snakes. New profiles and sources are added in the same structure.",
+      "directoryExplore": "Species and groups",
+      "directoryGuides": "Guides",
+      "directoryMore": "More topics",
       "links": {
         "species": "Species atlas",
         "yard": "How to get snakes out of the yard",
@@ -610,13 +620,14 @@
     "ctaDangerous": "Dangerous animals"
   },
   "map": {
-    "eyebrow": "Georgia’s biodiversity",
-    "title": "Explore reptiles across every region",
-    "subtitle": "Georgia’s short geographic span holds mountain endemics, Colchic forest vipers, wetland snakes, and arid-east specialists. Tap a region to begin.",
+    "eyebrow": "By region",
+    "title": "What lives in your region?",
+    "subtitle": "From Colchic forests to the dry eastern basins — choose a region to see habitats, recorded species, and field notes.",
     "hint": "Hover or tap a region — or open the full regional atlas",
     "speciesCount": "{count, plural, =0 {No species recorded} one {# species} other {# species}}",
     "species": "Species",
-    "regionLabel": "Region",
+    "regionLabel": "Regions",
+    "listNote": "Species listed in the atlas",
     "close": "Close",
     "viewSpecies": "View species profile",
     "viewRegion": "Region page",

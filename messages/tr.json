@@ -124,11 +124,15 @@
   "hero": {
     "kicker": "Saha atlası",
     "brand": "Reptiles",
-    "title": "Gürcistan hayvanları — türler, yayılış, tanıma",
-    "subtitle": "Tür profilleri, bölgesel haritalar, tanıma rehberleri ve saha fotoğrafları tek atlasta.",
-    "viewSpecies": "Türler",
-    "exploreRegions": "Bölgelere göre",
-    "imageAlt": "Sisli bir dağ vadisinde yosunlu kayada bir engerek"
+    "title": "Gürcistan hayvanları atlası",
+    "subtitle": "Bir hayvanı adına, grubuna veya bölgesine göre bulun.",
+    "statSpecies": "{count} tür",
+    "statRegions": "{count} bölge",
+    "statPhotos": "{count} saha fotoğrafı",
+    "statAnd": "ve",
+    "popular": "Sık arananlar",
+    "searchSubmit": "Atlasta ara",
+    "scrollToGroups": "Grupları keşfet"
   },
   "carousel": {
     "eyebrow": "Tür keşfi",
@@ -155,11 +159,13 @@
     "imageAlt": "Alacakaranlıkta sisli Kafkas sırtı"
   },
   "home": {
-    "proof": {
-      "species": "Türler",
-      "regions": "Bölgeler",
-      "venomous": "Zehirli",
-      "photos": "Fotoğraflar"
+    "safetyStrip": {
+      "call": "Acil yardım — 112'yi arayın",
+      "body": "Gürcistan'da ısırık veya başka bir acil durumda 112'yi arayın.",
+      "navLabel": "Güvenlik rehberleri",
+      "snakeBite": "Yılan ısırığı",
+      "scorpionSting": "Akrep sokması",
+      "safetyGuides": "Güvenlik rehberleri"
     },
     "knowledge": {
       "eyebrow": "Rehberler",
@@ -176,8 +182,7 @@
       },
       "dangerous": {
         "title": "Gürcistan ülkesinin tehlikeli ve zehirli hayvanları",
-        "body": "Gruplar arası yayımlanmış güvenlik sayfaları — yılanlar, örümcekler, akrepler ve karşılaşmalar — yeni bir sıralama olmadan.",
-        "cta": "Merkezi aç"
+        "body": "Gruplar arası yayımlanmış güvenlik sayfaları — yılanlar, örümcekler, akrepler ve karşılaşmalar — yeni bir sıralama olmadan."
       },
       "atlas": {
         "title": "Tür atlası",
@@ -221,12 +226,14 @@
       }
     },
     "groups": {
-      "eyebrow": "Atlas",
+      "eyebrow": "Gruplara göre",
       "title": "Gruplara göre keşfet",
       "subtitle": "Yılanlar, kertenkeleler, kaplumbağalar, amfibiler, kuşlar, memeliler ve örümcekler — profiller, fotoğraflar ve rehberler için bir grup açın.",
       "count": "{count, plural, one {# tür} other {# tür}}",
       "catalog": "Tam atlas",
-      "illustrationAlt": "İllüstrasyon — {name}"
+      "illustrationAlt": "İllüstrasyon — {name}",
+      "previous": "Önceki gruplar",
+      "next": "Sonraki gruplar"
     },
     "featured": {
       "eyebrow": "Türler",
@@ -280,6 +287,9 @@
       "title": "Gürcistan hayvanları tek atlasda",
       "p1": "Reptiles.ge, Gürcistan hayvanlarının dört dilli atlasıdır. Tanıma, yaşam alanı, bölge ve daha güvenli karşılaşmalar — yürüyüşçüler, öğrenciler ve araştırmacılar için. Sürüngenler hâlâ en derin katmandır.",
       "p2": "Saha fotoğraflı tür profilleri, on iki bölge için haritalar ve tıbbi açıdan önemli yılanlara rehber. Yeni profiller ve kaynaklar aynı yapıda eklenir.",
+      "directoryExplore": "Türler ve gruplar",
+      "directoryGuides": "Rehberler",
+      "directoryMore": "Diğer konular",
       "links": {
         "species": "Tür atlası",
         "yard": "Yılanları bahçeden nasıl uzaklaştırırsınız",
@@ -610,13 +620,14 @@
     "ctaDangerous": "Tehlikeli hayvanlar"
   },
   "map": {
-    "eyebrow": "Gürcistan’ın biyolojik çeşitliliği",
-    "title": "Her bölgede sürüngenleri keşfedin",
-    "subtitle": "Gürcistan’ın kısa coğrafi aralığında dağ endemikleri, Kolhis orman engerekleri, sulak alan yılanları ve kuru doğunun uzmanları vardır. Başlamak için bir bölgeye dokunun.",
+    "eyebrow": "Bölgeye göre",
+    "title": "Bölgenizde neler yaşıyor?",
+    "subtitle": "Kolhis ormanlarından kurak doğu havzalarına — habitatları, kayıtlı türleri ve saha notlarını görmek için bir bölge seçin.",
     "hint": "Bir bölgenin üzerine gelin veya dokunun — ya da tam bölgesel atlası açın",
     "speciesCount": "{count, plural, =0 {Kayıtlı tür yok} one {# tür} other {# tür}}",
     "species": "Türler",
-    "regionLabel": "Bölge",
+    "regionLabel": "Bölgeler",
+    "listNote": "Atlasta listelenen türler",
     "close": "Kapat",
     "viewSpecies": "Tür profilini gör",
     "viewRegion": "Bölge sayfası",
