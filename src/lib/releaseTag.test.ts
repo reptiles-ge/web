@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { isReleaseTag, latestReleaseTag, releaseUrl } from "./releaseTag";
+import { isReleaseTag, latestReleaseTag } from "./releaseTag";
 
 describe("isReleaseTag", () => {
   it("accepts only vMAJOR.MINOR.PATCH", () => {
@@ -29,13 +29,5 @@ describe("latestReleaseTag", () => {
   it("returns null when there is no release tag", () => {
     expect(latestReleaseTag([])).toBeNull();
     expect(latestReleaseTag(["nightly", "1.0.0"])).toBeNull();
-  });
-});
-
-describe("releaseUrl", () => {
-  it("links to the GitHub release of the tag", () => {
-    expect(releaseUrl("v1.0.0")).toBe(
-      "https://github.com/reptiles-ge/web/releases/tag/v1.0.0",
-    );
   });
 });

@@ -122,7 +122,7 @@ Report the version, the commit, and the release URL.
 
 ## Version in the footer
 
-The footer shows the latest release tag and links it to its GitHub Release. Nothing is committed for it: `scripts/compile-release-version.ts` runs with `species:compile` and writes the gitignored `src/data/releaseVersion.generated.ts`.
+The footer shows the latest release tag as plain text. Nothing is committed for it: `scripts/compile-release-version.ts` runs with `species:compile` and writes the gitignored `src/data/releaseVersion.generated.ts`.
 
 It resolves the tag in this order: the `RELEASE_VERSION` variable, the nearest `vX.Y.Z` tag in the checked-out history, then the highest `vX.Y.Z` tag on `origin` (for shallow clones without tags). If none is found the footer shows no version.
 

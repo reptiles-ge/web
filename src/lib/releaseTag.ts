@@ -1,7 +1,5 @@
 const RELEASE_TAG = /^v(\d+)\.(\d+)\.(\d+)$/;
 
-const RELEASES_URL = "https://github.com/reptiles-ge/web/releases";
-
 export function isReleaseTag(value: string): boolean {
   return RELEASE_TAG.test(value);
 }
@@ -22,10 +20,6 @@ export function latestReleaseTag(tags: string[]): null | string {
   }
 
   return latest;
-}
-
-export function releaseUrl(tag: string): string {
-  return `${RELEASES_URL}/tag/${tag}`;
 }
 
 function compareParts(a: number[], b: number[]): number {

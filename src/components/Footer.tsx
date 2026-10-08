@@ -10,7 +10,6 @@ import { Logo } from "@/components/Logo";
 import { FacebookGlyph, InstagramGlyph } from "@/components/SocialGlyphs";
 import { getGuideArticles } from "@/data/guideArticles";
 import { releaseVersion } from "@/data/releaseVersion.generated";
-import { releaseUrl } from "@/lib/releaseTag";
 
 type FooterLinkColumnProps = {
   links: Array<{
@@ -244,19 +243,7 @@ export async function Footer({ locale, regions, venomous }: FooterProps) {
         <div className="mt-14 flex flex-col gap-3 border-t border-border pt-8 text-[12px] text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
           <span>
             © {new Date().getFullYear()} Reptiles. {t("rights")}
-            {releaseVersion ? (
-              <>
-                {" · "}
-                <a
-                  className="rounded-sm transition-colors hover:text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
-                  href={releaseUrl(releaseVersion)}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  {releaseVersion}
-                </a>
-              </>
-            ) : null}
+            {releaseVersion ? ` · ${releaseVersion}` : null}
           </span>
           <div className="flex items-center gap-4">
             <a
