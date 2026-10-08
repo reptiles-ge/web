@@ -6,7 +6,8 @@ import path from "node:path";
 const SOURCE_ROOT = "src";
 const SOURCE_FILE = /\.(ts|tsx)$/;
 const SKIPPED_FILE = /\.(test|generated)\.(ts|tsx)$/;
-const TABLE_ROW = /^│\s*messages\/ka\.json\s*│\s*(\S+)\s*│$/;
+const SOURCE_MESSAGES = "messages/ka.json";
+const TABLE_ROW = /^│\s*(\S+)\s*│\s*(\S+)\s*│$/;
 const INTERPOLATION = /\$\{[^}]*\}/g;
 const DYNAMIC_SEGMENT = "[A-Za-z0-9_-]+";
 
@@ -24,8 +25,8 @@ function collectSourceFiles(dir, out = []) {
   return out;
 }
 
-function reportedUnusedKeys() {
-  const directory = fs.mkdtempSync(path.join(os.tmpdir(), "i18n-unused-"));
+function readReport() {
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), "i18n-usage-"));
   const reportPath = path.join(directory, "report.txt");
   const report = fs.openSync(reportPath, "w");
   const result = spawnSync(
@@ -39,6 +40,7 @@ function reportedUnusedKeys() {
       "next-intl",
       "--only",
       "unused",
+      "undefined",
       "--unused",
       SOURCE_ROOT,
     ],
@@ -58,12 +60,36 @@ function reportedUnusedKeys() {
     console.error("i18n-check did not finish its report.");
     process.exit(1);
   }
-  const keys = [];
+  const unused = [];
+  const missing = [];
   for (const line of output.split(/\r?\n/)) {
     const match = TABLE_ROW.exec(line.trim());
-    if (match) keys.push(match[1]);
+    if (!match || match[1] === "file") continue;
+    if (match[1] === SOURCE_MESSAGES) unused.push(match[2]);
+    else missing.push({ file: match[1], key: match[2] });
   }
-  return keys;
+  return { missing, unused };
+}
+
+function flattenKeys(node, prefix, out) {
+  for (const [name, value] of Object.entries(node)) {
+    const key = prefix ? `${prefix}.${name}` : name;
+    out.push(key);
+    if (value && typeof value === "object") flattenKeys(value, key, out);
+  }
+  return out;
+}
+
+function collectDefinedSuffixes() {
+  const messages = JSON.parse(fs.readFileSync(SOURCE_MESSAGES, "utf8"));
+  const suffixes = new Set();
+  for (const key of flattenKeys(messages, "", [])) {
+    const segments = key.split(".");
+    for (let start = 0; start < segments.length; start += 1) {
+      suffixes.add(segments.slice(start).join("."));
+    }
+  }
+  return suffixes;
 }
 
 function escapeRegExp(value) {
@@ -132,8 +158,10 @@ function isKeyUsed(key, usage) {
 }
 
 const usage = collectUsage(collectSourceFiles(SOURCE_ROOT));
-const reported = reportedUnusedKeys();
-const unused = reported.filter((key) => !isKeyUsed(key, usage));
+const definedSuffixes = collectDefinedSuffixes();
+const report = readReport();
+const unused = report.unused.filter((key) => !isKeyUsed(key, usage));
+const missing = report.missing.filter((item) => !definedSuffixes.has(item.key));
 
 if (unused.length > 0) {
   console.error(`Unused translation keys: ${unused.length}`);
@@ -141,9 +169,21 @@ if (unused.length > 0) {
   console.error(
     "Remove them from every file in messages/, or reference them in src.",
   );
-  process.exit(1);
 }
 
+if (missing.length > 0) {
+  console.error(`Undefined translation keys: ${missing.length}`);
+  for (const item of missing) console.error(`  ${item.key}  (${item.file})`);
+  console.error(
+    `Add them to every file in messages/, starting with ${SOURCE_MESSAGES}.`,
+  );
+}
+
+if (unused.length > 0 || missing.length > 0) process.exit(1);
+
 console.log(
-  `Unused translation keys: 0 (${reported.length} reported by i18n-check are referenced dynamically)`,
+  `Unused translation keys: 0 (${report.unused.length} reported by i18n-check are referenced dynamically)`,
+);
+console.log(
+  `Undefined translation keys: 0 (${report.missing.length} reported by i18n-check exist under a dynamic namespace)`,
 );
