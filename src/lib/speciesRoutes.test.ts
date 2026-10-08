@@ -51,6 +51,7 @@ describe("species routes", () => {
     expect(getSpeciesLookalikes("macrovipera-lebetina")).toEqual([
       "elaphe-urartica",
       "hemorrhois-ravergieri",
+      "vipera-transcaucasiana",
     ]);
     for (const id of ["elaphe-urartica", "hemorrhois-ravergieri"]) {
       expect(getSpeciesLookalikes(id)).toContain("macrovipera-lebetina");
@@ -129,11 +130,12 @@ describe("species routes", () => {
   it("keeps Darevsky's viper lookalikes to supported visual matches", () => {
     expect(getSpeciesLookalikes("vipera-darevskii")).toEqual([
       "vipera-dinniki",
+      "vipera-transcaucasiana",
     ]);
     expect(getSpeciesLookalikes("vipera-dinniki")).toContain(
       "vipera-darevskii",
     );
-    expect(getSpeciesLookalikes("vipera-transcaucasiana")).not.toContain(
+    expect(getSpeciesLookalikes("vipera-transcaucasiana")).toContain(
       "vipera-darevskii",
     );
   });
