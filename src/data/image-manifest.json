@@ -87188,6 +87188,101 @@
       ],
       "updatedAt": "2026-09-05T16:33:27.207Z"
     },
+    "steatoda-paykulliana-denis-1.jpg": {
+      "sourceHash": "7d3da002457936c7987263d24d57f9505ab984a572bc78dade6ff56bb95911ae",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "steatoda-paykulliana-denis-1.jpg",
+      "originalSize": 185007,
+      "width": 1313,
+      "height": 1573,
+      "derivatives": [
+        {
+          "key": "optimized/steatoda-paykulliana-denis-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 383,
+          "byteSize": 10549
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-denis-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 383,
+          "byteSize": 14628
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-denis-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 479,
+          "byteSize": 13732
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-denis-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 479,
+          "byteSize": 19290
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-denis-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 767,
+          "byteSize": 24323
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-denis-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 767,
+          "byteSize": 33988
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-denis-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 958,
+          "byteSize": 30436
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-denis-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 958,
+          "byteSize": 43246
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-denis-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1438,
+          "byteSize": 46961
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-denis-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1438,
+          "byteSize": 66448
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-denis-1-1313.avif",
+          "format": "avif",
+          "width": 1313,
+          "height": 1573,
+          "byteSize": 52414
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-denis-1-1313.webp",
+          "format": "webp",
+          "width": 1313,
+          "height": 1573,
+          "byteSize": 74316
+        }
+      ],
+      "updatedAt": "2026-10-08T18:03:07.339Z"
+    },
     "strix-aluco-1.jpg": {
       "sourceHash": "bbfc9b7bc6333ef808a755785b1730a84a1abc80a8ae0180ce74e281b2aab904",
       "configFingerprint": "409788ee46c653d8",
