@@ -501,6 +501,33 @@ commonName: ტესტი
           root,
         ),
       ).toThrow(/last gallery photo/);
+      expect(fs.readFileSync(path.join(dir, "ka.mdx"), "utf8")).toContain(
+        'src: "https://cdn.reptiles.ge/a.jpg"',
+      );
+    } finally {
+      fs.rmSync(root, { force: true, recursive: true });
+    }
+  });
+
+  it("rejects a symlink without modifying its target", () => {
+    const root = fs.mkdtempSync(
+      path.join(os.tmpdir(), "reptiles-admin-remove-link-"),
+    );
+    try {
+      const dir = path.join(root, "src/content/species/test-species");
+      fs.mkdirSync(dir, { recursive: true });
+      const target = path.join(root, "target.mdx");
+      fs.writeFileSync(target, FIXTURE, "utf8");
+      fs.symlinkSync(target, path.join(dir, "ka.mdx"));
+
+      expect(() =>
+        removeGalleryItemFromSpecies(
+          "test-species",
+          "https://cdn.reptiles.ge/a.jpg",
+          root,
+        ),
+      ).toThrow();
+      expect(fs.readFileSync(target, "utf8")).toBe(FIXTURE);
     } finally {
       fs.rmSync(root, { force: true, recursive: true });
     }
