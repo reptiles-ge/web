@@ -512,6 +512,18 @@
     "breadcrumbVenomous": "Gürcistan’da zehirli yılanlar",
     "anchorLink": "Bu bölüme bağlantı"
   },
+  "giurzaIdentification": {
+    "color": "Renk",
+    "gray": "Gri",
+    "sand": "Kum rengi",
+    "brown": "Kahverengimsi",
+    "warning": "Yalnızca renk veya boyut güvenilir bir tanı ölçütü değildir. Göz bebeklerine bakmak için yılana yaklaşmayın.",
+    "lookalikeCount": "Benzer türler · {count}",
+    "differenceLabel": "Nasıl ayırt edilir",
+    "urarticaDifference": "Yuvarlak göz bebeği; sırtında büyük, yuvarlak koyu lekeler.",
+    "ravergieriDifference": "Yuvarlak göz bebeği; özellikle baş görünmediğinde lekeleri benzer görünebilir.",
+    "transcaucasianaDifference": "Burnunda boynuz vardır; daha dağlık alanlarda yaşar."
+  },
   "danger": {
     "Harmless": "Zararsız",
     "Moderate": "Orta risk",

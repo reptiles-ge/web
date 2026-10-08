@@ -512,6 +512,18 @@
     "breadcrumbVenomous": "Venomous snakes in Georgia",
     "anchorLink": "Link to this section"
   },
+  "giurzaIdentification": {
+    "color": "Color",
+    "gray": "Gray",
+    "sand": "Sandy",
+    "brown": "Brownish",
+    "warning": "Color or size alone is not reliable for identification. Do not approach a snake to inspect its pupils.",
+    "lookalikeCount": "Similar species · {count}",
+    "differenceLabel": "How it differs",
+    "urarticaDifference": "Round pupil; large, rounded dark blotches on the back.",
+    "ravergieriDifference": "Round pupil; its blotches can look similar, especially when the head is not visible.",
+    "transcaucasianaDifference": "Has a horn on its snout and occurs in more mountainous areas."
+  },
   "danger": {
     "Harmless": "Harmless",
     "Moderate": "Moderate risk",

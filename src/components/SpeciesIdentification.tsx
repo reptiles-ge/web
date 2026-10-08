@@ -1,4 +1,4 @@
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, TriangleAlert } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import type { DangerLevel } from "@/data/species";
@@ -58,6 +58,127 @@ export async function SpeciesIdentification({
     getTranslations({ locale, namespace: "danger" }),
   ]);
   const editable = locale === "ka" && isLocalAdminEnabled();
+
+  if (speciesId === "macrovipera-lebetina" && photo) {
+    const tGiurza = await getTranslations({
+      locale,
+      namespace: "giurzaIdentification",
+    });
+    const colors = [
+      { key: "gray", tone: "#8f8c82" },
+      { key: "sand", tone: "#c4ab7e" },
+      { key: "brown", tone: "#7d5f43" },
+    ] as const;
+
+    return (
+      <section className="bg-background py-11 lg:py-20">
+        <div className="mx-auto max-w-[1440px] px-6 lg:grid lg:grid-cols-[minmax(0,520px)_minmax(0,1fr)] lg:items-center lg:gap-x-16 lg:px-[60px]">
+          <div className="min-w-0 lg:col-start-2 lg:row-start-1 lg:self-end">
+            <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
+              {t("identification")}
+            </p>
+            <AnchoredHeading
+              anchorLabel={t("anchorLink")}
+              className="mt-3 max-w-3xl font-display text-[28px] leading-[1.15] font-semibold tracking-[-0.012em] lg:mt-4 lg:text-[44px] lg:leading-[1.1]"
+              id={SPECIES_SECTION_IDS.identification}
+              slugSource={t("identificationTitle", { name })}
+            >
+              {t("identificationTitle", { name })}
+            </AnchoredHeading>
+            <p
+              className="mt-3 max-w-2xl text-[16px] leading-[1.65] whitespace-pre-line text-muted-foreground lg:mt-[18px]"
+              data-content-field={
+                editable ? "identification.summary" : undefined
+              }
+              data-content-id={editable ? speciesId : undefined}
+              data-content-kind={editable ? "species" : undefined}
+            >
+              <IdentificationRichText text={identification.summary} />
+            </p>
+          </div>
+          <SpeciesIdentificationPhoto
+            alt={photoAlt ?? name}
+            featured
+            locale={locale}
+            photo={photo}
+          />
+          <div className="min-w-0 lg:col-start-2 lg:row-start-2 lg:self-start">
+            <ol className="mt-6 lg:mt-[22px]">
+              {identification.traits.map((trait, index) => (
+                <li
+                  className="flex items-start gap-4 border-t border-border py-4 last:border-b lg:py-5"
+                  key={trait}
+                >
+                  <span
+                    aria-hidden="true"
+                    className="flex size-8 shrink-0 items-center justify-center rounded-full bg-foreground text-[14px] font-bold text-background"
+                  >
+                    {index + 1}
+                  </span>
+                  <p
+                    className="min-w-0 text-[16px] leading-[1.65] whitespace-pre-line text-foreground/85"
+                    data-content-field={
+                      editable ? `identification.traits.${index}` : undefined
+                    }
+                    data-content-id={editable ? speciesId : undefined}
+                    data-content-kind={editable ? "species" : undefined}
+                  >
+                    <IdentificationRichText text={trait} />
+                  </p>
+                </li>
+              ))}
+            </ol>
+            <div className="mt-5 flex flex-wrap items-center gap-2">
+              <span className="mr-1 text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
+                {tGiurza("color")}
+              </span>
+              {colors.map(({ key, tone }) => (
+                <span
+                  className="inline-flex h-[34px] items-center gap-2 rounded-full bg-card pr-[13px] pl-[9px] text-[13.5px] font-medium text-foreground"
+                  key={key}
+                >
+                  <span
+                    aria-hidden="true"
+                    className="size-4 rounded-full"
+                    style={{ backgroundColor: tone }}
+                  />
+                  {tGiurza(key)}
+                </span>
+              ))}
+            </div>
+            <div className="mt-5 flex items-start gap-3 rounded-[22px] bg-[#f3ecd9] px-5 py-4">
+              <TriangleAlert
+                aria-hidden="true"
+                className="mt-0.5 size-5 shrink-0 text-[#7d6224]"
+              />
+              <p className="text-[14.5px] leading-[1.55] text-[#4f3f17]">
+                {tGiurza("warning")}
+              </p>
+            </div>
+          </div>
+        </div>
+        <SpeciesIdentificationLookalikes
+          countLabel={tGiurza("lookalikeCount", { count: lookalikes.length })}
+          differenceLabel={tGiurza("differenceLabel")}
+          differences={{
+            "elaphe-urartica": tGiurza("urarticaDifference"),
+            "hemorrhois-ravergieri": tGiurza("ravergieriDifference"),
+            "vipera-transcaucasiana": tGiurza("transcaucasianaDifference"),
+          }}
+          label={t("lookalikesTitle")}
+          locale={locale}
+          lookalikes={lookalikes}
+          moreLabel={(count) => t("lookalikesMore", { count })}
+          riskLabels={{
+            Harmless: tDanger("Harmless"),
+            High: tDanger("High"),
+            Moderate: tDanger("Moderate"),
+          }}
+          speciesId={speciesId}
+        />
+      </section>
+    );
+  }
 
   return (
     <section className="bg-background py-11 lg:py-20">
@@ -209,6 +330,9 @@ function IdentificationTraits({
 const LOOKALIKES_COLLAPSED_COUNT = 3;
 
 function SpeciesIdentificationLookalikes({
+  countLabel,
+  differenceLabel,
+  differences,
   label,
   locale,
   lookalikes,
@@ -216,6 +340,9 @@ function SpeciesIdentificationLookalikes({
   riskLabels,
   speciesId,
 }: {
+  countLabel?: string;
+  differenceLabel?: string;
+  differences?: Record<string, string>;
   label: string;
   locale: AppLocale;
   lookalikes: Species[];
@@ -236,17 +363,26 @@ function SpeciesIdentificationLookalikes({
       className="mx-auto mt-8 max-w-[1440px] px-6 lg:mt-[72px] lg:px-[60px]"
       id={SPECIES_SECTION_IDS.lookalikes}
     >
-      <h3
-        className="font-display text-[21px] leading-tight font-semibold text-foreground lg:text-[28px]"
-        id={labelId}
-      >
-        {label}
-      </h3>
+      <div className="flex flex-wrap items-baseline justify-between gap-3">
+        <h3
+          className="font-display text-[21px] leading-tight font-semibold text-foreground lg:text-[28px]"
+          id={labelId}
+        >
+          {label}
+        </h3>
+        {countLabel ? (
+          <span className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
+            {countLabel}
+          </span>
+        ) : null}
+      </div>
       <SpeciesLookalikeList
         items={lookalikes.map((item, index) => ({
           id: item.id,
           node: (
             <SpeciesLookalikeCard
+              difference={differences?.[item.id]}
+              differenceLabel={differenceLabel}
               item={item}
               locale={locale}
               position={index + 1}
@@ -265,10 +401,12 @@ function SpeciesIdentificationLookalikes({
 
 function SpeciesIdentificationPhoto({
   alt,
+  featured = false,
   locale,
   photo,
 }: {
   alt: string;
+  featured?: boolean;
   locale: AppLocale;
   photo: GalleryImage;
 }) {
@@ -276,11 +414,21 @@ function SpeciesIdentificationPhoto({
   const portrait = Boolean(entry && entry.height > entry.width);
 
   return (
-    <figure className="mt-5 lg:sticky lg:top-36 lg:col-start-1 lg:row-span-2 lg:row-start-1 lg:mt-0 lg:self-start">
+    <figure
+      className={cn(
+        "mt-5 lg:col-start-1 lg:row-span-2 lg:row-start-1 lg:mt-0",
+        featured ? "lg:self-center" : "lg:sticky lg:top-36 lg:self-start",
+      )}
+    >
       <a
         className={cn(
-          "group relative block max-h-[calc(100svh-13rem)] cursor-zoom-in overflow-hidden rounded-[28px] bg-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary lg:rounded-[36px]",
-          portrait ? "aspect-3/4" : "aspect-4/3",
+          "group relative block cursor-zoom-in overflow-hidden rounded-[28px] bg-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary lg:rounded-[36px]",
+          featured
+            ? "aspect-4/5 sm:aspect-4/3 lg:aspect-auto lg:h-[690px]"
+            : cn(
+                "max-h-[calc(100svh-13rem)]",
+                portrait ? "aspect-3/4" : "aspect-4/3",
+              ),
         )}
         data-species-gallery-src={optimizedImgSrc(photo.src, 1200)}
         href={`#${SPECIES_SECTION_IDS.gallery}`}
@@ -302,18 +450,31 @@ function SpeciesIdentificationPhoto({
             width={entry?.width}
           />
         </picture>
+        {featured && photo.credit ? (
+          <span className="absolute bottom-3 left-3 max-w-[calc(100%-1.5rem)] truncate rounded-full bg-ink/75 px-3 py-1.5 text-[11.5px] text-white">
+            {photo.credit.photographer}
+            {photo.credit.location ? ` · ${photo.credit.location}` : ""}
+            {photo.credit.date ? ` · ${photo.credit.date.slice(0, 4)}` : ""}
+          </span>
+        ) : null}
       </a>
-      <GalleryPhotoFigcaption locale={locale} photo={photo} />
+      {featured ? null : (
+        <GalleryPhotoFigcaption locale={locale} photo={photo} />
+      )}
     </figure>
   );
 }
 
 function SpeciesLookalikeCard({
+  difference,
+  differenceLabel,
   item,
   locale,
   position,
   riskLabels,
 }: {
+  difference?: string;
+  differenceLabel?: string;
   item: Species;
   locale: AppLocale;
   position: number;
@@ -367,6 +528,16 @@ function SpeciesLookalikeCard({
       <span className="mt-0.5 block px-2 text-[12.5px] text-muted-foreground italic lg:text-[13.5px]">
         {item.scientificName}
       </span>
+      {difference ? (
+        <span className="mx-2 mt-3.5 block border-t border-border pt-3">
+          <span className="block text-[11px] font-medium tracking-[0.14em] text-muted-foreground uppercase">
+            {differenceLabel}
+          </span>
+          <span className="mt-1.5 block text-[14.5px] leading-normal text-foreground">
+            {difference}
+          </span>
+        </span>
+      ) : null}
     </TrackedSpeciesLink>
   );
 }

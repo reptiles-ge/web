@@ -1107,7 +1107,11 @@ function SpeciesProfileIdentification({
   const photo =
     species.id === "halyomorpha-halys"
       ? null
-      : getSpeciesIdentificationPhoto(species);
+      : species.id === "macrovipera-lebetina"
+        ? (species.gallery.find((item) =>
+            item.src.endsWith("macrovipera-lebetina-ioane-2.jpg"),
+          ) ?? getSpeciesIdentificationPhoto(species))
+        : getSpeciesIdentificationPhoto(species);
 
   return (
     <SpeciesIdentification
