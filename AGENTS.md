@@ -213,6 +213,7 @@ npm run doctor:check     # fails unless the React Doctor score is exactly 100
 npm run species:compile
 npm run i18n:check       # locale key parity + ICU argument check (KA is the source)
 npm run i18n:usage       # fails on any unused or undefined key; filters i18n-check's dynamic-key false positives
+npm run test:coverage   # vitest with v8 coverage; fails below the thresholds in vitest.config.ts
 npm run cpd              # jscpd copy-paste scan, fails on any clone (threshold 0)
 ```
 
