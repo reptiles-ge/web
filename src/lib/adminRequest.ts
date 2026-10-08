@@ -14,10 +14,6 @@ export function adminErrorResponse(error: unknown, fallback: string) {
   return adminInvalidResponse(message);
 }
 
-export function adminInvalidResponse(error: string) {
-  return Response.json({ error }, { status: 400 });
-}
-
 export function isLocalAdminOriginRequest(request: Request) {
   const url = new URL(request.url);
   return (
@@ -61,4 +57,8 @@ export async function readLocalAdminJsonBody(
   } catch {
     return { response: adminInvalidResponse("Invalid JSON") };
   }
+}
+
+function adminInvalidResponse(error: string) {
+  return Response.json({ error }, { status: 400 });
 }
