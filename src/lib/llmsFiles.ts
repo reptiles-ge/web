@@ -538,6 +538,12 @@ function groupSummary(group: AnimalGroup, count: number) {
   }
 }
 
+function isDoiUrl(url: string | undefined) {
+  if (!url || !URL.canParse(url)) return false;
+  const host = new URL(url).hostname.toLowerCase();
+  return host === "doi.org" || host.endsWith(".doi.org");
+}
+
 function localizedNewsUrl(locale: AppLocale, slug: string) {
   return absoluteUrl(withLocalePrefix(locale, `/news/${slug}`));
 }
@@ -578,7 +584,7 @@ function sortSpecies(items: Species[]) {
 
 function sourceRank(source: Species["sources"][number]) {
   const hay = `${source.name} ${source.url ?? ""}`.toLowerCase();
-  if (hay.includes("doi.org") || hay.includes("10.3897")) return 0;
+  if (isDoiUrl(source.url) || hay.includes("10.3897")) return 0;
   if (hay.includes("iucn")) return 1;
   if (hay.includes("tarkhnishvili") || hay.includes("checklist")) return 2;
   if (source.url) return 3;
