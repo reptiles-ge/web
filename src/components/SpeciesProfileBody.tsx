@@ -1098,7 +1098,7 @@ async function SpeciesProfileBiology({
                       </AnchoredHeading>
                       <BiologyExpandable
                         body={block.body}
-                        needsExpand={block.body.length > 140}
+                        needsExpand
                         readLess={t("readLess")}
                         readMore={t("readMore")}
                       />
