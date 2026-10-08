@@ -530,8 +530,6 @@ export async function SpeciesProfileBody({
       ? "otherInsects"
       : "related";
   const habitatBlock = biologyBlocks.find((block) => block.id === "habitat");
-  const showStandaloneHabitat =
-    Boolean(habitatBlock) && species.id !== "macrovipera-lebetina";
   const naturalHistoryBlocks = biologyBlocks.filter(
     (block) => block.id !== "habitat",
   );
@@ -577,7 +575,6 @@ export async function SpeciesProfileBody({
       </div>
 
       <SpeciesProfileNavigation
-        giurzaLayout={species.id === "macrovipera-lebetina"}
         locale={locale}
         name={species.commonName}
         riskLevel={riskLevel}
@@ -585,10 +582,10 @@ export async function SpeciesProfileBody({
           biology: naturalHistoryBlocks.length > 0,
           faq: Boolean(species.faq?.length),
           gallery: gallery.length > 0,
-          habitat: showStandaloneHabitat,
+          habitat: false,
           identification: showIdentification,
           interaction: hasInteraction,
-          range: hasRange,
+          range: hasRange || Boolean(habitatBlock),
           sources: species.sources.length > 0,
         }}
       />
@@ -644,7 +641,7 @@ export async function SpeciesProfileBody({
         />
       ) : null}
 
-      {gallery.length > 0 && species.id !== "macrovipera-lebetina" ? (
+      {gallery.length > 0 && species.id === "halyomorpha-halys" ? (
         <SpeciesGallery
           images={gallery}
           locale={locale}
@@ -657,19 +654,8 @@ export async function SpeciesProfileBody({
 
       <SpeciesProfileQuiz locale={locale} species={species} />
 
-      {habitatBlock && showStandaloneHabitat ? (
-        <SpeciesProfileHabitat
-          block={habitatBlock}
-          editable={editable}
-          locale={locale}
-          speciesId={species.id}
-        />
-      ) : null}
-
       <SpeciesRangeMap
-        habitatDetails={
-          species.id === "macrovipera-lebetina" ? habitatBlock?.body : undefined
-        }
+        habitatDetails={habitatBlock?.body}
         locale={locale}
         speciesId={species.id}
         speciesName={species.commonName}
@@ -684,7 +670,7 @@ export async function SpeciesProfileBody({
         title={biologyTitle}
       />
 
-      {gallery.length > 0 && species.id === "macrovipera-lebetina" ? (
+      {gallery.length > 0 && species.id !== "halyomorpha-halys" ? (
         <SpeciesGallery
           images={gallery}
           locale={locale}
@@ -1197,49 +1183,6 @@ async function SpeciesProfileBiology({
   );
 }
 
-async function SpeciesProfileHabitat({
-  block,
-  editable,
-  locale,
-  speciesId,
-}: {
-  block: BiologyBlockItem;
-  editable: boolean;
-  locale: AppLocale;
-  speciesId: string;
-}) {
-  const t = await getTranslations({ locale, namespace: "profile" });
-
-  return (
-    <section className="bg-surface py-11 lg:py-20">
-      <div className={SPLIT_SECTION_CLASS}>
-        <div>
-          <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
-            {t("range")}
-          </p>
-          <AnchoredHeading
-            anchorLabel={t("anchorLink")}
-            className="mt-5 max-w-2xl font-display text-display-title font-bold"
-            id={SPECIES_SECTION_IDS.habitat}
-          >
-            {block.title}
-          </AnchoredHeading>
-        </div>
-        <div className={cn("max-w-3xl", SPLIT_SECTION_BODY_CLASS)}>
-          <BiologyExpandable
-            body={block.body}
-            editorField={editable ? block.id : undefined}
-            needsExpand={block.body.length > 520}
-            readLess={t("readLess")}
-            readMore={t("readMore")}
-            speciesId={editable ? speciesId : undefined}
-          />
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function SpeciesProfileIdentification({
   identification,
   locale,
@@ -1279,13 +1222,11 @@ function SpeciesProfileIdentification({
 }
 
 async function SpeciesProfileNavigation({
-  giurzaLayout = false,
   locale,
   name,
   riskLevel,
   sections,
 }: {
-  giurzaLayout?: boolean;
   locale: AppLocale;
   name: string;
   riskLevel?: DangerLevel;
@@ -1294,6 +1235,7 @@ async function SpeciesProfileNavigation({
   const t = await getTranslations({ locale, namespace: "profile" });
   const availableIds = speciesProfileSectionIds(sections);
   const giurzaOrder = [
+    SPECIES_SECTION_IDS.interaction,
     SPECIES_SECTION_IDS.overview,
     SPECIES_SECTION_IDS.identification,
     SPECIES_SECTION_IDS.range,
@@ -1302,9 +1244,7 @@ async function SpeciesProfileNavigation({
     SPECIES_SECTION_IDS.faq,
     SPECIES_SECTION_IDS.sources,
   ];
-  const ids = giurzaLayout
-    ? giurzaOrder.filter((id) => availableIds.includes(id))
-    : availableIds;
+  const ids = giurzaOrder.filter((id) => availableIds.includes(id));
   const labels = {
     [SPECIES_SECTION_IDS.biology]: t("biology"),
     [SPECIES_SECTION_IDS.faq]: t("faq"),

@@ -5,6 +5,7 @@ import type { AppLocale } from "@/i18n/routing";
 import type { HalyomorphaOccurrenceSummary } from "@/lib/halyomorphaOccurrences";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
+import { BiologyExpandable } from "@/components/BiologyExpandable";
 import { GeorgiaMapStatic } from "@/components/map/GeorgiaMapStatic";
 import { HalyomorphaRangeMap } from "@/components/map/HalyomorphaRangeMap";
 import { RangeHatchSwatch } from "@/components/map/RangeHatch";
@@ -85,7 +86,7 @@ export async function SpeciesRangeMap({
     );
   }
 
-  if (highlightedIds.length === 0) return null;
+  if (highlightedIds.length === 0 && !habitatDetails) return null;
 
   return (
     <section className="bg-background py-11 lg:py-20">
@@ -100,42 +101,61 @@ export async function SpeciesRangeMap({
           {t("rangeTitle", { name: speciesName })}
         </AnchoredHeading>
 
-        <div className="mt-10 grid gap-x-12 gap-y-8 lg:mt-12 lg:grid-cols-[minmax(0,1fr)_19rem] xl:grid-cols-[minmax(0,1fr)_21rem] xl:gap-x-16">
-          <figure>
-            <GeorgiaMapStatic
-              hatchId={STATIC_HATCH_ID}
-              highlightedIds={highlightedIds}
-            />
-            <figcaption className="mt-4 flex items-baseline gap-2 text-[12px] leading-snug text-muted-foreground">
-              <span className="translate-y-px">
-                <RangeHatchSwatch id={STATIC_HATCH_ID} />
-              </span>
-              {t("rangeSubtitle")}
-            </figcaption>
-          </figure>
-
-          <nav aria-label={t("rangeRegionsLabel")}>
-            <ol className="-mx-2.5 text-[14px] leading-snug">
-              {rangeRegions.map((region, index) => (
-                <li key={region.id}>
-                  <Link
-                    className="group flex min-h-11 items-center gap-3 rounded-xl px-2.5 py-1 text-foreground transition-colors hover:bg-surface hover:text-primary focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-primary"
-                    href={regionHref(region.id)}
-                  >
-                    <span aria-hidden="true" data-range-mark="key">
-                      {index + 1}
-                    </span>
-                    <span className="min-w-0 flex-1">
-                      {localizeRegionText(region.name, locale)}
-                    </span>
-                    <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors group-hover:border-primary/40 group-hover:text-primary">
-                      <ArrowUpRight aria-hidden="true" className="size-3.5" />
-                    </span>
-                  </Link>
-                </li>
-              ))}
-            </ol>
-          </nav>
+        <div className="mt-8 grid items-start gap-8 lg:grid-cols-[minmax(0,460px)_minmax(0,1fr)] lg:gap-16">
+          <div>
+            {habitatDetails ? (
+              <BiologyExpandable
+                body={habitatDetails}
+                needsExpand={habitatDetails.length > 520}
+                readLess={t("readLess")}
+                readMore={t("readMore")}
+              />
+            ) : null}
+            {rangeRegions.length > 0 ? (
+              <nav
+                aria-label={t("rangeRegionsLabel")}
+                className={habitatDetails ? "mt-6" : undefined}
+              >
+                <ol className="text-[15px] leading-snug">
+                  {rangeRegions.map((region, index) => (
+                    <li key={region.id}>
+                      <Link
+                        className="group flex min-h-14 items-center gap-3 border-t border-border text-foreground transition-colors hover:text-primary focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-primary"
+                        href={regionHref(region.id)}
+                      >
+                        <span aria-hidden="true" data-range-mark="key">
+                          {index + 1}
+                        </span>
+                        <span className="min-w-0 flex-1">
+                          {localizeRegionText(region.name, locale)}
+                        </span>
+                        <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors group-hover:border-primary/40 group-hover:text-primary">
+                          <ArrowUpRight
+                            aria-hidden="true"
+                            className="size-3.5"
+                          />
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                </ol>
+              </nav>
+            ) : null}
+          </div>
+          {highlightedIds.length > 0 ? (
+            <figure className="rounded-[30px] bg-card p-5 lg:rounded-[40px] lg:p-9">
+              <GeorgiaMapStatic
+                hatchId={STATIC_HATCH_ID}
+                highlightedIds={highlightedIds}
+              />
+              <figcaption className="mt-4 flex items-baseline gap-2 text-[12px] leading-snug text-muted-foreground">
+                <span className="translate-y-px">
+                  <RangeHatchSwatch id={STATIC_HATCH_ID} />
+                </span>
+                {t("rangeSubtitle")}
+              </figcaption>
+            </figure>
+          ) : null}
         </div>
       </div>
     </section>
@@ -213,9 +233,7 @@ async function HalyomorphaRangeSection({
   const tGiurza = featured
     ? await getTranslations({ locale, namespace: "giurzaRange" })
     : null;
-  const tProfile = featured
-    ? await getTranslations({ locale, namespace: "profile" })
-    : null;
+  const tProfile = await getTranslations({ locale, namespace: "profile" });
   const detailParagraphs = habitatDetails?.split(/\n+/).slice(1).join("\n\n");
   const extraHabitat = detailParagraphs || habitatDetails;
   const recordCounts = new Map(
@@ -298,7 +316,7 @@ async function HalyomorphaRangeSection({
             <p className="order-5 mt-4 text-[16px] leading-[1.65] text-muted-foreground lg:mt-[18px]">
               {tGiurza("lead")}
             </p>
-            {extraHabitat && tProfile ? (
+            {extraHabitat ? (
               <details className="group order-5 mt-1 lg:mt-4">
                 <summary className="inline-flex cursor-pointer list-none items-center gap-1.5 text-[14px] font-medium text-foreground underline decoration-foreground/30 underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary [&::-webkit-details-marker]:hidden">
                   <span className="group-open:hidden">
@@ -398,28 +416,41 @@ async function HalyomorphaRangeSection({
 
   return (
     <section className="bg-background py-11 lg:py-20">
-      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <p className={EYEBROW_CLASS}>{eyebrow}</p>
-        <AnchoredHeading
-          anchorLabel={anchorLabel}
-          className={HEADING_CLASS}
-          id={SPECIES_SECTION_IDS.range}
-          slugSource={copy.rangeTitle}
-        >
-          {copy.rangeTitle}
-        </AnchoredHeading>
-        <p className="mt-5 flex flex-wrap gap-x-6 gap-y-1 text-[15px] leading-relaxed text-muted-foreground">
-          {facts.map((fact) => (
-            <span key={fact.label}>
-              <span className="font-semibold text-foreground tabular-nums">
-                {fact.value}
+      <div className="mx-auto grid max-w-[1400px] items-start gap-8 px-6 lg:grid-cols-[minmax(0,460px)_minmax(0,1fr)] lg:gap-16 lg:px-10">
+        <div>
+          <p className={EYEBROW_CLASS}>{eyebrow}</p>
+          <AnchoredHeading
+            anchorLabel={anchorLabel}
+            className={HEADING_CLASS}
+            id={SPECIES_SECTION_IDS.range}
+            slugSource={copy.rangeTitle}
+          >
+            {copy.rangeTitle}
+          </AnchoredHeading>
+          {habitatDetails ? (
+            <div className="mt-5">
+              <BiologyExpandable
+                body={habitatDetails}
+                needsExpand={habitatDetails.length > 520}
+                readLess={tProfile("readLess")}
+                readMore={tProfile("readMore")}
+              />
+            </div>
+          ) : null}
+          <p className="mt-5 flex flex-wrap gap-x-6 gap-y-1 text-[15px] leading-relaxed text-muted-foreground">
+            {facts.map((fact) => (
+              <span key={fact.label}>
+                <span className="font-semibold text-foreground tabular-nums">
+                  {fact.value}
+                </span>
+                {fact.label ? ` ${fact.label}` : null}
               </span>
-              {fact.label ? ` ${fact.label}` : null}
-            </span>
-          ))}
-        </p>
-
-        <div className="mt-10 lg:mt-12">{map}</div>
+            ))}
+          </p>
+        </div>
+        <div className="min-w-0 rounded-[30px] bg-card p-4 lg:rounded-[40px] lg:p-8">
+          {map}
+        </div>
       </div>
     </section>
   );
