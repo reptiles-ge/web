@@ -1085,7 +1085,7 @@ async function SpeciesProfileBiology({
                   .filter((_, index) => index % 2 === column)
                   .map((block) => (
                     <article
-                      className="rounded-[28px] bg-card px-7 py-[26px] shadow-[0_10px_26px_rgba(14,20,17,0.05)]"
+                      className="min-h-[208px] rounded-[28px] bg-card px-7 py-[26px] shadow-[0_10px_26px_rgba(14,20,17,0.05)]"
                       key={block.id}
                     >
                       <AnchoredHeading
