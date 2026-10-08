@@ -323,7 +323,7 @@ async function HalyomorphaRangeSection({
                           {tGiurza("rare")}
                         </span>
                       ) : null}
-                      <span className="hidden min-w-6 text-right text-[15px] font-medium text-muted-foreground tabular-nums lg:block">
+                      <span className="min-w-6 shrink-0 text-right text-[15px] font-medium text-muted-foreground tabular-nums">
                         {recordCounts.get(region.id)?.toLocaleString(locale) ??
                           "—"}
                       </span>
