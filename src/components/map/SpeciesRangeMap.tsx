@@ -207,6 +207,9 @@ async function HalyomorphaRangeSection({
   const tGiurza = featured
     ? await getTranslations({ locale, namespace: "giurzaRange" })
     : null;
+  const readMoreLabel = featured
+    ? (await getTranslations({ locale, namespace: "profile" }))("readMore")
+    : null;
   const recordCounts = new Map(
     occurrenceSummary.recordsByRegion.map((record) => [
       record.id,
@@ -270,26 +273,38 @@ async function HalyomorphaRangeSection({
     const places = [1, 2, 3, 4] as const;
 
     return (
-      <section className="bg-surface py-11 lg:py-20">
-        <div className="mx-auto grid max-w-[1440px] gap-10 px-6 lg:grid-cols-[minmax(0,460px)_minmax(0,1fr)] lg:items-start lg:gap-16 lg:px-[60px]">
-          <div className="min-w-0">
-            <p className={EYEBROW_CLASS}>{eyebrow}</p>
-            <AnchoredHeading
-              anchorLabel={anchorLabel}
-              className="mt-4 max-w-xl font-display text-[28px] leading-[1.15] font-semibold tracking-[-0.012em] text-foreground lg:text-[44px] lg:leading-[1.1]"
-              id={SPECIES_SECTION_IDS.range}
-              slugSource={copy.rangeTitle}
-            >
-              {copy.rangeTitle}
-            </AnchoredHeading>
-            <p className="mt-[18px] text-[16px] leading-[1.65] text-muted-foreground">
+      <section className="bg-surface py-9 lg:py-20">
+        <div className="mx-auto grid max-w-[1440px] grid-cols-1 px-4 lg:grid-cols-[minmax(0,460px)_minmax(0,1fr)] lg:items-start lg:gap-16 lg:px-[60px]">
+          <div className="contents lg:col-start-1 lg:row-start-1 lg:block lg:min-w-0">
+            <div className="order-1">
+              <p className={EYEBROW_CLASS}>{eyebrow}</p>
+              <AnchoredHeading
+                anchorLabel={anchorLabel}
+                className="mt-4 max-w-xl font-display text-[28px] leading-[1.15] font-semibold tracking-[-0.012em] text-foreground lg:text-[44px] lg:leading-[1.1]"
+                id={SPECIES_SECTION_IDS.range}
+                slugSource={copy.rangeTitle}
+              >
+                {copy.rangeTitle}
+              </AnchoredHeading>
+            </div>
+            <p className="order-5 mt-4 text-[16px] leading-[1.65] text-muted-foreground lg:mt-[18px]">
               {tGiurza("lead")}
             </p>
-            <div className="mt-[22px] flex items-baseline justify-between gap-3 text-[11px] font-medium tracking-[0.14em] text-muted-foreground uppercase">
+            <a
+              className="order-5 mt-1 inline-flex items-center gap-1.5 text-[14px] font-medium text-foreground underline decoration-foreground/30 underline-offset-4 lg:hidden"
+              href={`#${SPECIES_SECTION_IDS.habitat}`}
+            >
+              {readMoreLabel}
+              <ArrowRight aria-hidden="true" className="size-4" />
+            </a>
+            <div className="mt-[22px] hidden items-baseline justify-between gap-3 text-[11px] font-medium tracking-[0.14em] text-muted-foreground uppercase lg:flex">
               <span>{tGiurza("regionsLabel")}</span>
               <span>{copy.regionRecordsLabel}</span>
             </div>
-            <nav aria-label={tGiurza("regionsLabel")} className="mt-2">
+            <nav
+              aria-label={tGiurza("regionsLabel")}
+              className="order-3 rounded-b-[30px] bg-card px-4 pb-2 shadow-[0_16px_40px_rgba(14,20,17,0.06)] lg:mt-2 lg:rounded-none lg:bg-transparent lg:p-0 lg:shadow-none"
+            >
               <ul>
                 {rangeRegions.map((region) => (
                   <li
@@ -297,7 +312,7 @@ async function HalyomorphaRangeSection({
                     key={region.id}
                   >
                     <Link
-                      className="group flex min-h-14 items-center gap-3 text-[17px] font-semibold text-foreground transition-colors hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                      className="group flex min-h-[52px] items-center gap-3 text-[15.5px] font-semibold text-foreground transition-colors hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary lg:min-h-14 lg:text-[17px]"
                       href={regionHref(region.id)}
                     >
                       <span className="min-w-0 flex-1">
@@ -308,7 +323,7 @@ async function HalyomorphaRangeSection({
                           {tGiurza("rare")}
                         </span>
                       ) : null}
-                      <span className="min-w-6 text-right text-[15px] font-medium text-muted-foreground tabular-nums">
+                      <span className="hidden min-w-6 text-right text-[15px] font-medium text-muted-foreground tabular-nums lg:block">
                         {recordCounts.get(region.id)?.toLocaleString(locale) ??
                           "—"}
                       </span>
@@ -321,8 +336,10 @@ async function HalyomorphaRangeSection({
                 ))}
               </ul>
             </nav>
-            <p className={`${EYEBROW_CLASS} mt-7`}>{tGiurza("placesLabel")}</p>
-            <ul className="mt-2.5 flex flex-wrap gap-1.5">
+            <p className={`${EYEBROW_CLASS} order-4 mt-6 lg:mt-7`}>
+              {tGiurza("placesLabel")}
+            </p>
+            <ul className="order-4 mt-2.5 flex flex-wrap gap-1.5">
               {places.map((number) => (
                 <li
                   className="inline-flex min-h-[34px] items-center rounded-full bg-card px-[13px] text-[13.5px] font-medium text-foreground"
@@ -332,10 +349,10 @@ async function HalyomorphaRangeSection({
                 </li>
               ))}
             </ul>
-            <p className="mt-6 text-[13px] leading-[1.6] text-muted-foreground">
+            <p className="order-6 mt-5 text-[13px] leading-[1.6] text-muted-foreground lg:mt-6">
               {tGiurza("recordNote")}
             </p>
-            <p className="mt-3 text-[12px] leading-relaxed text-muted-foreground">
+            <p className="order-7 mt-3 text-[12px] leading-relaxed text-muted-foreground">
               {copy.footerDataLabel}: {copy.footerReptilesLabel} +{" "}
               <a
                 className="underline decoration-border underline-offset-4 transition-colors hover:text-primary"
@@ -354,7 +371,7 @@ async function HalyomorphaRangeSection({
               </Link>
             </p>
           </div>
-          <div className="min-w-0 rounded-[30px] bg-card p-4 shadow-[0_16px_40px_rgba(14,20,17,0.06)] sm:p-7 lg:rounded-[40px] lg:p-9">
+          <div className="order-2 mt-5 min-w-0 rounded-t-[30px] bg-card p-4 pb-2 shadow-[0_16px_40px_rgba(14,20,17,0.06)] lg:col-start-2 lg:row-start-1 lg:mt-0 lg:rounded-[40px] lg:p-9">
             {map}
           </div>
         </div>
