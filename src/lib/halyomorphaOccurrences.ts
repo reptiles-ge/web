@@ -79,6 +79,7 @@ export function confirmedRecordThresholdForSpecies(speciesId: string) {
     speciesId === "columba-palumbus" ||
     speciesId === "coturnix-coturnix" ||
     speciesId === "lanius-collurio" ||
+    speciesId === "latrodectus-tredecimguttatus" ||
     speciesId === "mustela-nivalis" ||
     speciesId === "natrix-natrix" ||
     speciesId === "vipera-renardi" ||

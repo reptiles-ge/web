@@ -55,6 +55,13 @@ describe("occurrenceStatusForCount", () => {
     );
     expect(occurrenceStatusForCount(0, zamenisThreshold)).toBe("recorded-only");
     expect(occurrenceStatusForCount(1, zamenisThreshold)).toBe("confirmed");
+    const karakurtThreshold = confirmedRecordThresholdForSpecies(
+      "latrodectus-tredecimguttatus",
+    );
+    expect(occurrenceStatusForCount(0, karakurtThreshold)).toBe(
+      "recorded-only",
+    );
+    expect(occurrenceStatusForCount(1, karakurtThreshold)).toBe("confirmed");
     const longissimusThreshold = confirmedRecordThresholdForSpecies(
       "zamenis-longissimus",
     );

@@ -8,7 +8,7 @@ export const rangeMap: InteractiveRangeMapConfig = {
     en: {
       ...HALYOMORPHA_RANGE_COPY.en,
       intro:
-        "The Mediterranean black widow map uses public iNaturalist observations in Georgia. Regions come from the records-by-region table on this map. A region counts as distribution only when its status is confirmed; otherwise it is not treated as part of the range. Record counts reflect observation effort, not population density.",
+        "The Mediterranean black widow map takes regions from its records-by-region table. One record is enough to confirm distribution; a region with no records is not treated as part of the range. Record counts reflect observation effort, not population density.",
       mapAria:
         "Mediterranean black widow observations and confirmed distribution regions on a map of Georgia",
       officialRegionLabel: "Confirmed distribution region",
@@ -19,7 +19,7 @@ export const rangeMap: InteractiveRangeMapConfig = {
     ka: {
       ...HALYOMORPHA_RANGE_COPY.ka,
       intro:
-        "ყარაყურთის რუკა საქართველოს iNaturalist-ის საჯარო დაკვირვებებს ეყრდნობა. რეგიონები აღებულია ამ რუკის ჩანაწერების რეგიონული ცხრილიდან. გავრცელებად ითვლება მხოლოდ ის რეგიონი, რომლის სტატუსიც დადასტურებულია; სხვა შემთხვევაში რეგიონი გავრცელებულად არ ითვლება. ჩანაწერების რაოდენობა დაკვირვების ინტენსივობას ასახავს და არა პოპულაციის სიმჭიდროვეს.",
+        "ყარაყურთის რუკის რეგიონები ჩანაწერების რეგიონული ცხრილიდანაა. ერთი ჩანაწერიც საკმარისია, რომ გავრცელება დადასტურდეს; ჩანაწერის არმქონე რეგიონი გავრცელებულად არ ითვლება. ჩანაწერების რაოდენობა დაკვირვების ინტენსივობას ასახავს და არა პოპულაციის სიმჭიდროვეს.",
       mapAria:
         "ყარაყურთის დაკვირვებები და დადასტურებული გავრცელების რეგიონები საქართველოს რუკაზე",
       officialRegionLabel: "დადასტურებული გავრცელების რეგიონი",
@@ -29,7 +29,7 @@ export const rangeMap: InteractiveRangeMapConfig = {
     ru: {
       ...HALYOMORPHA_RANGE_COPY.ru,
       intro:
-        "Карта каракурта использует публичные наблюдения iNaturalist в Грузии. Регионы взяты из таблицы записей по регионам на этой карте. Распространением считается только регион со статусом подтверждения; в остальных случаях регион распространением не считается. Число записей отражает активность наблюдателей, а не плотность популяции.",
+        "Регионы карты каракурта взяты из таблицы записей по регионам. Одной записи достаточно, чтобы распространение считалось подтверждённым; регион без записей распространением не считается. Число записей отражает активность наблюдателей, а не плотность популяции.",
       mapAria:
         "Наблюдения каракурта и регионы с подтверждённым распространением на карте Грузии",
       officialRegionLabel: "Регион с подтверждённым распространением",
@@ -39,7 +39,7 @@ export const rangeMap: InteractiveRangeMapConfig = {
     tr: {
       ...HALYOMORPHA_RANGE_COPY.tr,
       intro:
-        "Karakurt haritası Gürcistan'daki herkese açık iNaturalist gözlemlerini kullanır. Bölgeler, bu haritadaki bölgelere göre kayıt tablosundan alınır. Bir bölge yalnızca durumu doğrulanmışsa yayılış sayılır; aksi halde yayılış sayılmaz. Kayıt sayısı nüfus yoğunluğunu değil, gözlem çabasını yansıtır.",
+        "Karakurt haritasının bölgeleri, bölgelere göre kayıt tablosundan alınır. Tek bir kayıt yayılışın doğrulanması için yeterlidir; kaydı olmayan bölge yayılış sayılmaz. Kayıt sayısı nüfus yoğunluğunu değil, gözlem çabasını yansıtır.",
       mapAria:
         "Karakurt gözlemleri ve Gürcistan'da yayılışı doğrulanmış bölgeler",
       officialRegionLabel: "Yayılışı doğrulanmış bölge",
