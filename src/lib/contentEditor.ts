@@ -10,30 +10,26 @@ export const editorFields = [
   "conservation",
 ] as const;
 
-export const editorRequestSchema = z
-  .object({
-    end: z.number().int().nonnegative(),
-    field: z
-      .string()
-      .regex(/^[A-Za-z][A-Za-z0-9]*(?:\.\d+|\.[A-Za-z][A-Za-z0-9]*)*$/)
-      .max(120),
-    id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
-    kind: z
-      .enum(["species", "guide", "news", "message", "region"])
-      .default("species"),
-    renderedText: z.string().min(1).max(20000),
-    start: z.number().int().nonnegative(),
-  })
-  .strict();
+export const editorRequestSchema = z.strictObject({
+  end: z.number().int().nonnegative(),
+  field: z
+    .string()
+    .regex(/^[A-Za-z][A-Za-z0-9]*(?:\.\d+|\.[A-Za-z][A-Za-z0-9]*)*$/)
+    .max(120),
+  id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
+  kind: z
+    .enum(["species", "guide", "news", "message", "region"])
+    .default("species"),
+  renderedText: z.string().min(1).max(20000),
+  start: z.number().int().nonnegative(),
+});
 
-export const editorResultSchema = z
-  .object({
-    en: z.string().trim().min(1).max(20000),
-    ka: z.string().trim().min(1).max(20000),
-    ru: z.string().trim().min(1).max(20000),
-    tr: z.string().trim().min(1).max(20000),
-  })
-  .strict();
+export const editorResultSchema = z.strictObject({
+  en: z.string().trim().min(1).max(20000),
+  ka: z.string().trim().min(1).max(20000),
+  ru: z.string().trim().min(1).max(20000),
+  tr: z.string().trim().min(1).max(20000),
+});
 
 export type EditorRequest = z.infer<typeof editorRequestSchema>;
 export type EditorResult = z.infer<typeof editorResultSchema>;

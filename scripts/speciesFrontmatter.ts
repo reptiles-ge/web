@@ -9,7 +9,7 @@ const photoConfidenceSchema = z.enum([
 ]);
 
 const photoCreditSchema = z
-  .object({
+  .looseObject({
     date: z.string().optional(),
     lat: z.number().min(-90).max(90).optional(),
     lng: z.number().min(-180).max(180).optional(),
@@ -18,7 +18,6 @@ const photoCreditSchema = z
     photoConfidence: photoConfidenceSchema.optional(),
     url: z.string().optional(),
   })
-  .passthrough()
   .superRefine((credit, ctx) => {
     const hasLat = credit.lat !== undefined;
     const hasLng = credit.lng !== undefined;
@@ -30,13 +29,11 @@ const photoCreditSchema = z
     });
   });
 
-const galleryImageSchema = z
-  .object({
-    credit: photoCreditSchema.optional(),
-    photoConfidence: photoConfidenceSchema.optional(),
-    src: nonempty,
-  })
-  .passthrough();
+const galleryImageSchema = z.looseObject({
+  credit: photoCreditSchema.optional(),
+  photoConfidence: photoConfidenceSchema.optional(),
+  src: nonempty,
+});
 
 const fieldRecordEvidenceSchema = z.enum([
   "literature",
@@ -44,99 +41,89 @@ const fieldRecordEvidenceSchema = z.enum([
   "specimen",
 ]);
 
-const fieldRecordSchema = z
-  .object({
-    date: z.string().optional(),
-    evidence: fieldRecordEvidenceSchema.optional(),
-    lat: z.number().min(-90).max(90),
-    lng: z.number().min(-180).max(180),
-    locality: nonempty,
-    note: z.string().optional(),
-    observer: z.string().optional(),
-    observerName: z.string().optional(),
-    source: z.string().optional(),
-    url: z.string().optional(),
-  })
-  .passthrough();
+const fieldRecordSchema = z.looseObject({
+  date: z.string().optional(),
+  evidence: fieldRecordEvidenceSchema.optional(),
+  lat: z.number().min(-90).max(90),
+  lng: z.number().min(-180).max(180),
+  locality: nonempty,
+  note: z.string().optional(),
+  observer: z.string().optional(),
+  observerName: z.string().optional(),
+  source: z.string().optional(),
+  url: z.string().optional(),
+});
 
-const sourceSchema = z
-  .object({
-    name: nonempty,
-    url: z.string().optional(),
-  })
-  .passthrough();
+const sourceSchema = z.looseObject({
+  name: nonempty,
+  url: z.string().optional(),
+});
 
 const dangerLevelSchema = z.enum(["Harmless", "High", "Moderate"]);
 
-export const kaFrontmatterSchema = z
-  .object({
-    audio: z
-      .object({
-        date: z.string().optional(),
-        location: z.string().optional(),
-        recordist: z.string().optional(),
-        src: z.string().optional(),
-        url: z.string().optional(),
-      })
-      .passthrough()
-      .optional(),
-    behavior: z.string().optional(),
-    commonName: nonempty,
-    conservation: z.string().optional(),
-    danger: dangerLevelSchema.optional(),
-    dateModified: z.string().optional(),
-    datePublished: z.string().optional(),
-    description: z.string().optional(),
-    diet: z.string().optional(),
-    facts: z.array(z.string()).optional(),
-    family: nonempty,
-    faq: z
-      .array(
-        z.object({
-          answer: z.string(),
-          question: z.string(),
-        }),
-      )
-      .optional(),
-    fieldRecords: z.array(fieldRecordSchema).optional(),
-    gallery: z.array(galleryImageSchema).optional(),
-    genus: nonempty,
-    habitat: z.string().optional(),
-    id: nonempty,
-    identification: z
-      .object({
-        summary: z.string().optional(),
-        traits: z.array(z.string()).optional(),
-      })
-      .passthrough()
-      .optional(),
-    image: z.string().optional(),
-    imageCredit: photoCreditSchema.optional(),
-    interaction: z.string().optional(),
-    location: z.string().optional(),
-    mobileImage: z.string().optional(),
-    mobileImageCredit: photoCreditSchema.optional(),
-    overview: z.string().optional(),
-    scientificName: nonempty,
-    sources: z.array(sourceSchema).optional(),
-    stats: z
-      .array(
-        z.object({
-          label: z.string(),
-          value: z.string(),
-        }),
-      )
-      .optional(),
-  })
-  .passthrough();
+export const kaFrontmatterSchema = z.looseObject({
+  audio: z
+    .looseObject({
+      date: z.string().optional(),
+      location: z.string().optional(),
+      recordist: z.string().optional(),
+      src: z.string().optional(),
+      url: z.string().optional(),
+    })
+    .optional(),
+  behavior: z.string().optional(),
+  commonName: nonempty,
+  conservation: z.string().optional(),
+  danger: dangerLevelSchema.optional(),
+  dateModified: z.string().optional(),
+  datePublished: z.string().optional(),
+  description: z.string().optional(),
+  diet: z.string().optional(),
+  facts: z.array(z.string()).optional(),
+  family: nonempty,
+  faq: z
+    .array(
+      z.object({
+        answer: z.string(),
+        question: z.string(),
+      }),
+    )
+    .optional(),
+  fieldRecords: z.array(fieldRecordSchema).optional(),
+  gallery: z.array(galleryImageSchema).optional(),
+  genus: nonempty,
+  habitat: z.string().optional(),
+  id: nonempty,
+  identification: z
+    .looseObject({
+      summary: z.string().optional(),
+      traits: z.array(z.string()).optional(),
+    })
+    .optional(),
+  image: z.string().optional(),
+  imageCredit: photoCreditSchema.optional(),
+  interaction: z.string().optional(),
+  location: z.string().optional(),
+  mobileImage: z.string().optional(),
+  mobileImageCredit: photoCreditSchema.optional(),
+  overview: z.string().optional(),
+  scientificName: nonempty,
+  sources: z.array(sourceSchema).optional(),
+  stats: z
+    .array(
+      z.object({
+        label: z.string(),
+        value: z.string(),
+      }),
+    )
+    .optional(),
+});
 
-export const translationFrontmatterSchema = z
-  .object({
-    commonName: nonempty,
-    id: nonempty,
-    scientificName: nonempty,
-  })
-  .passthrough();
+export const translationFrontmatterSchema = z.looseObject({
+  commonName: nonempty,
+  id: nonempty,
+  scientificName: nonempty,
+});
 
 export type KaFrontmatter = z.infer<typeof kaFrontmatterSchema>;
 
