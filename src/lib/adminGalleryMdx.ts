@@ -42,6 +42,27 @@ export function isSpeciesContentId(id: string) {
   return SPECIES_ID_RE.test(id);
 }
 
+function rewriteMdxIfExists(
+  filePath: string,
+  transform: (raw: string) => string,
+): boolean {
+  let fd: number;
+  try {
+    fd = fs.openSync(filePath, "r+");
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code === "ENOENT") return false;
+    throw error;
+  }
+  try {
+    const next = transform(fs.readFileSync(fd, "utf8"));
+    fs.ftruncateSync(fd, 0);
+    fs.writeSync(fd, next, 0, "utf8");
+  } finally {
+    fs.closeSync(fd);
+  }
+  return true;
+}
+
 function speciesContentDir(id: string) {
   if (!isSpeciesContentId(id)) {
     throw new Error("Invalid species id");
@@ -59,14 +80,11 @@ export function appendFieldRecordToSpecies(
   repoRoot = process.cwd(),
 ) {
   const kaPath = path.join(repoRoot, "src/content/species", id, "ka.mdx");
-  if (!fs.existsSync(kaPath)) {
+  if (
+    !rewriteMdxIfExists(kaPath, (raw) => appendFieldRecordToMdx(raw, record))
+  ) {
     throw new Error(`Missing ${id}/ka.mdx`);
   }
-  fs.writeFileSync(
-    kaPath,
-    appendFieldRecordToMdx(fs.readFileSync(kaPath, "utf8"), record),
-    "utf8",
-  );
 }
 
 export function appendGalleryItemToMdx(
@@ -116,27 +134,18 @@ export function appendGalleryItemToSpecies(
 ) {
   const dir = path.join(repoRoot, "src/content/species", id);
   const kaPath = path.join(dir, "ka.mdx");
-  if (!fs.existsSync(kaPath)) {
+  if (
+    !rewriteMdxIfExists(kaPath, (raw) => appendGalleryItemToMdx(raw, kaItem))
+  ) {
     throw new Error(`Missing ${id}/ka.mdx`);
   }
-
-  fs.writeFileSync(
-    kaPath,
-    appendGalleryItemToMdx(fs.readFileSync(kaPath, "utf8"), kaItem),
-    "utf8",
-  );
 
   for (const locale of OVERLAY_LOCALES) {
     const overlay = overlays[locale];
     if (!overlay) continue;
     const filePath = path.join(dir, `${locale}.mdx`);
-    if (!fs.existsSync(filePath)) continue;
     if (creditsEqual(kaItem.credit, overlay.credit)) continue;
-    fs.writeFileSync(
-      filePath,
-      appendGalleryItemToMdx(fs.readFileSync(filePath, "utf8"), overlay),
-      "utf8",
-    );
+    rewriteMdxIfExists(filePath, (raw) => appendGalleryItemToMdx(raw, overlay));
   }
 }
 
@@ -419,14 +428,11 @@ export function reorderGalleryInSpecies(
     throw new Error("Invalid species id");
   }
   const kaPath = path.join(repoRoot, "src/content/species", id, "ka.mdx");
-  if (!fs.existsSync(kaPath)) {
+  if (
+    !rewriteMdxIfExists(kaPath, (raw) => reorderGalleryInMdx(raw, orderedSrcs))
+  ) {
     throw new Error(`Missing ${id}/ka.mdx`);
   }
-  fs.writeFileSync(
-    kaPath,
-    reorderGalleryInMdx(fs.readFileSync(kaPath, "utf8"), orderedSrcs),
-    "utf8",
-  );
 }
 
 export function setCoverInMdx(
@@ -613,18 +619,13 @@ export function updateGalleryPhotoCoordinatesInSpecies(
     throw new Error("Invalid species id");
   }
   const kaPath = path.join(repoRoot, "src/content/species", id, "ka.mdx");
-  if (!fs.existsSync(kaPath)) {
+  if (
+    !rewriteMdxIfExists(kaPath, (raw) =>
+      updateGalleryPhotoCoordinatesInMdx(raw, src, coordinates),
+    )
+  ) {
     throw new Error(`Missing ${id}/ka.mdx`);
   }
-  fs.writeFileSync(
-    kaPath,
-    updateGalleryPhotoCoordinatesInMdx(
-      fs.readFileSync(kaPath, "utf8"),
-      src,
-      coordinates,
-    ),
-    "utf8",
-  );
 }
 
 function appendFieldRecordToMdx(
