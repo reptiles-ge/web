@@ -431,6 +431,14 @@
     "diet": "Diet",
     "behavior": "Behavior",
     "conservation": "Conservation",
+    "conservationStatus": "Conservation status",
+    "iucnStatus": {
+      "LC": "Least Concern",
+      "NT": "Near Threatened",
+      "VU": "Vulnerable",
+      "EN": "Endangered",
+      "CR": "Critically Endangered"
+    },
     "habitat": "Habitat and range",
     "interaction": "Human interaction",
     "readMore": "Read more",

@@ -431,6 +431,14 @@
     "diet": "Beslenme",
     "behavior": "Davranış",
     "conservation": "Koruma",
+    "conservationStatus": "Koruma durumu",
+    "iucnStatus": {
+      "LC": "Asgari endişe",
+      "NT": "Tehdide yakın",
+      "VU": "Hassas",
+      "EN": "Tehlikede",
+      "CR": "Kritik tehlikede"
+    },
     "habitat": "Yaşam alanı ve yayılış",
     "interaction": "İnsanla etkileşim",
     "readMore": "Devamını oku",
