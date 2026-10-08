@@ -3,7 +3,6 @@ import path from "node:path";
 import readline from "node:readline/promises";
 import { stdin as input, stdout as output } from "node:process";
 import type { Manifest } from "@reptiles-ge/img-compression";
-import { BunnyStorageAdapter } from "@reptiles-ge/img-compression/storage";
 import {
   optimizedBaseUrl,
   optimizedImages,
@@ -20,6 +19,7 @@ import {
   SITE_OG_IMAGE_URL,
   ogImageUrlFromSrc,
 } from "../src/lib/site";
+import { createBunnyStorageContext, loadEnv, walkFiles } from "./scriptUtils";
 
 const ROOT = process.cwd();
 const IMAGE_EXT = /\.(avif|gif|jpe?g|png|svg|webp)$/i;
@@ -47,6 +47,11 @@ const SCAN_EXTS = new Set([
   ".tsx",
 ]);
 const SCAN_ROOTS = ["src", "messages", "scripts"];
+const WALK_OPTIONS = {
+  scanExts: SCAN_EXTS,
+  skipDirNames: SKIP_DIR_NAMES,
+  skipFileNames: SKIP_FILE_NAMES,
+};
 
 const REGION_HOSTS: Record<string, string> = {
   "": "storage.bunnycdn.com",
@@ -61,14 +66,6 @@ const REGION_HOSTS: Record<string, string> = {
   syd: "syd.storage.bunnycdn.com",
 };
 
-function loadEnv() {
-  for (const file of [".env.local", ".env"]) {
-    const candidate = path.join(ROOT, file);
-    if (!fs.existsSync(candidate)) continue;
-    process.loadEnvFile(candidate);
-  }
-}
-
 function keyFromCdnUrl(url: string): string | null {
   const base = (process.env.BUNNY_CDN_BASE_URL ?? CDN_BASE).replace(/\/+$/, "");
   if (!url.startsWith(`${base}/`) && !url.startsWith(`${CDN_BASE}/`)) {
@@ -79,24 +76,6 @@ function keyFromCdnUrl(url: string): string | null {
     url.slice(prefix.length + 1).split("?")[0] ?? "",
   );
   return key || null;
-}
-
-function walkFiles(dir: string, out: string[] = []) {
-  if (!fs.existsSync(dir)) return out;
-  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-    if (entry.name.startsWith(".") && entry.name !== ".") continue;
-    const full = path.join(dir, entry.name);
-    if (entry.isDirectory()) {
-      if (SKIP_DIR_NAMES.has(entry.name)) continue;
-      walkFiles(full, out);
-      continue;
-    }
-    if (SKIP_FILE_NAMES.has(entry.name)) continue;
-    if (SCAN_EXTS.has(path.extname(entry.name).toLowerCase())) {
-      out.push(full);
-    }
-  }
-  return out;
 }
 
 function markUsed(used: Set<string>, url: string) {
@@ -129,7 +108,7 @@ function collectUsedKeys(): Set<string> {
   const used = new Set<string>();
 
   for (const rel of SCAN_ROOTS) {
-    for (const filePath of walkFiles(path.join(ROOT, rel))) {
+    for (const filePath of walkFiles(path.join(ROOT, rel), WALK_OPTIONS)) {
       const text = fs.readFileSync(filePath, "utf8");
       for (const match of text.matchAll(CDN_URL_RE)) {
         markUsed(used, match[0]);
@@ -158,28 +137,6 @@ function collectUsedKeys(): Set<string> {
   }
 
   return used;
-}
-
-function createStorage() {
-  const zone = process.env.BUNNY_STORAGE_ZONE;
-  const accessKey = process.env.BUNNY_STORAGE_ACCESS_KEY;
-  if (!zone || !accessKey) {
-    throw new Error(
-      "BUNNY_STORAGE_ZONE and BUNNY_STORAGE_ACCESS_KEY must be set. Put them in .env.local or .env.",
-    );
-  }
-  return {
-    accessKey,
-    storage: new BunnyStorageAdapter({
-      accessKey,
-      cdnBaseUrl: process.env.BUNNY_CDN_BASE_URL ?? CDN_BASE,
-      storageZone: zone,
-      ...(process.env.BUNNY_STORAGE_REGION
-        ? { region: process.env.BUNNY_STORAGE_REGION }
-        : {}),
-    }),
-    storageZone: zone,
-  };
 }
 
 function storageOrigin() {
@@ -215,8 +172,8 @@ async function deleteStorageKey(
 }
 
 async function main() {
-  loadEnv();
-  const { accessKey, storage, storageZone } = createStorage();
+  loadEnv(ROOT);
+  const { accessKey, storage, storageZone } = createBunnyStorageContext();
 
   console.log("Scanning repo for CDN image references…");
   const used = collectUsedKeys();

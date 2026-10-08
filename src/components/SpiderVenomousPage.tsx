@@ -6,8 +6,8 @@ import { ClusterContentSection } from "@/components/ClusterContentSection";
 import { ClusterGuideLead } from "@/components/ClusterGuideLead";
 import { ClusterNumberedSteps } from "@/components/ClusterNumberedSteps";
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
+import { GuideMythList, GuideSummaryBlock } from "@/components/GuideShared";
 import { LookalikePair } from "@/components/LookalikePair";
-import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { toSpeciesCard, toSpeciesCards } from "@/data/speciesCard";
 import { Link } from "@/i18n/navigation";
@@ -41,25 +41,12 @@ export async function SpiderVenomousPage({
         id="content"
       >
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
-            {t("summaryEyebrow")}
-          </p>
-          <h2 className="mt-5 max-w-3xl font-display text-display-title font-semibold">
-            <PhoneLinkedText>{t("summaryTitle")}</PhoneLinkedText>
-          </h2>
-          <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-            <PhoneLinkedText>{t("summaryLead")}</PhoneLinkedText>
-          </p>
-          <ul className="mt-8 max-w-2xl divide-y divide-border border-y border-border">
-            {SUMMARY.map((n) => (
-              <li
-                className="py-4 text-[15px] leading-relaxed text-foreground"
-                key={n}
-              >
-                <PhoneLinkedText>{t(`summary${n}`)}</PhoneLinkedText>
-              </li>
-            ))}
-          </ul>
+          <GuideSummaryBlock
+            eyebrow={t("summaryEyebrow")}
+            items={SUMMARY.map((n) => ({ id: n, text: t(`summary${n}`) }))}
+            lead={t("summaryLead")}
+            title={t("summaryTitle")}
+          />
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               className="inline-flex items-center rounded-full bg-primary px-5 py-3 text-[14px] font-medium text-white dark:text-ink"
@@ -158,18 +145,13 @@ export async function SpiderVenomousPage({
         surface="background"
         title={t("mythsTitle")}
       >
-        <ul className="mt-10 divide-y divide-border border-y border-border">
-          {MYTHS.map((n) => (
-            <li className="py-5 sm:py-6" key={n}>
-              <p className="font-display text-[17px] leading-snug font-medium text-foreground sm:text-[19px]">
-                {t(`myth${n}False`)}
-              </p>
-              <p className="mt-2 max-w-3xl text-[15px] leading-relaxed text-muted-foreground">
-                {t(`myth${n}True`)}
-              </p>
-            </li>
-          ))}
-        </ul>
+        <GuideMythList
+          myths={MYTHS.map((n) => ({
+            claim: t(`myth${n}False`),
+            id: n,
+            truth: t(`myth${n}True`),
+          }))}
+        />
       </ClusterContentSection>
     </ClusterPageFrame>
   );

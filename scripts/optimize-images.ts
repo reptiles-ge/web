@@ -16,7 +16,6 @@ import {
   type OgImageConfig,
 } from "@reptiles-ge/img-compression";
 import {
-  BunnyStorageAdapter,
   LocalStorageAdapter,
   type StorageAdapter,
 } from "@reptiles-ge/img-compression/storage";
@@ -36,7 +35,8 @@ import {
 import { images as siteImages } from "../src/data/speciesMedia";
 import type { OptimizedImageEntry } from "../src/data/optimizedImages";
 import { GROUP_HUB_ILLUSTRATIONS } from "../src/lib/groupHubs";
-import { compactAsset } from "../src/lib/imageOptimize";
+import { compactAsset, formatGeneratedImages } from "../src/lib/imageOptimize";
+import { createBunnyStorageContext, formatBytes, loadEnv } from "./scriptUtils";
 
 const CDN_BASE = "https://cdn.reptiles.ge";
 const PUBLIC_ROOT = path.join(process.cwd(), "public");
@@ -197,14 +197,6 @@ function parseArguments(argv: string[]): CliOptions {
     limit,
     concurrency,
   };
-}
-
-function loadEnv() {
-  for (const file of [".env.local", ".env"]) {
-    const candidate = path.join(process.cwd(), file);
-    if (!fs.existsSync(candidate)) continue;
-    process.loadEnvFile(candidate);
-  }
 }
 
 function isPlaceholder(src: string) {
@@ -388,32 +380,6 @@ async function readSource(target: Target): Promise<Buffer> {
   return local;
 }
 
-function createStorage(): StorageAdapter {
-  const zone = process.env.BUNNY_STORAGE_ZONE;
-  const accessKey = process.env.BUNNY_STORAGE_ACCESS_KEY;
-
-  if (!zone || !accessKey) {
-    throw new Error(
-      "BUNNY_STORAGE_ZONE and BUNNY_STORAGE_ACCESS_KEY must be set. Put them in .env.local.",
-    );
-  }
-
-  return new BunnyStorageAdapter({
-    storageZone: zone,
-    accessKey,
-    cdnBaseUrl: process.env.BUNNY_CDN_BASE_URL ?? CDN_BASE,
-    ...(process.env.BUNNY_STORAGE_REGION
-      ? { region: process.env.BUNNY_STORAGE_REGION }
-      : {}),
-  });
-}
-
-function formatBytes(bytes: number) {
-  if (bytes < 1024) return `${bytes} B`;
-  if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
-  return `${(bytes / 1024 / 1024).toFixed(2)} MB`;
-}
-
 type OgStatus = "written" | "skipped" | "planned";
 
 async function ensureOgImage(input: {
@@ -465,25 +431,6 @@ function formatOgResult(result: Awaited<ReturnType<typeof ensureOgImage>>) {
   const quality = result.quality === undefined ? "" : ` q${result.quality}`;
   const enlarged = result.enlarged ? " enlarged" : "";
   return `og written ${result.key}${size}${quality}${enlarged}`;
-}
-
-function formatGeneratedImages(
-  images: Record<string, OptimizedImageEntry>,
-): string {
-  const entries = Object.entries(images)
-    .sort(([a], [b]) => a.localeCompare(b))
-    .map(([src, asset]) => {
-      const widths = `[${asset.widths.join(", ")}]`;
-      const formats = `[${asset.formats.map((format) => JSON.stringify(format)).join(", ")}]`;
-      return `  ${JSON.stringify(src)}: {
-    "path": ${JSON.stringify(asset.path)},
-    "width": ${asset.width},
-    "height": ${asset.height},
-    "widths": ${widths},
-    "formats": ${formats}
-  }`;
-    });
-  return `{\n${entries.join(",\n")}\n}`;
 }
 
 async function generateDataFile(
@@ -540,7 +487,7 @@ async function run() {
     additionalWidths: ADDITIONAL_WIDTHS,
   });
   const og = resolveOgImageConfig();
-  const storage = createStorage();
+  const storage: StorageAdapter = createBunnyStorageContext().storage;
   const manifestStorage = new LocalStorageAdapter({ root: MANIFEST_ROOT });
 
   const byKey = collectSources();

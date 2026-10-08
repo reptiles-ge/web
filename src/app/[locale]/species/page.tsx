@@ -18,71 +18,50 @@ import { getRegionTooltipPreviews } from "@/data/regions";
 import { getSpeciesById } from "@/data/species";
 import { getAtlasStats } from "@/data/speciesAtlas";
 import { ATLAS_CLIENT_MESSAGE_NAMESPACES } from "@/i18n/clientMessages";
-import { georgiaPlaceName, openGraphLocale } from "@/i18n/localeMeta";
+import { georgiaPlaceName } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { getAtlasListItems, getAtlasRecentItems } from "@/lib/atlasList";
-import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
+import { buildPageMetadata, type LocalePageProps } from "@/lib/pageMetadata";
+import {
+  breadcrumbListLd,
+  localePageUrl,
+  speciesItemListLd,
+} from "@/lib/pageStructuredData";
 import {
   absoluteUrl,
-  localeAlternates,
   localePath,
-  openGraphJpeg,
-  siteConfig,
   siteEntityId,
   speciesOgImageUrl,
-  speciesPageUrl,
 } from "@/lib/site";
 import { pageDateFields } from "@/lib/structuredDataDates";
 
-type Props = {
-  params: Promise<{ locale: string }>;
-};
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: LocalePageProps): Promise<Metadata> {
   const { locale: localeParam } = await params;
   if (!hasLocale(routing.locales, localeParam)) return {};
 
   const locale = localeParam as AppLocale;
   const t = await getTranslations({ locale, namespace: "speciesAtlas" });
   const title = t("metaTitle");
-  const pagePath = "/species";
-  const path = localePath(locale, pagePath);
-  const description = kaMetaDescriptionOverride(
-    locale,
-    path,
-    t("metaDescription"),
-  );
-  const url = absoluteUrl(path);
-  const hero = getSpeciesById("vipera-kaznakovi");
-  const ogImage = speciesOgImageUrl("vipera-kaznakovi", hero?.image);
 
-  return {
-    alternates: localeAlternates(locale, pagePath),
-    description,
-    openGraph: {
-      description,
-      images: [openGraphJpeg(ogImage, title)],
-      locale: openGraphLocale(locale),
-      siteName: siteConfig.name,
-      title,
-      type: "website",
-      url,
-    },
+  return buildPageMetadata({
+    description: t("metaDescription"),
+    locale,
+    ogImageUrl: speciesOgImageUrl(
+      "vipera-kaznakovi",
+      getSpeciesById("vipera-kaznakovi")?.image,
+    ),
+    pagePath: "/species",
     title,
-    twitter: {
-      card: "summary_large_image",
-      description,
-      images: [ogImage],
-      title,
-    },
-  };
+  });
 }
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-export default async function SpeciesIndexPage({ params }: Props) {
+export default async function SpeciesIndexPage({ params }: LocalePageProps) {
   const { locale: localeParam } = await params;
   if (!hasLocale(routing.locales, localeParam)) {
     notFound();
@@ -99,24 +78,10 @@ export default async function SpeciesIndexPage({ params }: Props) {
   const stats = getAtlasStats();
   const dates = pageDateFields("/species");
 
-  const breadcrumbLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        item: absoluteUrl(localePath(locale, "/")),
-        name: t("breadcrumbHome"),
-        position: 1,
-      },
-      {
-        "@type": "ListItem",
-        item: url,
-        name: t("breadcrumbSpecies"),
-        position: 2,
-      },
-    ],
-  };
+  const breadcrumbLd = breadcrumbListLd([
+    { item: localePageUrl(locale, "/"), name: t("breadcrumbHome") },
+    { item: url, name: t("breadcrumbSpecies") },
+  ]);
 
   const collectionLd = {
     "@context": "https://schema.org",
@@ -130,16 +95,7 @@ export default async function SpeciesIndexPage({ params }: Props) {
     description: t("metaDescription"),
     inLanguage: locale,
     isPartOf: { "@id": siteEntityId("website") },
-    mainEntity: {
-      "@type": "ItemList",
-      itemListElement: catalog.map((item, index) => ({
-        "@type": "ListItem",
-        name: `${item.commonName} (${item.scientificName})`,
-        position: index + 1,
-        url: speciesPageUrl(locale, item.id),
-      })),
-      numberOfItems: catalog.length,
-    },
+    mainEntity: speciesItemListLd(locale, catalog),
     name: t("metaTitle"),
     url,
   };

@@ -19,12 +19,12 @@ import { type AppLocale, routing } from "@/i18n/routing";
 import { GROUP_HUBS, type GroupHubId } from "@/lib/groupHubs";
 import { buildPageMetadata } from "@/lib/pageMetadata";
 import {
-  absoluteUrl,
-  localePath,
-  siteEntityId,
-  speciesOgImageUrl,
-  speciesPageUrl,
-} from "@/lib/site";
+  breadcrumbListLd,
+  localePageUrl,
+  sitePageLd,
+  speciesItemListLd,
+} from "@/lib/pageStructuredData";
+import { absoluteUrl, localePath, speciesOgImageUrl } from "@/lib/site";
 import { isPlaceholderMedia } from "@/lib/speciesContent";
 import { pageDateFields } from "@/lib/structuredDataDates";
 
@@ -93,51 +93,21 @@ export function createGroupHubRoute(hubId: GroupHubId) {
         ? hero.mobileImage
         : undefined;
 
-    const breadcrumbLd = {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          item: absoluteUrl(localePath(locale, "/")),
-          name: tShared("breadcrumbHome"),
-          position: 1,
-        },
-        {
-          "@type": "ListItem",
-          item: url,
-          name: t("breadcrumbCurrent"),
-          position: 2,
-        },
-      ],
-    };
+    const breadcrumbLd = breadcrumbListLd([
+      { item: localePageUrl(locale, "/"), name: tShared("breadcrumbHome") },
+      { item: url, name: t("breadcrumbCurrent") },
+    ]);
 
-    const collectionLd = {
-      "@context": "https://schema.org",
-      "@type": "CollectionPage",
-      about: {
-        "@type": "Place",
-        name: georgiaPlaceName(locale),
-      },
-      author: { "@id": siteEntityId("organization") },
-      ...pageDateFields(hub.path),
+    const collectionLd = sitePageLd({
+      about: { "@type": "Place", name: georgiaPlaceName(locale) },
+      dates: pageDateFields(hub.path),
       description: t("metaDescription"),
-      inLanguage: locale,
-      isPartOf: { "@id": siteEntityId("website") },
-      mainEntity: {
-        "@type": "ItemList",
-        itemListElement: species.map((item, index) => ({
-          "@type": "ListItem",
-          name: `${item.commonName} (${item.scientificName})`,
-          position: index + 1,
-          url: speciesPageUrl(locale, item.id),
-        })),
-        numberOfItems: species.length,
-      },
+      locale,
+      mainEntity: speciesItemListLd(locale, species),
       name: t("metaTitle"),
-      publisher: { "@id": siteEntityId("organization") },
+      type: "CollectionPage",
       url,
-    };
+    });
 
     const faqLd = {
       "@context": "https://schema.org",

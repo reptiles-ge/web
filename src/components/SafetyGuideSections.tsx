@@ -15,8 +15,8 @@ import {
   GuideSymptomsLead,
   GuideTwoColumnSurface,
 } from "@/components/GuideShared";
+import { GuideSpeciesSection } from "@/components/GuideSpeciesSection";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
-import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { Link } from "@/i18n/navigation";
 import { formatContentDate } from "@/lib/formatDate";
 
@@ -250,49 +250,40 @@ function SafetySpecies({
   species: SpeciesCard[];
 }) {
   const t = useTranslations(config.namespace);
-  const locale = useLocale() as AppLocale;
 
   return (
-    <section className="border-t border-border bg-surface py-20 lg:py-28">
-      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <div>
-          <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
-            {t("speciesEyebrow")}
-          </p>
-          <h2 className="mt-5 max-w-2xl font-display text-display-title font-semibold">
-            {t("speciesTitle")}
-          </h2>
-          <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-            <PhoneLinkedText>
-              {t.rich("speciesBody", {
-                count: species.length,
-                index: (chunks) => (
-                  <Link
-                    className={inlineLinkClassName}
-                    href={config.speciesIndexHref}
-                  >
-                    {chunks}
-                  </Link>
-                ),
-              })}
-            </PhoneLinkedText>
-          </p>
-        </div>
-        <SpeciesGuideList locale={locale} source="guide" species={species} />
-        <div className="mt-10 flex flex-wrap gap-3">
-          {config.extraLinks.map((link) => (
-            <Link
-              className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-3 text-[14px] font-medium text-foreground"
-              href={link.href}
-              key={link.key}
-            >
-              {t(link.key as "linkHub")}
-              <ArrowUpRight className="size-4" />
-            </Link>
-          ))}
-        </div>
+    <GuideSpeciesSection
+      links={config.extraLinks.map((link) => ({
+        href: link.href,
+        id: link.key,
+        label: t(link.key as "linkHub"),
+      }))}
+      species={species}
+    >
+      <div>
+        <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
+          {t("speciesEyebrow")}
+        </p>
+        <h2 className="mt-5 max-w-2xl font-display text-display-title font-semibold">
+          {t("speciesTitle")}
+        </h2>
+        <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
+          <PhoneLinkedText>
+            {t.rich("speciesBody", {
+              count: species.length,
+              index: (chunks) => (
+                <Link
+                  className={inlineLinkClassName}
+                  href={config.speciesIndexHref}
+                >
+                  {chunks}
+                </Link>
+              ),
+            })}
+          </PhoneLinkedText>
+        </p>
       </div>
-    </section>
+    </GuideSpeciesSection>
   );
 }
 

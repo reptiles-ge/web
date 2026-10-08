@@ -1,24 +1,15 @@
 import type { CoverCropRect } from "@/lib/coverCrop";
 
-import {
-  isLocalAdminEnabled,
-  localAdminForbiddenResponse,
-} from "@/lib/adminAccess";
 import { isSpeciesContentId } from "@/lib/adminGalleryMdx";
 import { cropSpeciesCover } from "@/lib/adminPhotos";
+import { adminErrorResponse, readLocalAdminJsonBody } from "@/lib/adminRequest";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 export async function POST(request: Request) {
-  if (!isLocalAdminEnabled()) return localAdminForbiddenResponse();
-
-  let body: unknown;
-  try {
-    body = await request.json();
-  } catch {
-    return Response.json({ error: "Invalid JSON" }, { status: 400 });
-  }
+  const { body, response } = await readLocalAdminJsonBody(request);
+  if (response) return response;
 
   const data = (body && typeof body === "object" ? body : {}) as Record<
     string,
@@ -44,8 +35,7 @@ export async function POST(request: Request) {
   try {
     return Response.json(await cropSpeciesCover({ crop, id, src, target }));
   } catch (error) {
-    const message = error instanceof Error ? error.message : "Crop failed";
-    return Response.json({ error: message }, { status: 400 });
+    return adminErrorResponse(error, "Crop failed");
   }
 }
 

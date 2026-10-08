@@ -1,16 +1,18 @@
 import matter from "gray-matter";
-import { execFile, spawn } from "node:child_process";
+import { execFile } from "node:child_process";
 import { randomUUID } from "node:crypto";
 import fs from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 import { promisify } from "node:util";
 
+import { runCodexProcess } from "@/lib/codexProcess";
 import { validateEditorResult } from "@/lib/contentEditor";
 import { transformWithCodex } from "@/lib/contentEditorCodex";
 import { findSpeciesPullRequest } from "@/lib/contentEditorPullRequest";
 import { resolveEditorTarget } from "@/lib/contentEditorTarget";
 import {
+  cleanupPullRequestWorktree,
   createOrFindPullRequest,
   isPullRequestUrl,
 } from "@/lib/pullRequestGit";
@@ -275,19 +277,7 @@ export async function runSpeciesWorkflow(
         worktree,
         `origin/${base}`,
       ]);
-      const differences = await Promise.all(
-        allowedFiles.map(async (file) => {
-          const [local, remote] = await Promise.all([
-            fs.readFile(path.join(root, file), "utf8").catch(() => ""),
-            fs.readFile(path.join(worktree, file), "utf8").catch(() => ""),
-          ]);
-          return local !== remote;
-        }),
-      );
-      if (differences.some(Boolean))
-        throw new Error(
-          "Species content differs from the PR base; update the local page first",
-        );
+      await assertSpeciesContentMatchesBase(root, worktree, allowedFiles);
       await fs.symlink(
         path.join(root, "node_modules"),
         path.join(worktree, "node_modules"),
@@ -475,6 +465,26 @@ export function speciesFrontmatterError(raw: string) {
   }
 }
 
+async function assertSpeciesContentMatchesBase(
+  root: string,
+  worktree: string,
+  files: string[],
+) {
+  const differences = await Promise.all(
+    files.map(async (file) => {
+      const [local, remote] = await Promise.all([
+        fs.readFile(path.join(root, file), "utf8").catch(() => ""),
+        fs.readFile(path.join(worktree, file), "utf8").catch(() => ""),
+      ]);
+      return local !== remote;
+    }),
+  );
+  if (differences.some(Boolean))
+    throw new Error(
+      "Species content differs from the PR base; update the local page first",
+    );
+}
+
 async function changedFiles(worktree: string) {
   return (
     await run(
@@ -644,19 +654,7 @@ async function runAnalysis(
       `origin/${existing ? remoteBranch : base}`,
     ]);
     if (!existing) {
-      const differences = await Promise.all(
-        allowedFiles.map(async (file) => {
-          const [local, remote] = await Promise.all([
-            fs.readFile(path.join(root, file), "utf8").catch(() => ""),
-            fs.readFile(path.join(worktree, file), "utf8").catch(() => ""),
-          ]);
-          return local !== remote;
-        }),
-      );
-      if (differences.some(Boolean))
-        throw new Error(
-          "Species content differs from the PR base; update the local page first",
-        );
+      await assertSpeciesContentMatchesBase(root, worktree, allowedFiles);
     }
     await fs.symlink(
       path.join(root, "node_modules"),
@@ -735,67 +733,34 @@ async function runAnalysis(
       throw new Error("Pull request creation failed");
     return { pullRequestUrl, report };
   } finally {
-    await run("git", ["worktree", "remove", "--force", worktree]).catch(
-      () => undefined,
-    );
-    await run("git", ["branch", "-D", branch]).catch(() => undefined);
-    if (pushed && !existing && !isPullRequestUrl(pullRequestUrl)) {
-      await run("git", ["push", "origin", "--delete", branch]).catch(
-        () => undefined,
-      );
-    }
+    await cleanupPullRequestWorktree(run, {
+      branch,
+      deleteRemoteBranch:
+        pushed && !existing && !isPullRequestUrl(pullRequestUrl),
+      worktree,
+    });
     await fs.rm(directory, { force: true, recursive: true });
   }
 }
 
 async function runCodex(worktree: string, output: string, prompt: string) {
-  await new Promise<void>((resolve, reject) => {
-    const child = spawn(
-      "codex",
-      [
-        "exec",
-        "--ephemeral",
-        "--sandbox",
-        "workspace-write",
-        "--config",
-        'model_reasoning_effort="xhigh"',
-        "--config",
-        "sandbox_workspace_write.network_access=true",
-        "--config",
-        'approval_policy="never"',
-        "--cd",
-        worktree,
-        "--output-last-message",
-        output,
-        "-",
-      ],
-      {
-        cwd: worktree,
-        env: {
-          CODEX_HOME: process.env.CODEX_HOME,
-          HOME: process.env.HOME,
-          LANG: process.env.LANG,
-          NODE_ENV: process.env.NODE_ENV,
-          PATH: process.env.PATH,
-          TMPDIR: process.env.TMPDIR,
-        },
-        signal: AbortSignal.timeout(45 * 60 * 1000),
-        stdio: ["pipe", "ignore", "pipe"],
-      },
-    );
-    let errorText = "";
-    child.stderr.setEncoding("utf8");
-    child.stderr.on("data", (chunk: string) => {
-      errorText = (errorText + chunk).slice(-4000);
-    });
-    child.on("error", reject);
-    child.on("close", (code) => {
-      if (code === 0) resolve();
-      else
-        reject(
-          new Error(`Codex exited with ${code}: ${errorText.slice(-500)}`),
-        );
-    });
-    child.stdin.end(prompt);
+  await runCodexProcess({
+    args: [
+      "exec",
+      "--ephemeral",
+      "--sandbox",
+      "workspace-write",
+      "--config",
+      'model_reasoning_effort="xhigh"',
+      "--config",
+      "sandbox_workspace_write.network_access=true",
+      "--config",
+      'approval_policy="never"',
+      "--output-last-message",
+      output,
+    ],
+    cwd: worktree,
+    prompt,
+    timeoutMs: 45 * 60 * 1000,
   });
 }

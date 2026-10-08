@@ -6,15 +6,18 @@ import {
   resolveImageConfig,
   resolveOgImageConfig,
 } from "@reptiles-ge/img-compression";
-import {
-  BunnyStorageAdapter,
-  type StorageAdapter,
-} from "@reptiles-ge/img-compression/storage";
+import type { StorageAdapter } from "@reptiles-ge/img-compression/storage";
 import { getGuideArticles } from "../src/data/guideArticles";
 import { optimizedBaseUrl } from "../src/data/optimizedImages.generated";
 import { optimizedEntry } from "../src/data/optimizedImages";
 import { getCatalogSpecies } from "../src/data/species";
 import { absoluteImageUrl, CDN_BASE, speciesOgImageUrl } from "../src/lib/site";
+import {
+  createBunnyStorageContext,
+  formatBytes,
+  loadEnv,
+  mapPool,
+} from "./scriptUtils";
 
 const PUBLIC_ROOT = path.join(process.cwd(), "public");
 
@@ -84,7 +87,9 @@ function parseArguments(argv: string[]): CliOptions {
         {
           const value = argv[index];
           if (!value || value.startsWith("--")) {
-            throw new Error("--species requires a comma-separated list of ids.");
+            throw new Error(
+              "--species requires a comma-separated list of ids.",
+            );
           }
           for (const id of value.split(",")) {
             if (id.trim()) speciesIds.push(id.trim());
@@ -110,34 +115,6 @@ function parseArguments(argv: string[]): CliOptions {
   }
 
   return { concurrency, dryRun, force, guideIds, speciesIds, timeoutMs };
-}
-
-function loadEnv() {
-  for (const file of [".env.local", ".env"]) {
-    const candidate = path.join(process.cwd(), file);
-    if (!fs.existsSync(candidate)) continue;
-    process.loadEnvFile(candidate);
-  }
-}
-
-function createBunnyStorage(): StorageAdapter {
-  const zone = process.env.BUNNY_STORAGE_ZONE;
-  const accessKey = process.env.BUNNY_STORAGE_ACCESS_KEY;
-
-  if (!zone || !accessKey) {
-    throw new Error(
-      "BUNNY_STORAGE_ZONE and BUNNY_STORAGE_ACCESS_KEY must be set. Put them in .env.local.",
-    );
-  }
-
-  return new BunnyStorageAdapter({
-    storageZone: zone,
-    accessKey,
-    cdnBaseUrl: process.env.BUNNY_CDN_BASE_URL ?? CDN_BASE,
-    ...(process.env.BUNNY_STORAGE_REGION
-      ? { region: process.env.BUNNY_STORAGE_REGION }
-      : {}),
-  });
 }
 
 function storageKeyFromSrc(src: string): string | null {
@@ -317,34 +294,6 @@ async function readGuideCover(
   throw new Error(`No hero source for ${target.id} (${target.heroSrc})`);
 }
 
-function formatBytes(bytes: number) {
-  if (bytes < 1024) return `${bytes} B`;
-  if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
-  return `${(bytes / 1024 / 1024).toFixed(2)} MB`;
-}
-
-async function mapPool<T, R>(
-  items: T[],
-  concurrency: number,
-  fn: (item: T) => Promise<R>,
-): Promise<R[]> {
-  const results = new Array<R>(items.length);
-  let next = 0;
-
-  async function worker() {
-    while (next < items.length) {
-      const index = next;
-      next += 1;
-      results[index] = await fn(items[index] as T);
-    }
-  }
-
-  await Promise.all(
-    Array.from({ length: Math.min(concurrency, items.length) }, worker),
-  );
-  return results;
-}
-
 async function main() {
   const options = parseArguments(process.argv.slice(2));
   loadEnv();
@@ -352,7 +301,7 @@ async function main() {
   const og = resolveOgImageConfig();
   const config = resolveImageConfig();
   const targets = collectTargets(options);
-  const storage = createBunnyStorage();
+  const storage = createBunnyStorageContext().storage;
 
   const speciesCount = targets.filter((t) => t.kind === "species").length;
   const guideCount = targets.filter((t) => t.kind === "guide").length;
@@ -371,7 +320,10 @@ async function main() {
   await mapPool(targets, options.concurrency, async (target) => {
     const label = `${target.kind}/${target.id}`;
     try {
-      if (!options.force && (await ogAlreadyPresent(target, options.timeoutMs))) {
+      if (
+        !options.force &&
+        (await ogAlreadyPresent(target, options.timeoutMs))
+      ) {
         skipped += 1;
         console.log(`skipped  ${label} ${target.ogUrl}`);
         return;

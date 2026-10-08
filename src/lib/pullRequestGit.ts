@@ -13,6 +13,25 @@ type RunCommand = (
   cwd?: string,
 ) => Promise<string>;
 
+export async function cleanupPullRequestWorktree(
+  run: RunCommand,
+  {
+    branch,
+    deleteRemoteBranch,
+    worktree,
+  }: { branch: string; deleteRemoteBranch: boolean; worktree: string },
+) {
+  await run("git", ["worktree", "remove", "--force", worktree]).catch(
+    () => undefined,
+  );
+  await run("git", ["branch", "-D", branch]).catch(() => undefined);
+  if (deleteRemoteBranch) {
+    await run("git", ["push", "origin", "--delete", branch]).catch(
+      () => undefined,
+    );
+  }
+}
+
 export async function createOrFindPullRequest(
   run: RunCommand,
   { base, body, branch, repository, title, worktree }: PullRequestInput,

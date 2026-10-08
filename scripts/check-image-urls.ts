@@ -5,6 +5,7 @@ import path from "node:path";
 import matter from "gray-matter";
 import { optimizedBaseUrl } from "../src/data/optimizedImages.generated";
 import { optimizedEntry } from "../src/data/optimizedImages";
+import { mapPool, printProgress, walkFiles } from "./scriptUtils";
 
 const CDN_BASE = "https://cdn.reptiles.ge";
 const ROOT = process.cwd();
@@ -38,6 +39,12 @@ const SCAN_EXTS = new Set([
   ".ts",
   ".tsx",
 ]);
+const WALK_OPTIONS = {
+  scanExts: SCAN_EXTS,
+  skipDirNames: SKIP_DIR_NAMES,
+  skipFileNames: SKIP_FILE_NAMES,
+  skipFileSuffixes: SKIP_FILE_SUFFIXES,
+};
 
 const REGION_PATH_IDS = [
   "abkhazia",
@@ -134,27 +141,6 @@ function relPath(filePath: string) {
   return path.relative(ROOT, filePath).split(path.sep).join("/");
 }
 
-function walkFiles(dir: string, out: string[] = []) {
-  if (!fs.existsSync(dir)) return out;
-  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-    if (entry.name.startsWith(".") && entry.name !== ".") continue;
-    const full = path.join(dir, entry.name);
-    if (entry.isDirectory()) {
-      if (SKIP_DIR_NAMES.has(entry.name)) continue;
-      walkFiles(full, out);
-      continue;
-    }
-    if (SKIP_FILE_SUFFIXES.some((suffix) => entry.name.endsWith(suffix))) {
-      continue;
-    }
-    if (SKIP_FILE_NAMES.has(entry.name)) continue;
-    if (SCAN_EXTS.has(path.extname(entry.name).toLowerCase())) {
-      out.push(full);
-    }
-  }
-  return out;
-}
-
 function collectSources(): Map<string, ImageHit> {
   const bySrc = new Map<string, ImageHit>();
 
@@ -170,7 +156,7 @@ function collectSources(): Map<string, ImageHit> {
     bySrc.set(src, { refs: new Set([ref]), url: src });
   };
 
-  for (const filePath of walkFiles(SRC_ROOT)) {
+  for (const filePath of walkFiles(SRC_ROOT, WALK_OPTIONS)) {
     const source = relPath(filePath);
     const text = fs.readFileSync(filePath, "utf8");
 
@@ -375,10 +361,7 @@ function checkLocalImage(src: string): CheckResult {
   return { status: "not_found", statusCode: 404, url: src };
 }
 
-async function checkUrl(
-  url: string,
-  client: CdnClient,
-): Promise<CheckResult> {
+async function checkUrl(url: string, client: CdnClient): Promise<CheckResult> {
   if (url.startsWith("/images/")) return checkLocalImage(url);
 
   try {
@@ -390,34 +373,6 @@ async function checkUrl(
       url,
     };
   }
-}
-
-async function mapPool<T, R>(
-  items: T[],
-  concurrency: number,
-  fn: (item: T, index: number) => Promise<R>,
-): Promise<R[]> {
-  const results = new Array<R>(items.length);
-  let next = 0;
-
-  async function worker() {
-    while (next < items.length) {
-      const index = next;
-      next += 1;
-      results[index] = await fn(items[index], index);
-    }
-  }
-
-  await Promise.all(
-    Array.from({ length: Math.min(concurrency, items.length) }, worker),
-  );
-  return results;
-}
-
-function printProgress(done: number, total: number, json: boolean) {
-  if (json) return;
-  process.stderr.write(`\rChecked ${done}/${total}`);
-  if (done === total) process.stderr.write("\n");
 }
 
 async function main() {
