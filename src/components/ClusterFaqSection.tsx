@@ -1,6 +1,5 @@
 "use client";
 
-import { Plus } from "lucide-react";
 import { type ReactNode, useState } from "react";
 
 import {
@@ -9,6 +8,7 @@ import {
   CLUSTER_FAQ_TITLE,
   ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
+import { FaqAnswerPanel, FaqToggleIcon } from "@/components/FaqAccordionParts";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { cn } from "@/lib/cn";
 
@@ -68,29 +68,13 @@ export function ClusterFaqSection({
                       <span className="font-display text-[17px] leading-snug font-medium text-foreground sm:text-[19px]">
                         {item.question}
                       </span>
-                      <span
-                        className={cn(
-                          "mt-1 flex size-8 shrink-0 items-center justify-center rounded-full border border-border transition-transform duration-300",
-                          isOpen
-                            ? "rotate-45 bg-ink text-ink-foreground"
-                            : "text-foreground",
-                        )}
-                      >
-                        <Plus className="size-4" strokeWidth={1.75} />
-                      </span>
+                      <FaqToggleIcon isOpen={isOpen} />
                     </button>
-                    <div
-                      className={cn(
-                        "grid transition-[grid-template-rows] duration-300 ease-out",
-                        isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
-                      )}
-                    >
-                      <div className="overflow-hidden">
-                        <p className="pr-12 pb-7 text-[15px] leading-relaxed whitespace-pre-line text-muted-foreground sm:text-[16px]">
-                          <PhoneLinkedText>{item.answer}</PhoneLinkedText>
-                        </p>
-                      </div>
-                    </div>
+                    <FaqAnswerPanel isOpen={isOpen}>
+                      <p className="pr-12 pb-7 text-[15px] leading-relaxed whitespace-pre-line text-muted-foreground sm:text-[16px]">
+                        <PhoneLinkedText>{item.answer}</PhoneLinkedText>
+                      </p>
+                    </FaqAnswerPanel>
                   </div>
                 </div>
               );

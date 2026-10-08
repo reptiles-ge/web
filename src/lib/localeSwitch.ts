@@ -179,13 +179,10 @@ export function resolvePageContextFromIndex(
   return { page_type: "other" };
 }
 
-export function speciesHrefFromIndex(
-  index: LocaleSwitchIndex,
-  id: string,
-  locale: AppLocale,
+export function speciesHrefForHub(
+  hub: string | undefined,
+  slug: string,
 ): LocaleSpeciesHref {
-  const hub = index.hubById[id];
-  const slug = locale === "ka" ? (index.kaSlugById[id] ?? id) : id;
   switch (hub) {
     case "birds":
       return { params: { slug }, pathname: "/birds/[slug]" };
@@ -206,6 +203,16 @@ export function speciesHrefFromIndex(
     default:
       return { params: { slug }, pathname: "/amphibians/[slug]" };
   }
+}
+
+export function speciesHrefFromIndex(
+  index: LocaleSwitchIndex,
+  id: string,
+  locale: AppLocale,
+): LocaleSpeciesHref {
+  const hub = index.hubById[id];
+  const slug = locale === "ka" ? (index.kaSlugById[id] ?? id) : id;
+  return speciesHrefForHub(hub, slug);
 }
 
 function resolveSpeciesIdFromIndex(index: LocaleSwitchIndex, slug: string) {

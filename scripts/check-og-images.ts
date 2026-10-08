@@ -1,5 +1,6 @@
 import { getCatalogSpecies } from "../src/data/species";
 import { speciesOgImageUrl } from "../src/lib/site";
+import { mapPool, printProgress } from "./scriptUtils";
 
 type CheckStatus = "failed" | "not_found" | "ok";
 
@@ -108,34 +109,6 @@ async function checkTarget(
   }
 }
 
-async function mapPool<T, R>(
-  items: T[],
-  concurrency: number,
-  fn: (item: T) => Promise<R>,
-): Promise<R[]> {
-  const results = new Array<R>(items.length);
-  let next = 0;
-
-  async function worker() {
-    while (next < items.length) {
-      const index = next;
-      next += 1;
-      results[index] = await fn(items[index] as T);
-    }
-  }
-
-  await Promise.all(
-    Array.from({ length: Math.min(concurrency, items.length) }, worker),
-  );
-  return results;
-}
-
-function printProgress(done: number, total: number, json: boolean) {
-  if (json) return;
-  process.stderr.write(`\rChecked ${done}/${total}`);
-  if (done === total) process.stderr.write("\n");
-}
-
 function printMissing(item: CheckResult) {
   console.log(`  ${item.id}`);
   console.log(`    og     ${item.ogUrl}`);
@@ -158,12 +131,16 @@ async function main() {
 
   const started = Date.now();
   let done = 0;
-  const results = await mapPool(targets, options.concurrency, async (target) => {
-    const result = await checkTarget(target, options.timeoutMs);
-    done += 1;
-    printProgress(done, targets.length, options.json);
-    return result;
-  });
+  const results = await mapPool(
+    targets,
+    options.concurrency,
+    async (target) => {
+      const result = await checkTarget(target, options.timeoutMs);
+      done += 1;
+      printProgress(done, targets.length, options.json);
+      return result;
+    },
+  );
   const elapsedMs = Date.now() - started;
 
   const missing = results.filter((item) => item.status === "not_found");

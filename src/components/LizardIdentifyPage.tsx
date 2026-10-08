@@ -7,9 +7,9 @@ import { ClusterContentSection } from "@/components/ClusterContentSection";
 import { ClusterGuideLead } from "@/components/ClusterGuideLead";
 import { ClusterNumberedSteps } from "@/components/ClusterNumberedSteps";
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
-import { LookalikePair } from "@/components/LookalikePair";
+import { LookalikePairGrid } from "@/components/LookalikePairGrid";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
-import { toSpeciesCard, toSpeciesCards } from "@/data/speciesCard";
+import { toSpeciesCards } from "@/data/speciesCard";
 import { Link } from "@/i18n/navigation";
 import {
   type ClusterGuideViewProps,
@@ -122,18 +122,7 @@ export async function LizardIdentifyPage({
         surface="background"
         title={t("pairsTitle")}
       >
-        <div className="mt-12 grid gap-6 lg:grid-cols-2">
-          {pairs.map((pair) => (
-            <div key={`${pair.a.id}-${pair.b.id}`}>
-              <LookalikePair
-                a={toSpeciesCard(pair.a)}
-                b={toSpeciesCard(pair.b)}
-                locale={locale}
-                vs={t("vs")}
-              />
-            </div>
-          ))}
-        </div>
+        <LookalikePairGrid locale={locale} pairs={pairs} vs={t("vs")} />
       </ClusterContentSection>
     </ClusterPageFrame>
   );

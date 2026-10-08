@@ -13,74 +13,40 @@ import {
   localizeRegionText,
   regions,
 } from "@/data/regions";
-import { georgiaPlaceName, openGraphLocale } from "@/i18n/localeMeta";
+import { georgiaPlaceName } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
-import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
+import { buildPageMetadata, type LocalePageProps } from "@/lib/pageMetadata";
 import {
   absoluteUrl,
-  localeAlternates,
   localePath,
-  openGraphJpeg,
   SITE_OG_IMAGE_URL,
-  siteConfig,
   siteEntityId,
 } from "@/lib/site";
 import { regionHref } from "@/lib/speciesRoutes";
 import { pageDateFields } from "@/lib/structuredDataDates";
 
-type Props = {
-  params: Promise<{ locale: string }>;
-};
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: LocalePageProps): Promise<Metadata> {
   const { locale: localeParam } = await params;
   if (!hasLocale(routing.locales, localeParam)) return {};
 
   const locale = localeParam as AppLocale;
   const t = await getTranslations({ locale, namespace: "regions" });
   const title = t("metaTitle");
-  const metadataTitle = locale === "ka" ? { absolute: title } : title;
-  const pagePath = "/regions";
-  const path = localePath(locale, pagePath);
-  const description = kaMetaDescriptionOverride(
+
+  return buildPageMetadata({
+    description: t("metaDescription"),
+    indexable: true,
     locale,
-    path,
-    t("metaDescription"),
-  );
-  const url = absoluteUrl(path);
-  const ogImage = openGraphJpeg(SITE_OG_IMAGE_URL, title);
-
-  return {
-    alternates: localeAlternates(locale, pagePath),
-    description,
-    openGraph: {
-      description,
-      images: [ogImage],
-      locale: openGraphLocale(locale),
-      siteName: siteConfig.name,
-      title,
-      type: "website",
-      url,
-    },
-    robots: {
-      follow: true,
-      index: true,
-    },
-    title: metadataTitle,
-    twitter: {
-      card: "summary_large_image",
-      description,
-      images: [SITE_OG_IMAGE_URL],
-      title,
-    },
-  };
+    metadataTitle: locale === "ka" ? { absolute: title } : title,
+    ogImageUrl: SITE_OG_IMAGE_URL,
+    pagePath: "/regions",
+    title,
+  });
 }
 
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
-
-export default async function RegionsPage({ params }: Props) {
+export default async function RegionsPage({ params }: LocalePageProps) {
   const { locale: localeParam } = await params;
   if (!hasLocale(routing.locales, localeParam)) {
     notFound();

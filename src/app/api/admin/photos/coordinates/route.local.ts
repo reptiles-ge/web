@@ -1,28 +1,23 @@
-import {
-  isLocalAdminEnabled,
-  localAdminForbiddenResponse,
-} from "@/lib/adminAccess";
 import { isSpeciesContentId } from "@/lib/adminGalleryMdx";
 import { openPhotoCoordinatesPullRequest } from "@/lib/adminPhotoPullRequest";
+import {
+  adminErrorResponse,
+  readBodyString,
+  readLocalAdminJsonBody,
+} from "@/lib/adminRequest";
 import { parsePhotoCoordinatesInput } from "@/lib/photoCoordinates";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 export async function POST(request: Request) {
-  if (!isLocalAdminEnabled()) return localAdminForbiddenResponse();
+  const { body, response } = await readLocalAdminJsonBody(request);
+  if (response) return response;
 
-  let body: unknown;
-  try {
-    body = await request.json();
-  } catch {
-    return Response.json({ error: "Invalid JSON" }, { status: 400 });
-  }
-
-  const id = readString(body, "id");
-  const src = readString(body, "src");
-  const lat = readString(body, "lat");
-  const lng = readString(body, "lng");
+  const id = readBodyString(body, "id");
+  const src = readBodyString(body, "src");
+  const lat = readBodyString(body, "lat");
+  const lng = readBodyString(body, "lng");
   const clear = readBoolean(body, "clear");
 
   if (!id || !isSpeciesContentId(id)) {
@@ -52,19 +47,11 @@ export async function POST(request: Request) {
       pullRequestUrl,
     });
   } catch (error) {
-    const message =
-      error instanceof Error ? error.message : "Coordinates update failed";
-    return Response.json({ error: message }, { status: 400 });
+    return adminErrorResponse(error, "Coordinates update failed");
   }
 }
 
 function readBoolean(body: unknown, key: string) {
   if (!body || typeof body !== "object" || !(key in body)) return false;
   return (body as Record<string, unknown>)[key] === true;
-}
-
-function readString(body: unknown, key: string) {
-  if (!body || typeof body !== "object" || !(key in body)) return "";
-  const value = (body as Record<string, unknown>)[key];
-  return typeof value === "string" ? value.trim() : "";
 }

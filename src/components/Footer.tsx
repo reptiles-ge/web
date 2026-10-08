@@ -1,3 +1,5 @@
+import type { ComponentProps } from "react";
+
 import { ArrowUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
@@ -7,6 +9,15 @@ import { LocalizedLink } from "@/components/LocalizedLink";
 import { Logo } from "@/components/Logo";
 import { FacebookGlyph, InstagramGlyph } from "@/components/SocialGlyphs";
 import { getGuideArticles } from "@/data/guideArticles";
+
+type FooterLinkColumnProps = {
+  links: Array<{
+    href: ComponentProps<typeof LocalizedLink>["href"];
+    label: string;
+  }>;
+  locale: AppLocale;
+  title: string;
+};
 
 type FooterProps = {
   locale: AppLocale;
@@ -34,6 +45,30 @@ type FooterProps = {
     scientificName: string;
   }>;
 };
+
+function FooterLinkColumn({ links, locale, title }: FooterLinkColumnProps) {
+  return (
+    <div>
+      <p className="text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
+        {title}
+      </p>
+      <ul className="mt-5 space-y-3">
+        {links.map((link) => (
+          <li key={link.label}>
+            <LocalizedLink
+              className="text-[14px] text-foreground/80 transition-colors hover:text-primary"
+              href={link.href}
+              locale={locale}
+              prefetch={false}
+            >
+              {link.label}
+            </LocalizedLink>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
 const exploreLinks = [
   { href: "/species" as const, labelKey: "species" as const },
@@ -111,65 +146,32 @@ export async function Footer({ locale, regions, venomous }: FooterProps) {
             </LocalizedLink>
           </div>
 
-          <div>
-            <p className="text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
-              {t("exploreTitle")}
-            </p>
-            <ul className="mt-5 space-y-3">
-              {exploreLinks.map((link) => (
-                <li key={link.href}>
-                  <LocalizedLink
-                    className="text-[14px] text-foreground/80 transition-colors hover:text-primary"
-                    href={link.href}
-                    locale={locale}
-                    prefetch={false}
-                  >
-                    {t(link.labelKey)}
-                  </LocalizedLink>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <FooterLinkColumn
+            links={exploreLinks.map((link) => ({
+              href: link.href,
+              label: t(link.labelKey),
+            }))}
+            locale={locale}
+            title={t("exploreTitle")}
+          />
 
-          <div>
-            <p className="text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
-              {t("guidesTitle")}
-            </p>
-            <ul className="mt-5 space-y-3">
-              {guideLinks.map((link) => (
-                <li key={link.href}>
-                  <LocalizedLink
-                    className="text-[14px] text-foreground/80 transition-colors hover:text-primary"
-                    href={link.href}
-                    locale={locale}
-                    prefetch={false}
-                  >
-                    {t(link.labelKey)}
-                  </LocalizedLink>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <FooterLinkColumn
+            links={guideLinks.map((link) => ({
+              href: link.href,
+              label: t(link.labelKey),
+            }))}
+            locale={locale}
+            title={t("guidesTitle")}
+          />
 
-          <div>
-            <p className="text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
-              {t("companyTitle")}
-            </p>
-            <ul className="mt-5 space-y-3">
-              {companyLinks.map((link) => (
-                <li key={link.href}>
-                  <LocalizedLink
-                    className="text-[14px] text-foreground/80 transition-colors hover:text-primary"
-                    href={link.href}
-                    locale={locale}
-                    prefetch={false}
-                  >
-                    {t(link.labelKey)}
-                  </LocalizedLink>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <FooterLinkColumn
+            links={companyLinks.map((link) => ({
+              href: link.href,
+              label: t(link.labelKey),
+            }))}
+            locale={locale}
+            title={t("companyTitle")}
+          />
         </div>
 
         <div className="mt-14 grid gap-10 border-t border-border pt-12 lg:mt-16 lg:grid-cols-2 lg:gap-16 lg:pt-14">

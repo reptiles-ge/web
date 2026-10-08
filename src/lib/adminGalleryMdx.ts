@@ -13,6 +13,10 @@ import { type CoverTarget } from "@/lib/adminCover";
 import { matchesCoverSource } from "@/lib/coverCrop";
 import { formatFieldRecordYaml } from "@/lib/fieldRecordYaml";
 import {
+  type FrontmatterRange,
+  topLevelRangeFrom,
+} from "@/lib/frontmatterRange";
+import {
   normalizePhotoCoordinates,
   type PhotoCoordinates,
 } from "@/lib/photoCoordinates";
@@ -23,7 +27,6 @@ export type { CoverTarget };
 
 const CONTENT_ROOT = path.join(process.cwd(), "src/content/species");
 const SPECIES_ID_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
-const TOP_LEVEL_KEY = /^[A-Za-z][A-Za-z0-9]*:/;
 
 export type AdminSpeciesSummary = {
   commonName: string;
@@ -235,24 +238,10 @@ export function removeGalleryItemFromMdx(raw: string, src: string): string {
     throw new Error(`Unknown gallery src: ${src}`);
   }
 
-  const newline = raw.includes("\r\n") ? "\r\n" : "\n";
-  const lines = raw.split(/\r?\n/);
-  const range = findGalleryRange(lines);
-  if (!range) {
-    throw new Error("Gallery block not found");
-  }
-
-  const body = lines.slice(range.start + 1, range.end);
-  let trailing = 0;
-  for (let i = body.length - 1; i >= 0; i -= 1) {
-    if (body[i].trim() !== "") break;
-    trailing += 1;
-  }
-  const trailingLines = trailing > 0 ? body.slice(body.length - trailing) : [];
-  const items = splitGalleryItems(body);
-  if (items.length !== gallery.length) {
-    throw new Error("Could not parse gallery items");
-  }
+  const { items, lines, newline, range, trailingLines } = readGalleryBlock(
+    raw,
+    gallery.length,
+  );
 
   const nextItems = items.filter((item) => galleryItemSrc(item) !== src);
   if (nextItems.length === items.length) {
@@ -380,24 +369,10 @@ export function reorderGalleryInMdx(
     orderedSrcs,
   );
 
-  const newline = raw.includes("\r\n") ? "\r\n" : "\n";
-  const lines = raw.split(/\r?\n/);
-  const range = findGalleryRange(lines);
-  if (!range) {
-    throw new Error("Gallery block not found");
-  }
-
-  const body = lines.slice(range.start + 1, range.end);
-  let trailing = 0;
-  for (let i = body.length - 1; i >= 0; i -= 1) {
-    if (body[i].trim() !== "") break;
-    trailing += 1;
-  }
-  const trailingLines = trailing > 0 ? body.slice(body.length - trailing) : [];
-  const items = splitGalleryItems(body);
-  if (items.length !== gallery.length) {
-    throw new Error("Could not parse gallery items");
-  }
+  const { items, lines, newline, range, trailingLines } = readGalleryBlock(
+    raw,
+    gallery.length,
+  );
 
   const bySrc = new Map<string, string[]>();
   for (const item of items) {
@@ -572,24 +547,10 @@ export function updateGalleryPhotoCoordinatesInMdx(
     ? { credit: nextCredit, src }
     : { src };
 
-  const newline = raw.includes("\r\n") ? "\r\n" : "\n";
-  const lines = raw.split(/\r?\n/);
-  const range = findGalleryRange(lines);
-  if (!range) {
-    throw new Error("Gallery block not found");
-  }
-
-  const body = lines.slice(range.start + 1, range.end);
-  let trailing = 0;
-  for (let i = body.length - 1; i >= 0; i -= 1) {
-    if (body[i].trim() !== "") break;
-    trailing += 1;
-  }
-  const trailingLines = trailing > 0 ? body.slice(body.length - trailing) : [];
-  const items = splitGalleryItems(body);
-  if (items.length !== gallery.length) {
-    throw new Error("Could not parse gallery items");
-  }
+  const { items, lines, newline, range, trailingLines } = readGalleryBlock(
+    raw,
+    gallery.length,
+  );
 
   const itemIndex = items.findIndex((item) => galleryItemSrc(item) === src);
   if (itemIndex < 0) {
@@ -777,43 +738,21 @@ function creditEntries(credit: PhotoCredit): Array<[string, number | string]> {
   return entries;
 }
 
-function findGalleryRange(
-  lines: string[],
-): null | { end: number; start: number } {
-  const start = lines.findIndex((line) =>
-    /^gallery:\s*(?:\[\])?\s*$/.test(line),
+function findGalleryRange(lines: string[]): FrontmatterRange | null {
+  return topLevelRangeFrom(
+    lines,
+    lines.findIndex((line) => /^gallery:\s*(?:\[\])?\s*$/.test(line)),
   );
-  if (start === -1) return null;
-  let end = start + 1;
-  while (end < lines.length) {
-    const line = lines[end];
-    if (line.trim() === "") {
-      end += 1;
-      continue;
-    }
-    if (TOP_LEVEL_KEY.test(line) || /^---\s*$/.test(line)) break;
-    end += 1;
-  }
-  return { end, start };
 }
 
 function findTopLevelRange(
   lines: string[],
   key: string,
-): null | { end: number; start: number } {
-  const start = lines.findIndex((line) => isExactTopLevelKey(line, key));
-  if (start === -1) return null;
-  let end = start + 1;
-  while (end < lines.length) {
-    const line = lines[end];
-    if (line.trim() === "") {
-      end += 1;
-      continue;
-    }
-    if (TOP_LEVEL_KEY.test(line) || /^---\s*$/.test(line)) break;
-    end += 1;
-  }
-  return { end, start };
+): FrontmatterRange | null {
+  return topLevelRangeFrom(
+    lines,
+    lines.findIndex((line) => isExactTopLevelKey(line, key)),
+  );
 }
 
 function formatCreditBlock(key: string, credit?: PhotoCredit): string[] {
@@ -993,6 +932,28 @@ function normalizeGallery(value: unknown): GalleryImage[] {
     out.push(credit ? { credit, src } : { src });
   }
   return out;
+}
+
+function readGalleryBlock(raw: string, expectedCount: number) {
+  const newline = raw.includes("\r\n") ? "\r\n" : "\n";
+  const lines = raw.split(/\r?\n/);
+  const range = findGalleryRange(lines);
+  if (!range) {
+    throw new Error("Gallery block not found");
+  }
+
+  const body = lines.slice(range.start + 1, range.end);
+  let trailing = 0;
+  for (let i = body.length - 1; i >= 0; i -= 1) {
+    if (body[i].trim() !== "") break;
+    trailing += 1;
+  }
+  const trailingLines = trailing > 0 ? body.slice(body.length - trailing) : [];
+  const items = splitGalleryItems(body);
+  if (items.length !== expectedCount) {
+    throw new Error("Could not parse gallery items");
+  }
+  return { items, lines, newline, range, trailingLines };
 }
 
 function setCoverField(

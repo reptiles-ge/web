@@ -9,8 +9,8 @@ import {
   CLUSTER_BODY,
   CLUSTER_EYEBROW,
   CLUSTER_TITLE_SECTION,
+  ClusterFamilyStatsBand,
   ClusterSectionIntro,
-  ClusterStat,
 } from "@/components/ClusterSectionIntro";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { toSpeciesCards } from "@/data/speciesCard";
@@ -23,7 +23,6 @@ export async function DarevskiaGuidePage({
   species,
 }: ClusterGuideViewProps) {
   const t = await getTranslations({ locale, namespace: "lizardDarevskia" });
-  const familyCount = new Set(species.map((item) => item.family)).size;
 
   return (
     <ClusterPageFrame
@@ -31,24 +30,11 @@ export async function DarevskiaGuidePage({
       guideId={guideId}
       heroSrc={heroSrc}
       locale={locale}
-      stats={
-        <section className="border-b border-border bg-surface py-10 sm:py-12">
-          <div className="mx-auto grid max-w-[1400px] gap-8 px-6 sm:grid-cols-3 sm:gap-6 lg:px-10">
-            <ClusterStat label={t("statSpecies")} value={species.length} />
-            <ClusterStat label={t("statFamilies")} value={familyCount} />
-            <ClusterStat label={t("statExtra")} value={t("statExtraValue")} />
-          </div>
-        </section>
-      }
+      stats={<ClusterFamilyStatsBand species={species} t={t} />}
     >
       <ClusterGuideLead
-        body={
-          <>
-            <p>{t("guideP1")}</p>
-            <p>{t("guideP2")}</p>
-          </>
-        }
         eyebrow={t("guideEyebrow")}
+        paragraphs={[t("guideP1"), t("guideP2")]}
         title={t("guideTitle")}
       />
 

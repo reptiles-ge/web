@@ -1,22 +1,13 @@
-import {
-  isLocalAdminEnabled,
-  localAdminForbiddenResponse,
-} from "@/lib/adminAccess";
 import { isSpeciesContentId } from "@/lib/adminGalleryMdx";
 import { addSpeciesPhotos } from "@/lib/adminPhotos";
+import { adminErrorResponse, readLocalAdminFormData } from "@/lib/adminRequest";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 export async function POST(request: Request) {
-  if (!isLocalAdminEnabled()) return localAdminForbiddenResponse();
-
-  let form: FormData;
-  try {
-    form = await request.formData();
-  } catch {
-    return Response.json({ error: "Invalid form" }, { status: 400 });
-  }
+  const { form, response } = await readLocalAdminFormData(request);
+  if (response) return response;
 
   const id = textField(form, "id");
   if (!isSpeciesContentId(id)) {
@@ -58,8 +49,7 @@ export async function POST(request: Request) {
 
     return Response.json(result);
   } catch (error) {
-    const message = error instanceof Error ? error.message : "Upload failed";
-    return Response.json({ error: message }, { status: 400 });
+    return adminErrorResponse(error, "Upload failed");
   }
 }
 

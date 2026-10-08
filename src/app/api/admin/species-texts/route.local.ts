@@ -1,13 +1,14 @@
 import { randomUUID } from "node:crypto";
 
-import {
-  isLocalAdminEnabled,
-  localAdminForbiddenResponse,
-} from "@/lib/adminAccess";
+import { localAdminForbiddenResponse } from "@/lib/adminAccess";
 import {
   isSpeciesContentId,
   readAdminSpeciesGallery,
 } from "@/lib/adminGalleryMdx";
+import {
+  isLocalAdminOriginRequest,
+  readAdminJsonText,
+} from "@/lib/adminRequest";
 import {
   formatAdminWorkflowProgress,
   notifyAdminTelegram,
@@ -19,23 +20,16 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 export async function POST(request: Request) {
-  const url = new URL(request.url);
-  if (
-    !isLocalAdminEnabled() ||
-    !["127.0.0.1", "[::1]", "localhost"].includes(url.hostname) ||
-    request.headers.get("origin") !== url.origin
-  ) {
+  if (!isLocalAdminOriginRequest(request)) {
     return localAdminForbiddenResponse();
   }
   let speciesName = "";
   let progress = "";
   try {
-    const text = await request.text();
-    if (text.length > 1000) throw new Error("Invalid request");
-    const { id, progress: workflowProgress } = JSON.parse(text) as {
+    const { id, progress: workflowProgress } = await readAdminJsonText<{
       id?: unknown;
       progress?: unknown;
-    };
+    }>(request);
     if (typeof id !== "string" || !isSpeciesContentId(id))
       throw new Error("Invalid species id");
     progress = formatAdminWorkflowProgress(workflowProgress);

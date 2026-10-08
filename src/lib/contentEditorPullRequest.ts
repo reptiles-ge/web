@@ -12,6 +12,7 @@ import {
 } from "@/lib/contentEditor";
 import { resolveEditorTarget } from "@/lib/contentEditorTarget";
 import {
+  cleanupPullRequestWorktree,
   createOrFindPullRequest,
   isPullRequestUrl,
 } from "@/lib/pullRequestGit";
@@ -244,15 +245,12 @@ async function createPullRequest(
     );
     return pullRequestUrl;
   } finally {
-    await run("git", ["worktree", "remove", "--force", worktree]).catch(
-      () => undefined,
-    );
-    await run("git", ["branch", "-D", branch]).catch(() => undefined);
-    if (pushed && !existing && !isPullRequestUrl(pullRequestUrl)) {
-      await run("git", ["push", "origin", "--delete", branch]).catch(
-        () => undefined,
-      );
-    }
+    await cleanupPullRequestWorktree(run, {
+      branch,
+      deleteRemoteBranch:
+        pushed && !existing && !isPullRequestUrl(pullRequestUrl),
+      worktree,
+    });
     await fs.rm(temporary, { force: true, recursive: true });
   }
 }

@@ -62,14 +62,8 @@ export async function CatalogSpeciesIndexPage({
       }
     >
       <ClusterGuideLead
-        body={
-          <>
-            <p>{t("guideP1")}</p>
-            <p>{t("guideP2")}</p>
-            {guideP3 ? <p>{guideP3}</p> : null}
-          </>
-        }
         eyebrow={t("guideEyebrow")}
+        paragraphs={[t("guideP1"), t("guideP2"), guideP3]}
         title={t("guideTitle")}
       />
 

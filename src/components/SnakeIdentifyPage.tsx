@@ -7,13 +7,13 @@ import { ClusterContentSection } from "@/components/ClusterContentSection";
 import { ClusterGuideLead } from "@/components/ClusterGuideLead";
 import { ClusterNumberedSteps } from "@/components/ClusterNumberedSteps";
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
-import { GuideEditorialNote } from "@/components/GuideShared";
-import { LookalikePair } from "@/components/LookalikePair";
+import { GuideEditorialNote, GuideMythList } from "@/components/GuideShared";
+import { LookalikePairGrid } from "@/components/LookalikePairGrid";
 import { QuizPracticeCta } from "@/components/QuizPracticeCta";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { SpeciesInlineLink } from "@/components/SpeciesInlineLink";
 import { isVenomousDanger } from "@/data/speciesAtlasMeta";
-import { toSpeciesCard, toSpeciesCards } from "@/data/speciesCard";
+import { toSpeciesCards } from "@/data/speciesCard";
 import { Link } from "@/i18n/navigation";
 import {
   type ClusterGuideViewProps,
@@ -58,21 +58,17 @@ export async function SnakeIdentifyPage({
       locale={locale}
     >
       <ClusterGuideLead
-        body={
-          <>
-            <p>{t("guideP1")}</p>
-            <p>
-              {t.rich("guideP2", {
-                kaznakovi: (chunks) => (
-                  <SpeciesInlineLink id="vipera-kaznakovi">
-                    {chunks}
-                  </SpeciesInlineLink>
-                ),
-              })}
-            </p>
-          </>
-        }
         eyebrow={t("guideEyebrow")}
+        paragraphs={[
+          t("guideP1"),
+          t.rich("guideP2", {
+            kaznakovi: (chunks) => (
+              <SpeciesInlineLink id="vipera-kaznakovi">
+                {chunks}
+              </SpeciesInlineLink>
+            ),
+          }),
+        ]}
         title={t("guideTitle")}
       />
 
@@ -148,18 +144,7 @@ export async function SnakeIdentifyPage({
         eyebrow={t("pairsEyebrow")}
         title={t("pairsTitle")}
       >
-        <div className="mt-12 grid gap-6 lg:grid-cols-2">
-          {pairs.map((pair) => (
-            <div key={`${pair.a.id}-${pair.b.id}`}>
-              <LookalikePair
-                a={toSpeciesCard(pair.a)}
-                b={toSpeciesCard(pair.b)}
-                locale={locale}
-                vs={t("vs")}
-              />
-            </div>
-          ))}
-        </div>
+        <LookalikePairGrid locale={locale} pairs={pairs} vs={t("vs")} />
       </ClusterContentSection>
 
       <ClusterContentSection
@@ -169,18 +154,13 @@ export async function SnakeIdentifyPage({
         surface="background"
         title={t("mythsTitle")}
       >
-        <ul className="mt-10 divide-y divide-border border-y border-border">
-          {MYTHS.map((n) => (
-            <li className="py-5 sm:py-6" key={n}>
-              <p className="font-display text-[17px] leading-snug font-medium text-foreground sm:text-[19px]">
-                {t(`myth${n}False`)}
-              </p>
-              <p className="mt-2 max-w-3xl text-[15px] leading-relaxed text-muted-foreground">
-                {t(`myth${n}True`)}
-              </p>
-            </li>
-          ))}
-        </ul>
+        <GuideMythList
+          myths={MYTHS.map((n) => ({
+            claim: t(`myth${n}False`),
+            id: n,
+            truth: t(`myth${n}True`),
+          }))}
+        />
         <GuideEditorialNote
           body={t("editorialBody")}
           disclaimer={t("editorialDisclaimer")}

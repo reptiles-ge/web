@@ -10,8 +10,8 @@ import {
   CLUSTER_BODY,
   CLUSTER_EYEBROW,
   CLUSTER_TITLE_SECTION,
+  ClusterFamilyStatsBand,
   ClusterSectionIntro,
-  ClusterStat,
 } from "@/components/ClusterSectionIntro";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { SpeciesInlineLink } from "@/components/SpeciesInlineLink";
@@ -28,7 +28,6 @@ export async function ClusterGuidePage({
   const guide = CLUSTER_GUIDES[guideId];
   const t = await getTranslations({ locale, namespace: guide.messageKey });
   const guideP3 = t.has("guideP3") ? t("guideP3") : null;
-  const familyCount = new Set(species.map((item) => item.family)).size;
   const richLinks = {
     amphibianIndex: (chunks: ReactNode) => (
       <Link
@@ -73,15 +72,7 @@ export async function ClusterGuidePage({
       guideId={guideId}
       heroSrc={heroSrc}
       locale={locale}
-      stats={
-        <section className="border-b border-border bg-surface py-10 sm:py-12">
-          <div className="mx-auto grid max-w-[1400px] gap-8 px-6 sm:grid-cols-3 sm:gap-6 lg:px-10">
-            <ClusterStat label={t("statSpecies")} value={species.length} />
-            <ClusterStat label={t("statFamilies")} value={familyCount} />
-            <ClusterStat label={t("statExtra")} value={t("statExtraValue")} />
-          </div>
-        </section>
-      }
+      stats={<ClusterFamilyStatsBand species={species} t={t} />}
     >
       <ClusterGuideLead
         body={

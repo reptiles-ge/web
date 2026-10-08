@@ -6,10 +6,7 @@ import type { ClusterGuideViewProps } from "@/lib/clusterGuides";
 import { ClusterContentSection } from "@/components/ClusterContentSection";
 import { ClusterGuideLead } from "@/components/ClusterGuideLead";
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
-import {
-  ClusterStat,
-  ClusterStatsBand,
-} from "@/components/ClusterSectionIntro";
+import { ClusterFamilyStatsBand } from "@/components/ClusterSectionIntro";
 import { SpeciesIndexTable } from "@/components/SpeciesIndexTable";
 import { toSpeciesIndexRows } from "@/data/speciesCard";
 import { Link } from "@/i18n/navigation";
@@ -22,7 +19,6 @@ export async function FrogSpeciesIndexPage({
 }: ClusterGuideViewProps) {
   const t = await getTranslations({ locale, namespace: "amphibianFrogsIndex" });
   const guideP3 = t.has("guideP3") ? t("guideP3") : null;
-  const familyCount = new Set(species.map((item) => item.family)).size;
 
   return (
     <ClusterPageFrame
@@ -30,13 +26,7 @@ export async function FrogSpeciesIndexPage({
       guideId={guideId}
       heroSrc={heroSrc}
       locale={locale}
-      stats={
-        <ClusterStatsBand>
-          <ClusterStat label={t("statSpecies")} value={species.length} />
-          <ClusterStat label={t("statFamilies")} value={familyCount} />
-          <ClusterStat label={t("statExtra")} value={t("statExtraValue")} />
-        </ClusterStatsBand>
-      }
+      stats={<ClusterFamilyStatsBand species={species} t={t} />}
     >
       <ClusterGuideLead
         body={

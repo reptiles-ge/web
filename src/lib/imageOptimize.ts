@@ -125,6 +125,25 @@ export function compactAsset(
   };
 }
 
+export function formatGeneratedImages(
+  images: Record<string, OptimizedImageEntry>,
+): string {
+  const entries = Object.entries(images)
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([src, asset]) => {
+      const widths = `[${asset.widths.join(", ")}]`;
+      const formats = `[${asset.formats.map((format) => JSON.stringify(format)).join(", ")}]`;
+      return `  ${JSON.stringify(src)}: {
+    "path": ${JSON.stringify(asset.path)},
+    "width": ${asset.width},
+    "height": ${asset.height},
+    "widths": ${widths},
+    "formats": ${formats}
+  }`;
+    });
+  return `{\n${entries.join(",\n")}\n}`;
+}
+
 export async function optimizeUploadedOriginal(input: {
   key: string;
   source: Buffer;
@@ -144,23 +163,6 @@ export async function optimizeUploadedOriginal(input: {
   const prefix = `${input.storage.urlFor(SPECIES_IMAGE_CONFIG.optimizedPrefix)}/`;
   const asset = compactAsset(input.key, entry, input.storage, prefix);
   return { asset, entry, key: input.key, src: input.src };
-}
-
-function formatGeneratedImages(
-  images: Record<string, OptimizedImageEntry>,
-): string {
-  const entries = Object.entries(images).map(([src, asset]) => {
-    const widths = `[${asset.widths.join(", ")}]`;
-    const formats = `[${asset.formats.map((format) => JSON.stringify(format)).join(", ")}]`;
-    return `  ${JSON.stringify(src)}: {
-    "path": ${JSON.stringify(asset.path)},
-    "width": ${asset.width},
-    "height": ${asset.height},
-    "widths": ${widths},
-    "formats": ${formats}
-  }`;
-  });
-  return `{\n${entries.join(",\n")}\n}`;
 }
 
 function parseGeneratedImages(

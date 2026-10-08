@@ -40,12 +40,12 @@ import {
 import { GROUP_HUBS } from "@/lib/groupHubs";
 import { buildPageMetadata } from "@/lib/pageMetadata";
 import {
-  absoluteUrl,
-  localePath,
-  siteEntityId,
-  speciesOgImageUrl,
-  speciesPageUrl,
-} from "@/lib/site";
+  breadcrumbListLd,
+  localePageUrl,
+  sitePageLd,
+  speciesItemListLd,
+} from "@/lib/pageStructuredData";
+import { absoluteUrl, localePath, speciesOgImageUrl } from "@/lib/site";
 import { pageDateFields } from "@/lib/structuredDataDates";
 
 type Props = {
@@ -170,75 +170,27 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
       catalog.find((item) => item.id === guide.heroSpeciesId) ??
       catalog.find(guide.matches);
     const heroSrc = guide.heroImage ?? heroRaw?.image ?? "";
-    const breadcrumbLd = {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          item: absoluteUrl(localePath(locale, "/")),
-          name: tShared("breadcrumbHome"),
-          position: 1,
-        },
-        {
-          "@type": "ListItem",
-          item: absoluteUrl(localePath(locale, parent.path)),
-          name: tParent("breadcrumbCurrent"),
-          position: 2,
-        },
-        {
-          "@type": "ListItem",
-          item: url,
-          name: t("breadcrumbCurrent"),
-          position: 3,
-        },
-      ],
-    };
+    const breadcrumbLd = breadcrumbListLd([
+      { item: localePageUrl(locale, "/"), name: tShared("breadcrumbHome") },
+      {
+        item: localePageUrl(locale, parent.path),
+        name: tParent("breadcrumbCurrent"),
+      },
+      { item: url, name: t("breadcrumbCurrent") },
+    ]);
 
-    const pageLd =
-      guide.schema === "collection"
-        ? {
-            "@context": "https://schema.org",
-            "@type": "CollectionPage",
-            about: {
-              "@type": "Place",
-              name: georgiaPlaceName(locale),
-            },
-            author: { "@id": siteEntityId("organization") },
-            ...pageDateFields(guide.pathname),
-            description: t("metaDescription"),
-            inLanguage: locale,
-            isPartOf: { "@id": siteEntityId("website") },
-            mainEntity: {
-              "@type": "ItemList",
-              itemListElement: species.map((item, index) => ({
-                "@type": "ListItem",
-                name: `${item.commonName} (${item.scientificName})`,
-                position: index + 1,
-                url: speciesPageUrl(locale, item.id),
-              })),
-              numberOfItems: species.length,
-            },
-            name: t("metaTitle"),
-            publisher: { "@id": siteEntityId("organization") },
-            url,
-          }
-        : {
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            about: {
-              "@type": "Place",
-              name: georgiaPlaceName(locale),
-            },
-            author: { "@id": siteEntityId("organization") },
-            ...pageDateFields(guide.pathname),
-            description: t("metaDescription"),
-            inLanguage: locale,
-            isPartOf: { "@id": siteEntityId("website") },
-            name: t("metaTitle"),
-            publisher: { "@id": siteEntityId("organization") },
-            url,
-          };
+    const pageLd = sitePageLd({
+      about: { "@type": "Place", name: georgiaPlaceName(locale) },
+      dates: pageDateFields(guide.pathname),
+      description: t("metaDescription"),
+      locale,
+      ...(guide.schema === "collection"
+        ? { mainEntity: speciesItemListLd(locale, species) }
+        : {}),
+      name: t("metaTitle"),
+      type: guide.schema === "collection" ? "CollectionPage" : "WebPage",
+      url,
+    });
 
     return (
       <>

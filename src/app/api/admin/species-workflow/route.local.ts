@@ -1,11 +1,12 @@
-import {
-  isLocalAdminEnabled,
-  localAdminForbiddenResponse,
-} from "@/lib/adminAccess";
+import { localAdminForbiddenResponse } from "@/lib/adminAccess";
 import {
   isSpeciesContentId,
   readAdminSpeciesGallery,
 } from "@/lib/adminGalleryMdx";
+import {
+  isLocalAdminOriginRequest,
+  readAdminJsonText,
+} from "@/lib/adminRequest";
 import { notifyAdminTelegram } from "@/lib/adminTelegram";
 import {
   runSpeciesWorkflow,
@@ -17,21 +18,17 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 export async function POST(request: Request) {
-  const url = new URL(request.url);
-  if (
-    !isLocalAdminEnabled() ||
-    !["127.0.0.1", "[::1]", "localhost"].includes(url.hostname) ||
-    request.headers.get("origin") !== url.origin
-  ) {
+  if (!isLocalAdminOriginRequest(request)) {
     return localAdminForbiddenResponse();
   }
 
   const steps: Array<{ mode: SpeciesWorkflowMode; report: string }> = [];
   let speciesName = "";
   try {
-    const text = await request.text();
-    if (text.length > 1000) throw new Error("Invalid request");
-    const { id, modes } = JSON.parse(text) as { id?: unknown; modes?: unknown };
+    const { id, modes } = await readAdminJsonText<{
+      id?: unknown;
+      modes?: unknown;
+    }>(request);
     if (typeof id !== "string" || !isSpeciesContentId(id))
       throw new Error("Invalid species id");
     const selectedModes = validateSpeciesWorkflowModes(modes);

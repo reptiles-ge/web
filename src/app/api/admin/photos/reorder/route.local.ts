@@ -1,25 +1,16 @@
 import {
-  isLocalAdminEnabled,
-  localAdminForbiddenResponse,
-} from "@/lib/adminAccess";
-import {
   isSpeciesContentId,
   readAdminSpeciesGallery,
 } from "@/lib/adminGalleryMdx";
 import { openGalleryReorderPullRequest } from "@/lib/adminPhotoPullRequest";
+import { readLocalAdminJsonBody } from "@/lib/adminRequest";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 export async function POST(request: Request) {
-  if (!isLocalAdminEnabled()) return localAdminForbiddenResponse();
-
-  let body: unknown;
-  try {
-    body = await request.json();
-  } catch {
-    return Response.json({ error: "Invalid JSON" }, { status: 400 });
-  }
+  const { body, response } = await readLocalAdminJsonBody(request);
+  if (response) return response;
 
   const id = readId(body);
   const srcs = readSrcs(body);

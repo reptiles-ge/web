@@ -15,7 +15,7 @@ import {
   CLUSTER_TITLE_RELATED,
   ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
-import { GuideEditorialNote } from "@/components/GuideShared";
+import { GuideEditorialNote, GuideMythList } from "@/components/GuideShared";
 import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
 import { SpeciesInlineLink } from "@/components/SpeciesInlineLink";
 import { VenomousSnakesCompare } from "@/components/VenomousSnakesCompare";
@@ -47,18 +47,13 @@ export function VenomousSnakesGuides({
         surface="background"
         title={t("mythsTitle")}
       >
-        <ul className="mt-10 divide-y divide-border border-y border-border">
-          {MYTHS.map((n) => (
-            <li className="py-5 sm:py-6" key={n}>
-              <p className="font-display text-[17px] leading-snug font-medium text-foreground sm:text-[19px]">
-                {t(`myth${n}False`)}
-              </p>
-              <p className="mt-2 max-w-3xl text-[15px] leading-relaxed text-muted-foreground">
-                {t(`myth${n}True`)}
-              </p>
-            </li>
-          ))}
-        </ul>
+        <GuideMythList
+          myths={MYTHS.map((n) => ({
+            claim: t(`myth${n}False`),
+            id: n,
+            truth: t(`myth${n}True`),
+          }))}
+        />
       </ClusterContentSection>
 
       <section className="border-t border-border bg-surface py-20 lg:py-28">
