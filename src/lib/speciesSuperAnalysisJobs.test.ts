@@ -1,7 +1,5 @@
-import { createHash, randomUUID } from "node:crypto";
+import { randomUUID } from "node:crypto";
 import fs from "node:fs/promises";
-import os from "node:os";
-import path from "node:path";
 import { describe, expect, it, vi } from "vitest";
 
 import { notifyAdminTelegram } from "@/lib/adminTelegram";
@@ -93,22 +91,19 @@ describe("Super Analysis jobs", () => {
   });
 
   it("reloads a persisted job and reports a non-error failure", async () => {
-    const directory = path.join(
-      os.tmpdir(),
-      `reptiles-super-analysis-${createHash("sha256").update(process.cwd()).digest("hex").slice(0, 12)}`,
-    );
     const missing = `missing-${randomUUID()}`;
     expect(await getSpeciesSuperAnalysisJob(missing)).toBeNull();
-    const readFile = vi
-      .spyOn(fs, "readFile")
-      .mockRejectedValueOnce(Object.assign(new Error("disk"), { code: "EIO" }));
+    const readFile = vi.spyOn(fs, "readFile");
+    const mkdir = vi.spyOn(fs, "mkdir").mockResolvedValue(undefined);
+    const writeFile = vi.spyOn(fs, "writeFile").mockResolvedValue(undefined);
+    const rename = vi.spyOn(fs, "rename").mockResolvedValue(undefined);
+    readFile.mockRejectedValueOnce(
+      Object.assign(new Error("disk"), { code: "EIO" }),
+    );
     await expect(getSpeciesSuperAnalysisJob(missing)).rejects.toThrow("disk");
-    readFile.mockRestore();
 
     const id = `resume-${randomUUID()}`;
-    await fs.mkdir(directory, { recursive: true });
-    await fs.writeFile(
-      path.join(directory, `${id}.json`),
+    readFile.mockResolvedValueOnce(
       JSON.stringify({
         currentStage: "analysis",
         error: null,
@@ -122,6 +117,10 @@ describe("Super Analysis jobs", () => {
     const resumed = await getSpeciesSuperAnalysisJob(id);
     expect(resumed?.status).toBe("failed");
     expect(resumed?.error).toContain("interrupted");
+    readFile.mockRestore();
+    mkdir.mockRestore();
+    writeFile.mockRestore();
+    rename.mockRestore();
 
     vi.mocked(runSpeciesWorkflow).mockRejectedValueOnce("offline");
     vi.mocked(notifyAdminTelegram).mockRejectedValueOnce(new Error("telegram"));
