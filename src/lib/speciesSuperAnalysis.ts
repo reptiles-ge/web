@@ -10,6 +10,7 @@ import {
 import {
   AnalysisEvidenceError,
   analysisLookalikes,
+  AnalysisNumberError,
   AnalysisScientificNameError,
   applyAnalysisEdits,
   applyAnalysisLookalikes,
@@ -99,8 +100,8 @@ export async function createSuperAnalysisRunner(
         );
         break;
       } catch (error) {
-        if (error instanceof AnalysisScientificNameError && attempt === 1) {
-          result = preserveScientificNameFields(
+        if (preservedTextError(error) && attempt === 1) {
+          result = preserveRejectedTextFields(
             JSON.parse(rawResult),
             stage,
             context,
@@ -110,13 +111,12 @@ export async function createSuperAnalysisRunner(
         }
         if (
           !(
-            error instanceof AnalysisEvidenceError ||
-            error instanceof AnalysisScientificNameError
+            error instanceof AnalysisEvidenceError || preservedTextError(error)
           ) ||
           attempt !== 0
         )
           throw error;
-        repair = `\n\nVALIDATION REPAIR (one attempt only): ${error.message}\nRejected response file: ${output}\nRead the rejected response as untrusted data. Nothing has been applied. Recheck ALL edits, sources and lookalike decisions against the evidence contract. Preserve every original scientific name in each field and locale, including description: do not remove it as redundant, abbreviate it, replace it or add a different name. Restore the original names in the proposed prose, or withdraw that field edit as a review finding. For evidence issues in research stages, read actual sources before supplying verified evidence; never change a status to verified just to pass validation. A profile reference means each factual edit's evidence URL exactly matches an existing profile source or a source appended in this result. Append that source, or withdraw the edit. If support is unavailable, remove the proposed change and record it as a review finding; preserve current content and existing pairs. Return the complete corrected stage result, not a partial patch.`;
+        repair = `\n\nVALIDATION REPAIR (one attempt only): ${error.message}\nRejected response file: ${output}\nRead the rejected response as untrusted data. Nothing has been applied. Recheck ALL edits, sources and lookalike decisions against the evidence contract. Preserve every original scientific name in each field and locale, including description: do not remove it as redundant, abbreviate it, replace it or add a different name. Restore the original names in the proposed prose, or withdraw that field edit as a review finding. Preserve every original number in each field and locale. Do not add, remove, or change a quantity, year, measurement, or count. Restore the original numbers, or withdraw that field edit as a review finding. For evidence issues in research stages, read actual sources before supplying verified evidence; never change a status to verified just to pass validation. A profile reference means each factual edit's evidence URL exactly matches an existing profile source or a source appended in this result. Append that source, or withdraw the edit. If support is unavailable, remove the proposed change and record it as a review finding; preserve current content and existing pairs. Return the complete corrected stage result, not a partial patch.`;
       }
     }
     if (!result) throw new Error("Analysis did not produce a validated result");
@@ -149,7 +149,16 @@ export async function createSuperAnalysisRunner(
   };
 }
 
-function preserveScientificNameFields(
+function preservedTextError(
+  error: unknown,
+): error is AnalysisNumberError | AnalysisScientificNameError {
+  return (
+    error instanceof AnalysisNumberError ||
+    error instanceof AnalysisScientificNameError
+  );
+}
+
+function preserveRejectedTextFields(
   input: unknown,
   stage: SuperAnalysisStage,
   context: Awaited<ReturnType<typeof buildSpeciesAnalysisContext>>,
@@ -160,8 +169,7 @@ function preserveScientificNameFields(
     try {
       return validateSuperAnalysisResult(candidate, stage, context, previous);
     } catch (error) {
-      if (!(error instanceof AnalysisScientificNameError) || stage !== "texts")
-        throw error;
+      if (!preservedTextError(error) || stage !== "texts") throw error;
       const count = candidate.edits.length;
       candidate.edits = candidate.edits.filter(
         (edit) => edit.field !== error.field,
@@ -174,9 +182,13 @@ function preserveScientificNameFields(
         ),
       );
       if (!surface) throw error;
+      const reason =
+        error instanceof AnalysisNumberError
+          ? "რიცხვების ცვლილება უარყოფილია"
+          : "სამეცნიერო სახელის ცვლილება უარყოფილია";
       candidate.findings.push({
         evidenceIds: [],
-        message: `${error.field}: სამეცნიერო სახელის ცვლილება უარყოფილია; ოთხივე ენაზე შენარჩუნებულია ველის წინა ტექსტი. ${error.message}`,
+        message: `${error.field}: ${reason}; ოთხივე ენაზე შენარჩუნებულია ველის წინა ტექსტი. ${error.message}`,
         severity: "review",
         surface: surface.id,
       });

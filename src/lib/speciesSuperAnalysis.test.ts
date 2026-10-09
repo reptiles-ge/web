@@ -304,4 +304,92 @@ describe("four-stage Super Analysis runner", () => {
         expect(report).toContain("სამეცნიერო სახელის ცვლილება უარყოფილია");
     },
   );
+
+  it.each([true, false])(
+    "repairs changed numbers or preserves every affected field (%s)",
+    async (repairSucceeds) => {
+      const initial = original.replace(
+        "overview:",
+        'habitat: "Recorded at two sites."\ndiet: "Eats insects."\noverview:',
+      );
+      for (const locale of ANALYSIS_LOCALES)
+        await fs.writeFile(
+          path.join(worktree, `src/content/species/${id}/${locale}.mdx`),
+          initial,
+        );
+      let calls = 0;
+      vi.mocked(runCodexProcess).mockImplementation(
+        async ({ args, prompt }) => {
+          const stage = SUPER_ANALYSIS_STAGES[Math.min(calls, 3)];
+          calls++;
+          if (calls === 5) expect(prompt).toContain("original number");
+          const response: SuperAnalysisResult = {
+            coverage: speciesAnalysisSurfaces.map((surface) => surface.id),
+            edits: [],
+            evidence: [],
+            findings: [],
+            lookalikes: [],
+            sources: [],
+            stage,
+            summary: "Reviewed",
+          };
+          if (stage === "texts")
+            response.edits = [
+              {
+                after: values(
+                  calls === 5 && repairSucceeds
+                    ? "Noted at two sites."
+                    : "Recorded at 3 sites.",
+                ),
+                before: values("Recorded at two sites."),
+                evidenceIds: [],
+                field: "habitat",
+                reason: "Clearer habitat",
+              },
+              {
+                after: values(
+                  calls === 5 && repairSucceeds
+                    ? "A bird measures 20 cm."
+                    : "A bird is 25 cm.",
+                ),
+                before: values("A bird is 20 cm."),
+                evidenceIds: [],
+                field: "overview",
+                reason: "Clearer overview",
+              },
+              {
+                after: values("Feeds on insects."),
+                before: values("Eats insects."),
+                evidenceIds: [],
+                field: "diet",
+                reason: "Clearer diet",
+              },
+            ];
+          await fs.writeFile(
+            args[args.indexOf("--output-last-message") + 1],
+            JSON.stringify(response),
+          );
+        },
+      );
+      const run = await createSuperAnalysisRunner(id, worktree, directory);
+      for (const stage of SUPER_ANALYSIS_STAGES.slice(0, 3)) await run(stage);
+      const report = await run("texts");
+      expect(calls).toBe(5);
+      for (const locale of ANALYSIS_LOCALES) {
+        const saved = (await readSpeciesAnalysisContent(id, worktree))[locale]
+          .data;
+        expect(saved.habitat).toBe(
+          repairSucceeds ? "Noted at two sites." : "Recorded at two sites.",
+        );
+        expect(saved.overview).toBe(
+          repairSucceeds ? "A bird measures 20 cm." : "A bird is 20 cm.",
+        );
+        expect(saved.diet).toBe("Feeds on insects.");
+      }
+      if (!repairSucceeds) {
+        expect(report).toContain("habitat: რიცხვების ცვლილება უარყოფილია");
+        expect(report).toContain("overview: რიცხვების ცვლილება უარყოფილია");
+      }
+    },
+  );
 });

@@ -27,6 +27,19 @@ const plain = (value: string) =>
 
 export class AnalysisEvidenceError extends Error {}
 
+export class AnalysisNumberError extends Error {
+  constructor(
+    readonly field: string,
+    locale: string,
+    before: string,
+    after: string,
+  ) {
+    super(
+      `Text edit changed numbers in ${field} (${locale}): expected ${before || "none"}; received ${after || "none"}`,
+    );
+  }
+}
+
 export class AnalysisScientificNameError extends Error {
   constructor(
     readonly field: string,
@@ -270,7 +283,12 @@ export function validateSuperAnalysisResult(
             .sort()
             .join("|");
         if (numbers(before) !== numbers(after))
-          throw new Error(`Text edit changed numbers in ${edit.field}`);
+          throw new AnalysisNumberError(
+            edit.field,
+            locale,
+            numbers(before),
+            numbers(after),
+          );
         if (scientificNames(before) !== scientificNames(after))
           throw new AnalysisScientificNameError(
             edit.field,
