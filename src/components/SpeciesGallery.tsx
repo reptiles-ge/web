@@ -71,7 +71,13 @@ export async function SpeciesGallery({
   const slides = photos.map((photo) => {
     const entry = optimizedEntry(photo.src);
     return {
-      alt: speciesPhotoAlt(name, scientificName, location, photo.credit),
+      alt: speciesPhotoAlt(
+        name,
+        scientificName,
+        location,
+        photo.credit,
+        locale,
+      ),
       credit: photo.credit,
       height: entry?.height,
       photoConfidence: photo.photoConfidence,
@@ -104,7 +110,7 @@ export async function SpeciesGallery({
                 id={SPECIES_SECTION_IDS.gallery}
                 slugSource={`${name} ${t("galleryTitle")}`}
               >
-                {t("galleryTitle")}
+                {`${name} ${t("galleryTitle")}`}
               </AnchoredHeading>
             </div>
             <div className="flex flex-wrap items-center gap-5 lg:pb-2">

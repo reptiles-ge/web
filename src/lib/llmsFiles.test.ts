@@ -20,7 +20,9 @@ describe("buildRobotsTxt", () => {
     expect(body).toContain("llms-full.txt");
 
     for (const agent of AI_CITATION_USER_AGENTS) {
-      expect(body).toContain(`User-agent: ${agent}`);
+      expect(body).toContain(
+        `User-agent: ${agent}\nAllow: /\nDisallow: /api/\nDisallow: /admin\nDisallow: /admin/\n`,
+      );
     }
   });
 });

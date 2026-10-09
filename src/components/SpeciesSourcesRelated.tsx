@@ -247,6 +247,8 @@ function RelatedSpeciesCard({
   );
 }
 
+const GEORGIAN_SCRIPT = /[\u10A0-\u10FF]/;
+
 function SourceRow({
   source,
   speciesId,
@@ -259,7 +261,10 @@ function SourceRow({
   const [citation, ...titleParts] = source.name.split(" — ");
   const content = (
     <span className="flex items-start justify-between gap-3 py-4 text-[14px] leading-[1.45] text-foreground lg:text-[15px]">
-      <span className="min-w-0">
+      <span
+        className="min-w-0"
+        lang={GEORGIAN_SCRIPT.test(source.name) ? "ka" : undefined}
+      >
         <strong className="font-semibold">{citation}</strong>
         {titleParts.length > 0 ? ` — ${titleParts.join(" — ")}` : null}
       </span>

@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 
+import type { PhotoCredit } from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
 
 import { SpeciesPageAnalysis } from "@/components/admin/SpeciesPageAnalysis";
@@ -10,7 +11,7 @@ import { getRegionsForSpecies } from "@/data/mapRegions";
 import { pictureSources } from "@/data/optimizedImages";
 import { type Species } from "@/data/species";
 import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlas";
-import { resolvePhotoCredit } from "@/data/speciesMedia";
+import { overlayPhotoCredit, resolvePhotoCredit } from "@/data/speciesMedia";
 import { isLocalAdminEnabled } from "@/lib/adminAccess";
 import { getHubIndexTitleKey } from "@/lib/clusterGuides";
 import { hasFieldRecords } from "@/lib/occurrenceSummaries";
@@ -23,6 +24,8 @@ import {
   getSpeciesHeroSources,
   hasRealIdentification,
   isPlaceholderBody,
+  SPECIES_HERO_DESKTOP_SIZES,
+  SPECIES_HERO_SIZES,
 } from "@/lib/speciesContent";
 import { getSpeciesProfileGuideLinks } from "@/lib/speciesGuideLinks";
 import { speciesPhotoAlt } from "@/lib/speciesMeta";
@@ -98,32 +101,49 @@ export async function SpeciesProfile({
     species,
     venomousLabel: t("breadcrumbVenomous"),
   });
-  const { desktopHeroSrc, gallery, mobileHeroSrc, primary } =
+  const { desktopHeroSrc, gallery, mobileHeroSrc, mobileSlideSrc, primary } =
     getSpeciesHeroSources(species);
   const heroDesktopSources = pictureSources(desktopHeroSrc, {
     media: "(min-width: 1024px)",
-    sizes: "100vw",
+    sizes: SPECIES_HERO_DESKTOP_SIZES,
   });
-  const heroPrimarySources = pictureSources(mobileHeroSrc ?? desktopHeroSrc, {
-    sizes: "100vw",
+  const heroPrimarySources = pictureSources(mobileSlideSrc ?? desktopHeroSrc, {
+    sizes: SPECIES_HERO_SIZES,
   });
-  const heroCredit = resolvePhotoCredit(species.imageCredit, primary?.credit);
-  const mobileHeroCredit = resolvePhotoCredit(
-    species.mobileImageCredit,
-    species.imageCredit,
+  const localizedCredit = (
+    base: PhotoCredit | undefined,
+    src: null | string,
+  ) =>
+    locale === "ka"
+      ? base
+      : overlayPhotoCredit(
+          base,
+          gallery.find((item) => item.src === src)?.credit,
+        );
+  const heroCredit = resolvePhotoCredit(
+    localizedCredit(species.imageCredit, desktopHeroSrc),
     primary?.credit,
   );
+  const mobileHeroCredit = mobileHeroSrc
+    ? resolvePhotoCredit(
+        localizedCredit(species.mobileImageCredit, mobileHeroSrc),
+        localizedCredit(species.imageCredit, desktopHeroSrc),
+        primary?.credit,
+      )
+    : resolvePhotoCredit(primary?.credit, species.imageCredit);
   const imageAlt = speciesPhotoAlt(
     species.commonName,
     species.scientificName,
     species.location,
     heroCredit,
+    locale,
   );
   const mobileImageAlt = speciesPhotoAlt(
     species.commonName,
     species.scientificName,
     species.location,
     mobileHeroCredit,
+    locale,
   );
   const group = getSpeciesAtlasMeta(species.id).group;
   const displayStats = filterDisplayStats(species.stats, group);
@@ -194,7 +214,7 @@ export async function SpeciesProfile({
         imageAlt={imageAlt}
         locale={locale}
         mobileGallery={gallery}
-        mobileHeroSrc={mobileHeroSrc}
+        mobileHeroSrc={mobileSlideSrc}
         mobileImageAlt={mobileImageAlt}
         shareText={shareText}
         species={species}

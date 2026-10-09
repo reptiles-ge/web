@@ -76,6 +76,7 @@
     "news": "News",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
+    "mainMenu": "Main menu",
     "skipToContent": "Skip to content"
   },
   "search": {
@@ -938,6 +939,7 @@
     "heading": "Reptiles.ge",
     "subtitle": "Atlas of animals of Georgia",
     "body": "Prepared by the Reptiles.ge editorial team from the sources listed here.",
+    "bodyEditorial": "Prepared by the Reptiles.ge editorial team.",
     "published": "Published: {date}",
     "updated": "Updated: {date}",
     "sources": "Sources",
@@ -995,16 +997,16 @@
   },
   "speciesMeta": {
     "notFound": "Species not found",
-    "titleSnakeVenomous": "venom, range, and identification",
-    "titleSnake": "range and identification in Georgia",
-    "titleLizard": "range and identification in Georgia",
-    "titleTurtle": "range and identification in Georgia",
-    "titleAmphibian": "range and identification in Georgia",
-    "titleBird": "range and identification in Georgia",
-    "titleMammal": "range and identification in Georgia",
-    "titleScorpion": "range and identification in Georgia",
-    "titleSpider": "range and identification in Georgia",
-    "titleInsect": "range and identification in Georgia",
+    "titleSnakeVenomous": "Venom, range, and identification",
+    "titleSnake": "Range and identification in Georgia",
+    "titleLizard": "Range and identification in Georgia",
+    "titleTurtle": "Range and identification in Georgia",
+    "titleAmphibian": "Range and identification in Georgia",
+    "titleBird": "Range and identification in Georgia",
+    "titleMammal": "Range and identification in Georgia",
+    "titleScorpion": "Range and identification in Georgia",
+    "titleSpider": "Range and identification in Georgia",
+    "titleInsect": "Range and identification in Georgia",
     "descriptionVenomous": "{name} ({scientific}) — range, biology, venom, and conservation status. Atlas of reptiles of Georgia and the Caucasus.",
     "descriptionReptile": "{name} ({scientific}) — range, biology, and conservation status. Atlas of reptiles of Georgia and the Caucasus.",
     "descriptionAmphibian": "{name} ({scientific}) — range, biology, and conservation status. Amphibians of Georgia.",
@@ -1688,8 +1690,8 @@
     }
   },
   "snakes": {
-    "metaTitle": "Snakes in Georgia — species guide and atlas",
-    "metaDescription": "All snakes of Georgia in one guide: species list, venomous and harmless snakes, identification tips, and full profiles on reptiles.ge.",
+    "metaTitle": "Snakes in Georgia (Caucasus) — guide and atlas",
+    "metaDescription": "Snakes of Georgia (Caucasus) in one guide: venomous and harmless species, identification tips, risk levels, and full profiles on reptiles.ge.",
     "keywords": "snakes in Georgia, Georgia snakes, venomous snakes Georgia, harmless snakes, vipers, racers, Natrix, Vipera, Macrovipera",
     "breadcrumbCurrent": "Snakes",
     "heroImageAlt": "Dinnik’s viper in rocky Caucasus habitat",
@@ -1711,28 +1713,28 @@
     "section": {
       "venomous": {
         "title": "Venomous snakes in Georgia — {count}",
-        "body": "Georgia’s venomous snakes include the Levantine, Dinnik’s, Caucasus, Transcaucasian, Darevsky’s, and steppe vipers. Full information about them is gathered in the separate venomous snakes guide."
+        "body": "Georgia’s venomous snakes include the Levantine, Dinnik’s, Caucasus, nose-horned, Darevsky’s, and eastern steppe vipers, as well as the Eastern Montpellier snake, which has venom fangs at the back of its mouth. Full information about them is gathered in the separate venomous snakes guide."
       },
       "harmless": {
-        "title": "Harmless — {count}",
+        "title": "Other harmless snakes — {count}",
         "body": "Most snakes found in Georgia are not dangerous to humans. Do not rely on colour alone when identifying them — species profiles show appearance traits, habitat, and distribution information."
       },
       "racers": {
-        "title": "Racers — {count}",
-        "body": "Dahl’s whip snake, steppe ratsnake, European cat snake, and Aesculapian snake are harmless snakes that are sometimes confused with venomous species."
+        "title": "Often mistaken species — {count}",
+        "body": "Dahl’s whip snake, the steppe ratsnake, and the Aesculapian snake are non-venomous. The European cat snake has venom fangs at the back of its mouth but is not considered a significant threat to human health. All four are sometimes mistaken for venomous species."
       }
     },
     "faqEyebrow": "FAQ",
     "faqTitle": "What people ask about snakes",
     "faqIntro": "Short answers — depth lives on species pages.",
     "faq1Q": "How many snakes are there in Georgia?",
-    "faq1A": "This atlas gathers snake profiles that are confirmed for Georgia or included in the relevant checklists. The exact number of species can change with taxonomy and newly confirmed data, so this page always presents the current catalog.",
+    "faq1A": "The atlas currently publishes profiles for {count} snake species, all listed in the catalog below. For reptiles, the atlas follows the annotated checklist by Tarkhnishvili et al. 2026, which marks Dinnik’s viper, the Caucasus viper, and the red-bellied racer as candidate taxa. The number can change with taxonomy and newly confirmed data.",
     "faq2Q": "Which snakes are venomous in Georgia?",
-    "faq2A": "Medically significant venomous snakes are gathered in a separate guide. Most snakes in Georgia are harmless, so do not kill an unknown snake by mistake — keep distance and compare its traits with the profiles.",
+    "faq2A": "The atlas lists the Levantine, Dinnik’s, Caucasus, nose-horned, Darevsky’s, and eastern steppe vipers as venomous, along with the Eastern Montpellier snake. Details are in the <venomous>venomous snakes guide</venomous>. Most snakes in Georgia are harmless, so do not kill an unknown snake by mistake — keep distance and compare its traits with the profiles.",
     "faq3Q": "How do I tell a viper from a harmless snake?",
-    "faq3A": "Some vipers have a vertical pupil and a relatively broad, triangular head, but those traits are not enough in every case. For more reliable identification, consider other body traits, habitat, and distribution region.",
+    "faq3A": "Some vipers have a vertical pupil and a relatively broad, triangular head, but those traits are not enough in every case. For more reliable identification, consider other body traits, habitat, and distribution region — the <identify>venomous snake identification guide</identify> compares them.",
     "faq4Q": "Where do snakes occur in Georgia?",
-    "faq4A": "Georgia’s snakes occur in varied habitats, from forests and high mountain zones to dry eastern landscapes. You can check a specific species’ distribution in its profile and in the regional atlas; one species often occurs in several regions.",
+    "faq4A": "Georgia’s snakes occur in varied habitats, from forests and high mountain zones to dry eastern landscapes. You can check a specific species’ distribution in its profile, the <range>snake range guide</range>, and the regional atlas; one species often occurs in several regions.",
     "faq5Q": "What should I do if I meet a snake?",
     "faq5A": "Do not handle it, keep distance, and pass aside. If bitten, call 112 and see the <bite>bite guide</bite>. If a snake is in the yard or you want to reduce visits, see the practical <yard>yard guide</yard>.",
     "ctaEyebrow": "Next step",
@@ -1740,7 +1742,7 @@
     "ctaBody": "Pick a species below. Regional maps help when you know the place."
   },
   "lizards": {
-    "metaTitle": "Lizards in Georgia — species guide and atlas",
+    "metaTitle": "Lizards in Georgia (Caucasus) — guide and atlas",
     "metaDescription": "Lizards of Georgia in one guide: rock lizards (Darevskia), European glass lizard, skinks, and more — identification and full profiles.",
     "keywords": "lizards in Georgia, Georgia lizards, rock lizards, Darevskia, European glass lizard, Pseudopus apodus, Lacerta",
     "breadcrumbCurrent": "Lizards",
@@ -1754,7 +1756,7 @@
     "statExtraValue": "12",
     "guideEyebrow": "Guide",
     "guideTitle": "Georgia’s lizards in one guide",
-    "guideP1": "This page gathers the lizard profiles published in the atlas — Darevskia rock lizards, forest and meadow species, geckos, and the limbless glass lizard. Each entry leads to the full profile for that species.",
+    "guideP1": "This page gathers the lizard profiles published in the atlas — Darevskia rock lizards, forest and meadow species, the Caspian gecko, and the limbless glass lizard. Each entry leads to the full profile for that species.",
     "guideP2": "Rock lizards are often hard to separate. Colour alone is not enough — body traits, place of occurrence, and habitat matter too. If you know where the animal was found, the regional atlas can also help you narrow the species.",
     "speciesEyebrow": "Catalog",
     "speciesTitle": "{count} lizards in the atlas",
@@ -1763,7 +1765,7 @@
     "section": {
       "featured": {
         "title": "Caucasian agama and glass lizard",
-        "body": "The atlas includes both rock lizards and the glass lizard — a large limbless lizard often mistaken for a snake."
+        "body": "The Caucasian agama (Paralaudakia caucasia) is Georgia’s only agamid in the checklist — a harmless rock lizard. The glass lizard is a large limbless lizard often mistaken for a snake."
       },
       "darevskia": {
         "title": "Rock lizards (Darevskia) — {count}",
@@ -1771,29 +1773,29 @@
       },
       "other": {
         "title": "Other lizards — {count}",
-        "body": "This section also gathers non-Darevskia species, including other lacertids, skinks, geckos, anguids, and other lizards confirmed in Georgia."
+        "body": "This section also gathers non-Darevskia species, including other lacertids, skinks, the Caspian gecko, the slow worm, and other lizards of Georgia."
       }
     },
     "faqEyebrow": "FAQ",
     "faqTitle": "What people ask about lizards",
     "faqIntro": "Short answers — depth lives on species pages.",
     "faq1Q": "How many lizards are there in Georgia?",
-    "faq1A": "The atlas gathers lizard profiles supported by sources for Georgia. The rock-lizard genus Darevskia is especially diverse in the Caucasus, so it has an important place in the catalog.",
+    "faq1A": "The atlas currently has profiles for {count} lizard species. For reptiles it follows the annotated checklist by Tarkhnishvili et al. 2026, which marks nine of them — six Darevskia species, the Colchis slow worm, and two Lacerta species — as candidate taxa and the Lebanon lizard as introduced. The rock-lizard genus Darevskia is especially diverse in the Caucasus.",
     "faq2Q": "Is the glass lizard a snake or a lizard?",
-    "faq2A": "The European glass lizard (Pseudopus apodus) is a large, strongly elongated limbless lizard, not a snake. A separate guide also helps distinguish it from the slow worm and similar snakes.",
+    "faq2A": "The European glass lizard (Pseudopus apodus) is a large, strongly elongated limbless lizard, not a snake. A <compare>separate guide</compare> also helps distinguish it from the slow worm and similar snakes.",
     "faq3Q": "How do I tell rock lizards apart?",
-    "faq3A": "Many Darevskia species look very similar. For identification, consider the region where it was found, the habitat, and the traits described in the species profile — colour alone is not reliable.",
+    "faq3A": "Many Darevskia species look very similar. For identification, consider the region where it was found, the habitat, and the traits described in the species profile — colour alone is not reliable. More in the <darevskia>rock lizard guide</darevskia>.",
     "faq4Q": "Where are lizards most common?",
     "faq4A": "Georgia’s lizards occur in many environments — rocky places, dry slopes, forest edges, meadows, and other habitats. Regional pages help show which species are confirmed from a specific place.",
     "faq5Q": "Are Georgia’s lizards venomous?",
-    "faq5A": "No. The Georgian lizards presented in the atlas are not venomous to people. You may also see a Caspian gecko on building walls — it is harmless and does not need to be killed. Important venom risk in Georgia concerns certain snakes, not lizards.",
+    "faq5A": "No. The Georgian lizards presented in the atlas are not venomous to people. You may also see a Caspian gecko on building walls — it is harmless and does not need to be killed (see <house>lizard in the house</house>). Important venom risk in Georgia concerns certain snakes, not lizards.",
     "ctaEyebrow": "Next step",
     "ctaTitle": "From lizard list to profile",
     "ctaBody": "Open a species or compare regional lists. Atlas filters help you pick the right group first.",
     "ctaQuiz": "Which lizard is it?"
   },
   "turtles": {
-    "metaTitle": "Turtles in Georgia — species, range, and identification",
+    "metaTitle": "Turtles in Georgia (Caucasus) — range and identification",
     "metaDescription": "Turtles of Georgia in one hub: four species, land and freshwater habitats, verified regional records, photos, and full profiles.",
     "keywords": "turtles in Georgia, Georgia turtles, turtle species Georgia, freshwater turtles Georgia, land turtles Georgia, spur-thighed tortoise, European pond turtle, Caspian turtle, red-eared slider, Testudo graeca, Emys orbicularis, Mauremys caspica, Trachemys scripta",
     "breadcrumbCurrent": "Turtles",
@@ -1811,7 +1813,7 @@
     "guideP1": "This hub gathers turtles confirmed or listed for Georgia: habitats, distribution records, and identification cues — one land tortoise, two native freshwater turtles, and one introduced species.",
     "guideP2": "From here open the species index, the land or freshwater guide, the identification page, or a full species profile. Detailed field comparison lives on the identify guide — this page is the category entrance.",
     "speciesEyebrow": "Species",
-    "speciesTitle": "Turtle species of Georgia",
+    "speciesTitle": "{count} turtles in the atlas",
     "speciesBody": "The atlas currently lists four taxa. Each card shows type, status, scientific name, and a short context line — the profile holds photos, field marks, and sources.",
     "speciesIndexCta": "Turtle species index",
     "basics": {
@@ -2023,7 +2025,7 @@
     "ctaBody": "Open a species, compare on the identify guide, or find local lists in the regional atlas."
   },
   "amphibians": {
-    "metaTitle": "Amphibians in Georgia — species guide and atlas",
+    "metaTitle": "Amphibians in Georgia (Caucasus) — guide and atlas",
     "metaDescription": "Amphibians of Georgia: newts, toads, frogs, and tree frogs — species guide and full profiles on reptiles.ge.",
     "keywords": "amphibians in Georgia, Georgia amphibians, newt, toad, frog, Hyla, Rana, Mertensiella, Caucasus salamander",
     "breadcrumbCurrent": "Amphibians",
@@ -2045,22 +2047,22 @@
     "section": {
       "frogs": {
         "title": "Frogs (Anura) — {count}",
-        "body": "Toads, treefrogs, and frogs. A dedicated frogs guide lives on its own page."
+        "body": "Toads, treefrogs, and frogs. A dedicated guide lives on its own page: [frogs in Georgia](/amphibians/bayayi)."
       },
       "newts": {
         "title": "Newts and salamanders — {count}",
-        "body": "Caudata: the Caucasian salamander and three newts from Tarkhnishvili et al. 2026."
+        "body": "Caudata: the Caucasian salamander and three newts from Tarkhnishvili et al. 2026. Separate guide: [newts and salamander](/amphibians/tritoni-salamandra)."
       }
     },
     "faqEyebrow": "FAQ",
     "faqTitle": "What people ask about amphibians",
     "faqIntro": "Short answers - detailed information is on profiles.",
     "faq1Q": "Which amphibians occur in Georgia?",
-    "faq1A": "The atlas includes the Caucasian salamander, newts, toads, tree frogs, and other checklist-supported species. The full list is on this page.",
+    "faq1A": "The atlas has profiles for {count} amphibian species: the Caucasian salamander, newts, toads, treefrogs, and frogs. The Tarkhnishvili et al. 2026 checklist marks the eastern treefrog and the Caucasian smooth newt as candidate taxa. The full list is on this page.",
     "faq2Q": "Where can I see amphibians in the field?",
     "faq2A": "Streams, ponds, wetlands, and humid forests — especially in breeding season. Regional pages add local context.",
     "faq3Q": "How do I tell frogs from toads?",
-    "faq3A": "Skin texture, body shape, size, and calls help. Each profile’s identification section lists concrete traits.",
+    "faq3A": "Skin texture, body shape, size, and calls help. Each profile’s identification section lists concrete traits, and the <frogs>frogs guide</frogs> compares them.",
     "faq4Q": "Why are amphibians grouped with reptiles?",
     "faq4A": "Georgia’s herpetofauna is one field unit — reptiles and amphibians together. That is why amphibians have their own category in this atlas.",
     "faq5Q": "Should I handle amphibians?",
@@ -2070,7 +2072,7 @@
     "ctaBody": "Open a species or return to the reptile guides — snakes, lizards, turtles."
   },
   "birds": {
-    "metaTitle": "Birds in Georgia — species profiles",
+    "metaTitle": "Birds in Georgia (Caucasus) — guide and atlas",
     "metaDescription": "Birds of Georgia on reptiles.ge: field-guide profiles with identification, seasonality, and sources for white stork, yellowhammer, woodpeckers, and more.",
     "keywords": "birds in Georgia, Georgia birds, white stork, Ciconia ciconia, European green woodpecker, yellowhammer, თეთრი ყარყატი",
     "breadcrumbCurrent": "Birds",
@@ -2081,7 +2083,7 @@
     "statSpecies": "Birds in the atlas",
     "statFamilies": "Families",
     "statExtra": "Current focus",
-    "statExtraValue": "Storks and songbirds",
+    "statExtraValue": "Raptors, owls, and songbirds",
     "guideEyebrow": "Guide",
     "guideTitle": "Birds in the animal atlas",
     "guideP1": "Bird profiles are added using the same evidence rules as the herpetofauna atlas: named sources, no invented regional maps.",
@@ -2101,11 +2103,11 @@
     "faq1Q": "Does this site cover all Georgian birds?",
     "faq1A": "No. This hub publishes individual species pages as they are written. The 2024 national checklist is the reference for the full avifauna.",
     "faq2Q": "Which bird is in the atlas now?",
-    "faq2A": "Several profiles so far, including white stork (Ciconia ciconia), a breeding migrant in Samtskhe–Javakheti and Kvemo Kartli. The list is growing and does not replace the national avifauna.",
+    "faq2A": "The atlas has {count} bird profiles, from raptors and owls to woodpeckers and songbirds, including the white stork (Ciconia ciconia), a breeding migrant in Samtskhe–Javakheti and Kvemo Kartli. The list is growing and does not replace the national avifauna.",
     "faq3Q": "How are birds added to the atlas?",
     "faq3A": "Bird pages use the same species-profile structure. They are part of the animal atlas of Georgia, not a complete national bird list.",
     "faq4Q": "Are regional maps shown for birds?",
-    "faq4A": "Only when a profile has named regional records. The white stork page colours Samtskhe–Javakheti and Kvemo Kartli from the 2024 census. Other bird pages often confirm country status only, not a full region list.",
+    "faq4A": "Only when a profile has named regional records. The white stork page colours Samtskhe–Javakheti, Kvemo Kartli, and Adjara; the 2024 census found nests in the first two. Other bird pages often confirm country status only, not a full region list.",
     "faq5Q": "Should I handle wild birds?",
     "faq5A": "No. Identify them by sight and sound. Do not catch or keep wild birds.",
     "ctaEyebrow": "Next step",
@@ -2114,7 +2116,7 @@
     "speciesIndexCta": "Bird species index"
   },
   "mammals": {
-    "metaTitle": "Mammals in Georgia — species profiles",
+    "metaTitle": "Mammals in Georgia (Caucasus) — guide and atlas",
     "metaDescription": "Mammals of Georgia on reptiles.ge: field-guide profiles with identification, range, and sources, from red fox and wolf to brown bear and Caucasian leopard.",
     "keywords": "mammals in Georgia, Georgia mammals, red fox, golden jackal, wolf, brown bear, European roe deer, least weasel, Caucasian squirrel, hedgehog, wild boar, Caucasian leopard, raccoon, Procyon lotor, Capreolus capreolus, Ursus arctos, Vulpes vulpes, Canis aureus, Canis lupus, Sciurus anomalus, Sus scrofa, Panthera pardus, შველი, მურა დათვი, ჯიქი, ენოტი",
     "breadcrumbCurrent": "Mammals",
@@ -2125,13 +2127,16 @@
     "statSpecies": "Mammals in the atlas",
     "statFamilies": "Families",
     "statExtra": "Current focus",
-    "statExtraValue": "Canids, bears, deer, mustelids, squirrels, pigs, raccoons",
+    "statExtraValue": "Canids, bears, deer, bovids, cats, mustelids, squirrels, hedgehogs, pigs, raccoons",
     "statExtraItems": [
       "Canids",
       "Bears",
       "Deer",
+      "Bovids",
+      "Cats",
       "Mustelids",
       "Squirrels",
+      "Hedgehogs",
       "Pigs",
       "Raccoons"
     ],
@@ -2156,20 +2161,20 @@
     "faq1Q": "Does this site cover all Georgian mammals?",
     "faq1A": "No. This hub publishes individual species pages as they are written. National mammal checklists remain the reference for the full fauna.",
     "faq2Q": "Which mammals are in the atlas now?",
-    "faq2A": "Several profiles so far, including red fox, golden jackal, grey wolf, brown bear, European roe deer, least weasel, Caucasian squirrel, southern white-breasted hedgehog, wild boar, Caucasian leopard, and raccoon. The leopard is a rare vagrant, not a resident density. The raccoon is introduced.",
+    "faq2A": "The atlas currently has {count} profiles: red fox, golden jackal, grey wolf, brown bear, European roe deer, red deer, wild goat, East Caucasian tur, least weasel, Eurasian otter, Caucasian badger, Eurasian lynx, Caucasian leopard, Caucasian squirrel, southern white-breasted hedgehog, wild boar, and raccoon. The leopard is a rare vagrant, not a resident density. The raccoon is introduced.",
     "faq3Q": "How are mammals added to the atlas?",
     "faq3A": "Mammal pages use the same species-profile structure. They are part of the animal atlas of Georgia, not a complete national mammal list.",
     "faq4Q": "Are regional maps shown for mammals?",
-    "faq4A": "Only when a profile has named regional records. Published mammal pages, including wild boar, do not colour the administrative map: country occurrence is confirmed, a municipality list is not compiled here.",
+    "faq4A": "Only when a profile has named regional records — for example the brown bear, golden jackal, wild goat, least weasel, and raccoon pages. Other profiles, including wild boar, do not colour the administrative map: country occurrence is confirmed, a municipality list is not compiled here.",
     "faq5Q": "Should I handle wild mammals?",
-    "faq5A": "No. Watch from a distance. A bite or saliva can carry rabies risk. A jackal in the yard follows food — do not feed it. Do not approach a bear. Do not pick up wild animals.",
+    "faq5A": "No. Watch from a distance. A bite or saliva can carry rabies risk. A jackal in the yard follows food — do not feed it; see <jackal>jackal in the yard</jackal>. Do not approach a bear; see <bear>bear encounters</bear>. Do not pick up wild animals.",
     "ctaEyebrow": "Next step",
     "ctaTitle": "From mammal list to profile",
     "ctaBody": "Open a species, or continue in the reptile, amphibian, and bird guides.",
     "speciesIndexCta": "Mammal species index"
   },
   "scorpions": {
-    "metaTitle": "Scorpions in Georgia — species profiles",
+    "metaTitle": "Scorpions in Georgia (Caucasus) — species and sting risk",
     "metaDescription": "Scorpions in Georgia — published species profiles with taxonomy, identification traits, habitat, evidence of occurrence in Georgia, sting risk, and sources.",
     "keywords": "scorpions in Georgia, Georgia scorpions, Mesobuthus eupeus, Euscorpius mingrelicus, mottled scorpion, Mingrelian scorpion",
     "breadcrumbCurrent": "Scorpions",
@@ -2211,13 +2216,13 @@
     "faq4Q": "Are regional maps shown for scorpions?",
     "faq4A": "A region is marked only when the profile has a relevant local or regional record. Knowing only that a species occurs in Georgia does not mean it occurs in every Georgian region.",
     "faq5Q": "Should I handle wild scorpions?",
-    "faq5A": "Do not handle the scorpion. Seek timely medical advice for severe pain or a child who has been stung. Call 112 in Georgia for breathing difficulty, loss of consciousness, or other serious symptoms beyond the sting site. See the [sting guide](/scorpions/morielis-nakbeni) for first steps.",
+    "faq5A": "Do not handle the scorpion. Seek timely medical advice for severe pain or a child who has been stung. Call 112 in Georgia for breathing difficulty, loss of consciousness, or other serious symptoms beyond the sting site. See the <sting>sting guide</sting> for first steps.",
     "ctaEyebrow": "Next step",
     "ctaTitle": "From scorpion list to profile",
     "ctaBody": "Open a species, or continue in the reptile, amphibian, bird, mammal, spider, and insect guides."
   },
   "spiders": {
-    "metaTitle": "Spiders in Georgia — species profiles",
+    "metaTitle": "Spiders in Georgia (Caucasus) — guide and atlas",
     "metaDescription": "Spiders of Georgia on reptiles.ge: identification, range, and sources for wasp spider, lobed argiope, false black widow, karakurt, and more.",
     "keywords": "spiders in Georgia, wasp spider, false black widow, Mediterranean black widow, Argiope bruennichi, Latrodectus tredecimguttatus, Steatoda paykulliana, Georgia spiders",
     "breadcrumbCurrent": "Spiders",
@@ -2247,21 +2252,21 @@
     "faq1Q": "Does this site cover all Georgian spiders?",
     "faq1A": "This hub publishes individual profiles for species when enough reliable sources are available. Otto 2022 is used as the reference for Georgia’s wider spider fauna.",
     "faq2Q": "Which spiders are in the atlas now?",
-    "faq2A": "Four profiles are currently published: the wasp spider, the lobed argiope, the false black widow, and the Mediterranean black widow (Latrodectus tredecimguttatus). The list is growing gradually.",
+    "faq2A": "{count} profiles are currently published: the European garden spider, wasp spider, lobed argiope, European yellow sac spider (Cheiracanthium punctorium), Mediterranean black widow (Latrodectus tredecimguttatus), false black widow, South Russian tarantula (Lycosa singoriensis), and long-bodied cellar spider. The list is growing gradually.",
     "faq3Q": "How are spiders added to the atlas?",
     "faq3A": "Spider profiles follow one shared structure: identification notes, habitat, range in Georgia, possible risk to people, and sources are gathered on one page.",
     "faq4Q": "Are regional maps shown for spiders?",
-    "faq4A": "A species appears on the map only when its profile includes specific regional or local records. The wasp spider, lobed argiope, false black widow, and Mediterranean black widow profiles base the map on named places.",
+    "faq4A": "A species appears on the map only when its profile includes specific regional or local records. The wasp spider, lobed argiope, Mediterranean black widow, and South Russian tarantula profiles base the map on named places.",
     "faq5Q": "Should I handle wild spiders?",
-    "faq5A": "Not every spider is dangerous to people. Argiope does not represent a medically significant risk; a false black widow bite can be painful, while a karakurt bite is medically significant. Do not touch wild spiders by hand. If a bite is suspected and symptoms are strong, call 112.",
+    "faq5A": "Not every spider is dangerous to people. Argiope does not represent a medically significant risk; a false black widow bite can be painful, while a karakurt bite is medically significant — see the <venomous>venomous spiders guide</venomous>. Do not touch wild spiders by hand. If a bite is suspected and symptoms are strong, call 112 and see the <bite>spider bite guide</bite>.",
     "ctaEyebrow": "Next step",
     "ctaTitle": "From spider list to profile",
     "ctaBody": "Open a species, or continue in the reptile, amphibian, bird, and mammal guides.",
     "speciesIndexCta": "Spider species index"
   },
   "insects": {
-    "metaTitle": "Insects in Georgia — species profiles",
-    "metaDescription": "Insects of Georgia on reptiles.ge: identification, taxonomy, habitat, country-level records, and sources. Includes European mantis and brown marmorated stink bug.",
+    "metaTitle": "Insects in Georgia (Caucasus) — guide and atlas",
+    "metaDescription": "Insects of Georgia on reptiles.ge: identification, taxonomy, habitat, records, and sources for the European mantis, stink bug, Oriental cockroach, and bed bug.",
     "keywords": "insects in Georgia, Georgian insects, Mantis religiosa Georgia, European mantis, Halyomorpha halys Georgia, brown marmorated stink bug Georgia, BMSB Georgia",
     "breadcrumbCurrent": "Insects",
     "heroImageAlt": "European mantis in tall sunny grass",
@@ -2291,7 +2296,7 @@
     "faq1Q": "Does this site cover all Georgian insects?",
     "faq1A": "No. This hub publishes individual insect profiles when enough reliable sources are available. Absence from the hub does not mean a species is absent from Georgia.",
     "faq2Q": "Which insects are in the atlas now?",
-    "faq2A": "Currently includes the European mantis (Mantis religiosa) and brown marmorated stink bug (Halyomorpha halys).",
+    "faq2A": "The atlas currently has {count} insect profiles: the European mantis (Mantis religiosa), brown marmorated stink bug (Halyomorpha halys), Oriental cockroach (Blatta orientalis), and common bed bug (Cimex lectularius). Separate guides cover meeting them at home: <stinkbug>stink bugs</stinkbug>, <cockroach>cockroaches</cockroach>, and <bedbug>bed bugs</bedbug>.",
     "faq3Q": "How are insects added to the atlas?",
     "faq3A": "Insect pages use the same species-profile structure: taxonomy, identification, habitat, Georgia-specific evidence, safety or ecological notes where relevant, and sources.",
     "faq4Q": "Are regional maps shown for insects?",

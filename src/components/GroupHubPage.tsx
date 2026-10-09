@@ -21,9 +21,14 @@ import {
 } from "@/components/GroupHubSectionHeading";
 import { GroupHubSpeciesList } from "@/components/GroupHubSpeciesList";
 import { GuideArticleRelatedBlock } from "@/components/GuideArticleRelatedBlock";
+import { GuideSources } from "@/components/GuideSources";
 import { SectionNav } from "@/components/SectionNav";
 import { TurtlesHubSections } from "@/components/TurtlesHubSections";
 import { getGuideArticlesForHub } from "@/data/guideArticles";
+import {
+  HERPETOFAUNA_CHECKLIST_SOURCE,
+  isHerpetofaunaGroup,
+} from "@/data/herpetofauna-checklist";
 import { isVenomousDanger } from "@/data/speciesAtlas";
 import { Link } from "@/i18n/navigation";
 import { isLocalAdminEnabled } from "@/lib/adminAccess";
@@ -55,13 +60,15 @@ export async function GroupHubPage({
   locale,
   species,
 }: GroupHubPageProps) {
-  const [t, tShared, tNav, tProfile] = await Promise.all([
+  const [t, tShared, tNav, tProfile, tAttribution] = await Promise.all([
     getTranslations({ locale, namespace: hubId }),
     getTranslations({ locale, namespace: "groupHubShared" }),
     getTranslations({ locale, namespace: "nav" }),
     getTranslations({ locale, namespace: "profile" }),
+    getTranslations({ locale, namespace: "attribution" }),
   ]);
   const hub = GROUP_HUBS[hubId];
+  const citesChecklist = isHerpetofaunaGroup(hub.group);
   const showRisk =
     usesDangerScale(hub.group) &&
     species.some((item) => isVenomousDanger(item.danger));
@@ -156,10 +163,20 @@ export async function GroupHubPage({
           species={species}
         />
         {hubId === "turtles" ? <TurtlesHubSections /> : null}
-        <GroupHubFaqSection hubId={hubId} />
+        <GroupHubFaqSection hubId={hubId} speciesCount={species.length} />
+        {citesChecklist ? (
+          <div className={cn(HUB_CONTAINER, "pb-4")}>
+            <GuideSources
+              heading={tAttribution("sources")}
+              locale={locale}
+              sources={[HERPETOFAUNA_CHECKLIST_SOURCE]}
+            />
+          </div>
+        ) : null}
         <ContentAttribution
           locale={locale}
           publishedAt={dates.datePublished}
+          sourcesHref={citesChecklist ? "#sources" : undefined}
           updatedAt={dates.dateModified}
         />
         <GroupHubRelatedGroups hubId={hubId} locale={locale} />

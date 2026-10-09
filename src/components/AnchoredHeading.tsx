@@ -35,7 +35,7 @@ export function AnchoredHeading({
       <span className="inline">{children}</span>
       {showAnchor ? (
         <a
-          aria-label={anchorLabel}
+          aria-label={`${anchorLabel}: ${textFromChildren(children)}`}
           className="ml-2 inline-flex translate-y-[-0.05em] items-center text-muted-foreground/0 transition-colors group-hover/heading:text-muted-foreground/70 focus-visible:text-primary focus-visible:outline-none"
           href={`#${headingId}`}
         >

@@ -148,6 +148,19 @@ export function siteEntityId(fragment: "organization" | "website") {
   return `${getSiteUrl()}/#${fragment}`;
 }
 
+export function siteGraphJsonLd(locale: AppLocale, description: string) {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      organizationJsonLd({ description }),
+      websiteJsonLd({
+        description,
+        searchUrlTemplate: `${absoluteUrl(localePath(locale, "/species"))}?q={search_term_string}`,
+      }),
+    ],
+  };
+}
+
 export function speciesAlternates(locale: AppLocale, id: string) {
   const languages: Record<string, string> = {
     "x-default": speciesPageUrl("ka", id),

@@ -2,6 +2,7 @@ import type { AnimalGroup } from "@/data/speciesAtlasMeta";
 import type { DangerLevel, PhotoCredit } from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
 
+import { creditAuthorName, getCreditAuthorByName } from "@/data/creditAuthors";
 import { isVenomousDanger } from "@/data/speciesAtlasMeta";
 import { shortMetaDescription } from "@/lib/metaDescription";
 
@@ -38,6 +39,8 @@ function speciesMetaTitle(
 }
 
 const MAX_META_TITLE_LENGTH = 70;
+const MAX_META_DESCRIPTION_LENGTH = 160;
+const MIN_SUMMARY_DESCRIPTION_LENGTH = 70;
 
 export function speciesTitleIntentKey(
   group: AnimalGroup,
@@ -428,10 +431,24 @@ export function speciesPhotoAlt(
   scientificName: string,
   location: string,
   credit?: PhotoCredit,
+  locale?: AppLocale,
 ) {
   const place = credit?.location?.trim() || location;
   const parts = [`${commonName} (${scientificName})`];
   if (place) parts.push(place);
-  if (credit?.photographer) parts.push(credit.photographer);
+  if (credit?.photographer) {
+    const author = locale ? getCreditAuthorByName(credit.photographer) : null;
+    parts.push(
+      author && locale ? creditAuthorName(author, locale) : credit.photographer,
+    );
+  }
   return parts.join(" — ");
+}
+
+export function speciesSummaryDescription(description: string) {
+  const text = description.trim();
+  return text.length >= MIN_SUMMARY_DESCRIPTION_LENGTH &&
+    text.length <= MAX_META_DESCRIPTION_LENGTH
+    ? text
+    : undefined;
 }

@@ -1114,6 +1114,7 @@ function SpeciesProfileIdentification({
         species.scientificName,
         species.location,
         photo?.credit,
+        locale,
       )}
       speciesId={species.id}
     />

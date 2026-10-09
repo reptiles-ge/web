@@ -36,9 +36,9 @@ export function NavbarMenu({
   menuId,
   menuOpen,
   mobileGroupsOpen,
+  navLabel,
   onCloseMenu,
   onToggleMobileGroups,
-  openMenuLabel,
 }: {
   closeMenuLabel: string;
   discoverLabel: string;
@@ -48,9 +48,9 @@ export function NavbarMenu({
   menuId: string;
   menuOpen: boolean;
   mobileGroupsOpen: boolean;
+  navLabel: string;
   onCloseMenu: () => void;
   onToggleMobileGroups: () => void;
-  openMenuLabel: string;
 }) {
   return (
     <div
@@ -59,6 +59,7 @@ export function NavbarMenu({
         menuOpen ? "pointer-events-auto" : "pointer-events-none",
       )}
       id={menuId}
+      inert={!menuOpen}
     >
       <button
         aria-label={closeMenuLabel}
@@ -70,7 +71,7 @@ export function NavbarMenu({
         type="button"
       />
       <nav
-        aria-label={openMenuLabel}
+        aria-label={navLabel}
         className={cn(
           "fixed inset-x-0 top-22 z-50 mx-auto max-h-[min(78svh,36rem)] w-[calc(100%-1.5rem)] max-w-[1400px] overflow-y-auto rounded-media border border-border bg-background px-5 py-6 transition-all duration-300 sm:w-[calc(100%-3rem)]",
           menuOpen ? "translate-y-0 opacity-100" : "-translate-y-2 opacity-0",

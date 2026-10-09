@@ -42,12 +42,18 @@ import {
   buildSpeciesBreadcrumbs,
   getSpeciesParentHub,
 } from "@/lib/speciesBreadcrumbs";
-import { getSpeciesHeroSources, isPlaceholderBody } from "@/lib/speciesContent";
+import {
+  getSpeciesHeroSources,
+  isPlaceholderBody,
+  SPECIES_HERO_DESKTOP_SIZES,
+  SPECIES_HERO_SIZES,
+} from "@/lib/speciesContent";
 import {
   speciesFallbackDescriptionKey,
   speciesMetaDescription,
   speciesMetaDescriptionOverride,
   speciesPageMetaTitle,
+  speciesSummaryDescription,
   speciesTitleIntentKey,
 } from "@/lib/speciesMeta";
 import { getLookalikeSpecies, getRelatedSpecies } from "@/lib/speciesRelated";
@@ -136,7 +142,8 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
             name: item.commonName,
             scientific: item.scientificName,
           })
-        : speciesMetaDescription(item.overview));
+        : (speciesSummaryDescription(item.description) ??
+          speciesMetaDescription(item.overview)));
     const url = speciesPageUrl(locale, item.id);
     const description = kaMetaDescriptionOverride(
       locale,
@@ -149,7 +156,10 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
         : speciesSeoKeywords(item, locale);
 
     const ogImage = speciesOgImageUrl(item.id, item.image);
-    const ogImageTag = openGraphJpeg(ogImage, title);
+    const ogImageTag = openGraphJpeg(
+      ogImage,
+      `${item.commonName} (${item.scientificName})`,
+    );
 
     return {
       alternates: speciesAlternates(locale, item.id),
@@ -233,13 +243,13 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
       pageUrl,
       raw,
     });
-    const { desktopHeroSrc, mobileHeroSrc } = getSpeciesHeroSources(raw);
+    const { desktopHeroSrc, mobileSlideSrc } = getSpeciesHeroSources(raw);
 
     return (
       <>
         <SpeciesHeroPreloads
           desktopHeroSrc={desktopHeroSrc}
-          mobileHeroSrc={mobileHeroSrc}
+          mobileHeroSrc={mobileSlideSrc}
         />
         <JsonLd data={structuredData} />
         <ClientMessagesProvider
@@ -331,8 +341,10 @@ function SpeciesHeroPreloads({
 }) {
   if (!desktopHeroSrc) return null;
 
-  if (!mobileHeroSrc) {
-    return <CoverImagePreload sizes="100vw" src={desktopHeroSrc} />;
+  if (!mobileHeroSrc || mobileHeroSrc === desktopHeroSrc) {
+    return (
+      <CoverImagePreload sizes={SPECIES_HERO_SIZES} src={desktopHeroSrc} />
+    );
   }
 
   return (
@@ -344,7 +356,7 @@ function SpeciesHeroPreloads({
       />
       <CoverImagePreload
         media="(min-width: 1024px)"
-        sizes="100vw"
+        sizes={SPECIES_HERO_DESKTOP_SIZES}
         src={desktopHeroSrc}
       />
     </>

@@ -17,6 +17,7 @@ import { contentEditorAttributes } from "@/lib/contentEditorAttributes";
 import {
   HUB_EMERGENCY_GUIDES,
   HUB_FEATURED_GUIDE,
+  HUB_HERO_IMAGE_SIZES,
   HUB_QUIZ,
 } from "@/lib/groupHubLayout";
 import { quizHref } from "@/lib/quizzes";
@@ -63,7 +64,7 @@ export async function GroupHubHero({
             className="object-cover object-[50%_35%]"
             mobileSrc={heroMobileSrc}
             priority
-            sizes="(max-width: 1023px) 100vw, 60vw"
+            sizes={HUB_HERO_IMAGE_SIZES}
             src={heroSrc}
           />
         </div>

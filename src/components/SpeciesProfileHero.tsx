@@ -90,6 +90,7 @@ export async function SpeciesProfileHero({
             species.scientificName,
             species.location,
             photo.credit,
+            locale,
           ),
     displaySrc: index === 0 ? (mobileHeroSrc ?? photo.src) : photo.src,
     gallerySrc: optimizedImgSrc(photo.src, 1200),
@@ -110,6 +111,7 @@ export async function SpeciesProfileHero({
           imageAlt={imageAlt}
           mobileHeroSrc={mobileHeroSrc}
           mobileImageAlt={mobileImageAlt}
+          visibleOnMobile={mobileSlides.length === 0}
         />
       </div>
       {mobileSlides.length > 0 ? (
@@ -344,6 +346,7 @@ function SpeciesProfileHeroMedia({
   imageAlt,
   mobileHeroSrc,
   mobileImageAlt,
+  visibleOnMobile,
 }: {
   desktopHeroSrc: null | string;
   heroDesktopSources: PictureSource[];
@@ -351,6 +354,7 @@ function SpeciesProfileHeroMedia({
   imageAlt: string;
   mobileHeroSrc: null | string;
   mobileImageAlt: string;
+  visibleOnMobile: boolean;
 }) {
   if (!desktopHeroSrc) {
     return (
@@ -381,7 +385,7 @@ function SpeciesProfileHeroMedia({
         <source key={source.key} {...source.props} />
       ))}
       <img
-        alt={mobileHeroSrc ? mobileImageAlt : imageAlt}
+        alt={visibleOnMobile && mobileHeroSrc ? mobileImageAlt : imageAlt}
         className="size-full object-cover text-transparent"
         decoding="async"
         fetchPriority="high"
