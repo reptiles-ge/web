@@ -24,34 +24,18 @@ const links = (value: string) => [
 const plain = (value: string) =>
   value.replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1");
 
-export function analysisField(
-  data: Record<string, unknown>,
-  field: string,
-): string {
-  const value = field
-    .split(".")
-    .reduce<unknown>(
-      (parent, key) =>
-        parent && typeof parent === "object"
-          ? (parent as Record<string, unknown>)[key]
-          : undefined,
-      data,
-    );
-  if (value == null) return "";
-  if (typeof value !== "string") throw new Error(`Not a text field: ${field}`);
-  return value;
-}
-
 export function analysisLookalikes(source: string, id: string) {
   const { registry } = lookalikeObject(source);
   const direct = registry[id] ?? [];
   const reverse = Object.entries(registry)
     .filter(([, peers]) => peers.includes(id))
     .map(([peer]) => peer);
+  const directIds = new Set(direct);
+  const reverseIds = new Set(reverse);
   return [...new Set([...direct, ...reverse])].map((peer) => ({
-    direct: direct.includes(peer),
+    direct: directIds.has(peer),
     id: peer,
-    reverse: reverse.includes(peer),
+    reverse: reverseIds.has(peer),
   }));
 }
 
@@ -155,8 +139,9 @@ export function validateSuperAnalysisResult(
   const surfaceIds = new Set(
     context.surfaces.map((surface) => surface.id as string),
   );
+  const covered = new Set(result.coverage);
   if (
-    required.some((id) => !result.coverage.includes(id)) ||
+    required.some((id) => !covered.has(id)) ||
     result.coverage.some((id) => !surfaceIds.has(id))
   )
     throw new Error("Incomplete page surface coverage");
@@ -196,6 +181,14 @@ export function validateSuperAnalysisResult(
     if (finding.evidenceIds.some((id) => !byId.has(id)))
       throw new Error("Unknown finding evidence");
   }
+  const namePattern = new RegExp(
+    context.catalog
+      .map((item) => item.scientificName.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
+      .join("|"),
+    "g",
+  );
+  const scientificNames = (value: string) =>
+    [...new Set(plain(value).match(namePattern) ?? [])].sort().join("|");
   const targetIds = new Set(context.catalog.map((item) => item.id));
   const internalPaths = new Set(context.internalPaths);
   const seenFields = new Set<string>();
@@ -234,14 +227,8 @@ export function validateSuperAnalysisResult(
             .join("|");
         if (numbers(before) !== numbers(after))
           throw new Error(`Text edit changed numbers in ${edit.field}`);
-        for (const name of context.catalog.map(
-          (item) => item.scientificName as string,
-        )) {
-          if (before.includes(name) !== after.includes(name))
-            throw new Error(
-              `Text edit changed scientific name in ${edit.field}`,
-            );
-        }
+        if (scientificNames(before) !== scientificNames(after))
+          throw new Error(`Text edit changed scientific name in ${edit.field}`);
         if (
           edit.field.startsWith("stats.") &&
           /^(LC|NT|VU|EN|CR|DD|NE)$/.test(before.trim()) &&
@@ -309,6 +296,21 @@ export function validateSuperAnalysisResult(
       requireEvidence(pair.evidenceIds);
   }
   return result;
+}
+
+function analysisField(data: Record<string, unknown>, field: string): string {
+  const value = field
+    .split(".")
+    .reduce<unknown>(
+      (parent, key) =>
+        parent && typeof parent === "object"
+          ? (parent as Record<string, unknown>)[key]
+          : undefined,
+      data,
+    );
+  if (value == null) return "";
+  if (typeof value !== "string") throw new Error(`Not a text field: ${field}`);
+  return value;
 }
 
 function lookalikeObject(source: string) {
