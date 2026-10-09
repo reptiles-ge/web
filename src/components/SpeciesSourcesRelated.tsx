@@ -49,15 +49,7 @@ export async function SpeciesSourcesRelated({
   ]);
   const giurza = speciesId === "macrovipera-lebetina";
   const insect = getSpeciesAtlasMeta(speciesId).group === "insect";
-  const featured = giurza
-    ? featuredSourceStarts
-        .map((name) => sources.find((source) => source.name.startsWith(name)))
-        .filter((source): source is SpeciesSource => Boolean(source))
-    : [];
-  const featuredNames = new Set(featured.map((source) => source.name));
-  const remaining = sources.filter((source) => !featuredNames.has(source.name));
-  const visible = featured.length > 0 ? featured : sources.slice(0, 3);
-  const hidden = featured.length > 0 ? remaining : sources.slice(3);
+  const { hidden, visible } = getVisibleSources(sources, giurza);
 
   return (
     <section className="bg-surface py-9 lg:py-20">
@@ -186,6 +178,22 @@ export async function SpeciesSourcesRelated({
       </div>
     </section>
   );
+}
+
+function getVisibleSources(sources: SpeciesSource[], giurza: boolean) {
+  const featured = giurza
+    ? featuredSourceStarts
+        .map((name) => sources.find((source) => source.name.startsWith(name)))
+        .filter((source): source is SpeciesSource => Boolean(source))
+    : [];
+  if (featured.length === 0) {
+    return { hidden: sources.slice(3), visible: sources.slice(0, 3) };
+  }
+  const featuredNames = new Set(featured.map((source) => source.name));
+  return {
+    hidden: sources.filter((source) => !featuredNames.has(source.name)),
+    visible: featured,
+  };
 }
 
 function RelatedSpeciesCard({
