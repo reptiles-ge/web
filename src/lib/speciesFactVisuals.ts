@@ -34,14 +34,14 @@ const RANGE_PATTERN = new RegExp(
   String.raw`(${NUMBER_PATTERN})\s*[–—-]\s*(${NUMBER_PATTERN})\s*(სმ|მმ|მ|cm|mm|m|см|мм|м)(?![\p{L}\p{N}])`,
   "u",
 );
-const IUCN_PATTERN = /\((LC|NT|VU|EN|CR)\)/;
+const IUCN_PATTERN = /^\s*(LC|NT|VU|EN|CR)\s*$|\((LC|NT|VU|EN|CR)\)/;
 
 export function getSpeciesFactVisual(
   stat: SpeciesStat,
   locale: string,
 ): null | SpeciesFactVisual {
   const iucn = IUCN_PATTERN.exec(stat.value);
-  if (iucn) return { code: iucn[1] as IucnCode, kind: "iucn" };
+  if (iucn) return { code: (iucn[1] ?? iucn[2]) as IucnCode, kind: "iucn" };
 
   if (isElevationStatLabel(stat.label)) {
     const range = parseMeasuredRange(stat.value);

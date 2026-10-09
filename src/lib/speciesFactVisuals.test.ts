@@ -91,6 +91,29 @@ describe("getSpeciesFactVisual", () => {
     ).toEqual({ code: "VU", kind: "iucn" });
   });
 
+  it.each(["LC", "NT", "VU", "EN", "CR"])(
+    "reads the bare IUCN code %s in every locale",
+    (code) => {
+      for (const locale of ["ka", "en", "ru", "tr"]) {
+        expect(
+          getSpeciesFactVisual(
+            { label: "Conservation", value: ` ${code} ` },
+            locale,
+          ),
+        ).toEqual({ code, kind: "iucn" });
+      }
+    },
+  );
+
+  it("does not interpret a code embedded in other text as an IUCN status", () => {
+    expect(
+      getSpeciesFactVisual(
+        { label: "Status", value: "LC nationally; VU globally" },
+        "en",
+      ),
+    ).toBeNull();
+  });
+
   it("returns null for stats without a visual", () => {
     expect(
       getSpeciesFactVisual({ label: "ოჯახი", value: "Viperidae" }, "ka"),
