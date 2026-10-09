@@ -1,10 +1,17 @@
-import matter from "gray-matter";
 import { createHash } from "node:crypto";
 import fs from "node:fs/promises";
 import path from "node:path";
 
+import type { GalleryImage, SpeciesFieldRecord } from "@/data/speciesTypes";
+
 import { getCatalogSpecies } from "@/data/species";
+import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import { pathnames } from "@/i18n/pathnames";
+import {
+  confirmedRecordThresholdForSpecies,
+  getHalyomorphaFieldRecords,
+  getHalyomorphaOccurrenceSummary,
+} from "@/lib/halyomorphaOccurrences";
 import { filterDisplayStats } from "@/lib/speciesContent";
 import { getSpeciesFactVisual } from "@/lib/speciesFactVisuals";
 import { ANALYSIS_LOCALES } from "@/lib/speciesSuperAnalysisSchema";
@@ -180,29 +187,23 @@ export type SpeciesAnalysisContext = Awaited<
   ReturnType<typeof buildSpeciesAnalysisContext>
 >;
 
+export type SpeciesAnalysisContext = Awaited<
+  ReturnType<typeof buildSpeciesAnalysisContext>
+>;
+
 export function analysisContentHash(value: string) {
   return createHash("sha256").update(value).digest("hex");
 }
-
 export async function buildSpeciesAnalysisContext(id: string, cwd: string) {
   const content = await readSpeciesAnalysisContent(id, cwd);
-  const catalog = await Promise.all(
-    getCatalogSpecies().map(async ({ id: candidateId }) => {
-      const data = matter(
-        await fs.readFile(
-          path.join(cwd, `src/content/species/${candidateId}/ka.mdx`),
-          "utf8",
-        ),
-      ).data;
-      return {
-        commonName: data.commonName,
-        description: data.description,
-        family: data.family,
-        id: candidateId,
-        identification: data.identification,
-        scientificName: data.scientificName,
-        stats: data.stats,
-      };
+  const catalog = getCatalogSpecies().map(
+    ({ commonName, family, id: candidateId, scientificName }) => ({
+      commonName,
+      contentPath: `src/content/species/${candidateId}/ka.mdx`,
+      family,
+      group: getSpeciesAtlasMeta(candidateId).group,
+      id: candidateId,
+      scientificName,
     }),
   );
   if (!catalog.some((item) => item.id === id))
@@ -213,30 +214,60 @@ export async function buildSpeciesAnalysisContext(id: string, cwd: string) {
         const messages = JSON.parse(
           await fs.readFile(path.join(cwd, `messages/${locale}.json`), "utf8"),
         );
+        const keys = [
+          "profile",
+          "danger",
+          "attribution",
+          ...(id === "macrovipera-lebetina"
+            ? ["giurzaIdentification", "giurzaRange"]
+            : []),
+        ];
         return [
           locale,
-          Object.fromEntries(
-            [
-              "profile",
-              "danger",
-              "riskToHumans",
-              "giurzaIdentification",
-              "giurzaRange",
-              "attribution",
-              "speciesRangeCopy",
-            ]
-              .filter((key) => messages[key])
-              .map((key) => [key, messages[key]]),
-          ),
+          {
+            riskVerdict: Object.fromEntries(
+              Object.entries(messages.riskToHumans ?? {}).filter(([key]) =>
+                /^scale(High|Moderate|Harmless)(Title|Body)$/.test(key),
+              ),
+            ),
+            ...Object.fromEntries(
+              keys
+                .filter((key) => messages[key])
+                .map((key) => [key, messages[key]]),
+            ),
+          },
         ];
       }),
     ),
   );
   const sources = [
-    ...new Set(
-      speciesAnalysisSurfaces.flatMap((surface) => [...surface.sources]),
-    ),
+    ...new Set([
+      ...speciesAnalysisSurfaces.flatMap((surface) => [...surface.sources]),
+      "scripts/compile-occurrences.ts",
+      "src/data/speciesRangeMaps/base.ts",
+      "src/i18n/localizeSpecies.ts",
+    ]),
   ];
+  const rangeFile = `src/data/speciesRangeMaps/${id}.ts`;
+  if (
+    await fs
+      .access(path.join(cwd, rangeFile))
+      .then(() => true)
+      .catch(() => false)
+  )
+    sources.push(rangeFile);
+  const ka = content.ka.data;
+  const records = getHalyomorphaFieldRecords({
+    fieldRecords: (ka.fieldRecords ?? []) as SpeciesFieldRecord[],
+    gallery: (ka.gallery ?? []) as GalleryImage[],
+    locale: "ka",
+    speciesName: String(ka.commonName),
+  });
+  const occurrenceSummary = getHalyomorphaOccurrenceSummary(
+    records,
+    "ka",
+    confirmedRecordThresholdForSpecies(id),
+  );
   const sourceFiles = await Promise.all(
     sources.map(async (file) => ({
       file,
@@ -246,6 +277,19 @@ export async function buildSpeciesAnalysisContext(id: string, cwd: string) {
         .catch(() => null),
     })),
   );
+  const internalPaths = (
+    await Promise.all(
+      Object.keys(pathnames)
+        .filter((pathname) => !pathname.includes("["))
+        .map(
+          async (pathname) =>
+            await fs
+              .access(path.join(cwd, "src/app/[locale]", pathname, "page.tsx"))
+              .then(() => pathname)
+              .catch(() => null),
+        ),
+    )
+  ).filter((pathname): pathname is string => pathname !== null);
   return {
     catalog,
     content: Object.fromEntries(
@@ -274,16 +318,21 @@ export async function buildSpeciesAnalysisContext(id: string, cwd: string) {
           label: string;
           value: string;
         }>,
+        getSpeciesAtlasMeta(id).group,
       ).map((stat) => ({
         ...stat,
         visual: getSpeciesFactVisual(stat, locale),
       })),
     })),
     id,
-    internalPaths: Object.keys(pathnames).filter(
-      (pathname) => !pathname.includes("["),
-    ),
+    internalPaths,
     locales: ANALYSIS_LOCALES,
+    occurrenceSummary: {
+      ...occurrenceSummary,
+      recordsByRegion: occurrenceSummary.recordsByRegion.map(
+        ({ center: _center, ...region }) => region,
+      ),
+    },
     registrySources: [
       "src/data/speciesPublish.ts",
       "src/data/species.ts",
@@ -297,47 +346,4 @@ export async function buildSpeciesAnalysisContext(id: string, cwd: string) {
     surfaces: speciesAnalysisSurfaces,
     templates,
   };
-}
-
-export async function readSpeciesAnalysisContent(id: string, cwd: string) {
-  return Object.fromEntries(
-    await Promise.all(
-      ANALYSIS_LOCALES.map(async (locale) => {
-        const raw = await fs.readFile(
-          path.join(cwd, `src/content/species/${id}/${locale}.mdx`),
-          "utf8",
-        );
-        return [locale, { data: matter(raw).data, raw }];
-      }),
-    ),
-  ) as Record<
-    (typeof ANALYSIS_LOCALES)[number],
-    { data: Record<string, unknown>; raw: string }
-  >;
-}
-export function speciesEditableFields(data: Record<string, unknown>) {
-  const fields: string[] = [
-    "description",
-    "interaction",
-    "overview",
-    "habitat",
-    "diet",
-    "behavior",
-    "conservation",
-  ];
-  const identification = data.identification as
-    undefined | { summary?: string; traits?: string[] };
-  if (identification) {
-    fields.push("identification.summary");
-    identification.traits?.forEach((_, index) =>
-      fields.push(`identification.traits.${index}`),
-    );
-  }
-  (data.faq as undefined | unknown[])?.forEach((_, index) =>
-    fields.push(`faq.${index}.question`, `faq.${index}.answer`),
-  );
-  (data.stats as undefined | unknown[])?.forEach((_, index) =>
-    fields.push(`stats.${index}.value`),
-  );
-  return fields;
 }

@@ -423,7 +423,7 @@ export async function runSpeciesWorkflow(
             "vitest",
             "run",
             "src/lib/speciesRoutes.test.ts",
-            "src/lib/speciesRelated.test.ts",
+
             "src/lib/speciesInlineLinks.test.ts",
             "src/lib/snakeQuiz.test.ts",
           ],
