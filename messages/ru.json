@@ -905,8 +905,34 @@
       "count": "{count} контрибьюторов в атласе",
       "empty": "Пока не опубликована ни одна страница контрибьютора.",
       "metaTitle": "Контрибьюторы",
-      "metaDescription": "Исследователи и фотографы на reptiles.ge — портреты, галереи и виды, которые они задокументировали."
-    }
+      "metaDescription": "Исследователи и фотографы на reptiles.ge — портреты, галереи и виды, которые они задокументировали.",
+      "eyebrow": "Авторы полевых фото",
+      "statContributors": "Авторов",
+      "statPhotos": "Полевых фото",
+      "sorted": "по числу фото",
+      "filterLabel": "Фильтр по роли",
+      "all": "Все",
+      "ctaEyebrow": "Присоединяйтесь",
+      "ctaTitle": "У вас есть полевые фото, снятые в Грузии?",
+      "ctaBody": "Фото публикуются в профилях видов под именем автора, а у автора появляется своя страница в этом списке.",
+      "ctaButton": "Написать нам"
+    },
+    "rolesPlural": {
+      "herpetologist": "Герпетологи",
+      "photographer": "Фотографы",
+      "ranger": "Рейнджеры",
+      "researcher": "Исследователи"
+    },
+    "statGroups": "Групп",
+    "summaryLabel": "Коротко",
+    "fieldYears": "Полевые фото",
+    "galleryTitle": "Полевые фото в атласе",
+    "galleryAllGroups": "Все группы",
+    "galleryFilterLabel": "Фильтр по группе",
+    "galleryShowAll": "Смотреть все фото: {count}",
+    "speciesTitle": "{species, plural, one {# вид} few {# вида} many {# видов} other {# вида}}, {groups, plural, one {# группа} few {# группы} many {# групп} other {# группы}}",
+    "speciesLead": "Профили видов, в которых использованы фото этого автора.",
+    "groupSummary": "{species, plural, one {# вид} few {# вида} many {# видов} other {# вида}} · {photos, plural, other {# фото}}"
   },
   "attribution": {
     "heading": "Reptiles.ge",

@@ -905,8 +905,34 @@
       "count": "Atlasta {count} katkıda bulunan",
       "empty": "Henüz yayımlanmış katkıda bulunan sayfası yok.",
       "metaTitle": "Katkıda bulunanlar",
-      "metaDescription": "reptiles.ge’deki araştırmacılar ve fotoğrafçılar — portreler, galeriler ve belgelledikleri türler."
-    }
+      "metaDescription": "reptiles.ge’deki araştırmacılar ve fotoğrafçılar — portreler, galeriler ve belgelledikleri türler.",
+      "eyebrow": "Arazi fotoğrafı yazarları",
+      "statContributors": "Katkıcı",
+      "statPhotos": "Arazi fotoğrafı",
+      "sorted": "fotoğraf sayısına göre sıralı",
+      "filterLabel": "Role göre filtrele",
+      "all": "Tümü",
+      "ctaEyebrow": "Bize katılın",
+      "ctaTitle": "Gürcistan’da çekilmiş arazi fotoğraflarınız mı var?",
+      "ctaBody": "Fotoğraflar tür profillerinde yazarın adıyla yayımlanır ve yazarın bu listede kendi sayfası olur.",
+      "ctaButton": "Bize yazın"
+    },
+    "rolesPlural": {
+      "herpetologist": "Herpetologlar",
+      "photographer": "Fotoğrafçılar",
+      "ranger": "Korucular",
+      "researcher": "Araştırmacılar"
+    },
+    "statGroups": "Grup",
+    "summaryLabel": "Kısaca",
+    "fieldYears": "Arazi fotoğrafları",
+    "galleryTitle": "Atlastaki arazi fotoğrafları",
+    "galleryAllGroups": "Tüm gruplar",
+    "galleryFilterLabel": "Gruba göre filtrele",
+    "galleryShowAll": "{count} fotoğrafın tümünü gör",
+    "speciesTitle": "{species, plural, other {# tür}}, {groups, plural, other {# grup}}",
+    "speciesLead": "Bu katkıcının fotoğraflarının kullanıldığı tür profilleri.",
+    "groupSummary": "{species, plural, other {# tür}} · {photos, plural, other {# fotoğraf}}"
   },
   "attribution": {
     "heading": "Reptiles.ge",

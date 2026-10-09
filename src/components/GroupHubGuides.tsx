@@ -15,7 +15,11 @@ import {
 import { Link } from "@/i18n/navigation";
 import { HUB_CLUSTER_CARDS, type HubClusterCard } from "@/lib/clusterGuides";
 import { cn } from "@/lib/cn";
-import { EMERGENCY_GUIDE_KEYS, HUB_FEATURED_GUIDE } from "@/lib/groupHubLayout";
+import {
+  EMERGENCY_GUIDE_KEYS,
+  HUB_FEATURED_GUIDE,
+  hubGuideCards,
+} from "@/lib/groupHubLayout";
 import { speciesHref } from "@/lib/speciesRoutes";
 
 type GuideCard = Exclude<HubClusterCard, { kind: "quiz" }>;
@@ -99,10 +103,6 @@ export async function GroupHubGuides({
       </div>
     </section>
   );
-}
-
-export function hubGuideCards(cards: readonly HubClusterCard[]) {
-  return cards.filter((card): card is GuideCard => card.kind !== "quiz");
 }
 
 function cardBody(card: GuideCard, t: SharedT) {
