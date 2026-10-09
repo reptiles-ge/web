@@ -76,6 +76,7 @@ async function execute(job: SuperAnalysisJob) {
       {
         onStage: (stage) => {
           job.currentStage = stage;
+          void checkpoint().catch(() => undefined);
         },
         superAnalysis: true,
       },

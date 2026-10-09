@@ -203,10 +203,16 @@ export function validateSuperAnalysisResult(
   for (const edit of result.edits) {
     if (!editableField.test(edit.field) || seenFields.has(edit.field))
       throw new Error(`Unsupported or duplicate field: ${edit.field}`);
+    if (
+      edit.field
+        .split(".")
+        .some((segment) => /^\d+$/.test(segment) && Number(segment) > 100)
+    )
+      throw new Error("Field index is too large");
     seenFields.add(edit.field);
     if (stage === "analysis" || stage === "lookalikes")
       requireEvidence(edit.evidenceIds);
-    else if (edit.evidenceIds.some((id) => !byId.has(id)))
+    else if (edit.evidenceIds.some((id) => byId.get(id)?.status !== "verified"))
       throw new Error("Unknown edit evidence");
     for (const locale of ANALYSIS_LOCALES) {
       const data = context.content[locale] as Record<string, unknown>;
@@ -296,6 +302,8 @@ export function validateSuperAnalysisResult(
       seenPeers.has(pair.id)
     )
       throw new Error("Invalid lookalike candidate");
+    if (pair.evidenceIds.some((id) => !byId.has(id)))
+      throw new Error("Unknown lookalike evidence");
     seenPeers.add(pair.id);
     if (pair.action === "add" || pair.action === "remove")
       requireEvidence(pair.evidenceIds);

@@ -194,14 +194,22 @@ export function analysisContentHash(value: string) {
 
 export async function buildSpeciesAnalysisContext(id: string, cwd: string) {
   const content = await readSpeciesAnalysisContent(id, cwd);
-  const catalog = getCatalogSpecies().map(
-    ({ commonName, family, id: candidateId, scientificName }) => ({
-      commonName,
-      contentPath: `src/content/species/${candidateId}/ka.mdx`,
-      family,
-      group: getSpeciesAtlasMeta(candidateId).group,
-      id: candidateId,
-      scientificName,
+  const catalog = await Promise.all(
+    getCatalogSpecies().map(async ({ id: candidateId }) => {
+      const data = matter(
+        await fs.readFile(
+          path.join(cwd, `src/content/species/${candidateId}/ka.mdx`),
+          "utf8",
+        ),
+      ).data;
+      return {
+        commonName: String(data.commonName),
+        contentPath: `src/content/species/${candidateId}/ka.mdx`,
+        family: String(data.family),
+        group: getSpeciesAtlasMeta(candidateId).group,
+        id: candidateId,
+        scientificName: String(data.scientificName),
+      };
     }),
   );
   if (!catalog.some((item) => item.id === id))
