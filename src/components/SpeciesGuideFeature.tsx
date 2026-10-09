@@ -133,13 +133,15 @@ export async function SpeciesGuideFeature({
                 ))}
               </div>
             ) : null}
-            <Link
-              className="mt-5 flex min-h-13 items-center justify-center gap-2.5 rounded-full bg-white px-6 text-[15px] font-medium text-[#0e1411] transition-transform hover:-translate-y-0.5 lg:mt-auto lg:min-h-13 lg:self-start lg:pt-0"
-              href={quizHref(quiz.id, locale)}
-            >
-              {t("quizCta")}
-              <ArrowRight aria-hidden="true" className="size-4" />
-            </Link>
+            <div className="mt-auto pt-5 lg:pt-6">
+              <Link
+                className="flex min-h-13 items-center justify-center gap-2.5 rounded-full bg-white px-6 text-[15px] font-medium text-[#0e1411] transition-transform hover:-translate-y-0.5 lg:w-fit"
+                href={quizHref(quiz.id, locale)}
+              >
+                {t("quizCta")}
+                <ArrowRight aria-hidden="true" className="size-4" />
+              </Link>
+            </div>
           </div>
         ) : null}
       </div>
