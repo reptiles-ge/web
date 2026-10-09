@@ -523,7 +523,24 @@
     "breadcrumbHome": "Ana sayfa",
     "breadcrumbSpecies": "Türler",
     "breadcrumbVenomous": "Gürcistan’da zehirli yılanlar",
-    "anchorLink": "Bu bölüme bağlantı"
+    "anchorLink": "Bu bölüme bağlantı",
+    "colorationTitle": "Renk",
+    "colorationNote": "Renk örnekleri temsilidir. Türü yalnızca renge göre belirlemeyin.",
+    "colorNames": {
+      "black": "Siyah",
+      "blue": "Mavi",
+      "brown": "Kahverengi",
+      "gray": "Gri",
+      "green": "Yeşil",
+      "olive": "Zeytin yeşili",
+      "orange": "Turuncu",
+      "pink": "Pembe",
+      "purple": "Mor",
+      "red": "Kırmızı",
+      "sand": "Kum rengi",
+      "white": "Beyaz",
+      "yellow": "Sarı"
+    }
   },
   "giurzaRange": {
     "lead": "Gürza; İori, Mtkvari ve Alazani nehirlerinin aşağı kesimleri boyunca, Şiraki ve Gareci'de, ayrıca Kvemo Kartli'nin kuru dağ eteklerinde bulunan kuru, taşlık ve kayalık alanlarda yaşar.",

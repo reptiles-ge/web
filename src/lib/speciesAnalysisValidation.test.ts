@@ -66,6 +66,7 @@ describe("Super Analysis ownership and evidence gates", () => {
     expect(context.editableFields).toEqual(
       expect.arrayContaining([
         "description",
+        "identification.coloration",
         "interaction",
         "faq.0.question",
         "faq.0.answer",
@@ -158,6 +159,46 @@ describe("Super Analysis ownership and evidence gates", () => {
     ];
     expect(check(value).edits).toHaveLength(1);
     expect(() => check(value, [value])).toThrow("Duplicate evidence");
+  });
+
+  it("requires verified evidence and locale-consistent codes for coloration additions", () => {
+    for (const locale of ANALYSIS_LOCALES)
+      (
+        context.content[locale].identification as Record<string, unknown>
+      ).colors = [];
+    const value = result();
+    value.edits = [edit("", "brown", "identification.colors.0")];
+    expect(() => check(value)).toThrow("verified source evidence");
+    value.evidence = [
+      {
+        claim: "Brown plumage",
+        excerpt: "Brown feathers",
+        id: "analysis-color",
+        locator: "Description",
+        scope: "Species",
+        status: "verified",
+        taxon: "Phasianus colchicus",
+        url: "https://example.org/color",
+      },
+    ];
+    value.sources = [
+      {
+        evidenceIds: ["analysis-color"],
+        name: "Description",
+        url: "https://example.org/color",
+      },
+    ];
+    value.edits[0].evidenceIds = ["analysis-color"];
+    expect(check(value).edits[0].after.ka).toBe("brown");
+    value.edits[0].after.en = "gray";
+    expect(() => check(value)).toThrow("inconsistent color");
+    value.edits[0].after = values("#7d5f43");
+    expect(() => check(value)).toThrow("color palette code");
+    value.edits[0].after = values("brown");
+    value.stage = "texts";
+    value.evidence = [];
+    value.sources = [];
+    expect(() => check(value, prior())).toThrow("factual analysis");
   });
 
   it("rejects stale input and missing locale output", () => {

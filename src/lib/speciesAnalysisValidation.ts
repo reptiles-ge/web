@@ -5,6 +5,7 @@ import type { SpeciesAnalysisContext } from "@/lib/speciesAnalysisInventory";
 
 import { assertInlineLinksPreserved } from "@/lib/contentEditor";
 import { toSiteDateTime } from "@/lib/siteTime";
+import { SPECIES_COLORS } from "@/lib/speciesColors";
 import {
   ANALYSIS_LOCALES,
   type SuperAnalysisResult,
@@ -15,9 +16,9 @@ import {
 import { kaFrontmatterSchema } from "../../scripts/speciesFrontmatter";
 
 const editableField =
-  /^(?:description|interaction|overview|habitat|diet|behavior|conservation|identification\.(?:summary|traits\.\d+)|faq\.\d+\.(?:question|answer)|stats\.\d+\.value)$/;
+  /^(?:description|interaction|overview|habitat|diet|behavior|conservation|identification\.(?:summary|coloration|(?:traits|colors)\.\d+)|faq\.\d+\.(?:question|answer)|stats\.\d+\.value)$/;
 const linkField =
-  /^(?:interaction|overview|habitat|diet|behavior|conservation|identification\.(?:summary|traits\.\d+)|faq\.\d+\.answer)$/;
+  /^(?:interaction|overview|habitat|diet|behavior|conservation|identification\.(?:summary|coloration|traits\.\d+)|faq\.\d+\.answer)$/;
 const links = (value: string) => [
   ...value.matchAll(/\[([^\]]+)\]\(([^)]+)\)/g),
 ];
@@ -218,6 +219,16 @@ export function validateSuperAnalysisResult(
       requireEvidence(edit.evidenceIds, `field ${edit.field}`);
     else if (edit.evidenceIds.some((id) => byId.get(id)?.status !== "verified"))
       throw new Error("Unknown edit evidence");
+    if (edit.field.startsWith("identification.colors.")) {
+      if (stage !== "analysis")
+        throw new Error("Color palette changes belong to factual analysis");
+      const tones = ANALYSIS_LOCALES.map((locale) => edit.after[locale]);
+      if (
+        new Set(tones).size !== 1 ||
+        !SPECIES_COLORS.some((color) => color === tones[0])
+      )
+        throw new Error("Unsupported or inconsistent color palette code");
+    }
     for (const locale of ANALYSIS_LOCALES) {
       const data = context.content[locale] as Record<string, unknown>;
       if (analysisField(data, edit.field) !== edit.before[locale])

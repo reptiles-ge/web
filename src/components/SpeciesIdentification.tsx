@@ -24,6 +24,7 @@ import { isLocalAdminEnabled } from "@/lib/adminAccess";
 import { cn } from "@/lib/cn";
 import { dangerLevelTone } from "@/lib/dangerLevels";
 import { IDENTIFICATION_PHOTO_SIZES } from "@/lib/imageSizes";
+import { SPECIES_COLOR_TONES } from "@/lib/speciesColors";
 import { getSpeciesCoverSrc } from "@/lib/speciesContent";
 import { splitSpeciesInlineLinks } from "@/lib/speciesInlineLinks";
 import { getSpeciesRiskChip } from "@/lib/speciesRisk";
@@ -113,6 +114,11 @@ export async function SpeciesIdentification({
             />
           </div>
         ) : null}
+        <SpeciesIdentificationColors
+          identification={identification}
+          locale={locale}
+          speciesId={speciesId}
+        />
       </div>
       <SpeciesIdentificationLookalikes
         label={t("lookalikesTitle")}
@@ -269,24 +275,33 @@ async function GiurzaIdentification({
               </li>
             ))}
           </ol>
-          <div className="mt-5 flex flex-wrap items-center gap-2">
-            <span className="mr-1 text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
-              {tGiurza("color")}
-            </span>
-            {colors.map(({ key, tone }) => (
-              <span
-                className="inline-flex h-[34px] items-center gap-2 rounded-full bg-card pr-[13px] pl-[9px] text-[13.5px] font-medium text-foreground"
-                key={key}
-              >
-                <span
-                  aria-hidden="true"
-                  className="size-4 rounded-full"
-                  style={{ backgroundColor: tone }}
-                />
-                {tGiurza(key)}
+          {identification.colors?.length ||
+          identification.coloration?.trim() ? (
+            <SpeciesIdentificationColors
+              identification={identification}
+              locale={locale}
+              speciesId={speciesId}
+            />
+          ) : (
+            <div className="mt-5 flex flex-wrap items-center gap-2">
+              <span className="mr-1 text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
+                {tGiurza("color")}
               </span>
-            ))}
-          </div>
+              {colors.map(({ key, tone }) => (
+                <span
+                  className="inline-flex h-[34px] items-center gap-2 rounded-full bg-card pr-[13px] pl-[9px] text-[13.5px] font-medium text-foreground"
+                  key={key}
+                >
+                  <span
+                    aria-hidden="true"
+                    className="size-4 rounded-full"
+                    style={{ backgroundColor: tone }}
+                  />
+                  {tGiurza(key)}
+                </span>
+              ))}
+            </div>
+          )}
           <div className="mt-5 flex items-start gap-3 rounded-[22px] bg-[#f3ecd9] px-5 py-4">
             <TriangleAlert
               aria-hidden="true"
@@ -344,6 +359,61 @@ function IdentificationHeading({
         {title}
       </AnchoredHeading>
     </>
+  );
+}
+
+async function SpeciesIdentificationColors({
+  identification,
+  locale,
+  speciesId,
+}: {
+  identification: Identification;
+  locale: AppLocale;
+  speciesId: string;
+}) {
+  const colors = identification.colors ?? [];
+  const text = identification.coloration?.trim();
+  if (!colors.length && !text) return null;
+  const t = await getTranslations({ locale, namespace: "profile" });
+  const editable = locale === "ka" && isLocalAdminEnabled();
+  return (
+    <div className="mt-5 min-w-0 lg:col-start-2 lg:row-start-3">
+      <h3 className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
+        {t("colorationTitle")}
+      </h3>
+      {colors.length ? (
+        <div className="mt-3 flex flex-wrap items-center gap-2">
+          {[...new Set(colors)].map((color) => (
+            <span
+              className="inline-flex h-[34px] items-center gap-2 rounded-full bg-card pr-[13px] pl-[9px] text-[13.5px] font-medium text-foreground"
+              key={color}
+            >
+              <span
+                aria-hidden="true"
+                className="size-4 rounded-full border border-foreground/10"
+                style={{ backgroundColor: SPECIES_COLOR_TONES[color] }}
+              />
+              {t(`colorNames.${color}`)}
+            </span>
+          ))}
+        </div>
+      ) : null}
+      {text ? (
+        <p
+          className="mt-3 text-[15px] leading-[1.65] whitespace-pre-line text-foreground/85 lg:text-[16px]"
+          data-content-field={
+            editable ? "identification.coloration" : undefined
+          }
+          data-content-id={editable ? speciesId : undefined}
+          data-content-kind={editable ? "species" : undefined}
+        >
+          <IdentificationRichText text={text} />
+        </p>
+      ) : null}
+      <p className="mt-2 text-[13px] leading-relaxed text-muted-foreground">
+        {t("colorationNote")}
+      </p>
+    </div>
   );
 }
 

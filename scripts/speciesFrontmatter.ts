@@ -1,5 +1,7 @@
 import { z } from "zod/v4";
 
+import { SPECIES_COLORS } from "../src/lib/speciesColors";
+
 const nonempty = z.string().trim().min(1);
 
 const photoConfidenceSchema = z.enum([
@@ -96,6 +98,8 @@ export const kaFrontmatterSchema = z.looseObject({
   id: nonempty,
   identification: z
     .looseObject({
+      coloration: z.string().optional(),
+      colors: z.array(z.enum(SPECIES_COLORS)).max(13).optional(),
       summary: z.string().optional(),
       traits: z.array(z.string()).optional(),
     })

@@ -13,6 +13,7 @@ import {
   getHalyomorphaFieldRecords,
   getHalyomorphaOccurrenceSummary,
 } from "@/lib/halyomorphaOccurrences";
+import { SPECIES_COLORS } from "@/lib/speciesColors";
 import { filterDisplayStats } from "@/lib/speciesContent";
 import { getSpeciesFactVisual } from "@/lib/speciesFactVisuals";
 import { ANALYSIS_LOCALES } from "@/lib/speciesSuperAnalysisSchema";
@@ -68,10 +69,11 @@ export const speciesAnalysisSurfaces = [
     fields: ["identification"],
     id: "identification",
     kind: "mixed",
-    rule: "All traits and summary, bidirectional lookalikes. Giurza color/handling messages and Halyomorpha annotation/pest copy are separately owned, report only.",
+    rule: "All traits and summary, bidirectional lookalikes. Editable coloration and palette codes; inspect sex/age/season/pattern variation with source scope. Giurza legacy color/handling messages and Halyomorpha annotation/pest copy are separately owned, report only.",
     sources: [
       "src/components/SpeciesIdentification.tsx",
       "src/components/SpeciesLookalikeList.tsx",
+      "src/lib/speciesColors.ts",
     ],
   },
   {
@@ -289,6 +291,7 @@ export async function buildSpeciesAnalysisContext(id: string, cwd: string) {
   );
   return {
     catalog,
+    colorPalette: SPECIES_COLORS,
     content: Object.fromEntries(
       ANALYSIS_LOCALES.map((locale) => {
         const { data, raw } = content[locale];
@@ -383,9 +386,12 @@ function speciesEditableFields(data: Record<string, unknown>) {
     "conservation",
   ];
   const identification = data.identification as
-    undefined | { traits?: string[] };
+    undefined | { colors?: string[]; traits?: string[] };
   if (identification) {
-    fields.push("identification.summary");
+    fields.push("identification.summary", "identification.coloration");
+    (identification.colors ?? []).forEach((_, index) =>
+      fields.push(`identification.colors.${index}`),
+    );
     identification.traits?.forEach((_, index) =>
       fields.push(`identification.traits.${index}`),
     );

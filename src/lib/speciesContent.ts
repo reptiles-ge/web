@@ -199,6 +199,8 @@ export function hasRealIdentification(
   identification: Species["identification"],
 ) {
   if (!identification) return false;
+  if (identification.coloration?.trim() || identification.colors?.length)
+    return true;
   const traits: string[] = [];
   for (const trait of identification.traits) {
     const trimmed = trait.trim();

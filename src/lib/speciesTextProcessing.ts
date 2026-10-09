@@ -19,6 +19,7 @@ export function getSpeciesTextFields(raw: string) {
     "interaction",
     "overview",
     "identification.summary",
+    "identification.coloration",
     ...(Array.isArray(traits)
       ? traits.map(
           (_: unknown, index: number) => `identification.traits.${index}`,
