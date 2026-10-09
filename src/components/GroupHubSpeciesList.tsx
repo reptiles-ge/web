@@ -13,13 +13,10 @@ import {
   HUB_CONTAINER,
   HUB_EYEBROW,
 } from "@/components/GroupHubSectionHeading";
-import {
-  GroupHubSpeciesCatalog,
-  type HubCatalogItem,
-} from "@/components/GroupHubSpeciesCatalog";
+import { GroupHubSpeciesCatalog } from "@/components/GroupHubSpeciesCatalog";
 import { QuizCtaLink } from "@/components/QuizCtaLink";
 import { Link } from "@/i18n/navigation";
-import { HUB_QUIZ } from "@/lib/groupHubLayout";
+import { HUB_QUIZ, type HubCatalogItem } from "@/lib/groupHubLayout";
 import { GROUP_HUBS } from "@/lib/groupHubs";
 import { quizHref } from "@/lib/quizzes";
 import { QUIZ_LENGTH } from "@/lib/snakeQuiz";
