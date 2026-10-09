@@ -14,6 +14,7 @@ import { AnalyticsPageContext } from "@/components/AnalyticsPageContext";
 import { Footer } from "@/components/Footer";
 import { FooterGate } from "@/components/FooterGate";
 import { IntlProvider } from "@/components/IntlProvider";
+import { JsonLd } from "@/components/JsonLd";
 import { LocaleSwitchProvider } from "@/components/LocaleSwitchProvider";
 import { LogoPreload } from "@/components/LogoPreload";
 import { Navbar } from "@/components/Navbar";
@@ -30,6 +31,8 @@ import {
 import { routing } from "@/i18n/routing";
 import { isLocalAdminEnabled } from "@/lib/adminAccess";
 import { getFooterData } from "@/lib/footerData";
+import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
+import { localePath, siteGraphJsonLd } from "@/lib/site";
 
 type Props = {
   children: ReactNode;
@@ -53,7 +56,15 @@ export default async function LocaleLayout({ children, params }: Props) {
     (await getMessages({ locale })) as ClientMessages,
     LOCALE_LAYOUT_CLIENT_MESSAGE_NAMESPACES,
   );
-  const t = await getTranslations({ locale, namespace: "nav" });
+  const [t, tSite] = await Promise.all([
+    getTranslations({ locale, namespace: "nav" }),
+    getTranslations({ locale, namespace: "site" }),
+  ]);
+  const siteDescription = kaMetaDescriptionOverride(
+    locale,
+    localePath(locale, "/"),
+    tSite("description"),
+  );
   const footerData = getFooterData(locale);
   const editorT =
     locale === "ka" && isLocalAdminEnabled()
@@ -63,6 +74,7 @@ export default async function LocaleLayout({ children, params }: Props) {
     <RootDocument locale={locale}>
       <IntlProvider locale={locale} messages={messages}>
         <LocaleSwitchProvider>
+          <JsonLd data={siteGraphJsonLd(locale, siteDescription)} />
           <SkipLink label={t("skipToContent")} />
           <NavigationProgress />
           <ScrollToTop />

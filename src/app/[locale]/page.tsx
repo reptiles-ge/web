@@ -38,12 +38,10 @@ import {
   localeAlternates,
   localePath,
   openGraphJpeg,
-  organizationJsonLd,
   SITE_OG_IMAGE_URL,
   siteConfig,
   siteEntityId,
   speciesPageUrl,
-  websiteJsonLd,
 } from "@/lib/site";
 import { pageDateFields } from "@/lib/structuredDataDates";
 
@@ -109,16 +107,12 @@ export default async function Home({ params }: Props): Promise<ReactElement> {
     t("description"),
   );
   const stats = getAtlasStats();
-  const org = organizationJsonLd({ description });
   const datasetId = `${homeUrl}#atlas`;
   const termsId = `${homeUrl}#atlas-terms`;
-  const searchUrlTemplate = `${absoluteUrl(localePath(locale, "/species"))}?q={search_term_string}`;
 
   const graph = {
     "@context": "https://schema.org",
     "@graph": [
-      org,
-      websiteJsonLd({ description, searchUrlTemplate }),
       {
         "@id": homeUrl,
         "@type": "WebPage",
