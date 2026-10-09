@@ -32,7 +32,10 @@ import {
 import { type HubClusterCard } from "@/lib/clusterGuides";
 import { cn } from "@/lib/cn";
 import { formatPhotoDate } from "@/lib/formatDate";
-import { getSpeciesIdentificationPhoto } from "@/lib/speciesContent";
+import {
+  getSpeciesIdentificationPhoto,
+  isPlaceholderBody,
+} from "@/lib/speciesContent";
 import { speciesPhotoAlt } from "@/lib/speciesMeta";
 import { getSpeciesRiskChip } from "@/lib/speciesRisk";
 import {
@@ -516,6 +519,10 @@ export async function SpeciesProfileBody({
 }: SpeciesProfileBodyProps) {
   const t = await getTranslations({ locale, namespace: "profile" });
   const riskLevel = getSpeciesRiskChip(species)?.level;
+  const interactionBody =
+    species.interaction && !isPlaceholderBody(species.interaction)
+      ? species.interaction
+      : null;
   const habitatBlock = biologyBlocks.find((block) => block.id === "habitat");
   const naturalHistoryBlocks = biologyBlocks.filter(
     (block) => block.id !== "habitat",
@@ -548,12 +555,30 @@ export async function SpeciesProfileBody({
             dangerValue={dangerValue}
             displayStats={displayStats}
             editable={editable}
-            interaction={species.interaction}
             linkDangerStats={linkDangerStats}
             locale={locale}
             speciesId={species.id}
             stats={species.stats}
           />
+          {interactionBody ? (
+            <aside className="mx-4 mt-2 rounded-[22px] bg-gold/12 p-5 lg:col-span-full lg:mx-0 lg:mt-0 lg:rounded-[26px] lg:px-7 lg:py-6">
+              <AnchoredHeading
+                anchorLabel={t("anchorLink")}
+                className="font-display text-[19px] font-semibold text-foreground"
+                id={SPECIES_SECTION_IDS.interaction}
+              >
+                {t("interaction")}
+              </AnchoredHeading>
+              <BiologyExpandable
+                body={interactionBody}
+                editorField={editable ? "interaction" : undefined}
+                needsExpand={interactionBody.length > 260}
+                readLess={t("readLess")}
+                readMore={t("readMore")}
+                speciesId={editable ? species.id : undefined}
+              />
+            </aside>
+          ) : null}
         </div>
       </div>
 

@@ -3,12 +3,10 @@ import { getTranslations } from "next-intl/server";
 import type { DangerLevel, SpeciesStat } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
 
-import { AnchoredHeading } from "@/components/AnchoredHeading";
-import { BiologyExpandable } from "@/components/BiologyExpandable";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
 import { dangerPageHref } from "@/lib/dangerLevels";
-import { isPlaceholderBody, isSizeStatLabel } from "@/lib/speciesContent";
+import { isSizeStatLabel } from "@/lib/speciesContent";
 import {
   getSpeciesFactVisual,
   IUCN_SCALE,
@@ -27,7 +25,6 @@ type SpeciesProfileFactsProps = {
   dangerValue: null | string;
   displayStats: SpeciesStat[];
   editable: boolean;
-  interaction?: string;
   linkDangerStats: boolean;
   locale: AppLocale;
   speciesId: string;
@@ -48,18 +45,15 @@ export async function SpeciesProfileFacts({
   dangerValue,
   displayStats,
   editable,
-  interaction,
   linkDangerStats,
   locale,
   speciesId,
   stats,
 }: SpeciesProfileFactsProps) {
   const t = await getTranslations({ locale, namespace: "profile" });
-  const interactionBody =
-    interaction && !isPlaceholderBody(interaction) ? interaction : null;
   const tiles = factTiles(displayStats, locale);
 
-  if (tiles.length === 0 && !interactionBody) return null;
+  if (tiles.length === 0) return null;
 
   return (
     <div className="min-w-0">
@@ -119,25 +113,6 @@ export async function SpeciesProfileFacts({
             ))}
           </dl>
         </section>
-      ) : null}
-      {interactionBody ? (
-        <aside className="mx-4 mt-2 rounded-[22px] bg-gold/12 p-5 lg:mx-0 lg:mt-4 lg:rounded-[26px] lg:px-7 lg:py-6">
-          <AnchoredHeading
-            anchorLabel={t("anchorLink")}
-            className="font-display text-[19px] font-semibold text-foreground"
-            id={SPECIES_SECTION_IDS.interaction}
-          >
-            {t("interaction")}
-          </AnchoredHeading>
-          <BiologyExpandable
-            body={interactionBody}
-            editorField={editable ? "interaction" : undefined}
-            needsExpand={interactionBody.length > 260}
-            readLess={t("readLess")}
-            readMore={t("readMore")}
-            speciesId={editable ? speciesId : undefined}
-          />
-        </aside>
       ) : null}
     </div>
   );
