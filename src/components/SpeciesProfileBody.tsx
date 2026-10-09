@@ -1,4 +1,3 @@
-import { ChevronDown } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import type {
@@ -11,6 +10,7 @@ import type {
 import type { AppLocale } from "@/i18n/routing";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
+import { BiologyDisclosure } from "@/components/BiologyDisclosure";
 import { BiologyExpandable } from "@/components/BiologyExpandable";
 import { SpeciesRangeMap } from "@/components/map/SpeciesRangeMap";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
@@ -1029,17 +1029,11 @@ async function SpeciesProfileBiology({
         </div>
         <div className="mt-5 flex flex-col gap-2 lg:hidden">
           {displayBlocks.map((block, index) => (
-            <details
-              className="group rounded-[22px] bg-card p-5 shadow-[0_10px_26px_rgba(14,20,17,0.05)]"
+            <BiologyDisclosure
+              defaultOpen={index === 0}
               key={block.id}
-              open={index === 0}
+              title={block.title}
             >
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-[17px] font-semibold text-foreground [&::-webkit-details-marker]:hidden">
-                <span>{block.title}</span>
-                <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-background text-foreground transition-transform group-open:rotate-180">
-                  <ChevronDown aria-hidden="true" className="size-4" />
-                </span>
-              </summary>
               <p
                 className="mt-4 text-[15px] leading-[1.65] whitespace-pre-line text-muted-foreground"
                 data-content-field={
@@ -1060,7 +1054,7 @@ async function SpeciesProfileBiology({
               >
                 <PhoneLinkedText>{block.body}</PhoneLinkedText>
               </p>
-            </details>
+            </BiologyDisclosure>
           ))}
         </div>
         <div className="mt-10 hidden lg:block">
