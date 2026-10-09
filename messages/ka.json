@@ -46,7 +46,15 @@
     "removeStep": "ამოშლა",
     "moveUp": "ზემოთ",
     "moveDown": "ქვემოთ",
-    "closeWorkflow": "დახურვა"
+    "closeWorkflow": "დახურვა",
+    "superAction": "Super Analysis",
+    "superDescription": "გვერდი → მსგავსი სახეობები → ბმულები → ტექსტები. ოთხი ეტაპი, შემოწმებული ცვლილებები და ერთი draft PR.",
+    "superPending": "მოლოდინში",
+    "superRunning": "მუშავდება",
+    "superCompleted": "დასრულდა",
+    "superFailed": "ვერ დასრულდა",
+    "superValidation": "საბოლოო შემოწმება",
+    "superReconnecting": "კავშირის აღდგენა… პროგრესი სერვერზე ინახება."
   },
   "nav": {
     "species": "სახეობები",

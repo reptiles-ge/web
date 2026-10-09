@@ -16,11 +16,17 @@ import {
   createOrFindPullRequest,
   isPullRequestUrl,
 } from "@/lib/pullRequestGit";
+import { lockSpeciesAnalysis } from "@/lib/speciesAnalysisLock";
+import { createSuperAnalysisRunner } from "@/lib/speciesSuperAnalysis";
+import {
+  SUPER_ANALYSIS_STAGES,
+  type SuperAnalysisStage,
+} from "@/lib/speciesSuperAnalysisSchema";
 import { getSpeciesTextFields } from "@/lib/speciesTextProcessing";
 
 const exec = promisify(execFile);
 const root = process.cwd();
-const running = new Set<string>();
+
 export type SpeciesAnalysisMode =
   "analysis" | "links" | "lookalikes" | "records";
 export type SpeciesWorkflowMode = "texts" | SpeciesAnalysisMode;
@@ -209,12 +215,11 @@ export async function analyzeSpeciesPage(
   onReport: (report: string) => void,
   mode: SpeciesAnalysisMode = "analysis",
 ) {
-  if (running.has(id)) throw new Error("Analysis is already running");
-  running.add(id);
+  const unlock = lockSpeciesAnalysis(id);
   try {
     return await runAnalysis(id, onReport, mode);
   } finally {
-    running.delete(id);
+    unlock();
   }
 }
 
@@ -231,10 +236,18 @@ export async function runSpeciesWorkflow(
   id: string,
   modes: SpeciesWorkflowMode[],
   onStep: (mode: SpeciesWorkflowMode, report: string) => Promise<void> | void,
+  options?: {
+    onStage: (stage: "validation" | SuperAnalysisStage) => void;
+    superAnalysis: boolean;
+  },
 ) {
-  if (running.has(id)) throw new Error("Analysis is already running");
-  running.add(id);
+  const unlock = lockSpeciesAnalysis(id);
   try {
+    if (
+      options?.superAnalysis &&
+      modes.join(",") !== SUPER_ANALYSIS_STAGES.join(",")
+    )
+      throw new Error("Invalid Super Analysis order");
     const repositoryInfo = JSON.parse(
       await run("gh", [
         "repo",
@@ -247,6 +260,32 @@ export async function runSpeciesWorkflow(
     const repository = repositoryInfo.nameWithOwner;
     if (!/^[a-zA-Z0-9._/-]+$/.test(base))
       throw new Error("Invalid target branch");
+    if (options?.superAnalysis) {
+      const existing = findSpeciesPullRequest(
+        JSON.parse(
+          await run("gh", [
+            "pr",
+            "list",
+            "--repo",
+            repository,
+            "--state",
+            "open",
+            "--base",
+            base,
+            "--limit",
+            "1000",
+            "--json",
+            "baseRefName,files,headRefName,isCrossRepository,url",
+          ]),
+        ),
+        id,
+        base,
+      );
+      if (existing)
+        throw new Error(
+          `Review the existing species PR before starting another analysis: ${existing.url}`,
+        );
+    }
     const branch = `feature/species-workflow-${id}-${randomUUID().slice(0, 8)}`;
     const allowedFiles = [
       ...["ka", "en", "ru", "tr"].map(
@@ -283,9 +322,23 @@ export async function runSpeciesWorkflow(
         path.join(worktree, "node_modules"),
         "dir",
       );
+      if (options?.superAnalysis)
+        await assertSpeciesContentMatchesBase(root, worktree, [
+          "src/data/speciesPublish.ts",
+          "src/i18n/pathnames.ts",
+        ]);
+      const superStep = options?.superAnalysis
+        ? await createSuperAnalysisRunner(id, worktree, directory)
+        : null;
+      const reports: string[] = [];
       const failure = await runSpeciesWorkflowSteps(modes, async (mode) => {
         let report: string;
-        if (mode === "texts") {
+        if (superStep) {
+          const stage = mode as SuperAnalysisStage;
+          options?.onStage(stage);
+          report = await superStep(stage);
+          reports.push(`## ${stage}\n\n${report}`);
+        } else if (mode === "texts") {
           report = await processWorkflowTexts(id, worktree);
         } else {
           const template = await fs.readFile(
@@ -353,6 +406,30 @@ export async function runSpeciesWorkflow(
           ? failure.error.message
           : "Workflow step failed"
         : null;
+      if (superStep && failure)
+        return {
+          error: stepError,
+          failedStep: failure.step,
+          pullRequestUrl: null,
+        };
+      if (superStep) {
+        options?.onStage("validation");
+        await run("pnpm", ["run", "species:compile"], worktree);
+        await run("pnpm", ["run", "typecheck"], worktree);
+        await run(
+          "pnpm",
+          [
+            "exec",
+            "vitest",
+            "run",
+            "src/lib/speciesRoutes.test.ts",
+            "src/lib/speciesRelated.test.ts",
+            "src/lib/speciesInlineLinks.test.ts",
+            "src/lib/snakeQuiz.test.ts",
+          ],
+          worktree,
+        );
+      }
       if (
         (await run(
           "git",
@@ -376,7 +453,9 @@ export async function runSpeciesWorkflow(
       const body = path.join(directory, "pr-body.md");
       await fs.writeFile(
         body,
-        `## Summary\n\n- Completed ${completedModes.join(" → ")} for ${id}\n${failure ? `- Stopped at ${failure.step}; later steps were not run\n` : ""}\n## Checks\n\n- Automated checks not run; owner will review\n`,
+        superStep
+          ? `Super Analysis for ${id}: ${completedModes.join(" → ")}\n\n${reports.join("\n\n")}\n\n## Validation\n\nSchema, evidence references, locale parity, protected fields, links, species compilation, typecheck and route/related/quiz tests passed. Source verification is an AI assessment; this draft still requires editorial review.\n`
+          : `## Summary\n\n- Completed ${completedModes.join(" → ")} for ${id}\n${failure ? `- Stopped at ${failure.step}; later steps were not run\n` : ""}\n## Checks\n\n- Automated checks not run; owner will review\n`,
       );
       try {
         pullRequestUrl = await run(
@@ -394,6 +473,7 @@ export async function runSpeciesWorkflow(
             `Review ${id} species page`,
             "--body-file",
             body,
+            ...(superStep ? ["--draft", "--label", "content"] : []),
           ],
           worktree,
         );
@@ -436,7 +516,7 @@ export async function runSpeciesWorkflow(
       await fs.rm(directory, { force: true, recursive: true });
     }
   } finally {
-    running.delete(id);
+    unlock();
   }
 }
 

@@ -10,6 +10,8 @@ import {
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
+import { SpeciesSuperAnalysis } from "@/components/admin/SpeciesSuperAnalysis";
+
 type Copy = {
   action: string;
   addStep: string;
@@ -34,6 +36,14 @@ type Copy = {
   runWorkflow: string;
   sameBranch: string;
   sameBranchHint: string;
+  superAction: string;
+  superCompleted: string;
+  superDescription: string;
+  superFailed: string;
+  superPending: string;
+  superReconnecting: string;
+  superRunning: string;
+  superValidation: string;
   textsAction: string;
   textsError: string;
   textsNoChanges: string;
@@ -56,6 +66,7 @@ export function SpeciesPageAnalysis({ copy, id }: { copy: Copy; id: string }) {
   const [selected, setSelected] = useState<Mode[]>(modes);
   const [sameBranch, setSameBranch] = useState(false);
   const [loaded, setLoaded] = useState(false);
+  const [superRunning, setSuperRunning] = useState(false);
   const [processing, setProcessing] = useState(false);
   const [currentMode, setCurrentMode] = useState<Mode | null>(null);
   const [workflowRunning, setWorkflowRunning] = useState(false);
@@ -265,9 +276,28 @@ export function SpeciesPageAnalysis({ copy, id }: { copy: Copy; id: string }) {
       >
         <Minus aria-hidden className="size-4" />
       </button>
+      <SpeciesSuperAnalysis
+        copy={{
+          action: copy.superAction,
+          completed: copy.superCompleted,
+          description: copy.superDescription,
+          failed: copy.superFailed,
+          noChanges: copy.noChanges,
+          openPr: copy.openPr,
+          pending: copy.superPending,
+          reconnecting: copy.superReconnecting,
+          report: copy.report,
+          running: copy.superRunning,
+          validation: copy.superValidation,
+        }}
+        disabled={processing}
+        id={id}
+        labels={labels}
+        onBusyChange={setSuperRunning}
+      />
       <button
         className="w-full min-w-44 rounded-lg bg-primary px-4 py-2.5 pr-10 text-sm font-medium text-white disabled:opacity-60 dark:text-ink"
-        disabled={processing || !selected.length}
+        disabled={processing || superRunning || !selected.length}
         onClick={() => void launchWorkflow()}
         type="button"
       >
@@ -275,7 +305,7 @@ export function SpeciesPageAnalysis({ copy, id }: { copy: Copy; id: string }) {
       </button>
       <button
         className="mt-2 w-full min-w-44 rounded-lg border border-border px-4 py-2.5 text-sm font-medium disabled:opacity-60"
-        disabled={processing}
+        disabled={processing || superRunning}
         onClick={() => dialogRef.current?.showModal()}
         type="button"
       >
@@ -284,7 +314,7 @@ export function SpeciesPageAnalysis({ copy, id }: { copy: Copy; id: string }) {
       {modes.map((mode) => (
         <button
           className="mt-2 w-full min-w-44 rounded-lg border border-border px-4 py-2.5 text-sm font-medium disabled:opacity-60"
-          disabled={processing}
+          disabled={processing || superRunning}
           key={mode}
           onClick={() => void launch(mode)}
           type="button"

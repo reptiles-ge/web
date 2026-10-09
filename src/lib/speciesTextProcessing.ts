@@ -9,8 +9,7 @@ import {
   createSpeciesTextsPullRequest,
 } from "@/lib/contentEditorPullRequest";
 import { resolveEditorTarget } from "@/lib/contentEditorTarget";
-
-const running = new Set<string>();
+import { lockSpeciesAnalysis } from "@/lib/speciesAnalysisLock";
 
 export function getSpeciesTextFields(raw: string) {
   const data = matter(raw).data;
@@ -37,8 +36,7 @@ export function getSpeciesTextFields(raw: string) {
 }
 
 export async function processSpeciesTexts(id: string, operationId: string) {
-  if (running.has(id)) throw new Error("Text processing is already running");
-  running.add(id);
+  const unlock = lockSpeciesAnalysis(id);
   try {
     await assertSpeciesTextSourceCurrent(id);
     const raw = await fs.readFile(
@@ -87,6 +85,6 @@ export async function processSpeciesTexts(id: string, operationId: string) {
         .join("\n\n"),
     };
   } finally {
-    running.delete(id);
+    unlock();
   }
 }

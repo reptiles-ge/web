@@ -220,6 +220,15 @@ export async function SpeciesProfile({
         <SpeciesPageAnalysis
           copy={{
             action: tAnalysis("action"),
+            superAction: tAnalysis("superAction"),
+            superCompleted: tAnalysis("superCompleted"),
+            superDescription: tAnalysis("superDescription"),
+            superFailed: tAnalysis("superFailed"),
+            superPending: tAnalysis("superPending"),
+            superReconnecting: tAnalysis("superReconnecting"),
+            superRunning: tAnalysis("superRunning"),
+            superValidation: tAnalysis("superValidation"),
+
             addStep: tAnalysis("addStep"),
             availableSteps: tAnalysis("availableSteps"),
             closeWorkflow: tAnalysis("closeWorkflow"),

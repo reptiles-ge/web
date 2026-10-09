@@ -46,7 +46,15 @@
     "removeStep": "Kaldır",
     "moveUp": "Yukarı taşı",
     "moveDown": "Aşağı taşı",
-    "closeWorkflow": "Kapat"
+    "closeWorkflow": "Kapat",
+    "superAction": "Super Analysis",
+    "superDescription": "Sayfa → benzer türler → bağlantılar → metinler. Dört aşama, doğrulanan değişiklikler ve tek taslak PR.",
+    "superPending": "Bekliyor",
+    "superRunning": "Çalışıyor",
+    "superCompleted": "Tamamlandı",
+    "superFailed": "Başarısız",
+    "superValidation": "Son doğrulama",
+    "superReconnecting": "Yeniden bağlanılıyor… İlerleme sunucuda kayıtlı."
   },
   "nav": {
     "species": "Türler",

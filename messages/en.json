@@ -46,7 +46,15 @@
     "removeStep": "Remove",
     "moveUp": "Move up",
     "moveDown": "Move down",
-    "closeWorkflow": "Close"
+    "closeWorkflow": "Close",
+    "superAction": "Super Analysis",
+    "superDescription": "Page → lookalikes → links → texts. Four stages, validated changes and one draft PR.",
+    "superPending": "Pending",
+    "superRunning": "Running",
+    "superCompleted": "Completed",
+    "superFailed": "Failed",
+    "superValidation": "Final validation",
+    "superReconnecting": "Reconnecting… Progress is saved on the server."
   },
   "nav": {
     "species": "Species",

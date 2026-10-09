@@ -46,7 +46,15 @@
     "removeStep": "Удалить",
     "moveUp": "Выше",
     "moveDown": "Ниже",
-    "closeWorkflow": "Закрыть"
+    "closeWorkflow": "Закрыть",
+    "superAction": "Super Analysis",
+    "superDescription": "Страница → похожие виды → ссылки → тексты. Четыре этапа, проверенные изменения и один черновик PR.",
+    "superPending": "Ожидание",
+    "superRunning": "Выполняется",
+    "superCompleted": "Завершено",
+    "superFailed": "Ошибка",
+    "superValidation": "Итоговая проверка",
+    "superReconnecting": "Восстанавливаем соединение… Прогресс сохранён на сервере."
   },
   "nav": {
     "species": "Виды",
