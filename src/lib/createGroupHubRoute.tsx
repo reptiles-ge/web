@@ -16,6 +16,7 @@ import { GROUP_HUB_SHARED_CLIENT_MESSAGE_NAMESPACES } from "@/i18n/clientMessage
 import { georgiaPlaceName } from "@/i18n/localeMeta";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { type AppLocale, routing } from "@/i18n/routing";
+import { hubFaqLinks } from "@/lib/groupHubFaq";
 import { HUB_HERO_IMAGE_SIZES } from "@/lib/groupHubLayout";
 import { GROUP_HUBS, type GroupHubId } from "@/lib/groupHubs";
 import { buildPageMetadata } from "@/lib/pageMetadata";
@@ -113,7 +114,7 @@ export function createGroupHubRoute(hubId: GroupHubId) {
     const faqLd = {
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      mainEntity: buildHubFaqMainEntity(hubId, t),
+      mainEntity: buildHubFaqMainEntity(hubId, t, species.length),
     };
 
     return (
@@ -152,7 +153,11 @@ export function createGroupHubRoute(hubId: GroupHubId) {
   };
 }
 
-function buildHubFaqMainEntity(hubId: GroupHubId, t: HubTranslator) {
+function buildHubFaqMainEntity(
+  hubId: GroupHubId,
+  t: HubTranslator,
+  count: number,
+) {
   const mainEntity: Array<{
     "@type": "Question";
     acceptedAnswer: { "@type": "Answer"; text: string };
@@ -165,7 +170,7 @@ function buildHubFaqMainEntity(hubId: GroupHubId, t: HubTranslator) {
       "@type": "Question",
       acceptedAnswer: {
         "@type": "Answer",
-        text: hubFaqAnswer(hubId, n, t),
+        text: hubFaqAnswer(hubId, n, t, count),
       },
       name: t(`faq${n}Q`),
     });
@@ -201,19 +206,20 @@ function HubCoverPreloads({
   );
 }
 
-function hubFaqAnswer(hubId: GroupHubId, n: number, t: HubTranslator) {
-  if (hubId === "snakes" && n === 5) {
-    return t.markup("faq5A", {
-      bite: (chunks) => chunks,
-      yard: (chunks) => chunks,
-    });
-  }
-  if (hubId === "turtles" && n === 4) {
-    return t.markup("faq4A", {
-      identify: (chunks) => chunks,
-    });
-  }
-  return t(`faq${n}A`);
+function hubFaqAnswer(
+  hubId: GroupHubId,
+  n: number,
+  t: HubTranslator,
+  count: number,
+) {
+  const links = hubFaqLinks(hubId, n);
+  if (!links) return t(`faq${n}A` as "faq1A", { count });
+  return t.markup(`faq${n}A` as "faq1A", {
+    count,
+    ...Object.fromEntries(
+      Object.keys(links).map((tag) => [tag, (chunks: string) => chunks]),
+    ),
+  });
 }
 
 function hubFaqIndices(hubId: GroupHubId) {

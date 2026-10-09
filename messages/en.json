@@ -939,6 +939,7 @@
     "heading": "Reptiles.ge",
     "subtitle": "Atlas of animals of Georgia",
     "body": "Prepared by the Reptiles.ge editorial team from the sources listed here.",
+    "bodyEditorial": "Prepared by the Reptiles.ge editorial team.",
     "published": "Published: {date}",
     "updated": "Updated: {date}",
     "sources": "Sources",
@@ -1689,8 +1690,8 @@
     }
   },
   "snakes": {
-    "metaTitle": "Snakes in Georgia — species guide and atlas",
-    "metaDescription": "All snakes of Georgia in one guide: species list, venomous and harmless snakes, identification tips, and full profiles on reptiles.ge.",
+    "metaTitle": "Snakes in Georgia (Caucasus) — guide and atlas",
+    "metaDescription": "Snakes of Georgia (Caucasus) in one guide: venomous and harmless species, identification tips, risk levels, and full profiles on reptiles.ge.",
     "keywords": "snakes in Georgia, Georgia snakes, venomous snakes Georgia, harmless snakes, vipers, racers, Natrix, Vipera, Macrovipera",
     "breadcrumbCurrent": "Snakes",
     "heroImageAlt": "Dinnik’s viper in rocky Caucasus habitat",
@@ -1712,28 +1713,28 @@
     "section": {
       "venomous": {
         "title": "Venomous snakes in Georgia — {count}",
-        "body": "Georgia’s venomous snakes include the Levantine, Dinnik’s, Caucasus, Transcaucasian, Darevsky’s, and steppe vipers. Full information about them is gathered in the separate venomous snakes guide."
+        "body": "Georgia’s venomous snakes include the Levantine, Dinnik’s, Caucasus, nose-horned, Darevsky’s, and eastern steppe vipers, as well as the Eastern Montpellier snake, which has venom fangs at the back of its mouth. Full information about them is gathered in the separate venomous snakes guide."
       },
       "harmless": {
-        "title": "Harmless — {count}",
+        "title": "Other harmless snakes — {count}",
         "body": "Most snakes found in Georgia are not dangerous to humans. Do not rely on colour alone when identifying them — species profiles show appearance traits, habitat, and distribution information."
       },
       "racers": {
-        "title": "Racers — {count}",
-        "body": "Dahl’s whip snake, steppe ratsnake, European cat snake, and Aesculapian snake are harmless snakes that are sometimes confused with venomous species."
+        "title": "Often mistaken species — {count}",
+        "body": "Dahl’s whip snake, the steppe ratsnake, and the Aesculapian snake are non-venomous. The European cat snake has venom fangs at the back of its mouth but is not considered a significant threat to human health. All four are sometimes mistaken for venomous species."
       }
     },
     "faqEyebrow": "FAQ",
     "faqTitle": "What people ask about snakes",
     "faqIntro": "Short answers — depth lives on species pages.",
     "faq1Q": "How many snakes are there in Georgia?",
-    "faq1A": "This atlas gathers snake profiles that are confirmed for Georgia or included in the relevant checklists. The exact number of species can change with taxonomy and newly confirmed data, so this page always presents the current catalog.",
+    "faq1A": "The atlas currently publishes profiles for {count} snake species, all listed in the catalog below. For reptiles, the atlas follows the annotated checklist by Tarkhnishvili et al. 2026, which marks Dinnik’s viper, the Caucasus viper, and the red-bellied racer as candidate taxa. The number can change with taxonomy and newly confirmed data.",
     "faq2Q": "Which snakes are venomous in Georgia?",
-    "faq2A": "Medically significant venomous snakes are gathered in a separate guide. Most snakes in Georgia are harmless, so do not kill an unknown snake by mistake — keep distance and compare its traits with the profiles.",
+    "faq2A": "The atlas lists the Levantine, Dinnik’s, Caucasus, nose-horned, Darevsky’s, and eastern steppe vipers as venomous, along with the Eastern Montpellier snake. Details are in the <venomous>venomous snakes guide</venomous>. Most snakes in Georgia are harmless, so do not kill an unknown snake by mistake — keep distance and compare its traits with the profiles.",
     "faq3Q": "How do I tell a viper from a harmless snake?",
-    "faq3A": "Some vipers have a vertical pupil and a relatively broad, triangular head, but those traits are not enough in every case. For more reliable identification, consider other body traits, habitat, and distribution region.",
+    "faq3A": "Some vipers have a vertical pupil and a relatively broad, triangular head, but those traits are not enough in every case. For more reliable identification, consider other body traits, habitat, and distribution region — the <identify>venomous snake identification guide</identify> compares them.",
     "faq4Q": "Where do snakes occur in Georgia?",
-    "faq4A": "Georgia’s snakes occur in varied habitats, from forests and high mountain zones to dry eastern landscapes. You can check a specific species’ distribution in its profile and in the regional atlas; one species often occurs in several regions.",
+    "faq4A": "Georgia’s snakes occur in varied habitats, from forests and high mountain zones to dry eastern landscapes. You can check a specific species’ distribution in its profile, the <range>snake range guide</range>, and the regional atlas; one species often occurs in several regions.",
     "faq5Q": "What should I do if I meet a snake?",
     "faq5A": "Do not handle it, keep distance, and pass aside. If bitten, call 112 and see the <bite>bite guide</bite>. If a snake is in the yard or you want to reduce visits, see the practical <yard>yard guide</yard>.",
     "ctaEyebrow": "Next step",

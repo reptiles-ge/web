@@ -42,7 +42,7 @@ const SITEMAP_PATH_LAST_MODIFIED: Record<string, string> = {
   "/scorpions": "2026-10-02T12:30:00+04:00",
   "/scorpions/morieli-sakhlshi": "2026-10-02T16:05:00+04:00",
   "/scorpions/morielis-nakbeni": "2026-09-25T15:48:18+04:00",
-  "/snakes": "2026-09-16T12:42:00+04:00",
+  "/snakes": "2026-10-10T02:05:00+04:00",
   "/snakes-in-the-yard": "2026-10-02T12:30:00+04:00",
   "/snakes/didi-gvelebi": "2026-09-16T13:04:00+04:00",
   "/snakes/gavrtseleba": "2026-09-16T13:15:00+04:00",
