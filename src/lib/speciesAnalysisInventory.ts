@@ -306,6 +306,10 @@ export async function buildSpeciesAnalysisContext(id: string, cwd: string) {
                 : 0,
               source: `src/content/species/${id}/${locale}.mdx`,
             },
+          } as {
+            [key: string]: unknown;
+            fieldRecords: { count: number; source: string };
+            hash: string;
           },
         ];
       }),
