@@ -2,7 +2,10 @@ import { spawn } from "node:child_process";
 import { EventEmitter } from "node:events";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-import { runCodexProcess } from "@/lib/codexProcess";
+import type { AgentTask } from "@/lib/aiAgent";
+
+import { CODEX_SETTINGS } from "@/lib/aiAgentProfiles";
+import { codexArgs, runCodexProcess } from "@/lib/codexProcess";
 
 vi.mock("node:child_process", () => ({ spawn: vi.fn() }));
 
@@ -17,37 +20,65 @@ function mockChild() {
   return child;
 }
 
+const task: AgentTask = {
+  access: "read-only",
+  cwd: "/tmp/worktree",
+  output: "/tmp/out.json",
+  profile: "super:analysis",
+  prompt: "Read sources",
+  schema: "/tmp/schema.json",
+  timeoutMs: 1000,
+  webSearch: true,
+};
+
 beforeEach(() => vi.clearAllMocks());
 
 describe("local Codex subprocess", () => {
-  it("overrides the unsupported inherited model while preserving stage options", async () => {
+  it("keeps the read-only sandbox, live search and schema output", () => {
+    expect(codexArgs(task, CODEX_SETTINGS)).toEqual([
+      "exec",
+      "--ephemeral",
+      "--skip-git-repo-check",
+      "--sandbox",
+      "read-only",
+      "--config",
+      'model_reasoning_effort="xhigh"',
+      "--config",
+      'web_search="live"',
+      "--output-schema",
+      "/tmp/schema.json",
+      "--output-last-message",
+      "/tmp/out.json",
+      "--model",
+      "gpt-6-sol",
+      "--cd",
+      "/tmp/worktree",
+      "-",
+    ]);
+  });
+
+  it("grants network and no approvals only to workspace-write tasks", () => {
+    const args = codexArgs(
+      {
+        ...task,
+        access: "workspace-write",
+        schema: undefined,
+        webSearch: undefined,
+      },
+      CODEX_SETTINGS,
+    );
+    expect(args).toContain("sandbox_workspace_write.network_access=true");
+    expect(args).toContain('approval_policy="never"');
+    expect(args).not.toContain("--output-schema");
+    expect(args.some((arg) => arg.startsWith("web_search"))).toBe(false);
+  });
+
+  it("pipes the prompt and resolves on success", async () => {
     const child = mockChild();
-    const pending = runCodexProcess({
-      args: [
-        "exec",
-        "--sandbox",
-        "read-only",
-        "--output-schema",
-        "/tmp/schema.json",
-      ],
-      cwd: "/tmp/worktree",
-      prompt: "Read sources",
-      timeoutMs: 1000,
-    });
+    const pending = runCodexProcess(task, CODEX_SETTINGS);
     expect(spawn).toHaveBeenCalledWith(
       "codex",
-      [
-        "exec",
-        "--sandbox",
-        "read-only",
-        "--output-schema",
-        "/tmp/schema.json",
-        "--model",
-        "gpt-6-sol",
-        "--cd",
-        "/tmp/worktree",
-        "-",
-      ],
+      codexArgs(task, CODEX_SETTINGS),
       expect.objectContaining({
         cwd: "/tmp/worktree",
         signal: expect.any(AbortSignal),
@@ -60,12 +91,7 @@ describe("local Codex subprocess", () => {
 
   it("propagates failed inference without treating MCP warnings as success", async () => {
     const child = mockChild();
-    const pending = runCodexProcess({
-      args: ["exec"],
-      cwd: "/tmp",
-      prompt: "Test",
-      timeoutMs: 1000,
-    });
+    const pending = runCodexProcess(task, CODEX_SETTINGS);
     child.stderr.emit("data", "Model is not supported");
     child.emit("close", 1);
     await expect(pending).rejects.toThrow(
