@@ -49144,6 +49144,87 @@
       ],
       "updatedAt": "2026-10-03T18:23:41.154Z"
     },
+    "images/home/vipera-dinniki-landing.jpg": {
+      "sourceHash": "2f7fe5b546855ad7c3b4ddf703a2b4539c358aba548593c41c32dbf269cd1d3e",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/home/vipera-dinniki-landing.jpg",
+      "originalSize": 280804,
+      "width": 1200,
+      "height": 630,
+      "derivatives": [
+        {
+          "key": "optimized/images/home/vipera-dinniki-landing-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 168,
+          "byteSize": 12995
+        },
+        {
+          "key": "optimized/images/home/vipera-dinniki-landing-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 168,
+          "byteSize": 21330
+        },
+        {
+          "key": "optimized/images/home/vipera-dinniki-landing-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 210,
+          "byteSize": 19597
+        },
+        {
+          "key": "optimized/images/home/vipera-dinniki-landing-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 210,
+          "byteSize": 32110
+        },
+        {
+          "key": "optimized/images/home/vipera-dinniki-landing-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 336,
+          "byteSize": 44802
+        },
+        {
+          "key": "optimized/images/home/vipera-dinniki-landing-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 336,
+          "byteSize": 72216
+        },
+        {
+          "key": "optimized/images/home/vipera-dinniki-landing-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 420,
+          "byteSize": 65693
+        },
+        {
+          "key": "optimized/images/home/vipera-dinniki-landing-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 420,
+          "byteSize": 105984
+        },
+        {
+          "key": "optimized/images/home/vipera-dinniki-landing-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 630,
+          "byteSize": 134201
+        },
+        {
+          "key": "optimized/images/home/vipera-dinniki-landing-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 630,
+          "byteSize": 209290
+        }
+      ],
+      "updatedAt": "2026-10-09T21:39:04.296Z"
+    },
     "images/news/theridion-huseynovi-new-spider-species-georgia-2026/theridion-huseynovi.png": {
       "sourceHash": "d4a1a13fbf943fc87f371418a57eca878129fcd41f735deb5bfbca43c80fe9f3",
       "configFingerprint": "409788ee46c653d8",

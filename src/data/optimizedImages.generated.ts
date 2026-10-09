@@ -200,6 +200,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1800],
     "formats": ["avif", "webp"]
   },
+  "/images/home/vipera-dinniki-landing.jpg": {
+    "path": "images/home/vipera-dinniki-landing",
+    "width": 1200,
+    "height": 630,
+    "widths": [320, 400, 640, 800, 1200],
+    "formats": ["avif", "webp"]
+  },
   "/images/news/vipera-pontica-hybrid-georgia-2026/figure-1.jpg": {
     "path": "images/news/vipera-pontica-hybrid-georgia-2026/figure-1",
     "width": 1772,
