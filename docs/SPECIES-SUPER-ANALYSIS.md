@@ -64,6 +64,8 @@ The existing worktree/publishing mechanism is reused. Super Analysis enforces th
 
 Latest job snapshots are saved atomically below the OS temporary directory, namespaced by repository path. A new local server process recognizes a persisted running job as interrupted. It does not claim it can resume an AI call or reuse stale validation. Restart with a fresh context after reviewing any existing PR. Timeout/model/schema/evidence/stale-input/check failures are surfaced with completed reports retained. Network polling retries without launching a second analysis. Git push failures preserve the local branch using the existing recovery mechanism.
 
+Missing, unknown or unverified evidence on a proposed edit/source/pair triggers one read-only repair call with the precise owner and evidence statuses. The rejected response remains available to that call; nothing is applied before successful validation. The model must inspect support or withdraw the proposal into review findings, never relabel unsupported evidence merely to pass. A second evidence failure stops the stage. Other validation failures are not retried. Tests cover successful repair, the retry limit and preservation of all locale files on failure.
+
 ## Verification boundaries
 
 Program validation checks structure, ownership, references, deterministic invariants and successful project checks. It cannot prove that a model correctly understood a paper, that every semantic qualification survived, or that an excerpt/URL is authentic. `verified` is an AI source-inspection assessment, **not human approval or a factual guarantee**. The final artifact is deliberately a draft for editorial review. Unsupported changes must remain findings. No automatic merge or deployment occurs.

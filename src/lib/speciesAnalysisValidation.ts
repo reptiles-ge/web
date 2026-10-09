@@ -24,6 +24,8 @@ const links = (value: string) => [
 const plain = (value: string) =>
   value.replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1");
 
+export class AnalysisEvidenceError extends Error {}
+
 export function analysisLookalikes(source: string, id: string) {
   const { registry } = lookalikeObject(source);
   const direct = registry[id] ?? [];
@@ -173,9 +175,18 @@ export function validateSuperAnalysisResult(
   if (new Set(evidence.map((item) => item.id)).size !== evidence.length)
     throw new Error("Duplicate evidence ids");
   const byId = new Map(evidence.map((item) => [item.id, item]));
-  const requireEvidence = (ids: string[]) => {
-    if (!ids.length || ids.some((id) => byId.get(id)?.status !== "verified"))
-      throw new Error("Change lacks verified source evidence");
+  const requireEvidence = (ids: string[], owner: string) => {
+    const invalid = ids.filter((id) => byId.get(id)?.status !== "verified");
+    if (!ids.length || invalid.length)
+      throw new AnalysisEvidenceError(
+        `Change lacks verified source evidence (${owner}): ${
+          !ids.length
+            ? "missing evidenceIds"
+            : invalid
+                .map((id) => `${id}=${byId.get(id)?.status ?? "unknown"}`)
+                .join(", ")
+        }`,
+      );
   };
   for (const finding of result.findings) {
     if (finding.evidenceIds.some((id) => !byId.has(id)))
@@ -204,7 +215,7 @@ export function validateSuperAnalysisResult(
       throw new Error("Field index is too large");
     seenFields.add(edit.field);
     if (stage === "analysis" || stage === "lookalikes")
-      requireEvidence(edit.evidenceIds);
+      requireEvidence(edit.evidenceIds, `field ${edit.field}`);
     else if (edit.evidenceIds.some((id) => byId.get(id)?.status !== "verified"))
       throw new Error("Unknown edit evidence");
     for (const locale of ANALYSIS_LOCALES) {
@@ -265,7 +276,7 @@ export function validateSuperAnalysisResult(
       throw new Error("Link targets differ between locales");
   }
   for (const source of result.sources) {
-    requireEvidence(source.evidenceIds);
+    requireEvidence(source.evidenceIds, `source ${source.url}`);
     if (!source.evidenceIds.some((id) => byId.get(id)?.url === source.url))
       throw new Error("Source URL does not match evidence");
   }
@@ -293,7 +304,7 @@ export function validateSuperAnalysisResult(
       throw new Error("Unknown lookalike evidence");
     seenPeers.add(pair.id);
     if (pair.action === "add" || pair.action === "remove")
-      requireEvidence(pair.evidenceIds);
+      requireEvidence(pair.evidenceIds, `lookalike ${pair.id}: ${pair.action}`);
   }
   return result;
 }

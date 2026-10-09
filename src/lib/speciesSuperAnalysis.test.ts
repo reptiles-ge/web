@@ -161,6 +161,58 @@ describe("four-stage Super Analysis runner", () => {
     expect(runCodexProcess).not.toHaveBeenCalled();
   });
 
+  it.each([true, false])(
+    "repairs missing evidence once, applying only a validated response (%s)",
+    async (repairSucceeds) => {
+      let calls = 0;
+      vi.mocked(runCodexProcess).mockImplementation(
+        async ({ args, prompt }) => {
+          calls++;
+          if (calls === 2) {
+            expect(prompt).toContain("field overview");
+            expect(prompt).toContain("Never change a status to verified");
+            expect(
+              (await readSpeciesAnalysisContent(id, worktree)).ka.raw,
+            ).toBe(original);
+          }
+          await fs.writeFile(
+            args[args.indexOf("--output-last-message") + 1],
+            JSON.stringify({
+              coverage: speciesAnalysisSurfaces.map((surface) => surface.id),
+              edits:
+                calls === 2 && repairSucceeds
+                  ? []
+                  : [
+                      {
+                        after: values("A bird is 25 cm."),
+                        before: values("A bird is 20 cm."),
+                        evidenceIds: [],
+                        field: "overview",
+                        reason: "Correct size",
+                      },
+                    ],
+              evidence: [],
+              findings: [],
+              lookalikes: [],
+              sources: [],
+              stage: "analysis",
+              summary: "Unverified correction requires review",
+            }),
+          );
+        },
+      );
+      const run = await createSuperAnalysisRunner(id, worktree, directory);
+      if (repairSucceeds)
+        await expect(run("analysis")).resolves.toContain("requires review");
+      else await expect(run("analysis")).rejects.toThrow("field overview");
+      expect(calls).toBe(2);
+      for (const locale of ANALYSIS_LOCALES)
+        expect(
+          (await readSpeciesAnalysisContent(id, worktree))[locale].raw,
+        ).toBe(original);
+    },
+  );
+
   it("leaves all files unchanged when a model response fails validation", async () => {
     vi.mocked(runCodexProcess).mockImplementation(async ({ args }) => {
       await fs.writeFile(
@@ -170,6 +222,7 @@ describe("four-stage Super Analysis runner", () => {
     });
     const run = await createSuperAnalysisRunner(id, worktree, directory);
     await expect(run("analysis")).rejects.toThrow();
+    expect(runCodexProcess).toHaveBeenCalledTimes(1);
     for (const locale of ANALYSIS_LOCALES)
       expect((await readSpeciesAnalysisContent(id, worktree))[locale].raw).toBe(
         original,
