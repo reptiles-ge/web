@@ -1,6 +1,4 @@
-import type { ComponentType } from "react";
-
-import { ExternalLink } from "lucide-react";
+import { ArrowLeft, ExternalLink } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import type { CreditAuthor } from "@/data/creditAuthors";
@@ -9,7 +7,13 @@ import type { AppLocale } from "@/i18n/routing";
 import type { CreditAuthorPhoto } from "@/lib/creditAuthors";
 
 import { AuthorGallery } from "@/components/AuthorGallery";
-import { CoverImage } from "@/components/CoverImage";
+import {
+  AuthorIdentity,
+  AuthorNext,
+  type AuthorSocial,
+  AuthorSpeciesGroups,
+  AuthorSummary,
+} from "@/components/AuthorPageParts";
 import { NewsArticleCard } from "@/components/NewsArticleCard";
 import { FacebookGlyph, InstagramGlyph } from "@/components/SocialGlyphs";
 import {
@@ -17,17 +21,15 @@ import {
   creditAuthorIndexHref,
   creditAuthorName,
 } from "@/data/creditAuthors";
-import { getSpeciesById } from "@/data/species";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { Link } from "@/i18n/navigation";
 import {
-  getCreditAuthorHubIds,
+  getCreditAuthorFieldSummary,
+  getCreditAuthorGroupStats,
   getCreditAuthorSpeciesIds,
 } from "@/lib/creditAuthors";
-import { GROUP_HUBS } from "@/lib/groupHubs";
-import { AUTHOR_PORTRAIT_SIZES } from "@/lib/imageSizes";
-import { quizHref } from "@/lib/quizzes";
-import { speciesHref } from "@/lib/speciesRoutes";
+
+const EYEBROW =
+  "text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase";
 
 export async function AuthorPage({
   author,
@@ -40,21 +42,102 @@ export async function AuthorPage({
   photos: CreditAuthorPhoto[];
   relatedNews: NewsArticle[];
 }) {
-  const [t, tShared, tProfile] = await Promise.all([
+  const [t, tProfile] = await Promise.all([
     getTranslations({ locale, namespace: "author" }),
-    getTranslations({ locale, namespace: "groupHubShared" }),
     getTranslations({ locale, namespace: "profile" }),
   ]);
   const name = creditAuthorName(author, locale);
   const bio = creditAuthorBio(author, locale);
   const speciesIds = getCreditAuthorSpeciesIds(photos);
-  const hubs = getCreditAuthorHubIds(speciesIds);
-  const socials: Array<{
-    href: string;
-    Icon: ComponentType<{ className?: string }>;
-    key: string;
-    label: string;
-  }> = [];
+  const groups = getCreditAuthorGroupStats(photos);
+
+  return (
+    <div className="min-h-screen bg-background">
+      <section className="pt-24 pb-12 sm:pt-28 lg:pt-32 lg:pb-[72px]">
+        <div className="mx-auto max-w-[1440px] px-6 lg:px-[60px]">
+          <nav
+            aria-label={tProfile("breadcrumbAria")}
+            className="flex items-center gap-3"
+          >
+            <Link
+              className="inline-flex h-9 items-center gap-1 rounded-full bg-card pr-[15px] pl-[9px] text-[13.5px] font-medium text-foreground transition-colors hover:text-primary"
+              href={creditAuthorIndexHref()}
+            >
+              <ArrowLeft aria-hidden="true" className="size-4" />
+              {t("index.breadcrumb")}
+            </Link>
+            <span
+              aria-current="page"
+              className="truncate text-[13px] text-muted-foreground"
+            >
+              {name}
+            </span>
+          </nav>
+
+          <div className="mt-7 lg:mt-10 lg:flex lg:items-stretch lg:gap-12">
+            <AuthorIdentity
+              author={author}
+              bio={bio}
+              locale={locale}
+              name={name}
+              photos={photos.length}
+              socials={authorSocials(author, t)}
+            />
+            <AuthorSummary
+              field={getCreditAuthorFieldSummary(photos)}
+              groups={groups}
+              locale={locale}
+              photos={photos.length}
+              species={speciesIds.length}
+            />
+          </div>
+        </div>
+      </section>
+
+      {photos.length > 0 ? (
+        <section className="scroll-mt-28 bg-card py-12 lg:py-20" id="gallery">
+          <div className="mx-auto max-w-[1440px] px-6 lg:px-[60px]">
+            <AuthorGallery locale={locale} photos={photos} />
+          </div>
+        </section>
+      ) : null}
+
+      <AuthorSpeciesGroups
+        groups={groups}
+        locale={locale}
+        species={speciesIds.length}
+      />
+
+      {relatedNews.length > 0 ? (
+        <section className="pb-12 lg:pb-[88px]">
+          <div className="mx-auto max-w-[1440px] px-6 lg:px-[60px]">
+            <div className="max-w-3xl">
+              <p className={EYEBROW}>{t("relatedNews")}</p>
+              <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">
+                {t("relatedNewsIntro", { name })}
+              </p>
+            </div>
+            <ul className="mt-8 grid gap-x-8 gap-y-12 sm:grid-cols-2 xl:grid-cols-3">
+              {relatedNews.map((article) => (
+                <li className="h-full" key={article.id}>
+                  <NewsArticleCard article={article} locale={locale} />
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      ) : null}
+
+      <AuthorNext hubs={groups.map((group) => group.hub)} locale={locale} />
+    </div>
+  );
+}
+
+function authorSocials(
+  author: CreditAuthor,
+  t: Awaited<ReturnType<typeof getTranslations>>,
+): AuthorSocial[] {
+  const socials: AuthorSocial[] = [];
   if (author.links?.facebook) {
     socials.push({
       href: author.links.facebook,
@@ -79,197 +162,5 @@ export async function AuthorPage({
       label: "ResearchGate",
     });
   }
-
-  return (
-    <div className="min-h-screen bg-background">
-      <header
-        className="border-b border-border"
-        style={{ paddingTop: "5.5rem" }}
-      >
-        <div className="mx-auto max-w-[1400px] px-6 pt-6 pb-10 lg:px-10 lg:pt-8 lg:pb-14">
-          <nav aria-label={tProfile("breadcrumbAria")} className="sr-only">
-            <ol className="flex flex-wrap items-center gap-2 text-[13px] text-muted-foreground">
-              <li>
-                <Link
-                  className="transition-colors hover:text-foreground"
-                  href="/"
-                >
-                  {tShared("breadcrumbHome")}
-                </Link>
-              </li>
-              <li aria-hidden="true" className="text-border">
-                /
-              </li>
-              <li>
-                <Link
-                  className="transition-colors hover:text-foreground"
-                  href={creditAuthorIndexHref()}
-                >
-                  {t("index.breadcrumb")}
-                </Link>
-              </li>
-              <li aria-hidden="true" className="text-border">
-                /
-              </li>
-              <li aria-current="page" className="text-foreground/80">
-                {name}
-              </li>
-            </ol>
-          </nav>
-
-          <div className="mt-8 flex items-center gap-5 sm:mt-10 sm:gap-8">
-            <div className="relative size-28 shrink-0 overflow-hidden rounded-full ring-1 ring-border sm:size-36 lg:size-40">
-              <CoverImage
-                alt={t("portraitAlt", { name })}
-                className={`object-cover ${author.portraitClass ?? "object-[50%_18%]"}`}
-                priority
-                sizes={AUTHOR_PORTRAIT_SIZES}
-                src={author.portraitSrc}
-              />
-            </div>
-            <div className="min-w-0">
-              <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
-                {t(`roles.${author.role}`)}
-              </p>
-              <h1 className="mt-2 font-display text-[clamp(1.7rem,3.6vw,2.6rem)] leading-[1.05] font-semibold tracking-tight text-foreground">
-                {name}
-              </h1>
-              <p className="mt-4 text-[13px] text-muted-foreground">
-                <span className="font-medium text-foreground">
-                  {photos.length}
-                </span>{" "}
-                {t("statPhotos")}
-                <span className="mx-2 text-border">·</span>
-                <span className="font-medium text-foreground">
-                  {speciesIds.length}
-                </span>{" "}
-                {t("statSpecies")}
-              </p>
-            </div>
-          </div>
-          <p className="mt-6 max-w-2xl text-[15px] leading-relaxed text-muted-foreground sm:mt-8">
-            {bio ?? t("subtitle")}
-          </p>
-          {socials.length > 0 ? (
-            <ul className="mt-5 flex items-center gap-2">
-              {socials.map((item) => (
-                <li key={item.key}>
-                  <a
-                    aria-label={item.label}
-                    className="inline-flex size-11 items-center justify-center rounded-full border border-border bg-card text-muted-foreground transition-colors hover:border-primary/35 hover:text-primary"
-                    href={item.href}
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
-                    <item.Icon className="size-4" />
-                  </a>
-                </li>
-              ))}
-            </ul>
-          ) : null}
-        </div>
-      </header>
-
-      <section className="bg-background py-16 sm:py-20 lg:py-28">
-        <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <h2 className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
-            {t("gallery")}
-          </h2>
-          <AuthorGallery locale={locale} photos={photos} />
-
-          {speciesIds.length > 0 ? (
-            <div className="mt-20 border-t border-border pt-12 sm:mt-24 sm:pt-16">
-              <h2 className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
-                {t("speciesList")}
-              </h2>
-              <ul className="mt-6 flex max-w-3xl flex-wrap gap-x-6 gap-y-3">
-                {speciesIds.map((id) => {
-                  const species = getSpeciesById(id);
-                  if (!species) return null;
-                  const localized = localizeSpecies(species, locale);
-                  return (
-                    <li key={id}>
-                      <Link
-                        className="inline-flex min-h-11 items-center text-[15px] text-muted-foreground transition-colors hover:text-foreground"
-                        href={speciesHref(id, locale)}
-                        prefetch={false}
-                      >
-                        {localized.commonName}
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          ) : null}
-
-          {relatedNews.length > 0 ? (
-            <section className="mt-20 border-t border-border pt-12 sm:mt-24 sm:pt-16">
-              <div className="max-w-3xl">
-                <h2 className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
-                  {t("relatedNews")}
-                </h2>
-                <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">
-                  {t("relatedNewsIntro", { name })}
-                </p>
-              </div>
-              <ul className="mt-8 grid gap-x-8 gap-y-12 sm:grid-cols-2 xl:grid-cols-3">
-                {relatedNews.map((article) => (
-                  <li className="h-full" key={article.id}>
-                    <NewsArticleCard article={article} locale={locale} />
-                  </li>
-                ))}
-              </ul>
-            </section>
-          ) : null}
-
-          <div className="mt-20 border-t border-border pt-12 sm:mt-24 sm:pt-16">
-            <h2 className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
-              {t("next")}
-            </h2>
-            <ul className="mt-6 flex max-w-3xl flex-wrap gap-x-6 gap-y-3">
-              <li>
-                <Link
-                  className="inline-flex min-h-11 items-center text-[15px] text-muted-foreground transition-colors hover:text-foreground"
-                  href="/species"
-                >
-                  {tProfile("allSpecies")}
-                </Link>
-              </li>
-              {hubs.map((hub) => (
-                <li key={hub}>
-                  <Link
-                    className="inline-flex min-h-11 items-center text-[15px] text-muted-foreground transition-colors hover:text-foreground"
-                    href={GROUP_HUBS[hub].path}
-                  >
-                    {tShared(`hubs.${hub}`)}
-                  </Link>
-                </li>
-              ))}
-              {hubs.includes("snakes") ? (
-                <li>
-                  <Link
-                    className="inline-flex min-h-11 items-center text-[15px] text-muted-foreground transition-colors hover:text-foreground"
-                    href={quizHref("snake", locale)}
-                  >
-                    {t("nextQuizSnake")}
-                  </Link>
-                </li>
-              ) : null}
-              {hubs.includes("lizards") ? (
-                <li>
-                  <Link
-                    className="inline-flex min-h-11 items-center text-[15px] text-muted-foreground transition-colors hover:text-foreground"
-                    href={quizHref("lizard", locale)}
-                  >
-                    {t("nextQuizLizard")}
-                  </Link>
-                </li>
-              ) : null}
-            </ul>
-          </div>
-        </div>
-      </section>
-    </div>
-  );
+  return socials;
 }

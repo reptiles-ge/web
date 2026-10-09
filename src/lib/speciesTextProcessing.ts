@@ -3,7 +3,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 
 import { readSpeciesField, validateEditorResult } from "@/lib/contentEditor";
-import { transformWithCodex } from "@/lib/contentEditorCodex";
+import { transformWithAgent } from "@/lib/contentEditorAgent";
 import {
   assertSpeciesTextSourceCurrent,
   createSpeciesTextsPullRequest,
@@ -55,7 +55,7 @@ export async function processSpeciesTexts(id: string, operationId: string) {
     );
     const updates: Array<{
       field: string;
-      result: Awaited<ReturnType<typeof transformWithCodex>>;
+      result: Awaited<ReturnType<typeof transformWithAgent>>;
       source: string;
     }> = [];
     for (let index = 0; index < targets.length; index += 3) {
@@ -63,7 +63,7 @@ export async function processSpeciesTexts(id: string, operationId: string) {
         targets.slice(index, index + 3).map(async ({ field, source }) => {
           const selection = { after: "", before: "", selected: source };
           const result = validateEditorResult(
-            await transformWithCodex(selection, "xhigh"),
+            await transformWithAgent(selection),
             selection,
           );
           return { field, result, source };
