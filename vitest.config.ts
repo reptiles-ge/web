@@ -30,6 +30,7 @@ export default defineConfig({
         "src/components/AuthorGallery.tsx",
         "src/components/AuthorIndexPage.tsx",
         "src/components/AuthorPage.tsx",
+        "src/components/AuthorPageParts.tsx",
         "src/components/AxeDevConsole.tsx",
         "src/components/BiologyExpandable.tsx",
         "src/components/CatalogSpeciesIndexPage.tsx",
