@@ -2,11 +2,8 @@ import { fireEvent, render, screen, within } from "@testing-library/react";
 import { NextIntlClientProvider } from "next-intl";
 import { describe, expect, it } from "vitest";
 
-import {
-  GroupHubSpeciesCatalog,
-  type HubCatalogItem,
-  matchesHubCatalog,
-} from "@/components/GroupHubSpeciesCatalog";
+import { GroupHubSpeciesCatalog } from "@/components/GroupHubSpeciesCatalog";
+import { type HubCatalogItem, matchesHubCatalog } from "@/lib/groupHubCatalog";
 
 import ka from "../../messages/ka.json";
 

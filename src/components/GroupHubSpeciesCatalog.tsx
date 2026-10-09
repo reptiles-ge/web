@@ -5,26 +5,18 @@ import { useTranslations } from "next-intl";
 import { type ComponentProps, useId, useState } from "react";
 
 import type { DangerLevel } from "@/data/speciesTypes";
-import type { LocaleSpeciesHref } from "@/lib/localeSwitch";
 
 import { CoverImage } from "@/components/CoverImage";
 import { Link } from "@/i18n/navigation";
 import { trackSpeciesClick } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
+import {
+  type HubCatalogItem,
+  type HubRiskFilter,
+  matchesHubCatalog,
+  riskFilterOf,
+} from "@/lib/groupHubCatalog";
 import { HUB_CATALOG_INITIAL } from "@/lib/groupHubLayout";
-
-export type HubCatalogItem = {
-  alt: string;
-  href: LocaleSpeciesHref;
-  id: string;
-  image: string;
-  mobileImage?: string;
-  name: string;
-  risk: DangerLevel | null;
-  scientificName: string;
-};
-
-export type HubRiskFilter = "all" | "unrated" | DangerLevel;
 
 const RISK_ORDER: readonly DangerLevel[] = ["High", "Moderate", "Harmless"];
 
@@ -199,20 +191,6 @@ export function GroupHubSpeciesCatalog({
   );
 }
 
-export function matchesHubCatalog(
-  item: Pick<HubCatalogItem, "name" | "risk" | "scientificName">,
-  filter: HubRiskFilter,
-  query: string,
-) {
-  if (filter !== "all" && riskFilterOf(item) !== filter) return false;
-  const needle = query.trim().toLocaleLowerCase();
-  if (!needle) return true;
-  return (
-    item.name.toLocaleLowerCase().includes(needle) ||
-    item.scientificName.toLocaleLowerCase().includes(needle)
-  );
-}
-
 function FilterChip({
   active,
   count,
@@ -308,8 +286,4 @@ function HubSpeciesCard({
       </span>
     </Link>
   );
-}
-
-function riskFilterOf(item: Pick<HubCatalogItem, "risk">) {
-  return item.risk ?? "unrated";
 }

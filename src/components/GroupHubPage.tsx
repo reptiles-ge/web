@@ -8,7 +8,7 @@ import type { GroupHubId } from "@/lib/groupHubs";
 import { ContentAttribution } from "@/components/ContentAttribution";
 import { CoverImage } from "@/components/CoverImage";
 import { GroupHubFaqSection } from "@/components/GroupHubFaqSection";
-import { GroupHubGuides, hubGuideCards } from "@/components/GroupHubGuides";
+import { GroupHubGuides } from "@/components/GroupHubGuides";
 import { GroupHubHero } from "@/components/GroupHubHero";
 import { GroupHubOverview } from "@/components/GroupHubOverview";
 import { GroupHubRegionsMap } from "@/components/GroupHubRegionsMap";
@@ -35,6 +35,7 @@ import {
 } from "@/lib/clusterGuides";
 import { cn } from "@/lib/cn";
 import { contentEditorAttributes } from "@/lib/contentEditorAttributes";
+import { hubGuideCards } from "@/lib/groupHubCatalog";
 import { HUB_DISPLAY_ORDER } from "@/lib/groupHubLayout";
 import { GROUP_HUB_ILLUSTRATIONS, GROUP_HUBS } from "@/lib/groupHubs";
 import { usesDangerScale } from "@/lib/speciesRisk";

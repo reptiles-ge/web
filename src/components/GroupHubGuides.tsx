@@ -13,12 +13,12 @@ import {
   HUB_LEAD,
 } from "@/components/GroupHubSectionHeading";
 import { Link } from "@/i18n/navigation";
-import { HUB_CLUSTER_CARDS, type HubClusterCard } from "@/lib/clusterGuides";
+import { HUB_CLUSTER_CARDS } from "@/lib/clusterGuides";
 import { cn } from "@/lib/cn";
+import { type HubGuideCard, hubGuideCards } from "@/lib/groupHubCatalog";
 import { EMERGENCY_GUIDE_KEYS, HUB_FEATURED_GUIDE } from "@/lib/groupHubLayout";
 import { speciesHref } from "@/lib/speciesRoutes";
 
-type GuideCard = Exclude<HubClusterCard, { kind: "quiz" }>;
 type SharedT = Awaited<ReturnType<typeof getTranslations>>;
 
 const CARD_SHADOW =
@@ -30,7 +30,7 @@ export async function GroupHubGuides({
   locale,
   species,
 }: {
-  cards: GuideCard[];
+  cards: HubGuideCard[];
   hubId: GroupHubId;
   locale: AppLocale;
   species: Species[];
@@ -101,20 +101,16 @@ export async function GroupHubGuides({
   );
 }
 
-export function hubGuideCards(cards: readonly HubClusterCard[]) {
-  return cards.filter((card): card is GuideCard => card.kind !== "quiz");
-}
-
-function cardBody(card: GuideCard, t: SharedT) {
+function cardBody(card: HubGuideCard, t: SharedT) {
   const key = `cluster.${card.key}.body`;
   return t.has(key) ? t(key) : null;
 }
 
-function cardHref(card: GuideCard, locale: AppLocale) {
+function cardHref(card: HubGuideCard, locale: AppLocale) {
   return card.kind === "page" ? card.href : speciesHref(card.id, locale);
 }
 
-function cardTitle(card: GuideCard, species: Species[], t: SharedT) {
+function cardTitle(card: HubGuideCard, species: Species[], t: SharedT) {
   if (card.kind === "species") {
     const item = species.find((entry) => entry.id === card.id);
     if (item) return item.commonName;
@@ -130,10 +126,10 @@ function FeaturedGuide({
   species,
   t,
 }: {
-  card: GuideCard;
+  card: HubGuideCard;
   image?: Species;
   locale: AppLocale;
-  rows: GuideCard[];
+  rows: HubGuideCard[];
   species: Species[];
   t: SharedT;
 }) {
@@ -213,7 +209,7 @@ function GuideRow({
   species,
   t,
 }: {
-  card: GuideCard;
+  card: HubGuideCard;
   locale: AppLocale;
   number: number;
   species: Species[];
@@ -262,7 +258,7 @@ function GuideTile({
   species,
   t,
 }: {
-  card: GuideCard;
+  card: HubGuideCard;
   locale: AppLocale;
   species: Species[];
   t: SharedT;
