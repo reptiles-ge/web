@@ -2,7 +2,7 @@ import fs from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 
-import { runCodexProcess } from "@/lib/codexProcess";
+import { runAgent } from "@/lib/aiAgent";
 import { type EditorResult, editorResultSchema } from "@/lib/contentEditor";
 import { buildEditorPrompt } from "@/lib/contentEditorPrompt";
 
@@ -15,39 +15,27 @@ const OUTPUT_SCHEMA = {
   type: "object",
 };
 
-export async function transformWithCodex(
-  input: {
-    after: string;
-    before: string;
-    selected: string;
-  },
-  reasoningEffort: "medium" | "xhigh" = "xhigh",
-): Promise<EditorResult> {
+export async function transformWithAgent(input: {
+  after: string;
+  before: string;
+  selected: string;
+}): Promise<EditorResult> {
   const directory = await fs.mkdtemp(
-    path.join(os.tmpdir(), "reptiles-editor-codex-"),
+    path.join(os.tmpdir(), "reptiles-editor-ai-"),
   );
   try {
     const schema = path.join(directory, "schema.json");
     const output = path.join(directory, "output.json");
     await fs.writeFile(schema, JSON.stringify(OUTPUT_SCHEMA));
     const prompt = buildEditorPrompt(input);
-    await runCodexProcess({
-      args: [
-        "exec",
-        "--ephemeral",
-        "--skip-git-repo-check",
-        "--sandbox",
-        "read-only",
-        "--config",
-        `model_reasoning_effort="${reasoningEffort}"`,
-        "--output-schema",
-        schema,
-        "--output-last-message",
-        output,
-      ],
+    await runAgent({
+      access: "read-only",
       cwd: directory,
+      output,
+      profile: "editor",
       prompt,
-      timeoutMs: reasoningEffort === "xhigh" ? 45 * 60 * 1000 : 600_000,
+      schema,
+      timeoutMs: 45 * 60 * 1000,
     });
     return editorResultSchema.parse(
       JSON.parse(await fs.readFile(output, "utf8")),

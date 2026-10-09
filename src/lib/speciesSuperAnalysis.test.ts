@@ -3,7 +3,7 @@ import os from "node:os";
 import path from "node:path";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
-import { runCodexProcess } from "@/lib/codexProcess";
+import { type AgentRun, type AgentTask, runAgent } from "@/lib/aiAgent";
 import {
   buildSpeciesAnalysisContext,
   readSpeciesAnalysisContent,
@@ -16,7 +16,24 @@ import {
   type SuperAnalysisResult,
 } from "@/lib/speciesSuperAnalysisSchema";
 
-vi.mock("@/lib/codexProcess", () => ({ runCodexProcess: vi.fn() }));
+vi.mock("@/lib/aiAgent", async (original) => ({
+  ...(await original<typeof import("@/lib/aiAgent")>()),
+  runAgent: vi.fn(),
+}));
+
+const agentRun: AgentRun = {
+  backend: "claude",
+  costUsd: 0.42,
+  effort: "high",
+  model: "claude-opus-5-5",
+};
+
+function mockAgent(handler: (task: AgentTask) => Promise<void>) {
+  vi.mocked(runAgent).mockImplementation(async (task) => {
+    await handler(task);
+    return agentRun;
+  });
+}
 vi.mock("@/lib/speciesAnalysisInventory", async (original) => ({
   ...(await original<typeof import("@/lib/speciesAnalysisInventory")>()),
   buildSpeciesAnalysisContext: vi.fn(),
@@ -72,8 +89,11 @@ describe("four-stage Super Analysis runner", () => {
       content: { ka: { overview: string } };
       previous: SuperAnalysisResult[];
     }> = [];
-    vi.mocked(runCodexProcess).mockImplementation(async ({ args, prompt }) => {
-      expect(args).toContain("read-only");
+    const tasks: AgentTask[] = [];
+    mockAgent(async (task) => {
+      const { access, output, prompt } = task;
+      tasks.push(task);
+      expect(access).toBe("read-only");
       const stage = SUPER_ANALYSIS_STAGES[contexts.length];
       const contextFile = /SHARED CONTEXT FILE: (.+)\n/.exec(prompt)![1];
       const context = JSON.parse(await fs.readFile(contextFile, "utf8"));
@@ -131,13 +151,22 @@ describe("four-stage Super Analysis runner", () => {
             reason: "Clearer wording",
           },
         ];
-      await fs.writeFile(
-        args[args.indexOf("--output-last-message") + 1],
-        JSON.stringify(result),
-      );
+      await fs.writeFile(output, JSON.stringify(result));
     });
     const run = await createSuperAnalysisRunner(id, worktree, directory);
-    for (const stage of SUPER_ANALYSIS_STAGES) await run(stage);
+    const reports: string[] = [];
+    for (const stage of SUPER_ANALYSIS_STAGES) reports.push(await run(stage));
+    expect(tasks.map(({ profile, webSearch }) => [profile, webSearch])).toEqual(
+      [
+        ["super:analysis", true],
+        ["super:lookalikes", true],
+        ["super:links", false],
+        ["super:texts", false],
+      ],
+    );
+    expect(tasks.every((task) => task.attempt === 0)).toBe(true);
+    expect(tasks[0].readDirectories).toEqual([directory]);
+    expect(reports[0]).toContain("AI: claude-opus-5-5 (high) · $0.42");
     expect(
       contexts.map((context) => context.previous.map((result) => result.stage)),
     ).toEqual([
@@ -158,49 +187,48 @@ describe("four-stage Super Analysis runner", () => {
   it("does not call AI for an out-of-order step", async () => {
     const run = await createSuperAnalysisRunner(id, worktree, directory);
     await expect(run("texts")).rejects.toThrow("order");
-    expect(runCodexProcess).not.toHaveBeenCalled();
+    expect(runAgent).not.toHaveBeenCalled();
   });
 
   it.each([true, false])(
     "repairs missing evidence once, applying only a validated response (%s)",
     async (repairSucceeds) => {
       let calls = 0;
-      vi.mocked(runCodexProcess).mockImplementation(
-        async ({ args, prompt }) => {
-          calls++;
-          if (calls === 2) {
-            expect(prompt).toContain("field overview");
-            expect(prompt).toContain("never change a status to verified");
-            expect(
-              (await readSpeciesAnalysisContent(id, worktree)).ka.raw,
-            ).toBe(original);
-          }
-          await fs.writeFile(
-            args[args.indexOf("--output-last-message") + 1],
-            JSON.stringify({
-              coverage: speciesAnalysisSurfaces.map((surface) => surface.id),
-              edits:
-                calls === 2 && repairSucceeds
-                  ? []
-                  : [
-                      {
-                        after: values("A bird is 25 cm."),
-                        before: values("A bird is 20 cm."),
-                        evidenceIds: [],
-                        field: "overview",
-                        reason: "Correct size",
-                      },
-                    ],
-              evidence: [],
-              findings: [],
-              lookalikes: [],
-              sources: [],
-              stage: "analysis",
-              summary: "Unverified correction requires review",
-            }),
+      mockAgent(async ({ attempt, output, prompt }) => {
+        calls++;
+        expect(attempt).toBe(calls - 1);
+        if (calls === 2) {
+          expect(prompt).toContain("field overview");
+          expect(prompt).toContain("never change a status to verified");
+          expect((await readSpeciesAnalysisContent(id, worktree)).ka.raw).toBe(
+            original,
           );
-        },
-      );
+        }
+        await fs.writeFile(
+          output,
+          JSON.stringify({
+            coverage: speciesAnalysisSurfaces.map((surface) => surface.id),
+            edits:
+              calls === 2 && repairSucceeds
+                ? []
+                : [
+                    {
+                      after: values("A bird is 25 cm."),
+                      before: values("A bird is 20 cm."),
+                      evidenceIds: [],
+                      field: "overview",
+                      reason: "Correct size",
+                    },
+                  ],
+            evidence: [],
+            findings: [],
+            lookalikes: [],
+            sources: [],
+            stage: "analysis",
+            summary: "Unverified correction requires review",
+          }),
+        );
+      });
       const run = await createSuperAnalysisRunner(id, worktree, directory);
       if (repairSucceeds)
         await expect(run("analysis")).resolves.toContain("requires review");
@@ -214,15 +242,12 @@ describe("four-stage Super Analysis runner", () => {
   );
 
   it("leaves all files unchanged when a model response fails validation", async () => {
-    vi.mocked(runCodexProcess).mockImplementation(async ({ args }) => {
-      await fs.writeFile(
-        args[args.indexOf("--output-last-message") + 1],
-        '{"stage":"analysis"}',
-      );
+    mockAgent(async ({ output }) => {
+      await fs.writeFile(output, '{"stage":"analysis"}');
     });
     const run = await createSuperAnalysisRunner(id, worktree, directory);
     await expect(run("analysis")).rejects.toThrow();
-    expect(runCodexProcess).toHaveBeenCalledTimes(1);
+    expect(runAgent).toHaveBeenCalledTimes(1);
     for (const locale of ANALYSIS_LOCALES)
       expect((await readSpeciesAnalysisContent(id, worktree))[locale].raw).toBe(
         original,
@@ -243,49 +268,44 @@ describe("four-stage Super Analysis runner", () => {
           initial,
         );
       let calls = 0;
-      vi.mocked(runCodexProcess).mockImplementation(
-        async ({ args, prompt }) => {
-          const stage = SUPER_ANALYSIS_STAGES[Math.min(calls, 3)];
-          calls++;
-          if (calls === 5)
-            expect(prompt).toContain("Preserve every original scientific name");
-          const response: SuperAnalysisResult = {
-            coverage: speciesAnalysisSurfaces.map((surface) => surface.id),
-            edits: [],
-            evidence: [],
-            findings: [],
-            lookalikes: [],
-            sources: [],
-            stage,
-            summary: "Reviewed",
-          };
-          if (stage === "texts")
-            response.edits = [
-              {
-                after: values(
-                  calls === 5 && repairSucceeds
-                    ? "Test species is a ground bird."
-                    : "A ground bird.",
-                ),
-                before: values("Test species is a bird."),
-                evidenceIds: [],
-                field: "description",
-                reason: "Clearer introduction",
-              },
-              {
-                after: values("A bird measures 20 cm."),
-                before: values("A bird is 20 cm."),
-                evidenceIds: [],
-                field: "overview",
-                reason: "Clearer phrasing",
-              },
-            ];
-          await fs.writeFile(
-            args[args.indexOf("--output-last-message") + 1],
-            JSON.stringify(response),
-          );
-        },
-      );
+      mockAgent(async ({ output, prompt }) => {
+        const stage = SUPER_ANALYSIS_STAGES[Math.min(calls, 3)];
+        calls++;
+        if (calls === 5)
+          expect(prompt).toContain("Preserve every original scientific name");
+        const response: SuperAnalysisResult = {
+          coverage: speciesAnalysisSurfaces.map((surface) => surface.id),
+          edits: [],
+          evidence: [],
+          findings: [],
+          lookalikes: [],
+          sources: [],
+          stage,
+          summary: "Reviewed",
+        };
+        if (stage === "texts")
+          response.edits = [
+            {
+              after: values(
+                calls === 5 && repairSucceeds
+                  ? "Test species is a ground bird."
+                  : "A ground bird.",
+              ),
+              before: values("Test species is a bird."),
+              evidenceIds: [],
+              field: "description",
+              reason: "Clearer introduction",
+            },
+            {
+              after: values("A bird measures 20 cm."),
+              before: values("A bird is 20 cm."),
+              evidenceIds: [],
+              field: "overview",
+              reason: "Clearer phrasing",
+            },
+          ];
+        await fs.writeFile(output, JSON.stringify(response));
+      });
       const run = await createSuperAnalysisRunner(id, worktree, directory);
       for (const stage of SUPER_ANALYSIS_STAGES.slice(0, 3)) await run(stage);
       const report = await run("texts");
@@ -318,59 +338,54 @@ describe("four-stage Super Analysis runner", () => {
           initial,
         );
       let calls = 0;
-      vi.mocked(runCodexProcess).mockImplementation(
-        async ({ args, prompt }) => {
-          const stage = SUPER_ANALYSIS_STAGES[Math.min(calls, 3)];
-          calls++;
-          if (calls === 5) expect(prompt).toContain("original number");
-          const response: SuperAnalysisResult = {
-            coverage: speciesAnalysisSurfaces.map((surface) => surface.id),
-            edits: [],
-            evidence: [],
-            findings: [],
-            lookalikes: [],
-            sources: [],
-            stage,
-            summary: "Reviewed",
-          };
-          if (stage === "texts")
-            response.edits = [
-              {
-                after: values(
-                  calls === 5 && repairSucceeds
-                    ? "Noted at two sites."
-                    : "Recorded at 3 sites.",
-                ),
-                before: values("Recorded at two sites."),
-                evidenceIds: [],
-                field: "habitat",
-                reason: "Clearer habitat",
-              },
-              {
-                after: values(
-                  calls === 5 && repairSucceeds
-                    ? "A bird measures 20 cm."
-                    : "A bird is 25 cm.",
-                ),
-                before: values("A bird is 20 cm."),
-                evidenceIds: [],
-                field: "overview",
-                reason: "Clearer overview",
-              },
-              {
-                after: values("Feeds on insects."),
-                before: values("Eats insects."),
-                evidenceIds: [],
-                field: "diet",
-                reason: "Clearer diet",
-              },
-            ];
-          await fs.writeFile(
-            args[args.indexOf("--output-last-message") + 1],
-            JSON.stringify(response),
-          );
-        },
-      );
+      mockAgent(async ({ output, prompt }) => {
+        const stage = SUPER_ANALYSIS_STAGES[Math.min(calls, 3)];
+        calls++;
+        if (calls === 5) expect(prompt).toContain("original number");
+        const response: SuperAnalysisResult = {
+          coverage: speciesAnalysisSurfaces.map((surface) => surface.id),
+          edits: [],
+          evidence: [],
+          findings: [],
+          lookalikes: [],
+          sources: [],
+          stage,
+          summary: "Reviewed",
+        };
+        if (stage === "texts")
+          response.edits = [
+            {
+              after: values(
+                calls === 5 && repairSucceeds
+                  ? "Noted at two sites."
+                  : "Recorded at 3 sites.",
+              ),
+              before: values("Recorded at two sites."),
+              evidenceIds: [],
+              field: "habitat",
+              reason: "Clearer habitat",
+            },
+            {
+              after: values(
+                calls === 5 && repairSucceeds
+                  ? "A bird measures 20 cm."
+                  : "A bird is 25 cm.",
+              ),
+              before: values("A bird is 20 cm."),
+              evidenceIds: [],
+              field: "overview",
+              reason: "Clearer overview",
+            },
+            {
+              after: values("Feeds on insects."),
+              before: values("Eats insects."),
+              evidenceIds: [],
+              field: "diet",
+              reason: "Clearer diet",
+            },
+          ];
+        await fs.writeFile(output, JSON.stringify(response));
+      });
       const run = await createSuperAnalysisRunner(id, worktree, directory);
       for (const stage of SUPER_ANALYSIS_STAGES.slice(0, 3)) await run(stage);
       const report = await run("texts");
