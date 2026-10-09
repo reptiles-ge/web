@@ -16,8 +16,7 @@ import {
 import { GroupHubSpeciesCatalog } from "@/components/GroupHubSpeciesCatalog";
 import { QuizCtaLink } from "@/components/QuizCtaLink";
 import { Link } from "@/i18n/navigation";
-import { type HubCatalogItem } from "@/lib/groupHubCatalog";
-import { HUB_QUIZ } from "@/lib/groupHubLayout";
+import { HUB_QUIZ, type HubCatalogItem } from "@/lib/groupHubLayout";
 import { GROUP_HUBS } from "@/lib/groupHubs";
 import { quizHref } from "@/lib/quizzes";
 import { QUIZ_LENGTH } from "@/lib/snakeQuiz";

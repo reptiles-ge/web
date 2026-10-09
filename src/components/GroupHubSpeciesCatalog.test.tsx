@@ -3,7 +3,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { describe, expect, it } from "vitest";
 
 import { GroupHubSpeciesCatalog } from "@/components/GroupHubSpeciesCatalog";
-import { type HubCatalogItem, matchesHubCatalog } from "@/lib/groupHubCatalog";
+import { type HubCatalogItem, matchesHubCatalog } from "@/lib/groupHubLayout";
 
 import ka from "../../messages/ka.json";
 
