@@ -62,7 +62,7 @@ export const speciesAnalysisSurfaces = [
     fields: ["overview"],
     id: "overview",
     kind: "editable",
-    rule: "Collapsible full text; compare with hero description and interaction for repetition.",
+    rule: "Full text, always expanded; compare with hero description and interaction for repetition.",
     sources: ["src/components/SpeciesOverviewText.tsx"],
   },
   {
