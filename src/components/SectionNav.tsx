@@ -7,6 +7,7 @@ import type { DangerLevel } from "@/data/speciesTypes";
 import { cn } from "@/lib/cn";
 
 type SectionNavItem = {
+  count?: number;
   id: string;
   label: string;
 };
@@ -188,6 +189,18 @@ export function SectionNav({
                     href={`#${item.id}`}
                   >
                     {item.label}
+                    {item.count ? (
+                      <span
+                        className={cn(
+                          "ml-2 text-[12px] font-normal tabular-nums",
+                          active
+                            ? "text-background/70"
+                            : "text-muted-foreground",
+                        )}
+                      >
+                        {item.count}
+                      </span>
+                    ) : null}
                   </a>
                 </li>
               );

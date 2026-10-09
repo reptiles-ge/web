@@ -538,6 +538,11 @@ export async function SpeciesProfileBody({
       />
 
       <SpeciesProfileNavigation
+        counts={{
+          [SPECIES_SECTION_IDS.faq]: species.faq?.length ?? 0,
+          [SPECIES_SECTION_IDS.gallery]: gallery.length,
+          [SPECIES_SECTION_IDS.sources]: species.sources.length,
+        }}
         locale={locale}
         name={species.commonName}
         riskLevel={riskLevel}
@@ -1113,11 +1118,13 @@ function SpeciesProfileIdentification({
 }
 
 async function SpeciesProfileNavigation({
+  counts,
   locale,
   name,
   riskLevel,
   sections,
 }: {
+  counts: Partial<Record<string, number>>;
   locale: AppLocale;
   name: string;
   riskLevel?: DangerLevel;
@@ -1149,7 +1156,7 @@ async function SpeciesProfileNavigation({
   return (
     <SectionNav
       ariaLabel={t("contents")}
-      items={ids.map((id) => ({ id, label: labels[id] }))}
+      items={ids.map((id) => ({ count: counts[id], id, label: labels[id] }))}
       name={name}
       riskLevel={riskLevel}
     />
