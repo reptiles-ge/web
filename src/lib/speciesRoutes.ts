@@ -21,185 +21,336 @@ export { regionHref } from "@/lib/regionHref";
 const LOOKALIKES: Record<string, string[]> = {
   "ablepharus-pannonicus": [
     "ophisops-elegans",
-    "eumeces-schneiderii",
-    "anguis-colchica",
+    "eumeces-schneiderii"
   ],
-  "accipiter-gentilis": ["accipiter-nisus", "buteo-buteo", "falco-peregrinus"],
-  "accipiter-nisus": ["accipiter-gentilis", "falco-peregrinus"],
-  "aegolius-funereus": ["strix-aluco", "otus-scops", "athene-noctua"],
-  "aegypius-monachus": ["aquila-chrysaetos"],
-  "alectoris-chukar": ["coturnix-coturnix", "phasianus-colchicus"],
-  "anguis-colchica": ["pseudopus-apodus"],
-  "araneus-diadematus": ["argiope-bruennichi", "argiope-lobata"],
-  "argiope-bruennichi": ["argiope-lobata"],
-  "athene-noctua": ["otus-scops", "strix-aluco", "aegolius-funereus"],
+  "accipiter-gentilis": [
+    "accipiter-nisus",
+    "buteo-buteo",
+    "falco-peregrinus"
+  ],
+  "accipiter-nisus": [
+    "accipiter-gentilis",
+    "falco-peregrinus"
+  ],
+  "aegolius-funereus": [
+    "strix-aluco",
+    "otus-scops",
+    "athene-noctua"
+  ],
+  "aegypius-monachus": [
+    "aquila-chrysaetos"
+  ],
+  "alectoris-chukar": [
+    "coturnix-coturnix",
+    "phasianus-colchicus"
+  ],
+  "anguis-colchica": [
+    "pseudopus-apodus"
+  ],
+  "araneus-diadematus": [
+    "argiope-bruennichi",
+    "argiope-lobata"
+  ],
+  "argiope-bruennichi": [
+    "argiope-lobata"
+  ],
+  "athene-noctua": [
+    "otus-scops",
+    "strix-aluco",
+    "aegolius-funereus"
+  ],
   "bubo-bubo": [
     "strix-aluco",
     "athene-noctua",
     "otus-scops",
-    "aegolius-funereus",
+    "aegolius-funereus"
   ],
   "bufo-verrucosissimus": [
     "bufotes-viridis",
     "pelodytes-caucasicus",
     "rana-macrocnemis",
-    "pelobates-syriacus",
+    "pelobates-syriacus"
   ],
   "bufotes-viridis": [
     "bufo-verrucosissimus",
     "pelobates-syriacus",
-    "hyla-orientalis",
+    "hyla-orientalis"
   ],
-  "buteo-buteo": ["pernis-apivorus", "aquila-chrysaetos", "falco-peregrinus"],
-  "canis-aureus": ["vulpes-vulpes", "canis-lupus"],
+  "buteo-buteo": [
+    "pernis-apivorus",
+    "aquila-chrysaetos",
+    "falco-peregrinus"
+  ],
+  "canis-aureus": [
+    "vulpes-vulpes",
+    "canis-lupus"
+  ],
   "capra-cylindricornis": [
     "capra-aegagrus",
     "capreolus-capreolus",
-    "cervus-elaphus",
+    "cervus-elaphus"
   ],
-  "capreolus-capreolus": ["cervus-elaphus", "sus-scrofa", "capra-aegagrus"],
-  "cervus-elaphus": ["capreolus-capreolus", "capra-aegagrus", "sus-scrofa"],
-  "columba-livia": ["columba-palumbus"],
+  "capreolus-capreolus": [
+    "cervus-elaphus",
+    "sus-scrofa",
+    "capra-aegagrus"
+  ],
+  "cervus-elaphus": [
+    "capreolus-capreolus",
+    "capra-aegagrus",
+    "sus-scrofa"
+  ],
+  "columba-livia": [
+    "columba-palumbus"
+  ],
   "coronella-austriaca": [
     "vipera-transcaucasiana",
     "zamenis-hohenackeri",
-    "vipera-kaznakovi",
+    "vipera-kaznakovi"
   ],
-  "coturnix-coturnix": ["phasianus-colchicus"],
+  "coturnix-coturnix": [
+    "phasianus-colchicus"
+  ],
   "darevskia-adjarica": [
     "darevskia-clarkorum",
     "darevskia-derjugini",
-    "darevskia-mixta",
+    "darevskia-mixta"
   ],
-  "darevskia-alpina": ["darevskia-caucasica", "darevskia-brauneri"],
+  "darevskia-alpina": [
+    "darevskia-caucasica",
+    "darevskia-brauneri"
+  ],
   "darevskia-armeniaca": [
     "darevskia-valentini",
     "darevskia-mixta",
-    "darevskia-dahli",
+    "darevskia-dahli"
   ],
   "darevskia-caucasica": [
     "darevskia-daghestanica",
     "darevskia-mixta",
     "darevskia-obscura",
     "darevskia-brauneri",
-    "darevskia-derjugini",
+    "darevskia-derjugini"
   ],
   "darevskia-clarkorum": [
     "darevskia-adjarica",
     "darevskia-derjugini",
-    "darevskia-mixta",
+    "darevskia-mixta"
   ],
-  "darevskia-daghestanica": ["darevskia-caucasica"],
-  "darevskia-dahli": ["darevskia-portschinskii", "darevskia-armeniaca"],
+  "darevskia-daghestanica": [
+    "darevskia-caucasica"
+  ],
+  "darevskia-dahli": [
+    "darevskia-portschinskii",
+    "darevskia-armeniaca"
+  ],
   "darevskia-derjugini": [
     "darevskia-praticola",
     "darevskia-pontica",
     "darevskia-mixta",
     "darevskia-brauneri",
-    "darevskia-obscura",
+    "darevskia-obscura"
   ],
   "darevskia-mixta": [
     "darevskia-clarkorum",
     "darevskia-caucasica",
     "darevskia-derjugini",
     "darevskia-adjarica",
-    "darevskia-brauneri",
+    "darevskia-brauneri"
   ],
-  "darevskia-pontica": ["darevskia-praticola", "darevskia-derjugini"],
+  "darevskia-pontica": [
+    "darevskia-praticola",
+    "darevskia-derjugini"
+  ],
   "darevskia-portschinskii": [
     "darevskia-dahli",
     "darevskia-obscura",
-    "darevskia-valentini",
+    "darevskia-valentini"
   ],
-  "darevskia-praticola": ["darevskia-pontica"],
-  "darevskia-raddei": ["darevskia-obscura"],
-  "darevskia-valentini": ["darevskia-obscura", "darevskia-armeniaca"],
+  "darevskia-praticola": [
+    "darevskia-pontica"
+  ],
+  "darevskia-raddei": [
+    "darevskia-obscura"
+  ],
+  "darevskia-valentini": [
+    "darevskia-obscura",
+    "darevskia-armeniaca"
+  ],
   "dolichophis-schmidti": [
     "malpolon-insignitus",
     "platyceps-najadum",
     "hemorrhois-ravergieri",
-    "elaphe-urartica",
+    "elaphe-urartica"
   ],
-  "eirenis-collaris": ["eirenis-modestus"],
-  "eirenis-modestus": ["eirenis-collaris"],
+  "eirenis-collaris": [
+    "eirenis-modestus"
+  ],
+  "eirenis-modestus": [
+    "eirenis-collaris"
+  ],
   "elaphe-dione": [
     "elaphe-urartica",
     "zamenis-hohenackeri",
     "hemorrhois-ravergieri",
     "platyceps-najadum",
-    "telescopus-fallax",
+    "telescopus-fallax"
   ],
   "elaphe-urartica": [
     "elaphe-dione",
     "dolichophis-schmidti",
     "hemorrhois-ravergieri",
-    "macrovipera-lebetina",
+    "macrovipera-lebetina"
   ],
   "emys-orbicularis": [
     "mauremys-caspica",
     "trachemys-scripta",
-    "testudo-graeca",
+    "testudo-graeca"
   ],
-  "eremias-arguta": ["eremias-velox", "ophisops-elegans"],
-  "eremias-velox": ["eremias-arguta"],
-  "erithacus-rubecula": ["luscinia-megarhynchos"],
-  "eryx-jaculus": ["xerotyphlops-vermicularis", "telescopus-fallax"],
-  "eumeces-schneiderii": ["ablepharus-pannonicus", "ophisops-elegans"],
-  "euscorpius-italicus": ["euscorpius-mingrelicus", "olivierus-caucasicus"],
-  "euscorpius-mingrelicus": ["euscorpius-italicus", "olivierus-caucasicus"],
-  "falco-peregrinus": ["accipiter-nisus", "buteo-buteo"],
-  "falco-tinnunculus": ["falco-peregrinus"],
-  "ficedula-hypoleuca": ["ficedula-semitorquata"],
-  "ficedula-semitorquata": ["ficedula-hypoleuca"],
-  "gypaetus-barbatus": ["gyps-fulvus", "aquila-chrysaetos"],
-  "gyps-fulvus": ["aegypius-monachus", "aquila-chrysaetos"],
+  "eremias-arguta": [
+    "eremias-velox",
+    "ophisops-elegans"
+  ],
+  "eremias-velox": [
+    "eremias-arguta"
+  ],
+  "erithacus-rubecula": [
+    "luscinia-megarhynchos"
+  ],
+  "eryx-jaculus": [
+    "xerotyphlops-vermicularis",
+    "telescopus-fallax"
+  ],
+  "eumeces-schneiderii": [
+    "ablepharus-pannonicus",
+    "ophisops-elegans"
+  ],
+  "euscorpius-italicus": [
+    "euscorpius-mingrelicus",
+    "olivierus-caucasicus"
+  ],
+  "euscorpius-mingrelicus": [
+    "euscorpius-italicus",
+    "olivierus-caucasicus"
+  ],
+  "falco-peregrinus": [
+    "accipiter-nisus",
+    "buteo-buteo"
+  ],
+  "falco-tinnunculus": [
+    "falco-peregrinus"
+  ],
+  "ficedula-hypoleuca": [
+    "ficedula-semitorquata"
+  ],
+  "ficedula-semitorquata": [
+    "ficedula-hypoleuca"
+  ],
+  "gypaetus-barbatus": [
+    "gyps-fulvus",
+    "aquila-chrysaetos"
+  ],
+  "gyps-fulvus": [
+    "aegypius-monachus",
+    "aquila-chrysaetos"
+  ],
   "hemorrhois-ravergieri": [
     "platyceps-najadum",
     "elaphe-urartica",
     "dolichophis-schmidti",
-    "macrovipera-lebetina",
+    "macrovipera-lebetina"
   ],
   "hyla-orientalis": [
     "hyla-savignyi",
     "pelophylax-ridibundus",
-    "bufotes-viridis",
+    "bufotes-viridis"
   ],
-  "hyla-savignyi": ["hyla-orientalis", "pelophylax-ridibundus"],
-  "jynx-torquilla": ["lanius-collurio"],
-  "lacerta-agilis": ["lacerta-strigata", "lacerta-media"],
-  "lacerta-media": ["lacerta-strigata", "lacerta-agilis"],
+  "hyla-savignyi": [
+    "hyla-orientalis",
+    "pelophylax-ridibundus"
+  ],
+  "jynx-torquilla": [
+    "lanius-collurio"
+  ],
+  "lacerta-agilis": [
+    "lacerta-strigata",
+    "lacerta-media"
+  ],
+  "lacerta-media": [
+    "lacerta-strigata",
+    "lacerta-agilis"
+  ],
   "lacerta-strigata": [
     "lacerta-media",
     "lacerta-agilis",
     "eremias-velox",
-    "ophisops-elegans",
+    "ophisops-elegans"
   ],
-  "latrodectus-tredecimguttatus": ["steatoda-paykulliana"],
-  "lissotriton-lantzi": ["ommatotriton-ophryticus", "triturus-karelinii"],
-  "luscinia-megarhynchos": ["erithacus-rubecula"],
-  "lynx-lynx": ["panthera-pardus", "canis-lupus"],
-  "macrovipera-lebetina": ["elaphe-urartica", "hemorrhois-ravergieri"],
-  "malpolon-insignitus": ["dolichophis-schmidti", "hemorrhois-ravergieri"],
-  "mauremys-caspica": ["emys-orbicularis", "trachemys-scripta"],
-  "mesobuthus-eupeus": ["olivierus-caucasicus"],
-  "milvus-migrans": ["buteo-buteo", "pernis-apivorus"],
-  "natrix-natrix": ["natrix-tessellata", "vipera-kaznakovi"],
-  "natrix-tessellata": ["natrix-natrix"],
+  "latrodectus-tredecimguttatus": [
+    "steatoda-paykulliana"
+  ],
+  "lissotriton-lantzi": [
+    "ommatotriton-ophryticus",
+    "triturus-karelinii"
+  ],
+  "luscinia-megarhynchos": [
+    "erithacus-rubecula"
+  ],
+  "lynx-lynx": [
+    "panthera-pardus",
+    "canis-lupus"
+  ],
+  "macrovipera-lebetina": [
+    "elaphe-urartica",
+    "hemorrhois-ravergieri"
+  ],
+  "malpolon-insignitus": [
+    "dolichophis-schmidti",
+    "hemorrhois-ravergieri"
+  ],
+  "mauremys-caspica": [
+    "emys-orbicularis",
+    "trachemys-scripta"
+  ],
+  "mesobuthus-eupeus": [
+    "olivierus-caucasicus"
+  ],
+  "milvus-migrans": [
+    "buteo-buteo",
+    "pernis-apivorus"
+  ],
+  "natrix-natrix": [
+    "natrix-tessellata",
+    "vipera-kaznakovi"
+  ],
+  "natrix-tessellata": [
+    "natrix-natrix"
+  ],
   "olivierus-caucasicus": [
     "mesobuthus-eupeus",
     "euscorpius-italicus",
-    "euscorpius-mingrelicus",
+    "euscorpius-mingrelicus"
   ],
-  "ommatotriton-ophryticus": ["lissotriton-lantzi", "triturus-karelinii"],
-  "ophisops-elegans": ["ablepharus-pannonicus"],
-  "otus-scops": ["strix-aluco", "athene-noctua"],
-  "paralaudakia-caucasia": ["tenuidactylus-caspius"],
+  "ommatotriton-ophryticus": [
+    "lissotriton-lantzi",
+    "triturus-karelinii"
+  ],
+  "ophisops-elegans": [
+    "ablepharus-pannonicus"
+  ],
+  "otus-scops": [
+    "strix-aluco",
+    "athene-noctua"
+  ],
+  "paralaudakia-caucasia": [
+    "tenuidactylus-caspius"
+  ],
   "pelobates-syriacus": [
     "pelodytes-caucasicus",
     "bufotes-viridis",
     "pelophylax-ridibundus",
     "rana-macrocnemis",
-    "bufo-verrucosissimus",
+    "bufo-verrucosissimus"
   ],
   "pelodytes-caucasicus": [
     "pelobates-syriacus",
@@ -207,50 +358,84 @@ const LOOKALIKES: Record<string, string[]> = {
     "pelophylax-ridibundus",
     "bufo-verrucosissimus",
     "hyla-orientalis",
-    "bufotes-viridis",
+    "bufotes-viridis"
   ],
   "pelophylax-ridibundus": [
     "rana-macrocnemis",
     "hyla-orientalis",
     "bufotes-viridis",
-    "pelodytes-caucasicus",
+    "pelodytes-caucasicus"
   ],
-  "pernis-apivorus": ["buteo-buteo", "accipiter-gentilis", "falco-peregrinus"],
-  "phasianus-colchicus": ["coturnix-coturnix"],
-  "phoenicolacerta-laevis": ["darevskia-pontica"],
-  "pholcus-phalangioides": ["araneus-diadematus"],
-  "pica-pica": ["corvus-corax"],
+  "pernis-apivorus": [
+    "buteo-buteo",
+    "accipiter-gentilis",
+    "falco-peregrinus"
+  ],
+  "phasianus-colchicus": [
+    "coturnix-coturnix"
+  ],
+  "phoenicolacerta-laevis": [
+    "darevskia-pontica"
+  ],
+  "pholcus-phalangioides": [
+    "araneus-diadematus"
+  ],
+  "pica-pica": [
+    "corvus-corax"
+  ],
   "platyceps-najadum": [
     "hemorrhois-ravergieri",
     "dolichophis-schmidti",
     "elaphe-dione",
-    "telescopus-fallax",
+    "telescopus-fallax"
   ],
-  "procyon-lotor": ["meles-canescens"],
-  "pseudopus-apodus": ["anguis-colchica"],
+  "procyon-lotor": [
+    "meles-canescens"
+  ],
+  "pseudopus-apodus": [
+    "anguis-colchica"
+  ],
   "rana-macrocnemis": [
     "pelophylax-ridibundus",
     "pelodytes-caucasicus",
     "bufo-verrucosissimus",
-    "bufotes-viridis",
+    "bufotes-viridis"
   ],
-  "streptopelia-turtur": ["columba-palumbus"],
-  "telescopus-fallax": ["vipera-transcaucasiana", "elaphe-dione"],
-  "testudo-graeca": ["emys-orbicularis", "trachemys-scripta"],
+  "streptopelia-turtur": [
+    "columba-palumbus"
+  ],
+  "telescopus-fallax": [
+    "vipera-transcaucasiana",
+    "elaphe-dione"
+  ],
+  "testudo-graeca": [
+    "emys-orbicularis",
+    "trachemys-scripta"
+  ],
   "trachemys-scripta": [
     "emys-orbicularis",
     "mauremys-caspica",
-    "testudo-graeca",
+    "testudo-graeca"
   ],
-  "triturus-karelinii": ["ommatotriton-ophryticus", "lissotriton-lantzi"],
-  "turdus-merula": ["erithacus-rubecula"],
-  "tyto-alba": ["strix-aluco"],
-  "vipera-dinniki": ["vipera-kaznakovi", "vipera-darevskii"],
+  "triturus-karelinii": [
+    "ommatotriton-ophryticus",
+    "lissotriton-lantzi"
+  ],
+  "turdus-merula": [
+    "erithacus-rubecula"
+  ],
+  "tyto-alba": [
+    "strix-aluco"
+  ],
+  "vipera-dinniki": [
+    "vipera-kaznakovi",
+    "vipera-darevskii"
+  ],
   "vipera-kaznakovi": [
     "vipera-dinniki",
     "vipera-transcaucasiana",
     "natrix-natrix",
-    "coronella-austriaca",
+    "coronella-austriaca"
   ],
   "vipera-transcaucasiana": [
     "coronella-austriaca",
@@ -259,16 +444,22 @@ const LOOKALIKES: Record<string, string[]> = {
     "vipera-darevskii",
     "vipera-renardi",
     "vipera-kaznakovi",
-    "macrovipera-lebetina",
+    "macrovipera-lebetina"
   ],
-  "vulpes-vulpes": ["canis-lupus"],
-  "xerotyphlops-vermicularis": ["eryx-jaculus"],
+  "vulpes-vulpes": [
+    "canis-lupus"
+  ],
+  "xerotyphlops-vermicularis": [
+    "eryx-jaculus"
+  ],
   "zamenis-hohenackeri": [
     "elaphe-dione",
     "coronella-austriaca",
-    "hemorrhois-ravergieri",
+    "hemorrhois-ravergieri"
   ],
-  "zamenis-longissimus": ["natrix-natrix"],
+  "zamenis-longissimus": [
+    "natrix-natrix"
+  ]
 };
 
 const lookalikeIndex: Record<string, Set<string>> = {};
