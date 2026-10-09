@@ -7,9 +7,12 @@ import type { AppLocale } from "@/i18n/routing";
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { TrackedSpeciesLink } from "@/components/home/TrackedSpeciesLink";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
-import { GalleryPhotoFigcaption } from "@/components/SpeciesGallery";
 import { SpeciesInlineLink } from "@/components/SpeciesInlineLink";
 import { SpeciesLookalikeList } from "@/components/SpeciesLookalikeList";
+import {
+  creditAuthorName,
+  getPublishedCreditAuthorByName,
+} from "@/data/creditAuthors";
 import {
   optimizedEntry,
   optimizedImgSrc,
@@ -43,6 +46,20 @@ type SpeciesIdentificationProps = {
 const inlineSpeciesLinkClassName =
   "font-medium text-primary underline decoration-primary/30 underline-offset-4 transition-colors hover:decoration-primary";
 const LOOKALIKE_COVER_SIZES = "(max-width: 1023px) 264px, 420px";
+const SECTION_CLASS_NAME = "bg-background pt-9 pb-10 lg:py-20";
+const LAYOUT_CLASS_NAME = "mx-auto max-w-[1440px] px-4 lg:px-[60px]";
+const PHOTO_LAYOUT_CLASS_NAME =
+  "lg:grid lg:grid-cols-[minmax(0,520px)_minmax(0,1fr)] lg:grid-rows-[1fr_auto_auto_auto_1fr] lg:gap-x-16";
+const INTRO_CLASS_NAME = "min-w-0 px-2 lg:col-start-2 lg:row-start-2 lg:px-0";
+const SUMMARY_CLASS_NAME =
+  "mt-3 max-w-[620px] text-[15px] leading-[1.6] whitespace-pre-line text-muted-foreground lg:mt-[18px] lg:text-[16px] lg:leading-[1.65]";
+const COLORS_CARD_CLASS_NAME =
+  "mt-2 rounded-[22px] bg-card px-5 py-[18px] shadow-[0_1px_2px_rgba(14,20,17,0.04)] lg:mt-5 lg:rounded-none lg:bg-transparent lg:p-0 lg:shadow-none";
+const COLORS_LABEL_CLASS_NAME =
+  "block text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase lg:mr-1.5";
+const COLOR_CHIPS_CLASS_NAME = "mt-2.5 flex flex-wrap gap-1.5 lg:contents";
+const COLOR_CHIP_CLASS_NAME =
+  "inline-flex h-[30px] items-center gap-[7px] rounded-full bg-background pr-[11px] pl-2 text-[12.5px] font-medium text-foreground lg:h-[34px] lg:gap-2 lg:bg-card lg:pr-[13px] lg:pl-[9px] lg:text-[13.5px]";
 
 export async function SpeciesIdentification({
   identification,
@@ -74,29 +91,16 @@ export async function SpeciesIdentification({
   }
 
   return (
-    <section className="bg-background py-11 lg:py-20">
-      <div
-        className={cn(
-          "mx-auto max-w-[1440px] px-6 lg:px-[60px]",
-          photo &&
-            "lg:grid lg:grid-cols-[minmax(0,520px)_minmax(0,1fr)] lg:gap-x-16",
-        )}
-      >
-        <div className="min-w-0 lg:col-start-2 lg:row-start-1 lg:self-end">
-          <IdentificationHeading
-            anchorLabel={t("anchorLink")}
-            eyebrow={t("identification")}
-            title={t("identificationTitle", { name })}
-          />
-          <p
-            className="mt-3 max-w-2xl text-[15px] leading-[1.6] whitespace-pre-line text-muted-foreground lg:mt-[18px] lg:text-[16px] lg:leading-[1.65]"
-            data-content-field={editable ? "identification.summary" : undefined}
-            data-content-id={editable ? speciesId : undefined}
-            data-content-kind={editable ? "species" : undefined}
-          >
-            <IdentificationRichText text={identification.summary} />
-          </p>
-        </div>
+    <section className={SECTION_CLASS_NAME}>
+      <div className={cn(LAYOUT_CLASS_NAME, photo && PHOTO_LAYOUT_CLASS_NAME)}>
+        <IdentificationIntro
+          anchorLabel={t("anchorLink")}
+          editable={editable}
+          eyebrow={t("identification")}
+          speciesId={speciesId}
+          summary={identification.summary}
+          title={t("identificationTitle", { name })}
+        />
         {photo ? (
           <SpeciesIdentificationPhoto
             alt={photoAlt ?? name}
@@ -105,20 +109,19 @@ export async function SpeciesIdentification({
           />
         ) : null}
         {identification.traits.length > 0 ? (
-          <div className="mt-6 min-w-0 lg:col-start-2 lg:row-start-2 lg:self-start">
-            <IdentificationTraits
-              editable={editable}
-              offset={0}
-              speciesId={speciesId}
-              traits={identification.traits}
-            />
-          </div>
+          <IdentificationTraits
+            editable={editable}
+            speciesId={speciesId}
+            traits={identification.traits}
+          />
         ) : null}
-        <SpeciesIdentificationColors
-          identification={identification}
-          locale={locale}
-          speciesId={speciesId}
-        />
+        <div className="min-w-0 lg:col-start-2 lg:row-start-4">
+          <SpeciesIdentificationColors
+            identification={identification}
+            locale={locale}
+            speciesId={speciesId}
+          />
+        </div>
       </div>
       <SpeciesIdentificationLookalikes
         label={t("lookalikesTitle")}
@@ -161,32 +164,30 @@ function IdentificationRichText({ text }: { text: string }) {
 
 function IdentificationTraits({
   editable,
-  offset,
   speciesId,
   traits,
 }: {
   editable: boolean;
-  offset: number;
   speciesId: string;
   traits: string[];
 }) {
   return (
-    <ol start={offset + 1}>
+    <ol className="mt-3 min-w-0 rounded-[28px] bg-card px-5 pt-1 pb-1.5 shadow-[0_1px_2px_rgba(14,20,17,0.04),0_14px_36px_rgba(14,20,17,0.06)] lg:col-start-2 lg:row-start-3 lg:mt-[22px] lg:rounded-none lg:bg-transparent lg:p-0 lg:shadow-none">
       {traits.map((trait, index) => (
         <li
-          className="flex items-start gap-4 border-t border-border py-4 last:border-b lg:py-5"
+          className="flex items-start gap-3.5 border-t border-border py-3.5 first:border-t-0 lg:gap-4 lg:py-4 lg:first:border-t lg:last:border-b"
           key={trait}
         >
           <span
             aria-hidden="true"
-            className="flex size-8 shrink-0 items-center justify-center rounded-full bg-foreground text-[14px] font-bold text-background tabular-nums"
+            className="flex size-7 shrink-0 items-center justify-center rounded-full bg-foreground text-[13px] font-bold text-background tabular-nums lg:size-8 lg:text-[14px]"
           >
-            {offset + index + 1}
+            {index + 1}
           </span>
           <p
-            className="min-w-0 text-[16px] leading-[1.65] whitespace-pre-line text-foreground/85"
+            className="min-w-0 text-[15px] leading-[1.55] whitespace-pre-line text-foreground/85 lg:text-[16px] lg:leading-[1.65]"
             data-content-field={
-              editable ? `identification.traits.${offset + index}` : undefined
+              editable ? `identification.traits.${index}` : undefined
             }
             data-content-id={editable ? speciesId : undefined}
             data-content-kind={editable ? "species" : undefined}
@@ -226,55 +227,27 @@ async function GiurzaIdentification({
   ] as const;
 
   return (
-    <section className="bg-background py-11 lg:py-20">
-      <div className="mx-auto max-w-[1440px] px-6 lg:grid lg:grid-cols-[minmax(0,520px)_minmax(0,1fr)] lg:items-start lg:gap-x-16 lg:px-[60px]">
-        <div className="min-w-0 lg:col-start-2 lg:row-start-1 lg:self-end">
-          <IdentificationHeading
-            anchorLabel={t("anchorLink")}
-            eyebrow={t("identification")}
-            title={t("identificationTitle", { name })}
-          />
-          <p
-            className="mt-3 max-w-2xl text-[16px] leading-[1.65] whitespace-pre-line text-muted-foreground lg:mt-[18px]"
-            data-content-field={editable ? "identification.summary" : undefined}
-            data-content-id={editable ? speciesId : undefined}
-            data-content-kind={editable ? "species" : undefined}
-          >
-            <IdentificationRichText text={identification.summary} />
-          </p>
-        </div>
+    <section className={SECTION_CLASS_NAME}>
+      <div className={cn(LAYOUT_CLASS_NAME, PHOTO_LAYOUT_CLASS_NAME)}>
+        <IdentificationIntro
+          anchorLabel={t("anchorLink")}
+          editable={editable}
+          eyebrow={t("identification")}
+          speciesId={speciesId}
+          summary={identification.summary}
+          title={t("identificationTitle", { name })}
+        />
         <SpeciesIdentificationPhoto
           alt={photoAlt ?? name}
-          featured
           locale={locale}
           photo={photo}
         />
-        <div className="min-w-0 lg:col-start-2 lg:row-start-2 lg:self-start">
-          <ol className="mt-6 lg:mt-[22px]">
-            {identification.traits.map((trait, index) => (
-              <li
-                className="flex items-start gap-4 border-t border-border py-4 last:border-b lg:py-5"
-                key={trait}
-              >
-                <span
-                  aria-hidden="true"
-                  className="flex size-8 shrink-0 items-center justify-center rounded-full bg-foreground text-[14px] font-bold text-background"
-                >
-                  {index + 1}
-                </span>
-                <p
-                  className="min-w-0 text-[16px] leading-[1.65] whitespace-pre-line text-foreground/85"
-                  data-content-field={
-                    editable ? `identification.traits.${index}` : undefined
-                  }
-                  data-content-id={editable ? speciesId : undefined}
-                  data-content-kind={editable ? "species" : undefined}
-                >
-                  <IdentificationRichText text={trait} />
-                </p>
-              </li>
-            ))}
-          </ol>
+        <IdentificationTraits
+          editable={editable}
+          speciesId={speciesId}
+          traits={identification.traits}
+        />
+        <div className="min-w-0 lg:col-start-2 lg:row-start-4">
           {identification.colors?.length ||
           identification.coloration?.trim() ? (
             <SpeciesIdentificationColors
@@ -283,31 +256,32 @@ async function GiurzaIdentification({
               speciesId={speciesId}
             />
           ) : (
-            <div className="mt-5 flex flex-wrap items-center gap-2">
-              <span className="mr-1 text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
-                {tGiurza("color")}
-              </span>
-              {colors.map(({ key, tone }) => (
-                <span
-                  className="inline-flex h-[34px] items-center gap-2 rounded-full bg-card pr-[13px] pl-[9px] text-[13.5px] font-medium text-foreground"
-                  key={key}
-                >
-                  <span
-                    aria-hidden="true"
-                    className="size-4 rounded-full"
-                    style={{ backgroundColor: tone }}
-                  />
-                  {tGiurza(key)}
+            <div className={COLORS_CARD_CLASS_NAME}>
+              <div className="lg:flex lg:flex-wrap lg:items-center lg:gap-2">
+                <span className={COLORS_LABEL_CLASS_NAME}>
+                  {tGiurza("color")}
                 </span>
-              ))}
+                <div className={COLOR_CHIPS_CLASS_NAME}>
+                  {colors.map(({ key, tone }) => (
+                    <span className={COLOR_CHIP_CLASS_NAME} key={key}>
+                      <span
+                        aria-hidden="true"
+                        className="size-3.5 rounded-full lg:size-4"
+                        style={{ backgroundColor: tone }}
+                      />
+                      {tGiurza(key)}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
           )}
-          <div className="mt-5 flex items-start gap-3 rounded-[22px] bg-[#f3ecd9] px-5 py-4">
+          <div className="mt-2 flex items-start gap-3 rounded-[22px] bg-[#f3ecd9] px-[18px] py-4 lg:mt-5 lg:px-5">
             <TriangleAlert
               aria-hidden="true"
               className="mt-0.5 size-5 shrink-0 text-[#7d6224]"
             />
-            <p className="text-[14.5px] leading-[1.55] text-[#4f3f17]">
+            <p className="text-[13.5px] leading-[1.55] text-[#4f3f17] lg:text-[14.5px]">
               {tGiurza("warning")}
             </p>
           </div>
@@ -352,7 +326,7 @@ function IdentificationHeading({
       </p>
       <AnchoredHeading
         anchorLabel={anchorLabel}
-        className="mt-3 max-w-3xl font-display text-[28px] leading-[1.15] font-semibold tracking-[-0.012em] lg:mt-4 lg:text-[44px] lg:leading-[1.1]"
+        className="mt-2.5 max-w-3xl font-display text-[28px] leading-[1.15] font-semibold tracking-[-0.012em] lg:mt-4 lg:text-[44px] lg:leading-[1.1]"
         id={SPECIES_SECTION_IDS.identification}
         slugSource={title}
       >
@@ -360,6 +334,57 @@ function IdentificationHeading({
       </AnchoredHeading>
     </>
   );
+}
+
+function IdentificationIntro({
+  anchorLabel,
+  editable,
+  eyebrow,
+  speciesId,
+  summary,
+  title,
+}: {
+  anchorLabel: string;
+  editable: boolean;
+  eyebrow: string;
+  speciesId: string;
+  summary: string;
+  title: string;
+}) {
+  return (
+    <div className={INTRO_CLASS_NAME}>
+      <IdentificationHeading
+        anchorLabel={anchorLabel}
+        eyebrow={eyebrow}
+        title={title}
+      />
+      <p
+        className={SUMMARY_CLASS_NAME}
+        data-content-field={editable ? "identification.summary" : undefined}
+        data-content-id={editable ? speciesId : undefined}
+        data-content-kind={editable ? "species" : undefined}
+      >
+        <IdentificationRichText text={summary} />
+      </p>
+    </div>
+  );
+}
+
+function photoCreditLine(
+  credit: GalleryImage["credit"],
+  locale: AppLocale,
+): string {
+  const photographer = credit?.photographer?.trim();
+  const author = photographer
+    ? getPublishedCreditAuthorByName(photographer)
+    : undefined;
+  return [
+    author ? creditAuthorName(author, locale) : photographer,
+    credit?.location?.trim(),
+    credit?.date?.match(/\d{4}/)?.[0],
+  ]
+    .filter(Boolean)
+    .join(" · ");
 }
 
 async function SpeciesIdentificationColors({
@@ -377,30 +402,27 @@ async function SpeciesIdentificationColors({
   const t = await getTranslations({ locale, namespace: "profile" });
   const editable = locale === "ka" && isLocalAdminEnabled();
   return (
-    <div className="mt-5 min-w-0 lg:col-start-2 lg:row-start-3">
-      <h3 className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
-        {t("colorationTitle")}
-      </h3>
-      {colors.length ? (
-        <div className="mt-3 flex flex-wrap items-center gap-2">
-          {[...new Set(colors)].map((color) => (
-            <span
-              className="inline-flex h-[34px] items-center gap-2 rounded-full bg-card pr-[13px] pl-[9px] text-[13.5px] font-medium text-foreground"
-              key={color}
-            >
-              <span
-                aria-hidden="true"
-                className="size-4 rounded-full border border-foreground/10"
-                style={{ backgroundColor: SPECIES_COLOR_TONES[color] }}
-              />
-              {t(`colorNames.${color}`)}
-            </span>
-          ))}
-        </div>
-      ) : null}
+    <div className={COLORS_CARD_CLASS_NAME}>
+      <div className="lg:flex lg:flex-wrap lg:items-center lg:gap-2">
+        <h3 className={COLORS_LABEL_CLASS_NAME}>{t("colorationTitle")}</h3>
+        {colors.length ? (
+          <div className={COLOR_CHIPS_CLASS_NAME}>
+            {[...new Set(colors)].map((color) => (
+              <span className={COLOR_CHIP_CLASS_NAME} key={color}>
+                <span
+                  aria-hidden="true"
+                  className="size-3.5 rounded-full border border-foreground/10 lg:size-4"
+                  style={{ backgroundColor: SPECIES_COLOR_TONES[color] }}
+                />
+                {t(`colorNames.${color}`)}
+              </span>
+            ))}
+          </div>
+        ) : null}
+      </div>
       {text ? (
         <p
-          className="mt-3 text-[15px] leading-[1.65] whitespace-pre-line text-foreground/85 lg:text-[16px]"
+          className="mt-2.5 text-[13.5px] leading-[1.55] whitespace-pre-line text-muted-foreground lg:mt-3 lg:text-[16px] lg:leading-[1.65] lg:text-foreground/85"
           data-content-field={
             editable ? "identification.coloration" : undefined
           }
@@ -410,7 +432,7 @@ async function SpeciesIdentificationColors({
           <IdentificationRichText text={text} />
         </p>
       ) : null}
-      <p className="mt-2 text-[13px] leading-relaxed text-muted-foreground">
+      <p className="mt-2 text-[12.5px] leading-relaxed text-muted-foreground lg:text-[13px]">
         {t("colorationNote")}
       </p>
     </div>
@@ -459,7 +481,7 @@ function SpeciesIdentificationLookalikes({
           {label}
         </h3>
         {countLabel ? (
-          <span className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
+          <span className="text-[12.5px] text-muted-foreground lg:text-[11px] lg:font-medium lg:tracking-[0.18em] lg:uppercase">
             {countLabel}
           </span>
         ) : null}
@@ -489,35 +511,20 @@ function SpeciesIdentificationLookalikes({
 
 function SpeciesIdentificationPhoto({
   alt,
-  featured = false,
   locale,
   photo,
 }: {
   alt: string;
-  featured?: boolean;
   locale: AppLocale;
   photo: GalleryImage;
 }) {
   const entry = optimizedEntry(photo.src);
-  const portrait = Boolean(entry && entry.height > entry.width);
+  const credit = photoCreditLine(photo.credit, locale);
 
   return (
-    <figure
-      className={cn(
-        "mt-5 lg:col-start-1 lg:row-span-2 lg:row-start-1 lg:mt-0",
-        "lg:sticky lg:top-36 lg:self-start",
-      )}
-    >
+    <figure className="mt-5 lg:sticky lg:top-36 lg:col-start-1 lg:row-span-full lg:mt-0 lg:self-start">
       <a
-        className={cn(
-          "group relative block cursor-zoom-in overflow-hidden rounded-[28px] bg-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary lg:rounded-[36px]",
-          featured
-            ? "aspect-4/5 sm:aspect-4/3 lg:aspect-auto lg:h-[690px]"
-            : cn(
-                "max-h-[calc(100svh-13rem)]",
-                portrait ? "aspect-3/4" : "aspect-4/3",
-              ),
-        )}
+        className="group relative block aspect-3/4 cursor-zoom-in overflow-hidden rounded-[28px] bg-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary sm:aspect-4/3 lg:aspect-auto lg:h-[690px] lg:rounded-[36px]"
         data-species-gallery-src={optimizedImgSrc(photo.src, 1200)}
         href={`#${SPECIES_SECTION_IDS.gallery}`}
       >
@@ -538,17 +545,12 @@ function SpeciesIdentificationPhoto({
             width={entry?.width}
           />
         </picture>
-        {featured && photo.credit ? (
-          <span className="absolute bottom-3 left-3 max-w-[calc(100%-1.5rem)] truncate rounded-full bg-ink/75 px-3 py-1.5 text-[11.5px] text-white">
-            {photo.credit.photographer}
-            {photo.credit.location ? ` · ${photo.credit.location}` : ""}
-            {photo.credit.date ? ` · ${photo.credit.date.slice(0, 4)}` : ""}
+        {credit ? (
+          <span className="absolute bottom-2.5 left-2.5 max-w-[calc(100%-1.25rem)] truncate rounded-full bg-ink/66 px-[9px] text-[10.5px] leading-6 text-white/90 lg:bottom-3 lg:left-3 lg:max-w-[calc(100%-1.5rem)] lg:px-2.5 lg:text-[11.5px] lg:leading-[26px]">
+            {credit}
           </span>
         ) : null}
       </a>
-      {featured ? null : (
-        <GalleryPhotoFigcaption locale={locale} photo={photo} />
-      )}
     </figure>
   );
 }
