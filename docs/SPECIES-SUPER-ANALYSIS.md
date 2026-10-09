@@ -15,7 +15,7 @@ The four independent controls remain available in `SpeciesPageAnalysis.tsx`, alo
 
 The prior configurable shared-branch workflow committed each stage sequentially, but passed no structured findings/evidence to the next step. Its default order put texts second. It could publish completed commits after a later failure. Separate text and analysis locks did not coordinate. Same-branch UI showed no live stage transitions until the response finished. These legacy behaviors are preserved for the existing workflow except for a shared species lock; Super Analysis has stricter semantics.
 
-`runCodexProcess` provides subprocess timeout/error propagation. Standalone research uses the original prompts and publishing behavior. Standalone text rewriting still uses its existing schema and link/selection validation. No Telegram notification behavior of those routes was removed. Super Analysis does not add messaging side effects.
+`runCodexProcess` provides subprocess timeout/error propagation. It explicitly selects `gpt-6-sol` for local editor calls, with Extra High (`xhigh`) reasoning for research, Super Analysis and text processing. The inherited desktop default `gpt-6.1-sol` was rejected by the signed-in CLI with HTTP 400. Global Codex configuration is preserved. Standalone research uses the original prompts and publishing behavior. Standalone text rewriting still uses its existing schema and link/selection validation. No Telegram notification behavior of those routes was removed. Super Analysis does not add messaging side effects.
 
 ## Dynamic text inventory
 

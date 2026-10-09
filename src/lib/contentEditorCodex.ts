@@ -21,7 +21,7 @@ export async function transformWithCodex(
     before: string;
     selected: string;
   },
-  reasoningEffort: "medium" | "xhigh" = "medium",
+  reasoningEffort: "medium" | "xhigh" = "xhigh",
 ): Promise<EditorResult> {
   const directory = await fs.mkdtemp(
     path.join(os.tmpdir(), "reptiles-editor-codex-"),

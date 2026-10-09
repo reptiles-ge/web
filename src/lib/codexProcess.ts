@@ -14,19 +14,23 @@ export function runCodexProcess({
   timeoutMs,
 }: CodexProcessInput) {
   return new Promise<void>((resolve, reject) => {
-    const child = spawn("codex", [...args, "--cd", cwd, "-"], {
-      cwd,
-      env: {
-        CODEX_HOME: process.env.CODEX_HOME,
-        HOME: process.env.HOME,
-        LANG: process.env.LANG,
-        NODE_ENV: process.env.NODE_ENV,
-        PATH: process.env.PATH,
-        TMPDIR: process.env.TMPDIR,
+    const child = spawn(
+      "codex",
+      [...args, "--model", "gpt-6-sol", "--cd", cwd, "-"],
+      {
+        cwd,
+        env: {
+          CODEX_HOME: process.env.CODEX_HOME,
+          HOME: process.env.HOME,
+          LANG: process.env.LANG,
+          NODE_ENV: process.env.NODE_ENV,
+          PATH: process.env.PATH,
+          TMPDIR: process.env.TMPDIR,
+        },
+        signal: AbortSignal.timeout(timeoutMs),
+        stdio: ["pipe", "ignore", "pipe"],
       },
-      signal: AbortSignal.timeout(timeoutMs),
-      stdio: ["pipe", "ignore", "pipe"],
-    });
+    );
     let errorText = "";
     child.stderr.setEncoding("utf8");
     child.stderr.on("data", (chunk: string) => {
