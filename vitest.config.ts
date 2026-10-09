@@ -198,7 +198,6 @@ export default defineConfig({
         "src/components/home/HomeField.tsx",
         "src/components/home/HomeFooter.tsx",
         "src/components/home/HomeFresh.tsx",
-        "src/components/home/HomeGroupCarousel.tsx",
         "src/components/home/HomeGroups.tsx",
         "src/components/home/HomeGuides.tsx",
         "src/components/home/HomeSafetyStrip.tsx",

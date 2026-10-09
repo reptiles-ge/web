@@ -93,17 +93,11 @@ export async function SpeciesRangeMap({
     <section className="bg-surface py-9 lg:py-20">
       <div className="mx-auto grid max-w-[1440px] grid-cols-1 px-4 lg:grid-cols-[minmax(0,460px)_minmax(0,1fr)] lg:items-start lg:gap-16 lg:px-[60px]">
         <div className="contents lg:col-start-1 lg:row-start-1 lg:block lg:min-w-0">
-          <div className="order-1">
-            <p className={EYEBROW_CLASS}>{t("range")}</p>
-            <AnchoredHeading
-              anchorLabel={t("anchorLink")}
-              className="mt-4 max-w-xl font-display text-[28px] leading-[1.15] font-semibold tracking-[-0.012em] text-foreground lg:text-[44px] lg:leading-[1.1]"
-              id={SPECIES_SECTION_IDS.range}
-              slugSource={t("rangeTitle", { name: speciesName })}
-            >
-              {t("rangeTitle", { name: speciesName })}
-            </AnchoredHeading>
-          </div>
+          <RangeHeading
+            anchorLabel={t("anchorLink")}
+            eyebrow={t("range")}
+            title={t("rangeTitle", { name: speciesName })}
+          />
           {habitatDetails ? (
             <div className="order-4 mt-4 lg:mt-[18px]">
               <RangeHabitatDetails
@@ -191,17 +185,11 @@ async function GiurzaRangeSection({
     <section className="bg-surface py-9 lg:py-20">
       <div className="mx-auto grid max-w-[1440px] grid-cols-1 px-4 lg:grid-cols-[minmax(0,460px)_minmax(0,1fr)] lg:items-start lg:gap-16 lg:px-[60px]">
         <div className="contents lg:col-start-1 lg:row-start-1 lg:block lg:min-w-0">
-          <div className="order-1">
-            <p className={EYEBROW_CLASS}>{eyebrow}</p>
-            <AnchoredHeading
-              anchorLabel={anchorLabel}
-              className="mt-4 max-w-xl font-display text-[28px] leading-[1.15] font-semibold tracking-[-0.012em] text-foreground lg:text-[44px] lg:leading-[1.1]"
-              id={SPECIES_SECTION_IDS.range}
-              slugSource={copy.rangeTitle}
-            >
-              {copy.rangeTitle}
-            </AnchoredHeading>
-          </div>
+          <RangeHeading
+            anchorLabel={anchorLabel}
+            eyebrow={eyebrow}
+            title={copy.rangeTitle}
+          />
           <p className="order-5 mt-4 text-[16px] leading-[1.65] text-muted-foreground lg:mt-[18px]">
             {tGiurza("lead")}
           </p>
@@ -276,24 +264,7 @@ async function GiurzaRangeSection({
           <p className="order-6 mt-5 text-[13px] leading-[1.6] text-muted-foreground lg:mt-6">
             {tGiurza("recordNote")}
           </p>
-          <p className="order-7 mt-3 text-[12px] leading-relaxed text-muted-foreground">
-            {copy.footerDataLabel}: {copy.footerReptilesLabel} +{" "}
-            <a
-              className="underline decoration-border underline-offset-4 transition-colors hover:text-primary"
-              href={`https://www.inaturalist.org/observations?place_id=8857&taxon_id=${iNaturalistTaxonId}`}
-              rel="noreferrer"
-              target="_blank"
-            >
-              {copy.footerINaturalistLabel}
-            </a>{" "}
-            ·{" "}
-            <Link
-              className="underline decoration-border underline-offset-4 transition-colors hover:text-primary"
-              href={{ hash: "methodology", pathname: "/about" }}
-            >
-              {copy.footerMethodologyLabel}
-            </Link>
-          </p>
+          <RangeMapFooter copy={copy} iNaturalistTaxonId={iNaturalistTaxonId} />
         </div>
         <div className="order-2 mt-5 min-w-0 rounded-t-[30px] bg-card p-4 pb-2 shadow-[0_16px_40px_rgba(14,20,17,0.06)] lg:col-start-2 lg:row-start-1 lg:mt-0 lg:rounded-[40px] lg:p-9">
           {map}
@@ -419,17 +390,11 @@ async function HalyomorphaRangeSection({
     <section className="bg-surface py-9 lg:py-20">
       <div className="mx-auto grid max-w-[1440px] grid-cols-1 px-4 lg:grid-cols-[minmax(0,460px)_minmax(0,1fr)] lg:items-start lg:gap-16 lg:px-[60px]">
         <div className="contents lg:col-start-1 lg:row-start-1 lg:block lg:min-w-0">
-          <div className="order-1">
-            <p className={EYEBROW_CLASS}>{eyebrow}</p>
-            <AnchoredHeading
-              anchorLabel={anchorLabel}
-              className="mt-4 max-w-xl font-display text-[28px] leading-[1.15] font-semibold tracking-[-0.012em] text-foreground lg:text-[44px] lg:leading-[1.1]"
-              id={SPECIES_SECTION_IDS.range}
-              slugSource={copy.rangeTitle}
-            >
-              {copy.rangeTitle}
-            </AnchoredHeading>
-          </div>
+          <RangeHeading
+            anchorLabel={anchorLabel}
+            eyebrow={eyebrow}
+            title={copy.rangeTitle}
+          />
           <div className="order-5 mt-4 lg:mt-[18px]">
             {habitatDetails ? (
               <RangeHabitatDetails
@@ -507,24 +472,7 @@ async function HalyomorphaRangeSection({
           <p className="order-6 mt-5 text-[13px] leading-[1.6] text-muted-foreground lg:mt-6">
             {copy.intro}
           </p>
-          <p className="order-7 mt-3 text-[12px] leading-relaxed text-muted-foreground">
-            {copy.footerDataLabel}: {copy.footerReptilesLabel} +{" "}
-            <a
-              className="underline decoration-border underline-offset-4 transition-colors hover:text-primary"
-              href={`https://www.inaturalist.org/observations?place_id=8857&taxon_id=${iNaturalistTaxonId}`}
-              rel="noreferrer"
-              target="_blank"
-            >
-              {copy.footerINaturalistLabel}
-            </a>{" "}
-            ·{" "}
-            <Link
-              className="underline decoration-border underline-offset-4 transition-colors hover:text-primary"
-              href={{ hash: "methodology", pathname: "/about" }}
-            >
-              {copy.footerMethodologyLabel}
-            </Link>
-          </p>
+          <RangeMapFooter copy={copy} iNaturalistTaxonId={iNaturalistTaxonId} />
         </div>
         <div className="order-2 mt-5 min-w-0 rounded-t-[30px] bg-card p-4 pb-2 shadow-[0_16px_40px_rgba(14,20,17,0.06)] lg:col-start-2 lg:row-start-1 lg:mt-0 lg:rounded-[40px] lg:p-9">
           {map}
@@ -582,5 +530,58 @@ function RangeHabitatDetails({
         <PhoneLinkedText>{body}</PhoneLinkedText>
       </p>
     </details>
+  );
+}
+
+function RangeHeading({
+  anchorLabel,
+  eyebrow,
+  title,
+}: {
+  anchorLabel: string;
+  eyebrow: string;
+  title: string;
+}) {
+  return (
+    <div className="order-1">
+      <p className={EYEBROW_CLASS}>{eyebrow}</p>
+      <AnchoredHeading
+        anchorLabel={anchorLabel}
+        className="mt-4 max-w-xl font-display text-[28px] leading-[1.15] font-semibold tracking-[-0.012em] text-foreground lg:text-[44px] lg:leading-[1.1]"
+        id={SPECIES_SECTION_IDS.range}
+        slugSource={title}
+      >
+        {title}
+      </AnchoredHeading>
+    </div>
+  );
+}
+
+function RangeMapFooter({
+  copy,
+  iNaturalistTaxonId,
+}: {
+  copy: HalyomorphaRangeCopy;
+  iNaturalistTaxonId: number;
+}) {
+  return (
+    <p className="order-7 mt-3 text-[12px] leading-relaxed text-muted-foreground">
+      {copy.footerDataLabel}: {copy.footerReptilesLabel} +{" "}
+      <a
+        className="underline decoration-border underline-offset-4 transition-colors hover:text-primary"
+        href={`https://www.inaturalist.org/observations?place_id=8857&taxon_id=${iNaturalistTaxonId}`}
+        rel="noreferrer"
+        target="_blank"
+      >
+        {copy.footerINaturalistLabel}
+      </a>{" "}
+      ·{" "}
+      <Link
+        className="underline decoration-border underline-offset-4 transition-colors hover:text-primary"
+        href={{ hash: "methodology", pathname: "/about" }}
+      >
+        {copy.footerMethodologyLabel}
+      </Link>
+    </p>
   );
 }

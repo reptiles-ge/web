@@ -82,17 +82,11 @@ export async function SpeciesIdentification({
         )}
       >
         <div className="min-w-0 lg:col-start-2 lg:row-start-1 lg:self-end">
-          <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
-            {t("identification")}
-          </p>
-          <AnchoredHeading
+          <IdentificationHeading
             anchorLabel={t("anchorLink")}
-            className="mt-3 max-w-3xl font-display text-[28px] leading-[1.15] font-semibold tracking-[-0.012em] lg:mt-4 lg:text-[44px] lg:leading-[1.1]"
-            id={SPECIES_SECTION_IDS.identification}
-            slugSource={t("identificationTitle", { name })}
-          >
-            {t("identificationTitle", { name })}
-          </AnchoredHeading>
+            eyebrow={t("identification")}
+            title={t("identificationTitle", { name })}
+          />
           <p
             className="mt-3 max-w-2xl text-[15px] leading-[1.6] whitespace-pre-line text-muted-foreground lg:mt-[18px] lg:text-[16px] lg:leading-[1.65]"
             data-content-field={editable ? "identification.summary" : undefined}
@@ -229,17 +223,11 @@ async function GiurzaIdentification({
     <section className="bg-background py-11 lg:py-20">
       <div className="mx-auto max-w-[1440px] px-6 lg:grid lg:grid-cols-[minmax(0,520px)_minmax(0,1fr)] lg:items-start lg:gap-x-16 lg:px-[60px]">
         <div className="min-w-0 lg:col-start-2 lg:row-start-1 lg:self-end">
-          <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
-            {t("identification")}
-          </p>
-          <AnchoredHeading
+          <IdentificationHeading
             anchorLabel={t("anchorLink")}
-            className="mt-3 max-w-3xl font-display text-[28px] leading-[1.15] font-semibold tracking-[-0.012em] lg:mt-4 lg:text-[44px] lg:leading-[1.1]"
-            id={SPECIES_SECTION_IDS.identification}
-            slugSource={t("identificationTitle", { name })}
-          >
-            {t("identificationTitle", { name })}
-          </AnchoredHeading>
+            eyebrow={t("identification")}
+            title={t("identificationTitle", { name })}
+          />
           <p
             className="mt-3 max-w-2xl text-[16px] leading-[1.65] whitespace-pre-line text-muted-foreground lg:mt-[18px]"
             data-content-field={editable ? "identification.summary" : undefined}
@@ -330,6 +318,32 @@ async function GiurzaIdentification({
         speciesId={speciesId}
       />
     </section>
+  );
+}
+
+function IdentificationHeading({
+  anchorLabel,
+  eyebrow,
+  title,
+}: {
+  anchorLabel: string;
+  eyebrow: string;
+  title: string;
+}) {
+  return (
+    <>
+      <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
+        {eyebrow}
+      </p>
+      <AnchoredHeading
+        anchorLabel={anchorLabel}
+        className="mt-3 max-w-3xl font-display text-[28px] leading-[1.15] font-semibold tracking-[-0.012em] lg:mt-4 lg:text-[44px] lg:leading-[1.1]"
+        id={SPECIES_SECTION_IDS.identification}
+        slugSource={title}
+      >
+        {title}
+      </AnchoredHeading>
+    </>
   );
 }
 
