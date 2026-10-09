@@ -1,4 +1,7 @@
-import { randomUUID } from "node:crypto";
+import { createHash, randomUUID } from "node:crypto";
+import fs from "node:fs/promises";
+import os from "node:os";
+import path from "node:path";
 import { describe, expect, it, vi } from "vitest";
 
 import { notifyAdminTelegram } from "@/lib/adminTelegram";
@@ -87,5 +90,46 @@ describe("Super Analysis jobs", () => {
     );
     expect(job.status).toBe("failed");
     expect(job.error).toBe("Codex unavailable");
+  });
+
+  it("reloads a persisted job and reports a non-error failure", async () => {
+    const directory = path.join(
+      os.tmpdir(),
+      `reptiles-super-analysis-${createHash("sha256").update(process.cwd()).digest("hex").slice(0, 12)}`,
+    );
+    const missing = `missing-${randomUUID()}`;
+    expect(await getSpeciesSuperAnalysisJob(missing)).toBeNull();
+    const readFile = vi
+      .spyOn(fs, "readFile")
+      .mockRejectedValueOnce(Object.assign(new Error("disk"), { code: "EIO" }));
+    await expect(getSpeciesSuperAnalysisJob(missing)).rejects.toThrow("disk");
+    readFile.mockRestore();
+
+    const id = `resume-${randomUUID()}`;
+    await fs.mkdir(directory, { recursive: true });
+    await fs.writeFile(
+      path.join(directory, `${id}.json`),
+      JSON.stringify({
+        currentStage: "analysis",
+        error: null,
+        pullRequestUrl: null,
+        runId: randomUUID(),
+        speciesId: id,
+        status: "running",
+        steps: [],
+      }),
+    );
+    const resumed = await getSpeciesSuperAnalysisJob(id);
+    expect(resumed?.status).toBe("failed");
+    expect(resumed?.error).toContain("interrupted");
+
+    vi.mocked(runSpeciesWorkflow).mockRejectedValueOnce("offline");
+    vi.mocked(notifyAdminTelegram).mockRejectedValueOnce(new Error("telegram"));
+    const thrown = startSpeciesSuperAnalysisJob(
+      `throw-${randomUUID()}`,
+      randomUUID(),
+    );
+    await vi.waitFor(() => expect(thrown.status).toBe("failed"));
+    expect(thrown.error).toBe("Super Analysis failed");
   });
 });

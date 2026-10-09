@@ -128,6 +128,15 @@ describe("hasRealIdentification", () => {
     ).toBe(false);
   });
 
+  it("is true for sourced coloration or palette codes", () => {
+    expect(
+      hasRealIdentification({ coloration: " Brown ", traits: [] } as never),
+    ).toBe(true);
+    expect(
+      hasRealIdentification({ colors: ["brown"], traits: [] } as never),
+    ).toBe(true);
+  });
+
   it("is true once a real trait is present", () => {
     expect(
       hasRealIdentification({
@@ -161,6 +170,19 @@ describe("cover and hero sources", () => {
     const sources = getSpeciesHeroSources(species({ image: "/a.jpg" }));
     expect(sources.desktopHeroSrc).toBe("/a.jpg");
     expect(sources.gallery.map((item) => item.src)).toEqual(["/a.jpg"]);
+  });
+
+  it("keeps photos when only the mobile image or gallery is real", () => {
+    expect(
+      getSpeciesHeroSources(
+        species({ image: PLACEHOLDER, mobileImage: "/m.jpg" }),
+      ).mobileHeroSrc,
+    ).toBe("/m.jpg");
+    expect(
+      getSpeciesHeroSources(
+        species({ gallery: [{ src: "/g.jpg" }], image: PLACEHOLDER }),
+      ).gallery.map((item) => item.src),
+    ).toEqual(["/g.jpg"]);
   });
 
   it("filters placeholders out of a real gallery", () => {
