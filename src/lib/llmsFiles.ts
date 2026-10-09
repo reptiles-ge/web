@@ -10,6 +10,7 @@ import { absoluteUrl } from "@/lib/site";
 import { speciesHref } from "@/lib/speciesRoutes";
 
 const LLMS_FULL_PATH = "/llms-full.txt";
+const ROBOTS_DISALLOWED_PATHS = ["/api/", "/admin", "/admin/"] as const;
 const LLMS_TXT_PATH = "/llms.txt";
 
 export const AI_CITATION_USER_AGENTS = [
@@ -381,10 +382,14 @@ export function buildRobotsTxt() {
   const llmsFull = absoluteUrl(LLMS_FULL_PATH);
   const sitemap = absoluteUrl("/sitemap.xml");
 
+  const rules = [
+    "Allow: /",
+    ...ROBOTS_DISALLOWED_PATHS.map((path) => `Disallow: ${path}`),
+    "",
+  ];
   const aiBlocks = AI_CITATION_USER_AGENTS.flatMap((agent) => [
     `User-agent: ${agent}`,
-    "Allow: /",
-    "",
+    ...rules,
   ]);
 
   return [
@@ -394,11 +399,7 @@ export function buildRobotsTxt() {
     "# Do not treat empty atlas fields as negative evidence.",
     "",
     "User-agent: *",
-    "Allow: /",
-    "Disallow: /api/",
-    "Disallow: /admin",
-    "Disallow: /admin/",
-    "",
+    ...rules,
     ...aiBlocks,
     `Sitemap: ${sitemap}`,
     `# llms.txt: ${llmsTxt}`,
