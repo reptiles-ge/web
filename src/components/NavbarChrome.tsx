@@ -24,6 +24,7 @@ export function NavbarChrome({
   heroSearch,
   menuId,
   menuOpen,
+  navLabel,
   onCloseMenu,
   onToggleGroups,
   onToggleMenu,
@@ -45,6 +46,7 @@ export function NavbarChrome({
   heroSearch: boolean;
   menuId: string;
   menuOpen: boolean;
+  navLabel: string;
   onCloseMenu: () => void;
   onToggleGroups: () => void;
   onToggleMenu: () => void;
@@ -92,7 +94,10 @@ export function NavbarChrome({
           )}
         />
       </Link>
-      <nav className="relative z-10 hidden items-center gap-4 lg:flex xl:gap-7">
+      <nav
+        aria-label={navLabel}
+        className="relative z-10 hidden items-center gap-4 lg:flex xl:gap-7"
+      >
         <IntentPrefetchLink
           className={desktopNavLinkClass(scrolled)}
           href={speciesHref}

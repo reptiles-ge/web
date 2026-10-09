@@ -113,6 +113,7 @@ export function Navbar() {
         heroSearch={pathname === "/"}
         menuId={menuId}
         menuOpen={menuOpen}
+        navLabel={t("mainMenu")}
         onCloseMenu={() => setMenuOpen(false)}
         onToggleGroups={() => setGroupsOpen((open) => !open)}
         onToggleMenu={() => setMenuOpen((open) => !open)}
@@ -134,9 +135,9 @@ export function Navbar() {
         menuId={menuId}
         menuOpen={menuOpen}
         mobileGroupsOpen={mobileGroupsOpen}
+        navLabel={t("mainMenu")}
         onCloseMenu={() => setMenuOpen(false)}
         onToggleMobileGroups={() => setMobileGroupsOpen((open) => !open)}
-        openMenuLabel={t("openMenu")}
       />
     </header>
   );
