@@ -55,6 +55,9 @@ export function getSpeciesGalleryPreview(species: Species, count = 3) {
     .map((item) => item.src);
 }
 
+export const SPECIES_HERO_DESKTOP_SIZES = "62vw";
+export const SPECIES_HERO_SIZES = "(max-width: 1023px) 100vw, 62vw";
+
 export function getSpeciesHeroSources(species: Species) {
   const gallery: GalleryImage[] = hasRealSpeciesPhotos(species)
     ? (species.gallery.length > 0
@@ -72,7 +75,9 @@ export function getSpeciesHeroSources(species: Species) {
       ? species.image
       : (primary?.src ?? null);
 
-  return { desktopHeroSrc, gallery, mobileHeroSrc, primary };
+  const mobileSlideSrc = mobileHeroSrc ?? primary?.src ?? null;
+
+  return { desktopHeroSrc, gallery, mobileHeroSrc, mobileSlideSrc, primary };
 }
 
 export function getSpeciesIdentificationPhoto(species: Species) {

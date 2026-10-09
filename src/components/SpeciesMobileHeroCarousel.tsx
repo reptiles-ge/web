@@ -10,6 +10,9 @@ import {
 import { cn } from "@/lib/cn";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 
+const BLANK_IMAGE =
+  "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==";
+
 export const MOBILE_HERO_PHOTO_CHANGE_EVENT =
   "species-mobile-hero-photo-change";
 
@@ -136,6 +139,7 @@ export function SpeciesMobileHeroCarousel({
               className="block size-full shrink-0 snap-start bg-ink"
               key={slide.gallerySrc}
             >
+              <source media="(min-width: 1024px)" srcSet={BLANK_IMAGE} />
               {pictureSources(slide.displaySrc, { sizes: "100vw" }).map(
                 (source) => (
                   <source key={source.key} {...source.props} />

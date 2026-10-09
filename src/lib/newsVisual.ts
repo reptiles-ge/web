@@ -51,6 +51,7 @@ export function getNewsVisual(
         item.scientificName,
         item.location,
         item.imageCredit,
+        locale,
       ),
       credit: item.imageCredit,
       fromAtlas: true,
