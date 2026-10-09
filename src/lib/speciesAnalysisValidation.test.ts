@@ -195,6 +195,7 @@ describe("Super Analysis ownership and evidence gates", () => {
     value.edits[0].after = values("#7d5f43");
     expect(() => check(value)).toThrow("color palette code");
     value.edits[0].after = values("brown");
+    value.edits[0].evidenceIds = [];
     value.stage = "texts";
     value.evidence = [];
     value.sources = [];
