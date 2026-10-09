@@ -53,13 +53,19 @@ export async function SpeciesVerdict({
     .filter((card) => card.kind === "page")
     .slice(0, LINK_LIMIT);
   const tone = TONE[level];
+  const urgent = level === "High" || level === "Moderate";
   const isModerateSpider =
     level === "Moderate" && getSpeciesAtlasMeta(speciesId).group === "spider";
 
   return (
-    <div className="flex min-w-0 flex-col">
+    <div className="contents min-w-0 flex-col lg:flex">
       {credit}
-      <section className="mx-4 mt-3 flex flex-1 flex-col overflow-hidden rounded-[28px] bg-card shadow-[0_14px_36px_rgba(14,20,17,0.06)] lg:mx-0 lg:mt-0 lg:rounded-[32px] lg:shadow-[0_16px_40px_rgba(14,20,17,0.08)]">
+      <section
+        className={cn(
+          "mx-4 mt-3 flex flex-1 flex-col overflow-hidden rounded-[28px] bg-card shadow-[0_14px_36px_rgba(14,20,17,0.06)] lg:mx-0 lg:mt-0 lg:rounded-[32px] lg:shadow-[0_16px_40px_rgba(14,20,17,0.08)]",
+          !urgent && "max-lg:order-2",
+        )}
+      >
         <div
           className={cn(
             "px-5 pt-[18px] pb-4 lg:px-7 lg:pt-6 lg:pb-5",
@@ -104,7 +110,7 @@ export async function SpeciesVerdict({
                 ? t("verdictHarmlessBody")
                 : tRisk(`scale${level}Body`)}
           </p>
-          {level === "High" || level === "Moderate" ? (
+          {urgent ? (
             <a
               aria-label={tSafety("call")}
               className="mt-3 inline-flex min-h-10 items-center gap-2 self-start rounded-full border border-destructive/25 px-3.5 text-[13px] font-semibold text-destructive focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-destructive lg:hidden"

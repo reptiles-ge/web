@@ -112,6 +112,30 @@ describe("SpeciesVerdict", () => {
     ).toBeInTheDocument();
   });
 
+  it.each([
+    ["macrovipera-lebetina", "High", false],
+    ["malpolon-insignitus", "Moderate", false],
+    ["natrix-tessellata", "Harmless", true],
+  ] as const)(
+    "orders the %s verdict on mobile by urgency",
+    async (speciesId, level, movedDown) => {
+      const { container } = render(
+        await SpeciesVerdict({
+          credits: [],
+          guideLinks: [],
+          level,
+          locale: "en",
+          speciesId,
+        }),
+      );
+      expect(
+        container
+          .querySelector("section")
+          ?.classList.contains("max-lg:order-2"),
+      ).toBe(movedDown);
+    },
+  );
+
   it("keeps the photo credit when the risk is unknown", async () => {
     render(
       await SpeciesVerdict({
