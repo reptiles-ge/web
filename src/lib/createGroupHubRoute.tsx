@@ -17,6 +17,7 @@ import { georgiaPlaceName } from "@/i18n/localeMeta";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { hubFaqLinks } from "@/lib/groupHubFaq";
+import { HUB_HERO_IMAGE_SIZES } from "@/lib/groupHubLayout";
 import { GROUP_HUBS, type GroupHubId } from "@/lib/groupHubs";
 import { buildPageMetadata } from "@/lib/pageMetadata";
 import {
@@ -186,19 +187,19 @@ function HubCoverPreloads({
   mobileSrc?: string;
 }) {
   if (!mobileSrc) {
-    return <CoverImagePreload sizes="100vw" src={desktopSrc} />;
+    return <CoverImagePreload sizes={HUB_HERO_IMAGE_SIZES} src={desktopSrc} />;
   }
 
   return (
     <>
       <CoverImagePreload
         media="(min-width: 640px)"
-        sizes="100vw"
+        sizes={HUB_HERO_IMAGE_SIZES}
         src={desktopSrc}
       />
       <CoverImagePreload
         media="(max-width: 639px)"
-        sizes="100vw"
+        sizes={HUB_HERO_IMAGE_SIZES}
         src={mobileSrc}
       />
     </>

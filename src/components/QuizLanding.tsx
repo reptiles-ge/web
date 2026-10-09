@@ -38,7 +38,10 @@ export async function QuizLanding({
   quizId,
   species,
 }: QuizLandingProps) {
-  const t = await getTranslations({ locale, namespace });
+  const [t, tNav] = await Promise.all([
+    getTranslations({ locale, namespace }),
+    getTranslations({ locale, namespace: "nav" }),
+  ]);
   const byId = new Map(species.map((item) => [item.id, item]));
   const lookalikePairs =
     quizId === "lizard" ? LIZARD_LOOKALIKE_PAIRS : SNAKE_LOOKALIKE_PAIRS;
@@ -154,16 +157,24 @@ export async function QuizLanding({
             <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">
               <PhoneLinkedText>{t("practiceGuideBody")}</PhoneLinkedText>
             </p>
-            <Link
-              className="mt-5 inline-flex min-h-12 items-center justify-center rounded-full bg-ink px-6 text-[14px] font-medium text-ink-foreground"
-              href={
-                quizId === "lizard"
-                  ? "/lizards/identifikacia"
-                  : "/snakes/shxamiani-gvelis-amocnoba"
-              }
-            >
-              {t("practiceGuideCta")}
-            </Link>
+            <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-3">
+              <Link
+                className="inline-flex min-h-12 items-center justify-center rounded-full bg-ink px-6 text-[14px] font-medium text-ink-foreground"
+                href={
+                  quizId === "lizard"
+                    ? "/lizards/identifikacia"
+                    : "/snakes/shxamiani-gvelis-amocnoba"
+                }
+              >
+                {t("practiceGuideCta")}
+              </Link>
+              <Link
+                className="inline-flex min-h-12 items-center text-[14px] font-medium text-foreground underline-offset-4 hover:underline"
+                href={quizId === "lizard" ? "/lizards" : "/snakes"}
+              >
+                {quizId === "lizard" ? tNav("lizards") : tNav("snakes")}
+              </Link>
+            </div>
           </div>
         </div>
       </article>
