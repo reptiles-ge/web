@@ -5,29 +5,39 @@ import type { Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
 import type { GroupHubId } from "@/lib/groupHubs";
 
-import {
-  CLUSTER_BODY,
-  CLUSTER_EYEBROW,
-  CLUSTER_TITLE_GUIDE,
-  CLUSTER_TITLE_RELATED,
-  ClusterSectionIntro,
-} from "@/components/ClusterSectionIntro";
 import { ContentAttribution } from "@/components/ContentAttribution";
 import { CoverImage } from "@/components/CoverImage";
 import { GroupHubFaqSection } from "@/components/GroupHubFaqSection";
+import { GroupHubGuides, hubGuideCards } from "@/components/GroupHubGuides";
 import { GroupHubHero } from "@/components/GroupHubHero";
+import { GroupHubOverview } from "@/components/GroupHubOverview";
+import { GroupHubRegionsMap } from "@/components/GroupHubRegionsMap";
+import {
+  GroupHubSectionHeading,
+  HUB_CONTAINER,
+  HUB_EYEBROW,
+  HUB_TEXT_LINK,
+  HUB_TEXT_LINK_LABEL,
+} from "@/components/GroupHubSectionHeading";
 import { GroupHubSpeciesList } from "@/components/GroupHubSpeciesList";
 import { GuideArticleRelatedBlock } from "@/components/GuideArticleRelatedBlock";
-import { PhoneLinkedText } from "@/components/PhoneLinkedText";
-import { RelatedGuideGrid } from "@/components/RelatedGuideCards";
+import { SectionNav } from "@/components/SectionNav";
 import { TurtlesHubSections } from "@/components/TurtlesHubSections";
 import { getGuideArticlesForHub } from "@/data/guideArticles";
-import { toSpeciesCards } from "@/data/speciesCard";
+import { isVenomousDanger } from "@/data/speciesAtlas";
 import { Link } from "@/i18n/navigation";
 import { isLocalAdminEnabled } from "@/lib/adminAccess";
-import { HUB_CLUSTER_CARDS, splitHubSpecies } from "@/lib/clusterGuides";
+import {
+  getHubIndexTitleKey,
+  HUB_CLUSTER_CARDS,
+  HUB_INDEX_PATH,
+  splitHubSpecies,
+} from "@/lib/clusterGuides";
+import { cn } from "@/lib/cn";
 import { contentEditorAttributes } from "@/lib/contentEditorAttributes";
-import { GROUP_HUB_LIST, GROUP_HUBS } from "@/lib/groupHubs";
+import { HUB_DISPLAY_ORDER } from "@/lib/groupHubLayout";
+import { GROUP_HUB_ILLUSTRATIONS, GROUP_HUBS } from "@/lib/groupHubs";
+import { usesDangerScale } from "@/lib/speciesRisk";
 import { pageDateFields } from "@/lib/structuredDataDates";
 
 type GroupHubPageProps = {
@@ -37,6 +47,259 @@ type GroupHubPageProps = {
   locale: AppLocale;
   species: Species[];
 };
+
+export async function GroupHubPage({
+  heroMobileSrc,
+  heroSrc,
+  hubId,
+  locale,
+  species,
+}: GroupHubPageProps) {
+  const [t, tShared, tNav, tProfile] = await Promise.all([
+    getTranslations({ locale, namespace: hubId }),
+    getTranslations({ locale, namespace: "groupHubShared" }),
+    getTranslations({ locale, namespace: "nav" }),
+    getTranslations({ locale, namespace: "profile" }),
+  ]);
+  const hub = GROUP_HUBS[hubId];
+  const showRisk =
+    usesDangerScale(hub.group) &&
+    species.some((item) => isVenomousDanger(item.danger));
+  const articles = getGuideArticlesForHub(hubId);
+  const articlePaths = new Set<string>(
+    articles.map((article) => article.pathname),
+  );
+  const guideCards = hubGuideCards(HUB_CLUSTER_CARDS[hubId]).filter(
+    (card) => card.kind !== "page" || !articlePaths.has(card.href),
+  );
+  const guideCount = guideCards.length + articles.length;
+  const faqCount = hubFaqCount(hubId, (key) => t.has(key as never));
+  const indexPath = HUB_INDEX_PATH[hubId];
+  const indexLink =
+    indexPath === hub.path
+      ? undefined
+      : {
+          href: indexPath,
+          label: t.has("speciesIndexCta")
+            ? t("speciesIndexCta")
+            : tShared(getHubIndexTitleKey(hubId)),
+        };
+  const dates = pageDateFields(hub.path);
+
+  return (
+    <div className="min-h-screen bg-background">
+      <GroupHubHero
+        heroMobileSrc={heroMobileSrc}
+        heroSpecies={species.find((item) => item.id === hub.heroSpeciesId)}
+        heroSrc={heroSrc}
+        hubId={hubId}
+        locale={locale}
+        showRisk={showRisk}
+        species={species}
+      />
+      <div>
+        <SectionNav
+          ariaLabel={tProfile("contents")}
+          items={[
+            { count: species.length, id: "species", label: tNav("species") },
+            ...(guideCount > 0
+              ? [
+                  {
+                    count: guideCount,
+                    id: "guides",
+                    label: tShared("navGuides"),
+                  },
+                ]
+              : []),
+            { id: "overview", label: tProfile("overview") },
+            ...(faqCount > 0
+              ? [{ count: faqCount, id: "faq", label: t("faqEyebrow") }]
+              : []),
+            { id: "groups", label: tShared("navOtherGroups") },
+          ]}
+          meta={
+            indexLink ? (
+              <Link
+                className={cn(HUB_TEXT_LINK, "group text-foreground")}
+                href={indexLink.href}
+              >
+                <span className={HUB_TEXT_LINK_LABEL}>{indexLink.label}</span>
+                <ArrowUpRight aria-hidden="true" className="size-[15px]" />
+              </Link>
+            ) : null
+          }
+        />
+        <GroupHubSpeciesList
+          hubId={hubId}
+          indexLink={indexLink}
+          locale={locale}
+          showRisk={showRisk}
+          species={species}
+        />
+        <GroupHubGuides
+          cards={guideCards}
+          hubId={hubId}
+          locale={locale}
+          species={species}
+        />
+        <GuideArticleRelatedBlock
+          articles={articles}
+          id={guideCards.length === 0 ? "guides" : undefined}
+          locale={locale}
+        />
+        <GroupHubOverview
+          contextBlocks={hubContextBlocks(hubId, (key) => t(key as never))}
+          hubId={hubId}
+          locale={locale}
+          sections={splitHubSpecies(hubId, species)}
+          showRisk={showRisk}
+          species={species}
+        />
+        {hubId === "turtles" ? <TurtlesHubSections /> : null}
+        <GroupHubFaqSection hubId={hubId} />
+        <ContentAttribution
+          locale={locale}
+          publishedAt={dates.datePublished}
+          updatedAt={dates.dateModified}
+        />
+        <GroupHubRelatedGroups hubId={hubId} locale={locale} />
+        <GroupHubCta hubId={hubId} locale={locale} species={species} />
+      </div>
+    </div>
+  );
+}
+
+async function GroupHubCta({
+  hubId,
+  locale,
+  species,
+}: {
+  hubId: GroupHubId;
+  locale: AppLocale;
+  species: Species[];
+}) {
+  const [t, tShared] = await Promise.all([
+    getTranslations({ locale, namespace: hubId }),
+    getTranslations({ locale, namespace: "groupHubShared" }),
+  ]);
+  const editable = locale === "ka" && isLocalAdminEnabled();
+  const outline =
+    "flex h-[54px] items-center justify-center gap-2 rounded-full border border-white/30 px-[26px] text-[15px] font-medium whitespace-nowrap text-white transition-[transform,filter] hover:-translate-y-0.5 hover:brightness-110 lg:inline-flex lg:h-[52px]";
+
+  return (
+    <section className="bg-background px-4 pb-11 lg:px-0 lg:pb-20">
+      <div className="mx-auto max-w-[1440px] lg:px-[60px]">
+        <div className="grid overflow-hidden rounded-[32px] bg-ink px-6 pt-[30px] pb-[26px] text-white lg:grid-cols-[minmax(0,640px)_460px] lg:items-center lg:justify-between lg:gap-x-12 lg:rounded-[44px] lg:px-16 lg:py-14">
+          <div className="min-w-0 lg:col-start-1 lg:row-start-1 lg:self-end">
+            <p className={cn(HUB_EYEBROW, "text-white/60")}>
+              {t("ctaEyebrow")}
+            </p>
+            <h2
+              className="mt-3 font-display text-[28px] leading-[1.15] font-semibold tracking-[-0.012em] lg:mt-4 lg:text-[44px] lg:leading-[1.1]"
+              {...contentEditorAttributes(
+                "message",
+                editable ? "messages" : undefined,
+                `${hubId}.ctaTitle`,
+              )}
+            >
+              {t("ctaTitle")}
+            </h2>
+            <p
+              className="mt-3 text-[14.5px] leading-[1.6] text-white/70 lg:mt-[18px] lg:text-[16px] lg:leading-[1.65]"
+              {...contentEditorAttributes(
+                "message",
+                editable ? "messages" : undefined,
+                `${hubId}.ctaBody`,
+              )}
+            >
+              {t("ctaBody")}
+            </p>
+          </div>
+          <GroupHubRegionsMap
+            className="mt-[18px] opacity-90 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:mt-0"
+            speciesIds={new Set(species.map((item) => item.id))}
+          />
+          <div className="mt-[18px] flex flex-col gap-2.5 lg:col-start-1 lg:row-start-2 lg:mt-7 lg:flex-row lg:flex-wrap lg:gap-3 lg:self-start">
+            <Link
+              className="flex h-[54px] items-center justify-center gap-2 rounded-full bg-white pr-6 pl-[26px] text-[15px] font-medium whitespace-nowrap text-ink transition-[transform,filter] hover:-translate-y-0.5 hover:brightness-105 lg:inline-flex lg:h-[52px]"
+              href="/species"
+            >
+              {tShared("ctaAllSpecies")}
+              <ArrowRight
+                aria-hidden="true"
+                className="size-4"
+                strokeWidth={2}
+              />
+            </Link>
+            {hubId === "turtles" ? (
+              <Link className={outline} href="/turtles/identifikacia">
+                {t("ctaIdentify")}
+              </Link>
+            ) : null}
+            <Link className={outline} href="/regions">
+              {tShared("ctaRegions")}
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+async function GroupHubRelatedGroups({
+  hubId,
+  locale,
+}: {
+  hubId: GroupHubId;
+  locale: AppLocale;
+}) {
+  const [t, tShared, tNav] = await Promise.all([
+    getTranslations({ locale, namespace: hubId }),
+    getTranslations({ locale, namespace: "groupHubShared" }),
+    getTranslations({ locale, namespace: "nav" }),
+  ]);
+  const relatedBody = t.has("relatedBody")
+    ? t("relatedBody")
+    : tShared("relatedBody");
+
+  return (
+    <section className="scroll-mt-36 bg-background py-11 lg:py-20" id="groups">
+      <div className={HUB_CONTAINER}>
+        <GroupHubSectionHeading
+          compact
+          eyebrow={tShared("relatedEyebrow")}
+          lead={relatedBody}
+          title={tShared("relatedTitle")}
+        />
+        <ul className="no-scrollbar -mx-6 mt-[22px] flex snap-x snap-mandatory scroll-px-6 gap-3 overflow-x-auto px-6 pb-1.5 lg:mx-0 lg:mt-10 lg:grid lg:grid-cols-4 lg:gap-x-6 lg:gap-y-8 lg:overflow-visible lg:px-0 lg:pb-0">
+          {HUB_DISPLAY_ORDER.map((id, index) =>
+            id === hubId ? null : (
+              <li className="w-[232px] shrink-0 snap-start lg:w-auto" key={id}>
+                <Link className="group block" href={GROUP_HUBS[id].path}>
+                  <span className="relative block h-[156px] overflow-hidden rounded-[22px] bg-ink lg:h-[196px] lg:rounded-[24px]">
+                    <CoverImage
+                      alt=""
+                      aria-hidden
+                      className="object-cover transition-transform duration-700 group-hover:scale-[1.04] motion-reduce:transition-none"
+                      sizes="(max-width: 1023px) 232px, 330px"
+                      src={GROUP_HUB_ILLUSTRATIONS[id]}
+                    />
+                  </span>
+                  <span className="mx-1 mt-2.5 flex items-baseline gap-[9px] text-[16px] font-semibold text-foreground transition-colors group-hover:text-primary lg:mx-1.5 lg:mt-3 lg:gap-2.5 lg:text-[17px]">
+                    <span className="text-[12px] font-normal text-muted-foreground tabular-nums">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    {tNav(id)}
+                  </span>
+                </Link>
+              </li>
+            ),
+          )}
+        </ul>
+      </div>
+    </section>
+  );
+}
 
 function hubContextBlocks(hubId: GroupHubId, t: (key: string) => string) {
   if (hubId === "mammals") {
@@ -51,246 +314,11 @@ function hubContextBlocks(hubId: GroupHubId, t: (key: string) => string) {
   return [];
 }
 
-const INSECT_DEFINITION: Record<AppLocale, string> = {
-  en: "Insects are arthropods that, as adults, have six legs, three main body parts, and often one or two pairs of wings.",
-  ka: "მწერები არიან ფეხსახსრიანები, რომლებსაც ზრდასრულ სტადიაზე აქვთ ექვსი ფეხი, სამი ძირითადი სხეულის ნაწილი და ხშირად ერთი ან ორი წყვილი ფრთა.",
-  ru: "Насекомые — членистоногие, у которых во взрослом состоянии шесть ног, три основные части тела и часто одна или две пары крыльев.",
-  tr: "Böcekler, ergin dönemde altı bacağı, üç ana vücut bölümü ve çoğu zaman bir ya da iki çift kanadı olan eklembacaklılardır.",
-};
-
-export async function GroupHubPage({
-  heroMobileSrc,
-  heroSrc,
-  hubId,
-  locale,
-  species,
-}: GroupHubPageProps) {
-  const t = await getTranslations({ locale, namespace: hubId });
-  const tShared = await getTranslations({
-    locale,
-    namespace: "groupHubShared",
-  });
-  const editable = locale === "ka" && isLocalAdminEnabled();
-  const relatedHubs = GROUP_HUB_LIST.filter((hub) => hub.id !== hubId);
-  const articles = getGuideArticlesForHub(hubId);
-  const articlePaths = new Set<string>(
-    articles.map((article) => article.pathname),
-  );
-  const clusterCards = HUB_CLUSTER_CARDS[hubId].filter(
-    (card) => card.kind !== "page" || !articlePaths.has(card.href),
-  );
-  const sections = splitHubSpecies(hubId, species);
-  const relatedBody = t.has("relatedBody")
-    ? t("relatedBody")
-    : tShared("relatedBody");
-  const guideP1 =
-    hubId === "insects"
-      ? `${INSECT_DEFINITION[locale]} ${t("guideP1")}`
-      : t("guideP1");
-  const dates = pageDateFields(GROUP_HUBS[hubId].path);
-  const contextBlocks = hubContextBlocks(hubId, (key) => t(key as never));
-  const speciesList = (
-    <GroupHubSpeciesList
-      hubId={hubId}
-      locale={locale}
-      sections={sections}
-      speciesCount={species.length}
-    />
-  );
-
-  return (
-    <div className="min-h-screen bg-background">
-      <div>
-        <GroupHubHero
-          heroMobileSrc={heroMobileSrc}
-          heroSrc={heroSrc}
-          hubId={hubId}
-          locale={locale}
-          species={species}
-        />
-
-        {speciesList}
-
-        <section className="bg-background py-20 lg:py-28">
-          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-            <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20">
-              <div>
-                <ClusterSectionIntro
-                  eyebrow={t("guideEyebrow")}
-                  eyebrowClassName={CLUSTER_EYEBROW}
-                  title={t("guideTitle")}
-                  titleClassName={CLUSTER_TITLE_GUIDE}
-                />
-              </div>
-              <div>
-                <div className="space-y-4 text-[15px] leading-relaxed text-muted-foreground">
-                  <p
-                    {...contentEditorAttributes(
-                      "message",
-                      editable && hubId !== "insects" ? "messages" : undefined,
-                      `${hubId}.guideP1`,
-                    )}
-                  >
-                    <PhoneLinkedText>{guideP1}</PhoneLinkedText>
-                  </p>
-                  {hubId === "spiders" ? null : (
-                    <p
-                      {...contentEditorAttributes(
-                        "message",
-                        editable ? "messages" : undefined,
-                        `${hubId}.guideP2`,
-                      )}
-                    >
-                      <PhoneLinkedText>{t("guideP2")}</PhoneLinkedText>
-                    </p>
-                  )}
-                </div>
-              </div>
-            </div>
-
-            <RelatedGuideGrid
-              cards={clusterCards}
-              className="mt-14"
-              locale={locale}
-              species={toSpeciesCards(species)}
-            />
-          </div>
-        </section>
-
-        <GroupHubContextSection blocks={contextBlocks} />
-
-        {hubId === "turtles" ? <TurtlesHubSections /> : null}
-
-        <GuideArticleRelatedBlock articles={articles} locale={locale} />
-
-        <section className="bg-background py-20 lg:py-28">
-          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-            <div>
-              <ClusterSectionIntro
-                body={relatedBody}
-                bodyClassName={CLUSTER_BODY}
-                eyebrow={tShared("relatedEyebrow")}
-                eyebrowClassName={CLUSTER_EYEBROW}
-                title={tShared("relatedTitle")}
-                titleClassName={CLUSTER_TITLE_RELATED}
-              />
-            </div>
-            <div className="mt-12 grid gap-px overflow-hidden rounded-card bg-border/80 sm:grid-cols-2 lg:grid-cols-3">
-              {relatedHubs.map((hub, index) => (
-                <div className="contents" key={hub.id}>
-                  <Link
-                    className="group flex h-full min-h-[160px] flex-col justify-between bg-card p-7 transition-colors hover:bg-background"
-                    href={hub.path}
-                  >
-                    <span className="text-[11px] tracking-[0.2em] text-muted-foreground">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <span className="mt-8 inline-flex items-center gap-1.5 font-display text-[18px] font-semibold text-foreground transition-colors group-hover:text-primary">
-                      {tShared(`hubs.${hub.id}`)}
-                      <ArrowUpRight className="size-4 opacity-50" />
-                    </span>
-                  </Link>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <GroupHubFaqSection hubId={hubId} />
-
-        <ContentAttribution
-          locale={locale}
-          publishedAt={dates.datePublished}
-          updatedAt={dates.dateModified}
-        />
-
-        <section className="relative flex min-h-[70svh] items-center overflow-hidden bg-ink py-24">
-          <CoverImage
-            alt={t("heroImageAlt")}
-            aria-hidden
-            className="object-cover opacity-50"
-            sizes="100vw"
-            src={heroSrc}
-          />
-          <div className="absolute inset-0 bg-linear-to-b from-black/75 via-black/60 to-black/88" />
-          <div className="relative mx-auto w-full max-w-[1400px] px-6 lg:px-10">
-            <div>
-              <p className="text-[11px] font-medium tracking-[0.18em] text-white/45 uppercase">
-                {t("ctaEyebrow")}
-              </p>
-              <h2
-                className="mt-5 max-w-3xl font-display text-display-lead font-semibold text-white"
-                {...contentEditorAttributes(
-                  "message",
-                  editable ? "messages" : undefined,
-                  `${hubId}.ctaTitle`,
-                )}
-              >
-                {t("ctaTitle")}
-              </h2>
-              <p
-                className="mt-5 max-w-xl text-[15px] leading-relaxed text-white/60"
-                {...contentEditorAttributes(
-                  "message",
-                  editable ? "messages" : undefined,
-                  `${hubId}.ctaBody`,
-                )}
-              >
-                {t("ctaBody")}
-              </p>
-              <div className="mt-10 flex flex-wrap gap-3">
-                <Link
-                  className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-[14px] font-medium text-ink transition-opacity hover:opacity-90"
-                  href="/species"
-                >
-                  {tShared("ctaAllSpecies")}
-                  <ArrowRight className="size-4" />
-                </Link>
-                {hubId === "turtles" ? (
-                  <Link
-                    className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-[14px] font-medium text-white/85 backdrop-blur-md transition-colors hover:border-white/35 hover:text-white"
-                    href="/turtles/identifikacia"
-                  >
-                    {t("ctaIdentify")}
-                    <ArrowUpRight className="size-4" />
-                  </Link>
-                ) : null}
-                <Link
-                  className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-[14px] font-medium text-white/85 backdrop-blur-md transition-colors hover:border-white/35 hover:text-white"
-                  href="/regions"
-                >
-                  {tShared("ctaRegions")}
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-    </div>
-  );
-}
-
-function GroupHubContextSection({
-  blocks,
-}: {
-  blocks: { body: string; title: string }[];
-}) {
-  if (blocks.length === 0) return null;
-
-  return (
-    <section className="border-t border-border bg-background py-20 lg:py-28">
-      <div className="mx-auto max-w-[1400px] space-y-16 px-6 lg:px-10">
-        {blocks.map((block) => (
-          <div className="max-w-3xl" key={block.title}>
-            <h2 className="font-display text-display-title font-semibold">
-              {block.title}
-            </h2>
-            <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">
-              <PhoneLinkedText>{block.body}</PhoneLinkedText>
-            </p>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
+function hubFaqCount(hubId: GroupHubId, has: (key: string) => boolean) {
+  const max = hubId === "turtles" ? 8 : 5;
+  let count = 0;
+  for (let n = 1; n <= max; n += 1) {
+    if (has(`faq${n}Q`)) count += 1;
+  }
+  return count;
 }

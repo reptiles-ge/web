@@ -1633,6 +1633,32 @@
         "body": "Как распознать повреждения, очистить вещи и защитить шкаф",
         "cta": "Читать гид"
       }
+    },
+    "statVenomous": "Ядовитые виды",
+    "statHarmless": "Безопасные виды",
+    "navGuides": "Гиды",
+    "navOtherGroups": "Другие группы",
+    "riskPanelTitle": "Уровни риска в атласе",
+    "riskLegendLink": "Что означают уровни риска",
+    "emergency": {
+      "snakes": {
+        "lead": "Укусила змея?",
+        "call": "Сразу звоните 112."
+      },
+      "spiders": {
+        "lead": "Подозрение на укус и сильные симптомы?",
+        "call": "Звоните 112."
+      }
+    },
+    "catalog": {
+      "filterLabel": "Фильтр по уровню риска",
+      "riskUnrated": "Не указан",
+      "searchLabel": "Поиск по названию",
+      "searchPlaceholder": "Поиск по названию…",
+      "showMore": "Показать ещё {count, plural, one {# вид} few {# вида} many {# видов} other {# вида}}",
+      "shownOf": "Показано {shown} из {total}",
+      "noResults": "Видов с таким названием не найдено.",
+      "speciesCount": "{count, plural, one {# вид} few {# вида} many {# видов} other {# вида}}"
     }
   },
   "snakes": {
