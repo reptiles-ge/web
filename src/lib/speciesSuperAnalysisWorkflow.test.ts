@@ -17,7 +17,6 @@ vi.mock("@/lib/speciesSuperAnalysis", () => ({
 const id = "phasianus-colchicus";
 let commits: number;
 let changed: boolean;
-let failChecks: boolean;
 let checkout: string;
 const step = vi.fn();
 
@@ -25,7 +24,6 @@ beforeEach(() => {
   vi.clearAllMocks();
   commits = 0;
   changed = false;
-  failChecks = false;
   vi.mocked(createSuperAnalysisRunner).mockImplementation(
     async (_id, worktree) => {
       checkout = worktree;
@@ -90,8 +88,6 @@ beforeEach(() => {
         }
         if (command === "git" && args[0] === "rev-list")
           stdout = String(commits);
-        if (command === "pnpm" && failChecks)
-          throw new Error("Validation failed");
         callback(null, { stdout });
       })().catch((error) => callback(error as Error, { stdout: "" }));
     },
@@ -133,21 +129,21 @@ describe("Super Analysis publishing boundary", () => {
     expect(published()).toEqual([]);
   });
 
-  it("blocks publishing if compile or tests fail", async () => {
-    failChecks = true;
-    await expect(run()).rejects.toThrow("Validation failed");
-    expect(published()).toEqual([]);
+  it("does not run package-manager or project-check commands", async () => {
+    await run();
+    expect(
+      mocks.command.mock.calls.every(([command]) =>
+        ["gh", "git"].includes(command),
+      ),
+    ).toBe(true);
   });
 
-  it("publishes only after four stages and validation, as a content-labeled draft", async () => {
+  it("publishes after four validated stages, as a content-labeled draft", async () => {
     const result = await run();
     expect(result.pullRequestUrl).toContain("/pull/999");
     const calls = mocks.command.mock.calls.map(
       ([command, args]) => `${command} ${args.join(" ")}`,
     );
-    expect(
-      calls.findIndex((line) => line.includes("pnpm exec vitest")),
-    ).toBeLessThan(calls.findIndex((line) => line.includes("git push")));
     expect(calls.find((line) => line.includes("gh pr create"))).toContain(
       "--draft --label content",
     );

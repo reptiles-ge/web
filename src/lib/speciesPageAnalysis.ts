@@ -418,24 +418,6 @@ export async function runSpeciesWorkflow(
           failedStep: failure.step,
           pullRequestUrl: null,
         };
-      if (superStep) {
-        options?.onStage("validation");
-        await run("pnpm", ["run", "species:compile"], worktree);
-        await run("pnpm", ["run", "typecheck"], worktree);
-        await run(
-          "pnpm",
-          [
-            "exec",
-            "vitest",
-            "run",
-            "src/lib/speciesRoutes.test.ts",
-
-            "src/lib/speciesInlineLinks.test.ts",
-            "src/lib/snakeQuiz.test.ts",
-          ],
-          worktree,
-        );
-      }
       if (
         (await run(
           "git",
@@ -460,7 +442,7 @@ export async function runSpeciesWorkflow(
       await fs.writeFile(
         body,
         superStep
-          ? `Super Analysis for ${id}: ${completedModes.join(" → ")}\n\n${reports.join("\n\n")}\n\n## Validation\n\nSchema, evidence references, locale parity, protected fields, links, species compilation, typecheck and route/related/quiz tests passed. Source verification is an AI assessment; this draft still requires editorial review.\n`
+          ? `Super Analysis for ${id}: ${completedModes.join(" → ")}\n\n${reports.join("\n\n")}\n\n## Validation\n\nSchema, evidence references, locale parity, protected fields and links validated internally. Compilation, typecheck, lint and tests were not run; the owner will handle project checks. Source verification is an AI assessment; this draft still requires editorial review.\n`
           : `## Summary\n\n- Completed ${completedModes.join(" → ")} for ${id}\n${failure ? `- Stopped at ${failure.step}; later steps were not run\n` : ""}\n## Checks\n\n- Automated checks not run; owner will review\n`,
       );
       try {
