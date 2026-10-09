@@ -1,9 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import {
-  hasRealIdentification,
-  isPlaceholderBody,
-} from "@/lib/speciesContent";
+import { hasRealIdentification, isPlaceholderBody } from "@/lib/speciesContent";
 
 describe("isPlaceholderBody", () => {
   it("treats empty and checklist-pointer copy as placeholders", () => {
@@ -17,7 +14,9 @@ describe("isPlaceholderBody", () => {
 
   it("keeps real biology text", () => {
     expect(
-      isPlaceholderBody("A large viper of dry rocky slopes in eastern Georgia."),
+      isPlaceholderBody(
+        "A large viper of dry rocky slopes in eastern Georgia.",
+      ),
     ).toBe(false);
   });
 });

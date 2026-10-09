@@ -16,10 +16,7 @@ import { Link } from "@/i18n/navigation";
 import { trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
 import { formatPhotoDate } from "@/lib/formatDate";
-import {
-  hasPhotoCoordinates,
-  photoMapUrl,
-} from "@/lib/photoCoordinates";
+import { hasPhotoCoordinates, photoMapUrl } from "@/lib/photoCoordinates";
 import { photoCreditSourceLabel } from "@/lib/photoCreditSource";
 
 type PhotoCreditCaptionProps = {
@@ -247,7 +244,10 @@ function PhotoLocationLink({
       rel="noopener noreferrer"
       target="_blank"
     >
-      <MapPin aria-hidden="true" className="size-[0.95em] shrink-0 opacity-80" />
+      <MapPin
+        aria-hidden="true"
+        className="size-[0.95em] shrink-0 opacity-80"
+      />
       <span>{label}</span>
       <span className="sr-only"> — {mapLabel}</span>
       <ArrowUpRight aria-hidden="true" className="size-[0.85em]" />
@@ -283,7 +283,7 @@ function ThumbCredit({
   return (
     <figcaption
       className={cn(
-        "pointer-events-none absolute inset-x-0 bottom-0 z-2 select-none bg-linear-to-t from-black/55 to-transparent px-3 pt-8 pb-2.5 text-[10px] leading-snug tracking-[0.04em] text-white/70 opacity-0 transition-opacity duration-300 sm:group-hover:opacity-100",
+        "pointer-events-none absolute inset-x-0 bottom-0 z-2 bg-linear-to-t from-black/55 to-transparent px-3 pt-8 pb-2.5 text-[10px] leading-snug tracking-[0.04em] text-white/70 opacity-0 transition-opacity duration-300 select-none sm:group-hover:opacity-100",
         className,
       )}
     >

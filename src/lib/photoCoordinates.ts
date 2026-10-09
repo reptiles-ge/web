@@ -67,7 +67,8 @@ function parseCoordinate(
   const trimmed = value.trim().replace(",", ".");
   if (!trimmed) return undefined;
   const parsed = Number(trimmed);
-  if (!Number.isFinite(parsed) || parsed < min || parsed > max) return undefined;
+  if (!Number.isFinite(parsed) || parsed < min || parsed > max)
+    return undefined;
   return parsed;
 }
 

@@ -2,10 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import { getCatalogSpecies, getSpeciesById } from "@/data/species";
 import { isDarevskiaSpecies } from "@/lib/clusterGuides";
-import {
-  getLizardQuizCatalog,
-  getSnakeQuizCatalog,
-} from "@/lib/snakeQuiz";
+import { getLizardQuizCatalog, getSnakeQuizCatalog } from "@/lib/snakeQuiz";
 import { generateLizardQuiz } from "@/lib/snakeQuizEngine";
 
 describe("quiz catalogs", () => {

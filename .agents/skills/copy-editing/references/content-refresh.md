@@ -21,13 +21,13 @@ Copy editing isn't just for new content. Existing pages and posts decay over tim
 
 ## Refresh vs. Rewrite
 
-| Signal | Action |
-|--------|--------|
-| Core message still valid, details outdated | Refresh (update facts, stats, examples) |
-| Brand voice has evolved significantly | Refresh + voice rewrite |
-| Topic angle or audience has shifted | Full rewrite |
-| Page structure doesn't match current search intent | Full rewrite |
-| Just needs updated stats and links | Light refresh |
+| Signal                                             | Action                                  |
+| -------------------------------------------------- | --------------------------------------- |
+| Core message still valid, details outdated         | Refresh (update facts, stats, examples) |
+| Brand voice has evolved significantly              | Refresh + voice rewrite                 |
+| Topic angle or audience has shifted                | Full rewrite                            |
+| Page structure doesn't match current search intent | Full rewrite                            |
+| Just needs updated stats and links                 | Light refresh                           |
 
 ## Refresh Cadence
 
