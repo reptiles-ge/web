@@ -170,7 +170,7 @@ describe("four-stage Super Analysis runner", () => {
           calls++;
           if (calls === 2) {
             expect(prompt).toContain("field overview");
-            expect(prompt).toContain("Never change a status to verified");
+            expect(prompt).toContain("never change a status to verified");
             expect(
               (await readSpeciesAnalysisContent(id, worktree)).ka.raw,
             ).toBe(original);
