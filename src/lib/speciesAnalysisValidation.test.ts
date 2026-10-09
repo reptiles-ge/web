@@ -1,4 +1,8 @@
 import matter from "gray-matter";
+import { execFileSync } from "node:child_process";
+import fs from "node:fs";
+import os from "node:os";
+import path from "node:path";
 import { beforeAll, describe, expect, it } from "vitest";
 
 import {
@@ -266,6 +270,34 @@ describe("deterministic mutations", () => {
     expect(() => applyAnalysisEdits(raw, "ka", value)).toThrow();
     value.edits = [edit("Stale", "After")];
     expect(() => applyAnalysisEdits(raw, "ka", value)).toThrow("changed");
+  });
+
+  it("does not append an empty MDX body or accumulate EOF blank lines", () => {
+    const emptyBody = raw.slice(0, raw.indexOf("Keep the MDX body."));
+    const value = result("texts");
+    value.edits = [edit("Before", "After")];
+    const updated = applyAnalysisEdits(emptyBody, "en", value);
+    expect(updated.endsWith("\n---\n")).toBe(true);
+    expect(matter(updated).content).toBe("");
+    value.edits = [edit("After", "Next")];
+    const rerun = applyAnalysisEdits(updated, "en", value);
+    expect(rerun.endsWith("\n---\n")).toBe(true);
+    expect(matter(rerun).content).toBe("");
+    const directory = fs.mkdtempSync(
+      path.join(os.tmpdir(), "super-mdx-whitespace-"),
+    );
+    const git = (args: string[]) =>
+      execFileSync("git", args, { cwd: directory, stdio: "pipe" });
+    try {
+      git(["init", "-q"]);
+      const file = path.join(directory, "en.mdx");
+      fs.writeFileSync(file, emptyBody);
+      git(["add", "--", "en.mdx"]);
+      fs.writeFileSync(file, rerun);
+      expect(() => git(["diff", "--check", "--", "en.mdx"])).not.toThrow();
+    } finally {
+      fs.rmSync(directory, { force: true, recursive: true });
+    }
   });
 
   it("removes both lookalike directions without changing unrelated code or pairs", () => {

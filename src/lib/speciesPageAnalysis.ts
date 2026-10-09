@@ -384,7 +384,13 @@ export async function runSpeciesWorkflow(
         if (skipped.length)
           throw new Error(`Unexpected changed files: ${skipped.join(", ")}`);
         if (stepFiles.length) {
-          await run("git", ["diff", "--check", "--", ...stepFiles], worktree);
+          try {
+            await run("git", ["diff", "--check", "--", ...stepFiles], worktree);
+          } catch (error) {
+            const output = (error as { stdout?: string }).stdout?.trim();
+            if (output) throw new Error(`git diff --check failed:\n${output}`);
+            throw error;
+          }
           await run("git", ["add", "--", ...stepFiles], worktree);
           await run(
             "git",

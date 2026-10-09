@@ -70,7 +70,7 @@ export function applyAnalysisEdits(
   if (JSON.stringify(data) === JSON.stringify(parsed.data)) return raw;
   if (locale === "ka") data.dateModified = toSiteDateTime(new Date());
   kaFrontmatterSchema.omit({ family: true, genus: true }).parse(data);
-  const updated = matter.stringify(parsed.content, data);
+  const updated = `${matter.stringify("", data).trimEnd()}\n${parsed.content}`;
   if (JSON.stringify(matter(updated).data) !== JSON.stringify(data))
     throw new Error("Content did not round-trip through YAML");
   return updated;
