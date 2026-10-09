@@ -100,15 +100,13 @@ describe("Super Analysis progress panel", () => {
   it("shows failed-stage diagnostics and preserves completed reports", async () => {
     vi.stubGlobal(
       "fetch",
-      vi
-        .fn()
-        .mockResolvedValue(
-          Response.json({
-            ...job,
-            error: "Unverified evidence",
-            status: "failed",
-          }),
-        ),
+      vi.fn().mockResolvedValue(
+        Response.json({
+          ...job,
+          error: "Unverified evidence",
+          status: "failed",
+        }),
+      ),
     );
     render(<SpeciesSuperAnalysis {...props} />);
     expect(
