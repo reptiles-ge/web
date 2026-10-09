@@ -159,7 +159,7 @@ export const speciesAnalysisSurfaces = [
       "src/lib/createSpeciesRoute.tsx",
       "src/lib/speciesMeta.ts",
       "src/lib/speciesShareText.ts",
-      "src/lib/kaSeoOverrides.ts",
+      "src/lib/kaMetaDescriptionOverrides.ts",
     ],
   },
   {

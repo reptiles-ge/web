@@ -4,6 +4,7 @@ import ts from "typescript";
 import type { SpeciesAnalysisContext } from "@/lib/speciesAnalysisInventory";
 
 import { assertInlineLinksPreserved } from "@/lib/contentEditor";
+import { toSiteDateTime } from "@/lib/siteTime";
 import {
   ANALYSIS_LOCALES,
   type SuperAnalysisResult,
@@ -81,6 +82,7 @@ export function applyAnalysisEdits(
     ];
   }
   if (JSON.stringify(data) === JSON.stringify(parsed.data)) return raw;
+  if (locale === "ka") data.dateModified = toSiteDateTime(new Date());
   kaFrontmatterSchema.omit({ family: true, genus: true }).parse(data);
   const updated = matter.stringify(parsed.content, data);
   if (JSON.stringify(matter(updated).data) !== JSON.stringify(data))
