@@ -1,7 +1,8 @@
 import type { SpeciesTranslation } from "@/data/speciesTypes";
-import type { Species } from "@/data/speciesTypes";
+import type { PhotoCredit, Species } from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
 
+import { localizeCreditPerson, localizeCreditPlace } from "@/data/creditNames";
 import { speciesEn } from "@/data/species-en";
 import { speciesRu } from "@/data/species-ru";
 import { speciesTr } from "@/data/species-tr";
@@ -29,13 +30,38 @@ export function localizeSpecies(species: Species, locale: AppLocale): Species {
     mobileImageCredit,
   );
 
+  const credit = (value?: PhotoCredit) =>
+    value
+      ? {
+          ...value,
+          ...(value.location
+            ? { location: localizeCreditPlace(value.location, locale) }
+            : {}),
+          ...(value.photographer
+            ? { photographer: localizeCreditPerson(value.photographer, locale) }
+            : {}),
+        }
+      : undefined;
+  const imageCreditOut = credit(localizedCredit);
+  const mobileImageCreditOut = credit(localizedMobileCredit);
+
   return {
     ...species,
     ...text,
-    gallery: mergeGallery(species.gallery, gallery),
-    ...(localizedCredit ? { imageCredit: localizedCredit } : {}),
-    ...(localizedMobileCredit
-      ? { mobileImageCredit: localizedMobileCredit }
+    ...(species.audio?.location
+      ? {
+          audio: {
+            ...species.audio,
+            location: localizeCreditPlace(species.audio.location, locale),
+          },
+        }
+      : {}),
+    gallery: mergeGallery(species.gallery, gallery).map((item) =>
+      item.credit ? { ...item, credit: credit(item.credit) } : item,
+    ),
+    ...(imageCreditOut ? { imageCredit: imageCreditOut } : {}),
+    ...(mobileImageCreditOut
+      ? { mobileImageCredit: mobileImageCreditOut }
       : {}),
   };
 }
