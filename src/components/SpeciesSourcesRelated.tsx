@@ -42,12 +42,11 @@ export async function SpeciesSourcesRelated({
 }: Props) {
   if (sources.length === 0 && related.length === 0) return null;
 
-  const t = await getTranslations({ locale, namespace: "profile" });
-  const tDanger = await getTranslations({ locale, namespace: "danger" });
-  const tAttribution = await getTranslations({
-    locale,
-    namespace: "attribution",
-  });
+  const [t, tDanger, tAttribution] = await Promise.all([
+    getTranslations({ locale, namespace: "profile" }),
+    getTranslations({ locale, namespace: "danger" }),
+    getTranslations({ locale, namespace: "attribution" }),
+  ]);
   const giurza = speciesId === "macrovipera-lebetina";
   const insect = getSpeciesAtlasMeta(speciesId).group === "insect";
   const featured = giurza
@@ -168,55 +167,81 @@ export async function SpeciesSourcesRelated({
               </Link>
             </div>
             <div className="no-scrollbar mt-4 flex snap-x snap-mandatory gap-2.5 overflow-x-auto px-5 pb-2 sm:px-6 lg:mt-6 lg:grid lg:grid-cols-2 lg:gap-x-5 lg:gap-y-7 lg:overflow-visible lg:px-0">
-              {related.map((item, index) => {
-                const cover = getSpeciesCoverSrc(item);
-                const risk = getSpeciesRiskChip(item);
-                return (
-                  <TrackedSpeciesLink
-                    className="group block w-[168px] shrink-0 snap-start lg:w-auto"
-                    key={item.id}
-                    locale={locale}
-                    position={index + 1}
-                    source="related"
-                    speciesId={item.id}
-                  >
-                    <span className="relative block h-[126px] overflow-hidden rounded-[20px] bg-ink lg:aspect-16/10 lg:h-auto lg:rounded-[22px]">
-                      {cover ? (
-                        <CoverImage
-                          alt={speciesImageAlt(
-                            item.commonName,
-                            item.scientificName,
-                            item.location,
-                          )}
-                          className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-                          sizes="(min-width: 1024px) 360px, 168px"
-                          src={cover}
-                        />
-                      ) : null}
-                      {risk ? (
-                        <span className="absolute top-2 left-2 inline-flex h-6 items-center gap-1.5 rounded-full bg-background/95 px-2 text-[10px] font-medium text-foreground lg:top-3 lg:left-3 lg:h-7 lg:px-2.5 lg:text-[11px]">
-                          <span
-                            aria-hidden="true"
-                            className={`size-1.5 rounded-full ${risk.level === "High" ? "bg-destructive" : risk.level === "Moderate" ? "bg-gold" : "bg-primary"}`}
-                          />
-                          {tDanger(risk.level)}
-                        </span>
-                      ) : null}
-                    </span>
-                    <span className="mx-1 mt-2.5 block text-[15px] leading-tight font-semibold text-foreground lg:mt-3 lg:text-[17px]">
-                      {item.commonName}
-                    </span>
-                    <span className="mx-1 mt-0.5 block text-[12px] text-muted-foreground italic lg:text-[13px]">
-                      {item.scientificName}
-                    </span>
-                  </TrackedSpeciesLink>
-                );
-              })}
+              {related.map((item, index) => (
+                <RelatedSpeciesCard
+                  item={item}
+                  key={item.id}
+                  locale={locale}
+                  position={index + 1}
+                  riskLabels={{
+                    Harmless: tDanger("Harmless"),
+                    High: tDanger("High"),
+                    Moderate: tDanger("Moderate"),
+                  }}
+                />
+              ))}
             </div>
           </div>
         ) : null}
       </div>
     </section>
+  );
+}
+
+function RelatedSpeciesCard({
+  item,
+  locale,
+  position,
+  riskLabels,
+}: {
+  item: Species;
+  locale: AppLocale;
+  position: number;
+  riskLabels: Record<
+    NonNullable<ReturnType<typeof getSpeciesRiskChip>>["level"],
+    string
+  >;
+}) {
+  const cover = getSpeciesCoverSrc(item);
+  const risk = getSpeciesRiskChip(item);
+  return (
+    <TrackedSpeciesLink
+      className="group block w-[168px] shrink-0 snap-start lg:w-auto"
+      locale={locale}
+      position={position}
+      source="related"
+      speciesId={item.id}
+    >
+      <span className="relative block h-[126px] overflow-hidden rounded-[20px] bg-ink lg:aspect-16/10 lg:h-auto lg:rounded-[22px]">
+        {cover ? (
+          <CoverImage
+            alt={speciesImageAlt(
+              item.commonName,
+              item.scientificName,
+              item.location,
+            )}
+            className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+            sizes="(min-width: 1024px) 360px, 168px"
+            src={cover}
+          />
+        ) : null}
+        {risk ? (
+          <span className="absolute top-2 left-2 inline-flex h-6 items-center gap-1.5 rounded-full bg-background/95 px-2 text-[10px] font-medium text-foreground lg:top-3 lg:left-3 lg:h-7 lg:px-2.5 lg:text-[11px]">
+            <span
+              aria-hidden="true"
+              className={`size-1.5 rounded-full ${risk.level === "High" ? "bg-destructive" : risk.level === "Moderate" ? "bg-gold" : "bg-primary"}`}
+            />
+            {riskLabels[risk.level]}
+          </span>
+        ) : null}
+      </span>
+      <span className="mx-1 mt-2.5 block text-[15px] leading-tight font-semibold text-foreground lg:mt-3 lg:text-[17px]">
+        {item.commonName}
+      </span>
+      <span className="mx-1 mt-0.5 block text-[12px] text-muted-foreground italic lg:text-[13px]">
+        {item.scientificName}
+      </span>
+    </TrackedSpeciesLink>
   );
 }
 

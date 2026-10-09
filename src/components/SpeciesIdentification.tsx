@@ -59,123 +59,16 @@ export async function SpeciesIdentification({
   const editable = locale === "ka" && isLocalAdminEnabled();
 
   if (speciesId === "macrovipera-lebetina" && photo) {
-    const tGiurza = await getTranslations({
-      locale,
-      namespace: "giurzaIdentification",
-    });
-    const colors = [
-      { key: "gray", tone: "#8f8c82" },
-      { key: "sand", tone: "#c4ab7e" },
-      { key: "brown", tone: "#7d5f43" },
-    ] as const;
-
     return (
-      <section className="bg-background py-11 lg:py-20">
-        <div className="mx-auto max-w-[1440px] px-6 lg:grid lg:grid-cols-[minmax(0,520px)_minmax(0,1fr)] lg:items-start lg:gap-x-16 lg:px-[60px]">
-          <div className="min-w-0 lg:col-start-2 lg:row-start-1 lg:self-end">
-            <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
-              {t("identification")}
-            </p>
-            <AnchoredHeading
-              anchorLabel={t("anchorLink")}
-              className="mt-3 max-w-3xl font-display text-[28px] leading-[1.15] font-semibold tracking-[-0.012em] lg:mt-4 lg:text-[44px] lg:leading-[1.1]"
-              id={SPECIES_SECTION_IDS.identification}
-              slugSource={t("identificationTitle", { name })}
-            >
-              {t("identificationTitle", { name })}
-            </AnchoredHeading>
-            <p
-              className="mt-3 max-w-2xl text-[16px] leading-[1.65] whitespace-pre-line text-muted-foreground lg:mt-[18px]"
-              data-content-field={
-                editable ? "identification.summary" : undefined
-              }
-              data-content-id={editable ? speciesId : undefined}
-              data-content-kind={editable ? "species" : undefined}
-            >
-              <IdentificationRichText text={identification.summary} />
-            </p>
-          </div>
-          <SpeciesIdentificationPhoto
-            alt={photoAlt ?? name}
-            featured
-            locale={locale}
-            photo={photo}
-          />
-          <div className="min-w-0 lg:col-start-2 lg:row-start-2 lg:self-start">
-            <ol className="mt-6 lg:mt-[22px]">
-              {identification.traits.map((trait, index) => (
-                <li
-                  className="flex items-start gap-4 border-t border-border py-4 last:border-b lg:py-5"
-                  key={trait}
-                >
-                  <span
-                    aria-hidden="true"
-                    className="flex size-8 shrink-0 items-center justify-center rounded-full bg-foreground text-[14px] font-bold text-background"
-                  >
-                    {index + 1}
-                  </span>
-                  <p
-                    className="min-w-0 text-[16px] leading-[1.65] whitespace-pre-line text-foreground/85"
-                    data-content-field={
-                      editable ? `identification.traits.${index}` : undefined
-                    }
-                    data-content-id={editable ? speciesId : undefined}
-                    data-content-kind={editable ? "species" : undefined}
-                  >
-                    <IdentificationRichText text={trait} />
-                  </p>
-                </li>
-              ))}
-            </ol>
-            <div className="mt-5 flex flex-wrap items-center gap-2">
-              <span className="mr-1 text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
-                {tGiurza("color")}
-              </span>
-              {colors.map(({ key, tone }) => (
-                <span
-                  className="inline-flex h-[34px] items-center gap-2 rounded-full bg-card pr-[13px] pl-[9px] text-[13.5px] font-medium text-foreground"
-                  key={key}
-                >
-                  <span
-                    aria-hidden="true"
-                    className="size-4 rounded-full"
-                    style={{ backgroundColor: tone }}
-                  />
-                  {tGiurza(key)}
-                </span>
-              ))}
-            </div>
-            <div className="mt-5 flex items-start gap-3 rounded-[22px] bg-[#f3ecd9] px-5 py-4">
-              <TriangleAlert
-                aria-hidden="true"
-                className="mt-0.5 size-5 shrink-0 text-[#7d6224]"
-              />
-              <p className="text-[14.5px] leading-[1.55] text-[#4f3f17]">
-                {tGiurza("warning")}
-              </p>
-            </div>
-          </div>
-        </div>
-        <SpeciesIdentificationLookalikes
-          countLabel={tGiurza("lookalikeCount", { count: lookalikes.length })}
-          differenceLabel={tGiurza("differenceLabel")}
-          differences={{
-            "elaphe-urartica": tGiurza("urarticaDifference"),
-            "hemorrhois-ravergieri": tGiurza("ravergieriDifference"),
-            "vipera-transcaucasiana": tGiurza("transcaucasianaDifference"),
-          }}
-          label={t("lookalikesTitle")}
-          locale={locale}
-          lookalikes={lookalikes}
-          moreLabel={(count) => t("lookalikesMore", { count })}
-          riskLabels={{
-            Harmless: tDanger("Harmless"),
-            High: tDanger("High"),
-            Moderate: tDanger("Moderate"),
-          }}
-          speciesId={speciesId}
-        />
-      </section>
+      <GiurzaIdentification
+        identification={identification}
+        locale={locale}
+        lookalikes={lookalikes}
+        name={name}
+        photo={photo}
+        photoAlt={photoAlt}
+        speciesId={speciesId}
+      />
     );
   }
 
@@ -307,6 +200,138 @@ function IdentificationTraits({
 }
 
 const LOOKALIKES_COLLAPSED_COUNT = 3;
+
+async function GiurzaIdentification({
+  identification,
+  locale,
+  lookalikes = [],
+  name,
+  photo,
+  photoAlt,
+  speciesId,
+}: SpeciesIdentificationProps & { photo: GalleryImage }) {
+  const [t, tDanger] = await Promise.all([
+    getTranslations({ locale, namespace: "profile" }),
+    getTranslations({ locale, namespace: "danger" }),
+  ]);
+  const editable = locale === "ka" && isLocalAdminEnabled();
+  const tGiurza = await getTranslations({
+    locale,
+    namespace: "giurzaIdentification",
+  });
+  const colors = [
+    { key: "gray", tone: "#8f8c82" },
+    { key: "sand", tone: "#c4ab7e" },
+    { key: "brown", tone: "#7d5f43" },
+  ] as const;
+
+  return (
+    <section className="bg-background py-11 lg:py-20">
+      <div className="mx-auto max-w-[1440px] px-6 lg:grid lg:grid-cols-[minmax(0,520px)_minmax(0,1fr)] lg:items-start lg:gap-x-16 lg:px-[60px]">
+        <div className="min-w-0 lg:col-start-2 lg:row-start-1 lg:self-end">
+          <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
+            {t("identification")}
+          </p>
+          <AnchoredHeading
+            anchorLabel={t("anchorLink")}
+            className="mt-3 max-w-3xl font-display text-[28px] leading-[1.15] font-semibold tracking-[-0.012em] lg:mt-4 lg:text-[44px] lg:leading-[1.1]"
+            id={SPECIES_SECTION_IDS.identification}
+            slugSource={t("identificationTitle", { name })}
+          >
+            {t("identificationTitle", { name })}
+          </AnchoredHeading>
+          <p
+            className="mt-3 max-w-2xl text-[16px] leading-[1.65] whitespace-pre-line text-muted-foreground lg:mt-[18px]"
+            data-content-field={editable ? "identification.summary" : undefined}
+            data-content-id={editable ? speciesId : undefined}
+            data-content-kind={editable ? "species" : undefined}
+          >
+            <IdentificationRichText text={identification.summary} />
+          </p>
+        </div>
+        <SpeciesIdentificationPhoto
+          alt={photoAlt ?? name}
+          featured
+          locale={locale}
+          photo={photo}
+        />
+        <div className="min-w-0 lg:col-start-2 lg:row-start-2 lg:self-start">
+          <ol className="mt-6 lg:mt-[22px]">
+            {identification.traits.map((trait, index) => (
+              <li
+                className="flex items-start gap-4 border-t border-border py-4 last:border-b lg:py-5"
+                key={trait}
+              >
+                <span
+                  aria-hidden="true"
+                  className="flex size-8 shrink-0 items-center justify-center rounded-full bg-foreground text-[14px] font-bold text-background"
+                >
+                  {index + 1}
+                </span>
+                <p
+                  className="min-w-0 text-[16px] leading-[1.65] whitespace-pre-line text-foreground/85"
+                  data-content-field={
+                    editable ? `identification.traits.${index}` : undefined
+                  }
+                  data-content-id={editable ? speciesId : undefined}
+                  data-content-kind={editable ? "species" : undefined}
+                >
+                  <IdentificationRichText text={trait} />
+                </p>
+              </li>
+            ))}
+          </ol>
+          <div className="mt-5 flex flex-wrap items-center gap-2">
+            <span className="mr-1 text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
+              {tGiurza("color")}
+            </span>
+            {colors.map(({ key, tone }) => (
+              <span
+                className="inline-flex h-[34px] items-center gap-2 rounded-full bg-card pr-[13px] pl-[9px] text-[13.5px] font-medium text-foreground"
+                key={key}
+              >
+                <span
+                  aria-hidden="true"
+                  className="size-4 rounded-full"
+                  style={{ backgroundColor: tone }}
+                />
+                {tGiurza(key)}
+              </span>
+            ))}
+          </div>
+          <div className="mt-5 flex items-start gap-3 rounded-[22px] bg-[#f3ecd9] px-5 py-4">
+            <TriangleAlert
+              aria-hidden="true"
+              className="mt-0.5 size-5 shrink-0 text-[#7d6224]"
+            />
+            <p className="text-[14.5px] leading-[1.55] text-[#4f3f17]">
+              {tGiurza("warning")}
+            </p>
+          </div>
+        </div>
+      </div>
+      <SpeciesIdentificationLookalikes
+        countLabel={tGiurza("lookalikeCount", { count: lookalikes.length })}
+        differenceLabel={tGiurza("differenceLabel")}
+        differences={{
+          "elaphe-urartica": tGiurza("urarticaDifference"),
+          "hemorrhois-ravergieri": tGiurza("ravergieriDifference"),
+          "vipera-transcaucasiana": tGiurza("transcaucasianaDifference"),
+        }}
+        label={t("lookalikesTitle")}
+        locale={locale}
+        lookalikes={lookalikes}
+        moreLabel={(count) => t("lookalikesMore", { count })}
+        riskLabels={{
+          Harmless: tDanger("Harmless"),
+          High: tDanger("High"),
+          Moderate: tDanger("Moderate"),
+        }}
+        speciesId={speciesId}
+      />
+    </section>
+  );
+}
 
 function SpeciesIdentificationLookalikes({
   countLabel,

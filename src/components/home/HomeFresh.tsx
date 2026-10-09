@@ -13,6 +13,7 @@ import { Link } from "@/i18n/navigation";
 import { formatContentDate } from "@/lib/formatDate";
 import { newsArticleHref, newsIndexHref } from "@/lib/news";
 import { getNewsVisual } from "@/lib/newsVisual";
+import { getSpeciesCoverSrc } from "@/lib/speciesContent";
 
 export async function HomeFresh({ locale }: { locale: AppLocale }) {
   const [t, tNews] = await Promise.all([
@@ -20,9 +21,10 @@ export async function HomeFresh({ locale }: { locale: AppLocale }) {
     getTranslations({ locale, namespace: "news" }),
   ]);
   const [lead, ...rest] = getPublishedNewsArticles(locale);
-  const updated = getRecentlyUpdatedSpecies(4).map((species) =>
-    localizeSpecies(species, locale),
-  );
+  const updated = getRecentlyUpdatedSpecies(4).map((species) => ({
+    cover: getSpeciesCoverSrc(species),
+    species: localizeSpecies(species, locale),
+  }));
   if (!lead && updated.length === 0) return null;
   const leadCopy = lead ? getNewsCopy(lead, locale) : null;
   const leadVisual = lead ? getNewsVisual(lead, locale) : null;
@@ -123,7 +125,7 @@ export async function HomeFresh({ locale }: { locale: AppLocale }) {
                 {t("updated")}
               </p>
               <ul className="mt-4 divide-y divide-border">
-                {updated.map((species, index) => (
+                {updated.map(({ cover, species }, index) => (
                   <li key={species.id}>
                     <TrackedSpeciesLink
                       className="group flex min-h-[69px] items-center gap-3 py-3 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
@@ -133,15 +135,12 @@ export async function HomeFresh({ locale }: { locale: AppLocale }) {
                       speciesId={species.id}
                     >
                       <span className="relative size-14 shrink-0 overflow-hidden rounded-[12px] bg-ink sm:size-16">
-                        {(species.mobileImage || species.image) &&
-                        !(species.mobileImage ?? species.image).includes(
-                          "species-placeholder",
-                        ) ? (
+                        {cover ? (
                           <CoverImage
                             alt=""
                             className="object-cover transition-transform duration-500 group-hover:scale-105"
                             sizes="64px"
-                            src={species.mobileImage ?? species.image}
+                            src={cover}
                           />
                         ) : null}
                       </span>

@@ -519,68 +519,23 @@ export async function SpeciesProfileBody({
 }: SpeciesProfileBodyProps) {
   const t = await getTranslations({ locale, namespace: "profile" });
   const riskLevel = getSpeciesRiskChip(species)?.level;
-  const interactionBody =
-    species.interaction && !isPlaceholderBody(species.interaction)
-      ? species.interaction
-      : null;
   const habitatBlock = biologyBlocks.find((block) => block.id === "habitat");
   const naturalHistoryBlocks = biologyBlocks.filter(
     (block) => block.id !== "habitat",
   );
   return (
     <>
-      <div className="relative z-10 -mt-7 rounded-t-[32px] bg-background pt-4 pb-6 lg:mt-[-86px] lg:rounded-none lg:bg-transparent lg:pt-0 lg:pb-14">
-        <div
-          className={cn(
-            "mx-auto max-w-[1440px] lg:grid lg:items-stretch lg:gap-4 lg:px-[60px]",
-            displayStats.length > 0 && "lg:grid-cols-[430px_minmax(0,1fr)]",
-          )}
-        >
-          <SpeciesVerdict
-            credits={
-              gallery.length > 0
-                ? gallery.map((photo, index) =>
-                    index === 0 ? heroCredit : photo.credit,
-                  )
-                : [heroCredit]
-            }
-            description={species.description}
-            guideLinks={guideLinks}
-            level={riskLevel}
-            locale={locale}
-            speciesId={species.id}
-          />
-          <SpeciesProfileFacts
-            danger={species.danger}
-            dangerValue={dangerValue}
-            displayStats={displayStats}
-            editable={editable}
-            linkDangerStats={linkDangerStats}
-            locale={locale}
-            speciesId={species.id}
-            stats={species.stats}
-          />
-          {interactionBody ? (
-            <aside className="mx-4 mt-2 rounded-[22px] bg-gold/12 p-5 lg:col-span-full lg:mx-0 lg:mt-0 lg:rounded-[26px] lg:px-7 lg:py-6">
-              <AnchoredHeading
-                anchorLabel={t("anchorLink")}
-                className="font-display text-[19px] font-semibold text-foreground"
-                id={SPECIES_SECTION_IDS.interaction}
-              >
-                {t("interaction")}
-              </AnchoredHeading>
-              <BiologyExpandable
-                body={interactionBody}
-                editorField={editable ? "interaction" : undefined}
-                needsExpand={interactionBody.length > 260}
-                readLess={t("readLess")}
-                readMore={t("readMore")}
-                speciesId={editable ? species.id : undefined}
-              />
-            </aside>
-          ) : null}
-        </div>
-      </div>
+      <SpeciesProfileSummary
+        dangerValue={dangerValue}
+        displayStats={displayStats}
+        editable={editable}
+        gallery={gallery}
+        guideLinks={guideLinks}
+        heroCredit={heroCredit}
+        linkDangerStats={linkDangerStats}
+        locale={locale}
+        species={species}
+      />
 
       <SpeciesProfileNavigation
         locale={locale}
@@ -1206,5 +1161,89 @@ async function SpeciesProfileNavigation({
       name={name}
       riskLevel={riskLevel}
     />
+  );
+}
+
+async function SpeciesProfileSummary({
+  dangerValue,
+  displayStats,
+  editable,
+  gallery,
+  guideLinks,
+  heroCredit,
+  linkDangerStats,
+  locale,
+  species,
+}: Pick<
+  SpeciesProfileBodyProps,
+  | "dangerValue"
+  | "displayStats"
+  | "editable"
+  | "gallery"
+  | "guideLinks"
+  | "heroCredit"
+  | "linkDangerStats"
+  | "locale"
+  | "species"
+>) {
+  const t = await getTranslations({ locale, namespace: "profile" });
+  const riskLevel = getSpeciesRiskChip(species)?.level;
+  const interactionBody =
+    species.interaction && !isPlaceholderBody(species.interaction)
+      ? species.interaction
+      : null;
+  return (
+    <div className="relative z-10 -mt-7 rounded-t-[32px] bg-background pt-4 pb-6 lg:mt-[-86px] lg:rounded-none lg:bg-transparent lg:pt-0 lg:pb-14">
+      <div
+        className={cn(
+          "mx-auto max-w-[1440px] lg:grid lg:items-stretch lg:gap-4 lg:px-[60px]",
+          displayStats.length > 0 && "lg:grid-cols-[430px_minmax(0,1fr)]",
+        )}
+      >
+        <SpeciesVerdict
+          credits={
+            gallery.length > 0
+              ? gallery.map((photo, index) =>
+                  index === 0 ? heroCredit : photo.credit,
+                )
+              : [heroCredit]
+          }
+          description={species.description}
+          guideLinks={guideLinks}
+          level={riskLevel}
+          locale={locale}
+          speciesId={species.id}
+        />
+        <SpeciesProfileFacts
+          danger={species.danger}
+          dangerValue={dangerValue}
+          displayStats={displayStats}
+          editable={editable}
+          linkDangerStats={linkDangerStats}
+          locale={locale}
+          speciesId={species.id}
+          stats={species.stats}
+        />
+        {interactionBody ? (
+          <aside className="mx-4 mt-2 rounded-[22px] bg-gold/12 p-5 lg:col-span-full lg:mx-0 lg:mt-0 lg:rounded-[26px] lg:px-7 lg:py-6">
+            <AnchoredHeading
+              anchorLabel={t("anchorLink")}
+              className="font-display text-[19px] font-semibold text-foreground"
+              id={SPECIES_SECTION_IDS.interaction}
+            >
+              {t("interaction")}
+            </AnchoredHeading>
+            <BiologyExpandable
+              body={interactionBody}
+              editorField={editable ? "interaction" : undefined}
+              needsExpand={interactionBody.length > 260}
+              readLess={t("readLess")}
+              readMore={t("readMore")}
+              speciesId={editable ? species.id : undefined}
+            />
+          </aside>
+        ) : null}
+      </div>
+    </div>
   );
 }
