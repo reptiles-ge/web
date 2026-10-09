@@ -912,6 +912,7 @@
     "heading": "Reptiles.ge",
     "subtitle": "Gürcistan hayvanları atlası",
     "body": "Reptiles.ge yayın kurulu tarafından, burada listelenen kaynaklara göre hazırlandı.",
+    "bodyEditorial": "Reptiles.ge yayın kurulu tarafından hazırlandı.",
     "published": "Yayımlandı: {date}",
     "updated": "Güncellendi: {date}",
     "sources": "Kaynaklar",
@@ -1662,7 +1663,7 @@
     }
   },
   "snakes": {
-    "metaTitle": "Gürcistan’daki yılanlar — tür rehberi ve atlas",
+    "metaTitle": "Gürcistan’daki yılanlar — rehber ve atlas",
     "metaDescription": "Gürcistan’ın tüm yılanları tek rehberde: tür listesi, zehirli ve zararsız yılanlar, tanıma ipuçları ve reptiles.ge’de tam profiller.",
     "keywords": "Gürcistan’da yılanlar, Gürcistan yılanları, zehirli yılanlar Gürcistan, zararsız yılanlar, engerekler, yılanlar, Natrix, Vipera, Macrovipera",
     "breadcrumbCurrent": "Yılanlar",
@@ -1685,28 +1686,28 @@
     "section": {
       "venomous": {
         "title": "Gürcistan’da zehirli yılanlar — {count}",
-        "body": "Gürcistan’ın zehirli yılanları arasında Levant, Dinnik, Kafkas, Transkafkas, Darevski ve bozkır engerekleri bulunur. Onlarla ilgili tam bilgi ayrı zehirli yılanlar rehberinde toplanmıştır."
+        "body": "Gürcistan’ın zehirli yılanları arasında Levant, Dinnik, Kafkas, boynuzlu, Darevski ve bozkır engerekleri ile zehir dişleri ağzının arka kısmında bulunan Doğu Montpellier yılanı yer alır. Onlarla ilgili tam bilgi ayrı zehirli yılanlar rehberinde toplanmıştır."
       },
       "harmless": {
-        "title": "Zararsız — {count}",
+        "title": "Diğer zararsız yılanlar — {count}",
         "body": "Gürcistan’da görülen yılanların çoğu insanlar için tehlikeli değildir. Tanımlarken yalnızca renge güvenmeyin — tür profillerinde görünüş özellikleri, yaşam alanı ve yayılış bilgisi bulunur."
       },
       "racers": {
-        "title": "Yılanlar — {count}",
-        "body": "Dahl kamçı yılanı, bozkır sıçan yılanı, Avrupa kedi yılanı ve Eskülap yılanı, bazen zehirli türlerle karıştırılan zararsız yılanlardır."
+        "title": "Sık karıştırılan türler — {count}",
+        "body": "Dahl kırbaç yılanı, bozkır sıçan yılanı ve Eskülap yılanı zehirsizdir. Avrupa kedi yılanının zehir dişleri ağzının arka kısmındadır, ancak insan sağlığı için önemli bir tehlike olarak görülmez. Bu dört tür bazen zehirli türlerle karıştırılır."
       }
     },
     "faqEyebrow": "SSS",
     "faqTitle": "Yılanlar hakkında sorulanlar",
     "faqIntro": "Kısa yanıtlar — derinlik tür sayfalarındadır.",
     "faq1Q": "Gürcistan’da kaç yılan vardır?",
-    "faq1A": "Bu atlas Gürcistan için doğrulanmış veya ilgili kontrol listelerinde yer alan yılan profillerini toplar. Türlerin kesin sayısı taksonomik değişiklikler ve yeni doğrulanmış verilerle değişebilir; bu yüzden sayfada her zaman güncel katalog gösterilir.",
+    "faq1A": "Atlasta şu anda {count} yılan türünün profili yayımlanmıştır ve hepsi aşağıdaki katalogda yer alır. Sürüngenler için atlas, Dinnik engereğini, Kafkas engereğini ve kırmızı karınlı kırbaç yılanını aday takson olarak işaretleyen Tarkhnishvili et al. 2026 açıklamalı kontrol listesini esas alır. Sayı, taksonomik değişiklikler ve yeni doğrulanmış verilerle değişebilir.",
     "faq2Q": "Gürcistan’da hangi yılanlar zehirlidir?",
-    "faq2A": "Tıbbi açıdan önemli zehirli yılanlar ayrı bir rehberde toplanmıştır. Gürcistan’daki yılanların çoğu zararsızdır; bu yüzden bilinmeyen bir yılanı yanlışlıkla öldürmeyin — mesafe bırakın ve tür özelliklerini profillerle karşılaştırın.",
+    "faq2A": "Atlasta Levant, Dinnik, Kafkas, boynuzlu, Darevski ve bozkır engerekleri ile Doğu Montpellier yılanı zehirli olarak işaretlenmiştir. Ayrıntılar <venomous>zehirli yılanlar rehberinde</venomous>. Gürcistan’daki yılanların çoğu zararsızdır; bu yüzden bilinmeyen bir yılanı yanlışlıkla öldürmeyin — mesafe bırakın ve tür özelliklerini profillerle karşılaştırın.",
     "faq3Q": "Engereği zararsız yılandan nasıl ayırırım?",
-    "faq3A": "Bazı engereklerde dikey gözbebeği ve görece geniş, üçgen bir baş bulunur, ancak bu özellikler her durumda yeterli değildir. Daha güvenilir tanıma için diğer vücut özelliklerini, yaşam alanını ve yayılış bölgesini dikkate alın.",
+    "faq3A": "Bazı engereklerde dikey gözbebeği ve görece geniş, üçgen bir baş bulunur, ancak bu özellikler her durumda yeterli değildir. Daha güvenilir tanıma için diğer vücut özelliklerini, yaşam alanını ve yayılış bölgesini dikkate alın — <identify>zehirli yılan tanıma rehberi</identify> bunları karşılaştırır.",
     "faq4Q": "Gürcistan’da yılanlar nerede bulunur?",
-    "faq4A": "Gürcistan’ın yılanları ormanlardan yüksek dağ kuşaklarına ve doğudaki kuru peyzajlara kadar çeşitli ortamlarda görülür. Belirli bir türün yayılışını profilinde ve bölgesel atlasda görebilirsiniz; bir tür çoğu zaman birkaç bölgede bulunur.",
+    "faq4A": "Gürcistan’ın yılanları ormanlardan yüksek dağ kuşaklarına ve doğudaki kuru peyzajlara kadar çeşitli ortamlarda görülür. Belirli bir türün yayılışını profilinde, <range>yılan yayılış rehberinde</range> ve bölgesel atlasta görebilirsiniz; bir tür çoğu zaman birkaç bölgede bulunur.",
     "faq5Q": "Yılanla karşılaşırsam ne yapmalıyım?",
     "faq5A": "Ellemiyin, mesafe koyun ve yanından geçin. Isırıldıysa 112’yi arayın ve <bite>ısırık rehberine</bite> bakın. Bahçede yılan varsa veya ziyaretleri azaltmak istiyorsanız pratik <yard>bahçe rehberine</yard> bakın.",
     "ctaEyebrow": "Sonraki adım",

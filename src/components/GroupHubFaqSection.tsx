@@ -2,7 +2,7 @@
 
 import { ChevronDown } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { useMemo, useState } from "react";
+import { type ReactNode, useMemo, useState } from "react";
 
 import type { GroupHubId } from "@/lib/groupHubs";
 
@@ -15,10 +15,17 @@ import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { Link } from "@/i18n/navigation";
 import { trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
+import { hubFaqLinks } from "@/lib/groupHubFaq";
 
 const faqLinkClassName = "text-foreground underline-offset-4 hover:underline";
 
-export function GroupHubFaqSection({ hubId }: { hubId: GroupHubId }) {
+export function GroupHubFaqSection({
+  hubId,
+  speciesCount,
+}: {
+  hubId: GroupHubId;
+  speciesCount: number;
+}) {
   const t = useTranslations(hubId);
   const [open, setOpen] = useState<null | number>(0);
   const items = useMemo(() => hubFaqIndices(hubId, t), [hubId, t]);
@@ -78,13 +85,7 @@ export function GroupHubFaqSection({ hubId }: { hubId: GroupHubId }) {
                 </button>
                 <FaqAnswerPanel isOpen={isOpen}>
                   <p className="px-5 pb-5 text-[14px] leading-[1.65] text-muted-foreground lg:pr-[76px] lg:pb-6 lg:pl-[26px] lg:text-[15px] lg:leading-[1.7]">
-                    {hubId === "snakes" && n === 5 ? (
-                      <SnakesFaq5Answer />
-                    ) : hubId === "turtles" && n === 4 ? (
-                      <TurtlesFaq4Answer />
-                    ) : (
-                      <PhoneLinkedText>{t(`faq${n}A`)}</PhoneLinkedText>
-                    )}
+                    <HubFaqAnswer count={speciesCount} hubId={hubId} n={n} />
                   </p>
                 </FaqAnswerPanel>
               </div>
@@ -93,6 +94,43 @@ export function GroupHubFaqSection({ hubId }: { hubId: GroupHubId }) {
         </div>
       </div>
     </section>
+  );
+}
+
+function HubFaqAnswer({
+  count,
+  hubId,
+  n,
+}: {
+  count: number;
+  hubId: GroupHubId;
+  n: number;
+}) {
+  const t = useTranslations(hubId);
+  const links = hubFaqLinks(hubId, n);
+
+  if (!links) {
+    return (
+      <PhoneLinkedText>{t(`faq${n}A` as "faq1A", { count })}</PhoneLinkedText>
+    );
+  }
+
+  return (
+    <PhoneLinkedText>
+      {t.rich(`faq${n}A` as "faq1A", {
+        count,
+        ...Object.fromEntries(
+          Object.entries(links).map(([tag, href]) => [
+            tag,
+            (chunks: ReactNode) => (
+              <Link className={faqLinkClassName} href={href}>
+                {chunks}
+              </Link>
+            ),
+          ]),
+        ),
+      })}
+    </PhoneLinkedText>
   );
 }
 
@@ -106,41 +144,4 @@ function hubFaqIndices(
     if (t.has(`faq${n}Q`)) indices.push(n);
   }
   return indices;
-}
-
-function SnakesFaq5Answer() {
-  const t = useTranslations("snakes");
-
-  return (
-    <PhoneLinkedText>
-      {t.rich("faq5A", {
-        bite: (chunks) => (
-          <Link className={faqLinkClassName} href="/snakes/gvelis-nakbeni">
-            {chunks}
-          </Link>
-        ),
-        yard: (chunks) => (
-          <Link className={faqLinkClassName} href="/snakes-in-the-yard">
-            {chunks}
-          </Link>
-        ),
-      })}
-    </PhoneLinkedText>
-  );
-}
-
-function TurtlesFaq4Answer() {
-  const t = useTranslations("turtles");
-
-  return (
-    <PhoneLinkedText>
-      {t.rich("faq4A", {
-        identify: (chunks) => (
-          <Link className={faqLinkClassName} href="/turtles/identifikacia">
-            {chunks}
-          </Link>
-        ),
-      })}
-    </PhoneLinkedText>
-  );
 }

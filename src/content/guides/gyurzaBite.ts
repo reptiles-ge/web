@@ -119,7 +119,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         heading: "What is known about gyurza in Georgia?",
         image: "field-gyurza",
         paragraphs: [
-          "The atlas documents the species in eastern Georgia. Its [gyurza profile](/snakes/macrovipera-lebetina) covers identification, distribution, and taxonomy; this article focuses on a suspected bite. The atlas uses Macrovipera lebetinus, while much clinical literature uses M. lebetina for the corresponding taxon.",
+          "The atlas documents the species in eastern Georgia. Its [gyurza profile](macrovipera-lebetina) covers identification, distribution, and taxonomy; this article focuses on a suspected bite. The atlas uses Macrovipera lebetinus, while much clinical literature uses M. lebetina for the corresponding taxon.",
           "We found no reliable Georgian clinical series establishing local symptom frequencies, mortality, or current antivenom availability. International cases guide cautious wording but do not replace local evidence.",
         ],
       },
@@ -245,7 +245,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         heading: "რა ვიცით გიურზაზე საქართველოში?",
         image: "field-gyurza",
         paragraphs: [
-          "ატლასი სახეობას აღმოსავლეთ საქართველოში ადასტურებს. [გიურზას პროფილი](/snakes/macrovipera-lebetina) ამოცნობას, გავრცელებასა და ტაქსონომიას ეხება; ეს სტატია სავარაუდო ნაკბენზეა. ატლასი იყენებს სახელს Macrovipera lebetinus, საერთაშორისო კლინიკურ ლიტერატურაში კი შესაბამისი ტაქსონისთვის ხშირად M. lebetina წერია.",
+          "ატლასი სახეობას აღმოსავლეთ საქართველოში ადასტურებს. [გიურზას პროფილი](macrovipera-lebetina) ამოცნობას, გავრცელებასა და ტაქსონომიას ეხება; ეს სტატია სავარაუდო ნაკბენზეა. ატლასი იყენებს სახელს Macrovipera lebetinus, საერთაშორისო კლინიკურ ლიტერატურაში კი შესაბამისი ტაქსონისთვის ხშირად M. lebetina წერია.",
           "საქართველოს კლინიკური შემთხვევების სანდო სერია, ადგილობრივი სიმპტომების სიხშირე, სიკვდილიანობის მაჩვენებელი და ანტიშხამის მიმდინარე ხელმისაწვდომობა ვერ მოვიძიეთ. საერთაშორისო შემთხვევები ფრთხილ ფორმულირებას ეხმარება, მაგრამ ადგილობრივ მონაცემებს ვერ ანაცვლებს.",
         ],
       },
@@ -370,7 +370,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         heading: "Что известно о гюрзе в Грузии?",
         image: "field-gyurza",
         paragraphs: [
-          "Атлас подтверждает вид на востоке Грузии. [Профиль гюрзы](/snakes/macrovipera-lebetina) посвящён определению, распространению и таксономии; эта статья — подозреваемому укусу. В атласе используется имя Macrovipera lebetinus, а в международной клинической литературе для соответствующего таксона часто пишут M. lebetina.",
+          "Атлас подтверждает вид на востоке Грузии. [Профиль гюрзы](macrovipera-lebetina) посвящён определению, распространению и таксономии; эта статья — подозреваемому укусу. В атласе используется имя Macrovipera lebetinus, а в международной клинической литературе для соответствующего таксона часто пишут M. lebetina.",
           "Надёжную грузинскую клиническую серию, местную частоту симптомов, смертность и текущую доступность противоядия мы не нашли. Зарубежные случаи помогают формулировать осторожно, но не заменяют местные данные.",
         ],
       },
@@ -495,7 +495,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         heading: "Gürcistan’daki gyurza hakkında ne biliniyor?",
         image: "field-gyurza",
         paragraphs: [
-          "Atlas türün doğu Gürcistan’da bulunduğunu belgeliyor. [Levant engereği profili](/snakes/macrovipera-lebetina) tanıma, dağılım ve taksonomiyi anlatır; bu yazı şüpheli ısırığa odaklanır. Atlas Macrovipera lebetinus adını kullanırken uluslararası klinik yayınlar ilgili takson için sıklıkla M. lebetina yazar.",
+          "Atlas türün doğu Gürcistan’da bulunduğunu belgeliyor. [Levant engereği profili](macrovipera-lebetina) tanıma, dağılım ve taksonomiyi anlatır; bu yazı şüpheli ısırığa odaklanır. Atlas Macrovipera lebetinus adını kullanırken uluslararası klinik yayınlar ilgili takson için sıklıkla M. lebetina yazar.",
           "Gürcistan’a ait güvenilir bir klinik vaka serisi, yerel belirti sıklıkları, ölüm oranı veya güncel antivenom erişimi bulamadık. Uluslararası vakalar dikkatli ifade kurmaya yardımcı olur ama yerel verilerin yerini tutmaz.",
         ],
       },
