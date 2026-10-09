@@ -7,6 +7,7 @@ import {
   optimizedImgSrc,
   pictureSources,
 } from "@/data/optimizedImages";
+import { cn } from "@/lib/cn";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 
 export const MOBILE_HERO_PHOTO_CHANGE_EVENT =
@@ -156,6 +157,22 @@ export function SpeciesMobileHeroCarousel({
           );
         })}
       </div>
+      {slides.length > 1 ? (
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-6 top-[74px] z-20 flex gap-1 lg:hidden"
+        >
+          {slides.map((slide, index) => (
+            <span
+              className={cn(
+                "h-[3px] flex-1 rounded-full transition-colors duration-300",
+                index === active ? "bg-white" : "bg-white/36",
+              )}
+              key={slide.gallerySrc}
+            />
+          ))}
+        </div>
+      ) : null}
       <a
         aria-label={`${label}: ${active + 1}/${slides.length}`}
         className="absolute top-[88px] right-6 z-20 inline-flex h-11 min-w-14 items-center justify-center rounded-full bg-ink/50 px-3 text-[13.5px] font-medium text-white tabular-nums backdrop-blur-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/70 lg:hidden"
