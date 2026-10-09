@@ -302,7 +302,6 @@ export const regions: Region[] = [
       "lanius-collurio",
       "vipera-dinniki",
       "vipera-kaznakovi",
-      "anguis-colchica",
       "hyla-orientalis",
       "rana-macrocnemis",
       "pelophylax-ridibundus",

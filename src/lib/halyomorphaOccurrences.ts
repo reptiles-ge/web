@@ -57,7 +57,10 @@ const DAHLI_OBSCURED_RECORD_NOTE =
   "Darevskia dahli: iNaturalist public coordinates obscured (~28 km)";
 const VERMICULARIS_OBSCURED_RECORD_NOTE =
   "Xerotyphlops vermicularis: iNaturalist public coordinates obscured (~28 km)";
+const ANGUIS_OBSCURED_RECORD_NOTE =
+  "Anguis colchica: iNaturalist public coordinates obscured (~28 km)";
 const OBSCURED_COORDINATE_NOTES = new Set([
+  ANGUIS_OBSCURED_RECORD_NOTE,
   DAHLI_OBSCURED_RECORD_NOTE,
   VERMICULARIS_OBSCURED_RECORD_NOTE,
 ]);

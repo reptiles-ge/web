@@ -4,6 +4,7 @@ import { rangeMap as accipiterNisus } from "@/data/speciesRangeMaps/accipiter-ni
 import { rangeMap as aegypiusMonachus } from "@/data/speciesRangeMaps/aegypius-monachus";
 import { rangeMap as alectorisChukar } from "@/data/speciesRangeMaps/alectoris-chukar";
 import { rangeMap as anasPlatyrhynchos } from "@/data/speciesRangeMaps/anas-platyrhynchos";
+import { rangeMap as anguisColchica } from "@/data/speciesRangeMaps/anguis-colchica";
 import { rangeMap as aquilaChrysaetos } from "@/data/speciesRangeMaps/aquila-chrysaetos";
 import { rangeMap as araneusDiadematus } from "@/data/speciesRangeMaps/araneus-diadematus";
 import { rangeMap as argiopeBruennichi } from "@/data/speciesRangeMaps/argiope-bruennichi";
@@ -78,6 +79,7 @@ export const INTERACTIVE_RANGE_MAPS: Partial<
   "aegypius-monachus": aegypiusMonachus,
   "alectoris-chukar": alectorisChukar,
   "anas-platyrhynchos": anasPlatyrhynchos,
+  "anguis-colchica": anguisColchica,
   "aquila-chrysaetos": aquilaChrysaetos,
   "araneus-diadematus": araneusDiadematus,
   "argiope-bruennichi": argiopeBruennichi,
