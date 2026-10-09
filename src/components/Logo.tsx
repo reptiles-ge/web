@@ -35,7 +35,6 @@ export function Logo({
           alt={resolvedAlt}
           className="shrink-0 object-contain"
           decoding={priority ? "sync" : "async"}
-          fetchPriority={priority ? "high" : "auto"}
           height={size}
           loading={priority ? "eager" : "lazy"}
           sizes={sizes}

@@ -8,6 +8,7 @@ import { HomeSectionHeading } from "@/components/home/HomeSectionHeading";
 import { TrackedSpeciesLink } from "@/components/home/TrackedSpeciesLink";
 import { getSpeciesById } from "@/data/species";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
+import { images } from "@/data/speciesMedia";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { GROUP_HUB_ILLUSTRATIONS } from "@/lib/groupHubs";
 import { speciesSeoAnchor } from "@/lib/seoKeywords";
@@ -60,7 +61,7 @@ export async function HomeFeatured({ locale }: { locale: AppLocale }) {
               alt={tGroups("illustrationAlt", { name: spotlight.commonName })}
               className="object-cover object-[78%_center] transition-transform duration-700 group-hover:scale-[1.035]"
               sizes="(max-width: 1023px) 100vw, 640px"
-              src="/images/home/vipera-dinniki-landing.jpg"
+              src={images.homeSpotlight}
             />
             <span className="absolute top-4 left-4 rounded-full bg-white px-3 py-1.5 text-[12px] font-medium text-[#1a211c]">
               {tDetail("eyebrow")}
