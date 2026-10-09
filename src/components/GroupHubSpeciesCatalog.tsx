@@ -11,12 +11,12 @@ import { Link } from "@/i18n/navigation";
 import { trackSpeciesClick } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
 import {
+  HUB_CATALOG_INITIAL,
   type HubCatalogItem,
   type HubRiskFilter,
   matchesHubCatalog,
   riskFilterOf,
-} from "@/lib/groupHubCatalog";
-import { HUB_CATALOG_INITIAL } from "@/lib/groupHubLayout";
+} from "@/lib/groupHubLayout";
 
 const RISK_ORDER: readonly DangerLevel[] = ["High", "Moderate", "Harmless"];
 
