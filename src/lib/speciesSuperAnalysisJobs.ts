@@ -3,6 +3,8 @@ import fs from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 
+import { readAdminSpeciesGallery } from "@/lib/adminGalleryMdx";
+import { notifyAdminTelegram } from "@/lib/adminTelegram";
 import { runSpeciesWorkflow } from "@/lib/speciesPageAnalysis";
 import {
   SUPER_ANALYSIS_STAGES,
@@ -36,6 +38,7 @@ export async function getSpeciesSuperAnalysisJob(id: string) {
     job.error =
       "Local server restarted. The run was interrupted; start a new analysis after reviewing any existing PR.";
     await save(job);
+    await notifyResult(job);
   }
   return job;
 }
@@ -92,6 +95,25 @@ async function execute(job: SuperAnalysisJob) {
     await checkpoint().catch((error: unknown) => {
       console.error("species-super-analysis-checkpoint", error);
     });
+    await notifyResult(job);
+  }
+}
+
+async function notifyResult(job: SuperAnalysisJob) {
+  try {
+    let name = job.speciesId;
+    try {
+      name = readAdminSpeciesGallery(job.speciesId).commonName;
+    } catch {
+      name = job.speciesId;
+    }
+    await notifyAdminTelegram(
+      job.status === "failed"
+        ? `❌ Super Analysis failed: ${name} (${job.currentStage ?? "startup"}; ${job.steps.length}/4 completed)\n${job.error?.slice(0, 1000) ?? "Unknown error"}`
+        : `✅ Super Analysis completed: ${name} (4/4)\n${job.pullRequestUrl ?? "No content changes; no PR created."}`,
+    );
+  } catch {
+    console.error("species-super-analysis-telegram", "Notification failed");
   }
 }
 

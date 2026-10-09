@@ -1,6 +1,7 @@
 import { randomUUID } from "node:crypto";
 import { describe, expect, it, vi } from "vitest";
 
+import { notifyAdminTelegram } from "@/lib/adminTelegram";
 import { runSpeciesWorkflow } from "@/lib/speciesPageAnalysis";
 import {
   getSpeciesSuperAnalysisJob,
@@ -8,6 +9,7 @@ import {
 } from "@/lib/speciesSuperAnalysisJobs";
 
 vi.mock("@/lib/speciesPageAnalysis", () => ({ runSpeciesWorkflow: vi.fn() }));
+vi.mock("@/lib/adminTelegram", () => ({ notifyAdminTelegram: vi.fn() }));
 
 describe("Super Analysis jobs", () => {
   it("deduplicates concurrent submissions and reconnects to the same progress", async () => {
@@ -32,6 +34,11 @@ describe("Super Analysis jobs", () => {
     finish();
     await vi.waitFor(() => expect(first.status).toBe("completed"));
     expect(startSpeciesSuperAnalysisJob(id, first.runId)).toBe(first);
+    await vi.waitFor(() =>
+      expect(notifyAdminTelegram).toHaveBeenCalledWith(
+        expect.stringContaining(`Super Analysis completed: ${id}`),
+      ),
+    );
   });
 
   it("preserves completed reports and exposes a failed stage without a PR", async () => {
@@ -56,5 +63,29 @@ describe("Super Analysis jobs", () => {
     ]);
     expect(job.pullRequestUrl).toBeNull();
     expect(job.error).toBe("Unverified evidence");
+    await vi.waitFor(() =>
+      expect(notifyAdminTelegram).toHaveBeenCalledWith(
+        expect.stringContaining(
+          "lookalikes; 1/4 completed)\nUnverified evidence",
+        ),
+      ),
+    );
+  });
+
+  it("notifies on thrown failures without changing the failed job", async () => {
+    vi.mocked(runSpeciesWorkflow).mockRejectedValueOnce(
+      new Error("Codex unavailable"),
+    );
+    const id = `test-${randomUUID()}`;
+    const job = startSpeciesSuperAnalysisJob(id, randomUUID());
+    await vi.waitFor(() =>
+      expect(notifyAdminTelegram).toHaveBeenCalledWith(
+        expect.stringContaining(
+          `Super Analysis failed: ${id} (startup; 0/4 completed)\nCodex unavailable`,
+        ),
+      ),
+    );
+    expect(job.status).toBe("failed");
+    expect(job.error).toBe("Codex unavailable");
   });
 });
