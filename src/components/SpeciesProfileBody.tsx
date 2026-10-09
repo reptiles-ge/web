@@ -1197,7 +1197,9 @@ async function SpeciesProfileSummary({
       <div
         className={cn(
           "mx-auto max-w-[1440px] lg:grid lg:items-stretch lg:gap-4 lg:px-[60px]",
-          displayStats.length > 0 && "lg:grid-cols-[430px_minmax(0,1fr)]",
+          riskLevel &&
+            displayStats.length > 0 &&
+            "lg:grid-cols-[430px_minmax(0,1fr)]",
         )}
       >
         <SpeciesVerdict
@@ -1208,7 +1210,6 @@ async function SpeciesProfileSummary({
                 )
               : [heroCredit]
           }
-          description={species.description}
           guideLinks={guideLinks}
           level={riskLevel}
           locale={locale}
