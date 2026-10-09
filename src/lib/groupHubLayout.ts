@@ -3,6 +3,8 @@ import type { HubClusterCard } from "@/lib/clusterGuides";
 import type { GroupHubId } from "@/lib/groupHubs";
 import type { LocaleSpeciesHref } from "@/lib/localeSwitch";
 
+export const HUB_HERO_IMAGE_SIZES = "(max-width: 1023px) 100vw, 60vw";
+
 export type HubFeaturedGuide = {
   card: string;
   imageSpeciesId: string;
