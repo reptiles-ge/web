@@ -905,8 +905,34 @@
       "count": "{count} კონტრიბუტორი ატლასში",
       "empty": "ჯერ არცერთი კონტრიბუტორის გვერდი არ არის გამოქვეყნებული.",
       "metaTitle": "კონტრიბუტორები",
-      "metaDescription": "მკვლევრები და ფოტოგრაფები reptiles.ge-ზე — პორტრეტები, გალერეები და სახეობები, რომლებიც მათ დააფიქსირეს."
-    }
+      "metaDescription": "მკვლევრები და ფოტოგრაფები reptiles.ge-ზე — პორტრეტები, გალერეები და სახეობები, რომლებიც მათ დააფიქსირეს.",
+      "eyebrow": "საველე ფოტოების ავტორები",
+      "statContributors": "კონტრიბუტორი",
+      "statPhotos": "საველე ფოტო",
+      "sorted": "დალაგებულია ფოტოების რაოდენობით",
+      "filterLabel": "ფილტრი როლის მიხედვით",
+      "all": "ყველა",
+      "ctaEyebrow": "შემოგვიერთდი",
+      "ctaTitle": "გაქვს საქართველოში გადაღებული საველე ფოტოები?",
+      "ctaBody": "ფოტოები სახეობის პროფილებზე ავტორის სახელით ქვეყნდება — და ავტორს ამ სიაში საკუთარი გვერდი ექმნება.",
+      "ctaButton": "მოგვწერე"
+    },
+    "rolesPlural": {
+      "herpetologist": "ჰერპეტოლოგები",
+      "photographer": "ფოტოგრაფები",
+      "ranger": "რეინჯერები",
+      "researcher": "მკვლევრები"
+    },
+    "statGroups": "ჯგუფი",
+    "summaryLabel": "მოკლედ",
+    "fieldYears": "საველე ფოტოები",
+    "galleryTitle": "საველე ფოტოები ატლასში",
+    "galleryAllGroups": "ყველა ჯგუფი",
+    "galleryFilterLabel": "ფილტრი ჯგუფის მიხედვით",
+    "galleryShowAll": "ყველა {count} ფოტოს ნახვა",
+    "speciesTitle": "{species, plural, other {# სახეობა}}, {groups, plural, other {# ჯგუფი}}",
+    "speciesLead": "სახეობის პროფილები, სადაც ამ ავტორის ფოტოებია გამოყენებული.",
+    "groupSummary": "{species, plural, other {# სახეობა}} · {photos, plural, other {# ფოტო}}"
   },
   "attribution": {
     "heading": "Reptiles.ge",

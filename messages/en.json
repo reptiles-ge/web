@@ -905,8 +905,34 @@
       "count": "{count} contributors in the atlas",
       "empty": "No contributor pages are published yet.",
       "metaTitle": "Contributors",
-      "metaDescription": "Researchers and photographers on reptiles.ge — portraits, galleries, and the species they documented."
-    }
+      "metaDescription": "Researchers and photographers on reptiles.ge — portraits, galleries, and the species they documented.",
+      "eyebrow": "Field photo authors",
+      "statContributors": "Contributors",
+      "statPhotos": "Field photos",
+      "sorted": "sorted by number of photos",
+      "filterLabel": "Filter by role",
+      "all": "All",
+      "ctaEyebrow": "Join us",
+      "ctaTitle": "Have field photos taken in Georgia?",
+      "ctaBody": "Photos are published on species profiles under the author’s name, and the author gets their own page in this list.",
+      "ctaButton": "Write to us"
+    },
+    "rolesPlural": {
+      "herpetologist": "Herpetologists",
+      "photographer": "Photographers",
+      "ranger": "Rangers",
+      "researcher": "Researchers"
+    },
+    "statGroups": "Groups",
+    "summaryLabel": "At a glance",
+    "fieldYears": "Field photos",
+    "galleryTitle": "Field photos in the atlas",
+    "galleryAllGroups": "All groups",
+    "galleryFilterLabel": "Filter by group",
+    "galleryShowAll": "See all {count} photos",
+    "speciesTitle": "{species, plural, one {# species} other {# species}}, {groups, plural, one {# group} other {# groups}}",
+    "speciesLead": "Species profiles that use photos by this contributor.",
+    "groupSummary": "{species, plural, one {# species} other {# species}} · {photos, plural, one {# photo} other {# photos}}"
   },
   "attribution": {
     "heading": "Reptiles.ge",
