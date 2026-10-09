@@ -134,7 +134,7 @@ export async function SpeciesProfileHero({
       </div>
 
       <div className="pointer-events-none relative z-10 mx-auto flex h-full max-w-[1440px] flex-col justify-end px-6 pb-[38px] lg:pointer-events-auto lg:justify-center lg:px-[60px] lg:pt-12 lg:pb-[86px]">
-        <div className="lg:max-w-[600px]">
+        <div className="mt-auto lg:max-w-[600px]">
           <SpeciesBreadcrumbTrail
             ariaLabel={t("breadcrumbAria")}
             breadcrumbs={breadcrumbs}
