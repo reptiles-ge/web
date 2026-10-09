@@ -1,3 +1,4 @@
+import matter from "gray-matter";
 import { createHash } from "node:crypto";
 import fs from "node:fs/promises";
 import path from "node:path";
@@ -187,13 +188,10 @@ export type SpeciesAnalysisContext = Awaited<
   ReturnType<typeof buildSpeciesAnalysisContext>
 >;
 
-export type SpeciesAnalysisContext = Awaited<
-  ReturnType<typeof buildSpeciesAnalysisContext>
->;
-
 export function analysisContentHash(value: string) {
   return createHash("sha256").update(value).digest("hex");
 }
+
 export async function buildSpeciesAnalysisContext(id: string, cwd: string) {
   const content = await readSpeciesAnalysisContent(id, cwd);
   const catalog = getCatalogSpecies().map(
@@ -346,4 +344,50 @@ export async function buildSpeciesAnalysisContext(id: string, cwd: string) {
     surfaces: speciesAnalysisSurfaces,
     templates,
   };
+}
+
+export async function readSpeciesAnalysisContent(id: string, cwd: string) {
+  return Object.fromEntries(
+    await Promise.all(
+      ANALYSIS_LOCALES.map(async (locale) => {
+        const raw = await fs.readFile(
+          path.join(cwd, `src/content/species/${id}/${locale}.mdx`),
+          "utf8",
+        );
+        return [
+          locale,
+          { data: matter(raw).data as Record<string, unknown>, raw },
+        ];
+      }),
+    ),
+  ) as Record<
+    (typeof ANALYSIS_LOCALES)[number],
+    { data: Record<string, unknown>; raw: string }
+  >;
+}
+export function speciesEditableFields(data: Record<string, unknown>) {
+  const fields = [
+    "description",
+    "interaction",
+    "overview",
+    "habitat",
+    "diet",
+    "behavior",
+    "conservation",
+  ];
+  const identification = data.identification as
+    undefined | { traits?: string[] };
+  if (identification) {
+    fields.push("identification.summary");
+    identification.traits?.forEach((_, index) =>
+      fields.push(`identification.traits.${index}`),
+    );
+  }
+  (data.faq as undefined | unknown[])?.forEach((_, index) =>
+    fields.push(`faq.${index}.question`, `faq.${index}.answer`),
+  );
+  (data.stats as undefined | unknown[])?.forEach((_, index) =>
+    fields.push(`stats.${index}.value`),
+  );
+  return fields;
 }
