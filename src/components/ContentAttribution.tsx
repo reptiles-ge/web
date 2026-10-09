@@ -71,7 +71,7 @@ export async function ContentAttribution({
               className="col-span-2 text-[13px] leading-relaxed text-muted-foreground sm:col-span-1 sm:col-start-2 sm:text-[14px]"
               itemProp="description"
             >
-              {t("body")}
+              {showSources ? t("body") : t("bodyEditorial")}
             </p>
             {publishedAt ? (
               <div className="col-span-2 space-y-1 text-[12px] text-muted-foreground sm:col-span-1 sm:col-start-2">
