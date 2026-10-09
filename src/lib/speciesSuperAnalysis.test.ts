@@ -229,4 +229,79 @@ describe("four-stage Super Analysis runner", () => {
       );
     await expect(run("lookalikes")).rejects.toThrow("order");
   });
+
+  it.each([true, false])(
+    "repairs scientific-name loss or preserves the original field (%s)",
+    async (repairSucceeds) => {
+      const initial = original.replace(
+        "overview:",
+        'description: "Test species is a bird."\noverview:',
+      );
+      for (const locale of ANALYSIS_LOCALES)
+        await fs.writeFile(
+          path.join(worktree, `src/content/species/${id}/${locale}.mdx`),
+          initial,
+        );
+      let calls = 0;
+      vi.mocked(runCodexProcess).mockImplementation(
+        async ({ args, prompt }) => {
+          const stage = SUPER_ANALYSIS_STAGES[Math.min(calls, 3)];
+          calls++;
+          if (calls === 5)
+            expect(prompt).toContain("Preserve every original scientific name");
+          const response: SuperAnalysisResult = {
+            coverage: speciesAnalysisSurfaces.map((surface) => surface.id),
+            edits: [],
+            evidence: [],
+            findings: [],
+            lookalikes: [],
+            sources: [],
+            stage,
+            summary: "Reviewed",
+          };
+          if (stage === "texts")
+            response.edits = [
+              {
+                after: values(
+                  calls === 5 && repairSucceeds
+                    ? "Test species is a ground bird."
+                    : "A ground bird.",
+                ),
+                before: values("Test species is a bird."),
+                evidenceIds: [],
+                field: "description",
+                reason: "Clearer introduction",
+              },
+              {
+                after: values("A bird measures 20 cm."),
+                before: values("A bird is 20 cm."),
+                evidenceIds: [],
+                field: "overview",
+                reason: "Clearer phrasing",
+              },
+            ];
+          await fs.writeFile(
+            args[args.indexOf("--output-last-message") + 1],
+            JSON.stringify(response),
+          );
+        },
+      );
+      const run = await createSuperAnalysisRunner(id, worktree, directory);
+      for (const stage of SUPER_ANALYSIS_STAGES.slice(0, 3)) await run(stage);
+      const report = await run("texts");
+      expect(calls).toBe(5);
+      for (const locale of ANALYSIS_LOCALES) {
+        const saved = (await readSpeciesAnalysisContent(id, worktree))[locale]
+          .data;
+        expect(saved.description).toBe(
+          repairSucceeds
+            ? "Test species is a ground bird."
+            : "Test species is a bird.",
+        );
+        expect(saved.overview).toBe("A bird measures 20 cm.");
+      }
+      if (!repairSucceeds)
+        expect(report).toContain("სამეცნიერო სახელის ცვლილება უარყოფილია");
+    },
+  );
 });

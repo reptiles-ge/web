@@ -263,6 +263,8 @@ describe("links and final language editing", () => {
       edit("Natrix natrix is 20–40 cm.", "Natrix natrix measures 20–40 cm."),
     ];
     expect(check(value, prior()).edits).toHaveLength(1);
+    value.edits[0].after = values("Natrix\u00a0natrix measures 20–40 cm.");
+    expect(check(value, prior()).edits).toHaveLength(1);
     value.edits[0].after = values("Natrix natrix measures 25–40 cm.");
     expect(() => check(value, prior())).toThrow("numbers");
     value.edits[0].after = values("Natrix tessellata measures 20–40 cm.");

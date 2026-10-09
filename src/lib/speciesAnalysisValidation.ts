@@ -27,6 +27,19 @@ const plain = (value: string) =>
 
 export class AnalysisEvidenceError extends Error {}
 
+export class AnalysisScientificNameError extends Error {
+  constructor(
+    readonly field: string,
+    locale: string,
+    before: string,
+    after: string,
+  ) {
+    super(
+      `Text edit changed scientific name in ${field} (${locale}): expected ${before || "none"}; received ${after || "none"}`,
+    );
+  }
+}
+
 export function analysisLookalikes(source: string, id: string) {
   const { registry } = lookalikeObject(source);
   const direct = registry[id] ?? [];
@@ -200,7 +213,16 @@ export function validateSuperAnalysisResult(
     "g",
   );
   const scientificNames = (value: string) =>
-    [...new Set(plain(value).match(namePattern) ?? [])].sort().join("|");
+    [
+      ...new Set(
+        plain(value)
+          .normalize("NFC")
+          .replace(/\s+/gu, " ")
+          .match(namePattern) ?? [],
+      ),
+    ]
+      .sort()
+      .join("|");
   const targetIds = new Set(context.catalog.map((item) => item.id));
   const internalPaths = new Set(context.internalPaths);
   const seenFields = new Set<string>();
@@ -250,7 +272,12 @@ export function validateSuperAnalysisResult(
         if (numbers(before) !== numbers(after))
           throw new Error(`Text edit changed numbers in ${edit.field}`);
         if (scientificNames(before) !== scientificNames(after))
-          throw new Error(`Text edit changed scientific name in ${edit.field}`);
+          throw new AnalysisScientificNameError(
+            edit.field,
+            locale,
+            scientificNames(before),
+            scientificNames(after),
+          );
         if (
           edit.field.startsWith("stats.") &&
           /^(LC|NT|VU|EN|CR|DD|NE)$/.test(before.trim()) &&
