@@ -1,7 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
-import type { GalleryImage, PhotoCredit } from "@/data/speciesTypes";
+import type { GalleryImage } from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
@@ -21,7 +21,6 @@ import {
 } from "@/data/optimizedImages";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
-import { formatPhotoDate } from "@/lib/formatDate";
 import {
   GALLERY_LIGHTBOX_SIZES,
   galleryFeaturedSizes,
@@ -29,13 +28,6 @@ import {
 } from "@/lib/imageSizes";
 import { speciesPhotoAlt } from "@/lib/speciesMeta";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
-
-const FIELD_RECORD_LABEL: Record<AppLocale, string> = {
-  en: "Field record",
-  ka: "საველე ჩანაწერი",
-  ru: "Полевая фотозапись",
-  tr: "Arazi kaydı",
-};
 
 const MOSAIC_WIDE_SIZES =
   "(max-width: 1023px) calc(100vw - 3rem), (max-width: 1479px) calc((100vw - 6rem) / 2), 660px";
@@ -50,26 +42,6 @@ type SpeciesGalleryProps = {
   scientificName: string;
   speciesId: string;
 };
-
-export function GalleryPhotoFigcaption({
-  locale,
-  photo,
-}: {
-  locale: AppLocale;
-  photo: GalleryImage;
-}) {
-  const fieldRecord =
-    (photo.photoConfidence ?? photo.credit?.photoConfidence) ===
-    "georgia-field";
-
-  return (
-    <GalleryPhotoCaption
-      credit={photo.credit}
-      fieldLabel={fieldRecord ? FIELD_RECORD_LABEL[locale] : undefined}
-      locale={locale}
-    />
-  );
-}
 
 export async function SpeciesGallery({
   images,
@@ -265,75 +237,5 @@ export async function SpeciesGallery({
         </div>
       </section>
     </SpeciesGalleryLightbox>
-  );
-}
-
-function captionLead(fieldLabel: string | undefined, placeDate: string) {
-  if (fieldLabel && placeDate) return `${fieldLabel} — ${placeDate}`;
-  return fieldLabel || placeDate || null;
-}
-
-function GalleryPhotoCaption({
-  credit,
-  fieldLabel,
-  locale,
-}: {
-  credit?: PhotoCredit;
-  fieldLabel?: string;
-  locale: AppLocale;
-}) {
-  const location = credit?.location?.trim();
-  const date = credit?.date ? formatPhotoDate(credit.date, locale) : null;
-  const photographer = credit?.photographer?.trim();
-  const author = photographer
-    ? getPublishedCreditAuthorByName(photographer)
-    : undefined;
-  const photographerLabel = author
-    ? creditAuthorName(author, locale)
-    : photographer;
-  const placeDate = [location, date].filter(Boolean).join(", ");
-  const lead = captionLead(fieldLabel, placeDate);
-
-  if (!lead && !photographerLabel) return null;
-
-  return (
-    <figcaption className="mt-3 text-[12px] leading-relaxed text-muted-foreground sm:text-[13px]">
-      {lead ? (
-        <span className="font-medium text-foreground">{lead}</span>
-      ) : null}
-      {photographerLabel ? (
-        <GalleryPhotographerCredit
-          authorSlug={author?.slug}
-          label={photographerLabel}
-          withSeparator={Boolean(lead)}
-        />
-      ) : null}
-    </figcaption>
-  );
-}
-
-function GalleryPhotographerCredit({
-  authorSlug,
-  label,
-  withSeparator,
-}: {
-  authorSlug?: string;
-  label: string;
-  withSeparator: boolean;
-}) {
-  return (
-    <>
-      {withSeparator ? " · " : ""}
-      {authorSlug ? (
-        <Link
-          className="underline decoration-current/40 underline-offset-[3px] transition-colors hover:text-foreground hover:decoration-foreground"
-          href={creditAuthorHref(authorSlug)}
-        >
-          {label}
-        </Link>
-      ) : (
-        label
-      )}
-    </>
   );
 }
