@@ -35,8 +35,7 @@ import {
 } from "@/lib/clusterGuides";
 import { cn } from "@/lib/cn";
 import { contentEditorAttributes } from "@/lib/contentEditorAttributes";
-import { hubGuideCards } from "@/lib/groupHubCatalog";
-import { HUB_DISPLAY_ORDER } from "@/lib/groupHubLayout";
+import { HUB_DISPLAY_ORDER, hubGuideCards } from "@/lib/groupHubLayout";
 import { GROUP_HUB_ILLUSTRATIONS, GROUP_HUBS } from "@/lib/groupHubs";
 import { usesDangerScale } from "@/lib/speciesRisk";
 import { pageDateFields } from "@/lib/structuredDataDates";

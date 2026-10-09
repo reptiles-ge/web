@@ -10,6 +10,8 @@ import {
   creditAuthorStaticParams,
   creditAuthorUrl,
   getCreditAuthorCards,
+  getCreditAuthorFieldSummary,
+  getCreditAuthorGroupStats,
   getCreditAuthorHubIds,
   getCreditAuthorPhotos,
   getCreditAuthorSpeciesIds,
@@ -152,5 +154,71 @@ describe("getCreditAuthorCards", () => {
 
   it("exposes the home page limit", () => {
     expect(HOME_CONTRIBUTOR_LIMIT).toBeGreaterThan(0);
+  });
+});
+
+describe("getCreditAuthorGroupStats", () => {
+  it("accounts for every photo and species exactly once per group", () => {
+    for (const author of authors) {
+      const photos = getCreditAuthorPhotos(author);
+      const stats = getCreditAuthorGroupStats(photos);
+      expect(stats.reduce((sum, stat) => sum + stat.photos, 0)).toBe(
+        photos.length,
+      );
+      expect(
+        stats.flatMap((stat) => stat.species.map((item) => item.id)).sort(),
+      ).toEqual(getCreditAuthorSpeciesIds(photos).sort());
+      for (const stat of stats) {
+        expect(stat.species.reduce((sum, item) => sum + item.photos, 0)).toBe(
+          stat.photos,
+        );
+      }
+      expect(stats.map((stat) => stat.hub).sort()).toEqual(
+        getCreditAuthorHubIds(getCreditAuthorSpeciesIds(photos)).sort(),
+      );
+    }
+  });
+
+  it("orders groups by photo count", () => {
+    const stats = getCreditAuthorGroupStats(getCreditAuthorPhotos(authors[0]));
+    for (let index = 1; index < stats.length; index += 1) {
+      expect(stats[index - 1].photos).toBeGreaterThanOrEqual(
+        stats[index].photos,
+      );
+    }
+  });
+
+  it("returns nothing for no photos", () => {
+    expect(getCreditAuthorGroupStats([])).toEqual([]);
+  });
+});
+
+describe("getCreditAuthorFieldSummary", () => {
+  const photo = (location?: string, date?: string) => ({
+    credit: { date, location, photographer: "x" },
+    speciesId: "macrovipera-lebetina",
+    src: `${location}-${date}`,
+    updatedAt: "2026-01-01",
+  });
+
+  it("picks the most frequent place and the year range", () => {
+    expect(
+      getCreditAuthorFieldSummary([
+        photo("ვაშლოვანი", "2015-05-01"),
+        photo("ვაშლოვანი", "2021"),
+        photo("თბილისი", "2019-03"),
+        photo(undefined, "not a date"),
+      ]),
+    ).toEqual({
+      place: { count: 2, name: "ვაშლოვანი" },
+      years: { from: 2015, to: 2021 },
+    });
+  });
+
+  it("leaves out what the credits do not state", () => {
+    expect(getCreditAuthorFieldSummary([photo()])).toEqual({
+      place: undefined,
+      years: undefined,
+    });
   });
 });

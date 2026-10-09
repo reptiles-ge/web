@@ -6,9 +6,11 @@ import os from "node:os";
 import path from "node:path";
 import { promisify } from "node:util";
 
-import { runCodexProcess } from "@/lib/codexProcess";
+import type { AiProfile } from "@/lib/aiAgentProfiles";
+
+import { formatAgentRun, runAgent } from "@/lib/aiAgent";
 import { validateEditorResult } from "@/lib/contentEditor";
-import { transformWithCodex } from "@/lib/contentEditorCodex";
+import { transformWithAgent } from "@/lib/contentEditorAgent";
 import { findSpeciesPullRequest } from "@/lib/contentEditorPullRequest";
 import { resolveEditorTarget } from "@/lib/contentEditorTarget";
 import {
@@ -354,10 +356,11 @@ export async function runSpeciesWorkflow(
             (file) =>
               file.startsWith(`src/content/species/${id}/`) || shared.has(file),
           );
-          await runCodex(
+          const agentRun = await runSpeciesAgent(
             worktree,
             output,
             `${prompt}\n\nშეცვალე მხოლოდ ეს ფაილები: ${stepFiles.join(", ")}. სხვა ფაილების ცვლილებები შედეგში არ მოხვდება. არ გაუშვა ტესტები, lint, typecheck, build ან კონტენტის გენერაციის ბრძანებები; ჩანაწერების იმპორტის სკრიპტი ამ შეზღუდვის გამონაკლისია. არ შეასრულო commit, push ან PR-ის შექმნა; ამას აპლიკაცია გააკეთებს. საბოლოო ანგარიში დააბრუნე ჩატში ქართულად.`,
+            `page:${mode}`,
           );
           const chosenFiles = new Set(stepFiles);
           await repairSpeciesFrontmatter(
@@ -368,7 +371,8 @@ export async function runSpeciesWorkflow(
             ),
           );
           report = (await fs.readFile(output, "utf8")).trim();
-          if (!report) throw new Error("Codex returned an empty report");
+          if (!report) throw new Error("AI returned an empty report");
+          report += `\n\nAI: ${agentRun}`;
         }
         const changed = await changedFiles(worktree);
         const stepFiles =
@@ -581,7 +585,7 @@ async function processWorkflowTexts(id: string, worktree: string) {
     );
     const selection = { after: "", before: "", selected: target.source };
     const result = validateEditorResult(
-      await transformWithCodex(selection, "xhigh"),
+      await transformWithAgent(selection),
       selection,
     );
     const updated = target.updated(result);
@@ -611,10 +615,11 @@ async function repairSpeciesFrontmatter(
     ).filter(Boolean);
   const invalid = await errors();
   if (!invalid.length) return;
-  await runCodex(
+  await runSpeciesAgent(
     worktree,
     path.join(directory, "frontmatter-repair.md"),
     `Fix only the YAML frontmatter syntax errors below. Preserve all values and prose. Quote plain string values containing ": " where needed. Change only these files: ${mdxFiles.join(", ")}. Do not run tests, lint, typecheck, build, or content generation.\n\n${invalid.join("\n")}`,
+    "frontmatter-repair",
   );
   const remaining = await errors();
   if (remaining.length)
@@ -735,10 +740,11 @@ async function runAnalysis(
     );
     const prompt = fillSpeciesPrompt(promptTemplate, id);
     const output = path.join(directory, "report.md");
-    await runCodex(
+    const agentRun = await runSpeciesAgent(
       worktree,
       output,
       `${prompt}\n\nშეცვალე მხოლოდ ეს ფაილები: ${allowedFiles.join(", ")}. სხვა ფაილების ცვლილებები შედეგში არ მოხვდება. არ გაუშვა ტესტები, lint, typecheck, build ან კონტენტის გენერაციის ბრძანებები; ჩანაწერების იმპორტის სკრიპტი ამ შეზღუდვის გამონაკლისია. არ შეასრულო commit, push ან PR-ის შექმნა; ამას აპლიკაცია გააკეთებს. საბოლოო ანგარიში დააბრუნე ჩატში ქართულად.`,
+      `page:${mode}`,
     );
     const allowed = new Set(allowedFiles);
     await repairSpeciesFrontmatter(
@@ -747,7 +753,8 @@ async function runAnalysis(
       (await changedFiles(worktree)).filter((file) => allowed.has(file)),
     );
     let report = (await fs.readFile(output, "utf8")).trim();
-    if (!report) throw new Error("Codex returned an empty report");
+    if (!report) throw new Error("AI returned an empty report");
+    report += `\n\nAI: ${agentRun}`;
     const changed = await changedFiles(worktree);
     const files = selectSpeciesAnalysisFiles(changed, id, mode);
     const selected = new Set(files);
@@ -811,24 +818,20 @@ async function runAnalysis(
   }
 }
 
-async function runCodex(worktree: string, output: string, prompt: string) {
-  await runCodexProcess({
-    args: [
-      "exec",
-      "--ephemeral",
-      "--sandbox",
-      "workspace-write",
-      "--config",
-      'model_reasoning_effort="xhigh"',
-      "--config",
-      "sandbox_workspace_write.network_access=true",
-      "--config",
-      'approval_policy="never"',
-      "--output-last-message",
+async function runSpeciesAgent(
+  worktree: string,
+  output: string,
+  prompt: string,
+  profile: AiProfile,
+) {
+  return formatAgentRun(
+    await runAgent({
+      access: "workspace-write",
+      cwd: worktree,
       output,
-    ],
-    cwd: worktree,
-    prompt,
-    timeoutMs: 45 * 60 * 1000,
-  });
+      profile,
+      prompt,
+      timeoutMs: 45 * 60 * 1000,
+    }),
+  );
 }

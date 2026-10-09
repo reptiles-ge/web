@@ -7,7 +7,7 @@ import {
   validateEditorResult,
   verifyEditorSelection,
 } from "@/lib/contentEditor";
-import { transformWithCodex } from "@/lib/contentEditorCodex";
+import { transformWithAgent } from "@/lib/contentEditorAgent";
 import { createEditorPullRequest } from "@/lib/contentEditorPullRequest";
 import { resolveEditorTarget } from "@/lib/contentEditorTarget";
 
@@ -40,7 +40,7 @@ export async function POST(request: Request) {
     );
     phase = "codex";
     const result = validateEditorResult(
-      await transformWithCodex(selection),
+      await transformWithAgent(selection),
       selection,
     );
     console.info(

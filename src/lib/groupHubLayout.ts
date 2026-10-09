@@ -1,4 +1,7 @@
+import type { DangerLevel } from "@/data/speciesTypes";
+import type { HubClusterCard } from "@/lib/clusterGuides";
 import type { GroupHubId } from "@/lib/groupHubs";
+import type { LocaleSpeciesHref } from "@/lib/localeSwitch";
 
 export const HUB_HERO_IMAGE_SIZES = "(max-width: 1023px) 100vw, 60vw";
 
@@ -54,3 +57,41 @@ export const HUB_DISPLAY_ORDER: readonly GroupHubId[] = [
   "scorpions",
   "insects",
 ];
+
+export type HubCatalogItem = {
+  alt: string;
+  href: LocaleSpeciesHref;
+  id: string;
+  image: string;
+  mobileImage?: string;
+  name: string;
+  risk: DangerLevel | null;
+  scientificName: string;
+};
+
+export type HubRiskFilter = "all" | "unrated" | DangerLevel;
+
+export function hubGuideCards(cards: readonly HubClusterCard[]) {
+  return cards.filter(
+    (card): card is Exclude<HubClusterCard, { kind: "quiz" }> =>
+      card.kind !== "quiz",
+  );
+}
+
+export function matchesHubCatalog(
+  item: Pick<HubCatalogItem, "name" | "risk" | "scientificName">,
+  filter: HubRiskFilter,
+  query: string,
+) {
+  if (filter !== "all" && riskFilterOf(item) !== filter) return false;
+  const needle = query.trim().toLocaleLowerCase();
+  if (!needle) return true;
+  return (
+    item.name.toLocaleLowerCase().includes(needle) ||
+    item.scientificName.toLocaleLowerCase().includes(needle)
+  );
+}
+
+export function riskFilterOf(item: Pick<HubCatalogItem, "risk">) {
+  return item.risk ?? "unrated";
+}
