@@ -3,9 +3,12 @@ import { describe, expect, it } from "vitest";
 import {
   getSpeciesLookalikes,
   getSpeciesPublicSlug,
+  legacySpeciesStaticParams,
+  resolveSpecies,
   resolveSpeciesId,
   resolveSpeciesInHub,
   speciesHref,
+  speciesStaticParams,
 } from "@/lib/speciesRoutes";
 
 describe("species routes", () => {
@@ -214,9 +217,7 @@ describe("species routes", () => {
   });
 
   it("keeps Rock Dove paired with woodpigeon but not turtle dove", () => {
-    expect(getSpeciesLookalikes("columba-livia")).toEqual([
-      "columba-palumbus",
-    ]);
+    expect(getSpeciesLookalikes("columba-livia")).toEqual(["columba-palumbus"]);
     expect(getSpeciesLookalikes("streptopelia-turtur")).toEqual([
       "columba-palumbus",
     ]);
@@ -298,6 +299,22 @@ describe("species routes", () => {
       "gypaetus-barbatus",
     ]);
     expect(getSpeciesLookalikes("buteo-buteo")).not.toContain("gyps-fulvus");
+  });
+
+  it("resolves a public slug and lists static hub params", () => {
+    expect(legacySpeciesStaticParams()).toEqual([]);
+    expect(resolveSpecies("giurza")?.id).toBe("macrovipera-lebetina");
+    expect(resolveSpecies("not-a-species")).toBeUndefined();
+    const params = speciesStaticParams("snakes");
+    expect(params).toEqual(
+      expect.arrayContaining([
+        { locale: "ka", slug: "giurza" },
+        { locale: "en", slug: "macrovipera-lebetina" },
+      ]),
+    );
+    expect(
+      speciesStaticParams("turtles").some((item) => item.slug === "giurza"),
+    ).toBe(false);
   });
 
   it("leaves Caucasian salamander lookalikes empty without supported visual confusion", () => {

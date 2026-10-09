@@ -216,6 +216,146 @@ describe("Super Analysis ownership and evidence gates", () => {
       validateSuperAnalysisResult(partial, "analysis", context, []),
     ).toThrow();
   });
+
+  it("rejects stage, evidence, index, palette-owner and lookalike violations", () => {
+    const verified = {
+      claim: "Brown plumage",
+      excerpt: "Brown feathers",
+      id: "analysis-color",
+      locator: "Description",
+      scope: "Species",
+      status: "verified" as const,
+      taxon: "Phasianus colchicus",
+      url: "https://example.org/color",
+    };
+    const pair = (
+      id: string,
+      action: "add" | "keep" | "remove" | "review" = "keep",
+    ) => ({
+      action,
+      difference: "Visible",
+      evidenceIds: [] as string[],
+      id,
+      scenario: "Similar",
+    });
+    expect(() =>
+      validateSuperAnalysisResult(result("links"), "analysis", context, []),
+    ).toThrow("Wrong analysis stage");
+    const facts = result("links");
+    facts.sources = [
+      {
+        evidenceIds: ["analysis-color"],
+        name: "Description",
+        url: "https://example.org/color",
+      },
+    ];
+    expect(() => check(facts)).toThrow("cannot introduce facts");
+    const misplaced = result();
+    misplaced.lookalikes = [pair("natrix-natrix")];
+    expect(() => check(misplaced)).toThrow("Lookalikes belong");
+    const finding = result();
+    finding.findings = [
+      {
+        evidenceIds: ["missing"],
+        message: "Needs a source",
+        severity: "review",
+        surface: "verdict",
+      },
+    ];
+    expect(() => check(finding)).toThrow("Unknown finding evidence");
+    const huge = result();
+    huge.edits = [edit("", "Question?", "faq.101.question")];
+    expect(() => check(huge)).toThrow("too large");
+    const linked = result();
+    linked.evidence = [verified];
+    linked.edits = [edit("A bird.", "[A bird](natrix-natrix).", "description")];
+    linked.edits[0].evidenceIds = ["analysis-color"];
+    expect(() => check(linked)).toThrow("not rendered");
+    const mismatch = result();
+    mismatch.evidence = [verified];
+    mismatch.sources = [
+      {
+        evidenceIds: ["analysis-color"],
+        name: "Description",
+        url: "https://example.org/other",
+      },
+    ];
+    expect(() => check(mismatch)).toThrow("does not match evidence");
+    const coded = result("texts");
+    coded.edits = [edit("LC", "NT", "stats.0.value")];
+    expect(() => check(coded, prior())).toThrow("conservation");
+    const cited = result("texts");
+    cited.edits = [
+      edit("Natrix natrix is 20–40 cm.", "Natrix natrix measures 20–40 cm."),
+    ];
+    cited.edits[0].evidenceIds = ["missing"];
+    expect(() => check(cited, prior())).toThrow("Unknown edit evidence");
+    const previous = prior();
+    previous[0].evidence = [verified];
+    cited.edits[0].evidenceIds = ["analysis-color"];
+    expect(check(cited, previous).edits).toHaveLength(1);
+    const lookalikes = result("lookalikes");
+    lookalikes.lookalikes = [pair(context.id)];
+    expect(() => check(lookalikes)).toThrow("Invalid lookalike");
+    lookalikes.lookalikes = [pair("not-a-species")];
+    expect(() => check(lookalikes)).toThrow("Invalid lookalike");
+    lookalikes.lookalikes = [pair("natrix-natrix"), pair("natrix-natrix")];
+    expect(() => check(lookalikes)).toThrow("Invalid lookalike");
+    lookalikes.lookalikes = [
+      { ...pair("natrix-natrix"), evidenceIds: ["missing"] },
+    ];
+    expect(() => check(lookalikes)).toThrow("Unknown lookalike evidence");
+    lookalikes.lookalikes = [pair("natrix-natrix", "add")];
+    expect(() => check(lookalikes)).toThrow("verified source evidence");
+    const savedId = context.id;
+    const savedBehavior = ANALYSIS_LOCALES.map(
+      (locale) => context.content[locale].behavior,
+    );
+    const savedStats = ANALYSIS_LOCALES.map(
+      (locale) => context.content[locale].stats,
+    );
+    try {
+      context.id = "macrovipera-lebetina";
+      for (const locale of ANALYSIS_LOCALES)
+        context.content[locale].behavior = "Nest\n\nYoung";
+      const behavior = result("texts");
+      behavior.edits = [edit("Nest\n\nYoung", "Nest", "behavior")];
+      expect(() => check(behavior, prior())).toThrow("reproduction");
+      for (const locale of ANALYSIS_LOCALES)
+        context.content[locale].stats = [{ label: "Conservation", value: 1 }];
+      const numeric = result("texts");
+      numeric.edits = [edit("", "LC", "stats.0.value")];
+      expect(() => check(numeric, prior())).toThrow("Not a text field");
+    } finally {
+      context.id = savedId;
+      for (const [index, locale] of ANALYSIS_LOCALES.entries()) {
+        context.content[locale].behavior = savedBehavior[index];
+        context.content[locale].stats = savedStats[index];
+      }
+    }
+  });
+
+  it("records palette rows and a missing range-map hash", async () => {
+    const [spider, newt] = await Promise.all([
+      buildSpeciesAnalysisContext(
+        "latrodectus-tredecimguttatus",
+        process.cwd(),
+      ),
+      buildSpeciesAnalysisContext("lissotriton-lantzi", process.cwd()),
+    ]);
+    expect(spider.editableFields).toEqual(
+      expect.arrayContaining([
+        "identification.colors.0",
+        "identification.colors.1",
+        "identification.colors.2",
+      ]),
+    );
+    expect(
+      newt.sourceFiles.some((file) =>
+        file.file.endsWith("lissotriton-lantzi.ts"),
+      ),
+    ).toBe(false);
+  });
 });
 
 describe("links and final language editing", () => {
@@ -378,5 +518,57 @@ describe("deterministic mutations", () => {
     expect(() => applyAnalysisLookalikes(source, "target", [])).toThrow(
       "not reviewed",
     );
+  });
+
+  it("appends new Georgian sources and adds a missing lookalike", () => {
+    const value = result("texts");
+    value.edits = [edit("Before", "After")];
+    value.sources = [
+      {
+        evidenceIds: ["kept"],
+        name: "Original",
+        url: "https://example.org/original",
+      },
+      {
+        evidenceIds: ["added"],
+        name: "Study",
+        url: "https://example.org/study",
+      },
+    ];
+    const updated = matter(applyAnalysisEdits(raw, "ka", value));
+    expect(updated.data.sources).toEqual([
+      { name: "Original", url: "https://example.org/original" },
+      { name: "Study", url: "https://example.org/study" },
+    ]);
+    const source = "const LOOKALIKES: Record<string, string[]> = {};\n";
+    const pair = {
+      action: "add" as const,
+      difference: "Visible",
+      evidenceIds: ["e1"],
+      id: "peer",
+      scenario: "Similar",
+    };
+    expect(applyAnalysisLookalikes(source, "target", [pair])).toContain(
+      '"peer"',
+    );
+    expect(() =>
+      applyAnalysisLookalikes(
+        'const LOOKALIKES: Record<string, string[]> = {"target": ["peer"]};\n',
+        "target",
+        [
+          { ...pair, action: "keep", id: "peer" },
+          { ...pair, action: "remove", id: "ghost" },
+        ],
+      ),
+    ).toThrow("does not match");
+    expect(() => analysisLookalikes("const OTHER = {};", "target")).toThrow(
+      "unavailable",
+    );
+    expect(() =>
+      analysisLookalikes('const LOOKALIKES = { "peer": 1 };', "target"),
+    ).toThrow("Unsupported lookalike registry");
+    expect(() =>
+      analysisLookalikes('const LOOKALIKES = { "peer": [1] };', "target"),
+    ).toThrow("Unsupported lookalike candidate");
   });
 });

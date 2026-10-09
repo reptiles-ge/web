@@ -1,4 +1,5 @@
 import { randomUUID } from "node:crypto";
+import fs from "node:fs/promises";
 import { describe, expect, it, vi } from "vitest";
 
 import { notifyAdminTelegram } from "@/lib/adminTelegram";
@@ -87,5 +88,47 @@ describe("Super Analysis jobs", () => {
     );
     expect(job.status).toBe("failed");
     expect(job.error).toBe("Codex unavailable");
+  });
+
+  it("reloads a persisted job and reports a non-error failure", async () => {
+    const missing = `missing-${randomUUID()}`;
+    expect(await getSpeciesSuperAnalysisJob(missing)).toBeNull();
+    const readFile = vi.spyOn(fs, "readFile");
+    const mkdir = vi.spyOn(fs, "mkdir").mockResolvedValue(undefined);
+    const writeFile = vi.spyOn(fs, "writeFile").mockResolvedValue(undefined);
+    const rename = vi.spyOn(fs, "rename").mockResolvedValue(undefined);
+    readFile.mockRejectedValueOnce(
+      Object.assign(new Error("disk"), { code: "EIO" }),
+    );
+    await expect(getSpeciesSuperAnalysisJob(missing)).rejects.toThrow("disk");
+
+    const id = `resume-${randomUUID()}`;
+    readFile.mockResolvedValueOnce(
+      JSON.stringify({
+        currentStage: "analysis",
+        error: null,
+        pullRequestUrl: null,
+        runId: randomUUID(),
+        speciesId: id,
+        status: "running",
+        steps: [],
+      }),
+    );
+    const resumed = await getSpeciesSuperAnalysisJob(id);
+    expect(resumed?.status).toBe("failed");
+    expect(resumed?.error).toContain("interrupted");
+    readFile.mockRestore();
+    mkdir.mockRestore();
+    writeFile.mockRestore();
+    rename.mockRestore();
+
+    vi.mocked(runSpeciesWorkflow).mockRejectedValueOnce("offline");
+    vi.mocked(notifyAdminTelegram).mockRejectedValueOnce(new Error("telegram"));
+    const thrown = startSpeciesSuperAnalysisJob(
+      `throw-${randomUUID()}`,
+      randomUUID(),
+    );
+    await vi.waitFor(() => expect(thrown.status).toBe("failed"));
+    expect(thrown.error).toBe("Super Analysis failed");
   });
 });
