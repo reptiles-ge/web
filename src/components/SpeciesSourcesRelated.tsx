@@ -1,4 +1,4 @@
-import { ArrowUpRight, ChevronDown } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import type { Species, SpeciesSource } from "@/data/species";
@@ -8,6 +8,7 @@ import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { CoverImage } from "@/components/CoverImage";
 import { TrackedSpeciesLink } from "@/components/home/TrackedSpeciesLink";
 import { SourceLink } from "@/components/SourceLink";
+import { SpeciesSourcesDisclosure } from "@/components/SpeciesSourcesDisclosure";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
 import { Link } from "@/i18n/navigation";
 import { formatContentDate } from "@/lib/formatDate";
@@ -84,25 +85,18 @@ export async function SpeciesSourcesRelated({
               />
             ))}
             {hidden.length > 0 ? (
-              <details className="group border-t border-border">
-                <summary className="flex min-h-13 cursor-pointer list-none items-center justify-between gap-3 text-[14px] font-semibold text-primary marker:content-none lg:min-h-14 lg:text-[15px] [&::-webkit-details-marker]:hidden">
-                  {t("moreSources", { count: hidden.length })}
-                  <ChevronDown
-                    aria-hidden="true"
-                    className="size-4 transition-transform group-open:rotate-180"
+              <SpeciesSourcesDisclosure
+                label={t("moreSources", { count: hidden.length })}
+              >
+                {hidden.map((source, index) => (
+                  <SourceRow
+                    key={source.name}
+                    source={source}
+                    speciesId={speciesId}
+                    withBorder={index > 0}
                   />
-                </summary>
-                <div className="border-t border-border">
-                  {hidden.map((source, index) => (
-                    <SourceRow
-                      key={source.name}
-                      source={source}
-                      speciesId={speciesId}
-                      withBorder={index > 0}
-                    />
-                  ))}
-                </div>
-              </details>
+                ))}
+              </SpeciesSourcesDisclosure>
             ) : null}
           </div>
 
