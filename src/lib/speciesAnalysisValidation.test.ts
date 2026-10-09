@@ -10,6 +10,7 @@ import {
   type SpeciesAnalysisContext,
 } from "@/lib/speciesAnalysisInventory";
 import {
+  AnalysisEvidenceError,
   analysisLookalikes,
   applyAnalysisEdits,
   applyAnalysisLookalikes,
@@ -149,6 +150,7 @@ describe("Super Analysis ownership and evidence gates", () => {
     ];
     expect(() => check(value)).toThrow("verified");
     value.evidence[0].status = "verified";
+    expect(() => check(value)).toThrow(AnalysisEvidenceError);
     expect(() => check(value)).toThrow("profile reference");
     value.sources = [
       {

@@ -318,18 +318,25 @@ export function validateSuperAnalysisResult(
     if (!source.evidenceIds.some((id) => byId.get(id)?.url === source.url))
       throw new Error("Source URL does not match evidence");
   }
-  for (const edit of result.edits) {
-    for (const id of edit.evidenceIds) {
-      const item = byId.get(id);
-      if (!item || !["analysis", "lookalikes"].includes(stage)) continue;
-      const sources = [
-        ...((ka.sources ?? []) as Array<{ url?: string }>),
-        ...result.sources,
-      ];
-      if (!sources.some((source) => source.url === item.url))
-        throw new Error("Factual change lacks a profile reference");
-    }
-  }
+  const profileSources = [
+    ...((ka.sources ?? []) as Array<{ url?: string }>),
+    ...result.sources,
+  ];
+  const missingReferences = result.edits.flatMap((edit) =>
+    ["analysis", "lookalikes"].includes(stage)
+      ? edit.evidenceIds.flatMap((id) => {
+          const item = byId.get(id);
+          return item &&
+            !profileSources.some((source) => source.url === item.url)
+            ? [`${id} (${item.url})`]
+            : [];
+        })
+      : [],
+  );
+  if (missingReferences.length)
+    throw new AnalysisEvidenceError(
+      `Factual change lacks a profile reference: ${missingReferences.join(", ")}`,
+    );
   const seenPeers = new Set<string>();
   for (const pair of result.lookalikes) {
     if (
