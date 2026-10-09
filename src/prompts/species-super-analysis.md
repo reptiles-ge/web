@@ -32,6 +32,29 @@ Use evidence IDs unique across the run, prefixed by the stage. Each evidence rec
 
 Every edit in analysis/lookalikes and every appended source must have a nonempty evidenceIds array referencing inspected, verified evidence records in this stage or previous stages. Every add/remove lookalike decision requires the same. Do not emit these changes with empty, unknown, unresolved or contradicted evidence IDs. Unverified proposals belong only in review findings; leave current content/pairs unchanged. Pure wording changes belong in texts, where no new scientific evidence is required. Preserve substantive facts, qualifications, meaningful negative findings, dates, quantities, distinctions and uncertainty. Add material only if supported, useful, not already answered, and proportionate. No requirement for more words or links. No invented section to fill gaps. Species-wide facts from research abroad can be useful; a foreign population's observation must not become a Georgian or universal fact. Don't add foreign-local anecdotes just to make a page longer.
 
+## Known failure patterns
+
+A site-wide audit found these problems on many published profiles. Check each one explicitly on every run and report the surface, locale and owner. Fix only what the current stage may edit; everything else goes to findings.
+
+1. **Georgian left in EN/RU/TR.** Search every EN/RU/TR string for Georgian script and for Latin or Cyrillic transliterations of Georgian names (for example „gvelkhokera“, „Gvriti“, „kedani“, „Гвелхокера“). Name each species with its common name in that locale, taken from that species' own profile. Keep Georgian only when the sentence is about the Georgian name itself, such as a Red List or checklist name or „known in Georgian as …“; then also give the local name. Also look for mixed-script typos, such as a Cyrillic letter inside a Georgian word. Check for whole fields that render in Georgian because a locale file lacks the key; the compiler silently falls back to KA. These are translation fixes for texts; a missing locale field needs all four locales.
+2. **Wrong or inconsistent names.** Compare every animal mentioned in EN/RU/TR prose with the KA original. A translation naming a different species is a factual error, not style: for example „slow worm“ where KA says სპილენძა, or „tessellated water snake“ for Platyceps najadum. Fix it in analysis, with the KA text as evidence. The profile must use its own common name consistently, not an improvised alternative. Every other species must use its common name from the published catalog in the same locale.
+3. **Facts that drift between locales.** After normalizing thousands separators and numbers written as words, check that sizes, elevations, counts, dates and percentages match in all four locales. Scientific names must be identical. Scope qualifiers present in KA must survive in every locale: global vs Georgian, observation vs estimate, candidate status.
+4. **Checklist status.** For amphibians and reptiles, read src/data/herpetofauna-checklist.ts. A candidate or introduced taxon must say so in the prose of all four locales, as a taxonomic status and not a threat category. Never call a candidate taxon confirmed.
+5. **Venom wording.** Prose must agree with the danger level and the biology. A rear-fanged species is not „non-venomous“ even when it is harmless to people; say it is not dangerous to people. A lookalike sentence must not make the profile species sound venomous, or make a venomous species sound harmless.
+6. **Sources that do not resolve to the cited work.** Check each existing and appended source:
+   - DOI: must be registered (https://doi.org/api/handles/<doi> returns responseCode 1). Its Crossref metadata must match the cited authors, year and title.
+   - IUCN Red List link: must open the current assessment of the same taxon, and the taxon ID must belong to the named species. Superseded assessment IDs show „Page cannot be found“. The category the profile cites must match the assessment.
+   - Other links: must load the cited page.
+
+   A 403 or 429 means bot-blocking, not a dead link. Put dead or mismatched links in findings, with a corrected URL only when you verified it. Never delete the citation itself.
+
+7. **Credits and generated media text (protected, report only):**
+   - photo or audio credit locations and photographer names shown in Georgian on EN/RU/TR pages
+   - alt text describing a different photo from the one displayed
+   - JSON-LD image URLs that do not return 200
+   - meta descriptions cut off mid-sentence
+   - titles or headings with the wrong plural or case
+
 ## Stage responsibilities
 
 ### analysis
@@ -107,5 +130,6 @@ Before returning, read the proposed page as an ordinary reader, then compare eac
 3. **Informative and developed:** Does each passage answer its question with enough supported explanation? Expand overly compressed wording where possible. Are concrete facts and useful distinctions still present? Has compression produced vague, generic or misleading prose, or has expansion added padding? If evidence supports only a short answer, keep it short.
 4. **Faithful:** Have all quantities, scientific names, destinations, risk statements, uncertainty and taxon/geographic/time limits survived in their required fields? No new factual claim or unresolved proposal has slipped in.
 5. **Coherent:** Do the sections agree, avoid unnecessary repetition and remain understandable on their own? Do all four languages convey the same intended meaning naturally?
+6. **Locale-clean:** Does any EN/RU/TR field still contain Georgian script or a transliterated Georgian name, outside sentences about the Georgian name itself? Does every species mention use that species' common name in the same locale?
 
 Use edit.reason to name the actual problem fixed, such as an unexplained term, a tangled sentence or duplicated explanation, rather than just „ტექსტი გამარტივდა“. Explain substantive removals/merges. In the concise Georgian summary, identify the main readability improvements and any unresolved limitations; do not award yourself a quality score. Use the existing output schema without adding checklist fields. Report what you could not verify; never claim tests or browser checks that you did not perform.
