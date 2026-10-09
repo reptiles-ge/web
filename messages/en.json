@@ -1633,6 +1633,32 @@
         "body": "Identify damage, care for fabrics and protect stored clothes",
         "cta": "Read the guide"
       }
+    },
+    "statVenomous": "Venomous species",
+    "statHarmless": "Harmless species",
+    "navGuides": "Guides",
+    "navOtherGroups": "Other groups",
+    "riskPanelTitle": "Risk levels in the atlas",
+    "riskLegendLink": "What the risk levels mean",
+    "emergency": {
+      "snakes": {
+        "lead": "Bitten by a snake?",
+        "call": "Call 112 right away."
+      },
+      "spiders": {
+        "lead": "Suspected bite with strong symptoms?",
+        "call": "Call 112."
+      }
+    },
+    "catalog": {
+      "filterLabel": "Filter by risk level",
+      "riskUnrated": "Not rated",
+      "searchLabel": "Search by name",
+      "searchPlaceholder": "Search by name…",
+      "showMore": "Show {count} more species",
+      "shownOf": "Showing {shown} of {total}",
+      "noResults": "No species match this name.",
+      "speciesCount": "{count} species"
     }
   },
   "snakes": {

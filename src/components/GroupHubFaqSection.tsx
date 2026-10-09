@@ -1,20 +1,20 @@
 "use client";
 
+import { ChevronDown } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useMemo, useState } from "react";
 
 import type { GroupHubId } from "@/lib/groupHubs";
 
+import { FaqAnswerPanel } from "@/components/FaqAccordionParts";
 import {
-  CLUSTER_EYEBROW,
-  CLUSTER_FAQ_BODY,
-  CLUSTER_FAQ_TITLE,
-  ClusterSectionIntro,
-} from "@/components/ClusterSectionIntro";
-import { FaqAnswerPanel, FaqToggleIcon } from "@/components/FaqAccordionParts";
+  GroupHubSectionHeading,
+  HUB_CONTAINER,
+} from "@/components/GroupHubSectionHeading";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { Link } from "@/i18n/navigation";
 import { trackEvent } from "@/lib/analytics";
+import { cn } from "@/lib/cn";
 
 const faqLinkClassName = "text-foreground underline-offset-4 hover:underline";
 
@@ -24,62 +24,72 @@ export function GroupHubFaqSection({ hubId }: { hubId: GroupHubId }) {
   const items = useMemo(() => hubFaqIndices(hubId, t), [hubId, t]);
 
   return (
-    <section className="border-t border-border bg-surface py-24 lg:py-32">
-      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <div className="grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-24">
-          <div>
-            <ClusterSectionIntro
-              body={t("faqIntro")}
-              bodyClassName={CLUSTER_FAQ_BODY}
-              eyebrow={t("faqEyebrow")}
-              eyebrowClassName={CLUSTER_EYEBROW}
-              title={t("faqTitle")}
-              titleClassName={CLUSTER_FAQ_TITLE}
-            />
-          </div>
-          <div>
-            {items.map((n, index) => {
-              const isOpen = open === index;
-              return (
-                <div key={n}>
-                  <div className="border-t border-border last:border-b">
-                    <button
-                      aria-expanded={isOpen}
-                      className="flex w-full items-start justify-between gap-6 py-6 text-left lg:py-7"
-                      onClick={() => {
-                        const next = isOpen ? null : index;
-                        setOpen(next);
-                        if (next !== null) {
-                          trackEvent("faq_open", {
-                            entity_id: hubId,
-                            faq_index: next,
-                            page_type: "hub",
-                          });
-                        }
-                      }}
-                      type="button"
-                    >
-                      <span className="font-display text-[17px] leading-snug font-medium text-foreground sm:text-[19px]">
-                        {t(`faq${n}Q`)}
-                      </span>
-                      <FaqToggleIcon isOpen={isOpen} />
-                    </button>
-                    <FaqAnswerPanel isOpen={isOpen}>
-                      <p className="pr-12 pb-7 text-[15px] leading-relaxed text-muted-foreground sm:text-[16px]">
-                        {hubId === "snakes" && n === 5 ? (
-                          <SnakesFaq5Answer />
-                        ) : hubId === "turtles" && n === 4 ? (
-                          <TurtlesFaq4Answer />
-                        ) : (
-                          <PhoneLinkedText>{t(`faq${n}A`)}</PhoneLinkedText>
-                        )}
-                      </p>
-                    </FaqAnswerPanel>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+    <section className="scroll-mt-36 bg-surface py-11 lg:py-20" id="faq">
+      <div
+        className={cn(HUB_CONTAINER, "lg:flex lg:items-start lg:gap-[72px]")}
+      >
+        <div className="lg:w-[400px] lg:shrink-0">
+          <GroupHubSectionHeading
+            compact
+            eyebrow={t("faqEyebrow")}
+            lead={t("faqIntro")}
+            stacked
+            title={t("faqTitle")}
+          />
+        </div>
+        <div className="-mx-2 mt-[22px] flex min-w-0 flex-1 flex-col gap-2 lg:mx-0 lg:mt-0 lg:gap-2.5">
+          {items.map((n, index) => {
+            const isOpen = open === index;
+            return (
+              <div
+                className="rounded-[22px] bg-card shadow-[0_1px_2px_rgba(14,20,17,0.04),0_10px_26px_rgba(14,20,17,0.05)] lg:rounded-[24px]"
+                key={n}
+              >
+                <button
+                  aria-expanded={isOpen}
+                  className="flex min-h-16 w-full items-center justify-between gap-3.5 rounded-[22px] py-3 pr-3.5 pl-5 text-left lg:min-h-[72px] lg:gap-5 lg:rounded-[24px] lg:py-4 lg:pr-5 lg:pl-[26px]"
+                  onClick={() => {
+                    const next = isOpen ? null : index;
+                    setOpen(next);
+                    if (next !== null) {
+                      trackEvent("faq_open", {
+                        entity_id: hubId,
+                        faq_index: next,
+                        page_type: "hub",
+                      });
+                    }
+                  }}
+                  type="button"
+                >
+                  <span className="text-[15px] leading-[1.35] font-semibold text-foreground lg:text-[17px]">
+                    {t(`faq${n}Q`)}
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    className={cn(
+                      "flex size-10 shrink-0 items-center justify-center rounded-full transition-[transform,background-color] duration-200",
+                      isOpen
+                        ? "rotate-180 bg-[#2f6b4f] text-white"
+                        : "bg-background text-foreground",
+                    )}
+                  >
+                    <ChevronDown className="size-4" />
+                  </span>
+                </button>
+                <FaqAnswerPanel isOpen={isOpen}>
+                  <p className="px-5 pb-5 text-[14px] leading-[1.65] text-muted-foreground lg:pr-[76px] lg:pb-6 lg:pl-[26px] lg:text-[15px] lg:leading-[1.7]">
+                    {hubId === "snakes" && n === 5 ? (
+                      <SnakesFaq5Answer />
+                    ) : hubId === "turtles" && n === 4 ? (
+                      <TurtlesFaq4Answer />
+                    ) : (
+                      <PhoneLinkedText>{t(`faq${n}A`)}</PhoneLinkedText>
+                    )}
+                  </p>
+                </FaqAnswerPanel>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

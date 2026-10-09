@@ -1633,6 +1633,32 @@
         "body": "Hasarı tanıyın, kumaşları temizleyin ve dolabı koruyun",
         "cta": "Rehberi oku"
       }
+    },
+    "statVenomous": "Zehirli türler",
+    "statHarmless": "Zararsız türler",
+    "navGuides": "Rehberler",
+    "navOtherGroups": "Diğer gruplar",
+    "riskPanelTitle": "Atlastaki risk düzeyleri",
+    "riskLegendLink": "Risk düzeyleri ne anlama gelir",
+    "emergency": {
+      "snakes": {
+        "lead": "Yılan mı ısırdı?",
+        "call": "Hemen 112'yi arayın."
+      },
+      "spiders": {
+        "lead": "Şüpheli ısırık ve güçlü belirtiler mi var?",
+        "call": "112'yi arayın."
+      }
+    },
+    "catalog": {
+      "filterLabel": "Risk düzeyine göre filtrele",
+      "riskUnrated": "Belirtilmemiş",
+      "searchLabel": "Ada göre ara",
+      "searchPlaceholder": "Ada göre ara…",
+      "showMore": "{count} tür daha göster",
+      "shownOf": "{total} türden {shown} tanesi gösteriliyor",
+      "noResults": "Bu adla eşleşen tür bulunamadı.",
+      "speciesCount": "{count} tür"
     }
   },
   "snakes": {

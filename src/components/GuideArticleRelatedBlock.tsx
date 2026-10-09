@@ -12,11 +12,13 @@ import { formatContentDate } from "@/lib/formatDate";
 
 type GuideArticleRelatedBlockProps = {
   articles: readonly GuideArticle[];
+  id?: string;
   locale: AppLocale;
 };
 
 export async function GuideArticleRelatedBlock({
   articles,
+  id,
   locale,
 }: GuideArticleRelatedBlockProps) {
   if (articles.length === 0) return null;
@@ -24,7 +26,10 @@ export async function GuideArticleRelatedBlock({
   const t = await getTranslations({ locale, namespace: "groupHubShared" });
 
   return (
-    <section className="border-t border-border bg-surface py-16 lg:py-20">
+    <section
+      className="scroll-mt-36 border-t border-border bg-surface py-16 lg:py-20"
+      id={id}
+    >
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
           {t("articlesEyebrow")}
