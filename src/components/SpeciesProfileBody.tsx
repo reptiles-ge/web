@@ -571,8 +571,6 @@ export async function SpeciesProfileBody({
             <SpeciesOverviewText
               body={species.overview}
               editable={editable}
-              readLess={t("readLess")}
-              readMore={t("readMore")}
               speciesId={species.id}
             />
           </div>
