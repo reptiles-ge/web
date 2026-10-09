@@ -160,7 +160,6 @@ export default defineConfig({
         "src/components/SpeciesSearchGroupLabel.tsx",
         "src/components/SpeciesSearchResults.tsx",
         "src/components/SpeciesSearchRow.tsx",
-        "src/components/SpeciesVerdict.tsx",
         "src/components/SpeciesViewTracker.tsx",
         "src/components/SpeciesVoicePlayer.tsx",
         "src/components/SpiderBitePage.tsx",

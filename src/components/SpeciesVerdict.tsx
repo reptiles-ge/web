@@ -6,6 +6,7 @@ import type { AppLocale } from "@/i18n/routing";
 import type { HubClusterCard } from "@/lib/clusterGuides";
 
 import { SpeciesMobileHeroCredit } from "@/components/SpeciesMobileHeroCredit";
+import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
 import { dangerPageHref } from "@/lib/dangerLevels";
@@ -52,6 +53,8 @@ export async function SpeciesVerdict({
     .filter((card) => card.kind === "page")
     .slice(0, LINK_LIMIT);
   const tone = TONE[level];
+  const isModerateSpider =
+    level === "Moderate" && getSpeciesAtlasMeta(speciesId).group === "spider";
 
   return (
     <div className="flex min-w-0 flex-col">
@@ -88,14 +91,18 @@ export async function SpeciesVerdict({
             </Link>
           </div>
           <p className="mt-2 font-display text-[20px] leading-[1.3] font-semibold text-foreground lg:mt-3 lg:text-[24px]">
-            {tRisk(`scale${level}Title`)}
+            {isModerateSpider
+              ? t("verdictSpiderModerateTitle")
+              : tRisk(`scale${level}Title`)}
           </p>
         </div>
         <div className="flex flex-1 flex-col px-5 pt-4 pb-2 lg:px-7 lg:pt-5 lg:pb-3">
           <p className="text-[14.5px] leading-[1.6] text-muted-foreground lg:text-[15.5px] lg:leading-[1.65]">
-            {level === "Harmless"
-              ? t("verdictHarmlessBody")
-              : tRisk(`scale${level}Body`)}
+            {isModerateSpider
+              ? t("verdictSpiderModerateBody")
+              : level === "Harmless"
+                ? t("verdictHarmlessBody")
+                : tRisk(`scale${level}Body`)}
           </p>
           {level === "High" || level === "Moderate" ? (
             <a
