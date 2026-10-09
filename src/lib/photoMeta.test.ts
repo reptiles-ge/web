@@ -1,5 +1,7 @@
 import { describe, expect, it } from "vitest";
 
+import { optimizedEntry } from "@/data/optimizedImages";
+import { getCatalogSpecies } from "@/data/species";
 import { galleryImageObject, galleryImageObjects } from "@/lib/photoMeta";
 
 describe("galleryImageObject", () => {
@@ -108,5 +110,21 @@ describe("galleryImageObjects", () => {
       name: "Charles J. Sharp",
     });
     expect(objects[1].creator).toHaveProperty("url");
+  });
+});
+
+describe("species photo JSON-LD URLs", () => {
+  it("points every optimized catalog photo at its published CDN file", () => {
+    for (const species of getCatalogSpecies()) {
+      for (const photo of species.gallery) {
+        if (!optimizedEntry(photo.src)) continue;
+        const data = galleryImageObject(photo, species, "ka");
+        expect(data.contentUrl, photo.src).toMatch(
+          /^https:\/\/cdn\.reptiles\.ge\/optimized\/.+-\d+\.(webp|avif)$/,
+        );
+        expect(data.url, photo.src).toBe(data.contentUrl);
+        expect(data.encodingFormat, photo.src).toMatch(/^image\/(webp|avif)$/);
+      }
+    }
   });
 });

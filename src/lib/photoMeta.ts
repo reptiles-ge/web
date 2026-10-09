@@ -5,6 +5,7 @@ import {
   creditAuthorName,
   getPublishedCreditAuthorByName,
 } from "@/data/creditAuthors";
+import { optimizedImgSrc } from "@/data/optimizedImages";
 import { creditAuthorUrl } from "@/lib/creditAuthors";
 import { hasPhotoCoordinates } from "@/lib/photoCoordinates";
 import { absoluteImageUrl } from "@/lib/site";
@@ -20,15 +21,17 @@ export function galleryImageObject(
   species: SpeciesPhotoContext,
   locale: AppLocale,
 ) {
-  const url = absoluteImageUrl(photo.src);
+  const publishedSrc = optimizedImgSrc(photo.src);
+  const url = absoluteImageUrl(publishedSrc);
   const credit = photo.credit;
   const name = speciesPhotoAlt(
     species.commonName,
     species.scientificName,
     species.location,
     credit,
+    locale,
   );
-  const format = encodingFormat(photo.src);
+  const format = encodingFormat(publishedSrc);
   const creator = credit ? personNode(credit, locale) : undefined;
   const contentLocation = photoContentLocation(credit);
 
@@ -67,6 +70,7 @@ export function galleryImageObjects(
 
 function encodingFormat(src: string) {
   const path = src.split("?")[0]?.toLowerCase() ?? "";
+  if (path.endsWith(".avif")) return "image/avif";
   if (path.endsWith(".webp")) return "image/webp";
   if (path.endsWith(".png")) return "image/png";
   if (path.endsWith(".gif")) return "image/gif";

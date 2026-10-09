@@ -162,6 +162,7 @@ describe("cover and hero sources", () => {
       desktopHeroSrc: null,
       gallery: [],
       mobileHeroSrc: null,
+      mobileSlideSrc: null,
       primary: undefined,
     });
   });
@@ -183,6 +184,19 @@ describe("cover and hero sources", () => {
         species({ gallery: [{ src: "/g.jpg" }], image: PLACEHOLDER }),
       ).gallery.map((item) => item.src),
     ).toEqual(["/g.jpg"]);
+  });
+
+  it("uses the first gallery photo as the mobile slide without a mobile image", () => {
+    const sources = getSpeciesHeroSources(
+      species({ gallery: [{ src: "/g.jpg" }], image: "/a.jpg" }),
+    );
+    expect(sources.desktopHeroSrc).toBe("/a.jpg");
+    expect(sources.mobileSlideSrc).toBe("/g.jpg");
+    expect(
+      getSpeciesHeroSources(
+        species({ gallery: [{ src: "/g.jpg" }], mobileImage: "/m.jpg" }),
+      ).mobileSlideSrc,
+    ).toBe("/m.jpg");
   });
 
   it("filters placeholders out of a real gallery", () => {

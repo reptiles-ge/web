@@ -464,6 +464,12 @@ export function creditAuthorSameAs(author: CreditAuthor) {
   ].filter((href): href is string => Boolean(href));
 }
 
+export function getCreditAuthorByName(name: string) {
+  const trimmed = name.trim();
+  if (!trimmed) return undefined;
+  return byAlias.get(trimmed);
+}
+
 export function getPublishedCreditAuthorByName(name: string) {
   const author = getCreditAuthorByName(name);
   return author?.published ? author : undefined;
@@ -476,12 +482,6 @@ export function getPublishedCreditAuthorBySlug(slug: string) {
 
 export function getPublishedCreditAuthors() {
   return CREDIT_AUTHORS.filter((author) => author.published);
-}
-
-function getCreditAuthorByName(name: string) {
-  const trimmed = name.trim();
-  if (!trimmed) return undefined;
-  return byAlias.get(trimmed);
 }
 
 function getCreditAuthorBySlug(slug: string) {
