@@ -1741,7 +1741,7 @@
     "ctaBody": "Aşağıdan bir tür seçin. Yeri biliyorsanız bölgesel haritalar yardımcı olur."
   },
   "lizards": {
-    "metaTitle": "Gürcistan’daki kertenkeleler — tür rehberi ve atlas",
+    "metaTitle": "Gürcistan’daki kertenkeleler — rehber ve atlas",
     "metaDescription": "Gürcistan kertenkeleleri tek rehberde: kaya kertenkeleleri (Darevskia), Avrupa cam kertenkelesi, skinkler ve daha fazlası — tanıma ve tam profiller.",
     "keywords": "Gürcistan’da kertenkeleler, Gürcistan kertenkeleleri, kaya kertenkeleleri, Darevskia, Avrupa cam kertenkelesi, Pseudopus apodus, Lacerta",
     "breadcrumbCurrent": "Kertenkeleler",
@@ -1755,7 +1755,7 @@
     "statExtraValue": "12",
     "guideEyebrow": "Rehber",
     "guideTitle": "Gürcistan kertenkeleleri tek rehberde",
-    "guideP1": "Burada atlasta yayımlanan kertenkele profilleri toplanır — Darevskia kaya kertenkeleleri, orman ve çayır türleri, gekolar ve bacaksız cam kertenkele. Her kayıt sizi ilgili türün tam profiline götürür.",
+    "guideP1": "Burada atlasta yayımlanan kertenkele profilleri toplanır — Darevskia kaya kertenkeleleri, orman ve çayır türleri, Hazar gekosu ve bacaksız yılan kertenkele. Her kayıt sizi ilgili türün tam profiline götürür.",
     "guideP2": "Kaya kertenkelelerini ayırmak çoğu zaman zordur. Yalnızca renk yeterli değildir — vücut özellikleri, bulunduğu yer ve habitat da önemlidir. Bulunduğu yeri biliyorsanız, bölgesel atlas türü bulmanıza da yardımcı olur.",
     "speciesEyebrow": "Katalog",
     "speciesTitle": "Atlasda {count} kertenkele",
@@ -1763,8 +1763,8 @@
     "relatedBody": "Her kategori ilgili türleri tek bir rehber sayfasında birleştirir; buradan belirli bir kertenkelenin tam profiline geçebilirsiniz.",
     "section": {
       "featured": {
-        "title": "Kafkas agaması ve cam kertenkele",
-        "body": "Atlasta hem kaya kertenkelelerini hem de cam kertenkeleyi görebilirsiniz — sıkça yılanla karıştırılan büyük, bacaksız bir kertenkele."
+        "title": "Kafkas keleri ve yılan kertenkele",
+        "body": "Kafkas keleri (Paralaudakia caucasia), kontrol listesindeki Gürcistan’ın tek agamididir — zararsız bir kaya kertenkelesi. Yılan kertenkele ise sıkça yılanla karıştırılan büyük, bacaksız bir kertenkeledir."
       },
       "darevskia": {
         "title": "Kaya kertenkeleleri (Darevskia) — {count}",
@@ -1772,29 +1772,29 @@
       },
       "other": {
         "title": "Diğer kertenkeleler — {count}",
-        "body": "Burada Darevskia dışındaki türler de toplanır — diğer lacertidler, skinkler, gekolar, anguidler ve Gürcistan’da doğrulanmış başka kertenkeleler dahil."
+        "body": "Burada Darevskia dışındaki türler de toplanır — diğer lacertidler, skinkler, Hazar gekosu, Kolhis yılan kertenkelesi ve Gürcistan’ın diğer kertenkeleleri dahil."
       }
     },
     "faqEyebrow": "SSS",
     "faqTitle": "Kertenkeleler hakkında sorulanlar",
     "faqIntro": "Kısa yanıtlar — derinlik tür sayfalarındadır.",
     "faq1Q": "Gürcistan’da kaç kertenkele vardır?",
-    "faq1A": "Atlas, Gürcistan için kaynaklarla doğrulanan kertenkele profillerini bir araya getirir. Kaya kertenkeleleri cinsi Darevskia Kafkasya’da özellikle çeşitlidir; bu yüzden katalogda önemli bir yer tutar.",
+    "faq1A": "Atlasta şu anda {count} kertenkele türünün profili var. Sürüngenler için atlas, bunlardan dokuzunu — altı Darevskia türü, Kolhis yılan kertenkelesi ve iki Lacerta türü — aday takson, Lübnan kertenkelesini ise sonradan getirilmiş olarak işaretleyen Tarkhnishvili et al. 2026 açıklamalı kontrol listesini esas alır. Kaya kertenkeleleri cinsi Darevskia Kafkasya’da özellikle çeşitlidir.",
     "faq2Q": "Cam kertenkele yılan mıdır kertenkele midir?",
-    "faq2A": "Avrupa cam kertenkelesi (Pseudopus apodus) büyük, çok uzamış bacaksız bir kertenkeledir; yılan değildir. Yavaş solucan kertenkelesi ve benzer yılanlardan ayırmak için ayrı rehbere de bakabilirsiniz.",
+    "faq2A": "Yılan kertenkele (Pseudopus apodus) büyük, çok uzamış bacaksız bir kertenkeledir; yılan değildir. Onu Kolhis yılan kertenkelesinden ve benzer yılanlardan ayırmak için <compare>ayrı rehbere</compare> de bakabilirsiniz.",
     "faq3Q": "Kaya kertenkelelerini nasıl ayırırım?",
-    "faq3A": "Birçok Darevskia türü dış görünüş olarak birbirine çok benzer. Tanımlarken bulunduğu bölgeyi, habitatı ve tür profilinde anlatılan özellikleri dikkate alın — yalnızca renk güvenilir bir işaret değildir.",
+    "faq3A": "Birçok Darevskia türü dış görünüş olarak birbirine çok benzer. Tanımlarken bulunduğu bölgeyi, habitatı ve tür profilinde anlatılan özellikleri dikkate alın — yalnızca renk güvenilir bir işaret değildir. Ayrıntılar <darevskia>kaya kertenkeleleri rehberinde</darevskia>.",
     "faq4Q": "Kertenkeleler en çok nerede görülür?",
     "faq4A": "Gürcistan kertenkeleleri farklı ortamlarda görülür — kayalık yerlerde, kuru yamaçlarda, orman kenarlarında, çayırlarda ve başka habitatlarda. Bölgesel sayfalar belirli bir yerden hangi türlerin doğrulandığını görmenize yardımcı olur.",
     "faq5Q": "Gürcistan kertenkeleleri zehirli midir?",
-    "faq5A": "Hayır. Atlasta sunulan Gürcistan kertenkeleleri insanlar için zehirli değildir. Binaların duvarlarında Hazar gekosuyla da karşılaşabilirsiniz — zararsızdır ve öldürülmesi gerekmez. Gürcistan’da zehirle ilgili önemli risk bazı yılanlarla ilgilidir, kertenkelelerle değil.",
+    "faq5A": "Hayır. Atlasta sunulan Gürcistan kertenkeleleri insanlar için zehirli değildir. Binaların duvarlarında Hazar gekosuyla da karşılaşabilirsiniz — zararsızdır ve öldürülmesi gerekmez (bkz. <house>evde kertenkele</house>). Gürcistan’da zehirle ilgili önemli risk bazı yılanlarla ilgilidir, kertenkelelerle değil.",
     "ctaEyebrow": "Sonraki adım",
     "ctaTitle": "Kertenkele listesinden profile",
     "ctaBody": "Bir tür açın veya bölgesel listeleri karşılaştırın. Atlas süzgeçleri önce doğru grubu seçmenize yardım eder.",
     "ctaQuiz": "Bu hangi kertenkele?"
   },
   "turtles": {
-    "metaTitle": "Gürcistan’daki kaplumbağalar — türler, yayılış ve tanıma",
+    "metaTitle": "Gürcistan’daki kaplumbağalar — yayılış ve tanıma",
     "metaDescription": "Gürcistan kaplumbağaları: dört tür, kara ve tatlısu habitatları, doğrulanmış bölgesel kayıtlar, fotoğraflar ve tam profiller.",
     "keywords": "Gürcistan’da kaplumbağalar, Gürcistan kaplumbağaları, kaplumbağa türleri Gürcistan, tatlısu kaplumbağaları Gürcistan, kara kaplumbağaları Gürcistan, mahmuzlu kara kaplumbağası, Avrupa bataklık kaplumbağası, Hazar kaplumbağası, kırmızı yanaklı su kaplumbağası, Testudo graeca, Emys orbicularis, Mauremys caspica, Trachemys scripta",
     "breadcrumbCurrent": "Kaplumbağalar",
@@ -1812,7 +1812,7 @@
     "guideP1": "Bu merkez Gürcistan için doğrulanmış veya listelenmiş kaplumbağaları toplar: yaşam alanları, yayılış kayıtları ve tanıma ipuçları — bir kara kaplumbağası, iki yerli tatlısu kaplumbağası ve bir getirilmiş tür.",
     "guideP2": "Buradan tür dizinini, kara veya tatlısu rehberini, tanıma sayfasını veya tam tür profilini açın. Ayrıntılı saha karşılaştırması tanıma rehberindedir — bu sayfa kategori girişidir.",
     "speciesEyebrow": "Türler",
-    "speciesTitle": "Gürcistan’ın kaplumbağa türleri",
+    "speciesTitle": "Atlasta {count} kaplumbağa",
     "speciesBody": "Atlas şu anda dört takson listeler. Her kart türü, statüyü, bilimsel adı ve kısa bir bağlam satırını gösterir — profil fotoğrafları, saha işaretlerini ve kaynakları tutar.",
     "speciesIndexCta": "Kaplumbağa türleri dizini",
     "basics": {
@@ -2024,7 +2024,7 @@
     "ctaBody": "Bir tür açın, tanıma rehberinde karşılaştırın veya bölgesel atlasda yerel listeleri bulun."
   },
   "amphibians": {
-    "metaTitle": "Gürcistan’daki amfibiler — tür rehberi ve atlas",
+    "metaTitle": "Gürcistan’daki amfibiler — rehber ve atlas",
     "metaDescription": "Gürcistan amfibileri: semenderler, kara kurbağaları, kurbağalar ve ağaç kurbağaları — tür rehberi ve reptiles.ge’de tam profiller.",
     "keywords": "Gürcistan’da amfibiler, Gürcistan amfibileri, semender, kara kurbağası, kurbağa, Hyla, Rana, Mertensiella, Kafkas semenderi",
     "breadcrumbCurrent": "Amfibiler",
@@ -2042,26 +2042,26 @@
     "guideP2": "Üreme mevsimi, orman dereleri ve sulak alanlar onları nerede bulacağınızı belirler. Profiller tanıma ve koruma statüsüne yardım eder.",
     "speciesEyebrow": "Katalog",
     "speciesTitle": "Atlasda {count} amfibi",
-    "speciesBody": "Semenderler, semenderler, kara kurbağaları ve kurbağalar — her birinde yaşam alanı ve tanıma notları.",
+    "speciesBody": "Semenderler, su semenderleri, kara kurbağaları ve kurbağalar — her birinde yaşam alanı ve tanıma notları.",
     "section": {
       "frogs": {
         "title": "Kurbağalar (Anura) — {count}",
-        "body": "Kara kurbağaları, ağaç kurbağaları ve kurbağalar. Ayrı bir kurbağa rehberi kendi sayfasındadır."
+        "body": "Kara kurbağaları, ağaç kurbağaları ve kurbağalar. Ayrı rehber kendi sayfasındadır: [Gürcistan’ın kurbağaları](/amphibians/bayayi)."
       },
       "newts": {
-        "title": "Semenderler ve semenderler — {count}",
-        "body": "Caudata: Kafkas semenderi ve Tarkhnishvili ve ark. 2026’dan üç semender."
+        "title": "Kuyruklu amfibiler — {count}",
+        "body": "Caudata: Kafkas semenderi ve Tarkhnishvili ve ark. 2026’dan üç su semenderi. Ayrı rehber: [su semenderleri ve semender](/amphibians/tritoni-salamandra)."
       }
     },
     "faqEyebrow": "SSS",
     "faqTitle": "Amfibiler hakkında sorulanlar",
     "faqIntro": "Kısa yanıtlar - ayrıntılı bilgi profillerdedir.",
     "faq1Q": "Gürcistan’da hangi amfibiler bulunur?",
-    "faq1A": "Atlas Kafkas semenderini, semenderleri, kara kurbağalarını, ağaç kurbağalarını ve diğer kontrol listesi destekli türleri içerir. Tam liste bu sayfadadır.",
+    "faq1A": "Atlasta {count} amfibi türünün profili var: Kafkas semenderi, su semenderleri, kara kurbağaları, ağaç kurbağaları ve kurbağalar. Tarkhnishvili ve ark. 2026 kontrol listesi doğu ağaç kurbağasını ve Kafkas küçük semenderini aday takson olarak işaretler. Tam liste bu sayfadadır.",
     "faq2Q": "Sahada amfibileri nerede görebilirim?",
     "faq2A": "Dereler, göletler, sulak alanlar ve nemli ormanlar — özellikle üreme mevsiminde. Bölgesel sayfalar yerel bağlam ekler.",
     "faq3Q": "Kurbağaları kara kurbağalarından nasıl ayırırım?",
-    "faq3A": "Deri dokusu, vücut şekli, boyut ve sesler yardım eder. Her profilin tanıma bölümü somut özellikleri listeler.",
+    "faq3A": "Deri dokusu, vücut şekli, boyut ve sesler yardım eder. Her profilin tanıma bölümü somut özellikleri listeler; karşılaştırma <frogs>kurbağa rehberindedir</frogs>.",
     "faq4Q": "Amfibiler neden sürüngenlerle gruplanır?",
     "faq4A": "Gürcistan’ın herpetofaunası tek bir saha birimidir — sürüngenler ve amfibiler birlikte. Bu yüzden amfibilerin bu atlasda kendi kategorisi vardır.",
     "faq5Q": "Amfibileri ellemek gerekir mi?",
@@ -2071,7 +2071,7 @@
     "ctaBody": "Bir tür açın veya sürüngen rehberlerine dönün — yılanlar, kertenkeleler, kaplumbağalar."
   },
   "birds": {
-    "metaTitle": "Gürcistan’daki kuşlar — tür profilleri",
+    "metaTitle": "Gürcistan’daki kuşlar — rehber ve atlas",
     "metaDescription": "reptiles.ge’de Gürcistan kuşları: tanıma, mevsimsellik ve kaynaklı profiller; beyaz leylek, sarı kiraz kuşu, ağaçkakanlar ve fazlası.",
     "keywords": "Gürcistan’da kuşlar, Gürcistan kuşları, beyaz leylek, Ciconia ciconia, yeşil ağaçkakan, sarı kiraz kuşu, თეთრი ყარყატი",
     "breadcrumbCurrent": "Kuşlar",
@@ -2082,7 +2082,7 @@
     "statSpecies": "Atlasdaki kuşlar",
     "statFamilies": "Familyalar",
     "statExtra": "Şu anki odak",
-    "statExtraValue": "Leylekler ve ötücü kuşlar",
+    "statExtraValue": "Yırtıcı kuşlar, baykuşlar ve ötücü kuşlar",
     "guideEyebrow": "Rehber",
     "guideTitle": "Hayvan atlasında kuşlar",
     "guideP1": "Kuş profilleri herpetofauna atlasıyla aynı kanıt kurallarıyla eklenir: adı geçen kaynaklar, uydurulmuş bölgesel harita yok.",
@@ -2102,11 +2102,11 @@
     "faq1Q": "Bu site tüm Gürcistan kuşlarını kapsar mı?",
     "faq1A": "Hayır. Bu merkez yazıldıkça tek tür sayfaları yayımlar. 2024 ulusal kontrol listesi tam avifauna için başvurudur.",
     "faq2Q": "Atlasda şimdi hangi kuş var?",
-    "faq2A": "Şimdiye kadar birkaç profil, Samtshe–Cavaheti ve Kvemo Kartli’de üreyen göçmen beyaz leylek (Ciconia ciconia) dahil. Liste büyür ve ulusal avifaunanın yerini tutmaz.",
+    "faq2A": "Atlasta {count} kuş profili var; yırtıcı kuşlar ve baykuşlardan ağaçkakanlara ve ötücü kuşlara kadar, Samtshe–Cavaheti ve Kvemo Kartli’de üreyen göçmen beyaz leylek (Ciconia ciconia) dahil. Liste büyür ve ulusal avifaunanın yerini tutmaz.",
     "faq3Q": "Kuşlar atlasa nasıl eklenir?",
     "faq3A": "Kuş sayfaları aynı tür-profil yapısını kullanır. Gürcistan hayvan atlasının parçasıdırlar, tam bir ulusal kuş listesi değildir.",
     "faq4Q": "Kuşlar için bölgesel haritalar gösterilir mi?",
-    "faq4A": "Yalnızca bir profilin adlandırılmış bölgesel kayıtları olduğunda. Beyaz leylek sayfası 2024 sayımından Samtshe–Cavaheti ve Kvemo Kartli’yi boyar. Diğer kuş sayfaları çoğu zaman yalnızca ülke statüsünü doğrular, tam bir bölge listesini değil.",
+    "faq4A": "Yalnızca bir profilin adlandırılmış bölgesel kayıtları olduğunda. Beyaz leylek sayfası Samtshe–Cavaheti, Kvemo Kartli ve Acara’yı boyar; 2024 sayımı yuvaları ilk iki bölgede buldu. Diğer kuş sayfaları çoğu zaman yalnızca ülke statüsünü doğrular, tam bir bölge listesini değil.",
     "faq5Q": "Yabani kuşları ellemek gerekir mi?",
     "faq5A": "Hayır. Onları görünüş ve sesle tanıyın. Yabani kuşları yakalamayın veya beslemeyin.",
     "ctaEyebrow": "Sonraki adım",
@@ -2115,7 +2115,7 @@
     "speciesIndexCta": "Kuş türleri dizini"
   },
   "mammals": {
-    "metaTitle": "Gürcistan’daki memeliler — tür profilleri",
+    "metaTitle": "Gürcistan’daki memeliler — rehber ve atlas",
     "metaDescription": "reptiles.ge’de Gürcistan memelileri: tanıma, yayılış ve kaynaklı profiller; kızıl tilki, çakal, kurt, ayı, karaca, Kafkas leoparı ve daha fazlası.",
     "keywords": "Gürcistan’da memeliler, Gürcistan memelileri, kızıl tilki, altın çakal, kurt, boz ayı, Avrupa karacası, gelincik, Kafkas sincabı, kirpi, yaban domuzu, Kafkas leoparı, rakun, Procyon lotor, Capreolus capreolus, Ursus arctos, Vulpes vulpes, Canis aureus, Canis lupus, Sciurus anomalus, Sus scrofa, Panthera pardus, შველი, მურა დათვი, ჯიქი, ენოტი",
     "breadcrumbCurrent": "Memeliler",
@@ -2126,13 +2126,16 @@
     "statSpecies": "Atlasdaki memeliler",
     "statFamilies": "Familyalar",
     "statExtra": "Şu anki odak",
-    "statExtraValue": "Köpekgiller, ayılar, geyikler, sansargiller, sincaplar, domuzlar, rakunlar",
+    "statExtraValue": "Köpekgiller, ayılar, geyikler, boşboynuzlular, kediler, sansargiller, sincaplar, kirpiler, domuzlar, rakunlar",
     "statExtraItems": [
       "Köpekgiller",
       "Ayılar",
       "Geyikler",
+      "Boşboynuzlular",
+      "Kediler",
       "Sansargiller",
       "Sincaplar",
+      "Kirpiler",
       "Domuzlar",
       "Rakunlar"
     ],
@@ -2157,13 +2160,13 @@
     "faq1Q": "Bu site tüm Gürcistan memelilerini kapsar mı?",
     "faq1A": "Hayır. Bu merkez yazıldıkça tek tür sayfaları yayımlar. Ulusal memeli kontrol listeleri tam fauna için başvuru olmayı sürdürür.",
     "faq2Q": "Atlasda şimdi hangi memeliler var?",
-    "faq2A": "Şimdiye kadar birkaç profil, kızıl tilki, altın çakal, boz kurt, boz ayı, Avrupa karacası, gelincik, Kafkas sincabı, güney beyaz göğüslü kirpi, yaban domuzu, Kafkas leoparı ve rakun dahil. Leopar seyrek bir gezgindir, yerleşik yoğunluk değildir. Rakun getirilmiştir.",
+    "faq2A": "Atlasta şu anda {count} profil var: kızıl tilki, altın çakal, boz kurt, boz ayı, Avrupa karacası, kızıl geyik, yaban keçisi, Doğu Kafkas turu, gelincik, su samuru, Kafkas porsuğu, vaşak, Kafkas leoparı, Kafkas sincabı, güney beyaz göğüslü kirpi, yaban domuzu ve rakun. Leopar seyrek bir gezgindir, yerleşik yoğunluk değildir. Rakun getirilmiştir.",
     "faq3Q": "Memeliler atlasa nasıl eklenir?",
     "faq3A": "Memeli sayfaları aynı tür-profil yapısını kullanır. Gürcistan hayvan atlasının parçasıdırlar, tam bir ulusal memeli listesi değildir.",
     "faq4Q": "Memeliler için bölgesel haritalar gösterilir mi?",
-    "faq4A": "Yalnızca bir profilin adlandırılmış bölgesel kayıtları olduğunda. Yaban domuzu dahil yayımlanmış memeli sayfaları idari haritayı boyamaz: ülke varlığı doğrulanmıştır, bir belediye listesi burada derlenmemiştir.",
+    "faq4A": "Yalnızca bir profilin adlandırılmış bölgesel kayıtları olduğunda — örneğin boz ayı, altın çakal, yaban keçisi, gelincik ve rakun sayfalarında. Yaban domuzu dahil diğer profiller idari haritayı boyamaz: ülkedeki varlık doğrulanmıştır, bir belediye listesi burada derlenmemiştir.",
     "faq5Q": "Yabani memelileri ellemek gerekir mi?",
-    "faq5A": "Hayır. Uzaktan izleyin. Isırık veya tükürük kuduz riski taşıyabilir. Bahçedeki çakal yiyeceği izler — beslemeyin. Ayıya yaklaşmayın. Yabani hayvanı elinize almayın.",
+    "faq5A": "Hayır. Uzaktan izleyin. Isırık veya tükürük kuduz riski taşıyabilir. Bahçedeki çakal yiyeceği izler — beslemeyin, bkz. <jackal>bahçede çakal</jackal>. Ayıya yaklaşmayın, bkz. <bear>ayıyla karşılaşma</bear>. Yabani hayvanı elinize almayın.",
     "ctaEyebrow": "Sonraki adım",
     "ctaTitle": "Memeli listesinden profile",
     "ctaBody": "Bir tür açın veya sürüngen, amfibi ve kuş rehberlerinde devam edin.",
@@ -2212,13 +2215,13 @@
     "faq4Q": "Akrepler için bölgesel haritalar gösterilir mi?",
     "faq4A": "Bir bölge yalnızca profilde ilgili yerel veya bölgesel kayıt varsa işaretlenir. Türün Gürcistan’da bulunduğunu bilmek, ülkenin tüm bölgelerinde bulunduğu anlamına gelmez.",
     "faq5Q": "Yabani akrepleri elle tutmak gerekir mi?",
-    "faq5A": "Akrebi elle tutmayın. Şiddetli ağrı veya bir çocuğun sokulması halinde zamanında tıbbi görüş alın. Solunum güçlüğü, bilinç kaybı veya diğer ciddi genel belirtilerde Gürcistan'da 112'yi arayın. İlk adımlar için [rehbere](/scorpions/morielis-nakbeni) bakın.",
+    "faq5A": "Akrebi elle tutmayın. Şiddetli ağrı veya bir çocuğun sokulması halinde zamanında tıbbi görüş alın. Solunum güçlüğü, bilinç kaybı veya diğer ciddi genel belirtilerde Gürcistan'da 112'yi arayın. İlk adımlar için <sting>rehbere</sting> bakın.",
     "ctaEyebrow": "Sonraki adım",
     "ctaTitle": "Akrep listesinden profile",
     "ctaBody": "Bir tür açın veya sürüngen, amfibi, kuş, memeli, örümcek ve böcek rehberlerinde devam edin."
   },
   "spiders": {
-    "metaTitle": "Gürcistan’daki örümcekler — tür profilleri",
+    "metaTitle": "Gürcistan’daki örümcekler — rehber ve atlas",
     "metaDescription": "Gürcistan örümcekleri reptiles.ge’de: tanıma, yayılış ve kaynaklar; eşekarısı örümceği, loblu örümcek, yalancı karakurt ve karakurt.",
     "keywords": "Gürcistan’da örümcekler, eşekarısı örümceği, karakurt, yalancı karakurt, Argiope bruennichi, Latrodectus tredecimguttatus, Steatoda paykulliana",
     "breadcrumbCurrent": "Örümcekler",
@@ -2248,21 +2251,21 @@
     "faq1Q": "Site Gürcistan’ın tüm örümceklerini kapsar mı?",
     "faq1A": "Burada, yeterli ve güvenilir kaynakları bulunan türlerin ayrı profilleri yayımlanır. Gürcistan’ın daha geniş örümcek faunası için Otto 2022 kullanılır.",
     "faq2Q": "Atlasda şimdi hangi örümcekler var?",
-    "faq2A": "Şu anda dört profil yayımlanmıştır: eşekarısı örümceği, loblu argiope, yalancı karakurt ve karakurt (Latrodectus tredecimguttatus). Liste aşamalı olarak büyüyor.",
+    "faq2A": "Şu anda {count} profil yayımlanmıştır: Avrupa bahçe örümceği, eşekarısı örümceği, loblu argiope, Cheiracanthium punctorium, karakurt (Latrodectus tredecimguttatus), yalancı karakurt, Güney Rusya tarantulası (Lycosa singoriensis) ve uzun gövdeli mahzen örümceği. Liste aşamalı olarak büyüyor.",
     "faq3Q": "Örümcekler atlasa nasıl eklenir?",
     "faq3A": "Örümcek profilleri ortak bir yapıyı izler: tanıma notları, habitat, Gürcistan’daki yayılış, insanlar için olası risk ve kullanılan kaynaklar tek sayfada toplanır.",
     "faq4Q": "Örümcekler için bölgesel haritalar gösterilir mi?",
-    "faq4A": "Bir tür haritada yalnızca profilde belirli bölgesel veya yerel kayıtlar bulunduğunda gösterilir. Eşekarısı örümceği, loblu argiope, yalancı karakurt ve karakurt profillerindeki harita adlandırılmış yerlere dayanır.",
+    "faq4A": "Bir tür haritada yalnızca profilde belirli bölgesel veya yerel kayıtlar bulunduğunda gösterilir. Eşekarısı örümceği, loblu argiope, karakurt ve Güney Rusya tarantulası profillerindeki harita adlandırılmış yerlere dayanır.",
     "faq5Q": "Yabani örümcekleri ellemek gerekir mi?",
-    "faq5A": "Her örümcek insanlar için tehlikeli değildir. Argiope tıbbi açıdan önemli bir risk oluşturmaz; yalancı karakurt ısırığı ağrılı olabilir, karakurt ısırığı ise tıbbi açıdan önemlidir. Yabani örümceğe elle dokunmayın. Şüpheli bir ısırık ve güçlü belirtiler varsa 112’yi arayın.",
+    "faq5A": "Her örümcek insanlar için tehlikeli değildir. Argiope tıbbi açıdan önemli bir risk oluşturmaz; yalancı karakurt ısırığı ağrılı olabilir, karakurt ısırığı ise tıbbi açıdan önemlidir — <venomous>zehirli örümcekler rehberine</venomous> bakın. Yabani örümceğe elle dokunmayın. Şüpheli bir ısırık ve güçlü belirtiler varsa 112’yi arayın ve <bite>örümcek ısırığı rehberine</bite> bakın.",
     "ctaEyebrow": "Sonraki adım",
     "ctaTitle": "Örümcek listesinden profile",
     "ctaBody": "Bir tür açın veya sürüngen, amfibi, kuş ve memeli rehberlerinde devam edin.",
     "speciesIndexCta": "Örümcek türleri dizini"
   },
   "insects": {
-    "metaTitle": "Gürcistan’daki böcekler — tür profilleri",
-    "metaDescription": "reptiles.ge’de Gürcistan böcekleri: tanıma, taksonomi, yaşam alanı, doğrulanmış kayıtlar ve kaynaklar. Avrupa peygamberdevesi ve kahverengi kokarca var.",
+    "metaTitle": "Gürcistan’daki böcekler — rehber ve atlas",
+    "metaDescription": "reptiles.ge’de Gürcistan böcekleri: tanıma, taksonomi, yaşam alanı, kayıtlar ve kaynaklar — peygamberdevesi, kokarca, doğu hamam böceği ve tahta kurusu.",
     "keywords": "Gürcistan böcekleri, Gürcistan böcek türleri, Mantis religiosa Gürcistan, Avrupa peygamberdevesi, Halyomorpha halys Gürcistan, kahverengi kokarca",
     "breadcrumbCurrent": "Böcekler",
     "heroImageAlt": "Güneşli uzun ot içinde Avrupa peygamberdevesi",
@@ -2292,7 +2295,7 @@
     "faq1Q": "Bu site Gürcistan’daki tüm böcekleri kapsıyor mu?",
     "faq1A": "Hayır. Bu bölüm yeterli güvenilir kaynak olduğunda tekil böcek profilleri yayımlar. Bölümde olmaması türün Gürcistan’da olmadığı anlamına gelmez.",
     "faq2Q": "Atlasda şimdi hangi böcekler var?",
-    "faq2A": "Şu anda Avrupa peygamberdevesi (Mantis religiosa) ve kahverengi kokarca (Halyomorpha halys) profilleri var.",
+    "faq2A": "Atlasta şu anda {count} böcek profili var: Avrupa peygamberdevesi (Mantis religiosa), kahverengi kokarca (Halyomorpha halys), doğu hamam böceği (Blatta orientalis) ve tahta kurusu (Cimex lectularius). Evde karşılaşmak için ayrı rehberler var: <stinkbug>kokarca</stinkbug>, <cockroach>hamam böcekleri</cockroach> ve <bedbug>tahta kuruları</bedbug>.",
     "faq3Q": "Böcekler atlasa nasıl eklenir?",
     "faq3A": "Böcek sayfaları aynı tür profili yapısını kullanır: taksonomi, tanıma, yaşam alanı, Gürcistan’a özgü kanıt, gerektiğinde güvenlik veya ekoloji notları ve kaynaklar.",
     "faq4Q": "Böcekler için bölgesel haritalar var mı?",
