@@ -54,6 +54,45 @@ describe("serverEnv", () => {
     vi.stubEnv("BUNNY_CDN_BASE_URL", "cdn");
     expect(() => serverEnv()).toThrow(/BUNNY_CDN_BASE_URL/);
   });
+
+  it("defaults the local AI backend to Claude without overrides", () => {
+    vi.stubEnv("AI_BACKEND", "");
+    vi.stubEnv("AI_EFFORT_OVERRIDES", "");
+    const env = serverEnv();
+    expect(env.AI_BACKEND).toBe("claude");
+    expect(env.AI_EFFORT_OVERRIDES).toBeUndefined();
+  });
+
+  it("parses per-profile effort and model overrides", () => {
+    vi.stubEnv("AI_BACKEND", "codex");
+    vi.stubEnv(
+      "AI_EFFORT_OVERRIDES",
+      "super:analysis=medium, super:texts = high",
+    );
+    vi.stubEnv("AI_MODEL_OVERRIDES", "super:links=claude-haiku-5-5");
+    const env = serverEnv();
+    expect(env.AI_BACKEND).toBe("codex");
+    expect(env.AI_EFFORT_OVERRIDES).toEqual({
+      "super:analysis": "medium",
+      "super:texts": "high",
+    });
+    expect(env.AI_MODEL_OVERRIDES).toEqual({
+      "super:links": "claude-haiku-5-5",
+    });
+  });
+
+  it("rejects an unknown backend, profile, effort or model", () => {
+    vi.stubEnv("AI_BACKEND", "gemini");
+    expect(() => serverEnv()).toThrow(/AI_BACKEND/);
+    vi.stubEnv("AI_BACKEND", "");
+    vi.stubEnv("AI_EFFORT_OVERRIDES", "super:analysis=xhigh");
+    expect(() => serverEnv()).toThrow(/AI_EFFORT_OVERRIDES/);
+    vi.stubEnv("AI_EFFORT_OVERRIDES", "super:everything=low");
+    expect(() => serverEnv()).toThrow(/AI_EFFORT_OVERRIDES/);
+    vi.stubEnv("AI_EFFORT_OVERRIDES", "");
+    vi.stubEnv("AI_MODEL_OVERRIDES", "super:links=gpt-6-sol");
+    expect(() => serverEnv()).toThrow(/AI_MODEL_OVERRIDES/);
+  });
 });
 
 describe("validateEnv", () => {
