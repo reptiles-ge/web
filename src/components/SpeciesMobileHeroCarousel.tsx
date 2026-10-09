@@ -7,6 +7,7 @@ import {
   optimizedImgSrc,
   pictureSources,
 } from "@/data/optimizedImages";
+import { SPECIES_SECTION_IDS } from "@/lib/toc";
 
 export const MOBILE_HERO_PHOTO_CHANGE_EVENT =
   "species-mobile-hero-photo-change";
@@ -159,7 +160,7 @@ export function SpeciesMobileHeroCarousel({
         aria-label={`${label}: ${active + 1}/${slides.length}`}
         className="absolute top-[88px] right-6 z-20 inline-flex h-11 min-w-14 items-center justify-center rounded-full bg-ink/50 px-3 text-[13.5px] font-medium text-white tabular-nums backdrop-blur-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/70 lg:hidden"
         data-species-gallery-src={slides[active].gallerySrc}
-        href="#gallery"
+        href={`#${SPECIES_SECTION_IDS.gallery}`}
       >
         {active + 1}/{slides.length}
       </a>
