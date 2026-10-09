@@ -31,13 +31,14 @@ import {
 } from "@/data/optimizedImages";
 import { type HubClusterCard } from "@/lib/clusterGuides";
 import { cn } from "@/lib/cn";
-import { formatPhotoDate } from "@/lib/formatDate";
+import { formatContentDate, formatPhotoDate } from "@/lib/formatDate";
 import {
   getSpeciesIdentificationPhoto,
   isPlaceholderBody,
 } from "@/lib/speciesContent";
 import { speciesPhotoAlt } from "@/lib/speciesMeta";
 import { getSpeciesRiskChip } from "@/lib/speciesRisk";
+import { hasMeaningfulUpdate } from "@/lib/structuredDataDates";
 import {
   SPECIES_SECTION_IDS,
   type SpeciesProfileSectionAvailability,
@@ -538,8 +539,14 @@ export async function SpeciesProfileBody({
       />
 
       <SpeciesProfileNavigation
+        counts={{
+          [SPECIES_SECTION_IDS.faq]: species.faq?.length ?? 0,
+          [SPECIES_SECTION_IDS.gallery]: gallery.length,
+          [SPECIES_SECTION_IDS.sources]: species.sources.length,
+        }}
         locale={locale}
         name={species.commonName}
+        publishedAt={species.publishedAt}
         riskLevel={riskLevel}
         sections={{
           biology: naturalHistoryBlocks.length > 0,
@@ -550,6 +557,7 @@ export async function SpeciesProfileBody({
           range: hasRange || Boolean(habitatBlock),
           sources: species.sources.length > 0,
         }}
+        updatedAt={species.updatedAt}
       />
 
       <section className="bg-surface py-11 lg:py-20">
@@ -1113,17 +1121,26 @@ function SpeciesProfileIdentification({
 }
 
 async function SpeciesProfileNavigation({
+  counts,
   locale,
   name,
+  publishedAt,
   riskLevel,
   sections,
+  updatedAt,
 }: {
+  counts: Partial<Record<string, number>>;
   locale: AppLocale;
   name: string;
+  publishedAt?: string;
   riskLevel?: DangerLevel;
   sections: SpeciesProfileSectionAvailability;
+  updatedAt?: string;
 }) {
-  const t = await getTranslations({ locale, namespace: "profile" });
+  const [t, tAttribution] = await Promise.all([
+    getTranslations({ locale, namespace: "profile" }),
+    getTranslations({ locale, namespace: "attribution" }),
+  ]);
   const availableIds = speciesProfileSectionIds(sections);
   const sectionOrder = [
     SPECIES_SECTION_IDS.overview,
@@ -1149,7 +1166,16 @@ async function SpeciesProfileNavigation({
   return (
     <SectionNav
       ariaLabel={t("contents")}
-      items={ids.map((id) => ({ id, label: labels[id] }))}
+      items={ids.map((id) => ({ count: counts[id], id, label: labels[id] }))}
+      meta={
+        updatedAt && hasMeaningfulUpdate(publishedAt, updatedAt) ? (
+          <time dateTime={updatedAt}>
+            {tAttribution("updated", {
+              date: formatContentDate(updatedAt, locale),
+            })}
+          </time>
+        ) : null
+      }
       name={name}
       riskLevel={riskLevel}
     />
