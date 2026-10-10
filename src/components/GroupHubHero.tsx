@@ -75,10 +75,7 @@ export async function GroupHubHero({
 
         <div className="relative mx-auto h-full max-w-[1440px] px-6 pt-[244px] pb-7 lg:flex lg:flex-col lg:justify-center lg:px-[60px] lg:pt-14 lg:pb-0">
           <div className="lg:max-w-[640px]">
-            <nav
-              aria-label={tProfile("breadcrumbAria")}
-              className="flex items-center gap-2 text-[12.5px] text-white/60 lg:gap-2.5 lg:text-[13px]"
-            >
+            <nav aria-label={tProfile("breadcrumbAria")} className="sr-only">
               <Link
                 className="inline-flex min-h-8 items-center text-white/80 transition-colors hover:text-white"
                 href="/"
