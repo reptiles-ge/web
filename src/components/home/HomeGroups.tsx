@@ -1,156 +1,122 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
 
 import { CoverImage } from "@/components/CoverImage";
+import { HomeGroupCarousel } from "@/components/home/HomeGroupCarousel";
 import { HomeSectionHeading } from "@/components/home/HomeSectionHeading";
-import { getSpeciesById } from "@/data/species";
 import { type AnimalGroup, getAtlasStats } from "@/data/speciesAtlas";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { Link } from "@/i18n/navigation";
-import {
-  GROUP_HUB_ILLUSTRATIONS,
-  GROUP_HUBS,
-  type GroupHubId,
-} from "@/lib/groupHubs";
-import { isPlaceholderMedia } from "@/lib/speciesContent";
-import { speciesImageAlt } from "@/lib/speciesMeta";
+import { GROUP_HUB_ILLUSTRATIONS, GROUP_HUBS } from "@/lib/groupHubs";
 
-const FEATURED_HUBS = ["snakes", "lizards", "turtles", "amphibians"] as const;
-const QUIET_HUBS = ["birds", "mammals", "spiders"] as const;
-const USE_GROUP_ILLUSTRATIONS = true;
+const GROUPS = [
+  "snakes",
+  "lizards",
+  "turtles",
+  "amphibians",
+  "birds",
+  "mammals",
+  "spiders",
+  "scorpions",
+  "insects",
+] as const;
 
 export async function HomeGroups({ locale }: { locale: AppLocale }) {
-  const t = await getTranslations({ locale, namespace: "home.groups" });
-  const tNav = await getTranslations({ locale, namespace: "nav" });
+  const [t, tNav] = await Promise.all([
+    getTranslations({ locale, namespace: "home.groups" }),
+    getTranslations({ locale, namespace: "nav" }),
+  ]);
   const stats = getAtlasStats();
 
   return (
-    <section className="bg-background py-20 lg:py-28">
-      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-          <HomeSectionHeading
-            eyebrow={t("eyebrow")}
-            subtitle={t("subtitle")}
-            title={t("title")}
-          />
+    <section className="bg-background py-11 lg:py-20" id="groups">
+      <div className="mx-auto max-w-[1440px] px-6 lg:px-[60px]">
+        <HomeSectionHeading
+          eyebrow={t("eyebrow")}
+          subtitle={t("subtitle")}
+          title={t("title")}
+        />
+      </div>
+
+      <HomeGroupCarousel
+        action={
           <Link
-            className="inline-flex min-h-11 items-center gap-1.5 text-[13px] font-medium text-foreground transition-colors hover:text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
+            className="inline-flex min-h-11 items-center gap-1.5 text-[14px] font-medium text-foreground hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
             href="/species"
           >
-            {t("catalog")}
-            <ArrowUpRight aria-hidden="true" className="size-3.5" />
+            <span className="border-b border-foreground/30 pb-0.5">
+              {t("catalog")} · {t("count", { count: stats.total })}
+            </span>
+            <ArrowUpRight aria-hidden="true" className="size-4" />
           </Link>
-        </div>
-
-        <div className="mt-12 hidden sm:mt-16 sm:block">
-          {FEATURED_HUBS.filter((hubId) => hubId === "snakes").map((hubId) => {
-            const hub = GROUP_HUBS[hubId];
-            const visual = hubVisual(
-              hubId,
-              locale,
-              t("illustrationAlt", { name: tNav(hubId) }),
-            );
-            const count = groupCount(hub.group, stats);
-            return (
-              <Link
-                className="group relative block overflow-hidden bg-ink focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
-                href={hub.path}
-                key={hubId}
-              >
-                <div className="relative aspect-21/9">
-                  {visual ? (
-                    <CoverImage
-                      alt={visual.alt}
-                      className="object-cover object-[center_42%] motion-safe:transition-transform motion-safe:duration-700 motion-safe:ease-out motion-safe:group-hover:scale-[1.03]"
-                      sizes="100vw"
-                      src={visual.src}
-                    />
-                  ) : null}
-                  <div className="absolute inset-0 bg-linear-to-t from-black/72 via-black/18 to-black/5" />
-                  <div className="absolute inset-x-0 bottom-0 p-5 sm:p-7">
-                    <p className="text-[11px] tracking-[0.16em] text-white/55 tabular-nums">
-                      {t("count", { count })}
-                    </p>
-                    <h3 className="mt-1.5 font-display text-display-card font-semibold text-white">
-                      {tNav(hubId)}
-                    </h3>
-                  </div>
-                </div>
-              </Link>
-            );
-          })}
-          <div className="mt-4 grid grid-cols-3 gap-4">
-            {FEATURED_HUBS.filter((hubId) => hubId !== "snakes").map(
-              (hubId) => {
-                const hub = GROUP_HUBS[hubId];
-                const visual = hubVisual(
-                  hubId,
-                  locale,
-                  t("illustrationAlt", { name: tNav(hubId) }),
-                );
-                const count = groupCount(hub.group, stats);
-                return (
-                  <Link
-                    className="group relative block overflow-hidden bg-ink focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
-                    href={hub.path}
-                    key={hubId}
-                  >
-                    <div className="relative aspect-16/11">
-                      {visual ? (
-                        <CoverImage
-                          alt={visual.alt}
-                          className="object-cover motion-safe:transition-transform motion-safe:duration-700 motion-safe:ease-out motion-safe:group-hover:scale-[1.03]"
-                          sizes="33vw"
-                          src={visual.src}
-                        />
-                      ) : null}
-                      <div className="absolute inset-0 bg-linear-to-t from-black/72 via-black/16 to-transparent" />
-                      <div className="absolute inset-x-0 bottom-0 p-5">
-                        <p className="text-[11px] tracking-[0.14em] text-white/55 tabular-nums">
-                          {t("count", { count })}
-                        </p>
-                        <h3 className="mt-1 font-display text-[1.35rem] leading-tight font-semibold text-white">
-                          {tNav(hubId)}
-                        </h3>
-                      </div>
-                    </div>
-                  </Link>
-                );
-              },
-            )}
-          </div>
-        </div>
-
-        <ul className="mt-12 grid gap-px overflow-hidden bg-border/80 sm:mt-3 sm:grid-cols-3">
-          {[
-            ...FEATURED_HUBS.map((hubId) => ({ hubId, mobileOnly: true })),
-            ...QUIET_HUBS.map((hubId) => ({ hubId, mobileOnly: false })),
-          ].map(({ hubId, mobileOnly }) => {
-            const hub = GROUP_HUBS[hubId];
-            const visual = hubVisual(
-              hubId,
-              locale,
-              t("illustrationAlt", { name: tNav(hubId) }),
-            );
-            const count = groupCount(hub.group, stats);
-
-            return (
-              <HubListRow
-                alt={visual?.alt ?? tNav(hubId)}
-                className={
-                  mobileOnly ? "bg-background sm:hidden" : "bg-background"
-                }
-                countLabel={t("count", { count })}
-                href={hub.path}
-                key={hubId}
-                name={tNav(hubId)}
-                src={visual?.src ?? null}
-              />
-            );
-          })}
-        </ul>
+        }
+        nextLabel={t("next")}
+        previousLabel={t("previous")}
+      >
+        {GROUPS.map((hubId, index) => {
+          const hub = GROUP_HUBS[hubId];
+          const name = tNav(hubId);
+          return (
+            <Link
+              className={`group w-[300px] shrink-0 snap-start focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary ${index < 4 || hubId === "scorpions" || hubId === "insects" ? "lg:w-[495px]" : "lg:w-[330px]"}`}
+              href={hub.path}
+              key={hubId}
+            >
+              <span className="relative block h-[200px] overflow-hidden rounded-[24px] bg-ink lg:h-[330px] lg:rounded-[28px]">
+                <CoverImage
+                  alt={t("illustrationAlt", { name })}
+                  className="object-cover transition-transform duration-700 group-hover:scale-[1.035]"
+                  sizes="(max-width: 1023px) 300px, 495px"
+                  src={GROUP_HUB_ILLUSTRATIONS[hubId]}
+                />
+              </span>
+              <span className="mt-3 flex items-baseline justify-between gap-3 px-1.5 lg:mt-3.5 lg:px-2">
+                <span className="flex items-baseline gap-2.5 lg:gap-3">
+                  <span className="text-[12px] text-muted-foreground tabular-nums">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span className="font-display text-[18px] font-semibold text-foreground lg:text-[20px]">
+                    {name}
+                  </span>
+                </span>
+                <span className="shrink-0 text-[12px] text-muted-foreground lg:text-[13px]">
+                  {t("count", { count: groupCount(hub.group, stats) })}
+                </span>
+              </span>
+            </Link>
+          );
+        })}
+        <Link
+          className="flex h-[200px] w-[300px] shrink-0 snap-start flex-col justify-between rounded-[24px] bg-[#2f6b4f] p-5 text-white transition-[filter,transform] hover:-translate-y-0.5 hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary lg:size-[330px] lg:rounded-[28px] lg:p-6"
+          href="/species"
+        >
+          <span className="text-[11px] font-medium tracking-[0.18em] text-white/80 uppercase">
+            {t("eyebrow")}
+          </span>
+          <span className="flex items-end justify-between gap-4">
+            <span>
+              <span className="block font-display text-[26px] leading-tight font-semibold lg:text-[28px]">
+                {t("catalog")}
+              </span>
+              <span className="mt-2 block text-[14px] text-white/80">
+                {t("count", { count: stats.total })}
+              </span>
+            </span>
+            <span className="flex size-11 shrink-0 items-center justify-center rounded-full bg-white text-[#2f6b4f]">
+              <ArrowRight aria-hidden="true" className="size-[18px]" />
+            </span>
+          </span>
+        </Link>
+      </HomeGroupCarousel>
+      <div className="mx-auto mt-5 max-w-[1440px] px-6 lg:hidden">
+        <Link
+          className="flex min-h-[52px] items-center justify-center gap-2 rounded-full bg-[#2f6b4f] px-5 text-[15px] font-medium text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+          href="/species"
+        >
+          {t("catalog")} · {t("count", { count: stats.total })}
+          <ArrowRight aria-hidden="true" className="size-4" />
+        </Link>
       </div>
     </section>
   );
@@ -180,82 +146,4 @@ function groupCount(
     case "turtle":
       return stats.turtles;
   }
-}
-
-function HubListRow({
-  alt,
-  className,
-  countLabel,
-  href,
-  name,
-  src,
-}: {
-  alt: string;
-  className?: string;
-  countLabel: string;
-  href: `/${GroupHubId}`;
-  name: string;
-  src: null | string;
-}) {
-  return (
-    <li className={className}>
-      <Link
-        className="group flex min-h-20 items-center gap-4 p-4 transition-colors hover:bg-surface focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none focus-visible:ring-inset sm:px-5"
-        href={href}
-      >
-        {src ? (
-          <span className="relative size-14 shrink-0 overflow-hidden bg-ink">
-            <CoverImage
-              alt={alt}
-              className="object-cover"
-              sizes="56px"
-              src={src}
-            />
-          </span>
-        ) : null}
-        <div className="min-w-0">
-          <h3 className="font-display text-[16px] font-semibold text-foreground">
-            {name}
-          </h3>
-          <p className="mt-0.5 text-[12px] text-muted-foreground tabular-nums">
-            {countLabel}
-          </p>
-        </div>
-      </Link>
-    </li>
-  );
-}
-
-function hubPhoto(hubId: GroupHubId, locale: AppLocale) {
-  const hub = GROUP_HUBS[hubId];
-  const species = getSpeciesById(hub.heroSpeciesId);
-  if (!species) return null;
-  const localized = localizeSpecies(species, locale);
-  const src =
-    localized.mobileImage && !isPlaceholderMedia(localized.mobileImage)
-      ? localized.mobileImage
-      : localized.image;
-  if (isPlaceholderMedia(src)) return null;
-  return {
-    alt: speciesImageAlt(
-      localized.commonName,
-      localized.scientificName,
-      localized.location,
-    ),
-    src,
-  };
-}
-
-function hubVisual(
-  hubId: GroupHubId,
-  locale: AppLocale,
-  illustrationAlt: string,
-) {
-  if (USE_GROUP_ILLUSTRATIONS) {
-    return {
-      alt: illustrationAlt,
-      src: GROUP_HUB_ILLUSTRATIONS[hubId],
-    };
-  }
-  return hubPhoto(hubId, locale);
 }

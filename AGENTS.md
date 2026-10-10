@@ -211,6 +211,7 @@ Kill-switch only; normal deploys are atomic and need none. `src/worker.ts` answe
 - The tag is the version. Do not bump `package.json` or add a `CHANGELOG.md`.
 - The footer version comes from the latest tag at build time (`scripts/compile-release-version.ts` → gitignored `src/data/releaseVersion.generated.ts`). Do not hardcode it.
 - Label every pull request into `staging` (`enhancement`, `content`, `bug`, `documentation`, `dependencies`); label `Staging to main` pull requests `skip-changelog`.
+- Any work on a specific page's text, internal links, or photos (upload, replace, reorder) gets the `content` label, even when it is a correction.
 
 ## Commands
 

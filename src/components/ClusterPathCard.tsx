@@ -32,7 +32,9 @@ export function ClusterPathCard({
         <p className="font-display text-[20px] font-semibold text-foreground transition-colors group-hover:text-primary sm:text-[22px]">
           {title}
         </p>
-        <p className="mt-2 max-w-xl text-[14px] text-muted-foreground">{body}</p>
+        <p className="mt-2 max-w-xl text-[14px] text-muted-foreground">
+          {body}
+        </p>
         <span className="mt-5 inline-flex items-center gap-1.5 text-[13px] font-medium text-foreground/70 group-hover:text-primary">
           {cta}
           <ArrowUpRight className="size-3.5" />

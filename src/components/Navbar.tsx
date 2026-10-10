@@ -2,14 +2,18 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { useEffect, useId, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 
 import { NavbarChrome } from "@/components/NavbarChrome";
 import { NavbarMenu } from "@/components/NavbarMenu";
 import { GUIDE_ARTICLE_PATHS } from "@/data/guideArticlePaths";
 import { usePathname } from "@/i18n/navigation";
+import { NAVBAR_SCROLL_OFFSET } from "@/lib/chromeStyles";
 
 const GUIDE_ARTICLE_PATH_SET = new Set<string>(GUIDE_ARTICLE_PATHS);
+const MOBILE_MAX_WIDTH = 1023;
+const HEADER_HIDE_OFFSET = 160;
+const HEADER_HIDE_DELTA = 8;
 
 export function Navbar() {
   const t = useTranslations("nav");
@@ -18,6 +22,7 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(!darkHero);
   const [menuOpen, setMenuOpen] = useState(false);
   const menuId = useId();
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
 
   const links = [
     { href: "/species" as const, label: t("species") },
@@ -64,7 +69,7 @@ export function Navbar() {
     }
 
     function onScroll() {
-      setScrolled(window.scrollY > 40);
+      setScrolled(window.scrollY > NAVBAR_SCROLL_OFFSET);
     }
 
     onScroll();
@@ -88,7 +93,9 @@ export function Navbar() {
     document.body.style.overflow = "hidden";
 
     function onKeyDown(event: KeyboardEvent) {
-      if (event.key === "Escape") setMenuOpen(false);
+      if (event.key !== "Escape") return;
+      setMenuOpen(false);
+      menuButtonRef.current?.focus();
     }
 
     window.addEventListener("keydown", onKeyDown);
@@ -98,10 +105,24 @@ export function Navbar() {
     };
   }, [menuOpen]);
 
+  const headerHidden = useMobileHeaderHidden(menuOpen);
+
+  useEffect(() => {
+    document.documentElement.toggleAttribute(
+      "data-header-hidden",
+      headerHidden,
+    );
+  }, [headerHidden]);
+
+  useEffect(
+    () => () => document.documentElement.removeAttribute("data-header-hidden"),
+    [],
+  );
+
   const chromeVariant = menuOpen || scrolled ? "light" : "dark";
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50">
+    <header className="fixed inset-x-0 top-0 z-50 transition-transform duration-300 ease-out max-lg:header-hidden:-translate-y-full max-lg:header-hidden:focus-within:translate-y-0">
       <NavbarChrome
         chromeVariant={chromeVariant}
         closeMenuLabel={t("closeMenu")}
@@ -109,8 +130,11 @@ export function Navbar() {
         groupsActive={groupsActive}
         groupsLabel={t("groups")}
         groupsOpen={groupsOpen}
+        heroSearch={pathname === "/"}
+        menuButtonRef={menuButtonRef}
         menuId={menuId}
         menuOpen={menuOpen}
+        navLabel={t("mainMenu")}
         onCloseMenu={() => setMenuOpen(false)}
         onToggleGroups={() => setGroupsOpen((open) => !open)}
         onToggleMenu={() => setMenuOpen((open) => !open)}
@@ -132,9 +156,9 @@ export function Navbar() {
         menuId={menuId}
         menuOpen={menuOpen}
         mobileGroupsOpen={mobileGroupsOpen}
+        navLabel={t("mainMenu")}
         onCloseMenu={() => setMenuOpen(false)}
         onToggleMobileGroups={() => setMobileGroupsOpen((open) => !open)}
-        openMenuLabel={t("openMenu")}
       />
     </header>
   );
@@ -169,8 +193,41 @@ function hasDarkHeroTop(pathname: string) {
   ) {
     return true;
   }
-  if (pathname === "/species" || pathname.startsWith("/species/")) return true;
+  if (pathname.startsWith("/species/")) return true;
   if (pathname.startsWith("/quiz/")) return true;
   if (pathname === "/regions" || pathname.startsWith("/regions/")) return true;
   return false;
+}
+
+function useMobileHeaderHidden(menuOpen: boolean) {
+  const [hidden, setHidden] = useState(false);
+
+  useEffect(() => {
+    if (menuOpen) {
+      setHidden(false);
+      return;
+    }
+
+    const mobile = window.matchMedia(`(max-width: ${MOBILE_MAX_WIDTH}px)`);
+    let lastY = window.scrollY;
+
+    function onScroll() {
+      const y = window.scrollY;
+      if (!mobile.matches || y < HEADER_HIDE_OFFSET) {
+        setHidden(false);
+      } else if (y > lastY + HEADER_HIDE_DELTA) {
+        setHidden(true);
+      } else if (y < lastY - HEADER_HIDE_DELTA) {
+        setHidden(false);
+      } else {
+        return;
+      }
+      lastY = y;
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [menuOpen]);
+
+  return hidden;
 }

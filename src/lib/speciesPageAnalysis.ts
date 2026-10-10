@@ -6,9 +6,11 @@ import os from "node:os";
 import path from "node:path";
 import { promisify } from "node:util";
 
-import { runCodexProcess } from "@/lib/codexProcess";
+import type { AiProfile } from "@/lib/aiAgentProfiles";
+
+import { formatAgentRun, runAgent } from "@/lib/aiAgent";
 import { validateEditorResult } from "@/lib/contentEditor";
-import { transformWithCodex } from "@/lib/contentEditorCodex";
+import { transformWithAgent } from "@/lib/contentEditorAgent";
 import { findSpeciesPullRequest } from "@/lib/contentEditorPullRequest";
 import { resolveEditorTarget } from "@/lib/contentEditorTarget";
 import {
@@ -16,11 +18,17 @@ import {
   createOrFindPullRequest,
   isPullRequestUrl,
 } from "@/lib/pullRequestGit";
+import { lockSpeciesAnalysis } from "@/lib/speciesAnalysisLock";
+import { createSuperAnalysisRunner } from "@/lib/speciesSuperAnalysis";
+import {
+  SUPER_ANALYSIS_STAGES,
+  type SuperAnalysisStage,
+} from "@/lib/speciesSuperAnalysisSchema";
 import { getSpeciesTextFields } from "@/lib/speciesTextProcessing";
 
 const exec = promisify(execFile);
 const root = process.cwd();
-const running = new Set<string>();
+
 export type SpeciesAnalysisMode =
   "analysis" | "links" | "lookalikes" | "records";
 export type SpeciesWorkflowMode = "texts" | SpeciesAnalysisMode;
@@ -209,12 +217,11 @@ export async function analyzeSpeciesPage(
   onReport: (report: string) => void,
   mode: SpeciesAnalysisMode = "analysis",
 ) {
-  if (running.has(id)) throw new Error("Analysis is already running");
-  running.add(id);
+  const unlock = lockSpeciesAnalysis(id);
   try {
     return await runAnalysis(id, onReport, mode);
   } finally {
-    running.delete(id);
+    unlock();
   }
 }
 
@@ -231,10 +238,18 @@ export async function runSpeciesWorkflow(
   id: string,
   modes: SpeciesWorkflowMode[],
   onStep: (mode: SpeciesWorkflowMode, report: string) => Promise<void> | void,
+  options?: {
+    onStage: (stage: "validation" | SuperAnalysisStage) => void;
+    superAnalysis: boolean;
+  },
 ) {
-  if (running.has(id)) throw new Error("Analysis is already running");
-  running.add(id);
+  const unlock = lockSpeciesAnalysis(id);
   try {
+    if (
+      options?.superAnalysis &&
+      modes.join(",") !== SUPER_ANALYSIS_STAGES.join(",")
+    )
+      throw new Error("Invalid Super Analysis order");
     const repositoryInfo = JSON.parse(
       await run("gh", [
         "repo",
@@ -247,6 +262,32 @@ export async function runSpeciesWorkflow(
     const repository = repositoryInfo.nameWithOwner;
     if (!/^[a-zA-Z0-9._/-]+$/.test(base))
       throw new Error("Invalid target branch");
+    if (options?.superAnalysis) {
+      const existing = findSpeciesPullRequest(
+        JSON.parse(
+          await run("gh", [
+            "pr",
+            "list",
+            "--repo",
+            repository,
+            "--state",
+            "open",
+            "--base",
+            base,
+            "--limit",
+            "1000",
+            "--json",
+            "baseRefName,files,headRefName,isCrossRepository,url",
+          ]),
+        ),
+        id,
+        base,
+      );
+      if (existing)
+        throw new Error(
+          `Review the existing species PR before starting another analysis: ${existing.url}`,
+        );
+    }
     const branch = `feature/species-workflow-${id}-${randomUUID().slice(0, 8)}`;
     const allowedFiles = [
       ...["ka", "en", "ru", "tr"].map(
@@ -283,9 +324,23 @@ export async function runSpeciesWorkflow(
         path.join(worktree, "node_modules"),
         "dir",
       );
+      if (options?.superAnalysis)
+        await assertSpeciesContentMatchesBase(root, worktree, [
+          "src/data/speciesPublish.ts",
+          "src/i18n/pathnames.ts",
+        ]);
+      const superStep = options?.superAnalysis
+        ? await createSuperAnalysisRunner(id, worktree, directory)
+        : null;
+      const reports: string[] = [];
       const failure = await runSpeciesWorkflowSteps(modes, async (mode) => {
         let report: string;
-        if (mode === "texts") {
+        if (superStep) {
+          const stage = mode as SuperAnalysisStage;
+          options?.onStage(stage);
+          report = await superStep(stage);
+          reports.push(`## ${stage}\n\n${report}`);
+        } else if (mode === "texts") {
           report = await processWorkflowTexts(id, worktree);
         } else {
           const template = await fs.readFile(
@@ -301,10 +356,11 @@ export async function runSpeciesWorkflow(
             (file) =>
               file.startsWith(`src/content/species/${id}/`) || shared.has(file),
           );
-          await runCodex(
+          const agentRun = await runSpeciesAgent(
             worktree,
             output,
             `${prompt}\n\nშეცვალე მხოლოდ ეს ფაილები: ${stepFiles.join(", ")}. სხვა ფაილების ცვლილებები შედეგში არ მოხვდება. არ გაუშვა ტესტები, lint, typecheck, build ან კონტენტის გენერაციის ბრძანებები; ჩანაწერების იმპორტის სკრიპტი ამ შეზღუდვის გამონაკლისია. არ შეასრულო commit, push ან PR-ის შექმნა; ამას აპლიკაცია გააკეთებს. საბოლოო ანგარიში დააბრუნე ჩატში ქართულად.`,
+            `page:${mode}`,
           );
           const chosenFiles = new Set(stepFiles);
           await repairSpeciesFrontmatter(
@@ -315,7 +371,8 @@ export async function runSpeciesWorkflow(
             ),
           );
           report = (await fs.readFile(output, "utf8")).trim();
-          if (!report) throw new Error("Codex returned an empty report");
+          if (!report) throw new Error("AI returned an empty report");
+          report += `\n\nAI: ${agentRun}`;
         }
         const changed = await changedFiles(worktree);
         const stepFiles =
@@ -331,7 +388,13 @@ export async function runSpeciesWorkflow(
         if (skipped.length)
           throw new Error(`Unexpected changed files: ${skipped.join(", ")}`);
         if (stepFiles.length) {
-          await run("git", ["diff", "--check", "--", ...stepFiles], worktree);
+          try {
+            await run("git", ["diff", "--check", "--", ...stepFiles], worktree);
+          } catch (error) {
+            const output = (error as { stdout?: string }).stdout?.trim();
+            if (output) throw new Error(`git diff --check failed:\n${output}`);
+            throw error;
+          }
           await run("git", ["add", "--", ...stepFiles], worktree);
           await run(
             "git",
@@ -353,6 +416,12 @@ export async function runSpeciesWorkflow(
           ? failure.error.message
           : "Workflow step failed"
         : null;
+      if (superStep && failure)
+        return {
+          error: stepError,
+          failedStep: failure.step,
+          pullRequestUrl: null,
+        };
       if (
         (await run(
           "git",
@@ -376,7 +445,9 @@ export async function runSpeciesWorkflow(
       const body = path.join(directory, "pr-body.md");
       await fs.writeFile(
         body,
-        `## Summary\n\n- Completed ${completedModes.join(" → ")} for ${id}\n${failure ? `- Stopped at ${failure.step}; later steps were not run\n` : ""}\n## Checks\n\n- Automated checks not run; owner will review\n`,
+        superStep
+          ? `Super Analysis for ${id}: ${completedModes.join(" → ")}\n\n${reports.join("\n\n")}\n\n## Validation\n\nSchema, evidence references, locale parity, protected fields and links validated internally. Compilation, typecheck, lint and tests were not run; the owner will handle project checks. Source verification is an AI assessment; this draft still requires editorial review.\n`
+          : `## Summary\n\n- Completed ${completedModes.join(" → ")} for ${id}\n${failure ? `- Stopped at ${failure.step}; later steps were not run\n` : ""}\n## Checks\n\n- Automated checks not run; owner will review\n`,
       );
       try {
         pullRequestUrl = await run(
@@ -394,6 +465,7 @@ export async function runSpeciesWorkflow(
             `Review ${id} species page`,
             "--body-file",
             body,
+            ...(superStep ? ["--draft", "--label", "content"] : []),
           ],
           worktree,
         );
@@ -436,7 +508,7 @@ export async function runSpeciesWorkflow(
       await fs.rm(directory, { force: true, recursive: true });
     }
   } finally {
-    running.delete(id);
+    unlock();
   }
 }
 
@@ -513,7 +585,7 @@ async function processWorkflowTexts(id: string, worktree: string) {
     );
     const selection = { after: "", before: "", selected: target.source };
     const result = validateEditorResult(
-      await transformWithCodex(selection, "xhigh"),
+      await transformWithAgent(selection),
       selection,
     );
     const updated = target.updated(result);
@@ -543,10 +615,11 @@ async function repairSpeciesFrontmatter(
     ).filter(Boolean);
   const invalid = await errors();
   if (!invalid.length) return;
-  await runCodex(
+  await runSpeciesAgent(
     worktree,
     path.join(directory, "frontmatter-repair.md"),
     `Fix only the YAML frontmatter syntax errors below. Preserve all values and prose. Quote plain string values containing ": " where needed. Change only these files: ${mdxFiles.join(", ")}. Do not run tests, lint, typecheck, build, or content generation.\n\n${invalid.join("\n")}`,
+    "frontmatter-repair",
   );
   const remaining = await errors();
   if (remaining.length)
@@ -667,10 +740,11 @@ async function runAnalysis(
     );
     const prompt = fillSpeciesPrompt(promptTemplate, id);
     const output = path.join(directory, "report.md");
-    await runCodex(
+    const agentRun = await runSpeciesAgent(
       worktree,
       output,
       `${prompt}\n\nშეცვალე მხოლოდ ეს ფაილები: ${allowedFiles.join(", ")}. სხვა ფაილების ცვლილებები შედეგში არ მოხვდება. არ გაუშვა ტესტები, lint, typecheck, build ან კონტენტის გენერაციის ბრძანებები; ჩანაწერების იმპორტის სკრიპტი ამ შეზღუდვის გამონაკლისია. არ შეასრულო commit, push ან PR-ის შექმნა; ამას აპლიკაცია გააკეთებს. საბოლოო ანგარიში დააბრუნე ჩატში ქართულად.`,
+      `page:${mode}`,
     );
     const allowed = new Set(allowedFiles);
     await repairSpeciesFrontmatter(
@@ -679,7 +753,8 @@ async function runAnalysis(
       (await changedFiles(worktree)).filter((file) => allowed.has(file)),
     );
     let report = (await fs.readFile(output, "utf8")).trim();
-    if (!report) throw new Error("Codex returned an empty report");
+    if (!report) throw new Error("AI returned an empty report");
+    report += `\n\nAI: ${agentRun}`;
     const changed = await changedFiles(worktree);
     const files = selectSpeciesAnalysisFiles(changed, id, mode);
     const selected = new Set(files);
@@ -743,24 +818,20 @@ async function runAnalysis(
   }
 }
 
-async function runCodex(worktree: string, output: string, prompt: string) {
-  await runCodexProcess({
-    args: [
-      "exec",
-      "--ephemeral",
-      "--sandbox",
-      "workspace-write",
-      "--config",
-      'model_reasoning_effort="xhigh"',
-      "--config",
-      "sandbox_workspace_write.network_access=true",
-      "--config",
-      'approval_policy="never"',
-      "--output-last-message",
+async function runSpeciesAgent(
+  worktree: string,
+  output: string,
+  prompt: string,
+  profile: AiProfile,
+) {
+  return formatAgentRun(
+    await runAgent({
+      access: "workspace-write",
+      cwd: worktree,
       output,
-    ],
-    cwd: worktree,
-    prompt,
-    timeoutMs: 45 * 60 * 1000,
-  });
+      profile,
+      prompt,
+      timeoutMs: 45 * 60 * 1000,
+    }),
+  );
 }

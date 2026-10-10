@@ -2,7 +2,16 @@ import type { AppLocale } from "@/i18n/routing";
 
 import { pickLocalized } from "@/i18n/localeMeta";
 
+export type CreditAffiliationId =
+  | "borjomi-kharagauli-national-park"
+  | "connecticut-college"
+  | "georgian-society-of-nature-friends"
+  | "ilia-state-university"
+  | "institute-of-zoology"
+  | "naturehistorium";
+
 export type CreditAuthor = {
+  affiliations?: CreditAffiliationId[];
   aliases: string[];
   bio?: {
     en: string;
@@ -11,10 +20,17 @@ export type CreditAuthor = {
     tr?: string;
   };
   id: string;
+  jobTitle?: CreditAuthorJobTitle;
+  kind?: CreditAuthorKind;
   links?: {
     facebook?: string;
     instagram?: string;
     researchGate?: string;
+  };
+  metaDescription?: {
+    en?: string;
+    ru?: string;
+    tr?: string;
   };
   name: {
     en: string;
@@ -29,8 +45,12 @@ export type CreditAuthor = {
   slug: string;
 };
 
+export type CreditAuthorKind = "page" | "person";
+
 export type CreditAuthorRole =
   "herpetologist" | "photographer" | "ranger" | "researcher";
+
+type CreditAuthorJobTitle = "director" | "professor" | "ranger" | "researcher";
 
 export const CREDIT_AUTHORS: CreditAuthor[] = [
   {
@@ -59,6 +79,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     slug: "sandro-khakhva",
   },
   {
+    affiliations: ["borjomi-kharagauli-national-park"],
     aliases: ["Zauri Khachidze", "ზაური ხაჩიძე"],
     bio: {
       en: "Ranger at Borjomi-Kharagauli National Park and wildlife photographer. For years he has worked in the protected area, combining nature protection with documenting the diversity of Georgia’s wildlife.",
@@ -67,6 +88,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
       tr: "Borjomi-Kharagauli Millî Parkı bekçisi ve yaban hayatı fotoğrafçısı. Yıllardır korunan alanda çalışmış; doğa koruma işinin yanında Gürcistan’ın yaban hayatı çeşitliliğini de belgelemiştir.",
     },
     id: "zauri-khachidze",
+    jobTitle: "ranger",
     links: {
       facebook: "https://www.facebook.com/zauri.xachidze/",
     },
@@ -83,6 +105,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     slug: "zauri-khachidze",
   },
   {
+    affiliations: ["ilia-state-university"],
     aliases: ["Ioane Rostiashvili", "იოანე როსტიაშვილი"],
     bio: {
       en: "Ioane Rostiashvili is a young researcher and a student at Ilia State University. He works as an amateur herpetologist (studying reptiles), an entomologist, and a wildlife photographer.",
@@ -108,14 +131,16 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     slug: "ioane-rostiashvili",
   },
   {
+    affiliations: ["ilia-state-university"],
     aliases: ["Giorgi Iankoshvili", "გიორგი იანქოშვილი"],
     bio: {
       en: "Giorgi Iankoshvili is a Georgian researcher-ecologist and herpetologist. He is currently a researcher at the Institute of Ecology at Ilia State University and a doctoral student at the same university.",
-      ka: "გიორგი იანქოშვილი ქართველი მკვლევარი-ეკოლოგი და ჰერპეტოლოგია. ამჟამად ილიას სახელმწიფო უნივერსიტეტის ეკოლოგიის ინსტიტუტის მკვლევარია და ამავე უნივერსიტეტის დოქტორანტი.",
+      ka: "გიორგი იანქოშვილი არის ქართველი მკვლევარი-ეკოლოგი და ჰერპეტოლოგი. ამჟამად ილიას სახელმწიფო უნივერსიტეტის ეკოლოგიის ინსტიტუტის მკვლევარია და ამავე უნივერსიტეტის დოქტორანტი.",
       ru: "Гиорги Ианкошвили — грузинский исследователь-эколог и герпетолог. Сейчас он исследователь Института экологии Государственного университета Ильи и докторант того же университета.",
       tr: "Giorgi Iankoshvili Gürcü araştırmacı-ekolog ve herpetologdur. Şu anda Ilia Devlet Üniversitesi Ekoloji Enstitüsü’nde araştırmacı ve aynı üniversitede doktora öğrencisidir.",
     },
     id: "giorgi-iankoshvili",
+    jobTitle: "researcher",
     links: {
       facebook: "https://www.facebook.com/giorgi.iankoshvili/",
     },
@@ -135,11 +160,16 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     aliases: ["Zakro Songulashvili", "ზაქრო სონღულაშვილი"],
     bio: {
       en: "Zakro Songulashvili is a Georgian researcher, naturalist, and photographer who is actively engaged in studying and documenting biodiversity in Georgia, especially herpetofauna (amphibians/reptiles) and arthropods.",
-      ka: "ზაქრო სონღულაშვილი არის ქართველი მკვლევარი, ნატურალისტი და ფოტოგრაფი, რომელიც აქტიურად არის დაკავებული საქართველოში ბიომრავალფეროვნების, განსაკუთრებით კი ქვეწარმავლებისა (ამფიბიები/რეპტილიები) და ფეხსახსრიანების შესწავლითა და დოკუმენტირებით.",
+      ka: "ზაქრო სონღულაშვილი არის ქართველი მკვლევარი, ნატურალისტი და ფოტოგრაფი, რომელიც აქტიურად არის დაკავებული საქართველოში ბიომრავალფეროვნების, განსაკუთრებით კი ჰერპეტოფაუნის (ამფიბიებისა და ქვეწარმავლების) და ფეხსახსრიანების შესწავლითა და დოკუმენტირებით.",
       ru: "Закро Сонгулашвили — грузинский исследователь, натуралист и фотограф, который активно занимается изучением и документированием биоразнообразия Грузии, особенно герпетофауны (амфибии/рептилии) и членистоногих.",
       tr: "Zakro Songulashvili Gürcü araştırmacı, natüralist ve fotoğrafçıdır; Gürcistan’da biyoçeşitliliği, özellikle herpetofaunayı (amfibiler/sürüngenler) ve eklembacaklıları incelemek ve belgelemekle aktif olarak uğraşır.",
     },
     id: "zakro-songulashvili",
+    metaDescription: {
+      en: "Zakro Songulashvili is a Georgian researcher, naturalist, and photographer who studies and documents Georgia’s herpetofauna and arthropods.",
+      ru: "Закро Сонгулашвили — грузинский исследователь, натуралист и фотограф, изучающий и документирующий герпетофауну и членистоногих Грузии.",
+      tr: "Zakro Songulashvili, Gürcistan’ın herpetofaunasını ve eklembacaklılarını inceleyip belgeleyen Gürcü araştırmacı, natüralist ve fotoğrafçıdır.",
+    },
     name: {
       en: "Zakro Songulashvili",
       ka: "ზაქრო სონღულაშვილი",
@@ -202,10 +232,11 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     slug: "nika-kerdikoshvili",
   },
   {
+    affiliations: ["ilia-state-university"],
     aliases: ["Saba Todua", "საბა თოდუა"],
     bio: {
       en: "Saba Todua is an ecology student at Ilia State University and an amateur herpetologist.",
-      ka: "საბა თოდუა ილიას სახელმწიფო უნივერსიტეტის სტუდენტი. მოყვარული ჰერპეტოლოგი.",
+      ka: "საბა თოდუა ილიას სახელმწიფო უნივერსიტეტის ეკოლოგიის სტუდენტი და მოყვარული ჰერპეტოლოგია.",
       ru: "Саба Тодуа — студент-эколог Государственного университета Ильи и любитель-герпетолог.",
       tr: "Saba Todua, Ilia Devlet Üniversitesi’nde ekoloji öğrencisi ve amatör herpetologdur.",
     },
@@ -226,6 +257,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     slug: "saba-todua",
   },
   {
+    affiliations: ["ilia-state-university"],
     aliases: ["Armen Seropian", "არმენ სეროფიანი"],
     bio: {
       en: "Armen Seropian is a Georgian researcher, entomologist and arachnologist (spider specialist) who works at the Institute of Ecology at Ilia State University.",
@@ -234,6 +266,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
       tr: "Armen Seropian, Ilia Devlet Üniversitesi Ekoloji Enstitüsü’nde çalışan Gürcü araştırmacı, entomolog ve araknologdur (örümcek uzmanı).",
     },
     id: "armen-seropian",
+    jobTitle: "researcher",
     links: {
       facebook: "https://www.facebook.com/armen.seropian",
     },
@@ -261,6 +294,11 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     links: {
       facebook: "https://www.facebook.com/sh.zandukeli",
     },
+    metaDescription: {
+      en: "Shota Zandukeli is a well-known Georgian herpetologist who works with the media on living safely alongside reptiles.",
+      ru: "Шота Зандукели — известный грузинский герпетолог, который сотрудничает со СМИ и рассказывает о безопасном сосуществовании с рептилиями.",
+      tr: "Shota Zandukeli, medyayla çalışan ve sürüngenlerle güvenli birlikte yaşama konusunda bilgi veren tanınmış bir Gürcü herpetologdur.",
+    },
     name: {
       en: "Shota Zandukeli",
       ka: "შოთა ზანდუკელი",
@@ -276,12 +314,13 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
   {
     aliases: ["Close to wildlife", "ველურ ბუნებასთან ახლოს"],
     bio: {
-      en: "A wildlife photographer who documents Georgia’s reptiles and amphibians in their natural habitat.",
-      ka: "ველური ბუნების ფოტოგრაფი, რომელიც საქართველოს ქვეწარმავლებსა და ამფიბიებს ბუნებრივ გარემოში ასახავს.",
-      ru: "Фотограф дикой природы, который снимает рептилий и амфибий Грузии в естественной среде.",
-      tr: "Gürcistan’ın sürüngenlerini ve amfibilerini doğal ortamlarında yansıtan bir yaban hayatı fotoğrafçısı.",
+      en: "A wildlife photography page. Its photographs are used on species profiles in this atlas.",
+      ka: "ველური ბუნების ფოტოგრაფიის გვერდი. მისი ფოტოები ამ ატლასის სახეობების პროფილებზეა გამოყენებული.",
+      ru: "Страница фотографий дикой природы. Её снимки используются в профилях видов этого атласа.",
+      tr: "Bir yaban hayatı fotoğrafçılığı sayfası. Fotoğrafları bu atlastaki tür profillerinde kullanılmaktadır.",
     },
     id: "velur-bunebastan-axlos",
+    kind: "page",
     links: {
       facebook: "https://www.facebook.com/profile.php?id=61585670878935",
     },
@@ -298,6 +337,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     slug: "velur-bunebastan-axlos",
   },
   {
+    affiliations: ["ilia-state-university"],
     aliases: [
       "David Tarkhnishvili",
       "Davit Tarkhnishvili",
@@ -310,6 +350,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
       tr: "David Tarkhnishvili, şu anda Ilia Devlet Üniversitesi profesörü olan tanınmış bir Gürcü biyolog, evrimsel ekolog ve eğitimcidir. Araştırma ve bilimsel çalışmaları esas olarak Kafkasya bölgesinin biyoçeşitliliği, popülasyon genetiği ve evrimsel biyoloji ile bağlantılıdır.",
     },
     id: "david-tarkhnishvili",
+    jobTitle: "professor",
     links: {
       facebook: "https://www.facebook.com/david.tarkhnishvili",
     },
@@ -326,12 +367,16 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     slug: "david-tarkhnishvili",
   },
   {
+    affiliations: ["ilia-state-university", "institute-of-zoology"],
     aliases: ["Giorgi Sheklashvili", "გიორგი შეყლაშვილი", "გიორგი შეკლაშვილი"],
     bio: {
       en: "Giorgi Sheklashvili is a Georgian researcher in biology, a doctoral student at Ilia State University (ISU), and a researcher at the Institute of Zoology.",
-      ka: "გიორგი შეყლაშვილი ბიოლოგიის სფეროში არის ქართველი მკვლევარი, ილიას სახელმწიფო უნივერსიტეტის (ISU) დოქტორანტი და ზოოლოგიის ინსტიტუტის მეცნიერ-თანამშრომელი.",
+      ka: "გიორგი შეყლაშვილი ბიოლოგიის სფეროს ქართველი მკვლევარია — ილიას სახელმწიფო უნივერსიტეტის (ISU) დოქტორანტი და ზოოლოგიის ინსტიტუტის მეცნიერ-თანამშრომელი.",
+      ru: "Гиорги Шеклашвили — грузинский исследователь в области биологии, докторант Государственного университета Ильи (ISU) и научный сотрудник Института зоологии.",
+      tr: "Giorgi Sheklashvili, biyoloji alanında çalışan Gürcü bir araştırmacı, Ilia Devlet Üniversitesi (ISU) doktora öğrencisi ve Zooloji Enstitüsü araştırmacısıdır.",
     },
     id: "giorgi-sheklashvili",
+    jobTitle: "researcher",
     links: {
       facebook: "https://www.facebook.com/giorgi.sheylashvili.39",
       researchGate:
@@ -340,6 +385,8 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     name: {
       en: "Giorgi Sheklashvili",
       ka: "გიორგი შეყლაშვილი",
+      ru: "Гиорги Шеклашвили",
+      tr: "Giorgi Sheklashvili",
     },
     portraitClass: "object-[36%_38%]",
     portraitSrc:
@@ -374,16 +421,22 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     slug: "giorgi-natsvlishvili",
   },
   {
+    affiliations: ["connecticut-college"],
     aliases: ["Lasha Gogodze", "ლაშა გოგოძე"],
     bio: {
       en: "Lasha Gogodze is a graduate of the Georgian-American High School who took part in the iFest international conference in Tunisia and currently studies Biochemistry and Molecular Biology at Connecticut College in the United States.",
-      ka: "ლაშა გოგოძე, ქართულ-ამერიკული უმაღლესი სკოლის კურსდამთავრებული, რომელიც მონაწილეობდა ტუნისში გამართულ iFest საერთაშორისო კონფერენციაზე და ამჟამად სწავლობს აშშ-ში, Connecticut College-ში ბიოქიმიისა და მოლეკულური ბიოლოგიის მიმართულებით.",
+      ka: "ლაშა გოგოძე ქართულ-ამერიკული უმაღლესი სკოლის კურსდამთავრებულია. მონაწილეობდა ტუნისში გამართულ iFest საერთაშორისო კონფერენციაზე და ამჟამად სწავლობს აშშ-ში, Connecticut College-ში, ბიოქიმიისა და მოლეკულური ბიოლოგიის მიმართულებით.",
       ru: "Лаша Гогодзе — выпускник грузино-американской средней школы, участвовал в международной конференции iFest в Тунисе и сейчас изучает биохимию и молекулярную биологию в Connecticut College в США.",
       tr: "Lasha Gogodze, Gürcü-Amerikan Lisesi mezunudur; Tunus’taki iFest uluslararası konferansına katılmış ve şu anda ABD’de Connecticut College’da biyokimya ve moleküler biyoloji okumaktadır.",
     },
     id: "lasha-gogodze",
     links: {
       facebook: "https://www.facebook.com/lasha.gogodze.2025",
+    },
+    metaDescription: {
+      en: "Lasha Gogodze is a graduate of the Georgian-American High School who studies Biochemistry and Molecular Biology at Connecticut College in the US.",
+      ru: "Лаша Гогодзе — выпускник грузино-американской средней школы, изучает биохимию и молекулярную биологию в Connecticut College в США.",
+      tr: "Lasha Gogodze, Gürcü-Amerikan Lisesi mezunudur ve ABD’de Connecticut College’da biyokimya ile moleküler biyoloji okumaktadır.",
     },
     name: {
       en: "Lasha Gogodze",
@@ -398,6 +451,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     slug: "lasha-gogodze",
   },
   {
+    affiliations: ["georgian-society-of-nature-friends", "naturehistorium"],
     aliases: [
       "Kakhaber Sukhitashvili",
       "კახაბერ სუხიტაშვილი",
@@ -410,6 +464,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
       tr: "Kakhaber Sukhitashvili Gürcü bir ekolog, botanikçi ve çevre korumacıdır. 25 yılı aşkın süredir çevre alanında aktif olarak çalışmaktadır. Şu anda NatureHistorium temsilcisi ve Georgian Society of Nature Friends direktörüdür.",
     },
     id: "kakhaber-sukhitashvili",
+    jobTitle: "director",
     links: {
       facebook: "https://www.facebook.com/kakha.sukhitashvili",
     },
@@ -436,6 +491,57 @@ for (const author of CREDIT_AUTHORS) {
   }
 }
 
+export const CREDIT_AFFILIATIONS: Record<
+  CreditAffiliationId,
+  { en: string; ka: string; ru: string; tr: string }
+> = {
+  "borjomi-kharagauli-national-park": {
+    en: "Borjomi-Kharagauli National Park",
+    ka: "ბორჯომ-ხარაგაულის ეროვნული პარკი",
+    ru: "Боржомско-Харагаульский национальный парк",
+    tr: "Borjomi-Kharagauli Millî Parkı",
+  },
+  "connecticut-college": {
+    en: "Connecticut College",
+    ka: "Connecticut College",
+    ru: "Connecticut College",
+    tr: "Connecticut College",
+  },
+  "georgian-society-of-nature-friends": {
+    en: "Georgian Society of Nature Friends",
+    ka: "საქართველოს ბუნების მეგობრები",
+    ru: "Georgian Society of Nature Friends",
+    tr: "Georgian Society of Nature Friends",
+  },
+  "ilia-state-university": {
+    en: "Ilia State University",
+    ka: "ილიას სახელმწიფო უნივერსიტეტი",
+    ru: "Государственный университет Ильи",
+    tr: "Ilia Devlet Üniversitesi",
+  },
+  "institute-of-zoology": {
+    en: "Institute of Zoology",
+    ka: "ზოოლოგიის ინსტიტუტი",
+    ru: "Институт зоологии",
+    tr: "Zooloji Enstitüsü",
+  },
+  naturehistorium: {
+    en: "NatureHistorium",
+    ka: "NatureHistorium",
+    ru: "NatureHistorium",
+    tr: "NatureHistorium",
+  },
+};
+
+export function creditAuthorAffiliationNames(
+  author: CreditAuthor,
+  locale: AppLocale,
+) {
+  return (author.affiliations ?? []).map((id) =>
+    pickLocalized(CREDIT_AFFILIATIONS[id], locale),
+  );
+}
+
 export function creditAuthorBio(author: CreditAuthor, locale: AppLocale) {
   if (!author.bio) return undefined;
   return pickLocalized(author.bio, locale);
@@ -452,6 +558,10 @@ export function creditAuthorIndexHref() {
   return "/authors" as const;
 }
 
+export function creditAuthorKind(author: CreditAuthor): CreditAuthorKind {
+  return author.kind ?? "person";
+}
+
 export function creditAuthorName(author: CreditAuthor, locale: AppLocale) {
   return pickLocalized(author.name, locale);
 }
@@ -462,6 +572,12 @@ export function creditAuthorSameAs(author: CreditAuthor) {
     author.links?.instagram,
     author.links?.researchGate,
   ].filter((href): href is string => Boolean(href));
+}
+
+export function getCreditAuthorByName(name: string) {
+  const trimmed = name.trim();
+  if (!trimmed) return undefined;
+  return byAlias.get(trimmed);
 }
 
 export function getPublishedCreditAuthorByName(name: string) {
@@ -476,12 +592,6 @@ export function getPublishedCreditAuthorBySlug(slug: string) {
 
 export function getPublishedCreditAuthors() {
   return CREDIT_AUTHORS.filter((author) => author.published);
-}
-
-function getCreditAuthorByName(name: string) {
-  const trimmed = name.trim();
-  if (!trimmed) return undefined;
-  return byAlias.get(trimmed);
 }
 
 function getCreditAuthorBySlug(slug: string) {

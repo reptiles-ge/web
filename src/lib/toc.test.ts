@@ -6,18 +6,15 @@ describe("speciesProfileSectionIds", () => {
   it("keeps the reading order and omits unavailable sections", () => {
     expect(
       speciesProfileSectionIds({
-        atAGlance: true,
         biology: true,
         faq: false,
         gallery: true,
         habitat: true,
         identification: true,
-        interaction: false,
         range: true,
         sources: true,
       }),
     ).toEqual([
-      SPECIES_SECTION_IDS.atAGlance,
       SPECIES_SECTION_IDS.overview,
       SPECIES_SECTION_IDS.identification,
       SPECIES_SECTION_IDS.gallery,

@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 
+import type { PhotoCredit } from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
 
 import { SpeciesPageAnalysis } from "@/components/admin/SpeciesPageAnalysis";
@@ -7,10 +8,10 @@ import { SpeciesProfileBody } from "@/components/SpeciesProfileBody";
 import { SpeciesProfileHero } from "@/components/SpeciesProfileHero";
 import { SpeciesViewTracker } from "@/components/SpeciesViewTracker";
 import { getRegionsForSpecies } from "@/data/mapRegions";
-import { optimizedImgSrc, pictureSources } from "@/data/optimizedImages";
+import { pictureSources } from "@/data/optimizedImages";
 import { type Species } from "@/data/species";
-import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
-import { resolvePhotoCredit } from "@/data/speciesMedia";
+import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlas";
+import { overlayPhotoCredit, resolvePhotoCredit } from "@/data/speciesMedia";
 import { isLocalAdminEnabled } from "@/lib/adminAccess";
 import { getHubIndexTitleKey } from "@/lib/clusterGuides";
 import { hasFieldRecords } from "@/lib/occurrenceSummaries";
@@ -20,14 +21,16 @@ import {
 } from "@/lib/speciesBreadcrumbs";
 import {
   filterDisplayStats,
-  getSpeciesGalleryPreview,
   getSpeciesHeroSources,
   hasRealIdentification,
   isPlaceholderBody,
+  SPECIES_HERO_DESKTOP_SIZES,
+  SPECIES_HERO_SIZES,
 } from "@/lib/speciesContent";
 import { getSpeciesProfileGuideLinks } from "@/lib/speciesGuideLinks";
 import { speciesPhotoAlt } from "@/lib/speciesMeta";
 import { usesDangerScale } from "@/lib/speciesRisk";
+import { speciesShareMessage } from "@/lib/speciesShareText";
 
 type SpeciesProfileProps = {
   locale: AppLocale;
@@ -98,36 +101,68 @@ export async function SpeciesProfile({
     species,
     venomousLabel: t("breadcrumbVenomous"),
   });
-  const { desktopHeroSrc, gallery, mobileHeroSrc, primary } =
+  const { desktopHeroSrc, gallery, mobileHeroSrc, mobileSlideSrc, primary } =
     getSpeciesHeroSources(species);
   const heroDesktopSources = pictureSources(desktopHeroSrc, {
     media: "(min-width: 1024px)",
-    sizes: "100vw",
+    sizes: SPECIES_HERO_DESKTOP_SIZES,
   });
-  const heroPrimarySources = pictureSources(mobileHeroSrc ?? desktopHeroSrc, {
-    sizes: "100vw",
+  const heroPrimarySources = pictureSources(mobileSlideSrc ?? desktopHeroSrc, {
+    sizes: SPECIES_HERO_SIZES,
   });
-  const heroCredit = resolvePhotoCredit(species.imageCredit, primary?.credit);
-  const mobileHeroCredit = resolvePhotoCredit(
-    species.mobileImageCredit,
-    species.imageCredit,
+  const localizedCredit = (
+    base: PhotoCredit | undefined,
+    src: null | string,
+  ) =>
+    locale === "ka"
+      ? base
+      : overlayPhotoCredit(
+          base,
+          gallery.find((item) => item.src === src)?.credit,
+        );
+  const heroCredit = resolvePhotoCredit(
+    localizedCredit(species.imageCredit, desktopHeroSrc),
     primary?.credit,
   );
+  const mobileHeroCredit = mobileHeroSrc
+    ? resolvePhotoCredit(
+        localizedCredit(species.mobileImageCredit, mobileHeroSrc),
+        localizedCredit(species.imageCredit, desktopHeroSrc),
+        primary?.credit,
+      )
+    : resolvePhotoCredit(primary?.credit, species.imageCredit);
   const imageAlt = speciesPhotoAlt(
     species.commonName,
     species.scientificName,
     species.location,
     heroCredit,
+    locale,
   );
   const mobileImageAlt = speciesPhotoAlt(
     species.commonName,
     species.scientificName,
     species.location,
     mobileHeroCredit,
+    locale,
   );
   const group = getSpeciesAtlasMeta(species.id).group;
   const displayStats = filterDisplayStats(species.stats, group);
   const dangerValue = species.danger ? tDanger(species.danger) : null;
+  const emergency = usesDangerScale(group) && isVenomousDanger(species.danger);
+  const shareText = speciesShareMessage({
+    commonName: species.commonName,
+    danger: species.danger,
+    group,
+    id: species.id,
+    labels: {
+      details: t("copyShareDetails"),
+      harmless: t("copyShareHarmless"),
+      rearFanged: t("copyShareRearFanged"),
+      venomous: t("copyShareVenomous"),
+    },
+    locale,
+    scientificName: species.scientificName,
+  });
   const linkDangerStats = usesDangerScale(group) && Boolean(species.danger);
   const hasRange =
     getRegionsForSpecies(species.id).length > 0 || hasFieldRecords(species.id);
@@ -170,16 +205,18 @@ export async function SpeciesProfile({
       <SpeciesProfileHero
         breadcrumbs={breadcrumbs}
         desktopHeroSrc={desktopHeroSrc}
+        emergency={emergency}
         galleryCount={gallery.length}
-        galleryPreview={getSpeciesGalleryPreview(species)}
-        gallerySrc={primary ? optimizedImgSrc(primary.src, 1200) : null}
+        galleryPreview={gallery.slice(0, 5).map((photo) => photo.src)}
         group={group}
         heroDesktopSources={heroDesktopSources}
         heroPrimarySources={heroPrimarySources}
         imageAlt={imageAlt}
         locale={locale}
-        mobileHeroSrc={mobileHeroSrc}
+        mobileGallery={gallery}
+        mobileHeroSrc={mobileSlideSrc}
         mobileImageAlt={mobileImageAlt}
+        shareText={shareText}
         species={species}
       />
       <SpeciesProfileBody
@@ -191,6 +228,7 @@ export async function SpeciesProfile({
         gallery={gallery}
         guideLinks={guideLinks}
         hasRange={hasRange}
+        heroCredit={mobileHeroCredit}
         linkDangerStats={linkDangerStats}
         locale={locale}
         lookalikes={lookalikes}
@@ -202,6 +240,15 @@ export async function SpeciesProfile({
         <SpeciesPageAnalysis
           copy={{
             action: tAnalysis("action"),
+            superAction: tAnalysis("superAction"),
+            superCompleted: tAnalysis("superCompleted"),
+            superDescription: tAnalysis("superDescription"),
+            superFailed: tAnalysis("superFailed"),
+            superPending: tAnalysis("superPending"),
+            superReconnecting: tAnalysis("superReconnecting"),
+            superRunning: tAnalysis("superRunning"),
+            superValidation: tAnalysis("superValidation"),
+
             addStep: tAnalysis("addStep"),
             availableSteps: tAnalysis("availableSteps"),
             closeWorkflow: tAnalysis("closeWorkflow"),

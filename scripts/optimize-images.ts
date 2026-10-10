@@ -269,10 +269,13 @@ function collectTargets(
   };
 
   if (imageSources.length > 0) {
-    const siteImageSources = new Set(Object.values(siteImages));
+    const siteImageSources = new Set([
+      ...Object.values(siteImages),
+      ...Object.values(GROUP_HUB_ILLUSTRATIONS),
+    ]);
     for (const src of imageSources) {
       if (!siteImageSources.has(src)) {
-        throw new Error(`Unknown site image "${src}".`);
+        throw new Error(`Unknown site or group image "${src}".`);
       }
       add(src);
     }

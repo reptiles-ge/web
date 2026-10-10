@@ -1,31 +1,21 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
 
 import { CoverImage } from "@/components/CoverImage";
-import { TrackedSpeciesLink } from "@/components/home/TrackedSpeciesLink";
-import { getSpeciesById } from "@/data/species";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
+import { HomeSectionHeading } from "@/components/home/HomeSectionHeading";
+import { GYURZA_BITE } from "@/content/guides/gyurzaBite";
 import { Link } from "@/i18n/navigation";
-import { VENOMOUS_VIPER_IDS } from "@/lib/clusterGuides";
 import { quizHref } from "@/lib/quizzes";
-import { isPlaceholderMedia } from "@/lib/speciesContent";
-import { speciesImageAlt } from "@/lib/speciesMeta";
 
 const GUIDES = [
   {
     href: "/snakes/shxamiani-gvelis-amocnoba" as const,
     key: "identify" as const,
   },
-  {
-    href: "/snakes-in-the-yard" as const,
-    key: "yard" as const,
-  },
-  {
-    key: "quiz" as const,
-    quizId: "snake" as const,
-  },
+  { href: "/snakes-in-the-yard" as const, key: "yard" as const },
+  { href: null, key: "quiz" as const },
 ];
 
 export async function HomeField({ locale }: { locale: AppLocale }) {
@@ -34,171 +24,83 @@ export async function HomeField({ locale }: { locale: AppLocale }) {
     getTranslations({ locale, namespace: "home.safety" }),
     getTranslations({ locale, namespace: "home.knowledge" }),
   ]);
-  const vipers = VENOMOUS_VIPER_IDS.map((id) => getSpeciesById(id))
-    .filter((item): item is NonNullable<typeof item> => Boolean(item))
-    .map((item) => localizeSpecies(item, locale));
 
   return (
-    <section className="bg-surface py-20 lg:py-28">
-      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <div className="max-w-xl">
-          <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
-            {t("eyebrow")}
-          </p>
-          <h2 className="text-balance-tight mt-4 font-display text-display-title font-semibold">
-            {t("title")}
-          </h2>
-          <p className="mt-4 max-w-md text-[15px] leading-relaxed text-muted-foreground">
-            {t("subtitle")}
-          </p>
-        </div>
+    <section className="bg-surface pt-11 lg:pt-20">
+      <div className="mx-auto max-w-[1440px] px-6 lg:px-[60px]">
+        <HomeSectionHeading
+          eyebrow={t("eyebrow")}
+          subtitle={t("subtitle")}
+          title={t("title")}
+        />
 
-        <div className="mt-12 grid gap-14 lg:mt-16 lg:grid-cols-2 lg:gap-20">
-          <div className="min-w-0">
-            <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
+        <article className="mt-6 overflow-hidden rounded-[30px] bg-card p-2.5 shadow-[0_24px_60px_rgba(14,20,17,0.07)] lg:mt-11 lg:grid lg:grid-cols-[minmax(0,520px)_minmax(0,1fr)] lg:rounded-[40px] lg:p-3.5">
+          <div className="relative h-[220px] overflow-hidden rounded-[22px] bg-ink lg:h-auto lg:min-h-[460px] lg:rounded-[28px]">
+            <CoverImage
+              alt={GYURZA_BITE.hero.alt[locale]}
+              className="object-cover object-[35%_center]"
+              sizes="(max-width: 1023px) 100vw, 520px"
+              src={GYURZA_BITE.hero.src}
+            />
+          </div>
+          <div className="min-w-0 px-3 pt-5 pb-4 lg:px-11 lg:py-7">
+            <span className="inline-flex min-h-[30px] items-center gap-2 rounded-full bg-destructive/10 px-3 text-[11px] font-medium tracking-[0.16em] text-destructive uppercase">
+              <span className="size-1.5 rounded-full bg-destructive" />
               {tSafety("eyebrow")}
-            </p>
-            <h3 className="mt-3 font-display text-display-card font-semibold">
+            </span>
+            <h3 className="mt-3 font-display text-[22px] leading-[1.2] font-semibold text-foreground lg:mt-3.5 lg:text-[30px] lg:leading-[1.15]">
               {tKnowledge("venomous.title")}
             </h3>
-            <p className="mt-4 max-w-md text-[15px] leading-relaxed text-muted-foreground">
+            <p className="mt-3 max-w-xl text-[14px] leading-[1.6] text-muted-foreground lg:text-[16px]">
               {tKnowledge("venomous.body")}
             </p>
-            {vipers.length > 0 ? (
-              <>
-                <ul className="mt-7 divide-y divide-border border-y border-border sm:hidden">
-                  {vipers.map((species, index) => {
-                    const src =
-                      species.mobileImage &&
-                      !isPlaceholderMedia(species.mobileImage)
-                        ? species.mobileImage
-                        : species.image;
-                    if (isPlaceholderMedia(src)) return null;
-
-                    return (
-                      <li key={species.id}>
-                        <TrackedSpeciesLink
-                          className="group flex min-h-16 items-center gap-3 py-3 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:outline-none"
-                          locale={locale}
-                          position={index + 1}
-                          source="home_safety"
-                          speciesId={species.id}
-                        >
-                          <span className="relative size-14 shrink-0 overflow-hidden bg-ink">
-                            <CoverImage
-                              alt={speciesImageAlt(
-                                species.commonName,
-                                species.scientificName,
-                                species.location,
-                              )}
-                              className="object-cover"
-                              sizes="56px"
-                              src={src}
-                            />
-                          </span>
-                          <span className="min-w-0">
-                            <span className="block font-display text-[15px] leading-snug font-semibold text-foreground">
-                              {species.commonName}
-                            </span>
-                            <span className="mt-0.5 block text-[12px] leading-snug text-muted-foreground italic">
-                              {species.scientificName}
-                            </span>
-                          </span>
-                        </TrackedSpeciesLink>
-                      </li>
-                    );
-                  })}
-                </ul>
-                <ul className="mt-7 hidden gap-2 sm:grid sm:grid-cols-6">
-                  {vipers.map((species, index) => {
-                    const src =
-                      species.mobileImage &&
-                      !isPlaceholderMedia(species.mobileImage)
-                        ? species.mobileImage
-                        : species.image;
-                    if (isPlaceholderMedia(src)) return null;
-
-                    return (
-                      <li key={species.id}>
-                        <TrackedSpeciesLink
-                          className="group block focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:outline-none"
-                          locale={locale}
-                          position={index + 1}
-                          source="home_safety"
-                          speciesId={species.id}
-                        >
-                          <span className="relative block aspect-3/4 overflow-hidden bg-ink">
-                            <CoverImage
-                              alt={speciesImageAlt(
-                                species.commonName,
-                                species.scientificName,
-                                species.location,
-                              )}
-                              className="object-cover"
-                              sizes="80px"
-                              src={src}
-                            />
-                          </span>
-                          <span className="mt-2 block text-[11px] leading-snug text-muted-foreground italic">
-                            {species.scientificName}
-                          </span>
-                        </TrackedSpeciesLink>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </>
-            ) : null}
-            <div className="mt-7 flex flex-wrap gap-x-6 gap-y-3">
+            <ol className="mt-5 flex flex-col gap-2 lg:mt-[22px]">
+              {GUIDES.map((guide, index) => (
+                <li key={guide.key}>
+                  <Link
+                    className="group flex min-h-[68px] items-center gap-3 rounded-[20px] bg-background px-3 py-2.5 transition-colors hover:bg-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary lg:gap-4 lg:rounded-[22px]"
+                    href={
+                      guide.key === "quiz"
+                        ? quizHref("snake", locale)
+                        : guide.href!
+                    }
+                  >
+                    <span className="flex size-11 shrink-0 items-center justify-center rounded-full bg-card text-[13px] font-semibold text-primary tabular-nums">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <span className="min-w-0 flex-1">
+                      <span className="block font-display text-[15px] leading-snug font-semibold text-foreground lg:text-[16px]">
+                        {t(`${guide.key}.title`)}
+                      </span>
+                      <span className="mt-0.5 hidden text-[13px] leading-snug text-muted-foreground sm:block">
+                        {t(`${guide.key}.body`)}
+                      </span>
+                    </span>
+                    <ArrowRight
+                      aria-hidden="true"
+                      className="size-4 shrink-0 text-foreground"
+                    />
+                  </Link>
+                </li>
+              ))}
+            </ol>
+            <div className="mt-5 flex flex-wrap gap-2.5 lg:mt-6">
               <Link
-                className="inline-flex min-h-11 items-center gap-1.5 text-[14px] font-medium text-foreground transition-colors hover:text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
+                className="inline-flex min-h-12 items-center gap-2 rounded-full bg-[#2f6b4f] px-5 text-[14px] font-medium text-white hover:bg-[#255940] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                 href="/venomous-snakes"
               >
                 {tKnowledge("venomous.cta")}
-                <ArrowUpRight aria-hidden="true" className="size-3.5" />
+                <ArrowRight aria-hidden="true" className="size-4" />
               </Link>
               <Link
-                className="inline-flex min-h-11 items-center gap-1.5 text-[14px] font-medium text-muted-foreground transition-colors hover:text-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
+                className="inline-flex min-h-12 items-center rounded-full border border-border bg-card px-5 text-[14px] font-medium text-foreground hover:bg-background focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                 href="/snakes/gvelis-nakbeni"
               >
                 {tSafety("bite")}
-                <ArrowUpRight aria-hidden="true" className="size-3.5" />
-              </Link>
-              <Link
-                className="inline-flex min-h-11 items-center gap-1.5 text-[14px] font-medium text-muted-foreground transition-colors hover:text-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
-                href="/dangerous-animals"
-              >
-                {tKnowledge("dangerous.cta")}
-                <ArrowUpRight aria-hidden="true" className="size-3.5" />
               </Link>
             </div>
           </div>
-
-          <ol className="min-w-0 divide-y divide-border border-y border-border">
-            {GUIDES.map((guide, index) => (
-              <li key={guide.key}>
-                <Link
-                  className="group flex min-h-30 flex-col justify-center py-6 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
-                  href={
-                    guide.key === "quiz"
-                      ? quizHref("snake", locale)
-                      : guide.href
-                  }
-                >
-                  <span className="text-[11px] tracking-[0.2em] text-muted-foreground tabular-nums">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className="mt-2 font-display text-[1.25rem] leading-tight font-semibold text-foreground transition-colors group-hover:text-primary">
-                    {t(`${guide.key}.title`)}
-                  </h3>
-                  <span className="mt-2 max-w-md text-[14px] leading-relaxed text-muted-foreground">
-                    {t(`${guide.key}.body`)}
-                  </span>
-                </Link>
-              </li>
-            ))}
-          </ol>
-        </div>
+        </article>
       </div>
     </section>
   );

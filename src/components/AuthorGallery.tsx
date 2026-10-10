@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 import type { AppLocale } from "@/i18n/routing";
 import type { CreditAuthorPhoto } from "@/lib/creditAuthors";
 
+import { AuthorGalleryGrid } from "@/components/AuthorGalleryGrid";
 import {
   GalleryOpenButton,
   SpeciesGalleryLightbox,
@@ -13,15 +14,14 @@ import {
   pictureSources,
 } from "@/data/optimizedImages";
 import { getSpeciesById } from "@/data/species";
+import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
-import { Link } from "@/i18n/navigation";
-import { cn } from "@/lib/cn";
-import {
-  GALLERY_LIGHTBOX_SIZES,
-  galleryFeaturedSizes,
-  galleryThumbSizes,
-} from "@/lib/imageSizes";
+import { getCreditAuthorGroupStats } from "@/lib/creditAuthors";
+import { ANIMAL_GROUP_TO_HUB } from "@/lib/groupHubs";
+import { GALLERY_LIGHTBOX_SIZES } from "@/lib/imageSizes";
 import { speciesHref } from "@/lib/speciesRoutes";
+
+const TILE_SIZES = "(max-width: 1023px) 50vw, 330px";
 
 export async function AuthorGallery({
   locale,
@@ -31,10 +31,11 @@ export async function AuthorGallery({
   photos: CreditAuthorPhoto[];
 }) {
   if (photos.length === 0) return null;
-  const t = await getTranslations({ locale, namespace: "author" });
+  const [t, tNav] = await Promise.all([
+    getTranslations({ locale, namespace: "author" }),
+    getTranslations({ locale, namespace: "nav" }),
+  ]);
 
-  const featuredSizes = galleryFeaturedSizes();
-  const thumbSizes = galleryThumbSizes(photos.length);
   const slides = photos.flatMap((photo) => {
     const species = getSpeciesById(photo.speciesId);
     if (!species) return [];
@@ -47,6 +48,7 @@ export async function AuthorGallery({
           ? `${localized.commonName} (${localized.scientificName}) — ${photo.credit.location.trim()}`
           : `${localized.commonName} (${localized.scientificName})`,
         credit: photo.credit,
+        group: ANIMAL_GROUP_TO_HUB[getSpeciesAtlasMeta(photo.speciesId).group],
         height: entry?.height,
         href,
         name: localized.commonName,
@@ -58,6 +60,9 @@ export async function AuthorGallery({
       },
     ];
   });
+  const stats = getCreditAuthorGroupStats(photos);
+  const photoCount = (count: number, label: string) =>
+    `${count} ${t("statPhotos")} · ${label}`;
 
   return (
     <SpeciesGalleryLightbox
@@ -67,67 +72,68 @@ export async function AuthorGallery({
       prevLabel={t("prevPhoto")}
       slides={slides}
     >
-      <div
-        className={cn(
-          "mt-10 grid gap-x-3 gap-y-8 sm:mt-12 sm:gap-x-4 sm:gap-y-10",
-          photos.length === 1
-            ? "grid-cols-1"
-            : photos.length === 2
-              ? "grid-cols-1 sm:grid-cols-2"
-              : "grid-cols-2 md:grid-cols-3",
-        )}
-      >
-        {slides.map((slide, index) => {
-          const featured = slides.length >= 3 && index === 0;
+      <AuthorGalleryGrid
+        filterLabel={t("galleryFilterLabel")}
+        filters={[
+          {
+            count: slides.length,
+            countLabel: photoCount(slides.length, t("galleryAllGroups")),
+            id: "all",
+            label: t("index.all"),
+            showAllLabel: t("galleryShowAll", { count: slides.length }),
+          },
+          ...stats.map((stat) => ({
+            count: stat.photos,
+            countLabel: photoCount(stat.photos, tNav(stat.hub)),
+            id: stat.hub,
+            label: tNav(stat.hub),
+            showAllLabel: t("galleryShowAll", { count: stat.photos }),
+          })),
+        ]}
+        heading={
+          <div>
+            <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
+              {t("gallery")}
+            </p>
+            <h2 className="mt-3 font-display text-[28px] leading-[1.15] font-semibold tracking-[-0.012em] text-foreground lg:mt-3.5 lg:text-[40px] lg:leading-[1.1]">
+              {t("galleryTitle")}
+            </h2>
+          </div>
+        }
+        items={slides.map((slide, index) => {
           const entry = optimizedEntry(slide.photo.src);
-          const sizes = featured ? featuredSizes : thumbSizes;
-          return (
-            <figure
-              className={cn(featured && "col-span-2 md:col-span-3")}
-              key={slide.photo.src}
-            >
-              <div
-                className={cn(
-                  "group relative overflow-hidden rounded-card bg-ink",
-                  featured ? "aspect-16/10" : "aspect-4/5",
-                )}
-              >
+          return {
+            group: slide.group,
+            id: slide.photo.src,
+            node: (
+              <div className="group relative aspect-square overflow-hidden rounded-[18px] bg-ink lg:rounded-[24px]">
                 <GalleryOpenButton alt={slide.alt} index={index}>
                   <picture className="media-placeholder absolute inset-0 block size-full">
-                    {pictureSources(slide.photo.src, { sizes }).map(
-                      (source) => (
-                        <source key={source.key} {...source.props} />
-                      ),
-                    )}
+                    {pictureSources(slide.photo.src, {
+                      sizes: TILE_SIZES,
+                    }).map((source) => (
+                      <source key={source.key} {...source.props} />
+                    ))}
                     <img
                       alt={slide.alt}
-                      className="absolute inset-0 size-full object-cover text-transparent"
+                      className="absolute inset-0 size-full object-cover text-transparent transition-transform duration-500 group-hover:scale-[1.04] motion-reduce:transition-none"
                       decoding="async"
                       height={entry?.height}
-                      loading={index < 3 ? "eager" : "lazy"}
-                      sizes={sizes}
-                      src={optimizedImgSrc(
-                        slide.photo.src,
-                        featured ? 800 : 400,
-                      )}
+                      loading={index < 5 ? "eager" : "lazy"}
+                      sizes={TILE_SIZES}
+                      src={optimizedImgSrc(slide.photo.src, 800)}
                       width={entry?.width}
                     />
                   </picture>
+                  <span className="pointer-events-none absolute bottom-2.5 left-2.5 inline-flex h-[30px] max-w-[calc(100%-1.25rem)] items-center truncate rounded-full bg-ink/72 px-3 text-[12.5px] font-medium text-white lg:bottom-3 lg:left-3 lg:max-w-[calc(100%-1.5rem)]">
+                    <span className="truncate">{slide.name}</span>
+                  </span>
                 </GalleryOpenButton>
               </div>
-              <figcaption className="mt-3">
-                <Link
-                  className="inline-flex min-h-11 items-center font-display text-[14px] font-medium text-foreground/80 transition-colors hover:text-foreground"
-                  href={slide.href}
-                  prefetch={false}
-                >
-                  {slide.name}
-                </Link>
-              </figcaption>
-            </figure>
-          );
+            ),
+          };
         })}
-      </div>
+      />
     </SpeciesGalleryLightbox>
   );
 }

@@ -2,9 +2,11 @@ import type { GalleryImage, PhotoCredit, Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
 
 import {
+  creditAuthorKind,
   creditAuthorName,
   getPublishedCreditAuthorByName,
 } from "@/data/creditAuthors";
+import { optimizedImgSrc } from "@/data/optimizedImages";
 import { creditAuthorUrl } from "@/lib/creditAuthors";
 import { hasPhotoCoordinates } from "@/lib/photoCoordinates";
 import { absoluteImageUrl } from "@/lib/site";
@@ -20,16 +22,18 @@ export function galleryImageObject(
   species: SpeciesPhotoContext,
   locale: AppLocale,
 ) {
-  const url = absoluteImageUrl(photo.src);
+  const publishedSrc = optimizedImgSrc(photo.src);
+  const url = absoluteImageUrl(publishedSrc);
   const credit = photo.credit;
   const name = speciesPhotoAlt(
     species.commonName,
     species.scientificName,
     species.location,
     credit,
+    locale,
   );
-  const format = encodingFormat(photo.src);
-  const creator = credit ? personNode(credit, locale) : undefined;
+  const format = encodingFormat(publishedSrc);
+  const creator = credit ? creatorNode(credit, locale) : undefined;
   const contentLocation = photoContentLocation(credit);
 
   return {
@@ -44,9 +48,9 @@ export function galleryImageObject(
       ? {
           copyrightHolder: creator,
           creator,
-          creditText: credit?.photographer,
         }
       : {}),
+    ...(credit?.photographer ? { creditText: credit.photographer } : {}),
     ...(credit?.date ? { dateCreated: credit.date } : {}),
     ...(contentLocation ? { contentLocation } : {}),
   };
@@ -65,18 +69,10 @@ export function galleryImageObjects(
   return objects;
 }
 
-function encodingFormat(src: string) {
-  const path = src.split("?")[0]?.toLowerCase() ?? "";
-  if (path.endsWith(".webp")) return "image/webp";
-  if (path.endsWith(".png")) return "image/png";
-  if (path.endsWith(".gif")) return "image/gif";
-  if (path.endsWith(".jpg") || path.endsWith(".jpeg")) return "image/jpeg";
-  return undefined;
-}
-
-function personNode(credit: PhotoCredit, locale: AppLocale) {
+function creatorNode(credit: PhotoCredit, locale: AppLocale) {
   if (!credit.photographer) return undefined;
   const author = getPublishedCreditAuthorByName(credit.photographer);
+  if (author && creditAuthorKind(author) !== "person") return undefined;
   return {
     "@type": "Person",
     name: author ? creditAuthorName(author, locale) : credit.photographer,
@@ -86,6 +82,16 @@ function personNode(credit: PhotoCredit, locale: AppLocale) {
         ? { url: credit.url }
         : {}),
   };
+}
+
+function encodingFormat(src: string) {
+  const path = src.split("?")[0]?.toLowerCase() ?? "";
+  if (path.endsWith(".avif")) return "image/avif";
+  if (path.endsWith(".webp")) return "image/webp";
+  if (path.endsWith(".png")) return "image/png";
+  if (path.endsWith(".gif")) return "image/gif";
+  if (path.endsWith(".jpg") || path.endsWith(".jpeg")) return "image/jpeg";
+  return undefined;
 }
 
 function photoContentLocation(credit?: PhotoCredit) {

@@ -1,6 +1,6 @@
 "use client";
 
-import { Search, X } from "lucide-react";
+import { ArrowRight, Search, X } from "lucide-react";
 import {
   type KeyboardEvent as ReactKeyboardEvent,
   type RefObject,
@@ -19,8 +19,13 @@ import {
 } from "@/lib/chromeStyles";
 import { cn } from "@/lib/cn";
 
+type SearchTriggerVariant = "dark" | "hero" | "light";
+
 const searchInputClass =
   "min-w-0 flex-1 bg-transparent text-[13px] font-medium outline-none [appearance:textfield] [&::-webkit-search-cancel-button]:hidden [&::-webkit-search-decoration]:hidden";
+
+const heroShellClass =
+  "items-center rounded-full bg-white text-[#1a211c] shadow-[0_18px_44px_rgba(0,0,0,0.45)] transition-shadow focus-within:ring-4 focus-within:ring-[#6fad88]/60 focus-visible:ring-4 focus-visible:ring-[#6fad88]/60 focus-visible:outline-none";
 
 export function SpeciesSearchMobileHeader({
   activeOptionId,
@@ -106,7 +111,6 @@ export function SpeciesSearchTrigger({
   activeOptionId,
   clearLabel,
   inputRef,
-  isDark,
   listId,
   modKey,
   onBlur,
@@ -115,6 +119,7 @@ export function SpeciesSearchTrigger({
   onFocus,
   onKeyDown,
   onMobileOpen,
+  onSubmit,
   open,
   openLabel,
   placeholder,
@@ -124,7 +129,6 @@ export function SpeciesSearchTrigger({
   activeOptionId?: string;
   clearLabel: string;
   inputRef: RefObject<HTMLInputElement | null>;
-  isDark: boolean;
   listId: string;
   modKey: string;
   onBlur: (relatedTarget: Node | null) => void;
@@ -133,44 +137,44 @@ export function SpeciesSearchTrigger({
   onFocus: () => void;
   onKeyDown: (event: ReactKeyboardEvent<HTMLInputElement>) => void;
   onMobileOpen: () => void;
+  onSubmit: () => void;
   open: boolean;
   openLabel: string;
   placeholder: string;
   query: string;
-  variant: "dark" | "light";
+  variant: SearchTriggerVariant;
 }) {
-  const shellClass = chromeShellClass(variant);
-  const iconButtonClass = chromeIconButtonClass(variant);
-  const iconClass = isDark ? "text-white/55" : "text-muted-foreground";
-  const inputClass = isDark
-    ? "placeholder:text-white/50"
-    : "placeholder:text-muted-foreground/70";
-  const kbdClass = isDark
-    ? "border-white/18 bg-white/8 text-white/45"
-    : "border-border bg-secondary/80 text-muted-foreground";
+  const isHero = variant === "hero";
+  const classes = searchTriggerClasses(variant);
 
   return (
     <>
       <button
         aria-expanded={open}
         aria-label={openLabel}
-        className={cn(chromeIconButtonBase, "md:hidden", iconButtonClass)}
+        className={cn("md:hidden", classes.mobile)}
         onClick={onMobileOpen}
         type="button"
       >
-        <Search aria-hidden="true" className="size-3.5" strokeWidth={1.75} />
-      </button>
-
-      <div
-        className={cn(
-          "group hidden w-[280px] items-center gap-2.5 rounded-full border px-3.5 py-2 transition-all duration-300 md:flex lg:w-[320px]",
-          shellClass,
-        )}
-      >
         <Search
           aria-hidden="true"
-          className={cn("size-3.5 shrink-0", iconClass)}
+          className={classes.mobileIcon}
+          strokeWidth={1.75}
         />
+        {isHero ? (
+          <>
+            <span className="min-w-0 flex-1 truncate text-left text-[16px] font-medium text-[#5c665f]">
+              {placeholder}
+            </span>
+            <span className="flex size-11 shrink-0 items-center justify-center rounded-full bg-[#2f6b4f] text-white">
+              <ArrowRight aria-hidden="true" className="size-[18px]" />
+            </span>
+          </>
+        ) : null}
+      </button>
+
+      <div className={cn("group hidden items-center md:flex", classes.shell)}>
+        <Search aria-hidden="true" className={cn("shrink-0", classes.icon)} />
         <input
           aria-activedescendant={open ? activeOptionId : undefined}
           aria-autocomplete="list"
@@ -179,7 +183,7 @@ export function SpeciesSearchTrigger({
           aria-keyshortcuts="Meta+K Control+K"
           aria-label={openLabel}
           autoComplete="off"
-          className={cn(searchInputClass, inputClass)}
+          className={cn(searchInputClass, classes.input)}
           onBlur={(event) => {
             onBlur(event.relatedTarget as Node | null);
           }}
@@ -200,9 +204,7 @@ export function SpeciesSearchTrigger({
             aria-label={clearLabel}
             className={cn(
               "rounded-full p-0.5 transition-colors",
-              isDark
-                ? "text-white/50 hover:bg-white/10 hover:text-white"
-                : "text-muted-foreground hover:bg-secondary hover:text-foreground",
+              classes.clear,
             )}
             onClick={onClear}
             onMouseDown={(event) => event.preventDefault()}
@@ -215,13 +217,56 @@ export function SpeciesSearchTrigger({
           <kbd
             className={cn(
               "hidden rounded-md border px-1.5 py-0.5 font-sans text-[10px] font-semibold tracking-wide lg:inline",
-              kbdClass,
+              classes.kbd,
             )}
           >
             {modKey}K
           </kbd>
         ) : null}
+        {isHero ? (
+          <button
+            className="h-12 shrink-0 rounded-full bg-[#2f6b4f] px-[26px] text-[15px] font-medium text-white transition-colors hover:bg-[#255940] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2f6b4f]"
+            onClick={onSubmit}
+            onMouseDown={(event) => event.preventDefault()}
+            type="button"
+          >
+            {openLabel}
+          </button>
+        ) : null}
       </div>
     </>
   );
+}
+
+function searchTriggerClasses(variant: SearchTriggerVariant) {
+  if (variant === "hero") {
+    return {
+      clear: "p-1.5 text-[#5c665f] hover:bg-[#e9eee6]",
+      icon: "size-5 text-[#5c665f]",
+      input: "text-[17px] placeholder:text-[#5c665f]",
+      kbd: "border-[#d5ddd4] bg-[#f4f6f2] px-[7px] py-1 text-[11px] text-[#5c665f]",
+      mobile: cn(heroShellClass, "flex h-14 w-full gap-2.5 pr-1.5 pl-[18px]"),
+      mobileIcon: "size-[18px] shrink-0 text-[#5c665f]",
+      shell: cn(heroShellClass, "h-16 gap-3 pr-2 pl-[22px]"),
+    };
+  }
+  const isDark = variant === "dark";
+  return {
+    clear: isDark
+      ? "text-white/50 hover:bg-white/10 hover:text-white"
+      : "text-muted-foreground hover:bg-secondary hover:text-foreground",
+    icon: cn("size-3.5", isDark ? "text-white/55" : "text-muted-foreground"),
+    input: isDark
+      ? "placeholder:text-white/50"
+      : "placeholder:text-muted-foreground/70",
+    kbd: isDark
+      ? "border-white/18 bg-white/8 text-white/45"
+      : "border-border bg-secondary/80 text-muted-foreground",
+    mobile: cn(chromeIconButtonBase, chromeIconButtonClass(variant)),
+    mobileIcon: "size-3.5",
+    shell: cn(
+      "w-[280px] gap-2.5 rounded-full border px-3.5 py-2 transition-all duration-300 lg:w-[320px]",
+      chromeShellClass(variant),
+    ),
+  };
 }

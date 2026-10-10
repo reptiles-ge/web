@@ -1,5 +1,7 @@
 export type ChromeVariant = "dark" | "light";
 
+export const NAVBAR_SCROLL_OFFSET = 40;
+
 export function chromeIconButtonClass(variant: ChromeVariant = "light") {
   return variant === "dark"
     ? "border-white/18 bg-white/10 text-white/80 shadow-[0_8px_32px_rgba(0,0,0,0.18)] backdrop-blur-xl hover:border-white/35 hover:bg-white/14 hover:text-white"

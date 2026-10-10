@@ -99,7 +99,7 @@ export function SpeciesVoicePlayer({
 
   return (
     <div
-      className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 py-1 pr-3.5 pl-1 backdrop-blur-md"
+      className="pointer-events-auto inline-flex h-[52px] max-w-full items-center gap-2.5 rounded-full border border-white/25 bg-white/8 pr-4 pl-2 text-white backdrop-blur-md"
       id={SPECIES_SECTION_IDS.voice}
       title={credit}
     >
@@ -113,7 +113,7 @@ export function SpeciesVoicePlayer({
       </audio>
       <button
         aria-label={playing ? t("voicePause") : t("voicePlay")}
-        className="grid size-7 shrink-0 place-items-center rounded-full bg-white text-ink"
+        className="grid size-9 shrink-0 place-items-center rounded-full bg-white text-ink transition-transform hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
         disabled={loading}
         onClick={toggle}
         type="button"
@@ -126,7 +126,9 @@ export function SpeciesVoicePlayer({
           <Play className="ml-px size-3 fill-current" />
         )}
       </button>
-      <span className="text-[12px] text-white/70">{t("voiceTitle")}</span>
+      <span className="text-[14px] font-medium text-white/90">
+        {t("voiceTitle")}
+      </span>
       {duration > 0 ? (
         <span className="text-[11px] text-white/45 tabular-nums">
           {formatTime(playing || progress > 0 ? progress : duration)}

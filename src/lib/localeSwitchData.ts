@@ -1,7 +1,4 @@
-import type {
-  LocaleSwitchIndex,
-  LocaleSwitchQuiz,
-} from "@/lib/localeSwitch";
+import type { LocaleSwitchIndex, LocaleSwitchQuiz } from "@/lib/localeSwitch";
 
 import { getCatalogSpecies } from "@/data/species";
 import { speciesAtlasMeta } from "@/data/speciesAtlasMeta";

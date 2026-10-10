@@ -1,3 +1,5 @@
+import type { SpeciesColor } from "@/lib/speciesColors";
+
 export type DangerLevel = "Harmless" | "High" | "Moderate";
 
 export type GalleryImage = {
@@ -74,6 +76,8 @@ export type SpeciesFieldRecord = {
 };
 
 export type SpeciesIdentification = {
+  coloration?: string;
+  colors?: SpeciesColor[];
   summary: string;
   traits: string[];
 };

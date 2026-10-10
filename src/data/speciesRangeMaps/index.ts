@@ -4,6 +4,7 @@ import { rangeMap as accipiterNisus } from "@/data/speciesRangeMaps/accipiter-ni
 import { rangeMap as aegypiusMonachus } from "@/data/speciesRangeMaps/aegypius-monachus";
 import { rangeMap as alectorisChukar } from "@/data/speciesRangeMaps/alectoris-chukar";
 import { rangeMap as anasPlatyrhynchos } from "@/data/speciesRangeMaps/anas-platyrhynchos";
+import { rangeMap as anguisColchica } from "@/data/speciesRangeMaps/anguis-colchica";
 import { rangeMap as aquilaChrysaetos } from "@/data/speciesRangeMaps/aquila-chrysaetos";
 import { rangeMap as araneusDiadematus } from "@/data/speciesRangeMaps/araneus-diadematus";
 import { rangeMap as argiopeBruennichi } from "@/data/speciesRangeMaps/argiope-bruennichi";
@@ -37,6 +38,7 @@ import { rangeMap as jynxTorquilla } from "@/data/speciesRangeMaps/jynx-torquill
 import { rangeMap as lacertaAgilis } from "@/data/speciesRangeMaps/lacerta-agilis";
 import { rangeMap as lacertaStrigata } from "@/data/speciesRangeMaps/lacerta-strigata";
 import { rangeMap as laniusCollurio } from "@/data/speciesRangeMaps/lanius-collurio";
+import { rangeMap as latrodectusTredecimguttatus } from "@/data/speciesRangeMaps/latrodectus-tredecimguttatus";
 import { rangeMap as lutraLutra } from "@/data/speciesRangeMaps/lutra-lutra";
 import { rangeMap as macroviperaLebetina } from "@/data/speciesRangeMaps/macrovipera-lebetina";
 import { rangeMap as mantisReligiosa } from "@/data/speciesRangeMaps/mantis-religiosa";
@@ -64,6 +66,7 @@ import { rangeMap as viperaDinniki } from "@/data/speciesRangeMaps/vipera-dinnik
 import { rangeMap as viperaKaznakovi } from "@/data/speciesRangeMaps/vipera-kaznakovi";
 import { rangeMap as viperaRenardi } from "@/data/speciesRangeMaps/vipera-renardi";
 import { rangeMap as viperaTranscaucasiana } from "@/data/speciesRangeMaps/vipera-transcaucasiana";
+import { rangeMap as vulpesVulpes } from "@/data/speciesRangeMaps/vulpes-vulpes";
 import { rangeMap as xerotyphlopsVermicularis } from "@/data/speciesRangeMaps/xerotyphlops-vermicularis";
 import { rangeMap as zamenisHohenackeri } from "@/data/speciesRangeMaps/zamenis-hohenackeri";
 import { rangeMap as zamenisLongissimus } from "@/data/speciesRangeMaps/zamenis-longissimus";
@@ -77,6 +80,7 @@ export const INTERACTIVE_RANGE_MAPS: Partial<
   "aegypius-monachus": aegypiusMonachus,
   "alectoris-chukar": alectorisChukar,
   "anas-platyrhynchos": anasPlatyrhynchos,
+  "anguis-colchica": anguisColchica,
   "aquila-chrysaetos": aquilaChrysaetos,
   "araneus-diadematus": araneusDiadematus,
   "argiope-bruennichi": argiopeBruennichi,
@@ -110,6 +114,7 @@ export const INTERACTIVE_RANGE_MAPS: Partial<
   "lacerta-agilis": lacertaAgilis,
   "lacerta-strigata": lacertaStrigata,
   "lanius-collurio": laniusCollurio,
+  "latrodectus-tredecimguttatus": latrodectusTredecimguttatus,
   "lutra-lutra": lutraLutra,
   "macrovipera-lebetina": macroviperaLebetina,
   "mantis-religiosa": mantisReligiosa,
@@ -137,6 +142,7 @@ export const INTERACTIVE_RANGE_MAPS: Partial<
   "vipera-kaznakovi": viperaKaznakovi,
   "vipera-renardi": viperaRenardi,
   "vipera-transcaucasiana": viperaTranscaucasiana,
+  "vulpes-vulpes": vulpesVulpes,
   "xerotyphlops-vermicularis": xerotyphlopsVermicularis,
   "zamenis-hohenackeri": zamenisHohenackeri,
   "zamenis-longissimus": zamenisLongissimus,

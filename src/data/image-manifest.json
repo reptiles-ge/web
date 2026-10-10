@@ -48345,6 +48345,101 @@
       ],
       "updatedAt": "2026-10-03T18:23:28.297Z"
     },
+    "images/home/groups/insects-mantis.jpg": {
+      "sourceHash": "5b43bcf38fe9d98f6a37aa7d03c419ca8e6b6b1fad6094356e112f6d6a44c402",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/home/groups/insects-mantis.jpg",
+      "originalSize": 390572,
+      "width": 1536,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/images/home/groups/insects-mantis-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10928
+        },
+        {
+          "key": "optimized/images/home/groups/insects-mantis-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 16196
+        },
+        {
+          "key": "optimized/images/home/groups/insects-mantis-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 14752
+        },
+        {
+          "key": "optimized/images/home/groups/insects-mantis-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 21854
+        },
+        {
+          "key": "optimized/images/home/groups/insects-mantis-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 27373
+        },
+        {
+          "key": "optimized/images/home/groups/insects-mantis-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 41222
+        },
+        {
+          "key": "optimized/images/home/groups/insects-mantis-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 36838
+        },
+        {
+          "key": "optimized/images/home/groups/insects-mantis-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 55096
+        },
+        {
+          "key": "optimized/images/home/groups/insects-mantis-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 61285
+        },
+        {
+          "key": "optimized/images/home/groups/insects-mantis-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 89896
+        },
+        {
+          "key": "optimized/images/home/groups/insects-mantis-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 1024,
+          "byteSize": 83129
+        },
+        {
+          "key": "optimized/images/home/groups/insects-mantis-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 1024,
+          "byteSize": 123426
+        }
+      ],
+      "updatedAt": "2026-10-08T20:22:25.637Z"
+    },
     "images/home/groups/insects.jpg": {
       "sourceHash": "5cdb9c2b740a71d71c5a6700ab5f39ee6ebe969381964b3601ef273566c2cfb5",
       "configFingerprint": "409788ee46c653d8",
@@ -48601,6 +48696,101 @@
         }
       ],
       "updatedAt": "2026-10-03T18:23:34.902Z"
+    },
+    "images/home/groups/scorpions-mesobuthus.jpg": {
+      "sourceHash": "649ea17bed0db1f1acd72863a477bb7bc5cab07628d1ec9a228b3ae2e14c2796",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/home/groups/scorpions-mesobuthus.jpg",
+      "originalSize": 797450,
+      "width": 1536,
+      "height": 1024,
+      "derivatives": [
+        {
+          "key": "optimized/images/home/groups/scorpions-mesobuthus-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 18096
+        },
+        {
+          "key": "optimized/images/home/groups/scorpions-mesobuthus-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 29274
+        },
+        {
+          "key": "optimized/images/home/groups/scorpions-mesobuthus-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 26618
+        },
+        {
+          "key": "optimized/images/home/groups/scorpions-mesobuthus-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 44124
+        },
+        {
+          "key": "optimized/images/home/groups/scorpions-mesobuthus-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 59858
+        },
+        {
+          "key": "optimized/images/home/groups/scorpions-mesobuthus-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 97604
+        },
+        {
+          "key": "optimized/images/home/groups/scorpions-mesobuthus-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 85184
+        },
+        {
+          "key": "optimized/images/home/groups/scorpions-mesobuthus-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 141024
+        },
+        {
+          "key": "optimized/images/home/groups/scorpions-mesobuthus-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 155042
+        },
+        {
+          "key": "optimized/images/home/groups/scorpions-mesobuthus-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 258732
+        },
+        {
+          "key": "optimized/images/home/groups/scorpions-mesobuthus-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 1024,
+          "byteSize": 216768
+        },
+        {
+          "key": "optimized/images/home/groups/scorpions-mesobuthus-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 1024,
+          "byteSize": 376854
+        }
+      ],
+      "updatedAt": "2026-10-08T20:22:29.017Z"
     },
     "images/home/groups/scorpions.jpg": {
       "sourceHash": "e3cb4dd5c659564c67cfce918d1a438d13675c51876be3fd10b8540a7ed46215",
@@ -48953,6 +49143,87 @@
         }
       ],
       "updatedAt": "2026-10-03T18:23:41.154Z"
+    },
+    "images/home/vipera-dinniki-landing.jpg": {
+      "sourceHash": "2f7fe5b546855ad7c3b4ddf703a2b4539c358aba548593c41c32dbf269cd1d3e",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/home/vipera-dinniki-landing.jpg",
+      "originalSize": 280804,
+      "width": 1200,
+      "height": 630,
+      "derivatives": [
+        {
+          "key": "optimized/images/home/vipera-dinniki-landing-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 168,
+          "byteSize": 12995
+        },
+        {
+          "key": "optimized/images/home/vipera-dinniki-landing-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 168,
+          "byteSize": 21330
+        },
+        {
+          "key": "optimized/images/home/vipera-dinniki-landing-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 210,
+          "byteSize": 19597
+        },
+        {
+          "key": "optimized/images/home/vipera-dinniki-landing-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 210,
+          "byteSize": 32110
+        },
+        {
+          "key": "optimized/images/home/vipera-dinniki-landing-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 336,
+          "byteSize": 44802
+        },
+        {
+          "key": "optimized/images/home/vipera-dinniki-landing-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 336,
+          "byteSize": 72216
+        },
+        {
+          "key": "optimized/images/home/vipera-dinniki-landing-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 420,
+          "byteSize": 65693
+        },
+        {
+          "key": "optimized/images/home/vipera-dinniki-landing-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 420,
+          "byteSize": 105984
+        },
+        {
+          "key": "optimized/images/home/vipera-dinniki-landing-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 630,
+          "byteSize": 134201
+        },
+        {
+          "key": "optimized/images/home/vipera-dinniki-landing-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 630,
+          "byteSize": 209290
+        }
+      ],
+      "updatedAt": "2026-10-09T21:39:04.296Z"
     },
     "images/news/theridion-huseynovi-new-spider-species-georgia-2026/theridion-huseynovi.png": {
       "sourceHash": "d4a1a13fbf943fc87f371418a57eca878129fcd41f735deb5bfbca43c80fe9f3",
@@ -87187,6 +87458,386 @@
         }
       ],
       "updatedAt": "2026-09-05T16:33:27.207Z"
+    },
+    "steatoda-paykulliana-christian-1.jpg": {
+      "sourceHash": "40126f751daa44e0787568baa506ec85f0589ccaf74dd5ce8f2adb0e7b7ede34",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "steatoda-paykulliana-christian-1.jpg",
+      "originalSize": 515008,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/steatoda-paykulliana-christian-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11137
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-christian-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 15632
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-christian-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 15710
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-christian-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 21906
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-christian-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 34357
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-christian-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 47534
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-christian-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 49569
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-christian-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 67444
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-christian-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 91555
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-christian-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 122200
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-christian-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 199895
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-christian-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 253710
+        }
+      ],
+      "updatedAt": "2026-10-08T18:03:55.317Z"
+    },
+    "steatoda-paykulliana-denis-1.jpg": {
+      "sourceHash": "7d3da002457936c7987263d24d57f9505ab984a572bc78dade6ff56bb95911ae",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "steatoda-paykulliana-denis-1.jpg",
+      "originalSize": 185007,
+      "width": 1313,
+      "height": 1573,
+      "derivatives": [
+        {
+          "key": "optimized/steatoda-paykulliana-denis-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 383,
+          "byteSize": 10549
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-denis-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 383,
+          "byteSize": 14628
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-denis-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 479,
+          "byteSize": 13732
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-denis-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 479,
+          "byteSize": 19290
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-denis-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 767,
+          "byteSize": 24323
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-denis-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 767,
+          "byteSize": 33988
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-denis-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 958,
+          "byteSize": 30436
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-denis-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 958,
+          "byteSize": 43246
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-denis-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1438,
+          "byteSize": 46961
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-denis-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1438,
+          "byteSize": 66448
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-denis-1-1313.avif",
+          "format": "avif",
+          "width": 1313,
+          "height": 1573,
+          "byteSize": 52414
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-denis-1-1313.webp",
+          "format": "webp",
+          "width": 1313,
+          "height": 1573,
+          "byteSize": 74316
+        }
+      ],
+      "updatedAt": "2026-10-08T18:03:07.339Z"
+    },
+    "steatoda-paykulliana-fabian-1.jpg": {
+      "sourceHash": "3ff1ccd4d31c7d5876dcbea9251676a421153d10eed6610c313126ef094a3a7b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "steatoda-paykulliana-fabian-1.jpg",
+      "originalSize": 401809,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/steatoda-paykulliana-fabian-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11016
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-fabian-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 13898
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-fabian-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 14663
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-fabian-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 18816
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-fabian-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 29960
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-fabian-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 38232
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-fabian-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 41342
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-fabian-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 53098
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-fabian-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 70737
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-fabian-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 92074
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-fabian-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 142575
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-fabian-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 185352
+        }
+      ],
+      "updatedAt": "2026-10-08T18:04:55.158Z"
+    },
+    "steatoda-paykulliana-teimuraz-1.jpg": {
+      "sourceHash": "700e6604b9c30d67b1328037e581a8c40caea29e1bb08a7fc85ff13c89178c4d",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "steatoda-paykulliana-teimuraz-1.jpg",
+      "originalSize": 557900,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/steatoda-paykulliana-teimuraz-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 7380
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-teimuraz-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 8974
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-teimuraz-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 10623
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-teimuraz-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 13048
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-teimuraz-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 25570
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-teimuraz-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 31194
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-teimuraz-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 41350
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-teimuraz-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 50042
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-teimuraz-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 90563
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-teimuraz-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 104784
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-teimuraz-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 215136
+        },
+        {
+          "key": "optimized/steatoda-paykulliana-teimuraz-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 238784
+        }
+      ],
+      "updatedAt": "2026-10-08T18:05:42.635Z"
     },
     "strix-aluco-1.jpg": {
       "sourceHash": "bbfc9b7bc6333ef808a755785b1730a84a1abc80a8ae0180ce74e281b2aab904",

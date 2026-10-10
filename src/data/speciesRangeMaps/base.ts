@@ -55,7 +55,7 @@ export const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
     mapAria:
       "Brown marmorated stink bug distribution evidence and field records on a map of Georgia",
     mapError:
-      "The interactive map could not load, but the confirmed regions and field records are still listed below.",
+      "The interactive map could not load, but confirmed regions and record counts remain on this page.",
     noRegionRecordsLabel: "No field records",
     officialRegionLabel: "Source-confirmed region",
     photoRecordLabel: "Photo record",
@@ -87,7 +87,7 @@ export const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
     mapAria:
       "აზიური ფაროსანას გავრცელების მტკიცებულებები და საველე ჩანაწერები საქართველოს რუკაზე",
     mapError:
-      "ინტერაქტიული რუკა ვერ ჩაიტვირთა, მაგრამ დადასტურებული რეგიონები და საველე ჩანაწერები ქვემოთ ტექსტურად ჩანს.",
+      "ინტერაქტიული რუკა ვერ ჩაიტვირთა, მაგრამ დადასტურებული რეგიონები და ჩანაწერების რაოდენობა ამ გვერდზე კვლავ ჩანს.",
     noRegionRecordsLabel: "ჩანაწერი არ არის",
     officialRegionLabel: "წყაროებით დადასტურებული რეგიონი",
     photoRecordLabel: "ფოტოჩანაწერი",
@@ -118,7 +118,7 @@ export const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
     locationRecordLabel: "Полевое наблюдение",
     mapAria: "Полевые записи коричнево-мраморного клопа на карте Грузии",
     mapError:
-      "Интерактивная карта не загрузилась, но подтверждённые регионы и полевые записи остаются доступными ниже.",
+      "Интерактивная карта не загрузилась, но подтверждённые регионы и число записей остаются на странице.",
     noRegionRecordsLabel: "Записей нет",
     officialRegionLabel: "Регион, подтверждённый источниками",
     photoRecordLabel: "Фотозапись",
@@ -150,7 +150,7 @@ export const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
     mapAria:
       "Kahverengi kokarcanın yayılış kanıtları ve arazi kayıtları Gürcistan haritasında",
     mapError:
-      "Etkileşimli harita yüklenemedi, ancak doğrulanmış bölgeler ve arazi kayıtları aşağıda metin olarak duruyor.",
+      "Etkileşimli harita yüklenemedi, ancak doğrulanmış bölgeler ve kayıt sayıları bu sayfada görülebilir.",
     noRegionRecordsLabel: "Kayıt yok",
     officialRegionLabel: "Kaynakla doğrulanmış bölge",
     photoRecordLabel: "Fotoğraf kaydı",

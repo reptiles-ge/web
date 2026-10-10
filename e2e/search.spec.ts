@@ -6,5 +6,7 @@ test("Cmd+K finds გიურზა", async ({ page }) => {
   const search = page.getByRole("combobox", { name: "ძებნა" });
   await expect(search).toBeVisible();
   await search.fill("გიურზა");
-  await expect(page.getByRole("option", { name: /გიურზა/ }).first()).toBeVisible();
+  await expect(
+    page.getByRole("option", { name: /გიურზა/ }).first(),
+  ).toBeVisible();
 });

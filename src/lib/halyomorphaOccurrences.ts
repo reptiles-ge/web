@@ -57,7 +57,10 @@ const DAHLI_OBSCURED_RECORD_NOTE =
   "Darevskia dahli: iNaturalist public coordinates obscured (~28 km)";
 const VERMICULARIS_OBSCURED_RECORD_NOTE =
   "Xerotyphlops vermicularis: iNaturalist public coordinates obscured (~28 km)";
+const ANGUIS_OBSCURED_RECORD_NOTE =
+  "Anguis colchica: iNaturalist public coordinates obscured (~28 km)";
 const OBSCURED_COORDINATE_NOTES = new Set([
+  ANGUIS_OBSCURED_RECORD_NOTE,
   DAHLI_OBSCURED_RECORD_NOTE,
   VERMICULARIS_OBSCURED_RECORD_NOTE,
 ]);
@@ -79,6 +82,7 @@ export function confirmedRecordThresholdForSpecies(speciesId: string) {
     speciesId === "columba-palumbus" ||
     speciesId === "coturnix-coturnix" ||
     speciesId === "lanius-collurio" ||
+    speciesId === "latrodectus-tredecimguttatus" ||
     speciesId === "mustela-nivalis" ||
     speciesId === "natrix-natrix" ||
     speciesId === "vipera-renardi" ||
@@ -340,9 +344,17 @@ function iNaturalistObservationId(value?: string) {
 }
 
 function isINaturalistRecord(record: HalyomorphaFieldRecord) {
-  return (
-    record.source === "iNaturalist" || record.url?.includes("inaturalist.org")
-  );
+  if (record.source === "iNaturalist") return true;
+  if (!record.url) return false;
+
+  try {
+    const hostname = new URL(record.url).hostname.toLowerCase();
+    return (
+      hostname === "inaturalist.org" || hostname.endsWith(".inaturalist.org")
+    );
+  } catch {
+    return false;
+  }
 }
 
 function max(values: number[]) {

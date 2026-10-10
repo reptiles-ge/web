@@ -1,15 +1,15 @@
 # Agent Readiness — Can an Agent Reach, Navigate, and Parse Your Site?
 
-AI visibility work splits into two layers: what your content says (the rest of this skill) and whether an agent can *get to it at all*. This reference covers the second layer — the access/discovery/parseability audit — plus the emerging shift from agent-*readable* to agent-*actionable* sites.
+AI visibility work splits into two layers: what your content says (the rest of this skill) and whether an agent can _get to it at all_. This reference covers the second layer — the access/discovery/parseability audit — plus the emerging shift from agent-_readable_ to agent-_actionable_ sites.
 
 Two free scoring tools shipped in August 2026 and turned this into a measurable discipline:
 
-| Tool | Run it | Method |
-|---|---|---|
-| **Is Agentic** (Vercel + Ora) | `npx is-agentic yourdomain.com` or [is-agentic.com](https://is-agentic.com) | 100+ checks; Essential checks carry most of the score; Recommended checks activate only when evidence shows you have that surface (API, MCP server, commerce); not-applicable checks are excluded, not failed; includes an observed agent journey showing where a real agent hit friction |
-| **Frase Agent Readiness Checker** | [frase.io/tools/agent-readiness](https://www.frase.io/tools/agent-readiness) | Access / Discovery / Parseability triad; 80+ = agents can reliably use the site, 60–79 = solid with gaps, <60 = real access problems |
+| Tool                              | Run it                                                                       | Method                                                                                                                                                                                                                                                                                    |
+| --------------------------------- | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Is Agentic** (Vercel + Ora)     | `npx is-agentic yourdomain.com` or [is-agentic.com](https://is-agentic.com)  | 100+ checks; Essential checks carry most of the score; Recommended checks activate only when evidence shows you have that surface (API, MCP server, commerce); not-applicable checks are excluded, not failed; includes an observed agent journey showing where a real agent hit friction |
+| **Frase Agent Readiness Checker** | [frase.io/tools/agent-readiness](https://www.frase.io/tools/agent-readiness) | Access / Discovery / Parseability triad; 80+ = agents can reliably use the site, 60–79 = solid with gaps, <60 = real access problems                                                                                                                                                      |
 
-Run one before and after any agent-readiness work — the score is a shareable artifact and the failed checks are your worklist. (Both are vendor tools with a product behind them; the *checks* are the value, not the pitch.)
+Run one before and after any agent-readiness work — the score is a shareable artifact and the failed checks are your worklist. (Both are vendor tools with a product behind them; the _checks_ are the value, not the pitch.)
 
 ## The three questions
 
@@ -31,13 +31,13 @@ Run one before and after any agent-readiness work — the score is a shareable a
 
 - **Valid, substantive structured data** (JSON-LD — see the `schema` skill).
 - **A Markdown representation of the page.** This is the newest technique in the stack, two implementations:
-  - **Content negotiation**: serve compact Markdown at the *same canonical URL* when the request asks for `Accept: text/markdown`, with a `Vary` header keeping the HTML and Markdown cache entries separate. (This is how Is Agentic serves its own reports — agents get Markdown, browsers get HTML, one URL.)
+  - **Content negotiation**: serve compact Markdown at the _same canonical URL_ when the request asks for `Accept: text/markdown`, with a `Vary` header keeping the HTML and Markdown cache entries separate. (This is how Is Agentic serves its own reports — agents get Markdown, browsers get HTML, one URL.)
   - **Link header**: an HTTP `Link` header on the HTML page pointing to a parallel Markdown version — discoverable without guessing URLs.
 - Clear document structure — one H1, headings that answer sub-questions, extractable answer blocks (the content-patterns reference).
 
 ## Emerging: agent-actionable, not just agent-readable
 
-Reading is becoming table stakes. The next race is whether an agent can *act* on your site — fill the form, book the meeting, start the trial. **WebMCP** is the emerging standard here: a page declares its forms and CTAs as callable tools with input schemas, so an agent doesn't have to reverse-engineer your UI. Early days (label: emerging, not yet a ranking/citation signal), but the direction is clear — if agents are becoming buyers, the site that exposes "start trial" as a structured action wins the agent-mediated conversion that a pretty button loses.
+Reading is becoming table stakes. The next race is whether an agent can _act_ on your site — fill the form, book the meeting, start the trial. **WebMCP** is the emerging standard here: a page declares its forms and CTAs as callable tools with input schemas, so an agent doesn't have to reverse-engineer your UI. Early days (label: emerging, not yet a ranking/citation signal), but the direction is clear — if agents are becoming buyers, the site that exposes "start trial" as a structured action wins the agent-mediated conversion that a pretty button loses.
 
 Practical today: make sure your highest-intent actions (signup, pricing, demo booking, contact) work without JavaScript-only flows, have labeled semantic form fields, and return machine-readable confirmation.
 
@@ -54,4 +54,4 @@ What this means for strategy:
 
 ---
 
-*Agent-readiness check taxonomy distilled from Vercel/Ora's Is Agentic (is-agentic.com) and Frase's Agent Readiness Checker (both August 2026, credited); citation-volatility events practitioner-reported (Ashni of Hype Partners (@ashnichrist) and others, August 2026) — labeled accordingly, verify against your own monitoring.*
+_Agent-readiness check taxonomy distilled from Vercel/Ora's Is Agentic (is-agentic.com) and Frase's Agent Readiness Checker (both August 2026, credited); citation-volatility events practitioner-reported (Ashni of Hype Partners (@ashnichrist) and others, August 2026) — labeled accordingly, verify against your own monitoring._

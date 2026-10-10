@@ -15,6 +15,9 @@ diet: Diet
 behavior: Behavior
 conservation: Conservation
 identification:
+  coloration: Brown with dark markings
+  colors:
+    - brown
   summary: Summary
   traits:
     - First trait
@@ -35,6 +38,7 @@ faq:
       "interaction",
       "overview",
       "identification.summary",
+      "identification.coloration",
       "identification.traits.0",
       "identification.traits.1",
       "identification.traits.2",

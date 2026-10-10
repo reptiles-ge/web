@@ -55,6 +55,13 @@ describe("occurrenceStatusForCount", () => {
     );
     expect(occurrenceStatusForCount(0, zamenisThreshold)).toBe("recorded-only");
     expect(occurrenceStatusForCount(1, zamenisThreshold)).toBe("confirmed");
+    const karakurtThreshold = confirmedRecordThresholdForSpecies(
+      "latrodectus-tredecimguttatus",
+    );
+    expect(occurrenceStatusForCount(0, karakurtThreshold)).toBe(
+      "recorded-only",
+    );
+    expect(occurrenceStatusForCount(1, karakurtThreshold)).toBe("confirmed");
     const longissimusThreshold = confirmedRecordThresholdForSpecies(
       "zamenis-longissimus",
     );
@@ -105,6 +112,39 @@ describe("occurrenceStatusForCount", () => {
       kind: "photo",
       url: "https://www.inaturalist.org/observations/123",
     });
+  });
+
+  it("counts iNaturalist records only for trusted sources or hostnames", () => {
+    const count = (url?: string, source?: string) =>
+      getHalyomorphaOccurrenceSummary(
+        [
+          {
+            accessibleLabel: "Test record",
+            id: "test-record",
+            imageAlt: "Test record",
+            kind: "location",
+            lat: 41.7,
+            lng: 44.8,
+            locality: "Tbilisi",
+            source,
+            url,
+          },
+        ],
+        "en",
+      ).iNaturalistRecordCount;
+
+    expect(count("https://inaturalist.org/observations/123")).toBe(1);
+    expect(count("https://www.inaturalist.org/observations/123")).toBe(1);
+    expect(count("https://INATURALIST.ORG/observations/123")).toBe(1);
+    expect(count("https://inaturalist.org.evil.example/observations/123")).toBe(
+      0,
+    );
+    expect(count("https://evil.example/inaturalist.org")).toBe(0);
+    expect(count("https://inaturalist.org@evil.example/observations/123")).toBe(
+      0,
+    );
+    expect(count("not a URL with inaturalist.org")).toBe(0);
+    expect(count(undefined, "iNaturalist")).toBe(1);
   });
 
   it("uses only confirmed Zamenis regions as distribution", () => {
@@ -184,6 +224,49 @@ describe("occurrenceStatusForCount", () => {
       "samegrelo-zemo-svaneti",
       "samtskhe-javakheti",
     ]);
+  });
+
+  it("keeps Red Fox distribution aligned with reviewed field records", () => {
+    const species = getSpeciesById("vulpes-vulpes");
+    expect(species).toBeDefined();
+    if (!species) return;
+
+    const records = getHalyomorphaFieldRecords({
+      fieldRecords: fieldRecordsById[species.id] ?? [],
+      gallery: species.gallery,
+      locale: "ka",
+      speciesName: species.commonName,
+    });
+    const summary = getHalyomorphaOccurrenceSummary(
+      records,
+      "ka",
+      confirmedRecordThresholdForSpecies(species.id),
+    );
+    const confirmed = summary.recordsByRegion
+      .filter((region) => region.status === "confirmed")
+      .map((region) => region.id)
+      .sort();
+
+    expect(summary.totalRecords).toBe(95);
+    expect(confirmed).toEqual([
+      "kakheti",
+      "kvemo-kartli",
+      "mtskheta-mtianeti",
+      "samtskhe-javakheti",
+      "shida-kartli",
+      "tbilisi",
+    ]);
+    expect(
+      summary.recordsByRegion
+        .filter((region) => region.status === "recorded-only")
+        .map((region) => region.id)
+        .sort(),
+    ).toEqual(["adjara", "imereti", "samegrelo-zemo-svaneti"]);
+    expect(
+      getRegionsForSpecies(species.id)
+        .map((region) => region.id)
+        .sort(),
+    ).toEqual(confirmed);
   });
 
   it("confirms Artvin lizard regions from five records", () => {

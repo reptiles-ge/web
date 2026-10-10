@@ -1,12 +1,43 @@
 import { describe, expect, it } from "vitest";
 
 import {
+  atlasDateFields,
   authorDateFields,
   hasMeaningfulUpdate,
   pageDateFields,
   quizDateFields,
   regionDateFields,
 } from "@/lib/structuredDataDates";
+
+describe("atlasDateFields", () => {
+  const page = pageDateFields("/species");
+
+  it("keeps the page date when no species was updated after it", () => {
+    expect(atlasDateFields("2020-01-01T00:00:00+04:00")).toEqual(page);
+  });
+
+  it("moves dateModified to the newest species update shown on the page", () => {
+    const later = new Date(Date.parse(page.dateModified) + 86_400_000)
+      .toISOString()
+      .replace(".000Z", "Z");
+    expect(atlasDateFields(later)).toEqual({
+      dateModified: later,
+      datePublished: page.datePublished,
+    });
+  });
+
+  it("ignores a missing or unparseable species date", () => {
+    expect(atlasDateFields(null)).toEqual(page);
+    expect(atlasDateFields("not a date")).toEqual(page);
+  });
+
+  it("never dates the atlas before it was published", () => {
+    const fields = atlasDateFields();
+    expect(Date.parse(fields.dateModified)).toBeGreaterThanOrEqual(
+      Date.parse(fields.datePublished),
+    );
+  });
+});
 
 describe("hasMeaningfulUpdate", () => {
   it("is false when either date is missing", () => {

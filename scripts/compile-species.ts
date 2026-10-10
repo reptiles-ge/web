@@ -145,13 +145,23 @@ function toSpecies(
     stats: (fm.stats as SpeciesStat[] | undefined) ?? [],
     facts: fm.facts ?? [],
     ...(fm.identification
-      ? { identification: fm.identification as SpeciesIdentification }
+      ? { identification: toIdentification(fm.identification) }
       : {}),
     ...(fm.audio?.src ? { audio: fm.audio as SpeciesAudio } : {}),
     ...(fm.faq ? { faq: fm.faq as SpeciesFaq[] } : {}),
     publishedAt: options.publishedAt,
     updatedAt: options.updatedAt,
     sources,
+  };
+}
+
+function toIdentification(
+  value: NonNullable<KaFrontmatter["identification"]>,
+): SpeciesIdentification {
+  return {
+    ...value,
+    summary: value.summary ?? "",
+    traits: value.traits ?? [],
   };
 }
 
@@ -169,7 +179,7 @@ function toTranslation(fm: KaFrontmatter): SpeciesTranslation {
     stats: (fm.stats as SpeciesStat[] | undefined) ?? [],
     facts: fm.facts ?? [],
     ...(fm.identification
-      ? { identification: fm.identification as SpeciesIdentification }
+      ? { identification: toIdentification(fm.identification) }
       : {}),
     ...(fm.faq ? { faq: fm.faq as SpeciesFaq[] } : {}),
     ...(fm.gallery?.length ? { gallery: fm.gallery as GalleryImage[] } : {}),

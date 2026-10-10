@@ -1,5 +1,7 @@
 "use client";
 
+import type { RefObject } from "react";
+
 import { ChevronDown, Menu, X } from "lucide-react";
 
 import type { NavLink } from "@/components/NavbarMenu";
@@ -21,8 +23,11 @@ export function NavbarChrome({
   groupsActive,
   groupsLabel,
   groupsOpen,
+  heroSearch,
+  menuButtonRef,
   menuId,
   menuOpen,
+  navLabel,
   onCloseMenu,
   onToggleGroups,
   onToggleMenu,
@@ -41,8 +46,11 @@ export function NavbarChrome({
   groupsActive: boolean;
   groupsLabel: string;
   groupsOpen: boolean;
+  heroSearch: boolean;
+  menuButtonRef: RefObject<HTMLButtonElement | null>;
   menuId: string;
   menuOpen: boolean;
+  navLabel: string;
   onCloseMenu: () => void;
   onToggleGroups: () => void;
   onToggleMenu: () => void;
@@ -60,7 +68,7 @@ export function NavbarChrome({
   return (
     <div
       className={cn(
-        "mx-auto flex max-w-[1400px] items-center justify-between gap-4 px-6 transition-all duration-500 lg:px-10",
+        "mx-auto flex max-w-[1400px] items-center justify-between gap-2 px-4 transition-all duration-500 min-[360px]:gap-4 min-[360px]:px-6 lg:px-10",
         elevated ? "py-3" : "py-5",
       )}
     >
@@ -90,7 +98,10 @@ export function NavbarChrome({
           )}
         />
       </Link>
-      <nav className="relative z-10 hidden items-center gap-4 lg:flex xl:gap-7">
+      <nav
+        aria-label={navLabel}
+        className="relative z-10 hidden items-center gap-4 lg:flex xl:gap-7"
+      >
         <IntentPrefetchLink
           className={desktopNavLinkClass(scrolled)}
           href={speciesHref}
@@ -118,8 +129,12 @@ export function NavbarChrome({
           </IntentPrefetchLink>
         ))}
       </nav>
-      <div className="relative z-10 flex items-center justify-end gap-2.5 sm:gap-3">
-        <SpeciesSearch variant={chromeVariant} />
+      <div className="relative z-10 flex items-center justify-end gap-1.5 min-[360px]:gap-2.5 sm:gap-3">
+        <SpeciesSearch
+          hidden={heroSearch && !scrolled}
+          shortcut={heroSearch ? "scrolled" : undefined}
+          variant={chromeVariant}
+        />
         <ThemeToggle variant={chromeVariant} />
         <LanguageSwitcher variant={chromeVariant} />
         <IntentPrefetchLink
@@ -144,6 +159,7 @@ export function NavbarChrome({
               : "text-white hover:bg-white/10",
           )}
           onClick={onToggleMenu}
+          ref={menuButtonRef}
           type="button"
         >
           {menuOpen ? (

@@ -1,9 +1,6 @@
 import type { AppLocale } from "@/i18n/routing";
 
-import {
-  getRegionsForSpecies,
-  localizeRegionText,
-} from "@/data/mapRegions";
+import { getRegionsForSpecies, localizeRegionText } from "@/data/mapRegions";
 import { georgiaPlaceName } from "@/i18n/localeMeta";
 import { regionHref } from "@/lib/regionHref";
 import { absoluteUrl, localePath } from "@/lib/site";

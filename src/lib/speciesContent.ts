@@ -55,6 +55,9 @@ export function getSpeciesGalleryPreview(species: Species, count = 3) {
     .map((item) => item.src);
 }
 
+export const SPECIES_HERO_DESKTOP_SIZES = "62vw";
+export const SPECIES_HERO_SIZES = "(max-width: 1023px) 100vw, 62vw";
+
 export function getSpeciesHeroSources(species: Species) {
   const gallery: GalleryImage[] = hasRealSpeciesPhotos(species)
     ? (species.gallery.length > 0
@@ -72,7 +75,9 @@ export function getSpeciesHeroSources(species: Species) {
       ? species.image
       : (primary?.src ?? null);
 
-  return { desktopHeroSrc, gallery, mobileHeroSrc, primary };
+  const mobileSlideSrc = mobileHeroSrc ?? primary?.src ?? null;
+
+  return { desktopHeroSrc, gallery, mobileHeroSrc, mobileSlideSrc, primary };
 }
 
 export function getSpeciesIdentificationPhoto(species: Species) {
@@ -176,6 +181,13 @@ const ACTIVITY_LABELS = new Set([
   "სტატუსი საქართველოში",
 ]);
 
+const ELEVATION_LABELS = new Set([
+  "Elevation",
+  "Yükseklik",
+  "Высота",
+  "ზღვის დონიდან",
+]);
+
 export function getSpeciesActivityStat(species: Species) {
   return getStatByLabels(species, ACTIVITY_LABELS);
 }
@@ -192,6 +204,8 @@ export function hasRealIdentification(
   identification: Species["identification"],
 ) {
   if (!identification) return false;
+  if (identification.coloration?.trim() || identification.colors?.length)
+    return true;
   const traits: string[] = [];
   for (const trait of identification.traits) {
     const trimmed = trait.trim();
@@ -212,10 +226,18 @@ export function hasRealIdentification(
   return !metaOnly;
 }
 
+export function isElevationStatLabel(label: string) {
+  return ELEVATION_LABELS.has(label);
+}
+
 export function isPlaceholderBody(text: string) {
   const normalized = text.trim().toLowerCase();
   if (!normalized) return true;
   return PLACEHOLDER_BODY_MARKERS.some((marker) => normalized.includes(marker));
+}
+
+export function isSizeStatLabel(label: string) {
+  return SIZE_LABELS.has(label);
 }
 
 function getStatByLabels(species: Species, labels: Set<string>) {

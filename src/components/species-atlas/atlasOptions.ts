@@ -8,10 +8,10 @@ export const GROUP_OPTIONS = [
   "turtle",
   "amphibian",
   "bird",
-  "insect",
   "mammal",
-  "scorpion",
   "spider",
+  "scorpion",
+  "insect",
 ] as const satisfies readonly ("all" | AnimalGroup)[];
 
 export const DANGER_OPTIONS = ["all", "venomous", "harmless"] as const;

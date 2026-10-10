@@ -1,21 +1,29 @@
 import { describe, expect, it } from "vitest";
 
 import { getPublishedCreditAuthors } from "@/data/creditAuthors";
+import imageManifest from "@/data/image-manifest.json";
+import { optimizedEntry, optimizedImgSrc } from "@/data/optimizedImages";
 import { getCatalogSpecies } from "@/data/species";
 import { routing } from "@/i18n/routing";
 import {
   creditAuthorAlternates,
+  creditAuthorEntityJsonLd,
   creditAuthorIndexAlternates,
   creditAuthorIndexUrl,
+  creditAuthorPageSchemaType,
+  creditAuthorPortraitImage,
   creditAuthorStaticParams,
   creditAuthorUrl,
   getCreditAuthorCards,
+  getCreditAuthorFieldSummary,
+  getCreditAuthorGroupStats,
   getCreditAuthorHubIds,
   getCreditAuthorPhotos,
   getCreditAuthorSpeciesIds,
   HOME_CONTRIBUTOR_LIMIT,
   resolvePublishedCreditAuthor,
 } from "@/lib/creditAuthors";
+import { creditAuthorPageImageUrls } from "@/lib/sitemapImages";
 
 const authors = getPublishedCreditAuthors();
 
@@ -152,5 +160,164 @@ describe("getCreditAuthorCards", () => {
 
   it("exposes the home page limit", () => {
     expect(HOME_CONTRIBUTOR_LIMIT).toBeGreaterThan(0);
+  });
+});
+
+describe("getCreditAuthorGroupStats", () => {
+  it("accounts for every photo and species exactly once per group", () => {
+    for (const author of authors) {
+      const photos = getCreditAuthorPhotos(author);
+      const stats = getCreditAuthorGroupStats(photos);
+      expect(stats.reduce((sum, stat) => sum + stat.photos, 0)).toBe(
+        photos.length,
+      );
+      expect(
+        stats.flatMap((stat) => stat.species.map((item) => item.id)).sort(),
+      ).toEqual(getCreditAuthorSpeciesIds(photos).sort());
+      for (const stat of stats) {
+        expect(stat.species.reduce((sum, item) => sum + item.photos, 0)).toBe(
+          stat.photos,
+        );
+      }
+      expect(stats.map((stat) => stat.hub).sort()).toEqual(
+        getCreditAuthorHubIds(getCreditAuthorSpeciesIds(photos)).sort(),
+      );
+    }
+  });
+
+  it("orders groups by photo count", () => {
+    const stats = getCreditAuthorGroupStats(getCreditAuthorPhotos(authors[0]));
+    for (let index = 1; index < stats.length; index += 1) {
+      expect(stats[index - 1].photos).toBeGreaterThanOrEqual(
+        stats[index].photos,
+      );
+    }
+  });
+
+  it("returns nothing for no photos", () => {
+    expect(getCreditAuthorGroupStats([])).toEqual([]);
+  });
+});
+
+describe("getCreditAuthorFieldSummary", () => {
+  const photo = (location?: string, date?: string) => ({
+    credit: { date, location, photographer: "x" },
+    speciesId: "macrovipera-lebetina",
+    src: `${location}-${date}`,
+    updatedAt: "2026-01-01",
+  });
+
+  it("picks the most frequent place and the year range", () => {
+    expect(
+      getCreditAuthorFieldSummary([
+        photo("ვაშლოვანი", "2015-05-01"),
+        photo("ვაშლოვანი", "2021"),
+        photo("თბილისი", "2019-03"),
+        photo(undefined, "not a date"),
+      ]),
+    ).toEqual({
+      place: { count: 2, name: "ვაშლოვანი" },
+      years: { from: 2015, to: 2021 },
+    });
+  });
+
+  it("leaves out what the credits do not state", () => {
+    expect(getCreditAuthorFieldSummary([photo()])).toEqual({
+      place: undefined,
+      years: undefined,
+    });
+  });
+});
+
+describe("portrait URLs outside the picture element", () => {
+  const uploaded = new Set(
+    Object.values(imageManifest.entries).flatMap((entry) =>
+      entry.derivatives.map(
+        (derivative) => `https://cdn.reptiles.ge/${derivative.key}`,
+      ),
+    ),
+  );
+
+  it("optimizes every published portrait", () => {
+    for (const author of authors) {
+      expect(optimizedEntry(author.portraitSrc), author.slug).not.toBeNull();
+    }
+  });
+
+  it("points share images and structured data at an uploaded WebP variant", () => {
+    for (const author of authors) {
+      const image = creditAuthorPortraitImage(author);
+      if (!optimizedEntry(author.portraitSrc)?.formats.includes("webp")) {
+        expect(image.url, author.slug).toBe(author.portraitSrc);
+        continue;
+      }
+      expect(uploaded.has(image.url), author.slug).toBe(true);
+      expect(image.type, author.slug).toBe("image/webp");
+    }
+  });
+
+  it("never shares the missing Sheklashvili original", () => {
+    const author = resolvePublishedCreditAuthor("giorgi-sheklashvili");
+    expect(author).toBeDefined();
+    if (!author) return;
+    expect(creditAuthorPortraitImage(author).url).toBe(
+      "https://cdn.reptiles.ge/optimized/images/authors/giorgi-sheklashvili-1200.webp",
+    );
+  });
+
+  it("resolves sitemap and search thumbnails to uploaded variants", () => {
+    for (const author of authors) {
+      const [sitemapUrl] = creditAuthorPageImageUrls(author.portraitSrc, []);
+      const searchThumb = optimizedImgSrc(author.portraitSrc, 400);
+      for (const url of [sitemapUrl, searchThumb]) {
+        expect(
+          uploaded.has(url) || url === author.portraitSrc,
+          `${author.slug} ${url}`,
+        ).toBe(true);
+      }
+    }
+  });
+});
+
+describe("contributor entity JSON-LD", () => {
+  const bySlug = (slug: string) => resolvePublishedCreditAuthor(slug)!;
+
+  it("describes a person with a verified job title and affiliation", () => {
+    const zauri = bySlug("zauri-khachidze");
+    const node = creditAuthorEntityJsonLd(zauri, "en", {
+      description: "bio",
+      jobTitle: "Ranger",
+    });
+    expect(creditAuthorPageSchemaType(zauri)).toBe("ProfilePage");
+    expect(node).toMatchObject({
+      "@type": "Person",
+      affiliation: [
+        { "@type": "Organization", name: "Borjomi-Kharagauli National Park" },
+      ],
+      jobTitle: "Ranger",
+      name: "Zauri Khachidze",
+    });
+  });
+
+  it("leaves out job title and affiliation a person's bio does not state", () => {
+    const node = creditAuthorEntityJsonLd(bySlug("sandro-khakhva"), "ka", {});
+    expect(node["@type"]).toBe("Person");
+    expect(node).not.toHaveProperty("affiliation");
+    expect(node).not.toHaveProperty("jobTitle");
+  });
+
+  it("does not type a photography page as a person or an organization", () => {
+    const page = bySlug("velur-bunebastan-axlos");
+    const node = creditAuthorEntityJsonLd(page, "ka", {
+      description: "bio",
+      jobTitle: "Ranger",
+    });
+    expect(creditAuthorPageSchemaType(page)).toBe("CollectionPage");
+    expect(node["@type"]).toBe("Thing");
+    expect(node).not.toHaveProperty("affiliation");
+    expect(node).not.toHaveProperty("jobTitle");
+    expect(node.sameAs).toEqual([
+      "https://www.facebook.com/profile.php?id=61585670878935",
+    ]);
   });
 });

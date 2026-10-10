@@ -17,6 +17,7 @@ import type { RegionPathId } from "@/data/georgia-paths";
 import type { HalyomorphaRangeRegionFeatureCollection } from "@/data/halyomorphaRangeRegions";
 import type { AppLocale } from "@/i18n/routing";
 
+import { GeorgiaMapStatic } from "@/components/map/GeorgiaMapStatic";
 import { HalyomorphaRangeLedger } from "@/components/map/HalyomorphaRangeLedger";
 import {
   HALYOMORPHA_REGION_QUERY_PARAM,
@@ -55,8 +56,13 @@ export function HalyomorphaRangeMap({
   occurrenceSummary,
   officialRegionIds,
   regionNames,
+  showLedger = true,
   speciesId,
-}: HalyomorphaLazyMapProps) {
+  stacked = false,
+}: HalyomorphaLazyMapProps & {
+  showLedger?: boolean;
+  stacked?: boolean;
+}) {
   const hatchId = `range-hatch-${useId().replace(/:/g, "")}`;
   const plateRef = useRef<HTMLDivElement>(null);
   const [selectedRegionId, setSelectedRegionId] = useState<null | RegionPathId>(
@@ -70,7 +76,8 @@ export function HalyomorphaRangeMap({
   const [atOverview, setAtOverview] = useState(true);
   const [resetSignal, setResetSignal] = useState(0);
   const { photoRecordCount, recordsByRegion, totalRecords } = occurrenceSummary;
-  const hasLedger = recordsByRegion.length + officialRegionIds.length > 0;
+  const hasLedger =
+    showLedger && recordsByRegion.length + officialRegionIds.length > 0;
 
   const [shouldLoad, activate] = useRangeMapActivation(
     plateRef,
@@ -129,6 +136,7 @@ export function HalyomorphaRangeMap({
       className={cn(
         "grid gap-x-12 xl:gap-x-16",
         hasLedger &&
+          !stacked &&
           "lg:grid-cols-[minmax(0,1fr)_19rem] lg:grid-rows-[auto_auto_1fr] xl:grid-cols-[minmax(0,1fr)_21rem]",
       )}
     >
@@ -143,12 +151,26 @@ export function HalyomorphaRangeMap({
       </svg>
 
       <div
-        className="relative isolate z-0 -mx-6 aspect-6/5 overflow-hidden border-y border-border bg-surface sm:mx-0 sm:aspect-3/2 sm:rounded-card sm:border lg:col-start-1 lg:row-start-1 lg:aspect-5/3 lg:max-h-[600px]"
+        className={cn(
+          "relative isolate z-0 aspect-6/5 overflow-hidden border-border bg-surface sm:aspect-3/2 lg:col-start-1 lg:row-start-1 lg:aspect-5/3 lg:max-h-[600px]",
+          stacked
+            ? "rounded-[20px] border"
+            : "-mx-6 border-y sm:mx-0 sm:rounded-card sm:border",
+        )}
         data-range-map=""
         ref={plateRef}
       >
         {mapData ? (
-          <Suspense fallback={<PlateMessage>{copy.loadingLabel}</PlateMessage>}>
+          <Suspense
+            fallback={
+              <PlatePreview
+                hatchId={hatchId}
+                officialRegionIds={officialRegionIds}
+              >
+                {copy.loadingLabel}
+              </PlatePreview>
+            }
+          >
             <HalyomorphaRangeMapClient
               copy={copy}
               hatchId={hatchId}
@@ -166,7 +188,12 @@ export function HalyomorphaRangeMap({
             />
           </Suspense>
         ) : (
-          <PlateStatus copy={copy} failed={loadError} />
+          <PlateStatus
+            copy={copy}
+            failed={loadError}
+            hatchId={hatchId}
+            officialRegionIds={officialRegionIds}
+          />
         )}
         <RangeMapStrip
           atOverview={atOverview}
@@ -186,24 +213,30 @@ export function HalyomorphaRangeMap({
         records={totalRecords}
       />
 
-      <HalyomorphaRangeLedger
-        copy={copy}
-        hatchId={hatchId}
-        hoveredRegionId={hoveredRegionId}
-        locale={locale}
-        officialRegionIds={officialRegionIds}
-        onHoverRegion={setHoveredRegionId}
-        onRevealRecord={revealRecord}
-        onToggleRegion={toggleRegion}
-        records={mapData?.records ?? NO_RECORDS}
-        recordsByRegion={recordsByRegion}
-        regionNames={regionNames}
-        selectedRecordId={selectedRecord?.id}
-        selectedRegionId={selectedRegionId}
-      />
+      {showLedger ? (
+        <HalyomorphaRangeLedger
+          copy={copy}
+          hatchId={hatchId}
+          hoveredRegionId={hoveredRegionId}
+          locale={locale}
+          officialRegionIds={officialRegionIds}
+          onHoverRegion={setHoveredRegionId}
+          onRevealRecord={revealRecord}
+          onToggleRegion={toggleRegion}
+          records={mapData?.records ?? NO_RECORDS}
+          recordsByRegion={recordsByRegion}
+          regionNames={regionNames}
+          selectedRecordId={selectedRecord?.id}
+          selectedRegionId={selectedRegionId}
+        />
+      ) : null}
 
       {children ? (
-        <div className="mt-8 lg:col-start-1 lg:row-start-3 lg:mt-6">
+        <div
+          className={
+            stacked ? "mt-6" : "mt-8 lg:col-start-1 lg:row-start-3 lg:mt-6"
+          }
+        >
           {children}
         </div>
       ) : null}
@@ -211,34 +244,58 @@ export function HalyomorphaRangeMap({
   );
 }
 
-function PlateMessage({
+function PlatePreview({
   children,
+  hatchId,
+  officialRegionIds,
   status = true,
 }: {
   children: string;
+  hatchId: string;
+  officialRegionIds: string[];
   status?: boolean;
 }) {
   return (
-    <p
-      className="absolute inset-0 flex items-center justify-center px-8 text-center text-[13px] leading-relaxed text-muted-foreground"
-      role={status ? "status" : "alert"}
-    >
-      {children}
-    </p>
+    <div className="absolute inset-0">
+      <div className="absolute inset-0 flex items-center justify-center p-6 opacity-70 sm:p-10">
+        <GeorgiaMapStatic
+          className="max-w-3xl"
+          hatchId={`${hatchId}-preview`}
+          highlightedIds={officialRegionIds}
+          showKeys={false}
+        />
+      </div>
+      <p
+        className="absolute inset-x-0 bottom-4 flex justify-center px-6"
+        role={status ? "status" : "alert"}
+      >
+        <span className="rounded-full bg-card/90 px-4 py-2 text-center text-[13px] leading-snug text-muted-foreground shadow-[0_6px_18px_rgba(14,20,17,0.06)]">
+          {children}
+        </span>
+      </p>
+    </div>
   );
 }
 
 function PlateStatus({
   copy,
   failed,
+  hatchId,
+  officialRegionIds,
 }: {
   copy: HalyomorphaRangeMapCopy;
   failed: boolean;
+  hatchId: string;
+  officialRegionIds: string[];
 }) {
   return (
-    <PlateMessage status={!failed}>
+    <PlatePreview
+      hatchId={hatchId}
+      officialRegionIds={officialRegionIds}
+      status={!failed}
+    >
       {failed ? copy.mapError : copy.loadingLabel}
-    </PlateMessage>
+    </PlatePreview>
   );
 }
 

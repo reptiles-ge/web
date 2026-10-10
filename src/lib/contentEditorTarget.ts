@@ -22,7 +22,7 @@ import { kaToSlug } from "@/lib/slugify";
 
 const locales = ["ka", "en", "ru", "tr"] as const;
 const speciesField =
-  /^(?:commonName|location|description|interaction|identification\.summary|identification\.traits\.\d+|faq\.\d+\.(?:question|answer)|stats\.\d+\.(?:label|value))$/;
+  /^(?:commonName|location|description|interaction|identification\.(?:summary|coloration)|identification\.traits\.\d+|faq\.\d+\.(?:question|answer)|stats\.\d+\.(?:label|value))$/;
 const guideField =
   /^(?:title|intro|summary|sections\.\d+\.(?:heading|paragraphs\.\d+|list\.items\.\d+)|faq\.\d+\.(?:question|answer))$/;
 const newsField =

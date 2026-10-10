@@ -3,14 +3,13 @@ import fs from "node:fs/promises";
 import path from "node:path";
 
 import { readSpeciesField, validateEditorResult } from "@/lib/contentEditor";
-import { transformWithCodex } from "@/lib/contentEditorCodex";
+import { transformWithAgent } from "@/lib/contentEditorAgent";
 import {
   assertSpeciesTextSourceCurrent,
   createSpeciesTextsPullRequest,
 } from "@/lib/contentEditorPullRequest";
 import { resolveEditorTarget } from "@/lib/contentEditorTarget";
-
-const running = new Set<string>();
+import { lockSpeciesAnalysis } from "@/lib/speciesAnalysisLock";
 
 export function getSpeciesTextFields(raw: string) {
   const data = matter(raw).data;
@@ -20,6 +19,7 @@ export function getSpeciesTextFields(raw: string) {
     "interaction",
     "overview",
     "identification.summary",
+    "identification.coloration",
     ...(Array.isArray(traits)
       ? traits.map(
           (_: unknown, index: number) => `identification.traits.${index}`,
@@ -37,8 +37,7 @@ export function getSpeciesTextFields(raw: string) {
 }
 
 export async function processSpeciesTexts(id: string, operationId: string) {
-  if (running.has(id)) throw new Error("Text processing is already running");
-  running.add(id);
+  const unlock = lockSpeciesAnalysis(id);
   try {
     await assertSpeciesTextSourceCurrent(id);
     const raw = await fs.readFile(
@@ -56,7 +55,7 @@ export async function processSpeciesTexts(id: string, operationId: string) {
     );
     const updates: Array<{
       field: string;
-      result: Awaited<ReturnType<typeof transformWithCodex>>;
+      result: Awaited<ReturnType<typeof transformWithAgent>>;
       source: string;
     }> = [];
     for (let index = 0; index < targets.length; index += 3) {
@@ -64,7 +63,7 @@ export async function processSpeciesTexts(id: string, operationId: string) {
         targets.slice(index, index + 3).map(async ({ field, source }) => {
           const selection = { after: "", before: "", selected: source };
           const result = validateEditorResult(
-            await transformWithCodex(selection, "xhigh"),
+            await transformWithAgent(selection),
             selection,
           );
           return { field, result, source };
@@ -87,6 +86,6 @@ export async function processSpeciesTexts(id: string, operationId: string) {
         .join("\n\n"),
     };
   } finally {
-    running.delete(id);
+    unlock();
   }
 }

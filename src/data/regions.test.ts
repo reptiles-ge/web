@@ -65,9 +65,11 @@ describe("region speciesIds", () => {
 
   it.each([
     "accipiter-nisus",
+    "anguis-colchica",
     "dendrocopos-major",
     "erithacus-rubecula",
     "jynx-torquilla",
+    "latrodectus-tredecimguttatus",
     "turdus-merula",
     "tyto-alba",
     "ciconia-ciconia",

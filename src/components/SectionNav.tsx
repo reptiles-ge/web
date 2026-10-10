@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { type ReactNode, useEffect, useRef, useState } from "react";
 
 import type { DangerLevel } from "@/data/speciesTypes";
 
 import { cn } from "@/lib/cn";
 
 type SectionNavItem = {
+  count?: number;
   id: string;
   label: string;
 };
@@ -15,6 +16,7 @@ type SectionNavProps = {
   ariaLabel: string;
   floating?: boolean;
   items: SectionNavItem[];
+  meta?: ReactNode;
   name?: string;
   riskLevel?: DangerLevel;
 };
@@ -27,6 +29,7 @@ export function SectionNav({
   ariaLabel,
   floating = false,
   items,
+  meta,
   name,
   riskLevel,
 }: SectionNavProps) {
@@ -134,16 +137,16 @@ export function SectionNav({
     <nav
       aria-label={ariaLabel}
       className={cn(
-        "top-[75px] z-30 border-y border-border bg-background/95 backdrop-blur-xl",
+        "top-[75px] z-30 border-y border-border bg-surface/95 backdrop-blur-xl duration-300 ease-out lg:bg-background/92 max-lg:header-hidden:top-0",
         floating
-          ? "fixed inset-x-0 transition-[opacity,translate] duration-300 ease-out"
-          : "sticky",
+          ? "fixed inset-x-0 transition-[opacity,translate,top]"
+          : "sticky transition-[top]",
         shown ? "opacity-100" : "pointer-events-none -translate-y-2 opacity-0",
       )}
       inert={!shown}
       ref={navRef}
     >
-      <div className="mx-auto flex h-12 max-w-[1400px] items-center lg:px-10">
+      <div className="mx-auto flex h-[60px] max-w-[1440px] items-center lg:h-[68px] lg:px-[60px]">
         {name ? (
           <div
             aria-hidden="true"
@@ -166,9 +169,9 @@ export function SectionNav({
             <span className="ml-4 h-4 w-px shrink-0 bg-border" />
           </div>
         ) : null}
-        <div className="relative h-full min-w-0 flex-1 lg:-ml-3">
+        <div className="relative h-full min-w-0 flex-1">
           <ul
-            className="flex h-full scrollbar-none items-center overflow-x-auto px-3 text-[13px] leading-none lg:px-0 [&::-webkit-scrollbar]:hidden"
+            className="flex h-full scroll-px-6 scrollbar-none items-center gap-1.5 overflow-x-auto px-6 text-[13.5px] leading-none lg:px-0 lg:text-[14px] [&::-webkit-scrollbar]:hidden"
             ref={listRef}
           >
             {items.map((item) => {
@@ -179,15 +182,27 @@ export function SectionNav({
                   <a
                     aria-current={active ? "location" : undefined}
                     className={cn(
-                      "flex h-8 items-center rounded-full px-3 font-medium whitespace-nowrap transition-colors duration-200",
+                      "flex h-10 items-center rounded-full px-[15px] font-medium whitespace-nowrap transition-colors duration-200 lg:px-4",
                       active
-                        ? "bg-foreground/8 text-foreground"
-                        : "text-foreground/65 hover:text-primary",
+                        ? "bg-foreground text-background"
+                        : "bg-card text-foreground lg:bg-transparent lg:hover:bg-surface",
                     )}
                     data-section={item.id}
                     href={`#${item.id}`}
                   >
                     {item.label}
+                    {item.count ? (
+                      <span
+                        className={cn(
+                          "ml-[7px] text-[12px] font-normal tabular-nums lg:ml-2",
+                          active
+                            ? "text-background/70"
+                            : "text-muted-foreground",
+                        )}
+                      >
+                        {item.count}
+                      </span>
+                    ) : null}
                   </a>
                 </li>
               );
@@ -196,18 +211,23 @@ export function SectionNav({
           <span
             aria-hidden="true"
             className={cn(
-              "pointer-events-none absolute inset-y-0 left-0 w-10 bg-linear-to-l from-transparent to-background transition-opacity duration-200",
+              "pointer-events-none absolute inset-y-0 left-0 w-10 bg-linear-to-l from-transparent to-surface transition-opacity duration-200 lg:to-background",
               fade.start ? "opacity-100" : "opacity-0",
             )}
           />
           <span
             aria-hidden="true"
             className={cn(
-              "pointer-events-none absolute inset-y-0 right-0 w-10 bg-linear-to-r from-transparent to-background transition-opacity duration-200",
+              "pointer-events-none absolute inset-y-0 right-0 w-10 bg-linear-to-r from-transparent to-surface transition-opacity duration-200 lg:to-background",
               fade.end ? "opacity-100" : "opacity-0",
             )}
           />
         </div>
+        {meta ? (
+          <div className="hidden shrink-0 pl-6 text-[13px] whitespace-nowrap text-muted-foreground lg:block">
+            {meta}
+          </div>
+        ) : null}
       </div>
       <span
         aria-hidden="true"

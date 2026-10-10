@@ -1,38 +1,81 @@
 import { describe, expect, it } from "vitest";
 
 import {
+  speciesShareMessage,
   speciesShareStatusKind,
   speciesShareText,
   speciesShareVenomous,
 } from "@/lib/speciesShareText";
 
+const SHARE_LABELS = {
+  details: "Details",
+  harmless: "Harmless species.",
+  rearFanged: "Rear-fanged species.",
+  venomous: "Venomous species.",
+};
+
+describe("speciesShareMessage", () => {
+  it("adds the venom status and the localized profile link", () => {
+    const message = speciesShareMessage({
+      commonName: "Levant viper",
+      danger: "High",
+      group: "snake",
+      id: "macrovipera-lebetina",
+      labels: SHARE_LABELS,
+      locale: "en",
+      scientificName: "Macrovipera lebetinus",
+    });
+
+    expect(message).toContain(
+      "Levant viper (Macrovipera lebetinus) - Venomous species.",
+    );
+    expect(message).toContain("Details: https://reptiles.ge/");
+  });
+
+  it("leaves the status out for groups without a venom concept", () => {
+    const message = speciesShareMessage({
+      commonName: "Sparrowhawk",
+      danger: "Harmless",
+      group: "bird",
+      id: "accipiter-nisus",
+      labels: SHARE_LABELS,
+      locale: "en",
+      scientificName: "Accipiter nisus",
+    });
+
+    expect(message.startsWith("Sparrowhawk (Accipiter nisus)\n")).toBe(true);
+  });
+});
+
 describe("speciesShareStatusKind", () => {
   it("uses rear-fanged copy for the cat snake", () => {
-    expect(speciesShareStatusKind("telescopus-fallax", "snake", "Harmless")).toBe(
-      "rearFanged",
-    );
+    expect(
+      speciesShareStatusKind("telescopus-fallax", "snake", "Harmless"),
+    ).toBe("rearFanged");
   });
 
   it("marks High and Moderate snakes as venomous", () => {
-    expect(speciesShareStatusKind("macrovipera-lebetina", "snake", "High")).toBe(
-      "venomous",
-    );
+    expect(
+      speciesShareStatusKind("macrovipera-lebetina", "snake", "High"),
+    ).toBe("venomous");
     expect(
       speciesShareStatusKind("malpolon-insignitus", "snake", "Moderate"),
     ).toBe("venomous");
   });
 
   it("marks Harmless herpetofauna as non-venomous", () => {
-    expect(speciesShareStatusKind("natrix-tessellata", "snake", "Harmless")).toBe(
-      "harmless",
-    );
+    expect(
+      speciesShareStatusKind("natrix-tessellata", "snake", "Harmless"),
+    ).toBe("harmless");
     expect(
       speciesShareStatusKind("paralaudakia-caucasia", "lizard", "Harmless"),
     ).toBe("harmless");
   });
 
   it("does not invent venom status for birds or missing danger", () => {
-    expect(speciesShareStatusKind("accipiter-nisus", "bird", "Harmless")).toBeNull();
+    expect(
+      speciesShareStatusKind("accipiter-nisus", "bird", "Harmless"),
+    ).toBeNull();
     expect(speciesShareStatusKind("natrix-tessellata", "snake")).toBeNull();
   });
 });

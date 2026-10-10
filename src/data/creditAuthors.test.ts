@@ -1,10 +1,13 @@
 import { describe, expect, it } from "vitest";
 
 import {
+  CREDIT_AFFILIATIONS,
   CREDIT_AUTHORS,
+  creditAuthorAffiliationNames,
   creditAuthorBio,
   creditAuthorHref,
   creditAuthorIndexHref,
+  creditAuthorKind,
   creditAuthorName,
   creditAuthorSameAs,
   getPublishedCreditAuthorByName,
@@ -107,5 +110,71 @@ describe("presentation helpers", () => {
         links: { facebook: "https://f", researchGate: "https://r" },
       }),
     ).toEqual(["https://f", "https://r"]);
+  });
+});
+
+describe("verified job titles and affiliations", () => {
+  it("names every affiliation in the English bio", () => {
+    for (const author of CREDIT_AUTHORS) {
+      for (const id of author.affiliations ?? []) {
+        expect(author.bio?.en, `${author.slug} ${id}`).toContain(
+          CREDIT_AFFILIATIONS[id].en,
+        );
+      }
+    }
+  });
+
+  it("states every job title in the English bio", () => {
+    for (const author of CREDIT_AUTHORS) {
+      if (!author.jobTitle) continue;
+      expect(author.bio?.en.toLowerCase(), author.slug).toContain(
+        author.jobTitle,
+      );
+    }
+  });
+
+  it("gives job titles and affiliations to people only", () => {
+    for (const author of CREDIT_AUTHORS) {
+      if (creditAuthorKind(author) === "person") continue;
+      expect(author.jobTitle, author.slug).toBeUndefined();
+      expect(author.affiliations, author.slug).toBeUndefined();
+    }
+  });
+
+  it("localizes affiliation names", () => {
+    const zauri = CREDIT_AUTHORS.find((a) => a.slug === "zauri-khachidze")!;
+    expect(creditAuthorAffiliationNames(zauri, "ka")).toEqual([
+      "ბორჯომ-ხარაგაულის ეროვნული პარკი",
+    ]);
+    expect(creditAuthorAffiliationNames(zauri, "en")).toEqual([
+      "Borjomi-Kharagauli National Park",
+    ]);
+  });
+
+  it("keeps manual meta descriptions within 160 characters", () => {
+    for (const author of CREDIT_AUTHORS) {
+      for (const text of Object.values(author.metaDescription ?? {})) {
+        expect(text.length, author.slug).toBeLessThanOrEqual(160);
+      }
+    }
+  });
+});
+
+describe("photography page contributor", () => {
+  const page = CREDIT_AUTHORS.find(
+    (author) => author.slug === "velur-bunebastan-axlos",
+  )!;
+
+  it("is a page, not a person", () => {
+    expect(creditAuthorKind(page)).toBe("page");
+  });
+
+  it("does not describe its subjects beyond the atlas record", () => {
+    for (const locale of ["ka", "en", "ru", "tr"] as const) {
+      const bio = creditAuthorBio(page, locale) ?? "";
+      expect(bio).not.toMatch(
+        /ქვეწარმავ|ამფიბ|reptile|amphibian|рептил|амфиби|sürüngen|amfibi/i,
+      );
+    }
   });
 });

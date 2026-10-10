@@ -3,41 +3,42 @@ import { getTranslations } from "next-intl/server";
 import type {
   DangerLevel,
   GalleryImage,
+  PhotoCredit,
   Species,
   SpeciesStat,
 } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
-import { BiologyBlock } from "@/components/BiologyBlock";
+import { BiologyDisclosure } from "@/components/BiologyDisclosure";
 import { BiologyExpandable } from "@/components/BiologyExpandable";
-import { ContentAttribution } from "@/components/ContentAttribution";
 import { SpeciesRangeMap } from "@/components/map/SpeciesRangeMap";
-import { RelatedGuideStaticGrid } from "@/components/RelatedGuideStaticGrid";
+import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { SectionNav } from "@/components/SectionNav";
 import { SpeciesFaqSection } from "@/components/SpeciesFaqSection";
 import { SpeciesGallery } from "@/components/SpeciesGallery";
+import { SpeciesGuideFeature } from "@/components/SpeciesGuideFeature";
 import { SpeciesIdentification } from "@/components/SpeciesIdentification";
 import { SpeciesOverviewText } from "@/components/SpeciesOverviewText";
 import { SpeciesProfileFacts } from "@/components/SpeciesProfileFacts";
 import { SpeciesProfileQuiz } from "@/components/SpeciesProfileQuiz";
-import { SpeciesProfileRelated } from "@/components/SpeciesProfileRelated";
-import { SpeciesSources } from "@/components/SpeciesSources";
+import { SpeciesSourcesRelated } from "@/components/SpeciesSourcesRelated";
+import { SpeciesVerdict } from "@/components/SpeciesVerdict";
 import {
   optimizedEntry,
   optimizedImgSrc,
   pictureSources,
 } from "@/data/optimizedImages";
-import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
 import { type HubClusterCard } from "@/lib/clusterGuides";
 import { cn } from "@/lib/cn";
-import { formatPhotoDate } from "@/lib/formatDate";
+import { formatContentDate, formatPhotoDate } from "@/lib/formatDate";
 import {
   getSpeciesIdentificationPhoto,
   isPlaceholderBody,
 } from "@/lib/speciesContent";
 import { speciesPhotoAlt } from "@/lib/speciesMeta";
 import { getSpeciesRiskChip } from "@/lib/speciesRisk";
+import { hasMeaningfulUpdate } from "@/lib/structuredDataDates";
 import {
   SPECIES_SECTION_IDS,
   type SpeciesProfileSectionAvailability,
@@ -96,6 +97,7 @@ type SpeciesProfileBodyProps = {
   gallery: GalleryImage[];
   guideLinks: HubClusterCard[];
   hasRange: boolean;
+  heroCredit?: PhotoCredit;
   linkDangerStats: boolean;
   locale: AppLocale;
   lookalikes: Species[];
@@ -508,6 +510,7 @@ export async function SpeciesProfileBody({
   gallery,
   guideLinks,
   hasRange,
+  heroCredit,
   linkDangerStats,
   locale,
   lookalikes,
@@ -516,50 +519,48 @@ export async function SpeciesProfileBody({
   species,
 }: SpeciesProfileBodyProps) {
   const t = await getTranslations({ locale, namespace: "profile" });
-  const relatedLabelVariant =
-    getSpeciesAtlasMeta(species.id).group === "insect"
-      ? "otherInsects"
-      : "related";
+  const riskLevel = getSpeciesRiskChip(species)?.level;
   const habitatBlock = biologyBlocks.find((block) => block.id === "habitat");
   const naturalHistoryBlocks = biologyBlocks.filter(
     (block) => block.id !== "habitat",
   );
-  const hasInteraction = Boolean(
-    species.interaction && !isPlaceholderBody(species.interaction),
-  );
-
   return (
     <>
-      <SpeciesProfileNavigation
-        locale={locale}
-        name={species.commonName}
-        riskLevel={getSpeciesRiskChip(species)?.level}
-        sections={{
-          atAGlance: displayStats.length > 0,
-          biology: naturalHistoryBlocks.length > 0,
-          faq: Boolean(species.faq?.length),
-          gallery: gallery.length > 0,
-          habitat: Boolean(habitatBlock),
-          identification: showIdentification,
-          interaction: hasInteraction,
-          range: hasRange,
-          sources: species.sources.length > 0,
-        }}
-      />
-
-      <SpeciesProfileFacts
-        danger={species.danger}
+      <SpeciesProfileSummary
         dangerValue={dangerValue}
         displayStats={displayStats}
         editable={editable}
-        interaction={species.interaction}
+        gallery={gallery}
+        guideLinks={guideLinks}
+        heroCredit={heroCredit}
         linkDangerStats={linkDangerStats}
         locale={locale}
-        speciesId={species.id}
-        stats={species.stats}
+        species={species}
       />
 
-      <section className="bg-surface py-20 lg:py-28">
+      <SpeciesProfileNavigation
+        counts={{
+          [SPECIES_SECTION_IDS.faq]: species.faq?.length ?? 0,
+          [SPECIES_SECTION_IDS.gallery]: gallery.length,
+          [SPECIES_SECTION_IDS.sources]: species.sources.length,
+        }}
+        locale={locale}
+        name={species.commonName}
+        publishedAt={species.publishedAt}
+        riskLevel={riskLevel}
+        sections={{
+          biology: naturalHistoryBlocks.length > 0,
+          faq: Boolean(species.faq?.length),
+          gallery: gallery.length > 0,
+          habitat: false,
+          identification: showIdentification,
+          range: hasRange || Boolean(habitatBlock),
+          sources: species.sources.length > 0,
+        }}
+        updatedAt={species.updatedAt}
+      />
+
+      <section className="bg-surface py-11 lg:py-20">
         <div className={SPLIT_SECTION_CLASS}>
           <div>
             <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
@@ -578,8 +579,6 @@ export async function SpeciesProfileBody({
             <SpeciesOverviewText
               body={species.overview}
               editable={editable}
-              readLess={t("readLess")}
-              readMore={t("readMore")}
               speciesId={species.id}
             />
           </div>
@@ -610,30 +609,11 @@ export async function SpeciesProfileBody({
         />
       ) : null}
 
-      {gallery.length > 0 ? (
-        <SpeciesGallery
-          images={gallery}
-          locale={locale}
-          location={species.location}
-          name={species.commonName}
-          scientificName={species.scientificName}
-          speciesId={species.id}
-          tone="background"
-        />
-      ) : null}
-
       <SpeciesProfileQuiz locale={locale} species={species} />
 
-      {habitatBlock ? (
-        <SpeciesProfileHabitat
-          block={habitatBlock}
-          editable={editable}
-          locale={locale}
-          speciesId={species.id}
-        />
-      ) : null}
-
       <SpeciesRangeMap
+        editable={editable}
+        habitatDetails={habitatBlock?.body}
         locale={locale}
         speciesId={species.id}
         speciesName={species.commonName}
@@ -648,6 +628,27 @@ export async function SpeciesProfileBody({
         title={biologyTitle}
       />
 
+      {gallery.length > 0 ? (
+        <SpeciesGallery
+          images={gallery}
+          locale={locale}
+          location={species.location}
+          name={species.commonName}
+          scientificName={species.scientificName}
+          speciesId={species.id}
+        />
+      ) : null}
+
+      {guideLinks.length > 0 ? (
+        <SpeciesGuideFeature
+          gallery={gallery}
+          guideLinks={guideLinks}
+          locale={locale}
+          speciesId={species.id}
+          speciesName={species.commonName}
+        />
+      ) : null}
+
       {species.faq && species.faq.length > 0 ? (
         <SpeciesFaqSection
           entityId={species.id}
@@ -658,58 +659,16 @@ export async function SpeciesProfileBody({
         />
       ) : null}
 
-      <ContentAttribution
+      <SpeciesSourcesRelated
         locale={locale}
         publishedAt={species.publishedAt}
-        sourcesHref={
-          species.sources.length > 0
-            ? `#${SPECIES_SECTION_IDS.sources}`
-            : undefined
-        }
-        updatedAt={species.updatedAt}
-      />
-
-      <SpeciesSources
-        locale={locale}
+        related={related}
         sources={species.sources}
         speciesId={species.id}
-      />
-
-      {guideLinks.length > 0 ? (
-        <section className="border-t border-border bg-surface py-16 lg:py-20">
-          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-            <p className="text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
-              {t("guidesEyebrow")}
-            </p>
-            <h2 className="mt-4 max-w-2xl font-display text-display-card font-semibold">
-              {t("guidesTitle")}
-            </h2>
-            <RelatedGuideStaticGrid
-              cards={guideLinks}
-              className="mt-8"
-              locale={locale}
-            />
-          </div>
-        </section>
-      ) : null}
-
-      <SpeciesProfileRelated
-        labelVariant={relatedLabelVariant}
-        locale={locale}
-        related={related}
+        updatedAt={species.updatedAt}
       />
     </>
   );
-}
-
-function biologyGridClass(count: number) {
-  if (count >= 4 || count === 2) {
-    return "md:grid-cols-2";
-  }
-  if (count >= 3) {
-    return "md:grid-cols-3";
-  }
-  return "md:grid-cols-1";
 }
 
 function HalyomorphaIdentificationFigure({
@@ -738,7 +697,7 @@ function HalyomorphaIdentificationFigure({
     "(max-width: 1023px) calc(100vw - 3rem), (max-width: 1479px) calc((min(1400px, 100vw - 5rem) - 2.5rem) * 0.58), 800px";
 
   return (
-    <section className="bg-surface py-20 lg:py-28">
+    <section className="bg-surface py-11 lg:py-20">
       <div className="mx-auto grid max-w-[1400px] gap-10 px-6 lg:grid-cols-[minmax(0,0.78fr)_minmax(420px,1fr)] lg:items-center lg:gap-16 lg:px-10">
         <div>
           <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
@@ -891,7 +850,7 @@ function HalyomorphaPestSections({
   const copy = HALYOMORPHA_PEST_COPY[locale];
 
   return (
-    <section className="bg-background py-20 lg:py-28">
+    <section className="bg-background py-11 lg:py-20">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
           {copy.label}
@@ -988,79 +947,135 @@ async function SpeciesProfileBiology({
 
   const t = await getTranslations({ locale, namespace: "profile" });
 
-  return (
-    <section className="bg-surface py-20 lg:py-28">
-      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
-          {t("biology")}
-        </p>
-        <AnchoredHeading
-          anchorLabel={t("anchorLink")}
-          className="mt-5 max-w-2xl font-display text-display-title font-bold"
-          id={SPECIES_SECTION_IDS.biology}
-        >
-          {title ?? t("naturalHistoryTitle")}
-        </AnchoredHeading>
-        <div
-          className={cn(
-            "mt-14 grid gap-12 md:gap-10",
-            biologyGridClass(blocks.length),
-          )}
-        >
-          {blocks.map((block) => (
-            <BiologyBlock
-              body={block.body}
-              editable={editable}
-              headingId={block.id}
-              key={block.title}
-              locale={locale}
-              speciesId={speciesId}
-              title={block.title}
-            />
-          ))}
-        </div>
-      </div>
-    </section>
+  const behavior = blocks.find((block) => block.id === "behavior");
+  const behaviorParagraphs = behavior?.body.split(/\n+/).filter(Boolean) ?? [];
+  const blockOrder = new Map([
+    ["behavior", 1],
+    ["conservation", 3],
+    ["diet", 0],
+    ["reproduction", 2],
+  ]);
+  const orderedBlocks = [...blocks].sort(
+    (left, right) =>
+      (blockOrder.get(left.id) ?? 4) - (blockOrder.get(right.id) ?? 4),
   );
-}
-
-async function SpeciesProfileHabitat({
-  block,
-  editable,
-  locale,
-  speciesId,
-}: {
-  block: BiologyBlockItem;
-  editable: boolean;
-  locale: AppLocale;
-  speciesId: string;
-}) {
-  const t = await getTranslations({ locale, namespace: "profile" });
+  const displayBlocks =
+    speciesId === "macrovipera-lebetina"
+      ? orderedBlocks.flatMap((block) => {
+          if (block.id !== "behavior" || behaviorParagraphs.length < 2) {
+            return [block];
+          }
+          return [
+            {
+              ...block,
+              body: [
+                behaviorParagraphs[0],
+                ...behaviorParagraphs.slice(2),
+              ].join("\n\n"),
+            },
+            {
+              body: behaviorParagraphs[1],
+              id: "reproduction",
+              title: t("reproduction"),
+            },
+          ];
+        })
+      : orderedBlocks;
+  const pairedBlocks =
+    displayBlocks.length % 2 === 0 ? displayBlocks : displayBlocks.slice(0, -1);
+  const finalBlock =
+    displayBlocks.length % 2 === 0 ? null : displayBlocks.at(-1);
+  const renderDesktopCard = (block: BiologyBlockItem) => (
+    <article
+      className="min-h-[208px] rounded-[28px] bg-card px-7 py-[26px] shadow-[0_10px_26px_rgba(14,20,17,0.05)]"
+      key={block.id}
+    >
+      <AnchoredHeading
+        anchorLabel={t("anchorLink")}
+        as="h3"
+        className="font-display text-[20px] font-semibold"
+        id={block.id}
+      >
+        {block.title}
+      </AnchoredHeading>
+      <BiologyExpandable
+        body={block.body}
+        collapseEditable
+        editorField={
+          editable && speciesId !== "macrovipera-lebetina"
+            ? block.id
+            : undefined
+        }
+        needsExpand
+        readLess={t("readLess")}
+        readMore={t("readMore")}
+        speciesId={
+          editable && speciesId !== "macrovipera-lebetina"
+            ? speciesId
+            : undefined
+        }
+      />
+    </article>
+  );
 
   return (
-    <section className="bg-surface py-20 lg:py-28">
-      <div className={SPLIT_SECTION_CLASS}>
-        <div>
+    <section className="bg-background py-9 lg:py-20">
+      <div className="mx-auto max-w-[1440px] px-4 lg:px-[60px]">
+        <div className="px-2 lg:px-0">
           <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
-            {t("range")}
+            {t("biology")}
           </p>
           <AnchoredHeading
             anchorLabel={t("anchorLink")}
-            className="mt-5 max-w-2xl font-display text-display-title font-bold"
-            id={SPECIES_SECTION_IDS.habitat}
+            className="mt-3 font-display text-[28px] leading-[1.15] font-semibold tracking-[-0.012em] lg:mt-4 lg:text-[44px] lg:leading-[1.1]"
+            id={SPECIES_SECTION_IDS.biology}
           >
-            {block.title}
+            {title ?? t("naturalHistoryTitle")}
           </AnchoredHeading>
         </div>
-        <div className={cn("max-w-3xl", SPLIT_SECTION_BODY_CLASS)}>
-          <BiologyExpandable
-            body={block.body}
-            editorField={editable ? block.id : undefined}
-            needsExpand={block.body.length > 520}
-            readLess={t("readLess")}
-            readMore={t("readMore")}
-            speciesId={editable ? speciesId : undefined}
-          />
+        <div className="mt-5 flex flex-col gap-2 lg:hidden">
+          {displayBlocks.map((block, index) => (
+            <BiologyDisclosure
+              defaultOpen={index === 0}
+              key={block.id}
+              title={block.title}
+            >
+              <p
+                className="mt-4 text-[17px] leading-[1.65] whitespace-pre-line text-muted-foreground"
+                data-content-field={
+                  editable && speciesId !== "macrovipera-lebetina"
+                    ? block.id
+                    : undefined
+                }
+                data-content-id={
+                  editable && speciesId !== "macrovipera-lebetina"
+                    ? speciesId
+                    : undefined
+                }
+                data-content-kind={
+                  editable && speciesId !== "macrovipera-lebetina"
+                    ? "species"
+                    : undefined
+                }
+              >
+                <PhoneLinkedText>{block.body}</PhoneLinkedText>
+              </p>
+            </BiologyDisclosure>
+          ))}
+        </div>
+        <div className="mt-10 hidden lg:block">
+          <div className="grid grid-cols-2 items-start gap-6">
+            {[0, 1].map((column) => (
+              <div className="flex flex-col gap-6" key={column}>
+                {pairedBlocks
+                  .filter((_, index) => index % 2 === column)
+                  .map(renderDesktopCard)}
+              </div>
+            ))}
+          </div>
+          {finalBlock ? (
+            <div className="mt-6">{renderDesktopCard(finalBlock)}</div>
+          ) : null}
         </div>
       </div>
     </section>
@@ -1081,7 +1096,11 @@ function SpeciesProfileIdentification({
   const photo =
     species.id === "halyomorpha-halys"
       ? null
-      : getSpeciesIdentificationPhoto(species);
+      : species.id === "macrovipera-lebetina"
+        ? (species.gallery.find((item) =>
+            item.src.endsWith("macrovipera-lebetina-ioane-2.jpg"),
+          ) ?? getSpeciesIdentificationPhoto(species))
+        : getSpeciesIdentificationPhoto(species);
 
   return (
     <SpeciesIdentification
@@ -1095,6 +1114,7 @@ function SpeciesProfileIdentification({
         species.scientificName,
         species.location,
         photo?.credit,
+        locale,
       )}
       speciesId={species.id}
     />
@@ -1102,26 +1122,43 @@ function SpeciesProfileIdentification({
 }
 
 async function SpeciesProfileNavigation({
+  counts,
   locale,
   name,
+  publishedAt,
   riskLevel,
   sections,
+  updatedAt,
 }: {
+  counts: Partial<Record<string, number>>;
   locale: AppLocale;
   name: string;
+  publishedAt?: string;
   riskLevel?: DangerLevel;
   sections: SpeciesProfileSectionAvailability;
+  updatedAt?: string;
 }) {
-  const t = await getTranslations({ locale, namespace: "profile" });
-  const ids = speciesProfileSectionIds(sections);
+  const [t, tAttribution] = await Promise.all([
+    getTranslations({ locale, namespace: "profile" }),
+    getTranslations({ locale, namespace: "attribution" }),
+  ]);
+  const availableIds = speciesProfileSectionIds(sections);
+  const sectionOrder = [
+    SPECIES_SECTION_IDS.overview,
+    SPECIES_SECTION_IDS.identification,
+    SPECIES_SECTION_IDS.range,
+    SPECIES_SECTION_IDS.biology,
+    SPECIES_SECTION_IDS.gallery,
+    SPECIES_SECTION_IDS.faq,
+    SPECIES_SECTION_IDS.sources,
+  ];
+  const ids = sectionOrder.filter((id) => availableIds.includes(id));
   const labels = {
-    [SPECIES_SECTION_IDS.atAGlance]: t("atAGlance"),
     [SPECIES_SECTION_IDS.biology]: t("biology"),
     [SPECIES_SECTION_IDS.faq]: t("faq"),
     [SPECIES_SECTION_IDS.gallery]: t("gallery"),
     [SPECIES_SECTION_IDS.habitat]: t("habitat"),
     [SPECIES_SECTION_IDS.identification]: t("identification"),
-    [SPECIES_SECTION_IDS.interaction]: t("interaction"),
     [SPECIES_SECTION_IDS.overview]: t("overview"),
     [SPECIES_SECTION_IDS.range]: t("range"),
     [SPECIES_SECTION_IDS.sources]: t("sourcesTitle"),
@@ -1130,9 +1167,103 @@ async function SpeciesProfileNavigation({
   return (
     <SectionNav
       ariaLabel={t("contents")}
-      items={ids.map((id) => ({ id, label: labels[id] }))}
+      items={ids.map((id) => ({ count: counts[id], id, label: labels[id] }))}
+      meta={
+        updatedAt && hasMeaningfulUpdate(publishedAt, updatedAt) ? (
+          <time dateTime={updatedAt}>
+            {tAttribution("updated", {
+              date: formatContentDate(updatedAt, locale),
+            })}
+          </time>
+        ) : null
+      }
       name={name}
       riskLevel={riskLevel}
     />
+  );
+}
+
+async function SpeciesProfileSummary({
+  dangerValue,
+  displayStats,
+  editable,
+  gallery,
+  guideLinks,
+  heroCredit,
+  linkDangerStats,
+  locale,
+  species,
+}: Pick<
+  SpeciesProfileBodyProps,
+  | "dangerValue"
+  | "displayStats"
+  | "editable"
+  | "gallery"
+  | "guideLinks"
+  | "heroCredit"
+  | "linkDangerStats"
+  | "locale"
+  | "species"
+>) {
+  const t = await getTranslations({ locale, namespace: "profile" });
+  const riskLevel = getSpeciesRiskChip(species)?.level;
+  const interactionBody =
+    species.interaction && !isPlaceholderBody(species.interaction)
+      ? species.interaction
+      : null;
+  return (
+    <div className="relative z-10 -mt-7 rounded-t-[32px] bg-background pt-4 pb-6 lg:mt-[-86px] lg:rounded-none lg:bg-transparent lg:pt-0 lg:pb-14">
+      <div
+        className={cn(
+          "mx-auto flex max-w-[1440px] flex-col lg:grid lg:items-stretch lg:gap-4 lg:px-[60px]",
+          riskLevel &&
+            displayStats.length > 0 &&
+            "lg:grid-cols-[430px_minmax(0,1fr)]",
+        )}
+      >
+        <SpeciesVerdict
+          credits={
+            gallery.length > 0
+              ? gallery.map((photo, index) =>
+                  index === 0 ? heroCredit : photo.credit,
+                )
+              : [heroCredit]
+          }
+          guideLinks={guideLinks}
+          level={riskLevel}
+          locale={locale}
+          speciesId={species.id}
+        />
+        <SpeciesProfileFacts
+          danger={species.danger}
+          dangerValue={dangerValue}
+          displayStats={displayStats}
+          editable={editable}
+          linkDangerStats={linkDangerStats}
+          locale={locale}
+          speciesId={species.id}
+          stats={species.stats}
+        />
+        {interactionBody ? (
+          <aside className="mx-4 mt-2 rounded-[22px] bg-gold/12 p-5 max-lg:order-1 lg:col-span-full lg:mx-0 lg:mt-0 lg:rounded-[26px] lg:px-7 lg:py-6">
+            <AnchoredHeading
+              anchorLabel={t("anchorLink")}
+              className="font-display text-[19px] font-semibold text-foreground"
+              id={SPECIES_SECTION_IDS.interaction}
+            >
+              {t("interaction")}
+            </AnchoredHeading>
+            <BiologyExpandable
+              body={interactionBody}
+              editorField={editable ? "interaction" : undefined}
+              needsExpand={interactionBody.length > 260}
+              readLess={t("readLess")}
+              readMore={t("readMore")}
+              speciesId={editable ? species.id : undefined}
+            />
+          </aside>
+        ) : null}
+      </div>
+    </div>
   );
 }

@@ -4,11 +4,16 @@ import type { PhotoCredit } from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
 
 import {
+  creditAuthorAffiliationNames,
   creditAuthorHref,
   creditAuthorIndexHref,
+  creditAuthorKind,
+  creditAuthorName,
+  creditAuthorSameAs,
   getPublishedCreditAuthorBySlug,
   getPublishedCreditAuthors,
 } from "@/data/creditAuthors";
+import { optimizedEntry, optimizedImgSrc } from "@/data/optimizedImages";
 import { getCatalogSpecies } from "@/data/species";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import { getPathname } from "@/i18n/navigation";
@@ -47,11 +52,45 @@ export type CreditAuthorCard = {
   speciesCount: number;
 };
 
+export type CreditAuthorGroupStat = {
+  hub: GroupHubId;
+  photos: number;
+  species: Array<{ id: string; photos: number }>;
+};
+
 export function creditAuthorAlternates(locale: AppLocale, slug: string) {
   return localeAlternates(locale, {
     params: { slug },
     pathname: "/authors/[slug]",
   });
+}
+
+export function creditAuthorEntityJsonLd(
+  author: CreditAuthor,
+  locale: AppLocale,
+  { description, jobTitle }: { description?: string; jobTitle?: string },
+) {
+  const isPerson = creditAuthorKind(author) === "person";
+  const affiliations = isPerson
+    ? creditAuthorAffiliationNames(author, locale)
+    : [];
+  return {
+    "@type": isPerson ? "Person" : "Thing",
+    ...(affiliations.length > 0
+      ? {
+          affiliation: affiliations.map((name) => ({
+            "@type": "Organization",
+            name,
+          })),
+        }
+      : {}),
+    description,
+    image: creditAuthorPortraitImage(author).url,
+    ...(isPerson && jobTitle ? { jobTitle } : {}),
+    name: creditAuthorName(author, locale),
+    sameAs: creditAuthorSameAs(author),
+    url: creditAuthorUrl(locale, author.slug),
+  };
 }
 
 export function creditAuthorIndexAlternates(locale: AppLocale) {
@@ -65,6 +104,23 @@ export function creditAuthorIndexUrl(locale: AppLocale) {
       locale,
     }),
   );
+}
+
+export function creditAuthorPageSchemaType(author: CreditAuthor) {
+  return creditAuthorKind(author) === "person"
+    ? "ProfilePage"
+    : "CollectionPage";
+}
+
+export function creditAuthorPortraitImage(author: CreditAuthor) {
+  const entry = optimizedEntry(author.portraitSrc);
+  if (!entry?.formats.includes("webp")) {
+    return {
+      type: author.portraitSrc.endsWith(".webp") ? "image/webp" : "image/jpeg",
+      url: author.portraitSrc,
+    };
+  }
+  return { type: "image/webp", url: optimizedImgSrc(author.portraitSrc) };
 }
 
 export function creditAuthorStaticParams() {
@@ -101,6 +157,47 @@ export function getCreditAuthorCards(): CreditAuthorCard[] {
     if (b.photoCount !== a.photoCount) return b.photoCount - a.photoCount;
     return a.author.slug.localeCompare(b.author.slug);
   });
+}
+
+export function getCreditAuthorFieldSummary(photos: CreditAuthorPhoto[]) {
+  const places = new Map<string, number>();
+  const years: number[] = [];
+  for (const photo of photos) {
+    const place = photo.credit?.location?.trim();
+    if (place) places.set(place, (places.get(place) ?? 0) + 1);
+    const year = Number(photo.credit?.date?.match(/^\d{4}/)?.[0]);
+    if (year) years.push(year);
+  }
+  const [topPlace] = [...places.entries()].sort(
+    (a, b) => b[1] - a[1] || a[0].localeCompare(b[0]),
+  );
+  return {
+    place: topPlace ? { count: topPlace[1], name: topPlace[0] } : undefined,
+    years:
+      years.length > 0
+        ? { from: Math.min(...years), to: Math.max(...years) }
+        : undefined,
+  };
+}
+
+export function getCreditAuthorGroupStats(
+  photos: CreditAuthorPhoto[],
+): CreditAuthorGroupStat[] {
+  const byHub = new Map<GroupHubId, CreditAuthorGroupStat>();
+  for (const photo of photos) {
+    const hub = ANIMAL_GROUP_TO_HUB[getSpeciesAtlasMeta(photo.speciesId).group];
+    const stat = byHub.get(hub) ?? { hub, photos: 0, species: [] };
+    stat.photos += 1;
+    const species = stat.species.find((item) => item.id === photo.speciesId);
+    if (species) species.photos += 1;
+    else stat.species.push({ id: photo.speciesId, photos: 1 });
+    byHub.set(hub, stat);
+  }
+  return [...byHub.values()].sort(
+    (a, b) =>
+      b.photos - a.photos ||
+      GROUP_RANK[HUB_GROUP[a.hub]] - GROUP_RANK[HUB_GROUP[b.hub]],
+  );
 }
 
 export function getCreditAuthorHubIds(speciesIds: string[]): GroupHubId[] {
@@ -216,3 +313,7 @@ function pickCreditAuthorPreviewPhotos(
   }
   return [...unique, ...rest].slice(0, limit);
 }
+
+const HUB_GROUP = Object.fromEntries(
+  Object.entries(ANIMAL_GROUP_TO_HUB).map(([group, hub]) => [hub, group]),
+) as Record<GroupHubId, AnimalGroup>;

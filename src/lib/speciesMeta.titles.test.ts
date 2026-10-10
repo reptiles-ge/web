@@ -7,6 +7,7 @@ import {
   speciesMetaDescriptionOverride,
   speciesPageMetaTitle,
   speciesPhotoAlt,
+  speciesSummaryDescription,
   speciesTitleIntentKey,
 } from "@/lib/speciesMeta";
 
@@ -90,6 +91,18 @@ describe("speciesPageMetaTitle", () => {
   });
 });
 
+describe("speciesSummaryDescription", () => {
+  it("uses a curated summary that fits a meta description", () => {
+    const summary = "a".repeat(120);
+    expect(speciesSummaryDescription(` ${summary} `)).toBe(summary);
+  });
+
+  it("skips summaries that are too short or too long", () => {
+    expect(speciesSummaryDescription("a".repeat(69))).toBeUndefined();
+    expect(speciesSummaryDescription("a".repeat(161))).toBeUndefined();
+  });
+});
+
 describe("speciesMetaDescription", () => {
   it("returns short text unchanged", () => {
     expect(speciesMetaDescription("Short text.")).toBe("Short text.");
@@ -128,5 +141,21 @@ describe("alt text", () => {
       "Viper (Vipera x) — Georgia",
     );
     expect(speciesPhotoAlt("Viper", "Vipera x", "")).toBe("Viper (Vipera x)");
+  });
+});
+
+describe("speciesPhotoAlt photographer names", () => {
+  it("uses the credited author's name in the page locale", () => {
+    expect(
+      speciesPhotoAlt(
+        "Mantis",
+        "Mantis religiosa",
+        "",
+        {
+          photographer: "ზაური ხაჩიძე",
+        },
+        "en",
+      ),
+    ).toBe("Mantis (Mantis religiosa) — Zauri Khachidze");
   });
 });

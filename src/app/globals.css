@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
+@custom-variant header-hidden (&:where([data-header-hidden] *));
 
 :root {
   --background: #f4f6f2;
@@ -101,6 +102,20 @@
 @utility text-display-stat {
   font-size: clamp(2rem, 4vw, 2.75rem);
   line-height: 1;
+}
+
+@utility tap-target {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: max(100%, 2.75rem);
+    height: max(100%, 2.75rem);
+    transform: translate(-50%, -50%);
+  }
 }
 
 html {

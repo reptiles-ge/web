@@ -1,48 +1,74 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Search } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
 
-import { CoverImage } from "@/components/CoverImage";
-import { images } from "@/data/speciesMedia";
-import { Link } from "@/i18n/navigation";
+import { getPathname, Link } from "@/i18n/navigation";
 
 export async function FinalCTA({ locale }: { locale: AppLocale }) {
-  const t = await getTranslations({ locale, namespace: "cta" });
+  const [t, tSearch, tHero] = await Promise.all([
+    getTranslations({ locale, namespace: "cta" }),
+    getTranslations({ locale, namespace: "search" }),
+    getTranslations({ locale, namespace: "hero" }),
+  ]);
 
   return (
-    <section className="relative flex min-h-112 items-end overflow-hidden bg-ink sm:min-h-128 lg:min-h-152">
-      <CoverImage
-        alt={t("imageAlt")}
-        className="object-cover object-center"
-        sizes="100vw"
-        src={images.cta}
-      />
-      <div className="absolute inset-0 bg-linear-to-t from-black/88 via-black/45 to-black/25" />
-      <div className="relative mx-auto w-full max-w-[1400px] px-6 py-12 lg:px-10 lg:py-16">
-        <p className="text-[11px] font-medium tracking-[0.18em] text-white/45 uppercase">
-          {t("eyebrow")}
-        </p>
-        <h2 className="text-balance-tight mt-4 max-w-2xl font-display text-display-title font-semibold text-white">
-          {t("title")}
-        </h2>
-        <p className="mt-4 max-w-md text-[15px] leading-relaxed text-white/60">
-          {t("subtitle")}
-        </p>
-        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-          <Link
-            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-white px-7 py-3 text-[14px] font-medium text-ink transition-transform duration-300 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black focus-visible:outline-none motion-safe:hover:scale-[1.02]"
-            href="/species"
+    <section className="bg-background px-4 pb-12 text-white lg:px-[60px] lg:pb-20">
+      <div className="mx-auto grid max-w-[1320px] gap-7 rounded-[32px] bg-ink px-6 py-9 lg:grid-cols-[minmax(0,1fr)_minmax(0,480px)] lg:items-center lg:gap-12 lg:rounded-[44px] lg:px-16 lg:py-[60px]">
+        <div>
+          <p className="text-[11px] font-medium tracking-[0.18em] text-white/60 uppercase">
+            {t("eyebrow")}
+          </p>
+          <h2 className="mt-3 max-w-[580px] font-display text-[30px] leading-[1.15] font-semibold text-white lg:text-[48px] lg:leading-[1.1]">
+            {t("title")}
+          </h2>
+          <p className="mt-3 max-w-md text-[14px] leading-[1.6] text-white/70 lg:mt-[18px] lg:text-[16px] lg:leading-[1.65]">
+            {t("subtitle")}
+          </p>
+        </div>
+        <div>
+          <form
+            action={getPathname({ href: "/species", locale })}
+            className="flex h-14 items-center gap-2.5 rounded-full bg-white py-1.5 pr-1.5 pl-[18px] text-[#1a211c] shadow-[0_18px_44px_rgba(0,0,0,0.45)] transition-shadow focus-within:ring-4 focus-within:ring-[#6fad88]/60 lg:h-16 lg:gap-3 lg:pr-2 lg:pl-[22px]"
+            role="search"
           >
-            {t("button")}
-            <ArrowRight aria-hidden="true" className="size-4" />
-          </Link>
-          <Link
-            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-white/25 px-7 py-3 text-[14px] font-medium text-white/90 transition-colors hover:border-white/50 hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black focus-visible:outline-none"
-            href="/venomous-snakes"
-          >
-            {t("secondary")}
-          </Link>
+            <Search
+              aria-hidden="true"
+              className="size-[18px] shrink-0 text-[#5c665f] lg:size-5"
+            />
+            <label className="sr-only" htmlFor="cta-search">
+              {tSearch("open")}
+            </label>
+            <input
+              className="min-w-0 flex-1 bg-transparent text-[16px] font-medium text-[#1a211c] outline-none placeholder:text-[#5c665f] lg:text-[17px]"
+              id="cta-search"
+              name="q"
+              placeholder={tSearch("placeholder")}
+              type="search"
+            />
+            <button
+              aria-label={tHero("searchSubmit")}
+              className="flex size-11 shrink-0 items-center justify-center rounded-full bg-[#2f6b4f] text-white transition-colors hover:bg-[#255940] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2f6b4f] lg:size-12"
+              type="submit"
+            >
+              <ArrowRight aria-hidden="true" className="size-[18px]" />
+            </button>
+          </form>
+          <div className="mt-4 flex flex-wrap gap-2.5 lg:mt-5 lg:gap-3">
+            <Link
+              className="inline-flex min-h-12 items-center gap-2 rounded-full bg-white pr-[22px] pl-6 text-[14.5px] font-medium text-[#0e1411] transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              href="/species"
+            >
+              {t("button")}
+              <ArrowRight aria-hidden="true" className="size-4" />
+            </Link>
+            <Link
+              className="inline-flex min-h-12 items-center rounded-full border border-white/30 px-6 text-[14.5px] font-medium text-white transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              href="/venomous-snakes"
+            >
+              {t("secondary")}
+            </Link>
+          </div>
         </div>
       </div>
     </section>

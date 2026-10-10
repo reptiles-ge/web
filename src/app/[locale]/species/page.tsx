@@ -17,6 +17,7 @@ import {
 import { getRegionTooltipPreviews } from "@/data/regions";
 import { getSpeciesById } from "@/data/species";
 import { getAtlasStats } from "@/data/speciesAtlas";
+import { images } from "@/data/speciesMedia";
 import { ATLAS_CLIENT_MESSAGE_NAMESPACES } from "@/i18n/clientMessages";
 import { georgiaPlaceName } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
@@ -33,7 +34,7 @@ import {
   siteEntityId,
   speciesOgImageUrl,
 } from "@/lib/site";
-import { pageDateFields } from "@/lib/structuredDataDates";
+import { atlasDateFields } from "@/lib/structuredDataDates";
 
 export async function generateMetadata({
   params,
@@ -76,7 +77,7 @@ export default async function SpeciesIndexPage({ params }: LocalePageProps) {
   const recent = getAtlasRecentItems(locale);
   const tooltipSpeciesByRegion = getRegionTooltipPreviews(locale);
   const stats = getAtlasStats();
-  const dates = pageDateFields("/species");
+  const dates = atlasDateFields();
 
   const breadcrumbLd = breadcrumbListLd([
     { item: localePageUrl(locale, "/"), name: t("breadcrumbHome") },
@@ -91,7 +92,6 @@ export default async function SpeciesIndexPage({ params }: LocalePageProps) {
       name: georgiaPlaceName(locale),
     },
     ...dates,
-    dateModified: stats.lastUpdated ?? dates.dateModified,
     description: t("metaDescription"),
     inLanguage: locale,
     isPartOf: { "@id": siteEntityId("website") },
@@ -114,14 +114,18 @@ export default async function SpeciesIndexPage({ params }: LocalePageProps) {
             <SpeciesAtlasFallback
               catalog={catalog}
               recent={recent}
+              regionCount={stats.regions}
               tooltipSpeciesByRegion={tooltipSpeciesByRegion}
+              venomousImage={images.hero}
             />
           }
         >
           <SpeciesAtlas
             catalog={catalog}
             recent={recent}
+            regionCount={stats.regions}
             tooltipSpeciesByRegion={tooltipSpeciesByRegion}
+            venomousImage={images.hero}
           />
         </Suspense>
         <AtlasSeo locale={locale} />

@@ -42,6 +42,45 @@ export function isSpeciesContentId(id: string) {
   return SPECIES_ID_RE.test(id);
 }
 
+function rewriteMdxIfExists(
+  filePath: string,
+  transform: (raw: string) => string,
+): undefined | { next: string; raw: string } {
+  let fd: number;
+  try {
+    fd = fs.openSync(filePath, fs.constants.O_RDWR | fs.constants.O_NOFOLLOW);
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code === "ENOENT") return;
+    throw error;
+  }
+  try {
+    if (!fs.fstatSync(fd).isFile()) {
+      throw new Error(`Not a regular file: ${filePath}`);
+    }
+    const raw = fs.readFileSync(fd, "utf8");
+    const next = transform(raw);
+    if (next !== raw) {
+      const bytes = Buffer.from(next, "utf8");
+      let offset = 0;
+      while (offset < bytes.length) {
+        const written = fs.writeSync(
+          fd,
+          bytes,
+          offset,
+          bytes.length - offset,
+          offset,
+        );
+        if (written === 0) throw new Error(`Failed to write ${filePath}`);
+        offset += written;
+      }
+      fs.ftruncateSync(fd, bytes.length);
+    }
+    return { next, raw };
+  } finally {
+    fs.closeSync(fd);
+  }
+}
+
 function speciesContentDir(id: string) {
   if (!isSpeciesContentId(id)) {
     throw new Error("Invalid species id");
@@ -59,14 +98,11 @@ export function appendFieldRecordToSpecies(
   repoRoot = process.cwd(),
 ) {
   const kaPath = path.join(repoRoot, "src/content/species", id, "ka.mdx");
-  if (!fs.existsSync(kaPath)) {
+  if (
+    !rewriteMdxIfExists(kaPath, (raw) => appendFieldRecordToMdx(raw, record))
+  ) {
     throw new Error(`Missing ${id}/ka.mdx`);
   }
-  fs.writeFileSync(
-    kaPath,
-    appendFieldRecordToMdx(fs.readFileSync(kaPath, "utf8"), record),
-    "utf8",
-  );
 }
 
 export function appendGalleryItemToMdx(
@@ -116,27 +152,18 @@ export function appendGalleryItemToSpecies(
 ) {
   const dir = path.join(repoRoot, "src/content/species", id);
   const kaPath = path.join(dir, "ka.mdx");
-  if (!fs.existsSync(kaPath)) {
+  if (
+    !rewriteMdxIfExists(kaPath, (raw) => appendGalleryItemToMdx(raw, kaItem))
+  ) {
     throw new Error(`Missing ${id}/ka.mdx`);
   }
-
-  fs.writeFileSync(
-    kaPath,
-    appendGalleryItemToMdx(fs.readFileSync(kaPath, "utf8"), kaItem),
-    "utf8",
-  );
 
   for (const locale of OVERLAY_LOCALES) {
     const overlay = overlays[locale];
     if (!overlay) continue;
     const filePath = path.join(dir, `${locale}.mdx`);
-    if (!fs.existsSync(filePath)) continue;
     if (creditsEqual(kaItem.credit, overlay.credit)) continue;
-    fs.writeFileSync(
-      filePath,
-      appendGalleryItemToMdx(fs.readFileSync(filePath, "utf8"), overlay),
-      "utf8",
-    );
+    rewriteMdxIfExists(filePath, (raw) => appendGalleryItemToMdx(raw, overlay));
   }
 }
 
@@ -283,68 +310,77 @@ export function removeGalleryItemFromSpecies(
   }
   const dir = path.join(repoRoot, "src/content/species", id);
   const kaPath = path.join(dir, "ka.mdx");
-  if (!fs.existsSync(kaPath)) {
+  const rewritten = rewriteMdxIfExists(kaPath, (raw) => {
+    const data = matter(raw).data as {
+      gallery?: unknown;
+      image?: unknown;
+      mobileImage?: unknown;
+    };
+    const gallery = normalizeGallery(data.gallery);
+    if (!gallery.some((item) => item.src === src)) {
+      throw new Error(`Unknown gallery src: ${src}`);
+    }
+    const replacement = galleryReplacement(gallery, src);
+    if (!replacement) {
+      throw new Error("Cannot delete the last gallery photo");
+    }
+    const coverTarget = coverTargetForSrc(
+      typeof data.image === "string" ? data.image : "",
+      typeof data.mobileImage === "string" ? data.mobileImage : "",
+      src,
+    );
+    const next = removeGalleryItemFromMdx(raw, src);
+    return coverTarget ? setCoverInMdx(next, coverTarget, replacement) : next;
+  });
+  if (!rewritten) {
     throw new Error(`Missing ${id}/ka.mdx`);
   }
-
-  const kaRaw = fs.readFileSync(kaPath, "utf8");
+  const { next: nextKa, raw: kaRaw } = rewritten;
   const kaData = matter(kaRaw).data as {
     gallery?: unknown;
     image?: unknown;
     mobileImage?: unknown;
   };
-  const gallery = normalizeGallery(kaData.gallery);
-  if (!gallery.some((item) => item.src === src)) {
-    throw new Error(`Unknown gallery src: ${src}`);
-  }
-  const replacement = galleryReplacement(gallery, src);
+  const replacement = galleryReplacement(normalizeGallery(kaData.gallery), src);
   if (!replacement) {
     throw new Error("Cannot delete the last gallery photo");
   }
-
-  const image = typeof kaData.image === "string" ? kaData.image : "";
-  const mobileImage =
-    typeof kaData.mobileImage === "string" ? kaData.mobileImage : "";
-  const coverTarget = coverTargetForSrc(image, mobileImage, src);
-
-  let nextKa = removeGalleryItemFromMdx(kaRaw, src);
-  if (coverTarget) {
-    nextKa = setCoverInMdx(nextKa, coverTarget, replacement);
-  }
-  fs.writeFileSync(kaPath, nextKa, "utf8");
+  const coverTarget = coverTargetForSrc(
+    typeof kaData.image === "string" ? kaData.image : "",
+    typeof kaData.mobileImage === "string" ? kaData.mobileImage : "",
+    src,
+  );
 
   for (const locale of OVERLAY_LOCALES) {
     const filePath = path.join(dir, `${locale}.mdx`);
-    if (!fs.existsSync(filePath)) continue;
-    const raw = fs.readFileSync(filePath, "utf8");
-    const parsed = matter(raw);
-    const overlayGallery = normalizeGallery(parsed.data.gallery);
-    let next = overlayGallery.some((item) => item.src === src)
-      ? removeGalleryItemFromMdx(raw, src)
-      : raw;
-    const overlayData = parsed.data as Record<string, unknown>;
-    const overlayTarget = coverTargetForSrc(
-      typeof overlayData.image === "string" ? overlayData.image : "",
-      typeof overlayData.mobileImage === "string"
-        ? overlayData.mobileImage
-        : "",
-      src,
-    );
-    if (overlayTarget && coverKeysPresent(overlayData, overlayTarget)) {
-      const overlayReplacement = normalizeGallery(
-        matter(next).data.gallery,
-      ).find((item) => item.src === replacement.src);
-      const item: GalleryImage = overlayReplacement?.credit
-        ? { credit: overlayReplacement.credit, src: replacement.src }
-        : { src: replacement.src };
-      next = setCoverInMdx(next, overlayTarget, item, false);
-    }
-    if (next !== raw) {
-      fs.writeFileSync(filePath, next, "utf8");
-    }
+    rewriteMdxIfExists(filePath, (raw) => {
+      const parsed = matter(raw);
+      const overlayGallery = normalizeGallery(parsed.data.gallery);
+      let next = overlayGallery.some((item) => item.src === src)
+        ? removeGalleryItemFromMdx(raw, src)
+        : raw;
+      const overlayData = parsed.data as Record<string, unknown>;
+      const overlayTarget = coverTargetForSrc(
+        typeof overlayData.image === "string" ? overlayData.image : "",
+        typeof overlayData.mobileImage === "string"
+          ? overlayData.mobileImage
+          : "",
+        src,
+      );
+      if (overlayTarget && coverKeysPresent(overlayData, overlayTarget)) {
+        const overlayReplacement = normalizeGallery(
+          matter(next).data.gallery,
+        ).find((item) => item.src === replacement.src);
+        const item: GalleryImage = overlayReplacement?.credit
+          ? { credit: overlayReplacement.credit, src: replacement.src }
+          : { src: replacement.src };
+        next = setCoverInMdx(next, overlayTarget, item, false);
+      }
+      return next;
+    });
   }
 
-  const written = matter(fs.readFileSync(kaPath, "utf8")).data as {
+  const written = matter(nextKa).data as {
     image?: unknown;
     mobileImage?: unknown;
   };
@@ -419,14 +455,11 @@ export function reorderGalleryInSpecies(
     throw new Error("Invalid species id");
   }
   const kaPath = path.join(repoRoot, "src/content/species", id, "ka.mdx");
-  if (!fs.existsSync(kaPath)) {
+  if (
+    !rewriteMdxIfExists(kaPath, (raw) => reorderGalleryInMdx(raw, orderedSrcs))
+  ) {
     throw new Error(`Missing ${id}/ka.mdx`);
   }
-  fs.writeFileSync(
-    kaPath,
-    reorderGalleryInMdx(fs.readFileSync(kaPath, "utf8"), orderedSrcs),
-    "utf8",
-  );
 }
 
 export function setCoverInMdx(
@@ -491,39 +524,35 @@ export function setCoverInSpecies(
   }
   const dir = path.join(repoRoot, "src/content/species", id);
   const kaPath = path.join(dir, "ka.mdx");
-  if (!fs.existsSync(kaPath)) {
+  if (
+    !rewriteMdxIfExists(kaPath, (kaRaw) => {
+      const kaItem = normalizeGallery(matter(kaRaw).data.gallery).find(
+        (item) => item.src === src,
+      );
+      if (!kaItem) {
+        throw new Error(`Unknown gallery src: ${src}`);
+      }
+      return setCoverInMdx(kaRaw, target, { ...kaItem, src: coverSrc });
+    })
+  ) {
     throw new Error(`Missing ${id}/ka.mdx`);
   }
-  const kaRaw = fs.readFileSync(kaPath, "utf8");
-  const kaItem = normalizeGallery(matter(kaRaw).data.gallery).find(
-    (item) => item.src === src,
-  );
-  if (!kaItem) {
-    throw new Error(`Unknown gallery src: ${src}`);
-  }
-  fs.writeFileSync(
-    kaPath,
-    setCoverInMdx(kaRaw, target, { ...kaItem, src: coverSrc }),
-    "utf8",
-  );
 
   for (const locale of OVERLAY_LOCALES) {
     const filePath = path.join(dir, `${locale}.mdx`);
-    if (!fs.existsSync(filePath)) continue;
-    const raw = fs.readFileSync(filePath, "utf8");
-    const parsed = matter(raw);
-    const overlay = normalizeGallery(parsed.data.gallery).find(
-      (item) => item.src === src,
-    );
-    const item: GalleryImage = overlay?.credit
-      ? { credit: overlay.credit, src: coverSrc }
-      : { src: coverSrc };
-    const hasKeys = coverKeysPresent(
-      parsed.data as Record<string, unknown>,
-      target,
-    );
-    if (!hasKeys) continue;
-    fs.writeFileSync(filePath, setCoverInMdx(raw, target, item, false), "utf8");
+    rewriteMdxIfExists(filePath, (raw) => {
+      const parsed = matter(raw);
+      if (!coverKeysPresent(parsed.data as Record<string, unknown>, target)) {
+        return raw;
+      }
+      const overlay = normalizeGallery(parsed.data.gallery).find(
+        (item) => item.src === src,
+      );
+      const item: GalleryImage = overlay?.credit
+        ? { credit: overlay.credit, src: coverSrc }
+        : { src: coverSrc };
+      return setCoverInMdx(raw, target, item, false);
+    });
   }
 }
 
@@ -613,18 +642,13 @@ export function updateGalleryPhotoCoordinatesInSpecies(
     throw new Error("Invalid species id");
   }
   const kaPath = path.join(repoRoot, "src/content/species", id, "ka.mdx");
-  if (!fs.existsSync(kaPath)) {
+  if (
+    !rewriteMdxIfExists(kaPath, (raw) =>
+      updateGalleryPhotoCoordinatesInMdx(raw, src, coordinates),
+    )
+  ) {
     throw new Error(`Missing ${id}/ka.mdx`);
   }
-  fs.writeFileSync(
-    kaPath,
-    updateGalleryPhotoCoordinatesInMdx(
-      fs.readFileSync(kaPath, "utf8"),
-      src,
-      coordinates,
-    ),
-    "utf8",
-  );
 }
 
 function appendFieldRecordToMdx(

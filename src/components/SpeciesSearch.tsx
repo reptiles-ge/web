@@ -25,6 +25,8 @@ import {
 import { SearchResultsList } from "@/components/SpeciesSearchResults";
 import { useRouter } from "@/i18n/navigation";
 import { trackEvent, truncateSearchTerm } from "@/lib/analytics";
+import { NAVBAR_SCROLL_OFFSET } from "@/lib/chromeStyles";
+import { cn } from "@/lib/cn";
 import { loadSearchDocuments } from "@/lib/loadSearchIndex";
 import {
   flattenGroups,
@@ -37,13 +39,27 @@ import {
   writeRecent,
 } from "@/lib/siteSearch";
 
+type SearchShortcutZone = "scrolled" | "top";
+
 type SpeciesSearchProps = {
-  variant?: "dark" | "light";
+  hidden?: boolean;
+  shortcut?: SearchShortcutZone;
+  variant?: "dark" | "hero" | "light";
 };
 
-export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
+const HERO_PANEL_HEIGHT = 480;
+const HERO_PANEL_MIN_HEIGHT = 340;
+const HERO_PANEL_MARGIN = 28;
+
+const openSearches = new Set<string>();
+
+export function SpeciesSearch({
+  hidden = false,
+  shortcut,
+  variant = "light",
+}: SpeciesSearchProps) {
   const t = useTranslations("search");
-  const search = useSpeciesSearch();
+  const search = useSpeciesSearch(shortcut);
   const {
     active,
     activeIndex,
@@ -71,7 +87,7 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
     suggestions,
     trimmed,
   } = search;
-  const isDark = variant === "dark";
+  const isHero = variant === "hero";
 
   const filterLabels = {
     all: t("all"),
@@ -107,14 +123,20 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
   };
 
   return (
-    <div className="relative shrink-0" ref={rootRef}>
+    <div
+      className={cn(
+        "relative",
+        isHero ? "w-full" : "shrink-0",
+        hidden && "hidden",
+      )}
+      ref={rootRef}
+    >
       <SpeciesSearchTrigger
         activeOptionId={
           open && active ? `${listId}-option-${active.key}` : undefined
         }
         clearLabel={t("clear")}
         inputRef={desktopInputRef}
-        isDark={isDark}
         listId={listId}
         modKey={modKey}
         onBlur={(next) => {
@@ -129,7 +151,10 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
           setOpen(true);
           desktopInputRef.current?.focus();
         }}
-        onFocus={() => openSearch("click")}
+        onFocus={() => {
+          if (isHero) fitHeroPanel(rootRef.current);
+          openSearch("click");
+        }}
         onKeyDown={(event) =>
           onSearchKeyDown(event, {
             activeIndex,
@@ -142,6 +167,13 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
           })
         }
         onMobileOpen={() => openSearch("mobile")}
+        onSubmit={() => {
+          if (open && trimmed && active) {
+            goTo(active);
+            return;
+          }
+          desktopInputRef.current?.focus();
+        }}
         open={open}
         openLabel={t("open")}
         placeholder={t("placeholder")}
@@ -151,7 +183,9 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
 
       <OverlayPanel
         closeLabel={t("close")}
-        desktopClassName="w-[min(26.75rem,calc(100vw-1.5rem))]"
+        desktopClassName={
+          isHero ? "left-0 w-full" : "w-[min(26.75rem,calc(100vw-1.5rem))]"
+        }
         desktopContent={
           <SearchDesktopPanel
             {...resultListProps}
@@ -213,6 +247,28 @@ export function SpeciesSearch({ variant = "light" }: SpeciesSearchProps) {
   );
 }
 
+function fitHeroPanel(root: HTMLDivElement | null) {
+  if (!root) return;
+  const space =
+    window.innerHeight -
+    root.getBoundingClientRect().bottom -
+    HERO_PANEL_MARGIN;
+  const height = Math.min(
+    HERO_PANEL_HEIGHT,
+    Math.max(HERO_PANEL_MIN_HEIGHT, space),
+  );
+  root.style.setProperty("--search-panel-max", `${height}px`);
+  if (space < height) {
+    window.scrollBy({ behavior: "smooth", top: height - space });
+  }
+}
+
+function inShortcutZone(zone: SearchShortcutZone | undefined) {
+  if (!zone) return true;
+  const atTop = window.scrollY <= NAVBAR_SCROLL_OFFSET;
+  return zone === "top" ? atTop : !atTop;
+}
+
 function onSearchKeyDown(
   event: ReactKeyboardEvent<HTMLInputElement>,
   {
@@ -269,7 +325,7 @@ function onSearchKeyDown(
   }
 }
 
-function useSpeciesSearch() {
+function useSpeciesSearch(shortcut?: SearchShortcutZone) {
   const locale = useLocale() as AppLocale;
   const t = useTranslations("search");
   const router = useRouter();
@@ -406,12 +462,22 @@ function useSpeciesSearch() {
   const openSearchRef = useRef(openSearch);
   const closeSearchRef = useRef(closeSearch);
   const openRef = useRef(open);
+  const shortcutRef = useRef(shortcut);
 
   useEffect(() => {
     openSearchRef.current = openSearch;
     closeSearchRef.current = closeSearch;
     openRef.current = open;
-  }, [openSearch, closeSearch, open]);
+    shortcutRef.current = shortcut;
+  }, [openSearch, closeSearch, open, shortcut]);
+
+  useEffect(() => {
+    if (!open) return;
+    openSearches.add(listId);
+    return () => {
+      openSearches.delete(listId);
+    };
+  }, [listId, open]);
 
   useEffect(() => {
     function onShortcut(event: globalThis.KeyboardEvent) {
@@ -421,11 +487,15 @@ function useSpeciesSearch() {
       ) {
         return;
       }
-      event.preventDefault();
       if (openRef.current) {
+        event.preventDefault();
         closeSearchRef.current();
         return;
       }
+      if (openSearches.size > 0 || !inShortcutZone(shortcutRef.current)) {
+        return;
+      }
+      event.preventDefault();
       openSearchRef.current("shortcut");
       const mobile = window.matchMedia("(max-width: 767px)").matches;
       window.requestAnimationFrame(() => {

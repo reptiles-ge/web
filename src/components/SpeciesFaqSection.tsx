@@ -10,6 +10,8 @@ import { type PageType } from "@/lib/analytics";
 import { georgianTanPhrase } from "@/lib/georgianGrammar";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 
+const FAQ_VISIBLE_COUNT = 5;
+
 type SpeciesFaqSectionProps = {
   entityId: string;
   items: SpeciesFaq[];
@@ -33,21 +35,21 @@ export async function SpeciesFaqSection({
   const faqName = locale === "ka" ? georgianTanPhrase(name) : name;
 
   return (
-    <section className="bg-background py-24 lg:py-32">
-      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <div className="grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-24">
-          <div>
+    <section className="bg-surface py-11 lg:py-20">
+      <div className="mx-auto max-w-[1440px] px-4 lg:px-[60px]">
+        <div className="grid gap-5 lg:grid-cols-[400px_minmax(0,1fr)] lg:gap-[72px]">
+          <div className="px-2 lg:px-0">
             <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
               {t("faq")}
             </p>
             <AnchoredHeading
               anchorLabel={t("anchorLink")}
-              className="mt-5 font-display text-display-title font-bold"
+              className="mt-3 font-display text-[28px] leading-[1.15] font-semibold tracking-[-0.012em] lg:mt-4 lg:text-[38px] lg:leading-[1.1]"
               id={SPECIES_SECTION_IDS.faq}
             >
               {t("faqTitle")}
             </AnchoredHeading>
-            <p className="mt-5 max-w-sm text-[15px] leading-relaxed text-muted-foreground">
+            <p className="mt-3 max-w-sm text-[15px] leading-[1.6] text-muted-foreground lg:mt-5">
               {t("faqIntroBefore")}
               {faqName}
               {t("faqIntroAfter")}
@@ -58,7 +60,11 @@ export async function SpeciesFaqSection({
             editable={locale === "ka" && isLocalAdminEnabled()}
             entityId={entityId}
             items={items}
+            moreLabel={t("faqMore", {
+              count: Math.max(items.length - FAQ_VISIBLE_COUNT, 0),
+            })}
             pageType={pageType}
+            visibleCount={FAQ_VISIBLE_COUNT}
           />
         </div>
       </div>

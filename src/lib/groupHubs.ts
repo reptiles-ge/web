@@ -90,10 +90,10 @@ export const GROUP_HUB_LIST = Object.values(GROUP_HUBS);
 export const GROUP_HUB_ILLUSTRATIONS: Record<GroupHubId, string> = {
   amphibians: "/images/home/groups/amphibians.jpg",
   birds: "/images/home/groups/birds.jpg",
-  insects: "/images/home/groups/insects.jpg",
+  insects: "/images/home/groups/insects-mantis.jpg",
   lizards: "/images/home/groups/lizards.jpg",
   mammals: "/images/home/groups/mammals.jpg",
-  scorpions: "/images/home/groups/scorpions.jpg",
+  scorpions: "/images/home/groups/scorpions-mesobuthus.jpg",
   snakes: "/images/home/groups/snakes.jpg",
   spiders: "/images/home/groups/spiders.jpg",
   turtles: "/images/home/groups/turtles.jpg",
