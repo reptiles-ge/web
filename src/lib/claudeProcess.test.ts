@@ -173,13 +173,16 @@ describe("Claude subprocess", () => {
     await settle(
       child,
       {
+        api_error_status: 429,
         is_error: true,
         result: "You're out of extra usage",
         subtype: "success",
       },
       1,
     );
-    await expect(pending).rejects.toThrow("You're out of extra usage");
+    await expect(pending).rejects.toThrow(
+      "Claude failed (HTTP 429): You're out of extra usage",
+    );
     await expect(fs.access(task.output)).rejects.toThrow();
   });
 

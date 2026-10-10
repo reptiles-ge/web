@@ -11,6 +11,7 @@ const WRITE_TOOLS = ["Edit", "Write", "Bash"];
 const MAX_STDOUT = 8_000_000;
 
 const claudeResultSchema = z.object({
+  api_error_status: z.number().nullable().optional(),
   duration_ms: z.number().optional(),
   is_error: z.boolean().optional(),
   num_turns: z.number().optional(),
@@ -92,7 +93,7 @@ export async function runClaudeProcess(
       if (parsed?.is_error || (parsed && parsed.subtype !== "success"))
         reject(
           new Error(
-            `Claude failed (${parsed.subtype ?? "error"}): ${(parsed.result ?? errorText).slice(-500)}`,
+            `Claude failed (${parsed.api_error_status ? `HTTP ${parsed.api_error_status}` : (parsed.subtype ?? "error")}): ${(parsed.result ?? errorText).slice(-500)}`,
           ),
         );
       else if (code === 0) resolve(output);
