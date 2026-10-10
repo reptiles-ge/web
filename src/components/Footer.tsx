@@ -245,7 +245,7 @@ export async function Footer({ locale, regions, venomous }: FooterProps) {
             © {new Date().getFullYear()} Reptiles. {t("rights")}
             {releaseVersion ? ` · ${releaseVersion}` : null}
           </span>
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
             <a
               aria-label={t("facebook")}
               className="inline-flex size-10 shrink-0 items-center justify-center rounded-full border border-border bg-card text-muted-foreground transition-colors hover:border-primary/35 hover:text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
