@@ -74,7 +74,7 @@ export async function AuthorPage({
             </span>
           </nav>
 
-          <div className="mt-7 lg:mt-10 lg:flex lg:items-stretch lg:gap-12">
+          <div className="mt-7 lg:mt-10 lg:flex lg:items-start lg:gap-12">
             <AuthorIdentity
               author={author}
               bio={bio}
