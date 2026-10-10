@@ -34,7 +34,7 @@ import {
   siteEntityId,
   speciesOgImageUrl,
 } from "@/lib/site";
-import { pageDateFields } from "@/lib/structuredDataDates";
+import { atlasDateFields } from "@/lib/structuredDataDates";
 
 export async function generateMetadata({
   params,
@@ -77,7 +77,7 @@ export default async function SpeciesIndexPage({ params }: LocalePageProps) {
   const recent = getAtlasRecentItems(locale);
   const tooltipSpeciesByRegion = getRegionTooltipPreviews(locale);
   const stats = getAtlasStats();
-  const dates = pageDateFields("/species");
+  const dates = atlasDateFields();
 
   const breadcrumbLd = breadcrumbListLd([
     { item: localePageUrl(locale, "/"), name: t("breadcrumbHome") },
@@ -92,7 +92,6 @@ export default async function SpeciesIndexPage({ params }: LocalePageProps) {
       name: georgiaPlaceName(locale),
     },
     ...dates,
-    dateModified: stats.lastUpdated ?? dates.dateModified,
     description: t("metaDescription"),
     inLanguage: locale,
     isPartOf: { "@id": siteEntityId("website") },

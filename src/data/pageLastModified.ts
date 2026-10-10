@@ -50,7 +50,7 @@ const SITEMAP_PATH_LAST_MODIFIED: Record<string, string> = {
   "/snakes/gvelis-nakbeni": "2026-09-25T19:32:55+04:00",
   "/snakes/saxeoebebi": "2026-09-16T13:37:00+04:00",
   "/snakes/shxamiani-gvelis-amocnoba": "2026-09-19T12:17:05+04:00",
-  "/species": "2026-09-16T13:59:00+04:00",
+  "/species": "2026-10-10T12:01:00+04:00",
   "/spiders": "2026-10-10T02:56:00+04:00",
   "/spiders/obobis-nakbeni": "2026-09-20T02:45:00+04:00",
   "/spiders/saxeoebebi": "2026-09-16T14:32:00+04:00",

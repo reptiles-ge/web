@@ -8,7 +8,18 @@ import {
   sitemapRegionDatePublished,
   sitemapRegionLastModified,
 } from "@/data/pageLastModified";
+import { getAtlasStats } from "@/data/speciesAtlas";
 import { formatContentDate } from "@/lib/formatDate";
+
+export function atlasDateFields(
+  lastSpeciesUpdate = getAtlasStats().lastUpdated,
+) {
+  const page = pageDateFields("/species");
+  return {
+    dateModified: laterDate(page.dateModified, lastSpeciesUpdate),
+    datePublished: page.datePublished,
+  };
+}
 
 export function authorDateFields(slug: string) {
   return {
@@ -52,4 +63,11 @@ export function regionDateFields(id: string) {
     dateModified: sitemapRegionLastModified(id),
     datePublished: sitemapRegionDatePublished(id),
   };
+}
+
+function laterDate(base: string, candidate: null | string | undefined) {
+  if (!candidate) return base;
+  const candidateTime = Date.parse(candidate);
+  if (Number.isNaN(candidateTime)) return base;
+  return candidateTime > Date.parse(base) ? candidate : base;
 }

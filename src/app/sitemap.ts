@@ -44,6 +44,7 @@ import {
   speciesPageImageUrls,
 } from "@/lib/sitemapImages";
 import { regionHref } from "@/lib/speciesRoutes";
+import { atlasDateFields } from "@/lib/structuredDataDates";
 
 const FALLBACK_LASTMOD = "2026-01-01T00:00:00+04:00";
 
@@ -76,7 +77,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       });
     }
     push(pageEntry(locale, "/authors"));
-    push(pageEntry(locale, "/species"));
+    push(pageEntry(locale, "/species", atlasDateFields().dateModified));
     push(pageEntry(locale, "/venomous-snakes"));
     push(pageEntry(locale, "/snakes-in-the-yard"));
     push(pageEntry(locale, "/risk-to-humans"));

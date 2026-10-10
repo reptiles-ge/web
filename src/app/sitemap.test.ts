@@ -25,6 +25,7 @@ vi.mock("@/i18n/navigation", () => ({
 
 import { getCatalogSpecies } from "@/data/species";
 import { routing } from "@/i18n/routing";
+import { atlasDateFields } from "@/lib/structuredDataDates";
 
 import sitemap from "./sitemap";
 
@@ -32,6 +33,16 @@ const entries = sitemap();
 const urls = entries.map((entry) => entry.url);
 
 describe("sitemap", () => {
+  it("dates every locale of the species atlas like its structured data", () => {
+    const atlas = entries.filter((entry) =>
+      /\/(?:(?:en|ru|tr)\/)?species$/.test(entry.url),
+    );
+    expect(atlas).toHaveLength(routing.locales.length);
+    for (const entry of atlas) {
+      expect(entry.lastModified).toBe(atlasDateFields().dateModified);
+    }
+  });
+
   it("has no duplicate URLs", () => {
     expect(new Set(urls).size).toBe(urls.length);
   });
