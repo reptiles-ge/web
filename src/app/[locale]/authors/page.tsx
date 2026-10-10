@@ -12,14 +12,15 @@ import { type AppLocale, routing } from "@/i18n/routing";
 import {
   creditAuthorIndexAlternates,
   creditAuthorIndexUrl,
-  creditAuthorPortraitImage,
   creditAuthorUrl,
   getCreditAuthorCards,
 } from "@/lib/creditAuthors";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import {
   absoluteUrl,
+  CDN_BASE,
   localePath,
+  OG_IMAGE_TYPE,
   organizationJsonLd,
   siteConfig,
   siteEntityId,
@@ -29,6 +30,8 @@ import { pageDateFields } from "@/lib/structuredDataDates";
 type Props = {
   params: Promise<{ locale: string }>;
 };
+
+const CONTRIBUTORS_OG_IMAGE_URL = `${CDN_BASE}/og/images/contributors.jpg`;
 
 const orgLd = {
   "@context": "https://schema.org",
@@ -114,25 +117,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     new URL(url).pathname,
     t("index.metaDescription"),
   );
-  const featured = getCreditAuthorCards()[0];
-  const portrait = featured
-    ? creditAuthorPortraitImage(featured.author)
-    : undefined;
-
   return {
     alternates: creditAuthorIndexAlternates(locale),
     description,
     openGraph: {
       description,
-      images: portrait
-        ? [
-            {
-              alt: title,
-              type: portrait.type,
-              url: portrait.url,
-            },
-          ]
-        : undefined,
+      images: [
+        {
+          alt: title,
+          height: 630,
+          type: OG_IMAGE_TYPE,
+          url: CONTRIBUTORS_OG_IMAGE_URL,
+          width: 1200,
+        },
+      ],
       locale: openGraphLocale(locale),
       siteName: siteConfig.name,
       title,
@@ -145,9 +143,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     title,
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       description,
-      images: portrait ? [portrait.url] : undefined,
+      images: [CONTRIBUTORS_OG_IMAGE_URL],
       title,
     },
   };

@@ -111,7 +111,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     aliases: ["Giorgi Iankoshvili", "გიორგი იანქოშვილი"],
     bio: {
       en: "Giorgi Iankoshvili is a Georgian researcher-ecologist and herpetologist. He is currently a researcher at the Institute of Ecology at Ilia State University and a doctoral student at the same university.",
-      ka: "გიორგი იანქოშვილი ქართველი მკვლევარი-ეკოლოგი და ჰერპეტოლოგია. ამჟამად ილიას სახელმწიფო უნივერსიტეტის ეკოლოგიის ინსტიტუტის მკვლევარია და ამავე უნივერსიტეტის დოქტორანტი.",
+      ka: "გიორგი იანქოშვილი არის ქართველი მკვლევარი-ეკოლოგი და ჰერპეტოლოგი. ამჟამად ილიას სახელმწიფო უნივერსიტეტის ეკოლოგიის ინსტიტუტის მკვლევარია და ამავე უნივერსიტეტის დოქტორანტი.",
       ru: "Гиорги Ианкошвили — грузинский исследователь-эколог и герпетолог. Сейчас он исследователь Института экологии Государственного университета Ильи и докторант того же университета.",
       tr: "Giorgi Iankoshvili Gürcü araştırmacı-ekolog ve herpetologdur. Şu anda Ilia Devlet Üniversitesi Ekoloji Enstitüsü’nde araştırmacı ve aynı üniversitede doktora öğrencisidir.",
     },
@@ -135,7 +135,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     aliases: ["Zakro Songulashvili", "ზაქრო სონღულაშვილი"],
     bio: {
       en: "Zakro Songulashvili is a Georgian researcher, naturalist, and photographer who is actively engaged in studying and documenting biodiversity in Georgia, especially herpetofauna (amphibians/reptiles) and arthropods.",
-      ka: "ზაქრო სონღულაშვილი არის ქართველი მკვლევარი, ნატურალისტი და ფოტოგრაფი, რომელიც აქტიურად არის დაკავებული საქართველოში ბიომრავალფეროვნების, განსაკუთრებით კი ქვეწარმავლებისა (ამფიბიები/რეპტილიები) და ფეხსახსრიანების შესწავლითა და დოკუმენტირებით.",
+      ka: "ზაქრო სონღულაშვილი არის ქართველი მკვლევარი, ნატურალისტი და ფოტოგრაფი, რომელიც აქტიურად არის დაკავებული საქართველოში ბიომრავალფეროვნების, განსაკუთრებით კი ჰერპეტოფაუნის (ამფიბიებისა და ქვეწარმავლების) და ფეხსახსრიანების შესწავლითა და დოკუმენტირებით.",
       ru: "Закро Сонгулашвили — грузинский исследователь, натуралист и фотограф, который активно занимается изучением и документированием биоразнообразия Грузии, особенно герпетофауны (амфибии/рептилии) и членистоногих.",
       tr: "Zakro Songulashvili Gürcü araştırmacı, natüralist ve fotoğrafçıdır; Gürcistan’da biyoçeşitliliği, özellikle herpetofaunayı (amfibiler/sürüngenler) ve eklembacaklıları incelemek ve belgelemekle aktif olarak uğraşır.",
     },
@@ -205,7 +205,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     aliases: ["Saba Todua", "საბა თოდუა"],
     bio: {
       en: "Saba Todua is an ecology student at Ilia State University and an amateur herpetologist.",
-      ka: "საბა თოდუა ილიას სახელმწიფო უნივერსიტეტის სტუდენტი. მოყვარული ჰერპეტოლოგი.",
+      ka: "საბა თოდუა ილიას სახელმწიფო უნივერსიტეტის ეკოლოგიის სტუდენტი და მოყვარული ჰერპეტოლოგია.",
       ru: "Саба Тодуа — студент-эколог Государственного университета Ильи и любитель-герпетолог.",
       tr: "Saba Todua, Ilia Devlet Üniversitesi’nde ekoloji öğrencisi ve amatör herpetologdur.",
     },
@@ -329,7 +329,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     aliases: ["Giorgi Sheklashvili", "გიორგი შეყლაშვილი", "გიორგი შეკლაშვილი"],
     bio: {
       en: "Giorgi Sheklashvili is a Georgian researcher in biology, a doctoral student at Ilia State University (ISU), and a researcher at the Institute of Zoology.",
-      ka: "გიორგი შეყლაშვილი ბიოლოგიის სფეროში არის ქართველი მკვლევარი, ილიას სახელმწიფო უნივერსიტეტის (ISU) დოქტორანტი და ზოოლოგიის ინსტიტუტის მეცნიერ-თანამშრომელი.",
+      ka: "გიორგი შეყლაშვილი ბიოლოგიის სფეროს ქართველი მკვლევარია — ილიას სახელმწიფო უნივერსიტეტის (ISU) დოქტორანტი და ზოოლოგიის ინსტიტუტის მეცნიერ-თანამშრომელი.",
       ru: "Гиорги Шеклашвили — грузинский исследователь в области биологии, докторант Государственного университета Ильи (ISU) и научный сотрудник Института зоологии.",
       tr: "Giorgi Sheklashvili, biyoloji alanında çalışan Gürcü bir araştırmacı, Ilia Devlet Üniversitesi (ISU) doktora öğrencisi ve Zooloji Enstitüsü araştırmacısıdır.",
     },
@@ -381,7 +381,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     aliases: ["Lasha Gogodze", "ლაშა გოგოძე"],
     bio: {
       en: "Lasha Gogodze is a graduate of the Georgian-American High School who took part in the iFest international conference in Tunisia and currently studies Biochemistry and Molecular Biology at Connecticut College in the United States.",
-      ka: "ლაშა გოგოძე, ქართულ-ამერიკული უმაღლესი სკოლის კურსდამთავრებული, რომელიც მონაწილეობდა ტუნისში გამართულ iFest საერთაშორისო კონფერენციაზე და ამჟამად სწავლობს აშშ-ში, Connecticut College-ში ბიოქიმიისა და მოლეკულური ბიოლოგიის მიმართულებით.",
+      ka: "ლაშა გოგოძე ქართულ-ამერიკული უმაღლესი სკოლის კურსდამთავრებულია. მონაწილეობდა ტუნისში გამართულ iFest საერთაშორისო კონფერენციაზე და ამჟამად სწავლობს აშშ-ში, Connecticut College-ში, ბიოქიმიისა და მოლეკულური ბიოლოგიის მიმართულებით.",
       ru: "Лаша Гогодзе — выпускник грузино-американской средней школы, участвовал в международной конференции iFest в Тунисе и сейчас изучает биохимию и молекулярную биологию в Connecticut College в США.",
       tr: "Lasha Gogodze, Gürcü-Amerikan Lisesi mezunudur; Tunus’taki iFest uluslararası konferansına katılmış ve şu anda ABD’de Connecticut College’da biyokimya ve moleküler biyoloji okumaktadır.",
     },
