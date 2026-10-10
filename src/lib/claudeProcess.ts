@@ -114,6 +114,7 @@ export async function runClaudeProcess(
     task.schema && result.structured_output !== undefined
       ? JSON.stringify(result.structured_output)
       : (result.result ?? ""),
+    { mode: 0o600 },
   );
   return {
     costUsd: result.total_cost_usd,

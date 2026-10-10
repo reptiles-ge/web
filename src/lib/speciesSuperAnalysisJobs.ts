@@ -118,8 +118,8 @@ async function notifyResult(job: SuperAnalysisJob) {
 }
 
 async function save(job: SuperAnalysisJob) {
-  await fs.mkdir(directory, { recursive: true });
+  await fs.mkdir(directory, { mode: 0o700, recursive: true });
   const file = path.join(directory, `${job.speciesId}.json`);
-  await fs.writeFile(`${file}.tmp`, JSON.stringify(job));
+  await fs.writeFile(`${file}.tmp`, JSON.stringify(job), { mode: 0o600 });
   await fs.rename(`${file}.tmp`, file);
 }
