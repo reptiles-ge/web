@@ -13,7 +13,6 @@ import { ANIMAL_GROUP_TO_HUB, GROUP_HUB_ILLUSTRATIONS } from "@/lib/groupHubs";
 type AtlasTilesProps = {
   filters: AtlasFilters;
   groupTotals: Record<"all" | AnimalGroup, number>;
-  onPickAll: () => void;
   onPickGroup: (group: AnimalGroup) => void;
   onPickRegion: () => void;
   onPickVenomous: () => void;
@@ -28,7 +27,6 @@ const TILE_CLASS_NAME =
 export function AtlasTiles({
   filters,
   groupTotals,
-  onPickAll,
   onPickGroup,
   onPickRegion,
   onPickVenomous,
@@ -40,28 +38,8 @@ export function AtlasTiles({
   const groups = GROUP_OPTIONS.filter(
     (group): group is AnimalGroup => group !== "all" && groupTotals[group] > 0,
   );
-  const allActive =
-    filters.group === "all" &&
-    filters.danger === "all" &&
-    filters.habitat === "all" &&
-    filters.region === "all" &&
-    !filters.query.trim();
-
   return (
     <div className="no-scrollbar -mx-5 mt-5 flex gap-2.5 overflow-x-auto px-5 py-1 lg:mx-0 lg:mt-9 lg:grid lg:grid-cols-6 lg:gap-3 lg:overflow-visible lg:px-0 lg:pt-0">
-      <button
-        aria-pressed={allActive}
-        className={cn(TILE_CLASS_NAME, "bg-primary max-lg:hidden")}
-        onClick={onPickAll}
-        type="button"
-      >
-        <TileImage
-          opacityClassName="opacity-35"
-          src={GROUP_HUB_ILLUSTRATIONS.snakes}
-        />
-        <TileLabel count={groupTotals.all} label={t("filters.allSpecies")} />
-      </button>
-
       {groups.map((group) => {
         const active = filters.group === group;
         return (
@@ -77,8 +55,8 @@ export function AtlasTiles({
             type="button"
           >
             <TileImage
-              opacityClassName="opacity-75 lg:opacity-[0.72] lg:group-hover:opacity-85"
               src={GROUP_HUB_ILLUSTRATIONS[ANIMAL_GROUP_TO_HUB[group]]}
+              tintClassName="bg-[#151c18]/25 lg:bg-[#151c18]/28 lg:group-hover:bg-[#151c18]/15"
             />
             <TileLabel
               count={groupTotals[group]}
@@ -98,7 +76,7 @@ export function AtlasTiles({
         onClick={onPickVenomous}
         type="button"
       >
-        <TileImage opacityClassName="opacity-45" src={venomousImage} />
+        <TileImage src={venomousImage} tintClassName="bg-[#7d2f25]/55" />
         <TileLabel count={venomousCount} label={t("danger.venomous")} />
       </button>
 
@@ -106,7 +84,7 @@ export function AtlasTiles({
         aria-haspopup="listbox"
         className={cn(
           TILE_CLASS_NAME,
-          "bg-surface text-foreground max-lg:hidden",
+          "bg-surface text-foreground max-lg:hidden lg:col-span-2",
         )}
         onClick={onPickRegion}
         type="button"
@@ -123,11 +101,11 @@ export function AtlasTiles({
 }
 
 function TileImage({
-  opacityClassName,
   src,
+  tintClassName,
 }: {
-  opacityClassName: string;
   src: string;
+  tintClassName: string;
 }) {
   return (
     <>
@@ -135,11 +113,17 @@ function TileImage({
         alt=""
         aria-hidden
         className={cn(
-          "object-cover transition-[transform,opacity] duration-500 motion-reduce:transition-none lg:group-hover:scale-[1.06]",
-          opacityClassName,
+          "object-cover transition-transform duration-500 motion-reduce:transition-none lg:group-hover:scale-[1.06]",
         )}
         sizes="(max-width: 1023px) 132px, 220px"
         src={src}
+      />
+      <span
+        aria-hidden="true"
+        className={cn(
+          "absolute inset-0 transition-colors duration-300 motion-reduce:transition-none",
+          tintClassName,
+        )}
       />
       <span
         aria-hidden="true"
