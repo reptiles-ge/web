@@ -56,12 +56,7 @@ export function AtlasSpeciesGrid({
       >
         {visible.map((item, index) => (
           <li key={item.id}>
-            <AtlasSpeciesCard
-              eager={index < 4}
-              index={index}
-              locale={locale}
-              species={item}
-            />
+            <AtlasSpeciesCard index={index} locale={locale} species={item} />
           </li>
         ))}
       </ul>

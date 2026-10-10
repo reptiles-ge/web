@@ -34,7 +34,7 @@ export function RiskSegment({
           <button
             aria-checked={active}
             className={cn(
-              "rounded-full font-medium whitespace-nowrap transition-colors",
+              "tap-target rounded-full font-medium whitespace-nowrap transition-colors",
               compact ? "h-9 px-3.5 text-[13px]" : "h-11 flex-1 text-[14px]",
               active && danger === "venomous"
                 ? "bg-destructive text-white shadow-[0_1px_3px_rgba(14,20,17,0.12)]"

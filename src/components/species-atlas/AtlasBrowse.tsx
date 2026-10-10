@@ -2,8 +2,6 @@
 
 import {
   ArrowDownWideNarrow,
-  Check,
-  ChevronDown,
   LayoutGrid,
   List,
   MapPin,
@@ -16,6 +14,7 @@ import { type ReactNode, useId, useMemo, useState } from "react";
 
 import type { AppLocale } from "@/i18n/routing";
 
+import { AtlasDropdown } from "@/components/species-atlas/AtlasDropdown";
 import { AtlasFilterSheet } from "@/components/species-atlas/AtlasFilterSheet";
 import {
   GROUP_OPTIONS,
@@ -57,8 +56,6 @@ type AtlasBrowseProps = {
   sort: AtlasSort;
   view: AtlasView;
 };
-
-type DropdownOption = { count?: number; id: string; label: string };
 
 type FilterToken = { clear: () => void; key: string; label: string };
 
@@ -182,7 +179,7 @@ export function AtlasBrowse({
               {filters.query ? (
                 <button
                   aria-label={t("clearSearch")}
-                  className="flex size-[38px] shrink-0 items-center justify-center rounded-full bg-secondary text-muted-foreground transition-colors hover:text-foreground lg:size-9 lg:bg-card"
+                  className="tap-target flex size-[38px] shrink-0 items-center justify-center rounded-full bg-secondary text-muted-foreground transition-colors hover:text-foreground lg:size-9 lg:bg-card"
                   onClick={() => onUpdateFilter("query", "")}
                   type="button"
                 >
@@ -263,7 +260,7 @@ export function AtlasBrowse({
                 <button
                   aria-pressed={active}
                   className={cn(
-                    "inline-flex h-10 shrink-0 items-center gap-1.5 rounded-full px-3.5 text-[14px] font-medium whitespace-nowrap transition-colors lg:gap-[7px] lg:px-[15px]",
+                    "inline-flex h-11 shrink-0 items-center gap-1.5 rounded-full px-3.5 text-[14px] font-medium whitespace-nowrap transition-colors lg:gap-[7px] lg:px-[15px]",
                     active
                       ? "bg-foreground text-background"
                       : "bg-card text-foreground shadow-[0_1px_2px_rgba(14,20,17,0.05)] hover:bg-secondary lg:bg-transparent lg:shadow-none",
@@ -312,7 +309,7 @@ export function AtlasBrowse({
                     <button
                       aria-pressed={active}
                       className={cn(
-                        "inline-flex h-[38px] items-center gap-[7px] rounded-full border px-3.5 text-[13px] font-medium whitespace-nowrap transition-colors",
+                        "tap-target inline-flex h-[38px] items-center gap-[7px] rounded-full border px-3.5 text-[13px] font-medium whitespace-nowrap transition-colors",
                         active
                           ? "border-primary bg-secondary text-primary"
                           : "border-border bg-card text-foreground hover:border-primary/40",
@@ -358,7 +355,7 @@ export function AtlasBrowse({
           ) : null}
           <button
             aria-label={`${t("sortLabel")}: ${t(`sort.${sort}`)}`}
-            className="inline-flex h-10 items-center gap-1.5 rounded-full bg-card px-3 text-[13px] font-medium text-foreground lg:hidden"
+            className="inline-flex h-11 items-center gap-1.5 rounded-full bg-card px-3.5 text-[13px] font-medium text-foreground lg:hidden"
             onClick={() =>
               onChangeSort(
                 ATLAS_SORT_OPTIONS[
@@ -377,12 +374,12 @@ export function AtlasBrowse({
         </div>
 
         {tokens.length > 0 ? (
-          <div className="no-scrollbar mt-2.5 flex gap-1.5 overflow-x-auto px-5 lg:hidden">
+          <div className="no-scrollbar mt-1 flex gap-1.5 overflow-x-auto px-5 py-1.5 lg:hidden">
             {tokens.map((token) => (
               <TokenButton key={token.key} token={token} />
             ))}
             <button
-              className="h-[34px] shrink-0 px-2.5 text-[13px] font-medium text-primary"
+              className="tap-target h-[34px] shrink-0 px-2.5 text-[13px] font-medium text-primary"
               onClick={onResetFilters}
               type="button"
             >
@@ -409,148 +406,6 @@ export function AtlasBrowse({
         </div>
       </div>
     </section>
-  );
-}
-
-function AtlasDropdown({
-  alignRight = false,
-  icon,
-  label,
-  minWidthClassName,
-  onChange,
-  onOpenChange,
-  open,
-  options,
-  value,
-  widthClassName,
-}: {
-  alignRight?: boolean;
-  icon: ReactNode;
-  label: string;
-  minWidthClassName?: string;
-  onChange: (value: string) => void;
-  onOpenChange: (open: boolean) => void;
-  open: boolean;
-  options: DropdownOption[];
-  value: string;
-  widthClassName?: string;
-}) {
-  const listId = useId();
-  const selected = options.find((option) => option.id === value) ?? options[0];
-
-  return (
-    <div
-      className="relative"
-      onBlur={(event) => {
-        if (!event.currentTarget.contains(event.relatedTarget)) {
-          onOpenChange(false);
-        }
-      }}
-      onKeyDown={(event) => {
-        if (event.key === "Escape") onOpenChange(false);
-      }}
-    >
-      <button
-        aria-controls={open ? listId : undefined}
-        aria-expanded={open}
-        aria-haspopup="listbox"
-        aria-label={`${label}: ${selected?.label ?? ""}`}
-        className={cn(
-          "inline-flex h-12 items-center justify-between gap-2.5 rounded-full border border-secondary bg-card px-4 text-[14px] font-medium whitespace-nowrap text-foreground transition-colors hover:border-primary/35",
-          minWidthClassName,
-        )}
-        onClick={() => onOpenChange(!open)}
-        type="button"
-      >
-        <span className="inline-flex items-center gap-2">
-          {icon}
-          {selected?.label}
-        </span>
-        <ChevronDown
-          aria-hidden="true"
-          className={cn(
-            "size-3.5 text-muted-foreground transition-transform",
-            open && "rotate-180",
-          )}
-        />
-      </button>
-      {open ? (
-        <DropdownMenu
-          alignRight={alignRight}
-          id={listId}
-          label={label}
-          onPick={(id) => {
-            onChange(id);
-            onOpenChange(false);
-          }}
-          options={options}
-          value={value}
-          {...(widthClassName ? { widthClassName } : {})}
-        />
-      ) : null}
-    </div>
-  );
-}
-
-function DropdownMenu({
-  alignRight = false,
-  id,
-  label,
-  onPick,
-  options,
-  value,
-  widthClassName = "w-[260px]",
-}: {
-  alignRight?: boolean;
-  id: string;
-  label: string;
-  onPick: (id: string) => void;
-  options: DropdownOption[];
-  value: string;
-  widthClassName?: string;
-}) {
-  return (
-    <div
-      aria-label={label}
-      className={cn(
-        "absolute top-14 z-30 max-h-[360px] overflow-y-auto rounded-[20px] bg-card p-1.5 shadow-[0_0_0_1px_rgba(14,20,17,0.06),0_24px_60px_rgba(14,20,17,0.2)]",
-        alignRight ? "right-0" : "left-0",
-        widthClassName,
-      )}
-      id={id}
-      role="listbox"
-    >
-      {options.map((option) => {
-        const active = option.id === value;
-        return (
-          <button
-            aria-selected={active}
-            className={cn(
-              "flex min-h-10 w-full items-center gap-2.5 rounded-xl px-3 text-left text-[14px] text-foreground transition-colors hover:bg-background",
-              active && "font-semibold",
-            )}
-            key={option.id}
-            onClick={() => onPick(option.id)}
-            role="option"
-            type="button"
-          >
-            <Check
-              aria-hidden="true"
-              className={cn(
-                "size-4 shrink-0 text-primary",
-                active ? "opacity-100" : "opacity-0",
-              )}
-            />
-            <span className="min-w-0 flex-1 truncate">{option.label}</span>
-            {option.count !== undefined ? (
-              <span className="text-[12px] text-muted-foreground tabular-nums">
-                {option.count}
-              </span>
-            ) : null}
-          </button>
-        );
-      })}
-    </div>
   );
 }
 
@@ -647,7 +502,7 @@ function TokenButton({ token }: { token: FilterToken }) {
   return (
     <button
       aria-label={t("removeFilter", { label: token.label })}
-      className="inline-flex h-[34px] shrink-0 items-center gap-1.5 rounded-full bg-foreground pr-1.5 pl-3 text-[13px] font-medium whitespace-nowrap text-background lg:h-8 lg:pr-2 lg:text-[12.5px]"
+      className="tap-target inline-flex h-[34px] shrink-0 items-center gap-1.5 rounded-full bg-foreground pr-1.5 pl-3 text-[13px] font-medium whitespace-nowrap text-background lg:h-8 lg:pr-2 lg:text-[12.5px]"
       onClick={token.clear}
       type="button"
     >
@@ -675,7 +530,7 @@ function ViewButton({
       aria-label={label}
       aria-pressed={active}
       className={cn(
-        "flex size-10 items-center justify-center rounded-full transition-colors",
+        "tap-target flex size-10 items-center justify-center rounded-full transition-colors",
         active
           ? "bg-card text-foreground shadow-[0_1px_3px_rgba(14,20,17,0.12)]"
           : "text-muted-foreground hover:text-foreground",

@@ -1,14 +1,20 @@
 "use client";
 
-import { MapPin } from "lucide-react";
+import { ArrowUpRight, MapPin } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { Fragment } from "react";
 
 import { CoverImage } from "@/components/CoverImage";
 import { GROUP_OPTIONS } from "@/components/species-atlas/atlasOptions";
 import { type AtlasFilters } from "@/data/atlasFilters";
 import { type AnimalGroup } from "@/data/speciesAtlasMeta";
+import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
-import { ANIMAL_GROUP_TO_HUB, GROUP_HUB_ILLUSTRATIONS } from "@/lib/groupHubs";
+import {
+  ANIMAL_GROUP_TO_HUB,
+  GROUP_HUB_ILLUSTRATIONS,
+  GROUP_HUBS,
+} from "@/lib/groupHubs";
 
 type AtlasTilesProps = {
   filters: AtlasFilters;
@@ -38,65 +44,100 @@ export function AtlasTiles({
   const groups = GROUP_OPTIONS.filter(
     (group): group is AnimalGroup => group !== "all" && groupTotals[group] > 0,
   );
+  const venomousTile = (className: string) => (
+    <button
+      aria-pressed={filters.danger === "venomous"}
+      className={cn(
+        TILE_CLASS_NAME,
+        "bg-[#7d2f25]",
+        filters.danger === "venomous" && "ring-3 ring-destructive",
+        className,
+      )}
+      onClick={onPickVenomous}
+      type="button"
+    >
+      <TileImage src={venomousImage} tintClassName="bg-[#7d2f25]/55" />
+      <TileLabel count={venomousCount} label={t("danger.venomous")} />
+    </button>
+  );
+
   return (
-    <div className="no-scrollbar -mx-5 mt-5 flex gap-2.5 overflow-x-auto px-5 py-1 lg:mx-0 lg:mt-9 lg:grid lg:grid-cols-6 lg:gap-3 lg:overflow-visible lg:px-0 lg:pt-0">
-      {groups.map((group) => {
-        const active = filters.group === group;
-        return (
-          <button
-            aria-pressed={active}
-            className={cn(
-              TILE_CLASS_NAME,
-              "bg-[#151c18]",
-              active && "ring-3 ring-primary",
-            )}
-            key={group}
-            onClick={() => onPickGroup(group)}
-            type="button"
-          >
-            <TileImage
-              src={GROUP_HUB_ILLUSTRATIONS[ANIMAL_GROUP_TO_HUB[group]]}
-              tintClassName="bg-[#151c18]/25 lg:bg-[#151c18]/28 lg:group-hover:bg-[#151c18]/15"
-            />
-            <TileLabel
-              count={groupTotals[group]}
-              label={t(`groups.${group}`)}
-            />
-          </button>
-        );
-      })}
+    <>
+      <div className="no-scrollbar -mx-5 mt-5 flex gap-2.5 overflow-x-auto px-5 py-1 lg:mx-0 lg:mt-9 lg:grid lg:grid-cols-6 lg:gap-3 lg:overflow-visible lg:px-0 lg:pt-0">
+        {groups.map((group, index) => {
+          const active = filters.group === group;
+          return (
+            <Fragment key={group}>
+              <button
+                aria-pressed={active}
+                className={cn(
+                  TILE_CLASS_NAME,
+                  "bg-[#151c18]",
+                  active && "ring-3 ring-primary",
+                )}
+                onClick={() => onPickGroup(group)}
+                type="button"
+              >
+                <TileImage
+                  src={GROUP_HUB_ILLUSTRATIONS[ANIMAL_GROUP_TO_HUB[group]]}
+                  tintClassName="bg-[#151c18]/25 lg:bg-[#151c18]/28 lg:group-hover:bg-[#151c18]/15"
+                />
+                <TileLabel
+                  count={groupTotals[group]}
+                  label={t(`groups.${group}`)}
+                />
+              </button>
+              {index === 0 ? venomousTile("lg:hidden") : null}
+            </Fragment>
+          );
+        })}
 
-      <button
-        aria-pressed={filters.danger === "venomous"}
-        className={cn(
-          TILE_CLASS_NAME,
-          "bg-[#7d2f25]",
-          filters.danger === "venomous" && "ring-3 ring-destructive",
-        )}
-        onClick={onPickVenomous}
-        type="button"
-      >
-        <TileImage src={venomousImage} tintClassName="bg-[#7d2f25]/55" />
-        <TileLabel count={venomousCount} label={t("danger.venomous")} />
-      </button>
+        {venomousTile("max-lg:hidden")}
 
-      <button
-        aria-haspopup="listbox"
-        className={cn(
-          TILE_CLASS_NAME,
-          "bg-surface text-foreground max-lg:hidden lg:col-span-2",
-        )}
-        onClick={onPickRegion}
-        type="button"
+        <button
+          className={cn(
+            TILE_CLASS_NAME,
+            "bg-surface text-foreground lg:col-span-2",
+          )}
+          onClick={onPickRegion}
+          type="button"
+        >
+          <MapPin
+            aria-hidden="true"
+            className="absolute top-3 right-3 size-9 text-primary/25 lg:top-3.5 lg:right-4 lg:size-12"
+            strokeWidth={1.5}
+          />
+          <TileLabel count={regionCount} label={t("filters.region")} plain />
+        </button>
+      </div>
+
+      <nav
+        aria-label={t("hubLinksLabel")}
+        className="mt-3 flex items-center gap-x-4 lg:mt-4"
       >
-        <MapPin
-          aria-hidden="true"
-          className="absolute top-3.5 right-4 size-12 text-primary/25"
-          strokeWidth={1.5}
-        />
-        <TileLabel count={regionCount} label={t("filters.region")} plain />
-      </button>
-    </div>
+        <span className="hidden shrink-0 text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase lg:inline">
+          {t("hubLinksLabel")}
+        </span>
+        <ul className="no-scrollbar -mx-5 flex min-w-0 flex-1 gap-x-4 overflow-x-auto px-5 lg:mx-0 lg:flex-wrap lg:gap-x-5 lg:overflow-visible lg:px-0">
+          {groups.map((group) => (
+            <li className="shrink-0" key={group}>
+              <Link
+                className="group/hub inline-flex min-h-11 items-center gap-1 text-[14px] font-medium whitespace-nowrap text-foreground/80 transition-colors hover:text-primary"
+                href={GROUP_HUBS[ANIMAL_GROUP_TO_HUB[group]].path}
+              >
+                <span className="border-b border-foreground/25 pb-px transition-colors group-hover/hub:border-primary">
+                  {t(`groups.${group}`)}
+                </span>
+                <ArrowUpRight
+                  aria-hidden="true"
+                  className="size-3.5 opacity-60"
+                />
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </>
   );
 }
 
