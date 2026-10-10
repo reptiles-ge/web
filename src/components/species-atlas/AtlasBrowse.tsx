@@ -1,92 +1,177 @@
 "use client";
 
-import { Check, ChevronDown, Search, X } from "lucide-react";
+import {
+  ArrowDownWideNarrow,
+  Check,
+  ChevronDown,
+  LayoutGrid,
+  List,
+  MapPin,
+  Search,
+  SlidersHorizontal,
+  X,
+} from "lucide-react";
 import { useTranslations } from "next-intl";
-import { useId, useMemo, useState } from "react";
+import { type ReactNode, useId, useMemo, useState } from "react";
 
 import type { AppLocale } from "@/i18n/routing";
 
+import { AtlasFilterSheet } from "@/components/species-atlas/AtlasFilterSheet";
 import {
-  AtlasFilterButton,
-  AtlasFilterSheet,
-} from "@/components/species-atlas/AtlasFilterSheet";
-import {
-  DANGER_OPTIONS,
   GROUP_OPTIONS,
   HABITAT_OPTIONS,
 } from "@/components/species-atlas/atlasOptions";
 import { AtlasSpeciesGrid } from "@/components/species-atlas/AtlasSpeciesGrid";
-import { type AtlasFilters } from "@/data/atlasFilters";
+import { HabitatIcon } from "@/components/species-atlas/HabitatIcon";
+import { RiskSegment } from "@/components/species-atlas/RiskSegment";
+import {
+  ATLAS_SORT_OPTIONS,
+  type AtlasFilters,
+  type AtlasSort,
+  type AtlasView,
+  countAtlasSpecies,
+} from "@/data/atlasFilters";
 import { localizeRegionText, regions } from "@/data/mapRegions";
-import { type AnimalGroup } from "@/data/speciesAtlasMeta";
+import { type HabitatTag } from "@/data/speciesAtlasMeta";
 import { type SpeciesListItem } from "@/data/speciesListItem";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
 
 type AtlasBrowseProps = {
+  catalog: SpeciesListItem[];
   facetCount: number;
   filtered: SpeciesListItem[];
   filterOpen: boolean;
   filters: AtlasFilters;
-  groupCounts: Record<"all" | AnimalGroup, number>;
   hasActiveFilters: boolean;
   locale: AppLocale;
   onApplyFilters: (next: AtlasFilters) => void;
+  onChangeSort: (sort: AtlasSort) => void;
+  onChangeView: (view: AtlasView) => void;
   onCloseFilters: () => void;
   onOpenFilters: () => void;
+  onRegionMenuChange: (open: boolean) => void;
   onResetFilters: () => void;
-  onUpdateFilter: <K extends keyof AtlasFilters>(
-    key: K,
-    value: AtlasFilters[K],
-  ) => void;
+  onUpdateFilter: UpdateFilter;
+  regionMenuOpen: boolean;
+  sort: AtlasSort;
+  view: AtlasView;
 };
 
+type DropdownOption = { count?: number; id: string; label: string };
+
+type FilterToken = { clear: () => void; key: string; label: string };
+
+type UpdateFilter = <K extends keyof AtlasFilters>(
+  key: K,
+  value: AtlasFilters[K],
+) => void;
+
 export function AtlasBrowse({
+  catalog,
   facetCount,
   filtered,
   filterOpen,
   filters,
-  groupCounts,
   hasActiveFilters,
   locale,
   onApplyFilters,
+  onChangeSort,
+  onChangeView,
   onCloseFilters,
   onOpenFilters,
+  onRegionMenuChange,
   onResetFilters,
   onUpdateFilter,
+  regionMenuOpen,
+  sort,
+  view,
 }: AtlasBrowseProps) {
   const t = useTranslations("speciesAtlas");
+  const searchId = useId();
+
+  const regionOptions = useMemo(
+    () => [
+      {
+        count: countAtlasSpecies(catalog, filters, "region", "all"),
+        id: "all",
+        label: t("filters.allRegions"),
+      },
+      ...regions.map((region) => ({
+        count: countAtlasSpecies(catalog, filters, "region", region.id),
+        id: region.id,
+        label: localizeRegionText(region.name, locale),
+      })),
+    ],
+    [catalog, filters, locale, t],
+  );
+
+  const tokens: FilterToken[] = [];
+  if (filters.group !== "all") {
+    tokens.push({
+      clear: () => onUpdateFilter("group", "all"),
+      key: "group",
+      label: t(`groups.${filters.group}`),
+    });
+  }
+  if (filters.danger !== "all") {
+    tokens.push({
+      clear: () => onUpdateFilter("danger", "all"),
+      key: "danger",
+      label: t(`danger.${filters.danger}`),
+    });
+  }
+  if (filters.habitat !== "all") {
+    tokens.push({
+      clear: () => onUpdateFilter("habitat", "all"),
+      key: "habitat",
+      label: t(`habitats.${filters.habitat}`),
+    });
+  }
+  if (filters.region !== "all") {
+    tokens.push({
+      clear: () => onUpdateFilter("region", "all"),
+      key: "region",
+      label:
+        regionOptions.find((option) => option.id === filters.region)?.label ??
+        filters.region,
+    });
+  }
+  if (filters.query.trim()) {
+    tokens.push({
+      clear: () => onUpdateFilter("query", ""),
+      key: "query",
+      label: `„${filters.query.trim()}“`,
+    });
+  }
+
+  const sortIndex = ATLAS_SORT_OPTIONS.indexOf(sort);
 
   return (
     <section
-      className="border-b border-border bg-background py-16 lg:py-24"
+      className="scroll-mt-24 bg-background pb-10 lg:pb-24"
       id="explorer"
     >
-      <div className="mx-auto max-w-350 px-6 lg:px-10">
-        <div>
-          <div className="max-w-2xl">
-            <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
-              {t("explorerEyebrow")}
-            </p>
-            <h2 className="mt-4 font-display text-display-title font-semibold text-foreground">
-              {t("explorerTitle")}
-            </h2>
-            <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
-              {t("explorerSubtitle")}
-            </p>
-          </div>
-        </div>
-
-        <div className="mt-10 lg:mt-12">
-          <div className="flex items-center gap-3">
-            <label className="relative min-w-0 flex-1">
-              <span className="sr-only">{t("searchPlaceholder")}</span>
+      <div className="mx-auto max-w-[1440px] lg:px-[60px]">
+        <h2 className="sr-only">{t("explorerTitle")}</h2>
+        <div className="relative z-5 lg:rounded-[30px] lg:bg-card lg:px-[18px] lg:pt-[18px] lg:pb-3.5 lg:shadow-[0_1px_2px_rgba(14,20,17,0.04),0_16px_40px_rgba(14,20,17,0.06)]">
+          <div className="flex items-center gap-2 px-5 lg:gap-2.5 lg:px-0">
+            <div
+              className="flex h-[50px] min-w-0 flex-1 items-center gap-2.5 rounded-full bg-card pr-1.5 pl-4 shadow-[0_1px_2px_rgba(14,20,17,0.05)] lg:h-[52px] lg:gap-3 lg:bg-background lg:pr-2 lg:pl-[18px] lg:shadow-none"
+              role="search"
+            >
               <Search
                 aria-hidden="true"
-                className="pointer-events-none absolute top-1/2 left-0 size-4 -translate-y-1/2 text-muted-foreground md:left-0"
+                className="size-[17px] shrink-0 text-muted-foreground lg:size-[18px]"
               />
+              <label className="sr-only" htmlFor={searchId}>
+                {t("searchPlaceholder")}
+              </label>
               <input
-                className="w-full border-0 border-b border-border bg-transparent py-3 pr-8 pl-7 text-[15px] text-foreground transition-[border-color] outline-none placeholder:text-muted-foreground/70 focus:border-foreground"
+                autoComplete="off"
+                className="h-full min-w-0 flex-1 appearance-none bg-transparent text-[16px] font-medium text-foreground outline-none placeholder:text-muted-foreground [&::-webkit-search-cancel-button]:hidden"
+                enterKeyHint="search"
+                id={searchId}
                 onChange={(event) =>
                   onUpdateFilter("query", event.target.value)
                 }
@@ -97,124 +182,217 @@ export function AtlasBrowse({
               {filters.query ? (
                 <button
                   aria-label={t("clearSearch")}
-                  className="absolute top-1/2 right-0 -translate-y-1/2 text-muted-foreground transition-colors hover:text-foreground"
+                  className="flex size-[38px] shrink-0 items-center justify-center rounded-full bg-secondary text-muted-foreground transition-colors hover:text-foreground lg:size-9 lg:bg-card"
                   onClick={() => onUpdateFilter("query", "")}
                   type="button"
                 >
-                  <X className="size-3.5" />
+                  <X aria-hidden="true" className="size-3.5" />
                 </button>
               ) : null}
-            </label>
-            <AtlasFilterButton count={facetCount} onClick={onOpenFilters} />
-          </div>
-
-          <div className="mt-4 flex items-center justify-between gap-3 md:mt-6">
-            <p aria-live="polite" className="text-[13px] text-muted-foreground">
-              {t("resultsCount", { count: filtered.length })}
-            </p>
-            {hasActiveFilters ? (
-              <button
-                className="text-[13px] font-medium text-foreground/70 underline-offset-4 transition-colors hover:text-foreground hover:underline"
-                onClick={onResetFilters}
-                type="button"
-              >
-                {t("resetFilters")}
-              </button>
-            ) : null}
-          </div>
-
-          <div className="mt-8 hidden md:block">
-            <div
-              aria-label={t("filters.type")}
-              className="no-scrollbar flex gap-6 overflow-x-auto sm:gap-8"
-              role="tablist"
-            >
-              {GROUP_OPTIONS.map((group) => {
-                const active = filters.group === group;
-                const count = groupCounts[group];
-                return (
-                  <button
-                    aria-selected={active}
-                    className={cn(
-                      "group/tab relative shrink-0 pb-4 transition-colors",
-                      active
-                        ? "text-foreground"
-                        : "text-muted-foreground hover:text-foreground",
-                    )}
-                    key={group}
-                    onClick={() => onUpdateFilter("group", group)}
-                    role="tab"
-                    type="button"
-                  >
-                    <span className="font-display text-[1.15rem] font-semibold tracking-tight sm:text-[1.35rem]">
-                      {group === "all"
-                        ? t("filters.allSpecies")
-                        : t(`groups.${group}`)}
-                    </span>
-                    <span
-                      className={cn(
-                        "ml-2 align-top text-[12px] tabular-nums",
-                        active ? "text-primary" : "text-muted-foreground",
-                      )}
-                    >
-                      {count}
-                    </span>
-                    <span
-                      className={cn(
-                        "absolute inset-x-0 bottom-0 h-px transition-colors",
-                        active
-                          ? "bg-foreground"
-                          : "bg-transparent group-hover/tab:bg-border",
-                      )}
-                    />
-                  </button>
-                );
-              })}
             </div>
 
-            <div className="border-t border-border" />
+            <button
+              aria-haspopup="dialog"
+              className="relative flex h-[50px] shrink-0 items-center gap-2 rounded-full bg-foreground px-4 text-[14px] font-medium text-background lg:hidden"
+              onClick={onOpenFilters}
+              type="button"
+            >
+              <SlidersHorizontal aria-hidden="true" className="size-4" />
+              {t("filterButton")}
+              {facetCount > 0 ? (
+                <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-[#6fad88] px-[5px] text-[11.5px] font-bold text-[#0e1411]">
+                  {facetCount}
+                </span>
+              ) : null}
+            </button>
 
-            <LensRow label={t("filters.danger")}>
-              {DANGER_OPTIONS.map((danger) => (
-                <LensOption
-                  active={filters.danger === danger}
-                  key={danger}
-                  onClick={() => onUpdateFilter("danger", danger)}
-                >
-                  {t(`danger.${danger}`)}
-                </LensOption>
-              ))}
-            </LensRow>
-
-            <LensRow label={t("filters.habitat")}>
-              {HABITAT_OPTIONS.map((habitat) => (
-                <LensOption
-                  active={filters.habitat === habitat}
-                  key={habitat}
-                  onClick={() => onUpdateFilter("habitat", habitat)}
-                >
-                  {habitat === "all"
-                    ? t("filters.all")
-                    : t(`habitats.${habitat}`)}
-                </LensOption>
-              ))}
-            </LensRow>
-
-            <div className="flex flex-col gap-2.5 border-t border-border/70 py-4 sm:flex-row sm:items-baseline sm:gap-8">
-              <p className="w-24 shrink-0 text-[11px] font-medium tracking-[0.2em] text-muted-foreground uppercase sm:pt-0.5">
-                {t("filters.region")}
-              </p>
-              <RegionDropdown
+            <div className="hidden items-center gap-2.5 lg:flex">
+              <AtlasDropdown
+                icon={
+                  <MapPin aria-hidden="true" className="size-4 text-primary" />
+                }
                 label={t("filters.region")}
-                locale={locale}
-                onChange={(value) => onUpdateFilter("region", value)}
+                minWidthClassName="min-w-[220px]"
+                onChange={(next) => onUpdateFilter("region", next)}
+                onOpenChange={onRegionMenuChange}
+                open={regionMenuOpen}
+                options={regionOptions}
                 value={filters.region}
               />
+              <SortDropdown
+                label={t("sortLabel")}
+                onChange={onChangeSort}
+                options={ATLAS_SORT_OPTIONS.map((id) => ({
+                  id,
+                  label: t(`sort.${id}`),
+                }))}
+                value={sort}
+              />
+              <div
+                aria-label={t("viewLabel")}
+                className="flex gap-0.5 rounded-full bg-background p-1"
+                role="group"
+              >
+                <ViewButton
+                  active={view === "grid"}
+                  label={t("view.grid")}
+                  onClick={() => onChangeView("grid")}
+                >
+                  <LayoutGrid aria-hidden="true" className="size-4" />
+                </ViewButton>
+                <ViewButton
+                  active={view === "list"}
+                  label={t("view.list")}
+                  onClick={() => onChangeView("list")}
+                >
+                  <List aria-hidden="true" className="size-4" />
+                </ViewButton>
+              </div>
+            </div>
+          </div>
+
+          <div
+            aria-label={t("filters.type")}
+            className="no-scrollbar mt-2.5 flex gap-1 overflow-x-auto px-5 pb-1 lg:mt-3.5 lg:px-0 lg:pb-0"
+            role="group"
+          >
+            {GROUP_OPTIONS.map((group) => {
+              const active = filters.group === group;
+              const count = countAtlasSpecies(catalog, filters, "group", group);
+              return (
+                <button
+                  aria-pressed={active}
+                  className={cn(
+                    "inline-flex h-10 shrink-0 items-center gap-1.5 rounded-full px-3.5 text-[14px] font-medium whitespace-nowrap transition-colors lg:gap-[7px] lg:px-[15px]",
+                    active
+                      ? "bg-foreground text-background"
+                      : "bg-card text-foreground shadow-[0_1px_2px_rgba(14,20,17,0.05)] hover:bg-secondary lg:bg-transparent lg:shadow-none",
+                    count === 0 && !active && "opacity-40",
+                  )}
+                  key={group}
+                  onClick={() => onUpdateFilter("group", group)}
+                  type="button"
+                >
+                  {group === "all" ? t("filters.all") : t(`groups.${group}`)}
+                  <span className="text-[12px] tabular-nums opacity-70">
+                    {count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+
+          <div className="mt-3 hidden flex-wrap items-center gap-[18px] border-t border-secondary pt-3 lg:flex">
+            <div className="flex items-center gap-2.5">
+              <span className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
+                {t("filters.danger")}
+              </span>
+              <RiskSegment
+                compact
+                label={t("filters.danger")}
+                onChange={(next) => onUpdateFilter("danger", next)}
+                value={filters.danger}
+              />
+            </div>
+            <span aria-hidden="true" className="h-[26px] w-px bg-border" />
+            <div className="flex items-center gap-2.5">
+              <span className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
+                {t("filters.habitat")}
+              </span>
+              <div
+                aria-label={t("filters.habitat")}
+                className="flex flex-wrap gap-1.5"
+                role="group"
+              >
+                {HABITAT_OPTIONS.filter(
+                  (habitat): habitat is HabitatTag => habitat !== "all",
+                ).map((habitat) => {
+                  const active = filters.habitat === habitat;
+                  return (
+                    <button
+                      aria-pressed={active}
+                      className={cn(
+                        "inline-flex h-[38px] items-center gap-[7px] rounded-full border px-3.5 text-[13px] font-medium whitespace-nowrap transition-colors",
+                        active
+                          ? "border-primary bg-secondary text-primary"
+                          : "border-border bg-card text-foreground hover:border-primary/40",
+                      )}
+                      key={habitat}
+                      onClick={() =>
+                        onUpdateFilter("habitat", active ? "all" : habitat)
+                      }
+                      type="button"
+                    >
+                      <HabitatIcon className="size-[15px]" habitat={habitat} />
+                      {t(`habitats.${habitat}`)}
+                    </button>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
 
+        <div className="mt-3.5 flex min-h-9 items-center justify-between gap-2.5 px-5 lg:mt-[22px] lg:gap-4 lg:px-0">
+          <div className="flex flex-wrap items-center gap-2">
+            <p
+              aria-live="polite"
+              className="text-[14.5px] text-foreground/80 lg:mr-2 lg:ml-1 lg:text-[15px]"
+            >
+              <ResultCount count={filtered.length} />
+            </p>
+            <div className="hidden flex-wrap items-center gap-2 lg:flex">
+              {tokens.map((token) => (
+                <TokenButton key={token.key} token={token} />
+              ))}
+            </div>
+          </div>
+          {hasActiveFilters ? (
+            <button
+              className="hidden px-1 py-2 text-[14px] font-medium text-primary lg:block"
+              onClick={onResetFilters}
+              type="button"
+            >
+              {t("resetFilters")}
+            </button>
+          ) : null}
+          <button
+            aria-label={`${t("sortLabel")}: ${t(`sort.${sort}`)}`}
+            className="inline-flex h-10 items-center gap-1.5 rounded-full bg-card px-3 text-[13px] font-medium text-foreground lg:hidden"
+            onClick={() =>
+              onChangeSort(
+                ATLAS_SORT_OPTIONS[
+                  (sortIndex + 1) % ATLAS_SORT_OPTIONS.length
+                ] ?? "featured",
+              )
+            }
+            type="button"
+          >
+            <ArrowDownWideNarrow
+              aria-hidden="true"
+              className="size-3.5 text-muted-foreground"
+            />
+            {t(`sort.${sort}`)}
+          </button>
+        </div>
+
+        {tokens.length > 0 ? (
+          <div className="no-scrollbar mt-2.5 flex gap-1.5 overflow-x-auto px-5 lg:hidden">
+            {tokens.map((token) => (
+              <TokenButton key={token.key} token={token} />
+            ))}
+            <button
+              className="h-[34px] shrink-0 px-2.5 text-[13px] font-medium text-primary"
+              onClick={onResetFilters}
+              type="button"
+            >
+              {t("filterClear")}
+            </button>
+          </div>
+        ) : null}
+
         <AtlasFilterSheet
+          catalog={catalog}
           filters={filters}
           locale={locale}
           onApply={onApplyFilters}
@@ -222,53 +400,192 @@ export function AtlasBrowse({
           open={filterOpen}
         />
 
-        {filtered.length > 0 ? (
-          <AtlasSpeciesGrid locale={locale} species={filtered} />
-        ) : (
-          <ComingSoonPanel
-            group={filters.group !== "all" ? filters.group : null}
-            onReset={onResetFilters}
-          />
-        )}
+        <div className="px-5 lg:px-0">
+          {filtered.length > 0 ? (
+            <AtlasSpeciesGrid locale={locale} species={filtered} view={view} />
+          ) : (
+            <EmptyPanel group={filters.group} onReset={onResetFilters} />
+          )}
+        </div>
       </div>
     </section>
   );
 }
 
-function ComingSoonPanel({
+function AtlasDropdown({
+  alignRight = false,
+  icon,
+  label,
+  minWidthClassName,
+  onChange,
+  onOpenChange,
+  open,
+  options,
+  value,
+  widthClassName,
+}: {
+  alignRight?: boolean;
+  icon: ReactNode;
+  label: string;
+  minWidthClassName?: string;
+  onChange: (value: string) => void;
+  onOpenChange: (open: boolean) => void;
+  open: boolean;
+  options: DropdownOption[];
+  value: string;
+  widthClassName?: string;
+}) {
+  const listId = useId();
+  const selected = options.find((option) => option.id === value) ?? options[0];
+
+  return (
+    <div
+      className="relative"
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget)) {
+          onOpenChange(false);
+        }
+      }}
+      onKeyDown={(event) => {
+        if (event.key === "Escape") onOpenChange(false);
+      }}
+    >
+      <button
+        aria-controls={open ? listId : undefined}
+        aria-expanded={open}
+        aria-haspopup="listbox"
+        aria-label={`${label}: ${selected?.label ?? ""}`}
+        className={cn(
+          "inline-flex h-12 items-center justify-between gap-2.5 rounded-full border border-secondary bg-card px-4 text-[14px] font-medium whitespace-nowrap text-foreground transition-colors hover:border-primary/35",
+          minWidthClassName,
+        )}
+        onClick={() => onOpenChange(!open)}
+        type="button"
+      >
+        <span className="inline-flex items-center gap-2">
+          {icon}
+          {selected?.label}
+        </span>
+        <ChevronDown
+          aria-hidden="true"
+          className={cn(
+            "size-3.5 text-muted-foreground transition-transform",
+            open && "rotate-180",
+          )}
+        />
+      </button>
+      {open ? (
+        <DropdownMenu
+          alignRight={alignRight}
+          id={listId}
+          label={label}
+          onPick={(id) => {
+            onChange(id);
+            onOpenChange(false);
+          }}
+          options={options}
+          value={value}
+          {...(widthClassName ? { widthClassName } : {})}
+        />
+      ) : null}
+    </div>
+  );
+}
+
+function DropdownMenu({
+  alignRight = false,
+  id,
+  label,
+  onPick,
+  options,
+  value,
+  widthClassName = "w-[260px]",
+}: {
+  alignRight?: boolean;
+  id: string;
+  label: string;
+  onPick: (id: string) => void;
+  options: DropdownOption[];
+  value: string;
+  widthClassName?: string;
+}) {
+  return (
+    <div
+      aria-label={label}
+      className={cn(
+        "absolute top-14 z-30 max-h-[360px] overflow-y-auto rounded-[20px] bg-card p-1.5 shadow-[0_0_0_1px_rgba(14,20,17,0.06),0_24px_60px_rgba(14,20,17,0.2)]",
+        alignRight ? "right-0" : "left-0",
+        widthClassName,
+      )}
+      id={id}
+      role="listbox"
+    >
+      {options.map((option) => {
+        const active = option.id === value;
+        return (
+          <button
+            aria-selected={active}
+            className={cn(
+              "flex min-h-10 w-full items-center gap-2.5 rounded-xl px-3 text-left text-[14px] text-foreground transition-colors hover:bg-background",
+              active && "font-semibold",
+            )}
+            key={option.id}
+            onClick={() => onPick(option.id)}
+            role="option"
+            type="button"
+          >
+            <Check
+              aria-hidden="true"
+              className={cn(
+                "size-4 shrink-0 text-primary",
+                active ? "opacity-100" : "opacity-0",
+              )}
+            />
+            <span className="min-w-0 flex-1 truncate">{option.label}</span>
+            {option.count !== undefined ? (
+              <span className="text-[12px] text-muted-foreground tabular-nums">
+                {option.count}
+              </span>
+            ) : null}
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
+function EmptyPanel({
   group,
   onReset,
 }: {
-  group: "all" | AnimalGroup | null;
+  group: AtlasFilters["group"];
   onReset: () => void;
 }) {
   const t = useTranslations("speciesAtlas");
-  const title =
-    group && group !== "all"
-      ? t("emptyGroupTitle", { group: t(`groups.${group}`) })
-      : t("emptyTitle");
 
   return (
-    <div className="mt-12 rounded-media border border-border bg-card px-6 py-14 text-center sm:px-10">
+    <div className="mt-3.5 rounded-3xl bg-card px-5 py-9 text-center lg:mt-[18px] lg:rounded-[32px] lg:px-8 lg:py-14 lg:shadow-[0_1px_2px_rgba(14,20,17,0.04),0_16px_40px_rgba(14,20,17,0.06)]">
       <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
         {t("emptyEyebrow")}
       </p>
-      <h3 className="mx-auto mt-4 max-w-lg font-display text-display-card font-semibold">
-        {title}
+      <h3 className="mx-auto mt-2.5 max-w-[560px] font-display text-[20px] leading-tight font-semibold text-foreground lg:mt-3.5 lg:text-[28px]">
+        {group === "all"
+          ? t("emptyTitle")
+          : t("emptyGroupTitle", { group: t(`groups.${group}`) })}
       </h3>
-      <p className="mx-auto mt-4 max-w-md text-[15px] leading-relaxed text-muted-foreground">
+      <p className="mx-auto mt-2 max-w-[480px] text-[14px] leading-relaxed text-muted-foreground lg:mt-3 lg:text-[15px]">
         {t("emptyBody")}
       </p>
-      <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+      <div className="mt-[18px] flex flex-col justify-center gap-2.5 sm:flex-row lg:mt-6">
         <button
-          className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-[13px] font-medium text-white dark:text-ink"
+          className="h-[50px] rounded-full bg-primary px-[22px] text-[15px] font-medium text-white lg:h-12 lg:text-[14.5px] dark:text-ink"
           onClick={onReset}
           type="button"
         >
           {t("resetFilters")}
         </button>
         <Link
-          className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-[13px] font-medium text-foreground transition-colors hover:border-primary/30"
+          className="inline-flex h-12 items-center justify-center rounded-full border border-border bg-card px-[22px] text-[14.5px] font-medium text-foreground transition-colors hover:border-primary/30"
           href="/contact"
         >
           {t("suggestSpecies")}
@@ -278,154 +595,96 @@ function ComingSoonPanel({
   );
 }
 
-function LensOption({
-  active,
-  children,
-  onClick,
+function ResultCount({ count }: { count: number }) {
+  const t = useTranslations("speciesAtlas");
+  return (
+    <>
+      {t.rich("resultsCount", {
+        count,
+        strong: (chunks) => (
+          <strong className="font-bold text-foreground">{chunks}</strong>
+        ),
+      })}
+    </>
+  );
+}
+
+function SortDropdown({
+  label,
+  onChange,
+  options,
+  value,
 }: {
-  active: boolean;
-  children: React.ReactNode;
-  onClick: () => void;
+  label: string;
+  onChange: (value: AtlasSort) => void;
+  options: Array<{ id: AtlasSort; label: string }>;
+  value: AtlasSort;
 }) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <AtlasDropdown
+      alignRight
+      icon={
+        <ArrowDownWideNarrow
+          aria-hidden="true"
+          className="size-4 text-muted-foreground"
+        />
+      }
+      label={label}
+      onChange={(next) => onChange(next as AtlasSort)}
+      onOpenChange={setOpen}
+      open={open}
+      options={options}
+      value={value}
+      widthClassName="w-[220px]"
+    />
+  );
+}
+
+function TokenButton({ token }: { token: FilterToken }) {
+  const t = useTranslations("speciesAtlas");
   return (
     <button
-      aria-pressed={active}
-      className={cn(
-        "text-[14px] transition-colors",
-        active
-          ? "font-medium text-foreground"
-          : "text-muted-foreground hover:text-foreground",
-      )}
-      onClick={onClick}
+      aria-label={t("removeFilter", { label: token.label })}
+      className="inline-flex h-[34px] shrink-0 items-center gap-1.5 rounded-full bg-foreground pr-1.5 pl-3 text-[13px] font-medium whitespace-nowrap text-background lg:h-8 lg:pr-2 lg:text-[12.5px]"
+      onClick={token.clear}
       type="button"
     >
-      {children}
+      {token.label}
+      <span className="flex size-6 items-center justify-center rounded-full bg-background/15 lg:size-5">
+        <X aria-hidden="true" className="size-[11px]" />
+      </span>
     </button>
   );
 }
 
-function LensRow({
+function ViewButton({
+  active,
   children,
   label,
+  onClick,
 }: {
-  children: React.ReactNode;
+  active: boolean;
+  children: ReactNode;
   label: string;
+  onClick: () => void;
 }) {
   return (
-    <div className="flex flex-col gap-2.5 border-t border-border/70 py-4 sm:flex-row sm:items-baseline sm:gap-8">
-      <p className="w-24 shrink-0 text-[11px] font-medium tracking-[0.2em] text-muted-foreground uppercase sm:pt-0.5">
-        {label}
-      </p>
-      <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
-        {children}
-      </div>
-    </div>
-  );
-}
-
-function RegionDropdown({
-  label,
-  locale,
-  onChange,
-  value,
-}: {
-  label: string;
-  locale: AppLocale;
-  onChange: (value: string) => void;
-  value: string;
-}) {
-  const t = useTranslations("speciesAtlas");
-  const listId = useId();
-  const [open, setOpen] = useState(false);
-  const options = useMemo(
-    () => [
-      { id: "all", name: t("filters.allRegions") },
-      ...regions.map((region) => ({
-        id: region.id,
-        name: localizeRegionText(region.name, locale),
-      })),
-    ],
-    [locale, t],
-  );
-  const selected = options.find((option) => option.id === value) ?? options[0];
-
-  function choose(next: string) {
-    onChange(next);
-    setOpen(false);
-  }
-
-  return (
-    <div
-      className="relative inline-block min-w-56"
-      onBlur={(event) => {
-        if (!event.currentTarget.contains(event.relatedTarget)) {
-          setOpen(false);
-        }
-      }}
+    <button
+      aria-label={label}
+      aria-pressed={active}
+      className={cn(
+        "flex size-10 items-center justify-center rounded-full transition-colors",
+        active
+          ? "bg-card text-foreground shadow-[0_1px_3px_rgba(14,20,17,0.12)]"
+          : "text-muted-foreground hover:text-foreground",
+      )}
+      onClick={onClick}
+      title={label}
+      type="button"
     >
-      <button
-        aria-controls={open ? listId : undefined}
-        aria-expanded={open}
-        aria-haspopup="listbox"
-        aria-label={label}
-        className="inline-flex w-full items-center justify-between gap-3 rounded-full border border-border bg-card px-4 py-2.5 text-left text-[14px] font-medium text-foreground transition-colors hover:border-primary/35 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:outline-none"
-        onClick={() => setOpen((current) => !current)}
-        onKeyDown={(event) => {
-          if (event.key === "Escape") setOpen(false);
-          if (event.key === "ArrowDown" || event.key === "ArrowUp") {
-            event.preventDefault();
-            setOpen(true);
-          }
-        }}
-        type="button"
-      >
-        <span className="truncate">{selected?.name}</span>
-        <ChevronDown
-          aria-hidden="true"
-          className={cn(
-            "size-3.5 shrink-0 text-muted-foreground transition-transform",
-            open ? "rotate-180" : "",
-          )}
-        />
-      </button>
-
-      {open ? (
-        <div
-          className="absolute top-full left-0 z-30 mt-2 w-72 max-w-[calc(100vw-3rem)] overflow-hidden rounded-[8px] border border-border bg-card shadow-2xl shadow-ink/10"
-          id={listId}
-          role="listbox"
-        >
-          <div className="max-h-80 overflow-y-auto py-1">
-            {options.map((option) => {
-              const active = option.id === value;
-              return (
-                <button
-                  aria-selected={active}
-                  className={cn(
-                    "flex w-full items-center gap-3 px-3.5 py-2.5 text-left text-[14px] transition-colors",
-                    active
-                      ? "font-medium text-foreground"
-                      : "text-muted-foreground hover:bg-secondary hover:text-foreground",
-                  )}
-                  key={option.id}
-                  onClick={() => choose(option.id)}
-                  role="option"
-                  type="button"
-                >
-                  <Check
-                    aria-hidden="true"
-                    className={cn(
-                      "size-3.5 shrink-0",
-                      active ? "opacity-100" : "opacity-0",
-                    )}
-                  />
-                  <span className="truncate">{option.name}</span>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      ) : null}
-    </div>
+      {children}
+    </button>
   );
 }

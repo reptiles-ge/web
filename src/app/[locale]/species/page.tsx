@@ -17,6 +17,7 @@ import {
 import { getRegionTooltipPreviews } from "@/data/regions";
 import { getSpeciesById } from "@/data/species";
 import { getAtlasStats } from "@/data/speciesAtlas";
+import { images } from "@/data/speciesMedia";
 import { ATLAS_CLIENT_MESSAGE_NAMESPACES } from "@/i18n/clientMessages";
 import { georgiaPlaceName } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
@@ -114,14 +115,18 @@ export default async function SpeciesIndexPage({ params }: LocalePageProps) {
             <SpeciesAtlasFallback
               catalog={catalog}
               recent={recent}
+              regionCount={stats.regions}
               tooltipSpeciesByRegion={tooltipSpeciesByRegion}
+              venomousImage={images.hero}
             />
           }
         >
           <SpeciesAtlas
             catalog={catalog}
             recent={recent}
+            regionCount={stats.regions}
             tooltipSpeciesByRegion={tooltipSpeciesByRegion}
+            venomousImage={images.hero}
           />
         </Suspense>
         <AtlasSeo locale={locale} />

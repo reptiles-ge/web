@@ -1,134 +1,259 @@
 "use client";
 
-import { ArrowUpRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 import type { SpeciesListItem } from "@/data/speciesListItem";
+import type { DangerLevel } from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
 
 import { CoverImage } from "@/components/CoverImage";
 import { useSpeciesHref } from "@/components/LocaleSwitchProvider";
-import { SpeciesRiskChip } from "@/components/SpeciesDanger";
+import { HabitatIcon } from "@/components/species-atlas/HabitatIcon";
+import { atlasSpeciesImage } from "@/data/atlasFilters";
 import { getRegionsForSpecies, localizeRegionText } from "@/data/mapRegions";
-import { type AnimalGroup, getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
+import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import { Link } from "@/i18n/navigation";
 import { trackSpeciesClick } from "@/lib/analytics";
+import { cn } from "@/lib/cn";
+import { ANIMAL_GROUP_TO_HUB, GROUP_HUB_ILLUSTRATIONS } from "@/lib/groupHubs";
 import { speciesImageAlt } from "@/lib/speciesMeta";
+import { getSpeciesRiskChip } from "@/lib/speciesRisk";
 
-type AtlasSpeciesCardProps = {
+type AtlasSpeciesItemProps = {
   eager?: boolean;
   index?: number;
   locale: AppLocale;
-  prefetch?: boolean;
   species: SpeciesListItem;
+};
+
+const RISK_SOLID: Record<DangerLevel, string> = {
+  Harmless: "bg-primary",
+  High: "bg-destructive",
+  Moderate: "bg-gold",
+};
+
+const RISK_SOFT: Record<DangerLevel, string> = {
+  Harmless: "bg-primary/10 text-primary",
+  High: "bg-destructive/10 text-destructive",
+  Moderate: "bg-gold/12 text-gold",
 };
 
 export function AtlasSpeciesCard({
   eager = false,
   index = 0,
   locale,
-  prefetch,
   species,
-}: AtlasSpeciesCardProps) {
+}: AtlasSpeciesItemProps) {
   const t = useTranslations("speciesAtlas");
-  const meta = getSpeciesAtlasMeta(species.id);
-  const regionNames = getRegionsForSpecies(species.id)
-    .map((region) => localizeRegionText(region.name, locale))
-    .slice(0, 3);
-  const extraRegions = Math.max(
-    0,
-    getRegionsForSpecies(species.id).length - regionNames.length,
-  );
-  const imageSrc =
-    species.mobileImage && !species.mobileImage.includes("species-placeholder")
-      ? species.mobileImage
-      : species.image && !species.image.includes("species-placeholder")
-        ? species.image
-        : "";
+  const item = useAtlasSpecies(species, locale);
 
   return (
-    <article
-      className="group relative flex h-full flex-col overflow-hidden rounded-media bg-card ring-1 ring-border/70 transition-shadow duration-500 hover:shadow-[0_28px_60px_-40px_rgba(14,20,17,0.55)]"
-      style={{
-        animationDelay: `${Math.min(index, 12) * 40}ms`,
-      }}
+    <Link
+      className="group flex h-full flex-col overflow-hidden rounded-[20px] bg-card shadow-[0_1px_2px_rgba(14,20,17,0.04),0_8px_22px_rgba(14,20,17,0.05)] transition-[transform,box-shadow] duration-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary motion-reduce:transition-none lg:rounded-[26px] lg:shadow-[0_1px_2px_rgba(14,20,17,0.04),0_12px_32px_rgba(14,20,17,0.05)] lg:hover:translate-y-[-3px] lg:hover:shadow-[0_1px_2px_rgba(14,20,17,0.04),0_24px_52px_rgba(14,20,17,0.12)]"
+      href={item.href}
+      onClick={() =>
+        trackSpeciesClick({
+          group: item.group,
+          position: index + 1,
+          source: "atlas",
+          species_id: species.id,
+        })
+      }
+      prefetch={false}
     >
-      <Link
-        aria-label={t("exploreSpeciesNamed", { name: species.commonName })}
-        className="absolute inset-0 z-10"
-        href={useSpeciesHref(species.id, locale)}
-        onClick={() =>
-          trackSpeciesClick({
-            group: meta.group,
-            position: index + 1,
-            source: "atlas",
-            species_id: species.id,
-          })
-        }
-        prefetch={prefetch}
-      />
-
-      <div className="relative aspect-4/5 overflow-hidden bg-ink sm:aspect-5/6">
-        {imageSrc ? (
-          <CoverImage
-            alt={speciesImageAlt(
-              species.commonName,
-              species.scientificName,
-              species.location,
+      <span className="relative block aspect-4/5 overflow-hidden bg-[#151c18]">
+        <CoverImage
+          alt={item.alt}
+          className="object-cover transition-transform duration-700 group-hover:scale-[1.04] motion-reduce:transition-none"
+          priority={eager}
+          sizes="(max-width: 767px) 50vw, (max-width: 1023px) 33vw, 330px"
+          src={item.image}
+        />
+        <span
+          aria-hidden="true"
+          className="absolute inset-x-0 bottom-0 hidden h-[45%] bg-linear-to-t from-[rgba(14,20,17,0.6)] to-transparent lg:block"
+        />
+        <span className="absolute top-2 left-2 inline-flex h-[22px] items-center rounded-full bg-white/95 px-2 text-[10.5px] font-semibold whitespace-nowrap text-[#1a211c] lg:top-3 lg:left-3 lg:h-[26px] lg:px-2.5 lg:text-[11.5px] lg:font-medium">
+          {item.groupLabel}
+        </span>
+        {item.risk ? (
+          <span
+            className={cn(
+              "absolute bottom-2 left-2 inline-flex h-[22px] items-center gap-[5px] rounded-full px-2 text-[10.5px] font-semibold whitespace-nowrap text-white lg:bottom-3 lg:left-3 lg:h-[26px] lg:gap-1.5 lg:px-2.5 lg:text-[11.5px] lg:font-medium",
+              RISK_SOLID[item.risk.level],
             )}
-            className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-            priority={eager}
-            sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
-            src={imageSrc}
-          />
-        ) : (
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 bg-[radial-gradient(80%_60%_at_50%_30%,rgba(255,255,255,0.1),transparent_65%),linear-gradient(165deg,#24201c,#12100e)]"
-          />
-        )}
-        <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/15 to-black/10" />
-        <div className="absolute top-4 left-4 z-1 flex flex-wrap gap-2">
-          <span className="rounded-full border border-white/15 bg-black/35 px-3 py-1 text-[10px] font-medium tracking-[0.16em] text-white/85 uppercase backdrop-blur-md">
-            {t(`groups.${meta.group as AnimalGroup}`)}
+          >
+            <span
+              aria-hidden="true"
+              className="size-[5px] rounded-full bg-white lg:size-1.5"
+            />
+            {item.risk.label}
           </span>
-        </div>
-        <div className="absolute inset-x-4 bottom-4 z-1">
-          <SpeciesRiskChip species={species} variant="hero" />
-        </div>
-      </div>
-
-      <div className="flex flex-1 flex-col p-5 sm:px-6 sm:pb-6">
-        <h3 className="font-display text-[1.35rem] leading-tight font-semibold text-foreground transition-colors group-hover:text-primary sm:text-[1.5rem]">
-          {species.commonName}
-        </h3>
-        <p className="mt-1.5 text-[13px] tracking-wide text-muted-foreground italic">
-          {species.scientificName}
-        </p>
-        <p className="mt-3 line-clamp-2 text-[14px] leading-relaxed text-muted-foreground">
-          {species.description}
-        </p>
-
-        {regionNames.length > 0 ? (
-          <div className="mt-4 border-t border-border/70 pt-4">
-            <p className="text-[10px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
-              {t("foundIn")}
-            </p>
-            <p className="mt-1.5 text-[13px] leading-snug text-foreground/80">
-              {`${regionNames.join(", ")}${
-                extraRegions > 0 ? ` +${extraRegions}` : ""
-              }`}
-            </p>
-          </div>
         ) : null}
-
-        <div className="mt-5 flex items-center justify-between gap-3">
-          <span className="inline-flex items-center gap-1.5 text-[13px] font-medium text-primary">
-            {t("exploreSpecies")}
-            <ArrowUpRight className="size-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        {item.isIllustration ? (
+          <span className="absolute top-2 right-2 inline-flex h-[22px] items-center rounded-full bg-[rgba(14,20,17,0.6)] px-2 text-[10.5px] font-medium whitespace-nowrap text-white/85 lg:top-auto lg:right-3 lg:bottom-3 lg:h-[26px] lg:px-2.5 lg:text-[11.5px]">
+            {t("illustration")}
           </span>
-        </div>
-      </div>
-    </article>
+        ) : null}
+      </span>
+
+      <span className="flex flex-1 flex-col px-3 pt-2.5 pb-3 lg:px-[18px] lg:pt-4 lg:pb-[18px]">
+        <span className="font-display text-[15px] leading-tight font-semibold text-foreground transition-colors group-hover:text-primary lg:text-[19px]">
+          {species.commonName}
+        </span>
+        <span className="mt-[3px] truncate text-[12px] text-muted-foreground italic lg:mt-1 lg:text-[13px]">
+          {species.scientificName}
+        </span>
+        <span className="mt-1.5 truncate text-[11.5px] text-muted-foreground lg:hidden">
+          {item.whereShort}
+        </span>
+        <span className="hidden flex-1 lg:block" />
+        <span className="mt-3.5 hidden items-center gap-2.5 border-t border-secondary pt-3 lg:flex">
+          <span className="flex gap-1">
+            {item.habitats.map((habitat) => (
+              <span
+                className="flex size-7 items-center justify-center rounded-full bg-background text-primary"
+                key={habitat.habitat}
+                title={habitat.label}
+              >
+                <HabitatIcon
+                  className="size-3.5"
+                  habitat={habitat.habitat}
+                  label={habitat.label}
+                />
+              </span>
+            ))}
+          </span>
+          <span className="min-w-0 flex-1 truncate text-right text-[12.5px] text-muted-foreground">
+            {item.where}
+          </span>
+        </span>
+      </span>
+    </Link>
   );
+}
+
+export function AtlasSpeciesRow({
+  index = 0,
+  locale,
+  species,
+}: AtlasSpeciesItemProps) {
+  const t = useTranslations("speciesAtlas");
+  const item = useAtlasSpecies(species, locale);
+
+  return (
+    <Link
+      className="grid min-h-[72px] grid-cols-[56px_minmax(0,1.6fr)_minmax(0,0.8fr)_minmax(0,1fr)_120px_minmax(0,1.2fr)_24px] items-center gap-4 rounded-2xl border-t border-secondary px-4 py-2 transition-colors hover:bg-background/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+      href={item.href}
+      onClick={() =>
+        trackSpeciesClick({
+          group: item.group,
+          position: index + 1,
+          source: "atlas",
+          species_id: species.id,
+        })
+      }
+      prefetch={false}
+    >
+      <span className="relative block size-14 overflow-hidden rounded-[14px] bg-[#151c18]">
+        <CoverImage alt="" aria-hidden sizes="56px" src={item.image} />
+      </span>
+      <span className="min-w-0">
+        <span className="block truncate text-[15.5px] font-semibold text-foreground">
+          {species.commonName}
+        </span>
+        <span className="mt-0.5 block truncate text-[12.5px] text-muted-foreground italic">
+          {species.scientificName}
+        </span>
+      </span>
+      <span className="text-[13.5px] text-foreground/80">
+        {t(`groupSingular.${item.group}`)}
+      </span>
+      <span>
+        {item.risk ? (
+          <span
+            className={cn(
+              "inline-flex h-[26px] items-center gap-1.5 rounded-full px-2.5 text-[12px] font-medium",
+              RISK_SOFT[item.risk.level],
+            )}
+          >
+            <span
+              aria-hidden="true"
+              className={cn(
+                "size-1.5 rounded-full",
+                RISK_SOLID[item.risk.level],
+              )}
+            />
+            {item.risk.label}
+          </span>
+        ) : (
+          <span className="text-[13px] text-muted-foreground/70">—</span>
+        )}
+      </span>
+      <span className="flex gap-1">
+        {item.habitats.map((habitat) => (
+          <span
+            className="flex size-7 items-center justify-center rounded-full bg-background text-primary"
+            key={habitat.habitat}
+            title={habitat.label}
+          >
+            <HabitatIcon
+              className="size-3.5"
+              habitat={habitat.habitat}
+              label={habitat.label}
+            />
+          </span>
+        ))}
+      </span>
+      <span className="min-w-0 truncate text-[13px] text-muted-foreground">
+        {item.where}
+      </span>
+      <ChevronRight aria-hidden="true" className="size-4 text-border" />
+    </Link>
+  );
+}
+
+function useAtlasSpecies(species: SpeciesListItem, locale: AppLocale) {
+  const t = useTranslations("speciesAtlas");
+  const tDanger = useTranslations("danger");
+  const meta = getSpeciesAtlasMeta(species.id);
+  const regionNames = getRegionsForSpecies(species.id).map((region) =>
+    localizeRegionText(region.name, locale),
+  );
+  const photo = atlasSpeciesImage(species);
+  const risk = getSpeciesRiskChip(species, meta.group);
+  const where =
+    regionNames.length > 0
+      ? `${regionNames.slice(0, 2).join(", ")}${
+          regionNames.length > 2 ? ` +${regionNames.length - 2}` : ""
+        }`
+      : t("rangePending");
+  const whereShort =
+    regionNames.length > 0
+      ? t("whereShort", {
+          count: regionNames.length,
+          first: regionNames[0] ?? "",
+        })
+      : t("rangePending");
+
+  return {
+    alt: speciesImageAlt(
+      species.commonName,
+      species.scientificName,
+      species.location,
+    ),
+    group: meta.group,
+    groupLabel: t(`groupSingular.${meta.group}`),
+    habitats: meta.habitats.map((habitat) => ({
+      habitat,
+      label: t(`habitats.${habitat}`),
+    })),
+    href: useSpeciesHref(species.id, locale),
+    image: photo || GROUP_HUB_ILLUSTRATIONS[ANIMAL_GROUP_TO_HUB[meta.group]],
+    isIllustration: !photo,
+    risk: risk ? { label: tDanger(risk.level), level: risk.level } : null,
+    where,
+    whereShort,
+  };
 }
