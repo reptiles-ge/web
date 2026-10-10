@@ -51,9 +51,7 @@ export async function claudeArgs(task: AgentTask, settings: AiProfileSettings) {
       "--add-dir",
       directory,
     ]),
-    ...(task.schema
-      ? ["--json-schema", await fs.readFile(task.schema, "utf8")]
-      : []),
+    ...(task.schema ? ["--json-schema", await claudeSchema(task.schema)] : []),
   ];
 }
 
@@ -139,6 +137,13 @@ function claudeEnv() {
       process.env[key] === undefined ? [] : [[key, process.env[key]]],
     ),
   ) as NodeJS.ProcessEnv;
+}
+
+async function claudeSchema(file: string) {
+  const { $schema: _, ...schema } = JSON.parse(
+    await fs.readFile(file, "utf8"),
+  ) as Record<string, unknown>;
+  return JSON.stringify(schema);
 }
 
 function parseClaudeResult(stdout: string) {

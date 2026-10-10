@@ -116,6 +116,15 @@ describe("Claude tool access", () => {
     expect(args[args.indexOf("--add-dir") + 1]).toBe(directory);
     expect(args[args.indexOf("--json-schema") + 1]).toBe('{"type":"object"}');
   });
+
+  it("drops the $schema dialect the Claude CLI cannot resolve", async () => {
+    await fs.writeFile(
+      task.schema!,
+      '{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"object"}',
+    );
+    const args = await claudeArgs(task, settings);
+    expect(args[args.indexOf("--json-schema") + 1]).toBe('{"type":"object"}');
+  });
 });
 
 describe("Claude subprocess", () => {
