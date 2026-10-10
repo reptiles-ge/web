@@ -18,6 +18,7 @@ import {
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import {
   absoluteUrl,
+  CDN_BASE,
   localePath,
   OG_IMAGE_TYPE,
   organizationJsonLd,
@@ -30,7 +31,7 @@ type Props = {
   params: Promise<{ locale: string }>;
 };
 
-const CONTRIBUTORS_OG_IMAGE_PATH = "/og/images/contributors.jpg";
+const CONTRIBUTORS_OG_IMAGE_URL = `${CDN_BASE}/og/images/contributors.jpg`;
 
 const orgLd = {
   "@context": "https://schema.org",
@@ -116,8 +117,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     new URL(url).pathname,
     t("index.metaDescription"),
   );
-  const ogImageUrl = absoluteUrl(CONTRIBUTORS_OG_IMAGE_PATH);
-
   return {
     alternates: creditAuthorIndexAlternates(locale),
     description,
@@ -128,7 +127,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           alt: title,
           height: 630,
           type: OG_IMAGE_TYPE,
-          url: ogImageUrl,
+          url: CONTRIBUTORS_OG_IMAGE_URL,
           width: 1200,
         },
       ],
@@ -146,7 +145,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     twitter: {
       card: "summary_large_image",
       description,
-      images: [ogImageUrl],
+      images: [CONTRIBUTORS_OG_IMAGE_URL],
       title,
     },
   };

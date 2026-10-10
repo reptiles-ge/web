@@ -1,6 +1,4 @@
 import { createTranslator } from "next-intl";
-import { existsSync } from "node:fs";
-import { join } from "node:path";
 import { describe, expect, it, vi } from "vitest";
 
 import { routing } from "@/i18n/routing";
@@ -24,12 +22,6 @@ vi.mock("next-intl/server", () => ({
 }));
 
 describe("contributor index metadata", () => {
-  it("has the share image on disk", () => {
-    expect(
-      existsSync(join(process.cwd(), "public/og/images/contributors.jpg")),
-    ).toBe(true);
-  });
-
   it.each(routing.locales)(
     "shares the contributor collage as a large card in %s",
     async (locale) => {
@@ -42,8 +34,8 @@ describe("contributor index metadata", () => {
         width: number;
       }[];
       expect(images).toHaveLength(1);
-      expect(new URL(images[0].url).pathname).toBe(
-        "/og/images/contributors.jpg",
+      expect(images[0].url).toBe(
+        "https://cdn.reptiles.ge/og/images/contributors.jpg",
       );
       expect(images[0]).toMatchObject({ height: 630, width: 1200 });
       expect(metadata.twitter).toMatchObject({ card: "summary_large_image" });
