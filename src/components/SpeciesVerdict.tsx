@@ -98,7 +98,7 @@ export async function SpeciesVerdict({
           </p>
         </div>
         <div className="flex flex-1 flex-col px-5 pt-4 pb-2 lg:px-7 lg:pt-5 lg:pb-3">
-          <p className="text-[14.5px] leading-[1.6] text-muted-foreground lg:text-[15.5px] lg:leading-[1.65]">
+          <p className="text-[16px] leading-[1.6] text-muted-foreground lg:text-[16px] lg:leading-[1.65]">
             {isModerateSpider
               ? t("verdictSpiderModerateBody")
               : level === "Harmless"

@@ -17,6 +17,7 @@ import type { RegionPathId } from "@/data/georgia-paths";
 import type { HalyomorphaRangeRegionFeatureCollection } from "@/data/halyomorphaRangeRegions";
 import type { AppLocale } from "@/i18n/routing";
 
+import { GeorgiaMapStatic } from "@/components/map/GeorgiaMapStatic";
 import { HalyomorphaRangeLedger } from "@/components/map/HalyomorphaRangeLedger";
 import {
   HALYOMORPHA_REGION_QUERY_PARAM,
@@ -160,7 +161,16 @@ export function HalyomorphaRangeMap({
         ref={plateRef}
       >
         {mapData ? (
-          <Suspense fallback={<PlateMessage>{copy.loadingLabel}</PlateMessage>}>
+          <Suspense
+            fallback={
+              <PlatePreview
+                hatchId={hatchId}
+                officialRegionIds={officialRegionIds}
+              >
+                {copy.loadingLabel}
+              </PlatePreview>
+            }
+          >
             <HalyomorphaRangeMapClient
               copy={copy}
               hatchId={hatchId}
@@ -178,7 +188,12 @@ export function HalyomorphaRangeMap({
             />
           </Suspense>
         ) : (
-          <PlateStatus copy={copy} failed={loadError} />
+          <PlateStatus
+            copy={copy}
+            failed={loadError}
+            hatchId={hatchId}
+            officialRegionIds={officialRegionIds}
+          />
         )}
         <RangeMapStrip
           atOverview={atOverview}
@@ -229,34 +244,58 @@ export function HalyomorphaRangeMap({
   );
 }
 
-function PlateMessage({
+function PlatePreview({
   children,
+  hatchId,
+  officialRegionIds,
   status = true,
 }: {
   children: string;
+  hatchId: string;
+  officialRegionIds: string[];
   status?: boolean;
 }) {
   return (
-    <p
-      className="absolute inset-0 flex items-center justify-center px-8 text-center text-[13px] leading-relaxed text-muted-foreground"
-      role={status ? "status" : "alert"}
-    >
-      {children}
-    </p>
+    <div className="absolute inset-0">
+      <div className="absolute inset-0 flex items-center justify-center p-6 opacity-70 sm:p-10">
+        <GeorgiaMapStatic
+          className="max-w-3xl"
+          hatchId={`${hatchId}-preview`}
+          highlightedIds={officialRegionIds}
+          showKeys={false}
+        />
+      </div>
+      <p
+        className="absolute inset-x-0 bottom-4 flex justify-center px-6"
+        role={status ? "status" : "alert"}
+      >
+        <span className="rounded-full bg-card/90 px-4 py-2 text-center text-[13px] leading-snug text-muted-foreground shadow-[0_6px_18px_rgba(14,20,17,0.06)]">
+          {children}
+        </span>
+      </p>
+    </div>
   );
 }
 
 function PlateStatus({
   copy,
   failed,
+  hatchId,
+  officialRegionIds,
 }: {
   copy: HalyomorphaRangeMapCopy;
   failed: boolean;
+  hatchId: string;
+  officialRegionIds: string[];
 }) {
   return (
-    <PlateMessage status={!failed}>
+    <PlatePreview
+      hatchId={hatchId}
+      officialRegionIds={officialRegionIds}
+      status={!failed}
+    >
       {failed ? copy.mapError : copy.loadingLabel}
-    </PlateMessage>
+    </PlatePreview>
   );
 }
 

@@ -13,7 +13,7 @@ export function SpeciesOverviewText({
 }: SpeciesOverviewTextProps) {
   return (
     <p
-      className="mt-8 max-w-2xl scroll-mt-40 text-[16px] leading-relaxed whitespace-pre-line text-foreground/85 sm:text-[18px]"
+      className="mt-8 max-w-2xl scroll-mt-40 text-[17px] leading-relaxed whitespace-pre-line text-foreground/85 sm:text-[18px]"
       data-content-field={editable ? "overview" : undefined}
       data-content-id={editable ? speciesId : undefined}
     >
