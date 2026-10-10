@@ -202,8 +202,8 @@ export async function SpeciesProfileHero({
         </div>
       </div>
       {galleryPreview.length > 0 ? (
-        <div className="absolute inset-x-0 bottom-[118px] z-10 hidden lg:block">
-          <div className="mx-auto flex max-w-[1440px] items-center justify-end gap-2 px-[60px]">
+        <div className="pointer-events-none absolute inset-x-0 bottom-[118px] z-10 hidden lg:block">
+          <div className="mx-auto flex max-w-[1440px] items-center justify-end gap-2 px-[60px] *:pointer-events-auto">
             {species.imageCredit?.photographer ? (
               <span className="mr-1 hidden rounded-full bg-ink/65 px-3 py-1.5 text-xs text-white/85 backdrop-blur-sm xl:inline-flex">
                 {t("photoCredit")} {species.imageCredit.photographer}
