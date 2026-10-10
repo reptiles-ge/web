@@ -53,7 +53,7 @@ export function BiologyExpandable({
     <>
       <p
         className={cn(
-          "mt-4 scroll-mt-40 text-[15px] leading-relaxed text-muted-foreground",
+          "mt-4 scroll-mt-40 text-[16px] leading-relaxed text-muted-foreground",
           "whitespace-pre-line",
           !open && canCollapse ? "line-clamp-3" : "",
         )}

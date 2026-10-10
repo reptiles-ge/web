@@ -137,10 +137,10 @@ export function SectionNav({
     <nav
       aria-label={ariaLabel}
       className={cn(
-        "top-[75px] z-30 border-y border-border bg-surface/95 backdrop-blur-xl lg:bg-background/92",
+        "top-[75px] z-30 border-y border-border bg-surface/95 backdrop-blur-xl duration-300 ease-out lg:bg-background/92 max-lg:header-hidden:top-0",
         floating
-          ? "fixed inset-x-0 transition-[opacity,translate] duration-300 ease-out"
-          : "sticky",
+          ? "fixed inset-x-0 transition-[opacity,translate,top]"
+          : "sticky transition-[top]",
         shown ? "opacity-100" : "pointer-events-none -translate-y-2 opacity-0",
       )}
       inert={!shown}

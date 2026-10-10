@@ -52,7 +52,7 @@ const PHOTO_LAYOUT_CLASS_NAME =
   "lg:grid lg:grid-cols-[minmax(0,520px)_minmax(0,1fr)] lg:grid-rows-[1fr_auto_auto_auto_1fr] lg:gap-x-16";
 const INTRO_CLASS_NAME = "min-w-0 px-2 lg:col-start-2 lg:row-start-2 lg:px-0";
 const SUMMARY_CLASS_NAME =
-  "mt-3 max-w-[620px] text-[15px] leading-[1.6] whitespace-pre-line text-muted-foreground lg:mt-[18px] lg:text-[16px] lg:leading-[1.65]";
+  "mt-3 max-w-[620px] text-[17px] leading-[1.6] whitespace-pre-line text-muted-foreground lg:mt-[18px] lg:text-[16px] lg:leading-[1.65]";
 const COLORS_CARD_CLASS_NAME =
   "mt-2 rounded-[22px] bg-card px-5 py-[18px] shadow-[0_1px_2px_rgba(14,20,17,0.04)] lg:mt-5 lg:rounded-none lg:bg-transparent lg:p-0 lg:shadow-none";
 const COLORS_LABEL_CLASS_NAME =
@@ -185,7 +185,7 @@ function IdentificationTraits({
             {index + 1}
           </span>
           <p
-            className="min-w-0 text-[15px] leading-[1.55] whitespace-pre-line text-foreground/85 lg:text-[16px] lg:leading-[1.65]"
+            className="min-w-0 text-[17px] leading-[1.6] whitespace-pre-line text-foreground/85 lg:text-[16px] lg:leading-[1.65]"
             data-content-field={
               editable ? `identification.traits.${index}` : undefined
             }

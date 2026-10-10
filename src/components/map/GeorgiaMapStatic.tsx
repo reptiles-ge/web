@@ -10,6 +10,7 @@ type GeorgiaMapStaticProps = {
   className?: string;
   hatchId: string;
   highlightedIds: string[];
+  showKeys?: boolean;
 };
 
 const [, , VIEWBOX_WIDTH, VIEWBOX_HEIGHT] =
@@ -19,6 +20,7 @@ export function GeorgiaMapStatic({
   className,
   hatchId,
   highlightedIds,
+  showKeys = true,
 }: GeorgiaMapStaticProps) {
   const keys = new Map(highlightedIds.map((id, index) => [id, index + 1]));
   const highlighted = regions.filter((region) => keys.has(region.id));
@@ -56,7 +58,7 @@ export function GeorgiaMapStatic({
           />
         ))}
       </svg>
-      {highlighted.map((region) => {
+      {(showKeys ? highlighted : []).map((region) => {
         const [x, y] = georgiaRegionLabelPoints[region.id];
         return (
           <span

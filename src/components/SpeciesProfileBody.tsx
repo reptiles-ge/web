@@ -1041,7 +1041,7 @@ async function SpeciesProfileBiology({
               title={block.title}
             >
               <p
-                className="mt-4 text-[15px] leading-[1.65] whitespace-pre-line text-muted-foreground"
+                className="mt-4 text-[17px] leading-[1.65] whitespace-pre-line text-muted-foreground"
                 data-content-field={
                   editable && speciesId !== "macrovipera-lebetina"
                     ? block.id

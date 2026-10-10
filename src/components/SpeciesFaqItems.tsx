@@ -84,7 +84,7 @@ export function SpeciesFaqItems({
             >
               <div className="overflow-hidden">
                 <p
-                  className="px-5 pb-5 text-[14.5px] leading-[1.65] whitespace-pre-line text-muted-foreground lg:pr-[76px] lg:pb-6 lg:pl-[26px] lg:text-[15px] lg:leading-[1.7]"
+                  className="px-5 pb-5 text-[16px] leading-[1.65] whitespace-pre-line text-muted-foreground lg:pr-[76px] lg:pb-6 lg:pl-[26px] lg:text-[16px] lg:leading-[1.7]"
                   data-content-field={
                     editable ? `faq.${index}.answer` : undefined
                   }

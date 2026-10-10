@@ -11,6 +11,9 @@ import { usePathname } from "@/i18n/navigation";
 import { NAVBAR_SCROLL_OFFSET } from "@/lib/chromeStyles";
 
 const GUIDE_ARTICLE_PATH_SET = new Set<string>(GUIDE_ARTICLE_PATHS);
+const MOBILE_MAX_WIDTH = 1023;
+const HEADER_HIDE_OFFSET = 160;
+const HEADER_HIDE_DELTA = 8;
 
 export function Navbar() {
   const t = useTranslations("nav");
@@ -102,10 +105,24 @@ export function Navbar() {
     };
   }, [menuOpen]);
 
+  const headerHidden = useMobileHeaderHidden(menuOpen);
+
+  useEffect(() => {
+    document.documentElement.toggleAttribute(
+      "data-header-hidden",
+      headerHidden,
+    );
+  }, [headerHidden]);
+
+  useEffect(
+    () => () => document.documentElement.removeAttribute("data-header-hidden"),
+    [],
+  );
+
   const chromeVariant = menuOpen || scrolled ? "light" : "dark";
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50">
+    <header className="fixed inset-x-0 top-0 z-50 transition-transform duration-300 ease-out max-lg:header-hidden:-translate-y-full max-lg:header-hidden:focus-within:translate-y-0">
       <NavbarChrome
         chromeVariant={chromeVariant}
         closeMenuLabel={t("closeMenu")}
@@ -180,4 +197,37 @@ function hasDarkHeroTop(pathname: string) {
   if (pathname.startsWith("/quiz/")) return true;
   if (pathname === "/regions" || pathname.startsWith("/regions/")) return true;
   return false;
+}
+
+function useMobileHeaderHidden(menuOpen: boolean) {
+  const [hidden, setHidden] = useState(false);
+
+  useEffect(() => {
+    if (menuOpen) {
+      setHidden(false);
+      return;
+    }
+
+    const mobile = window.matchMedia(`(max-width: ${MOBILE_MAX_WIDTH}px)`);
+    let lastY = window.scrollY;
+
+    function onScroll() {
+      const y = window.scrollY;
+      if (!mobile.matches || y < HEADER_HIDE_OFFSET) {
+        setHidden(false);
+      } else if (y > lastY + HEADER_HIDE_DELTA) {
+        setHidden(true);
+      } else if (y < lastY - HEADER_HIDE_DELTA) {
+        setHidden(false);
+      } else {
+        return;
+      }
+      lastY = y;
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [menuOpen]);
+
+  return hidden;
 }

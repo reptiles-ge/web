@@ -190,7 +190,7 @@ async function GiurzaRangeSection({
             eyebrow={eyebrow}
             title={copy.rangeTitle}
           />
-          <p className="order-5 mt-4 text-[16px] leading-[1.65] text-muted-foreground lg:mt-[18px]">
+          <p className="order-5 mt-4 text-[17px] leading-[1.65] text-muted-foreground lg:mt-[18px] lg:text-[16px]">
             {tGiurza("lead")}
           </p>
           {extraHabitat ? (
@@ -207,7 +207,7 @@ async function GiurzaRangeSection({
                   className="size-4 transition-transform group-open:rotate-180"
                 />
               </summary>
-              <p className="mt-4 text-[15px] leading-[1.7] whitespace-pre-line text-muted-foreground">
+              <p className="mt-4 text-[17px] leading-[1.7] whitespace-pre-line text-muted-foreground lg:text-[16px]">
                 <PhoneLinkedText>{extraHabitat}</PhoneLinkedText>
               </p>
             </details>
@@ -510,7 +510,7 @@ function RangeHabitatDetails({
   return (
     <details className="group">
       <summary className="cursor-pointer list-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary [&::-webkit-details-marker]:hidden">
-        <span className="line-clamp-3 text-[16px] leading-[1.65] text-muted-foreground group-open:hidden">
+        <span className="line-clamp-3 text-[17px] leading-[1.65] text-muted-foreground group-open:hidden lg:text-[16px]">
           {body}
         </span>
         <span className="mt-2 inline-flex items-center gap-1.5 text-[14px] font-medium text-foreground underline decoration-foreground/30 underline-offset-4 group-open:hidden">
@@ -523,7 +523,7 @@ function RangeHabitatDetails({
         </span>
       </summary>
       <p
-        className="mt-4 text-[15px] leading-[1.7] whitespace-pre-line text-muted-foreground"
+        className="mt-4 text-[17px] leading-[1.7] whitespace-pre-line text-muted-foreground lg:text-[16px]"
         data-content-field={editorField}
         data-content-id={speciesId}
       >
