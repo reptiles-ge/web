@@ -52,7 +52,12 @@ export async function AtlasAbout({ locale, stats }: AtlasAboutProps) {
           />
           <TrustCard
             body={t("sourcesBody")}
+            href={{
+              params: { slug: "georgia-herpetofauna-checklist-2026" },
+              pathname: "/news/[slug]",
+            }}
             icon={<BookOpen aria-hidden="true" className="size-[18px]" />}
+            linkLabel={t("sourcesLink")}
             title={t("sourcesTitle")}
           />
           <TrustCard
