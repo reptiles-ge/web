@@ -79,3 +79,58 @@ export function filterAtlasSpecies(
     return true;
   });
 }
+
+export const ATLAS_SORT_OPTIONS = ["featured", "az", "range"] as const;
+
+export type AtlasSort = (typeof ATLAS_SORT_OPTIONS)[number];
+
+export type AtlasView = "grid" | "list";
+
+export function atlasSpeciesImage(item: SpeciesListItem): string {
+  const candidates = [item.mobileImage, item.image];
+  for (const src of candidates) {
+    if (src && !src.includes("species-placeholder")) return src;
+  }
+  return "";
+}
+
+export function countAtlasSpecies<K extends keyof AtlasFilters>(
+  catalog: SpeciesListItem[],
+  filters: AtlasFilters,
+  key: K,
+  value: AtlasFilters[K],
+): number {
+  return filterAtlasSpecies(catalog, { ...filters, [key]: value }).length;
+}
+
+export function sortAtlasSpecies(
+  list: SpeciesListItem[],
+  sort: AtlasSort,
+  locale: string,
+): SpeciesListItem[] {
+  const indexed = list.map((item, index) => ({ index, item }));
+  switch (sort) {
+    case "az":
+      indexed.sort(
+        (a, b) =>
+          a.item.commonName.localeCompare(b.item.commonName, locale) ||
+          a.index - b.index,
+      );
+      break;
+    case "featured":
+      indexed.sort(
+        (a, b) =>
+          Number(Boolean(atlasSpeciesImage(b.item))) -
+            Number(Boolean(atlasSpeciesImage(a.item))) || a.index - b.index,
+      );
+      break;
+    case "range":
+      indexed.sort(
+        (a, b) =>
+          getRegionsForSpecies(b.item.id).length -
+            getRegionsForSpecies(a.item.id).length || a.index - b.index,
+      );
+      break;
+  }
+  return indexed.map((entry) => entry.item);
+}

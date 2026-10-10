@@ -6,31 +6,34 @@ import type { AppLocale } from "@/i18n/routing";
 
 import { CoverImage } from "@/components/CoverImage";
 import { useSpeciesHref } from "@/components/LocaleSwitchProvider";
+import { atlasSpeciesImage } from "@/data/atlasFilters";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import { type SpeciesListItem } from "@/data/speciesListItem";
 import { Link } from "@/i18n/navigation";
 import { formatContentDate } from "@/lib/formatDate";
-import { speciesImageAlt } from "@/lib/speciesMeta";
+import { ANIMAL_GROUP_TO_HUB, GROUP_HUB_ILLUSTRATIONS } from "@/lib/groupHubs";
 
 export function AtlasRecent({ species }: { species: SpeciesListItem[] }) {
   const t = useTranslations("speciesAtlas");
 
   return (
-    <section className="border-t border-border bg-background py-20 lg:py-28">
-      <div className="mx-auto max-w-350 px-6 lg:px-10">
-        <div>
-          <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
-            {t("recentEyebrow")}
-          </p>
-          <h2 className="mt-4 font-display text-display-title font-semibold">
-            {t("recentTitle")}
-          </h2>
-          <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
+    <section className="bg-background pb-10 lg:pb-24">
+      <div className="mx-auto max-w-[1440px] px-5 lg:px-[60px]">
+        <div className="lg:flex lg:items-end lg:justify-between lg:gap-12">
+          <div>
+            <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
+              {t("recentEyebrow")}
+            </p>
+            <h2 className="mt-2.5 font-display text-[28px] leading-[1.15] font-semibold tracking-[-0.012em] text-foreground lg:mt-3.5 lg:text-[40px] lg:leading-[1.1]">
+              {t("recentTitle")}
+            </h2>
+          </div>
+          <p className="hidden text-[16px] leading-[1.65] text-muted-foreground lg:block lg:max-w-[420px] lg:pb-1.5">
             {t("recentSubtitle")}
           </p>
         </div>
 
-        <ul className="mt-12 grid gap-4 md:grid-cols-2">
+        <ul className="mt-4 overflow-hidden rounded-[22px] bg-card lg:mt-8 lg:grid lg:grid-cols-4 lg:gap-5 lg:overflow-visible lg:rounded-none lg:bg-transparent">
           {species.map((item) => (
             <li key={item.id}>
               <RecentSpeciesRow species={item} />
@@ -43,50 +46,39 @@ export function AtlasRecent({ species }: { species: SpeciesListItem[] }) {
 }
 
 function RecentSpeciesRow({ species }: { species: SpeciesListItem }) {
-  const t = useTranslations("speciesAtlas");
   const locale = useLocale() as AppLocale;
-  const meta = getSpeciesAtlasMeta(species.id);
+  const date = formatContentDate(species.updatedAt, locale);
+  const group = getSpeciesAtlasMeta(species.id).group;
+  const image =
+    atlasSpeciesImage(species) ||
+    GROUP_HUB_ILLUSTRATIONS[ANIMAL_GROUP_TO_HUB[group]];
 
   return (
     <Link
-      className="group flex items-center gap-4 rounded-card border border-border/80 bg-card p-3 transition-colors hover:border-primary/25 sm:gap-5 sm:p-4"
+      className="group flex min-h-[72px] items-center gap-3 border-b border-secondary px-3.5 py-2.5 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-primary motion-reduce:transition-none lg:gap-3.5 lg:rounded-3xl lg:border-0 lg:bg-card lg:p-3 lg:shadow-[0_1px_2px_rgba(14,20,17,0.04),0_10px_26px_rgba(14,20,17,0.05)] lg:transition-transform lg:hover:-translate-y-0.5"
       href={useSpeciesHref(species.id, locale)}
     >
-      <div className="relative size-[72px] shrink-0 overflow-hidden rounded-2xl bg-ink sm:size-[84px]">
-        {(species.mobileImage || species.image) &&
-        !(species.mobileImage ?? species.image).includes(
-          "species-placeholder",
-        ) ? (
-          <CoverImage
-            alt={speciesImageAlt(
-              species.commonName,
-              species.scientificName,
-              species.location,
-            )}
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
-            sizes="84px"
-            src={species.mobileImage ?? species.image}
+      <span className="relative size-[52px] shrink-0 overflow-hidden rounded-[14px] bg-[#151c18] lg:size-[72px] lg:rounded-2xl">
+        <CoverImage alt="" aria-hidden sizes="72px" src={image} />
+      </span>
+      <span className="min-w-0 flex-1">
+        <span className="hidden items-center gap-1.5 text-[12px] font-medium text-primary lg:inline-flex">
+          <span
+            aria-hidden="true"
+            className="size-1.5 rounded-full bg-[#6fad88]"
           />
-        ) : null}
-      </div>
-      <div className="min-w-0 flex-1">
-        <div className="flex flex-wrap items-center gap-2">
-          <h3 className="font-display text-[1.15rem] leading-tight font-semibold text-foreground transition-colors group-hover:text-primary">
-            {species.commonName}
-          </h3>
-          <span className="rounded-full bg-secondary px-2 py-0.5 text-[10px] tracking-[0.14em] text-muted-foreground uppercase">
-            {t(`groups.${meta.group}`)}
-          </span>
-        </div>
-        <p className="mt-1 truncate text-[13px] text-muted-foreground italic">
+          {date}
+        </span>
+        <span className="block font-display text-[15px] leading-tight font-semibold text-foreground transition-colors group-hover:text-primary lg:mt-1 lg:text-[16px]">
+          {species.commonName}
+        </span>
+        <span className="mt-0.5 block truncate text-[12.5px] text-muted-foreground italic">
           {species.scientificName}
-        </p>
-        <p className="mt-2 text-[12px] text-muted-foreground">
-          {t("updatedOn", {
-            date: formatContentDate(species.updatedAt, locale),
-          })}
-        </p>
-      </div>
+        </span>
+      </span>
+      <span className="shrink-0 text-[12px] font-medium text-primary lg:hidden">
+        {date}
+      </span>
     </Link>
   );
 }

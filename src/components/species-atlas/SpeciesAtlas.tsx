@@ -22,19 +22,29 @@ import {
   REGION_OPTIONS,
 } from "@/components/species-atlas/atlasOptions";
 import { AtlasRecent } from "@/components/species-atlas/AtlasRecent";
+import { AtlasTiles } from "@/components/species-atlas/AtlasTiles";
 import {
   type AtlasFilters,
+  type AtlasSort,
+  type AtlasView,
   countAtlasFacets,
   defaultAtlasFilters,
   filterAtlasSpecies,
+  sortAtlasSpecies,
 } from "@/data/atlasFilters";
-import { type AnimalGroup, getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
+import {
+  type AnimalGroup,
+  getSpeciesAtlasMeta,
+  isVenomousDanger,
+} from "@/data/speciesAtlasMeta";
 import { trackEvent, truncateSearchTerm } from "@/lib/analytics";
 
 type AtlasData = {
   catalog: SpeciesListItem[];
   recent: SpeciesListItem[];
+  regionCount: number;
   tooltipSpeciesByRegion: Record<string, RegionTooltipSpecies[]>;
+  venomousImage: string;
 };
 
 type UpdateAtlasFilter = <K extends keyof AtlasFilters>(
@@ -205,9 +215,11 @@ function SpeciesAtlasView({
   catalog,
   filters,
   recent,
+  regionCount,
   resetFilters,
   tooltipSpeciesByRegion,
   updateFilter,
+  venomousImage,
 }: AtlasData & {
   applyFilters: (next: AtlasFilters) => void;
   filters: AtlasFilters;
@@ -217,6 +229,9 @@ function SpeciesAtlasView({
   const locale = useLocale() as AppLocale;
 
   const [filterOpen, setFilterOpen] = useState(false);
+  const [regionMenuOpen, setRegionMenuOpen] = useState(false);
+  const [sort, setSort] = useState<AtlasSort>("featured");
+  const [view, setView] = useState<AtlasView>("grid");
   const deferredQuery = useDeferredValue(filters.query);
   const skipAtlasFilter = useRef(true);
   const lastQuery = useRef(filters.query);
@@ -230,8 +245,13 @@ function SpeciesAtlasView({
   );
 
   const filtered = useMemo(
-    () => filterAtlasSpecies(catalog, activeFilters),
-    [catalog, activeFilters],
+    () =>
+      sortAtlasSpecies(
+        filterAtlasSpecies(catalog, activeFilters),
+        sort,
+        locale,
+      ),
+    [catalog, activeFilters, sort, locale],
   );
 
   useEffect(() => {
@@ -265,7 +285,7 @@ function SpeciesAtlasView({
     return () => window.clearTimeout(timer);
   }, [filters, filtered.length]);
 
-  const groupCounts = useMemo(() => {
+  const groupTotals = useMemo(() => {
     const counts: Record<"all" | AnimalGroup, number> = {
       all: catalog.length,
       amphibian: 0,
@@ -284,25 +304,65 @@ function SpeciesAtlasView({
     return counts;
   }, [catalog]);
 
+  const venomousCount = useMemo(
+    () => catalog.filter((item) => isVenomousDanger(item.danger)).length,
+    [catalog],
+  );
+
   const facetCount = countAtlasFacets(filters);
 
   const hasActiveFilters = facetCount > 0 || filters.query.trim().length > 0;
 
+  function openRegionMenu() {
+    setRegionMenuOpen(true);
+    document
+      .getElementById("explorer")
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
   return (
     <>
+      <div className="bg-background pb-8 lg:pb-10">
+        <div className="mx-auto max-w-[1440px] px-5 lg:px-[60px]">
+          <AtlasTiles
+            filters={filters}
+            groupTotals={groupTotals}
+            onPickAll={resetFilters}
+            onPickGroup={(group) =>
+              updateFilter("group", filters.group === group ? "all" : group)
+            }
+            onPickRegion={openRegionMenu}
+            onPickVenomous={() =>
+              updateFilter(
+                "danger",
+                filters.danger === "venomous" ? "all" : "venomous",
+              )
+            }
+            regionCount={regionCount}
+            venomousCount={venomousCount}
+            venomousImage={venomousImage}
+          />
+        </div>
+      </div>
       <AtlasBrowse
+        catalog={catalog}
         facetCount={facetCount}
         filtered={filtered}
         filterOpen={filterOpen}
         filters={filters}
-        groupCounts={groupCounts}
         hasActiveFilters={hasActiveFilters}
         locale={locale}
         onApplyFilters={applyFilters}
+        onChangeSort={setSort}
+        onChangeView={setView}
         onCloseFilters={() => setFilterOpen(false)}
         onOpenFilters={() => setFilterOpen(true)}
+        onRegionMenuChange={setRegionMenuOpen}
         onResetFilters={resetFilters}
         onUpdateFilter={updateFilter}
+        regionMenuOpen={regionMenuOpen}
+        sort={sort}
+        view={view}
       />
       <AtlasMap tooltipSpeciesByRegion={tooltipSpeciesByRegion} />
       <AtlasRecent species={recent} />
