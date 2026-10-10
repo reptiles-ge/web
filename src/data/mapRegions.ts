@@ -390,6 +390,7 @@ export const regions: Region[] = [
       "mesobuthus-eupeus",
       "gypaetus-barbatus",
       "turdus-merula",
+      "vulpes-vulpes",
     ],
   },
   {
@@ -456,6 +457,7 @@ export const regions: Region[] = [
       "anas-platyrhynchos",
       "aegypius-monachus",
       "turdus-merula",
+      "vulpes-vulpes",
     ],
   },
   {
@@ -529,6 +531,7 @@ export const regions: Region[] = [
       "anas-platyrhynchos",
       "paralaudakia-caucasia",
       "turdus-merula",
+      "vulpes-vulpes",
     ],
   },
   {
@@ -605,6 +608,7 @@ export const regions: Region[] = [
       "anas-platyrhynchos",
       "turdus-merula",
       "lacerta-agilis",
+      "vulpes-vulpes",
     ],
   },
   {
@@ -691,6 +695,7 @@ export const regions: Region[] = [
       "anas-platyrhynchos",
       "turdus-merula",
       "streptopelia-turtur",
+      "vulpes-vulpes",
     ],
   },
   {
@@ -753,6 +758,7 @@ export const regions: Region[] = [
       "phasianus-colchicus",
       "aegypius-monachus",
       "turdus-merula",
+      "vulpes-vulpes",
     ],
   },
 ];
