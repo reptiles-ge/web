@@ -36,7 +36,7 @@ export function AnchoredHeading({
       {showAnchor ? (
         <a
           aria-label={`${anchorLabel}: ${textFromChildren(children)}`}
-          className="ml-2 inline-flex translate-y-[-0.05em] items-center text-muted-foreground/0 transition-colors group-hover/heading:text-muted-foreground/70 focus-visible:text-primary focus-visible:outline-none"
+          className="ml-1 inline-flex size-6 translate-y-[-0.05em] items-center justify-center align-middle text-muted-foreground/0 transition-colors group-hover/heading:text-muted-foreground/70 focus-visible:text-primary focus-visible:outline-none"
           href={`#${headingId}`}
         >
           <LinkIcon

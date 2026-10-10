@@ -126,7 +126,7 @@ export function SiteRating() {
       <button
         aria-hidden="true"
         className={cn(
-          "absolute right-7 bottom-full -mb-px cursor-pointer motion-reduce:animate-none",
+          "absolute right-7 bottom-full -mb-px hidden cursor-pointer motion-reduce:animate-none min-[360px]:block",
           ducks
             ? "animate-[rating-duck_1200ms_cubic-bezier(0.45,0,0.3,1)_both]"
             : "animate-[rating-peek_560ms_cubic-bezier(0.34,1.56,0.64,1)_420ms_both]",
@@ -141,7 +141,7 @@ export function SiteRating() {
           mood={active}
         />
       </button>
-      <div className="relative rounded-card border border-border bg-card p-4 shadow-[0_18px_44px_-26px_rgba(14,20,17,0.5)]">
+      <div className="relative rounded-card border border-border bg-card p-3 shadow-[0_18px_44px_-26px_rgba(14,20,17,0.5)] min-[360px]:p-4">
         <svg
           aria-hidden="true"
           className="pointer-events-none absolute -top-1.5 right-7 h-2.5 w-16 animate-[rating-pop_260ms_ease-out_860ms_both] motion-reduce:animate-none"
@@ -202,7 +202,7 @@ export function SiteRating() {
               </button>
             </div>
             <div
-              className="mt-3 -ml-1 flex gap-1"
+              className="mt-2 -ml-1 flex gap-1 min-[360px]:mt-3"
               onMouseLeave={() => setHovered(0)}
             >
               {STARS.map((star) => (
@@ -219,7 +219,7 @@ export function SiteRating() {
                   <Star
                     aria-hidden="true"
                     className={cn(
-                      "size-6 transition-colors duration-150",
+                      "size-5 transition-colors duration-150 min-[360px]:size-6",
                       star <= active
                         ? "fill-gold text-gold"
                         : "fill-transparent text-muted-foreground",
@@ -231,7 +231,7 @@ export function SiteRating() {
             </div>
             <p
               className={cn(
-                "mt-1.5 text-xs transition-colors duration-150",
+                "mt-1.5 hidden text-xs transition-colors duration-150 min-[360px]:block",
                 active ? "text-foreground" : "text-muted-foreground",
               )}
             >
