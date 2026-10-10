@@ -208,7 +208,7 @@ function AuthorIndexCard({
       className={`group flex flex-1 flex-col rounded-[26px] bg-card p-5 transition-[transform,box-shadow] duration-300 hover:translate-y-[-3px] hover:shadow-[0_1px_2px_rgba(14,20,17,0.04),0_22px_48px_rgba(14,20,17,0.1)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary lg:rounded-[32px] lg:p-7 ${CARD_SHADOW}`}
       href={creditAuthorHref(card.author.slug)}
     >
-      <span className="flex items-center gap-4 lg:gap-[18px]">
+      <div className="flex items-center gap-4 lg:gap-[18px]">
         <span className="relative size-14 shrink-0 overflow-hidden rounded-full bg-ink lg:size-[72px]">
           <CoverImage
             alt={portraitAlt}
@@ -217,13 +217,13 @@ function AuthorIndexCard({
             src={card.author.portraitSrc}
           />
         </span>
-        <span className="min-w-0">
+        <div className="min-w-0">
           <span className={`block ${EYEBROW}`}>{role}</span>
-          <span className="mt-1.5 block font-display text-[19px] leading-[1.2] font-semibold text-foreground lg:mt-2 lg:text-[22px]">
+          <h2 className="mt-1.5 font-display text-[19px] leading-[1.2] font-semibold text-foreground lg:mt-2 lg:text-[22px]">
             {name}
-          </span>
-        </span>
-      </span>
+          </h2>
+        </div>
+      </div>
       {bio ? (
         <span className="mt-3.5 line-clamp-3 flex-1 text-[14px] leading-[1.6] text-muted-foreground lg:mt-[18px] lg:text-[14.5px]">
           {bio}
