@@ -2,7 +2,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { useEffect, useId, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 
 import { NavbarChrome } from "@/components/NavbarChrome";
 import { NavbarMenu } from "@/components/NavbarMenu";
@@ -19,6 +19,7 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(!darkHero);
   const [menuOpen, setMenuOpen] = useState(false);
   const menuId = useId();
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
 
   const links = [
     { href: "/species" as const, label: t("species") },
@@ -89,7 +90,9 @@ export function Navbar() {
     document.body.style.overflow = "hidden";
 
     function onKeyDown(event: KeyboardEvent) {
-      if (event.key === "Escape") setMenuOpen(false);
+      if (event.key !== "Escape") return;
+      setMenuOpen(false);
+      menuButtonRef.current?.focus();
     }
 
     window.addEventListener("keydown", onKeyDown);
@@ -111,6 +114,7 @@ export function Navbar() {
         groupsLabel={t("groups")}
         groupsOpen={groupsOpen}
         heroSearch={pathname === "/"}
+        menuButtonRef={menuButtonRef}
         menuId={menuId}
         menuOpen={menuOpen}
         navLabel={t("mainMenu")}
