@@ -21,6 +21,7 @@ import { type AppLocale, routing } from "@/i18n/routing";
 import {
   creditAuthorAlternates,
   creditAuthorIndexUrl,
+  creditAuthorPortraitImage,
   creditAuthorStaticParams,
   creditAuthorUrl,
   getCreditAuthorPhotos,
@@ -122,7 +123,7 @@ export default async function AuthorRoute({ params }: Props) {
     mainEntity: {
       "@type": "Person",
       description: bio,
-      image: author.portraitSrc,
+      image: creditAuthorPortraitImage(author).url,
       name,
       sameAs: creditAuthorSameAs(author),
       url,
@@ -191,9 +192,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     new URL(url).pathname,
     fallbackDescription,
   );
-  const portraitType = author.portraitSrc.endsWith(".webp")
-    ? "image/webp"
-    : "image/jpeg";
+  const portrait = creditAuthorPortraitImage(author);
 
   return {
     alternates: creditAuthorAlternates(locale, author.slug),
@@ -203,8 +202,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       images: [
         {
           alt: title,
-          type: portraitType,
-          url: author.portraitSrc,
+          type: portrait.type,
+          url: portrait.url,
         },
       ],
       locale: openGraphLocale(locale),
@@ -221,7 +220,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     twitter: {
       card: "summary",
       description,
-      images: [author.portraitSrc],
+      images: [portrait.url],
       title,
     },
   };

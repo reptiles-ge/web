@@ -12,6 +12,7 @@ import { type AppLocale, routing } from "@/i18n/routing";
 import {
   creditAuthorIndexAlternates,
   creditAuthorIndexUrl,
+  creditAuthorPortraitImage,
   creditAuthorUrl,
   getCreditAuthorCards,
 } from "@/lib/creditAuthors";
@@ -114,18 +115,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     t("index.metaDescription"),
   );
   const featured = getCreditAuthorCards()[0];
+  const portrait = featured
+    ? creditAuthorPortraitImage(featured.author)
+    : undefined;
 
   return {
     alternates: creditAuthorIndexAlternates(locale),
     description,
     openGraph: {
       description,
-      images: featured
+      images: portrait
         ? [
             {
               alt: title,
-              type: "image/jpeg",
-              url: featured.author.portraitSrc,
+              type: portrait.type,
+              url: portrait.url,
             },
           ]
         : undefined,
@@ -143,7 +147,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     twitter: {
       card: "summary",
       description,
-      images: featured ? [featured.author.portraitSrc] : undefined,
+      images: portrait ? [portrait.url] : undefined,
       title,
     },
   };
