@@ -113,12 +113,12 @@ describe("SpeciesVerdict", () => {
   });
 
   it.each([
-    ["macrovipera-lebetina", "High", false],
-    ["malpolon-insignitus", "Moderate", false],
-    ["natrix-tessellata", "Harmless", true],
+    ["macrovipera-lebetina", "High"],
+    ["malpolon-insignitus", "Moderate"],
+    ["natrix-tessellata", "Harmless"],
   ] as const)(
-    "orders the %s verdict on mobile by urgency",
-    async (speciesId, level, movedDown) => {
+    "places the %s verdict after the interaction section on mobile",
+    async (speciesId, level) => {
       const { container } = render(
         await SpeciesVerdict({
           credits: [],
@@ -132,7 +132,7 @@ describe("SpeciesVerdict", () => {
         container
           .querySelector("section")
           ?.classList.contains("max-lg:order-2"),
-      ).toBe(movedDown);
+      ).toBe(true);
     },
   );
 

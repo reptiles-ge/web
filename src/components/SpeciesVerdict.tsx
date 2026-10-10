@@ -60,12 +60,7 @@ export async function SpeciesVerdict({
   return (
     <div className="contents min-w-0 flex-col lg:flex">
       {credit}
-      <section
-        className={cn(
-          "mx-4 mt-3 flex flex-1 flex-col overflow-hidden rounded-[28px] bg-card shadow-[0_14px_36px_rgba(14,20,17,0.06)] lg:mx-0 lg:mt-0 lg:rounded-[32px] lg:shadow-[0_16px_40px_rgba(14,20,17,0.08)]",
-          !urgent && "max-lg:order-2",
-        )}
-      >
+      <section className="mx-4 mt-3 flex flex-1 flex-col overflow-hidden rounded-[28px] bg-card shadow-[0_14px_36px_rgba(14,20,17,0.06)] max-lg:order-2 lg:mx-0 lg:mt-0 lg:rounded-[32px] lg:shadow-[0_16px_40px_rgba(14,20,17,0.08)]">
         <div
           className={cn(
             "px-5 pt-[18px] pb-4 lg:px-7 lg:pt-6 lg:pb-5",
