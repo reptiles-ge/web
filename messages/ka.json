@@ -874,6 +874,12 @@
     }
   },
   "author": {
+    "jobTitles": {
+      "director": "დირექტორი",
+      "professor": "პროფესორი",
+      "ranger": "რეინჯერი",
+      "researcher": "მკვლევარი"
+    },
     "roles": {
       "herpetologist": "ჰერპეტოლოგი",
       "photographer": "ფოტოგრაფი",
@@ -891,6 +897,7 @@
     "relatedNewsIntro": "სტატიები, სადაც {name} წყაროდ, ავტორად ან დაკავშირებულ მკვლევრად ფიგურირებს.",
     "portraitAlt": "{name}",
     "metaTitle": "{name}",
+    "metaTitleWithRole": "{name}, {role}",
     "metaDescription": "{name}-ის {count} ფოტო {species} სახეობაზე — საქართველოს ცხოველთა ატლასში.",
     "notFound": "ავტორი ვერ მოიძებნა",
     "close": "დახურვა",

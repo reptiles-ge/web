@@ -874,6 +874,12 @@
     }
   },
   "author": {
+    "jobTitles": {
+      "director": "Direktör",
+      "professor": "Profesör",
+      "ranger": "Ranger",
+      "researcher": "Araştırmacı"
+    },
     "roles": {
       "herpetologist": "Herpetolog",
       "photographer": "Fotoğrafçı",
@@ -891,6 +897,7 @@
     "relatedNewsIntro": "{name} adlı kişinin kaynak, yazar veya ilgili araştırmacı olarak geçtiği yazılar.",
     "portraitAlt": "{name}",
     "metaTitle": "{name}",
+    "metaTitleWithRole": "{name}, {role}",
     "metaDescription": "{name}: Gürcistan hayvanlar atlasında {species} türe ait {count} fotoğraf.",
     "notFound": "Yazar bulunamadı",
     "close": "Kapat",

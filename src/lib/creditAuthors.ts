@@ -4,8 +4,12 @@ import type { PhotoCredit } from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
 
 import {
+  creditAuthorAffiliationNames,
   creditAuthorHref,
   creditAuthorIndexHref,
+  creditAuthorKind,
+  creditAuthorName,
+  creditAuthorSameAs,
   getPublishedCreditAuthorBySlug,
   getPublishedCreditAuthors,
 } from "@/data/creditAuthors";
@@ -61,6 +65,34 @@ export function creditAuthorAlternates(locale: AppLocale, slug: string) {
   });
 }
 
+export function creditAuthorEntityJsonLd(
+  author: CreditAuthor,
+  locale: AppLocale,
+  { description, jobTitle }: { description?: string; jobTitle?: string },
+) {
+  const isPerson = creditAuthorKind(author) === "person";
+  const affiliations = isPerson
+    ? creditAuthorAffiliationNames(author, locale)
+    : [];
+  return {
+    "@type": isPerson ? "Person" : "Thing",
+    ...(affiliations.length > 0
+      ? {
+          affiliation: affiliations.map((name) => ({
+            "@type": "Organization",
+            name,
+          })),
+        }
+      : {}),
+    description,
+    image: creditAuthorPortraitImage(author).url,
+    ...(isPerson && jobTitle ? { jobTitle } : {}),
+    name: creditAuthorName(author, locale),
+    sameAs: creditAuthorSameAs(author),
+    url: creditAuthorUrl(locale, author.slug),
+  };
+}
+
 export function creditAuthorIndexAlternates(locale: AppLocale) {
   return localeAlternates(locale, creditAuthorIndexHref());
 }
@@ -72,6 +104,12 @@ export function creditAuthorIndexUrl(locale: AppLocale) {
       locale,
     }),
   );
+}
+
+export function creditAuthorPageSchemaType(author: CreditAuthor) {
+  return creditAuthorKind(author) === "person"
+    ? "ProfilePage"
+    : "CollectionPage";
 }
 
 export function creditAuthorPortraitImage(author: CreditAuthor) {
