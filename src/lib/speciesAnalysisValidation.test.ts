@@ -10,6 +10,7 @@ import {
   type SpeciesAnalysisContext,
 } from "@/lib/speciesAnalysisInventory";
 import {
+  AnalysisCoverageError,
   AnalysisEvidenceError,
   analysisLookalikes,
   applyAnalysisEdits,
@@ -94,6 +95,11 @@ describe("Super Analysis ownership and evidence gates", () => {
     const value = result();
     value.coverage = value.coverage.filter((id) => id !== "verdict");
     expect(() => check(value)).toThrow("coverage");
+    value.coverage.push("hero", "faq.0");
+    expect(() => check(value)).toThrow(AnalysisCoverageError);
+    expect(() => check(value)).toThrow(
+      /^Incomplete page surface coverage \(stage analysis\) \| missing 1\/15: verdict \| unknown 1: "faq\.0" \| duplicates: hero \| received 16: .+ \| required: hero, facts, verdict, .+ \| allowed: hero, facts, verdict, /,
+    );
     expect(check(result("texts"), prior()).stage).toBe("texts");
   });
 

@@ -256,6 +256,54 @@ describe("four-stage Super Analysis runner", () => {
   });
 
   it.each([true, false])(
+    "repairs incomplete coverage once with a detailed error (%s)",
+    async (repairSucceeds) => {
+      const all = speciesAnalysisSurfaces.map((surface) => surface.id);
+      let calls = 0;
+      mockAgent(async ({ output, prompt }) => {
+        calls++;
+        expect(prompt).toContain(
+          `REQUIRED COVERAGE IDS (every one must appear in coverage): ${all.join(", ")}`,
+        );
+        if (calls === 2) {
+          expect(prompt).toContain("Missing: media, navigation");
+          expect(prompt).toContain("Remove unknown IDs: faq.0");
+        }
+        await fs.writeFile(
+          output,
+          JSON.stringify({
+            coverage:
+              calls === 2 && repairSucceeds
+                ? all
+                : [
+                    ...all.filter(
+                      (surface) =>
+                        surface !== "media" && surface !== "navigation",
+                    ),
+                    "faq.0",
+                  ],
+            edits: [],
+            evidence: [],
+            findings: [],
+            lookalikes: [],
+            sources: [],
+            stage: "analysis",
+            summary: "Reviewed",
+          }),
+        );
+      });
+      const run = await createSuperAnalysisRunner(id, worktree, directory);
+      if (repairSucceeds)
+        await expect(run("analysis")).resolves.toContain("Reviewed");
+      else
+        await expect(run("analysis")).rejects.toThrow(
+          `[analysis, attempt 2/2, after validation repair] Incomplete page surface coverage (stage analysis) | missing 2/${all.length}: media, navigation | unknown 1: "faq.0"`,
+        );
+      expect(calls).toBe(2);
+    },
+  );
+
+  it.each([true, false])(
     "repairs scientific-name loss or preserves the original field (%s)",
     async (repairSucceeds) => {
       const initial = original.replace(
