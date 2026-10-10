@@ -101,7 +101,7 @@ function TrustCard({
       </p>
       {href && linkLabel ? (
         <Link
-          className="mt-3 inline-flex min-h-9 items-center gap-1.5 text-[13.5px] font-semibold text-primary hover:underline"
+          className="mt-2 inline-flex min-h-11 items-center gap-1.5 text-[13.5px] font-semibold text-primary hover:underline"
           href={href}
         >
           {linkLabel} →

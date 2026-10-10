@@ -133,7 +133,7 @@ export function AtlasFilterSheet({
                     <button
                       aria-pressed={active}
                       className={cn(
-                        "inline-flex h-10 items-center gap-1.5 rounded-full border px-3.5 text-[14px] font-medium whitespace-nowrap",
+                        "inline-flex h-11 items-center gap-1.5 rounded-full border px-3.5 text-[14px] font-medium whitespace-nowrap",
                         active
                           ? "border-foreground bg-foreground text-background"
                           : "border-secondary bg-card text-foreground",

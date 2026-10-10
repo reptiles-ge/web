@@ -314,6 +314,10 @@ function SpeciesAtlasView({
   const hasActiveFilters = facetCount > 0 || filters.query.trim().length > 0;
 
   function openRegionMenu() {
+    if (!window.matchMedia("(min-width: 1024px)").matches) {
+      setFilterOpen(true);
+      return;
+    }
     setRegionMenuOpen(true);
     document
       .getElementById("explorer")

@@ -224,7 +224,6 @@ export default defineConfig({
         "src/components/species-atlas/AtlasMap.tsx",
         "src/components/species-atlas/AtlasRecent.tsx",
         "src/components/species-atlas/AtlasSeo.tsx",
-        "src/components/species-atlas/AtlasSpeciesCard.tsx",
         "src/components/species-atlas/AtlasSpeciesGrid.tsx",
         "src/components/species-atlas/SpeciesAtlas.tsx",
         "src/components/species-atlas/atlasOptions.ts",
