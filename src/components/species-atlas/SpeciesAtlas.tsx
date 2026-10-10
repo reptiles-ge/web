@@ -331,9 +331,6 @@ function SpeciesAtlasView({
           <AtlasTiles
             filters={filters}
             groupTotals={groupTotals}
-            onPickGroup={(group) =>
-              updateFilter("group", filters.group === group ? "all" : group)
-            }
             onPickRegion={openRegionMenu}
             onPickVenomous={() =>
               updateFilter(
