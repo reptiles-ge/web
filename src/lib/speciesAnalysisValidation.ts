@@ -25,6 +25,34 @@ const links = (value: string) => [
 const plain = (value: string) =>
   value.replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1");
 
+export class AnalysisCoverageError extends Error {
+  constructor(
+    readonly stage: SuperAnalysisStage,
+    readonly required: string[],
+    readonly allowed: string[],
+    readonly received: string[],
+    readonly missing: string[],
+    readonly unknown: string[],
+  ) {
+    const duplicates = [
+      ...new Set(
+        received.filter((id, index) => received.indexOf(id) !== index),
+      ),
+    ];
+    super(
+      [
+        `Incomplete page surface coverage (stage ${stage})`,
+        `missing ${missing.length}/${required.length}: ${missing.join(", ") || "none"}`,
+        `unknown ${unknown.length}: ${unknown.map((id) => JSON.stringify(id)).join(", ") || "none"}`,
+        `duplicates: ${duplicates.join(", ") || "none"}`,
+        `received ${received.length}: ${received.map((id) => JSON.stringify(id)).join(", ") || "none"}`,
+        `required: ${required.join(", ")}`,
+        `allowed: ${allowed.join(", ")}`,
+      ].join(" | "),
+    );
+  }
+}
+
 export class AnalysisEvidenceError extends Error {}
 
 export class AnalysisNumberError extends Error {
@@ -140,6 +168,27 @@ export function applyAnalysisLookalikes(
         source.slice(end);
 }
 
+export function requiredAnalysisCoverage(
+  stage: SuperAnalysisStage,
+  context: Pick<SpeciesAnalysisContext, "surfaces">,
+): string[] {
+  if (stage === "analysis" || stage === "texts")
+    return context.surfaces.map((surface) => surface.id);
+  if (stage === "lookalikes") return ["identification", "related", "quiz"];
+  return [
+    "hero",
+    "interaction",
+    "overview",
+    "identification",
+    "biology",
+    "range",
+    "faq",
+    "sources",
+    "related",
+    "quiz",
+  ];
+}
+
 export function validateSuperAnalysisResult(
   input: unknown,
   stage: SuperAnalysisStage,
@@ -148,34 +197,36 @@ export function validateSuperAnalysisResult(
 ) {
   const result = superAnalysisResultSchema.parse(input);
   if (result.stage !== stage) throw new Error("Wrong analysis stage");
-  const required =
-    stage === "analysis" || stage === "texts"
-      ? context.surfaces.map((surface) => surface.id)
-      : stage === "lookalikes"
-        ? ["identification", "related", "quiz"]
-        : [
-            "hero",
-            "interaction",
-            "overview",
-            "identification",
-            "biology",
-            "range",
-            "faq",
-            "sources",
-            "related",
-            "quiz",
-          ];
+  const required = requiredAnalysisCoverage(stage, context);
   const surfaceIds = new Set(
     context.surfaces.map((surface) => surface.id as string),
   );
   const covered = new Set(result.coverage);
-  if (
-    required.some((id) => !covered.has(id)) ||
-    result.coverage.some((id) => !surfaceIds.has(id))
-  )
-    throw new Error("Incomplete page surface coverage");
-  if (result.findings.some((finding) => !surfaceIds.has(finding.surface)))
-    throw new Error("Unknown finding surface");
+  const missing = required.filter((id) => !covered.has(id));
+  const unknown = [
+    ...new Set(result.coverage.filter((id) => !surfaceIds.has(id))),
+  ];
+  if (missing.length || unknown.length)
+    throw new AnalysisCoverageError(
+      stage,
+      required,
+      [...surfaceIds],
+      result.coverage,
+      missing,
+      unknown,
+    );
+  const unknownFindings = result.findings.filter(
+    (finding) => !surfaceIds.has(finding.surface),
+  );
+  if (unknownFindings.length)
+    throw new Error(
+      `Unknown finding surface (stage ${stage}): ${unknownFindings
+        .map(
+          (finding) =>
+            `"${finding.surface}" [${finding.severity}] ${finding.message.slice(0, 160)}`,
+        )
+        .join("; ")}; allowed: ${[...surfaceIds].join(", ")}`,
+    );
   if (result.findings.some((finding) => finding.severity === "blocking"))
     throw new Error(
       `Blocking findings: ${result.findings

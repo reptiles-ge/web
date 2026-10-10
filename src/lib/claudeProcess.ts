@@ -21,6 +21,8 @@ const claudeResultSchema = z.object({
   total_cost_usd: z.number().optional(),
 });
 
+const jsonSchemaFileSchema = z.record(z.string(), z.unknown());
+
 export type ClaudeRun = {
   costUsd?: number;
   durationMs?: number;
@@ -141,9 +143,17 @@ function claudeEnv() {
 }
 
 async function claudeSchema(file: string) {
-  const { $schema: _, ...schema } = JSON.parse(
-    await fs.readFile(file, "utf8"),
-  ) as Record<string, unknown>;
+  const text = await fs.readFile(file, "utf8");
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(text);
+  } catch {
+    throw new Error(`Claude schema is not valid JSON: ${file}`);
+  }
+  const result = jsonSchemaFileSchema.safeParse(parsed);
+  if (!result.success)
+    throw new Error(`Claude schema must be a JSON object: ${file}`);
+  const { $schema: _, ...schema } = result.data;
   return JSON.stringify(schema);
 }
 
