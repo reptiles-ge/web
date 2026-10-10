@@ -4,18 +4,18 @@ import { type ComponentProps, type ReactNode } from "react";
 
 import type { AppLocale } from "@/i18n/routing";
 
+import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlasMeta";
 import { Link } from "@/i18n/navigation";
+import { getAtlasListItems } from "@/lib/atlasList";
 import { speciesHref } from "@/lib/speciesRoutes";
-
-const VENOMOUS_EXAMPLES = [
-  ["macrovipera-lebetina", "Macrovipera lebetina"],
-  ["vipera-kaznakovi", "Vipera kaznakovi"],
-  ["vipera-dinniki", "Vipera dinniki"],
-  ["vipera-transcaucasiana", "Vipera transcaucasiana"],
-] as const;
 
 export async function AtlasSeo({ locale }: { locale: AppLocale }) {
   const t = await getTranslations({ locale, namespace: "speciesAtlas" });
+  const venomousSnakes = getAtlasListItems(locale).filter(
+    (item) =>
+      getSpeciesAtlasMeta(item.id).group === "snake" &&
+      isVenomousDanger(item.danger),
+  );
 
   return (
     <section className="bg-card py-9 lg:py-[88px]">
@@ -42,13 +42,13 @@ export async function AtlasSeo({ locale }: { locale: AppLocale }) {
             <p>{t("seo.venomousP1")}</p>
             <p>{t("seo.venomousP2")}</p>
             <ul className="mb-3.5 flex flex-wrap gap-2">
-              {VENOMOUS_EXAMPLES.map(([id, name]) => (
-                <li key={id}>
+              {venomousSnakes.map((item) => (
+                <li key={item.id}>
                   <Link
-                    className="inline-flex min-h-9 items-center rounded-full bg-card px-3.5 text-[13.5px] font-medium text-foreground italic transition-colors hover:text-primary"
-                    href={speciesHref(id, locale)}
+                    className="inline-flex min-h-11 items-center rounded-full bg-card px-3.5 text-[13.5px] font-medium text-foreground transition-colors hover:text-primary"
+                    href={speciesHref(item.id, locale)}
                   >
-                    {name}
+                    {item.commonName}
                   </Link>
                 </li>
               ))}
