@@ -1,12 +1,15 @@
 import { describe, expect, it } from "vitest";
 
 import { getPublishedCreditAuthors } from "@/data/creditAuthors";
+import imageManifest from "@/data/image-manifest.json";
+import { optimizedEntry, optimizedImgSrc } from "@/data/optimizedImages";
 import { getCatalogSpecies } from "@/data/species";
 import { routing } from "@/i18n/routing";
 import {
   creditAuthorAlternates,
   creditAuthorIndexAlternates,
   creditAuthorIndexUrl,
+  creditAuthorPortraitImage,
   creditAuthorStaticParams,
   creditAuthorUrl,
   getCreditAuthorCards,
@@ -18,6 +21,7 @@ import {
   HOME_CONTRIBUTOR_LIMIT,
   resolvePublishedCreditAuthor,
 } from "@/lib/creditAuthors";
+import { creditAuthorPageImageUrls } from "@/lib/sitemapImages";
 
 const authors = getPublishedCreditAuthors();
 
@@ -220,5 +224,55 @@ describe("getCreditAuthorFieldSummary", () => {
       place: undefined,
       years: undefined,
     });
+  });
+});
+
+describe("portrait URLs outside the picture element", () => {
+  const uploaded = new Set(
+    Object.values(imageManifest.entries).flatMap((entry) =>
+      entry.derivatives.map(
+        (derivative) => `https://cdn.reptiles.ge/${derivative.key}`,
+      ),
+    ),
+  );
+
+  it("optimizes every published portrait", () => {
+    for (const author of authors) {
+      expect(optimizedEntry(author.portraitSrc), author.slug).not.toBeNull();
+    }
+  });
+
+  it("points share images and structured data at an uploaded WebP variant", () => {
+    for (const author of authors) {
+      const image = creditAuthorPortraitImage(author);
+      if (!optimizedEntry(author.portraitSrc)?.formats.includes("webp")) {
+        expect(image.url, author.slug).toBe(author.portraitSrc);
+        continue;
+      }
+      expect(uploaded.has(image.url), author.slug).toBe(true);
+      expect(image.type, author.slug).toBe("image/webp");
+    }
+  });
+
+  it("never shares the missing Sheklashvili original", () => {
+    const author = resolvePublishedCreditAuthor("giorgi-sheklashvili");
+    expect(author).toBeDefined();
+    if (!author) return;
+    expect(creditAuthorPortraitImage(author).url).toBe(
+      "https://cdn.reptiles.ge/optimized/images/authors/giorgi-sheklashvili-1200.webp",
+    );
+  });
+
+  it("resolves sitemap and search thumbnails to uploaded variants", () => {
+    for (const author of authors) {
+      const [sitemapUrl] = creditAuthorPageImageUrls(author.portraitSrc, []);
+      const searchThumb = optimizedImgSrc(author.portraitSrc, 400);
+      for (const url of [sitemapUrl, searchThumb]) {
+        expect(
+          uploaded.has(url) || url === author.portraitSrc,
+          `${author.slug} ${url}`,
+        ).toBe(true);
+      }
+    }
   });
 });

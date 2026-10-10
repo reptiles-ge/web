@@ -70,7 +70,7 @@ export async function SpeciesSourcesRelated({
                 {t("sourcesProfileTitle")}
               </AnchoredHeading>
             </div>
-            <span className="pb-1 text-[12px] text-muted-foreground lg:hidden">
+            <span className="shrink-0 pb-1 text-[12px] whitespace-nowrap text-muted-foreground lg:hidden">
               {t("sourcesCount", { count: sources.length })}
             </span>
           </div>
@@ -152,7 +152,7 @@ export async function SpeciesSourcesRelated({
                 />
               </Link>
             </div>
-            <div className="no-scrollbar mt-4 flex snap-x snap-mandatory gap-2.5 overflow-x-auto px-5 pb-2 sm:px-6 lg:mt-6 lg:grid lg:grid-cols-2 lg:gap-x-5 lg:gap-y-7 lg:overflow-visible lg:px-0">
+            <div className="no-scrollbar mt-4 flex snap-x snap-mandatory scroll-px-5 gap-2.5 overflow-x-auto px-5 pb-2 sm:scroll-px-6 sm:px-6 lg:mt-6 lg:grid lg:grid-cols-2 lg:gap-x-5 lg:gap-y-7 lg:overflow-visible lg:px-0">
               {related.map((item, index) => (
                 <RelatedSpeciesCard
                   item={item}

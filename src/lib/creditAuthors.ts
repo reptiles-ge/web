@@ -9,6 +9,7 @@ import {
   getPublishedCreditAuthorBySlug,
   getPublishedCreditAuthors,
 } from "@/data/creditAuthors";
+import { optimizedEntry, optimizedImgSrc } from "@/data/optimizedImages";
 import { getCatalogSpecies } from "@/data/species";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import { getPathname } from "@/i18n/navigation";
@@ -71,6 +72,17 @@ export function creditAuthorIndexUrl(locale: AppLocale) {
       locale,
     }),
   );
+}
+
+export function creditAuthorPortraitImage(author: CreditAuthor) {
+  const entry = optimizedEntry(author.portraitSrc);
+  if (!entry?.formats.includes("webp")) {
+    return {
+      type: author.portraitSrc.endsWith(".webp") ? "image/webp" : "image/jpeg",
+      url: author.portraitSrc,
+    };
+  }
+  return { type: "image/webp", url: optimizedImgSrc(author.portraitSrc) };
 }
 
 export function creditAuthorStaticParams() {

@@ -330,6 +330,8 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     bio: {
       en: "Giorgi Sheklashvili is a Georgian researcher in biology, a doctoral student at Ilia State University (ISU), and a researcher at the Institute of Zoology.",
       ka: "გიორგი შეყლაშვილი ბიოლოგიის სფეროს ქართველი მკვლევარია — ილიას სახელმწიფო უნივერსიტეტის (ISU) დოქტორანტი და ზოოლოგიის ინსტიტუტის მეცნიერ-თანამშრომელი.",
+      ru: "Гиорги Шеклашвили — грузинский исследователь в области биологии, докторант Государственного университета Ильи (ISU) и научный сотрудник Института зоологии.",
+      tr: "Giorgi Sheklashvili, biyoloji alanında çalışan Gürcü bir araştırmacı, Ilia Devlet Üniversitesi (ISU) doktora öğrencisi ve Zooloji Enstitüsü araştırmacısıdır.",
     },
     id: "giorgi-sheklashvili",
     links: {
@@ -340,6 +342,8 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     name: {
       en: "Giorgi Sheklashvili",
       ka: "გიორგი შეყლაშვილი",
+      ru: "Гиорги Шеклашвили",
+      tr: "Giorgi Sheklashvili",
     },
     portraitClass: "object-[36%_38%]",
     portraitSrc:

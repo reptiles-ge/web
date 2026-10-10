@@ -1,12 +1,17 @@
 "use client";
 
 import { Camera, Check } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 
 import type { PhotoCredit } from "@/data/speciesTypes";
+import type { AppLocale } from "@/i18n/routing";
 
 import { MOBILE_HERO_PHOTO_CHANGE_EVENT } from "@/components/SpeciesMobileHeroCarousel";
+import {
+  creditAuthorName,
+  getPublishedCreditAuthorByName,
+} from "@/data/creditAuthors";
 
 export function SpeciesMobileHeroCredit({
   credits,
@@ -16,6 +21,7 @@ export function SpeciesMobileHeroCredit({
   speciesId: string;
 }) {
   const t = useTranslations("profile");
+  const locale = useLocale() as AppLocale;
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -31,7 +37,9 @@ export function SpeciesMobileHeroCredit({
   }, [speciesId]);
 
   const credit = credits[index];
-  if (!credit?.photographer) return null;
+  const photographer = credit?.photographer?.trim();
+  if (!credit || !photographer) return null;
+  const author = getPublishedCreditAuthorByName(photographer);
 
   return (
     <p
@@ -40,7 +48,12 @@ export function SpeciesMobileHeroCredit({
     >
       <Camera aria-hidden="true" className="size-3.5 shrink-0" />
       <span className="min-w-0 flex-1 truncate">
-        {[credit.photographer, credit.location].filter(Boolean).join(" · ")}
+        {[
+          author ? creditAuthorName(author, locale) : photographer,
+          credit.location,
+        ]
+          .filter(Boolean)
+          .join(" · ")}
       </span>
       {credit.photoConfidence === "georgia-field" ? (
         <span className="inline-flex shrink-0 items-center gap-1 font-medium text-primary">
