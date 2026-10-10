@@ -45,13 +45,12 @@ export type CreditAuthor = {
   slug: string;
 };
 
-export type CreditAuthorJobTitle =
-  "director" | "professor" | "ranger" | "researcher";
-
 export type CreditAuthorKind = "page" | "person";
 
 export type CreditAuthorRole =
   "herpetologist" | "photographer" | "ranger" | "researcher";
+
+type CreditAuthorJobTitle = "director" | "professor" | "ranger" | "researcher";
 
 export const CREDIT_AUTHORS: CreditAuthor[] = [
   {
