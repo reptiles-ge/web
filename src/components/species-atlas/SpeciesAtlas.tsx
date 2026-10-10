@@ -327,7 +327,6 @@ function SpeciesAtlasView({
           <AtlasTiles
             filters={filters}
             groupTotals={groupTotals}
-            onPickAll={resetFilters}
             onPickGroup={(group) =>
               updateFilter("group", filters.group === group ? "all" : group)
             }
