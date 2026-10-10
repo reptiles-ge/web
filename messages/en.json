@@ -874,6 +874,12 @@
     }
   },
   "author": {
+    "jobTitles": {
+      "director": "Director",
+      "professor": "Professor",
+      "ranger": "Ranger",
+      "researcher": "Researcher"
+    },
     "roles": {
       "herpetologist": "Herpetologist",
       "photographer": "Photographer",
@@ -891,6 +897,7 @@
     "relatedNewsIntro": "Articles where {name} appears as a source, author, or related researcher.",
     "portraitAlt": "{name}",
     "metaTitle": "{name}",
+    "metaTitleWithRole": "{name}, {role}",
     "metaDescription": "{count} photographs of {species} species by {name}, in the atlas of animals of Georgia.",
     "notFound": "Author not found",
     "close": "Close",

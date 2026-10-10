@@ -874,6 +874,12 @@
     }
   },
   "author": {
+    "jobTitles": {
+      "director": "Директор",
+      "professor": "Профессор",
+      "ranger": "Рейнджер",
+      "researcher": "Исследователь"
+    },
     "roles": {
       "herpetologist": "Герпетолог",
       "photographer": "Фотограф",
@@ -891,6 +897,7 @@
     "relatedNewsIntro": "Материалы, где {name} указан как источник, автор или связанный исследователь.",
     "portraitAlt": "{name}",
     "metaTitle": "{name}",
+    "metaTitleWithRole": "{name}, {role}",
     "metaDescription": "{count} фотографий {name} — {species} видов в атласе животных Грузии.",
     "notFound": "Автор не найден",
     "close": "Закрыть",

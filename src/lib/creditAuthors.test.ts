@@ -7,8 +7,10 @@ import { getCatalogSpecies } from "@/data/species";
 import { routing } from "@/i18n/routing";
 import {
   creditAuthorAlternates,
+  creditAuthorEntityJsonLd,
   creditAuthorIndexAlternates,
   creditAuthorIndexUrl,
+  creditAuthorPageSchemaType,
   creditAuthorPortraitImage,
   creditAuthorStaticParams,
   creditAuthorUrl,
@@ -274,5 +276,48 @@ describe("portrait URLs outside the picture element", () => {
         ).toBe(true);
       }
     }
+  });
+});
+
+describe("contributor entity JSON-LD", () => {
+  const bySlug = (slug: string) => resolvePublishedCreditAuthor(slug)!;
+
+  it("describes a person with a verified job title and affiliation", () => {
+    const zauri = bySlug("zauri-khachidze");
+    const node = creditAuthorEntityJsonLd(zauri, "en", {
+      description: "bio",
+      jobTitle: "Ranger",
+    });
+    expect(creditAuthorPageSchemaType(zauri)).toBe("ProfilePage");
+    expect(node).toMatchObject({
+      "@type": "Person",
+      affiliation: [
+        { "@type": "Organization", name: "Borjomi-Kharagauli National Park" },
+      ],
+      jobTitle: "Ranger",
+      name: "Zauri Khachidze",
+    });
+  });
+
+  it("leaves out job title and affiliation a person's bio does not state", () => {
+    const node = creditAuthorEntityJsonLd(bySlug("sandro-khakhva"), "ka", {});
+    expect(node["@type"]).toBe("Person");
+    expect(node).not.toHaveProperty("affiliation");
+    expect(node).not.toHaveProperty("jobTitle");
+  });
+
+  it("does not type a photography page as a person or an organization", () => {
+    const page = bySlug("velur-bunebastan-axlos");
+    const node = creditAuthorEntityJsonLd(page, "ka", {
+      description: "bio",
+      jobTitle: "Ranger",
+    });
+    expect(creditAuthorPageSchemaType(page)).toBe("CollectionPage");
+    expect(node["@type"]).toBe("Thing");
+    expect(node).not.toHaveProperty("affiliation");
+    expect(node).not.toHaveProperty("jobTitle");
+    expect(node.sameAs).toEqual([
+      "https://www.facebook.com/profile.php?id=61585670878935",
+    ]);
   });
 });

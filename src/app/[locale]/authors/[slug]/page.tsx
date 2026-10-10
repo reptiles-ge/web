@@ -9,9 +9,10 @@ import { ClientMessagesProvider } from "@/components/ClientMessagesProvider";
 import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { JsonLd } from "@/components/JsonLd";
 import {
+  type CreditAuthor,
   creditAuthorBio,
+  creditAuthorKind,
   creditAuthorName,
-  creditAuthorSameAs,
 } from "@/data/creditAuthors";
 import { getPublishedNewsForCreditAuthor } from "@/data/news";
 import { getSpeciesById } from "@/data/species";
@@ -20,7 +21,9 @@ import { georgiaPlaceName, openGraphLocale } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
 import {
   creditAuthorAlternates,
+  creditAuthorEntityJsonLd,
   creditAuthorIndexUrl,
+  creditAuthorPageSchemaType,
   creditAuthorPortraitImage,
   creditAuthorStaticParams,
   creditAuthorUrl,
@@ -30,7 +33,7 @@ import {
 } from "@/lib/creditAuthors";
 import { AUTHOR_PORTRAIT_SIZES } from "@/lib/imageSizes";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
-import { shortMetaDescription } from "@/lib/metaDescription";
+import { sentenceMetaDescription } from "@/lib/metaDescription";
 import { absoluteUrl, localePath, siteConfig, siteEntityId } from "@/lib/site";
 import { authorDateFields } from "@/lib/structuredDataDates";
 
@@ -92,7 +95,7 @@ export default async function AuthorRoute({ params }: Props) {
 
   const pageLd = {
     "@context": "https://schema.org",
-    "@type": "ProfilePage",
+    "@type": creditAuthorPageSchemaType(author),
     about: [
       {
         "@type": "Place",
@@ -120,14 +123,10 @@ export default async function AuthorRoute({ params }: Props) {
     ...authorDateFields(author.slug),
     inLanguage: locale,
     isPartOf: { "@id": siteEntityId("website") },
-    mainEntity: {
-      "@type": "Person",
+    mainEntity: creditAuthorEntityJsonLd(author, locale, {
       description: bio,
-      image: creditAuthorPortraitImage(author).url,
-      name,
-      sameAs: creditAuthorSameAs(author),
-      url,
-    },
+      jobTitle: author.jobTitle ? t(`jobTitles.${author.jobTitle}`) : undefined,
+    }),
     name,
     url,
   };
@@ -177,9 +176,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "author" });
   const name = creditAuthorName(author, locale);
   const photos = getCreditAuthorPhotos(author);
-  const title = t("metaTitle", { name });
-  const fallbackDescription = shortMetaDescription(
-    creditAuthorBio(author, locale) ??
+  const title = creditAuthorMetaTitle(author, locale, name, t);
+  const fallbackDescription = sentenceMetaDescription(
+    (locale === "ka" ? undefined : author.metaDescription?.[locale]) ??
+      creditAuthorBio(author, locale) ??
       t("metaDescription", {
         count: photos.length,
         name,
@@ -209,7 +209,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       locale: openGraphLocale(locale),
       siteName: siteConfig.name,
       title,
-      type: "profile",
+      type: creditAuthorKind(author) === "person" ? "profile" : "website",
       url,
     },
     robots: {
@@ -228,4 +228,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export function generateStaticParams() {
   return creditAuthorStaticParams();
+}
+
+function creditAuthorMetaTitle(
+  author: CreditAuthor,
+  locale: AppLocale,
+  name: string,
+  t: Awaited<ReturnType<typeof getTranslations<"author">>>,
+) {
+  if (creditAuthorKind(author) !== "person") return t("metaTitle", { name });
+  return t("metaTitleWithRole", {
+    name,
+    role: t(`roles.${author.role}`).toLocaleLowerCase(locale),
+  });
 }

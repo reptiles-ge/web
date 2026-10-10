@@ -36,6 +36,25 @@ describe("galleryImageObject", () => {
     );
   });
 
+  it("credits a photography page by name without calling it a person", () => {
+    const data = galleryImageObject(
+      {
+        credit: { photographer: "ველურ ბუნებასთან ახლოს" },
+        src: "https://cdn.reptiles.ge/buteo-buteo.jpg",
+      },
+      {
+        commonName: "ჩვეულებრივი კაკაჩა",
+        location: "",
+        scientificName: "Buteo buteo",
+      },
+      "ka",
+    );
+
+    expect(data.creditText).toBe("ველურ ბუნებასთან ახლოს");
+    expect(data).not.toHaveProperty("creator");
+    expect(data).not.toHaveProperty("copyrightHolder");
+  });
+
   it("adds GeoCoordinates under contentLocation Place", () => {
     const data = galleryImageObject(
       {
