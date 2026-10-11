@@ -154,40 +154,39 @@ export function Navbar({ images, stats }: NavbarData) {
         solid={solid}
         speciesLabel={t("species")}
       />
-      {groupsOpen ? (
-        <NavbarGroupsPanel
-          allSpeciesLabel={t("allSpecies", { count: stats.total })}
-          closeLabel={t("closeMenu")}
-          groupsId={groupsId}
-          groupsLabel={t("groups")}
-          onClose={() => setGroupsOpen(false)}
-          otherGroups={otherGroups}
-          otherGroupsLabel={t("otherGroups")}
-          quickLinks={[
-            {
-              href: "/venomous-snakes",
-              icon: "venomous",
-              label: t("venomousSnakes"),
-            },
-            {
-              href: "/snakes-in-the-yard",
-              icon: "yard",
-              label: t("snakeYard"),
-            },
-            {
-              href: quizHref("snake", locale),
-              icon: "identify",
-              label: t("whichSnake"),
-            },
-          ]}
-          quickLinksLabel={t("quickLinks")}
-          reptileGroups={reptileGroups}
-          reptilesLabel={t("reptiles")}
-          reptileSpeciesLabel={t("speciesCount", {
-            count: reptileGroups.reduce((sum, group) => sum + group.count, 0),
-          })}
-        />
-      ) : null}
+      <NavbarGroupsPanel
+        allSpeciesLabel={t("allSpecies", { count: stats.total })}
+        closeLabel={t("closeMenu")}
+        groupsId={groupsId}
+        groupsLabel={t("groups")}
+        onClose={() => setGroupsOpen(false)}
+        open={groupsOpen}
+        otherGroups={otherGroups}
+        otherGroupsLabel={t("otherGroups")}
+        quickLinks={[
+          {
+            href: "/venomous-snakes",
+            icon: "venomous",
+            label: t("venomousSnakes"),
+          },
+          {
+            href: "/snakes-in-the-yard",
+            icon: "yard",
+            label: t("snakeYard"),
+          },
+          {
+            href: quizHref("snake", locale),
+            icon: "identify",
+            label: t("whichSnake"),
+          },
+        ]}
+        quickLinksLabel={t("quickLinks")}
+        reptileGroups={reptileGroups}
+        reptilesLabel={t("reptiles")}
+        reptileSpeciesLabel={t("speciesCount", {
+          count: reptileGroups.reduce((sum, group) => sum + group.count, 0),
+        })}
+      />
       <NavbarMenu
         footerLinks={[
           { href: "/about", label: t("about") },

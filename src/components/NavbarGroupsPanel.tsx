@@ -20,6 +20,9 @@ const QUICK_LINK_ICONS = {
   yard: House,
 };
 
+const columnClass =
+  "transition-[opacity,translate] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] starting:translate-y-2 starting:opacity-0 motion-reduce:transition-none";
+
 const eyebrowClass =
   "text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase";
 
@@ -29,6 +32,7 @@ export function NavbarGroupsPanel({
   groupsId,
   groupsLabel,
   onClose,
+  open,
   otherGroups,
   otherGroupsLabel,
   quickLinks,
@@ -42,6 +46,7 @@ export function NavbarGroupsPanel({
   groupsId: string;
   groupsLabel: string;
   onClose: () => void;
+  open: boolean;
   otherGroups: NavGroup[];
   otherGroupsLabel: string;
   quickLinks: QuickLink[];
@@ -51,20 +56,29 @@ export function NavbarGroupsPanel({
   reptileSpeciesLabel: string;
 }) {
   return (
-    <div className="max-lg:hidden">
+    <div className="max-lg:hidden" inert={!open}>
       <button
         aria-label={closeLabel}
-        className="absolute inset-x-0 top-full h-screen cursor-default bg-ink/30 backdrop-blur-[2px]"
+        className={cn(
+          "absolute inset-x-0 top-full h-screen cursor-default bg-ink/30 backdrop-blur-[2px] transition-[opacity,display] transition-discrete duration-300 ease-out motion-reduce:transition-none",
+          open ? "block opacity-100 starting:opacity-0" : "hidden opacity-0",
+        )}
         onClick={onClose}
         type="button"
       />
       <div
         aria-label={groupsLabel}
-        className="absolute inset-x-6 top-[calc(100%+12px)] mx-auto grid max-w-[1320px] grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)_240px] gap-6 rounded-[28px] bg-card p-6 shadow-[0_0_0_1px_rgba(14,20,17,0.05),0_30px_80px_rgba(14,20,17,0.24)] xl:inset-x-[60px] xl:grid-cols-[540px_minmax(0,1fr)_280px] xl:gap-7"
+        className={cn(
+          "absolute inset-x-6 top-[calc(100%+12px)] mx-auto max-w-[1320px] origin-top transition-[opacity,translate,scale,display] transition-discrete duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none",
+          open
+            ? "grid translate-y-0 scale-100 opacity-100 starting:-translate-y-2 starting:scale-[0.98] starting:opacity-0"
+            : "hidden -translate-y-1 scale-[0.99] opacity-0 duration-200",
+          "grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)_240px] gap-6 rounded-[28px] bg-card p-6 shadow-[0_0_0_1px_rgba(14,20,17,0.05),0_30px_80px_rgba(14,20,17,0.24)] xl:inset-x-[60px] xl:grid-cols-[540px_minmax(0,1fr)_280px] xl:gap-7",
+        )}
         id={groupsId}
         role="region"
       >
-        <div>
+        <div className={columnClass}>
           <div className="flex items-baseline justify-between px-0.5 pb-3">
             <span className={eyebrowClass}>{reptilesLabel}</span>
             <span className="text-[12px] text-muted-foreground">
@@ -99,7 +113,7 @@ export function NavbarGroupsPanel({
             ))}
           </ul>
         </div>
-        <div>
+        <div className={cn(columnClass, "delay-75")}>
           <div className="px-0.5 pb-3">
             <span className={eyebrowClass}>{otherGroupsLabel}</span>
           </div>
@@ -129,7 +143,12 @@ export function NavbarGroupsPanel({
             ))}
           </ul>
         </div>
-        <aside className="flex flex-col rounded-[22px] bg-background p-3">
+        <aside
+          className={cn(
+            columnClass,
+            "flex flex-col rounded-[22px] bg-background p-3 delay-150",
+          )}
+        >
           <div className="px-3 pt-1 pb-2">
             <span className={eyebrowClass}>{quickLinksLabel}</span>
           </div>
