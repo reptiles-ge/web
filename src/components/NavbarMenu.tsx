@@ -41,7 +41,7 @@ export type NavLink = {
   label: string;
 };
 
-export type NavStats = Record<"regions" | "total" | GroupHubId, number>;
+type NavStats = Record<"regions" | "total" | GroupHubId, number>;
 
 type PrimaryLink = NavLink & { count?: number };
 
