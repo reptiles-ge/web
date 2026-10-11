@@ -138,6 +138,7 @@ export const regions: Region[] = [
       "euscorpius-mingrelicus",
       "gypaetus-barbatus",
       "turdus-merula",
+      "canis-lupus",
     ],
   },
   {
@@ -391,6 +392,7 @@ export const regions: Region[] = [
       "gypaetus-barbatus",
       "turdus-merula",
       "vulpes-vulpes",
+      "canis-lupus",
     ],
   },
   {
@@ -696,6 +698,7 @@ export const regions: Region[] = [
       "turdus-merula",
       "streptopelia-turtur",
       "vulpes-vulpes",
+      "canis-lupus",
     ],
   },
   {

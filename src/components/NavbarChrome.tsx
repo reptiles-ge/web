@@ -12,18 +12,21 @@ import { Logo, LOGO_NAV_SIZE } from "@/components/Logo";
 import { SpeciesSearch } from "@/components/SpeciesSearch";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { Link } from "@/i18n/navigation";
+import {
+  chromeIconButtonBase,
+  chromeIconButtonClass,
+} from "@/lib/chromeStyles";
 import { cn } from "@/lib/cn";
 
-type ChromeVariant = "dark" | "light";
-
 export function NavbarChrome({
-  chromeVariant,
   closeMenuLabel,
-  discoverLabel,
   groupsActive,
+  groupsId,
   groupsLabel,
   groupsOpen,
   heroSearch,
+  isActive,
+  links,
   menuButtonRef,
   menuId,
   menuOpen,
@@ -32,21 +35,18 @@ export function NavbarChrome({
   onToggleGroups,
   onToggleMenu,
   openMenuAria,
-  otherGroupLinks,
-  reptileGroupLinks,
-  reptilesLabel,
-  restLinks,
   scrolled,
-  speciesHref,
+  solid,
   speciesLabel,
 }: {
-  chromeVariant: ChromeVariant;
   closeMenuLabel: string;
-  discoverLabel: string;
   groupsActive: boolean;
+  groupsId: string;
   groupsLabel: string;
   groupsOpen: boolean;
   heroSearch: boolean;
+  isActive: (href: string) => boolean;
+  links: NavLink[];
   menuButtonRef: RefObject<HTMLButtonElement | null>;
   menuId: string;
   menuOpen: boolean;
@@ -55,36 +55,31 @@ export function NavbarChrome({
   onToggleGroups: () => void;
   onToggleMenu: () => void;
   openMenuAria: string;
-  otherGroupLinks: NavLink[];
-  reptileGroupLinks: NavLink[];
-  reptilesLabel: string;
-  restLinks: NavLink[];
   scrolled: boolean;
-  speciesHref: "/species";
+  solid: boolean;
   speciesLabel: string;
 }) {
-  const elevated = scrolled || menuOpen;
+  const variant = solid ? "light" : "dark";
 
   return (
     <div
       className={cn(
-        "mx-auto flex max-w-[1400px] items-center justify-between gap-2 px-4 transition-all duration-500 min-[360px]:gap-4 min-[360px]:px-6 lg:px-10",
-        elevated ? "py-3" : "py-5",
+        "mx-auto flex max-w-[1440px] items-center gap-1.5 px-4 transition-[padding] duration-500 min-[360px]:px-5 lg:gap-2 lg:px-6 xl:px-[60px]",
+        scrolled || menuOpen ? "py-3" : "py-5",
       )}
     >
       <div
         className={cn(
-          "pointer-events-none absolute inset-x-0 top-0 -z-10 h-full transition-opacity duration-500",
-          elevated ? "opacity-100" : "opacity-0",
+          "pointer-events-none absolute inset-x-0 top-0 -z-10 h-full border-b transition-[opacity,border-color] duration-300",
+          solid ? "border-border/70 opacity-100" : "border-white/10 opacity-0",
         )}
         style={{
-          backdropFilter: "blur(24px) saturate(160%)",
-          background: "color-mix(in oklab, var(--background) 72%, transparent)",
-          borderBottom: "1px solid var(--border)",
+          backdropFilter: "blur(18px) saturate(160%)",
+          background: "color-mix(in oklab, var(--background) 90%, transparent)",
         }}
       />
       <Link
-        className="relative z-10 shrink-0 transition-opacity hover:opacity-90"
+        className="relative z-10 shrink-0 transition-opacity hover:opacity-90 lg:mr-3 xl:mr-7"
         href="/"
         onClick={onCloseMenu}
       >
@@ -93,35 +88,46 @@ export function NavbarChrome({
           showWordmark
           size={LOGO_NAV_SIZE}
           wordmarkClassName={cn(
-            "hidden text-[17px] transition-colors sm:inline",
-            elevated ? "text-foreground" : "text-white",
+            "text-[16px] transition-colors lg:text-[17px]",
+            solid ? "text-foreground" : "text-white",
           )}
         />
       </Link>
       <nav
         aria-label={navLabel}
-        className="relative z-10 hidden items-center gap-4 lg:flex xl:gap-7"
+        className="relative z-10 hidden items-center gap-0.5 lg:flex"
       >
         <IntentPrefetchLink
-          className={desktopNavLinkClass(scrolled)}
-          href={speciesHref}
+          aria-current={isActive("/species") ? "page" : undefined}
+          className={navItemClass(solid, isActive("/species"))}
+          href="/species"
         >
           {speciesLabel}
         </IntentPrefetchLink>
-        <NavbarGroupsDropdown
-          closeMenuLabel={closeMenuLabel}
-          groupsActive={groupsActive}
-          groupsLabel={groupsLabel}
-          groupsOpen={groupsOpen}
-          onToggleGroups={onToggleGroups}
-          otherGroupLinks={otherGroupLinks}
-          reptileGroupLinks={reptileGroupLinks}
-          reptilesLabel={reptilesLabel}
-          scrolled={scrolled}
-        />
-        {restLinks.map((link) => (
+        <button
+          aria-controls={groupsOpen ? groupsId : undefined}
+          aria-expanded={groupsOpen}
+          className={cn(
+            navItemClass(solid, groupsActive),
+            groupsOpen && "bg-surface text-foreground",
+          )}
+          onClick={onToggleGroups}
+          type="button"
+        >
+          {groupsLabel}
+          <ChevronDown
+            aria-hidden="true"
+            className={cn(
+              "size-3.5 transition-transform duration-200",
+              groupsOpen && "rotate-180",
+            )}
+            strokeWidth={1.75}
+          />
+        </button>
+        {links.map((link) => (
           <IntentPrefetchLink
-            className={cn("relative", desktopNavLinkClass(scrolled))}
+            aria-current={isActive(link.href) ? "page" : undefined}
+            className={navItemClass(solid, isActive(link.href))}
             href={link.href}
             key={link.href}
           >
@@ -129,43 +135,36 @@ export function NavbarChrome({
           </IntentPrefetchLink>
         ))}
       </nav>
-      <div className="relative z-10 flex items-center justify-end gap-1.5 min-[360px]:gap-2.5 sm:gap-3">
+      <div className="flex-1" />
+      <div className="relative z-10 flex items-center gap-1.5 sm:gap-2">
         <SpeciesSearch
-          hidden={heroSearch && !scrolled}
+          hidden={(heroSearch && !scrolled) || menuOpen}
           shortcut={heroSearch ? "scrolled" : undefined}
-          variant={chromeVariant}
+          variant={variant}
         />
-        <ThemeToggle variant={chromeVariant} />
-        <LanguageSwitcher variant={chromeVariant} />
-        <IntentPrefetchLink
-          className={cn(
-            "hidden rounded-full px-5 py-2 text-[13px] font-medium transition-all lg:inline-flex",
-            scrolled
-              ? "bg-primary text-white hover:bg-primary/90 dark:text-ink"
-              : "bg-white/90 text-ink hover:bg-white",
-          )}
-          href={speciesHref}
-        >
-          {discoverLabel}
-        </IntentPrefetchLink>
+        <div className="hidden lg:block">
+          <ThemeToggle variant={variant} />
+        </div>
+        <div className="hidden lg:block">
+          <LanguageSwitcher variant={variant} />
+        </div>
         <button
           aria-controls={menuId}
           aria-expanded={menuOpen}
           aria-label={menuOpen ? closeMenuLabel : openMenuAria}
           className={cn(
-            "inline-flex size-10 items-center justify-center rounded-full transition-colors lg:hidden",
-            elevated
-              ? "text-foreground hover:bg-foreground/5"
-              : "text-white hover:bg-white/10",
+            chromeIconButtonBase,
+            chromeIconButtonClass(variant),
+            "lg:hidden",
           )}
           onClick={onToggleMenu}
           ref={menuButtonRef}
           type="button"
         >
           {menuOpen ? (
-            <X className="size-5" strokeWidth={1.75} />
+            <X aria-hidden="true" className="size-3.5" strokeWidth={1.75} />
           ) : (
-            <Menu className="size-5" strokeWidth={1.75} />
+            <Menu aria-hidden="true" className="size-3.5" strokeWidth={1.75} />
           )}
         </button>
       </div>
@@ -173,94 +172,15 @@ export function NavbarChrome({
   );
 }
 
-function desktopNavLinkClass(scrolled: boolean, active = false) {
+function navItemClass(solid: boolean, active: boolean) {
   return cn(
-    "relative text-[13px] font-medium tracking-wide transition-colors",
-    scrolled
-      ? "text-foreground/70 hover:text-foreground"
-      : "text-white/70 hover:text-white",
-    active && (scrolled ? "text-foreground" : "text-white"),
-  );
-}
-
-function NavbarGroupsDropdown({
-  closeMenuLabel,
-  groupsActive,
-  groupsLabel,
-  groupsOpen,
-  onToggleGroups,
-  otherGroupLinks,
-  reptileGroupLinks,
-  reptilesLabel,
-  scrolled,
-}: {
-  closeMenuLabel: string;
-  groupsActive: boolean;
-  groupsLabel: string;
-  groupsOpen: boolean;
-  onToggleGroups: () => void;
-  otherGroupLinks: NavLink[];
-  reptileGroupLinks: NavLink[];
-  reptilesLabel: string;
-  scrolled: boolean;
-}) {
-  return (
-    <div className="relative">
-      <button
-        aria-expanded={groupsOpen}
-        aria-haspopup="true"
-        className={cn(
-          "inline-flex items-center gap-1",
-          desktopNavLinkClass(scrolled, groupsActive || groupsOpen),
-        )}
-        onClick={onToggleGroups}
-        type="button"
-      >
-        {groupsLabel}
-        <ChevronDown
-          className={cn(
-            "size-3.5 transition-transform",
-            groupsOpen && "rotate-180",
-          )}
-          strokeWidth={1.75}
-        />
-      </button>
-      {groupsOpen ? (
-        <>
-          <button
-            aria-label={closeMenuLabel}
-            className="fixed inset-0 z-40 cursor-default"
-            onClick={onToggleGroups}
-            type="button"
-          />
-          <div className="absolute top-full left-1/2 z-50 mt-3 w-56 -translate-x-1/2 rounded-2xl border border-border bg-background py-2 shadow-[0_16px_40px_rgba(0,0,0,0.12)]">
-            <p className="px-4 pt-1.5 pb-1 text-[10px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
-              {reptilesLabel}
-            </p>
-            {reptileGroupLinks.map((link) => (
-              <IntentPrefetchLink
-                className="block px-4 py-2 text-[13px] font-medium text-foreground/80 transition-colors hover:bg-surface hover:text-foreground"
-                href={link.href}
-                key={link.href}
-                onClick={onToggleGroups}
-              >
-                {link.label}
-              </IntentPrefetchLink>
-            ))}
-            <div className="my-2 border-t border-border" />
-            {otherGroupLinks.map((link) => (
-              <IntentPrefetchLink
-                className="block px-4 py-2 text-[13px] font-medium text-foreground/80 transition-colors hover:bg-surface hover:text-foreground"
-                href={link.href}
-                key={link.href}
-                onClick={onToggleGroups}
-              >
-                {link.label}
-              </IntentPrefetchLink>
-            ))}
-          </div>
-        </>
-      ) : null}
-    </div>
+    "inline-flex h-10 items-center gap-1.5 rounded-full px-3 text-[14px] font-medium tracking-[0.01em] whitespace-nowrap transition-colors duration-200 xl:px-3.5",
+    solid
+      ? active
+        ? "bg-card text-foreground"
+        : "text-foreground/75 hover:bg-card/70 hover:text-foreground"
+      : active
+        ? "bg-white/12 text-white"
+        : "text-white/80 hover:bg-white/10 hover:text-white",
   );
 }

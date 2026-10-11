@@ -1,94 +1,48 @@
-import type { ComponentProps } from "react";
+import type { ComponentProps, ReactNode } from "react";
 
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight, ChevronDown, Phone } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
+import type { FooterData } from "@/lib/footerData";
 
+import { BackToTop, FooterLanguageSwitch } from "@/components/FooterControls";
 import { LocalizedLink } from "@/components/LocalizedLink";
 import { Logo } from "@/components/Logo";
 import { FacebookGlyph, InstagramGlyph } from "@/components/SocialGlyphs";
 import { getGuideArticles } from "@/data/guideArticles";
 import { releaseVersion } from "@/data/releaseVersion.generated";
+import { cn } from "@/lib/cn";
 
-type FooterLinkColumnProps = {
-  links: Array<{
-    href: ComponentProps<typeof LocalizedLink>["href"];
-    label: string;
-  }>;
-  locale: AppLocale;
-  title: string;
-};
+type FooterHref = ComponentProps<typeof LocalizedLink>["href"];
 
-type FooterProps = {
-  locale: AppLocale;
-  regions: Array<{
-    href: { params: { id: string }; pathname: "/regions/[id]" };
-    id: string;
-    name: string;
-  }>;
-  venomous: Array<{
-    commonName: string;
-    href: {
-      params: { slug: string };
-      pathname:
-        | "/amphibians/[slug]"
-        | "/birds/[slug]"
-        | "/insects/[slug]"
-        | "/lizards/[slug]"
-        | "/mammals/[slug]"
-        | "/scorpions/[slug]"
-        | "/snakes/[slug]"
-        | "/spiders/[slug]"
-        | "/turtles/[slug]";
-    };
-    id: string;
-    scientificName: string;
-  }>;
-};
+type FooterLink = { href: FooterHref; label: string };
 
-function FooterLinkColumn({ links, locale, title }: FooterLinkColumnProps) {
-  return (
-    <div>
-      <p className="text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
-        {title}
-      </p>
-      <ul className="mt-5 space-y-3">
-        {links.map((link) => (
-          <li key={link.label}>
-            <LocalizedLink
-              className="text-[14px] text-foreground/80 transition-colors hover:text-primary"
-              href={link.href}
-              locale={locale}
-              prefetch={false}
-            >
-              {link.label}
-            </LocalizedLink>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
+type FooterProps = FooterData & { locale: AppLocale };
 
-const exploreLinks = [
+const atlasLinks = [
   { href: "/species" as const, labelKey: "species" as const },
+  { href: "/regions" as const, labelKey: "regions" as const },
+  { href: "/venomous-snakes" as const, labelKey: "venomous" as const },
+  { href: "/quiz" as const, labelKey: "quizzes" as const },
+  { href: "/news" as const, labelKey: "news" as const },
+];
+
+const groupLinks = [
   { href: "/snakes" as const, labelKey: "snakes" as const },
   { href: "/lizards" as const, labelKey: "lizards" as const },
   { href: "/turtles" as const, labelKey: "turtles" as const },
   { href: "/amphibians" as const, labelKey: "amphibians" as const },
   { href: "/birds" as const, labelKey: "birds" as const },
   { href: "/mammals" as const, labelKey: "mammals" as const },
-  { href: "/scorpions" as const, labelKey: "scorpions" as const },
   { href: "/spiders" as const, labelKey: "spiders" as const },
+  { href: "/scorpions" as const, labelKey: "scorpions" as const },
   { href: "/insects" as const, labelKey: "insects" as const },
-  { href: "/regions" as const, labelKey: "regions" as const },
 ];
 
 const footerGuideIds = new Set(["scorpion-sting", "snake-bite", "tick-bite"]);
 
 const guideLinks = [
-  { href: "/venomous-snakes" as const, labelKey: "venomous" as const },
   {
     href: "/snakes/shxamiani-gvelis-amocnoba" as const,
     labelKey: "snakeIdentify" as const,
@@ -112,162 +66,320 @@ const guideLinks = [
 
 const companyLinks = [
   { href: "/about" as const, labelKey: "about" as const },
-  { href: "/news" as const, labelKey: "news" as const },
   { href: "/authors" as const, labelKey: "contributors" as const },
   { href: "/contact" as const, labelKey: "contact" as const },
   { href: "/privacy" as const, labelKey: "privacy" as const },
   { href: "/terms-and-conditions" as const, labelKey: "terms" as const },
 ];
 
-export async function Footer({ locale, regions, venomous }: FooterProps) {
+const biteGuide = getGuideArticles().find(
+  (article) => article.id === "snake-bite",
+);
+
+const eyebrowClass =
+  "text-[11px] font-medium tracking-[0.18em] text-white/50 uppercase";
+
+const columnLinkClass =
+  "flex min-h-11 items-center text-[15px] text-white/86 transition-colors hover:text-white lg:block lg:min-h-0 lg:py-1.5 lg:text-[14.5px] lg:leading-[1.4] lg:text-white/82";
+
+const socialClass =
+  "inline-flex size-11 shrink-0 items-center justify-center rounded-full border border-white/14 text-white/82 transition-colors hover:bg-white/8 hover:text-white lg:size-10";
+
+export async function Footer({
+  locale,
+  regions,
+  stats,
+  venomous,
+}: FooterProps) {
   const t = await getTranslations({ locale, namespace: "footer" });
+  const toLinks = (
+    items: ReadonlyArray<{
+      href: FooterHref;
+      labelKey: Parameters<typeof t>[0];
+    }>,
+  ) => items.map((item) => ({ href: item.href, label: t(item.labelKey) }));
+  const guides = toLinks(guideLinks);
+  const venomousLinks = venomous.map((item) => ({
+    href: item.href,
+    label: item.commonName,
+  }));
+  const regionLinks = regions.map((region) => ({
+    href: region.href,
+    label: region.name,
+  }));
 
   return (
-    <footer className="border-t border-border bg-background">
-      <div className="mx-auto max-w-[1400px] px-6 py-16 lg:px-10 lg:py-20">
-        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.3fr_0.8fr_0.8fr_0.7fr] lg:gap-16">
-          <div>
+    <footer className="bg-ink text-white antialiased">
+      <div className="mx-auto max-w-[1440px] px-5 pt-11 pb-7 sm:px-8 lg:px-[60px] lg:pt-16 lg:pb-0">
+        <div className="grid grid-cols-2 gap-x-4 lg:grid-cols-[minmax(0,420px)_repeat(4,minmax(0,1fr))] lg:gap-10">
+          <div className="col-span-2 lg:col-span-1">
             <LocalizedLink
               className="inline-flex transition-opacity hover:opacity-90"
               href="/"
               locale={locale}
             >
-              <Logo showWordmark size={52} wordmarkClassName="text-[19px]" />
+              <Logo
+                showWordmark
+                size={44}
+                wordmarkClassName="text-[18px] lg:text-[19px]"
+              />
             </LocalizedLink>
-            <p className="mt-5 max-w-sm text-[15px] leading-relaxed text-muted-foreground">
+            <p className="mt-[18px] font-display text-[24px] leading-[1.2] font-semibold tracking-[-0.01em] lg:mt-[22px] lg:text-[28px]">
+              {t("title")}
+            </p>
+            <p className="mt-2.5 max-w-[360px] text-[14.5px] leading-[1.6] text-white/62 lg:mt-3 lg:text-[15px] lg:leading-[1.65]">
               {t("tagline")}
             </p>
             <LocalizedLink
-              className="group mt-7 inline-flex items-center gap-1.5 text-[13px] font-medium text-primary transition-opacity hover:opacity-80"
+              className="mt-6 hidden h-12 items-center gap-2.5 rounded-full bg-white pr-2 pl-5 text-[14.5px] font-semibold text-ink transition-opacity hover:opacity-90 lg:inline-flex"
               href="/species"
               locale={locale}
             >
-              {t("exploreCta")}
-              <ArrowUpRight className="size-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              {t("speciesCta", { count: stats.total })}
+              <span className="flex size-8 items-center justify-center rounded-full bg-[#2f6b4f] text-white">
+                <ArrowRight aria-hidden="true" className="size-[15px]" />
+              </span>
             </LocalizedLink>
+            <a
+              className="mt-6 flex items-center gap-3.5 rounded-[22px] border border-destructive/36 bg-[#b84336]/16 p-4 lg:hidden"
+              href="tel:112"
+            >
+              <span className="flex size-11 shrink-0 items-center justify-center rounded-full bg-[#b84336]">
+                <Phone aria-hidden="true" className="size-[18px]" />
+              </span>
+              <span className="min-w-0 flex-1">
+                <span className="block text-[15px] font-bold">
+                  {t("emergencyShort")}
+                </span>
+                <span className="mt-0.5 block text-[13px] leading-[1.45] text-white/72">
+                  {t("emergencyHint")}
+                </span>
+              </span>
+            </a>
           </div>
 
-          <FooterLinkColumn
-            links={exploreLinks.map((link) => ({
-              href: link.href,
-              label: t(link.labelKey),
-            }))}
+          <FooterColumn
+            className="col-start-1 row-start-2 mt-8 lg:order-1 lg:col-start-auto lg:row-start-auto lg:mt-0"
+            links={toLinks(atlasLinks)}
             locale={locale}
-            title={t("exploreTitle")}
+            title={t("atlasTitle")}
           />
-
-          <FooterLinkColumn
-            links={guideLinks.map((link) => ({
-              href: link.href,
-              label: t(link.labelKey),
-            }))}
+          <FooterColumn
+            className="col-span-2 mt-6 lg:order-2 lg:col-span-1 lg:mt-0"
+            linkClassName="inline-flex h-10 items-center rounded-full bg-white/7 px-3.5 text-[14px] text-white/86 transition-colors hover:text-white lg:flex lg:h-auto lg:rounded-none lg:bg-transparent lg:px-0 lg:py-1.5 lg:text-[14.5px] lg:leading-[1.4] lg:text-white/82"
+            links={toLinks(groupLinks)}
+            listClassName="mt-1.5 flex flex-wrap gap-2 lg:mt-0 lg:block"
+            locale={locale}
+            title={t("groupsTitle")}
+          />
+          <FooterColumn
+            className="hidden lg:order-3 lg:block"
+            links={guides}
             locale={locale}
             title={t("guidesTitle")}
           />
-
-          <FooterLinkColumn
-            links={companyLinks.map((link) => ({
-              href: link.href,
-              label: t(link.labelKey),
-            }))}
+          <FooterColumn
+            className="col-start-2 row-start-2 mt-8 lg:order-4 lg:col-start-auto lg:row-start-auto lg:mt-0"
+            links={toLinks(companyLinks)}
             locale={locale}
             title={t("companyTitle")}
           />
         </div>
 
-        <div className="mt-14 grid gap-10 border-t border-border pt-12 lg:mt-16 lg:grid-cols-2 lg:gap-16 lg:pt-14">
-          <div>
-            <div className="flex items-end justify-between gap-4">
-              <p className="text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
-                {t("venomousTitle")}
-              </p>
-              <LocalizedLink
-                className="text-[12px] font-medium text-foreground transition-colors hover:text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
-                href="/venomous-snakes"
-                locale={locale}
-              >
-                {t("venomousAll")}
-              </LocalizedLink>
-            </div>
-            <ul className="mt-5 columns-2 gap-x-8">
-              {venomous.map((item) => (
-                <li className="mb-3 break-inside-avoid" key={item.id}>
-                  <LocalizedLink
-                    className="group block focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
-                    href={item.href}
-                    locale={locale}
-                    prefetch={false}
-                  >
-                    <span className="block text-[14px] font-medium text-foreground transition-colors group-hover:text-primary">
-                      {item.commonName}
-                    </span>
-                    <span className="mt-0.5 block text-[12px] text-muted-foreground italic">
-                      {item.scientificName}
-                    </span>
-                  </LocalizedLink>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <div className="flex items-end justify-between gap-4">
-              <p className="text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
-                {t("regionsTitle")}
-              </p>
-              <LocalizedLink
-                className="text-[12px] font-medium text-foreground transition-colors hover:text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
-                href="/regions"
-                locale={locale}
-              >
-                {t("regionsAll")}
-              </LocalizedLink>
-            </div>
-            <ul className="mt-5 columns-2 gap-x-8 sm:columns-3">
-              {regions.map((region) => (
-                <li className="mb-2.5 break-inside-avoid" key={region.id}>
-                  <LocalizedLink
-                    className="text-[13px] text-foreground/75 transition-colors hover:text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
-                    href={region.href}
-                    locale={locale}
-                    prefetch={false}
-                  >
-                    {region.name}
-                  </LocalizedLink>
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div className="mt-10 hidden items-center gap-[18px] rounded-[22px] border border-destructive/32 bg-[#b84336]/14 py-4 pr-4 pl-5 lg:flex">
+          <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-[#b84336]">
+            <Phone aria-hidden="true" className="size-[17px]" strokeWidth={2} />
+          </span>
+          <p className="flex-1 text-[15px] text-white/86">
+            {t("emergencyLead")}{" "}
+            <strong className="font-semibold text-white">
+              {t("emergencyCall")}
+            </strong>
+          </p>
+          {biteGuide ? (
+            <LocalizedLink
+              className="inline-flex h-10 shrink-0 items-center gap-1.5 px-3.5 text-[14px] font-medium text-white/86 transition-colors hover:text-white"
+              href={biteGuide.pathname}
+              locale={locale}
+            >
+              {t("biteGuide")}
+              <ArrowUpRight aria-hidden="true" className="size-3.5" />
+            </LocalizedLink>
+          ) : null}
+          <a
+            className="inline-flex h-10 shrink-0 items-center rounded-full bg-[#b84336] px-[18px] text-[15px] font-bold text-white"
+            href="tel:112"
+          >
+            112
+          </a>
         </div>
 
-        <div className="mt-14 flex flex-col gap-3 border-t border-border pt-8 text-[12px] text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <span>
-            © {new Date().getFullYear()} Reptiles. {t("rights")}
+        <div className="mt-7 hidden grid-cols-[160px_minmax(0,1fr)] items-baseline gap-x-6 gap-y-2.5 lg:grid">
+          <h2 className={eyebrowClass}>{t("venomousTitle")}</h2>
+          <InlineLinks dots links={venomousLinks} locale={locale} />
+          <h2 className={eyebrowClass}>{t("regions")}</h2>
+          <InlineLinks dots links={regionLinks} locale={locale} />
+        </div>
+
+        <div className="mt-7 border-b border-white/10 lg:hidden">
+          <FooterAccordion open title={t("guidesTitle")}>
+            <ul className="pb-3">
+              {guides.map((link) => (
+                <li key={link.label}>
+                  <LocalizedLink
+                    className="flex min-h-10 items-center text-[14.5px] text-white/86"
+                    href={link.href}
+                    locale={locale}
+                    prefetch={false}
+                  >
+                    {link.label}
+                  </LocalizedLink>
+                </li>
+              ))}
+            </ul>
+          </FooterAccordion>
+          <FooterAccordion count={venomous.length} title={t("venomousTitle")}>
+            <InlineLinks dots={false} links={venomousLinks} locale={locale} />
+          </FooterAccordion>
+          <FooterAccordion count={regions.length} title={t("regions")}>
+            <InlineLinks dots={false} links={regionLinks} locale={locale} />
+          </FooterAccordion>
+        </div>
+
+        <div className="mt-7 flex flex-col gap-5 lg:mt-12 lg:h-[76px] lg:flex-row lg:items-center lg:justify-between lg:gap-6 lg:border-t lg:border-white/10">
+          <p className="order-last border-t border-white/10 pt-5 text-[12.5px] leading-[1.6] text-white/50 lg:order-0 lg:border-0 lg:pt-0 lg:text-[13px] lg:text-white/56">
+            © {new Date().getFullYear()} Reptiles · {t("rights")}
             {releaseVersion ? ` · ${releaseVersion}` : null}
-          </span>
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+          </p>
+          <FooterLanguageSwitch />
+          <div className="flex items-center gap-2.5">
             <a
               aria-label={t("facebook")}
-              className="inline-flex size-10 shrink-0 items-center justify-center rounded-full border border-border bg-card text-muted-foreground transition-colors hover:border-primary/35 hover:text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
+              className={socialClass}
               href="https://www.facebook.com/reptiles.ge/"
               rel="noopener noreferrer"
               target="_blank"
             >
-              <FacebookGlyph className="size-4 shrink-0" />
+              <FacebookGlyph className="size-4" />
             </a>
             <a
               aria-label={t("instagram")}
-              className="inline-flex size-10 shrink-0 items-center justify-center rounded-full border border-border bg-card text-muted-foreground transition-colors hover:border-primary/35 hover:text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
+              className={socialClass}
               href="https://www.instagram.com/reptiles.ge/"
               rel="noopener noreferrer"
               target="_blank"
             >
-              <InstagramGlyph className="size-4 shrink-0" />
+              <InstagramGlyph className="size-4" />
             </a>
-            <span className="tracking-wide">{t("forCurious")}</span>
+            <div className="flex-1 lg:hidden" />
+            <BackToTop label={t("backToTopLabel")} text={t("backToTop")} />
           </div>
         </div>
       </div>
     </footer>
+  );
+}
+
+function FooterAccordion({
+  children,
+  count,
+  open,
+  title,
+}: {
+  children: ReactNode;
+  count?: number;
+  open?: boolean;
+  title: string;
+}) {
+  return (
+    <details className="group border-t border-white/10" open={open}>
+      <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between gap-3 text-[15px] font-semibold text-white [&::-webkit-details-marker]:hidden">
+        <span>
+          {title}
+          {count ? (
+            <span className="ml-1.5 font-normal text-white/50">{count}</span>
+          ) : null}
+        </span>
+        <ChevronDown
+          aria-hidden="true"
+          className="size-[18px] text-white/60 transition-transform duration-200 group-open:rotate-180"
+          strokeWidth={1.75}
+        />
+      </summary>
+      {children}
+    </details>
+  );
+}
+
+function FooterColumn({
+  className,
+  linkClassName = columnLinkClass,
+  links,
+  listClassName,
+  locale,
+  title,
+}: {
+  className?: string;
+  linkClassName?: string;
+  links: FooterLink[];
+  listClassName?: string;
+  locale: AppLocale;
+  title: string;
+}) {
+  return (
+    <nav aria-label={title} className={className}>
+      <h2 className={cn(eyebrowClass, "mb-1.5 lg:mb-3.5")}>{title}</h2>
+      <ul className={listClassName}>
+        {links.map((link) => (
+          <li key={link.label}>
+            <LocalizedLink
+              className={linkClassName}
+              href={link.href}
+              locale={locale}
+              prefetch={false}
+            >
+              {link.label}
+            </LocalizedLink>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+}
+
+function InlineLinks({
+  dots,
+  links,
+  locale,
+}: {
+  dots: boolean;
+  links: FooterLink[];
+  locale: AppLocale;
+}) {
+  return (
+    <ul className={cn("flex flex-wrap", dots ? "gap-y-0.5" : "gap-x-4 pb-3")}>
+      {links.map((link, index) => (
+        <li className="inline-flex items-center" key={link.label}>
+          <LocalizedLink
+            className={cn(
+              "transition-colors hover:text-white",
+              dots
+                ? "text-[13.5px] leading-[1.9] text-white/66"
+                : "inline-flex min-h-9 items-center text-[14px] text-white/70",
+            )}
+            href={link.href}
+            locale={locale}
+            prefetch={false}
+          >
+            {link.label}
+          </LocalizedLink>
+          {dots && index < links.length - 1 ? (
+            <span aria-hidden="true" className="mx-2 text-white/24">
+              ·
+            </span>
+          ) : null}
+        </li>
+      ))}
+    </ul>
   );
 }

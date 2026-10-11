@@ -2,12 +2,17 @@ import type { AppLocale } from "@/i18n/routing";
 import type { SpeciesHref } from "@/lib/speciesRoutes";
 
 import { localizeRegionText, regions } from "@/data/regions";
-import { getVenomousCatalogSpecies } from "@/data/speciesAtlas";
+import {
+  type AtlasStats,
+  getAtlasStats,
+  getVenomousCatalogSpecies,
+} from "@/data/speciesAtlas";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { regionHref, speciesHref } from "@/lib/speciesRoutes";
 
 export type FooterData = {
   regions: FooterRegionLink[];
+  stats: AtlasStats;
   venomous: FooterSpeciesLink[];
 };
 
@@ -31,6 +36,7 @@ export function getFooterData(locale: AppLocale): FooterData {
       id: region.id,
       name: localizeRegionText(region.name, locale),
     })),
+    stats: getAtlasStats(),
     venomous: getVenomousCatalogSpecies().map((item) => {
       const localized = localizeSpecies(item, locale);
       return {

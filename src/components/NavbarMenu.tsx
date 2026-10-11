@@ -1,56 +1,72 @@
 "use client";
 
-import { ChevronDown } from "lucide-react";
+import { ChevronRight } from "lucide-react";
+
+import type { GroupHubId } from "@/lib/groupHubs";
 
 import { IntentPrefetchLink } from "@/components/IntentPrefetchLink";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { SpeciesSearch } from "@/components/SpeciesSearch";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { cn } from "@/lib/cn";
 
-export type MobileNavItem =
-  { href: NavLink["href"]; kind: "link"; label: string } | { kind: "groups" };
+export type NavbarData = {
+  images: Record<GroupHubId, NavImage>;
+  stats: NavStats;
+};
+
+export type NavGroup = {
+  count: number;
+  countLabel: string;
+  href: `/${GroupHubId}`;
+  id: GroupHubId;
+  image: NavImage;
+  label: string;
+};
+
+export type NavImage = {
+  sources: Array<{ srcSet: string; type: string }>;
+  src: string;
+};
 
 export type NavLink = {
   href:
     | "/about"
-    | "/amphibians"
-    | "/birds"
-    | "/insects"
-    | "/lizards"
-    | "/mammals"
+    | "/authors"
+    | "/contact"
     | "/news"
     | "/quiz"
     | "/regions"
-    | "/scorpions"
-    | "/snakes"
-    | "/species"
-    | "/spiders"
-    | "/turtles";
+    | "/species";
   label: string;
 };
 
+type NavStats = Record<"regions" | "total" | GroupHubId, number>;
+
+type PrimaryLink = NavLink & { count?: number };
+
 export function NavbarMenu({
-  closeMenuLabel,
-  discoverLabel,
-  groupLinks,
+  footerLinks,
+  groupCountLabel,
+  groups,
   groupsLabel,
-  items,
+  isActive,
   menuId,
   menuOpen,
-  mobileGroupsOpen,
   navLabel,
   onCloseMenu,
-  onToggleMobileGroups,
+  primaryLinks,
 }: {
-  closeMenuLabel: string;
-  discoverLabel: string;
-  groupLinks: NavLink[];
+  footerLinks: NavLink[];
+  groupCountLabel: string;
+  groups: NavGroup[];
   groupsLabel: string;
-  items: MobileNavItem[];
+  isActive: (href: string) => boolean;
   menuId: string;
   menuOpen: boolean;
-  mobileGroupsOpen: boolean;
   navLabel: string;
   onCloseMenu: () => void;
-  onToggleMobileGroups: () => void;
+  primaryLinks: PrimaryLink[];
 }) {
   return (
     <div
@@ -61,93 +77,123 @@ export function NavbarMenu({
       id={menuId}
       inert={!menuOpen}
     >
-      <button
-        aria-label={closeMenuLabel}
-        className={cn(
-          "fixed inset-0 z-40 bg-black/45 transition-opacity duration-300",
-          menuOpen ? "opacity-100" : "opacity-0",
-        )}
-        onClick={onCloseMenu}
-        type="button"
-      />
       <nav
         aria-label={navLabel}
         className={cn(
-          "fixed inset-x-0 top-22 z-50 mx-auto max-h-[min(78svh,36rem)] w-[calc(100%-1.5rem)] max-w-[1400px] overflow-y-auto rounded-media border border-border bg-background px-5 py-6 transition-all duration-300 sm:w-[calc(100%-3rem)]",
+          "fixed inset-x-0 top-[68px] bottom-0 z-40 scrollbar-none overflow-y-auto overscroll-contain bg-background px-5 pt-4 pb-7 transition-[opacity,translate] duration-300 sm:px-6 [&::-webkit-scrollbar]:hidden",
           menuOpen ? "translate-y-0 opacity-100" : "-translate-y-2 opacity-0",
         )}
       >
-        <ul className="space-y-1">
-          {items.map((item, index) => {
-            const number = String(index + 1).padStart(2, "0");
+        {menuOpen ? <SpeciesSearch variant="menu" /> : null}
 
-            if (item.kind === "groups") {
-              return (
-                <li key="groups">
-                  <button
-                    aria-expanded={mobileGroupsOpen}
-                    className="flex w-full items-center justify-between gap-4 rounded-2xl px-3 py-3.5 text-left transition-colors hover:bg-surface"
-                    onClick={onToggleMobileGroups}
-                    type="button"
-                  >
-                    <span className="flex items-center gap-2 font-display text-[1.35rem] font-semibold text-foreground">
-                      {groupsLabel}
-                      <ChevronDown
-                        className={cn(
-                          "size-4 text-muted-foreground transition-transform",
-                          mobileGroupsOpen && "rotate-180",
-                        )}
-                        strokeWidth={1.75}
-                      />
-                    </span>
-                    <span className="text-[11px] tracking-[0.2em] text-muted-foreground">
-                      {number}
-                    </span>
-                  </button>
-                  {mobileGroupsOpen ? (
-                    <div className="mb-1 flex flex-col px-3 pb-2">
-                      {groupLinks.map((group) => (
-                        <IntentPrefetchLink
-                          className="rounded-xl px-3 py-2.5 text-[14px] font-medium text-foreground/80 transition-colors hover:bg-surface hover:text-foreground"
-                          href={group.href}
-                          key={group.href}
-                          onClick={onCloseMenu}
-                        >
-                          {group.label}
-                        </IntentPrefetchLink>
-                      ))}
-                    </div>
-                  ) : null}
-                </li>
-              );
-            }
-
-            return (
-              <li key={item.href}>
-                <IntentPrefetchLink
-                  className="flex items-center justify-between gap-4 rounded-2xl px-3 py-3.5 transition-colors hover:bg-surface"
-                  href={item.href}
-                  onClick={onCloseMenu}
-                >
-                  <span className="flex items-center gap-2.5 font-display text-[1.35rem] font-semibold text-foreground">
-                    {item.label}
+        <ul className="mt-3.5">
+          {primaryLinks.map((link) => (
+            <li key={link.href}>
+              <IntentPrefetchLink
+                aria-current={isActive(link.href) ? "page" : undefined}
+                className="flex min-h-[60px] items-center gap-3 border-b border-border/70 px-1"
+                href={link.href}
+                onClick={onCloseMenu}
+              >
+                <span className="flex-1 font-display text-[24px] leading-tight font-semibold tracking-[-0.01em] text-foreground">
+                  {link.label}
+                </span>
+                {link.count ? (
+                  <span className="text-[13px] text-muted-foreground tabular-nums">
+                    {link.count}
                   </span>
-                  <span className="text-[11px] tracking-[0.2em] text-muted-foreground">
-                    {number}
-                  </span>
-                </IntentPrefetchLink>
-              </li>
-            );
-          })}
+                ) : null}
+                <ChevronRight
+                  aria-hidden="true"
+                  className="size-4 text-muted-foreground/70"
+                  strokeWidth={1.75}
+                />
+              </IntentPrefetchLink>
+            </li>
+          ))}
         </ul>
-        <IntentPrefetchLink
-          className="mt-5 flex w-full items-center justify-center rounded-full bg-primary px-5 py-3.5 text-[14px] font-medium text-white transition-opacity hover:opacity-90 dark:text-ink"
-          href="/species"
-          onClick={onCloseMenu}
-        >
-          {discoverLabel}
-        </IntentPrefetchLink>
+
+        <div className="mt-[22px] flex items-baseline justify-between">
+          <span className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
+            {groupsLabel}
+          </span>
+          <span className="text-[12px] text-muted-foreground">
+            {groupCountLabel}
+          </span>
+        </div>
+        <ul className="mt-2.5 grid grid-cols-3 gap-2 md:grid-cols-5">
+          {groups.map((group) => (
+            <li key={group.id}>
+              <IntentPrefetchLink
+                className="relative flex h-[88px] flex-col justify-end overflow-hidden rounded-[18px] bg-ink p-2.5 text-white"
+                href={group.href}
+                onClick={onCloseMenu}
+              >
+                <NavPicture
+                  className="absolute inset-0 size-full object-cover opacity-80"
+                  image={group.image}
+                  sizes="(min-width: 768px) 20vw, 33vw"
+                />
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-x-0 bottom-0 h-3/4 bg-linear-to-t from-ink/90 to-ink/0"
+                />
+                <span className="relative font-display text-[13px] leading-tight font-semibold">
+                  {group.label}
+                </span>
+                <span className="relative mt-0.5 text-[11.5px] text-white/75 tabular-nums">
+                  {group.count}
+                </span>
+              </IntentPrefetchLink>
+            </li>
+          ))}
+        </ul>
+
+        <div className="mt-[22px] flex items-center gap-2.5">
+          <LanguageSwitcher variant="menu" />
+          <ThemeToggle variant="menu" />
+        </div>
+
+        <ul className="mt-[18px] flex flex-wrap gap-x-[18px] gap-y-1 text-[13.5px] text-muted-foreground">
+          {footerLinks.map((link) => (
+            <li key={link.href}>
+              <IntentPrefetchLink
+                className="inline-flex min-h-9 items-center transition-colors hover:text-foreground"
+                href={link.href}
+                onClick={onCloseMenu}
+              >
+                {link.label}
+              </IntentPrefetchLink>
+            </li>
+          ))}
+        </ul>
       </nav>
     </div>
+  );
+}
+
+export function NavPicture({
+  className,
+  image,
+  sizes,
+}: {
+  className: string;
+  image: NavImage;
+  sizes: string;
+}) {
+  return (
+    <picture>
+      {image.sources.map((source) => (
+        <source key={source.type} sizes={sizes} {...source} />
+      ))}
+      <img
+        alt=""
+        className={className}
+        decoding="async"
+        loading="lazy"
+        sizes={sizes}
+        src={image.src}
+      />
+    </picture>
   );
 }
