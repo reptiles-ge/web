@@ -32,6 +32,31 @@ describe("AuthorIndexGrid", () => {
     expect(screen.getByText("Ana").closest("li")).not.toHaveAttribute("hidden");
     expect(screen.getByText("Ben").closest("li")).toHaveAttribute("hidden");
   });
+
+  it("animates the cards in only after a filter change", () => {
+    render(
+      <AuthorIndexGrid
+        countLabels={{ all: "2 people", researcher: "2 people" }}
+        filterLabel="Role"
+        filters={[
+          { count: 2, id: "all", label: "All" },
+          { count: 2, id: "researcher", label: "Researchers" },
+        ]}
+        items={[
+          { id: "b", node: <span>Ben</span>, role: "researcher" },
+          { id: "c", node: <span>Cy</span>, role: "researcher" },
+        ]}
+        sortedLabel="by photos"
+      />,
+    );
+    expect(screen.getByText("Cy").closest("li")?.className).not.toContain(
+      "animate-",
+    );
+    fireEvent.click(screen.getByRole("button", { name: /Researchers/ }));
+    const cy = screen.getByText("Cy").closest("li");
+    expect(cy?.className).toContain("animate-");
+    expect(cy).toHaveStyle({ animationDelay: "40ms" });
+  });
 });
 
 describe("AuthorGalleryGrid", () => {
