@@ -12,6 +12,10 @@ import { Logo, LOGO_NAV_SIZE } from "@/components/Logo";
 import { SpeciesSearch } from "@/components/SpeciesSearch";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { Link } from "@/i18n/navigation";
+import {
+  chromeIconButtonBase,
+  chromeIconButtonClass,
+} from "@/lib/chromeStyles";
 import { cn } from "@/lib/cn";
 
 export function NavbarChrome({
@@ -149,25 +153,18 @@ export function NavbarChrome({
           aria-expanded={menuOpen}
           aria-label={menuOpen ? closeMenuLabel : openMenuAria}
           className={cn(
-            "inline-flex size-11 items-center justify-center rounded-full transition-colors lg:hidden",
-            menuOpen
-              ? "bg-foreground text-background"
-              : solid
-                ? "text-foreground hover:bg-foreground/5"
-                : "bg-white/10 text-white hover:bg-white/15",
+            chromeIconButtonBase,
+            chromeIconButtonClass(variant),
+            "lg:hidden",
           )}
           onClick={onToggleMenu}
           ref={menuButtonRef}
           type="button"
         >
           {menuOpen ? (
-            <X aria-hidden="true" className="size-5" strokeWidth={1.75} />
+            <X aria-hidden="true" className="size-3.5" strokeWidth={1.75} />
           ) : (
-            <Menu
-              aria-hidden="true"
-              className="size-[22px]"
-              strokeWidth={1.75}
-            />
+            <Menu aria-hidden="true" className="size-3.5" strokeWidth={1.75} />
           )}
         </button>
       </div>
