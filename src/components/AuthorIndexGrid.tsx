@@ -24,6 +24,12 @@ export function AuthorIndexGrid({
   sortedLabel: string;
 }) {
   const [role, setRole] = useState("all");
+  const [filtered, setFiltered] = useState(false);
+  const visibleIndex = new Map(
+    items
+      .filter((item) => role === "all" || item.role === role)
+      .map((item, index) => [item.id, index]),
+  );
 
   return (
     <>
@@ -45,7 +51,10 @@ export function AuthorIndexGrid({
                     : "bg-card text-foreground shadow-[0_1px_2px_rgba(14,20,17,0.05)] hover:text-primary",
                 )}
                 key={filter.id}
-                onClick={() => setRole(filter.id)}
+                onClick={() => {
+                  setRole(filter.id);
+                  setFiltered(true);
+                }}
                 type="button"
               >
                 {filter.label}
@@ -66,9 +75,20 @@ export function AuthorIndexGrid({
       <ul className="mt-6 grid gap-3 sm:grid-cols-2 sm:gap-5 lg:mt-9 lg:grid-cols-3 lg:gap-6">
         {items.map((item) => (
           <li
-            className="flex"
-            hidden={role !== "all" && item.role !== role}
-            key={item.id}
+            className={cn(
+              "flex",
+              filtered &&
+                "animate-[rating-in_420ms_cubic-bezier(0.22,1,0.36,1)_both] motion-reduce:animate-none",
+            )}
+            hidden={!visibleIndex.has(item.id)}
+            key={filtered ? `${role}-${item.id}` : item.id}
+            style={
+              filtered
+                ? {
+                    animationDelay: `${Math.min(visibleIndex.get(item.id) ?? 0, 8) * 40}ms`,
+                  }
+                : undefined
+            }
           >
             {item.node}
           </li>
