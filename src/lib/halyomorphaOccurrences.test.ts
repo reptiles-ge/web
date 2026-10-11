@@ -226,6 +226,52 @@ describe("occurrenceStatusForCount", () => {
     ]);
   });
 
+  it("keeps Grey Wolf distribution aligned with reviewed field records", () => {
+    const species = getSpeciesById("canis-lupus");
+    expect(species).toBeDefined();
+    if (!species) return;
+
+    const records = getHalyomorphaFieldRecords({
+      fieldRecords: fieldRecordsById[species.id] ?? [],
+      gallery: species.gallery,
+      locale: "ka",
+      speciesName: species.commonName,
+    });
+    const summary = getHalyomorphaOccurrenceSummary(
+      records,
+      "ka",
+      confirmedRecordThresholdForSpecies(species.id),
+    );
+    const confirmed = summary.recordsByRegion
+      .filter((region) => region.status === "confirmed")
+      .map((region) => region.id)
+      .sort();
+
+    expect(summary.totalRecords).toBe(31);
+    expect(confirmed).toEqual([
+      "kakheti",
+      "samegrelo-zemo-svaneti",
+      "samtskhe-javakheti",
+    ]);
+    expect(
+      summary.recordsByRegion
+        .filter((region) => region.status === "recorded-only")
+        .map((region) => region.id)
+        .sort(),
+    ).toEqual([
+      "abkhazia",
+      "adjara",
+      "imereti",
+      "mtskheta-mtianeti",
+      "shida-kartli",
+    ]);
+    expect(
+      getRegionsForSpecies(species.id)
+        .map((region) => region.id)
+        .sort(),
+    ).toEqual(confirmed);
+  });
+
   it("keeps Red Fox distribution aligned with reviewed field records", () => {
     const species = getSpeciesById("vulpes-vulpes");
     expect(species).toBeDefined();

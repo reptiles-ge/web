@@ -10,6 +10,7 @@ import { rangeMap as araneusDiadematus } from "@/data/speciesRangeMaps/araneus-d
 import { rangeMap as argiopeBruennichi } from "@/data/speciesRangeMaps/argiope-bruennichi";
 import { rangeMap as blattaOrientalis } from "@/data/speciesRangeMaps/blatta-orientalis";
 import { rangeMap as canisAureus } from "@/data/speciesRangeMaps/canis-aureus";
+import { rangeMap as canisLupus } from "@/data/speciesRangeMaps/canis-lupus";
 import { rangeMap as capreolusCapreolus } from "@/data/speciesRangeMaps/capreolus-capreolus";
 import { rangeMap as cheiracanthiumPunctorium } from "@/data/speciesRangeMaps/cheiracanthium-punctorium";
 import { rangeMap as ciconiaCiconia } from "@/data/speciesRangeMaps/ciconia-ciconia";
@@ -86,6 +87,7 @@ export const INTERACTIVE_RANGE_MAPS: Partial<
   "argiope-bruennichi": argiopeBruennichi,
   "blatta-orientalis": blattaOrientalis,
   "canis-aureus": canisAureus,
+  "canis-lupus": canisLupus,
   "capreolus-capreolus": capreolusCapreolus,
   "cheiracanthium-punctorium": cheiracanthiumPunctorium,
   "ciconia-ciconia": ciconiaCiconia,
