@@ -73,6 +73,7 @@ beforeEach(async () => {
       content: Object.fromEntries(
         ANALYSIS_LOCALES.map((locale) => [locale, content[locale].data]),
       ),
+      editableFields: ["overview"],
       id,
       internalPaths: [],
       surfaces: speciesAnalysisSurfaces,
@@ -253,6 +254,47 @@ describe("four-stage Super Analysis runner", () => {
         original,
       );
     await expect(run("lookalikes")).rejects.toThrow("order");
+  });
+
+  it("drops an edit to a non-editable field and records it for review", async () => {
+    const all = speciesAnalysisSurfaces.map((surface) => surface.id);
+    mockAgent(async ({ output, prompt }) => {
+      expect(prompt).toContain(
+        "EDITABLE FIELDS (every edits[].field must be exactly one of these; sources are append-only through sources[], never edits; report anything else as a finding): overview",
+      );
+      await fs.writeFile(
+        output,
+        JSON.stringify({
+          coverage: all,
+          edits: [
+            {
+              after: values("Renamed"),
+              before: values("Original"),
+              evidenceIds: [],
+              field: "sources.0.name",
+              reason: "Better title",
+            },
+          ],
+          evidence: [],
+          findings: [],
+          lookalikes: [],
+          sources: [],
+          stage: "analysis",
+          summary: "Reviewed",
+        }),
+      );
+    });
+    const run = await createSuperAnalysisRunner(id, worktree, directory);
+    const report = await run("analysis");
+    expect(report).toContain(
+      "[review] sources: sources.0.name: ეს ველი ავტომატურად არ რედაქტირდება",
+    );
+    expect(report).not.toContain("Better title");
+    expect(runAgent).toHaveBeenCalledTimes(1);
+    for (const locale of ANALYSIS_LOCALES)
+      expect((await readSpeciesAnalysisContent(id, worktree))[locale].raw).toBe(
+        original,
+      );
   });
 
   it.each([true, false])(
