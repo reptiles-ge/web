@@ -41,7 +41,7 @@ export function MapExplorer({
               {t("subtitle")}
             </p>
             <Link
-              className="mt-7 hidden min-h-[52px] items-center gap-2 rounded-full bg-[#2f6b4f] px-6 text-[15px] font-medium text-white transition-[filter,transform] hover:-translate-y-0.5 hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary lg:inline-flex"
+              className="mt-7 hidden min-h-[52px] items-center gap-2 rounded-full bg-[#2f6b4f] px-6 text-[15px] font-medium text-white transition-[filter,translate] hover:-translate-y-0.5 hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary lg:inline-flex"
               href="/regions"
             >
               {t("allRegions")}

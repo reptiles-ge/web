@@ -69,12 +69,12 @@ export function GroupHubFaqSection({
                   type="button"
                 >
                   <span className="text-[15px] leading-[1.35] font-semibold text-foreground lg:text-[17px]">
-                    {t(`faq${n}Q`)}
+                    {t(`faq${n}Q` as "faq1Q")}
                   </span>
                   <span
                     aria-hidden="true"
                     className={cn(
-                      "flex size-10 shrink-0 items-center justify-center rounded-full transition-[transform,background-color] duration-200",
+                      "flex size-10 shrink-0 items-center justify-center rounded-full transition-[rotate,background-color] duration-200",
                       isOpen
                         ? "rotate-180 bg-[#2f6b4f] text-white"
                         : "bg-background text-foreground",

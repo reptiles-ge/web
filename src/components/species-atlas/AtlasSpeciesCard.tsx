@@ -51,7 +51,7 @@ export function AtlasSpeciesCard({
   return (
     <Link
       aria-labelledby={labelledBy(ids, Boolean(item.risk))}
-      className="group flex h-full flex-col overflow-hidden rounded-[20px] bg-card shadow-[0_1px_2px_rgba(14,20,17,0.04),0_8px_22px_rgba(14,20,17,0.05)] transition-[transform,box-shadow] duration-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary motion-reduce:transition-none lg:rounded-[26px] lg:shadow-[0_1px_2px_rgba(14,20,17,0.04),0_12px_32px_rgba(14,20,17,0.05)] lg:hover:translate-y-[-3px] lg:hover:shadow-[0_1px_2px_rgba(14,20,17,0.04),0_24px_52px_rgba(14,20,17,0.12)]"
+      className="group flex h-full flex-col overflow-hidden rounded-[20px] bg-card shadow-[0_1px_2px_rgba(14,20,17,0.04),0_8px_22px_rgba(14,20,17,0.05)] transition-[translate,box-shadow] duration-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary motion-reduce:transition-none lg:rounded-[26px] lg:shadow-[0_1px_2px_rgba(14,20,17,0.04),0_12px_32px_rgba(14,20,17,0.05)] lg:hover:translate-y-[-3px] lg:hover:shadow-[0_1px_2px_rgba(14,20,17,0.04),0_24px_52px_rgba(14,20,17,0.12)]"
       href={item.href}
       onClick={() =>
         trackSpeciesClick({

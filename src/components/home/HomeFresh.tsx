@@ -43,7 +43,7 @@ export async function HomeFresh({ locale }: { locale: AppLocale }) {
           </Link>
         </div>
 
-        <div className="mt-6 grid gap-5 lg:mt-11 lg:grid-cols-[minmax(0,1fr)_400px] lg:items-start lg:gap-[72px]">
+        <div className="mt-6 grid grid-cols-1 gap-5 lg:mt-11 lg:grid-cols-[minmax(0,1fr)_400px] lg:items-start lg:gap-[72px]">
           <div className="min-w-0">
             {lead && leadCopy ? (
               <Link
@@ -120,7 +120,7 @@ export async function HomeFresh({ locale }: { locale: AppLocale }) {
           </div>
 
           {updated.length > 0 ? (
-            <div className="rounded-[24px] bg-card px-5 pt-5 pb-2 shadow-[0_16px_40px_rgba(14,20,17,0.06)] lg:rounded-[32px] lg:px-[30px] lg:pt-7 lg:pb-3">
+            <div className="min-w-0 rounded-[24px] bg-card px-5 pt-5 pb-2 shadow-[0_16px_40px_rgba(14,20,17,0.06)] lg:rounded-[32px] lg:px-[30px] lg:pt-7 lg:pb-3">
               <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
                 {t("updated")}
               </p>
@@ -144,20 +144,22 @@ export async function HomeFresh({ locale }: { locale: AppLocale }) {
                           />
                         ) : null}
                       </span>
-                      <span className="min-w-0 flex-1">
-                        <span className="block font-display text-[14px] leading-snug font-semibold text-foreground">
-                          {species.commonName}
+                      <span className="flex min-w-0 flex-1 flex-col gap-1 sm:flex-row sm:items-center sm:gap-3">
+                        <span className="min-w-0 flex-1">
+                          <span className="block font-display text-[14px] leading-snug font-semibold text-foreground">
+                            {species.commonName}
+                          </span>
+                          <span className="mt-0.5 block truncate text-[12px] text-muted-foreground italic">
+                            {species.scientificName}
+                          </span>
                         </span>
-                        <span className="mt-0.5 block truncate text-[12px] text-muted-foreground italic">
-                          {species.scientificName}
-                        </span>
+                        <time
+                          className="shrink-0 text-[11px] text-muted-foreground"
+                          dateTime={species.updatedAt}
+                        >
+                          {formatContentDate(species.updatedAt, locale)}
+                        </time>
                       </span>
-                      <time
-                        className="shrink-0 text-[11px] text-muted-foreground"
-                        dateTime={species.updatedAt}
-                      >
-                        {formatContentDate(species.updatedAt, locale)}
-                      </time>
                       <ArrowUpRight
                         aria-hidden="true"
                         className="size-4 shrink-0 text-muted-foreground group-hover:text-primary"

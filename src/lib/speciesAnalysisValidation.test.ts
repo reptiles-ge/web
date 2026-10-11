@@ -15,6 +15,7 @@ import {
   analysisLookalikes,
   applyAnalysisEdits,
   applyAnalysisLookalikes,
+  salvageSuperAnalysisResult,
   validateSuperAnalysisResult,
 } from "@/lib/speciesAnalysisValidation";
 import {
@@ -366,6 +367,82 @@ describe("Super Analysis ownership and evidence gates", () => {
   });
 });
 
+describe("salvaging a rejected stage result", () => {
+  it("keeps valid work and records every rejected item for review", () => {
+    const value = result("lookalikes");
+    value.coverage = ["identification", "faq.0"];
+    value.findings = [
+      {
+        evidenceIds: ["missing"],
+        message: "Stop everything",
+        severity: "blocking",
+        surface: "faq.0",
+      },
+    ];
+    value.edits = [
+      edit("Natrix natrix is 20–40 cm.", "Natrix natrix is 30 cm."),
+      edit("", "Changed", "danger"),
+    ];
+    value.sources = [
+      { evidenceIds: [], name: "Unbacked", url: "https://example.org/x" },
+    ];
+    value.lookalikes = [
+      {
+        action: "add",
+        difference: "Spots",
+        evidenceIds: [],
+        id: "natrix-natrix",
+        scenario: "Wet meadows",
+      },
+      {
+        action: "keep",
+        difference: "None",
+        evidenceIds: [],
+        id: "not-in-catalog",
+        scenario: "None",
+      },
+    ];
+    const salvaged = salvageSuperAnalysisResult(
+      value,
+      "lookalikes",
+      context,
+      [result("analysis")],
+      ["natrix-natrix"],
+    );
+    expect(salvaged.edits).toEqual([]);
+    expect(salvaged.sources).toEqual([]);
+    expect(salvaged.lookalikes).toEqual([
+      expect.objectContaining({ action: "review", id: "natrix-natrix" }),
+    ]);
+    expect(salvaged.coverage).toEqual(
+      expect.arrayContaining(["identification", "related", "quiz"]),
+    );
+    expect(salvaged.findings[0]).toEqual({
+      evidenceIds: [],
+      message: "faq.0: Stop everything",
+      severity: "review",
+      surface: "faq",
+    });
+    const messages = salvaged.findings.map(
+      (finding) => `${finding.surface}: ${finding.message}`,
+    );
+    expect(messages).toEqual(
+      expect.arrayContaining([
+        expect.stringMatching(/^related: ავტომატურმა ანალიზმა/),
+        expect.stringMatching(
+          /^overview: overview: ცვლილებას დადასტურებული წყარო არ აქვს/,
+        ),
+        expect.stringMatching(
+          /^verdict: danger: ეს ველი ავტომატურად არ რედაქტირდება/,
+        ),
+        expect.stringMatching(/^sources: https:\/\/example\.org\/x: წყარო/),
+        expect.stringMatching(/^related: natrix-natrix \(add\)/),
+        expect.stringMatching(/^related: not-in-catalog \(keep\)/),
+      ]),
+    );
+  });
+});
+
 describe("links and final language editing", () => {
   it("adds only renderable published links without changing prose", () => {
     const value = result("links");
@@ -435,7 +512,7 @@ describe("links and final language editing", () => {
     expect(() => check(value)).toThrow("differ between locales");
     value.edits[0].after.tr = value.edits[0].after.ka;
     value.edits.push(value.edits[0]);
-    expect(() => check(value)).toThrow("duplicate field");
+    expect(() => check(value)).toThrow("Duplicate field");
   });
 });
 

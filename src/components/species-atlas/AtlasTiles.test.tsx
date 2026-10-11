@@ -28,7 +28,6 @@ function renderTiles(
   const props = {
     filters: defaultAtlasFilters,
     groupTotals: TOTALS,
-    onPickGroup: vi.fn(),
     onPickRegion: vi.fn(),
     onPickVenomous: vi.fn(),
     regionCount: 12,
@@ -69,16 +68,18 @@ describe("AtlasTiles", () => {
     ).toBeInTheDocument();
   });
 
-  it("keeps group tiles as filter buttons", () => {
-    const props = renderTiles({
-      filters: { ...defaultAtlasFilters, group: "lizard" },
-    });
-    const lizards = screen.getByRole("button", {
+  it("links every group tile to its hub page instead of filtering", () => {
+    renderTiles({ filters: { ...defaultAtlasFilters, group: "lizard" } });
+    const lizards = screen.getByRole("link", {
       name: `${ka.speciesAtlas.groups.lizard} 29`,
     });
-    expect(lizards).toHaveAttribute("aria-pressed", "true");
-    fireEvent.click(lizards);
-    expect(props.onPickGroup).toHaveBeenCalledWith("lizard");
+    expect(lizards).toHaveAttribute("href", GROUP_HUBS.lizards.path);
+    expect(lizards).not.toHaveAttribute("aria-pressed");
+    expect(
+      screen.queryByRole("button", {
+        name: `${ka.speciesAtlas.groups.snake} 22`,
+      }),
+    ).not.toBeInTheDocument();
   });
 
   it("places the venomous tile after snakes on mobile and after the groups on desktop", () => {

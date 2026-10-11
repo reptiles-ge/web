@@ -25,6 +25,12 @@ const links = (value: string) => [
 const plain = (value: string) =>
   value.replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1");
 
+class AnalysisFieldError extends Error {
+  constructor(readonly field: string) {
+    super(`Unsupported field: ${field}`);
+  }
+}
+
 export class AnalysisCoverageError extends Error {
   constructor(
     readonly stage: SuperAnalysisStage,
@@ -189,6 +195,161 @@ export function requiredAnalysisCoverage(
   ];
 }
 
+export function salvageSuperAnalysisResult(
+  input: unknown,
+  stage: SuperAnalysisStage,
+  context: SpeciesAnalysisContext,
+  previous: SuperAnalysisResult[],
+  existingLookalikes: string[],
+) {
+  const result = superAnalysisResultSchema.parse(input);
+  result.stage = stage;
+  const surfaceIds = new Set(
+    context.surfaces.map((surface) => surface.id as string),
+  );
+  const fallbackSurface = context.surfaces[0].id;
+  const surfaceFor = (field: string) =>
+    context.surfaces.find((surface) =>
+      surface.fields.some(
+        (owned) => field === owned || field.startsWith(`${owned}.`),
+      ),
+    )?.id ?? fallbackSurface;
+  const notes: SuperAnalysisResult["findings"] = [];
+  const note = (surface: string, message: string) =>
+    notes.push({
+      evidenceIds: [],
+      message: message.slice(0, 20000),
+      severity: "review",
+      surface,
+    });
+  const errorText = (error: unknown) =>
+    error instanceof Error ? error.message : String(error);
+
+  const required = requiredAnalysisCoverage(stage, context);
+  const covered = new Set(result.coverage);
+  const uninspected = required.filter((id) => !covered.has(id));
+  result.coverage = [
+    ...new Set([
+      ...result.coverage.filter((id) => surfaceIds.has(id)),
+      ...required,
+    ]),
+  ];
+  for (const surface of uninspected)
+    note(surface, "ავტომატურმა ანალიზმა ეს ნაწილი არ შეამოწმა.");
+
+  if (stage === "links" || stage === "texts") {
+    result.evidence = [];
+    result.sources = [];
+  }
+  if (stage !== "lookalikes") result.lookalikes = [];
+  const known = new Set(
+    previous.flatMap((item) => item.evidence.map((e) => e.id)),
+  );
+  result.evidence = result.evidence.filter((item) => {
+    if (known.has(item.id)) return false;
+    known.add(item.id);
+    return true;
+  });
+
+  const findings: SuperAnalysisResult["findings"] = [];
+  for (const finding of result.findings) {
+    const surface = surfaceIds.has(finding.surface)
+      ? finding.surface
+      : surfaceIds.has(finding.surface.split(".")[0])
+        ? finding.surface.split(".")[0]
+        : fallbackSurface;
+    findings.push({
+      ...finding,
+      evidenceIds: finding.evidenceIds.filter((id) => known.has(id)),
+      message:
+        surface === finding.surface
+          ? finding.message
+          : `${finding.surface}: ${finding.message}`,
+      severity: finding.severity === "blocking" ? "review" : finding.severity,
+      surface,
+    });
+  }
+  result.findings = findings;
+
+  const checks = analysisItemChecks(result, stage, context, previous);
+  result.sources = result.sources.filter((source) => {
+    try {
+      checks.source(source);
+      return true;
+    } catch (error) {
+      note("sources", `${source.url}: წყარო არ დაემატა. ${errorText(error)}`);
+      return false;
+    }
+  });
+  if (stage === "links" || stage === "texts")
+    for (const edit of result.edits)
+      edit.evidenceIds = edit.evidenceIds.filter(
+        (id) => checks.evidence.get(id)?.status === "verified",
+      );
+  const seenFields = new Set<string>();
+  result.edits = result.edits.filter((edit) => {
+    try {
+      if (seenFields.has(edit.field))
+        throw new Error(`Duplicate field: ${edit.field}`);
+      checks.edit(edit);
+      const missing = checks.missingReferences(edit);
+      if (missing.length)
+        throw new AnalysisEvidenceError(
+          `Factual change lacks a profile reference: ${missing.join(", ")}`,
+        );
+      seenFields.add(edit.field);
+      return true;
+    } catch (error) {
+      note(
+        surfaceFor(edit.field),
+        `${edit.field}: ${rejectedEditReason(error)}; ოთხივე ენაზე შენარჩუნებულია ველის წინა ტექსტი. ${errorText(error)}`,
+      );
+      return false;
+    }
+  });
+
+  const existingPeers = new Set(existingLookalikes);
+  const seenPeers = new Set<string>();
+  const lookalikes: SuperAnalysisResult["lookalikes"] = [];
+  for (const pair of result.lookalikes) {
+    if (seenPeers.has(pair.id)) continue;
+    const exists = existingPeers.has(pair.id);
+    try {
+      if ((pair.action === "keep" || pair.action === "remove") && !exists)
+        throw new Error("Lookalike action does not match the registry");
+      checks.lookalike(pair);
+      lookalikes.push(pair);
+      seenPeers.add(pair.id);
+    } catch (error) {
+      note(
+        "related",
+        `${pair.id} (${pair.action}): მსგავსი სახეობის ცვლილება არ შესრულდა. ${errorText(error)}`,
+      );
+      if (exists && context.catalog.some((item) => item.id === pair.id)) {
+        lookalikes.push({
+          ...pair,
+          action: "review",
+          evidenceIds: pair.evidenceIds.filter((id) => known.has(id)),
+        });
+        seenPeers.add(pair.id);
+      }
+    }
+  }
+  if (stage === "lookalikes")
+    for (const peer of existingLookalikes)
+      if (!seenPeers.has(peer))
+        lookalikes.push({
+          action: "review",
+          difference: "ავტომატურმა ანალიზმა ეს წყვილი არ შეაფასა.",
+          evidenceIds: [],
+          id: peer,
+          scenario: "არსებული წყვილი შენარჩუნებულია.",
+        });
+  result.lookalikes = lookalikes;
+  result.findings = [...result.findings, ...notes];
+  return validateSuperAnalysisResult(result, stage, context, previous);
+}
+
 export function validateSuperAnalysisResult(
   input: unknown,
   stage: SuperAnalysisStage,
@@ -252,7 +413,59 @@ export function validateSuperAnalysisResult(
   ];
   if (new Set(evidence.map((item) => item.id)).size !== evidence.length)
     throw new Error("Duplicate evidence ids");
-  const byId = new Map(evidence.map((item) => [item.id, item]));
+  const checks = analysisItemChecks(result, stage, context, previous);
+  for (const finding of result.findings) {
+    if (finding.evidenceIds.some((id) => !checks.evidence.has(id)))
+      throw new Error("Unknown finding evidence");
+  }
+  const seenFields = new Set<string>();
+  for (const edit of result.edits) {
+    if (seenFields.has(edit.field))
+      throw new Error(`Duplicate field: ${edit.field}`);
+    seenFields.add(edit.field);
+    checks.edit(edit);
+  }
+  for (const source of result.sources) checks.source(source);
+  const missingReferences = result.edits.flatMap(checks.missingReferences);
+  if (missingReferences.length)
+    throw new AnalysisEvidenceError(
+      `Factual change lacks a profile reference: ${missingReferences.join(", ")}`,
+    );
+  const seenPeers = new Set<string>();
+  for (const pair of result.lookalikes) {
+    if (seenPeers.has(pair.id)) throw new Error("Invalid lookalike candidate");
+    seenPeers.add(pair.id);
+    checks.lookalike(pair);
+  }
+  return result;
+}
+
+function analysisField(data: Record<string, unknown>, field: string): string {
+  const value = field
+    .split(".")
+    .reduce<unknown>(
+      (parent, key) =>
+        parent && typeof parent === "object"
+          ? (parent as Record<string, unknown>)[key]
+          : undefined,
+      data,
+    );
+  if (value == null) return "";
+  if (typeof value !== "string") throw new Error(`Not a text field: ${field}`);
+  return value;
+}
+
+function analysisItemChecks(
+  result: SuperAnalysisResult,
+  stage: SuperAnalysisStage,
+  context: SpeciesAnalysisContext,
+  previous: SuperAnalysisResult[],
+) {
+  const byId = new Map(
+    [...previous.flatMap((item) => item.evidence), ...result.evidence].map(
+      (item) => [item.id, item],
+    ),
+  );
   const requireEvidence = (ids: string[], owner: string) => {
     const invalid = ids.filter((id) => byId.get(id)?.status !== "verified");
     if (!ids.length || invalid.length)
@@ -266,10 +479,6 @@ export function validateSuperAnalysisResult(
         }`,
       );
   };
-  for (const finding of result.findings) {
-    if (finding.evidenceIds.some((id) => !byId.has(id)))
-      throw new Error("Unknown finding evidence");
-  }
   const namePattern = new RegExp(
     context.catalog
       .map((item) => item.scientificName.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
@@ -289,18 +498,21 @@ export function validateSuperAnalysisResult(
       .join("|");
   const targetIds = new Set(context.catalog.map((item) => item.id));
   const internalPaths = new Set(context.internalPaths);
-  const seenFields = new Set<string>();
   const ka = context.content.ka as Record<string, unknown>;
-  for (const edit of result.edits) {
-    if (!editableField.test(edit.field) || seenFields.has(edit.field))
-      throw new Error(`Unsupported or duplicate field: ${edit.field}`);
+  const profileSources = [
+    ...((ka.sources ?? []) as Array<{ url?: string }>),
+    ...result.sources,
+  ];
+
+  const edit = (edit: SuperAnalysisResult["edits"][number]) => {
+    if (!editableField.test(edit.field))
+      throw new AnalysisFieldError(edit.field);
     if (
       edit.field
         .split(".")
         .some((segment) => /^\d+$/.test(segment) && Number(segment) > 100)
     )
       throw new Error("Field index is too large");
-    seenFields.add(edit.field);
     if (stage === "analysis" || stage === "lookalikes")
       requireEvidence(edit.evidenceIds, `field ${edit.field}`);
     else if (edit.evidenceIds.some((id) => byId.get(id)?.status !== "verified"))
@@ -381,18 +593,16 @@ export function validateSuperAnalysisResult(
     );
     if (new Set(targets).size !== 1)
       throw new Error("Link targets differ between locales");
-  }
-  for (const source of result.sources) {
+  };
+
+  const source = (source: SuperAnalysisResult["sources"][number]) => {
     requireEvidence(source.evidenceIds, `source ${source.url}`);
     if (!source.evidenceIds.some((id) => byId.get(id)?.url === source.url))
       throw new Error("Source URL does not match evidence");
-  }
-  const profileSources = [
-    ...((ka.sources ?? []) as Array<{ url?: string }>),
-    ...result.sources,
-  ];
-  const missingReferences = result.edits.flatMap((edit) =>
-    ["analysis", "lookalikes"].includes(stage)
+  };
+
+  const missingReferences = (edit: SuperAnalysisResult["edits"][number]) =>
+    stage === "analysis" || stage === "lookalikes"
       ? edit.evidenceIds.flatMap((id) => {
           const item = byId.get(id);
           return item &&
@@ -400,42 +610,18 @@ export function validateSuperAnalysisResult(
             ? [`${id} (${item.url})`]
             : [];
         })
-      : [],
-  );
-  if (missingReferences.length)
-    throw new AnalysisEvidenceError(
-      `Factual change lacks a profile reference: ${missingReferences.join(", ")}`,
-    );
-  const seenPeers = new Set<string>();
-  for (const pair of result.lookalikes) {
-    if (
-      !targetIds.has(pair.id) ||
-      pair.id === context.id ||
-      seenPeers.has(pair.id)
-    )
+      : [];
+
+  const lookalike = (pair: SuperAnalysisResult["lookalikes"][number]) => {
+    if (!targetIds.has(pair.id) || pair.id === context.id)
       throw new Error("Invalid lookalike candidate");
     if (pair.evidenceIds.some((id) => !byId.has(id)))
       throw new Error("Unknown lookalike evidence");
-    seenPeers.add(pair.id);
     if (pair.action === "add" || pair.action === "remove")
       requireEvidence(pair.evidenceIds, `lookalike ${pair.id}: ${pair.action}`);
-  }
-  return result;
-}
+  };
 
-function analysisField(data: Record<string, unknown>, field: string): string {
-  const value = field
-    .split(".")
-    .reduce<unknown>(
-      (parent, key) =>
-        parent && typeof parent === "object"
-          ? (parent as Record<string, unknown>)[key]
-          : undefined,
-      data,
-    );
-  if (value == null) return "";
-  if (typeof value !== "string") throw new Error(`Not a text field: ${field}`);
-  return value;
+  return { edit, evidence: byId, lookalike, missingReferences, source };
 }
 
 function lookalikeObject(source: string) {
@@ -473,6 +659,18 @@ function lookalikeObject(source: string) {
     });
   }
   return { end: object.end, registry, start: object.getStart(file) };
+}
+
+function rejectedEditReason(error: unknown) {
+  if (error instanceof AnalysisFieldError)
+    return "ეს ველი ავტომატურად არ რედაქტირდება";
+  if (error instanceof AnalysisNumberError)
+    return "რიცხვების ცვლილება უარყოფილია";
+  if (error instanceof AnalysisScientificNameError)
+    return "სამეცნიერო სახელის ცვლილება უარყოფილია";
+  if (error instanceof AnalysisEvidenceError)
+    return "ცვლილებას დადასტურებული წყარო არ აქვს";
+  return "ცვლილება უარყოფილია";
 }
 
 function setField(data: Record<string, unknown>, field: string, value: string) {

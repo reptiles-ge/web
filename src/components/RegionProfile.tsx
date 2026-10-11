@@ -501,7 +501,7 @@ function RegionProfileRelated({ related }: { related: Region[] }) {
                     <h3 className="font-display text-[22px] leading-tight font-semibold text-foreground transition-colors group-hover:text-primary">
                       {localizeRegionText(item.name, locale)}
                     </h3>
-                    <ArrowUpRight className="mt-1 size-4 shrink-0 text-muted-foreground/40 transition-[color,transform] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary" />
+                    <ArrowUpRight className="mt-1 size-4 shrink-0 text-muted-foreground/40 transition-[color,translate] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary" />
                   </div>
                   <p className="mt-2 text-[11px] tracking-[0.18em] text-muted-foreground uppercase">
                     {localizeRegionTextIfPresent(relatedContent.biome, locale)}

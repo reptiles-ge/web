@@ -73,6 +73,7 @@ beforeEach(async () => {
       content: Object.fromEntries(
         ANALYSIS_LOCALES.map((locale) => [locale, content[locale].data]),
       ),
+      editableFields: ["overview"],
       id,
       internalPaths: [],
       surfaces: speciesAnalysisSurfaces,
@@ -230,9 +231,12 @@ describe("four-stage Super Analysis runner", () => {
         );
       });
       const run = await createSuperAnalysisRunner(id, worktree, directory);
-      if (repairSucceeds)
-        await expect(run("analysis")).resolves.toContain("requires review");
-      else await expect(run("analysis")).rejects.toThrow("field overview");
+      const report = await run("analysis");
+      expect(report).toContain("requires review");
+      if (!repairSucceeds)
+        expect(report).toContain(
+          "[review] overview: overview: ცვლილებას დადასტურებული წყარო არ აქვს",
+        );
       expect(calls).toBe(2);
       for (const locale of ANALYSIS_LOCALES)
         expect(
@@ -246,13 +250,107 @@ describe("four-stage Super Analysis runner", () => {
       await fs.writeFile(output, '{"stage":"analysis"}');
     });
     const run = await createSuperAnalysisRunner(id, worktree, directory);
-    await expect(run("analysis")).rejects.toThrow();
-    expect(runAgent).toHaveBeenCalledTimes(1);
+    await expect(run("analysis")).rejects.toThrow(
+      "[analysis, attempt 2/2, after validation repair]",
+    );
+    expect(runAgent).toHaveBeenCalledTimes(2);
     for (const locale of ANALYSIS_LOCALES)
       expect((await readSpeciesAnalysisContent(id, worktree))[locale].raw).toBe(
         original,
       );
     await expect(run("lookalikes")).rejects.toThrow("order");
+  });
+
+  it("drops an edit to a non-editable field and records it for review", async () => {
+    const all = speciesAnalysisSurfaces.map((surface) => surface.id);
+    mockAgent(async ({ output, prompt }) => {
+      expect(prompt).toContain(
+        "EDITABLE FIELDS (every edits[].field must be exactly one of these; sources are append-only through sources[], never edits; report anything else as a finding): overview",
+      );
+      await fs.writeFile(
+        output,
+        JSON.stringify({
+          coverage: all,
+          edits: [
+            {
+              after: values("Renamed"),
+              before: values("Original"),
+              evidenceIds: [],
+              field: "sources.0.name",
+              reason: "Better title",
+            },
+          ],
+          evidence: [],
+          findings: [],
+          lookalikes: [],
+          sources: [],
+          stage: "analysis",
+          summary: "Reviewed",
+        }),
+      );
+    });
+    const run = await createSuperAnalysisRunner(id, worktree, directory);
+    const report = await run("analysis");
+    expect(report).toContain(
+      "[review] sources: sources.0.name: ეს ველი ავტომატურად არ რედაქტირდება",
+    );
+    expect(report).not.toContain("Better title");
+    expect(runAgent).toHaveBeenCalledTimes(1);
+    for (const locale of ANALYSIS_LOCALES)
+      expect((await readSpeciesAnalysisContent(id, worktree))[locale].raw).toBe(
+        original,
+      );
+  });
+
+  it("keeps a valid link edit whose evidence ids are unknown", async () => {
+    const initial = original.replace(
+      'overview: "A bird is 20 cm."',
+      'overview: "Like Other species, a bird is 20 cm."',
+    );
+    for (const locale of ANALYSIS_LOCALES)
+      await fs.writeFile(
+        path.join(worktree, `src/content/species/${id}/${locale}.mdx`),
+        initial,
+      );
+    let calls = 0;
+    mockAgent(async ({ output }) => {
+      const stage = SUPER_ANALYSIS_STAGES[calls];
+      calls++;
+      const response: SuperAnalysisResult = {
+        coverage: speciesAnalysisSurfaces.map((surface) => surface.id),
+        edits: [],
+        evidence: [],
+        findings: [],
+        lookalikes: [],
+        sources: [],
+        stage,
+        summary: "Reviewed",
+      };
+      if (stage === "links")
+        response.edits = [
+          {
+            after: values(
+              "Like [Other species](other-species), a bird is 20 cm.",
+            ),
+            before: values("Like Other species, a bird is 20 cm."),
+            evidenceIds: ["missing-evidence"],
+            field: "overview",
+            reason: "Link the lookalike",
+          },
+        ];
+      await fs.writeFile(output, JSON.stringify(response));
+    });
+    const run = await createSuperAnalysisRunner(id, worktree, directory);
+    await run("analysis");
+    await run("lookalikes");
+    await expect(run("links")).resolves.toContain(
+      "overview: Link the lookalike",
+    );
+    expect(calls).toBe(3);
+    for (const locale of ANALYSIS_LOCALES)
+      expect(
+        (await readSpeciesAnalysisContent(id, worktree))[locale].data.overview,
+      ).toBe("Like [Other species](other-species), a bird is 20 cm.");
   });
 
   it.each([true, false])(
@@ -293,12 +391,16 @@ describe("four-stage Super Analysis runner", () => {
         );
       });
       const run = await createSuperAnalysisRunner(id, worktree, directory);
-      if (repairSucceeds)
-        await expect(run("analysis")).resolves.toContain("Reviewed");
-      else
-        await expect(run("analysis")).rejects.toThrow(
-          `[analysis, attempt 2/2, after validation repair] Incomplete page surface coverage (stage analysis) | missing 2/${all.length}: media, navigation | unknown 1: "faq.0"`,
+      const report = await run("analysis");
+      expect(report).toContain("Reviewed");
+      if (!repairSucceeds) {
+        expect(report).toContain(
+          "[review] media: ავტომატურმა ანალიზმა ეს ნაწილი არ შეამოწმა.",
         );
+        expect(report).toContain(
+          "[review] navigation: ავტომატურმა ანალიზმა ეს ნაწილი არ შეამოწმა.",
+        );
+      }
       expect(calls).toBe(2);
     },
   );

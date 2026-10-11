@@ -8,6 +8,7 @@ import type { GroupHubId } from "@/lib/groupHubs";
 import { CoverImage } from "@/components/CoverImage";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { QuizCtaLink } from "@/components/QuizCtaLink";
+import { regions } from "@/data/mapRegions";
 import { isVenomousDanger } from "@/data/speciesAtlas";
 import { Link } from "@/i18n/navigation";
 import { isLocalAdminEnabled } from "@/lib/adminAccess";
@@ -33,10 +34,15 @@ type GroupHubHeroProps = {
   species: Species[];
 };
 
-type HeroStat = { dot?: string; label: string; value: string };
+type HeroStat = {
+  dot?: string;
+  label: string;
+  suffix?: string;
+  value: string;
+};
 
 const SECONDARY_CTA =
-  "flex h-[54px] items-center justify-center gap-2.5 rounded-full border border-white/25 bg-white/8 text-[15px] font-medium whitespace-nowrap text-white transition-[transform,filter] hover:-translate-y-0.5 hover:brightness-110 lg:inline-flex lg:h-[52px] lg:pr-[22px]";
+  "flex h-[54px] items-center justify-center gap-2.5 rounded-full border border-white/25 bg-white/8 text-[15px] font-medium whitespace-nowrap text-white transition-[translate,filter] hover:-translate-y-0.5 hover:brightness-110 lg:inline-flex lg:h-[52px] lg:pr-[22px]";
 
 export async function GroupHubHero({
   heroMobileSrc,
@@ -138,6 +144,11 @@ export async function GroupHubHero({
                       />
                     ) : null}
                     {stat.value}
+                    {stat.suffix ? (
+                      <span className="-ml-0.5 text-[15px] font-medium text-white/50 lg:-ml-1 lg:text-[20px]">
+                        {stat.suffix}
+                      </span>
+                    ) : null}
                   </dd>
                 </div>
               ))}
@@ -145,7 +156,7 @@ export async function GroupHubHero({
 
             <div className="mt-4 flex flex-col gap-2.5 lg:mt-[34px] lg:flex-row lg:items-center lg:gap-3">
               <a
-                className="flex h-[54px] items-center justify-center gap-2 rounded-full bg-white pr-6 pl-[26px] text-[15px] font-medium whitespace-nowrap text-ink transition-[transform,filter] hover:-translate-y-0.5 hover:brightness-105 lg:inline-flex lg:h-[52px]"
+                className="flex h-[54px] items-center justify-center gap-2 rounded-full bg-white pr-6 pl-[26px] text-[15px] font-medium whitespace-nowrap text-ink transition-[translate,filter] hover:-translate-y-0.5 hover:brightness-105 lg:inline-flex lg:h-[52px]"
                 href="#species"
               >
                 {t("ctaSpecies")}
@@ -157,7 +168,7 @@ export async function GroupHubHero({
 
           {heroSpecies ? (
             <Link
-              className="absolute right-[60px] bottom-7 hidden h-[38px] items-center gap-2 rounded-full border border-white/16 bg-ink/58 px-[15px] text-[12.5px] text-white/85 backdrop-blur-md transition-[transform,filter] hover:-translate-y-0.5 hover:brightness-110 lg:flex"
+              className="absolute right-[60px] bottom-7 hidden h-[38px] items-center gap-2 rounded-full border border-white/16 bg-ink/58 px-[15px] text-[12.5px] text-white/85 backdrop-blur-md transition-[translate,filter] hover:-translate-y-0.5 hover:brightness-110 lg:flex"
               href={speciesHref(heroSpecies.id, locale)}
             >
               <span>{heroSpecies.commonName}</span>
@@ -317,19 +328,22 @@ function heroStats({
       },
     ];
   }
-  const items = t.has("statExtraItems") ? t.raw("statExtraItems") : null;
   return [
     total,
     {
       label: t("statFamilies"),
       value: String(new Set(species.map((item) => item.family)).size),
     },
-    {
-      label: t("statExtra"),
-      value:
-        Array.isArray(items) && items.every((item) => typeof item === "string")
-          ? items.join(", ")
-          : t("statExtraValue"),
-    },
+    t.has("statRegions")
+      ? { label: t("statRegions"), ...mappedRegionsStat(species) }
+      : { label: t("statExtra"), value: t("statExtraValue") },
   ];
+}
+
+function mappedRegionsStat(species: Species[]) {
+  const ids = new Set(species.map((item) => item.id));
+  const mapped = regions.filter((region) =>
+    region.speciesIds.some((id) => ids.has(id)),
+  ).length;
+  return { suffix: `/ ${regions.length}`, value: String(mapped) };
 }
