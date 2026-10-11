@@ -25,6 +25,12 @@ const links = (value: string) => [
 const plain = (value: string) =>
   value.replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1");
 
+class AnalysisFieldError extends Error {
+  constructor(readonly field: string) {
+    super(`Unsupported field: ${field}`);
+  }
+}
+
 export class AnalysisCoverageError extends Error {
   constructor(
     readonly stage: SuperAnalysisStage,
@@ -54,12 +60,6 @@ export class AnalysisCoverageError extends Error {
 }
 
 export class AnalysisEvidenceError extends Error {}
-
-export class AnalysisFieldError extends Error {
-  constructor(readonly field: string) {
-    super(`Unsupported field: ${field}`);
-  }
-}
 
 export class AnalysisNumberError extends Error {
   constructor(
