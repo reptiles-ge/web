@@ -81,7 +81,7 @@ export async function AuthorIndexPage({
               />
               <span className={EYEBROW}>{t("index.eyebrow")}</span>
             </p>
-            <h1 className="mt-4 font-display text-[44px] leading-[1.04] font-bold tracking-[-0.02em] text-foreground sm:text-[56px] lg:mt-5 lg:text-[72px] lg:leading-[1.02]">
+            <h1 className="mt-4 font-display text-[clamp(28px,calc((100vw-48px)/9),44px)] leading-[1.04] font-bold tracking-[-0.02em] text-foreground sm:text-[56px] lg:mt-5 lg:text-[72px] lg:leading-[1.02]">
               {t("index.h1")}
             </h1>
             <p className="mt-4 max-w-[600px] text-[16px] leading-[1.6] text-foreground/80 lg:mt-[22px] lg:text-[19px]">
@@ -90,7 +90,7 @@ export async function AuthorIndexPage({
           </div>
           {cards.length > 0 ? (
             <dl
-              className={`mt-7 grid grid-cols-3 rounded-[26px] bg-card px-1 py-5 lg:mt-0 lg:w-[560px] lg:shrink-0 lg:rounded-[32px] lg:px-2 lg:py-7 ${CARD_SHADOW}`}
+              className={`mt-7 grid grid-cols-[repeat(3,auto)] justify-between rounded-[26px] bg-card px-1 py-5 sm:grid-cols-3 lg:mt-0 lg:w-[560px] lg:shrink-0 lg:rounded-[32px] lg:px-2 lg:py-7 ${CARD_SHADOW}`}
             >
               {[
                 { label: t("index.statContributors"), value: cards.length },
@@ -100,12 +100,14 @@ export async function AuthorIndexPage({
                 <div
                   className={
                     index > 0
-                      ? "flex flex-col-reverse justify-end border-l border-border/70 px-4 lg:px-7"
-                      : "flex flex-col-reverse justify-end px-4 lg:px-7"
+                      ? "flex flex-col-reverse justify-end border-l border-border/70 px-3 sm:px-4 lg:px-7"
+                      : "flex flex-col-reverse justify-end px-3 sm:px-4 lg:px-7"
                   }
                   key={stat.label}
                 >
-                  <dt className={`${EYEBROW} mt-2 lg:mt-2.5`}>{stat.label}</dt>
+                  <dt className="mt-2 text-[11px] font-medium tracking-[0.06em] text-muted-foreground uppercase sm:tracking-[0.18em] lg:mt-2.5">
+                    {stat.label}
+                  </dt>
                   <dd className="font-display text-[30px] leading-none font-semibold tracking-[-0.02em] text-foreground tabular-nums lg:text-[44px]">
                     {stat.value}
                   </dd>
