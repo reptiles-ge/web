@@ -98,7 +98,7 @@ export async function AboutPage({ locale }: { locale: AppLocale }) {
                   <span className="border-b border-foreground/20 pb-1 transition-colors group-hover:border-primary">
                     {t("contributeCta")}
                   </span>
-                  <ArrowUpRight className="size-4 shrink-0 text-muted-foreground transition-[color,transform] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary" />
+                  <ArrowUpRight className="size-4 shrink-0 text-muted-foreground transition-[color,translate] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary" />
                 </Link>
               </div>
             </div>

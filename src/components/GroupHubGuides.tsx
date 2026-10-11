@@ -195,7 +195,7 @@ function FeaturedGuide({
           </ul>
         ) : null}
         <Link
-          className="mt-3.5 flex h-[52px] items-center justify-center gap-2 rounded-full bg-[#2f6b4f] pr-[22px] pl-6 text-[14.5px] font-medium whitespace-nowrap text-white transition-[transform,filter] hover:-translate-y-0.5 hover:brightness-110 lg:mt-[22px] lg:inline-flex lg:h-12"
+          className="mt-3.5 flex h-[52px] items-center justify-center gap-2 rounded-full bg-[#2f6b4f] pr-[22px] pl-6 text-[14.5px] font-medium whitespace-nowrap text-white transition-[translate,filter] hover:-translate-y-0.5 hover:brightness-110 lg:mt-[22px] lg:inline-flex lg:h-12"
           href={cardHref(card, locale)}
         >
           {t(`cluster.${card.key}.cta`)}
@@ -276,7 +276,7 @@ function GuideTile({
   return (
     <Link
       className={cn(
-        "group flex h-full min-h-[190px] flex-col rounded-[26px] bg-card px-5 pt-5 pb-[18px] transition-[transform,filter] hover:-translate-y-0.5 hover:brightness-[1.02] lg:min-h-[176px] lg:rounded-[28px] lg:px-6 lg:pt-6 lg:pb-[22px]",
+        "group flex h-full min-h-[190px] flex-col rounded-[26px] bg-card px-5 pt-5 pb-[18px] transition-[translate,filter] hover:-translate-y-0.5 hover:brightness-[1.02] lg:min-h-[176px] lg:rounded-[28px] lg:px-6 lg:pt-6 lg:pb-[22px]",
         CARD_SHADOW,
       )}
       href={cardHref(card, locale)}

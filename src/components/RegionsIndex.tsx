@@ -283,7 +283,7 @@ function RegionDirectoryRow({
           {overview}
         </p>
       </div>
-      <ArrowUpRight className="mt-2 size-4 shrink-0 text-muted-foreground/40 transition-[color,transform] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary" />
+      <ArrowUpRight className="mt-2 size-4 shrink-0 text-muted-foreground/40 transition-[color,translate] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary" />
     </Link>
   );
 }
