@@ -25,9 +25,11 @@ export function AuthorIndexGrid({
 }) {
   const [role, setRole] = useState("all");
   const [filtered, setFiltered] = useState(false);
-  const visibleIds = items
-    .filter((item) => role === "all" || item.role === role)
-    .map((item) => item.id);
+  const visibleIndex = new Map(
+    items
+      .filter((item) => role === "all" || item.role === role)
+      .map((item, index) => [item.id, index]),
+  );
 
   return (
     <>
@@ -78,12 +80,12 @@ export function AuthorIndexGrid({
               filtered &&
                 "animate-[rating-in_420ms_cubic-bezier(0.22,1,0.36,1)_both] motion-reduce:animate-none",
             )}
-            hidden={!visibleIds.includes(item.id)}
+            hidden={!visibleIndex.has(item.id)}
             key={filtered ? `${role}-${item.id}` : item.id}
             style={
               filtered
                 ? {
-                    animationDelay: `${Math.min(visibleIds.indexOf(item.id), 8) * 40}ms`,
+                    animationDelay: `${Math.min(visibleIndex.get(item.id) ?? 0, 8) * 40}ms`,
                   }
                 : undefined
             }
