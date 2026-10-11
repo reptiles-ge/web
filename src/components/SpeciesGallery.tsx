@@ -121,7 +121,7 @@ export async function SpeciesGallery({
                 })}
               </span>
               <a
-                className="inline-flex h-12 items-center gap-2 rounded-full border border-white/30 px-6 text-[14.5px] font-medium text-white transition-[transform,background-color] hover:-translate-y-0.5 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                className="inline-flex h-12 items-center gap-2 rounded-full border border-white/30 px-6 text-[14.5px] font-medium text-white transition-[translate,background-color] hover:-translate-y-0.5 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                 data-species-gallery-src={slides[0].src}
                 href={`#${SPECIES_SECTION_IDS.gallery}`}
               >

@@ -201,7 +201,7 @@ async function GroupHubCta({
   ]);
   const editable = locale === "ka" && isLocalAdminEnabled();
   const outline =
-    "flex h-[54px] items-center justify-center gap-2 rounded-full border border-white/30 px-[26px] text-[15px] font-medium whitespace-nowrap text-white transition-[transform,filter] hover:-translate-y-0.5 hover:brightness-110 lg:inline-flex lg:h-[52px]";
+    "flex h-[54px] items-center justify-center gap-2 rounded-full border border-white/30 px-[26px] text-[15px] font-medium whitespace-nowrap text-white transition-[translate,filter] hover:-translate-y-0.5 hover:brightness-110 lg:inline-flex lg:h-[52px]";
 
   return (
     <section className="bg-background px-4 pb-11 lg:px-0 lg:pb-20">
@@ -238,7 +238,7 @@ async function GroupHubCta({
           />
           <div className="mt-[18px] flex flex-col gap-2.5 lg:col-start-1 lg:row-start-2 lg:mt-7 lg:flex-row lg:flex-wrap lg:gap-3 lg:self-start">
             <Link
-              className="flex h-[54px] items-center justify-center gap-2 rounded-full bg-white pr-6 pl-[26px] text-[15px] font-medium whitespace-nowrap text-ink transition-[transform,filter] hover:-translate-y-0.5 hover:brightness-105 lg:inline-flex lg:h-[52px]"
+              className="flex h-[54px] items-center justify-center gap-2 rounded-full bg-white pr-6 pl-[26px] text-[15px] font-medium whitespace-nowrap text-ink transition-[translate,filter] hover:-translate-y-0.5 hover:brightness-105 lg:inline-flex lg:h-[52px]"
               href="/species"
             >
               {tShared("ctaAllSpecies")}

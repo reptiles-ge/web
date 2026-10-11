@@ -74,7 +74,7 @@ export function GroupHubFaqSection({
                   <span
                     aria-hidden="true"
                     className={cn(
-                      "flex size-10 shrink-0 items-center justify-center rounded-full transition-[transform,background-color] duration-200",
+                      "flex size-10 shrink-0 items-center justify-center rounded-full transition-[rotate,background-color] duration-200",
                       isOpen
                         ? "rotate-180 bg-[#2f6b4f] text-white"
                         : "bg-background text-foreground",

@@ -182,7 +182,7 @@ export async function SpeciesProfileHero({
             {emergency ? (
               <a
                 aria-label={tSafety("call")}
-                className="hidden h-[52px] items-center gap-2.5 rounded-full bg-destructive pr-6 pl-5 text-[16px] font-bold text-white transition-[transform,filter] hover:-translate-y-0.5 hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white lg:inline-flex"
+                className="hidden h-[52px] items-center gap-2.5 rounded-full bg-destructive pr-6 pl-5 text-[16px] font-bold text-white transition-[translate,filter] hover:-translate-y-0.5 hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white lg:inline-flex"
                 href="tel:112"
               >
                 <Phone aria-hidden="true" className="size-4" strokeWidth={2} />
