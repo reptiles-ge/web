@@ -19,7 +19,6 @@ import {
 type AtlasTilesProps = {
   filters: AtlasFilters;
   groupTotals: Record<"all" | AnimalGroup, number>;
-  onPickGroup: (group: AnimalGroup) => void;
   onPickRegion: () => void;
   onPickVenomous: () => void;
   regionCount: number;
@@ -33,7 +32,6 @@ const TILE_CLASS_NAME =
 export function AtlasTiles({
   filters,
   groupTotals,
-  onPickGroup,
   onPickRegion,
   onPickVenomous,
   regionCount,
@@ -64,33 +62,24 @@ export function AtlasTiles({
   return (
     <>
       <div className="no-scrollbar -mx-5 mt-5 flex gap-2.5 overflow-x-auto px-5 py-1 lg:mx-0 lg:mt-9 lg:grid lg:grid-cols-6 lg:gap-3 lg:overflow-visible lg:px-0 lg:pt-0">
-        {groups.map((group, index) => {
-          const active = filters.group === group;
-          return (
-            <Fragment key={group}>
-              <button
-                aria-pressed={active}
-                className={cn(
-                  TILE_CLASS_NAME,
-                  "bg-[#151c18]",
-                  active && "ring-3 ring-primary",
-                )}
-                onClick={() => onPickGroup(group)}
-                type="button"
-              >
-                <TileImage
-                  src={GROUP_HUB_ILLUSTRATIONS[ANIMAL_GROUP_TO_HUB[group]]}
-                  tintClassName="bg-[#151c18]/25 lg:bg-[#151c18]/28 lg:group-hover:bg-[#151c18]/15"
-                />
-                <TileLabel
-                  count={groupTotals[group]}
-                  label={t(`groups.${group}`)}
-                />
-              </button>
-              {index === 0 ? venomousTile("lg:hidden") : null}
-            </Fragment>
-          );
-        })}
+        {groups.map((group, index) => (
+          <Fragment key={group}>
+            <Link
+              className={cn(TILE_CLASS_NAME, "bg-[#151c18]")}
+              href={GROUP_HUBS[ANIMAL_GROUP_TO_HUB[group]].path}
+            >
+              <TileImage
+                src={GROUP_HUB_ILLUSTRATIONS[ANIMAL_GROUP_TO_HUB[group]]}
+                tintClassName="bg-[#151c18]/25 lg:bg-[#151c18]/28 lg:group-hover:bg-[#151c18]/15"
+              />
+              <TileLabel
+                count={groupTotals[group]}
+                label={t(`groups.${group}`)}
+              />
+            </Link>
+            {index === 0 ? venomousTile("lg:hidden") : null}
+          </Fragment>
+        ))}
 
         {venomousTile("max-lg:hidden")}
 
