@@ -122,7 +122,7 @@ async function GroupHubQuizCard({
           {tQuiz("subtitle")}
         </p>
         <QuizCtaLink
-          className="mt-4 hidden h-[52px] items-center gap-2 rounded-full bg-white pr-6 pl-[26px] text-[15px] font-medium text-ink transition-[transform,filter] hover:-translate-y-0.5 hover:brightness-105 lg:mt-[26px] lg:inline-flex"
+          className="mt-4 hidden h-[52px] items-center gap-2 rounded-full bg-white pr-6 pl-[26px] text-[15px] font-medium text-ink transition-[translate,filter] hover:-translate-y-0.5 hover:brightness-105 lg:mt-[26px] lg:inline-flex"
           href={quizHref(quiz.id, locale)}
           quizId={quiz.id}
           source="hub"

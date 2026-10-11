@@ -67,7 +67,7 @@ export async function ContactPage({ locale }: { locale: AppLocale }) {
                 <span className="truncate border-b border-foreground/20 pb-1 font-display text-[clamp(1.05rem,2.8vw,1.35rem)] font-medium transition-colors group-hover:border-primary group-hover:text-primary">
                   nika@shamiladze.com
                 </span>
-                <ArrowUpRight className="size-4 shrink-0 text-muted-foreground transition-[color,transform] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary" />
+                <ArrowUpRight className="size-4 shrink-0 text-muted-foreground transition-[color,translate] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary" />
               </ContactMailto>
               <div className="mt-8 flex flex-wrap gap-x-5 gap-y-2">
                 <Link

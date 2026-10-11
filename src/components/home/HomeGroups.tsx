@@ -88,7 +88,7 @@ export async function HomeGroups({ locale }: { locale: AppLocale }) {
           );
         })}
         <Link
-          className="flex h-[200px] w-[300px] shrink-0 snap-start flex-col justify-between rounded-[24px] bg-[#2f6b4f] p-5 text-white transition-[filter,transform] hover:-translate-y-0.5 hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary lg:size-[330px] lg:rounded-[28px] lg:p-6"
+          className="flex h-[200px] w-[300px] shrink-0 snap-start flex-col justify-between rounded-[24px] bg-[#2f6b4f] p-5 text-white transition-[filter,translate] hover:-translate-y-0.5 hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary lg:size-[330px] lg:rounded-[28px] lg:p-6"
           href="/species"
         >
           <span className="text-[11px] font-medium tracking-[0.18em] text-white/80 uppercase">

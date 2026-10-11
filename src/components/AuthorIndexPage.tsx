@@ -175,7 +175,7 @@ export async function AuthorIndexPage({
               </p>
             </div>
             <Link
-              className="mt-6 flex h-[54px] shrink-0 items-center justify-center gap-2.5 rounded-full bg-white px-[26px] text-[15px] font-semibold text-ink transition-[transform,filter] hover:-translate-y-0.5 lg:mt-0 lg:inline-flex"
+              className="mt-6 flex h-[54px] shrink-0 items-center justify-center gap-2.5 rounded-full bg-white px-[26px] text-[15px] font-semibold text-ink transition-[translate,filter] hover:-translate-y-0.5 lg:mt-0 lg:inline-flex"
               href="/contact"
             >
               {t("index.ctaButton")}
@@ -207,7 +207,7 @@ function AuthorIndexCard({
 }) {
   return (
     <Link
-      className={`group flex flex-1 flex-col rounded-[26px] bg-card p-5 transition-[transform,box-shadow] duration-300 hover:translate-y-[-3px] hover:shadow-[0_1px_2px_rgba(14,20,17,0.04),0_22px_48px_rgba(14,20,17,0.1)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary motion-reduce:transition-none lg:rounded-[32px] lg:p-7 ${CARD_SHADOW}`}
+      className={`group flex flex-1 flex-col rounded-[26px] bg-card p-5 transition-[translate,box-shadow] duration-300 hover:translate-y-[-3px] hover:shadow-[0_1px_2px_rgba(14,20,17,0.04),0_22px_48px_rgba(14,20,17,0.1)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary motion-reduce:transition-none lg:rounded-[32px] lg:p-7 ${CARD_SHADOW}`}
       href={creditAuthorHref(card.author.slug)}
     >
       <div className="flex items-center gap-4 lg:gap-[18px]">

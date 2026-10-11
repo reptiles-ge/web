@@ -28,7 +28,7 @@ type AtlasTilesProps = {
 };
 
 const TILE_CLASS_NAME =
-  "group relative flex h-28 w-[132px] shrink-0 flex-col justify-end overflow-hidden rounded-[20px] p-3 text-left text-white transition-[transform,box-shadow] duration-300 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-primary lg:h-[132px] lg:w-auto lg:rounded-[22px] lg:px-4 lg:py-3.5 lg:hover:-translate-y-[3px] lg:hover:shadow-[0_18px_36px_rgba(14,20,17,0.22)] motion-reduce:transition-none";
+  "group relative flex h-28 w-[132px] shrink-0 flex-col justify-end overflow-hidden rounded-[20px] p-3 text-left text-white transition-[translate,box-shadow] duration-300 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-primary lg:h-[132px] lg:w-auto lg:rounded-[22px] lg:px-4 lg:py-3.5 lg:hover:-translate-y-[3px] lg:hover:shadow-[0_18px_36px_rgba(14,20,17,0.22)] motion-reduce:transition-none";
 
 export function AtlasTiles({
   filters,
