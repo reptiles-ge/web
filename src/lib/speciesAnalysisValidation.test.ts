@@ -435,7 +435,7 @@ describe("links and final language editing", () => {
     expect(() => check(value)).toThrow("differ between locales");
     value.edits[0].after.tr = value.edits[0].after.ka;
     value.edits.push(value.edits[0]);
-    expect(() => check(value)).toThrow("duplicate field");
+    expect(() => check(value)).toThrow("Duplicate field");
   });
 });
 

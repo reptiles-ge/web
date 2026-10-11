@@ -55,6 +55,12 @@ export class AnalysisCoverageError extends Error {
 
 export class AnalysisEvidenceError extends Error {}
 
+export class AnalysisFieldError extends Error {
+  constructor(readonly field: string) {
+    super(`Unsupported field: ${field}`);
+  }
+}
+
 export class AnalysisNumberError extends Error {
   constructor(
     readonly field: string,
@@ -292,8 +298,10 @@ export function validateSuperAnalysisResult(
   const seenFields = new Set<string>();
   const ka = context.content.ka as Record<string, unknown>;
   for (const edit of result.edits) {
-    if (!editableField.test(edit.field) || seenFields.has(edit.field))
-      throw new Error(`Unsupported or duplicate field: ${edit.field}`);
+    if (!editableField.test(edit.field))
+      throw new AnalysisFieldError(edit.field);
+    if (seenFields.has(edit.field))
+      throw new Error(`Duplicate field: ${edit.field}`);
     if (
       edit.field
         .split(".")
