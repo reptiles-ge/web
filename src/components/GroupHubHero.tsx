@@ -8,6 +8,7 @@ import type { GroupHubId } from "@/lib/groupHubs";
 import { CoverImage } from "@/components/CoverImage";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { QuizCtaLink } from "@/components/QuizCtaLink";
+import { regions } from "@/data/mapRegions";
 import { isVenomousDanger } from "@/data/speciesAtlas";
 import { Link } from "@/i18n/navigation";
 import { isLocalAdminEnabled } from "@/lib/adminAccess";
@@ -33,7 +34,12 @@ type GroupHubHeroProps = {
   species: Species[];
 };
 
-type HeroStat = { dot?: string; label: string; value: string };
+type HeroStat = {
+  dot?: string;
+  label: string;
+  suffix?: string;
+  value: string;
+};
 
 const SECONDARY_CTA =
   "flex h-[54px] items-center justify-center gap-2.5 rounded-full border border-white/25 bg-white/8 text-[15px] font-medium whitespace-nowrap text-white transition-[translate,filter] hover:-translate-y-0.5 hover:brightness-110 lg:inline-flex lg:h-[52px] lg:pr-[22px]";
@@ -138,6 +144,11 @@ export async function GroupHubHero({
                       />
                     ) : null}
                     {stat.value}
+                    {stat.suffix ? (
+                      <span className="-ml-0.5 text-[15px] font-medium text-white/50 lg:-ml-1 lg:text-[20px]">
+                        {stat.suffix}
+                      </span>
+                    ) : null}
                   </dd>
                 </div>
               ))}
@@ -317,19 +328,22 @@ function heroStats({
       },
     ];
   }
-  const items = t.has("statExtraItems") ? t.raw("statExtraItems") : null;
   return [
     total,
     {
       label: t("statFamilies"),
       value: String(new Set(species.map((item) => item.family)).size),
     },
-    {
-      label: t("statExtra"),
-      value:
-        Array.isArray(items) && items.every((item) => typeof item === "string")
-          ? items.join(", ")
-          : t("statExtraValue"),
-    },
+    t.has("statRegions")
+      ? { label: t("statRegions"), ...mappedRegionsStat(species) }
+      : { label: t("statExtra"), value: t("statExtraValue") },
   ];
+}
+
+function mappedRegionsStat(species: Species[]) {
+  const ids = new Set(species.map((item) => item.id));
+  const mapped = regions.filter((region) =>
+    region.speciesIds.some((id) => ids.has(id)),
+  ).length;
+  return { suffix: `/ ${regions.length}`, value: String(mapped) };
 }
