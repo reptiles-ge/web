@@ -44,7 +44,7 @@ type SearchShortcutZone = "scrolled" | "top";
 type SpeciesSearchProps = {
   hidden?: boolean;
   shortcut?: SearchShortcutZone;
-  variant?: "dark" | "hero" | "light";
+  variant?: "dark" | "hero" | "light" | "menu";
 };
 
 const HERO_PANEL_HEIGHT = 480;
@@ -88,6 +88,7 @@ export function SpeciesSearch({
     trimmed,
   } = search;
   const isHero = variant === "hero";
+  const fullWidth = isHero || variant === "menu";
 
   const filterLabels = {
     all: t("all"),
@@ -126,7 +127,7 @@ export function SpeciesSearch({
     <div
       className={cn(
         "relative",
-        isHero ? "w-full" : "shrink-0",
+        fullWidth ? "w-full" : "shrink-0",
         hidden && "hidden",
       )}
       ref={rootRef}
@@ -184,7 +185,7 @@ export function SpeciesSearch({
       <OverlayPanel
         closeLabel={t("close")}
         desktopClassName={
-          isHero ? "left-0 w-full" : "w-[min(26.75rem,calc(100vw-1.5rem))]"
+          fullWidth ? "left-0 w-full" : "w-[min(26.75rem,calc(100vw-1.5rem))]"
         }
         desktopContent={
           <SearchDesktopPanel

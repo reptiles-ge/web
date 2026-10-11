@@ -1,65 +1,68 @@
 /* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useId, useRef, useState } from "react";
 
+import type { AppLocale } from "@/i18n/routing";
+
 import { NavbarChrome } from "@/components/NavbarChrome";
-import { NavbarMenu } from "@/components/NavbarMenu";
+import { NavbarGroupsPanel } from "@/components/NavbarGroupsPanel";
+import {
+  type NavbarData,
+  NavbarMenu,
+  type NavGroup,
+  type NavLink,
+} from "@/components/NavbarMenu";
 import { GUIDE_ARTICLE_PATHS } from "@/data/guideArticlePaths";
 import { usePathname } from "@/i18n/navigation";
 import { NAVBAR_SCROLL_OFFSET } from "@/lib/chromeStyles";
+import { GROUP_HUBS, type GroupHubId } from "@/lib/groupHubs";
+import { quizHref } from "@/lib/quizzes";
 
 const GUIDE_ARTICLE_PATH_SET = new Set<string>(GUIDE_ARTICLE_PATHS);
 const MOBILE_MAX_WIDTH = 1023;
 const HEADER_HIDE_OFFSET = 160;
 const HEADER_HIDE_DELTA = 8;
+const REPTILE_GROUP_IDS = ["snakes", "lizards", "turtles"] as const;
+const OTHER_GROUP_IDS = [
+  "amphibians",
+  "birds",
+  "mammals",
+  "spiders",
+  "scorpions",
+  "insects",
+] as const;
 
-export function Navbar() {
+export function Navbar({ images, stats }: NavbarData) {
   const t = useTranslations("nav");
+  const locale = useLocale() as AppLocale;
   const pathname = usePathname();
   const darkHero = hasDarkHeroTop(pathname);
   const [scrolled, setScrolled] = useState(!darkHero);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [groupsOpen, setGroupsOpen] = useState(false);
   const menuId = useId();
+  const groupsId = useId();
   const menuButtonRef = useRef<HTMLButtonElement>(null);
 
-  const links = [
-    { href: "/species" as const, label: t("species") },
-    { href: "/quiz" as const, label: t("quizzes") },
-    { href: "/regions" as const, label: t("atlas") },
-    { href: "/news" as const, label: t("news") },
+  const links: NavLink[] = [
+    { href: "/regions", label: t("regions") },
+    { href: "/quiz", label: t("quizzes") },
+    { href: "/news", label: t("news") },
   ];
-  const reptileGroupLinks = [
-    { href: "/snakes" as const, label: t("snakes") },
-    { href: "/lizards" as const, label: t("lizards") },
-    { href: "/turtles" as const, label: t("turtles") },
-  ];
-  const otherGroupLinks = [
-    { href: "/amphibians" as const, label: t("amphibians") },
-    { href: "/birds" as const, label: t("birds") },
-    { href: "/mammals" as const, label: t("mammals") },
-    { href: "/scorpions" as const, label: t("scorpions") },
-    { href: "/spiders" as const, label: t("spiders") },
-    { href: "/insects" as const, label: t("insects") },
-  ];
-  const groupLinks = [...reptileGroupLinks, ...otherGroupLinks];
-  const mobileNavItems = [
-    { href: "/species" as const, kind: "link" as const, label: t("species") },
-    { kind: "groups" as const },
-    {
-      href: "/quiz" as const,
-      kind: "link" as const,
-      label: t("quizzes"),
-    },
-    { href: "/regions" as const, kind: "link" as const, label: t("atlas") },
-    { href: "/news" as const, kind: "link" as const, label: t("news") },
-    { href: "/about" as const, kind: "link" as const, label: t("about") },
-  ];
-  const [groupsOpen, setGroupsOpen] = useState(false);
-  const [mobileGroupsOpen, setMobileGroupsOpen] = useState(false);
-  const groupsActive = groupLinks.some(
-    (link) => pathname === link.href || pathname.startsWith(`${link.href}/`),
+  const toGroup = (id: GroupHubId): NavGroup => ({
+    count: stats[id],
+    countLabel: t("speciesCount", { count: stats[id] }),
+    href: GROUP_HUBS[id].path,
+    id,
+    image: images[id],
+    label: t(id),
+  });
+  const reptileGroups = REPTILE_GROUP_IDS.map(toGroup);
+  const otherGroups = OTHER_GROUP_IDS.map(toGroup);
+  const groupsActive = [...reptileGroups, ...otherGroups].some((group) =>
+    isActivePath(pathname, group.href),
   );
 
   useEffect(() => {
@@ -80,14 +83,21 @@ export function Navbar() {
   useEffect(() => {
     setMenuOpen(false);
     setGroupsOpen(false);
-    setMobileGroupsOpen(false);
-  }, [pathname]);
+  }, [pathname, locale]);
 
   useEffect(() => {
-    if (!menuOpen) {
-      setMobileGroupsOpen(false);
-      return;
+    if (!groupsOpen) return;
+
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") setGroupsOpen(false);
     }
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [groupsOpen]);
+
+  useEffect(() => {
+    if (!menuOpen) return;
 
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
@@ -119,18 +129,19 @@ export function Navbar() {
     [],
   );
 
-  const chromeVariant = menuOpen || scrolled ? "light" : "dark";
+  const solid = scrolled || menuOpen || groupsOpen;
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 transition-transform duration-300 ease-out max-lg:header-hidden:-translate-y-full max-lg:header-hidden:focus-within:translate-y-0">
       <NavbarChrome
-        chromeVariant={chromeVariant}
         closeMenuLabel={t("closeMenu")}
-        discoverLabel={t("discover")}
         groupsActive={groupsActive}
+        groupsId={groupsId}
         groupsLabel={t("groups")}
         groupsOpen={groupsOpen}
         heroSearch={pathname === "/"}
+        isActive={(href) => isActivePath(pathname, href)}
+        links={links}
         menuButtonRef={menuButtonRef}
         menuId={menuId}
         menuOpen={menuOpen}
@@ -139,26 +150,66 @@ export function Navbar() {
         onToggleGroups={() => setGroupsOpen((open) => !open)}
         onToggleMenu={() => setMenuOpen((open) => !open)}
         openMenuAria={t("openMenu")}
-        otherGroupLinks={otherGroupLinks}
-        reptileGroupLinks={reptileGroupLinks}
-        reptilesLabel={t("reptiles")}
-        restLinks={links.filter((link) => link.href !== "/species")}
         scrolled={scrolled}
-        speciesHref="/species"
+        solid={solid}
         speciesLabel={t("species")}
       />
+      {groupsOpen ? (
+        <NavbarGroupsPanel
+          allSpeciesLabel={t("allSpecies", { count: stats.total })}
+          closeLabel={t("closeMenu")}
+          groupsId={groupsId}
+          groupsLabel={t("groups")}
+          onClose={() => setGroupsOpen(false)}
+          otherGroups={otherGroups}
+          otherGroupsLabel={t("otherGroups")}
+          quickLinks={[
+            {
+              href: "/venomous-snakes",
+              icon: "venomous",
+              label: t("venomousSnakes"),
+            },
+            {
+              href: "/snakes-in-the-yard",
+              icon: "yard",
+              label: t("snakeYard"),
+            },
+            {
+              href: quizHref("snake", locale),
+              icon: "identify",
+              label: t("whichSnake"),
+            },
+          ]}
+          quickLinksLabel={t("quickLinks")}
+          reptileGroups={reptileGroups}
+          reptilesLabel={t("reptiles")}
+          reptileSpeciesLabel={t("speciesCount", {
+            count: reptileGroups.reduce((sum, group) => sum + group.count, 0),
+          })}
+        />
+      ) : null}
       <NavbarMenu
-        closeMenuLabel={t("closeMenu")}
-        discoverLabel={t("discover")}
-        groupLinks={groupLinks}
+        footerLinks={[
+          { href: "/about", label: t("about") },
+          { href: "/authors", label: t("contributors") },
+          { href: "/contact", label: t("contact") },
+        ]}
+        groupCountLabel={t("groupCount", {
+          count: reptileGroups.length + otherGroups.length,
+        })}
+        groups={[...reptileGroups, ...otherGroups]}
         groupsLabel={t("groups")}
-        items={mobileNavItems}
+        isActive={(href) => isActivePath(pathname, href)}
         menuId={menuId}
         menuOpen={menuOpen}
-        mobileGroupsOpen={mobileGroupsOpen}
         navLabel={t("mainMenu")}
         onCloseMenu={() => setMenuOpen(false)}
-        onToggleMobileGroups={() => setMobileGroupsOpen((open) => !open)}
+        primaryLinks={[
+          { count: stats.total, href: "/species", label: t("species") },
+          { count: stats.regions, href: "/regions", label: t("regions") },
+          { href: "/quiz", label: t("quizzes") },
+          { href: "/news", label: t("news") },
+        ]}
       />
     </header>
   );
@@ -197,6 +248,10 @@ function hasDarkHeroTop(pathname: string) {
   if (pathname.startsWith("/quiz/")) return true;
   if (pathname === "/regions" || pathname.startsWith("/regions/")) return true;
   return false;
+}
+
+function isActivePath(pathname: string, href: string) {
+  return pathname === href || pathname.startsWith(`${href}/`);
 }
 
 function useMobileHeaderHidden(menuOpen: boolean) {

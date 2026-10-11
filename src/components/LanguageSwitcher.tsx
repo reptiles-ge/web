@@ -1,6 +1,6 @@
 "use client";
 
-import { Globe } from "lucide-react";
+import { ChevronDown, Globe } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useCallback, useId, useRef, useState } from "react";
@@ -16,7 +16,7 @@ import {
 import { cn } from "@/lib/cn";
 
 type LanguageSwitcherProps = {
-  variant?: "dark" | "light";
+  variant?: "dark" | "light" | "menu";
 };
 
 type LocaleOptionsProps = {
@@ -30,7 +30,6 @@ type LocaleOptionsProps = {
 export function LanguageSwitcher({ variant = "light" }: LanguageSwitcherProps) {
   const locale = useLocale() as AppLocale;
   const t = useTranslations("language");
-  const router = useRouter();
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const listId = useId();
@@ -45,33 +44,16 @@ export function LanguageSwitcher({ variant = "light" }: LanguageSwitcherProps) {
     tr: t("tr"),
   };
 
+  const switchLocale = useSelectLocale();
+
   function selectLocale(code: AppLocale) {
-    if (code === locale) {
-      close();
-      return;
-    }
-
-    const alternate = document.querySelector<HTMLLinkElement>(
-      `link[rel="alternate"][hreflang="${code}"]`,
-    );
-    if (!alternate) {
-      close();
-      return;
-    }
-
-    const context = currentPageContext();
-    trackEvent("language_change", {
-      entity_id: context.entity_id,
-      language: code,
-      page_type: context.page_type,
-      previous_language: locale,
-    });
-    router.replace(new URL(alternate.href).pathname);
+    switchLocale(code);
     close();
   }
 
-  const shellClass = chromeShellClass(variant);
-  const iconButtonClass = chromeIconButtonClass(variant);
+  const chromeVariant = variant === "menu" ? "light" : variant;
+  const shellClass = chromeShellClass(chromeVariant);
+  const iconButtonClass = chromeIconButtonClass(chromeVariant);
 
   const options = (listKey: string) => (
     <LocaleOptions
@@ -82,6 +64,49 @@ export function LanguageSwitcher({ variant = "light" }: LanguageSwitcherProps) {
       title={t("switch")}
     />
   );
+
+  const panel = (
+    <OverlayPanel
+      closeLabel={t("close")}
+      desktopClassName={
+        variant === "menu" ? "left-0 right-auto w-72" : undefined
+      }
+      desktopContent={options(`${listId}-options`)}
+      mobileContent={options(mobileListId)}
+      onClose={close}
+      open={open}
+      panelId={listId}
+      rootRef={rootRef}
+      title={t("switch")}
+    />
+  );
+
+  if (variant === "menu") {
+    return (
+      <div className="relative min-w-0 flex-1" ref={rootRef}>
+        <button
+          aria-controls={listId}
+          aria-expanded={open}
+          aria-haspopup="dialog"
+          aria-label={t("switch")}
+          className="flex h-12 w-full items-center gap-3 rounded-full border border-border bg-card pr-4 pl-3.5 text-left text-foreground"
+          onClick={() => setOpen((value) => !value)}
+          type="button"
+        >
+          <LocaleFlag code={locale} />
+          <span className="flex-1 text-[14.5px] font-medium tracking-[0.02em]">
+            {labels[locale]}
+          </span>
+          <ChevronDown
+            aria-hidden="true"
+            className="size-4 text-muted-foreground"
+            strokeWidth={1.75}
+          />
+        </button>
+        {panel}
+      </div>
+    );
+  }
 
   return (
     <div className="relative shrink-0" ref={rootRef}>
@@ -112,17 +137,34 @@ export function LanguageSwitcher({ variant = "light" }: LanguageSwitcherProps) {
         </span>
       </button>
 
-      <OverlayPanel
-        closeLabel={t("close")}
-        desktopContent={options(`${listId}-options`)}
-        mobileContent={options(mobileListId)}
-        onClose={close}
-        open={open}
-        panelId={listId}
-        rootRef={rootRef}
-        title={t("switch")}
-      />
+      {panel}
     </div>
+  );
+}
+
+export function useSelectLocale() {
+  const locale = useLocale() as AppLocale;
+  const router = useRouter();
+
+  return useCallback(
+    (code: AppLocale) => {
+      if (code === locale) return;
+
+      const alternate = document.querySelector<HTMLLinkElement>(
+        `link[rel="alternate"][hreflang="${code}"]`,
+      );
+      if (!alternate) return;
+
+      const context = currentPageContext();
+      trackEvent("language_change", {
+        entity_id: context.entity_id,
+        language: code,
+        page_type: context.page_type,
+        previous_language: locale,
+      });
+      router.replace(new URL(alternate.href).pathname);
+    },
+    [locale, router],
   );
 }
 

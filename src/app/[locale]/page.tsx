@@ -11,7 +11,6 @@ import { Hero } from "@/components/Hero";
 import { HomeContributors } from "@/components/home/HomeContributors";
 import { HomeFeatured } from "@/components/home/HomeFeatured";
 import { HomeField } from "@/components/home/HomeField";
-import { HomeFooter } from "@/components/home/HomeFooter";
 import { HomeFresh } from "@/components/home/HomeFresh";
 import { HomeGroups } from "@/components/home/HomeGroups";
 import { HomeGuides } from "@/components/home/HomeGuides";
@@ -198,7 +197,6 @@ export default async function Home({ params }: Props): Promise<ReactElement> {
         <HomeContributors locale={locale} />
         <HomeSeo locale={locale} />
         <FinalCTA locale={locale} />
-        <HomeFooter locale={locale} />
       </div>
     </div>
   );

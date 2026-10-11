@@ -32,6 +32,7 @@ import { routing } from "@/i18n/routing";
 import { isLocalAdminEnabled } from "@/lib/adminAccess";
 import { getFooterData } from "@/lib/footerData";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
+import { getNavbarData } from "@/lib/navbarData";
 import { localePath, siteGraphJsonLd } from "@/lib/site";
 
 type Props = {
@@ -81,7 +82,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           <LogoPreload />
           <AnalyticsPageContext />
           <TopGeCounter />
-          <Navbar />
+          <Navbar {...getNavbarData()} />
           <main id="main" tabIndex={-1}>
             {editorT ? (
               <SelectionContentEditor

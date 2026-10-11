@@ -15,6 +15,7 @@ import {
   pickClientMessages,
 } from "@/i18n/clientMessages";
 import { routing } from "@/i18n/routing";
+import { getNavbarData } from "@/lib/navbarData";
 import { notFoundMetadata } from "@/lib/notFoundMetadata";
 
 export function generateMetadata(): Promise<Metadata> {
@@ -34,7 +35,7 @@ export default async function RootNotFound() {
         <LocaleSwitchProvider>
           <SkipLink label={t("skipToContent")} />
           <LogoPreload />
-          <Navbar />
+          <Navbar {...getNavbarData()} />
           <main id="main" tabIndex={-1}>
             <NotFoundShell locale={locale} />
           </main>

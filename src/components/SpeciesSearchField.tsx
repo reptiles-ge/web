@@ -19,7 +19,7 @@ import {
 } from "@/lib/chromeStyles";
 import { cn } from "@/lib/cn";
 
-type SearchTriggerVariant = "dark" | "hero" | "light";
+type SearchTriggerVariant = "dark" | "hero" | "light" | "menu";
 
 const searchInputClass =
   "min-w-0 flex-1 bg-transparent text-[13px] font-medium outline-none [appearance:textfield] [&::-webkit-search-cancel-button]:hidden [&::-webkit-search-decoration]:hidden";
@@ -161,6 +161,11 @@ export function SpeciesSearchTrigger({
           className={classes.mobileIcon}
           strokeWidth={1.75}
         />
+        {variant === "menu" ? (
+          <span className="min-w-0 flex-1 truncate text-left text-[15.5px] font-medium">
+            {placeholder}
+          </span>
+        ) : null}
         {isHero ? (
           <>
             <span className="min-w-0 flex-1 truncate text-left text-[16px] font-medium text-[#5c665f]">
@@ -250,6 +255,19 @@ function searchTriggerClasses(variant: SearchTriggerVariant) {
       shell: cn(heroShellClass, "h-16 gap-3 pr-2 pl-[22px]"),
     };
   }
+  if (variant === "menu") {
+    return {
+      clear: "text-muted-foreground hover:bg-secondary hover:text-foreground",
+      icon: "size-[18px] text-muted-foreground",
+      input: "text-[15.5px] placeholder:text-muted-foreground",
+      kbd: "border-border bg-secondary/80 text-muted-foreground",
+      mobile:
+        "flex h-[52px] w-full items-center gap-2.5 rounded-full bg-card px-4 text-muted-foreground shadow-[0_1px_2px_rgba(14,20,17,0.05)]",
+      mobileIcon: "size-[18px] shrink-0",
+      shell:
+        "h-[52px] w-full gap-2.5 rounded-full bg-card px-4 text-foreground shadow-[0_1px_2px_rgba(14,20,17,0.05)]",
+    };
+  }
   const isDark = variant === "dark";
   return {
     clear: isDark
@@ -265,7 +283,7 @@ function searchTriggerClasses(variant: SearchTriggerVariant) {
     mobile: cn(chromeIconButtonBase, chromeIconButtonClass(variant)),
     mobileIcon: "size-3.5",
     shell: cn(
-      "w-[280px] gap-2.5 rounded-full border px-3.5 py-2 transition-all duration-300 lg:w-[320px]",
+      "h-10 w-[236px] gap-2.5 rounded-full border px-3.5 transition-all duration-300 lg:w-[200px] xl:w-[236px]",
       chromeShellClass(variant),
     ),
   };
