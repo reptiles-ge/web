@@ -69,7 +69,7 @@ export function GroupHubFaqSection({
                   type="button"
                 >
                   <span className="text-[15px] leading-[1.35] font-semibold text-foreground lg:text-[17px]">
-                    {t(`faq${n}Q`)}
+                    {t(`faq${n}Q` as "faq1Q")}
                   </span>
                   <span
                     aria-hidden="true"
