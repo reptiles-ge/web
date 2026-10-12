@@ -247,7 +247,7 @@ describe("occurrenceStatusForCount", () => {
       .map((region) => region.id)
       .sort();
 
-    expect(summary.totalRecords).toBe(472);
+    expect(summary.totalRecords).toBe(473);
     expect(confirmed).toEqual([
       "adjara",
       "imereti",

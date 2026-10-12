@@ -170,7 +170,13 @@ export function applyAnalysisLookalikes(
   return before === JSON.stringify(registry)
     ? source
     : source.slice(0, start) +
-        JSON.stringify(registry, null, 2) +
+        JSON.stringify(
+          Object.fromEntries(
+            Object.entries(registry).sort(([a], [b]) => a.localeCompare(b)),
+          ),
+          null,
+          2,
+        ) +
         source.slice(end);
 }
 

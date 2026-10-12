@@ -245,7 +245,7 @@ describe("species routes", () => {
   });
 
   it("keeps sparrowhawk lookalikes to supported flight comparisons", () => {
-    const peers = ["accipiter-gentilis", "falco-peregrinus"];
+    const peers = ["accipiter-gentilis", "falco-peregrinus", "cuculus-canorus"];
     expect(getSpeciesLookalikes("accipiter-nisus")).toEqual(peers);
     for (const id of peers) {
       expect(getSpeciesLookalikes(id)).toContain("accipiter-nisus");

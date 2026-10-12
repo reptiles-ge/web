@@ -605,6 +605,26 @@ describe("deterministic mutations", () => {
     );
   });
 
+  it("writes a new lookalike species in sorted registry order", () => {
+    const source =
+      'const LOOKALIKES: Record<string, string[]> = {"alpha": ["zeta"], "zeta": ["alpha"]};\n';
+    const updated = applyAnalysisLookalikes(source, "mid", [
+      {
+        action: "add",
+        difference: "Visible",
+        evidenceIds: ["e1"],
+        id: "alpha",
+        scenario: "Similar",
+      },
+    ]);
+    expect(updated.indexOf('"mid": [')).toBeGreaterThan(
+      updated.indexOf('"alpha": ['),
+    );
+    expect(updated.indexOf('"mid": [')).toBeLessThan(
+      updated.indexOf('"zeta": ['),
+    );
+  });
+
   it("appends new Georgian sources and adds a missing lookalike", () => {
     const value = result("texts");
     value.edits = [edit("Before", "After")];
