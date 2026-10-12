@@ -234,6 +234,7 @@ export const regions: Region[] = [
       "columba-livia",
       "anas-platyrhynchos",
       "turdus-merula",
+      "cuculus-canorus",
     ],
   },
   {
@@ -393,6 +394,7 @@ export const regions: Region[] = [
       "turdus-merula",
       "vulpes-vulpes",
       "canis-lupus",
+      "cuculus-canorus",
     ],
   },
   {
@@ -534,6 +536,7 @@ export const regions: Region[] = [
       "paralaudakia-caucasia",
       "turdus-merula",
       "vulpes-vulpes",
+      "cuculus-canorus",
     ],
   },
   {
@@ -611,6 +614,7 @@ export const regions: Region[] = [
       "turdus-merula",
       "lacerta-agilis",
       "vulpes-vulpes",
+      "cuculus-canorus",
     ],
   },
   {
@@ -699,6 +703,7 @@ export const regions: Region[] = [
       "streptopelia-turtur",
       "vulpes-vulpes",
       "canis-lupus",
+      "cuculus-canorus",
     ],
   },
   {
@@ -762,6 +767,7 @@ export const regions: Region[] = [
       "aegypius-monachus",
       "turdus-merula",
       "vulpes-vulpes",
+      "cuculus-canorus",
     ],
   },
 ];
