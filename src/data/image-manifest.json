@@ -8263,6 +8263,101 @@
       ],
       "updatedAt": "2026-08-28T21:29:06.265Z"
     },
+    "bufotes-viridis-markus-1.jpg": {
+      "sourceHash": "e8ae4070d26a76a4b268a580beff2f39b55bb84d494c20aa2ac666e22d4ed396",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "bufotes-viridis-markus-1.jpg",
+      "originalSize": 168529,
+      "width": 1620,
+      "height": 1080,
+      "derivatives": [
+        {
+          "key": "optimized/bufotes-viridis-markus-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 5110
+        },
+        {
+          "key": "optimized/bufotes-viridis-markus-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 7070
+        },
+        {
+          "key": "optimized/bufotes-viridis-markus-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 7170
+        },
+        {
+          "key": "optimized/bufotes-viridis-markus-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 9488
+        },
+        {
+          "key": "optimized/bufotes-viridis-markus-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 12653
+        },
+        {
+          "key": "optimized/bufotes-viridis-markus-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 17248
+        },
+        {
+          "key": "optimized/bufotes-viridis-markus-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 16346
+        },
+        {
+          "key": "optimized/bufotes-viridis-markus-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 22868
+        },
+        {
+          "key": "optimized/bufotes-viridis-markus-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 27365
+        },
+        {
+          "key": "optimized/bufotes-viridis-markus-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 37124
+        },
+        {
+          "key": "optimized/bufotes-viridis-markus-1-1620.avif",
+          "format": "avif",
+          "width": 1620,
+          "height": 1080,
+          "byteSize": 42061
+        },
+        {
+          "key": "optimized/bufotes-viridis-markus-1-1620.webp",
+          "format": "webp",
+          "width": 1620,
+          "height": 1080,
+          "byteSize": 56186
+        }
+      ],
+      "updatedAt": "2026-10-12T17:16:30.921Z"
+    },
     "bufotes-viridis-zakro-1.jpg": {
       "sourceHash": "1f4a7c3896f38c360c11abe3c983a6cf553377aa604b3a1b4c897ca7ea6fe353",
       "configFingerprint": "a895f8e025dcc7fa",

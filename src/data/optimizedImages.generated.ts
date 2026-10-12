@@ -1040,6 +1040,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1024],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/bufotes-viridis-markus-1.jpg": {
+    "path": "bufotes-viridis-markus-1",
+    "width": 1620,
+    "height": 1080,
+    "widths": [320, 400, 640, 800, 1200, 1620],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/bufotes-viridis-zakro-1.jpg": {
     "path": "bufotes-viridis-zakro-1",
     "width": 766,
