@@ -289,7 +289,7 @@ export async function NewsIndexPage({ articles, locale }: NewsIndexPageProps) {
                     className="group relative flex h-[92px] flex-col justify-end overflow-hidden rounded-2xl bg-[#151c18] px-[11px] py-2.5 text-white md:h-[120px] md:rounded-[20px] md:px-3.5 md:py-3"
                     href={GROUP_HUBS[tile.id].path}
                   >
-                    <span className="absolute inset-0 opacity-75">
+                    <span className="absolute inset-0 opacity-75 [&_picture]:bg-transparent! [&_picture]:bg-none!">
                       <CoverImage
                         alt=""
                         aria-hidden
