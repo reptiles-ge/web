@@ -9,6 +9,7 @@ import { rangeMap as aquilaChrysaetos } from "@/data/speciesRangeMaps/aquila-chr
 import { rangeMap as araneusDiadematus } from "@/data/speciesRangeMaps/araneus-diadematus";
 import { rangeMap as argiopeBruennichi } from "@/data/speciesRangeMaps/argiope-bruennichi";
 import { rangeMap as blattaOrientalis } from "@/data/speciesRangeMaps/blatta-orientalis";
+import { rangeMap as bufotesViridis } from "@/data/speciesRangeMaps/bufotes-viridis";
 import { rangeMap as canisAureus } from "@/data/speciesRangeMaps/canis-aureus";
 import { rangeMap as canisLupus } from "@/data/speciesRangeMaps/canis-lupus";
 import { rangeMap as capreolusCapreolus } from "@/data/speciesRangeMaps/capreolus-capreolus";
@@ -87,6 +88,7 @@ export const INTERACTIVE_RANGE_MAPS: Partial<
   "araneus-diadematus": araneusDiadematus,
   "argiope-bruennichi": argiopeBruennichi,
   "blatta-orientalis": blattaOrientalis,
+  "bufotes-viridis": bufotesViridis,
   "canis-aureus": canisAureus,
   "canis-lupus": canisLupus,
   "capreolus-capreolus": capreolusCapreolus,
