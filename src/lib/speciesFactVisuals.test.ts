@@ -85,10 +85,10 @@ describe("getSpeciesFactVisual", () => {
         { label: "კონსერვაცია", value: "ნაკლ. საფრთხე (LC)" },
         "ka",
       ),
-    ).toEqual({ code: "LC", kind: "iucn" });
+    ).toEqual({ codes: ["LC"], kind: "iucn", statusCode: "LC" });
     expect(
       getSpeciesFactVisual({ label: "Global status", value: "(VU)" }, "en"),
-    ).toEqual({ code: "VU", kind: "iucn" });
+    ).toEqual({ codes: ["VU"], kind: "iucn", statusCode: "VU" });
   });
 
   it.each(["LC", "NT", "VU", "EN", "CR"])(
@@ -100,7 +100,7 @@ describe("getSpeciesFactVisual", () => {
             { label: "Conservation", value: ` ${code} ` },
             locale,
           ),
-        ).toEqual({ code, kind: "iucn" });
+        ).toEqual({ codes: [code], kind: "iucn", statusCode: code });
       }
     },
   );
@@ -110,6 +110,51 @@ describe("getSpeciesFactVisual", () => {
       getSpeciesFactVisual(
         { label: "Status", value: "LC nationally; VU globally" },
         "en",
+      ),
+    ).toBeNull();
+  });
+
+  it("marks every IUCN code in a conservation stat and keeps its value", () => {
+    expect(
+      getSpeciesFactVisual({ label: "კონსერვაცია", value: "LC / NE" }, "ka"),
+    ).toEqual({ codes: ["LC"], kind: "iucn", statusCode: null });
+    expect(
+      getSpeciesFactVisual(
+        { label: "Conservation", value: "VU (GE) / NT (IUCN)" },
+        "en",
+      ),
+    ).toEqual({ codes: ["NT", "VU"], kind: "iucn", statusCode: null });
+    expect(
+      getSpeciesFactVisual(
+        { label: "Охрана", value: "Грузия — EN (2014); глобально — NT" },
+        "ru",
+      ),
+    ).toEqual({ codes: ["NT", "EN"], kind: "iucn", statusCode: null });
+  });
+
+  it("reads IUCN category names in a conservation stat", () => {
+    expect(
+      getSpeciesFactVisual(
+        { label: "გლობალური სტატუსი", value: "ნაკლებად საფრთხის ქვეშ" },
+        "ka",
+      ),
+    ).toEqual({ codes: ["LC"], kind: "iucn", statusCode: null });
+    expect(
+      getSpeciesFactVisual(
+        { label: "Conservation", value: "Critically Endangered" },
+        "en",
+      ),
+    ).toEqual({ codes: ["CR"], kind: "iucn", statusCode: null });
+    expect(
+      getSpeciesFactVisual({ label: "Koruma", value: "Asgari endişe" }, "tr"),
+    ).toEqual({ codes: ["LC"], kind: "iucn", statusCode: null });
+  });
+
+  it("leaves a conservation stat without an IUCN category as text", () => {
+    expect(
+      getSpeciesFactVisual(
+        { label: "კონსერვაცია", value: "კანდიდატი სახეობა" },
+        "ka",
       ),
     ).toBeNull();
   });
