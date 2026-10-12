@@ -356,7 +356,7 @@
     "instagram": "Instagram",
     "exploreTitle": "Explore",
     "guidesTitle": "Guides",
-    "companyTitle": "Company",
+    "companyTitle": "Project",
     "species": "Species atlas",
     "venomous": "Venomous snakes",
     "riskLevels": "Risk to humans",
@@ -847,14 +847,14 @@
     "ctaEyebrow": "Atlas"
   },
   "about": {
-    "metaTitle": "About",
+    "metaTitle": "About Reptiles.ge — atlas of animals of Georgia",
     "metaDescription": "Reptiles.ge is a four-language atlas of Georgia’s animals. Georgian is canonical; herpetofauna follows Tarkhnishvili et al. 2026.",
-    "eyebrow": "About the company",
+    "eyebrow": "About the atlas",
     "title": "Atlas of animals of Georgia",
     "subtitle": "Species profiles, regional maps, and field photos — for hikers, students, and researchers.",
     "companyEyebrow": "Who we are",
-    "companyTitle": "Reptiles — atlas of animals of Georgia",
-    "companyBody1": "Reptiles.ge is an atlas of animals of Georgia. Herpetofauna is the deep layer, following Tarkhnishvili et al. 2026. Birds, mammals, and spiders are thinner hubs in the same catalog. The site is published in four languages; Georgian is the canonical text.",
+    "companyTitle": "What the atlas covers",
+    "companyBody1": "Reptiles.ge is an atlas of animals of Georgia. Herpetofauna is the deep layer, following Tarkhnishvili et al. 2026. Birds, mammals, spiders, scorpions, and insects are covered more thinly in the same catalog. The site is published in four languages; Georgian is the canonical text.",
     "companyBody2": "We do not invent administrative regions, measurements, IUCN category, or national Red List status. Candidate taxa stay candidates.",
     "companyBody3": "The atlas is an editorial compilation. Photos always carry a credit; Georgia-field verification is marked only with evidence. Corrections go through the contact page.",
     "pillars": {

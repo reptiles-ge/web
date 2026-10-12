@@ -356,7 +356,7 @@
     "instagram": "Instagram",
     "exploreTitle": "Keşfet",
     "guidesTitle": "Rehberler",
-    "companyTitle": "Kurum",
+    "companyTitle": "Proje",
     "species": "Tür atlası",
     "venomous": "Zehirli yılanlar",
     "riskLevels": "İnsan için risk",
@@ -847,14 +847,14 @@
     "ctaEyebrow": "Atlas"
   },
   "about": {
-    "metaTitle": "Hakkında",
+    "metaTitle": "Reptiles.ge hakkında — Gürcistan hayvanları atlası",
     "metaDescription": "Reptiles.ge, Gürcistan hayvanlarının dört dilli atlasıdır. Gürcüce kanoniktir; herpetofauna Tarkhnishvili et al. 2026’yı izler.",
-    "eyebrow": "Kurum hakkında",
+    "eyebrow": "Atlas hakkında",
     "title": "Gürcistan hayvanları atlası",
     "subtitle": "Tür profilleri, bölgesel haritalar ve saha fotoğrafları — yürüyüşçüler, öğrenciler ve araştırmacılar için.",
     "companyEyebrow": "Biz kimiz",
-    "companyTitle": "Reptiles — Gürcistan hayvanları atlası",
-    "companyBody1": "Reptiles.ge, Gürcistan hayvanlarının atlasıdır. En derin katman herpetofaunadır — Tarkhnishvili et al. 2026. Kuşlar, memeliler ve örümcekler aynı katalogda daha ince hub’lardır. Site dört dildedir; Gürcüce metin kanoniktir.",
+    "companyTitle": "Atlas neleri kapsıyor",
+    "companyBody1": "Reptiles.ge, Gürcistan hayvanlarının atlasıdır. En derin katman herpetofaunadır — Tarkhnishvili et al. 2026. Kuşlar, memeliler, örümcekler, akrepler ve böcekler aynı katalogda daha sınırlı yer alır. Site dört dildedir; Gürcüce metin kanoniktir.",
     "companyBody2": "İdari bölgeleri, ölçüleri, IUCN kategorisini veya ulusal Kırmızı Liste statüsünü uydurmayız. Aday taksonlar aday kalır.",
     "companyBody3": "Atlas editoryal bir derlemedir. Fotoğrafların her zaman kredisi vardır; Gürcistan saha doğrulaması yalnızca kanıtla işaretlenir. Düzeltmeler iletişim sayfasından gelir.",
     "pillars": {
@@ -871,7 +871,7 @@
         "body": "Daha iyi bilgi korkuyu ve zararı azaltır. Doğru saha bağlamı daha güvenli karşılaşmaları ve korumayı destekler."
       }
     },
-    "methodEyebrow": "Nasıl çalışırız",
+    "methodEyebrow": "Nasıl çalışıyoruz",
     "methodTitle": "Standartlar ve kaynaklar",
     "methodLead": "Profiller taksonomiyi ve yayımlanmış kaynakların Gürcistan için zaten desteklediğini derler. Eksik boyut, yayılış veya statü gizlenir; inandırıcı düzyazıyla doldurulmaz.",
     "methodCardTitle": "Neyi çıkarsamayız",
@@ -912,7 +912,7 @@
       "species": "{count, plural, other {tür profili}}",
       "regions": "{count, plural, other {bölge}}",
       "contributors": "{count, plural, other {katkıda bulunan}}",
-      "languages": "{count, plural, other {dil}} · Gürcüce esastır",
+      "languages": "{count, plural, other {dil}} · Gürcüce kanoniktir",
       "languagesShort": "{count, plural, other {dil}}"
     },
     "notInferred": {

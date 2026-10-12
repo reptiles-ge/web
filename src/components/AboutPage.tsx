@@ -151,7 +151,7 @@ async function AboutCompany({ locale }: { locale: AppLocale }) {
               {t.rich("safetyNote", {
                 b: (chunks) => (
                   <a
-                    className="font-bold underline-offset-2 hover:underline"
+                    className="relative font-bold underline-offset-2 after:absolute after:-inset-x-2 after:-inset-y-3.5 hover:underline"
                     href="tel:112"
                   >
                     {chunks}
@@ -196,7 +196,7 @@ async function AboutContribute({ locale }: { locale: AppLocale }) {
             className="mt-5 flex items-center gap-3 md:mt-0 md:flex-col md:items-end md:gap-3.5"
             href="/authors"
           >
-            <span className="flex">
+            <span aria-hidden="true" className="flex">
               {authors.slice(0, AVATAR_LIMIT.desktop).map((author, index) => (
                 <span
                   className={`relative size-10 overflow-hidden rounded-full border-2 border-(--nw-panel) bg-[#2f6b4f] md:size-[52px] md:border-[3px] ${
@@ -375,6 +375,13 @@ async function AboutHero({ locale }: { locale: AppLocale }) {
               {t("methodCta")}
             </a>
           </div>
+          <Link
+            className={`${darkButtonClass} mt-6 flex w-full md:hidden`}
+            href="/species"
+          >
+            {t("atlasCta")}
+            <ArrowRight aria-hidden="true" className="size-4" />
+          </Link>
         </div>
         <div
           aria-hidden="true"
@@ -437,14 +444,6 @@ async function AboutHero({ locale }: { locale: AppLocale }) {
           </div>
         ))}
       </dl>
-
-      <Link
-        className={`${darkButtonClass} mt-4 flex w-full md:hidden`}
-        href="/species"
-      >
-        {t("atlasCta")}
-        <ArrowRight aria-hidden="true" className="size-4" />
-      </Link>
     </section>
   );
 }
