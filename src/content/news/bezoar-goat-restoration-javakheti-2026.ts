@@ -451,19 +451,39 @@ export const BEZOAR_GOAT_RESTORATION_JAVAKHETI_2026: NewsArticle = {
   slug: "bezoar-goat-restoration-javakheti-2026",
   sources: [
     {
-      name: "საქართველოს გარემოს დაცვისა და სოფლის მეურნეობის სამინისტრო — 21 სექტემბერი 2026, დავით სონღულაშვილი: „ჩვენი მიზანია, დაცული ტერიტორიების განვითარება ბუნების დაცვის პრინციპებთან სრულ შესაბამისობაში წარიმართოს\"",
+      name: {
+        en: "Ministry of Environmental Protection and Agriculture of Georgia — 21 September 2026 (in Georgian)",
+        ka: "საქართველოს გარემოს დაცვისა და სოფლის მეურნეობის სამინისტრო — 21 სექტემბერი 2026, დავით სონღულაშვილი: „ჩვენი მიზანია, დაცული ტერიტორიების განვითარება ბუნების დაცვის პრინციპებთან სრულ შესაბამისობაში წარიმართოს\"",
+        ru: "Министерство охраны окружающей среды и сельского хозяйства Грузии — 21 сентября 2026 (на грузинском)",
+        tr: "Gürcistan Çevre Koruma ve Tarım Bakanlığı — 21 Eylül 2026 (Gürcüce)",
+      },
       url: MEPA_SOURCE,
     },
     {
-      name: "აჭარის საზოგადოებრივი მაუწყებელი — 21 სექტემბერი 2026, ჯავახეთის ბუნებრივი მემკვიდრეობის დაცვის მიმართულებით, თეთრობის აღკვეთილში ნიამორის აღდგენის პროექტი იწყება",
+      name: {
+        en: "AjaraTV — 21 September 2026 (in Georgian)",
+        ka: "აჭარის საზოგადოებრივი მაუწყებელი — 21 სექტემბერი 2026, ჯავახეთის ბუნებრივი მემკვიდრეობის დაცვის მიმართულებით, თეთრობის აღკვეთილში ნიამორის აღდგენის პროექტი იწყება",
+        ru: "AjaraTV — 21 сентября 2026 (на грузинском)",
+        tr: "AjaraTV — 21 Eylül 2026 (Gürcüce)",
+      },
       url: ADJARA_TV_SOURCE,
     },
     {
-      name: "ილიას სახელმწიფო უნივერსიტეტის ბიომრავალფეროვნების მონაცემთა ბაზა — Capra aegagrus",
+      name: {
+        en: "Ilia State University — Capra aegagrus",
+        ka: "ილიას სახელმწიფო უნივერსიტეტის ბიომრავალფეროვნების მონაცემთა ბაზა — Capra aegagrus",
+        ru: "Ilia State University — Capra aegagrus",
+        tr: "Ilia State University — Capra aegagrus",
+      },
       url: ILIAUNI_SOURCE,
     },
     {
-      name: "დაცული ტერიტორიების სააგენტო — ჯავახეთის დაცული ტერიტორიების ადმინისტრაცია",
+      name: {
+        en: "Agency of Protected Areas — Javakheti Protected Areas (in Georgian)",
+        ka: "დაცული ტერიტორიების სააგენტო — ჯავახეთის დაცული ტერიტორიების ადმინისტრაცია",
+        ru: "Агентство охраняемых территорий — охраняемые территории Джавахети (на грузинском)",
+        tr: "Korunan Alanlar Ajansı — Cavakheti korunan alanları (Gürcüce)",
+      },
       url: APA_SOURCE,
     },
     {

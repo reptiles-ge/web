@@ -836,6 +836,8 @@
     "readTimeShort": "{minutes} min",
     "howWeWriteEyebrow": "How we write",
     "howWeWrite": "Every article cites a primary source — a scientific paper, a field survey or an official statement.",
+    "methodologyLink": "Standards & sources",
+    "correctionsLink": "Send a correction",
     "articleWord": "{count, plural, one {article} other {articles}}",
     "resetFilter": "Clear filter",
     "resetFilterShort": "Clear",
@@ -1014,7 +1016,7 @@
   },
   "site": {
     "title": "Reptiles — atlas of animals of Georgia",
-    "description": "A species atlas of Georgia’s animals: profiles, range, and identification. Reptiles and venomous snakes are already here — in Georgian and English."
+    "description": "A species atlas of Georgia’s animals: profiles, range, and identification. Reptiles, amphibians, birds, mammals, and more — in Georgian, English, Russian, and Turkish."
   },
   "notFound": {
     "eyebrow": "Lost in the atlas",

@@ -34,7 +34,7 @@ export function LegalDocumentPage({
   const blocks = parseMarkdown(readDocument(documentId));
 
   return (
-    <main className="bg-background">
+    <div className="bg-background">
       <article
         className="mx-auto max-w-4xl px-6 pt-28 pb-16 text-foreground lg:px-10 lg:pt-32 lg:pb-20"
         lang="ka"
@@ -48,7 +48,7 @@ export function LegalDocumentPage({
           {blocks.map((block) => renderBlock(block))}
         </div>
       </article>
-    </main>
+    </div>
   );
 }
 

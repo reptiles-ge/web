@@ -7,7 +7,10 @@ import {
   getPublishedNewsArticleBySlug,
   getPublishedNewsArticles,
   type NewsArticle,
+  newsSourceName,
+  newsSourceOrgName,
 } from "@/data/news";
+import { sitemapPathDatePublished } from "@/data/pageLastModified";
 import { getPathname } from "@/i18n/navigation";
 import { getNewsImageSrc } from "@/lib/newsVisual";
 import {
@@ -42,6 +45,10 @@ export function newsArticleHref(slug: string) {
   };
 }
 
+export function newsArticleModifiedDateTime(article: NewsArticle) {
+  return newsDateTime(article.updatedAt ?? article.publishedAt);
+}
+
 export function newsArticleUrl(locale: AppLocale, slug: string) {
   return absoluteUrl(newsArticlePath(locale, slug));
 }
@@ -52,6 +59,17 @@ export function newsDateTime(isoDate: string) {
 
 export function newsIndexAlternates(locale: AppLocale) {
   return localeAlternates(locale, newsIndexHref());
+}
+
+export function newsIndexDateFields(
+  locale: AppLocale,
+  articles: readonly NewsArticle[] = getPublishedNewsArticles(locale),
+) {
+  const datePublished = sitemapPathDatePublished(newsIndexHref());
+  return {
+    dateModified: newestNewsDateTime(articles) ?? datePublished,
+    datePublished,
+  };
 }
 
 export function newsIndexHref() {
@@ -90,6 +108,36 @@ export function newsReadMinutes(article: NewsArticle, locale: AppLocale) {
   return Math.max(1, Math.round(words / NEWS_WORDS_PER_MINUTE));
 }
 
+export function newsSourceBadges(
+  articles: readonly NewsArticle[],
+  locale: AppLocale,
+  limit = NEWS_SOURCE_BADGE_LIMIT,
+) {
+  const badges = new Map<
+    string,
+    { count: number; label: string; order: number }
+  >();
+  for (const article of articles) {
+    const seen = new Set<string>();
+    for (const source of article.sources) {
+      const label = newsSourceOrgName(newsSourceName(source, locale));
+      const key = label.toLocaleLowerCase(locale);
+      if (!key || seen.has(key)) continue;
+      seen.add(key);
+      const badge = badges.get(key);
+      if (badge) {
+        badge.count += 1;
+      } else {
+        badges.set(key, { count: 1, label, order: badges.size });
+      }
+    }
+  }
+  return [...badges.values()]
+    .sort((a, b) => b.count - a.count || a.order - b.order)
+    .slice(0, limit)
+    .map((badge) => badge.label);
+}
+
 export function publishedNewsStaticParams() {
   return getPublishedNewsArticles().flatMap((article) =>
     getNewsArticleLocales(article).map((locale) => ({
@@ -99,7 +147,22 @@ export function publishedNewsStaticParams() {
   );
 }
 
+const NEWS_SOURCE_BADGE_LIMIT = 4;
+
 const NEWS_WORDS_PER_MINUTE = 150;
+
+function newestNewsDateTime(articles: readonly NewsArticle[]) {
+  let newest: null | string = null;
+  let newestTime = Number.NEGATIVE_INFINITY;
+  for (const article of articles) {
+    const modified = newsArticleModifiedDateTime(article);
+    const time = Date.parse(modified);
+    if (Number.isNaN(time) || time <= newestTime) continue;
+    newest = modified;
+    newestTime = time;
+  }
+  return newest;
+}
 
 function newsArticlePath(locale: AppLocale, slug: string) {
   return getPathname({ href: newsArticleHref(slug), locale });

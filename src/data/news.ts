@@ -1,5 +1,5 @@
 import type { CreditAuthor } from "@/data/creditAuthors";
-import type { NewsArticle, NewsPhoto } from "@/data/newsTypes";
+import type { NewsArticle, NewsPhoto, NewsSource } from "@/data/newsTypes";
 import type { AppLocale } from "@/i18n/routing";
 import type { GroupHubId } from "@/lib/groupHubs";
 
@@ -17,7 +17,7 @@ import { getRegionById } from "@/data/regions";
 import { getSpeciesById } from "@/data/species";
 import { GROUP_HUBS } from "@/lib/groupHubs";
 
-export type { NewsArticle, NewsPhoto } from "@/data/newsTypes";
+export type { NewsArticle, NewsPhoto, NewsSource } from "@/data/newsTypes";
 
 const NEWS_ARTICLES: readonly NewsArticle[] = [
   BEZOAR_GOAT_RESTORATION_JAVAKHETI_2026,
@@ -151,13 +151,22 @@ export function newsSearchKeywords(article: NewsArticle) {
       copy?.dek,
       copy?.metaTitle,
     ]),
-    ...article.sources.map((source) => source.name),
+    ...article.sources.flatMap(newsSourceNames),
   ].filter((item): item is string => Boolean(item));
 }
 
-export function newsSourceOrg(article: NewsArticle) {
-  const name = article.sources[0]?.name ?? "";
-  return name.split(" — ")[0]?.trim() || name;
+export function newsSourceName(source: NewsSource, locale: AppLocale) {
+  return typeof source.name === "string" ? source.name : source.name[locale];
+}
+
+export function newsSourceOrg(article: NewsArticle, locale: AppLocale) {
+  const source = article.sources[0];
+  if (!source) return "";
+  return newsSourceOrgName(newsSourceName(source, locale));
+}
+
+export function newsSourceOrgName(name: string) {
+  return name.split(/\s[—-]\s/)[0]?.trim() || name;
 }
 
 function newsMentionsCreditAuthor(article: NewsArticle, author: CreditAuthor) {
@@ -167,7 +176,10 @@ function newsMentionsCreditAuthor(article: NewsArticle, author: CreditAuthor) {
     ...Object.values(author.name),
   ]);
   const haystack = [
-    ...article.sources.flatMap((source) => [source.name, source.url]),
+    ...article.sources.flatMap((source) => [
+      ...newsSourceNames(source),
+      source.url,
+    ]),
     ...Object.values(article.copy).flatMap((copy) =>
       copy
         ? [
@@ -206,4 +218,10 @@ function newsMentionsCreditAuthor(article: NewsArticle, author: CreditAuthor) {
     if (needle && haystack.includes(needle)) return true;
   }
   return false;
+}
+
+function newsSourceNames(source: NewsSource) {
+  return typeof source.name === "string"
+    ? [source.name]
+    : Object.values(source.name);
 }

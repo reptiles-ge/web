@@ -25,8 +25,10 @@ import {
 import { GROUP_HUB_LIST } from "@/lib/groupHubs";
 import {
   newsArticleAlternates,
+  newsArticleModifiedDateTime,
   newsArticleUrl,
   newsDateTime,
+  newsIndexDateFields,
 } from "@/lib/news";
 import { liveQuizzes } from "@/lib/quizzes";
 import {
@@ -69,7 +71,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     push(pageEntry(locale, "/about"));
     push(pageEntry(locale, "/terms-and-conditions"));
     push(pageEntry(locale, "/privacy"));
-    push(pageEntry(locale, "/news"));
+    push(pageEntry(locale, "/news", newsIndexDateFields(locale).dateModified));
     for (const article of getGuideArticles()) {
       push({
         ...pageEntry(locale, article.pathname),
@@ -148,9 +150,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       push({
         alternates: { languages },
         datePublished: newsDateTime(article.publishedAt),
-        lastModified: toLastModified(
-          newsDateTime(article.updatedAt ?? article.publishedAt),
-        ),
+        lastModified: toLastModified(newsArticleModifiedDateTime(article)),
         url: newsArticleUrl(locale, article.slug),
       });
     }
