@@ -71,7 +71,7 @@ export function NewsLeadCard({
             </span>
           ) : null}
         </NewsCover>
-        <div className="px-5 pt-[18px] pb-5 md:px-2 md:pt-[26px] md:pb-0">
+        <div className="min-w-0 px-5 pt-[18px] pb-5 md:px-2 md:pt-[26px] md:pb-0">
           <div className={metaClass}>
             <time dateTime={entry.publishedAt}>{entry.dateLabel}</time>
             <NewsMetaSep />
@@ -129,7 +129,7 @@ export function NewsListCard({ entry }: { entry: NewsIndexEntry }) {
   return (
     <article className="h-full">
       <Link
-        className={`group grid grid-cols-[104px_minmax(0,1fr)] items-start gap-3.5 border-t border-(--nw-line) py-3.5 active:opacity-70 md:flex md:h-full md:flex-col md:gap-0 md:overflow-hidden md:rounded-[28px] md:border-0 md:bg-(--nw-card) md:py-0 md:shadow-(--nw-shadow) md:hover:shadow-(--nw-shadow-hover) md:active:opacity-100 md:motion-safe:transition-[translate,box-shadow] md:motion-safe:duration-300 md:motion-safe:hover:-translate-y-1 ${focusClass}`}
+        className={`group grid grid-cols-[104px_minmax(0,1fr)] items-start gap-3.5 border-t border-(--nw-line) py-3.5 active:opacity-70 md:flex md:h-full md:flex-col md:items-stretch md:gap-0 md:overflow-hidden md:rounded-[28px] md:border-0 md:bg-(--nw-card) md:py-0 md:shadow-(--nw-shadow) md:hover:shadow-(--nw-shadow-hover) md:active:opacity-100 md:motion-safe:transition-[translate,box-shadow] md:motion-safe:duration-300 md:motion-safe:hover:-translate-y-1 ${focusClass}`}
         href={newsArticleHref(entry.slug)}
         prefetch={false}
       >
@@ -167,7 +167,7 @@ export function NewsListCard({ entry }: { entry: NewsIndexEntry }) {
             </span>
           ) : null}
         </span>
-        <span className="hidden flex-1 flex-col px-6 py-[22px] md:flex">
+        <span className="hidden min-w-0 flex-1 flex-col px-6 py-[22px] md:flex">
           <span className={metaClass}>
             <time dateTime={entry.publishedAt}>{entry.dateLabel}</time>
             <NewsMetaSep />
