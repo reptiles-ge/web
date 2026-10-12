@@ -43,7 +43,7 @@ const KA_META_DESCRIPTION_OVERRIDES: Record<string, string> = {
   "/dzuzumtsovrebi/aghmosavletkavkasiuri-jixvi":
     "აღმოსავლეთკავკასიური ჯიხვი (Capra cylindricornis), იგივე დაღესტნური ჯიხვი, მსხვილი ველური თხაა; საქართველოში ძირითადად აღმოსავლეთ დიდ კავკასიონს უკავშირდება.",
   "/dzuzumtsovrebi/chveulebrivi-tsavi":
-    "წავი საქართველოში (Lutra lutra) — როგორ ამოიცნოთ, სად გვხვდება, რა ზომისაა, რას ჭამს და რა სტატუსით არის დაცული.",
+    "წავი (Lutra lutra) მდინარეებისა და ტბების ნახევრადწყლის მტაცებელია, საქართველოს წითელ ნუსხაში მოწყვლადი (VU). ფოტოები, ნიშნები, კვება და გავრცელება.",
   "/dzuzumtsovrebi/chveulebrivi-tura":
     "ჩვეულებრივი ტურა (Canis aureus) საქართველოში მშობლიური ძუძუმწოვარია; IUCN ქვეყანას მის ბუნებრივ არეალში ასახელებს და სახეობა ეროვნულ ჩამონათვალებშიც შედის.",
   "/dzuzumtsovrebi/datvi-shekhvedra":
@@ -51,7 +51,7 @@ const KA_META_DESCRIPTION_OVERRIDES: Record<string, string> = {
   "/dzuzumtsovrebi/dedofala":
     "დედოფალა (Mustela nivalis) კვერნისებრთა ოჯახის პატარა მტაცებელი ძუძუმწოვარია; საქართველოში მშობლიური და მუდმივად მცხოვრები სახეობაა.",
   "/dzuzumtsovrebi/enoti":
-    "ენოტი (Procyon lotor) საქართველოში ენოტისებრი ძაღლი (Nyctereutes procyonoides) არ არის. ეს გვერდი ჩრდილოამერიკულ ენოტზეა.",
+    "ენოტი (Procyon lotor) შავი ნიღბითა და რგოლებიანი კუდით ცნობადი ცხოველია, საქართველოში შემოტანილი და დამკვიდრებული. ფოტოები, ქცევა და გავრცელება.",
   "/dzuzumtsovrebi/evropuli-shveli":
     "შველი საქართველოში (Capreolus capreolus) — ევროპული შველი, ირმისებრთა ოჯახის ძუძუმწოვარი და Capreolus-ის დასავლური სახეობა.",
   "/dzuzumtsovrebi/evropuli-zgharbi":
@@ -67,7 +67,7 @@ const KA_META_DESCRIPTION_OVERRIDES: Record<string, string> = {
   "/dzuzumtsovrebi/ketilshobili-iremi":
     "კეთილშობილი ირემი (Cervus elaphus) ირმისებრთა ოჯახის დიდი ძუძუმწოვარია; საქართველოში საუბარი, როგორც წესი, კავკასიურ კეთილშობილ ირემს ეხება.",
   "/dzuzumtsovrebi/machvi":
-    "მაჩვი საქართველოში (Meles canescens) — ამოცნობის ნიშნები, ტყისა და ბუჩქნარის ჰაბიტატი, კვება და კონსერვაციის სტატუსი.",
+    "მაჩვი (Meles canescens) საქართველოს მშობლიური კვერნისებრია, ცნობადი შავ-თეთრზოლიანი თავით. რუკა, ფოტოები, კვალი, სორო, კვება და დაცვის სტატუსი.",
   "/dzuzumtsovrebi/mela":
     "მელა (Vulpes vulpes) საქართველოში — სად გვხვდება, როგორ ამოვიცნოთ, რა ზომისაა, რას ჭამს და რა უნდა ვიცოდეთ ადამიანისთვის ცოფის შესაძლო რისკზე.",
   "/dzuzumtsovrebi/mura-datvi":

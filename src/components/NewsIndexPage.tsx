@@ -16,7 +16,11 @@ import {
   NewsListCard,
   NewsSideCard,
 } from "@/components/NewsIndexCards";
-import { newsLocalizedDek, newsLocalizedTitle } from "@/data/news";
+import {
+  newsLocalizedDek,
+  newsLocalizedTitle,
+  newsSourceName,
+} from "@/data/news";
 import { getAtlasStats } from "@/data/speciesAtlas";
 import { Link } from "@/i18n/navigation";
 import {
@@ -29,7 +33,11 @@ import {
   GROUP_HUBS,
   type GroupHubId,
 } from "@/lib/groupHubs";
-import { newsReadMinutes } from "@/lib/news";
+import {
+  newsIndexDateFields,
+  newsReadMinutes,
+  newsSourceBadges,
+} from "@/lib/news";
 import { getNewsVisual, newsCategoryHub } from "@/lib/newsVisual";
 
 type NewsIndexPageProps = {
@@ -58,17 +66,12 @@ const CTA_TILES: ReadonlyArray<{ id: GroupHubId; mobile: boolean }> = [
   { id: "spiders", mobile: false },
 ];
 
-const SOURCE_TAGS = [
-  "Zootaxa",
-  "Herpetology Notes",
-  "Ecology and Evolution",
-  "Batumi Raptor Count",
-];
-
 const FEATURED_COUNT = 3;
 
 const wrapClass =
   "mx-auto box-content max-w-[1320px] px-5 md:px-10 lg:px-[60px]";
+const trustLinkClass =
+  "inline-flex min-h-11 items-center gap-1.5 text-[14px] font-semibold text-white underline decoration-white/40 underline-offset-4 transition-colors hover:decoration-white";
 const eyebrowClass =
   "text-[10.5px] font-semibold tracking-[0.16em] text-(--nw-muted) md:text-[11px]";
 
@@ -89,6 +92,7 @@ export async function NewsIndexPage({ articles, locale }: NewsIndexPageProps) {
   const [lead, ...rest] = entries;
   const sides = rest.slice(0, FEATURED_COUNT - 1);
   const stats = getAtlasStats();
+  const sourceBadges = newsSourceBadges(articles, locale);
 
   const chips = [
     { count: articles.length, id: "all", label: t("all") },
@@ -112,7 +116,7 @@ export async function NewsIndexPage({ articles, locale }: NewsIndexPageProps) {
       searchText: [
         entry.title,
         entry.dek,
-        ...article.sources.map((source) => source.name),
+        ...article.sources.map((source) => newsSourceName(source, locale)),
       ]
         .join(" ")
         .toLocaleLowerCase(),
@@ -126,9 +130,12 @@ export async function NewsIndexPage({ articles, locale }: NewsIndexPageProps) {
 
   const featured = lead ? (
     <section
-      aria-label={t("featured")}
+      aria-labelledby="news-featured"
       className={`${wrapClass} pt-5 md:pt-10`}
     >
+      <h2 className="sr-only" id="news-featured">
+        {t("featured")}
+      </h2>
       <div className="lg:grid lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] lg:gap-7">
         <NewsLeadCard
           entry={lead}
@@ -149,7 +156,10 @@ export async function NewsIndexPage({ articles, locale }: NewsIndexPageProps) {
               ))}
             </div>
           ) : null}
-          <div className="hidden flex-1 flex-col justify-between gap-[18px] rounded-[28px] bg-(--nw-panel) p-6 text-white md:flex">
+          <aside
+            aria-labelledby="news-how-we-write"
+            className="flex flex-1 flex-col justify-between gap-[18px] rounded-[28px] bg-(--nw-panel) p-6 text-white"
+          >
             <span className="flex items-center gap-2.5">
               <span className="inline-flex size-9 items-center justify-center rounded-full bg-white/10">
                 <BookOpen
@@ -158,24 +168,54 @@ export async function NewsIndexPage({ articles, locale }: NewsIndexPageProps) {
                   strokeWidth={1.75}
                 />
               </span>
-              <span className="text-[11px] font-semibold tracking-[0.16em] text-white/60">
+              <span
+                className="text-[11px] font-semibold tracking-[0.16em] text-white/60"
+                id="news-how-we-write"
+              >
                 {t("howWeWriteEyebrow")}
               </span>
             </span>
             <p className="text-[17px] leading-[1.45] font-medium">
               {t("howWeWrite")}
             </p>
-            <ul className="flex flex-wrap gap-1.5">
-              {SOURCE_TAGS.map((tag) => (
-                <li
-                  className="rounded-full bg-white/8 px-[11px] py-1.5 text-[12px] text-white/82"
-                  key={tag}
+            {sourceBadges.length > 0 ? (
+              <ul className="flex flex-wrap gap-1.5">
+                {sourceBadges.map((tag) => (
+                  <li
+                    className="rounded-full bg-white/8 px-[11px] py-1.5 text-[12px] text-white/82"
+                    key={tag}
+                  >
+                    {tag}
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+            <ul className="-my-2 flex flex-wrap gap-x-5">
+              <li>
+                <Link
+                  className={trustLinkClass}
+                  href={{ hash: "methodology", pathname: "/about" }}
                 >
-                  {tag}
-                </li>
-              ))}
+                  {t("methodologyLink")}
+                  <ArrowRight
+                    aria-hidden="true"
+                    className="size-3.5"
+                    strokeWidth={1.75}
+                  />
+                </Link>
+              </li>
+              <li>
+                <Link className={trustLinkClass} href="/contact">
+                  {t("correctionsLink")}
+                  <ArrowRight
+                    aria-hidden="true"
+                    className="size-3.5"
+                    strokeWidth={1.75}
+                  />
+                </Link>
+              </li>
             </ul>
-          </div>
+          </aside>
         </div>
       </div>
     </section>
@@ -209,7 +249,10 @@ export async function NewsIndexPage({ articles, locale }: NewsIndexPageProps) {
                 <span className={eyebrowClass}>
                   {t("status", {
                     count: articles.length,
-                    date: lead.dateLabel,
+                    date: formatContentDate(
+                      newsIndexDateFields(locale, articles).dateModified,
+                      locale,
+                    ),
                   })}
                 </span>
               </div>
@@ -229,7 +272,7 @@ export async function NewsIndexPage({ articles, locale }: NewsIndexPageProps) {
         </div>
       </header>
 
-      <main>
+      <div>
         {articles.length === 0 ? (
           <p className={`${wrapClass} pt-10 text-[15px] text-(--nw-muted)`}>
             {t("empty")}
@@ -325,7 +368,7 @@ export async function NewsIndexPage({ articles, locale }: NewsIndexPageProps) {
             </Link>
           </div>
         </section>
-      </main>
+      </div>
     </div>
   );
 }
@@ -352,7 +395,9 @@ function toEntry(
     readLabel: labels.readLabel(minutes),
     readShortLabel: labels.readShortLabel(minutes),
     slug: article.slug,
-    source: article.sources[0]?.name ?? null,
+    source: article.sources[0]
+      ? newsSourceName(article.sources[0], locale)
+      : null,
     sourceMore: Math.max(0, article.sources.length - 1),
     src: visual?.src ?? GROUP_HUB_ILLUSTRATIONS[hub ?? "snakes"],
     title: newsLocalizedTitle(article, locale),

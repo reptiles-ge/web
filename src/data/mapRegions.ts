@@ -57,7 +57,6 @@ export const regions: Region[] = [
       "hyla-orientalis",
       "rana-macrocnemis",
       "pelophylax-ridibundus",
-      "bufotes-viridis",
       "bufo-verrucosissimus",
       "ommatotriton-ophryticus",
       "lissotriton-lantzi",
@@ -161,7 +160,6 @@ export const regions: Region[] = [
       "hyla-orientalis",
       "rana-macrocnemis",
       "pelophylax-ridibundus",
-      "bufotes-viridis",
       "mertensiella-caucasica",
       "ommatotriton-ophryticus",
       "lissotriton-lantzi",
@@ -234,6 +232,8 @@ export const regions: Region[] = [
       "columba-livia",
       "anas-platyrhynchos",
       "turdus-merula",
+      "cuculus-canorus",
+      "meles-canescens",
     ],
   },
   {
@@ -276,6 +276,7 @@ export const regions: Region[] = [
       "zamenis-longissimus",
       "columba-livia",
       "turdus-merula",
+      "meles-canescens",
     ],
   },
   {
@@ -393,6 +394,8 @@ export const regions: Region[] = [
       "turdus-merula",
       "vulpes-vulpes",
       "canis-lupus",
+      "cuculus-canorus",
+      "meles-canescens",
     ],
   },
   {
@@ -534,6 +537,8 @@ export const regions: Region[] = [
       "paralaudakia-caucasia",
       "turdus-merula",
       "vulpes-vulpes",
+      "cuculus-canorus",
+      "meles-canescens",
     ],
   },
   {
@@ -611,6 +616,8 @@ export const regions: Region[] = [
       "turdus-merula",
       "lacerta-agilis",
       "vulpes-vulpes",
+      "cuculus-canorus",
+      "meles-canescens",
     ],
   },
   {
@@ -699,6 +706,8 @@ export const regions: Region[] = [
       "streptopelia-turtur",
       "vulpes-vulpes",
       "canis-lupus",
+      "cuculus-canorus",
+      "meles-canescens",
     ],
   },
   {
@@ -762,6 +771,7 @@ export const regions: Region[] = [
       "aegypius-monachus",
       "turdus-merula",
       "vulpes-vulpes",
+      "cuculus-canorus",
     ],
   },
 ];

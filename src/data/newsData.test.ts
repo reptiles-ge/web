@@ -19,8 +19,11 @@ import {
   newsRelatedRegions,
   newsRelatedSpecies,
   newsSearchKeywords,
+  newsSourceName,
   newsSourceOrg,
+  newsSourceOrgName,
 } from "@/data/news";
+import { routing } from "@/i18n/routing";
 
 const published = getPublishedNewsArticles();
 const article = published[0];
@@ -160,11 +163,57 @@ describe("search and source helpers", () => {
 
   it("takes the organisation before the dash in the first source", () => {
     expect(
-      newsSourceOrg({
-        ...article,
-        sources: [{ name: "IUCN — Red List", url: "u" }],
-      }),
+      newsSourceOrg(
+        {
+          ...article,
+          sources: [{ name: "IUCN — Red List", url: "u" }],
+        },
+        "en",
+      ),
     ).toBe("IUCN");
-    expect(newsSourceOrg({ ...article, sources: [] })).toBe("");
+    expect(newsSourceOrg({ ...article, sources: [] }, "en")).toBe("");
+  });
+});
+
+describe("news source names", () => {
+  const localized = {
+    name: {
+      en: "Ministry",
+      ka: "სამინისტრო",
+      ru: "Министерство",
+      tr: "Bakanlık",
+    },
+    url: "u",
+  };
+
+  it("returns the locale's name, or the shared name for a plain string", () => {
+    expect(newsSourceName(localized, "en")).toBe("Ministry");
+    expect(newsSourceName(localized, "ka")).toBe("სამინისტრო");
+    expect(newsSourceName({ name: "Zootaxa", url: "u" }, "ru")).toBe("Zootaxa");
+  });
+
+  it("takes the organisation before a spaced dash or hyphen", () => {
+    expect(newsSourceOrgName("PubMed - Title")).toBe("PubMed");
+    expect(newsSourceOrgName("IUCN — Red List")).toBe("IUCN");
+    expect(newsSourceOrgName("Borjomi-Kharagauli")).toBe("Borjomi-Kharagauli");
+  });
+
+  it("uses the reader's language for the first source organisation", () => {
+    expect(newsSourceOrg({ ...article, sources: [localized] }, "tr")).toBe(
+      "Bakanlık",
+    );
+  });
+
+  it("keeps Georgian script out of non-Georgian source names", () => {
+    for (const item of published) {
+      for (const locale of routing.locales) {
+        if (locale === "ka" || !item.copy[locale]) continue;
+        for (const source of item.sources) {
+          expect(newsSourceName(source, locale), item.slug).not.toMatch(
+            /[\u10A0-\u10FF\u1C90-\u1CBF\u2D00-\u2D2F]/,
+          );
+        }
+      }
+    }
   });
 });

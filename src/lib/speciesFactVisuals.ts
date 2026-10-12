@@ -1,13 +1,18 @@
 import type { SpeciesStat } from "@/data/speciesTypes";
 
-import { isElevationStatLabel, isSizeStatLabel } from "@/lib/speciesContent";
+import {
+  isConservationStatLabel,
+  isElevationStatLabel,
+  isSizeStatLabel,
+} from "@/lib/speciesContent";
 
 export const IUCN_SCALE = ["LC", "NT", "VU", "EN", "CR"] as const;
 
 export type SpeciesFactVisual =
   | {
-      code: IucnCode;
+      codes: IucnCode[];
       kind: "iucn";
+      statusCode: IucnCode | null;
     }
   | {
       end: number;
@@ -35,13 +40,32 @@ const RANGE_PATTERN = new RegExp(
   "u",
 );
 const IUCN_PATTERN = /^\s*(LC|NT|VU|EN|CR)\s*$|\((LC|NT|VU|EN|CR)\)/;
+const IUCN_CODE_PATTERN = /(?<![\p{L}\p{N}])(LC|NT|VU|EN|CR)(?![\p{L}\p{N}])/gu;
+const IUCN_NAME_PATTERNS: Array<[IucnCode, RegExp]> = [
+  ["CR", /critically endangered/i],
+  ["EN", /(?<!critically )endangered/i],
+  ["VU", /vulnerable/i],
+  ["NT", /near threatened/i],
+  [
+    "LC",
+    /least concern|ნაკლ(?:\.|ებად) საფრთხ|наим(?:\.|еньшие) опасени|asgari endişe/iu,
+  ],
+];
 
 export function getSpeciesFactVisual(
   stat: SpeciesStat,
   locale: string,
 ): null | SpeciesFactVisual {
   const iucn = IUCN_PATTERN.exec(stat.value);
-  if (iucn) return { code: (iucn[1] ?? iucn[2]) as IucnCode, kind: "iucn" };
+  if (iucn) {
+    const code = (iucn[1] ?? iucn[2]) as IucnCode;
+    return { codes: [code], kind: "iucn", statusCode: code };
+  }
+
+  if (isConservationStatLabel(stat.label)) {
+    const codes = iucnCodesIn(stat.value);
+    return codes.length > 0 ? { codes, kind: "iucn", statusCode: null } : null;
+  }
 
   if (isElevationStatLabel(stat.label)) {
     const range = parseMeasuredRange(stat.value);
@@ -68,6 +92,19 @@ export function parseMeasuredRange(value: string): MeasuredRange | null {
   const max = toNumber(match[2]);
   if (max <= min) return null;
   return { max, min, unit: match[3] };
+}
+
+function iucnCodesIn(value: string) {
+  const found = new Set<IucnCode>(
+    Array.from(
+      value.matchAll(IUCN_CODE_PATTERN),
+      (match) => match[1] as IucnCode,
+    ),
+  );
+  for (const [code, pattern] of IUCN_NAME_PATTERNS) {
+    if (pattern.test(value)) found.add(code);
+  }
+  return IUCN_SCALE.filter((code) => found.has(code));
 }
 
 function rangeVisual(

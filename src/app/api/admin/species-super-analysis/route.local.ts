@@ -9,6 +9,7 @@ import {
 } from "@/lib/adminRequest";
 import {
   getSpeciesSuperAnalysisJob,
+  resumeSpeciesSuperAnalysisJob,
   startSpeciesSuperAnalysisJob,
 } from "@/lib/speciesSuperAnalysisJobs";
 
@@ -50,15 +51,17 @@ export async function GET(request: Request) {
 export async function POST(request: Request) {
   if (!isLocalAdminOriginRequest(request)) return localAdminForbiddenResponse();
   try {
-    const { id, runId } = await readAdminJsonText<{
+    const { id, resume, runId } = await readAdminJsonText<{
       id?: unknown;
+      resume?: unknown;
       runId?: unknown;
     }>(request);
     if (
       typeof id !== "string" ||
       !isSpeciesContentId(id) ||
       typeof runId !== "string" ||
-      !/^[0-9a-f-]{36}$/.test(runId)
+      !/^[0-9a-f-]{36}$/.test(runId) ||
+      (resume !== undefined && typeof resume !== "boolean")
     )
       throw new Error("Invalid analysis request");
     readAdminSpeciesGallery(id);
@@ -66,7 +69,9 @@ export async function POST(request: Request) {
     const job =
       existing?.runId === runId
         ? existing
-        : startSpeciesSuperAnalysisJob(id, runId);
+        : resume
+          ? await resumeSpeciesSuperAnalysisJob(id, runId)
+          : startSpeciesSuperAnalysisJob(id, runId);
     return Response.json(job, { headers, status: 202 });
   } catch (error) {
     return Response.json(

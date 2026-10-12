@@ -10,10 +10,12 @@ import { getPublishedNewsArticles } from "@/data/news";
 import { type AppLocale, routing } from "@/i18n/routing";
 import {
   newsArticleUrl,
+  newsIndexDateFields,
   newsIndexHref,
   newsIndexUrl,
   newsOgImageUrl,
 } from "@/lib/news";
+import { newsFeedUrl } from "@/lib/newsFeed";
 import { buildPageMetadata } from "@/lib/pageMetadata";
 import {
   absoluteUrl,
@@ -21,7 +23,6 @@ import {
   organizationJsonLd,
   siteEntityId,
 } from "@/lib/site";
-import { pageDateFields } from "@/lib/structuredDataDates";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -38,7 +39,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const locale = localeParam as AppLocale;
   const t = await getTranslations({ locale, namespace: "news" });
-  return buildPageMetadata({
+  const metadata = buildPageMetadata({
     description: t("metaDescription"),
     indexable: true,
     locale,
@@ -46,6 +47,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     pagePath: newsIndexHref(),
     title: t("metaTitle"),
   });
+  return {
+    ...metadata,
+    alternates: {
+      ...metadata.alternates,
+      types: { "application/atom+xml": newsFeedUrl(locale) },
+    },
+  };
 }
 
 export function generateStaticParams() {
@@ -91,7 +99,7 @@ export default async function NewsIndexRoute({ params }: Props) {
   const collectionLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    ...pageDateFields("/news"),
+    ...newsIndexDateFields(locale, articles),
     description: t("metaDescription"),
     inLanguage: locale,
     isPartOf: { "@id": siteEntityId("website") },

@@ -99,7 +99,7 @@ export function NewsIndexBrowser({
               return (
                 <button
                   aria-pressed={on}
-                  className={`inline-flex h-[38px] shrink-0 cursor-pointer snap-start items-center gap-[7px] rounded-full pr-[7px] pl-3.5 text-[14px] font-medium whitespace-nowrap transition-[background,color,box-shadow] duration-150 focus-visible:ring-2 focus-visible:ring-(--nw-accent) focus-visible:ring-offset-2 focus-visible:outline-none md:h-10 md:gap-2 md:pr-2 md:pl-4 ${
+                  className={`inline-flex h-11 shrink-0 cursor-pointer snap-start items-center gap-[7px] rounded-full pr-[7px] pl-3.5 text-[14px] font-medium whitespace-nowrap transition-[background,color,box-shadow] duration-150 focus-visible:ring-2 focus-visible:ring-(--nw-accent) focus-visible:ring-offset-2 focus-visible:outline-none md:h-10 md:gap-2 md:pr-2 md:pl-4 ${
                     on
                       ? "bg-(--nw-strong) text-(--nw-on-strong)"
                       : "bg-(--nw-card) text-(--nw-ink) shadow-[inset_0_0_0_1px_var(--nw-line)]"

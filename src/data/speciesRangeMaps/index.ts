@@ -9,6 +9,7 @@ import { rangeMap as aquilaChrysaetos } from "@/data/speciesRangeMaps/aquila-chr
 import { rangeMap as araneusDiadematus } from "@/data/speciesRangeMaps/araneus-diadematus";
 import { rangeMap as argiopeBruennichi } from "@/data/speciesRangeMaps/argiope-bruennichi";
 import { rangeMap as blattaOrientalis } from "@/data/speciesRangeMaps/blatta-orientalis";
+import { rangeMap as bufotesViridis } from "@/data/speciesRangeMaps/bufotes-viridis";
 import { rangeMap as canisAureus } from "@/data/speciesRangeMaps/canis-aureus";
 import { rangeMap as canisLupus } from "@/data/speciesRangeMaps/canis-lupus";
 import { rangeMap as capreolusCapreolus } from "@/data/speciesRangeMaps/capreolus-capreolus";
@@ -18,6 +19,7 @@ import { rangeMap as columbaLivia } from "@/data/speciesRangeMaps/columba-livia"
 import { rangeMap as columbaPalumbus } from "@/data/speciesRangeMaps/columba-palumbus";
 import { rangeMap as coronellaAustriaca } from "@/data/speciesRangeMaps/coronella-austriaca";
 import { rangeMap as coturnixCoturnix } from "@/data/speciesRangeMaps/coturnix-coturnix";
+import { rangeMap as cuculusCanorus } from "@/data/speciesRangeMaps/cuculus-canorus";
 import { rangeMap as darevskiaCaucasica } from "@/data/speciesRangeMaps/darevskia-caucasica";
 import { rangeMap as darevskiaDahli } from "@/data/speciesRangeMaps/darevskia-dahli";
 import { rangeMap as darevskiaDerjugini } from "@/data/speciesRangeMaps/darevskia-derjugini";
@@ -44,6 +46,7 @@ import { rangeMap as lutraLutra } from "@/data/speciesRangeMaps/lutra-lutra";
 import { rangeMap as macroviperaLebetina } from "@/data/speciesRangeMaps/macrovipera-lebetina";
 import { rangeMap as mantisReligiosa } from "@/data/speciesRangeMaps/mantis-religiosa";
 import { rangeMap as mauremysCaspica } from "@/data/speciesRangeMaps/mauremys-caspica";
+import { rangeMap as melesCanescens } from "@/data/speciesRangeMaps/meles-canescens";
 import { rangeMap as mertensiellaCaucasica } from "@/data/speciesRangeMaps/mertensiella-caucasica";
 import { rangeMap as mesobuthusEupeus } from "@/data/speciesRangeMaps/mesobuthus-eupeus";
 import { rangeMap as mustelaNivalis } from "@/data/speciesRangeMaps/mustela-nivalis";
@@ -86,6 +89,7 @@ export const INTERACTIVE_RANGE_MAPS: Partial<
   "araneus-diadematus": araneusDiadematus,
   "argiope-bruennichi": argiopeBruennichi,
   "blatta-orientalis": blattaOrientalis,
+  "bufotes-viridis": bufotesViridis,
   "canis-aureus": canisAureus,
   "canis-lupus": canisLupus,
   "capreolus-capreolus": capreolusCapreolus,
@@ -95,6 +99,7 @@ export const INTERACTIVE_RANGE_MAPS: Partial<
   "columba-palumbus": columbaPalumbus,
   "coronella-austriaca": coronellaAustriaca,
   "coturnix-coturnix": coturnixCoturnix,
+  "cuculus-canorus": cuculusCanorus,
   "darevskia-caucasica": darevskiaCaucasica,
   "darevskia-dahli": darevskiaDahli,
   "darevskia-derjugini": darevskiaDerjugini,
@@ -121,6 +126,7 @@ export const INTERACTIVE_RANGE_MAPS: Partial<
   "macrovipera-lebetina": macroviperaLebetina,
   "mantis-religiosa": mantisReligiosa,
   "mauremys-caspica": mauremysCaspica,
+  "meles-canescens": melesCanescens,
   "mertensiella-caucasica": mertensiellaCaucasica,
   "mesobuthus-eupeus": mesobuthusEupeus,
   "mustela-nivalis": mustelaNivalis,

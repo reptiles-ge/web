@@ -31,8 +31,8 @@ export async function createSuperAnalysisRunner(
   id: string,
   worktree: string,
   directory: string,
+  previous: SuperAnalysisResult[] = [],
 ) {
-  const previous: SuperAnalysisResult[] = [];
   const template = await fs.readFile(
     path.join(process.cwd(), "src/prompts/species-super-analysis.md"),
     "utf8",

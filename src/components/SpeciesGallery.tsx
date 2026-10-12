@@ -55,6 +55,7 @@ export async function SpeciesGallery({
   const photos = images.filter((item) => Boolean(item.src));
   const visiblePhotos = photos.slice(0, 5);
   const hasMore = photos.length > 5;
+  const mosaic = photos.length >= 5;
   const photographers = [
     ...new Set(
       photos
@@ -134,24 +135,25 @@ export async function SpeciesGallery({
           <div
             className={cn(
               "mt-10 grid gap-3 sm:gap-4",
-              photos.length >= 5
+              mosaic
                 ? "grid-cols-2 lg:auto-rows-[250px] lg:grid-cols-4"
                 : photos.length === 1
                   ? "grid-cols-1"
-                  : "grid-cols-2",
+                  : photos.length === 4
+                    ? "grid-cols-2 md:grid-cols-3"
+                    : "grid-cols-2",
             )}
           >
             {visiblePhotos.map((photo, index) => {
               const featured = index === 0 && photos.length >= 3;
               const entry = optimizedEntry(photo.src);
-              const sizes =
-                photos.length >= 5
-                  ? featured
-                    ? MOSAIC_WIDE_SIZES
-                    : MOSAIC_THUMB_SIZES
-                  : featured
-                    ? featuredSizes
-                    : thumbSizes;
+              const sizes = mosaic
+                ? featured
+                  ? MOSAIC_WIDE_SIZES
+                  : MOSAIC_THUMB_SIZES
+                : featured
+                  ? featuredSizes
+                  : thumbSizes;
               const photographer = photo.credit?.photographer?.trim();
               const author = photographer
                 ? getPublishedCreditAuthorByName(photographer)
@@ -165,8 +167,19 @@ export async function SpeciesGallery({
                   className={cn(
                     "group relative overflow-hidden bg-ink",
                     featured
-                      ? "col-span-2 aspect-16/10 rounded-[30px] lg:row-span-2 lg:aspect-auto"
-                      : "aspect-square rounded-[24px] lg:aspect-auto",
+                      ? cn(
+                          "col-span-2 aspect-16/10 rounded-[30px]",
+                          mosaic
+                            ? "lg:row-span-2 lg:aspect-auto"
+                            : cn(
+                                "lg:aspect-21/9",
+                                photos.length === 4 && "md:col-span-3",
+                              ),
+                        )
+                      : cn(
+                          "aspect-square rounded-[24px]",
+                          mosaic && "lg:aspect-auto",
+                        ),
                   )}
                   key={photo.src}
                 >
