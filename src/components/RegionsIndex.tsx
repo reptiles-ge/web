@@ -937,6 +937,7 @@ function RegionsMap({
   const byId = new Map(items.map((item) => [item.id, item]));
   const activeId = hover ?? selected;
   const active = activeId ? byId.get(activeId) : undefined;
+  const selectedItem = selected ? byId.get(selected) : undefined;
 
   function labelValue(item: RegionsIndexItem) {
     const value = metric.get(item);
@@ -1176,7 +1177,11 @@ function RegionsMap({
               {t("mapNoteShort")}
             </p>
 
-            <RegionAside active={active} byId={byId} onSelect={onSelect} />
+            <RegionAside
+              active={selectedItem}
+              byId={byId}
+              onSelect={onSelect}
+            />
           </div>
         </div>
       </div>
