@@ -459,6 +459,10 @@ const LOOKALIKES: Record<string, string[]> = {
   ],
   "zamenis-longissimus": [
     "natrix-natrix"
+  ],
+  "cuculus-canorus": [
+    "accipiter-nisus",
+    "falco-tinnunculus"
   ]
 };
 
