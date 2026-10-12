@@ -11,6 +11,7 @@ import {
   newsIndexHref,
   newsIndexUrl,
   newsOgImageUrl,
+  newsReadMinutes,
   publishedNewsStaticParams,
 } from "@/lib/news";
 import { SITE_OG_IMAGE_URL } from "@/lib/site";
@@ -92,5 +93,17 @@ describe("publishedNewsStaticParams", () => {
       0,
     );
     expect(publishedNewsStaticParams()).toHaveLength(expected);
+  });
+});
+
+describe("newsReadMinutes", () => {
+  it("estimates a positive whole number of minutes per locale", () => {
+    for (const item of getPublishedNewsArticles()) {
+      for (const locale of routing.locales) {
+        const minutes = newsReadMinutes(item, locale);
+        expect(Number.isInteger(minutes)).toBe(true);
+        expect(minutes).toBeGreaterThanOrEqual(1);
+      }
+    }
   });
 });
