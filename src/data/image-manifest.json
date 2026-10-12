@@ -8132,6 +8132,101 @@
       ],
       "updatedAt": "2026-10-12T17:19:51.530Z"
     },
+    "bufotes-viridis-giorgi-1.jpg": {
+      "sourceHash": "27f6edf07e9c9d63379044c4799b1f55e897d4ab01e38cf5546c2bc3973112fe",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "bufotes-viridis-giorgi-1.jpg",
+      "originalSize": 782528,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/bufotes-viridis-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14598
+        },
+        {
+          "key": "optimized/bufotes-viridis-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 24056
+        },
+        {
+          "key": "optimized/bufotes-viridis-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 20590
+        },
+        {
+          "key": "optimized/bufotes-viridis-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 34474
+        },
+        {
+          "key": "optimized/bufotes-viridis-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 45400
+        },
+        {
+          "key": "optimized/bufotes-viridis-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 74154
+        },
+        {
+          "key": "optimized/bufotes-viridis-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 65201
+        },
+        {
+          "key": "optimized/bufotes-viridis-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 107604
+        },
+        {
+          "key": "optimized/bufotes-viridis-giorgi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 122768
+        },
+        {
+          "key": "optimized/bufotes-viridis-giorgi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 195292
+        },
+        {
+          "key": "optimized/bufotes-viridis-giorgi-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 290278
+        },
+        {
+          "key": "optimized/bufotes-viridis-giorgi-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 451572
+        }
+      ],
+      "updatedAt": "2026-10-12T17:23:23.688Z"
+    },
     "bufotes-viridis-ioane-1.jpg": {
       "sourceHash": "82e5ee74ca35af03d3f3dd068cf1082306aa1b8285374e49db7a54088faa5f41",
       "configFingerprint": "a895f8e025dcc7fa",
