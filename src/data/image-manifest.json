@@ -8358,6 +8358,101 @@
       ],
       "updatedAt": "2026-10-12T17:16:30.921Z"
     },
+    "bufotes-viridis-tomáš-1.jpg": {
+      "sourceHash": "1bf2b8781c866c994bb9cfbedb842309622419cfc9664de3d3d5738feb1408be",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "bufotes-viridis-tomáš-1.jpg",
+      "originalSize": 205447,
+      "width": 2048,
+      "height": 1363,
+      "derivatives": [
+        {
+          "key": "optimized/bufotes-viridis-tomáš-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 4859
+        },
+        {
+          "key": "optimized/bufotes-viridis-tomáš-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6088
+        },
+        {
+          "key": "optimized/bufotes-viridis-tomáš-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 6508
+        },
+        {
+          "key": "optimized/bufotes-viridis-tomáš-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 8512
+        },
+        {
+          "key": "optimized/bufotes-viridis-tomáš-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 12276
+        },
+        {
+          "key": "optimized/bufotes-viridis-tomáš-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 16712
+        },
+        {
+          "key": "optimized/bufotes-viridis-tomáš-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 532,
+          "byteSize": 17195
+        },
+        {
+          "key": "optimized/bufotes-viridis-tomáš-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 532,
+          "byteSize": 23554
+        },
+        {
+          "key": "optimized/bufotes-viridis-tomáš-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 799,
+          "byteSize": 29504
+        },
+        {
+          "key": "optimized/bufotes-viridis-tomáš-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 799,
+          "byteSize": 42358
+        },
+        {
+          "key": "optimized/bufotes-viridis-tomáš-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1363,
+          "byteSize": 65967
+        },
+        {
+          "key": "optimized/bufotes-viridis-tomáš-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1363,
+          "byteSize": 95296
+        }
+      ],
+      "updatedAt": "2026-10-12T17:17:42.481Z"
+    },
     "bufotes-viridis-zakro-1.jpg": {
       "sourceHash": "1f4a7c3896f38c360c11abe3c983a6cf553377aa604b3a1b4c897ca7ea6fe353",
       "configFingerprint": "a895f8e025dcc7fa",
