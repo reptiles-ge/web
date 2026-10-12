@@ -77,10 +77,18 @@ export const superAnalysisResultSchema = z.strictObject({
   stage: z.enum(SUPER_ANALYSIS_STAGES),
   summary: text,
 });
+export type SuperAnalysisCheckpoint = {
+  baseCommit: string;
+  branch: string;
+  reports: string[];
+  results: SuperAnalysisResult[];
+  worktree: string;
+};
 export type SuperAnalysisJob = {
   currentStage: "validation" | null | SuperAnalysisStage;
   error: null | string;
   pullRequestUrl: null | string;
+  resumable?: boolean;
   runId: string;
   speciesId: string;
   status: "completed" | "failed" | "running";

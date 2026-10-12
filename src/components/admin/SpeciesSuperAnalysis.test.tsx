@@ -21,6 +21,7 @@ const copy = {
   pending: "Pending",
   reconnecting: "Reconnecting",
   report: "Report",
+  resume: "Resume",
   running: "Running",
   validation: "Validation",
 };
@@ -117,5 +118,30 @@ describe("Super Analysis progress panel", () => {
       screen.getByRole("button", { name: "Super Analysis" }),
     ).toBeEnabled();
     expect(screen.queryByRole("link")).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole("button", { name: "Resume" }),
+    ).not.toBeInTheDocument();
+  });
+
+  it("resumes a failed run with saved progress through one POST", async () => {
+    const failed = {
+      ...job,
+      error: "The operation was aborted",
+      resumable: true,
+      status: "failed",
+    };
+    const fetcher = vi.fn(async (_url, options) =>
+      Response.json(options?.method === "POST" ? job : failed),
+    );
+    vi.stubGlobal("fetch", fetcher);
+    render(<SpeciesSuperAnalysis {...props} />);
+    fireEvent.click(await screen.findByRole("button", { name: "Resume" }));
+    await waitFor(() =>
+      expect(
+        fetcher.mock.calls.find(
+          ([, options]) => options?.method === "POST",
+        )?.[1]?.body,
+      ).toContain('"resume":true'),
+    );
   });
 });

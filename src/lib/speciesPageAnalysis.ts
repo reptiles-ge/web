@@ -22,6 +22,8 @@ import { lockSpeciesAnalysis } from "@/lib/speciesAnalysisLock";
 import { createSuperAnalysisRunner } from "@/lib/speciesSuperAnalysis";
 import {
   SUPER_ANALYSIS_STAGES,
+  type SuperAnalysisCheckpoint,
+  type SuperAnalysisResult,
   type SuperAnalysisStage,
 } from "@/lib/speciesSuperAnalysisSchema";
 import { getSpeciesTextFields } from "@/lib/speciesTextProcessing";
@@ -225,6 +227,20 @@ export async function analyzeSpeciesPage(
   }
 }
 
+export async function discardSuperAnalysisCheckpoint(
+  checkpoint: SuperAnalysisCheckpoint,
+) {
+  if (!/^feature\/species-workflow-[a-z0-9-]+$/.test(checkpoint.branch)) return;
+  await run("git", [
+    "worktree",
+    "remove",
+    "--force",
+    checkpoint.worktree,
+  ]).catch(() => undefined);
+  await run("git", ["worktree", "prune"]).catch(() => undefined);
+  await run("git", ["branch", "-D", checkpoint.branch]).catch(() => undefined);
+}
+
 export function fillSpeciesPrompt(template: string, id: string) {
   return template
     .replace(
@@ -239,10 +255,13 @@ export async function runSpeciesWorkflow(
   modes: SpeciesWorkflowMode[],
   onStep: (mode: SpeciesWorkflowMode, report: string) => Promise<void> | void,
   options?: {
+    onCheckpoint?: (checkpoint: SuperAnalysisCheckpoint) => Promise<void>;
     onStage: (stage: "validation" | SuperAnalysisStage) => void;
+    resume?: null | SuperAnalysisCheckpoint;
     superAnalysis: boolean;
   },
 ) {
+  const resume = options?.superAnalysis ? options.resume : null;
   const unlock = lockSpeciesAnalysis(id);
   try {
     if (
@@ -288,7 +307,11 @@ export async function runSpeciesWorkflow(
           `Review the existing species PR before starting another analysis: ${existing.url}`,
         );
     }
-    const branch = `feature/species-workflow-${id}-${randomUUID().slice(0, 8)}`;
+    const branch =
+      resume?.branch ??
+      `feature/species-workflow-${id}-${randomUUID().slice(0, 8)}`;
+    if (!/^feature\/species-workflow-[a-z0-9-]+$/.test(branch))
+      throw new Error("Invalid saved Super Analysis branch");
     const allowedFiles = [
       ...["ka", "en", "ru", "tr"].map(
         (locale) => `src/content/species/${id}/${locale}.mdx`,
@@ -306,40 +329,93 @@ export async function runSpeciesWorkflow(
     );
     const worktree = path.join(directory, "checkout");
     let pullRequestUrl = "";
-    let keepLocalBranch = false;
-    const completedModes: SpeciesWorkflowMode[] = [];
+    let keepLocalBranch = Boolean(resume);
+    const results: SuperAnalysisResult[] = [...(resume?.results ?? [])];
+    const completedModes: SpeciesWorkflowMode[] = modes.slice(
+      0,
+      results.length,
+    );
     try {
       await run("git", ["fetch", "origin", base]);
-      await run("git", [
-        "worktree",
-        "add",
-        "-b",
-        branch,
-        worktree,
-        `origin/${base}`,
-      ]);
-      await assertSpeciesContentMatchesBase(root, worktree, allowedFiles);
+      const baseCommit =
+        resume?.baseCommit ??
+        (await run("git", ["rev-parse", `origin/${base}`]));
+      if (resume) {
+        await run("git", [
+          "worktree",
+          "remove",
+          "--force",
+          resume.worktree,
+        ]).catch(() => undefined);
+        await run("git", ["worktree", "prune"]);
+        await run("git", [
+          "rev-parse",
+          "--verify",
+          `refs/heads/${branch}`,
+        ]).catch(() => {
+          throw new Error(
+            `Saved Super Analysis branch ${branch} is missing; start a new analysis`,
+          );
+        });
+        const protectedFiles = [
+          ...allowedFiles,
+          "src/data/speciesPublish.ts",
+          "src/i18n/pathnames.ts",
+        ];
+        if (
+          (await run("git", [
+            "diff",
+            "--name-only",
+            baseCommit,
+            `origin/${base}`,
+            "--",
+            ...protectedFiles,
+          ])) ||
+          (await run("git", [
+            "diff",
+            "--name-only",
+            `origin/${base}`,
+            "--",
+            ...protectedFiles,
+          ]))
+        )
+          throw new Error(
+            "Species content changed since the saved Super Analysis; start a new analysis",
+          );
+        await run("git", ["worktree", "add", worktree, branch]);
+      } else {
+        await run("git", [
+          "worktree",
+          "add",
+          "-b",
+          branch,
+          worktree,
+          `origin/${base}`,
+        ]);
+        await assertSpeciesContentMatchesBase(root, worktree, allowedFiles);
+      }
       await fs.symlink(
         path.join(root, "node_modules"),
         path.join(worktree, "node_modules"),
         "dir",
       );
-      if (options?.superAnalysis)
+      if (options?.superAnalysis && !resume)
         await assertSpeciesContentMatchesBase(root, worktree, [
           "src/data/speciesPublish.ts",
           "src/i18n/pathnames.ts",
         ]);
       const superStep = options?.superAnalysis
-        ? await createSuperAnalysisRunner(id, worktree, directory)
+        ? await createSuperAnalysisRunner(id, worktree, directory, results)
         : null;
-      const reports: string[] = [];
-      const failure = await runSpeciesWorkflowSteps(modes, async (mode) => {
+      const reports: string[] = [...(resume?.reports ?? [])];
+      const pending = modes.slice(completedModes.length);
+      const failure = await runSpeciesWorkflowSteps(pending, async (mode) => {
         let report: string;
         if (superStep) {
           const stage = mode as SuperAnalysisStage;
           options?.onStage(stage);
           report = await superStep(stage);
-          reports.push(`## ${stage}\n\n${report}`);
+          reports.push(report);
         } else if (mode === "texts") {
           report = await processWorkflowTexts(id, worktree);
         } else {
@@ -409,6 +485,16 @@ export async function runSpeciesWorkflow(
           );
         }
         completedModes.push(mode);
+        if (superStep) {
+          keepLocalBranch = true;
+          await options?.onCheckpoint?.({
+            baseCommit,
+            branch,
+            reports,
+            results,
+            worktree,
+          });
+        }
         await onStep(mode, report);
       });
       const stepError = failure
@@ -428,12 +514,14 @@ export async function runSpeciesWorkflow(
           ["rev-list", "--count", `origin/${base}..HEAD`],
           worktree,
         )) === "0"
-      )
+      ) {
+        keepLocalBranch = false;
         return {
           error: stepError,
           failedStep: failure?.step ?? null,
           pullRequestUrl: null,
         };
+      }
       try {
         await run("git", ["push", "-u", "origin", branch], worktree);
       } catch (error) {
@@ -446,7 +534,7 @@ export async function runSpeciesWorkflow(
       await fs.writeFile(
         body,
         superStep
-          ? `Super Analysis for ${id}: ${completedModes.join(" → ")}\n\n${reports.join("\n\n")}\n\n## Validation\n\nSchema, evidence references, locale parity, protected fields and links validated internally. Compilation, typecheck, lint and tests were not run; the owner will handle project checks. Source verification is an AI assessment; this draft still requires editorial review.\n`
+          ? `Super Analysis for ${id}: ${completedModes.join(" → ")}\n\n${reports.map((report, index) => `## ${modes[index]}\n\n${report}`).join("\n\n")}\n\n## Validation\n\nSchema, evidence references, locale parity, protected fields and links validated internally. Compilation, typecheck, lint and tests were not run; the owner will handle project checks. Source verification is an AI assessment; this draft still requires editorial review.\n`
           : `## Summary\n\n- Completed ${completedModes.join(" → ")} for ${id}\n${failure ? `- Stopped at ${failure.step}; later steps were not run\n` : ""}\n## Checks\n\n- Automated checks not run; owner will review\n`,
       );
       try {
@@ -494,6 +582,7 @@ export async function runSpeciesWorkflow(
         throw new Error(
           `Pull request creation failed; completed changes remain on ${branch}`,
         );
+      keepLocalBranch = false;
       return {
         error: stepError,
         failedStep: failure?.step ?? null,

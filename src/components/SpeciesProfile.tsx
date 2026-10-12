@@ -246,6 +246,7 @@ export async function SpeciesProfile({
             superFailed: tAnalysis("superFailed"),
             superPending: tAnalysis("superPending"),
             superReconnecting: tAnalysis("superReconnecting"),
+            superResume: tAnalysis("superResume"),
             superRunning: tAnalysis("superRunning"),
             superValidation: tAnalysis("superValidation"),
 

@@ -54,7 +54,8 @@
     "superCompleted": "Completed",
     "superFailed": "Failed",
     "superValidation": "Final validation",
-    "superReconnecting": "Reconnecting… Progress is saved on the server."
+    "superReconnecting": "Reconnecting… Progress is saved on the server.",
+    "superResume": "Resume from where it stopped"
   },
   "nav": {
     "species": "Species",

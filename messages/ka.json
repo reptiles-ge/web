@@ -54,7 +54,8 @@
     "superCompleted": "დასრულდა",
     "superFailed": "ვერ დასრულდა",
     "superValidation": "საბოლოო შემოწმება",
-    "superReconnecting": "კავშირის აღდგენა… პროგრესი სერვერზე ინახება."
+    "superReconnecting": "კავშირის აღდგენა… პროგრესი სერვერზე ინახება.",
+    "superResume": "გაგრძელება იქიდან, სადაც გაჩერდა"
   },
   "nav": {
     "species": "სახეობები",
