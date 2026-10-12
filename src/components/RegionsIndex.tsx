@@ -490,11 +490,16 @@ function RegionDirectoryEntry({
   );
 }
 
+function regionFromTarget(target: EventTarget) {
+  if (!(target instanceof Element)) return null;
+  const id = target.closest("[data-region]")?.getAttribute("data-region");
+  return (id as null | RegionPathId | undefined) ?? null;
+}
+
 function RegionMapLabel({
   active,
   aria,
   item,
-  onHover,
   onSelect,
   pressed,
   value,
@@ -502,7 +507,6 @@ function RegionMapLabel({
   active: boolean;
   aria: string;
   item: RegionsIndexItem;
-  onHover: (id: null | RegionPathId) => void;
   onSelect: (id: RegionPathId) => void;
   pressed: boolean;
   value: string;
@@ -518,6 +522,7 @@ function RegionMapLabel({
         aria-label={aria}
         aria-pressed={pressed}
         className="absolute z-3 inline-flex -translate-1/2 cursor-pointer items-center justify-center whitespace-nowrap tabular-nums"
+        data-region={item.id}
         onClick={() => onSelect(item.id)}
         style={position}
         type="button"
@@ -541,9 +546,8 @@ function RegionMapLabel({
       aria-label={aria}
       aria-pressed={false}
       className="group absolute z-2 inline-flex size-6 -translate-1/2 cursor-pointer items-center justify-center lg:size-7"
+      data-region={item.id}
       onClick={() => onSelect(item.id)}
-      onMouseEnter={() => onHover(item.id)}
-      onMouseLeave={() => onHover(null)}
       style={position}
       type="button"
     >
@@ -1082,7 +1086,11 @@ function RegionsMap({
 
           <div className="lg:mt-[22px] lg:grid lg:grid-cols-[minmax(0,1fr)_392px] lg:items-stretch lg:gap-9">
             <div className="mx-3 mt-3.5 px-2.5 pt-[18px] pb-3.5 max-lg:rounded-[26px] max-lg:bg-(--nw-card) max-lg:shadow-[0_1px_2px_rgba(14,20,17,0.04),0_12px_30px_rgba(14,20,17,0.06)] lg:m-0 lg:flex lg:min-w-0 lg:flex-col lg:p-0">
-              <div className="relative aspect-1000/510 w-full lg:mt-[18px]">
+              <div
+                className="relative aspect-1000/510 w-full lg:mt-[18px]"
+                onMouseLeave={() => onHover(null)}
+                onMouseOver={(event) => onHover(regionFromTarget(event.target))}
+              >
                 <svg
                   aria-hidden="true"
                   className="pointer-events-none absolute inset-0 size-full overflow-visible"
@@ -1092,11 +1100,10 @@ function RegionsMap({
                     <path
                       className="[pointer-events:visiblePainted] cursor-pointer stroke-white stroke-[1.4] transition-[fill] duration-350 [stroke-linejoin:round] lg:stroke-[1.6]"
                       d={item.path}
+                      data-region={item.id}
                       fill={metric.ramp[step(metric.get(item))]}
                       key={item.id}
                       onClick={() => onSelect(item.id)}
-                      onMouseEnter={() => onHover(item.id)}
-                      onMouseLeave={() => onHover(null)}
                     />
                   ))}
                 </svg>
@@ -1121,7 +1128,6 @@ function RegionsMap({
                     })}
                     item={item}
                     key={item.id}
-                    onHover={onHover}
                     onSelect={onSelect}
                     pressed={item.id === selected}
                     value={labelValue(item)}
