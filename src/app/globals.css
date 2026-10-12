@@ -461,6 +461,6 @@ input[type="search"]::-webkit-search-results-decoration {
   background: linear-gradient(160deg, #22302a 0%, #0e1411 100%);
 }
 
-.news-ill img {
+.news-ill picture {
   opacity: 0.86;
 }
