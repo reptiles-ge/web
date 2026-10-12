@@ -18,6 +18,7 @@ import {
   newsRelatedHubs,
   newsRelatedRegions,
   newsRelatedSpecies,
+  newsSourceName,
   newsSourceOrg,
 } from "@/data/news";
 import { getRegionHeroImage } from "@/data/regionImages";
@@ -385,7 +386,7 @@ async function NewsArticleSources({ article, locale }: NewsArticlePageProps) {
         rel="noopener noreferrer"
         target="_blank"
       >
-        {newsSourceOrg(article)}
+        {newsSourceOrg(article, locale)}
         <ArrowUpRight
           aria-hidden="true"
           className="size-4 shrink-0 text-muted-foreground group-hover:text-primary motion-safe:transition-transform motion-safe:duration-300 motion-safe:group-hover:translate-x-0.5 motion-safe:group-hover:-translate-y-0.5"
@@ -402,7 +403,7 @@ async function NewsArticleSources({ article, locale }: NewsArticlePageProps) {
                 target="_blank"
               >
                 <span className="border-b border-border pb-0.5 transition-colors group-hover:border-foreground/40">
-                  {source.name}
+                  {newsSourceName(source, locale)}
                 </span>
                 <ArrowUpRight
                   aria-hidden="true"

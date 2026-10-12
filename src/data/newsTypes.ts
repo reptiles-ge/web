@@ -40,6 +40,11 @@ export type NewsPhoto = {
 export type NewsSectionBlock =
   { parts: NewsMark[]; type: "p" } | { src: string; type: "figure" };
 
+export type NewsSource = {
+  name: NewsSourceName;
+  url: string;
+};
+
 type NewsArticleStatus = "draft" | "published";
 
 type NewsLocaleCopy = {
@@ -56,7 +61,4 @@ type NewsSection = {
   heading: string;
 };
 
-type NewsSource = {
-  name: string;
-  url: string;
-};
+type NewsSourceName = Record<AppLocale, string> | string;

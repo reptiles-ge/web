@@ -72,7 +72,7 @@ export async function GuideArticlePage({
     .map((item) => localizeSpecies(item, locale));
 
   return (
-    <main className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">
       <article className="mx-auto max-w-[1400px] px-6 pt-30 pb-16 sm:pt-33 sm:pb-24 lg:px-10">
         <GuideArticleSectionNav
           items={sections.map(({ anchor, section }) => ({
@@ -288,7 +288,7 @@ export async function GuideArticlePage({
         sourcesHref="#sources"
         updatedAt={dates.dateModified}
       />
-    </main>
+    </div>
   );
 }
 
