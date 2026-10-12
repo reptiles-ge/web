@@ -8037,6 +8037,196 @@
       ],
       "updatedAt": "2026-09-05T11:30:12.425Z"
     },
+    "bufotes-viridis-aurélien-1.jpg": {
+      "sourceHash": "4c984a086863e883d8e5661844c14fb1e02b8b5e69b183dfb1a4b0f1eff404ad",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "bufotes-viridis-aurélien-1.jpg",
+      "originalSize": 297573,
+      "width": 1920,
+      "height": 1280,
+      "derivatives": [
+        {
+          "key": "optimized/bufotes-viridis-aurélien-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 7772
+        },
+        {
+          "key": "optimized/bufotes-viridis-aurélien-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11008
+        },
+        {
+          "key": "optimized/bufotes-viridis-aurélien-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 10842
+        },
+        {
+          "key": "optimized/bufotes-viridis-aurélien-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 15450
+        },
+        {
+          "key": "optimized/bufotes-viridis-aurélien-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 20272
+        },
+        {
+          "key": "optimized/bufotes-viridis-aurélien-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 29138
+        },
+        {
+          "key": "optimized/bufotes-viridis-aurélien-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 28126
+        },
+        {
+          "key": "optimized/bufotes-viridis-aurélien-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 39140
+        },
+        {
+          "key": "optimized/bufotes-viridis-aurélien-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 48473
+        },
+        {
+          "key": "optimized/bufotes-viridis-aurélien-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 66836
+        },
+        {
+          "key": "optimized/bufotes-viridis-aurélien-1-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 95512
+        },
+        {
+          "key": "optimized/bufotes-viridis-aurélien-1-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 131796
+        }
+      ],
+      "updatedAt": "2026-10-12T17:19:51.530Z"
+    },
+    "bufotes-viridis-giorgi-1.jpg": {
+      "sourceHash": "27f6edf07e9c9d63379044c4799b1f55e897d4ab01e38cf5546c2bc3973112fe",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "bufotes-viridis-giorgi-1.jpg",
+      "originalSize": 782528,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/bufotes-viridis-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14598
+        },
+        {
+          "key": "optimized/bufotes-viridis-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 24056
+        },
+        {
+          "key": "optimized/bufotes-viridis-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 20590
+        },
+        {
+          "key": "optimized/bufotes-viridis-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 34474
+        },
+        {
+          "key": "optimized/bufotes-viridis-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 45400
+        },
+        {
+          "key": "optimized/bufotes-viridis-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 74154
+        },
+        {
+          "key": "optimized/bufotes-viridis-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 65201
+        },
+        {
+          "key": "optimized/bufotes-viridis-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 107604
+        },
+        {
+          "key": "optimized/bufotes-viridis-giorgi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 122768
+        },
+        {
+          "key": "optimized/bufotes-viridis-giorgi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 195292
+        },
+        {
+          "key": "optimized/bufotes-viridis-giorgi-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 290278
+        },
+        {
+          "key": "optimized/bufotes-viridis-giorgi-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 451572
+        }
+      ],
+      "updatedAt": "2026-10-12T17:23:23.688Z"
+    },
     "bufotes-viridis-ioane-1.jpg": {
       "sourceHash": "82e5ee74ca35af03d3f3dd068cf1082306aa1b8285374e49db7a54088faa5f41",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -8262,6 +8452,196 @@
         }
       ],
       "updatedAt": "2026-08-28T21:29:06.265Z"
+    },
+    "bufotes-viridis-markus-1.jpg": {
+      "sourceHash": "e8ae4070d26a76a4b268a580beff2f39b55bb84d494c20aa2ac666e22d4ed396",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "bufotes-viridis-markus-1.jpg",
+      "originalSize": 168529,
+      "width": 1620,
+      "height": 1080,
+      "derivatives": [
+        {
+          "key": "optimized/bufotes-viridis-markus-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 5110
+        },
+        {
+          "key": "optimized/bufotes-viridis-markus-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 7070
+        },
+        {
+          "key": "optimized/bufotes-viridis-markus-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 7170
+        },
+        {
+          "key": "optimized/bufotes-viridis-markus-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 9488
+        },
+        {
+          "key": "optimized/bufotes-viridis-markus-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 12653
+        },
+        {
+          "key": "optimized/bufotes-viridis-markus-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 17248
+        },
+        {
+          "key": "optimized/bufotes-viridis-markus-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 16346
+        },
+        {
+          "key": "optimized/bufotes-viridis-markus-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 22868
+        },
+        {
+          "key": "optimized/bufotes-viridis-markus-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 27365
+        },
+        {
+          "key": "optimized/bufotes-viridis-markus-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 37124
+        },
+        {
+          "key": "optimized/bufotes-viridis-markus-1-1620.avif",
+          "format": "avif",
+          "width": 1620,
+          "height": 1080,
+          "byteSize": 42061
+        },
+        {
+          "key": "optimized/bufotes-viridis-markus-1-1620.webp",
+          "format": "webp",
+          "width": 1620,
+          "height": 1080,
+          "byteSize": 56186
+        }
+      ],
+      "updatedAt": "2026-10-12T17:16:30.921Z"
+    },
+    "bufotes-viridis-tomáš-1.jpg": {
+      "sourceHash": "1bf2b8781c866c994bb9cfbedb842309622419cfc9664de3d3d5738feb1408be",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "bufotes-viridis-tomáš-1.jpg",
+      "originalSize": 205447,
+      "width": 2048,
+      "height": 1363,
+      "derivatives": [
+        {
+          "key": "optimized/bufotes-viridis-tomáš-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 4859
+        },
+        {
+          "key": "optimized/bufotes-viridis-tomáš-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6088
+        },
+        {
+          "key": "optimized/bufotes-viridis-tomáš-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 6508
+        },
+        {
+          "key": "optimized/bufotes-viridis-tomáš-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 8512
+        },
+        {
+          "key": "optimized/bufotes-viridis-tomáš-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 12276
+        },
+        {
+          "key": "optimized/bufotes-viridis-tomáš-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 16712
+        },
+        {
+          "key": "optimized/bufotes-viridis-tomáš-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 532,
+          "byteSize": 17195
+        },
+        {
+          "key": "optimized/bufotes-viridis-tomáš-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 532,
+          "byteSize": 23554
+        },
+        {
+          "key": "optimized/bufotes-viridis-tomáš-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 799,
+          "byteSize": 29504
+        },
+        {
+          "key": "optimized/bufotes-viridis-tomáš-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 799,
+          "byteSize": 42358
+        },
+        {
+          "key": "optimized/bufotes-viridis-tomáš-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1363,
+          "byteSize": 65967
+        },
+        {
+          "key": "optimized/bufotes-viridis-tomáš-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1363,
+          "byteSize": 95296
+        }
+      ],
+      "updatedAt": "2026-10-12T17:17:42.481Z"
     },
     "bufotes-viridis-zakro-1.jpg": {
       "sourceHash": "1f4a7c3896f38c360c11abe3c983a6cf553377aa604b3a1b4c897ca7ea6fe353",
