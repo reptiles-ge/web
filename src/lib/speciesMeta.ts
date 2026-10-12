@@ -358,7 +358,7 @@ const SPECIES_META_DESCRIPTION_OVERRIDE: Partial<
     ka: "გიურზა (Macrovipera lebetinus) საქართველოში: ამოცნობის ნიშნები, გავრცელება, აღმოსავლეთ საქართველოს მშრალი ჰაბიტატები, ზომა და მაღალი რისკი ადამიანისთვის.",
   },
   "meles-canescens": {
-    ka: "მაჩვი (Meles canescens) საქართველოს თითქმის მთელ ტერიტორიაზე გვხვდება. ცნობადია შავ-თეთრზოლიანი თავით. ფოტოები, კვალი, სორო, კვება და დაცვის სტატუსი.",
+    ka: "მაჩვი (Meles canescens) საქართველოს მშობლიური კვერნისებრია, ცნობადი შავ-თეთრზოლიანი თავით. რუკა, ფოტოები, კვალი, სორო, კვება და დაცვის სტატუსი.",
   },
   "mesobuthus-eupeus": {
     en: "Mottled scorpion (Mesobuthus eupeus) in Georgia: taxonomy, Tbilisi evidence, identification notes, habitat, sting risk, and sources.",
