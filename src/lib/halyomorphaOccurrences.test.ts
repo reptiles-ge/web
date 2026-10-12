@@ -361,7 +361,7 @@ describe("occurrenceStatusForCount", () => {
     ).toEqual(confirmed);
   });
 
-  it("keeps Caucasian Badger records below the confirmed threshold", () => {
+  it("confirms Caucasian Badger regions from one record each", () => {
     const species = getSpeciesById("meles-canescens");
     expect(species).toBeDefined();
     if (!species) return;
@@ -377,17 +377,13 @@ describe("occurrenceStatusForCount", () => {
       "ka",
       confirmedRecordThresholdForSpecies(species.id),
     );
+    const confirmed = summary.recordsByRegion
+      .filter((region) => region.status === "confirmed")
+      .map((region) => region.id)
+      .sort();
 
     expect(summary.totalRecords).toBe(9);
-    expect(
-      summary.recordsByRegion.filter((region) => region.status === "confirmed"),
-    ).toEqual([]);
-    expect(
-      summary.recordsByRegion
-        .filter((region) => region.status === "recorded-only")
-        .map((region) => region.id)
-        .sort(),
-    ).toEqual([
+    expect(confirmed).toEqual([
       "adjara",
       "imereti",
       "kakheti",
@@ -395,7 +391,16 @@ describe("occurrenceStatusForCount", () => {
       "mtskheta-mtianeti",
       "samtskhe-javakheti",
     ]);
-    expect(getRegionsForSpecies(species.id)).toEqual([]);
+    expect(
+      summary.recordsByRegion.filter(
+        (region) => region.status === "recorded-only",
+      ),
+    ).toEqual([]);
+    expect(
+      getRegionsForSpecies(species.id)
+        .map((region) => region.id)
+        .sort(),
+    ).toEqual(confirmed);
   });
 
   it("keeps Red Fox distribution aligned with reviewed field records", () => {

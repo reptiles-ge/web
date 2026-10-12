@@ -233,6 +233,7 @@ export const regions: Region[] = [
       "anas-platyrhynchos",
       "turdus-merula",
       "cuculus-canorus",
+      "meles-canescens",
     ],
   },
   {
@@ -275,6 +276,7 @@ export const regions: Region[] = [
       "zamenis-longissimus",
       "columba-livia",
       "turdus-merula",
+      "meles-canescens",
     ],
   },
   {
@@ -393,6 +395,7 @@ export const regions: Region[] = [
       "vulpes-vulpes",
       "canis-lupus",
       "cuculus-canorus",
+      "meles-canescens",
     ],
   },
   {
@@ -535,6 +538,7 @@ export const regions: Region[] = [
       "turdus-merula",
       "vulpes-vulpes",
       "cuculus-canorus",
+      "meles-canescens",
     ],
   },
   {
@@ -613,6 +617,7 @@ export const regions: Region[] = [
       "lacerta-agilis",
       "vulpes-vulpes",
       "cuculus-canorus",
+      "meles-canescens",
     ],
   },
   {
@@ -702,6 +707,7 @@ export const regions: Region[] = [
       "vulpes-vulpes",
       "canis-lupus",
       "cuculus-canorus",
+      "meles-canescens",
     ],
   },
   {
