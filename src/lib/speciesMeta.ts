@@ -167,7 +167,7 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
     ka: "ბულბული (Luscinia megarhynchos) | მომღერალი ფრინველი საქართველოში",
   },
   "lutra-lutra": {
-    ka: "წავი საქართველოში (Lutra lutra) — სად გვხვდება",
+    ka: "წავი (Lutra lutra) — ფოტოები, კვება და გავრცელება საქართველოში",
   },
   "lycosa-singoriensis": {
     en: "South Russian tarantula (Lycosa singoriensis) | Wolf spider in Georgia",
@@ -182,7 +182,7 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
     ka: "ჩოქელა (Mantis religiosa) | მწერი საქართველოში",
   },
   "meles-canescens": {
-    ka: "მაჩვი საქართველოში (Meles canescens) — ამოცნობა",
+    ka: "მაჩვი (Meles canescens) — ფოტოები, კვება და გავრცელება საქართველოში",
   },
   "mesobuthus-eupeus": {
     en: "Mottled scorpion (Mesobuthus eupeus) | Scorpion in Georgia",
@@ -231,6 +231,9 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
   "platyceps-najadum": {
     en: "Dahl's whip snake (Platyceps najadum) | Non-venomous snake in Georgia",
     ka: "წენგოსფერი მცურავი (Platyceps najadum) | უშხამო გველი საქართველოში",
+  },
+  "procyon-lotor": {
+    ka: "ენოტი (Procyon lotor) — ფოტოები, ქცევა და გავრცელება საქართველოში",
   },
   "pseudopus-apodus": {
     en: "European glass lizard (Pseudopus apodus) | Legless lizard in Georgia",
@@ -349,13 +352,13 @@ const SPECIES_META_DESCRIPTION_OVERRIDE: Partial<
     ka: "აზიური ფაროსანა (Halyomorpha halys) საქართველოში — როგორ ამოვიცნოთ, რას აზიანებს, სად გვხვდება, რატომ შედის სახლში და როგორ მოვიქცეთ უსაფრთხოდ.",
   },
   "lutra-lutra": {
-    ka: "წავი საქართველოში (Lutra lutra) — როგორ ამოიცნოთ, სად გვხვდება, რა ზომისაა, რას ჭამს და რა სტატუსით არის დაცული.",
+    ka: "წავი (Lutra lutra) მდინარეებისა და ტბების ნახევრადწყლის მტაცებელია, საქართველოს წითელ ნუსხაში მოწყვლადი (VU). ფოტოები, ნიშნები, კვება და გავრცელება.",
   },
   "macrovipera-lebetina": {
     ka: "გიურზა (Macrovipera lebetinus) საქართველოში: ამოცნობის ნიშნები, გავრცელება, აღმოსავლეთ საქართველოს მშრალი ჰაბიტატები, ზომა და მაღალი რისკი ადამიანისთვის.",
   },
   "meles-canescens": {
-    ka: "მაჩვი საქართველოში (Meles canescens) — ამოცნობის ნიშნები, ტყისა და ბუჩქნარის ჰაბიტატი, კვება და კონსერვაციის სტატუსი.",
+    ka: "მაჩვი (Meles canescens) საქართველოს თითქმის მთელ ტერიტორიაზე გვხვდება. ცნობადია შავ-თეთრზოლიანი თავით. ფოტოები, კვალი, სორო, კვება და დაცვის სტატუსი.",
   },
   "mesobuthus-eupeus": {
     en: "Mottled scorpion (Mesobuthus eupeus) in Georgia: taxonomy, Tbilisi evidence, identification notes, habitat, sting risk, and sources.",
