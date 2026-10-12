@@ -1,7 +1,9 @@
+import type { NewsMark } from "@/data/newsTypes";
 import type { AppLocale } from "@/i18n/routing";
 
 import {
   getNewsArticleLocales,
+  getNewsCopy,
   getPublishedNewsArticleBySlug,
   getPublishedNewsArticles,
   type NewsArticle,
@@ -75,6 +77,19 @@ export function newsOgImageUrl(article?: NewsArticle) {
   return SITE_OG_IMAGE_URL;
 }
 
+export function newsReadMinutes(article: NewsArticle, locale: AppLocale) {
+  const copy = getNewsCopy(article, locale) ?? article.copy.ka;
+  const texts = [copy.title, copy.lead];
+  for (const section of copy.sections) {
+    texts.push(section.heading);
+    for (const block of section.blocks) {
+      if (block.type === "p") texts.push(...block.parts.map(newsMarkText));
+    }
+  }
+  const words = texts.join(" ").split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.round(words / NEWS_WORDS_PER_MINUTE));
+}
+
 export function publishedNewsStaticParams() {
   return getPublishedNewsArticles().flatMap((article) =>
     getNewsArticleLocales(article).map((locale) => ({
@@ -84,10 +99,17 @@ export function publishedNewsStaticParams() {
   );
 }
 
+const NEWS_WORDS_PER_MINUTE = 150;
+
 function newsArticlePath(locale: AppLocale, slug: string) {
   return getPathname({ href: newsArticleHref(slug), locale });
 }
 
 function newsIndexPath(locale: AppLocale) {
   return getPathname({ href: newsIndexHref(), locale });
+}
+
+function newsMarkText(mark: NewsMark) {
+  if (typeof mark === "string") return mark;
+  return "label" in mark ? mark.label : mark.name;
 }

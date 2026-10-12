@@ -1,128 +1,361 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, BookOpen } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import type { NewsArticle } from "@/data/news";
 import type { AppLocale } from "@/i18n/routing";
 
+import { CoverImage } from "@/components/CoverImage";
 import { CoverImagePreload } from "@/components/CoverImagePreload";
-import { NewsArticleCard } from "@/components/NewsArticleCard";
+import {
+  NewsIndexBrowser,
+  type NewsIndexBrowserItem,
+} from "@/components/NewsIndexBrowser";
+import {
+  type NewsIndexEntry,
+  NewsLeadCard,
+  NewsListCard,
+  NewsSideCard,
+} from "@/components/NewsIndexCards";
+import { newsLocalizedDek, newsLocalizedTitle } from "@/data/news";
+import { getAtlasStats } from "@/data/speciesAtlas";
 import { Link } from "@/i18n/navigation";
-import { getNewsVisual } from "@/lib/newsVisual";
+import {
+  formatContentDate,
+  formatContentDateShort,
+  formatContentMonth,
+} from "@/lib/formatDate";
+import {
+  GROUP_HUB_ILLUSTRATIONS,
+  GROUP_HUBS,
+  type GroupHubId,
+} from "@/lib/groupHubs";
+import { newsReadMinutes } from "@/lib/news";
+import { getNewsVisual, newsCategoryHub } from "@/lib/newsVisual";
 
 type NewsIndexPageProps = {
   articles: NewsArticle[];
   locale: AppLocale;
 };
 
+const TOPIC_ORDER: readonly GroupHubId[] = [
+  "snakes",
+  "lizards",
+  "turtles",
+  "amphibians",
+  "birds",
+  "mammals",
+  "spiders",
+  "scorpions",
+  "insects",
+];
+
+const CTA_TILES: ReadonlyArray<{ id: GroupHubId; mobile: boolean }> = [
+  { id: "snakes", mobile: true },
+  { id: "lizards", mobile: true },
+  { id: "amphibians", mobile: false },
+  { id: "birds", mobile: true },
+  { id: "mammals", mobile: false },
+  { id: "spiders", mobile: false },
+];
+
+const SOURCE_TAGS = [
+  "Zootaxa",
+  "Herpetology Notes",
+  "Ecology and Evolution",
+  "Batumi Raptor Count",
+];
+
+const FEATURED_COUNT = 3;
+
+const wrapClass =
+  "mx-auto box-content max-w-[1320px] px-5 md:px-10 lg:px-[60px]";
+const eyebrowClass =
+  "text-[10.5px] font-semibold tracking-[0.16em] text-(--nw-muted) md:text-[11px]";
+
 export async function NewsIndexPage({ articles, locale }: NewsIndexPageProps) {
-  const t = await getTranslations({ locale, namespace: "news" });
-  const tShared = await getTranslations({
-    locale,
-    namespace: "groupHubShared",
+  const [t, tNav, tShared] = await Promise.all([
+    getTranslations({ locale, namespace: "news" }),
+    getTranslations({ locale, namespace: "nav" }),
+    getTranslations({ locale, namespace: "groupHubShared" }),
+  ]);
+
+  const entries = articles.map((article) =>
+    toEntry(article, locale, {
+      readLabel: (minutes) => t("readTime", { minutes }),
+      readShortLabel: (minutes) => t("readTimeShort", { minutes }),
+      topicLabel: (hub) => tNav(hub),
+    }),
+  );
+  const [lead, ...rest] = entries;
+  const sides = rest.slice(0, FEATURED_COUNT - 1);
+  const stats = getAtlasStats();
+
+  const chips = [
+    { count: articles.length, id: "all", label: t("all") },
+    ...TOPIC_ORDER.map((id) => ({
+      count: articles.filter((article) => article.relatedHubIds.includes(id))
+        .length,
+      id,
+      label: tNav(id),
+    })).filter((chip) => chip.count > 0),
+  ];
+
+  const monthLabels: Record<string, string> = {};
+  const items: NewsIndexBrowserItem[] = articles.map((article, index) => {
+    const entry = entries[index];
+    const monthKey = article.publishedAt.slice(0, 7);
+    monthLabels[monthKey] ??= formatContentMonth(article.publishedAt, locale);
+    return {
+      card: <NewsListCard entry={entry} />,
+      id: article.id,
+      monthKey,
+      searchText: [
+        entry.title,
+        entry.dek,
+        ...article.sources.map((source) => source.name),
+      ]
+        .join(" ")
+        .toLocaleLowerCase(),
+      topics: article.relatedHubIds,
+    };
   });
-  const featured = articles[0];
-  const rest = articles.slice(1);
-  const featuredVisual = featured ? getNewsVisual(featured, locale) : null;
+
+  const articleWords = Array.from({ length: articles.length + 1 }, (_, count) =>
+    t("articleWord", { count }),
+  );
+
+  const featured = lead ? (
+    <section
+      aria-label={t("featured")}
+      className={`${wrapClass} pt-5 md:pt-10`}
+    >
+      <div className="lg:grid lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] lg:gap-7">
+        <NewsLeadCard
+          entry={lead}
+          labels={{
+            featured: t("featured"),
+            readArticle: t("readArticle"),
+            source: t("sourceHeading"),
+          }}
+        />
+        <div className="mt-3.5 flex flex-col gap-4 md:mt-8 lg:mt-0">
+          <div className="hidden items-center px-1.5 pt-1 md:flex">
+            <span className={eyebrowClass}>{t("latest")}</span>
+          </div>
+          {sides.length > 0 ? (
+            <div className="-mx-5 flex snap-x snap-mandatory scroll-px-5 scrollbar-none gap-3 overflow-x-auto px-5 pb-1 md:mx-0 md:snap-none md:flex-col md:gap-4 md:overflow-visible md:px-0 md:pb-0 [&::-webkit-scrollbar]:hidden">
+              {sides.map((entry) => (
+                <NewsSideCard entry={entry} key={entry.slug} />
+              ))}
+            </div>
+          ) : null}
+          <div className="hidden flex-1 flex-col justify-between gap-[18px] rounded-[28px] bg-(--nw-panel) p-6 text-white md:flex">
+            <span className="flex items-center gap-2.5">
+              <span className="inline-flex size-9 items-center justify-center rounded-full bg-white/10">
+                <BookOpen
+                  aria-hidden="true"
+                  className="size-4"
+                  strokeWidth={1.75}
+                />
+              </span>
+              <span className="text-[11px] font-semibold tracking-[0.16em] text-white/60">
+                {t("howWeWriteEyebrow")}
+              </span>
+            </span>
+            <p className="text-[17px] leading-[1.45] font-medium">
+              {t("howWeWrite")}
+            </p>
+            <ul className="flex flex-wrap gap-1.5">
+              {SOURCE_TAGS.map((tag) => (
+                <li
+                  className="rounded-full bg-white/8 px-[11px] py-1.5 text-[12px] text-white/82"
+                  key={tag}
+                >
+                  {tag}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  ) : null;
 
   return (
-    <div className="min-h-screen bg-background">
-      {featuredVisual ? (
+    <div className="editorial-page min-h-screen bg-background text-(--nw-ink) antialiased">
+      {lead ? (
         <CoverImagePreload
-          sizes="(max-width: 1023px) 100vw, 58vw"
-          src={featuredVisual.src}
+          sizes="(max-width: 1023px) 100vw, 60vw"
+          src={lead.src}
         />
       ) : null}
-      <div>
-        <header className="pt-30 pb-12 sm:pt-33 sm:pb-16 lg:pb-20">
-          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-            <nav aria-label="Breadcrumb" className="sr-only">
-              <ol className="flex flex-wrap items-center gap-2 text-[13px] text-muted-foreground">
-                <li>
-                  <Link
-                    className="inline-flex min-h-11 items-center transition-colors hover:text-foreground"
-                    href="/"
-                  >
-                    {tShared("breadcrumbHome")}
-                  </Link>
-                </li>
-                <li aria-hidden="true" className="text-border">
-                  /
-                </li>
-                <li className="text-foreground">{t("breadcrumbNews")}</li>
-              </ol>
-            </nav>
-            <h1 className="text-balance-tight max-w-3xl font-display text-display-hero font-semibold text-foreground">
+      <header className={`${wrapClass} pt-[107px] md:pt-[147px] md:pb-10`}>
+        <nav aria-label="Breadcrumb" className="sr-only">
+          <ol>
+            <li>
+              <Link href="/">{tShared("breadcrumbHome")}</Link>
+            </li>
+            <li>{t("breadcrumbNews")}</li>
+          </ol>
+        </nav>
+        <div className="xl:grid xl:grid-cols-[minmax(0,1fr)_470px] xl:items-end xl:gap-20">
+          <div>
+            {lead ? (
+              <div className="flex items-center gap-[9px] md:gap-2.5">
+                <span
+                  aria-hidden="true"
+                  className="size-[7px] rounded-full bg-(--nw-accent) shadow-[0_0_0_4px_rgba(47,107,79,0.16)] md:size-2"
+                />
+                <span className={eyebrowClass}>
+                  {t("status", {
+                    count: articles.length,
+                    date: lead.dateLabel,
+                  })}
+                </span>
+              </div>
+            ) : null}
+            <h1 className="mt-3.5 font-display text-[52px] leading-none font-semibold tracking-[-0.03em] md:mt-[18px] md:text-[88px] md:leading-[0.95] md:tracking-[-0.035em] xl:text-[104px]">
               {t("h1")}
             </h1>
-            <p className="mt-6 max-w-2xl text-[17px] leading-snug text-foreground/90 sm:text-[18px]">
+          </div>
+          <div className="mt-3.5 max-w-[640px] md:mt-6 xl:mt-0 xl:pb-2">
+            <p className="text-[16px] leading-[1.55] text-(--nw-soft) md:text-[18px] md:text-(--nw-ink)">
               {t("intro")}
             </p>
-            <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-              {t("introBody")}
+            <p className="mt-3.5 hidden text-[14px] leading-[1.7] text-(--nw-muted) md:block">
+              {t("introNote")}
             </p>
           </div>
-        </header>
+        </div>
+      </header>
 
-        <section className="pb-20 sm:pb-24 lg:pb-28">
-          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-            {articles.length === 0 ? (
-              <p className="text-[15px] text-muted-foreground">{t("empty")}</p>
-            ) : (
-              <>
-                {featured ? (
-                  <NewsArticleCard
-                    article={featured}
-                    locale={locale}
-                    variant="featured"
-                  />
-                ) : null}
-                {rest.length > 0 ? (
-                  <div className="mt-16 border-t border-border pt-14 sm:mt-20 sm:pt-16 lg:mt-24 lg:pt-20">
-                    <h2 className="font-display text-display-card font-semibold text-foreground">
-                      {t("moreStories")}
-                    </h2>
-                    <ul className="mt-10 grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-14 lg:mt-12">
-                      {rest.map((article) => (
-                        <li className="h-full" key={article.id}>
-                          <NewsArticleCard
-                            article={article}
-                            locale={locale}
-                            prefetch={false}
-                            variant="grid"
-                          />
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ) : null}
-              </>
-            )}
-          </div>
-        </section>
+      <main>
+        {articles.length === 0 ? (
+          <p className={`${wrapClass} pt-10 text-[15px] text-(--nw-muted)`}>
+            {t("empty")}
+          </p>
+        ) : (
+          <NewsIndexBrowser
+            articleWords={articleWords}
+            chips={chips}
+            featured={featured}
+            featuredCount={FEATURED_COUNT}
+            items={items}
+            labels={{
+              clear: t("clear"),
+              emptyCta: t("allNews"),
+              emptyText: t("emptyText"),
+              emptyTitle: t("emptyTitle"),
+              emptyTitleShort: t("emptyTitleShort"),
+              resetFilter: t("resetFilter"),
+              resetFilterShort: t("resetFilterShort"),
+              searchLabel: t("searchLabel"),
+              searchPlaceholder: t("searchPlaceholder"),
+              topicsLabel: t("topicsLabel"),
+            }}
+            monthLabels={monthLabels}
+          />
+        )}
 
-        <section className="border-t border-border bg-background py-20 lg:py-28">
-          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-            <h2 className="text-balance-tight max-w-xl font-display text-display-title font-semibold text-foreground">
-              {t("atlasCtaTitle")}
-            </h2>
-            <p className="mt-4 max-w-md text-[15px] leading-relaxed text-muted-foreground">
-              {t("atlasCtaBody")}
-            </p>
+        <section className={`${wrapClass} pt-12 pb-14 md:pt-24 md:pb-28`}>
+          <div className="relative overflow-hidden rounded-[28px] bg-(--nw-surface) px-[22px] pt-7 pb-[22px] md:rounded-[36px] md:px-16 md:py-14 lg:grid lg:grid-cols-[minmax(0,1fr)_520px] lg:items-center lg:gap-12">
+            <div>
+              <span className={eyebrowClass}>{t("ctaEyebrow")}</span>
+              <h2 className="mt-2.5 text-[26px] leading-[1.15] font-semibold tracking-[-0.012em] md:mt-3.5 md:text-[40px] md:leading-[1.1] md:tracking-[-0.015em]">
+                {t("atlasCtaTitle")}
+              </h2>
+              <p className="mt-2.5 max-w-[460px] text-[14.5px] leading-[1.6] text-(--nw-muted) md:mt-3.5 md:text-[16px] md:leading-[1.65]">
+                {t("atlasCtaBody")}
+              </p>
+              <Link
+                className="mt-7 hidden h-[52px] items-center gap-2.5 rounded-full bg-(--nw-strong) px-6 text-[15px] font-medium text-(--nw-on-strong) md:inline-flex"
+                href="/species"
+              >
+                {t("atlasCta")}
+                <ArrowRight
+                  aria-hidden="true"
+                  className="size-4"
+                  strokeWidth={1.75}
+                />
+              </Link>
+            </div>
+            <ul className="mt-[18px] grid grid-cols-3 gap-2 md:mt-10 md:gap-2.5 lg:mt-0">
+              {CTA_TILES.map((tile) => (
+                <li
+                  className={tile.mobile ? "" : "hidden md:block"}
+                  key={tile.id}
+                >
+                  <Link
+                    className="group relative flex h-[92px] flex-col justify-end overflow-hidden rounded-2xl bg-[#151c18] px-[11px] py-2.5 text-white md:h-[120px] md:rounded-[20px] md:px-3.5 md:py-3"
+                    href={GROUP_HUBS[tile.id].path}
+                  >
+                    <span className="absolute inset-0 opacity-75 [&_picture]:bg-transparent! [&_picture]:bg-none!">
+                      <CoverImage
+                        alt=""
+                        aria-hidden
+                        className="object-cover motion-safe:transition-transform motion-safe:duration-800 motion-safe:group-hover:scale-[1.04]"
+                        sizes="(max-width: 767px) 33vw, 180px"
+                        src={GROUP_HUB_ILLUSTRATIONS[tile.id]}
+                      />
+                    </span>
+                    <span
+                      aria-hidden="true"
+                      className="absolute inset-x-0 bottom-0 h-[70%] bg-linear-to-t from-[rgba(14,20,17,0.85)] to-transparent"
+                    />
+                    <span className="relative text-[15px] font-semibold tabular-nums md:text-[18px] md:leading-none">
+                      {stats[tile.id]}
+                    </span>
+                    <span className="relative text-[12px] font-semibold md:mt-1 md:text-[13px]">
+                      {tNav(tile.id)}
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
             <Link
-              className="group mt-8 inline-flex min-h-11 items-center gap-2 text-[14px] font-medium text-foreground focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:outline-none"
+              className="mt-3.5 flex h-[52px] items-center justify-center gap-2.5 rounded-full bg-(--nw-strong) text-[15px] font-medium text-(--nw-on-strong) md:hidden"
               href="/species"
             >
-              <span className="border-b border-foreground/25 pb-0.5 transition-colors group-hover:border-foreground">
-                {t("atlasCta")}
-              </span>
+              {t("atlasCta")}
               <ArrowRight
                 aria-hidden="true"
-                className="size-4 text-muted-foreground group-hover:text-foreground motion-safe:transition-transform motion-safe:duration-300 motion-safe:group-hover:translate-x-0.5"
+                className="size-4"
+                strokeWidth={1.75}
               />
             </Link>
           </div>
         </section>
-      </div>
+      </main>
     </div>
   );
+}
+
+function toEntry(
+  article: NewsArticle,
+  locale: AppLocale,
+  labels: {
+    readLabel: (minutes: number) => string;
+    readShortLabel: (minutes: number) => string;
+    topicLabel: (hub: GroupHubId) => string;
+  },
+): NewsIndexEntry {
+  const hub = newsCategoryHub(article);
+  const visual = getNewsVisual(article, locale);
+  const minutes = newsReadMinutes(article, locale);
+  return {
+    alt: visual?.alt ?? "",
+    dateLabel: formatContentDate(article.publishedAt, locale),
+    dateShort: formatContentDateShort(article.publishedAt, locale),
+    dek: newsLocalizedDek(article, locale),
+    illustrated: !visual,
+    publishedAt: article.publishedAt,
+    readLabel: labels.readLabel(minutes),
+    readShortLabel: labels.readShortLabel(minutes),
+    slug: article.slug,
+    source: article.sources[0]?.name ?? null,
+    sourceMore: Math.max(0, article.sources.length - 1),
+    src: visual?.src ?? GROUP_HUB_ILLUSTRATIONS[hub ?? "snakes"],
+    title: newsLocalizedTitle(article, locale),
+    topicLabel: hub ? labels.topicLabel(hub) : null,
+  };
 }

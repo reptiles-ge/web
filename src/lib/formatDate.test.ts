@@ -1,6 +1,11 @@
 import { describe, expect, it } from "vitest";
 
-import { formatContentDate, formatPhotoDate } from "@/lib/formatDate";
+import {
+  formatContentDate,
+  formatContentDateShort,
+  formatContentMonth,
+  formatPhotoDate,
+} from "@/lib/formatDate";
 import { parseToSiteDateTime, toSiteDateTime } from "@/lib/siteTime";
 
 describe("siteTime", () => {
@@ -34,6 +39,23 @@ describe("formatContentDate", () => {
     expect(formatContentDate("2026-09-04", "ka")).toBe("4 სექტემბერი 2026");
     expect(formatContentDate("2026-09-04", "ru")).toBe("4 сентября 2026");
     expect(formatContentDate("2026-09-04", "tr")).toBe("4 Eylül 2026");
+  });
+});
+
+describe("formatContentDateShort", () => {
+  it("formats day and short month in each live locale", () => {
+    expect(formatContentDateShort("2026-09-02", "ka")).toBe("2 სექ");
+    expect(formatContentDateShort("2026-09-02", "en")).toBe("2 Sep");
+    expect(formatContentDateShort("2026-05-14", "ru")).toBe("14 мая");
+    expect(formatContentDateShort("2026-08-27", "tr")).toBe("27 Ağu");
+  });
+});
+
+describe("formatContentMonth", () => {
+  it("formats a standalone month heading", () => {
+    expect(formatContentMonth("2026-09-23", "ka")).toBe("სექტემბერი 2026");
+    expect(formatContentMonth("2026-09-23", "en")).toBe("September 2026");
+    expect(formatContentMonth("2026-09-23", "ru")).toBe("сентябрь 2026");
   });
 });
 

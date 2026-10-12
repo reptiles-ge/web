@@ -46,6 +46,8 @@ const eslintConfig = defineConfig([
           whitelist: [
             "hero-drift",
             "media-placeholder",
+            "news-ill",
+            "editorial-page",
             "no-scrollbar",
             "glass-card",
             "species-carousel-track",

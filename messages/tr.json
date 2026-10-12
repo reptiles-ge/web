@@ -805,7 +805,6 @@
     "h1": "Haberler",
     "eyebrow": "Haberler",
     "intro": "Gürcistan yaban hayatı haberleri — yeni gözlemler, bilimsel notlar ve önemli olaylar.",
-    "introBody": "Gürcistan hayvanlarıyla ilgili saha kayıtlarını, bilimsel gelişmeleri ve önemli olayları yayımlıyoruz. Her yazı editoryaldir ve kaynaklara dayanır; asıl kayıt tür profilidir.",
     "breadcrumbNews": "Haberler",
     "sourceHeading": "Kaynak",
     "sourceHeadingPlural": "Kaynaklar",
@@ -816,7 +815,6 @@
     "allNews": "Tüm haberler",
     "readArticle": "Yazıyı oku",
     "featured": "Öne çıkan",
-    "moreStories": "Diğer yazılar",
     "atlasCtaTitle": "Belirli bir tür mü arıyorsunuz?",
     "atlasCtaBody": "Gürcistan hayvan atlasını keşfedin — tür profilleri, bölgesel yayılış ve saha fotoğrafları.",
     "atlasCta": "Tür atlası",
@@ -824,21 +822,37 @@
     "photoCredit": "Fotoğraf:",
     "empty": "Henüz haber yok.",
     "notFound": "Yazı bulunamadı",
-    "anchorLink": "Bu bölüme bağlantı"
+    "anchorLink": "Bu bölüme bağlantı",
+    "status": "{count, plural, other {# makale}} · {date} tarihinde güncellendi",
+    "introNote": "Tüm makaleler kaynaklara dayanan editoryal içeriklerdir. Tür profili atlasın temel kaydı olmaya devam eder.",
+    "topicsLabel": "Konular",
+    "all": "Tümü",
+    "searchLabel": "Haberlerde ara",
+    "searchPlaceholder": "Haberlerde ara",
+    "clear": "Temizle",
+    "latest": "Yeni",
+    "readTime": "{minutes} dk okuma",
+    "readTimeShort": "{minutes} dk",
+    "howWeWriteEyebrow": "Nasıl yazıyoruz",
+    "howWeWrite": "Her makaleye birincil kaynak eşlik eder — bilimsel bir çalışma, saha sayımı veya resmî bir açıklama.",
+    "articleWord": "{count, plural, other {makale}}",
+    "resetFilter": "Filtreyi kaldır",
+    "resetFilterShort": "Kaldır",
+    "emptyTitle": "Bu aramayla eşleşen makale yok",
+    "emptyTitleShort": "Makale bulunamadı",
+    "emptyText": "Başka bir kelime deneyin veya konu filtresini kaldırın.",
+    "ctaEyebrow": "Atlas"
   },
   "about": {
     "metaTitle": "Hakkında",
     "metaDescription": "Reptiles.ge, Gürcistan hayvanlarının dört dilli atlasıdır. Gürcüce kanoniktir; herpetofauna Tarkhnishvili et al. 2026’yı izler.",
-    "back": "Ana sayfa",
-    "brand": "Reptiles",
     "eyebrow": "Kurum hakkında",
     "title": "Gürcistan hayvanları atlası",
     "subtitle": "Tür profilleri, bölgesel haritalar ve saha fotoğrafları — yürüyüşçüler, öğrenciler ve araştırmacılar için.",
-    "heroImageAlt": "Alacakaranlıkta sisli Kafkas sırtı",
     "companyEyebrow": "Biz kimiz",
     "companyTitle": "Reptiles — Gürcistan hayvanları atlası",
     "companyBody1": "Reptiles.ge, Gürcistan hayvanlarının atlasıdır. En derin katman herpetofaunadır — Tarkhnishvili et al. 2026. Kuşlar, memeliler ve örümcekler aynı katalogda daha ince hub’lardır. Site dört dildedir; Gürcüce metin kanoniktir.",
-    "companyBody2": "İdari bölgeleri, ölçüleri, IUCN kategorisini veya ulusal Kırmızı Liste statüsünü uydurmayız. Aday taksonlar aday kalır. Isırık ve zehir sayfaları eğitici niteliktedir: 112’yi arayın; tıbbi protokol değildir.",
+    "companyBody2": "İdari bölgeleri, ölçüleri, IUCN kategorisini veya ulusal Kırmızı Liste statüsünü uydurmayız. Aday taksonlar aday kalır.",
     "companyBody3": "Atlas editoryal bir derlemedir. Fotoğrafların her zaman kredisi vardır; Gürcistan saha doğrulaması yalnızca kanıtla işaretlenir. Düzeltmeler iletişim sayfasından gelir.",
     "pillars": {
       "discover": {
@@ -860,7 +874,7 @@
     "methodCardTitle": "Neyi çıkarsamayız",
     "methodCardBody": "İdari bölgeler, ölçüler, IUCN ve ulusal Kırmızı Liste yalnızca sitede zaten alıntılanan bir kaynak onları adlandırınca görünür. Kontrol listesi adayları teyit edilmiş sayılmaz.",
     "sourcesCardTitle": "Herpetofauna kontrol listesi",
-    "sourcesCardBody": "Amfibiler ve sürüngenler Tarkhnishvili et al. 2026’yı izler (DOI 10.3897/caucasiana.5.e189214). Yılan yayılışı, bu makale bir profilde zaten kullanıldığında Iankoshvili & Tarkhnishvili 2021’e de atıfta bulunabilir.",
+    "sourcesCardBody": "Amfibiler ve sürüngenler Tarkhnishvili et al. 2026’yı izler. Yılan dağılımı için, profilde zaten yer alıyorsa Iankoshvili & Tarkhnishvili 2021’e atıf yapabiliriz.",
     "photosCardTitle": "Fotoğrafçılık",
     "photosCardBody": "Görseller kredilendirilir. CDN fotoğrafları çoğu zaman geneldir; kanıt olmadan Gürcistan sahasında doğrulanmış demeyiz.",
     "sources": {
@@ -887,7 +901,28 @@
       "insects": "Gürcistan’daki böcekler",
       "venomous": "Gürcistan’da zehirli yılanlar",
       "dangerous": "Gürcistan'ın tehlikeli hayvanları"
-    }
+    },
+    "safetyNote": "Isırık ve zehir sayfaları eğitici niteliktedir: <b>112’yi arayın</b>; tıbbi protokol değildir.",
+    "quote": "“Boş bir alan, uydurulmuş olandan iyidir.”",
+    "methodCta": "Nasıl çalışıyoruz",
+    "stats": {
+      "species": "{count, plural, other {tür profili}}",
+      "regions": "{count, plural, other {bölge}}",
+      "contributors": "{count, plural, other {katkıda bulunan}}",
+      "languages": "{count, plural, other {dil}} · Gürcüce esastır",
+      "languagesShort": "{count, plural, other {dil}}"
+    },
+    "notInferred": {
+      "regions": "İdari bölgeler",
+      "sizes": "Ölçüler",
+      "iucn": "IUCN",
+      "redList": "Ulusal Kırmızı Liste"
+    },
+    "contributors": "Katkıda bulunanlar",
+    "contributorsJoin": "{count, plural, other {# katkıda bulunan}} atlası zenginleştiriyor",
+    "contributorsShort": "{count, plural, other {# katkıda bulunan}}",
+    "atlasCta": "Tür atlası",
+    "atlasCtaCount": "Tür atlası · {count}"
   },
   "author": {
     "jobTitles": {
