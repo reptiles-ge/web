@@ -187,6 +187,25 @@ const ELEVATION_LABELS = new Set([
   "Высота",
   "ზღვის დონიდან",
 ]);
+const CONSERVATION_LABELS = new Set([
+  "Conservation",
+  "Global IUCN",
+  "Global status",
+  "IUCN",
+  "IUCN глобально",
+  "Koruma",
+  "Koruma durumu",
+  "Küresel durum",
+  "Küresel IUCN",
+  "Глобальный статус",
+  "Мировой статус",
+  "МСОП",
+  "Охрана",
+  "Охранный статус",
+  "გლობალური IUCN",
+  "გლობალური სტატუსი",
+  "კონსერვაცია",
+]);
 
 export function getSpeciesActivityStat(species: Species) {
   return getStatByLabels(species, ACTIVITY_LABELS);
@@ -224,6 +243,10 @@ export function hasRealIdentification(
     );
   });
   return !metaOnly;
+}
+
+export function isConservationStatLabel(label: string) {
+  return CONSERVATION_LABELS.has(label);
 }
 
 export function isElevationStatLabel(label: string) {

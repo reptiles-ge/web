@@ -101,8 +101,8 @@ export async function SpeciesProfileFacts({
                       dangerValue={dangerValue}
                       linkDangerStats={linkDangerStats}
                       value={
-                        tile.visual?.kind === "iucn"
-                          ? t(`iucnStatus.${tile.visual.code}`)
+                        tile.visual?.kind === "iucn" && tile.visual.statusCode
+                          ? t(`iucnStatus.${tile.visual.statusCode}`)
                           : tile.stat.value
                       }
                     />
@@ -141,7 +141,7 @@ function FactVisual({ visual }: { visual: SpeciesFactVisual }) {
           <span
             className={cn(
               "flex h-[22px] flex-1 items-center justify-center rounded-[7px] font-sans text-[10px] font-semibold lg:h-[26px] lg:text-[11px]",
-              code === visual.code
+              visual.codes.includes(code)
                 ? iucnTone(code)
                 : "bg-surface text-muted-foreground",
             )}
