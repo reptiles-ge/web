@@ -7,13 +7,12 @@ import { notFound } from "next/navigation";
 import { AboutPage } from "@/components/AboutPage";
 import { JsonLd } from "@/components/JsonLd";
 import { routing } from "@/i18n/routing";
+import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import { buildPageMetadata } from "@/lib/pageMetadata";
 import {
   absoluteUrl,
   localePath,
-  organizationJsonLd,
   SITE_OG_IMAGE_URL,
-  siteConfig,
   siteEntityId,
 } from "@/lib/site";
 import { pageDateFields } from "@/lib/structuredDataDates";
@@ -31,20 +30,20 @@ export default async function About({ params }: Props) {
   setRequestLocale(locale);
 
   const t = await getTranslations({ locale, namespace: "about" });
-  const url = absoluteUrl(localePath(locale, "/about"));
+  const path = localePath(locale, "/about");
+  const organization = { "@id": siteEntityId("organization") };
 
   const aboutJsonLd = {
     "@context": "https://schema.org",
     "@type": "AboutPage",
     ...pageDateFields("/about"),
-    description: t("metaDescription"),
+    about: organization,
+    description: kaMetaDescriptionOverride(locale, path, t("metaDescription")),
     inLanguage: locale,
     isPartOf: { "@id": siteEntityId("website") },
-    mainEntity: organizationJsonLd({
-      description: t("metaDescription"),
-    }),
-    name: `${t("metaTitle")} — ${siteConfig.name}`,
-    url,
+    mainEntity: organization,
+    name: t("metaTitle"),
+    url: absoluteUrl(path),
   };
 
   return (
@@ -60,12 +59,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!hasLocale(routing.locales, locale)) return {};
 
   const t = await getTranslations({ locale, namespace: "about" });
+  const title = t("metaTitle");
   return buildPageMetadata({
     description: t("metaDescription"),
     locale,
+    metadataTitle: { absolute: title },
     ogImageUrl: SITE_OG_IMAGE_URL,
     pagePath: "/about",
-    title: t("metaTitle"),
+    title,
   });
 }
 
