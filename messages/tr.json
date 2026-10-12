@@ -836,6 +836,8 @@
     "readTimeShort": "{minutes} dk",
     "howWeWriteEyebrow": "Nasıl yazıyoruz",
     "howWeWrite": "Her makaleye birincil kaynak eşlik eder — bilimsel bir çalışma, saha sayımı veya resmî bir açıklama.",
+    "methodologyLink": "Standartlar ve kaynaklar",
+    "correctionsLink": "Düzeltme gönder",
     "articleWord": "{count, plural, other {makale}}",
     "resetFilter": "Filtreyi kaldır",
     "resetFilterShort": "Kaldır",
@@ -1014,7 +1016,7 @@
   },
   "site": {
     "title": "Reptiles — Gürcistan hayvanları atlası",
-    "description": "Gürcistan hayvanlarının tür atlası: profiller, yayılış ve tanıma. Sürüngenler, amfibiler, kuşlar, memeliler ve diğer gruplar."
+    "description": "Gürcistan hayvanlarının tür atlası: profiller, yayılış ve tanıma. Sürüngenler, amfibiler, kuşlar, memeliler ve daha fazlası — Gürcüce, İngilizce, Rusça ve Türkçe."
   },
   "notFound": {
     "eyebrow": "Atlasda kayboldunuz",

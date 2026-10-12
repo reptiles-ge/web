@@ -1,5 +1,5 @@
 import { getGuideArticles } from "@/data/guideArticles";
-import { getPublishedNewsArticles } from "@/data/news";
+import { getPublishedNewsArticles, newsSourceName } from "@/data/news";
 import { regions } from "@/data/regions";
 import { getCatalogSpecies, type Species } from "@/data/species";
 import { type AnimalGroup, getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
@@ -200,7 +200,7 @@ export function buildLlmsFullText() {
     if (article.sources.length > 0) {
       parts.push("- Sources:");
       for (const source of article.sources) {
-        parts.push(`  - ${source.name}: ${source.url}`);
+        parts.push(`  - ${newsSourceName(source, "ka")}: ${source.url}`);
       }
     }
     parts.push("");

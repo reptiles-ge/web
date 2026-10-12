@@ -5,13 +5,16 @@ import { routing } from "@/i18n/routing";
 import {
   newsArticleAlternates,
   newsArticleHref,
+  newsArticleModifiedDateTime,
   newsArticleUrl,
   newsDateTime,
   newsIndexAlternates,
+  newsIndexDateFields,
   newsIndexHref,
   newsIndexUrl,
   newsOgImageUrl,
   newsReadMinutes,
+  newsSourceBadges,
   publishedNewsStaticParams,
 } from "@/lib/news";
 import { SITE_OG_IMAGE_URL } from "@/lib/site";
@@ -105,5 +108,103 @@ describe("newsReadMinutes", () => {
         expect(minutes).toBeGreaterThanOrEqual(1);
       }
     }
+  });
+});
+
+describe("newsIndexDateFields", () => {
+  function withDates(publishedAt: string, updatedAt?: string) {
+    return { ...article, publishedAt, slug: publishedAt, updatedAt };
+  }
+
+  it("dates the index by the newest article update, then publish date", () => {
+    const fields = newsIndexDateFields("en", [
+      withDates("2026-09-01", "2026-09-20"),
+      withDates("2026-09-10T12:30:00+04:00"),
+    ]);
+    expect(fields.dateModified).toBe("2026-09-20T00:00:00+04:00");
+  });
+
+  it("compares instants across time zones, not strings", () => {
+    const fields = newsIndexDateFields("en", [
+      withDates("2026-09-10T23:30:00Z"),
+      withDates("2026-09-11T02:00:00+04:00"),
+    ]);
+    expect(fields.dateModified).toBe("2026-09-11T03:30:00+04:00");
+  });
+
+  it("falls back to the index publish date with no dated articles", () => {
+    const fields = newsIndexDateFields("en", []);
+    expect(fields.dateModified).toBe(fields.datePublished);
+    expect(newsIndexDateFields("en", [withDates("bad")]).dateModified).toBe(
+      fields.datePublished,
+    );
+  });
+
+  it("matches the newest published article in the registry", () => {
+    const newest = Math.max(
+      ...getPublishedNewsArticles("ka").map((item) =>
+        Date.parse(newsArticleModifiedDateTime(item)),
+      ),
+    );
+    expect(Date.parse(newsIndexDateFields("ka").dateModified)).toBe(newest);
+  });
+});
+
+describe("newsSourceBadges", () => {
+  function withSources(slug: string, names: string[]) {
+    return {
+      ...article,
+      slug,
+      sources: names.map((name) => ({ name, url: `https://x/${name}` })),
+    };
+  }
+
+  it("is empty when no article cites a source", () => {
+    expect(newsSourceBadges([], "en")).toEqual([]);
+    expect(newsSourceBadges([withSources("a", [])], "en")).toEqual([]);
+  });
+
+  it("counts an organisation once per article, case-insensitively", () => {
+    expect(
+      newsSourceBadges(
+        [
+          withSources("a", ["Zootaxa — paper", "zootaxa — PDF", "NOAA"]),
+          withSources("b", ["NOAA — biology"]),
+        ],
+        "en",
+      ),
+    ).toEqual(["NOAA", "Zootaxa"]);
+  });
+
+  it("orders by citing articles, then by first appearance, and caps the list", () => {
+    const articles = [
+      withSources("a", ["A", "B"]),
+      withSources("b", ["C", "B"]),
+      withSources("c", ["D", "E"]),
+    ];
+    expect(newsSourceBadges(articles, "en")).toEqual(["B", "A", "C", "D"]);
+    expect(newsSourceBadges(articles, "en", 2)).toEqual(["B", "A"]);
+    expect(newsSourceBadges(articles, "en")).toEqual(
+      newsSourceBadges(articles, "en"),
+    );
+  });
+
+  it("uses localized source names", () => {
+    const localized = {
+      ...article,
+      sources: [
+        {
+          name: {
+            en: "Ministry — x",
+            ka: "სამინისტრო — x",
+            ru: "Министерство",
+            tr: "Bakanlık",
+          },
+          url: "u",
+        },
+      ],
+    };
+    expect(newsSourceBadges([localized], "en")).toEqual(["Ministry"]);
+    expect(newsSourceBadges([localized], "ka")).toEqual(["სამინისტრო"]);
   });
 });

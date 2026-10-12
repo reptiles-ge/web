@@ -50,7 +50,7 @@ export function NewsLeadCard({
         href={newsArticleHref(entry.slug)}
       >
         <NewsCover
-          className="aspect-4/3 md:aspect-16/10 md:rounded-[32px]"
+          className="aspect-16/10 md:rounded-[32px]"
           entry={entry}
           priority
           sizes="(max-width: 1023px) 100vw, 60vw"
@@ -77,9 +77,9 @@ export function NewsLeadCard({
             <NewsMetaSep />
             <span>{entry.readLabel}</span>
           </div>
-          <h2 className="mt-2.5 max-w-[760px] text-[25px] leading-[1.18] font-semibold tracking-[-0.015em] text-(--nw-ink) transition-colors duration-200 md:mt-3.5 md:text-[42px] md:leading-[1.1] md:tracking-[-0.02em] md:group-hover:text-(--nw-accent)">
+          <h3 className="mt-2.5 max-w-[760px] text-[25px] leading-[1.18] font-semibold tracking-[-0.015em] text-(--nw-ink) transition-colors duration-200 md:mt-3.5 md:text-[42px] md:leading-[1.1] md:tracking-[-0.02em] md:group-hover:text-(--nw-accent)">
             {entry.title}
-          </h2>
+          </h3>
           <p className="mt-2.5 line-clamp-3 max-w-[680px] text-[15px] leading-[1.55] text-(--nw-muted) md:mt-4 md:text-[17px] md:leading-[1.6]">
             {entry.dek}
           </p>
