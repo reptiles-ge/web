@@ -182,7 +182,7 @@ export async function NewsIndexPage({ articles, locale }: NewsIndexPageProps) {
   ) : null;
 
   return (
-    <div className="news-page min-h-screen bg-background text-(--nw-ink) antialiased">
+    <div className="editorial-page min-h-screen bg-background text-(--nw-ink) antialiased">
       {lead ? (
         <CoverImagePreload
           sizes="(max-width: 1023px) 100vw, 60vw"
