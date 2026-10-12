@@ -18,6 +18,7 @@ type Copy = {
   pending: string;
   reconnecting: string;
   report: string;
+  resume: string;
   running: string;
   validation: string;
 };
@@ -70,13 +71,13 @@ export function SpeciesSuperAnalysis({
     };
   }, [copy.reconnecting, generation, id, onBusyChange]);
 
-  async function launch() {
+  async function launch(resume = false) {
     setStarting(true);
     setError("");
     onBusyChange(true);
     try {
       const response = await fetch("/api/admin/species-super-analysis", {
-        body: JSON.stringify({ id, runId: crypto.randomUUID() }),
+        body: JSON.stringify({ id, resume, runId: crypto.randomUUID() }),
         headers: { "Content-Type": "application/json" },
         method: "POST",
       });
@@ -168,6 +169,16 @@ export function SpeciesSuperAnalysis({
               <p className="mt-3 text-destructive">
                 {copy.failed}: {job.error}
               </p>
+            ) : null}
+            {job.status === "failed" && job.resumable ? (
+              <button
+                className="mt-3 w-full rounded-lg border border-primary px-4 py-2 text-sm font-semibold text-primary disabled:opacity-60"
+                disabled={disabled || starting}
+                onClick={() => void launch(true)}
+                type="button"
+              >
+                {copy.resume}
+              </button>
             ) : null}
           </>
         ) : null}

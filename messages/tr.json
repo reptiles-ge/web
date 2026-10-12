@@ -54,7 +54,8 @@
     "superCompleted": "Tamamlandı",
     "superFailed": "Başarısız",
     "superValidation": "Son doğrulama",
-    "superReconnecting": "Yeniden bağlanılıyor… İlerleme sunucuda kayıtlı."
+    "superReconnecting": "Yeniden bağlanılıyor… İlerleme sunucuda kayıtlı.",
+    "superResume": "Kaldığı yerden devam et"
   },
   "nav": {
     "species": "Türler",

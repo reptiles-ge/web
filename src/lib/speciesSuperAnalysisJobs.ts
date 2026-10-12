@@ -5,9 +5,13 @@ import path from "node:path";
 
 import { readAdminSpeciesGallery } from "@/lib/adminGalleryMdx";
 import { notifyAdminTelegram } from "@/lib/adminTelegram";
-import { runSpeciesWorkflow } from "@/lib/speciesPageAnalysis";
+import {
+  discardSuperAnalysisCheckpoint,
+  runSpeciesWorkflow,
+} from "@/lib/speciesPageAnalysis";
 import {
   SUPER_ANALYSIS_STAGES,
+  type SuperAnalysisCheckpoint,
   type SuperAnalysisJob,
   type SuperAnalysisStage,
 } from "@/lib/speciesSuperAnalysisSchema";
@@ -36,14 +40,25 @@ export async function getSpeciesSuperAnalysisJob(id: string) {
   if (job.status === "running") {
     job.status = "failed";
     job.error =
-      "Local server restarted. The run was interrupted; start a new analysis after reviewing any existing PR.";
+      "Local server restarted. The run was interrupted; resume it or start a new analysis.";
+    job.resumable = true;
     await save(job);
     await notifyResult(job);
   }
   return job;
 }
 
-export function startSpeciesSuperAnalysisJob(id: string, runId: string) {
+export async function resumeSpeciesSuperAnalysisJob(id: string, runId: string) {
+  const current = jobs.get(id);
+  if (current?.status === "running" || current?.runId === runId) return current;
+  return startSpeciesSuperAnalysisJob(id, runId, await readCheckpoint(id));
+}
+
+export function startSpeciesSuperAnalysisJob(
+  id: string,
+  runId: string,
+  resume: null | SuperAnalysisCheckpoint = null,
+) {
   const current = jobs.get(id);
   if (current?.status === "running" || current?.runId === runId) return current;
   const job: SuperAnalysisJob = {
@@ -53,14 +68,20 @@ export function startSpeciesSuperAnalysisJob(id: string, runId: string) {
     runId,
     speciesId: id,
     status: "running",
-    steps: [],
+    steps: (resume?.reports ?? []).map((report, index) => ({
+      mode: SUPER_ANALYSIS_STAGES[index],
+      report,
+    })),
   };
   jobs.set(id, job);
-  void execute(job);
+  void execute(job, resume);
   return job;
 }
 
-async function execute(job: SuperAnalysisJob) {
+async function execute(
+  job: SuperAnalysisJob,
+  resume: null | SuperAnalysisCheckpoint,
+) {
   let persistence = Promise.resolve();
   const checkpoint = () => {
     const snapshot = structuredClone(job);
@@ -69,6 +90,7 @@ async function execute(job: SuperAnalysisJob) {
   };
   try {
     await checkpoint();
+    if (!resume) await clearCheckpoint(job.speciesId, true);
     const result = await runSpeciesWorkflow(
       job.speciesId,
       [...SUPER_ANALYSIS_STAGES],
@@ -77,10 +99,12 @@ async function execute(job: SuperAnalysisJob) {
         await checkpoint();
       },
       {
+        onCheckpoint: (saved) => saveCheckpoint(job.speciesId, saved),
         onStage: (stage) => {
           job.currentStage = stage;
           void checkpoint().catch(() => undefined);
         },
+        resume,
         superAnalysis: true,
       },
     );
@@ -92,6 +116,9 @@ async function execute(job: SuperAnalysisJob) {
     job.error =
       error instanceof Error ? error.message : "Super Analysis failed";
   } finally {
+    if (job.status === "completed")
+      await clearCheckpoint(job.speciesId, false).catch(() => undefined);
+    else job.resumable = true;
     await checkpoint().catch((error: unknown) => {
       console.error("species-super-analysis-checkpoint", error);
     });
@@ -121,5 +148,35 @@ async function save(job: SuperAnalysisJob) {
   await fs.mkdir(directory, { mode: 0o700, recursive: true });
   const file = path.join(directory, `${job.speciesId}.json`);
   await fs.writeFile(`${file}.tmp`, JSON.stringify(job), { mode: 0o600 });
+  await fs.rename(`${file}.tmp`, file);
+}
+
+const checkpointFile = (id: string) =>
+  path.join(directory, `${id}.checkpoint.json`);
+
+async function clearCheckpoint(id: string, discard: boolean) {
+  const saved = await readCheckpoint(id);
+  if (!saved) return;
+  if (discard) await discardSuperAnalysisCheckpoint(saved);
+  await fs.rm(checkpointFile(id), { force: true });
+}
+
+async function readCheckpoint(id: string) {
+  try {
+    return JSON.parse(
+      await fs.readFile(checkpointFile(id), "utf8"),
+    ) as SuperAnalysisCheckpoint;
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code === "ENOENT") return null;
+    throw error;
+  }
+}
+
+async function saveCheckpoint(id: string, checkpoint: SuperAnalysisCheckpoint) {
+  await fs.mkdir(directory, { mode: 0o700, recursive: true });
+  const file = checkpointFile(id);
+  await fs.writeFile(`${file}.tmp`, JSON.stringify(checkpoint), {
+    mode: 0o600,
+  });
   await fs.rename(`${file}.tmp`, file);
 }

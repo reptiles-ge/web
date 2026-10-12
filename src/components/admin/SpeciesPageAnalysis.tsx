@@ -42,6 +42,7 @@ type Copy = {
   superFailed: string;
   superPending: string;
   superReconnecting: string;
+  superResume: string;
   superRunning: string;
   superValidation: string;
   textsAction: string;
@@ -287,6 +288,7 @@ export function SpeciesPageAnalysis({ copy, id }: { copy: Copy; id: string }) {
           pending: copy.superPending,
           reconnecting: copy.superReconnecting,
           report: copy.report,
+          resume: copy.superResume,
           running: copy.superRunning,
           validation: copy.superValidation,
         }}

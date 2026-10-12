@@ -4,7 +4,10 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import { runSpeciesWorkflow } from "@/lib/speciesPageAnalysis";
 import { createSuperAnalysisRunner } from "@/lib/speciesSuperAnalysis";
-import { SUPER_ANALYSIS_STAGES } from "@/lib/speciesSuperAnalysisSchema";
+import {
+  SUPER_ANALYSIS_STAGES,
+  type SuperAnalysisCheckpoint,
+} from "@/lib/speciesSuperAnalysisSchema";
 
 const mocks = vi.hoisted(() => ({ command: vi.fn() }));
 vi.mock("node:child_process", async (original) => ({
@@ -25,9 +28,13 @@ beforeEach(() => {
   commits = 0;
   changed = false;
   vi.mocked(createSuperAnalysisRunner).mockImplementation(
-    async (_id, worktree) => {
+    async (_id, worktree, _directory, previous = []) => {
       checkout = worktree;
-      return step;
+      return async (stage) => {
+        const report = await step(stage);
+        previous.push({ stage } as (typeof previous)[number]);
+        return report;
+      };
     },
   );
   step.mockImplementation(async (mode: string) => {
@@ -55,7 +62,7 @@ beforeEach(() => {
             stdout = "https://github.com/test/reptiles/pull/999";
         }
         if (command === "git" && args[0] === "worktree" && args[1] === "add") {
-          const target = args[4];
+          const target = args[2] === "-b" ? args[4] : args[2];
           const files = [
             ...["ka", "en", "ru", "tr"].map(
               (locale) => `src/content/species/${id}/${locale}.mdx`,
@@ -150,5 +157,52 @@ describe("Super Analysis publishing boundary", () => {
     expect(step.mock.calls.map(([mode]) => mode)).toEqual([
       ...SUPER_ANALYSIS_STAGES,
     ]);
+  });
+
+  it("saves a checkpoint after each stage and resumes from the next one", async () => {
+    step.mockImplementation(async (mode: string) => {
+      if (mode === "links") throw new Error("The operation was aborted");
+      changed = true;
+      return `${mode} report`;
+    });
+    const onCheckpoint = vi.fn<
+      (checkpoint: SuperAnalysisCheckpoint) => Promise<void>
+    >(async () => undefined);
+    const failed = await runSpeciesWorkflow(
+      id,
+      [...SUPER_ANALYSIS_STAGES],
+      vi.fn(),
+      { onCheckpoint, onStage: vi.fn(), superAnalysis: true },
+    );
+    expect(failed).toMatchObject({ failedStep: "links", pullRequestUrl: null });
+    expect(onCheckpoint).toHaveBeenCalledTimes(2);
+    const saved = structuredClone(onCheckpoint.mock.calls[1][0]);
+    expect(saved.reports).toEqual(["analysis report", "lookalikes report"]);
+    const commands = () =>
+      mocks.command.mock.calls.map(
+        ([command, args]) => `${command} ${args.join(" ")}`,
+      );
+    expect(commands()).not.toContain(`git branch -D ${saved.branch}`);
+
+    await fs.rm(path.dirname(checkout), { force: true, recursive: true });
+    vi.clearAllMocks();
+    step.mockImplementation(async (mode: string) => {
+      changed = true;
+      return `${mode} report`;
+    });
+    const resumed = await runSpeciesWorkflow(
+      id,
+      [...SUPER_ANALYSIS_STAGES],
+      vi.fn(),
+      { onStage: vi.fn(), resume: saved, superAnalysis: true },
+    );
+    expect(resumed.pullRequestUrl).toContain("/pull/999");
+    expect(step.mock.calls.map(([mode]) => mode)).toEqual(["links", "texts"]);
+    expect(commands()).toContain(
+      `git worktree add ${checkout} ${saved.branch}`,
+    );
+    expect(commands().some((line) => line.includes("worktree add -b"))).toBe(
+      false,
+    );
   });
 });

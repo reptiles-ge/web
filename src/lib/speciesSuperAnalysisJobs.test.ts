@@ -3,13 +3,20 @@ import fs from "node:fs/promises";
 import { describe, expect, it, vi } from "vitest";
 
 import { notifyAdminTelegram } from "@/lib/adminTelegram";
-import { runSpeciesWorkflow } from "@/lib/speciesPageAnalysis";
+import {
+  discardSuperAnalysisCheckpoint,
+  runSpeciesWorkflow,
+} from "@/lib/speciesPageAnalysis";
 import {
   getSpeciesSuperAnalysisJob,
+  resumeSpeciesSuperAnalysisJob,
   startSpeciesSuperAnalysisJob,
 } from "@/lib/speciesSuperAnalysisJobs";
 
-vi.mock("@/lib/speciesPageAnalysis", () => ({ runSpeciesWorkflow: vi.fn() }));
+vi.mock("@/lib/speciesPageAnalysis", () => ({
+  discardSuperAnalysisCheckpoint: vi.fn(),
+  runSpeciesWorkflow: vi.fn(),
+}));
 vi.mock("@/lib/adminTelegram", () => ({ notifyAdminTelegram: vi.fn() }));
 
 describe("Super Analysis jobs", () => {
@@ -130,5 +137,78 @@ describe("Super Analysis jobs", () => {
     );
     await vi.waitFor(() => expect(thrown.status).toBe("failed"));
     expect(thrown.error).toBe("Super Analysis failed");
+  });
+
+  it("resumes a failed run from its saved checkpoint and discards it on a fresh start", async () => {
+    const id = `test-${randomUUID()}`;
+    vi.mocked(runSpeciesWorkflow).mockImplementationOnce(
+      async (_id, _stages, onStep, options) => {
+        options?.onStage("analysis");
+        await options?.onCheckpoint?.({
+          baseCommit: "abc",
+          branch: `feature/species-workflow-${id}-12345678`,
+          reports: ["Research report"],
+          results: [],
+          worktree: "/tmp/old/checkout",
+        });
+        await onStep("analysis", "Research report");
+        options?.onStage("lookalikes");
+        return {
+          error: "The operation was aborted",
+          failedStep: "lookalikes",
+          pullRequestUrl: null,
+        };
+      },
+    );
+    const failed = startSpeciesSuperAnalysisJob(id, randomUUID());
+    await vi.waitFor(() => expect(failed.status).toBe("failed"));
+    expect(failed.resumable).toBe(true);
+
+    vi.mocked(runSpeciesWorkflow).mockResolvedValueOnce({
+      error: null,
+      failedStep: null,
+      pullRequestUrl: "https://github.com/test/reptiles/pull/1",
+    });
+    const resumed = await resumeSpeciesSuperAnalysisJob(id, randomUUID());
+    expect(resumed?.steps).toEqual([
+      { mode: "analysis", report: "Research report" },
+    ]);
+    await vi.waitFor(() => expect(resumed?.status).toBe("completed"));
+    expect(vi.mocked(runSpeciesWorkflow).mock.lastCall?.[3]?.resume).toEqual(
+      expect.objectContaining({ reports: ["Research report"] }),
+    );
+    expect(discardSuperAnalysisCheckpoint).not.toHaveBeenCalled();
+
+    vi.mocked(runSpeciesWorkflow).mockImplementationOnce(
+      async (_id, _stages, _onStep, options) => {
+        await options?.onCheckpoint?.({
+          baseCommit: "abc",
+          branch: `feature/species-workflow-${id}-87654321`,
+          reports: ["Again"],
+          results: [],
+          worktree: "/tmp/old/checkout",
+        });
+        return {
+          error: "boom",
+          failedStep: "lookalikes",
+          pullRequestUrl: null,
+        };
+      },
+    );
+    const second = startSpeciesSuperAnalysisJob(id, randomUUID());
+    await vi.waitFor(() => expect(second.status).toBe("failed"));
+    vi.mocked(runSpeciesWorkflow).mockResolvedValueOnce({
+      error: null,
+      failedStep: null,
+      pullRequestUrl: null,
+    });
+    const fresh = startSpeciesSuperAnalysisJob(id, randomUUID());
+    await vi.waitFor(() => expect(fresh.status).toBe("completed"));
+    expect(discardSuperAnalysisCheckpoint).toHaveBeenCalledWith(
+      expect.objectContaining({
+        branch: `feature/species-workflow-${id}-87654321`,
+      }),
+    );
+    expect(vi.mocked(runSpeciesWorkflow).mock.lastCall?.[3]?.resume).toBeNull();
   });
 });
