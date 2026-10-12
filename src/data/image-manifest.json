@@ -8037,6 +8037,101 @@
       ],
       "updatedAt": "2026-09-05T11:30:12.425Z"
     },
+    "bufotes-viridis-aurélien-1.jpg": {
+      "sourceHash": "4c984a086863e883d8e5661844c14fb1e02b8b5e69b183dfb1a4b0f1eff404ad",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "bufotes-viridis-aurélien-1.jpg",
+      "originalSize": 297573,
+      "width": 1920,
+      "height": 1280,
+      "derivatives": [
+        {
+          "key": "optimized/bufotes-viridis-aurélien-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 7772
+        },
+        {
+          "key": "optimized/bufotes-viridis-aurélien-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11008
+        },
+        {
+          "key": "optimized/bufotes-viridis-aurélien-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 10842
+        },
+        {
+          "key": "optimized/bufotes-viridis-aurélien-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 15450
+        },
+        {
+          "key": "optimized/bufotes-viridis-aurélien-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 20272
+        },
+        {
+          "key": "optimized/bufotes-viridis-aurélien-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 29138
+        },
+        {
+          "key": "optimized/bufotes-viridis-aurélien-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 28126
+        },
+        {
+          "key": "optimized/bufotes-viridis-aurélien-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 39140
+        },
+        {
+          "key": "optimized/bufotes-viridis-aurélien-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 48473
+        },
+        {
+          "key": "optimized/bufotes-viridis-aurélien-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 66836
+        },
+        {
+          "key": "optimized/bufotes-viridis-aurélien-1-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 95512
+        },
+        {
+          "key": "optimized/bufotes-viridis-aurélien-1-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 131796
+        }
+      ],
+      "updatedAt": "2026-10-12T17:19:51.530Z"
+    },
     "bufotes-viridis-ioane-1.jpg": {
       "sourceHash": "82e5ee74ca35af03d3f3dd068cf1082306aa1b8285374e49db7a54088faa5f41",
       "configFingerprint": "a895f8e025dcc7fa",
