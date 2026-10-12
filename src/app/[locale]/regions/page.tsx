@@ -9,13 +9,13 @@ import { JsonLd } from "@/components/JsonLd";
 import { RegionsIndex } from "@/components/RegionsIndex";
 import {
   getCatalogRegionStats,
-  getRegionTooltipPreviews,
   localizeRegionText,
   regions,
 } from "@/data/regions";
 import { georgiaPlaceName } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { buildPageMetadata, type LocalePageProps } from "@/lib/pageMetadata";
+import { getRegionsIndexItems } from "@/lib/regionsIndex";
 import {
   absoluteUrl,
   localePath,
@@ -81,10 +81,10 @@ export default async function RegionsPage({ params }: LocalePageProps) {
   return (
     <>
       <JsonLd data={jsonLd} />
-      <ClientMessagesProvider locale={locale} namespaces={["map", "regions"]}>
+      <ClientMessagesProvider locale={locale} namespaces={["regions"]}>
         <RegionsIndex
+          items={getRegionsIndexItems(locale)}
           stats={getCatalogRegionStats()}
-          tooltipSpeciesByRegion={getRegionTooltipPreviews(locale)}
         />
       </ClientMessagesProvider>
     </>

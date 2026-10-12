@@ -726,7 +726,7 @@
     "metaDescription": "Snakes and reptiles of Georgia by region — map, habitats, venomous species, and field profiles.",
     "eyebrow": "Regional atlas",
     "title": "Regions of Georgia",
-    "subtitle": "Explore Georgia’s reptiles by place — regional maps, habitats, and profiles of confirmed species. At this stage, regional lists mostly include snakes and the glass lizard; other groups will be added when their distribution is confirmed by sources.",
+    "subtitle": "Explore Georgia’s animals by place — regional maps, habitats, and confirmed species profiles.",
     "heroImageAlt": "Map of Georgia by region — from forest to mountains and the dry east, with reptiles",
     "regionHeroAlt": "{name} — regional landscape",
     "back": "Atlas",
@@ -769,7 +769,7 @@
       "eyebrow": "From place to fauna",
       "title": "How the regional atlas works",
       "p1": "Georgia’s reptile assemblages change strongly from place to place. The humid Colchic forests and Black Sea coast in the west, the high mountain zone of the Greater Caucasus, and the dry eastern regions create different conditions for different species.",
-      "p2": "The regional atlas makes those differences easier to see — choose a place on the map or in the list and see which species are confirmed there by sources. Each region page brings together the species list, main habitats, notes related to venomous species, and a map. At this stage, amphibians, turtles, and many lizards, apart from the glass lizard, are not fully tied to regional maps. A regional list should therefore not be treated as the complete fauna of a place.",
+      "p2": "The regional atlas makes these differences easy to see — choose a place on the map or in the list and see which species are confirmed there by sources. Each region page brings together the species list, main habitats, notes on venomous species, and a map.",
       "links": {
         "species": "Species atlas",
         "venomous": "Venomous snakes of Georgia",
@@ -784,7 +784,77 @@
     "clusterLizards": "Lizard index",
     "clusterTurtles": "Turtle index",
     "clusterAmphibians": "Amphibian index",
-    "dataGapBody": "Only confirmed records are added to region pages. If a species’ link to a specific administrative unit has not yet been confirmed by a source, it will not appear in the relevant list."
+    "dataGapBody": "Only confirmed records are added to region pages. If a species’ link to a specific administrative unit has not yet been confirmed by a source, it will not appear in the relevant list.",
+    "subtitleShort": "Explore animals by place — maps, habitats, and confirmed species.",
+    "statLabels": {
+      "regions": "Regions",
+      "species": "Species",
+      "venomous": "Venomous",
+      "habitats": "Habitats"
+    },
+    "metrics": {
+      "all": "All species",
+      "snakes": "Snakes",
+      "lizards": "Lizards & turtles",
+      "amphibians": "Amphibians",
+      "birds": "Birds",
+      "venom": "Venomous"
+    },
+    "legends": {
+      "all": "Number of species",
+      "snakes": "Number of snakes",
+      "lizards": "Lizards & turtles",
+      "amphibians": "Number of amphibians",
+      "birds": "Number of birds",
+      "venom": "Venomous species"
+    },
+    "legendsShort": {
+      "all": "Species",
+      "snakes": "Snakes",
+      "lizards": "Lizards & turtles",
+      "amphibians": "Amphibians",
+      "birds": "Birds",
+      "venom": "Venomous species"
+    },
+    "mix": {
+      "snakes": "Snakes",
+      "lizards": "Lizards & turtles",
+      "amphibians": "Amphibians",
+      "birds": "Birds",
+      "other": "Other"
+    },
+    "mapLayer": "Map layer",
+    "mapLabel": "Interactive map",
+    "myRegion": "My region",
+    "myRegionLocating": "Locating…",
+    "myRegionOutside": "You are outside Georgia",
+    "myRegionUnavailable": "Location unavailable",
+    "mapNote": "Source-confirmed records in the atlas — not a region’s full fauna.",
+    "mapNoteShort": "Tap a region on the map. Counts are confirmed atlas records, not full fauna.",
+    "labelValue": "{count, plural, one {# species} other {# species}}",
+    "labelMetricValue": "{metric} · {count}",
+    "regionAria": "{name} — {count, plural, one {# species} other {# species}}",
+    "selectedRegion": "Selected region",
+    "mixTitle": "Composition",
+    "venomTitle": "Caution — venomous species",
+    "neighbors": "Neighbours",
+    "neighborsLong": "Neighbouring regions",
+    "sortLabel": "Sort",
+    "sorts": {
+      "map": "Map order",
+      "mapShort": "Map",
+      "count": "By species",
+      "alpha": "A–Z"
+    },
+    "speciesWord": "{count, plural, one {species} other {species}}",
+    "compareEyebrow": "Comparison",
+    "compareTitle": "What lives where",
+    "compareBody": "Species linked in the atlas by region and group. Click a row to select the region on the map.",
+    "compareLegend": "Legend",
+    "compareAria": "{name} — {count, plural, one {# species} other {# species}}; select on the map",
+    "clusterBodyShort": "The full catalogue of Georgia’s reptiles is organised into separate categories.",
+    "venomousCardBody": "Identification, distribution, and what to do after a bite",
+    "venomousCardBodyShort": "Identification, range, and bites"
   },
   "contact": {
     "metaTitle": "Contact",

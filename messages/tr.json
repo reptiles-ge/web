@@ -726,7 +726,7 @@
     "metaDescription": "Bölgelere göre Gürcistan yılanları ve sürüngenleri — harita, yaşam alanları, zehirli türler ve saha profilleri.",
     "eyebrow": "Bölgesel atlas",
     "title": "Gürcistan bölgeleri",
-    "subtitle": "Gürcistan’ın sürüngenlerini yere göre inceleyin — bölgesel haritalar, yaşam alanları ve doğrulanmış tür profilleri. Bu aşamada bölgesel listelerde çoğunlukla yılanlar ve cam kertenkele yer alır; diğer gruplar, yayılışları kaynaklarla doğrulandığında eklenecektir.",
+    "subtitle": "Gürcistan’ın hayvanlarını yere göre keşfedin — bölgesel haritalar, habitatlar ve doğrulanmış tür profilleri.",
     "heroImageAlt": "Bölgelere göre Gürcistan haritası — ormandan dağlara ve kuru doğuya, sürüngenlerle",
     "regionHeroAlt": "{name} — bölgesel peyzaj",
     "back": "Atlas",
@@ -769,7 +769,7 @@
       "eyebrow": "Yerden faunaya",
       "title": "Bölgesel atlas nasıl işler",
       "p1": "Gürcistan’ın sürüngen toplulukları yere göre belirgin biçimde değişir. Batıdaki nemli Kolhis ormanları ve Karadeniz kıyısı, Büyük Kafkasya’nın yüksek dağ kuşağı ve doğunun kuru bölgeleri farklı türler için farklı ortamlar oluşturur.",
-      "p2": "Bölgesel atlas bu farkları görmeyi kolaylaştırır — haritada veya listede bir yer seçin ve hangi türlerin orada kaynaklarla doğrulandığını görün. Her bölge sayfası tür listesini, başlıca yaşam alanlarını, zehirli türlerle ilgili notları ve haritayı bir araya getirir. Bu aşamada amfibiler, kaplumbağalar ve cam kertenkele dışında kertenkelelerin büyük bölümü bölgesel haritalara tam olarak bağlanmamıştır. Bu yüzden bölgesel liste belirli bir yerin tam faunası olarak görülmemelidir.",
+      "p2": "Bölgesel atlas bu farkları görmeyi kolaylaştırır — haritada veya listede bir yer seçin ve orada kaynaklarla doğrulanan türleri görün. Her bölge sayfası tür listesini, başlıca habitatları, zehirli türlere ilişkin notları ve haritayı bir araya getirir.",
       "links": {
         "species": "Tür atlası",
         "venomous": "Gürcistan’ın zehirli yılanları",
@@ -784,7 +784,77 @@
     "clusterLizards": "Kertenkele dizini",
     "clusterTurtles": "Kaplumbağa dizini",
     "clusterAmphibians": "Amfibi dizini",
-    "dataGapBody": "Bölge sayfalarına yalnızca doğrulanmış kayıtlar eklenir. Bir türün belirli bir idari birimle bağlantısı henüz bir kaynakla doğrulanmamışsa, ilgili listede görünmez."
+    "dataGapBody": "Bölge sayfalarına yalnızca doğrulanmış kayıtlar eklenir. Bir türün belirli bir idari birimle bağlantısı henüz bir kaynakla doğrulanmamışsa, ilgili listede görünmez.",
+    "subtitleShort": "Hayvanları yere göre keşfedin — haritalar, habitatlar ve doğrulanmış türler.",
+    "statLabels": {
+      "regions": "Bölge",
+      "species": "Tür",
+      "venomous": "Zehirli",
+      "habitats": "Habitat"
+    },
+    "metrics": {
+      "all": "Tüm türler",
+      "snakes": "Yılanlar",
+      "lizards": "Kertenkeleler ve kaplumbağalar",
+      "amphibians": "Amfibiler",
+      "birds": "Kuşlar",
+      "venom": "Zehirli"
+    },
+    "legends": {
+      "all": "Tür sayısı",
+      "snakes": "Yılan sayısı",
+      "lizards": "Kertenkeleler ve kaplumbağalar",
+      "amphibians": "Amfibi sayısı",
+      "birds": "Kuş sayısı",
+      "venom": "Zehirli türler"
+    },
+    "legendsShort": {
+      "all": "Türler",
+      "snakes": "Yılanlar",
+      "lizards": "Kertenkeleler ve kaplumbağalar",
+      "amphibians": "Amfibiler",
+      "birds": "Kuşlar",
+      "venom": "Zehirli türler"
+    },
+    "mix": {
+      "snakes": "Yılanlar",
+      "lizards": "Kertenkeleler ve kaplumbağalar",
+      "amphibians": "Amfibiler",
+      "birds": "Kuşlar",
+      "other": "Diğer"
+    },
+    "mapLayer": "Harita katmanı",
+    "mapLabel": "Etkileşimli harita",
+    "myRegion": "Bölgem",
+    "myRegionLocating": "Konum aranıyor…",
+    "myRegionOutside": "Gürcistan dışındasınız",
+    "myRegionUnavailable": "Konum kullanılamıyor",
+    "mapNote": "Atlasta kaynaklarla doğrulanmış kayıtlar — bölgenin tüm faunası değildir.",
+    "mapNoteShort": "Haritada bir bölgeye dokunun. Sayılar doğrulanmış atlas kayıtlarıdır, tüm fauna değil.",
+    "labelValue": "{count, plural, other {# tür}}",
+    "labelMetricValue": "{metric} · {count}",
+    "regionAria": "{name} — {count, plural, other {# tür}}",
+    "selectedRegion": "Seçili bölge",
+    "mixTitle": "Bileşim",
+    "venomTitle": "Dikkat — zehirli türler",
+    "neighbors": "Komşular",
+    "neighborsLong": "Komşu bölgeler",
+    "sortLabel": "Sıralama",
+    "sorts": {
+      "map": "Harita sırası",
+      "mapShort": "Harita",
+      "count": "Türe göre",
+      "alpha": "A–Z"
+    },
+    "speciesWord": "{count, plural, other {tür}}",
+    "compareEyebrow": "Karşılaştırma",
+    "compareTitle": "Nerede ne yaşar",
+    "compareBody": "Atlasa bağlı türler bölge ve gruba göre. Bölgeyi haritada seçmek için bir satıra tıklayın.",
+    "compareLegend": "Gösterge",
+    "compareAria": "{name} — {count, plural, other {# tür}}; haritada seç",
+    "clusterBodyShort": "Gürcistan sürüngenlerinin tam kataloğu ayrı kategorilerde toplanmıştır.",
+    "venomousCardBody": "Tanıma, yayılış ve ısırıkta ne yapmalı",
+    "venomousCardBodyShort": "Tanıma, yayılış ve ısırık"
   },
   "contact": {
     "metaTitle": "İletişim",
