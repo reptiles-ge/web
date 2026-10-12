@@ -71,7 +71,6 @@ const SEO_LINKS = [
   { href: "/", key: "home" },
 ] as const;
 
-const DEFAULT_REGION: RegionPathId = "kakheti";
 const GEODATA_URL = "/geodata/georgia-regions-v1.json";
 
 const wrapClass = "mx-auto box-content max-w-[1320px] px-6 lg:px-[60px]";
@@ -86,7 +85,7 @@ const leadClass =
 const dotClass = "inline-block size-2 shrink-0 rounded-full";
 
 export function RegionsIndex({ items, stats }: RegionsIndexProps) {
-  const [selected, setSelected] = useState<RegionPathId>(DEFAULT_REGION);
+  const [selected, setSelected] = useState<null | RegionPathId>(null);
   const [hover, setHover] = useState<null | RegionPathId>(null);
   const [metricId, setMetricId] = useState<MetricId>("all");
   const [sort, setSort] = useState<SortId>("map");
@@ -175,11 +174,35 @@ function RegionAside({
   byId,
   onSelect,
 }: {
-  active: RegionsIndexItem;
+  active?: RegionsIndexItem;
   byId: Map<RegionPathId, RegionsIndexItem>;
   onSelect: (id: RegionPathId) => void;
 }) {
   const t = useTranslations("regions");
+  const asideClass =
+    "mx-3 mt-4 px-5 pt-[22px] pb-5 max-lg:rounded-[28px] max-lg:bg-(--nw-card) max-lg:shadow-[0_1px_2px_rgba(14,20,17,0.04),0_12px_30px_rgba(14,20,17,0.06)] lg:m-0 lg:flex lg:min-w-0 lg:flex-col lg:border-l lg:border-(--nw-line-soft) lg:p-0 lg:pl-9";
+
+  if (!active) {
+    return (
+      <aside
+        aria-label={t("selectedRegion")}
+        aria-live="polite"
+        className={`${asideClass} lg:justify-center`}
+      >
+        <span className="flex size-11 items-center justify-center rounded-full bg-(--nw-surface) text-(--nw-accent)">
+          <Pointer aria-hidden="true" className="size-5" strokeWidth={1.75} />
+        </span>
+        <p className={`${eyebrowClass} mt-4`}>{t("mapEyebrow")}</p>
+        <h2 className="mt-3 text-[26px] leading-[1.15] font-bold tracking-[-0.012em] lg:text-[32px] lg:leading-[1.12] lg:tracking-[-0.015em]">
+          {t("mapTitle")}
+        </h2>
+        <p className="mt-2 text-[14.5px] leading-[1.6] text-(--nw-muted) lg:mt-2.5">
+          {t("mapHint")}
+        </p>
+      </aside>
+    );
+  }
+
   const neighbors = active.relatedIds
     .map((id) => byId.get(id))
     .filter((item): item is RegionsIndexItem => Boolean(item));
@@ -204,7 +227,7 @@ function RegionAside({
       <aside
         aria-label={t("selectedRegion")}
         aria-live="polite"
-        className="mx-3 mt-4 px-5 pt-[22px] pb-5 max-lg:rounded-[28px] max-lg:bg-(--nw-card) max-lg:shadow-[0_1px_2px_rgba(14,20,17,0.04),0_12px_30px_rgba(14,20,17,0.06)] lg:m-0 lg:flex lg:min-w-0 lg:flex-col lg:border-l lg:border-(--nw-line-soft) lg:p-0 lg:pl-9"
+        className={asideClass}
       >
         <div className="flex items-center gap-2.5">
           <span className="flex h-7 min-w-7 items-center justify-center rounded-full bg-[#1a211c] px-1.5 text-[11.5px] font-bold text-white tabular-nums lg:h-[30px] lg:min-w-[30px] lg:text-[12px]">
@@ -658,7 +681,7 @@ function RegionsCompare({
 }: {
   items: RegionsIndexItem[];
   onSelect: (id: RegionPathId) => void;
-  selected: RegionPathId;
+  selected: null | RegionPathId;
 }) {
   const t = useTranslations("regions");
   const top = Math.max(...items.map((item) => item.total));
@@ -749,7 +772,7 @@ function RegionsDirectory({
 }: {
   items: RegionsIndexItem[];
   onSort: (id: SortId) => void;
-  selected: RegionPathId;
+  selected: null | RegionPathId;
   sort: SortId;
 }) {
   const t = useTranslations("regions");
@@ -901,7 +924,7 @@ function RegionsMap({
   onHover: (id: null | RegionPathId) => void;
   onMetric: (id: MetricId) => void;
   onSelect: (id: RegionPathId) => void;
-  selected: RegionPathId;
+  selected: null | RegionPathId;
 }) {
   const t = useTranslations("regions");
   const [locate, setLocate] = useState<LocateStatus>("idle");
@@ -913,7 +936,7 @@ function RegionsMap({
     max === min ? 2 : Math.round(((value - min) / (max - min)) * 4);
   const byId = new Map(items.map((item) => [item.id, item]));
   const activeId = hover ?? selected;
-  const active = byId.get(activeId) ?? items[0];
+  const active = activeId ? byId.get(activeId) : undefined;
 
   function labelValue(item: RegionsIndexItem) {
     const value = metric.get(item);
@@ -1081,10 +1104,12 @@ function RegionsMap({
                   className="pointer-events-none absolute inset-0 size-full overflow-visible drop-shadow-[0_6px_8px_rgba(14,20,17,0.22)] lg:drop-shadow-[0_10px_14px_rgba(14,20,17,0.22)]"
                   viewBox="0 0 1000 510"
                 >
-                  <path
-                    className="fill-none stroke-(--nw-ink) stroke-[3.2] [stroke-linejoin:round] lg:stroke-[2.6]"
-                    d={active.path}
-                  />
+                  {active ? (
+                    <path
+                      className="fill-none stroke-(--nw-ink) stroke-[3.2] [stroke-linejoin:round] lg:stroke-[2.6]"
+                      d={active.path}
+                    />
+                  ) : null}
                 </svg>
                 {items.map((item) => (
                   <RegionMapLabel
