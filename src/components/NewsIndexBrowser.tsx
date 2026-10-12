@@ -11,7 +11,7 @@ export type NewsIndexBrowserItem = {
   topics: readonly string[];
 };
 
-export type NewsIndexBrowserLabels = {
+type NewsIndexBrowserLabels = {
   clear: string;
   emptyCta: string;
   emptyText: string;

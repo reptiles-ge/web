@@ -73,12 +73,11 @@ const eyebrowClass =
   "text-[10.5px] font-semibold tracking-[0.16em] text-(--nw-muted) md:text-[11px]";
 
 export async function NewsIndexPage({ articles, locale }: NewsIndexPageProps) {
-  const t = await getTranslations({ locale, namespace: "news" });
-  const tNav = await getTranslations({ locale, namespace: "nav" });
-  const tShared = await getTranslations({
-    locale,
-    namespace: "groupHubShared",
-  });
+  const [t, tNav, tShared] = await Promise.all([
+    getTranslations({ locale, namespace: "news" }),
+    getTranslations({ locale, namespace: "nav" }),
+    getTranslations({ locale, namespace: "groupHubShared" }),
+  ]);
 
   const entries = articles.map((article) =>
     toEntry(article, locale, {
