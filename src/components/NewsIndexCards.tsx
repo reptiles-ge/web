@@ -129,7 +129,7 @@ export function NewsListCard({ entry }: { entry: NewsIndexEntry }) {
   return (
     <article className="h-full">
       <Link
-        className={`group grid grid-cols-[104px_minmax(0,1fr)] items-start gap-3.5 border-t border-(--nw-line) py-3.5 active:opacity-70 md:flex md:h-full md:flex-col md:gap-0 md:overflow-hidden md:rounded-[28px] md:border-0 md:bg-(--nw-card) md:py-0 md:shadow-(--nw-shadow) md:hover:shadow-(--nw-shadow-hover) md:active:opacity-100 md:motion-safe:transition-[transform,box-shadow] md:motion-safe:duration-300 md:motion-safe:hover:-translate-y-1 ${focusClass}`}
+        className={`group grid grid-cols-[104px_minmax(0,1fr)] items-start gap-3.5 border-t border-(--nw-line) py-3.5 active:opacity-70 md:flex md:h-full md:flex-col md:gap-0 md:overflow-hidden md:rounded-[28px] md:border-0 md:bg-(--nw-card) md:py-0 md:shadow-(--nw-shadow) md:hover:shadow-(--nw-shadow-hover) md:active:opacity-100 md:motion-safe:transition-[translate,box-shadow] md:motion-safe:duration-300 md:motion-safe:hover:-translate-y-1 ${focusClass}`}
         href={newsArticleHref(entry.slug)}
         prefetch={false}
       >
@@ -205,7 +205,7 @@ export function NewsSideCard({ entry }: { entry: NewsIndexEntry }) {
   return (
     <article className="w-[290px] shrink-0 snap-start md:w-auto">
       <Link
-        className={`group grid grid-cols-[84px_minmax(0,1fr)] items-center gap-3 rounded-[22px] bg-(--nw-card) p-2.5 shadow-[0_1px_2px_rgba(14,20,17,0.04)] md:grid-cols-[200px_minmax(0,1fr)] md:gap-[22px] md:rounded-[28px] md:p-3.5 md:shadow-(--nw-shadow) md:hover:shadow-(--nw-shadow-side-hover) md:motion-safe:transition-[transform,box-shadow] md:motion-safe:duration-300 md:motion-safe:hover:translate-y-[-3px] ${focusClass}`}
+        className={`group grid grid-cols-[84px_minmax(0,1fr)] items-center gap-3 rounded-[22px] bg-(--nw-card) p-2.5 shadow-[0_1px_2px_rgba(14,20,17,0.04)] md:grid-cols-[200px_minmax(0,1fr)] md:gap-[22px] md:rounded-[28px] md:p-3.5 md:shadow-(--nw-shadow) md:hover:shadow-(--nw-shadow-side-hover) md:motion-safe:transition-[translate,box-shadow] md:motion-safe:duration-300 md:motion-safe:hover:translate-y-[-3px] ${focusClass}`}
         href={newsArticleHref(entry.slug)}
       >
         <NewsCover
