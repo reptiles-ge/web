@@ -46,6 +46,7 @@ import { rangeMap as lutraLutra } from "@/data/speciesRangeMaps/lutra-lutra";
 import { rangeMap as macroviperaLebetina } from "@/data/speciesRangeMaps/macrovipera-lebetina";
 import { rangeMap as mantisReligiosa } from "@/data/speciesRangeMaps/mantis-religiosa";
 import { rangeMap as mauremysCaspica } from "@/data/speciesRangeMaps/mauremys-caspica";
+import { rangeMap as melesCanescens } from "@/data/speciesRangeMaps/meles-canescens";
 import { rangeMap as mertensiellaCaucasica } from "@/data/speciesRangeMaps/mertensiella-caucasica";
 import { rangeMap as mesobuthusEupeus } from "@/data/speciesRangeMaps/mesobuthus-eupeus";
 import { rangeMap as mustelaNivalis } from "@/data/speciesRangeMaps/mustela-nivalis";
@@ -125,6 +126,7 @@ export const INTERACTIVE_RANGE_MAPS: Partial<
   "macrovipera-lebetina": macroviperaLebetina,
   "mantis-religiosa": mantisReligiosa,
   "mauremys-caspica": mauremysCaspica,
+  "meles-canescens": melesCanescens,
   "mertensiella-caucasica": mertensiellaCaucasica,
   "mesobuthus-eupeus": mesobuthusEupeus,
   "mustela-nivalis": mustelaNivalis,

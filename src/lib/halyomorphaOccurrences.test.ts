@@ -361,6 +361,43 @@ describe("occurrenceStatusForCount", () => {
     ).toEqual(confirmed);
   });
 
+  it("keeps Caucasian Badger records below the confirmed threshold", () => {
+    const species = getSpeciesById("meles-canescens");
+    expect(species).toBeDefined();
+    if (!species) return;
+
+    const records = getHalyomorphaFieldRecords({
+      fieldRecords: fieldRecordsById[species.id] ?? [],
+      gallery: species.gallery,
+      locale: "ka",
+      speciesName: species.commonName,
+    });
+    const summary = getHalyomorphaOccurrenceSummary(
+      records,
+      "ka",
+      confirmedRecordThresholdForSpecies(species.id),
+    );
+
+    expect(summary.totalRecords).toBe(9);
+    expect(
+      summary.recordsByRegion.filter((region) => region.status === "confirmed"),
+    ).toEqual([]);
+    expect(
+      summary.recordsByRegion
+        .filter((region) => region.status === "recorded-only")
+        .map((region) => region.id)
+        .sort(),
+    ).toEqual([
+      "adjara",
+      "imereti",
+      "kakheti",
+      "kvemo-kartli",
+      "mtskheta-mtianeti",
+      "samtskhe-javakheti",
+    ]);
+    expect(getRegionsForSpecies(species.id)).toEqual([]);
+  });
+
   it("keeps Red Fox distribution aligned with reviewed field records", () => {
     const species = getSpeciesById("vulpes-vulpes");
     expect(species).toBeDefined();
