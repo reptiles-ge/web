@@ -125,7 +125,7 @@ export const ORGANIZATION_SAME_AS = [
 
 export const ORGANIZATION_NAME = "Reptiles.ge";
 
-export const CONTACT_EMAIL = "nika@shamiladze.com";
+export const CONTACT_EMAIL = "hello@reptiles.ge";
 
 export function organizationJsonLd(
   locale: AppLocale,
