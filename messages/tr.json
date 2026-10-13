@@ -967,7 +967,7 @@
       "intro": "Tür profillerinde fotoğrafları yer alan araştırmacılar ve fotoğrafçılar.",
       "count": "Atlasta {count} katkıda bulunan",
       "empty": "Henüz yayımlanmış katkıda bulunan sayfası yok.",
-      "metaTitle": "Katkıda bulunanlar — herpetologlar, araştırmacılar ve fotoğrafçılar",
+      "metaTitle": "Katkıda bulunanlar: herpetologlar, fotoğrafçılar",
       "metaDescription": "reptiles.ge’deki araştırmacılar ve fotoğrafçılar — portreler, galeriler ve belgelledikleri türler.",
       "eyebrow": "Arazi fotoğrafı yazarları",
       "statContributors": "Katkıcı",
@@ -1758,7 +1758,7 @@
   },
   "snakes": {
     "metaTitle": "Gürcistan yılanları — zehirli ve zehirsiz türler, tanıma",
-    "metaDescription": "Gürcistan’ın tüm yılanları tek rehberde: tür listesi, zehirli ve zararsız yılanlar, tanıma ipuçları ve reptiles.ge’de tam profiller.",
+    "metaDescription": "Gürcistan yılanları: fotoğraflı {count} tür — hangileri zehirli, hangileri zararsız ve nasıl ayırt edilir. Isırılırsanız 112’yi arayın.",
     "keywords": "Gürcistan’da yılanlar, Gürcistan yılanları, zehirli yılanlar Gürcistan, zararsız yılanlar, engerekler, yılanlar, Natrix, Vipera, Macrovipera",
     "breadcrumbCurrent": "Yılanlar",
     "heroImageAlt": "Kayalık Kafkas habitatında Dinnik engereği",

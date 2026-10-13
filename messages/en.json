@@ -967,7 +967,7 @@
       "intro": "Researchers and photographers whose photos appear on species profiles.",
       "count": "{count} contributors in the atlas",
       "empty": "No contributor pages are published yet.",
-      "metaTitle": "Contributors — herpetologists, researchers and photographers",
+      "metaTitle": "Contributors — herpetologists and photographers",
       "metaDescription": "Researchers and photographers on reptiles.ge — portraits, galleries, and the species they documented.",
       "eyebrow": "Field photo authors",
       "statContributors": "Contributors",
@@ -1758,7 +1758,7 @@
   },
   "snakes": {
     "metaTitle": "Snakes in Georgia (Caucasus): venomous and harmless species",
-    "metaDescription": "Snakes of Georgia (Caucasus) in one guide: venomous and harmless species, identification tips, risk levels, and full profiles on reptiles.ge.",
+    "metaDescription": "Snakes of Georgia, the Caucasus country: {count} species with photos — which are venomous, which are harmless, and how to tell them apart. If bitten, call 112.",
     "keywords": "snakes in Georgia, Georgia snakes, venomous snakes Georgia, harmless snakes, vipers, racers, Natrix, Vipera, Macrovipera",
     "breadcrumbCurrent": "Snakes",
     "heroImageAlt": "Dinnik’s viper in rocky Caucasus habitat",

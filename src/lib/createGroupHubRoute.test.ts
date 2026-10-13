@@ -83,8 +83,6 @@ const KA_HEAD_TERMS: Record<GroupHubId, string> = {
   turtles: "კუ ",
 };
 
-const COUNTED_HUBS = hubIds.filter((hubId) => hubId !== "snakes");
-
 async function hubMetadata(hubId: GroupHubId, locale: Locale) {
   const metadata = await createGroupHubRoute(hubId).generateMetadata({
     params: Promise.resolve({ locale }),
@@ -133,7 +131,7 @@ describe("group hub metadata", () => {
   );
 
   it.each(
-    COUNTED_HUBS.flatMap((hubId) =>
+    hubIds.flatMap((hubId) =>
       routing.locales.map((locale) => [hubId, locale] as const),
     ),
   )(
@@ -147,14 +145,14 @@ describe("group hub metadata", () => {
   );
 
   it.each(Object.entries(KA_HEAD_TERMS))(
-    "leads the KA %s title with %s",
+    "leads the KA %s title and description with %s",
     async (hubId, term) => {
       const { description, title } = await hubMetadata(
         hubId as GroupHubId,
         "ka",
       );
       expect(title.startsWith(term)).toBe(true);
-      if (hubId !== "snakes") expect(description.startsWith(term)).toBe(true);
+      expect(description.startsWith(term)).toBe(true);
     },
   );
 });
@@ -195,4 +193,16 @@ describe("branded page titles", () => {
     const metadata = await load(locale);
     expect(renderedTitle(metadata.title)).toContain(siteConfig.name);
   });
+
+  it.each(routing.locales)(
+    "fits the %s contributors index title in 60 characters with the brand",
+    async (locale) => {
+      const metadata = await authorsMetadata({
+        params: Promise.resolve({ locale }),
+      });
+      const title = renderedTitle(metadata.title);
+      expect(title.endsWith(BRAND_SUFFIX)).toBe(true);
+      expect(title.length).toBeLessThanOrEqual(60);
+    },
+  );
 });
