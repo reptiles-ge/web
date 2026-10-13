@@ -634,7 +634,6 @@ export async function SpeciesProfileBody({
         <SpeciesGallery
           images={gallery}
           locale={locale}
-          location={species.location}
           name={species.commonName}
           scientificName={species.scientificName}
           speciesId={species.id}
@@ -1114,7 +1113,6 @@ function SpeciesProfileIdentification({
       photoAlt={speciesPhotoAlt(
         species.commonName,
         species.scientificName,
-        species.location,
         photo?.credit,
         locale,
       )}

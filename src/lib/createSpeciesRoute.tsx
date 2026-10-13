@@ -78,6 +78,9 @@ const HALYOMORPHA_TAXON_SAME_AS = [
   "https://www.wikidata.org/wiki/Q3270185",
 ];
 
+const IUCN_ASSESSMENT_URL =
+  /^https:\/\/www\.iucnredlist\.org\/species\/(\d+)\/(\d+)/;
+
 const TAXON_SAME_AS_URL_PATTERNS = [
   /^https:\/\/amphibiaweb\.org\/cgi\/amphib_query\?/,
   /^https:\/\/amphibiansoftheworld\.amnh\.org\/Amphibia\//,
@@ -395,7 +398,7 @@ function speciesSameAs(raw: Species) {
       urls.push(source.url);
     }
   }
-  return urls;
+  return withoutSupersededIucnAssessments(urls);
 }
 
 function speciesStructuredData({
@@ -537,6 +540,19 @@ function speciesTaxonJsonLd(raw: Species, item: Species, locale: AppLocale) {
     ...(sameAs.length > 0 ? { sameAs } : {}),
     ...(subjectOf.length > 0 ? { subjectOf } : {}),
   };
+}
+
+function withoutSupersededIucnAssessments(urls: string[]) {
+  const latest = new Map<string, number>();
+  for (const url of urls) {
+    const match = IUCN_ASSESSMENT_URL.exec(url);
+    if (!match) continue;
+    latest.set(match[1], Math.max(latest.get(match[1]) ?? 0, Number(match[2])));
+  }
+  return urls.filter((url) => {
+    const match = IUCN_ASSESSMENT_URL.exec(url);
+    return !match || Number(match[2]) === latest.get(match[1]);
+  });
 }
 
 export { speciesSameAs, speciesStructuredData };

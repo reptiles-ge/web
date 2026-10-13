@@ -13,7 +13,6 @@ describe("galleryImageObject", () => {
       },
       {
         commonName: "კავკასიური გველგესლა",
-        location: "",
         scientificName: "Vipera kaznakovi",
       },
       "ka",
@@ -44,7 +43,6 @@ describe("galleryImageObject", () => {
       },
       {
         commonName: "ჩვეულებრივი კაკაჩა",
-        location: "",
         scientificName: "Buteo buteo",
       },
       "ka",
@@ -68,7 +66,6 @@ describe("galleryImageObject", () => {
       },
       {
         commonName: "კავკასიური გველგესლა",
-        location: "",
         scientificName: "Vipera kaznakovi",
       },
       "ka",
@@ -106,7 +103,6 @@ describe("galleryImageObjects", () => {
       ],
       {
         commonName: "კავკასიური გველგესლა",
-        location: "",
         scientificName: "Vipera kaznakovi",
       },
       "ka",

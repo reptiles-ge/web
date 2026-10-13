@@ -49,7 +49,6 @@ export function getNewsVisual(
       alt: speciesPhotoAlt(
         item.commonName,
         item.scientificName,
-        item.location,
         item.imageCredit,
         locale,
       ),
