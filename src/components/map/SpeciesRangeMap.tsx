@@ -9,6 +9,7 @@ import type { HalyomorphaOccurrenceSummary } from "@/lib/halyomorphaOccurrences"
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { GeorgiaMapStatic } from "@/components/map/GeorgiaMapStatic";
 import { HalyomorphaRangeMap } from "@/components/map/HalyomorphaRangeMap";
+import { RangeHabitatExpandable } from "@/components/map/RangeHabitatExpandable";
 import { RangeHatchSwatch } from "@/components/map/RangeHatch";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import {
@@ -508,28 +509,13 @@ function RangeHabitatDetails({
   }
 
   return (
-    <details className="group">
-      <summary className="cursor-pointer list-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary [&::-webkit-details-marker]:hidden">
-        <span className="line-clamp-3 text-[17px] leading-[1.65] text-muted-foreground group-open:hidden lg:text-[16px]">
-          {body}
-        </span>
-        <span className="mt-2 inline-flex items-center gap-1.5 text-[14px] font-medium text-foreground underline decoration-foreground/30 underline-offset-4 group-open:hidden">
-          {readMore}
-          <ChevronDown aria-hidden="true" className="size-4" />
-        </span>
-        <span className="hidden items-center gap-1.5 text-[14px] font-medium text-foreground underline decoration-foreground/30 underline-offset-4 group-open:inline-flex">
-          {readLess}
-          <ChevronDown aria-hidden="true" className="size-4 rotate-180" />
-        </span>
-      </summary>
-      <p
-        className="mt-4 text-[17px] leading-[1.7] whitespace-pre-line text-muted-foreground lg:text-[16px]"
-        data-content-field={editorField}
-        data-content-id={speciesId}
-      >
-        <PhoneLinkedText>{body}</PhoneLinkedText>
-      </p>
-    </details>
+    <RangeHabitatExpandable
+      body={body}
+      editorField={editorField}
+      readLess={readLess}
+      readMore={readMore}
+      speciesId={speciesId}
+    />
   );
 }
 

@@ -20,6 +20,9 @@ const OTTER_CURRENT_IUCN_URL =
 const OTTER_REPORT_URL =
   "https://media.rufford.org/media/project_reports/11302-B%20Final%20Report.pdf";
 
+const VIPERA_TRANSCAUCASIANA_IUCN_URL =
+  "https://www.iucnredlist.org/species/164708/114549008";
+
 type ArticleJsonLd = {
   "@id": string;
   about: TaxonJsonLd;
@@ -271,13 +274,75 @@ describe("species structured data", () => {
     expect(sameAs).not.toContain(MELES_MELES_IUCN_URL);
   });
 
-  it("keeps the transcaucasian viper IUCN account matched by its page id", () => {
-    const raw = getSpeciesById("vipera-transcaucasiana");
-    expect(raw).toBeDefined();
+  it("cites the Vipera transcaucasiana IUCN account without making it a sameAs of Vipera ammodytes", () => {
+    const raw = getSpeciesById("vipera-transcaucasiana")!;
+    const localized = localizeSpecies(raw, "en");
+    const article = speciesStructuredData({
+      breadcrumbCrumbs: [{ name: localized.commonName }],
+      galleryTitle: "gallery",
+      item: localized,
+      locale: "en",
+      ogImage: localized.image,
+      pageUrl: "https://reptiles.ge/en/snakes/vipera-transcaucasiana",
+      raw,
+    }).find((entry) => entry["@type"] === "Article") as ArticleJsonLd;
 
-    expect(speciesSameAs(raw!)).toContain(
-      "https://www.iucnredlist.org/species/164708/114549008",
+    expect(raw.scientificName).toBe("Vipera ammodytes");
+    expect(speciesSameAs(raw)).not.toContain(VIPERA_TRANSCAUCASIANA_IUCN_URL);
+    expect(article.citation.map((work) => work.url)).toContain(
+      VIPERA_TRANSCAUCASIANA_IUCN_URL,
     );
+  });
+
+  it("only uses a source as sameAs when it names the Taxon's own binomial", () => {
+    for (const raw of getCatalogSpecies()) {
+      const [genus, epithet] = raw.scientificName.split(" ");
+      const sameAs = new Set(speciesSameAs(raw));
+      for (const source of raw.sources) {
+        if (!source.url || !sameAs.has(source.url)) continue;
+        const named = Array.from(
+          source.name.matchAll(
+            new RegExp(String.raw`\b${genus}\s+([a-z-]+)`, "g"),
+          ),
+          (match) => match[1],
+        );
+        if (named.length === 0) continue;
+        expect(
+          named.some((name) => stem(name) === stem(epithet)),
+          `${raw.id}: ${source.name}`,
+        ).toBe(true);
+      }
+    }
+  });
+
+  it("keeps keyword phrases and duplicates out of Taxon alternateName", () => {
+    for (const raw of getCatalogSpecies()) {
+      for (const locale of ["ka", "en", "ru", "tr"] as const) {
+        const localized = localizeSpecies(raw, locale);
+        const article = speciesStructuredData({
+          breadcrumbCrumbs: [{ name: localized.commonName }],
+          galleryTitle: "gallery",
+          item: localized,
+          locale,
+          ogImage: localized.image,
+          pageUrl: "https://reptiles.ge/species",
+          raw,
+        }).find((entry) => entry["@type"] === "Article") as ArticleJsonLd;
+        const names = article.about.alternateName ?? [];
+        const keys = names.map((name) => name.toLocaleLowerCase());
+        const label = `${raw.id}/${locale}`;
+
+        expect(new Set(keys).size, label).toBe(keys.length);
+        expect(keys, label).not.toContain(
+          raw.scientificName.toLocaleLowerCase(),
+        );
+        for (const name of names) {
+          expect(name, label).not.toMatch(
+            /\b(?:non-)?venomous\b|\bGeorgia\b|საქართველო|შხამიან|უშხამო|Грузи|ядовит|Gürcistan|zehirli|zehirsiz/iu,
+          );
+        }
+      }
+    }
   });
 
   it("writes FAQ answers as plain text without inline species links", () => {
@@ -302,3 +367,7 @@ describe("species structured data", () => {
     }
   });
 });
+
+function stem(epithet: string) {
+  return epithet.replace(/-+$/, "").replace(/(?:us|um|is|a|e)$/, "");
+}
