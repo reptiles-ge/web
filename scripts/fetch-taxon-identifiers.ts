@@ -1,4 +1,3 @@
-import { createHash } from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 
@@ -60,7 +59,7 @@ type INaturalistTaxon = {
 
 type LookupResult<T> = { note?: string; value?: T };
 
-type Options = { cacheDir: string; check: boolean };
+type Options = { check: boolean };
 
 type WikidataBinding = {
   gbif?: { value: string };
@@ -74,30 +73,18 @@ type WikidataClaims = { gbif: Set<number>; inat: Set<number> };
 const lastRequestAt = new Map<string, number>();
 
 function parseArguments(args: string[]): Options {
-  const cacheIndex = args.indexOf("--cache-dir");
-  return {
-    cacheDir:
-      cacheIndex >= 0 && args[cacheIndex + 1]
-        ? path.resolve(args[cacheIndex + 1])
-        : path.join(ROOT, "node_modules/.cache/taxon-identifiers"),
-    check: args.includes("--check"),
-  };
+  return { check: args.includes("--check") };
 }
 
-async function cachedJson<T>(
-  url: URL,
-  cacheDir: string,
-  init: RequestInit = {},
-): Promise<T> {
-  const cacheKey = createHash("sha256").update(url.toString()).digest("hex");
-  const cacheFile = path.join(cacheDir, `${cacheKey}.json`);
-  if (fs.existsSync(cacheFile)) {
-    return JSON.parse(fs.readFileSync(cacheFile, "utf8")) as T;
-  }
-  const body = await politeFetch<T>(url, init);
-  fs.mkdirSync(cacheDir, { recursive: true });
-  fs.writeFileSync(cacheFile, JSON.stringify(body));
-  return body;
+const responseCache = new Map<string, Promise<unknown>>();
+
+async function cachedJson<T>(url: URL, init: RequestInit = {}): Promise<T> {
+  const cacheKey = `${init.method ?? "GET"} ${url.toString()} ${typeof init.body === "string" ? init.body : ""}`;
+  const cached = responseCache.get(cacheKey);
+  if (cached) return cached as Promise<T>;
+  const request = politeFetch<T>(url, init);
+  responseCache.set(cacheKey, request);
+  return request;
 }
 
 async function politeFetch<T>(
@@ -127,13 +114,12 @@ async function politeFetch<T>(
 
 async function lookupGbif(
   taxon: CatalogTaxon,
-  cacheDir: string,
 ): Promise<LookupResult<number> & { keys: Set<number> }> {
   const url = new URL("https://api.gbif.org/v1/species/match");
   url.searchParams.set("name", taxon.name);
   url.searchParams.set("kingdom", "Animalia");
   url.searchParams.set("strict", "true");
-  const match = await cachedJson<GbifMatch>(url, cacheDir);
+  const match = await cachedJson<GbifMatch>(url);
   const keys = new Set<number>();
   if (match.usageKey) keys.add(match.usageKey);
 
@@ -153,7 +139,6 @@ async function lookupGbif(
   keys.add(match.acceptedUsageKey);
   const accepted = await cachedJson<GbifUsage>(
     new URL(`https://api.gbif.org/v1/species/${match.acceptedUsageKey}`),
-    cacheDir,
   );
   if (accepted.canonicalName !== EQUIVALENT_NAMES[taxon.id]?.gbif) {
     return {
@@ -166,7 +151,6 @@ async function lookupGbif(
 
 async function lookupINaturalist(
   taxon: CatalogTaxon,
-  cacheDir: string,
 ): Promise<LookupResult<number>> {
   const names = [taxon.name, EQUIVALENT_NAMES[taxon.id]?.inaturalist].filter(
     (name): name is string => Boolean(name),
@@ -179,7 +163,6 @@ async function lookupINaturalist(
     url.searchParams.set("per_page", "30");
     const { results } = await cachedJson<{ results: INaturalistTaxon[] }>(
       url,
-      cacheDir,
     );
     const exact = results.filter((entry) => entry.name === name);
     const active = exact.filter((entry) => entry.is_active);
@@ -195,7 +178,7 @@ async function lookupINaturalist(
   return { note: notes.join("; ") };
 }
 
-async function lookupWikidata(names: string[], cacheDir: string) {
+async function lookupWikidata(names: string[]) {
   const bindings: WikidataBinding[] = [];
   const unique = [...new Set(names)];
   for (let start = 0; start < unique.length; start += WIKIDATA_BATCH) {
@@ -209,7 +192,7 @@ async function lookupWikidata(names: string[], cacheDir: string) {
     url.searchParams.set("format", "json");
     const body = await cachedJson<{
       results: { bindings: WikidataBinding[] };
-    }>(url, cacheDir, {
+    }>(url, {
       headers: { Accept: "application/sparql-results+json" },
     });
     bindings.push(...body.results.bindings);
@@ -234,13 +217,11 @@ async function lookupWikidata(names: string[], cacheDir: string) {
 async function inaturalistIdsAgree(
   claimed: Set<number>,
   inaturalist: number,
-  cacheDir: string,
 ) {
   if (claimed.has(inaturalist)) return true;
   for (const id of claimed) {
     const { results } = await cachedJson<{ results: INaturalistTaxon[] }>(
       new URL(`https://api.inaturalist.org/v1/taxa/${id}`),
-      cacheDir,
     );
     const replacedBy = results[0]?.current_synonymous_taxon_ids ?? [];
     const swappedIntoOurs =
@@ -257,7 +238,6 @@ async function resolveWikidata(
   wikidata: Map<string, Map<string, WikidataClaims>>,
   gbifKeys: Set<number>,
   inaturalist: number | undefined,
-  cacheDir: string,
 ): Promise<LookupResult<string>> {
   const names = [taxon.name, EQUIVALENT_NAMES[taxon.id]?.wikidata].filter(
     (name): name is string => Boolean(name),
@@ -281,7 +261,7 @@ async function resolveWikidata(
   }
   if (
     inaturalist !== undefined &&
-    !(await inaturalistIdsAgree(claims.inat, inaturalist, cacheDir))
+    !(await inaturalistIdsAgree(claims.inat, inaturalist))
   ) {
     return {
       note: `${qid} P3151 ${[...claims.inat].join("/")} does not resolve to iNaturalist ${inaturalist}`,
@@ -328,22 +308,20 @@ async function main() {
       const equivalent = EQUIVALENT_NAMES[taxon.id]?.wikidata;
       return equivalent ? [taxon.name, equivalent] : [taxon.name];
     }),
-    options.cacheDir,
   );
   const identifiers = new Map<string, TaxonIdentifiers>();
   const exclusions: string[] = [];
 
   for (const taxon of taxa) {
     const [gbif, inaturalist] = await Promise.all([
-      lookupGbif(taxon, options.cacheDir),
-      lookupINaturalist(taxon, options.cacheDir),
+      lookupGbif(taxon),
+      lookupINaturalist(taxon),
     ]);
     const wikidataResult = await resolveWikidata(
       taxon,
       wikidata,
       gbif.keys,
       inaturalist.value,
-      options.cacheDir,
     );
     const results: Record<IdentifierSource, LookupResult<number | string>> = {
       gbif,

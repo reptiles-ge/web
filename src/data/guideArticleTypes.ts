@@ -37,8 +37,6 @@ export type GuideArticleCopy<ImageKey extends string = string> = {
   title: string;
 };
 
-export type GuideArticleHeroPosition = `${number}% ${number}%`;
-
 export type GuideArticleImage = {
   alt: Record<AppLocale, string>;
   credit?: Record<AppLocale, string>;
@@ -84,6 +82,8 @@ export type GuideArticleSource = {
 };
 
 type GuideArticleFaq = { answer: string; question: string };
+
+type GuideArticleHeroPosition = `${number}% ${number}%`;
 
 type GuideArticleOgImage =
   | `/og/images/guides/${string}.jpg`

@@ -123,7 +123,7 @@ export const ORGANIZATION_SAME_AS = [
   "https://github.com/reptiles-ge",
 ] as const;
 
-export const ORGANIZATION_NAME = "Reptiles.ge";
+const ORGANIZATION_NAME = "Reptiles.ge";
 
 export const CONTACT_EMAIL = "hello@reptiles.ge";
 

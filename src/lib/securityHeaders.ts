@@ -7,7 +7,21 @@ export const STRICT_TRANSPORT_SECURITY: ConfigHeader = {
   value: "max-age=31536000",
 };
 
-export function contentSecurityPolicy(isDevelopment: boolean) {
+export function securityHeaders(isDevelopment: boolean): ConfigHeader[] {
+  return [
+    {
+      key: "Content-Security-Policy",
+      value: contentSecurityPolicy(isDevelopment),
+    },
+    { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+    { key: "X-Content-Type-Options", value: "nosniff" },
+    ...(isDevelopment
+      ? []
+      : [{ key: "X-Frame-Options", value: "DENY" }, STRICT_TRANSPORT_SECURITY]),
+  ];
+}
+
+function contentSecurityPolicy(isDevelopment: boolean) {
   const directives = [
     "default-src 'self'",
     `script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://counter.top.ge${isDevelopment ? " https://unpkg.com" : ""}`,
@@ -26,18 +40,4 @@ export function contentSecurityPolicy(isDevelopment: boolean) {
   );
 
   return directives.join("; ");
-}
-
-export function securityHeaders(isDevelopment: boolean): ConfigHeader[] {
-  return [
-    {
-      key: "Content-Security-Policy",
-      value: contentSecurityPolicy(isDevelopment),
-    },
-    { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
-    { key: "X-Content-Type-Options", value: "nosniff" },
-    ...(isDevelopment
-      ? []
-      : [{ key: "X-Frame-Options", value: "DENY" }, STRICT_TRANSPORT_SECURITY]),
-  ];
 }

@@ -64,7 +64,7 @@ Library only, not a CLI. KA / translation frontmatter schemas for `compile-speci
 
 ### `fetch-taxon-identifiers.ts` → `npm run taxon:ids`
 
-Looks up each published species' scientific name in GBIF (strict match), Wikidata (`P225`) and iNaturalist, and rewrites the committed `src/data/taxonIdentifiers.ts`. Species pages put these IDs in the Taxon `sameAs`; the build never calls the APIs. One request per second per API; responses are cached in `node_modules/.cache/taxon-identifiers` (`--cache-dir <dir>` to change). `--check` exits 1 when the committed file is stale.
+Looks up each published species' scientific name in GBIF (strict match), Wikidata (`P225`) and iNaturalist, and rewrites the committed `src/data/taxonIdentifiers.ts`. Species pages put these IDs in the Taxon `sameAs`; the build never calls the APIs. One request per second per API; responses are cached in memory for the run. `--check` exits 1 when the committed file is stale.
 
 An ID is kept only on an exact, unambiguous match. A Wikidata item must agree with the GBIF key (`P846`) and the iNaturalist taxon (`P3151`). A synonym or alternative name is used only when the profile itself presents it as the same taxon (`EQUIVALENT_NAMES`); deliberate omissions live in `MANUAL_EXCLUSIONS`. The run prints every left-out ID with its reason.
 
