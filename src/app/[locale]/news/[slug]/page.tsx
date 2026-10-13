@@ -21,6 +21,7 @@ import {
   newsArticleUrl,
   newsDateTime,
   newsIndexUrl,
+  newsOgImageDimensions,
   newsOgImageUrl,
   publishedNewsStaticParams,
 } from "@/lib/news";
@@ -29,7 +30,6 @@ import { INDEXABLE_ROBOTS } from "@/lib/robots";
 import {
   absoluteUrl,
   localePath,
-  ogImageDimensions,
   openGraphJpeg,
   organizationRef,
   siteConfig,
@@ -199,7 +199,7 @@ export default async function NewsArticleRoute({ params }: Props) {
       "@type": "ImageObject",
       contentUrl: ogImage,
       url: ogImage,
-      ...ogImageDimensions(ogImage),
+      ...newsOgImageDimensions(article),
       ...newsImageRights(article, locale),
     },
     inLanguage: locale,

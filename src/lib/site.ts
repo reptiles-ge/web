@@ -87,7 +87,10 @@ export function localePath(locale: string, href: PathnameHref = "/") {
   return getPathname({ href, locale: locale as AppLocale });
 }
 
-export function ogImageDimensions(url: string) {
+export function ogImageDimensions(url: string): {
+  height?: number;
+  width?: number;
+} {
   if (!url.startsWith(`${CDN_BASE}/og/`)) return {};
   return { height: OG_IMAGE_HEIGHT, width: OG_IMAGE_WIDTH };
 }

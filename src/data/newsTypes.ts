@@ -33,8 +33,10 @@ export type NewsPhoto = {
   };
   credit?: PhotoCredit;
   fromAtlas?: boolean;
+  height?: number;
   plate?: boolean;
   src: string;
+  width?: number;
 };
 
 export type NewsSectionBlock =
