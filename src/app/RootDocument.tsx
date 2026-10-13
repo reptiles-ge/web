@@ -1,7 +1,6 @@
 import type { ReactNode } from "react";
 
 import dynamic from "next/dynamic";
-import Script from "next/script";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { preconnect } from "react-dom";
 
@@ -40,14 +39,13 @@ export function RootDocument({ children, locale }: Props) {
     >
       {isProd ? <GoogleTagManager gtmId={GTM_ID} /> : null}
       <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         {isProd ? null : (
-          <Script
+          <script
             crossOrigin="anonymous"
             src="https://unpkg.com/react-scan/dist/auto.global.js"
-            strategy="beforeInteractive"
           />
         )}
-        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body className="min-h-full bg-background font-sans text-foreground transition-colors duration-300">
         {isProd ? (

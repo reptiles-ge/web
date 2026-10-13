@@ -93,6 +93,12 @@ const eslintConfig = defineConfig([
     },
   },
   {
+    files: ["src/app/RootDocument.tsx"],
+    rules: {
+      "@next/next/no-sync-scripts": "off",
+    },
+  },
+  {
     plugins: {
       "unused-imports": unusedImports,
     },
