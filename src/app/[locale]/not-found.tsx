@@ -1,15 +1,20 @@
 import type { Metadata } from "next";
 
-import { useLocale } from "next-intl";
-import { getLocale } from "next-intl/server";
+import { hasLocale, useLocale } from "next-intl";
 
 import { NotFoundShell } from "@/components/NotFoundShell";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { notFoundMetadata } from "@/lib/notFoundMetadata";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const locale = await getLocale().catch(() => routing.defaultLocale);
-  return notFoundMetadata(locale as AppLocale);
+type Props = {
+  params?: Promise<{ locale?: string }>;
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const requested = (await params)?.locale;
+  return notFoundMetadata(
+    hasLocale(routing.locales, requested) ? requested : routing.defaultLocale,
+  );
 }
 
 export default function NotFound() {
