@@ -12,7 +12,8 @@ export const rangeMap: InteractiveRangeMapConfig = {
       mapAria:
         "Smooth snake distribution evidence and field records on a map of Georgia",
       officialRegionLabel: "Confirmed distribution region",
-      rangeTitle: "Where smooth snake distribution is confirmed in Georgia",
+      rangeTitle:
+        "Smooth snake: where its distribution is confirmed in Georgia",
     },
     ka: {
       ...HALYOMORPHA_RANGE_COPY.ka,

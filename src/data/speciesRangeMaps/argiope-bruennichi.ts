@@ -12,7 +12,7 @@ export const rangeMap: InteractiveRangeMapConfig = {
       mapAria:
         "Wasp spider distribution evidence and field records on a map of Georgia",
       officialRegionLabel: "Confirmed distribution region",
-      rangeTitle: "Where wasp spider is confirmed in Georgia",
+      rangeTitle: "Wasp spider: where it is confirmed in Georgia",
     },
     ka: {
       ...HALYOMORPHA_RANGE_COPY.ka,

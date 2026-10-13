@@ -11,7 +11,7 @@ export const rangeMap: InteractiveRangeMapConfig = {
         "The Levantine viper map combines Reptiles.ge editorial photo records with public iNaturalist observations. Source-confirmed regions and individual field records are separate layers, and record counts reflect observation effort rather than population density.",
       mapAria:
         "Levantine viper distribution evidence and field records on a map of Georgia",
-      rangeTitle: "Where Levantine viper occurs in Georgia",
+      rangeTitle: "Levantine viper: where it occurs in Georgia",
     },
     ka: {
       ...HALYOMORPHA_RANGE_COPY.ka,
@@ -32,10 +32,10 @@ export const rangeMap: InteractiveRangeMapConfig = {
     tr: {
       ...HALYOMORPHA_RANGE_COPY.tr,
       intro:
-        "Koca engerek haritası Reptiles.ge editoryal fotoğraf kayıtlarını ve herkese açık iNaturalist gözlemlerini birleştirir. Kaynakla doğrulanmış bölgeler ile tekil arazi kayıtları ayrı katmanlardır; kayıt sayısı gözlem yoğunluğunu yansıtır, popülasyon yoğunluğu değildir.",
+        "Levant engereği haritası Reptiles.ge editoryal fotoğraf kayıtlarını ve herkese açık iNaturalist gözlemlerini birleştirir. Kaynakla doğrulanmış bölgeler ile tekil arazi kayıtları ayrı katmanlardır; kayıt sayısı gözlem yoğunluğunu yansıtır, popülasyon yoğunluğu değildir.",
       mapAria:
-        "Koca engereğin Gürcistan'daki yayılış kanıtları ve arazi kayıtları",
-      rangeTitle: "Koca engerek Gürcistan'da nerede görülür?",
+        "Levant engereğinin Gürcistan'daki yayılış kanıtları ve arazi kayıtları",
+      rangeTitle: "Levant engereği Gürcistan'da nerede görülür?",
     },
   },
   iNaturalistTaxonId: 105083,

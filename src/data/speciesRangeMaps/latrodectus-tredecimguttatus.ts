@@ -13,7 +13,7 @@ export const rangeMap: InteractiveRangeMapConfig = {
         "Mediterranean black widow observations and confirmed distribution regions on a map of Georgia",
       officialRegionLabel: "Confirmed distribution region",
       rangeTitle:
-        "Where Mediterranean black widow distribution is confirmed in Georgia",
+        "Mediterranean black widow: where its distribution is confirmed in Georgia",
       regionsMetricLabel: "confirmed regions",
     },
     ka: {

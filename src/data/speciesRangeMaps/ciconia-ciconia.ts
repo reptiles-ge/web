@@ -12,7 +12,7 @@ export const rangeMap: InteractiveRangeMapConfig = {
       mapAria:
         "White stork observations and confirmed regions on a map of Georgia",
       officialRegionLabel: "Region with confirmed distribution",
-      rangeTitle: "Where white stork distribution is confirmed in Georgia",
+      rangeTitle: "White stork: where its distribution is confirmed in Georgia",
     },
     ka: {
       ...HALYOMORPHA_RANGE_COPY.ka,

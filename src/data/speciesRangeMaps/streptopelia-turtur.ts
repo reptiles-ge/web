@@ -13,7 +13,7 @@ export const rangeMap: InteractiveRangeMapConfig = {
         "European turtle dove observations and confirmed distribution regions on a map of Georgia",
       officialRegionLabel: "Confirmed distribution region",
       rangeTitle:
-        "Where European turtle dove distribution is confirmed in Georgia",
+        "European turtle dove: where its distribution is confirmed in Georgia",
       regionsMetricLabel: "regions with records",
     },
     ka: {

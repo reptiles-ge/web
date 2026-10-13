@@ -13,7 +13,7 @@ export const rangeMap: InteractiveRangeMapConfig = {
         "Obscure rock lizard observations and confirmed distribution regions on a map of Georgia",
       officialRegionLabel: "Confirmed distribution region",
       rangeTitle:
-        "Where obscure rock lizard distribution is confirmed in Georgia",
+        "Obscure rock lizard: where its distribution is confirmed in Georgia",
     },
     ka: {
       ...HALYOMORPHA_RANGE_COPY.ka,

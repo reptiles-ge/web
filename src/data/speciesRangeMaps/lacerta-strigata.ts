@@ -12,7 +12,8 @@ export const rangeMap: InteractiveRangeMapConfig = {
       mapAria:
         "Striped lizard observations and confirmed distribution regions on a map of Georgia",
       officialRegionLabel: "Confirmed distribution region",
-      rangeTitle: "Where striped lizard distribution is confirmed in Georgia",
+      rangeTitle:
+        "Striped lizard: where its distribution is confirmed in Georgia",
       regionsMetricLabel: "regions with records",
     },
     ka: {

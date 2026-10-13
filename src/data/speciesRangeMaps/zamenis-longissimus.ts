@@ -13,7 +13,7 @@ export const rangeMap: InteractiveRangeMapConfig = {
         "Aesculapian snake observations and confirmed regions on a map of Georgia",
       officialRegionLabel: "Confirmed distribution region",
       rangeTitle:
-        "Where Aesculapian snake distribution is confirmed in Georgia",
+        "Aesculapian snake: where its distribution is confirmed in Georgia",
     },
     ka: {
       ...HALYOMORPHA_RANGE_COPY.ka,

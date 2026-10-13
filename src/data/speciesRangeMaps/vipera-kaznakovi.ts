@@ -12,7 +12,7 @@ export const rangeMap: InteractiveRangeMapConfig = {
       mapAria:
         "Caucasus viper distribution evidence and field records on a map of Georgia",
       officialRegionLabel: "Region with records",
-      rangeTitle: "Where Caucasus viper is recorded in Georgia",
+      rangeTitle: "Caucasus viper: where it is recorded in Georgia",
     },
     ka: {
       ...HALYOMORPHA_RANGE_COPY.ka,

@@ -12,7 +12,7 @@ export const rangeMap: InteractiveRangeMapConfig = {
       mapAria:
         "European cat snake distribution evidence and field records on a map of Georgia",
       officialRegionLabel: "Region with records",
-      rangeTitle: "Where European cat snake is recorded in Georgia",
+      rangeTitle: "European cat snake: where it is recorded in Georgia",
     },
     ka: {
       ...HALYOMORPHA_RANGE_COPY.ka,

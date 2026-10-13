@@ -12,7 +12,7 @@ export const rangeMap: InteractiveRangeMapConfig = {
       mapAria:
         "Rock Dove observations and confirmed distribution regions on a map of Georgia",
       officialRegionLabel: "Confirmed distribution region",
-      rangeTitle: "Where Rock Dove distribution is confirmed in Georgia",
+      rangeTitle: "Rock Dove: where its distribution is confirmed in Georgia",
       regionsMetricLabel: "confirmed regions",
     },
     ka: {

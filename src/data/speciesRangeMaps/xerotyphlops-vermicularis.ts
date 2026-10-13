@@ -13,7 +13,7 @@ export const rangeMap: InteractiveRangeMapConfig = {
         "European blind snake observations and confirmed regions on a map of Georgia",
       officialRegionLabel: "Confirmed distribution region",
       rangeTitle:
-        "Where European blind snake distribution is confirmed in Georgia",
+        "European blind snake: where its distribution is confirmed in Georgia",
     },
     ka: {
       ...HALYOMORPHA_RANGE_COPY.ka,

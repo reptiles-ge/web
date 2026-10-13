@@ -12,7 +12,7 @@ export const rangeMap: InteractiveRangeMapConfig = {
       mapAria:
         "Caucasian salamander source-confirmed regions and approximate observations on a map of Georgia",
       officialRegionLabel: "Source-confirmed distribution region",
-      rangeTitle: "Where Caucasian salamander is documented in Georgia",
+      rangeTitle: "Caucasian salamander: where it is documented in Georgia",
     },
     ka: {
       ...HALYOMORPHA_RANGE_COPY.ka,

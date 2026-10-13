@@ -12,7 +12,7 @@ export const rangeMap: InteractiveRangeMapConfig = {
       mapAria:
         "European roe deer distribution evidence and field records on a map of Georgia",
       officialRegionLabel: "Region with records",
-      rangeTitle: "Where European roe deer is recorded in Georgia",
+      rangeTitle: "European roe deer: where it is recorded in Georgia",
     },
     ka: {
       ...HALYOMORPHA_RANGE_COPY.ka,

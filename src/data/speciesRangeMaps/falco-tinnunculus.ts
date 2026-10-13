@@ -12,7 +12,7 @@ export const rangeMap: InteractiveRangeMapConfig = {
       mapAria:
         "Common kestrel distribution evidence and field records on a map of Georgia",
       officialRegionLabel: "Region with records",
-      rangeTitle: "Where common kestrel is recorded in Georgia",
+      rangeTitle: "Common kestrel: where it is recorded in Georgia",
     },
     ka: {
       ...HALYOMORPHA_RANGE_COPY.ka,

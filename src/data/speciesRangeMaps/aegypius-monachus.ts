@@ -12,7 +12,7 @@ export const rangeMap: InteractiveRangeMapConfig = {
       mapAria:
         "Cinereous vulture distribution evidence and field records on a map of Georgia",
       officialRegionLabel: "Region with records",
-      rangeTitle: "Where cinereous vulture is recorded in Georgia",
+      rangeTitle: "Cinereous vulture: where it is recorded in Georgia",
     },
     ka: {
       ...HALYOMORPHA_RANGE_COPY.ka,

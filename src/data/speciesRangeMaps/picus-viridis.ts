@@ -13,7 +13,7 @@ export const rangeMap: InteractiveRangeMapConfig = {
         "European green woodpecker observations and confirmed distribution regions on a map of Georgia",
       officialRegionLabel: "Confirmed distribution region",
       rangeTitle:
-        "Where European green woodpecker distribution is confirmed in Georgia",
+        "European green woodpecker: where its distribution is confirmed in Georgia",
       regionsMetricLabel: "regions with records",
     },
     ka: {

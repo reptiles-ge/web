@@ -13,7 +13,7 @@ export const rangeMap: InteractiveRangeMapConfig = {
         "Urartian ratsnake observations and confirmed distribution regions on a map of Georgia",
       officialRegionLabel: "Confirmed distribution region",
       rangeTitle:
-        "Where Urartian ratsnake distribution is confirmed in Georgia",
+        "Urartian ratsnake: where its distribution is confirmed in Georgia",
       regionsMetricLabel: "regions with records",
     },
     ka: {
