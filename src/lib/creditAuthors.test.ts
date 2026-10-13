@@ -11,6 +11,7 @@ import {
   creditAuthorIndexAlternates,
   creditAuthorIndexUrl,
   creditAuthorPageSchemaType,
+  creditAuthorPersonId,
   creditAuthorPortraitImage,
   creditAuthorStaticParams,
   creditAuthorUrl,
@@ -306,6 +307,15 @@ describe("contributor entity JSON-LD", () => {
     expect(node).not.toHaveProperty("jobTitle");
   });
 
+  it("gives a person a stable @id and leaves out an empty sameAs", () => {
+    const node = creditAuthorEntityJsonLd(bySlug("sandro-khakhva"), "ka", {});
+    expect(node["@id"]).toBe(
+      `${creditAuthorUrl("ka", "sandro-khakhva")}#person`,
+    );
+    expect(node["@id"]).toBe(creditAuthorPersonId("ka", "sandro-khakhva"));
+    expect(node).not.toHaveProperty("sameAs");
+  });
+
   it("does not type a photography page as a person or an organization", () => {
     const page = bySlug("velur-bunebastan-axlos");
     const node = creditAuthorEntityJsonLd(page, "ka", {
@@ -314,6 +324,7 @@ describe("contributor entity JSON-LD", () => {
     });
     expect(creditAuthorPageSchemaType(page)).toBe("CollectionPage");
     expect(node["@type"]).toBe("Thing");
+    expect(node).not.toHaveProperty("@id");
     expect(node).not.toHaveProperty("affiliation");
     expect(node).not.toHaveProperty("jobTitle");
     expect(node.sameAs).toEqual([

@@ -33,6 +33,10 @@ describe("galleryImageObject", () => {
         }),
       }),
     );
+    expect(data.creator).toHaveProperty(
+      "@id",
+      `${(data.creator as { url: string }).url}#person`,
+    );
   });
 
   it("credits a photography page by name without calling it a person", () => {

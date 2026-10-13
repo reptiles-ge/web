@@ -74,7 +74,9 @@ export function creditAuthorEntityJsonLd(
   const affiliations = isPerson
     ? creditAuthorAffiliationNames(author, locale)
     : [];
+  const sameAs = creditAuthorSameAs(author);
   return {
+    ...(isPerson ? { "@id": creditAuthorPersonId(locale, author.slug) } : {}),
     "@type": isPerson ? "Person" : "Thing",
     ...(affiliations.length > 0
       ? {
@@ -88,7 +90,7 @@ export function creditAuthorEntityJsonLd(
     image: creditAuthorPortraitImage(author).url,
     ...(isPerson && jobTitle ? { jobTitle } : {}),
     name: creditAuthorName(author, locale),
-    sameAs: creditAuthorSameAs(author),
+    ...(sameAs.length > 0 ? { sameAs } : {}),
     url: creditAuthorUrl(locale, author.slug),
   };
 }
@@ -110,6 +112,10 @@ export function creditAuthorPageSchemaType(author: CreditAuthor) {
   return creditAuthorKind(author) === "person"
     ? "ProfilePage"
     : "CollectionPage";
+}
+
+export function creditAuthorPersonId(locale: AppLocale, slug: string) {
+  return `${creditAuthorUrl(locale, slug)}#person`;
 }
 
 export function creditAuthorPortraitImage(author: CreditAuthor) {
