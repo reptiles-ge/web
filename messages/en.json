@@ -432,7 +432,8 @@
     "emergencyHint": "Snake, scorpion, or spider — right away.",
     "biteGuide": "Bite guide",
     "backToTop": "Top",
-    "backToTopLabel": "Back to top"
+    "backToTopLabel": "Back to top",
+    "photoUse": "Photo use"
   },
   "legal": {
     "canonicalNotice": "The legal text on this page is currently provided in Georgian; treat the Georgian version as the canonical text.",
@@ -560,7 +561,8 @@
       "sand": "Sand",
       "white": "White",
       "yellow": "Yellow"
-    }
+    },
+    "photoUseLink": "Using these photos"
   },
   "giurzaRange": {
     "lead": "The Levantine viper lives in dry, stony and rocky places along the lower Iori, Mtkvari and Alazani rivers, in Shiraki and Gareji, and in the dry foothills of Kvemo Kartli.",
@@ -4050,5 +4052,20 @@
     "ctaEyebrow": "Next step",
     "ctaTitle": "From the house to a profile",
     "ctaBody": "Open the Caspian gecko or the identify guide. In the house the first rule is: do not kill it."
+  },
+  "photoUse": {
+    "metaTitle": "Photo use",
+    "metaDescription": "Who owns the photos on Reptiles.ge, which licenses apply, and how to ask permission to reuse a photo or text.",
+    "title": "Using photos from Reptiles.ge",
+    "intro": "The photos on Reptiles.ge are not free stock images. Each one belongs to the author credited under it.",
+    "photosHeading": "Photos",
+    "photosOwnership": "Photos on Reptiles.ge belong to the authors credited under each photo.",
+    "photosINaturalist": "Many photos come from iNaturalist. There, each photo is published under its author's license, and Reptiles.ge uses them with the authors' permission.",
+    "photosThirdParty": "Some photos come from Wikimedia Commons or other sources under their own licenses. The source credited under the photo links to the page that states that license.",
+    "photosPermission": "Unless a photo's own license allows it, do not reuse the photo without permission.",
+    "askPermission": "To ask for permission, write to us. We will forward your request to the author.",
+    "textHeading": "Text",
+    "textBody": "The text on Reptiles.ge is not under an open license either. As the terms of use say, a short quotation that cites the source and Reptiles.ge is allowed. Any other reuse of text needs permission.",
+    "termsLink": "Terms of use"
   }
 }

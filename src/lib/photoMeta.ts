@@ -1,13 +1,8 @@
 import type { GalleryImage, PhotoCredit, Species } from "@/data/species";
 import type { AppLocale } from "@/i18n/routing";
 
-import {
-  creditAuthorKind,
-  creditAuthorName,
-  getPublishedCreditAuthorByName,
-} from "@/data/creditAuthors";
 import { optimizedImgSrc } from "@/data/optimizedImages";
-import { creditAuthorPersonId, creditAuthorUrl } from "@/lib/creditAuthors";
+import { photoRights } from "@/lib/imageRights";
 import { hasPhotoCoordinates } from "@/lib/photoCoordinates";
 import { absoluteImageUrl } from "@/lib/site";
 import { speciesPhotoAlt } from "@/lib/speciesMeta";
@@ -29,7 +24,6 @@ export function galleryImageObject(
     locale,
   );
   const format = encodingFormat(publishedSrc);
-  const creator = credit ? creatorNode(credit, locale) : undefined;
   const contentLocation = photoContentLocation(credit);
 
   return {
@@ -40,13 +34,7 @@ export function galleryImageObject(
     name,
     url,
     ...(format ? { encodingFormat: format } : {}),
-    ...(creator
-      ? {
-          copyrightHolder: creator,
-          creator,
-        }
-      : {}),
-    ...(credit?.photographer ? { creditText: credit.photographer } : {}),
+    ...photoRights(photo.src, credit, locale),
     ...(credit?.date ? { dateCreated: credit.date } : {}),
     ...(contentLocation ? { contentLocation } : {}),
   };
@@ -63,22 +51,6 @@ export function galleryImageObjects(
     objects.push(galleryImageObject(photo, species, locale));
   }
   return objects;
-}
-
-function creatorNode(credit: PhotoCredit, locale: AppLocale) {
-  if (!credit.photographer) return undefined;
-  const author = getPublishedCreditAuthorByName(credit.photographer);
-  if (author && creditAuthorKind(author) !== "person") return undefined;
-  return {
-    ...(author ? { "@id": creditAuthorPersonId(locale, author.slug) } : {}),
-    "@type": "Person",
-    name: author ? creditAuthorName(author, locale) : credit.photographer,
-    ...(author
-      ? { url: creditAuthorUrl(locale, author.slug) }
-      : credit.url
-        ? { url: credit.url }
-        : {}),
-  };
 }
 
 function encodingFormat(src: string) {

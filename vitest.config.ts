@@ -101,6 +101,7 @@ export default defineConfig({
         "src/components/OverlayPanel.tsx",
         "src/components/OverlayPanelImpl.tsx",
         "src/components/PhotoCreditCaption.tsx",
+        "src/components/PhotoUsePage.tsx",
         "src/components/QuizCopyContext.tsx",
         "src/components/QuizCover.tsx",
         "src/components/QuizCoverPicture.tsx",

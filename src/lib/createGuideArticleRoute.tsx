@@ -19,6 +19,7 @@ import { optimizedEntry, optimizedImgSrc } from "@/data/optimizedImages";
 import { openGraphLocale } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { GROUP_HUBS } from "@/lib/groupHubs";
+import { guideImageRights } from "@/lib/imageRights";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import { breadcrumbListLd, localePageUrl } from "@/lib/pageStructuredData";
 import {
@@ -123,6 +124,7 @@ export function createGuideArticleRoute(pathname: GuideArticlePath) {
           height: shareImage.height,
           url: shareImage.url,
           width: shareImage.width,
+          ...guideImageRights(article.hero, locale),
         },
         heroImage,
       ],
@@ -163,6 +165,7 @@ function guideImageObject(image: GuideArticleImage, locale: AppLocale) {
     height,
     url,
     width,
+    ...guideImageRights(image, locale),
   };
 }
 

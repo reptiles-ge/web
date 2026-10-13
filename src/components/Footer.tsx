@@ -70,6 +70,7 @@ const companyLinks = [
   { href: "/contact" as const, labelKey: "contact" as const },
   { href: "/privacy" as const, labelKey: "privacy" as const },
   { href: "/terms-and-conditions" as const, labelKey: "terms" as const },
+  { href: "/photo-use" as const, labelKey: "photoUse" as const },
 ];
 
 const biteGuide = getGuideArticles().find(

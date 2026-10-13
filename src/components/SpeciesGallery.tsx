@@ -118,6 +118,12 @@ export async function SpeciesGallery({
                   photos: photos.length,
                 })}
               </span>
+              <Link
+                className="text-sm text-white/65 underline-offset-4 transition-colors hover:text-white hover:underline"
+                href="/photo-use"
+              >
+                {t("photoUseLink")}
+              </Link>
               <a
                 className="inline-flex h-12 items-center gap-2 rounded-full border border-white/30 px-6 text-[14.5px] font-medium text-white transition-[translate,background-color] hover:-translate-y-0.5 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                 data-species-gallery-src={slides[0].src}

@@ -1,9 +1,9 @@
-import fs from "node:fs";
 import path from "node:path";
 
 import type { TaxonIdentifiers } from "../src/data/taxonIdentifiers";
 
 import { getCatalogSpecies } from "../src/data/species";
+import { createPoliteJson, writeOrCheckModule } from "./remoteDataScript";
 
 type IdentifierSource = keyof TaxonIdentifiers;
 
@@ -62,47 +62,14 @@ type WikidataBinding = {
 
 type WikidataClaims = { gbif: Set<number>; inat: Set<number> };
 
-const lastRequestAt = new Map<string, number>();
-
 function parseArguments(args: string[]): Options {
   return { check: args.includes("--check") };
 }
 
-const responseCache = new Map<string, Promise<unknown>>();
-
-async function cachedJson<T>(url: URL, init: RequestInit = {}): Promise<T> {
-  const cacheKey = `${init.method ?? "GET"} ${url.toString()} ${typeof init.body === "string" ? init.body : ""}`;
-  const cached = responseCache.get(cacheKey);
-  if (cached) return cached as Promise<T>;
-  const request = politeFetch<T>(url, init);
-  responseCache.set(cacheKey, request);
-  return request;
-}
-
-async function politeFetch<T>(
-  url: URL,
-  init: RequestInit,
-  attempt = 1,
-): Promise<T> {
-  const wait = (lastRequestAt.get(url.host) ?? 0) + REQUEST_GAP_MS - Date.now();
-  if (wait > 0) await new Promise((resolve) => setTimeout(resolve, wait));
-  lastRequestAt.set(url.host, Date.now());
-
-  try {
-    const response = await fetch(url, {
-      ...init,
-      headers: { "User-Agent": USER_AGENT, ...init.headers },
-    });
-    if (!response.ok) {
-      throw new Error(`${url.toString()} failed with HTTP ${response.status}.`);
-    }
-    return (await response.json()) as T;
-  } catch (error) {
-    if (attempt >= 5) throw error;
-    await new Promise((resolve) => setTimeout(resolve, 2000 * attempt));
-    return politeFetch(url, init, attempt + 1);
-  }
-}
+const cachedJson = createPoliteJson({
+  gapMs: REQUEST_GAP_MS,
+  userAgent: USER_AGENT,
+});
 
 async function lookupGbif(
   taxon: CatalogTaxon,
@@ -153,9 +120,7 @@ async function lookupINaturalist(
     url.searchParams.set("q", name);
     url.searchParams.set("rank", "species,subspecies");
     url.searchParams.set("per_page", "30");
-    const { results } = await cachedJson<{ results: INaturalistTaxon[] }>(
-      url,
-    );
+    const { results } = await cachedJson<{ results: INaturalistTaxon[] }>(url);
     const exact = results.filter((entry) => entry.name === name);
     const active = exact.filter((entry) => entry.is_active);
     if (active.length === 1) return { value: active[0].id };
@@ -206,10 +171,7 @@ async function lookupWikidata(names: string[]) {
   return byName;
 }
 
-async function inaturalistIdsAgree(
-  claimed: Set<number>,
-  inaturalist: number,
-) {
+async function inaturalistIdsAgree(claimed: Set<number>, inaturalist: number) {
   if (claimed.has(inaturalist)) return true;
   for (const id of claimed) {
     const { results } = await cachedJson<{ results: INaturalistTaxon[] }>(
@@ -342,19 +304,7 @@ async function main() {
   );
   for (const line of exclusions) console.log(`  left out ${line}`);
 
-  const output = renderModule(identifiers);
-  if (options.check) {
-    const current = fs.existsSync(OUT_FILE)
-      ? fs.readFileSync(OUT_FILE, "utf8")
-      : "";
-    if (current !== output) {
-      console.error(`${path.relative(ROOT, OUT_FILE)} is out of date.`);
-      process.exitCode = 1;
-    }
-    return;
-  }
-  fs.writeFileSync(OUT_FILE, output);
-  console.log(`Wrote ${path.relative(ROOT, OUT_FILE)}`);
+  await writeOrCheckModule(OUT_FILE, renderModule(identifiers), options.check);
 }
 
 await main();

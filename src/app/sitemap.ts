@@ -71,6 +71,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     push(pageEntry(locale, "/"));
     push(pageEntry(locale, "/contact"));
     push(pageEntry(locale, "/about"));
+    push(pageEntry(locale, "/photo-use"));
     if (isIndexableLegalLocale(locale)) {
       for (const path of Object.values(LEGAL_PATHS)) {
         push({

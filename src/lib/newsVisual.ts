@@ -6,7 +6,9 @@ import type { GroupHubId } from "@/lib/groupHubs";
 import { newsRelatedRegions, newsRelatedSpecies } from "@/data/news";
 import { getRegionHeroImage } from "@/data/regionImages";
 import { localizeRegionText } from "@/data/regions";
+import { getCatalogSpecies } from "@/data/species";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
+import { photoRights, siteImageRights } from "@/lib/imageRights";
 import { isPlaceholderMedia } from "@/lib/speciesContent";
 import { speciesPhotoAlt } from "@/lib/speciesMeta";
 
@@ -88,4 +90,25 @@ export function localizeNewsPhoto(
 
 export function newsCategoryHub(article: NewsArticle): GroupHubId | undefined {
   return article.relatedHubIds[0];
+}
+
+export function newsImageRights(article: NewsArticle, locale: AppLocale) {
+  const visual = getNewsVisual(article, locale);
+  if (!visual) return siteImageRights(locale);
+  return photoRights(
+    visual.src,
+    visual.credit ?? atlasPhotoCredit(visual.src),
+    locale,
+  );
+}
+
+function atlasPhotoCredit(src: string) {
+  for (const species of getCatalogSpecies()) {
+    const photo = species.gallery.find((item) => item.src === src);
+    if (photo?.credit) return photo.credit;
+    if (species.image === src && species.imageCredit) {
+      return species.imageCredit;
+    }
+  }
+  return undefined;
 }
