@@ -1,10 +1,23 @@
 import { describe, expect, it } from "vitest";
 
+import type { AppLocale } from "@/i18n/routing";
+
+import { getCatalogSpecies } from "@/data/species";
 import { shortMetaDescription } from "@/lib/metaDescription";
 import {
+  SPECIES_META_DESCRIPTION_OVERRIDE,
   speciesMetaDescription,
+  speciesMetaDescriptionOverride,
   speciesPageMetaTitle,
 } from "@/lib/speciesMeta";
+
+const descriptionOverrides = Object.entries(
+  SPECIES_META_DESCRIPTION_OVERRIDE,
+).flatMap(([speciesId, locales]) =>
+  Object.entries(locales ?? {}).map(
+    ([locale, text]) => [speciesId, locale as AppLocale, text] as const,
+  ),
+);
 
 describe("speciesPageMetaTitle", () => {
   it("uses KA and EN overrides when present", () => {
@@ -115,5 +128,48 @@ describe("shortMetaDescription", () => {
     const text = "A ".repeat(100);
 
     expect(shortMetaDescription(text).length).toBeLessThanOrEqual(160);
+  });
+});
+
+describe("SPECIES_META_DESCRIPTION_OVERRIDE", () => {
+  it("targets catalog species only", () => {
+    const ids = new Set(getCatalogSpecies().map((species) => species.id));
+    for (const speciesId of Object.keys(SPECIES_META_DESCRIPTION_OVERRIDE)) {
+      expect(ids.has(speciesId), speciesId).toBe(true);
+    }
+  });
+
+  it("fits the snippet limit so no override is clipped", () => {
+    for (const [speciesId, locale, text] of descriptionOverrides) {
+      const label = `${speciesId} ${locale}`;
+      expect(text, label).toBe(text.trim());
+      expect(text.length, label).toBeGreaterThanOrEqual(70);
+      expect(text.length, label).toBeLessThanOrEqual(160);
+      expect(speciesMetaDescriptionOverride(speciesId, locale), label).toBe(
+        text,
+      );
+    }
+  });
+
+  it("never repeats a description", () => {
+    const texts = descriptionOverrides.map(([, , text]) => text);
+    expect(new Set(texts).size).toBe(texts.length);
+  });
+
+  it.each([
+    ["latrodectus-tredecimguttatus", "ru", "Каракурт"],
+    ["macrovipera-lebetina", "ru", "Гюрза"],
+    ["macrovipera-lebetina", "en", "Levantine viper"],
+    ["natrix-tessellata", "en", "Dice snake"],
+    ["natrix-tessellata", "ru", "Водяной уж"],
+    ["lycosa-singoriensis", "ru", "Южнорусский тарантул"],
+    ["capreolus-capreolus", "ru", "Косуля"],
+    ["coronella-austriaca", "ru", "Обыкновенная медянка"],
+    ["cheiracanthium-punctorium", "en", "Cheiracanthium punctorium"],
+    ["araneus-diadematus", "en", "Araneus diadematus"],
+  ] as const)("leads %s (%s) with the searched name %s", (id, locale, name) => {
+    expect(
+      SPECIES_META_DESCRIPTION_OVERRIDE[id]?.[locale]?.startsWith(name),
+    ).toBe(true);
   });
 });
