@@ -352,7 +352,10 @@ const SPECIES_META_DESCRIPTION_OVERRIDE: Partial<
     ka: "აზიური ფაროსანა (Halyomorpha halys) საქართველოში — როგორ ამოვიცნოთ, რას აზიანებს, სად გვხვდება, რატომ შედის სახლში და როგორ მოვიქცეთ უსაფრთხოდ.",
   },
   "lutra-lutra": {
+    en: "Eurasian otter (Lutra lutra) in Georgia: identification, the rivers and lakes where it lives, diet, a map of records, and its VU status on Georgia's Red List.",
     ka: "წავი (Lutra lutra) მდინარეებისა და ტბების ნახევრადწყლის მტაცებელია, საქართველოს წითელ ნუსხაში მოწყვლადი (VU). ფოტოები, ნიშნები, კვება და გავრცელება.",
+    ru: "Выдра (Lutra lutra) в Грузии: как узнать, реки и озёра, где она живёт, питание, карта находок и статус VU в Красном списке Грузии.",
+    tr: "Gürcistan'da su samuru (Lutra lutra): tanıma, yaşadığı nehir ve göller, beslenme, kayıt haritası ve Gürcistan Kırmızı Listesi'ndeki VU statüsü.",
   },
   "macrovipera-lebetina": {
     ka: "გიურზა (Macrovipera lebetinus) საქართველოში: ამოცნობის ნიშნები, გავრცელება, აღმოსავლეთ საქართველოს მშრალი ჰაბიტატები, ზომა და მაღალი რისკი ადამიანისთვის.",
