@@ -12,6 +12,7 @@ import {
   newsIndexDateFields,
   newsIndexHref,
   newsIndexUrl,
+  newsOgImageDimensions,
   newsOgImageUrl,
   newsReadMinutes,
   newsSourceBadges,
@@ -86,6 +87,16 @@ describe("newsOgImageUrl", () => {
 
   it("returns an absolute URL for a real article", () => {
     expect(newsOgImageUrl(article)).toMatch(/^https:\/\//);
+  });
+});
+
+describe("newsOgImageDimensions", () => {
+  it("sizes the schema image of every published article", () => {
+    for (const item of getPublishedNewsArticles()) {
+      const { height, width } = newsOgImageDimensions(item);
+      expect(width, item.slug).toBeGreaterThan(0);
+      expect(height, item.slug).toBeGreaterThan(0);
+    }
   });
 });
 

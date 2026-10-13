@@ -16,6 +16,7 @@ import { getNewsImageSrc } from "@/lib/newsVisual";
 import {
   absoluteUrl,
   localeAlternates,
+  ogImageDimensions,
   ogImageUrlFromSrc,
   SITE_OG_IMAGE_URL,
 } from "@/lib/site";
@@ -78,6 +79,17 @@ export function newsIndexHref() {
 
 export function newsIndexUrl(locale: AppLocale) {
   return absoluteUrl(newsIndexPath(locale));
+}
+
+export function newsOgImageDimensions(article: NewsArticle) {
+  const url = newsOgImageUrl(article);
+  const fromPipeline = ogImageDimensions(url);
+  if (fromPipeline.width) return fromPipeline;
+  const photo = article.image;
+  if (photo?.width && photo.height && absoluteUrl(photo.src) === url) {
+    return { height: photo.height, width: photo.width };
+  }
+  return {};
 }
 
 export function newsOgImageUrl(article?: NewsArticle) {

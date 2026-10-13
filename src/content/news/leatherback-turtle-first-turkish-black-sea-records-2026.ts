@@ -15,7 +15,9 @@ const PHOTO_LEATHERBACK: NewsPhoto = {
     ru: "Кожистая морская черепаха под водой.",
     tr: "Sualtinda bir deri sirtli deniz kaplumbagasi.",
   },
+  height: 500,
   src: `${PHOTO_DIR}/leatherback-turtle.png`,
+  width: 750,
 };
 
 export const LEATHERBACK_TURTLE_FIRST_TURKISH_BLACK_SEA_RECORDS_2026: NewsArticle =

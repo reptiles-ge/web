@@ -27,5 +27,5 @@ export function FooterGate({ children }: { children: ReactNode }) {
 }
 
 function shouldHideFooter(pathname: string) {
-  return pathname === "/contact" || pathname.startsWith("/quiz/");
+  return pathname.startsWith("/quiz/");
 }

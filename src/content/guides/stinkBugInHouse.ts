@@ -718,14 +718,14 @@ const SOURCES: readonly GuideArticleSource[] = [
     url: "https://www.epa.gov/safepestcontrol/brown-marmorated-stink-bug",
   },
   {
-    name: "US EPA — Prevent Stink Bugs from Overwintering in Your School and Home",
+    name: "University of Kentucky Entomology (ENTFACT-641) — How to Pest-Proof Your Home",
     supports: {
-      en: "Tight-fitting screens, screened vents, gap-free frames, sealing where pipes and wires enter, expanding foam for larger gaps; entry via foundations, soffits, chimneys and fireplaces.",
-      ka: "მჭიდრო ბადეები, ბადით დაფარული ვენტილაცია, ღრიჭოების გარეშე ჩარჩოები, მილებისა და სადენების შესასვლელების დახურვა, სამონტაჟო ქაფი დიდი ღიობებისთვის; შემოსვლა საძირკვლიდან, კარნიზიდან, საკვამურიდან და ბუხრიდან.",
-      ru: "Плотные сетки, вентиляция под сеткой, рамы без щелей, заделка вводов труб и проводов, монтажная пена для крупных щелей; проникновение через фундамент, карнизы, дымоходы и камины.",
-      tr: "Sıkı oturan sineklikler, tel örgülü havalandırma, aralıksız çerçeveler, boru ve tel girişlerinin kapatılması, büyük boşluklar için köpük; temel, saçak, baca ve şömineden giriş.",
+      en: "Seal utility openings where pipes and wires enter the foundation and siding; holes can be plugged with caulk, cement or urethane expandable foam.",
+      ka: "დაგმანეთ ღიობები, სადაც მილები და სადენები საძირკველსა და კედელში შედის; ხვრელები შეიძლება ამოივსოს ჰერმეტიკით, ცემენტით ან გაფართოებადი ურეთანის ქაფით.",
+      ru: "Заделайте отверстия, где трубы и провода входят в фундамент и стены; отверстия можно заполнить герметиком, цементом или монтажной полиуретановой пеной.",
+      tr: "Boruların ve kabloların temele ve dış cepheye girdiği açıklıkları kapatın; delikler macun, çimento veya genleşen üretan köpükle doldurulabilir.",
     },
-    url: "https://www.epa.gov/perspectives/blog/2015/12/prevent-stink-bugs-from-overwintering-in-your-school-and-home",
+    url: "https://entomology.ca.uky.edu/ef641",
   },
   {
     name: "University of Minnesota Extension — Multicolored Asian lady beetles",

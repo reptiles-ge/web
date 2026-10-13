@@ -87,6 +87,14 @@ export function localePath(locale: string, href: PathnameHref = "/") {
   return getPathname({ href, locale: locale as AppLocale });
 }
 
+export function ogImageDimensions(url: string): {
+  height?: number;
+  width?: number;
+} {
+  if (!url.startsWith(`${CDN_BASE}/og/`)) return {};
+  return { height: OG_IMAGE_HEIGHT, width: OG_IMAGE_WIDTH };
+}
+
 export function ogImageUrlFromSrc(src: string): null | string {
   const key = storageKeyFromSrc(src);
   if (!key) return null;
@@ -253,9 +261,10 @@ export function websiteJsonLd(options: {
   return {
     "@id": siteEntityId("website"),
     "@type": "WebSite",
+    alternateName: siteConfig.name,
     description: options.description,
     inLanguage: [...routing.locales],
-    name: siteConfig.name,
+    name: ORGANIZATION_NAME,
     publisher: organizationRef(),
     url: absoluteUrl("/"),
     ...(options.searchUrlTemplate

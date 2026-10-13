@@ -793,16 +793,79 @@
   },
   "contact": {
     "metaTitle": "İletişim",
-    "metaDescription": "Reptiles ile iletişime geçin — sorular, düzeltmeler ve ortaklıklar.",
-    "back": "Ana sayfa",
-    "brand": "Reptiles",
+    "metaDescription": "Reptiles.ge ile iletişime geçin — yer ve tarihli yayılış kayıtları, yanlış tanımlamalar, fotoğraf künyeleri ve fotoğraf kullanım talepleri.",
+    "brand": "Reptiles.ge",
     "title": "İletişim",
-    "body": "Sorular, düzeltmeler veya ortaklık fikirleri — bana yazın.",
-    "imageAlt": "Alacakaranlıkta sisli Kafkas sırtı",
+    "body": "Bir yayılış kaydı, bir düzeltme ya da bir fotoğraf sorusu — bize yazın.",
+    "emailLabel": "E-posta",
+    "write": "E-posta yazın",
+    "copy": "Kopyala",
+    "copied": "Kopyalandı",
+    "copyFailed": "Kopyalanamadı",
+    "copyLabel": "E-posta adresini kopyala",
+    "follow": "Ya da bizi takip edin",
+    "topicsEyebrow": "E-postanız",
+    "topicsTitle": "Ne hakkında yazıyorsunuz?",
+    "topicsIntro": "Bir konu seçin; e-postada her şey olsun diye neler yazmanız gerektiğini söyleyelim. E-posta, e-posta uygulamanızda açılır.",
+    "topicsIntroShort": "Bir konu seçin; ne yazacağınızı söyleyelim.",
+    "topicsLabel": "Konu",
+    "includeLabel": "{topic} · ne yazmalı",
+    "draftLabel": "E-posta taslağı",
+    "draftTo": "Kime:",
+    "draftSubject": "Konu:",
+    "draftGreeting": "Merhaba,",
+    "open": "E-postayı aç",
+    "photoUse": "Fotoğraf kullanım kuralları",
+    "contributors": "Atlası kimler hazırlıyor — {count} katkıda bulunan",
+    "contributorsShort": "{count} katkıda bulunan",
+    "beforeEyebrow": "Yazmadan önce",
+    "beforeTitle": "Yanıt belki zaten burada",
     "about": "Atlas hakkında",
     "species": "Tür atlası",
     "snakes": "Gürcistan’daki yılanlar",
-    "venomous": "Zehirli yılanlar"
+    "venomous": "Zehirli yılanlar",
+    "topics": {
+      "range": {
+        "title": "Yayılış kaydı",
+        "summary": "Bir türü nerede ve ne zaman gördünüz",
+        "subject": "Yayılış kaydı: [tür], [yer]",
+        "items": {
+          "species": "Tür — biliyorsanız",
+          "place": "Yer — köy, belediye ya da koordinatlar",
+          "date": "Gözlem tarihi",
+          "photo": "Varsa bir fotoğraf"
+        }
+      },
+      "fix": {
+        "title": "Düzeltme",
+        "summary": "Yanlış tanımlama ya da hatalı bilgi",
+        "subject": "Düzeltme: [tür]",
+        "items": {
+          "link": "Tür sayfasının bağlantısı",
+          "what": "Neyin yanlış olduğu ve doğrusu",
+          "source": "Kaynak — makale, kayıt ya da fotoğraf"
+        }
+      },
+      "photo": {
+        "title": "Fotoğraflar",
+        "summary": "Künye ve kullanım izni",
+        "subject": "Fotoğraf: [tür]",
+        "items": {
+          "photo": "Hangi fotoğraf — tür sayfasının bağlantısı",
+          "credit": "Künye düzeltmesi için — adın nasıl yazılması gerektiği",
+          "use": "Kullanım talebi için — nerede ve nasıl kullanacağınız"
+        }
+      },
+      "other": {
+        "title": "Başka bir soru",
+        "summary": "Geri kalan her şey",
+        "subject": "Soru",
+        "items": {
+          "question": "Sorunuz",
+          "link": "Belirli bir sayfayla ilgiliyse bağlantısı"
+        }
+      }
+    }
   },
   "news": {
     "metaTitle": "Gürcistan yaban hayatı haberleri",

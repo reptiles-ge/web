@@ -21,8 +21,10 @@ const PHOTO_HYBRID: NewsPhoto = {
     photographer: "Bas Raaijmakers, Sten Gijbels",
     url: PAPER_URL,
   },
+  height: 1181,
   plate: true,
   src: `${PHOTO_DIR}/figure-3.jpg`,
+  width: 1772,
 };
 
 const PHOTO_HABITAT: NewsPhoto = {
