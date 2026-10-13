@@ -176,7 +176,7 @@ export async function GuideArticlePage({
         <figure className="mt-8 sm:mt-10">
           <CoverImage
             alt={article.hero.alt[locale]}
-            className="h-auto w-full rounded-card max-sm:max-h-[calc((100vw-3rem)*0.5625)] max-sm:object-cover"
+            className="h-auto w-full rounded-card max-sm:max-h-[calc((100vw-3rem)*0.5625)] max-sm:object-cover lg:h-[clamp(360px,55vh,560px)] lg:object-cover lg:object-[50%_60%]"
             fill={false}
             priority
             sizes={IMAGE_SIZES}
