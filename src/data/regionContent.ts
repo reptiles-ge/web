@@ -285,8 +285,8 @@ const regionContent: Record<RegionPathId, RegionContent> = {
     faq: [
       {
         answer: {
-          en: "Levantine viper (Macrovipera lebetina) and steppe viper (Vipera renardi) are venomous. Most other listed species are harmless, but correct identification still matters.",
-          ka: "გიურზა (Macrovipera lebetina) და ველის გველგესლა (Vipera renardi) შხამიანია. სხვა ჩამოთვლილი სახეობების უმეტესობა უვნებელია, თუმცა ამოცნობა მნიშვნელოვანია.",
+          en: "Levantine viper (Macrovipera lebetinus) and steppe viper (Vipera renardi) are venomous. Most other listed species are harmless, but correct identification still matters.",
+          ka: "გიურზა (Macrovipera lebetinus) და ველის გველგესლა (Vipera renardi) შხამიანია. სხვა ჩამოთვლილი სახეობების უმეტესობა უვნებელია, თუმცა ამოცნობა მნიშვნელოვანია.",
         },
         question: {
           en: "Which venomous snakes live in Kakheti?",

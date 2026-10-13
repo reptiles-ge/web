@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 
+import { getRegionContent } from "@/data/regionContent";
 import {
   getCatalogRegionStats,
   getRegionSpecies,
@@ -83,4 +84,15 @@ describe("species cards", () => {
     expect(card).not.toHaveProperty("danger");
     expect(card).not.toHaveProperty("mobileImage");
   });
+});
+
+describe("region content", () => {
+  it.each(regions.map((region) => region.id))(
+    "%s spells the Levantine viper as its profile does",
+    (id) => {
+      expect(JSON.stringify(getRegionContent(id))).not.toMatch(
+        /Macrovipera lebetina\b/,
+      );
+    },
+  );
 });

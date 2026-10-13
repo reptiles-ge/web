@@ -75,23 +75,8 @@ export default async function SnakesInYardRoute({ params }: LocalePageProps) {
     { item: url, name: t("breadcrumbCurrent") },
   ]);
 
-  const howToLd = {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    description: t("metaDescription"),
-    inLanguage: locale,
-    name: t("title"),
-    step: ([1, 2, 3] as const).map((n) => ({
-      "@type": "HowToStep",
-      name: t(`action${n}Title`),
-      position: n,
-      text: t(`action${n}Body`),
-    })),
-  };
-
   const dates = pageDateFields(PATH);
   const pageLd = sitePageLd({
-    about: { "@type": "Thing", name: t("title") },
     dates,
     description: t("metaDescription"),
     locale,
@@ -105,7 +90,6 @@ export default async function SnakesInYardRoute({ params }: LocalePageProps) {
       <CoverImagePreload sizes="100vw" src={heroSrc} />
       <JsonLd data={breadcrumbLd} />
       <JsonLd data={pageLd} />
-      <JsonLd data={howToLd} />
       <ClientMessagesProvider
         locale={locale}
         namespaces={[

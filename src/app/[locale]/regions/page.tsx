@@ -16,6 +16,7 @@ import {
 import { georgiaPlaceName } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { buildPageMetadata, type LocalePageProps } from "@/lib/pageMetadata";
+import { homeChildBreadcrumbLd } from "@/lib/pageStructuredData";
 import {
   absoluteUrl,
   localePath,
@@ -80,7 +81,15 @@ export default async function RegionsPage({ params }: LocalePageProps) {
 
   return (
     <>
-      <JsonLd data={jsonLd} />
+      <JsonLd
+        data={[
+          jsonLd,
+          homeChildBreadcrumbLd(locale, "/regions", {
+            home: t("breadcrumbHome"),
+            name: t("allRegions"),
+          }),
+        ]}
+      />
       <ClientMessagesProvider locale={locale} namespaces={["map", "regions"]}>
         <RegionsIndex
           stats={getCatalogRegionStats()}

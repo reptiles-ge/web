@@ -87,7 +87,6 @@ export default async function RiskToHumansRoute({ params }: LocalePageProps) {
 
   const dates = pageDateFields(PATH);
   const pageLd = sitePageLd({
-    about: { "@type": "Thing", name: t("title") },
     dates,
     description: t("metaDescription"),
     locale,
