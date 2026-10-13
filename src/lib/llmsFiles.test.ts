@@ -12,8 +12,9 @@ describe("buildRobotsTxt", () => {
   it("allows core crawling and names AI citation bots", () => {
     const body = buildRobotsTxt();
 
-    expect(body).toContain("User-agent: *");
-    expect(body).toContain("Allow: /");
+    expect(body).toContain(
+      "User-agent: *\nContent-Signal: search=yes, ai-input=yes, ai-train=yes\nAllow: /\n",
+    );
     expect(body).toContain("Disallow: /api/");
     expect(body).toContain("Sitemap: https://reptiles.ge/sitemap.xml");
     expect(body).toContain("llms.txt");
@@ -21,7 +22,7 @@ describe("buildRobotsTxt", () => {
 
     for (const agent of AI_CITATION_USER_AGENTS) {
       expect(body).toContain(
-        `User-agent: ${agent}\nAllow: /\nDisallow: /api/\nDisallow: /admin\nDisallow: /admin/\n`,
+        `User-agent: ${agent}\nContent-Signal: search=yes, ai-input=yes, ai-train=yes\nAllow: /\nDisallow: /api/\nDisallow: /admin\nDisallow: /admin/\n`,
       );
     }
   });

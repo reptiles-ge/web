@@ -12,6 +12,7 @@ import { speciesHref } from "@/lib/speciesRoutes";
 const LLMS_FULL_PATH = "/llms-full.txt";
 const ROBOTS_DISALLOWED_PATHS = ["/api/", "/admin", "/admin/"] as const;
 const LLMS_TXT_PATH = "/llms.txt";
+const CONTENT_SIGNAL = "search=yes, ai-input=yes, ai-train=yes";
 
 export const AI_CITATION_USER_AGENTS = [
   "GPTBot",
@@ -383,6 +384,7 @@ export function buildRobotsTxt() {
   const sitemap = absoluteUrl("/sitemap.xml");
 
   const rules = [
+    `Content-Signal: ${CONTENT_SIGNAL}`,
     "Allow: /",
     ...ROBOTS_DISALLOWED_PATHS.map((path) => `Disallow: ${path}`),
     "",
