@@ -102,8 +102,10 @@ export function getPublishedNewsForSpecies(
   speciesId: string,
   locale?: AppLocale,
 ) {
-  return getPublishedNewsArticles(locale).filter((article) =>
-    article.relatedSpeciesIds.includes(speciesId),
+  return getPublishedNewsArticles(locale).filter(
+    (article) =>
+      article.relatedSpeciesIds.includes(speciesId) ||
+      newsLinkedSpeciesIds(article, locale ?? "ka").has(speciesId),
   );
 }
 
@@ -112,6 +114,21 @@ export function newsArticlePhotos(article: NewsArticle) {
   if (article.image) photos.push(article.image);
   if (article.gallery) photos.push(...article.gallery);
   return photos;
+}
+
+export function newsLinkedSpeciesIds(article: NewsArticle, locale: AppLocale) {
+  const ids = new Set<string>();
+  for (const section of getNewsCopy(article, locale)?.sections ?? []) {
+    for (const block of section.blocks) {
+      if (block.type !== "p") continue;
+      for (const part of block.parts) {
+        if (typeof part !== "string" && part.type === "species") {
+          ids.add(part.id);
+        }
+      }
+    }
+  }
+  return ids;
 }
 
 export function newsLocalizedDek(article: NewsArticle, locale: AppLocale) {
