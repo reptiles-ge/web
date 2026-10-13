@@ -21,6 +21,7 @@ import {
   type Region,
   regions,
 } from "@/data/regions";
+import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { Link } from "@/i18n/navigation";
 import {
   type ClusterGuideViewProps,
@@ -205,7 +206,7 @@ function SpeciesChip({
       className="inline-flex rounded-full border border-border bg-background px-3 py-1.5 text-[12px] text-foreground transition-colors hover:border-primary/40 hover:text-primary"
       href={speciesHref(species.id, locale)}
     >
-      {species.commonName}
+      {localizeSpecies(species, locale).commonName}
     </Link>
   );
 }
