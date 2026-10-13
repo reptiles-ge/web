@@ -11,7 +11,7 @@ type ImageKey = "clinical-assessment" | "field-gyurza" | "viper-portrait";
 const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
   en: {
     description:
-      "A suspected Levantine viper (blunt-nosed viper, gyurza) bite needs urgent care. Learn possible local and systemic effects, what to do now, and why to call 112 in Georgia.",
+      "A suspected Levantine viper (gyurza) bite needs urgent care. Learn possible local and systemic effects, what to do now, and why to call 112 in Georgia.",
     faq: [
       {
         answer:
