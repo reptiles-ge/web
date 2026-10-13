@@ -1,6 +1,6 @@
 "use client";
 
-import { type PointerEvent, useRef, useState } from "react";
+import { type PointerEvent, useEffect, useRef, useState } from "react";
 
 import {
   optimizedEntry,
@@ -41,6 +41,31 @@ export function SpeciesMobileHeroCarousel({
     startY: 0,
   });
   const [active, setActive] = useState(0);
+  const [restLoaded, setRestLoaded] = useState(false);
+
+  useEffect(() => {
+    if (restLoaded || slides.length < 2) return;
+    let idleId: null | number = null;
+    let timeoutId: null | number = null;
+    const reveal = () => setRestLoaded(true);
+    const schedule = () => {
+      if (typeof window.requestIdleCallback === "function") {
+        idleId = window.requestIdleCallback(reveal, { timeout: 3000 });
+      } else {
+        timeoutId = window.setTimeout(reveal, 1500);
+      }
+    };
+    if (document.readyState === "complete") {
+      schedule();
+    } else {
+      window.addEventListener("load", schedule, { once: true });
+    }
+    return () => {
+      window.removeEventListener("load", schedule);
+      if (idleId !== null) window.cancelIdleCallback(idleId);
+      if (timeoutId !== null) window.clearTimeout(timeoutId);
+    };
+  }, [restLoaded, slides.length]);
 
   function finishDrag(event: PointerEvent<HTMLDivElement>) {
     const scroller = event.currentTarget;
@@ -96,8 +121,10 @@ export function SpeciesMobileHeroCarousel({
         aria-label={label}
         className="absolute inset-0 flex cursor-grab touch-pan-y snap-x snap-mandatory scrollbar-none overflow-x-auto overscroll-x-contain lg:hidden [&::-webkit-scrollbar]:hidden"
         onDragStart={(event) => event.preventDefault()}
+        onFocus={() => setRestLoaded(true)}
         onPointerCancel={finishDrag}
         onPointerDown={(event) => {
+          setRestLoaded(true);
           if (event.button !== 0) return;
           dragRef.current = {
             active: true,
@@ -128,23 +155,25 @@ export function SpeciesMobileHeroCarousel({
         }}
         onPointerUp={finishDrag}
         onScroll={onScroll}
+        onTouchStart={() => setRestLoaded(true)}
         ref={scrollerRef}
         role="region"
         tabIndex={0}
       >
         {slides.map((slide, index) => {
           const entry = optimizedEntry(slide.displaySrc);
+          const deferred = index > 0 && !restLoaded;
           return (
             <picture
               className="block size-full shrink-0 snap-start bg-ink"
               key={slide.gallerySrc}
             >
               <source media="(min-width: 1024px)" srcSet={BLANK_IMAGE} />
-              {pictureSources(slide.displaySrc, { sizes: "100vw" }).map(
-                (source) => (
-                  <source key={source.key} {...source.props} />
-                ),
-              )}
+              {deferred
+                ? null
+                : pictureSources(slide.displaySrc, { sizes: "100vw" }).map(
+                    (source) => <source key={source.key} {...source.props} />,
+                  )}
               <img
                 alt={slide.alt}
                 className="size-full object-cover"
@@ -154,7 +183,11 @@ export function SpeciesMobileHeroCarousel({
                 height={entry?.height}
                 loading={index === 0 ? "eager" : "lazy"}
                 sizes="100vw"
-                src={optimizedImgSrc(slide.displaySrc, 800)}
+                src={
+                  deferred
+                    ? BLANK_IMAGE
+                    : optimizedImgSrc(slide.displaySrc, 800)
+                }
                 width={entry?.width}
               />
             </picture>

@@ -14,7 +14,7 @@ import { Link } from "@/i18n/navigation";
 import { GROUP_HUB_ILLUSTRATIONS, GROUP_HUBS } from "@/lib/groupHubs";
 
 const HERO_IMAGE_SIZES =
-  "(max-width: 639px) 1080px, (max-width: 1023px) 100vw, 61vw";
+  "(max-width: 639px) 600px, (max-width: 1023px) 100vw, 61vw";
 
 export async function Hero({ locale }: { locale: AppLocale }) {
   const [t, tNav, tKnowledge, tSafety, tGroups] = await Promise.all([

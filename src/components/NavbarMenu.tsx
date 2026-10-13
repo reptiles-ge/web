@@ -80,8 +80,10 @@ export function NavbarMenu({
       <nav
         aria-label={navLabel}
         className={cn(
-          "fixed inset-x-0 top-[68px] bottom-0 z-40 scrollbar-none overflow-y-auto overscroll-contain bg-background px-5 pt-4 pb-7 transition-[opacity,translate] duration-300 sm:px-6 [&::-webkit-scrollbar]:hidden",
-          menuOpen ? "translate-y-0 opacity-100" : "-translate-y-2 opacity-0",
+          "fixed inset-x-0 top-[68px] bottom-0 z-40 scrollbar-none overflow-y-auto overscroll-contain bg-background px-5 pt-4 pb-7 transition-[opacity,translate,display] transition-discrete duration-300 sm:px-6 [&::-webkit-scrollbar]:hidden",
+          menuOpen
+            ? "block translate-y-0 opacity-100 starting:-translate-y-2 starting:opacity-0"
+            : "hidden -translate-y-2 opacity-0",
         )}
       >
         {menuOpen ? <SpeciesSearch variant="menu" /> : null}
