@@ -21,6 +21,7 @@ import {
   newsArticleUrl,
   newsDateTime,
   newsIndexUrl,
+  newsOgImageDimensions,
   newsOgImageUrl,
   publishedNewsStaticParams,
 } from "@/lib/news";
@@ -117,11 +118,11 @@ export default async function NewsArticleRoute({ params }: Props) {
     notFound();
   }
 
-  const t = await getTranslations({ locale, namespace: "news" });
-  const tShared = await getTranslations({
-    locale,
-    namespace: "groupHubShared",
-  });
+  const [t, tNav, tShared] = await Promise.all([
+    getTranslations({ locale, namespace: "news" }),
+    getTranslations({ locale, namespace: "nav" }),
+    getTranslations({ locale, namespace: "groupHubShared" }),
+  ]);
   const url = newsArticleUrl(locale, article.slug);
   const ogImage = newsOgImageUrl(article);
   const published = newsDateTime(article.publishedAt);
@@ -183,6 +184,7 @@ export default async function NewsArticleRoute({ params }: Props) {
         name: georgiaPlaceName(locale),
       },
     ],
+    articleSection: article.relatedHubIds.map((hub) => tNav(hub)),
     author: organizationRef(),
     citation: article.sources.map((source) => ({
       "@type": "CreativeWork",
@@ -197,6 +199,7 @@ export default async function NewsArticleRoute({ params }: Props) {
       "@type": "ImageObject",
       contentUrl: ogImage,
       url: ogImage,
+      ...newsOgImageDimensions(article),
       ...newsImageRights(article, locale),
     },
     inLanguage: locale,
