@@ -87,6 +87,21 @@ describe("speciesPageImageUrls", () => {
     ]);
   });
 
+  it("leaves third-party hotlinks out of the image sitemap", () => {
+    expect(
+      speciesPageImageUrls({
+        ...base,
+        gallery: [
+          {
+            src: "https://upload.wikimedia.org/wikipedia/commons/a/a1/Cimex_lectularius.jpg",
+          },
+          { src: "https://cdn.reptiles.ge/kept.jpg" },
+        ],
+        image: "https://upload.wikimedia.org/wikipedia/commons/b/b2/Other.jpg",
+      } as Species),
+    ).toEqual(["https://cdn.reptiles.ge/kept.jpg"]);
+  });
+
   it("returns an empty list when every image is a placeholder", () => {
     expect(
       speciesPageImageUrls({

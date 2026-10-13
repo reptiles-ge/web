@@ -78,4 +78,40 @@ describe("buildLlmsFullText", () => {
     );
     expect(body).not.toContain("MedicalWebPage");
   });
+
+  it("links only to absolute URLs", () => {
+    const body = buildLlmsFullText();
+
+    expect(body).not.toMatch(/\]\(\//);
+    expect(body).toContain(
+      "[შხამიანი გველგესლაა](https://reptiles.ge/gvelebi/shxamiani-gvelebi)",
+    );
+    expect(body).toContain(
+      "[venomous viper](https://reptiles.ge/en/venomous-snakes)",
+    );
+    for (const [, href] of body.matchAll(
+      /\]\((https:\/\/reptiles\.ge[^)]*)\)/g,
+    )) {
+      expect(href, href).not.toMatch(
+        /^https:\/\/reptiles\.ge\/(snakes|lizards|turtles|amphibians|birds|mammals|spiders|scorpions|insects|venomous-snakes)(\/|$)/,
+      );
+    }
+  });
+
+  it("gives every species card its English name and summary", () => {
+    const body = buildLlmsFullText();
+    const cards = body.split("\n### ").slice(1);
+    const macrovipera = cards.find((card) =>
+      card.startsWith("Macrovipera lebetinus"),
+    );
+
+    expect(macrovipera).toContain("- English name: Levantine viper");
+    expect(macrovipera).toMatch(/\nEnglish summary: The gyurza/);
+    expect(body.match(/^English summary: /gm)?.length).toBe(
+      getCatalogSpecies().length,
+    );
+    expect(body).toContain(
+      "- English title: Georgia has 56 reptiles and 12 amphibians — the 2026 checklist",
+    );
+  });
 });

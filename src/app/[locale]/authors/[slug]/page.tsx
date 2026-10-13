@@ -120,7 +120,7 @@ export default async function AuthorRoute({ params }: Props) {
         name,
         species: speciesIds.length,
       }),
-    ...authorDateFields(author.slug),
+    ...authorDateFields(author.slug, locale),
     inLanguage: locale,
     isPartOf: { "@id": siteEntityId("website") },
     mainEntity: creditAuthorEntityJsonLd(author, locale, {

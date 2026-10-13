@@ -157,7 +157,7 @@ export default async function QuizSlugRoute({ params }: Props) {
   const pageLd = {
     "@context": "https://schema.org",
     "@type": "Quiz",
-    ...quizDateFields(quiz.id),
+    ...quizDateFields(quiz.id, locale),
     description: t("metaDescription"),
     educationalLevel: "beginner",
     inLanguage: locale,

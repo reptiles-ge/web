@@ -45,7 +45,7 @@ export default async function DangerousAnimalsRoute({
   const hero = localizeSpecies(species, locale);
   const widow = localizeSpecies(karakurt, locale);
   const url = absoluteUrl(localePath(locale, PATH));
-  const dates = pageDateFields(PATH);
+  const dates = pageDateFields(PATH, locale);
 
   const breadcrumbLd = breadcrumbListLd([
     { item: localePageUrl(locale, "/"), name: t("breadcrumbHome") },

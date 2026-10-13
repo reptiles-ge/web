@@ -174,7 +174,7 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
         description,
         images: [ogImageTag],
         locale: openGraphLocale(locale),
-        modifiedTime: raw.updatedAt,
+        modifiedTime: item.updatedAt,
         publishedTime: raw.publishedAt,
         siteName: siteConfig.name,
         title,
@@ -445,7 +445,7 @@ function speciesStructuredData({
     about: taxon,
     author: organizationRef(),
     citation: raw.sources.map(sourceCreativeWork),
-    dateModified: raw.updatedAt,
+    dateModified: item.updatedAt,
     datePublished: raw.publishedAt,
     description: item.description,
     ...(photoObjects.length > 0

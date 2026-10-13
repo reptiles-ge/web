@@ -91,7 +91,7 @@ export async function GroupHubPage({
             ? t("speciesIndexCta")
             : tShared(getHubIndexTitleKey(hubId)),
         };
-  const dates = pageDateFields(hub.path);
+  const dates = pageDateFields(hub.path, locale);
 
   return (
     <div className="min-h-screen bg-background">

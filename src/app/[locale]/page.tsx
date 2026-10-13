@@ -99,7 +99,7 @@ export default async function Home({ params }: Props): Promise<ReactElement> {
     "@context": "https://schema.org",
     "@id": homeUrl,
     "@type": "WebPage",
-    ...pageDateFields("/"),
+    ...pageDateFields("/", locale),
     description,
     inLanguage: locale,
     isPartOf: { "@id": siteEntityId("website") },

@@ -24,8 +24,23 @@ vi.mock("@/i18n/navigation", () => ({
 }));
 
 import { getCatalogSpecies } from "@/data/species";
+import { speciesUpdatedAt } from "@/i18n/localizeSpecies";
 import { routing } from "@/i18n/routing";
-import { atlasDateFields } from "@/lib/structuredDataDates";
+import { creditAuthorUrl } from "@/lib/creditAuthors";
+import {
+  absoluteUrl,
+  localePath,
+  quizPageUrl,
+  speciesPageUrl,
+} from "@/lib/site";
+import { regionHref } from "@/lib/speciesRoutes";
+import {
+  atlasDateFields,
+  authorDateFields,
+  pageDateFields,
+  quizDateFields,
+  regionDateFields,
+} from "@/lib/structuredDataDates";
 
 import sitemap from "./sitemap";
 
@@ -34,17 +49,69 @@ const urls = entries.map((entry) => entry.url);
 
 describe("sitemap", () => {
   it("dates every locale of the species atlas like its structured data", () => {
-    const atlas = entries.filter((entry) =>
-      /\/(?:(?:en|ru|tr)\/)?species$/.test(entry.url),
-    );
-    expect(atlas).toHaveLength(routing.locales.length);
-    for (const entry of atlas) {
-      expect(entry.lastModified).toBe(atlasDateFields().dateModified);
+    for (const locale of routing.locales) {
+      const url = `https://reptiles.ge${locale === "ka" ? "" : `/${locale}`}/species`;
+      const entry = entries.find((item) => item.url === url);
+      expect(entry?.lastModified, url).toBe(
+        atlasDateFields(locale).dateModified,
+      );
+    }
+  });
+
+  it("dates hubs, regions, quizzes and contributors like their structured data", () => {
+    const byUrl = new Map(entries.map((entry) => [entry.url, entry]));
+    for (const locale of routing.locales) {
+      const hub = byUrl.get(absoluteUrl(localePath(locale, "/snakes")));
+      expect(hub?.lastModified).toBe(
+        pageDateFields("/snakes", locale).dateModified,
+      );
+      const region = byUrl.get(
+        absoluteUrl(localePath(locale, regionHref("kakheti"))),
+      );
+      expect(region?.lastModified).toBe(
+        regionDateFields("kakheti", locale).dateModified,
+      );
+      const quiz = byUrl.get(quizPageUrl(locale, "snake"));
+      expect(quiz?.lastModified).toBe(
+        quizDateFields("snake", locale).dateModified,
+      );
+      const author = byUrl.get(creditAuthorUrl(locale, "sandro-khakhva"));
+      expect(author?.lastModified).toBe(
+        authorDateFields("sandro-khakhva", locale).dateModified,
+      );
+    }
+  });
+
+  it("dates each species URL by its own locale", () => {
+    for (const item of getCatalogSpecies()) {
+      for (const locale of routing.locales) {
+        const url = speciesPageUrl(locale, item.id);
+        const entry = entries.find((candidate) => candidate.url === url);
+        expect(entry?.lastModified, url).toBe(speciesUpdatedAt(item, locale));
+      }
+    }
+  });
+
+  it("never uses the build time as lastModified", () => {
+    const now = Date.now();
+    for (const entry of entries) {
+      expect(
+        now - Date.parse(String(entry.lastModified)),
+        entry.url,
+      ).toBeGreaterThan(60_000);
     }
   });
 
   it("has no duplicate URLs", () => {
     expect(new Set(urls).size).toBe(urls.length);
+  });
+
+  it("lists only first-party images", () => {
+    for (const entry of entries) {
+      for (const image of entry.images ?? []) {
+        expect(image, entry.url).toMatch(/^https:\/\/(cdn\.)?reptiles\.ge\//);
+      }
+    }
   });
 
   it("uses absolute https URLs on the apex domain only", () => {

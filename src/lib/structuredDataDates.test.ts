@@ -1,5 +1,19 @@
 import { describe, expect, it } from "vitest";
 
+import type { AppLocale } from "@/i18n/routing";
+
+import { getPublishedCreditAuthors } from "@/data/creditAuthors";
+import { getRegionSpecies, regions } from "@/data/regions";
+import { getCatalogSpecies, type Species } from "@/data/species";
+import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
+import { speciesUpdatedAt } from "@/i18n/localizeSpecies";
+import { routing } from "@/i18n/routing";
+import { CLUSTER_GUIDE_LIST } from "@/lib/clusterGuides";
+import {
+  getCreditAuthorPhotos,
+  getCreditAuthorSpeciesIds,
+} from "@/lib/creditAuthors";
+import { GROUP_HUB_LIST } from "@/lib/groupHubs";
 import {
   atlasDateFields,
   authorDateFields,
@@ -10,32 +24,114 @@ import {
 } from "@/lib/structuredDataDates";
 
 describe("atlasDateFields", () => {
-  const page = pageDateFields("/species");
+  it.each(routing.locales)(
+    "dates the %s atlas by its newest species page",
+    (locale) => {
+      const fields = atlasDateFields(locale);
+      const newest = Math.max(
+        ...getCatalogSpecies().map((item) =>
+          Date.parse(speciesUpdatedAt(item, locale)),
+        ),
+      );
+      expect(Date.parse(fields.dateModified)).toBeGreaterThanOrEqual(newest);
+      expect(Date.parse(fields.dateModified)).toBeGreaterThanOrEqual(
+        Date.parse(fields.datePublished),
+      );
+    },
+  );
+});
 
-  it("keeps the page date when no species was updated after it", () => {
-    expect(atlasDateFields("2020-01-01T00:00:00+04:00")).toEqual(page);
-  });
-
-  it("moves dateModified to the newest species update shown on the page", () => {
-    const later = new Date(Date.parse(page.dateModified) + 86_400_000)
-      .toISOString()
-      .replace(".000Z", "Z");
-    expect(atlasDateFields(later)).toEqual({
-      dateModified: later,
-      datePublished: page.datePublished,
-    });
-  });
-
-  it("ignores a missing or unparseable species date", () => {
-    expect(atlasDateFields(null)).toEqual(page);
-    expect(atlasDateFields("not a date")).toEqual(page);
-  });
-
-  it("never dates the atlas before it was published", () => {
-    const fields = atlasDateFields();
-    expect(Date.parse(fields.dateModified)).toBeGreaterThanOrEqual(
-      Date.parse(fields.datePublished),
+describe("member-derived dates", () => {
+  const newest = (items: Species[], locale: AppLocale) =>
+    Math.max(
+      ...items.map((item) => Date.parse(speciesUpdatedAt(item, locale))),
     );
+
+  it.each(routing.locales)(
+    "dates every %s group hub by its newest member species",
+    (locale) => {
+      for (const hub of GROUP_HUB_LIST) {
+        const members = getCatalogSpecies().filter(
+          (item) => getSpeciesAtlasMeta(item.id).group === hub.group,
+        );
+        if (members.length === 0) continue;
+        expect(
+          Date.parse(pageDateFields(hub.path, locale).dateModified),
+          hub.path,
+        ).toBeGreaterThanOrEqual(newest(members, locale));
+      }
+    },
+  );
+
+  it.each(routing.locales)(
+    "dates every %s collection guide by its newest member species",
+    (locale) => {
+      for (const guide of CLUSTER_GUIDE_LIST) {
+        if (guide.schema !== "collection") continue;
+        const members = getCatalogSpecies().filter(guide.matches);
+        if (members.length === 0) continue;
+        expect(
+          Date.parse(pageDateFields(guide.pathname, locale).dateModified),
+          guide.pathname,
+        ).toBeGreaterThanOrEqual(newest(members, locale));
+      }
+    },
+  );
+
+  it.each(routing.locales)(
+    "dates every %s region by its newest listed species",
+    (locale) => {
+      for (const region of regions) {
+        const members = getRegionSpecies(region);
+        if (members.length === 0) continue;
+        expect(
+          Date.parse(regionDateFields(region.id, locale).dateModified),
+          region.id,
+        ).toBeGreaterThanOrEqual(newest(members, locale));
+      }
+    },
+  );
+
+  it("dates a contributor by the newest species carrying their photos", () => {
+    for (const author of getPublishedCreditAuthors()) {
+      const ids = new Set(
+        getCreditAuthorSpeciesIds(getCreditAuthorPhotos(author)),
+      );
+      const members = getCatalogSpecies().filter((item) => ids.has(item.id));
+      if (members.length === 0) continue;
+      expect(
+        Date.parse(authorDateFields(author.slug, "en").dateModified),
+        author.slug,
+      ).toBeGreaterThanOrEqual(newest(members, "en"));
+    }
+  });
+
+  it("dates a quiz by the newest species in its pool", () => {
+    const pool = getCatalogSpecies().filter(
+      (item) => getSpeciesAtlasMeta(item.id).group === "snake",
+    );
+    expect(
+      Date.parse(quizDateFields("snake", "ka").dateModified),
+    ).toBeGreaterThanOrEqual(newest(pool, "ka"));
+  });
+
+  it("keeps fixed pages on their own date", () => {
+    expect(pageDateFields("/contact", "en")).toEqual(
+      pageDateFields("/contact", "ka"),
+    );
+  });
+});
+
+describe("speciesUpdatedAt", () => {
+  it("never dates a translation before the Georgian profile", () => {
+    for (const item of getCatalogSpecies()) {
+      for (const locale of routing.locales) {
+        expect(
+          Date.parse(speciesUpdatedAt(item, locale)),
+          `${item.id} ${locale}`,
+        ).toBeGreaterThanOrEqual(Date.parse(item.updatedAt));
+      }
+    }
   });
 });
 
@@ -62,10 +158,10 @@ describe("hasMeaningfulUpdate", () => {
 });
 
 describe.each([
-  ["pageDateFields", () => pageDateFields("/species")],
-  ["quizDateFields", () => quizDateFields("snake")],
-  ["regionDateFields", () => regionDateFields("kakheti")],
-  ["authorDateFields", () => authorDateFields("sandro-khakhva")],
+  ["pageDateFields", () => pageDateFields("/species", "ka")],
+  ["quizDateFields", () => quizDateFields("snake", "en")],
+  ["regionDateFields", () => regionDateFields("kakheti", "ru")],
+  ["authorDateFields", () => authorDateFields("sandro-khakhva", "tr")],
 ])("%s", (_name, fields) => {
   it("returns a modified and a published date", () => {
     const result = fields();

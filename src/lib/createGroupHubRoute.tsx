@@ -102,7 +102,7 @@ export function createGroupHubRoute(hubId: GroupHubId) {
 
     const collectionLd = sitePageLd({
       about: { "@type": "Place", name: georgiaPlaceName(locale) },
-      dates: pageDateFields(hub.path),
+      dates: pageDateFields(hub.path, locale),
       description: t("metaDescription"),
       locale,
       mainEntity: speciesItemListLd(locale, species),

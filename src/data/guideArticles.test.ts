@@ -331,7 +331,7 @@ describe.each(articles.map((article) => [article.id, article] as const))(
     });
 
     it("has sitemap and structured-data dates", () => {
-      const dates = pageDateFields(article.pathname);
+      const dates = pageDateFields(article.pathname, "ka");
       expect(sitemapPathDatePublished(article.pathname)).toBe(
         dates.datePublished,
       );

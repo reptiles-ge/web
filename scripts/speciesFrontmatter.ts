@@ -125,6 +125,7 @@ export const kaFrontmatterSchema = z.looseObject({
 
 export const translationFrontmatterSchema = z.looseObject({
   commonName: nonempty,
+  dateModified: z.string().optional(),
   id: nonempty,
   scientificName: nonempty,
 });
