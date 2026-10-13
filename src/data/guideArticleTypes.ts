@@ -6,6 +6,7 @@ import type { SearchIcon } from "@/lib/siteSearch";
 export type GuideArticle<ImageKey extends string = string> = {
   copy: Record<AppLocale, GuideArticleCopy<ImageKey>>;
   hero: GuideArticleImage;
+  heroPosition?: GuideArticleHeroPosition;
   id: string;
   images?: Record<ImageKey, GuideArticleImage>;
   messageKey: GuideArticleMessageKey;
@@ -35,6 +36,8 @@ export type GuideArticleCopy<ImageKey extends string = string> = {
   summary: string;
   title: string;
 };
+
+export type GuideArticleHeroPosition = `${number}% ${number}%`;
 
 export type GuideArticleImage = {
   alt: Record<AppLocale, string>;

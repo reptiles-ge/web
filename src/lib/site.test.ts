@@ -4,7 +4,9 @@ import {
   absoluteImageUrl,
   absoluteUrl,
   CDN_BASE,
+  CONTACT_EMAIL,
   FALLBACK_OG_IMAGE_URL,
+  localePath,
   ogImageUrlFromSrc,
   openGraphJpeg,
   ORGANIZATION_SAME_AS,
@@ -184,6 +186,23 @@ describe("structured data", () => {
       name,
     });
   });
+
+  it.each(["ka", "en", "ru", "tr"] as const)(
+    "publishes the editorial contact point in %s",
+    (locale) => {
+      expect(organizationJsonLd(locale).contactPoint).toEqual({
+        "@type": "ContactPoint",
+        availableLanguage: ["ka", "en", "ru", "tr"],
+        contactType: "editorial",
+        email: CONTACT_EMAIL,
+        url: absoluteUrl(localePath(locale, "/contact")),
+      });
+      expect(CONTACT_EMAIL).toBe("hello@reptiles.ge");
+      expect(organizationJsonLd(locale).contactPoint).not.toHaveProperty(
+        "telephone",
+      );
+    },
+  );
 
   it("references the organization by @id", () => {
     expect(organizationRef()).toEqual({

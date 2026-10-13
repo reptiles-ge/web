@@ -671,6 +671,7 @@ export const MOSQUITOES_AT_HOME = defineGuideArticle({
     src: "/images/guides/mosquitoes-at-home-hero.jpg",
     width: 1672,
   },
+  heroPosition: "50% 15%",
   id: "mosquitoes-at-home",
   images: {
     cover: {

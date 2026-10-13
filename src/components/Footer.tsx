@@ -215,10 +215,24 @@ export async function Footer({
         </div>
 
         <div className="mt-7 hidden grid-cols-[160px_minmax(0,1fr)] items-baseline gap-x-6 gap-y-2.5 lg:grid">
-          <h2 className={eyebrowClass}>{t("venomousTitle")}</h2>
-          <InlineLinks dots links={venomousLinks} locale={locale} />
-          <h2 className={eyebrowClass}>{t("regions")}</h2>
-          <InlineLinks dots links={regionLinks} locale={locale} />
+          <p className={eyebrowClass} id="footer-venomous-label">
+            {t("venomousTitle")}
+          </p>
+          <InlineLinks
+            dots
+            labelledBy="footer-venomous-label"
+            links={venomousLinks}
+            locale={locale}
+          />
+          <p className={eyebrowClass} id="footer-regions-label">
+            {t("regions")}
+          </p>
+          <InlineLinks
+            dots
+            labelledBy="footer-regions-label"
+            links={regionLinks}
+            locale={locale}
+          />
         </div>
 
         <div className="mt-7 border-b border-white/10 lg:hidden">
@@ -328,7 +342,7 @@ function FooterColumn({
 }) {
   return (
     <nav aria-label={title} className={className}>
-      <h2 className={cn(eyebrowClass, "mb-1.5 lg:mb-3.5")}>{title}</h2>
+      <p className={cn(eyebrowClass, "mb-1.5 lg:mb-3.5")}>{title}</p>
       <ul className={listClassName}>
         {links.map((link) => (
           <li key={link.label}>
@@ -349,15 +363,20 @@ function FooterColumn({
 
 function InlineLinks({
   dots,
+  labelledBy,
   links,
   locale,
 }: {
   dots: boolean;
+  labelledBy?: string;
   links: FooterLink[];
   locale: AppLocale;
 }) {
   return (
-    <ul className={cn("flex flex-wrap", dots ? "gap-y-0.5" : "gap-x-4 pb-3")}>
+    <ul
+      aria-labelledby={labelledBy}
+      className={cn("flex flex-wrap", dots ? "gap-y-0.5" : "gap-x-4 pb-3")}
+    >
       {links.map((link, index) => (
         <li className="inline-flex items-center" key={link.label}>
           <LocalizedLink

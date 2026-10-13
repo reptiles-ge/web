@@ -7,6 +7,7 @@ import { ContactMailto } from "@/components/ContactMailto";
 import { CoverImage } from "@/components/CoverImage";
 import { images } from "@/data/speciesMedia";
 import { Link } from "@/i18n/navigation";
+import { CONTACT_EMAIL } from "@/lib/site";
 
 export async function ContactPage({ locale }: { locale: AppLocale }) {
   const t = await getTranslations({ locale, namespace: "contact" });
@@ -62,10 +63,10 @@ export async function ContactPage({ locale }: { locale: AppLocale }) {
             <div className="mt-12">
               <ContactMailto
                 className="group inline-flex max-w-full items-center gap-3"
-                href="mailto:nika@shamiladze.com"
+                href={`mailto:${CONTACT_EMAIL}`}
               >
                 <span className="truncate border-b border-foreground/20 pb-1 font-display text-[clamp(1.05rem,2.8vw,1.35rem)] font-medium transition-colors group-hover:border-primary group-hover:text-primary">
-                  nika@shamiladze.com
+                  {CONTACT_EMAIL}
                 </span>
                 <ArrowUpRight className="size-4 shrink-0 text-muted-foreground transition-[color,translate] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary" />
               </ContactMailto>

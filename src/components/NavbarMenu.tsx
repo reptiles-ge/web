@@ -160,7 +160,7 @@ export function NavbarMenu({
           {footerLinks.map((link) => (
             <li key={link.href}>
               <IntentPrefetchLink
-                className="inline-flex min-h-9 items-center transition-colors hover:text-foreground"
+                className="tap-target inline-flex min-h-9 items-center transition-colors hover:text-foreground"
                 href={link.href}
                 onClick={onCloseMenu}
               >

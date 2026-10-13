@@ -1,6 +1,6 @@
-import { absoluteUrl } from "@/lib/site";
+import { absoluteUrl, CONTACT_EMAIL } from "@/lib/site";
 
-export const SECURITY_CONTACT_EMAIL = "nika@shamiladze.com";
+export const SECURITY_CONTACT_EMAIL = CONTACT_EMAIL;
 const SECURITY_TXT_PATH = "/.well-known/security.txt";
 
 const EXPIRES_AFTER_DAYS = 360;

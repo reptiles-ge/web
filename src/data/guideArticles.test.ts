@@ -213,6 +213,16 @@ describe.each(articles.map((article) => [article.id, article] as const))(
       }
     });
 
+    it("keeps an optional hero focal point inside the image", () => {
+      if (article.heroPosition === undefined) return;
+      const match = /^(\d{1,3})% (\d{1,3})%$/.exec(article.heroPosition);
+      expect(match, article.heroPosition).not.toBeNull();
+      for (const value of [match?.[1], match?.[2]]) {
+        expect(Number(value)).toBeGreaterThanOrEqual(0);
+        expect(Number(value)).toBeLessThanOrEqual(100);
+      }
+    });
+
     it("uses optimized, localized images", () => {
       const images = [article.hero, ...Object.values(article.images ?? {})];
       for (const image of images) {
