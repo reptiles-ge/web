@@ -109,7 +109,13 @@ function PhotoUseCards({ t }: { t: Translate }) {
               </strong>{" "}
               {t.rich(`ownItems.${key}.body`, {
                 terms: (chunks) => (
-                  <Link className={linkClass} href="/terms-and-conditions">
+                  <Link
+                    className={linkClass}
+                    href={{
+                      hash: "reptiles-ge-license",
+                      pathname: "/terms-and-conditions",
+                    }}
+                  >
                     {chunks}
                   </Link>
                 ),
@@ -312,7 +318,13 @@ function PhotoUseFaq({ t }: { t: Translate }) {
             <dd className="mt-2 text-[15px] leading-[1.65] text-(--nw-muted) md:mt-0 md:text-[16px]">
               {t.rich(`faq.${key}.a`, {
                 terms: (chunks) => (
-                  <Link className={linkClass} href="/terms-and-conditions">
+                  <Link
+                    className={linkClass}
+                    href={{
+                      hash: "intellectual-property",
+                      pathname: "/terms-and-conditions",
+                    }}
+                  >
                     {chunks}
                   </Link>
                 ),
