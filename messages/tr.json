@@ -196,7 +196,7 @@
       },
       "venomous": {
         "title": "Gürcistan’da zehirli yılanlar",
-        "body": "Tıbbi açıdan önemli altı engerek — risk düzeyleri, tanıma belirtileri ve güvenli karşılaşma.",
+        "body": "Tıbbi açıdan önemli altı engerek ve bir arka dişli tür — risk düzeyleri, tanıma belirtileri ve güvenli karşılaşma.",
         "cta": "Zehirli yılanlar"
       },
       "dangerous": {
@@ -1222,7 +1222,7 @@
     "breadcrumbCurrent": "Zehirli yılanlar",
     "heroImageAlt": "Kuru kayalık arazide Levant engereği",
     "title": "Gürcistan’da (Kafkasya) zehirli yılanlar",
-    "subtitle": "Gürcistan’ın tıbbi açıdan önemli altı engereği — tanıma işaretleri, risk ve bölgesel yayılışla. Tür profilini açın ve karşılaşmada güvenli davranmayı öğrenin.",
+    "subtitle": "Gürcistan’ın tıbbi açıdan önemli altı engereği ve arka dişli Doğu Montpellier yılanı — tanıma işaretleri, risk ve bölgesel yayılışla. Tür profilini açın ve karşılaşmada güvenli davranmayı öğrenin.",
     "ctaSpecies": "Türleri gör",
     "ctaAtlas": "Atlasda süz",
     "quizCtaEyebrow": "Quiz",
@@ -1238,7 +1238,7 @@
     "featuredEyebrow": "En yüksek risk",
     "featuredWestEyebrow": "Batı engereği",
     "mostVenomousTitle": "Gürcistan'da en zehirli yılan hangisidir?",
-    "mostVenomousBody": "Bu atlasta <giurza>Gürze (Macrovipera lebetinus)</giurza> Gürcistan'ın en büyük, yüksek riskli zehirli yılanıdır. Kafkas burunboynuzlu engereği de yüksek risktir. Diğer engerekler orta risk olarak değerlendirilir.",
+    "mostVenomousBody": "Bu atlasta <giurza>Levant engereği (Macrovipera lebetinus)</giurza> Gürcistan'ın en büyük, yüksek riskli zehirli yılanıdır. Kafkas burunboynuzlu engereği de yüksek risktir. Diğer engerekler orta risk olarak değerlendirilir.",
     "vipersTitle": "Engerekler (Viperidae)",
     "vipersBody": "Gürcistan’da tıbbi öneme sahip altı engerek vardır: <giurza>Levant engereği</giurza> ve Vipera cinsinden beş tür. Batı Gürcistan’ın nemli Kolhis ormanlarında <kaznakovi>Kafkas engereği (Vipera kaznakovi)</kaznakovi> görülür; bu atlasda orta riskli tür olarak değerlendirilir.",
     "rearFangedTitle": "Arka dişli",
