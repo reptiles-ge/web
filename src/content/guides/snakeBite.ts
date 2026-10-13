@@ -569,6 +569,7 @@ export const SNAKE_BITE = defineGuideArticle({
     src: "https://cdn.reptiles.ge/images/guides/snake-bite-hero.jpg",
     width: 1730,
   },
+  heroPosition: "50% 10%",
   id: "snake-bite",
   images: {
     "call-112": {

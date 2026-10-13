@@ -1,4 +1,4 @@
-import type { ComponentProps } from "react";
+import type { ComponentProps, CSSProperties } from "react";
 
 import { ArrowUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
@@ -173,10 +173,17 @@ export async function GuideArticlePage({
             </ol>
           </section>
         ) : null}
-        <figure className="mt-8 sm:mt-10">
+        <figure
+          className="mt-8 sm:mt-10"
+          style={
+            article.heroPosition
+              ? ({ "--hero-position": article.heroPosition } as CSSProperties)
+              : undefined
+          }
+        >
           <CoverImage
             alt={article.hero.alt[locale]}
-            className="h-auto w-full rounded-card max-sm:max-h-[calc((100vw-3rem)*0.5625)] max-sm:object-cover lg:h-[clamp(360px,55vh,560px)] lg:object-cover lg:object-[50%_60%]"
+            className="h-auto w-full rounded-card max-sm:max-h-[calc((100vw-3rem)*0.5625)] max-sm:object-cover lg:h-[clamp(360px,55vh,560px)] lg:object-cover lg:object-(--hero-position,50%_50%)"
             fill={false}
             priority
             sizes={IMAGE_SIZES}

@@ -607,6 +607,7 @@ export const BAT_IN_HOUSE = defineGuideArticle({
     src: "/images/guides/bat-house-hero.jpg",
     width: 1152,
   },
+  heroPosition: "50% 75%",
   id: "bat-in-house",
   images: {
     "on-wall": {
