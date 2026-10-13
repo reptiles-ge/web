@@ -14,6 +14,7 @@ import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import { quizStaticParams, resolveQuizBySlug } from "@/lib/quizzes";
+import { INDEXABLE_ROBOTS } from "@/lib/robots";
 import {
   absoluteUrl,
   localePath,
@@ -77,10 +78,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "website",
       url,
     },
-    robots: {
-      follow: true,
-      index: true,
-    },
+    robots: INDEXABLE_ROBOTS,
     title: { absolute: title },
     twitter: {
       card: "summary_large_image",

@@ -62,31 +62,64 @@ describe("speciesFallbackDescriptionKey", () => {
 describe("speciesPageMetaTitle", () => {
   it("joins common name, scientific name and intent", () => {
     expect(
-      speciesPageMetaTitle("x", "en", "Grass snake", "Natrix natrix", "ID"),
+      speciesPageMetaTitle(
+        "x",
+        "en",
+        "Grass snake",
+        "Natrix natrix",
+        "ID",
+        "in Georgia",
+      ),
     ).toBe("Grass snake (Natrix natrix) | ID");
   });
 
-  it("shortens a long Georgian title but not other locales", () => {
+  it("swaps a long intent for the short one in every locale", () => {
+    const intent = "Range and identification in Georgia";
+    for (const locale of ["ka", "en"] as const) {
+      expect(
+        speciesPageMetaTitle(
+          "x",
+          locale,
+          "Grass snake",
+          "Natrix natrix",
+          intent,
+          "in Georgia",
+        ),
+      ).toBe("Grass snake (Natrix natrix) in Georgia");
+    }
+  });
+
+  it("drops the intent when even the short title is too long", () => {
     const common = "ა".repeat(40);
     const scientific = "Longus nameus speciesus";
-    const intent = "ამოცნობა და გავრცელება საქართველოში";
-    expect(speciesPageMetaTitle("x", "ka", common, scientific, intent)).toBe(
-      `${common} | ${intent}`,
-    );
-    expect(speciesPageMetaTitle("x", "en", common, scientific, intent)).toBe(
-      `${common} (${scientific}) | ${intent}`,
-    );
+    expect(
+      speciesPageMetaTitle(
+        "x",
+        "ka",
+        common,
+        scientific,
+        "ამოცნობა და გავრცელება საქართველოში",
+        "საქართველოში",
+      ),
+    ).toBe(`${common} (${scientific})`);
   });
 
   it("uses a per-species override when one exists", () => {
-    expect(speciesPageMetaTitle("alectoris-chukar", "en", "a", "b", "c")).toBe(
-      "Chukar Partridge (Alectoris chukar) in Georgia | Range and ID",
-    );
+    expect(
+      speciesPageMetaTitle("alectoris-chukar", "en", "a", "b", "c", "d"),
+    ).toBe("Chukar Partridge (Alectoris chukar) in Georgia | Range and ID");
   });
 
   it("falls back to the generated title for a locale without an override", () => {
     expect(
-      speciesPageMetaTitle("araneus-diadematus", "ru", "Паук", "Araneus", "ID"),
+      speciesPageMetaTitle(
+        "araneus-diadematus",
+        "ru",
+        "Паук",
+        "Araneus",
+        "ID",
+        "в Грузии",
+      ),
     ).toBe("Паук (Araneus) | ID");
   });
 });

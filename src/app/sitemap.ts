@@ -16,6 +16,11 @@ import {
 } from "@/lib/creditAuthors";
 import { GROUP_HUB_LIST } from "@/lib/groupHubs";
 import {
+  isIndexableLegalLocale,
+  LEGAL_PATHS,
+  legalAlternates,
+} from "@/lib/legalPages";
+import {
   newsArticleAlternates,
   newsArticleModifiedDateTime,
   newsArticleUrl,
@@ -66,8 +71,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     push(pageEntry(locale, "/"));
     push(pageEntry(locale, "/contact"));
     push(pageEntry(locale, "/about"));
-    push(pageEntry(locale, "/terms-and-conditions"));
-    push(pageEntry(locale, "/privacy"));
+    if (isIndexableLegalLocale(locale)) {
+      for (const path of Object.values(LEGAL_PATHS)) {
+        push({
+          ...pageEntry(locale, path),
+          alternates: { languages: legalAlternates(locale, path).languages },
+        });
+      }
+    }
     push(pageEntry(locale, "/news", newsIndexDateFields(locale).dateModified));
     for (const article of getGuideArticles()) {
       push({

@@ -22,6 +22,7 @@ import { type AppLocale, routing } from "@/i18n/routing";
 import { getHubIndexTitleKey } from "@/lib/clusterGuides";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import { galleryImageObjects } from "@/lib/photoMeta";
+import { INDEXABLE_ROBOTS } from "@/lib/robots";
 import {
   speciesAliasKeywords,
   speciesJsonLdKeywords,
@@ -117,7 +118,7 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
     const { locale: localeParam, slug } = await params;
     if (!hasLocale(routing.locales, localeParam)) {
       return {
-        robots: { follow: false, index: false },
+        robots: null,
         title: "Species not found",
       };
     }
@@ -128,7 +129,7 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
 
     if (!raw) {
       return {
-        robots: { follow: false, index: false },
+        robots: null,
         title: t("notFound"),
       };
     }
@@ -141,6 +142,7 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
       item.commonName,
       item.scientificName,
       t(speciesTitleIntentKey(group, raw.danger)),
+      t("titleShort"),
     );
     const fallbackDescription =
       speciesMetaDescriptionOverride(raw.id, locale) ??
@@ -183,10 +185,7 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
         type: "article",
         url,
       },
-      robots: {
-        follow: true,
-        index: true,
-      },
+      robots: INDEXABLE_ROBOTS,
       title: {
         absolute: title,
       },

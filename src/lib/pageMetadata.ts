@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { openGraphLocale } from "@/i18n/localeMeta";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
+import { INDEXABLE_ROBOTS } from "@/lib/robots";
 import {
   absoluteUrl,
   localeAlternates,
@@ -73,7 +74,7 @@ export function buildPageMetadata({
       type,
       url: absoluteUrl(path),
     },
-    ...(indexable ? { robots: { follow: true, index: true } } : {}),
+    ...(indexable ? { robots: INDEXABLE_ROBOTS } : {}),
     title: metadataTitle ?? title,
     twitter: {
       card: "summary_large_image",

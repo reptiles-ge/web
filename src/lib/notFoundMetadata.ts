@@ -22,11 +22,7 @@ export async function notFoundMetadata(locale: AppLocale): Promise<Metadata> {
       title,
       type: "website",
     },
-    robots: {
-      follow: true,
-      googleBot: { follow: true, index: false },
-      index: false,
-    },
+    robots: null,
     title: {
       absolute: title,
     },

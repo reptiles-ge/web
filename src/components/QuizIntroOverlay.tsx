@@ -3,12 +3,14 @@
 import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 
+import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { useQuizCopy } from "@/components/QuizCopyContext";
 import { Link } from "@/i18n/navigation";
 
 type QuizIntroOverlayProps = {
   headingId: string;
   onStart: () => void;
+  quizId: string;
 };
 
 export function QuizBreadcrumbs() {
@@ -43,6 +45,7 @@ export function QuizBreadcrumbs() {
 export function QuizIntroOverlay({
   headingId,
   onStart,
+  quizId,
 }: QuizIntroOverlayProps) {
   const t = useQuizCopy();
   const rules = [
@@ -87,7 +90,7 @@ export function QuizIntroOverlay({
           ))}
         </ul>
 
-        <div className="mt-5 sm:mt-8">
+        <div className="mt-5 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-6">
           <button
             className="inline-flex min-h-13 w-full items-center justify-center gap-2 rounded-full bg-white px-8 text-[15px] font-medium text-ink transition-opacity hover:opacity-90 sm:w-auto"
             onClick={onStart}
@@ -96,8 +99,27 @@ export function QuizIntroOverlay({
             {t("start")}
             <ArrowRight aria-hidden="true" className="size-4" />
           </button>
+          {quizId === "snake" ? <SnakeQuizSafetyLinks /> : null}
         </div>
       </div>
     </div>
+  );
+}
+
+function SnakeQuizSafetyLinks() {
+  const t = useTranslations("snakeQuiz");
+
+  return (
+    <>
+      <Link
+        className="inline-flex min-h-12 items-center justify-center text-[15px] font-medium text-white underline decoration-white/40 underline-offset-4 transition-colors hover:decoration-white"
+        href="/snakes/shxamiani-gvelis-amocnoba"
+      >
+        {t("practiceGuideCta")}
+      </Link>
+      <p className="text-center text-[13px] text-white/70 sm:text-left">
+        <PhoneLinkedText>{t("startEmergency")}</PhoneLinkedText>
+      </p>
+    </>
   );
 }
