@@ -37,6 +37,7 @@ export async function PhotoUsePage({ locale }: { locale: AppLocale }) {
         <p className={paragraphClass}>{t("photosThirdParty")}</p>
         <p className={paragraphClass}>{t("photosPermission")}</p>
         <p className={paragraphClass}>{t("askPermission")}</p>
+        <p className={paragraphClass}>{t("authorRequest")}</p>
         {email}
 
         <h2 className={headingClass}>{t("textHeading")}</h2>
