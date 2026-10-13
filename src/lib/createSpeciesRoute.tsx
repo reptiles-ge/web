@@ -13,7 +13,6 @@ import { JsonLd } from "@/components/JsonLd";
 import { NewsRelatedBlock } from "@/components/NewsRelatedBlock";
 import { SpeciesProfile } from "@/components/SpeciesProfile";
 import { getPublishedNewsForSpecies } from "@/data/news";
-import { getSpeciesById } from "@/data/species";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
 import { SPECIES_PROFILE_CLIENT_MESSAGE_NAMESPACES } from "@/i18n/clientMessages";
 import { openGraphLocale } from "@/i18n/localeMeta";
@@ -57,7 +56,10 @@ import {
   speciesSummaryDescription,
   speciesTitleIntentKey,
 } from "@/lib/speciesMeta";
-import { getLookalikeSpecies, getRelatedSpecies } from "@/lib/speciesRelated";
+import {
+  getLookalikeSpecies,
+  getProfileRelatedSpecies,
+} from "@/lib/speciesRelated";
 import {
   getSpeciesPublicSlug,
   resolveSpeciesInHub,
@@ -292,39 +294,13 @@ function isTaxonSameAsUrl(url: string) {
 }
 
 function localizedSpeciesRelations(raw: Species, locale: AppLocale) {
-  const lookalikeSpecies = getLookalikeSpecies(raw.id);
-  const lookalikeIds = new Set(lookalikeSpecies.map((entry) => entry.id));
-  const related: Species[] = [];
-
-  if (raw.id === "macrovipera-lebetina") {
-    for (const id of [
-      "vipera-transcaucasiana",
-      "vipera-dinniki",
-      "vipera-kaznakovi",
-      "vipera-renardi",
-    ]) {
-      const entry = getSpeciesById(id);
-      if (entry) related.push(localizeSpecies(entry, locale));
-    }
-    return {
-      lookalikes: lookalikeSpecies.map((entry) =>
-        localizeSpecies(entry, locale),
-      ),
-      related,
-    };
-  }
-
-  for (const entry of raw.id === "alectoris-chukar"
-    ? []
-    : getRelatedSpecies(raw.id, 8)) {
-    if (lookalikeIds.has(entry.id)) continue;
-    related.push(localizeSpecies(entry, locale));
-    if (related.length === 4) break;
-  }
-
   return {
-    lookalikes: lookalikeSpecies.map((entry) => localizeSpecies(entry, locale)),
-    related,
+    lookalikes: getLookalikeSpecies(raw.id).map((entry) =>
+      localizeSpecies(entry, locale),
+    ),
+    related: getProfileRelatedSpecies(raw.id).map((entry) =>
+      localizeSpecies(entry, locale),
+    ),
   };
 }
 
