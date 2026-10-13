@@ -101,8 +101,14 @@ export async function SpeciesProfile({
     species,
     venomousLabel: t("breadcrumbVenomous"),
   });
-  const { desktopHeroSrc, gallery, mobileHeroSrc, mobileSlideSrc, primary } =
-    getSpeciesHeroSources(species);
+  const {
+    desktopHeroSrc,
+    gallery,
+    mobileGallery,
+    mobileHeroSrc,
+    mobileSlideSrc,
+    primary,
+  } = getSpeciesHeroSources(species);
   const heroDesktopSources = pictureSources(desktopHeroSrc, {
     media: "(min-width: 1024px)",
     sizes: SPECIES_HERO_DESKTOP_SIZES,
@@ -213,7 +219,7 @@ export async function SpeciesProfile({
         heroPrimarySources={heroPrimarySources}
         imageAlt={imageAlt}
         locale={locale}
-        mobileGallery={gallery}
+        mobileGallery={mobileGallery}
         mobileHeroSrc={mobileSlideSrc}
         mobileImageAlt={mobileImageAlt}
         shareText={shareText}
@@ -232,6 +238,7 @@ export async function SpeciesProfile({
         linkDangerStats={linkDangerStats}
         locale={locale}
         lookalikes={lookalikes}
+        mobileGallery={mobileGallery}
         related={related}
         showIdentification={showIdentification}
         species={species}

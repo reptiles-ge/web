@@ -76,8 +76,25 @@ export function getSpeciesHeroSources(species: Species) {
       : (primary?.src ?? null);
 
   const mobileSlideSrc = mobileHeroSrc ?? primary?.src ?? null;
+  const mobileHeroIndex = mobileHeroSrc
+    ? gallery.findIndex((item) => item.src === mobileHeroSrc)
+    : -1;
+  const mobileGallery =
+    mobileHeroIndex > 0
+      ? [
+          gallery[mobileHeroIndex],
+          ...gallery.filter((_, index) => index !== mobileHeroIndex),
+        ]
+      : gallery;
 
-  return { desktopHeroSrc, gallery, mobileHeroSrc, mobileSlideSrc, primary };
+  return {
+    desktopHeroSrc,
+    gallery,
+    mobileGallery,
+    mobileHeroSrc,
+    mobileSlideSrc,
+    primary,
+  };
 }
 
 export function getSpeciesIdentificationPhoto(species: Species) {

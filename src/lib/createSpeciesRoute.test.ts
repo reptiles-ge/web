@@ -11,6 +11,9 @@ const CORRECT_NENTWIG_DOI = "https://doi.org/10.1016/j.toxicon.2013.07.010";
 const OLD_NENTWIG_DOI = "https://doi.org/10.1016/j.toxicon.2013.07.020";
 const GEORGIAN_RED_LIST_URL =
   "https://matsne.gov.ge/ka/document/view/2256983/0";
+const BADGER_MDD_URL = "https://www.mammaldiversity.org/taxon/1005857/";
+const MELES_MELES_IUCN_URL =
+  "https://www.iucnredlist.org/species/29673/45203002";
 const OTTER_AUDIO_URL = "https://xeno-canto.org/961007";
 const OTTER_CURRENT_IUCN_URL =
   "https://www.iucnredlist.org/species/12419/218069689";
@@ -30,6 +33,10 @@ type ArticleJsonLd = {
 
 type CreativeWorkJsonLd = {
   url?: string;
+};
+
+type FaqJsonLd = {
+  mainEntity: Array<{ acceptedAnswer: { text: string } }>;
 };
 
 type GalleryJsonLd = {
@@ -167,6 +174,7 @@ describe("species structured data", () => {
     expect(sameAs).toEqual([
       OTTER_CURRENT_IUCN_URL,
       "https://www.iucnredlist.org/species/12419/21935287",
+      "https://www.mammaldiversity.org/taxon/1005848/",
     ]);
     expect(sameAs).not.toContain(OTTER_REPORT_URL);
     expect(sameAs).not.toContain(GEORGIAN_RED_LIST_URL);
@@ -198,5 +206,46 @@ describe("species structured data", () => {
     expect(article?.citation.map((source) => source.url)).toContain(
       GEORGIAN_RED_LIST_URL,
     );
+  });
+
+  it("keeps a source about another species out of the badger's sameAs", () => {
+    const raw = getSpeciesById("meles-canescens");
+    expect(raw).toBeDefined();
+
+    const sameAs = speciesSameAs(raw!);
+
+    expect(sameAs).toContain(BADGER_MDD_URL);
+    expect(sameAs).not.toContain(MELES_MELES_IUCN_URL);
+  });
+
+  it("keeps the transcaucasian viper IUCN account matched by its page id", () => {
+    const raw = getSpeciesById("vipera-transcaucasiana");
+    expect(raw).toBeDefined();
+
+    expect(speciesSameAs(raw!)).toContain(
+      "https://www.iucnredlist.org/species/164708/114549008",
+    );
+  });
+
+  it("writes FAQ answers as plain text without inline species links", () => {
+    const raw = getSpeciesById("meles-canescens");
+    expect(raw).toBeDefined();
+
+    const localized = localizeSpecies(raw!, "ka");
+    const faq = speciesStructuredData({
+      breadcrumbCrumbs: [{ name: localized.commonName }],
+      galleryTitle: "გალერეა",
+      item: localized,
+      locale: "ka",
+      ogImage: localized.image,
+      pageUrl: "https://reptiles.ge/dzuzumtsovrebi/machvi",
+      raw: raw!,
+    }).find((entry) => entry["@type"] === "FAQPage") as FaqJsonLd | undefined;
+    const answers = faq?.mainEntity.map((entry) => entry.acceptedAnswer.text);
+
+    expect(answers?.length).toBeGreaterThan(0);
+    for (const answer of answers ?? []) {
+      expect(answer).not.toMatch(/\]\(/);
+    }
   });
 });

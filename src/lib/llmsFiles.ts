@@ -595,6 +595,10 @@ function sourceRank(source: Species["sources"][number]) {
 function truncateText(value: string, max: number) {
   if (value.length <= max) return value;
   const slice = value.slice(0, max - 1);
+  const sentenceEnd = Math.max(
+    ...[". ", "? ", "! "].map((mark) => slice.lastIndexOf(mark)),
+  );
+  if (sentenceEnd >= max / 2) return slice.slice(0, sentenceEnd + 1);
   const at = slice.lastIndexOf(" ");
   return `${(at > 40 ? slice.slice(0, at) : slice).trimEnd()}…`;
 }

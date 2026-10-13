@@ -101,6 +101,7 @@ type SpeciesProfileBodyProps = {
   linkDangerStats: boolean;
   locale: AppLocale;
   lookalikes: Species[];
+  mobileGallery: GalleryImage[];
   related: Species[];
   showIdentification: boolean;
   species: Species;
@@ -514,6 +515,7 @@ export async function SpeciesProfileBody({
   linkDangerStats,
   locale,
   lookalikes,
+  mobileGallery,
   related,
   showIdentification,
   species,
@@ -530,7 +532,7 @@ export async function SpeciesProfileBody({
         dangerValue={dangerValue}
         displayStats={displayStats}
         editable={editable}
-        gallery={gallery}
+        gallery={mobileGallery}
         guideLinks={guideLinks}
         heroCredit={heroCredit}
         linkDangerStats={linkDangerStats}
@@ -1234,6 +1236,11 @@ async function SpeciesProfileSummary({
           locale={locale}
           speciesId={species.id}
         />
+        {species.description ? (
+          <p className="mt-3 px-6 text-[16px] leading-[1.6] text-foreground/80 lg:hidden">
+            {species.description}
+          </p>
+        ) : null}
         <SpeciesProfileFacts
           danger={species.danger}
           dangerValue={dangerValue}
