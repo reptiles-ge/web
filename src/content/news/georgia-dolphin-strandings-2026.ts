@@ -24,7 +24,7 @@ export const GEORGIA_DOLPHIN_STRANDINGS_2026: NewsArticle = {
       metaDescription:
         "Archil Guchmanidze: about 40 dolphins came ashore on Sarpi–Anaklia from 1 March to 1 May, the highest count in a decade.",
       metaTitle:
-        "About 40 dolphins washed ashore from Sarpi to Anaklia in two months",
+        "About 40 dolphins washed ashore in Georgia in two months",
       sections: [
         {
           blocks: [
@@ -133,7 +133,7 @@ export const GEORGIA_DOLPHIN_STRANDINGS_2026: NewsArticle = {
       metaDescription:
         "Арчил Гучманидзе: с 1 марта по 1 мая на участке Сарпи–Анаклия выбросило около 40 дельфинов — максимум за десять лет. Нацагентство среды причину не назвало.",
       metaTitle:
-        "От Сарпи до Анаклии за два месяца выбросило около 40 дельфинов",
+        "За два месяца на берег Грузии выбросило около 40 дельфинов",
       sections: [
         {
           blocks: [

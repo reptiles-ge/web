@@ -113,7 +113,7 @@ describe("presentation helpers", () => {
   });
 });
 
-describe("verified job titles and affiliations", () => {
+describe("photo contributor roles and affiliations", () => {
   it("names every affiliation in the English bio", () => {
     for (const author of CREDIT_AUTHORS) {
       for (const id of author.affiliations ?? []) {
@@ -124,19 +124,30 @@ describe("verified job titles and affiliations", () => {
     }
   });
 
-  it("states every job title in the English bio", () => {
+  it("labels every contributor by the photos they give the atlas", () => {
     for (const author of CREDIT_AUTHORS) {
-      if (!author.jobTitle) continue;
-      expect(author.bio?.en.toLowerCase(), author.slug).toContain(
-        author.jobTitle,
-      );
+      expect(author.role, author.slug).toBe("photographer");
+      expect(author, author.slug).not.toHaveProperty("jobTitle");
     }
   });
 
-  it("gives job titles and affiliations to people only", () => {
+  it("keeps puffery out of bios and descriptions", () => {
+    const puffery =
+      /well-known|renowned|famous|experienced|ცნობილ|გამოცდილ|известн|опытн|tanınmış|deneyimli/i;
+    for (const author of CREDIT_AUTHORS) {
+      const texts = [
+        ...Object.values(author.bio ?? {}),
+        ...Object.values(author.metaDescription ?? {}),
+      ];
+      for (const text of texts) {
+        expect(text, author.slug).not.toMatch(puffery);
+      }
+    }
+  });
+
+  it("gives affiliations to people only", () => {
     for (const author of CREDIT_AUTHORS) {
       if (creditAuthorKind(author) === "person") continue;
-      expect(author.jobTitle, author.slug).toBeUndefined();
       expect(author.affiliations, author.slug).toBeUndefined();
     }
   });

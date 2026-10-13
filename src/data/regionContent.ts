@@ -8,6 +8,8 @@ export type RegionContent = {
   metaDescription?: Partial<LocalizedText>;
   overview: RegionText;
   relatedIds: RegionPathId[];
+  titleName?: LocalizedText;
+  titleNameIn?: LocalizedText;
 };
 
 type RegionFaq = {
@@ -472,6 +474,18 @@ const regionContent: Record<RegionPathId, RegionContent> = {
       tr: "Mtsheta — Mtianeti, Büyük Kafkasya’nın zirvelerini, üst orman kuşağını ve subalpin çayırları kapsar. Dinnik engereği dahil dağ sürüngenlerinin klasik yayılış alanıdır.",
     },
     relatedIds: ["racha", "shida-kartli", "kakheti", "tbilisi"],
+    titleName: {
+      en: "Mtskheta-Mtianeti",
+      ka: "მცხეთა-მთიანეთი",
+      ru: "Мцхета-Мтианети",
+      tr: "Mtsheta-Mtianeti",
+    },
+    titleNameIn: {
+      en: "Mtskheta-Mtianeti",
+      ka: "მცხეთა-მთიანეთში",
+      ru: "Мцхета-Мтианети",
+      tr: "Mtsheta-Mtianeti",
+    },
   },
   racha: {
     biome: {
@@ -523,6 +537,18 @@ const regionContent: Record<RegionPathId, RegionContent> = {
       tr: "Raça — Leçhumi — Kvemo Svaneti yüksek dağ ormanları, subalpin çayırları ve kayalık boğazlarıyla öne çıkar. Burada Dinnik engereği gibi dağ türleri, alçak alan faunasından daha karakteristiktir.",
     },
     relatedIds: ["samegrelo-zemo-svaneti", "imereti", "mtskheta-mtianeti"],
+    titleName: {
+      en: "Racha-Lechkhumi and Kvemo Svaneti",
+      ka: "რაჭა-ლეჩხუმი და ქვემო სვანეთი",
+      ru: "Рача-Лечхуми и Квемо Сванети",
+      tr: "Raça-Leçhumi ve Kvemo Svaneti",
+    },
+    titleNameIn: {
+      en: "Racha-Lechkhumi and Kvemo Svaneti",
+      ka: "რაჭა-ლეჩხუმსა და ქვემო სვანეთში",
+      ru: "Рача-Лечхуми и Квемо Сванети",
+      tr: "Raça-Leçhumi ve Kvemo Svaneti",
+    },
   },
   "samegrelo-zemo-svaneti": {
     biome: {
@@ -577,6 +603,18 @@ const regionContent: Record<RegionPathId, RegionContent> = {
       tr: "Samegrelo — Zemo Svaneti, Kolhis ovasından Svaneti’nin yüksek dağlarına kadar uzanır. Nemli ormanlar, nehir vadileri ve alpin kuşak tek bir bölgede buluşur; bu yüzden sürüngen bileşimi yükselti ve habitata göre belirgin biçimde değişir.",
     },
     relatedIds: ["abkhazia", "guria", "racha", "imereti"],
+    titleName: {
+      en: "Samegrelo-Zemo Svaneti",
+      ka: "სამეგრელო-ზემო სვანეთი",
+      ru: "Самегрело-Земо Сванети",
+      tr: "Samegrelo-Zemo Svaneti",
+    },
+    titleNameIn: {
+      en: "Samegrelo-Zemo Svaneti",
+      ka: "სამეგრელო-ზემო სვანეთში",
+      ru: "Самегрело-Земо Сванети",
+      tr: "Samegrelo-Zemo Svaneti",
+    },
   },
   "samtskhe-javakheti": {
     biome: {
@@ -634,6 +672,18 @@ const regionContent: Record<RegionPathId, RegionContent> = {
       tr: "Samtshe — Cavaheti volkanik platoları, dağ gölleri ve kuru dağ etekleriyle öne çıkar. Açık, çoğu zaman serin habitatlar Kolhis’e ait batı Gürcistan’dan farklıdır — burada boynuzlu engerek ve Darevski engereği görülür; Borjomi vadisinde Kafkas engereği kaydedilmiştir.",
     },
     relatedIds: ["adjara", "imereti", "kvemo-kartli", "shida-kartli"],
+    titleName: {
+      en: "Samtskhe-Javakheti",
+      ka: "სამცხე-ჯავახეთი",
+      ru: "Самцхе-Джавахети",
+      tr: "Samtshe-Cavaheti",
+    },
+    titleNameIn: {
+      en: "Samtskhe-Javakheti",
+      ka: "სამცხე-ჯავახეთში",
+      ru: "Самцхе-Джавахети",
+      tr: "Samtshe-Cavaheti",
+    },
   },
   "shida-kartli": {
     biome: {

@@ -126,7 +126,6 @@ export default async function AuthorRoute({ params }: Props) {
     isPartOf: { "@id": siteEntityId("website") },
     mainEntity: creditAuthorEntityJsonLd(author, locale, {
       description: bio,
-      jobTitle: author.jobTitle ? t(`jobTitles.${author.jobTitle}`) : undefined,
     }),
     name,
     url,
@@ -214,7 +213,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url,
     },
     robots: INDEXABLE_ROBOTS,
-    title: { absolute: `${title} — ${siteConfig.name}` },
+    title: { absolute: `${title} — ${siteConfig.titleBrand}` },
     twitter: {
       card: "summary",
       description,

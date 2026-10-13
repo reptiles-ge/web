@@ -23,17 +23,19 @@ export async function speciesOgPageMetadata({
   type,
 }: SpeciesOgPageMetadataInput): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace });
+  const title = t("metaTitle");
   return buildPageMetadata({
     description: t("metaDescription"),
     indexable: true,
     keywords: t("keywords"),
     locale,
+    metadataTitle: { absolute: title },
     ogImageUrl: speciesOgImageUrl(
       ogSpeciesId,
       getSpeciesById(ogSpeciesId)?.image,
     ),
     pagePath,
-    title: t("metaTitle"),
+    title,
     type,
   });
 }
