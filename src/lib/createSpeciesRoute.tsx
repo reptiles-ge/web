@@ -68,6 +68,7 @@ import {
   speciesStaticParams,
 } from "@/lib/speciesRoutes";
 import { speciesArticleSpatialCoverage } from "@/lib/speciesSpatialCoverage";
+import { taxonIdentifierUrls } from "@/lib/taxonIdentifiers";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 
 type PageProps = {
@@ -76,9 +77,7 @@ type PageProps = {
 
 const HALYOMORPHA_TAXON_SAME_AS = [
   "https://gd.eppo.int/taxon/HALYHA",
-  "https://www.gbif.org/species/4485843",
   "https://biodiversity.iliauni.edu.ge/ka/species/14072",
-  "https://www.wikidata.org/wiki/Q3270185",
 ];
 
 const IUCN_ASSESSMENT_URL =
@@ -97,11 +96,9 @@ const TAXON_SAME_AS_URL_PATTERNS = [
   /^https:\/\/gd\.eppo\.int\/taxon\//,
   /^https:\/\/reptile-database\.reptarium\.cz\/species\?/,
   /^https:\/\/wsc\.nmbe\.ch\/spec-data\//,
-  /^https:\/\/www\.gbif\.org\/species\//,
   /^https:\/\/www\.iucnredlist\.org\/species\//,
   /^https:\/\/www\.mammaldiversity\.org\/explore\.html#species-id=/,
   /^https:\/\/www\.mammaldiversity\.org\/taxon\//,
-  /^https:\/\/www\.wikidata\.org\/wiki\//,
 ];
 
 type SpeciesSource = {
@@ -329,6 +326,22 @@ function sourceNamesOtherSpecies(sourceName: string, raw: Species) {
   return named.length > 0 && !named.some((stem) => ownStems.has(stem));
 }
 
+function sourceSameAs(raw: Species) {
+  if (raw.id === "halyomorpha-halys") return HALYOMORPHA_TAXON_SAME_AS;
+
+  const urls: string[] = [];
+  for (const source of raw.sources) {
+    if (
+      source.url &&
+      isTaxonSameAsUrl(source.url) &&
+      !sourceNamesOtherSpecies(source.name, raw)
+    ) {
+      urls.push(source.url);
+    }
+  }
+  return withoutSupersededIucnAssessments(urls);
+}
+
 function SpeciesHeroPreloads({
   desktopHeroSrc,
   mobileHeroSrc,
@@ -361,19 +374,7 @@ function SpeciesHeroPreloads({
 }
 
 function speciesSameAs(raw: Species) {
-  if (raw.id === "halyomorpha-halys") return HALYOMORPHA_TAXON_SAME_AS;
-
-  const urls: string[] = [];
-  for (const source of raw.sources) {
-    if (
-      source.url &&
-      isTaxonSameAsUrl(source.url) &&
-      !sourceNamesOtherSpecies(source.name, raw)
-    ) {
-      urls.push(source.url);
-    }
-  }
-  return withoutSupersededIucnAssessments(urls);
+  return [...new Set([...sourceSameAs(raw), ...taxonIdentifierUrls(raw.id)])];
 }
 
 function speciesStructuredData({
