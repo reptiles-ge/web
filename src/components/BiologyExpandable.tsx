@@ -8,6 +8,7 @@ import { useExpandableText } from "@/lib/useExpandableText";
 
 type BiologyExpandableProps = {
   body: string;
+  clampFromDesktop?: boolean;
   collapseEditable?: boolean;
   editorField?: string;
   needsExpand: boolean;
@@ -20,6 +21,7 @@ const PREVIEW_LINES = 3;
 
 export function BiologyExpandable({
   body,
+  clampFromDesktop = false,
   collapseEditable = false,
   editorField,
   needsExpand,
@@ -53,9 +55,12 @@ export function BiologyExpandable({
     <>
       <p
         className={cn(
-          "mt-4 scroll-mt-40 text-[16px] leading-relaxed text-muted-foreground",
-          "whitespace-pre-line",
-          !open && canCollapse ? "line-clamp-3" : "",
+          "mt-4 scroll-mt-40 whitespace-pre-line text-muted-foreground",
+          clampFromDesktop
+            ? "text-[17px] leading-[1.65] lg:text-[16px] lg:leading-relaxed"
+            : "text-[16px] leading-relaxed",
+          !open && canCollapse && clampFromDesktop && "lg:line-clamp-3",
+          !open && canCollapse && !clampFromDesktop && "line-clamp-3",
         )}
         data-content-field={editorField}
         data-content-id={speciesId}
@@ -66,7 +71,10 @@ export function BiologyExpandable({
       {canCollapse && overflows ? (
         <button
           aria-expanded={open}
-          className="mt-4 text-[13px] font-medium text-primary transition-colors hover:text-primary/80"
+          className={cn(
+            "mt-4 text-[13px] font-medium text-primary transition-colors hover:text-primary/80",
+            clampFromDesktop && "max-lg:hidden",
+          )}
           onClick={toggle}
           ref={buttonRef}
           type="button"
