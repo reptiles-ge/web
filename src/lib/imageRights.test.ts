@@ -10,6 +10,7 @@ import { routing } from "@/i18n/routing";
 import { speciesStructuredData } from "@/lib/createSpeciesRoute";
 import {
   guideImageRights,
+  photoContributor,
   photoRights,
   photoUsePageUrl,
   siteImageRights,
@@ -21,6 +22,7 @@ import { speciesOgImageUrl, speciesPageUrl } from "@/lib/site";
 type ImageObject = Record<string, unknown> & {
   acquireLicensePage?: string;
   contentUrl?: string;
+  copyrightHolder?: { "@id"?: string; "@type": string; name: string };
   copyrightNotice?: string;
   creator?: { "@type": string; name: string };
   creditText?: string;
@@ -28,6 +30,7 @@ type ImageObject = Record<string, unknown> & {
 };
 
 const PUBLIC_DOMAIN = "https://creativecommons.org/publicdomain/";
+const ORGANIZATION_ID = "https://reptiles.ge/#organization";
 
 function collectImageObjects(value: unknown, found: ImageObject[] = []) {
   if (Array.isArray(value)) {
@@ -45,7 +48,9 @@ function collectImageObjects(value: unknown, found: ImageObject[] = []) {
 function expectAttributed(image: Partial<ImageObject>, label: string) {
   expect(image.creator?.["@type"], label).toMatch(/^(Organization|Person)$/);
   expect(image.creditText, label).toBeTruthy();
-  if (!image.license?.startsWith(PUBLIC_DOMAIN)) {
+  if (image.copyrightHolder?.["@id"] === ORGANIZATION_ID) {
+    expect(image.copyrightNotice, label).toBe("© Reptiles.ge");
+  } else if (!image.license?.startsWith(PUBLIC_DOMAIN)) {
     expect(image.copyrightNotice, label).toBe(`© ${image.creator?.name}`);
   }
 }
@@ -68,7 +73,7 @@ describe("photo use page URL", () => {
 });
 
 describe("photoRights", () => {
-  it("points contributor photos at the photo use page", () => {
+  it("licenses contributor photos as Reptiles.ge", () => {
     const rights = photoRights(
       "https://cdn.reptiles.ge/vipera-dinniki-sandro-1.jpg",
       { photographer: "სანდრო ხახვა" },
@@ -77,10 +82,46 @@ describe("photoRights", () => {
     expect(rights.license).toBe(photoUsePageUrl("en"));
     expect(rights.acquireLicensePage).toBe(photoUsePageUrl("en"));
     expect(rights.creator).toEqual(
-      expect.objectContaining({ "@type": "Person" }),
+      expect.objectContaining({ "@type": "Person", name: "Sandro Khakhva" }),
     );
-    expect(rights.copyrightNotice).toBe(`© ${rights.creator?.name}`);
-    expect(rights.creditText).toBe(rights.creator?.name);
+    expect(rights.copyrightHolder).toEqual(
+      expect.objectContaining({ "@id": ORGANIZATION_ID }),
+    );
+    expect(rights.copyrightNotice).toBe("© Reptiles.ge");
+    expect(rights.creditText).toBe("Sandro Khakhva");
+  });
+
+  it("overrides the iNaturalist CC record of a contributor photo", () => {
+    const src = "https://cdn.reptiles.ge/vipera-transcaucasiana-4.jpg";
+    expect(photoLicenses[src].license).toBe(
+      "https://creativecommons.org/licenses/by-nc/4.0/",
+    );
+    for (const photographer of ["Giorgi Iankoshvili", "გიორგი იანქოშვილი"]) {
+      const rights = photoRights(
+        src,
+        {
+          photographer,
+          url: "https://www.inaturalist.org/observations/140705806",
+        },
+        "ka",
+      );
+      expect(rights.license).toBe(photoUsePageUrl("ka"));
+      expect(rights.acquireLicensePage).toBe(photoUsePageUrl("ka"));
+      expect(rights.copyrightNotice).toBe("© Reptiles.ge");
+      expect(rights.copyrightHolder).toEqual(
+        expect.objectContaining({
+          "@id": ORGANIZATION_ID,
+          "@type": "Organization",
+        }),
+      );
+      expect(rights.creator).toEqual(
+        expect.objectContaining({
+          "@type": "Person",
+          name: "გიორგი იანქოშვილი",
+        }),
+      );
+      expect(rights.creditText).toBe("გიორგი იანქოშვილი");
+    }
   });
 
   it("uses the iNaturalist license and observation for a CC photo", () => {
@@ -197,6 +238,10 @@ describe("species ImageObjects", () => {
           const image = galleryImageObject(photo, item, locale) as ImageObject;
           const label = `${locale} ${raw.id} ${photo.src}`;
           expectLicensed(image, label);
+          if (photoContributor(photo.credit)) {
+            expect(image.license, label).toBe(photoUsePageUrl(locale));
+            expect(image.copyrightHolder?.["@id"], label).toBe(ORGANIZATION_ID);
+          }
           if (photo.credit?.photographer?.trim()) {
             expectAttributed(image, label);
           } else {

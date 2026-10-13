@@ -59,7 +59,10 @@ describe("galleryImageObject", () => {
         name: "ველურ ბუნებასთან ახლოს",
       }),
     );
-    expect(data.copyrightNotice).toBe("© ველურ ბუნებასთან ახლოს");
+    expect(data.copyrightNotice).toBe("© Reptiles.ge");
+    expect(data.copyrightHolder).toEqual(
+      expect.objectContaining({ "@id": "https://reptiles.ge/#organization" }),
+    );
   });
 
   it("adds GeoCoordinates under contentLocation Place", () => {
