@@ -21,6 +21,7 @@ import {
   optimizedImgSrc,
   pictureSources,
 } from "@/data/optimizedImages";
+import { PHOTO_PERMISSION_NOTES } from "@/data/photoPermissionNotes";
 import { getSpeciesById } from "@/data/species";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { Link } from "@/i18n/navigation";
@@ -74,7 +75,7 @@ export async function PhotoUsePage({ locale }: { locale: AppLocale }) {
         <PhotoUseShowcase locale={locale} t={t} />
         <PhotoUseStats locale={locale} photos={photos} t={t} />
       </section>
-      <PhotoUseCards t={t} />
+      <PhotoUseCards locale={locale} t={t} />
       <PhotoUseCreditExample locale={locale} photos={photos} t={t} />
       <PhotoUsePhotographers t={t} />
       <PhotoUseFaq t={t} />
@@ -90,7 +91,8 @@ function numberFormat(locale: AppLocale) {
   return created;
 }
 
-function PhotoUseCards({ t }: { t: Translate }) {
+function PhotoUseCards({ locale, t }: { locale: AppLocale; t: Translate }) {
+  const permissionNotes = PHOTO_PERMISSION_NOTES[locale];
   const bodyClass =
     "mt-1.5 text-[14.5px] leading-[1.6] text-(--nw-muted) md:mt-2.5 md:text-[15.5px]";
   const cards: Array<{
@@ -166,7 +168,7 @@ function PhotoUseCards({ t }: { t: Translate }) {
           <p className="mt-2">{t("askForward")}</p>
           <PhotoPermissionNotes
             className="mt-2"
-            notes={[t("askResponseTime"), t("askFeePolicy")]}
+            notes={[permissionNotes.responseTime, permissionNotes.feePolicy]}
           />
         </div>
       ),

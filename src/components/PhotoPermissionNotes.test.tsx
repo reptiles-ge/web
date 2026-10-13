@@ -2,21 +2,16 @@ import { render } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 
 import { PhotoPermissionNotes } from "@/components/PhotoPermissionNotes";
+import { PHOTO_PERMISSION_NOTES } from "@/data/photoPermissionNotes";
 import { routing } from "@/i18n/routing";
 
-import en from "../../messages/en.json";
-import ka from "../../messages/ka.json";
-import ru from "../../messages/ru.json";
-import tr from "../../messages/tr.json";
-
-const MESSAGES = { en, ka, ru, tr };
 
 describe("PhotoPermissionNotes", () => {
   it("renders nothing while the response time and fee policy are unset", () => {
     for (const locale of routing.locales) {
-      const { askFeePolicy, askResponseTime } = MESSAGES[locale].photoUse;
+      const { feePolicy, responseTime } = PHOTO_PERMISSION_NOTES[locale];
       const { container } = render(
-        <PhotoPermissionNotes notes={[askResponseTime, askFeePolicy]} />,
+        <PhotoPermissionNotes notes={[responseTime, feePolicy]} />,
       );
       expect(container.innerHTML, locale).toBe("");
     }
