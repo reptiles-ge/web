@@ -87,7 +87,7 @@ Default locale has **no** `/ka` prefix (`localePrefix: as-needed`). `/ka` and `/
 - Groups: 22 published snakes, 29 lizards, 4 turtles, 12 amphibians, 45 birds, 17 mammals, 8 spiders, 4 scorpions, 4 insects.
 - SSOT for live pages, quiz, atlas, search: `getCatalogSpecies()` — never a parallel species list.
 - Atlas group + habitat tags: `speciesAtlasMeta` in `src/data/speciesAtlas.ts`. Adding a species without this entry will break grouping.
-- `vipera-ammodytes` is not a taxon here; 301 → `vipera-transcaucasiana`.
+- Nose-horned viper: the taxon is *Vipera ammodytes*, subspecies *transcaucasiana* (Tarkhnishvili et al. 2026), and the profile folder id is `vipera-transcaucasiana`. `vipera-ammodytes` URLs 301 to that single profile. Name it *Vipera transcaucasiana* only as an older or alternative name (2009 IUCN account).
 - `Macrovipera lebetinus` vs folder id `macrovipera-lebetina`: explained on the გიურზა profile. Do not contradict it elsewhere.
 
 ## Species content pipeline
