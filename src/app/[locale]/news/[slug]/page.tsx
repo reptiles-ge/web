@@ -24,6 +24,7 @@ import {
   newsOgImageUrl,
   publishedNewsStaticParams,
 } from "@/lib/news";
+import { newsImageRights } from "@/lib/newsVisual";
 import { INDEXABLE_ROBOTS } from "@/lib/robots";
 import {
   absoluteUrl,
@@ -196,6 +197,7 @@ export default async function NewsArticleRoute({ params }: Props) {
       "@type": "ImageObject",
       contentUrl: ogImage,
       url: ogImage,
+      ...newsImageRights(article, locale),
     },
     inLanguage: locale,
     isPartOf: { "@id": siteEntityId("website") },

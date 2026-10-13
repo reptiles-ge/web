@@ -26,6 +26,6 @@ describe("buildSecurityTxt", () => {
   });
 
   it("uses the contact published in the privacy policy", () => {
-    expect(legalDocuments.privacy).toContain(SECURITY_CONTACT_EMAIL);
+    expect(legalDocuments.privacy.ka).toContain(SECURITY_CONTACT_EMAIL);
   });
 });

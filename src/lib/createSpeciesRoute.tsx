@@ -21,6 +21,7 @@ import { getPathname } from "@/i18n/navigation";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { getHubIndexTitleKey } from "@/lib/clusterGuides";
 import { faqPageJsonLd } from "@/lib/faqJsonLd";
+import { photoRights } from "@/lib/imageRights";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import { galleryImageObjects } from "@/lib/photoMeta";
 import { INDEXABLE_ROBOTS } from "@/lib/robots";
@@ -411,6 +412,9 @@ function speciesStructuredData({
     contentUrl: ogImage,
     name: `${item.commonName} (${item.scientificName})`,
     url: ogImage,
+    ...(ogImage === speciesOgImageUrl(item.id)
+      ? photoRights(ogImage, undefined, locale)
+      : photoRights(item.image, item.imageCredit, locale)),
   };
   const jsonLd = {
     "@context": "https://schema.org",

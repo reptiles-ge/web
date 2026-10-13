@@ -432,7 +432,8 @@
     "emergencyHint": "Snake, scorpion, or spider — right away.",
     "biteGuide": "Bite guide",
     "backToTop": "Top",
-    "backToTopLabel": "Back to top"
+    "backToTopLabel": "Back to top",
+    "photoUse": "Photo use"
   },
   "legal": {
     "canonicalNotice": "The legal text on this page is currently provided in Georgian; treat the Georgian version as the canonical text.",
@@ -497,6 +498,7 @@
     "galleryOpenPhoto": "Open photo {index} of {total}",
     "photo": "Photo",
     "photoCredit": "Photo:",
+    "photoWithPermission": "Used with permission",
     "photoLocation": "Location:",
     "photoMapLink": "View on map",
     "photoDate": "Date:",
@@ -560,7 +562,8 @@
       "sand": "Sand",
       "white": "White",
       "yellow": "Yellow"
-    }
+    },
+    "photoUseLink": "Using these photos"
   },
   "giurzaRange": {
     "lead": "The Levantine viper lives in dry, stony and rocky places along the lower Iori, Mtkvari and Alazani rivers, in Shiraki and Gareji, and in the dry foothills of Kvemo Kartli.",
@@ -4050,5 +4053,81 @@
     "ctaEyebrow": "Next step",
     "ctaTitle": "From the house to a profile",
     "ctaBody": "Open the Caspian gecko or the identify guide. In the house the first rule is: do not kill it."
+  },
+  "photoUse": {
+    "metaTitle": "Photo use and licensing",
+    "metaDescription": "Who owns the photos on Reptiles.ge, which licenses apply, and how to ask for permission to reuse a photo.",
+    "title": "Using photos from Reptiles.ge",
+    "intro": "Every photo in the atlas was shared by a real photographer. Here is who holds the rights, what you may reuse, and how to ask.",
+    "gridLabel": "Photos from the atlas",
+    "photoBy": "Photo: <author>{name}</author>",
+    "statsTitle": "Thank you to our photographers",
+    "stats": {
+      "photos": "{count, plural, one {photo in the atlas} other {photos in the atlas}}",
+      "photographers": "{count, plural, one {photographer} other {photographers}}",
+      "breakdown": "Of these photos:",
+      "contributors": "by Reptiles.ge contributors, under the Reptiles.ge license",
+      "open": "by other authors, under Creative Commons or in the public domain",
+      "permission": "by other authors, used with permission",
+      "unknown": "author not yet identified"
+    },
+    "ownTitle": "Who owns the photos?",
+    "ownItems": {
+      "contributors": {
+        "label": "Reptiles.ge contributors' photos:",
+        "body": "Reptiles.ge license. All rights reserved; use only with written permission (see the <terms>usage rules</terms>)."
+      },
+      "open": {
+        "label": "Other authors' photos with an open license:",
+        "body": "their license applies; it is shown at the source link under the photo."
+      },
+      "permission": {
+        "label": "Other authors' photos used with permission:",
+        "body": "no open license, so reuse needs the author's consent. Write to us and we will forward the request."
+      }
+    },
+    "useTitle": "Can I use a photo?",
+    "useBody": "If the photo's own license allows your use, you don't need permission. Otherwise, write to us. Photos under the Reptiles.ge license always need permission.",
+    "useUnknown": "Photos whose author is not yet identified can't be reused for now. <link>Is your photo here without your name?</link>",
+    "askTitle": "How do I ask for permission?",
+    "askBody": "Email us and include:",
+    "askItems": {
+      "link": "a link to the photo",
+      "purpose": "the purpose",
+      "medium": "the medium: print or online",
+      "commercial": "whether the use is commercial"
+    },
+    "askForward": "We will forward your request to the photo's author.",
+    "askSubject": "Photo use permission",
+    "readEyebrow": "Example",
+    "readTitle": "How do I read a photo credit?",
+    "readAuthorTitle": "Author",
+    "readAuthorBody": "The person who took the photo. If they are a Reptiles.ge contributor, their name links to their page and the photo is licensed by Reptiles.ge.",
+    "readSourceTitle": "Source",
+    "readSourceBody": "Where the photo was first published, here {source}. The link opens the original.",
+    "readLicenseTitle": "License",
+    "readLicenseBody": "This author is not a Reptiles.ge contributor, so the photo keeps the license they chose, stated on the source page: {license}.",
+    "photographersEyebrow": "For photographers",
+    "creditTitle": "Your photo without your name, or want it removed?",
+    "creditBody": "Write to us. We will add your name or remove the photo.",
+    "shareTitle": "Have photos taken in Georgia?",
+    "shareBody": "Share them with the atlas, and your name will stay with every one.",
+    "contactCta": "Write to us",
+    "contributorsCta": "Meet the contributors",
+    "faqTitle": "More questions",
+    "faq": {
+      "cc": {
+        "q": "A photo has a Creative Commons license on iNaturalist. Does that license apply here?",
+        "a": "Photos taken from Reptiles.ge are used under Reptiles.ge terms. If the same photo is published elsewhere under a Creative Commons license, for example on iNaturalist or Wikimedia Commons, that copy is governed by the license shown at that source; check the source page."
+      },
+      "credit": {
+        "q": "Is it enough to credit the author?",
+        "a": "It depends on the license. For CC BY photos, crediting the author as the license requires is enough. Other licenses may add conditions, for example non-commercial use only. Photos under the Reptiles.ge license, and photos used with permission, always need permission."
+      },
+      "text": {
+        "q": "Can I quote the text?",
+        "a": "Yes, briefly. A short quotation that cites the source and Reptiles.ge is allowed; any other reuse of the text needs permission. See the <terms>terms of use</terms>."
+      }
+    }
   }
 }

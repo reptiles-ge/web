@@ -124,6 +124,11 @@ const nextConfig: NextConfig = {
         statusCode: 301,
       },
       {
+        destination: "/fotoebis-gamoyeneba",
+        source: "/photo-use",
+        statusCode: 301,
+      },
+      {
         destination: "/gvelebi",
         source: "/snakes",
         statusCode: 301,
@@ -497,6 +502,7 @@ const nextConfig: NextConfig = {
         ["/gvelebi/qvitelmutsela-mtsuravi", "/snakes", 302],
         ["/species/dolichophis-caspius", "/snakes", 302],
         ["/terms", "/terms-and-conditions"],
+        ["/fotoebis-gamoyeneba", "/photo-use"],
       ]),
       {
         destination: "/en/quiz/which-snake",

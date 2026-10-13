@@ -39,7 +39,7 @@ describe("galleryImageObject", () => {
     );
   });
 
-  it("credits a photography page by name without calling it a person", () => {
+  it("credits a photography page as an Organization, not a person", () => {
     const data = galleryImageObject(
       {
         credit: { photographer: "ველურ ბუნებასთან ახლოს" },
@@ -53,8 +53,16 @@ describe("galleryImageObject", () => {
     );
 
     expect(data.creditText).toBe("ველურ ბუნებასთან ახლოს");
-    expect(data).not.toHaveProperty("creator");
-    expect(data).not.toHaveProperty("copyrightHolder");
+    expect(data.creator).toEqual(
+      expect.objectContaining({
+        "@type": "Organization",
+        name: "ველურ ბუნებასთან ახლოს",
+      }),
+    );
+    expect(data.copyrightNotice).toBe("© Reptiles.ge");
+    expect(data.copyrightHolder).toEqual(
+      expect.objectContaining({ "@id": "https://reptiles.ge/#organization" }),
+    );
   });
 
   it("adds GeoCoordinates under contentLocation Place", () => {

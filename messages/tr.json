@@ -432,7 +432,8 @@
     "emergencyHint": "Yılan, akrep ya da örümcek — hemen.",
     "biteGuide": "Isırık rehberi",
     "backToTop": "Yukarı",
-    "backToTopLabel": "Başa dön"
+    "backToTopLabel": "Başa dön",
+    "photoUse": "Fotoğraf kullanımı"
   },
   "legal": {
     "canonicalNotice": "Bu sayfadaki hukuki metin şu anda Gürcüce olarak sunulmaktadır; Gürcüce sürüm esas metin kabul edilmelidir.",
@@ -497,6 +498,7 @@
     "galleryOpenPhoto": "{total} fotoğraftan {index}. fotoğrafı aç",
     "photo": "Fotoğraf",
     "photoCredit": "Fotoğraf:",
+    "photoWithPermission": "İzinle",
     "photoLocation": "Yer:",
     "photoMapLink": "Haritada gör",
     "photoDate": "Tarih:",
@@ -560,7 +562,8 @@
       "sand": "Kum rengi",
       "white": "Beyaz",
       "yellow": "Sarı"
-    }
+    },
+    "photoUseLink": "Fotoğrafların kullanımı"
   },
   "giurzaRange": {
     "lead": "Levant engereği; İori, Mtkvari ve Alazani nehirlerinin aşağı kesimleri boyunca, Şiraki ve Gareci'de, ayrıca Kvemo Kartli'nin kuru dağ eteklerinde bulunan kuru, taşlık ve kayalık alanlarda yaşar.",
@@ -4050,5 +4053,81 @@
     "ctaEyebrow": "Sonraki adım",
     "ctaTitle": "Evden profile",
     "ctaBody": "Hazar gekosunu veya tanıma rehberini açın. Evde ilk kural: öldürmeyin."
+  },
+  "photoUse": {
+    "metaTitle": "Fotoğraf kullanımı ve lisans",
+    "metaDescription": "Reptiles.ge'deki fotoğrafların kime ait olduğu, hangi lisansların geçerli olduğu ve bir fotoğraf için nasıl izin alınacağı.",
+    "title": "Reptiles.ge fotoğraflarının kullanımı",
+    "intro": "Atlastaki her fotoğrafı bir fotoğrafçı bizimle paylaştı. Burada hakların kimde olduğunu, neyi kullanabileceğinizi ve nasıl izin isteyeceğinizi bulabilirsiniz.",
+    "gridLabel": "Atlastan fotoğraflar",
+    "photoBy": "Fotoğraf: <author>{name}</author>",
+    "statsTitle": "Fotoğrafçılarımıza teşekkürler",
+    "stats": {
+      "photos": "{count, plural, other {atlastaki fotoğraf}}",
+      "photographers": "{count, plural, other {fotoğrafçı}}",
+      "breakdown": "Bu fotoğraflardan:",
+      "contributors": "Reptiles.ge katkıcılarına ait, Reptiles.ge lisanslı",
+      "open": "diğer yazarlara ait, Creative Commons lisanslı veya kamu malı",
+      "permission": "diğer yazarlara ait, izinle kullanılan",
+      "unknown": "yazarı henüz belirlenmedi"
+    },
+    "ownTitle": "Fotoğraflar kime ait?",
+    "ownItems": {
+      "contributors": {
+        "label": "Reptiles.ge katkıcılarının fotoğrafları:",
+        "body": "Reptiles.ge lisansı. Tüm hakları saklıdır; yalnızca yazılı izinle kullanılabilir (bkz. <terms>kullanım koşulları</terms>)."
+      },
+      "open": {
+        "label": "Diğer yazarların açık lisanslı fotoğrafları:",
+        "body": "kendi lisansları geçerlidir; lisans, fotoğrafın altındaki kaynak bağlantısında gösterilir."
+      },
+      "permission": {
+        "label": "Diğer yazarların izinle kullanılan fotoğrafları:",
+        "body": "açık lisansları yoktur, bu yüzden yeniden kullanım için yazarın onayı gerekir. Bize yazın, talebi yazara iletelim."
+      }
+    },
+    "useTitle": "Bir fotoğrafı kullanabilir miyim?",
+    "useBody": "Fotoğrafın kendi lisansı kullanımınıza izin veriyorsa izin almanız gerekmez. Aksi halde bize yazın. Reptiles.ge lisanslı fotoğraflar için her zaman izin gerekir.",
+    "useUnknown": "Yazarı henüz belirlenmemiş fotoğraflar şimdilik yeniden kullanılamaz. <link>Fotoğrafınız burada adınız olmadan mı yer alıyor?</link>",
+    "askTitle": "Nasıl izin isterim?",
+    "askBody": "Bize e-posta gönderin ve şunları belirtin:",
+    "askItems": {
+      "link": "fotoğrafın bağlantısı",
+      "purpose": "kullanım amacı",
+      "medium": "ortam: basılı mı, çevrimiçi mi",
+      "commercial": "kullanımın ticari olup olmadığı"
+    },
+    "askForward": "Talebinizi fotoğrafın yazarına iletiriz.",
+    "askSubject": "Fotoğraf kullanım izni",
+    "readEyebrow": "Örnek",
+    "readTitle": "Fotoğraf künyesi nasıl okunur?",
+    "readAuthorTitle": "Yazar",
+    "readAuthorBody": "Fotoğrafı çeken kişi. Reptiles.ge katkıcısıysa adı sayfasına bağlanır ve fotoğraf Reptiles.ge lisansıyla yayılır.",
+    "readSourceTitle": "Kaynak",
+    "readSourceBody": "Fotoğrafın ilk yayımlandığı yer, burada {source}. Bağlantı orijinali açar.",
+    "readLicenseTitle": "Lisans",
+    "readLicenseBody": "Bu yazar Reptiles.ge katkıcısı değildir; bu yüzden fotoğraf, kaynak sayfasında yazan ve yazarın seçtiği lisansı korur: {license}.",
+    "photographersEyebrow": "Fotoğrafçılar için",
+    "creditTitle": "Fotoğrafınız adınız olmadan mı yayında, ya da kaldırılmasını mı istiyorsunuz?",
+    "creditBody": "Bize yazın. Adınızı ekleriz veya fotoğrafı kaldırırız.",
+    "shareTitle": "Gürcistan'da çektiğiniz fotoğraflar mı var?",
+    "shareBody": "Onları atlasla paylaşın; her birinde adınız yer alır.",
+    "contactCta": "Bize yazın",
+    "contributorsCta": "Katkıda bulunanlarla tanışın",
+    "faqTitle": "Diğer sorular",
+    "faq": {
+      "cc": {
+        "q": "Bir fotoğrafın iNaturalist'te Creative Commons lisansı var. Bu lisans burada da geçerli mi?",
+        "a": "Reptiles.ge'den alınan fotoğraflar Reptiles.ge koşullarıyla kullanılır. Aynı fotoğraf başka bir yerde, örneğin iNaturalist'te veya Wikimedia Commons'ta Creative Commons lisansıyla yayımlanmışsa, o kopya kaynağında gösterilen lisansa tabidir; kaynak sayfasını kontrol edin."
+      },
+      "credit": {
+        "q": "Yazarın adını vermek yeterli mi?",
+        "a": "Lisansa bağlı. CC BY lisanslı fotoğraflarda yazarın adını lisansın istediği şekilde vermek yeterlidir. Diğer lisanslar ek koşullar getirebilir, örneğin yalnızca ticari olmayan kullanım. Reptiles.ge lisanslı fotoğraflar ve izinle kullanılan fotoğraflar için her zaman izin gerekir."
+      },
+      "text": {
+        "q": "Metinden alıntı yapabilir miyim?",
+        "a": "Evet, kısaca. Kaynağı ve Reptiles.ge'yi belirten kısa bir alıntı serbesttir; metnin başka her türlü kullanımı izin gerektirir. Bkz. <terms>kullanım koşulları</terms>."
+      }
+    }
   }
 }
