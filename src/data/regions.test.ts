@@ -18,6 +18,8 @@ import {
   unpublishedSpeciesIds,
 } from "@/data/species";
 import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlasMeta";
+import { localizeSpecies } from "@/i18n/localizeSpecies";
+import { isSnakeSpecies } from "@/lib/clusterGuides";
 import {
   confirmedRecordThresholdForSpecies,
   getHalyomorphaFieldRecords,
@@ -244,6 +246,73 @@ describe("region FAQ venomous snakes", () => {
           } else {
             assertion.not.toContain(item.scientificName);
           }
+        }
+      }
+    },
+  );
+});
+
+describe("region FAQ snake lists", () => {
+  const LOCALES = ["ka", "en", "ru", "tr"] as const;
+  const GLASS_LIZARD = {
+    en: "glass lizard",
+    ka: "გველხოკერა",
+    ru: "желтопузик",
+    tr: "cam kertenkele",
+  } as const;
+  const snakes = getCatalogSpecies().filter(isSnakeSpecies);
+  const normalize = (text: string, locale: (typeof LOCALES)[number]) =>
+    text.replaceAll("’", "'").toLocaleLowerCase(locale);
+  const name = (id: string, locale: (typeof LOCALES)[number]) =>
+    normalize(localizeSpecies(getSpeciesById(id)!, locale).commonName, locale);
+
+  it.each(regions.map((region) => [region.id, region] as const))(
+    "%s FAQ and overview name only the snakes the region lists",
+    (_, region) => {
+      const content = getRegionContent(region.id);
+      const listed = new Set(region.speciesIds);
+      for (const locale of LOCALES) {
+        const text = [
+          ...content.faq.map((entry) => entry.answer),
+          content.overview,
+          content.metaDescription ?? {},
+        ]
+          .map((entry) => localizeRegionTextIfPresent(entry, locale))
+          .filter(Boolean)
+          .join("\n");
+        const lower = normalize(text, locale);
+        for (const item of snakes) {
+          if (listed.has(item.id)) continue;
+          expect(text, `${locale} ${item.id}`).not.toContain(
+            item.scientificName,
+          );
+          expect(lower, `${locale} ${item.id}`).not.toContain(
+            name(item.id, locale),
+          );
+        }
+        if (!listed.has("pseudopus-apodus")) {
+          expect(lower, `${locale} glass lizard`).not.toContain(
+            GLASS_LIZARD[locale],
+          );
+        }
+      }
+    },
+  );
+
+  it.each(regions.map((region) => [region.id, region] as const))(
+    "%s 'which snakes' answer names every snake the region lists",
+    (_, region) => {
+      const entry = getRegionContent(region.id).faq.find((item) =>
+        item.question.en.startsWith("Which snakes"),
+      );
+      if (!entry) return;
+      const listedSnakes = region.speciesIds.filter((id) =>
+        snakes.some((item) => item.id === id),
+      );
+      for (const locale of LOCALES) {
+        const answer = normalize(entry.answer[locale], locale);
+        for (const id of listedSnakes) {
+          expect(answer, `${locale} ${id}`).toContain(name(id, locale));
         }
       }
     },

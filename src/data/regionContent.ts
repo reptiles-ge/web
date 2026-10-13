@@ -30,10 +30,10 @@ const regionContent: Record<RegionPathId, RegionContent> = {
     faq: [
       {
         answer: {
-          en: "Abkhazia records include Caucasian and Dinnik’s vipers, grass snake and dice snake, smooth snake, and European glass lizard. The species mix at a specific place changes with habitat and elevation.",
-          ka: "აფხაზეთში დაფიქსირებულია კავკასიური და დინიკის გველგესლები, ჩვეულებრივი და წყლის ანკარა, სპილენძა და გველხოკერა. კონკრეტულ ადგილზე სახეობების შემადგენლობა ჰაბიტატისა და სიმაღლის მიხედვით იცვლება.",
-          ru: "В Абхазии отмечены кавказская и Динникова гадюки, обыкновенный и водяной ужи, медянка и желтопузик. Состав видов в конкретном месте меняется в зависимости от местообитания и высоты.",
-          tr: "Abhazya’da Kafkas engereği ve Dinnik engereği, halkalı su yılanı ve su yılanı, düz yılan ve cam kertenkele kaydedilmiştir. Belirli bir yerdeki tür bileşimi habitat ve yükseltiye göre değişir.",
+          en: "Snakes recorded in Abkhazia in this atlas: Caucasus viper (Vipera kaznakovi), Dinnik’s viper (Vipera dinniki), dice snake, grass snake and Aesculapian snake. The species mix at a specific place changes with habitat and elevation.",
+          ka: "ატლასის ჩანაწერებით, აფხაზეთში გვხვდება: კავკასიური გველგესლა (Vipera kaznakovi), დინიკის გველგესლა (Vipera dinniki), წყლის ანკარა, ჩვეულებრივი ანკარა და ესკულაპის მცურავი. კონკრეტულ ადგილზე სახეობების შემადგენლობა ჰაბიტატისა და სიმაღლის მიხედვით იცვლება.",
+          ru: "В Абхазии в атласе отмечены змеи: кавказская гадюка (Vipera kaznakovi), гадюка Динника (Vipera dinniki), водяной уж, обыкновенный уж и эскулапов полоз. Состав видов в конкретном месте меняется в зависимости от местообитания и высоты.",
+          tr: "Atlasta Abhazya’da kaydedilen yılanlar: Kafkas engereği (Vipera kaznakovi), Dinnik engereği (Vipera dinniki), kareli yılan, çim yılanı ve Eskülap yılanı. Belirli bir yerdeki tür bileşimi habitat ve yükseltiye göre değişir.",
         },
         question: {
           en: "Which snakes occur in Abkhazia?",
@@ -78,7 +78,7 @@ const regionContent: Record<RegionPathId, RegionContent> = {
       },
     ],
     metaDescription: {
-      ka: "აფხაზეთის ქვეწარმავლების ატლასი — კავკასიური გველგესლა (Vipera kaznakovi), დინიკის გველგესლა, ანკარები და გველხოკერა: ამოცნობა, გავრცელება, ჰაბიტატები და უსაფრთხოება.",
+      ka: "აფხაზეთის ქვეწარმავლების ატლასი — კავკასიური გველგესლა (Vipera kaznakovi), დინიკის გველგესლა და ანკარები: ამოცნობა, გავრცელება, ჰაბიტატები და უსაფრთხოება.",
     },
     overview: {
       en: "Abkhazia combines the Black Sea coast, Colchic forests, and Caucasus foothills. The humid climate and large elevation range create varied habitats for both lowland and mountain reptiles. Recorded species in the region include Caucasian and Dinnik’s vipers.",
@@ -98,10 +98,10 @@ const regionContent: Record<RegionPathId, RegionContent> = {
     faq: [
       {
         answer: {
-          en: "Adjara records include Caucasus viper, grass snake and dice snake, smooth snake, and European glass lizard. In the mountainous part of the Lesser Caucasus, including toward Shuakhevi, nose-horned viper is also recorded. The list is based on regional records and may be updated when new confirmed data are added.",
-          ka: "აჭარაში დაფიქსირებულია კავკასიური გველგესლა, ჩვეულებრივი და წყლის ანკარა, სპილენძა და გველხოკერა. მცირე კავკასიონის მთიან ნაწილში, მათ შორის შუახევის მიმართულებით, დაფიქსირებულია ცხვირრქოსანი გველგესლაც. სია ეფუძნება რეგიონულ ჩანაწერებს და ახალი დადასტურებული მონაცემების დამატებისას შეიძლება განახლდეს.",
-          ru: "В Аджарии отмечены кавказская гадюка, обыкновенный и водяной ужи, медянка и желтопузик. В горной части Малого Кавказа, в том числе в направлении Шуахеви, также зарегистрирована носатая гадюка. Список основан на региональных записях и может обновляться при добавлении новых подтверждённых данных.",
-          tr: "Acara’da Kafkas engereği, halkalı su yılanı, su yılanı, düz yılan ve cam kertenkele kaydedilmiştir. Küçük Kafkasya’nın dağlık kesiminde, Şuahevi yönü dahil, burun boynuzlu engerek de kaydedilmiştir. Liste bölgesel kayıtlara dayanır ve yeni doğrulanmış veriler eklendikçe güncellenebilir.",
+          en: "Snakes recorded in Adjara in this atlas: Caucasus viper (Vipera kaznakovi), nose-horned viper (Vipera ammodytes transcaucasiana), dice snake, grass snake, smooth snake, Aesculapian snake and Dahl’s whip snake. In the mountainous part of the Lesser Caucasus, including toward Shuakhevi, nose-horned viper is also recorded. The list is based on regional records and may be updated when new confirmed data are added.",
+          ka: "ატლასის ჩანაწერებით, აჭარაში გვხვდება: კავკასიური გველგესლა (Vipera kaznakovi), ცხვირრქოსანი გველგესლა (Vipera ammodytes transcaucasiana), წყლის ანკარა, ჩვეულებრივი ანკარა, სპილენძა, ესკულაპის მცურავი და წენგოსფერი მცურავი. მცირე კავკასიონის მთიან ნაწილში, მათ შორის შუახევის მიმართულებით, დაფიქსირებულია ცხვირრქოსანი გველგესლაც. სია ეფუძნება რეგიონულ ჩანაწერებს და ახალი დადასტურებული მონაცემების დამატებისას შეიძლება განახლდეს.",
+          ru: "В Аджарии в атласе отмечены змеи: кавказская гадюка (Vipera kaznakovi), носатая гадюка (Vipera ammodytes transcaucasiana), водяной уж, обыкновенный уж, обыкновенная медянка, эскулапов полоз и оливковый полоз. В горной части Малого Кавказа, в том числе в направлении Шуахеви, также зарегистрирована носатая гадюка. Список основан на региональных записях и может обновляться при добавлении новых подтверждённых данных.",
+          tr: "Atlasta Acara’da kaydedilen yılanlar: Kafkas engereği (Vipera kaznakovi), boynuzlu engerek (Vipera ammodytes transcaucasiana), kareli yılan, çim yılanı, Avusturya yılanı, Eskülap yılanı ve Dahl kırbaç yılanı. Küçük Kafkasya’nın dağlık kesiminde, Şuahevi yönü dahil, boynuzlu engerek de kaydedilmiştir. Liste bölgesel kayıtlara dayanır ve yeni doğrulanmış veriler eklendikçe güncellenebilir.",
         },
         question: {
           en: "Which snakes live in Adjara?",
@@ -174,13 +174,13 @@ const regionContent: Record<RegionPathId, RegionContent> = {
       },
     ],
     metaDescription: {
-      ka: "აჭარის ქვეწარმავლების ატლასი — კავკასიური გველგესლა (Vipera kaznakovi), ანკარები, სპილენძა და გველხოკერა: ამოცნობა, გავრცელება, ჰაბიტატები და უსაფრთხოება.",
+      ka: "აჭარის ქვეწარმავლების ატლასი — კავკასიური გველგესლა (Vipera kaznakovi), ანკარები და სპილენძა: ამოცნობა, გავრცელება, ჰაბიტატები და უსაფრთხოება.",
     },
     overview: {
-      en: "Adjara is one of western Georgia’s most humid regions. Humid subtropical forests, mountain valleys, and the Black Sea coast create varied environments for reptiles. The region has Caucasus viper, grass snake and dice snake, smooth snake, European glass lizard, and other species.",
-      ka: "აჭარა დასავლეთ საქართველოს ერთ-ერთი ყველაზე ტენიანი რეგიონია. ნოტიო სუბტროპიკული ტყეები, მთიანი ხეობები და შავი ზღვის სანაპირო მრავალფეროვან გარემოს ქმნის ქვეწარმავლებისთვის. რეგიონში გვხვდება კავკასიური გველგესლა, ჩვეულებრივი და წყლის ანკარა, სპილენძა, გველხოკერა და სხვა სახეობები.",
-      ru: "Аджария — один из самых влажных регионов западной Грузии. Влажные субтропические леса, горные долины и побережье Чёрного моря создают разнообразные условия для рептилий. В регионе встречаются кавказская гадюка, обыкновенный и водяной ужи, медянка, желтопузик и другие виды.",
-      tr: "Acara, batı Gürcistan’ın en nemli bölgelerinden biridir. Nemli subtropik ormanlar, dağ vadileri ve Karadeniz kıyısı sürüngenler için çeşitli ortamlar oluşturur. Bölgede Kafkas engereği, halkalı su yılanı ve su yılanı, düz yılan, cam kertenkele ve başka türler görülür.",
+      en: "Adjara is one of western Georgia’s most humid regions. Humid subtropical forests, mountain valleys, and the Black Sea coast create varied environments for reptiles. The region has Caucasus viper, grass snake and dice snake, smooth snake, and other species.",
+      ka: "აჭარა დასავლეთ საქართველოს ერთ-ერთი ყველაზე ტენიანი რეგიონია. ნოტიო სუბტროპიკული ტყეები, მთიანი ხეობები და შავი ზღვის სანაპირო მრავალფეროვან გარემოს ქმნის ქვეწარმავლებისთვის. რეგიონში გვხვდება კავკასიური გველგესლა, ჩვეულებრივი და წყლის ანკარა, სპილენძა და სხვა სახეობები.",
+      ru: "Аджария — один из самых влажных регионов западной Грузии. Влажные субтропические леса, горные долины и побережье Чёрного моря создают разнообразные условия для рептилий. В регионе встречаются кавказская гадюка, обыкновенный и водяной ужи, медянка и другие виды.",
+      tr: "Acara, batı Gürcistan’ın en nemli bölgelerinden biridir. Nemli subtropik ormanlar, dağ vadileri ve Karadeniz kıyısı sürüngenler için çeşitli ortamlar oluşturur. Bölgede Kafkas engereği, halkalı su yılanı ve su yılanı, düz yılan ve başka türler görülür.",
     },
     relatedIds: ["guria", "samtskhe-javakheti", "samegrelo-zemo-svaneti"],
   },
@@ -194,10 +194,10 @@ const regionContent: Record<RegionPathId, RegionContent> = {
     faq: [
       {
         answer: {
-          en: "Yes. Caucasus viper (Vipera kaznakovi) is a venomous species. Grass snake, dice snake, and smooth snake do not pose a venomous danger to people. Still keep a safe distance from any unknown snake.",
-          ka: "დიახ. კავკასიური გველგესლა (Vipera kaznakovi) შხამიანი სახეობაა. ჩვეულებრივი ანკარა, წყლის ანკარა და სპილენძა ადამიანისთვის შხამიან საფრთხეს არ წარმოადგენენ. უცნობ გველთან მაინც დაიცავით უსაფრთხო მანძილი.",
-          ru: "Да. Кавказская гадюка (Vipera kaznakovi) — ядовитый вид. Обыкновенный уж, водяной уж и медянка не представляют для человека ядовитой опасности. С любой неизвестной змеёй всё равно держите безопасную дистанцию.",
-          tr: "Evet. Kafkas engereği (Vipera kaznakovi) zehirli bir türdür. Halkalı su yılanı, su yılanı ve düz yılan insanlar için zehirli bir tehlike oluşturmaz. Yine de bilinmeyen bir yılandan güvenli mesafe bırakın.",
+          en: "Yes. Caucasus viper (Vipera kaznakovi) is a venomous species. Grass snake and dice snake do not pose a venomous danger to people. Still keep a safe distance from any unknown snake.",
+          ka: "დიახ. კავკასიური გველგესლა (Vipera kaznakovi) შხამიანი სახეობაა. ჩვეულებრივი ანკარა და წყლის ანკარა ადამიანისთვის შხამიან საფრთხეს არ წარმოადგენენ. უცნობ გველთან მაინც დაიცავით უსაფრთხო მანძილი.",
+          ru: "Да. Кавказская гадюка (Vipera kaznakovi) — ядовитый вид. Обыкновенный уж и водяной уж не представляют для человека ядовитой опасности. С любой неизвестной змеёй всё равно держите безопасную дистанцию.",
+          tr: "Evet. Kafkas engereği (Vipera kaznakovi) zehirli bir türdür. Çim yılanı ve kareli yılan insanlar için zehirli bir tehlike oluşturmaz. Yine de bilinmeyen bir yılandan güvenli mesafe bırakın.",
         },
         question: {
           en: "Are there venomous snakes in Guria?",
@@ -245,10 +245,10 @@ const regionContent: Record<RegionPathId, RegionContent> = {
     faq: [
       {
         answer: {
-          en: "Imereti records include Caucasus viper (Vipera kaznakovi), smooth snake, grass snake and dice snake, and glass lizard.",
-          ka: "იმერეთის ჩანაწერებში წარმოდგენილია კავკასიური გველგესლა (Vipera kaznakovi), სპილენძა, ჩვეულებრივი და წყლის ანკარა და გველხოკერა.",
-          ru: "В записях Имеретии представлены кавказская гадюка (Vipera kaznakovi), медянка, обыкновенный и водяной ужи, а также желтопузик.",
-          tr: "İmereti kayıtlarında Kafkas engereği (Vipera kaznakovi), düz yılan, halkalı su yılanı ve su yılanı ile cam kertenkele yer alır.",
+          en: "Snakes recorded in Imereti in this atlas: Caucasus viper (Vipera kaznakovi), dice snake, grass snake, Dahl’s whip snake and Aesculapian snake.",
+          ka: "ატლასის ჩანაწერებით, იმერეთში გვხვდება: კავკასიური გველგესლა (Vipera kaznakovi), წყლის ანკარა, ჩვეულებრივი ანკარა, წენგოსფერი მცურავი და ესკულაპის მცურავი.",
+          ru: "В Имеретии в атласе отмечены змеи: кавказская гадюка (Vipera kaznakovi), водяной уж, обыкновенный уж, оливковый полоз и эскулапов полоз.",
+          tr: "Atlasta İmereti’de kaydedilen yılanlar: Kafkas engereği (Vipera kaznakovi), kareli yılan, çim yılanı, Dahl kırbaç yılanı ve Eskülap yılanı.",
         },
         question: {
           en: "Which snakes occur in Imereti?",
@@ -318,10 +318,10 @@ const regionContent: Record<RegionPathId, RegionContent> = {
       },
       {
         answer: {
-          en: "Records include Levantine viper, steppe viper, Urartian and steppe ratsnakes, red-bellied and Dahl’s whip snakes, cat snake, grass snake and dice snake, smooth snake, and glass lizard.",
-          ka: "ჩანაწერებშია გიურზა, ველის გველგესლა, ურარტუს და სახეებიანი მცურავი, წითელმუცელა და წენგოსფერი მცურავი, კატისთვალა, ჩვეულებრივი და წყლის ანკარა, სპილენძა და გველხოკერა.",
-          ru: "В записях — гюрза, степная гадюка, урартский и узорчатый полозы, краснобрюхий и оливковый полозы, кошачий уж, обыкновенный и водяной ужи, медянка и желтопузик.",
-          tr: "Kayıtlarda Levant engereği, bozkır engereği, Urartu sıçanyılanı ve bozkır sıçan yılanı, kırmızı karınlı ve Dahl kırbaç yılanları, kedi yılanı, çim yılanı ve kareli yılan, Avusturya yılanı ve yılan kertenkele yer alır.",
+          en: "Snakes recorded in Kakheti in this atlas: Levantine viper (Macrovipera lebetinus), eastern steppe viper (Vipera renardi), eastern Montpellier snake (Malpolon insignitus), Urartian ratsnake, steppe ratsnake, red-bellied racer, dice snake, grass snake, Dahl’s whip snake, European cat snake, smooth snake, collared dwarf snake, ring-headed dwarf snake, European blind snake and javelin sand boa. The glass lizard (Pseudopus apodus) also lives here, but it is a legless lizard, not a snake.",
+          ka: "ატლასის ჩანაწერებით, კახეთში გვხვდება: გიურზა (Macrovipera lebetinus), ველის გველგესლა (Vipera renardi), ჩვეულებრივი ხვლიკიჭამია გველი (Malpolon insignitus), ურარტუს მცურავი, სახეებიანი მცურავი, წითელმუცელა მცურავი, წყლის ანკარა, ჩვეულებრივი ანკარა, წენგოსფერი მცურავი, კატისთვალა, სპილენძა, საყელოიანი ეირენისი, წყნარი ეირენისი, გველბრუცა და დასავლური მახრჩობელა. აქ გვხვდება გველხოკერაც (Pseudopus apodus), მაგრამ ის უფეხო ხვლიკია და არა გველი.",
+          ru: "В Кахетии в атласе отмечены змеи: гюрза (Macrovipera lebetinus), степная гадюка (Vipera renardi), восточный мальполон (Malpolon insignitus), урартский полоз, узорчатый полоз, краснобрюхий полоз, водяной уж, обыкновенный уж, оливковый полоз, европейский кошачий уж, обыкновенная медянка, ошейниковый эйренис, скромный эйренис, червеобразная слепозмейка и западный удавчик. Здесь встречается и желтопузик (Pseudopus apodus), но это безногая ящерица, а не змея.",
+          tr: "Atlasta Kaheti’de kaydedilen yılanlar: Levant engereği (Macrovipera lebetinus), bozkır engereği (Vipera renardi), doğu Montpellier yılanı (Malpolon insignitus), Urartu sıçanyılanı, bozkır sıçan yılanı, kırmızı karınlı kırbaç yılanı, kareli yılan, çim yılanı, Dahl kırbaç yılanı, Avrupa kedi yılanı, Avusturya yılanı, yakalı cüce yılan, halkalı başlı cüce yılan, kör yılan ve cirit kum boa. Burada cam kertenkele (Pseudopus apodus) de yaşar, ancak bacaksız bir kertenkeledir, yılan değildir.",
         },
         question: {
           en: "Which snakes occur in Kakheti?",
@@ -560,10 +560,10 @@ const regionContent: Record<RegionPathId, RegionContent> = {
     faq: [
       {
         answer: {
-          en: "Caucasus viper (Vipera kaznakovi), grass snake and dice snake, smooth snake, and glass lizard are recorded in Samegrelo’s lowland and humid zones. Dinnik’s viper (Vipera dinniki) occurs in the high-mountain part of Zemo Svaneti. Species composition at a specific place changes with elevation and habitat.",
-          ka: "სამეგრელოს დაბლობ და ტენიან ზონებში დაფიქსირებულია კავკასიური გველგესლა (Vipera kaznakovi), ჩვეულებრივი და წყლის ანკარა, სპილენძა და გველხოკერა. ზემო სვანეთის მაღალმთიან ნაწილში გვხვდება დინიკის გველგესლა (Vipera dinniki). კონკრეტულ ადგილზე სახეობების შემადგენლობა სიმაღლისა და ჰაბიტატის მიხედვით იცვლება.",
-          ru: "В низинных и влажных зонах Самегрело зарегистрированы кавказская гадюка (Vipera kaznakovi), обыкновенный и водяной ужи, медянка и желтопузик. В высокогорной части Верхней Сванетии встречается гадюка Динника (Vipera dinniki). Состав видов в конкретном месте меняется в зависимости от высоты и местообитания.",
-          tr: "Samegrelo’nun alçak ve nemli bölgelerinde Kafkas engereği (Vipera kaznakovi), halkalı su yılanı ve su yılanı, düz yılan ve cam kertenkele kaydedilmiştir. Zemo Svaneti’nin yüksek dağ kesiminde Dinnik engereği (Vipera dinniki) görülür. Belirli bir yerdeki tür bileşimi yükselti ve habitata göre değişir.",
+          en: "Snakes recorded in Samegrelo and Zemo Svaneti in this atlas: Caucasus viper (Vipera kaznakovi), Dinnik’s viper (Vipera dinniki), dice snake, grass snake and smooth snake. Dinnik’s viper (Vipera dinniki) occurs in the high-mountain part of Zemo Svaneti. Species composition at a specific place changes with elevation and habitat.",
+          ka: "ატლასის ჩანაწერებით, სამეგრელოსა და ზემო სვანეთში გვხვდება: კავკასიური გველგესლა (Vipera kaznakovi), დინიკის გველგესლა (Vipera dinniki), წყლის ანკარა, ჩვეულებრივი ანკარა და სპილენძა. ზემო სვანეთის მაღალმთიან ნაწილში გვხვდება დინიკის გველგესლა (Vipera dinniki). კონკრეტულ ადგილზე სახეობების შემადგენლობა სიმაღლისა და ჰაბიტატის მიხედვით იცვლება.",
+          ru: "В Самегрело и Верхней Сванетии в атласе отмечены змеи: кавказская гадюка (Vipera kaznakovi), гадюка Динника (Vipera dinniki), водяной уж, обыкновенный уж и обыкновенная медянка. В высокогорной части Верхней Сванетии встречается гадюка Динника (Vipera dinniki). Состав видов в конкретном месте меняется в зависимости от высоты и местообитания.",
+          tr: "Atlasta Samegrelo ve Zemo Svaneti’de kaydedilen yılanlar: Kafkas engereği (Vipera kaznakovi), Dinnik engereği (Vipera dinniki), kareli yılan, çim yılanı ve Avusturya yılanı. Zemo Svaneti’nin yüksek dağ kesiminde Dinnik engereği (Vipera dinniki) görülür. Belirli bir yerdeki tür bileşimi yükselti ve habitata göre değişir.",
         },
         question: {
           en: "Which snakes live in Samegrelo?",
@@ -695,10 +695,10 @@ const regionContent: Record<RegionPathId, RegionContent> = {
     faq: [
       {
         answer: {
-          en: "Records include three venomous vipers — the nose-horned viper (Vipera ammodytes transcaucasiana), the Caucasus viper (Vipera kaznakovi) and the eastern steppe viper (Vipera renardi) — plus steppe ratsnake, red-bellied and Dahl’s whip snakes, cat snake, grass snake and dice snake, smooth snake, and glass lizard.",
-          ka: "ჩანაწერებშია სამი შხამიანი გველგესლა — ცხვირრქოსანი (Vipera ammodytes transcaucasiana), კავკასიური (Vipera kaznakovi) და ველის გველგესლა (Vipera renardi) — ასევე სახეებიანი მცურავი, წითელმუცელა და წენგოსფერი მცურავი, კატისთვალა, ჩვეულებრივი და წყლის ანკარა, სპილენძა და გველხოკერა.",
-          ru: "В записях — три ядовитые гадюки: носатая (Vipera ammodytes transcaucasiana), кавказская (Vipera kaznakovi) и степная (Vipera renardi), а также узорчатый полоз, краснобрюхий и Далев полозы, кошачья змея, обыкновенный и водяной ужи, медянка и желтопузик.",
-          tr: "Kayıtlarda üç zehirli engerek var — boynuzlu engerek (Vipera ammodytes transcaucasiana), Kafkas engereği (Vipera kaznakovi) ve bozkır engereği (Vipera renardi) — ayrıca desenli sıçan yılanı, kırmızı karınlı ve Dahl kamçı yılanları, kedi yılanı, halkalı su yılanı, su yılanı, düz yılan ve cam kertenkele yer alır.",
+          en: "Snakes recorded in Shida Kartli in this atlas: nose-horned viper (Vipera ammodytes transcaucasiana), Caucasus viper (Vipera kaznakovi), eastern steppe viper (Vipera renardi), red-bellied racer, Transcaucasian ratsnake, Aesculapian snake, Dahl’s whip snake and European cat snake. The glass lizard (Pseudopus apodus) also lives here, but it is a legless lizard, not a snake.",
+          ka: "ატლასის ჩანაწერებით, შიდა ქართლში გვხვდება: ცხვირრქოსანი გველგესლა (Vipera ammodytes transcaucasiana), კავკასიური გველგესლა (Vipera kaznakovi), ველის გველგესლა (Vipera renardi), წითელმუცელა მცურავი, ამიერკავკასიური მცურავი, ესკულაპის მცურავი, წენგოსფერი მცურავი და კატისთვალა. აქ გვხვდება გველხოკერაც (Pseudopus apodus), მაგრამ ის უფეხო ხვლიკია და არა გველი.",
+          ru: "В Шида-Картли в атласе отмечены змеи: носатая гадюка (Vipera ammodytes transcaucasiana), кавказская гадюка (Vipera kaznakovi), степная гадюка (Vipera renardi), краснобрюхий полоз, закавказский полоз, эскулапов полоз, оливковый полоз и европейский кошачий уж. Здесь встречается и желтопузик (Pseudopus apodus), но это безногая ящерица, а не змея.",
+          tr: "Atlasta Shida Kartli’de kaydedilen yılanlar: boynuzlu engerek (Vipera ammodytes transcaucasiana), Kafkas engereği (Vipera kaznakovi), bozkır engereği (Vipera renardi), kırmızı karınlı kırbaç yılanı, Transkafkas sıçan yılanı, Eskülap yılanı, Dahl kırbaç yılanı ve Avrupa kedi yılanı. Burada cam kertenkele (Pseudopus apodus) de yaşar, ancak bacaksız bir kertenkeledir, yılan değildir.",
         },
         question: {
           en: "Which snakes occur in Shida Kartli?",
@@ -751,10 +751,10 @@ const regionContent: Record<RegionPathId, RegionContent> = {
     faq: [
       {
         answer: {
-          en: "Tbilisi records include Levantine viper (Macrovipera lebetinus), nose-horned viper (Vipera ammodytes transcaucasiana), steppe ratsnake, red-bellied racer, Dahl’s whip snake, cat snake, grass snake, dice snake, smooth snake, and glass lizard. Encounters with these species are more likely in suburbs, valleys, rocky places, and riverside areas.",
-          ka: "თბილისის ჩანაწერებში წარმოდგენილია გიურზა (Macrovipera lebetinus), ცხვირრქოსანი გველგესლა (Vipera ammodytes transcaucasiana), სახეებიანი მცურავი, წითელმუცელა და წენგოსფერი მცურავი, კატისთვალა, ჩვეულებრივი და წყლის ანკარა, სპილენძა და გველხოკერა. ასეთი სახეობების შეხვედრა უფრო მოსალოდნელია ქალაქის გარეუბნებში, ხეობებში, კლდოვან ადგილებსა და მდინარის პირას.",
-          ru: "В записях по Тбилиси представлены гюрза (Macrovipera lebetinus), носатая гадюка (Vipera ammodytes transcaucasiana), узорчатый полоз, краснобрюхий и Далев полозы, кошачья змея, обыкновенный и водяной ужи, медянка и желтопузик. Встречи с такими видами более вероятны на окраинах, в ущельях, на скальных участках и у реки.",
-          tr: "Tiflis kayıtlarında Levant engereği (Macrovipera lebetinus), boynuzlu engerek (Vipera ammodytes transcaucasiana), desenli sıçan yılanı, kırmızı karınlı ve Dahl kamçı yılanları, kedi yılanı, halkalı su yılanı, su yılanı, düz yılan ve cam kertenkele yer alır. Bu türlerle karşılaşma daha çok banliyölerde, vadilerde, kayalık alanlarda ve nehir kıyısında beklenir.",
+          en: "Snakes recorded in Tbilisi in this atlas: Levantine viper (Macrovipera lebetinus), nose-horned viper (Vipera ammodytes transcaucasiana), red-bellied racer, dice snake, grass snake, European cat snake, steppe ratsnake, Dahl’s whip snake, javelin sand boa, European blind snake, ring-headed dwarf snake, collared dwarf snake and Transcaucasian ratsnake. The glass lizard (Pseudopus apodus) also lives here, but it is a legless lizard, not a snake. Encounters with these species are more likely in suburbs, valleys, rocky places, and riverside areas.",
+          ka: "ატლასის ჩანაწერებით, თბილისში გვხვდება: გიურზა (Macrovipera lebetinus), ცხვირრქოსანი გველგესლა (Vipera ammodytes transcaucasiana), წითელმუცელა მცურავი, წყლის ანკარა, ჩვეულებრივი ანკარა, კატისთვალა, სახეებიანი მცურავი, წენგოსფერი მცურავი, დასავლური მახრჩობელა, გველბრუცა, წყნარი ეირენისი, საყელოიანი ეირენისი და ამიერკავკასიური მცურავი. აქ გვხვდება გველხოკერაც (Pseudopus apodus), მაგრამ ის უფეხო ხვლიკია და არა გველი. ასეთი სახეობების შეხვედრა უფრო მოსალოდნელია ქალაქის გარეუბნებში, ხეობებში, კლდოვან ადგილებსა და მდინარის პირას.",
+          ru: "В Тбилиси в атласе отмечены змеи: гюрза (Macrovipera lebetinus), носатая гадюка (Vipera ammodytes transcaucasiana), краснобрюхий полоз, водяной уж, обыкновенный уж, европейский кошачий уж, узорчатый полоз, оливковый полоз, западный удавчик, червеобразная слепозмейка, скромный эйренис, ошейниковый эйренис и закавказский полоз. Здесь встречается и желтопузик (Pseudopus apodus), но это безногая ящерица, а не змея. Встречи с такими видами более вероятны на окраинах, в ущельях, на скальных участках и у реки.",
+          tr: "Atlasta Tiflis’te kaydedilen yılanlar: Levant engereği (Macrovipera lebetinus), boynuzlu engerek (Vipera ammodytes transcaucasiana), kırmızı karınlı kırbaç yılanı, kareli yılan, çim yılanı, Avrupa kedi yılanı, bozkır sıçan yılanı, Dahl kırbaç yılanı, cirit kum boa, kör yılan, halkalı başlı cüce yılan, yakalı cüce yılan ve Transkafkas sıçan yılanı. Burada cam kertenkele (Pseudopus apodus) de yaşar, ancak bacaksız bir kertenkeledir, yılan değildir. Bu türlerle karşılaşma daha çok banliyölerde, vadilerde, kayalık alanlarda ve nehir kıyısında beklenir.",
         },
         question: {
           en: "Which snakes live in Tbilisi?",
