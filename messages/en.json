@@ -4054,34 +4054,33 @@
     "ctaBody": "Open the Caspian gecko or the identify guide. In the house the first rule is: do not kill it."
   },
   "photoUse": {
-    "metaTitle": "Photo use",
-    "metaDescription": "Who owns the photos on Reptiles.ge, which licenses apply, and how to ask permission to reuse a photo or text.",
+    "metaTitle": "Photo use and licensing",
+    "metaDescription": "Who owns the photos on Reptiles.ge, which licenses apply, and how to ask for permission to reuse a photo.",
     "title": "Using photos from Reptiles.ge",
-    "intro": "Every photo in the atlas was taken by a real person who shared it with us. Here is whose it is and how to ask before you reuse it.",
+    "intro": "Every photo in the atlas was shared by a real photographer. Here is who holds the rights, what you may reuse, and how to ask.",
     "gridLabel": "Photos from the atlas",
     "photoBy": "Photo: <author>{name}</author>",
-    "statsTitle": "Thank you to everyone who shares their photos",
+    "statsTitle": "Thank you to our photographers",
     "stats": {
       "photos": "{count, plural, one {photo in the atlas} other {photos in the atlas}}",
       "authors": "{count, plural, one {credited photographer} other {credited photographers}}",
       "contributors": "{count, plural, one {photo by Reptiles.ge contributors, licensed by Reptiles.ge} other {photos by Reptiles.ge contributors, licensed by Reptiles.ge}}",
       "open": "{count, plural, one {photo by other authors under Creative Commons or in the public domain} other {photos by other authors under Creative Commons or in the public domain}}"
     },
+    "ownTitle": "Who owns the photos?",
+    "ownBody": "Photos by Reptiles.ge contributors are licensed by Reptiles.ge, wherever they were first published. Photos by other authors keep their authors' licenses, shown by the source link under each photo.",
+    "useTitle": "Can I use a photo?",
+    "useBody": "Only with permission, unless the photo's own license allows your use. Every photo licensed by Reptiles.ge needs our permission.",
+    "askTitle": "How do I ask for permission?",
+    "askBody": "Email us and name the photo. We will forward your request to its author.",
     "readEyebrow": "Example",
-    "readTitle": "How to read a photo credit",
+    "readTitle": "How do I read a photo credit?",
     "readAuthorTitle": "Author",
     "readAuthorBody": "The person who took the photo. If they are a Reptiles.ge contributor, their name links to their page and the photo is licensed by Reptiles.ge.",
     "readSourceTitle": "Source",
     "readSourceBody": "Where the photo was first published, here {source}. The link opens the original.",
     "readLicenseTitle": "License",
     "readLicenseBody": "This author is not a Reptiles.ge contributor, so the photo keeps the license they chose, stated on the source page: {license}.",
-    "cardsTitle": "The short version",
-    "ownTitle": "Who owns a photo",
-    "ownBody": "Photos by Reptiles.ge contributors are licensed by Reptiles.ge, wherever they were first published. Photos by other authors keep their authors' licenses, shown through the source link.",
-    "useTitle": "Can I use it?",
-    "useBody": "Any photo licensed by Reptiles.ge needs our permission. Another author's photo can be reused only if its own license allows it; otherwise, ask first.",
-    "askTitle": "How to ask",
-    "askBody": "Write to us and say which photo you mean. We will forward your request to the author.",
     "photographersEyebrow": "For photographers",
     "creditTitle": "Your photo without your name, or want it removed?",
     "creditBody": "Write to us. We will add your name or remove the photo.",
@@ -4089,6 +4088,20 @@
     "shareBody": "Share them with the atlas, and your name will stay with every one.",
     "contactCta": "Write to us",
     "contributorsCta": "Meet the contributors",
-    "textNote": "Text: a short quotation that cites the source and Reptiles.ge is allowed; any other reuse needs permission. See the <terms>terms of use</terms>."
+    "faqTitle": "More questions",
+    "faq": {
+      "cc": {
+        "q": "A photo has a Creative Commons license on iNaturalist. Can I use it from here?",
+        "a": "Only if its author is not a Reptiles.ge contributor, and only as that license allows. Photos by our contributors are licensed by Reptiles.ge, even when the same photo has a Creative Commons license on iNaturalist or Wikimedia Commons."
+      },
+      "credit": {
+        "q": "Is it enough to credit the author?",
+        "a": "No. A credit does not replace permission: you need it unless the photo's own license allows your use."
+      },
+      "text": {
+        "q": "Can I quote the text?",
+        "a": "Yes, briefly. A short quotation that cites the source and Reptiles.ge is allowed; any other reuse of the text needs permission. See the <terms>terms of use</terms>."
+      }
+    }
   }
 }

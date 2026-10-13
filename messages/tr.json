@@ -4054,34 +4054,33 @@
     "ctaBody": "Hazar gekosunu veya tanıma rehberini açın. Evde ilk kural: öldürmeyin."
   },
   "photoUse": {
-    "metaTitle": "Fotoğraf kullanımı",
-    "metaDescription": "Reptiles.ge'deki fotoğrafların kime ait olduğu, hangi lisansların geçerli olduğu ve bir fotoğrafı ya da metni yeniden kullanmak için nasıl izin isteneceği.",
+    "metaTitle": "Fotoğraf kullanımı ve lisans",
+    "metaDescription": "Reptiles.ge'deki fotoğrafların kime ait olduğu, hangi lisansların geçerli olduğu ve bir fotoğraf için nasıl izin alınacağı.",
     "title": "Reptiles.ge fotoğraflarının kullanımı",
-    "intro": "Atlastaki her fotoğrafı, onu bizimle paylaşan gerçek bir kişi çekti. Burada fotoğrafın kime ait olduğunu ve kullanmadan önce nasıl izin isteyeceğinizi bulabilirsiniz.",
+    "intro": "Atlastaki her fotoğrafı bir fotoğrafçı bizimle paylaştı. Burada hakların kimde olduğunu, neyi kullanabileceğinizi ve nasıl izin isteyeceğinizi bulabilirsiniz.",
     "gridLabel": "Atlastan fotoğraflar",
     "photoBy": "Fotoğraf: <author>{name}</author>",
-    "statsTitle": "Fotoğraflarını paylaşan herkese teşekkürler",
+    "statsTitle": "Fotoğrafçılarımıza teşekkürler",
     "stats": {
       "photos": "{count, plural, other {atlastaki fotoğraf}}",
       "authors": "{count, plural, other {adı verilen fotoğrafçı}}",
       "contributors": "{count, plural, other {Reptiles.ge katkıcılarının Reptiles.ge lisanslı fotoğrafı}}",
       "open": "{count, plural, other {diğer yazarların Creative Commons lisanslı veya kamu malı fotoğrafı}}"
     },
+    "ownTitle": "Fotoğraflar kime ait?",
+    "ownBody": "Reptiles.ge katkıcılarının fotoğrafları, ilk nerede yayımlanmış olursa olsun Reptiles.ge lisansıyla yayılır. Diğer yazarların fotoğrafları kendi yazarlarının lisansını korur; bunu her fotoğrafın altındaki kaynak bağlantısı gösterir.",
+    "useTitle": "Bir fotoğrafı kullanabilir miyim?",
+    "useBody": "Fotoğrafın kendi lisansı kullanımınıza izin vermiyorsa yalnızca izinle. Reptiles.ge lisanslı her fotoğraf için iznimiz gerekir.",
+    "askTitle": "Nasıl izin isterim?",
+    "askBody": "Bize e-posta gönderin ve hangi fotoğrafı kastettiğinizi belirtin. Talebinizi yazarına iletiriz.",
     "readEyebrow": "Örnek",
-    "readTitle": "Fotoğraf künyesi nasıl okunur",
+    "readTitle": "Fotoğraf künyesi nasıl okunur?",
     "readAuthorTitle": "Yazar",
     "readAuthorBody": "Fotoğrafı çeken kişi. Reptiles.ge katkıcısıysa adı sayfasına bağlanır ve fotoğraf Reptiles.ge lisansıyla yayılır.",
     "readSourceTitle": "Kaynak",
     "readSourceBody": "Fotoğrafın ilk yayımlandığı yer, burada {source}. Bağlantı orijinali açar.",
     "readLicenseTitle": "Lisans",
     "readLicenseBody": "Bu yazar Reptiles.ge katkıcısı değildir; bu yüzden fotoğraf, kaynak sayfasında yazan ve yazarın seçtiği lisansı korur: {license}.",
-    "cardsTitle": "Kısaca",
-    "ownTitle": "Fotoğraf kime ait",
-    "ownBody": "Reptiles.ge katkıcılarının fotoğrafları, ilk nerede yayımlanmış olursa olsun Reptiles.ge lisansıyla yayılır. Diğer yazarların fotoğrafları, kaynak bağlantısında görünen kendi lisanslarını korur.",
-    "useTitle": "Kullanabilir miyim?",
-    "useBody": "Reptiles.ge lisanslı her fotoğraf için iznimiz gerekir. Başka bir yazarın fotoğrafı yalnızca kendi lisansı izin veriyorsa kullanılabilir; aksi halde önce izin isteyin.",
-    "askTitle": "Nasıl izin istenir",
-    "askBody": "Bize yazın ve hangi fotoğrafı kastettiğinizi belirtin. Talebinizi yazara iletiriz.",
     "photographersEyebrow": "Fotoğrafçılar için",
     "creditTitle": "Fotoğrafınız adınız olmadan mı yayında, ya da kaldırılmasını mı istiyorsunuz?",
     "creditBody": "Bize yazın. Adınızı ekleriz veya fotoğrafı kaldırırız.",
@@ -4089,6 +4088,20 @@
     "shareBody": "Onları atlasla paylaşın; her birinde adınız yer alır.",
     "contactCta": "Bize yazın",
     "contributorsCta": "Katkıda bulunanlarla tanışın",
-    "textNote": "Metin: kaynağı ve Reptiles.ge'yi belirten kısa bir alıntı serbesttir; başka her türlü kullanım izin gerektirir. Bkz. <terms>kullanım koşulları</terms>."
+    "faqTitle": "Diğer sorular",
+    "faq": {
+      "cc": {
+        "q": "Bir fotoğrafın iNaturalist'te Creative Commons lisansı var. Buradan kullanabilir miyim?",
+        "a": "Yalnızca yazarı Reptiles.ge katkıcısı değilse ve yalnızca o lisansın izin verdiği şekilde. Katkıcılarımızın fotoğrafları, aynı fotoğrafın iNaturalist'te veya Wikimedia Commons'ta Creative Commons lisansı olsa bile Reptiles.ge lisansıyla yayılır."
+      },
+      "credit": {
+        "q": "Yazarın adını vermek yeterli mi?",
+        "a": "Hayır. Ad vermek iznin yerini tutmaz: fotoğrafın kendi lisansı kullanımınıza izin vermiyorsa izin gerekir."
+      },
+      "text": {
+        "q": "Metinden alıntı yapabilir miyim?",
+        "a": "Evet, kısaca. Kaynağı ve Reptiles.ge'yi belirten kısa bir alıntı serbesttir; metnin başka her türlü kullanımı izin gerektirir. Bkz. <terms>kullanım koşulları</terms>."
+      }
+    }
   }
 }

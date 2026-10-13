@@ -26,7 +26,12 @@ export const PHOTO_USE_SHOWCASE_GROUPS: readonly AnimalGroup[] = [
   "mammal",
   "spider",
   "scorpion",
+  "insect",
 ];
+
+export const PHOTO_USE_SHOWCASE_SIZE = 6;
+
+export const PHOTO_USE_FAQ = ["cc", "credit", "text"] as const;
 
 const CC_PREFIX = "https://creativecommons.org/";
 
@@ -46,6 +51,21 @@ export function getPhotoUseCreditExample(
     photo,
     sourceUrl: photo.credit?.url as string,
   };
+}
+
+export function getPhotoUseHeroPhotos(): PhotoUsePhoto[] {
+  return getCatalogSpecies().flatMap((species) => {
+    if (!species.image || isPlaceholderMedia(species.image)) return [];
+    return [
+      {
+        author: photoContributor(species.imageCredit),
+        credit: species.imageCredit,
+        group: getSpeciesAtlasMeta(species.id).group,
+        speciesId: species.id,
+        src: species.image,
+      },
+    ];
+  });
 }
 
 export function getPhotoUsePhotos(): PhotoUsePhoto[] {
@@ -70,12 +90,13 @@ export function getPhotoUsePhotos(): PhotoUsePhoto[] {
 }
 
 export function getPhotoUseShowcase(
-  photos: PhotoUsePhoto[] = getPhotoUsePhotos(),
+  heroes: PhotoUsePhoto[] = getPhotoUseHeroPhotos(),
 ) {
   const usedAuthors = new Set<string>();
   const picks: Array<PhotoUsePhoto & { author: CreditAuthor }> = [];
   for (const group of PHOTO_USE_SHOWCASE_GROUPS) {
-    const candidates = photos.filter(
+    if (picks.length >= PHOTO_USE_SHOWCASE_SIZE) break;
+    const candidates = heroes.filter(
       (photo): photo is PhotoUsePhoto & { author: CreditAuthor } =>
         photo.group === group && Boolean(photo.author),
     );

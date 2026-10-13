@@ -7,9 +7,11 @@ import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/JsonLd";
 import { PhotoUsePage } from "@/components/PhotoUsePage";
 import { routing } from "@/i18n/routing";
+import { faqPageJsonLd } from "@/lib/faqJsonLd";
 import { photoUsePageUrl } from "@/lib/imageRights";
 import { buildPageMetadata } from "@/lib/pageMetadata";
 import { homeChildBreadcrumbLd } from "@/lib/pageStructuredData";
+import { PHOTO_USE_FAQ } from "@/lib/photoUse";
 import {
   organizationRef,
   SITE_OG_IMAGE_URL,
@@ -62,6 +64,7 @@ export default async function PhotoUse({
     "@context": "https://schema.org",
     "@type": "WebPage",
     ...pageDateFields("/photo-use", locale),
+    about: organizationRef(),
     description: t("metaDescription"),
     inLanguage: locale,
     isPartOf: { "@id": siteEntityId("website") },
@@ -70,11 +73,19 @@ export default async function PhotoUse({
     url: photoUsePageUrl(locale),
   };
 
+  const faqJsonLd = faqPageJsonLd(
+    PHOTO_USE_FAQ.map((key) => ({
+      answer: t.markup(`faq.${key}.a`, { terms: (chunks) => chunks }),
+      question: t(`faq.${key}.q`),
+    })),
+  );
+
   return (
     <>
       <JsonLd
         data={[
           pageJsonLd,
+          ...(faqJsonLd ? [faqJsonLd] : []),
           homeChildBreadcrumbLd(locale, "/photo-use", {
             home: tShared("breadcrumbHome"),
             name: tFooter("photoUse"),

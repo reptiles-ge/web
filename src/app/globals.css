@@ -72,6 +72,7 @@
   --radius-media: 1.75rem;
   --font-sans: var(--font-you), var(--font-noto-sans), sans-serif;
   --font-display: var(--font-you), var(--font-noto-sans), sans-serif;
+  --font-brand: system-ui, var(--font-noto-sans), sans-serif;
 }
 
 @utility text-display-kicker {

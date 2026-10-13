@@ -5,10 +5,12 @@ import { getCatalogSpecies } from "@/data/species";
 import { photoContributor, photoRights } from "@/lib/imageRights";
 import {
   getPhotoUseCreditExample,
+  getPhotoUseHeroPhotos,
   getPhotoUsePhotos,
   getPhotoUseShowcase,
   getPhotoUseStats,
   PHOTO_USE_SHOWCASE_GROUPS,
+  PHOTO_USE_SHOWCASE_SIZE,
   photoLicenseLabel,
   type PhotoUsePhoto,
 } from "@/lib/photoUse";
@@ -63,26 +65,33 @@ describe("photo use data", () => {
     expect(getPhotoUseStats(sample).authors).toBe(1);
   });
 
-  it("picks one contributor photo per group, deterministically", () => {
-    const showcase = getPhotoUseShowcase(photos);
-    expect(showcase.length).toBeGreaterThanOrEqual(6);
-    expect(showcase.length).toBeLessThanOrEqual(8);
-    expect(showcase.map((photo) => photo.group)).toEqual(
-      PHOTO_USE_SHOWCASE_GROUPS.filter((group) =>
-        showcase.some((photo) => photo.group === group),
-      ),
+  it("shows six contributor profile heroes, one per group", () => {
+    const showcase = getPhotoUseShowcase();
+    expect(showcase).toHaveLength(PHOTO_USE_SHOWCASE_SIZE);
+    const groups = showcase.map((photo) => photo.group);
+    expect(new Set(groups).size).toBe(groups.length);
+    expect(groups).toEqual(
+      PHOTO_USE_SHOWCASE_GROUPS.filter((group) => groups.includes(group)),
     );
-    for (const photo of showcase) expect(photo.author.published).toBe(true);
-    expect(getPhotoUseShowcase(photos)).toEqual(showcase);
+    for (const photo of showcase) {
+      const species = getCatalogSpecies().find(
+        (item) => item.id === photo.speciesId,
+      );
+      expect(photo.src).toBe(species?.image);
+      expect(photoContributor(species?.imageCredit)?.id).toBe(photo.author.id);
+    }
+    expect(getPhotoUseShowcase()).toEqual(showcase);
   });
 
-  it("reuses an author only when a group has no one else", () => {
-    const [first] = photos.filter((photo) => photo.author);
+  it("skips non-contributor heroes and reuses an author only as a fallback", () => {
+    const heroes = getPhotoUseHeroPhotos();
+    const first = heroes.find((photo) => photo.author)!;
+    const outsider = { ...first, author: undefined, src: "a" };
     const snake = { ...first, group: "snake" as const };
     const lizard = { ...first, group: "lizard" as const, src: "b" };
     const other = { ...lizard, author: OTHER_AUTHOR, src: "c" };
     expect(
-      getPhotoUseShowcase([snake, lizard, other]).map((p) => p.src),
+      getPhotoUseShowcase([outsider, snake, lizard, other]).map((p) => p.src),
     ).toEqual([snake.src, "c"]);
     expect(getPhotoUseShowcase([snake, lizard]).map((p) => p.src)).toEqual([
       snake.src,

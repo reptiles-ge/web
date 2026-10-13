@@ -12,6 +12,7 @@ import { getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
 
+import { BrandText } from "@/components/BrandName";
 import { ContactMailto } from "@/components/ContactMailto";
 import { creditAuthorHref, creditAuthorName } from "@/data/creditAuthors";
 import {
@@ -28,6 +29,7 @@ import {
   getPhotoUsePhotos,
   getPhotoUseShowcase,
   getPhotoUseStats,
+  PHOTO_USE_FAQ,
   photoLicenseLabel,
   type PhotoUsePhoto,
 } from "@/lib/photoUse";
@@ -44,7 +46,7 @@ const h2Class =
 const linkClass =
   "font-medium underline decoration-current/30 underline-offset-2 transition-colors hover:text-(--nw-accent) hover:decoration-current";
 const TILE_SIZES =
-  "(max-width: 767px) calc(50vw - 21px), (max-width: 1439px) calc(25vw - 32px), 318px";
+  "(max-width: 767px) calc(50vw - 22px), (max-width: 1023px) calc(50vw - 48px), min(427px, calc((100vw - 160px) / 3))";
 const EXAMPLE_SIZES =
   "(max-width: 1023px) calc(100vw - 32px), (max-width: 1439px) 50vw, 660px";
 const EAGER_TILES = 2;
@@ -60,28 +62,18 @@ export async function PhotoUsePage({ locale }: { locale: AppLocale }) {
     <div className="editorial-page min-h-screen bg-background text-(--nw-ink) antialiased">
       <section className={`${wrapClass} pt-[107px] md:pt-[147px]`}>
         <h1 className="max-w-[880px] font-display text-[36px] leading-[1.06] font-semibold tracking-tight md:text-[56px] md:leading-[1.02] md:tracking-[-0.03em]">
-          {t("title")}
+          <BrandText text={t("title")} />
         </h1>
         <p className="mt-4 max-w-[640px] text-[16.5px] leading-[1.55] text-(--nw-soft) md:mt-6 md:text-[19px]">
           {t("intro")}
         </p>
-        <PhotoUseShowcase locale={locale} photos={photos} t={t} />
+        <PhotoUseShowcase locale={locale} t={t} />
         <PhotoUseStats locale={locale} photos={photos} t={t} />
       </section>
-      <PhotoUseCreditExample locale={locale} photos={photos} t={t} />
       <PhotoUseCards t={t} />
+      <PhotoUseCreditExample locale={locale} photos={photos} t={t} />
       <PhotoUsePhotographers t={t} />
-      <section className={`${wrapClass} pb-16 md:pb-24`}>
-        <p className="border-t border-(--nw-rule) pt-6 text-[14px] leading-[1.65] text-(--nw-muted) md:text-[15px]">
-          {t.rich("textNote", {
-            terms: (chunks) => (
-              <Link className={linkClass} href="/terms-and-conditions">
-                {chunks}
-              </Link>
-            ),
-          })}
-        </p>
-      </section>
+      <PhotoUseFaq t={t} />
     </div>
   );
 }
@@ -121,8 +113,7 @@ function PhotoUseCards({ t }: { t: Translate }) {
 
   return (
     <section className={`${wrapClass} pt-14 md:pt-[104px]`}>
-      <h2 className={h2Class}>{t("cardsTitle")}</h2>
-      <ul className="mt-5 grid gap-2.5 md:mt-8 md:grid-cols-3 md:gap-4">
+      <ul className="grid gap-2.5 md:grid-cols-3 md:gap-4">
         {cards.map((card) => (
           <li
             className="flex flex-col rounded-3xl bg-(--nw-card) p-5 shadow-(--nw-shadow) md:rounded-[28px] md:p-7"
@@ -131,9 +122,9 @@ function PhotoUseCards({ t }: { t: Translate }) {
             <span className="inline-flex size-11 items-center justify-center rounded-[14px] bg-(--nw-surface) text-(--nw-accent)">
               <card.icon aria-hidden="true" className="size-5" />
             </span>
-            <h3 className="mt-4 text-[19px] font-semibold md:mt-6 md:text-[22px]">
+            <h2 className="mt-4 text-[19px] font-semibold md:mt-6 md:text-[22px]">
               {card.title}
-            </h3>
+            </h2>
             <p className="mt-1.5 text-[14.5px] leading-[1.6] text-(--nw-muted) md:mt-2.5 md:text-[15.5px]">
               {card.body}
             </p>
@@ -249,6 +240,35 @@ function PhotoUseCreditExample({
   );
 }
 
+function PhotoUseFaq({ t }: { t: Translate }) {
+  return (
+    <section className={`${wrapClass} pt-14 pb-16 md:pt-[104px] md:pb-24`}>
+      <h2 className={h2Class}>{t("faqTitle")}</h2>
+      <dl className="mt-5 divide-y divide-(--nw-rule) border-y border-(--nw-rule) md:mt-8">
+        {PHOTO_USE_FAQ.map((key) => (
+          <div
+            className="py-5 md:grid md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] md:gap-10 md:py-7"
+            key={key}
+          >
+            <dt className="text-[17px] leading-snug font-semibold md:text-[19px]">
+              {t(`faq.${key}.q`)}
+            </dt>
+            <dd className="mt-2 text-[15px] leading-[1.65] text-(--nw-muted) md:mt-0 md:text-[16px]">
+              {t.rich(`faq.${key}.a`, {
+                terms: (chunks) => (
+                  <Link className={linkClass} href="/terms-and-conditions">
+                    {chunks}
+                  </Link>
+                ),
+              })}
+            </dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+  );
+}
+
 function PhotoUsePhotographers({ t }: { t: Translate }) {
   const items = [
     { body: t("creditBody"), title: t("creditTitle") },
@@ -256,7 +276,7 @@ function PhotoUsePhotographers({ t }: { t: Translate }) {
   ];
 
   return (
-    <section className={`${wrapClass} py-14 md:py-[104px]`}>
+    <section className={`${wrapClass} pt-14 md:pt-[104px]`}>
       <div className="rounded-[28px] bg-(--nw-panel) px-[22px] py-7 text-white md:rounded-[36px] md:px-14 md:py-12">
         <h2 className="text-[10.5px] font-semibold tracking-[0.16em] text-white/55 md:text-[11px]">
           {t("photographersEyebrow")}
@@ -325,16 +345,8 @@ function PhotoUsePicture({
   );
 }
 
-function PhotoUseShowcase({
-  locale,
-  photos,
-  t,
-}: {
-  locale: AppLocale;
-  photos: PhotoUsePhoto[];
-  t: Translate;
-}) {
-  const tiles = getPhotoUseShowcase(photos).flatMap((photo) => {
+function PhotoUseShowcase({ locale, t }: { locale: AppLocale; t: Translate }) {
+  const tiles = getPhotoUseShowcase().flatMap((photo) => {
     const species = getSpeciesById(photo.speciesId);
     return species
       ? [{ photo, species: localizeSpecies(species, locale) }]
@@ -344,46 +356,56 @@ function PhotoUseShowcase({
   return (
     <ul
       aria-label={t("gridLabel")}
-      className="mt-8 grid grid-cols-2 gap-2.5 md:mt-12 md:grid-cols-4 md:gap-4"
+      className="mt-8 grid grid-cols-2 gap-x-3 gap-y-5 md:mt-12 md:gap-x-4 md:gap-y-7 lg:grid-cols-3 lg:gap-x-5"
     >
-      {tiles.map(({ photo, species }, index) => (
-        <li key={photo.src}>
-          <figure>
-            <Link
-              className="group relative block aspect-4/5 overflow-hidden rounded-[18px] bg-ink lg:rounded-[24px]"
-              href={speciesHref(photo.speciesId, locale)}
-            >
-              <PhotoUsePicture
-                alt={speciesPhotoAlt(
-                  species.commonName,
-                  species.scientificName,
-                  photo.credit,
-                  locale,
-                )}
-                eager={index < EAGER_TILES}
-                sizes={TILE_SIZES}
-                src={photo.src}
-              />
-              <span className="pointer-events-none absolute bottom-2.5 left-2.5 inline-flex h-[30px] max-w-[calc(100%-1.25rem)] items-center rounded-full bg-ink/72 px-3 text-[12.5px] font-medium text-white lg:bottom-3 lg:left-3">
-                <span className="truncate">{species.commonName}</span>
-              </span>
-            </Link>
-            <figcaption className="mt-2 px-1 text-[13px] leading-snug wrap-break-word text-(--nw-muted)">
-              {t.rich("photoBy", {
-                author: (chunks) => (
-                  <Link
-                    className={`${linkClass} text-(--nw-ink)`}
-                    href={creditAuthorHref(photo.author.slug)}
-                  >
-                    {chunks}
-                  </Link>
-                ),
-                name: creditAuthorName(photo.author, locale),
-              })}
-            </figcaption>
-          </figure>
-        </li>
-      ))}
+      {tiles.map(({ photo, species }, index) => {
+        const href = speciesHref(photo.speciesId, locale);
+        return (
+          <li key={photo.src}>
+            <figure>
+              <Link
+                aria-hidden="true"
+                className="group relative block aspect-3/2 overflow-hidden rounded-[16px] bg-ink lg:rounded-[22px]"
+                href={href}
+                tabIndex={-1}
+              >
+                <PhotoUsePicture
+                  alt={speciesPhotoAlt(
+                    species.commonName,
+                    species.scientificName,
+                    photo.credit,
+                    locale,
+                  )}
+                  eager={index < EAGER_TILES}
+                  sizes={TILE_SIZES}
+                  src={photo.src}
+                />
+              </Link>
+              <figcaption className="mt-2.5 px-0.5 wrap-break-word md:mt-3">
+                <Link
+                  className="block text-[15px] leading-snug font-semibold text-(--nw-ink) transition-colors hover:text-(--nw-accent) md:text-[17px]"
+                  href={href}
+                >
+                  {species.commonName}
+                </Link>
+                <span className="mt-0.5 block text-[13px] leading-snug text-(--nw-muted) md:text-[14px]">
+                  {t.rich("photoBy", {
+                    author: (chunks) => (
+                      <Link
+                        className={`${linkClass} text-(--nw-soft)`}
+                        href={creditAuthorHref(photo.author.slug)}
+                      >
+                        {chunks}
+                      </Link>
+                    ),
+                    name: creditAuthorName(photo.author, locale),
+                  })}
+                </span>
+              </figcaption>
+            </figure>
+          </li>
+        );
+      })}
     </ul>
   );
 }
