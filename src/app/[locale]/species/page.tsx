@@ -77,7 +77,7 @@ export default async function SpeciesIndexPage({ params }: LocalePageProps) {
   const recent = getAtlasRecentItems(locale);
   const tooltipSpeciesByRegion = getRegionTooltipPreviews(locale);
   const stats = getAtlasStats();
-  const dates = atlasDateFields();
+  const dates = atlasDateFields(locale);
 
   const breadcrumbLd = breadcrumbListLd([
     { item: localePageUrl(locale, "/"), name: t("breadcrumbHome") },

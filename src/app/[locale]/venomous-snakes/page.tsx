@@ -75,7 +75,7 @@ export default async function VenomousSnakesRoute({ params }: LocalePageProps) {
     { item: url, name: t("breadcrumbCurrent") },
   ]);
 
-  const dates = pageDateFields(PATH);
+  const dates = pageDateFields(PATH, locale);
   const pageLd = sitePageLd({
     about: { "@type": "Place", name: georgiaPlaceName(locale) },
     dates,

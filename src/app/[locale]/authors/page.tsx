@@ -71,7 +71,7 @@ export default async function AuthorIndexRoute({ params }: Props) {
   const collectionLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    ...pageDateFields("/authors"),
+    ...pageDateFields("/authors", locale),
     description: t("index.metaDescription"),
     inLanguage: locale,
     isPartOf: { "@id": siteEntityId("website") },

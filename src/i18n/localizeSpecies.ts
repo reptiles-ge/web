@@ -65,3 +65,8 @@ export function localizeSpecies(species: Species, locale: AppLocale): Species {
       : {}),
   };
 }
+
+export function speciesUpdatedAt(species: Species, locale: AppLocale) {
+  if (locale === "ka") return species.updatedAt;
+  return TRANSLATIONS[locale][species.id]?.updatedAt ?? species.updatedAt;
+}

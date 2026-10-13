@@ -172,6 +172,7 @@ const PREFIXED_PERMANENT_REDIRECTS: Record<string, string> = {
   "/gvelebi/shxamiani-gvelis-amocnoba": "/snakes/identify-venomous",
   "/gvelebi/vipera-ammodytes": "/snakes/vipera-transcaucasiana",
   "/identify": "/species",
+  "/insects/saxeoebebi": "/insects/species",
   "/kontributorebi": "/contributors",
   "/kuebi": "/turtles",
   "/kuebi/identifikacia": "/turtles/identify",
@@ -188,6 +189,7 @@ const PREFIXED_PERMANENT_REDIRECTS: Record<string, string> = {
   "/mammals/ghamura-saxlshi": "/mammals/bat-in-the-house",
   "/mammals/saxeoebebi": "/mammals/species",
   "/mammals/tura-ezoshi": "/mammals/jackal-in-the-yard",
+  "/mtserebi/saxeoebebi": "/insects/species",
   "/obobebi": "/spiders",
   "/obobebi/obobis-nakbeni": "/spiders/bite",
   "/obobebi/saxeoebebi": "/spiders/species",
@@ -329,6 +331,10 @@ export default function proxy(request: NextRequest) {
   }
 
   const response = intlMiddleware(request);
+  const intlRedirect = response.headers.get("location");
+  if (intlRedirect && response.status >= 300 && response.status < 400) {
+    return NextResponse.redirect(intlRedirect, 308);
+  }
   if (
     !request.headers.has("x-next-intl-locale") &&
     ![...request.headers.keys()].some((name) =>

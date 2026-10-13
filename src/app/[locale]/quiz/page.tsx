@@ -129,7 +129,7 @@ export default async function QuizzesIndexRoute({ params }: Props) {
   const pageLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    ...pageDateFields(PATH),
+    ...pageDateFields(PATH, locale),
     description: t("metaDescription"),
     hasPart: liveQuizzes().map((quiz) => ({
       "@type": "Quiz",

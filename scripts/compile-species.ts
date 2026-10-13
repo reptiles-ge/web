@@ -25,6 +25,7 @@ import {
 import { ANIMAL_GROUP_TO_HUB } from "../src/lib/groupHubs";
 import { parseToSiteDateTime } from "../src/lib/siteTime";
 import { buildSpeciesSlugMaps } from "../src/lib/speciesSlugRules";
+import { laterDateTime, readContentGitDates } from "./contentGitDates";
 import {
   kaFrontmatterSchema,
   sourcesAreValid,
@@ -43,6 +44,12 @@ const fieldRecordsOutFile = path.join(
   process.cwd(),
   "src/data/fieldRecords.generated.json",
 );
+const contentDatesOutFile = path.join(
+  process.cwd(),
+  "src/data/contentDates.generated.ts",
+);
+const guidesRootRel = "src/content/guides";
+const gitDates = readContentGitDates([contentRootRel, guidesRootRel]);
 
 function resolveUpdatedAt(
   filePaths: string[],
@@ -285,9 +292,17 @@ for (const id of ids) {
       errors.push(formatZodError(filePath, parsedTr.error));
       continue;
     }
-    translationTables[locale][id] = toTranslation(
-      parsedTr.data as KaFrontmatter,
-    );
+    const translation = toTranslation(parsedTr.data as KaFrontmatter);
+    const ownDate = parsedTr.data.dateModified;
+    const localeDate = ownDate
+      ? parseToSiteDateTime(ownDate)
+      : gitDates.lastModified(`${contentRootRel}/${id}/${locale}.mdx`);
+    if (ownDate && !localeDate) {
+      errors.push(`${filePath}: invalid dateModified: ${ownDate}`);
+    }
+    const localeUpdatedAt = laterDateTime(updatedAt, localeDate ?? undefined);
+    if (localeUpdatedAt !== updatedAt) translation.updatedAt = localeUpdatedAt;
+    translationTables[locale][id] = translation;
   }
 }
 
@@ -347,7 +362,21 @@ export const kaSlugById: Record<string, string> = ${JSON.stringify(slugMaps.kaSl
 export const idByAnySlug: Record<string, string> = ${JSON.stringify(slugMaps.idByAnySlug, null, 2)};
 `;
 
+const guideModifiedAt: Record<string, string> = {};
+for (const file of fs.readdirSync(path.join(process.cwd(), guidesRootRel))) {
+  if (!file.endsWith(".ts")) continue;
+  const relative = `${guidesRootRel}/${file}`;
+  const text = fs.readFileSync(path.join(process.cwd(), relative), "utf8");
+  const pathname = text.match(/\bpathname:\s*"([^"]+)"/)?.[1];
+  const date = gitDates.lastModified(relative);
+  if (pathname && date) guideModifiedAt[pathname] = date;
+}
+
+const contentDatesSource = `${banner}export const guideArticleModifiedAt: Record<string, string> = ${JSON.stringify(guideModifiedAt, null, 2)};
+`;
+
 fs.writeFileSync(outFile, source, "utf8");
+fs.writeFileSync(contentDatesOutFile, contentDatesSource, "utf8");
 fs.writeFileSync(slugOutFile, slugSource, "utf8");
 fs.writeFileSync(
   fieldRecordsOutFile,
@@ -355,6 +384,9 @@ fs.writeFileSync(
   "utf8",
 );
 console.log(`Compiled ${species.length} species → ${outFile}`);
+console.log(
+  `Compiled content dates (git: ${gitDates.status}) → ${contentDatesOutFile}`,
+);
 console.log(`Compiled ${slugRows.length} published slug rows → ${slugOutFile}`);
 console.log(
   `Compiled field records for ${Object.keys(fieldRecordsById).length} species → ${fieldRecordsOutFile}`,

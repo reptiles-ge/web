@@ -66,7 +66,7 @@ export default async function RegionsPage({ params }: LocalePageProps) {
       "@type": "Place",
       name: georgiaPlaceName(locale),
     },
-    ...pageDateFields("/regions"),
+    ...pageDateFields("/regions", locale),
     description: t("metaDescription"),
     hasPart: regions.map((region) => ({
       "@type": "WebPage",

@@ -162,7 +162,7 @@ export default async function RegionPage({ params }: PageProps) {
   const overview =
     localizeRegionTextIfPresent(content.overview, locale) ?? name;
   const pageUrl = absoluteUrl(localePath(locale, regionHref(region.id)));
-  const dates = regionDateFields(region.id);
+  const dates = regionDateFields(region.id, locale);
   const species = getRegionSpecies(region).map((item) =>
     toRegionSpeciesCard(item, locale),
   );
@@ -181,7 +181,7 @@ export default async function RegionPage({ params }: PageProps) {
       name,
     },
     author: { "@id": siteEntityId("organization") },
-    ...regionDateFields(region.id),
+    ...regionDateFields(region.id, locale),
     description: overview,
     inLanguage: locale,
     isPartOf: { "@id": siteEntityId("website") },

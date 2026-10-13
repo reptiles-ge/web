@@ -51,7 +51,7 @@ export async function ClusterPageFrame({
 }: ClusterPageFrameProps) {
   const guide = CLUSTER_GUIDES[guideId];
   const parent = GROUP_HUBS[guide.parentHub];
-  const dates = pageDateFields(guide.pathname);
+  const dates = pageDateFields(guide.pathname, locale);
   const [t, tShared, tParent] = await Promise.all([
     getTranslations({ locale, namespace: guide.messageKey }),
     getTranslations({ locale, namespace: "groupHubShared" }),
