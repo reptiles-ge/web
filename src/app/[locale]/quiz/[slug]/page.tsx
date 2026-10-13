@@ -12,6 +12,7 @@ import { getCatalogSpecies } from "@/data/species";
 import { openGraphLocale } from "@/i18n/localeMeta";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { type AppLocale, routing } from "@/i18n/routing";
+import { faqPageJsonLd } from "@/lib/faqJsonLd";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import { quizStaticParams, resolveQuizBySlug } from "@/lib/quizzes";
 import { INDEXABLE_ROBOTS } from "@/lib/robots";
@@ -164,24 +165,18 @@ export default async function QuizSlugRoute({ params }: Props) {
     url,
   };
 
-  const faqLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [1, 2, 3, 4].map((n) => ({
-      "@type": "Question",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: t(`faq${n}A` as Parameters<typeof t>[0]),
-      },
-      name: t(`faq${n}Q` as Parameters<typeof t>[0]),
+  const faqLd = faqPageJsonLd(
+    [1, 2, 3, 4].map((n) => ({
+      answer: t(`faq${n}A` as Parameters<typeof t>[0]),
+      question: t(`faq${n}Q` as Parameters<typeof t>[0]),
     })),
-  };
+  );
 
   return (
     <>
       <JsonLd data={breadcrumbLd} />
       <JsonLd data={pageLd} />
-      <JsonLd data={faqLd} />
+      {faqLd ? <JsonLd data={faqLd} /> : null}
       <ClientMessagesProvider
         locale={locale}
         namespaces={["groupHubShared", "quizzes", quiz.messageNamespace]}

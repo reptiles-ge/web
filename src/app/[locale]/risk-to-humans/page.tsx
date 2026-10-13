@@ -15,6 +15,7 @@ import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { orderSpeciesByIds } from "@/lib/clusterGuides";
 import { HARMLESS_EXAMPLE_IDS } from "@/lib/dangerLevels";
+import { faqPageJsonLd } from "@/lib/faqJsonLd";
 import {
   breadcrumbListLd,
   localePageUrl,
@@ -72,18 +73,12 @@ export default async function RiskToHumansRoute({ params }: LocalePageProps) {
     { item: url, name: t("breadcrumbCurrent") },
   ]);
 
-  const faqLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: ([1, 2, 3, 4, 5] as const).map((n) => ({
-      "@type": "Question",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: t(`faq${n}A`),
-      },
-      name: t(`faq${n}Q`),
+  const faqLd = faqPageJsonLd(
+    ([1, 2, 3, 4, 5] as const).map((n) => ({
+      answer: t(`faq${n}A`),
+      question: t(`faq${n}Q`),
     })),
-  };
+  );
 
   const dates = pageDateFields(PATH, locale);
   const pageLd = sitePageLd({
@@ -99,7 +94,7 @@ export default async function RiskToHumansRoute({ params }: LocalePageProps) {
     <>
       <JsonLd data={breadcrumbLd} />
       <JsonLd data={pageLd} />
-      <JsonLd data={faqLd} />
+      {faqLd ? <JsonLd data={faqLd} /> : null}
       <ClientMessagesProvider
         locale={locale}
         namespaces={["card", "danger", "groupHubShared", "riskToHumans"]}

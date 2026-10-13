@@ -16,6 +16,7 @@ import { GROUP_HUB_SHARED_CLIENT_MESSAGE_NAMESPACES } from "@/i18n/clientMessage
 import { georgiaPlaceName } from "@/i18n/localeMeta";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { type AppLocale, routing } from "@/i18n/routing";
+import { faqPageJsonLd } from "@/lib/faqJsonLd";
 import { hubFaqLinks } from "@/lib/groupHubFaq";
 import { HUB_HERO_IMAGE_SIZES } from "@/lib/groupHubLayout";
 import { GROUP_HUBS, type GroupHubId } from "@/lib/groupHubs";
@@ -109,18 +110,14 @@ export function createGroupHubRoute(hubId: GroupHubId) {
       url,
     });
 
-    const faqLd = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: buildHubFaqMainEntity(hubId, t, species.length),
-    };
+    const faqLd = faqPageJsonLd(hubFaqEntries(hubId, t, species.length));
 
     return (
       <>
         <HubCoverPreloads desktopSrc={heroSrc} mobileSrc={heroMobileSrc} />
         <JsonLd data={breadcrumbLd} />
         <JsonLd data={collectionLd} />
-        <JsonLd data={faqLd} />
+        {faqLd ? <JsonLd data={faqLd} /> : null}
         <ClientMessagesProvider
           locale={locale}
           namespaces={[
@@ -149,32 +146,6 @@ export function createGroupHubRoute(hubId: GroupHubId) {
     generateStaticParams: () => routing.locales.map((locale) => ({ locale })),
     Page,
   };
-}
-
-function buildHubFaqMainEntity(
-  hubId: GroupHubId,
-  t: HubTranslator,
-  count: number,
-) {
-  const mainEntity: Array<{
-    "@type": "Question";
-    acceptedAnswer: { "@type": "Answer"; text: string };
-    name: string;
-  }> = [];
-
-  for (const n of hubFaqIndices(hubId)) {
-    if (!t.has(`faq${n}Q`)) continue;
-    mainEntity.push({
-      "@type": "Question",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: hubFaqAnswer(hubId, n, t, count),
-      },
-      name: t(`faq${n}Q`),
-    });
-  }
-
-  return mainEntity;
 }
 
 function HubCoverPreloads({
@@ -218,6 +189,14 @@ function hubFaqAnswer(
       Object.keys(links).map((tag) => [tag, (chunks: string) => chunks]),
     ),
   });
+}
+
+function hubFaqEntries(hubId: GroupHubId, t: HubTranslator, count: number) {
+  return hubFaqIndices(hubId).flatMap((n) =>
+    t.has(`faq${n}Q`)
+      ? [{ answer: hubFaqAnswer(hubId, n, t, count), question: t(`faq${n}Q`) }]
+      : [],
+  );
 }
 
 function hubFaqIndices(hubId: GroupHubId) {
