@@ -12,12 +12,12 @@ import {
 import { openGraphLocale } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
-import { homeChildBreadcrumbLd } from "@/lib/pageStructuredData";
 import {
   isIndexableLegalLocale,
   LEGAL_PATHS,
   legalAlternates,
 } from "@/lib/legalPages";
+import { homeChildBreadcrumbLd } from "@/lib/pageStructuredData";
 import { INDEXABLE_ROBOTS, NOINDEX_FOLLOW_ROBOTS } from "@/lib/robots";
 import {
   absoluteUrl,
