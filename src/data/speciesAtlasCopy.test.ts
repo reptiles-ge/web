@@ -49,12 +49,15 @@ describe("species atlas copy", () => {
       );
       expect(venomous.length).toBeGreaterThan(0);
       for (const item of venomous) {
-        const binomial =
-          item.id === "vipera-transcaucasiana"
-            ? "Vipera transcaucasiana"
-            : item.scientificName;
-        expect(paragraph).toContain(binomial);
+        expect(paragraph).toContain(item.scientificName);
       }
+    },
+  );
+
+  it.each(Object.entries(LOCALES))(
+    "%s names the nose-horned viper as the checklist subspecies, not Vipera transcaucasiana",
+    (_, messages) => {
+      expect(atlasCopy(messages)).not.toMatch(/\(Vipera transcaucasiana\)/);
     },
   );
 
