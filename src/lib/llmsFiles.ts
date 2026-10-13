@@ -635,13 +635,34 @@ function sourceRank(source: Species["sources"][number]) {
   return 4;
 }
 
+const SENTENCE_END =
+  /(?<![\s(.][A-Za-z]|\b(?:al|approx|ca|cf|e\.g|i\.e|sp|spp|ssp|subsp|var|vs))[.!?](?=["”»)]?(?:\s|$))/g;
+
+const MIN_SENTENCE_CUT = 60;
+
+const SENTENCE_OVERRUN = 1.5;
+
 function truncateText(value: string, max: number) {
   if (value.length <= max) return value;
+  let lastWithin = -1;
+  let firstAfter = -1;
+  for (const match of value.matchAll(SENTENCE_END)) {
+    const end = match.index + 1;
+    if (end <= max) {
+      lastWithin = end;
+    } else {
+      firstAfter = end;
+      break;
+    }
+  }
+  if (lastWithin >= Math.min(MIN_SENTENCE_CUT, max / 2)) {
+    return value.slice(0, lastWithin);
+  }
+  if (firstAfter !== -1 && firstAfter <= max * SENTENCE_OVERRUN) {
+    return value.slice(0, firstAfter);
+  }
+  if (lastWithin > 0) return value.slice(0, lastWithin);
   const slice = value.slice(0, max - 1);
-  const sentenceEnd = Math.max(
-    ...[". ", "? ", "! "].map((mark) => slice.lastIndexOf(mark)),
-  );
-  if (sentenceEnd >= max / 2) return slice.slice(0, sentenceEnd + 1);
   const at = slice.lastIndexOf(" ");
   return `${(at > 40 ? slice.slice(0, at) : slice).trimEnd()}…`;
 }
