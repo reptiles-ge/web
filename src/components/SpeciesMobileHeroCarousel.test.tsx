@@ -17,8 +17,9 @@ function slideImages(container: HTMLElement) {
 function slides(count: number): MobileHeroSlide[] {
   return Array.from({ length: count }, (_, index) => ({
     alt: `photo ${index + 1}`,
-    displaySrc: `https://cdn.reptiles.ge/test/${index + 1}.jpg`,
     gallerySrc: `https://cdn.reptiles.ge/test/${index + 1}-1200.jpg`,
+    sources: [],
+    src: `https://cdn.reptiles.ge/test/${index + 1}.jpg`,
   }));
 }
 
