@@ -50,6 +50,17 @@ describe("buildLlmsIndexText", () => {
 });
 
 describe("buildLlmsFullText", () => {
+  it("cuts long passages at sentence ends, never mid-sentence or at an abbreviation", () => {
+    const lines = buildLlmsFullText().split("\n");
+
+    expect(lines.filter((line) => line.trimEnd().endsWith("…"))).toEqual([]);
+    expect(
+      lines.filter((line) =>
+        /(?:\s[A-Z]|\b(?:e\.g|i\.e|cf|ssp|spp))\.$/.test(line.trimEnd()),
+      ),
+    ).toEqual([]);
+  });
+
   it("builds an extractable corpus for published atlas pages", () => {
     const body = buildLlmsFullText();
 
