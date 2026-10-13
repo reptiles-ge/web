@@ -691,6 +691,11 @@ export const taxonIdentifiers: Readonly<Record<string, TaxonIdentifiers>> = {
     inaturalist: 114991,
     wikidata: "Q2345309",
   },
+  "vipera-transcaucasiana": {
+    gbif: 2444308,
+    inaturalist: 1701177,
+    wikidata: "Q583923",
+  },
   "vulpes-vulpes": {
     gbif: 5219243,
     inaturalist: 42069,

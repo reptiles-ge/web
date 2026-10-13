@@ -28,15 +28,7 @@ const EQUIVALENT_NAMES: Readonly<
 
 const MANUAL_EXCLUSIONS: Readonly<
   Record<string, Partial<Record<IdentifierSource, string>>>
-> = {
-  "vipera-transcaucasiana": {
-    gbif: "GBIF accepts Vipera transcaucasiana (5960866) apart from Vipera ammodytes, so the V. ammodytes key leaves out the Georgian snakes; the page name is an open owner decision (geo C1)",
-    inaturalist:
-      "iNaturalist files Georgian snakes under Vipera meridionalis transcaucasiana (1701183), not Vipera ammodytes (1701177)",
-    wikidata:
-      "the profile name Vipera ammodytes vs Vipera transcaucasiana is an open owner decision (geo C1)",
-  },
-};
+> = {};
 
 type CatalogTaxon = { id: string; name: string };
 
