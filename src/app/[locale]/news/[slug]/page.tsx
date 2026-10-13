@@ -118,12 +118,11 @@ export default async function NewsArticleRoute({ params }: Props) {
     notFound();
   }
 
-  const t = await getTranslations({ locale, namespace: "news" });
-  const tShared = await getTranslations({
-    locale,
-    namespace: "groupHubShared",
-  });
-  const tNav = await getTranslations({ locale, namespace: "nav" });
+  const [t, tNav, tShared] = await Promise.all([
+    getTranslations({ locale, namespace: "news" }),
+    getTranslations({ locale, namespace: "nav" }),
+    getTranslations({ locale, namespace: "groupHubShared" }),
+  ]);
   const url = newsArticleUrl(locale, article.slug);
   const ogImage = newsOgImageUrl(article);
   const published = newsDateTime(article.publishedAt);
