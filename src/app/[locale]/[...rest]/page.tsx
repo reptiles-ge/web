@@ -6,11 +6,7 @@ export const dynamic = "force-dynamic";
 export const dynamicParams = true;
 
 export const metadata: Metadata = {
-  robots: {
-    follow: true,
-    googleBot: { follow: true, index: false },
-    index: false,
-  },
+  robots: null,
 };
 
 export default function CatchAllPage() {

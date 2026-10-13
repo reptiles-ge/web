@@ -16,6 +16,7 @@ import {
   getCreditAuthorCards,
 } from "@/lib/creditAuthors";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
+import { INDEXABLE_ROBOTS } from "@/lib/robots";
 import {
   absoluteUrl,
   CDN_BASE,
@@ -131,10 +132,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "website",
       url,
     },
-    robots: {
-      follow: true,
-      index: true,
-    },
+    robots: INDEXABLE_ROBOTS,
     title,
     twitter: {
       card: "summary_large_image",

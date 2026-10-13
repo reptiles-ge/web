@@ -28,6 +28,7 @@ describe("speciesPageMetaTitle", () => {
         "გიურზა",
         "Macrovipera lebetinus",
         "შხამი, არეალი და ამოცნობა",
+        "საქართველოში",
       ),
     ).toBe(
       "გიურზა (Macrovipera lebetinus) | შხამიანი გველი საქართველოში — რისკი",
@@ -39,6 +40,7 @@ describe("speciesPageMetaTitle", () => {
         "Levantine viper",
         "Macrovipera lebetinus",
         "venom, range, and identification",
+        "in Georgia",
       ),
     ).toBe(
       "Levantine viper (Macrovipera lebetinus) | High-risk venomous snake in Georgia",
@@ -53,13 +55,14 @@ describe("speciesPageMetaTitle", () => {
         "წითელმუცელა მცურავი",
         "Dolichophis schmidti",
         "არეალი და ამოცნობა საქართველოში",
+        "საქართველოში",
       ),
     ).toBe(
       "წითელმუცელა მცურავი (Dolichophis schmidti) — უშხამო გველი აღმოსავლეთ საქართველოში",
     );
   });
 
-  it("keeps the KA length guard for non-exact overrides", () => {
+  it("fits a long non-exact KA override into the target length", () => {
     expect(
       speciesPageMetaTitle(
         "vipera-transcaucasiana",
@@ -67,8 +70,9 @@ describe("speciesPageMetaTitle", () => {
         "ცხვირრქოსანი გველგესლა",
         "Vipera ammodytes",
         "შხამი, არეალი და ამოცნობა",
+        "საქართველოში",
       ),
-    ).toBe("ცხვირრქოსანი გველგესლა | შხამი, არეალი და ამოცნობა");
+    ).toBe("ცხვირრქოსანი გველგესლა (Vipera ammodytes) საქართველოში");
   });
 
   it("does not apply EN overrides to RU or TR", () => {
@@ -79,6 +83,7 @@ describe("speciesPageMetaTitle", () => {
         "Гюрза",
         "Macrovipera lebetinus",
         "яд, ареал и определение",
+        "в Грузии",
       ),
     ).toBe("Гюрза (Macrovipera lebetinus) | яд, ареал и определение");
     expect(
@@ -88,10 +93,9 @@ describe("speciesPageMetaTitle", () => {
         "Levant engereği",
         "Macrovipera lebetinus",
         "zehir, yayılış ve tanıma",
+        "Gürcistan’da",
       ),
-    ).toBe(
-      "Levant engereği (Macrovipera lebetinus) | zehir, yayılış ve tanıma",
-    );
+    ).toBe("Levant engereği (Macrovipera lebetinus) Gürcistan’da");
   });
 });
 

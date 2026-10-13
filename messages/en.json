@@ -849,14 +849,15 @@
   "about": {
     "metaTitle": "About Reptiles.ge — atlas of animals of Georgia",
     "metaDescription": "Reptiles.ge is a four-language atlas of Georgia’s animals. Georgian is canonical; herpetofauna follows Tarkhnishvili et al. 2026.",
-    "eyebrow": "About the atlas",
-    "title": "Atlas of animals of Georgia",
+    "eyebrow": "Atlas of animals of Georgia",
+    "title": "About Reptiles.ge",
     "subtitle": "Species profiles, regional maps, and field photos — for hikers, students, and researchers.",
     "companyEyebrow": "Who we are",
     "companyTitle": "What the atlas covers",
     "companyBody1": "Reptiles.ge is an atlas of animals of Georgia. Herpetofauna is the deep layer, following Tarkhnishvili et al. 2026. Birds, mammals, spiders, scorpions, and insects are covered more thinly in the same catalog. The site is published in four languages; Georgian is the canonical text.",
     "companyBody2": "We do not invent administrative regions, measurements, IUCN category, or national Red List status. Candidate taxa stay candidates.",
     "companyBody3": "The atlas is an editorial compilation. Photos always carry a credit; Georgia-field verification is marked only with evidence. Corrections go through the contact page.",
+    "companyTeam": "The atlas is prepared by the Reptiles.ge editorial team. The site is owned and run by Nika Shamiladze.",
     "pillars": {
       "discover": {
         "title": "Discover",
@@ -1068,6 +1069,7 @@
     "titleScorpion": "Range and identification in Georgia",
     "titleSpider": "Range and identification in Georgia",
     "titleInsect": "Range and identification in Georgia",
+    "titleShort": "in Georgia",
     "descriptionVenomous": "{name} ({scientific}) — range, biology, venom, and conservation status. Atlas of reptiles of Georgia and the Caucasus.",
     "descriptionReptile": "{name} ({scientific}) — range, biology, and conservation status. Atlas of reptiles of Georgia and the Caucasus.",
     "descriptionAmphibian": "{name} ({scientific}) — range, biology, and conservation status. Amphibians of Georgia.",
@@ -1215,8 +1217,8 @@
     "hubLinksLabel": "Group pages"
   },
   "venomousSnakes": {
-    "metaTitle": "Venomous snakes in Georgia — Levantine viper, vipers, risk",
-    "metaDescription": "Venomous snakes of Georgia: Levantine viper, Caucasus, Dinnik’s, nose-horned and other vipers. Identification and safety, not medical advice.",
+    "metaTitle": "Venomous snakes in Georgia (Caucasus) — vipers",
+    "metaDescription": "Venomous snakes of Georgia, the Caucasus country (not the US state): Levantine viper and Caucasus, Dinnik’s and nose-horned vipers. ID and safety.",
     "keywords": "venomous snakes in Georgia, venomous snakes Georgia, Levantine viper, Caucasus viper, Dinnik's viper, nose-horned viper, Transcaucasian long-nosed viper, Darevsky's viper, eastern steppe viper, Macrovipera lebetina, Vipera kaznakovi, Vipera dinniki, Vipera ammodytes, Vipera transcaucasiana, Vipera darevskii, Vipera renardi",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Venomous snakes",
@@ -3315,6 +3317,7 @@
     "title": "Which snake is it?",
     "subtitle": "A large photo, four species, instant feedback. Ten questions on Georgia’s snakes — your score stays on this device.",
     "start": "Start",
+    "startEmergency": "Bitten? Call 112",
     "startLead": "Look at the photo, pick one of four species, and see how well you know the snakes of Georgia.",
     "rule1Title": "Ten questions",
     "rule1Body": "Each has one photo and four species.",

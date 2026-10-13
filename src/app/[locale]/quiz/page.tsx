@@ -11,6 +11,7 @@ import { openGraphLocale } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import { liveQuizzes } from "@/lib/quizzes";
+import { INDEXABLE_ROBOTS } from "@/lib/robots";
 import {
   absoluteUrl,
   localeAlternates,
@@ -67,10 +68,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "website",
       url,
     },
-    robots: {
-      follow: true,
-      index: true,
-    },
+    robots: INDEXABLE_ROBOTS,
     title: { absolute: title },
     twitter: {
       card: "summary_large_image",

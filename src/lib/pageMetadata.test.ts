@@ -53,6 +53,9 @@ describe("buildPageMetadata", () => {
     expect(buildPageMetadata({ ...base, indexable: true }).robots).toEqual({
       follow: true,
       index: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
     });
   });
 

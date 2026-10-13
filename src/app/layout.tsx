@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
+import { INDEXABLE_ROBOTS } from "@/lib/robots";
 import {
   absoluteUrl,
   openGraphJpeg,
@@ -46,17 +47,7 @@ export const metadata: Metadata = {
     url: absoluteUrl("/"),
   },
   publisher: siteConfig.name,
-  robots: {
-    follow: true,
-    googleBot: {
-      follow: true,
-      index: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
-    },
-    index: true,
-  },
+  robots: INDEXABLE_ROBOTS,
   title: {
     default: siteConfig.title,
     template: `%s — ${siteConfig.name}`,

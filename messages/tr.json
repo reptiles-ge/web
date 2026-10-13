@@ -849,14 +849,15 @@
   "about": {
     "metaTitle": "Reptiles.ge hakkında — Gürcistan hayvanları atlası",
     "metaDescription": "Reptiles.ge, Gürcistan hayvanlarının dört dilli atlasıdır. Gürcüce kanoniktir; herpetofauna Tarkhnishvili et al. 2026’yı izler.",
-    "eyebrow": "Atlas hakkında",
-    "title": "Gürcistan hayvanları atlası",
+    "eyebrow": "Gürcistan hayvanları atlası",
+    "title": "Reptiles.ge hakkında",
     "subtitle": "Tür profilleri, bölgesel haritalar ve saha fotoğrafları — yürüyüşçüler, öğrenciler ve araştırmacılar için.",
     "companyEyebrow": "Biz kimiz",
     "companyTitle": "Atlas neleri kapsıyor",
     "companyBody1": "Reptiles.ge, Gürcistan hayvanlarının atlasıdır. En derin katman herpetofaunadır — Tarkhnishvili et al. 2026. Kuşlar, memeliler, örümcekler, akrepler ve böcekler aynı katalogda daha sınırlı yer alır. Site dört dildedir; Gürcüce metin kanoniktir.",
     "companyBody2": "İdari bölgeleri, ölçüleri, IUCN kategorisini veya ulusal Kırmızı Liste statüsünü uydurmayız. Aday taksonlar aday kalır.",
     "companyBody3": "Atlas editoryal bir derlemedir. Fotoğrafların her zaman kredisi vardır; Gürcistan saha doğrulaması yalnızca kanıtla işaretlenir. Düzeltmeler iletişim sayfasından gelir.",
+    "companyTeam": "Atlası Reptiles.ge editör ekibi hazırlar. Sitenin sahibi ve işletmecisi Nika Shamiladze’dir.",
     "pillars": {
       "discover": {
         "title": "Keşfet",
@@ -1068,6 +1069,7 @@
     "titleScorpion": "Gürcistan’da yayılış ve tanıma",
     "titleSpider": "Gürcistan’da yayılış ve tanıma",
     "titleInsect": "Gürcistan’da yayılış ve tanıma",
+    "titleShort": "Gürcistan’da",
     "descriptionVenomous": "{name} ({scientific}) — yayılış, biyoloji, zehir ve koruma statüsü. Gürcistan ve Kafkasya sürüngen atlası.",
     "descriptionReptile": "{name} ({scientific}) — yayılış, biyoloji ve koruma statüsü. Gürcistan ve Kafkasya sürüngen atlası.",
     "descriptionAmphibian": "{name} ({scientific}) — yayılış, biyoloji ve koruma statüsü. Gürcistan amfibileri.",
@@ -1215,8 +1217,8 @@
     "hubLinksLabel": "Grup sayfaları"
   },
   "venomousSnakes": {
-    "metaTitle": "Gürcistan’da zehirli yılanlar — Levant engereği, risk",
-    "metaDescription": "Gürcistan’ın zehirli yılanları: Levant engereği, Kafkas, Dinnik ve burunlu engerekler. Tanıma ve güvenlik, tıbbi protokol değil.",
+    "metaTitle": "Gürcistan’da zehirli yılanlar (Kafkasya)",
+    "metaDescription": "Gürcistan’ın (Kafkasya) zehirli yılanları: Levant engereği, Kafkas, Dinnik ve burunlu engerekler. Tanıma ve güvenlik, tıbbi protokol değil.",
     "keywords": "Gürcistan’da zehirli yılanlar, zehirli yılanlar Gürcistan, Levant engereği, Kafkas engereği, Dinnik engereği, boynuzlu engerek, Transkafkas uzun burunlu engerek, Darevski engereği, doğu bozkır engereği, Macrovipera lebetina, Vipera kaznakovi, Vipera dinniki, Vipera ammodytes, Vipera transcaucasiana, Vipera darevskii, Vipera renardi",
     "breadcrumbHome": "Ana sayfa",
     "breadcrumbCurrent": "Zehirli yılanlar",
@@ -3315,6 +3317,7 @@
     "title": "Bu hangi yılan?",
     "subtitle": "Büyük bir fotoğraf, dört tür, anında geri bildirim. Gürcistan yılanları üzerine on soru — skorunuz bu aygıtta kalır.",
     "start": "Başla",
+    "startEmergency": "Isırıldınız mı? 112’yi arayın",
     "startLead": "Fotoğrafa bakın, dört türden birini seçin ve Gürcistan yılanlarını ne kadar iyi bildiğinizi görün.",
     "rule1Title": "On soru",
     "rule1Body": "Her birinde bir fotoğraf ve dört tür vardır.",

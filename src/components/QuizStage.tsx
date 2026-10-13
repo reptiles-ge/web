@@ -87,7 +87,13 @@ export function QuizStage({
 
   let panel;
   if (!playing) {
-    panel = <QuizIntroOverlay headingId={headingId} onStart={onStart} />;
+    panel = (
+      <QuizIntroOverlay
+        headingId={headingId}
+        onStart={onStart}
+        quizId={quizId}
+      />
+    );
   } else if (complete && questions) {
     panel = (
       <QuizResultOverlay

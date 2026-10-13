@@ -39,6 +39,7 @@ function speciesMetaTitle(
 }
 
 const MAX_META_TITLE_LENGTH = 70;
+export const TARGET_META_TITLE_LENGTH = 60;
 const MAX_META_DESCRIPTION_LENGTH = 160;
 const MIN_SUMMARY_DESCRIPTION_LENGTH = 70;
 
@@ -69,8 +70,17 @@ export function speciesTitleIntentKey(
   return "titleAmphibian";
 }
 
-function shortSpeciesMetaTitle(commonName: string, intent: string) {
-  return `${commonName} | ${intent}`;
+function fittedSpeciesMetaTitle(
+  commonName: string,
+  scientificName: string,
+  intent: string,
+  shortIntent: string,
+) {
+  const title = speciesMetaTitle(commonName, scientificName, intent);
+  if (title.length <= TARGET_META_TITLE_LENGTH) return title;
+  const name = `${commonName} (${scientificName})`;
+  const shortTitle = `${name} ${shortIntent}`;
+  return shortTitle.length <= TARGET_META_TITLE_LENGTH ? shortTitle : name;
 }
 
 const SPECIES_META_TITLE_OVERRIDE: Partial<
@@ -459,20 +469,24 @@ export function speciesPageMetaTitle(
   commonName: string,
   scientificName: string,
   intent: string,
+  shortIntent: string,
 ) {
   const override = SPECIES_META_TITLE_OVERRIDE[speciesId]?.[locale];
-  if (override) {
-    return locale === "ka" &&
-      override.length > MAX_META_TITLE_LENGTH &&
-      !EXACT_SPECIES_META_TITLE_OVERRIDES.has(speciesId)
-      ? shortSpeciesMetaTitle(commonName, intent)
-      : override;
+  if (
+    override &&
+    (locale !== "ka" ||
+      override.length <= MAX_META_TITLE_LENGTH ||
+      EXACT_SPECIES_META_TITLE_OVERRIDES.has(speciesId))
+  ) {
+    return override;
   }
 
-  const title = speciesMetaTitle(commonName, scientificName, intent);
-  return locale === "ka" && title.length > MAX_META_TITLE_LENGTH
-    ? shortSpeciesMetaTitle(commonName, intent)
-    : title;
+  return fittedSpeciesMetaTitle(
+    commonName,
+    scientificName,
+    intent,
+    shortIntent,
+  );
 }
 
 export function speciesPhotoAlt(
