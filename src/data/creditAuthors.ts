@@ -20,7 +20,6 @@ export type CreditAuthor = {
     tr?: string;
   };
   id: string;
-  jobTitle?: CreditAuthorJobTitle;
   kind?: CreditAuthorKind;
   links?: {
     facebook?: string;
@@ -47,10 +46,7 @@ export type CreditAuthor = {
 
 export type CreditAuthorKind = "page" | "person";
 
-export type CreditAuthorRole =
-  "herpetologist" | "photographer" | "ranger" | "researcher";
-
-type CreditAuthorJobTitle = "director" | "professor" | "ranger" | "researcher";
+export type CreditAuthorRole = "photographer";
 
 export const CREDIT_AUTHORS: CreditAuthor[] = [
   {
@@ -75,7 +71,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     },
     portraitSrc: "https://cdn.reptiles.ge/authors/sandro-khakhva.jpg",
     published: true,
-    role: "herpetologist",
+    role: "photographer",
     slug: "sandro-khakhva",
   },
   {
@@ -88,7 +84,6 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
       tr: "Borjomi-Kharagauli Millî Parkı bekçisi ve yaban hayatı fotoğrafçısı. Yıllardır korunan alanda çalışmış; doğa koruma işinin yanında Gürcistan’ın yaban hayatı çeşitliliğini de belgelemiştir.",
     },
     id: "zauri-khachidze",
-    jobTitle: "ranger",
     links: {
       facebook: "https://www.facebook.com/zauri.xachidze/",
     },
@@ -101,7 +96,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     portraitClass: "object-[50%_32%]",
     portraitSrc: "https://cdn.reptiles.ge/authors/zauri-khachidze.jpg",
     published: true,
-    role: "ranger",
+    role: "photographer",
     slug: "zauri-khachidze",
   },
   {
@@ -127,7 +122,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     portraitClass: "object-[50%_24%]",
     portraitSrc: "https://cdn.reptiles.ge/authors/ioane-rostiashvili.jpg",
     published: true,
-    role: "herpetologist",
+    role: "photographer",
     slug: "ioane-rostiashvili",
   },
   {
@@ -140,7 +135,6 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
       tr: "Giorgi Iankoshvili Gürcü araştırmacı-ekolog ve herpetologdur. Şu anda Ilia Devlet Üniversitesi Ekoloji Enstitüsü’nde araştırmacı ve aynı üniversitede doktora öğrencisidir.",
     },
     id: "giorgi-iankoshvili",
-    jobTitle: "researcher",
     links: {
       facebook: "https://www.facebook.com/giorgi.iankoshvili/",
     },
@@ -153,7 +147,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     portraitClass: "object-[50%_22%]",
     portraitSrc: "https://cdn.reptiles.ge/authors/giorgi-iankoshvili.jpg",
     published: true,
-    role: "herpetologist",
+    role: "photographer",
     slug: "giorgi-iankoshvili",
   },
   {
@@ -179,7 +173,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     portraitClass: "object-[50%_14%]",
     portraitSrc: "https://cdn.reptiles.ge/authors/zakro-songulashvili.jpg",
     published: true,
-    role: "herpetologist",
+    role: "photographer",
     slug: "zakro-songulashvili",
   },
   {
@@ -209,10 +203,10 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
   {
     aliases: ["Nika Kerdikoshvili", "ნიკა კერდიკოშვილი", "ნიკა ქერდიკოშვილი"],
     bio: {
-      en: "Nika Kerdikoshvili is a Georgian zoologist, wildlife photographer, and experienced guide specializing in birdwatching and ecotours in Georgia. He has a background in biology, knows Georgia’s most remote corners well, and actively collaborates with various environmental and documentary film production organizations.",
-      ka: "ნიკა კერდიკოშვილი არის ქართველი ზოოლოგი, ველური ბუნების ფოტოგრაფი და გამოცდილი გიდი, რომელიც სპეციალიზებულია ბერდვოჩინგსა (ფრინველებზე დაკვირვება) და ეკოტურებზე საქართველოში. მას აქვს ბიოლოგიური განათლება, კარგად იცნობს საქართველოს ყველაზე შორეულ კუთხეებს და აქტიურად თანამშრომლობს სხვადასხვა გარემოსდაცვით და დოკუმენტური ფილმების მწარმოებელ ორგანიზაციებთან.",
-      ru: "Ника Кердикошвили — грузинский зоолог, фотограф дикой природы и опытный гид, специализирующийся на бердвотчинге и экотурах в Грузии. У него биологическое образование, он хорошо знает самые отдалённые уголки Грузии и активно сотрудничает с различными природоохранными организациями и производителями документальных фильмов.",
-      tr: "Nika Kerdikoshvili, Gürcistan’da kuş gözlemciliği ve ekoturlar konusunda uzmanlaşmış Gürcü zoolog, yaban hayatı fotoğrafçısı ve deneyimli bir rehberdir. Biyoloji eğitimi vardır, Gürcistan’ın en uzak köşelerini iyi tanır ve çeşitli çevre koruma ve belgesel film yapım kuruluşlarıyla aktif olarak çalışır.",
+      en: "Nika Kerdikoshvili is a Georgian zoologist, wildlife photographer, and guide specializing in birdwatching and ecotours in Georgia. He has a background in biology, knows Georgia’s most remote corners well, and actively collaborates with various environmental and documentary film production organizations.",
+      ka: "ნიკა კერდიკოშვილი არის ქართველი ზოოლოგი, ველური ბუნების ფოტოგრაფი და გიდი, რომელიც სპეციალიზებულია ბერდვოჩინგსა (ფრინველებზე დაკვირვება) და ეკოტურებზე საქართველოში. მას აქვს ბიოლოგიური განათლება, კარგად იცნობს საქართველოს ყველაზე შორეულ კუთხეებს და აქტიურად თანამშრომლობს სხვადასხვა გარემოსდაცვით და დოკუმენტური ფილმების მწარმოებელ ორგანიზაციებთან.",
+      ru: "Ника Кердикошвили — грузинский зоолог, фотограф дикой природы и гид, специализирующийся на бердвотчинге и экотурах в Грузии. У него биологическое образование, он хорошо знает самые отдалённые уголки Грузии и активно сотрудничает с различными природоохранными организациями и производителями документальных фильмов.",
+      tr: "Nika Kerdikoshvili, Gürcistan’da kuş gözlemciliği ve ekoturlar konusunda uzmanlaşmış Gürcü zoolog, yaban hayatı fotoğrafçısı ve rehberdir. Biyoloji eğitimi vardır, Gürcistan’ın en uzak köşelerini iyi tanır ve çeşitli çevre koruma ve belgesel film yapım kuruluşlarıyla aktif olarak çalışır.",
     },
     id: "nika-kerdikoshvili",
     links: {
@@ -253,7 +247,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     portraitClass: "object-[50%_28%]",
     portraitSrc: "https://cdn.reptiles.ge/authors/saba-todua.jpg",
     published: true,
-    role: "herpetologist",
+    role: "photographer",
     slug: "saba-todua",
   },
   {
@@ -266,7 +260,6 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
       tr: "Armen Seropian, Ilia Devlet Üniversitesi Ekoloji Enstitüsü’nde çalışan Gürcü araştırmacı, entomolog ve araknologdur (örümcek uzmanı).",
     },
     id: "armen-seropian",
-    jobTitle: "researcher",
     links: {
       facebook: "https://www.facebook.com/armen.seropian",
     },
@@ -279,25 +272,25 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     portraitClass: "object-[50%_28%]",
     portraitSrc: "https://cdn.reptiles.ge/authors/armen-seropian.jpg",
     published: true,
-    role: "researcher",
+    role: "photographer",
     slug: "armen-seropian",
   },
   {
     aliases: ["Shota Zandukeli", "შოთა ზანდუკელი"],
     bio: {
-      en: "Shota Zandukeli is a well-known Georgian herpetologist (reptile specialist) who actively works with the media and shares public guidance on living safely alongside reptiles.",
-      ka: "შოთა ზანდუკელი არის ცნობილი ქართველი ჰერპეტოლოგი (ქვეწარმავლების სპეციალისტი), რომელიც აქტიურად თანამშრომლობს მედიასთან და საზოგადოებას ქვეწარმავლებთან უსაფრთხო თანაარსებობის შესახებ საინფორმაციო რეკომენდაციებს აწვდის.",
-      ru: "Шота Зандукели — известный грузинский герпетолог (специалист по пресмыкающимся), который активно сотрудничает со СМИ и даёт обществу информационные рекомендации о безопасном сосуществовании с рептилиями.",
-      tr: "Shota Zandukeli, medyayla aktif çalışan ve topluma sürüngenlerle güvenli birlikte yaşama hakkında bilgilendirici öneriler sunan tanınmış bir Gürcü herpetologdur (sürüngen uzmanı).",
+      en: "Shota Zandukeli is a Georgian herpetologist (reptile specialist) who actively works with the media and shares public guidance on living safely alongside reptiles.",
+      ka: "შოთა ზანდუკელი არის ქართველი ჰერპეტოლოგი (ქვეწარმავლების სპეციალისტი), რომელიც აქტიურად თანამშრომლობს მედიასთან და საზოგადოებას ქვეწარმავლებთან უსაფრთხო თანაარსებობის შესახებ საინფორმაციო რეკომენდაციებს აწვდის.",
+      ru: "Шота Зандукели — грузинский герпетолог (специалист по пресмыкающимся), который активно сотрудничает со СМИ и даёт обществу информационные рекомендации о безопасном сосуществовании с рептилиями.",
+      tr: "Shota Zandukeli, medyayla aktif çalışan ve topluma sürüngenlerle güvenli birlikte yaşama hakkında bilgilendirici öneriler sunan bir Gürcü herpetologdur (sürüngen uzmanı).",
     },
     id: "shota-zandukeli",
     links: {
       facebook: "https://www.facebook.com/sh.zandukeli",
     },
     metaDescription: {
-      en: "Shota Zandukeli is a well-known Georgian herpetologist who works with the media on living safely alongside reptiles.",
-      ru: "Шота Зандукели — известный грузинский герпетолог, который сотрудничает со СМИ и рассказывает о безопасном сосуществовании с рептилиями.",
-      tr: "Shota Zandukeli, medyayla çalışan ve sürüngenlerle güvenli birlikte yaşama konusunda bilgi veren tanınmış bir Gürcü herpetologdur.",
+      en: "Shota Zandukeli is a Georgian herpetologist who works with the media on living safely alongside reptiles.",
+      ru: "Шота Зандукели — грузинский герпетолог, который сотрудничает со СМИ и рассказывает о безопасном сосуществовании с рептилиями.",
+      tr: "Shota Zandukeli, medyayla çalışan ve sürüngenlerle güvenli birlikte yaşama konusunda bilgi veren bir Gürcü herpetologdur.",
     },
     name: {
       en: "Shota Zandukeli",
@@ -308,7 +301,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     portraitClass: "object-[72%_22%]",
     portraitSrc: "https://cdn.reptiles.ge/authors/shota-zandukeli.jpg",
     published: true,
-    role: "herpetologist",
+    role: "photographer",
     slug: "shota-zandukeli",
   },
   {
@@ -344,13 +337,12 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
       "დავით თარხნიშვილი",
     ],
     bio: {
-      en: "David Tarkhnishvili is a well-known Georgian biologist, evolutionary ecologist, and educator who is currently a professor at Ilia State University. His research and scientific work focus mainly on the biodiversity of the Caucasus region, population genetics, and evolutionary biology.",
-      ka: "დავით თარხნიშვილი არის ცნობილი ქართველი ბიოლოგი, ევოლუციური ეკოლოგი და პედაგოგი, რომელიც ამჟამად ილიას სახელმწიფო უნივერსიტეტის პროფესორია. მისი კვლევები და სამეცნიერო მოღვაწეობა ძირითადად კავკასიის რეგიონის ბიომრავალფეროვნებას, პოპულაციურ გენეტიკასა და ევოლუციურ ბიოლოგიას უკავშირდება.",
-      ru: "Давид Тархнишвили — известный грузинский биолог, эволюционный эколог и педагог, профессор Государственного университета Ильи. Его исследования и научная деятельность связаны в основном с биоразнообразием Кавказского региона, популяционной генетикой и эволюционной биологией.",
-      tr: "David Tarkhnishvili, şu anda Ilia Devlet Üniversitesi profesörü olan tanınmış bir Gürcü biyolog, evrimsel ekolog ve eğitimcidir. Araştırma ve bilimsel çalışmaları esas olarak Kafkasya bölgesinin biyoçeşitliliği, popülasyon genetiği ve evrimsel biyoloji ile bağlantılıdır.",
+      en: "David Tarkhnishvili is a Georgian biologist, evolutionary ecologist, and educator who is currently a professor at Ilia State University. His research and scientific work focus mainly on the biodiversity of the Caucasus region, population genetics, and evolutionary biology.",
+      ka: "დავით თარხნიშვილი არის ქართველი ბიოლოგი, ევოლუციური ეკოლოგი და პედაგოგი, რომელიც ამჟამად ილიას სახელმწიფო უნივერსიტეტის პროფესორია. მისი კვლევები და სამეცნიერო მოღვაწეობა ძირითადად კავკასიის რეგიონის ბიომრავალფეროვნებას, პოპულაციურ გენეტიკასა და ევოლუციურ ბიოლოგიას უკავშირდება.",
+      ru: "Давид Тархнишвили — грузинский биолог, эволюционный эколог и педагог, профессор Государственного университета Ильи. Его исследования и научная деятельность связаны в основном с биоразнообразием Кавказского региона, популяционной генетикой и эволюционной биологией.",
+      tr: "David Tarkhnishvili, şu anda Ilia Devlet Üniversitesi profesörü olan bir Gürcü biyolog, evrimsel ekolog ve eğitimcidir. Araştırma ve bilimsel çalışmaları esas olarak Kafkasya bölgesinin biyoçeşitliliği, popülasyon genetiği ve evrimsel biyoloji ile bağlantılıdır.",
     },
     id: "david-tarkhnishvili",
-    jobTitle: "professor",
     links: {
       facebook: "https://www.facebook.com/david.tarkhnishvili",
     },
@@ -363,7 +355,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     portraitClass: "object-[50%_28%]",
     portraitSrc: "https://cdn.reptiles.ge/authors/david-tarkhnishvili.jpg",
     published: true,
-    role: "researcher",
+    role: "photographer",
     slug: "david-tarkhnishvili",
   },
   {
@@ -376,7 +368,6 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
       tr: "Giorgi Sheklashvili, biyoloji alanında çalışan Gürcü bir araştırmacı, Ilia Devlet Üniversitesi (ISU) doktora öğrencisi ve Zooloji Enstitüsü araştırmacısıdır.",
     },
     id: "giorgi-sheklashvili",
-    jobTitle: "researcher",
     links: {
       facebook: "https://www.facebook.com/giorgi.sheylashvili.39",
       researchGate:
@@ -392,7 +383,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     portraitSrc:
       "https://cdn.reptiles.ge/images/authors/giorgi-sheklashvili.jpg",
     published: true,
-    role: "researcher",
+    role: "photographer",
     slug: "giorgi-sheklashvili",
   },
   {
@@ -447,7 +438,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     portraitClass: "object-[48%_12%]",
     portraitSrc: "https://cdn.reptiles.ge/authors/lasha-gogodze.jpg",
     published: true,
-    role: "researcher",
+    role: "photographer",
     slug: "lasha-gogodze",
   },
   {
@@ -464,7 +455,6 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
       tr: "Kakhaber Sukhitashvili Gürcü bir ekolog, botanikçi ve çevre korumacıdır. 25 yılı aşkın süredir çevre alanında aktif olarak çalışmaktadır. Şu anda NatureHistorium temsilcisi ve Georgian Society of Nature Friends direktörüdür.",
     },
     id: "kakhaber-sukhitashvili",
-    jobTitle: "director",
     links: {
       facebook: "https://www.facebook.com/kakha.sukhitashvili",
     },
@@ -478,7 +468,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     portraitSrc:
       "https://cdn.reptiles.ge/optimized/images/authors/kakhaber-sukhitashvili-480.webp",
     published: true,
-    role: "researcher",
+    role: "photographer",
     slug: "kakhaber-sukhitashvili",
   },
 ];

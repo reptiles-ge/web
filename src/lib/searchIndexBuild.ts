@@ -1167,16 +1167,10 @@ function coverFromSpecies(id?: string, fallback?: string) {
 }
 
 function creditAuthorRoleSearchTerms(role: CreditAuthorRole) {
-  if (role === "ranger") {
-    return ["რეინჯერი", "ranger", "рейнджер", "bekçi"];
-  }
-  if (role === "photographer") {
-    return ["ფოტოგრაფი", "photographer", "фотограф", "fotoğrafçı"];
-  }
-  if (role === "researcher") {
-    return ["მკვლევარი", "researcher", "исследователь", "araştırmacı"];
-  }
-  return ["ჰერპეტოლოგი", "herpetologist", "герпетолог", "herpetolog"];
+  const terms: Record<CreditAuthorRole, string[]> = {
+    photographer: ["ფოტოგრაფი", "photographer", "фотограф", "fotoğrafçı"],
+  };
+  return terms[role];
 }
 
 function hrefSearchText(href: SearchHref) {

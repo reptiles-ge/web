@@ -106,7 +106,7 @@ export function createLegalRoute(documentId: LegalDocumentId) {
       description: title("metaDescription"),
       inLanguage: locale,
       isPartOf: { "@id": siteEntityId("website") },
-      name: `${title("metaTitle")} — ${siteConfig.name}`,
+      name: `${title("metaTitle")} — ${siteConfig.titleBrand}`,
       url,
     };
 

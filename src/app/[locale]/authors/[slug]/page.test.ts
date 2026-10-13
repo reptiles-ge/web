@@ -97,11 +97,11 @@ describe("contributor profile metadata", () => {
       if (creditAuthorKind(author) === "person") {
         const role = messages[locale].author.roles[author.role];
         expect(title.absolute).toBe(
-          `${name}, ${role.toLocaleLowerCase(locale)} — Reptiles`,
+          `${name}, ${role.toLocaleLowerCase(locale)} — Reptiles.ge`,
         );
         expect(metadata.openGraph).toMatchObject({ type: "profile" });
       } else {
-        expect(title.absolute).toBe(`${name} — Reptiles`);
+        expect(title.absolute).toBe(`${name} — Reptiles.ge`);
         expect(metadata.openGraph).toMatchObject({ type: "website" });
       }
       expect(metadata.robots).toMatchObject({ follow: true, index: true });

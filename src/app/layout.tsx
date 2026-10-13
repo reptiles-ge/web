@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   robots: INDEXABLE_ROBOTS,
   title: {
     default: siteConfig.title,
-    template: `%s — ${siteConfig.name}`,
+    template: `%s — ${siteConfig.titleBrand}`,
   },
   twitter: {
     card: "summary_large_image",

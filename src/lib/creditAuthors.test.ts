@@ -283,21 +283,18 @@ describe("portrait URLs outside the picture element", () => {
 describe("contributor entity JSON-LD", () => {
   const bySlug = (slug: string) => resolvePublishedCreditAuthor(slug)!;
 
-  it("describes a person with a verified job title and affiliation", () => {
+  it("describes a person with a verified affiliation and no job title", () => {
     const zauri = bySlug("zauri-khachidze");
-    const node = creditAuthorEntityJsonLd(zauri, "en", {
-      description: "bio",
-      jobTitle: "Ranger",
-    });
+    const node = creditAuthorEntityJsonLd(zauri, "en", { description: "bio" });
     expect(creditAuthorPageSchemaType(zauri)).toBe("ProfilePage");
     expect(node).toMatchObject({
       "@type": "Person",
       affiliation: [
         { "@type": "Organization", name: "Borjomi-Kharagauli National Park" },
       ],
-      jobTitle: "Ranger",
       name: "Zauri Khachidze",
     });
+    expect(node).not.toHaveProperty("jobTitle");
   });
 
   it("leaves out job title and affiliation a person's bio does not state", () => {
@@ -318,10 +315,7 @@ describe("contributor entity JSON-LD", () => {
 
   it("does not type a photography page as a person or an organization", () => {
     const page = bySlug("velur-bunebastan-axlos");
-    const node = creditAuthorEntityJsonLd(page, "ka", {
-      description: "bio",
-      jobTitle: "Ranger",
-    });
+    const node = creditAuthorEntityJsonLd(page, "ka", { description: "bio" });
     expect(creditAuthorPageSchemaType(page)).toBe("CollectionPage");
     expect(node["@type"]).toBe("Thing");
     expect(node).not.toHaveProperty("@id");

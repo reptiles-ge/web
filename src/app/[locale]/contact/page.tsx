@@ -45,7 +45,7 @@ export default async function Contact({ params }: Props) {
     description: t("metaDescription"),
     isPartOf: { "@id": siteEntityId("website") },
     mainEntity: organizationRef(),
-    name: `${t("metaTitle")} — ${siteConfig.name}`,
+    name: `${t("metaTitle")} — ${siteConfig.titleBrand}`,
     url,
   };
 

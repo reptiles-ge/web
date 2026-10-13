@@ -68,7 +68,7 @@ export function creditAuthorAlternates(locale: AppLocale, slug: string) {
 export function creditAuthorEntityJsonLd(
   author: CreditAuthor,
   locale: AppLocale,
-  { description, jobTitle }: { description?: string; jobTitle?: string },
+  { description }: { description?: string },
 ) {
   const isPerson = creditAuthorKind(author) === "person";
   const affiliations = isPerson
@@ -88,7 +88,6 @@ export function creditAuthorEntityJsonLd(
       : {}),
     description,
     image: creditAuthorPortraitImage(author).url,
-    ...(isPerson && jobTitle ? { jobTitle } : {}),
     name: creditAuthorName(author, locale),
     ...(sameAs.length > 0 ? { sameAs } : {}),
     url: creditAuthorUrl(locale, author.slug),
