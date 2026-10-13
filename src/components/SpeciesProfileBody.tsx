@@ -13,7 +13,6 @@ import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { BiologyDisclosure } from "@/components/BiologyDisclosure";
 import { BiologyExpandable } from "@/components/BiologyExpandable";
 import { SpeciesRangeMap } from "@/components/map/SpeciesRangeMap";
-import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { SectionNav } from "@/components/SectionNav";
 import { SpeciesFaqSection } from "@/components/SpeciesFaqSection";
 import { SpeciesGallery } from "@/components/SpeciesGallery";
@@ -101,6 +100,7 @@ type SpeciesProfileBodyProps = {
   linkDangerStats: boolean;
   locale: AppLocale;
   lookalikes: Species[];
+  mobileGallery: GalleryImage[];
   related: Species[];
   showIdentification: boolean;
   species: Species;
@@ -514,6 +514,7 @@ export async function SpeciesProfileBody({
   linkDangerStats,
   locale,
   lookalikes,
+  mobileGallery,
   related,
   showIdentification,
   species,
@@ -530,7 +531,7 @@ export async function SpeciesProfileBody({
         dangerValue={dangerValue}
         displayStats={displayStats}
         editable={editable}
-        gallery={gallery}
+        gallery={mobileGallery}
         guideLinks={guideLinks}
         heroCredit={heroCredit}
         linkDangerStats={linkDangerStats}
@@ -632,7 +633,6 @@ export async function SpeciesProfileBody({
         <SpeciesGallery
           images={gallery}
           locale={locale}
-          location={species.location}
           name={species.commonName}
           scientificName={species.scientificName}
           speciesId={species.id}
@@ -981,42 +981,7 @@ async function SpeciesProfileBiology({
           ];
         })
       : orderedBlocks;
-  const pairedBlocks =
-    displayBlocks.length % 2 === 0 ? displayBlocks : displayBlocks.slice(0, -1);
-  const finalBlock =
-    displayBlocks.length % 2 === 0 ? null : displayBlocks.at(-1);
-  const renderDesktopCard = (block: BiologyBlockItem) => (
-    <article
-      className="min-h-[208px] rounded-[28px] bg-card px-7 py-[26px] shadow-[0_10px_26px_rgba(14,20,17,0.05)]"
-      key={block.id}
-    >
-      <AnchoredHeading
-        anchorLabel={t("anchorLink")}
-        as="h3"
-        className="font-display text-[20px] font-semibold"
-        id={block.id}
-      >
-        {block.title}
-      </AnchoredHeading>
-      <BiologyExpandable
-        body={block.body}
-        collapseEditable
-        editorField={
-          editable && speciesId !== "macrovipera-lebetina"
-            ? block.id
-            : undefined
-        }
-        needsExpand
-        readLess={t("readLess")}
-        readMore={t("readMore")}
-        speciesId={
-          editable && speciesId !== "macrovipera-lebetina"
-            ? speciesId
-            : undefined
-        }
-      />
-    </article>
-  );
+  const editorField = editable && speciesId !== "macrovipera-lebetina";
 
   return (
     <section className="bg-background py-9 lg:py-20">
@@ -1033,49 +998,27 @@ async function SpeciesProfileBiology({
             {title ?? t("naturalHistoryTitle")}
           </AnchoredHeading>
         </div>
-        <div className="mt-5 flex flex-col gap-2 lg:hidden">
+        <div className="mt-5 flex flex-col gap-2 lg:mt-10 lg:grid lg:grid-cols-2 lg:items-start lg:gap-6">
           {displayBlocks.map((block, index) => (
             <BiologyDisclosure
+              anchorLabel={t("anchorLink")}
+              body={block.body}
+              className={
+                displayBlocks.length % 2 === 1 &&
+                index === displayBlocks.length - 1
+                  ? "lg:col-span-2"
+                  : undefined
+              }
               defaultOpen={index === 0}
+              editorField={editorField ? block.id : undefined}
+              id={block.id}
               key={block.id}
+              readLess={t("readLess")}
+              readMore={t("readMore")}
+              speciesId={editorField ? speciesId : undefined}
               title={block.title}
-            >
-              <p
-                className="mt-4 text-[17px] leading-[1.65] whitespace-pre-line text-muted-foreground"
-                data-content-field={
-                  editable && speciesId !== "macrovipera-lebetina"
-                    ? block.id
-                    : undefined
-                }
-                data-content-id={
-                  editable && speciesId !== "macrovipera-lebetina"
-                    ? speciesId
-                    : undefined
-                }
-                data-content-kind={
-                  editable && speciesId !== "macrovipera-lebetina"
-                    ? "species"
-                    : undefined
-                }
-              >
-                <PhoneLinkedText>{block.body}</PhoneLinkedText>
-              </p>
-            </BiologyDisclosure>
+            />
           ))}
-        </div>
-        <div className="mt-10 hidden lg:block">
-          <div className="grid grid-cols-2 items-start gap-6">
-            {[0, 1].map((column) => (
-              <div className="flex flex-col gap-6" key={column}>
-                {pairedBlocks
-                  .filter((_, index) => index % 2 === column)
-                  .map(renderDesktopCard)}
-              </div>
-            ))}
-          </div>
-          {finalBlock ? (
-            <div className="mt-6">{renderDesktopCard(finalBlock)}</div>
-          ) : null}
         </div>
       </div>
     </section>
@@ -1112,7 +1055,6 @@ function SpeciesProfileIdentification({
       photoAlt={speciesPhotoAlt(
         species.commonName,
         species.scientificName,
-        species.location,
         photo?.credit,
         locale,
       )}
@@ -1234,6 +1176,11 @@ async function SpeciesProfileSummary({
           locale={locale}
           speciesId={species.id}
         />
+        {species.description ? (
+          <p className="mt-3 px-6 text-[16px] leading-[1.6] text-foreground/80 lg:hidden">
+            {species.description}
+          </p>
+        ) : null}
         <SpeciesProfileFacts
           danger={species.danger}
           dangerValue={dangerValue}

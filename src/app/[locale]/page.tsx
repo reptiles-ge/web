@@ -19,19 +19,10 @@ import { HomeSeo } from "@/components/HomeSeo";
 import { JsonLd } from "@/components/JsonLd";
 import { MapExplorer } from "@/components/map/MapExplorer";
 import { getRegionTooltipPreviews } from "@/data/regions";
-import { getAtlasStats } from "@/data/speciesAtlas";
-import {
-  allRightsReservedLabel,
-  atlasDatasetName,
-  atlasVariableName,
-  georgiaPlaceName,
-  georgiaReptilesLabel,
-  openGraphLocale,
-  pickLocalized,
-} from "@/i18n/localeMeta";
-import { type AppLocale, routing } from "@/i18n/routing";
+import { openGraphLocale } from "@/i18n/localeMeta";
+import { routing } from "@/i18n/routing";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
-import { HOME_DEFINED_TERMS, siteKeywords } from "@/lib/seoKeywords";
+import { siteKeywords } from "@/lib/seoKeywords";
 import {
   absoluteUrl,
   localeAlternates,
@@ -40,7 +31,6 @@ import {
   SITE_OG_IMAGE_URL,
   siteConfig,
   siteEntityId,
-  speciesPageUrl,
 } from "@/lib/site";
 import { pageDateFields } from "@/lib/structuredDataDates";
 
@@ -105,82 +95,21 @@ export default async function Home({ params }: Props): Promise<ReactElement> {
     homePath,
     t("description"),
   );
-  const stats = getAtlasStats();
-  const datasetId = `${homeUrl}#atlas`;
-  const termsId = `${homeUrl}#atlas-terms`;
-
-  const graph = {
+  const pageLd = {
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@id": homeUrl,
-        "@type": "WebPage",
-        about: [{ "@id": datasetId }, { "@id": termsId }],
-        ...pageDateFields("/"),
-        description,
-        inLanguage: locale,
-        isPartOf: { "@id": siteEntityId("website") },
-        name: t("title"),
-        url: homeUrl,
-      },
-      {
-        "@id": datasetId,
-        "@type": "Dataset",
-        creator: { "@id": siteEntityId("organization") },
-        description,
-        inLanguage: [...routing.locales],
-        isAccessibleForFree: true,
-        license: {
-          "@type": "CreativeWork",
-          name: allRightsReservedLabel(locale),
-          url: absoluteUrl(localePath(locale, "/about")),
-        },
-        name: atlasDatasetName(locale),
-        publisher: { "@id": siteEntityId("organization") },
-        spatialCoverage: {
-          "@type": "Place",
-          name: georgiaPlaceName(locale),
-        },
-        url: homeUrl,
-        variableMeasured: [
-          {
-            "@type": "PropertyValue",
-            name: atlasVariableName("speciesProfiles", locale),
-            value: stats.total,
-          },
-          {
-            "@type": "PropertyValue",
-            name: atlasVariableName("regions", locale),
-            value: stats.regions,
-          },
-          {
-            "@type": "PropertyValue",
-            name: atlasVariableName("venomousSpecies", locale),
-            value: stats.venomous,
-          },
-        ],
-      },
-      {
-        "@id": termsId,
-        "@type": "DefinedTermSet",
-        alternateName:
-          locale === "ka"
-            ? georgiaReptilesLabel("en")
-            : georgiaReptilesLabel("ka"),
-        hasDefinedTerm: HOME_DEFINED_TERMS.map((term) => ({
-          "@type": "DefinedTerm",
-          name: pickLocalized(term, locale),
-          url: speciesPageUrl(locale as AppLocale, term.speciesId),
-        })),
-        name: georgiaReptilesLabel(locale),
-        url: homeUrl,
-      },
-    ],
+    "@id": homeUrl,
+    "@type": "WebPage",
+    ...pageDateFields("/", locale),
+    description,
+    inLanguage: locale,
+    isPartOf: { "@id": siteEntityId("website") },
+    name: t("title"),
+    url: homeUrl,
   };
 
   return (
     <div className="min-h-screen bg-background">
-      <JsonLd data={graph} />
+      <JsonLd data={pageLd} />
       <div>
         <Hero locale={locale} />
         <HomeSafetyStrip locale={locale} />

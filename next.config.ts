@@ -5,6 +5,10 @@ import { withSentryConfig } from "@sentry/nextjs/config";
 import createNextIntlPlugin from "next-intl/plugin";
 
 import { guideArticleRedirects } from "./src/i18n/guideArticleRedirects";
+import {
+  securityHeaders,
+  SITE_HEADERS_SOURCE,
+} from "./src/lib/securityHeaders";
 
 const withBundleAnalyzer = createBundleAnalyzer({
   enabled: process.env.ANALYZE === "true",
@@ -31,34 +35,7 @@ function latinRedirects(
 
 const nextConfig: NextConfig = {
   async headers() {
-    const contentSecurityPolicy = [
-      "default-src 'self'",
-      `script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://counter.top.ge${isDevelopment ? " https://unpkg.com" : ""}`,
-      "style-src 'self' 'unsafe-inline'",
-      "img-src 'self' data: blob: https://cdn.reptiles.ge https://upload.wikimedia.org https://tile.openstreetmap.de https://tile.openstreetmap.org https://www.googletagmanager.com https://www.google-analytics.com https://stats.g.doubleclick.net https://*.google.com https://*.google.ge https://counter.top.ge",
-      "media-src 'self' https://cdn.reptiles.ge",
-      "font-src 'self' data:",
-      `connect-src 'self' https://cdn.reptiles.ge https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://*.google-analytics.com https://*.analytics.google.com https://stats.g.doubleclick.net https://*.sentry.io${isDevelopment ? " https://www.react-grab.com" : ""}`,
-      "frame-src https://www.googletagmanager.com",
-      "base-uri 'self'",
-      "form-action 'self'",
-    ];
-
-    if (isDevelopment) {
-      contentSecurityPolicy.push("worker-src 'self' blob:");
-    } else {
-      contentSecurityPolicy.push("frame-ancestors 'none'");
-    }
-
-    const security = [
-      {
-        key: "Content-Security-Policy",
-        value: contentSecurityPolicy.join("; "),
-      },
-      { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
-      { key: "X-Content-Type-Options", value: "nosniff" },
-      ...(!isDevelopment ? [{ key: "X-Frame-Options", value: "DENY" }] : []),
-    ];
+    const security = securityHeaders(isDevelopment);
     const noindexStatic = [{ key: "X-Robots-Tag", value: "noindex" }];
     return [
       {
@@ -70,7 +47,7 @@ const nextConfig: NextConfig = {
               '</llms.txt>; rel="alternate"; type="text/plain"; title="llms.txt", </llms-full.txt>; rel="alternate"; type="text/plain"; title="llms-full.txt"',
           },
         ],
-        source: "/:path*",
+        source: SITE_HEADERS_SOURCE,
       },
       {
         headers: noindexStatic,
@@ -489,6 +466,8 @@ const nextConfig: NextConfig = {
         ["/mammals/saxeoebebi", "/mammals/species"],
         ["/obobebi/saxeoebebi", "/spiders/species"],
         ["/spiders/saxeoebebi", "/spiders/species"],
+        ["/mtserebi/saxeoebebi", "/insects/species"],
+        ["/insects/saxeoebebi", "/insects/species"],
         ["/xvlikebi/xvliki-sakhlshi", "/lizards/in-the-house"],
         ["/lizards/xvliki-sakhlshi", "/lizards/in-the-house"],
         ["/xvlikebi/xvliki-saxlshi", "/lizards/in-the-house"],

@@ -1,9 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import {
-  allRightsReservedLabel,
-  atlasDatasetName,
-  atlasVariableName,
+  atlasName,
   caucasusPlaceName,
   georgiaPlaceName,
   georgiaReptilesLabel,
@@ -11,6 +9,11 @@ import {
   openGraphLocale,
   pickLocalized,
 } from "@/i18n/localeMeta";
+
+import en from "../../messages/en.json";
+import ka from "../../messages/ka.json";
+import ru from "../../messages/ru.json";
+import tr from "../../messages/tr.json";
 
 describe("isPrefixedLocale", () => {
   it.each(["en", "ru", "tr"])("accepts %s", (locale) => {
@@ -68,21 +71,20 @@ describe("pickLocalized", () => {
 describe("localized labels", () => {
   it("covers every locale with a non-empty string", () => {
     for (const locale of ["ka", "en", "ru", "tr"]) {
-      expect(allRightsReservedLabel(locale)).toBeTruthy();
-      expect(atlasDatasetName(locale)).toBeTruthy();
+      expect(atlasName(locale)).toBeTruthy();
       expect(georgiaReptilesLabel(locale)).toBeTruthy();
-      for (const key of [
-        "regions",
-        "speciesProfiles",
-        "venomousSpecies",
-      ] as const) {
-        expect(atlasVariableName(key, locale)).toBeTruthy();
-      }
     }
   });
 
-  it("returns English copy for English", () => {
-    expect(allRightsReservedLabel("en")).toBe("All rights reserved");
-    expect(atlasVariableName("regions", "en")).toBe("Regions");
-  });
+  it.each([
+    ["ka", ka],
+    ["en", en],
+    ["ru", ru],
+    ["tr", tr],
+  ] as const)(
+    "names the atlas as the %s attribution does",
+    (locale, messages) => {
+      expect(atlasName(locale)).toBe(messages.attribution.subtitle);
+    },
+  );
 });

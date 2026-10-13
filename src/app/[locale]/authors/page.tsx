@@ -16,12 +16,12 @@ import {
   getCreditAuthorCards,
 } from "@/lib/creditAuthors";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
+import { INDEXABLE_ROBOTS } from "@/lib/robots";
 import {
   absoluteUrl,
   CDN_BASE,
   localePath,
   OG_IMAGE_TYPE,
-  organizationJsonLd,
   siteConfig,
   siteEntityId,
 } from "@/lib/site";
@@ -32,11 +32,6 @@ type Props = {
 };
 
 const CONTRIBUTORS_OG_IMAGE_URL = `${CDN_BASE}/og/images/contributors.jpg`;
-
-const orgLd = {
-  "@context": "https://schema.org",
-  ...organizationJsonLd(),
-};
 
 export default async function AuthorIndexRoute({ params }: Props) {
   const { locale: localeParam } = await params;
@@ -77,7 +72,7 @@ export default async function AuthorIndexRoute({ params }: Props) {
   const collectionLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    ...pageDateFields("/authors"),
+    ...pageDateFields("/authors", locale),
     description: t("index.metaDescription"),
     inLanguage: locale,
     isPartOf: { "@id": siteEntityId("website") },
@@ -98,7 +93,7 @@ export default async function AuthorIndexRoute({ params }: Props) {
 
   return (
     <>
-      <JsonLd data={[breadcrumbLd, collectionLd, orgLd]} />
+      <JsonLd data={[breadcrumbLd, collectionLd]} />
       <AuthorIndexPage cards={cards} locale={locale} />
     </>
   );
@@ -137,10 +132,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "website",
       url,
     },
-    robots: {
-      follow: true,
-      index: true,
-    },
+    robots: INDEXABLE_ROBOTS,
     title,
     twitter: {
       card: "summary_large_image",

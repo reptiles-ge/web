@@ -14,6 +14,7 @@ import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import { quizStaticParams, resolveQuizBySlug } from "@/lib/quizzes";
+import { INDEXABLE_ROBOTS } from "@/lib/robots";
 import {
   absoluteUrl,
   localePath,
@@ -22,11 +23,7 @@ import {
   siteConfig,
   siteEntityId,
 } from "@/lib/site";
-import {
-  getLizardQuizCatalog,
-  getSnakeQuizCatalog,
-  QUIZ_LENGTH,
-} from "@/lib/snakeQuiz";
+import { getLizardQuizCatalog, getSnakeQuizCatalog } from "@/lib/snakeQuiz";
 import { quizDateFields } from "@/lib/structuredDataDates";
 
 type Props = {
@@ -81,10 +78,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "website",
       url,
     },
-    robots: {
-      follow: true,
-      index: true,
-    },
+    robots: INDEXABLE_ROBOTS,
     title: { absolute: title },
     twitter: {
       card: "summary_large_image",
@@ -161,17 +155,12 @@ export default async function QuizSlugRoute({ params }: Props) {
   const pageLd = {
     "@context": "https://schema.org",
     "@type": "Quiz",
-    about: {
-      "@type": "Thing",
-      name: t("title"),
-    },
-    ...quizDateFields(quiz.id),
+    ...quizDateFields(quiz.id, locale),
     description: t("metaDescription"),
     educationalLevel: "beginner",
     inLanguage: locale,
     isPartOf: { "@id": siteEntityId("website") },
     name: t("metaTitle"),
-    numberOfQuestions: QUIZ_LENGTH,
     url,
   };
 

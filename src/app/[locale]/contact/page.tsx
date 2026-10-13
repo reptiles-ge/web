@@ -8,10 +8,11 @@ import { ContactPage } from "@/components/ContactPage";
 import { JsonLd } from "@/components/JsonLd";
 import { routing } from "@/i18n/routing";
 import { buildPageMetadata } from "@/lib/pageMetadata";
+import { homeChildBreadcrumbLd } from "@/lib/pageStructuredData";
 import {
   absoluteUrl,
   localePath,
-  organizationJsonLd,
+  organizationRef,
   SITE_OG_IMAGE_URL,
   siteConfig,
   siteEntityId,
@@ -30,25 +31,35 @@ export default async function Contact({ params }: Props) {
 
   setRequestLocale(locale);
 
-  const t = await getTranslations({ locale, namespace: "contact" });
+  const [t, tFooter, tShared] = await Promise.all([
+    getTranslations({ locale, namespace: "contact" }),
+    getTranslations({ locale, namespace: "footer" }),
+    getTranslations({ locale, namespace: "groupHubShared" }),
+  ]);
   const url = absoluteUrl(localePath(locale, "/contact"));
 
   const contactJsonLd = {
     "@context": "https://schema.org",
     "@type": "ContactPage",
-    ...pageDateFields("/contact"),
+    ...pageDateFields("/contact", locale),
     description: t("metaDescription"),
     isPartOf: { "@id": siteEntityId("website") },
-    mainEntity: organizationJsonLd({
-      description: t("metaDescription"),
-    }),
+    mainEntity: organizationRef(),
     name: `${t("metaTitle")} — ${siteConfig.name}`,
     url,
   };
 
   return (
     <>
-      <JsonLd data={contactJsonLd} />
+      <JsonLd
+        data={[
+          contactJsonLd,
+          homeChildBreadcrumbLd(locale, "/contact", {
+            home: tShared("breadcrumbHome"),
+            name: tFooter("contact"),
+          }),
+        ]}
+      />
       <ContactPage locale={locale} />
     </>
   );

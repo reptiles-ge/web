@@ -181,7 +181,7 @@ export function createClusterGuideRoute(guideId: ClusterGuideId) {
 
     const pageLd = sitePageLd({
       about: { "@type": "Place", name: georgiaPlaceName(locale) },
-      dates: pageDateFields(guide.pathname),
+      dates: pageDateFields(guide.pathname, locale),
       description: t("metaDescription"),
       locale,
       ...(guide.schema === "collection"

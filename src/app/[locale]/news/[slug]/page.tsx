@@ -24,11 +24,12 @@ import {
   newsOgImageUrl,
   publishedNewsStaticParams,
 } from "@/lib/news";
+import { INDEXABLE_ROBOTS } from "@/lib/robots";
 import {
   absoluteUrl,
   localePath,
   openGraphJpeg,
-  organizationJsonLd,
+  organizationRef,
   siteConfig,
   siteEntityId,
 } from "@/lib/site";
@@ -43,7 +44,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: localeParam, slug } = await params;
   if (!hasLocale(routing.locales, localeParam)) {
     return {
-      robots: { follow: false, index: false },
+      robots: null,
       title: "News",
     };
   }
@@ -54,7 +55,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!article || !copy) {
     const t = await getTranslations({ locale, namespace: "news" });
     return {
-      robots: { follow: false, index: false },
+      robots: null,
       title: t("notFound"),
     };
   }
@@ -85,10 +86,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         : {}),
       images: [openGraphJpeg(ogImage, title)],
     },
-    robots: {
-      follow: true,
-      index: true,
-    },
+    robots: INDEXABLE_ROBOTS,
     title,
     twitter: {
       card: "summary_large_image",
@@ -127,7 +125,6 @@ export default async function NewsArticleRoute({ params }: Props) {
   const ogImage = newsOgImageUrl(article);
   const published = newsDateTime(article.publishedAt);
   const modified = newsDateTime(article.updatedAt ?? article.publishedAt);
-  const org = organizationJsonLd();
 
   const breadcrumbLd = {
     "@context": "https://schema.org",
@@ -185,7 +182,7 @@ export default async function NewsArticleRoute({ params }: Props) {
         name: georgiaPlaceName(locale),
       },
     ],
-    author: { "@id": siteEntityId("organization") },
+    author: organizationRef(),
     citation: article.sources.map((source) => ({
       "@type": "CreativeWork",
       name: newsSourceName(source, locale),
@@ -207,7 +204,7 @@ export default async function NewsArticleRoute({ params }: Props) {
       "@type": "WebPage",
     },
     mentions,
-    publisher: org,
+    publisher: organizationRef(),
     url,
   };
 

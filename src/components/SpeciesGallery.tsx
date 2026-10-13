@@ -37,7 +37,6 @@ const MOSAIC_THUMB_SIZES =
 type SpeciesGalleryProps = {
   images: GalleryImage[];
   locale: AppLocale;
-  location: string;
   name: string;
   scientificName: string;
   speciesId: string;
@@ -46,7 +45,6 @@ type SpeciesGalleryProps = {
 export async function SpeciesGallery({
   images,
   locale,
-  location,
   name,
   scientificName,
   speciesId,
@@ -64,6 +62,11 @@ export async function SpeciesGallery({
     ),
   ];
   const authorCount = photographers.length;
+  const listPhotographers =
+    speciesId === "macrovipera-lebetina" ||
+    photographers.some((photographer) =>
+      Boolean(getPublishedCreditAuthorByName(photographer)),
+    );
 
   if (photos.length === 0) return null;
 
@@ -72,13 +75,7 @@ export async function SpeciesGallery({
   const slides = photos.map((photo) => {
     const entry = optimizedEntry(photo.src);
     return {
-      alt: speciesPhotoAlt(
-        name,
-        scientificName,
-        location,
-        photo.credit,
-        locale,
-      ),
+      alt: speciesPhotoAlt(name, scientificName, photo.credit, locale),
       credit: photo.credit,
       height: entry?.height,
       photoConfidence: photo.photoConfidence,
@@ -228,7 +225,7 @@ export async function SpeciesGallery({
               );
             })}
           </div>
-          {speciesId === "macrovipera-lebetina" ? (
+          {listPhotographers ? (
             <p className="mt-5 text-[12px] leading-relaxed text-white/65">
               {photographers.map((photographer, index) => {
                 const author = getPublishedCreditAuthorByName(photographer);

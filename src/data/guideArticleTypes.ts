@@ -6,6 +6,7 @@ import type { SearchIcon } from "@/lib/siteSearch";
 export type GuideArticle<ImageKey extends string = string> = {
   copy: Record<AppLocale, GuideArticleCopy<ImageKey>>;
   hero: GuideArticleImage;
+  heroPosition?: GuideArticleHeroPosition;
   id: string;
   images?: Record<ImageKey, GuideArticleImage>;
   messageKey: GuideArticleMessageKey;
@@ -81,6 +82,8 @@ export type GuideArticleSource = {
 };
 
 type GuideArticleFaq = { answer: string; question: string };
+
+type GuideArticleHeroPosition = `${number}% ${number}%`;
 
 type GuideArticleOgImage =
   | `/og/images/guides/${string}.jpg`

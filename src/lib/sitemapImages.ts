@@ -1,66 +1,57 @@
 import type { Species } from "@/data/species";
 
 import { optimizedImgSrc } from "@/data/optimizedImages";
-import { absoluteImageUrl } from "@/lib/site";
+import { absoluteImageUrl, absoluteUrl, CDN_BASE } from "@/lib/site";
 import { isPlaceholderMedia } from "@/lib/speciesContent";
 
 const MAX_SITEMAP_IMAGES = 8;
+
+const FIRST_PARTY_IMAGE_HOSTS = new Set([
+  new URL(absoluteUrl("/")).host,
+  new URL(CDN_BASE).host,
+]);
 
 export function creditAuthorPageImageUrls(
   portraitSrc: string,
   photos: Array<{ src: string }>,
 ): string[] {
-  const urls: string[] = [];
-  const seen = new Set<string>();
-
-  function push(src?: string) {
-    if (!src || isPlaceholderMedia(src) || urls.length >= MAX_SITEMAP_IMAGES) {
-      return;
-    }
-    const url = absoluteImageUrl(optimizedImgSrc(src));
-    if (seen.has(url)) return;
-    seen.add(url);
-    urls.push(url);
-  }
-
-  push(portraitSrc);
-  for (const photo of photos) {
-    push(photo.src);
-  }
-  return urls;
+  return collectImageUrls(
+    [portraitSrc, ...photos.map((photo) => photo.src)],
+    MAX_SITEMAP_IMAGES,
+  );
 }
 
 export function guidePageImageUrls(srcs: Array<string | undefined>) {
+  return collectImageUrls(srcs, MAX_SITEMAP_IMAGES);
+}
+
+export function speciesPageImageUrls(species: Species): string[] {
+  return collectImageUrls([
+    species.image,
+    species.mobileImage,
+    ...species.gallery.map((photo) => photo.src),
+  ]);
+}
+
+function collectImageUrls(
+  srcs: Array<string | undefined>,
+  limit = Number.POSITIVE_INFINITY,
+) {
   const urls: string[] = [];
   const seen = new Set<string>();
   for (const src of srcs) {
-    if (!src || isPlaceholderMedia(src) || urls.length >= MAX_SITEMAP_IMAGES) {
-      continue;
-    }
-    const url = absoluteImageUrl(optimizedImgSrc(src));
-    if (seen.has(url)) continue;
+    if (urls.length >= limit) break;
+    const url = sitemapImageUrl(src);
+    if (!url || seen.has(url)) continue;
     seen.add(url);
     urls.push(url);
   }
   return urls;
 }
 
-export function speciesPageImageUrls(species: Species): string[] {
-  const urls: string[] = [];
-  const seen = new Set<string>();
-
-  function push(src?: string) {
-    if (!src || isPlaceholderMedia(src)) return;
-    const url = absoluteImageUrl(optimizedImgSrc(src));
-    if (seen.has(url)) return;
-    seen.add(url);
-    urls.push(url);
-  }
-
-  push(species.image);
-  push(species.mobileImage);
-  for (const photo of species.gallery) {
-    push(photo.src);
-  }
-  return urls;
+function sitemapImageUrl(src: string | undefined) {
+  if (!src || isPlaceholderMedia(src)) return null;
+  const url = absoluteImageUrl(optimizedImgSrc(src));
+  if (!URL.canParse(url)) return null;
+  return FIRST_PARTY_IMAGE_HOSTS.has(new URL(url).host) ? url : null;
 }

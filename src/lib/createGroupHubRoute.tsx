@@ -49,18 +49,16 @@ export function createGroupHubRoute(hubId: GroupHubId) {
     const locale = localeParam as AppLocale;
     const t = await getTranslations({ locale, namespace: hub.messageKey });
     const title = t("metaTitle");
-    const metadataTitle =
-      locale === "ka" && hubId === "scorpions" ? { absolute: title } : title;
     const catalog = getCatalogSpeciesByGroup(hub.group);
     const hero =
       catalog.find((item) => item.id === hub.heroSpeciesId) ?? catalog[0];
 
     return buildPageMetadata({
-      description: t("metaDescription"),
+      description: t("metaDescription", { count: catalog.length }),
       indexable: true,
       keywords: t("keywords"),
       locale,
-      metadataTitle,
+      metadataTitle: { absolute: title },
       ogImageUrl: speciesOgImageUrl(hub.heroSpeciesId, hero?.image),
       pagePath: hub.path,
       title,
@@ -102,8 +100,8 @@ export function createGroupHubRoute(hubId: GroupHubId) {
 
     const collectionLd = sitePageLd({
       about: { "@type": "Place", name: georgiaPlaceName(locale) },
-      dates: pageDateFields(hub.path),
-      description: t("metaDescription"),
+      dates: pageDateFields(hub.path, locale),
+      description: t("metaDescription", { count: species.length }),
       locale,
       mainEntity: speciesItemListLd(locale, species),
       name: t("metaTitle"),

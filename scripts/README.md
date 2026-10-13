@@ -20,6 +20,7 @@ BUNNY_CDN_BASE_URL=https://cdn.reptiles.ge   # optional
 | MDX → catalog (new/changed species)            | `npm run species:compile`                |
 | Refresh search indexes                         | `npm run search:compile` (species first) |
 | Refresh Georgia map paths                      | `npm run map:compile`                    |
+| Refresh Wikidata / GBIF / iNaturalist IDs      | `npm run taxon:ids`                      |
 | Spot broken CDN image URLs                     | `npm run images:check`                   |
 | Are species OG images live?                    | `npm run images:check-og`                |
 | Upload missing OG images (species + guides)    | `npm run images:og-missing`              |
@@ -56,6 +57,16 @@ Requires an existing `species.generated.ts`. Writes `src/data/search-index.{ka,e
 ### `speciesFrontmatter.ts`
 
 Library only, not a CLI. KA / translation frontmatter schemas for `compile-species.ts`.
+
+---
+
+## Taxon identifiers
+
+### `fetch-taxon-identifiers.ts` → `npm run taxon:ids`
+
+Looks up each published species' scientific name in GBIF (strict match), Wikidata (`P225`) and iNaturalist, and rewrites the committed `src/data/taxonIdentifiers.ts`. Species pages put these IDs in the Taxon `sameAs`; the build never calls the APIs. One request per second per API; responses are cached in memory for the run. `--check` exits 1 when the committed file is stale.
+
+An ID is kept only on an exact, unambiguous match. A Wikidata item must agree with the GBIF key (`P846`) and the iNaturalist taxon (`P3151`). A synonym or alternative name is used only when the profile itself presents it as the same taxon (`EQUIVALENT_NAMES`); deliberate omissions live in `MANUAL_EXCLUSIONS`. The run prints every left-out ID with its reason.
 
 ---
 

@@ -47,6 +47,7 @@
     "species:compile": "tsx scripts/compile-species.ts && tsx scripts/compile-occurrences.ts && tsx scripts/compile-locale-switch-index.ts && tsx scripts/compile-release-version.ts",
     "locale-switch:compile": "tsx scripts/compile-locale-switch-index.ts",
     "search:compile": "tsx scripts/compile-search.ts",
+    "taxon:ids": "tsx scripts/compile-species.ts && tsx scripts/fetch-taxon-identifiers.ts",
     "map:compile": "tsx scripts/compile-georgia-map.ts",
     "images:check": "tsx scripts/check-image-urls.ts",
     "images:check-og": "tsx scripts/compile-species.ts && tsx scripts/check-og-images.ts",

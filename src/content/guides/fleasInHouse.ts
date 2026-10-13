@@ -644,6 +644,7 @@ export const FLEAS_IN_HOUSE = defineGuideArticle({
     src: "/images/guides/fleas-home-pet-care-hero.jpg",
     width: 1672,
   },
+  heroPosition: "50% 15%",
   id: "fleas-in-house",
   images: {
     flea: {

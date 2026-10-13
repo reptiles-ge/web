@@ -14,6 +14,7 @@ import {
   QUIZ_OPTION_COUNT,
   type SnakeQuizSpecies,
 } from "@/lib/snakeQuizEngine";
+import { stableHash } from "@/lib/stableHash";
 
 export type QuizTeaser = {
   correctId: string;
@@ -100,7 +101,7 @@ export function quizTeaserOptionIds(speciesId: string, quizId: QuizTeaserId) {
   return {
     correctId,
     options: options
-      .map((id) => ({ id, order: hashString(`${speciesId}:${id}`) }))
+      .map((id) => ({ id, order: stableHash(`${speciesId}:${id}`) }))
       .sort((a, b) => a.order - b.order || a.id.localeCompare(b.id))
       .map((item) => item.id),
   };
@@ -121,15 +122,6 @@ function getQuizPool(quizId: QuizTeaserId) {
   return pool;
 }
 
-function hashString(value: string) {
-  let hash = 2166136261;
-  for (let index = 0; index < value.length; index += 1) {
-    hash ^= value.charCodeAt(index);
-    hash = Math.imul(hash, 16777619);
-  }
-  return hash >>> 0;
-}
-
 function pickCorrectId(speciesId: string, pool: SnakeQuizSpecies[]) {
   const poolIds = new Set(pool.map((item) => item.id));
   const current = pool.find((item) => item.id === speciesId);
@@ -145,11 +137,11 @@ function pickCorrectId(speciesId: string, pool: SnakeQuizSpecies[]) {
 
   const others = pool.filter((item) => item.id !== speciesId);
   if (others.length === 0) return null;
-  return others[hashString(speciesId) % others.length].id;
+  return others[stableHash(speciesId) % others.length].id;
 }
 
 function seededRandom(seed: string) {
-  let state = hashString(seed) || 1;
+  let state = stableHash(seed) || 1;
   return () => {
     state = (state + 0x6d2b79f5) | 0;
     let next = Math.imul(state ^ (state >>> 15), 1 | state);

@@ -28,7 +28,7 @@ import {
   localePath,
   OG_IMAGE_WIDTH,
   openGraphJpeg,
-  organizationJsonLd,
+  organizationRef,
   siteConfig,
   siteEntityId,
 } from "@/lib/site";
@@ -90,7 +90,7 @@ export function createGuideArticleRoute(pathname: GuideArticlePath) {
     ]);
     const copy = article.copy[locale];
     const url = absoluteUrl(localePath(locale, pathname));
-    const dates = pageDateFields(pathname);
+    const dates = pageDateFields(pathname, locale);
     const shareImage = guideShareImage(article, locale);
     const heroImage = guideImageObject(article.hero, locale);
     const breadcrumbLd = breadcrumbListLd([
@@ -105,7 +105,7 @@ export function createGuideArticleRoute(pathname: GuideArticlePath) {
       "@context": "https://schema.org",
       "@type": "Article",
       articleSection: tParent("breadcrumbCurrent"),
-      author: { "@id": siteEntityId("organization") },
+      author: organizationRef(),
       citation: article.sources.map((source) => ({
         "@type": "CreativeWork",
         name: source.name,
@@ -129,7 +129,7 @@ export function createGuideArticleRoute(pathname: GuideArticlePath) {
       inLanguage: locale,
       isPartOf: { "@id": siteEntityId("website") },
       mainEntityOfPage: { "@id": url, "@type": "WebPage" },
-      publisher: organizationJsonLd(),
+      publisher: organizationRef(),
       url,
     };
 

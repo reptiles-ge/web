@@ -13,8 +13,14 @@ import { openGraphLocale } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import {
+  isIndexableLegalLocale,
+  LEGAL_PATHS,
+  legalAlternates,
+} from "@/lib/legalPages";
+import { homeChildBreadcrumbLd } from "@/lib/pageStructuredData";
+import { INDEXABLE_ROBOTS, NOINDEX_FOLLOW_ROBOTS } from "@/lib/robots";
+import {
   absoluteUrl,
-  localeAlternates,
   localePath,
   openGraphJpeg,
   SITE_OG_IMAGE_URL,
@@ -27,11 +33,6 @@ type Props = {
   params: Promise<{ locale: string }>;
 };
 
-const legalPaths = {
-  privacy: "/privacy",
-  terms: "/terms-and-conditions",
-} as const;
-
 export function createLegalRoute(documentId: LegalDocumentId) {
   async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { locale: localeParam } = await params;
@@ -43,7 +44,7 @@ export function createLegalRoute(documentId: LegalDocumentId) {
       namespace: `legal.${documentId}`,
     });
     const title = t("metaTitle");
-    const path = legalPaths[documentId];
+    const path = LEGAL_PATHS[documentId];
     const publicPath = localePath(locale, path);
     const description = kaMetaDescriptionOverride(
       locale,
@@ -53,7 +54,7 @@ export function createLegalRoute(documentId: LegalDocumentId) {
     const url = absoluteUrl(publicPath);
 
     return {
-      alternates: localeAlternates(locale, path),
+      alternates: legalAlternates(locale, path),
       description,
       openGraph: {
         description,
@@ -64,6 +65,9 @@ export function createLegalRoute(documentId: LegalDocumentId) {
         type: "website",
         url,
       },
+      robots: isIndexableLegalLocale(locale)
+        ? INDEXABLE_ROBOTS
+        : NOINDEX_FOLLOW_ROBOTS,
       title,
       twitter: {
         card: "summary_large_image",
@@ -83,18 +87,22 @@ export function createLegalRoute(documentId: LegalDocumentId) {
     const locale = localeParam as AppLocale;
     setRequestLocale(locale);
 
-    const t = await getTranslations({ locale, namespace: "legal" });
+    const [t, tFooter, tShared] = await Promise.all([
+      getTranslations({ locale, namespace: "legal" }),
+      getTranslations({ locale, namespace: "footer" }),
+      getTranslations({ locale, namespace: "groupHubShared" }),
+    ]);
     const title = await getTranslations({
       locale,
       namespace: `legal.${documentId}`,
     });
-    const path = legalPaths[documentId];
+    const path = LEGAL_PATHS[documentId];
     const url = absoluteUrl(localePath(locale, path));
 
     const webPageJsonLd = {
       "@context": "https://schema.org",
       "@type": "WebPage",
-      ...pageDateFields(path),
+      ...pageDateFields(path, locale),
       description: title("metaDescription"),
       inLanguage: locale,
       isPartOf: { "@id": siteEntityId("website") },
@@ -104,7 +112,15 @@ export function createLegalRoute(documentId: LegalDocumentId) {
 
     return (
       <>
-        <JsonLd data={webPageJsonLd} />
+        <JsonLd
+          data={[
+            webPageJsonLd,
+            homeChildBreadcrumbLd(locale, path, {
+              home: tShared("breadcrumbHome"),
+              name: tFooter(documentId),
+            }),
+          ]}
+        />
         <LegalDocumentPage
           documentId={documentId}
           locale={locale}

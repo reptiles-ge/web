@@ -88,7 +88,6 @@ export async function SpeciesProfileHero({
         : speciesPhotoAlt(
             species.commonName,
             species.scientificName,
-            species.location,
             photo.credit,
             locale,
           ),
@@ -365,7 +364,9 @@ function SpeciesProfileHeroMedia({
     );
   }
 
-  const primarySrc = mobileHeroSrc ?? desktopHeroSrc;
+  const primarySrc = visibleOnMobile
+    ? (mobileHeroSrc ?? desktopHeroSrc)
+    : desktopHeroSrc;
   const primary = optimizedEntry(primarySrc);
 
   return (

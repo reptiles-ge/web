@@ -195,7 +195,7 @@ async function GiurzaRangeSection({
           </p>
           {extraHabitat ? (
             <details className="group order-5 mt-1 lg:mt-4">
-              <summary className="inline-flex cursor-pointer list-none items-center gap-1.5 text-[14px] font-medium text-foreground underline decoration-foreground/30 underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary [&::-webkit-details-marker]:hidden">
+              <summary className="tap-target inline-flex cursor-pointer list-none items-center gap-1.5 text-[14px] font-medium text-foreground underline decoration-foreground/30 underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary [&::-webkit-details-marker]:hidden">
                 <span className="group-open:hidden">
                   {tProfile("readMore")}
                 </span>
@@ -441,7 +441,7 @@ async function HalyomorphaRangeSection({
           ) : null}
           {recordedRegions.length > 0 ? (
             <details className="group order-4 mt-4 lg:mt-6">
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-3 text-[13px] font-medium text-muted-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary [&::-webkit-details-marker]:hidden">
+              <summary className="tap-target flex cursor-pointer list-none items-center justify-between gap-3 text-[13px] font-medium text-muted-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary [&::-webkit-details-marker]:hidden">
                 {copy.recordedOnlyStatusLabel} · {recordedRegions.length}
                 <ChevronDown
                   aria-hidden="true"

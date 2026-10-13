@@ -4,10 +4,14 @@ import {
   absoluteImageUrl,
   absoluteUrl,
   CDN_BASE,
+  CONTACT_EMAIL,
   FALLBACK_OG_IMAGE_URL,
+  localePath,
   ogImageUrlFromSrc,
   openGraphJpeg,
+  ORGANIZATION_SAME_AS,
   organizationJsonLd,
+  organizationRef,
   SITE_OG_IMAGE_URL,
   siteEntityId,
   speciesOgImageUrl,
@@ -153,18 +157,57 @@ describe("structured data", () => {
   });
 
   it("describes the organization, with an optional description", () => {
-    const base = organizationJsonLd();
+    const base = organizationJsonLd("ka");
     expect(base).toMatchObject({
       "@id": "https://reptiles.ge/#organization",
       "@type": "Organization",
-      name: "Reptiles",
+      alternateName: ["საქართველოს ცხოველთა ატლასი", "Reptiles"],
+      logo: { height: 1024, width: 1024 },
+      name: "Reptiles.ge",
+      sameAs: [...ORGANIZATION_SAME_AS],
       url: "https://reptiles.ge",
     });
     expect(base).not.toHaveProperty("description");
-    expect(organizationJsonLd({ description: "d" })).toHaveProperty(
+    expect(organizationJsonLd("en", { description: "d" })).toHaveProperty(
       "description",
       "d",
     );
+  });
+
+  it.each([
+    ["ka", "ნიკა შამილაძე"],
+    ["en", "Nika Shamiladze"],
+    ["ru", "Ника Шамиладзе"],
+    ["tr", "Nika Shamiladze"],
+  ] as const)("names the founder in %s without a title", (locale, name) => {
+    expect(organizationJsonLd(locale)).toHaveProperty("founder", {
+      "@id": "https://reptiles.ge/#nika-shamiladze",
+      "@type": "Person",
+      name,
+    });
+  });
+
+  it.each(["ka", "en", "ru", "tr"] as const)(
+    "publishes the editorial contact point in %s",
+    (locale) => {
+      expect(organizationJsonLd(locale).contactPoint).toEqual({
+        "@type": "ContactPoint",
+        availableLanguage: ["ka", "en", "ru", "tr"],
+        contactType: "editorial",
+        email: CONTACT_EMAIL,
+        url: absoluteUrl(localePath(locale, "/contact")),
+      });
+      expect(CONTACT_EMAIL).toBe("hello@reptiles.ge");
+      expect(organizationJsonLd(locale).contactPoint).not.toHaveProperty(
+        "telephone",
+      );
+    },
+  );
+
+  it("references the organization by @id", () => {
+    expect(organizationRef()).toEqual({
+      "@id": "https://reptiles.ge/#organization",
+    });
   });
 
   it("describes the website, with a search action only when asked", () => {

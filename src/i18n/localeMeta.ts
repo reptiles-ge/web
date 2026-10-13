@@ -25,19 +25,7 @@ const CAUCASUS_NAME: Record<AppLocale, string> = {
   tr: "Kafkasya",
 };
 
-export function allRightsReservedLabel(locale: string) {
-  return pickLocalized(
-    {
-      en: "All rights reserved",
-      ka: "ყველა უფლება დაცულია",
-      ru: "Все права защищены",
-      tr: "Tüm hakları saklıdır",
-    },
-    locale,
-  );
-}
-
-export function atlasDatasetName(locale: string) {
+export function atlasName(locale: string) {
   return pickLocalized(
     {
       en: "Atlas of animals of Georgia",
@@ -47,33 +35,6 @@ export function atlasDatasetName(locale: string) {
     },
     locale,
   );
-}
-
-export function atlasVariableName(
-  key: "regions" | "speciesProfiles" | "venomousSpecies",
-  locale: string,
-) {
-  const copy = {
-    regions: {
-      en: "Regions",
-      ka: "რეგიონები",
-      ru: "Регионы",
-      tr: "Bölgeler",
-    },
-    speciesProfiles: {
-      en: "Species profiles",
-      ka: "სახეობების პროფილები",
-      ru: "Профили видов",
-      tr: "Tür profilleri",
-    },
-    venomousSpecies: {
-      en: "Venomous species",
-      ka: "შხამიანი სახეობები",
-      ru: "Ядовитые виды",
-      tr: "Zehirli türler",
-    },
-  } as const;
-  return pickLocalized(copy[key], locale);
 }
 
 export function caucasusPlaceName(locale: string) {

@@ -16,6 +16,7 @@ import {
   getSpeciesById,
   unpublishedSpeciesIds,
 } from "@/data/species";
+import { getSpeciesAtlasMeta, isVenomousDanger } from "@/data/speciesAtlasMeta";
 import {
   confirmedRecordThresholdForSpecies,
   getHalyomorphaFieldRecords,
@@ -190,4 +191,34 @@ describe("region FAQ locale gating", () => {
       }
     }
   });
+});
+
+describe("region FAQ venomous snakes", () => {
+  const venomousSnakes = getCatalogSpecies().filter(
+    (item) =>
+      getSpeciesAtlasMeta(item.id).group === "snake" &&
+      isVenomousDanger(item.danger),
+  );
+
+  it.each(regions.map((region) => [region.id, region] as const))(
+    "%s FAQ names exactly the venomous snakes the region lists",
+    (_, region) => {
+      const content = getRegionContent(region.id);
+      for (const locale of ["ka", "en", "ru", "tr"] as const) {
+        const text = content.faq
+          .map((entry) => localizeRegionTextIfPresent(entry.answer, locale))
+          .filter(Boolean)
+          .join("\n");
+        if (!text) continue;
+        for (const item of venomousSnakes) {
+          const assertion = expect(text, `${locale} ${item.id}`);
+          if (region.speciesIds.includes(item.id)) {
+            assertion.toContain(item.scientificName);
+          } else {
+            assertion.not.toContain(item.scientificName);
+          }
+        }
+      }
+    },
+  );
 });

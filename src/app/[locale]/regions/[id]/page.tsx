@@ -32,6 +32,7 @@ import { type AppLocale, routing } from "@/i18n/routing";
 import { isLocalAdminEnabled } from "@/lib/adminAccess";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import { speciesItemListLd } from "@/lib/pageStructuredData";
+import { INDEXABLE_ROBOTS } from "@/lib/robots";
 import {
   absoluteUrl,
   localeAlternates,
@@ -55,7 +56,7 @@ export async function generateMetadata({
   const { id, locale: localeParam } = await params;
   if (!hasLocale(routing.locales, localeParam)) {
     return {
-      robots: { follow: false, index: false },
+      robots: null,
       title: "Region not found",
     };
   }
@@ -66,7 +67,7 @@ export async function generateMetadata({
 
   if (!region) {
     return {
-      robots: { follow: false, index: false },
+      robots: null,
       title: t("notFound"),
     };
   }
@@ -121,10 +122,7 @@ export async function generateMetadata({
       type: "article",
       url: absoluteUrl(publicPath),
     },
-    robots: {
-      follow: true,
-      index: true,
-    },
+    robots: INDEXABLE_ROBOTS,
     title,
     twitter: {
       card: "summary_large_image",
@@ -162,7 +160,7 @@ export default async function RegionPage({ params }: PageProps) {
   const overview =
     localizeRegionTextIfPresent(content.overview, locale) ?? name;
   const pageUrl = absoluteUrl(localePath(locale, regionHref(region.id)));
-  const dates = regionDateFields(region.id);
+  const dates = regionDateFields(region.id, locale);
   const species = getRegionSpecies(region).map((item) =>
     toRegionSpeciesCard(item, locale),
   );
@@ -181,7 +179,7 @@ export default async function RegionPage({ params }: PageProps) {
       name,
     },
     author: { "@id": siteEntityId("organization") },
-    ...regionDateFields(region.id),
+    ...regionDateFields(region.id, locale),
     description: overview,
     inLanguage: locale,
     isPartOf: { "@id": siteEntityId("website") },
@@ -198,13 +196,13 @@ export default async function RegionPage({ params }: PageProps) {
       {
         "@type": "ListItem",
         item: absoluteUrl(localePath(locale, "/")),
-        name: siteConfig.name,
+        name: t("breadcrumbHome"),
         position: 1,
       },
       {
         "@type": "ListItem",
         item: absoluteUrl(localePath(locale, "/regions")),
-        name: t("metaTitle"),
+        name: t("allRegions"),
         position: 2,
       },
       {

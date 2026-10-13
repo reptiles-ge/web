@@ -39,6 +39,20 @@ describe("species profile guide links", () => {
     }
   });
 
+  it("leads with the practical guide written for that animal", () => {
+    const pairs = [
+      ["canis-aureus", "/mammals/tura-ezoshi"],
+      ["ursus-arctos", "/mammals/datvi-shekhvedra"],
+      ["blatta-orientalis", "/insects/taraknebi-sakhlshi"],
+      ["cimex-lectularius", "/insects/baghlinjo-sakhlshi"],
+      ["halyomorpha-halys", "/insects/farosana-sakhlshi"],
+    ] as const;
+    for (const [id, href] of pairs) {
+      const [first] = getSpeciesProfileGuideLinks(id);
+      expect(first?.kind === "page" ? first.href : null, id).toBe(href);
+    }
+  });
+
   it("stays within the limit without repeating a destination", () => {
     for (const item of catalog) {
       const links = getSpeciesProfileGuideLinks(item.id);

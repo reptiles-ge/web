@@ -1,0 +1,69 @@
+import { describe, expect, it } from "vitest";
+
+import { getCatalogSpecies } from "@/data/species";
+import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
+import {
+  getLookalikeSpecies,
+  getProfileRelatedSpecies,
+} from "@/lib/speciesRelated";
+
+const catalog = getCatalogSpecies();
+
+describe("profile related species", () => {
+  it("links every published species from another profile", () => {
+    const linked = new Set<string>();
+    for (const item of catalog) {
+      for (const peer of [
+        ...getLookalikeSpecies(item.id),
+        ...getProfileRelatedSpecies(item.id),
+      ]) {
+        linked.add(peer.id);
+      }
+    }
+    expect(catalog.filter((item) => !linked.has(item.id))).toEqual([]);
+  });
+
+  it("stays within the group without repeating a lookalike", () => {
+    for (const item of catalog) {
+      if (item.id === "macrovipera-lebetina") continue;
+      const related = getProfileRelatedSpecies(item.id);
+      const lookalikes = new Set(
+        getLookalikeSpecies(item.id).map((peer) => peer.id),
+      );
+      const ids = related.map((peer) => peer.id);
+      expect(ids.length, item.id).toBeLessThanOrEqual(4);
+      expect(new Set(ids).size, item.id).toBe(ids.length);
+      expect(ids, item.id).not.toContain(item.id);
+      for (const peer of related) {
+        expect(lookalikes.has(peer.id), `${item.id} ${peer.id}`).toBe(false);
+        if (peer.family === item.family) continue;
+        expect(
+          getSpeciesAtlasMeta(peer.id).group,
+          `${item.id} -> ${peer.id}`,
+        ).toBe(getSpeciesAtlasMeta(item.id).group);
+      }
+    }
+  });
+
+  it("never offers the glass lizard as a related snake", () => {
+    for (const item of catalog) {
+      if (getSpeciesAtlasMeta(item.id).group !== "snake") continue;
+      expect(
+        getProfileRelatedSpecies(item.id).map((peer) => peer.id),
+        item.id,
+      ).not.toContain("pseudopus-apodus");
+    }
+  });
+
+  it("keeps the curated related lists", () => {
+    expect(
+      getProfileRelatedSpecies("macrovipera-lebetina").map((peer) => peer.id),
+    ).toEqual([
+      "vipera-transcaucasiana",
+      "vipera-dinniki",
+      "vipera-kaznakovi",
+      "vipera-renardi",
+    ]);
+    expect(getProfileRelatedSpecies("alectoris-chukar")).toEqual([]);
+  });
+});

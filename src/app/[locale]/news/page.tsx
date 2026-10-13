@@ -17,20 +17,10 @@ import {
 } from "@/lib/news";
 import { newsFeedUrl } from "@/lib/newsFeed";
 import { buildPageMetadata } from "@/lib/pageMetadata";
-import {
-  absoluteUrl,
-  localePath,
-  organizationJsonLd,
-  siteEntityId,
-} from "@/lib/site";
+import { absoluteUrl, localePath, siteEntityId } from "@/lib/site";
 
 type Props = {
   params: Promise<{ locale: string }>;
-};
-
-const orgLd = {
-  "@context": "https://schema.org",
-  ...organizationJsonLd(),
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -120,7 +110,7 @@ export default async function NewsIndexRoute({ params }: Props) {
 
   return (
     <>
-      <JsonLd data={[breadcrumbLd, collectionLd, orgLd]} />
+      <JsonLd data={[breadcrumbLd, collectionLd]} />
       <NewsIndexPage articles={articles} locale={locale} />
     </>
   );

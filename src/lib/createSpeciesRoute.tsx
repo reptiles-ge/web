@@ -13,7 +13,6 @@ import { JsonLd } from "@/components/JsonLd";
 import { NewsRelatedBlock } from "@/components/NewsRelatedBlock";
 import { SpeciesProfile } from "@/components/SpeciesProfile";
 import { getPublishedNewsForSpecies } from "@/data/news";
-import { getSpeciesById } from "@/data/species";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
 import { SPECIES_PROFILE_CLIENT_MESSAGE_NAMESPACES } from "@/i18n/clientMessages";
 import { openGraphLocale } from "@/i18n/localeMeta";
@@ -23,6 +22,7 @@ import { type AppLocale, routing } from "@/i18n/routing";
 import { getHubIndexTitleKey } from "@/lib/clusterGuides";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import { galleryImageObjects } from "@/lib/photoMeta";
+import { INDEXABLE_ROBOTS } from "@/lib/robots";
 import {
   speciesAliasKeywords,
   speciesJsonLdKeywords,
@@ -32,7 +32,7 @@ import {
   absoluteUrl,
   localePath,
   openGraphJpeg,
-  organizationJsonLd,
+  organizationRef,
   siteConfig,
   speciesAlternates,
   speciesOgImageUrl,
@@ -48,6 +48,7 @@ import {
   SPECIES_HERO_DESKTOP_SIZES,
   SPECIES_HERO_SIZES,
 } from "@/lib/speciesContent";
+import { stripSpeciesInlineLinks } from "@/lib/speciesInlineLinks";
 import {
   speciesFallbackDescriptionKey,
   speciesMetaDescription,
@@ -56,7 +57,10 @@ import {
   speciesSummaryDescription,
   speciesTitleIntentKey,
 } from "@/lib/speciesMeta";
-import { getLookalikeSpecies, getRelatedSpecies } from "@/lib/speciesRelated";
+import {
+  getLookalikeSpecies,
+  getProfileRelatedSpecies,
+} from "@/lib/speciesRelated";
 import {
   getSpeciesPublicSlug,
   resolveSpeciesInHub,
@@ -64,6 +68,7 @@ import {
   speciesStaticParams,
 } from "@/lib/speciesRoutes";
 import { speciesArticleSpatialCoverage } from "@/lib/speciesSpatialCoverage";
+import { taxonIdentifierUrls } from "@/lib/taxonIdentifiers";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 
 type PageProps = {
@@ -72,10 +77,11 @@ type PageProps = {
 
 const HALYOMORPHA_TAXON_SAME_AS = [
   "https://gd.eppo.int/taxon/HALYHA",
-  "https://www.gbif.org/species/4485843",
   "https://biodiversity.iliauni.edu.ge/ka/species/14072",
-  "https://www.wikidata.org/wiki/Q3270185",
 ];
+
+const IUCN_ASSESSMENT_URL =
+  /^https:\/\/www\.iucnredlist\.org\/species\/(\d+)\/(\d+)/;
 
 const TAXON_SAME_AS_URL_PATTERNS = [
   /^https:\/\/amphibiaweb\.org\/cgi\/amphib_query\?/,
@@ -90,10 +96,9 @@ const TAXON_SAME_AS_URL_PATTERNS = [
   /^https:\/\/gd\.eppo\.int\/taxon\//,
   /^https:\/\/reptile-database\.reptarium\.cz\/species\?/,
   /^https:\/\/wsc\.nmbe\.ch\/spec-data\//,
-  /^https:\/\/www\.gbif\.org\/species\//,
   /^https:\/\/www\.iucnredlist\.org\/species\//,
   /^https:\/\/www\.mammaldiversity\.org\/explore\.html#species-id=/,
-  /^https:\/\/www\.wikidata\.org\/wiki\//,
+  /^https:\/\/www\.mammaldiversity\.org\/taxon\//,
 ];
 
 type SpeciesSource = {
@@ -110,7 +115,7 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
     const { locale: localeParam, slug } = await params;
     if (!hasLocale(routing.locales, localeParam)) {
       return {
-        robots: { follow: false, index: false },
+        robots: null,
         title: "Species not found",
       };
     }
@@ -121,7 +126,7 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
 
     if (!raw) {
       return {
-        robots: { follow: false, index: false },
+        robots: null,
         title: t("notFound"),
       };
     }
@@ -134,6 +139,7 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
       item.commonName,
       item.scientificName,
       t(speciesTitleIntentKey(group, raw.danger)),
+      t("titleShort"),
     );
     const fallbackDescription =
       speciesMetaDescriptionOverride(raw.id, locale) ??
@@ -169,17 +175,14 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
         description,
         images: [ogImageTag],
         locale: openGraphLocale(locale),
-        modifiedTime: raw.updatedAt,
+        modifiedTime: item.updatedAt,
         publishedTime: raw.publishedAt,
         siteName: siteConfig.name,
         title,
         type: "article",
         url,
       },
-      robots: {
-        follow: true,
-        index: true,
-      },
+      robots: INDEXABLE_ROBOTS,
       title: {
         absolute: title,
       },
@@ -278,44 +281,22 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
   };
 }
 
+function epithetStem(epithet: string) {
+  return epithet.replace(/(?:us|um|is|a|e)$/, "");
+}
+
 function isTaxonSameAsUrl(url: string) {
   return TAXON_SAME_AS_URL_PATTERNS.some((pattern) => pattern.test(url));
 }
 
 function localizedSpeciesRelations(raw: Species, locale: AppLocale) {
-  const lookalikeSpecies = getLookalikeSpecies(raw.id);
-  const lookalikeIds = new Set(lookalikeSpecies.map((entry) => entry.id));
-  const related: Species[] = [];
-
-  if (raw.id === "macrovipera-lebetina") {
-    for (const id of [
-      "vipera-transcaucasiana",
-      "vipera-dinniki",
-      "vipera-kaznakovi",
-      "vipera-renardi",
-    ]) {
-      const entry = getSpeciesById(id);
-      if (entry) related.push(localizeSpecies(entry, locale));
-    }
-    return {
-      lookalikes: lookalikeSpecies.map((entry) =>
-        localizeSpecies(entry, locale),
-      ),
-      related,
-    };
-  }
-
-  for (const entry of raw.id === "alectoris-chukar"
-    ? []
-    : getRelatedSpecies(raw.id, 8)) {
-    if (lookalikeIds.has(entry.id)) continue;
-    related.push(localizeSpecies(entry, locale));
-    if (related.length === 4) break;
-  }
-
   return {
-    lookalikes: lookalikeSpecies.map((entry) => localizeSpecies(entry, locale)),
-    related,
+    lookalikes: getLookalikeSpecies(raw.id).map((entry) =>
+      localizeSpecies(entry, locale),
+    ),
+    related: getProfileRelatedSpecies(raw.id).map((entry) =>
+      localizeSpecies(entry, locale),
+    ),
   };
 }
 
@@ -330,6 +311,35 @@ function sourceCreativeWork(source: SpeciesSource) {
         "@type": "CreativeWork",
         name: source.name,
       };
+}
+
+function sourceNamesOtherSpecies(sourceName: string, raw: Species) {
+  const [genus, ...epithets] = raw.scientificName.split(" ");
+  if (!genus || epithets.length === 0) return false;
+  const ownStems = new Set(
+    [...epithets, ...raw.id.split("-").slice(1)].map(epithetStem),
+  );
+  const binomial = new RegExp(String.raw`\b${genus}\s+([a-z-]+)`, "g");
+  const named = Array.from(sourceName.matchAll(binomial), (match) =>
+    epithetStem(match[1]),
+  );
+  return named.length > 0 && !named.some((stem) => ownStems.has(stem));
+}
+
+function sourceSameAs(raw: Species) {
+  if (raw.id === "halyomorpha-halys") return HALYOMORPHA_TAXON_SAME_AS;
+
+  const urls: string[] = [];
+  for (const source of raw.sources) {
+    if (
+      source.url &&
+      isTaxonSameAsUrl(source.url) &&
+      !sourceNamesOtherSpecies(source.name, raw)
+    ) {
+      urls.push(source.url);
+    }
+  }
+  return withoutSupersededIucnAssessments(urls);
 }
 
 function SpeciesHeroPreloads({
@@ -364,13 +374,7 @@ function SpeciesHeroPreloads({
 }
 
 function speciesSameAs(raw: Species) {
-  if (raw.id === "halyomorpha-halys") return HALYOMORPHA_TAXON_SAME_AS;
-
-  const urls: string[] = [];
-  for (const source of raw.sources) {
-    if (source.url && isTaxonSameAsUrl(source.url)) urls.push(source.url);
-  }
-  return urls;
+  return [...new Set([...sourceSameAs(raw), ...taxonIdentifierUrls(raw.id)])];
 }
 
 function speciesStructuredData({
@@ -394,9 +398,16 @@ function speciesStructuredData({
     getSpeciesHeroSources(item).gallery,
     item,
     locale,
-  );
-  const taxon = speciesTaxonJsonLd(raw, item, locale);
-  const org = organizationJsonLd();
+  ).map((photo, index) => ({
+    "@id": `${pageUrl}#photo-${index + 1}`,
+    ...photo,
+  }));
+  const taxonId = `${pageUrl}#taxon`;
+  const galleryId = `${pageUrl}#${SPECIES_SECTION_IDS.gallery}`;
+  const taxon = {
+    "@id": taxonId,
+    ...speciesTaxonJsonLd(raw, item, locale),
+  };
   const ogImageObject = {
     "@type": "ImageObject",
     contentUrl: ogImage,
@@ -405,24 +416,31 @@ function speciesStructuredData({
   };
   const jsonLd = {
     "@context": "https://schema.org",
+    "@id": `${pageUrl}#article`,
     "@type": "Article",
     about: taxon,
-    associatedMedia: photoObjects,
-    author: org,
+    author: organizationRef(),
     citation: raw.sources.map(sourceCreativeWork),
-    dateModified: raw.updatedAt,
+    dateModified: item.updatedAt,
     datePublished: raw.publishedAt,
     description: item.description,
+    ...(photoObjects.length > 0
+      ? {
+          associatedMedia: photoObjects.map((photo) => ({
+            "@id": photo["@id"],
+          })),
+          hasPart: { "@id": galleryId },
+        }
+      : {}),
     headline: `${item.commonName} (${item.scientificName})`,
-    image: [ogImageObject, ...photoObjects],
+    image: [ogImageObject, ...photoObjects.map((photo) => photo.contentUrl)],
     inLanguage: locale,
     keywords: speciesJsonLdKeywords(item, locale),
-    mainEntity: taxon,
     mainEntityOfPage: {
       "@id": pageUrl,
       "@type": "WebPage",
     },
-    publisher: org,
+    publisher: organizationRef(),
     spatialCoverage: speciesArticleSpatialCoverage(item.id, locale),
   };
   const breadcrumbLd = {
@@ -439,12 +457,13 @@ function speciesStructuredData({
     photoObjects.length > 0
       ? {
           "@context": "https://schema.org",
+          "@id": galleryId,
           "@type": "ImageGallery",
-          about: taxon,
+          about: { "@id": taxonId },
           associatedMedia: photoObjects,
           inLanguage: locale,
           name: `${item.commonName} ${galleryTitle}`,
-          url: `${pageUrl}#${SPECIES_SECTION_IDS.gallery}`,
+          url: galleryId,
         }
       : null;
   const faqJsonLd =
@@ -456,7 +475,7 @@ function speciesStructuredData({
             "@type": "Question",
             acceptedAnswer: {
               "@type": "Answer",
-              text: entry.answer,
+              text: stripSpeciesInlineLinks(entry.answer),
             },
             name: entry.question,
           })),
@@ -497,12 +516,34 @@ function speciesTaxonJsonLd(raw: Species, item: Species, locale: AppLocale) {
     parentTaxon: {
       "@type": "Taxon",
       name: item.genus,
+      ...(item.family
+        ? {
+            parentTaxon: {
+              "@type": "Taxon",
+              name: item.family,
+              taxonRank: "Family",
+            },
+          }
+        : {}),
       taxonRank: "Genus",
     },
     taxonRank: "Species",
     ...(sameAs.length > 0 ? { sameAs } : {}),
     ...(subjectOf.length > 0 ? { subjectOf } : {}),
   };
+}
+
+function withoutSupersededIucnAssessments(urls: string[]) {
+  const latest = new Map<string, number>();
+  for (const url of urls) {
+    const match = IUCN_ASSESSMENT_URL.exec(url);
+    if (!match) continue;
+    latest.set(match[1], Math.max(latest.get(match[1]) ?? 0, Number(match[2])));
+  }
+  return urls.filter((url) => {
+    const match = IUCN_ASSESSMENT_URL.exec(url);
+    return !match || Number(match[2]) === latest.get(match[1]);
+  });
 }
 
 export { speciesSameAs, speciesStructuredData };

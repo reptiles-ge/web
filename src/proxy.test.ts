@@ -186,6 +186,54 @@ describe("species redirects", () => {
   });
 });
 
+describe("internal pathname redirects", () => {
+  it.each([
+    ["/birds", "/prinvelebi"],
+    ["/birds/saxeoebebi", "/prinvelebi/saxeoebebi"],
+    ["/insects", "/mtserebi"],
+    ["/insects/saxeoebebi", "/mtserebi/saxeoebebi"],
+    ["/mammals", "/dzuzumtsovrebi"],
+    ["/scorpions", "/morieli"],
+    ["/spiders", "/obobebi"],
+    ["/en/mtserebi", "/en/insects"],
+    ["/tr/morieli", "/tr/scorpions"],
+  ])("permanently redirects %s to %s", (from, to) => {
+    expect(location(from)).toEqual({
+      location: `https://reptiles.ge${to}`,
+      status: 308,
+    });
+  });
+
+  it("301s the KA insects index slug under a prefixed locale", () => {
+    expect(location("/ru/insects/saxeoebebi")).toEqual({
+      location: "https://reptiles.ge/ru/insects/species",
+      status: 301,
+    });
+  });
+
+  it("keeps the query string", () => {
+    expect(location("/insects?page=2")).toEqual({
+      location: "https://reptiles.ge/mtserebi?page=2",
+      status: 308,
+    });
+  });
+
+  it.each([
+    "/mtserebi",
+    "/mtserebi/saxeoebebi",
+    "/morieli",
+    "/prinvelebi/saxeoebebi",
+    "/en/insects",
+    "/en/insects/species",
+    "/ru/mammals",
+    "/tr/scorpions",
+  ])("does not redirect the canonical path %s", (path) => {
+    const response = call(path);
+    expect(response.status).toBe(200);
+    expect(response.headers.get("location")).toBeNull();
+  });
+});
+
 describe("filtered atlas requests", () => {
   it("marks filtered atlas URLs noindex,follow", () => {
     const response = call("/species?type=snake");

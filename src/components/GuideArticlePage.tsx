@@ -1,4 +1,4 @@
-import type { ComponentProps } from "react";
+import type { ComponentProps, CSSProperties } from "react";
 
 import { ArrowUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
@@ -12,6 +12,7 @@ import type { GuideArticleCopy } from "@/data/guideArticleTypes";
 
 import { ContentAttribution } from "@/components/ContentAttribution";
 import { CoverImage } from "@/components/CoverImage";
+import { GuideArticleContents } from "@/components/GuideArticleContents";
 import { GuideFaqItems } from "@/components/GuideFaqItems";
 import { GuideSources } from "@/components/GuideSources";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
@@ -102,7 +103,7 @@ export async function GuideArticlePage({
         </nav>
         <p className="text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
           <Link
-            className="transition-colors hover:text-foreground"
+            className="tap-target transition-colors hover:text-foreground"
             href={parent.path}
           >
             {parentLabel}
@@ -172,10 +173,17 @@ export async function GuideArticlePage({
             </ol>
           </section>
         ) : null}
-        <figure className="mt-10">
+        <figure
+          className="mt-8 sm:mt-10"
+          style={
+            article.heroPosition
+              ? ({ "--hero-position": article.heroPosition } as CSSProperties)
+              : undefined
+          }
+        >
           <CoverImage
             alt={article.hero.alt[locale]}
-            className="h-auto w-full rounded-card"
+            className="h-auto w-full rounded-card max-sm:max-h-[calc((100vw-3rem)*0.5625)] max-sm:object-cover lg:h-[clamp(360px,55vh,560px)] lg:object-cover lg:object-(--hero-position,50%_50%)"
             fill={false}
             priority
             sizes={IMAGE_SIZES}
@@ -185,37 +193,22 @@ export async function GuideArticlePage({
         </figure>
 
         {sections.length > 2 ? (
-          <nav
-            aria-labelledby={`${article.id}-contents`}
-            className="mt-12 border-y border-border py-7"
-          >
-            <h2
-              className="text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase"
-              id={`${article.id}-contents`}
-            >
-              {t("contents")}
-            </h2>
-            <ol className="mt-4 grid gap-x-10 gap-y-2.5 text-[15px] leading-snug sm:grid-cols-2">
-              {sections.map(({ anchor, index, section }) => (
-                <li key={anchor}>
-                  <a
-                    className="text-foreground/80 underline decoration-border underline-offset-4 transition-colors hover:text-primary hover:decoration-primary/40"
-                    {...contentEditorAttributes(
-                      "guide",
-                      editable ? article.id : undefined,
-                      `sections.${index}.heading`,
-                    )}
-                    href={`#${anchor}`}
-                  >
-                    {section.heading}
-                  </a>
-                </li>
-              ))}
-            </ol>
-          </nav>
+          <GuideArticleContents
+            headingId={`${article.id}-contents`}
+            items={sections.map(({ anchor, index, section }) => ({
+              anchor,
+              editorAttributes: contentEditorAttributes(
+                "guide",
+                editable ? article.id : undefined,
+                `sections.${index}.heading`,
+              ),
+              label: section.heading,
+            }))}
+            label={t("contents")}
+          />
         ) : null}
 
-        <div className="mt-16 space-y-14">
+        <div className="mt-10 space-y-14 sm:mt-16">
           {sections.map(({ anchor, index, section }) => (
             <GuideArticleSectionView
               anchor={anchor}

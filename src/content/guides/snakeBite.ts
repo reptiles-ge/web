@@ -116,7 +116,7 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
       {
         heading: "Which snakes in Georgia are medically relevant?",
         paragraphs: [
-          "The atlas describes Georgia's [venomous snakes](/venomous-snakes), including the [Levantine viper](macrovipera-lebetina). For a known or strongly suspected bite from that species, see the [blunt-nosed viper bite article](/snakes/giurzas-nakbeni). The rear-fanged [Montpellier snake](malpolon-insignitus) has a different atlas risk label. These labels describe species profiles; they cannot grade an individual bite.",
+          "The atlas describes Georgia's [venomous snakes](/venomous-snakes), including the [Levantine viper](macrovipera-lebetina). For a known or strongly suspected bite from that species, see the [Levantine viper bite article](/snakes/giurzas-nakbeni). The rear-fanged [Montpellier snake](malpolon-insignitus) has a different atlas risk label. These labels describe species profiles; they cannot grade an individual bite.",
           "After medical help is underway, use the [snake species index](/snakes/saxeoebebi) and [range guide](/snakes/gavrtseleba) for context. The [yard guide](/snakes-in-the-yard) covers prevention and encounters, not bite treatment.",
         ],
       },
@@ -569,6 +569,7 @@ export const SNAKE_BITE = defineGuideArticle({
     src: "https://cdn.reptiles.ge/images/guides/snake-bite-hero.jpg",
     width: 1730,
   },
+  heroPosition: "50% 10%",
   id: "snake-bite",
   images: {
     "call-112": {

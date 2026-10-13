@@ -237,7 +237,6 @@ export async function NewsArticlePage({
                       imageAlt={speciesPhotoAlt(
                         item.commonName,
                         item.scientificName,
-                        item.location,
                         item.imageCredit,
                       )}
                       subtitle={item.scientificName}

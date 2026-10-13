@@ -43,3 +43,5 @@ When missing, ask for exactly one needed value or authorization and explain wher
 ## Editorial Rules
 
 Do not invent search volume, traffic gains, biological facts, regions, venom effects, medical advice, conservation status, or taxonomy. Recommendations touching safety, venom, medical, distribution, taxonomy, and conservation require human review and existing reliable sources.
+
+Never name a source inside species profile prose to add E-E-A-T or AI-citation signals: no `Gorgadze-ის კვლევაში`, `Kerdikoshvili 2022`, `according to X`. State the fact with its year, place and kind of evidence; the source goes in the profile's `sources` list. This is an owner rule (see "No source names in profile prose" in `AGENTS.md`).

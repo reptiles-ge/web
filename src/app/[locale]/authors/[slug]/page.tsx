@@ -34,6 +34,7 @@ import {
 import { AUTHOR_PORTRAIT_SIZES } from "@/lib/imageSizes";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import { sentenceMetaDescription } from "@/lib/metaDescription";
+import { INDEXABLE_ROBOTS } from "@/lib/robots";
 import { absoluteUrl, localePath, siteConfig, siteEntityId } from "@/lib/site";
 import { authorDateFields } from "@/lib/structuredDataDates";
 
@@ -120,7 +121,7 @@ export default async function AuthorRoute({ params }: Props) {
         name,
         species: speciesIds.length,
       }),
-    ...authorDateFields(author.slug),
+    ...authorDateFields(author.slug, locale),
     inLanguage: locale,
     isPartOf: { "@id": siteEntityId("website") },
     mainEntity: creditAuthorEntityJsonLd(author, locale, {
@@ -158,7 +159,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: localeParam, slug } = await params;
   if (!hasLocale(routing.locales, localeParam)) {
     return {
-      robots: { follow: false, index: false },
+      robots: null,
       title: "Author",
     };
   }
@@ -168,7 +169,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!author) {
     const t = await getTranslations({ locale, namespace: "author" });
     return {
-      robots: { follow: false, index: false },
+      robots: null,
       title: t("notFound"),
     };
   }
@@ -212,10 +213,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: creditAuthorKind(author) === "person" ? "profile" : "website",
       url,
     },
-    robots: {
-      follow: true,
-      index: true,
-    },
+    robots: INDEXABLE_ROBOTS,
     title: { absolute: `${title} — ${siteConfig.name}` },
     twitter: {
       card: "summary",

@@ -110,6 +110,7 @@ export type SpeciesTranslation = {
   mobileImageCredit?: PhotoCredit;
   overview: string;
   stats: SpeciesStat[];
+  updatedAt?: string;
 };
 
 type PhotoConfidence = "georgia-field" | "placeholder" | "range-typical";

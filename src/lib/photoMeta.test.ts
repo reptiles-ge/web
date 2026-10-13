@@ -13,7 +13,6 @@ describe("galleryImageObject", () => {
       },
       {
         commonName: "კავკასიური გველგესლა",
-        location: "",
         scientificName: "Vipera kaznakovi",
       },
       "ka",
@@ -34,6 +33,10 @@ describe("galleryImageObject", () => {
         }),
       }),
     );
+    expect(data.creator).toHaveProperty(
+      "@id",
+      `${(data.creator as { url: string }).url}#person`,
+    );
   });
 
   it("credits a photography page by name without calling it a person", () => {
@@ -44,7 +47,6 @@ describe("galleryImageObject", () => {
       },
       {
         commonName: "ჩვეულებრივი კაკაჩა",
-        location: "",
         scientificName: "Buteo buteo",
       },
       "ka",
@@ -68,7 +70,6 @@ describe("galleryImageObject", () => {
       },
       {
         commonName: "კავკასიური გველგესლა",
-        location: "",
         scientificName: "Vipera kaznakovi",
       },
       "ka",
@@ -106,7 +107,6 @@ describe("galleryImageObjects", () => {
       ],
       {
         commonName: "კავკასიური გველგესლა",
-        location: "",
         scientificName: "Vipera kaznakovi",
       },
       "ka",

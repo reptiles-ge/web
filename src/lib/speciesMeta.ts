@@ -38,7 +38,7 @@ function speciesMetaTitle(
   return `${commonName} (${scientificName}) | ${intent}`;
 }
 
-const MAX_META_TITLE_LENGTH = 70;
+export const TARGET_META_TITLE_LENGTH = 60;
 const MAX_META_DESCRIPTION_LENGTH = 160;
 const MIN_SUMMARY_DESCRIPTION_LENGTH = 70;
 
@@ -69,22 +69,31 @@ export function speciesTitleIntentKey(
   return "titleAmphibian";
 }
 
-function shortSpeciesMetaTitle(commonName: string, intent: string) {
-  return `${commonName} | ${intent}`;
+function fittedSpeciesMetaTitle(
+  commonName: string,
+  scientificName: string,
+  intent: string,
+  shortIntent: string,
+) {
+  const title = speciesMetaTitle(commonName, scientificName, intent);
+  if (title.length <= TARGET_META_TITLE_LENGTH) return title;
+  const name = `${commonName} (${scientificName})`;
+  const shortTitle = `${name} ${shortIntent}`;
+  return shortTitle.length <= TARGET_META_TITLE_LENGTH ? shortTitle : name;
 }
 
-const SPECIES_META_TITLE_OVERRIDE: Partial<
+export const SPECIES_META_TITLE_OVERRIDE: Partial<
   Record<string, Partial<Record<AppLocale, string>>>
 > = {
   "alectoris-chukar": {
-    en: "Chukar Partridge (Alectoris chukar) in Georgia | Range and ID",
-    ka: "კაკაბი (Alectoris chukar) საქართველოში — გავრცელება და ამოცნობა",
+    en: "Chukar Partridge (Alectoris chukar) in Georgia | Range, ID",
+    ka: "კაკაბი (Alectoris chukar) საქართველოში — ამოცნობა",
     ru: "Кеклик (Alectoris chukar) в Грузии — ареал и признаки",
-    tr: "Gürcistan'da kınalı keklik (Alectoris chukar) — yayılış ve tanıma",
+    tr: "Kınalı keklik (Alectoris chukar) Gürcistan'da — tanıma",
   },
   "araneus-diadematus": {
-    en: "European garden spider (Araneus diadematus) | Cross orb-weaver in Georgia",
-    ka: "ჩვეულებრივი ჯვრიანა (Araneus diadematus) | ობობა საქართველოში",
+    en: "European garden spider (Araneus diadematus) in Georgia",
+    ka: "ჩვეულებრივი ჯვრიანა (Araneus diadematus) — ობობა",
   },
   "argiope-bruennichi": {
     en: "Wasp spider (Argiope bruennichi) | Orb-weaver in Georgia",
@@ -101,7 +110,7 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
     tr: "Doğu hamam böceği (Blatta orientalis) Gürcistan'da",
   },
   "canis-aureus": {
-    ka: "ტურა (Canis aureus) საქართველოში — გავრცელება და ამოცნობა",
+    ka: "ტურა (Canis aureus) — ფოტოები, ხმა, გავრცელება საქართველოში",
   },
   "canis-lupus": {
     ka: "მგელი (Canis lupus) საქართველოში — გავრცელება და ამოცნობა",
@@ -110,7 +119,7 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
     ka: "შველი საქართველოში (Capreolus capreolus) — ამოცნობა",
   },
   "cheiracanthium-punctorium": {
-    en: "European yellow sac spider (Cheiracanthium punctorium) | Spider in Georgia",
+    en: "European yellow sac spider (Cheiracanthium punctorium)",
     ka: "Cheiracanthium punctorium | ობობა საქართველოში",
   },
   "cimex-lectularius": {
@@ -120,36 +129,36 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
     tr: "Tahta kurusu (Cimex lectularius) Gürcistan'da",
   },
   "columba-livia": {
-    en: "Rock Dove (Columba livia) in Georgia | Identification and range",
+    en: "Rock Dove (Columba livia) in Georgia | Identification",
     ka: "გარეული მტრედი (Columba livia) საქართველოში — ამოცნობა",
     ru: "Сизый голубь (Columba livia) в Грузии — как узнать",
     tr: "Kaya güvercini (Columba livia) Gürcistan'da — tanıma",
   },
   "columba-palumbus": {
-    en: "Common woodpigeon (Columba palumbus) | Wood pigeon in Georgia",
+    en: "Common woodpigeon (Columba palumbus) | Wood pigeon",
     ka: "ქედანი (Columba palumbus) | ტყის მტრედი საქართველოში",
   },
   "dolichophis-schmidti": {
-    en: "Red-bellied racer (Dolichophis schmidti) | Non-venomous snake of eastern Georgia",
-    ka: "წითელმუცელა მცურავი (Dolichophis schmidti) — უშხამო გველი აღმოსავლეთ საქართველოში",
+    en: "Red-bellied racer (Dolichophis schmidti): non-venomous snake",
+    ka: "წითელმუცელა მცურავი (Dolichophis schmidti) — უშხამო გველი",
   },
   "erinaceus-concolor": {
-    ka: "ზღარბი (Erinaceus concolor) საქართველოში — გავრცელება და ამოცნობა",
+    ka: "ზღარბი (Erinaceus concolor) საქართველოში — ამოცნობა",
   },
   "erithacus-rubecula": {
-    en: "European robin (Erithacus rubecula) | Year-round resident in Georgia",
-    ka: "გულწითელა (Erithacus rubecula) | მთელი წლის რეზიდენტი საქართველოში",
+    en: "European robin (Erithacus rubecula) | Year-round in Georgia",
+    ka: "გულწითელა (Erithacus rubecula) — მთელი წლის რეზიდენტი",
   },
   "euscorpius-italicus": {
     en: "Italian scorpion (Euscorpius italicus) | Georgia",
-    ka: "იტალიური მორიელი (Euscorpius italicus) — გავრცელება და ამოცნობა საქართველოში",
+    ka: "იტალიური მორიელი (Euscorpius italicus) საქართველოში",
   },
   "euscorpius-mingrelicus": {
-    en: "Mingrelian scorpion (Euscorpius mingrelicus) | Western Georgia",
-    ka: "მეგრული მორიელი (Euscorpius mingrelicus) — დასავლეთ საქართველოში",
+    en: "Mingrelian scorpion (Euscorpius mingrelicus) in Georgia",
+    ka: "მეგრული მორიელი (Euscorpius mingrelicus) საქართველოში",
   },
   "falco-tinnunculus": {
-    en: "Common kestrel (Falco tinnunculus) in Georgia | Identification",
+    en: "Common kestrel (Falco tinnunculus) in Georgia | ID",
     ka: "კირკიტა (Falco tinnunculus) საქართველოში — ამოცნობა",
     ru: "Обыкновенная пустельга (Falco tinnunculus) в Грузии",
     tr: "Kerkenez (Falco tinnunculus) Gürcistan'da",
@@ -159,34 +168,34 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
     ka: "აზიური ფაროსანა (Halyomorpha halys) | მავნებელი საქართველოში",
   },
   "latrodectus-tredecimguttatus": {
-    en: "Mediterranean black widow (Latrodectus tredecimguttatus) | Widow spider in Georgia",
-    ka: "ყარაყურთი (Latrodectus tredecimguttatus) | შავი ქვრივი საქართველოში",
+    en: "Mediterranean black widow (Latrodectus tredecimguttatus)",
+    ka: "ყარაყურთი (Latrodectus tredecimguttatus) — შავი ქვრივი",
   },
   "luscinia-megarhynchos": {
-    en: "Common nightingale (Luscinia megarhynchos) | Songbird in Georgia",
-    ka: "ბულბული (Luscinia megarhynchos) | მომღერალი ფრინველი საქართველოში",
+    en: "Common nightingale (Luscinia megarhynchos) in Georgia",
+    ka: "ბულბული (Luscinia megarhynchos) — მომღერალი ფრინველი",
   },
   "lutra-lutra": {
-    ka: "წავი (Lutra lutra) — ფოტოები, კვება და გავრცელება საქართველოში",
+    ka: "წავი (Lutra lutra) — ფოტოები, კვება, გავრცელება საქართველოში",
   },
   "lycosa-singoriensis": {
-    en: "South Russian tarantula (Lycosa singoriensis) | Wolf spider in Georgia",
-    ka: "ტარანტული (Lycosa singoriensis) | დიდი მგლის ობობა საქართველოში",
+    en: "South Russian tarantula (Lycosa singoriensis) | Wolf spider",
+    ka: "ტარანტული (Lycosa singoriensis) — დიდი მგლის ობობა",
   },
   "macrovipera-lebetina": {
-    en: "Levantine viper (Macrovipera lebetinus) | High-risk venomous snake in Georgia",
-    ka: "გიურზა (Macrovipera lebetinus) | შხამიანი გველი საქართველოში — რისკი",
+    en: "Levantine viper (Macrovipera lebetinus) | Venomous snake",
+    ka: "გიურზა (Macrovipera lebetinus) — შხამიანი გველი საქართველოში",
   },
   "mantis-religiosa": {
-    en: "European mantis (Mantis religiosa) | Praying mantis in Georgia",
+    en: "European mantis (Mantis religiosa) | Praying mantis",
     ka: "ჩოქელა (Mantis religiosa) | მწერი საქართველოში",
   },
   "meles-canescens": {
-    ka: "მაჩვი (Meles canescens) — ფოტოები, კვება და გავრცელება საქართველოში",
+    ka: "მაჩვი (Meles canescens) — ფოტოები, კვება, გავრცელება",
   },
   "mesobuthus-eupeus": {
     en: "Mottled scorpion (Mesobuthus eupeus) | Scorpion in Georgia",
-    ka: "ჭრელი მორიელი (Mesobuthus eupeus) — გავრცელება და ჩხვლეტის რისკი",
+    ka: "ჭრელი მორიელი (Mesobuthus eupeus) — ჩხვლეტის რისკი",
   },
   "milvus-migrans": {
     en: "Black kite (Milvus migrans) | Raptor in Georgia",
@@ -194,15 +203,15 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
   },
   "motacilla-alba": {
     en: "White wagtail (Motacilla alba) | Wagtail in Georgia",
-    ka: "თეთრი ბოლოქანქარა (Motacilla alba) | ბოლოქანქარა საქართველოში",
+    ka: "თეთრი ბოლოქანქარა (Motacilla alba) საქართველოში",
   },
   "natrix-natrix": {
     en: "Grass snake (Natrix natrix) | Non-venomous snake in Georgia",
-    ka: "ჩვეულებრივი ანკარა (Natrix natrix) | უშხამო გველი საქართველოში",
+    ka: "ჩვეულებრივი ანკარა (Natrix natrix) — უშხამო გველი",
   },
   "natrix-tessellata": {
-    en: "Dice snake (Natrix tessellata) | Non-venomous water snake in Georgia",
-    ka: "წყლის ანკარა (Natrix tessellata) | უშხამო წყლის გველი საქართველოში",
+    en: "Dice snake (Natrix tessellata) | Non-venomous water snake",
+    ka: "წყლის ანკარა (Natrix tessellata) — უშხამო წყლის გველი",
   },
   "neophron-percnopterus": {
     en: "Egyptian vulture in Georgia | Identification and breeding",
@@ -211,78 +220,60 @@ const SPECIES_META_TITLE_OVERRIDE: Partial<
     tr: "Gürcistan'da küçük akbaba | Tanıma ve yuvalama",
   },
   "olivierus-caucasicus": {
-    ka: "კავკასიური მორიელი (Olivierus caucasicus) — გავრცელება და ამოცნობა",
+    ka: "კავკასიური მორიელი (Olivierus caucasicus) საქართველოში",
   },
   "ommatotriton-ophryticus": {
-    en: "Northern banded newt (Ommatotriton ophryticus) | Newt in Georgia",
-    ka: "კავკასიური ტრიტონი (Ommatotriton ophryticus) — გავრცელება და ამოცნობა",
+    en: "Northern banded newt (Ommatotriton ophryticus) in Georgia",
+    ka: "კავკასიური ტრიტონი (Ommatotriton ophryticus) საქართველოში",
   },
   "pelophylax-ridibundus": {
-    ka: "ტბორის ბაყაყი (Pelophylax ridibundus) — გავრცელება საქართველოში",
+    ka: "ტბორის ბაყაყი (Pelophylax ridibundus) საქართველოში",
   },
   "phoenicolacerta-laevis": {
-    en: "Lebanon lizard (Phoenicolacerta laevis) | Introduced lizard in Georgia",
-    ka: "ლიბანური ხვლიკი (Phoenicolacerta laevis) — შემოტანილი სახეობა საქართველოში",
+    en: "Lebanon lizard (Phoenicolacerta laevis) | Introduced lizard",
+    ka: "ლიბანური ხვლიკი (Phoenicolacerta laevis): შემოტანილი სახეობა",
   },
   "pholcus-phalangioides": {
-    en: "Long-bodied cellar spider (Pholcus phalangioides) | Cellar spider in Georgia",
-    ka: "გრძელფეხა ფოლკუსი (Pholcus phalangioides) | სახლის ობობა საქართველოში",
+    en: "Long-bodied cellar spider (Pholcus phalangioides) in Georgia",
+    ka: "გრძელფეხა ფოლკუსი (Pholcus phalangioides) — სახლის ობობა",
   },
   "platyceps-najadum": {
-    en: "Dahl's whip snake (Platyceps najadum) | Non-venomous snake in Georgia",
-    ka: "წენგოსფერი მცურავი (Platyceps najadum) | უშხამო გველი საქართველოში",
+    en: "Dahl's whip snake (Platyceps najadum) | Non-venomous snake",
+    ka: "წენგოსფერი მცურავი (Platyceps najadum) — უშხამო გველი",
   },
   "procyon-lotor": {
-    ka: "ენოტი (Procyon lotor) — ფოტოები, ქცევა და გავრცელება საქართველოში",
+    ka: "ენოტი (Procyon lotor) — ფოტოები, ქცევა, გავრცელება",
   },
   "pseudopus-apodus": {
-    en: "European glass lizard (Pseudopus apodus) | Legless lizard in Georgia",
+    en: "European glass lizard (Pseudopus apodus) | Legless lizard",
     ka: "გველხოკერა (Pseudopus apodus) — უფეხო ხვლიკი, არა გველი",
   },
   "steatoda-paykulliana": {
-    en: "False black widow (Steatoda paykulliana) | Cobweb spider in Georgia",
+    en: "False black widow (Steatoda paykulliana) | Cobweb spider",
     ka: "ცრუ ყარაყურთი (Steatoda paykulliana) | ობობა საქართველოში",
   },
   "streptopelia-turtur": {
-    en: "European turtle dove (Streptopelia turtur) | Migratory dove in Georgia",
-    ka: "გვრიტი (Streptopelia turtur) | გადამფრენი მტრედი საქართველოში",
+    en: "European turtle dove (Streptopelia turtur) | Migratory dove",
+    ka: "გვრიტი (Streptopelia turtur) — გადამფრენი მტრედი",
   },
   "tenuidactylus-caspius": {
-    ka: "კასპიური გეკონი (Tenuidactylus caspius) — გავრცელება საქართველოში",
+    ka: "კასპიური გეკონი (Tenuidactylus caspius) საქართველოში",
   },
   "vipera-kaznakovi": {
-    en: "Caucasus viper (Vipera kaznakovi) | Venomous snake of western Georgia",
-    ka: "კავკასიური გველგესლა (Vipera kaznakovi) — შხამიანი გველი დასავლეთ საქართველოში",
+    en: "Caucasus viper (Vipera kaznakovi) | Venomous snake",
+    ka: "კავკასიური გველგესლა (Vipera kaznakovi) — შხამიანი გველი",
   },
   "vipera-transcaucasiana": {
-    en: "Nose-horned viper (Vipera ammodytes) | Venomous snake of the Lesser Caucasus",
-    ka: "ცხვირრქოსანი გველგესლა (Vipera ammodytes) | შხამიანი გველი მცირე კავკასიონზე",
+    en: "Nose-horned viper (Vipera ammodytes) | Venomous snake",
+    ka: "ცხვირრქოსანი გველგესლა (Vipera ammodytes) — შხამიანი გველი",
   },
   "xerotyphlops-vermicularis": {
-    en: "European blind snake (Xerotyphlops vermicularis) | Harmless blind snake in Georgia",
-    ka: "გველბრუცა (Xerotyphlops vermicularis) | უშხამო ბრმა გველი საქართველოში",
+    en: "European blind snake (Xerotyphlops vermicularis) in Georgia",
+    ka: "გველბრუცა (Xerotyphlops vermicularis) — უშხამო ბრმა გველი",
   },
 };
 
-const EXACT_SPECIES_META_TITLE_OVERRIDES = new Set([
-  "canis-aureus",
-  "canis-lupus",
-  "capreolus-capreolus",
-  "dolichophis-schmidti",
-  "erinaceus-concolor",
-  "euscorpius-italicus",
-  "euscorpius-mingrelicus",
-  "mesobuthus-eupeus",
-  "olivierus-caucasicus",
-  "ommatotriton-ophryticus",
-  "pelophylax-ridibundus",
-  "phoenicolacerta-laevis",
-  "pseudopus-apodus",
-  "tenuidactylus-caspius",
-  "vipera-kaznakovi",
-]);
-
-const SPECIES_META_DESCRIPTION_OVERRIDE: Partial<
+export const SPECIES_META_DESCRIPTION_OVERRIDE: Partial<
   Record<string, Partial<Record<AppLocale, string>>>
 > = {
   "alectoris-chukar": {
@@ -297,10 +288,16 @@ const SPECIES_META_DESCRIPTION_OVERRIDE: Partial<
     tr: "Gürcistan'da yeşilbaş (Anas platyrhynchos): harita kayıtları, Cavaheti üreme gölleri, kışlama alanları, tanıma, av sezonu ve limitler.",
   },
   "araneus-diadematus": {
+    en: "Araneus diadematus (garden or cross spider): a white cross on the abdomen and ringed legs. Confirmed in Georgia and harmless to people. Size and season.",
     ka: "ჩვეულებრივი ჯვრიანა (Araneus diadematus) საქართველოში — ამოცნობის ნიშნები, დადასტურებული გავრცელება, ჰაბიტატი, ზომა და რამდენად საშიშია ადამიანისთვის.",
+    ru: "Обыкновенный крестовик (Araneus diadematus): белый крест на брюшке и кольчатые ноги. Подтверждён в Грузии, людям не опасен. Размер и когда его заметить.",
   },
   "argiope-bruennichi": {
     ka: "არგიოპა (Argiope bruennichi) საქართველოში — როგორ ამოიცნოთ ყვითელ-შავი ობობა, სად გვხვდება, რა ზომისაა და რატომ არ ითვლება ადამიანისთვის სამედიცინო რისკად.",
+    ru: "Аргиопа Брюнниха (Argiope bruennichi) — паук с жёлто-чёрными полосами и белым зигзагом в паутине. Где встречается в Грузии и почему не опасен для людей.",
+  },
+  "argiope-lobata": {
+    en: "Lobed argiope (Argiope lobata): silvery orb-weaver with a lobed abdomen. How it differs from the wasp spider, where it lives in Georgia, why it’s harmless.",
   },
   "blatta-orientalis": {
     en: "Oriental cockroach in Georgia: map records and regional status, identification, size, damp refuges and household risks.",
@@ -311,8 +308,11 @@ const SPECIES_META_DESCRIPTION_OVERRIDE: Partial<
   "buteo-buteo": {
     ka: "ჩვეულებრივი კაკაჩა (Buteo buteo) საქართველოში — ამოცნობის ნიშნები, გავრცელება, ჰაბიტატი, კვება, მიგრაცია ბათუმის გავლით და რატომ არის ადამიანისთვის უვნებელი.",
   },
+  "capreolus-capreolus": {
+    ru: "Косуля (Capreolus capreolus) в Грузии: небольшой олень, летом рыжая, зимой серее, с белым «зеркалом». Отличие от благородного оленя, повадки и охрана.",
+  },
   "cheiracanthium-punctorium": {
-    en: "European yellow sac spider (Cheiracanthium punctorium) in Georgia: confirmed records, identification, habitat, size, and realistic bite risk.",
+    en: "Cheiracanthium punctorium (yellow sac spider) in Georgia: pale yellow-green, dark-tipped chelicerae, no orb web. Bite is painful; necrosis is not typical.",
     ka: "Cheiracanthium punctorium საქართველოში — დადასტურებული ჩანაწერები, ამოცნობის ნიშნები, ჰაბიტატი, ზომა და მტკივნეული ნაკბენის რეალური რისკი.",
   },
   "cimex-lectularius": {
@@ -327,6 +327,9 @@ const SPECIES_META_DESCRIPTION_OVERRIDE: Partial<
     ru: "Сизый голубь (Columba livia) живёт и гнездится в Грузии круглый год. Признаки, данные по Алазани и отличие от вяхиря.",
     tr: "Kaya güvercini (Columba livia) Gürcistan'da yıl boyu yaşar ve ürer. Tanıma, Alazani listesi verileri ve tahtalıdan farkları.",
   },
+  "coronella-austriaca": {
+    ru: "Обыкновенная медянка (Coronella austriaca) — безвредная змея, которую путают с гадюкой. Как отличить по чешуе и зрачку, размер и где встречается в Грузии.",
+  },
   "dolichophis-schmidti": {
     ka: "წითელმუცელა მცურავი (Dolichophis schmidti) საქართველოში — ამოცნობის ნიშნები, აღმოსავლეთ საქართველოს ჰაბიტატები, ზომა, ქცევა და რამდენად საშიშია ადამიანისთვის.",
   },
@@ -334,7 +337,7 @@ const SPECIES_META_DESCRIPTION_OVERRIDE: Partial<
     ka: "ევროპული ზღარბი (Erinaceus concolor) საქართველოში — ამოცნობის ნიშნები, გავრცელება, ჰაბიტატი, კვება და რატომ არის ადამიანისთვის უვნებელი.",
   },
   "euscorpius-italicus": {
-    en: "Italian scorpion (Euscorpius italicus) in Georgia: taxonomy, Georgian records, identification, human-associated habitat, and sting risk.",
+    en: "Italian scorpion (Euscorpius italicus): dark body, strong pincers, thin tail. Native; confirmed in Abkhazia, Adjara, Imereti. Sting risk and safe removal.",
     ka: "იტალიური მორიელი (Euscorpius italicus) საქართველოში — ტაქსონომია, საქართველოს ჩანაწერები, ამოცნობა, ანთროპოგენური ჰაბიტატი და ჩხვლეტის რისკი.",
   },
   "euscorpius-mingrelicus": {
@@ -344,25 +347,52 @@ const SPECIES_META_DESCRIPTION_OVERRIDE: Partial<
   "falco-tinnunculus": {
     en: "Common kestrel in Georgia: map-confirmed distribution in nine regions, breeding resident and migrant. Identification and lesser kestrel comparison.",
     ka: "კირკიტა საქართველოში — რუკაზე გავრცელება დადასტურებულია ცხრა რეგიონში; მობუდარი და გადამფრენი. ამოცნობა და განსხვავება მცირე კირკიტასგან.",
-    ru: "Обыкновенная пустельга в Грузии: распространение подтверждено на карте в девяти регионах; гнездится и встречается на пролёте. Признаки и отличие от малой пустельги.",
+    ru: "Обыкновенная пустельга в Грузии: подтверждена на карте в девяти регионах; гнездится и встречается на пролёте. Признаки и отличие от малой пустельги.",
     tr: "Gürcistan'da kerkenez: haritada dokuz bölgede doğrulanmış yayılış; üreyen yerleşik tür ve göçmen. Tanıma ve küçük kerkenezden ayırma.",
   },
   "halyomorpha-halys": {
-    en: "Brown marmorated stink bug (Halyomorpha halys) in Georgia: identification, distribution evidence, crop damage, control, and indoor removal.",
+    en: "Halyomorpha halys (brown marmorated stink bug): marbled shield, white-banded antennae, no bite. Hazelnut damage in Georgia, why it enters homes, removal.",
     ka: "აზიური ფაროსანა (Halyomorpha halys) საქართველოში — როგორ ამოვიცნოთ, რას აზიანებს, სად გვხვდება, რატომ შედის სახლში და როგორ მოვიქცეთ უსაფრთხოდ.",
+    ru: "Азиатский мраморный клоп (Halyomorpha halys) в Грузии: щитовидное тело, белые полосы на усиках. Не кусается. Почему осенью лезет в дом и как его убрать.",
+  },
+  "latrodectus-tredecimguttatus": {
+    ru: "Каракурт (Latrodectus tredecimguttatus) в Грузии: чёрный паук с круглым брюшком, часто с красными пятнами. Высокий риск. Где живёт, что делать при укусе.",
   },
   "lutra-lutra": {
+    en: "Eurasian otter (Lutra lutra) in Georgia: identification, the rivers and lakes where it lives, diet, a map of records, and its VU status on Georgia's Red List.",
     ka: "წავი (Lutra lutra) მდინარეებისა და ტბების ნახევრადწყლის მტაცებელია, საქართველოს წითელ ნუსხაში მოწყვლადი (VU). ფოტოები, ნიშნები, კვება და გავრცელება.",
+    ru: "Выдра (Lutra lutra) в Грузии: как узнать, реки и озёра, где она живёт, питание, карта находок и статус VU в Красном списке Грузии.",
+    tr: "Gürcistan'da su samuru (Lutra lutra): tanıma, yaşadığı nehir ve göller, beslenme, kayıt haritası ve Gürcistan Kırmızı Listesi'ndeki VU statüsü.",
+  },
+  "lycosa-singoriensis": {
+    en: "South Russian tarantula (Lycosa singoriensis): a big burrowing wolf spider, not a pet tarantula. Kvemo Kartli, Kakheti; painful bite, not life-threatening.",
+    ru: "Южнорусский тарантул (Lycosa singoriensis) — крупный роющий волчий паук, не птицеед. Где встречается в Грузии, размер и чем опасен укус: боль и отёк.",
   },
   "macrovipera-lebetina": {
+    en: "Levantine viper (gyurza): Georgia’s largest viper, high risk. Vertical pupils, dry eastern range, rare records in Tbilisi, and why to call 112 if bitten.",
     ka: "გიურზა (Macrovipera lebetinus) საქართველოში: ამოცნობის ნიშნები, გავრცელება, აღმოსავლეთ საქართველოს მშრალი ჰაბიტატები, ზომა და მაღალი რისკი ადამიანისთვის.",
+    ru: "Гюрза (Macrovipera lebetinus) — самая крупная гадюка Грузии, высокий риск. Как отличить от полозов, редкие находки в Тбилиси и что делать при укусе: 112.",
   },
   "meles-canescens": {
+    en: "Caucasian badger (Meles canescens) in Georgia: striped head, habitat, sett and tracks, diet, confirmed regions on the map, and whether it is dangerous.",
     ka: "მაჩვი (Meles canescens) საქართველოს მშობლიური კვერნისებრია, ცნობადი შავ-თეთრზოლიანი თავით. რუკა, ფოტოები, კვალი, სორო, კვება და დაცვის სტატუსი.",
+    ru: "Кавказский барсук (Meles canescens) в Грузии: полосатая голова, местообитания, нора и следы, питание, подтверждённые регионы на карте и опасен ли он.",
+    tr: "Gürcistan'da Kafkas porsuğu (Meles canescens): çizgili baş, yaşam alanı, yuva ve iz, beslenme, haritada doğrulanmış bölgeler ve tehlikeli olup olmadığı.",
   },
   "mesobuthus-eupeus": {
     en: "Mottled scorpion (Mesobuthus eupeus) in Georgia: taxonomy, Tbilisi evidence, identification notes, habitat, sting risk, and sources.",
     ka: "ჭრელი მორიელი (Mesobuthus eupeus) საქართველოში — ტაქსონომია, თბილისის მტკიცებულება, ამოცნობა, ჰაბიტატი, ნაკბენის რისკი და წყაროები.",
+  },
+  "mustela-nivalis": {
+    en: "Least weasel (Mustela nivalis): tiny brown predator, white belly, short tail with no black tip. Photos, how to tell it from a stoat, where in Georgia.",
+  },
+  "natrix-natrix": {
+    en: "Grass snake (Natrix natrix): non-venomous, yellow or pale collar, round pupils. How to tell it from a viper or the dice snake; where it lives in Georgia.",
+    ru: "Обыкновенный уж (Natrix natrix) — неядовитая змея с жёлтым «воротником» и круглым зрачком. Как отличить от гадюки и водяного ужа, где встречается в Грузии.",
+  },
+  "natrix-tessellata": {
+    en: "Dice snake (Natrix tessellata): harmless water snake with chessboard spots, no yellow collar. How to tell it from a viper or grass snake; range in Georgia.",
+    ru: "Водяной уж (Natrix tessellata) — безвредная змея с «шахматными» пятнами, без жёлтого «воротника». Отличия от гадюки и ужа, размер, где живёт в Грузии.",
   },
   "neophron-percnopterus": {
     en: "Egyptian vulture in Georgia: confirmed nesting in Vashlovani, adult and juvenile identification, migration and conservation status.",
@@ -374,16 +404,23 @@ const SPECIES_META_DESCRIPTION_OVERRIDE: Partial<
     ka: "გრძელფეხა ფოლკუსი (Pholcus phalangioides) საქართველოში — სახლისა და სარდაფის გრძელფეხა ობობის ამოცნობა, დადასტურებული ჩანაწერები და ადამიანისთვის რეალური რისკი.",
   },
   "platyceps-najadum": {
+    en: "Dahl’s whip snake (Platyceps najadum): very slender, non-venomous, round pupils, pale-edged dark neck spots. Where it lives in Georgia; how to identify it.",
     ka: "წენგოსფერი მცურავი (Platyceps najadum) საქართველოში — უშხამო გველის ამოცნობა, გავრცელება, მშრალი და ქვიანი ჰაბიტატები, ზომა და როგორ მოვიქცეთ შეხვედრისას.",
+  },
+  "telescopus-fallax": {
+    en: "European cat snake (Telescopus fallax): slender, nocturnal, vertical pupils, so often taken for a viper. Rear-fanged but not a serious danger to people.",
   },
   "ursus-arctos": {
     ka: "მურა დათვი (Ursus arctos) საქართველოში — როგორ ამოვიცნოთ, სად ბინადრობს, რა ზომისაა, რას ჭამს, რა რისკს ქმნის ადამიანისთვის და რა კონსერვაციული სტატუსი აქვს.",
   },
   "vipera-kaznakovi": {
-    ka: "კავკასიური გველგესლა (Vipera kaznakovi) საქართველოში — როგორ ამოვიცნოთ, სად გვხვდება დასავლეთ საქართველოს კოლხურ ზონებში, რა რისკს ქმნის მისი ნაკბენი და რატომ აქვს EN კონსერვაციული სტატუსი.",
+    ka: "კავკასიური გველგესლა (Vipera kaznakovi) საქართველოში — ამოცნობა, გავრცელება დასავლეთ საქართველოს კოლხურ ზონებში, ნაკბენის რისკი და EN სტატუსი.",
   },
   "vulpes-vulpes": {
     ka: "მელა (Vulpes vulpes) საქართველოში — სად გვხვდება, როგორ ამოვიცნოთ, რა ზომისაა, რას ჭამს და რა უნდა ვიცოდეთ ადამიანისთვის ცოფის შესაძლო რისკზე.",
+  },
+  "zamenis-longissimus": {
+    en: "Aesculapian snake (Zamenis longissimus): a long, plain olive-brown ratsnake with round pupils. Non-venomous. Where in Georgia; how to tell it from vipers.",
   },
 };
 
@@ -413,30 +450,21 @@ export function speciesPageMetaTitle(
   commonName: string,
   scientificName: string,
   intent: string,
+  shortIntent: string,
 ) {
-  const override = SPECIES_META_TITLE_OVERRIDE[speciesId]?.[locale];
-  if (override) {
-    return locale === "ka" &&
-      override.length > MAX_META_TITLE_LENGTH &&
-      !EXACT_SPECIES_META_TITLE_OVERRIDES.has(speciesId)
-      ? shortSpeciesMetaTitle(commonName, intent)
-      : override;
-  }
-
-  const title = speciesMetaTitle(commonName, scientificName, intent);
-  return locale === "ka" && title.length > MAX_META_TITLE_LENGTH
-    ? shortSpeciesMetaTitle(commonName, intent)
-    : title;
+  return (
+    SPECIES_META_TITLE_OVERRIDE[speciesId]?.[locale] ??
+    fittedSpeciesMetaTitle(commonName, scientificName, intent, shortIntent)
+  );
 }
 
 export function speciesPhotoAlt(
   commonName: string,
   scientificName: string,
-  location: string,
   credit?: PhotoCredit,
   locale?: AppLocale,
 ) {
-  const place = credit?.location?.trim() || location;
+  const place = credit?.location?.trim();
   const parts = [`${commonName} (${scientificName})`];
   if (place) parts.push(place);
   if (credit?.photographer) {

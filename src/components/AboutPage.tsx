@@ -140,6 +140,9 @@ async function AboutCompany({ locale }: { locale: AppLocale }) {
           <p className="text-[15.5px] leading-[1.7] text-(--nw-soft) md:text-[17px] md:leading-[1.75]">
             {t("companyBody3")}
           </p>
+          <p className="text-[15.5px] leading-[1.7] text-(--nw-soft) md:text-[17px] md:leading-[1.75]">
+            {t("companyTeam")}
+          </p>
           <div className="mt-1 flex items-start gap-3 rounded-[18px] bg-(--nw-danger-bg) p-4 text-[14px] leading-[1.55] text-(--nw-danger-fg) md:mt-2 md:gap-3.5 md:rounded-[20px] md:px-[22px] md:py-5 md:text-[15px] md:leading-[1.6]">
             <span className="inline-flex size-8 shrink-0 items-center justify-center rounded-full bg-(--nw-danger-dot) text-white md:size-9">
               <TriangleAlert

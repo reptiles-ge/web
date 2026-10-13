@@ -3,18 +3,10 @@ import type { MetadataRoute } from "next";
 import { getPublishedCreditAuthors } from "@/data/creditAuthors";
 import { getGuideArticles } from "@/data/guideArticles";
 import { getPublishedNewsArticles } from "@/data/news";
-import {
-  sitemapAuthorDatePublished,
-  sitemapAuthorLastModified,
-  sitemapPathDatePublished,
-  sitemapPathLastModified,
-  sitemapQuizDatePublished,
-  sitemapQuizLastModified,
-  sitemapRegionDatePublished,
-  sitemapRegionLastModified,
-} from "@/data/pageLastModified";
+import { sitemapPathDatePublished } from "@/data/pageLastModified";
 import { regions } from "@/data/regions";
 import { getCatalogSpecies } from "@/data/species";
+import { speciesUpdatedAt } from "@/i18n/localizeSpecies";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { CLUSTER_GUIDE_LIST } from "@/lib/clusterGuides";
 import {
@@ -23,6 +15,11 @@ import {
   getCreditAuthorPhotos,
 } from "@/lib/creditAuthors";
 import { GROUP_HUB_LIST } from "@/lib/groupHubs";
+import {
+  isIndexableLegalLocale,
+  LEGAL_PATHS,
+  legalAlternates,
+} from "@/lib/legalPages";
 import {
   newsArticleAlternates,
   newsArticleModifiedDateTime,
@@ -46,7 +43,12 @@ import {
   speciesPageImageUrls,
 } from "@/lib/sitemapImages";
 import { regionHref } from "@/lib/speciesRoutes";
-import { atlasDateFields } from "@/lib/structuredDataDates";
+import {
+  authorDateFields,
+  pageDateFields,
+  quizDateFields,
+  regionDateFields,
+} from "@/lib/structuredDataDates";
 
 const FALLBACK_LASTMOD = "2026-01-01T00:00:00+04:00";
 
@@ -69,8 +71,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     push(pageEntry(locale, "/"));
     push(pageEntry(locale, "/contact"));
     push(pageEntry(locale, "/about"));
-    push(pageEntry(locale, "/terms-and-conditions"));
-    push(pageEntry(locale, "/privacy"));
+    if (isIndexableLegalLocale(locale)) {
+      for (const path of Object.values(LEGAL_PATHS)) {
+        push({
+          ...pageEntry(locale, path),
+          alternates: { languages: legalAlternates(locale, path).languages },
+        });
+      }
+    }
     push(pageEntry(locale, "/news", newsIndexDateFields(locale).dateModified));
     for (const article of getGuideArticles()) {
       push({
@@ -79,7 +87,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       });
     }
     push(pageEntry(locale, "/authors"));
-    push(pageEntry(locale, "/species", atlasDateFields().dateModified));
+    push(pageEntry(locale, "/species"));
     push(pageEntry(locale, "/venomous-snakes"));
     push(pageEntry(locale, "/snakes-in-the-yard"));
     push(pageEntry(locale, "/risk-to-humans"));
@@ -87,10 +95,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     push(pageEntry(locale, "/quiz"));
     for (const quiz of liveQuizzes()) {
       const { languages } = quizAlternates(locale, quiz.id);
+      const dates = quizDateFields(quiz.id, locale);
       push({
         alternates: { languages },
-        datePublished: sitemapQuizDatePublished(quiz.id),
-        lastModified: sitemapQuizLastModified(quiz.id),
+        datePublished: dates.datePublished,
+        lastModified: dates.dateModified,
         url: quizPageUrl(locale, quiz.id),
       });
     }
@@ -110,12 +119,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     push(pageEntry(locale, "/regions"));
 
     for (const region of regions) {
+      const dates = regionDateFields(region.id, locale);
       push(
         pageEntry(
           locale,
           regionHref(region.id),
-          sitemapRegionLastModified(region.id),
-          sitemapRegionDatePublished(region.id),
+          dates.dateModified,
+          dates.datePublished,
         ),
       );
     }
@@ -126,7 +136,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       push({
         alternates: { languages },
         datePublished: item.publishedAt,
-        lastModified: toLastModified(item.updatedAt),
+        lastModified: toLastModified(speciesUpdatedAt(item, locale)),
         url: speciesPageUrl(locale, item.id),
         ...(images.length > 0 ? { images } : {}),
       });
@@ -136,10 +146,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       const photos = getCreditAuthorPhotos(author);
       const { languages } = creditAuthorAlternates(locale, author.slug);
       const images = creditAuthorPageImageUrls(author.portraitSrc, photos);
+      const dates = authorDateFields(author.slug, locale);
       push({
         alternates: { languages },
-        datePublished: sitemapAuthorDatePublished(author.slug),
-        lastModified: sitemapAuthorLastModified(author.slug),
+        datePublished: dates.datePublished,
+        lastModified: dates.dateModified,
         url: creditAuthorUrl(locale, author.slug),
         ...(images.length > 0 ? { images } : {}),
       });
@@ -162,14 +173,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
 function pageEntry(
   locale: AppLocale,
   href: Parameters<typeof localePath>[1],
-  lastModified = sitemapPathLastModified(String(href)),
-  datePublished = sitemapPathDatePublished(String(href)),
+  lastModified?: string,
+  datePublished?: string,
 ): SitemapEntry {
   const { languages } = localeAlternates(locale, href);
   return {
     alternates: { languages },
-    datePublished,
-    lastModified,
+    datePublished: datePublished ?? sitemapPathDatePublished(String(href)),
+    lastModified:
+      lastModified ?? pageDateFields(String(href), locale).dateModified,
     url: absoluteUrl(localePath(locale, href)),
   };
 }

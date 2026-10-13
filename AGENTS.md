@@ -83,11 +83,11 @@ Default locale has **no** `/ka` prefix (`localePrefix: as-needed`). `/ka` and `/
 
 ## Catalog
 
-- **126** MDX folders, **126** featured IDs, **125** published (`featuredSpeciesIds` minus `unpublishedSpeciesIds`). `dolichophis-caspius` is unpublished and 302s to the snake hub.
-- Groups: 22 published snakes, 29 lizards, 4 turtles, 12 amphibians, 39 birds, 15 mammals, 4 spiders.
+- **146** MDX folders, **146** featured IDs, **145** published (`featuredSpeciesIds` minus `unpublishedSpeciesIds`). `dolichophis-caspius` is unpublished and 302s to the snake hub.
+- Groups: 22 published snakes, 29 lizards, 4 turtles, 12 amphibians, 45 birds, 17 mammals, 8 spiders, 4 scorpions, 4 insects.
 - SSOT for live pages, quiz, atlas, search: `getCatalogSpecies()` — never a parallel species list.
 - Atlas group + habitat tags: `speciesAtlasMeta` in `src/data/speciesAtlas.ts`. Adding a species without this entry will break grouping.
-- `vipera-ammodytes` is not a taxon here; 301 → `vipera-transcaucasiana`.
+- Nose-horned viper: the taxon is *Vipera ammodytes*, subspecies *transcaucasiana* (Tarkhnishvili et al. 2026), and the profile folder id is `vipera-transcaucasiana`. `vipera-ammodytes` URLs 301 to that single profile. Name it *Vipera transcaucasiana* only as an older or alternative name (2009 IUCN account).
 - `Macrovipera lebetinus` vs folder id `macrovipera-lebetina`: explained on the გიურზა profile. Do not contradict it elsewhere.
 
 ## Species content pipeline
@@ -113,6 +113,7 @@ This is a public scientific atlas, not a blog.
 - **Candidate taxa:** keep the checklist note. Status lives in `src/data/herpetofauna-checklist.ts` (`confirmed` \| `candidate` \| `introduced`) for amphibians and reptiles only. Do not “confirm” a species Tarkhnishvili marks as candidate. Birds, mammals, and spiders are out of scope for that map.
 - **Darevskia:** 16 species; colour is not ID. Do not collapse them.
 - **Medical:** bite / venom / yard pages are educational. Call **112**. Not first-aid protocol, not `MedicalWebPage` schema. `malpolon-insignitus` is Moderate / rear-fanged — not გიურზა.
+- **No source names in profile prose:** every species text field, in all four locales, states the fact, not who reported it. No authors (`Gorgadze-ის კვლევაში`, `Kopaliani et al. 2014`), organisations or surveys named as a source, and no `X აღნიშნავს` / `X-ის მიხედვით` / `according to X` framing. Keep the year, place, kind of evidence (survey, report, estimate) and scope: `2006–2007 წლებში ალაზანზე…`. Sources belong only in `sources`. IUCN / Georgian Red List categories with their year, checklist status, and a taxonomic authority after a scientific name (`Ognev, 1931`) stay. This is an owner rule; do not reverse it for E-E-A-T or GEO.
 - **Photos:** CDN URLs are often generic. Do not mark Georgia-field-verified without evidence. Keep credit; placeholder is OK.
 - No `FAQPage` schema on guide pages (guide articles, cluster guides, `/snakes-in-the-yard`, `/venomous-snakes`). Google retired FAQ rich results on 2026-05-07. Keep the visible FAQ sections.
 
@@ -190,7 +191,8 @@ Long-form, answer-first practical guides (bat in the house, wasp nest, …) use 
 - Unique title / H1 / description. Species: H1 = common name; title often `absolute` (no ` — Reptiles` double suffix).
 - `hreflang` via `localeAlternates` / `speciesAlternates` (`x-default` = KA).
 - BreadcrumbList on cluster and species pages. No FAQPage on guides; elsewhere FAQPage only if the FAQ is visible.
-- Bite page: `WebPage`, not medical schema.
+- Bite pages use the guide-article `Article`, never `MedicalWebPage` or other medical schema.
+- The Organization node lives only in the layout graph (`siteGraphJsonLd`); everywhere else use `organizationRef()`. Authorship stays with the organization. No `HowTo`, no home `Dataset`.
 - `www.reptiles.ge` → apex 301. API routes send `X-Robots-Tag: noindex`.
 
 ## Maintenance mode

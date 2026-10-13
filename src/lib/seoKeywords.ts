@@ -1017,17 +1017,16 @@ const SPECIES_ALIASES: Record<
     en: [
       "European otter",
       "common otter",
-      "European river otter",
       "Mustela lutra",
       "Lutra vulgaris",
-      "Lutra lutra meridionalis",
+      "Viverra lutra",
     ],
     ka: [
       "წავი",
-      "ევრაზიული წავი",
+      "ჩვეულებრივი წავი",
       "Mustela lutra",
       "Lutra vulgaris",
-      "Lutra lutra meridionalis",
+      "Viverra lutra",
     ],
   },
   "lycosa-singoriensis": {
@@ -1393,14 +1392,6 @@ const SPECIES_ALIASES: Record<
   },
 };
 
-export type SeoDefinedTerm = {
-  en: string;
-  ka: string;
-  ru?: string;
-  speciesId: string;
-  tr?: string;
-};
-
 export function siteKeywords(locale: AppLocale) {
   if (locale === "en") {
     return [
@@ -1479,61 +1470,3 @@ function uniqueKeywords(values: Array<null | string | undefined>) {
 
   return keywords;
 }
-
-export const HOME_DEFINED_TERMS: SeoDefinedTerm[] = [
-  {
-    en: "Levantine viper",
-    ka: "გიურზა",
-    speciesId: "macrovipera-lebetina",
-  },
-  {
-    en: "Dinnik's viper",
-    ka: "დინიკის გველგესლა",
-    speciesId: "vipera-dinniki",
-  },
-  {
-    en: "Caucasus viper",
-    ka: "კავკასიური გველგესლა",
-    speciesId: "vipera-kaznakovi",
-  },
-  {
-    en: "Nose-horned viper",
-    ka: "ცხვირრქოსანი გველგესლა",
-    speciesId: "vipera-transcaucasiana",
-  },
-  {
-    en: "Darevsky's viper",
-    ka: "დარევსკის გველგესლა",
-    speciesId: "vipera-darevskii",
-  },
-  {
-    en: "eastern steppe viper",
-    ka: "ველის გველგესლა",
-    speciesId: "vipera-renardi",
-  },
-  {
-    en: "European glass lizard",
-    ka: "გველხოკერა",
-    speciesId: "pseudopus-apodus",
-  },
-  {
-    en: "Dahl's whip snake",
-    ka: "წენგოსფერი მცურავი",
-    speciesId: "platyceps-najadum",
-  },
-  {
-    en: "steppe ratsnake",
-    ka: "სახეებიანი მცურავი",
-    speciesId: "elaphe-dione",
-  },
-  {
-    en: "European cat snake",
-    ka: "კატისთვალა",
-    speciesId: "telescopus-fallax",
-  },
-  {
-    en: "Aesculapian snake",
-    ka: "ესკულაპის მცურავი",
-    speciesId: "zamenis-longissimus",
-  },
-];
