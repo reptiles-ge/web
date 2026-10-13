@@ -5,6 +5,7 @@ import { withSentryConfig } from "@sentry/nextjs/config";
 import createNextIntlPlugin from "next-intl/plugin";
 
 import { guideArticleRedirects } from "./src/i18n/guideArticleRedirects";
+import { BLOCKING_METADATA_USER_AGENTS } from "./src/lib/metadataPlacement";
 import {
   securityHeaders,
   SITE_HEADERS_SOURCE,
@@ -85,6 +86,7 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  htmlLimitedBots: BLOCKING_METADATA_USER_AGENTS,
   images: {
     qualities: [75, 90],
     remotePatterns: [
