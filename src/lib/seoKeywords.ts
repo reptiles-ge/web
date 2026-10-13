@@ -1017,17 +1017,16 @@ const SPECIES_ALIASES: Record<
     en: [
       "European otter",
       "common otter",
-      "European river otter",
       "Mustela lutra",
       "Lutra vulgaris",
-      "Lutra lutra meridionalis",
+      "Viverra lutra",
     ],
     ka: [
       "წავი",
-      "ევრაზიული წავი",
+      "ჩვეულებრივი წავი",
       "Mustela lutra",
       "Lutra vulgaris",
-      "Lutra lutra meridionalis",
+      "Viverra lutra",
     ],
   },
   "lycosa-singoriensis": {
