@@ -24,6 +24,7 @@ type PhotoCreditCaptionProps = {
   credit?: PhotoCredit;
   photoConfidence?: PhotoCredit["photoConfidence"];
   speciesId?: string;
+  usedWithPermission?: boolean;
   variant?: "hero" | "lightbox" | "thumb";
 };
 
@@ -32,6 +33,7 @@ export function PhotoCreditCaption({
   credit,
   photoConfidence,
   speciesId,
+  usedWithPermission = false,
   variant = "thumb",
 }: PhotoCreditCaptionProps) {
   const t = useTranslations("profile");
@@ -72,6 +74,9 @@ export function PhotoCreditCaption({
         photographer={photographer}
         photoLocation={t("photoLocation")}
         speciesId={speciesId}
+        usedWithPermission={
+          usedWithPermission ? t("photoWithPermission") : undefined
+        }
       />
     );
   }
@@ -113,6 +118,7 @@ function LightboxCredit({
   photographer,
   photoLocation,
   speciesId,
+  usedWithPermission,
 }: {
   className: string;
   credit?: PhotoCredit;
@@ -125,6 +131,7 @@ function LightboxCredit({
   photographer: ReactNode;
   photoLocation: string;
   speciesId?: string;
+  usedWithPermission?: string;
 }) {
   return (
     <div
@@ -137,6 +144,7 @@ function LightboxCredit({
         <p>
           <span className="text-white/50">{photoCredit} </span>
           {photographer}
+          {usedWithPermission ? ` · ${usedWithPermission}` : null}
         </p>
       ) : null}
       {credit?.location || hasPhotoCoordinates(credit) ? (

@@ -12,7 +12,8 @@ export const rangeMap: InteractiveRangeMapConfig = {
       mapAria:
         "Caucasian agama distribution evidence and field records on a map of Georgia",
       officialRegionLabel: "Confirmed distribution region",
-      rangeTitle: "Where Caucasian agama distribution is confirmed in Georgia",
+      rangeTitle:
+        "Caucasian agama: where its distribution is confirmed in Georgia",
     },
     ka: {
       ...HALYOMORPHA_RANGE_COPY.ka,

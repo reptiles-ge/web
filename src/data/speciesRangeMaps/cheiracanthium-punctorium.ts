@@ -12,7 +12,7 @@ export const rangeMap: InteractiveRangeMapConfig = {
       mapAria:
         "European yellow sac spider distribution evidence and field records on a map of Georgia",
       officialRegionLabel: "Confirmed distribution region",
-      rangeTitle: "Where European yellow sac spider is recorded in Georgia",
+      rangeTitle: "European yellow sac spider: where it is recorded in Georgia",
     },
     ka: {
       ...HALYOMORPHA_RANGE_COPY.ka,

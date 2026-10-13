@@ -5,6 +5,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 import { type CSSProperties, useEffect, useRef, useState } from "react";
 
+import { BrandText } from "@/components/BrandName";
 import { SiteRatingMascot } from "@/components/SiteRatingMascot";
 import { trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
@@ -191,7 +192,9 @@ export function SiteRating() {
         ) : (
           <>
             <div className="flex items-start justify-between gap-2">
-              <p className="text-sm leading-snug font-bold">{t("title")}</p>
+              <p className="text-sm leading-snug font-bold">
+                <BrandText text={t("title")} />
+              </p>
               <button
                 aria-label={t("close")}
                 className="-mt-1 -mr-1 rounded-full p-1 text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"

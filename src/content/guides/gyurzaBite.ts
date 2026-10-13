@@ -391,7 +391,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       {
         answer:
           "Hayır. Zehirli bir yılan, klinik açıdan önemli miktarda zehir vermeden de ısırabilir; fakat bunu olay yerinde güvenle belirleyemezsiniz. Güçlü bir ısırık şüphesinde acil tıbbi değerlendirme gerekir.",
-        question: "Her gyurza ısırığında zehir verilir mi?",
+        question: "Her Levant engereği ısırığında zehir verilir mi?",
       },
       {
         answer:
@@ -411,7 +411,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       {
         answer:
           "Gürcistan hastanelerinde uygun antivenomun güncel stokunu doğrulayamadık. Gerekliliğine ve uygun ürüne klinisyenler karar verir; antivenom aramak için 112 aramasını geciktirmeyin.",
-        question: "Gürcistan’da gyurza antivenomu var mı?",
+        question: "Gürcistan’da Levant engereği antivenomu var mı?",
       },
     ],
     intro:
@@ -419,10 +419,10 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
     metaTitle: "Levant engereği ısırığı — belirtiler ve ne yapmalı?",
     sections: [
       {
-        heading: "Gyurza ısırığı ne kadar tehlikelidir?",
+        heading: "Levant engereği ısırığı ne kadar tehlikelidir?",
         image: "viper-portrait",
         paragraphs: [
-          "Bu atlasın Macrovipera lebetinus dediği Levant engereği tıbbi açıdan önemli bir engerektir. Isırık az miktarda veya hiç zehir vermeyebilir; ciddi yerel ve sistemik zehirlenmeye de yol açabilir. Ağır olgular yaşamı tehdit edebilir. Yaranın görünüşü veya atlasın risk etiketi bir kişinin sonucunu öngöremez.",
+          "Bu atlasın Macrovipera lebetinus dediği Levant engereği (gürza veya küt burunlu engerek olarak da bilinir) tıbbi açıdan önemli bir engerektir. Isırık az miktarda veya hiç zehir vermeyebilir; ciddi yerel ve sistemik zehirlenmeye de yol açabilir. Ağır olgular yaşamı tehdit edebilir. Yaranın görünüşü veya atlasın risk etiketi bir kişinin sonucunu öngöremez.",
           "Yayımlanmış Macrovipera vakaları ve 2025 klinik derlemesi farklı ağırlıklar bildirir. Veriler başka popülasyonlardan gelir; Gürcistan’daki ısırıkların sıklığını veya sonuçlarını göstermez.",
         ],
       },
@@ -467,19 +467,19 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       {
         heading: "Nelerden kaçınmalısınız?",
         paragraphs: [
-          "Yarayı kesmeyin veya yakmayın, zehri emmeyin, sıkı turnike uygulamayın; elektrik, buz, alkol veya halk ilaçları kullanmayın. Gyurza ısırığında kendi kendinize basınçlı bandaj uygulamayın: belirgin yerel doku hasarında zararlı olabilir. Yılanı yakalamayın veya öldürmeyin; tanımlamak için yardımı geciktirmeyin.",
+          "Yarayı kesmeyin veya yakmayın, zehri emmeyin, sıkı turnike uygulamayın; elektrik, buz, alkol veya halk ilaçları kullanmayın. Levant engereği ısırığında kendi kendinize basınçlı bandaj uygulamayın: belirgin yerel doku hasarında zararlı olabilir. Yılanı yakalamayın veya öldürmeyin; tanımlamak için yardımı geciktirmeyin.",
         ],
       },
       {
         heading: "112 ne zaman aranmalı?",
         paragraphs: [
-          "Gürcistan’da güçlü bir gyurza ısırığı şüphesinde ağır belirtiler çıkmadan hemen arayın. 112, acil tıbbi yardımın yönlendirilmesini sağlar. Isırık ya da başka acil durum olmadan yalnızca yakınlarda gyurza görmek tek başına acil çağrı nedeni değildir.",
+          "Gürcistan’da güçlü bir Levant engereği ısırığı şüphesinde ağır belirtiler çıkmadan hemen arayın. 112, acil tıbbi yardımın yönlendirilmesini sağlar. Isırık ya da başka acil durum olmadan yalnızca yakınlarda Levant engereği görmek tek başına acil çağrı nedeni değildir.",
         ],
       },
       {
         heading: "Isırılan kişi çocuksa ne olur?",
         paragraphs: [
-          "Çocuk için özellikle hızlı tıbbi değerlendirme gerekir. DSÖ’ye göre çocuklarda daha küçük vücut kütlesi nedeniyle zehirli yılan ısırıklarının etkileri daha ağır olabilir. Bu genel bir ilkedir; Gürcistan’daki gyurza ısırıkları için ölçülmüş bir çocuk riski değildir.",
+          "Çocuk için özellikle hızlı tıbbi değerlendirme gerekir. DSÖ’ye göre çocuklarda daha küçük vücut kütlesi nedeniyle zehirli yılan ısırıklarının etkileri daha ağır olabilir. Bu genel bir ilkedir; Gürcistan’daki Levant engereği ısırıkları için ölçülmüş bir çocuk riski değildir.",
         ],
       },
       {
@@ -487,11 +487,11 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         image: "clinical-assessment",
         paragraphs: [
           "Her ısırıkta antivenom gerekmez. Hastanede klinisyenler belirtileri değerlendirir, kişiyi izler ve gerektiğinde pıhtılaşmayı ve diğer komplikasyonları kontrol eder. Uygun antivenomun gerekli olup olmadığına onlar karar verir; ciddi yan etkiler olabileceği için tedavi izlenir.",
-          "Başka popülasyonun zehrine karşı test edilen antivenomun Gürcistan’da etkili veya mevcut olduğu varsayılamaz. Gürcü hastanelerinin güncel stokunu ya da ulusal gyurza tedavi protokolünü doğrulayamadık. Antivenomu kendiniz satın almayın veya uygulamayın.",
+          "Başka popülasyonun zehrine karşı test edilen antivenomun Gürcistan’da etkili veya mevcut olduğu varsayılamaz. Gürcü hastanelerinin güncel stokunu ya da ulusal Levant engereği tedavi protokolünü doğrulayamadık. Antivenomu kendiniz satın almayın veya uygulamayın.",
         ],
       },
       {
-        heading: "Gürcistan’daki gyurza hakkında ne biliniyor?",
+        heading: "Gürcistan’daki Levant engereği hakkında ne biliniyor?",
         image: "field-gyurza",
         paragraphs: [
           "Atlas türün doğu Gürcistan’da bulunduğunu belgeliyor. [Levant engereği profili](macrovipera-lebetina) tanıma, dağılım ve taksonomiyi anlatır; bu yazı şüpheli ısırığa odaklanır. Atlas Macrovipera lebetinus adını kullanırken uluslararası klinik yayınlar ilgili takson için sıklıkla M. lebetina yazar.",
@@ -506,7 +506,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       },
     ],
     summary:
-      "Güçlü bir gyurza ısırığı şüphesi, yara hafif görünse bile acil tıbbi değerlendirme gerektirir. Gürcistan’da yılandan uzaklaşın ve 112’yi arayın. Hareketi azaltın, ısırık yakınındaki sıkı eşyaları çıkarın; yarayı kesmeyin, emmeyin, yakmayın, sıkı turnike uygulamayın ve yılanı yakalamayın. Zehirlenmeyi ve antivenom gereğini klinisyenler değerlendirir.",
+      "Güçlü bir Levant engereği ısırığı şüphesi, yara hafif görünse bile acil tıbbi değerlendirme gerektirir. Gürcistan’da yılandan uzaklaşın ve 112’yi arayın. Hareketi azaltın, ısırık yakınındaki sıkı eşyaları çıkarın; yarayı kesmeyin, emmeyin, yakmayın, sıkı turnike uygulamayın ve yılanı yakalamayın. Zehirlenmeyi ve antivenom gereğini klinisyenler değerlendirir.",
     title: "Levant engereği ısırığı — ne kadar tehlikeli ve ne yapmalı?",
   },
 };
@@ -598,7 +598,7 @@ const SOURCES: readonly GuideArticleSource[] = [
       en: "Occurrence of the Levantine viper in Georgia; this checklist does not establish clinical outcomes.",
       ka: "გიურზას საქართველოში არსებობა; ჩამონათვალი კლინიკურ შედეგებს არ ადგენს.",
       ru: "Наличие гюрзы в Грузии; список не определяет клинические исходы.",
-      tr: "Gyurza'nın Gürcistan'da bulunması; kontrol listesi klinik sonuçları belirlemez.",
+      tr: "Levant engereğinin Gürcistan'da bulunması; kontrol listesi klinik sonuçları belirlemez.",
     },
     url: "https://doi.org/10.3897/caucasiana.5.e189214",
   },
@@ -608,7 +608,7 @@ const SOURCES: readonly GuideArticleSource[] = [
       en: "Documented distribution of the Levantine viper in eastern Georgia, without clinical bite data.",
       ka: "გიურზას გავრცელება აღმოსავლეთ საქართველოში, კლინიკური ნაკბენის მონაცემების გარეშე.",
       ru: "Распространение гюрзы на востоке Грузии, без клинических данных об укусах.",
-      tr: "Gyurza'nın doğu Gürcistan'daki yayılışı; klinik ısırık verisi içermez.",
+      tr: "Levant engereğinin doğu Gürcistan'daki yayılışı; klinik ısırık verisi içermez.",
     },
     url: "https://doi.org/10.1080/09397140.2021.1957208",
   },
@@ -696,7 +696,7 @@ export const GYURZA_BITE = defineGuideArticle({
       en: "Levantine viper bite symptoms, urgent care and evidence limits",
       ka: "გიურზას სიმპტომები, გადაუდებელი დახმარება და მტკიცებულების ზღვარი",
       ru: "Симптомы укуса гюрзы, срочная помощь и ограничения данных",
-      tr: "Gyurza belirtileri, acil yardım ve kanıt sınırları",
+      tr: "Levant engereği ısırığı belirtileri, acil yardım ve kanıt sınırları",
     },
     title: {
       en: "Levantine viper bite",

@@ -59,7 +59,7 @@ export const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
     noRegionRecordsLabel: "No field records",
     officialRegionLabel: "Source-confirmed region",
     photoRecordLabel: "Photo record",
-    rangeTitle: "Where brown marmorated stink bug occurs in Georgia",
+    rangeTitle: "Brown marmorated stink bug: where it occurs in Georgia",
     recordedOnlyStatusLabel: "Recorded only",
     regionPageLabel: (regionName) => `${regionName} region page`,
     regionRecordsLabel: "field records",

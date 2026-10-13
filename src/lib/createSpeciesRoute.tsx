@@ -20,11 +20,13 @@ import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { getPathname } from "@/i18n/navigation";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { getHubIndexTitleKey } from "@/lib/clusterGuides";
+import { faqPageJsonLd } from "@/lib/faqJsonLd";
+import { photoRights } from "@/lib/imageRights";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import { galleryImageObjects } from "@/lib/photoMeta";
 import { INDEXABLE_ROBOTS } from "@/lib/robots";
 import {
-  speciesAliasKeywords,
+  speciesAlternateNames,
   speciesJsonLdKeywords,
   speciesSeoKeywords,
 } from "@/lib/seoKeywords";
@@ -48,7 +50,6 @@ import {
   SPECIES_HERO_DESKTOP_SIZES,
   SPECIES_HERO_SIZES,
 } from "@/lib/speciesContent";
-import { stripSpeciesInlineLinks } from "@/lib/speciesInlineLinks";
 import {
   speciesFallbackDescriptionKey,
   speciesMetaDescription,
@@ -282,7 +283,7 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
 }
 
 function epithetStem(epithet: string) {
-  return epithet.replace(/(?:us|um|is|a|e)$/, "");
+  return epithet.replace(/-+$/, "").replace(/(?:us|um|is|a|e)$/, "");
 }
 
 function isTaxonSameAsUrl(url: string) {
@@ -316,9 +317,7 @@ function sourceCreativeWork(source: SpeciesSource) {
 function sourceNamesOtherSpecies(sourceName: string, raw: Species) {
   const [genus, ...epithets] = raw.scientificName.split(" ");
   if (!genus || epithets.length === 0) return false;
-  const ownStems = new Set(
-    [...epithets, ...raw.id.split("-").slice(1)].map(epithetStem),
-  );
+  const ownStems = new Set(epithets.map(epithetStem));
   const binomial = new RegExp(String.raw`\b${genus}\s+([a-z-]+)`, "g");
   const named = Array.from(sourceName.matchAll(binomial), (match) =>
     epithetStem(match[1]),
@@ -413,6 +412,9 @@ function speciesStructuredData({
     contentUrl: ogImage,
     name: `${item.commonName} (${item.scientificName})`,
     url: ogImage,
+    ...(ogImage === speciesOgImageUrl(item.id)
+      ? photoRights(ogImage, undefined, locale)
+      : photoRights(item.image, item.imageCredit, locale)),
   };
   const jsonLd = {
     "@context": "https://schema.org",
@@ -467,20 +469,7 @@ function speciesStructuredData({
         }
       : null;
   const faqJsonLd =
-    raw.id !== "halyomorpha-halys" && item.faq && item.faq.length > 0
-      ? {
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          mainEntity: item.faq.map((entry) => ({
-            "@type": "Question",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: stripSpeciesInlineLinks(entry.answer),
-            },
-            name: entry.question,
-          })),
-        }
-      : null;
+    raw.id !== "halyomorpha-halys" && item.faq ? faqPageJsonLd(item.faq) : null;
 
   return [jsonLd, breadcrumbLd, galleryLd, faqJsonLd].filter(
     (entry): entry is NonNullable<typeof entry> => Boolean(entry),
@@ -488,15 +477,19 @@ function speciesStructuredData({
 }
 
 function speciesTaxonJsonLd(raw: Species, item: Species, locale: AppLocale) {
-  const aliases = speciesAliasKeywords(item.id, locale);
-  const alternateName: string[] = [];
-  const seenAlternateNames = new Set<string>();
   const georgianAliases =
     raw.id === "blatta-orientalis" ? ["შავი ტარაკანა", "შავი ტარაკანი"] : [];
-  for (const name of [item.commonName, ...aliases, ...georgianAliases]) {
-    if (seenAlternateNames.has(name)) continue;
-    seenAlternateNames.add(name);
-    alternateName.push(name);
+  const alternateName: string[] = [];
+  const seenAlternateNames = new Set([item.scientificName.toLocaleLowerCase()]);
+  for (const name of [
+    item.commonName,
+    ...speciesAlternateNames(item.id, locale),
+    ...georgianAliases,
+  ]) {
+    const key = name.trim().toLocaleLowerCase();
+    if (!key || seenAlternateNames.has(key)) continue;
+    seenAlternateNames.add(key);
+    alternateName.push(name.trim());
   }
 
   const sameAs = speciesSameAs(raw);

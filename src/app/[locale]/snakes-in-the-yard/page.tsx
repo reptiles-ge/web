@@ -38,6 +38,7 @@ export async function generateMetadata({
     indexable: true,
     keywords: t("keywords"),
     locale,
+    metadataTitle: { absolute: title },
     ogImageUrl,
     openGraphImage: { alt: title, height: 572, url: ogImageUrl, width: 1024 },
     pagePath: PATH,

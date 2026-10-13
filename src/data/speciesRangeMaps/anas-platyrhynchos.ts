@@ -11,7 +11,7 @@ export const rangeMap: InteractiveRangeMapConfig = {
         "The mallard map combines Reptiles.ge editorial photo records with public iNaturalist observations. Source-confirmed regions and individual field records are separate layers, and record counts reflect observation effort rather than population density.",
       mapAria:
         "Mallard distribution evidence and field records on a map of Georgia",
-      rangeTitle: "Where mallard occurs in Georgia",
+      rangeTitle: "Mallard: where it occurs in Georgia",
     },
     ka: {
       ...HALYOMORPHA_RANGE_COPY.ka,

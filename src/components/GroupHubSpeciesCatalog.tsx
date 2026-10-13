@@ -264,8 +264,9 @@ function HubSpeciesCard({
         <CoverImage
           alt={item.alt}
           className="object-cover transition-transform duration-700 group-hover:scale-[1.04] motion-reduce:transition-none"
+          defer
           mobileSrc={item.mobileImage}
-          sizes="(max-width: 1023px) 50vw, 330px"
+          sizes="(max-width: 1023px) calc(50vw - 30px), 330px"
           src={item.image}
         />
         {riskLabel && item.risk ? (

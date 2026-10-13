@@ -12,7 +12,8 @@ export const rangeMap: InteractiveRangeMapConfig = {
       mapAria:
         "Darevsky's viper observations and confirmed regions on a map of Georgia",
       officialRegionLabel: "Confirmed distribution region",
-      rangeTitle: "Where Darevsky's viper distribution is confirmed in Georgia",
+      rangeTitle:
+        "Darevsky's viper: where its distribution is confirmed in Georgia",
     },
     ka: {
       ...HALYOMORPHA_RANGE_COPY.ka,

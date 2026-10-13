@@ -39,7 +39,8 @@ export async function HomeField({ locale }: { locale: AppLocale }) {
             <CoverImage
               alt={GYURZA_BITE.hero.alt[locale]}
               className="object-cover object-[35%_center]"
-              sizes="(max-width: 1023px) 100vw, 520px"
+              defer
+              sizes="(max-width: 1023px) calc(100vw - 68px), 520px"
               src={GYURZA_BITE.hero.src}
             />
           </div>

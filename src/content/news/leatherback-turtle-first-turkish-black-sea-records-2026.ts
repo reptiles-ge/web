@@ -27,7 +27,7 @@ export const LEATHERBACK_TURTLE_FIRST_TURKISH_BLACK_SEA_RECORDS_2026: NewsArticl
         metaDescription:
           "Leatherback turtle has been confirmed for the first time from Turkey's Black Sea coast, including a live animal seen near Rize in 2026.",
         metaTitle:
-          "Leatherback turtle in the Black Sea - first Turkish records",
+          "Leatherback turtle in the Black Sea — first Turkish records",
         sections: [
           {
             blocks: [
@@ -353,7 +353,7 @@ export const LEATHERBACK_TURTLE_FIRST_TURKISH_BLACK_SEA_RECORDS_2026: NewsArticl
         metaDescription:
           "Кожистая черепаха впервые подтверждена на турецком побережье Черного моря, включая живую особь у Ризе в 2026 году.",
         metaTitle:
-          "Кожистая черепаха в Черном море - первые записи в Турции",
+          "Кожистая черепаха в Чёрном море — первые записи в Турции",
         sections: [
           {
             blocks: [
@@ -477,7 +477,7 @@ export const LEATHERBACK_TURTLE_FIRST_TURKISH_BLACK_SEA_RECORDS_2026: NewsArticl
         metaDescription:
           "Deri sirtli deniz kaplumbagasi Turkiye'nin Karadeniz kiyisindan ilk kez dogrulandi; 2026'da Rize yakininda canli bir birey de goruldu.",
         metaTitle:
-          "Karadeniz'de deri sirtli kaplumbaga - Turkiye'deki ilk kayitlar",
+          "Karadeniz’de deri sırtlı kaplumbağa: Türkiye’de ilk kayıtlar",
         sections: [
           {
             blocks: [

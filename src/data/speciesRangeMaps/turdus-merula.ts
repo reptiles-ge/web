@@ -12,7 +12,8 @@ export const rangeMap: InteractiveRangeMapConfig = {
       mapAria:
         "Common blackbird observations and confirmed distribution regions on a map of Georgia",
       officialRegionLabel: "Confirmed distribution region",
-      rangeTitle: "Where common blackbird distribution is confirmed in Georgia",
+      rangeTitle:
+        "Common blackbird: where its distribution is confirmed in Georgia",
       regionsMetricLabel: "regions with records",
     },
     ka: {

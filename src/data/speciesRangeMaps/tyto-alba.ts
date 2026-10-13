@@ -12,7 +12,8 @@ export const rangeMap: InteractiveRangeMapConfig = {
       mapAria:
         "Western barn owl observations and confirmed distribution regions on a map of Georgia",
       officialRegionLabel: "Confirmed distribution region",
-      rangeTitle: "Where western barn owl distribution is confirmed in Georgia",
+      rangeTitle:
+        "Western barn owl: where its distribution is confirmed in Georgia",
       regionsMetricLabel: "regions with records",
     },
     ka: {

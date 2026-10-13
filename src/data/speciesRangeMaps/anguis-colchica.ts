@@ -13,7 +13,7 @@ export const rangeMap: InteractiveRangeMapConfig = {
         "Colchis slow worm observations and confirmed distribution regions on a map of Georgia",
       officialRegionLabel: "Confirmed distribution region",
       rangeTitle:
-        "Where Colchis slow worm distribution is confirmed in Georgia",
+        "Colchis slow worm: where its distribution is confirmed in Georgia",
     },
     ka: {
       ...HALYOMORPHA_RANGE_COPY.ka,

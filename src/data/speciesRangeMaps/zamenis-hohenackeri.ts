@@ -13,7 +13,7 @@ export const rangeMap: InteractiveRangeMapConfig = {
         "Transcaucasian rat snake observations and confirmed regions on a map of Georgia",
       officialRegionLabel: "Confirmed distribution region",
       rangeTitle:
-        "Where Transcaucasian rat snake distribution is confirmed in Georgia",
+        "Transcaucasian rat snake: where its distribution is confirmed in Georgia",
     },
     ka: {
       ...HALYOMORPHA_RANGE_COPY.ka,

@@ -15,6 +15,7 @@ import { getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
 
+import { BrandText } from "@/components/BrandName";
 import { CoverImage } from "@/components/CoverImage";
 import { creditAuthorName } from "@/data/creditAuthors";
 import { getAtlasStats } from "@/data/speciesAtlas";
@@ -361,7 +362,7 @@ async function AboutHero({ locale }: { locale: AppLocale }) {
             {t("eyebrow")}
           </span>
           <h1 className="mt-[18px] font-display text-[42px] leading-[1.04] font-semibold tracking-tight md:mt-6 md:text-[64px] md:leading-none md:tracking-[-0.03em] xl:text-[76px]">
-            {t("title")}
+            <BrandText text={t("title")} />
           </h1>
           <p className="mt-4 max-w-[520px] text-[16.5px] leading-[1.55] text-(--nw-soft) md:mt-6 md:text-[19px]">
             {t("subtitle")}

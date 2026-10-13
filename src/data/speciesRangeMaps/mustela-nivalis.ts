@@ -12,7 +12,8 @@ export const rangeMap: InteractiveRangeMapConfig = {
       mapAria:
         "Least weasel photo observations and confirmed distribution on a map of Georgia",
       officialRegionLabel: "Region with confirmed distribution",
-      rangeTitle: "Where least weasel distribution is confirmed in Georgia",
+      rangeTitle:
+        "Least weasel: where its distribution is confirmed in Georgia",
     },
     ka: {
       ...HALYOMORPHA_RANGE_COPY.ka,

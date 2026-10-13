@@ -18,7 +18,8 @@ export const siteConfig = {
   locale: "ka_GE",
   name: "Reptiles",
   shortName: "Reptiles",
-  title: "Reptiles — საქართველოს ცხოველთა ატლასი",
+  title: "Reptiles.ge — საქართველოს ცხოველთა ატლასი",
+  titleBrand: "Reptiles.ge",
 } as const;
 
 export function absoluteImageUrl(src: string) {
@@ -123,7 +124,7 @@ export const ORGANIZATION_SAME_AS = [
   "https://github.com/reptiles-ge",
 ] as const;
 
-const ORGANIZATION_NAME = "Reptiles.ge";
+export const ORGANIZATION_NAME = "Reptiles.ge";
 
 export const CONTACT_EMAIL = "hello@reptiles.ge";
 

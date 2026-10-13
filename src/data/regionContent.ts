@@ -2,22 +2,31 @@ import type { RegionPathId } from "@/data/georgia-paths";
 import type { LocalizedText } from "@/data/mapRegions";
 
 export type RegionContent = {
-  biome: LocalizedText;
+  biome: RegionText;
   faq: RegionFaq[];
-  habitats: LocalizedText[];
+  habitats: RegionText[];
   metaDescription?: Partial<LocalizedText>;
-  overview: LocalizedText;
+  overview: RegionText;
   relatedIds: RegionPathId[];
+  titleName?: LocalizedText;
+  titleNameIn?: LocalizedText;
 };
 
 type RegionFaq = {
-  answer: LocalizedText;
-  question: LocalizedText;
+  answer: RegionText;
+  question: RegionText;
 };
+
+type RegionText = Required<LocalizedText>;
 
 const regionContent: Record<RegionPathId, RegionContent> = {
   abkhazia: {
-    biome: { en: "Colchic · foothills", ka: "კოლხური · მთისწინეთი" },
+    biome: {
+      en: "Colchic · foothills",
+      ka: "კოლხური · მთისწინეთი",
+      ru: "Колхидский · предгорный",
+      tr: "Kolhis · dağ etekleri",
+    },
     faq: [
       {
         answer: {
@@ -80,7 +89,12 @@ const regionContent: Record<RegionPathId, RegionContent> = {
     relatedIds: ["samegrelo-zemo-svaneti", "racha", "guria"],
   },
   adjara: {
-    biome: { en: "Colchic · coastal", ka: "კოლხური · სანაპირო" },
+    biome: {
+      en: "Colchic · coastal",
+      ka: "კოლხური · სანაპირო",
+      ru: "Колхидский · прибрежный",
+      tr: "Kolhis · kıyı",
+    },
     faq: [
       {
         answer: {
@@ -281,13 +295,18 @@ const regionContent: Record<RegionPathId, RegionContent> = {
     ],
   },
   kakheti: {
-    biome: { en: "Alazani · semi-arid", ka: "ალაზანი · ნახევრად უდაბნო" },
+    biome: {
+      en: "Alazani · semi-arid",
+      ka: "ალაზანი · ნახევრად უდაბნო",
+      ru: "Алазани · полузасушливый",
+      tr: "Alazani · yarı kurak",
+    },
     faq: [
       {
         answer: {
           en: "The Levantine viper (Macrovipera lebetinus) and the steppe viper (Vipera renardi) are venomous vipers, and the eastern Montpellier snake (Malpolon insignitus) is a rear-fanged snake rated moderate risk. Most other listed species are harmless, but correct identification still matters.",
           ka: "გიურზა (Macrovipera lebetinus) და ველის გველგესლა (Vipera renardi) შხამიანი გველგესლებია, ჩვეულებრივი ხვლიკიჭამია გველი (Malpolon insignitus) კი უკანა შხამკბილა გველია საშუალო რისკით. სხვა ჩამოთვლილი სახეობების უმეტესობა უვნებელია, თუმცა ამოცნობა მნიშვნელოვანია.",
-          ru: "Гюрза (Macrovipera lebetinus) и степная гадюка (Vipera renardi) — ядовитые гадюки, а восточная мальполон (Malpolon insignitus) — заднебороздчатая змея среднего риска. Большинство других перечисленных видов безвредны, но правильное определение всё равно важно.",
+          ru: "Гюрза (Macrovipera lebetinus) и степная гадюка (Vipera renardi) — ядовитые гадюки, а восточный мальполон (Malpolon insignitus) — заднебороздчатая змея среднего риска. Большинство других перечисленных видов безвредны, но правильное определение всё равно важно.",
           tr: "Levant engereği (Macrovipera lebetinus) ve bozkır engereği (Vipera renardi) zehirli engereklerdir; Doğu Montpellier yılanı (Malpolon insignitus) ise orta riskli, arka dişli bir yılandır. Listelenen diğer türlerin çoğu zararsızdır, ancak doğru tanımlama yine de önemlidir.",
         },
         question: {
@@ -301,36 +320,66 @@ const regionContent: Record<RegionPathId, RegionContent> = {
         answer: {
           en: "Records include Levantine viper, steppe viper, Urartian and steppe ratsnakes, red-bellied and Dahl’s whip snakes, cat snake, grass snake and dice snake, smooth snake, and glass lizard.",
           ka: "ჩანაწერებშია გიურზა, ველის გველგესლა, ურარტუს და სახეებიანი მცურავი, წითელმუცელა და წენგოსფერი მცურავი, კატისთვალა, ჩვეულებრივი და წყლის ანკარა, სპილენძა და გველხოკერა.",
+          ru: "В записях — гюрза, степная гадюка, урартский и узорчатый полозы, краснобрюхий и оливковый полозы, кошачий уж, обыкновенный и водяной ужи, медянка и желтопузик.",
+          tr: "Kayıtlarda Levant engereği, bozkır engereği, Urartu sıçanyılanı ve bozkır sıçan yılanı, kırmızı karınlı ve Dahl kırbaç yılanları, kedi yılanı, çim yılanı ve kareli yılan, Avusturya yılanı ve yılan kertenkele yer alır.",
         },
         question: {
           en: "Which snakes occur in Kakheti?",
           ka: "რა გველები გვხვდება კახეთში?",
+          ru: "Какие змеи встречаются в Кахетии?",
+          tr: "Kaheti’de hangi yılanlar görülür?",
         },
       },
       {
         answer: {
           en: "Yes — Kakheti belongs to the dry/semi-arid east, Adjara to the humid Colchic west. Species assemblages differ sharply.",
           ka: "დიახ — კახეთი მშრალი/ნახევრად მშრალი აღმოსავლეთის ფაუნას მიეკუთვნება, აჭარა კი ნოტიო კოლხურ ზონას. სახეობების ნაკრები მკვეთრად განსხვავდება.",
+          ru: "Да — Кахетия относится к сухому и полузасушливому востоку, Аджария — к влажному колхидскому западу. Наборы видов здесь резко различаются.",
+          tr: "Evet — Kaheti kuru ve yarı kurak doğuya, Acara ise nemli Kolhis batısına aittir. Tür toplulukları belirgin biçimde farklıdır.",
         },
         question: {
           en: "Do Kakheti’s snakes differ from Adjara’s?",
           ka: "განსხვავდება თუ არა კახეთის გველები აჭარისგან?",
+          ru: "Отличаются ли змеи Кахетии от змей Аджарии?",
+          tr: "Kaheti’nin yılanları Acara’dakilerden farklı mı?",
         },
       },
     ],
     habitats: [
-      { en: "Alazani valley", ka: "ალაზნის ველი" },
-      { en: "Dry foothills", ka: "მშრალი მთისწინეთი" },
-      { en: "Semi-arid zones", ka: "ნახევრად უდაბნო ზონები" },
+      {
+        en: "Alazani valley",
+        ka: "ალაზნის ველი",
+        ru: "Алазанская долина",
+        tr: "Alazani vadisi",
+      },
+      {
+        en: "Dry foothills",
+        ka: "მშრალი მთისწინეთი",
+        ru: "Сухие предгорья",
+        tr: "Kuru dağ etekleri",
+      },
+      {
+        en: "Semi-arid zones",
+        ka: "ნახევრად უდაბნო ზონები",
+        ru: "Полузасушливые зоны",
+        tr: "Yarı kurak alanlar",
+      },
     ],
     overview: {
       en: "Kakheti’s Alazani valley, dry foothills, and semi-arid belts shape eastern Georgia’s distinctive fauna. Warmth-loving, dry-habitat taxa dominate — Levantine viper, fast racers, and cat snake.",
       ka: "კახეთი ალაზნის ველით, მშრალი მთისწინეთითა და ნახევრად უდაბნო ზონებით ქმნის აღმოსავლეთ საქართველოს განსხვავებულ ფაუნას. აქ დომინირებს თბომოყვარე და მშრალი ჰაბიტატის სახეობები — გიურზა, სწრაფი მცურავები და კატისთვალა.",
+      ru: "Алазанская долина, сухие предгорья и полузасушливые пояса Кахетии формируют особую фауну восточной Грузии. Здесь преобладают теплолюбивые виды сухих местообитаний — гюрза, быстрые полозы и кошачий уж.",
+      tr: "Kaheti’nin Alazani vadisi, kuru dağ etekleri ve yarı kurak kuşakları doğu Gürcistan’ın kendine özgü faunasını biçimlendirir. Burada sıcağı seven, kuru habitat türleri baskındır — Levant engereği, hızlı kırbaç yılanları ve kedi yılanı.",
     },
     relatedIds: ["kvemo-kartli", "mtskheta-mtianeti", "tbilisi"],
   },
   "kvemo-kartli": {
-    biome: { en: "Dry plain · Mtkvari", ka: "მშრალი ვაკე · მტკვარი" },
+    biome: {
+      en: "Dry plain · Mtkvari",
+      ka: "მშრალი ვაკე · მტკვარი",
+      ru: "Сухая равнина · Мтквари",
+      tr: "Kuru ova · Mtkvari",
+    },
     faq: [
       {
         answer: {
@@ -348,18 +397,40 @@ const regionContent: Record<RegionPathId, RegionContent> = {
       },
     ],
     habitats: [
-      { en: "Dry plains", ka: "მშრალი ვაკეები" },
-      { en: "Rocky foothills", ka: "კლდოვანი მთისწინეთი" },
-      { en: "Mtkvari basin", ka: "მტკვრის აუზი" },
+      {
+        en: "Dry plains",
+        ka: "მშრალი ვაკეები",
+        ru: "Сухие равнины",
+        tr: "Kuru ovalar",
+      },
+      {
+        en: "Rocky foothills",
+        ka: "კლდოვანი მთისწინეთი",
+        ru: "Скалистые предгорья",
+        tr: "Kayalık dağ etekleri",
+      },
+      {
+        en: "Mtkvari basin",
+        ka: "მტკვრის აუზი",
+        ru: "Бассейн Мтквари",
+        tr: "Mtkvari havzası",
+      },
     ],
     overview: {
       en: "Kvemo Kartli’s dry plains, rocky foothills, and Mtkvari basin favor warmth-loving species. Here appears the Levantine viper — one of eastern Georgia’s most significant venomous snakes.",
       ka: "ქვემო ქართლი მშრალი ვაკეებით, კლდოვანი მთისწინეთითა და მტკვრის აუზით ხელს უწყობს თბომოყვარე სახეობებს. აქ ჩნდება გიურზა — აღმოსავლეთ საქართველოს ერთ-ერთი ყველაზე მნიშვნელოვანი შხამიანი გველი.",
+      ru: "Сухие равнины, скалистые предгорья и бассейн Мтквари в Квемо Картли благоприятны для теплолюбивых видов. Здесь встречается гюрза — одна из самых значимых ядовитых змей восточной Грузии.",
+      tr: "Kvemo Kartli’nin kuru ovaları, kayalık dağ etekleri ve Mtkvari havzası sıcağı seven türlere elverişlidir. Doğu Gürcistan’ın en önemli zehirli yılanlarından biri olan Levant engereği burada görülür.",
     },
     relatedIds: ["tbilisi", "kakheti", "shida-kartli", "samtskhe-javakheti"],
   },
   "mtskheta-mtianeti": {
-    biome: { en: "Greater Caucasus", ka: "დიდი კავკასიონი" },
+    biome: {
+      en: "Greater Caucasus",
+      ka: "დიდი კავკასიონი",
+      ru: "Большой Кавказ",
+      tr: "Büyük Kafkasya",
+    },
     faq: [
       {
         answer: {
@@ -377,18 +448,52 @@ const regionContent: Record<RegionPathId, RegionContent> = {
       },
     ],
     habitats: [
-      { en: "High mountains", ka: "მაღალმთა" },
-      { en: "Upper forest belt", ka: "ტყის ზედა ზონა" },
-      { en: "Subalpine meadows", ka: "სუბალპური მდელოები" },
+      {
+        en: "High mountains",
+        ka: "მაღალმთა",
+        ru: "Высокогорье",
+        tr: "Yüksek dağlar",
+      },
+      {
+        en: "Upper forest belt",
+        ka: "ტყის ზედა ზონა",
+        ru: "Верхний лесной пояс",
+        tr: "Üst orman kuşağı",
+      },
+      {
+        en: "Subalpine meadows",
+        ka: "სუბალპური მდელოები",
+        ru: "Субальпийские луга",
+        tr: "Subalpin çayırlar",
+      },
     ],
     overview: {
       en: "Mtskheta — Mtianeti covers Greater Caucasus peaks, the upper forest belt, and subalpine meadows. It is classic range for montane reptiles, including Dinnik’s viper.",
       ka: "მცხეთა — მთიანეთი დიდი კავკასიონის მთებით, ტყის ზედა ზონითა და სუბალპური მდელოებით გამოირჩევა. ეს არის მთის ქვეწარმავლების — მათ შორის დინიკის გველგესლას — კლასიკური არეალი.",
+      ru: "Мцхета — Мтианети охватывает вершины Большого Кавказа, верхний лесной пояс и субальпийские луга. Это классический ареал горных рептилий, в том числе гадюки Динника.",
+      tr: "Mtsheta — Mtianeti, Büyük Kafkasya’nın zirvelerini, üst orman kuşağını ve subalpin çayırları kapsar. Dinnik engereği dahil dağ sürüngenlerinin klasik yayılış alanıdır.",
     },
     relatedIds: ["racha", "shida-kartli", "kakheti", "tbilisi"],
+    titleName: {
+      en: "Mtskheta-Mtianeti",
+      ka: "მცხეთა-მთიანეთი",
+      ru: "Мцхета-Мтианети",
+      tr: "Mtsheta-Mtianeti",
+    },
+    titleNameIn: {
+      en: "Mtskheta-Mtianeti",
+      ka: "მცხეთა-მთიანეთში",
+      ru: "Мцхета-Мтианети",
+      tr: "Mtsheta-Mtianeti",
+    },
   },
   racha: {
-    biome: { en: "High mountain · subalpine", ka: "მაღალმთა · სუბალპური" },
+    biome: {
+      en: "High mountain · subalpine",
+      ka: "მაღალმთა · სუბალპური",
+      ru: "Высокогорье · субальпийский пояс",
+      tr: "Yüksek dağ · subalpin kuşak",
+    },
     faq: [
       {
         answer: {
@@ -406,18 +511,52 @@ const regionContent: Record<RegionPathId, RegionContent> = {
       },
     ],
     habitats: [
-      { en: "High-mountain forests", ka: "მაღალმთიანი ტყეები" },
-      { en: "Subalpine meadows", ka: "სუბალპური მდელოები" },
-      { en: "Rocky gorges", ka: "კლდოვანი ხეობები" },
+      {
+        en: "High-mountain forests",
+        ka: "მაღალმთიანი ტყეები",
+        ru: "Высокогорные леса",
+        tr: "Yüksek dağ ormanları",
+      },
+      {
+        en: "Subalpine meadows",
+        ka: "სუბალპური მდელოები",
+        ru: "Субальпийские луга",
+        tr: "Subalpin çayırlar",
+      },
+      {
+        en: "Rocky gorges",
+        ka: "კლდოვანი ხეობები",
+        ru: "Скалистые ущелья",
+        tr: "Kayalık boğazlar",
+      },
     ],
     overview: {
       en: "Racha — Lechkhumi — Kvemo Svaneti is defined by high forests, subalpine meadows, and rocky gorges. Montane taxa such as Dinnik’s viper are more characteristic than lowland fauna.",
       ka: "რაჭა — ლეჩხუმი — ქვემო სვანეთი მაღალმთიანი ტყეებით, სუბალპური მდელოებითა და კლდოვანი ხეობებით გამოირჩევა. აქ მთის სახეობები — მათ შორის დინიკის გველგესლა — უფრო დამახასიათებელია, ვიდრე დაბლობის ფაუნა.",
+      ru: "Рача — Лечхуми — Нижняя Сванетия отличается высокогорными лесами, субальпийскими лугами и скалистыми ущельями. Горные виды, такие как гадюка Динника, здесь характернее, чем низинная фауна.",
+      tr: "Raça — Leçhumi — Kvemo Svaneti yüksek dağ ormanları, subalpin çayırları ve kayalık boğazlarıyla öne çıkar. Burada Dinnik engereği gibi dağ türleri, alçak alan faunasından daha karakteristiktir.",
     },
     relatedIds: ["samegrelo-zemo-svaneti", "imereti", "mtskheta-mtianeti"],
+    titleName: {
+      en: "Racha-Lechkhumi and Kvemo Svaneti",
+      ka: "რაჭა-ლეჩხუმი და ქვემო სვანეთი",
+      ru: "Рача-Лечхуми и Квемо Сванети",
+      tr: "Raça-Leçhumi ve Kvemo Svaneti",
+    },
+    titleNameIn: {
+      en: "Racha-Lechkhumi and Kvemo Svaneti",
+      ka: "რაჭა-ლეჩხუმსა და ქვემო სვანეთში",
+      ru: "Рача-Лечхуми и Квемо Сванети",
+      tr: "Raça-Leçhumi ve Kvemo Svaneti",
+    },
   },
   "samegrelo-zemo-svaneti": {
-    biome: { en: "Colchis · Svaneti", ka: "კოლხეთი · სვანეთი" },
+    biome: {
+      en: "Colchis · Svaneti",
+      ka: "კოლხეთი · სვანეთი",
+      ru: "Колхида · Сванетия",
+      tr: "Kolhis · Svaneti",
+    },
     faq: [
       {
         answer: {
@@ -464,9 +603,26 @@ const regionContent: Record<RegionPathId, RegionContent> = {
       tr: "Samegrelo — Zemo Svaneti, Kolhis ovasından Svaneti’nin yüksek dağlarına kadar uzanır. Nemli ormanlar, nehir vadileri ve alpin kuşak tek bir bölgede buluşur; bu yüzden sürüngen bileşimi yükselti ve habitata göre belirgin biçimde değişir.",
     },
     relatedIds: ["abkhazia", "guria", "racha", "imereti"],
+    titleName: {
+      en: "Samegrelo-Zemo Svaneti",
+      ka: "სამეგრელო-ზემო სვანეთი",
+      ru: "Самегрело-Земо Сванети",
+      tr: "Samegrelo-Zemo Svaneti",
+    },
+    titleNameIn: {
+      en: "Samegrelo-Zemo Svaneti",
+      ka: "სამეგრელო-ზემო სვანეთში",
+      ru: "Самегрело-Земо Сванети",
+      tr: "Samegrelo-Zemo Svaneti",
+    },
   },
   "samtskhe-javakheti": {
-    biome: { en: "Volcanic plateau", ka: "ვულკანური პლატო" },
+    biome: {
+      en: "Volcanic plateau",
+      ka: "ვულკანური პლატო",
+      ru: "Вулканическое плато",
+      tr: "Volkanik plato",
+    },
     faq: [
       {
         answer: {
@@ -484,19 +640,58 @@ const regionContent: Record<RegionPathId, RegionContent> = {
       },
     ],
     habitats: [
-      { en: "Volcanic plateaus", ka: "ვულკანური პლატოები" },
-      { en: "Highland lakes", ka: "მთის ტბები" },
-      { en: "Dry foothills", ka: "მშრალი მთისწინეთი" },
-      { en: "Subalpine rocky slopes", ka: "სუბალპური კლდოვანი ფერდობები" },
+      {
+        en: "Volcanic plateaus",
+        ka: "ვულკანური პლატოები",
+        ru: "Вулканические плато",
+        tr: "Volkanik platolar",
+      },
+      {
+        en: "Highland lakes",
+        ka: "მთის ტბები",
+        ru: "Горные озёра",
+        tr: "Dağ gölleri",
+      },
+      {
+        en: "Dry foothills",
+        ka: "მშრალი მთისწინეთი",
+        ru: "Сухие предгорья",
+        tr: "Kuru dağ etekleri",
+      },
+      {
+        en: "Subalpine rocky slopes",
+        ka: "სუბალპური კლდოვანი ფერდობები",
+        ru: "Субальпийские скалистые склоны",
+        tr: "Subalpin kayalık yamaçlar",
+      },
     ],
     overview: {
       en: "Samtskhe — Javakheti features volcanic plateaus, highland lakes, and dry foothills. Open, often cool habitats differ from Colchic west Georgia — the nose-horned viper and Darevsky’s viper occur here; Caucasus viper is recorded in the Borjomi gorge.",
       ka: "სამცხე — ჯავახეთი ვულკანური პლატოებით, მთის ტბებითა და მშრალი მთისწინეთით გამოირჩევა. ღია, ხშირად ცივი ჰაბიტატები განსხვავდება კოლხური დასავლეთისგან — აქ გვხვდება ცხვირრქოსანი და დარევსკის გველგესლები; ბორჯომის ხეობაში — კავკასიური გველგესლა.",
+      ru: "Самцхе — Джавахети отличается вулканическими плато, горными озёрами и сухими предгорьями. Открытые, часто прохладные местообитания не похожи на колхидскую западную Грузию — здесь встречаются носатая гадюка и гадюка Даревского; в Боржомском ущелье зарегистрирована кавказская гадюка.",
+      tr: "Samtshe — Cavaheti volkanik platoları, dağ gölleri ve kuru dağ etekleriyle öne çıkar. Açık, çoğu zaman serin habitatlar Kolhis’e ait batı Gürcistan’dan farklıdır — burada boynuzlu engerek ve Darevski engereği görülür; Borjomi vadisinde Kafkas engereği kaydedilmiştir.",
     },
     relatedIds: ["adjara", "imereti", "kvemo-kartli", "shida-kartli"],
+    titleName: {
+      en: "Samtskhe-Javakheti",
+      ka: "სამცხე-ჯავახეთი",
+      ru: "Самцхе-Джавахети",
+      tr: "Samtshe-Cavaheti",
+    },
+    titleNameIn: {
+      en: "Samtskhe-Javakheti",
+      ka: "სამცხე-ჯავახეთში",
+      ru: "Самцхе-Джавахети",
+      tr: "Samtshe-Cavaheti",
+    },
   },
   "shida-kartli": {
-    biome: { en: "Plain · Mtkvari valley", ka: "ვაკე · მტკვრის ხეობა" },
+    biome: {
+      en: "Plain · Mtkvari valley",
+      ka: "ვაკე · მტკვრის ხეობა",
+      ru: "Равнина · долина Мтквари",
+      tr: "Ova · Mtkvari vadisi",
+    },
     faq: [
       {
         answer: {
@@ -514,13 +709,30 @@ const regionContent: Record<RegionPathId, RegionContent> = {
       },
     ],
     habitats: [
-      { en: "Shida Kartli plain", ka: "შიდა ქართლის ვაკე" },
-      { en: "Foothills", ka: "მთისწინეთი" },
-      { en: "Mtkvari valley", ka: "მტკვრის ხეობა" },
+      {
+        en: "Shida Kartli plain",
+        ka: "შიდა ქართლის ვაკე",
+        ru: "Равнина Внутренней Картли",
+        tr: "Şida Kartli ovası",
+      },
+      {
+        en: "Foothills",
+        ka: "მთისწინეთი",
+        ru: "Предгорья",
+        tr: "Dağ etekleri",
+      },
+      {
+        en: "Mtkvari valley",
+        ka: "მტკვრის ხეობა",
+        ru: "Долина Мтквари",
+        tr: "Mtkvari vadisi",
+      },
     ],
     overview: {
       en: "Shida Kartli bridges dry and semi-humid zones via plains, foothills, and the Mtkvari valley. Western and eastern faunal elements meet — from nose-horned viper to fast racers.",
       ka: "შიდა ქართლი ვაკით, მთისწინეთითა და მტკვრის ხეობით აერთიანებს მშრალ და ნახევრად ნოტიო ზონებს. აქ იკვეთება დასავლეთისა და აღმოსავლეთის ფაუნის ელემენტები — ცხვირრქოსანი გველგესლიდან სწრაფ მცურავებამდე.",
+      ru: "Внутренняя Картли с её равниной, предгорьями и долиной Мтквари соединяет сухие и полувлажные зоны. Здесь встречаются западные и восточные элементы фауны — от носатой гадюки до быстрых полозов.",
+      tr: "Şida Kartli ovası, dağ etekleri ve Mtkvari vadisiyle kuru ve yarı nemli bölgeleri birbirine bağlar. Batı ve doğu faunasının unsurları burada buluşur — boynuzlu engerekten hızlı kırbaç yılanlarına kadar.",
     },
     relatedIds: [
       "mtskheta-mtianeti",
@@ -530,7 +742,12 @@ const regionContent: Record<RegionPathId, RegionContent> = {
     ],
   },
   tbilisi: {
-    biome: { en: "Urban · Mtkvari", ka: "ურბანული · მტკვარი" },
+    biome: {
+      en: "Urban · Mtkvari",
+      ka: "ურბანული · მტკვარი",
+      ru: "Город · Мтквари",
+      tr: "Kentsel alan · Mtkvari",
+    },
     faq: [
       {
         answer: {
@@ -565,7 +782,7 @@ const regionContent: Record<RegionPathId, RegionContent> = {
           en: "Reptile encounters are more likely along the Mtkvari, on rocky slopes, in suburban valleys, and in less disturbed green areas than on central city streets. Levantine viper is recorded only rarely around Tbilisi and is more strongly tied to dry habitats of eastern Georgia.",
           ka: "ქვეწარმავლების შეხვედრა უფრო მოსალოდნელია მტკვრის პირას, კლდოვან ფერდობებზე, გარეუბნის ხეობებსა და ნაკლებად შეწუხებულ გამწვანებულ ადგილებში, ვიდრე ქალაქის ცენტრალურ ქუჩებში. თბილისის მიდამოებში გიურზა იშვიათად ფიქსირდება და უფრო მეტად აღმოსავლეთ საქართველოს მშრალ ჰაბიტატებს უკავშირდება.",
           ru: "Встречи с рептилиями более вероятны у Мтквари, на скальных склонах, в пригородных ущельях и в менее нарушенных зелёных местах, чем на центральных улицах города. Гюрза в окрестностях Тбилиси фиксируется редко и сильнее связана с сухими местообитаниями восточной Грузии.",
-          tr: "Sürüngenlerle karşılaşma, merkezi şehir sokaklarından çok Mtkvari kıyısında, kayalık yamaçlarda, banliyö vadilerinde ve daha az rahatsız edilen yeşil alanlarda beklenir. Koca engerek Tiflis çevresinde nadiren kaydedilir ve daha çok doğu Gürcistan’ın kuru habitatlarıyla ilişkilidir.",
+          tr: "Sürüngenlerle karşılaşma, merkezi şehir sokaklarından çok Mtkvari kıyısında, kayalık yamaçlarda, banliyö vadilerinde ve daha az rahatsız edilen yeşil alanlarda beklenir. Levant engereği Tiflis çevresinde nadiren kaydedilir ve daha çok doğu Gürcistan’ın kuru habitatlarıyla ilişkilidir.",
         },
         question: {
           en: "Where are snakes more likely around Tbilisi?",

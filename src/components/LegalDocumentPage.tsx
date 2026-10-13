@@ -3,14 +3,23 @@ import type { ReactNode } from "react";
 import type { AppLocale } from "@/i18n/routing";
 
 import { type LegalDocumentId, legalDocuments } from "@/content/legalDocuments";
+import { Link } from "@/i18n/navigation";
+
+type Block =
+  | {
+      id?: string;
+      key: string;
+      level: number;
+      text: string;
+      type: "heading";
+    }
+  | { items: TextPart[]; key: string; type: "list" }
+  | { key: string; rows: TableRow[]; type: "table" }
+  | { key: string; text: string; type: "paragraph" };
 
 export type { LegalDocumentId } from "@/content/legalDocuments";
 
-type Block =
-  | { items: TextPart[]; key: string; type: "list" }
-  | { key: string; level: number; text: string; type: "heading" }
-  | { key: string; rows: TableRow[]; type: "table" }
-  | { key: string; text: string; type: "paragraph" };
+type LegalLinkHref = "/photo-use";
 
 type TableRow = {
   cells: TextPart[];
@@ -31,15 +40,17 @@ export function LegalDocumentPage({
   locale: AppLocale;
   notice: string;
 }) {
-  const blocks = parseMarkdown(readDocument(documentId));
+  const translated = legalDocuments[documentId][locale];
+  const lang = translated ? locale : "ka";
+  const blocks = parseMarkdown(translated ?? legalDocuments[documentId].ka);
 
   return (
     <div className="bg-background">
       <article
         className="mx-auto max-w-4xl px-6 pt-28 pb-16 text-foreground lg:px-10 lg:pt-32 lg:pb-20"
-        lang="ka"
+        lang={lang}
       >
-        {locale !== "ka" ? (
+        {lang !== locale ? (
           <p className="mb-8 rounded-md border border-border bg-card px-4 py-3 text-[14px] leading-relaxed text-muted-foreground">
             {notice}
           </p>
@@ -54,21 +65,31 @@ export function LegalDocumentPage({
 
 function InlineText({ text }: { text: string }) {
   const parts: ReactNode[] = [];
-  const codePattern = /`([^`]+)`/g;
+  const inlinePattern = /`([^`]+)`|\[([^\]]+)\]\((\/[^)\s]*)\)/g;
   let cursor = 0;
   let match: null | RegExpExecArray;
 
-  while ((match = codePattern.exec(text))) {
+  while ((match = inlinePattern.exec(text))) {
     if (match.index > cursor) {
       parts.push(text.slice(cursor, match.index));
     }
     parts.push(
-      <code
-        className="rounded bg-card px-1.5 py-0.5 text-[0.92em] text-foreground"
-        key={sourceKey("code", match.index + 1, match[1])}
-      >
-        {match[1]}
-      </code>,
+      match[1] ? (
+        <code
+          className="rounded bg-card px-1.5 py-0.5 text-[0.92em] text-foreground"
+          key={sourceKey("code", match.index + 1, match[1])}
+        >
+          {match[1]}
+        </code>
+      ) : (
+        <Link
+          className="font-medium text-primary underline underline-offset-4"
+          href={match[3] as LegalLinkHref}
+          key={sourceKey("link", match.index + 1, match[2])}
+        >
+          {match[2]}
+        </Link>
+      ),
     );
     cursor = match.index + match[0].length;
   }
@@ -93,9 +114,10 @@ function parseMarkdown(markdown: string) {
       continue;
     }
 
-    const heading = line.match(/^(#{1,3})\s+(.+)$/);
+    const heading = line.match(/^(#{1,3})\s+(.+?)(?:\s+\{#([a-z0-9-]+)\})?$/);
     if (heading) {
       blocks.push({
+        id: heading[3],
         key: sourceKey("heading", index + 1, heading[2]),
         level: heading[1].length,
         text: heading[2],
@@ -168,10 +190,6 @@ function parseMarkdown(markdown: string) {
   return blocks;
 }
 
-function readDocument(documentId: LegalDocumentId) {
-  return legalDocuments[documentId];
-}
-
 function renderBlock(block: Block) {
   if (block.type === "heading") {
     const className =
@@ -182,7 +200,11 @@ function renderBlock(block: Block) {
           : "pt-3 text-xl font-semibold tracking-normal text-foreground";
     const Tag = `h${block.level}` as "h1" | "h2" | "h3";
     return (
-      <Tag className={className} key={block.key}>
+      <Tag
+        className={block.id ? `${className} scroll-mt-28` : className}
+        id={block.id}
+        key={block.key}
+      >
         <InlineText text={block.text} />
       </Tag>
     );

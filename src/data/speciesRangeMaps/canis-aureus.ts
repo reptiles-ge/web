@@ -12,7 +12,7 @@ export const rangeMap: InteractiveRangeMapConfig = {
       mapAria:
         "Golden jackal field records and confirmed distribution on a map of Georgia",
       officialRegionLabel: "Confirmed distribution region",
-      rangeTitle: "Where golden jackal is recorded in Georgia",
+      rangeTitle: "Golden jackal: where it is recorded in Georgia",
     },
     ka: {
       ...HALYOMORPHA_RANGE_COPY.ka,

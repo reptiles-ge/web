@@ -13,7 +13,7 @@ export const rangeMap: InteractiveRangeMapConfig = {
         "Caucasian rock lizard observations and confirmed distribution regions on a map of Georgia",
       officialRegionLabel: "Confirmed distribution region",
       rangeTitle:
-        "Where Caucasian rock lizard distribution is confirmed in Georgia",
+        "Caucasian rock lizard: where its distribution is confirmed in Georgia",
       regionsMetricLabel: "regions with records",
     },
     ka: {

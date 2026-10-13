@@ -274,7 +274,7 @@ const SPECIES_ALIASES: Record<
       "Malpolon monspessulanus",
     ],
     ka: ["ხვლიკიჭამია გველი", "ხვლიკიჭამია", "Malpolon monspessulanus"],
-    ru: ["восточная мальполон", "мальполон"],
+    ru: ["восточный мальполон", "мальполон"],
     tr: ["Doğu Montpellier yılanı"],
   },
   "mauremys-caspica": {
@@ -1426,6 +1426,9 @@ export function siteKeywords(locale: AppLocale) {
   ];
 }
 
+const DESCRIPTIVE_ALIAS =
+  /\b(?:non-)?venomous\b|\bGeorgia\b|საქართველო|შხამიან|უშხამო|Грузи|ядовит|Gürcistan|zehirli|zehirsiz/iu;
+
 export function speciesAliasKeywords(id: string, locale: AppLocale) {
   const aliases = SPECIES_ALIASES[id];
   if (!aliases) return [];
@@ -1433,6 +1436,12 @@ export function speciesAliasKeywords(id: string, locale: AppLocale) {
   if (locale === "ru") return aliases.ru ?? [];
   if (locale === "tr") return aliases.tr ?? [];
   return aliases.en;
+}
+
+export function speciesAlternateNames(id: string, locale: AppLocale) {
+  return speciesAliasKeywords(id, locale).filter(
+    (alias) => !DESCRIPTIVE_ALIAS.test(alias),
+  );
 }
 
 export function speciesJsonLdKeywords(species: Species, locale: AppLocale) {

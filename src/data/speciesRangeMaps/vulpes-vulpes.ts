@@ -12,7 +12,7 @@ export const rangeMap: InteractiveRangeMapConfig = {
       mapAria:
         "Red fox field records and confirmed distribution on a map of Georgia",
       officialRegionLabel: "Confirmed distribution region",
-      rangeTitle: "Where red fox is recorded in Georgia",
+      rangeTitle: "Red fox: where it is recorded in Georgia",
     },
     ka: {
       ...HALYOMORPHA_RANGE_COPY.ka,

@@ -30,6 +30,7 @@ import {
 } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { isLocalAdminEnabled } from "@/lib/adminAccess";
+import { faqPageJsonLd } from "@/lib/faqJsonLd";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import { speciesItemListLd } from "@/lib/pageStructuredData";
 import { INDEXABLE_ROBOTS } from "@/lib/robots";
@@ -75,7 +76,13 @@ export async function generateMetadata({
   const name = localizeRegionText(region.name, locale);
   const nameIn = localizeRegionText(region.nameIn, locale);
   const content = getRegionContent(region.id);
-  const title = t("regionMetaTitle", { name, nameIn });
+  const titleArgs = {
+    name: localizeRegionText(content.titleName ?? region.name, locale),
+    nameIn: localizeRegionText(content.titleNameIn ?? region.nameIn, locale),
+  };
+  const fullTitle = t("regionMetaTitle", titleArgs);
+  const title =
+    fullTitle.length <= 60 ? fullTitle : t("regionMetaTitleShort", titleArgs);
   const fallbackDescription =
     (content.metaDescription
       ? localizeRegionTextIfPresent(content.metaDescription, locale)
@@ -123,7 +130,7 @@ export async function generateMetadata({
       url: absoluteUrl(publicPath),
     },
     robots: INDEXABLE_ROBOTS,
-    title,
+    title: { absolute: title },
     twitter: {
       card: "summary_large_image",
       description,
@@ -221,21 +228,7 @@ export default async function RegionPage({ params }: PageProps) {
     return [{ answer, question }];
   });
 
-  const faqJsonLd =
-    faqItems.length > 0
-      ? {
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          mainEntity: faqItems.map((entry) => ({
-            "@type": "Question",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: entry.answer,
-            },
-            name: entry.question,
-          })),
-        }
-      : null;
+  const faqJsonLd = faqPageJsonLd(faqItems);
 
   return (
     <>

@@ -13,7 +13,7 @@ export const rangeMap: InteractiveRangeMapConfig = {
         "Ring-headed dwarf snake observations and confirmed regions on a map of Georgia",
       officialRegionLabel: "Confirmed distribution region",
       rangeTitle:
-        "Where ring-headed dwarf snake distribution is confirmed in Georgia",
+        "Ring-headed dwarf snake: where its distribution is confirmed in Georgia",
     },
     ka: {
       ...HALYOMORPHA_RANGE_COPY.ka,

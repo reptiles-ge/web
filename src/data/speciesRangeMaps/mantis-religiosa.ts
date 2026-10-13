@@ -10,7 +10,7 @@ export const rangeMap: InteractiveRangeMapConfig = {
       intro:
         "The European mantis map combines Reptiles.ge editorial photo records with public iNaturalist observations. Individual field records are shown as point data, and record counts reflect observation effort rather than population density.",
       mapAria: "European mantis field records on a map of Georgia",
-      rangeTitle: "Where European mantis is recorded in Georgia",
+      rangeTitle: "European mantis: where it is recorded in Georgia",
     },
     ka: {
       ...HALYOMORPHA_RANGE_COPY.ka,

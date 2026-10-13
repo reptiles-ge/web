@@ -69,7 +69,7 @@ vi.mock("next-intl/server", () => ({
 type Locale = (typeof routing.locales)[number];
 
 const hubIds = Object.keys(GROUP_HUBS) as GroupHubId[];
-const BRAND_SUFFIX = ` — ${siteConfig.name}`;
+const BRAND_SUFFIX = ` — ${siteConfig.titleBrand}`;
 
 const KA_HEAD_TERMS: Record<GroupHubId, string> = {
   amphibians: "ამფიბიები",

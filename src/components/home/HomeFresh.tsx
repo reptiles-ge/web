@@ -55,7 +55,8 @@ export async function HomeFresh({ locale }: { locale: AppLocale }) {
                     <CoverImage
                       alt={leadVisual.alt}
                       className="object-cover transition-transform duration-700 group-hover:scale-[1.035]"
-                      sizes="(max-width: 1023px) 100vw, 320px"
+                      defer
+                      sizes="(max-width: 1023px) calc(100vw - 72px), 320px"
                       src={leadVisual.src}
                     />
                   </span>
@@ -139,7 +140,8 @@ export async function HomeFresh({ locale }: { locale: AppLocale }) {
                           <CoverImage
                             alt=""
                             className="object-cover transition-transform duration-500 group-hover:scale-105"
-                            sizes="64px"
+                            defer
+                            sizes="(max-width: 639px) 56px, 64px"
                             src={cover}
                           />
                         ) : null}

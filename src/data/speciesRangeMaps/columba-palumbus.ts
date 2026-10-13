@@ -12,7 +12,7 @@ export const rangeMap: InteractiveRangeMapConfig = {
       mapAria:
         "Common woodpigeon observations and confirmed regions on a map of Georgia",
       officialRegionLabel: "Region with confirmed records",
-      rangeTitle: "Where common woodpigeon is recorded in Georgia",
+      rangeTitle: "Common woodpigeon: where it is recorded in Georgia",
     },
     ka: {
       ...HALYOMORPHA_RANGE_COPY.ka,

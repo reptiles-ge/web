@@ -12,7 +12,7 @@ export const rangeMap: InteractiveRangeMapConfig = {
       mapAria:
         "Dinnik's viper distribution evidence and field records on a map of Georgia",
       officialRegionLabel: "Confirmed distribution region",
-      rangeTitle: "Where Dinnik's viper is recorded in Georgia",
+      rangeTitle: "Dinnik's viper: where it is recorded in Georgia",
     },
     ka: {
       ...HALYOMORPHA_RANGE_COPY.ka,

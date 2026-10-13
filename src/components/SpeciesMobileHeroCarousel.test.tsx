@@ -73,7 +73,6 @@ describe("SpeciesMobileHeroCarousel", () => {
     });
 
     it("keeps photos after the first unloaded until the user touches the carousel", () => {
-      vi.spyOn(document, "readyState", "get").mockReturnValue("loading");
       const { container, getByRole } = render(
         <SpeciesMobileHeroCarousel
           label="Gallery"
@@ -98,14 +97,12 @@ describe("SpeciesMobileHeroCarousel", () => {
       expect(after[2].getAttribute("src")).toContain("cdn.reptiles.ge");
     });
 
-    it("loads the remaining photos once the page has loaded and the browser is idle", () => {
+    it("keeps the remaining photos unloaded after the page load and idle time", () => {
       vi.useFakeTimers();
-      vi.spyOn(document, "readyState", "get").mockReturnValue("loading");
       const idle = vi.fn((callback: IdleRequestCallback) =>
         window.setTimeout(() => callback({} as IdleDeadline), 10),
       );
       vi.stubGlobal("requestIdleCallback", idle);
-      vi.stubGlobal("cancelIdleCallback", vi.fn());
       const { container } = render(
         <SpeciesMobileHeroCarousel
           label="Gallery"
@@ -113,20 +110,37 @@ describe("SpeciesMobileHeroCarousel", () => {
           speciesId="macrovipera-lebetina"
         />,
       );
-      expect(slideImages(container)[1].getAttribute("src")).toMatch(
-        /^data:image\/gif/,
-      );
 
       act(() => {
         window.dispatchEvent(new Event("load"));
-        vi.advanceTimersByTime(20);
+        vi.advanceTimersByTime(5000);
       });
 
-      expect(idle).toHaveBeenCalledOnce();
+      expect(idle).not.toHaveBeenCalled();
+      expect(slideImages(container)[1].getAttribute("src")).toMatch(
+        /^data:image\/gif/,
+      );
+      vi.unstubAllGlobals();
+    });
+
+    it.each([
+      ["focus", (region: HTMLElement) => fireEvent.focus(region)],
+      ["touch", (region: HTMLElement) => fireEvent.touchStart(region)],
+      ["scroll", (region: HTMLElement) => fireEvent.scroll(region)],
+    ])("loads the remaining photos on %s", (_, interact) => {
+      const { container, getByRole } = render(
+        <SpeciesMobileHeroCarousel
+          label="Gallery"
+          slides={slides(2)}
+          speciesId="macrovipera-lebetina"
+        />,
+      );
+
+      interact(getByRole("region"));
+
       expect(slideImages(container)[1].getAttribute("src")).toContain(
         "cdn.reptiles.ge",
       );
-      vi.unstubAllGlobals();
     });
   });
 });

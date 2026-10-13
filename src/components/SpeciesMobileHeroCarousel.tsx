@@ -1,7 +1,8 @@
 "use client";
 
-import { type PointerEvent, useEffect, useRef, useState } from "react";
+import { type PointerEvent, useRef, useState } from "react";
 
+import { BLANK_IMAGE } from "@/components/DeferredPicture";
 import {
   optimizedEntry,
   optimizedImgSrc,
@@ -9,9 +10,6 @@ import {
 } from "@/data/optimizedImages";
 import { cn } from "@/lib/cn";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
-
-const BLANK_IMAGE =
-  "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==";
 
 export const MOBILE_HERO_PHOTO_CHANGE_EVENT =
   "species-mobile-hero-photo-change";
@@ -43,30 +41,6 @@ export function SpeciesMobileHeroCarousel({
   const [active, setActive] = useState(0);
   const [restLoaded, setRestLoaded] = useState(false);
 
-  useEffect(() => {
-    if (restLoaded || slides.length < 2) return;
-    let idleId: null | number = null;
-    let timeoutId: null | number = null;
-    const reveal = () => setRestLoaded(true);
-    const schedule = () => {
-      if (typeof window.requestIdleCallback === "function") {
-        idleId = window.requestIdleCallback(reveal, { timeout: 3000 });
-      } else {
-        timeoutId = window.setTimeout(reveal, 1500);
-      }
-    };
-    if (document.readyState === "complete") {
-      schedule();
-    } else {
-      window.addEventListener("load", schedule, { once: true });
-    }
-    return () => {
-      window.removeEventListener("load", schedule);
-      if (idleId !== null) window.cancelIdleCallback(idleId);
-      if (timeoutId !== null) window.clearTimeout(timeoutId);
-    };
-  }, [restLoaded, slides.length]);
-
   function finishDrag(event: PointerEvent<HTMLDivElement>) {
     const scroller = event.currentTarget;
     const drag = dragRef.current;
@@ -96,6 +70,7 @@ export function SpeciesMobileHeroCarousel({
   }
 
   function onScroll() {
+    setRestLoaded(true);
     const scroller = scrollerRef.current;
     if (!scroller || !scroller.clientWidth) return;
     const next = Math.max(

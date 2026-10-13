@@ -11,7 +11,7 @@ export const rangeMap: InteractiveRangeMapConfig = {
         "The Chukar map uses public iNaturalist observations from Georgia. Regions come from the records-by-region table: only a confirmed status counts as distribution; other regions have records only. Points outside the map's regional polygons remain in the total but are not assigned to a region. Counts reflect observation effort, not population density.",
       mapAria: "Chukar observations and confirmed regions on a map of Georgia",
       officialRegionLabel: "Confirmed distribution region",
-      rangeTitle: "Where Chukar is recorded in Georgia",
+      rangeTitle: "Chukar: where it is recorded in Georgia",
     },
     ka: {
       ...HALYOMORPHA_RANGE_COPY.ka,

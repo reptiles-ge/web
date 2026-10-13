@@ -12,7 +12,7 @@ export const rangeMap: InteractiveRangeMapConfig = {
       mapAria:
         "Common pheasant observations and confirmed regions on a map of Georgia",
       officialRegionLabel: "Region with confirmed distribution",
-      rangeTitle: "Where common pheasant is recorded in Georgia",
+      rangeTitle: "Common pheasant: where it is recorded in Georgia",
       regionsMetricLabel: "regions with records",
     },
     ka: {

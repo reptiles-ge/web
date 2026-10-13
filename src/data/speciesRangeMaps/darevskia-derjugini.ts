@@ -12,7 +12,8 @@ export const rangeMap: InteractiveRangeMapConfig = {
       mapAria:
         "Artvin lizard observations and confirmed distribution regions on a map of Georgia",
       officialRegionLabel: "Confirmed distribution region",
-      rangeTitle: "Where Artvin lizard distribution is confirmed in Georgia",
+      rangeTitle:
+        "Artvin lizard: where its distribution is confirmed in Georgia",
       regionsMetricLabel: "confirmed regions",
     },
     ka: {
