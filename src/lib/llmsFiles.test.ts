@@ -106,7 +106,9 @@ describe("buildLlmsFullText", () => {
     );
 
     expect(macrovipera).toContain("- English name: Levantine viper");
-    expect(macrovipera).toMatch(/\nEnglish summary: The gyurza/);
+    expect(macrovipera).toMatch(
+      /\nEnglish summary: The Levantine viper \(Macrovipera lebetinus\)/,
+    );
     expect(body.match(/^English summary: /gm)?.length).toBe(
       getCatalogSpecies().length,
     );
