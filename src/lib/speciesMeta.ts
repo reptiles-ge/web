@@ -358,7 +358,10 @@ const SPECIES_META_DESCRIPTION_OVERRIDE: Partial<
     ka: "გიურზა (Macrovipera lebetinus) საქართველოში: ამოცნობის ნიშნები, გავრცელება, აღმოსავლეთ საქართველოს მშრალი ჰაბიტატები, ზომა და მაღალი რისკი ადამიანისთვის.",
   },
   "meles-canescens": {
+    en: "Caucasian badger (Meles canescens) in Georgia: striped head, habitat, sett and tracks, diet, confirmed regions on the map, and whether it is dangerous.",
     ka: "მაჩვი (Meles canescens) საქართველოს მშობლიური კვერნისებრია, ცნობადი შავ-თეთრზოლიანი თავით. რუკა, ფოტოები, კვალი, სორო, კვება და დაცვის სტატუსი.",
+    ru: "Кавказский барсук (Meles canescens) в Грузии: полосатая голова, местообитания, нора и следы, питание, подтверждённые регионы на карте и опасен ли он.",
+    tr: "Gürcistan'da Kafkas porsuğu (Meles canescens): çizgili baş, yaşam alanı, yuva ve iz, beslenme, haritada doğrulanmış bölgeler ve tehlikeli olup olmadığı.",
   },
   "mesobuthus-eupeus": {
     en: "Mottled scorpion (Mesobuthus eupeus) in Georgia: taxonomy, Tbilisi evidence, identification notes, habitat, sting risk, and sources.",
