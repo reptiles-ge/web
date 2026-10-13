@@ -197,7 +197,7 @@ describe("structured data", () => {
         email: CONTACT_EMAIL,
         url: absoluteUrl(localePath(locale, "/contact")),
       });
-      expect(CONTACT_EMAIL).toBe("nika@shamiladze.com");
+      expect(CONTACT_EMAIL).toBe("hello@reptiles.ge");
       expect(organizationJsonLd(locale).contactPoint).not.toHaveProperty(
         "telephone",
       );
