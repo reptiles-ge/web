@@ -29,6 +29,7 @@ import { INDEXABLE_ROBOTS } from "@/lib/robots";
 import {
   absoluteUrl,
   localePath,
+  ogImageDimensions,
   openGraphJpeg,
   organizationRef,
   siteConfig,
@@ -122,6 +123,7 @@ export default async function NewsArticleRoute({ params }: Props) {
     locale,
     namespace: "groupHubShared",
   });
+  const tNav = await getTranslations({ locale, namespace: "nav" });
   const url = newsArticleUrl(locale, article.slug);
   const ogImage = newsOgImageUrl(article);
   const published = newsDateTime(article.publishedAt);
@@ -183,6 +185,7 @@ export default async function NewsArticleRoute({ params }: Props) {
         name: georgiaPlaceName(locale),
       },
     ],
+    articleSection: article.relatedHubIds.map((hub) => tNav(hub)),
     author: organizationRef(),
     citation: article.sources.map((source) => ({
       "@type": "CreativeWork",
@@ -197,6 +200,7 @@ export default async function NewsArticleRoute({ params }: Props) {
       "@type": "ImageObject",
       contentUrl: ogImage,
       url: ogImage,
+      ...ogImageDimensions(ogImage),
       ...newsImageRights(article, locale),
     },
     inLanguage: locale,

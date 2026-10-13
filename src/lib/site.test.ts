@@ -7,6 +7,7 @@ import {
   CONTACT_EMAIL,
   FALLBACK_OG_IMAGE_URL,
   localePath,
+  ogImageDimensions,
   ogImageUrlFromSrc,
   openGraphJpeg,
   ORGANIZATION_SAME_AS,
@@ -213,6 +214,8 @@ describe("structured data", () => {
   it("describes the website, with a search action only when asked", () => {
     const plain = websiteJsonLd({ description: "d" });
     expect(plain["@type"]).toBe("WebSite");
+    expect(plain.name).toBe("Reptiles.ge");
+    expect(plain.name).toBe(organizationJsonLd("ka").name);
     expect(plain.publisher).toEqual({ "@id": siteEntityId("organization") });
     expect(plain.potentialAction).toBeUndefined();
 
@@ -226,5 +229,24 @@ describe("structured data", () => {
         urlTemplate: "https://reptiles.ge/species?q={search_term_string}",
       },
     });
+  });
+});
+
+describe("ogImageDimensions", () => {
+  it("sizes CDN OG images at 1200×630", () => {
+    expect(
+      ogImageDimensions(
+        "https://cdn.reptiles.ge/og/species/capra-aegagrus-gabunia-1.jpg",
+      ),
+    ).toEqual({ height: 630, width: 1200 });
+  });
+
+  it("leaves other images unsized", () => {
+    expect(
+      ogImageDimensions(
+        "https://cdn.reptiles.ge/species/capra-aegagrus-gabunia-1.jpg",
+      ),
+    ).toEqual({});
+    expect(ogImageDimensions("https://example.com/og/a.jpg")).toEqual({});
   });
 });
