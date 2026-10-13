@@ -47,8 +47,15 @@ describe("taxon identifiers", () => {
     expect(new Set(wikidata).size).toBe(wikidata.length);
   });
 
-  it("leaves the nose-horned viper without ids while its name is unsettled", () => {
-    expect(taxonIdentifiers["vipera-transcaucasiana"]).toBeUndefined();
+  it("gives the nose-horned viper the ids of its profile name, Vipera ammodytes", () => {
+    expect(getSpeciesById("vipera-transcaucasiana")?.scientificName).toBe(
+      "Vipera ammodytes",
+    );
+    expect(taxonIdentifiers["vipera-transcaucasiana"]).toEqual({
+      gbif: 2444308,
+      inaturalist: 1701177,
+      wikidata: "Q583923",
+    });
   });
 
   it("builds canonical entity URLs", () => {
