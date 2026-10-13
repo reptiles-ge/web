@@ -21,7 +21,6 @@ import {
   CDN_BASE,
   localePath,
   OG_IMAGE_TYPE,
-  organizationJsonLd,
   siteConfig,
   siteEntityId,
 } from "@/lib/site";
@@ -32,11 +31,6 @@ type Props = {
 };
 
 const CONTRIBUTORS_OG_IMAGE_URL = `${CDN_BASE}/og/images/contributors.jpg`;
-
-const orgLd = {
-  "@context": "https://schema.org",
-  ...organizationJsonLd(),
-};
 
 export default async function AuthorIndexRoute({ params }: Props) {
   const { locale: localeParam } = await params;
@@ -98,7 +92,7 @@ export default async function AuthorIndexRoute({ params }: Props) {
 
   return (
     <>
-      <JsonLd data={[breadcrumbLd, collectionLd, orgLd]} />
+      <JsonLd data={[breadcrumbLd, collectionLd]} />
       <AuthorIndexPage cards={cards} locale={locale} />
     </>
   );

@@ -28,7 +28,7 @@ import {
   absoluteUrl,
   localePath,
   openGraphJpeg,
-  organizationJsonLd,
+  organizationRef,
   siteConfig,
   siteEntityId,
 } from "@/lib/site";
@@ -127,7 +127,6 @@ export default async function NewsArticleRoute({ params }: Props) {
   const ogImage = newsOgImageUrl(article);
   const published = newsDateTime(article.publishedAt);
   const modified = newsDateTime(article.updatedAt ?? article.publishedAt);
-  const org = organizationJsonLd();
 
   const breadcrumbLd = {
     "@context": "https://schema.org",
@@ -185,7 +184,7 @@ export default async function NewsArticleRoute({ params }: Props) {
         name: georgiaPlaceName(locale),
       },
     ],
-    author: { "@id": siteEntityId("organization") },
+    author: organizationRef(),
     citation: article.sources.map((source) => ({
       "@type": "CreativeWork",
       name: newsSourceName(source, locale),
@@ -207,7 +206,7 @@ export default async function NewsArticleRoute({ params }: Props) {
       "@type": "WebPage",
     },
     mentions,
-    publisher: org,
+    publisher: organizationRef(),
     url,
   };
 

@@ -1,10 +1,10 @@
 import type {
-  OrganizationLeaf,
   SearchAction,
   WebSiteLeaf,
   WithActionConstraints,
 } from "schema-dts";
 
+import { atlasName } from "@/i18n/localeMeta";
 import { getPathname } from "@/i18n/navigation";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { publicEnv } from "@/lib/env";
@@ -110,21 +110,49 @@ export function openGraphJpeg(url: string, alt: string) {
   };
 }
 
-export function organizationJsonLd(options?: {
-  description?: string;
-}): OrganizationLeaf {
+const FOUNDER_NAME: Record<AppLocale, string> = {
+  en: "Nika Shamiladze",
+  ka: "ნიკა შამილაძე",
+  ru: "Ника Шамиладзе",
+  tr: "Nika Shamiladze",
+};
+
+export const ORGANIZATION_SAME_AS = [
+  "https://www.facebook.com/reptiles.ge",
+  "https://www.instagram.com/reptiles.ge",
+  "https://github.com/reptiles-ge",
+] as const;
+
+export const ORGANIZATION_NAME = "Reptiles.ge";
+
+export function organizationJsonLd(
+  locale: AppLocale,
+  options?: { description?: string },
+) {
   return {
     "@id": siteEntityId("organization"),
     "@type": "Organization",
-    alternateName: ["Reptiles.ge", "საქართველოს ცხოველთა ატლასი"],
+    alternateName: [atlasName(locale), siteConfig.name],
+    founder: {
+      "@id": siteEntityId("nika-shamiladze"),
+      "@type": "Person",
+      name: FOUNDER_NAME[locale],
+    },
     logo: {
       "@type": "ImageObject",
+      height: 1024,
       url: `${CDN_BASE}/logo.webp`,
+      width: 1024,
     },
-    name: siteConfig.name,
+    name: ORGANIZATION_NAME,
+    sameAs: [...ORGANIZATION_SAME_AS],
     url: absoluteUrl("/"),
     ...(options?.description ? { description: options.description } : {}),
   };
+}
+
+export function organizationRef() {
+  return { "@id": siteEntityId("organization") };
 }
 
 export function quizAlternates(locale: AppLocale, id: string) {
@@ -144,7 +172,9 @@ export function quizPageUrl(locale: AppLocale, id: string) {
   return absoluteUrl(getPathname({ href: quizHref(id, locale), locale }));
 }
 
-export function siteEntityId(fragment: "organization" | "website") {
+export function siteEntityId(
+  fragment: "nika-shamiladze" | "organization" | "website",
+) {
   return `${getSiteUrl()}/#${fragment}`;
 }
 
@@ -152,7 +182,7 @@ export function siteGraphJsonLd(locale: AppLocale, description: string) {
   return {
     "@context": "https://schema.org",
     "@graph": [
-      organizationJsonLd({ description }),
+      organizationJsonLd(locale, { description }),
       websiteJsonLd({
         description,
         searchUrlTemplate: `${absoluteUrl(localePath(locale, "/species"))}?q={search_term_string}`,
@@ -216,7 +246,7 @@ export function websiteJsonLd(options: {
     description: options.description,
     inLanguage: [...routing.locales],
     name: siteConfig.name,
-    publisher: { "@id": siteEntityId("organization") },
+    publisher: organizationRef(),
     url: absoluteUrl("/"),
     ...(options.searchUrlTemplate
       ? {
