@@ -57,9 +57,11 @@ export async function HomeGroups({ locale }: { locale: AppLocale }) {
         {GROUPS.map((hubId, index) => {
           const hub = GROUP_HUBS[hubId];
           const name = tNav(hubId);
+          const wide =
+            index < 4 || hubId === "scorpions" || hubId === "insects";
           return (
             <Link
-              className={`group w-[300px] shrink-0 snap-start focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary ${index < 4 || hubId === "scorpions" || hubId === "insects" ? "lg:w-[495px]" : "lg:w-[330px]"}`}
+              className={`group w-[300px] shrink-0 snap-start focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary ${wide ? "lg:w-[495px]" : "lg:w-[330px]"}`}
               href={hub.path}
               key={hubId}
             >
@@ -67,7 +69,8 @@ export async function HomeGroups({ locale }: { locale: AppLocale }) {
                 <CoverImage
                   alt={t("illustrationAlt", { name })}
                   className="object-cover transition-transform duration-700 group-hover:scale-[1.035]"
-                  sizes="(max-width: 1023px) 300px, 495px"
+                  defer
+                  sizes={`(max-width: 1023px) 300px, ${wide ? 495 : 330}px`}
                   src={GROUP_HUB_ILLUSTRATIONS[hubId]}
                 />
               </span>

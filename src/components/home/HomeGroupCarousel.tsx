@@ -93,6 +93,7 @@ export function HomeGroupCarousel({
       </div>
       <div
         className="no-scrollbar mt-6 flex cursor-grab snap-x snap-mandatory scroll-pl-(--strip-gutter) gap-3 overflow-x-auto overscroll-x-contain scroll-smooth pr-6 pb-2 pl-(--strip-gutter) [--strip-gutter:24px] lg:mt-[22px] lg:gap-4 lg:pr-[60px] lg:[--strip-gutter:max(60px,calc((100%-1320px)/2))]"
+        data-defer-images=""
         onClickCapture={(event) => {
           if (event.detail === 0 || !pointer.current.moved) return;
           event.preventDefault();

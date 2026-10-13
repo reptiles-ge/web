@@ -60,7 +60,8 @@ export async function HomeFeatured({ locale }: { locale: AppLocale }) {
             <CoverImage
               alt={tGroups("illustrationAlt", { name: spotlight.commonName })}
               className="object-cover object-[78%_center] transition-transform duration-700 group-hover:scale-[1.035]"
-              sizes="(max-width: 1023px) 100vw, 640px"
+              defer
+              sizes="(max-width: 1023px) calc(100vw - 48px), 640px"
               src={images.homeSpotlight}
             />
             <span className="absolute top-4 left-4 rounded-full bg-white px-3 py-1.5 text-[12px] font-medium text-[#1a211c]">
@@ -132,7 +133,8 @@ export async function HomeFeatured({ locale }: { locale: AppLocale }) {
                     <CoverImage
                       alt=""
                       className="object-cover transition-transform duration-700 group-hover:scale-[1.035]"
-                      sizes="150px"
+                      defer
+                      sizes="(max-width: 1023px) 84px, 150px"
                       src={image}
                     />
                   </span>

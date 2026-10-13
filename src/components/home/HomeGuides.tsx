@@ -41,7 +41,10 @@ export async function HomeGuides({ locale }: { locale: AppLocale }) {
           </p>
         </div>
 
-        <ul className="no-scrollbar -mx-6 mt-5 flex snap-x snap-mandatory scroll-px-6 gap-3 overflow-x-auto overscroll-x-contain px-6 pb-4 lg:mx-0 lg:mt-6 lg:grid lg:grid-cols-4 lg:gap-6 lg:overflow-visible lg:px-0 lg:pb-0">
+        <ul
+          className="no-scrollbar -mx-6 mt-5 flex snap-x snap-mandatory scroll-px-6 gap-3 overflow-x-auto overscroll-x-contain px-6 pb-4 lg:mx-0 lg:mt-6 lg:grid lg:grid-cols-4 lg:gap-6 lg:overflow-visible lg:px-0 lg:pb-0"
+          data-defer-images=""
+        >
           {featured.map((article) => (
             <li
               className="w-[280px] shrink-0 snap-start lg:w-auto"
@@ -55,7 +58,8 @@ export async function HomeGuides({ locale }: { locale: AppLocale }) {
                   <CoverImage
                     alt={article.hero.alt[locale]}
                     className="object-cover transition-transform duration-700 group-hover:scale-[1.035]"
-                    sizes="(max-width: 1023px) 280px, 300px"
+                    defer
+                    sizes="(max-width: 1023px) 260px, 300px"
                     src={article.hero.src}
                   />
                 </span>
