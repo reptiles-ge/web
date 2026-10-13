@@ -63,15 +63,6 @@ export function hasMeaningfulUpdate(
   );
 }
 
-export function latestDate(values: Array<null | string | undefined>) {
-  let latest: null | string = null;
-  for (const value of values) {
-    if (!value || Number.isNaN(Date.parse(value))) continue;
-    latest = latest ? laterDate(latest, value) : value;
-  }
-  return latest;
-}
-
 export function pageDateFields(path: string, locale: AppLocale): DateFields {
   return withFloor({
     dateModified: latestDate([
@@ -122,6 +113,15 @@ function laterDate(base: string, candidate: null | string | undefined) {
   const candidateTime = Date.parse(candidate);
   if (Number.isNaN(candidateTime)) return base;
   return candidateTime > Date.parse(base) ? candidate : base;
+}
+
+function latestDate(values: Array<null | string | undefined>) {
+  let latest: null | string = null;
+  for (const value of values) {
+    if (!value || Number.isNaN(Date.parse(value))) continue;
+    latest = latest ? laterDate(latest, value) : value;
+  }
+  return latest;
 }
 
 function membersByPath() {
