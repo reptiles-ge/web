@@ -274,7 +274,7 @@ const SPECIES_ALIASES: Record<
       "Malpolon monspessulanus",
     ],
     ka: ["ხვლიკიჭამია გველი", "ხვლიკიჭამია", "Malpolon monspessulanus"],
-    ru: ["восточная мальполон", "мальполон"],
+    ru: ["восточный мальполон", "мальполон"],
     tr: ["Doğu Montpellier yılanı"],
   },
   "mauremys-caspica": {

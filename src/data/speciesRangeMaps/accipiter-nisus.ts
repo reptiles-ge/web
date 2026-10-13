@@ -13,7 +13,7 @@ export const rangeMap: InteractiveRangeMapConfig = {
         "Eurasian sparrowhawk observations and confirmed distribution regions on a map of Georgia",
       officialRegionLabel: "Confirmed distribution region",
       rangeTitle:
-        "Where Eurasian sparrowhawk distribution is confirmed in Georgia",
+        "Eurasian sparrowhawk: where its distribution is confirmed in Georgia",
       regionsMetricLabel: "regions with records",
     },
     ka: {

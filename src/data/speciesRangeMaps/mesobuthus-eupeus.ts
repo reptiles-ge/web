@@ -11,7 +11,7 @@ export const rangeMap: InteractiveRangeMapConfig = {
         "The mottled scorpion map combines Reptiles.ge editorial photo records with public iNaturalist observations. Source-confirmed regions and individual field records are separate layers, and record counts reflect observation effort rather than population density.",
       mapAria:
         "Mottled scorpion distribution evidence and field records on a map of Georgia",
-      rangeTitle: "Where mottled scorpion is recorded in Georgia",
+      rangeTitle: "Mottled scorpion: where it is recorded in Georgia",
     },
     ka: {
       ...HALYOMORPHA_RANGE_COPY.ka,

@@ -12,7 +12,8 @@ export const rangeMap: InteractiveRangeMapConfig = {
       mapAria:
         "Bearded vulture observations and confirmed regions on a map of Georgia",
       officialRegionLabel: "Region with confirmed distribution",
-      rangeTitle: "Where bearded vulture distribution is confirmed in Georgia",
+      rangeTitle:
+        "Bearded vulture: where its distribution is confirmed in Georgia",
     },
     ka: {
       ...HALYOMORPHA_RANGE_COPY.ka,

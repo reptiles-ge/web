@@ -12,7 +12,8 @@ export const rangeMap: InteractiveRangeMapConfig = {
       mapAria:
         "Egyptian vulture observations and confirmed regions on a map of Georgia",
       officialRegionLabel: "Region with confirmed distribution",
-      rangeTitle: "Where Egyptian vulture distribution is confirmed in Georgia",
+      rangeTitle:
+        "Egyptian vulture: where its distribution is confirmed in Georgia",
     },
     ka: {
       ...HALYOMORPHA_RANGE_COPY.ka,

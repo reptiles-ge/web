@@ -13,7 +13,7 @@ export const rangeMap: InteractiveRangeMapConfig = {
         "Dahl's rock lizard observations and confirmed distribution regions on a map of Georgia",
       officialRegionLabel: "Confirmed distribution region",
       rangeTitle:
-        "Where Dahl's rock lizard distribution is confirmed in Georgia",
+        "Dahl's rock lizard: where its distribution is confirmed in Georgia",
       regionsMetricLabel: "regions with records",
     },
     ka: {

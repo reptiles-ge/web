@@ -13,7 +13,7 @@ export const rangeMap: InteractiveRangeMapConfig = {
         "Great spotted woodpecker observations and confirmed distribution regions on a map of Georgia",
       officialRegionLabel: "Confirmed distribution region",
       rangeTitle:
-        "Where great spotted woodpecker distribution is confirmed in Georgia",
+        "Great spotted woodpecker: where its distribution is confirmed in Georgia",
       regionsMetricLabel: "regions with records",
     },
     ka: {

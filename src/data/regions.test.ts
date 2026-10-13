@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 
+import type { LocalizedText } from "@/data/mapRegions";
 import type { SpeciesFieldRecord } from "@/data/speciesTypes";
 
 import { getRegionContent } from "@/data/regionContent";
@@ -191,6 +192,32 @@ describe("region FAQ locale gating", () => {
       }
     }
   });
+});
+
+describe("region copy locale parity", () => {
+  it.each(regions.map((region) => [region.id] as const))(
+    "%s has biome, overview, habitats and FAQ in every locale",
+    (id) => {
+      const content = getRegionContent(id);
+      const texts: [string, LocalizedText][] = [
+        ["biome", content.biome],
+        ["overview", content.overview],
+        ...content.habitats.map((text, index): [string, LocalizedText] => [
+          `habitat ${index}`,
+          text,
+        ]),
+        ...content.faq.flatMap((entry, index): [string, LocalizedText][] => [
+          [`faq ${index} question`, entry.question],
+          [`faq ${index} answer`, entry.answer],
+        ]),
+      ];
+      for (const [label, text] of texts) {
+        for (const locale of ["ka", "en", "ru", "tr"] as const) {
+          expect(text[locale]?.trim(), `${label} ${locale}`).toBeTruthy();
+        }
+      }
+    },
+  );
 });
 
 describe("region FAQ venomous snakes", () => {

@@ -111,7 +111,7 @@
     "suggestions": [
       "zehirli",
       "yılan ısırığı",
-      "gürze",
+      "Levant engereği",
       "kurbağalar"
     ]
   },
@@ -563,8 +563,8 @@
     }
   },
   "giurzaRange": {
-    "lead": "Gürza; İori, Mtkvari ve Alazani nehirlerinin aşağı kesimleri boyunca, Şiraki ve Gareci'de, ayrıca Kvemo Kartli'nin kuru dağ eteklerinde bulunan kuru, taşlık ve kayalık alanlarda yaşar.",
-    "regionsLabel": "Gürza varlığı doğrulanan bölgeler",
+    "lead": "Levant engereği; İori, Mtkvari ve Alazani nehirlerinin aşağı kesimleri boyunca, Şiraki ve Gareci'de, ayrıca Kvemo Kartli'nin kuru dağ eteklerinde bulunan kuru, taşlık ve kayalık alanlarda yaşar.",
+    "regionsLabel": "Levant engereğinin varlığı doğrulanan bölgeler",
     "rare": "Nadir",
     "placesLabel": "Doğrulanmış yerler",
     "place1": "Kvareli",
@@ -614,7 +614,7 @@
       "venomousSpiders": "Zehirli örümcekler",
       "scorpions": "Akrepler",
       "snakeBite": "Yılan ısırığı",
-      "gyurzaBite": "Gürza ısırığı",
+      "gyurzaBite": "Levant engereği ısırığı",
       "spiderBite": "Örümcek ısırığı",
       "scorpionSting": "Akrebin sokması",
       "tickBite": "Kene ısırığı",
@@ -1329,7 +1329,7 @@
     "myth1True": "Gerçek: Bu atlasda insanlar için tıbbi açıdan önemli altı engerek vardır. İki arka dişli tür de ayrıca gösterilir: Montpellier yılanı orta riskli, kedi yılanı ise zararsız olarak değerlendirilir. Kısa veya eski yazılar Gürcistan’daki zehirli yılan sayısını çoğu zaman eksik verir.",
     "myth2False": "Mit: Gürcistan’daki boynuzlu engerek ayrı bir türdür, Vipera transcaucasiana.",
     "myth2True": "Gerçek: Bu atlas Tarkhnishvili et al. (2026) kontrol listesini izler; liste Gürcistan’daki boynuzlu engereği Vipera ammodytes’in bir alt türü, V. a. transcaucasiana olarak ele alır. Eski kaynaklar ve 2009 IUCN değerlendirmesi onu ayrı bir tür, Vipera transcaucasiana olarak listeler. Eski Vipera ammodytes adresleri bu tek profile yönlendirilir, bu yüzden iki kez sayılmaz.",
-    "myth3False": "Mit: Montpellier yılanı giurza’dır (Levantin engereği).",
+    "myth3False": "Mit: Montpellier yılanı Levant engereğidir.",
     "myth3True": "Gerçek: Malpolon insignitus arka dişli bir yılandır ve bu atlasda orta risk olarak değerlendirilir. Macrovipera lebetinus — Levant engereği — ise ön dişli bir engerektir ve yüksek risk kategorisine girer. Ayırt etmek için iki türün profilini karşılaştırın.",
     "myth4False": "Mit: Dikey gözbebeği veya üçgen kafa her zaman zehir anlamına gelir.",
     "myth4True": "Gerçek: Bu işaretler çoğu zaman engereklere işaret eder, ancak yalnızca onlara dayanmak güvenilir değildir. Işık, bakış açısı ve yılanın savunma amaçlı başını yassılaştırması görünüşü değiştirebilir ve yanıltabilir. Birkaç tür işaretini ve habitatı birlikte değerlendirmek tek kuralla tanımadan çok daha güvenilirdir.",
@@ -1389,7 +1389,7 @@
       "venomous": {
         "eyebrow": "Güvenlik",
         "title": "Gürcistan’da zehirli yılanlar",
-        "body": "Gürze, engerekler ve bir arka dişli tür — risk ve tam profiller.",
+        "body": "Levant engereği, diğer engerekler ve bir arka dişli tür — risk ve tam profiller.",
         "cta": "Zehirli yılanlar"
       },
       "yard": {
@@ -1423,7 +1423,7 @@
         "cta": "Isırık rehberi"
       },
       "gyurzaBite": {
-        "eyebrow": "Gyurza",
+        "eyebrow": "Levant engereği",
         "title": "Levant engereği ısırığı",
         "body": "Tıbbi önem, olası belirtiler ve şüpheli bir ısırık sonrası yapılacaklar.",
         "cta": "Yazıyı oku"
@@ -1437,7 +1437,7 @@
       "largest": {
         "eyebrow": "Boyut",
         "title": "En büyük yılanlar",
-        "body": "Gürze, yılanlar ve diğerleri — boyutlar yalnızca profillerden. Cam kertenkele bir kertenkeledir.",
+        "body": "Levant engereği, yılanlar ve diğerleri — boyutlar yalnızca profillerden. Cam kertenkele bir kertenkeledir.",
         "cta": "En büyük yılanlar"
       },
       "giurza": {
@@ -2445,7 +2445,7 @@
     "faq1Q": "Gürcistan’da kaç yılan vardır?",
     "faq1A": "Bu dizin, kontrol listesinden atlasın güncel yılan kataloğudur. Sayı taksonomiyle değişir — burada yayımlanmış olanı görürsünüz.",
     "faq2Q": "Hangi yılanlar zehirlidir?",
-    "faq2A": "“Zehirli”ye süzün. Tam güvenlik rehberi ayrıdır: gürze, engerekler ve bir arka dişli tür.",
+    "faq2A": "“Zehirli”ye süzün. Tam güvenlik rehberi ayrıdır: Levant engereği, diğer engerekler ve bir arka dişli tür.",
     "faq3Q": "Bazı yayılış neden boş?",
     "faq3A": "Bölgeler yalnızca doğrulanmış kayıtlardan doldurulur. Yeni listelenen kontrol listesi yılanları çoğu zaman hâlâ haritasızdır — bu bir boşluktur, uydurulmuş yayılış değil.",
     "faq4Q": "Gürcistan’daki her yılan bu listede mi?",
@@ -2456,7 +2456,7 @@
   },
   "snakeIdentify": {
     "metaTitle": "Gürcistan’da (Kafkasya) zehirli mi zararsız mı?",
-    "metaDescription": "Gürcistan’da zehirli ve zararsız yılanları ayırt etmek: giurza, Kafkas engereği, su yılanları, Montpellier ve cam kertenkele.",
+    "metaDescription": "Gürcistan’da zehirli ve zararsız yılanları ayırt etmek: Levant engereği, Kafkas engereği, su yılanları, Montpellier ve cam kertenkele.",
     "keywords": "zehirli mi zararsız yılan Gürcistan, zehirli yılan nasıl tanınır, engerek ve su yılanı, cam kertenkele ve yılan",
     "breadcrumbCurrent": "Tanı",
     "heroImageAlt": "Ormanda zehirli engerek ve derenin yanında zararsız su yılanı — karşılaştırma",
@@ -2480,12 +2480,12 @@
     "sign4Title": "Türden emin değilseniz.",
     "sign4Body": "Yılanı yakalamayın ve öldürmeyin. Gürcistan’daki türlerin çoğu insanlar için tehlikeli değildir. Zehirli yılanların listesi ve ilgili güvenlik bilgileri ayrı rehberdedir.",
     "chainEyebrow": "Zehirli",
-    "chainTitle": "Gürze → Kafkas engereği → diğer zehirli türler.",
+    "chainTitle": "Levant engereği → Kafkas engereği → diğer zehirli türler.",
     "chainBody": "Karşılaştırma tıbbi açıdan önemli Levant engereğiyle başlar, sonra Batı Gürcistan’ın nemli ormanlarıyla ilişkili Kafkas engereğine, son olarak da diğer zehirli veya zehir taşıyan türlere geçer.",
     "chainVenomous": "Tüm zehirliler",
     "pairsEyebrow": "Karışıklıklar",
     "pairsTitle": "Sıkça birbirine karıştırılan türler.",
-    "pairsBody": "Yaygın karışıklıklar kamçı yılanları ve engerekler, cam kertenkele ve gerçek yılanlar, ayrıca Montpellier yılanı ve gürzedir. Her karşılaştırmadan ilgili türün ayrıntılı profiline geçebilirsiniz.",
+    "pairsBody": "Yaygın karışıklıklar kamçı yılanları ve engerekler, cam kertenkele ve gerçek yılanlar, ayrıca Montpellier yılanı ve Levant engereğidir. Her karşılaştırmadan ilgili türün ayrıntılı profiline geçebilirsiniz.",
     "vs": "vs",
     "faqEyebrow": "SSS",
     "faqTitle": "Tanıma hakkında sorulanlar",
@@ -2512,8 +2512,8 @@
     "myth1True": "Gerçek: Birçok engerekte dikey gözbebeği vardır, ancak bu işaret her zaman iyi görünmez ve yalnızca zehirli yılanlara özgü değildir. Türü belirlemek için birkaç işareti birlikte kullanın.",
     "myth2False": "Mit: Üçgen baş mutlaka yılanın engerek olduğu anlamına gelir.",
     "myth2True": "Gerçek: Zararsız bir yılan tehdit altında başını yassılaştırıp daha üçgen görünebilir. Yalnızca baş şekli güvenilir bir tanı işareti değildir.",
-    "myth3False": "Mit: Montpellier yılanı Levantin engereğidir.",
-    "myth3True": "Gerçek: Montpellier yılanı (Malpolon) ve gürze farklı yılanlardır. Montpellier yılanının zehir dişleri ağzın arka kısmındadır; gürze ise ön zehir dişli bir engerektir.",
+    "myth3False": "Mit: Montpellier yılanı Levant engereğidir.",
+    "myth3True": "Gerçek: Montpellier yılanı (Malpolon) ve Levant engereği farklı yılanlardır. Montpellier yılanının zehir dişleri ağzın arka kısmındadır; Levant engereği ise ön zehir dişli bir engerektir.",
     "myth4False": "Mit: Cam kertenkele zehirli yılandır.",
     "myth4True": "Gerçek: Cam kertenkele hiç yılan değildir — ayaksız bir kertenkeledir. Yılanlardan farklı olarak hareketli göz kapakları ve dış kulak delikleri vardır. İnsanlar için zehirli değildir.",
     "editorialUpdated": "Son güncelleme: {date}",
@@ -2570,7 +2570,7 @@
     "ctaParent": "Yılanlar",
     "guideEyebrow": "Boyut",
     "guideTitle": "Uzunluk yalnızca kaynak varsa",
-    "guideP1": "Gürze profilinde yaklaşık 1–1,5 m; doğu Montpellier yılanı çoğu zaman 1,5 m’nin üzerindedir; kırmızı karınlı yılan 1–1,5 m’dir. Diğer türler bazen yalnızca “sıkça 1 m veya daha uzun” der — bu yine kaynaktır, uydurulmuş bir maksimum değil.",
+    "guideP1": "Levant engereği profilinde yaklaşık 1–1,5 m; doğu Montpellier yılanı çoğu zaman 1,5 m’nin üzerindedir; kırmızı karınlı yılan 1–1,5 m’dir. Diğer türler bazen yalnızca “sıkça 1 m veya daha uzun” der — bu yine kaynaktır, uydurulmuş bir maksimum değil.",
     "guideP2": "Bu bir dünya rekoru listesi değildir. Bunlar boyutuyla öne çıkan atlas türleridir.",
     "listEyebrow": "Sıra",
     "listTitle": "Atlasdaki büyük yılanlar",
@@ -2583,7 +2583,7 @@
     "faqTitle": "Büyük yılanlar hakkında sorulanlar",
     "faqIntro": "Boyutlar yalnızca profillerden.",
     "faq1Q": "Gürcistan’daki en büyük yılan hangisidir?",
-    "faq1A": "Profil istatistikleri Montpellier yılanını sıkça 1,5 m’nin üzerine, gürze ve kırmızı karınlı yılanı yaklaşık 1–1,5 m’ye koyar. Kesin bir maksimum her tür için eşit verilmez.",
+    "faq1A": "Profil istatistikleri Montpellier yılanını sıkça 1,5 m’nin üzerine, Levant engereğini ve kırmızı karınlı yılanı yaklaşık 1–1,5 m’ye koyar. Kesin bir maksimum her tür için eşit verilmez.",
     "faq2Q": "Cam kertenkele en büyük yılan mıdır?",
     "faq2A": "Hayır. Bir kertenkeledir, ancak uzunlukta büyük yılanlarla boy ölçüşebilir.",
     "faq3Q": "2–3 metrelik yılanlar var mı?",
@@ -3333,7 +3333,7 @@
     "imageAltHidden": "Tanıma için Gürcistan’dan bir yılan fotoğrafı",
     "correct": "Doğru",
     "incorrect": "Bu değil",
-    "revealLead": "Bu {commonName} ({scientificName}).",
+    "revealLead": "Cevap: {commonName} ({scientificName}).",
     "learnMore": "Bu tür hakkında daha fazla öğrenin →",
     "next": "Sonraki soru",
     "seeResult": "Skorunuzu görün",
@@ -3410,7 +3410,7 @@
     "imageAltHidden": "Tanıma için Gürcistan’dan bir kertenkele fotoğrafı",
     "correct": "Doğru",
     "incorrect": "Bu değil",
-    "revealLead": "Bu {commonName} ({scientificName}).",
+    "revealLead": "Cevap: {commonName} ({scientificName}).",
     "learnMore": "Bu tür hakkında daha fazla öğrenin →",
     "next": "Sonraki soru",
     "seeResult": "Skorunuzu görün",
