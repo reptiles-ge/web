@@ -12,6 +12,7 @@ import {
   newsLocalizedTitle,
   newsSearchKeywords,
 } from "@/data/news";
+import { optimizedImgSrc } from "@/data/optimizedImages";
 import { getRegionHeroImage } from "@/data/regionImages";
 import {
   type LocalizedText,
@@ -1036,6 +1037,7 @@ const LIZARD_QUIZ_COPY: PageCopy = {
 };
 
 const FEATURED_SPECIES = new Set<string>(featuredSpeciesIds.slice(0, 8));
+const SEARCH_THUMB_WIDTH = 400;
 
 export function buildSearchIndex(locale: AppLocale): SearchDocument[] {
   const pages = [
@@ -1151,7 +1153,9 @@ export function buildSearchIndex(locale: AppLocale): SearchDocument[] {
     };
   });
 
-  return [...pages, ...species, ...regionDocs, ...authorDocs, ...newsDocs];
+  return [...pages, ...species, ...regionDocs, ...authorDocs, ...newsDocs].map(
+    withThumbnail,
+  );
 }
 
 function blob(parts: Array<string | undefined>) {
@@ -1346,4 +1350,13 @@ function toSpeciesDocument(locale: AppLocale, raw: Species): SearchDocument {
     subtitle: raw.scientificName,
     title: localized.commonName,
   };
+}
+
+function withThumbnail(document: SearchDocument): SearchDocument {
+  return document.image
+    ? {
+        ...document,
+        image: optimizedImgSrc(document.image, SEARCH_THUMB_WIDTH),
+      }
+    : document;
 }
