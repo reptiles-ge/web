@@ -43,7 +43,6 @@ export default defineConfig({
         "src/components/ContactMailto.tsx",
         "src/components/ContactPage.tsx",
         "src/components/ContentAttribution.tsx",
-        "src/components/CoverImage.tsx",
         "src/components/CoverImagePreload.tsx",
         "src/components/DangerousAnimalsPage.tsx",
         "src/components/DarevskiaGuidePage.tsx",

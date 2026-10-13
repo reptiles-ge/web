@@ -50,6 +50,7 @@ export async function HomeContributors({ locale }: { locale: AppLocale }) {
                     <CoverImage
                       alt={tAuthor("portraitAlt", { name })}
                       className={`object-cover ${card.author.portraitClass ?? "object-[50%_18%]"}`}
+                      defer
                       sizes={HOME_CONTRIBUTOR_PORTRAIT_SIZES}
                       src={card.author.portraitSrc}
                     />
