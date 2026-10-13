@@ -29,6 +29,7 @@ const LOOKALIKES: Record<string, string[]> = {
   "araneus-diadematus": ["argiope-bruennichi", "argiope-lobata"],
   "argiope-bruennichi": ["argiope-lobata"],
   "athene-noctua": ["otus-scops", "strix-aluco", "aegolius-funereus"],
+  "blatta-orientalis": ["cimex-lectularius"],
   "bubo-bubo": [
     "strix-aluco",
     "athene-noctua",
@@ -55,6 +56,12 @@ const LOOKALIKES: Record<string, string[]> = {
   ],
   "capreolus-capreolus": ["cervus-elaphus", "sus-scrofa", "capra-aegagrus"],
   "cervus-elaphus": ["capreolus-capreolus", "capra-aegagrus", "sus-scrofa"],
+  "cheiracanthium-punctorium": [
+    "argiope-bruennichi",
+    "araneus-diadematus",
+    "argiope-lobata",
+  ],
+  "cimex-lectularius": ["halyomorpha-halys"],
   "columba-livia": ["columba-palumbus"],
   "coronella-austriaca": [
     "vipera-transcaucasiana",
@@ -174,6 +181,7 @@ const LOOKALIKES: Record<string, string[]> = {
   "latrodectus-tredecimguttatus": ["steatoda-paykulliana"],
   "lissotriton-lantzi": ["ommatotriton-ophryticus", "triturus-karelinii"],
   "luscinia-megarhynchos": ["erithacus-rubecula"],
+  "lycosa-singoriensis": ["argiope-bruennichi"],
   "lynx-lynx": ["panthera-pardus", "canis-lupus"],
   "macrovipera-lebetina": ["elaphe-urartica", "hemorrhois-ravergieri"],
   "malpolon-insignitus": ["dolichophis-schmidti", "hemorrhois-ravergieri"],

@@ -50,6 +50,25 @@ describe("species routes", () => {
     });
   });
 
+  it("pairs lookalikes named in each other's identification text", () => {
+    const pairs = [
+      ["blatta-orientalis", "cimex-lectularius"],
+      ["cimex-lectularius", "halyomorpha-halys"],
+      ["cheiracanthium-punctorium", "argiope-bruennichi"],
+      ["cheiracanthium-punctorium", "argiope-lobata"],
+      ["cheiracanthium-punctorium", "araneus-diadematus"],
+      ["lycosa-singoriensis", "argiope-bruennichi"],
+    ] as const;
+    for (const [a, b] of pairs) {
+      expect(getSpeciesLookalikes(a), `${a} -> ${b}`).toContain(b);
+      expect(getSpeciesLookalikes(b), `${b} -> ${a}`).toContain(a);
+    }
+    expect(getSpeciesLookalikes("lycosa-singoriensis")).not.toContain(
+      "latrodectus-tredecimguttatus",
+    );
+    expect(getSpeciesLookalikes("lutra-lutra")).toEqual([]);
+  });
+
   it("keeps giurza lookalikes to supported visual matches", () => {
     expect(getSpeciesLookalikes("macrovipera-lebetina")).toEqual([
       "elaphe-urartica",

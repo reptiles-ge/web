@@ -12,6 +12,7 @@ import {
   getPublishedNewsForRegion,
   getPublishedNewsForSpecies,
   newsArticlePhotos,
+  newsLinkedSpeciesIds,
   newsLocalizedDek,
   newsLocalizedTitle,
   newsPhotoBySrc,
@@ -121,6 +122,28 @@ describe("relations", () => {
       ).toContain(withRegion.slug);
     }
     expect(getPublishedNewsForSpecies("no-such-species")).toEqual([]);
+  });
+
+  it("finds an article from a species it links in its text", () => {
+    for (const article of published) {
+      for (const locale of getNewsArticleLocales(article)) {
+        for (const id of newsLinkedSpeciesIds(article, locale)) {
+          expect(
+            getPublishedNewsForSpecies(id, locale).map((item) => item.slug),
+            `${locale} ${id}`,
+          ).toContain(article.slug);
+        }
+      }
+    }
+    const checklist = published.find(
+      (item) => item.slug === "georgia-herpetofauna-checklist-2026",
+    );
+    expect(checklist?.relatedSpeciesIds).not.toContain("darevskia-mixta");
+    expect(
+      getPublishedNewsForSpecies("darevskia-mixta", "en").map(
+        (item) => item.slug,
+      ),
+    ).toContain("georgia-herpetofauna-checklist-2026");
     expect(getPublishedNewsForRegion("no-such-region")).toEqual([]);
   });
 

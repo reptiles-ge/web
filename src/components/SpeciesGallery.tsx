@@ -62,6 +62,11 @@ export async function SpeciesGallery({
     ),
   ];
   const authorCount = photographers.length;
+  const listPhotographers =
+    speciesId === "macrovipera-lebetina" ||
+    photographers.some((photographer) =>
+      Boolean(getPublishedCreditAuthorByName(photographer)),
+    );
 
   if (photos.length === 0) return null;
 
@@ -220,7 +225,7 @@ export async function SpeciesGallery({
               );
             })}
           </div>
-          {speciesId === "macrovipera-lebetina" ? (
+          {listPhotographers ? (
             <p className="mt-5 text-[12px] leading-relaxed text-white/65">
               {photographers.map((photographer, index) => {
                 const author = getPublishedCreditAuthorByName(photographer);

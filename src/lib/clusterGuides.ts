@@ -1066,11 +1066,6 @@ export function getSpeciesGuideLinks(id: string): HubClusterCard[] {
       });
     }
   } else if (group === "mammal") {
-    links.push({
-      href: "/mammals/saxeoebebi",
-      key: "mammalIndex",
-      kind: "page",
-    });
     if (yardCanidIdSet.has(id)) {
       links.push({
         href: "/mammals/tura-ezoshi",
@@ -1085,6 +1080,11 @@ export function getSpeciesGuideLinks(id: string): HubClusterCard[] {
         kind: "page",
       });
     }
+    links.push({
+      href: "/mammals/saxeoebebi",
+      key: "mammalIndex",
+      kind: "page",
+    });
   } else if (group === "scorpion") {
     links.push({ href: "/scorpions", key: "scorpionsHub", kind: "page" });
   } else if (group === "spider") {
