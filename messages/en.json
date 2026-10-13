@@ -793,16 +793,78 @@
   },
   "contact": {
     "metaTitle": "Contact",
-    "metaDescription": "Get in touch with Reptiles — questions, corrections, and partnerships.",
-    "back": "Home",
-    "brand": "Reptiles",
+    "metaDescription": "Contact Reptiles.ge — range records with place and date, misidentifications, photo credits and photo-use requests.",
+    "brand": "Reptiles.ge",
     "title": "Contact",
-    "body": "Questions, corrections, or partnership ideas — write me.",
-    "imageAlt": "Misty Caucasus ridge at dusk",
+    "body": "A range record, a correction or a photo question — write to us.",
+    "emailLabel": "Email",
+    "write": "Write an email",
+    "copy": "Copy",
+    "copied": "Copied",
+    "copyLabel": "Copy the email address",
+    "follow": "Or follow us",
+    "topicsEyebrow": "Your email",
+    "topicsTitle": "What is it about?",
+    "topicsIntro": "Pick a topic and we'll tell you what to include, so the email has everything. It opens in your email app.",
+    "topicsIntroShort": "Pick a topic and we'll tell you what to include.",
+    "topicsLabel": "Topic",
+    "includeLabel": "{topic} · what to include",
+    "draftLabel": "Email draft",
+    "draftTo": "To:",
+    "draftSubject": "Subject:",
+    "draftGreeting": "Hello,",
+    "open": "Open the email",
+    "photoUse": "Photo-use rules",
+    "contributors": "See who builds the atlas — {count, plural, one {# contributor} other {# contributors}}",
+    "contributorsShort": "{count, plural, one {# contributor} other {# contributors}}",
+    "beforeEyebrow": "Before you write",
+    "beforeTitle": "The answer may already be here",
     "about": "About the atlas",
     "species": "Species atlas",
     "snakes": "Snakes in Georgia",
-    "venomous": "Venomous snakes"
+    "venomous": "Venomous snakes",
+    "topics": {
+      "range": {
+        "title": "Range record",
+        "summary": "Where and when you saw a species",
+        "subject": "Range record: [species], [place]",
+        "items": {
+          "species": "Species — if you know it",
+          "place": "Place — village, municipality or coordinates",
+          "date": "The date you saw it",
+          "photo": "A photo, if you have one"
+        }
+      },
+      "fix": {
+        "title": "Correction",
+        "summary": "A misidentification or a wrong fact",
+        "subject": "Correction: [species]",
+        "items": {
+          "link": "Link to the species page",
+          "what": "What is wrong and what it should say",
+          "source": "Source — a paper, a record or a photo"
+        }
+      },
+      "photo": {
+        "title": "Photos",
+        "summary": "Credits and permission to use",
+        "subject": "Photo: [species]",
+        "items": {
+          "photo": "Which photo — link to the species page",
+          "credit": "For a credit fix — the name as it should appear",
+          "use": "For a use request — where and how you will use it"
+        }
+      },
+      "other": {
+        "title": "Other question",
+        "summary": "Everything else",
+        "subject": "Question",
+        "items": {
+          "question": "Your question",
+          "link": "A link, if it is about a specific page"
+        }
+      }
+    }
   },
   "news": {
     "metaTitle": "Wildlife news from Georgia",
