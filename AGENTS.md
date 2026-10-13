@@ -113,6 +113,7 @@ This is a public scientific atlas, not a blog.
 - **Candidate taxa:** keep the checklist note. Status lives in `src/data/herpetofauna-checklist.ts` (`confirmed` \| `candidate` \| `introduced`) for amphibians and reptiles only. Do not “confirm” a species Tarkhnishvili marks as candidate. Birds, mammals, and spiders are out of scope for that map.
 - **Darevskia:** 16 species; colour is not ID. Do not collapse them.
 - **Medical:** bite / venom / yard pages are educational. Call **112**. Not first-aid protocol, not `MedicalWebPage` schema. `malpolon-insignitus` is Moderate / rear-fanged — not გიურზა.
+- **No source names in profile prose:** every species text field, in all four locales, states the fact, not who reported it. No authors (`Gorgadze-ის კვლევაში`, `Kopaliani et al. 2014`), organisations or surveys named as a source, and no `X აღნიშნავს` / `X-ის მიხედვით` / `according to X` framing. Keep the year, place, kind of evidence (survey, report, estimate) and scope: `2006–2007 წლებში ალაზანზე…`. Sources belong only in `sources`. IUCN / Georgian Red List categories with their year, checklist status, and a taxonomic authority after a scientific name (`Ognev, 1931`) stay. This is an owner rule; do not reverse it for E-E-A-T or GEO.
 - **Photos:** CDN URLs are often generic. Do not mark Georgia-field-verified without evidence. Keep credit; placeholder is OK.
 - No `FAQPage` schema on guide pages (guide articles, cluster guides, `/snakes-in-the-yard`, `/venomous-snakes`). Google retired FAQ rich results on 2026-05-07. Keep the visible FAQ sections.
 
