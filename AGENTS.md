@@ -191,7 +191,8 @@ Long-form, answer-first practical guides (bat in the house, wasp nest, …) use 
 - Unique title / H1 / description. Species: H1 = common name; title often `absolute` (no ` — Reptiles` double suffix).
 - `hreflang` via `localeAlternates` / `speciesAlternates` (`x-default` = KA).
 - BreadcrumbList on cluster and species pages. No FAQPage on guides; elsewhere FAQPage only if the FAQ is visible.
-- Bite page: `WebPage`, not medical schema.
+- Bite pages use the guide-article `Article`, never `MedicalWebPage` or other medical schema.
+- The Organization node lives only in the layout graph (`siteGraphJsonLd`); everywhere else use `organizationRef()`. Authorship stays with the organization. No `HowTo`, no home `Dataset`.
 - `www.reptiles.ge` → apex 301. API routes send `X-Robots-Tag: noindex`.
 
 ## Maintenance mode

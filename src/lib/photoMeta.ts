@@ -7,7 +7,7 @@ import {
   getPublishedCreditAuthorByName,
 } from "@/data/creditAuthors";
 import { optimizedImgSrc } from "@/data/optimizedImages";
-import { creditAuthorUrl } from "@/lib/creditAuthors";
+import { creditAuthorPersonId, creditAuthorUrl } from "@/lib/creditAuthors";
 import { hasPhotoCoordinates } from "@/lib/photoCoordinates";
 import { absoluteImageUrl } from "@/lib/site";
 import { speciesPhotoAlt } from "@/lib/speciesMeta";
@@ -70,6 +70,7 @@ function creatorNode(credit: PhotoCredit, locale: AppLocale) {
   const author = getPublishedCreditAuthorByName(credit.photographer);
   if (author && creditAuthorKind(author) !== "person") return undefined;
   return {
+    ...(author ? { "@id": creditAuthorPersonId(locale, author.slug) } : {}),
     "@type": "Person",
     name: author ? creditAuthorName(author, locale) : credit.photographer,
     ...(author

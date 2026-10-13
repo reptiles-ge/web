@@ -198,13 +198,13 @@ export default async function RegionPage({ params }: PageProps) {
       {
         "@type": "ListItem",
         item: absoluteUrl(localePath(locale, "/")),
-        name: siteConfig.name,
+        name: t("breadcrumbHome"),
         position: 1,
       },
       {
         "@type": "ListItem",
         item: absoluteUrl(localePath(locale, "/regions")),
-        name: t("metaTitle"),
+        name: t("allRegions"),
         position: 2,
       },
       {

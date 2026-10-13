@@ -41,6 +41,17 @@ export function breadcrumbListLd(crumbs: readonly BreadcrumbCrumb[]) {
   };
 }
 
+export function homeChildBreadcrumbLd(
+  locale: string,
+  path: Parameters<typeof localePath>[1],
+  { home, name }: { home: string; name: string },
+) {
+  return breadcrumbListLd([
+    { item: localePageUrl(locale, "/"), name: home },
+    { item: localePageUrl(locale, path), name },
+  ]);
+}
+
 export function localePageUrl(
   locale: string,
   path: Parameters<typeof localePath>[1],

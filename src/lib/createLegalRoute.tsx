@@ -12,6 +12,7 @@ import {
 import { openGraphLocale } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
+import { homeChildBreadcrumbLd } from "@/lib/pageStructuredData";
 import {
   absoluteUrl,
   localeAlternates,
@@ -83,7 +84,11 @@ export function createLegalRoute(documentId: LegalDocumentId) {
     const locale = localeParam as AppLocale;
     setRequestLocale(locale);
 
-    const t = await getTranslations({ locale, namespace: "legal" });
+    const [t, tFooter, tShared] = await Promise.all([
+      getTranslations({ locale, namespace: "legal" }),
+      getTranslations({ locale, namespace: "footer" }),
+      getTranslations({ locale, namespace: "groupHubShared" }),
+    ]);
     const title = await getTranslations({
       locale,
       namespace: `legal.${documentId}`,
@@ -104,7 +109,15 @@ export function createLegalRoute(documentId: LegalDocumentId) {
 
     return (
       <>
-        <JsonLd data={webPageJsonLd} />
+        <JsonLd
+          data={[
+            webPageJsonLd,
+            homeChildBreadcrumbLd(locale, path, {
+              home: tShared("breadcrumbHome"),
+              name: tFooter(documentId),
+            }),
+          ]}
+        />
         <LegalDocumentPage
           documentId={documentId}
           locale={locale}

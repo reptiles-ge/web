@@ -9,9 +9,11 @@ import { JsonLd } from "@/components/JsonLd";
 import { routing } from "@/i18n/routing";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import { buildPageMetadata } from "@/lib/pageMetadata";
+import { homeChildBreadcrumbLd } from "@/lib/pageStructuredData";
 import {
   absoluteUrl,
   localePath,
+  organizationRef,
   SITE_OG_IMAGE_URL,
   siteEntityId,
 } from "@/lib/site";
@@ -29,9 +31,13 @@ export default async function About({ params }: Props) {
 
   setRequestLocale(locale);
 
-  const t = await getTranslations({ locale, namespace: "about" });
+  const [t, tFooter, tShared] = await Promise.all([
+    getTranslations({ locale, namespace: "about" }),
+    getTranslations({ locale, namespace: "footer" }),
+    getTranslations({ locale, namespace: "groupHubShared" }),
+  ]);
   const path = localePath(locale, "/about");
-  const organization = { "@id": siteEntityId("organization") };
+  const organization = organizationRef();
 
   const aboutJsonLd = {
     "@context": "https://schema.org",
@@ -48,7 +54,15 @@ export default async function About({ params }: Props) {
 
   return (
     <>
-      <JsonLd data={aboutJsonLd} />
+      <JsonLd
+        data={[
+          aboutJsonLd,
+          homeChildBreadcrumbLd(locale, "/about", {
+            home: tShared("breadcrumbHome"),
+            name: tFooter("about"),
+          }),
+        ]}
+      />
       <AboutPage locale={locale} />
     </>
   );

@@ -32,7 +32,7 @@ import {
   absoluteUrl,
   localePath,
   openGraphJpeg,
-  organizationJsonLd,
+  organizationRef,
   siteConfig,
   speciesAlternates,
   speciesOgImageUrl,
@@ -422,9 +422,16 @@ function speciesStructuredData({
     getSpeciesHeroSources(item).gallery,
     item,
     locale,
-  );
-  const taxon = speciesTaxonJsonLd(raw, item, locale);
-  const org = organizationJsonLd();
+  ).map((photo, index) => ({
+    "@id": `${pageUrl}#photo-${index + 1}`,
+    ...photo,
+  }));
+  const taxonId = `${pageUrl}#taxon`;
+  const galleryId = `${pageUrl}#${SPECIES_SECTION_IDS.gallery}`;
+  const taxon = {
+    "@id": taxonId,
+    ...speciesTaxonJsonLd(raw, item, locale),
+  };
   const ogImageObject = {
     "@type": "ImageObject",
     contentUrl: ogImage,
@@ -433,24 +440,31 @@ function speciesStructuredData({
   };
   const jsonLd = {
     "@context": "https://schema.org",
+    "@id": `${pageUrl}#article`,
     "@type": "Article",
     about: taxon,
-    associatedMedia: photoObjects,
-    author: org,
+    author: organizationRef(),
     citation: raw.sources.map(sourceCreativeWork),
     dateModified: raw.updatedAt,
     datePublished: raw.publishedAt,
     description: item.description,
+    ...(photoObjects.length > 0
+      ? {
+          associatedMedia: photoObjects.map((photo) => ({
+            "@id": photo["@id"],
+          })),
+          hasPart: { "@id": galleryId },
+        }
+      : {}),
     headline: `${item.commonName} (${item.scientificName})`,
-    image: [ogImageObject, ...photoObjects],
+    image: [ogImageObject, ...photoObjects.map((photo) => photo.contentUrl)],
     inLanguage: locale,
     keywords: speciesJsonLdKeywords(item, locale),
-    mainEntity: taxon,
     mainEntityOfPage: {
       "@id": pageUrl,
       "@type": "WebPage",
     },
-    publisher: org,
+    publisher: organizationRef(),
     spatialCoverage: speciesArticleSpatialCoverage(item.id, locale),
   };
   const breadcrumbLd = {
@@ -467,12 +481,13 @@ function speciesStructuredData({
     photoObjects.length > 0
       ? {
           "@context": "https://schema.org",
+          "@id": galleryId,
           "@type": "ImageGallery",
-          about: taxon,
+          about: { "@id": taxonId },
           associatedMedia: photoObjects,
           inLanguage: locale,
           name: `${item.commonName} ${galleryTitle}`,
-          url: `${pageUrl}#${SPECIES_SECTION_IDS.gallery}`,
+          url: galleryId,
         }
       : null;
   const faqJsonLd =

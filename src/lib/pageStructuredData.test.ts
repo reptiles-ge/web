@@ -3,6 +3,8 @@ import { describe, expect, it } from "vitest";
 import { getSpeciesById } from "@/data/species";
 import {
   breadcrumbListLd,
+  homeChildBreadcrumbLd,
+  localePageUrl,
   sitePageLd,
   speciesItemListLd,
 } from "@/lib/pageStructuredData";
@@ -26,6 +28,30 @@ describe("breadcrumbListLd", () => {
         "@type": "ListItem",
         item: "https://reptiles.ge/snakes",
         name: "Snakes",
+        position: 2,
+      },
+    ]);
+  });
+});
+
+describe("homeChildBreadcrumbLd", () => {
+  it("links a utility page under the localized home page", () => {
+    expect(
+      homeChildBreadcrumbLd("en", "/privacy", {
+        home: "Home",
+        name: "Privacy",
+      }).itemListElement,
+    ).toEqual([
+      {
+        "@type": "ListItem",
+        item: localePageUrl("en", "/"),
+        name: "Home",
+        position: 1,
+      },
+      {
+        "@type": "ListItem",
+        item: localePageUrl("en", "/privacy"),
+        name: "Privacy",
         position: 2,
       },
     ]);

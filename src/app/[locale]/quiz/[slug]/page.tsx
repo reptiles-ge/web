@@ -22,11 +22,7 @@ import {
   siteConfig,
   siteEntityId,
 } from "@/lib/site";
-import {
-  getLizardQuizCatalog,
-  getSnakeQuizCatalog,
-  QUIZ_LENGTH,
-} from "@/lib/snakeQuiz";
+import { getLizardQuizCatalog, getSnakeQuizCatalog } from "@/lib/snakeQuiz";
 import { quizDateFields } from "@/lib/structuredDataDates";
 
 type Props = {
@@ -161,17 +157,12 @@ export default async function QuizSlugRoute({ params }: Props) {
   const pageLd = {
     "@context": "https://schema.org",
     "@type": "Quiz",
-    about: {
-      "@type": "Thing",
-      name: t("title"),
-    },
     ...quizDateFields(quiz.id),
     description: t("metaDescription"),
     educationalLevel: "beginner",
     inLanguage: locale,
     isPartOf: { "@id": siteEntityId("website") },
     name: t("metaTitle"),
-    numberOfQuestions: QUIZ_LENGTH,
     url,
   };
 

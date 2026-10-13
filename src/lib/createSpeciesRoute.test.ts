@@ -21,10 +21,15 @@ const OTTER_REPORT_URL =
   "https://media.rufford.org/media/project_reports/11302-B%20Final%20Report.pdf";
 
 type ArticleJsonLd = {
+  "@id": string;
   about: TaxonJsonLd;
+  associatedMedia?: Array<{ "@id": string }>;
+  author: unknown;
   citation: CreativeWorkJsonLd[];
+  hasPart?: { "@id": string };
+  image: unknown[];
   inLanguage: string;
-  mainEntity: TaxonJsonLd;
+  mainEntity?: TaxonJsonLd;
   mainEntityOfPage: {
     "@id": string;
     "@type": string;
@@ -40,11 +45,13 @@ type FaqJsonLd = {
 };
 
 type GalleryJsonLd = {
+  "@id": string;
   about: TaxonJsonLd;
   associatedMedia: unknown[];
 };
 
 type TaxonJsonLd = {
+  "@id"?: string;
   alternateName?: string[];
   sameAs?: string[];
 };
@@ -92,14 +99,56 @@ describe("species structured data", () => {
       expect(article.about.alternateName).toEqual(
         expect.arrayContaining(expectedNames),
       );
-      expect(article.mainEntity.alternateName).toEqual(
-        expect.arrayContaining(expectedNames),
-      );
       if (locale === "ka") {
         expect(localized.commonName).toBe("შავი ტარაკანა");
-        expect(article.mainEntity.alternateName).toEqual(expectedNames);
+        expect(article.about.alternateName).toEqual(expectedNames);
       }
     }
+  });
+
+  it("defines the Taxon and each photo once and references the organization by @id", () => {
+    const raw = getSpeciesById("macrovipera-lebetina")!;
+    const localized = localizeSpecies(raw, "ka");
+    const pageUrl = "https://reptiles.ge/gvelebi/giurza";
+    const jsonLd = speciesStructuredData({
+      breadcrumbCrumbs: [{ name: localized.commonName }],
+      galleryTitle: "გალერეა",
+      item: localized,
+      locale: "ka",
+      ogImage: localized.image,
+      pageUrl,
+      raw,
+    });
+    const article = jsonLd.find(
+      (entry) => entry["@type"] === "Article",
+    ) as ArticleJsonLd;
+    const gallery = jsonLd.find(
+      (entry) => entry["@type"] === "ImageGallery",
+    ) as GalleryJsonLd;
+    const serialized = JSON.stringify(jsonLd);
+    const organization = { "@id": "https://reptiles.ge/#organization" };
+
+    expect(article["@id"]).toBe(`${pageUrl}#article`);
+    expect(article.about["@id"]).toBe(`${pageUrl}#taxon`);
+    expect(article.mainEntity).toBeUndefined();
+    expect(article.author).toEqual(organization);
+    expect(article).toHaveProperty("publisher", organization);
+    expect(article.hasPart).toEqual({ "@id": gallery["@id"] });
+    expect(gallery.about).toEqual({ "@id": `${pageUrl}#taxon` });
+    expect(serialized.match(/"@type":"Taxon","alternateName"/g)).toHaveLength(
+      1,
+    );
+    expect(serialized.match(/"@type":"ImageObject"/g)).toHaveLength(
+      gallery.associatedMedia.length + 1,
+    );
+    expect(article.associatedMedia).toEqual(
+      gallery.associatedMedia.map((_, index) => ({
+        "@id": `${pageUrl}#photo-${index + 1}`,
+      })),
+    );
+    expect(
+      article.image.slice(1).every((entry) => typeof entry === "string"),
+    ).toBe(true);
   });
 
   it("keeps Cheiracanthium identity URLs in sameAs and source URLs in citation", () => {
@@ -157,9 +206,8 @@ describe("species structured data", () => {
     expect(article?.citation.map((source) => source.url)).toContain(
       GEORGIAN_RED_LIST_URL,
     );
-    expect(article?.mainEntity.sameAs).toEqual(sameAs);
     expect(article?.about.sameAs).toEqual(sameAs);
-    expect(gallery?.about.sameAs).toEqual(sameAs);
+    expect(gallery?.about).toEqual({ "@id": `${CHEIRACANTHIUM_URL}#taxon` });
   });
 
   it("uses წავი as the Georgian otter label and keeps only the current IUCN assessment in sameAs", () => {
@@ -197,8 +245,8 @@ describe("species structured data", () => {
       (entry) => entry["@type"] === "Article",
     ) as ArticleJsonLd;
 
-    expect(article?.mainEntity.alternateName?.[0]).toBe("წავი");
-    expect(article?.mainEntity.sameAs).toEqual(sameAs);
+    expect(article?.about.alternateName?.[0]).toBe("წავი");
+    expect(article?.about.sameAs).toEqual(sameAs);
     expect(article?.citation.map((source) => source.url)).toContain(
       OTTER_REPORT_URL,
     );
