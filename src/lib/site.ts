@@ -125,6 +125,8 @@ export const ORGANIZATION_SAME_AS = [
 
 export const ORGANIZATION_NAME = "Reptiles.ge";
 
+export const CONTACT_EMAIL = "nika@shamiladze.com";
+
 export function organizationJsonLd(
   locale: AppLocale,
   options?: { description?: string },
@@ -133,6 +135,13 @@ export function organizationJsonLd(
     "@id": siteEntityId("organization"),
     "@type": "Organization",
     alternateName: [atlasName(locale), siteConfig.name],
+    contactPoint: {
+      "@type": "ContactPoint",
+      availableLanguage: [...routing.locales],
+      contactType: "editorial",
+      email: CONTACT_EMAIL,
+      url: absoluteUrl(localePath(locale, "/contact")),
+    },
     founder: {
       "@id": siteEntityId("nika-shamiladze"),
       "@type": "Person",
