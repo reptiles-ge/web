@@ -170,6 +170,9 @@ describe("species structured data", () => {
       "https://araneae.nmbe.ch/data/1140/Cheiracanthium_punctorium",
       "https://caucasus-spiders.info/checklist/species-datasheet/?spec=2214",
       "https://arages.de/arachnologie-vernetzt/spinne-des-jahres/2023-ammendornfinger",
+      "https://www.wikidata.org/wiki/Q472994",
+      "https://www.gbif.org/species/2164096",
+      "https://www.inaturalist.org/taxa/61866",
     ]);
     expect(sameAs).not.toContain(CORRECT_NENTWIG_DOI);
     expect(sameAs).not.toContain(GEORGIAN_RED_LIST_URL);
@@ -222,6 +225,9 @@ describe("species structured data", () => {
     expect(sameAs).toEqual([
       OTTER_CURRENT_IUCN_URL,
       "https://www.mammaldiversity.org/taxon/1005848/",
+      "https://www.wikidata.org/wiki/Q29995",
+      "https://www.gbif.org/species/2433753",
+      "https://www.inaturalist.org/taxa/41850",
     ]);
     expect(sameAs).not.toContain(OTTER_REPORT_URL);
     expect(sameAs).not.toContain(GEORGIAN_RED_LIST_URL);
