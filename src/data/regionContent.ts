@@ -35,7 +35,7 @@ const regionContent: Record<RegionPathId, RegionContent> = {
       },
       {
         answer: {
-          en: "Yes. Caucasian viper (Vipera kaznakovi) and Dinnik’s viper (Vipera dinniki) are venomous species. When you meet one, keep a safe distance and do not try to catch it.",
+          en: "Yes. Caucasus viper (Vipera kaznakovi) and Dinnik’s viper (Vipera dinniki) are venomous species. When you meet one, keep a safe distance and do not try to catch it.",
           ka: "დიახ. კავკასიური გველგესლა (Vipera kaznakovi) და დინიკის გველგესლა (Vipera dinniki) შხამიანი სახეობებია. შეხვედრისას დაიცავით უსაფრთხო მანძილი და არ სცადოთ მათი დაჭერა.",
           ru: "Да. Кавказская гадюка (Vipera kaznakovi) и гадюка Динника (Vipera dinniki) — ядовитые виды. При встрече держите безопасную дистанцию и не пытайтесь их ловить.",
           tr: "Evet. Kafkas engereği (Vipera kaznakovi) ve Dinnik engereği (Vipera dinniki) zehirli türlerdir. Karşılaştığınızda güvenli mesafe bırakın ve yakalamaya çalışmayın.",
@@ -84,7 +84,7 @@ const regionContent: Record<RegionPathId, RegionContent> = {
     faq: [
       {
         answer: {
-          en: "Adjara records include Caucasian viper, grass snake and dice snake, smooth snake, and European glass lizard. In the mountainous part of the Lesser Caucasus, including toward Shuakhevi, nose-horned viper is also recorded. The list is based on regional records and may be updated when new confirmed data are added.",
+          en: "Adjara records include Caucasus viper, grass snake and dice snake, smooth snake, and European glass lizard. In the mountainous part of the Lesser Caucasus, including toward Shuakhevi, nose-horned viper is also recorded. The list is based on regional records and may be updated when new confirmed data are added.",
           ka: "აჭარაში დაფიქსირებულია კავკასიური გველგესლა, ჩვეულებრივი და წყლის ანკარა, სპილენძა და გველხოკერა. მცირე კავკასიონის მთიან ნაწილში, მათ შორის შუახევის მიმართულებით, დაფიქსირებულია ცხვირრქოსანი გველგესლაც. სია ეფუძნება რეგიონულ ჩანაწერებს და ახალი დადასტურებული მონაცემების დამატებისას შეიძლება განახლდეს.",
           ru: "В Аджарии отмечены кавказская гадюка, обыкновенный и водяной ужи, медянка и желтопузик. В горной части Малого Кавказа, в том числе в направлении Шуахеви, также зарегистрирована носатая гадюка. Список основан на региональных записях и может обновляться при добавлении новых подтверждённых данных.",
           tr: "Acara’da Kafkas engereği, halkalı su yılanı, su yılanı, düz yılan ve cam kertenkele kaydedilmiştir. Küçük Kafkasya’nın dağlık kesiminde, Şuahevi yönü dahil, burun boynuzlu engerek de kaydedilmiştir. Liste bölgesel kayıtlara dayanır ve yeni doğrulanmış veriler eklendikçe güncellenebilir.",
@@ -98,7 +98,7 @@ const regionContent: Record<RegionPathId, RegionContent> = {
       },
       {
         answer: {
-          en: "Yes. Caucasian viper (Vipera kaznakovi) is venomous. Nose-horned viper (Vipera ammodytes transcaucasiana) is also recorded in mountainous Adjara. The other species listed here do not pose a venomous danger to people. Still keep a safe distance from any unknown snake.",
+          en: "Yes. Caucasus viper (Vipera kaznakovi) is venomous. Nose-horned viper (Vipera ammodytes transcaucasiana) is also recorded in mountainous Adjara. The other species listed here do not pose a venomous danger to people. Still keep a safe distance from any unknown snake.",
           ka: "დიახ. კავკასიური გველგესლა (Vipera kaznakovi) შხამიანია. მთიან აჭარაში ასევე დაფიქსირებულია ცხვირრქოსანი გველგესლა (Vipera ammodytes transcaucasiana). სხვა აქ ჩამოთვლილი სახეობები ადამიანისთვის შხამიან საფრთხეს არ წარმოადგენენ. უცნობ გველთან მაინც დაიცავით უსაფრთხო მანძილი.",
           ru: "Да. Кавказская гадюка (Vipera kaznakovi) ядовита. В горной Аджарии также зарегистрирована носатая гадюка (Vipera ammodytes transcaucasiana). Другие перечисленные здесь виды не представляют для человека ядовитой опасности. С любой неизвестной змеёй всё равно держите безопасную дистанцию.",
           tr: "Evet. Kafkas engereği (Vipera kaznakovi) zehirlidir. Dağlık Acara’da burun boynuzlu engerek (Vipera ammodytes transcaucasiana) de kaydedilmiştir. Burada listelenen diğer türler insanlar için zehirli bir tehlike oluşturmaz. Yine de bilinmeyen bir yılandan güvenli mesafe bırakın.",
@@ -112,13 +112,13 @@ const regionContent: Record<RegionPathId, RegionContent> = {
       },
       {
         answer: {
-          en: "Caucasian viper is mainly tied to humid forests and foothill habitats. Regional records are known from different places; see the full species profile for distribution and identification details.",
+          en: "Caucasus viper is mainly tied to humid forests and foothill habitats. Regional records are known from different places; see the full species profile for distribution and identification details.",
           ka: "კავკასიური გველგესლა ძირითადად ტენიან ტყეებსა და მთისწინეთის ჰაბიტატებს უკავშირდება. რეგიონში მისი ჩანაწერები სხვადასხვა ადგილიდანაა ცნობილი; გავრცელებისა და ამოცნობის დეტალები იხილეთ სახეობის სრულ პროფილში.",
           ru: "Кавказская гадюка в основном связана с влажными лесами и предгорными местообитаниями. В регионе её записи известны из разных мест; подробности распространения и определения смотрите в полном профиле вида.",
           tr: "Kafkas engereği çoğunlukla nemli ormanlar ve etek habitatlarıyla ilişkilidir. Bölgedeki kayıtları farklı yerlerden bilinmektedir; yayılış ve tanıma ayrıntıları için türün tam profiline bakın.",
         },
         question: {
-          en: "Where does the Caucasian viper occur in Adjara?",
+          en: "Where does the Caucasus viper occur in Adjara?",
           ka: "სად გვხვდება კავკასიური გველგესლა აჭარაში?",
           ru: "Где в Аджарии встречается кавказская гадюка?",
           tr: "Kafkas engereği Acara’da nerede görülür?",
@@ -163,7 +163,7 @@ const regionContent: Record<RegionPathId, RegionContent> = {
       ka: "აჭარის ქვეწარმავლების ატლასი — კავკასიური გველგესლა (Vipera kaznakovi), ანკარები, სპილენძა და გველხოკერა: ამოცნობა, გავრცელება, ჰაბიტატები და უსაფრთხოება.",
     },
     overview: {
-      en: "Adjara is one of western Georgia’s most humid regions. Humid subtropical forests, mountain valleys, and the Black Sea coast create varied environments for reptiles. The region has Caucasian viper, grass snake and dice snake, smooth snake, European glass lizard, and other species.",
+      en: "Adjara is one of western Georgia’s most humid regions. Humid subtropical forests, mountain valleys, and the Black Sea coast create varied environments for reptiles. The region has Caucasus viper, grass snake and dice snake, smooth snake, European glass lizard, and other species.",
       ka: "აჭარა დასავლეთ საქართველოს ერთ-ერთი ყველაზე ტენიანი რეგიონია. ნოტიო სუბტროპიკული ტყეები, მთიანი ხეობები და შავი ზღვის სანაპირო მრავალფეროვან გარემოს ქმნის ქვეწარმავლებისთვის. რეგიონში გვხვდება კავკასიური გველგესლა, ჩვეულებრივი და წყლის ანკარა, სპილენძა, გველხოკერა და სხვა სახეობები.",
       ru: "Аджария — один из самых влажных регионов западной Грузии. Влажные субтропические леса, горные долины и побережье Чёрного моря создают разнообразные условия для рептилий. В регионе встречаются кавказская гадюка, обыкновенный и водяной ужи, медянка, желтопузик и другие виды.",
       tr: "Acara, batı Gürcistan’ın en nemli bölgelerinden biridir. Nemli subtropik ormanlar, dağ vadileri ve Karadeniz kıyısı sürüngenler için çeşitli ortamlar oluşturur. Bölgede Kafkas engereği, halkalı su yılanı ve su yılanı, düz yılan, cam kertenkele ve başka türler görülür.",
@@ -180,7 +180,7 @@ const regionContent: Record<RegionPathId, RegionContent> = {
     faq: [
       {
         answer: {
-          en: "Yes. Caucasian viper (Vipera kaznakovi) is a venomous species. Grass snake, dice snake, and smooth snake do not pose a venomous danger to people. Still keep a safe distance from any unknown snake.",
+          en: "Yes. Caucasus viper (Vipera kaznakovi) is a venomous species. Grass snake, dice snake, and smooth snake do not pose a venomous danger to people. Still keep a safe distance from any unknown snake.",
           ka: "დიახ. კავკასიური გველგესლა (Vipera kaznakovi) შხამიანი სახეობაა. ჩვეულებრივი ანკარა, წყლის ანკარა და სპილენძა ადამიანისთვის შხამიან საფრთხეს არ წარმოადგენენ. უცნობ გველთან მაინც დაიცავით უსაფრთხო მანძილი.",
           ru: "Да. Кавказская гадюка (Vipera kaznakovi) — ядовитый вид. Обыкновенный уж, водяной уж и медянка не представляют для человека ядовитой опасности. С любой неизвестной змеёй всё равно держите безопасную дистанцию.",
           tr: "Evet. Kafkas engereği (Vipera kaznakovi) zehirli bir türdür. Halkalı su yılanı, su yılanı ve düz yılan insanlar için zehirli bir tehlike oluşturmaz. Yine de bilinmeyen bir yılandan güvenli mesafe bırakın.",
@@ -231,10 +231,10 @@ const regionContent: Record<RegionPathId, RegionContent> = {
     faq: [
       {
         answer: {
-          en: "Imereti records include Caucasian viper, smooth snake, grass snake and dice snake, and glass lizard.",
-          ka: "იმერეთის ჩანაწერებში წარმოდგენილია კავკასიური გველგესლა, სპილენძა, ჩვეულებრივი და წყლის ანკარა და გველხოკერა.",
-          ru: "В записях Имеретии представлены кавказская гадюка, медянка, обыкновенный и водяной ужи, а также желтопузик.",
-          tr: "İmereti kayıtlarında Kafkas engereği, düz yılan, halkalı su yılanı ve su yılanı ile cam kertenkele yer alır.",
+          en: "Imereti records include Caucasus viper (Vipera kaznakovi), smooth snake, grass snake and dice snake, and glass lizard.",
+          ka: "იმერეთის ჩანაწერებში წარმოდგენილია კავკასიური გველგესლა (Vipera kaznakovi), სპილენძა, ჩვეულებრივი და წყლის ანკარა და გველხოკერა.",
+          ru: "В записях Имеретии представлены кавказская гадюка (Vipera kaznakovi), медянка, обыкновенный и водяной ужи, а также желтопузик.",
+          tr: "İmereti kayıtlarında Kafkas engereği (Vipera kaznakovi), düz yılan, halkalı su yılanı ve su yılanı ile cam kertenkele yer alır.",
         },
         question: {
           en: "Which snakes occur in Imereti?",
@@ -285,12 +285,16 @@ const regionContent: Record<RegionPathId, RegionContent> = {
     faq: [
       {
         answer: {
-          en: "Levantine viper (Macrovipera lebetinus) and steppe viper (Vipera renardi) are venomous. Most other listed species are harmless, but correct identification still matters.",
-          ka: "გიურზა (Macrovipera lebetinus) და ველის გველგესლა (Vipera renardi) შხამიანია. სხვა ჩამოთვლილი სახეობების უმეტესობა უვნებელია, თუმცა ამოცნობა მნიშვნელოვანია.",
+          en: "The Levantine viper (Macrovipera lebetinus) and the steppe viper (Vipera renardi) are venomous vipers, and the eastern Montpellier snake (Malpolon insignitus) is a rear-fanged snake rated moderate risk. Most other listed species are harmless, but correct identification still matters.",
+          ka: "გიურზა (Macrovipera lebetinus) და ველის გველგესლა (Vipera renardi) შხამიანი გველგესლებია, ჩვეულებრივი ხვლიკიჭამია გველი (Malpolon insignitus) კი უკანა შხამკბილა გველია საშუალო რისკით. სხვა ჩამოთვლილი სახეობების უმეტესობა უვნებელია, თუმცა ამოცნობა მნიშვნელოვანია.",
+          ru: "Гюрза (Macrovipera lebetinus) и степная гадюка (Vipera renardi) — ядовитые гадюки, а восточная мальполон (Malpolon insignitus) — заднебороздчатая змея среднего риска. Большинство других перечисленных видов безвредны, но правильное определение всё равно важно.",
+          tr: "Levant engereği (Macrovipera lebetinus) ve bozkır engereği (Vipera renardi) zehirli engereklerdir; Doğu Montpellier yılanı (Malpolon insignitus) ise orta riskli, arka dişli bir yılandır. Listelenen diğer türlerin çoğu zararsızdır, ancak doğru tanımlama yine de önemlidir.",
         },
         question: {
           en: "Which venomous snakes live in Kakheti?",
           ka: "რა შხამიანი გველებია კახეთში?",
+          ru: "Какие ядовитые змеи живут в Кахетии?",
+          tr: "Kakheti’de hangi zehirli yılanlar yaşar?",
         },
       },
       {
@@ -332,10 +336,14 @@ const regionContent: Record<RegionPathId, RegionContent> = {
         answer: {
           en: "Yes — the Levantine viper (Macrovipera lebetinus) is venomous and tied to eastern dry and semi-arid habitats; the nose-horned viper (Vipera ammodytes transcaucasiana) occurs in the Trialeti highlands. Keep your distance.",
           ka: "დიახ — გიურზა (Macrovipera lebetinus) შხამიანია და აღმოსავლეთის მშრალ/ნახევრად მშრალ ჰაბიტატებს უკავშირდება; თრიალეთის მთიანეთში გვხვდება ცხვირრქოსანი გველგესლა (Vipera ammodytes transcaucasiana). დაიცავით მანძილი.",
+          ru: "Да — гюрза (Macrovipera lebetinus) ядовита и связана с сухими и полузасушливыми местообитаниями востока; в Триалетском нагорье встречается носатая гадюка (Vipera ammodytes transcaucasiana). Держите дистанцию.",
+          tr: "Evet — Levant engereği (Macrovipera lebetinus) zehirlidir ve doğunun kuru ve yarı kurak habitatlarına bağlıdır; Trialeti yaylalarında boynuzlu engerek (Vipera ammodytes transcaucasiana) görülür. Mesafenizi koruyun.",
         },
         question: {
-          en: "Does Levantine viper occur in Kvemo Kartli?",
+          en: "Does the Levantine viper occur in Kvemo Kartli?",
           ka: "არის თუ არა გიურზა ქვემო ქართლში?",
+          ru: "Встречается ли гюрза в Квемо-Картли?",
+          tr: "Levant engereği Kvemo Kartli’de görülür mü?",
         },
       },
     ],
@@ -355,12 +363,16 @@ const regionContent: Record<RegionPathId, RegionContent> = {
     faq: [
       {
         answer: {
-          en: "Yes — Dinnik’s viper (Vipera dinniki) is venomous and associated with high-mountain habitats.",
-          ka: "დიახ — დინიკის გველგესლა (Vipera dinniki) შხამიანია და მაღალმთის ჰაბიტატებს უკავშირდება.",
+          en: "Yes — Dinnik’s viper (Vipera dinniki) and the nose-horned viper (Vipera ammodytes transcaucasiana) are venomous. Dinnik’s viper is associated with high-mountain habitats. Keep a safe distance from any unknown snake.",
+          ka: "დიახ — დინიკის გველგესლა (Vipera dinniki) და ცხვირრქოსანი გველგესლა (Vipera ammodytes transcaucasiana) შხამიანია. დინიკის გველგესლა მაღალმთის ჰაბიტატებს უკავშირდება. ნებისმიერ უცნობ გველთან დაიცავით უსაფრთხო მანძილი.",
+          ru: "Да — гадюка Динника (Vipera dinniki) и носатая гадюка (Vipera ammodytes transcaucasiana) ядовиты. Гадюка Динника связана с высокогорными местообитаниями. С любой неизвестной змеёй держите безопасную дистанцию.",
+          tr: "Evet — Dinnik engereği (Vipera dinniki) ve boynuzlu engerek (Vipera ammodytes transcaucasiana) zehirlidir. Dinnik engereği yüksek dağ habitatlarıyla ilişkilidir. Bilinmeyen her yılandan güvenli mesafe bırakın.",
         },
         question: {
           en: "Are there venomous snakes in Mtskheta-Mtianeti?",
           ka: "არის თუ არა შხამიანი გველი მცხეთა-მთიანეთში?",
+          ru: "Есть ли ядовитые змеи в Мцхета-Мтианети?",
+          tr: "Mtskheta-Mtianeti’de zehirli yılan var mı?",
         },
       },
     ],
@@ -380,12 +392,16 @@ const regionContent: Record<RegionPathId, RegionContent> = {
     faq: [
       {
         answer: {
-          en: "Yes — Dinnik’s viper (Vipera dinniki) is venomous and tied to high-mountain habitats.",
-          ka: "დიახ — დინიკის გველგესლა (Vipera dinniki) შხამიანია და მაღალმთის ჰაბიტატებს უკავშირდება.",
+          en: "Yes — Dinnik’s viper (Vipera dinniki) and the Caucasus viper (Vipera kaznakovi) are venomous. Dinnik’s viper is tied to high-mountain habitats. Keep a safe distance from any unknown snake.",
+          ka: "დიახ — დინიკის გველგესლა (Vipera dinniki) და კავკასიური გველგესლა (Vipera kaznakovi) შხამიანია. დინიკის გველგესლა მაღალმთის ჰაბიტატებს უკავშირდება. ნებისმიერ უცნობ გველთან დაიცავით უსაფრთხო მანძილი.",
+          ru: "Да — гадюка Динника (Vipera dinniki) и кавказская гадюка (Vipera kaznakovi) ядовиты. Гадюка Динника связана с высокогорными местообитаниями. С любой неизвестной змеёй держите безопасную дистанцию.",
+          tr: "Evet — Dinnik engereği (Vipera dinniki) ve Kafkas engereği (Vipera kaznakovi) zehirlidir. Dinnik engereği yüksek dağ habitatlarına bağlıdır. Bilinmeyen her yılandan güvenli mesafe bırakın.",
         },
         question: {
           en: "Are there venomous snakes in Racha?",
           ka: "არის თუ არა შხამიანი გველი რაჭაში?",
+          ru: "Есть ли ядовитые змеи в Раче?",
+          tr: "Raça’da zehirli yılan var mı?",
         },
       },
     ],
@@ -405,10 +421,10 @@ const regionContent: Record<RegionPathId, RegionContent> = {
     faq: [
       {
         answer: {
-          en: "Caucasian viper, grass snake and dice snake, smooth snake, and glass lizard are recorded in Samegrelo’s lowland and humid zones. Dinnik’s viper occurs in the high-mountain part of Zemo Svaneti. Species composition at a specific place changes with elevation and habitat.",
-          ka: "სამეგრელოს დაბლობ და ტენიან ზონებში დაფიქსირებულია კავკასიური გველგესლა, ჩვეულებრივი და წყლის ანკარა, სპილენძა და გველხოკერა. ზემო სვანეთის მაღალმთიან ნაწილში გვხვდება დინიკის გველგესლა. კონკრეტულ ადგილზე სახეობების შემადგენლობა სიმაღლისა და ჰაბიტატის მიხედვით იცვლება.",
-          ru: "В низинных и влажных зонах Самегрело зарегистрированы кавказская гадюка, обыкновенный и водяной ужи, медянка и желтопузик. В высокогорной части Верхней Сванетии встречается гадюка Динника. Состав видов в конкретном месте меняется в зависимости от высоты и местообитания.",
-          tr: "Samegrelo’nun alçak ve nemli bölgelerinde Kafkas engereği, halkalı su yılanı ve su yılanı, düz yılan ve cam kertenkele kaydedilmiştir. Zemo Svaneti’nin yüksek dağ kesiminde Dinnik engereği görülür. Belirli bir yerdeki tür bileşimi yükselti ve habitata göre değişir.",
+          en: "Caucasus viper (Vipera kaznakovi), grass snake and dice snake, smooth snake, and glass lizard are recorded in Samegrelo’s lowland and humid zones. Dinnik’s viper (Vipera dinniki) occurs in the high-mountain part of Zemo Svaneti. Species composition at a specific place changes with elevation and habitat.",
+          ka: "სამეგრელოს დაბლობ და ტენიან ზონებში დაფიქსირებულია კავკასიური გველგესლა (Vipera kaznakovi), ჩვეულებრივი და წყლის ანკარა, სპილენძა და გველხოკერა. ზემო სვანეთის მაღალმთიან ნაწილში გვხვდება დინიკის გველგესლა (Vipera dinniki). კონკრეტულ ადგილზე სახეობების შემადგენლობა სიმაღლისა და ჰაბიტატის მიხედვით იცვლება.",
+          ru: "В низинных и влажных зонах Самегрело зарегистрированы кавказская гадюка (Vipera kaznakovi), обыкновенный и водяной ужи, медянка и желтопузик. В высокогорной части Верхней Сванетии встречается гадюка Динника (Vipera dinniki). Состав видов в конкретном месте меняется в зависимости от высоты и местообитания.",
+          tr: "Samegrelo’nun alçak ve nemli bölgelerinde Kafkas engereği (Vipera kaznakovi), halkalı su yılanı ve su yılanı, düz yılan ve cam kertenkele kaydedilmiştir. Zemo Svaneti’nin yüksek dağ kesiminde Dinnik engereği (Vipera dinniki) görülür. Belirli bir yerdeki tür bileşimi yükselti ve habitata göre değişir.",
         },
         question: {
           en: "Which snakes live in Samegrelo?",
@@ -454,12 +470,16 @@ const regionContent: Record<RegionPathId, RegionContent> = {
     faq: [
       {
         answer: {
-          en: "The nose-horned viper (Vipera ammodytes transcaucasiana), Darevsky’s viper (Vipera darevskii), steppe viper (Vipera renardi), and in the Borjomi gorge Caucasian viper (Vipera kaznakovi) are venomous. Darevsky’s viper is critically endangered and confined to the Javakheti–Erusheti highlands.",
-          ka: "ცხვირრქოსანი გველგესლა (Vipera ammodytes transcaucasiana), დარევსკის გველგესლა (Vipera darevskii), ველის გველგესლა (Vipera renardi) და ბორჯომის ხეობაში კავკასიური გველგესლა (Vipera kaznakovi) შხამიანია. დარევსკის გველგესლა კრიტიკულად საფრთხის ქვეშაა და გვხვდება ჯავახეთ–ერუშეთის მაღალმთაში.",
+          en: "The nose-horned viper (Vipera ammodytes transcaucasiana), Darevsky’s viper (Vipera darevskii) and, in the Borjomi gorge, the Caucasus viper (Vipera kaznakovi) are venomous. Darevsky’s viper is critically endangered and confined to the Javakheti–Erusheti highlands.",
+          ka: "ცხვირრქოსანი გველგესლა (Vipera ammodytes transcaucasiana), დარევსკის გველგესლა (Vipera darevskii) და ბორჯომის ხეობაში კავკასიური გველგესლა (Vipera kaznakovi) შხამიანია. დარევსკის გველგესლა კრიტიკულად საფრთხის ქვეშაა და გვხვდება ჯავახეთ–ერუშეთის მაღალმთაში.",
+          ru: "Ядовиты носатая гадюка (Vipera ammodytes transcaucasiana), гадюка Даревского (Vipera darevskii) и, в Боржомском ущелье, кавказская гадюка (Vipera kaznakovi). Гадюка Даревского находится в критическом состоянии и ограничена нагорьем Джавахети–Эрушети.",
+          tr: "Boynuzlu engerek (Vipera ammodytes transcaucasiana), Darevski engereği (Vipera darevskii) ve Borjomi vadisinde Kafkas engereği (Vipera kaznakovi) zehirlidir. Darevski engereği kritik tehlike altındadır ve Javakheti–Erusheti yaylalarıyla sınırlıdır.",
         },
         question: {
           en: "Which venomous snakes occur in Samtskhe-Javakheti?",
           ka: "რა შხამიანი გველებია სამცხე-ჯავახეთში?",
+          ru: "Какие ядовитые змеи встречаются в Самцхе-Джавахети?",
+          tr: "Samtskhe-Javakheti’de hangi zehirli yılanlar görülür?",
         },
       },
     ],
@@ -470,8 +490,8 @@ const regionContent: Record<RegionPathId, RegionContent> = {
       { en: "Subalpine rocky slopes", ka: "სუბალპური კლდოვანი ფერდობები" },
     ],
     overview: {
-      en: "Samtskhe — Javakheti features volcanic plateaus, highland lakes, and dry foothills. Open, often cool habitats differ from Colchic west Georgia — nose-horned, Darevsky’s, and steppe vipers occur here; Caucasian viper is recorded in the Borjomi gorge.",
-      ka: "სამცხე — ჯავახეთი ვულკანური პლატოებით, მთის ტბებითა და მშრალი მთისწინეთით გამოირჩევა. ღია, ხშირად ცივი ჰაბიტატები განსხვავდება კოლხური დასავლეთისგან — აქ გვხვდება ცხვირრქოსანი, დარევსკის და ველის გველგესლები; ბორჯომის ხეობაში — კავკასიური გველგესლა.",
+      en: "Samtskhe — Javakheti features volcanic plateaus, highland lakes, and dry foothills. Open, often cool habitats differ from Colchic west Georgia — the nose-horned viper and Darevsky’s viper occur here; Caucasus viper is recorded in the Borjomi gorge.",
+      ka: "სამცხე — ჯავახეთი ვულკანური პლატოებით, მთის ტბებითა და მშრალი მთისწინეთით გამოირჩევა. ღია, ხშირად ცივი ჰაბიტატები განსხვავდება კოლხური დასავლეთისგან — აქ გვხვდება ცხვირრქოსანი და დარევსკის გველგესლები; ბორჯომის ხეობაში — კავკასიური გველგესლა.",
     },
     relatedIds: ["adjara", "imereti", "kvemo-kartli", "shida-kartli"],
   },
@@ -480,12 +500,16 @@ const regionContent: Record<RegionPathId, RegionContent> = {
     faq: [
       {
         answer: {
-          en: "Records include nose-horned viper, steppe ratsnake, red-bellied and Dahl’s whip snakes, cat snake, grass snake and dice snake, smooth snake, and glass lizard.",
-          ka: "ჩანაწერებშია ცხვირრქოსანი გველგესლა, სახეებიანი მცურავი, წითელმუცელა და წენგოსფერი მცურავი, კატისთვალა, ჩვეულებრივი და წყლის ანკარა, სპილენძა და გველხოკერა.",
+          en: "Records include three venomous vipers — the nose-horned viper (Vipera ammodytes transcaucasiana), the Caucasus viper (Vipera kaznakovi) and the eastern steppe viper (Vipera renardi) — plus steppe ratsnake, red-bellied and Dahl’s whip snakes, cat snake, grass snake and dice snake, smooth snake, and glass lizard.",
+          ka: "ჩანაწერებშია სამი შხამიანი გველგესლა — ცხვირრქოსანი (Vipera ammodytes transcaucasiana), კავკასიური (Vipera kaznakovi) და ველის გველგესლა (Vipera renardi) — ასევე სახეებიანი მცურავი, წითელმუცელა და წენგოსფერი მცურავი, კატისთვალა, ჩვეულებრივი და წყლის ანკარა, სპილენძა და გველხოკერა.",
+          ru: "В записях — три ядовитые гадюки: носатая (Vipera ammodytes transcaucasiana), кавказская (Vipera kaznakovi) и степная (Vipera renardi), а также узорчатый полоз, краснобрюхий и Далев полозы, кошачья змея, обыкновенный и водяной ужи, медянка и желтопузик.",
+          tr: "Kayıtlarda üç zehirli engerek var — boynuzlu engerek (Vipera ammodytes transcaucasiana), Kafkas engereği (Vipera kaznakovi) ve bozkır engereği (Vipera renardi) — ayrıca desenli sıçan yılanı, kırmızı karınlı ve Dahl kamçı yılanları, kedi yılanı, halkalı su yılanı, su yılanı, düz yılan ve cam kertenkele yer alır.",
         },
         question: {
           en: "Which snakes occur in Shida Kartli?",
           ka: "რა გველები გვხვდება შიდა ქართლში?",
+          ru: "Какие змеи встречаются в Шида-Картли?",
+          tr: "Shida Kartli’de hangi yılanlar görülür?",
         },
       },
     ],
@@ -510,10 +534,10 @@ const regionContent: Record<RegionPathId, RegionContent> = {
     faq: [
       {
         answer: {
-          en: "Tbilisi records include Levantine viper, nose-horned viper, steppe viper, steppe ratsnake, red-bellied racer, Dahl’s whip snake, cat snake, grass snake, dice snake, smooth snake, and glass lizard. Encounters with these species are more likely in suburbs, valleys, rocky places, and riverside areas.",
-          ka: "თბილისის ჩანაწერებში წარმოდგენილია გიურზა, ცხვირრქოსანი გველგესლა, ველის გველგესლა, სახეებიანი მცურავი, წითელმუცელა და წენგოსფერი მცურავი, კატისთვალა, ჩვეულებრივი და წყლის ანკარა, სპილენძა და გველხოკერა. ასეთი სახეობების შეხვედრა უფრო მოსალოდნელია ქალაქის გარეუბნებში, ხეობებში, კლდოვან ადგილებსა და მდინარის პირას.",
-          ru: "В записях по Тбилиси представлены гюрза, носатая гадюка, степная гадюка, узорчатый полоз, краснобрюхий и Далев полозы, кошачья змея, обыкновенный и водяной ужи, медянка и желтопузик. Встречи с такими видами более вероятны на окраинах, в ущельях, на скальных участках и у реки.",
-          tr: "Tiflis kayıtlarında koca engerek, burun boynuzlu engerek, bozkır engereği, desenli sıçan yılanı, kırmızı karınlı ve Dahl kamçı yılanları, kedi yılanı, halkalı su yılanı, su yılanı, düz yılan ve cam kertenkele yer alır. Bu türlerle karşılaşma daha çok banliyölerde, vadilerde, kayalık alanlarda ve nehir kıyısında beklenir.",
+          en: "Tbilisi records include Levantine viper (Macrovipera lebetinus), nose-horned viper (Vipera ammodytes transcaucasiana), steppe ratsnake, red-bellied racer, Dahl’s whip snake, cat snake, grass snake, dice snake, smooth snake, and glass lizard. Encounters with these species are more likely in suburbs, valleys, rocky places, and riverside areas.",
+          ka: "თბილისის ჩანაწერებში წარმოდგენილია გიურზა (Macrovipera lebetinus), ცხვირრქოსანი გველგესლა (Vipera ammodytes transcaucasiana), სახეებიანი მცურავი, წითელმუცელა და წენგოსფერი მცურავი, კატისთვალა, ჩვეულებრივი და წყლის ანკარა, სპილენძა და გველხოკერა. ასეთი სახეობების შეხვედრა უფრო მოსალოდნელია ქალაქის გარეუბნებში, ხეობებში, კლდოვან ადგილებსა და მდინარის პირას.",
+          ru: "В записях по Тбилиси представлены гюрза (Macrovipera lebetinus), носатая гадюка (Vipera ammodytes transcaucasiana), узорчатый полоз, краснобрюхий и Далев полозы, кошачья змея, обыкновенный и водяной ужи, медянка и желтопузик. Встречи с такими видами более вероятны на окраинах, в ущельях, на скальных участках и у реки.",
+          tr: "Tiflis kayıtlarında Levant engereği (Macrovipera lebetinus), boynuzlu engerek (Vipera ammodytes transcaucasiana), desenli sıçan yılanı, kırmızı karınlı ve Dahl kamçı yılanları, kedi yılanı, halkalı su yılanı, su yılanı, düz yılan ve cam kertenkele yer alır. Bu türlerle karşılaşma daha çok banliyölerde, vadilerde, kayalık alanlarda ve nehir kıyısında beklenir.",
         },
         question: {
           en: "Which snakes live in Tbilisi?",
@@ -524,10 +548,10 @@ const regionContent: Record<RegionPathId, RegionContent> = {
       },
       {
         answer: {
-          en: "Levantine viper and nose-horned viper are rated high risk in this atlas, while steppe viper is moderate risk. The other listed snakes do not pose a venomous danger to people. Keep distance from any unknown snake.\n\nIf bitten, call 112 immediately. Do not cut the wound, suck out venom, or use a tourniquet.",
-          ka: "გიურზა და ცხვირრქოსანი გველგესლა ამ ატლასში მაღალი რისკის სახეობებადაა შეფასებული, ველის გველგესლა კი — საშუალო რისკისად. სხვა ჩამოთვლილი გველები ადამიანისთვის შხამიან საფრთხეს არ წარმოადგენენ. ნებისმიერ უცნობ გველთან დაიცავით დისტანცია.\n\nნაკბენისას დაუყოვნებლივ დარეკეთ 112-ზე. არ გაჭრათ ჭრილობა, არ ამოიწოვოთ შხამი და არ გამოიყენოთ ტურნიკეტი.",
-          ru: "Гюрза и носатая гадюка в этом атласе оценены как виды высокого риска, а степная гадюка — среднего риска. Другие перечисленные змеи не представляют для человека ядовитой опасности. С любой неизвестной змеёй держите дистанцию.\n\nПри укусе немедленно звоните 112. Не разрезайте рану, не отсасывайте яд и не используйте жгут.",
-          tr: "Koca engerek ve burun boynuzlu engerek bu atlasta yüksek riskli, bozkır engereği ise orta riskli türler olarak değerlendirilir. Listelenen diğer yılanlar insanlar için zehirli bir tehlike oluşturmaz. Bilinmeyen her yılandan uzak durun.\n\nIsırıkta hemen 112’yi arayın. Yarayı kesmeyin, zehri emmeyin ve turnike kullanmayın.",
+          en: "The Levantine viper and the nose-horned viper are rated high risk in this atlas. The other listed snakes do not pose a venomous danger to people. Keep distance from any unknown snake.\n\nIf bitten, call 112 immediately. Do not cut the wound, suck out venom, or use a tourniquet.",
+          ka: "გიურზა და ცხვირრქოსანი გველგესლა ამ ატლასში მაღალი რისკის სახეობებადაა შეფასებული. სხვა ჩამოთვლილი გველები ადამიანისთვის შხამიან საფრთხეს არ წარმოადგენენ. ნებისმიერ უცნობ გველთან დაიცავით დისტანცია.\n\nნაკბენისას დაუყოვნებლივ დარეკეთ 112-ზე. არ გაჭრათ ჭრილობა, არ ამოიწოვოთ შხამი და არ გამოიყენოთ ტურნიკეტი.",
+          ru: "Гюрза и носатая гадюка в этом атласе оценены как виды высокого риска. Другие перечисленные змеи не представляют для человека ядовитой опасности. С любой неизвестной змеёй держите дистанцию.\n\nПри укусе немедленно звоните 112. Не разрезайте рану, не отсасывайте яд и не используйте жгут.",
+          tr: "Levant engereği ve boynuzlu engerek bu atlasta yüksek riskli türler olarak değerlendirilir. Listelenen diğer yılanlar insanlar için zehirli bir tehlike oluşturmaz. Bilinmeyen her yılandan uzak durun.\n\nIsırıkta hemen 112’yi arayın. Yarayı kesmeyin, zehri emmeyin ve turnike kullanmayın.",
         },
         question: {
           en: "Are snakes in Tbilisi dangerous?",
@@ -589,10 +613,10 @@ const regionContent: Record<RegionPathId, RegionContent> = {
       ka: "თბილისის ქვეწარმავლების ატლასი — გიურზა, გველგესლები, მცურავები და გველხოკერა: ამოცნობა, გავრცელება, ჰაბიტატები და უსაფრთხოება თბილისსა და მის შემოგარენში.",
     },
     overview: {
-      en: "In Tbilisi, reptiles mainly occur in valleys around the city, parks, green areas, and riverside habitats, not in central urban districts. Atlas records from Tbilisi and its surroundings include Levantine viper, nose-horned viper, steppe viper, several ratsnakes and racers, grass and dice snakes, glass lizard, and other species. Encounters inside the city are rare but possible. If a snake bites someone, call 112 immediately.",
-      ka: "თბილისში ქვეწარმავლები ძირითადად ქალაქის მიმდებარე ხეობებში, პარკებში, გამწვანებულ ადგილებსა და მდინარის პირას გვხვდება და არა ცენტრალურ ურბანულ უბნებში. ატლასის ჩანაწერებში თბილისის ტერიტორიიდან და შემოგარენიდან წარმოდგენილია გიურზა, ცხვირრქოსანი და ველის გველგესლა, სხვადასხვა მცურავი, ანკარები, გველხოკერა და სხვა სახეობები. ქალაქის შიგნით ასეთი შეხვედრები იშვიათია, მაგრამ შესაძლებელია. გველის ნაკბენისას დაუყოვნებლივ დარეკეთ 112-ზე.",
-      ru: "В Тбилиси рептилии в основном встречаются в ущельях вокруг города, парках, зелёных местах и у реки, а не в центральных городских районах. В атласных записях с территории Тбилиси и окрестностей представлены гюрза, носатая и степная гадюки, разные полозы, ужи, желтопузик и другие виды. Внутри города такие встречи редки, но возможны. При укусе змеи немедленно звоните 112.",
-      tr: "Tiflis’te sürüngenler çoğunlukla kent çevresindeki vadilerde, parklarda, yeşil alanlarda ve nehir kıyısında görülür; merkezi kentsel bölgelerde değil. Atlas kayıtlarında Tiflis ve çevresinden koca engerek, burun boynuzlu engerek, bozkır engereği, çeşitli sıçan ve kamçı yılanları, su yılanları, cam kertenkele ve başka türler yer alır. Şehir içinde böyle karşılaşmalar nadirdir ama mümkündür. Yılan ısırığında hemen 112’yi arayın.",
+      en: "In Tbilisi, reptiles mainly occur in valleys around the city, parks, green areas, and riverside habitats, not in central urban districts. Atlas records from Tbilisi and its surroundings include Levantine viper, nose-horned viper, several ratsnakes and racers, grass and dice snakes, glass lizard, and other species. Encounters inside the city are rare but possible. If a snake bites someone, call 112 immediately.",
+      ka: "თბილისში ქვეწარმავლები ძირითადად ქალაქის მიმდებარე ხეობებში, პარკებში, გამწვანებულ ადგილებსა და მდინარის პირას გვხვდება და არა ცენტრალურ ურბანულ უბნებში. ატლასის ჩანაწერებში თბილისის ტერიტორიიდან და შემოგარენიდან წარმოდგენილია გიურზა, ცხვირრქოსანი გველგესლა, სხვადასხვა მცურავი, ანკარები, გველხოკერა და სხვა სახეობები. ქალაქის შიგნით ასეთი შეხვედრები იშვიათია, მაგრამ შესაძლებელია. გველის ნაკბენისას დაუყოვნებლივ დარეკეთ 112-ზე.",
+      ru: "В Тбилиси рептилии в основном встречаются в ущельях вокруг города, парках, зелёных местах и у реки, а не в центральных городских районах. В атласных записях с территории Тбилиси и окрестностей представлены гюрза, носатая гадюка, разные полозы, ужи, желтопузик и другие виды. Внутри города такие встречи редки, но возможны. При укусе змеи немедленно звоните 112.",
+      tr: "Tiflis’te sürüngenler çoğunlukla kent çevresindeki vadilerde, parklarda, yeşil alanlarda ve nehir kıyısında görülür; merkezi kentsel bölgelerde değil. Atlas kayıtlarında Tiflis ve çevresinden Levant engereği, boynuzlu engerek, çeşitli sıçan ve kamçı yılanları, su yılanları, cam kertenkele ve başka türler yer alır. Şehir içinde böyle karşılaşmalar nadirdir ama mümkündür. Yılan ısırığında hemen 112’yi arayın.",
     },
     relatedIds: [
       "kvemo-kartli",
