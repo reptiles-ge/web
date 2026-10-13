@@ -18,6 +18,9 @@ import {
 
 const PUBLIC_DOMAIN_PREFIX = "https://creativecommons.org/publicdomain/";
 
+export type PhotoRightsCategory =
+  "contributor" | "open" | "permission" | "unknown";
+
 type Creator = {
   "@id"?: string;
   "@type": "Organization" | "Person";
@@ -80,6 +83,15 @@ export function photoRights(
     ...(creator ? { creator, creditText: creator.name } : {}),
     license: license ?? photoUsePageUrl(locale),
   };
+}
+
+export function photoRightsCategory(
+  src: string,
+  credit: PhotoCredit | undefined,
+): PhotoRightsCategory {
+  if (photoContributor(credit)) return "contributor";
+  if (photoLicenses[src]?.license) return "open";
+  return credit?.photographer?.trim() ? "permission" : "unknown";
 }
 
 export function photoUsePageUrl(locale: AppLocale) {

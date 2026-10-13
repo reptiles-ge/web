@@ -52,6 +52,8 @@ const EXAMPLE_SIZES =
   "(max-width: 1023px) calc(100vw - 32px), (max-width: 1439px) 50vw, 660px";
 const EAGER_TILES = 2;
 const ASK_ITEMS = ["link", "purpose", "medium", "commercial"] as const;
+const OWN_ITEMS = ["contributors", "open", "permission"] as const;
+const PHOTOGRAPHERS_ID = "photographers";
 const NUMBER_FORMATS = new Map<AppLocale, Intl.NumberFormat>();
 
 type Translate = Awaited<ReturnType<typeof getTranslations<"photoUse">>>;
@@ -99,21 +101,41 @@ function PhotoUseCards({ t }: { t: Translate }) {
   }> = [
     {
       body: (
-        <p className={bodyClass}>
-          {t.rich("ownBody", {
-            terms: (chunks) => (
-              <Link className={linkClass} href="/terms-and-conditions">
-                {chunks}
-              </Link>
-            ),
-          })}
-        </p>
+        <ul className={`${bodyClass} space-y-2`}>
+          {OWN_ITEMS.map((key) => (
+            <li key={key}>
+              <strong className="font-semibold text-(--nw-ink)">
+                {t(`ownItems.${key}.label`)}
+              </strong>{" "}
+              {t.rich(`ownItems.${key}.body`, {
+                terms: (chunks) => (
+                  <Link className={linkClass} href="/terms-and-conditions">
+                    {chunks}
+                  </Link>
+                ),
+              })}
+            </li>
+          ))}
+        </ul>
       ),
       icon: Camera,
       title: t("ownTitle"),
     },
     {
-      body: <p className={bodyClass}>{t("useBody")}</p>,
+      body: (
+        <div className={bodyClass}>
+          <p>{t("useBody")}</p>
+          <p className="mt-2">
+            {t.rich("useUnknown", {
+              link: (chunks) => (
+                <a className={linkClass} href={`#${PHOTOGRAPHERS_ID}`}>
+                  {chunks}
+                </a>
+              ),
+            })}
+          </p>
+        </div>
+      ),
       icon: CircleHelp,
       title: t("useTitle"),
     },
@@ -310,7 +332,10 @@ function PhotoUsePhotographers({ t }: { t: Translate }) {
   ];
 
   return (
-    <section className={`${wrapClass} pt-14 md:pt-[104px]`}>
+    <section
+      className={`${wrapClass} scroll-mt-24 pt-14 md:pt-[104px]`}
+      id={PHOTOGRAPHERS_ID}
+    >
       <div className="rounded-[28px] bg-(--nw-panel) px-[22px] py-7 text-white md:rounded-[36px] md:px-14 md:py-12">
         <h2 className="text-[10.5px] font-semibold tracking-[0.16em] text-white/55 md:text-[11px]">
           {t("photographersEyebrow")}

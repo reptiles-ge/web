@@ -12,6 +12,7 @@ import {
   guideImageRights,
   photoContributor,
   photoRights,
+  photoRightsCategory,
   photoUsePageUrl,
   siteImageRights,
 } from "@/lib/imageRights";
@@ -189,6 +190,48 @@ describe("photoRights", () => {
     expect(rights).not.toHaveProperty("creator");
     expect(rights).not.toHaveProperty("copyrightNotice");
     expectLicensed(rights, "uncredited");
+  });
+});
+
+describe("photoRightsCategory", () => {
+  it("sorts a photo into exactly one rights category", () => {
+    const allRightsReserved = Object.keys(photoLicenses).find(
+      (key) => photoLicenses[key].license === null,
+    ) as string;
+    expect(
+      photoRightsCategory(
+        "https://cdn.reptiles.ge/vipera-transcaucasiana-4.jpg",
+        { photographer: "Giorgi Iankoshvili" },
+      ),
+    ).toBe("contributor");
+    expect(
+      photoRightsCategory(
+        "https://cdn.reptiles.ge/vipera-transcaucasiana.jpg",
+        {
+          photographer: "Vojtěch Víta",
+        },
+      ),
+    ).toBe("open");
+    expect(
+      photoRightsCategory(
+        "https://cdn.reptiles.ge/erinaceus-concolor-israel-1.jpg",
+        { photographer: "Nadav Kavalerchik" },
+      ),
+    ).toBe("open");
+    expect(
+      photoRightsCategory(allRightsReserved, { photographer: "Someone" }),
+    ).toBe("permission");
+    expect(
+      photoRightsCategory("https://cdn.reptiles.ge/x.jpg", {
+        photographer: "Someone",
+      }),
+    ).toBe("permission");
+    expect(photoRightsCategory("https://cdn.reptiles.ge/x.jpg", {})).toBe(
+      "unknown",
+    );
+    expect(
+      photoRightsCategory("https://cdn.reptiles.ge/x.jpg", undefined),
+    ).toBe("unknown");
   });
 });
 

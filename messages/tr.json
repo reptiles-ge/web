@@ -498,6 +498,7 @@
     "galleryOpenPhoto": "{total} fotoğraftan {index}. fotoğrafı aç",
     "photo": "Fotoğraf",
     "photoCredit": "Fotoğraf:",
+    "photoWithPermission": "İzinle",
     "photoLocation": "Yer:",
     "photoMapLink": "Haritada gör",
     "photoDate": "Tarih:",
@@ -4071,9 +4072,23 @@
       "unknown": "yazarı henüz belirlenmedi"
     },
     "ownTitle": "Fotoğraflar kime ait?",
-    "ownBody": "Reptiles.ge katkıcılarının fotoğrafları burada Reptiles.ge lisansıyla yayımlanır: tüm hakları saklıdır; yalnızca yazılı izinle kullanılabilir (bkz. <terms>kullanım koşulları</terms>). Reptiles.ge'den alınan bir fotoğraf Reptiles.ge koşullarıyla kullanılır; aynı fotoğraf başka bir yerde Creative Commons lisansıyla yayımlanmışsa, o kopya kaynağında gösterilen lisansa tabidir. Diğer yazarların fotoğrafları kendi yazarlarının lisansını korur; bunu her fotoğrafın altındaki kaynak bağlantısı gösterir.",
+    "ownItems": {
+      "contributors": {
+        "label": "Reptiles.ge katkıcılarının fotoğrafları:",
+        "body": "Reptiles.ge lisansı. Tüm hakları saklıdır; yalnızca yazılı izinle kullanılabilir (bkz. <terms>kullanım koşulları</terms>)."
+      },
+      "open": {
+        "label": "Diğer yazarların açık lisanslı fotoğrafları:",
+        "body": "kendi lisansları geçerlidir; lisans, fotoğrafın altındaki kaynak bağlantısında gösterilir."
+      },
+      "permission": {
+        "label": "Diğer yazarların izinle kullanılan fotoğrafları:",
+        "body": "açık lisansları yoktur, bu yüzden yeniden kullanım için yazarın onayı gerekir. Bize yazın, talebi yazara iletelim."
+      }
+    },
     "useTitle": "Bir fotoğrafı kullanabilir miyim?",
     "useBody": "Fotoğrafın kendi lisansı kullanımınıza izin veriyorsa izin almanız gerekmez. Aksi halde bize yazın. Reptiles.ge lisanslı fotoğraflar için her zaman izin gerekir.",
+    "useUnknown": "Yazarı henüz belirlenmemiş fotoğraflar şimdilik yeniden kullanılamaz. <link>Fotoğrafınız burada adınız olmadan mı yer alıyor?</link>",
     "askTitle": "Nasıl izin isterim?",
     "askBody": "Bize e-posta gönderin ve şunları belirtin:",
     "askItems": {
@@ -4109,7 +4124,7 @@
       },
       "credit": {
         "q": "Yazarın adını vermek yeterli mi?",
-        "a": "Hayır. Ad vermek iznin yerini tutmaz: fotoğrafın kendi lisansı kullanımınıza izin vermiyorsa izin gerekir."
+        "a": "Lisansa bağlı. CC BY lisanslı fotoğraflarda yazarın adını lisansın istediği şekilde vermek yeterlidir. Diğer lisanslar ek koşullar getirebilir, örneğin yalnızca ticari olmayan kullanım. Reptiles.ge lisanslı fotoğraflar ve izinle kullanılan fotoğraflar için her zaman izin gerekir."
       },
       "text": {
         "q": "Metinden alıntı yapabilir miyim?",

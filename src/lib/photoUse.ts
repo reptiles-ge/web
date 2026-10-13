@@ -6,7 +6,7 @@ import { photoLicenses } from "@/data/photoLicenses";
 import { getCatalogSpecies } from "@/data/species";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import { isCoverCrop } from "@/lib/coverCrop";
-import { photoContributor } from "@/lib/imageRights";
+import { photoContributor, photoRightsCategory } from "@/lib/imageRights";
 import { isPlaceholderMedia } from "@/lib/speciesContent";
 
 export type PhotoUsePhoto = {
@@ -118,11 +118,8 @@ export function getPhotoUseStats(
   for (const photo of photos) {
     const name = photo.credit?.photographer?.trim();
     if (name) photographers.add(photo.author?.id ?? name);
-    if (photo.author) stats.contributors += 1;
-    else if (photoLicenses[photo.src]?.license?.startsWith(CC_PREFIX)) {
-      stats.open += 1;
-    } else if (name) stats.permission += 1;
-    else stats.unknown += 1;
+    const category = photoRightsCategory(photo.src, photo.credit);
+    stats[category === "contributor" ? "contributors" : category] += 1;
   }
   return {
     ...stats,

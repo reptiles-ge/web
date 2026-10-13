@@ -498,6 +498,7 @@
     "galleryOpenPhoto": "Open photo {index} of {total}",
     "photo": "Photo",
     "photoCredit": "Photo:",
+    "photoWithPermission": "Used with permission",
     "photoLocation": "Location:",
     "photoMapLink": "View on map",
     "photoDate": "Date:",
@@ -4071,9 +4072,23 @@
       "unknown": "author not yet identified"
     },
     "ownTitle": "Who owns the photos?",
-    "ownBody": "Photos by Reptiles.ge contributors are published here under the Reptiles.ge license: all rights reserved; use only with written permission (see the <terms>terms of use</terms>). A photo taken from Reptiles.ge is used under Reptiles.ge terms; if the same photo is published elsewhere under a Creative Commons license, that copy follows the license shown at its source. Photos by other authors keep their authors' licenses, shown by the source link under each photo.",
+    "ownItems": {
+      "contributors": {
+        "label": "Reptiles.ge contributors' photos:",
+        "body": "Reptiles.ge license. All rights reserved; use only with written permission (see the <terms>usage rules</terms>)."
+      },
+      "open": {
+        "label": "Other authors' photos with an open license:",
+        "body": "their license applies; it is shown at the source link under the photo."
+      },
+      "permission": {
+        "label": "Other authors' photos used with permission:",
+        "body": "no open license, so reuse needs the author's consent. Write to us and we will forward the request."
+      }
+    },
     "useTitle": "Can I use a photo?",
     "useBody": "If the photo's own license allows your use, you don't need permission. Otherwise, write to us. Photos under the Reptiles.ge license always need permission.",
+    "useUnknown": "Photos whose author is not yet identified can't be reused for now. <link>Is your photo here without your name?</link>",
     "askTitle": "How do I ask for permission?",
     "askBody": "Email us and include:",
     "askItems": {
@@ -4109,7 +4124,7 @@
       },
       "credit": {
         "q": "Is it enough to credit the author?",
-        "a": "No. A credit does not replace permission: you need it unless the photo's own license allows your use."
+        "a": "It depends on the license. For CC BY photos, crediting the author as the license requires is enough. Other licenses may add conditions, for example non-commercial use only. Photos under the Reptiles.ge license, and photos used with permission, always need permission."
       },
       "text": {
         "q": "Can I quote the text?",

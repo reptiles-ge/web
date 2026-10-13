@@ -21,6 +21,7 @@ import {
 } from "@/data/optimizedImages";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/cn";
+import { photoRightsCategory } from "@/lib/imageRights";
 import {
   GALLERY_LIGHTBOX_SIZES,
   galleryFeaturedSizes,
@@ -81,6 +82,8 @@ export async function SpeciesGallery({
       photoConfidence: photo.photoConfidence,
       sources: pictureSources(photo.src, { sizes: GALLERY_LIGHTBOX_SIZES }),
       src: optimizedImgSrc(photo.src, 1200),
+      usedWithPermission:
+        photoRightsCategory(photo.src, photo.credit) === "permission",
       width: entry?.width,
     };
   });

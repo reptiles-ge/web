@@ -35,6 +35,7 @@ export type GallerySlide = {
     href: SpeciesHref;
     name: string;
   };
+  usedWithPermission?: boolean;
   width?: number;
 };
 
@@ -464,6 +465,7 @@ function GalleryPhotoStage({
                 }
                 photoConfidence={activeSlide.photoConfidence}
                 speciesId={speciesId}
+                usedWithPermission={activeSlide.usedWithPermission}
                 variant="lightbox"
               />
             ) : null}
