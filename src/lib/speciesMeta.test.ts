@@ -30,9 +30,7 @@ describe("speciesPageMetaTitle", () => {
         "შხამი, არეალი და ამოცნობა",
         "საქართველოში",
       ),
-    ).toBe(
-      "გიურზა (Macrovipera lebetinus) | შხამიანი გველი საქართველოში — რისკი",
-    );
+    ).toBe("გიურზა (Macrovipera lebetinus) — შხამიანი გველი საქართველოში");
     expect(
       speciesPageMetaTitle(
         "macrovipera-lebetina",
@@ -42,12 +40,10 @@ describe("speciesPageMetaTitle", () => {
         "venom, range, and identification",
         "in Georgia",
       ),
-    ).toBe(
-      "Levantine viper (Macrovipera lebetinus) | High-risk venomous snake in Georgia",
-    );
+    ).toBe("Levantine viper (Macrovipera lebetinus) | Venomous snake");
   });
 
-  it("uses exact KA-only overrides", () => {
+  it("uses KA-only overrides", () => {
     expect(
       speciesPageMetaTitle(
         "dolichophis-schmidti",
@@ -57,12 +53,7 @@ describe("speciesPageMetaTitle", () => {
         "არეალი და ამოცნობა საქართველოში",
         "საქართველოში",
       ),
-    ).toBe(
-      "წითელმუცელა მცურავი (Dolichophis schmidti) — უშხამო გველი აღმოსავლეთ საქართველოში",
-    );
-  });
-
-  it("fits a long non-exact KA override into the target length", () => {
+    ).toBe("წითელმუცელა მცურავი (Dolichophis schmidti) — უშხამო გველი");
     expect(
       speciesPageMetaTitle(
         "vipera-transcaucasiana",
@@ -72,7 +63,7 @@ describe("speciesPageMetaTitle", () => {
         "შხამი, არეალი და ამოცნობა",
         "საქართველოში",
       ),
-    ).toBe("ცხვირრქოსანი გველგესლა (Vipera ammodytes) საქართველოში");
+    ).toBe("ცხვირრქოსანი გველგესლა (Vipera ammodytes) — შხამიანი გველი");
   });
 
   it("does not apply EN overrides to RU or TR", () => {

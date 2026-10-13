@@ -107,7 +107,7 @@ describe("speciesPageMetaTitle", () => {
   it("uses a per-species override when one exists", () => {
     expect(
       speciesPageMetaTitle("alectoris-chukar", "en", "a", "b", "c", "d"),
-    ).toBe("Chukar Partridge (Alectoris chukar) in Georgia | Range and ID");
+    ).toBe("Chukar Partridge (Alectoris chukar) in Georgia | Range, ID");
   });
 
   it("falls back to the generated title for a locale without an override", () => {
