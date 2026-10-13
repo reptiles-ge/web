@@ -128,7 +128,6 @@ export default defineConfig({
         "src/components/SkipLink.tsx",
         "src/components/SnakeIdentifyPage.tsx",
         "src/components/SnakeLargestPage.tsx",
-        "src/components/SnakeRangePage.tsx",
         "src/components/SnakeSpeciesIndexPage.tsx",
         "src/components/SnakesInYardHero.tsx",
         "src/components/SnakesInYardPage.tsx",
