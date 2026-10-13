@@ -49,8 +49,6 @@ export function createGroupHubRoute(hubId: GroupHubId) {
     const locale = localeParam as AppLocale;
     const t = await getTranslations({ locale, namespace: hub.messageKey });
     const title = t("metaTitle");
-    const metadataTitle =
-      locale === "ka" && hubId === "scorpions" ? { absolute: title } : title;
     const catalog = getCatalogSpeciesByGroup(hub.group);
     const hero =
       catalog.find((item) => item.id === hub.heroSpeciesId) ?? catalog[0];
@@ -60,7 +58,7 @@ export function createGroupHubRoute(hubId: GroupHubId) {
       indexable: true,
       keywords: t("keywords"),
       locale,
-      metadataTitle,
+      metadataTitle: { absolute: title },
       ogImageUrl: speciesOgImageUrl(hub.heroSpeciesId, hero?.image),
       pagePath: hub.path,
       title,

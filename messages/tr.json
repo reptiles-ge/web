@@ -1757,7 +1757,7 @@
     }
   },
   "snakes": {
-    "metaTitle": "Gürcistan’daki yılanlar — rehber ve atlas",
+    "metaTitle": "Gürcistan yılanları — zehirli ve zehirsiz türler, tanıma",
     "metaDescription": "Gürcistan’ın tüm yılanları tek rehberde: tür listesi, zehirli ve zararsız yılanlar, tanıma ipuçları ve reptiles.ge’de tam profiller.",
     "keywords": "Gürcistan’da yılanlar, Gürcistan yılanları, zehirli yılanlar Gürcistan, zararsız yılanlar, engerekler, yılanlar, Natrix, Vipera, Macrovipera",
     "breadcrumbCurrent": "Yılanlar",
@@ -1809,7 +1809,7 @@
     "ctaBody": "Aşağıdan bir tür seçin. Yeri biliyorsanız bölgesel haritalar yardımcı olur."
   },
   "lizards": {
-    "metaTitle": "Gürcistan’daki kertenkeleler — rehber ve atlas",
+    "metaTitle": "Gürcistan kertenkeleleri — türler, fotoğraflar ve tanıma",
     "metaDescription": "Gürcistan kertenkeleleri tek rehberde: {count} tür — kaya kertenkeleleri (Darevskia), Avrupa cam kertenkelesi, skinkler ve fazlası; tanıma ve tam profiller.",
     "keywords": "Gürcistan’da kertenkeleler, Gürcistan kertenkeleleri, kaya kertenkeleleri, Darevskia, Avrupa cam kertenkelesi, Pseudopus apodus, Lacerta",
     "breadcrumbCurrent": "Kertenkeleler",
@@ -1862,7 +1862,7 @@
     "ctaQuiz": "Bu hangi kertenkele?"
   },
   "turtles": {
-    "metaTitle": "Gürcistan’daki kaplumbağalar — yayılış ve tanıma",
+    "metaTitle": "Gürcistan kaplumbağaları — kara ve tatlısu türleri",
     "metaDescription": "Gürcistan kaplumbağaları: {count} tür, kara ve tatlısu habitatları, doğrulanmış bölgesel kayıtlar, fotoğraflar ve tam profiller.",
     "keywords": "Gürcistan’da kaplumbağalar, Gürcistan kaplumbağaları, kaplumbağa türleri Gürcistan, tatlısu kaplumbağaları Gürcistan, kara kaplumbağaları Gürcistan, mahmuzlu kara kaplumbağası, Avrupa bataklık kaplumbağası, Hazar kaplumbağası, kırmızı yanaklı su kaplumbağası, Testudo graeca, Emys orbicularis, Mauremys caspica, Trachemys scripta",
     "breadcrumbCurrent": "Kaplumbağalar",
@@ -2092,7 +2092,7 @@
     "ctaBody": "Bir tür açın, tanıma rehberinde karşılaştırın veya bölgesel atlasda yerel listeleri bulun."
   },
   "amphibians": {
-    "metaTitle": "Gürcistan’daki amfibiler — rehber ve atlas",
+    "metaTitle": "Gürcistan amfibileri — kurbağalar, semenderler, fotoğraflar",
     "metaDescription": "Gürcistan amfibileri: {count} tür — semenderler, kara kurbağaları, kurbağalar ve ağaç kurbağaları; tür rehberi ve reptiles.ge’de tam profiller.",
     "keywords": "Gürcistan’da amfibiler, Gürcistan amfibileri, semender, kara kurbağası, kurbağa, Hyla, Rana, Mertensiella, Kafkas semenderi",
     "breadcrumbCurrent": "Amfibiler",
@@ -2139,7 +2139,7 @@
     "ctaBody": "Bir tür açın veya sürüngen rehberlerine dönün — yılanlar, kertenkeleler, kaplumbağalar."
   },
   "birds": {
-    "metaTitle": "Gürcistan’daki kuşlar — rehber ve atlas",
+    "metaTitle": "Gürcistan kuşları — fotoğraflı tür profilleri ve tanıma",
     "metaDescription": "reptiles.ge’de Gürcistan kuşları: {count} türün tanıma, mevsimsellik ve kaynaklı profilleri; beyaz leylek, sarı kiraz kuşu, ağaçkakanlar ve fazlası.",
     "keywords": "Gürcistan’da kuşlar, Gürcistan kuşları, beyaz leylek, Ciconia ciconia, yeşil ağaçkakan, sarı kiraz kuşu, თეთრი ყარყატი",
     "breadcrumbCurrent": "Kuşlar",
@@ -2183,7 +2183,7 @@
     "speciesIndexCta": "Kuş türleri dizini"
   },
   "mammals": {
-    "metaTitle": "Gürcistan’daki memeliler — rehber ve atlas",
+    "metaTitle": "Gürcistan memelileri — türler, fotoğraflar ve tanıma",
     "metaDescription": "reptiles.ge’de Gürcistan memelileri: {count} türün tanıma, yayılış ve kaynaklı profilleri; kızıl tilki, çakal, kurt, ayı, karaca, Kafkas leoparı ve fazlası.",
     "keywords": "Gürcistan’da memeliler, Gürcistan memelileri, kızıl tilki, altın çakal, kurt, boz ayı, Avrupa karacası, gelincik, Kafkas sincabı, kirpi, yaban domuzu, Kafkas leoparı, rakun, Procyon lotor, Capreolus capreolus, Ursus arctos, Vulpes vulpes, Canis aureus, Canis lupus, Sciurus anomalus, Sus scrofa, Panthera pardus, შველი, მურა დათვი, ჯიქი, ენოტი",
     "breadcrumbCurrent": "Memeliler",
@@ -2228,7 +2228,7 @@
     "speciesIndexCta": "Memeli türleri dizini"
   },
   "scorpions": {
-    "metaTitle": "Gürcistan’daki akrepler — tür profilleri",
+    "metaTitle": "Gürcistan akrepleri — türler, fotoğraflar ve sokma riski",
     "metaDescription": "Gürcistan’daki akrepler: {count} tür profili — taksonomi, tanıma özellikleri, habitat, Gürcistan’da bulunma kanıtı, sokma riski ve kaynaklar.",
     "keywords": "Gürcistan akrepleri, Gürcistan’da akrepler, Mesobuthus eupeus, Euscorpius mingrelicus, alacalı akrep, Mingrelian scorpion",
     "breadcrumbCurrent": "Akrepler",
@@ -2276,7 +2276,7 @@
     "ctaBody": "Bir tür açın veya sürüngen, amfibi, kuş, memeli, örümcek ve böcek rehberlerinde devam edin."
   },
   "spiders": {
-    "metaTitle": "Gürcistan’daki örümcekler — rehber ve atlas",
+    "metaTitle": "Gürcistan örümcekleri — hangileri tehlikeli, fotoğraflar",
     "metaDescription": "Gürcistan örümcekleri reptiles.ge’de: atlasta {count} tür; tanıma, yayılış ve kaynaklar. Eşekarısı örümceği, loblu örümcek, yalancı karakurt ve karakurt.",
     "keywords": "Gürcistan’da örümcekler, eşekarısı örümceği, karakurt, yalancı karakurt, Argiope bruennichi, Latrodectus tredecimguttatus, Steatoda paykulliana",
     "breadcrumbCurrent": "Örümcekler",
@@ -2319,7 +2319,7 @@
     "speciesIndexCta": "Örümcek türleri dizini"
   },
   "insects": {
-    "metaTitle": "Gürcistan’daki böcekler — rehber ve atlas",
+    "metaTitle": "Gürcistan böcekleri — türler, fotoğraflar, evdeki böcekler",
     "metaDescription": "reptiles.ge’de Gürcistan böcekleri: {count} türün tanıma, yaşam alanı ve kaynaklı profilleri — peygamberdevesi, kokarca, doğu hamam böceği ve tahta kurusu.",
     "keywords": "Gürcistan böcekleri, Gürcistan böcek türleri, Mantis religiosa Gürcistan, Avrupa peygamberdevesi, Halyomorpha halys Gürcistan, kahverengi kokarca",
     "breadcrumbCurrent": "Böcekler",
