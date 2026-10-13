@@ -56,7 +56,7 @@ export function createGroupHubRoute(hubId: GroupHubId) {
       catalog.find((item) => item.id === hub.heroSpeciesId) ?? catalog[0];
 
     return buildPageMetadata({
-      description: t("metaDescription"),
+      description: t("metaDescription", { count: catalog.length }),
       indexable: true,
       keywords: t("keywords"),
       locale,
@@ -103,7 +103,7 @@ export function createGroupHubRoute(hubId: GroupHubId) {
     const collectionLd = sitePageLd({
       about: { "@type": "Place", name: georgiaPlaceName(locale) },
       dates: pageDateFields(hub.path, locale),
-      description: t("metaDescription"),
+      description: t("metaDescription", { count: species.length }),
       locale,
       mainEntity: speciesItemListLd(locale, species),
       name: t("metaTitle"),

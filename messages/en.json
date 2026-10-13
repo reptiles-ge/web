@@ -1809,8 +1809,8 @@
     "ctaBody": "Pick a species below. Regional maps help when you know the place."
   },
   "lizards": {
-    "metaTitle": "Lizards in Georgia (Caucasus) — guide and atlas",
-    "metaDescription": "Lizards of Georgia in one guide: rock lizards (Darevskia), European glass lizard, skinks, and more — identification and full profiles.",
+    "metaTitle": "Lizards in Georgia (Caucasus): species and ID",
+    "metaDescription": "Lizards of Georgia, the Caucasus country: {count} species with photos — rock lizards (Darevskia), glass lizard, Caspian gecko. None are venomous to people.",
     "keywords": "lizards in Georgia, Georgia lizards, rock lizards, Darevskia, European glass lizard, Pseudopus apodus, Lacerta",
     "breadcrumbCurrent": "Lizards",
     "heroImageAlt": "European glass lizard in dry grassland habitat",
@@ -1862,8 +1862,8 @@
     "ctaQuiz": "Which lizard is it?"
   },
   "turtles": {
-    "metaTitle": "Turtles in Georgia (Caucasus) — range and identification",
-    "metaDescription": "Turtles of Georgia in one hub: four species, land and freshwater habitats, verified regional records, photos, and full profiles.",
+    "metaTitle": "Turtles in Georgia (Caucasus): species and ID",
+    "metaDescription": "Turtles of Georgia, the Caucasus country: {count} species with photos — spur-thighed tortoise, pond and Caspian turtles, and the introduced red-eared slider.",
     "keywords": "turtles in Georgia, Georgia turtles, turtle species Georgia, freshwater turtles Georgia, land turtles Georgia, spur-thighed tortoise, European pond turtle, Caspian turtle, red-eared slider, Testudo graeca, Emys orbicularis, Mauremys caspica, Trachemys scripta",
     "breadcrumbCurrent": "Turtles",
     "heroImageAlt": "Spur-thighed tortoise (Testudo graeca) in dry grassland habitat in Georgia",
@@ -2092,8 +2092,8 @@
     "ctaBody": "Open a species, compare on the identify guide, or find local lists in the regional atlas."
   },
   "amphibians": {
-    "metaTitle": "Amphibians in Georgia (Caucasus) — guide and atlas",
-    "metaDescription": "Amphibians of Georgia: newts, toads, frogs, and tree frogs — species guide and full profiles on reptiles.ge.",
+    "metaTitle": "Amphibians in Georgia (Caucasus): guide and atlas",
+    "metaDescription": "Amphibians of Georgia: {count} species of newts, toads, frogs, and tree frogs — species guide and full profiles on reptiles.ge.",
     "keywords": "amphibians in Georgia, Georgia amphibians, newt, toad, frog, Hyla, Rana, Mertensiella, Caucasus salamander",
     "breadcrumbCurrent": "Amphibians",
     "heroImageAlt": "Caucasian salamander near a forest stream",
@@ -2140,7 +2140,7 @@
   },
   "birds": {
     "metaTitle": "Birds in Georgia (Caucasus) — guide and atlas",
-    "metaDescription": "Birds of Georgia on reptiles.ge: field-guide profiles with identification, seasonality, and sources for white stork, yellowhammer, woodpeckers, and more.",
+    "metaDescription": "Birds of Georgia: {count} field-guide profiles with identification, seasonality, and sources for white stork, yellowhammer, woodpeckers, and more.",
     "keywords": "birds in Georgia, Georgia birds, white stork, Ciconia ciconia, European green woodpecker, yellowhammer, თეთრი ყარყატი",
     "breadcrumbCurrent": "Birds",
     "heroImageAlt": "Open farmland habitat used by wintering buntings in Georgia",
@@ -2183,8 +2183,8 @@
     "speciesIndexCta": "Bird species index"
   },
   "mammals": {
-    "metaTitle": "Mammals in Georgia (Caucasus) — guide and atlas",
-    "metaDescription": "Mammals of Georgia on reptiles.ge: field-guide profiles with identification, range, and sources, from red fox and wolf to brown bear and Caucasian leopard.",
+    "metaTitle": "Mammals in Georgia (Caucasus): photos and ID",
+    "metaDescription": "Mammals of Georgia, the Caucasus country: {count} species profiles with photos — red fox, golden jackal, wolf, brown bear, roe deer, otter, lynx. ID and range.",
     "keywords": "mammals in Georgia, Georgia mammals, red fox, golden jackal, wolf, brown bear, European roe deer, least weasel, Caucasian squirrel, hedgehog, wild boar, Caucasian leopard, raccoon, Procyon lotor, Capreolus capreolus, Ursus arctos, Vulpes vulpes, Canis aureus, Canis lupus, Sciurus anomalus, Sus scrofa, Panthera pardus, შველი, მურა დათვი, ჯიქი, ენოტი",
     "breadcrumbCurrent": "Mammals",
     "heroImageAlt": "Red fox at a woodland edge, with reddish fur and a bushy tail",
@@ -2228,8 +2228,8 @@
     "speciesIndexCta": "Mammal species index"
   },
   "scorpions": {
-    "metaTitle": "Scorpions in Georgia (Caucasus) — species and sting risk",
-    "metaDescription": "Scorpions in Georgia — published species profiles with taxonomy, identification traits, habitat, evidence of occurrence in Georgia, sting risk, and sources.",
+    "metaTitle": "Scorpions in Georgia (Caucasus): sting risk",
+    "metaDescription": "Scorpions in Georgia: {count} species profiles with taxonomy, identification traits, habitat, evidence of occurrence in Georgia, sting risk, and sources.",
     "keywords": "scorpions in Georgia, Georgia scorpions, Mesobuthus eupeus, Euscorpius mingrelicus, mottled scorpion, Mingrelian scorpion",
     "breadcrumbCurrent": "Scorpions",
     "heroImageAlt": "Dry rocky grassland habitat for scorpions",
@@ -2277,7 +2277,7 @@
   },
   "spiders": {
     "metaTitle": "Spiders in Georgia (Caucasus) — guide and atlas",
-    "metaDescription": "Spiders of Georgia on reptiles.ge: identification, range, and sources for wasp spider, lobed argiope, false black widow, karakurt, and more.",
+    "metaDescription": "Spiders of Georgia: {count} profiles with identification, range, and sources for wasp spider, lobed argiope, false black widow, karakurt, and more.",
     "keywords": "spiders in Georgia, wasp spider, false black widow, Mediterranean black widow, Argiope bruennichi, Latrodectus tredecimguttatus, Steatoda paykulliana, Georgia spiders",
     "breadcrumbCurrent": "Spiders",
     "heroImageAlt": "Wasp spider with yellow-and-black bands in an orb web",
@@ -2320,7 +2320,7 @@
   },
   "insects": {
     "metaTitle": "Insects in Georgia (Caucasus) — guide and atlas",
-    "metaDescription": "Insects of Georgia on reptiles.ge: identification, taxonomy, habitat, records, and sources for the European mantis, stink bug, Oriental cockroach, and bed bug.",
+    "metaDescription": "Insects of Georgia: {count} profiles with identification, habitat, and sources for the European mantis, stink bug, Oriental cockroach, and bed bug.",
     "keywords": "insects in Georgia, Georgian insects, Mantis religiosa Georgia, European mantis, Halyomorpha halys Georgia, brown marmorated stink bug Georgia, BMSB Georgia",
     "breadcrumbCurrent": "Insects",
     "heroImageAlt": "European mantis in tall sunny grass",

@@ -1810,7 +1810,7 @@
   },
   "lizards": {
     "metaTitle": "Gürcistan’daki kertenkeleler — rehber ve atlas",
-    "metaDescription": "Gürcistan kertenkeleleri tek rehberde: kaya kertenkeleleri (Darevskia), Avrupa cam kertenkelesi, skinkler ve daha fazlası — tanıma ve tam profiller.",
+    "metaDescription": "Gürcistan kertenkeleleri tek rehberde: {count} tür — kaya kertenkeleleri (Darevskia), Avrupa cam kertenkelesi, skinkler ve fazlası; tanıma ve tam profiller.",
     "keywords": "Gürcistan’da kertenkeleler, Gürcistan kertenkeleleri, kaya kertenkeleleri, Darevskia, Avrupa cam kertenkelesi, Pseudopus apodus, Lacerta",
     "breadcrumbCurrent": "Kertenkeleler",
     "heroImageAlt": "Kuru çayır habitatında Avrupa cam kertenkelesi",
@@ -1863,7 +1863,7 @@
   },
   "turtles": {
     "metaTitle": "Gürcistan’daki kaplumbağalar — yayılış ve tanıma",
-    "metaDescription": "Gürcistan kaplumbağaları: dört tür, kara ve tatlısu habitatları, doğrulanmış bölgesel kayıtlar, fotoğraflar ve tam profiller.",
+    "metaDescription": "Gürcistan kaplumbağaları: {count} tür, kara ve tatlısu habitatları, doğrulanmış bölgesel kayıtlar, fotoğraflar ve tam profiller.",
     "keywords": "Gürcistan’da kaplumbağalar, Gürcistan kaplumbağaları, kaplumbağa türleri Gürcistan, tatlısu kaplumbağaları Gürcistan, kara kaplumbağaları Gürcistan, mahmuzlu kara kaplumbağası, Avrupa bataklık kaplumbağası, Hazar kaplumbağası, kırmızı yanaklı su kaplumbağası, Testudo graeca, Emys orbicularis, Mauremys caspica, Trachemys scripta",
     "breadcrumbCurrent": "Kaplumbağalar",
     "heroImageAlt": "Kuru çayır habitatında mahmuzlu kara kaplumbağası (Testudo graeca), Gürcistan",
@@ -2093,7 +2093,7 @@
   },
   "amphibians": {
     "metaTitle": "Gürcistan’daki amfibiler — rehber ve atlas",
-    "metaDescription": "Gürcistan amfibileri: semenderler, kara kurbağaları, kurbağalar ve ağaç kurbağaları — tür rehberi ve reptiles.ge’de tam profiller.",
+    "metaDescription": "Gürcistan amfibileri: {count} tür — semenderler, kara kurbağaları, kurbağalar ve ağaç kurbağaları; tür rehberi ve reptiles.ge’de tam profiller.",
     "keywords": "Gürcistan’da amfibiler, Gürcistan amfibileri, semender, kara kurbağası, kurbağa, Hyla, Rana, Mertensiella, Kafkas semenderi",
     "breadcrumbCurrent": "Amfibiler",
     "heroImageAlt": "Orman deresinin yanında Kafkas semenderi",
@@ -2140,7 +2140,7 @@
   },
   "birds": {
     "metaTitle": "Gürcistan’daki kuşlar — rehber ve atlas",
-    "metaDescription": "reptiles.ge’de Gürcistan kuşları: tanıma, mevsimsellik ve kaynaklı profiller; beyaz leylek, sarı kiraz kuşu, ağaçkakanlar ve fazlası.",
+    "metaDescription": "reptiles.ge’de Gürcistan kuşları: {count} türün tanıma, mevsimsellik ve kaynaklı profilleri; beyaz leylek, sarı kiraz kuşu, ağaçkakanlar ve fazlası.",
     "keywords": "Gürcistan’da kuşlar, Gürcistan kuşları, beyaz leylek, Ciconia ciconia, yeşil ağaçkakan, sarı kiraz kuşu, თეთრი ყარყატი",
     "breadcrumbCurrent": "Kuşlar",
     "heroImageAlt": "Gürcistan’da kışlayan kiraz kuşlarının kullandığı açık tarım arazisi",
@@ -2184,7 +2184,7 @@
   },
   "mammals": {
     "metaTitle": "Gürcistan’daki memeliler — rehber ve atlas",
-    "metaDescription": "reptiles.ge’de Gürcistan memelileri: tanıma, yayılış ve kaynaklı profiller; kızıl tilki, çakal, kurt, ayı, karaca, Kafkas leoparı ve daha fazlası.",
+    "metaDescription": "reptiles.ge’de Gürcistan memelileri: {count} türün tanıma, yayılış ve kaynaklı profilleri; kızıl tilki, çakal, kurt, ayı, karaca, Kafkas leoparı ve fazlası.",
     "keywords": "Gürcistan’da memeliler, Gürcistan memelileri, kızıl tilki, altın çakal, kurt, boz ayı, Avrupa karacası, gelincik, Kafkas sincabı, kirpi, yaban domuzu, Kafkas leoparı, rakun, Procyon lotor, Capreolus capreolus, Ursus arctos, Vulpes vulpes, Canis aureus, Canis lupus, Sciurus anomalus, Sus scrofa, Panthera pardus, შველი, მურა დათვი, ჯიქი, ენოტი",
     "breadcrumbCurrent": "Memeliler",
     "heroImageAlt": "Kızıl tilki orman kenarında, kızıl kürk ve gür kuyrukla",
@@ -2229,7 +2229,7 @@
   },
   "scorpions": {
     "metaTitle": "Gürcistan’daki akrepler — tür profilleri",
-    "metaDescription": "Gürcistan’daki akrepler — taksonomi, tanıma özellikleri, habitat, Gürcistan’da bulunma kanıtı, sokma riski ve kaynaklarla yayımlanmış tür profilleri.",
+    "metaDescription": "Gürcistan’daki akrepler: {count} tür profili — taksonomi, tanıma özellikleri, habitat, Gürcistan’da bulunma kanıtı, sokma riski ve kaynaklar.",
     "keywords": "Gürcistan akrepleri, Gürcistan’da akrepler, Mesobuthus eupeus, Euscorpius mingrelicus, alacalı akrep, Mingrelian scorpion",
     "breadcrumbCurrent": "Akrepler",
     "heroImageAlt": "Akrepler için kuru taşlı otluk habitat",
@@ -2277,7 +2277,7 @@
   },
   "spiders": {
     "metaTitle": "Gürcistan’daki örümcekler — rehber ve atlas",
-    "metaDescription": "Gürcistan örümcekleri reptiles.ge’de: tanıma, yayılış ve kaynaklar; eşekarısı örümceği, loblu örümcek, yalancı karakurt ve karakurt.",
+    "metaDescription": "Gürcistan örümcekleri reptiles.ge’de: atlasta {count} tür; tanıma, yayılış ve kaynaklar. Eşekarısı örümceği, loblu örümcek, yalancı karakurt ve karakurt.",
     "keywords": "Gürcistan’da örümcekler, eşekarısı örümceği, karakurt, yalancı karakurt, Argiope bruennichi, Latrodectus tredecimguttatus, Steatoda paykulliana",
     "breadcrumbCurrent": "Örümcekler",
     "heroImageAlt": "Sarı-siyah bantlı eşekarısı örümceği daire ağında",
@@ -2320,7 +2320,7 @@
   },
   "insects": {
     "metaTitle": "Gürcistan’daki böcekler — rehber ve atlas",
-    "metaDescription": "reptiles.ge’de Gürcistan böcekleri: tanıma, taksonomi, yaşam alanı, kayıtlar ve kaynaklar — peygamberdevesi, kokarca, doğu hamam böceği ve tahta kurusu.",
+    "metaDescription": "reptiles.ge’de Gürcistan böcekleri: {count} türün tanıma, yaşam alanı ve kaynaklı profilleri — peygamberdevesi, kokarca, doğu hamam böceği ve tahta kurusu.",
     "keywords": "Gürcistan böcekleri, Gürcistan böcek türleri, Mantis religiosa Gürcistan, Avrupa peygamberdevesi, Halyomorpha halys Gürcistan, kahverengi kokarca",
     "breadcrumbCurrent": "Böcekler",
     "heroImageAlt": "Güneşli uzun ot içinde Avrupa peygamberdevesi",
