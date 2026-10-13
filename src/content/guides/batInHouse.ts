@@ -50,7 +50,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       },
       {
         answer:
-          "A grounded, injured, or repeatedly failing bat needs quiet isolation and professional wildlife or veterinary guidance. Do not invent improvised treatment, and do not handle it bare-handed.",
+          "A grounded, injured, or repeatedly failing bat needs quiet isolation and professional wildlife or veterinary guidance. Do not try to treat it yourself, and do not handle it bare-handed.",
         question: "What if the bat cannot fly?",
       },
       {
@@ -97,8 +97,8 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       {
         heading: "What if the bat will not fly away?",
         paragraphs: [
-          "An injured bat, a bat on the floor, one that repeatedly fails to fly, a bat found active by day, or one that remains indoors for a long time may need professional help. Keep people and pets away, reduce disturbance, and contact wildlife rescue, a veterinarian, or another qualified service available where you are. Do not invent feeding or treatment at home.",
-          "This page does not list Georgia-specific rescue hotlines, because reliable public contacts change and are not always published in one place. Use local wildlife, veterinary, or municipal channels you trust.",
+          "An injured bat, a bat on the floor, one that repeatedly fails to fly, a bat found active by day, or one that remains indoors for a long time may need professional help. Keep people and pets away, reduce disturbance, and contact wildlife rescue, a veterinarian, or another qualified service available where you are. Do not try to feed or treat the bat yourself.",
+          "Public rescue contacts in Georgia change and are not always published in one place, so use local wildlife, veterinary, or municipal channels you trust.",
         ],
       },
       {
@@ -112,7 +112,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         heading: "Bats and rabies",
         paragraphs: [
           "Bats can carry rabies lyssaviruses in some regions, and WHO classifies exposures due to direct contact with bats as a severe exposure category requiring assessment for post-exposure prophylaxis. That does not mean most bats people see are infected, and it does not mean that seeing a bat indoors is automatically a medical emergency.",
-          "Infection cannot be ruled out by appearance. Keep risk proportional: avoid contact; after possible direct exposure, get advice. Publicly available, up-to-date figures for bat rabies in Georgia are limited, so do not import another country’s statistics as if they describe Georgia.",
+          "Infection cannot be ruled out by appearance. Keep risk proportional: avoid contact; after possible direct exposure, get advice. Publicly available, up-to-date figures for bat rabies in Georgia are limited, and rabies figures from other countries do not describe Georgia.",
         ],
       },
       {
@@ -175,7 +175,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       },
       {
         answer:
-          "დაზიანებულ, მიწაზე მყოფ ან განმეორებით ჩამოვარდნილ ცხოველს სჭირდება სიმშვიდე და პროფესიონალური რჩევა. სახლის პირობებში მკურნალობა ნუ გამოიგონოთ და შიშველი ხელით ნუ დაიჭერთ.",
+          "დაზიანებულ, მიწაზე მყოფ ან განმეორებით ჩამოვარდნილ ცხოველს სჭირდება სიმშვიდე და პროფესიონალური რჩევა. თავად ნუ ეცდებით მის მკურნალობას და შიშველი ხელით ნუ დაიჭერთ.",
         question: "რა გავაკეთოთ, თუ ღამურა ვერ დაფრინავს?",
       },
       {
@@ -222,8 +222,8 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       {
         heading: "რას ვაკეთებთ, თუ ღამურა ვერ გაფრინდა?",
         paragraphs: [
-          "დაზიანებულ, იატაკზე მყოფ, განმეორებით ჩამოვარდნილ, დღისით აქტიურ ან დიდხანს შიგნით დარჩენილ ცხოველს შეიძლება პროფესიონალური დახმარება დასჭირდეს. ადამიანები და ცხოველები მოარიდეთ, შეწუხება შეამცირეთ და მიმართეთ ველური ბუნების გადარჩენის, ვეტერინარის ან სხვა ხელმისაწვდომ კვალიფიციურ სერვისს. სახლში კვება ან მკურნალობა ნუ გამოიგონოთ.",
-          "ეს გვერდი საქართველოს კონკრეტულ სამაშველო ცხელ ხაზებს არ ასახელებს, რადგან საჯარო კონტაქტები იცვლება და ყოველთვის ერთ ადგილას არ ქვეყნდება. გამოიყენეთ ადგილობრივი ველური ბუნების, ვეტერინარული ან მუნიციპალური არხები, რომლებსაც ენდობით.",
+          "დაზიანებულ, იატაკზე მყოფ, განმეორებით ჩამოვარდნილ, დღისით აქტიურ ან დიდხანს შიგნით დარჩენილ ცხოველს შეიძლება პროფესიონალური დახმარება დასჭირდეს. ადამიანები და ცხოველები მოარიდეთ, შეწუხება შეამცირეთ და მიმართეთ ველური ბუნების გადარჩენის, ვეტერინარის ან სხვა ხელმისაწვდომ კვალიფიციურ სერვისს. თავად ნუ ეცდებით ღამურის კვებას ან მკურნალობას.",
+          "საქართველოში სამაშველო სამსახურების საჯარო კონტაქტები იცვლება და ყოველთვის ერთ ადგილას არ ქვეყნდება, ამიტომ გამოიყენეთ ადგილობრივი ველური ბუნების, ვეტერინარული ან მუნიციპალური არხები, რომლებსაც ენდობით.",
         ],
       },
       {
@@ -237,7 +237,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         heading: "ღამურა და ცოფი",
         paragraphs: [
           "ზოგ რეგიონში ღამურები შეიძლება ცოფის ლისავირუსების რეზერვუარი იყვნენ და ჯანმო ღამურასთან პირდაპირ კონტაქტს მძიმე ექსპოზიციის კატეგორიად მიიჩნევს, რაც პროფილაქტიკის შეფასებას მოითხოვს. ეს არ ნიშნავს, რომ ადამიანის მიერ ნანახი ღამურების უმეტესობა ინფიცირებულია, და არც იმას, რომ სახლში დანახვა ავტომატურად სამედიცინო გადაუდებელ შემთხვევას ქმნის.",
-          "ინფექცია გარეგნობით ვერ გამოირიცხება. რისკი პროპორციულად შეაფასეთ: კონტაქტი აარიდეთ; შესაძლო პირდაპირი ექსპოზიციის შემდეგ რჩევა მიიღეთ. საქართველოში ღამურების ცოფის აქტუალური საჯარო სტატისტიკა შეზღუდულია — სხვა ქვეყნის ციფრები საქართველოს სურათად ნუ ჩათვლით.",
+          "ინფექცია გარეგნობით ვერ გამოირიცხება. რისკი პროპორციულად შეაფასეთ: კონტაქტი აარიდეთ; შესაძლო პირდაპირი ექსპოზიციის შემდეგ რჩევა მიიღეთ. საქართველოში ღამურების ცოფის აქტუალური საჯარო სტატისტიკა შეზღუდულია — სხვა ქვეყნების ციფრები საქართველოს მდგომარეობას არ ასახავს.",
         ],
       },
       {
@@ -300,7 +300,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       },
       {
         answer:
-          "Травмированному, лежащему на полу или повторно не взлетающему животному нужны покой и профессиональная помощь. Не придумывайте лечение дома и не берите голыми руками.",
+          "Травмированному, лежащему на полу или повторно не взлетающему животному нужны покой и профессиональная помощь. Не пытайтесь лечить животное сами и не берите его голыми руками.",
         question: "Что делать, если летучая мышь не летает?",
       },
       {
@@ -347,8 +347,8 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       {
         heading: "Что делать, если летучая мышь не улетает?",
         paragraphs: [
-          "Травмированному животному, лежащему на полу, повторно не взлетающему, активному днём или долго остающемуся внутри может понадобиться профессиональная помощь. Уберите людей и животных, снизьте беспокойство и обратитесь в службу помощи диким животным, к ветеринару или иному доступному квалифицированному сервису. Не придумывайте кормление или лечение дома.",
-          "Эта страница не приводит грузинские номера спасательных служб для летучих мышей: публичные контакты меняются и не всегда собраны в одном месте. Используйте местные каналы по дикой природе, ветеринарии или муниципальные службы, которым доверяете.",
+          "Травмированному животному, лежащему на полу, повторно не взлетающему, активному днём или долго остающемуся внутри может понадобиться профессиональная помощь. Уберите людей и животных, снизьте беспокойство и обратитесь в службу помощи диким животным, к ветеринару или иному доступному квалифицированному сервису. Не пытайтесь сами кормить или лечить летучую мышь.",
+          "Публичные контакты спасательных служб в Грузии меняются и не всегда собраны в одном месте, поэтому используйте местные каналы по дикой природе, ветеринарии или муниципальные службы, которым доверяете.",
         ],
       },
       {
@@ -362,7 +362,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         heading: "Летучие мыши и бешенство",
         paragraphs: [
           "В некоторых регионах летучие мыши могут быть резервуаром лиссавирусов бешенства, а ВОЗ относит экспозиции из-за прямого контакта с ними к тяжёлой категории, требующей оценки постэкспозиционной профилактики. Это не значит, что большинство увиденных людьми животных заражены, и не значит, что появление в доме автоматически создаёт медицинскую тревогу.",
-          "Инфекцию нельзя исключить по внешнему виду. Оценивайте риск пропорционально: избегайте контакта; после возможной прямой экспозиции обратитесь за советом. Актуальная публичная статистика бешенства у летучих мышей Грузии ограничена — не переносите цифры другой страны как описание Грузии.",
+          "Инфекцию нельзя исключить по внешнему виду. Оценивайте риск пропорционально: избегайте контакта; после возможной прямой экспозиции обратитесь за советом. Актуальная публичная статистика бешенства у летучих мышей Грузии ограничена — цифры других стран не описывают ситуацию в Грузии.",
         ],
       },
       {
@@ -425,7 +425,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       },
       {
         answer:
-          "Yaralı, yerde kalan veya tekrar tekrar uçamayan hayvana sessizlik ve profesyonel yardım gerekir. Evde tedavi uydurmayın ve çıplak elle tutmayın.",
+          "Yaralı, yerde kalan veya tekrar tekrar uçamayan hayvana sessizlik ve profesyonel yardım gerekir. Kendiniz tedavi etmeye çalışmayın ve çıplak elle tutmayın.",
         question: "Yarasa uçamıyorsa ne yapmalı?",
       },
       {
@@ -472,8 +472,8 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       {
         heading: "Yarasa uçamıyorsa ne olur?",
         paragraphs: [
-          "Yaralı, yerdeki, tekrar tekrar uçamayan, gündüz aktif veya uzun süre içeride kalan hayvan profesyonel yardım gerektirebilir. İnsanları ve evcil hayvanları uzak tutun, rahatsızlığı azaltın ve yaban hayatı kurtarma, veteriner veya erişilebilir başka nitelikli bir hizmete başvurun. Evde besleme veya tedavi uydurmayın.",
-          "Bu sayfa Gürcistan’a özel yarasa kurtarma hatlarını listelemez; kamuya açık iletişimler değişir ve her zaman tek yerde yayımlanmaz. Güvendiğiniz yerel yaban hayatı, veteriner veya belediye kanallarını kullanın.",
+          "Yaralı, yerdeki, tekrar tekrar uçamayan, gündüz aktif veya uzun süre içeride kalan hayvan profesyonel yardım gerektirebilir. İnsanları ve evcil hayvanları uzak tutun, rahatsızlığı azaltın ve yaban hayatı kurtarma, veteriner veya erişilebilir başka nitelikli bir hizmete başvurun. Yarasayı kendiniz beslemeye veya tedavi etmeye çalışmayın.",
+          "Gürcistan’daki kurtarma hizmetlerinin kamuya açık iletişim bilgileri değişir ve her zaman tek yerde yayımlanmaz; bu yüzden güvendiğiniz yerel yaban hayatı, veteriner veya belediye kanallarını kullanın.",
         ],
       },
       {
@@ -487,7 +487,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         heading: "Yarasalar ve kuduz",
         paragraphs: [
           "Bazı bölgelerde yarasalar kuduz lisavirüslerinin rezervuarı olabilir ve DSÖ yarasalara doğrudan temastan kaynaklanan maruziyetleri, maruziyet sonrası profilaksi değerlendirmesi gerektiren ağır kategori sayar. Bu, insanların gördüğü yarasaların çoğunun enfekte olduğu anlamına gelmez ve evde görmenin otomatik tıbbi acil olduğu anlamına da gelmez.",
-          "Enfeksiyon görünüme bakılarak dışlanamaz. Riski orantılı tutun: temastan kaçının; olası doğrudan maruziyet sonrası danışmanlık alın. Gürcistan’da yarasa kuduzuna dair güncel kamuya açık veriler sınırlıdır — başka ülkenin istatistiklerini Gürcistan tablosu gibi kullanmayın.",
+          "Enfeksiyon görünüme bakılarak dışlanamaz. Riski orantılı tutun: temastan kaçının; olası doğrudan maruziyet sonrası danışmanlık alın. Gürcistan’da yarasa kuduzuna dair güncel kamuya açık veriler sınırlıdır — başka ülkelerin rakamları Gürcistan’daki durumu yansıtmaz.",
         ],
       },
       {
