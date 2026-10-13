@@ -11,12 +11,12 @@ type ImageKey = "clinical-assessment" | "field-gyurza" | "viper-portrait";
 const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
   en: {
     description:
-      "A suspected blunt-nosed viper bite needs urgent care. Learn possible local and systemic effects, what to do now, and why to call 112 in Georgia.",
+      "A suspected Levantine viper (blunt-nosed viper, gyurza) bite needs urgent care. Learn possible local and systemic effects, what to do now, and why to call 112 in Georgia.",
     faq: [
       {
         answer:
           "No. A venomous snake can bite without injecting a clinically important amount of venom, but you cannot determine that safely at the scene. A credible suspected bite still needs urgent medical assessment.",
-        question: "Does every gyurza bite inject venom?",
+        question: "Does every Levantine viper bite inject venom?",
       },
       {
         answer:
@@ -30,24 +30,24 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       },
       {
         answer:
-          "Tell the 112 operator where you are, that a blunt-nosed viper bite is suspected, and how the person is doing. Follow the operator's instructions.",
+          "Tell the 112 operator where you are, that a Levantine viper bite is suspected, and how the person is doing. Follow the operator's instructions.",
         question: "What should I tell 112?",
       },
       {
         answer:
-          "We have not verified current gyurza antivenom stock in Georgian hospitals. Clinicians decide whether antivenom is indicated and which product is appropriate; do not delay the emergency call to search for it.",
-        question: "Is gyurza antivenom available in Georgia?",
+          "We have not verified current Levantine viper antivenom stock in Georgian hospitals. Clinicians decide whether antivenom is indicated and which product is appropriate; do not delay the emergency call to search for it.",
+        question: "Is Levantine viper antivenom available in Georgia?",
       },
     ],
     intro:
-      "A suspected gyurza bite can be serious. In Georgia, call 112 now; do not wait for severe symptoms. Move away from the snake, keep movement to a minimum, and do not cut, suck, burn, or tightly tourniquet the bite. Do not try to catch the snake.",
-    metaTitle: "Blunt-nosed viper bite — symptoms and what to do",
+      "A suspected Levantine viper bite can be serious. In Georgia, call 112 now; do not wait for severe symptoms. Move away from the snake, keep movement to a minimum, and do not cut, suck, burn, or tightly tourniquet the bite. Do not try to catch the snake.",
+    metaTitle: "Levantine viper bite — symptoms and what to do",
     sections: [
       {
-        heading: "How dangerous is a gyurza bite?",
+        heading: "How dangerous is a Levantine viper bite?",
         image: "viper-portrait",
         paragraphs: [
-          "The gyurza, called Macrovipera lebetinus in this atlas, is a medically important viper. A bite may deliver little or no venom, or it may cause significant local and systemic envenoming. Serious cases can be life-threatening; neither the wound's appearance nor the atlas risk label predicts an individual's outcome.",
+          "The Levantine viper (Macrovipera lebetinus), also called the gyurza or blunt-nosed viper, is a medically important viper. A bite may deliver little or no venom, or it may cause significant local and systemic envenoming. Serious cases can be life-threatening; neither the wound's appearance nor the atlas risk label predicts an individual's outcome.",
           "Published Macrovipera cases and the 2025 clinical review describe a range of severity. These reports come from other populations and cannot establish the frequency or outcome of bites in Georgia.",
         ],
       },
@@ -92,19 +92,19 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       {
         heading: "What should you avoid?",
         paragraphs: [
-          "Do not cut or burn the wound, suck out venom, apply a tight tourniquet, use electric shock, ice, alcohol, or folk remedies. Do not improvise a pressure-immobilization bandage for gyurza: it may worsen injuries where venom causes substantial local tissue damage. Do not catch or kill the snake or delay care to identify it.",
+          "Do not cut or burn the wound, suck out venom, apply a tight tourniquet, use electric shock, ice, alcohol, or folk remedies. Do not improvise a pressure-immobilization bandage for a Levantine viper bite: it may worsen injuries where venom causes substantial local tissue damage. Do not catch or kill the snake or delay care to identify it.",
         ],
       },
       {
         heading: "When should you call 112?",
         paragraphs: [
-          "Call immediately for a credible suspected gyurza bite in Georgia, even before severe symptoms. Georgia's 112 dispatch service sends urgent medical help. Seeing a gyurza nearby without a bite or another emergency is a different situation and does not by itself require an emergency call.",
+          "Call immediately for a credible suspected Levantine viper bite in Georgia, even before severe symptoms. Georgia's 112 dispatch service sends urgent medical help. Seeing a Levantine viper nearby without a bite or another emergency is a different situation and does not by itself require an emergency call.",
         ],
       },
       {
         heading: "What if a child was bitten?",
         paragraphs: [
-          "A child needs especially prompt assessment. WHO notes that children can experience more severe effects from venomous snakebites because of their smaller body mass. This is general snakebite guidance, not a measured pediatric risk for Georgian gyurza bites.",
+          "A child needs especially prompt assessment. WHO notes that children can experience more severe effects from venomous snakebites because of their smaller body mass. This is general snakebite guidance, not a measured pediatric risk for Levantine viper bites in Georgia.",
         ],
       },
       {
@@ -112,14 +112,14 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         image: "clinical-assessment",
         paragraphs: [
           "Not every bite requires antivenom. In hospital, clinicians assess symptoms, examine the person, and may check blood clotting and other complications. They decide whether an appropriate antivenom is indicated and monitor treatment because serious reactions are possible.",
-          "An antivenom tested against venom from another population cannot simply be assumed effective or available in Georgia. We have not verified Georgian hospital stock or a national gyurza treatment protocol. Do not try to obtain or administer antivenom yourself.",
+          "An antivenom tested against venom from another population cannot simply be assumed effective or available in Georgia. We have not verified Georgian hospital stock or a national treatment protocol for Levantine viper bites. Do not try to obtain or administer antivenom yourself.",
         ],
       },
       {
-        heading: "What is known about gyurza in Georgia?",
+        heading: "What is known about the Levantine viper in Georgia?",
         image: "field-gyurza",
         paragraphs: [
-          "The atlas documents the species in eastern Georgia. Its [gyurza profile](macrovipera-lebetina) covers identification, distribution, and taxonomy; this article focuses on a suspected bite. The atlas uses Macrovipera lebetinus, while much clinical literature uses M. lebetina for the corresponding taxon.",
+          "The atlas documents the species in eastern Georgia. Its [Levantine viper profile](macrovipera-lebetina) covers identification, distribution, and taxonomy; this article focuses on a suspected bite. The atlas uses Macrovipera lebetinus, while much clinical literature uses M. lebetina for the corresponding taxon.",
           "We found no reliable Georgian clinical series establishing local symptom frequencies, mortality, or current antivenom availability. International cases guide cautious wording but do not replace local evidence.",
         ],
       },
@@ -131,9 +131,8 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       },
     ],
     summary:
-      "A credible suspected gyurza bite needs urgent medical assessment, even if the wound looks mild. In Georgia, move away and call 112. Keep movement to a minimum, remove tight items near the bite, and do not cut, suck, burn, tightly tourniquet, or catch the snake. Hospital staff assess envenoming and decide whether antivenom is needed.",
-    title:
-      "Blunt-nosed viper bite — how dangerous is it and what should you do?",
+      "A credible suspected Levantine viper bite needs urgent medical assessment, even if the wound looks mild. In Georgia, move away and call 112. Keep movement to a minimum, remove tight items near the bite, and do not cut, suck, burn, tightly tourniquet, or catch the snake. Hospital staff assess envenoming and decide whether antivenom is needed.",
+    title: "Levantine viper bite — how dangerous is it and what should you do?",
   },
   ka: {
     description:
@@ -596,7 +595,7 @@ const SOURCES: readonly GuideArticleSource[] = [
   {
     name: "Tarkhnishvili et al. 2026 — Annotated checklist of Georgia's amphibians and reptiles",
     supports: {
-      en: "Occurrence of the gyurza in Georgia; this checklist does not establish clinical outcomes.",
+      en: "Occurrence of the Levantine viper in Georgia; this checklist does not establish clinical outcomes.",
       ka: "გიურზას საქართველოში არსებობა; ჩამონათვალი კლინიკურ შედეგებს არ ადგენს.",
       ru: "Наличие гюрзы в Грузии; список не определяет клинические исходы.",
       tr: "Gyurza'nın Gürcistan'da bulunması; kontrol listesi klinik sonuçları belirlemez.",
@@ -606,7 +605,7 @@ const SOURCES: readonly GuideArticleSource[] = [
   {
     name: "Iankoshvili & Tarkhnishvili 2021 — Distribution of snakes in Georgia",
     supports: {
-      en: "Documented distribution of gyurza in eastern Georgia, without clinical bite data.",
+      en: "Documented distribution of the Levantine viper in eastern Georgia, without clinical bite data.",
       ka: "გიურზას გავრცელება აღმოსავლეთ საქართველოში, კლინიკური ნაკბენის მონაცემების გარეშე.",
       ru: "Распространение гюрзы на востоке Грузии, без клинических данных об укусах.",
       tr: "Gyurza'nın doğu Gürcistan'daki yayılışı; klinik ısırık verisi içermez.",
@@ -643,7 +642,7 @@ export const GYURZA_BITE = defineGuideArticle({
     },
     "field-gyurza": {
       alt: {
-        en: "Gyurza coiled on stony ground beside rocks and sparse grass",
+        en: "Levantine viper coiled on stony ground beside rocks and sparse grass",
         ka: "გიურზა დახვეულია ქვიან მიწაზე, კლდის ნატეხებისა და ბალახის გვერდით",
         ru: "Гюрза свернулась на каменистой земле среди камней и редкой травы",
         tr: "Levant engereği taşlar ve seyrek otlar arasında kıvrılmış halde",
@@ -685,20 +684,22 @@ export const GYURZA_BITE = defineGuideArticle({
       "გიურზას ნაკბენის სიმპტომები",
       "გიურზას ნაკბენზე ანტიშხამი",
       "giurzas nakbeni",
+      "Levantine viper bite",
       "blunt-nosed viper bite",
+      "gyurza bite",
       "Macrovipera bite",
       "укус гюрзы",
       "Levant engereği ısırığı",
     ],
     rank: 4,
     subtitle: {
-      en: "Gyurza symptoms, urgent care and evidence limits",
+      en: "Levantine viper bite symptoms, urgent care and evidence limits",
       ka: "გიურზას სიმპტომები, გადაუდებელი დახმარება და მტკიცებულების ზღვარი",
       ru: "Симптомы укуса гюрзы, срочная помощь и ограничения данных",
       tr: "Gyurza belirtileri, acil yardım ve kanıt sınırları",
     },
     title: {
-      en: "Blunt-nosed viper bite",
+      en: "Levantine viper bite",
       ka: "გიურზას ნაკბენი",
       ru: "Укус гюрзы",
       tr: "Levant engereği ısırığı",
