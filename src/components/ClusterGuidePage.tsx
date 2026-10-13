@@ -27,7 +27,7 @@ export async function ClusterGuidePage({
 }: ClusterGuideViewProps) {
   const guide = CLUSTER_GUIDES[guideId];
   const t = await getTranslations({ locale, namespace: guide.messageKey });
-  const guideP3 = t.has("guideP3") ? t("guideP3") : null;
+  const hasGuideP3 = t.has("guideP3");
   const richLinks = {
     amphibianIndex: (chunks: ReactNode) => (
       <Link
@@ -79,7 +79,7 @@ export async function ClusterGuidePage({
           <>
             <p>{t.rich("guideP1", richLinks)}</p>
             <p>{t.rich("guideP2", richLinks)}</p>
-            {guideP3 ? <p>{t.rich("guideP3", richLinks)}</p> : null}
+            {hasGuideP3 ? <p>{t.rich("guideP3", richLinks)}</p> : null}
           </>
         }
         eyebrow={t("guideEyebrow")}
