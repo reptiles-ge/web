@@ -365,7 +365,9 @@ function SpeciesProfileHeroMedia({
     );
   }
 
-  const primarySrc = mobileHeroSrc ?? desktopHeroSrc;
+  const primarySrc = visibleOnMobile
+    ? (mobileHeroSrc ?? desktopHeroSrc)
+    : desktopHeroSrc;
   const primary = optimizedEntry(primarySrc);
 
   return (

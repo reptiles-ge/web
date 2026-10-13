@@ -161,6 +161,7 @@ describe("cover and hero sources", () => {
     expect(getSpeciesHeroSources(species({}))).toEqual({
       desktopHeroSrc: null,
       gallery: [],
+      mobileGallery: [],
       mobileHeroSrc: null,
       mobileSlideSrc: null,
       primary: undefined,
@@ -197,6 +198,37 @@ describe("cover and hero sources", () => {
         species({ gallery: [{ src: "/g.jpg" }], mobileImage: "/m.jpg" }),
       ).mobileSlideSrc,
     ).toBe("/m.jpg");
+  });
+
+  it("starts the mobile gallery with the mobile image without repeating it", () => {
+    const sources = getSpeciesHeroSources(
+      species({
+        gallery: [{ src: "/a.jpg" }, { src: "/m.jpg" }, { src: "/b.jpg" }],
+        image: "/a.jpg",
+        mobileImage: "/m.jpg",
+      }),
+    );
+    expect(sources.mobileGallery.map((item) => item.src)).toEqual([
+      "/m.jpg",
+      "/a.jpg",
+      "/b.jpg",
+    ]);
+    expect(sources.gallery.map((item) => item.src)).toEqual([
+      "/a.jpg",
+      "/m.jpg",
+      "/b.jpg",
+    ]);
+  });
+
+  it("keeps the gallery order when the mobile image is not in it", () => {
+    const sources = getSpeciesHeroSources(
+      species({
+        gallery: [{ src: "/a.jpg" }, { src: "/b.jpg" }],
+        image: "/a.jpg",
+        mobileImage: "/m.jpg",
+      }),
+    );
+    expect(sources.mobileGallery).toBe(sources.gallery);
   });
 
   it("filters placeholders out of a real gallery", () => {

@@ -48,6 +48,7 @@ import {
   SPECIES_HERO_DESKTOP_SIZES,
   SPECIES_HERO_SIZES,
 } from "@/lib/speciesContent";
+import { stripSpeciesInlineLinks } from "@/lib/speciesInlineLinks";
 import {
   speciesFallbackDescriptionKey,
   speciesMetaDescription,
@@ -93,6 +94,7 @@ const TAXON_SAME_AS_URL_PATTERNS = [
   /^https:\/\/www\.gbif\.org\/species\//,
   /^https:\/\/www\.iucnredlist\.org\/species\//,
   /^https:\/\/www\.mammaldiversity\.org\/explore\.html#species-id=/,
+  /^https:\/\/www\.mammaldiversity\.org\/taxon\//,
   /^https:\/\/www\.wikidata\.org\/wiki\//,
 ];
 
@@ -278,6 +280,10 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
   };
 }
 
+function epithetStem(epithet: string) {
+  return epithet.replace(/(?:us|um|is|a|e)$/, "");
+}
+
 function isTaxonSameAsUrl(url: string) {
   return TAXON_SAME_AS_URL_PATTERNS.some((pattern) => pattern.test(url));
 }
@@ -332,6 +338,19 @@ function sourceCreativeWork(source: SpeciesSource) {
       };
 }
 
+function sourceNamesOtherSpecies(sourceName: string, raw: Species) {
+  const [genus, ...epithets] = raw.scientificName.split(" ");
+  if (!genus || epithets.length === 0) return false;
+  const ownStems = new Set(
+    [...epithets, ...raw.id.split("-").slice(1)].map(epithetStem),
+  );
+  const binomial = new RegExp(String.raw`\b${genus}\s+([a-z-]+)`, "g");
+  const named = Array.from(sourceName.matchAll(binomial), (match) =>
+    epithetStem(match[1]),
+  );
+  return named.length > 0 && !named.some((stem) => ownStems.has(stem));
+}
+
 function SpeciesHeroPreloads({
   desktopHeroSrc,
   mobileHeroSrc,
@@ -368,7 +387,13 @@ function speciesSameAs(raw: Species) {
 
   const urls: string[] = [];
   for (const source of raw.sources) {
-    if (source.url && isTaxonSameAsUrl(source.url)) urls.push(source.url);
+    if (
+      source.url &&
+      isTaxonSameAsUrl(source.url) &&
+      !sourceNamesOtherSpecies(source.name, raw)
+    ) {
+      urls.push(source.url);
+    }
   }
   return urls;
 }
@@ -456,7 +481,7 @@ function speciesStructuredData({
             "@type": "Question",
             acceptedAnswer: {
               "@type": "Answer",
-              text: entry.answer,
+              text: stripSpeciesInlineLinks(entry.answer),
             },
             name: entry.question,
           })),
@@ -497,6 +522,15 @@ function speciesTaxonJsonLd(raw: Species, item: Species, locale: AppLocale) {
     parentTaxon: {
       "@type": "Taxon",
       name: item.genus,
+      ...(item.family
+        ? {
+            parentTaxon: {
+              "@type": "Taxon",
+              name: item.family,
+              taxonRank: "Family",
+            },
+          }
+        : {}),
       taxonRank: "Genus",
     },
     taxonRank: "Species",
