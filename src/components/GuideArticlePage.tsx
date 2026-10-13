@@ -103,7 +103,7 @@ export async function GuideArticlePage({
         </nav>
         <p className="text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
           <Link
-            className="transition-colors hover:text-foreground"
+            className="tap-target transition-colors hover:text-foreground"
             href={parent.path}
           >
             {parentLabel}

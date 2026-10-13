@@ -142,7 +142,7 @@ export async function SpeciesSourcesRelated({
                 {insect ? t("otherInsectsTitle") : t("relatedTitle")}
               </AnchoredHeading>
               <Link
-                className="shrink-0 text-[13px] font-medium text-primary"
+                className="tap-target shrink-0 text-[13px] font-medium text-primary"
                 href={giurza ? "/snakes/saxeoebebi" : "/species"}
               >
                 {giurza ? t("allSnakes") : t("allSpecies")}

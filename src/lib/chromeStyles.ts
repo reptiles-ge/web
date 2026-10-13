@@ -15,4 +15,4 @@ export function chromeShellClass(variant: ChromeVariant = "light") {
 }
 
 export const chromeIconButtonBase =
-  "inline-flex size-10 shrink-0 items-center justify-center rounded-full border transition-all duration-300";
+  "tap-target inline-flex size-10 shrink-0 items-center justify-center rounded-full border transition-all duration-300";
