@@ -2,12 +2,9 @@
 
 import { type PointerEvent, useRef, useState } from "react";
 
+import type { PictureSource } from "@/data/optimizedImages";
+
 import { BLANK_IMAGE } from "@/components/DeferredPicture";
-import {
-  optimizedEntry,
-  optimizedImgSrc,
-  pictureSources,
-} from "@/data/optimizedImages";
 import { cn } from "@/lib/cn";
 import { SPECIES_SECTION_IDS } from "@/lib/toc";
 
@@ -16,8 +13,11 @@ export const MOBILE_HERO_PHOTO_CHANGE_EVENT =
 
 export type MobileHeroSlide = {
   alt: string;
-  displaySrc: string;
   gallerySrc: string;
+  height?: number;
+  sources: PictureSource[];
+  src: string;
+  width?: number;
 };
 
 export function SpeciesMobileHeroCarousel({
@@ -136,7 +136,6 @@ export function SpeciesMobileHeroCarousel({
         tabIndex={0}
       >
         {slides.map((slide, index) => {
-          const entry = optimizedEntry(slide.displaySrc);
           const deferred = index > 0 && !restLoaded;
           return (
             <picture
@@ -146,24 +145,20 @@ export function SpeciesMobileHeroCarousel({
               <source media="(min-width: 1024px)" srcSet={BLANK_IMAGE} />
               {deferred
                 ? null
-                : pictureSources(slide.displaySrc, { sizes: "100vw" }).map(
-                    (source) => <source key={source.key} {...source.props} />,
-                  )}
+                : slide.sources.map((source) => (
+                    <source key={source.key} {...source.props} />
+                  ))}
               <img
                 alt={slide.alt}
                 className="size-full object-cover"
                 decoding="async"
                 draggable={false}
                 fetchPriority={index === 0 ? "high" : "low"}
-                height={entry?.height}
+                height={slide.height}
                 loading={index === 0 ? "eager" : "lazy"}
                 sizes="100vw"
-                src={
-                  deferred
-                    ? BLANK_IMAGE
-                    : optimizedImgSrc(slide.displaySrc, 800)
-                }
-                width={entry?.width}
+                src={deferred ? BLANK_IMAGE : slide.src}
+                width={slide.width}
               />
             </picture>
           );

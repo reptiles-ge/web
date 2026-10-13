@@ -81,19 +81,26 @@ export async function SpeciesProfileHero({
   const dangerValue = riskChip ? tDanger(riskChip.level) : "";
   const editable = locale === "ka" && isLocalAdminEnabled();
   const parent = getSpeciesParentHub(species);
-  const mobileSlides: MobileHeroSlide[] = mobileGallery.map((photo, index) => ({
-    alt:
-      index === 0
-        ? mobileImageAlt
-        : speciesPhotoAlt(
-            species.commonName,
-            species.scientificName,
-            photo.credit,
-            locale,
-          ),
-    displaySrc: index === 0 ? (mobileHeroSrc ?? photo.src) : photo.src,
-    gallerySrc: optimizedImgSrc(photo.src, 1200),
-  }));
+  const mobileSlides: MobileHeroSlide[] = mobileGallery.map((photo, index) => {
+    const displaySrc = index === 0 ? (mobileHeroSrc ?? photo.src) : photo.src;
+    const entry = optimizedEntry(displaySrc);
+    return {
+      alt:
+        index === 0
+          ? mobileImageAlt
+          : speciesPhotoAlt(
+              species.commonName,
+              species.scientificName,
+              photo.credit,
+              locale,
+            ),
+      gallerySrc: optimizedImgSrc(photo.src, 1200),
+      height: entry?.height,
+      sources: pictureSources(displaySrc, { sizes: "100vw" }),
+      src: optimizedImgSrc(displaySrc, 800),
+      width: entry?.width,
+    };
+  });
 
   return (
     <section className="relative h-[440px] w-full overflow-hidden bg-ink text-white lg:h-[660px]">

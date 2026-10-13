@@ -2,8 +2,11 @@
 
 import type { ReactNode } from "react";
 
-import { domAnimation, LazyMotion } from "framer-motion";
+import { LazyMotion } from "framer-motion";
+
+const loadFeatures = () =>
+  import("@/components/motionFeatures").then((module) => module.default);
 
 export function MotionLazy({ children }: { children: ReactNode }) {
-  return <LazyMotion features={domAnimation}>{children}</LazyMotion>;
+  return <LazyMotion features={loadFeatures}>{children}</LazyMotion>;
 }
