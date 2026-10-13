@@ -14,6 +14,7 @@ import type { AppLocale } from "@/i18n/routing";
 
 import { BrandText } from "@/components/BrandName";
 import { ContactMailto } from "@/components/ContactMailto";
+import { PhotoPermissionNotes } from "@/components/PhotoPermissionNotes";
 import { creditAuthorHref, creditAuthorName } from "@/data/creditAuthors";
 import {
   optimizedEntry,
@@ -50,6 +51,7 @@ const TILE_SIZES =
 const EXAMPLE_SIZES =
   "(max-width: 1023px) calc(100vw - 32px), (max-width: 1439px) 50vw, 660px";
 const EAGER_TILES = 2;
+const ASK_ITEMS = ["link", "purpose", "medium", "commercial"] as const;
 const NUMBER_FORMATS = new Map<AppLocale, Intl.NumberFormat>();
 
 type Translate = Awaited<ReturnType<typeof getTranslations<"photoUse">>>;
@@ -87,25 +89,59 @@ function numberFormat(locale: AppLocale) {
 }
 
 function PhotoUseCards({ t }: { t: Translate }) {
+  const bodyClass =
+    "mt-1.5 text-[14.5px] leading-[1.6] text-(--nw-muted) md:mt-2.5 md:text-[15.5px]";
   const cards: Array<{
     action?: ReactNode;
-    body: string;
+    body: ReactNode;
     icon: LucideIcon;
     title: string;
   }> = [
-    { body: t("ownBody"), icon: Camera, title: t("ownTitle") },
-    { body: t("useBody"), icon: CircleHelp, title: t("useTitle") },
+    {
+      body: (
+        <p className={bodyClass}>
+          {t.rich("ownBody", {
+            terms: (chunks) => (
+              <Link className={linkClass} href="/terms-and-conditions">
+                {chunks}
+              </Link>
+            ),
+          })}
+        </p>
+      ),
+      icon: Camera,
+      title: t("ownTitle"),
+    },
+    {
+      body: <p className={bodyClass}>{t("useBody")}</p>,
+      icon: CircleHelp,
+      title: t("useTitle"),
+    },
     {
       action: (
         <ContactMailto
           className="mt-5 inline-flex h-12 max-w-full items-center gap-2.5 self-start rounded-full bg-(--nw-strong) px-5 text-[15px] font-medium text-(--nw-on-strong) transition-opacity hover:opacity-90"
-          href={`mailto:${CONTACT_EMAIL}`}
+          href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(t("askSubject"))}`}
         >
           <Mail aria-hidden="true" className="size-4 shrink-0" />
           <span className="truncate">{CONTACT_EMAIL}</span>
         </ContactMailto>
       ),
-      body: t("askBody"),
+      body: (
+        <div className={bodyClass}>
+          <p>{t("askBody")}</p>
+          <ul className="mt-1.5 list-disc space-y-0.5 pl-5">
+            {ASK_ITEMS.map((key) => (
+              <li key={key}>{t(`askItems.${key}`)}</li>
+            ))}
+          </ul>
+          <p className="mt-2">{t("askForward")}</p>
+          <PhotoPermissionNotes
+            className="mt-2"
+            notes={[t("askResponseTime"), t("askFeePolicy")]}
+          />
+        </div>
+      ),
       icon: Mail,
       title: t("askTitle"),
     },
@@ -125,9 +161,7 @@ function PhotoUseCards({ t }: { t: Translate }) {
             <h2 className="mt-4 text-[19px] font-semibold md:mt-6 md:text-[22px]">
               {card.title}
             </h2>
-            <p className="mt-1.5 text-[14.5px] leading-[1.6] text-(--nw-muted) md:mt-2.5 md:text-[15.5px]">
-              {card.body}
-            </p>
+            {card.body}
             {card.action}
           </li>
         ))}
@@ -421,28 +455,44 @@ function PhotoUseStats({
 }) {
   const stats = getPhotoUseStats(photos);
   const format = numberFormat(locale);
-  const items = [
+  const totals = [
     { label: t("stats.photos", { count: stats.photos }), value: stats.photos },
     {
-      label: t("stats.authors", { count: stats.authors }),
-      value: stats.authors,
+      label: t("stats.photographers", { count: stats.photographers }),
+      value: stats.photographers,
     },
-    {
-      label: t("stats.contributors", { count: stats.contributors }),
-      value: stats.contributors,
-    },
-    { label: t("stats.open", { count: stats.open }), value: stats.open },
   ];
+  const breakdown = (
+    ["contributors", "open", "permission", "unknown"] as const
+  ).map((key) => ({ label: t(`stats.${key}`), value: stats[key] }));
 
   return (
     <div className="mt-12 md:mt-[88px]">
       <h2 className="text-[20px] leading-tight font-semibold md:text-[26px]">
         {t("statsTitle")}
       </h2>
-      <dl className="mt-4 grid grid-cols-2 gap-2 md:mt-6 md:grid-cols-4 md:gap-0 md:border-y md:border-(--nw-rule)">
-        {items.map((item, index) => (
+      <dl className="mt-4 flex flex-wrap gap-x-10 gap-y-3 md:mt-6">
+        {totals.map((item) => (
           <div
-            className={`flex flex-col-reverse justify-end rounded-[18px] bg-(--nw-card) p-4 md:rounded-none md:bg-transparent md:px-0 md:py-7 ${
+            className="flex flex-row-reverse items-baseline justify-end gap-2.5"
+            key={item.label}
+          >
+            <dt className="text-[14px] text-(--nw-muted) md:text-[16px]">
+              {item.label}
+            </dt>
+            <dd className="text-[30px] leading-none font-semibold tabular-nums md:text-[44px] md:tracking-[-0.02em]">
+              {format.format(item.value)}
+            </dd>
+          </div>
+        ))}
+      </dl>
+      <p className="mt-6 text-[13px] font-medium text-(--nw-muted) md:mt-8 md:text-[14px]">
+        {t("stats.breakdown")}
+      </p>
+      <dl className="mt-2.5 grid grid-cols-2 gap-2 md:mt-3 md:grid-cols-4 md:gap-0 md:border-y md:border-(--nw-rule)">
+        {breakdown.map((item, index) => (
+          <div
+            className={`flex flex-col-reverse justify-end rounded-[18px] bg-(--nw-card) p-4 md:rounded-none md:bg-transparent md:px-0 md:py-6 ${
               index > 0 ? "md:border-l md:border-(--nw-rule) md:pl-8" : ""
             }`}
             key={item.label}
@@ -450,7 +500,7 @@ function PhotoUseStats({
             <dt className="mt-1.5 text-[13px] text-(--nw-muted) md:mt-2 md:text-[14px]">
               {item.label}
             </dt>
-            <dd className="text-[30px] leading-none font-semibold tabular-nums md:text-[44px] md:tracking-[-0.02em]">
+            <dd className="text-[24px] leading-none font-semibold tabular-nums md:text-[32px] md:tracking-[-0.02em]">
               {format.format(item.value)}
             </dd>
           </div>

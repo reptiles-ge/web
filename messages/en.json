@@ -4063,16 +4063,29 @@
     "statsTitle": "Thank you to our photographers",
     "stats": {
       "photos": "{count, plural, one {photo in the atlas} other {photos in the atlas}}",
-      "authors": "{count, plural, one {credited photographer} other {credited photographers}}",
-      "contributors": "{count, plural, one {photo by Reptiles.ge contributors, licensed by Reptiles.ge} other {photos by Reptiles.ge contributors, licensed by Reptiles.ge}}",
-      "open": "{count, plural, one {photo by other authors under Creative Commons or in the public domain} other {photos by other authors under Creative Commons or in the public domain}}"
+      "photographers": "{count, plural, one {photographer} other {photographers}}",
+      "breakdown": "Of these photos:",
+      "contributors": "by Reptiles.ge contributors, under the Reptiles.ge license",
+      "open": "by other authors, under Creative Commons or in the public domain",
+      "permission": "by other authors, used with permission",
+      "unknown": "author not yet identified"
     },
     "ownTitle": "Who owns the photos?",
-    "ownBody": "Photos by Reptiles.ge contributors are licensed by Reptiles.ge, wherever they were first published. Photos by other authors keep their authors' licenses, shown by the source link under each photo.",
+    "ownBody": "Photos by Reptiles.ge contributors are published here under the Reptiles.ge license: all rights reserved; use only with written permission (see the <terms>terms of use</terms>). A photo taken from Reptiles.ge is used under Reptiles.ge terms; if the same photo is published elsewhere under a Creative Commons license, that copy follows the license shown at its source. Photos by other authors keep their authors' licenses, shown by the source link under each photo.",
     "useTitle": "Can I use a photo?",
-    "useBody": "Only with permission, unless the photo's own license allows your use. Every photo licensed by Reptiles.ge needs our permission.",
+    "useBody": "If the photo's own license allows your use, you don't need permission. Otherwise, write to us. Photos under the Reptiles.ge license always need permission.",
     "askTitle": "How do I ask for permission?",
-    "askBody": "Email us and name the photo. We will forward your request to its author.",
+    "askBody": "Email us and include:",
+    "askItems": {
+      "link": "a link to the photo",
+      "purpose": "the purpose",
+      "medium": "the medium: print or online",
+      "commercial": "whether the use is commercial"
+    },
+    "askForward": "We will forward your request to the photo's author.",
+    "askSubject": "Photo use permission",
+    "askResponseTime": "",
+    "askFeePolicy": "",
     "readEyebrow": "Example",
     "readTitle": "How do I read a photo credit?",
     "readAuthorTitle": "Author",
@@ -4091,8 +4104,8 @@
     "faqTitle": "More questions",
     "faq": {
       "cc": {
-        "q": "A photo has a Creative Commons license on iNaturalist. Can I use it from here?",
-        "a": "Only if its author is not a Reptiles.ge contributor, and only as that license allows. Photos by our contributors are licensed by Reptiles.ge, even when the same photo has a Creative Commons license on iNaturalist or Wikimedia Commons."
+        "q": "A photo has a Creative Commons license on iNaturalist. Does that license apply here?",
+        "a": "Photos taken from Reptiles.ge are used under Reptiles.ge terms. If the same photo is published elsewhere under a Creative Commons license, for example on iNaturalist or Wikimedia Commons, that copy is governed by the license shown at that source; check the source page."
       },
       "credit": {
         "q": "Is it enough to credit the author?",

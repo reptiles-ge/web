@@ -113,18 +113,22 @@ export function getPhotoUseShowcase(
 export function getPhotoUseStats(
   photos: PhotoUsePhoto[] = getPhotoUsePhotos(),
 ) {
-  const authors = new Set<string>();
-  let contributors = 0;
-  let open = 0;
+  const photographers = new Set<string>();
+  const stats = { contributors: 0, open: 0, permission: 0, unknown: 0 };
   for (const photo of photos) {
     const name = photo.credit?.photographer?.trim();
-    if (name) authors.add(photo.author?.id ?? name);
-    if (photo.author) contributors += 1;
+    if (name) photographers.add(photo.author?.id ?? name);
+    if (photo.author) stats.contributors += 1;
     else if (photoLicenses[photo.src]?.license?.startsWith(CC_PREFIX)) {
-      open += 1;
-    }
+      stats.open += 1;
+    } else if (name) stats.permission += 1;
+    else stats.unknown += 1;
   }
-  return { authors: authors.size, contributors, open, photos: photos.length };
+  return {
+    ...stats,
+    photographers: photographers.size,
+    photos: photos.length,
+  };
 }
 
 export function photoLicenseLabel(url: string) {

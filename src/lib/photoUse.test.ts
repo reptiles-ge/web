@@ -50,8 +50,39 @@ describe("photo use data", () => {
           !photoContributor(photo.credit) && photoLicenses[photo.src]?.license,
       ).length,
     );
-    expect(stats.authors).toBeGreaterThan(0);
-    expect(stats.authors).toBeLessThanOrEqual(stats.photos);
+    expect(stats.photographers).toBeGreaterThan(0);
+    expect(stats.photographers).toBeLessThanOrEqual(stats.photos);
+  });
+
+  it("splits the photos into categories that add up to the total", () => {
+    const stats = getPhotoUseStats(photos);
+    expect(
+      stats.contributors + stats.open + stats.permission + stats.unknown,
+    ).toBe(stats.photos);
+    expect(stats.unknown).toBe(
+      photos.filter(
+        (photo) =>
+          !photo.credit?.photographer?.trim() &&
+          !photoLicenses[photo.src]?.license,
+      ).length,
+    );
+  });
+
+  it("counts public domain photos by other authors as open", () => {
+    const base = photos.find(
+      (photo) =>
+        !photo.author &&
+        photoLicenses[photo.src]?.license?.includes("/publicdomain/"),
+    )!;
+    expect(getPhotoUseStats([base])).toMatchObject({ open: 1, photos: 1 });
+    expect(
+      getPhotoUseStats([{ ...base, src: "https://cdn.reptiles.ge/x.jpg" }]),
+    ).toMatchObject({ open: 0, permission: 1 });
+    expect(
+      getPhotoUseStats([
+        { ...base, credit: {}, src: "https://cdn.reptiles.ge/x.jpg" },
+      ]),
+    ).toMatchObject({ permission: 0, unknown: 1 });
   });
 
   it("merges a contributor's aliases into one author", () => {
@@ -62,7 +93,7 @@ describe("photo use data", () => {
       { ...base, credit: { photographer: alias }, src: `${base.src}#2` },
       { ...base, author: undefined, credit: {}, src: `${base.src}#3` },
     ];
-    expect(getPhotoUseStats(sample).authors).toBe(1);
+    expect(getPhotoUseStats(sample).photographers).toBe(1);
   });
 
   it("shows six contributor profile heroes, one per group", () => {
