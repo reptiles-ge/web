@@ -39,8 +39,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         question: "Do many stink bugs mean there is a nest in the house?",
       },
     ],
-    metaTitle:
-      "Stink bugs in the house: why they come in and how to remove them",
+    metaTitle: "Stink bugs in the house: why they get in, how to remove them",
     sections: [
       {
         heading: "What should you do if many stink bugs got into the house?",

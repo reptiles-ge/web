@@ -87,7 +87,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       images: [openGraphJpeg(ogImage, title)],
     },
     robots: INDEXABLE_ROBOTS,
-    title,
+    title: { absolute: title },
     twitter: {
       card: "summary_large_image",
       description,

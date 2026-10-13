@@ -569,7 +569,7 @@ export const GEORGIAN_SNAKES_AREA_OF_OCCUPANCY_2026: NewsArticle = {
       metaDescription:
         "Новое исследование по 13 змеям Грузии показывает, как ученые оценивают Area of Occupancy при неполных данных.",
       metaTitle:
-        "Распространение змей Грузии: что показывает новое исследование",
+        "Распространение змей Грузии: выводы нового исследования",
       sections: [
         {
           blocks: [
@@ -718,7 +718,7 @@ export const GEORGIAN_SNAKES_AREA_OF_OCCUPANCY_2026: NewsArticle = {
       metaDescription:
         "Gurcistan'daki 13 yilan turu uzerine yeni calisma, occurrence kayitlari eksik oldugunda Area of Occupancy'nin nasil tahmin edildigini gosteriyor.",
       metaTitle:
-        "Gurcistan yilanlarinin dagilisi: yeni calisma ne gosteriyor",
+        "Gürcistan yılanlarının dağılışı: yeni çalışma ne gösteriyor",
       sections: [
         {
           blocks: [

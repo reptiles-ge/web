@@ -76,7 +76,13 @@ export async function generateMetadata({
   const name = localizeRegionText(region.name, locale);
   const nameIn = localizeRegionText(region.nameIn, locale);
   const content = getRegionContent(region.id);
-  const title = t("regionMetaTitle", { name, nameIn });
+  const titleArgs = {
+    name: localizeRegionText(content.titleName ?? region.name, locale),
+    nameIn: localizeRegionText(content.titleNameIn ?? region.nameIn, locale),
+  };
+  const fullTitle = t("regionMetaTitle", titleArgs);
+  const title =
+    fullTitle.length <= 60 ? fullTitle : t("regionMetaTitleShort", titleArgs);
   const fallbackDescription =
     (content.metaDescription
       ? localizeRegionTextIfPresent(content.metaDescription, locale)
@@ -124,7 +130,7 @@ export async function generateMetadata({
       url: absoluteUrl(publicPath),
     },
     robots: INDEXABLE_ROBOTS,
-    title,
+    title: { absolute: title },
     twitter: {
       card: "summary_large_image",
       description,

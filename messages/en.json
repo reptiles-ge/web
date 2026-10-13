@@ -291,7 +291,7 @@
     "contributors": {
       "eyebrow": "Contributors",
       "title": "Whose photographs are in the atlas",
-      "subtitle": "Researchers and photographers whose photos appear on species profiles — each has a page here.",
+      "subtitle": "Photographers whose field photos appear on species profiles — each has a page here.",
       "seeAll": "See more contributors"
     },
     "safety": {
@@ -764,7 +764,8 @@
     "anchorLink": "Link to this section",
     "empty": "Species data for this region has not been added yet.",
     "notFound": "Region not found",
-    "regionMetaTitle": "{name} — species recorded in the region",
+    "regionMetaTitle": "{name}, Georgia: snakes, lizards, birds and more",
+    "regionMetaTitleShort": "{name}: snakes, lizards, birds",
     "regionMetaDescription": "Species recorded in {name}, Georgia — {count, plural, one {# species} other {# species}}, map, habitats, and venomous species. See profiles on reptiles.ge.",
     "seo": {
       "eyebrow": "From place to fauna",
@@ -929,17 +930,8 @@
     "atlasCtaCount": "Species atlas · {count}"
   },
   "author": {
-    "jobTitles": {
-      "director": "Director",
-      "professor": "Professor",
-      "ranger": "Ranger",
-      "researcher": "Researcher"
-    },
     "roles": {
-      "herpetologist": "Herpetologist",
-      "photographer": "Photographer",
-      "ranger": "Ranger",
-      "researcher": "Researcher"
+      "photographer": "Photographer"
     },
     "facebook": "Facebook",
     "instagram": "Instagram",
@@ -964,11 +956,11 @@
     "index": {
       "breadcrumb": "Contributors",
       "h1": "Contributors",
-      "intro": "Researchers and photographers whose photos appear on species profiles.",
+      "intro": "Photographers whose photos appear on species profiles.",
       "count": "{count} contributors in the atlas",
       "empty": "No contributor pages are published yet.",
-      "metaTitle": "Contributors — herpetologists and photographers",
-      "metaDescription": "Researchers and photographers on reptiles.ge — portraits, galleries, and the species they documented.",
+      "metaTitle": "Contributors — photographers of the atlas",
+      "metaDescription": "Photographers whose photos appear on reptiles.ge — portraits, galleries, and the species they documented.",
       "eyebrow": "Field photo authors",
       "statContributors": "Contributors",
       "statPhotos": "Field photos",
@@ -981,10 +973,7 @@
       "ctaButton": "Write to us"
     },
     "rolesPlural": {
-      "herpetologist": "Herpetologists",
-      "photographer": "Photographers",
-      "ranger": "Rangers",
-      "researcher": "Researchers"
+      "photographer": "Photographers"
     },
     "statGroups": "Groups",
     "summaryLabel": "At a glance",
@@ -1016,8 +1005,8 @@
     "summary": "In short"
   },
   "site": {
-    "title": "Reptiles — atlas of animals of Georgia",
-    "description": "A species atlas of Georgia’s animals: profiles, range, and identification. Reptiles, amphibians, birds, mammals, and more — in Georgian, English, Russian, and Turkish."
+    "title": "Reptiles.ge — atlas of animals of Georgia",
+    "description": "Species atlas of Georgia’s animals: profiles, range, and ID. Reptiles, amphibians, birds, mammals, and more — in Georgian, English, Russian, and Turkish."
   },
   "notFound": {
     "eyebrow": "Lost in the atlas",
@@ -2363,7 +2352,7 @@
     "speciesIndexCta": "Insect species index"
   },
   "amphibianFrogs": {
-    "metaTitle": "Frogs of Georgia — species guide",
+    "metaTitle": "Frogs of Georgia: toads, tree frogs, marsh and brown frogs",
     "metaDescription": "Frogs of Georgia (Anura): toads, treefrogs, marsh frog, and Caucasian brown frog. Tarkhnishvili et al. 2026 checklist — 8 species.",
     "keywords": "frogs in Georgia, toads Georgia, treefrogs, marsh frog, Hyla, Rana, Pelophylax, Georgia amphibians",
     "breadcrumbCurrent": "Frogs",
@@ -2420,7 +2409,7 @@
     "empty": "No species match these filters."
   },
   "snakeIndex": {
-    "metaTitle": "Snake species of Georgia — full index",
+    "metaTitle": "Snake species of Georgia — full index: venom, range, size",
     "metaDescription": "Snake species of Georgia in one table: common and scientific names, venom, range, size, and habitat — atlas of the Tarkhnishvili et al. 2026 checklist.",
     "keywords": "snake species Georgia, snakes of Georgia list, venomous snakes list, Georgia snake index",
     "breadcrumbCurrent": "Species",
@@ -2455,7 +2444,7 @@
     "ctaBody": "Pick a row. The venomous guide, ID guide, and regions sit on the snakes page."
   },
   "snakeIdentify": {
-    "metaTitle": "Venomous vs harmless snakes in Georgia (Caucasus)",
+    "metaTitle": "How to tell venomous from harmless snakes in Georgia",
     "metaDescription": "How to tell venomous from harmless snakes in Georgia: compare the Levantine viper, Caucasus viper, water snakes, Montpellier snake, and glass lizard.",
     "keywords": "venomous vs harmless snake Georgia, how to identify venomous snake, viper vs grass snake, glass lizard vs snake",
     "breadcrumbCurrent": "Identify",
@@ -2521,7 +2510,7 @@
     "editorialDisclaimer": "Do not touch a snake to “check” its signs. In case of a bite, seek emergency medical care immediately."
   },
   "snakeRange": {
-    "metaTitle": "Where snakes occur in Georgia — regions",
+    "metaTitle": "Where snakes occur in Georgia — map of 12 regions",
     "metaDescription": "Snake occurrence across Georgia’s 12 regions. Only confirmed species on the map — newly listed checklist snakes are often still unassigned.",
     "keywords": "snakes by region Georgia, where snakes live Georgia, Kakheti snakes, Adjara snakes, snake range Georgia",
     "breadcrumbCurrent": "Range",
@@ -2559,7 +2548,7 @@
     "ctaBody": "Open a region or a species. The full index is in a separate table."
   },
   "snakeLargest": {
-    "metaTitle": "The largest snakes of Georgia",
+    "metaTitle": "The largest snakes of Georgia — sizes from cited sources",
     "metaDescription": "Large snakes recorded in Georgia: Levantine viper, red-bellied racer, Montpellier snake. The glass lizard is a lizard, not a snake.",
     "keywords": "largest snakes Georgia, biggest snake Georgia, giurza size, Levantine viper size, racer size, glass lizard",
     "breadcrumbCurrent": "Largest snakes",
@@ -2595,7 +2584,7 @@
     "ctaBody": "Open a species for stats and photos. The complete list is in the index."
   },
   "lizardIndex": {
-    "metaTitle": "Lizard species of Georgia — full index",
+    "metaTitle": "Lizard species of Georgia: Darevskia, agama, skinks and more",
     "metaDescription": "Lizards of Georgia in one index: Darevskia, Caucasian agama, glass lizard, and skinks. Name, range, and size where sourced.",
     "keywords": "lizard species Georgia, Darevskia, rock lizards, Caucasian agama, glass lizard, Georgia lizards list",
     "breadcrumbCurrent": "Species",
@@ -2636,7 +2625,7 @@
     "ctaBody": "Pick a row or open the ID guide."
   },
   "lizardIdentify": {
-    "metaTitle": "How to tell lizards apart in Georgia",
+    "metaTitle": "What lizard is this? How to tell lizards apart in Georgia",
     "metaDescription": "What lizard is this? Photo, size, colour, range, and lookalikes. For Darevskia, colour is not enough. Agama, glass lizard, rock lizards.",
     "keywords": "what lizard is this Georgia, lizard identification Georgia, Darevskia ID, Caucasian agama, glass lizard",
     "breadcrumbCurrent": "Identify",
@@ -2690,7 +2679,7 @@
     "ctaBody": "Open a species or the glass lizard comparison guide."
   },
   "lizardDarevskia": {
-    "metaTitle": "Darevskia in Georgia — colour is not identification",
+    "metaTitle": "Darevskia rock lizards in Georgia — colour is not enough",
     "metaDescription": "Rock lizards (Darevskia) in the atlas, each with its own profile. Colour is not enough. Do not mark candidate species as confirmed. Tarkhnishvili et al. 2026.",
     "keywords": "Darevskia Georgia, rock lizards, colour is not ID, Caucasian rock lizard",
     "breadcrumbCurrent": "Darevskia",
@@ -2730,7 +2719,7 @@
     "ctaBody": "Open a species or the lizard identification guide."
   },
   "lizardCompare": {
-    "metaTitle": "Lizard or glass lizard — how it differs from a snake",
+    "metaTitle": "Glass lizard or snake? How to tell them apart in Georgia",
     "metaDescription": "Glass lizard vs slow worm vs snake in Georgia. Eyelids, ear opening, side fold, size — from profiles only. None of the three is venomous.",
     "keywords": "lizard or glass lizard, sheltopusik vs snake, slow worm, Anguis colchica, Pseudopus apodus, glass lizard Georgia",
     "breadcrumbCurrent": "Glass lizard or snake",
@@ -2810,7 +2799,7 @@
     "ctaBody": "Open the glass lizard, slow worm, or a water snake. The full lizard list is in the index."
   },
   "turtleIndex": {
-    "metaTitle": "Turtle species of Georgia — full index",
+    "metaTitle": "Turtle species of Georgia — land, freshwater, introduced",
     "metaDescription": "Index of Georgia’s turtle species: land tortoise, native freshwater turtles, and introduced red-eared slider, with profiles and the identification guide.",
     "keywords": "turtle species Georgia, turtle species list, Greek tortoise, pond turtle, Caspian turtle, red-eared slider, Georgia turtles",
     "breadcrumbCurrent": "Species",
@@ -2846,7 +2835,7 @@
     "ctaBody": "Open a species profile or the turtle identification guide if you need to separate land, freshwater, and introduced species."
   },
   "turtleLand": {
-    "metaTitle": "Land turtles of Georgia",
+    "metaTitle": "Land turtles of Georgia — the spur-thighed tortoise",
     "metaDescription": "Georgia’s land tortoise: the spur-thighed tortoise (Testudo graeca). Habitat, identification, and conservation from the atlas profile.",
     "keywords": "land turtles Georgia, land tortoise Georgia, spur-thighed tortoise, Testudo graeca, Greek tortoise Georgia",
     "breadcrumbCurrent": "Land turtles",
@@ -2882,7 +2871,7 @@
     "ctaBody": "Open Testudo graeca or compare freshwater turtles."
   },
   "turtleWater": {
-    "metaTitle": "Freshwater turtles of Georgia",
+    "metaTitle": "Freshwater turtles of Georgia — pond, Caspian, slider",
     "metaDescription": "European pond turtle, Caspian turtle, and the introduced red-eared slider in Georgia. Freshwater habitat and ID from atlas profiles.",
     "keywords": "freshwater turtles Georgia, water turtles Georgia, pond turtle, Caspian turtle, red-eared slider, Emys, Mauremys, Trachemys",
     "breadcrumbCurrent": "Freshwater turtles",
@@ -2918,7 +2907,7 @@
     "ctaBody": "Open a species or compare the land tortoise."
   },
   "turtleIdentify": {
-    "metaTitle": "Turtle identification — how to tell Georgia’s turtles apart",
+    "metaTitle": "Turtle identification in Georgia — what turtle is this?",
     "metaDescription": "Identify turtles in Georgia: land or water, slider or native, pond turtle or Caspian — a four-species field key with photos and diagnostics.",
     "keywords": "identify turtle Georgia, what turtle is this, freshwater turtle ID, land tortoise Georgia, red-eared slider, Emys, Mauremys",
     "breadcrumbCurrent": "Turtle identification",
@@ -3086,7 +3075,7 @@
     "ctaBody": "Identify with the key, then open a profile, the index, or the land and water guides."
   },
   "amphibianIndex": {
-    "metaTitle": "Amphibian species of Georgia — full index",
+    "metaTitle": "Amphibian species of Georgia: frogs, toads, newts and more",
     "metaDescription": "Full atlas index of Georgia’s amphibian species: frogs, toads, tree frogs, newts, and the Caucasian salamander.",
     "keywords": "amphibian species Georgia, frogs, newts, salamander, Georgia amphibians list",
     "breadcrumbCurrent": "Species",
@@ -3128,7 +3117,7 @@
     "ctaBody": "Open a species profile, the frogs guide, or the Caudata page depending on whether you are learning the group or checking a specific animal."
   },
   "amphibianFrogsIndex": {
-    "metaTitle": "Frog species of Georgia — index",
+    "metaTitle": "Frog species of Georgia — index of frogs, toads, tree frogs",
     "metaDescription": "A quick index of Georgia’s frogs, toads, and tree frogs: Anura in a table, with profile links and a path back to the frogs guide.",
     "keywords": "frog species Georgia, Anura index, toads in Georgia, tree frogs, Georgia frog species",
     "breadcrumbCurrent": "Frog species",
@@ -3166,7 +3155,7 @@
     "ctaBody": "If you found a species in the table, open its profile; if you still need group-level identification, return to the frogs guide."
   },
   "amphibianNewts": {
-    "metaTitle": "Newts and salamanders of Georgia",
+    "metaTitle": "Newts and the Caucasian salamander in Georgia",
     "metaDescription": "Published Caudata profiles in Georgia: the Caucasian salamander and newts. This page groups them; exact sourced details live on profiles.",
     "keywords": "newts Georgia, Caucasian salamander, Mertensiella, Lissotriton, Triturus, Ommatotriton",
     "breadcrumbCurrent": "Newts",
@@ -3203,7 +3192,7 @@
     "ctaBody": "Open a Caudata profile for details, or return to the full amphibian index where frogs are shown too."
   },
   "snakesInYard": {
-    "metaTitle": "How to get snakes out of the yard — what works and what doesn’t",
+    "metaTitle": "How to get snakes out of the yard: what actually works",
     "metaDescription": "Snakes in the yard: there is no 100% snake repellent. Reduce shelter and food so snakes do not stay. What works in Georgia — and which myths waste your time.",
     "keywords": "how to get rid of snakes in the yard, snakes in the house, snake repellent, snake repellent spray, snake repellent device, snake in garden, sulfur snake myth, milk for snakes, Georgia snakes yard",
     "breadcrumbHome": "Home",
@@ -3463,7 +3452,7 @@
     "faq4A": "The quiz uses the published reptiles.ge lizard catalog and field photos — there is no second species database. Darevskia species stay separate."
   },
   "birdIndex": {
-    "metaTitle": "Bird species of Georgia — atlas index",
+    "metaTitle": "Bird species of Georgia — index of published profiles",
     "metaDescription": "Published atlas bird profiles in one table. This is not the complete bird list of Georgia; each profile explains its sourced record.",
     "keywords": "bird species of Georgia, bird index Georgia, Georgia bird species",
     "breadcrumbCurrent": "Species",
@@ -3500,7 +3489,7 @@
     "ctaBody": "Open a bird profile if you are looking for a specific species, or return to the birds hub for new profiles and guides."
   },
   "mammalIndex": {
-    "metaTitle": "Mammal species of Georgia — atlas index",
+    "metaTitle": "Mammal species of Georgia — fox, jackal, wolf, bear and more",
     "metaDescription": "Published atlas mammal profiles in one table: fox, jackal, wolf, bear, lynx, and more — not a complete national list.",
     "keywords": "mammal species of Georgia, mammal index Georgia, Georgia mammal species",
     "breadcrumbCurrent": "Species",
@@ -3537,7 +3526,7 @@
     "ctaBody": "Open a mammal profile, or go to the jackal-in-the-yard and bear encounter guides if the question is practical."
   },
   "spiderIndex": {
-    "metaTitle": "Spider species of Georgia — atlas index",
+    "metaTitle": "Spider species of Georgia — karakurt, argiope and others",
     "metaDescription": "Published atlas spider profiles in one table: wasp spider, lobed argiope, false black widow, and karakurt, with photos and sources.",
     "keywords": "spider species of Georgia, spider index Georgia, wasp spider, karakurt, false black widow, Georgia spider species",
     "breadcrumbCurrent": "Species",
@@ -3573,7 +3562,7 @@
     "ctaBody": "Open a spider profile, or go to the venomous spiders and spider bite guides when the question is about safety."
   },
   "insectIndex": {
-    "metaTitle": "Insect species of Georgia — atlas index",
+    "metaTitle": "Insect species of Georgia — index of published profiles",
     "metaDescription": "Published atlas insect profiles in one table: European mantis (Mantis religiosa) and brown marmorated stink bug (Halyomorpha halys), with taxonomy, identification, habitat, and sources.",
     "keywords": "insect species of Georgia, insect index Georgia, Mantis religiosa Georgia, European mantis, Halyomorpha halys Georgia, brown marmorated stink bug",
     "breadcrumbCurrent": "Species",
@@ -3609,7 +3598,7 @@
     "ctaBody": "Open an insect profile, or continue in the full animal atlas."
   },
   "spiderVenomous": {
-    "metaTitle": "Venomous spiders in Georgia?",
+    "metaTitle": "Venomous spiders in Georgia? The karakurt and lookalikes",
     "metaDescription": "The medically significant spider in this atlas is the karakurt. Argiope is not a black widow. What to check and when to call 112.",
     "keywords": "venomous spiders Georgia, karakurt, black widow, false karakurt, Argiope",
     "breadcrumbCurrent": "Venomous spiders",
@@ -3684,7 +3673,7 @@
     "ctaBody": "Open a species or the bite guide. First rule: do not pick it up; after a bite, 112."
   },
   "spiderBite": {
-    "metaTitle": "Spider bite — what should you do?",
+    "metaTitle": "Spider bite in Georgia — what to do and when to call 112",
     "metaDescription": "Spider bite in Georgia: call 112. Do not cut, suck, or catch the spider. A karakurt bite is medically significant. Educational page — not a medical protocol.",
     "keywords": "spider bite Georgia, spider bit me, karakurt bite, 112",
     "breadcrumbCurrent": "Bite",
@@ -3802,7 +3791,7 @@
     "ctaBody": "Species comparison is on the venomous-spider guide. After a bite, 112 still comes first."
   },
   "mammalJackalYard": {
-    "metaTitle": "A jackal in the yard — what should you do?",
+    "metaTitle": "A jackal in the yard — what to do and how to protect poultry",
     "metaDescription": "A jackal in a Georgian yard: do not feed it. Secure food and poultry. After a bite, call 112. How to tell it from a fox or a wolf.",
     "keywords": "jackal in the yard, golden jackal Georgia, Canis aureus, jackal poultry",
     "breadcrumbCurrent": "Jackal in the yard",
@@ -3885,7 +3874,7 @@
     "ctaBody": "Open the jackal, fox, or wolf page. In the yard the first rule is: do not feed; after a bite, 112."
   },
   "mammalBear": {
-    "metaTitle": "What should I do if I meet a bear?",
+    "metaTitle": "What to do if you meet a bear — brown bear in Georgia",
     "metaDescription": "Brown bear in Georgia: do not approach, do not feed, do not let a dog go. If injured, call 112. Red List EN. Educational page.",
     "keywords": "bear Georgia, if I meet a bear, brown bear, Ursus arctos, 112",
     "breadcrumbCurrent": "Bear encounter",
@@ -3983,7 +3972,7 @@
     "ctaBody": "The profile is for status and range. In a meeting the first rule is space; if injured, 112."
   },
   "lizardHouse": {
-    "metaTitle": "A lizard in the house — what should you do?",
+    "metaTitle": "A lizard in the house? Often a harmless gecko — what to do",
     "metaDescription": "A lizard in a Georgian house is often the Caspian gecko: Harmless, do not kill it. The Caucasian agama is not a gecko. Removal: 032 272 16 00.",
     "keywords": "lizard in the house, Caspian gecko, gecko Tbilisi, Caucasian agama, Tenuidactylus caspius",
     "breadcrumbCurrent": "Lizard in the house",

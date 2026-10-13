@@ -27,7 +27,7 @@ export const THERIDION_HUSEYNOVI_NEW_SPIDER_SPECIES_GEORGIA_2026: NewsArticle =
         metaDescription:
           "Scientists described Theridion huseynovi as a spider species new to science. The species is confirmed from Georgia, Azerbaijan, and Iran.",
         metaTitle:
-          "A new spider species also occurs in Georgia — Theridion huseynovi",
+          "Theridion huseynovi — a new spider species also in Georgia",
         sections: [
           {
             blocks: [
@@ -376,7 +376,7 @@ export const THERIDION_HUSEYNOVI_NEW_SPIDER_SPECIES_GEORGIA_2026: NewsArticle =
         metaDescription:
           "Учёные описали Theridion huseynovi как новый для науки вид пауков. Вид подтверждён в Грузии, Азербайджане и Иране.",
         metaTitle:
-          "Новый вид пауков встречается и в Грузии — Theridion huseynovi",
+          "Theridion huseynovi — новый вид паука, найденный и в Грузии",
         sections: [
           {
             blocks: [
@@ -550,7 +550,7 @@ export const THERIDION_HUSEYNOVI_NEW_SPIDER_SPECIES_GEORGIA_2026: NewsArticle =
         metaDescription:
           "Bilim insanları Theridion huseynovi’yi bilim için yeni bir örümcek türü olarak tanımladı. Tür Gürcistan, Azerbaycan ve İran’da doğrulandı.",
         metaTitle:
-          "Yeni bir örümcek türü Gürcistan’da da bulunuyor — Theridion huseynovi",
+          "Theridion huseynovi — Gürcistan’da da bulunan yeni örümcek",
         sections: [
           {
             blocks: [

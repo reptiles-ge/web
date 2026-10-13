@@ -605,7 +605,7 @@ export const CAUCASIAN_TOAD_BUFO_VERRUCOSISSIMUS_TAXONOMY_2026: NewsArticle =
         metaDescription:
           "Новое геномное исследование ставит под вопрос статус кавказской жабы как отдельного вида, но Bufo verrucosissimus еще не удалена официально.",
         metaTitle:
-          "Статус кавказской жабы: что показывает новое геномное исследование",
+          "Кавказская жаба: что показывает новое геномное исследование",
         sections: [
           {
             blocks: [
@@ -813,7 +813,7 @@ export const CAUCASIAN_TOAD_BUFO_VERRUCOSISSIMUS_TAXONOMY_2026: NewsArticle =
         metaDescription:
           "Yeni genomik calisma Kafkas karakurbagasinin ayri tur statusunu sorguluyor, ancak Bufo verrucosissimus henuz resmi olarak kaldirilmis degil.",
         metaTitle:
-          "Kafkas karakurbagasi statusu: yeni genomik calisma ne gosteriyor",
+          "Kafkas karakurbağası: yeni genomik çalışma ne gösteriyor",
         sections: [
           {
             blocks: [

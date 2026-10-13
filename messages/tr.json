@@ -291,7 +291,7 @@
     "contributors": {
       "eyebrow": "Katkıda bulunanlar",
       "title": "Atlas’ta kimin fotoğrafları var",
-      "subtitle": "Tür profillerinde fotoğrafı görünen araştırmacılar ve fotoğrafçılar — her birinin burada kendi sayfası var.",
+      "subtitle": "Tür profillerinde fotoğrafı görünen fotoğrafçılar — her birinin burada kendi sayfası var.",
       "seeAll": "Daha fazla katkıda bulunan"
     },
     "safety": {
@@ -764,7 +764,8 @@
     "anchorLink": "Bu bölüme bağlantı",
     "empty": "Bu bölge için tür verileri henüz eklenmedi.",
     "notFound": "Bölge bulunamadı",
-    "regionMetaTitle": "{name} — bölgede kaydedilen türler",
+    "regionMetaTitle": "{name} hayvanları: yılanlar, kertenkeleler, kuşlar",
+    "regionMetaTitleShort": "{name} bölgesinde kaydedilen türler",
     "regionMetaDescription": "{name}, Gürcistan’da kaydedilen türler — {count, plural, one {# tür} other {# tür}}, harita, yaşam alanları ve zehirli türler. Profiller reptiles.ge’de.",
     "seo": {
       "eyebrow": "Yerden faunaya",
@@ -929,17 +930,8 @@
     "atlasCtaCount": "Tür atlası · {count}"
   },
   "author": {
-    "jobTitles": {
-      "director": "Direktör",
-      "professor": "Profesör",
-      "ranger": "Ranger",
-      "researcher": "Araştırmacı"
-    },
     "roles": {
-      "herpetologist": "Herpetolog",
-      "photographer": "Fotoğrafçı",
-      "ranger": "Ranger",
-      "researcher": "Araştırmacı"
+      "photographer": "Fotoğrafçı"
     },
     "facebook": "Facebook",
     "instagram": "Instagram",
@@ -964,11 +956,11 @@
     "index": {
       "breadcrumb": "Katkıda bulunanlar",
       "h1": "Katkıda bulunanlar",
-      "intro": "Tür profillerinde fotoğrafları yer alan araştırmacılar ve fotoğrafçılar.",
+      "intro": "Tür profillerinde fotoğrafları yer alan fotoğrafçılar.",
       "count": "Atlasta {count} katkıda bulunan",
       "empty": "Henüz yayımlanmış katkıda bulunan sayfası yok.",
-      "metaTitle": "Katkıda bulunanlar: herpetologlar, fotoğrafçılar",
-      "metaDescription": "reptiles.ge’deki araştırmacılar ve fotoğrafçılar — portreler, galeriler ve belgelledikleri türler.",
+      "metaTitle": "Katkıda bulunanlar: atlasın fotoğrafçıları",
+      "metaDescription": "Fotoğrafları reptiles.ge’de yer alan fotoğrafçılar — portreler, galeriler ve belgeledikleri türler.",
       "eyebrow": "Arazi fotoğrafı yazarları",
       "statContributors": "Katkıcı",
       "statPhotos": "Arazi fotoğrafı",
@@ -981,10 +973,7 @@
       "ctaButton": "Bize yazın"
     },
     "rolesPlural": {
-      "herpetologist": "Herpetologlar",
-      "photographer": "Fotoğrafçılar",
-      "ranger": "Korucular",
-      "researcher": "Araştırmacılar"
+      "photographer": "Fotoğrafçılar"
     },
     "statGroups": "Grup",
     "summaryLabel": "Kısaca",
@@ -1016,8 +1005,8 @@
     "summary": "Kısaca"
   },
   "site": {
-    "title": "Reptiles — Gürcistan hayvanları atlası",
-    "description": "Gürcistan hayvanlarının tür atlası: profiller, yayılış ve tanıma. Sürüngenler, amfibiler, kuşlar, memeliler ve daha fazlası — Gürcüce, İngilizce, Rusça ve Türkçe."
+    "title": "Reptiles.ge — Gürcistan hayvanları atlası",
+    "description": "Gürcistan hayvanları tür atlası: profiller, yayılış ve tanıma. Sürüngenler, amfibiler, kuşlar, memeliler ve dahası — Gürcüce, İngilizce, Rusça ve Türkçe."
   },
   "notFound": {
     "eyebrow": "Atlasda kayboldunuz",
@@ -2363,7 +2352,7 @@
     "speciesIndexCta": "Böcek türleri dizini"
   },
   "amphibianFrogs": {
-    "metaTitle": "Gürcistan kurbağaları — tür rehberi",
+    "metaTitle": "Gürcistan kurbağaları: kara kurbağaları ve ağaç kurbağaları",
     "metaDescription": "Gürcistan kurbağaları (Anura): kara kurbağaları, ağaç kurbağaları, ova kurbağası ve Kafkas kahverengi kurbağası. 2026 checklist, 8 tür.",
     "keywords": "Gürcistan’da kurbağalar, Gürcistan kara kurbağaları, ağaç kurbağaları, ova kurbağası, Hyla, Rana, Pelophylax, Gürcistan amfibileri",
     "breadcrumbCurrent": "Kurbağalar",
@@ -2420,7 +2409,7 @@
     "empty": "Bu süzgeçlere uyan tür yok."
   },
   "snakeIndex": {
-    "metaTitle": "Gürcistan’ın yılan türleri — tam dizin",
+    "metaTitle": "Gürcistan’ın yılan türleri — zehir, yayılış ve boy dizini",
     "metaDescription": "Gürcistan yılan türleri tek tabloda: yaygın ve bilimsel adlar, zehir, yayılış, boyut ve yaşam alanı — Tarkhnishvili ve ark. 2026 kontrol listesi atlası.",
     "keywords": "yılan türleri Gürcistan, Gürcistan yılanları listesi, zehirli yılanlar listesi, Gürcistan yılan dizini",
     "breadcrumbCurrent": "Türler",
@@ -2455,7 +2444,7 @@
     "ctaBody": "Bir satır seçin. Zehirli rehberi, ID rehberi ve bölgeler yılanlar sayfasındadır."
   },
   "snakeIdentify": {
-    "metaTitle": "Gürcistan’da (Kafkasya) zehirli mi zararsız mı?",
+    "metaTitle": "Gürcistan’da zehirli ve zararsız yılan nasıl ayırt edilir",
     "metaDescription": "Gürcistan’da zehirli ve zararsız yılanları ayırt etmek: Levant engereği, Kafkas engereği, su yılanları, Montpellier ve cam kertenkele.",
     "keywords": "zehirli mi zararsız yılan Gürcistan, zehirli yılan nasıl tanınır, engerek ve su yılanı, cam kertenkele ve yılan",
     "breadcrumbCurrent": "Tanı",
@@ -2521,7 +2510,7 @@
     "editorialDisclaimer": "İşaretleri “kontrol etmek” için yılana dokunmayın. Isırık durumunda hemen acil tıbbi yardım alın."
   },
   "snakeRange": {
-    "metaTitle": "Gürcistan’da yılanlar nerede bulunur — bölgeler",
+    "metaTitle": "Gürcistan’da yılanlar nerede bulunur — 12 bölge haritası",
     "metaDescription": "Gürcistan’ın 12 bölgesinde yılan varlığı. Haritada yalnızca doğrulanmış türler — yeni listelenen kontrol listesi yılanları çoğu zaman hâlâ atanmamıştır.",
     "keywords": "bölgelere göre yılanlar Gürcistan, yılanlar nerede yaşar Gürcistan, Kaheti yılanları, Acara yılanları, yılan yayılışı Gürcistan",
     "breadcrumbCurrent": "Yayılış",
@@ -2559,7 +2548,7 @@
     "ctaBody": "Bir bölge veya tür açın. Tam dizin ayrı bir tablodadır."
   },
   "snakeLargest": {
-    "metaTitle": "Gürcistan’ın en büyük yılanları",
+    "metaTitle": "Gürcistan’ın en büyük yılanları — kaynaklı boy bilgileri",
     "metaDescription": "Gürcistan’da kaydedilen büyük yılanlar: Levant engereği, kırmızı karınlı yılan, Montpellier yılanı. Cam kertenkele yılan değildir.",
     "keywords": "en büyük yılanlar Gürcistan, en iri yılan Gürcistan, gürze boyutu, yılan boyutu, cam kertenkele",
     "breadcrumbCurrent": "En büyük yılanlar",
@@ -2595,7 +2584,7 @@
     "ctaBody": "İstatistik ve fotoğraflar için bir tür açın. Tam liste dizindedir."
   },
   "lizardIndex": {
-    "metaTitle": "Gürcistan’ın kertenkele türleri — tam dizin",
+    "metaTitle": "Gürcistan’ın kertenkele türleri: Darevskia, agama, skinkler",
     "metaDescription": "Gürcistan kertenkeleleri tek dizinde: Darevskia, Kafkas agaması, cam kertenkele ve skinkler. Ad, yayılış ve boyut kaynak varsa.",
     "keywords": "kertenkele türleri Gürcistan, Darevskia, kaya kertenkeleleri, Kafkas agaması, cam kertenkele, Gürcistan kertenkele listesi",
     "breadcrumbCurrent": "Türler",
@@ -2636,7 +2625,7 @@
     "ctaBody": "Bir satır seçin veya ID rehberini açın."
   },
   "lizardIdentify": {
-    "metaTitle": "Gürcistan’da kertenkeleler nasıl ayırt edilir",
+    "metaTitle": "Bu hangi kertenkele? Gürcistan kertenkelelerini ayırt etme",
     "metaDescription": "Bu hangi kertenkele? Fotoğraf, boyut, renk, yayılış ve benzerler. Darevskia için renk yetmez. Agama, cam kertenkele, kaya kertenkeleleri.",
     "keywords": "bu hangi kertenkele Gürcistan, kertenkele tanıma Gürcistan, Darevskia ID, Kafkas agaması, cam kertenkele",
     "breadcrumbCurrent": "Tanı",
@@ -2690,7 +2679,7 @@
     "ctaBody": "Bir tür veya cam kertenkele karşılaştırma rehberini açın."
   },
   "lizardDarevskia": {
-    "metaTitle": "Gürcistan’da Darevskia — renk tanıma değildir",
+    "metaTitle": "Gürcistan’da Darevskia kaya kertenkeleleri — renk yetmez",
     "metaDescription": "Atlasdaki kaya kertenkeleleri (Darevskia), her biri kendi profiliyle. Renk yetmez. Aday türleri doğrulanmış diye işaretlemeyin. Tarkhnishvili et al. 2026.",
     "keywords": "Darevskia Gürcistan, kaya kertenkeleleri, renk ID değildir",
     "breadcrumbCurrent": "Darevskia",
@@ -2730,7 +2719,7 @@
     "ctaBody": "Bir tür veya kertenkele tanıma rehberini açın."
   },
   "lizardCompare": {
-    "metaTitle": "Kertenkele mi cam kertenkele mi — yılandan nasıl ayrılır",
+    "metaTitle": "Cam kertenkele mi yılan mı? Gürcistan’da nasıl ayırt edilir",
     "metaDescription": "Gürcistan’da cam kertenkele, yavaş kertenkele ve yılan: göz kapakları, kulak açıklığı, yan kıvrım ve boyut. Üçü de zehirsizdir.",
     "keywords": "kertenkele mi cam kertenkele, cam kertenkele ve yılan, yavaş kertenkele, Anguis colchica, Pseudopus apodus, cam kertenkele Gürcistan",
     "breadcrumbCurrent": "Cam kertenkele veya yılan",
@@ -2810,7 +2799,7 @@
     "ctaBody": "Cam kertenkeleyi, yavaş kertenkeleyi veya bir su yılanını açın. Tam kertenkele listesi dizindedir."
   },
   "turtleIndex": {
-    "metaTitle": "Gürcistan’ın kaplumbağa türleri — tam dizin",
+    "metaTitle": "Gürcistan’ın kaplumbağa türleri — kara, tatlısu, yabancı",
     "metaDescription": "Gürcistan’ın kaplumbağa türleri dizini: kara kaplumbağası, yerli tatlısu kaplumbağaları ve getirilmiş kırmızı yanaklı, profiller ve tanıma rehberiyle.",
     "keywords": "kaplumbağa türleri Gürcistan, kaplumbağa tür listesi, Yunan kaplumbağası, bataklık kaplumbağası, Hazar kaplumbağası, kırmızı yanaklı, Gürcistan kaplumbağaları",
     "breadcrumbCurrent": "Türler",
@@ -2846,7 +2835,7 @@
     "ctaBody": "Kara, tatlısu ve getirilmiş türleri ayırmanız gerekiyorsa bir tür profili veya kaplumbağa tanıma rehberini açın."
   },
   "turtleLand": {
-    "metaTitle": "Gürcistan’ın kara kaplumbağaları",
+    "metaTitle": "Gürcistan’ın kara kaplumbağaları — mahmuzlu kaplumbağa",
     "metaDescription": "Gürcistan’ın kara kaplumbağası: mahmuzlu kara kaplumbağası (Testudo graeca). Yaşam alanı, tanıma ve koruma atlas profilinden.",
     "keywords": "kara kaplumbağaları Gürcistan, kara kaplumbağası Gürcistan, mahmuzlu kara kaplumbağası, Testudo graeca, Yunan kaplumbağası Gürcistan",
     "breadcrumbCurrent": "Kara kaplumbağaları",
@@ -2882,7 +2871,7 @@
     "ctaBody": "Testudo graeca’yı açın veya tatlısu kaplumbağalarını karşılaştırın."
   },
   "turtleWater": {
-    "metaTitle": "Gürcistan’ın tatlısu kaplumbağaları",
+    "metaTitle": "Gürcistan’ın tatlısu kaplumbağaları — bataklık ve Hazar",
     "metaDescription": "Gürcistan’da Avrupa bataklık kaplumbağası, Hazar kaplumbağası ve getirilmiş kırmızı yanaklı. Tatlısu habitatı ve ID atlas profillerinden.",
     "keywords": "tatlısu kaplumbağaları Gürcistan, su kaplumbağaları Gürcistan, bataklık kaplumbağası, Hazar kaplumbağası, kırmızı yanaklı, Emys, Mauremys, Trachemys",
     "breadcrumbCurrent": "Tatlısu kaplumbağaları",
@@ -2918,7 +2907,7 @@
     "ctaBody": "Bir tür açın veya kara kaplumbağasını karşılaştırın."
   },
   "turtleIdentify": {
-    "metaTitle": "Kaplumbağa tanıma — Gürcistan kaplumbağaları nasıl ayırt edilir",
+    "metaTitle": "Gürcistan’da kaplumbağa tanıma — bu hangi kaplumbağa?",
     "metaDescription": "Gürcistan’da kaplumbağa tanıyın: kara mı su mu, kırmızı yanaklı mı yerli mi, bataklık mı Hazar mı — fotoğraflı ve tanılı dört tür saha anahtarı.",
     "keywords": "kaplumbağa tanı Gürcistan, bu hangi kaplumbağa, tatlısu kaplumbağası ID, kara kaplumbağası Gürcistan, kırmızı yanaklı, Emys, Mauremys",
     "breadcrumbCurrent": "Kaplumbağa tanıma",
@@ -3086,7 +3075,7 @@
     "ctaBody": "Anahtarla tanıyın, sonra bir profil, dizin veya kara ve su rehberlerini açın."
   },
   "amphibianIndex": {
-    "metaTitle": "Gürcistan’ın amfibi türleri — tam dizin",
+    "metaTitle": "Gürcistan’ın amfibi türleri — kurbağalar ve semenderler",
     "metaDescription": "Gürcistan’ın amfibi türleri için tam atlas dizini: kurbağalar, kara kurbağaları, ağaç kurbağaları, semenderler ve Kafkas semenderi.",
     "keywords": "amfibi türleri Gürcistan, kurbağalar, semenderler, semender, Gürcistan amfibi listesi",
     "breadcrumbCurrent": "Türler",
@@ -3128,7 +3117,7 @@
     "ctaBody": "Bir tür profili, kurbağa rehberi veya Caudata sayfasını açın; grup öğreniyor olmanıza ya da belirli bir hayvanı kontrol etmenize göre seçin."
   },
   "amphibianFrogsIndex": {
-    "metaTitle": "Gürcistan’ın kurbağa türleri — dizin",
+    "metaTitle": "Gürcistan’ın kurbağa türleri — profil bağlantılı dizin",
     "metaDescription": "Gürcistan’ın kurbağaları, kara kurbağaları ve ağaç kurbağaları için hızlı dizin: Anura tabloda, profil bağlantıları ve kurbağa rehberine dönüşle.",
     "keywords": "kurbağa türleri Gürcistan, Anura dizini, Gürcistan kara kurbağaları, ağaç kurbağaları, Gürcistan kurbağa türleri",
     "breadcrumbCurrent": "Kurbağa türleri",
@@ -3166,7 +3155,7 @@
     "ctaBody": "Tabloda türü bulduysanız profilini açın; hâlâ grup düzeyinde tanımaya ihtiyacınız varsa kurbağa rehberine dönün."
   },
   "amphibianNewts": {
-    "metaTitle": "Gürcistan’ın semenderleri",
+    "metaTitle": "Gürcistan’da semenderler ve Kafkas semenderi",
     "metaDescription": "Gürcistan’daki yayımlanmış Caudata profilleri: Kafkas semenderi ve semenderler. Sayfa grubu gösterir; kesin kaynaklı ayrıntılar profillerdedir.",
     "keywords": "semenderler Gürcistan, Kafkas semenderi, Mertensiella, Lissotriton, Triturus, Ommatotriton",
     "breadcrumbCurrent": "Semenderler",
@@ -3203,7 +3192,7 @@
     "ctaBody": "Ayrıntılar için bir Caudata profili açın veya kurbağaların da göründüğü tam amfibi dizinine dönün."
   },
   "snakesInYard": {
-    "metaTitle": "Yılanları bahçeden nasıl uzaklaştırırsınız — ne işe yarar, ne yaramaz",
+    "metaTitle": "Yılanlar bahçeden nasıl uzaklaştırılır — ne işe yarar?",
     "metaDescription": "Bahçedeki yılanlar: sığınak ve yiyeceği azaltın. Gürcistan’da ne işe yarar, hangi yöntemler zaman kaybettirir.",
     "keywords": "bahçeden yılan nasıl uzaklaştırılır, evde yılan, yılan kovucu, yılan kovucu sprey, yılan kovucu cihaz, bahçede yılan, kükürt yılan miti, yılanlara süt, Gürcistan bahçe yılanları",
     "breadcrumbHome": "Ana sayfa",
@@ -3463,7 +3452,7 @@
     "faq4A": "Quiz, reptiles.ge’nin yayımlanmış kertenkele kataloğunu ve saha fotoğraflarını kullanır — ikinci bir tür veritabanı yoktur. Darevskia türleri ayrı kalır."
   },
   "birdIndex": {
-    "metaTitle": "Gürcistan kuş türleri — atlas dizini",
+    "metaTitle": "Gürcistan kuş türleri — yayımlanmış profiller dizini",
     "metaDescription": "Atlasın yayımlanmış kuş profilleri tek tabloda. Bu Gürcistan’ın tam kuş listesi değildir; her profil kaynaklı kaydı açıklar.",
     "keywords": "Gürcistan kuş türleri, kuş dizini, Georgia bird species",
     "breadcrumbCurrent": "Türler",
@@ -3500,7 +3489,7 @@
     "ctaBody": "Belirli bir tür arıyorsanız kuş profilini açın veya yeni profiller ve rehberler için kuşlar hub’ına dönün."
   },
   "mammalIndex": {
-    "metaTitle": "Gürcistan memeli türleri — atlas dizini",
+    "metaTitle": "Gürcistan memeli türleri — tilki, çakal, kurt, ayı ve dahası",
     "metaDescription": "Atlasın yayımlanmış memeli profilleri tek tabloda: tilki, çakal, kurt, ayı, vaşak ve daha fazlası — tam ulusal liste değil.",
     "keywords": "Gürcistan memeli türleri, memeli dizini, Georgia mammal species",
     "breadcrumbCurrent": "Türler",
@@ -3537,7 +3526,7 @@
     "ctaBody": "Bir memeli profili açın veya soru pratikse bahçedeki çakal ve ayı karşılaşması rehberlerine gidin."
   },
   "spiderIndex": {
-    "metaTitle": "Gürcistan örümcek türleri — atlas dizini",
+    "metaTitle": "Gürcistan örümcek türleri — karakurt, argiope ve diğerleri",
     "metaDescription": "Atlasın yayımlanmış örümcek profilleri: eşekarısı örümceği, loblu örümcek, yalancı karakurt ve karakurt; fotoğraflar ve kaynaklar.",
     "keywords": "Gürcistan örümcek türleri, örümcek dizini Gürcistan, eşekarısı örümceği, karakurt, yalancı karakurt",
     "breadcrumbCurrent": "Türler",
@@ -3573,7 +3562,7 @@
     "ctaBody": "Bir örümcek profili açın veya soru güvenlikle ilgiliyse zehirli örümcekler ve örümcek ısırığı rehberlerine gidin."
   },
   "insectIndex": {
-    "metaTitle": "Gürcistan böcek türleri — atlas dizini",
+    "metaTitle": "Gürcistan böcek türleri — yayımlanmış profiller dizini",
     "metaDescription": "Yayımlanmış böcek profilleri tek tabloda: Avrupa peygamberdevesi (Mantis religiosa) ve kahverengi kokarca (Halyomorpha halys), taksonomi, tanıma, yaşam alanı ve kaynaklarla.",
     "keywords": "Gürcistan böcek türleri, böcek dizini Gürcistan, Mantis religiosa Gürcistan, Avrupa peygamberdevesi, Halyomorpha halys Gürcistan, kahverengi kokarca",
     "breadcrumbCurrent": "Türler",
@@ -3609,7 +3598,7 @@
     "ctaBody": "Bir böcek profili açın veya tam hayvan atlasında devam edin."
   },
   "spiderVenomous": {
-    "metaTitle": "Gürcistan’da zehirli örümcekler?",
+    "metaTitle": "Gürcistan’da zehirli örümcekler? Karakurt ve benzerleri",
     "metaDescription": "Bu atlaste tıbbi olarak önemli örümcek karakurttur. Argiope kara dul değildir. Hangi işaretler, neyi elinize almamalı ve ısırıkta 112’yi ne zaman aramalı.",
     "keywords": "Gürcistan zehirli örümcek, karakurt, kara dul, sahte karakurt, Argiope",
     "breadcrumbCurrent": "Zehirli örümcekler",
@@ -3684,7 +3673,7 @@
     "ctaBody": "Bir türü veya ısırık rehberini açın. İlk kural: elinize almayın; ısırıkta 112."
   },
   "spiderBite": {
-    "metaTitle": "Örümcek ısırığı — ne yapmalısınız?",
+    "metaTitle": "Gürcistan’da örümcek ısırığı — ne yapmalı, ne zaman 112",
     "metaDescription": "Gürcistan’da örümcek ısırığı: 112’yi arayın. Kesmeyin, emmeyin, örümceği yakalamayın. Karakurt ısırığı tıbbi olarak önemlidir.",
     "keywords": "örümcek ısırığı Gürcistan, örümcek ısırdı, karakurt ısırığı, 112",
     "breadcrumbCurrent": "Isırık",
@@ -3802,7 +3791,7 @@
     "ctaBody": "Tür karşılaştırması zehirli örümcek rehberindedir. Isırıkta ilk yine 112’dir."
   },
   "mammalJackalYard": {
-    "metaTitle": "Bahçede çakal — ne yapmalısınız?",
+    "metaTitle": "Bahçede çakal — ne yapmalı, kümes hayvanları nasıl korunur",
     "metaDescription": "Gürcistan’da bahçede çakal: beslemeyin. Yiyecek ve kümesi koruyun. Isırıkta 112’yi arayın. Tilki ve kurttan nasıl ayrılır.",
     "keywords": "bahçede çakal, Gürcistan çakal, Canis aureus, çakal kümes",
     "breadcrumbCurrent": "Bahçede çakal",
@@ -3885,7 +3874,7 @@
     "ctaBody": "Çakal, tilki veya kurt sayfasını açın. Bahçede ilk kural: beslemeyin; ısırıkta 112."
   },
   "mammalBear": {
-    "metaTitle": "Ayı ile karşılaşırsam ne yapmalıyım?",
+    "metaTitle": "Ayıyla karşılaşırsam ne yapmalıyım? Gürcistan’da boz ayı",
     "metaDescription": "Gürcistan’da boz ayı: yaklaşmayın, beslemeyin, köpeği salmayın. Yaralanırsanız 112’yi arayın. Kırmızı Liste EN. Eğitici sayfa.",
     "keywords": "Gürcistan ayı, ayı ile karşılaşırsam, boz ayı, Ursus arctos, 112",
     "breadcrumbCurrent": "Ayı karşılaşması",
@@ -3983,7 +3972,7 @@
     "ctaBody": "Profil statü ve yayılış içindir. Karşılaşmada ilk kural mesafe; yaralanırsanız 112."
   },
   "lizardHouse": {
-    "metaTitle": "Evde kertenkele — ne yapmalısınız?",
+    "metaTitle": "Evde kertenkele mi? Çoğu zaman zararsız geko — ne yapmalı",
     "metaDescription": "Evde kertenkele mi? Gürcistan’da çoğu zaman duvardaki Hazar gekosudur: zehirli değil, öldürmeyin. Nasıl çıkarılır, çatlaklar nasıl kapanır, kimi aramalı.",
     "keywords": "evde kertenkele, Hazar gekosu, Tiflis geko, jojo, Tenuidactylus caspius",
     "breadcrumbCurrent": "Evde kertenkele",

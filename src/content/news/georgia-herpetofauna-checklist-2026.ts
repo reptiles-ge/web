@@ -87,7 +87,7 @@ export const GEORGIA_HERPETOFAUNA_CHECKLIST_2026: NewsArticle = {
       metaDescription:
         "A 2026 Ilia State University checklist treats Georgia’s herpetofauna as 12 amphibians and 56 reptiles. Candidate species are not confirmed.",
       metaTitle:
-        "Georgia has 56 reptiles and 12 amphibians — the 2026 checklist",
+        "Georgia has 56 reptiles and 12 amphibians: 2026 checklist",
       sections: [
         {
           blocks: [
@@ -721,7 +721,7 @@ export const GEORGIA_HERPETOFAUNA_CHECKLIST_2026: NewsArticle = {
       metaDescription:
         "Ilia Devlet Üniversitesi’nin 2026 kontrol listesi Gürcistan herpetofaunasını 12 amfibi ve 56 sürüngen olarak alır. Aday türler doğrulanmış değildir.",
       metaTitle:
-        "Gürcistan’da 56 sürüngen ve 12 amfibi var — 2026 kontrol listesi",
+        "Gürcistan’da 56 sürüngen ve 12 amfibi: 2026 kontrol listesi",
       sections: [
         {
           blocks: [
