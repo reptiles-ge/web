@@ -110,6 +110,7 @@ async function ContactHero({ locale }: { locale: AppLocale }) {
               copiedLabel={t("copied")}
               copyLabel={t("copy")}
               email={CONTACT_EMAIL}
+              failedLabel={t("copyFailed")}
               srLabel={t("copyLabel")}
             />
           </div>

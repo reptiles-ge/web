@@ -801,6 +801,7 @@
     "write": "Write an email",
     "copy": "Copy",
     "copied": "Copied",
+    "copyFailed": "Couldn't copy",
     "copyLabel": "Copy the email address",
     "follow": "Or follow us",
     "topicsEyebrow": "Your email",

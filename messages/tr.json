@@ -801,6 +801,7 @@
     "write": "E-posta yazın",
     "copy": "Kopyala",
     "copied": "Kopyalandı",
+    "copyFailed": "Kopyalanamadı",
     "copyLabel": "E-posta adresini kopyala",
     "follow": "Ya da bizi takip edin",
     "topicsEyebrow": "E-postanız",
