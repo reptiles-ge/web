@@ -435,11 +435,10 @@ export function speciesPageMetaTitle(
 export function speciesPhotoAlt(
   commonName: string,
   scientificName: string,
-  location: string,
   credit?: PhotoCredit,
   locale?: AppLocale,
 ) {
-  const place = credit?.location?.trim() || location;
+  const place = credit?.location?.trim();
   const parts = [`${commonName} (${scientificName})`];
   if (place) parts.push(place);
   if (credit?.photographer) {

@@ -12,10 +12,7 @@ import { hasPhotoCoordinates } from "@/lib/photoCoordinates";
 import { absoluteImageUrl } from "@/lib/site";
 import { speciesPhotoAlt } from "@/lib/speciesMeta";
 
-type SpeciesPhotoContext = Pick<
-  Species,
-  "commonName" | "location" | "scientificName"
->;
+type SpeciesPhotoContext = Pick<Species, "commonName" | "scientificName">;
 
 export function galleryImageObject(
   photo: GalleryImage,
@@ -28,7 +25,6 @@ export function galleryImageObject(
   const name = speciesPhotoAlt(
     species.commonName,
     species.scientificName,
-    species.location,
     credit,
     locale,
   );

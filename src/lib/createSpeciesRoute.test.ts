@@ -162,7 +162,7 @@ describe("species structured data", () => {
     expect(gallery?.about.sameAs).toEqual(sameAs);
   });
 
-  it("uses წავი as the Georgian otter label without leaking citations into sameAs", () => {
+  it("uses წავი as the Georgian otter label and keeps only the current IUCN assessment in sameAs", () => {
     const raw = getSpeciesById("lutra-lutra");
     expect(raw).toBeDefined();
 
@@ -173,7 +173,6 @@ describe("species structured data", () => {
     expect(localized.commonName).toBe("წავი");
     expect(sameAs).toEqual([
       OTTER_CURRENT_IUCN_URL,
-      "https://www.iucnredlist.org/species/12419/21935287",
       "https://www.mammaldiversity.org/taxon/1005848/",
     ]);
     expect(sameAs).not.toContain(OTTER_REPORT_URL);

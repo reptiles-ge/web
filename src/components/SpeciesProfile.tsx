@@ -140,14 +140,12 @@ export async function SpeciesProfile({
   const imageAlt = speciesPhotoAlt(
     species.commonName,
     species.scientificName,
-    species.location,
     heroCredit,
     locale,
   );
   const mobileImageAlt = speciesPhotoAlt(
     species.commonName,
     species.scientificName,
-    species.location,
     mobileHeroCredit,
     locale,
   );

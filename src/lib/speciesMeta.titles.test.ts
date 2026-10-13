@@ -129,18 +129,18 @@ describe("alt text", () => {
 
   it("builds photo alt, preferring the credited place and adding the photographer", () => {
     expect(
-      speciesPhotoAlt("Viper", "Vipera x", "Georgia", {
+      speciesPhotoAlt("Viper", "Vipera x", {
         location: " Kakheti ",
         photographer: "Jane",
-      } as never),
+      }),
     ).toBe("Viper (Vipera x) — Kakheti — Jane");
   });
 
-  it("falls back to the default place and omits empty parts", () => {
-    expect(speciesPhotoAlt("Viper", "Vipera x", "Georgia")).toBe(
-      "Viper (Vipera x) — Georgia",
+  it("names no place when the photo credit has none", () => {
+    expect(speciesPhotoAlt("Viper", "Vipera x")).toBe("Viper (Vipera x)");
+    expect(speciesPhotoAlt("Viper", "Vipera x", { photographer: "Jane" })).toBe(
+      "Viper (Vipera x) — Jane",
     );
-    expect(speciesPhotoAlt("Viper", "Vipera x", "")).toBe("Viper (Vipera x)");
   });
 });
 
@@ -150,7 +150,6 @@ describe("speciesPhotoAlt photographer names", () => {
       speciesPhotoAlt(
         "Mantis",
         "Mantis religiosa",
-        "",
         {
           photographer: "ზაური ხაჩიძე",
         },

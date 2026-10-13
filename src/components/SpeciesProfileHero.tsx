@@ -88,7 +88,6 @@ export async function SpeciesProfileHero({
         : speciesPhotoAlt(
             species.commonName,
             species.scientificName,
-            species.location,
             photo.credit,
             locale,
           ),
