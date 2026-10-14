@@ -788,7 +788,30 @@
     "clusterLizards": "Lizard index",
     "clusterTurtles": "Turtle index",
     "clusterAmphibians": "Amphibian index",
-    "dataGapBody": "Only confirmed records are added to region pages. If a species’ link to a specific administrative unit has not yet been confirmed by a source, it will not appear in the relevant list."
+    "dataGapBody": "Only confirmed records are added to region pages. If a species’ link to a specific administrative unit has not yet been confirmed by a source, it will not appear in the relevant list.",
+    "summary": {
+      "eyebrow": "Summary",
+      "title": "{name} at a glance",
+      "habitats": "This atlas classes {nameIn} as “{biome}”, with these main habitats: {habitats}.",
+      "counts": "The atlas has {count, plural, one {# published species profile} other {# published species profiles}} for {nameIn}: {groups}.",
+      "herps": "Reptiles make up {reptiles} of them, amphibians {amphibians}.",
+      "venomous": "{count, plural, one {# listed species has} other {# listed species have}} a high or moderate risk level for people: {species}.",
+      "venomousNone": "None of the listed species has a high or moderate risk level for people.",
+      "safety": "Keep your distance from any unidentified snake, never try to catch or handle it, and call 112 after a bite.",
+      "scope": "The list covers only species with a published atlas profile, not the complete fauna of {nameIn}. A species is added only when a confirmed record names this administrative unit, so a missing animal may still live here.",
+      "related": "Related region pages: {regions}.",
+      "group": {
+        "amphibian": "{count, plural, one {# amphibian} other {# amphibians}}",
+        "bird": "{count, plural, one {# bird} other {# birds}}",
+        "insect": "{count, plural, one {# insect} other {# insects}}",
+        "lizard": "{count, plural, one {# lizard} other {# lizards}}",
+        "mammal": "{count, plural, one {# mammal} other {# mammals}}",
+        "scorpion": "{count, plural, one {# scorpion} other {# scorpions}}",
+        "snake": "{count, plural, one {# snake} other {# snakes}}",
+        "spider": "{count, plural, one {# spider} other {# spiders}}",
+        "turtle": "{count, plural, one {# turtle} other {# turtles}}"
+      }
+    }
   },
   "contact": {
     "metaTitle": "Contact",
