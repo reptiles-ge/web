@@ -1,5 +1,7 @@
 "use client";
 
+import type { ReactNode } from "react";
+
 import { ArrowUpRight, Shield } from "lucide-react";
 import { useTranslations } from "next-intl";
 
@@ -23,6 +25,24 @@ import { Link } from "@/i18n/navigation";
 import { formatContentDate } from "@/lib/formatDate";
 
 const MYTHS = [1, 2, 3, 4] as const;
+const HIKING_ZONES = [1, 2, 3, 4, 5] as const;
+const HIKING_SPECIES = {
+  darevskii: "vipera-darevskii",
+  dinniki: "vipera-dinniki",
+  giurza: "macrovipera-lebetina",
+  kaznakovi: "vipera-kaznakovi",
+  malpolon: "malpolon-insignitus",
+  renardi: "vipera-renardi",
+  transcaucasiana: "vipera-transcaucasiana",
+} as const;
+const HIKING_SPECIES_LINKS = Object.fromEntries(
+  Object.entries(HIKING_SPECIES).map(([tag, id]) => [
+    tag,
+    (chunks: ReactNode) => (
+      <SpeciesInlineLink id={id}>{chunks}</SpeciesInlineLink>
+    ),
+  ]),
+);
 const EDITORIAL_UPDATED = "2026-09-07";
 
 type VenomousSnakesGuidesProps = {
@@ -120,6 +140,63 @@ export function VenomousSnakesGuides({
                 </li>
               ))}
             </ol>
+          </div>
+        </div>
+      </section>
+
+      <section
+        className="border-t border-border bg-background py-20 lg:py-28"
+        id="hiking"
+      >
+        <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+          <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
+            <div>
+              <ClusterSectionIntro
+                body={t("hikingLead")}
+                bodyClassName="mt-5 text-[15px] leading-relaxed text-muted-foreground"
+                eyebrow={t("hikingEyebrow")}
+                eyebrowClassName={CLUSTER_EYEBROW}
+                title={t("hikingTitle")}
+                titleClassName={CLUSTER_TITLE_GUIDE}
+              >
+                <p className="mt-8 font-display text-[18px] font-medium text-foreground sm:text-[20px]">
+                  {t("hikingTrailTitle")}
+                </p>
+                <p className="mt-2 text-[14px] leading-relaxed text-muted-foreground sm:text-[15px]">
+                  {t("hikingTrailBody")}
+                </p>
+                <p className="mt-6 flex items-start gap-2 text-[13px] leading-relaxed text-muted-foreground">
+                  <Shield
+                    aria-hidden="true"
+                    className="mt-0.5 size-3.5 shrink-0"
+                  />
+                  <span>
+                    {t.rich("hikingNote", {
+                      bite: (chunks) => (
+                        <Link
+                          className="font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
+                          href="/snakes/gvelis-nakbeni"
+                        >
+                          {chunks}
+                        </Link>
+                      ),
+                    })}
+                  </span>
+                </p>
+              </ClusterSectionIntro>
+            </div>
+            <dl className="divide-y divide-border border-y border-border">
+              {HIKING_ZONES.map((n) => (
+                <div className="py-6" key={n}>
+                  <dt className="font-display text-[18px] font-medium text-foreground sm:text-[20px]">
+                    {t(`hikingZone${n}Title`)}
+                  </dt>
+                  <dd className="mt-2 text-[14px] leading-relaxed text-muted-foreground sm:text-[15px]">
+                    {t.rich(`hikingZone${n}Body`, HIKING_SPECIES_LINKS)}
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </div>
       </section>
