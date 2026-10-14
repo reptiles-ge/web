@@ -33,6 +33,7 @@ import { isLocalAdminEnabled } from "@/lib/adminAccess";
 import { faqPageJsonLd } from "@/lib/faqJsonLd";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import { speciesItemListLd } from "@/lib/pageStructuredData";
+import { getRegionSummary } from "@/lib/regionSummary";
 import { INDEXABLE_ROBOTS } from "@/lib/robots";
 import {
   absoluteUrl,
@@ -172,6 +173,7 @@ export default async function RegionPage({ params }: PageProps) {
     toRegionSpeciesCard(item, locale),
   );
   const venomous = species.filter(isRegionCardVenomous);
+  const summary = await getRegionSummary(region, locale);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -255,6 +257,7 @@ export default async function RegionPage({ params }: PageProps) {
           editable={locale === "ka" && isLocalAdminEnabled()}
           region={region}
           species={species}
+          summary={summary}
           venomous={venomous}
         />
       </ClientMessagesProvider>

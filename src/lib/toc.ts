@@ -54,5 +54,6 @@ export const REGION_SECTION_IDS = {
   range: "range",
   related: "related",
   species: "species",
+  summary: "summary",
   venomous: "venomous",
 } as const;

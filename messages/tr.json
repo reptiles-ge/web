@@ -788,7 +788,30 @@
     "clusterLizards": "Kertenkele dizini",
     "clusterTurtles": "Kaplumbağa dizini",
     "clusterAmphibians": "Amfibi dizini",
-    "dataGapBody": "Bölge sayfalarına yalnızca doğrulanmış kayıtlar eklenir. Bir türün belirli bir idari birimle bağlantısı henüz bir kaynakla doğrulanmamışsa, ilgili listede görünmez."
+    "dataGapBody": "Bölge sayfalarına yalnızca doğrulanmış kayıtlar eklenir. Bir türün belirli bir idari birimle bağlantısı henüz bir kaynakla doğrulanmamışsa, ilgili listede görünmez.",
+    "summary": {
+      "eyebrow": "Özet",
+      "title": "Kısaca {name}",
+      "habitats": "Atlas bu bölgeyi “{biome}” olarak sınıflandırır. {nameIn} için belirtilen başlıca habitatlar: {habitats}.",
+      "counts": "Atlasta şu anda {nameIn} ile ilişkilendirilmiş {count, plural, one {# türün} other {# türün}} yayımlanmış profili var: {groups}.",
+      "herps": "Bunların {reptiles} tanesi sürüngen, {amphibians} tanesi amfibidir.",
+      "venomous": "Listedeki {count, plural, one {# tür} other {# tür}} insanlar için yüksek veya orta risk düzeyindedir: {species}.",
+      "venomousNone": "Listedeki türlerin hiçbiri insanlar için yüksek veya orta risk düzeyinde değildir.",
+      "safety": "Tanımadığınız her yılandan güvenli mesafe bırakın, yakalamaya veya elinize almaya çalışmayın; ısırılma durumunda 112’yi arayın.",
+      "scope": "Liste yalnızca atlasta yayımlanmış profili olan türleri kapsar ve {nameIn} bölgesinin tam faunasını yansıtmaz. Bir tür ancak doğrulanmış bir kayıt tam olarak bu idari birimi adlandırdığında eklenir; bu nedenle listede olmayan bir hayvan yine de burada yaşıyor olabilir.",
+      "related": "İlgili bölge sayfaları: {regions}.",
+      "group": {
+        "amphibian": "{count, plural, one {# amfibi} other {# amfibi}}",
+        "bird": "{count, plural, one {# kuş} other {# kuş}}",
+        "insect": "{count, plural, one {# böcek} other {# böcek}}",
+        "lizard": "{count, plural, one {# kertenkele} other {# kertenkele}}",
+        "mammal": "{count, plural, one {# memeli} other {# memeli}}",
+        "scorpion": "{count, plural, one {# akrep} other {# akrep}}",
+        "snake": "{count, plural, one {# yılan} other {# yılan}}",
+        "spider": "{count, plural, one {# örümcek} other {# örümcek}}",
+        "turtle": "{count, plural, one {# kaplumbağa} other {# kaplumbağa}}"
+      }
+    }
   },
   "contact": {
     "metaTitle": "İletişim",
