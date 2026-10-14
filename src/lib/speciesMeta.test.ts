@@ -4,10 +4,10 @@ import type { AppLocale } from "@/i18n/routing";
 
 import { getCatalogSpecies } from "@/data/species";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
+import { pathnames } from "@/i18n/pathnames";
 import { routing } from "@/i18n/routing";
 import { KA_META_DESCRIPTION_OVERRIDES } from "@/lib/kaMetaDescriptionOverrides";
 import { metaDescriptionLimit } from "@/lib/metaDescription";
-import { speciesPageUrl } from "@/lib/site";
 import { isPlaceholderBody } from "@/lib/speciesContent";
 import {
   SPECIES_META_DESCRIPTION_OVERRIDE,
@@ -15,6 +15,7 @@ import {
   speciesMetaDescriptionOverride,
   speciesPageMetaTitle,
 } from "@/lib/speciesMeta";
+import { speciesHref } from "@/lib/speciesRoutes";
 
 const descriptionOverrides = Object.entries(
   SPECIES_META_DESCRIPTION_OVERRIDE,
@@ -23,6 +24,13 @@ const descriptionOverrides = Object.entries(
     ([locale, text]) => [speciesId, locale as AppLocale, text] as const,
   ),
 );
+
+function kaPath(id: string) {
+  const href = speciesHref(id, "ka");
+  const template = pathnames[href.pathname];
+  const ka = typeof template === "string" ? template : template.ka;
+  return ka.replace("[slug]", href.params.slug);
+}
 
 describe("speciesPageMetaTitle", () => {
   it("uses KA and EN overrides when present", () => {
@@ -115,8 +123,9 @@ describe("speciesMetaDescription", () => {
     for (const raw of getCatalogSpecies()) {
       for (const locale of routing.locales) {
         const item = localizeSpecies(raw, locale);
-        const path = new URL(speciesPageUrl(locale, raw.id)).pathname;
-        if (locale === "ka" && KA_META_DESCRIPTION_OVERRIDES[path]) continue;
+        if (locale === "ka" && KA_META_DESCRIPTION_OVERRIDES[kaPath(raw.id)]) {
+          continue;
+        }
         const description =
           speciesMetaDescriptionOverride(raw.id, locale) ??
           (isPlaceholderBody(item.overview)
