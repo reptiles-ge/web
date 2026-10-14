@@ -129,6 +129,10 @@
   },
   "rating": {
     "close": "Close",
+    "feedbackLabel": "What could we do better?",
+    "feedbackPlaceholder": "What didn't you like, or what couldn't you find?",
+    "feedbackPrivacy": "Please don't include personal data.",
+    "feedbackSend": "Send",
     "hint": "Pick a star",
     "level1": "Poor",
     "level2": "Weak",

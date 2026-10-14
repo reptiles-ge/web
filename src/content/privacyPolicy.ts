@@ -46,6 +46,10 @@ Google Tag Manager-ის მეშვეობით შეიძლება �
 
 ელფოსტის შენახვის ვადა: 2 წელი.
 
+### საიტის შეფასება
+
+თუ საიტს შეფასების ფანჯარაში შეაფასებთ, ვიღებთ ვარსკვლავების რაოდენობას, გვერდის მისამართს, ენას, ქვეყანას, მოწყობილობისა და ბრაუზერის ტიპს, საიტზე გატარებულ დროს, ნანახი გვერდების რაოდენობას და საიტს, საიდანაც მოხვედით. თუ 5-ზე ნაკლებ ვარსკვლავს აირჩევთ, გკითხავთ, რა გავაუმჯობესოთ, და თქვენ მიერ დაწერილი ტექსტი შეფასებასთან ერთად იგზავნება. ეს ინფორმაცია საიტის ადმინისტრატორს Telegram-ის შეტყობინებად მიუვა და მხოლოდ საიტის გასაუმჯობესებლად გამოიყენება. გთხოვთ, ამ ტექსტში არ ჩაწეროთ თქვენი ან სხვა პირის პერსონალური მონაცემები.
+
 ### ავტორები, ფოტოგრაფები და contributor მონაცემები
 
 საიტზე შეიძლება საჯაროდ გამოქვეყნდეს ავტორის, ფოტოგრაფის ან contributor-ის სახელი, ბმული, მოკლე ბიოგრაფია, credit, ფოტოს თარიღი, ზოგადი მდებარეობა ან კოორდინატები, თუ ეს საჭიროა წყაროს/ავტორობის სწორად მისათითებლად. ასეთი მონაცემები შეიძლება დარჩეს გამოქვეყნებული მანამ, სანამ შესაბამისი კონტენტი საიტზეა ხელმისაწვდომი, თუ კანონით ან შეთანხმებით სხვა რამ არ არის მოთხოვნილი.
@@ -60,6 +64,7 @@ Google Tag Manager-ის მეშვეობით შეიძლება �
 - ენის, theme-ის, quiz progress-ის და სხვა ფუნქციური პარამეტრების შენარჩუნება;
 - საიტის გამოყენების გაზომვა და შინაარსის გაუმჯობესება;
 - მომხმარებლის შეკითხვებზე პასუხი ელფოსტით;
+- საიტის შეფასებებისა და შენიშვნების განხილვა საიტის გასაუმჯობესებლად;
 - ავტორების, ფოტოგრაფების და წყაროების სათანადო მითითება;
 - სამართლებრივი მოთხოვნების შესრულება და უფლებების დაცვა.
 
@@ -88,6 +93,7 @@ Non-essential analytics ან marketing cookies უნდა ჩაირთო
 - Google Tag Manager, Google Analytics 4 და შესაძლო Google Ads tags — analytics/conversion, GTM container-ის კონფიგურაციის მიხედვით;
 - top.ge — ვიზიტების მრიცხველი;
 - Sentry — შეცდომებისა და საიტის სისწრაფის მონიტორინგი;
+- Telegram — საიტის შეფასებების მიწოდება საიტის ადმინისტრატორისთვის;
 - Google Maps და სხვა გარე წყაროები — მხოლოდ მაშინ, როცა მომხმარებელი თავად გადადის გარე ბმულზე.
 
 მესამე მხარეები მონაცემებს ამუშავებენ თავიანთი პირობების, მონაცემთა დამუშავების შეთანხმებებისა და შენახვის პოლიტიკების შესაბამისად.
@@ -106,6 +112,7 @@ Non-essential analytics ან marketing cookies უნდა ჩაირთო
 - theme preference და recent search — სანამ მომხმარებელი/ბრაუზერი არ წაშლის ან ფუნქცია არ შეიცვლება;
 - Google analytics records — Google tag/config-ზე დამოკიდებული;
 - ელფოსტის მიმოწერა — 2 წელი;
+- საიტის შეფასებები და შენიშვნები — 2 წელი;
 - contributor/photo credit — როგორც წესი, კონტენტის გამოქვეყნების განმავლობაში, თუ სხვა სამართლებრივი საფუძველი არ მოითხოვს ცვლილებას.
 
 ## თქვენი უფლებები {#rights}
@@ -180,6 +187,10 @@ If you contact us by email, we process your email address, your name, the conten
 
 Emails are kept for: 2 years.
 
+### Site rating
+
+If you rate the Site in the rating window, we receive the number of stars, the page address, the language, the country, the type of device and browser, the time spent on the Site, the number of pages viewed and the site you came from. If you choose fewer than 5 stars, we ask what we could do better, and the text you write is sent together with the rating. This reaches the Site administrator as a Telegram message and is used only to improve the Site. Please do not include your own or anyone else's personal data in this text.
+
 ### Authors, photographers and contributor data
 
 The Site may publicly show the name, link, short biography and credit of an author, photographer or contributor, and the date, general location or coordinates of a photo, where this is needed to credit the source or author correctly. Such data may stay published for as long as the related content is available on the Site, unless the law or an agreement requires otherwise.
@@ -194,6 +205,7 @@ Data is processed for the following purposes:
 - keeping your language, theme, quiz progress and other functional settings;
 - measuring use of the Site and improving its content;
 - replying to questions sent by email;
+- reviewing Site ratings and feedback to improve the Site;
 - properly crediting authors, photographers and sources;
 - meeting legal requirements and protecting rights.
 
@@ -222,6 +234,7 @@ The following third parties are used to run the Site:
 - Google Tag Manager, Google Analytics 4 and possible Google Ads tags: analytics/conversion, depending on the GTM container configuration;
 - top.ge: visit counter;
 - Sentry: monitoring of errors and Site speed;
+- Telegram: delivering Site ratings to the Site administrator;
 - Google Maps and other external sources: only when you follow an external link yourself.
 
 Third parties process data under their own terms, data processing agreements and retention policies.
@@ -240,6 +253,7 @@ Data is kept only for as long as the relevant purpose requires:
 - theme preference and recent searches: until you or your browser deletes them, or the feature changes;
 - Google analytics records: depends on the Google tag/configuration;
 - email correspondence: 2 years;
+- Site ratings and feedback: 2 years;
 - contributor/photo credits: as a rule, for as long as the content is published, unless another legal basis requires a change.
 
 ## Your rights {#rights}
@@ -314,6 +328,10 @@ const ru = `# Политика конфиденциальности
 
 Срок хранения писем: 2 года.
 
+### Оценка Сайта
+
+Если вы оцениваете Сайт в окне оценки, мы получаем количество звёзд, адрес страницы, язык, страну, тип устройства и браузера, время на Сайте, количество просмотренных страниц и сайт, с которого вы пришли. Если вы выбираете меньше 5 звёзд, мы спрашиваем, что нам улучшить, и написанный вами текст отправляется вместе с оценкой. Эта информация приходит администратору Сайта сообщением в Telegram и используется только для улучшения Сайта. Пожалуйста, не указывайте в этом тексте свои или чужие персональные данные.
+
 ### Данные авторов, фотографов и контрибьюторов
 
 На Сайте могут публично указываться имя, ссылка, краткая биография и указание авторства автора, фотографа или контрибьютора, а также дата, общее местоположение или координаты фотографии, если это нужно для правильного указания источника или авторства. Такие данные могут оставаться опубликованными, пока соответствующий материал доступен на Сайте, если закон или договорённость не требуют иного.
@@ -328,6 +346,7 @@ const ru = `# Политика конфиденциальности
 - сохранение языка, темы, прогресса квиза и других функциональных настроек;
 - измерение использования Сайта и улучшение его материалов;
 - ответы на вопросы, присланные по электронной почте;
+- рассмотрение оценок и отзывов о Сайте для его улучшения;
 - надлежащее указание авторов, фотографов и источников;
 - выполнение требований закона и защита прав.
 
@@ -356,6 +375,7 @@ const ru = `# Политика конфиденциальности
 - Google Tag Manager, Google Analytics 4 и возможные теги Google Ads — аналитика/конверсии в зависимости от настроек контейнера GTM;
 - top.ge — счётчик посещений;
 - Sentry — мониторинг ошибок и скорости Сайта;
+- Telegram — доставка оценок Сайта администратору Сайта;
 - Google Maps и другие внешние источники — только когда пользователь сам переходит по внешней ссылке.
 
 Третьи стороны обрабатывают данные в соответствии со своими условиями, соглашениями об обработке данных и политиками хранения.
@@ -374,6 +394,7 @@ const ru = `# Политика конфиденциальности
 - настройка темы и недавние поисковые запросы — пока пользователь или браузер их не удалит или пока функция не изменится;
 - записи аналитики Google — в зависимости от тега/настроек Google;
 - переписка по электронной почте — 2 года;
+- оценки и отзывы о Сайте — 2 года;
 - указания контрибьюторов/авторства фотографий — как правило, пока материал опубликован, если иное правовое основание не требует изменений.
 
 ## Ваши права {#rights}
@@ -448,6 +469,10 @@ Bize e-posta ile ulaşırsanız e-posta adresiniz, adınız, mesajınızın içe
 
 E-postaların saklama süresi: 2 yıl.
 
+### Site değerlendirmesi
+
+Siteyi değerlendirme penceresinde puanlarsanız yıldız sayısını, sayfa adresini, dili, ülkeyi, cihaz ve tarayıcı türünü, Sitede geçirilen süreyi, görüntülenen sayfa sayısını ve geldiğiniz siteyi alırız. 5'ten az yıldız seçerseniz neyi daha iyi yapabileceğimizi sorarız ve yazdığınız metin değerlendirmeyle birlikte gönderilir. Bu bilgi Site yöneticisine Telegram mesajı olarak ulaşır ve yalnızca Siteyi iyileştirmek için kullanılır. Lütfen bu metne kendinizin veya başkasının kişisel verilerini yazmayın.
+
 ### Yazar, fotoğrafçı ve katkıda bulunan verileri
 
 Kaynağın veya yazarlığın doğru belirtilmesi için gerektiğinde Sitede bir yazarın, fotoğrafçının veya katkıda bulunan kişinin adı, bağlantısı, kısa biyografisi ve künyesi ile bir fotoğrafın tarihi, genel konumu veya koordinatları herkese açık olarak yayımlanabilir. Bu veriler, yasa veya bir anlaşma aksini gerektirmedikçe, ilgili içerik Sitede yayında kaldığı sürece yayımlanmış kalabilir.
@@ -462,6 +487,7 @@ Veriler aşağıdaki amaçlarla işlenir:
 - dil, tema, quiz ilerlemesi ve diğer işlevsel ayarların korunması;
 - Sitenin kullanımının ölçülmesi ve içeriğin iyileştirilmesi;
 - e-posta ile gelen sorulara yanıt verilmesi;
+- Siteyi iyileştirmek için Site değerlendirmelerinin ve geri bildirimlerin incelenmesi;
 - yazarların, fotoğrafçıların ve kaynakların gereği gibi belirtilmesi;
 - yasal yükümlülüklerin yerine getirilmesi ve hakların korunması.
 
@@ -490,6 +516,7 @@ Sitenin çalışması için aşağıdaki üçüncü taraflar kullanılır:
 - Google Tag Manager, Google Analytics 4 ve olası Google Ads etiketleri: GTM container yapılandırmasına göre analitik/dönüşüm;
 - top.ge: ziyaret sayacı;
 - Sentry: hataların ve Site hızının izlenmesi;
+- Telegram: Site değerlendirmelerinin Site yöneticisine iletilmesi;
 - Google Maps ve diğer dış kaynaklar: yalnızca kullanıcı bir dış bağlantıya kendisi geçtiğinde.
 
 Üçüncü taraflar verileri kendi koşullarına, veri işleme sözleşmelerine ve saklama politikalarına göre işler.
@@ -508,6 +535,7 @@ Veriler yalnızca ilgili amaç için gereken süre boyunca saklanır:
 - tema tercihi ve son aramalar: kullanıcı veya tarayıcı silene ya da özellik değişene kadar;
 - Google analitik kayıtları: Google etiketine/yapılandırmasına bağlı;
 - e-posta yazışmaları: 2 yıl;
+- Site değerlendirmeleri ve geri bildirimler: 2 yıl;
 - katkıda bulunan/fotoğraf künyeleri: kural olarak içerik yayında kaldığı sürece, başka bir hukuki dayanak değişiklik gerektirmedikçe.
 
 ## Haklarınız {#rights}

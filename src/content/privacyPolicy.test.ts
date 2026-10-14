@@ -39,6 +39,7 @@ describe("privacy policy", () => {
         "Google Analytics 4",
         "top.ge",
         "Sentry",
+        "Telegram",
       ]) {
         expect(PRIVACY_POLICY[locale], `${locale} ${name}`).toContain(name);
       }
