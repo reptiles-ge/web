@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronDown, Globe } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useCallback, useId, useRef, useState } from "react";
@@ -14,6 +14,7 @@ import {
   chromeShellClass,
 } from "@/lib/chromeStyles";
 import { cn } from "@/lib/cn";
+import { localeShortLabel } from "@/lib/localeSwitch";
 
 type LanguageSwitcherProps = {
   variant?: "dark" | "light" | "menu";
@@ -111,13 +112,19 @@ export function LanguageSwitcher({ variant = "light" }: LanguageSwitcherProps) {
   return (
     <div className="relative shrink-0" ref={rootRef}>
       <button
+        aria-controls={listId}
         aria-expanded={open}
+        aria-haspopup="dialog"
         aria-label={t("switch")}
-        className={cn(chromeIconButtonBase, "md:hidden", iconButtonClass)}
-        onClick={() => setOpen(true)}
+        className={cn(
+          chromeIconButtonBase,
+          "w-auto min-w-10 px-2.5 text-[12.5px] font-semibold tracking-[0.06em] lg:hidden",
+          iconButtonClass,
+        )}
+        onClick={() => setOpen((value) => !value)}
         type="button"
       >
-        <Globe aria-hidden="true" className="size-3.5" strokeWidth={1.75} />
+        {localeShortLabel(locale)}
       </button>
 
       <button
@@ -125,7 +132,7 @@ export function LanguageSwitcher({ variant = "light" }: LanguageSwitcherProps) {
         aria-expanded={open}
         aria-label={t("switch")}
         className={cn(
-          "group hidden items-center gap-2.5 rounded-full border px-3.5 py-2 transition-all duration-300 md:flex",
+          "group hidden items-center gap-2.5 rounded-full border px-3.5 py-2 transition-all duration-300 lg:flex",
           shellClass,
         )}
         onClick={() => setOpen((value) => !value)}

@@ -87,6 +87,10 @@ const STANDALONE_GUIDES = new Set([
   "/venomous-snakes",
 ]);
 
+export function localeShortLabel(code: AppLocale) {
+  return code === "ka" ? "ქა" : code.toUpperCase();
+}
+
 export function resolvePageContextFromIndex(
   index: LocaleSwitchIndex,
   pathname: string,

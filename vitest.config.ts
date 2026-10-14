@@ -70,7 +70,6 @@ export default defineConfig({
         "src/components/IntentPrefetchLink.tsx",
         "src/components/IntlProvider.tsx",
         "src/components/JsonLd.tsx",
-        "src/components/LanguageSwitcher.tsx",
         "src/components/LegalDocumentPage.tsx",
         "src/components/LizardComparePage.tsx",
         "src/components/LizardHousePage.tsx",
