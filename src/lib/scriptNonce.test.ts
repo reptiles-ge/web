@@ -1,3 +1,4 @@
+import { Window } from "happy-dom";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
 import {
@@ -10,9 +11,6 @@ import { securityHeaders } from "@/lib/securityHeaders";
 
 type Handler = { element(element: RewriterElement): void };
 
-const TAG = /<(script|link)\b([^>]*?)(\/?)>/g;
-const ATTRIBUTE = /([a-z-]+)(?:="([^"]*)")?/gi;
-const CONDITION = /\[([a-z-]+)(~?=)"([^"]*)"\]/g;
 const NONCE = "TESTNONCE";
 
 class FakeRewriter implements HtmlRewriter {
@@ -24,28 +22,16 @@ class FakeRewriter implements HtmlRewriter {
   }
 
   transform(response: Response) {
-    const rewrite = (html: string) =>
-      html.replace(TAG, (_tag, name: string, rawAttributes: string, close) => {
-        const attributes = new Map(
-          [...rawAttributes.matchAll(ATTRIBUTE)].map((match) => [
-            match[1],
-            match[2] ?? "",
-          ]),
-        );
-        const element: RewriterElement = {
-          getAttribute: (key) => attributes.get(key) ?? null,
-          setAttribute: (key, value) => {
-            attributes.set(key, value);
-          },
-        };
-        for (const { handler, selector } of this.handlers) {
-          if (matches(selector, name, attributes)) handler.element(element);
+    const rewrite = (html: string) => {
+      const template = new Window().document.createElement("template");
+      template.innerHTML = html;
+      for (const { handler, selector } of this.handlers) {
+        for (const element of template.content.querySelectorAll(selector)) {
+          handler.element(element);
         }
-        const serialized = [...attributes]
-          .map(([key, value]) => ` ${key}="${value}"`)
-          .join("");
-        return `<${name}${serialized}${close}>`;
-      });
+      }
+      return template.innerHTML;
+    };
     const text = response.text().then(rewrite);
     const body = new ReadableStream<Uint8Array>({
       async start(controller) {
@@ -55,20 +41,6 @@ class FakeRewriter implements HtmlRewriter {
     });
     return new Response(body, response);
   }
-}
-
-function matches(
-  selector: string,
-  name: string,
-  attributes: Map<string, string>,
-) {
-  if (!selector.startsWith(name)) return false;
-  return [...selector.matchAll(CONDITION)].every(([, key, operator, value]) => {
-    const actual = attributes.get(key) ?? "";
-    return operator === "~="
-      ? actual.split(/\s+/).includes(value)
-      : actual === value;
-  });
 }
 
 const POLICY = securityHeaders(false).find(
