@@ -4,7 +4,10 @@ import type { AppLocale } from "@/i18n/routing";
 
 import { creditAuthorName, getCreditAuthorByName } from "@/data/creditAuthors";
 import { isVenomousDanger } from "@/data/speciesAtlasMeta";
-import { shortMetaDescription } from "@/lib/metaDescription";
+import {
+  metaDescriptionLimit,
+  sentenceMetaDescription,
+} from "@/lib/metaDescription";
 
 export function speciesFallbackDescriptionKey(
   group: AnimalGroup,
@@ -39,7 +42,6 @@ function speciesMetaTitle(
 }
 
 export const TARGET_META_TITLE_LENGTH = 60;
-const MAX_META_DESCRIPTION_LENGTH = 160;
 const MIN_SUMMARY_DESCRIPTION_LENGTH = 70;
 
 export function speciesTitleIntentKey(
@@ -287,6 +289,9 @@ export const SPECIES_META_DESCRIPTION_OVERRIDE: Partial<
     ru: "Кряква (Anas platyrhynchos) в Грузии: записи на карте, гнездовые озёра Джавахети, зимовки, признаки, сезоны и лимиты охоты.",
     tr: "Gürcistan'da yeşilbaş (Anas platyrhynchos): harita kayıtları, Cavaheti üreme gölleri, kışlama alanları, tanıma, av sezonu ve limitler.",
   },
+  "anguis-colchica": {
+    en: "Colchis slow worm (Anguis colchica): a harmless legless lizard in Georgia, often mistaken for a snake or the European glass lizard. A candidate species.",
+  },
   "araneus-diadematus": {
     en: "Araneus diadematus (garden or cross spider): a white cross on the abdomen and ringed legs. Confirmed in Georgia and harmless to people. Size and season.",
     ka: "ჩვეულებრივი ჯვრიანა (Araneus diadematus) საქართველოში — ამოცნობის ნიშნები, დადასტურებული გავრცელება, ჰაბიტატი, ზომა და რამდენად საშიშია ადამიანისთვის.",
@@ -330,6 +335,10 @@ export const SPECIES_META_DESCRIPTION_OVERRIDE: Partial<
   "coronella-austriaca": {
     ru: "Обыкновенная медянка (Coronella austriaca) — безвредная змея, которую путают с гадюкой. Как отличить по чешуе и зрачку, размер и где встречается в Грузии.",
   },
+  "corvus-corax": {
+    en: "Northern raven (Corvus corax): the largest crow in Georgia, all black with a heavy bill and a wedge-shaped tail. It nests here and stays year-round.",
+    ru: "Ворон (Corvus corax) — самая крупная птица семейства врановых в Грузии. Гнездится здесь и живёт круглый год; для человека не опасен.",
+  },
   "dolichophis-schmidti": {
     ka: "წითელმუცელა მცურავი (Dolichophis schmidti) საქართველოში — ამოცნობის ნიშნები, აღმოსავლეთ საქართველოს ჰაბიტატები, ზომა, ქცევა და რამდენად საშიშია ადამიანისთვის.",
   },
@@ -354,12 +363,13 @@ export const SPECIES_META_DESCRIPTION_OVERRIDE: Partial<
     en: "Halyomorpha halys (brown marmorated stink bug): marbled shield, white-banded antennae, no bite. Hazelnut damage in Georgia, why it enters homes, removal.",
     ka: "აზიური ფაროსანა (Halyomorpha halys) საქართველოში — როგორ ამოვიცნოთ, რას აზიანებს, სად გვხვდება, რატომ შედის სახლში და როგორ მოვიქცეთ უსაფრთხოდ.",
     ru: "Азиатский мраморный клоп (Halyomorpha halys) в Грузии: щитовидное тело, белые полосы на усиках. Не кусается. Почему осенью лезет в дом и как его убрать.",
+    tr: "Kahverengi kokarca (Halyomorpha halys) Gürcistan’da: 2016’dan beri kayıtlı istilacı bir böcek. Tanıma işaretleri, ürün zararı ve evden uzaklaştırma.",
   },
   "latrodectus-tredecimguttatus": {
     ru: "Каракурт (Latrodectus tredecimguttatus) в Грузии: чёрный паук с круглым брюшком, часто с красными пятнами. Высокий риск. Где живёт, что делать при укусе.",
   },
   "lutra-lutra": {
-    en: "Eurasian otter (Lutra lutra) in Georgia: identification, the rivers and lakes where it lives, diet, a map of records, and its VU status on Georgia's Red List.",
+    en: "Eurasian otter (Lutra lutra) in Georgia: identification, the rivers and lakes where it lives, diet, a map of records, and VU status on Georgia's Red List.",
     ka: "წავი (Lutra lutra) მდინარეებისა და ტბების ნახევრადწყლის მტაცებელია, საქართველოს წითელ ნუსხაში მოწყვლადი (VU). ფოტოები, ნიშნები, კვება და გავრცელება.",
     ru: "Выдра (Lutra lutra) в Грузии: как узнать, реки и озёра, где она живёт, питание, карта находок и статус VU в Красном списке Грузии.",
     tr: "Gürcistan'da su samuru (Lutra lutra): tanıma, yaşadığı nehir ve göller, beslenme, kayıt haritası ve Gürcistan Kırmızı Listesi'ndeki VU statüsü.",
@@ -382,6 +392,9 @@ export const SPECIES_META_DESCRIPTION_OVERRIDE: Partial<
   "mesobuthus-eupeus": {
     en: "Mottled scorpion (Mesobuthus eupeus) in Georgia: taxonomy, Tbilisi evidence, identification notes, habitat, sting risk, and sources.",
     ka: "ჭრელი მორიელი (Mesobuthus eupeus) საქართველოში — ტაქსონომია, თბილისის მტკიცებულება, ამოცნობა, ჰაბიტატი, ნაკბენის რისკი და წყაროები.",
+  },
+  "milvus-migrans": {
+    tr: "Kara çaylak (Milvus migrans) Gürcistan’da yerleşik, geçiş göçmeni ve kış ziyaretçisidir. Sonbaharda Batum’dan kitlesel geçer; kartal değildir.",
   },
   "mustela-nivalis": {
     en: "Least weasel (Mustela nivalis): tiny brown predator, white belly, short tail with no black tip. Photos, how to tell it from a stoat, where in Georgia.",
@@ -410,6 +423,14 @@ export const SPECIES_META_DESCRIPTION_OVERRIDE: Partial<
   "telescopus-fallax": {
     en: "European cat snake (Telescopus fallax): slender, nocturnal, vertical pupils, so often taken for a viper. Rear-fanged but not a serious danger to people.",
   },
+  "trachemys-scripta": {
+    en: "Pond slider (Trachemys scripta) in Georgia: a non-native pet turtle with a red stripe behind the eye, recorded near Tbilisi and Batumi. Never release it.",
+  },
+  "turdus-merula": {
+    en: "Common blackbird (Turdus merula) in Georgia: a year-round resident that nests here. Males are black with a yellow-orange bill; females are dark brown.",
+    ru: "Чёрный дрозд (Turdus merula) в Грузии гнездится и живёт круглый год. Самец чёрный с жёлто-оранжевым клювом, самка тёмно-коричневая.",
+    tr: "Karatavuk (Turdus merula) Gürcistan’da yıl boyu görülür ve yuva yapar. Erkek sarı-turuncu gagalı siyah, dişi ise koyu kahverengidir.",
+  },
   "ursus-arctos": {
     ka: "მურა დათვი (Ursus arctos) საქართველოში — როგორ ამოვიცნოთ, სად ბინადრობს, რა ზომისაა, რას ჭამს, რა რისკს ქმნის ადამიანისთვის და რა კონსერვაციული სტატუსი აქვს.",
   },
@@ -417,6 +438,7 @@ export const SPECIES_META_DESCRIPTION_OVERRIDE: Partial<
     ka: "კავკასიური გველგესლა (Vipera kaznakovi) საქართველოში — ამოცნობა, გავრცელება დასავლეთ საქართველოს კოლხურ ზონებში, ნაკბენის რისკი და EN სტატუსი.",
   },
   "vulpes-vulpes": {
+    en: "Red fox (Vulpes vulpes) in Georgia: a native, year-round predator of the dog family. How to recognise it, its size, and the bite and rabies risk.",
     ka: "მელა (Vulpes vulpes) საქართველოში — სად გვხვდება, როგორ ამოვიცნოთ, რა ზომისაა, რას ჭამს და რა უნდა ვიცოდეთ ადამიანისთვის ცოფის შესაძლო რისკზე.",
   },
   "zamenis-longissimus": {
@@ -432,8 +454,14 @@ export function speciesImageAlt(
   return `${commonName} (${scientificName}) ${location}`;
 }
 
-export function speciesMetaDescription(overview: string, maxLength = 160) {
-  return shortMetaDescription(overview, maxLength);
+export function speciesMetaDescription(
+  text: { description: string; overview: string },
+  locale: AppLocale,
+) {
+  return (
+    speciesSummaryDescription(text.description, locale) ??
+    sentenceMetaDescription(text.overview, metaDescriptionLimit(locale))
+  );
 }
 
 export function speciesMetaDescriptionOverride(
@@ -441,7 +469,7 @@ export function speciesMetaDescriptionOverride(
   locale: AppLocale,
 ) {
   const override = SPECIES_META_DESCRIPTION_OVERRIDE[speciesId]?.[locale];
-  return override ? shortMetaDescription(override) : undefined;
+  return override || undefined;
 }
 
 export function speciesPageMetaTitle(
@@ -476,10 +504,13 @@ export function speciesPhotoAlt(
   return parts.join(" — ");
 }
 
-export function speciesSummaryDescription(description: string) {
+export function speciesSummaryDescription(
+  description: string,
+  locale: AppLocale,
+) {
   const text = description.trim();
   return text.length >= MIN_SUMMARY_DESCRIPTION_LENGTH &&
-    text.length <= MAX_META_DESCRIPTION_LENGTH
+    text.length <= metaDescriptionLimit(locale)
     ? text
     : undefined;
 }

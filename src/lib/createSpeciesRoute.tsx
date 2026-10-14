@@ -55,7 +55,6 @@ import {
   speciesMetaDescription,
   speciesMetaDescriptionOverride,
   speciesPageMetaTitle,
-  speciesSummaryDescription,
   speciesTitleIntentKey,
 } from "@/lib/speciesMeta";
 import {
@@ -149,8 +148,7 @@ export function createSpeciesHubRoute(hubId: GroupHubId) {
             name: item.commonName,
             scientific: item.scientificName,
           })
-        : (speciesSummaryDescription(item.description) ??
-          speciesMetaDescription(item.overview)));
+        : speciesMetaDescription(item, locale));
     const url = speciesPageUrl(locale, item.id);
     const description = kaMetaDescriptionOverride(
       locale,
