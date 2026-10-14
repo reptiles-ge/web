@@ -21,7 +21,7 @@ describe("Claude stage profiles", () => {
     });
     expect(claudeProfileSettings("super:lookalikes", 0).effort).toBe("high");
     expect(claudeProfileSettings("super:texts", 0)).toEqual({
-      effort: "medium",
+      effort: "high",
       model: "claude-opus-5-5",
     });
     expect(claudeProfileSettings("super:links", 0)).toEqual({

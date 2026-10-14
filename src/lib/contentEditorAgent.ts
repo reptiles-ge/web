@@ -27,7 +27,11 @@ export async function transformWithAgent(input: {
     const schema = path.join(directory, "schema.json");
     const output = path.join(directory, "output.json");
     await fs.writeFile(schema, JSON.stringify(OUTPUT_SCHEMA));
-    const prompt = buildEditorPrompt(input);
+    const styleGuide = await fs.readFile(
+      path.join(process.cwd(), "src/prompts/writing-style.md"),
+      "utf8",
+    );
+    const prompt = buildEditorPrompt({ ...input, styleGuide });
     await runAgent({
       access: "read-only",
       cwd: directory,

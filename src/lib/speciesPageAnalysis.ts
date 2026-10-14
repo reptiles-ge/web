@@ -92,14 +92,16 @@ export async function speciesCreationCodexPrompt(input: SpeciesCreationInput) {
     input.scientificName,
   );
   if (id !== input.id) throw new Error("Invalid species id");
-  const template = await fs.readFile(
-    path.join(root, "src/prompts/species-page-create.md"),
-    "utf8",
+  const [template, style] = await Promise.all(
+    ["species-page-create.md", "writing-style.md"].map((file) =>
+      fs.readFile(path.join(root, "src/prompts", file), "utf8"),
+    ),
   );
-  const prompt = template
-    .replaceAll("{{COMMON_NAME}}", commonName)
-    .replaceAll("{{SCIENTIFIC_NAME}}", scientificName)
-    .replaceAll("{{SPECIES_ID}}", id);
+  const prompt =
+    `${template}\n\nWRITING STYLE (binding house style for every reader-facing text you write)\n\n${style}`
+      .replaceAll("{{COMMON_NAME}}", commonName)
+      .replaceAll("{{SCIENTIFIC_NAME}}", scientificName)
+      .replaceAll("{{SPECIES_ID}}", id);
   const allowedFiles = [
     ...["ka", "en", "ru", "tr"].map(
       (locale) => `src/content/species/${id}/${locale}.mdx`,

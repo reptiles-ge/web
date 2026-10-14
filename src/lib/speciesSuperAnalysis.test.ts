@@ -406,6 +406,64 @@ describe("four-stage Super Analysis runner", () => {
   );
 
   it.each([true, false])(
+    "sends one style repair for house-style violations (%s)",
+    async (repairSucceeds) => {
+      let calls = 0;
+      mockAgent(async ({ output, prompt }) => {
+        const stage = SUPER_ANALYSIS_STAGES[Math.min(calls, 3)];
+        calls++;
+        if (stage !== "links")
+          expect(prompt).toContain("WRITING STYLE (binding house style");
+        if (calls === 5) {
+          expect(prompt).toContain("STYLE REPAIR");
+          expect(prompt).toContain(
+            "en overview [R13]: banned phrase „this atlas“",
+          );
+        }
+        const response: SuperAnalysisResult = {
+          coverage: speciesAnalysisSurfaces.map((surface) => surface.id),
+          edits: [],
+          evidence: [],
+          findings: [],
+          lookalikes: [],
+          sources: [],
+          stage,
+          summary: "Reviewed",
+        };
+        if (stage === "texts")
+          response.edits = [
+            {
+              after: {
+                ...values("A bird measures 20 cm."),
+                en:
+                  calls === 5 && repairSucceeds
+                    ? "A bird measures 20 cm."
+                    : "This atlas lists a bird of 20 cm.",
+              },
+              before: values("A bird is 20 cm."),
+              evidenceIds: [],
+              field: "overview",
+              reason: "Clearer phrasing",
+            },
+          ];
+        await fs.writeFile(output, JSON.stringify(response));
+      });
+      const run = await createSuperAnalysisRunner(id, worktree, directory);
+      for (const stage of SUPER_ANALYSIS_STAGES.slice(0, 3)) await run(stage);
+      const report = await run("texts");
+      expect(calls).toBe(5);
+      const saved = (await readSpeciesAnalysisContent(id, worktree)).en.data;
+      expect(saved.overview).toBe(
+        repairSucceeds
+          ? "A bird measures 20 cm."
+          : "This atlas lists a bird of 20 cm.",
+      );
+      if (repairSucceeds) expect(report).not.toContain("House style");
+      else expect(report).toContain("[review] overview: House style R13");
+    },
+  );
+
+  it.each([true, false])(
     "repairs scientific-name loss or preserves the original field (%s)",
     async (repairSucceeds) => {
       const initial = original.replace(
