@@ -7,6 +7,7 @@ import { BATUMI_19300_RAPTORS_2026 } from "@/content/news/batumi-19300-raptors-2
 import { BEZOAR_GOAT_RESTORATION_JAVAKHETI_2026 } from "@/content/news/bezoar-goat-restoration-javakheti-2026";
 import { CAUCASIAN_TOAD_BUFO_VERRUCOSISSIMUS_TAXONOMY_2026 } from "@/content/news/caucasian-toad-bufo-verrucosissimus-taxonomy-2026";
 import { DAREVSKIA_UZZELLI_ARMENIA_2026 } from "@/content/news/darevskia-uzzelli-armenia-2026";
+import { FROM_THE_SKY_RAPTOR_POACHING_FILM_BATUMI } from "@/content/news/from-the-sky-raptor-poaching-film-batumi";
 import { GEORGIA_DOLPHIN_STRANDINGS_2026 } from "@/content/news/georgia-dolphin-strandings-2026";
 import { GEORGIA_HERPETOFAUNA_CHECKLIST_2026 } from "@/content/news/georgia-herpetofauna-checklist-2026";
 import { GEORGIAN_SNAKES_AREA_OF_OCCUPANCY_2026 } from "@/content/news/georgian-snakes-area-of-occupancy-2026";
@@ -20,6 +21,7 @@ import { GROUP_HUBS } from "@/lib/groupHubs";
 export type { NewsArticle, NewsPhoto, NewsSource } from "@/data/newsTypes";
 
 const NEWS_ARTICLES: readonly NewsArticle[] = [
+  FROM_THE_SKY_RAPTOR_POACHING_FILM_BATUMI,
   BEZOAR_GOAT_RESTORATION_JAVAKHETI_2026,
   CAUCASIAN_TOAD_BUFO_VERRUCOSISSIMUS_TAXONOMY_2026,
   GEORGIAN_SNAKES_AREA_OF_OCCUPANCY_2026,
