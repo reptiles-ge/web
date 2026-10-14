@@ -5,9 +5,11 @@ import { describe, expect, it } from "vitest";
 
 import {
   type ConfigHeader,
+  scriptSourceOrigins,
   securityHeaders,
   SITE_HEADERS_SOURCE,
   STRICT_TRANSPORT_SECURITY,
+  withScriptNonce,
 } from "@/lib/securityHeaders";
 
 type MatchHeaders = (
@@ -61,6 +63,44 @@ describe("securityHeaders", () => {
     expect(headerValue(false, "Content-Security-Policy")).toContain(
       "frame-ancestors 'none'",
     );
+  });
+
+  it("allows eval only in local development", () => {
+    expect(headerValue(false, "Content-Security-Policy")).not.toContain(
+      "'unsafe-eval'",
+    );
+    expect(headerValue(true, "Content-Security-Policy")).toContain(
+      "'unsafe-eval'",
+    );
+  });
+
+  it("swaps unsafe-inline for a nonce and strict-dynamic in script-src only", () => {
+    const policy = withScriptNonce(
+      headerValue(false, "Content-Security-Policy")!,
+      "abc",
+    );
+    const directives = policy.split("; ");
+    const scriptSrc = directives.find((value) =>
+      value.startsWith("script-src "),
+    )!;
+
+    expect(scriptSrc).toMatch(/^script-src 'self' https:/);
+    expect(scriptSrc).toMatch(/ 'nonce-abc' 'strict-dynamic'$/);
+    expect(scriptSrc).not.toContain("'unsafe-inline'");
+    expect(directives).toContain("style-src 'self' 'unsafe-inline'");
+    expect(directives).toContain("frame-ancestors 'none'");
+  });
+
+  it("lists the exact script origins without wildcards or keywords", () => {
+    expect(
+      scriptSourceOrigins(headerValue(false, "Content-Security-Policy")!),
+    ).toEqual([
+      "https://www.googletagmanager.com",
+      "https://www.google-analytics.com",
+      "https://ssl.google-analytics.com",
+      "https://counter.top.ge",
+    ]);
+    expect(scriptSourceOrigins("default-src 'self'")).toEqual([]);
   });
 
   it.each(["/", "/gvelebi", "/en", "/en/snakes/macrovipera-lebetina"])(

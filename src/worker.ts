@@ -3,6 +3,7 @@ import handler from "vinext/server/fetch-handler";
 import { maintenanceResponse } from "@/lib/maintenance";
 import { withResponseCacheControl } from "@/lib/responseCacheControl";
 import { canonicalRscRequest } from "@/lib/rscCanonicalRequest";
+import { addScriptNonce } from "@/lib/scriptNonce";
 
 export * from "vinext/server/fetch-handler";
 
@@ -16,9 +17,12 @@ const worker: FetchHandler = {
   ...base,
   fetch: async (request, env, ctx) =>
     maintenanceResponse(request, env) ??
-    withResponseCacheControl(
+    addScriptNonce(
       request,
-      await base.fetch(canonicalRscRequest(request), env, ctx),
+      withResponseCacheControl(
+        request,
+        await base.fetch(canonicalRscRequest(request), env, ctx),
+      ),
     ),
 };
 
