@@ -5,6 +5,7 @@ import { parseArgs } from "node:util";
 const { values } = parseArgs({
   options: {
     concurrency: { default: "8", type: "string" },
+    indexnow: { default: false, type: "boolean" },
     origin: { default: "https://reptiles.ge", type: "string" },
     strict: { default: false, type: "boolean" },
     "wait-for-deploy": { default: "0", type: "string" },
@@ -18,6 +19,9 @@ const WAIT_SECONDS = Math.max(
   Number.parseInt(values["wait-for-deploy"], 10) || 0,
 );
 const BUILD_HEADER = "x-vinext-build-id";
+const INDEXNOW_ENDPOINT = "https://api.indexnow.org/indexnow";
+const INDEXNOW_KEY_PATH = "/indexnow.txt";
+const INDEXNOW_MAX_URLS = 10_000;
 const CACHE_HEADER = "x-vinext-cache";
 const MAINTENANCE_HEADER = "x-reptiles-maintenance";
 const POLL_INTERVAL_MS = 10_000;
@@ -59,11 +63,12 @@ async function waitForDeploy() {
     const current = await readBuildId();
     if (current && current !== initial) {
       console.log(`new build is live: ${current}`);
-      return;
+      return true;
     }
   }
 
   console.log("no new build appeared, warming the current one");
+  return false;
 }
 
 async function readSitemap() {
@@ -72,12 +77,64 @@ async function readSitemap() {
   if (!response.ok) throw new Error(`sitemap responded ${response.status}`);
 
   const xml = await response.text();
-  const urls = new Set();
-  for (const match of xml.matchAll(/<loc>([^<]+)<\/loc>/g)) {
-    const url = new URL(match[1].trim().replaceAll("&amp;", "&"));
-    urls.add(`${ORIGIN}${url.pathname}${url.search}`);
+  const entries = new Map();
+  for (const match of xml.matchAll(/<url>([\s\S]*?)<\/url>/g)) {
+    const loc = match[1].match(/<loc>([^<]+)<\/loc>/)?.[1];
+    if (!loc) continue;
+    const url = new URL(loc.trim().replaceAll("&amp;", "&"));
+    const lastmod = match[1].match(/<lastmod>([^<]+)<\/lastmod>/)?.[1];
+    entries.set(`${ORIGIN}${url.pathname}${url.search}`, lastmod?.trim());
   }
-  return [...urls];
+  return entries;
+}
+
+function changedUrls(before, after) {
+  const changed = [];
+  for (const [url, lastmod] of after) {
+    if (!before.has(url) || before.get(url) !== lastmod) changed.push(url);
+  }
+  for (const url of before.keys()) {
+    if (!after.has(url)) changed.push(url);
+  }
+  return changed;
+}
+
+async function submitToIndexNow(urls) {
+  if (urls.length === 0) {
+    console.log("indexnow: no changed urls");
+    return 0;
+  }
+
+  const keyResponse = await get(`${ORIGIN}${INDEXNOW_KEY_PATH}`);
+  if (!keyResponse.ok) {
+    console.log(`indexnow: key file responded ${keyResponse.status}`);
+    return 1;
+  }
+  const key = (await keyResponse.text()).trim();
+  const host = new URL(ORIGIN).host;
+
+  let failed = 0;
+  for (let start = 0; start < urls.length; start += INDEXNOW_MAX_URLS) {
+    const urlList = urls.slice(start, start + INDEXNOW_MAX_URLS);
+    const response = await fetch(INDEXNOW_ENDPOINT, {
+      body: JSON.stringify({
+        host,
+        key,
+        keyLocation: `${ORIGIN}${INDEXNOW_KEY_PATH}`,
+        urlList,
+      }),
+      headers: {
+        "content-type": "application/json; charset=utf-8",
+        "user-agent": USER_AGENT,
+      },
+      method: "POST",
+      signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
+    });
+    console.log(`indexnow: ${urlList.length} urls, ${response.status}`);
+    if (!response.ok) failed += 1;
+  }
+  for (const url of urls) console.log(`  indexnow ${url}`);
+  return failed;
 }
 
 function rscUrl(url) {
@@ -163,13 +220,15 @@ function report(results, seconds) {
 }
 
 async function main() {
-  if (WAIT_SECONDS > 0) await waitForDeploy();
+  const before = values.indexnow ? await readSitemap() : null;
+  const deployed = WAIT_SECONDS > 0 && (await waitForDeploy());
 
-  const urls = await readSitemap();
-  if (!urls) {
+  const sitemap = await readSitemap();
+  if (!sitemap) {
     console.log(`${ORIGIN} is under maintenance, nothing to warm`);
     return 0;
   }
+  const urls = [...sitemap.keys()];
   console.log(`warming ${urls.length} urls on ${ORIGIN}`);
 
   const started = performance.now();
@@ -177,7 +236,14 @@ async function main() {
     ...urls.map((url) => ({ kind: "html", url })),
     ...urls.map((url) => ({ kind: "rsc", url: rscUrl(url) })),
   ]);
-  return report(results, (performance.now() - started) / 1000);
+  const failed = report(results, (performance.now() - started) / 1000);
+
+  if (!before) return failed;
+  if (!deployed) {
+    console.log("indexnow: no new build, nothing submitted");
+    return failed;
+  }
+  return failed + (await submitToIndexNow(changedUrls(before, sitemap)));
 }
 
 try {

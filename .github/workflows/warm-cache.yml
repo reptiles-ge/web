@@ -23,5 +23,5 @@ jobs:
         with:
           node-version: 22
 
-      - name: Wait for the deploy, then request every sitemap URL
-        run: node scripts/warm-cache.mjs --wait-for-deploy ${{ github.event_name == 'push' && '900' || '0' }}
+      - name: Wait for the deploy, request every sitemap URL, submit changed URLs to IndexNow
+        run: node scripts/warm-cache.mjs --indexnow --wait-for-deploy ${{ github.event_name == 'push' && '900' || '0' }}
