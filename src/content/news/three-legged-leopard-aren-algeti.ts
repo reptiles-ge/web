@@ -85,9 +85,9 @@ export const THREE_LEGGED_LEOPARD_AREN_ALGETI: NewsArticle = {
             {
               parts: [
                 "The species ",
-                "{ name: \"Panthera pardus\", type: \"sci\" }",
+                { name: "Panthera pardus", type: "sci" },
                 " is Vulnerable on the IUCN Red List, and the subspecies ",
-                "{ name: \"P. p. tulliana\", type: \"sci\" }",
+                { name: "P. p. tulliana", type: "sci" },
                 " was assessed as Endangered in 2023. Georgia's 2014 Red List lists the leopard as Critically Endangered (CR) because the population is very small.",
               ],
               type: "p",
@@ -280,9 +280,9 @@ export const THREE_LEGGED_LEOPARD_AREN_ALGETI: NewsArticle = {
             {
               parts: [
                 "ლეოპარდს ქართულად ჯიქსაც უწოდებენ. სახეობა ",
-                "{ name: \"Panthera pardus\", type: \"sci\" }",
+                { name: "Panthera pardus", type: "sci" },
                 " IUCN-ის წითელ ნუსხაში მოწყვლადია (Vulnerable), ქვესახეობა ",
-                "{ name: \"P. p. tulliana\", type: \"sci\" }",
+                { name: "P. p. tulliana", type: "sci" },
                 " კი 2023 წლის შეფასებით საფრთხის ქვეშ მყოფია (Endangered). საქართველოს 2014 წლის წითელ ნუსხაში ჯიქი კრიტიკული საფრთხის ქვეშ მყოფია (CR) — ძალზე მცირე პოპულაციის გამო.",
               ],
               type: "p",
@@ -475,9 +475,9 @@ export const THREE_LEGGED_LEOPARD_AREN_ALGETI: NewsArticle = {
             {
               parts: [
                 "Вид ",
-                "{ name: \"Panthera pardus\", type: \"sci\" }",
+                { name: "Panthera pardus", type: "sci" },
                 " в Красном списке IUCN имеет статус «уязвимый» (Vulnerable), а подвид ",
-                "{ name: \"P. p. tulliana\", type: \"sci\" }",
+                { name: "P. p. tulliana", type: "sci" },
                 " в оценке 2023 года отнесён к категории «под угрозой» (Endangered). В Красном списке Грузии 2014 года леопард значится как находящийся под критической угрозой (CR) из-за очень малой численности.",
               ],
               type: "p",
@@ -669,9 +669,9 @@ export const THREE_LEGGED_LEOPARD_AREN_ALGETI: NewsArticle = {
             },
             {
               parts: [
-                "{ name: \"Panthera pardus\", type: \"sci\" }",
+                { name: "Panthera pardus", type: "sci" },
                 " türü IUCN Kırmızı Listesi'nde Hassas (Vulnerable), ",
-                "{ name: \"P. p. tulliana\", type: \"sci\" }",
+                { name: "P. p. tulliana", type: "sci" },
                 " alttürü ise 2023 değerlendirmesinde Tehlikede (Endangered) kategorisinde. Gürcistan'ın 2014 Kırmızı Listesi'nde leopar, popülasyonu çok küçük olduğu için Kritik Tehlikede (CR) olarak yer alıyor.",
               ],
               type: "p",
