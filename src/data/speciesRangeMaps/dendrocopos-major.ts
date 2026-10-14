@@ -8,45 +8,41 @@ export const rangeMap: InteractiveRangeMapConfig = {
     en: {
       ...HALYOMORPHA_RANGE_COPY.en,
       intro:
-        "The great spotted woodpecker map uses public iNaturalist photo observations in Georgia. Regions come from the records-by-region table: only confirmed status counts as distribution; otherwise a region is not treated as part of the range. Record counts reflect observation effort, not population density.",
+        "The great spotted woodpecker map uses public iNaturalist photo observations in Georgia. Regions come from the records-by-region table: only regions with enough records are shaded on the map; other regions are not shaded. Record counts reflect observation effort, not population density.",
       mapAria:
-        "Great spotted woodpecker observations and confirmed distribution regions on a map of Georgia",
-      officialRegionLabel: "Confirmed distribution region",
-      rangeTitle:
-        "Great spotted woodpecker: where its distribution is confirmed in Georgia",
+        "Great spotted woodpecker observations and regions with records on a map of Georgia",
+      officialRegionLabel: "Region with records",
+      rangeTitle: "Great spotted woodpecker: where it is recorded in Georgia",
       regionsMetricLabel: "regions with records",
     },
     ka: {
       ...HALYOMORPHA_RANGE_COPY.ka,
       intro:
-        "დიდი ჭრელი კოდალას რუკა საქართველოს iNaturalist-ის საჯარო ფოტოდაკვირვებებს ეყრდნობა. რეგიონები აღებულია ჩანაწერების რეგიონული ცხრილიდან: გავრცელებად ითვლება მხოლოდ დადასტურებული სტატუსი; სხვა შემთხვევაში რეგიონი გავრცელებულად არ ითვლება. ჩანაწერების რაოდენობა დაკვირვების ინტენსივობას ასახავს და არა პოპულაციის სიმჭიდროვეს.",
+        "დიდი ჭრელი კოდალას რუკა საქართველოს iNaturalist-ის საჯარო ფოტოდაკვირვებებს ეყრდნობა. რეგიონები აღებულია ჩანაწერების რეგიონული ცხრილიდან: რუკაზე მონიშნულია მხოლოდ საკმარისი ჩანაწერების მქონე რეგიონები; დანარჩენი რეგიონები მონიშნული არ არის. ჩანაწერების რაოდენობა დაკვირვების ინტენსივობას ასახავს და არა პოპულაციის სიმჭიდროვეს.",
       mapAria:
-        "დიდი ჭრელი კოდალას დაკვირვებები და დადასტურებული გავრცელების რეგიონები საქართველოს რუკაზე",
-      officialRegionLabel: "დადასტურებული გავრცელების რეგიონი",
-      rangeTitle:
-        "სად არის დიდი ჭრელი კოდალას გავრცელება დადასტურებული საქართველოში",
+        "დიდი ჭრელი კოდალას დაკვირვებები და ჩანაწერების მქონე რეგიონები საქართველოს რუკაზე",
+      officialRegionLabel: "ჩანაწერების მქონე რეგიონი",
+      rangeTitle: "სად არის დიდი ჭრელი კოდალა დაფიქსირებული საქართველოში",
       regionsMetricLabel: "რეგიონი ჩანაწერით",
     },
     ru: {
       ...HALYOMORPHA_RANGE_COPY.ru,
       intro:
-        "Карта большого пёстрого дятла использует публичные фотонаблюдения iNaturalist в Грузии. Регионы взяты из таблицы записей: распространением считается только подтверждённый статус; в остальных случаях регион распространением не считается. Число записей отражает активность наблюдателей, а не плотность популяции.",
+        "Карта большого пёстрого дятла использует публичные фотонаблюдения iNaturalist в Грузии. Регионы взяты из таблицы записей: на карте закрашены только регионы с достаточным числом записей; остальные регионы не закрашены. Число записей отражает активность наблюдателей, а не плотность популяции.",
       mapAria:
-        "Наблюдения большого пёстрого дятла и регионы с подтверждённым распространением на карте Грузии",
-      officialRegionLabel: "Регион с подтверждённым распространением",
-      rangeTitle:
-        "Где распространение большого пёстрого дятла подтверждено в Грузии",
+        "Наблюдения большого пёстрого дятла и регионы с записями на карте Грузии",
+      officialRegionLabel: "Регион с записями",
+      rangeTitle: "Где большой пёстрый дятел отмечен в Грузии",
       regionsMetricLabel: "регионов с записями",
     },
     tr: {
       ...HALYOMORPHA_RANGE_COPY.tr,
       intro:
-        "Orman alaca ağaçkakanı haritası Gürcistan'daki herkese açık iNaturalist fotoğraflı gözlemlerini kullanır. Bölgeler, bölgelere göre kayıt tablosundan alınır: yalnızca doğrulanmış durum yayılış sayılır; aksi halde bölge yayılış sayılmaz. Kayıt sayısı nüfus yoğunluğunu değil, gözlem çabasını yansıtır.",
+        "Orman alaca ağaçkakanı haritası Gürcistan'daki herkese açık iNaturalist fotoğraflı gözlemlerini kullanır. Bölgeler, bölgelere göre kayıt tablosundan alınır: haritada yalnızca yeterli kaydı olan bölgeler gösterilir; diğer bölgeler gösterilmez. Kayıt sayısı nüfus yoğunluğunu değil, gözlem çabasını yansıtır.",
       mapAria:
-        "Orman alaca ağaçkakanı gözlemleri ve Gürcistan'da yayılışı doğrulanmış bölgeler",
-      officialRegionLabel: "Yayılışı doğrulanmış bölge",
-      rangeTitle:
-        "Orman alaca ağaçkakanının Gürcistan'da yayılışı nerede doğrulandı?",
+        "Orman alaca ağaçkakanı gözlemleri ve Gürcistan'da kayıt bulunan bölgeler",
+      officialRegionLabel: "Kayıt bulunan bölge",
+      rangeTitle: "Orman alaca ağaçkakanı Gürcistan'da nerede kaydedildi?",
       regionsMetricLabel: "kayıt bulunan bölge",
     },
   },

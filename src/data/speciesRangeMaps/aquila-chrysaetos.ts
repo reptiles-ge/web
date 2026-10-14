@@ -8,36 +8,36 @@ export const rangeMap: InteractiveRangeMapConfig = {
     en: {
       ...HALYOMORPHA_RANGE_COPY.en,
       intro:
-        "The golden eagle map uses public iNaturalist observations from Georgia. A region counts as confirmed distribution with at least four records in the table; regions with fewer records remain recorded only. Record counts reflect observation effort, not population density or breeding status.",
+        "The golden eagle map uses public iNaturalist observations from Georgia. A region is shaded on the map with at least four records in the table; regions with fewer records are marked “Too few records”. Record counts reflect observation effort, not population density or breeding status.",
       mapAria:
-        "Golden eagle observations and confirmed regions on a map of Georgia",
-      officialRegionLabel: "Confirmed distribution region",
+        "Golden eagle observations and regions with records on a map of Georgia",
+      officialRegionLabel: "Region with records",
       rangeTitle: "Golden eagle: where it is recorded in Georgia",
     },
     ka: {
       ...HALYOMORPHA_RANGE_COPY.ka,
       intro:
-        "მთის არწივის რუკა იყენებს iNaturalist-ის საჯარო დაკვირვებებს საქართველოდან. ცხრილში რეგიონს გავრცელება უდასტურდება მინიმუმ ოთხი ჩანაწერით; ნაკლები ჩანაწერის მქონე რეგიონში სახეობა მხოლოდ დაფიქსირებულია. ჩანაწერების რაოდენობა ასახავს დაკვირვების ინტენსივობას და არა პოპულაციის სიმჭიდროვეს ან ბუდობის სტატუსს.",
+        "მთის არწივის რუკა იყენებს iNaturalist-ის საჯარო დაკვირვებებს საქართველოდან. ცხრილში რეგიონი რუკაზე გამოიყოფა მინიმუმ ოთხი ჩანაწერით; ნაკლები ჩანაწერის მქონე რეგიონი მონიშნულია როგორც „ჩანაწერები ცოტაა“. ჩანაწერების რაოდენობა ასახავს დაკვირვების ინტენსივობას და არა პოპულაციის სიმჭიდროვეს ან ბუდობის სტატუსს.",
       mapAria:
-        "მთის არწივის დაკვირვებები და დადასტურებული რეგიონები საქართველოს რუკაზე",
-      officialRegionLabel: "დადასტურებული გავრცელების რეგიონი",
+        "მთის არწივის დაკვირვებები და ჩანაწერების მქონე რეგიონები საქართველოს რუკაზე",
+      officialRegionLabel: "ჩანაწერების მქონე რეგიონი",
       rangeTitle: "სად არის მთის არწივი დაფიქსირებული საქართველოში",
     },
     ru: {
       ...HALYOMORPHA_RANGE_COPY.ru,
       intro:
-        "Карта беркута использует публичные наблюдения iNaturalist из Грузии. В таблице распространение региона подтверждается минимум четырьмя записями; при меньшем числе вид лишь отмечен. Число записей отражает активность наблюдателей, а не плотность популяции или статус гнездования.",
-      mapAria: "Наблюдения беркута и подтверждённые регионы на карте Грузии",
-      officialRegionLabel: "Регион с подтверждённым распространением",
+        "Карта беркута использует публичные наблюдения iNaturalist из Грузии. Регион выделяется на карте при наличии в таблице минимум четырёх записей; регионы с меньшим числом записей отмечены как «Мало записей». Число записей отражает активность наблюдателей, а не плотность популяции или статус гнездования.",
+      mapAria: "Наблюдения беркута и регионы с записями на карте Грузии",
+      officialRegionLabel: "Регион с записями",
       rangeTitle: "Где беркут отмечен в Грузии",
     },
     tr: {
       ...HALYOMORPHA_RANGE_COPY.tr,
       intro:
-        "Kaya kartalı haritası Gürcistan'daki herkese açık iNaturalist gözlemlerini kullanır. Tabloda en az dört kayıt bulunan bölgelerde yayılış doğrulanır; daha az kayıt bulunan bölgelerde tür yalnızca kaydedilmiş sayılır. Kayıt sayısı gözlem çabasını yansıtır, popülasyon yoğunluğunu veya üreme durumunu değil.",
+        "Kaya kartalı haritası Gürcistan'daki herkese açık iNaturalist gözlemlerini kullanır. Tabloda en az dört kayıt bulunan bölgeler haritada gölgelendirilir; daha az kayıt bulunan bölgeler “Kayıt az” olarak işaretlenir. Kayıt sayısı gözlem çabasını yansıtır, popülasyon yoğunluğunu veya üreme durumunu değil.",
       mapAria:
-        "Kaya kartalı gözlemleri ve doğrulanmış bölgeler Gürcistan haritasında",
-      officialRegionLabel: "Yayılışı doğrulanmış bölge",
+        "Kaya kartalı gözlemleri ve kayıt bulunan bölgeler Gürcistan haritasında",
+      officialRegionLabel: "Kayıt bulunan bölge",
       rangeTitle: "Kaya kartalı Gürcistan'da nerede kaydedildi?",
     },
   },
