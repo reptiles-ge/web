@@ -25,7 +25,7 @@ describe("terms of use", () => {
       expect(text.match(/^- /gm)?.length, locale).toBe(
         ka.match(/^- /gm)?.length,
       );
-      expect(text, locale).toContain("2026-10-13");
+      expect(text, locale).toContain("2026-10-14");
       expect(text, locale).toContain(`\`${CONTACT_EMAIL}\``);
       expect(text, locale).toContain("](/photo-use)");
     }
