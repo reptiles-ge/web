@@ -1,19 +1,23 @@
 import { getGuideArticles } from "@/data/guideArticles";
 import { getPublishedNewsArticles, newsSourceName } from "@/data/news";
 import { regions } from "@/data/regions";
-import { getCatalogSpecies, type Species } from "@/data/species";
+import {
+  getCatalogSpecies,
+  getSpeciesById,
+  type Species,
+} from "@/data/species";
 import { type AnimalGroup, getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
-import { localizeSpecies } from "@/i18n/localizeSpecies";
+import { localizeSpecies, speciesUpdatedAt } from "@/i18n/localizeSpecies";
 import { pathnames } from "@/i18n/pathnames";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { GROUP_HUBS, type GroupHubId } from "@/lib/groupHubs";
+import { llmsFullPath, llmsIndexPath } from "@/lib/llmsPaths";
+import { quizHref } from "@/lib/quizzes";
 import { absoluteUrl } from "@/lib/site";
-import { speciesHref } from "@/lib/speciesRoutes";
+import { getSpeciesLookalikes, speciesHref } from "@/lib/speciesRoutes";
 import { resolveSpeciesIdInHub } from "@/lib/speciesSlugTable";
 
-const LLMS_FULL_PATH = "/llms-full.txt";
 const ROBOTS_DISALLOWED_PATHS = ["/api/", "/admin", "/admin/"] as const;
-const LLMS_TXT_PATH = "/llms.txt";
 const CONTENT_SIGNAL = "search=yes, ai-input=yes, ai-train=yes";
 
 export const AI_CITATION_USER_AGENTS = [
@@ -27,6 +31,15 @@ export const AI_CITATION_USER_AGENTS = [
   "Bingbot",
   "Applebot-Extended",
 ] as const;
+
+const LOCALE_LABEL: Record<AppLocale, string> = {
+  en: "English",
+  ka: "Georgian",
+  ru: "Russian",
+  tr: "Turkish",
+};
+
+const GEORGIAN_SCRIPT = /[\u10A0-\u10FF\u1C90-\u1CBF\u2D00-\u2D2F]/;
 
 const GROUP_ORDER: AnimalGroup[] = [
   "snake",
@@ -96,23 +109,23 @@ const PRIORITY_PAGES: ReadonlyArray<{
     blurb:
       "Medically significant vipers in Georgia (Caucasus), myths vs media errors, viper vs Montpellier compare table. Educational.",
     title: "Venomous snakes in Georgia",
-    urlPath: "/gvelebi/shxamiani-gvelebi",
+    urlPath: "/venomous-snakes",
   },
   {
     blurb: "Visual cues are not universal; compare lookalikes and profiles.",
     title: "Venomous vs harmless snakes",
-    urlPath: "/gvelebi/shxamiani-gvelis-amocnoba",
+    urlPath: "/snakes/shxamiani-gvelis-amocnoba",
   },
   {
     blurb:
       "Sixteen rock-lizard profiles kept separate. Colour is not identification.",
     title: "Darevskia",
-    urlPath: "/xvlikebi/darevskia",
+    urlPath: "/lizards/darevskia",
   },
   {
     blurb: "What Harmless, Moderate, and High mean on atlas profiles.",
     title: "Risk to humans",
-    urlPath: "/riskis-doneebi",
+    urlPath: "/risk-to-humans",
   },
 ];
 
@@ -122,6 +135,9 @@ const MAX_SOURCES_FULL = 6;
 const MAX_SOURCES_COMPACT = 2;
 const MAX_OVERVIEW_FULL = 520;
 const MAX_OVERVIEW_COMPACT = 220;
+
+const SCOPE_NOTE =
+  "Reptiles.ge is an editorial compilation, not a government agency and not a substitute for the papers it cites. Amphibians and reptiles follow Tarkhnishvili et al. 2026; birds, mammals, spiders, scorpions, and insects are published-profile sets, not complete national checklists. Empty size, region, IUCN, or Red List fields stay hidden. Checklist candidates stay candidates. Bite and venom pages are educational: call 112; they are not medical protocol.";
 
 const DEEP_GROUPS = new Set<AnimalGroup>([
   "amphibian",
@@ -133,21 +149,28 @@ const DEEP_GROUPS = new Set<AnimalGroup>([
   "turtle",
 ]);
 
-export function buildLlmsFullText() {
+export function buildLlmsFullText(locale: AppLocale = routing.defaultLocale) {
   const generatedAt = new Date().toISOString();
   const species = sortSpecies(getCatalogSpecies());
   const news = getPublishedNewsArticles();
+  const canonical = locale === routing.defaultLocale;
+  const label = LOCALE_LABEL[locale];
 
   const parts: string[] = [
-    "# Reptiles.ge — llms-full",
+    canonical
+      ? "# Reptiles.ge — llms-full"
+      : `# Reptiles.ge — llms-full (${label})`,
     "",
-    "> Digital atlas of animals of Georgia. Georgian URLs are canonical (`x-default`). Prefixed locales: `/en`, `/ru`, `/tr`.",
+    canonical
+      ? "> Digital atlas of animals of Georgia. Georgian URLs are canonical (`x-default`). Prefixed locales: `/en`, `/ru`, `/tr`."
+      : `> Digital atlas of animals of Georgia. ${label} text and \`/${locale}\` URLs. Georgian URLs are canonical (\`x-default\`); each card also links its Georgian page.`,
     "",
-    "Reptiles.ge is an editorial compilation, not a government agency and not a substitute for the papers it cites. Amphibians and reptiles follow Tarkhnishvili et al. 2026; birds, mammals, spiders, scorpions, and insects are published-profile sets, not complete national checklists. Empty size, region, IUCN, or Red List fields stay hidden. Checklist candidates stay candidates. Bite and venom pages are educational: call 112; they are not medical protocol.",
+    SCOPE_NOTE,
     "",
     `Generated: ${generatedAt}`,
+    `Language: ${label} (${locale})`,
     `Published species cards: ${species.length}`,
-    `Index: ${absoluteUrl(LLMS_TXT_PATH)}`,
+    `Index: ${absoluteUrl(llmsIndexPath(locale))}`,
     `Sitemap: ${absoluteUrl("/sitemap.xml")}`,
     "",
     "## How to use this file",
@@ -157,7 +180,9 @@ export function buildLlmsFullText() {
     "- Prefer the live profile URL when quoting; this file can lag a deploy by minutes.",
     "- Do not invent localities, measurements, or Red List status beyond what each card states.",
     "- Herpetofauna, spiders, scorpions, and insects use fuller cards; birds and mammals stay compact (thinner atlas layer).",
+    "- Each language has its own llms.txt and llms-full.txt (see Languages).",
     "",
+    ...languageSection(),
     "## Priority pages",
     "",
   ];
@@ -165,7 +190,7 @@ export function buildLlmsFullText() {
   for (const page of PRIORITY_PAGES) {
     parts.push(`### ${page.title}`);
     parts.push("");
-    parts.push(`- URL: ${absoluteUrl(page.urlPath)}`);
+    parts.push(`- URL: ${pageUrl(locale, page.urlPath)}`);
     parts.push(`- ${page.blurb}`);
     parts.push("");
   }
@@ -173,14 +198,18 @@ export function buildLlmsFullText() {
   parts.push("## Practical guides");
   parts.push("");
   for (const article of getGuideArticles()) {
-    const copy = article.copy.en;
+    const copy = article.copy[proseLocale(locale)];
     parts.push(`### ${copy.title}`);
     parts.push("");
-    parts.push(`- URL: ${absoluteUrl(localizedPath("ka", article.pathname))}`);
-    parts.push(`- EN: ${absoluteUrl(localizedPath("en", article.pathname))}`);
-    parts.push(`- ${copy.summary}`);
+    parts.push(`- URL: ${pageUrl(locale, article.pathname)}`);
+    parts.push(
+      alternateLine(locale, pageUrl(alternateLocale(locale), article.pathname)),
+    );
+    parts.push(`- ${absoluteLinks(copy.summary, locale)}`);
     for (const item of copy.faq) {
-      parts.push(`- Q: ${item.question} A: ${item.answer}`);
+      parts.push(
+        `- Q: ${absoluteLinks(item.question, locale)} A: ${absoluteLinks(item.answer, locale)}`,
+      );
     }
     parts.push("- Sources:");
     for (const source of article.sources) {
@@ -192,20 +221,25 @@ export function buildLlmsFullText() {
   parts.push("## News");
   parts.push("");
   for (const article of news) {
-    const copy = article.copy.ka;
+    const copy = article.copy[locale];
     parts.push(`### ${copy.title}`);
     parts.push("");
-    parts.push(`- URL: ${localizedNewsUrl("ka", article.slug)}`);
-    parts.push(`- EN: ${localizedNewsUrl("en", article.slug)}`);
+    parts.push(`- URL: ${localizedNewsUrl(locale, article.slug)}`);
+    parts.push(
+      alternateLine(
+        locale,
+        localizedNewsUrl(alternateLocale(locale), article.slug),
+      ),
+    );
     parts.push(`- Published: ${article.publishedAt}`);
     if (article.updatedAt) parts.push(`- Updated: ${article.updatedAt}`);
-    parts.push(`- English title: ${article.copy.en.title}`);
+    if (canonical) parts.push(`- English title: ${article.copy.en.title}`);
     parts.push(`- ${copy.dek}`);
-    parts.push(`- English summary: ${article.copy.en.dek}`);
+    if (canonical) parts.push(`- English summary: ${article.copy.en.dek}`);
     if (article.sources.length > 0) {
       parts.push("- Sources:");
       for (const source of article.sources) {
-        parts.push(`  - ${newsSourceName(source, "ka")}: ${source.url}`);
+        parts.push(`  - ${newsSourceName(source, locale)}: ${source.url}`);
       }
     }
     parts.push("");
@@ -219,7 +253,7 @@ export function buildLlmsFullText() {
       parts.push(`## ${GROUP_HEADING[group]}`);
       parts.push("");
     }
-    parts.push(formatSpeciesCard(item));
+    parts.push(formatSpeciesCard(item, locale));
   }
 
   parts.push("## Authority");
@@ -230,15 +264,19 @@ export function buildLlmsFullText() {
   parts.push(
     `- Iankoshvili & Tarkhnishvili 2021: https://doi.org/10.1080/09397140.2021.1957208`,
   );
-  parts.push(`- About / methods: ${absoluteUrl("/about")}`);
+  parts.push(`- About / methods: ${pageUrl(locale, "/about")}`);
   parts.push("");
 
   return parts.join("\n");
 }
 
-export function buildLlmsIndexText() {
+export function buildLlmsIndexText(locale: AppLocale = routing.defaultLocale) {
   const species = sortSpecies(getCatalogSpecies());
   const news = getPublishedNewsArticles();
+  const canonical = locale === routing.defaultLocale;
+  const label = LOCALE_LABEL[locale];
+  const prose = proseLocale(locale);
+  const url = (path: string) => pageUrl(locale, path);
   const byGroup = new Map<AnimalGroup, Species[]>();
   for (const item of species) {
     const group = getSpeciesAtlasMeta(item.id).group;
@@ -246,28 +284,31 @@ export function buildLlmsIndexText() {
   }
 
   const parts: string[] = [
-    "# Reptiles.ge",
+    canonical ? "# Reptiles.ge" : `# Reptiles.ge (${label})`,
     "",
     "> Digital atlas of animals of Georgia: species profiles, identification, regional records, and educational safety pages. Georgian is canonical. Herpetofauna is the deepest layer.",
     "",
-    "Reptiles.ge is an editorial compilation, not a government agency and not a substitute for the papers it cites. Amphibians and reptiles follow Tarkhnishvili et al. 2026; birds, mammals, spiders, scorpions, and insects are published-profile sets, not complete national checklists. Empty size, region, IUCN, or Red List fields stay hidden. Checklist candidates stay candidates. Bite and venom pages are educational: call 112; they are not medical protocol.",
+    SCOPE_NOTE,
     "",
-    "Use Georgian URLs below as canonical (`x-default`). Prefixed locales are `/en`, `/ru`, and `/tr`. Default-locale group paths are Georgian (`/gvelebi`); prefixed locales use English pathnames (`/en/snakes`). Species slugs are Georgian on `ka` and the catalog id on `en`/`ru`/`tr` (example: `https://reptiles.ge/en/snakes/macrovipera-lebetina`). Do not use `/ka` prefixes or unprefixed English hub paths such as `/snakes` on the default locale.",
+    canonical
+      ? "Use Georgian URLs below as canonical (`x-default`). Prefixed locales are `/en`, `/ru`, and `/tr`. Default-locale group paths are Georgian (`/gvelebi`); prefixed locales use English pathnames (`/en/snakes`). Species slugs are Georgian on `ka` and the catalog id on `en`/`ru`/`tr` (example: `https://reptiles.ge/en/snakes/macrovipera-lebetina`). Do not use `/ka` prefixes or unprefixed English hub paths such as `/snakes` on the default locale."
+      : `URLs below are the ${label} pages: \`/${locale}\` prefix, English pathnames, and the catalog id as the species slug (example: \`${absoluteUrl(`/${locale}/snakes/macrovipera-lebetina`)}\`). Georgian URLs are canonical (\`x-default\`); the Georgian index is ${absoluteUrl(llmsIndexPath(routing.defaultLocale))}.`,
     "",
     "Priority order: About (methods) → 2026 herpetofauna checklist article → species atlas → group hubs and indexes → species profiles → identification and safety guides → region pages (only taxa with an administrative-unit record in the atlas).",
     "",
     "## Machine-readable",
     "",
-    `- [llms.txt](${absoluteUrl(LLMS_TXT_PATH)}): This index (navigation + scope).`,
-    `- [llms-full.txt](${absoluteUrl(LLMS_FULL_PATH)}): One-shot extractable corpus — methods, priority guides, news, and published species cards. Prefer for ingestion; prefer live profile URLs when quoting.`,
+    `- [llms.txt](${absoluteUrl(llmsIndexPath(locale))}): This index (navigation + scope).`,
+    `- [llms-full.txt](${absoluteUrl(llmsFullPath(locale))}): One-shot extractable corpus${canonical ? "" : ` in ${label}`} — methods, priority guides, news, and published species cards. Prefer for ingestion; prefer live profile URLs when quoting.`,
     `- [Sitemap](${absoluteUrl("/sitemap.xml")}): Full indexable URL set, including locale alternates.`,
     "",
+    ...languageSection(),
     "## Core",
     "",
-    `- [Home](${absoluteUrl("/")}): Georgian homepage for the atlas.`,
-    `- [Species atlas](${absoluteUrl("/species")}): Catalog of published profiles (${species.length} live pages). Not a complete national fauna.`,
-    `- [About](${absoluteUrl("/about")}): What the atlas is, what it will not infer, photography credits, and herpetofauna sources.`,
-    `- [Georgia herpetofauna checklist 2026](${absoluteUrl("/news/georgia-herpetofauna-checklist-2026")}): Editorial article on Tarkhnishvili et al. 2026 (12 amphibians, 56 reptiles in that paper).`,
+    `- [Home](${url("/")}): ${label} homepage for the atlas.`,
+    `- [Species atlas](${url("/species")}): Catalog of published profiles (${species.length} live pages). Not a complete national fauna.`,
+    `- [About](${url("/about")}): What the atlas is, what it will not infer, photography credits, and herpetofauna sources.`,
+    `- [Georgia herpetofauna checklist 2026](${localizedNewsUrl(locale, "georgia-herpetofauna-checklist-2026")}): Editorial article on Tarkhnishvili et al. 2026 (12 amphibians, 56 reptiles in that paper).`,
     "",
     "## Group hubs",
     "",
@@ -277,7 +318,7 @@ export function buildLlmsIndexText() {
     const items = byGroup.get(group) ?? [];
     if (items.length === 0) continue;
     parts.push(
-      `- [${GROUP_HEADING[group]}](${absoluteUrl(localizedPath("ka", GROUP_HUB_PATH[group]))}): ${groupSummary(group, items.length)}.`,
+      `- [${GROUP_HEADING[group]}](${url(GROUP_HUB_PATH[group])}): ${groupSummary(group, items.length)}.`,
     );
   }
 
@@ -287,7 +328,7 @@ export function buildLlmsIndexText() {
     const items = byGroup.get(group) ?? [];
     if (!path || items.length === 0) continue;
     parts.push(
-      `- [${GROUP_HEADING[group]} index](${absoluteUrl(localizedPath("ka", path))}): Table of published ${group} profiles.`,
+      `- [${GROUP_HEADING[group]} index](${url(path)}): Table of published ${group} profiles.`,
     );
   }
 
@@ -295,41 +336,41 @@ export function buildLlmsIndexText() {
     "",
     "## Identification and field guides",
     "",
-    `- [Venomous vs harmless snakes](${absoluteUrl("/gvelebi/shxamiani-gvelis-amocnoba")}): Visual cues are not universal; compare lookalikes and profiles.`,
-    `- [Lizard identification](${absoluteUrl("/xvlikebi/identifikacia")}): Field marks, lookalikes, and Darevskia caution (colour is not ID).`,
-    `- [Darevskia](${absoluteUrl("/xvlikebi/darevskia")}): Sixteen rock-lizard profiles kept separate. Colour is not identification. Candidates stay candidates.`,
-    `- [Lizard or glass lizard](${absoluteUrl("/xvlikebi/xvlikis-da-gvelxokeras-gansxvaveba")}): Glass lizard vs slow worm vs snakes. None of the three is venomous on this page.`,
-    `- [Turtle identification](${absoluteUrl("/kuebi/identifikacia")}): Four-taxon comparison (land, native freshwater, introduced slider).`,
-    `- [Frogs of Georgia](${absoluteUrl("/amfibiebi/bayayi")}): Anura guide (8 species in the atlas).`,
-    `- [Frog index](${absoluteUrl("/amfibiebi/bayayi/saxeoebebi")}): Frog and toad index table.`,
-    `- [Newts and salamanders](${absoluteUrl("/amfibiebi/tritoni-salamandra")}): Caudata guide (4 species in the atlas).`,
-    `- [Land turtles](${absoluteUrl("/kuebi/xmelis-kuebi")}): Spur-thighed tortoise cluster.`,
-    `- [Freshwater turtles](${absoluteUrl("/kuebi/tsqlis-kuebi")}): Pond turtle, Caspian turtle, and introduced slider.`,
-    `- [Snake range](${absoluteUrl("/gvelebi/gavrtseleba")}): Snake occurrence across the 12 regions as recorded in the atlas.`,
-    `- [Largest snakes](${absoluteUrl("/gvelebi/didi-gvelebi")}): Size only where profiles cite it. Glass lizard is a lizard.`,
-    `- [Venomous spiders](${absoluteUrl("/obobebi/shxamiani-obobebi")}): Spider risk guide for published atlas profiles.`,
-    `- [Spider bite](${absoluteUrl("/obobebi/obobis-nakbeni")}): Educational page. Call 112 for severe symptoms or uncertainty.`,
+    `- [Venomous vs harmless snakes](${url("/snakes/shxamiani-gvelis-amocnoba")}): Visual cues are not universal; compare lookalikes and profiles.`,
+    `- [Lizard identification](${url("/lizards/identifikacia")}): Field marks, lookalikes, and Darevskia caution (colour is not ID).`,
+    `- [Darevskia](${url("/lizards/darevskia")}): Sixteen rock-lizard profiles kept separate. Colour is not identification. Candidates stay candidates.`,
+    `- [Lizard or glass lizard](${url("/lizards/xvlikis-da-gvelxokeras-gansxvaveba")}): Glass lizard vs slow worm vs snakes. None of the three is venomous on this page.`,
+    `- [Turtle identification](${url("/turtles/identifikacia")}): Four-taxon comparison (land, native freshwater, introduced slider).`,
+    `- [Frogs of Georgia](${url("/amphibians/bayayi")}): Anura guide (8 species in the atlas).`,
+    `- [Frog index](${url("/amphibians/bayayi/saxeoebebi")}): Frog and toad index table.`,
+    `- [Newts and salamanders](${url("/amphibians/tritoni-salamandra")}): Caudata guide (4 species in the atlas).`,
+    `- [Land turtles](${url("/turtles/xmelis-kuebi")}): Spur-thighed tortoise cluster.`,
+    `- [Freshwater turtles](${url("/turtles/tsqlis-kuebi")}): Pond turtle, Caspian turtle, and introduced slider.`,
+    `- [Snake range](${url("/snakes/gavrtseleba")}): Snake occurrence across the 12 regions as recorded in the atlas.`,
+    `- [Largest snakes](${url("/snakes/didi-gvelebi")}): Size only where profiles cite it. Glass lizard is a lizard.`,
+    `- [Venomous spiders](${url("/spiders/shxamiani-obobebi")}): Spider risk guide for published atlas profiles.`,
+    `- [Spider bite](${url("/spiders/obobis-nakbeni")}): Educational page. Call 112 for severe symptoms or uncertainty.`,
     "",
     "## Safety",
     "",
-    `- [Venomous snakes in Georgia](${absoluteUrl("/gvelebi/shxamiani-gvelebi")}): Medically significant vipers in the atlas, plus identification links. Educational.`,
-    `- [Snakes in the yard](${absoluteUrl("/gvelebi/gveli-ezoshi")}): Practical notes on snakes near houses. Not a guaranteed repellent method.`,
-    `- [Risk to humans](${absoluteUrl("/riskis-doneebi")}): What Harmless, Moderate, and High mean on atlas profiles.`,
+    `- [Venomous snakes in Georgia](${url("/venomous-snakes")}): Medically significant vipers in the atlas, plus identification links. Educational.`,
+    `- [Snakes in the yard](${url("/snakes-in-the-yard")}): Practical notes on snakes near houses. Not a guaranteed repellent method.`,
+    `- [Risk to humans](${url("/risk-to-humans")}): What Harmless, Moderate, and High mean on atlas profiles.`,
     ...getGuideArticles().map(
       (article) =>
-        `- [${article.copy.en.title}](${absoluteUrl(localizedPath("ka", article.pathname))}): ${article.copy.en.description}`,
+        `- [${article.copy[prose].title}](${url(article.pathname)}): ${article.copy[prose].description}`,
     ),
     "",
     "## Regions",
     "",
     "Region lists include only taxa assigned to that administrative unit in the atlas. Absence is not a national-range claim.",
     "",
-    `- [Regions](${absoluteUrl("/regions")}): Map of Georgia’s 12 regions used by the atlas.`,
+    `- [Regions](${url("/regions")}): Map of Georgia’s 12 regions used by the atlas.`,
   );
 
   for (const region of regions) {
     parts.push(
-      `- [${region.name.en}](${absoluteUrl(`/regions/${region.id}`)}): Atlas records for ${region.name.en}.`,
+      `- [${region.name.en}](${url(`/regions/${region.id}`)}): Atlas records for ${region.name.en}.`,
     );
   }
 
@@ -339,12 +380,12 @@ export function buildLlmsIndexText() {
     "",
     "Editorial pieces with cited sources. The species profile remains the atlas record.",
     "",
-    `- [News](${absoluteUrl("/news")}): Index of published articles.`,
+    `- [News](${url("/news")}): Index of published articles.`,
   );
   for (const article of news) {
-    const copy = article.copy.en;
+    const copy = article.copy[prose];
     parts.push(
-      `- [${copy.title}](${localizedNewsUrl("ka", article.slug)}): ${copy.dek}`,
+      `- [${copy.title}](${localizedNewsUrl(locale, article.slug)}): ${copy.dek}`,
     );
   }
 
@@ -359,7 +400,7 @@ export function buildLlmsIndexText() {
       );
     }
     for (const item of items) {
-      parts.push(formatSpeciesIndexLine(item));
+      parts.push(formatSpeciesIndexLine(item, locale));
     }
   }
 
@@ -367,13 +408,10 @@ export function buildLlmsIndexText() {
     "",
     "## Secondary resources",
     "",
-    `- [English](${absoluteUrl("/en")}): English homepage. Same catalog; English pathnames and scientific species slugs.`,
-    `- [Russian](${absoluteUrl("/ru")}): Russian homepage (\`/ru/…\` + English pathnames).`,
-    `- [Turkish](${absoluteUrl("/tr")}): Turkish homepage (\`/tr/…\` + English pathnames).`,
-    `- [Contact](${absoluteUrl("/contact")}): Corrections and questions.`,
-    `- [Quizzes](${absoluteUrl("/quiz")}): Quiz index. Turtle quiz is listed as coming soon (no URL).`,
-    `- [Which snake?](${absoluteUrl("/quiz/romeli-gvelia")}): Snake photo quiz. Practice, not field ID. No result URLs.`,
-    `- [Which lizard?](${absoluteUrl("/quiz/romeli-xvlikia")}): Lizard photo quiz. Practice, not field ID. No result URLs.`,
+    `- [Contact](${url("/contact")}): Corrections and questions.`,
+    `- [Quizzes](${url("/quiz")}): Quiz index. Turtle quiz is listed as coming soon (no URL).`,
+    `- [Which snake?](${quizUrl(locale, "snake")}): Snake photo quiz. Practice, not field ID. No result URLs.`,
+    `- [Which lizard?](${quizUrl(locale, "lizard")}): Lizard photo quiz. Practice, not field ID. No result URLs.`,
     `- [Tarkhnishvili et al. 2026](https://doi.org/10.3897/caucasiana.5.e189214): Annotated checklist cited for amphibians and reptiles.`,
     `- [Iankoshvili & Tarkhnishvili 2021](https://doi.org/10.1080/09397140.2021.1957208): Snake distribution paper cited on About and some snake profiles.`,
     "",
@@ -383,8 +421,8 @@ export function buildLlmsIndexText() {
 }
 
 export function buildRobotsTxt() {
-  const llmsTxt = absoluteUrl(LLMS_TXT_PATH);
-  const llmsFull = absoluteUrl(LLMS_FULL_PATH);
+  const llmsTxt = absoluteUrl(llmsIndexPath(routing.defaultLocale));
+  const llmsFull = absoluteUrl(llmsFullPath(routing.defaultLocale));
   const sitemap = absoluteUrl("/sitemap.xml");
 
   const rules = [
@@ -402,14 +440,17 @@ export function buildRobotsTxt() {
     "# reptiles.ge — public atlas of animals of Georgia",
     "# AI crawlers: citation and summarization of published pages is welcome.",
     `# Prefer ${llmsTxt} (index) and ${llmsFull} (extractable corpus).`,
+    "# English, Russian and Turkish have their own pair under /en/, /ru/ and /tr/.",
     "# Do not treat empty atlas fields as negative evidence.",
     "",
     "User-agent: *",
     ...rules,
     ...aiBlocks,
     `Sitemap: ${sitemap}`,
-    `# llms.txt: ${llmsTxt}`,
-    `# llms-full.txt: ${llmsFull}`,
+    ...routing.locales.flatMap((locale) => [
+      `# llms.txt (${locale}): ${absoluteUrl(llmsIndexPath(locale))}`,
+      `# llms-full.txt (${locale}): ${absoluteUrl(llmsFullPath(locale))}`,
+    ]),
     "",
   ].join("\n");
 }
@@ -424,14 +465,59 @@ export function llmsTextResponseHeaders(options?: { noindex?: boolean }) {
 }
 
 function absoluteLinks(text: string, locale: AppLocale) {
-  return text.replace(/\]\((\/[^)\s]*)\)/g, (_match, href: string) => {
-    const [path, hash] = href.split("#");
-    return `](${absoluteUrl(localizedLinkPath(locale, path))}${hash ? `#${hash}` : ""})`;
-  });
+  return text.replace(
+    /\[([^\]]*)\]\(([^)\s]+)\)/g,
+    (match, label: string, href: string) => {
+      if (/^https?:\/\//.test(href)) return match;
+      if (href.startsWith("/")) {
+        const [path, hash] = href.split("#");
+        return `[${label}](${absoluteUrl(localizedLinkPath(locale, path))}${hash ? `#${hash}` : ""})`;
+      }
+      if (getSpeciesById(href)) {
+        return `[${label}](${localizedSpeciesUrl(locale, href)})`;
+      }
+      return label;
+    },
+  );
+}
+
+function alternateLine(locale: AppLocale, href: string) {
+  return locale === routing.defaultLocale
+    ? `- EN: ${href}`
+    : `- Georgian (canonical): ${href}`;
+}
+
+function alternateLocale(locale: AppLocale): AppLocale {
+  return locale === routing.defaultLocale ? "en" : routing.defaultLocale;
 }
 
 function compactText(value: string) {
   return value.replace(/\s+/g, " ").trim();
+}
+
+function comparisonOnlyLookalikes(item: Species) {
+  const english = localizeSpecies(item, "en");
+  const prose = [item, english]
+    .flatMap((text) => [
+      text.overview,
+      text.description,
+      text.habitat,
+      text.diet,
+      text.behavior,
+      text.conservation,
+      text.interaction ?? "",
+      ...text.facts,
+    ])
+    .join("\n");
+  return getSpeciesLookalikes(item.id)
+    .map((id) => getSpeciesById(id))
+    .filter((peer): peer is Species => Boolean(peer))
+    .filter(
+      (peer) =>
+        !prose.includes(`](${peer.id})`) &&
+        !prose.includes(peer.scientificName),
+    )
+    .map((peer) => peer.scientificName);
 }
 
 function englishSpeciesText(item: Species) {
@@ -445,92 +531,64 @@ function englishSpeciesText(item: Species) {
   };
 }
 
-function formatSpeciesCard(item: Species) {
+function formatSpeciesCard(item: Species, locale: AppLocale) {
   const group = getSpeciesAtlasMeta(item.id).group;
   const deep = DEEP_GROUPS.has(group);
   const maxOverview = deep ? MAX_OVERVIEW_FULL : MAX_OVERVIEW_COMPACT;
+  const canonical = locale === routing.defaultLocale;
+  const text = localizeSpecies(item, locale);
+  const translated = (value: string, kaValues: string[]) =>
+    canonical || (!kaValues.includes(value) && !GEORGIAN_SCRIPT.test(value));
   const english = englishSpeciesText(item);
+  const name = translated(text.commonName, [item.commonName])
+    ? text.commonName
+    : item.commonName;
   const lines: string[] = [
-    `### ${item.scientificName} — ${item.commonName}`,
+    `### ${item.scientificName} — ${name}`,
     "",
-    `- URL: ${localizedSpeciesUrl("ka", item.id)}`,
-    `- EN: ${localizedSpeciesUrl("en", item.id)}`,
+    `- URL: ${localizedSpeciesUrl(locale, item.id)}`,
+    alternateLine(
+      locale,
+      localizedSpeciesUrl(alternateLocale(locale), item.id),
+    ),
     `- Catalog id: ${item.id}`,
-    `- Updated: ${item.updatedAt}`,
+    `- Updated: ${speciesUpdatedAt(item, locale)}`,
   ];
 
-  if (english.name) lines.push(`- English name: ${english.name}`);
+  if (canonical && english.name) lines.push(`- English name: ${english.name}`);
   if (item.danger) lines.push(`- Risk to humans: ${item.danger}`);
   lines.push(`- Family: ${item.family}`);
 
-  const overview = truncateText(
-    compactText(item.overview || item.description),
-    maxOverview,
-  );
-  if (overview) {
+  const overview = compactText(text.overview || text.description);
+  if (
+    overview &&
+    translated(overview, [compactText(item.overview || item.description)])
+  ) {
     lines.push("");
-    lines.push(absoluteLinks(overview, "ka"));
+    lines.push(absoluteLinks(truncateText(overview, maxOverview), locale));
   }
 
-  if (english.summary) {
+  if (canonical && english.summary) {
     lines.push("");
     lines.push(
       `English summary: ${absoluteLinks(truncateText(english.summary, maxOverview), "en")}`,
     );
   }
 
-  if (deep) {
-    const stats = item.stats
-      .filter((stat) => stat.label && stat.value)
-      .slice(0, 6);
-    if (stats.length > 0) {
-      lines.push("");
-      lines.push("Facts:");
-      for (const stat of stats) {
-        lines.push(`- ${stat.label}: ${stat.value}`);
-      }
-    }
-
-    const facts = item.facts.filter(Boolean).slice(0, MAX_FACTS_PER_SPECIES);
-    if (facts.length > 0) {
-      lines.push("");
-      for (const fact of facts) {
-        lines.push(
-          `- ${absoluteLinks(truncateText(compactText(fact), MAX_OVERVIEW_COMPACT), "ka")}`,
-        );
-      }
-    }
-
-    if (item.identification?.summary) {
-      lines.push("");
-      lines.push(
-        `Identification: ${absoluteLinks(truncateText(compactText(item.identification.summary), MAX_OVERVIEW_COMPACT), "ka")}`,
-      );
-    }
-
-    const faqs = (item.faq ?? []).slice(0, MAX_FAQS_PER_SPECIES);
-    if (faqs.length > 0) {
-      lines.push("");
-      lines.push("FAQ:");
-      for (const entry of faqs) {
-        lines.push(`- Q: ${absoluteLinks(compactText(entry.question), "ka")}`);
-        lines.push(
-          `  A: ${absoluteLinks(truncateText(compactText(entry.answer), MAX_OVERVIEW_COMPACT), "ka")}`,
-        );
-      }
-    }
-  }
+  if (deep) lines.push(...formatSpeciesDetails(item, text, translated, locale));
 
   const sources = pickSources(
     item.sources,
     deep ? MAX_SOURCES_FULL : MAX_SOURCES_COMPACT,
   );
   if (sources.length > 0) {
+    const lookalikes = comparisonOnlyLookalikes(item);
     lines.push("");
     lines.push("Sources:");
     for (const source of sources) {
+      const sourceName = labelLookalikeSource(source.name, item, lookalikes);
       lines.push(
-        source.url ? `- ${source.name}: ${source.url}` : `- ${source.name}`,
+        source.url ? `- ${sourceName}: ${source.url}` : `- ${sourceName}`,
       );
     }
   }
@@ -539,14 +597,72 @@ function formatSpeciesCard(item: Species) {
   return lines.join("\n");
 }
 
-function formatSpeciesIndexLine(item: Species) {
-  const english = localizeSpecies(item, "en");
+function formatSpeciesDetails(
+  item: Species,
+  text: Species,
+  translated: (value: string, kaValues: string[]) => boolean,
+  locale: AppLocale,
+) {
+  const lines: string[] = [];
+  const kaStats = item.stats.map((stat) => `${stat.label}: ${stat.value}`);
+  const stats = text.stats
+    .filter((stat) => stat.label && stat.value)
+    .map((stat) => `${stat.label}: ${stat.value}`)
+    .filter((stat) => translated(stat, kaStats))
+    .slice(0, 6);
+  if (stats.length > 0) {
+    lines.push("", "Facts:", ...stats.map((stat) => `- ${stat}`));
+  }
+
+  const facts = text.facts
+    .filter((fact) => fact && translated(fact, item.facts))
+    .slice(0, MAX_FACTS_PER_SPECIES);
+  if (facts.length > 0) {
+    lines.push("");
+    for (const fact of facts) {
+      lines.push(
+        `- ${absoluteLinks(truncateText(compactText(fact), MAX_OVERVIEW_COMPACT), locale)}`,
+      );
+    }
+  }
+
+  const identification = text.identification?.summary ?? "";
+  if (
+    identification &&
+    translated(identification, [item.identification?.summary ?? ""])
+  ) {
+    lines.push(
+      "",
+      `Identification: ${absoluteLinks(truncateText(compactText(identification), MAX_OVERVIEW_COMPACT), locale)}`,
+    );
+  }
+
+  const kaFaq = (item.faq ?? []).map(
+    (entry) => `${entry.question} ${entry.answer}`,
+  );
+  const faqs = (text.faq ?? [])
+    .filter((entry) => translated(`${entry.question} ${entry.answer}`, kaFaq))
+    .slice(0, MAX_FAQS_PER_SPECIES);
+  if (faqs.length > 0) {
+    lines.push("", "FAQ:");
+    for (const entry of faqs) {
+      lines.push(`- Q: ${absoluteLinks(compactText(entry.question), locale)}`);
+      lines.push(
+        `  A: ${absoluteLinks(truncateText(compactText(entry.answer), MAX_OVERVIEW_COMPACT), locale)}`,
+      );
+    }
+  }
+  return lines;
+}
+
+function formatSpeciesIndexLine(item: Species, locale: AppLocale) {
+  const named = localizeSpecies(item, proseLocale(locale));
   const details = [
-    english.commonName || item.commonName,
+    named.commonName || item.commonName,
     item.danger,
     `Catalog id \`${item.id}\``,
   ].filter(Boolean);
-  return `- [${item.scientificName}](${localizedSpeciesUrl("ka", item.id)}): ${details.join(". ")}.`;
+  return `- [${item.scientificName}](${localizedSpeciesUrl(locale, item.id)}): ${details.join(". ")}.`;
 }
 
 function groupSummary(group: AnimalGroup, count: number) {
@@ -579,6 +695,32 @@ function isDoiUrl(url: string | undefined) {
   return host === "doi.org" || host.endsWith(".doi.org");
 }
 
+function labelLookalikeSource(
+  name: string,
+  item: Species,
+  lookalikes: string[],
+) {
+  if (name.includes(item.scientificName) || name.includes(item.genus)) {
+    return name;
+  }
+  const peer = lookalikes.find((scientificName) =>
+    name.includes(scientificName),
+  );
+  return peer ? `${name} (lookalike source: ${peer})` : name;
+}
+
+function languageSection() {
+  return [
+    "## Languages",
+    "",
+    ...routing.locales.map(
+      (locale) =>
+        `- ${LOCALE_LABEL[locale]} (\`${locale}\`): [home](${pageUrl(locale, "/")}), [llms.txt](${absoluteUrl(llmsIndexPath(locale))}), [llms-full.txt](${absoluteUrl(llmsFullPath(locale))})`,
+    ),
+    "",
+  ];
+}
+
 function localizedLinkPath(locale: AppLocale, path: string) {
   const species = path.match(/^\/([a-z]+)\/([^/]+)$/);
   if (species && species[1] in GROUP_HUBS) {
@@ -609,11 +751,25 @@ function localizedSpeciesUrl(locale: AppLocale, id: string) {
   );
 }
 
+function pageUrl(locale: AppLocale, path: string) {
+  return absoluteUrl(localizedPath(locale, path));
+}
+
 function pickSources(sources: Species["sources"], limit: number) {
   const ranked = sources.slice().sort((a, b) => {
     return sourceRank(a) - sourceRank(b);
   });
   return ranked.slice(0, limit);
+}
+
+function proseLocale(locale: AppLocale): AppLocale {
+  return locale === routing.defaultLocale ? "en" : locale;
+}
+
+function quizUrl(locale: AppLocale, id: string) {
+  return absoluteUrl(
+    withLocalePrefix(locale, `/quiz/${quizHref(id, locale).params.slug}`),
+  );
 }
 
 function sortSpecies(items: Species[]) {
@@ -669,5 +825,6 @@ function truncateText(value: string, max: number) {
 
 function withLocalePrefix(locale: AppLocale, path: string) {
   if (locale === routing.defaultLocale) return path;
+  if (path === "/") return `/${locale}`;
   return `/${locale}${path.startsWith("/") ? path : `/${path}`}`;
 }

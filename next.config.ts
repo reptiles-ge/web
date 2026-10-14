@@ -5,6 +5,7 @@ import { withSentryConfig } from "@sentry/nextjs/config";
 import createNextIntlPlugin from "next-intl/plugin";
 
 import { guideArticleRedirects } from "./src/i18n/guideArticleRedirects";
+import { llmsLinkHeader } from "./src/lib/llmsPaths";
 import { BLOCKING_METADATA_USER_AGENTS } from "./src/lib/metadataPlacement";
 import {
   securityHeaders,
@@ -40,16 +41,13 @@ const nextConfig: NextConfig = {
     const noindexStatic = [{ key: "X-Robots-Tag", value: "noindex" }];
     return [
       {
-        headers: [
-          ...security,
-          {
-            key: "Link",
-            value:
-              '</llms.txt>; rel="alternate"; type="text/plain"; title="llms.txt", </llms-full.txt>; rel="alternate"; type="text/plain"; title="llms-full.txt"',
-          },
-        ],
+        headers: [...security, { key: "Link", value: llmsLinkHeader("ka") }],
         source: SITE_HEADERS_SOURCE,
       },
+      ...LATIN_LOCALES.map((locale) => ({
+        headers: [{ key: "Link", value: llmsLinkHeader(locale) }],
+        source: `/${locale}/:path*`,
+      })),
       {
         headers: noindexStatic,
         source: "/_next/static/:path*",
