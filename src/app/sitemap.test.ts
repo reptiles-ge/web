@@ -48,16 +48,17 @@ const entries = sitemap();
 const urls = entries.map((entry) => entry.url);
 
 describe("sitemap", () => {
-  it("lists the Georgian-only legal pages once, without other-locale alternates", () => {
-    for (const path of ["/privacy", "/terms-and-conditions"]) {
+  it("lists the legal pages in every locale with every hreflang alternate", () => {
+    for (const path of ["/privacy", "/terms-and-conditions"] as const) {
       const legal = entries.filter((entry) => entry.url.endsWith(path));
-      expect(legal.map((entry) => entry.url)).toEqual([
-        `https://reptiles.ge${path}`,
-      ]);
-      expect(Object.keys(legal[0]?.alternates?.languages ?? {})).toEqual([
-        "ka",
-        "x-default",
-      ]);
+      expect(legal.map((entry) => entry.url)).toEqual(
+        routing.locales.map((locale) => absoluteUrl(localePath(locale, path))),
+      );
+      for (const entry of legal) {
+        expect(Object.keys(entry.alternates?.languages ?? {}).sort()).toEqual(
+          [...routing.locales, "x-default"].sort(),
+        );
+      }
     }
   });
 

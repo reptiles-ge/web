@@ -15,11 +15,7 @@ import {
   getCreditAuthorPhotos,
 } from "@/lib/creditAuthors";
 import { GROUP_HUB_LIST } from "@/lib/groupHubs";
-import {
-  isIndexableLegalLocale,
-  LEGAL_PATHS,
-  legalAlternates,
-} from "@/lib/legalPages";
+import { LEGAL_PATHS } from "@/lib/legalPages";
 import {
   newsArticleAlternates,
   newsArticleModifiedDateTime,
@@ -72,13 +68,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     push(pageEntry(locale, "/contact"));
     push(pageEntry(locale, "/about"));
     push(pageEntry(locale, "/photo-use"));
-    if (isIndexableLegalLocale(locale)) {
-      for (const path of Object.values(LEGAL_PATHS)) {
-        push({
-          ...pageEntry(locale, path),
-          alternates: { languages: legalAlternates(locale, path).languages },
-        });
-      }
+    for (const path of Object.values(LEGAL_PATHS)) {
+      push(pageEntry(locale, path));
     }
     push(pageEntry(locale, "/news", newsIndexDateFields(locale).dateModified));
     for (const article of getGuideArticles()) {

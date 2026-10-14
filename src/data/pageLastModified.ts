@@ -35,7 +35,7 @@ const SITEMAP_PATH_LAST_MODIFIED: Record<string, string> = {
   "/mammals/tagvi-sakhlshi": "2026-10-02T12:30:00+04:00",
   "/mammals/tura-ezoshi": "2026-09-16T11:47:00+04:00",
   "/photo-use": "2026-10-13T12:00:00+04:00",
-  "/privacy": "2026-09-20T01:30:00+04:00",
+  "/privacy": "2026-10-14T11:30:00+04:00",
   "/quiz": "2026-09-16T12:09:00+04:00",
   "/regions": "2026-09-19T22:35:37+04:00",
   "/risk-to-humans": "2026-09-16T12:31:00+04:00",
