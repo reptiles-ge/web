@@ -260,10 +260,11 @@ function numberLosses(
       for (const field of fields) {
         if (rejected.has(field)) continue;
         const before = analysisNumbers(originals[field][locale]);
+        const beforeSet = new Set(before);
         const after = analysisNumbers(text(field));
         if (
           after.some(
-            (value) => !before.includes(value) && !original.has(value),
+            (value) => !beforeSet.has(value) && !original.has(value),
           ) ||
           before.some((value) => !page.has(value))
         )

@@ -580,12 +580,14 @@ function analysisItemChecks(
             .filter((field) => field !== edit.field)
             .flatMap((field) => analysisNumbers(analysisField(data, field))),
         );
+        const beforeSet = new Set(beforeNumbers);
+        const afterSet = new Set(afterNumbers);
         if (
           afterNumbers.some(
-            (value) => !beforeNumbers.includes(value) && !page.has(value),
+            (value) => !beforeSet.has(value) && !page.has(value),
           ) ||
           beforeNumbers.some(
-            (value) => !afterNumbers.includes(value) && !elsewhere.has(value),
+            (value) => !afterSet.has(value) && !elsewhere.has(value),
           )
         )
           throw new AnalysisNumberError(
