@@ -152,7 +152,7 @@ const DEEP_GROUPS = new Set<AnimalGroup>([
 export function buildLlmsFullText(locale: AppLocale = routing.defaultLocale) {
   const generatedAt = new Date().toISOString();
   const species = sortSpecies(getCatalogSpecies());
-  const news = getPublishedNewsArticles();
+  const news = getPublishedNewsArticles(locale);
   const canonical = locale === routing.defaultLocale;
   const label = LOCALE_LABEL[locale];
 
@@ -272,10 +272,10 @@ export function buildLlmsFullText(locale: AppLocale = routing.defaultLocale) {
 
 export function buildLlmsIndexText(locale: AppLocale = routing.defaultLocale) {
   const species = sortSpecies(getCatalogSpecies());
-  const news = getPublishedNewsArticles();
   const canonical = locale === routing.defaultLocale;
   const label = LOCALE_LABEL[locale];
   const prose = proseLocale(locale);
+  const news = getPublishedNewsArticles(prose);
   const url = (path: string) => pageUrl(locale, path);
   const byGroup = new Map<AnimalGroup, Species[]>();
   for (const item of species) {
