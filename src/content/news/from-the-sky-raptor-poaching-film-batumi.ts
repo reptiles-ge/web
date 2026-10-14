@@ -1,4 +1,4 @@
-import type { NewsArticle } from "@/data/newsTypes";
+import type { NewsArticle, NewsPhoto } from "@/data/newsTypes";
 
 const BRC_FILM_URL = "https://batumiraptorcount.org/news/2026/10/from-the-sky-ffi";
 const FFI_PROJECT_URL =
@@ -8,6 +8,22 @@ const BRC_BIG_DAY_URL =
 const BRC_WORLDS_COLLIDE_URL =
   "https://batumiraptorcount.org/news/2022/2/worlds-collide";
 const YOUTUBE_URL = "https://www.youtube.com/watch?v=FP8WVNBIVIE";
+
+const PHOTO_SPARROWHAWK: NewsPhoto = {
+  alt: {
+    en: "Close-up of a Eurasian Sparrowhawk. The film’s thumbnail uses the same shot.",
+    ka: "მიმინოს ახლო ხედი. იგივე კადრია ფილმის მთავარ გამოსახულებაზე.",
+    ru: "Перепелятник крупным планом. Этот же кадр использован на обложке фильма.",
+    tr: "Atmacanın yakın çekimi. Aynı kare filmin kapak görselinde de kullanılıyor.",
+  },
+  credit: {
+    photographer: "Stephanie Foote / Fauna & Flora",
+    url: FFI_PROJECT_URL,
+  },
+  height: 1281,
+  src: "https://cdn.reptiles.ge/news-from-the-sky-foote-sparrowhawk.jpg",
+  width: 1920,
+};
 
 export const FROM_THE_SKY_RAPTOR_POACHING_FILM_BATUMI: NewsArticle = {
   copy: {
@@ -493,6 +509,7 @@ export const FROM_THE_SKY_RAPTOR_POACHING_FILM_BATUMI: NewsArticle = {
     },
   },
   id: "from-the-sky-raptor-poaching-film-batumi",
+  image: PHOTO_SPARROWHAWK,
   publishedAt: "2026-10-14",
   relatedHubIds: ["birds"],
   relatedRegionIds: ["adjara"],

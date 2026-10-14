@@ -1,4 +1,4 @@
-import type { NewsArticle } from "@/data/newsTypes";
+import type { NewsArticle, NewsPhoto } from "@/data/newsTypes";
 
 const PARLIAMENT_THIRD =
   "https://parliament.ge/en/media/news/parlamentma-kolkhetis-datsuli-teritoriebis-shekmnisa-da-martvis-shesakheb-kanonshi-tsvlilebebi-mesame-mosmenit-miigho";
@@ -10,6 +10,63 @@ const DIVERSITY_2022 = "https://doi.org/10.3390/d14121102";
 const CONSERVATION_GENETICS_2022 = "https://doi.org/10.1007/s10592-021-01413-7";
 const FAUNA_FLORA = "https://fauna-flora.org/news/saving-last-sturgeon";
 const GEORGIA_TODAY = "https://georgiatoday.ge/?p=104475";
+
+const FAUNA_FLORA_BABY_STURGEONS =
+  "https://www.fauna-flora.org/news/little-fish-big-deal-record-haul-of-baby-sturgeons-offers-hope-for-the-future/";
+
+const PHOTO_SPAWNING_GROUND: NewsPhoto = {
+  alt: {
+    en: "Aerial view of a sturgeon spawning ground on the Rioni.",
+    ka: "ზუთხების ქვირითობის ადგილი რიონზე, ხედი ზემოდან.",
+    ru: "Место нереста осетров на Риони, вид сверху.",
+    tr: "Rioni’de bir mersin balığı yumurtlama alanının havadan görünümü.",
+  },
+  credit: {
+    photographer: "Stephanie Foote / Fauna & Flora",
+    url: FAUNA_FLORA_BABY_STURGEONS,
+  },
+  height: 1437,
+  src: "https://cdn.reptiles.ge/news-rioni-sturgeon-foote-spawning-ground-aerial.jpg",
+  width: 1920,
+};
+
+const PHOTO_SHIP_STURGEON: NewsPhoto = {
+  alt: {
+    en: "A ship sturgeon found in the Rioni by a local fisher.",
+    ka: "ჯარღალა, რომელიც რიონში ადგილობრივმა მეთევზემ იპოვა.",
+    ru: "Шип, найденный в Риони местным рыбаком.",
+    tr: "Rioni’de yerel bir balıkçının bulduğu bir şip mersini.",
+  },
+  credit: {
+    photographer: "Irakli Tsulaia",
+    url: FAUNA_FLORA_BABY_STURGEONS,
+  },
+  height: 1200,
+  src: "https://cdn.reptiles.ge/news-rioni-sturgeon-tsulaia-ship-sturgeon.jpg",
+  width: 2000,
+};
+
+const PHOTO_JUVENILE: NewsPhoto = {
+  alt: {
+    en: "A juvenile sturgeon being measured during a survey on the Rioni.",
+    ka: "ზუთხის მოზარდის გაზომვა რიონზე აღრიცხვისას.",
+    ru: "Измерение молодого осетра во время учёта на Риони.",
+    tr: "Rioni’deki bir sayım sırasında ölçülen genç bir mersin balığı.",
+  },
+  credit: {
+    photographer: "Bianca Roberts / Fauna & Flora",
+    url: FAUNA_FLORA_BABY_STURGEONS,
+  },
+  height: 1440,
+  src: "https://cdn.reptiles.ge/news-rioni-sturgeon-roberts-juvenile-measured.jpg",
+  width: 1920,
+};
+
+const FIGURE_JUVENILE = { src: PHOTO_JUVENILE.src, type: "figure" as const };
+const FIGURE_SHIP_STURGEON = {
+  src: PHOTO_SHIP_STURGEON.src,
+  type: "figure" as const,
+};
 
 export const RIONI_STRICT_NATURE_RESERVE_STURGEON_2026: NewsArticle = {
   copy: {
@@ -122,6 +179,7 @@ export const RIONI_STRICT_NATURE_RESERVE_STURGEON_2026: NewsArticle = {
               ],
               type: "p",
             },
+            FIGURE_JUVENILE,
           ],
           heading: "Which sturgeons live in Georgia today?",
         },
@@ -145,6 +203,7 @@ export const RIONI_STRICT_NATURE_RESERVE_STURGEON_2026: NewsArticle = {
               ],
               type: "p",
             },
+            FIGURE_SHIP_STURGEON,
           ],
           heading: "Ship sturgeon: a “lost” species found again",
         },
@@ -322,6 +381,7 @@ export const RIONI_STRICT_NATURE_RESERVE_STURGEON_2026: NewsArticle = {
               ],
               type: "p",
             },
+            FIGURE_JUVENILE,
           ],
           heading: "რომელი ზუთხები ცხოვრობენ დღეს საქართველოში?",
         },
@@ -345,6 +405,7 @@ export const RIONI_STRICT_NATURE_RESERVE_STURGEON_2026: NewsArticle = {
               ],
               type: "p",
             },
+            FIGURE_SHIP_STURGEON,
           ],
           heading: "ჯარღალა — „გადაშენებული“ სახეობის აღმოჩენა",
         },
@@ -522,6 +583,7 @@ export const RIONI_STRICT_NATURE_RESERVE_STURGEON_2026: NewsArticle = {
               ],
               type: "p",
             },
+            FIGURE_JUVENILE,
           ],
           heading: "Какие осетры живут в Грузии сегодня?",
         },
@@ -545,6 +607,7 @@ export const RIONI_STRICT_NATURE_RESERVE_STURGEON_2026: NewsArticle = {
               ],
               type: "p",
             },
+            FIGURE_SHIP_STURGEON,
           ],
           heading: "Шип: «исчезнувший» вид найден снова",
         },
@@ -722,6 +785,7 @@ export const RIONI_STRICT_NATURE_RESERVE_STURGEON_2026: NewsArticle = {
               ],
               type: "p",
             },
+            FIGURE_JUVENILE,
           ],
           heading: "Bugün Gürcistan’da hangi mersin balıkları yaşıyor?",
         },
@@ -745,6 +809,7 @@ export const RIONI_STRICT_NATURE_RESERVE_STURGEON_2026: NewsArticle = {
               ],
               type: "p",
             },
+            FIGURE_SHIP_STURGEON,
           ],
           heading: "Şip mersini: “tükenmiş” bir türün yeniden bulunması",
         },
@@ -814,7 +879,9 @@ export const RIONI_STRICT_NATURE_RESERVE_STURGEON_2026: NewsArticle = {
       title: "Parlamento mersin balıkları için Rioni’de 554 hektarı onayladı",
     },
   },
+  gallery: [PHOTO_SHIP_STURGEON, PHOTO_JUVENILE],
   id: "rioni-strict-nature-reserve-sturgeon-2026",
+  image: PHOTO_SPAWNING_GROUND,
   publishedAt: "2026-10-14",
   relatedHubIds: [],
   relatedRegionIds: [],
