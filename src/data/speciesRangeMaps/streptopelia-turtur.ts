@@ -8,43 +8,40 @@ export const rangeMap: InteractiveRangeMapConfig = {
     en: {
       ...HALYOMORPHA_RANGE_COPY.en,
       intro:
-        "The European turtle dove map uses public iNaturalist photo observations in Georgia. Regions come from the records-by-region table: only confirmed status counts as distribution; otherwise a region is not treated as part of the range. Record counts reflect observation effort, not population density.",
+        "The European turtle dove map uses public iNaturalist photo observations in Georgia. Regions come from the records-by-region table: only regions with enough records are shaded on the map; other regions are not shaded. Record counts reflect observation effort, not population density.",
       mapAria:
-        "European turtle dove observations and confirmed distribution regions on a map of Georgia",
-      officialRegionLabel: "Confirmed distribution region",
-      rangeTitle:
-        "European turtle dove: where its distribution is confirmed in Georgia",
+        "European turtle dove observations and regions with records on a map of Georgia",
+      officialRegionLabel: "Region with records",
+      rangeTitle: "European turtle dove: where it is recorded in Georgia",
       regionsMetricLabel: "regions with records",
     },
     ka: {
       ...HALYOMORPHA_RANGE_COPY.ka,
       intro:
-        "გვრიტის რუკა საქართველოს iNaturalist-ის საჯარო ფოტოდაკვირვებებს ეყრდნობა. რეგიონები აღებულია ჩანაწერების რეგიონული ცხრილიდან: გავრცელებად ითვლება მხოლოდ დადასტურებული სტატუსი; სხვა შემთხვევაში რეგიონი გავრცელებულად არ ითვლება. ჩანაწერების რაოდენობა დაკვირვების ინტენსივობას ასახავს და არა პოპულაციის სიმჭიდროვეს.",
+        "გვრიტის რუკა საქართველოს iNaturalist-ის საჯარო ფოტოდაკვირვებებს ეყრდნობა. რეგიონები აღებულია ჩანაწერების რეგიონული ცხრილიდან: რუკაზე შეფერილია მხოლოდ საკმარისი ჩანაწერების მქონე რეგიონები; დანარჩენი რეგიონები შეფერილი არ არის. ჩანაწერების რაოდენობა დაკვირვების ინტენსივობას ასახავს და არა პოპულაციის სიმჭიდროვეს.",
       mapAria:
-        "გვრიტის დაკვირვებები და დადასტურებული გავრცელების რეგიონები საქართველოს რუკაზე",
-      officialRegionLabel: "დადასტურებული გავრცელების რეგიონი",
-      rangeTitle: "სად არის გვრიტის გავრცელება დადასტურებული საქართველოში",
+        "გვრიტის დაკვირვებები და ჩანაწერების მქონე რეგიონები საქართველოს რუკაზე",
+      officialRegionLabel: "ჩანაწერების მქონე რეგიონი",
+      rangeTitle: "სად არის გვრიტი დაფიქსირებული საქართველოში",
       regionsMetricLabel: "რეგიონი ჩანაწერით",
     },
     ru: {
       ...HALYOMORPHA_RANGE_COPY.ru,
       intro:
-        "Карта обыкновенной горлицы использует публичные фотонаблюдения iNaturalist в Грузии. Регионы взяты из таблицы записей: распространением считается только подтверждённый статус; в остальных случаях регион распространением не считается. Число записей отражает активность наблюдателей, а не плотность популяции.",
+        "Карта обыкновенной горлицы использует публичные фотонаблюдения iNaturalist в Грузии. Регионы взяты из таблицы записей: на карте закрашены только регионы с достаточным числом записей; остальные регионы не закрашены. Число записей отражает активность наблюдателей, а не плотность популяции.",
       mapAria:
-        "Наблюдения обыкновенной горлицы и регионы с подтверждённым распространением на карте Грузии",
-      officialRegionLabel: "Регион с подтверждённым распространением",
-      rangeTitle:
-        "Где распространение обыкновенной горлицы подтверждено в Грузии",
+        "Наблюдения обыкновенной горлицы и регионы с записями на карте Грузии",
+      officialRegionLabel: "Регион с записями",
+      rangeTitle: "Где обыкновенная горлица отмечена в Грузии",
       regionsMetricLabel: "регионов с записями",
     },
     tr: {
       ...HALYOMORPHA_RANGE_COPY.tr,
       intro:
-        "Üveyik haritası Gürcistan'daki herkese açık iNaturalist fotoğraflı gözlemlerini kullanır. Bölgeler, bölgelere göre kayıt tablosundan alınır: yalnızca doğrulanmış durum yayılış sayılır; aksi halde bölge yayılış sayılmaz. Kayıt sayısı nüfus yoğunluğunu değil, gözlem çabasını yansıtır.",
-      mapAria:
-        "Üveyik gözlemleri ve Gürcistan'da yayılışı doğrulanmış bölgeler",
-      officialRegionLabel: "Yayılışı doğrulanmış bölge",
-      rangeTitle: "Üveyiğin Gürcistan'da yayılışı nerede doğrulandı?",
+        "Üveyik haritası Gürcistan'daki herkese açık iNaturalist fotoğraflı gözlemlerini kullanır. Bölgeler, bölgelere göre kayıt tablosundan alınır: haritada yalnızca yeterli kaydı olan bölgeler boyanır; diğer bölgeler boyanmaz. Kayıt sayısı nüfus yoğunluğunu değil, gözlem çabasını yansıtır.",
+      mapAria: "Üveyik gözlemleri ve Gürcistan'da kayıt bulunan bölgeler",
+      officialRegionLabel: "Kayıt bulunan bölge",
+      rangeTitle: "Üveyik Gürcistan'da nerede kaydedildi?",
       regionsMetricLabel: "kayıt bulunan bölge",
     },
   },

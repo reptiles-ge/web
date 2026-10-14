@@ -111,10 +111,12 @@ export function LanguageSwitcher({ variant = "light" }: LanguageSwitcherProps) {
   return (
     <div className="relative shrink-0" ref={rootRef}>
       <button
+        aria-controls={listId}
         aria-expanded={open}
+        aria-haspopup="dialog"
         aria-label={t("switch")}
-        className={cn(chromeIconButtonBase, "md:hidden", iconButtonClass)}
-        onClick={() => setOpen(true)}
+        className={cn(chromeIconButtonBase, "lg:hidden", iconButtonClass)}
+        onClick={() => setOpen((value) => !value)}
         type="button"
       >
         <Globe aria-hidden="true" className="size-3.5" strokeWidth={1.75} />
@@ -125,7 +127,7 @@ export function LanguageSwitcher({ variant = "light" }: LanguageSwitcherProps) {
         aria-expanded={open}
         aria-label={t("switch")}
         className={cn(
-          "group hidden items-center gap-2.5 rounded-full border px-3.5 py-2 transition-all duration-300 md:flex",
+          "group hidden items-center gap-2.5 rounded-full border px-3.5 py-2 transition-all duration-300 lg:flex",
           shellClass,
         )}
         onClick={() => setOpen((value) => !value)}

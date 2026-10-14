@@ -1,10 +1,12 @@
 #!/usr/bin/env node
 
+import { readFile, writeFile } from "node:fs/promises";
 import { parseArgs } from "node:util";
 
 const { values } = parseArgs({
   options: {
     concurrency: { default: "8", type: "string" },
+    "indexnow-state": { type: "string" },
     origin: { default: "https://reptiles.ge", type: "string" },
     strict: { default: false, type: "boolean" },
     "wait-for-deploy": { default: "0", type: "string" },
@@ -18,6 +20,11 @@ const WAIT_SECONDS = Math.max(
   Number.parseInt(values["wait-for-deploy"], 10) || 0,
 );
 const BUILD_HEADER = "x-vinext-build-id";
+const INDEXNOW_ENDPOINT = "https://api.indexnow.org/indexnow";
+const INDEXNOW_KEY_PATH = "/indexnow.txt";
+const INDEXNOW_MAX_URLS = 10_000;
+const INDEXNOW_RETRIES = 4;
+const INDEXNOW_MAX_DELAY_MS = 60_000;
 const CACHE_HEADER = "x-vinext-cache";
 const MAINTENANCE_HEADER = "x-reptiles-maintenance";
 const POLL_INTERVAL_MS = 10_000;
@@ -72,12 +79,122 @@ async function readSitemap() {
   if (!response.ok) throw new Error(`sitemap responded ${response.status}`);
 
   const xml = await response.text();
-  const urls = new Set();
-  for (const match of xml.matchAll(/<loc>([^<]+)<\/loc>/g)) {
-    const url = new URL(match[1].trim().replaceAll("&amp;", "&"));
-    urls.add(`${ORIGIN}${url.pathname}${url.search}`);
+  const entries = new Map();
+  for (const match of xml.matchAll(/<url>([\s\S]*?)<\/url>/g)) {
+    const loc = match[1].match(/<loc>([^<]+)<\/loc>/)?.[1];
+    if (!loc) continue;
+    const url = new URL(loc.trim().replaceAll("&amp;", "&"));
+    const lastmod = match[1].match(/<lastmod>([^<]+)<\/lastmod>/)?.[1];
+    entries.set(`${ORIGIN}${url.pathname}${url.search}`, lastmod?.trim());
   }
-  return [...urls];
+  return entries;
+}
+
+async function readIndexNowState(path) {
+  try {
+    return new Map(Object.entries(JSON.parse(await readFile(path, "utf8"))));
+  } catch {
+    return new Map();
+  }
+}
+
+function changedUrls(before, after) {
+  const changed = [];
+  for (const [url, lastmod] of after) {
+    if (!before.has(url) || before.get(url) !== lastmod) changed.push(url);
+  }
+  for (const url of before.keys()) {
+    if (!after.has(url)) changed.push(url);
+  }
+  return changed;
+}
+
+function retryAfterMs(response) {
+  const value = response?.headers.get("retry-after")?.trim();
+  if (!value) return null;
+  if (/^\d+$/.test(value)) return Number(value) * 1000;
+  const date = Date.parse(value);
+  return Number.isNaN(date) ? null : Math.max(0, date - Date.now());
+}
+
+function retryDelay(response, attempt) {
+  const ms = retryAfterMs(response) ?? 2000 * 2 ** attempt;
+  return Math.min(ms, INDEXNOW_MAX_DELAY_MS);
+}
+
+async function postIndexNow(body) {
+  let status = "failed";
+
+  for (let attempt = 0; attempt <= INDEXNOW_RETRIES; attempt += 1) {
+    let response = null;
+    try {
+      response = await fetch(INDEXNOW_ENDPOINT, {
+        body,
+        headers: {
+          "content-type": "application/json; charset=utf-8",
+          "user-agent": USER_AGENT,
+        },
+        method: "POST",
+        signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
+      });
+      await response.arrayBuffer();
+      if (response.ok) return { ok: true, status: String(response.status) };
+      status = String(response.status);
+      if (response.status !== 429 && response.status < 500) break;
+    } catch (error) {
+      status = error instanceof Error ? error.name : "failed";
+    }
+    if (attempt < INDEXNOW_RETRIES) await sleep(retryDelay(response, attempt));
+  }
+
+  return { ok: false, status };
+}
+
+async function submitToIndexNow(urls) {
+  const unsent = new Set();
+  if (urls.length === 0) {
+    console.log("indexnow: no changed urls");
+    return unsent;
+  }
+
+  const keyResponse = await get(`${ORIGIN}${INDEXNOW_KEY_PATH}`);
+  if (!keyResponse.ok) {
+    console.log(`indexnow: key file responded ${keyResponse.status}`);
+    return new Set(urls);
+  }
+  const key = (await keyResponse.text()).trim();
+  const host = new URL(ORIGIN).host;
+
+  for (let start = 0; start < urls.length; start += INDEXNOW_MAX_URLS) {
+    const urlList = urls.slice(start, start + INDEXNOW_MAX_URLS);
+    const result = await postIndexNow(
+      JSON.stringify({
+        host,
+        key,
+        keyLocation: `${ORIGIN}${INDEXNOW_KEY_PATH}`,
+        urlList,
+      }),
+    );
+    console.log(`indexnow: ${urlList.length} urls, ${result.status}`);
+    if (!result.ok) for (const url of urlList) unsent.add(url);
+  }
+  for (const url of urls) {
+    console.log(`  indexnow ${unsent.has(url) ? "unsent" : "sent"} ${url}`);
+  }
+  return unsent;
+}
+
+async function syncIndexNow(path, sitemap) {
+  const before = await readIndexNowState(path);
+  const unsent = await submitToIndexNow(changedUrls(before, sitemap));
+
+  const state = new Map(sitemap);
+  for (const url of unsent) {
+    if (before.has(url)) state.set(url, before.get(url));
+    else state.delete(url);
+  }
+  await writeFile(path, `${JSON.stringify(Object.fromEntries(state))}\n`);
+  return unsent.size > 0 ? 1 : 0;
 }
 
 function rscUrl(url) {
@@ -165,11 +282,12 @@ function report(results, seconds) {
 async function main() {
   if (WAIT_SECONDS > 0) await waitForDeploy();
 
-  const urls = await readSitemap();
-  if (!urls) {
+  const sitemap = await readSitemap();
+  if (!sitemap) {
     console.log(`${ORIGIN} is under maintenance, nothing to warm`);
     return 0;
   }
+  const urls = [...sitemap.keys()];
   console.log(`warming ${urls.length} urls on ${ORIGIN}`);
 
   const started = performance.now();
@@ -177,7 +295,11 @@ async function main() {
     ...urls.map((url) => ({ kind: "html", url })),
     ...urls.map((url) => ({ kind: "rsc", url: rscUrl(url) })),
   ]);
-  return report(results, (performance.now() - started) / 1000);
+  const failed = report(results, (performance.now() - started) / 1000);
+
+  const statePath = values["indexnow-state"];
+  if (!statePath) return failed;
+  return failed + (await syncIndexNow(statePath, sitemap));
 }
 
 try {

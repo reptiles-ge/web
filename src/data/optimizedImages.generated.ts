@@ -207,6 +207,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200],
     "formats": ["avif", "webp"]
   },
+  "/images/news/leatherback-turtle-first-turkish-black-sea-records-2026/leatherback-turtle.png": {
+    "path": "images/news/leatherback-turtle-first-turkish-black-sea-records-2026/leatherback-turtle",
+    "width": 750,
+    "height": 500,
+    "widths": [320, 400, 640, 750],
+    "formats": ["avif", "webp"]
+  },
   "/images/news/vipera-pontica-hybrid-georgia-2026/figure-1.jpg": {
     "path": "images/news/vipera-pontica-hybrid-georgia-2026/figure-1",
     "width": 1772,
@@ -6374,6 +6381,27 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/news-aren-algeti-forest-arkaitz-1.jpg": {
+    "path": "news-aren-algeti-forest-arkaitz-1",
+    "width": 2400,
+    "height": 1803,
+    "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-aren-algeti-shikhan-komarov-1.jpg": {
+    "path": "news-aren-algeti-shikhan-komarov-1",
+    "width": 2400,
+    "height": 1600,
+    "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-aren-areni-shabashewitz-1.jpg": {
+    "path": "news-aren-areni-shabashewitz-1",
+    "width": 2400,
+    "height": 1714,
+    "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/news-batumi-19300-cosentino-kite-1.jpg": {
     "path": "news-batumi-19300-cosentino-kite-1",
     "width": 2400,
@@ -6400,6 +6428,62 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 2400,
     "height": 1800,
     "widths": [400, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-batumi-239735-hoekstra-black-kites.jpg": {
+    "path": "news-batumi-239735-hoekstra-black-kites",
+    "width": 2000,
+    "height": 1333,
+    "widths": [320, 400, 640, 800, 1200, 2000],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-batumi-239735-hoekstra-eagles-buzzards.jpg": {
+    "path": "news-batumi-239735-hoekstra-eagles-buzzards",
+    "width": 2000,
+    "height": 1333,
+    "widths": [320, 400, 640, 800, 1200, 2000],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-batumi-239735-hoekstra-station-2.jpg": {
+    "path": "news-batumi-239735-hoekstra-station-2",
+    "width": 2000,
+    "height": 1533,
+    "widths": [320, 400, 640, 800, 1200, 2000],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-batumi-239735-stolk-steppe-eagle.jpg": {
+    "path": "news-batumi-239735-stolk-steppe-eagle",
+    "width": 2000,
+    "height": 1525,
+    "widths": [320, 400, 640, 800, 1200, 2000],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-from-the-sky-foote-sparrowhawk.jpg": {
+    "path": "news-from-the-sky-foote-sparrowhawk",
+    "width": 1920,
+    "height": 1281,
+    "widths": [320, 400, 640, 800, 1200, 1920],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-rioni-sturgeon-foote-spawning-ground-aerial.jpg": {
+    "path": "news-rioni-sturgeon-foote-spawning-ground-aerial",
+    "width": 1920,
+    "height": 1437,
+    "widths": [320, 400, 640, 800, 1200, 1920],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-rioni-sturgeon-roberts-juvenile-measured.jpg": {
+    "path": "news-rioni-sturgeon-roberts-juvenile-measured",
+    "width": 1920,
+    "height": 1440,
+    "widths": [320, 400, 640, 800, 1200, 1920],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-rioni-sturgeon-tsulaia-ship-sturgeon.jpg": {
+    "path": "news-rioni-sturgeon-tsulaia-ship-sturgeon",
+    "width": 2000,
+    "height": 1200,
+    "widths": [320, 400, 640, 800, 1200, 2000],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/olivierus-caucasicus-evgeny-1.jpg": {
@@ -7365,7 +7449,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "path": "species/capra-aegagrus-gabunia-1",
     "width": 892,
     "height": 596,
-    "widths": [400, 800, 892],
+    "widths": [320, 400, 640, 800, 892],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/species/capra-aegagrus-gndasar-1.jpg": {

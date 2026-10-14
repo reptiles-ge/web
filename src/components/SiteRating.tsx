@@ -3,12 +3,23 @@
 import { Star, X } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
-import { type CSSProperties, useEffect, useRef, useState } from "react";
+import {
+  type CSSProperties,
+  type FormEvent,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 
 import { BrandText } from "@/components/BrandName";
 import { SiteRatingMascot } from "@/components/SiteRatingMascot";
 import { trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
+import {
+  MAX_FEEDBACK_LENGTH,
+  needsFeedback,
+  normalizeFeedback,
+} from "@/lib/ratingFeedback";
 
 const STORAGE_KEY = "reptiles-rating";
 const SECONDS_KEY = "reptiles-rating-seconds";
@@ -37,7 +48,7 @@ const BURST = [
   [-30, 10],
 ] as const;
 
-type Phase = "ask" | "hidden" | "thanks";
+type Phase = "ask" | "feedback" | "hidden" | "thanks";
 
 type Stars = 0 | (typeof STARS)[number];
 
@@ -48,10 +59,12 @@ export function SiteRating() {
   const [hovered, setHovered] = useState<Stars>(0);
   const [selected, setSelected] = useState<Stars>(0);
   const [ducks, setDucks] = useState(0);
+  const [feedback, setFeedback] = useState("");
   const pathname = usePathname();
   const seconds = useRef(0);
   const pages = useRef(0);
   const lastPathname = useRef<null | string>(null);
+  const feedbackField = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
     if (lastPathname.current === pathname) return;
@@ -84,6 +97,10 @@ export function SiteRating() {
   }, []);
 
   useEffect(() => {
+    if (phase === "feedback") feedbackField.current?.focus();
+  }, [phase]);
+
+  useEffect(() => {
     if (phase !== "thanks") return;
     const timer = window.setTimeout(() => setPhase("hidden"), THANKS_MS);
     return () => window.clearTimeout(timer);
@@ -93,13 +110,29 @@ export function SiteRating() {
 
   const active = hovered || selected;
 
-  function rate(rating: (typeof STARS)[number]) {
+  function choose(rating: (typeof STARS)[number]) {
     setSelected(rating);
+    if (needsFeedback(rating)) {
+      setPhase("feedback");
+      return;
+    }
+    send(rating, null);
+  }
+
+  function submitFeedback(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const text = normalizeFeedback(feedback);
+    if (!selected || !text) return;
+    send(selected, text);
+  }
+
+  function send(rating: (typeof STARS)[number], text: null | string) {
     setPhase("thanks");
     store(RATED);
     trackEvent("site_rating", { rating });
     void fetch("/api/rating", {
       body: JSON.stringify({
+        feedback: text ?? undefined,
         locale,
         pages: pages.current,
         path: window.location.pathname,
@@ -214,7 +247,7 @@ export function SiteRating() {
                   className="rounded-full p-1 transition-transform duration-150 hover:scale-115 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:scale-95 motion-reduce:transition-none"
                   key={star}
                   onBlur={() => setHovered(0)}
-                  onClick={() => rate(star)}
+                  onClick={() => choose(star)}
                   onFocus={() => setHovered(star)}
                   onMouseEnter={() => setHovered(star)}
                   type="button"
@@ -240,6 +273,36 @@ export function SiteRating() {
             >
               {active ? t(LEVELS[active]) : t("hint")}
             </p>
+            {phase === "feedback" ? (
+              <form className="mt-2" onSubmit={submitFeedback}>
+                <label
+                  className="text-xs font-bold"
+                  htmlFor="site-rating-feedback"
+                >
+                  {t("feedbackLabel")}
+                </label>
+                <textarea
+                  className="mt-1 block w-full resize-none rounded-lg border border-border bg-background px-2.5 py-2 text-sm text-foreground placeholder:text-muted-foreground focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-primary"
+                  id="site-rating-feedback"
+                  maxLength={MAX_FEEDBACK_LENGTH}
+                  onChange={(event) => setFeedback(event.target.value)}
+                  placeholder={t("feedbackPlaceholder")}
+                  ref={feedbackField}
+                  rows={3}
+                  value={feedback}
+                />
+                <p className="mt-1 text-[11px] leading-snug text-muted-foreground">
+                  {t("feedbackPrivacy")}
+                </p>
+                <button
+                  className="mt-2 w-full rounded-full bg-primary px-3 py-2 text-sm font-bold text-white transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:cursor-not-allowed disabled:opacity-50 dark:text-ink"
+                  disabled={!normalizeFeedback(feedback)}
+                  type="submit"
+                >
+                  {t("feedbackSend")}
+                </button>
+              </form>
+            ) : null}
           </>
         )}
       </div>

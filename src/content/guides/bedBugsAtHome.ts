@@ -49,6 +49,8 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         question: "Should every bed bug bite be a call to 112?",
       },
     ],
+    intro:
+      "Before you buy anything or treat the room, look for the insect or its traces in mattress seams, the bed frame and nearby cracks. Itching or a bite on its own does not confirm bed bugs.",
     metaTitle: "Bed bugs at home — how to find and remove them",
     sections: [
       {
@@ -186,6 +188,8 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         question: "ყველა ნაკბენზე 112-ზე უნდა დავრეკო?",
       },
     ],
+    intro:
+      "სანამ რამეს იყიდით ან ოთახს დაამუშავებთ, ლეიბის ნაკერებში, საწოლის ჩარჩოსა და ახლო ნაპრალებში მწერი ან მისი კვალი მოძებნეთ. ქავილი ან ნაკბენი ცალკე ბაღლინჯოს არ ადასტურებს.",
     metaTitle: "ბაღლინჯო სახლში — როგორ ვიპოვოთ და მოვიშოროთ",
     sections: [
       {
@@ -323,6 +327,8 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         question: "Звонить ли на 112 при каждом укусе?",
       },
     ],
+    intro:
+      "Прежде чем что-то покупать или обрабатывать комнату, ищите насекомое или его следы в швах матраса, на каркасе кровати и в ближних щелях. Зуд или укус сами по себе клопов не подтверждают.",
     metaTitle: "Клопы в квартире — как найти и вывести",
     sections: [
       {
@@ -460,6 +466,8 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         question: "Her ısırıkta 112 aranır mı?",
       },
     ],
+    intro:
+      "Bir şey almadan veya odayı ilaçlamadan önce yatak dikişlerinde, karyola çerçevesinde ve yakındaki çatlaklarda böceği ya da izlerini arayın. Kaşıntı veya ısırık tek başına tahtakurusunu kanıtlamaz.",
     metaTitle: "Evde tahtakurusu — nasıl bulunur ve uzaklaştırılır",
     sections: [
       {

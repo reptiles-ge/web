@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import {
+  localeShortLabel,
   type LocaleSwitchIndex,
   resolvePageContextFromIndex,
   speciesHrefFromIndex,
@@ -155,5 +156,14 @@ describe("speciesHrefFromIndex", () => {
     expect(speciesHrefFromIndex(index, "unknown-id", "ka").params.slug).toBe(
       "unknown-id",
     );
+  });
+});
+
+describe("localeShortLabel", () => {
+  it("uses the Georgian abbreviation for ka and upper-case codes elsewhere", () => {
+    expect(localeShortLabel("ka")).toBe("ქა");
+    expect(localeShortLabel("en")).toBe("EN");
+    expect(localeShortLabel("ru")).toBe("RU");
+    expect(localeShortLabel("tr")).toBe("TR");
   });
 });

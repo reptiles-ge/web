@@ -8,37 +8,37 @@ export const rangeMap: InteractiveRangeMapConfig = {
     en: {
       ...HALYOMORPHA_RANGE_COPY.en,
       intro:
-        "The Dahl's whip snake map combines Reptiles.ge field photos with public iNaturalist observations. The records-by-region table determines the shaded range: three or more field records confirm regional distribution; one or two remain recorded-only. Record counts do not measure population density.",
+        "The Dahl's whip snake map combines Reptiles.ge field photos with public iNaturalist observations. The records-by-region table determines the shaded range: regions with three or more field records are shaded on the map; one or two records count as too few records. Record counts do not measure population density.",
       mapAria:
-        "Dahl's whip snake observations and confirmed regions on a map of Georgia",
-      officialRegionLabel: "Region with confirmed distribution",
+        "Dahl's whip snake observations and regions with records on a map of Georgia",
+      officialRegionLabel: "Region with records",
       rangeTitle: "Dahl's whip snake: where it is recorded in Georgia",
     },
     ka: {
       ...HALYOMORPHA_RANGE_COPY.ka,
       intro:
-        "წენგოსფერი მცურავის რუკა აერთიანებს Reptiles.ge-ის საველე ფოტოებსა და iNaturalist-ის საჯარო დაკვირვებებს. შეფერილი გავრცელება რეგიონული ცხრილის სტატუსს ეფუძნება: სულ მცირე 3 საველე ჩანაწერი რეგიონს დადასტურებულ სტატუსს ანიჭებს; 1–2 ჩანაწერი მხოლოდ დაფიქსირებულად ითვლება. ჩანაწერების რაოდენობა პოპულაციის სიმჭიდროვე არ არის.",
+        "წენგოსფერი მცურავის რუკა აერთიანებს Reptiles.ge-ის საველე ფოტოებსა და iNaturalist-ის საჯარო დაკვირვებებს. შეფერილი რეგიონები რეგიონული ცხრილის სტატუსს ეფუძნება: რუკაზე შეფერილია სულ მცირე 3 საველე ჩანაწერის მქონე რეგიონი; 1–2 ჩანაწერი ცოტად ითვლება. ჩანაწერების რაოდენობა პოპულაციის სიმჭიდროვე არ არის.",
       mapAria:
-        "წენგოსფერი მცურავის დაკვირვებები და დადასტურებული რეგიონები საქართველოს რუკაზე",
-      officialRegionLabel: "დადასტურებული გავრცელების რეგიონი",
+        "წენგოსფერი მცურავის დაკვირვებები და ჩანაწერების მქონე რეგიონები საქართველოს რუკაზე",
+      officialRegionLabel: "ჩანაწერების მქონე რეგიონი",
       rangeTitle: "სად არის წენგოსფერი მცურავი დაფიქსირებული საქართველოში",
     },
     ru: {
       ...HALYOMORPHA_RANGE_COPY.ru,
       intro:
-        "Карта оливкового полоза объединяет полевые фотографии Reptiles.ge и публичные наблюдения iNaturalist. Закрашенный ареал определяется региональной таблицей: три и более полевых записи подтверждают распространение в регионе; одна или две означают лишь наличие записей. Число записей не отражает плотность популяции.",
+        "Карта оливкового полоза объединяет полевые фотографии Reptiles.ge и публичные наблюдения iNaturalist. Закрашенные регионы определяются региональной таблицей: на карте закрашены регионы с тремя и более полевыми записями; одной или двух записей мало. Число записей не отражает плотность популяции.",
       mapAria:
-        "Наблюдения оливкового полоза и подтверждённые регионы на карте Грузии",
-      officialRegionLabel: "Регион с подтверждённым распространением",
+        "Наблюдения оливкового полоза и регионы с записями на карте Грузии",
+      officialRegionLabel: "Регион с записями",
       rangeTitle: "Где оливковый полоз отмечен в Грузии",
     },
     tr: {
       ...HALYOMORPHA_RANGE_COPY.tr,
       intro:
-        "Dahl kırbaç yılanı haritası Reptiles.ge arazi fotoğraflarını ve herkese açık iNaturalist gözlemlerini birleştirir. Boyalı yayılış bölgesel tabloya dayanır: üç veya daha fazla arazi kaydı bölgesel yayılışı doğrular; bir veya iki kayıt yalnızca kaydedilmiş sayılır. Kayıt sayısı popülasyon yoğunluğunu göstermez.",
+        "Dahl kırbaç yılanı haritası Reptiles.ge arazi fotoğraflarını ve herkese açık iNaturalist gözlemlerini birleştirir. Boyalı bölgeler bölgesel tabloya dayanır: üç veya daha fazla arazi kaydı olan bölgeler haritada boyanır; bir veya iki kayıt az sayılır. Kayıt sayısı popülasyon yoğunluğunu göstermez.",
       mapAria:
-        "Dahl kırbaç yılanı gözlemleri ve doğrulanmış bölgeler Gürcistan haritasında",
-      officialRegionLabel: "Yayılışı doğrulanmış bölge",
+        "Dahl kırbaç yılanı gözlemleri ve kayıt bulunan bölgeler Gürcistan haritasında",
+      officialRegionLabel: "Kayıt bulunan bölge",
       rangeTitle: "Dahl kırbaç yılanı Gürcistan'da nerede kaydedildi?",
     },
   },

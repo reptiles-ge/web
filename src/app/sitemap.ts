@@ -3,7 +3,12 @@ import type { MetadataRoute } from "next";
 import { getPublishedCreditAuthors } from "@/data/creditAuthors";
 import { getGuideArticles } from "@/data/guideArticles";
 import { getPublishedNewsArticles } from "@/data/news";
-import { sitemapPathDatePublished } from "@/data/pageLastModified";
+import {
+  sitemapAuthorDatePublished,
+  sitemapPathDatePublished,
+  sitemapQuizDatePublished,
+  sitemapRegionDatePublished,
+} from "@/data/pageLastModified";
 import { regions } from "@/data/regions";
 import { getCatalogSpecies } from "@/data/species";
 import { speciesUpdatedAt } from "@/i18n/localizeSpecies";
@@ -15,11 +20,7 @@ import {
   getCreditAuthorPhotos,
 } from "@/lib/creditAuthors";
 import { GROUP_HUB_LIST } from "@/lib/groupHubs";
-import {
-  isIndexableLegalLocale,
-  LEGAL_PATHS,
-  legalAlternates,
-} from "@/lib/legalPages";
+import { LEGAL_PATHS } from "@/lib/legalPages";
 import {
   newsArticleAlternates,
   newsArticleModifiedDateTime,
@@ -44,13 +45,11 @@ import {
 } from "@/lib/sitemapImages";
 import { regionHref } from "@/lib/speciesRoutes";
 import {
-  authorDateFields,
-  pageDateFields,
-  quizDateFields,
-  regionDateFields,
+  authorModifiedDate,
+  pageModifiedDate,
+  quizModifiedDate,
+  regionModifiedDate,
 } from "@/lib/structuredDataDates";
-
-const FALLBACK_LASTMOD = "2026-01-01T00:00:00+04:00";
 
 type SitemapEntry = MetadataRoute.Sitemap[number] & {
   datePublished?: string;
@@ -64,7 +63,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   function push(entry: SitemapEntry) {
     if (seen.has(entry.url)) return;
     seen.add(entry.url);
-    entries.push(entry);
+    const { lastModified, ...rest } = entry;
+    entries.push(lastModified ? { ...rest, lastModified } : rest);
   }
 
   for (const locale of routing.locales) {
@@ -72,13 +72,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     push(pageEntry(locale, "/contact"));
     push(pageEntry(locale, "/about"));
     push(pageEntry(locale, "/photo-use"));
-    if (isIndexableLegalLocale(locale)) {
-      for (const path of Object.values(LEGAL_PATHS)) {
-        push({
-          ...pageEntry(locale, path),
-          alternates: { languages: legalAlternates(locale, path).languages },
-        });
-      }
+    for (const path of Object.values(LEGAL_PATHS)) {
+      push(pageEntry(locale, path));
     }
     push(pageEntry(locale, "/news", newsIndexDateFields(locale).dateModified));
     for (const article of getGuideArticles()) {
@@ -96,11 +91,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     push(pageEntry(locale, "/quiz"));
     for (const quiz of liveQuizzes()) {
       const { languages } = quizAlternates(locale, quiz.id);
-      const dates = quizDateFields(quiz.id, locale);
       push({
         alternates: { languages },
-        datePublished: dates.datePublished,
-        lastModified: dates.dateModified,
+        datePublished: sitemapQuizDatePublished(quiz.id),
+        lastModified: toLastModified(quizModifiedDate(quiz.id, locale)),
         url: quizPageUrl(locale, quiz.id),
       });
     }
@@ -120,13 +114,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     push(pageEntry(locale, "/regions"));
 
     for (const region of regions) {
-      const dates = regionDateFields(region.id, locale);
       push(
         pageEntry(
           locale,
           regionHref(region.id),
-          dates.dateModified,
-          dates.datePublished,
+          regionModifiedDate(region.id, locale),
+          sitemapRegionDatePublished(region.id),
         ),
       );
     }
@@ -147,11 +140,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       const photos = getCreditAuthorPhotos(author);
       const { languages } = creditAuthorAlternates(locale, author.slug);
       const images = creditAuthorPageImageUrls(author.portraitSrc, photos);
-      const dates = authorDateFields(author.slug, locale);
       push({
         alternates: { languages },
-        datePublished: dates.datePublished,
-        lastModified: dates.dateModified,
+        datePublished: sitemapAuthorDatePublished(author.slug),
+        lastModified: toLastModified(authorModifiedDate(author.slug, locale)),
         url: creditAuthorUrl(locale, author.slug),
         ...(images.length > 0 ? { images } : {}),
       });
@@ -174,21 +166,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
 function pageEntry(
   locale: AppLocale,
   href: Parameters<typeof localePath>[1],
-  lastModified?: string,
+  lastModified: null | string = pageModifiedDate(String(href), locale),
   datePublished?: string,
 ): SitemapEntry {
   const { languages } = localeAlternates(locale, href);
   return {
     alternates: { languages },
     datePublished: datePublished ?? sitemapPathDatePublished(String(href)),
-    lastModified:
-      lastModified ?? pageDateFields(String(href), locale).dateModified,
+    lastModified: toLastModified(lastModified),
     url: absoluteUrl(localePath(locale, href)),
   };
 }
 
-function toLastModified(isoDate: null | string | undefined): string {
-  if (!isoDate) return FALLBACK_LASTMOD;
-  if (Number.isNaN(Date.parse(isoDate))) return FALLBACK_LASTMOD;
+function toLastModified(isoDate: null | string | undefined) {
+  if (!isoDate || Number.isNaN(Date.parse(isoDate))) return undefined;
   return isoDate;
 }

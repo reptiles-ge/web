@@ -45,6 +45,8 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
     intro:
       "If a venomous or unidentified snake has bitten you in Georgia, move away from it and call 112 for emergency medical help. Keep movement to a minimum and remove rings or other tight items near the bite. Do not cut the wound, suck out venom, or apply a tight tourniquet.",
     metaTitle: "Snakebite in Georgia — call 112 | what not to do",
+    notice:
+      "Was it a Levantine viper (gyurza)? Read the [Levantine viper bite guide](/snakes/giurzas-nakbeni) for what applies to that species. If you are not sure which snake bit you, follow this page and call 112.",
     sections: [
       {
         heading: "What should you do immediately after a snakebite?",
@@ -171,6 +173,8 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
     intro:
       "თუ საქართველოში შხამიანმა ან უცნობმა გველმა გიკბინა, მოშორდი მას და გადაუდებელი სამედიცინო დახმარებისთვის დარეკე 112-ზე. შეამცირე მოძრაობა და მოიხსენი ბეჭედი ან სხვა მჭიდრო ნივთი ნაკბენთან ახლოს. ნუ გაჭრი ჭრილობას, ნუ ამოიწოვ შხამს და ნუ გაიკეთებ მჭიდრო ტურნიკეტს.",
     metaTitle: "გველის ნაკბენი საქართველოში — დარეკე 112 | რა არ გააკეთო",
+    notice:
+      "გიურზამ გიკბინა? ამ სახეობის ნაკბენის შესახებ წაიკითხე [გიურზას ნაკბენის გიდი](/snakes/giurzas-nakbeni). თუ არ იცი, რომელმა გველმა გიკბინა, მიჰყევი ამ გვერდს და დარეკე 112-ზე.",
     sections: [
       {
         heading: "გველმა მიკბინა — რა გავაკეთო დაუყოვნებლივ?",
@@ -297,6 +301,8 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
     intro:
       "Если в Грузии вас укусила ядовитая или неопознанная змея, отойдите от неё и звоните 112 для неотложной медицинской помощи. Старайтесь меньше двигаться и снимите кольца и другие тесные предметы рядом с укусом. Не разрезайте рану, не отсасывайте яд и не накладывайте тугой жгут.",
     metaTitle: "Укус змеи в Грузии — звоните 112 | чего не делать",
+    notice:
+      "Укусила гюрза? О том, что касается именно этого вида, читайте в [руководстве об укусе гюрзы](/snakes/giurzas-nakbeni). Если вы не знаете, какая змея укусила, следуйте этой странице и звоните 112.",
     sections: [
       {
         heading: "Что делать сразу после укуса змеи?",
@@ -423,6 +429,8 @@ const COPY: Record<AppLocale, GuideArticleCopy> = {
     intro:
       "Gürcistan’da zehirli veya tanınmayan bir yılan sizi ısırdıysa yılandan uzaklaşın ve acil tıbbi yardım için 112’yi arayın. Hareketi azaltın; ısırık yakınındaki yüzük ve diğer sıkı eşyaları çıkarın. Yarayı kesmeyin, zehri emmeyin ve sıkı turnike uygulamayın.",
     metaTitle: "Gürcistan’da yılan ısırığı — 112’yi arayın | ne yapmayın",
+    notice:
+      "Sizi ısıran bir Levant engereği (gyurza) muydu? Bu türe özgü bilgiler için [Levant engereği ısırığı rehberine](/snakes/giurzas-nakbeni) bakın. Hangi yılanın ısırdığından emin değilseniz bu sayfayı izleyin ve 112’yi arayın.",
     sections: [
       {
         heading: "Yılan ısırığından hemen sonra ne yapmalısınız?",

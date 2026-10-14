@@ -145,9 +145,7 @@ export function NavbarChrome({
         <div className="hidden lg:block">
           <ThemeToggle variant={variant} />
         </div>
-        <div className="hidden lg:block">
-          <LanguageSwitcher variant={variant} />
-        </div>
+        <LanguageSwitcher variant={variant} />
         <button
           aria-controls={menuId}
           aria-expanded={menuOpen}

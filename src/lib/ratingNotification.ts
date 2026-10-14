@@ -37,6 +37,7 @@ const REGION_NAMES = new Intl.DisplayNames(["en"], { type: "region" });
 type RatingNotification = {
   acceptLanguage: null | string;
   country: null | string;
+  feedback: null | string;
   host: string;
   locale: AppLocale;
   pages: unknown;
@@ -50,6 +51,7 @@ type RatingNotification = {
 export function formatRatingNotification({
   acceptLanguage,
   country,
+  feedback,
   host,
   locale,
   pages,
@@ -75,6 +77,7 @@ export function formatRatingNotification({
     device ? `📱 ${device}` : "",
     visit.length > 0 ? `⏱ ${visit.join(" · ")}` : "",
     source ? `↩ ${source}` : "",
+    feedback ? `\n💬 ${feedback}` : "",
   ]
     .filter(Boolean)
     .join("\n");

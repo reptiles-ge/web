@@ -23,11 +23,7 @@ import {
 } from "@/data/news";
 import { getAtlasStats } from "@/data/speciesAtlas";
 import { Link } from "@/i18n/navigation";
-import {
-  formatContentDate,
-  formatContentDateShort,
-  formatContentMonth,
-} from "@/lib/formatDate";
+import { formatContentDate, formatContentMonth } from "@/lib/formatDate";
 import {
   GROUP_HUB_ILLUSTRATIONS,
   GROUP_HUBS,
@@ -85,7 +81,6 @@ export async function NewsIndexPage({ articles, locale }: NewsIndexPageProps) {
   const entries = articles.map((article) =>
     toEntry(article, locale, {
       readLabel: (minutes) => t("readTime", { minutes }),
-      readShortLabel: (minutes) => t("readTimeShort", { minutes }),
       topicLabel: (hub) => tNav(hub),
     }),
   );
@@ -378,7 +373,6 @@ function toEntry(
   locale: AppLocale,
   labels: {
     readLabel: (minutes: number) => string;
-    readShortLabel: (minutes: number) => string;
     topicLabel: (hub: GroupHubId) => string;
   },
 ): NewsIndexEntry {
@@ -388,12 +382,10 @@ function toEntry(
   return {
     alt: visual?.alt ?? "",
     dateLabel: formatContentDate(article.publishedAt, locale),
-    dateShort: formatContentDateShort(article.publishedAt, locale),
     dek: newsLocalizedDek(article, locale),
     illustrated: !visual,
     publishedAt: article.publishedAt,
     readLabel: labels.readLabel(minutes),
-    readShortLabel: labels.readShortLabel(minutes),
     slug: article.slug,
     source: article.sources[0]
       ? newsSourceName(article.sources[0], locale)

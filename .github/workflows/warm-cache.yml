@@ -23,5 +23,19 @@ jobs:
         with:
           node-version: 22
 
-      - name: Wait for the deploy, then request every sitemap URL
-        run: node scripts/warm-cache.mjs --wait-for-deploy ${{ github.event_name == 'push' && '900' || '0' }}
+      - name: Restore the last URLs sent to IndexNow
+        uses: actions/cache/restore@v4
+        with:
+          path: .indexnow-state.json
+          key: indexnow-state-${{ github.run_id }}
+          restore-keys: indexnow-state-
+
+      - name: Wait for the deploy, request every sitemap URL, submit changed URLs to IndexNow
+        run: node scripts/warm-cache.mjs --indexnow-state .indexnow-state.json --wait-for-deploy ${{ github.event_name == 'push' && '900' || '0' }}
+
+      - name: Save the URLs sent to IndexNow
+        if: ${{ !cancelled() && hashFiles('.indexnow-state.json') != '' }}
+        uses: actions/cache/save@v4
+        with:
+          path: .indexnow-state.json
+          key: indexnow-state-${{ github.run_id }}

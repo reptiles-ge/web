@@ -11,10 +11,9 @@ import type { AppLocale } from "@/i18n/routing";
 import { AnchoredHeading } from "@/components/AnchoredHeading";
 import { CoverImage } from "@/components/CoverImage";
 import { FaqAnswerPanel, FaqToggleIcon } from "@/components/FaqAccordionParts";
-import { useSpeciesHref } from "@/components/LocaleSwitchProvider";
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
-import { SpeciesRiskChip } from "@/components/SpeciesDanger";
+import { RegionSpeciesCard } from "@/components/RegionSpeciesCard";
 import {
   getRegionById,
   type LocalizedText,
@@ -26,10 +25,9 @@ import { getRegionContent } from "@/data/regionContent";
 import { getRegionHeroImage } from "@/data/regionImages";
 import { type AnimalGroup, getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import { Link } from "@/i18n/navigation";
-import { trackEvent, trackSpeciesClick } from "@/lib/analytics";
+import { trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
 import { regionHref } from "@/lib/regionHref";
-import { speciesImageAlt } from "@/lib/speciesMeta";
 import { REGION_SECTION_IDS } from "@/lib/toc";
 
 type RegionFaqItem = {
@@ -42,6 +40,7 @@ type RegionProfileProps = {
   editable: boolean;
   region: Region;
   species: RegionSpeciesCardItem[];
+  summary: string[];
   venomous: RegionSpeciesCardItem[];
 };
 
@@ -64,6 +63,7 @@ export function RegionProfile({
   editable,
   region,
   species,
+  summary,
   venomous,
 }: RegionProfileProps) {
   const locale = useLocale() as AppLocale;
@@ -96,6 +96,7 @@ export function RegionProfile({
           venomousCount={venomous.length}
         />
         <RegionProfileRange name={name} regionId={region.id} />
+        <RegionProfileSummary name={name} paragraphs={summary} />
         <RegionProfileHabitats
           description={region.description}
           editable={editable}
@@ -123,56 +124,6 @@ export function RegionProfile({
         {related.length > 0 ? <RegionProfileRelated related={related} /> : null}
       </div>
     </div>
-  );
-}
-
-function PhotoSpeciesCard({
-  showDanger = false,
-  species,
-}: {
-  showDanger?: boolean;
-  species: RegionSpeciesCardItem;
-}) {
-  const locale = useLocale() as AppLocale;
-  return (
-    <Link
-      className="group relative block aspect-4/5 overflow-hidden rounded-media bg-ink"
-      href={useSpeciesHref(species.id, locale)}
-      onClick={() =>
-        trackSpeciesClick({
-          source: "region",
-          species_id: species.id,
-        })
-      }
-      prefetch={false}
-    >
-      <CoverImage
-        alt={speciesImageAlt(
-          species.commonName,
-          species.scientificName,
-          species.location,
-        )}
-        className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-        src={species.mobileImage ?? species.image}
-      />
-      <div className="absolute inset-0 bg-linear-to-t from-black/85 via-black/20 to-transparent" />
-      <div className="absolute inset-x-0 bottom-0 p-6">
-        <p className="text-[12px] text-white/50 italic">
-          {species.scientificName}
-        </p>
-        <h3 className="mt-1 font-display text-[22px] font-semibold text-white">
-          {species.commonName}
-        </h3>
-        {showDanger ? (
-          <div className="mt-3">
-            <SpeciesRiskChip species={species} variant="hero" />
-          </div>
-        ) : (
-          <p className="mt-2 text-[12px] text-white/50">{species.location}</p>
-        )}
-      </div>
-    </Link>
   );
 }
 
@@ -628,7 +579,7 @@ function RegionProfileSpecies({
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {filteredSpecies.map((item) => (
               <div key={item.id}>
-                <PhotoSpeciesCard species={item} />
+                <RegionSpeciesCard species={item} />
               </div>
             ))}
           </div>
@@ -640,6 +591,45 @@ function RegionProfileSpecies({
         <p className="mt-10 max-w-2xl text-[14px] leading-relaxed text-muted-foreground">
           {t("dataGapBody")}
         </p>
+      </div>
+    </section>
+  );
+}
+
+function RegionProfileSummary({
+  name,
+  paragraphs,
+}: {
+  name: string;
+  paragraphs: string[];
+}) {
+  const t = useTranslations("regions");
+
+  return (
+    <section className="border-t border-border bg-background py-20 lg:py-28">
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
+          <div>
+            <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
+              {t("summary.eyebrow")}
+            </p>
+            <AnchoredHeading
+              anchorLabel={t("anchorLink")}
+              className="mt-5 font-display text-display-title font-semibold"
+              id={REGION_SECTION_IDS.summary}
+              slugSource={t("summary.title", { name })}
+            >
+              {t("summary.title", { name })}
+            </AnchoredHeading>
+          </div>
+          <div className="space-y-5 text-[16px] leading-relaxed text-foreground/85">
+            {paragraphs.map((paragraph) => (
+              <p key={paragraph}>
+                <PhoneLinkedText>{paragraph}</PhoneLinkedText>
+              </p>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -676,7 +666,7 @@ function RegionProfileVenomous({
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {species.map((item) => (
             <div key={item.id}>
-              <PhotoSpeciesCard showDanger species={item} />
+              <RegionSpeciesCard showDanger species={item} />
             </div>
           ))}
         </div>

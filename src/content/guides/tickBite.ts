@@ -44,6 +44,8 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         question: "Should I call 112 after a tick bite?",
       },
     ],
+    intro:
+      "Remove an attached tick as soon as you can with clean fine-tipped tweezers, gripping it close to the skin and pulling with steady pressure. Do not wait for a clinic; afterwards, check for more ticks and watch your health over the next weeks.",
     metaTitle: "Tick bite — how to remove a tick correctly",
     sections: [
       {
@@ -184,6 +186,8 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         question: "ტკიპის ნაკბენის შემდეგ 112-ზე უნდა დავრეკო?",
       },
     ],
+    intro:
+      "კანზე მიმაგრებული ტკიპა რაც შეიძლება მალე მოიცილეთ სუფთა, წვრილწვერიანი პინცეტით: ჩაავლეთ კანთან ახლოს და თანაბარი მოძრაობით ამოიყვანეთ. კლინიკაში მისვლას ნუ დაელოდებით; შემდეგ სხეულზე სხვა ტკიპებიც შეამოწმეთ და მომდევნო კვირებში ჯანმრთელობას დააკვირდით.",
     metaTitle: "ტკიპას ნაკბენი — ამოღება და მოშორება",
     sections: [
       {
@@ -323,6 +327,8 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         question: "Нужно ли звонить 112 после укуса клеща?",
       },
     ],
+    intro:
+      "Удалите присосавшегося клеща как можно скорее чистым пинцетом с тонкими концами: захватите его у самой кожи и тяните ровно. Не ждите визита в клинику; после удаления проверьте тело на других клещей и наблюдайте за самочувствием в следующие недели.",
     metaTitle: "Укус клеща — как правильно удалить клеща",
     sections: [
       {
@@ -462,6 +468,8 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         question: "Kene ısırığından sonra 112 aranmalı mı?",
       },
     ],
+    intro:
+      "Tutunmuş keneyi mümkün olduğunca çabuk temiz, ince uçlu cımbızla çıkarın: deriye yakın tutun ve sabit basınçla çekin. Kliniğe gitmeyi beklemeyin; sonra başka kene var mı kontrol edin ve sonraki haftalarda sağlığınızı izleyin.",
     metaTitle: "Kene ısırığı — kene doğru nasıl çıkarılır?",
     sections: [
       {

@@ -86,78 +86,10 @@ const MONTHS_STANDALONE: Record<AppLocale, string[]> = {
   ],
 };
 
-const MONTHS_SHORT: Record<AppLocale, string[]> = {
-  en: [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ],
-  ka: [
-    "იან",
-    "თებ",
-    "მარ",
-    "აპრ",
-    "მაი",
-    "ივნ",
-    "ივლ",
-    "აგვ",
-    "სექ",
-    "ოქტ",
-    "ნოე",
-    "დეკ",
-  ],
-  ru: [
-    "янв",
-    "фев",
-    "мар",
-    "апр",
-    "мая",
-    "июн",
-    "июл",
-    "авг",
-    "сен",
-    "окт",
-    "ноя",
-    "дек",
-  ],
-  tr: [
-    "Oca",
-    "Şub",
-    "Mar",
-    "Nis",
-    "May",
-    "Haz",
-    "Tem",
-    "Ağu",
-    "Eyl",
-    "Eki",
-    "Kas",
-    "Ara",
-  ],
-};
-
 export function formatContentDate(isoDate: string, locale: AppLocale): string {
   const parts = dateParts(isoDate);
   if (!parts) return isoDate;
   return `${parts.day} ${MONTHS[locale][parts.monthIndex]} ${parts.year}`;
-}
-
-export function formatContentDateShort(
-  isoDate: string,
-  locale: AppLocale,
-): string {
-  const parts = dateParts(isoDate);
-  if (!parts) return isoDate;
-  return `${parts.day} ${MONTHS_SHORT[locale][parts.monthIndex]}`;
 }
 
 export function formatContentMonth(isoDate: string, locale: AppLocale): string {

@@ -36,7 +36,12 @@ describe("POST /api/rating", () => {
 
   it("sends the rating to Telegram", async () => {
     const response = await POST(
-      request({ locale: "ka", path: "/gvelebi/giurza", rating: 4 }),
+      request({
+        feedback: "  ფოტო არ ჩაიტვირთა  ",
+        locale: "ka",
+        path: "/gvelebi/giurza",
+        rating: 4,
+      }),
     );
 
     expect(response.status).toBe(204);
@@ -46,7 +51,7 @@ describe("POST /api/rating", () => {
     expect(url).toBe("https://api.telegram.org/bottest-token/sendMessage");
     expect(JSON.parse(String(init?.body))).toEqual({
       chat_id: "test-chat",
-      text: "★★★★☆ 4/5\nhttps://reptiles.ge/gvelebi/giurza\n🌐 ka",
+      text: "★★★★☆ 4/5\nhttps://reptiles.ge/gvelebi/giurza\n🌐 ka\n\n💬 ფოტო არ ჩაიტვირთა",
     });
   });
 
@@ -54,6 +59,7 @@ describe("POST /api/rating", () => {
     const response = await POST(
       request(
         {
+          feedback: "Could not find the range map",
           locale: "en",
           pages: 3,
           path: "/en/snakes/macrovipera-lebetina",
@@ -83,6 +89,8 @@ describe("POST /api/rating", () => {
         "📱 Android · Chrome",
         "⏱ 2 min 15 s on site · 3 pages",
         "↩ www.google.com",
+        "",
+        "💬 Could not find the range map",
       ].join("\n"),
     );
   });
@@ -101,6 +109,22 @@ describe("POST /api/rating", () => {
         "http://localhost",
         "203.0.113.4",
         { "accept-language": "<script>", "cf-ipcountry": "XX" },
+      ),
+    );
+
+    expect(response.status).toBe(204);
+    const [, init] = vi.mocked(fetch).mock.calls[0]!;
+    expect(JSON.parse(String(init?.body)).text).toBe(
+      "★★★★★ 5/5\nhttps://reptiles.ge\n🌐 ka",
+    );
+  });
+
+  it("keeps a 5-star rating without feedback", async () => {
+    const response = await POST(
+      request(
+        { locale: "ka", path: "/", rating: 5 },
+        "http://localhost",
+        "203.0.113.5",
       ),
     );
 
@@ -147,6 +171,11 @@ describe("POST /api/rating", () => {
     { locale: "ka", path: "gvelebi", rating: 5 },
     { locale: "ka", path: "/a b", rating: 5 },
     { locale: "ka", path: `/${"a".repeat(300)}`, rating: 5 },
+    { locale: "ka", path: "/", rating: 3 },
+    { feedback: "   ", locale: "ka", path: "/", rating: 3 },
+    { feedback: "ok", locale: "ka", path: "/", rating: 1 },
+    { feedback: 42, locale: "ka", path: "/", rating: 2 },
+    { feedback: "a".repeat(1001), locale: "ka", path: "/", rating: 2 },
     null,
   ])("rejects an invalid body %#", async (body) => {
     const response = await POST(request(body));

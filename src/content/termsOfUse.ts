@@ -6,7 +6,7 @@ const EMAIL = `\`${CONTACT_EMAIL}\``;
 
 const ka = `# გამოყენების წესები
 
-ბოლო განახლება: 2026-10-13
+ბოლო განახლება: 2026-10-14
 
 ეს გამოყენების წესები არეგულირებს reptiles.ge-ის („საიტი“) გამოყენებას. საიტის გამოყენებით თქვენ ეთანხმებით ამ წესებს. თუ წესებს არ ეთანხმებით, ნუ გამოიყენებთ საიტს.
 
@@ -94,7 +94,7 @@ Reptiles.ge-ის კონტრიბუტორების ფოტოე
 
 საიტზე შეიძლება იყოს ბმულები სამეცნიერო წყაროებზე, ფოტოების/აუდიოს წყაროებზე, კონტრიბუტორების გვერდებზე, Google Maps-ზე, Wikimedia Commons-ზე, iNaturalist-ზე, xeno-canto-ზე, IUCN-ზე, DOI-ისა და გამომცემლების გვერდებზე და სხვა გარე რესურსებზე. გარე ბმულზე გადასვლის შემდეგ მოქმედებს იმ საიტის წესები და კონფიდენციალურობის პოლიტიკა. ჩვენ არ ვაკონტროლებთ მათ კონტენტს, ხელმისაწვდომობას ან მონაცემთა დამუშავებას.
 
-საიტის ტექნიკური მუშაობისთვის შეიძლება გამოიყენებოდეს Vercel, Bunny CDN/Storage, Google Tag Manager და სხვა სერვისის მომწოდებლები. პერსონალური მონაცემების დამუშავების საკითხები აღწერილია კონფიდენციალურობის პოლიტიკაში.
+საიტის ტექნიკური მუშაობისთვის შეიძლება გამოიყენებოდეს Cloudflare, Bunny CDN/Storage, Google Tag Manager, Google Analytics 4, top.ge, Sentry და სხვა სერვისის მომწოდებლები. პერსონალური მონაცემების დამუშავების საკითხები აღწერილია კონფიდენციალურობის პოლიტიკაში.
 
 ## პასუხისმგებლობის შეზღუდვა {#liability}
 
@@ -121,7 +121,7 @@ ${EMAIL}`;
 
 const en = `# Terms of Use
 
-Last updated: 2026-10-13
+Last updated: 2026-10-14
 
 These terms of use govern your use of reptiles.ge (the "Site"). By using the Site, you agree to these terms. If you do not agree to them, do not use the Site.
 
@@ -209,7 +209,7 @@ We may restrict or block access if the Site is used maliciously, unlawfully or c
 
 The Site may link to scientific sources, photo/audio sources, contributor pages, Google Maps, Wikimedia Commons, iNaturalist, xeno-canto, IUCN, DOI and publisher pages and other external resources. Once you follow an external link, that site's terms and privacy policy apply. We do not control their content, availability or data processing.
 
-Vercel, Bunny CDN/Storage, Google Tag Manager and other service providers may be used for the Site's technical operation. The processing of personal data is described in the privacy policy.
+Cloudflare, Bunny CDN/Storage, Google Tag Manager, Google Analytics 4, top.ge, Sentry and other service providers may be used for the Site's technical operation. The processing of personal data is described in the privacy policy.
 
 ## Limitation of liability {#liability}
 
@@ -236,7 +236,7 @@ ${EMAIL}`;
 
 const ru = `# Условия использования
 
-Последнее обновление: 2026-10-13
+Последнее обновление: 2026-10-14
 
 Настоящие условия использования регулируют использование reptiles.ge («Сайт»). Используя Сайт, вы соглашаетесь с этими условиями. Если вы с ними не согласны, не используйте Сайт.
 
@@ -324,7 +324,7 @@ reptiles.ge — атлас животных Грузии и образовате
 
 На Сайте могут быть ссылки на научные источники, источники фото/аудио, страницы контрибьюторов, Google Maps, Wikimedia Commons, iNaturalist, xeno-canto, IUCN, страницы DOI и издателей и другие внешние ресурсы. После перехода по внешней ссылке действуют правила и политика конфиденциальности того сайта. Мы не контролируем их содержание, доступность или обработку данных.
 
-Для технической работы Сайта могут использоваться Vercel, Bunny CDN/Storage, Google Tag Manager и другие поставщики услуг. Вопросы обработки персональных данных описаны в политике конфиденциальности.
+Для технической работы Сайта могут использоваться Cloudflare, Bunny CDN/Storage, Google Tag Manager, Google Analytics 4, top.ge, Sentry и другие поставщики услуг. Вопросы обработки персональных данных описаны в политике конфиденциальности.
 
 ## Ограничение ответственности {#liability}
 
@@ -351,7 +351,7 @@ ${EMAIL}`;
 
 const tr = `# Kullanım Koşulları
 
-Son güncelleme: 2026-10-13
+Son güncelleme: 2026-10-14
 
 Bu kullanım koşulları reptiles.ge'nin ("Site") kullanımını düzenler. Siteyi kullanarak bu koşulları kabul etmiş olursunuz. Koşulları kabul etmiyorsanız Siteyi kullanmayın.
 
@@ -439,7 +439,7 @@ Site kötü amaçla, yasa dışı biçimde veya bu koşullara aykırı kullanıl
 
 Sitede bilimsel kaynaklara, fotoğraf/ses kaynaklarına, katkıda bulunanların sayfalarına, Google Maps'e, Wikimedia Commons'a, iNaturalist'e, xeno-canto'ya, IUCN'ye, DOI ve yayıncı sayfalarına ve diğer dış kaynaklara bağlantılar bulunabilir. Bir dış bağlantıya geçtiğinizde o sitenin kuralları ve gizlilik politikası geçerlidir. Bu sitelerin içeriğini, erişilebilirliğini veya veri işlemesini denetlemeyiz.
 
-Sitenin teknik işleyişi için Vercel, Bunny CDN/Storage, Google Tag Manager ve diğer hizmet sağlayıcılar kullanılabilir. Kişisel verilerin işlenmesi gizlilik politikasında açıklanmıştır.
+Sitenin teknik işleyişi için Cloudflare, Bunny CDN/Storage, Google Tag Manager, Google Analytics 4, top.ge, Sentry ve diğer hizmet sağlayıcılar kullanılabilir. Kişisel verilerin işlenmesi gizlilik politikasında açıklanmıştır.
 
 ## Sorumluluğun sınırlandırılması {#liability}
 

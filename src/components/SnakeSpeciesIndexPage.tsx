@@ -9,8 +9,8 @@ import {
   ClusterStat,
   ClusterStatsBand,
 } from "@/components/ClusterSectionIntro";
+import { snakeGuideLeadLinks } from "@/components/snakeGuideLeadLinks";
 import { SpeciesIndexTable } from "@/components/SpeciesIndexTable";
-import { SpeciesInlineLink } from "@/components/SpeciesInlineLink";
 import { isVenomousDanger } from "@/data/speciesAtlas";
 import { toSpeciesIndexRows } from "@/data/speciesCard";
 
@@ -43,16 +43,7 @@ export async function SnakeSpeciesIndexPage({
     >
       <ClusterGuideLead
         eyebrow={t("guideEyebrow")}
-        paragraphs={[
-          t("guideP1"),
-          t.rich("guideP2", {
-            kaznakovi: (chunks) => (
-              <SpeciesInlineLink id="vipera-kaznakovi">
-                {chunks}
-              </SpeciesInlineLink>
-            ),
-          }),
-        ]}
+        paragraphs={[t("guideP1"), t.rich("guideP2", snakeGuideLeadLinks)]}
         title={t("guideTitle")}
       />
 

@@ -1,5 +1,14 @@
+import type { AppLocale } from "@/i18n/routing";
+
 const MAX_META_DESCRIPTION_LENGTH = 160;
+const MAX_LATIN_META_DESCRIPTION_LENGTH = 155;
 const SENTENCE_BOUNDARY = /(?<=[.!?])\s+(?=[\p{Lu}\p{Nd}\u10D0-\u10FF])/u;
+
+export function metaDescriptionLimit(locale: AppLocale) {
+  return locale === "ka"
+    ? MAX_META_DESCRIPTION_LENGTH
+    : MAX_LATIN_META_DESCRIPTION_LENGTH;
+}
 
 export function sentenceMetaDescription(
   text: string,
@@ -16,19 +25,6 @@ export function sentenceMetaDescription(
     description = next;
   }
   return description;
-}
-
-export function shortMetaDescription(
-  text: string,
-  maxLength = MAX_META_DESCRIPTION_LENGTH,
-) {
-  const cleaned = stripInlineMarkdownLinks(text).replace(/\s+/g, " ").trim();
-  if (cleaned.length <= maxLength) return cleaned;
-
-  const truncated = cleaned.slice(0, maxLength - 1);
-  const lastSpace = truncated.lastIndexOf(" ");
-  const clipped = lastSpace > 80 ? truncated.slice(0, lastSpace) : truncated;
-  return `${clipped.trim()}…`;
 }
 
 function stripInlineMarkdownLinks(text: string) {

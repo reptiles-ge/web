@@ -12,15 +12,12 @@ import {
 import { openGraphLocale } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
-import {
-  isIndexableLegalLocale,
-  LEGAL_PATHS,
-  legalAlternates,
-} from "@/lib/legalPages";
+import { LEGAL_PATHS } from "@/lib/legalPages";
 import { homeChildBreadcrumbLd } from "@/lib/pageStructuredData";
-import { INDEXABLE_ROBOTS, NOINDEX_FOLLOW_ROBOTS } from "@/lib/robots";
+import { INDEXABLE_ROBOTS } from "@/lib/robots";
 import {
   absoluteUrl,
+  localeAlternates,
   localePath,
   openGraphJpeg,
   SITE_OG_IMAGE_URL,
@@ -54,7 +51,7 @@ export function createLegalRoute(documentId: LegalDocumentId) {
     const url = absoluteUrl(publicPath);
 
     return {
-      alternates: legalAlternates(locale, path),
+      alternates: localeAlternates(locale, path),
       description,
       openGraph: {
         description,
@@ -65,9 +62,7 @@ export function createLegalRoute(documentId: LegalDocumentId) {
         type: "website",
         url,
       },
-      robots: isIndexableLegalLocale(locale)
-        ? INDEXABLE_ROBOTS
-        : NOINDEX_FOLLOW_ROBOTS,
+      robots: INDEXABLE_ROBOTS,
       title,
       twitter: {
         card: "summary_large_image",
@@ -87,8 +82,7 @@ export function createLegalRoute(documentId: LegalDocumentId) {
     const locale = localeParam as AppLocale;
     setRequestLocale(locale);
 
-    const [t, tFooter, tShared] = await Promise.all([
-      getTranslations({ locale, namespace: "legal" }),
+    const [tFooter, tShared] = await Promise.all([
       getTranslations({ locale, namespace: "footer" }),
       getTranslations({ locale, namespace: "groupHubShared" }),
     ]);
@@ -121,11 +115,7 @@ export function createLegalRoute(documentId: LegalDocumentId) {
             }),
           ]}
         />
-        <LegalDocumentPage
-          documentId={documentId}
-          locale={locale}
-          notice={t("canonicalNotice")}
-        />
+        <LegalDocumentPage documentId={documentId} locale={locale} />
       </>
     );
   }

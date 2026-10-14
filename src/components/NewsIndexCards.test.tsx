@@ -14,12 +14,10 @@ import en from "../../messages/en.json";
 const ENTRY: NewsIndexEntry = {
   alt: "A viper on rocks",
   dateLabel: "1 September 2026",
-  dateShort: "1 Sep",
   dek: "A rare hybrid viper was recorded in the Borjomi Gorge.",
   illustrated: false,
   publishedAt: "2026-09-01",
   readLabel: "3 min read",
-  readShortLabel: "3 min",
   slug: "vipera-pontica-hybrid-georgia-2026",
   source: "Herpetology Notes",
   sourceMore: 2,
@@ -81,18 +79,19 @@ describe("NewsIndexCards", () => {
     expect(screen.queryByText("Snakes")).not.toBeInTheDocument();
   });
 
-  it("renders side and list cards with short and long dates", () => {
-    withIntl(
-      <>
-        <NewsSideCard entry={ENTRY} />
-        <NewsListCard entry={ENTRY} />
-      </>,
-    );
-    expect(screen.getAllByText("1 Sep")).toHaveLength(2);
-    expect(screen.getAllByText("1 September 2026")).toHaveLength(2);
-    expect(screen.getByText("3 min")).toBeInTheDocument();
-    expect(screen.getAllByText("3 min read")).toHaveLength(2);
-    expect(screen.getAllByRole("link")).toHaveLength(2);
+  it.each([
+    ["side", NewsSideCard],
+    ["list", NewsListCard],
+  ] as const)("renders the %s card date and title once", (_, Card) => {
+    const { container } = withIntl(<Card entry={ENTRY} />);
+    const times = container.querySelectorAll("time");
+    expect(times).toHaveLength(1);
+    expect(times[0]).toHaveAttribute("dateTime", "2026-09-01");
+    expect(times[0]).toHaveTextContent(/^1 September 2026$/);
+    expect(container.textContent?.split(ENTRY.title)).toHaveLength(2);
+    expect(container.textContent?.split("1 September 2026")).toHaveLength(2);
+    expect(screen.getAllByText("3 min read")).toHaveLength(1);
+    expect(screen.getAllByRole("link")).toHaveLength(1);
   });
 
   it("renders illustrated list and side cards without topic or source", () => {

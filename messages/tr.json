@@ -129,6 +129,10 @@
   },
   "rating": {
     "close": "Kapat",
+    "feedbackLabel": "Neyi daha iyi yapabiliriz?",
+    "feedbackPlaceholder": "Neyi beğenmediniz ya da neyi bulamadınız?",
+    "feedbackPrivacy": "Lütfen kişisel veri yazmayın.",
+    "feedbackSend": "Gönder",
     "hint": "Bir yıldız seçin",
     "level1": "Kötü",
     "level2": "Zayıf",
@@ -436,7 +440,6 @@
     "photoUse": "Fotoğraf kullanımı"
   },
   "legal": {
-    "canonicalNotice": "Bu sayfadaki hukuki metin şu anda Gürcüce olarak sunulmaktadır; Gürcüce sürüm esas metin kabul edilmelidir.",
     "privacy": {
       "metaTitle": "Gizlilik Politikası",
       "metaDescription": "reptiles.ge'nin teknik verileri, çerezleri, analitiği ve katkıda bulunan kişi bilgilerini nasıl işlediği."
@@ -789,7 +792,30 @@
     "clusterLizards": "Kertenkele dizini",
     "clusterTurtles": "Kaplumbağa dizini",
     "clusterAmphibians": "Amfibi dizini",
-    "dataGapBody": "Bölge sayfalarına yalnızca doğrulanmış kayıtlar eklenir. Bir türün belirli bir idari birimle bağlantısı henüz bir kaynakla doğrulanmamışsa, ilgili listede görünmez."
+    "dataGapBody": "Bölge sayfalarına yalnızca doğrulanmış kayıtlar eklenir. Bir türün belirli bir idari birimle bağlantısı henüz bir kaynakla doğrulanmamışsa, ilgili listede görünmez.",
+    "summary": {
+      "eyebrow": "Özet",
+      "title": "Kısaca {name}",
+      "habitats": "Atlas bu bölgeyi “{biome}” olarak sınıflandırır. {nameIn} için belirtilen başlıca habitatlar: {habitats}.",
+      "counts": "Atlasta şu anda {nameIn} ile ilişkilendirilmiş {count, plural, one {# türün} other {# türün}} yayımlanmış profili var: {groups}.",
+      "herps": "Bunların {reptiles} tanesi sürüngen, {amphibians} tanesi amfibidir.",
+      "venomous": "Listedeki {count, plural, one {# tür} other {# tür}} insanlar için yüksek veya orta risk düzeyindedir: {species}.",
+      "venomousNone": "Listedeki türlerin hiçbiri insanlar için yüksek veya orta risk düzeyinde değildir.",
+      "safety": "Tanımadığınız her yılandan güvenli mesafe bırakın, yakalamaya veya elinize almaya çalışmayın; ısırılma durumunda 112’yi arayın.",
+      "scope": "Liste yalnızca atlasta yayımlanmış profili olan türleri kapsar ve {nameIn} bölgesinin tam faunasını yansıtmaz. Bir tür ancak doğrulanmış bir kayıt tam olarak bu idari birimi adlandırdığında eklenir; bu nedenle listede olmayan bir hayvan yine de burada yaşıyor olabilir.",
+      "related": "İlgili bölge sayfaları: {regions}.",
+      "group": {
+        "amphibian": "{count, plural, one {# amfibi} other {# amfibi}}",
+        "bird": "{count, plural, one {# kuş} other {# kuş}}",
+        "insect": "{count, plural, one {# böcek} other {# böcek}}",
+        "lizard": "{count, plural, one {# kertenkele} other {# kertenkele}}",
+        "mammal": "{count, plural, one {# memeli} other {# memeli}}",
+        "scorpion": "{count, plural, one {# akrep} other {# akrep}}",
+        "snake": "{count, plural, one {# yılan} other {# yılan}}",
+        "spider": "{count, plural, one {# örümcek} other {# örümcek}}",
+        "turtle": "{count, plural, one {# kaplumbağa} other {# kaplumbağa}}"
+      }
+    }
   },
   "contact": {
     "metaTitle": "İletişim",
@@ -900,7 +926,6 @@
     "clear": "Temizle",
     "latest": "Yeni",
     "readTime": "{minutes} dk okuma",
-    "readTimeShort": "{minutes} dk",
     "howWeWriteEyebrow": "Nasıl yazıyoruz",
     "howWeWrite": "Her makaleye birincil kaynak eşlik eder — bilimsel bir çalışma, saha sayımı veya resmî bir açıklama.",
     "methodologyLink": "Standartlar ve kaynaklar",
@@ -1272,7 +1297,7 @@
     "hubLinksLabel": "Grup sayfaları"
   },
   "venomousSnakes": {
-    "metaTitle": "Gürcistan’da zehirli yılanlar (Kafkasya)",
+    "metaTitle": "Gürcistan’da zehirli yılanlar (Kafkasya) — {count} tür",
     "metaDescription": "Gürcistan’ın (Kafkasya) zehirli yılanları: Levant engereği, Kafkas, Dinnik ve burunlu engerekler. Tanıma ve güvenlik, tıbbi protokol değil.",
     "keywords": "Gürcistan’da zehirli yılanlar, zehirli yılanlar Gürcistan, Levant engereği, Kafkas engereği, Dinnik engereği, boynuzlu engerek, Transkafkas uzun burunlu engerek, Darevski engereği, doğu bozkır engereği, Macrovipera lebetina, Vipera kaznakovi, Vipera dinniki, Vipera ammodytes, Vipera transcaucasiana, Vipera darevskii, Vipera renardi",
     "breadcrumbHome": "Ana sayfa",
@@ -1314,6 +1339,22 @@
     "safetyStep3Body": "Birçok zehirsiz yılan dış görünüş olarak engereklere benzer. Onları öldürmek doğal ekosisteme zarar verir; bu yüzden yılana dokunmayın ve öldürmeyin.",
     "safetyStep4Title": "Isırıldıysa — yardım alın",
     "safetyStep4Body": "Hemen 112’yi arayın. Sakin kalın ve ısırılan kolu veya bacağı mümkün olduğunca az hareket ettirmeye çalışın. Isırığı kesmeyin ve sıkı turnike uygulamayın. Bu bilgi eğiticidir ve doktor tavsiyesinin yerini tutmaz.",
+    "hikingEyebrow": "Doğa yürüyüşü ve seyahat",
+    "hikingTitle": "Gürcistan’da yürüyüş: hangi engerek nerede yaşar",
+    "hikingLead": "Gürcistan’daki her zehirli yılanın kendi yaşam alanı ve yükseltisi vardır. Yürüdüğünüz bölgeyi bilmek, hangi türle karşılaşabileceğinizi gösterir.",
+    "hikingZone1Title": "Kuru doğu ve güneydoğu",
+    "hikingZone1Body": "<giurza>Levant engereği</giurza> Şiraki, Gareci ve Iori, Kura ve Alazani’nin aşağı kesimleri dahil, yaklaşık 1.500 m’ye kadar kuru, taşlık ve kayalık yerlerde yaşar. Arka dişli <malpolon>Doğu Montpellier yılanı</malpolon> güneydoğunun kuru açık alanlarında bulunur.",
+    "hikingZone2Title": "Kaheti ve Şida Kartli’deki bozkırlar",
+    "hikingZone2Body": "Küçük <renardi>bozkır engereği</renardi> Gürcistan’da nadirdir. Açık bozkırı, çayırları, çalılıkları ve kayalık etekleri tercih eder; çoğunlukla alçak ve orta yükseltilerde görülür.",
+    "hikingZone3Title": "Batıdaki nemli Kolhis ormanları, yaklaşık 1.000 m’ye kadar",
+    "hikingZone3Body": "<kaznakovi>Kafkas engereği</kaznakovi> Kolhis’te orman kenarlarında, vadilerde ve diğer nemli, ağaçlık yerlerde yaşar.",
+    "hikingZone4Title": "Büyük Kafkasya, yaklaşık 1.500–2.800 m",
+    "hikingZone4Body": "<dinniki>Dinnik engereği</dinniki> dağ çayırlarında, orman üst sınırının yakınında ve kayalık yerlerde yaşar. Yüksek dağlarda genellikle nisan ortasından eylülün ikinci yarısına kadar aktiftir.",
+    "hikingZone5Title": "Küçük Kafkasya",
+    "hikingZone5Body": "<transcaucasiana>Boynuzlu engerek</transcaucasiana> Meskheti, Trialeti ve Kura’nın yukarı kesimleri çevresindeki kuru, kayalık yamaçlarda yaşar. Daha yukarıda, 2.000 m’nin üstünde, <darevskii>Darevski engereği</darevskii> Abul-Samsari ve batı Trialeti sıradağları dahil kayalık yüksek dağ çayırlarında yaşar.",
+    "hikingTrailTitle": "Patikada",
+    "hikingTrailBody": "Özellikle kayalarda ve uzun otların arasında ayağınızı ve elinizi nereye koyduğunuza dikkat edin. Bir yılan görürseniz durun, geri çekilin ve gitmesine izin verin. Onu yerinden oynatmaya çalışmayın, fotoğraf için yaklaşmayın.",
+    "hikingNote": "Bir yılan sizi ısırırsa hemen 112’yi arayın. Bu bölüm eğitim amaçlıdır, ilk yardım talimatı değildir. <bite>Yılan ısırığı rehberine</bite> bakın.",
     "yardEyebrow": "Eve yakın",
     "yardTitle": "Yılanları bahçeden nasıl uzaklaştırırsınız",
     "yardBody": "Bahçede yılan görülmesini önlemek çoğunlukla saklanma yerlerini azaltmak ve yiyecek kaynaklarını kontrol etmekle ilgilidir. Yaygın “kovucu” yöntemlerin çoğu etkili değildir. Pratik adımlar ve güvenlik kuralları ayrı bir rehberde toplanmıştır.",
@@ -1852,7 +1893,7 @@
     "faq1Q": "Gürcistan’da kaç yılan vardır?",
     "faq1A": "Atlasta şu anda {count} yılan türünün profili yayımlanmıştır ve hepsi aşağıdaki katalogda yer alır. Sürüngenler için atlas, Dinnik engereğini, Kafkas engereğini ve kırmızı karınlı kırbaç yılanını aday takson olarak işaretleyen Tarkhnishvili et al. 2026 açıklamalı kontrol listesini esas alır. Sayı, taksonomik değişiklikler ve yeni doğrulanmış verilerle değişebilir.",
     "faq2Q": "Gürcistan’da hangi yılanlar zehirlidir?",
-    "faq2A": "Atlasta Levant, Dinnik, Kafkas, boynuzlu, Darevski ve bozkır engerekleri ile Doğu Montpellier yılanı zehirli olarak işaretlenmiştir. Ayrıntılar <venomous>zehirli yılanlar rehberinde</venomous>. Gürcistan’daki yılanların çoğu zararsızdır; bu yüzden bilinmeyen bir yılanı yanlışlıkla öldürmeyin — mesafe bırakın ve tür özelliklerini profillerle karşılaştırın.",
+    "faq2A": "Atlasta Levant, Dinnik, Kafkas, boynuzlu, Darevski ve bozkır engerekleri ile Doğu Montpellier yılanı zehirli olarak işaretlenmiştir. Ayrıntılar ayrı rehberde: <venomous>Gürcistan’daki zehirli yılanlar</venomous>. Gürcistan’daki yılanların çoğu zararsızdır; bu yüzden bilinmeyen bir yılanı yanlışlıkla öldürmeyin — mesafe bırakın ve tür özelliklerini profillerle karşılaştırın.",
     "faq3Q": "Engereği zararsız yılandan nasıl ayırırım?",
     "faq3A": "Bazı engereklerde dikey gözbebeği ve görece geniş, üçgen bir baş bulunur, ancak bu özellikler her durumda yeterli değildir. Daha güvenilir tanıma için diğer vücut özelliklerini, yaşam alanını ve yayılış bölgesini dikkate alın — <identify>zehirli yılan tanıma rehberi</identify> bunları karşılaştırır.",
     "faq4Q": "Gürcistan’da yılanlar nerede bulunur?",
@@ -2490,7 +2531,7 @@
     "guideEyebrow": "Dizin",
     "guideTitle": "Her yılan için tek tablo",
     "guideP1": "Ad, zehir, bölgeler ve boyut — yalnızca bir profilde kaynak varsa. Yılan rehberi genel bakıştır; bu tam listedir.",
-    "guideP2": "Yeni listelenen birçok kontrol listesi yılanının bölgesel haritaları hâlâ boştur. Zehirli/zararsız ve familyaya göre süzün. Batı Kolhis zehirli türü <kaznakovi>Kafkas engereği (Vipera kaznakovi)</kaznakovi>dir. Her satır tam bir profil açar.",
+    "guideP2": "Yeni listelenen birçok kontrol listesi yılanının bölgesel haritaları hâlâ boştur. Zehirli/zararsız ve familyaya göre süzün. Batı Kolhis zehirli türü <kaznakovi>Kafkas engereği (Vipera kaznakovi)</kaznakovi>dir. Zehirli türlerin riski ve profilleri ayrı rehberdedir: <venomous>Gürcistan’daki zehirli yılanlar</venomous>. Her satır tam bir profil açar.",
     "tableEyebrow": "Katalog",
     "tableTitle": "Dizinde {count} yılan",
     "tableBody": "Fotoğraf, adlar, zehir, yayılış, boyut, yaşam alanı. Etkinlik yalnızca istatistikte varsa görünür. Uzun tire eksik alandır, sıfır değil.",
@@ -2522,7 +2563,7 @@
     "guideEyebrow": "ID",
     "guideTitle": "Hiçbir kural evrensel değildir",
     "guideP1": "Zehirli ve zararsız yılanı yalnızca fotoğraftan ayırmak her zaman güvenilir değildir. Birkaç işareti birlikte değerlendirmek daha iyidir: görünüm, yaşam alanı, Gürcistan bölgesi ve benzer türler.",
-    "guideP2": "Bu sayfa yaygın karışıklıkları ve pratik işaretleri toplar, ancak bunlar sahada garantili teşhisin yerini tutmaz. Levant engereği ve <kaznakovi>Kafkas engereğine (Vipera kaznakovi)</kaznakovi>, ayrıca diğer zehirli türlere özel dikkat verir. Birçok zararsız kamçı yılanı, düz yılan ve cam kertenkele de sıkça yanlışlıkla zehirli sanılır.",
+    "guideP2": "Bu sayfa yaygın karışıklıkları ve pratik işaretleri toplar, ancak bunlar sahada garantili teşhisin yerini tutmaz. Levant engereği ve <kaznakovi>Kafkas engereğine (Vipera kaznakovi)</kaznakovi>, ayrıca diğer zehirli türlere özel dikkat verir. Birçok zararsız kamçı yılanı, düz yılan ve cam kertenkele de sıkça yanlışlıkla zehirli sanılır. Zehirli türlerin tam listesi ayrı rehberdedir: <venomous>Gürcistan’daki zehirli yılanlar</venomous>.",
     "signsEyebrow": "İşaretler",
     "signsTitle": "İnsanların sık baktığı — ve neden tek işaretin yetmediği.",
     "signsWarning": "Hiçbir dış işaret tek başına bir yılanın zehirli olduğunu kanıtlamaz. Türden emin değilseniz güvenli mesafe bırakın ve tür profillerindeki birkaç işareti karşılaştırın.",
