@@ -56,6 +56,12 @@ describe("canonicalRscRequest", () => {
     expect(canonicalRscRequest(original)).toBe(original);
   });
 
+  it("leaves a bare RSC request without _rsc for vinext to redirect", () => {
+    const original = rscRequest(URL_BASE);
+
+    expect(canonicalRscRequest(original)).toBe(original);
+  });
+
   it("leaves document requests alone", () => {
     const original = new Request(URL_BASE, {
       headers: { "X-Vinext-Rsc-State-Fingerprint": "fd62a7e8caae0eb8" },
