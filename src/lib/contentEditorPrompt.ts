@@ -16,6 +16,8 @@ export interface EditorPromptInput {
   /** The site's risk label for humans */
   riskLevel?: RiskLevel;
   selected: string;
+  /** Common names, per locale, of other species linked on the same page */
+  speciesNames?: Array<Record<"en" | "ka" | "ru" | "tr", string>>;
   /** Binding house style (src/prompts/writing-style.md) */
   styleGuide?: string;
   /** Measured style violations of a previous rewrite of the same SELECTED */
@@ -46,6 +48,8 @@ export function buildEditorPrompt(input: EditorPromptInput) {
     pageContext.push("OTHER_FIELDS:", JSON.stringify(input.otherFields));
   if (hasExisting)
     pageContext.push("EXISTING_TRANSLATIONS:", JSON.stringify(existing));
+  if (input.speciesNames?.length)
+    pageContext.push("SPECIES_NAMES:", JSON.stringify(input.speciesNames));
 
   const outputKeys = withFlags
     ? '{"ka":"...","en":"...","ru":"...","tr":"...","flags":[]}'
@@ -163,6 +167,11 @@ export function buildEditorPrompt(input: EditorPromptInput) {
     "NAMES:",
     "- Never invent, shorten or change the Georgian common name of any species. If COMMON_NAME is supplied, use it exactly.",
     "- In translations, use an English, Russian or Turkish common name only if it appears in the supplied text. Otherwise use the Latin name. Do not coin common names.",
+    ...(input.speciesNames?.length
+      ? [
+          "- SPECIES_NAMES lists the official common names of other species on this page in every locale. When the Georgian text names one of them, in any grammatical case, use its en, ru or tr name from SPECIES_NAMES in that translation, inflected as the language needs. Never use its Latin name or an improvised name instead.",
+        ]
+      : []),
     "- In translations, use established place-name forms (for example: Samtskhe-Javakheti, Самцхе-Джавахети; Adjara, Аджария).",
 
     // ─── CODES, SOURCES, COMMENTARY ─────────────────────────────────
