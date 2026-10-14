@@ -94,15 +94,6 @@ export async function VenomousSnakesPage({
           speciesCount={species.length}
         />
 
-        <QuizPracticeCta
-          body={t("quizCtaBody")}
-          cta={t("quizCta")}
-          eyebrow={t("quizCtaEyebrow")}
-          locale={locale}
-          source="other"
-          title={t("quizCtaTitle")}
-        />
-
         <VenomousSnakesSpecies
           giurza={giurza && toSpeciesCard(giurza)}
           kaznakovi={kaznakovi && toSpeciesCard(kaznakovi)}
@@ -110,6 +101,15 @@ export async function VenomousSnakesPage({
           rearFanged={toSpeciesCards(rearFanged)}
           speciesCount={species.length}
           vipers={toSpeciesCards(vipers)}
+        />
+
+        <QuizPracticeCta
+          body={t("quizCtaBody")}
+          cta={t("quizCta")}
+          eyebrow={t("quizCtaEyebrow")}
+          locale={locale}
+          source="other"
+          title={t("quizCtaTitle")}
         />
 
         <VenomousSnakesGuides locale={locale} relatedGuides={relatedGuides} />

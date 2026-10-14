@@ -38,6 +38,7 @@ export async function generateMetadata({
     namespace: "venomousSnakes",
     ogSpeciesId: OG_SPECIES,
     pagePath: PATH,
+    titleValues: { count: getVenomousCatalogSpecies().length },
   });
 }
 
@@ -82,7 +83,7 @@ export default async function VenomousSnakesRoute({ params }: LocalePageProps) {
     description: t("metaDescription"),
     locale,
     mainEntity: speciesItemListLd(locale, venomous),
-    name: t("metaTitle"),
+    name: t("metaTitle", { count: venomous.length }),
     type: "WebPage",
     url,
   });
