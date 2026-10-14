@@ -18,6 +18,8 @@ export interface EditorPromptInput {
   selected: string;
   /** Binding house style (src/prompts/writing-style.md) */
   styleGuide?: string;
+  /** Measured style violations of a previous rewrite of the same SELECTED */
+  styleRepair?: { issues: string; previous: string };
 }
 
 type RiskLevel = "Harmless" | "High" | "Moderate";
@@ -131,7 +133,7 @@ export function buildEditorPrompt(input: EditorPromptInput) {
     "- Do not repeat information that is already obvious from BEFORE or AFTER.",
     ...(hasOtherFields
       ? [
-          "- If a point in SELECTED is already explained in OTHER_FIELDS, keep it in SELECTED as one short clause instead of repeating the full explanation. The short clause must keep the same meaning, scope and certainty.",
+          "- If a point in SELECTED is already explained in OTHER_FIELDS, decide by the home field in WRITING STYLE R7: when FIELD is that point's home field, keep the full explanation here; otherwise keep it in SELECTED as one short clause instead of repeating the full explanation. The short clause must keep the same meaning, scope and certainty, and every number it had, unless that number is stated in the point's home field in OTHER_FIELDS.",
         ]
       : []),
 
@@ -193,6 +195,15 @@ export function buildEditorPrompt(input: EditorPromptInput) {
     "In descriptive prose, remove sentences that describe how this page, its map, its table or the atlas collects, counts or labels data (examples: ამ გვერდის რუკის ცხრილში გაერთიანებულია...; ამ ატლასში ეს სახეობა უვნებლადაა მონიშნული).",
     "Keep the factual conclusion with its exact geographic scope, numbers and certainty. Example: ამ ატლასში უვნებლადაა მონიშნული → ადამიანისთვის საშიში არ არის.",
     "Exception: when FIELD shows a methodology or map note, this explanation is the content; keep it.",
+
+    ...(input.styleRepair
+      ? [
+          "STYLE REPAIR:",
+          "A previous rewrite of this same SELECTED broke the measured WRITING STYLE rules listed below. Write a new rewrite of SELECTED from the original that fixes every listed problem in every listed locale, while keeping all other rules. The previous rewrite is context only.",
+          `MEASURED PROBLEMS:\n${input.styleRepair.issues}`,
+          `PREVIOUS KA REWRITE: ${JSON.stringify(input.styleRepair.previous)}`,
+        ]
+      : []),
 
     // ─── PAGE CONTEXT (only when supplied) ──────────────────────────
     ...(pageContext.length > 0

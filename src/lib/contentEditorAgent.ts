@@ -4,7 +4,10 @@ import path from "node:path";
 
 import { runAgent } from "@/lib/aiAgent";
 import { type EditorResult, editorResultSchema } from "@/lib/contentEditor";
-import { buildEditorPrompt } from "@/lib/contentEditorPrompt";
+import {
+  buildEditorPrompt,
+  type EditorPromptInput,
+} from "@/lib/contentEditorPrompt";
 
 const OUTPUT_SCHEMA = {
   additionalProperties: false,
@@ -15,11 +18,9 @@ const OUTPUT_SCHEMA = {
   type: "object",
 };
 
-export async function transformWithAgent(input: {
-  after: string;
-  before: string;
-  selected: string;
-}): Promise<EditorResult> {
+export async function transformWithAgent(
+  input: Omit<EditorPromptInput, "styleGuide">,
+): Promise<EditorResult> {
   const directory = await fs.mkdtemp(
     path.join(os.tmpdir(), "reptiles-editor-ai-"),
   );
