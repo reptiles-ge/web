@@ -43,7 +43,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       "A suspected Levantine viper bite can be serious. In Georgia, call 112 now; do not wait for severe symptoms. Move away from the snake, keep movement to a minimum, and do not cut, suck, burn, or tightly tourniquet the bite. Do not try to catch the snake.",
     metaTitle: "Levantine viper bite — symptoms and what to do",
     notice:
-      "Bitten by another snake, or not sure which one? Read the [general snakebite guide for Georgia](/snakes/gvelis-nakbeni). Do not delay help to identify the snake: call 112.",
+      "Bitten by another snake, or not sure which one? Read the [general snakebite guide for Georgia](/snakes/gvelis-nakbeni). If the snake may be venomous or you cannot identify it, call 112; do not delay help to identify it.",
     sections: [
       {
         heading: "How dangerous is a Levantine viper bite?",
@@ -170,7 +170,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       "გიურზას სავარაუდო ნაკბენი შეიძლება მძიმე იყოს. საქართველოში ახლავე დარეკეთ 112-ზე — ნუ დაელოდებით ძლიერი სიმპტომების გამოჩენას. მოშორდით გველს, შეამცირეთ მოძრაობა და არ გაჭრათ, ამოწოვოთ ან მოწვათ ჭრილობა; არ დაიდოთ მჭიდრო ტურნიკეტი. გველის დაჭერას ნუ ეცდებით.",
     metaTitle: "გიურზას ნაკბენი — სიმპტომები და რა უნდა გავაკეთოთ",
     notice:
-      "სხვა გველმა გიკბინათ ან არ იცით, რომელმა? წაიკითხეთ [გველის ნაკბენის ზოგადი გიდი](/snakes/gvelis-nakbeni). გველის ამოცნობის გამო დახმარებას ნუ გადადებთ — დარეკეთ 112-ზე.",
+      "სხვა გველმა გიკბინათ ან არ იცით, რომელმა? წაიკითხეთ [გველის ნაკბენის ზოგადი გიდი](/snakes/gvelis-nakbeni). თუ გველი შესაძლოა შხამიანი იყოს ან ვერ ამოიცანით, დარეკეთ 112-ზე; გველის ამოცნობის გამო დახმარებას ნუ გადადებთ.",
     sections: [
       {
         heading: "რამდენად საშიშია გიურზას ნაკბენი?",
@@ -297,7 +297,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       "Предполагаемый укус гюрзы может быть серьёзным. В Грузии сразу звоните 112, не ждите тяжёлых симптомов. Отойдите от змеи, ограничьте движения. Не разрезайте, не отсасывайте и не прижигайте рану, не накладывайте тугой жгут. Не пытайтесь поймать змею.",
     metaTitle: "Укус гюрзы — симптомы и что делать",
     notice:
-      "Укусила другая змея или вы не знаете какая? Читайте [общее руководство по укусу змеи в Грузии](/snakes/gvelis-nakbeni). Не откладывайте помощь ради определения змеи — звоните 112.",
+      "Укусила другая змея или вы не знаете какая? Читайте [общее руководство по укусу змеи в Грузии](/snakes/gvelis-nakbeni). Если змея может быть ядовитой или вы не можете её определить, звоните 112; не откладывайте помощь ради определения змеи.",
     sections: [
       {
         heading: "Насколько опасен укус гюрзы?",
@@ -424,7 +424,7 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
       "Şüpheli bir Levant engereği ısırığı ciddi olabilir. Gürcistan’da şimdi 112’yi arayın; ağır belirtileri beklemeyin. Yılandan uzaklaşın ve gereksiz hareketi azaltın. Yarayı kesmeyin, emmeyin veya yakmayın; sıkı turnike uygulamayın. Yılanı yakalamaya çalışmayın.",
     metaTitle: "Levant engereği ısırığı — belirtiler ve ne yapmalı?",
     notice:
-      "Sizi başka bir yılan mı ısırdı, yoksa hangisi olduğundan emin değil misiniz? [Gürcistan’da yılan ısırığı genel rehberine](/snakes/gvelis-nakbeni) bakın. Yılanı tanımak için yardımı geciktirmeyin; 112’yi arayın.",
+      "Sizi başka bir yılan mı ısırdı, yoksa hangisi olduğundan emin değil misiniz? [Gürcistan’da yılan ısırığı genel rehberine](/snakes/gvelis-nakbeni) bakın. Yılan zehirli olabilirse veya türünü tanıyamıyorsanız 112’yi arayın; yılanı tanımak için yardımı geciktirmeyin.",
     sections: [
       {
         heading: "Levant engereği ısırığı ne kadar tehlikelidir?",
