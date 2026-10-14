@@ -28,7 +28,7 @@ const ka = `# კონფიდენციალურობის პოლ�
 
 ### ენა, თემა და ბრაუზერის შენახვა
 
-საიტმა შეიძლება შეინახოს ენის არჩევანი cookie-ში, theme preference localStorage-ში, quiz-ის მიმდინარე პროგრესი sessionStorage-ში და ბოლო არჩეული search results localStorage-ში. ეს გამოიყენება საიტის ფუნქციონირებისა და მომხმარებლის გამოცდილების გასაუმჯობესებლად.
+საიტმა შეიძლება შეინახოს ენის არჩევანი cookie-ში, theme preference localStorage-ში, quiz-ის მიმდინარე პროგრესი sessionStorage-ში, ბოლო არჩეული search results localStorage-ში, შეფასების ფანჯრის სტატუსი localStorage-ში და შეფასების ფანჯრისთვის საიტზე გატარებული დროის მთვლელი sessionStorage-ში. ეს გამოიყენება საიტის ფუნქციონირებისა და მომხმარებლის გამოცდილების გასაუმჯობესებლად.
 
 ### ანალიტიკა და საიტის გამოყენება
 
@@ -162,7 +162,7 @@ If an error occurs on the Site, a description of the error, the page URL and tec
 
 ### Language, theme and browser storage
 
-The Site may store your language choice in a cookie, your theme preference in localStorage, your current quiz progress in sessionStorage and your recently chosen search results in localStorage. This is used for the Site to work and to improve your experience.
+The Site may store your language choice in a cookie, your theme preference in localStorage, your current quiz progress in sessionStorage, your recently chosen search results in localStorage, the state of the rating window in localStorage and a counter of time spent on the Site for the rating window in sessionStorage. This is used for the Site to work and to improve your experience.
 
 ### Analytics and use of the Site
 
@@ -296,7 +296,7 @@ const ru = `# Политика конфиденциальности
 
 ### Язык, тема и хранилище браузера
 
-Сайт может сохранять выбранный язык в cookie, настройку темы в localStorage, текущий прогресс квиза в sessionStorage и недавно выбранные результаты поиска в localStorage. Это нужно для работы Сайта и для удобства пользователей.
+Сайт может сохранять выбранный язык в cookie, настройку темы в localStorage, текущий прогресс квиза в sessionStorage, недавно выбранные результаты поиска в localStorage, состояние окна оценки в localStorage и счётчик времени на Сайте для окна оценки в sessionStorage. Это нужно для работы Сайта и для удобства пользователей.
 
 ### Аналитика и использование Сайта
 
@@ -430,7 +430,7 @@ Sitede bir hata oluşursa hatanın açıklaması, sayfa URL'si ve tarayıcınız
 
 ### Dil, tema ve tarayıcı depolaması
 
-Site; dil seçiminizi bir çerezde, tema tercihinizi localStorage'da, quizdeki güncel ilerlemenizi sessionStorage'da ve son seçtiğiniz arama sonuçlarını localStorage'da saklayabilir. Bu, Sitenin çalışması ve kullanıcı deneyiminin iyileştirilmesi için kullanılır.
+Site; dil seçiminizi bir çerezde, tema tercihinizi localStorage'da, quizdeki güncel ilerlemenizi sessionStorage'da, son seçtiğiniz arama sonuçlarını localStorage'da, değerlendirme penceresinin durumunu localStorage'da ve değerlendirme penceresi için Sitede geçirilen süreyi sayan sayacı sessionStorage'da saklayabilir. Bu, Sitenin çalışması ve kullanıcı deneyiminin iyileştirilmesi için kullanılır.
 
 ### Analitik ve Sitenin kullanımı
 
