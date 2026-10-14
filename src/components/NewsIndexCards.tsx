@@ -143,7 +143,9 @@ export function NewsListCard({ entry }: { entry: NewsIndexEntry }) {
           ) : null}
         </NewsCover>
         <span className="flex min-w-0 flex-col gap-1.5 pt-0.5 md:flex-1 md:gap-0 md:px-6 md:py-[22px]">
-          <span className={`${metaClass} min-w-0 overflow-hidden`}>
+          <span
+            className={`${metaClass} min-w-0 flex-wrap gap-y-0.5 overflow-hidden`}
+          >
             {entry.topicLabel ? (
               <span className="contents md:hidden">
                 <span className="font-semibold text-(--nw-accent)">
