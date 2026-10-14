@@ -6,6 +6,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { useSelectLocale } from "@/components/LanguageSwitcher";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { cn } from "@/lib/cn";
+import { localeShortLabel } from "@/lib/localeSwitch";
 
 export function BackToTop({ label, text }: { label: string; text: string }) {
   return (
@@ -60,9 +61,7 @@ export function FooterLanguageSwitch() {
               role="radio"
               type="button"
             >
-              <span className="lg:hidden">
-                {code === "ka" ? "ქა" : code.toUpperCase()}
-              </span>
+              <span className="lg:hidden">{localeShortLabel(code)}</span>
               <span className="hidden lg:inline">{t(code)}</span>
             </button>
           );
