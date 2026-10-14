@@ -7,13 +7,9 @@ import { GUIDE_ARTICLE_PATHS } from "../src/data/guideArticlePaths";
 import { getPublishedNewsArticles } from "../src/data/news";
 import {
   sitemapAuthorDatePublished,
-  sitemapAuthorLastModified,
   sitemapPathDatePublished,
-  sitemapPathLastModified,
   sitemapQuizDatePublished,
-  sitemapQuizLastModified,
   sitemapRegionDatePublished,
-  sitemapRegionLastModified,
 } from "../src/data/pageLastModified";
 import { regions } from "../src/data/regions";
 import { getCatalogSpecies } from "../src/data/species";
@@ -31,6 +27,12 @@ import { newsArticleUrl } from "../src/lib/news";
 import { liveQuizzes } from "../src/lib/quizzes";
 import { localePath, quizPageUrl, speciesPageUrl } from "../src/lib/site";
 import { regionHref } from "../src/lib/speciesRoutes";
+import {
+  authorModifiedDate,
+  pageModifiedDate,
+  quizModifiedDate,
+  regionModifiedDate,
+} from "../src/lib/structuredDataDates";
 
 process.env.NEXT_PUBLIC_SITE_URL ??= "https://reptiles.ge";
 
@@ -1295,7 +1297,7 @@ function hubInventory(): InventoryItem[] {
       internalLinksIn: null,
       internalLinksOut: null,
       datePublished: sitemapPathDatePublished(hub.path),
-      lastModified: sitemapPathLastModified(hub.path),
+      lastModified: pageModifiedDate(hub.path, locale),
       locale,
       pageType: "hub/index",
       path: localePath(locale, hub.path),
@@ -1321,7 +1323,7 @@ function guideInventory(): InventoryItem[] {
       internalLinksIn: null,
       internalLinksOut: null,
       datePublished: sitemapPathDatePublished(guide.pathname),
-      lastModified: sitemapPathLastModified(guide.pathname),
+      lastModified: pageModifiedDate(guide.pathname, locale),
       locale,
       pageType: "guide",
       path: localePath(locale, guide.pathname),
@@ -1379,7 +1381,7 @@ function authorInventory(): InventoryItem[] {
         internalLinksIn: null,
         internalLinksOut: null,
         datePublished: sitemapAuthorDatePublished(author.slug),
-        lastModified: sitemapAuthorLastModified(author.slug),
+        lastModified: authorModifiedDate(author.slug, locale),
         locale,
         pageType: "author",
         path: new URL(creditAuthorUrl(locale, author.slug)).pathname,
@@ -1407,7 +1409,7 @@ function regionInventory(): InventoryItem[] {
         internalLinksIn: null,
         internalLinksOut: null,
         datePublished: sitemapRegionDatePublished(region.id),
-        lastModified: sitemapRegionLastModified(region.id),
+        lastModified: regionModifiedDate(region.id, locale),
         locale,
         pageType: "region page",
         path: localePath(locale, regionHref(region.id)),
@@ -1433,7 +1435,7 @@ function quizInventory(): InventoryItem[] {
       internalLinksIn: null,
       internalLinksOut: null,
       datePublished: sitemapQuizDatePublished(quiz.id),
-      lastModified: sitemapQuizLastModified(quiz.id),
+      lastModified: quizModifiedDate(quiz.id, locale),
       locale,
       pageType: "quiz",
       path: new URL(quizPageUrl(locale, quiz.id)).pathname,

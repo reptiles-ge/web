@@ -22,10 +22,18 @@ import {
   featuredSpeciesIds,
   unpublishedSpeciesIds,
 } from "../src/data/speciesPublish";
+import {
+  nestedMessageNamespaces,
+  PAGE_CONTENT_FILES,
+} from "../src/data/pageContentSources";
 import { ANIMAL_GROUP_TO_HUB } from "../src/lib/groupHubs";
 import { parseToSiteDateTime } from "../src/lib/siteTime";
 import { buildSpeciesSlugMaps } from "../src/lib/speciesSlugRules";
-import { laterDateTime, readContentGitDates } from "./contentGitDates";
+import {
+  laterDateTime,
+  readContentGitDates,
+  readMessageNamespaceGitDates,
+} from "./contentGitDates";
 import {
   kaFrontmatterSchema,
   sourcesAreValid,
@@ -49,7 +57,12 @@ const contentDatesOutFile = path.join(
   "src/data/contentDates.generated.ts",
 );
 const guidesRootRel = "src/content/guides";
-const gitDates = readContentGitDates([contentRootRel, guidesRootRel]);
+const pageContentFiles = [...new Set(Object.values(PAGE_CONTENT_FILES).flat())];
+const gitDates = readContentGitDates([
+  contentRootRel,
+  guidesRootRel,
+  ...pageContentFiles,
+]);
 
 function resolveUpdatedAt(
   filePaths: string[],
@@ -372,7 +385,42 @@ for (const file of fs.readdirSync(path.join(process.cwd(), guidesRootRel))) {
   if (pathname && date) guideModifiedAt[pathname] = date;
 }
 
+const messageFile = (locale: string) => `messages/${locale}.json`;
+const messageLocales = ["ka", ...TRANSLATION_LOCALES] as const;
+const nestedNamespaces = nestedMessageNamespaces();
+const messageDates = readMessageNamespaceGitDates(
+  messageLocales.map(messageFile),
+  nestedNamespaces,
+);
+const kaMessages = JSON.parse(
+  fs.readFileSync(path.join(process.cwd(), messageFile("ka")), "utf8"),
+) as Record<string, unknown>;
+const trackedNamespaces = [...Object.keys(kaMessages), ...nestedNamespaces];
+const messageModifiedAt: Record<string, Record<string, string>> = {};
+for (const locale of messageLocales) {
+  const dates: Record<string, string> = {};
+  for (const namespace of trackedNamespaces) {
+    const date = messageDates.lastModified(messageFile(locale), namespace);
+    if (date) dates[namespace] = date;
+  }
+  messageModifiedAt[locale] = dates;
+}
+
+const pageFileModifiedAt: Record<string, string> = {};
+for (const [pagePath, files] of Object.entries(PAGE_CONTENT_FILES)) {
+  let latest: string | undefined;
+  for (const file of files) {
+    const date = gitDates.lastModified(file);
+    latest = latest ? laterDateTime(latest, date) : date;
+  }
+  if (latest) pageFileModifiedAt[pagePath] = latest;
+}
+
 const contentDatesSource = `${banner}export const guideArticleModifiedAt: Record<string, string> = ${JSON.stringify(guideModifiedAt, null, 2)};
+
+export const pageFileModifiedAt: Record<string, string> = ${JSON.stringify(pageFileModifiedAt, null, 2)};
+
+export const messageNamespaceModifiedAt: Record<string, Record<string, string>> = ${JSON.stringify(messageModifiedAt, null, 2)};
 `;
 
 fs.writeFileSync(outFile, source, "utf8");
@@ -385,7 +433,7 @@ fs.writeFileSync(
 );
 console.log(`Compiled ${species.length} species → ${outFile}`);
 console.log(
-  `Compiled content dates (git: ${gitDates.status}) → ${contentDatesOutFile}`,
+  `Compiled content dates (git: ${gitDates.status}; messages: ${messageDates.status}) → ${contentDatesOutFile}`,
 );
 console.log(`Compiled ${slugRows.length} published slug rows → ${slugOutFile}`);
 console.log(

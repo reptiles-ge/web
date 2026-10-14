@@ -1,17 +1,25 @@
 import type { AppLocale } from "@/i18n/routing";
 
-import { guideArticleModifiedAt } from "@/data/contentDates.generated";
+import {
+  guideArticleModifiedAt,
+  messageNamespaceModifiedAt,
+  pageFileModifiedAt,
+} from "@/data/contentDates.generated";
 import {
   getPublishedCreditAuthorBySlug,
   getPublishedCreditAuthors,
 } from "@/data/creditAuthors";
+import {
+  AUTHOR_MESSAGE_NAMESPACES,
+  PAGE_MESSAGE_NAMESPACES,
+  REGION_MESSAGE_NAMESPACES,
+} from "@/data/pageContentSources";
 import {
   sitemapAuthorDatePublished,
   sitemapAuthorLastModified,
   sitemapPathDatePublished,
   sitemapPathLastModified,
   sitemapQuizDatePublished,
-  sitemapQuizLastModified,
   sitemapRegionDatePublished,
   sitemapRegionLastModified,
 } from "@/data/pageLastModified";
@@ -32,19 +40,25 @@ type DateFields = { dateModified: string; datePublished: string };
 
 const memo = new Map<string, null | string>();
 let pathMembers: Map<string, Species[]> | null = null;
+let pathNamespaces: Map<string, readonly string[]> | null = null;
 
 export function atlasDateFields(locale: AppLocale) {
   return pageDateFields("/species", locale);
 }
 
 export function authorDateFields(slug: string, locale: AppLocale) {
-  return withFloor({
-    dateModified: laterDate(
-      sitemapAuthorLastModified(slug),
-      authorMembersDate(slug, locale),
-    ),
-    datePublished: sitemapAuthorDatePublished(slug),
-  });
+  return withFloor(
+    authorModifiedDate(slug, locale),
+    sitemapAuthorDatePublished(slug),
+  );
+}
+
+export function authorModifiedDate(slug: string, locale: AppLocale) {
+  return latestDate([
+    sitemapAuthorLastModified(slug),
+    messagesDate(AUTHOR_MESSAGE_NAMESPACES, locale),
+    authorMembersDate(slug, locale),
+  ]);
 }
 
 export function hasMeaningfulUpdate(
@@ -64,34 +78,47 @@ export function hasMeaningfulUpdate(
 }
 
 export function pageDateFields(path: string, locale: AppLocale): DateFields {
-  return withFloor({
-    dateModified: latestDate([
-      sitemapPathLastModified(path),
-      guideArticleModifiedAt[path],
-      pageMembersDate(path, locale),
-    ]) as string,
-    datePublished: sitemapPathDatePublished(path),
-  });
+  return withFloor(
+    pageModifiedDate(path, locale),
+    sitemapPathDatePublished(path),
+  );
+}
+
+export function pageModifiedDate(path: string, locale: AppLocale) {
+  return latestDate([
+    sitemapPathLastModified(path),
+    guideArticleModifiedAt[path],
+    pageFileModifiedAt[path],
+    messagesDate(namespacesByPath().get(path) ?? [], locale),
+    pageMembersDate(path, locale),
+  ]);
 }
 
 export function quizDateFields(id: string, locale: AppLocale) {
-  return withFloor({
-    dateModified: laterDate(
-      sitemapQuizLastModified(id),
-      quizMembersDate(id, locale),
-    ),
-    datePublished: sitemapQuizDatePublished(id),
-  });
+  return withFloor(quizModifiedDate(id, locale), sitemapQuizDatePublished(id));
+}
+
+export function quizModifiedDate(id: string, locale: AppLocale) {
+  const quiz = liveQuizzes().find((item) => item.id === id);
+  return latestDate([
+    messagesDate(quiz ? [quiz.messageNamespace] : [], locale),
+    quizMembersDate(id, locale),
+  ]);
 }
 
 export function regionDateFields(id: string, locale: AppLocale) {
-  return withFloor({
-    dateModified: laterDate(
-      sitemapRegionLastModified(id),
-      regionMembersDate(id, locale),
-    ),
-    datePublished: sitemapRegionDatePublished(id),
-  });
+  return withFloor(
+    regionModifiedDate(id, locale),
+    sitemapRegionDatePublished(id),
+  );
+}
+
+export function regionModifiedDate(id: string, locale: AppLocale) {
+  return latestDate([
+    sitemapRegionLastModified(id),
+    messagesDate(REGION_MESSAGE_NAMESPACES, locale),
+    regionMembersDate(id, locale),
+  ]);
 }
 
 function authorMembersDate(slug: string, locale: AppLocale) {
@@ -151,6 +178,26 @@ function memoized(key: string, compute: () => null | string) {
   return memo.get(key) ?? null;
 }
 
+function messagesDate(namespaces: readonly string[], locale: AppLocale) {
+  const dates = messageNamespaceModifiedAt[locale] ?? {};
+  return latestDate(namespaces.map((namespace) => dates[namespace]));
+}
+
+function namespacesByPath() {
+  if (pathNamespaces) return pathNamespaces;
+  const map = new Map<string, readonly string[]>(
+    Object.entries(PAGE_MESSAGE_NAMESPACES),
+  );
+  for (const guide of CLUSTER_GUIDE_LIST) {
+    map.set(guide.pathname, [guide.messageKey]);
+  }
+  for (const hub of GROUP_HUB_LIST) {
+    map.set(hub.path, [hub.messageKey]);
+  }
+  pathNamespaces = map;
+  return map;
+}
+
 function pageMembersDate(path: string, locale: AppLocale) {
   return memoized(`path:${path}:${locale}`, () => {
     if (path === "/regions") {
@@ -199,9 +246,12 @@ function speciesDate(items: Species[], locale: AppLocale) {
   return latestDate(items.map((item) => speciesUpdatedAt(item, locale)));
 }
 
-function withFloor(fields: DateFields): DateFields {
+function withFloor(
+  dateModified: null | string,
+  datePublished: string,
+): DateFields {
   return {
-    dateModified: laterDate(fields.datePublished, fields.dateModified),
-    datePublished: fields.datePublished,
+    dateModified: laterDate(datePublished, dateModified),
+    datePublished,
   };
 }

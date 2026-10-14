@@ -35,17 +35,29 @@ import {
 } from "@/lib/site";
 import { regionHref } from "@/lib/speciesRoutes";
 import {
-  atlasDateFields,
-  authorDateFields,
-  pageDateFields,
-  quizDateFields,
-  regionDateFields,
+  authorModifiedDate,
+  pageModifiedDate,
+  quizModifiedDate,
+  regionModifiedDate,
 } from "@/lib/structuredDataDates";
 
 import sitemap from "./sitemap";
 
+const PLACEHOLDER_DAY = "2026-09-16";
+const PLACEHOLDER_PAGES = [
+  "/about",
+  "/contact",
+  "/risk-to-humans",
+  "/lizards/xvlikis-da-gvelxokeras-gansxvaveba",
+  "/lizards/xvliki-sakhlshi",
+  "/lizards/identifikacia",
+  "/mammals/tura-ezoshi",
+  "/snakes/didi-gvelebi",
+] as const;
+
 const entries = sitemap();
 const urls = entries.map((entry) => entry.url);
+const datedEntries = entries.filter((entry) => "lastModified" in entry);
 
 describe("sitemap", () => {
   it("lists the legal pages in every locale with every hreflang alternate", () => {
@@ -66,8 +78,8 @@ describe("sitemap", () => {
     for (const locale of routing.locales) {
       const url = `https://reptiles.ge${locale === "ka" ? "" : `/${locale}`}/species`;
       const entry = entries.find((item) => item.url === url);
-      expect(entry?.lastModified, url).toBe(
-        atlasDateFields(locale).dateModified,
+      expect(entry?.lastModified ?? null, url).toBe(
+        pageModifiedDate("/species", locale),
       );
     }
   });
@@ -76,22 +88,22 @@ describe("sitemap", () => {
     const byUrl = new Map(entries.map((entry) => [entry.url, entry]));
     for (const locale of routing.locales) {
       const hub = byUrl.get(absoluteUrl(localePath(locale, "/snakes")));
-      expect(hub?.lastModified).toBe(
-        pageDateFields("/snakes", locale).dateModified,
+      expect(hub?.lastModified ?? null).toBe(
+        pageModifiedDate("/snakes", locale),
       );
       const region = byUrl.get(
         absoluteUrl(localePath(locale, regionHref("kakheti"))),
       );
-      expect(region?.lastModified).toBe(
-        regionDateFields("kakheti", locale).dateModified,
+      expect(region?.lastModified ?? null).toBe(
+        regionModifiedDate("kakheti", locale),
       );
       const quiz = byUrl.get(quizPageUrl(locale, "snake"));
-      expect(quiz?.lastModified).toBe(
-        quizDateFields("snake", locale).dateModified,
+      expect(quiz?.lastModified ?? null).toBe(
+        quizModifiedDate("snake", locale),
       );
       const author = byUrl.get(creditAuthorUrl(locale, "sandro-khakhva"));
-      expect(author?.lastModified).toBe(
-        authorDateFields("sandro-khakhva", locale).dateModified,
+      expect(author?.lastModified ?? null).toBe(
+        authorModifiedDate("sandro-khakhva", locale),
       );
     }
   });
@@ -108,11 +120,44 @@ describe("sitemap", () => {
 
   it("never uses the build time as lastModified", () => {
     const now = Date.now();
-    for (const entry of entries) {
+    for (const entry of datedEntries) {
       expect(
         now - Date.parse(String(entry.lastModified)),
         entry.url,
       ).toBeGreaterThan(60_000);
+    }
+  });
+
+  it("never dates an entry later than the build time", () => {
+    const now = Date.now();
+    for (const entry of datedEntries) {
+      expect(
+        Date.parse(String(entry.lastModified)),
+        entry.url,
+      ).toBeLessThanOrEqual(now);
+    }
+  });
+
+  it("never falls back to a placeholder date", () => {
+    const placeholders = new Set(
+      entries
+        .map((entry) => (entry as { datePublished?: string }).datePublished)
+        .filter((date) => date?.startsWith(PLACEHOLDER_DAY)),
+    );
+    for (const entry of datedEntries) {
+      const lastModified = String(entry.lastModified);
+      expect(placeholders.has(lastModified), entry.url).toBe(false);
+      expect(lastModified, entry.url).not.toMatch(/^2026-01-01T00:00:00/);
+    }
+    for (const path of PLACEHOLDER_PAGES) {
+      for (const locale of routing.locales) {
+        const url = absoluteUrl(localePath(locale, path));
+        const entry = entries.find((item) => item.url === url);
+        expect(entry, url).toBeDefined();
+        expect(String(entry?.lastModified ?? ""), url).not.toMatch(
+          new RegExp(`^${PLACEHOLDER_DAY}`),
+        );
+      }
     }
   });
 
@@ -161,8 +206,8 @@ describe("sitemap", () => {
     expect(urls.some((url) => url.includes("dolichophis-caspius"))).toBe(false);
   });
 
-  it("gives every entry a parseable lastModified date", () => {
-    for (const entry of entries) {
+  it("gives every dated entry a parseable lastModified date", () => {
+    for (const entry of datedEntries) {
       expect(
         Number.isNaN(Date.parse(String(entry.lastModified))),
         entry.url,
