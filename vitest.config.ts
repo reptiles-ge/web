@@ -105,7 +105,6 @@ export default defineConfig({
         "src/components/QuizCover.tsx",
         "src/components/QuizCoverPicture.tsx",
         "src/components/QuizCtaLink.tsx",
-        "src/components/QuizIntroOverlay.tsx",
         "src/components/QuizLanding.tsx",
         "src/components/QuizPlayer.tsx",
         "src/components/QuizPracticeCta.tsx",
