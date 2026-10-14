@@ -111,6 +111,11 @@ export async function rewriteSpeciesTexts(id: string, cwd = process.cwd()) {
       ]),
     ),
   ) as Record<string, EditorResult>;
+  const speciesNames = await linkedSpeciesNames(
+    cwd,
+    id,
+    fields.map((field) => originals[field].ka),
+  );
   const results = new Map<string, EditorResult>();
   const rewrite = async (
     field: string,
@@ -137,6 +142,7 @@ export async function rewriteSpeciesTexts(id: string, cwd = process.cwd()) {
             ]),
         ),
         riskLevel: RISK_LEVELS.find((level) => level === data.danger),
+        speciesNames,
         styleRepair,
       }),
       selection,
@@ -195,6 +201,41 @@ export function speciesTextsReport(
     ...updates.map(({ field, result }) => `${field}\n${result.ka}`),
     ...(notes.length ? [`შენიშვნები:\n${notes.join("\n")}`] : []),
   ].join("\n\n");
+}
+
+async function linkedSpeciesNames(cwd: string, id: string, texts: string[]) {
+  const ids = [
+    ...new Set(
+      texts.flatMap((text) =>
+        [...text.matchAll(/\]\(([a-z]+(?:-[a-z]+)+)\)/g)].map(
+          (match) => match[1],
+        ),
+      ),
+    ),
+  ].filter((other) => other !== id);
+  const names = await Promise.all(
+    ids.map(async (other) => {
+      try {
+        const entries = await Promise.all(
+          TEXT_LOCALES.map(async (locale) => {
+            const { commonName } = matter(
+              await fs.readFile(
+                path.join(cwd, "src/content/species", other, `${locale}.mdx`),
+                "utf8",
+              ),
+            ).data;
+            return [locale, typeof commonName === "string" ? commonName : ""];
+          }),
+        );
+        return entries.every(([, name]) => name)
+          ? (Object.fromEntries(entries) as Record<StyleLocale, string>)
+          : undefined;
+      } catch {
+        return undefined;
+      }
+    }),
+  );
+  return names.filter((name) => name !== undefined);
 }
 
 function numberLosses(

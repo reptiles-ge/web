@@ -4,6 +4,7 @@ import path from "node:path";
 import { describe, expect, it, vi } from "vitest";
 
 import { transformWithAgent } from "@/lib/contentEditorAgent";
+import { buildEditorPrompt } from "@/lib/contentEditorPrompt";
 import { resolveEditorTarget } from "@/lib/contentEditorTarget";
 import {
   getSpeciesTextFields,
@@ -184,5 +185,44 @@ describe("page-aware species text rewrite", () => {
     expect(updates.find(({ field }) => field === "overview")?.result.ka).toBe(
       "The viper lives up to 1500 m. It is dangerous to people.",
     );
+  });
+
+  it("gives translations the linked species' official names", async () => {
+    const cwd = speciesFixture({
+      overview:
+        "A viper like the [racer](test-racer). It is dangerous to people.",
+    });
+    const folder = path.join(cwd, "src/content/species/test-racer");
+    fs.mkdirSync(folder, { recursive: true });
+    for (const [locale, name] of Object.entries({
+      en: "Spotted Whip Snake",
+      ka: "ნაირფერი მცურავი",
+      ru: "Пятнистый полоз",
+      tr: "Benekli kamçı yılanı",
+    }))
+      fs.writeFileSync(
+        path.join(folder, `${locale}.mdx`),
+        `---\ncommonName: ${name}\n---\n`,
+      );
+    const calls: Parameters<typeof transformWithAgent>[0][] = [];
+    vi.mocked(transformWithAgent).mockImplementation(async (input) => {
+      calls.push(input);
+      return four(input.selected);
+    });
+    await rewriteSpeciesTexts("test-species", cwd);
+    expect(calls[0].speciesNames).toEqual([
+      {
+        en: "Spotted Whip Snake",
+        ka: "ნაირფერი მცურავი",
+        ru: "Пятнистый полоз",
+        tr: "Benekli kamçı yılanı",
+      },
+    ]);
+    expect(buildEditorPrompt({ ...calls[0], styleGuide: "" })).toContain(
+      "SPECIES_NAMES:",
+    );
+    expect(
+      buildEditorPrompt({ after: "", before: "", selected: "Text." }),
+    ).not.toContain("SPECIES_NAMES");
   });
 });
