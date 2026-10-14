@@ -12,6 +12,7 @@ import { GEORGIA_HERPETOFAUNA_CHECKLIST_2026 } from "@/content/news/georgia-herp
 import { GEORGIAN_SNAKES_AREA_OF_OCCUPANCY_2026 } from "@/content/news/georgian-snakes-area-of-occupancy-2026";
 import { LEATHERBACK_TURTLE_FIRST_TURKISH_BLACK_SEA_RECORDS_2026 } from "@/content/news/leatherback-turtle-first-turkish-black-sea-records-2026";
 import { THERIDION_HUSEYNOVI_NEW_SPIDER_SPECIES_GEORGIA_2026 } from "@/content/news/theridion-huseynovi-new-spider-species-georgia-2026";
+import { THREE_LEGGED_LEOPARD_AREN_ALGETI } from "@/content/news/three-legged-leopard-aren-algeti";
 import { VIPERA_PONTICA_HYBRID_GEORGIA_2026 } from "@/content/news/vipera-pontica-hybrid-georgia-2026";
 import { getRegionById } from "@/data/regions";
 import { getSpeciesById } from "@/data/species";
@@ -20,6 +21,7 @@ import { GROUP_HUBS } from "@/lib/groupHubs";
 export type { NewsArticle, NewsPhoto, NewsSource } from "@/data/newsTypes";
 
 const NEWS_ARTICLES: readonly NewsArticle[] = [
+  THREE_LEGGED_LEOPARD_AREN_ALGETI,
   BEZOAR_GOAT_RESTORATION_JAVAKHETI_2026,
   CAUCASIAN_TOAD_BUFO_VERRUCOSISSIMUS_TAXONOMY_2026,
   GEORGIAN_SNAKES_AREA_OF_OCCUPANCY_2026,
