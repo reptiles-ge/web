@@ -34,27 +34,18 @@ type TextPart = {
 export function LegalDocumentPage({
   documentId,
   locale,
-  notice,
 }: {
   documentId: LegalDocumentId;
   locale: AppLocale;
-  notice: string;
 }) {
-  const translated = legalDocuments[documentId][locale];
-  const lang = translated ? locale : "ka";
-  const blocks = parseMarkdown(translated ?? legalDocuments[documentId].ka);
+  const blocks = parseMarkdown(legalDocuments[documentId][locale]);
 
   return (
     <div className="bg-background">
       <article
         className="mx-auto max-w-4xl px-6 pt-28 pb-16 text-foreground lg:px-10 lg:pt-32 lg:pb-20"
-        lang={lang}
+        lang={locale}
       >
-        {lang !== locale ? (
-          <p className="mb-8 rounded-md border border-border bg-card px-4 py-3 text-[14px] leading-relaxed text-muted-foreground">
-            {notice}
-          </p>
-        ) : null}
         <div className="space-y-6">
           {blocks.map((block) => renderBlock(block))}
         </div>

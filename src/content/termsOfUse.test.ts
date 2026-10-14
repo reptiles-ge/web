@@ -38,8 +38,4 @@ describe("terms of use", () => {
       list.indexOf("intellectual-property") + 1,
     );
   });
-
-  it("keeps the privacy policy Georgian only", () => {
-    expect(Object.keys(legalDocuments.privacy)).toEqual(["ka"]);
-  });
 });
