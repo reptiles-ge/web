@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import {
   lintFieldStyle,
+  lintHedgeLoss,
   lintSpeciesStyle,
   splitSentences,
 } from "@/lib/writingStyleLint";
@@ -66,5 +67,23 @@ describe("writing style lint", () => {
     expect(
       lintSpeciesStyle(raw, "ka").map(({ field, rule }) => `${field}:${rule}`),
     ).toEqual(["description:R13", "faq.0.answer:R8"]);
+  });
+
+  it("flags removed hedges in KA and EN by whole word", () => {
+    expect(
+      lintHedgeLoss(
+        "ჩვეულებრივ აპრილიდან აქტიურია. შხამმა შეიძლება სისხლდენა გამოიწვიოს.",
+        "აპრილიდან აქტიურია. შხამი სისხლდენას იწვევს.",
+        "behavior",
+        "ka",
+      ).map(({ message }) => message.split(" ")[1]),
+    ).toEqual(["„ჩვეულებრივ“", "„შეიძლება“"]);
+    expect(
+      lintHedgeLoss("Maybe it bites.", "It bites.", "faq.0.answer", "en"),
+    ).toEqual([]);
+    expect(
+      lintHedgeLoss("It may bite.", "It bites.", "faq.0.answer", "en"),
+    ).toHaveLength(1);
+    expect(lintHedgeLoss("Может укусить.", "", "diet", "ru")).toEqual([]);
   });
 });

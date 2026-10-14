@@ -28,6 +28,7 @@ import {
 } from "@/lib/speciesSuperAnalysisSchema";
 import {
   formatStyleIssues,
+  lintHedgeLoss,
   lintSpeciesStyle,
   type StyleIssue,
   styleIssueSurface,
@@ -113,12 +114,20 @@ export async function createSuperAnalysisRunner(
         result = validateSuperAnalysisResult(parsed, stage, context, previous);
         if (stage === "texts") {
           const validated = result;
-          const issues = ANALYSIS_LOCALES.flatMap((locale) =>
-            lintSpeciesStyle(
+          const issues = ANALYSIS_LOCALES.flatMap((locale) => [
+            ...lintSpeciesStyle(
               applyAnalysisEdits(snapshot[locale].raw, locale, validated),
               locale,
             ),
-          );
+            ...validated.edits.flatMap((edit) =>
+              lintHedgeLoss(
+                edit.before[locale],
+                edit.after[locale],
+                edit.field,
+                locale,
+              ),
+            ),
+          ]);
           if (issues.length && attempt === 0) {
             result = undefined;
             repair = styleRepairInstructions(issues, output);
