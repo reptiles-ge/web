@@ -36,7 +36,7 @@ export const CLAUDE_PROFILES: Record<
   "super:analysis": { effort: "high", model: OPUS },
   "super:links": { effort: "low", model: SONNET },
   "super:lookalikes": { effort: "high", model: OPUS },
-  "super:texts": { effort: "medium", model: OPUS },
+  "super:texts": { effort: "high", model: OPUS },
 };
 
 const ESCALATION_CEILING: ClaudeEffort = "high";

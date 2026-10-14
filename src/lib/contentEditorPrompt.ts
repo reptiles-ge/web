@@ -16,6 +16,8 @@ export interface EditorPromptInput {
   /** The site's risk label for humans */
   riskLevel?: RiskLevel;
   selected: string;
+  /** Binding house style (src/prompts/writing-style.md) */
+  styleGuide?: string;
 }
 
 type RiskLevel = "Harmless" | "High" | "Moderate";
@@ -59,8 +61,14 @@ export function buildEditorPrompt(input: EditorPromptInput) {
     "Write for an ordinary person with no education in biology, zoology or medicine, who often reads on a phone.",
     "Simplicity is a primary requirement. When simplicity and factual accuracy genuinely conflict, accuracy wins.",
 
-    "MINIMAL EDITING:",
-    "If SELECTED is already clear, natural and correct, return it unchanged or with the smallest necessary edits. Do not rewrite good text only to make it different. Every change must fix a real problem: grammar, clarity, jargon, repetition, a calque, commentary that must be removed, or a house-style violation.",
+    "WHEN TO EDIT:",
+    "Return SELECTED unchanged or nearly unchanged only when it already passes the WRITING STYLE self-check. Correct but flat text is not finished: a buried lead, a repeated subject, stacked hedges, site talk, one-line paragraphs or banned phrases are real problems. Do not rewrite text only to make it different.",
+    ...(input.styleGuide
+      ? [
+          "WRITING STYLE (binding; it applies to SELECTED and the translations; where it conflicts with a rule below about tone or length, WRITING STYLE wins; it never overrides factual fidelity, safety, names, numbers or links):",
+          input.styleGuide,
+        ]
+      : []),
 
     // ─── PLAIN LANGUAGE ──────────────────────────────────────────────
     "PLAIN LANGUAGE:",
@@ -198,7 +206,7 @@ export function buildEditorPrompt(input: EditorPromptInput) {
           "FIELD-SPECIFIC RULES (FIELD shows where SELECTED appears):",
           "- commonName, headings and stats values: keep them short. Never turn them into sentences.",
           "- overview: when SELECTED includes the first sentence, that sentence names the species with its common and Latin name and gives the most useful fact for an ordinary reader.",
-          "- faq.*.answer: begin with the direct answer (დიახ, არა, or the place or number asked about), then at most two short sentences.",
+          "- faq.*.answer: begin with the direct answer (დიახ, არა, or the place or number asked about), then two to five sentences of supported explanation and the practical consequence. Never a one-line answer when the supplied text supports more.",
           "- identification.*: put concrete visible features from the supplied text first (size, colour, pattern, body shape). Keep notes about names or classification brief. Never invent features.",
           "- habitat, behavior, diet, conservation: keep content that matches the section heading. Do not pad.",
           "- meta or seo description: 140–155 characters, includes the common name, answers what a searcher most wants to know, no jargon.",

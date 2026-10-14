@@ -26,7 +26,7 @@ Profiles live in `src/lib/aiAgentProfiles.ts`:
 | Profile                                  | Model             | Effort |
 | ---------------------------------------- | ----------------- | ------ |
 | `super:analysis`, `super:lookalikes`     | Claude Opus 5.5   | high   |
-| `super:texts`                            | Claude Opus 5.5   | medium |
+| `super:texts`                            | Claude Opus 5.5   | high   |
 | `super:links`                            | Claude Sonnet 5.5 | low    |
 | `page:analysis`, `page:lookalikes`       | Claude Opus 5.5   | high   |
 | `page:records`                           | Claude Opus 5.5   | medium |
@@ -80,6 +80,12 @@ A proposed edit includes explicit before/after text in KA/EN/RU/TR, a field path
 Link-stage validation checks renderable field paths, unchanged visible text, known non-self destinations and locale target parity. Final text validation protects inline link targets, numeric values, catalog scientific names, compact IUCN codes and Giurza's reproduction paragraph structure. Lookalike registry updates are parsed with TypeScript's AST, with additions confined to the target and removals applied in both directions. Every existing pair must receive an explicit decision; uncertain pairs are retained for review.
 
 The existing worktree/publishing mechanism is reused. Super Analysis enforces the fixed order server-side, checks local content against the remote base, rejects a conflicting open species PR, and publishes **only after all four stages pass internal content validation**. Compilation, typecheck, lint, tests and build are left to the owner; the workflow does not run project-check commands. The single result is a draft PR with the `content` label and stage reports. No-op runs return reports without creating a PR. Failure discards intermediate changes instead of publishing a partial PR. Existing standalone/custom workflows retain their separate behavior.
+
+## Writing style
+
+`src/prompts/writing-style.md` is the owner-approved house style (2026-10-14) and the single source for how reader-facing prose should sound: strongest fact first, one home per fact, no site talk, hedges only for real uncertainty, no one-line paragraphs or FAQ answers, a takeaway where it helps, banned phrases in four languages, Georgian typography, and an approved Giurza before/after library. It is appended to the Super Analysis prompt for every stage except links, to the standalone text editor prompt and to the species creation prompt. Edit that file, not the individual prompts, to change the style.
+
+After the texts stage passes validation, `src/lib/writingStyleLint.ts` measures the rules that can be counted (banned phrases and site talk, „1,500“ thousands, a description opening with „Name:“, exclamation marks, sentences over 30 words, consecutive sentences starting with the KA common name, hedge density and stacked hedges, one-sentence paragraphs and FAQ answers) on the page as it would be written. Number preservation in the texts stage normalizes thousands („1,500“, „1 500“ and „1500“ are the same value) and lets a repeated number leave a field when the same value stays in another field of the final page in that locale, so de-duplication under R7 is possible; adding or changing a number is still rejected. Any lint violation sends one style repair call listing each field, locale and rule. Violations left after the repair do not block the run; they become `review` findings in the report and PR. The lint checks form, not quality: it cannot tell whether the lead is the strongest fact or the text is engaging, so the PR still needs an editor's read.
 
 ## Progress, reruns and failures
 
