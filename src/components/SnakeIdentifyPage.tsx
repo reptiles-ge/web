@@ -10,8 +10,8 @@ import { ClusterPageFrame } from "@/components/ClusterPageFrame";
 import { GuideEditorialNote, GuideMythList } from "@/components/GuideShared";
 import { LookalikePairGrid } from "@/components/LookalikePairGrid";
 import { QuizPracticeCta } from "@/components/QuizPracticeCta";
+import { snakeGuideLeadLinks } from "@/components/snakeGuideLeadLinks";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
-import { SpeciesInlineLink } from "@/components/SpeciesInlineLink";
 import { isVenomousDanger } from "@/data/speciesAtlasMeta";
 import { toSpeciesCards } from "@/data/speciesCard";
 import { Link } from "@/i18n/navigation";
@@ -59,16 +59,7 @@ export async function SnakeIdentifyPage({
     >
       <ClusterGuideLead
         eyebrow={t("guideEyebrow")}
-        paragraphs={[
-          t("guideP1"),
-          t.rich("guideP2", {
-            kaznakovi: (chunks) => (
-              <SpeciesInlineLink id="vipera-kaznakovi">
-                {chunks}
-              </SpeciesInlineLink>
-            ),
-          }),
-        ]}
+        paragraphs={[t("guideP1"), t.rich("guideP2", snakeGuideLeadLinks)]}
         title={t("guideTitle")}
       />
 

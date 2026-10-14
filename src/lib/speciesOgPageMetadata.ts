@@ -12,6 +12,7 @@ type SpeciesOgPageMetadataInput = {
   namespace: "dangerousAnimals" | "riskToHumans" | "venomousSnakes";
   ogSpeciesId: string;
   pagePath: Parameters<typeof localePath>[1];
+  titleValues?: Record<string, number>;
   type?: "article" | "website";
 };
 
@@ -20,10 +21,11 @@ export async function speciesOgPageMetadata({
   namespace,
   ogSpeciesId,
   pagePath,
+  titleValues,
   type,
 }: SpeciesOgPageMetadataInput): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace });
-  const title = t("metaTitle");
+  const title = t("metaTitle", titleValues);
   return buildPageMetadata({
     description: t("metaDescription"),
     indexable: true,

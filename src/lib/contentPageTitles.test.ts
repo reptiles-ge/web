@@ -19,7 +19,10 @@ import { getPublishedCreditAuthors } from "@/data/creditAuthors";
 import { GUIDE_ARTICLE_PATHS } from "@/data/guideArticlePaths";
 import { getPublishedNewsArticles } from "@/data/news";
 import { regions } from "@/data/regions";
-import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
+import {
+  getSpeciesAtlasMeta,
+  getVenomousCatalogSpecies,
+} from "@/data/speciesAtlas";
 import { routing } from "@/i18n/routing";
 import { CLUSTER_GUIDES, type ClusterGuideId } from "@/lib/clusterGuides";
 import { createClusterGuideRoute } from "@/lib/createClusterGuideRoute";
@@ -163,6 +166,18 @@ describe("content page titles", () => {
           titles.set(title, `${group} ${id}`);
         }
       }
+    },
+  );
+});
+
+describe("venomous snakes title", () => {
+  it.each(routing.locales)(
+    "puts the catalog venomous snake count in the %s title",
+    async (locale) => {
+      const title = renderedTitle(
+        (await venomousSnakesMetadata(localeParams(locale))).title,
+      );
+      expect(title).toContain(String(getVenomousCatalogSpecies().length));
     },
   );
 });
