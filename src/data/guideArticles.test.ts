@@ -164,6 +164,11 @@ describe.each(articles.map((article) => [article.id, article] as const))(
         expect(copy.summary.length, `${locale} summary`).toBeLessThanOrEqual(
           600,
         );
+        expect(copy.intro?.length ?? 0, `${locale} intro`).toBeGreaterThan(60);
+        expect(copy.intro?.length ?? 0, `${locale} intro`).toBeLessThanOrEqual(
+          400,
+        );
+        expect(copy.intro, `${locale} intro`).not.toBe(copy.summary);
         expect(copy.sections.length, `${locale} sections`).toBe(
           ka.sections.length,
         );

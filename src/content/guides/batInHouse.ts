@@ -59,6 +59,8 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         question: "What if a child or pet is in the house?",
       },
     ],
+    intro:
+      "A bat indoors is usually looking for a way out, not attacking. Shut it into one room, keep people and pets away, open an exterior window or door, and do not touch it with bare hands; after a bite or scratch, get medical advice.",
     metaTitle: "A bat flew into the house — what should you do?",
     sections: [
       {
@@ -184,6 +186,8 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         question: "როგორ მოვიქცეთ, თუ სახლში ბავშვი ან შინაური ცხოველია?",
       },
     ],
+    intro:
+      "სახლში შემოფრენილი ღამურა ჩვეულებრივ გასასვლელს ეძებს და არა თავდასხმას. შემოფარგლეთ ერთ ოთახში, ადამიანები და ცხოველები მოარიდეთ, გახსენით გარე ფანჯარა ან კარი და შიშველი ხელით ნუ შეეხებით; ნაკბენის ან ნაკაწრის შემდეგ სამედიცინო რჩევა მიიღეთ.",
     metaTitle: "ღამურა სახლში შემოფრინდა — როგორ მოვიქცეთ?",
     sections: [
       {
@@ -309,6 +313,8 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         question: "Что делать, если в доме ребёнок или питомец?",
       },
     ],
+    intro:
+      "Летучая мышь в помещении обычно ищет выход, а не нападает. Ограничьте её одной комнатой, уберите людей и животных, откройте наружное окно или дверь и не трогайте её голыми руками; после укуса или царапины получите медицинскую консультацию.",
     metaTitle: "В дом влетела летучая мышь — что делать?",
     sections: [
       {
@@ -434,6 +440,8 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         question: "Evde çocuk veya evcil hayvan varsa ne yapmalı?",
       },
     ],
+    intro:
+      "İçerideki yarasa genellikle saldırmaz, çıkış arar. Onu tek odaya sınırlayın, insanları ve evcil hayvanları uzak tutun, dış pencere veya kapıyı açın ve çıplak elle dokunmayın; ısırık veya tırmık sonrası tıbbi danışmanlık alın.",
     metaTitle: "Eve yarasa girdi — ne yapmalı?",
     sections: [
       {

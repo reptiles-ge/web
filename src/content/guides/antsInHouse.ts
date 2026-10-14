@@ -34,6 +34,8 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         question: "How long should it take to see results?",
       },
     ],
+    intro:
+      "The ants you see are usually a small part of a colony looking for food and water, so wiping them away does not deal with the nest. First find where they come in, then remove food and moisture and seal the gaps you can reach.",
     metaTitle: "Ants in the house: how to get rid of them?",
     sections: [
       {
@@ -196,6 +198,8 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         question: "რამდენ ხანში უნდა გამოჩნდეს შედეგი?",
       },
     ],
+    intro:
+      "ოთახში დანახული ჭიანჭველები, როგორც წესი, საკვებისა და წყლის მაძიებელი კოლონიის მცირე ნაწილია, ამიტომ მათი მოცილება ბუდეს ვერ აგვარებს. ჯერ ნახეთ, საიდან შემოდიან, შემდეგ მოაშორეთ საკვები და ტენი და დახურეთ ღრიჭოები, რომლებსაც მიწვდებით.",
     metaTitle: "ჭიანჭველები სახლში - როგორ მოვიშოროთ?",
     sections: [
       {
@@ -356,6 +360,8 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         question: "Через какое время должен быть результат?",
       },
     ],
+    intro:
+      "Муравьи, которых вы видите, обычно лишь малая часть колонии, ищущей еду и воду, поэтому, убрав их, вы не решите проблему гнезда. Сначала найдите, откуда они заходят, затем уберите еду и влагу и заделайте доступные щели.",
     metaTitle: "Муравьи в доме: как от них избавиться?",
     sections: [
       {
@@ -516,6 +522,8 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         question: "Sonuç ne kadar sürede görülmeli?",
       },
     ],
+    intro:
+      "Gördüğünüz karıncalar genellikle yiyecek ve su arayan bir koloninin küçük bir kısmıdır; onları silmek yuva sorununu çözmez. Önce nereden girdiklerini bulun, sonra yiyecek ve nemi kaldırın ve ulaşabildiğiniz aralıkları kapatın.",
     metaTitle: "Evde karınca: karıncalardan nasıl kurtulunur?",
     sections: [
       {
