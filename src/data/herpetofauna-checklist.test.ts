@@ -27,10 +27,19 @@ describe("herpetofauna checklist", () => {
   });
 
   it("never labels a candidate as confirmed", () => {
+    for (const id of [
+      "bufo-verrucosissimus",
+      "elaphe-urartica",
+      "malpolon-insignitus",
+      "vipera-darevskii",
+      "vipera-dinniki",
+      "vipera-renardi",
+    ])
+      expect(getHerpetofaunaChecklistStatus(id), id).toBe("candidate");
     expect(getHerpetofaunaChecklistStatus("vipera-kaznakovi")).toBe(
-      "candidate",
+      "confirmed",
     );
-    expect(getHerpetofaunaChecklistStatus("lacerta-agilis")).toBe("candidate");
+    expect(getHerpetofaunaChecklistStatus("lacerta-agilis")).toBe("confirmed");
     expect(getHerpetofaunaChecklistStatus("phoenicolacerta-laevis")).toBe(
       "introduced",
     );
