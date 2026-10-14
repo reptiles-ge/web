@@ -1,4 +1,4 @@
-export const MIN_FEEDBACK_LENGTH = 3;
+const MIN_FEEDBACK_LENGTH = 3;
 export const MAX_FEEDBACK_LENGTH = 1000;
 
 export function needsFeedback(rating: number) {
