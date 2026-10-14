@@ -127,23 +127,41 @@ describe("speciesPageMetaTitle", () => {
 describe("speciesSummaryDescription", () => {
   it("uses a curated summary that fits a meta description", () => {
     const summary = "a".repeat(120);
-    expect(speciesSummaryDescription(` ${summary} `)).toBe(summary);
+    expect(speciesSummaryDescription(` ${summary} `, "en")).toBe(summary);
   });
 
   it("skips summaries that are too short or too long", () => {
-    expect(speciesSummaryDescription("a".repeat(69))).toBeUndefined();
-    expect(speciesSummaryDescription("a".repeat(161))).toBeUndefined();
+    expect(speciesSummaryDescription("a".repeat(69), "en")).toBeUndefined();
+    expect(speciesSummaryDescription("a".repeat(156), "en")).toBeUndefined();
+    expect(speciesSummaryDescription("ა".repeat(160), "ka")).toBe(
+      "ა".repeat(160),
+    );
+    expect(speciesSummaryDescription("ა".repeat(161), "ka")).toBeUndefined();
   });
 });
 
 describe("speciesMetaDescription", () => {
-  it("returns short text unchanged", () => {
-    expect(speciesMetaDescription("Short text.")).toBe("Short text.");
+  it("returns a short overview unchanged", () => {
+    expect(
+      speciesMetaDescription(
+        { description: "", overview: "Short text." },
+        "en",
+      ),
+    ).toBe("Short text.");
   });
 
-  it("never exceeds the maximum length", () => {
-    const long = "word ".repeat(100);
-    expect(speciesMetaDescription(long, 120).length).toBeLessThanOrEqual(120);
+  it("prefers a summary that fits", () => {
+    const description = `Summary ${"a".repeat(80)}.`;
+    expect(
+      speciesMetaDescription({ description, overview: "Overview." }, "en"),
+    ).toBe(description);
+  });
+
+  it("stops at a sentence end instead of cutting a sentence", () => {
+    const overview = `First ${"a".repeat(90)}. Second ${"b".repeat(90)}.`;
+    expect(speciesMetaDescription({ description: "", overview }, "en")).toBe(
+      `First ${"a".repeat(90)}.`,
+    );
   });
 });
 

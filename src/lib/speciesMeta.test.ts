@@ -3,7 +3,12 @@ import { describe, expect, it } from "vitest";
 import type { AppLocale } from "@/i18n/routing";
 
 import { getCatalogSpecies } from "@/data/species";
-import { shortMetaDescription } from "@/lib/metaDescription";
+import { localizeSpecies } from "@/i18n/localizeSpecies";
+import { routing } from "@/i18n/routing";
+import { KA_META_DESCRIPTION_OVERRIDES } from "@/lib/kaMetaDescriptionOverrides";
+import { metaDescriptionLimit } from "@/lib/metaDescription";
+import { speciesPageUrl } from "@/lib/site";
+import { isPlaceholderBody } from "@/lib/speciesContent";
 import {
   SPECIES_META_DESCRIPTION_OVERRIDE,
   speciesMetaDescription,
@@ -94,35 +99,38 @@ describe("speciesMetaDescription", () => {
   it("strips inline markdown links without dropping fitting text", () => {
     expect(
       speciesMetaDescription(
-        "The Levantine viper is a [venomous snake](/venomous-snakes) often confused with the [Montpellier snake](malpolon-insignitus). Keep distance.",
+        {
+          description: "",
+          overview:
+            "The Levantine viper is a [venomous snake](/venomous-snakes) often confused with the [Montpellier snake](malpolon-insignitus). Keep distance.",
+        },
+        "en",
       ),
     ).toBe(
       "The Levantine viper is a venomous snake often confused with the Montpellier snake. Keep distance.",
     );
   });
 
-  it("clips long descriptions to the search snippet limit", () => {
-    const description = speciesMetaDescription(
-      "This deliberately long overview keeps going past the normal search snippet boundary so metadata does not exceed the limit used by the SEO crawl report in production.",
-      90,
-    );
-
-    expect(description.length).toBeLessThanOrEqual(90);
-    expect(description.endsWith("…")).toBe(true);
-  });
-});
-
-describe("shortMetaDescription", () => {
-  it("keeps the full description when it fits", () => {
-    const text = "First sentence. Second sentence.";
-
-    expect(shortMetaDescription(text)).toBe(text);
-  });
-
-  it("clips only when the description exceeds the limit", () => {
-    const text = "A ".repeat(100);
-
-    expect(shortMetaDescription(text).length).toBeLessThanOrEqual(160);
+  it("gives every published profile a whole-sentence description that fits", () => {
+    for (const raw of getCatalogSpecies()) {
+      for (const locale of routing.locales) {
+        const item = localizeSpecies(raw, locale);
+        const path = new URL(speciesPageUrl(locale, raw.id)).pathname;
+        if (locale === "ka" && KA_META_DESCRIPTION_OVERRIDES[path]) continue;
+        const description =
+          speciesMetaDescriptionOverride(raw.id, locale) ??
+          (isPlaceholderBody(item.overview)
+            ? undefined
+            : speciesMetaDescription(item, locale));
+        if (!description) continue;
+        const label = `${raw.id} ${locale}`;
+        expect(description, label).not.toMatch(/(…|\.\.\.)$/);
+        expect(description.length, label).toBeGreaterThanOrEqual(70);
+        expect(description.length, label).toBeLessThanOrEqual(
+          metaDescriptionLimit(locale),
+        );
+      }
+    }
   });
 });
 
@@ -139,7 +147,9 @@ describe("SPECIES_META_DESCRIPTION_OVERRIDE", () => {
       const label = `${speciesId} ${locale}`;
       expect(text, label).toBe(text.trim());
       expect(text.length, label).toBeGreaterThanOrEqual(70);
-      expect(text.length, label).toBeLessThanOrEqual(160);
+      expect(text.length, label).toBeLessThanOrEqual(
+        metaDescriptionLimit(locale),
+      );
       expect(speciesMetaDescriptionOverride(speciesId, locale), label).toBe(
         text,
       );

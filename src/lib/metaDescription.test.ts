@@ -1,8 +1,8 @@
 import { describe, expect, it } from "vitest";
 
 import {
+  metaDescriptionLimit,
   sentenceMetaDescription,
-  shortMetaDescription,
 } from "@/lib/metaDescription";
 
 describe("sentenceMetaDescription", () => {
@@ -35,9 +35,13 @@ describe("sentenceMetaDescription", () => {
     expect(result).toBe(`${"word ".repeat(40).trim()}.`);
     expect(result).not.toMatch(/…$/);
   });
+});
 
-  it("differs from shortMetaDescription, which clips mid-sentence", () => {
-    const text = `${"word ".repeat(40).trim()}. Second.`;
-    expect(shortMetaDescription(text)).toMatch(/…$/);
+describe("metaDescriptionLimit", () => {
+  it("allows Georgian a little more room than Latin and Cyrillic text", () => {
+    expect(metaDescriptionLimit("ka")).toBe(160);
+    expect(metaDescriptionLimit("en")).toBe(155);
+    expect(metaDescriptionLimit("ru")).toBe(155);
+    expect(metaDescriptionLimit("tr")).toBe(155);
   });
 });
