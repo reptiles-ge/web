@@ -49605,6 +49605,73 @@
       ],
       "updatedAt": "2026-10-09T21:39:04.296Z"
     },
+    "images/news/leatherback-turtle-first-turkish-black-sea-records-2026/leatherback-turtle.png": {
+      "sourceHash": "c071366949041880e2e8835244ffcfcf76188ef4f6f95a5559fa6c41ebdebce8",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/leatherback-turtle-first-turkish-black-sea-records-2026/leatherback-turtle.png",
+      "originalSize": 617703,
+      "width": 750,
+      "height": 500,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/leatherback-turtle-first-turkish-black-sea-records-2026/leatherback-turtle-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10080
+        },
+        {
+          "key": "optimized/images/news/leatherback-turtle-first-turkish-black-sea-records-2026/leatherback-turtle-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 13522
+        },
+        {
+          "key": "optimized/images/news/leatherback-turtle-first-turkish-black-sea-records-2026/leatherback-turtle-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 15329
+        },
+        {
+          "key": "optimized/images/news/leatherback-turtle-first-turkish-black-sea-records-2026/leatherback-turtle-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 20586
+        },
+        {
+          "key": "optimized/images/news/leatherback-turtle-first-turkish-black-sea-records-2026/leatherback-turtle-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 33385
+        },
+        {
+          "key": "optimized/images/news/leatherback-turtle-first-turkish-black-sea-records-2026/leatherback-turtle-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 47162
+        },
+        {
+          "key": "optimized/images/news/leatherback-turtle-first-turkish-black-sea-records-2026/leatherback-turtle-750.avif",
+          "format": "avif",
+          "width": 750,
+          "height": 500,
+          "byteSize": 45456
+        },
+        {
+          "key": "optimized/images/news/leatherback-turtle-first-turkish-black-sea-records-2026/leatherback-turtle-750.webp",
+          "format": "webp",
+          "width": 750,
+          "height": 500,
+          "byteSize": 61524
+        }
+      ],
+      "updatedAt": "2026-10-14T14:03:12.667Z"
+    },
     "images/news/theridion-huseynovi-new-spider-species-georgia-2026/theridion-huseynovi.png": {
       "sourceHash": "d4a1a13fbf943fc87f371418a57eca878129fcd41f735deb5bfbca43c80fe9f3",
       "configFingerprint": "409788ee46c653d8",
@@ -49793,7 +49860,7 @@
           "byteSize": 645112
         }
       ],
-      "updatedAt": "2026-09-17T15:22:37.972Z"
+      "updatedAt": "2026-10-14T14:03:06.881Z"
     },
     "images/news/vipera-pontica-hybrid-georgia-2026/figure-2.jpg": {
       "sourceHash": "62f4c91ddee942d3d6b21b4defbe51198332352423ae0ffe9e31e432b0e966de",
@@ -49888,7 +49955,7 @@
           "byteSize": 559088
         }
       ],
-      "updatedAt": "2026-09-17T15:22:38.062Z"
+      "updatedAt": "2026-10-14T14:03:08.390Z"
     },
     "images/news/vipera-pontica-hybrid-georgia-2026/figure-3.jpg": {
       "sourceHash": "dd0f4b367d44de85997a0c0d23ac01cea456f9e52aad52829973567762d8dd83",
@@ -49983,7 +50050,7 @@
           "byteSize": 372058
         }
       ],
-      "updatedAt": "2026-09-17T15:22:38.072Z"
+      "updatedAt": "2026-10-14T14:03:06.098Z"
     },
     "images/news/vipera-pontica-hybrid-georgia-2026/figure-4.jpg": {
       "sourceHash": "58a64af0c4433dfb4f78b5849ba8c3caeeeadb38d0dc589f0363f85bdddbb317",
@@ -50078,7 +50145,7 @@
           "byteSize": 982360
         }
       ],
-      "updatedAt": "2026-09-17T15:22:49.785Z"
+      "updatedAt": "2026-10-14T14:03:15.723Z"
     },
     "images/species/accipiter-gentilis-afr-1.jpg": {
       "sourceHash": "c2bc814a7c781dce6160c9dd4ab87a47a001f462a14a81bd2edec861bc5aac5a",
@@ -75627,6 +75694,291 @@
       ],
       "updatedAt": "2026-10-03T17:16:11.482Z"
     },
+    "news-aren-algeti-forest-arkaitz-1.jpg": {
+      "sourceHash": "d65780057a08ad47c876d7c93adc12860935bc8593db8ea5ccd5cfff2faa80ca",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "news-aren-algeti-forest-arkaitz-1.jpg",
+      "originalSize": 2008754,
+      "width": 2400,
+      "height": 1803,
+      "derivatives": [
+        {
+          "key": "optimized/news-aren-algeti-forest-arkaitz-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 15486
+        },
+        {
+          "key": "optimized/news-aren-algeti-forest-arkaitz-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 23816
+        },
+        {
+          "key": "optimized/news-aren-algeti-forest-arkaitz-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 301,
+          "byteSize": 23560
+        },
+        {
+          "key": "optimized/news-aren-algeti-forest-arkaitz-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 301,
+          "byteSize": 35964
+        },
+        {
+          "key": "optimized/news-aren-algeti-forest-arkaitz-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 481,
+          "byteSize": 58734
+        },
+        {
+          "key": "optimized/news-aren-algeti-forest-arkaitz-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 481,
+          "byteSize": 91384
+        },
+        {
+          "key": "optimized/news-aren-algeti-forest-arkaitz-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 601,
+          "byteSize": 89265
+        },
+        {
+          "key": "optimized/news-aren-algeti-forest-arkaitz-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 601,
+          "byteSize": 137288
+        },
+        {
+          "key": "optimized/news-aren-algeti-forest-arkaitz-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 902,
+          "byteSize": 193429
+        },
+        {
+          "key": "optimized/news-aren-algeti-forest-arkaitz-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 902,
+          "byteSize": 287116
+        },
+        {
+          "key": "optimized/news-aren-algeti-forest-arkaitz-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1803,
+          "byteSize": 566991
+        },
+        {
+          "key": "optimized/news-aren-algeti-forest-arkaitz-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1803,
+          "byteSize": 817304
+        }
+      ],
+      "updatedAt": "2026-10-14T14:03:39.339Z"
+    },
+    "news-aren-algeti-shikhan-komarov-1.jpg": {
+      "sourceHash": "136fddaf520787e26ed4c1763f95b7c091474d7f21882c38280909210f537fd7",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "news-aren-algeti-shikhan-komarov-1.jpg",
+      "originalSize": 2101468,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/news-aren-algeti-shikhan-komarov-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 214,
+          "byteSize": 10117
+        },
+        {
+          "key": "optimized/news-aren-algeti-shikhan-komarov-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 214,
+          "byteSize": 12566
+        },
+        {
+          "key": "optimized/news-aren-algeti-shikhan-komarov-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 13495
+        },
+        {
+          "key": "optimized/news-aren-algeti-shikhan-komarov-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 16472
+        },
+        {
+          "key": "optimized/news-aren-algeti-shikhan-komarov-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 28469
+        },
+        {
+          "key": "optimized/news-aren-algeti-shikhan-komarov-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 35258
+        },
+        {
+          "key": "optimized/news-aren-algeti-shikhan-komarov-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 40953
+        },
+        {
+          "key": "optimized/news-aren-algeti-shikhan-komarov-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 51098
+        },
+        {
+          "key": "optimized/news-aren-algeti-shikhan-komarov-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 87224
+        },
+        {
+          "key": "optimized/news-aren-algeti-shikhan-komarov-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 109560
+        },
+        {
+          "key": "optimized/news-aren-algeti-shikhan-komarov-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 284447
+        },
+        {
+          "key": "optimized/news-aren-algeti-shikhan-komarov-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 352276
+        }
+      ],
+      "updatedAt": "2026-10-14T14:03:50.361Z"
+    },
+    "news-aren-areni-shabashewitz-1.jpg": {
+      "sourceHash": "4d836112ce8394ce97fd229018d4b5047e369c0f3def1e298c98e0306746ee44",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "news-aren-areni-shabashewitz-1.jpg",
+      "originalSize": 2642630,
+      "width": 2400,
+      "height": 1714,
+      "derivatives": [
+        {
+          "key": "optimized/news-aren-areni-shabashewitz-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 228,
+          "byteSize": 13536
+        },
+        {
+          "key": "optimized/news-aren-areni-shabashewitz-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 228,
+          "byteSize": 20214
+        },
+        {
+          "key": "optimized/news-aren-areni-shabashewitz-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 285,
+          "byteSize": 20691
+        },
+        {
+          "key": "optimized/news-aren-areni-shabashewitz-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 285,
+          "byteSize": 30590
+        },
+        {
+          "key": "optimized/news-aren-areni-shabashewitz-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 457,
+          "byteSize": 48742
+        },
+        {
+          "key": "optimized/news-aren-areni-shabashewitz-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 457,
+          "byteSize": 72274
+        },
+        {
+          "key": "optimized/news-aren-areni-shabashewitz-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 571,
+          "byteSize": 73522
+        },
+        {
+          "key": "optimized/news-aren-areni-shabashewitz-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 571,
+          "byteSize": 108492
+        },
+        {
+          "key": "optimized/news-aren-areni-shabashewitz-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 857,
+          "byteSize": 159326
+        },
+        {
+          "key": "optimized/news-aren-areni-shabashewitz-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 857,
+          "byteSize": 236044
+        },
+        {
+          "key": "optimized/news-aren-areni-shabashewitz-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1714,
+          "byteSize": 499891
+        },
+        {
+          "key": "optimized/news-aren-areni-shabashewitz-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1714,
+          "byteSize": 750108
+        }
+      ],
+      "updatedAt": "2026-10-14T14:03:42.498Z"
+    },
     "news-batumi-19300-cosentino-kite-1.jpg": {
       "sourceHash": "8687d2a2fe01541e1d3db4cbc4cc938f7e01f8939108b647a236375362be3dbd",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -75894,6 +76246,766 @@
         }
       ],
       "updatedAt": "2026-09-01T13:02:13.936Z"
+    },
+    "news-batumi-239735-hoekstra-black-kites.jpg": {
+      "sourceHash": "b5b764735f48fc616402ca6a165136deaa865f18b141a5a25493f2d95a6c0077",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "news-batumi-239735-hoekstra-black-kites.jpg",
+      "originalSize": 523700,
+      "width": 2000,
+      "height": 1333,
+      "derivatives": [
+        {
+          "key": "optimized/news-batumi-239735-hoekstra-black-kites-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 2617
+        },
+        {
+          "key": "optimized/news-batumi-239735-hoekstra-black-kites-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 2974
+        },
+        {
+          "key": "optimized/news-batumi-239735-hoekstra-black-kites-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 3358
+        },
+        {
+          "key": "optimized/news-batumi-239735-hoekstra-black-kites-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 3894
+        },
+        {
+          "key": "optimized/news-batumi-239735-hoekstra-black-kites-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 6433
+        },
+        {
+          "key": "optimized/news-batumi-239735-hoekstra-black-kites-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 7548
+        },
+        {
+          "key": "optimized/news-batumi-239735-hoekstra-black-kites-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 8767
+        },
+        {
+          "key": "optimized/news-batumi-239735-hoekstra-black-kites-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 10226
+        },
+        {
+          "key": "optimized/news-batumi-239735-hoekstra-black-kites-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 16292
+        },
+        {
+          "key": "optimized/news-batumi-239735-hoekstra-black-kites-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 18500
+        },
+        {
+          "key": "optimized/news-batumi-239735-hoekstra-black-kites-2000.avif",
+          "format": "avif",
+          "width": 2000,
+          "height": 1333,
+          "byteSize": 47544
+        },
+        {
+          "key": "optimized/news-batumi-239735-hoekstra-black-kites-2000.webp",
+          "format": "webp",
+          "width": 2000,
+          "height": 1333,
+          "byteSize": 81092
+        }
+      ],
+      "updatedAt": "2026-10-14T14:03:48.107Z"
+    },
+    "news-batumi-239735-hoekstra-eagles-buzzards.jpg": {
+      "sourceHash": "17ce4042ab522328db29066cde39c2dd88e48036ca953289bfaf37c9bc948aa6",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "news-batumi-239735-hoekstra-eagles-buzzards.jpg",
+      "originalSize": 75768,
+      "width": 2000,
+      "height": 1333,
+      "derivatives": [
+        {
+          "key": "optimized/news-batumi-239735-hoekstra-eagles-buzzards-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 1446
+        },
+        {
+          "key": "optimized/news-batumi-239735-hoekstra-eagles-buzzards-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 1316
+        },
+        {
+          "key": "optimized/news-batumi-239735-hoekstra-eagles-buzzards-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 1761
+        },
+        {
+          "key": "optimized/news-batumi-239735-hoekstra-eagles-buzzards-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 1634
+        },
+        {
+          "key": "optimized/news-batumi-239735-hoekstra-eagles-buzzards-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 2874
+        },
+        {
+          "key": "optimized/news-batumi-239735-hoekstra-eagles-buzzards-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 2932
+        },
+        {
+          "key": "optimized/news-batumi-239735-hoekstra-eagles-buzzards-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 3799
+        },
+        {
+          "key": "optimized/news-batumi-239735-hoekstra-eagles-buzzards-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 3972
+        },
+        {
+          "key": "optimized/news-batumi-239735-hoekstra-eagles-buzzards-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 5986
+        },
+        {
+          "key": "optimized/news-batumi-239735-hoekstra-eagles-buzzards-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 6628
+        },
+        {
+          "key": "optimized/news-batumi-239735-hoekstra-eagles-buzzards-2000.avif",
+          "format": "avif",
+          "width": 2000,
+          "height": 1333,
+          "byteSize": 11169
+        },
+        {
+          "key": "optimized/news-batumi-239735-hoekstra-eagles-buzzards-2000.webp",
+          "format": "webp",
+          "width": 2000,
+          "height": 1333,
+          "byteSize": 14372
+        }
+      ],
+      "updatedAt": "2026-10-14T14:04:01.437Z"
+    },
+    "news-batumi-239735-hoekstra-station-2.jpg": {
+      "sourceHash": "774adf0e35be2ad30b44196c54133378ab449e39f1e62c5c8e4eb6743bb8a502",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "news-batumi-239735-hoekstra-station-2.jpg",
+      "originalSize": 1093791,
+      "width": 2000,
+      "height": 1533,
+      "derivatives": [
+        {
+          "key": "optimized/news-batumi-239735-hoekstra-station-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 245,
+          "byteSize": 16293
+        },
+        {
+          "key": "optimized/news-batumi-239735-hoekstra-station-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 245,
+          "byteSize": 24516
+        },
+        {
+          "key": "optimized/news-batumi-239735-hoekstra-station-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 306,
+          "byteSize": 23299
+        },
+        {
+          "key": "optimized/news-batumi-239735-hoekstra-station-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 306,
+          "byteSize": 35752
+        },
+        {
+          "key": "optimized/news-batumi-239735-hoekstra-station-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 490,
+          "byteSize": 54007
+        },
+        {
+          "key": "optimized/news-batumi-239735-hoekstra-station-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 490,
+          "byteSize": 81688
+        },
+        {
+          "key": "optimized/news-batumi-239735-hoekstra-station-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 613,
+          "byteSize": 82541
+        },
+        {
+          "key": "optimized/news-batumi-239735-hoekstra-station-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 613,
+          "byteSize": 123338
+        },
+        {
+          "key": "optimized/news-batumi-239735-hoekstra-station-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 920,
+          "byteSize": 166541
+        },
+        {
+          "key": "optimized/news-batumi-239735-hoekstra-station-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 920,
+          "byteSize": 250008
+        },
+        {
+          "key": "optimized/news-batumi-239735-hoekstra-station-2-2000.avif",
+          "format": "avif",
+          "width": 2000,
+          "height": 1533,
+          "byteSize": 371814
+        },
+        {
+          "key": "optimized/news-batumi-239735-hoekstra-station-2-2000.webp",
+          "format": "webp",
+          "width": 2000,
+          "height": 1533,
+          "byteSize": 563164
+        }
+      ],
+      "updatedAt": "2026-10-14T14:04:00.948Z"
+    },
+    "news-batumi-239735-stolk-steppe-eagle.jpg": {
+      "sourceHash": "dc8be56338a4cf8d9b7b9c3cab9408c9f723d4e99c7dc0e073a4151a1e530056",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "news-batumi-239735-stolk-steppe-eagle.jpg",
+      "originalSize": 176122,
+      "width": 2000,
+      "height": 1525,
+      "derivatives": [
+        {
+          "key": "optimized/news-batumi-239735-stolk-steppe-eagle-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 244,
+          "byteSize": 2794
+        },
+        {
+          "key": "optimized/news-batumi-239735-stolk-steppe-eagle-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 244,
+          "byteSize": 2812
+        },
+        {
+          "key": "optimized/news-batumi-239735-stolk-steppe-eagle-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 305,
+          "byteSize": 3530
+        },
+        {
+          "key": "optimized/news-batumi-239735-stolk-steppe-eagle-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 305,
+          "byteSize": 3910
+        },
+        {
+          "key": "optimized/news-batumi-239735-stolk-steppe-eagle-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 488,
+          "byteSize": 6819
+        },
+        {
+          "key": "optimized/news-batumi-239735-stolk-steppe-eagle-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 488,
+          "byteSize": 7814
+        },
+        {
+          "key": "optimized/news-batumi-239735-stolk-steppe-eagle-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 610,
+          "byteSize": 10292
+        },
+        {
+          "key": "optimized/news-batumi-239735-stolk-steppe-eagle-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 610,
+          "byteSize": 11718
+        },
+        {
+          "key": "optimized/news-batumi-239735-stolk-steppe-eagle-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 915,
+          "byteSize": 19831
+        },
+        {
+          "key": "optimized/news-batumi-239735-stolk-steppe-eagle-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 915,
+          "byteSize": 21908
+        },
+        {
+          "key": "optimized/news-batumi-239735-stolk-steppe-eagle-2000.avif",
+          "format": "avif",
+          "width": 2000,
+          "height": 1525,
+          "byteSize": 41028
+        },
+        {
+          "key": "optimized/news-batumi-239735-stolk-steppe-eagle-2000.webp",
+          "format": "webp",
+          "width": 2000,
+          "height": 1525,
+          "byteSize": 48272
+        }
+      ],
+      "updatedAt": "2026-10-14T14:04:00.875Z"
+    },
+    "news-from-the-sky-foote-sparrowhawk.jpg": {
+      "sourceHash": "03f02ea29dc0c917c0de2418202067ece766de847e007157918acee2cc0180c3",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "news-from-the-sky-foote-sparrowhawk.jpg",
+      "originalSize": 315167,
+      "width": 1920,
+      "height": 1281,
+      "derivatives": [
+        {
+          "key": "optimized/news-from-the-sky-foote-sparrowhawk-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 4852
+        },
+        {
+          "key": "optimized/news-from-the-sky-foote-sparrowhawk-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6770
+        },
+        {
+          "key": "optimized/news-from-the-sky-foote-sparrowhawk-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 6543
+        },
+        {
+          "key": "optimized/news-from-the-sky-foote-sparrowhawk-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 9366
+        },
+        {
+          "key": "optimized/news-from-the-sky-foote-sparrowhawk-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 12374
+        },
+        {
+          "key": "optimized/news-from-the-sky-foote-sparrowhawk-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 17746
+        },
+        {
+          "key": "optimized/news-from-the-sky-foote-sparrowhawk-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 17430
+        },
+        {
+          "key": "optimized/news-from-the-sky-foote-sparrowhawk-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 24502
+        },
+        {
+          "key": "optimized/news-from-the-sky-foote-sparrowhawk-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 32005
+        },
+        {
+          "key": "optimized/news-from-the-sky-foote-sparrowhawk-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 43766
+        },
+        {
+          "key": "optimized/news-from-the-sky-foote-sparrowhawk-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1281,
+          "byteSize": 66436
+        },
+        {
+          "key": "optimized/news-from-the-sky-foote-sparrowhawk-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1281,
+          "byteSize": 91032
+        }
+      ],
+      "updatedAt": "2026-10-14T14:04:12.639Z"
+    },
+    "news-rioni-sturgeon-foote-spawning-ground-aerial.jpg": {
+      "sourceHash": "d904f79060b7ab98a013ea8f6b8623572dd8bd93cbaeb2315bb61f035c1ff804",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "news-rioni-sturgeon-foote-spawning-ground-aerial.jpg",
+      "originalSize": 338462,
+      "width": 1920,
+      "height": 1437,
+      "derivatives": [
+        {
+          "key": "optimized/news-rioni-sturgeon-foote-spawning-ground-aerial-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 239,
+          "byteSize": 12003
+        },
+        {
+          "key": "optimized/news-rioni-sturgeon-foote-spawning-ground-aerial-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 239,
+          "byteSize": 15652
+        },
+        {
+          "key": "optimized/news-rioni-sturgeon-foote-spawning-ground-aerial-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 299,
+          "byteSize": 16742
+        },
+        {
+          "key": "optimized/news-rioni-sturgeon-foote-spawning-ground-aerial-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 299,
+          "byteSize": 22604
+        },
+        {
+          "key": "optimized/news-rioni-sturgeon-foote-spawning-ground-aerial-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 479,
+          "byteSize": 34576
+        },
+        {
+          "key": "optimized/news-rioni-sturgeon-foote-spawning-ground-aerial-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 479,
+          "byteSize": 46376
+        },
+        {
+          "key": "optimized/news-rioni-sturgeon-foote-spawning-ground-aerial-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 599,
+          "byteSize": 52908
+        },
+        {
+          "key": "optimized/news-rioni-sturgeon-foote-spawning-ground-aerial-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 599,
+          "byteSize": 70614
+        },
+        {
+          "key": "optimized/news-rioni-sturgeon-foote-spawning-ground-aerial-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 898,
+          "byteSize": 107305
+        },
+        {
+          "key": "optimized/news-rioni-sturgeon-foote-spawning-ground-aerial-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 898,
+          "byteSize": 137580
+        },
+        {
+          "key": "optimized/news-rioni-sturgeon-foote-spawning-ground-aerial-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1437,
+          "byteSize": 238801
+        },
+        {
+          "key": "optimized/news-rioni-sturgeon-foote-spawning-ground-aerial-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1437,
+          "byteSize": 279320
+        }
+      ],
+      "updatedAt": "2026-10-14T14:04:21.950Z"
+    },
+    "news-rioni-sturgeon-roberts-juvenile-measured.jpg": {
+      "sourceHash": "6ceba6cf830c64d32fb9a9ad3a3ea136bfff55f254352055449fd6c761436a5b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "news-rioni-sturgeon-roberts-juvenile-measured.jpg",
+      "originalSize": 331446,
+      "width": 1920,
+      "height": 1440,
+      "derivatives": [
+        {
+          "key": "optimized/news-rioni-sturgeon-roberts-juvenile-measured-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 7448
+        },
+        {
+          "key": "optimized/news-rioni-sturgeon-roberts-juvenile-measured-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 9590
+        },
+        {
+          "key": "optimized/news-rioni-sturgeon-roberts-juvenile-measured-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 10155
+        },
+        {
+          "key": "optimized/news-rioni-sturgeon-roberts-juvenile-measured-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 13318
+        },
+        {
+          "key": "optimized/news-rioni-sturgeon-roberts-juvenile-measured-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 19417
+        },
+        {
+          "key": "optimized/news-rioni-sturgeon-roberts-juvenile-measured-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 26114
+        },
+        {
+          "key": "optimized/news-rioni-sturgeon-roberts-juvenile-measured-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 26882
+        },
+        {
+          "key": "optimized/news-rioni-sturgeon-roberts-juvenile-measured-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 35480
+        },
+        {
+          "key": "optimized/news-rioni-sturgeon-roberts-juvenile-measured-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 46425
+        },
+        {
+          "key": "optimized/news-rioni-sturgeon-roberts-juvenile-measured-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 60266
+        },
+        {
+          "key": "optimized/news-rioni-sturgeon-roberts-juvenile-measured-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1440,
+          "byteSize": 87111
+        },
+        {
+          "key": "optimized/news-rioni-sturgeon-roberts-juvenile-measured-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1440,
+          "byteSize": 107780
+        }
+      ],
+      "updatedAt": "2026-10-14T14:04:26.776Z"
+    },
+    "news-rioni-sturgeon-tsulaia-ship-sturgeon.jpg": {
+      "sourceHash": "7264c4283993c4799cb5dd9f41c9d020855613f70d8177230184cda35e0ed058",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "news-rioni-sturgeon-tsulaia-ship-sturgeon.jpg",
+      "originalSize": 550230,
+      "width": 2000,
+      "height": 1200,
+      "derivatives": [
+        {
+          "key": "optimized/news-rioni-sturgeon-tsulaia-ship-sturgeon-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 192,
+          "byteSize": 11757
+        },
+        {
+          "key": "optimized/news-rioni-sturgeon-tsulaia-ship-sturgeon-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 192,
+          "byteSize": 17674
+        },
+        {
+          "key": "optimized/news-rioni-sturgeon-tsulaia-ship-sturgeon-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 240,
+          "byteSize": 16094
+        },
+        {
+          "key": "optimized/news-rioni-sturgeon-tsulaia-ship-sturgeon-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 240,
+          "byteSize": 24702
+        },
+        {
+          "key": "optimized/news-rioni-sturgeon-tsulaia-ship-sturgeon-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 384,
+          "byteSize": 31904
+        },
+        {
+          "key": "optimized/news-rioni-sturgeon-tsulaia-ship-sturgeon-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 384,
+          "byteSize": 46234
+        },
+        {
+          "key": "optimized/news-rioni-sturgeon-tsulaia-ship-sturgeon-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 480,
+          "byteSize": 42964
+        },
+        {
+          "key": "optimized/news-rioni-sturgeon-tsulaia-ship-sturgeon-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 480,
+          "byteSize": 61176
+        },
+        {
+          "key": "optimized/news-rioni-sturgeon-tsulaia-ship-sturgeon-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 720,
+          "byteSize": 69166
+        },
+        {
+          "key": "optimized/news-rioni-sturgeon-tsulaia-ship-sturgeon-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 720,
+          "byteSize": 95252
+        },
+        {
+          "key": "optimized/news-rioni-sturgeon-tsulaia-ship-sturgeon-2000.avif",
+          "format": "avif",
+          "width": 2000,
+          "height": 1200,
+          "byteSize": 114455
+        },
+        {
+          "key": "optimized/news-rioni-sturgeon-tsulaia-ship-sturgeon-2000.webp",
+          "format": "webp",
+          "width": 2000,
+          "height": 1200,
+          "byteSize": 173258
+        }
+      ],
+      "updatedAt": "2026-10-14T14:04:18.527Z"
     },
     "olivierus-caucasicus-evgeny-1.jpg": {
       "sourceHash": "cf32b50bf7f42594851c0254a7e259d18a0f9f55482a213e6c8d737e50af973f",
@@ -86616,12 +87728,26 @@
     },
     "species/capra-aegagrus-gabunia-1.jpg": {
       "sourceHash": "4b90e11c33a147e2f010c119a449af6eae87ef5cf9bfc711c3f2e94476af1f96",
-      "configFingerprint": "a895f8e025dcc7fa",
+      "configFingerprint": "409788ee46c653d8",
       "originalKey": "species/capra-aegagrus-gabunia-1.jpg",
       "originalSize": 165317,
       "width": 892,
       "height": 596,
       "derivatives": [
+        {
+          "key": "optimized/species/capra-aegagrus-gabunia-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 214,
+          "byteSize": 18479
+        },
+        {
+          "key": "optimized/species/capra-aegagrus-gabunia-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 214,
+          "byteSize": 31132
+        },
         {
           "key": "optimized/species/capra-aegagrus-gabunia-1-400.avif",
           "format": "avif",
@@ -86635,6 +87761,20 @@
           "width": 400,
           "height": 267,
           "byteSize": 44320
+        },
+        {
+          "key": "optimized/species/capra-aegagrus-gabunia-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 428,
+          "byteSize": 54680
+        },
+        {
+          "key": "optimized/species/capra-aegagrus-gabunia-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 428,
+          "byteSize": 93488
         },
         {
           "key": "optimized/species/capra-aegagrus-gabunia-1-800.avif",
@@ -86665,7 +87805,7 @@
           "byteSize": 151222
         }
       ],
-      "updatedAt": "2026-08-28T21:57:52.676Z"
+      "updatedAt": "2026-10-14T14:04:24.025Z"
     },
     "species/capra-aegagrus-gndasar-1.jpg": {
       "sourceHash": "d34aa328b71ded1169f6371fee52f2fd0c2e2051b9bc45091629e35b41672841",
