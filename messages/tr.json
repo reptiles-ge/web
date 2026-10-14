@@ -129,6 +129,10 @@
   },
   "rating": {
     "close": "Kapat",
+    "feedbackLabel": "Neyi daha iyi yapabiliriz?",
+    "feedbackPlaceholder": "Neyi beğenmediniz ya da neyi bulamadınız?",
+    "feedbackPrivacy": "Lütfen kişisel veri yazmayın.",
+    "feedbackSend": "Gönder",
     "hint": "Bir yıldız seçin",
     "level1": "Kötü",
     "level2": "Zayıf",

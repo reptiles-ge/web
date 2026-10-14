@@ -3,6 +3,7 @@ import { hasLocale } from "next-intl";
 import { routing } from "@/i18n/routing";
 import { notifyAdminTelegram } from "@/lib/adminTelegram";
 import { createRateLimiter } from "@/lib/rateLimit";
+import { needsFeedback, normalizeFeedback } from "@/lib/ratingFeedback";
 import { formatRatingNotification } from "@/lib/ratingNotification";
 
 const noindex = { "X-Robots-Tag": "noindex, nofollow" };
@@ -12,6 +13,7 @@ const allowVisitor = createRateLimiter({ limit: 3, windowMs: WINDOW_MS });
 const allowAll = createRateLimiter({ limit: 30, windowMs: WINDOW_MS });
 
 type RatingBody = {
+  feedback?: unknown;
   locale?: unknown;
   pages?: unknown;
   path?: unknown;
@@ -49,6 +51,8 @@ export async function POST(request: Request) {
   ) {
     return invalid();
   }
+  const feedback = normalizeFeedback(body.feedback);
+  if (needsFeedback(rating) && !feedback) return invalid();
 
   const visitor =
     request.headers.get("cf-connecting-ip") ??
@@ -65,6 +69,7 @@ export async function POST(request: Request) {
     formatRatingNotification({
       acceptLanguage: request.headers.get("accept-language"),
       country: request.headers.get("cf-ipcountry"),
+      feedback,
       host: new URL(request.url).hostname,
       locale,
       pages: body.pages,

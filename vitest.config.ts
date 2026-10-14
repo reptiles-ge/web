@@ -121,7 +121,6 @@ export default defineConfig({
         "src/components/ScreenReaderBreadcrumb.tsx",
         "src/components/ScrollToTop.tsx",
         "src/components/SectionNav.tsx",
-        "src/components/SiteRating.tsx",
         "src/components/SiteRatingMascot.tsx",
         "src/components/SkipLink.tsx",
         "src/components/SnakeIdentifyPage.tsx",
