@@ -109,12 +109,16 @@ function changedUrls(before, after) {
   return changed;
 }
 
+function retryAfterMs(response) {
+  const value = response?.headers.get("retry-after")?.trim();
+  if (!value) return null;
+  if (/^\d+$/.test(value)) return Number(value) * 1000;
+  const date = Date.parse(value);
+  return Number.isNaN(date) ? null : Math.max(0, date - Date.now());
+}
+
 function retryDelay(response, attempt) {
-  const retryAfter = Number.parseInt(
-    response?.headers.get("retry-after") ?? "",
-    10,
-  );
-  const ms = Number.isNaN(retryAfter) ? 2000 * 2 ** attempt : retryAfter * 1000;
+  const ms = retryAfterMs(response) ?? 2000 * 2 ** attempt;
   return Math.min(ms, INDEXNOW_MAX_DELAY_MS);
 }
 
