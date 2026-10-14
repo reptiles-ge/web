@@ -40,6 +40,8 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         question: "Can I seal the entrance?",
       },
     ],
+    intro:
+      "A wasp nest near the house is not automatically an emergency. Step away, do not disturb it, and have a professional assess it if it is by an entrance you use every day; one wasp on its own does not mean a nest is nearby.",
     metaTitle: "Wasp nest near your home: what to do safely",
     sections: [
       {
@@ -151,6 +153,8 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         question: "შეიძლება ბუდის შესასვლელის დახშობა?",
       },
     ],
+    intro:
+      "სახლთან კრაზანის ბუდე თავისთავად გადაუდებელ საფრთხეს არ ნიშნავს. მოშორდით, ნუ შეეხებით და, თუ ბუდე ყოველდღიურ გასასვლელთანაა, სპეციალისტს შეაფასებინეთ; ერთი მწერის დანახვა ბუდის არსებობას არ ადასტურებს.",
     metaTitle: "კრაზანის ბუდე — რამდენად საშიშია და როგორ მოვიქცეთ?",
     sections: [
       {
@@ -263,6 +267,8 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         question: "Можно ли закрыть вход в гнездо?",
       },
     ],
+    intro:
+      "Осиное гнездо у дома само по себе не означает чрезвычайной ситуации. Отойдите, не тревожьте его и, если оно у часто используемого входа, попросите специалиста его оценить; одна замеченная оса ещё не доказывает наличие гнезда.",
     metaTitle: "Осиное гнездо у дома: как действовать безопасно",
     sections: [
       {
@@ -374,6 +380,8 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         question: "Yuva girişini kapatabilir miyim?",
       },
     ],
+    intro:
+      "Evin yakınındaki eşek arısı yuvası tek başına acil durum değildir. Uzaklaşın, yuvayı rahatsız etmeyin ve sık kullanılan bir girişin yanındaysa bir uzmana değerlendirtin; tek bir böcek görmek yakında yuva olduğunu kanıtlamaz.",
     metaTitle: "Eşek arısı yuvası: ne zaman tehlikeli, ne yapmalı?",
     sections: [
       {

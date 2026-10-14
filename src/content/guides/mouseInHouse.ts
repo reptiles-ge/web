@@ -45,6 +45,8 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         question: "Mouse or rat?",
       },
     ],
+    intro:
+      "One mouse does not always mean a large infestation, but trapping alone is often not enough. Confirm the signs, trap the mouse, clean droppings safely without sweeping or vacuuming, and seal the holes it uses.",
     metaTitle: "Mouse in the house: how to get rid of mice and keep them out",
     sections: [
       {
@@ -235,6 +237,8 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         question: "თაგვი თუ ვირთხა?",
       },
     ],
+    intro:
+      "ერთი თაგვის დანახვა ყოველთვის დიდ პოპულაციას არ ნიშნავს, მაგრამ მხოლოდ დაჭერა ხშირად საკმარისი არ არის. დაადასტურეთ ნიშნები, დაიჭირეთ თაგვი, ექსკრემენტი მოხვეტისა და მტვერსასრუტის გარეშე უსაფრთხოდ გაწმინდეთ და დახურეთ ხვრელები, საიდანაც შემოდის.",
     metaTitle: "თაგვი სახლში — როგორ მოვიშოროთ და აღარ შემოვუშვათ?",
     sections: [
       {
@@ -425,6 +429,8 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         question: "Мышь или крыса?",
       },
     ],
+    intro:
+      "Одна замеченная мышь не всегда означает большое заселение, но одной поимки часто недостаточно. Подтвердите признаки, поймайте мышь, безопасно уберите помёт без подметания и пылесоса и закройте отверстия, через которые она заходит.",
     metaTitle: "Мышь в доме: как избавиться от мышей и не пустить их снова",
     sections: [
       {
@@ -615,6 +621,8 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         question: "Fare mi, sıçan mı?",
       },
     ],
+    intro:
+      "Tek bir fare görmek her zaman büyük bir istila anlamına gelmez, ama yalnızca yakalamak çoğu zaman yetmez. İzleri doğrulayın, fareyi yakalayın, dışkıyı süpürmeden ve elektrikli süpürge kullanmadan güvenle temizleyin ve girdiği delikleri kapatın.",
     metaTitle: "Evde fare: farelerden nasıl kurtulunur, nasıl uzak tutulur?",
     sections: [
       {

@@ -39,6 +39,8 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         question: "Do many stink bugs mean there is a nest in the house?",
       },
     ],
+    intro:
+      "Stink bugs come indoors in autumn looking for a dry, sheltered place to spend the winter. They do not bite, are not venomous and do not breed in the house: collect them without crushing them and seal the gaps they get in through.",
     metaTitle: "Stink bugs in the house: why they get in, how to remove them",
     sections: [
       {
@@ -188,6 +190,8 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         question: "ბევრი ფაროსანა ნიშნავს, რომ სახლში ბუდე აქვთ?",
       },
     ],
+    intro:
+      "ფაროსანა შემოდგომაზე სახლში ზამთრის გასატარებლად მშრალ, დაცულ ადგილს ეძებს. ის არ კბენს, შხამიანი არ არის და სახლში არ მრავლდება: შეაგროვეთ გაჭყლეტის გარეშე და დახურეთ ღრიჭოები, საიდანაც შემოდის.",
     metaTitle: "ფაროსანა სახლში - როგორ მოვიშოროთ",
     sections: [
       {
@@ -336,6 +340,8 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         question: "Если клопов много, значит, в доме гнездо?",
       },
     ],
+    intro:
+      "Осенью мраморный клоп заходит в дом в поисках сухого защищённого места для зимовки. Он не кусается, не ядовит и не размножается в доме: соберите клопов, не давя их, и закройте щели, через которые они заходят.",
     metaTitle: "Мраморный клоп в доме: почему появляется и как избавиться",
     sections: [
       {
@@ -486,6 +492,8 @@ const COPY: Record<AppLocale, GuideArticleCopy<ImageKey>> = {
         question: "Çok sayıda kokarca evde yuva olduğu anlamına mı gelir?",
       },
     ],
+    intro:
+      "Kokarca böceği sonbaharda kışı geçirmek için kuru ve korunaklı bir yer arayarak eve girer. Isırmaz, zehirli değildir ve evde üremez: ezmeden toplayın ve girdiği aralıkları kapatın.",
     metaTitle: "Evde kokarca böceği: neden girer, nasıl uzaklaştırılır?",
     sections: [
       {
