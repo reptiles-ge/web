@@ -9,12 +9,10 @@ import { newsArticleHref } from "@/lib/news";
 export type NewsIndexEntry = {
   alt: string;
   dateLabel: string;
-  dateShort: string;
   dek: string;
   illustrated: boolean;
   publishedAt: string;
   readLabel: string;
-  readShortLabel: string;
   slug: string;
   source: null | string;
   sourceMore: number;
@@ -144,54 +142,45 @@ export function NewsListCard({ entry }: { entry: NewsIndexEntry }) {
             </span>
           ) : null}
         </NewsCover>
-        <span className="flex min-w-0 flex-col gap-1.5 pt-0.5 md:hidden">
-          <span className={metaClass}>
+        <span className="flex min-w-0 flex-col gap-1.5 pt-0.5 md:flex-1 md:gap-0 md:px-6 md:py-[22px]">
+          <span
+            className={`${metaClass} min-w-0 flex-wrap gap-y-0.5 overflow-hidden`}
+          >
             {entry.topicLabel ? (
-              <>
+              <span className="contents md:hidden">
                 <span className="font-semibold text-(--nw-accent)">
                   {entry.topicLabel}
                 </span>
                 <NewsMetaSep />
-              </>
+              </span>
             ) : null}
-            <time dateTime={entry.publishedAt}>{entry.dateShort}</time>
-            <NewsMetaSep />
-            <span>{entry.readShortLabel}</span>
+            <time dateTime={entry.publishedAt}>{entry.dateLabel}</time>
+            <span className="hidden md:contents">
+              <NewsMetaSep />
+              <span>{entry.readLabel}</span>
+            </span>
           </span>
-          <h3 className="line-clamp-3 text-[16px] leading-[1.3] font-semibold tracking-[-0.005em] text-(--nw-ink)">
+          <h3 className="line-clamp-3 text-[16px] leading-[1.3] font-semibold tracking-[-0.005em] text-(--nw-ink) md:mt-3 md:line-clamp-none md:text-[21px] md:leading-[1.28] md:tracking-[-0.012em] md:transition-colors md:duration-200 md:group-hover:text-(--nw-accent)">
             {entry.title}
           </h3>
-          {entry.source ? (
-            <span className="truncate text-[12px] text-(--nw-muted)">
-              {entry.source}
-            </span>
-          ) : null}
-        </span>
-        <span className="hidden min-w-0 flex-1 flex-col px-6 py-[22px] md:flex">
-          <span className={metaClass}>
-            <time dateTime={entry.publishedAt}>{entry.dateLabel}</time>
-            <NewsMetaSep />
-            <span>{entry.readLabel}</span>
-          </span>
-          <span className="mt-3 text-[21px] leading-[1.28] font-semibold tracking-[-0.012em] text-(--nw-ink) transition-colors duration-200 group-hover:text-(--nw-accent)">
-            {entry.title}
-          </span>
-          <span className="mt-2.5 line-clamp-3 text-[14.5px] leading-[1.6] text-(--nw-muted)">
+          <span className="mt-2.5 hidden text-[14.5px] leading-[1.6] text-(--nw-muted) md:line-clamp-3">
             {entry.dek}
           </span>
-          <span className="min-h-[18px] flex-1" />
+          <span className="hidden min-h-[18px] flex-1 md:block" />
           {entry.source ? (
-            <span className="flex min-w-0 items-center gap-2 border-t border-(--nw-line-soft) pt-4 text-[12.5px] text-(--nw-muted)">
+            <span className="flex min-w-0 items-center gap-2 text-[12px] text-(--nw-muted) md:border-t md:border-(--nw-line-soft) md:pt-4 md:text-[12.5px]">
               <FileText
                 aria-hidden="true"
-                className="size-3.5 shrink-0 text-(--nw-accent)"
+                className="hidden size-3.5 shrink-0 text-(--nw-accent) md:block"
                 strokeWidth={1.75}
               />
-              <b className="truncate font-semibold text-(--nw-soft)">
+              <b className="truncate font-normal md:font-semibold md:text-(--nw-soft)">
                 {entry.source}
               </b>
               {entry.sourceMore > 0 ? (
-                <span className="whitespace-nowrap">+{entry.sourceMore}</span>
+                <span className="hidden whitespace-nowrap md:inline">
+                  +{entry.sourceMore}
+                </span>
               ) : null}
             </span>
           ) : null}
@@ -214,7 +203,7 @@ export function NewsSideCard({ entry }: { entry: NewsIndexEntry }) {
           sizes="(max-width: 767px) 84px, 200px"
         />
         <span className="flex min-w-0 flex-col md:gap-2.5 md:pr-2.5">
-          <span className={metaClass}>
+          <span className={`${metaClass} flex-wrap gap-y-0.5`}>
             {entry.topicLabel ? (
               <>
                 <span className="font-semibold text-(--nw-accent)">
@@ -223,10 +212,7 @@ export function NewsSideCard({ entry }: { entry: NewsIndexEntry }) {
                 <NewsMetaSep />
               </>
             ) : null}
-            <time dateTime={entry.publishedAt}>
-              <span className="md:hidden">{entry.dateShort}</span>
-              <span className="hidden md:inline">{entry.dateLabel}</span>
-            </time>
+            <time dateTime={entry.publishedAt}>{entry.dateLabel}</time>
           </span>
           <h3 className="mt-[5px] line-clamp-3 text-[14.5px] leading-[1.3] font-semibold text-(--nw-ink) transition-colors duration-200 md:mt-0 md:line-clamp-none md:text-[20px] md:leading-tight md:tracking-[-0.012em] md:group-hover:text-(--nw-accent)">
             {entry.title}
