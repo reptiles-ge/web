@@ -18,6 +18,7 @@ import { analysisNumbers } from "@/lib/speciesAnalysisValidation";
 import {
   formatStyleIssues,
   lintFieldStyle,
+  lintHedgeLoss,
   type StyleLocale,
 } from "@/lib/writingStyleLint";
 
@@ -26,6 +27,7 @@ export function getSpeciesTextFields(raw: string) {
   const traits = data.identification?.traits;
   const faq = data.faq;
   const fields = [
+    "description",
     "interaction",
     "overview",
     "identification.summary",
@@ -48,6 +50,16 @@ export function getSpeciesTextFields(raw: string) {
 
 const TEXT_LOCALES = ["ka", "en", "ru", "tr"] as const;
 const RISK_LEVELS = ["Harmless", "High", "Moderate"] as const;
+const LEAD_FIELDS = ["identification.summary", "overview"];
+const TEXT_PHASES: Array<(field: string) => boolean> = [
+  (field) =>
+    field !== "description" &&
+    !LEAD_FIELDS.includes(field) &&
+    !field.startsWith("faq."),
+  (field) => field.startsWith("faq."),
+  (field) => LEAD_FIELDS.includes(field),
+  (field) => field === "description",
+];
 
 export async function processSpeciesTexts(id: string, operationId: string) {
   const unlock = lockSpeciesAnalysis(id);
@@ -99,6 +111,7 @@ export async function rewriteSpeciesTexts(id: string, cwd = process.cwd()) {
       ]),
     ),
   ) as Record<string, EditorResult>;
+  const results = new Map<string, EditorResult>();
   const rewrite = async (
     field: string,
     styleRepair?: { issues: string; previous: string },
@@ -118,7 +131,10 @@ export async function rewriteSpeciesTexts(id: string, cwd = process.cwd()) {
         otherFields: Object.fromEntries(
           fields
             .filter((other) => other !== field)
-            .map((other) => [other, originals[other].ka]),
+            .map((other) => [
+              other,
+              (results.get(other) ?? originals[other]).ka,
+            ]),
         ),
         riskLevel: RISK_LEVELS.find((level) => level === data.danger),
         styleRepair,
@@ -127,26 +143,28 @@ export async function rewriteSpeciesTexts(id: string, cwd = process.cwd()) {
     );
   };
   const styleIssues = (field: string, result: EditorResult) =>
-    TEXT_LOCALES.flatMap((locale) =>
-      lintFieldStyle(result[locale], field, locale, commonName),
-    );
-  const results = new Map<string, EditorResult>();
-  for (let index = 0; index < fields.length; index += 3) {
-    const batch = await Promise.all(
-      fields.slice(index, index + 3).map(async (field) => {
-        const first = await rewrite(field);
-        const issues = styleIssues(field, first);
-        const result = issues.length
-          ? await rewrite(field, {
-              issues: formatStyleIssues(issues),
-              previous: first.ka,
-            }).catch(() => first)
-          : first;
-        return [field, result] as const;
-      }),
-    );
-    for (const [field, result] of batch) results.set(field, result);
-  }
+    TEXT_LOCALES.flatMap((locale) => [
+      ...lintFieldStyle(result[locale], field, locale, commonName),
+      ...lintHedgeLoss(originals[field][locale], result[locale], field, locale),
+    ]);
+  const ordered = TEXT_PHASES.map((phase) => fields.filter(phase));
+  for (const phase of ordered)
+    for (let index = 0; index < phase.length; index += 3) {
+      const batch = await Promise.all(
+        phase.slice(index, index + 3).map(async (field) => {
+          const first = await rewrite(field);
+          const issues = styleIssues(field, first);
+          const result = issues.length
+            ? await rewrite(field, {
+                issues: formatStyleIssues(issues),
+                previous: first.ka,
+              }).catch(() => first)
+            : first;
+          return [field, result] as const;
+        }),
+      );
+      for (const [field, result] of batch) results.set(field, result);
+    }
   const rejected = numberLosses(fields, originals, results);
   const kept = fields.filter((field) => !rejected.has(field));
   return {
@@ -195,12 +213,17 @@ function numberLosses(
       const page = new Set(
         fields.flatMap((field) => analysisNumbers(text(field))),
       );
+      const original = new Set(
+        fields.flatMap((field) => analysisNumbers(originals[field][locale])),
+      );
       for (const field of fields) {
         if (rejected.has(field)) continue;
         const before = analysisNumbers(originals[field][locale]);
         const after = analysisNumbers(text(field));
         if (
-          after.some((value) => !before.includes(value)) ||
+          after.some(
+            (value) => !before.includes(value) && !original.has(value),
+          ) ||
           before.some((value) => !page.has(value))
         )
           rejected.add(field);

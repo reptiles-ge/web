@@ -575,8 +575,15 @@ function analysisItemChecks(
               ),
             ),
         );
+        const page = new Set(
+          context.editableFields
+            .filter((field) => field !== edit.field)
+            .flatMap((field) => analysisNumbers(analysisField(data, field))),
+        );
         if (
-          afterNumbers.some((value) => !beforeNumbers.includes(value)) ||
+          afterNumbers.some(
+            (value) => !beforeNumbers.includes(value) && !page.has(value),
+          ) ||
           beforeNumbers.some(
             (value) => !afterNumbers.includes(value) && !elsewhere.has(value),
           )

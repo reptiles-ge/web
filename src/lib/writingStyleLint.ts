@@ -78,6 +78,19 @@ const BANNED: Record<StyleLocale, string[]> = {
   ],
 };
 
+const HEDGES: Partial<Record<StyleLocale, string[]>> = {
+  en: ["usually", "often", "may", "sometimes", "about", "mostly", "mainly"],
+  ka: [
+    "ჩვეულებრივ",
+    "ხშირად",
+    "შეიძლება",
+    "ზოგჯერ",
+    "დაახლოებით",
+    "უმეტესად",
+    "ძირითადად",
+  ],
+};
+
 const KA_HEDGES = [
   "ჩვეულებრივ",
   "შეიძლება",
@@ -168,6 +181,30 @@ export function lintFieldStyle(
     add("R8", "FAQ answer is a single sentence");
 
   return issues;
+}
+
+export function lintHedgeLoss(
+  before: string,
+  after: string,
+  field: string,
+  locale: StyleLocale,
+): StyleIssue[] {
+  const hedges = HEDGES[locale];
+  if (!hedges) return [];
+  const count = (text: string, hedge: string) =>
+    locale === "en"
+      ? (plain(text)
+          .toLowerCase()
+          .match(new RegExp(`\\b${hedge}\\b`, "g"))?.length ?? 0)
+      : countOccurrences(plain(text), hedge);
+  return hedges
+    .filter((hedge) => count(after, hedge) < count(before, hedge))
+    .map((hedge) => ({
+      field,
+      locale,
+      message: `hedge „${hedge}“ was removed; keep it unless that claim carried it twice or it was stacked`,
+      rule: "R5",
+    }));
 }
 
 export function lintSpeciesStyle(raw: string, locale: StyleLocale) {

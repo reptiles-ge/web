@@ -374,6 +374,16 @@ describe("Super Analysis ownership and evidence gates", () => {
         edit(overview, "Natrix natrix is a snake.", "overview"),
       ];
       expect(() => check(both, prior())).toThrow("changed numbers");
+      const lead = result("texts");
+      lead.edits = [
+        edit(overview, "Natrix natrix is 27–43 cm, up to 1537 m.", "overview"),
+      ];
+      expect(check(lead, prior()).edits).toHaveLength(1);
+      const invented = result("texts");
+      invented.edits = [
+        edit(overview, "Natrix natrix is 27–43 cm, up to 1600 m.", "overview"),
+      ];
+      expect(() => check(invented, prior())).toThrow("changed numbers");
     } finally {
       for (const [index, locale] of ANALYSIS_LOCALES.entries())
         Object.assign(context.content[locale], saved[index]);

@@ -11,7 +11,7 @@ The content-integrity rules in AGENTS.md and in the stage instructions always wi
 Write like a knowledgeable Georgian field naturalist talking to an intelligent person who has never studied biology. Three registers work together in the same text, often in the same paragraph:
 
 - **A. Field-guide facts.** Short, confident statements. The strongest facts come first and are stated plainly, without a pile of qualifiers.
-- **B. A picture.** The reader can see the animal, the place and the moment: dry stony slopes, a summer night, a stone it hides under. Every image comes from facts already in the supplied content.
+- **B. A picture.** The reader can see the animal, the place and the moment: dry stony ground, a summer night, a stone it hides under. Every image comes from facts already in the supplied content.
 - **C. Talking to the reader.** At the point where it matters, address the reader directly (polite თქვენ) with one practical consequence or one memorable line.
 
 The result must be simple, human and attractive to read, and still dense with real information. Quality over quantity: remove repetition, filler and hedging, never information. A page that is shorter because it lost facts is a failure. A page that is longer because it repeats itself is also a failure.
@@ -26,7 +26,7 @@ Before (correct but flat):
 
 After (the standard):
 
-> გიურზა საქართველოს ყველაზე დიდი გველგესლაა და ერთადერთი, რომელიც კვერცხს დებს. აღმოსავლეთის მშრალ, ქვიან ფერდობებზე ცხოვრობს, შირაქიდან და გარეჯიდან ქვემო ქართლის მთისწინეთამდე. ბოლო ათწლეულებში ალაზნის ხეობამდე და თბილისამდეც მიაღწია. მისი ნაკბენი ჩვენს გველებს შორის ერთ-ერთი ყველაზე საშიშია. ლაქებიანი ზურგით კი უწყინარ მცურავებს ჰგავს. ამიტომ ლაქებს ნუ ენდობით და ახლოს ნუ მიხვალთ.
+> გიურზა საქართველოს ყველაზე დიდი გველგესლაა და ერთადერთი, რომელიც კვერცხს დებს. აღმოსავლეთის მშრალ, ქვიან და კლდოვან ადგილებში ცხოვრობს, შირაქიდან და გარეჯიდან ქვემო ქართლის მთისწინეთამდე. ბოლო ათწლეულებში ალაზნის ხეობამდე და თბილისამდეც მიაღწია. მისი ნაკბენი ჩვენს გველებს შორის ერთ-ერთი ყველაზე საშიშია. ლაქებიანი ზურგით კი უწყინარ მცურავებს ჰგავს. ამიტომ ლაქებს ნუ ენდობით და ახლოს ნუ მიხვალთ.
 
 Why it works:
 
@@ -44,6 +44,8 @@ Every rule is checkable. Apply all of them to every field you write or rewrite.
 ### R1. Lead with the strongest fact
 
 The first sentence of `description` and `overview` states the most striking and most useful supported fact about the animal: a superlative, something unique in Georgia, the main risk, or the single trait that defines it. Do not open with taxonomy, alternative names, a definition of the group, or a sentence about the site.
+
+The strongest fact may come from any field of the same page, including an FAQ answer. Restating it in the lead is not a new fact; keep its exact scope and certainty, and keep it in its home field too.
 
 Inside every other field, the first sentence answers that field's question directly: what it looks like, where it lives, what it eats, when it is active, what its status is.
 
@@ -73,7 +75,8 @@ Hedging words: ჩვეულებრივ, შეიძლება, და�
 - Keep a hedge only when the supplied content contains that uncertainty (a range, a "may", a "some individuals", a disputed claim).
 - One hedge per claim. Never stack them ("ჩვეულებრივ, შეიძლება, დაახლოებით…").
 - Never hedge a solid fact. "საქართველოს ყველაზე დიდი გველგესლაა" needs no qualifier.
-- Never remove a hedge that carries real meaning. "may occur" stays "may occur".
+- Never remove a hedge that carries real meaning. "may occur" stays "may occur". Deleting ჩვეულებრივ, ხშირად, შეიძლება or ზოგჯერ from a claim makes the claim stronger: that is a factual change, not a style fix. Remove a hedge only when the same claim carries it twice or it is stacked with another hedge.
+- Venom and medical effects keep their "შეიძლება" / "may": „შხამმა შეიძლება სისხლდენა გამოიწვიოს“ never becomes „შხამი სისხლდენას იწვევს“.
 - Budget: no more than about one hedge word per 30 words in a field. If you are over budget, check each hedge: is it real uncertainty, or habit?
 
 ### R6. Write about the animal, not about the website
@@ -81,6 +84,8 @@ Hedging words: ჩვეულებრივ, შეიძლება, და�
 Do not write sentences that describe the atlas, this page, its map, its table, its records or its editorial choices. Banned framings include: „ამ ატლასში“, „ამ გვერდზე“, „ამ ატლასის რუკაზე“, „რუკაზე აღნიშნულია“, „ჩანაწერებში მითითებულია“, „ასეთი ჩანაწერი მხოლოდ იმას ადასტურებს“, "this atlas", "on this page", "the map shows".
 
 State the fact behind it instead: „ამ ატლასის რუკაზე აღნიშნულია კახეთში“ → „კახეთში გვხვდება“ (only if that is the supplied fact and its scope). A record caveat becomes a sentence about the animal: „ეს ნიშნავს, რომ იქ ერთხელ მაინც ნახეს, და არა იმას, რომ ქალაქში ყველგან ცხოვრობს.“
+
+Do not promise an encounter either. „…შეხვდებით“ or "you will find it" in a habitat sentence suggests the animal is easy to meet. Say where it lives: „…ცხოვრობს“, „…გვხვდება“.
 
 One exception: a note explaining the scientific name or an alternative name may stay, phrased about the name rather than the site („ზოგ წყაროში Macrovipera lebetina წერია“). It goes at the end of its field.
 
@@ -133,7 +138,7 @@ Never use these or close variants. Rewrite the sentence so it does not need them
 
 Georgian empty openers and pointers: მნიშვნელოვანია აღინიშნოს, უნდა ითქვას, უნდა აღინიშნოს, აღსანიშნავია, საინტერესოა, რომ, თავის მხრივ, როგორც უკვე აღვნიშნეთ, როგორც ზემოთ ითქვა, ზემოხსენებული, აღნიშნული (as a pointer), მოცემული (as a pointer).
 
-Georgian bureaucratic verbs: გააჩნია → აქვს; წარმოადგენს → არის; ხასიათდება / ახასიათებს → აქვს, არის; ფიქსირდება → გვხვდება, ჩანს (დაფიქსირდა is acceptable only for a specific record); შეინიშნება → აქვს, ჩანს; ვრცელდება (meaning occurs) → გვხვდება; ნადირობა ხდება → ნადირობს.
+Georgian bureaucratic verbs: გააჩნია → აქვს; წარმოადგენს → არის; ხასიათდება / ახასიათებს → აქვს, არის; ფიქსირდება → გვხვდება, ჩანს (დაფიქსირდა is acceptable only for a specific record); შეინიშნება → აქვს, ჩანს; ვრცელდება (meaning occurs) → გვხვდება; ნადირობა ხდება → ნადირობს; ნადირობის ჩვეული ხერხი ჩასაფრებაა → ჩასაფრებით ნადირობს; მთლიანობაში (as filler) → delete.
 
 Georgian filler: მნიშვნელოვან როლს ასრულებს ეკოსისტემაში (unless a supplied fact names the role), ბუნების ნამდვილი…, ერთ-ერთი ყველაზე საინტერესო…, არა მხოლოდ…, არამედ… (as decoration).
 
@@ -217,7 +222,7 @@ Go through every field you changed and fix any failure before you output anythin
 8. Any banned phrase from R13, in any locale?
 9. Typography: „1500“ not „1,500“; decimals with a comma; en-dash ranges; „ “ quotes (R14)?
 10. Does the field end with a takeaway where R10 requires one?
-11. Compared with the original: every number, scientific name, link, warning, 112, hedge with real meaning and scope qualifier is still there, and no new fact appeared (section 5)?
+11. Compared with the original: every number, scientific name, link, warning, 112, hedge with real meaning and scope qualifier is still there, and no new fact appeared (section 5)? Count ჩვეულებრივ / ხშირად / შეიძლება / ზოგჯერ before and after: each one that disappeared must have been a duplicate or stacked.
 12. Do EN, RU and TR say the same thing in the same order, in the same voice, without being flatter or more hedged (R15)?
 
 ## 8. Approved before/after library
@@ -242,7 +247,7 @@ Before:
 
 After:
 
-> გიურზა აპრილიდან ოქტომბრის ბოლომდე აქტიურია, ზოგჯერ კი მარტის ბოლოსაც ჩნდება. გაზაფხულსა და შემოდგომაზე დღისით მოძრაობს. ზაფხულის პაპანაქებაში დღეს ქვების ქვეშ და სოროებში ატარებს, შებინდებისას და ღამით კი გამოდის. ამ დროს ხშირად წყალს უახლოვდება. ზამთარს კლდის ნაპრალებში ატარებს.
+> გიურზა ჩვეულებრივ აპრილიდან ოქტომბრის ბოლომდე აქტიურია, ზოგჯერ კი მარტის ბოლოსაც ჩნდება. გაზაფხულსა და შემოდგომაზე ხშირად დღისით მოძრაობს. ზაფხულის პაპანაქებაში დღეს ქვების ქვეშ და სოროებში ატარებს, შებინდებისას და ღამით კი გამოდის. ამ დროს ხშირად წყალს უახლოვდება. ზამთარს კლდის ნაპრალებში ატარებს.
 
 ### Lookalikes (R9, R10, register C)
 
@@ -262,7 +267,7 @@ Before:
 
 After:
 
-> დიახ. საქართველოს გველებს შორის გიურზას ნაკბენი ერთ-ერთი ყველაზე საშიშია. დიდი გველია და ერთი ნაკბენით შეიძლება ბევრი შხამი შეუშვას. შხამი სისხლის შედედებას არღვევს, იწვევს სისხლდენას და აზიანებს ნაკბენის ადგილს. თავს თვითონ არ გესხმით. კბენს მაშინ, როცა ფეხს დაადგამენ, დაჭერას ცდილობენ ან ზედმეტად მიუახლოვდებიან. თუ გიკბინათ, მაშინვე დარეკეთ 112-ზე.
+> დიახ. საქართველოს გველებს შორის გიურზას ნაკბენი ერთ-ერთი ყველაზე საშიშია. დიდი გველია და ერთი ნაკბენით შეიძლება ბევრი შხამი შეუშვას. მისმა შხამმა შეიძლება სისხლის შედედება დაარღვიოს, სისხლდენა გამოიწვიოს და ნაკბენის ადგილი დააზიანოს. თავს თვითონ არ გესხმით. კბენს მაშინ, როცა ფეხს დაადგამენ, დაჭერას ცდილობენ ან ზედმეტად მიუახლოვდებიან. თუ გიკბინათ, მაშინვე დარეკეთ 112-ზე.
 
 ### Conservation (R1, R2, registers A + B)
 

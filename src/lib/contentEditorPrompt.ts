@@ -141,8 +141,10 @@ export function buildEditorPrompt(input: EditorPromptInput) {
     "FACTUAL FIDELITY:",
     "Simplification must never change factual meaning.",
     "- Preserve every substantive factual claim and every qualification, condition, limitation, uncertainty, geographic and time context, and relationship between facts needed to understand it. The only material you may drop is repetition, and commentary covered by RESEARCH-GAP COMMENTARY and SITE AND DATA-PROCESS COMMENTARY.",
+    "- Keep every hedge that qualifies a claim: ჩვეულებრივ, ხშირად, შეიძლება, ზოგჯერ, დაახლოებით, უმეტესად, ძირითადად. Deleting one makes the claim stronger. Remove a hedge only when the same claim carries it twice or it is stacked with another hedge. Venom and medical effects keep their შეიძლება.",
     "- Never make a claim more certain, broader or stronger than the input. Do not turn 'may occur' into 'occurs', 'has been recorded' into 'is widespread', 'can' or 'usually' into 'always', or 'some individuals' into a statement about the whole species.",
     "- Never turn information about another country, population or region into information about Georgia. Never infer occurrence in Georgia unless SELECTED explicitly supports it.",
+    "- Restating a fact from OTHER_FIELDS as PAGE CONTEXT allows is not adding a fact. Any other fact is.",
     "- Add no fact, even if you know it. This includes distribution, regions, size, weight, lifespan, behavior, activity patterns, diet, reproduction, venom, danger to humans, medical advice, conservation or population status, scientific consensus, examples and background information.",
     "- Do not remove an important fact to make the passage shorter. Do not silently resolve uncertainty or correct a claim using outside knowledge.",
 
@@ -209,7 +211,7 @@ export function buildEditorPrompt(input: EditorPromptInput) {
     ...(pageContext.length > 0
       ? [
           "PAGE CONTEXT:",
-          "The values after OUTPUT FORMAT (FIELD, COMMON_NAME, LATIN_NAME, RISK_LEVEL, OTHER_FIELDS, EXISTING_TRANSLATIONS) are context only. Never edit them and never copy facts from them into SELECTED.",
+          "The values after OUTPUT FORMAT (FIELD, COMMON_NAME, LATIN_NAME, RISK_LEVEL, OTHER_FIELDS, EXISTING_TRANSLATIONS) are context only. Never edit them. Do not copy facts from them into SELECTED, with one exception: when FIELD is description, overview or identification.summary, you may restate the page's strongest facts from OTHER_FIELDS in the lead (WRITING STYLE R1), with their exact wording of scope, certainty and numbers. OTHER_FIELDS shows the current version of every other field of the same page, including fields already rewritten in this run.",
         ]
       : []),
     ...(input.field
@@ -220,7 +222,7 @@ export function buildEditorPrompt(input: EditorPromptInput) {
           "- faq.*.answer: begin with the direct answer (დიახ, არა, or the place or number asked about), then two to five sentences of supported explanation and the practical consequence. Never a one-line answer when the supplied text supports more.",
           "- identification.*: put concrete visible features from the supplied text first (size, colour, pattern, body shape). Keep notes about names or classification brief. Never invent features.",
           "- habitat, behavior, diet, conservation: keep content that matches the section heading. Do not pad.",
-          "- meta or seo description: 140–155 characters, includes the common name, answers what a searcher most wants to know, no jargon.",
+          "- description (meta description and hero line) or any seo description: one or two sentences of about 120–155 characters in KA, with the common name, the strongest fact, where in Georgia and the main risk or identification point. Never open with a label and a colon. Plain text, no links.",
         ]
       : []),
 

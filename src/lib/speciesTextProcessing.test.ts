@@ -153,4 +153,36 @@ describe("page-aware species text rewrite", () => {
       "habitat",
     ]);
   });
+
+  it("writes home fields first and the lead last with the rewritten page", async () => {
+    const cwd = speciesFixture({
+      description: "A viper of eastern Georgia.",
+      habitat: "It lives on dry slopes to 1500 m. It hides under stones.",
+      overview: "A viper of dry slopes. It is dangerous to people.",
+    });
+    const calls: Parameters<typeof transformWithAgent>[0][] = [];
+    vi.mocked(transformWithAgent).mockImplementation(async (input) => {
+      calls.push(input);
+      if (input.field === "habitat")
+        return four(
+          "It lives in dry rocky places to 1500 m. It hides under stones.",
+        );
+      if (input.field === "overview")
+        return four("The viper lives up to 1500 m. It is dangerous to people.");
+      return four(input.selected);
+    });
+    const { notes, updates } = await rewriteSpeciesTexts("test-species", cwd);
+    expect(calls.map(({ field }) => field)).toEqual([
+      "habitat",
+      "overview",
+      "description",
+    ]);
+    expect(calls[1].otherFields?.habitat).toBe(
+      "It lives in dry rocky places to 1500 m. It hides under stones.",
+    );
+    expect(notes).toEqual([]);
+    expect(updates.find(({ field }) => field === "overview")?.result.ka).toBe(
+      "The viper lives up to 1500 m. It is dangerous to people.",
+    );
+  });
 });
