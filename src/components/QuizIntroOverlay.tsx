@@ -1,9 +1,8 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Phone } from "lucide-react";
 import { useTranslations } from "next-intl";
 
-import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { useQuizCopy } from "@/components/QuizCopyContext";
 import { Link } from "@/i18n/navigation";
 
@@ -117,9 +116,15 @@ function SnakeQuizSafetyLinks() {
       >
         {t("practiceGuideCta")}
       </Link>
-      <p className="text-center text-[13px] text-white/70 sm:text-left">
-        <PhoneLinkedText>{t("startEmergency")}</PhoneLinkedText>
-      </p>
+      <a
+        className="inline-flex min-h-12 w-full items-center justify-center gap-2.5 rounded-full border border-destructive/36 bg-[#b84336]/16 px-6 text-[15px] font-semibold text-white transition-colors hover:bg-[#b84336]/28 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:w-auto"
+        href="tel:112"
+      >
+        <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-[#b84336]">
+          <Phone aria-hidden="true" className="size-3.5" />
+        </span>
+        {t("startEmergency")}
+      </a>
     </>
   );
 }
