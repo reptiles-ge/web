@@ -66,19 +66,26 @@ function renderSwitcher(
 }
 
 describe("LanguageSwitcher", () => {
-  it("shows a compact locale chip for the mobile header", () => {
-    renderSwitcher("en", "dark");
-    const [chip] = screen.getAllByRole("button", { name: en.language.switch });
-    expect(chip).toHaveTextContent("EN");
-    expect(chip).toHaveAttribute("aria-haspopup", "dialog");
-    expect(chip).toHaveAttribute("aria-expanded", "false");
-    expect(chip.className).toContain("lg:hidden");
-  });
+  it.each(["dark", "light"] as const)(
+    "shows a globe icon button in the %s mobile header",
+    (variant) => {
+      renderSwitcher("en", variant);
+      const [chip] = screen.getAllByRole("button", {
+        name: en.language.switch,
+      });
+      expect(chip.querySelector("svg.lucide-globe")).not.toBeNull();
+      expect(chip).toHaveAttribute("aria-haspopup", "dialog");
+      expect(chip).toHaveAttribute("aria-expanded", "false");
+      expect(chip.className).toContain("lg:hidden");
+      expect(chip.className).toContain("size-10");
+    },
+  );
 
-  it("shows the Georgian chip label on KA pages", () => {
+  it("labels the globe button in Georgian on KA pages", () => {
     renderSwitcher("ka");
     const [chip] = screen.getAllByRole("button", { name: ka.language.switch });
-    expect(chip).toHaveTextContent("ქა");
+    expect(chip).not.toHaveTextContent("ქა");
+    expect(chip.querySelector("svg.lucide-globe")).not.toBeNull();
   });
 
   it("opens the locale list and switches through the hreflang alternate", async () => {
