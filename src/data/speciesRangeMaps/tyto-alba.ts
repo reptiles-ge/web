@@ -8,42 +8,40 @@ export const rangeMap: InteractiveRangeMapConfig = {
     en: {
       ...HALYOMORPHA_RANGE_COPY.en,
       intro:
-        "The western barn owl map uses public iNaturalist photo observations in Georgia. Regions come from the records-by-region table: only confirmed status counts as distribution; otherwise a region is not treated as part of the range. Some place names on individual observations do not match the coordinate, and a mismatched label does not confirm that named region. Record counts reflect observation effort, not population density.",
+        "The western barn owl map uses public iNaturalist photo observations in Georgia. Regions come from the records-by-region table: only regions with enough records are shaded on the map; other regions are not shaded. Some place names on individual observations do not match the coordinate, and a mismatched label does not count as a record for that named region. Record counts reflect observation effort, not population density.",
       mapAria:
-        "Western barn owl observations and confirmed distribution regions on a map of Georgia",
-      officialRegionLabel: "Confirmed distribution region",
-      rangeTitle:
-        "Western barn owl: where its distribution is confirmed in Georgia",
+        "Western barn owl observations and regions with records on a map of Georgia",
+      officialRegionLabel: "Region with records",
+      rangeTitle: "Western barn owl: where it is recorded in Georgia",
       regionsMetricLabel: "regions with records",
     },
     ka: {
       ...HALYOMORPHA_RANGE_COPY.ka,
       intro:
-        "ბუხრინწას რუკა საქართველოს iNaturalist-ის საჯარო ფოტოდაკვირვებებს ეყრდნობა. რეგიონები აღებულია ჩანაწერების რეგიონული ცხრილიდან: გავრცელებად ითვლება მხოლოდ დადასტურებული სტატუსი; სხვა შემთხვევაში რეგიონი გავრცელებულად არ ითვლება. ცალკეული დაკვირვების ადგილის წარწერა კოორდინატს რომ არ ემთხვევა, ეს წარწერა იმ რეგიონს არ ადასტურებს. ჩანაწერების რაოდენობა დაკვირვების ინტენსივობას ასახავს და არა პოპულაციის სიმჭიდროვეს.",
+        "ბუხრინწას რუკა საქართველოს iNaturalist-ის საჯარო ფოტოდაკვირვებებს ეყრდნობა. რეგიონები აღებულია ჩანაწერების რეგიონული ცხრილიდან: რუკაზე შეფერილია მხოლოდ საკმარისი ჩანაწერების მქონე რეგიონები; დანარჩენი რეგიონები შეფერილი არ არის. ცალკეული დაკვირვების ადგილის წარწერა კოორდინატს რომ არ ემთხვევა, ეს წარწერა იმ რეგიონის ჩანაწერად არ ითვლება. ჩანაწერების რაოდენობა დაკვირვების ინტენსივობას ასახავს და არა პოპულაციის სიმჭიდროვეს.",
       mapAria:
-        "ბუხრინწას დაკვირვებები და დადასტურებული გავრცელების რეგიონები საქართველოს რუკაზე",
-      officialRegionLabel: "დადასტურებული გავრცელების რეგიონი",
-      rangeTitle: "სად არის ბუხრინწას გავრცელება დადასტურებული საქართველოში",
+        "ბუხრინწას დაკვირვებები და ჩანაწერების მქონე რეგიონები საქართველოს რუკაზე",
+      officialRegionLabel: "ჩანაწერების მქონე რეგიონი",
+      rangeTitle: "სად არის ბუხრინწა დაფიქსირებული საქართველოში",
       regionsMetricLabel: "რეგიონი ჩანაწერით",
     },
     ru: {
       ...HALYOMORPHA_RANGE_COPY.ru,
       intro:
-        "Карта сипухи использует публичные фотонаблюдения iNaturalist в Грузии. Регионы взяты из таблицы записей: распространением считается только подтверждённый статус; в остальных случаях регион распространением не считается. Если подпись места у отдельного наблюдения не совпадает с координатой, эта подпись не подтверждает названный регион. Число записей отражает активность наблюдателей, а не плотность популяции.",
-      mapAria:
-        "Наблюдения сипухи и регионы с подтверждённым распространением на карте Грузии",
-      officialRegionLabel: "Регион с подтверждённым распространением",
-      rangeTitle: "Где распространение сипухи подтверждено в Грузии",
+        "Карта сипухи использует публичные фотонаблюдения iNaturalist в Грузии. Регионы взяты из таблицы записей: на карте закрашены только регионы с достаточным числом записей; остальные регионы не закрашены. Если подпись места у отдельного наблюдения не совпадает с координатой, эта подпись не считается записью для названного региона. Число записей отражает активность наблюдателей, а не плотность популяции.",
+      mapAria: "Наблюдения сипухи и регионы с записями на карте Грузии",
+      officialRegionLabel: "Регион с записями",
+      rangeTitle: "Где сипуха отмечена в Грузии",
       regionsMetricLabel: "регионов с записями",
     },
     tr: {
       ...HALYOMORPHA_RANGE_COPY.tr,
       intro:
-        "Peçeli baykuş haritası Gürcistan'daki herkese açık iNaturalist fotoğraflı gözlemlerini kullanır. Bölgeler, bölgelere göre kayıt tablosundan alınır: yalnızca doğrulanmış durum yayılış sayılır; aksi halde bölge yayılış sayılmaz. Tek bir gözlemin yer adı koordinatla uyuşmuyorsa bu ad o bölgeyi doğrulamaz. Kayıt sayısı nüfus yoğunluğunu değil, gözlem çabasını yansıtır.",
+        "Peçeli baykuş haritası Gürcistan'daki herkese açık iNaturalist fotoğraflı gözlemlerini kullanır. Bölgeler, bölgelere göre kayıt tablosundan alınır: haritada yalnızca yeterli kaydı olan bölgeler boyanır; diğer bölgeler boyanmaz. Tek bir gözlemin yer adı koordinatla uyuşmuyorsa bu ad o bölge için kayıt sayılmaz. Kayıt sayısı nüfus yoğunluğunu değil, gözlem çabasını yansıtır.",
       mapAria:
-        "Peçeli baykuş gözlemleri ve Gürcistan'da yayılışı doğrulanmış bölgeler",
-      officialRegionLabel: "Yayılışı doğrulanmış bölge",
-      rangeTitle: "Peçeli baykuşun Gürcistan'da yayılışı nerede doğrulandı?",
+        "Peçeli baykuş gözlemleri ve Gürcistan'da kayıt bulunan bölgeler",
+      officialRegionLabel: "Kayıt bulunan bölge",
+      rangeTitle: "Peçeli baykuş Gürcistan'da nerede kaydedildi?",
       regionsMetricLabel: "kayıt bulunan bölge",
     },
   },

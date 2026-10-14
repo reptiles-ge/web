@@ -8,38 +8,37 @@ export const rangeMap: InteractiveRangeMapConfig = {
     en: {
       ...HALYOMORPHA_RANGE_COPY.en,
       intro:
-        "The bearded vulture map uses public iNaturalist observations from Georgia. Regions come from the records-by-region table: only a confirmed status counts as distribution; other regions have records only. Record counts reflect observation effort, not population density.",
+        "The bearded vulture map uses public iNaturalist observations from Georgia. Regions come from the records-by-region table: only regions with enough records are shaded on the map; other regions have too few records. Record counts reflect observation effort, not population density.",
       mapAria:
-        "Bearded vulture observations and confirmed regions on a map of Georgia",
-      officialRegionLabel: "Region with confirmed distribution",
-      rangeTitle:
-        "Bearded vulture: where its distribution is confirmed in Georgia",
+        "Bearded vulture observations and regions with records on a map of Georgia",
+      officialRegionLabel: "Region with records",
+      rangeTitle: "Bearded vulture: where it is recorded in Georgia",
     },
     ka: {
       ...HALYOMORPHA_RANGE_COPY.ka,
       intro:
-        "ბატკანძერის რუკა საქართველოს iNaturalist-ის საჯარო დაკვირვებებს ეყრდნობა. რეგიონები აღებულია ჩანაწერების რეგიონული ცხრილიდან: გავრცელებულად ითვლება მხოლოდ დადასტურებული სტატუსი, დანარჩენში მხოლოდ ჩანაწერია. ჩანაწერების რაოდენობა დაკვირვების ინტენსივობას ასახავს და არა პოპულაციის სიმჭიდროვეს.",
+        "ბატკანძერის რუკა საქართველოს iNaturalist-ის საჯარო დაკვირვებებს ეყრდნობა. რეგიონები აღებულია ჩანაწერების რეგიონული ცხრილიდან: რუკაზე მონიშნულია მხოლოდ საკმარისი ჩანაწერების მქონე რეგიონები, დანარჩენში ჩანაწერები ცოტაა. ჩანაწერების რაოდენობა დაკვირვების ინტენსივობას ასახავს და არა პოპულაციის სიმჭიდროვეს.",
       mapAria:
-        "ბატკანძერის დაკვირვებები და დადასტურებული რეგიონები საქართველოს რუკაზე",
-      officialRegionLabel: "დადასტურებული გავრცელების რეგიონი",
-      rangeTitle: "სად არის ბატკანძერის გავრცელება დადასტურებული საქართველოში",
+        "ბატკანძერის დაკვირვებები და ჩანაწერების მქონე რეგიონები საქართველოს რუკაზე",
+      officialRegionLabel: "ჩანაწერების მქონე რეგიონი",
+      rangeTitle: "სად არის ბატკანძერი დაფიქსირებული საქართველოში",
     },
     ru: {
       ...HALYOMORPHA_RANGE_COPY.ru,
       intro:
-        "Карта бородача основана на публичных наблюдениях iNaturalist в Грузии. Регионы взяты из таблицы записей: распространением считается только подтверждённый статус, в остальных регионах есть лишь записи. Число записей отражает активность наблюдателей, а не плотность популяции.",
-      mapAria: "Наблюдения бородача и подтверждённые регионы на карте Грузии",
-      officialRegionLabel: "Регион с подтверждённым распространением",
-      rangeTitle: "Где распространение бородача подтверждено в Грузии",
+        "Карта бородача основана на публичных наблюдениях iNaturalist в Грузии. Регионы взяты из таблицы записей: на карте закрашены только регионы с достаточным числом записей, в остальных регионах записей мало. Число записей отражает активность наблюдателей, а не плотность популяции.",
+      mapAria: "Наблюдения бородача и регионы с записями на карте Грузии",
+      officialRegionLabel: "Регион с записями",
+      rangeTitle: "Где бородач отмечен в Грузии",
     },
     tr: {
       ...HALYOMORPHA_RANGE_COPY.tr,
       intro:
-        "Sakallı akbaba haritası Gürcistan'daki herkese açık iNaturalist gözlemlerini kullanır. Bölgeler, bölgelere göre kayıt tablosundan gelir: yalnızca doğrulanmış durum yayılış sayılır; diğerlerinde yalnızca kayıt vardır. Kayıt sayısı gözlem çabasını yansıtır, popülasyon yoğunluğunu ölçmez.",
+        "Sakallı akbaba haritası Gürcistan'daki herkese açık iNaturalist gözlemlerini kullanır. Bölgeler, bölgelere göre kayıt tablosundan gelir: haritada yalnızca yeterli kaydı olan bölgeler gösterilir; diğerlerinde kayıt azdır. Kayıt sayısı gözlem çabasını yansıtır, popülasyon yoğunluğunu ölçmez.",
       mapAria:
-        "Sakallı akbaba gözlemleri ve doğrulanmış bölgeler Gürcistan haritasında",
-      officialRegionLabel: "Yayılışı doğrulanmış bölge",
-      rangeTitle: "Sakallı akbabanın yayılışı Gürcistan'da nerede doğrulandı?",
+        "Sakallı akbaba gözlemleri ve kayıt bulunan bölgeler Gürcistan haritasında",
+      officialRegionLabel: "Kayıt bulunan bölge",
+      rangeTitle: "Sakallı akbaba Gürcistan'da nerede kaydedildi?",
     },
   },
   iNaturalistTaxonId: 5379,

@@ -8,42 +8,39 @@ export const rangeMap: InteractiveRangeMapConfig = {
     en: {
       ...HALYOMORPHA_RANGE_COPY.en,
       intro:
-        "The peregrine falcon map uses public iNaturalist photo observations in Georgia. Regions come from the records-by-region table: only confirmed status counts as distribution; other regions remain recorded only. These observations do not establish breeding, and record counts reflect observation effort rather than population density.",
+        "The peregrine falcon map uses public iNaturalist photo observations in Georgia. Regions come from the records-by-region table: only regions with enough records are shaded on the map; other regions have too few records. These observations do not establish breeding, and record counts reflect observation effort rather than population density.",
       mapAria:
-        "Peregrine falcon observations and confirmed distribution regions on a map of Georgia",
-      officialRegionLabel: "Confirmed distribution region",
-      rangeTitle:
-        "Peregrine falcon: where its distribution is confirmed in Georgia",
+        "Peregrine falcon observations and regions with records on a map of Georgia",
+      officialRegionLabel: "Region with records",
+      rangeTitle: "Peregrine falcon: where it is recorded in Georgia",
       regionsMetricLabel: "regions with records",
     },
     ka: {
       ...HALYOMORPHA_RANGE_COPY.ka,
       intro:
-        "შავარდნის რუკა იყენებს საქართველოში iNaturalist-ის საჯარო ფოტოდაკვირვებებს. რეგიონები აღებულია ჩანაწერების რეგიონული ცხრილიდან: გავრცელებად ითვლება მხოლოდ დადასტურებული სტატუსის მქონე რეგიონი; დანარჩენში სახეობა მხოლოდ დაფიქსირებულია. ეს ჩანაწერები ბუდობას არ ადასტურებს, მათი რაოდენობა კი დაკვირვების ინტენსივობასაც ასახავს და არა პოპულაციის სიმჭიდროვეს.",
+        "შავარდნის რუკა იყენებს საქართველოში iNaturalist-ის საჯარო ფოტოდაკვირვებებს. რეგიონები აღებულია ჩანაწერების რეგიონული ცხრილიდან: რუკაზე მონიშნულია მხოლოდ საკმარისი ჩანაწერების მქონე რეგიონები; დანარჩენში ჩანაწერები ცოტაა. ეს ჩანაწერები ბუდობას არ ადასტურებს, მათი რაოდენობა კი დაკვირვების ინტენსივობასაც ასახავს და არა პოპულაციის სიმჭიდროვეს.",
       mapAria:
-        "შავარდნის დაკვირვებები და დადასტურებული გავრცელების რეგიონები საქართველოს რუკაზე",
-      officialRegionLabel: "დადასტურებული გავრცელების რეგიონი",
-      rangeTitle: "სად არის შავარდნის გავრცელება დადასტურებული საქართველოში",
+        "შავარდნის დაკვირვებები და ჩანაწერების მქონე რეგიონები საქართველოს რუკაზე",
+      officialRegionLabel: "ჩანაწერების მქონე რეგიონი",
+      rangeTitle: "სად არის შავარდენი დაფიქსირებული საქართველოში",
       regionsMetricLabel: "რეგიონი ჩანაწერით",
     },
     ru: {
       ...HALYOMORPHA_RANGE_COPY.ru,
       intro:
-        "Карта сапсана использует публичные фотонаблюдения iNaturalist в Грузии. Регионы взяты из таблицы записей: распространением считаются только регионы со статусом «подтверждено»; остальные остаются лишь местами регистрации. Эти наблюдения не доказывают гнездование, а число записей отражает активность наблюдателей, а не плотность популяции.",
-      mapAria:
-        "Наблюдения сапсана и регионы с подтверждённым распространением на карте Грузии",
-      officialRegionLabel: "Регион с подтверждённым распространением",
-      rangeTitle: "Где распространение сапсана подтверждено в Грузии",
+        "Карта сапсана использует публичные фотонаблюдения iNaturalist в Грузии. Регионы взяты из таблицы записей: на карте закрашены только регионы с достаточным числом записей; в остальных записей мало. Эти наблюдения не доказывают гнездование, а число записей отражает активность наблюдателей, а не плотность популяции.",
+      mapAria: "Наблюдения сапсана и регионы с записями на карте Грузии",
+      officialRegionLabel: "Регион с записями",
+      rangeTitle: "Где сапсан отмечен в Грузии",
       regionsMetricLabel: "регионов с записями",
     },
     tr: {
       ...HALYOMORPHA_RANGE_COPY.tr,
       intro:
-        "Gökdoğan haritası Gürcistan'daki herkese açık iNaturalist fotoğraflı gözlemlerini kullanır. Bölgeler, bölgelere göre kayıt tablosundan alınır: yalnızca doğrulanmış durum yayılış sayılır; diğer bölgelerde tür sadece kaydedilmiştir. Bu gözlemler üremeyi kanıtlamaz; kayıt sayısı nüfus yoğunluğunu değil, gözlem çabasını da yansıtır.",
-      mapAria:
-        "Gökdoğan gözlemleri ve Gürcistan'da yayılışı doğrulanmış bölgeler",
-      officialRegionLabel: "Yayılışı doğrulanmış bölge",
-      rangeTitle: "Gökdoğanın Gürcistan'da yayılışı nerede doğrulandı?",
+        "Gökdoğan haritası Gürcistan'daki herkese açık iNaturalist fotoğraflı gözlemlerini kullanır. Bölgeler, bölgelere göre kayıt tablosundan alınır: haritada yalnızca yeterli kaydı olan bölgeler gösterilir; diğer bölgelerde kayıt azdır. Bu gözlemler üremeyi kanıtlamaz; kayıt sayısı nüfus yoğunluğunu değil, gözlem çabasını da yansıtır.",
+      mapAria: "Gökdoğan gözlemleri ve Gürcistan'da kayıt bulunan bölgeler",
+      officialRegionLabel: "Kayıt bulunan bölge",
+      rangeTitle: "Gökdoğan Gürcistan'da nerede kaydedildi?",
       regionsMetricLabel: "kayıt bulunan bölge",
     },
   },

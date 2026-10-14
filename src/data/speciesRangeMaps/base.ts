@@ -41,7 +41,7 @@ export const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
   en: {
     closeLabel: "Close field record",
     clusterLabel: "Several records in one spot",
-    confirmedStatusLabel: "Distribution confirmed",
+    confirmedStatusLabel: "Recorded (photo observations)",
     footerDataLabel: "Data",
     footerINaturalistLabel: "iNaturalist",
     footerMethodologyLabel: "Methodology",
@@ -55,12 +55,12 @@ export const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
     mapAria:
       "Brown marmorated stink bug distribution evidence and field records on a map of Georgia",
     mapError:
-      "The interactive map could not load, but confirmed regions and record counts remain on this page.",
+      "The interactive map could not load, but the regions with records and the record counts remain on this page.",
     noRegionRecordsLabel: "No field records",
     officialRegionLabel: "Source-confirmed region",
     photoRecordLabel: "Photo record",
     rangeTitle: "Brown marmorated stink bug: where it occurs in Georgia",
-    recordedOnlyStatusLabel: "Recorded only",
+    recordedOnlyStatusLabel: "Too few records",
     regionPageLabel: (regionName) => `${regionName} region page`,
     regionRecordsLabel: "field records",
     regionsMetricLabel: "regions",
@@ -73,7 +73,7 @@ export const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
   ka: {
     closeLabel: "საველე ჩანაწერის დახურვა",
     clusterLabel: "რამდენიმე ჩანაწერი ერთ ადგილას",
-    confirmedStatusLabel: "გავრცელება დადასტურებულია",
+    confirmedStatusLabel: "დაფიქსირებულია (ფოტოდაკვირვებები)",
     footerDataLabel: "მონაცემები",
     footerINaturalistLabel: "iNaturalist",
     footerMethodologyLabel: "მეთოდოლოგია",
@@ -87,12 +87,12 @@ export const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
     mapAria:
       "აზიური ფაროსანას გავრცელების მტკიცებულებები და საველე ჩანაწერები საქართველოს რუკაზე",
     mapError:
-      "ინტერაქტიული რუკა ვერ ჩაიტვირთა, მაგრამ დადასტურებული რეგიონები და ჩანაწერების რაოდენობა ამ გვერდზე კვლავ ჩანს.",
+      "ინტერაქტიული რუკა ვერ ჩაიტვირთა, მაგრამ ჩანაწერების მქონე რეგიონები და ჩანაწერების რაოდენობა ამ გვერდზე კვლავ ჩანს.",
     noRegionRecordsLabel: "ჩანაწერი არ არის",
     officialRegionLabel: "წყაროებით დადასტურებული რეგიონი",
     photoRecordLabel: "ფოტოჩანაწერი",
     rangeTitle: "სად გვხვდება აზიური ფაროსანა საქართველოში",
-    recordedOnlyStatusLabel: "მხოლოდ დაფიქსირებულია",
+    recordedOnlyStatusLabel: "ჩანაწერები ცოტაა",
     regionPageLabel: (regionName) => `${regionName} — რეგიონის გვერდი`,
     regionRecordsLabel: "საველე ჩანაწერი",
     regionsMetricLabel: "რეგიონი",
@@ -105,7 +105,7 @@ export const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
   ru: {
     closeLabel: "Закрыть полевую запись",
     clusterLabel: "Несколько записей в одном месте",
-    confirmedStatusLabel: "Распространение подтверждено",
+    confirmedStatusLabel: "Отмечено (фотонаблюдения)",
     footerDataLabel: "Данные",
     footerINaturalistLabel: "iNaturalist",
     footerMethodologyLabel: "Методология",
@@ -118,12 +118,12 @@ export const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
     locationRecordLabel: "Полевое наблюдение",
     mapAria: "Полевые записи коричнево-мраморного клопа на карте Грузии",
     mapError:
-      "Интерактивная карта не загрузилась, но подтверждённые регионы и число записей остаются на странице.",
+      "Интерактивная карта не загрузилась, но регионы с записями и число записей остаются на странице.",
     noRegionRecordsLabel: "Записей нет",
     officialRegionLabel: "Регион, подтверждённый источниками",
     photoRecordLabel: "Фотозапись",
     rangeTitle: "Где встречается коричнево-мраморный клоп в Грузии",
-    recordedOnlyStatusLabel: "Только зафиксировано",
+    recordedOnlyStatusLabel: "Мало записей",
     regionPageLabel: (regionName) => `Страница региона: ${regionName}`,
     regionRecordsLabel: "полевых записей",
     regionsMetricLabel: "регионов",
@@ -136,7 +136,7 @@ export const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
   tr: {
     closeLabel: "Arazi kaydını kapat",
     clusterLabel: "Aynı yerde birkaç kayıt",
-    confirmedStatusLabel: "Yayılış doğrulandı",
+    confirmedStatusLabel: "Kaydedildi (fotoğraflı gözlemler)",
     footerDataLabel: "Veri",
     footerINaturalistLabel: "iNaturalist",
     footerMethodologyLabel: "Metodoloji",
@@ -150,12 +150,12 @@ export const HALYOMORPHA_RANGE_COPY: Record<AppLocale, HalyomorphaRangeCopy> = {
     mapAria:
       "Kahverengi kokarcanın yayılış kanıtları ve arazi kayıtları Gürcistan haritasında",
     mapError:
-      "Etkileşimli harita yüklenemedi, ancak doğrulanmış bölgeler ve kayıt sayıları bu sayfada görülebilir.",
+      "Etkileşimli harita yüklenemedi, ancak kayıt bulunan bölgeler ve kayıt sayıları bu sayfada görülebilir.",
     noRegionRecordsLabel: "Kayıt yok",
     officialRegionLabel: "Kaynakla doğrulanmış bölge",
     photoRecordLabel: "Fotoğraf kaydı",
     rangeTitle: "Kahverengi kokarca Gürcistan'da nerede görülür?",
-    recordedOnlyStatusLabel: "Yalnızca kaydedildi",
+    recordedOnlyStatusLabel: "Kayıt az",
     regionPageLabel: (regionName) => `${regionName} bölge sayfası`,
     regionRecordsLabel: "arazi kaydı",
     regionsMetricLabel: "bölge",

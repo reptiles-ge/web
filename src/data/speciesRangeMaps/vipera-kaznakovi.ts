@@ -8,7 +8,7 @@ export const rangeMap: InteractiveRangeMapConfig = {
     en: {
       ...HALYOMORPHA_RANGE_COPY.en,
       intro:
-        "The Caucasus viper map combines Reptiles.ge editorial photo records, hand-curated localities, and public iNaturalist observations. Regions are taken from the records-by-region table, and the status column separates confirmed distribution from recorded-only regions.",
+        "The Caucasus viper map combines Reptiles.ge editorial photo records, hand-curated localities, and public iNaturalist observations. Regions are taken from the records-by-region table, and the status column separates regions with enough records from regions with too few records.",
       mapAria:
         "Caucasus viper distribution evidence and field records on a map of Georgia",
       officialRegionLabel: "Region with records",
@@ -17,7 +17,7 @@ export const rangeMap: InteractiveRangeMapConfig = {
     ka: {
       ...HALYOMORPHA_RANGE_COPY.ka,
       intro:
-        "კავკასიური გველგესლის რუკა აერთიანებს Reptiles.ge-ის სარედაქციო ფოტოჩანაწერებს, ხელით შერჩეულ ლოკალიტეტებსა და iNaturalist-ის საჯარო დაკვირვებებს. რეგიონები აღებულია ჩანაწერების რეგიონული ცხრილიდან, ხოლო სტატუსი ერთმანეთისგან გამოყოფს დადასტურებულ გავრცელებასა და მხოლოდ დაფიქსირებულ რეგიონებს.",
+        "კავკასიური გველგესლის რუკა აერთიანებს Reptiles.ge-ის სარედაქციო ფოტოჩანაწერებს, ხელით შერჩეულ ლოკალიტეტებსა და iNaturalist-ის საჯარო დაკვირვებებს. რეგიონები აღებულია ჩანაწერების რეგიონული ცხრილიდან, ხოლო სტატუსი ერთმანეთისგან გამოყოფს საკმარისი ჩანაწერების მქონე რეგიონებსა და რეგიონებს, სადაც ჩანაწერები ცოტაა.",
       mapAria:
         "კავკასიური გველგესლის გავრცელების მტკიცებულებები და საველე ჩანაწერები საქართველოს რუკაზე",
       officialRegionLabel: "ჩანაწერების მქონე რეგიონი",
@@ -26,7 +26,7 @@ export const rangeMap: InteractiveRangeMapConfig = {
     ru: {
       ...HALYOMORPHA_RANGE_COPY.ru,
       intro:
-        "Карта кавказской гадюки объединяет редакционные фотозаписи Reptiles.ge, вручную отобранные локалитеты и публичные наблюдения iNaturalist. Регионы взяты из таблицы записей по регионам, а статус отделяет подтверждённое распространение от регионов, где вид только зафиксирован.",
+        "Карта кавказской гадюки объединяет редакционные фотозаписи Reptiles.ge, вручную отобранные локалитеты и публичные наблюдения iNaturalist. Регионы взяты из таблицы записей по регионам, а статус отделяет регионы с достаточным числом записей от регионов, где записей мало.",
       mapAria:
         "Данные о распространении кавказской гадюки и полевые записи на карте Грузии",
       officialRegionLabel: "Регион с записями",
@@ -35,7 +35,7 @@ export const rangeMap: InteractiveRangeMapConfig = {
     tr: {
       ...HALYOMORPHA_RANGE_COPY.tr,
       intro:
-        "Kafkas engereği haritası Reptiles.ge editoryal fotoğraf kayıtlarını, elle seçilmiş lokaliteleri ve herkese açık iNaturalist gözlemlerini birleştirir. Bölgeler, bölgelere göre kayıt tablosundan alınır; durum sütunu doğrulanmış yayılış ile yalnızca kaydedilen bölgeleri ayırır.",
+        "Kafkas engereği haritası Reptiles.ge editoryal fotoğraf kayıtlarını, elle seçilmiş lokaliteleri ve herkese açık iNaturalist gözlemlerini birleştirir. Bölgeler, bölgelere göre kayıt tablosundan alınır; durum sütunu yeterli kaydı olan bölgeleri kaydı az olan bölgelerden ayırır.",
       mapAria:
         "Kafkas engereğinin Gürcistan'daki yayılış kanıtları ve arazi kayıtları",
       officialRegionLabel: "Kayıt bulunan bölge",
