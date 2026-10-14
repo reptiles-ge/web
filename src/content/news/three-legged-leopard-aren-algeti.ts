@@ -26,6 +26,64 @@ const PHOTO_PERSIAN_LEOPARD: NewsPhoto = {
   src: "https://cdn.reptiles.ge/panthera-pardus-assaf-1.jpg",
 };
 
+const PHOTO_ARENI: NewsPhoto = {
+  alt: {
+    en: "Areni village and the Arpa river valley in Vayots Dzor, Armenia, November 2021. Aren was first recorded near this village in spring 2019.",
+    ka: "სოფელი არენი და მდინარე არფას ხეობა, ვაიოც ძორი, სომხეთი, 2021 წლის ნოემბერი. არენი პირველად ამ სოფლის მახლობლად 2019 წლის გაზაფხულზე დაფიქსირდა.",
+    ru: "Село Арени и долина реки Арпа, Вайоц-Дзор, Армения, ноябрь 2021 года. Впервые Арена зафиксировали рядом с этим селом весной 2019 года.",
+    tr: "Areni köyü ve Arpa nehri vadisi, Vayots Dzor, Ermenistan, Kasım 2021. Aren ilk kez 2019 baharında bu köyün yakınında kaydedildi.",
+  },
+  credit: {
+    date: "2021-11-03",
+    photographer: "Dor Shabashewitz",
+    url: "https://commons.wikimedia.org/wiki/File:Areni_view.jpg",
+  },
+  src: "https://cdn.reptiles.ge/news-aren-areni-shabashewitz-1.jpg",
+};
+
+const PHOTO_ALGETI_FOREST: NewsPhoto = {
+  alt: {
+    en: "Autumn forest in Algeti National Park, October 2007. This is a view of the park, not the site where the camera recorded Aren.",
+    ka: "შემოდგომის ტყე ალგეთის ეროვნულ პარკში, 2007 წლის ოქტომბერი. ეს პარკის ხედია და არა ის ადგილი, სადაც კამერამ არენი ჩაწერა.",
+    ru: "Осенний лес в Алгетском национальном парке, октябрь 2007 года. Это вид парка, а не место, где камера записала Арена.",
+    tr: "Algeti Ulusal Parkı'nda sonbahar ormanı, Ekim 2007. Bu, parktan bir görünümdür; kameranın Aren'i kaydettiği yer değildir.",
+  },
+  credit: {
+    date: "2007-10-14",
+    photographer: "Arkaitz1974",
+    url: "https://commons.wikimedia.org/wiki/File:Algeti_National_Park_(14_October_2007)._007.jpg",
+  },
+  src: "https://cdn.reptiles.ge/news-aren-algeti-forest-arkaitz-1.jpg",
+};
+
+const PHOTO_ALGETI_RIDGES: NewsPhoto = {
+  alt: {
+    en: "Open ridges of Algeti National Park, October 2022.",
+    ka: "ალგეთის ეროვნული პარკის ღია ქედები, 2022 წლის ოქტომბერი.",
+    ru: "Открытые хребты Алгетского национального парка, октябрь 2022 года.",
+    tr: "Algeti Ulusal Parkı'nın açık sırtları, Ekim 2022.",
+  },
+  credit: {
+    date: "2022-10-22",
+    photographer: "Alexey Komarov",
+    url: "https://commons.wikimedia.org/wiki/File:Algeti_National_Park_2022-10-22-20.jpg",
+  },
+  src: "https://cdn.reptiles.ge/news-aren-algeti-shikhan-komarov-1.jpg",
+};
+
+const FIGURE_ARENI = {
+  src: PHOTO_ARENI.src,
+  type: "figure" as const,
+};
+const FIGURE_ALGETI_FOREST = {
+  src: PHOTO_ALGETI_FOREST.src,
+  type: "figure" as const,
+};
+const FIGURE_ALGETI_RIDGES = {
+  src: PHOTO_ALGETI_RIDGES.src,
+  type: "figure" as const,
+};
+
 export const THREE_LEGGED_LEOPARD_AREN_ALGETI: NewsArticle = {
   copy: {
     en: {
@@ -49,6 +107,7 @@ export const THREE_LEGGED_LEOPARD_AREN_ALGETI: NewsArticle = {
               ],
               type: "p",
             },
+            FIGURE_ARENI,
             {
               parts: [
                 "Leopards on camera-trap footage are usually told apart by their individual spot patterns. Aren, however, carries a mark that shows on a frame even without comparing spots: the missing limb. That is why one short question was the first step in linking the Algeti animal to an individual known from Armenia.",
@@ -63,6 +122,7 @@ export const THREE_LEGGED_LEOPARD_AREN_ALGETI: NewsArticle = {
               ],
               type: "p",
             },
+            FIGURE_ALGETI_FOREST,
             {
               parts: [
                 "“At least” matters here. Only the points where cameras caught him are known. The path between them, and how long he spent on each stretch, are not.",
@@ -117,6 +177,7 @@ export const THREE_LEGGED_LEOPARD_AREN_ALGETI: NewsArticle = {
               ],
               type: "p",
             },
+            FIGURE_ALGETI_RIDGES,
             {
               parts: [
                 "No camera record does not prove that an animal has left. It only means it did not pass in front of the cameras during that time. That is why “the trail went cold” is the accurate wording here: neither his departure nor his staying has been confirmed.",
@@ -244,6 +305,7 @@ export const THREE_LEGGED_LEOPARD_AREN_ALGETI: NewsArticle = {
               ],
               type: "p",
             },
+            FIGURE_ARENI,
             {
               parts: [
                 "ლეოპარდებს ფოტოხაფანგის კადრებზე, როგორც წესი, ლაქების ინდივიდუალური ნახატით არჩევენ. არენს კი ისეთი ნიშანი აქვს, რომელიც კადრზე ლაქების შედარების გარეშეც ჩანს: დაკარგული კიდური. ამიტომ ერთი მოკლე კითხვა ალგეთის ცხოველის სომხეთში ცნობილ ინდივიდთან დასაკავშირებლად პირველი ნაბიჯი იყო.",
@@ -258,6 +320,7 @@ export const THREE_LEGGED_LEOPARD_AREN_ALGETI: NewsArticle = {
               ],
               type: "p",
             },
+            FIGURE_ALGETI_FOREST,
             {
               parts: [
                 "სიტყვებს „სულ მცირე“ აქ მნიშვნელობა აქვს. ცნობილია მხოლოდ ის წერტილები, სადაც ცხოველი კამერებმა დააფიქსირა. რა გზით იარა მათ შორის და რამდენი ხანი დაჰყო თითოეულ მონაკვეთზე, უცნობია.",
@@ -312,6 +375,7 @@ export const THREE_LEGGED_LEOPARD_AREN_ALGETI: NewsArticle = {
               ],
               type: "p",
             },
+            FIGURE_ALGETI_RIDGES,
             {
               parts: [
                 "კამერაზე ჩანაწერის არარსებობა არ ამტკიცებს, რომ ცხოველი ტერიტორიიდან წავიდა. ის მხოლოდ იმას ნიშნავს, რომ იმ პერიოდში კამერების წინ არ გაუვლია. ამიტომ „კვალი დაიკარგა“ აქ ზუსტი ფორმულირებაა: არც მისი წასვლა და არც დარჩენა დადასტურებული არ არის.",
@@ -439,6 +503,7 @@ export const THREE_LEGGED_LEOPARD_AREN_ALGETI: NewsArticle = {
               ],
               type: "p",
             },
+            FIGURE_ARENI,
             {
               parts: [
                 "Леопардов на кадрах фотоловушек обычно различают по индивидуальному рисунку пятен. Но у Арена есть примета, которая видна на кадре и без сравнения пятен: отсутствующая конечность. Поэтому один короткий вопрос стал первым шагом, чтобы связать животное из Алгети с особью, известной по Армении.",
@@ -453,6 +518,7 @@ export const THREE_LEGGED_LEOPARD_AREN_ALGETI: NewsArticle = {
               ],
               type: "p",
             },
+            FIGURE_ALGETI_FOREST,
             {
               parts: [
                 "Слова «не менее» здесь важны. Известны только точки, где животное попало на камеры. Каким путём оно шло между ними и сколько времени провело на каждом отрезке, неизвестно.",
@@ -507,6 +573,7 @@ export const THREE_LEGGED_LEOPARD_AREN_ALGETI: NewsArticle = {
               ],
               type: "p",
             },
+            FIGURE_ALGETI_RIDGES,
             {
               parts: [
                 "Отсутствие записи на камере не доказывает, что животное ушло. Оно означает лишь, что в этот период оно не прошло перед камерами. Поэтому «след потерялся» — здесь точная формулировка: не подтверждён ни уход Арена, ни то, что он остался.",
@@ -634,6 +701,7 @@ export const THREE_LEGGED_LEOPARD_AREN_ALGETI: NewsArticle = {
               ],
               type: "p",
             },
+            FIGURE_ARENI,
             {
               parts: [
                 "Fotokapan görüntülerinde leoparlar genellikle bireysel benek desenleriyle ayırt edilir. Aren'in ise benekleri karşılaştırmadan da karede görülen bir işareti var: eksik uzvu. Bu yüzden tek bir kısa soru, Algeti'deki hayvanı Ermenistan'dan bilinen bir bireyle ilişkilendirmenin ilk adımı oldu.",
@@ -648,6 +716,7 @@ export const THREE_LEGGED_LEOPARD_AREN_ALGETI: NewsArticle = {
               ],
               type: "p",
             },
+            FIGURE_ALGETI_FOREST,
             {
               parts: [
                 "Burada “en az” ifadesi önemli. Yalnızca kameraların onu yakaladığı noktalar biliniyor. Bu noktalar arasında hangi yolu izlediği ve her bölümde ne kadar kaldığı bilinmiyor.",
@@ -701,6 +770,7 @@ export const THREE_LEGGED_LEOPARD_AREN_ALGETI: NewsArticle = {
               ],
               type: "p",
             },
+            FIGURE_ALGETI_RIDGES,
             {
               parts: [
                 "Kamerada kayıt olmaması hayvanın bölgeden ayrıldığını kanıtlamaz. Yalnızca o dönemde kameraların önünden geçmediği anlamına gelir. Bu yüzden “izi kayboldu” burada doğru ifade: ne ayrıldığı ne de kaldığı doğrulandı.",
@@ -808,6 +878,7 @@ export const THREE_LEGGED_LEOPARD_AREN_ALGETI: NewsArticle = {
       title: "Üç bacaklı leopar Aren: Ermenistan'dan Algeti'ye 250 km",
     },
   },
+  gallery: [PHOTO_ARENI, PHOTO_ALGETI_FOREST, PHOTO_ALGETI_RIDGES],
   id: "three-legged-leopard-aren-algeti",
   image: PHOTO_PERSIAN_LEOPARD,
   publishedAt: "2026-10-14T16:53:23+04:00",
