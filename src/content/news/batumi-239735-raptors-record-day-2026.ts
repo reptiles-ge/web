@@ -1,7 +1,74 @@
-import type { NewsArticle } from "@/data/newsTypes";
+import type { NewsArticle, NewsPhoto } from "@/data/newsTypes";
 
 const SOURCE_URL =
   "https://www.batumiraptorcount.org/news/2026/10/second-biggest-day-ever";
+
+const PHOTO_TEAM: NewsPhoto = {
+  alt: {
+    en: "The Station 2 team celebrating at the count station after the second-biggest day in the count’s history.",
+    ka: "მეორე სადგურის გუნდი აღრიცხვის ისტორიაში მეორე ყველაზე დიდი დღის შემდეგ.",
+    ru: "Команда второй станции после второго по величине дня в истории учёта.",
+    tr: "Sayım tarihinin ikinci en büyük gününün ardından 2. istasyon ekibi.",
+  },
+  credit: {
+    date: "2026-10-04",
+    photographer: "Bart Hoekstra",
+    url: SOURCE_URL,
+  },
+  src: "https://cdn.reptiles.ge/news-batumi-239735-hoekstra-station-2.jpg",
+};
+
+const PHOTO_KITES: NewsPhoto = {
+  alt: {
+    en: "Black Kites and an airliner with contrails over the Batumi bottleneck on 4 October.",
+    ka: "შავი ძერები და თვითმფრინავი ბათუმის ბოთლის ყელის თავზე, 4 ოქტომბერი.",
+    ru: "Чёрные коршуны и самолёт над батумским бутылочным горлышком, 4 октября.",
+    tr: "4 Ekim’de Batumi darboğazı üzerinde kara çaylaklar ve bir yolcu uçağı.",
+  },
+  credit: {
+    date: "2026-10-04",
+    photographer: "Bart Hoekstra",
+    url: SOURCE_URL,
+  },
+  src: "https://cdn.reptiles.ge/news-batumi-239735-hoekstra-black-kites.jpg",
+};
+
+const PHOTO_EAGLES: NewsPhoto = {
+  alt: {
+    en: "Large eagles and Steppe Buzzards filling a clouded sky over the Batumi bottleneck.",
+    ka: "დიდი არწივები და სტეპის კაკაჩები ღრუბლიან ცაზე. ბათუმის ბოთლის ყელი.",
+    ru: "Крупные орлы и степные канюки в облачном небе над батумским бутылочным горлышком.",
+    tr: "Batumi darboğazında bulutlu gökyüzünü dolduran büyük kartallar ve bozkır şahinleri.",
+  },
+  credit: {
+    date: "2026-10-04",
+    photographer: "Bart Hoekstra",
+    url: SOURCE_URL,
+  },
+  src: "https://cdn.reptiles.ge/news-batumi-239735-hoekstra-eagles-buzzards.jpg",
+};
+
+const PHOTO_STEPPE_EAGLE: NewsPhoto = {
+  alt: {
+    en: "A Steppe Eagle from below, one of the species with a new daily record. Photographed earlier in the season.",
+    ka: "ველის არწივი ქვემოდან — ერთ-ერთი სახეობა ახალი დღიური რეკორდით. ფოტო სეზონის სხვა დღესაა გადაღებული.",
+    ru: "Степной орёл снизу — один из видов с новым дневным рекордом. Снимок сделан в другой день сезона.",
+    tr: "Aşağıdan bozkır kartalı — yeni günlük rekor kıran türlerden biri. Fotoğraf sezonun başka bir gününde çekildi.",
+  },
+  credit: {
+    date: "2026-09-17",
+    photographer: "Thijmen Stolk",
+    url: SOURCE_URL,
+  },
+  src: "https://cdn.reptiles.ge/news-batumi-239735-stolk-steppe-eagle.jpg",
+};
+
+const FIGURE_KITES = { src: PHOTO_KITES.src, type: "figure" as const };
+const FIGURE_EAGLES = { src: PHOTO_EAGLES.src, type: "figure" as const };
+const FIGURE_STEPPE_EAGLE = {
+  src: PHOTO_STEPPE_EAGLE.src,
+  type: "figure" as const,
+};
 
 export const BATUMI_239735_RAPTORS_RECORD_DAY_2026: NewsArticle = {
   copy: {
@@ -20,6 +87,7 @@ export const BATUMI_239735_RAPTORS_RECORD_DAY_2026: NewsArticle = {
               ],
               type: "p",
             },
+            FIGURE_KITES,
             {
               parts: [
                 "At Station 1, huge streams of ",
@@ -34,6 +102,7 @@ export const BATUMI_239735_RAPTORS_RECORD_DAY_2026: NewsArticle = {
               ],
               type: "p",
             },
+            FIGURE_EAGLES,
             {
               parts: [
                 "Batumi Raptor Count published the report on 6 October. Full field notes from both stations are on its ",
@@ -61,6 +130,7 @@ export const BATUMI_239735_RAPTORS_RECORD_DAY_2026: NewsArticle = {
               ],
               type: "p",
             },
+            FIGURE_STEPPE_EAGLE,
             {
               parts: [
                 "The report gives no species totals. This article repeats only that the records were broken, not by how many birds.",
@@ -134,6 +204,7 @@ export const BATUMI_239735_RAPTORS_RECORD_DAY_2026: NewsArticle = {
               ],
               type: "p",
             },
+            FIGURE_KITES,
             {
               parts: [
                 "პირველ სადგურზე ცას ",
@@ -152,6 +223,7 @@ export const BATUMI_239735_RAPTORS_RECORD_DAY_2026: NewsArticle = {
               ],
               type: "p",
             },
+            FIGURE_EAGLES,
             {
               parts: [
                 "Batumi Raptor Count-მა ანგარიში 6 ოქტომბერს გამოაქვეყნა. ორივე სადგურის საველე ჩანაწერები სრულად დევს ",
@@ -179,6 +251,7 @@ export const BATUMI_239735_RAPTORS_RECORD_DAY_2026: NewsArticle = {
               ],
               type: "p",
             },
+            FIGURE_STEPPE_EAGLE,
             {
               parts: [
                 "ანგარიშში სახეობრივი რიცხვები არ არის დასახელებული. ამიტომ აქ მხოლოდ ის მეორდება, რომ რეკორდები დაიმხო — და არა ის, რამდენი ფრინველით.",
@@ -253,6 +326,7 @@ export const BATUMI_239735_RAPTORS_RECORD_DAY_2026: NewsArticle = {
               ],
               type: "p",
             },
+            FIGURE_KITES,
             {
               parts: [
                 "Над первой станцией шли огромные потоки ",
@@ -275,6 +349,7 @@ export const BATUMI_239735_RAPTORS_RECORD_DAY_2026: NewsArticle = {
               ],
               type: "p",
             },
+            FIGURE_EAGLES,
             {
               parts: [
                 "Batumi Raptor Count опубликовал отчёт 6 октября. Полные полевые записи обеих станций — на ",
@@ -302,6 +377,7 @@ export const BATUMI_239735_RAPTORS_RECORD_DAY_2026: NewsArticle = {
               ],
               type: "p",
             },
+            FIGURE_STEPPE_EAGLE,
             {
               parts: [
                 "Численность по видам в отчёте не приводится. Поэтому здесь сказано только, что рекорды побиты, — но не сколькими птицами.",
@@ -376,6 +452,7 @@ export const BATUMI_239735_RAPTORS_RECORD_DAY_2026: NewsArticle = {
               ],
               type: "p",
             },
+            FIGURE_KITES,
             {
               parts: [
                 "1. istasyonun üzerinden ",
@@ -390,6 +467,7 @@ export const BATUMI_239735_RAPTORS_RECORD_DAY_2026: NewsArticle = {
               ],
               type: "p",
             },
+            FIGURE_EAGLES,
             {
               parts: [
                 "Batumi Raptor Count raporu 6 Ekim’de yayımladı. İki istasyonun tüm saha notları ",
@@ -417,6 +495,7 @@ export const BATUMI_239735_RAPTORS_RECORD_DAY_2026: NewsArticle = {
               ],
               type: "p",
             },
+            FIGURE_STEPPE_EAGLE,
             {
               parts: [
                 "Raporda türlere göre sayılar yok. Bu yüzden burada yalnızca rekorların kırıldığı yazılıyor — kaç kuşla kırıldığı değil.",
@@ -476,7 +555,9 @@ export const BATUMI_239735_RAPTORS_RECORD_DAY_2026: NewsArticle = {
       title: "Batumi’de bir günde 239.735 yırtıcı: kara çaylak ve kartal rekorları",
     },
   },
+  gallery: [PHOTO_KITES, PHOTO_EAGLES, PHOTO_STEPPE_EAGLE],
   id: "batumi-239735-raptors-record-day-2026",
+  image: PHOTO_TEAM,
   publishedAt: "2026-10-14",
   relatedHubIds: ["birds"],
   relatedRegionIds: ["adjara"],
