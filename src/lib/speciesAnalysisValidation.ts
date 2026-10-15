@@ -102,6 +102,22 @@ export function analysisLookalikes(source: string, id: string) {
   }));
 }
 
+export function analysisNumbers(value: string) {
+  return [
+    ...new Set(
+      (
+        plain(value).match(
+          /\d{1,3}(?:[ \u00a0,]\d{3})+(?![.,]?\d)|\d+(?:[.,]\d+)?/g,
+        ) ?? []
+      ).map((item) =>
+        /^\d{1,3}(?:[ \u00a0,]\d{3})+$/.test(item)
+          ? item.replace(/[ \u00a0,]/g, "")
+          : item.replace(",", "."),
+      ),
+    ),
+  ].sort();
+}
+
 export function applyAnalysisEdits(
   raw: string,
   locale: (typeof ANALYSIS_LOCALES)[number],
@@ -546,17 +562,39 @@ function analysisItemChecks(
         throw new Error("Link stage changed prose or a non-link field");
       if (stage === "texts") {
         assertInlineLinksPreserved(before, after);
-        const numbers = (value: string) =>
-          [...new Set(plain(value).match(/\d+(?:[.,]\d+)?/g) ?? [])]
-            .map((value) => value.replace(",", "."))
-            .sort()
-            .join("|");
-        if (numbers(before) !== numbers(after))
+        const beforeNumbers = analysisNumbers(before);
+        const afterNumbers = analysisNumbers(after);
+        const elsewhere = new Set(
+          context.editableFields
+            .filter((field) => field !== edit.field)
+            .flatMap((field) =>
+              analysisNumbers(
+                result.edits.find((item) => item.field === field)?.after[
+                  locale
+                ] ?? analysisField(data, field),
+              ),
+            ),
+        );
+        const page = new Set(
+          context.editableFields
+            .filter((field) => field !== edit.field)
+            .flatMap((field) => analysisNumbers(analysisField(data, field))),
+        );
+        const beforeSet = new Set(beforeNumbers);
+        const afterSet = new Set(afterNumbers);
+        if (
+          afterNumbers.some(
+            (value) => !beforeSet.has(value) && !page.has(value),
+          ) ||
+          beforeNumbers.some(
+            (value) => !afterSet.has(value) && !elsewhere.has(value),
+          )
+        )
           throw new AnalysisNumberError(
             edit.field,
             locale,
-            numbers(before),
-            numbers(after),
+            beforeNumbers.join("|"),
+            afterNumbers.join("|"),
           );
         if (scientificNames(before) !== scientificNames(after))
           throw new AnalysisScientificNameError(

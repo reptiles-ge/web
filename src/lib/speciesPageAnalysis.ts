@@ -9,8 +9,6 @@ import { promisify } from "node:util";
 import type { AiProfile } from "@/lib/aiAgentProfiles";
 
 import { formatAgentRun, runAgent } from "@/lib/aiAgent";
-import { validateEditorResult } from "@/lib/contentEditor";
-import { transformWithAgent } from "@/lib/contentEditorAgent";
 import { findSpeciesPullRequest } from "@/lib/contentEditorPullRequest";
 import { resolveEditorTarget } from "@/lib/contentEditorTarget";
 import {
@@ -26,7 +24,10 @@ import {
   type SuperAnalysisResult,
   type SuperAnalysisStage,
 } from "@/lib/speciesSuperAnalysisSchema";
-import { getSpeciesTextFields } from "@/lib/speciesTextProcessing";
+import {
+  rewriteSpeciesTexts,
+  speciesTextsReport,
+} from "@/lib/speciesTextProcessing";
 
 const exec = promisify(execFile);
 const root = process.cwd();
@@ -92,14 +93,16 @@ export async function speciesCreationCodexPrompt(input: SpeciesCreationInput) {
     input.scientificName,
   );
   if (id !== input.id) throw new Error("Invalid species id");
-  const template = await fs.readFile(
-    path.join(root, "src/prompts/species-page-create.md"),
-    "utf8",
+  const [template, style] = await Promise.all(
+    ["species-page-create.md", "writing-style.md"].map((file) =>
+      fs.readFile(path.join(root, "src/prompts", file), "utf8"),
+    ),
   );
-  const prompt = template
-    .replaceAll("{{COMMON_NAME}}", commonName)
-    .replaceAll("{{SCIENTIFIC_NAME}}", scientificName)
-    .replaceAll("{{SPECIES_ID}}", id);
+  const prompt =
+    `${template}\n\nWRITING STYLE (binding house style for every reader-facing text you write)\n\n${style}`
+      .replaceAll("{{COMMON_NAME}}", commonName)
+      .replaceAll("{{SCIENTIFIC_NAME}}", scientificName)
+      .replaceAll("{{SPECIES_ID}}", id);
   const allowedFiles = [
     ...["ka", "en", "ru", "tr"].map(
       (locale) => `src/content/species/${id}/${locale}.mdx`,
@@ -660,29 +663,17 @@ async function changedFiles(worktree: string) {
 }
 
 async function processWorkflowTexts(id: string, worktree: string) {
-  const raw = await fs.readFile(
-    path.join(worktree, "src/content/species", id, "ka.mdx"),
-    "utf8",
-  );
-  const fields = getSpeciesTextFields(raw);
-  if (!fields.length) throw new Error("No page texts to process");
-  const report: string[] = [];
-  for (const field of fields) {
+  const { notes, updates } = await rewriteSpeciesTexts(id, worktree);
+  for (const { field, result } of updates) {
     const target = await resolveEditorTarget(
       { field, id, kind: "species" },
       worktree,
     );
-    const selection = { after: "", before: "", selected: target.source };
-    const result = validateEditorResult(
-      await transformWithAgent(selection),
-      selection,
-    );
     const updated = target.updated(result);
     for (const [index, file] of target.files.entries())
       await fs.writeFile(path.join(worktree, file), updated[index]);
-    report.push(`${field}\n${result.ka}`);
   }
-  return report.join("\n\n");
+  return speciesTextsReport(updates, notes);
 }
 
 async function repairSpeciesFrontmatter(

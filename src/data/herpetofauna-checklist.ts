@@ -7,6 +7,7 @@ const HERP_GROUPS = new Set(["amphibian", "lizard", "snake", "turtle"]);
 
 const CANDIDATE = new Set<string>([
   "anguis-colchica",
+  "bufo-verrucosissimus",
   "darevskia-adjarica",
   "darevskia-alpina",
   "darevskia-brauneri",
@@ -15,12 +16,14 @@ const CANDIDATE = new Set<string>([
   "darevskia-pontica",
   "dolichophis-caspius",
   "dolichophis-schmidti",
+  "elaphe-urartica",
   "hyla-orientalis",
-  "lacerta-agilis",
   "lacerta-media",
   "lissotriton-lantzi",
+  "malpolon-insignitus",
+  "vipera-darevskii",
   "vipera-dinniki",
-  "vipera-kaznakovi",
+  "vipera-renardi",
 ]);
 
 const INTRODUCED = new Set<string>([

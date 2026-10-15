@@ -40,6 +40,7 @@ import {
 } from "@/lib/clusterGuides";
 import { cn } from "@/lib/cn";
 import { contentEditorAttributes } from "@/lib/contentEditorAttributes";
+import { hubFaqValues } from "@/lib/groupHubFaqValues";
 import { HUB_DISPLAY_ORDER, hubGuideCards } from "@/lib/groupHubLayout";
 import { GROUP_HUB_ILLUSTRATIONS, GROUP_HUBS } from "@/lib/groupHubs";
 import { usesDangerScale } from "@/lib/speciesRisk";
@@ -163,7 +164,10 @@ export async function GroupHubPage({
           species={species}
         />
         {hubId === "turtles" ? <TurtlesHubSections /> : null}
-        <GroupHubFaqSection hubId={hubId} speciesCount={species.length} />
+        <GroupHubFaqSection
+          hubId={hubId}
+          values={hubFaqValues(species, locale)}
+        />
         {citesChecklist ? (
           <div className={cn(HUB_CONTAINER, "pb-4")}>
             <GuideSources

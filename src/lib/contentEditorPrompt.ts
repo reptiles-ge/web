@@ -16,6 +16,12 @@ export interface EditorPromptInput {
   /** The site's risk label for humans */
   riskLevel?: RiskLevel;
   selected: string;
+  /** Common names, per locale, of other species linked on the same page */
+  speciesNames?: Array<Record<"en" | "ka" | "ru" | "tr", string>>;
+  /** Binding house style (src/prompts/writing-style.md) */
+  styleGuide?: string;
+  /** Measured style violations of a previous rewrite of the same SELECTED */
+  styleRepair?: { issues: string; previous: string };
 }
 
 type RiskLevel = "Harmless" | "High" | "Moderate";
@@ -42,6 +48,8 @@ export function buildEditorPrompt(input: EditorPromptInput) {
     pageContext.push("OTHER_FIELDS:", JSON.stringify(input.otherFields));
   if (hasExisting)
     pageContext.push("EXISTING_TRANSLATIONS:", JSON.stringify(existing));
+  if (input.speciesNames?.length)
+    pageContext.push("SPECIES_NAMES:", JSON.stringify(input.speciesNames));
 
   const outputKeys = withFlags
     ? '{"ka":"...","en":"...","ru":"...","tr":"...","flags":[]}'
@@ -59,8 +67,14 @@ export function buildEditorPrompt(input: EditorPromptInput) {
     "Write for an ordinary person with no education in biology, zoology or medicine, who often reads on a phone.",
     "Simplicity is a primary requirement. When simplicity and factual accuracy genuinely conflict, accuracy wins.",
 
-    "MINIMAL EDITING:",
-    "If SELECTED is already clear, natural and correct, return it unchanged or with the smallest necessary edits. Do not rewrite good text only to make it different. Every change must fix a real problem: grammar, clarity, jargon, repetition, a calque, commentary that must be removed, or a house-style violation.",
+    "WHEN TO EDIT:",
+    "Return SELECTED unchanged or nearly unchanged only when it already passes the WRITING STYLE self-check. Correct but flat text is not finished: a buried lead, a repeated subject, stacked hedges, site talk, one-line paragraphs or banned phrases are real problems. Do not rewrite text only to make it different.",
+    ...(input.styleGuide
+      ? [
+          "WRITING STYLE (binding; it applies to SELECTED and the translations; where it conflicts with a rule below about tone or length, WRITING STYLE wins; it never overrides factual fidelity, safety, names, numbers or links):",
+          input.styleGuide,
+        ]
+      : []),
 
     // ─── PLAIN LANGUAGE ──────────────────────────────────────────────
     "PLAIN LANGUAGE:",
@@ -123,7 +137,7 @@ export function buildEditorPrompt(input: EditorPromptInput) {
     "- Do not repeat information that is already obvious from BEFORE or AFTER.",
     ...(hasOtherFields
       ? [
-          "- If a point in SELECTED is already explained in OTHER_FIELDS, keep it in SELECTED as one short clause instead of repeating the full explanation. The short clause must keep the same meaning, scope and certainty.",
+          "- If a point in SELECTED is already explained in OTHER_FIELDS, decide by the home field in WRITING STYLE R7: when FIELD is that point's home field, keep the full explanation here; otherwise keep it in SELECTED as one short clause instead of repeating the full explanation. The short clause must keep the same meaning, scope and certainty, and every number it had, unless that number is stated in the point's home field in OTHER_FIELDS.",
         ]
       : []),
 
@@ -131,8 +145,10 @@ export function buildEditorPrompt(input: EditorPromptInput) {
     "FACTUAL FIDELITY:",
     "Simplification must never change factual meaning.",
     "- Preserve every substantive factual claim and every qualification, condition, limitation, uncertainty, geographic and time context, and relationship between facts needed to understand it. The only material you may drop is repetition, and commentary covered by RESEARCH-GAP COMMENTARY and SITE AND DATA-PROCESS COMMENTARY.",
+    "- Keep every hedge that qualifies a claim: ჩვეულებრივ, ხშირად, შეიძლება, ზოგჯერ, დაახლოებით, უმეტესად, ძირითადად. Deleting one makes the claim stronger. Remove a hedge only when the same claim carries it twice or it is stacked with another hedge. Venom and medical effects keep their შეიძლება.",
     "- Never make a claim more certain, broader or stronger than the input. Do not turn 'may occur' into 'occurs', 'has been recorded' into 'is widespread', 'can' or 'usually' into 'always', or 'some individuals' into a statement about the whole species.",
     "- Never turn information about another country, population or region into information about Georgia. Never infer occurrence in Georgia unless SELECTED explicitly supports it.",
+    "- Restating a fact from OTHER_FIELDS as PAGE CONTEXT allows is not adding a fact. Any other fact is.",
     "- Add no fact, even if you know it. This includes distribution, regions, size, weight, lifespan, behavior, activity patterns, diet, reproduction, venom, danger to humans, medical advice, conservation or population status, scientific consensus, examples and background information.",
     "- Do not remove an important fact to make the passage shorter. Do not silently resolve uncertainty or correct a claim using outside knowledge.",
 
@@ -151,6 +167,11 @@ export function buildEditorPrompt(input: EditorPromptInput) {
     "NAMES:",
     "- Never invent, shorten or change the Georgian common name of any species. If COMMON_NAME is supplied, use it exactly.",
     "- In translations, use an English, Russian or Turkish common name only if it appears in the supplied text. Otherwise use the Latin name. Do not coin common names.",
+    ...(input.speciesNames?.length
+      ? [
+          "- SPECIES_NAMES lists the official common names of other species on this page in every locale. When the Georgian text names one of them, in any grammatical case, use its en, ru or tr name from SPECIES_NAMES in that translation, inflected as the language needs. Never use its Latin name or an improvised name instead.",
+        ]
+      : []),
     "- In translations, use established place-name forms (for example: Samtskhe-Javakheti, Самцхе-Джавахети; Adjara, Аджария).",
 
     // ─── CODES, SOURCES, COMMENTARY ─────────────────────────────────
@@ -186,11 +207,20 @@ export function buildEditorPrompt(input: EditorPromptInput) {
     "Keep the factual conclusion with its exact geographic scope, numbers and certainty. Example: ამ ატლასში უვნებლადაა მონიშნული → ადამიანისთვის საშიში არ არის.",
     "Exception: when FIELD shows a methodology or map note, this explanation is the content; keep it.",
 
+    ...(input.styleRepair
+      ? [
+          "STYLE REPAIR:",
+          "A previous rewrite of this same SELECTED broke the measured WRITING STYLE rules listed below. Write a new rewrite of SELECTED from the original that fixes every listed problem in every listed locale, while keeping all other rules. The previous rewrite is context only.",
+          `MEASURED PROBLEMS:\n${input.styleRepair.issues}`,
+          `PREVIOUS KA REWRITE: ${JSON.stringify(input.styleRepair.previous)}`,
+        ]
+      : []),
+
     // ─── PAGE CONTEXT (only when supplied) ──────────────────────────
     ...(pageContext.length > 0
       ? [
           "PAGE CONTEXT:",
-          "The values after OUTPUT FORMAT (FIELD, COMMON_NAME, LATIN_NAME, RISK_LEVEL, OTHER_FIELDS, EXISTING_TRANSLATIONS) are context only. Never edit them and never copy facts from them into SELECTED.",
+          "The values after OUTPUT FORMAT (FIELD, COMMON_NAME, LATIN_NAME, RISK_LEVEL, OTHER_FIELDS, EXISTING_TRANSLATIONS) are context only. Never edit them. Do not copy facts from them into SELECTED, with one exception: when FIELD is description, overview or identification.summary, you may restate the page's strongest facts from OTHER_FIELDS in the lead (WRITING STYLE R1), with their exact wording of scope, certainty and numbers. OTHER_FIELDS shows the current version of every other field of the same page, including fields already rewritten in this run.",
         ]
       : []),
     ...(input.field
@@ -198,10 +228,10 @@ export function buildEditorPrompt(input: EditorPromptInput) {
           "FIELD-SPECIFIC RULES (FIELD shows where SELECTED appears):",
           "- commonName, headings and stats values: keep them short. Never turn them into sentences.",
           "- overview: when SELECTED includes the first sentence, that sentence names the species with its common and Latin name and gives the most useful fact for an ordinary reader.",
-          "- faq.*.answer: begin with the direct answer (დიახ, არა, or the place or number asked about), then at most two short sentences.",
+          "- faq.*.answer: begin with the direct answer (დიახ, არა, or the place or number asked about), then two to five sentences of supported explanation and the practical consequence. Never a one-line answer when the supplied text supports more.",
           "- identification.*: put concrete visible features from the supplied text first (size, colour, pattern, body shape). Keep notes about names or classification brief. Never invent features.",
           "- habitat, behavior, diet, conservation: keep content that matches the section heading. Do not pad.",
-          "- meta or seo description: 140–155 characters, includes the common name, answers what a searcher most wants to know, no jargon.",
+          "- description (meta description and hero line) or any seo description: one or two sentences of about 120–155 characters in KA, with the common name, the strongest fact, where in Georgia and the main risk or identification point. Never open with a label and a colon. Plain text, no links.",
         ]
       : []),
 

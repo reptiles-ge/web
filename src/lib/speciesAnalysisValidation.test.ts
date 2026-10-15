@@ -13,6 +13,7 @@ import {
   AnalysisCoverageError,
   AnalysisEvidenceError,
   analysisLookalikes,
+  analysisNumbers,
   applyAnalysisEdits,
   applyAnalysisLookalikes,
   salvageSuperAnalysisResult,
@@ -341,6 +342,51 @@ describe("Super Analysis ownership and evidence gates", () => {
         context.content[locale].behavior = savedBehavior[index];
         context.content[locale].stats = savedStats[index];
       }
+    }
+  });
+
+  it("normalizes thousands and allows a number to stay in one field only", () => {
+    expect(analysisNumbers("1,500 მ, 1 500 მ, 1,5 მ, 12 000")).toEqual([
+      "1.5",
+      "12000",
+      "1500",
+    ]);
+    const saved = ANALYSIS_LOCALES.map((locale) => ({
+      description: context.content[locale].description,
+      overview: context.content[locale].overview,
+    }));
+    const description = "A bird of 27–43 cm, to 1,537 m.";
+    const overview = "Natrix natrix is 27–43 cm.";
+    try {
+      for (const locale of ANALYSIS_LOCALES)
+        Object.assign(context.content[locale], { description, overview });
+      const deduped = result("texts");
+      deduped.edits = [
+        edit(description, "A bird found up to 1537 m.", "description"),
+      ];
+      expect(check(deduped, prior()).edits).toHaveLength(1);
+      const lost = result("texts");
+      lost.edits = [edit(description, "A bird of 27–43 cm.", "description")];
+      expect(() => check(lost, prior())).toThrow("changed numbers");
+      const both = result("texts");
+      both.edits = [
+        edit(description, "A bird up to 1537 m.", "description"),
+        edit(overview, "Natrix natrix is a snake.", "overview"),
+      ];
+      expect(() => check(both, prior())).toThrow("changed numbers");
+      const lead = result("texts");
+      lead.edits = [
+        edit(overview, "Natrix natrix is 27–43 cm, up to 1537 m.", "overview"),
+      ];
+      expect(check(lead, prior()).edits).toHaveLength(1);
+      const invented = result("texts");
+      invented.edits = [
+        edit(overview, "Natrix natrix is 27–43 cm, up to 1600 m.", "overview"),
+      ];
+      expect(() => check(invented, prior())).toThrow("changed numbers");
+    } finally {
+      for (const [index, locale] of ANALYSIS_LOCALES.entries())
+        Object.assign(context.content[locale], saved[index]);
     }
   });
 
