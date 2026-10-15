@@ -18,6 +18,7 @@ import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { faqPageJsonLd } from "@/lib/faqJsonLd";
 import { hubFaqLinks } from "@/lib/groupHubFaq";
+import { type HubFaqValues, hubFaqValues } from "@/lib/groupHubFaqValues";
 import { HUB_HERO_IMAGE_SIZES } from "@/lib/groupHubLayout";
 import { GROUP_HUBS, type GroupHubId } from "@/lib/groupHubs";
 import { buildPageMetadata } from "@/lib/pageMetadata";
@@ -110,7 +111,9 @@ export function createGroupHubRoute(hubId: GroupHubId) {
       url,
     });
 
-    const faqLd = faqPageJsonLd(hubFaqEntries(hubId, t, species.length));
+    const faqLd = faqPageJsonLd(
+      hubFaqEntries(hubId, t, hubFaqValues(species, locale)),
+    );
 
     return (
       <>
@@ -179,22 +182,26 @@ function hubFaqAnswer(
   hubId: GroupHubId,
   n: number,
   t: HubTranslator,
-  count: number,
+  values: HubFaqValues,
 ) {
   const links = hubFaqLinks(hubId, n);
-  if (!links) return t(`faq${n}A` as "faq1A", { count });
+  if (!links) return t(`faq${n}A` as "faq1A", values);
   return t.markup(`faq${n}A` as "faq1A", {
-    count,
+    ...values,
     ...Object.fromEntries(
       Object.keys(links).map((tag) => [tag, (chunks: string) => chunks]),
     ),
   });
 }
 
-function hubFaqEntries(hubId: GroupHubId, t: HubTranslator, count: number) {
+function hubFaqEntries(
+  hubId: GroupHubId,
+  t: HubTranslator,
+  values: HubFaqValues,
+) {
   return hubFaqIndices(hubId).flatMap((n) =>
     t.has(`faq${n}Q`)
-      ? [{ answer: hubFaqAnswer(hubId, n, t, count), question: t(`faq${n}Q`) }]
+      ? [{ answer: hubFaqAnswer(hubId, n, t, values), question: t(`faq${n}Q`) }]
       : [],
   );
 }

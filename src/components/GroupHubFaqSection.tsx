@@ -4,6 +4,7 @@ import { ChevronDown } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { type ReactNode, useMemo, useState } from "react";
 
+import type { HubFaqValues } from "@/lib/groupHubFaqValues";
 import type { GroupHubId } from "@/lib/groupHubs";
 
 import { FaqAnswerPanel } from "@/components/FaqAccordionParts";
@@ -21,10 +22,10 @@ const faqLinkClassName = "text-foreground underline-offset-4 hover:underline";
 
 export function GroupHubFaqSection({
   hubId,
-  speciesCount,
+  values,
 }: {
   hubId: GroupHubId;
-  speciesCount: number;
+  values: HubFaqValues;
 }) {
   const t = useTranslations(hubId);
   const [open, setOpen] = useState<null | number>(0);
@@ -85,7 +86,7 @@ export function GroupHubFaqSection({
                 </button>
                 <FaqAnswerPanel isOpen={isOpen}>
                   <p className="px-5 pb-5 text-[14px] leading-[1.65] text-muted-foreground lg:pr-[76px] lg:pb-6 lg:pl-[26px] lg:text-[15px] lg:leading-[1.7]">
-                    <HubFaqAnswer count={speciesCount} hubId={hubId} n={n} />
+                    <HubFaqAnswer hubId={hubId} n={n} values={values} />
                   </p>
                 </FaqAnswerPanel>
               </div>
@@ -98,27 +99,27 @@ export function GroupHubFaqSection({
 }
 
 function HubFaqAnswer({
-  count,
   hubId,
   n,
+  values,
 }: {
-  count: number;
   hubId: GroupHubId;
   n: number;
+  values: HubFaqValues;
 }) {
   const t = useTranslations(hubId);
   const links = hubFaqLinks(hubId, n);
 
   if (!links) {
     return (
-      <PhoneLinkedText>{t(`faq${n}A` as "faq1A", { count })}</PhoneLinkedText>
+      <PhoneLinkedText>{t(`faq${n}A` as "faq1A", values)}</PhoneLinkedText>
     );
   }
 
   return (
     <PhoneLinkedText>
       {t.rich(`faq${n}A` as "faq1A", {
-        count,
+        ...values,
         ...Object.fromEntries(
           Object.entries(links).map(([tag, href]) => [
             tag,
