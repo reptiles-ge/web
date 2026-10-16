@@ -13,7 +13,10 @@ import {
   type SuperAnalysisStage,
 } from "@/lib/speciesSuperAnalysisSchema";
 
-import { kaFrontmatterSchema } from "../../scripts/speciesFrontmatter";
+import {
+  kaFrontmatterSchema,
+  translationFrontmatterSchema,
+} from "../../scripts/speciesFrontmatter";
 
 const editableField =
   /^(?:description|interaction|overview|habitat|diet|behavior|conservation|identification\.(?:summary|coloration|(?:traits|colors)\.\d+)|faq\.\d+\.(?:question|answer)|stats\.\d+\.value)$/;
@@ -146,7 +149,10 @@ export function applyAnalysisEdits(
   }
   if (JSON.stringify(data) === JSON.stringify(parsed.data)) return raw;
   if (locale === "ka") data.dateModified = toSiteDateTime(new Date());
-  kaFrontmatterSchema.omit({ family: true, genus: true }).parse(data);
+  (locale === "ka"
+    ? kaFrontmatterSchema.partial({ family: true, genus: true })
+    : translationFrontmatterSchema
+  ).parse(data);
   const updated = `${matter.stringify("", data).trimEnd()}\n${parsed.content}`;
   if (JSON.stringify(matter(updated).data) !== JSON.stringify(data))
     throw new Error("Content did not round-trip through YAML");

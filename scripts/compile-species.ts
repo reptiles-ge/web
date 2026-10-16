@@ -39,6 +39,7 @@ import {
   sourcesAreValid,
   translationFrontmatterSchema,
   type KaFrontmatter,
+  type TranslationFrontmatter,
 } from "./speciesFrontmatter";
 
 const contentRoot = path.join(process.cwd(), "src/content/species");
@@ -185,7 +186,7 @@ function toIdentification(
   };
 }
 
-function toTranslation(fm: KaFrontmatter): SpeciesTranslation {
+function toTranslation(fm: TranslationFrontmatter): SpeciesTranslation {
   return {
     commonName: fm.commonName,
     location: fm.location ?? "",
@@ -210,12 +211,57 @@ function toTranslation(fm: KaFrontmatter): SpeciesTranslation {
   };
 }
 
+function translationMismatches(
+  ka: KaFrontmatter,
+  fm: TranslationFrontmatter,
+): string[] {
+  const issues: string[] = [];
+  if (fm.scientificName !== ka.scientificName) {
+    issues.push(
+      `scientificName: ${fm.scientificName} does not match ka ${ka.scientificName}`,
+    );
+  }
+  const counts: Array<[string, unknown[] | undefined, unknown[] | undefined]> =
+    [
+      ["faq", ka.faq, fm.faq],
+      ["facts", ka.facts, fm.facts],
+      ["stats", ka.stats, fm.stats],
+      [
+        "identification.traits",
+        ka.identification?.traits,
+        fm.identification?.traits,
+      ],
+    ];
+  for (const [field, kaItems, items] of counts) {
+    const kaCount = kaItems?.length ?? 0;
+    const count = items?.length ?? 0;
+    if (kaCount !== count) {
+      issues.push(`${field}: ${count} entries, ka has ${kaCount}`);
+    }
+  }
+  const kaColors = JSON.stringify(ka.identification?.colors ?? []);
+  const colors = JSON.stringify(fm.identification?.colors ?? []);
+  if (colors !== kaColors) {
+    issues.push(
+      `identification.colors: ${colors} does not match ka ${kaColors}`,
+    );
+  }
+  const kaSrcs = new Set((ka.gallery ?? []).map((image) => image.src));
+  for (const image of fm.gallery ?? []) {
+    if (!kaSrcs.has(image.src)) {
+      issues.push(`gallery: overlay src not in ka gallery: ${image.src}`);
+    }
+  }
+  return issues;
+}
+
 if (!fs.existsSync(contentRoot)) {
   throw new Error(`Missing content directory: ${contentRoot}`);
 }
 
 const TRANSLATION_LOCALES = ["en", "ru", "tr"] as const;
 
+const featuredIds = new Set<string>(featuredSpeciesIds);
 const publishedIds = new Set<string>(
   featuredSpeciesIds.filter((id) => !unpublishedSpeciesIds.has(id)),
 );
@@ -270,6 +316,10 @@ for (const id of ids) {
     );
   }
 
+  if (!featuredIds.has(id)) {
+    errors.push(`${id}: content folder not registered in featuredSpeciesIds`);
+  }
+
   const meta = speciesAtlasMeta[id];
   const isPublished = publishedIds.has(id);
   if (isPublished && !meta) {
@@ -278,11 +328,6 @@ for (const id of ids) {
 
   if (fm.danger && meta && !groupHasVenomConcept(meta.group)) {
     errors.push(`${kaPath}: danger: not allowed for group ${meta.group}`);
-  }
-
-  const enPath = path.join(contentRoot, id, "en.mdx");
-  if (isPublished && !fs.existsSync(enPath)) {
-    errors.push(`${id}: published taxon missing en.mdx`);
   }
 
   const updatedAt = resolveUpdatedAt([kaPath, ...localePaths], fm.dateModified);
@@ -297,7 +342,10 @@ for (const id of ids) {
 
   for (const locale of TRANSLATION_LOCALES) {
     const filePath = path.join(contentRoot, id, `${locale}.mdx`);
-    if (!fs.existsSync(filePath)) continue;
+    if (!fs.existsSync(filePath)) {
+      errors.push(`${id}: missing ${locale}.mdx`);
+      continue;
+    }
     const parsedTr = translationFrontmatterSchema.safeParse(
       matter(fs.readFileSync(filePath, "utf8")).data,
     );
@@ -305,7 +353,15 @@ for (const id of ids) {
       errors.push(formatZodError(filePath, parsedTr.error));
       continue;
     }
-    const translation = toTranslation(parsedTr.data as KaFrontmatter);
+    if (parsedTr.data.id !== id) {
+      errors.push(
+        `${filePath}: folder/id mismatch: folder=${id} frontmatter=${parsedTr.data.id}`,
+      );
+    }
+    for (const issue of translationMismatches(fm, parsedTr.data)) {
+      errors.push(`${filePath}: ${issue}`);
+    }
+    const translation = toTranslation(parsedTr.data);
     const ownDate = parsedTr.data.dateModified;
     const localeDate = ownDate
       ? parseToSiteDateTime(ownDate)

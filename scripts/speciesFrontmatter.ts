@@ -31,7 +31,7 @@ const photoCreditSchema = z
     });
   });
 
-const galleryImageSchema = z.looseObject({
+const galleryImageSchema = z.strictObject({
   credit: photoCreditSchema.optional(),
   photoConfidence: photoConfidenceSchema.optional(),
   src: nonempty,
@@ -43,7 +43,7 @@ const fieldRecordEvidenceSchema = z.enum([
   "specimen",
 ]);
 
-const fieldRecordSchema = z.looseObject({
+const fieldRecordSchema = z.strictObject({
   date: z.string().optional(),
   evidence: fieldRecordEvidenceSchema.optional(),
   lat: z.number().min(-90).max(90),
@@ -56,16 +56,54 @@ const fieldRecordSchema = z.looseObject({
   url: z.string().optional(),
 });
 
-const sourceSchema = z.looseObject({
+const sourceSchema = z.strictObject({
   name: nonempty,
   url: z.string().optional(),
 });
 
 const dangerLevelSchema = z.enum(["Harmless", "High", "Moderate"]);
 
-export const kaFrontmatterSchema = z.looseObject({
+const faqSchema = z.array(
+  z.strictObject({
+    answer: z.string(),
+    question: z.string(),
+  }),
+);
+
+const statsSchema = z.array(
+  z.strictObject({
+    label: z.string(),
+    value: z.string(),
+  }),
+);
+
+const identificationSchema = z.strictObject({
+  coloration: z.string().optional(),
+  colors: z.array(z.enum(SPECIES_COLORS)).max(13).optional(),
+  summary: z.string().optional(),
+  traits: z.array(z.string()).optional(),
+});
+
+const textShape = {
+  behavior: z.string().optional(),
+  commonName: nonempty,
+  conservation: z.string().optional(),
+  description: z.string().optional(),
+  diet: z.string().optional(),
+  facts: z.array(z.string()).optional(),
+  faq: faqSchema.optional(),
+  habitat: z.string().optional(),
+  identification: identificationSchema.optional(),
+  interaction: z.string().optional(),
+  location: z.string().optional(),
+  overview: z.string().optional(),
+  stats: statsSchema.optional(),
+};
+
+export const kaFrontmatterSchema = z.strictObject({
+  ...textShape,
   audio: z
-    .looseObject({
+    .strictObject({
       date: z.string().optional(),
       location: z.string().optional(),
       recordist: z.string().optional(),
@@ -73,64 +111,36 @@ export const kaFrontmatterSchema = z.looseObject({
       url: z.string().optional(),
     })
     .optional(),
-  behavior: z.string().optional(),
-  commonName: nonempty,
-  conservation: z.string().optional(),
   danger: dangerLevelSchema.optional(),
   dateModified: z.string().optional(),
   datePublished: z.string().optional(),
-  description: z.string().optional(),
-  diet: z.string().optional(),
-  facts: z.array(z.string()).optional(),
   family: nonempty,
-  faq: z
-    .array(
-      z.object({
-        answer: z.string(),
-        question: z.string(),
-      }),
-    )
-    .optional(),
   fieldRecords: z.array(fieldRecordSchema).optional(),
   gallery: z.array(galleryImageSchema).optional(),
   genus: nonempty,
-  habitat: z.string().optional(),
   id: nonempty,
-  identification: z
-    .looseObject({
-      coloration: z.string().optional(),
-      colors: z.array(z.enum(SPECIES_COLORS)).max(13).optional(),
-      summary: z.string().optional(),
-      traits: z.array(z.string()).optional(),
-    })
-    .optional(),
   image: z.string().optional(),
   imageCredit: photoCreditSchema.optional(),
-  interaction: z.string().optional(),
-  location: z.string().optional(),
   mobileImage: z.string().optional(),
   mobileImageCredit: photoCreditSchema.optional(),
-  overview: z.string().optional(),
   scientificName: nonempty,
   sources: z.array(sourceSchema).optional(),
-  stats: z
-    .array(
-      z.object({
-        label: z.string(),
-        value: z.string(),
-      }),
-    )
-    .optional(),
 });
 
-export const translationFrontmatterSchema = z.looseObject({
-  commonName: nonempty,
+export const translationFrontmatterSchema = z.strictObject({
+  ...textShape,
   dateModified: z.string().optional(),
+  gallery: z.array(galleryImageSchema).optional(),
   id: nonempty,
+  imageCredit: photoCreditSchema.optional(),
+  mobileImageCredit: photoCreditSchema.optional(),
   scientificName: nonempty,
 });
 
 export type KaFrontmatter = z.infer<typeof kaFrontmatterSchema>;
+export type TranslationFrontmatter = z.infer<
+  typeof translationFrontmatterSchema
+>;
 
 const GENERIC_SOURCE_NAMES = new Set(["scientific publications"]);
 
