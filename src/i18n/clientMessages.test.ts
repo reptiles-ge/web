@@ -51,3 +51,40 @@ describe("locale layout client messages", () => {
     },
   );
 });
+
+describe("pickClientMessages", () => {
+  const messages = {
+    danger: { High: "High" },
+    groupHubShared: {
+      catalog: { searchLabel: "Search" },
+      cluster: { bite: { title: "Bite" } },
+      openProfile: "Open",
+    },
+  } as ClientMessages;
+
+  it("keeps a whole namespace", () => {
+    expect(pickClientMessages(messages, ["danger"])).toEqual({
+      danger: { High: "High" },
+    });
+  });
+
+  it("keeps only the listed subtrees and keys of a namespace", () => {
+    expect(
+      pickClientMessages(messages, [
+        "groupHubShared.catalog",
+        "groupHubShared.openProfile",
+      ]),
+    ).toEqual({
+      groupHubShared: {
+        catalog: { searchLabel: "Search" },
+        openProfile: "Open",
+      },
+    });
+  });
+
+  it("skips paths that do not exist", () => {
+    expect(
+      pickClientMessages(messages, ["groupHubShared.missing", "map"]),
+    ).toEqual({});
+  });
+});

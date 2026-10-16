@@ -6,7 +6,7 @@ import type { AppLocale } from "@/i18n/routing";
 
 import { IntlProvider } from "@/components/IntlProvider";
 import {
-  type ClientMessageNamespace,
+  type ClientMessagePath,
   type ClientMessages,
   pickClientMessages,
   ROOT_CLIENT_MESSAGE_NAMESPACES,
@@ -19,7 +19,7 @@ export async function ClientMessagesProvider({
 }: {
   children: ReactNode;
   locale: AppLocale;
-  namespaces: readonly ClientMessageNamespace[];
+  namespaces: readonly ClientMessagePath[];
 }) {
   const messages = (await getMessages({ locale })) as ClientMessages;
 

@@ -52,8 +52,8 @@ export async function SnakesInYardPage({
   return (
     <div className="min-h-screen bg-background">
       <div>
-        <SnakesInYardHero heroSrc={heroSrc} />
-        <SnakesInYardSections coverSrc={coverSrc} />
+        <SnakesInYardHero heroSrc={heroSrc} locale={locale} />
+        <SnakesInYardSections coverSrc={coverSrc} locale={locale} />
 
         <section className="border-t border-border bg-background py-20 lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">

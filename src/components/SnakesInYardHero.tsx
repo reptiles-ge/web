@@ -1,15 +1,21 @@
-"use client";
-
 import { ArrowRight } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
+
+import type { AppLocale } from "@/i18n/routing";
 
 import { CoverImage } from "@/components/CoverImage";
 import { InkHeroBreadcrumb } from "@/components/InkHeroBreadcrumb";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 
-export function SnakesInYardHero({ heroSrc }: { heroSrc: string }) {
-  const t = useTranslations("snakesInYard");
-  const tSnakes = useTranslations("snakes");
+export async function SnakesInYardHero({
+  heroSrc,
+  locale,
+}: {
+  heroSrc: string;
+  locale: AppLocale;
+}) {
+  const t = await getTranslations({ locale, namespace: "snakesInYard" });
+  const tSnakes = await getTranslations({ locale, namespace: "snakes" });
 
   return (
     <section

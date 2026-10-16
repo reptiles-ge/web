@@ -51,6 +51,7 @@ export default defineConfig({
         "src/components/Footer.tsx",
         "src/components/FooterGate.tsx",
         "src/components/FrogSpeciesIndexPage.tsx",
+        "src/components/GroupHubFaqAccordion.tsx",
         "src/components/GroupHubFaqSection.tsx",
         "src/components/GroupHubGuides.tsx",
         "src/components/GroupHubHero.tsx",

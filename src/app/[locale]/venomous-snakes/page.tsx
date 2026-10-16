@@ -11,6 +11,7 @@ import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { JsonLd } from "@/components/JsonLd";
 import { VenomousSnakesPage } from "@/components/VenomousSnakesPage";
 import { getVenomousCatalogSpecies } from "@/data/speciesAtlas";
+import { SPECIES_GUIDE_ROW_CLIENT_MESSAGES } from "@/i18n/clientMessages";
 import { georgiaPlaceName } from "@/i18n/localeMeta";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { type AppLocale, routing } from "@/i18n/routing";
@@ -95,7 +96,7 @@ export default async function VenomousSnakesRoute({ params }: LocalePageProps) {
       <JsonLd data={pageLd} />
       <ClientMessagesProvider
         locale={locale}
-        namespaces={["danger", "groupHubShared"]}
+        namespaces={SPECIES_GUIDE_ROW_CLIENT_MESSAGES}
       >
         <VenomousSnakesPage
           heroSrc={heroSrc}

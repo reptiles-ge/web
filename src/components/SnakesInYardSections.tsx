@@ -1,6 +1,6 @@
-"use client";
+import { getTranslations } from "next-intl/server";
 
-import { useTranslations } from "next-intl";
+import type { AppLocale } from "@/i18n/routing";
 
 import {
   CLUSTER_BODY,
@@ -14,19 +14,25 @@ import { GuideNumberedSteps } from "@/components/GuideShared";
 const ACTION_KEYS = [1, 2, 3] as const;
 const MYTH_KEYS = [1, 2, 3, 4] as const;
 
-export function SnakesInYardSections({ coverSrc }: { coverSrc: string }) {
+export function SnakesInYardSections({
+  coverSrc,
+  locale,
+}: {
+  coverSrc: string;
+  locale: AppLocale;
+}) {
   return (
     <>
-      <SnakesInYardWhy coverSrc={coverSrc} />
-      <SnakesInYardActions />
-      <SnakesInYardMyths />
-      <SnakesInYardHouse />
+      <SnakesInYardWhy coverSrc={coverSrc} locale={locale} />
+      <SnakesInYardActions locale={locale} />
+      <SnakesInYardMyths locale={locale} />
+      <SnakesInYardHouse locale={locale} />
     </>
   );
 }
 
-function SnakesInYardActions() {
-  const t = useTranslations("snakesInYard");
+async function SnakesInYardActions({ locale }: { locale: AppLocale }) {
+  const t = await getTranslations({ locale, namespace: "snakesInYard" });
 
   return (
     <section className="scroll-mt-28 bg-background py-20 lg:py-28" id="actions">
@@ -54,8 +60,8 @@ function SnakesInYardActions() {
   );
 }
 
-function SnakesInYardHouse() {
-  const t = useTranslations("snakesInYard");
+async function SnakesInYardHouse({ locale }: { locale: AppLocale }) {
+  const t = await getTranslations({ locale, namespace: "snakesInYard" });
 
   return (
     <section
@@ -76,8 +82,8 @@ function SnakesInYardHouse() {
   );
 }
 
-function SnakesInYardMyths() {
-  const t = useTranslations("snakesInYard");
+async function SnakesInYardMyths({ locale }: { locale: AppLocale }) {
+  const t = await getTranslations({ locale, namespace: "snakesInYard" });
 
   return (
     <section
@@ -120,8 +126,14 @@ function SnakesInYardMyths() {
   );
 }
 
-function SnakesInYardWhy({ coverSrc }: { coverSrc: string }) {
-  const t = useTranslations("snakesInYard");
+async function SnakesInYardWhy({
+  coverSrc,
+  locale,
+}: {
+  coverSrc: string;
+  locale: AppLocale;
+}) {
+  const t = await getTranslations({ locale, namespace: "snakesInYard" });
 
   return (
     <section className="border-b border-border bg-surface py-16 sm:py-20 lg:py-24">
