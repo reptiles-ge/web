@@ -214,6 +214,27 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 750],
     "formats": ["avif", "webp"]
   },
+  "/images/news/melanistic-eirenis-modestus-anatolia/figure-1.jpg": {
+    "path": "images/news/melanistic-eirenis-modestus-anatolia/figure-1",
+    "width": 1975,
+    "height": 1303,
+    "widths": [320, 400, 640, 800, 1200, 1975],
+    "formats": ["avif", "webp"]
+  },
+  "/images/news/melanistic-eirenis-modestus-anatolia/figure-2.jpg": {
+    "path": "images/news/melanistic-eirenis-modestus-anatolia/figure-2",
+    "width": 1955,
+    "height": 1268,
+    "widths": [320, 400, 640, 800, 1200, 1955],
+    "formats": ["avif", "webp"]
+  },
+  "/images/news/melanistic-eirenis-modestus-anatolia/figure-3.jpg": {
+    "path": "images/news/melanistic-eirenis-modestus-anatolia/figure-3",
+    "width": 1975,
+    "height": 1172,
+    "widths": [320, 400, 640, 800, 1200, 1975],
+    "formats": ["avif", "webp"]
+  },
   "/images/news/vipera-pontica-hybrid-georgia-2026/figure-1.jpg": {
     "path": "images/news/vipera-pontica-hybrid-georgia-2026/figure-1",
     "width": 1772,

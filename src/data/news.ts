@@ -14,6 +14,7 @@ import { GEORGIA_DOLPHIN_STRANDINGS_2026 } from "@/content/news/georgia-dolphin-
 import { GEORGIA_HERPETOFAUNA_CHECKLIST_2026 } from "@/content/news/georgia-herpetofauna-checklist-2026";
 import { GEORGIAN_SNAKES_AREA_OF_OCCUPANCY_2026 } from "@/content/news/georgian-snakes-area-of-occupancy-2026";
 import { LEATHERBACK_TURTLE_FIRST_TURKISH_BLACK_SEA_RECORDS_2026 } from "@/content/news/leatherback-turtle-first-turkish-black-sea-records-2026";
+import { MELANISTIC_EIRENIS_MODESTUS_ANATOLIA } from "@/content/news/melanistic-eirenis-modestus-anatolia";
 import { RIONI_STRICT_NATURE_RESERVE_STURGEON_2026 } from "@/content/news/rioni-strict-nature-reserve-sturgeon-2026";
 import { THERIDION_HUSEYNOVI_NEW_SPIDER_SPECIES_GEORGIA_2026 } from "@/content/news/theridion-huseynovi-new-spider-species-georgia-2026";
 import { THREE_LEGGED_LEOPARD_AREN_ALGETI } from "@/content/news/three-legged-leopard-aren-algeti";
@@ -25,6 +26,7 @@ import { GROUP_HUBS } from "@/lib/groupHubs";
 export type { NewsArticle, NewsPhoto, NewsSource } from "@/data/newsTypes";
 
 const NEWS_ARTICLES: readonly NewsArticle[] = [
+  MELANISTIC_EIRENIS_MODESTUS_ANATOLIA,
   CRESTED_HONEY_BUZZARD_BATUMI_2026,
   THREE_LEGGED_LEOPARD_AREN_ALGETI,
   RIONI_STRICT_NATURE_RESERVE_STURGEON_2026,
