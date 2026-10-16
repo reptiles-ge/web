@@ -82,6 +82,7 @@ export function LanguageSuggestion() {
     <section
       aria-label={copy.text}
       className="fixed inset-x-4 bottom-[max(1rem,env(safe-area-inset-bottom))] z-40 text-foreground sm:right-auto sm:w-80"
+      data-nosnippet
       lang={suggestion.to}
     >
       <div className="flex items-start gap-3 rounded-2xl border border-border bg-card p-4 shadow-lg">

@@ -62,6 +62,12 @@ describe("LanguageSuggestion", () => {
       screen.getByText("Эта страница есть и на русском языке."),
     ).toBeTruthy();
 
+    expect(
+      screen
+        .getByRole("region", { name: "Эта страница есть и на русском языке." })
+        .hasAttribute("data-nosnippet"),
+    ).toBe(true);
+
     fireEvent.click(action);
     expect(replace).toHaveBeenCalledWith("/ru/snakes");
     expect(window.localStorage.getItem(LANGUAGE_SUGGESTION_KEY)).toBe("1");

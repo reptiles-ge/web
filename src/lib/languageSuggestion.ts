@@ -31,7 +31,7 @@ export const LANGUAGE_SUGGESTION_COPY: Record<
 const RUSSIAN_COUNTRIES = new Set(["BY", "KG", "KZ", "RU"]);
 const UNKNOWN_COUNTRIES = new Set(["T1", "XX"]);
 const BOT_USER_AGENT =
-  /bot|crawl|spider|slurp|headless|lighthouse|preview|facebookexternalhit|embedly/i;
+  /bot|crawl|spider|slurp|fetch|scan|archiv|headless|lighthouse|preview|prerender|inspectiontool|googleother|-google|google-|yandex|whatsapp|facebookexternalhit|embedly|pinterest|vkshare|ptst/i;
 
 const SUPPORTED_LOCALES = new Set<string>(routing.locales);
 
