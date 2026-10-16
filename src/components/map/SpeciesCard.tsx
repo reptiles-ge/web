@@ -6,7 +6,7 @@ import { useLocale, useTranslations } from "next-intl";
 import type { SpeciesListItem } from "@/data/speciesListItem";
 import type { AppLocale } from "@/i18n/routing";
 
-import { CoverImage } from "@/components/CoverImage";
+import { ClientCoverImage } from "@/components/ClientCoverImage";
 import { useSpeciesHref } from "@/components/LocaleSwitchProvider";
 import { Link } from "@/i18n/navigation";
 import { trackSpeciesClick } from "@/lib/analytics";
@@ -42,7 +42,7 @@ export function SpeciesCard({ species }: SpeciesCardProps) {
       prefetch={false}
     >
       <div className="relative size-[72px] shrink-0 overflow-hidden rounded-xl bg-secondary">
-        <CoverImage
+        <ClientCoverImage
           alt={speciesImageAlt(
             species.commonName,
             species.scientificName,

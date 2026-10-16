@@ -10,6 +10,7 @@ import {
   ClusterStat,
   ClusterStatsBand,
 } from "@/components/ClusterSectionIntro";
+import { OptimizedImageScope } from "@/components/OptimizedImageScope";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { SpeciesIndexTable } from "@/components/SpeciesIndexTable";
 import { toSpeciesCards, toSpeciesIndexRows } from "@/data/speciesCard";
@@ -78,11 +79,13 @@ export async function LizardSpeciesIndexPage({
               titleClassName={CLUSTER_TITLE_SECTION}
             />
           </div>
-          <SpeciesGuideList
-            locale={locale}
-            source="guide"
-            species={toSpeciesCards(featured)}
-          />
+          <OptimizedImageScope>
+            <SpeciesGuideList
+              locale={locale}
+              source="guide"
+              species={toSpeciesCards(featured)}
+            />
+          </OptimizedImageScope>
         </div>
       </section>
 
@@ -99,12 +102,14 @@ export async function LizardSpeciesIndexPage({
             />
           </div>
           <div className="mt-10">
-            <SpeciesIndexTable
-              locale={locale}
-              showDangerFilter={false}
-              showFamilyFilter={false}
-              species={toSpeciesIndexRows(darevskia)}
-            />
+            <OptimizedImageScope>
+              <SpeciesIndexTable
+                locale={locale}
+                showDangerFilter={false}
+                showFamilyFilter={false}
+                species={toSpeciesIndexRows(darevskia)}
+              />
+            </OptimizedImageScope>
           </div>
         </div>
       </section>
@@ -122,11 +127,13 @@ export async function LizardSpeciesIndexPage({
             />
           </div>
           <div className="mt-10">
-            <SpeciesIndexTable
-              locale={locale}
-              showDangerFilter={false}
-              species={toSpeciesIndexRows(other)}
-            />
+            <OptimizedImageScope>
+              <SpeciesIndexTable
+                locale={locale}
+                showDangerFilter={false}
+                species={toSpeciesIndexRows(other)}
+              />
+            </OptimizedImageScope>
           </div>
         </div>
       </section>

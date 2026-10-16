@@ -1,7 +1,5 @@
-"use client";
-
 import { ArrowUpRight } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
 import type { SafetyGuideConfig } from "@/components/safetyGuideConfig";
 import type { SpeciesCard } from "@/data/speciesCard";
@@ -15,7 +13,9 @@ import {
   GuideSymptomsLead,
   GuideTwoColumnSurface,
 } from "@/components/GuideShared";
+import { guideSpeciesLinks } from "@/components/guideSpeciesLinks";
 import { GuideSpeciesSection } from "@/components/GuideSpeciesSection";
+import { OptimizedImageScope } from "@/components/OptimizedImageScope";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { Link } from "@/i18n/navigation";
 import { formatContentDate } from "@/lib/formatDate";
@@ -35,26 +35,38 @@ const inlineLinkClassName =
 
 export function SafetyGuideSections({
   config,
+  locale,
   species,
 }: {
   config: SafetyGuideConfig;
+  locale: AppLocale;
   species: SpeciesCard[];
 }) {
   return (
     <>
-      <SafetyDisclaimer config={config} />
-      <SafetyDoDont config={config} />
-      {config.showSymptoms ? <SafetySymptoms config={config} /> : null}
-      <SafetyDanger config={config} />
-      {config.showUnseen ? <SafetyUnseen config={config} /> : null}
-      <SafetySpecies config={config} species={species} />
-      <SafetySources config={config} />
+      <SafetyDisclaimer config={config} locale={locale} />
+      <SafetyDoDont config={config} locale={locale} />
+      {config.showSymptoms ? (
+        <SafetySymptoms config={config} locale={locale} />
+      ) : null}
+      <SafetyDanger config={config} locale={locale} />
+      {config.showUnseen ? (
+        <SafetyUnseen config={config} locale={locale} />
+      ) : null}
+      <SafetySpecies config={config} locale={locale} species={species} />
+      <SafetySources config={config} locale={locale} />
     </>
   );
 }
 
-function SafetyDanger({ config }: { config: SafetyGuideConfig }) {
-  const t = useTranslations(config.namespace);
+async function SafetyDanger({
+  config,
+  locale,
+}: {
+  config: SafetyGuideConfig;
+  locale: AppLocale;
+}) {
+  const t = await getTranslations({ locale, namespace: config.namespace });
 
   return (
     <GuideTwoColumnSurface>
@@ -99,8 +111,14 @@ function SafetyDanger({ config }: { config: SafetyGuideConfig }) {
   );
 }
 
-function SafetyDisclaimer({ config }: { config: SafetyGuideConfig }) {
-  const t = useTranslations(config.namespace);
+async function SafetyDisclaimer({
+  config,
+  locale,
+}: {
+  config: SafetyGuideConfig;
+  locale: AppLocale;
+}) {
+  const t = await getTranslations({ locale, namespace: config.namespace });
 
   return (
     <section className="scroll-mt-28 bg-background py-20 lg:py-28" id="content">
@@ -143,8 +161,14 @@ function SafetyDisclaimer({ config }: { config: SafetyGuideConfig }) {
   );
 }
 
-function SafetyDoDont({ config }: { config: SafetyGuideConfig }) {
-  const t = useTranslations(config.namespace);
+async function SafetyDoDont({
+  config,
+  locale,
+}: {
+  config: SafetyGuideConfig;
+  locale: AppLocale;
+}) {
+  const t = await getTranslations({ locale, namespace: config.namespace });
 
   return (
     <GuideDoDontSection
@@ -166,9 +190,14 @@ function SafetyDoDont({ config }: { config: SafetyGuideConfig }) {
   );
 }
 
-function SafetySources({ config }: { config: SafetyGuideConfig }) {
-  const t = useTranslations(config.namespace);
-  const locale = useLocale() as AppLocale;
+async function SafetySources({
+  config,
+  locale,
+}: {
+  config: SafetyGuideConfig;
+  locale: AppLocale;
+}) {
+  const t = await getTranslations({ locale, namespace: config.namespace });
 
   return (
     <section
@@ -242,54 +271,62 @@ function SafetySources({ config }: { config: SafetyGuideConfig }) {
   );
 }
 
-function SafetySpecies({
+async function SafetySpecies({
   config,
+  locale,
   species,
 }: {
   config: SafetyGuideConfig;
+  locale: AppLocale;
   species: SpeciesCard[];
 }) {
-  const t = useTranslations(config.namespace);
+  const t = await getTranslations({ locale, namespace: config.namespace });
 
   return (
-    <GuideSpeciesSection
-      links={config.extraLinks.map((link) => ({
-        href: link.href,
-        id: link.key,
-        label: t(link.key as "linkHub"),
-      }))}
-      species={species}
-    >
-      <div>
-        <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
-          {t("speciesEyebrow")}
-        </p>
-        <h2 className="mt-5 max-w-2xl font-display text-display-title font-semibold">
-          {t("speciesTitle")}
-        </h2>
-        <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-          <PhoneLinkedText>
-            {t.rich("speciesBody", {
-              count: species.length,
-              index: (chunks) => (
-                <Link
-                  className={inlineLinkClassName}
-                  href={config.speciesIndexHref}
-                >
-                  {chunks}
-                </Link>
-              ),
-            })}
-          </PhoneLinkedText>
-        </p>
-      </div>
-    </GuideSpeciesSection>
+    <OptimizedImageScope>
+      <GuideSpeciesSection
+        links={guideSpeciesLinks(config.extraLinks, (key) =>
+          t(key as "linkHub"),
+        )}
+        species={species}
+      >
+        <div>
+          <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
+            {t("speciesEyebrow")}
+          </p>
+          <h2 className="mt-5 max-w-2xl font-display text-display-title font-semibold">
+            {t("speciesTitle")}
+          </h2>
+          <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
+            <PhoneLinkedText>
+              {t.rich("speciesBody", {
+                count: species.length,
+                index: (chunks) => (
+                  <Link
+                    className={inlineLinkClassName}
+                    href={config.speciesIndexHref}
+                  >
+                    {chunks}
+                  </Link>
+                ),
+              })}
+            </PhoneLinkedText>
+          </p>
+        </div>
+      </GuideSpeciesSection>
+    </OptimizedImageScope>
   );
 }
 
-function SafetySymptoms({ config }: { config: SafetyGuideConfig }) {
-  const t = useTranslations("spiderBite");
+async function SafetySymptoms({
+  config,
+  locale,
+}: {
+  config: SafetyGuideConfig;
+  locale: AppLocale;
+}) {
   if (config.namespace !== "spiderBite") return null;
+  const t = await getTranslations({ locale, namespace: "spiderBite" });
 
   return (
     <section className="border-t border-border bg-background py-20 lg:py-28">
@@ -318,9 +355,15 @@ function SafetySymptoms({ config }: { config: SafetyGuideConfig }) {
   );
 }
 
-function SafetyUnseen({ config }: { config: SafetyGuideConfig }) {
-  const t = useTranslations("spiderBite");
+async function SafetyUnseen({
+  config,
+  locale,
+}: {
+  config: SafetyGuideConfig;
+  locale: AppLocale;
+}) {
   if (config.namespace !== "spiderBite") return null;
+  const t = await getTranslations({ locale, namespace: "spiderBite" });
 
   return (
     <section className="border-t border-border bg-background py-20 lg:py-28">

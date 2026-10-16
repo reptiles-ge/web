@@ -5,8 +5,6 @@ import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
-import type { ClientMessageNamespace } from "@/i18n/clientMessages";
-
 import { AmphibianSpeciesIndexPage } from "@/components/AmphibianSpeciesIndexPage";
 import { CatalogSpeciesIndexPage } from "@/components/CatalogSpeciesIndexPage";
 import { ClientMessagesProvider } from "@/components/ClientMessagesProvider";
@@ -29,6 +27,10 @@ import { SpiderBitePage } from "@/components/SpiderBitePage";
 import { SpiderVenomousPage } from "@/components/SpiderVenomousPage";
 import { TurtleIdentifyPage } from "@/components/TurtleIdentifyPage";
 import { getCatalogSpecies } from "@/data/species";
+import {
+  type ClientMessagePath,
+  CLUSTER_GUIDE_CLIENT_MESSAGES,
+} from "@/i18n/clientMessages";
 import { georgiaPlaceName } from "@/i18n/localeMeta";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { type AppLocale, routing } from "@/i18n/routing";
@@ -83,19 +85,17 @@ const CLUSTER_PAGES: Record<
   "turtle-water": ClusterGuidePage,
 };
 
+const CLIENT_COPY_GUIDES: ReadonlySet<ClusterGuideId> = new Set([
+  "turtle-identify",
+]);
+
 export function createClusterGuideRoute(guideId: ClusterGuideId) {
   const guide = CLUSTER_GUIDES[guideId];
   const parent = GROUP_HUBS[guide.parentHub];
   const PageView = CLUSTER_PAGES[guideId];
-  const clientMessageNamespaces: ClientMessageNamespace[] = [
-    "card",
-    "danger",
-    "groupHubShared",
-    "map",
-    "profile",
-    "speciesIndex",
-    parent.messageKey,
-    guide.messageKey,
+  const clientMessageNamespaces: ClientMessagePath[] = [
+    ...CLUSTER_GUIDE_CLIENT_MESSAGES,
+    ...(CLIENT_COPY_GUIDES.has(guideId) ? [guide.messageKey] : []),
   ];
 
   async function generateMetadata({ params }: Props): Promise<Metadata> {

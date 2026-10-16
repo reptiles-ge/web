@@ -5,6 +5,7 @@ import type { ClusterGuideViewProps } from "@/lib/clusterGuides";
 
 import { ClusterGuideLead } from "@/components/ClusterGuideLead";
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
+import { OptimizedImageScope } from "@/components/OptimizedImageScope";
 import { TurtleIdentifyChooser } from "@/components/TurtleIdentifyChooser";
 import { TurtleIdentifyFlow } from "@/components/TurtleIdentifyFlow";
 import { TurtleIdentifyMatrix } from "@/components/TurtleIdentifyMatrix";
@@ -58,26 +59,32 @@ export async function TurtleIdentifyPage({
         title={t("guideTitle")}
       />
 
-      <TurtleIdentifyFlow
-        emys={emys && toSpeciesCard(emys)}
-        locale={locale}
-        mauremys={mauremys && toSpeciesCard(mauremys)}
-        slider={slider && toSpeciesCard(slider)}
-        testudo={testudo && toSpeciesCard(testudo)}
-      />
+      <OptimizedImageScope>
+        <TurtleIdentifyFlow
+          emys={emys && toSpeciesCard(emys)}
+          locale={locale}
+          mauremys={mauremys && toSpeciesCard(mauremys)}
+          slider={slider && toSpeciesCard(slider)}
+          testudo={testudo && toSpeciesCard(testudo)}
+        />
+      </OptimizedImageScope>
 
-      <TurtleIdentifyMatrix
-        emys={emys && toSpeciesCard(emys)}
-        locale={locale}
-        mauremys={mauremys && toSpeciesCard(mauremys)}
-        turtles={toSpeciesCards(turtles)}
-      />
+      <OptimizedImageScope>
+        <TurtleIdentifyMatrix
+          emys={emys && toSpeciesCard(emys)}
+          locale={locale}
+          mauremys={mauremys && toSpeciesCard(mauremys)}
+          turtles={toSpeciesCards(turtles)}
+        />
+      </OptimizedImageScope>
 
-      <TurtleIdentifyChooser
-        locale={locale}
-        regions={regions}
-        turtles={toSpeciesCards(turtles)}
-      />
+      <OptimizedImageScope>
+        <TurtleIdentifyChooser
+          locale={locale}
+          regions={regions}
+          turtles={toSpeciesCards(turtles)}
+        />
+      </OptimizedImageScope>
     </ClusterPageFrame>
   );
 }

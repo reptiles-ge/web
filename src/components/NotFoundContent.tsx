@@ -3,7 +3,7 @@
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 
-import { CoverImage } from "@/components/CoverImage";
+import { ClientCoverImage } from "@/components/ClientCoverImage";
 import { NotFoundAnalytics } from "@/components/NotFoundAnalytics";
 import { images } from "@/data/speciesMedia";
 import { Link } from "@/i18n/navigation";
@@ -26,7 +26,7 @@ export function NotFoundContent() {
     >
       <NotFoundAnalytics />
       <div className="absolute inset-0">
-        <CoverImage
+        <ClientCoverImage
           alt={t("imageAlt")}
           className="object-cover object-center opacity-55"
           priority

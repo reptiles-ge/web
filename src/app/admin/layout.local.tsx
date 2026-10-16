@@ -4,6 +4,8 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 
 import { RootDocument } from "@/app/RootDocument";
+import { OptimizedImagesProvider } from "@/components/OptimizedImagesProvider";
+import { allOptimizedImageEntries } from "@/data/optimizedImages";
 import { assertLocalAdminPage } from "@/lib/adminAccess";
 
 export const dynamic = "force-dynamic";
@@ -31,7 +33,9 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
             </p>
           </div>
         </header>
-        {children}
+        <OptimizedImagesProvider entries={allOptimizedImageEntries()}>
+          {children}
+        </OptimizedImagesProvider>
       </div>
     </RootDocument>
   );

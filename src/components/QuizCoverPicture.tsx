@@ -1,6 +1,7 @@
 "use client";
 
-import { optimizedImgSrc, pictureSources } from "@/data/optimizedImages";
+import { useOptimizedImage } from "@/components/OptimizedImagesProvider";
+import { entryImgSrc, entryPictureSources } from "@/lib/optimizedImageSources";
 
 type QuizCoverPictureProps = {
   alt: string;
@@ -21,13 +22,15 @@ export function QuizCoverPicture({
 }: QuizCoverPictureProps) {
   const split = Boolean(coverMobileSrc && coverMobileSrc !== coverSrc);
   const src = split && coverMobileSrc ? coverMobileSrc : coverSrc;
+  const coverEntry = useOptimizedImage(coverSrc);
+  const entry = useOptimizedImage(src);
   const desktopSources = split
-    ? pictureSources(coverSrc, {
+    ? entryPictureSources(coverEntry, {
         media: "(min-width: 1024px)",
         sizes: COVER_SIZES,
       })
     : [];
-  const primarySources = pictureSources(src, { sizes: COVER_SIZES });
+  const primarySources = entryPictureSources(entry, { sizes: COVER_SIZES });
 
   return (
     <picture
@@ -40,7 +43,7 @@ export function QuizCoverPicture({
       {split ? (
         <source
           media="(min-width: 1024px)"
-          srcSet={optimizedImgSrc(coverSrc)}
+          srcSet={entryImgSrc(coverSrc, coverEntry)}
         />
       ) : null}
       {primarySources.map((source) => (
@@ -51,7 +54,7 @@ export function QuizCoverPicture({
         className="hero-drift size-full object-cover text-transparent"
         decoding="async"
         fetchPriority={!playing ? "high" : "auto"}
-        src={optimizedImgSrc(src)}
+        src={entryImgSrc(src, entry)}
       />
     </picture>
   );

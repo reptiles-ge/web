@@ -6,7 +6,7 @@ import { useTranslations } from "next-intl";
 import type { SpeciesCard } from "@/data/speciesCard";
 import type { AppLocale } from "@/i18n/routing";
 
-import { CoverImage } from "@/components/CoverImage";
+import { ClientCoverImage } from "@/components/ClientCoverImage";
 import { useLocaleSwitchIndex } from "@/components/LocaleSwitchProvider";
 import { getRegionsForSpecies, localizeRegionText } from "@/data/mapRegions";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
@@ -108,7 +108,7 @@ function SpeciesGuideRow({
       prefetch={prefetch}
     >
       <div className="relative aspect-5/4 overflow-hidden rounded-card bg-ink sm:aspect-square">
-        <CoverImage
+        <ClientCoverImage
           alt={speciesImageAlt(
             species.commonName,
             species.scientificName,

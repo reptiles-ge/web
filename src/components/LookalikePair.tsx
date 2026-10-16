@@ -3,7 +3,7 @@
 import type { SpeciesCard } from "@/data/speciesCard";
 import type { AppLocale } from "@/i18n/routing";
 
-import { CoverImage } from "@/components/CoverImage";
+import { ClientCoverImage } from "@/components/ClientCoverImage";
 import { useSpeciesHref } from "@/components/LocaleSwitchProvider";
 import { Link } from "@/i18n/navigation";
 import { LOOKALIKE_SIZES } from "@/lib/imageSizes";
@@ -38,7 +38,7 @@ function LookalikeSide({
   return (
     <Link className="group min-w-0" href={useSpeciesHref(species.id, locale)}>
       <span className="relative block aspect-5/4 overflow-hidden rounded-2xl bg-ink">
-        <CoverImage
+        <ClientCoverImage
           alt={speciesImageAlt(
             species.commonName,
             species.scientificName,

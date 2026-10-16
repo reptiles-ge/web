@@ -14,6 +14,7 @@ import {
   HUB_EYEBROW,
 } from "@/components/GroupHubSectionHeading";
 import { GroupHubSpeciesCatalog } from "@/components/GroupHubSpeciesCatalog";
+import { OptimizedImageScope } from "@/components/OptimizedImageScope";
 import { QuizCtaLink } from "@/components/QuizCtaLink";
 import { Link } from "@/i18n/navigation";
 import { HUB_QUIZ, type HubCatalogItem } from "@/lib/groupHubLayout";
@@ -71,13 +72,15 @@ export async function GroupHubSpeciesList({
           lead={t("speciesBody")}
           title={t("speciesTitle", { count: species.length })}
         />
-        <GroupHubSpeciesCatalog
-          allLabel={tAtlas("filters.all")}
-          group={group}
-          indexLink={indexLink}
-          items={items}
-          showRisk={showRisk}
-        />
+        <OptimizedImageScope>
+          <GroupHubSpeciesCatalog
+            allLabel={tAtlas("filters.all")}
+            group={group}
+            indexLink={indexLink}
+            items={items}
+            showRisk={showRisk}
+          />
+        </OptimizedImageScope>
         <GroupHubQuizCard hubId={hubId} locale={locale} species={species} />
       </div>
     </section>

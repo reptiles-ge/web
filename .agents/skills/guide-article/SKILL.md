@@ -18,19 +18,19 @@ This is **not** the model for news (MDX in `src/content/news/{slug}/`), species 
 
 ## How it fits together
 
-| Piece                              | File                                                                              |
-| ---------------------------------- | --------------------------------------------------------------------------------- |
-| Types + `defineGuideArticle`       | `src/data/guideArticleTypes.ts`                                                   |
-| Registry                           | `src/data/guideArticles.ts`                                                       |
-| Edge-safe path list                | `src/data/guideArticlePaths.ts`                                                   |
-| Route factory (metadata + JSON-LD) | `src/lib/createGuideArticleRoute.tsx`                                             |
-| Page view                          | `src/components/GuideArticlePage.tsx`                                             |
-| Generated 301s                     | `src/i18n/guideArticleRedirects.ts` (used by `src/proxy.ts` and `next.config.ts`) |
-| Guard test                         | `src/data/guideArticles.test.ts`                                                  |
+| Piece                              | File                                                         |
+| ---------------------------------- | ------------------------------------------------------------ |
+| Types + `defineGuideArticle`       | `src/data/guideArticleTypes.ts`                              |
+| Registry                           | `src/data/guideArticles.ts`                                  |
+| Edge-safe path list                | `src/data/guideArticlePaths.ts`                              |
+| Route factory (metadata + JSON-LD) | `src/lib/createGuideArticleRoute.tsx`                        |
+| Page view                          | `src/components/GuideArticlePage.tsx`                        |
+| Generated 301s                     | `src/i18n/guideArticleRedirects.ts` (used by `src/proxy.ts`) |
+| Guard test                         | `src/data/guideArticles.test.ts`                             |
 
 The builder emits, per locale: title/description, a 1200×630 JPEG share image, canonical + hreflang (`x-default` = KA), Open Graph + Twitter card, `Article` + `BreadcrumbList` JSON-LD, a table of contents with section anchors, an "In short" summary box after the sections, FAQ accordion, related guides + parent hub links, the sources accordion, and the attribution block.
 
-The registry feeds these automatically. **Do not hand-edit them for a guide article:** sitemap (including the hero in the image sitemap), search index, `llms.txt` / `llms-full.txt`, footer and home SEO links, navbar hero style, and the proxy / `next.config.ts` redirects.
+The registry feeds these automatically. **Do not hand-edit them for a guide article:** sitemap (including the hero in the image sitemap), search index, `llms.txt` / `llms-full.txt`, footer and home SEO links, navbar hero style, and the `src/proxy.ts` redirects.
 
 ## Add a new article
 

@@ -5,7 +5,7 @@ import { useLocale, useTranslations } from "next-intl";
 
 import type { AppLocale } from "@/i18n/routing";
 
-import { CoverImage } from "@/components/CoverImage";
+import { ClientCoverImage } from "@/components/ClientCoverImage";
 import { InkHeroBreadcrumb } from "@/components/InkHeroBreadcrumb";
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
 import {
@@ -15,10 +15,9 @@ import {
   type RegionTooltipSpecies,
 } from "@/data/mapRegions";
 import { getRegionContent } from "@/data/regionContent";
+import { REGIONS_INDEX_HERO_IMAGE } from "@/data/regionImages";
 import { Link } from "@/i18n/navigation";
 import { regionHref } from "@/lib/regionHref";
-
-const REGIONS_HERO_IMAGE = "/images/home/groups/snakes.jpg";
 
 export function RegionsIndex({
   stats,
@@ -44,13 +43,13 @@ export function RegionsIndex({
             paddingTop: "7rem",
           }}
         >
-          <CoverImage
+          <ClientCoverImage
             alt={t("heroImageAlt")}
             aria-hidden
             className="object-cover object-[58%_45%]"
             priority
             sizes="100vw"
-            src={REGIONS_HERO_IMAGE}
+            src={REGIONS_INDEX_HERO_IMAGE}
           />
           <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/35 to-black/90" />
           <div className="absolute inset-0 bg-[radial-gradient(90%_60%_at_50%_20%,transparent_25%,rgba(0,0,0,0.55)_100%)]" />

@@ -8,6 +8,7 @@ import { ClusterGuideLead } from "@/components/ClusterGuideLead";
 import { ClusterNumberedSteps } from "@/components/ClusterNumberedSteps";
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
 import { LookalikePairGrid } from "@/components/LookalikePairGrid";
+import { OptimizedImageScope } from "@/components/OptimizedImageScope";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { toSpeciesCards } from "@/data/speciesCard";
 import { Link } from "@/i18n/navigation";
@@ -76,11 +77,13 @@ export async function LizardIdentifyPage({
         surface="background"
         title={t("darevskiaTitle")}
       >
-        <SpeciesGuideList
-          locale={locale}
-          source="guide"
-          species={toSpeciesCards(darevskia)}
-        />
+        <OptimizedImageScope>
+          <SpeciesGuideList
+            locale={locale}
+            source="guide"
+            species={toSpeciesCards(darevskia)}
+          />
+        </OptimizedImageScope>
         <Link
           className="mt-8 inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-[13px] font-medium text-foreground"
           href="/lizards/darevskia"
