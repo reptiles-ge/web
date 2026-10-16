@@ -1,6 +1,6 @@
 import ts from "typescript";
 
-type LiteralRoot = "guide" | "message" | "news" | "regionContent" | "regionMap";
+type LiteralRoot = "guide" | "message" | "regionContent" | "regionMap";
 
 export function readContentLiteral(
   raw: string,
@@ -121,17 +121,6 @@ function sourceRoot(
           return ts.isStringLiteral(value) && value.text === id;
         });
         if (region && ts.isObjectLiteralExpression(region)) return region;
-      }
-      if (
-        kind === "news" &&
-        declaration.initializer &&
-        ts.isObjectLiteralExpression(declaration.initializer)
-      ) {
-        try {
-          const value = property(declaration.initializer, "id");
-          if (ts.isStringLiteral(value) && value.text === id)
-            return declaration.initializer;
-        } catch {}
       }
     }
   }
