@@ -49,6 +49,50 @@ describe("/ka prefix", () => {
       status: 301,
     });
   });
+
+  it.each([
+    ["/ka/snakes", "/gvelebi"],
+    ["/ka/species/giurza", "/gvelebi/giurza"],
+    ["/ka/species/macrovipera-lebetina", "/gvelebi/giurza"],
+    ["/ka/snakes/macrovipera-lebetina", "/gvelebi/giurza"],
+    ["/ka/gvelebi/vipera-ammodytes", "/gvelebi/tsxvirrkosani-gvelgesla"],
+    ["/ka/species/vipera-ammodytes", "/gvelebi/tsxvirrkosani-gvelgesla"],
+    ["/ka/quiz/which-snake", "/quiz/romeli-gvelia"],
+    ["/ka/birds", "/prinvelebi"],
+    ["/ka/insects/saxeoebebi", "/mtserebi/saxeoebebi"],
+  ])("301s %s straight to %s", (from, to) => {
+    expect(location(from)).toEqual({
+      location: `https://reptiles.ge${to}`,
+      status: 301,
+    });
+  });
+
+  it("keeps a temporary hop temporary", () => {
+    expect(location("/ka/snakes/dolichophis-caspius")).toEqual({
+      location: "https://reptiles.ge/gvelebi",
+      status: 302,
+    });
+  });
+
+  it("keeps the query string", () => {
+    expect(location("/ka/snakes?x=1")).toEqual({
+      location: "https://reptiles.ge/gvelebi?x=1",
+      status: 301,
+    });
+  });
+
+  it.each([
+    "/ka/snakes",
+    "/ka/species/giurza",
+    "/ka/snakes/macrovipera-lebetina",
+    "/ka/gvelebi/vipera-ammodytes",
+    "/ka/quiz/which-snake",
+    "/ka/birds",
+    "/ka/insects/saxeoebebi",
+  ])("lands %s on a path that does not redirect again", (from) => {
+    const target = new URL(location(from).location ?? "");
+    expect(call(target.pathname).headers.get("location")).toBeNull();
+  });
 });
 
 describe("configured redirects", () => {

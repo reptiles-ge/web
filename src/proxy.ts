@@ -253,84 +253,15 @@ export default function proxy(request: NextRequest) {
   }
 
   if (pathname === "/ka" || pathname.startsWith("/ka/")) {
-    return redirectTo(request, pathname.slice(3) || "/");
-  }
-
-  const configuredRedirect = configuredRedirectPath(pathname);
-  if (configuredRedirect) {
-    return redirectTo(request, configuredRedirect[0], configuredRedirect[1]);
-  }
-
-  const photographer = legacyPhotographerRedirectPath(pathname);
-  if (photographer) return redirectTo(request, photographer);
-
-  if (pathname === "/moriebi") return redirectTo(request, "/morieli");
-
-  const legacy = pathname.match(
-    new RegExp(`^(\\/(${PREFIX_SEGMENT}))?\\/species\\/([^/]+)$`),
-  );
-  if (legacy) {
-    const id = resolveSpeciesId(legacy[3]);
-    if (id) {
-      const locale = (legacy[2] ?? "ka") as AppLocale;
-      return redirectTo(request, speciesPath(locale, id));
-    }
-  }
-
-  const unprefixedLatinHub = pathname.match(
-    new RegExp(`^\\/(${HUB_SEGMENT})\\/([^/]+)$`),
-  );
-  if (unprefixedLatinHub) {
-    const id = resolveSpeciesIdInHub(
-      unprefixedLatinHub[1] as GroupHubId,
-      unprefixedLatinHub[2],
+    const [target, status] = resolveKaPrefixedPath(
+      request,
+      pathname.slice(3) || "/",
     );
-    if (id) {
-      const next = speciesPath("ka", id);
-      if (next !== pathname) return redirectTo(request, next);
-    }
+    return redirectTo(request, target, status);
   }
 
-  const prefixedKaHub = pathname.match(
-    new RegExp(`^\\/(${PREFIX_SEGMENT})\\/(${KA_HUB_SEGMENT})\\/([^/]+)$`),
-  );
-  if (prefixedKaHub && isPrefixedLocale(prefixedKaHub[1])) {
-    const locale = prefixedKaHub[1] as PrefixedLocale;
-    const id = resolveSpeciesIdInHub(
-      KA_PREFIX_TO_HUB[prefixedKaHub[2]],
-      prefixedKaHub[3],
-    );
-    if (id) {
-      const next = speciesPath(locale, id);
-      if (next !== pathname) return redirectTo(request, next);
-    }
-  }
-
-  const prefixedHub = pathname.match(
-    new RegExp(`^\\/(${PREFIX_SEGMENT})\\/(${HUB_SEGMENT})\\/([^/]+)$`),
-  );
-  if (prefixedHub && isPrefixedLocale(prefixedHub[1])) {
-    const locale = prefixedHub[1] as PrefixedLocale;
-    const id = resolveSpeciesIdInHub(
-      prefixedHub[2] as GroupHubId,
-      prefixedHub[3],
-    );
-    if (id) {
-      const next = speciesPath(locale, id);
-      if (next !== pathname) return redirectTo(request, next);
-    }
-  }
-
-  const kaHub = pathname.match(
-    new RegExp(`^\\/(${KA_HUB_SEGMENT})\\/([^/]+)$`),
-  );
-  if (kaHub) {
-    const id = resolveSpeciesIdInHub(KA_PREFIX_TO_HUB[kaHub[1]], kaHub[2]);
-    if (id) {
-      const next = speciesPath("ka", id);
-      if (next !== pathname) return redirectTo(request, next);
-    }
-  }
+  const redirect = redirectPath(pathname);
+  if (redirect) return redirectTo(request, redirect[0], redirect[1]);
 
   const response = intlMiddleware(request);
   const intlRedirect = response.headers.get("location");
@@ -417,6 +348,86 @@ function prefixedQuizRedirectPath(
   return null;
 }
 
+function redirectPath(pathname: string): [string, 301 | 302] | null {
+  const configuredRedirect = configuredRedirectPath(pathname);
+  if (configuredRedirect) {
+    return configuredRedirect;
+  }
+
+  const photographer = legacyPhotographerRedirectPath(pathname);
+  if (photographer) return [photographer, 301];
+
+  if (pathname === "/moriebi") return ["/morieli", 301];
+
+  const legacy = pathname.match(
+    new RegExp(`^(\\/(${PREFIX_SEGMENT}))?\\/species\\/([^/]+)$`),
+  );
+  if (legacy) {
+    const id = resolveSpeciesId(legacy[3]);
+    if (id) {
+      const locale = (legacy[2] ?? "ka") as AppLocale;
+      return [speciesPath(locale, id), 301];
+    }
+  }
+
+  const unprefixedLatinHub = pathname.match(
+    new RegExp(`^\\/(${HUB_SEGMENT})\\/([^/]+)$`),
+  );
+  if (unprefixedLatinHub) {
+    const id = resolveSpeciesIdInHub(
+      unprefixedLatinHub[1] as GroupHubId,
+      unprefixedLatinHub[2],
+    );
+    if (id) {
+      const next = speciesPath("ka", id);
+      if (next !== pathname) return [next, 301];
+    }
+  }
+
+  const prefixedKaHub = pathname.match(
+    new RegExp(`^\\/(${PREFIX_SEGMENT})\\/(${KA_HUB_SEGMENT})\\/([^/]+)$`),
+  );
+  if (prefixedKaHub && isPrefixedLocale(prefixedKaHub[1])) {
+    const locale = prefixedKaHub[1] as PrefixedLocale;
+    const id = resolveSpeciesIdInHub(
+      KA_PREFIX_TO_HUB[prefixedKaHub[2]],
+      prefixedKaHub[3],
+    );
+    if (id) {
+      const next = speciesPath(locale, id);
+      if (next !== pathname) return [next, 301];
+    }
+  }
+
+  const prefixedHub = pathname.match(
+    new RegExp(`^\\/(${PREFIX_SEGMENT})\\/(${HUB_SEGMENT})\\/([^/]+)$`),
+  );
+  if (prefixedHub && isPrefixedLocale(prefixedHub[1])) {
+    const locale = prefixedHub[1] as PrefixedLocale;
+    const id = resolveSpeciesIdInHub(
+      prefixedHub[2] as GroupHubId,
+      prefixedHub[3],
+    );
+    if (id) {
+      const next = speciesPath(locale, id);
+      if (next !== pathname) return [next, 301];
+    }
+  }
+
+  const kaHub = pathname.match(
+    new RegExp(`^\\/(${KA_HUB_SEGMENT})\\/([^/]+)$`),
+  );
+  if (kaHub) {
+    const id = resolveSpeciesIdInHub(KA_PREFIX_TO_HUB[kaHub[1]], kaHub[2]);
+    if (id) {
+      const next = speciesPath("ka", id);
+      if (next !== pathname) return [next, 301];
+    }
+  }
+
+  return null;
+}
+
 function redirectTo(
   request: NextRequest,
   pathname: string,
@@ -425,6 +436,31 @@ function redirectTo(
   const url = request.nextUrl.clone();
   url.pathname = pathname;
   return NextResponse.redirect(url, status);
+}
+
+function resolveKaPrefixedPath(
+  request: NextRequest,
+  pathname: string,
+): [string, 301 | 302] {
+  let target = pathname;
+  let status: 301 | 302 = 301;
+  const seen = new Set([target]);
+  for (let redirect = redirectPath(target); redirect;) {
+    if (seen.has(redirect[0])) break;
+    target = redirect[0];
+    if (redirect[1] === 302) status = 302;
+    seen.add(target);
+    redirect = redirectPath(target);
+  }
+
+  const url = request.nextUrl.clone();
+  url.pathname = target;
+  const response = intlMiddleware(new NextRequest(url));
+  const location = response.headers.get("location");
+  if (location && response.status >= 300 && response.status < 400) {
+    target = new URL(location, url).pathname;
+  }
+  return [target, status];
 }
 
 function speciesPath(locale: AppLocale, id: string) {
