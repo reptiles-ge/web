@@ -9,9 +9,15 @@ type InkHeroCrumb = {
   withBack?: boolean;
 };
 
-export function InkHeroBreadcrumb({ crumbs }: { crumbs: InkHeroCrumb[] }) {
+export function InkHeroBreadcrumb({
+  crumbs,
+  label,
+}: {
+  crumbs: InkHeroCrumb[];
+  label: string;
+}) {
   return (
-    <nav aria-label="Breadcrumb" className="sr-only">
+    <nav aria-label={label} className="sr-only">
       <ol className="flex flex-wrap items-center gap-2 text-[13px] text-white/55">
         {crumbs.map((crumb, index) => (
           <Fragment key={crumb.label}>

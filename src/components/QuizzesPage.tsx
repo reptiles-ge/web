@@ -31,6 +31,7 @@ export async function QuizzesPage({ items, locale }: QuizzesPageProps) {
     locale,
     namespace: "groupHubShared",
   });
+  const tNav = await getTranslations({ locale, namespace: "nav" });
   const live = items.filter((item) => item.status === "live");
   const how = [
     { body: t("how1Body"), title: t("how1Title") },
@@ -48,6 +49,7 @@ export async function QuizzesPage({ items, locale }: QuizzesPageProps) {
           <ScreenReaderBreadcrumb
             current={t("breadcrumbCurrent")}
             home={tShared("breadcrumbHome")}
+            label={tNav("breadcrumbAria")}
           />
           <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
             {t("eyebrow")}

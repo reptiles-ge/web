@@ -23,6 +23,7 @@ export function VenomousSnakesHero({
 }: VenomousSnakesHeroProps) {
   const t = useTranslations("venomousSnakes");
   const tSnakes = useTranslations("snakes");
+  const tNav = useTranslations("nav");
 
   return (
     <>
@@ -44,7 +45,7 @@ export function VenomousSnakesHero({
 
         <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
           <div>
-            <nav aria-label="Breadcrumb" className="sr-only">
+            <nav aria-label={tNav("breadcrumbAria")} className="sr-only">
               <ol className="flex flex-wrap items-center gap-2 text-[13px] text-white/55">
                 <li>
                   <Link

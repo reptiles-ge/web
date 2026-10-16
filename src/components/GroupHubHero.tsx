@@ -53,10 +53,10 @@ export async function GroupHubHero({
   showRisk,
   species,
 }: GroupHubHeroProps) {
-  const [t, tShared, tProfile] = await Promise.all([
+  const [t, tShared, tNav] = await Promise.all([
     getTranslations({ locale, namespace: hubId }),
     getTranslations({ locale, namespace: "groupHubShared" }),
-    getTranslations({ locale, namespace: "profile" }),
+    getTranslations({ locale, namespace: "nav" }),
   ]);
   const editable = locale === "ka" && isLocalAdminEnabled();
   const stats = heroStats({ showRisk, species, t, tShared });
@@ -81,7 +81,7 @@ export async function GroupHubHero({
 
         <div className="relative mx-auto h-full max-w-[1440px] px-6 pt-[244px] pb-7 lg:flex lg:flex-col lg:justify-center lg:px-[60px] lg:pt-14 lg:pb-0">
           <div className="lg:max-w-[640px]">
-            <nav aria-label={tProfile("breadcrumbAria")} className="sr-only">
+            <nav aria-label={tNav("breadcrumbAria")} className="sr-only">
               <Link
                 className="inline-flex min-h-8 items-center text-white/80 transition-colors hover:text-white"
                 href="/"

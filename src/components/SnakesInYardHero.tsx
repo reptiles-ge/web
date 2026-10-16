@@ -10,6 +10,7 @@ import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 export function SnakesInYardHero({ heroSrc }: { heroSrc: string }) {
   const t = useTranslations("snakesInYard");
   const tSnakes = useTranslations("snakes");
+  const tNav = useTranslations("nav");
 
   return (
     <section
@@ -34,6 +35,7 @@ export function SnakesInYardHero({ heroSrc }: { heroSrc: string }) {
               { href: "/snakes", label: tSnakes("breadcrumbCurrent") },
               { label: t("breadcrumbCurrent") },
             ]}
+            label={tNav("breadcrumbAria")}
           />
 
           <p className="font-display text-display-kicker font-semibold tracking-tight text-white/90">

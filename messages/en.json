@@ -87,7 +87,8 @@
     "contact": "Contact",
     "speciesCount": "{count} species",
     "allSpecies": "All {count} species",
-    "groupCount": "{count, plural, one {# group} other {# groups}}"
+    "groupCount": "{count, plural, one {# group} other {# groups}}",
+    "breadcrumbAria": "Breadcrumb"
   },
   "search": {
     "placeholder": "Species, page, region…",
@@ -544,7 +545,6 @@
     "sourcesCount": "{count} sources",
     "moreSources": "{count} more sources",
     "sourcesNote": "Species profiles are compiled from peer-reviewed literature and established biodiversity databases, and are reviewed as new taxonomic and conservation data become available.",
-    "breadcrumbAria": "Breadcrumb",
     "breadcrumbHome": "Home",
     "breadcrumbSpecies": "Species",
     "breadcrumbVenomous": "Venomous snakes in Georgia",
@@ -726,7 +726,8 @@
     "allRegions": "All regions",
     "emptyPreview": "Data coming soon",
     "emptyTitle": "No records yet",
-    "emptyBody": "Species data for this region has not been added yet. It will appear here soon."
+    "emptyBody": "Species data for this region has not been added yet. It will appear here soon.",
+    "ariaLabel": "Map of Georgia"
   },
   "regions": {
     "metaTitle": "Regions",

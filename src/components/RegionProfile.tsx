@@ -305,6 +305,7 @@ function RegionProfileHero({
   venomousCount: number;
 }) {
   const t = useTranslations("regions");
+  const tNav = useTranslations("nav");
   const heroSrc = getRegionHeroImage(regionId);
 
   return (
@@ -325,7 +326,7 @@ function RegionProfileHero({
       <div className="absolute inset-0 bg-[radial-gradient(100%_70%_at_50%_30%,transparent_30%,rgba(0,0,0,0.55)_100%)]" />
 
       <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
-        <nav aria-label="Breadcrumb" className="sr-only">
+        <nav aria-label={tNav("breadcrumbAria")} className="sr-only">
           <Link
             className="inline-flex items-center gap-2 font-medium transition-colors hover:text-white"
             href="/"

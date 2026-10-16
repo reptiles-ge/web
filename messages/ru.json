@@ -87,7 +87,8 @@
     "contact": "Контакты",
     "speciesCount": "{count, plural, one {# вид} few {# вида} many {# видов} other {# вида}}",
     "allSpecies": "Все виды: {count}",
-    "groupCount": "{count, plural, one {# группа} few {# группы} many {# групп} other {# группы}}"
+    "groupCount": "{count, plural, one {# группа} few {# группы} many {# групп} other {# группы}}",
+    "breadcrumbAria": "Навигационная цепочка"
   },
   "search": {
     "placeholder": "Вид, страница, регион…",
@@ -544,7 +545,6 @@
     "sourcesCount": "Источников: {count}",
     "moreSources": "Ещё {count} источников",
     "sourcesNote": "Профили видов составлены по рецензируемой литературе и признанным базам биоразнообразия и пересматриваются по мере появления новых таксономических и охранных данных.",
-    "breadcrumbAria": "Навигационная цепочка",
     "breadcrumbHome": "Главная",
     "breadcrumbSpecies": "Виды",
     "breadcrumbVenomous": "Ядовитые змеи в Грузии",
@@ -726,7 +726,8 @@
     "allRegions": "Все регионы",
     "emptyPreview": "Данные скоро появятся",
     "emptyTitle": "Пока нет записей",
-    "emptyBody": "Данные по видам этого региона ещё не добавлены. Они появятся здесь."
+    "emptyBody": "Данные по видам этого региона ещё не добавлены. Они появятся здесь.",
+    "ariaLabel": "Карта Грузии"
   },
   "regions": {
     "metaTitle": "Регионы",

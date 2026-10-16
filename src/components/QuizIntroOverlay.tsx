@@ -15,9 +15,10 @@ type QuizIntroOverlayProps = {
 export function QuizBreadcrumbs() {
   const t = useQuizCopy();
   const tQuizzes = useTranslations("quizzes");
+  const tNav = useTranslations("nav");
 
   return (
-    <nav aria-label="Breadcrumb" className="sr-only">
+    <nav aria-label={tNav("breadcrumbAria")} className="sr-only">
       <ol className="flex flex-wrap items-center gap-2 text-[13px] text-white/55">
         <li>
           <Link className="transition-colors hover:text-white" href="/">
