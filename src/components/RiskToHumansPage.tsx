@@ -12,6 +12,7 @@ import {
   ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
 import { ContentAttribution } from "@/components/ContentAttribution";
+import { OptimizedImageScope } from "@/components/OptimizedImageScope";
 import { RiskLevelList } from "@/components/RiskLevelList";
 import { RiskToHumansHero } from "@/components/RiskToHumansHero";
 import { type SpeciesCard, toSpeciesCards } from "@/data/speciesCard";
@@ -54,7 +55,9 @@ export async function RiskToHumansPage({
     <div className="min-h-screen bg-background">
       <div>
         <RiskToHumansHero countByLevel={countByLevel} />
-        <RiskLevelList speciesByLevel={speciesByLevel} />
+        <OptimizedImageScope>
+          <RiskLevelList speciesByLevel={speciesByLevel} />
+        </OptimizedImageScope>
 
         <ClusterFaqSection
           intro={{

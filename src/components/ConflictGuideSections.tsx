@@ -19,6 +19,7 @@ import {
 } from "@/components/GuideShared";
 import { guideSpeciesLinks } from "@/components/guideSpeciesLinks";
 import { GuideSpeciesSection } from "@/components/GuideSpeciesSection";
+import { OptimizedImageScope } from "@/components/OptimizedImageScope";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { Link } from "@/i18n/navigation";
 import { speciesHref } from "@/lib/speciesRoutes";
@@ -206,29 +207,33 @@ async function ConflictIdentify({
   const t = await getTranslations({ locale, namespace: config.namespace });
 
   return (
-    <GuideSpeciesSection
-      links={guideSpeciesLinks(config.extraLinks, (key) => t(key as "linkHub"))}
-      species={species}
-    >
-      <ClusterSectionIntro
-        body={t("identifyLead")}
-        bodyClassName={CLUSTER_BODY}
-        eyebrow={t("identifyEyebrow")}
-        eyebrowClassName={CLUSTER_EYEBROW}
-        title={t("identifyTitle")}
-        titleClassName="mt-5 max-w-3xl font-display text-display-title font-semibold"
-      />
-      <ul className="mt-8 max-w-2xl divide-y divide-border border-y border-border">
-        {([1, 2, 3] as const).map((n) => (
-          <li
-            className="py-4 text-[15px] leading-relaxed text-foreground"
-            key={n}
-          >
-            <PhoneLinkedText>{t(`identify${n}`)}</PhoneLinkedText>
-          </li>
-        ))}
-      </ul>
-    </GuideSpeciesSection>
+    <OptimizedImageScope>
+      <GuideSpeciesSection
+        links={guideSpeciesLinks(config.extraLinks, (key) =>
+          t(key as "linkHub"),
+        )}
+        species={species}
+      >
+        <ClusterSectionIntro
+          body={t("identifyLead")}
+          bodyClassName={CLUSTER_BODY}
+          eyebrow={t("identifyEyebrow")}
+          eyebrowClassName={CLUSTER_EYEBROW}
+          title={t("identifyTitle")}
+          titleClassName="mt-5 max-w-3xl font-display text-display-title font-semibold"
+        />
+        <ul className="mt-8 max-w-2xl divide-y divide-border border-y border-border">
+          {([1, 2, 3] as const).map((n) => (
+            <li
+              className="py-4 text-[15px] leading-relaxed text-foreground"
+              key={n}
+            >
+              <PhoneLinkedText>{t(`identify${n}`)}</PhoneLinkedText>
+            </li>
+          ))}
+        </ul>
+      </GuideSpeciesSection>
+    </OptimizedImageScope>
   );
 }
 

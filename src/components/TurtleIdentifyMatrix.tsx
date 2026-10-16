@@ -6,8 +6,8 @@ import { useTranslations } from "next-intl";
 import type { SpeciesCard } from "@/data/speciesCard";
 import type { AppLocale } from "@/i18n/routing";
 
+import { ClientCoverImage } from "@/components/ClientCoverImage";
 import { ClusterContentSection } from "@/components/ClusterContentSection";
-import { CoverImage } from "@/components/CoverImage";
 import {
   useLocaleSwitchIndex,
   useSpeciesHref,
@@ -203,7 +203,7 @@ function ComparePhoto({
         className="relative block aspect-5/4 overflow-hidden rounded-2xl bg-ink"
         href={useSpeciesHref(species.id, locale)}
       >
-        <CoverImage
+        <ClientCoverImage
           alt={alt}
           className="object-cover"
           sizes="(max-width: 768px) 90vw, 45vw"

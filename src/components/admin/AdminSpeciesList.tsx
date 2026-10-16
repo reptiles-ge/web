@@ -6,7 +6,7 @@ import { useMemo, useState } from "react";
 import type { AnimalGroup } from "@/data/speciesAtlas";
 import type { AdminSpeciesSummary } from "@/lib/adminGalleryMdx";
 
-import { CoverImage } from "@/components/CoverImage";
+import { ClientCoverImage } from "@/components/ClientCoverImage";
 import { cn } from "@/lib/cn";
 
 const GROUP_LABEL: Record<AnimalGroup, string> = {
@@ -99,7 +99,7 @@ export function AdminSpeciesList({
             >
               <span className="media-placeholder relative size-12 shrink-0 overflow-hidden rounded-md bg-secondary">
                 {item.image ? (
-                  <CoverImage
+                  <ClientCoverImage
                     alt=""
                     className="object-cover"
                     sizes="48px"

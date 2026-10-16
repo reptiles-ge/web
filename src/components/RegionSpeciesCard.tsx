@@ -5,7 +5,7 @@ import { useLocale } from "next-intl";
 import type { RegionSpeciesCardItem } from "@/data/regions";
 import type { AppLocale } from "@/i18n/routing";
 
-import { CoverImage } from "@/components/CoverImage";
+import { ClientCoverImage } from "@/components/ClientCoverImage";
 import { useSpeciesHref } from "@/components/LocaleSwitchProvider";
 import { SpeciesRiskChip } from "@/components/SpeciesDanger";
 import { Link } from "@/i18n/navigation";
@@ -32,7 +32,7 @@ export function RegionSpeciesCard({
       }
       prefetch={false}
     >
-      <CoverImage
+      <ClientCoverImage
         alt={speciesImageAlt(
           species.commonName,
           species.scientificName,

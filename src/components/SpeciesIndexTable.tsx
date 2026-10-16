@@ -6,7 +6,7 @@ import { useMemo, useState } from "react";
 import type { SpeciesIndexRow } from "@/data/speciesCard";
 import type { AppLocale } from "@/i18n/routing";
 
-import { CoverImage } from "@/components/CoverImage";
+import { ClientCoverImage } from "@/components/ClientCoverImage";
 import {
   useLocaleSwitchIndex,
   useSpeciesHref,
@@ -237,7 +237,7 @@ export function SpeciesIndexTable({
                           prefetch={false}
                         >
                           <span className="relative block size-14 overflow-hidden rounded-xl bg-ink">
-                            <CoverImage
+                            <ClientCoverImage
                               alt={speciesImageAlt(
                                 item.commonName,
                                 item.scientificName,
@@ -341,7 +341,7 @@ function IndexCard({
       prefetch={false}
     >
       <span className="relative aspect-5/4 overflow-hidden rounded-2xl bg-ink sm:aspect-square">
-        <CoverImage
+        <ClientCoverImage
           alt={speciesImageAlt(
             species.commonName,
             species.scientificName,

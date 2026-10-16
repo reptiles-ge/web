@@ -4,6 +4,8 @@ import type { AppLocale } from "@/i18n/routing";
 
 import { LocalizedLink } from "@/components/LocalizedLink";
 import { NotFoundBoundary } from "@/components/NotFoundBoundary";
+import { OptimizedImageScope } from "@/components/OptimizedImageScope";
+import { images } from "@/data/speciesMedia";
 
 export async function NotFoundShell({ locale }: { locale: AppLocale }) {
   const t = await getTranslations({ locale, namespace: "notFound" });
@@ -24,7 +26,9 @@ export async function NotFoundShell({ locale }: { locale: AppLocale }) {
           {t("home")}
         </LocalizedLink>
       </div>
-      <NotFoundBoundary />
+      <OptimizedImageScope srcs={[images.cta]}>
+        <NotFoundBoundary />
+      </OptimizedImageScope>
     </div>
   );
 }

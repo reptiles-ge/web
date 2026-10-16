@@ -12,6 +12,7 @@ import {
   ClusterStat,
   ClusterStatsBand,
 } from "@/components/ClusterSectionIntro";
+import { OptimizedImageScope } from "@/components/OptimizedImageScope";
 import { SpeciesIndexTable } from "@/components/SpeciesIndexTable";
 import { toSpeciesIndexRows } from "@/data/speciesCard";
 import { Link } from "@/i18n/navigation";
@@ -75,11 +76,13 @@ export async function AmphibianSpeciesIndexPage({
         }
         title={t("frogsTitle", { count: frogs.length })}
       >
-        <SpeciesIndexTable
-          locale={locale}
-          showDangerFilter={false}
-          species={toSpeciesIndexRows(frogs)}
-        />
+        <OptimizedImageScope>
+          <SpeciesIndexTable
+            locale={locale}
+            showDangerFilter={false}
+            species={toSpeciesIndexRows(frogs)}
+          />
+        </OptimizedImageScope>
       </ClusterIndexSection>
 
       <section className="border-t border-border bg-background py-20 lg:py-28">
@@ -103,11 +106,13 @@ export async function AmphibianSpeciesIndexPage({
             </ClusterSectionIntro>
           </div>
           <div className="mt-10">
-            <SpeciesIndexTable
-              locale={locale}
-              showDangerFilter={false}
-              species={toSpeciesIndexRows(newts)}
-            />
+            <OptimizedImageScope>
+              <SpeciesIndexTable
+                locale={locale}
+                showDangerFilter={false}
+                species={toSpeciesIndexRows(newts)}
+              />
+            </OptimizedImageScope>
           </div>
         </div>
       </section>

@@ -9,6 +9,7 @@ import {
   ClusterStat,
   ClusterStatsBand,
 } from "@/components/ClusterSectionIntro";
+import { OptimizedImageScope } from "@/components/OptimizedImageScope";
 import { SpeciesIndexTable } from "@/components/SpeciesIndexTable";
 import { toSpeciesIndexRows } from "@/data/speciesCard";
 import {
@@ -72,11 +73,13 @@ export async function CatalogSpeciesIndexPage({
         eyebrow={t("tableEyebrow")}
         title={t("tableTitle", { count: species.length })}
       >
-        <SpeciesIndexTable
-          locale={locale}
-          showDangerFilter={false}
-          species={toSpeciesIndexRows(species)}
-        />
+        <OptimizedImageScope>
+          <SpeciesIndexTable
+            locale={locale}
+            showDangerFilter={false}
+            species={toSpeciesIndexRows(species)}
+          />
+        </OptimizedImageScope>
       </ClusterIndexSection>
     </ClusterPageFrame>
   );

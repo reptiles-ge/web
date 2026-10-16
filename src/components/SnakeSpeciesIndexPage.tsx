@@ -9,6 +9,7 @@ import {
   ClusterStat,
   ClusterStatsBand,
 } from "@/components/ClusterSectionIntro";
+import { OptimizedImageScope } from "@/components/OptimizedImageScope";
 import { snakeGuideLeadLinks } from "@/components/snakeGuideLeadLinks";
 import { SpeciesIndexTable } from "@/components/SpeciesIndexTable";
 import { isVenomousDanger } from "@/data/speciesAtlas";
@@ -52,10 +53,12 @@ export async function SnakeSpeciesIndexPage({
         eyebrow={t("tableEyebrow")}
         title={t("tableTitle", { count: species.length })}
       >
-        <SpeciesIndexTable
-          locale={locale}
-          species={toSpeciesIndexRows(species)}
-        />
+        <OptimizedImageScope>
+          <SpeciesIndexTable
+            locale={locale}
+            species={toSpeciesIndexRows(species)}
+          />
+        </OptimizedImageScope>
       </ClusterIndexSection>
     </ClusterPageFrame>
   );

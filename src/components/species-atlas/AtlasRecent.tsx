@@ -4,7 +4,7 @@ import { useLocale, useTranslations } from "next-intl";
 
 import type { AppLocale } from "@/i18n/routing";
 
-import { CoverImage } from "@/components/CoverImage";
+import { ClientCoverImage } from "@/components/ClientCoverImage";
 import { useSpeciesHref } from "@/components/LocaleSwitchProvider";
 import { atlasSpeciesImage } from "@/data/atlasFilters";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
@@ -59,7 +59,7 @@ function RecentSpeciesRow({ species }: { species: SpeciesListItem }) {
       href={useSpeciesHref(species.id, locale)}
     >
       <span className="relative size-[52px] shrink-0 overflow-hidden rounded-[14px] bg-[#151c18] lg:size-[72px] lg:rounded-2xl">
-        <CoverImage alt="" aria-hidden sizes="72px" src={image} />
+        <ClientCoverImage alt="" aria-hidden sizes="72px" src={image} />
       </span>
       <span className="min-w-0 flex-1">
         <span className="hidden items-center gap-1.5 text-[12px] font-medium text-primary lg:inline-flex">

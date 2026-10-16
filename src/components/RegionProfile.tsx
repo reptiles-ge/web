@@ -9,7 +9,7 @@ import type { RegionSpeciesCardItem } from "@/data/regions";
 import type { AppLocale } from "@/i18n/routing";
 
 import { AnchoredHeading } from "@/components/AnchoredHeading";
-import { CoverImage } from "@/components/CoverImage";
+import { ClientCoverImage } from "@/components/ClientCoverImage";
 import { FaqAnswerPanel, FaqToggleIcon } from "@/components/FaqAccordionParts";
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
@@ -314,7 +314,7 @@ function RegionProfileHero({
         paddingTop: "7rem",
       }}
     >
-      <CoverImage
+      <ClientCoverImage
         alt={t("regionHeroAlt", { name })}
         className="object-cover object-center"
         priority

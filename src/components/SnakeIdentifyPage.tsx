@@ -9,6 +9,7 @@ import { ClusterNumberedSteps } from "@/components/ClusterNumberedSteps";
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
 import { GuideEditorialNote, GuideMythList } from "@/components/GuideShared";
 import { LookalikePairGrid } from "@/components/LookalikePairGrid";
+import { OptimizedImageScope } from "@/components/OptimizedImageScope";
 import { QuizPracticeCta } from "@/components/QuizPracticeCta";
 import { snakeGuideLeadLinks } from "@/components/snakeGuideLeadLinks";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
@@ -123,11 +124,13 @@ export async function SnakeIdentifyPage({
             </Link>
           </div>
         )}
-        <SpeciesGuideList
-          locale={locale}
-          source="guide"
-          species={toSpeciesCards(venomous)}
-        />
+        <OptimizedImageScope>
+          <SpeciesGuideList
+            locale={locale}
+            source="guide"
+            species={toSpeciesCards(venomous)}
+          />
+        </OptimizedImageScope>
       </ClusterContentSection>
 
       <ClusterContentSection

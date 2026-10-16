@@ -6,8 +6,8 @@ import { useTranslations } from "next-intl";
 import type { SpeciesCard } from "@/data/speciesCard";
 import type { AppLocale } from "@/i18n/routing";
 
+import { ClientCoverImage } from "@/components/ClientCoverImage";
 import { ClusterContentSection } from "@/components/ClusterContentSection";
-import { CoverImage } from "@/components/CoverImage";
 import { useSpeciesHref } from "@/components/LocaleSwitchProvider";
 import { Link } from "@/i18n/navigation";
 
@@ -175,7 +175,7 @@ function BranchCard({
       href={href}
     >
       <span className="relative block aspect-16/10 overflow-hidden bg-ink">
-        <CoverImage
+        <ClientCoverImage
           alt={alt}
           className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
           sizes="(max-width: 768px) 90vw, 45vw"
@@ -215,7 +215,7 @@ function SpeciesResult({
         className="relative block aspect-5/4 w-full shrink-0 overflow-hidden rounded-xl bg-ink sm:w-44"
         href={useSpeciesHref(species.id, locale)}
       >
-        <CoverImage
+        <ClientCoverImage
           alt={`${species.commonName} (${species.scientificName})`}
           className="object-cover"
           sizes="180px"
