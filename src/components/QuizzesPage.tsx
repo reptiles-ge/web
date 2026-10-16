@@ -26,12 +26,11 @@ type QuizzesPageProps = {
 };
 
 export async function QuizzesPage({ items, locale }: QuizzesPageProps) {
-  const t = await getTranslations({ locale, namespace: "quizzes" });
-  const tShared = await getTranslations({
-    locale,
-    namespace: "groupHubShared",
-  });
-  const tNav = await getTranslations({ locale, namespace: "nav" });
+  const [t, tShared, tNav] = await Promise.all([
+    getTranslations({ locale, namespace: "quizzes" }),
+    getTranslations({ locale, namespace: "groupHubShared" }),
+    getTranslations({ locale, namespace: "nav" }),
+  ]);
   const live = items.filter((item) => item.status === "live");
   const how = [
     { body: t("how1Body"), title: t("how1Title") },

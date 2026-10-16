@@ -14,9 +14,11 @@ export async function SnakesInYardHero({
   heroSrc: string;
   locale: AppLocale;
 }) {
-  const t = await getTranslations({ locale, namespace: "snakesInYard" });
-  const tSnakes = await getTranslations({ locale, namespace: "snakes" });
-  const tNav = await getTranslations({ locale, namespace: "nav" });
+  const [t, tSnakes, tNav] = await Promise.all([
+    getTranslations({ locale, namespace: "snakesInYard" }),
+    getTranslations({ locale, namespace: "snakes" }),
+    getTranslations({ locale, namespace: "nav" }),
+  ]);
 
   return (
     <section

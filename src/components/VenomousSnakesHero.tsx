@@ -23,9 +23,11 @@ export async function VenomousSnakesHero({
   moderateCount,
   speciesCount,
 }: VenomousSnakesHeroProps) {
-  const t = await getTranslations({ locale, namespace: "venomousSnakes" });
-  const tSnakes = await getTranslations({ locale, namespace: "snakes" });
-  const tNav = await getTranslations({ locale, namespace: "nav" });
+  const [t, tSnakes, tNav] = await Promise.all([
+    getTranslations({ locale, namespace: "venomousSnakes" }),
+    getTranslations({ locale, namespace: "snakes" }),
+    getTranslations({ locale, namespace: "nav" }),
+  ]);
 
   return (
     <>
