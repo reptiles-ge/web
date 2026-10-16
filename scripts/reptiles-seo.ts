@@ -756,12 +756,17 @@ function buildTechnicalIssues(graph: SeoGraph, inventory: InventoryItem[]) {
 
 async function cachedJson<T>({ fetcher, key, ttlMs }: CacheOptions<T>) {
   const file = path.join(cacheRoot, `${safeFileName(key)}.json`);
+  let handle: fs.FileHandle | undefined;
   try {
-    const stat = await fs.stat(file);
+    handle = await fs.open(file, "r");
+    const stat = await handle.stat();
     if (Date.now() - stat.mtimeMs < ttlMs) {
-      return JSON.parse(await fs.readFile(file, "utf8")) as T;
+      return JSON.parse(await handle.readFile("utf8")) as T;
     }
-  } catch {}
+  } catch {
+  } finally {
+    await handle?.close();
+  }
   const value = await fetcher();
   await fs.mkdir(path.dirname(file), { recursive: true });
   await fs.writeFile(file, `${JSON.stringify(value, null, 2)}\n`, "utf8");
