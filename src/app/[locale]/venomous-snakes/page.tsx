@@ -95,16 +95,7 @@ export default async function VenomousSnakesRoute({ params }: LocalePageProps) {
       <JsonLd data={pageLd} />
       <ClientMessagesProvider
         locale={locale}
-        namespaces={[
-          "card",
-          "danger",
-          "groupHubShared",
-          "profile",
-          "quizzes",
-          "snakeQuiz",
-          "snakes",
-          "venomousSnakes",
-        ]}
+        namespaces={["danger", "groupHubShared"]}
       >
         <VenomousSnakesPage
           heroSrc={heroSrc}

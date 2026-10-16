@@ -1,9 +1,7 @@
-"use client";
-
 import type { ReactNode } from "react";
 
 import { ArrowUpRight, Shield } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
 import type { HubClusterCard } from "@/lib/clusterGuides";
@@ -50,15 +48,15 @@ type VenomousSnakesGuidesProps = {
   relatedGuides: HubClusterCard[];
 };
 
-export function VenomousSnakesGuides({
+export async function VenomousSnakesGuides({
   locale,
   relatedGuides,
 }: VenomousSnakesGuidesProps) {
-  const t = useTranslations("venomousSnakes");
+  const t = await getTranslations({ locale, namespace: "venomousSnakes" });
 
   return (
     <>
-      <VenomousSnakesCompare />
+      <VenomousSnakesCompare locale={locale} />
 
       <ClusterContentSection
         body={t("mythsLead")}
