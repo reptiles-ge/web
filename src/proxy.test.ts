@@ -107,6 +107,27 @@ describe("configured redirects", () => {
     );
   });
 
+  it.each(["en", "ru", "tr"])(
+    "301s /%s/{hub}/saxeoebebi to the species index for every hub",
+    (locale) => {
+      for (const hub of [
+        "snakes",
+        "lizards",
+        "turtles",
+        "amphibians",
+        "birds",
+        "mammals",
+        "spiders",
+        "insects",
+      ]) {
+        expect(location(`/${locale}/${hub}/saxeoebebi`)).toEqual({
+          location: `https://reptiles.ge/${locale}/${hub}/species`,
+          status: 301,
+        });
+      }
+    },
+  );
+
   it("redirects /moriebi to /morieli", () => {
     expect(location("/moriebi")).toEqual({
       location: "https://reptiles.ge/morieli",

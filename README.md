@@ -127,7 +127,7 @@ Route folders under `src/app/[locale]/` use **internal English pathnames** such 
 
 - Always link with `Link` / `getPathname` from `@/i18n/navigation`. Never hardcode a locale prefix.
 - `/ka` and `/ka/…` redirect (301) to the unprefixed URL in `src/proxy.ts`.
-- Any URL that changes needs a 301 in both `next.config.ts` and `src/proxy.ts`.
+- Any URL that changes needs a 301 in `src/proxy.ts`. Production runs on vinext, which never applies `redirects()` from `next.config.ts`, so do not add redirects there.
 - Unknown paths fall through to `src/app/[locale]/[...rest]/page.tsx`, a `noindex` 404.
 
 ### Thin route factories
