@@ -75,7 +75,7 @@ export function suggestLocale({
 }): AppLocale | null {
   const locales = browserLocales(languages);
   if (locales.includes(current)) return null;
-  if (current === "ka" && country === "GE") return null;
+  if (current === "ka" && (!country || country === "GE")) return null;
   const candidate = locales[0] ?? countryLocale(country);
   return candidate && candidate !== current ? candidate : null;
 }

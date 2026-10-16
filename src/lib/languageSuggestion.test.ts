@@ -69,6 +69,15 @@ describe("suggestLocale", () => {
     ).toBeNull();
   });
 
+  it("keeps Georgian when the country is unknown", () => {
+    expect(
+      suggestLocale({ country: null, current: "ka", languages: ["en-US"] }),
+    ).toBeNull();
+    expect(
+      suggestLocale({ country: null, current: "ka", languages: ["ru-RU"] }),
+    ).toBeNull();
+  });
+
   it("falls back to the country when no browser language is supported", () => {
     expect(
       suggestLocale({ country: "TR", current: "ka", languages: ["de"] }),
