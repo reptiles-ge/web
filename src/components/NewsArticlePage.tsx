@@ -304,33 +304,18 @@ async function NewsArticleHeader({
   return (
     <header className={`${wrapClass} pt-[92px] md:pt-[136px]`}>
       <div className="md:mx-auto md:max-w-[920px] md:text-center">
-        <nav aria-label="Breadcrumb">
-          <ol className="flex flex-wrap items-center gap-2 text-[13px] text-(--nw-muted) md:justify-center">
+        <nav aria-label="Breadcrumb" className="sr-only">
+          <ol>
             <li>
-              <Link
-                className="transition-colors hover:text-(--nw-ink)"
-                href="/"
-              >
-                {tShared("breadcrumbHome")}
-              </Link>
-            </li>
-            <li aria-hidden="true" className="text-(--nw-sep)">
-              /
+              <Link href="/">{tShared("breadcrumbHome")}</Link>
             </li>
             <li>
-              <Link
-                className="transition-colors hover:text-(--nw-ink)"
-                href={newsIndexHref()}
-              >
-                {t("breadcrumbNews")}
-              </Link>
+              <Link href={newsIndexHref()}>{t("breadcrumbNews")}</Link>
             </li>
-            <li aria-current="page" className="sr-only">
-              {copy.title}
-            </li>
+            <li aria-current="page">{copy.title}</li>
           </ol>
         </nav>
-        <div className="mt-[18px] flex flex-wrap items-center gap-2 text-[12.5px] text-(--nw-muted) tabular-nums md:mt-[22px] md:justify-center md:gap-2.5 md:text-[13.5px]">
+        <div className="flex flex-wrap items-center gap-2 text-[12.5px] text-(--nw-muted) tabular-nums md:justify-center md:gap-2.5 md:text-[13.5px]">
           {categoryHub ? (
             <Link
               className="inline-flex h-[26px] items-center rounded-full bg-(--nw-surface) px-2.5 text-[12px] font-semibold text-(--nw-accent) transition-opacity hover:opacity-80 md:h-7 md:px-3 md:text-[12.5px]"
