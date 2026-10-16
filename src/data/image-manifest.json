@@ -49670,7 +49670,292 @@
           "byteSize": 61524
         }
       ],
-      "updatedAt": "2026-10-16T07:06:27.948Z"
+      "updatedAt": "2026-10-16T07:37:38.444Z"
+    },
+    "images/news/melanistic-eirenis-modestus-anatolia/figure-1.jpg": {
+      "sourceHash": "b1a632812a8a9ebe5eadebb8158f1e94cfb0c6157f9336acc853d5f289a89003",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/melanistic-eirenis-modestus-anatolia/figure-1.jpg",
+      "originalSize": 1225115,
+      "width": 1975,
+      "height": 1303,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/melanistic-eirenis-modestus-anatolia/figure-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 211,
+          "byteSize": 13656
+        },
+        {
+          "key": "optimized/images/news/melanistic-eirenis-modestus-anatolia/figure-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 211,
+          "byteSize": 16332
+        },
+        {
+          "key": "optimized/images/news/melanistic-eirenis-modestus-anatolia/figure-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 264,
+          "byteSize": 19047
+        },
+        {
+          "key": "optimized/images/news/melanistic-eirenis-modestus-anatolia/figure-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 264,
+          "byteSize": 23370
+        },
+        {
+          "key": "optimized/images/news/melanistic-eirenis-modestus-anatolia/figure-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 422,
+          "byteSize": 38166
+        },
+        {
+          "key": "optimized/images/news/melanistic-eirenis-modestus-anatolia/figure-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 422,
+          "byteSize": 50654
+        },
+        {
+          "key": "optimized/images/news/melanistic-eirenis-modestus-anatolia/figure-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 528,
+          "byteSize": 59143
+        },
+        {
+          "key": "optimized/images/news/melanistic-eirenis-modestus-anatolia/figure-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 528,
+          "byteSize": 76556
+        },
+        {
+          "key": "optimized/images/news/melanistic-eirenis-modestus-anatolia/figure-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 792,
+          "byteSize": 110463
+        },
+        {
+          "key": "optimized/images/news/melanistic-eirenis-modestus-anatolia/figure-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 792,
+          "byteSize": 150584
+        },
+        {
+          "key": "optimized/images/news/melanistic-eirenis-modestus-anatolia/figure-1-1975.avif",
+          "format": "avif",
+          "width": 1975,
+          "height": 1303,
+          "byteSize": 230470
+        },
+        {
+          "key": "optimized/images/news/melanistic-eirenis-modestus-anatolia/figure-1-1975.webp",
+          "format": "webp",
+          "width": 1975,
+          "height": 1303,
+          "byteSize": 325026
+        }
+      ],
+      "updatedAt": "2026-10-16T07:37:46.660Z"
+    },
+    "images/news/melanistic-eirenis-modestus-anatolia/figure-2.jpg": {
+      "sourceHash": "c8dbd794f68799168621b23a98f12dde88bd53980ec19c6903a0d1c4b2294621",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/melanistic-eirenis-modestus-anatolia/figure-2.jpg",
+      "originalSize": 1794226,
+      "width": 1955,
+      "height": 1268,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/melanistic-eirenis-modestus-anatolia/figure-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 208,
+          "byteSize": 10654
+        },
+        {
+          "key": "optimized/images/news/melanistic-eirenis-modestus-anatolia/figure-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 208,
+          "byteSize": 13642
+        },
+        {
+          "key": "optimized/images/news/melanistic-eirenis-modestus-anatolia/figure-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 260,
+          "byteSize": 13803
+        },
+        {
+          "key": "optimized/images/news/melanistic-eirenis-modestus-anatolia/figure-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 260,
+          "byteSize": 18500
+        },
+        {
+          "key": "optimized/images/news/melanistic-eirenis-modestus-anatolia/figure-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 415,
+          "byteSize": 24602
+        },
+        {
+          "key": "optimized/images/news/melanistic-eirenis-modestus-anatolia/figure-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 415,
+          "byteSize": 32782
+        },
+        {
+          "key": "optimized/images/news/melanistic-eirenis-modestus-anatolia/figure-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 519,
+          "byteSize": 34898
+        },
+        {
+          "key": "optimized/images/news/melanistic-eirenis-modestus-anatolia/figure-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 519,
+          "byteSize": 46470
+        },
+        {
+          "key": "optimized/images/news/melanistic-eirenis-modestus-anatolia/figure-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 778,
+          "byteSize": 63559
+        },
+        {
+          "key": "optimized/images/news/melanistic-eirenis-modestus-anatolia/figure-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 778,
+          "byteSize": 82888
+        },
+        {
+          "key": "optimized/images/news/melanistic-eirenis-modestus-anatolia/figure-2-1955.avif",
+          "format": "avif",
+          "width": 1955,
+          "height": 1268,
+          "byteSize": 130908
+        },
+        {
+          "key": "optimized/images/news/melanistic-eirenis-modestus-anatolia/figure-2-1955.webp",
+          "format": "webp",
+          "width": 1955,
+          "height": 1268,
+          "byteSize": 169858
+        }
+      ],
+      "updatedAt": "2026-10-16T07:37:57.702Z"
+    },
+    "images/news/melanistic-eirenis-modestus-anatolia/figure-3.jpg": {
+      "sourceHash": "13c914b98a5d4d8c796389b3c804cc6ff1504cc408877cc5c7f86ad77fcba27c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/melanistic-eirenis-modestus-anatolia/figure-3.jpg",
+      "originalSize": 1437130,
+      "width": 1975,
+      "height": 1172,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/melanistic-eirenis-modestus-anatolia/figure-3-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 190,
+          "byteSize": 14043
+        },
+        {
+          "key": "optimized/images/news/melanistic-eirenis-modestus-anatolia/figure-3-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 190,
+          "byteSize": 20490
+        },
+        {
+          "key": "optimized/images/news/melanistic-eirenis-modestus-anatolia/figure-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 237,
+          "byteSize": 19359
+        },
+        {
+          "key": "optimized/images/news/melanistic-eirenis-modestus-anatolia/figure-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 237,
+          "byteSize": 28972
+        },
+        {
+          "key": "optimized/images/news/melanistic-eirenis-modestus-anatolia/figure-3-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 380,
+          "byteSize": 37305
+        },
+        {
+          "key": "optimized/images/news/melanistic-eirenis-modestus-anatolia/figure-3-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 380,
+          "byteSize": 56626
+        },
+        {
+          "key": "optimized/images/news/melanistic-eirenis-modestus-anatolia/figure-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 475,
+          "byteSize": 52534
+        },
+        {
+          "key": "optimized/images/news/melanistic-eirenis-modestus-anatolia/figure-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 475,
+          "byteSize": 78574
+        },
+        {
+          "key": "optimized/images/news/melanistic-eirenis-modestus-anatolia/figure-3-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 712,
+          "byteSize": 92222
+        },
+        {
+          "key": "optimized/images/news/melanistic-eirenis-modestus-anatolia/figure-3-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 712,
+          "byteSize": 134022
+        },
+        {
+          "key": "optimized/images/news/melanistic-eirenis-modestus-anatolia/figure-3-1975.avif",
+          "format": "avif",
+          "width": 1975,
+          "height": 1172,
+          "byteSize": 172265
+        },
+        {
+          "key": "optimized/images/news/melanistic-eirenis-modestus-anatolia/figure-3-1975.webp",
+          "format": "webp",
+          "width": 1975,
+          "height": 1172,
+          "byteSize": 240074
+        }
+      ],
+      "updatedAt": "2026-10-16T07:37:44.489Z"
     },
     "images/news/theridion-huseynovi-new-spider-species-georgia-2026/theridion-huseynovi.png": {
       "sourceHash": "d4a1a13fbf943fc87f371418a57eca878129fcd41f735deb5bfbca43c80fe9f3",
@@ -49860,7 +50145,7 @@
           "byteSize": 645112
         }
       ],
-      "updatedAt": "2026-10-16T07:06:36.634Z"
+      "updatedAt": "2026-10-16T07:37:48.845Z"
     },
     "images/news/vipera-pontica-hybrid-georgia-2026/figure-2.jpg": {
       "sourceHash": "62f4c91ddee942d3d6b21b4defbe51198332352423ae0ffe9e31e432b0e966de",
@@ -49955,7 +50240,7 @@
           "byteSize": 559088
         }
       ],
-      "updatedAt": "2026-10-16T07:06:35.565Z"
+      "updatedAt": "2026-10-16T07:37:55.388Z"
     },
     "images/news/vipera-pontica-hybrid-georgia-2026/figure-3.jpg": {
       "sourceHash": "dd0f4b367d44de85997a0c0d23ac01cea456f9e52aad52829973567762d8dd83",
@@ -50050,7 +50335,7 @@
           "byteSize": 372058
         }
       ],
-      "updatedAt": "2026-10-16T07:06:34.742Z"
+      "updatedAt": "2026-10-16T07:38:01.373Z"
     },
     "images/news/vipera-pontica-hybrid-georgia-2026/figure-4.jpg": {
       "sourceHash": "58a64af0c4433dfb4f78b5849ba8c3caeeeadb38d0dc589f0363f85bdddbb317",
@@ -50145,7 +50430,7 @@
           "byteSize": 982360
         }
       ],
-      "updatedAt": "2026-10-16T07:06:46.463Z"
+      "updatedAt": "2026-10-16T07:38:24.591Z"
     },
     "images/species/accipiter-gentilis-afr-1.jpg": {
       "sourceHash": "c2bc814a7c781dce6160c9dd4ab87a47a001f462a14a81bd2edec861bc5aac5a",
