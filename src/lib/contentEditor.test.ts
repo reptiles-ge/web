@@ -14,6 +14,7 @@ import {
 } from "@/lib/contentEditor";
 import { readContentLiteral } from "@/lib/contentEditorLiterals";
 import { resolveEditorTarget } from "@/lib/contentEditorTarget";
+import { readNewsBodyField } from "@/lib/newsMdx";
 
 const id = "darevskia-clarkorum";
 const files = Object.fromEntries(
@@ -385,11 +386,6 @@ describe("selection content editor", () => {
   it("resolves guide, news and message fields to their exact source", async () => {
     const examples = [
       { field: "title", id: "bat-in-house", kind: "guide" },
-      {
-        field: "title",
-        id: "georgian-snakes-area-of-occupancy-2026",
-        kind: "news",
-      },
       { field: "auto", id: "messages", kind: "message" },
     ] as const;
     for (const example of examples) {
@@ -429,14 +425,10 @@ describe("selection content editor", () => {
         expect(updated[0]).not.toBe(target.originals[0]);
         for (const locale of ["ka", "en", "ru", "tr"] as const) {
           expect(
-            readContentLiteral(
-              updated[0],
-              example.kind,
-              example.id,
-              example.kind === "guide"
-                ? [locale, "title"]
-                : ["copy", locale, "title"],
-            ),
+            readContentLiteral(updated[0], example.kind, example.id, [
+              locale,
+              "title",
+            ]),
           ).toBe(result[locale]);
         }
       }
@@ -460,6 +452,56 @@ describe("selection content editor", () => {
       start: 0,
     });
     expect(explicit.source).toBe("გიდები რეალური კითხვებისთვის");
+  });
+
+  it("edits news copy in each locale's MDX file", async () => {
+    const result = {
+      en: "English text",
+      ka: "ქართული ტექსტი",
+      ru: "Русский текст",
+      tr: "Türkçe metin",
+    };
+    for (const field of [
+      "title",
+      "sections.0.heading",
+      "sections.0.blocks.0.parts.0",
+    ]) {
+      const target = await resolveEditorTarget({
+        end: 1,
+        field,
+        id: "georgian-snakes-area-of-occupancy-2026",
+        kind: "news",
+        renderedText: "test",
+        start: 0,
+      });
+      expect(target.files).toEqual(
+        ["ka", "en", "ru", "tr"].map(
+          (locale) =>
+            `src/content/news/georgian-snakes-area-of-occupancy-2026/${locale}.mdx`,
+        ),
+      );
+      const updated = target.updated(result);
+      expect(updated).toHaveLength(4);
+      for (const [index, locale] of (
+        ["ka", "en", "ru", "tr"] as const
+      ).entries()) {
+        expect(
+          field === "title"
+            ? readSpeciesField(updated[index], field)
+            : readNewsBodyField(updated[index], field),
+        ).toBe(result[locale]);
+      }
+    }
+    await expect(
+      resolveEditorTarget({
+        end: 1,
+        field: "metaTitle",
+        id: "georgian-snakes-area-of-occupancy-2026",
+        kind: "news",
+        renderedText: "test",
+        start: 0,
+      }),
+    ).rejects.toThrow("Unknown news field");
   });
 
   it("resolves region copy in both existing content files", async () => {

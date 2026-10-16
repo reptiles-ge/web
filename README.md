@@ -97,7 +97,7 @@ pnpm start:vinext
 │   ├── content/
 │   │   ├── species/{id}/      ka.mdx, en.mdx, ru.mdx, tr.mdx per species
 │   │   ├── guides/{id}.ts     Long-form guide articles, all locales in one file
-│   │   └── news/{slug}.ts     News articles, all locales in one file
+│   │   └── news/{slug}/       News articles, one MDX per locale
 │   ├── data/                  Catalog, regions, checklist, registries, *.generated.ts outputs
 │   ├── i18n/                  next-intl routing and localized pathnames
 │   ├── lib/                   Routing, SEO, route factories, quiz engine, helpers
@@ -186,7 +186,7 @@ Practical long-form guides (bat in the house, wasp nest, tick bite, …) live in
 
 ### News
 
-Articles live in `src/content/news/{slug}.ts` (all locales) and are registered in `src/data/news.ts`. Drafts stay out of the sitemap and static params. There are no tag or category archives.
+Articles live in `src/content/news/{slug}/{ka,en,ru,tr}.mdx`. `scripts/compile-news.ts` turns them into the gitignored `src/data/news.generated.ts`, read through `src/data/news.ts`. Register a new slug in `src/data/newsPublish.ts`. Drafts stay out of the sitemap and static params. There are no tag or category archives.
 
 ### UI strings
 

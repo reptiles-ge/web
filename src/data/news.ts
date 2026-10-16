@@ -3,48 +3,12 @@ import type { NewsArticle, NewsPhoto, NewsSource } from "@/data/newsTypes";
 import type { AppLocale } from "@/i18n/routing";
 import type { GroupHubId } from "@/lib/groupHubs";
 
-import { ARMENIA_POWER_LINE_BIRD_ELECTROCUTION } from "@/content/news/armenia-power-line-bird-electrocution";
-import { BATUMI_19300_RAPTORS_2026 } from "@/content/news/batumi-19300-raptors-2026";
-import { BATUMI_239735_RAPTORS_RECORD_DAY_2026 } from "@/content/news/batumi-239735-raptors-record-day-2026";
-import { BEZOAR_GOAT_RESTORATION_JAVAKHETI_2026 } from "@/content/news/bezoar-goat-restoration-javakheti-2026";
-import { CAUCASIAN_TOAD_BUFO_VERRUCOSISSIMUS_TAXONOMY_2026 } from "@/content/news/caucasian-toad-bufo-verrucosissimus-taxonomy-2026";
-import { CRESTED_HONEY_BUZZARD_BATUMI_2026 } from "@/content/news/crested-honey-buzzard-batumi-2026";
-import { DAREVSKIA_UZZELLI_ARMENIA_2026 } from "@/content/news/darevskia-uzzelli-armenia-2026";
-import { FROM_THE_SKY_RAPTOR_POACHING_FILM_BATUMI } from "@/content/news/from-the-sky-raptor-poaching-film-batumi";
-import { GEORGIA_DOLPHIN_STRANDINGS_2026 } from "@/content/news/georgia-dolphin-strandings-2026";
-import { GEORGIA_HERPETOFAUNA_CHECKLIST_2026 } from "@/content/news/georgia-herpetofauna-checklist-2026";
-import { GEORGIAN_SNAKES_AREA_OF_OCCUPANCY_2026 } from "@/content/news/georgian-snakes-area-of-occupancy-2026";
-import { LEATHERBACK_TURTLE_FIRST_TURKISH_BLACK_SEA_RECORDS_2026 } from "@/content/news/leatherback-turtle-first-turkish-black-sea-records-2026";
-import { MELANISTIC_EIRENIS_MODESTUS_ANATOLIA } from "@/content/news/melanistic-eirenis-modestus-anatolia";
-import { RIONI_STRICT_NATURE_RESERVE_STURGEON_2026 } from "@/content/news/rioni-strict-nature-reserve-sturgeon-2026";
-import { THERIDION_HUSEYNOVI_NEW_SPIDER_SPECIES_GEORGIA_2026 } from "@/content/news/theridion-huseynovi-new-spider-species-georgia-2026";
-import { THREE_LEGGED_LEOPARD_AREN_ALGETI } from "@/content/news/three-legged-leopard-aren-algeti";
-import { VIPERA_PONTICA_HYBRID_GEORGIA_2026 } from "@/content/news/vipera-pontica-hybrid-georgia-2026";
+import { NEWS_ARTICLES } from "@/data/news.generated";
 import { getRegionById } from "@/data/regions";
 import { getSpeciesById } from "@/data/species";
 import { GROUP_HUBS } from "@/lib/groupHubs";
 
 export type { NewsArticle, NewsPhoto, NewsSource } from "@/data/newsTypes";
-
-const NEWS_ARTICLES: readonly NewsArticle[] = [
-  ARMENIA_POWER_LINE_BIRD_ELECTROCUTION,
-  MELANISTIC_EIRENIS_MODESTUS_ANATOLIA,
-  CRESTED_HONEY_BUZZARD_BATUMI_2026,
-  THREE_LEGGED_LEOPARD_AREN_ALGETI,
-  RIONI_STRICT_NATURE_RESERVE_STURGEON_2026,
-  FROM_THE_SKY_RAPTOR_POACHING_FILM_BATUMI,
-  BATUMI_239735_RAPTORS_RECORD_DAY_2026,
-  BEZOAR_GOAT_RESTORATION_JAVAKHETI_2026,
-  CAUCASIAN_TOAD_BUFO_VERRUCOSISSIMUS_TAXONOMY_2026,
-  GEORGIAN_SNAKES_AREA_OF_OCCUPANCY_2026,
-  LEATHERBACK_TURTLE_FIRST_TURKISH_BLACK_SEA_RECORDS_2026,
-  THERIDION_HUSEYNOVI_NEW_SPIDER_SPECIES_GEORGIA_2026,
-  DAREVSKIA_UZZELLI_ARMENIA_2026,
-  GEORGIA_HERPETOFAUNA_CHECKLIST_2026,
-  GEORGIA_DOLPHIN_STRANDINGS_2026,
-  VIPERA_PONTICA_HYBRID_GEORGIA_2026,
-  BATUMI_19300_RAPTORS_2026,
-];
 
 const bySlug = new Map<string, NewsArticle>();
 
