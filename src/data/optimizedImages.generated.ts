@@ -6458,6 +6458,34 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 2000],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/news-crested-honey-buzzard-cordes-male.jpg": {
+    "path": "news-crested-honey-buzzard-cordes-male",
+    "width": 2400,
+    "height": 1600,
+    "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-crested-honey-buzzard-stolk-comparison.jpg": {
+    "path": "news-crested-honey-buzzard-stolk-comparison",
+    "width": 2133,
+    "height": 1654,
+    "widths": [320, 400, 640, 800, 1200, 2133],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-crested-honey-buzzard-stolk-dark-male.jpg": {
+    "path": "news-crested-honey-buzzard-stolk-dark-male",
+    "width": 2400,
+    "height": 1804,
+    "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-crested-honey-buzzard-stolk-female.jpg": {
+    "path": "news-crested-honey-buzzard-stolk-female",
+    "width": 1875,
+    "height": 1441,
+    "widths": [320, 400, 640, 800, 1200, 1875],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/news-from-the-sky-foote-sparrowhawk.jpg": {
     "path": "news-from-the-sky-foote-sparrowhawk",
     "width": 1920,

@@ -49670,7 +49670,7 @@
           "byteSize": 61524
         }
       ],
-      "updatedAt": "2026-10-14T14:03:12.667Z"
+      "updatedAt": "2026-10-16T07:06:27.948Z"
     },
     "images/news/theridion-huseynovi-new-spider-species-georgia-2026/theridion-huseynovi.png": {
       "sourceHash": "d4a1a13fbf943fc87f371418a57eca878129fcd41f735deb5bfbca43c80fe9f3",
@@ -49860,7 +49860,7 @@
           "byteSize": 645112
         }
       ],
-      "updatedAt": "2026-10-14T14:03:06.881Z"
+      "updatedAt": "2026-10-16T07:06:36.634Z"
     },
     "images/news/vipera-pontica-hybrid-georgia-2026/figure-2.jpg": {
       "sourceHash": "62f4c91ddee942d3d6b21b4defbe51198332352423ae0ffe9e31e432b0e966de",
@@ -49955,7 +49955,7 @@
           "byteSize": 559088
         }
       ],
-      "updatedAt": "2026-10-14T14:03:08.390Z"
+      "updatedAt": "2026-10-16T07:06:35.565Z"
     },
     "images/news/vipera-pontica-hybrid-georgia-2026/figure-3.jpg": {
       "sourceHash": "dd0f4b367d44de85997a0c0d23ac01cea456f9e52aad52829973567762d8dd83",
@@ -50050,7 +50050,7 @@
           "byteSize": 372058
         }
       ],
-      "updatedAt": "2026-10-14T14:03:06.098Z"
+      "updatedAt": "2026-10-16T07:06:34.742Z"
     },
     "images/news/vipera-pontica-hybrid-georgia-2026/figure-4.jpg": {
       "sourceHash": "58a64af0c4433dfb4f78b5849ba8c3caeeeadb38d0dc589f0363f85bdddbb317",
@@ -50145,7 +50145,7 @@
           "byteSize": 982360
         }
       ],
-      "updatedAt": "2026-10-14T14:03:15.723Z"
+      "updatedAt": "2026-10-16T07:06:46.463Z"
     },
     "images/species/accipiter-gentilis-afr-1.jpg": {
       "sourceHash": "c2bc814a7c781dce6160c9dd4ab87a47a001f462a14a81bd2edec861bc5aac5a",
@@ -76627,6 +76627,386 @@
       ],
       "updatedAt": "2026-10-14T14:04:00.875Z"
     },
+    "news-crested-honey-buzzard-cordes-male.jpg": {
+      "sourceHash": "ac61193a52a03d40e5390cb3a39acaa436e411e77ff85159950d486d588ad829",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "news-crested-honey-buzzard-cordes-male.jpg",
+      "originalSize": 370341,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/news-crested-honey-buzzard-cordes-male-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 4266
+        },
+        {
+          "key": "optimized/news-crested-honey-buzzard-cordes-male-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 5914
+        },
+        {
+          "key": "optimized/news-crested-honey-buzzard-cordes-male-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 6359
+        },
+        {
+          "key": "optimized/news-crested-honey-buzzard-cordes-male-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 8096
+        },
+        {
+          "key": "optimized/news-crested-honey-buzzard-cordes-male-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 11687
+        },
+        {
+          "key": "optimized/news-crested-honey-buzzard-cordes-male-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 15718
+        },
+        {
+          "key": "optimized/news-crested-honey-buzzard-cordes-male-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 15062
+        },
+        {
+          "key": "optimized/news-crested-honey-buzzard-cordes-male-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 20344
+        },
+        {
+          "key": "optimized/news-crested-honey-buzzard-cordes-male-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 26209
+        },
+        {
+          "key": "optimized/news-crested-honey-buzzard-cordes-male-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 34108
+        },
+        {
+          "key": "optimized/news-crested-honey-buzzard-cordes-male-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 73052
+        },
+        {
+          "key": "optimized/news-crested-honey-buzzard-cordes-male-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 88640
+        }
+      ],
+      "updatedAt": "2026-10-16T07:07:30.657Z"
+    },
+    "news-crested-honey-buzzard-stolk-comparison.jpg": {
+      "sourceHash": "3aa90cc1102fd328bef23242a72d422b191bc8db3b64d323c724e6640f991875",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "news-crested-honey-buzzard-stolk-comparison.jpg",
+      "originalSize": 200003,
+      "width": 2133,
+      "height": 1654,
+      "derivatives": [
+        {
+          "key": "optimized/news-crested-honey-buzzard-stolk-comparison-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 248,
+          "byteSize": 2666
+        },
+        {
+          "key": "optimized/news-crested-honey-buzzard-stolk-comparison-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 248,
+          "byteSize": 2710
+        },
+        {
+          "key": "optimized/news-crested-honey-buzzard-stolk-comparison-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 310,
+          "byteSize": 3628
+        },
+        {
+          "key": "optimized/news-crested-honey-buzzard-stolk-comparison-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 310,
+          "byteSize": 3784
+        },
+        {
+          "key": "optimized/news-crested-honey-buzzard-stolk-comparison-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 497,
+          "byteSize": 6299
+        },
+        {
+          "key": "optimized/news-crested-honey-buzzard-stolk-comparison-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 497,
+          "byteSize": 7470
+        },
+        {
+          "key": "optimized/news-crested-honey-buzzard-stolk-comparison-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 620,
+          "byteSize": 9051
+        },
+        {
+          "key": "optimized/news-crested-honey-buzzard-stolk-comparison-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 620,
+          "byteSize": 10272
+        },
+        {
+          "key": "optimized/news-crested-honey-buzzard-stolk-comparison-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 931,
+          "byteSize": 15854
+        },
+        {
+          "key": "optimized/news-crested-honey-buzzard-stolk-comparison-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 931,
+          "byteSize": 17908
+        },
+        {
+          "key": "optimized/news-crested-honey-buzzard-stolk-comparison-2133.avif",
+          "format": "avif",
+          "width": 2133,
+          "height": 1654,
+          "byteSize": 37430
+        },
+        {
+          "key": "optimized/news-crested-honey-buzzard-stolk-comparison-2133.webp",
+          "format": "webp",
+          "width": 2133,
+          "height": 1654,
+          "byteSize": 42896
+        }
+      ],
+      "updatedAt": "2026-10-16T07:07:06.423Z"
+    },
+    "news-crested-honey-buzzard-stolk-dark-male.jpg": {
+      "sourceHash": "23c2af2b309b06082bec0ad9adbd958dea644287a9b6298cd27a509c02652c6f",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "news-crested-honey-buzzard-stolk-dark-male.jpg",
+      "originalSize": 232572,
+      "width": 2400,
+      "height": 1804,
+      "derivatives": [
+        {
+          "key": "optimized/news-crested-honey-buzzard-stolk-dark-male-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 241,
+          "byteSize": 2151
+        },
+        {
+          "key": "optimized/news-crested-honey-buzzard-stolk-dark-male-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 241,
+          "byteSize": 2410
+        },
+        {
+          "key": "optimized/news-crested-honey-buzzard-stolk-dark-male-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 301,
+          "byteSize": 2598
+        },
+        {
+          "key": "optimized/news-crested-honey-buzzard-stolk-dark-male-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 301,
+          "byteSize": 3156
+        },
+        {
+          "key": "optimized/news-crested-honey-buzzard-stolk-dark-male-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 481,
+          "byteSize": 4737
+        },
+        {
+          "key": "optimized/news-crested-honey-buzzard-stolk-dark-male-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 481,
+          "byteSize": 6094
+        },
+        {
+          "key": "optimized/news-crested-honey-buzzard-stolk-dark-male-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 601,
+          "byteSize": 6362
+        },
+        {
+          "key": "optimized/news-crested-honey-buzzard-stolk-dark-male-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 601,
+          "byteSize": 8096
+        },
+        {
+          "key": "optimized/news-crested-honey-buzzard-stolk-dark-male-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 902,
+          "byteSize": 11802
+        },
+        {
+          "key": "optimized/news-crested-honey-buzzard-stolk-dark-male-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 902,
+          "byteSize": 14722
+        },
+        {
+          "key": "optimized/news-crested-honey-buzzard-stolk-dark-male-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1804,
+          "byteSize": 36678
+        },
+        {
+          "key": "optimized/news-crested-honey-buzzard-stolk-dark-male-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1804,
+          "byteSize": 44912
+        }
+      ],
+      "updatedAt": "2026-10-16T07:07:24.830Z"
+    },
+    "news-crested-honey-buzzard-stolk-female.jpg": {
+      "sourceHash": "884c3229ff2e934df97c4bc42e58088917995668b0d52f93d27ce698c8fc2cf0",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "news-crested-honey-buzzard-stolk-female.jpg",
+      "originalSize": 108583,
+      "width": 1875,
+      "height": 1441,
+      "derivatives": [
+        {
+          "key": "optimized/news-crested-honey-buzzard-stolk-female-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 246,
+          "byteSize": 1734
+        },
+        {
+          "key": "optimized/news-crested-honey-buzzard-stolk-female-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 246,
+          "byteSize": 1818
+        },
+        {
+          "key": "optimized/news-crested-honey-buzzard-stolk-female-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 307,
+          "byteSize": 2440
+        },
+        {
+          "key": "optimized/news-crested-honey-buzzard-stolk-female-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 307,
+          "byteSize": 2602
+        },
+        {
+          "key": "optimized/news-crested-honey-buzzard-stolk-female-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 492,
+          "byteSize": 4238
+        },
+        {
+          "key": "optimized/news-crested-honey-buzzard-stolk-female-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 492,
+          "byteSize": 4850
+        },
+        {
+          "key": "optimized/news-crested-honey-buzzard-stolk-female-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 615,
+          "byteSize": 5435
+        },
+        {
+          "key": "optimized/news-crested-honey-buzzard-stolk-female-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 615,
+          "byteSize": 6674
+        },
+        {
+          "key": "optimized/news-crested-honey-buzzard-stolk-female-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 922,
+          "byteSize": 9005
+        },
+        {
+          "key": "optimized/news-crested-honey-buzzard-stolk-female-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 922,
+          "byteSize": 11586
+        },
+        {
+          "key": "optimized/news-crested-honey-buzzard-stolk-female-1875.avif",
+          "format": "avif",
+          "width": 1875,
+          "height": 1441,
+          "byteSize": 18039
+        },
+        {
+          "key": "optimized/news-crested-honey-buzzard-stolk-female-1875.webp",
+          "format": "webp",
+          "width": 1875,
+          "height": 1441,
+          "byteSize": 22300
+        }
+      ],
+      "updatedAt": "2026-10-16T07:07:07.510Z"
+    },
     "news-from-the-sky-foote-sparrowhawk.jpg": {
       "sourceHash": "03f02ea29dc0c917c0de2418202067ece766de847e007157918acee2cc0180c3",
       "configFingerprint": "409788ee46c653d8",
@@ -76818,10 +77198,10 @@
       "updatedAt": "2026-10-14T14:04:21.950Z"
     },
     "news-rioni-sturgeon-roberts-juvenile-measured.jpg": {
-      "sourceHash": "6ceba6cf830c64d32fb9a9ad3a3ea136bfff55f254352055449fd6c761436a5b",
+      "sourceHash": "6bbedc0496d35e1f20c0c1b27a81db4da949494400775368485a061a2b3eae86",
       "configFingerprint": "409788ee46c653d8",
       "originalKey": "news-rioni-sturgeon-roberts-juvenile-measured.jpg",
-      "originalSize": 331446,
+      "originalSize": 171412,
       "width": 1920,
       "height": 1440,
       "derivatives": [
@@ -76830,87 +77210,87 @@
           "format": "avif",
           "width": 320,
           "height": 240,
-          "byteSize": 7448
+          "byteSize": 7422
         },
         {
           "key": "optimized/news-rioni-sturgeon-roberts-juvenile-measured-320.webp",
           "format": "webp",
           "width": 320,
           "height": 240,
-          "byteSize": 9590
+          "byteSize": 9612
         },
         {
           "key": "optimized/news-rioni-sturgeon-roberts-juvenile-measured-400.avif",
           "format": "avif",
           "width": 400,
           "height": 300,
-          "byteSize": 10155
+          "byteSize": 10179
         },
         {
           "key": "optimized/news-rioni-sturgeon-roberts-juvenile-measured-400.webp",
           "format": "webp",
           "width": 400,
           "height": 300,
-          "byteSize": 13318
+          "byteSize": 13366
         },
         {
           "key": "optimized/news-rioni-sturgeon-roberts-juvenile-measured-640.avif",
           "format": "avif",
           "width": 640,
           "height": 480,
-          "byteSize": 19417
+          "byteSize": 19478
         },
         {
           "key": "optimized/news-rioni-sturgeon-roberts-juvenile-measured-640.webp",
           "format": "webp",
           "width": 640,
           "height": 480,
-          "byteSize": 26114
+          "byteSize": 26002
         },
         {
           "key": "optimized/news-rioni-sturgeon-roberts-juvenile-measured-800.avif",
           "format": "avif",
           "width": 800,
           "height": 600,
-          "byteSize": 26882
+          "byteSize": 26774
         },
         {
           "key": "optimized/news-rioni-sturgeon-roberts-juvenile-measured-800.webp",
           "format": "webp",
           "width": 800,
           "height": 600,
-          "byteSize": 35480
+          "byteSize": 35434
         },
         {
           "key": "optimized/news-rioni-sturgeon-roberts-juvenile-measured-1200.avif",
           "format": "avif",
           "width": 1200,
           "height": 900,
-          "byteSize": 46425
+          "byteSize": 46544
         },
         {
           "key": "optimized/news-rioni-sturgeon-roberts-juvenile-measured-1200.webp",
           "format": "webp",
           "width": 1200,
           "height": 900,
-          "byteSize": 60266
+          "byteSize": 60598
         },
         {
           "key": "optimized/news-rioni-sturgeon-roberts-juvenile-measured-1920.avif",
           "format": "avif",
           "width": 1920,
           "height": 1440,
-          "byteSize": 87111
+          "byteSize": 86814
         },
         {
           "key": "optimized/news-rioni-sturgeon-roberts-juvenile-measured-1920.webp",
           "format": "webp",
           "width": 1920,
           "height": 1440,
-          "byteSize": 107780
+          "byteSize": 107616
         }
       ],
-      "updatedAt": "2026-10-14T14:04:26.776Z"
+      "updatedAt": "2026-10-16T07:07:41.674Z"
     },
     "news-rioni-sturgeon-tsulaia-ship-sturgeon.jpg": {
       "sourceHash": "7264c4283993c4799cb5dd9f41c9d020855613f70d8177230184cda35e0ed058",
