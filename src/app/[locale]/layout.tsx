@@ -15,6 +15,7 @@ import { Footer } from "@/components/Footer";
 import { FooterGate } from "@/components/FooterGate";
 import { IntlProvider } from "@/components/IntlProvider";
 import { JsonLd } from "@/components/JsonLd";
+import { LanguageSuggestion } from "@/components/LanguageSuggestion";
 import { LocaleSwitchProvider } from "@/components/LocaleSwitchProvider";
 import { LogoPreload } from "@/components/LogoPreload";
 import { Navbar } from "@/components/Navbar";
@@ -108,6 +109,7 @@ export default async function LocaleLayout({ children, params }: Props) {
             <Footer locale={locale} {...footerData} />
           </FooterGate>
           <SiteRating />
+          <LanguageSuggestion />
         </LocaleSwitchProvider>
       </IntlProvider>
     </RootDocument>
