@@ -207,6 +207,27 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200],
     "formats": ["avif", "webp"]
   },
+  "/images/news/armenia-power-line-bird-electrocution/figure-1.jpg": {
+    "path": "images/news/armenia-power-line-bird-electrocution/figure-1",
+    "width": 1974,
+    "height": 924,
+    "widths": [320, 400, 640, 800, 1200, 1974],
+    "formats": ["avif", "webp"]
+  },
+  "/images/news/armenia-power-line-bird-electrocution/figure-2.jpg": {
+    "path": "images/news/armenia-power-line-bird-electrocution/figure-2",
+    "width": 1975,
+    "height": 1300,
+    "widths": [320, 400, 640, 800, 1200, 1975],
+    "formats": ["avif", "webp"]
+  },
+  "/images/news/armenia-power-line-bird-electrocution/figure-3.jpg": {
+    "path": "images/news/armenia-power-line-bird-electrocution/figure-3",
+    "width": 1960,
+    "height": 1306,
+    "widths": [320, 400, 640, 800, 1200, 1960],
+    "formats": ["avif", "webp"]
+  },
   "/images/news/leatherback-turtle-first-turkish-black-sea-records-2026/leatherback-turtle.png": {
     "path": "images/news/leatherback-turtle-first-turkish-black-sea-records-2026/leatherback-turtle",
     "width": 750,
