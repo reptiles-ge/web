@@ -7,6 +7,7 @@ import { Suspense } from "react";
 
 import { ClientMessagesProvider } from "@/components/ClientMessagesProvider";
 import { JsonLd } from "@/components/JsonLd";
+import { OptimizedImageScope } from "@/components/OptimizedImageScope";
 import { AtlasAbout } from "@/components/species-atlas/AtlasAbout";
 import { AtlasHero } from "@/components/species-atlas/AtlasHero";
 import { AtlasSeo } from "@/components/species-atlas/AtlasSeo";
@@ -22,6 +23,7 @@ import { ATLAS_CLIENT_MESSAGE_NAMESPACES } from "@/i18n/clientMessages";
 import { georgiaPlaceName } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { getAtlasListItems, getAtlasRecentItems } from "@/lib/atlasList";
+import { GROUP_HUB_ILLUSTRATIONS } from "@/lib/groupHubs";
 import { buildPageMetadata, type LocalePageProps } from "@/lib/pageMetadata";
 import {
   breadcrumbListLd,
@@ -109,25 +111,27 @@ export default async function SpeciesIndexPage({ params }: LocalePageProps) {
         namespaces={ATLAS_CLIENT_MESSAGE_NAMESPACES}
       >
         <AtlasHero locale={locale} stats={stats} />
-        <Suspense
-          fallback={
-            <SpeciesAtlasFallback
+        <OptimizedImageScope srcs={Object.values(GROUP_HUB_ILLUSTRATIONS)}>
+          <Suspense
+            fallback={
+              <SpeciesAtlasFallback
+                catalog={catalog}
+                recent={recent}
+                regionCount={stats.regions}
+                tooltipSpeciesByRegion={tooltipSpeciesByRegion}
+                venomousImage={images.hero}
+              />
+            }
+          >
+            <SpeciesAtlas
               catalog={catalog}
               recent={recent}
               regionCount={stats.regions}
               tooltipSpeciesByRegion={tooltipSpeciesByRegion}
               venomousImage={images.hero}
             />
-          }
-        >
-          <SpeciesAtlas
-            catalog={catalog}
-            recent={recent}
-            regionCount={stats.regions}
-            tooltipSpeciesByRegion={tooltipSpeciesByRegion}
-            venomousImage={images.hero}
-          />
-        </Suspense>
+          </Suspense>
+        </OptimizedImageScope>
         <AtlasSeo locale={locale} />
         <AtlasAbout locale={locale} stats={stats} />
       </ClientMessagesProvider>

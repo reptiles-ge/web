@@ -12,6 +12,7 @@ import {
   ClusterFamilyStatsBand,
   ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
+import { OptimizedImageScope } from "@/components/OptimizedImageScope";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { toSpeciesCards } from "@/data/speciesCard";
 import { Link } from "@/i18n/navigation";
@@ -64,11 +65,13 @@ export async function DarevskiaGuidePage({
             title={t("speciesTitle", { count: species.length })}
             titleClassName={CLUSTER_TITLE_SECTION}
           />
-          <SpeciesGuideList
-            locale={locale}
-            source="guide"
-            species={toSpeciesCards(species)}
-          />
+          <OptimizedImageScope>
+            <SpeciesGuideList
+              locale={locale}
+              source="guide"
+              species={toSpeciesCards(species)}
+            />
+          </OptimizedImageScope>
         </div>
       </section>
     </ClusterPageFrame>

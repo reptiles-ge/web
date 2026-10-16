@@ -15,6 +15,7 @@ import {
 } from "@/components/GuideShared";
 import { guideSpeciesLinks } from "@/components/guideSpeciesLinks";
 import { GuideSpeciesSection } from "@/components/GuideSpeciesSection";
+import { OptimizedImageScope } from "@/components/OptimizedImageScope";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { Link } from "@/i18n/navigation";
 import { formatContentDate } from "@/lib/formatDate";
@@ -282,34 +283,38 @@ async function SafetySpecies({
   const t = await getTranslations({ locale, namespace: config.namespace });
 
   return (
-    <GuideSpeciesSection
-      links={guideSpeciesLinks(config.extraLinks, (key) => t(key as "linkHub"))}
-      species={species}
-    >
-      <div>
-        <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
-          {t("speciesEyebrow")}
-        </p>
-        <h2 className="mt-5 max-w-2xl font-display text-display-title font-semibold">
-          {t("speciesTitle")}
-        </h2>
-        <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-          <PhoneLinkedText>
-            {t.rich("speciesBody", {
-              count: species.length,
-              index: (chunks) => (
-                <Link
-                  className={inlineLinkClassName}
-                  href={config.speciesIndexHref}
-                >
-                  {chunks}
-                </Link>
-              ),
-            })}
-          </PhoneLinkedText>
-        </p>
-      </div>
-    </GuideSpeciesSection>
+    <OptimizedImageScope>
+      <GuideSpeciesSection
+        links={guideSpeciesLinks(config.extraLinks, (key) =>
+          t(key as "linkHub"),
+        )}
+        species={species}
+      >
+        <div>
+          <p className="text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase">
+            {t("speciesEyebrow")}
+          </p>
+          <h2 className="mt-5 max-w-2xl font-display text-display-title font-semibold">
+            {t("speciesTitle")}
+          </h2>
+          <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
+            <PhoneLinkedText>
+              {t.rich("speciesBody", {
+                count: species.length,
+                index: (chunks) => (
+                  <Link
+                    className={inlineLinkClassName}
+                    href={config.speciesIndexHref}
+                  >
+                    {chunks}
+                  </Link>
+                ),
+              })}
+            </PhoneLinkedText>
+          </p>
+        </div>
+      </GuideSpeciesSection>
+    </OptimizedImageScope>
   );
 }
 

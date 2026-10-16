@@ -5,13 +5,14 @@ import { useEffect, useRef, useState } from "react";
 
 import type { AdminCovers } from "@/lib/adminCover";
 
-import { optimizedEntry, optimizedImgSrc } from "@/data/optimizedImages";
+import { useOptimizedImage } from "@/components/OptimizedImagesProvider";
 import { cn } from "@/lib/cn";
 import {
   type CoverCropRect,
   matchesCoverSource,
   parseCoverCrop,
 } from "@/lib/coverCrop";
+import { entryImgSrc } from "@/lib/optimizedImageSources";
 
 export type CoverCropTarget = "desktop" | "mobile";
 
@@ -83,7 +84,7 @@ export function AdminCoverCrop({
   const dialogRef = useRef<HTMLDialogElement>(null);
   const frameRef = useRef<HTMLDivElement>(null);
   const drag = useRef<null | { x: number; y: number }>(null);
-  const entry = optimizedEntry(src);
+  const entry = useOptimizedImage(src);
   const [ratio, setRatio] = useState(
     entry?.width && entry.height ? entry.width / entry.height : 0,
   );
@@ -263,7 +264,7 @@ export function AdminCoverCrop({
                 setRatio(image.naturalWidth / image.naturalHeight);
               }
             }}
-            src={optimizedImgSrc(src)}
+            src={entryImgSrc(src, entry)}
             style={
               rect
                 ? {
@@ -326,7 +327,7 @@ export function AdminCoverCrop({
                       <img
                         alt=""
                         className="pointer-events-none absolute max-w-none"
-                        src={optimizedImgSrc(src)}
+                        src={entryImgSrc(src, entry)}
                         style={{
                           height: `${100 / visible.height}%`,
                           left: `${(-visible.x / visible.width) * 100}%`,

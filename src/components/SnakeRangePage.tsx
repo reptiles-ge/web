@@ -13,6 +13,7 @@ import {
   ClusterStat,
 } from "@/components/ClusterSectionIntro";
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
+import { OptimizedImageScope } from "@/components/OptimizedImageScope";
 import { getRegionContent } from "@/data/regionContent";
 import {
   getRegionsForSpecies,
@@ -99,12 +100,14 @@ export async function SnakeRangePage({
             </p>
           </div>
           <div className="mt-12 lg:mt-16">
-            <GeorgiaMap
-              highlightedIds={highlightedIds}
-              mapContext="guide"
-              selectionMode="navigate"
-              tooltipSpeciesByRegion={getRegionTooltipPreviews(locale)}
-            />
+            <OptimizedImageScope>
+              <GeorgiaMap
+                highlightedIds={highlightedIds}
+                mapContext="guide"
+                selectionMode="navigate"
+                tooltipSpeciesByRegion={getRegionTooltipPreviews(locale)}
+              />
+            </OptimizedImageScope>
           </div>
         </div>
       </section>

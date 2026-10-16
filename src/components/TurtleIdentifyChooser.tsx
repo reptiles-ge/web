@@ -6,8 +6,8 @@ import { useTranslations } from "next-intl";
 import type { SpeciesCard } from "@/data/speciesCard";
 import type { AppLocale } from "@/i18n/routing";
 
+import { ClientCoverImage } from "@/components/ClientCoverImage";
 import { ClusterContentSection } from "@/components/ClusterContentSection";
-import { CoverImage } from "@/components/CoverImage";
 import { useLocaleSwitchIndex } from "@/components/LocaleSwitchProvider";
 import { localizeRegionText, type Region } from "@/data/mapRegions";
 import { Link } from "@/i18n/navigation";
@@ -120,7 +120,7 @@ function TurtleChooserCard({
         >
           <figure>
             <span className="relative block aspect-5/4 overflow-hidden rounded-2xl bg-ink">
-              <CoverImage
+              <ClientCoverImage
                 alt={alt}
                 className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                 sizes="(max-width: 640px) 90vw, (max-width: 1280px) 45vw, 280px"

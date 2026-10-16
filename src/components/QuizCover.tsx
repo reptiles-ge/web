@@ -5,7 +5,7 @@ import type {
   SnakeQuizSpecies,
 } from "@/lib/snakeQuizEngine";
 
-import { CoverImagePreload } from "@/components/CoverImagePreload";
+import { ClientCoverImagePreload } from "@/components/ClientCoverImagePreload";
 import { QuizCoverPicture } from "@/components/QuizCoverPicture";
 
 type QuizCoverProps = {
@@ -40,19 +40,19 @@ export function QuizCover({
       {nextImage ? (
         split && nextMobile ? (
           <>
-            <CoverImagePreload
+            <ClientCoverImagePreload
               media="(max-width: 1023px)"
               sizes="100vw"
               src={nextMobile}
             />
-            <CoverImagePreload
+            <ClientCoverImagePreload
               media="(min-width: 1024px)"
               sizes="100vw"
               src={nextImage}
             />
           </>
         ) : (
-          <CoverImagePreload sizes="100vw" src={nextImage} />
+          <ClientCoverImagePreload sizes="100vw" src={nextImage} />
         )
       ) : null}
       <div className="absolute inset-0 overflow-hidden">

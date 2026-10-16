@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
-import { CoverImage } from "@/components/CoverImage";
+import { ClientCoverImage } from "@/components/ClientCoverImage";
 
 type UploadedPhoto = {
   derivatives: Array<{ format: string; url: string; width: number }>;
@@ -225,7 +225,7 @@ export function AdminCdnUpload() {
                 key={item.url}
               >
                 <div className="media-placeholder relative mb-4 aspect-4/3 max-w-xs overflow-hidden rounded-lg">
-                  <CoverImage
+                  <ClientCoverImage
                     alt={item.filename}
                     className="object-contain"
                     sizes="320px"

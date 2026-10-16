@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 
 import { ClientMessagesProvider } from "@/components/ClientMessagesProvider";
 import { JsonLd } from "@/components/JsonLd";
+import { OptimizedImageScope } from "@/components/OptimizedImageScope";
 import { QuizLanding } from "@/components/QuizLanding";
 import { QuizPlayer } from "@/components/QuizPlayer";
 import { getCatalogSpecies } from "@/data/species";
@@ -181,7 +182,9 @@ export default async function QuizSlugRoute({ params }: Props) {
         locale={locale}
         namespaces={["groupHubShared", "quizzes", quiz.messageNamespace]}
       >
-        <QuizPlayer pool={pool} quizId={quiz.id} shareUrl={url} />
+        <OptimizedImageScope>
+          <QuizPlayer pool={pool} quizId={quiz.id} shareUrl={url} />
+        </OptimizedImageScope>
         <QuizLanding
           locale={locale}
           namespace={quiz.messageNamespace}

@@ -8,7 +8,7 @@ import type { SpeciesListItem } from "@/data/speciesListItem";
 import type { DangerLevel } from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
 
-import { CoverImage } from "@/components/CoverImage";
+import { ClientCoverImage } from "@/components/ClientCoverImage";
 import { useSpeciesHref } from "@/components/LocaleSwitchProvider";
 import { HabitatIcon } from "@/components/species-atlas/HabitatIcon";
 import { atlasSpeciesImage } from "@/data/atlasFilters";
@@ -64,7 +64,7 @@ export function AtlasSpeciesCard({
       prefetch={false}
     >
       <span className="relative block aspect-4/5 overflow-hidden bg-[#151c18]">
-        <CoverImage
+        <ClientCoverImage
           alt={item.alt}
           className="object-cover transition-transform duration-700 group-hover:scale-[1.04] motion-reduce:transition-none"
           sizes="(max-width: 767px) 50vw, (max-width: 1023px) 33vw, 330px"
@@ -166,7 +166,7 @@ export function AtlasSpeciesRow({
       prefetch={false}
     >
       <span className="relative block size-14 overflow-hidden rounded-[14px] bg-[#151c18]">
-        <CoverImage alt="" aria-hidden sizes="56px" src={item.image} />
+        <ClientCoverImage alt="" aria-hidden sizes="56px" src={item.image} />
       </span>
       <span className="min-w-0">
         <span

@@ -15,7 +15,7 @@ import { type Dispatch, type SetStateAction, useRef, useState } from "react";
 import type { GalleryImage } from "@/data/speciesTypes";
 
 import { AdminCoverPreviewButton } from "@/components/admin/AdminCoverPreview";
-import { CoverImage } from "@/components/CoverImage";
+import { ClientCoverImage } from "@/components/ClientCoverImage";
 import {
   type AdminCoverRole,
   adminCoverRoles,
@@ -99,7 +99,7 @@ export function AdminGalleryReorder({
             }}
           >
             <div className="media-placeholder relative aspect-4/3 w-full">
-              <CoverImage
+              <ClientCoverImage
                 alt=""
                 className="pointer-events-none object-cover"
                 sizes="(max-width: 640px) 50vw, 33vw"

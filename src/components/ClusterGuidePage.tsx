@@ -13,6 +13,7 @@ import {
   ClusterFamilyStatsBand,
   ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
+import { OptimizedImageScope } from "@/components/OptimizedImageScope";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { SpeciesInlineLink } from "@/components/SpeciesInlineLink";
 import { toSpeciesCards } from "@/data/speciesCard";
@@ -101,11 +102,13 @@ export async function ClusterGuidePage({
               titleClassName={CLUSTER_TITLE_SECTION}
             />
           </div>
-          <SpeciesGuideList
-            locale={locale}
-            source="guide"
-            species={toSpeciesCards(species)}
-          />
+          <OptimizedImageScope>
+            <SpeciesGuideList
+              locale={locale}
+              source="guide"
+              species={toSpeciesCards(species)}
+            />
+          </OptimizedImageScope>
         </div>
       </section>
     </ClusterPageFrame>

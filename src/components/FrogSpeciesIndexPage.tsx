@@ -7,6 +7,7 @@ import { ClusterContentSection } from "@/components/ClusterContentSection";
 import { ClusterGuideLead } from "@/components/ClusterGuideLead";
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
 import { ClusterFamilyStatsBand } from "@/components/ClusterSectionIntro";
+import { OptimizedImageScope } from "@/components/OptimizedImageScope";
 import { SpeciesIndexTable } from "@/components/SpeciesIndexTable";
 import { toSpeciesIndexRows } from "@/data/speciesCard";
 import { Link } from "@/i18n/navigation";
@@ -54,11 +55,13 @@ export async function FrogSpeciesIndexPage({
         title={t("tableTitle", { count: species.length })}
       >
         <div className="mt-10">
-          <SpeciesIndexTable
-            locale={locale}
-            showDangerFilter={false}
-            species={toSpeciesIndexRows(species)}
-          />
+          <OptimizedImageScope>
+            <SpeciesIndexTable
+              locale={locale}
+              showDangerFilter={false}
+              species={toSpeciesIndexRows(species)}
+            />
+          </OptimizedImageScope>
         </div>
       </ClusterContentSection>
     </ClusterPageFrame>

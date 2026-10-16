@@ -4,7 +4,7 @@ import { ArrowUpRight, MapPin } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Fragment } from "react";
 
-import { CoverImage } from "@/components/CoverImage";
+import { ClientCoverImage } from "@/components/ClientCoverImage";
 import { GROUP_OPTIONS } from "@/components/species-atlas/atlasOptions";
 import { type AtlasFilters } from "@/data/atlasFilters";
 import { type AnimalGroup } from "@/data/speciesAtlasMeta";
@@ -139,7 +139,7 @@ function TileImage({
 }) {
   return (
     <>
-      <CoverImage
+      <ClientCoverImage
         alt=""
         aria-hidden
         className={cn(

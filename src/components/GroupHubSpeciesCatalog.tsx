@@ -6,7 +6,7 @@ import { type ComponentProps, useId, useState } from "react";
 
 import type { DangerLevel } from "@/data/speciesTypes";
 
-import { CoverImage } from "@/components/CoverImage";
+import { ClientCoverImage } from "@/components/ClientCoverImage";
 import { Link } from "@/i18n/navigation";
 import { trackSpeciesClick } from "@/lib/analytics";
 import { cn } from "@/lib/cn";
@@ -261,7 +261,7 @@ function HubSpeciesCard({
       prefetch={false}
     >
       <span className="relative block aspect-4/3 overflow-hidden rounded-[20px] bg-ink lg:rounded-[24px]">
-        <CoverImage
+        <ClientCoverImage
           alt={item.alt}
           className="object-cover transition-transform duration-700 group-hover:scale-[1.04] motion-reduce:transition-none"
           defer

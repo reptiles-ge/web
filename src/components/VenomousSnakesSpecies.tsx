@@ -10,6 +10,7 @@ import {
   CLUSTER_TITLE_SECTION,
   ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
+import { OptimizedImageScope } from "@/components/OptimizedImageScope";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { SpeciesInlineLink } from "@/components/SpeciesInlineLink";
@@ -108,7 +109,13 @@ export async function VenomousSnakesSpecies({
                 })}
               </PhoneLinkedText>
             </p>
-            <SpeciesGuideList locale={locale} source="guide" species={vipers} />
+            <OptimizedImageScope>
+              <SpeciesGuideList
+                locale={locale}
+                source="guide"
+                species={vipers}
+              />
+            </OptimizedImageScope>
           </div>
           {rearFanged.length > 0 ? (
             <div>
@@ -144,11 +151,13 @@ export async function VenomousSnakesSpecies({
                   })}
                 </PhoneLinkedText>
               </p>
-              <SpeciesGuideList
-                locale={locale}
-                source="guide"
-                species={rearFanged}
-              />
+              <OptimizedImageScope>
+                <SpeciesGuideList
+                  locale={locale}
+                  source="guide"
+                  species={rearFanged}
+                />
+              </OptimizedImageScope>
             </div>
           ) : null}
         </div>
