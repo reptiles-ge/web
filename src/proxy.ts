@@ -436,5 +436,11 @@ function speciesPath(locale: AppLocale, id: string) {
 }
 
 export const config = {
-  matcher: ["/((?!api|admin|_next|_vercel|.*\\..*).*)"],
+  matcher: [
+    "/((?!api|admin|_next|_vercel|.*\\..*).*)",
+    {
+      has: [{ type: "host", value: "www.reptiles.ge" }],
+      source: "/:path*",
+    },
+  ],
 };
