@@ -320,8 +320,8 @@ async function SafetySymptoms({
   config: SafetyGuideConfig;
   locale: AppLocale;
 }) {
-  const t = await getTranslations({ locale, namespace: "spiderBite" });
   if (config.namespace !== "spiderBite") return null;
+  const t = await getTranslations({ locale, namespace: "spiderBite" });
 
   return (
     <section className="border-t border-border bg-background py-20 lg:py-28">
@@ -357,8 +357,8 @@ async function SafetyUnseen({
   config: SafetyGuideConfig;
   locale: AppLocale;
 }) {
-  const t = await getTranslations({ locale, namespace: "spiderBite" });
   if (config.namespace !== "spiderBite") return null;
+  const t = await getTranslations({ locale, namespace: "spiderBite" });
 
   return (
     <section className="border-t border-border bg-background py-20 lg:py-28">
