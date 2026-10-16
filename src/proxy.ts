@@ -156,6 +156,7 @@ const PREFIXED_PERMANENT_REDIRECTS: Record<string, string> = {
   "/amphibians/tritoni-salamandra": "/amphibians/newts",
   "/authors": "/contributors",
   "/avtorebi": "/contributors",
+  "/birds/saxeoebebi": "/birds/species",
   "/dzuzumtsovrebi": "/mammals",
   "/dzuzumtsovrebi/datvi-shekhvedra": "/mammals/bear-encounter",
   "/dzuzumtsovrebi/ghamura-saxlshi": "/mammals/bat-in-the-house",
@@ -435,5 +436,11 @@ function speciesPath(locale: AppLocale, id: string) {
 }
 
 export const config = {
-  matcher: ["/((?!api|admin|_next|_vercel|.*\\..*).*)"],
+  matcher: [
+    "/((?!api|admin|_next|_vercel|.*\\..*).*)",
+    {
+      has: [{ type: "host", value: "www.reptiles.ge" }],
+      source: "/:path*",
+    },
+  ],
 };

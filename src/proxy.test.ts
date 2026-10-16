@@ -1,7 +1,8 @@
+import { unstable_doesMiddlewareMatch } from "next/experimental/testing/server";
 import { NextRequest } from "next/server";
 import { describe, expect, it } from "vitest";
 
-import proxy from "@/proxy";
+import proxy, { config } from "@/proxy";
 
 function call(path: string, headers: Record<string, string> = {}) {
   return proxy(new NextRequest(`https://reptiles.ge${path}`, { headers }));
@@ -25,6 +26,26 @@ describe("host canonicalisation", () => {
       "https://reptiles.ge/gvelebi?x=1",
     );
   });
+
+  it.each(["/api/search", "/robots.txt", "/_next/static/app.js"])(
+    "runs the proxy for www %s",
+    (path) => {
+      expect(
+        unstable_doesMiddlewareMatch({
+          config,
+          headers: { host: "www.reptiles.ge" },
+          url: `https://www.reptiles.ge${path}`,
+        }),
+      ).toBe(true);
+      expect(
+        unstable_doesMiddlewareMatch({
+          config,
+          headers: { host: "reptiles.ge" },
+          url: `https://reptiles.ge${path}`,
+        }),
+      ).toBe(false);
+    },
+  );
 });
 
 describe("route placeholders", () => {
@@ -106,6 +127,27 @@ describe("configured redirects", () => {
       "https://reptiles.ge/en/contributors/someone",
     );
   });
+
+  it.each(["en", "ru", "tr"])(
+    "301s /%s/{hub}/saxeoebebi to the species index for every hub",
+    (locale) => {
+      for (const hub of [
+        "snakes",
+        "lizards",
+        "turtles",
+        "amphibians",
+        "birds",
+        "mammals",
+        "spiders",
+        "insects",
+      ]) {
+        expect(location(`/${locale}/${hub}/saxeoebebi`)).toEqual({
+          location: `https://reptiles.ge/${locale}/${hub}/species`,
+          status: 301,
+        });
+      }
+    },
+  );
 
   it("redirects /moriebi to /morieli", () => {
     expect(location("/moriebi")).toEqual({
