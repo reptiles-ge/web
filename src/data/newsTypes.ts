@@ -39,6 +39,11 @@ export type NewsPhoto = {
   width?: number;
 };
 
+export type NewsSection = {
+  blocks: NewsSectionBlock[];
+  heading: string;
+};
+
 export type NewsSectionBlock =
   { parts: NewsMark[]; type: "p" } | { src: string; type: "figure" };
 
@@ -56,11 +61,6 @@ type NewsLocaleCopy = {
   metaTitle: string;
   sections: NewsSection[];
   title: string;
-};
-
-type NewsSection = {
-  blocks: NewsSectionBlock[];
-  heading: string;
 };
 
 type NewsSourceName = Record<AppLocale, string> | string;

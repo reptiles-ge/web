@@ -47,7 +47,7 @@ Do not add code comments. Do not invent UI copy in one locale only.
 | Checklist authority            | `src/data/herpetofauna-checklist.ts`                                                     |
 | Quiz registry                  | `src/lib/quizzes.ts`, `src/lib/snakeQuiz.ts`                                             |
 | Contributors                   | `src/data/creditAuthors.ts`, `src/lib/creditAuthors.ts`                                  |
-| News                           | `src/data/news.ts`, `src/content/news/`, `src/lib/news.ts`                               |
+| News                           | `src/content/news/{slug}/{ka,en}.mdx`, `src/data/news.ts`, `scripts/compile-news.ts`     |
 | 301 map                        | `next.config.ts` **and** `src/proxy.ts` (slug table: `speciesSlugTable.ts`)              |
 | UI strings                     | `messages/ka.json` + `messages/en.json` (same keys)                                      |
 | Maintenance mode               | `src/lib/maintenance.ts`, wired in `src/worker.ts`                                       |
@@ -62,7 +62,7 @@ src/content/species/{id}/  ka.mdx + en.mdx (+ ru/tr) → compile →
 src/data/species.generated.ts   gitignored
 src/data/speciesSlugs.generated.ts gitignored (Edge slug table)
 src/data/search-index.{ka,en,ru,tr}.generated.ts gitignored
-src/content/news/{slug}.ts first-class news articles (all locales)
+src/content/news/{slug}/  ka.mdx + en.mdx (+ ru/tr) → compile → src/data/news.generated.ts (gitignored)
 src/content/guides/{id}.ts long-form guide articles (all locales) → src/data/guideArticles.ts
 src/data/news.ts           published news registry
 src/lib/                   routing, SEO, quiz, clusters, news
@@ -181,7 +181,11 @@ Long-form, answer-first practical guides (bat in the house, wasp nest, …) use 
 
 ## News
 
-- Registry: `src/data/news.ts`. Copy: `src/content/news/{slug}.ts` with `ka`/`en`/`ru`/`tr`.
+- Copy: `src/content/news/{slug}/{ka,en,ru,tr}.mdx`. `npm run news:compile` (also `compile` / `predev` / `prebuild`) writes the gitignored `src/data/news.generated.ts`. Consumers read it through `src/data/news.ts`, never directly.
+- New article: add the folder and put its slug in `newsSlugs` (`src/data/newsPublish.ts`). The list order breaks ties between articles with the same `publishedAt`; newest additions go first.
+- KA frontmatter owns the shared data: `slug`, `status`, `publishedAt`, `updatedAt`, `related{Hub,Region,Species}Ids`, `sources`, `image`, `gallery` (src, `alt`, credit, size, `plate`, `fromAtlas`). Every locale has `title`, `dek`, `lead`, `metaTitle`, `metaDescription`. `en`/`ru`/`tr` translate the text and give only `{ src, alt }` for `image` / `gallery` (matched by `src`). Do not copy the photo list.
+- Body: each `## heading` is a section, each paragraph a block, `<Figure src="…" />` on its own line a figure. Inline marks: `<Species id="…">label</Species>`, `<Region id="…">`, `<Hub id="…">`, `<CreditAuthor slug="…">`, `<NewsIndex>label</NewsIndex>`, `<Sci>Latin name</Sci>`, and `[label](https://…)` for external links. Escape a literal `\`, `<`, `{`, `}`, `[` or `]` with `\`. Anything else fails the compile.
+- `src/data/newsContent.test.ts` checks that every locale has the same figures in the same order and the same section count, and that every linked species, region, hub and contributor exists.
 - Public URLs: `/news`, `/news/{slug}` (KA unprefixed; `/en/news/…`). Do not add `/ka/news` as a live URL — `/ka/…` 301s via `src/proxy.ts`.
 - No category or tag archive URLs. Drafts stay out of `getPublishedNewsArticles()`, sitemap, and `generateStaticParams`.
 - Reuse `localeAlternates` / `JsonLd` / sitemap `pageEntry`. Do not invent a parallel blog.
@@ -226,6 +230,7 @@ npm run doctor           # React Doctor health scan
 npm run doctor:changed   # only issues introduced vs the base branch
 npm run doctor:check     # fails unless the React Doctor score is exactly 100
 npm run species:compile
+npm run news:compile     # news MDX → src/data/news.generated.ts
 npm run i18n:check       # locale key parity + ICU argument check (KA is the source)
 npm run i18n:usage       # fails on any unused or undefined key; filters i18n-check's dynamic-key false positives
 npm run test:coverage   # vitest with v8 coverage; fails below the thresholds in vitest.config.ts

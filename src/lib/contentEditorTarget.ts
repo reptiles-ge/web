@@ -17,6 +17,7 @@ import {
   readContentLiteral,
   replaceContentLiteral,
 } from "@/lib/contentEditorLiterals";
+import { readNewsBodyField, replaceNewsBodyField } from "@/lib/newsMdx";
 import { toSiteDateTime } from "@/lib/siteTime";
 import { kaToSlug } from "@/lib/slugify";
 
@@ -27,6 +28,7 @@ const guideField =
   /^(?:title|intro|summary|sections\.\d+\.(?:heading|paragraphs\.\d+|list\.items\.\d+)|faq\.\d+\.(?:question|answer))$/;
 const newsField =
   /^(?:title|dek|lead|sections\.\d+\.(?:heading|blocks\.\d+\.parts\.\d+(?:\.(?:label|name))?))$/;
+const newsFrontmatterField = /^(?:title|dek|lead)$/;
 const regionField =
   /^(?:name|description|overview|biome|habitats\.\d+|faq\.\d+\.(?:question|answer))$/;
 
@@ -60,7 +62,9 @@ export async function resolveEditorTarget(
   } else if (input.kind === "news") {
     if (!newsField.test(field) || !getPublishedNewsArticleBySlug(input.id))
       throw new Error("Unknown news field");
-    files = [`src/content/news/${input.id}.ts`];
+    files = locales.map(
+      (locale) => `src/content/news/${input.id}/${locale}.mdx`,
+    );
   } else if (input.kind === "region") {
     if (!regionField.test(field) || !getRegionById(input.id))
       throw new Error("Unknown region field");
@@ -100,11 +104,9 @@ export async function resolveEditorTarget(
     if (input.kind === "guide")
       return readContentLiteral(raw, "guide", input.id, [locale, ...segments]);
     if (input.kind === "news")
-      return readContentLiteral(raw, "news", input.id, [
-        "copy",
-        locale,
-        ...segments,
-      ]);
+      return newsFrontmatterField.test(field)
+        ? readSpeciesField(raw, field)
+        : readNewsBodyField(raw, field);
     if (input.kind === "region")
       return readContentLiteral(
         raw,
@@ -119,13 +121,7 @@ export async function resolveEditorTarget(
   const source = read(originals[0], "ka");
   for (const [index, locale] of locales.entries()) {
     const value = read(
-      originals[
-        input.kind === "guide" ||
-        input.kind === "news" ||
-        input.kind === "region"
-          ? 0
-          : index
-      ],
+      originals[input.kind === "guide" || input.kind === "region" ? 0 : index],
       locale,
     );
     if (!value.trim() && !(allowMissingSpeciesTranslation && locale !== "ka"))
@@ -141,11 +137,7 @@ export async function resolveEditorTarget(
       for (const [index, locale] of locales.entries()) {
         const original = read(
           originals[
-            input.kind === "guide" ||
-            input.kind === "news" ||
-            input.kind === "region"
-              ? 0
-              : index
+            input.kind === "guide" || input.kind === "region" ? 0 : index
           ],
           locale,
         );
@@ -180,19 +172,24 @@ export async function resolveEditorTarget(
         }
         return updated;
       }
-      if (input.kind === "guide" || input.kind === "news") {
+      if (input.kind === "news")
+        return locales.map((locale, index) =>
+          read(originals[index], locale) === values[locale]
+            ? originals[index]
+            : newsFrontmatterField.test(field)
+              ? replaceSpeciesField(originals[index], field, values[locale])
+              : replaceNewsBodyField(originals[index], field, values[locale]),
+        );
+      if (input.kind === "guide") {
         let raw = originals[0];
-        for (const locale of locales) {
+        for (const locale of locales)
           raw = replaceContentLiteral(
             raw,
-            input.kind,
+            "guide",
             input.id,
-            input.kind === "guide"
-              ? [locale, ...segments]
-              : ["copy", locale, ...segments],
+            [locale, ...segments],
             values[locale],
           );
-        }
         return [raw];
       }
       if (input.kind === "region") {

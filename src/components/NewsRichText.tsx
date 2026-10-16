@@ -8,6 +8,9 @@ import { contentEditorAttributes } from "@/lib/contentEditorAttributes";
 import { GROUP_HUBS } from "@/lib/groupHubs";
 import { regionHref, speciesHref } from "@/lib/speciesRoutes";
 
+const linkClass =
+  "font-semibold text-(--nw-ink) underline decoration-(--nw-accent)/45 decoration-2 underline-offset-4 transition-colors hover:text-(--nw-accent) hover:decoration-(--nw-accent)";
+
 export function NewsRichText({
   articleId,
   blockIndex,
@@ -78,7 +81,7 @@ function NewsMarkNode({
   if (mark.type === "external") {
     return (
       <a
-        className="text-foreground underline decoration-foreground/20 underline-offset-[3px] transition-colors hover:decoration-primary"
+        className={linkClass}
         {...contentEditorAttributes("news", editorId, `${editorField}.label`)}
         href={mark.href}
         rel="noopener noreferrer"
@@ -92,7 +95,7 @@ function NewsMarkNode({
   if (mark.type === "credit-author") {
     return (
       <Link
-        className="text-foreground underline decoration-foreground/20 underline-offset-[3px] transition-colors hover:decoration-primary"
+        className={linkClass}
         {...contentEditorAttributes("news", editorId, `${editorField}.label`)}
         href={creditAuthorHref(mark.slug)}
       >
@@ -104,7 +107,7 @@ function NewsMarkNode({
   if (mark.type === "news-index") {
     return (
       <Link
-        className="text-foreground underline decoration-foreground/20 underline-offset-[3px] transition-colors hover:decoration-primary"
+        className={linkClass}
         {...contentEditorAttributes("news", editorId, `${editorField}.label`)}
         href="/news"
       >
@@ -116,7 +119,7 @@ function NewsMarkNode({
   if (mark.type === "hub") {
     return (
       <Link
-        className="text-foreground underline decoration-foreground/20 underline-offset-[3px] transition-colors hover:decoration-primary"
+        className={linkClass}
         {...contentEditorAttributes("news", editorId, `${editorField}.label`)}
         href={GROUP_HUBS[mark.id].path}
       >
@@ -128,7 +131,7 @@ function NewsMarkNode({
   if (mark.type === "region") {
     return (
       <Link
-        className="text-foreground underline decoration-foreground/20 underline-offset-[3px] transition-colors hover:decoration-primary"
+        className={linkClass}
         {...contentEditorAttributes("news", editorId, `${editorField}.label`)}
         href={regionHref(mark.id)}
       >
@@ -139,7 +142,7 @@ function NewsMarkNode({
 
   return (
     <Link
-      className="text-foreground underline decoration-foreground/20 underline-offset-[3px] transition-colors hover:decoration-primary"
+      className={linkClass}
       {...contentEditorAttributes("news", editorId, `${editorField}.label`)}
       href={speciesHref(mark.id, locale)}
     >

@@ -1,21 +1,22 @@
 import { describe, expect, it, vi } from "vitest";
 
-import { BATUMI_19300_RAPTORS_2026 } from "@/content/news/batumi-19300-raptors-2026";
 import { buildLlmsFullText, buildLlmsIndexText } from "@/lib/llmsFiles";
 
-vi.mock("@/content/news/batumi-19300-raptors-2026", async (importOriginal) => {
+const { slug } = vi.hoisted(() => ({ slug: "batumi-19300-raptors-2026" }));
+
+vi.mock("@/data/news.generated", async (importOriginal) => {
   const original =
-    await importOriginal<
-      typeof import("@/content/news/batumi-19300-raptors-2026")
-    >();
-  const article = original.BATUMI_19300_RAPTORS_2026;
-  const { ru: _ru, tr: _tr, ...copy } = article.copy;
-  return { BATUMI_19300_RAPTORS_2026: { ...article, copy } };
+    await importOriginal<typeof import("@/data/news.generated")>();
+  return {
+    NEWS_ARTICLES: original.NEWS_ARTICLES.map((article) => {
+      if (article.slug !== slug) return article;
+      const { ru: _ru, tr: _tr, ...copy } = article.copy;
+      return { ...article, copy };
+    }),
+  };
 });
 
 describe("llms files with a news article missing a locale", () => {
-  const slug = BATUMI_19300_RAPTORS_2026.slug;
-
   it.each(["ru", "tr"] as const)(
     "builds the %s files without the untranslated article",
     (locale) => {
