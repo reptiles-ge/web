@@ -322,6 +322,23 @@ function configuredRedirectPath(pathname: string): [string, 301 | 302] | null {
   return null;
 }
 
+function nextKaRedirect(
+  request: NextRequest,
+  pathname: string,
+): [string, 301 | 302] | null {
+  const redirect = redirectPath(pathname);
+  if (redirect) return redirect;
+
+  const url = request.nextUrl.clone();
+  url.pathname = pathname;
+  const response = intlMiddleware(new NextRequest(url));
+  const location = response.headers.get("location");
+  if (location && response.status >= 300 && response.status < 400) {
+    return [new URL(location, url).pathname, 301];
+  }
+  return null;
+}
+
 function prefixedQuizRedirectPath(
   locale: PrefixedLocale,
   pathname: string,
@@ -445,20 +462,12 @@ function resolveKaPrefixedPath(
   let target = pathname;
   let status: 301 | 302 = 301;
   const seen = new Set([target]);
-  for (let redirect = redirectPath(target); redirect;) {
+  for (let redirect = nextKaRedirect(request, target); redirect;) {
     if (seen.has(redirect[0])) break;
     target = redirect[0];
     if (redirect[1] === 302) status = 302;
     seen.add(target);
-    redirect = redirectPath(target);
-  }
-
-  const url = request.nextUrl.clone();
-  url.pathname = target;
-  const response = intlMiddleware(new NextRequest(url));
-  const location = response.headers.get("location");
-  if (location && response.status >= 300 && response.status < 400) {
-    target = new URL(location, url).pathname;
+    redirect = nextKaRedirect(request, target);
   }
   return [target, status];
 }

@@ -60,6 +60,7 @@ describe("/ka prefix", () => {
     ["/ka/quiz/which-snake", "/quiz/romeli-gvelia"],
     ["/ka/birds", "/prinvelebi"],
     ["/ka/insects/saxeoebebi", "/mtserebi/saxeoebebi"],
+    ["/ka/ka/terms", "/terms-and-conditions"],
   ])("301s %s straight to %s", (from, to) => {
     expect(location(from)).toEqual({
       location: `https://reptiles.ge${to}`,
@@ -89,6 +90,7 @@ describe("/ka prefix", () => {
     "/ka/quiz/which-snake",
     "/ka/birds",
     "/ka/insects/saxeoebebi",
+    "/ka/ka/terms",
   ])("lands %s on a path that does not redirect again", (from) => {
     const target = new URL(location(from).location ?? "");
     expect(call(target.pathname).headers.get("location")).toBeNull();
