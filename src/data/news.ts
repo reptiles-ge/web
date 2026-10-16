@@ -3,6 +3,7 @@ import type { NewsArticle, NewsPhoto, NewsSource } from "@/data/newsTypes";
 import type { AppLocale } from "@/i18n/routing";
 import type { GroupHubId } from "@/lib/groupHubs";
 
+import { ARMENIA_POWER_LINE_BIRD_ELECTROCUTION } from "@/content/news/armenia-power-line-bird-electrocution";
 import { BATUMI_19300_RAPTORS_2026 } from "@/content/news/batumi-19300-raptors-2026";
 import { BATUMI_239735_RAPTORS_RECORD_DAY_2026 } from "@/content/news/batumi-239735-raptors-record-day-2026";
 import { BEZOAR_GOAT_RESTORATION_JAVAKHETI_2026 } from "@/content/news/bezoar-goat-restoration-javakheti-2026";
@@ -26,6 +27,7 @@ import { GROUP_HUBS } from "@/lib/groupHubs";
 export type { NewsArticle, NewsPhoto, NewsSource } from "@/data/newsTypes";
 
 const NEWS_ARTICLES: readonly NewsArticle[] = [
+  ARMENIA_POWER_LINE_BIRD_ELECTROCUTION,
   MELANISTIC_EIRENIS_MODESTUS_ANATOLIA,
   CRESTED_HONEY_BUZZARD_BATUMI_2026,
   THREE_LEGGED_LEOPARD_AREN_ALGETI,
