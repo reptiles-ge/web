@@ -163,9 +163,10 @@ export async function GroupHubPage({
           showRisk={showRisk}
           species={species}
         />
-        {hubId === "turtles" ? <TurtlesHubSections /> : null}
+        {hubId === "turtles" ? <TurtlesHubSections locale={locale} /> : null}
         <GroupHubFaqSection
           hubId={hubId}
+          locale={locale}
           values={hubFaqValues(species, locale)}
         />
         {citesChecklist ? (

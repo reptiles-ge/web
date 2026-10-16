@@ -1,6 +1,6 @@
-"use client";
+import { getTranslations } from "next-intl/server";
 
-import { useTranslations } from "next-intl";
+import type { AppLocale } from "@/i18n/routing";
 
 import { ClusterContentSection } from "@/components/ClusterContentSection";
 
@@ -10,8 +10,8 @@ const COMPARE_COLS = [
   { header: "compareColMalpolon", value: "compareMalpolon" },
 ] as const;
 
-export function VenomousSnakesCompare() {
-  const t = useTranslations("venomousSnakes");
+export async function VenomousSnakesCompare({ locale }: { locale: AppLocale }) {
+  const t = await getTranslations({ locale, namespace: "venomousSnakes" });
 
   return (
     <ClusterContentSection

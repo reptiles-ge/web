@@ -1,7 +1,5 @@
-"use client";
-
 import { ArrowUpRight } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
 import type { SpeciesCard } from "@/data/speciesCard";
 import type { AppLocale } from "@/i18n/routing";
@@ -12,11 +10,11 @@ import {
   CLUSTER_TITLE_SECTION,
   ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
-import { useSpeciesHref } from "@/components/LocaleSwitchProvider";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { SpeciesInlineLink } from "@/components/SpeciesInlineLink";
 import { Link } from "@/i18n/navigation";
+import { speciesHref } from "@/lib/speciesRoutes";
 
 type VenomousSnakesSpeciesProps = {
   giurza?: SpeciesCard;
@@ -27,7 +25,7 @@ type VenomousSnakesSpeciesProps = {
   vipers: SpeciesCard[];
 };
 
-export function VenomousSnakesSpecies({
+export async function VenomousSnakesSpecies({
   giurza,
   kaznakovi,
   locale,
@@ -35,7 +33,7 @@ export function VenomousSnakesSpecies({
   speciesCount,
   vipers,
 }: VenomousSnakesSpeciesProps) {
-  const t = useTranslations("venomousSnakes");
+  const t = await getTranslations({ locale, namespace: "venomousSnakes" });
 
   return (
     <section className="scroll-mt-28 bg-background py-20 lg:py-28" id="species">
@@ -174,7 +172,7 @@ function VenomousFeaturedCard({
     <div>
       <Link
         className="flex h-full flex-wrap items-center justify-between gap-4 rounded-card border border-border bg-card px-6 py-5 transition-colors hover:border-primary/25"
-        href={useSpeciesHref(species.id, locale)}
+        href={speciesHref(species.id, locale)}
       >
         <div>
           <p className="text-[11px] font-medium tracking-[0.16em] text-muted-foreground uppercase">
