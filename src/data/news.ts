@@ -7,6 +7,7 @@ import { BATUMI_19300_RAPTORS_2026 } from "@/content/news/batumi-19300-raptors-2
 import { BATUMI_239735_RAPTORS_RECORD_DAY_2026 } from "@/content/news/batumi-239735-raptors-record-day-2026";
 import { BEZOAR_GOAT_RESTORATION_JAVAKHETI_2026 } from "@/content/news/bezoar-goat-restoration-javakheti-2026";
 import { CAUCASIAN_TOAD_BUFO_VERRUCOSISSIMUS_TAXONOMY_2026 } from "@/content/news/caucasian-toad-bufo-verrucosissimus-taxonomy-2026";
+import { CRESTED_HONEY_BUZZARD_BATUMI_2026 } from "@/content/news/crested-honey-buzzard-batumi-2026";
 import { DAREVSKIA_UZZELLI_ARMENIA_2026 } from "@/content/news/darevskia-uzzelli-armenia-2026";
 import { FROM_THE_SKY_RAPTOR_POACHING_FILM_BATUMI } from "@/content/news/from-the-sky-raptor-poaching-film-batumi";
 import { GEORGIA_DOLPHIN_STRANDINGS_2026 } from "@/content/news/georgia-dolphin-strandings-2026";
@@ -24,6 +25,7 @@ import { GROUP_HUBS } from "@/lib/groupHubs";
 export type { NewsArticle, NewsPhoto, NewsSource } from "@/data/newsTypes";
 
 const NEWS_ARTICLES: readonly NewsArticle[] = [
+  CRESTED_HONEY_BUZZARD_BATUMI_2026,
   THREE_LEGGED_LEOPARD_AREN_ALGETI,
   RIONI_STRICT_NATURE_RESERVE_STURGEON_2026,
   FROM_THE_SKY_RAPTOR_POACHING_FILM_BATUMI,
