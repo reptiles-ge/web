@@ -196,14 +196,23 @@ function parseNewsInline(
     }
     if (char === "<") {
       pushText();
-      const open = /^<([A-Za-z]+)(?: ([a-z]+)="([^"]*)")?>/.exec(
-        raw.slice(index),
-      );
-      if (!open || !Object.hasOwn(markTags, open[1])) fail("Unknown tag");
-      const tag = open![1] as MarkTag;
-      if ((open![2] ?? undefined) !== markTags[tag])
-        fail(`Wrong attribute on <${tag}>`);
-      index += open![0].length;
+      const name = /^<([A-Za-z]+)/.exec(raw.slice(index))?.[1];
+      if (!name || !Object.hasOwn(markTags, name)) fail("Unknown tag");
+      const tag = name as MarkTag;
+      index += tag.length + 1;
+      const attrName = markTags[tag];
+      let attr: string | undefined;
+      if (attrName) {
+        const prefix = ` ${attrName}="`;
+        if (!raw.startsWith(prefix, index)) fail(`Wrong attribute on <${tag}>`);
+        index += prefix.length;
+        const close = raw.indexOf('"', index);
+        if (close < 0) fail(`Wrong attribute on <${tag}>`);
+        attr = raw.slice(index, close);
+        index = close + 1;
+      }
+      if (raw[index] !== ">") fail(`Wrong attribute on <${tag}>`);
+      index += 1;
       const inner = readText(`</${tag}>`);
       index += tag.length + 3;
       const suffix = tag === "Sci" ? "name" : "label";
@@ -212,7 +221,7 @@ function parseNewsInline(
         start: offset + inner.start,
         value: inner.value,
       });
-      parts.push(toMark(tag, open![3], inner.value));
+      parts.push(toMark(tag, attr, inner.value));
       continue;
     }
     if (char === "[") {
