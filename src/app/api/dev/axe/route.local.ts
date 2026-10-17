@@ -54,7 +54,7 @@ export async function POST(request: Request) {
   for (const violation of violations) {
     const impact = clean(violation.impact ?? "unknown");
     console.warn(
-      `  [${impact}] ${clean(violation.id)} ×${violation.nodes.length}`,
+      `  [${impact}] ${clean(violation.id)} ×${clean(violation.nodes.length)}`,
     );
     const shown = violation.nodes.slice(0, 4);
     for (const node of shown) {
