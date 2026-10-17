@@ -235,7 +235,7 @@ npm run i18n:check       # locale key parity + ICU argument check (KA is the sou
 npm run i18n:usage       # fails on any unused or undefined key; filters i18n-check's dynamic-key false positives
 npm run test:coverage   # vitest with v8 coverage; fails below the thresholds in vitest.config.ts
 
-Tests: `src/**/*.test.ts` run in Node (network mocked with MSW, `tests/msw/server.ts`; an unhandled request fails the test). `src/**/*.test.tsx` run in happy-dom with Testing Library. A component counts toward coverage unless it is listed in `coverage.exclude` in `vitest.config.ts`; remove it from that list when you add its test.
+Tests: `src/**/*.test.ts` run in Node (network mocked with MSW, `tests/msw/server.ts`; an unhandled request fails the test). `src/**/*.test.tsx` run in happy-dom with Testing Library. Every component counts toward coverage. `vitest.config.ts` sets per-glob thresholds (`src/lib/**`, `src/data/**`, a lower floor for `src/components/**`) on top of the global one; raise a floor when coverage grows, never lower it. `coverage.exclude` lists only untested dev/admin files and thin route files. `src/lib/coverageConfig.test.ts` fails on an entry that matches no file or a listed file that has a test.
 npm run cpd              # jscpd copy-paste scan, fails on any clone (threshold 0)
 ```
 
