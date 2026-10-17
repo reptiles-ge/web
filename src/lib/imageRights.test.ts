@@ -187,8 +187,33 @@ describe("photoRights", () => {
       "en",
     );
     expect(rights).not.toHaveProperty("creator");
-    expect(rights).not.toHaveProperty("copyrightNotice");
+    expect(rights).not.toHaveProperty("copyrightHolder");
+    expect(rights.copyrightNotice).toBe(
+      "© The photo's author. All rights reserved.",
+    );
     expectLicensed(rights, "uncredited");
+  });
+
+  it("leaves out the fallback notice on an uncredited open-licensed photo", () => {
+    const src = "https://cdn.reptiles.ge/falco-tinnunculus-paul-1.jpg";
+    const rights = photoRights(src, undefined, "en");
+    expect(rights.license).toBe(photoLicenses[src].license);
+    expect(rights).not.toHaveProperty("copyrightNotice");
+  });
+
+  it("gives an uncredited photo a copyright notice in every locale", () => {
+    for (const locale of routing.locales) {
+      const rights = photoRights(
+        "https://cdn.reptiles.ge/x.jpg",
+        undefined,
+        locale,
+      );
+      expect(rights.copyrightNotice, locale).toMatch(/^© \S/);
+    }
+    expect(
+      photoRights("https://cdn.reptiles.ge/x.jpg", undefined, "ka")
+        .copyrightNotice,
+    ).toBe("© ფოტოს ავტორი. ყველა უფლება დაცულია.");
   });
 });
 
