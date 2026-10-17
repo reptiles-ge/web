@@ -25,6 +25,7 @@ import { AtlasRecent } from "@/components/species-atlas/AtlasRecent";
 import { AtlasTiles } from "@/components/species-atlas/AtlasTiles";
 import {
   type AtlasFilters,
+  type AtlasRegionLabel,
   type AtlasSort,
   type AtlasView,
   countAtlasFacets,
@@ -43,6 +44,7 @@ type AtlasData = {
   catalog: SpeciesListItem[];
   recent: SpeciesListItem[];
   regionCount: number;
+  regionLabels: AtlasRegionLabel[];
   tooltipSpeciesByRegion: Record<string, RegionTooltipSpecies[]>;
   venomousImage: string;
 };
@@ -216,6 +218,7 @@ function SpeciesAtlasView({
   filters,
   recent,
   regionCount,
+  regionLabels,
   resetFilters,
   tooltipSpeciesByRegion,
   updateFilter,
@@ -360,6 +363,7 @@ function SpeciesAtlasView({
         onRegionMenuChange={setRegionMenuOpen}
         onResetFilters={resetFilters}
         onUpdateFilter={updateFilter}
+        regionLabels={regionLabels}
         regionMenuOpen={regionMenuOpen}
         sort={sort}
         view={view}

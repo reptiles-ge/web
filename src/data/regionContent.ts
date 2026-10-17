@@ -1,5 +1,21 @@
 import type { RegionPathId } from "@/data/georgia-paths";
-import type { LocalizedText } from "@/data/mapRegions";
+import type { AppLocale } from "@/i18n/routing";
+
+import {
+  getRegionById,
+  type LocalizedText,
+  localizeRegionText,
+  localizeRegionTextIfPresent,
+  regions,
+} from "@/data/mapRegions";
+
+export type LocalizedRegionContent = {
+  biome: null | string;
+  faq: { answer: string; question: string }[];
+  habitats: string[];
+  overview: null | string;
+  related: RegionRelatedLink[];
+};
 
 export type RegionContent = {
   biome: RegionText;
@@ -10,6 +26,17 @@ export type RegionContent = {
   relatedIds: RegionPathId[];
   titleName?: LocalizedText;
   titleNameIn?: LocalizedText;
+};
+
+export type RegionDirectoryEntry = RegionRelatedLink & {
+  overview: null | string;
+};
+
+export type RegionRelatedLink = {
+  biome: null | string;
+  id: RegionPathId;
+  name: string;
+  speciesCount: number;
 };
 
 type RegionFaq = {
@@ -844,6 +871,67 @@ const regionContent: Record<RegionPathId, RegionContent> = {
   },
 };
 
+export function getLocalizedRegionContent(
+  id: RegionPathId,
+  locale: AppLocale,
+): LocalizedRegionContent {
+  const content = regionContent[id];
+  return {
+    biome: localizeRegionTextIfPresent(content.biome, locale),
+    faq: localizeRegionFaq(content.faq, locale),
+    habitats: content.habitats.map((habitat) =>
+      localizeRegionText(habitat, locale),
+    ),
+    overview: localizeRegionTextIfPresent(content.overview, locale),
+    related: regionRelatedLinks(content.relatedIds, locale),
+  };
+}
+
 export function getRegionContent(id: RegionPathId): RegionContent {
   return regionContent[id];
+}
+
+export function getRegionDirectory(locale: AppLocale): RegionDirectoryEntry[] {
+  return regions.map((region) => ({
+    biome: localizeRegionTextIfPresent(regionContent[region.id].biome, locale),
+    id: region.id,
+    name: localizeRegionText(region.name, locale),
+    overview: localizeRegionTextIfPresent(
+      regionContent[region.id].overview,
+      locale,
+    ),
+    speciesCount: region.speciesIds.length,
+  }));
+}
+
+export function localizeRegionFaq(
+  faq: { answer: Partial<LocalizedText>; question: Partial<LocalizedText> }[],
+  locale: AppLocale,
+): LocalizedRegionContent["faq"] {
+  return faq.flatMap((item) => {
+    const question = localizeRegionTextIfPresent(item.question, locale);
+    const answer = localizeRegionTextIfPresent(item.answer, locale);
+    return question && answer ? [{ answer, question }] : [];
+  });
+}
+
+export function regionRelatedLinks(
+  ids: string[],
+  locale: AppLocale,
+): RegionRelatedLink[] {
+  return ids.flatMap((relatedId) => {
+    const region = getRegionById(relatedId);
+    if (!region) return [];
+    return [
+      {
+        biome: localizeRegionTextIfPresent(
+          regionContent[region.id].biome,
+          locale,
+        ),
+        id: region.id,
+        name: localizeRegionText(region.name, locale),
+        speciesCount: region.speciesIds.length,
+      },
+    ];
+  });
 }

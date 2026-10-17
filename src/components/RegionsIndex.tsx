@@ -1,28 +1,24 @@
 "use client";
 
 import { ArrowUpRight } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 
-import type { AppLocale } from "@/i18n/routing";
+import type { RegionTooltipSpecies } from "@/data/mapRegions";
+import type { RegionDirectoryEntry } from "@/data/regionContent";
 
 import { ClientCoverImage } from "@/components/ClientCoverImage";
 import { InkHeroBreadcrumb } from "@/components/InkHeroBreadcrumb";
 import { GeorgiaMap } from "@/components/map/GeorgiaMap";
-import {
-  localizeRegionText,
-  type Region,
-  regions,
-  type RegionTooltipSpecies,
-} from "@/data/mapRegions";
-import { getRegionContent } from "@/data/regionContent";
 import { REGIONS_INDEX_HERO_IMAGE } from "@/data/regionImages";
 import { Link } from "@/i18n/navigation";
 import { regionHref } from "@/lib/regionHref";
 
 export function RegionsIndex({
+  directory,
   stats,
   tooltipSpeciesByRegion,
 }: {
+  directory: RegionDirectoryEntry[];
   stats: {
     regionCount: number;
     speciesCount: number;
@@ -30,7 +26,6 @@ export function RegionsIndex({
   };
   tooltipSpeciesByRegion: Record<string, RegionTooltipSpecies[]>;
 }) {
-  const locale = useLocale() as AppLocale;
   const t = useTranslations("regions");
   const tNav = useTranslations("nav");
 
@@ -179,10 +174,10 @@ export function RegionsIndex({
             </div>
 
             <ul className="mt-14 divide-y divide-border/80 border-y border-border/80">
-              {regions.map((region) => (
+              {directory.map((region) => (
                 <li key={region.id}>
                   <div>
-                    <RegionDirectoryRow locale={locale} region={region} />
+                    <RegionDirectoryRow region={region} />
                   </div>
                 </li>
               ))}
@@ -250,18 +245,9 @@ export function RegionsIndex({
   );
 }
 
-function RegionDirectoryRow({
-  locale,
-  region,
-}: {
-  locale: AppLocale;
-  region: Region;
-}) {
+function RegionDirectoryRow({ region }: { region: RegionDirectoryEntry }) {
   const t = useTranslations("regions");
-  const content = getRegionContent(region.id);
-  const name = localizeRegionText(region.name, locale);
-  const biome = localizeRegionText(content.biome, locale);
-  const overview = localizeRegionText(content.overview, locale);
+  const { biome, name, overview } = region;
 
   return (
     <Link
@@ -274,7 +260,7 @@ function RegionDirectoryRow({
             {name}
           </h3>
           <span className="text-[12px] tracking-wide text-muted-foreground">
-            {t("speciesCount", { count: region.speciesIds.length })}
+            {t("speciesCount", { count: region.speciesCount })}
           </span>
         </div>
         <p className="mt-2 text-[11px] font-medium tracking-[0.2em] text-primary/80 uppercase">

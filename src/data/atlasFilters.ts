@@ -17,6 +17,8 @@ export type AtlasFilters = {
   region: "all" | string;
 };
 
+export type AtlasRegionLabel = { id: string; label: string };
+
 type AtlasDangerFilter = "all" | "harmless" | "venomous";
 
 export const defaultAtlasFilters: AtlasFilters = {
