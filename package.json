@@ -72,7 +72,7 @@
     "dev:vinext": "VINEXT=1 vinext dev --port 3001",
     "prebuild:vinext": "pnpm run prebuild",
     "build:vinext": "VINEXT=1 vinext build",
-    "start:vinext": "wrangler dev --config dist/server/wrangler.json",
+    "start:vinext": "wrangler dev --config dist/server/wrangler.json --config wrangler.response-store.jsonc",
     "deploy:vinext": "pnpm run build:vinext && vinext-cloudflare deploy --config dist/server/wrangler.json && pnpm run cache:warm",
     "cache:warm": "node scripts/warm-cache.mjs",
     "metadata:check": "tsx scripts/check-metadata-head.ts",

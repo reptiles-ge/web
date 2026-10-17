@@ -238,7 +238,7 @@ pnpm compile && pnpm knip && pnpm i18n:check && pnpm i18n:usage && pnpm cpd && p
 - `src/**/*.test.ts` runs in Node. Network calls are mocked with MSW (`tests/msw/server.ts`), and an unhandled request fails the test.
 - `src/**/*.test.tsx` runs in happy-dom with Testing Library.
 - Every component counts toward coverage, with its own lower floor for `src/components/**`. When you add a test for a file listed in `coverage.exclude`, remove it from that list (`src/lib/coverageConfig.test.ts` enforces this).
-- End-to-end tests (`pnpm test:e2e`) build the app and run Playwright against routes, search, and axe-core accessibility checks.
+- End-to-end tests (`pnpm test:e2e`) build the vinext Worker and run Playwright against it (`wrangler dev`, with the response store) for routes, search, and axe-core accessibility checks. The `E2E` workflow runs them on every pull request into `main` or `staging`.
 
 A pre-commit hook runs `lint-staged`, which applies ESLint and Prettier to staged files.
 
@@ -297,7 +297,7 @@ Worker settings (`MAINTENANCE_MODE`, `MAINTENANCE_BYPASS_TOKEN`) live in Cloudfl
 | `pnpm dev`               | Compile generated data, then start Next.js on port 3333                 |
 | `pnpm build`             | Next.js production build                                                |
 | `pnpm build:vinext`      | Production Worker build (what CI and Cloudflare build)                  |
-| `pnpm start:vinext`      | Run the built Worker locally with Wrangler                              |
+| `pnpm start:vinext`      | Run the built Worker and its response store locally with Wrangler       |
 | `pnpm compile`           | `species:compile`, `search:compile`, and `map:compile`                  |
 | `pnpm species:compile`   | MDX to catalog, slug table, occurrences, and release version            |
 | `pnpm search:compile`    | Per-locale search indexes                                               |
