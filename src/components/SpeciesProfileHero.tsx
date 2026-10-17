@@ -337,7 +337,7 @@ function SpeciesHeroRiskChip({
   return (
     <Link
       aria-label={ariaLabel}
-      className="pointer-events-auto inline-flex rounded-full outline-offset-4 transition-opacity hover:opacity-85 focus-visible:outline-2 focus-visible:outline-white/60"
+      className="pointer-events-auto tap-target inline-flex rounded-full outline-offset-4 transition-opacity hover:opacity-85 focus-visible:outline-2 focus-visible:outline-white/60"
       href={dangerPageHref(level)}
     >
       {chip}
