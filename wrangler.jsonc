@@ -56,11 +56,4 @@
       "invocation_logs": true,
     },
   },
-  "r2_buckets": [
-    {
-      "bucket_name": "reptiles-response-store-cache-bodies",
-      "binding": "reptiles_response_store_cache_bodies",
-      "remote": true,
-    },
-  ],
 }

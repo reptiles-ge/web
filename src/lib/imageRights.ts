@@ -13,7 +13,7 @@ import {
   absoluteUrl,
   localePath,
   ORGANIZATION_NAME,
-  siteEntityId,
+  organizationRef,
 } from "@/lib/site";
 
 const PUBLIC_DOMAIN_PREFIX = "https://creativecommons.org/publicdomain/";
@@ -62,7 +62,7 @@ export function photoRights(
   if (creator && photoContributor(credit)) {
     return {
       acquireLicensePage: photoUsePageUrl(locale),
-      copyrightHolder: siteOrganization(),
+      copyrightHolder: organizationRef(),
       copyrightNotice: `© ${ORGANIZATION_NAME}`,
       creator,
       creditText: creator.name,
@@ -99,7 +99,7 @@ export function photoUsePageUrl(locale: AppLocale) {
 }
 
 export function siteImageRights(locale: AppLocale) {
-  const organization = siteOrganization();
+  const organization = organizationRef();
   return {
     acquireLicensePage: photoUsePageUrl(locale),
     copyrightHolder: organization,
@@ -134,13 +134,5 @@ function photoCreator(
     "@type": "Person",
     name,
     url,
-  };
-}
-
-function siteOrganization(): Creator {
-  return {
-    "@id": siteEntityId("organization"),
-    "@type": "Organization",
-    name: ORGANIZATION_NAME,
   };
 }

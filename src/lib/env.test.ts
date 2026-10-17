@@ -39,6 +39,17 @@ describe("publicEnv", () => {
     vi.stubEnv("VERCEL_ENV", "qa");
     expect(() => publicEnv()).toThrow(/VERCEL_ENV/);
   });
+
+  it("reuses the parsed value until a variable changes", () => {
+    vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://reptiles.ge");
+    const first = publicEnv();
+    expect(publicEnv()).toBe(first);
+    vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://staging.reptiles.ge");
+    expect(publicEnv()).not.toBe(first);
+    expect(publicEnv().NEXT_PUBLIC_SITE_URL).toBe(
+      "https://staging.reptiles.ge",
+    );
+  });
 });
 
 describe("serverEnv", () => {

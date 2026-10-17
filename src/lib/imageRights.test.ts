@@ -23,9 +23,9 @@ import { speciesOgImageUrl, speciesPageUrl } from "@/lib/site";
 type ImageObject = Record<string, unknown> & {
   acquireLicensePage?: string;
   contentUrl?: string;
-  copyrightHolder?: { "@id"?: string; "@type": string; name: string };
+  copyrightHolder?: { "@id"?: string; "@type"?: string; name?: string };
   copyrightNotice?: string;
-  creator?: { "@type": string; name: string };
+  creator?: { "@id"?: string; "@type"?: string; name?: string };
   creditText?: string;
   license?: string;
 };
@@ -47,7 +47,11 @@ function collectImageObjects(value: unknown, found: ImageObject[] = []) {
 }
 
 function expectAttributed(image: Partial<ImageObject>, label: string) {
-  expect(image.creator?.["@type"], label).toMatch(/^(Organization|Person)$/);
+  if (image.creator?.["@id"] === ORGANIZATION_ID) {
+    expect(image.creator, label).toEqual({ "@id": ORGANIZATION_ID });
+  } else {
+    expect(image.creator?.["@type"], label).toMatch(/^(Organization|Person)$/);
+  }
   expect(image.creditText, label).toBeTruthy();
   if (image.copyrightHolder?.["@id"] === ORGANIZATION_ID) {
     expect(image.copyrightNotice, label).toBe("© Reptiles.ge");
@@ -109,12 +113,7 @@ describe("photoRights", () => {
       expect(rights.license).toBe(photoUsePageUrl("ka"));
       expect(rights.acquireLicensePage).toBe(photoUsePageUrl("ka"));
       expect(rights.copyrightNotice).toBe("© Reptiles.ge");
-      expect(rights.copyrightHolder).toEqual(
-        expect.objectContaining({
-          "@id": ORGANIZATION_ID,
-          "@type": "Organization",
-        }),
-      );
+      expect(rights.copyrightHolder).toEqual({ "@id": ORGANIZATION_ID });
       expect(rights.creator).toEqual(
         expect.objectContaining({
           "@type": "Person",
@@ -320,14 +319,10 @@ describe("guide and news images", () => {
     }
   });
 
-  it("credit the site as an Organization by @id", () => {
+  it("credit the site by an @id reference to the layout Organization", () => {
     const rights = siteImageRights("ka");
-    expect(rights.creator).toEqual(
-      expect.objectContaining({
-        "@id": "https://reptiles.ge/#organization",
-        "@type": "Organization",
-      }),
-    );
+    expect(rights.creator).toEqual({ "@id": ORGANIZATION_ID });
+    expect(rights.copyrightHolder).toEqual({ "@id": ORGANIZATION_ID });
     expect(rights.copyrightNotice).toBe("© Reptiles.ge");
   });
 });

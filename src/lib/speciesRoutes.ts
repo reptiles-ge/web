@@ -295,13 +295,6 @@ export function getSpeciesLookalikes(id: string): string[] {
   ].filter(isPublishedSpeciesId);
 }
 
-export function legacySpeciesStaticParams(): Array<{
-  id: string;
-  locale: AppLocale;
-}> {
-  return [];
-}
-
 export {
   getSpeciesHubId,
   getSpeciesPublicSlug,

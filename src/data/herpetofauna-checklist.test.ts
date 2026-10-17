@@ -4,8 +4,9 @@ import {
   getHerpetofaunaChecklistStatus,
   herpetofaunaChecklistIds,
 } from "@/data/herpetofauna-checklist";
-import { getCatalogSpecies } from "@/data/species";
+import { featuredSpeciesIds, getCatalogSpecies } from "@/data/species";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlas";
+import { speciesAtlasMeta } from "@/data/speciesAtlasMeta";
 
 const HERP_GROUPS = new Set(["amphibian", "lizard", "snake", "turtle"]);
 
@@ -56,5 +57,12 @@ describe("herpetofauna checklist", () => {
 
   it("lists every herp atlas id", () => {
     expect(herpetofaunaChecklistIds().length).toBeGreaterThan(0);
+  });
+
+  it("keeps atlas meta to featured species ids", () => {
+    const featured = new Set<string>(featuredSpeciesIds);
+    for (const id of Object.keys(speciesAtlasMeta))
+      expect(featured.has(id), id).toBe(true);
+    expect(getHerpetofaunaChecklistStatus("vipera-ammodytes")).toBeNull();
   });
 });

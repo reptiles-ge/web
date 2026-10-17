@@ -19,3 +19,10 @@ public
 tmp
 *.min.js
 *.min.css
+dist
+test-results
+playwright-report
+blob-report
+.claude
+.vinext
+.wrangler

@@ -5,7 +5,6 @@ import { PhotoPermissionNotes } from "@/components/PhotoPermissionNotes";
 import { PHOTO_PERMISSION_NOTES } from "@/data/photoPermissionNotes";
 import { routing } from "@/i18n/routing";
 
-
 describe("PhotoPermissionNotes", () => {
   it("renders nothing while the response time and fee policy are unset", () => {
     for (const locale of routing.locales) {

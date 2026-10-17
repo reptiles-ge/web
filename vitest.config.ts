@@ -2,16 +2,16 @@ import path from "node:path";
 import { defineConfig } from "vitest/config";
 
 export default defineConfig({
-  cacheDir: path.resolve(__dirname, "node_modules/.vite"),
+  cacheDir: path.resolve(import.meta.dirname, "node_modules/.vite"),
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "src"),
+      "@": path.resolve(import.meta.dirname, "src"),
       "next-intl/navigation": path.resolve(
-        __dirname,
+        import.meta.dirname,
         "tests/stubs/next-intl-navigation.ts",
       ),
       "next/navigation": path.resolve(
-        __dirname,
+        import.meta.dirname,
         "tests/stubs/next-navigation.ts",
       ),
     },

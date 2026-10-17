@@ -145,7 +145,6 @@ export const pathnames = {
     "/snakes/identify-venomous",
   ),
   "/species": "/species",
-  "/species/[id]": "/species/[id]",
   "/spiders": kaLatin("/obobebi", "/spiders"),
   "/spiders/[slug]": kaLatin("/obobebi/[slug]", "/spiders/[slug]"),
   "/spiders/obobis-nakbeni": kaLatin(
