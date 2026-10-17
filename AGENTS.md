@@ -95,7 +95,7 @@ Default locale has **no** `/ka` prefix (`localePrefix: as-needed`). `/ka` and `/
 ## Species content pipeline
 
 1. Edit `src/content/species/{id}/{ka,en,ru,tr}.mdx`. KA frontmatter owns `id`, taxonomy, `danger`, `image` / `mobileImage` / `gallery` srcs, `sources`. Other locales translate text. Do not copy the photo list: sparse `gallery` in `en`/`ru`/`tr` is credit overlay only (match by `src`). Missing overlay keeps the KA credit. Translation frontmatter is strict: only `id`, `scientificName`, `dateModified`, text fields, `identification`, and credit overlays (`imageCredit`, `mobileImageCredit`, `gallery`). Compile fails on any other key, a missing locale file, an unregistered folder, an overlay `src` not in the KA gallery, mismatched `identification.colors`, or a `faq` / `facts` / `stats` / `identification.traits` count that differs from KA.
-2. `npm run species:compile` (also `predev` / `prebuild`) writes gitignored `src/data/species.generated.ts` and `src/data/speciesSlugs.generated.ts`.
+2. `pnpm species:compile` (also `predev` / `prebuild`) writes gitignored `src/data/species.generated.ts` and `src/data/speciesSlugs.generated.ts`.
 3. Register the id in `featuredSpeciesIds` / `catalogSpeciesIds` in `src/data/species.ts`.
 4. Add `speciesAtlasMeta`.
 5. KA public slug: `kaToSlug(commonName)` unless `KA_SLUG_OVERRIDES` / `KA_SLUG_ALIASES` in `speciesSlugRules.ts`. `src/proxy.ts` must import lookup from `speciesSlugTable.ts`, not `speciesRoutes.ts`.
@@ -182,7 +182,7 @@ Long-form, answer-first practical guides (bat in the house, wasp nest, …) use 
 
 ## News
 
-- Copy: `src/content/news/{slug}/{ka,en,ru,tr}.mdx`. `npm run news:compile` (also `compile` / `predev` / `prebuild`) writes the gitignored `src/data/news.generated.ts`. Consumers read it through `src/data/news.ts`, never directly.
+- Copy: `src/content/news/{slug}/{ka,en,ru,tr}.mdx`. `pnpm news:compile` (also `compile` / `predev` / `prebuild`) writes the gitignored `src/data/news.generated.ts`. Consumers read it through `src/data/news.ts`, never directly.
 - New article: add the folder and put its slug in `newsSlugs` (`src/data/newsPublish.ts`). The list order breaks ties between articles with the same `publishedAt`; newest additions go first.
 - KA frontmatter owns the shared data: `slug`, `status`, `publishedAt`, `updatedAt`, `related{Hub,Region,Species}Ids`, `sources`, `image`, `gallery` (src, `alt`, credit, size, `plate`, `fromAtlas`). Every locale has `title`, `dek`, `lead`, `metaTitle`, `metaDescription`. `en`/`ru`/`tr` translate the text and give only `{ src, alt }` for `image` / `gallery` (matched by `src`). Do not copy the photo list.
 - Body: each `## heading` is a section, each paragraph a block, `<Figure src="…" />` on its own line a figure. Inline marks: `<Species id="…">label</Species>`, `<Region id="…">`, `<Hub id="…">`, `<CreditAuthor slug="…">`, `<NewsIndex>label</NewsIndex>`, `<Sci>Latin name</Sci>`, and `[label](https://…)` for external links. Escape a literal `\`, `<`, `{`, `}`, `[` or `]` with `\`. Anything else fails the compile.
@@ -224,23 +224,23 @@ Kill-switch only; normal deploys are atomic and need none. `src/worker.ts` answe
 ## Commands
 
 ```bash
-npm run dev              # compile species, then next dev
-npm run build
-npm run lint
-npm run doctor           # React Doctor health scan
-npm run doctor:changed   # only issues introduced vs the base branch
-npm run doctor:check     # fails unless the React Doctor score is exactly 100
-npm run species:compile
-npm run news:compile     # news MDX → src/data/news.generated.ts
-npm run i18n:check       # locale key parity + ICU argument check (KA is the source)
-npm run i18n:usage       # fails on any unused or undefined key; filters i18n-check's dynamic-key false positives
-npm run test:coverage   # vitest with v8 coverage; fails below the thresholds in vitest.config.ts
-
-Tests: `src/**/*.test.ts` run in Node (network mocked with MSW, `tests/msw/server.ts`; an unhandled request fails the test). `src/**/*.test.tsx` run in happy-dom with Testing Library. Every component counts toward coverage. `vitest.config.ts` sets per-glob thresholds (`src/lib/**`, `src/data/**`, a lower floor for `src/components/**`) on top of the global one; raise a floor when coverage grows, never lower it. `coverage.exclude` lists only untested dev/admin files and thin route files. `src/lib/coverageConfig.test.ts` fails on an entry that matches no file or a listed file that has a test.
-npm run cpd              # jscpd copy-paste scan, fails on any clone (threshold 0)
+pnpm dev                  # compile species, then next dev
+pnpm build
+pnpm lint
+pnpm doctor               # React Doctor health scan
+pnpm doctor:changed       # only issues introduced vs the base branch
+pnpm doctor:check         # fails unless the React Doctor score is exactly 100
+pnpm species:compile
+pnpm news:compile         # news MDX → src/data/news.generated.ts
+pnpm i18n:check           # locale key parity + ICU argument check (KA is the source)
+pnpm i18n:usage           # fails on any unused or undefined key; filters i18n-check's dynamic-key false positives
+pnpm test:coverage        # vitest with v8 coverage; fails below the thresholds in vitest.config.ts
+pnpm cpd                  # jscpd copy-paste scan, fails on any clone (threshold 0)
 ```
 
-`npx tsc --noEmit` after routing or catalog changes (run `species:compile` first if the generated catalog is missing).
+`pnpm typecheck` (`tsc --noEmit`) after routing or catalog changes (run `pnpm compile` first if the generated catalog is missing).
+
+Tests: `src/**/*.test.ts` run in Node (network mocked with MSW, `tests/msw/server.ts`; an unhandled request fails the test). `src/**/*.test.tsx` run in happy-dom with Testing Library. Every component counts toward coverage. `vitest.config.ts` sets per-glob thresholds (`src/lib/**`, `src/data/**`, a lower floor for `src/components/**`) on top of the global one; raise a floor when coverage grows, never lower it. `coverage.exclude` lists only untested dev/admin files and thin route files. `src/lib/coverageConfig.test.ts` fails on an entry that matches no file or a listed file that has a test.
 
 ## Open work (do not assume done)
 
@@ -257,6 +257,6 @@ npm run cpd              # jscpd copy-paste scan, fails on any clone (threshold 
 - Add `redirects()` to `next.config.ts`. Production runs on vinext, which never applies it; every 301 lives in `src/proxy.ts`.
 - Call next-intl server APIs with an implicit locale (`getTranslations("ns")`, `getLocale()`, `getMessages()`), call `setRequestLocale` outside a `[locale]` layout or page, or render the RSC `Link` from `@/i18n/navigation` in a layout-level server component (use `LocalizedLink`). On vinext an implicit locale falls back to `headers()` and makes every page uncacheable. ESLint enforces the first rule.
 - Ship one-locale copy or one-locale MDX.
-- Read `process.env` directly for the variables in `src/lib/env.ts`; use `publicEnv()` / `serverEnv()` (Zod-validated, checked at startup in `instrumentation.ts`).
+- Read `process.env` directly for the variables in `src/lib/env.ts`; use `publicEnv()` / `serverEnv()` (Zod-validated, checked at startup in `instrumentation.ts`). Exempt: a literal `process.env.NODE_ENV === "production"` check (and `NEXT_RUNTIME` in `instrumentation.ts`). The bundler inlines it, so dev-only code (axe, admin, Sentry sampling) drops out of production and client bundles; `publicEnv()` would keep it. Use `publicEnv()` when the code needs any other variable.
 - Index quiz results or duplicate identify-guide intent on a new quiz slug.
 - Treat `CONTENT-ROADMAP.md` / `QUIZ-MODULE-AUDIT.md` as current — they were removed as stale.

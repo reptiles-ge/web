@@ -267,7 +267,7 @@ export default function proxy(request: NextRequest) {
   const response = intlMiddleware(request);
   const intlRedirect = response.headers.get("location");
   if (intlRedirect && response.status >= 300 && response.status < 400) {
-    return NextResponse.redirect(intlRedirect, 308);
+    return NextResponse.redirect(intlRedirect, 301);
   }
   if (
     !request.headers.has("x-next-intl-locale") &&

@@ -30,7 +30,7 @@ A multilingual scientific atlas of the animals of Georgia: species profiles, ide
 
 | Tool    | Version                                               |
 | ------- | ----------------------------------------------------- |
-| Node.js | 22 (the version CI uses)                              |
+| Node.js | 22 (pinned in `.nvmrc`, which CI reads)               |
 | pnpm    | 10.34.5 (pinned through `packageManager`)             |
 | Git     | Any recent version. Husky installs a pre-commit hook. |
 
@@ -109,7 +109,8 @@ pnpm start:vinext
 ├── e2e/                       Playwright specs: routes, search, accessibility
 ├── docs/                      Release playbook and project notes
 ├── .agents/skills/            Playbooks for AI agents (guide articles, SEO, copy editing)
-├── wrangler.jsonc             Main Worker config
+├── wrangler.jsonc             Main Worker config for the production deploy
+├── wrangler.vinext.jsonc      Main Worker config for vinext dev, build, and E2E
 └── wrangler.response-store.jsonc  Response-store Worker config
 ```
 
@@ -143,15 +144,22 @@ Route files are thin. They call a factory in `src/lib/`:
 
 ### Generated files
 
-`pnpm compile` (run automatically by `predev`, `prebuild`, and `pretest`) writes gitignored files. **Never edit or commit them.**
+`pnpm compile` (run automatically by `predev`, `prebuild`, and `pretest`) writes these gitignored files. **Never edit or commit them.**
 
 | Output                                             | Source                                | Script                 |
 | -------------------------------------------------- | ------------------------------------- | ---------------------- |
+| `src/data/news.generated.ts`                       | `src/content/news/*/*.mdx`            | `pnpm news:compile`    |
 | `src/data/species.generated.ts`                    | `src/content/species/*/*.mdx`         | `pnpm species:compile` |
 | `src/data/speciesSlugs.generated.ts`               | MDX and slug rules (used by the edge) | `pnpm species:compile` |
 | `src/data/releaseVersion.generated.ts`             | Latest Git tag (shown in the footer)  | `pnpm species:compile` |
 | `src/data/search-index.{ka,en,ru,tr}.generated.ts` | Species catalog, guides, and news     | `pnpm search:compile`  |
-| `src/data/georgia-paths.generated.ts`              | `src/assets/maps/georgia.svg`         | `pnpm map:compile`     |
+
+Two generated files are tracked in Git. Do not edit them by hand; regenerate them and commit the result.
+
+| Output                                  | Source                         | Script                                       |
+| --------------------------------------- | ------------------------------ | -------------------------------------------- |
+| `src/data/georgia-paths.generated.ts`   | `src/assets/maps/georgia.svg`  | `pnpm map:compile` (also part of `compile`)  |
+| `src/data/optimizedImages.generated.ts` | `src/data/image-manifest.json` | `pnpm images:emit` or `pnpm images:optimize` |
 
 If TypeScript reports a missing `*.generated.ts` module, run `pnpm compile`.
 
@@ -218,7 +226,7 @@ Trusted sources: Tarkhnishvili et al. 2026; Iankoshvili & Tarkhnishvili 2021 (wh
 CI ([`.github/workflows/lint.yml`](.github/workflows/lint.yml)) runs on every pull request. Run the same checks locally before you push:
 
 ```bash
-pnpm compile && pnpm knip && pnpm i18n:check && pnpm i18n:usage && pnpm cpd && pnpm doctor:check && pnpm lint && pnpm typecheck && pnpm test:coverage
+pnpm compile && pnpm format:check && pnpm knip && pnpm i18n:check && pnpm i18n:usage && pnpm cpd && pnpm doctor:check && pnpm lint && pnpm typecheck && pnpm test:coverage
 ```
 
 | Check                | What it enforces                                                               |
@@ -256,6 +264,16 @@ feature branch ──PR──▶ staging ──"Staging to main" PR──▶ mai
 - **Write the pull request title** as one plain sentence about the outcome, because it becomes the release note line.
 - **Releases** are `vMAJOR.MINOR.PATCH` tags on commits already live on `main`. Only the owner cuts them. Do not bump `package.json` or add a changelog. The playbook is [`docs/RELEASING.md`](docs/RELEASING.md).
 - **Pinned dependencies:** `vinext` carries a local patch and `@reptiles-ge/img-compression` is pinned to a commit. Dependabot skips both. Upgrade steps are in [`docs/DEPENDENCIES.md`](docs/DEPENDENCIES.md).
+
+### Wrangler configs
+
+| File                            | Used by                                                                                                                                                                |
+| ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `wrangler.jsonc`                | The production deploy on every push to `main` (Cloudflare Workers Builds). It runs `pnpm build:vinext` and serves the built `dist/server/index.js`.                    |
+| `wrangler.vinext.jsonc`         | `vite.config.ts` (`pnpm dev:vinext`, `pnpm build:vinext`). The build writes `dist/server/wrangler.json`, which `pnpm start:vinext`, E2E, and `pnpm deploy:vinext` use. |
+| `wrangler.response-store.jsonc` | The separate `reptiles-response-store` Worker (`pnpm deploy:response-store`). It owns the R2 bucket and the metadata Durable Object.                                   |
+
+The two main-Worker files differ only in the entry point and build settings. Wrangler has no `extends`, so the bindings, `vars`, and limits are written twice; `src/lib/wranglerConfig.test.ts` fails when they drift. Change both files together.
 
 ### Working on staging in a separate worktree
 
@@ -318,6 +336,7 @@ Worker settings (`MAINTENANCE_MODE`, `MAINTENANCE_BYPASS_TOKEN`) live in Cloudfl
 | `pnpm seo:*`             | SEO audits and the SEO graph export                                     |
 | `pnpm analyze`           | Bundle analyzer                                                         |
 | `pnpm format`            | Prettier on the whole repository                                        |
+| `pnpm format:check`      | Fails on any file Prettier would change (runs in CI)                    |
 
 ## Further documentation
 

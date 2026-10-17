@@ -29,7 +29,7 @@ if (result.status !== 0 || Number.isNaN(score)) {
 
 if (score !== REQUIRED_SCORE) {
   console.error(
-    `React Doctor score is ${score}, required ${REQUIRED_SCORE}. Run "npm run doctor" for the diagnostics.`,
+    `React Doctor score is ${score}, required ${REQUIRED_SCORE}. Run "pnpm doctor" for the diagnostics.`,
   );
   process.exit(1);
 }

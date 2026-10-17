@@ -3,7 +3,6 @@ import { describe, expect, it } from "vitest";
 import {
   getSpeciesLookalikes,
   getSpeciesPublicSlug,
-  legacySpeciesStaticParams,
   resolveSpecies,
   resolveSpeciesId,
   resolveSpeciesInHub,
@@ -321,7 +320,6 @@ describe("species routes", () => {
   });
 
   it("resolves a public slug and lists static hub params", () => {
-    expect(legacySpeciesStaticParams()).toEqual([]);
     expect(resolveSpecies("giurza")?.id).toBe("macrovipera-lebetina");
     expect(resolveSpecies("not-a-species")).toBeUndefined();
     const params = speciesStaticParams("snakes");

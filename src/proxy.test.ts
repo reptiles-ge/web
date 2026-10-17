@@ -288,7 +288,7 @@ describe("internal pathname redirects", () => {
   ])("permanently redirects %s to %s", (from, to) => {
     expect(location(from)).toEqual({
       location: `https://reptiles.ge${to}`,
-      status: 308,
+      status: 301,
     });
   });
 
@@ -302,7 +302,7 @@ describe("internal pathname redirects", () => {
   it("keeps the query string", () => {
     expect(location("/insects?page=2")).toEqual({
       location: "https://reptiles.ge/mtserebi?page=2",
-      status: 308,
+      status: 301,
     });
   });
 

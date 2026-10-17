@@ -1,6 +1,6 @@
 # scripts/
 
-Build and maintenance scripts for reptiles.ge. Prefer the npm scripts in `package.json`; call `tsx scripts/…` directly only when you need extra flags.
+Build and maintenance scripts for reptiles.ge. Prefer the pnpm scripts in `package.json`; call `tsx scripts/…` directly only when you need extra flags.
 
 BunnyCDN scripts need `.env` / `.env.local`:
 
@@ -15,21 +15,21 @@ BUNNY_CDN_BASE_URL=https://cdn.reptiles.ge   # optional
 
 ## When to use what
 
-| Goal                                           | Run                                      |
-| ---------------------------------------------- | ---------------------------------------- |
-| MDX → catalog (new/changed species)            | `npm run species:compile`                |
-| Refresh search indexes                         | `npm run search:compile` (species first) |
-| Refresh Georgia map paths                      | `npm run map:compile`                    |
-| Refresh Wikidata / GBIF / iNaturalist IDs      | `npm run taxon:ids`                      |
-| Spot broken CDN image URLs                     | `npm run images:check`                   |
-| Are species OG images live?                    | `npm run images:check-og`                |
-| Upload missing OG images (species + guides)    | `npm run images:og-missing`              |
-| AVIF/WebP + OG optimize on Bunny               | `npm run images:optimize …`              |
-| Regenerate only `optimizedImages.generated.ts` | `npm run images:emit`                    |
-| Unused files under `public/images`             | `npm run images:unused`                  |
-| Unused photos on BunnyCDN                      | `npm run images:cdn-unused`              |
+| Goal                                           | Run                                   |
+| ---------------------------------------------- | ------------------------------------- |
+| MDX → catalog (new/changed species)            | `pnpm species:compile`                |
+| Refresh search indexes                         | `pnpm search:compile` (species first) |
+| Refresh Georgia map paths                      | `pnpm map:compile`                    |
+| Refresh Wikidata / GBIF / iNaturalist IDs      | `pnpm taxon:ids`                      |
+| Spot broken CDN image URLs                     | `pnpm images:check`                   |
+| Are species OG images live?                    | `pnpm images:check-og`                |
+| Upload missing OG images (species + guides)    | `pnpm images:og-missing`              |
+| AVIF/WebP + OG optimize on Bunny               | `pnpm images:optimize …`              |
+| Regenerate only `optimizedImages.generated.ts` | `pnpm images:emit`                    |
+| Unused files under `public/images`             | `pnpm images:unused`                  |
+| Unused photos on BunnyCDN                      | `pnpm images:cdn-unused`              |
 
-`npm run dev` / `build` / `test` already run the three compile scripts (`predev` / `prebuild` / `pretest`).
+`pnpm dev` / `build` / `test` already run the three compile scripts (`predev` / `prebuild` / `pretest`).
 
 ---
 
@@ -37,7 +37,7 @@ BUNNY_CDN_BASE_URL=https://cdn.reptiles.ge   # optional
 
 These outputs are **gitignored** — do not hand-edit or commit them.
 
-### `compile-species.ts` → `npm run species:compile`
+### `compile-species.ts` → `pnpm species:compile`
 
 Reads `src/content/species/{id}/{ka,en,ru,tr}.mdx` and writes:
 
@@ -46,11 +46,11 @@ Reads `src/content/species/{id}/{ka,en,ru,tr}.mdx` and writes:
 
 Validates frontmatter via `speciesFrontmatter.ts` (Zod). Run this first after MDX or slug changes.
 
-### `compile-search.ts` → `npm run search:compile`
+### `compile-search.ts` → `pnpm search:compile`
 
 Requires an existing `species.generated.ts`. Writes `src/data/search-index.{ka,en,ru,tr}.generated.ts`.
 
-### `compile-georgia-map.ts` → `npm run map:compile`
+### `compile-georgia-map.ts` → `pnpm map:compile`
 
 `src/assets/maps/georgia.svg` → `src/data/georgia-paths.generated.ts` (region paths + viewBox). Run after editing the SVG.
 
@@ -62,7 +62,7 @@ Library only, not a CLI. KA / translation frontmatter schemas for `compile-speci
 
 ## Taxon identifiers
 
-### `fetch-taxon-identifiers.ts` → `npm run taxon:ids`
+### `fetch-taxon-identifiers.ts` → `pnpm taxon:ids`
 
 Looks up each published species' scientific name in GBIF (strict match), Wikidata (`P225`) and iNaturalist, and rewrites the committed `src/data/taxonIdentifiers.ts`. Species pages put these IDs in the Taxon `sameAs`; the build never calls the APIs. One request per second per API; responses are cached in memory for the run. `--check` exits 1 when the committed file is stale.
 
@@ -72,15 +72,15 @@ An ID is kept only on an exact, unambiguous match. A Wikidata item must agree wi
 
 ## Images — checks
 
-### `check-image-urls.ts` → `npm run images:check`
+### `check-image-urls.ts` → `pnpm images:check`
 
 Finds CDN / local image URLs in the repo and HEAD-checks them on `cdn.reptiles.ge`. Prints 404s and network failures.
 
 Flags: `--json`, `--limit N`, `--concurrency N`, `--timeout Ms`.
 
-### `check-og-images.ts` → `npm run images:check-og`
+### `check-og-images.ts` → `pnpm images:check-og`
 
-Checks each catalog species OG URL. The npm script compiles species first.
+Checks each catalog species OG URL. The pnpm script compiles species first.
 
 Flags: `--json`, `--concurrency N`, `--timeout Ms`.
 
@@ -88,7 +88,7 @@ Flags: `--json`, `--concurrency N`, `--timeout Ms`.
 
 ## Images — optimize & OG (BunnyCDN)
 
-### `optimize-images.ts` → `npm run images:optimize`
+### `optimize-images.ts` → `pnpm images:optimize`
 
 Builds `optimized/` derivatives (AVIF/WebP), OG JPEGs when needed, and updates:
 
@@ -97,7 +97,7 @@ Builds `optimized/` derivatives (AVIF/WebP), OG JPEGs when needed, and updates:
 
 **Pick one scope:**
 
-| npm                                       | Meaning                                              |
+| pnpm                                      | Meaning                                              |
 | ----------------------------------------- | ---------------------------------------------------- |
 | `images:optimize -- --all`                | Every catalog image                                  |
 | `images:optimize -- --species id1,id2`    | Specific species                                     |
@@ -110,7 +110,7 @@ Builds `optimized/` derivatives (AVIF/WebP), OG JPEGs when needed, and updates:
 
 Other flags: `--force`, `--limit N`, `--concurrency N`.
 
-### `generate-missing-og.ts` → `npm run images:og-missing`
+### `generate-missing-og.ts` → `pnpm images:og-missing`
 
 Generates and uploads OG images to Bunny for species and guide articles that are missing them. Dry-run: `--dry-run`. Specific ids: `--species id1,id2`, `--guide id1,id2`.
 
@@ -125,11 +125,11 @@ Two different stores — do not mix them up:
 | `remove-unused-images.js` | `public/images` vs repo references | `--delete` or `images:unused:delete` |
 | `cdn-unused-images.ts`    | BunnyCDN storage vs repo CDN URLs  | Interactive **Y/N** at the end       |
 
-### `remove-unused-images.js` → `npm run images:unused`
+### `remove-unused-images.js` → `pnpm images:unused`
 
-Local `public/images`. Dry-run by default. Delete with `npm run images:unused:delete` or `--delete`. `--json` prints the list as JSON.
+Local `public/images`. Dry-run by default. Delete with `pnpm images:unused:delete` or `--delete`. `--json` prints the list as JSON.
 
-### `cdn-unused-images.ts` → `npm run images:cdn-unused`
+### `cdn-unused-images.ts` → `pnpm images:cdn-unused`
 
 1. Scans the repo for used `cdn.reptiles.ge` URLs (originals + `optimized/` + `og/` derivatives)
 2. Diffs against Bunny storage
@@ -151,27 +151,27 @@ Notes:
 **New species MDX**
 
 ```bash
-npm run species:compile
-npm run search:compile
+pnpm species:compile
+pnpm search:compile
 ```
 
 **New gallery photos after CDN upload**
 
 ```bash
-npm run images:optimize -- --species macrovipera-lebetina
+pnpm images:optimize --species macrovipera-lebetina
 # or full catalog:
-npm run images:optimize -- --all
+pnpm images:optimize --all
 ```
 
 **Broken-image diagnosis**
 
 ```bash
-npm run images:check
-npm run images:check-og
+pnpm images:check
+pnpm images:check-og
 ```
 
 **CDN cleanup**
 
 ```bash
-npm run images:cdn-unused   # list → Y/N
+pnpm images:cdn-unused   # list → Y/N
 ```
