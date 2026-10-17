@@ -3,12 +3,14 @@ import { Link } from "@/i18n/navigation";
 export function ScreenReaderBreadcrumb({
   current,
   home,
+  label,
 }: {
   current: string;
   home: string;
+  label: string;
 }) {
   return (
-    <nav aria-label="Breadcrumb" className="sr-only">
+    <nav aria-label={label} className="sr-only">
       <ol className="flex flex-wrap items-center gap-2 text-[13px] text-muted-foreground">
         <li>
           <Link className="transition-colors hover:text-foreground" href="/">

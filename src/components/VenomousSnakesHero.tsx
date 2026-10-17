@@ -1,7 +1,7 @@
-"use client";
-
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
+
+import type { AppLocale } from "@/i18n/routing";
 
 import { ClusterStat } from "@/components/ClusterSectionIntro";
 import { CoverImage } from "@/components/CoverImage";
@@ -11,18 +11,23 @@ import { Link } from "@/i18n/navigation";
 type VenomousSnakesHeroProps = {
   heroSrc: string;
   highCount: number;
+  locale: AppLocale;
   moderateCount: number;
   speciesCount: number;
 };
 
-export function VenomousSnakesHero({
+export async function VenomousSnakesHero({
   heroSrc,
   highCount,
+  locale,
   moderateCount,
   speciesCount,
 }: VenomousSnakesHeroProps) {
-  const t = useTranslations("venomousSnakes");
-  const tSnakes = useTranslations("snakes");
+  const [t, tSnakes, tNav] = await Promise.all([
+    getTranslations({ locale, namespace: "venomousSnakes" }),
+    getTranslations({ locale, namespace: "snakes" }),
+    getTranslations({ locale, namespace: "nav" }),
+  ]);
 
   return (
     <>
@@ -44,7 +49,7 @@ export function VenomousSnakesHero({
 
         <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
           <div>
-            <nav aria-label="Breadcrumb" className="sr-only">
+            <nav aria-label={tNav("breadcrumbAria")} className="sr-only">
               <ol className="flex flex-wrap items-center gap-2 text-[13px] text-white/55">
                 <li>
                   <Link

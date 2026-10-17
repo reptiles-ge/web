@@ -21,6 +21,7 @@ export async function MammalBearPage({
     >
       <SafetyGuideSections
         config={BEAR_ENCOUNTER_CONFIG}
+        locale={locale}
         species={toSpeciesCards(species)}
       />
     </ClusterPageFrame>

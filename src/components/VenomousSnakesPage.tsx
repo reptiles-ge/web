@@ -90,6 +90,7 @@ export async function VenomousSnakesPage({
         <VenomousSnakesHero
           heroSrc={heroSrc}
           highCount={highCount}
+          locale={locale}
           moderateCount={moderateCount}
           speciesCount={species.length}
         />
@@ -135,7 +136,7 @@ export async function VenomousSnakesPage({
           updatedAt={updatedAt}
         />
 
-        <VenomousSnakesCta heroSrc={heroSrc} />
+        <VenomousSnakesCta heroSrc={heroSrc} locale={locale} />
       </div>
     </div>
   );

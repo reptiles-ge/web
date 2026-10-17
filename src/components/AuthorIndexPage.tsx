@@ -33,10 +33,10 @@ export async function AuthorIndexPage({
   cards: CreditAuthorCard[];
   locale: AppLocale;
 }) {
-  const [t, tShared, tProfile] = await Promise.all([
+  const [t, tShared, tNav] = await Promise.all([
     getTranslations({ locale, namespace: "author" }),
     getTranslations({ locale, namespace: "groupHubShared" }),
-    getTranslations({ locale, namespace: "profile" }),
+    getTranslations({ locale, namespace: "nav" }),
   ]);
   const photoTotal = cards.reduce((sum, card) => sum + card.photoCount, 0);
   const speciesTotal = new Set(
@@ -61,7 +61,7 @@ export async function AuthorIndexPage({
       <header className="pt-28 pb-10 sm:pt-32 lg:pt-36 lg:pb-14">
         <div className="mx-auto max-w-[1440px] px-6 lg:flex lg:items-end lg:justify-between lg:gap-16 lg:px-[60px]">
           <div className="min-w-0 lg:max-w-[700px]">
-            <nav aria-label={tProfile("breadcrumbAria")} className="sr-only">
+            <nav aria-label={tNav("breadcrumbAria")} className="sr-only">
               <ol>
                 <li>
                   <Link href="/">{tShared("breadcrumbHome")}</Link>

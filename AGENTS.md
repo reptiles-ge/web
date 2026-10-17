@@ -48,7 +48,7 @@ Do not add code comments. Do not invent UI copy in one locale only.
 | Quiz registry                  | `src/lib/quizzes.ts`, `src/lib/snakeQuiz.ts`                                             |
 | Contributors                   | `src/data/creditAuthors.ts`, `src/lib/creditAuthors.ts`                                  |
 | News                           | `src/content/news/{slug}/{ka,en}.mdx`, `src/data/news.ts`, `scripts/compile-news.ts`     |
-| 301 map                        | `next.config.ts` **and** `src/proxy.ts` (slug table: `speciesSlugTable.ts`)              |
+| 301 map                        | `src/proxy.ts` only (slug table: `speciesSlugTable.ts`)                                  |
 | UI strings                     | `messages/ka.json` + `messages/en.json` (same keys)                                      |
 | Maintenance mode               | `src/lib/maintenance.ts`, wired in `src/worker.ts`                                       |
 | Releases, versions, tags       | `docs/RELEASING.md` (playbook), `.github/release.yml`                                    |
@@ -93,7 +93,7 @@ Default locale has **no** `/ka` prefix (`localePrefix: as-needed`). `/ka` and `/
 
 ## Species content pipeline
 
-1. Edit `src/content/species/{id}/{ka,en,ru,tr}.mdx`. KA frontmatter owns `id`, taxonomy, `danger`, `image` / `mobileImage` / `gallery` srcs, `sources`. Other locales translate text. Do not copy the photo list: sparse `gallery` in `en`/`ru`/`tr` is credit overlay only (match by `src`). Missing overlay keeps the KA credit.
+1. Edit `src/content/species/{id}/{ka,en,ru,tr}.mdx`. KA frontmatter owns `id`, taxonomy, `danger`, `image` / `mobileImage` / `gallery` srcs, `sources`. Other locales translate text. Do not copy the photo list: sparse `gallery` in `en`/`ru`/`tr` is credit overlay only (match by `src`). Missing overlay keeps the KA credit. Translation frontmatter is strict: only `id`, `scientificName`, `dateModified`, text fields, `identification`, and credit overlays (`imageCredit`, `mobileImageCredit`, `gallery`). Compile fails on any other key, a missing locale file, an unregistered folder, an overlay `src` not in the KA gallery, mismatched `identification.colors`, or a `faq` / `facts` / `stats` / `identification.traits` count that differs from KA.
 2. `npm run species:compile` (also `predev` / `prebuild`) writes gitignored `src/data/species.generated.ts` and `src/data/speciesSlugs.generated.ts`.
 3. Register the id in `featuredSpeciesIds` / `catalogSpeciesIds` in `src/data/species.ts`.
 4. Add `speciesAtlasMeta`.
@@ -157,7 +157,7 @@ There is **no** `/konservacia` cluster. Conservation copy lives on profiles, not
 
 `src/app/[locale]/[...rest]/page.tsx` is 404 `noindex`. Do not create thin duplicate URLs.
 
-New cluster page checklist: `pathnames.ts` → `RESERVED_HUB_SLUGS` → `CLUSTER_GUIDES` + factory page → messages in KA/EN/RU/TR → 301s in `next.config.ts` for any old/cross-locale slug.
+New cluster page checklist: `pathnames.ts` → `RESERVED_HUB_SLUGS` → `CLUSTER_GUIDES` + factory page → messages in KA/EN/RU/TR → 301s in `src/proxy.ts` for any old/cross-locale slug.
 
 ## Guide articles
 
@@ -165,7 +165,7 @@ Long-form, answer-first practical guides (bat in the house, wasp nest, …) use 
 
 - One content file per article: `src/content/guides/{id}.ts` with `defineGuideArticle({...})`. It holds copy (4 locales), images, sources, and search keywords.
 - Register it in `src/data/guideArticles.ts` and `src/data/guideArticlePaths.ts`. The route is a 3-line `createGuideArticleRoute(path)` page.
-- Sitemap, site search, `llms.txt`, footer and home SEO links, navbar, and the KA↔Latin 301s (proxy + `next.config.ts`) derive from the registry. Do not hand-add them.
+- Sitemap, site search, `llms.txt`, footer and home SEO links, navbar, and the KA↔Latin 301s (`src/proxy.ts`) derive from the registry. Do not hand-add them.
 - `src/data/guideArticles.test.ts` fails on any missing wiring: pathnames, reserved slugs, dates, hub card, messages, images, and locale parity. Do not weaken it.
 - The `summary` renders as an "In short" (მოკლედ) box after the last section. Never render it under the H1 (owner decision, enforced by the guard test).
 - Every guide needs a 1200×630 JPEG share image: `pnpm images:og-guides --guide <id>` renders it from the hero with `@reptiles-ge/img-compression` (`--upload` sends it to the CDN).
@@ -253,6 +253,7 @@ npm run cpd              # jscpd copy-paste scan, fails on any clone (threshold 
 - Commit or hand-edit `src/data/species.generated.ts`, `src/data/speciesSlugs.generated.ts`, or `src/data/search-index.*.generated.ts` (gitignored; `predev` / `prebuild` writes them).
 - Fill empty scientific fields with plausible prose.
 - Add `middleware.ts` (use `src/proxy.ts`).
+- Add `redirects()` to `next.config.ts`. Production runs on vinext, which never applies it; every 301 lives in `src/proxy.ts`.
 - Call next-intl server APIs with an implicit locale (`getTranslations("ns")`, `getLocale()`, `getMessages()`), call `setRequestLocale` outside a `[locale]` layout or page, or render the RSC `Link` from `@/i18n/navigation` in a layout-level server component (use `LocalizedLink`). On vinext an implicit locale falls back to `headers()` and makes every page uncacheable. ESLint enforces the first rule.
 - Ship one-locale copy or one-locale MDX.
 - Read `process.env` directly for the variables in `src/lib/env.ts`; use `publicEnv()` / `serverEnv()` (Zod-validated, checked at startup in `instrumentation.ts`).

@@ -8,6 +8,7 @@ import { ClusterNumberedSteps } from "@/components/ClusterNumberedSteps";
 import { ClusterPageFrame } from "@/components/ClusterPageFrame";
 import { GuideMythList, GuideSummaryBlock } from "@/components/GuideShared";
 import { LookalikePair } from "@/components/LookalikePair";
+import { OptimizedImageScope } from "@/components/OptimizedImageScope";
 import { SpeciesGuideList } from "@/components/SpeciesGuideRow";
 import { toSpeciesCard, toSpeciesCards } from "@/data/speciesCard";
 import { Link } from "@/i18n/navigation";
@@ -90,12 +91,14 @@ export async function SpiderVenomousPage({
         />
         {karakurt && falseWidow ? (
           <div className="mt-12">
-            <LookalikePair
-              a={toSpeciesCard(karakurt)}
-              b={toSpeciesCard(falseWidow)}
-              locale={locale}
-              vs={t("vs")}
-            />
+            <OptimizedImageScope>
+              <LookalikePair
+                a={toSpeciesCard(karakurt)}
+                b={toSpeciesCard(falseWidow)}
+                locale={locale}
+                vs={t("vs")}
+              />
+            </OptimizedImageScope>
           </div>
         ) : null}
       </ClusterContentSection>
@@ -124,11 +127,13 @@ export async function SpiderVenomousPage({
         id="species"
         title={t("speciesTitle")}
       >
-        <SpeciesGuideList
-          locale={locale}
-          source="guide"
-          species={toSpeciesCards(species)}
-        />
+        <OptimizedImageScope>
+          <SpeciesGuideList
+            locale={locale}
+            source="guide"
+            species={toSpeciesCards(species)}
+          />
+        </OptimizedImageScope>
         {karakurt ? (
           <Link
             className="mt-8 inline-flex items-center rounded-full border border-border px-5 py-2.5 text-[13px] font-medium text-foreground"

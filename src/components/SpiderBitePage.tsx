@@ -21,6 +21,7 @@ export async function SpiderBitePage({
     >
       <SafetyGuideSections
         config={SPIDER_BITE_CONFIG}
+        locale={locale}
         species={toSpeciesCards(species)}
       />
     </ClusterPageFrame>

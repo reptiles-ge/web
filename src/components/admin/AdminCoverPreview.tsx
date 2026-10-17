@@ -6,7 +6,7 @@ import { useEffect, useRef } from "react";
 import type { GalleryImage } from "@/data/speciesTypes";
 import type { AdminCovers } from "@/lib/adminCover";
 
-import { CoverImage } from "@/components/CoverImage";
+import { ClientCoverImage } from "@/components/ClientCoverImage";
 import { adminCoverRoles } from "@/lib/adminCover";
 import { cn } from "@/lib/cn";
 
@@ -138,7 +138,7 @@ export function AdminCoverPreview({
                       onClick={() => onSelect({ src, type: "photo" })}
                       type="button"
                     >
-                      <CoverImage
+                      <ClientCoverImage
                         alt=""
                         className="object-cover"
                         sizes="56px"
@@ -276,7 +276,7 @@ function HeroCrop({
         kind === "tablet" && "aspect-3/4",
       )}
     >
-      <CoverImage
+      <ClientCoverImage
         alt=""
         className="object-cover"
         sizes={

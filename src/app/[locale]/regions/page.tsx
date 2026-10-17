@@ -6,7 +6,9 @@ import { notFound } from "next/navigation";
 
 import { ClientMessagesProvider } from "@/components/ClientMessagesProvider";
 import { JsonLd } from "@/components/JsonLd";
+import { OptimizedImageScope } from "@/components/OptimizedImageScope";
 import { RegionsIndex } from "@/components/RegionsIndex";
+import { REGIONS_INDEX_HERO_IMAGE } from "@/data/regionImages";
 import {
   getCatalogRegionStats,
   getRegionTooltipPreviews,
@@ -91,10 +93,12 @@ export default async function RegionsPage({ params }: LocalePageProps) {
         ]}
       />
       <ClientMessagesProvider locale={locale} namespaces={["map", "regions"]}>
-        <RegionsIndex
-          stats={getCatalogRegionStats()}
-          tooltipSpeciesByRegion={getRegionTooltipPreviews(locale)}
-        />
+        <OptimizedImageScope srcs={[REGIONS_INDEX_HERO_IMAGE]}>
+          <RegionsIndex
+            stats={getCatalogRegionStats()}
+            tooltipSpeciesByRegion={getRegionTooltipPreviews(locale)}
+          />
+        </OptimizedImageScope>
       </ClientMessagesProvider>
     </>
   );

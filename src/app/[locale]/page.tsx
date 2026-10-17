@@ -18,6 +18,7 @@ import { HomeSafetyStrip } from "@/components/home/HomeSafetyStrip";
 import { HomeSeo } from "@/components/HomeSeo";
 import { JsonLd } from "@/components/JsonLd";
 import { MapExplorer } from "@/components/map/MapExplorer";
+import { OptimizedImageScope } from "@/components/OptimizedImageScope";
 import { getRegionTooltipPreviews } from "@/data/regions";
 import { openGraphLocale } from "@/i18n/localeMeta";
 import { routing } from "@/i18n/routing";
@@ -115,9 +116,11 @@ export default async function Home({ params }: Props): Promise<ReactElement> {
         <HomeSafetyStrip locale={locale} />
         <HomeGroups locale={locale} />
         <ClientMessagesProvider locale={locale} namespaces={["map"]}>
-          <MapExplorer
-            tooltipSpeciesByRegion={getRegionTooltipPreviews(locale)}
-          />
+          <OptimizedImageScope>
+            <MapExplorer
+              tooltipSpeciesByRegion={getRegionTooltipPreviews(locale)}
+            />
+          </OptimizedImageScope>
         </ClientMessagesProvider>
         <HomeFeatured locale={locale} />
         <HomeField locale={locale} />

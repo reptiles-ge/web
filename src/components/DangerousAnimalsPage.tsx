@@ -58,6 +58,7 @@ export async function DangerousAnimalsPage({
   updatedAt,
 }: DangerousAnimalsPageProps) {
   const t = await getTranslations({ locale, namespace: "dangerousAnimals" });
+  const tNav = await getTranslations({ locale, namespace: "nav" });
 
   return (
     <div className="min-h-screen bg-background">
@@ -66,6 +67,7 @@ export async function DangerousAnimalsPage({
           <ScreenReaderBreadcrumb
             current={t("breadcrumbCurrent")}
             home={t("breadcrumbHome")}
+            label={tNav("breadcrumbAria")}
           />
           <h1 className="text-balance-tight max-w-4xl font-display text-display-hero font-semibold text-foreground">
             {t("title")}

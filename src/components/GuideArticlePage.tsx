@@ -53,11 +53,12 @@ export async function GuideArticlePage({
   related,
 }: GuideArticlePageProps) {
   const parent = GROUP_HUBS[article.parentHub];
-  const [t, tShared, tParent, tNews] = await Promise.all([
+  const [t, tShared, tParent, tNews, tNav] = await Promise.all([
     getTranslations({ locale, namespace: "guideArticle" }),
     getTranslations({ locale, namespace: "groupHubShared" }),
     getTranslations({ locale, namespace: parent.messageKey }),
     getTranslations({ locale, namespace: "news" }),
+    getTranslations({ locale, namespace: "nav" }),
   ]);
   const copy = article.copy[locale];
   const parentLabel = tParent("breadcrumbCurrent");
@@ -82,7 +83,7 @@ export async function GuideArticlePage({
           }))}
           label={t("contents")}
         />
-        <nav aria-label="Breadcrumb" className="sr-only">
+        <nav aria-label={tNav("breadcrumbAria")} className="sr-only">
           <ol className="flex flex-wrap gap-x-2 gap-y-1">
             <li>
               <Link className="hover:text-foreground" href="/">

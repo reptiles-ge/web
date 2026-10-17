@@ -1,9 +1,9 @@
-"use client";
-
 import type { ReactNode } from "react";
 
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
+
+import type { AppLocale } from "@/i18n/routing";
 
 import {
   CLUSTER_BODY,
@@ -68,14 +68,14 @@ type BasicArticleName =
   "conservation" | "diet" | "lifespan" | "reproduction" | "shell" | "whatIs";
 type BasicParagraph = "p1" | "p2" | "p3";
 
-export function TurtlesHubSections() {
+export function TurtlesHubSections({ locale }: { locale: AppLocale }) {
   return (
     <>
-      <TurtleBasicsSection />
-      <TurtleRangeSection />
-      <TurtleWhereSection />
-      <TurtleIdentifySection />
-      <TurtleGuideCardsSection />
+      <TurtleBasicsSection locale={locale} />
+      <TurtleRangeSection locale={locale} />
+      <TurtleWhereSection locale={locale} />
+      <TurtleIdentifySection locale={locale} />
+      <TurtleGuideCardsSection locale={locale} />
     </>
   );
 }
@@ -99,29 +99,41 @@ function TurtleArticleIntro({
   );
 }
 
-function TurtleBasicsSection() {
+function TurtleBasicsSection({ locale }: { locale: AppLocale }) {
   return (
     <section className="border-t border-border bg-background py-20 lg:py-28">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="space-y-16">
           <TurtleBasicTextArticle
+            locale={locale}
             name="whatIs"
             paragraphs={["p1", "p2"]}
             separated={false}
           />
           <TurtleBasicTextArticle
+            locale={locale}
             name="shell"
             paragraphs={["p1", "p2", "p3"]}
           />
-          <TurtleTypesArticle />
-          <TurtleBasicTextArticle name="diet" paragraphs={["p1", "p2"]} />
-          <TurtleBasicTextArticle name="lifespan" paragraphs={["p1", "p2"]} />
+          <TurtleTypesArticle locale={locale} />
           <TurtleBasicTextArticle
+            locale={locale}
+            name="diet"
+            paragraphs={["p1", "p2"]}
+          />
+          <TurtleBasicTextArticle
+            locale={locale}
+            name="lifespan"
+            paragraphs={["p1", "p2"]}
+          />
+          <TurtleBasicTextArticle
+            locale={locale}
             name="reproduction"
             paragraphs={["p1", "p2"]}
           />
-          <TurtleGeorgiaComparisonArticle />
+          <TurtleGeorgiaComparisonArticle locale={locale} />
           <TurtleBasicTextArticle
+            locale={locale}
             name="conservation"
             paragraphs={["p1", "p2"]}
           />
@@ -131,16 +143,18 @@ function TurtleBasicsSection() {
   );
 }
 
-function TurtleBasicTextArticle({
+async function TurtleBasicTextArticle({
+  locale,
   name,
   paragraphs,
   separated = true,
 }: {
+  locale: AppLocale;
   name: BasicArticleName;
   paragraphs: readonly BasicParagraph[];
   separated?: boolean;
 }) {
-  const t = useTranslations("turtles");
+  const t = await getTranslations({ locale, namespace: "turtles" });
   const articleClassName = separated
     ? "grid gap-8 border-t border-border pt-16 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20"
     : "grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20";
@@ -163,8 +177,12 @@ function TurtleBasicTextArticle({
   );
 }
 
-function TurtleGeorgiaComparisonArticle() {
-  const t = useTranslations("turtles");
+async function TurtleGeorgiaComparisonArticle({
+  locale,
+}: {
+  locale: AppLocale;
+}) {
+  const t = await getTranslations({ locale, namespace: "turtles" });
 
   return (
     <article className="border-t border-border pt-16">
@@ -199,7 +217,7 @@ function TurtleGeorgiaComparisonArticle() {
           </thead>
           <tbody>
             {georgiaRows.map((row) => (
-              <TurtleGeorgiaComparisonRow key={row} row={row} />
+              <TurtleGeorgiaComparisonRow key={row} locale={locale} row={row} />
             ))}
           </tbody>
         </table>
@@ -217,12 +235,14 @@ function TurtleGeorgiaComparisonArticle() {
   );
 }
 
-function TurtleGeorgiaComparisonRow({
+async function TurtleGeorgiaComparisonRow({
+  locale,
   row,
 }: {
+  locale: AppLocale;
   row: (typeof georgiaRows)[number];
 }) {
-  const t = useTranslations("turtles");
+  const t = await getTranslations({ locale, namespace: "turtles" });
 
   return (
     <tr>
@@ -284,8 +304,8 @@ function TurtleGuideCard({
   );
 }
 
-function TurtleGuideCardsSection() {
-  const t = useTranslations("turtles");
+async function TurtleGuideCardsSection({ locale }: { locale: AppLocale }) {
+  const t = await getTranslations({ locale, namespace: "turtles" });
 
   return (
     <section className="border-t border-border bg-surface py-20 lg:py-28">
@@ -311,8 +331,8 @@ function TurtleGuideCardsSection() {
   );
 }
 
-function TurtleIdentifySection() {
-  const t = useTranslations("turtles");
+async function TurtleIdentifySection({ locale }: { locale: AppLocale }) {
+  const t = await getTranslations({ locale, namespace: "turtles" });
 
   return (
     <section className="border-t border-border bg-background py-20 lg:py-28">
@@ -363,8 +383,8 @@ function TurtleIdentifySection() {
   );
 }
 
-function TurtleRangeSection() {
-  const t = useTranslations("turtles");
+async function TurtleRangeSection({ locale }: { locale: AppLocale }) {
+  const t = await getTranslations({ locale, namespace: "turtles" });
 
   return (
     <section className="border-t border-border bg-background py-20 lg:py-28">
@@ -398,8 +418,8 @@ function TurtleRangeSection() {
   );
 }
 
-function TurtleTypesArticle() {
-  const t = useTranslations("turtles");
+async function TurtleTypesArticle({ locale }: { locale: AppLocale }) {
+  const t = await getTranslations({ locale, namespace: "turtles" });
 
   return (
     <article className="border-t border-border pt-16">
@@ -469,8 +489,8 @@ function TurtleTypesArticle() {
   );
 }
 
-function TurtleWhereSection() {
-  const t = useTranslations("turtles");
+async function TurtleWhereSection({ locale }: { locale: AppLocale }) {
+  const t = await getTranslations({ locale, namespace: "turtles" });
 
   return (
     <section className="border-t border-border bg-surface py-20 lg:py-28">

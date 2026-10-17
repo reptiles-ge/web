@@ -1,6 +1,4 @@
-"use client";
-
-import { useLocale, useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
 import type { ConflictGuideConfig } from "@/components/conflictGuideConfig";
 import type { SpeciesCard } from "@/data/speciesCard";
@@ -19,11 +17,12 @@ import {
   GuideNumberedSteps,
   GuideSummaryBlock,
 } from "@/components/GuideShared";
+import { guideSpeciesLinks } from "@/components/guideSpeciesLinks";
 import { GuideSpeciesSection } from "@/components/GuideSpeciesSection";
-import { useLocaleSwitchIndex } from "@/components/LocaleSwitchProvider";
+import { OptimizedImageScope } from "@/components/OptimizedImageScope";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { Link } from "@/i18n/navigation";
-import { speciesHrefFromIndex } from "@/lib/localeSwitch";
+import { speciesHref } from "@/lib/speciesRoutes";
 
 const SUMMARY_ITEMS = [1, 2, 3, 4] as const;
 const ACTION_STEPS = [1, 2, 3, 4] as const;
@@ -31,25 +30,33 @@ const MYTH_ITEMS = [1, 2, 3, 4] as const;
 
 export function ConflictGuideSections({
   config,
+  locale,
   species,
 }: {
   config: ConflictGuideConfig;
+  locale: AppLocale;
   species: SpeciesCard[];
 }) {
   return (
     <>
-      <ConflictSummary config={config} />
-      <ConflictWhy config={config} />
-      <ConflictActions config={config} />
-      <ConflictIdentify config={config} species={species} />
-      <ConflictMyths config={config} />
-      <ConflictContact config={config} species={species} />
+      <ConflictSummary config={config} locale={locale} />
+      <ConflictWhy config={config} locale={locale} />
+      <ConflictActions config={config} locale={locale} />
+      <ConflictIdentify config={config} locale={locale} species={species} />
+      <ConflictMyths config={config} locale={locale} />
+      <ConflictContact config={config} locale={locale} species={species} />
     </>
   );
 }
 
-function ConflictActions({ config }: { config: ConflictGuideConfig }) {
-  const t = useTranslations(config.namespace);
+async function ConflictActions({
+  config,
+  locale,
+}: {
+  config: ConflictGuideConfig;
+  locale: AppLocale;
+}) {
+  const t = await getTranslations({ locale, namespace: config.namespace });
 
   return (
     <section
@@ -77,16 +84,16 @@ function ConflictActions({ config }: { config: ConflictGuideConfig }) {
   );
 }
 
-function ConflictContact({
+async function ConflictContact({
   config,
+  locale,
   species,
 }: {
   config: ConflictGuideConfig;
+  locale: AppLocale;
   species: SpeciesCard[];
 }) {
-  const t = useTranslations(config.namespace);
-  const locale = useLocale() as AppLocale;
-  const switchIndex = useLocaleSwitchIndex();
+  const t = await getTranslations({ locale, namespace: config.namespace });
   const photo = config.contactSpeciesId
     ? species.find((item) => item.id === config.contactSpeciesId)
     : undefined;
@@ -167,7 +174,7 @@ function ConflictContact({
           {photo ? (
             <Link
               className="group relative block h-full min-h-[260px] overflow-hidden bg-ink"
-              href={speciesHrefFromIndex(switchIndex, photo.id, locale)}
+              href={speciesHref(photo.id, locale)}
             >
               <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-[1.03]">
                 <CoverImage
@@ -188,48 +195,56 @@ function ConflictContact({
   );
 }
 
-function ConflictIdentify({
+async function ConflictIdentify({
   config,
+  locale,
   species,
 }: {
   config: ConflictGuideConfig;
+  locale: AppLocale;
   species: SpeciesCard[];
 }) {
-  const t = useTranslations(config.namespace);
+  const t = await getTranslations({ locale, namespace: config.namespace });
 
   return (
-    <GuideSpeciesSection
-      links={config.extraLinks.map((link) => ({
-        href: link.href,
-        id: link.key,
-        label: t(link.key as "linkHub"),
-      }))}
-      species={species}
-    >
-      <ClusterSectionIntro
-        body={t("identifyLead")}
-        bodyClassName={CLUSTER_BODY}
-        eyebrow={t("identifyEyebrow")}
-        eyebrowClassName={CLUSTER_EYEBROW}
-        title={t("identifyTitle")}
-        titleClassName="mt-5 max-w-3xl font-display text-display-title font-semibold"
-      />
-      <ul className="mt-8 max-w-2xl divide-y divide-border border-y border-border">
-        {([1, 2, 3] as const).map((n) => (
-          <li
-            className="py-4 text-[15px] leading-relaxed text-foreground"
-            key={n}
-          >
-            <PhoneLinkedText>{t(`identify${n}`)}</PhoneLinkedText>
-          </li>
-        ))}
-      </ul>
-    </GuideSpeciesSection>
+    <OptimizedImageScope>
+      <GuideSpeciesSection
+        links={guideSpeciesLinks(config.extraLinks, (key) =>
+          t(key as "linkHub"),
+        )}
+        species={species}
+      >
+        <ClusterSectionIntro
+          body={t("identifyLead")}
+          bodyClassName={CLUSTER_BODY}
+          eyebrow={t("identifyEyebrow")}
+          eyebrowClassName={CLUSTER_EYEBROW}
+          title={t("identifyTitle")}
+          titleClassName="mt-5 max-w-3xl font-display text-display-title font-semibold"
+        />
+        <ul className="mt-8 max-w-2xl divide-y divide-border border-y border-border">
+          {([1, 2, 3] as const).map((n) => (
+            <li
+              className="py-4 text-[15px] leading-relaxed text-foreground"
+              key={n}
+            >
+              <PhoneLinkedText>{t(`identify${n}`)}</PhoneLinkedText>
+            </li>
+          ))}
+        </ul>
+      </GuideSpeciesSection>
+    </OptimizedImageScope>
   );
 }
 
-function ConflictMyths({ config }: { config: ConflictGuideConfig }) {
-  const t = useTranslations(config.namespace);
+async function ConflictMyths({
+  config,
+  locale,
+}: {
+  config: ConflictGuideConfig;
+  locale: AppLocale;
+}) {
+  const t = await getTranslations({ locale, namespace: config.namespace });
 
   return (
     <section
@@ -263,8 +278,14 @@ function ConflictMyths({ config }: { config: ConflictGuideConfig }) {
   );
 }
 
-function ConflictSummary({ config }: { config: ConflictGuideConfig }) {
-  const t = useTranslations(config.namespace);
+async function ConflictSummary({
+  config,
+  locale,
+}: {
+  config: ConflictGuideConfig;
+  locale: AppLocale;
+}) {
+  const t = await getTranslations({ locale, namespace: config.namespace });
 
   return (
     <section className="scroll-mt-28 bg-background py-20 lg:py-28" id="content">
@@ -285,8 +306,14 @@ function ConflictSummary({ config }: { config: ConflictGuideConfig }) {
   );
 }
 
-function ConflictWhy({ config }: { config: ConflictGuideConfig }) {
-  const t = useTranslations(config.namespace);
+async function ConflictWhy({
+  config,
+  locale,
+}: {
+  config: ConflictGuideConfig;
+  locale: AppLocale;
+}) {
+  const t = await getTranslations({ locale, namespace: config.namespace });
 
   return (
     <section className="border-t border-border bg-surface py-20 lg:py-28">

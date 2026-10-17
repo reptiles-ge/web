@@ -19351,57 +19351,85 @@
       "updatedAt": "2026-08-28T21:31:23.118Z"
     },
     "darevskia-armeniaca.jpg": {
-      "sourceHash": "d376bd2448253ee69d9453c8b103b5603e31e327e50d0f91e228f205e9600d41",
-      "configFingerprint": "a895f8e025dcc7fa",
+      "sourceHash": "6ecdf8038c43d9181e8f4c5b1ad0b058b3c26d1829acb80693efca1b22a3d692",
+      "configFingerprint": "409788ee46c653d8",
       "originalKey": "darevskia-armeniaca.jpg",
-      "originalSize": 158123,
+      "originalSize": 332210,
       "width": 900,
       "height": 826,
       "derivatives": [
+        {
+          "key": "optimized/darevskia-armeniaca-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 294,
+          "byteSize": 18108
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 294,
+          "byteSize": 27520
+        },
         {
           "key": "optimized/darevskia-armeniaca-400.avif",
           "format": "avif",
           "width": 400,
           "height": 367,
-          "byteSize": 27015
+          "byteSize": 27153
         },
         {
           "key": "optimized/darevskia-armeniaca-400.webp",
           "format": "webp",
           "width": 400,
           "height": 367,
-          "byteSize": 41966
+          "byteSize": 41500
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 587,
+          "byteSize": 61236
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 587,
+          "byteSize": 92408
         },
         {
           "key": "optimized/darevskia-armeniaca-800.avif",
           "format": "avif",
           "width": 800,
           "height": 734,
-          "byteSize": 87388
+          "byteSize": 85804
         },
         {
           "key": "optimized/darevskia-armeniaca-800.webp",
           "format": "webp",
           "width": 800,
           "height": 734,
-          "byteSize": 133634
+          "byteSize": 130246
         },
         {
           "key": "optimized/darevskia-armeniaca-900.avif",
           "format": "avif",
           "width": 900,
           "height": 826,
-          "byteSize": 108059
+          "byteSize": 107981
         },
         {
           "key": "optimized/darevskia-armeniaca-900.webp",
           "format": "webp",
           "width": 900,
           "height": 826,
-          "byteSize": 163024
+          "byteSize": 152318
         }
       ],
-      "updatedAt": "2026-08-28T21:31:20.462Z"
+      "updatedAt": "2026-10-17T07:56:46.646Z"
     },
     "darevskia-brauneri-2.jpg": {
       "sourceHash": "fd41baa484f19694e3ec32256e24c18280d76c2c8c4968959f675c01201db4d1",
@@ -21479,71 +21507,99 @@
       "updatedAt": "2026-08-28T21:31:58.991Z"
     },
     "darevskia-dahli-2.jpg": {
-      "sourceHash": "342e307b2b4fe3f77fbd21d4a99d8806c54532e5d258e154bb3a10e1ba8d7f99",
-      "configFingerprint": "a895f8e025dcc7fa",
+      "sourceHash": "fc977bb4cb4ef6cae6d6d88467405a045df77ea5756b50941b17520e33ddd368",
+      "configFingerprint": "409788ee46c653d8",
       "originalKey": "darevskia-dahli-2.jpg",
-      "originalSize": 338791,
+      "originalSize": 796862,
       "width": 2048,
       "height": 1537,
       "derivatives": [
+        {
+          "key": "optimized/darevskia-dahli-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 12670
+        },
+        {
+          "key": "optimized/darevskia-dahli-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 18610
+        },
         {
           "key": "optimized/darevskia-dahli-2-400.avif",
           "format": "avif",
           "width": 400,
           "height": 300,
-          "byteSize": 18487
+          "byteSize": 18474
         },
         {
           "key": "optimized/darevskia-dahli-2-400.webp",
           "format": "webp",
           "width": 400,
           "height": 300,
-          "byteSize": 27838
+          "byteSize": 27670
+        },
+        {
+          "key": "optimized/darevskia-dahli-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 41807
+        },
+        {
+          "key": "optimized/darevskia-dahli-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 65150
         },
         {
           "key": "optimized/darevskia-dahli-2-800.avif",
           "format": "avif",
           "width": 800,
           "height": 600,
-          "byteSize": 62431
+          "byteSize": 62706
         },
         {
           "key": "optimized/darevskia-dahli-2-800.webp",
           "format": "webp",
           "width": 800,
           "height": 600,
-          "byteSize": 96980
+          "byteSize": 98320
         },
         {
           "key": "optimized/darevskia-dahli-2-1200.avif",
           "format": "avif",
           "width": 1200,
           "height": 901,
-          "byteSize": 118757
+          "byteSize": 120556
         },
         {
           "key": "optimized/darevskia-dahli-2-1200.webp",
           "format": "webp",
           "width": 1200,
           "height": 901,
-          "byteSize": 180114
+          "byteSize": 182350
         },
         {
           "key": "optimized/darevskia-dahli-2-2048.avif",
           "format": "avif",
           "width": 2048,
           "height": 1537,
-          "byteSize": 267002
+          "byteSize": 267053
         },
         {
           "key": "optimized/darevskia-dahli-2-2048.webp",
           "format": "webp",
           "width": 2048,
           "height": 1537,
-          "byteSize": 339414
+          "byteSize": 344306
         }
       ],
-      "updatedAt": "2026-08-28T21:32:01.640Z"
+      "updatedAt": "2026-10-17T07:56:48.096Z"
     },
     "darevskia-dahli-3.jpg": {
       "sourceHash": "bd986a089acda1093180bfa8dfc9698db1db637d85ab87697878901fdd8e6a37",
@@ -23320,57 +23376,85 @@
       "updatedAt": "2026-10-07T17:16:24.713Z"
     },
     "darevskia-derjugini-zauri-1.jpg": {
-      "sourceHash": "fd762c34a6b901e0b4f57385657e52cb19325352ec4823bcc5a85f1dace62e3d",
-      "configFingerprint": "a895f8e025dcc7fa",
+      "sourceHash": "49fef6d1c676d64e3dc50c950b655f15147703997015b52189dcb1634beaf643",
+      "configFingerprint": "409788ee46c653d8",
       "originalKey": "darevskia-derjugini-zauri-1.jpg",
-      "originalSize": 350006,
+      "originalSize": 533859,
       "width": 1024,
       "height": 682,
       "derivatives": [
+        {
+          "key": "optimized/darevskia-derjugini-zauri-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 19984
+        },
+        {
+          "key": "optimized/darevskia-derjugini-zauri-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 31422
+        },
         {
           "key": "optimized/darevskia-derjugini-zauri-1-400.avif",
           "format": "avif",
           "width": 400,
           "height": 266,
-          "byteSize": 31809
+          "byteSize": 31271
         },
         {
           "key": "optimized/darevskia-derjugini-zauri-1-400.webp",
           "format": "webp",
           "width": 400,
           "height": 266,
-          "byteSize": 49814
+          "byteSize": 48932
+        },
+        {
+          "key": "optimized/darevskia-derjugini-zauri-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 70522
+        },
+        {
+          "key": "optimized/darevskia-derjugini-zauri-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 113970
         },
         {
           "key": "optimized/darevskia-derjugini-zauri-1-800.avif",
           "format": "avif",
           "width": 800,
           "height": 533,
-          "byteSize": 101541
+          "byteSize": 100269
         },
         {
           "key": "optimized/darevskia-derjugini-zauri-1-800.webp",
           "format": "webp",
           "width": 800,
           "height": 533,
-          "byteSize": 165928
+          "byteSize": 163782
         },
         {
           "key": "optimized/darevskia-derjugini-zauri-1-1024.avif",
           "format": "avif",
           "width": 1024,
           "height": 682,
-          "byteSize": 156753
+          "byteSize": 159239
         },
         {
           "key": "optimized/darevskia-derjugini-zauri-1-1024.webp",
           "format": "webp",
           "width": 1024,
           "height": 682,
-          "byteSize": 257480
+          "byteSize": 254936
         }
       ],
-      "updatedAt": "2026-08-28T21:32:06.615Z"
+      "updatedAt": "2026-10-17T07:56:45.976Z"
     },
     "darevskia-derjugini-zauri-2.jpg": {
       "sourceHash": "d6f90912c1045e21deedcdebbfb2b4db18e7e3222f2f380ed8cb00b14ce45c28",
@@ -49698,7 +49782,7 @@
           "byteSize": 437436
         }
       ],
-      "updatedAt": "2026-10-16T07:51:50.610Z"
+      "updatedAt": "2026-10-17T07:56:48.642Z"
     },
     "images/news/armenia-power-line-bird-electrocution/figure-2.jpg": {
       "sourceHash": "7f49895c2860d812ad9ab10dda52fe76b3a72e5ade5d609f2fcab767b0fcfb18",
@@ -49793,7 +49877,7 @@
           "byteSize": 145070
         }
       ],
-      "updatedAt": "2026-10-16T07:51:50.309Z"
+      "updatedAt": "2026-10-17T07:56:53.143Z"
     },
     "images/news/armenia-power-line-bird-electrocution/figure-3.jpg": {
       "sourceHash": "7dcd1b8b54e4db8a29a0a62ae480038f7e85eef17604eac518d94c059781b77f",
@@ -49888,7 +49972,387 @@
           "byteSize": 56370
         }
       ],
-      "updatedAt": "2026-10-16T07:52:03.375Z"
+      "updatedAt": "2026-10-17T07:56:51.742Z"
+    },
+    "images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-forest.jpg": {
+      "sourceHash": "cdaea14369ed4cf94723dd86486bdb37a2487b0579a5ca9c14b65cc290a1b2dc",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-forest.jpg",
+      "originalSize": 966957,
+      "width": 1920,
+      "height": 1080,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-forest-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 11221
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-forest-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 16070
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-forest-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 17901
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-forest-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 25448
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-forest-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 45238
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-forest-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 64192
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-forest-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 75341
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-forest-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 103828
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-forest-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 169669
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-forest-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 238214
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-forest-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1080,
+          "byteSize": 418572
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-forest-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1080,
+          "byteSize": 599210
+        }
+      ],
+      "updatedAt": "2026-10-17T07:56:59.601Z"
+    },
+    "images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-waterfall.jpg": {
+      "sourceHash": "8f4600e743f05d4ebce326b5b397480fe6fab308b6b7bfe1692fde3319c2e2d9",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-waterfall.jpg",
+      "originalSize": 1238859,
+      "width": 1920,
+      "height": 1275,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-waterfall-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 212,
+          "byteSize": 16066
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-waterfall-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 212,
+          "byteSize": 24672
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-waterfall-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 265,
+          "byteSize": 24619
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-waterfall-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 265,
+          "byteSize": 38994
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-waterfall-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 425,
+          "byteSize": 59461
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-waterfall-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 425,
+          "byteSize": 92464
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-waterfall-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 531,
+          "byteSize": 93925
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-waterfall-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 531,
+          "byteSize": 146768
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-waterfall-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 797,
+          "byteSize": 207591
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-waterfall-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 797,
+          "byteSize": 321806
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-waterfall-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1275,
+          "byteSize": 517394
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-waterfall-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1275,
+          "byteSize": 782472
+        }
+      ],
+      "updatedAt": "2026-10-17T07:57:05.076Z"
+    },
+    "images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/paliastomi-lake.jpg": {
+      "sourceHash": "a5c05efad4829f6fd588d6ed679c3e3c3dc15c73ace88827d913688de8f8e95b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/paliastomi-lake.jpg",
+      "originalSize": 515175,
+      "width": 1920,
+      "height": 1080,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/paliastomi-lake-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 7271
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/paliastomi-lake-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 9494
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/paliastomi-lake-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 10838
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/paliastomi-lake-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 14580
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/paliastomi-lake-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 25720
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/paliastomi-lake-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 35932
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/paliastomi-lake-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 39192
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/paliastomi-lake-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 58776
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/paliastomi-lake-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 74686
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/paliastomi-lake-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 114482
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/paliastomi-lake-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1080,
+          "byteSize": 140994
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/paliastomi-lake-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1080,
+          "byteSize": 230144
+        }
+      ],
+      "updatedAt": "2026-10-17T07:57:01.653Z"
+    },
+    "images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/pichori-colchic-forest.jpg": {
+      "sourceHash": "9e494074518b28ebb458984150d1e7a033a22f646e8c73c8edd90b361c3a776d",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/pichori-colchic-forest.jpg",
+      "originalSize": 1870544,
+      "width": 1920,
+      "height": 1440,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/pichori-colchic-forest-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 20500
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/pichori-colchic-forest-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 32058
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/pichori-colchic-forest-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 33156
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/pichori-colchic-forest-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 52058
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/pichori-colchic-forest-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 86540
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/pichori-colchic-forest-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 135516
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/pichori-colchic-forest-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 143337
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/pichori-colchic-forest-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 220876
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/pichori-colchic-forest-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 333978
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/pichori-colchic-forest-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 503934
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/pichori-colchic-forest-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1440,
+          "byteSize": 824966
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/pichori-colchic-forest-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1440,
+          "byteSize": 1247006
+        }
+      ],
+      "updatedAt": "2026-10-17T07:57:14.900Z"
     },
     "images/news/leatherback-turtle-first-turkish-black-sea-records-2026/leatherback-turtle.png": {
       "sourceHash": "c071366949041880e2e8835244ffcfcf76188ef4f6f95a5559fa6c41ebdebce8",
@@ -49955,7 +50419,7 @@
           "byteSize": 61524
         }
       ],
-      "updatedAt": "2026-10-16T07:51:35.594Z"
+      "updatedAt": "2026-10-17T07:57:07.069Z"
     },
     "images/news/melanistic-eirenis-modestus-anatolia/figure-1.jpg": {
       "sourceHash": "b1a632812a8a9ebe5eadebb8158f1e94cfb0c6157f9336acc853d5f289a89003",
@@ -50050,7 +50514,7 @@
           "byteSize": 325026
         }
       ],
-      "updatedAt": "2026-10-16T07:51:44.150Z"
+      "updatedAt": "2026-10-17T07:57:13.160Z"
     },
     "images/news/melanistic-eirenis-modestus-anatolia/figure-2.jpg": {
       "sourceHash": "c8dbd794f68799168621b23a98f12dde88bd53980ec19c6903a0d1c4b2294621",
@@ -50145,7 +50609,7 @@
           "byteSize": 169858
         }
       ],
-      "updatedAt": "2026-10-16T07:51:48.866Z"
+      "updatedAt": "2026-10-17T07:57:15.279Z"
     },
     "images/news/melanistic-eirenis-modestus-anatolia/figure-3.jpg": {
       "sourceHash": "13c914b98a5d4d8c796389b3c804cc6ff1504cc408877cc5c7f86ad77fcba27c",
@@ -50240,7 +50704,7 @@
           "byteSize": 240074
         }
       ],
-      "updatedAt": "2026-10-16T07:52:05.384Z"
+      "updatedAt": "2026-10-17T07:57:17.511Z"
     },
     "images/news/theridion-huseynovi-new-spider-species-georgia-2026/theridion-huseynovi.png": {
       "sourceHash": "d4a1a13fbf943fc87f371418a57eca878129fcd41f735deb5bfbca43c80fe9f3",
@@ -50430,7 +50894,7 @@
           "byteSize": 645112
         }
       ],
-      "updatedAt": "2026-10-16T07:51:59.688Z"
+      "updatedAt": "2026-10-17T07:57:28.291Z"
     },
     "images/news/vipera-pontica-hybrid-georgia-2026/figure-2.jpg": {
       "sourceHash": "62f4c91ddee942d3d6b21b4defbe51198332352423ae0ffe9e31e432b0e966de",
@@ -50525,7 +50989,7 @@
           "byteSize": 559088
         }
       ],
-      "updatedAt": "2026-10-16T07:51:59.917Z"
+      "updatedAt": "2026-10-17T07:57:27.505Z"
     },
     "images/news/vipera-pontica-hybrid-georgia-2026/figure-3.jpg": {
       "sourceHash": "dd0f4b367d44de85997a0c0d23ac01cea456f9e52aad52829973567762d8dd83",
@@ -50620,7 +51084,7 @@
           "byteSize": 372058
         }
       ],
-      "updatedAt": "2026-10-16T07:52:08.392Z"
+      "updatedAt": "2026-10-17T07:57:25.980Z"
     },
     "images/news/vipera-pontica-hybrid-georgia-2026/figure-4.jpg": {
       "sourceHash": "58a64af0c4433dfb4f78b5849ba8c3caeeeadb38d0dc589f0363f85bdddbb317",
@@ -50715,7 +51179,7 @@
           "byteSize": 982360
         }
       ],
-      "updatedAt": "2026-10-16T07:52:10.428Z"
+      "updatedAt": "2026-10-17T07:57:35.471Z"
     },
     "images/species/accipiter-gentilis-afr-1.jpg": {
       "sourceHash": "c2bc814a7c781dce6160c9dd4ab87a47a001f462a14a81bd2edec861bc5aac5a",
@@ -70919,57 +71383,85 @@
       "updatedAt": "2026-08-28T21:46:23.778Z"
     },
     "mertensiella-caucasica-armen-3.jpg": {
-      "sourceHash": "a4fd6cecb65ed4bec390e6e9087db1ebe5145f48c5830260ee9a91983a276949",
-      "configFingerprint": "a895f8e025dcc7fa",
+      "sourceHash": "172d513a4031f6879f64e26e9f312f09b626b81b6124e1e19f841347a9fd0869",
+      "configFingerprint": "409788ee46c653d8",
       "originalKey": "mertensiella-caucasica-armen-3.jpg",
-      "originalSize": 246557,
+      "originalSize": 377785,
       "width": 1024,
       "height": 673,
       "derivatives": [
+        {
+          "key": "optimized/mertensiella-caucasica-armen-3-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 210,
+          "byteSize": 13871
+        },
+        {
+          "key": "optimized/mertensiella-caucasica-armen-3-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 210,
+          "byteSize": 21538
+        },
         {
           "key": "optimized/mertensiella-caucasica-armen-3-400.avif",
           "format": "avif",
           "width": 400,
           "height": 263,
-          "byteSize": 20748
+          "byteSize": 20019
         },
         {
           "key": "optimized/mertensiella-caucasica-armen-3-400.webp",
           "format": "webp",
           "width": 400,
           "height": 263,
-          "byteSize": 32598
+          "byteSize": 31662
+        },
+        {
+          "key": "optimized/mertensiella-caucasica-armen-3-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 421,
+          "byteSize": 43873
+        },
+        {
+          "key": "optimized/mertensiella-caucasica-armen-3-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 421,
+          "byteSize": 68758
         },
         {
           "key": "optimized/mertensiella-caucasica-armen-3-800.avif",
           "format": "avif",
           "width": 800,
           "height": 526,
-          "byteSize": 63654
+          "byteSize": 63100
         },
         {
           "key": "optimized/mertensiella-caucasica-armen-3-800.webp",
           "format": "webp",
           "width": 800,
           "height": 526,
-          "byteSize": 101526
+          "byteSize": 100304
         },
         {
           "key": "optimized/mertensiella-caucasica-armen-3-1024.avif",
           "format": "avif",
           "width": 1024,
           "height": 673,
-          "byteSize": 105546
+          "byteSize": 107873
         },
         {
           "key": "optimized/mertensiella-caucasica-armen-3-1024.webp",
           "format": "webp",
           "width": 1024,
           "height": 673,
-          "byteSize": 160232
+          "byteSize": 158350
         }
       ],
-      "updatedAt": "2026-08-28T21:46:27.170Z"
+      "updatedAt": "2026-10-17T07:57:36.865Z"
     },
     "mertensiella-caucasica-armen-4.jpg": {
       "sourceHash": "5dd01779e4f3327102f21f5b2874d62d1dda746f16cee69499f0854abbbbeb32",
@@ -76550,272 +77042,384 @@
       "updatedAt": "2026-10-14T14:03:42.498Z"
     },
     "news-batumi-19300-cosentino-kite-1.jpg": {
-      "sourceHash": "8687d2a2fe01541e1d3db4cbc4cc938f7e01f8939108b647a236375362be3dbd",
-      "configFingerprint": "a895f8e025dcc7fa",
+      "sourceHash": "c0ce7bd2cbc4f213a07deac39a0c231753e61bceb2a85ab3a6bb1e63fb00ee61",
+      "configFingerprint": "409788ee46c653d8",
       "originalKey": "news-batumi-19300-cosentino-kite-1.jpg",
-      "originalSize": 44689,
+      "originalSize": 142566,
       "width": 2400,
       "height": 1162,
       "derivatives": [
+        {
+          "key": "optimized/news-batumi-19300-cosentino-kite-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 155,
+          "byteSize": 1272
+        },
+        {
+          "key": "optimized/news-batumi-19300-cosentino-kite-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 155,
+          "byteSize": 1234
+        },
         {
           "key": "optimized/news-batumi-19300-cosentino-kite-1-400.avif",
           "format": "avif",
           "width": 400,
           "height": 193,
-          "byteSize": 1591
+          "byteSize": 1602
         },
         {
           "key": "optimized/news-batumi-19300-cosentino-kite-1-400.webp",
           "format": "webp",
           "width": 400,
           "height": 193,
-          "byteSize": 1706
+          "byteSize": 1698
+        },
+        {
+          "key": "optimized/news-batumi-19300-cosentino-kite-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 310,
+          "byteSize": 2741
+        },
+        {
+          "key": "optimized/news-batumi-19300-cosentino-kite-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 310,
+          "byteSize": 3136
         },
         {
           "key": "optimized/news-batumi-19300-cosentino-kite-1-800.avif",
           "format": "avif",
           "width": 800,
           "height": 387,
-          "byteSize": 3410
+          "byteSize": 3430
         },
         {
           "key": "optimized/news-batumi-19300-cosentino-kite-1-800.webp",
           "format": "webp",
           "width": 800,
           "height": 387,
-          "byteSize": 4202
+          "byteSize": 4226
         },
         {
           "key": "optimized/news-batumi-19300-cosentino-kite-1-1200.avif",
           "format": "avif",
           "width": 1200,
           "height": 581,
-          "byteSize": 5416
+          "byteSize": 5529
         },
         {
           "key": "optimized/news-batumi-19300-cosentino-kite-1-1200.webp",
           "format": "webp",
           "width": 1200,
           "height": 581,
-          "byteSize": 7100
+          "byteSize": 7178
         },
         {
           "key": "optimized/news-batumi-19300-cosentino-kite-1-2400.avif",
           "format": "avif",
           "width": 2400,
           "height": 1162,
-          "byteSize": 12653
+          "byteSize": 13118
         },
         {
           "key": "optimized/news-batumi-19300-cosentino-kite-1-2400.webp",
           "format": "webp",
           "width": 2400,
           "height": 1162,
-          "byteSize": 18352
+          "byteSize": 18684
         }
       ],
-      "updatedAt": "2026-09-01T13:02:17.250Z"
+      "updatedAt": "2026-10-17T07:57:41.651Z"
     },
     "news-batumi-19300-eldakamawy-1.jpg": {
-      "sourceHash": "940f468de4a2ff253046a04e99e3d6b3736ef4f250238aab79fc909b9690b6f5",
-      "configFingerprint": "a895f8e025dcc7fa",
+      "sourceHash": "1fcd1cf44b11d07e4e3ef2b3afff6a3e0f8332b52427097f0c7795e69c9e31c5",
+      "configFingerprint": "409788ee46c653d8",
       "originalKey": "news-batumi-19300-eldakamawy-1.jpg",
-      "originalSize": 634864,
+      "originalSize": 1147766,
       "width": 2400,
       "height": 1800,
       "derivatives": [
+        {
+          "key": "optimized/news-batumi-19300-eldakamawy-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 8213
+        },
+        {
+          "key": "optimized/news-batumi-19300-eldakamawy-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 9816
+        },
         {
           "key": "optimized/news-batumi-19300-eldakamawy-1-400.avif",
           "format": "avif",
           "width": 400,
           "height": 300,
-          "byteSize": 11857
+          "byteSize": 11881
         },
         {
           "key": "optimized/news-batumi-19300-eldakamawy-1-400.webp",
           "format": "webp",
           "width": 400,
           "height": 300,
-          "byteSize": 14576
+          "byteSize": 14422
+        },
+        {
+          "key": "optimized/news-batumi-19300-eldakamawy-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 26201
+        },
+        {
+          "key": "optimized/news-batumi-19300-eldakamawy-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 31880
         },
         {
           "key": "optimized/news-batumi-19300-eldakamawy-1-800.avif",
           "format": "avif",
           "width": 800,
           "height": 600,
-          "byteSize": 38476
+          "byteSize": 38584
         },
         {
           "key": "optimized/news-batumi-19300-eldakamawy-1-800.webp",
           "format": "webp",
           "width": 800,
           "height": 600,
-          "byteSize": 47168
+          "byteSize": 47264
         },
         {
           "key": "optimized/news-batumi-19300-eldakamawy-1-1200.avif",
           "format": "avif",
           "width": 1200,
           "height": 900,
-          "byteSize": 79989
+          "byteSize": 79981
         },
         {
           "key": "optimized/news-batumi-19300-eldakamawy-1-1200.webp",
           "format": "webp",
           "width": 1200,
           "height": 900,
-          "byteSize": 98122
+          "byteSize": 98224
         },
         {
           "key": "optimized/news-batumi-19300-eldakamawy-1-2400.avif",
           "format": "avif",
           "width": 2400,
           "height": 1800,
-          "byteSize": 241782
+          "byteSize": 245173
         },
         {
           "key": "optimized/news-batumi-19300-eldakamawy-1-2400.webp",
           "format": "webp",
           "width": 2400,
           "height": 1800,
-          "byteSize": 294010
+          "byteSize": 297478
         }
       ],
-      "updatedAt": "2026-09-01T13:02:30.947Z"
+      "updatedAt": "2026-10-17T07:57:47.866Z"
     },
     "news-batumi-19300-hoekstra-1.jpg": {
-      "sourceHash": "39c605505a015e2932ef247353af003da29c941a44762f47032301de3a2179be",
-      "configFingerprint": "a895f8e025dcc7fa",
+      "sourceHash": "75fa2affcf7e2483c8ffd7b514a3efd5550325b1d64f705e422a259b77c13f85",
+      "configFingerprint": "409788ee46c653d8",
       "originalKey": "news-batumi-19300-hoekstra-1.jpg",
-      "originalSize": 602892,
+      "originalSize": 1133704,
       "width": 2400,
       "height": 1800,
       "derivatives": [
+        {
+          "key": "optimized/news-batumi-19300-hoekstra-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 7778
+        },
+        {
+          "key": "optimized/news-batumi-19300-hoekstra-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 10428
+        },
         {
           "key": "optimized/news-batumi-19300-hoekstra-1-400.avif",
           "format": "avif",
           "width": 400,
           "height": 300,
-          "byteSize": 11795
+          "byteSize": 11887
         },
         {
           "key": "optimized/news-batumi-19300-hoekstra-1-400.webp",
           "format": "webp",
           "width": 400,
           "height": 300,
-          "byteSize": 15268
+          "byteSize": 15448
+        },
+        {
+          "key": "optimized/news-batumi-19300-hoekstra-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 26365
+        },
+        {
+          "key": "optimized/news-batumi-19300-hoekstra-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 35468
         },
         {
           "key": "optimized/news-batumi-19300-hoekstra-1-800.avif",
           "format": "avif",
           "width": 800,
           "height": 600,
-          "byteSize": 37969
+          "byteSize": 37944
         },
         {
           "key": "optimized/news-batumi-19300-hoekstra-1-800.webp",
           "format": "webp",
           "width": 800,
           "height": 600,
-          "byteSize": 51526
+          "byteSize": 51818
         },
         {
           "key": "optimized/news-batumi-19300-hoekstra-1-1200.avif",
           "format": "avif",
           "width": 1200,
           "height": 900,
-          "byteSize": 76391
+          "byteSize": 76859
         },
         {
           "key": "optimized/news-batumi-19300-hoekstra-1-1200.webp",
           "format": "webp",
           "width": 1200,
           "height": 900,
-          "byteSize": 103746
+          "byteSize": 105046
         },
         {
           "key": "optimized/news-batumi-19300-hoekstra-1-2400.avif",
           "format": "avif",
           "width": 2400,
           "height": 1800,
-          "byteSize": 218646
+          "byteSize": 222643
         },
         {
           "key": "optimized/news-batumi-19300-hoekstra-1-2400.webp",
           "format": "webp",
           "width": 2400,
           "height": 1800,
-          "byteSize": 289900
+          "byteSize": 295734
         }
       ],
-      "updatedAt": "2026-09-01T13:02:07.187Z"
+      "updatedAt": "2026-10-17T07:57:45.780Z"
     },
     "news-batumi-19300-meskhidze-1.jpg": {
-      "sourceHash": "0cbee52d594666289e02cdfe4673da63a1e3c98e6f411d4907f2b7a869012bc5",
-      "configFingerprint": "a895f8e025dcc7fa",
+      "sourceHash": "c15a5d682337dc08174fdf5fcf1c5a20b037124a88f3ac5664efa7455a3c9f4f",
+      "configFingerprint": "409788ee46c653d8",
       "originalKey": "news-batumi-19300-meskhidze-1.jpg",
-      "originalSize": 438189,
+      "originalSize": 853410,
       "width": 2400,
       "height": 1800,
       "derivatives": [
+        {
+          "key": "optimized/news-batumi-19300-meskhidze-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 6599
+        },
+        {
+          "key": "optimized/news-batumi-19300-meskhidze-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 7486
+        },
         {
           "key": "optimized/news-batumi-19300-meskhidze-1-400.avif",
           "format": "avif",
           "width": 400,
           "height": 300,
-          "byteSize": 9487
+          "byteSize": 9443
         },
         {
           "key": "optimized/news-batumi-19300-meskhidze-1-400.webp",
           "format": "webp",
           "width": 400,
           "height": 300,
-          "byteSize": 10898
+          "byteSize": 10996
+        },
+        {
+          "key": "optimized/news-batumi-19300-meskhidze-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 20646
+        },
+        {
+          "key": "optimized/news-batumi-19300-meskhidze-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 24502
         },
         {
           "key": "optimized/news-batumi-19300-meskhidze-1-800.avif",
           "format": "avif",
           "width": 800,
           "height": 600,
-          "byteSize": 29581
+          "byteSize": 29657
         },
         {
           "key": "optimized/news-batumi-19300-meskhidze-1-800.webp",
           "format": "webp",
           "width": 800,
           "height": 600,
-          "byteSize": 35008
+          "byteSize": 35242
         },
         {
           "key": "optimized/news-batumi-19300-meskhidze-1-1200.avif",
           "format": "avif",
           "width": 1200,
           "height": 900,
-          "byteSize": 58208
+          "byteSize": 58684
         },
         {
           "key": "optimized/news-batumi-19300-meskhidze-1-1200.webp",
           "format": "webp",
           "width": 1200,
           "height": 900,
-          "byteSize": 67524
+          "byteSize": 69908
         },
         {
           "key": "optimized/news-batumi-19300-meskhidze-1-2400.avif",
           "format": "avif",
           "width": 2400,
           "height": 1800,
-          "byteSize": 160629
+          "byteSize": 162551
         },
         {
           "key": "optimized/news-batumi-19300-meskhidze-1-2400.webp",
           "format": "webp",
           "width": 2400,
           "height": 1800,
-          "byteSize": 185618
+          "byteSize": 187748
         }
       ],
-      "updatedAt": "2026-09-01T13:02:13.936Z"
+      "updatedAt": "2026-10-17T07:57:48.675Z"
     },
     "news-batumi-239735-hoekstra-black-kites.jpg": {
       "sourceHash": "b5b764735f48fc616402ca6a165136deaa865f18b141a5a25493f2d95a6c0077",
@@ -79427,12 +80031,26 @@
     },
     "panthera-pardus-assaf-1.jpg": {
       "sourceHash": "9729a36ca545d25d78ee60127a2e685a406524f0e6f4ad72bf5cbfd06f41c821",
-      "configFingerprint": "a895f8e025dcc7fa",
+      "configFingerprint": "409788ee46c653d8",
       "originalKey": "panthera-pardus-assaf-1.jpg",
       "originalSize": 1505811,
       "width": 2400,
       "height": 1800,
       "derivatives": [
+        {
+          "key": "optimized/panthera-pardus-assaf-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 15467
+        },
+        {
+          "key": "optimized/panthera-pardus-assaf-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 25234
+        },
         {
           "key": "optimized/panthera-pardus-assaf-1-400.avif",
           "format": "avif",
@@ -79446,6 +80064,20 @@
           "width": 400,
           "height": 300,
           "byteSize": 34964
+        },
+        {
+          "key": "optimized/panthera-pardus-assaf-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 46258
+        },
+        {
+          "key": "optimized/panthera-pardus-assaf-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 69798
         },
         {
           "key": "optimized/panthera-pardus-assaf-1-800.avif",
@@ -79490,7 +80122,7 @@
           "byteSize": 509018
         }
       ],
-      "updatedAt": "2026-08-28T21:55:30.099Z"
+      "updatedAt": "2026-10-17T07:57:55.040Z"
     },
     "panthera-pardus-burkhard-1.jpg": {
       "sourceHash": "124589df23d5a83aae4003e80fcad9d16c1198c9eacfcaabc7e5202516f3a95d",
@@ -93309,71 +93941,99 @@
       "updatedAt": "2026-08-28T21:59:30.202Z"
     },
     "testudo-graeca-3.jpg": {
-      "sourceHash": "b4bad2aee33fbe092c180e4ff3a829442430d6a1248df33ed19e545381e86479",
-      "configFingerprint": "a895f8e025dcc7fa",
+      "sourceHash": "f1dbaed1dc5039a5b40cca544d1fb2d5c9fffed1b8d87d5e7b6a4e3f7da3e58d",
+      "configFingerprint": "409788ee46c653d8",
       "originalKey": "testudo-graeca-3.jpg",
-      "originalSize": 341167,
+      "originalSize": 1206623,
       "width": 2048,
       "height": 1371,
       "derivatives": [
+        {
+          "key": "optimized/testudo-graeca-3-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 214,
+          "byteSize": 16102
+        },
+        {
+          "key": "optimized/testudo-graeca-3-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 214,
+          "byteSize": 25584
+        },
         {
           "key": "optimized/testudo-graeca-3-400.avif",
           "format": "avif",
           "width": 400,
           "height": 267,
-          "byteSize": 23802
+          "byteSize": 23387
         },
         {
           "key": "optimized/testudo-graeca-3-400.webp",
           "format": "webp",
           "width": 400,
           "height": 267,
-          "byteSize": 37810
+          "byteSize": 36968
+        },
+        {
+          "key": "optimized/testudo-graeca-3-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 428,
+          "byteSize": 52947
+        },
+        {
+          "key": "optimized/testudo-graeca-3-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 428,
+          "byteSize": 84444
         },
         {
           "key": "optimized/testudo-graeca-3-800.avif",
           "format": "avif",
           "width": 800,
           "height": 536,
-          "byteSize": 75489
+          "byteSize": 78296
         },
         {
           "key": "optimized/testudo-graeca-3-800.webp",
           "format": "webp",
           "width": 800,
           "height": 536,
-          "byteSize": 119582
+          "byteSize": 126164
         },
         {
           "key": "optimized/testudo-graeca-3-1200.avif",
           "format": "avif",
           "width": 1200,
           "height": 803,
-          "byteSize": 133575
+          "byteSize": 143433
         },
         {
           "key": "optimized/testudo-graeca-3-1200.webp",
           "format": "webp",
           "width": 1200,
           "height": 803,
-          "byteSize": 204390
+          "byteSize": 223442
         },
         {
           "key": "optimized/testudo-graeca-3-2048.avif",
           "format": "avif",
           "width": 2048,
           "height": 1371,
-          "byteSize": 271225
+          "byteSize": 298621
         },
         {
           "key": "optimized/testudo-graeca-3-2048.webp",
           "format": "webp",
           "width": 2048,
           "height": 1371,
-          "byteSize": 374860
+          "byteSize": 441256
         }
       ],
-      "updatedAt": "2026-08-28T21:59:28.995Z"
+      "updatedAt": "2026-10-17T07:57:57.030Z"
     },
     "testudo-graeca.jpg": {
       "sourceHash": "1434173ee558f8baf8edaa530a1871fab6c188182016cc81ae30ac84520763f8",
@@ -93644,71 +94304,99 @@
       "updatedAt": "2026-08-28T21:59:37.344Z"
     },
     "trachemys-scripta.jpg": {
-      "sourceHash": "cabe243c9162ebdd0e7e1e3dc5251577dca3deac3c1c9ad1a1b7d679677ffdb1",
-      "configFingerprint": "a895f8e025dcc7fa",
+      "sourceHash": "31009c2a2532200b897e3b01d84a8ef3c59a5099b94a2a7fdf8ed2e3a8d1fdf5",
+      "configFingerprint": "409788ee46c653d8",
       "originalKey": "trachemys-scripta.jpg",
-      "originalSize": 212589,
+      "originalSize": 1324658,
       "width": 2048,
       "height": 1536,
       "derivatives": [
+        {
+          "key": "optimized/trachemys-scripta-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 8621
+        },
+        {
+          "key": "optimized/trachemys-scripta-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 12898
+        },
         {
           "key": "optimized/trachemys-scripta-400.avif",
           "format": "avif",
           "width": 400,
           "height": 300,
-          "byteSize": 12625
+          "byteSize": 12553
         },
         {
           "key": "optimized/trachemys-scripta-400.webp",
           "format": "webp",
           "width": 400,
           "height": 300,
-          "byteSize": 18352
+          "byteSize": 18470
+        },
+        {
+          "key": "optimized/trachemys-scripta-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 27108
+        },
+        {
+          "key": "optimized/trachemys-scripta-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 39534
         },
         {
           "key": "optimized/trachemys-scripta-800.avif",
           "format": "avif",
           "width": 800,
           "height": 600,
-          "byteSize": 39718
+          "byteSize": 40877
         },
         {
           "key": "optimized/trachemys-scripta-800.webp",
           "format": "webp",
           "width": 800,
           "height": 600,
-          "byteSize": 55576
+          "byteSize": 58468
         },
         {
           "key": "optimized/trachemys-scripta-1200.avif",
           "format": "avif",
           "width": 1200,
           "height": 900,
-          "byteSize": 74576
+          "byteSize": 78829
         },
         {
           "key": "optimized/trachemys-scripta-1200.webp",
           "format": "webp",
           "width": 1200,
           "height": 900,
-          "byteSize": 99576
+          "byteSize": 110058
         },
         {
           "key": "optimized/trachemys-scripta-2048.avif",
           "format": "avif",
           "width": 2048,
           "height": 1536,
-          "byteSize": 163971
+          "byteSize": 187634
         },
         {
           "key": "optimized/trachemys-scripta-2048.webp",
           "format": "webp",
           "width": 2048,
           "height": 1536,
-          "byteSize": 200906
+          "byteSize": 254812
         }
       ],
-      "updatedAt": "2026-08-28T21:59:37.226Z"
+      "updatedAt": "2026-10-17T07:57:57.836Z"
     },
     "triturus-karelinii-2.jpg": {
       "sourceHash": "d96b24ea2d6cd70f3b936d1680df9ef237e728d2e69a0fce99a9099355340a78",

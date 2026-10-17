@@ -350,7 +350,10 @@ function LocaleOptions({
                   <LocaleFlag code={code} />
                 </span>
                 <span className="min-w-0 flex-1">
-                  <span className="block truncate font-display text-[15px] leading-tight font-semibold text-foreground">
+                  <span
+                    className="block truncate font-display text-[15px] leading-tight font-semibold text-foreground"
+                    lang={code}
+                  >
                     {labels[code]}
                   </span>
                   <span className="mt-0.5 block text-[12px] tracking-[0.14em] text-muted-foreground uppercase">

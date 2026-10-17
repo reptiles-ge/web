@@ -9,6 +9,7 @@ import { ContentAttribution } from "@/components/ContentAttribution";
 import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { JsonLd } from "@/components/JsonLd";
 import { NewsRelatedBlock } from "@/components/NewsRelatedBlock";
+import { OptimizedImageScope } from "@/components/OptimizedImageScope";
 import { RegionProfile } from "@/components/RegionProfile";
 import { getPublishedNewsForRegion } from "@/data/news";
 import { getRegionContent } from "@/data/regionContent";
@@ -246,20 +247,22 @@ export default async function RegionPage({ params }: PageProps) {
         locale={locale}
         namespaces={["card", "danger", "groupHubShared", "map", "regions"]}
       >
-        <RegionProfile
-          attribution={
-            <ContentAttribution
-              locale={locale}
-              publishedAt={dates.datePublished}
-              updatedAt={dates.dateModified}
-            />
-          }
-          editable={locale === "ka" && isLocalAdminEnabled()}
-          region={region}
-          species={species}
-          summary={summary}
-          venomous={venomous}
-        />
+        <OptimizedImageScope srcs={[getRegionHeroImage(region.id)]}>
+          <RegionProfile
+            attribution={
+              <ContentAttribution
+                locale={locale}
+                publishedAt={dates.datePublished}
+                updatedAt={dates.dateModified}
+              />
+            }
+            editable={locale === "ka" && isLocalAdminEnabled()}
+            region={region}
+            species={species}
+            summary={summary}
+            venomous={venomous}
+          />
+        </OptimizedImageScope>
       </ClientMessagesProvider>
       <NewsRelatedBlock
         articles={getPublishedNewsForRegion(region.id, locale)}

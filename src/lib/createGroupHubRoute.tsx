@@ -12,7 +12,7 @@ import { NewsRelatedBlock } from "@/components/NewsRelatedBlock";
 import { getPublishedNewsForHub } from "@/data/news";
 import { getCatalogSpeciesByGroup } from "@/data/speciesAtlas";
 import { images } from "@/data/speciesMedia";
-import { GROUP_HUB_SHARED_CLIENT_MESSAGE_NAMESPACES } from "@/i18n/clientMessages";
+import { GROUP_HUB_CLIENT_MESSAGES } from "@/i18n/clientMessages";
 import { georgiaPlaceName } from "@/i18n/localeMeta";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
 import { type AppLocale, routing } from "@/i18n/routing";
@@ -123,10 +123,7 @@ export function createGroupHubRoute(hubId: GroupHubId) {
         {faqLd ? <JsonLd data={faqLd} /> : null}
         <ClientMessagesProvider
           locale={locale}
-          namespaces={[
-            ...GROUP_HUB_SHARED_CLIENT_MESSAGE_NAMESPACES,
-            hub.messageKey,
-          ]}
+          namespaces={GROUP_HUB_CLIENT_MESSAGES}
         >
           <GroupHubPage
             heroMobileSrc={heroMobileSrc}

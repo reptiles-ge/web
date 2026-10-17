@@ -225,7 +225,7 @@ export async function NewsIndexPage({ articles, locale }: NewsIndexPageProps) {
         />
       ) : null}
       <header className={`${wrapClass} pt-[107px] md:pt-[147px] md:pb-10`}>
-        <nav aria-label="Breadcrumb" className="sr-only">
+        <nav aria-label={tNav("breadcrumbAria")} className="sr-only">
           <ol>
             <li>
               <Link href="/">{tShared("breadcrumbHome")}</Link>

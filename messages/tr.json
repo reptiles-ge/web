@@ -87,7 +87,8 @@
     "contact": "İletişim",
     "speciesCount": "{count} tür",
     "allSpecies": "Tüm {count} tür",
-    "groupCount": "{count} grup"
+    "groupCount": "{count} grup",
+    "breadcrumbAria": "Sayfa yolu"
   },
   "search": {
     "placeholder": "Tür, sayfa, bölge…",
@@ -544,7 +545,6 @@
     "sourcesCount": "{count} kaynak",
     "moreSources": "{count} kaynak daha",
     "sourcesNote": "Tür profilleri hakemli literatür ve yerleşik biyoçeşitlilik veritabanlarından derlenir; yeni taksonomik ve koruma verileri geldikçe gözden geçirilir.",
-    "breadcrumbAria": "Sayfa yolu",
     "breadcrumbHome": "Ana sayfa",
     "breadcrumbSpecies": "Türler",
     "breadcrumbVenomous": "Gürcistan’da zehirli yılanlar",
@@ -726,7 +726,8 @@
     "allRegions": "Tüm bölgeler",
     "emptyPreview": "Veriler yakında",
     "emptyTitle": "Henüz kayıt yok",
-    "emptyBody": "Bu bölge için tür verileri henüz eklenmedi. Yakında burada görünecek."
+    "emptyBody": "Bu bölge için tür verileri henüz eklenmedi. Yakında burada görünecek.",
+    "ariaLabel": "Gürcistan haritası"
   },
   "regions": {
     "metaTitle": "Bölgeler",

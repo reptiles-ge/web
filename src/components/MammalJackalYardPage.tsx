@@ -20,6 +20,7 @@ export async function MammalJackalYardPage({
     >
       <ConflictGuideSections
         config={JACKAL_YARD_CONFIG}
+        locale={locale}
         species={toSpeciesCards(species)}
       />
     </ClusterPageFrame>

@@ -52,10 +52,11 @@ export async function ClusterPageFrame({
   const guide = CLUSTER_GUIDES[guideId];
   const parent = GROUP_HUBS[guide.parentHub];
   const dates = pageDateFields(guide.pathname, locale);
-  const [t, tShared, tParent] = await Promise.all([
+  const [t, tShared, tParent, tNav] = await Promise.all([
     getTranslations({ locale, namespace: guide.messageKey }),
     getTranslations({ locale, namespace: "groupHubShared" }),
     getTranslations({ locale, namespace: parent.messageKey }),
+    getTranslations({ locale, namespace: "nav" }),
   ]);
   const relatedGuides = getRelatedGuideCards(guideId);
   const faqItems = Array.from({ length: guide.faqCount }, (_, index) => {
@@ -84,7 +85,7 @@ export async function ClusterPageFrame({
 
           <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-10">
             <div>
-              <nav aria-label="Breadcrumb" className="sr-only">
+              <nav aria-label={tNav("breadcrumbAria")} className="sr-only">
                 <ol className="flex flex-wrap items-center gap-2 text-[13px] text-white/55">
                   <li>
                     <Link

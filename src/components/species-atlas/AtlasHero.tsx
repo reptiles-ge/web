@@ -12,6 +12,7 @@ type AtlasHeroProps = {
 
 export async function AtlasHero({ locale, stats }: AtlasHeroProps) {
   const t = await getTranslations({ locale, namespace: "speciesAtlas" });
+  const tNav = await getTranslations({ locale, namespace: "nav" });
   const meta = t("stats.catalogMeta", {
     photos: stats.photos,
     regions: stats.regions,
@@ -20,7 +21,7 @@ export async function AtlasHero({ locale, stats }: AtlasHeroProps) {
   return (
     <section className="bg-background pt-24 lg:pt-33">
       <div className="mx-auto max-w-[1440px] px-5 lg:px-[60px]">
-        <nav aria-label="Breadcrumb" className="sr-only">
+        <nav aria-label={tNav("breadcrumbAria")} className="sr-only">
           <ol>
             <li>
               <Link href="/">{t("breadcrumbHome")}</Link>

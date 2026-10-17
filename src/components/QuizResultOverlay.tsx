@@ -6,7 +6,7 @@ import { useState } from "react";
 
 import type { AppLocale } from "@/i18n/routing";
 
-import { CoverImage } from "@/components/CoverImage";
+import { ClientCoverImage } from "@/components/ClientCoverImage";
 import { useLocaleSwitchIndex } from "@/components/LocaleSwitchProvider";
 import { useQuizCopy } from "@/components/QuizCopyContext";
 import { QuizBreadcrumbs } from "@/components/QuizIntroOverlay";
@@ -155,7 +155,7 @@ export function QuizResultOverlay({
                 }
               >
                 <span className="relative size-12 shrink-0 overflow-hidden rounded-2xl sm:size-16">
-                  <CoverImage
+                  <ClientCoverImage
                     alt={species.imageAlt}
                     className="object-cover"
                     sizes="64px"

@@ -144,7 +144,7 @@ export async function SpeciesProfileHero({
       <div className="pointer-events-none relative z-10 mx-auto flex h-full max-w-[1440px] flex-col justify-end px-6 pb-[62px] lg:pointer-events-auto lg:justify-center lg:px-[60px] lg:pt-12 lg:pb-[110px]">
         <div className="mt-auto lg:max-w-[600px]">
           <SpeciesBreadcrumbTrail
-            ariaLabel={t("breadcrumbAria")}
+            ariaLabel={tNav("breadcrumbAria")}
             breadcrumbs={breadcrumbs}
           />
           {riskChip && dangerValue ? (

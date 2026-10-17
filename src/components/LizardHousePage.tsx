@@ -20,6 +20,7 @@ export async function LizardHousePage({
     >
       <ConflictGuideSections
         config={LIZARD_HOUSE_CONFIG}
+        locale={locale}
         species={toSpeciesCards(species)}
       />
     </ClusterPageFrame>

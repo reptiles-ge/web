@@ -1,7 +1,5 @@
-"use client";
-
 import { ArrowRight } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
 import type { AppLocale } from "@/i18n/routing";
 
@@ -12,13 +10,18 @@ import {
   ClusterSectionIntro,
 } from "@/components/ClusterSectionIntro";
 import { CoverImage } from "@/components/CoverImage";
-import { useSpeciesHref } from "@/components/LocaleSwitchProvider";
 import { Link } from "@/i18n/navigation";
+import { speciesHref } from "@/lib/speciesRoutes";
 
-export function VenomousSnakesCta({ heroSrc }: { heroSrc: string }) {
-  const t = useTranslations("venomousSnakes");
-  const locale = useLocale() as AppLocale;
-  const giurzaHref = useSpeciesHref("macrovipera-lebetina", locale);
+export async function VenomousSnakesCta({
+  heroSrc,
+  locale,
+}: {
+  heroSrc: string;
+  locale: AppLocale;
+}) {
+  const t = await getTranslations({ locale, namespace: "venomousSnakes" });
+  const giurzaHref = speciesHref("macrovipera-lebetina", locale);
 
   return (
     <section className="relative flex min-h-[70svh] items-center overflow-hidden bg-ink py-24">
