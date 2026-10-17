@@ -255,6 +255,7 @@ feature branch ──PR──▶ staging ──"Staging to main" PR──▶ mai
 - **Label every pull request** into `staging` with one of `enhancement`, `content`, `bug`, `documentation`, or `dependencies`. Changes to a page's text, links, or photos are always `content`, including corrections. Label `Staging to main` pull requests `skip-changelog`.
 - **Write the pull request title** as one plain sentence about the outcome, because it becomes the release note line.
 - **Releases** are `vMAJOR.MINOR.PATCH` tags on commits already live on `main`. Only the owner cuts them. Do not bump `package.json` or add a changelog. The playbook is [`docs/RELEASING.md`](docs/RELEASING.md).
+- **Pinned dependencies:** `vinext` carries a local patch and `@reptiles-ge/img-compression` is pinned to a commit. Dependabot skips both. Upgrade steps are in [`docs/DEPENDENCIES.md`](docs/DEPENDENCIES.md).
 
 ### Working on staging in a separate worktree
 

@@ -18,6 +18,8 @@ updates:
       - dependency-name: "@types/node"
         update-types:
           - version-update:semver-major
+      - dependency-name: vinext
+      - dependency-name: "@vinext/*"
     groups:
       nextjs:
         patterns:
@@ -55,8 +57,6 @@ updates:
           - major
       worker-build:
         patterns:
-          - vinext
-          - "@vinext/*"
           - "@cloudflare/*"
           - wrangler
           - vite
