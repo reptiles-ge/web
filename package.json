@@ -94,7 +94,7 @@
     "@sentry/nextjs": "^11.4.0",
     "@vinext/cloudflare": "1.0.1",
     "clsx": "^2.1.1",
-    "framer-motion": "^13.5.1",
+    "framer-motion": "^14.0.0",
     "fuse.js": "^7.5.0",
     "gray-matter": "^4.0.3",
     "leaflet": "^1.9.4",
