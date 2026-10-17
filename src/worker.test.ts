@@ -59,7 +59,10 @@ describe("Worker fetch", () => {
 
   it("answers 429 to a rating over the Workers rate limit before the app runs", async () => {
     const response = await worker.fetch(
-      new Request("https://reptiles.ge/api/rating", { method: "POST" }),
+      new Request("https://reptiles.ge/api/rating", {
+        headers: { origin: "https://reptiles.ge" },
+        method: "POST",
+      }),
       {
         RATING_VISITOR_LIMITER: {
           limit: vi.fn().mockResolvedValue({ success: false }),
