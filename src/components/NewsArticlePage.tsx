@@ -304,7 +304,7 @@ async function NewsArticleHeader({
   return (
     <header className={`${wrapClass} pt-[92px] md:pt-[136px]`}>
       <div className="md:mx-auto md:max-w-[920px] md:text-center">
-        <nav aria-label="Breadcrumb" className="sr-only">
+        <nav aria-label={tNav("breadcrumbAria")} className="sr-only">
           <ol>
             <li>
               <Link href="/">{tShared("breadcrumbHome")}</Link>

@@ -42,9 +42,9 @@ export async function AuthorPage({
   photos: CreditAuthorPhoto[];
   relatedNews: NewsArticle[];
 }) {
-  const [t, tProfile] = await Promise.all([
+  const [t, tNav] = await Promise.all([
     getTranslations({ locale, namespace: "author" }),
-    getTranslations({ locale, namespace: "profile" }),
+    getTranslations({ locale, namespace: "nav" }),
   ]);
   const name = creditAuthorName(author, locale);
   const bio = creditAuthorBio(author, locale);
@@ -56,7 +56,7 @@ export async function AuthorPage({
       <section className="pt-24 pb-12 sm:pt-28 lg:pt-32 lg:pb-[72px]">
         <div className="mx-auto max-w-[1440px] px-6 lg:px-[60px]">
           <nav
-            aria-label={tProfile("breadcrumbAria")}
+            aria-label={tNav("breadcrumbAria")}
             className="flex items-center gap-3"
           >
             <Link

@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import dynamic from "next/dynamic";
 import {
   type MouseEvent,
@@ -60,6 +61,7 @@ export function GeorgiaMap({
   tooltipSpeciesByRegion = EMPTY_TOOLTIP_SPECIES,
 }: GeorgiaMapProps) {
   const router = useRouter();
+  const t = useTranslations("map");
   const reactId = useId();
   const glowFilterId = `map-region-glow-${reactId.replace(/:/g, "")}`;
   const seaGradientId = `map-sea-${reactId.replace(/:/g, "")}`;
@@ -135,7 +137,7 @@ export function GeorgiaMap({
     <MotionLazy>
       <>
         <div
-          aria-label="Georgia"
+          aria-label={t("ariaLabel")}
           className={cn("relative mx-auto w-full max-w-[920px]", className)}
           onMouseMove={interactive ? updateTooltipFromEvent : undefined}
           ref={containerRef}

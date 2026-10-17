@@ -32,6 +32,7 @@ export function RegionsIndex({
 }) {
   const locale = useLocale() as AppLocale;
   const t = useTranslations("regions");
+  const tNav = useTranslations("nav");
 
   return (
     <div className="min-h-screen bg-background">
@@ -64,6 +65,7 @@ export function RegionsIndex({
                   },
                   { label: t("title") },
                 ]}
+                label={tNav("breadcrumbAria")}
               />
               <p className="text-[11px] font-medium tracking-[0.18em] text-white/45 uppercase">
                 {t("eyebrow")}
