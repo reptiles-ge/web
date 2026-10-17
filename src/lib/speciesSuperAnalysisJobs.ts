@@ -136,7 +136,7 @@ async function notifyResult(job: SuperAnalysisJob) {
     }
     await notifyAdminTelegram(
       job.status === "failed"
-        ? `❌ Super Analysis failed: ${name} (${job.currentStage ?? "startup"}; ${job.steps.length}/4 completed)\n${job.error?.slice(0, 1000) ?? "Unknown error"}`
+        ? `❌ Super Analysis failed: ${name} (${job.currentStage ?? "startup"}; ${job.steps.length}/4 completed)\nOpen the admin page for the error details.`
         : `✅ Super Analysis completed: ${name} (4/4)\n${job.pullRequestUrl ?? "No content changes; no PR created."}`,
     );
   } catch {
