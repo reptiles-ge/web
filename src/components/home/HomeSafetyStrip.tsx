@@ -14,7 +14,7 @@ export async function HomeSafetyStrip({ locale }: { locale: AppLocale }) {
         <div className="flex items-center gap-3">
           <a
             aria-label={t("call")}
-            className="flex h-10 shrink-0 items-center gap-2 rounded-full bg-[#c84739] pr-[15px] pl-3 text-[14px] font-semibold tracking-[0.02em] text-white transition-[filter] hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white lg:h-9 lg:text-[15px]"
+            className="tap-target flex h-10 shrink-0 items-center gap-2 rounded-full bg-[#c84739] pr-[15px] pl-3 text-[14px] font-semibold tracking-[0.02em] text-white transition-[filter] hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white lg:h-9 lg:text-[15px]"
             href="tel:112"
           >
             <Phone aria-hidden="true" className="size-[15px]" />
@@ -29,21 +29,21 @@ export async function HomeSafetyStrip({ locale }: { locale: AppLocale }) {
           className="no-scrollbar -mx-6 flex gap-5 overflow-x-auto px-6 text-[13px] font-medium text-white/80 lg:mx-0 lg:ml-auto lg:gap-6 lg:overflow-visible lg:px-0"
         >
           <Link
-            className="inline-flex min-h-10 shrink-0 items-center gap-1.5 hover:text-white"
+            className="inline-flex min-h-11 shrink-0 items-center gap-1.5 hover:text-white"
             href="/snakes/gvelis-nakbeni"
           >
             {t("snakeBite")}
             <ArrowUpRight aria-hidden="true" className="size-3.5" />
           </Link>
           <Link
-            className="inline-flex min-h-10 shrink-0 items-center gap-1.5 hover:text-white"
+            className="inline-flex min-h-11 shrink-0 items-center gap-1.5 hover:text-white"
             href="/scorpions/morielis-nakbeni"
           >
             {t("scorpionSting")}
             <ArrowUpRight aria-hidden="true" className="size-3.5" />
           </Link>
           <Link
-            className="inline-flex min-h-10 shrink-0 items-center gap-1.5 hover:text-white"
+            className="inline-flex min-h-11 shrink-0 items-center gap-1.5 hover:text-white"
             href="/dangerous-animals"
           >
             {t("safetyGuides")}

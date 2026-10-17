@@ -199,7 +199,7 @@ export async function Footer({
           </p>
           {biteGuide ? (
             <LocalizedLink
-              className="inline-flex h-10 shrink-0 items-center gap-1.5 px-3.5 text-[14px] font-medium text-white/86 transition-colors hover:text-white"
+              className="tap-target inline-flex h-10 shrink-0 items-center gap-1.5 px-3.5 text-[14px] font-medium text-white/86 transition-colors hover:text-white"
               href={biteGuide.pathname}
               locale={locale}
             >
@@ -208,7 +208,7 @@ export async function Footer({
             </LocalizedLink>
           ) : null}
           <a
-            className="inline-flex h-10 shrink-0 items-center rounded-full bg-[#b84336] px-[18px] text-[15px] font-bold text-white"
+            className="tap-target inline-flex h-10 shrink-0 items-center rounded-full bg-[#b84336] px-[18px] text-[15px] font-bold text-white"
             href="tel:112"
           >
             112
