@@ -131,7 +131,12 @@ export function AtlasBrowse({
 
         <div className="px-5 lg:px-0">
           {filtered.length > 0 ? (
-            <AtlasSpeciesGrid locale={locale} species={filtered} view={view} />
+            <AtlasSpeciesGrid
+              locale={locale}
+              regionLabels={regionLabels}
+              species={filtered}
+              view={view}
+            />
           ) : (
             <AtlasEmptyPanel group={filters.group} onReset={onResetFilters} />
           )}

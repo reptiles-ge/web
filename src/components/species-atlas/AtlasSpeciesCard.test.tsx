@@ -29,7 +29,9 @@ function species(id: string) {
 describe("AtlasSpeciesCard", () => {
   it("names the link by common name, scientific name and risk only", () => {
     const viper = species("macrovipera-lebetina");
-    renderWith(<AtlasSpeciesCard locale="ka" species={viper} />);
+    renderWith(
+      <AtlasSpeciesCard locale="ka" regionNames={[]} species={viper} />,
+    );
     expect(screen.getByRole("link")).toHaveAccessibleName(
       `${viper.commonName} ${viper.scientificName} ${ka.danger.High}`,
     );
@@ -41,7 +43,9 @@ describe("AtlasSpeciesCard", () => {
     );
     expect(bird).toBeDefined();
     if (!bird) return;
-    renderWith(<AtlasSpeciesCard locale="ka" species={bird} />);
+    renderWith(
+      <AtlasSpeciesCard locale="ka" regionNames={[]} species={bird} />,
+    );
     expect(screen.getByRole("link")).toHaveAccessibleName(
       `${bird.commonName} ${bird.scientificName}`,
     );
@@ -51,6 +55,7 @@ describe("AtlasSpeciesCard", () => {
     renderWith(
       <AtlasSpeciesCard
         locale="ka"
+        regionNames={[]}
         species={species("macrovipera-lebetina")}
       />,
     );
@@ -61,9 +66,33 @@ describe("AtlasSpeciesCard", () => {
 
   it("uses the same concise name in the list view", () => {
     const viper = species("macrovipera-lebetina");
-    renderWith(<AtlasSpeciesRow locale="ka" species={viper} />);
+    renderWith(
+      <AtlasSpeciesRow locale="ka" regionNames={[]} species={viper} />,
+    );
     expect(screen.getByRole("link")).toHaveAccessibleName(
       `${viper.commonName} ${viper.scientificName} ${ka.danger.High}`,
     );
+  });
+
+  it("lists the first two region names and counts the rest", () => {
+    renderWith(
+      <AtlasSpeciesRow
+        locale="ka"
+        regionNames={["კახეთი", "იმერეთი", "გურია"]}
+        species={species("macrovipera-lebetina")}
+      />,
+    );
+    expect(screen.getByText("კახეთი, იმერეთი +1")).toBeInTheDocument();
+  });
+
+  it("shows the pending range text when no region is listed", () => {
+    renderWith(
+      <AtlasSpeciesRow
+        locale="ka"
+        regionNames={[]}
+        species={species("macrovipera-lebetina")}
+      />,
+    );
+    expect(screen.getByText(ka.speciesAtlas.rangePending)).toBeInTheDocument();
   });
 });

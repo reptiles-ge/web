@@ -2,9 +2,9 @@
 
 import { ChevronDown } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
-import type { AtlasView } from "@/data/atlasFilters";
+import type { AtlasRegionLabel, AtlasView } from "@/data/atlasFilters";
 import type { SpeciesListItem } from "@/data/speciesListItem";
 import type { AppLocale } from "@/i18n/routing";
 
@@ -20,16 +20,24 @@ import { cn } from "@/lib/cn";
 
 type AtlasSpeciesGridProps = {
   locale: AppLocale;
+  regionLabels: AtlasRegionLabel[];
   species: SpeciesListItem[];
   view: AtlasView;
 };
 
 export function AtlasSpeciesGrid({
   locale,
+  regionLabels,
   species,
   view,
 }: AtlasSpeciesGridProps) {
   const t = useTranslations("speciesAtlas");
+  const labelById = useMemo(
+    () => new Map(regionLabels.map((region) => [region.id, region.label])),
+    [regionLabels],
+  );
+  const regionNames = (item: SpeciesListItem) =>
+    item.regionIds.map((id) => labelById.get(id) ?? id);
   const [visibleCount, setVisibleCount] = useState(() =>
     initialAtlasVisibleCount(species.length),
   );
@@ -56,7 +64,12 @@ export function AtlasSpeciesGrid({
       >
         {visible.map((item, index) => (
           <li key={item.id}>
-            <AtlasSpeciesCard index={index} locale={locale} species={item} />
+            <AtlasSpeciesCard
+              index={index}
+              locale={locale}
+              regionNames={regionNames(item)}
+              species={item}
+            />
           </li>
         ))}
       </ul>
@@ -78,7 +91,12 @@ export function AtlasSpeciesGrid({
           <ul>
             {visible.map((item, index) => (
               <li key={item.id}>
-                <AtlasSpeciesRow index={index} locale={locale} species={item} />
+                <AtlasSpeciesRow
+                  index={index}
+                  locale={locale}
+                  regionNames={regionNames(item)}
+                  species={item}
+                />
               </li>
             ))}
           </ul>
