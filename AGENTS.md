@@ -52,6 +52,7 @@ Do not add code comments. Do not invent UI copy in one locale only.
 | UI strings                     | `messages/ka.json` + `messages/en.json` (same keys)                                      |
 | Maintenance mode               | `src/lib/maintenance.ts`, wired in `src/worker.ts`                                       |
 | Releases, versions, tags       | `docs/RELEASING.md` (playbook), `.github/release.yml`                                    |
+| Pinned / patched deps          | `docs/DEPENDENCIES.md` (vinext patch, img-compression SHA)                               |
 
 ## Architecture
 

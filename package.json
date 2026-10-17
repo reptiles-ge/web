@@ -114,7 +114,7 @@
     "@lingual/i18n-check": "^0.9.5",
     "@next/bundle-analyzer": "16.3.8",
     "@playwright/test": "1.63.0",
-    "@reptiles-ge/img-compression": "github:reptiles-ge/img-compression#feat/og-images",
+    "@reptiles-ge/img-compression": "github:reptiles-ge/img-compression#97da0fd516ae26c42c398598376cd5c3e44c3a28",
     "@tailwindcss/postcss": "^4",
     "@testing-library/jest-dom": "^7.0.1",
     "@testing-library/react": "^16.3.3",
