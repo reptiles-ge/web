@@ -49698,7 +49698,7 @@
           "byteSize": 437436
         }
       ],
-      "updatedAt": "2026-10-16T07:51:50.610Z"
+      "updatedAt": "2026-10-17T07:46:33.735Z"
     },
     "images/news/armenia-power-line-bird-electrocution/figure-2.jpg": {
       "sourceHash": "7f49895c2860d812ad9ab10dda52fe76b3a72e5ade5d609f2fcab767b0fcfb18",
@@ -49793,7 +49793,7 @@
           "byteSize": 145070
         }
       ],
-      "updatedAt": "2026-10-16T07:51:50.309Z"
+      "updatedAt": "2026-10-17T07:46:34.739Z"
     },
     "images/news/armenia-power-line-bird-electrocution/figure-3.jpg": {
       "sourceHash": "7dcd1b8b54e4db8a29a0a62ae480038f7e85eef17604eac518d94c059781b77f",
@@ -49888,7 +49888,387 @@
           "byteSize": 56370
         }
       ],
-      "updatedAt": "2026-10-16T07:52:03.375Z"
+      "updatedAt": "2026-10-17T07:46:30.139Z"
+    },
+    "images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-forest.jpg": {
+      "sourceHash": "cdaea14369ed4cf94723dd86486bdb37a2487b0579a5ca9c14b65cc290a1b2dc",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-forest.jpg",
+      "originalSize": 966957,
+      "width": 1920,
+      "height": 1080,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-forest-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 11221
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-forest-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 16070
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-forest-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 17901
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-forest-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 25448
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-forest-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 45238
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-forest-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 64192
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-forest-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 75341
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-forest-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 103828
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-forest-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 169669
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-forest-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 238214
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-forest-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1080,
+          "byteSize": 418572
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-forest-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1080,
+          "byteSize": 599210
+        }
+      ],
+      "updatedAt": "2026-10-17T07:46:37.282Z"
+    },
+    "images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-waterfall.jpg": {
+      "sourceHash": "8f4600e743f05d4ebce326b5b397480fe6fab308b6b7bfe1692fde3319c2e2d9",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-waterfall.jpg",
+      "originalSize": 1238859,
+      "width": 1920,
+      "height": 1275,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-waterfall-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 212,
+          "byteSize": 16066
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-waterfall-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 212,
+          "byteSize": 24672
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-waterfall-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 265,
+          "byteSize": 24619
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-waterfall-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 265,
+          "byteSize": 38994
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-waterfall-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 425,
+          "byteSize": 59461
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-waterfall-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 425,
+          "byteSize": 92464
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-waterfall-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 531,
+          "byteSize": 93925
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-waterfall-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 531,
+          "byteSize": 146768
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-waterfall-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 797,
+          "byteSize": 207591
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-waterfall-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 797,
+          "byteSize": 321806
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-waterfall-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1275,
+          "byteSize": 517394
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-waterfall-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1275,
+          "byteSize": 782472
+        }
+      ],
+      "updatedAt": "2026-10-17T07:46:40.598Z"
+    },
+    "images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/paliastomi-lake.jpg": {
+      "sourceHash": "a5c05efad4829f6fd588d6ed679c3e3c3dc15c73ace88827d913688de8f8e95b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/paliastomi-lake.jpg",
+      "originalSize": 515175,
+      "width": 1920,
+      "height": 1080,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/paliastomi-lake-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 7271
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/paliastomi-lake-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 9494
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/paliastomi-lake-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 10838
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/paliastomi-lake-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 14580
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/paliastomi-lake-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 25720
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/paliastomi-lake-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 35932
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/paliastomi-lake-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 39192
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/paliastomi-lake-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 58776
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/paliastomi-lake-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 74686
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/paliastomi-lake-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 114482
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/paliastomi-lake-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1080,
+          "byteSize": 140994
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/paliastomi-lake-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1080,
+          "byteSize": 230144
+        }
+      ],
+      "updatedAt": "2026-10-17T07:46:42.734Z"
+    },
+    "images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/pichori-colchic-forest.jpg": {
+      "sourceHash": "9e494074518b28ebb458984150d1e7a033a22f646e8c73c8edd90b361c3a776d",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/pichori-colchic-forest.jpg",
+      "originalSize": 1870544,
+      "width": 1920,
+      "height": 1440,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/pichori-colchic-forest-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 20500
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/pichori-colchic-forest-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 32058
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/pichori-colchic-forest-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 33156
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/pichori-colchic-forest-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 52058
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/pichori-colchic-forest-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 86540
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/pichori-colchic-forest-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 135516
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/pichori-colchic-forest-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 143337
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/pichori-colchic-forest-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 220876
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/pichori-colchic-forest-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 333978
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/pichori-colchic-forest-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 503934
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/pichori-colchic-forest-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1440,
+          "byteSize": 824966
+        },
+        {
+          "key": "optimized/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/pichori-colchic-forest-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1440,
+          "byteSize": 1247006
+        }
+      ],
+      "updatedAt": "2026-10-17T07:46:48.405Z"
     },
     "images/news/leatherback-turtle-first-turkish-black-sea-records-2026/leatherback-turtle.png": {
       "sourceHash": "c071366949041880e2e8835244ffcfcf76188ef4f6f95a5559fa6c41ebdebce8",
@@ -49955,7 +50335,7 @@
           "byteSize": 61524
         }
       ],
-      "updatedAt": "2026-10-16T07:51:35.594Z"
+      "updatedAt": "2026-10-17T07:46:42.857Z"
     },
     "images/news/melanistic-eirenis-modestus-anatolia/figure-1.jpg": {
       "sourceHash": "b1a632812a8a9ebe5eadebb8158f1e94cfb0c6157f9336acc853d5f289a89003",
@@ -50050,7 +50430,7 @@
           "byteSize": 325026
         }
       ],
-      "updatedAt": "2026-10-16T07:51:44.150Z"
+      "updatedAt": "2026-10-17T07:46:51.694Z"
     },
     "images/news/melanistic-eirenis-modestus-anatolia/figure-2.jpg": {
       "sourceHash": "c8dbd794f68799168621b23a98f12dde88bd53980ec19c6903a0d1c4b2294621",
@@ -50145,7 +50525,7 @@
           "byteSize": 169858
         }
       ],
-      "updatedAt": "2026-10-16T07:51:48.866Z"
+      "updatedAt": "2026-10-17T07:46:52.668Z"
     },
     "images/news/melanistic-eirenis-modestus-anatolia/figure-3.jpg": {
       "sourceHash": "13c914b98a5d4d8c796389b3c804cc6ff1504cc408877cc5c7f86ad77fcba27c",
@@ -50240,7 +50620,7 @@
           "byteSize": 240074
         }
       ],
-      "updatedAt": "2026-10-16T07:52:05.384Z"
+      "updatedAt": "2026-10-17T07:46:52.064Z"
     },
     "images/news/theridion-huseynovi-new-spider-species-georgia-2026/theridion-huseynovi.png": {
       "sourceHash": "d4a1a13fbf943fc87f371418a57eca878129fcd41f735deb5bfbca43c80fe9f3",
@@ -50430,7 +50810,7 @@
           "byteSize": 645112
         }
       ],
-      "updatedAt": "2026-10-16T07:51:59.688Z"
+      "updatedAt": "2026-10-17T07:46:57.980Z"
     },
     "images/news/vipera-pontica-hybrid-georgia-2026/figure-2.jpg": {
       "sourceHash": "62f4c91ddee942d3d6b21b4defbe51198332352423ae0ffe9e31e432b0e966de",
@@ -50525,7 +50905,7 @@
           "byteSize": 559088
         }
       ],
-      "updatedAt": "2026-10-16T07:51:59.917Z"
+      "updatedAt": "2026-10-17T07:47:01.867Z"
     },
     "images/news/vipera-pontica-hybrid-georgia-2026/figure-3.jpg": {
       "sourceHash": "dd0f4b367d44de85997a0c0d23ac01cea456f9e52aad52829973567762d8dd83",
@@ -50620,7 +51000,7 @@
           "byteSize": 372058
         }
       ],
-      "updatedAt": "2026-10-16T07:52:08.392Z"
+      "updatedAt": "2026-10-17T07:47:03.225Z"
     },
     "images/news/vipera-pontica-hybrid-georgia-2026/figure-4.jpg": {
       "sourceHash": "58a64af0c4433dfb4f78b5849ba8c3caeeeadb38d0dc589f0363f85bdddbb317",
@@ -50715,7 +51095,7 @@
           "byteSize": 982360
         }
       ],
-      "updatedAt": "2026-10-16T07:52:10.428Z"
+      "updatedAt": "2026-10-17T07:47:07.140Z"
     },
     "images/species/accipiter-gentilis-afr-1.jpg": {
       "sourceHash": "c2bc814a7c781dce6160c9dd4ab87a47a001f462a14a81bd2edec861bc5aac5a",
