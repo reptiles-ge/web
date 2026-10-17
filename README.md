@@ -237,7 +237,7 @@ pnpm compile && pnpm knip && pnpm i18n:check && pnpm i18n:usage && pnpm cpd && p
 
 - `src/**/*.test.ts` runs in Node. Network calls are mocked with MSW (`tests/msw/server.ts`), and an unhandled request fails the test.
 - `src/**/*.test.tsx` runs in happy-dom with Testing Library.
-- When you add a test for a component, remove that component from `coverage.exclude` in `vitest.config.ts`.
+- Every component counts toward coverage, with its own lower floor for `src/components/**`. When you add a test for a file listed in `coverage.exclude`, remove it from that list (`src/lib/coverageConfig.test.ts` enforces this).
 - End-to-end tests (`pnpm test:e2e`) build the app and run Playwright against routes, search, and axe-core accessibility checks.
 
 A pre-commit hook runs `lint-staged`, which applies ESLint and Prettier to staged files.
