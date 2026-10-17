@@ -1,6 +1,6 @@
 import { defineConfig, devices } from "@playwright/test";
 
-const port = 3000;
+const port = 8787;
 const baseURL = `http://127.0.0.1:${port}`;
 
 export default defineConfig({
@@ -20,7 +20,7 @@ export default defineConfig({
     trace: "on-first-retry",
   },
   webServer: {
-    command: process.env.CI ? "pnpm start" : "pnpm build && pnpm start",
+    command: `${process.env.CI ? "" : "pnpm build:vinext && "}pnpm start:vinext --ip 127.0.0.1 --port ${port}`,
     reuseExistingServer: !process.env.CI || process.env.PW_REUSE_SERVER === "1",
     timeout: 180_000,
     url: baseURL,

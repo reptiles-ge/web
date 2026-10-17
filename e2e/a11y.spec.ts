@@ -51,10 +51,13 @@ test("header search overlay has no axe violations", async ({ page }) => {
   await page.keyboard.press("Control+K");
   const search = page.getByRole("combobox", { name: "ძებნა" });
   await expect(search).toBeVisible();
-  await search.fill("გიურზა");
-  await expect(
-    page.getByRole("option", { name: /გიურზა/ }).first(),
-  ).toBeVisible();
+  await expect(async () => {
+    await search.fill("");
+    await search.fill("გიურზა");
+    await expect(
+      page.getByRole("option", { name: /გიურზა/ }).first(),
+    ).toBeVisible({ timeout: 1_000 });
+  }).toPass();
   const results = await axeInclude(page, '[role="listbox"]');
   expect(results.violations).toEqual([]);
 });
