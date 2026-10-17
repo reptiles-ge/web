@@ -195,6 +195,13 @@ describe("photoRights", () => {
     expectLicensed(rights, "uncredited");
   });
 
+  it("leaves out the fallback notice on an uncredited open-licensed photo", () => {
+    const src = "https://cdn.reptiles.ge/falco-tinnunculus-paul-1.jpg";
+    const rights = photoRights(src, undefined, "en");
+    expect(rights.license).toBe(photoLicenses[src].license);
+    expect(rights).not.toHaveProperty("copyrightNotice");
+  });
+
   it("gives an uncredited photo a copyright notice in every locale", () => {
     for (const locale of routing.locales) {
       const rights = photoRights(

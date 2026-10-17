@@ -87,7 +87,7 @@ export function photoRights(
           copyrightNotice: `© ${creator.name}`,
         }
       : {}),
-    ...(!creator && !publicDomain
+    ...(!creator && !license
       ? { copyrightNotice: UNCREDITED_COPYRIGHT_NOTICE[locale] }
       : {}),
     ...(creator ? { creator, creditText: creator.name } : {}),
