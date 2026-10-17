@@ -121,7 +121,7 @@ function QuizPlayerSession({ pool, quizId, shareUrl }: QuizPlayerProps) {
   const [session, dispatch] = useReducer(quizReducer, initialSession);
   const { answers, complete, hintOpen, index, playing, questions, selectedId } =
     session;
-  useQuizDraft(quizId, dispatch, session);
+  useQuizDraft(quizId, byId, dispatch, session);
 
   const introCoverId =
     quizId === "lizard" ? "paralaudakia-caucasia" : "natrix-natrix";

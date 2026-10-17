@@ -90,6 +90,8 @@ export function toSnakeQuizSpecies(species: Species): SnakeQuizSpecies {
   };
 }
 
+const HABITAT_LABEL = /ჰაბიტატი|habitat|местообитание|yaşam alanı/i;
+
 function buildQuizHint(species: Species) {
   const all = species.identification?.traits ?? [];
   const preferredIndex = QUIZ_HINT_TRAIT_INDEX[species.id];
@@ -102,14 +104,14 @@ function buildQuizHint(species: Species) {
   const traits = all.filter(
     (trait) => trait.trim() && !spoilsAnswer(trait, species),
   );
-  const picked = (traits.length > 0 ? traits : all)
+  const picked = traits
     .slice(0, 1)
     .map((trait) => stripSpeciesInlineLinks(trait.trim()))
     .filter(Boolean);
   if (picked.length > 0) return picked.join(" ");
 
   const habitat = species.stats.find((stat) =>
-    /ჰაბიტატი|habitat/i.test(stat.label),
+    HABITAT_LABEL.test(stat.label),
   )?.value;
   if (habitat) return habitat;
   return species.location;

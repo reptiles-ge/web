@@ -2,7 +2,10 @@
 
 import { type Dispatch, useEffect, useRef, useState } from "react";
 
-import type { SnakeQuizQuestion } from "@/lib/snakeQuizEngine";
+import type {
+  SnakeQuizQuestion,
+  SnakeQuizSpecies,
+} from "@/lib/snakeQuizEngine";
 
 export type QuizDraft = {
   answers: Answered[];
@@ -23,8 +26,34 @@ export function draftKey(quizId: string) {
   return `reptiles.quiz.draft.${quizId}`;
 }
 
+export function isRestorableDraft(
+  draft: QuizDraft,
+  byId: Map<string, SnakeQuizSpecies>,
+) {
+  const { answers, index, questions, selectedId } = draft;
+  if (!Array.isArray(questions) || questions.length === 0) return false;
+  if (!Number.isInteger(index) || index < 0 || index >= questions.length) {
+    return false;
+  }
+  if (!Array.isArray(answers) || answers.length > questions.length) {
+    return false;
+  }
+  const valid = questions.every(
+    (question) =>
+      byId.has(question.correctId) &&
+      Array.isArray(question.optionIds) &&
+      question.optionIds.includes(question.correctId) &&
+      question.optionIds.every((id) => byId.has(id)),
+  );
+  return (
+    valid &&
+    (selectedId == null || questions[index].optionIds.includes(selectedId))
+  );
+}
+
 export function useQuizDraft(
   quizId: string,
+  byId: Map<string, SnakeQuizSpecies>,
   dispatch: Dispatch<RestoreAction>,
   session: {
     answers: Answered[];
@@ -37,22 +66,27 @@ export function useQuizDraft(
   },
 ) {
   const quizIdRef = useRef(quizId);
+  const byIdRef = useRef(byId);
   const [draftReady, setDraftReady] = useState(false);
   const { answers, complete, hintOpen, index, playing, questions, selectedId } =
     session;
 
   useEffect(() => {
     quizIdRef.current = quizId;
-  }, [quizId]);
+    byIdRef.current = byId;
+  }, [byId, quizId]);
 
   useEffect(() => {
     queueMicrotask(() => {
       try {
-        const raw = sessionStorage.getItem(draftKey(quizIdRef.current));
+        const key = draftKey(quizIdRef.current);
+        const raw = sessionStorage.getItem(key);
         if (raw) {
           const draft = JSON.parse(raw) as QuizDraft;
-          if (Array.isArray(draft.questions) && draft.questions.length > 0) {
+          if (isRestorableDraft(draft, byIdRef.current)) {
             dispatch({ draft, type: "restore" });
+          } else {
+            sessionStorage.removeItem(key);
           }
         }
       } catch {

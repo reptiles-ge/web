@@ -2,7 +2,11 @@ import { describe, expect, it } from "vitest";
 
 import { getCatalogSpecies, getSpeciesById } from "@/data/species";
 import { isDarevskiaSpecies } from "@/lib/clusterGuides";
-import { getLizardQuizCatalog, getSnakeQuizCatalog } from "@/lib/snakeQuiz";
+import {
+  getLizardQuizCatalog,
+  getSnakeQuizCatalog,
+  toSnakeQuizSpecies,
+} from "@/lib/snakeQuiz";
 import { generateLizardQuiz } from "@/lib/snakeQuizEngine";
 
 describe("quiz catalogs", () => {
@@ -40,4 +44,39 @@ describe("quiz catalogs", () => {
       }
     }
   });
+});
+
+describe("quiz hint", () => {
+  const base = getSpeciesById("natrix-natrix")!;
+  const species = (overrides: Partial<typeof base>) => ({
+    ...base,
+    id: "hint-test",
+    ...overrides,
+  });
+
+  it("skips to the habitat when every trait names the answer", () => {
+    const hint = toSnakeQuizSpecies(
+      species({
+        identification: {
+          ...base.identification!,
+          traits: [`${base.commonName} has yellow patches`],
+        },
+        stats: [{ label: "Местообитание", value: "Wet meadows" }],
+      }),
+    ).hint;
+    expect(hint).toBe("Wet meadows");
+  });
+
+  it.each(["ჰაბიტატი", "Habitat", "Местообитание", "Yaşam alanı"])(
+    "reads the %s habitat label",
+    (label) => {
+      const hint = toSnakeQuizSpecies(
+        species({
+          identification: { ...base.identification!, traits: [] },
+          stats: [{ label, value: "Riverbanks" }],
+        }),
+      ).hint;
+      expect(hint).toBe("Riverbanks");
+    },
+  );
 });
