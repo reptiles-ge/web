@@ -6,7 +6,6 @@ import { type ReactNode, useId, useState } from "react";
 import { Drawer } from "vaul";
 
 import type { SpeciesListItem } from "@/data/speciesListItem";
-import type { AppLocale } from "@/i18n/routing";
 
 import {
   GROUP_OPTIONS,
@@ -16,30 +15,30 @@ import { HabitatIcon } from "@/components/species-atlas/HabitatIcon";
 import { RiskSegment } from "@/components/species-atlas/RiskSegment";
 import {
   type AtlasFilters,
+  type AtlasRegionLabel,
   countAtlasSpecies,
   defaultAtlasFilters,
   filterAtlasSpecies,
 } from "@/data/atlasFilters";
-import { localizeRegionText, regions } from "@/data/mapRegions";
 import { type HabitatTag } from "@/data/speciesAtlasMeta";
 import { cn } from "@/lib/cn";
 
 type AtlasFilterSheetProps = {
   catalog: SpeciesListItem[];
   filters: AtlasFilters;
-  locale: AppLocale;
   onApply: (next: AtlasFilters) => void;
   onClose: () => void;
   open: boolean;
+  regionLabels: AtlasRegionLabel[];
 };
 
 export function AtlasFilterSheet({
   catalog,
   filters,
-  locale,
   onApply,
   onClose,
   open,
+  regionLabels,
 }: AtlasFilterSheetProps) {
   const t = useTranslations("speciesAtlas");
   const titleId = useId();
@@ -219,10 +218,7 @@ export function AtlasFilterSheet({
               >
                 {[
                   { id: "all", label: t("filters.allRegions") },
-                  ...regions.map((region) => ({
-                    id: region.id,
-                    label: localizeRegionText(region.name, locale),
-                  })),
+                  ...regionLabels,
                 ].map((option) => {
                   const active = draft.region === option.id;
                   return (

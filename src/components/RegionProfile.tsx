@@ -5,6 +5,10 @@ import { useLocale, useTranslations } from "next-intl";
 import { type ReactNode, useMemo, useState } from "react";
 
 import type { RegionPathId } from "@/data/georgia-paths";
+import type {
+  LocalizedRegionContent,
+  RegionRelatedLink,
+} from "@/data/regionContent";
 import type { RegionSpeciesCardItem } from "@/data/regions";
 import type { AppLocale } from "@/i18n/routing";
 
@@ -15,13 +19,10 @@ import { GeorgiaMap } from "@/components/map/GeorgiaMap";
 import { PhoneLinkedText } from "@/components/PhoneLinkedText";
 import { RegionSpeciesCard } from "@/components/RegionSpeciesCard";
 import {
-  getRegionById,
   type LocalizedText,
   localizeRegionText,
-  localizeRegionTextIfPresent,
   type Region,
 } from "@/data/mapRegions";
-import { getRegionContent } from "@/data/regionContent";
 import { getRegionHeroImage } from "@/data/regionImages";
 import { type AnimalGroup, getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import { Link } from "@/i18n/navigation";
@@ -30,13 +31,11 @@ import { cn } from "@/lib/cn";
 import { regionHref } from "@/lib/regionHref";
 import { REGION_SECTION_IDS } from "@/lib/toc";
 
-type RegionFaqItem = {
-  answer: string;
-  question: string;
-};
+type RegionFaqItem = LocalizedRegionContent["faq"][number];
 
 type RegionProfileProps = {
   attribution?: ReactNode;
+  content: LocalizedRegionContent;
   editable: boolean;
   region: Region;
   species: RegionSpeciesCardItem[];
@@ -60,6 +59,7 @@ const REGION_SPECIES_GROUPS = [
 
 export function RegionProfile({
   attribution,
+  content,
   editable,
   region,
   species,
@@ -67,20 +67,9 @@ export function RegionProfile({
   venomous,
 }: RegionProfileProps) {
   const locale = useLocale() as AppLocale;
-  const content = getRegionContent(region.id);
   const name = localizeRegionText(region.name, locale);
   const nameIn = localizeRegionText(region.nameIn, locale);
-  const overview = localizeRegionTextIfPresent(content.overview, locale);
-  const biome = localizeRegionTextIfPresent(content.biome, locale);
-  const related = content.relatedIds
-    .map((id) => getRegionById(id))
-    .filter((item): item is Region => Boolean(item));
-  const faq = content.faq.flatMap((item) => {
-    const question = localizeRegionTextIfPresent(item.question, locale);
-    const answer = localizeRegionTextIfPresent(item.answer, locale);
-    if (!question || !answer) return [];
-    return [{ answer, question }];
-  });
+  const { biome, faq, overview, related } = content;
 
   return (
     <div className="min-h-screen bg-background">
@@ -227,7 +216,7 @@ function RegionProfileHabitats({
 }: {
   description: LocalizedText;
   editable: boolean;
-  habitats: LocalizedText[];
+  habitats: string[];
   regionId: string;
 }) {
   const locale = useLocale() as AppLocale;
@@ -261,7 +250,7 @@ function RegionProfileHabitats({
             {habitats.map((habitat, index) => (
               <li
                 className="flex items-baseline justify-between gap-6 py-5"
-                key={habitat.ka}
+                key={habitat}
               >
                 <span
                   className="font-display text-[18px] font-medium text-foreground sm:text-[20px]"
@@ -271,7 +260,7 @@ function RegionProfileHabitats({
                   data-content-id={editable ? regionId : undefined}
                   data-content-kind={editable ? "region" : undefined}
                 >
-                  {localizeRegionText(habitat, locale)}
+                  {habitat}
                 </span>
                 <span className="text-[11px] tracking-[0.18em] text-muted-foreground">
                   {String(index + 1).padStart(2, "0")}
@@ -423,8 +412,7 @@ function RegionProfileRange({
   );
 }
 
-function RegionProfileRelated({ related }: { related: Region[] }) {
-  const locale = useLocale() as AppLocale;
+function RegionProfileRelated({ related }: { related: RegionRelatedLink[] }) {
   const t = useTranslations("regions");
 
   return (
@@ -442,7 +430,6 @@ function RegionProfileRelated({ related }: { related: Region[] }) {
         </AnchoredHeading>
         <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {related.map((item) => {
-            const relatedContent = getRegionContent(item.id);
             return (
               <li key={item.id}>
                 <Link
@@ -451,16 +438,16 @@ function RegionProfileRelated({ related }: { related: Region[] }) {
                 >
                   <div className="flex min-h-[3.4rem] items-start justify-between gap-3">
                     <h3 className="font-display text-[22px] leading-tight font-semibold text-foreground transition-colors group-hover:text-primary">
-                      {localizeRegionText(item.name, locale)}
+                      {item.name}
                     </h3>
                     <ArrowUpRight className="mt-1 size-4 shrink-0 text-muted-foreground/40 transition-[color,translate] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary" />
                   </div>
                   <p className="mt-2 text-[11px] tracking-[0.18em] text-muted-foreground uppercase">
-                    {localizeRegionTextIfPresent(relatedContent.biome, locale)}
+                    {item.biome}
                   </p>
                   <p className="mt-3 text-[13px] text-muted-foreground">
                     {t("speciesCount", {
-                      count: item.speciesIds.length,
+                      count: item.speciesCount,
                     })}
                   </p>
                 </Link>

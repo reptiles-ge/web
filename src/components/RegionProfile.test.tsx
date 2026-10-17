@@ -4,6 +4,7 @@ import { describe, expect, it, vi } from "vitest";
 
 import { RegionProfile } from "@/components/RegionProfile";
 import { RegionSpeciesCard } from "@/components/RegionSpeciesCard";
+import { getLocalizedRegionContent } from "@/data/regionContent";
 import {
   getRegionById,
   getRegionSpecies,
@@ -43,6 +44,7 @@ const species = getRegionSpecies(region).map((item) =>
 );
 const venomous = species.filter(isRegionCardVenomous);
 const summary = ["First summary paragraph.", "Second summary paragraph."];
+const content = getLocalizedRegionContent("kakheti", "en");
 
 function renderWithMessages(node: React.ReactNode) {
   return render(
@@ -56,6 +58,7 @@ describe("RegionProfile outline", () => {
   it("keeps species names out of the heading outline", () => {
     const { container } = renderWithMessages(
       <RegionProfile
+        content={content}
         editable={false}
         region={region}
         species={species}
@@ -78,6 +81,7 @@ describe("RegionProfile outline", () => {
   it("renders the summary under its own heading", () => {
     renderWithMessages(
       <RegionProfile
+        content={content}
         editable={false}
         region={region}
         species={species}

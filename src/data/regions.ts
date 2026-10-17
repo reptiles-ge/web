@@ -58,6 +58,13 @@ export function getCatalogRegionStats() {
   };
 }
 
+export function getRegionLabels(locale: AppLocale) {
+  return regions.map((region) => ({
+    id: region.id,
+    label: localizeRegionText(region.name, locale),
+  }));
+}
+
 export function getRegionSpecies(region: Region): Species[] {
   return region.speciesIds
     .map((id) => getSpeciesById(id))
