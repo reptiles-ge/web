@@ -2,11 +2,17 @@
 
 import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
+import dynamic from "next/dynamic";
+import { useEffect, useRef, useState } from "react";
 
 import type { RegionTooltipSpecies } from "@/data/mapRegions";
 
-import { GeorgiaMap } from "@/components/map/GeorgiaMap";
 import { Link } from "@/i18n/navigation";
+
+const GeorgiaMap = dynamic(
+  () => import("@/components/map/GeorgiaMap").then((mod) => mod.GeorgiaMap),
+  { loading: MapPlaceholder, ssr: false },
+);
 
 export function AtlasMap({
   tooltipSpeciesByRegion,
@@ -38,12 +44,7 @@ export function AtlasMap({
             </Link>
           </div>
           <div className="mt-3.5 lg:mt-0">
-            <GeorgiaMap
-              mapContext="atlas"
-              selectionMode="navigate"
-              showBackground={false}
-              tooltipSpeciesByRegion={tooltipSpeciesByRegion}
-            />
+            <DeferredAtlasMap tooltipSpeciesByRegion={tooltipSpeciesByRegion} />
           </div>
           <Link
             className="mt-3.5 flex h-[50px] items-center justify-center gap-2 rounded-full bg-primary text-[15px] font-medium text-white lg:hidden dark:text-ink"
@@ -55,5 +56,57 @@ export function AtlasMap({
         </div>
       </div>
     </section>
+  );
+}
+
+function DeferredAtlasMap({
+  tooltipSpeciesByRegion,
+}: {
+  tooltipSpeciesByRegion: Record<string, RegionTooltipSpecies[]>;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [near, setNear] = useState(false);
+
+  useEffect(() => {
+    const element = ref.current;
+    if (near || !element || typeof IntersectionObserver === "undefined") {
+      return;
+    }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (!entries.some((entry) => entry.isIntersecting)) return;
+        setNear(true);
+        observer.disconnect();
+      },
+      { rootMargin: "600px" },
+    );
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, [near]);
+
+  if (near) {
+    return (
+      <GeorgiaMap
+        mapContext="atlas"
+        selectionMode="navigate"
+        showBackground={false}
+        tooltipSpeciesByRegion={tooltipSpeciesByRegion}
+      />
+    );
+  }
+
+  return (
+    <div ref={ref}>
+      <MapPlaceholder />
+    </div>
+  );
+}
+
+function MapPlaceholder() {
+  return (
+    <div
+      aria-hidden="true"
+      className="mx-auto aspect-1000/510 w-full max-w-[920px]"
+    />
   );
 }

@@ -1,6 +1,5 @@
 import type { SpeciesListItem } from "@/data/speciesListItem";
 
-import { getRegionsForSpecies } from "@/data/mapRegions";
 import {
   type AnimalGroup,
   getSpeciesAtlasMeta,
@@ -68,10 +67,7 @@ export function filterAtlasSpecies(
     }
 
     if (filters.region !== "all") {
-      const inRegion = getRegionsForSpecies(item.id).some(
-        (region) => region.id === filters.region,
-      );
-      if (!inRegion) return false;
+      if (!item.regionIds.includes(filters.region)) return false;
     }
 
     if (q && !item.searchText.includes(q)) {
@@ -129,8 +125,8 @@ export function sortAtlasSpecies(
     case "range":
       indexed.sort(
         (a, b) =>
-          getRegionsForSpecies(b.item.id).length -
-            getRegionsForSpecies(a.item.id).length || a.index - b.index,
+          b.item.regionIds.length - a.item.regionIds.length ||
+          a.index - b.index,
       );
       break;
   }

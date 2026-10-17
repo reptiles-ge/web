@@ -19,7 +19,6 @@ import {
   DANGER_OPTIONS,
   GROUP_OPTIONS,
   HABITAT_OPTIONS,
-  REGION_OPTIONS,
 } from "@/components/species-atlas/atlasOptions";
 import { AtlasRecent } from "@/components/species-atlas/AtlasRecent";
 import { AtlasTiles } from "@/components/species-atlas/AtlasTiles";
@@ -73,12 +72,15 @@ export function SpeciesAtlas(props: AtlasData) {
       defaultAtlasFilters.habitat,
     ),
   );
-  const [region, setRegion] = useQueryState(
-    "region",
-    parseAsStringEnum([...REGION_OPTIONS]).withDefault(
-      defaultAtlasFilters.region,
-    ),
+  const regionParser = useMemo(
+    () =>
+      parseAsStringEnum([
+        defaultAtlasFilters.region,
+        ...props.regionLabels.map((label) => label.id),
+      ]).withDefault(defaultAtlasFilters.region),
+    [props.regionLabels],
   );
+  const [region, setRegion] = useQueryState("region", regionParser);
   const [query, setQuery] = useQueryState(
     "q",
     parseAsString.withDefault(defaultAtlasFilters.query),
