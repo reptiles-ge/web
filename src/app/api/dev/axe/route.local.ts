@@ -58,7 +58,7 @@ export async function POST(request: Request) {
     );
     const shown = violation.nodes.slice(0, 4);
     for (const node of shown) {
-      console.warn(`    ${clean(node.target)}\n    ${clip(node.summary, 120)}`);
+      console.warn(`    ${clean(node.target)} | ${clip(node.summary, 120)}`);
     }
     if (violation.nodes.length > shown.length) {
       console.warn(`    … +${violation.nodes.length - shown.length} more`);
