@@ -18,6 +18,13 @@ import {
 
 const PUBLIC_DOMAIN_PREFIX = "https://creativecommons.org/publicdomain/";
 
+const UNCREDITED_COPYRIGHT_NOTICE: Record<AppLocale, string> = {
+  en: "© The photo's author. All rights reserved.",
+  ka: "© ფოტოს ავტორი. ყველა უფლება დაცულია.",
+  ru: "© Автор фотографии. Все права защищены.",
+  tr: "© Fotoğrafın sahibi. Tüm hakları saklıdır.",
+};
+
 export type PhotoRightsCategory =
   "contributor" | "open" | "permission" | "unknown";
 
@@ -79,6 +86,9 @@ export function photoRights(
           copyrightHolder: creator,
           copyrightNotice: `© ${creator.name}`,
         }
+      : {}),
+    ...(!creator && !publicDomain
+      ? { copyrightNotice: UNCREDITED_COPYRIGHT_NOTICE[locale] }
       : {}),
     ...(creator ? { creator, creditText: creator.name } : {}),
     license: license ?? photoUsePageUrl(locale),
