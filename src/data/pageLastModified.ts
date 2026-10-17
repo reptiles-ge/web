@@ -26,7 +26,7 @@ const SITEMAP_PATH_LAST_MODIFIED: Partial<Record<string, string>> = {
   "/scorpions/morielis-nakbeni": "2026-09-25T15:48:18+04:00",
   "/snakes": "2026-10-10T02:05:00+04:00",
   "/snakes-in-the-yard": "2026-10-02T12:30:00+04:00",
-  "/snakes/giurzas-nakbeni": "2026-10-14T11:45:00+04:00",
+  "/snakes/giurzas-nakbeni": "2026-10-17T12:00:00+04:00",
   "/snakes/gvelis-nakbeni": "2026-10-14T11:45:00+04:00",
   "/snakes/shxamiani-gvelis-amocnoba": "2026-09-19T12:17:05+04:00",
   "/species": "2026-10-10T12:01:00+04:00",
