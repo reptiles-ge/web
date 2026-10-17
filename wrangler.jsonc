@@ -31,6 +31,18 @@
   "vars": {
     "MAINTENANCE_MODE": "off",
   },
+  "ratelimits": [
+    {
+      "name": "RATING_VISITOR_LIMITER",
+      "namespace_id": "1230",
+      "simple": { "limit": 3, "period": 60 },
+    },
+    {
+      "name": "RATING_GLOBAL_LIMITER",
+      "namespace_id": "1231",
+      "simple": { "limit": 30, "period": 60 },
+    },
+  ],
   "services": [
     {
       "binding": "RESPONSE_STORE",
