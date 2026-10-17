@@ -44,6 +44,9 @@ let worktree: string;
 const id = "test-species";
 const original =
   '---\nid: test-species\ncommonName: Test\nscientificName: Test species\nfamily: Testidae\ngenus: Test\noverview: "A bird is 20 cm."\nsources:\n  - name: Original\n    url: https://example.org/paper\n---\n';
+const translated =
+  '---\nid: test-species\ncommonName: Test\nscientificName: Test species\noverview: "A bird is 20 cm."\n---\n';
+const fixture = (locale: string) => (locale === "ka" ? original : translated);
 const values = (text: string) => ({ en: text, ka: text, ru: text, tr: text });
 
 beforeEach(async () => {
@@ -57,7 +60,7 @@ beforeEach(async () => {
   for (const locale of ANALYSIS_LOCALES)
     await fs.writeFile(
       path.join(worktree, `src/content/species/${id}/${locale}.mdx`),
-      original,
+      fixture(locale),
     );
   await fs.writeFile(
     path.join(worktree, "src/lib/speciesRoutes.ts"),
@@ -241,7 +244,7 @@ describe("four-stage Super Analysis runner", () => {
       for (const locale of ANALYSIS_LOCALES)
         expect(
           (await readSpeciesAnalysisContent(id, worktree))[locale].raw,
-        ).toBe(original);
+        ).toBe(fixture(locale));
     },
   );
 
@@ -256,7 +259,7 @@ describe("four-stage Super Analysis runner", () => {
     expect(runAgent).toHaveBeenCalledTimes(2);
     for (const locale of ANALYSIS_LOCALES)
       expect((await readSpeciesAnalysisContent(id, worktree))[locale].raw).toBe(
-        original,
+        fixture(locale),
       );
     await expect(run("lookalikes")).rejects.toThrow("order");
   });
@@ -298,19 +301,20 @@ describe("four-stage Super Analysis runner", () => {
     expect(runAgent).toHaveBeenCalledTimes(1);
     for (const locale of ANALYSIS_LOCALES)
       expect((await readSpeciesAnalysisContent(id, worktree))[locale].raw).toBe(
-        original,
+        fixture(locale),
       );
   });
 
   it("keeps a valid link edit whose evidence ids are unknown", async () => {
-    const initial = original.replace(
-      'overview: "A bird is 20 cm."',
-      'overview: "Like Other species, a bird is 20 cm."',
-    );
+    const initial = (locale: string) =>
+      fixture(locale).replace(
+        'overview: "A bird is 20 cm."',
+        'overview: "Like Other species, a bird is 20 cm."',
+      );
     for (const locale of ANALYSIS_LOCALES)
       await fs.writeFile(
         path.join(worktree, `src/content/species/${id}/${locale}.mdx`),
-        initial,
+        initial(locale),
       );
     let calls = 0;
     mockAgent(async ({ output }) => {
@@ -466,14 +470,15 @@ describe("four-stage Super Analysis runner", () => {
   it.each([true, false])(
     "repairs scientific-name loss or preserves the original field (%s)",
     async (repairSucceeds) => {
-      const initial = original.replace(
-        "overview:",
-        'description: "Test species is a bird."\noverview:',
-      );
+      const initial = (locale: string) =>
+        fixture(locale).replace(
+          "overview:",
+          'description: "Test species is a bird."\noverview:',
+        );
       for (const locale of ANALYSIS_LOCALES)
         await fs.writeFile(
           path.join(worktree, `src/content/species/${id}/${locale}.mdx`),
-          initial,
+          initial(locale),
         );
       let calls = 0;
       mockAgent(async ({ output, prompt }) => {
@@ -536,14 +541,15 @@ describe("four-stage Super Analysis runner", () => {
   it.each([true, false])(
     "repairs changed numbers or preserves every affected field (%s)",
     async (repairSucceeds) => {
-      const initial = original.replace(
-        "overview:",
-        'habitat: "Recorded at two sites."\ndiet: "Eats insects."\noverview:',
-      );
+      const initial = (locale: string) =>
+        fixture(locale).replace(
+          "overview:",
+          'habitat: "Recorded at two sites."\ndiet: "Eats insects."\noverview:',
+        );
       for (const locale of ANALYSIS_LOCALES)
         await fs.writeFile(
           path.join(worktree, `src/content/species/${id}/${locale}.mdx`),
-          initial,
+          initial(locale),
         );
       let calls = 0;
       mockAgent(async ({ output, prompt }) => {

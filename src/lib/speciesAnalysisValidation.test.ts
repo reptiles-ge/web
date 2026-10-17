@@ -588,7 +588,8 @@ describe("deterministic mutations", () => {
   });
 
   it("does not append an empty MDX body or accumulate EOF blank lines", () => {
-    const emptyBody = raw.slice(0, raw.indexOf("Keep the MDX body."));
+    const emptyBody =
+      '---\nid: test-species\ncommonName: Test\nscientificName: Test species\noverview: "Before"\n---\n';
     const value = result("texts");
     value.edits = [edit("Before", "After")];
     const updated = applyAnalysisEdits(emptyBody, "en", value);
