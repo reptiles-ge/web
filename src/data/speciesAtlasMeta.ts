@@ -567,10 +567,6 @@ export const speciesAtlasMeta: Record<string, SpeciesAtlasMeta> = {
     group: "mammal",
     habitats: ["forest", "mountain", "grassland"],
   },
-  "vipera-ammodytes": {
-    group: "snake",
-    habitats: ["mountain", "grassland"],
-  },
   "vipera-darevskii": {
     group: "snake",
     habitats: ["mountain", "grassland"],

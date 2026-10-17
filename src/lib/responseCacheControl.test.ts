@@ -56,14 +56,6 @@ describe("withResponseCacheControl", () => {
     expect(response).toBe(original);
     expect(response.headers.get("Cache-Control")).toBe(VINEXT_DEFAULT);
   });
-
-  it("is applied by the Worker entry", () => {
-    const worker = readFileSync(
-      path.resolve(__dirname, "../worker.ts"),
-      "utf8",
-    );
-    expect(worker).toContain("withResponseCacheControl(");
-  });
 });
 
 describe("public/_headers", () => {

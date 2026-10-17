@@ -1,6 +1,7 @@
 import type { SpeciesListItem } from "@/data/speciesListItem";
 import type { Species } from "@/data/speciesTypes";
 
+import { getRegionsForSpecies } from "@/data/regions";
 import { getCatalogSpecies } from "@/data/species";
 import { getRecentlyUpdatedSpecies } from "@/data/speciesAtlas";
 import { localizeSpecies } from "@/i18n/localizeSpecies";
@@ -38,6 +39,7 @@ function toAtlasListItem(item: Species, locale: AppLocale): SpeciesListItem {
     id: item.id,
     image: item.image,
     location: localized.location,
+    regionIds: getRegionsForSpecies(item.id).map((region) => region.id),
     scientificName: item.scientificName,
     searchText: atlasSearchText(item),
     updatedAt: item.updatedAt,

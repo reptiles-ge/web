@@ -10,6 +10,7 @@ export type SpeciesListItem = {
   image: string;
   location: string;
   mobileImage?: string;
+  regionIds: string[];
   scientificName: string;
   searchText: string;
   updatedAt: string;

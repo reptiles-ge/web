@@ -19,12 +19,12 @@ import {
   DANGER_OPTIONS,
   GROUP_OPTIONS,
   HABITAT_OPTIONS,
-  REGION_OPTIONS,
 } from "@/components/species-atlas/atlasOptions";
 import { AtlasRecent } from "@/components/species-atlas/AtlasRecent";
 import { AtlasTiles } from "@/components/species-atlas/AtlasTiles";
 import {
   type AtlasFilters,
+  type AtlasRegionLabel,
   type AtlasSort,
   type AtlasView,
   countAtlasFacets,
@@ -43,6 +43,7 @@ type AtlasData = {
   catalog: SpeciesListItem[];
   recent: SpeciesListItem[];
   regionCount: number;
+  regionLabels: AtlasRegionLabel[];
   tooltipSpeciesByRegion: Record<string, RegionTooltipSpecies[]>;
   venomousImage: string;
 };
@@ -71,12 +72,15 @@ export function SpeciesAtlas(props: AtlasData) {
       defaultAtlasFilters.habitat,
     ),
   );
-  const [region, setRegion] = useQueryState(
-    "region",
-    parseAsStringEnum([...REGION_OPTIONS]).withDefault(
-      defaultAtlasFilters.region,
-    ),
+  const regionParser = useMemo(
+    () =>
+      parseAsStringEnum([
+        defaultAtlasFilters.region,
+        ...props.regionLabels.map((label) => label.id),
+      ]).withDefault(defaultAtlasFilters.region),
+    [props.regionLabels],
   );
+  const [region, setRegion] = useQueryState("region", regionParser);
   const [query, setQuery] = useQueryState(
     "q",
     parseAsString.withDefault(defaultAtlasFilters.query),
@@ -216,6 +220,7 @@ function SpeciesAtlasView({
   filters,
   recent,
   regionCount,
+  regionLabels,
   resetFilters,
   tooltipSpeciesByRegion,
   updateFilter,
@@ -360,6 +365,7 @@ function SpeciesAtlasView({
         onRegionMenuChange={setRegionMenuOpen}
         onResetFilters={resetFilters}
         onUpdateFilter={updateFilter}
+        regionLabels={regionLabels}
         regionMenuOpen={regionMenuOpen}
         sort={sort}
         view={view}

@@ -74,7 +74,7 @@ describe("Super Analysis jobs", () => {
     await vi.waitFor(() =>
       expect(notifyAdminTelegram).toHaveBeenCalledWith(
         expect.stringContaining(
-          "lookalikes; 1/4 completed)\nUnverified evidence",
+          "lookalikes; 1/4 completed)\nOpen the admin page for the error details.",
         ),
       ),
     );
@@ -89,12 +89,15 @@ describe("Super Analysis jobs", () => {
     await vi.waitFor(() =>
       expect(notifyAdminTelegram).toHaveBeenCalledWith(
         expect.stringContaining(
-          `Super Analysis failed: ${id} (startup; 0/4 completed)\nCodex unavailable`,
+          `Super Analysis failed: ${id} (startup; 0/4 completed)\nOpen the admin page for the error details.`,
         ),
       ),
     );
     expect(job.status).toBe("failed");
     expect(job.error).toBe("Codex unavailable");
+    expect(notifyAdminTelegram).not.toHaveBeenCalledWith(
+      expect.stringContaining("Codex unavailable"),
+    );
   });
 
   it("reloads a persisted job and reports a non-error failure", async () => {

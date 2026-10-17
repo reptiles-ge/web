@@ -38,7 +38,7 @@ export async function POST(request: Request) {
     );
   }
 
-  const path = body.path ?? "/";
+  const path = clean(body.path ?? "/");
 
   if (body.event === "active") {
     console.info(`[axe-core] WCAG 2.2 AA scanning  ${path}`);
@@ -52,11 +52,13 @@ export async function POST(request: Request) {
 
   console.warn(`[axe-core] ${violations.length} rules  ${path}`);
   for (const violation of violations) {
-    const impact = violation.impact ?? "unknown";
-    console.warn(`  [${impact}] ${violation.id} ×${violation.nodes.length}`);
+    const impact = clean(violation.impact ?? "unknown");
+    console.warn(
+      `  [${impact}] ${clean(violation.id)} ×${clean(violation.nodes.length)}`,
+    );
     const shown = violation.nodes.slice(0, 4);
     for (const node of shown) {
-      console.warn(`    ${node.target}\n    ${clip(node.summary, 120)}`);
+      console.warn(`    ${clean(node.target)} | ${clip(node.summary, 120)}`);
     }
     if (violation.nodes.length > shown.length) {
       console.warn(`    … +${violation.nodes.length - shown.length} more`);
@@ -66,8 +68,12 @@ export async function POST(request: Request) {
   return new Response(null, { headers: noindex, status: 204 });
 }
 
+function clean(value: unknown) {
+  return String(value).replace(/[\u0000-\u001f\u007f]/g, "");
+}
+
 function clip(value: string, max = 160) {
-  const compact = value.replace(/\s+/g, " ").trim();
+  const compact = clean(value.replace(/\s+/g, " ")).trim();
   if (compact.length <= max) return compact;
   return `${compact.slice(0, max)}…`;
 }

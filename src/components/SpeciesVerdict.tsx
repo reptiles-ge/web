@@ -82,7 +82,7 @@ export async function SpeciesVerdict({
                 value: tDanger(level),
               })}
               className={cn(
-                "inline-flex min-h-7 items-center gap-1 text-[12.5px] font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary",
+                "tap-target inline-flex min-h-7 items-center gap-1 text-[12.5px] font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary",
                 tone.label,
               )}
               href={dangerPageHref(level)}
@@ -108,7 +108,7 @@ export async function SpeciesVerdict({
           {urgent ? (
             <a
               aria-label={tSafety("call")}
-              className="mt-3 inline-flex min-h-10 items-center gap-2 self-start rounded-full border border-destructive/25 px-3.5 text-[13px] font-semibold text-destructive focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-destructive lg:hidden"
+              className="tap-target mt-3 inline-flex min-h-10 items-center gap-2 self-start rounded-full border border-destructive/25 px-3.5 text-[13px] font-semibold text-destructive focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-destructive lg:hidden"
               href="tel:112"
             >
               <Phone aria-hidden="true" className="size-3.5" />

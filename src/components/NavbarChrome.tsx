@@ -172,7 +172,7 @@ export function NavbarChrome({
 
 function navItemClass(solid: boolean, active: boolean) {
   return cn(
-    "inline-flex h-10 items-center gap-1.5 rounded-full px-3 text-[14px] font-medium tracking-[0.01em] whitespace-nowrap transition-colors duration-200 xl:px-3.5",
+    "tap-target inline-flex h-10 items-center gap-1.5 rounded-full px-3 text-[14px] font-medium tracking-[0.01em] whitespace-nowrap transition-colors duration-200 xl:px-3.5",
     solid
       ? active
         ? "bg-card text-foreground"

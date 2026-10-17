@@ -40,6 +40,13 @@ describe("species slug rules", () => {
     expect(maps.idByAnySlug["tsqlis-ankara"]).toBe("natrix-tessellata");
   });
 
+  it("keeps every alias URL-safe ASCII", () => {
+    const { idByAnySlug } = buildSpeciesSlugMaps([]);
+    expect(idByAnySlug["yalanci-karakurt"]).toBe("steatoda-paykulliana");
+    for (const slug of Object.keys(idByAnySlug))
+      expect(slug, slug).toMatch(/^[a-z0-9-]+$/);
+  });
+
   it("does not collide with reserved hub slugs", () => {
     const maps = buildSpeciesSlugMaps([
       {

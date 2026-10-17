@@ -28,7 +28,7 @@ test("giurza profile is indexable with Taxon JSON-LD", async ({ page }) => {
   const article = nodes.find((block) => block["@type"] === "Article");
   expect(article).toBeTruthy();
   const author = article?.author as Record<string, unknown>;
-  expect(author["@type"]).toBe("Organization");
+  expect(String(author["@id"])).toMatch(/#organization$/);
   expect(JSON.stringify(author)).not.toContain("Person");
   expect(article).not.toHaveProperty("reviewedBy");
   expect(typeof article?.datePublished).toBe("string");
@@ -113,10 +113,7 @@ test("vipera-ammodytes 301s to vipera-transcaucasiana", async ({ request }) => {
 test("filtered atlas is noindex", async ({ page }) => {
   const response = await page.goto("/species?type=snake");
   expect(response?.status()).toBe(200);
-  const robots = await page
-    .locator('meta[name="robots"]')
-    .getAttribute("content");
-  expect(robots ?? "").toMatch(/noindex/i);
+  expect(response?.headers()["x-robots-tag"] ?? "").toMatch(/noindex/i);
 });
 
 test("quiz landing is indexable and play stays on the same URL", async ({
@@ -253,8 +250,7 @@ test("Close to wildlife contributor page is indexable", async ({ page }) => {
   const jsonLd = await page
     .locator('script[type="application/ld+json"]')
     .allTextContents();
-  expect(jsonLd.some((block) => block.includes('"ProfilePage"'))).toBe(true);
-  expect(jsonLd.some((block) => block.includes('"Person"'))).toBe(true);
+  expect(jsonLd.some((block) => block.includes('"CollectionPage"'))).toBe(true);
 });
 
 test("contributor index is indexable and lists published authors", async ({

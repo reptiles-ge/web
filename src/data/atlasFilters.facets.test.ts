@@ -6,6 +6,7 @@ import {
   countAtlasFacets,
   defaultAtlasFilters,
   filterAtlasSpecies,
+  sortAtlasSpecies,
 } from "@/data/atlasFilters";
 
 function item(id: string, overrides: Partial<SpeciesListItem> = {}) {
@@ -17,6 +18,7 @@ function item(id: string, overrides: Partial<SpeciesListItem> = {}) {
     id,
     image: "",
     location: "",
+    regionIds: [],
     scientificName: id,
     searchText: id,
     updatedAt: "2026-01-01",
@@ -26,8 +28,11 @@ function item(id: string, overrides: Partial<SpeciesListItem> = {}) {
 
 const catalog = [
   item("macrovipera-lebetina", { danger: "High" }),
-  item("natrix-natrix", { danger: "Harmless" }),
-  item("testudo-graeca", { danger: "Harmless" }),
+  item("natrix-natrix", {
+    danger: "Harmless",
+    regionIds: ["kakheti", "imereti"],
+  }),
+  item("testudo-graeca", { danger: "Harmless", regionIds: ["kakheti"] }),
   item("falco-peregrinus"),
 ];
 
@@ -83,6 +88,11 @@ describe("filterAtlasSpecies", () => {
   });
 
   it("filters by region using the species range data", () => {
+    expect(ids({ region: "kakheti" })).toEqual([
+      "natrix-natrix",
+      "testudo-graeca",
+    ]);
+    expect(ids({ region: "imereti" })).toEqual(["natrix-natrix"]);
     expect(ids({ region: "no-such-region" })).toEqual([]);
   });
 
@@ -93,5 +103,18 @@ describe("filterAtlasSpecies", () => {
 
   it("combines filters with AND", () => {
     expect(ids({ danger: "venomous", group: "turtle" })).toEqual([]);
+  });
+});
+
+describe("sortAtlasSpecies", () => {
+  it("sorts by region count for the range sort, keeping ties in order", () => {
+    expect(
+      sortAtlasSpecies(catalog, "range", "en").map((entry) => entry.id),
+    ).toEqual([
+      "natrix-natrix",
+      "testudo-graeca",
+      "macrovipera-lebetina",
+      "falco-peregrinus",
+    ]);
   });
 });

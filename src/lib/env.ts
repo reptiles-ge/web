@@ -109,12 +109,19 @@ export class EnvError extends Error {
   }
 }
 
+let publicEnvCache: undefined | { key: string; value: PublicEnv };
+
 export function publicEnv(): PublicEnv {
-  return parse(publicSchema, {
+  const raw = {
     NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL,
     NODE_ENV: process.env.NODE_ENV,
     VERCEL_ENV: process.env.VERCEL_ENV,
-  });
+  };
+  const key = JSON.stringify(raw);
+  if (publicEnvCache?.key !== key) {
+    publicEnvCache = { key, value: parse(publicSchema, raw) };
+  }
+  return publicEnvCache.value;
 }
 
 export function serverEnv(): ServerEnv {

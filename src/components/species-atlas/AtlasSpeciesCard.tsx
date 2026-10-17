@@ -12,7 +12,6 @@ import { ClientCoverImage } from "@/components/ClientCoverImage";
 import { useSpeciesHref } from "@/components/LocaleSwitchProvider";
 import { HabitatIcon } from "@/components/species-atlas/HabitatIcon";
 import { atlasSpeciesImage } from "@/data/atlasFilters";
-import { getRegionsForSpecies, localizeRegionText } from "@/data/mapRegions";
 import { getSpeciesAtlasMeta } from "@/data/speciesAtlasMeta";
 import { Link } from "@/i18n/navigation";
 import { trackSpeciesClick } from "@/lib/analytics";
@@ -24,6 +23,7 @@ import { getSpeciesRiskChip } from "@/lib/speciesRisk";
 type AtlasSpeciesItemProps = {
   index?: number;
   locale: AppLocale;
+  regionNames: string[];
   species: SpeciesListItem;
 };
 
@@ -42,10 +42,11 @@ const RISK_SOFT: Record<DangerLevel, string> = {
 export function AtlasSpeciesCard({
   index = 0,
   locale,
+  regionNames,
   species,
 }: AtlasSpeciesItemProps) {
   const t = useTranslations("speciesAtlas");
-  const item = useAtlasSpecies(species, locale);
+  const item = useAtlasSpecies(species, regionNames, locale);
   const ids = useLabelIds();
 
   return (
@@ -144,10 +145,11 @@ export function AtlasSpeciesCard({
 export function AtlasSpeciesRow({
   index = 0,
   locale,
+  regionNames,
   species,
 }: AtlasSpeciesItemProps) {
   const t = useTranslations("speciesAtlas");
-  const item = useAtlasSpecies(species, locale);
+  const item = useAtlasSpecies(species, regionNames, locale);
   const ids = useLabelIds();
 
   return (
@@ -234,13 +236,14 @@ function labelledBy(ids: ReturnType<typeof useLabelIds>, hasRisk: boolean) {
   return [ids.name, ids.scientific, ...(hasRisk ? [ids.risk] : [])].join(" ");
 }
 
-function useAtlasSpecies(species: SpeciesListItem, locale: AppLocale) {
+function useAtlasSpecies(
+  species: SpeciesListItem,
+  regionNames: string[],
+  locale: AppLocale,
+) {
   const t = useTranslations("speciesAtlas");
   const tDanger = useTranslations("danger");
   const meta = getSpeciesAtlasMeta(species.id);
-  const regionNames = getRegionsForSpecies(species.id).map((region) =>
-    localizeRegionText(region.name, locale),
-  );
   const photo = atlasSpeciesImage(species);
   const risk = getSpeciesRiskChip(species, meta.group);
   const where =

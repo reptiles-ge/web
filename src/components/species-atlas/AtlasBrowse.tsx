@@ -19,11 +19,11 @@ import {
 } from "@/components/species-atlas/AtlasToolbar";
 import {
   type AtlasFilters,
+  type AtlasRegionLabel,
   type AtlasSort,
   type AtlasView,
   countAtlasSpecies,
 } from "@/data/atlasFilters";
-import { localizeRegionText, regions } from "@/data/mapRegions";
 import { type SpeciesListItem } from "@/data/speciesListItem";
 
 type AtlasBrowseProps = {
@@ -42,6 +42,7 @@ type AtlasBrowseProps = {
   onRegionMenuChange: (open: boolean) => void;
   onResetFilters: () => void;
   onUpdateFilter: UpdateAtlasFilter;
+  regionLabels: AtlasRegionLabel[];
   regionMenuOpen: boolean;
   sort: AtlasSort;
   view: AtlasView;
@@ -63,6 +64,7 @@ export function AtlasBrowse({
   onRegionMenuChange,
   onResetFilters,
   onUpdateFilter,
+  regionLabels,
   regionMenuOpen,
   sort,
   view,
@@ -76,13 +78,13 @@ export function AtlasBrowse({
         id: "all",
         label: t("filters.allRegions"),
       },
-      ...regions.map((region) => ({
+      ...regionLabels.map((region) => ({
         count: countAtlasSpecies(catalog, filters, "region", region.id),
         id: region.id,
-        label: localizeRegionText(region.name, locale),
+        label: region.label,
       })),
     ],
-    [catalog, filters, locale, t],
+    [catalog, filters, regionLabels, t],
   );
 
   const tokens = useFilterTokens(filters, regionOptions, onUpdateFilter);
@@ -121,15 +123,20 @@ export function AtlasBrowse({
         <AtlasFilterSheet
           catalog={catalog}
           filters={filters}
-          locale={locale}
           onApply={onApplyFilters}
           onClose={onCloseFilters}
           open={filterOpen}
+          regionLabels={regionLabels}
         />
 
         <div className="px-5 lg:px-0">
           {filtered.length > 0 ? (
-            <AtlasSpeciesGrid locale={locale} species={filtered} view={view} />
+            <AtlasSpeciesGrid
+              locale={locale}
+              regionLabels={regionLabels}
+              species={filtered}
+              view={view}
+            />
           ) : (
             <AtlasEmptyPanel group={filters.group} onReset={onResetFilters} />
           )}

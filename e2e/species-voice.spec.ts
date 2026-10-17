@@ -7,6 +7,9 @@ test("the hero voice button is clickable on desktop", async ({ page }) => {
   await expect(play).toBeVisible();
   await play.click({ timeout: 5_000, trial: true });
   await expect(
-    page.locator("[data-species-gallery-src]").first(),
+    page
+      .locator("[data-species-gallery-src]")
+      .filter({ visible: true })
+      .first(),
   ).toBeVisible();
 });

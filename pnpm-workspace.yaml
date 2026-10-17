@@ -1,9 +1,6 @@
 minimumReleaseAge: 10080
 minimumReleaseAgeExclude:
   - eslint-plugin-next-edge-boundary
-  - vinext
-  - "@vinext/cloudflare"
-  - "@vinext/types"
   - "@cloudflare/workers-response-store"
 trustPolicy: no-downgrade
 trustPolicyExclude:

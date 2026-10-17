@@ -1,4 +1,3 @@
-import { regions } from "@/data/mapRegions";
 import { type AnimalGroup, type HabitatTag } from "@/data/speciesAtlasMeta";
 
 export const GROUP_OPTIONS = [
@@ -23,8 +22,3 @@ export const HABITAT_OPTIONS = [
   "wetland",
   "grassland",
 ] as const satisfies readonly ("all" | HabitatTag)[];
-
-export const REGION_OPTIONS = [
-  "all",
-  ...regions.map((region) => region.id),
-] as readonly string[];

@@ -193,7 +193,7 @@ function SpeciesProfileStatValue({
   if (linkDangerStats && dangerValue && value === dangerValue) {
     return (
       <Link
-        className="transition-colors hover:text-primary"
+        className="tap-target transition-colors hover:text-primary"
         href={dangerPageHref(danger)}
       >
         {value}

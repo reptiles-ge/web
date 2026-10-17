@@ -15,7 +15,7 @@ import {
   SpeciesAtlas,
   SpeciesAtlasFallback,
 } from "@/components/species-atlas/SpeciesAtlas";
-import { getRegionTooltipPreviews } from "@/data/regions";
+import { getRegionLabels, getRegionTooltipPreviews } from "@/data/regions";
 import { getSpeciesById } from "@/data/species";
 import { getAtlasStats } from "@/data/speciesAtlas";
 import { images } from "@/data/speciesMedia";
@@ -78,6 +78,7 @@ export default async function SpeciesIndexPage({ params }: LocalePageProps) {
   const catalog = getAtlasListItems(locale);
   const recent = getAtlasRecentItems(locale);
   const tooltipSpeciesByRegion = getRegionTooltipPreviews(locale);
+  const regionLabels = getRegionLabels(locale);
   const stats = getAtlasStats();
   const dates = atlasDateFields(locale);
 
@@ -118,6 +119,7 @@ export default async function SpeciesIndexPage({ params }: LocalePageProps) {
                 catalog={catalog}
                 recent={recent}
                 regionCount={stats.regions}
+                regionLabels={regionLabels}
                 tooltipSpeciesByRegion={tooltipSpeciesByRegion}
                 venomousImage={images.hero}
               />
@@ -127,6 +129,7 @@ export default async function SpeciesIndexPage({ params }: LocalePageProps) {
               catalog={catalog}
               recent={recent}
               regionCount={stats.regions}
+              regionLabels={regionLabels}
               tooltipSpeciesByRegion={tooltipSpeciesByRegion}
               venomousImage={images.hero}
             />

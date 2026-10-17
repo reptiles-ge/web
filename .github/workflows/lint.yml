@@ -22,9 +22,9 @@ jobs:
         with:
           version: 10.34.5
 
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with:
-          node-version: 22
+          node-version-file: .nvmrc
           cache: pnpm
 
       - run: pnpm install --frozen-lockfile
@@ -34,6 +34,8 @@ jobs:
       - run: pnpm species:compile
 
       - run: pnpm search:compile
+
+      - run: pnpm format:check
 
       - run: pnpm knip
 
@@ -60,9 +62,9 @@ jobs:
         with:
           version: 10.34.5
 
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with:
-          node-version: 22
+          node-version-file: .nvmrc
           cache: pnpm
 
       - run: pnpm install --frozen-lockfile

@@ -1,8 +1,8 @@
 "use client";
 
-import { ArrowRight, Lightbulb } from "lucide-react";
+import { ArrowRight, Check, Lightbulb, X } from "lucide-react";
 import { useLocale } from "next-intl";
-import { type KeyboardEvent, type RefObject } from "react";
+import { type KeyboardEvent, type RefObject, useState } from "react";
 
 import type { AppLocale } from "@/i18n/routing";
 import type {
@@ -61,6 +61,12 @@ export function QuizRound({
   const t = useQuizCopy();
   const locale = useLocale() as AppLocale;
   const switchIndex = useLocaleSwitchIndex();
+  const [focused, setFocused] = useState<{ index: number; option: number }>();
+  const selectedIndex = selectedId
+    ? question.optionIds.indexOf(selectedId)
+    : -1;
+  const tabStop =
+    focused?.index === index ? focused.option : Math.max(selectedIndex, 0);
 
   function onRadioKeyDown(event: KeyboardEvent<HTMLDivElement>) {
     if (revealed) return;
@@ -173,10 +179,12 @@ export function QuizRound({
                 disabled={revealed}
                 key={optionId}
                 onClick={() => onSelect(optionId, question.difficulty)}
+                onFocus={() => setFocused({ index, option: optionIndex })}
                 ref={(node) => {
                   optionRefs.current[optionIndex] = node;
                 }}
                 role="radio"
+                tabIndex={optionIndex === tabStop ? 0 : -1}
                 type="button"
               >
                 <span className="flex size-7 shrink-0 items-center justify-center rounded-full border border-white/20 text-[12px] font-medium sm:size-8">
@@ -192,22 +200,29 @@ export function QuizRound({
                     </span>
                   ) : null}
                 </span>
+                {revealed && (isCorrect || selected) ? (
+                  <span className="ml-auto flex shrink-0 items-center">
+                    {isCorrect ? (
+                      <Check aria-hidden="true" className="size-5" />
+                    ) : (
+                      <X aria-hidden="true" className="size-5" />
+                    )}
+                    <span className="sr-only">
+                      {[
+                        isCorrect ? t("optionCorrect") : null,
+                        selected ? t("optionYours") : null,
+                      ]
+                        .filter(Boolean)
+                        .join(", ")}
+                    </span>
+                  </span>
+                ) : null}
               </button>
             );
           })}
         </div>
 
-        <div
-          aria-label={
-            revealed
-              ? t("revealLead", {
-                  commonName: correctSpecies.commonName,
-                  scientificName: correctSpecies.scientificName,
-                })
-              : undefined
-          }
-          aria-live="polite"
-        >
+        <div aria-live="polite">
           {revealed ? (
             <div className="mt-2.5 rounded-card border border-white/15 bg-black/55 p-3.5 backdrop-blur-xl sm:mt-4 sm:p-6">
               <p

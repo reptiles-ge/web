@@ -12,7 +12,10 @@ import { NewsRelatedBlock } from "@/components/NewsRelatedBlock";
 import { OptimizedImageScope } from "@/components/OptimizedImageScope";
 import { RegionProfile } from "@/components/RegionProfile";
 import { getPublishedNewsForRegion } from "@/data/news";
-import { getRegionContent } from "@/data/regionContent";
+import {
+  getLocalizedRegionContent,
+  getRegionContent,
+} from "@/data/regionContent";
 import { getRegionHeroImage } from "@/data/regionImages";
 import {
   getRegionById,
@@ -224,14 +227,8 @@ export default async function RegionPage({ params }: PageProps) {
     ],
   };
 
-  const faqItems = content.faq.flatMap((entry) => {
-    const question = localizeRegionTextIfPresent(entry.question, locale);
-    const answer = localizeRegionTextIfPresent(entry.answer, locale);
-    if (!question || !answer) return [];
-    return [{ answer, question }];
-  });
-
-  const faqJsonLd = faqPageJsonLd(faqItems);
+  const localizedContent = getLocalizedRegionContent(region.id, locale);
+  const faqJsonLd = faqPageJsonLd(localizedContent.faq);
 
   return (
     <>
@@ -256,6 +253,7 @@ export default async function RegionPage({ params }: PageProps) {
                 updatedAt={dates.dateModified}
               />
             }
+            content={localizedContent}
             editable={locale === "ka" && isLocalAdminEnabled()}
             region={region}
             species={species}
