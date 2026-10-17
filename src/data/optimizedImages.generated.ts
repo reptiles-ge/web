@@ -2038,8 +2038,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "path": "darevskia-armeniaca",
     "width": 900,
     "height": 826,
-    "widths": [400, 800, 900],
-    "formats": ["avif"]
+    "widths": [320, 400, 640, 800, 900],
+    "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/darevskia-brauneri-2.jpg": {
     "path": "darevskia-brauneri-2",
@@ -2192,8 +2192,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "path": "darevskia-dahli-2",
     "width": 2048,
     "height": 1537,
-    "widths": [400, 800, 1200, 2048],
-    "formats": ["avif"]
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/darevskia-dahli-3.jpg": {
     "path": "darevskia-dahli-3",
@@ -2339,7 +2339,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "path": "darevskia-derjugini-zauri-1",
     "width": 1024,
     "height": 682,
-    "widths": [400, 800, 1024],
+    "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/darevskia-derjugini-zauri-2.jpg": {
@@ -6021,7 +6021,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "path": "mertensiella-caucasica-armen-3",
     "width": 1024,
     "height": 673,
-    "widths": [400, 800, 1024],
+    "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/mertensiella-caucasica-armen-4.jpg": {
@@ -6476,28 +6476,28 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "path": "news-batumi-19300-cosentino-kite-1",
     "width": 2400,
     "height": 1162,
-    "widths": [400, 800, 1200, 2400],
+    "widths": [320, 400, 640, 800, 1200, 2400],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/news-batumi-19300-eldakamawy-1.jpg": {
     "path": "news-batumi-19300-eldakamawy-1",
     "width": 2400,
     "height": 1800,
-    "widths": [400, 800, 1200, 2400],
+    "widths": [320, 400, 640, 800, 1200, 2400],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/news-batumi-19300-hoekstra-1.jpg": {
     "path": "news-batumi-19300-hoekstra-1",
     "width": 2400,
     "height": 1800,
-    "widths": [400, 800, 1200, 2400],
+    "widths": [320, 400, 640, 800, 1200, 2400],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/news-batumi-19300-meskhidze-1.jpg": {
     "path": "news-batumi-19300-meskhidze-1",
     "width": 2400,
     "height": 1800,
-    "widths": [400, 800, 1200, 2400],
+    "widths": [320, 400, 640, 800, 1200, 2400],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/news-batumi-239735-hoekstra-black-kites.jpg": {
@@ -6756,7 +6756,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "path": "panthera-pardus-assaf-1",
     "width": 2400,
     "height": 1800,
-    "widths": [400, 800, 1200, 2400],
+    "widths": [320, 400, 640, 800, 1200, 2400],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/panthera-pardus-burkhard-1.jpg": {
@@ -7946,8 +7946,8 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "path": "testudo-graeca-3",
     "width": 2048,
     "height": 1371,
-    "widths": [400, 800, 1200, 2048],
-    "formats": ["avif"]
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/testudo-graeca.jpg": {
     "path": "testudo-graeca",
@@ -7981,7 +7981,7 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "path": "trachemys-scripta",
     "width": 2048,
     "height": 1536,
-    "widths": [400, 800, 1200, 2048],
+    "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/triturus-karelinii-2.jpg": {
