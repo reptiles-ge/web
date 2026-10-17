@@ -42,7 +42,6 @@ export default defineConfig({
         "src/app/api/dev/**",
         "src/lib/admin*.ts",
         "src/lib/contentEditor*.ts",
-        "src/lib/quizDraft.ts",
         "src/lib/axeDev.ts",
         "src/lib/focusTrap.ts",
         "src/instrumentation*.ts",
