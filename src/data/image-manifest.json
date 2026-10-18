@@ -20205,6 +20205,101 @@
       ],
       "updatedAt": "2026-08-28T21:31:23.118Z"
     },
+    "darevskia-armeniaca-tomo-m-1.jpg": {
+      "sourceHash": "ed41a75328bc0ea9668a56e032d6057417c341ef262d9dbb7d029e1a394c8674",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-armeniaca-tomo-m-1.jpg",
+      "originalSize": 436071,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-armeniaca-tomo-m-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9492
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomo-m-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14960
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomo-m-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 13030
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomo-m-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 20566
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomo-m-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 26843
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomo-m-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 40936
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomo-m-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 36793
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomo-m-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 56430
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomo-m-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 65045
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomo-m-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 96098
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomo-m-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 133795
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomo-m-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 190844
+        }
+      ],
+      "updatedAt": "2026-10-18T08:20:00.388Z"
+    },
     "darevskia-armeniaca-tomáš-1.jpg": {
       "sourceHash": "a608ffc92fe3a3ea64661ff5d87ba2a333931db500201c384f1dcbac1810c248",
       "configFingerprint": "409788ee46c653d8",

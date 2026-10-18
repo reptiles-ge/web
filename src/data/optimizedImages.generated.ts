@@ -2104,6 +2104,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/darevskia-armeniaca-tomo-m-1.jpg": {
+    "path": "darevskia-armeniaca-tomo-m-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/darevskia-armeniaca-vojt%C4%9Bch-1.jpg": {
     "path": "darevskia-armeniaca-vojt%C4%9Bch-1",
     "width": 2048,
