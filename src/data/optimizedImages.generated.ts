@@ -1033,6 +1033,48 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/bufo-verrucosissimus-david-1.jpg": {
+    "path": "bufo-verrucosissimus-david-1",
+    "width": 2048,
+    "height": 1356,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/bufo-verrucosissimus-david-2.jpg": {
+    "path": "bufo-verrucosissimus-david-2",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/bufo-verrucosissimus-kirill-1.jpg": {
+    "path": "bufo-verrucosissimus-kirill-1",
+    "width": 1542,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1542],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/bufo-verrucosissimus-loisbouchet-1.jpg": {
+    "path": "bufo-verrucosissimus-loisbouchet-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/bufo-verrucosissimus-mikhail-1.jpg": {
+    "path": "bufo-verrucosissimus-mikhail-1",
+    "width": 1536,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/bufo-verrucosissimus-oscar-1.jpg": {
+    "path": "bufo-verrucosissimus-oscar-1",
+    "width": 1702,
+    "height": 1135,
+    "widths": [320, 400, 640, 800, 1200, 1702],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/bufo-verrucosissimus-zauri-1.jpg": {
     "path": "bufo-verrucosissimus-zauri-1",
     "width": 1024,

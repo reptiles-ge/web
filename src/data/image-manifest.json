@@ -7585,6 +7585,576 @@
       ],
       "updatedAt": "2026-08-28T21:28:58.873Z"
     },
+    "bufo-verrucosissimus-david-1.jpg": {
+      "sourceHash": "a2e0ce840fc448e911710a70d372d6d5bf345de66427306eebc3b71fd05e5dff",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "bufo-verrucosissimus-david-1.jpg",
+      "originalSize": 522785,
+      "width": 2048,
+      "height": 1356,
+      "derivatives": [
+        {
+          "key": "optimized/bufo-verrucosissimus-david-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 212,
+          "byteSize": 12910
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 212,
+          "byteSize": 20510
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 265,
+          "byteSize": 17709
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 265,
+          "byteSize": 28252
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 424,
+          "byteSize": 36827
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 424,
+          "byteSize": 57570
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 530,
+          "byteSize": 52134
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 530,
+          "byteSize": 81276
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 795,
+          "byteSize": 90074
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 795,
+          "byteSize": 131238
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1356,
+          "byteSize": 177379
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1356,
+          "byteSize": 256594
+        }
+      ],
+      "updatedAt": "2026-10-18T10:07:52.101Z"
+    },
+    "bufo-verrucosissimus-david-2.jpg": {
+      "sourceHash": "16f87bf35cc4aaa8628bf47b8b02cf137d9a756de7852d502c88c232580315bc",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "bufo-verrucosissimus-david-2.jpg",
+      "originalSize": 393324,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/bufo-verrucosissimus-david-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9429
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 13466
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 12890
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 18198
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 25585
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 36500
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 34979
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 49182
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 60132
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 85838
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 126938
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 181308
+        }
+      ],
+      "updatedAt": "2026-10-18T10:09:56.129Z"
+    },
+    "bufo-verrucosissimus-kirill-1.jpg": {
+      "sourceHash": "0a2aa977d7942f53fc43af8c96986f50322eafc559b72fd372a77cc2568dece9",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "bufo-verrucosissimus-kirill-1.jpg",
+      "originalSize": 420391,
+      "width": 1542,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/bufo-verrucosissimus-kirill-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 425,
+          "byteSize": 13860
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-kirill-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 425,
+          "byteSize": 19634
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-kirill-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 531,
+          "byteSize": 19016
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-kirill-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 531,
+          "byteSize": 27046
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-kirill-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 850,
+          "byteSize": 38089
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-kirill-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 850,
+          "byteSize": 53580
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-kirill-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1063,
+          "byteSize": 52469
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-kirill-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1063,
+          "byteSize": 74042
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-kirill-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1594,
+          "byteSize": 95425
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-kirill-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1594,
+          "byteSize": 131432
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-kirill-1-1542.avif",
+          "format": "avif",
+          "width": 1542,
+          "height": 2048,
+          "byteSize": 139271
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-kirill-1-1542.webp",
+          "format": "webp",
+          "width": 1542,
+          "height": 2048,
+          "byteSize": 189514
+        }
+      ],
+      "updatedAt": "2026-10-18T10:09:08.573Z"
+    },
+    "bufo-verrucosissimus-loisbouchet-1.jpg": {
+      "sourceHash": "ddb49ea07ea6cf1ab96a60cb9a75b6c18081db3f950f10c7a1ae30e8121369fd",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "bufo-verrucosissimus-loisbouchet-1.jpg",
+      "originalSize": 457326,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/bufo-verrucosissimus-loisbouchet-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 7427
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-loisbouchet-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 10050
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-loisbouchet-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 11076
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-loisbouchet-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 15426
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-loisbouchet-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 27052
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-loisbouchet-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 38382
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-loisbouchet-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 42045
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-loisbouchet-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 57742
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-loisbouchet-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 81998
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-loisbouchet-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 108146
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-loisbouchet-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 178153
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-loisbouchet-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 224108
+        }
+      ],
+      "updatedAt": "2026-10-18T10:08:32.265Z"
+    },
+    "bufo-verrucosissimus-mikhail-1.jpg": {
+      "sourceHash": "a159b4be1f48f8b9de10f3f5e2758e490865953597b9d17977425260a61f6b84",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "bufo-verrucosissimus-mikhail-1.jpg",
+      "originalSize": 468898,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/bufo-verrucosissimus-mikhail-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 12849
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-mikhail-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 17362
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-mikhail-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 17615
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-mikhail-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 24882
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-mikhail-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 34544
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-mikhail-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 49342
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-mikhail-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 47501
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-mikhail-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 67236
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-mikhail-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 84284
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-mikhail-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 118846
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-mikhail-1-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 125816
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-mikhail-1-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 175402
+        }
+      ],
+      "updatedAt": "2026-10-18T10:10:43.742Z"
+    },
+    "bufo-verrucosissimus-oscar-1.jpg": {
+      "sourceHash": "df11e8e1477f3055d36bb7c40b6d9059856eaab768c90ae82aa3deee0d2bd002",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "bufo-verrucosissimus-oscar-1.jpg",
+      "originalSize": 401452,
+      "width": 1702,
+      "height": 1135,
+      "derivatives": [
+        {
+          "key": "optimized/bufo-verrucosissimus-oscar-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10042
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-oscar-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 13584
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-oscar-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 14755
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-oscar-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 20402
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-oscar-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 33706
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-oscar-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 46106
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-oscar-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 47886
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-oscar-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 65310
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-oscar-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 86571
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-oscar-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 118664
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-oscar-1-1702.avif",
+          "format": "avif",
+          "width": 1702,
+          "height": 1135,
+          "byteSize": 150190
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-oscar-1-1702.webp",
+          "format": "webp",
+          "width": 1702,
+          "height": 1135,
+          "byteSize": 200078
+        }
+      ],
+      "updatedAt": "2026-10-18T10:07:07.317Z"
+    },
     "bufo-verrucosissimus-zauri-1.jpg": {
       "sourceHash": "c3392416b76d7c5878a6571c15b8735ee124c8c7a7267afa999984382c3d0226",
       "configFingerprint": "a895f8e025dcc7fa",
