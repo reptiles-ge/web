@@ -29791,6 +29791,101 @@
       ],
       "updatedAt": "2026-10-18T15:18:15.463Z"
     },
+    "darevskia-valentini-julian-descoubes-1.jpg": {
+      "sourceHash": "f45b434811afee623d06bc7d95e84d7bfd4d70d350a6e15ddc0ed02e1912096a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-valentini-julian-descoubes-1.jpg",
+      "originalSize": 245488,
+      "width": 2048,
+      "height": 1087,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-valentini-julian-descoubes-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 169,
+          "byteSize": 5664
+        },
+        {
+          "key": "optimized/darevskia-valentini-julian-descoubes-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 169,
+          "byteSize": 7530
+        },
+        {
+          "key": "optimized/darevskia-valentini-julian-descoubes-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 212,
+          "byteSize": 7685
+        },
+        {
+          "key": "optimized/darevskia-valentini-julian-descoubes-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 212,
+          "byteSize": 10556
+        },
+        {
+          "key": "optimized/darevskia-valentini-julian-descoubes-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 339,
+          "byteSize": 15593
+        },
+        {
+          "key": "optimized/darevskia-valentini-julian-descoubes-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 339,
+          "byteSize": 22112
+        },
+        {
+          "key": "optimized/darevskia-valentini-julian-descoubes-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 425,
+          "byteSize": 22019
+        },
+        {
+          "key": "optimized/darevskia-valentini-julian-descoubes-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 425,
+          "byteSize": 31150
+        },
+        {
+          "key": "optimized/darevskia-valentini-julian-descoubes-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 637,
+          "byteSize": 39570
+        },
+        {
+          "key": "optimized/darevskia-valentini-julian-descoubes-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 637,
+          "byteSize": 56840
+        },
+        {
+          "key": "optimized/darevskia-valentini-julian-descoubes-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1087,
+          "byteSize": 81219
+        },
+        {
+          "key": "optimized/darevskia-valentini-julian-descoubes-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1087,
+          "byteSize": 117748
+        }
+      ],
+      "updatedAt": "2026-10-18T15:21:39.950Z"
+    },
     "darevskia-valentini-timoteo-b-1.jpg": {
       "sourceHash": "7f94e3dc04858a84b1f6862fd71876987f5b20f3309114231e659b5e5cfebfc7",
       "configFingerprint": "409788ee46c653d8",
