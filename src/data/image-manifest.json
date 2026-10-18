@@ -22420,6 +22420,101 @@
       ],
       "updatedAt": "2026-08-28T21:31:44.084Z"
     },
+    "darevskia-clarkorum-christian-1.jpg": {
+      "sourceHash": "c918646391dd364b493b173abf0873c25b018f57f9e7745a26ed7fb765696c7c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-clarkorum-christian-1.jpg",
+      "originalSize": 381643,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-clarkorum-christian-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8314
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-christian-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12510
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-christian-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 11708
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-christian-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 17460
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-christian-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 24771
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-christian-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 37606
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-christian-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 35117
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-christian-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 52592
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-christian-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 62433
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-christian-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 90112
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-christian-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 116516
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-christian-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 173254
+        }
+      ],
+      "updatedAt": "2026-10-18T09:18:02.009Z"
+    },
     "darevskia-clarkorum-clo-09-1.jpg": {
       "sourceHash": "d07983174a0ea6c9964f4806186c71da6391f637eace663828d5e78c575ea110",
       "configFingerprint": "409788ee46c653d8",
