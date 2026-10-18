@@ -19529,6 +19529,101 @@
       ],
       "updatedAt": "2026-08-28T21:31:16.482Z"
     },
+    "darevskia-armeniaca-arvidas-1.jpg": {
+      "sourceHash": "73afc73cdc209d842d1fbecad4bf5d08be02436dbbfd6f4bc78c8397dd2e0e0d",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-armeniaca-arvidas-1.jpg",
+      "originalSize": 668353,
+      "width": 1542,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-armeniaca-arvidas-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 425,
+          "byteSize": 28410
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-arvidas-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 425,
+          "byteSize": 48060
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-arvidas-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 531,
+          "byteSize": 41351
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-arvidas-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 531,
+          "byteSize": 69414
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-arvidas-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 850,
+          "byteSize": 85752
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-arvidas-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 850,
+          "byteSize": 141752
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-arvidas-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1063,
+          "byteSize": 114660
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-arvidas-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1063,
+          "byteSize": 186306
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-arvidas-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1594,
+          "byteSize": 182133
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-arvidas-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1594,
+          "byteSize": 289802
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-arvidas-1-1542.avif",
+          "format": "avif",
+          "width": 1542,
+          "height": 2048,
+          "byteSize": 232195
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-arvidas-1-1542.webp",
+          "format": "webp",
+          "width": 1542,
+          "height": 2048,
+          "byteSize": 375334
+        }
+      ],
+      "updatedAt": "2026-10-18T08:12:27.145Z"
+    },
     "darevskia-armeniaca-davit-1.jpg": {
       "sourceHash": "859e7dd636e43d9d8b3fc5572e9b6a45f31e7e924af164bfd405fbe455ef96ba",
       "configFingerprint": "409788ee46c653d8",

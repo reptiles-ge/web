@@ -2048,6 +2048,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/darevskia-armeniaca-arvidas-1.jpg": {
+    "path": "darevskia-armeniaca-arvidas-1",
+    "width": 1542,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1542],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/darevskia-armeniaca-davit-1.jpg": {
     "path": "darevskia-armeniaca-davit-1",
     "width": 985,
