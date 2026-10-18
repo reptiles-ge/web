@@ -23,6 +23,7 @@ import { rangeMap as cuculusCanorus } from "@/data/speciesRangeMaps/cuculus-cano
 import { rangeMap as darevskiaAdjarica } from "@/data/speciesRangeMaps/darevskia-adjarica";
 import { rangeMap as darevskiaArmeniaca } from "@/data/speciesRangeMaps/darevskia-armeniaca";
 import { rangeMap as darevskiaCaucasica } from "@/data/speciesRangeMaps/darevskia-caucasica";
+import { rangeMap as darevskiaClarkorum } from "@/data/speciesRangeMaps/darevskia-clarkorum";
 import { rangeMap as darevskiaDahli } from "@/data/speciesRangeMaps/darevskia-dahli";
 import { rangeMap as darevskiaDerjugini } from "@/data/speciesRangeMaps/darevskia-derjugini";
 import { rangeMap as darevskiaObscura } from "@/data/speciesRangeMaps/darevskia-obscura";
@@ -105,6 +106,7 @@ export const INTERACTIVE_RANGE_MAPS: Partial<
   "darevskia-adjarica": darevskiaAdjarica,
   "darevskia-armeniaca": darevskiaArmeniaca,
   "darevskia-caucasica": darevskiaCaucasica,
+  "darevskia-clarkorum": darevskiaClarkorum,
   "darevskia-dahli": darevskiaDahli,
   "darevskia-derjugini": darevskiaDerjugini,
   "darevskia-obscura": darevskiaObscura,
