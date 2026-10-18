@@ -19663,6 +19663,101 @@
       ],
       "updatedAt": "2026-09-08T16:31:53.151Z"
     },
+    "darevskia-armeniaca-dora-exploratrice-1.jpg": {
+      "sourceHash": "6d243b1e61a2efa40947b47d7a717f3824342c633aabf66e29a2532f52498134",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-armeniaca-dora-exploratrice-1.jpg",
+      "originalSize": 972906,
+      "width": 2048,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-armeniaca-dora-exploratrice-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 320,
+          "byteSize": 20443
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-dora-exploratrice-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 320,
+          "byteSize": 33776
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-dora-exploratrice-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 400,
+          "byteSize": 28728
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-dora-exploratrice-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 400,
+          "byteSize": 47456
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-dora-exploratrice-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 640,
+          "byteSize": 62554
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-dora-exploratrice-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 640,
+          "byteSize": 104630
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-dora-exploratrice-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 800,
+          "byteSize": 93447
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-dora-exploratrice-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 800,
+          "byteSize": 153196
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-dora-exploratrice-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1200,
+          "byteSize": 175873
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-dora-exploratrice-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1200,
+          "byteSize": 274576
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-dora-exploratrice-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 2048,
+          "byteSize": 374207
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-dora-exploratrice-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 2048,
+          "byteSize": 546106
+        }
+      ],
+      "updatedAt": "2026-10-18T08:11:36.421Z"
+    },
     "darevskia-armeniaca-konrad-1.jpg": {
       "sourceHash": "a1c7a36aae78cff06c04d64546d9382f43b4000cb18dd487cdb53be3cbf44ac9",
       "configFingerprint": "409788ee46c653d8",
