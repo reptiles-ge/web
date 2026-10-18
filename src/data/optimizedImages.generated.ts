@@ -6640,6 +6640,20 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 2000],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/news-shahdag-bison-gabler-springe.jpg": {
+    "path": "news-shahdag-bison-gabler-springe",
+    "width": 2400,
+    "height": 1578,
+    "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-shahdag-bison-tatarinov-caucasicus.jpg": {
+    "path": "news-shahdag-bison-tatarinov-caucasicus",
+    "width": 2400,
+    "height": 1800,
+    "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/olivierus-caucasicus-evgeny-1.jpg": {
     "path": "olivierus-caucasicus-evgeny-1",
     "width": 1024,
