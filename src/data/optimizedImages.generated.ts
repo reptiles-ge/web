@@ -6563,6 +6563,27 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 2000],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/news-batumi-million-cordes-marsh-harrier.jpg": {
+    "path": "news-batumi-million-cordes-marsh-harrier",
+    "width": 2400,
+    "height": 1600,
+    "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-batumi-million-daneshvar-station-1.jpg": {
+    "path": "news-batumi-million-daneshvar-station-1",
+    "width": 2400,
+    "height": 1350,
+    "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-batumi-million-stolk-white-black-kite.jpg": {
+    "path": "news-batumi-million-stolk-white-black-kite",
+    "width": 2400,
+    "height": 1765,
+    "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/news-crested-honey-buzzard-cordes-male.jpg": {
     "path": "news-crested-honey-buzzard-cordes-male",
     "width": 2400,
