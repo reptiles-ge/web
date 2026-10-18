@@ -7680,6 +7680,101 @@
       ],
       "updatedAt": "2026-10-18T10:07:52.101Z"
     },
+    "bufo-verrucosissimus-loisbouchet-1.jpg": {
+      "sourceHash": "ddb49ea07ea6cf1ab96a60cb9a75b6c18081db3f950f10c7a1ae30e8121369fd",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "bufo-verrucosissimus-loisbouchet-1.jpg",
+      "originalSize": 457326,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/bufo-verrucosissimus-loisbouchet-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 7427
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-loisbouchet-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 10050
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-loisbouchet-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 11076
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-loisbouchet-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 15426
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-loisbouchet-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 27052
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-loisbouchet-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 38382
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-loisbouchet-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 42045
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-loisbouchet-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 57742
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-loisbouchet-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 81998
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-loisbouchet-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 108146
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-loisbouchet-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 178153
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-loisbouchet-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 224108
+        }
+      ],
+      "updatedAt": "2026-10-18T10:08:32.265Z"
+    },
     "bufo-verrucosissimus-oscar-1.jpg": {
       "sourceHash": "df11e8e1477f3055d36bb7c40b6d9059856eaab768c90ae82aa3deee0d2bd002",
       "configFingerprint": "409788ee46c653d8",
