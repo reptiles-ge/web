@@ -22867,6 +22867,101 @@
       ],
       "updatedAt": "2026-08-28T21:31:49.232Z"
     },
+    "darevskia-clarkorum-tom-1.jpg": {
+      "sourceHash": "fd1ed17b678541cb31ca04c57dc7ee0cdc4f01b1ba794e02c515da8643d0b979",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-clarkorum-tom-1.jpg",
+      "originalSize": 929152,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-clarkorum-tom-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 17205
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-tom-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 26328
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-tom-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 26317
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-tom-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 40436
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-tom-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 62666
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-tom-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 98242
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-tom-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 91241
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-tom-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 149338
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-tom-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 173749
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-tom-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 278140
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-tom-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 371744
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-tom-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 555074
+        }
+      ],
+      "updatedAt": "2026-10-18T09:19:52.780Z"
+    },
     "darevskia-clarkorum.jpg": {
       "sourceHash": "42203957388850dc5c3fe5c143f42cb9eb33ef0aef04ea0340044d1b1911f4b5",
       "configFingerprint": "a895f8e025dcc7fa",
