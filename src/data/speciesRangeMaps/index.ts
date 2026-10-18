@@ -20,6 +20,8 @@ import { rangeMap as columbaPalumbus } from "@/data/speciesRangeMaps/columba-pal
 import { rangeMap as coronellaAustriaca } from "@/data/speciesRangeMaps/coronella-austriaca";
 import { rangeMap as coturnixCoturnix } from "@/data/speciesRangeMaps/coturnix-coturnix";
 import { rangeMap as cuculusCanorus } from "@/data/speciesRangeMaps/cuculus-canorus";
+import { rangeMap as darevskiaAdjarica } from "@/data/speciesRangeMaps/darevskia-adjarica";
+import { rangeMap as darevskiaArmeniaca } from "@/data/speciesRangeMaps/darevskia-armeniaca";
 import { rangeMap as darevskiaCaucasica } from "@/data/speciesRangeMaps/darevskia-caucasica";
 import { rangeMap as darevskiaDahli } from "@/data/speciesRangeMaps/darevskia-dahli";
 import { rangeMap as darevskiaDerjugini } from "@/data/speciesRangeMaps/darevskia-derjugini";
@@ -100,6 +102,8 @@ export const INTERACTIVE_RANGE_MAPS: Partial<
   "coronella-austriaca": coronellaAustriaca,
   "coturnix-coturnix": coturnixCoturnix,
   "cuculus-canorus": cuculusCanorus,
+  "darevskia-adjarica": darevskiaAdjarica,
+  "darevskia-armeniaca": darevskiaArmeniaca,
   "darevskia-caucasica": darevskiaCaucasica,
   "darevskia-dahli": darevskiaDahli,
   "darevskia-derjugini": darevskiaDerjugini,

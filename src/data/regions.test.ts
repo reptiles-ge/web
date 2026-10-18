@@ -85,6 +85,7 @@ describe("region speciesIds", () => {
     "columba-palumbus",
     "streptopelia-turtur",
     "garrulus-glandarius",
+    "darevskia-armeniaca",
     "darevskia-caucasica",
     "darevskia-dahli",
     "darevskia-derjugini",
