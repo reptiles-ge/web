@@ -66,3 +66,4 @@ cdn-unused-images.txt
 /dist/
 .vinext/
 .wrangler/
+progress.md

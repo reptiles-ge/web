@@ -1,4 +1,5 @@
 export const newsSlugs = [
+  "batumi-milioni-mtatsebeli-39-darghveva",
   "lagodekhi-iucn-mwvane-sia",
   "cop17-erevani-saqartvelos-daculi-teritoriebi",
   "armenia-power-line-bird-electrocution",
