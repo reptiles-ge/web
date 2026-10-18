@@ -1033,6 +1033,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/bufo-verrucosissimus-oscar-1.jpg": {
+    "path": "bufo-verrucosissimus-oscar-1",
+    "width": 1702,
+    "height": 1135,
+    "widths": [320, 400, 640, 800, 1200, 1702],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/bufo-verrucosissimus-zauri-1.jpg": {
     "path": "bufo-verrucosissimus-zauri-1",
     "width": 1024,

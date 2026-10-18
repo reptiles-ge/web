@@ -7585,6 +7585,101 @@
       ],
       "updatedAt": "2026-08-28T21:28:58.873Z"
     },
+    "bufo-verrucosissimus-oscar-1.jpg": {
+      "sourceHash": "df11e8e1477f3055d36bb7c40b6d9059856eaab768c90ae82aa3deee0d2bd002",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "bufo-verrucosissimus-oscar-1.jpg",
+      "originalSize": 401452,
+      "width": 1702,
+      "height": 1135,
+      "derivatives": [
+        {
+          "key": "optimized/bufo-verrucosissimus-oscar-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10042
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-oscar-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 13584
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-oscar-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 14755
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-oscar-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 20402
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-oscar-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 33706
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-oscar-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 46106
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-oscar-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 47886
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-oscar-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 65310
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-oscar-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 86571
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-oscar-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 118664
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-oscar-1-1702.avif",
+          "format": "avif",
+          "width": 1702,
+          "height": 1135,
+          "byteSize": 150190
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-oscar-1-1702.webp",
+          "format": "webp",
+          "width": 1702,
+          "height": 1135,
+          "byteSize": 200078
+        }
+      ],
+      "updatedAt": "2026-10-18T10:07:07.317Z"
+    },
     "bufo-verrucosissimus-zauri-1.jpg": {
       "sourceHash": "c3392416b76d7c5878a6571c15b8735ee124c8c7a7267afa999984382c3d0226",
       "configFingerprint": "a895f8e025dcc7fa",
