@@ -2006,6 +2006,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1909],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/darevskia-adjarica-timoteo-b-1.jpg": {
+    "path": "darevskia-adjarica-timoteo-b-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/darevskia-alpina-2.jpg": {
     "path": "darevskia-alpina-2",
     "width": 1650,

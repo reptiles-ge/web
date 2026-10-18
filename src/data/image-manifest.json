@@ -19032,6 +19032,101 @@
       ],
       "updatedAt": "2026-10-18T07:24:09.287Z"
     },
+    "darevskia-adjarica-timoteo-b-1.jpg": {
+      "sourceHash": "43a66d38c59f3f6ef23e4dc85fda58776759945b2ab28f85f665ffdbb67bde11",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-adjarica-timoteo-b-1.jpg",
+      "originalSize": 818299,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-adjarica-timoteo-b-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 12674
+        },
+        {
+          "key": "optimized/darevskia-adjarica-timoteo-b-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 18302
+        },
+        {
+          "key": "optimized/darevskia-adjarica-timoteo-b-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 19380
+        },
+        {
+          "key": "optimized/darevskia-adjarica-timoteo-b-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 27332
+        },
+        {
+          "key": "optimized/darevskia-adjarica-timoteo-b-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 45842
+        },
+        {
+          "key": "optimized/darevskia-adjarica-timoteo-b-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 65936
+        },
+        {
+          "key": "optimized/darevskia-adjarica-timoteo-b-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 71203
+        },
+        {
+          "key": "optimized/darevskia-adjarica-timoteo-b-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 103938
+        },
+        {
+          "key": "optimized/darevskia-adjarica-timoteo-b-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 147925
+        },
+        {
+          "key": "optimized/darevskia-adjarica-timoteo-b-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 216326
+        },
+        {
+          "key": "optimized/darevskia-adjarica-timoteo-b-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 354215
+        },
+        {
+          "key": "optimized/darevskia-adjarica-timoteo-b-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 510638
+        }
+      ],
+      "updatedAt": "2026-10-18T07:25:35.051Z"
+    },
     "darevskia-adjarica.jpg": {
       "sourceHash": "e6dd06493aafb7c884e0b06a726f10449e30b8a702f2bdea471bdfcb2c26c853",
       "configFingerprint": "a895f8e025dcc7fa",
