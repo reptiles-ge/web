@@ -19948,6 +19948,101 @@
       ],
       "updatedAt": "2026-10-18T08:11:36.421Z"
     },
+    "darevskia-armeniaca-giorgi-1.jpg": {
+      "sourceHash": "8b36715b9564a7c67a2668b2682260009539c85808f1e5e9890f1a070a7019b0",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-armeniaca-giorgi-1.jpg",
+      "originalSize": 375464,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-armeniaca-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 7313
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9168
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 10224
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 13142
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 20955
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 29310
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 29784
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 42874
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-giorgi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 55337
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-giorgi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 82046
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-giorgi-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 122796
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-giorgi-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 184314
+        }
+      ],
+      "updatedAt": "2026-10-18T08:19:07.439Z"
+    },
     "darevskia-armeniaca-konrad-1.jpg": {
       "sourceHash": "a1c7a36aae78cff06c04d64546d9382f43b4000cb18dd487cdb53be3cbf44ac9",
       "configFingerprint": "409788ee46c653d8",
