@@ -7680,6 +7680,101 @@
       ],
       "updatedAt": "2026-10-18T10:07:52.101Z"
     },
+    "bufo-verrucosissimus-kirill-1.jpg": {
+      "sourceHash": "0a2aa977d7942f53fc43af8c96986f50322eafc559b72fd372a77cc2568dece9",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "bufo-verrucosissimus-kirill-1.jpg",
+      "originalSize": 420391,
+      "width": 1542,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/bufo-verrucosissimus-kirill-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 425,
+          "byteSize": 13860
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-kirill-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 425,
+          "byteSize": 19634
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-kirill-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 531,
+          "byteSize": 19016
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-kirill-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 531,
+          "byteSize": 27046
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-kirill-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 850,
+          "byteSize": 38089
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-kirill-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 850,
+          "byteSize": 53580
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-kirill-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1063,
+          "byteSize": 52469
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-kirill-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1063,
+          "byteSize": 74042
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-kirill-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1594,
+          "byteSize": 95425
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-kirill-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1594,
+          "byteSize": 131432
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-kirill-1-1542.avif",
+          "format": "avif",
+          "width": 1542,
+          "height": 2048,
+          "byteSize": 139271
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-kirill-1-1542.webp",
+          "format": "webp",
+          "width": 1542,
+          "height": 2048,
+          "byteSize": 189514
+        }
+      ],
+      "updatedAt": "2026-10-18T10:09:08.573Z"
+    },
     "bufo-verrucosissimus-loisbouchet-1.jpg": {
       "sourceHash": "ddb49ea07ea6cf1ab96a60cb9a75b6c18081db3f950f10c7a1ae30e8121369fd",
       "configFingerprint": "409788ee46c653d8",

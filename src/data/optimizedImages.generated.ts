@@ -1040,6 +1040,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/bufo-verrucosissimus-kirill-1.jpg": {
+    "path": "bufo-verrucosissimus-kirill-1",
+    "width": 1542,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1542],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/bufo-verrucosissimus-loisbouchet-1.jpg": {
     "path": "bufo-verrucosissimus-loisbouchet-1",
     "width": 2048,
