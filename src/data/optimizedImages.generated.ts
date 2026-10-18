@@ -2048,6 +2048,27 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/darevskia-armeniaca-achot-1.jpg": {
+    "path": "darevskia-armeniaca-achot-1",
+    "width": 2048,
+    "height": 1364,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-armeniaca-aleksandre-1.jpg": {
+    "path": "darevskia-armeniaca-aleksandre-1",
+    "width": 1989,
+    "height": 1445,
+    "widths": [320, 400, 640, 800, 1200, 1989],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-armeniaca-arvidas-1.jpg": {
+    "path": "darevskia-armeniaca-arvidas-1",
+    "width": 1542,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1542],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/darevskia-armeniaca-davit-1.jpg": {
     "path": "darevskia-armeniaca-davit-1",
     "width": 985,
@@ -2062,11 +2083,53 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 578],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/darevskia-armeniaca-dora-exploratrice-1.jpg": {
+    "path": "darevskia-armeniaca-dora-exploratrice-1",
+    "width": 2048,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-armeniaca-giorgi-1.jpg": {
+    "path": "darevskia-armeniaca-giorgi-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/darevskia-armeniaca-konrad-1.jpg": {
     "path": "darevskia-armeniaca-konrad-1",
     "width": 1600,
     "height": 1000,
     "widths": [320, 400, 640, 800, 1200, 1600],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-armeniaca-peter-1.jpg": {
+    "path": "darevskia-armeniaca-peter-1",
+    "width": 2048,
+    "height": 1532,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-armeniaca-tom%C3%A1%C5%A1-1.jpg": {
+    "path": "darevskia-armeniaca-tom%C3%A1%C5%A1-1",
+    "width": 2048,
+    "height": 1363,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-armeniaca-tomo-m-1.jpg": {
+    "path": "darevskia-armeniaca-tomo-m-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-armeniaca-vojt%C4%9Bch-1.jpg": {
+    "path": "darevskia-armeniaca-vojt%C4%9Bch-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/darevskia-armeniaca.jpg": {

@@ -19529,6 +19529,291 @@
       ],
       "updatedAt": "2026-08-28T21:31:16.482Z"
     },
+    "darevskia-armeniaca-achot-1.jpg": {
+      "sourceHash": "bd6e62fe6f03d8622ebe4c064cd8a3b1cd0eaac0e1a29d1ec2b1247623f886d0",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-armeniaca-achot-1.jpg",
+      "originalSize": 499396,
+      "width": 2048,
+      "height": 1364,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-armeniaca-achot-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12166
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-achot-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 19116
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-achot-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 16866
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-achot-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 26692
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-achot-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 35143
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-achot-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 56684
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-achot-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 48617
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-achot-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 79088
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-achot-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 799,
+          "byteSize": 83369
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-achot-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 799,
+          "byteSize": 136290
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-achot-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1364,
+          "byteSize": 161896
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-achot-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1364,
+          "byteSize": 266216
+        }
+      ],
+      "updatedAt": "2026-10-18T08:12:55.355Z"
+    },
+    "darevskia-armeniaca-aleksandre-1.jpg": {
+      "sourceHash": "61b1831d6eec0947b248619379892943e0459abd09c85cc42ae7958b3301e949",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-armeniaca-aleksandre-1.jpg",
+      "originalSize": 887278,
+      "width": 1989,
+      "height": 1445,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-armeniaca-aleksandre-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 232,
+          "byteSize": 19910
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-aleksandre-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 232,
+          "byteSize": 31486
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-aleksandre-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 291,
+          "byteSize": 30779
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-aleksandre-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 291,
+          "byteSize": 49396
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-aleksandre-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 465,
+          "byteSize": 67496
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-aleksandre-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 465,
+          "byteSize": 112252
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-aleksandre-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 581,
+          "byteSize": 99967
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-aleksandre-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 581,
+          "byteSize": 166776
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-aleksandre-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 872,
+          "byteSize": 190126
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-aleksandre-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 872,
+          "byteSize": 321712
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-aleksandre-1-1989.avif",
+          "format": "avif",
+          "width": 1989,
+          "height": 1445,
+          "byteSize": 442568
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-aleksandre-1-1989.webp",
+          "format": "webp",
+          "width": 1989,
+          "height": 1445,
+          "byteSize": 688742
+        }
+      ],
+      "updatedAt": "2026-10-18T08:21:29.071Z"
+    },
+    "darevskia-armeniaca-arvidas-1.jpg": {
+      "sourceHash": "73afc73cdc209d842d1fbecad4bf5d08be02436dbbfd6f4bc78c8397dd2e0e0d",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-armeniaca-arvidas-1.jpg",
+      "originalSize": 668353,
+      "width": 1542,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-armeniaca-arvidas-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 425,
+          "byteSize": 28410
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-arvidas-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 425,
+          "byteSize": 48060
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-arvidas-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 531,
+          "byteSize": 41351
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-arvidas-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 531,
+          "byteSize": 69414
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-arvidas-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 850,
+          "byteSize": 85752
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-arvidas-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 850,
+          "byteSize": 141752
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-arvidas-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1063,
+          "byteSize": 114660
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-arvidas-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1063,
+          "byteSize": 186306
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-arvidas-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1594,
+          "byteSize": 182133
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-arvidas-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1594,
+          "byteSize": 289802
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-arvidas-1-1542.avif",
+          "format": "avif",
+          "width": 1542,
+          "height": 2048,
+          "byteSize": 232195
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-arvidas-1-1542.webp",
+          "format": "webp",
+          "width": 1542,
+          "height": 2048,
+          "byteSize": 375334
+        }
+      ],
+      "updatedAt": "2026-10-18T08:12:27.145Z"
+    },
     "darevskia-armeniaca-davit-1.jpg": {
       "sourceHash": "859e7dd636e43d9d8b3fc5572e9b6a45f31e7e924af164bfd405fbe455ef96ba",
       "configFingerprint": "409788ee46c653d8",
@@ -19662,6 +19947,196 @@
         }
       ],
       "updatedAt": "2026-09-08T16:31:53.151Z"
+    },
+    "darevskia-armeniaca-dora-exploratrice-1.jpg": {
+      "sourceHash": "6d243b1e61a2efa40947b47d7a717f3824342c633aabf66e29a2532f52498134",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-armeniaca-dora-exploratrice-1.jpg",
+      "originalSize": 972906,
+      "width": 2048,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-armeniaca-dora-exploratrice-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 320,
+          "byteSize": 20443
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-dora-exploratrice-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 320,
+          "byteSize": 33776
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-dora-exploratrice-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 400,
+          "byteSize": 28728
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-dora-exploratrice-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 400,
+          "byteSize": 47456
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-dora-exploratrice-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 640,
+          "byteSize": 62554
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-dora-exploratrice-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 640,
+          "byteSize": 104630
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-dora-exploratrice-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 800,
+          "byteSize": 93447
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-dora-exploratrice-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 800,
+          "byteSize": 153196
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-dora-exploratrice-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1200,
+          "byteSize": 175873
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-dora-exploratrice-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1200,
+          "byteSize": 274576
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-dora-exploratrice-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 2048,
+          "byteSize": 374207
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-dora-exploratrice-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 2048,
+          "byteSize": 546106
+        }
+      ],
+      "updatedAt": "2026-10-18T08:11:36.421Z"
+    },
+    "darevskia-armeniaca-giorgi-1.jpg": {
+      "sourceHash": "8b36715b9564a7c67a2668b2682260009539c85808f1e5e9890f1a070a7019b0",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-armeniaca-giorgi-1.jpg",
+      "originalSize": 375464,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-armeniaca-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 7313
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9168
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 10224
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 13142
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 20955
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 29310
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 29784
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 42874
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-giorgi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 55337
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-giorgi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 82046
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-giorgi-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 122796
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-giorgi-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 184314
+        }
+      ],
+      "updatedAt": "2026-10-18T08:19:07.439Z"
     },
     "darevskia-armeniaca-konrad-1.jpg": {
       "sourceHash": "a1c7a36aae78cff06c04d64546d9382f43b4000cb18dd487cdb53be3cbf44ac9",
@@ -19824,6 +20299,386 @@
         }
       ],
       "updatedAt": "2026-08-28T21:31:23.118Z"
+    },
+    "darevskia-armeniaca-peter-1.jpg": {
+      "sourceHash": "ab05841e3e937adb7c32a4234c27387df45227890e8b67e4e590f443f3ebe3ac",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-armeniaca-peter-1.jpg",
+      "originalSize": 1180515,
+      "width": 2048,
+      "height": 1532,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-armeniaca-peter-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 239,
+          "byteSize": 21349
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-peter-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 239,
+          "byteSize": 34106
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-peter-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 299,
+          "byteSize": 31811
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-peter-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 299,
+          "byteSize": 51480
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-peter-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 479,
+          "byteSize": 76218
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-peter-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 479,
+          "byteSize": 119920
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-peter-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 598,
+          "byteSize": 113688
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-peter-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 598,
+          "byteSize": 182704
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-peter-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 898,
+          "byteSize": 222440
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-peter-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 898,
+          "byteSize": 352398
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-peter-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1532,
+          "byteSize": 506332
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-peter-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1532,
+          "byteSize": 793132
+        }
+      ],
+      "updatedAt": "2026-10-18T08:20:51.000Z"
+    },
+    "darevskia-armeniaca-tomo-m-1.jpg": {
+      "sourceHash": "ed41a75328bc0ea9668a56e032d6057417c341ef262d9dbb7d029e1a394c8674",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-armeniaca-tomo-m-1.jpg",
+      "originalSize": 436071,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-armeniaca-tomo-m-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9492
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomo-m-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14960
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomo-m-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 13030
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomo-m-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 20566
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomo-m-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 26843
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomo-m-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 40936
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomo-m-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 36793
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomo-m-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 56430
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomo-m-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 65045
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomo-m-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 96098
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomo-m-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 133795
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomo-m-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 190844
+        }
+      ],
+      "updatedAt": "2026-10-18T08:20:00.388Z"
+    },
+    "darevskia-armeniaca-tomáš-1.jpg": {
+      "sourceHash": "a608ffc92fe3a3ea64661ff5d87ba2a333931db500201c384f1dcbac1810c248",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-armeniaca-tomáš-1.jpg",
+      "originalSize": 274330,
+      "width": 2048,
+      "height": 1363,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-armeniaca-tomáš-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 7059
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomáš-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9070
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomáš-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 9321
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomáš-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 12034
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomáš-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 17286
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomáš-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 23670
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomáš-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 532,
+          "byteSize": 22882
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomáš-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 532,
+          "byteSize": 32504
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomáš-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 799,
+          "byteSize": 39435
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomáš-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 799,
+          "byteSize": 55914
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomáš-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1363,
+          "byteSize": 80482
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomáš-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1363,
+          "byteSize": 118572
+        }
+      ],
+      "updatedAt": "2026-10-18T08:09:00.207Z"
+    },
+    "darevskia-armeniaca-vojtěch-1.jpg": {
+      "sourceHash": "86b0a46adb1b957ca1d06f4c70c6ea931cf35e35daf554d6630784273a99ebce",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-armeniaca-vojtěch-1.jpg",
+      "originalSize": 536203,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-armeniaca-vojtěch-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11816
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-vojtěch-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 18064
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-vojtěch-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 16614
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-vojtěch-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 25618
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-vojtěch-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 34067
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-vojtěch-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 53438
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-vojtěch-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 47952
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-vojtěch-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 74452
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-vojtěch-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 88184
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-vojtěch-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 137030
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-vojtěch-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 191443
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-vojtěch-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 298524
+        }
+      ],
+      "updatedAt": "2026-10-18T08:18:17.915Z"
     },
     "darevskia-armeniaca.jpg": {
       "sourceHash": "6ecdf8038c43d9181e8f4c5b1ad0b058b3c26d1829acb80693efca1b22a3d692",
