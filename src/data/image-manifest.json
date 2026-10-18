@@ -30076,6 +30076,101 @@
       ],
       "updatedAt": "2026-10-18T15:20:26.487Z"
     },
+    "darevskia-valentini-tom-1.jpg": {
+      "sourceHash": "db7a15ced48216febc0a7bff4243cf8113078309974068e4b94b87ebb03b4b96",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-valentini-tom-1.jpg",
+      "originalSize": 875809,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-valentini-tom-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 16397
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 26702
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 24603
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 39776
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 56377
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 93296
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 81729
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 136164
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 154658
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 257762
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 331588
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 523564
+        }
+      ],
+      "updatedAt": "2026-10-18T15:22:28.922Z"
+    },
     "darevskia-valentini-tomáš-1.jpg": {
       "sourceHash": "f3693e1caea2a4aef305a7be74ff9a1b4c41818c8ef5163a5dac37e419f862bf",
       "configFingerprint": "409788ee46c653d8",
