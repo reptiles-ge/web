@@ -22420,6 +22420,386 @@
       ],
       "updatedAt": "2026-08-28T21:31:44.084Z"
     },
+    "darevskia-clarkorum-christian-1.jpg": {
+      "sourceHash": "c918646391dd364b493b173abf0873c25b018f57f9e7745a26ed7fb765696c7c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-clarkorum-christian-1.jpg",
+      "originalSize": 381643,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-clarkorum-christian-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8314
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-christian-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12510
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-christian-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 11708
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-christian-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 17460
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-christian-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 24771
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-christian-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 37606
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-christian-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 35117
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-christian-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 52592
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-christian-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 62433
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-christian-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 90112
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-christian-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 116516
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-christian-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 173254
+        }
+      ],
+      "updatedAt": "2026-10-18T09:18:02.009Z"
+    },
+    "darevskia-clarkorum-clo-09-1.jpg": {
+      "sourceHash": "d07983174a0ea6c9964f4806186c71da6391f637eace663828d5e78c575ea110",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-clarkorum-clo-09-1.jpg",
+      "originalSize": 325339,
+      "width": 1600,
+      "height": 1066,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-clarkorum-clo-09-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11591
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-clo-09-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 18166
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-clo-09-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 17274
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-clo-09-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 27230
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-clo-09-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 36356
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-clo-09-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 59270
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-clo-09-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 51473
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-clo-09-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 84764
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-clo-09-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 92713
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-clo-09-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 149100
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-clo-09-1-1600.avif",
+          "format": "avif",
+          "width": 1600,
+          "height": 1066,
+          "byteSize": 147277
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-clo-09-1-1600.webp",
+          "format": "webp",
+          "width": 1600,
+          "height": 1066,
+          "byteSize": 217092
+        }
+      ],
+      "updatedAt": "2026-10-18T09:17:24.867Z"
+    },
+    "darevskia-clarkorum-laotriton-1.jpg": {
+      "sourceHash": "eec42fa2fb96d800cae3047b7ffb7ae8c9e3b6c25ebc2604a6471937b34284b2",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-clarkorum-laotriton-1.jpg",
+      "originalSize": 496289,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-clarkorum-laotriton-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10783
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-laotriton-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 15456
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-laotriton-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 15210
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-laotriton-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 22186
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-laotriton-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 32220
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-laotriton-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 48088
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-laotriton-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 46529
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-laotriton-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 68806
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-laotriton-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 83043
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-laotriton-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 120534
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-laotriton-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 174961
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-laotriton-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 242588
+        }
+      ],
+      "updatedAt": "2026-10-18T09:18:56.301Z"
+    },
+    "darevskia-clarkorum-liothrix-1.jpg": {
+      "sourceHash": "a7d1d375a077af7294bef0f4ba4c0d8a0be781f449b8a27c5a89e24167ea50b2",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-clarkorum-liothrix-1.jpg",
+      "originalSize": 776692,
+      "width": 2048,
+      "height": 1919,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 299,
+          "byteSize": 15949
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 299,
+          "byteSize": 25016
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 374,
+          "byteSize": 21916
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 374,
+          "byteSize": 35224
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 599,
+          "byteSize": 44730
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 599,
+          "byteSize": 73784
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 750,
+          "byteSize": 63429
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 750,
+          "byteSize": 102286
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1124,
+          "byteSize": 114636
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1124,
+          "byteSize": 182066
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1919,
+          "byteSize": 267017
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1919,
+          "byteSize": 390384
+        }
+      ],
+      "updatedAt": "2026-10-18T09:16:34.244Z"
+    },
     "darevskia-clarkorum-mobile.jpg": {
       "sourceHash": "4c0033884f1114c29fd9b430f369c4737e920afa6afa91daf193ba5dd94076c7",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -22486,6 +22866,101 @@
         }
       ],
       "updatedAt": "2026-08-28T21:31:49.232Z"
+    },
+    "darevskia-clarkorum-tom-1.jpg": {
+      "sourceHash": "fd1ed17b678541cb31ca04c57dc7ee0cdc4f01b1ba794e02c515da8643d0b979",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-clarkorum-tom-1.jpg",
+      "originalSize": 929152,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-clarkorum-tom-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 17205
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-tom-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 26328
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-tom-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 26317
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-tom-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 40436
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-tom-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 62666
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-tom-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 98242
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-tom-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 91241
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-tom-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 149338
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-tom-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 173749
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-tom-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 278140
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-tom-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 371744
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-tom-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 555074
+        }
+      ],
+      "updatedAt": "2026-10-18T09:19:52.780Z"
     },
     "darevskia-clarkorum.jpg": {
       "sourceHash": "42203957388850dc5c3fe5c143f42cb9eb33ef0aef04ea0340044d1b1911f4b5",
