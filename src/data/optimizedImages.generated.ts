@@ -6647,6 +6647,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 2400],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/news-borjomi-grey-partridge-trinaud.jpg": {
+    "path": "news-borjomi-grey-partridge-trinaud",
+    "width": 2400,
+    "height": 1599,
+    "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/news-crested-honey-buzzard-cordes-male.jpg": {
     "path": "news-crested-honey-buzzard-cordes-male",
     "width": 2400,
