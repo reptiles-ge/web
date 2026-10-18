@@ -28,6 +28,7 @@ import { rangeMap as darevskiaClarkorum } from "@/data/speciesRangeMaps/darevski
 import { rangeMap as darevskiaDahli } from "@/data/speciesRangeMaps/darevskia-dahli";
 import { rangeMap as darevskiaDerjugini } from "@/data/speciesRangeMaps/darevskia-derjugini";
 import { rangeMap as darevskiaObscura } from "@/data/speciesRangeMaps/darevskia-obscura";
+import { rangeMap as darevskiaValentini } from "@/data/speciesRangeMaps/darevskia-valentini";
 import { rangeMap as dendrocoposMajor } from "@/data/speciesRangeMaps/dendrocopos-major";
 import { rangeMap as dolichophisSchmidti } from "@/data/speciesRangeMaps/dolichophis-schmidti";
 import { rangeMap as eirenisModestus } from "@/data/speciesRangeMaps/eirenis-modestus";
@@ -112,6 +113,7 @@ export const INTERACTIVE_RANGE_MAPS: Partial<
   "darevskia-dahli": darevskiaDahli,
   "darevskia-derjugini": darevskiaDerjugini,
   "darevskia-obscura": darevskiaObscura,
+  "darevskia-valentini": darevskiaValentini,
   "dendrocopos-major": dendrocoposMajor,
   "dolichophis-schmidti": dolichophisSchmidti,
   "eirenis-modestus": eirenisModestus,
