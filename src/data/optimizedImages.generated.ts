@@ -1964,6 +1964,27 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/darevskia-adjarica-kseniia-3.jpg": {
+    "path": "darevskia-adjarica-kseniia-3",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-adjarica-kseniia-4.jpg": {
+    "path": "darevskia-adjarica-kseniia-4",
+    "width": 1728,
+    "height": 1296,
+    "widths": [320, 400, 640, 800, 1200, 1728],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-adjarica-kseniia-5.jpg": {
+    "path": "darevskia-adjarica-kseniia-5",
+    "width": 1728,
+    "height": 1296,
+    "widths": [320, 400, 640, 800, 1200, 1728],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/darevskia-adjarica-leonid-1.jpg": {
     "path": "darevskia-adjarica-leonid-1",
     "width": 1024,
@@ -1976,6 +1997,20 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1024,
     "height": 683,
     "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-adjarica-rik-vanek-1.jpg": {
+    "path": "darevskia-adjarica-rik-vanek-1",
+    "width": 1909,
+    "height": 1359,
+    "widths": [320, 400, 640, 800, 1200, 1909],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-adjarica-timoteo-b-1.jpg": {
+    "path": "darevskia-adjarica-timoteo-b-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/darevskia-alpina-2.jpg": {
@@ -6526,6 +6561,27 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 2000,
     "height": 1525,
     "widths": [320, 400, 640, 800, 1200, 2000],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-batumi-million-cordes-marsh-harrier.jpg": {
+    "path": "news-batumi-million-cordes-marsh-harrier",
+    "width": 2400,
+    "height": 1600,
+    "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-batumi-million-daneshvar-station-1.jpg": {
+    "path": "news-batumi-million-daneshvar-station-1",
+    "width": 2400,
+    "height": 1350,
+    "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-batumi-million-stolk-white-black-kite.jpg": {
+    "path": "news-batumi-million-stolk-white-black-kite",
+    "width": 2400,
+    "height": 1765,
+    "widths": [320, 400, 640, 800, 1200, 2400],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/news-crested-honey-buzzard-cordes-male.jpg": {
