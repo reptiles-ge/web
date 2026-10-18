@@ -18937,6 +18937,101 @@
       ],
       "updatedAt": "2026-08-28T21:31:02.107Z"
     },
+    "darevskia-adjarica-rik-vanek-1.jpg": {
+      "sourceHash": "2eec820c3484b2f62ce98459f5fe03100279abae20ac0ece37e80b3acf1e7881",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-adjarica-rik-vanek-1.jpg",
+      "originalSize": 692387,
+      "width": 1909,
+      "height": 1359,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-adjarica-rik-vanek-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 227,
+          "byteSize": 17457
+        },
+        {
+          "key": "optimized/darevskia-adjarica-rik-vanek-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 227,
+          "byteSize": 28750
+        },
+        {
+          "key": "optimized/darevskia-adjarica-rik-vanek-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 285,
+          "byteSize": 25924
+        },
+        {
+          "key": "optimized/darevskia-adjarica-rik-vanek-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 285,
+          "byteSize": 43340
+        },
+        {
+          "key": "optimized/darevskia-adjarica-rik-vanek-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 456,
+          "byteSize": 52509
+        },
+        {
+          "key": "optimized/darevskia-adjarica-rik-vanek-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 456,
+          "byteSize": 89180
+        },
+        {
+          "key": "optimized/darevskia-adjarica-rik-vanek-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 570,
+          "byteSize": 72695
+        },
+        {
+          "key": "optimized/darevskia-adjarica-rik-vanek-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 570,
+          "byteSize": 123234
+        },
+        {
+          "key": "optimized/darevskia-adjarica-rik-vanek-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 854,
+          "byteSize": 133398
+        },
+        {
+          "key": "optimized/darevskia-adjarica-rik-vanek-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 854,
+          "byteSize": 211644
+        },
+        {
+          "key": "optimized/darevskia-adjarica-rik-vanek-1-1909.avif",
+          "format": "avif",
+          "width": 1909,
+          "height": 1359,
+          "byteSize": 292948
+        },
+        {
+          "key": "optimized/darevskia-adjarica-rik-vanek-1-1909.webp",
+          "format": "webp",
+          "width": 1909,
+          "height": 1359,
+          "byteSize": 416170
+        }
+      ],
+      "updatedAt": "2026-10-18T07:24:09.287Z"
+    },
     "darevskia-adjarica.jpg": {
       "sourceHash": "e6dd06493aafb7c884e0b06a726f10449e30b8a702f2bdea471bdfcb2c26c853",
       "configFingerprint": "a895f8e025dcc7fa",
