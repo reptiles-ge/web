@@ -2790,6 +2790,69 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/darevskia-valentini-achot-1.jpg": {
+    "path": "darevskia-valentini-achot-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-valentini-bertogcliment-1.jpg": {
+    "path": "darevskia-valentini-bertogcliment-1",
+    "width": 1536,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-valentini-david-1.jpg": {
+    "path": "darevskia-valentini-david-1",
+    "width": 2048,
+    "height": 1356,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-valentini-julian-descoubes-1.jpg": {
+    "path": "darevskia-valentini-julian-descoubes-1",
+    "width": 2048,
+    "height": 1087,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-valentini-timoteo-b-1.jpg": {
+    "path": "darevskia-valentini-timoteo-b-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-valentini-timoteo-b-2.jpg": {
+    "path": "darevskia-valentini-timoteo-b-2",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-valentini-tom-1.jpg": {
+    "path": "darevskia-valentini-tom-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-valentini-tom-2.jpg": {
+    "path": "darevskia-valentini-tom-2",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-valentini-tom%C3%A1%C5%A1-1.jpg": {
+    "path": "darevskia-valentini-tom%C3%A1%C5%A1-1",
+    "width": 2048,
+    "height": 1373,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/darevskia-valentini.jpg": {
     "path": "darevskia-valentini",
     "width": 1153,

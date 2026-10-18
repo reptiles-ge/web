@@ -29506,6 +29506,861 @@
       ],
       "updatedAt": "2026-08-28T21:36:30.226Z"
     },
+    "darevskia-valentini-achot-1.jpg": {
+      "sourceHash": "49b80f7665b72753aebeca5357da425e730f6b0fa75498f4a50cf3e66f557763",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-valentini-achot-1.jpg",
+      "originalSize": 468947,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-valentini-achot-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11443
+        },
+        {
+          "key": "optimized/darevskia-valentini-achot-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 18046
+        },
+        {
+          "key": "optimized/darevskia-valentini-achot-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 15754
+        },
+        {
+          "key": "optimized/darevskia-valentini-achot-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 25044
+        },
+        {
+          "key": "optimized/darevskia-valentini-achot-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 31408
+        },
+        {
+          "key": "optimized/darevskia-valentini-achot-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 50360
+        },
+        {
+          "key": "optimized/darevskia-valentini-achot-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 44135
+        },
+        {
+          "key": "optimized/darevskia-valentini-achot-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 69674
+        },
+        {
+          "key": "optimized/darevskia-valentini-achot-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 76007
+        },
+        {
+          "key": "optimized/darevskia-valentini-achot-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 119242
+        },
+        {
+          "key": "optimized/darevskia-valentini-achot-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 151124
+        },
+        {
+          "key": "optimized/darevskia-valentini-achot-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 235912
+        }
+      ],
+      "updatedAt": "2026-10-18T15:21:03.702Z"
+    },
+    "darevskia-valentini-bertogcliment-1.jpg": {
+      "sourceHash": "1f58b348ab7ebc31f6d2e48836fb50e08b9d40374cddfa5e7a10e8dc959aba7b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-valentini-bertogcliment-1.jpg",
+      "originalSize": 909370,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-valentini-bertogcliment-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 26939
+        },
+        {
+          "key": "optimized/darevskia-valentini-bertogcliment-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 41538
+        },
+        {
+          "key": "optimized/darevskia-valentini-bertogcliment-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 40282
+        },
+        {
+          "key": "optimized/darevskia-valentini-bertogcliment-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 62362
+        },
+        {
+          "key": "optimized/darevskia-valentini-bertogcliment-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 93888
+        },
+        {
+          "key": "optimized/darevskia-valentini-bertogcliment-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 144460
+        },
+        {
+          "key": "optimized/darevskia-valentini-bertogcliment-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 137140
+        },
+        {
+          "key": "optimized/darevskia-valentini-bertogcliment-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 211614
+        },
+        {
+          "key": "optimized/darevskia-valentini-bertogcliment-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 258787
+        },
+        {
+          "key": "optimized/darevskia-valentini-bertogcliment-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 409330
+        },
+        {
+          "key": "optimized/darevskia-valentini-bertogcliment-1-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 396939
+        },
+        {
+          "key": "optimized/darevskia-valentini-bertogcliment-1-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 618476
+        }
+      ],
+      "updatedAt": "2026-10-18T15:17:25.756Z"
+    },
+    "darevskia-valentini-david-1.jpg": {
+      "sourceHash": "9d9dab222e81d8ea855f8393a8d7518ef44d8ec9551f13f244f63aa70bb90a76",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-valentini-david-1.jpg",
+      "originalSize": 269260,
+      "width": 2048,
+      "height": 1356,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-valentini-david-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 212,
+          "byteSize": 4805
+        },
+        {
+          "key": "optimized/darevskia-valentini-david-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 212,
+          "byteSize": 6810
+        },
+        {
+          "key": "optimized/darevskia-valentini-david-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 265,
+          "byteSize": 6399
+        },
+        {
+          "key": "optimized/darevskia-valentini-david-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 265,
+          "byteSize": 9676
+        },
+        {
+          "key": "optimized/darevskia-valentini-david-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 424,
+          "byteSize": 13567
+        },
+        {
+          "key": "optimized/darevskia-valentini-david-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 424,
+          "byteSize": 21086
+        },
+        {
+          "key": "optimized/darevskia-valentini-david-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 530,
+          "byteSize": 19717
+        },
+        {
+          "key": "optimized/darevskia-valentini-david-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 530,
+          "byteSize": 30046
+        },
+        {
+          "key": "optimized/darevskia-valentini-david-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 795,
+          "byteSize": 35518
+        },
+        {
+          "key": "optimized/darevskia-valentini-david-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 795,
+          "byteSize": 55088
+        },
+        {
+          "key": "optimized/darevskia-valentini-david-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1356,
+          "byteSize": 73373
+        },
+        {
+          "key": "optimized/darevskia-valentini-david-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1356,
+          "byteSize": 111730
+        }
+      ],
+      "updatedAt": "2026-10-18T15:18:15.463Z"
+    },
+    "darevskia-valentini-julian-descoubes-1.jpg": {
+      "sourceHash": "f45b434811afee623d06bc7d95e84d7bfd4d70d350a6e15ddc0ed02e1912096a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-valentini-julian-descoubes-1.jpg",
+      "originalSize": 245488,
+      "width": 2048,
+      "height": 1087,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-valentini-julian-descoubes-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 169,
+          "byteSize": 5664
+        },
+        {
+          "key": "optimized/darevskia-valentini-julian-descoubes-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 169,
+          "byteSize": 7530
+        },
+        {
+          "key": "optimized/darevskia-valentini-julian-descoubes-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 212,
+          "byteSize": 7685
+        },
+        {
+          "key": "optimized/darevskia-valentini-julian-descoubes-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 212,
+          "byteSize": 10556
+        },
+        {
+          "key": "optimized/darevskia-valentini-julian-descoubes-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 339,
+          "byteSize": 15593
+        },
+        {
+          "key": "optimized/darevskia-valentini-julian-descoubes-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 339,
+          "byteSize": 22112
+        },
+        {
+          "key": "optimized/darevskia-valentini-julian-descoubes-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 425,
+          "byteSize": 22019
+        },
+        {
+          "key": "optimized/darevskia-valentini-julian-descoubes-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 425,
+          "byteSize": 31150
+        },
+        {
+          "key": "optimized/darevskia-valentini-julian-descoubes-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 637,
+          "byteSize": 39570
+        },
+        {
+          "key": "optimized/darevskia-valentini-julian-descoubes-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 637,
+          "byteSize": 56840
+        },
+        {
+          "key": "optimized/darevskia-valentini-julian-descoubes-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1087,
+          "byteSize": 81219
+        },
+        {
+          "key": "optimized/darevskia-valentini-julian-descoubes-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1087,
+          "byteSize": 117748
+        }
+      ],
+      "updatedAt": "2026-10-18T15:21:39.950Z"
+    },
+    "darevskia-valentini-timoteo-b-1.jpg": {
+      "sourceHash": "7f94e3dc04858a84b1f6862fd71876987f5b20f3309114231e659b5e5cfebfc7",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-valentini-timoteo-b-1.jpg",
+      "originalSize": 1095723,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 17545
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 27622
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 26674
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 40928
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 64126
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 100370
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 101271
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 157326
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 211428
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 327194
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 496733
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 785464
+        }
+      ],
+      "updatedAt": "2026-10-18T15:19:02.026Z"
+    },
+    "darevskia-valentini-timoteo-b-2.jpg": {
+      "sourceHash": "3705b19529b97d3bbc221ce0199a62bdea280f2dbc17523435905fe81a16792e",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-valentini-timoteo-b-2.jpg",
+      "originalSize": 867638,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 16224
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 25138
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 24250
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 37796
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 56316
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 88522
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 84305
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 132582
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 161226
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 250388
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 357239
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 528356
+        }
+      ],
+      "updatedAt": "2026-10-18T15:20:26.487Z"
+    },
+    "darevskia-valentini-tom-1.jpg": {
+      "sourceHash": "db7a15ced48216febc0a7bff4243cf8113078309974068e4b94b87ebb03b4b96",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-valentini-tom-1.jpg",
+      "originalSize": 875809,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-valentini-tom-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 16397
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 26702
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 24603
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 39776
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 56377
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 93296
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 81729
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 136164
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 154658
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 257762
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 331588
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 523564
+        }
+      ],
+      "updatedAt": "2026-10-18T15:22:28.922Z"
+    },
+    "darevskia-valentini-tom-2.jpg": {
+      "sourceHash": "080e4cdaf5eb0fac23e96e2d37bfa5107b63afefdad25e717a06bba5989574b1",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-valentini-tom-2.jpg",
+      "originalSize": 827009,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-valentini-tom-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 13817
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 20328
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 21886
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 31898
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 53431
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 79308
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 80650
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 119614
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 154038
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 221772
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 336362
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 450522
+        }
+      ],
+      "updatedAt": "2026-10-18T15:23:11.395Z"
+    },
+    "darevskia-valentini-tomáš-1.jpg": {
+      "sourceHash": "f3693e1caea2a4aef305a7be74ff9a1b4c41818c8ef5163a5dac37e419f862bf",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-valentini-tomáš-1.jpg",
+      "originalSize": 555342,
+      "width": 2048,
+      "height": 1373,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-valentini-tomáš-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 214,
+          "byteSize": 10798
+        },
+        {
+          "key": "optimized/darevskia-valentini-tomáš-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 214,
+          "byteSize": 18166
+        },
+        {
+          "key": "optimized/darevskia-valentini-tomáš-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 268,
+          "byteSize": 15250
+        },
+        {
+          "key": "optimized/darevskia-valentini-tomáš-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 268,
+          "byteSize": 25396
+        },
+        {
+          "key": "optimized/darevskia-valentini-tomáš-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 429,
+          "byteSize": 30256
+        },
+        {
+          "key": "optimized/darevskia-valentini-tomáš-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 429,
+          "byteSize": 54070
+        },
+        {
+          "key": "optimized/darevskia-valentini-tomáš-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 536,
+          "byteSize": 42480
+        },
+        {
+          "key": "optimized/darevskia-valentini-tomáš-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 536,
+          "byteSize": 74824
+        },
+        {
+          "key": "optimized/darevskia-valentini-tomáš-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 804,
+          "byteSize": 78022
+        },
+        {
+          "key": "optimized/darevskia-valentini-tomáš-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 804,
+          "byteSize": 135568
+        },
+        {
+          "key": "optimized/darevskia-valentini-tomáš-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1373,
+          "byteSize": 174229
+        },
+        {
+          "key": "optimized/darevskia-valentini-tomáš-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1373,
+          "byteSize": 294176
+        }
+      ],
+      "updatedAt": "2026-10-18T15:19:47.131Z"
+    },
     "darevskia-valentini.jpg": {
       "sourceHash": "e0e72c56750763ade430d9b777618c3fa3f4f191646876080fb6529320ce7e51",
       "configFingerprint": "a895f8e025dcc7fa",
