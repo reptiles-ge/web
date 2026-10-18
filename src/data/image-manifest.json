@@ -29601,6 +29601,101 @@
       ],
       "updatedAt": "2026-10-18T15:17:25.756Z"
     },
+    "darevskia-valentini-david-1.jpg": {
+      "sourceHash": "9d9dab222e81d8ea855f8393a8d7518ef44d8ec9551f13f244f63aa70bb90a76",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-valentini-david-1.jpg",
+      "originalSize": 269260,
+      "width": 2048,
+      "height": 1356,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-valentini-david-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 212,
+          "byteSize": 4805
+        },
+        {
+          "key": "optimized/darevskia-valentini-david-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 212,
+          "byteSize": 6810
+        },
+        {
+          "key": "optimized/darevskia-valentini-david-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 265,
+          "byteSize": 6399
+        },
+        {
+          "key": "optimized/darevskia-valentini-david-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 265,
+          "byteSize": 9676
+        },
+        {
+          "key": "optimized/darevskia-valentini-david-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 424,
+          "byteSize": 13567
+        },
+        {
+          "key": "optimized/darevskia-valentini-david-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 424,
+          "byteSize": 21086
+        },
+        {
+          "key": "optimized/darevskia-valentini-david-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 530,
+          "byteSize": 19717
+        },
+        {
+          "key": "optimized/darevskia-valentini-david-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 530,
+          "byteSize": 30046
+        },
+        {
+          "key": "optimized/darevskia-valentini-david-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 795,
+          "byteSize": 35518
+        },
+        {
+          "key": "optimized/darevskia-valentini-david-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 795,
+          "byteSize": 55088
+        },
+        {
+          "key": "optimized/darevskia-valentini-david-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1356,
+          "byteSize": 73373
+        },
+        {
+          "key": "optimized/darevskia-valentini-david-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1356,
+          "byteSize": 111730
+        }
+      ],
+      "updatedAt": "2026-10-18T15:18:15.463Z"
+    },
     "darevskia-valentini.jpg": {
       "sourceHash": "e0e72c56750763ade430d9b777618c3fa3f4f191646876080fb6529320ce7e51",
       "configFingerprint": "a895f8e025dcc7fa",
