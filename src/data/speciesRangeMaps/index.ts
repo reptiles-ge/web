@@ -9,6 +9,7 @@ import { rangeMap as aquilaChrysaetos } from "@/data/speciesRangeMaps/aquila-chr
 import { rangeMap as araneusDiadematus } from "@/data/speciesRangeMaps/araneus-diadematus";
 import { rangeMap as argiopeBruennichi } from "@/data/speciesRangeMaps/argiope-bruennichi";
 import { rangeMap as blattaOrientalis } from "@/data/speciesRangeMaps/blatta-orientalis";
+import { rangeMap as bufoVerrucosissimus } from "@/data/speciesRangeMaps/bufo-verrucosissimus";
 import { rangeMap as bufotesViridis } from "@/data/speciesRangeMaps/bufotes-viridis";
 import { rangeMap as canisAureus } from "@/data/speciesRangeMaps/canis-aureus";
 import { rangeMap as canisLupus } from "@/data/speciesRangeMaps/canis-lupus";
@@ -20,7 +21,10 @@ import { rangeMap as columbaPalumbus } from "@/data/speciesRangeMaps/columba-pal
 import { rangeMap as coronellaAustriaca } from "@/data/speciesRangeMaps/coronella-austriaca";
 import { rangeMap as coturnixCoturnix } from "@/data/speciesRangeMaps/coturnix-coturnix";
 import { rangeMap as cuculusCanorus } from "@/data/speciesRangeMaps/cuculus-canorus";
+import { rangeMap as darevskiaAdjarica } from "@/data/speciesRangeMaps/darevskia-adjarica";
+import { rangeMap as darevskiaArmeniaca } from "@/data/speciesRangeMaps/darevskia-armeniaca";
 import { rangeMap as darevskiaCaucasica } from "@/data/speciesRangeMaps/darevskia-caucasica";
+import { rangeMap as darevskiaClarkorum } from "@/data/speciesRangeMaps/darevskia-clarkorum";
 import { rangeMap as darevskiaDahli } from "@/data/speciesRangeMaps/darevskia-dahli";
 import { rangeMap as darevskiaDerjugini } from "@/data/speciesRangeMaps/darevskia-derjugini";
 import { rangeMap as darevskiaObscura } from "@/data/speciesRangeMaps/darevskia-obscura";
@@ -89,6 +93,7 @@ export const INTERACTIVE_RANGE_MAPS: Partial<
   "araneus-diadematus": araneusDiadematus,
   "argiope-bruennichi": argiopeBruennichi,
   "blatta-orientalis": blattaOrientalis,
+  "bufo-verrucosissimus": bufoVerrucosissimus,
   "bufotes-viridis": bufotesViridis,
   "canis-aureus": canisAureus,
   "canis-lupus": canisLupus,
@@ -100,7 +105,10 @@ export const INTERACTIVE_RANGE_MAPS: Partial<
   "coronella-austriaca": coronellaAustriaca,
   "coturnix-coturnix": coturnixCoturnix,
   "cuculus-canorus": cuculusCanorus,
+  "darevskia-adjarica": darevskiaAdjarica,
+  "darevskia-armeniaca": darevskiaArmeniaca,
   "darevskia-caucasica": darevskiaCaucasica,
+  "darevskia-clarkorum": darevskiaClarkorum,
   "darevskia-dahli": darevskiaDahli,
   "darevskia-derjugini": darevskiaDerjugini,
   "darevskia-obscura": darevskiaObscura,

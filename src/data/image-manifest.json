@@ -7585,6 +7585,576 @@
       ],
       "updatedAt": "2026-08-28T21:28:58.873Z"
     },
+    "bufo-verrucosissimus-david-1.jpg": {
+      "sourceHash": "a2e0ce840fc448e911710a70d372d6d5bf345de66427306eebc3b71fd05e5dff",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "bufo-verrucosissimus-david-1.jpg",
+      "originalSize": 522785,
+      "width": 2048,
+      "height": 1356,
+      "derivatives": [
+        {
+          "key": "optimized/bufo-verrucosissimus-david-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 212,
+          "byteSize": 12910
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 212,
+          "byteSize": 20510
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 265,
+          "byteSize": 17709
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 265,
+          "byteSize": 28252
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 424,
+          "byteSize": 36827
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 424,
+          "byteSize": 57570
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 530,
+          "byteSize": 52134
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 530,
+          "byteSize": 81276
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 795,
+          "byteSize": 90074
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 795,
+          "byteSize": 131238
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1356,
+          "byteSize": 177379
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1356,
+          "byteSize": 256594
+        }
+      ],
+      "updatedAt": "2026-10-18T10:07:52.101Z"
+    },
+    "bufo-verrucosissimus-david-2.jpg": {
+      "sourceHash": "16f87bf35cc4aaa8628bf47b8b02cf137d9a756de7852d502c88c232580315bc",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "bufo-verrucosissimus-david-2.jpg",
+      "originalSize": 393324,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/bufo-verrucosissimus-david-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9429
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 13466
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 12890
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 18198
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 25585
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 36500
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 34979
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 49182
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 60132
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 85838
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 126938
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 181308
+        }
+      ],
+      "updatedAt": "2026-10-18T10:09:56.129Z"
+    },
+    "bufo-verrucosissimus-kirill-1.jpg": {
+      "sourceHash": "0a2aa977d7942f53fc43af8c96986f50322eafc559b72fd372a77cc2568dece9",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "bufo-verrucosissimus-kirill-1.jpg",
+      "originalSize": 420391,
+      "width": 1542,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/bufo-verrucosissimus-kirill-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 425,
+          "byteSize": 13860
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-kirill-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 425,
+          "byteSize": 19634
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-kirill-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 531,
+          "byteSize": 19016
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-kirill-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 531,
+          "byteSize": 27046
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-kirill-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 850,
+          "byteSize": 38089
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-kirill-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 850,
+          "byteSize": 53580
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-kirill-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1063,
+          "byteSize": 52469
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-kirill-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1063,
+          "byteSize": 74042
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-kirill-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1594,
+          "byteSize": 95425
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-kirill-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1594,
+          "byteSize": 131432
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-kirill-1-1542.avif",
+          "format": "avif",
+          "width": 1542,
+          "height": 2048,
+          "byteSize": 139271
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-kirill-1-1542.webp",
+          "format": "webp",
+          "width": 1542,
+          "height": 2048,
+          "byteSize": 189514
+        }
+      ],
+      "updatedAt": "2026-10-18T10:09:08.573Z"
+    },
+    "bufo-verrucosissimus-loisbouchet-1.jpg": {
+      "sourceHash": "ddb49ea07ea6cf1ab96a60cb9a75b6c18081db3f950f10c7a1ae30e8121369fd",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "bufo-verrucosissimus-loisbouchet-1.jpg",
+      "originalSize": 457326,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/bufo-verrucosissimus-loisbouchet-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 7427
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-loisbouchet-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 10050
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-loisbouchet-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 11076
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-loisbouchet-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 15426
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-loisbouchet-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 27052
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-loisbouchet-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 38382
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-loisbouchet-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 42045
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-loisbouchet-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 57742
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-loisbouchet-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 81998
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-loisbouchet-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 108146
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-loisbouchet-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 178153
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-loisbouchet-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 224108
+        }
+      ],
+      "updatedAt": "2026-10-18T10:08:32.265Z"
+    },
+    "bufo-verrucosissimus-mikhail-1.jpg": {
+      "sourceHash": "a159b4be1f48f8b9de10f3f5e2758e490865953597b9d17977425260a61f6b84",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "bufo-verrucosissimus-mikhail-1.jpg",
+      "originalSize": 468898,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/bufo-verrucosissimus-mikhail-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 12849
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-mikhail-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 17362
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-mikhail-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 17615
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-mikhail-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 24882
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-mikhail-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 34544
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-mikhail-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 49342
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-mikhail-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 47501
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-mikhail-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 67236
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-mikhail-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 84284
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-mikhail-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 118846
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-mikhail-1-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 125816
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-mikhail-1-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 175402
+        }
+      ],
+      "updatedAt": "2026-10-18T10:10:43.742Z"
+    },
+    "bufo-verrucosissimus-oscar-1.jpg": {
+      "sourceHash": "df11e8e1477f3055d36bb7c40b6d9059856eaab768c90ae82aa3deee0d2bd002",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "bufo-verrucosissimus-oscar-1.jpg",
+      "originalSize": 401452,
+      "width": 1702,
+      "height": 1135,
+      "derivatives": [
+        {
+          "key": "optimized/bufo-verrucosissimus-oscar-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10042
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-oscar-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 13584
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-oscar-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 14755
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-oscar-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 20402
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-oscar-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 33706
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-oscar-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 46106
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-oscar-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 47886
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-oscar-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 65310
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-oscar-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 86571
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-oscar-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 118664
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-oscar-1-1702.avif",
+          "format": "avif",
+          "width": 1702,
+          "height": 1135,
+          "byteSize": 150190
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-oscar-1-1702.webp",
+          "format": "webp",
+          "width": 1702,
+          "height": 1135,
+          "byteSize": 200078
+        }
+      ],
+      "updatedAt": "2026-10-18T10:07:07.317Z"
+    },
     "bufo-verrucosissimus-zauri-1.jpg": {
       "sourceHash": "c3392416b76d7c5878a6571c15b8735ee124c8c7a7267afa999984382c3d0226",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -18423,6 +18993,291 @@
       ],
       "updatedAt": "2026-09-11T01:57:42.839Z"
     },
+    "darevskia-adjarica-kseniia-3.jpg": {
+      "sourceHash": "85b384ea02f482bc29c4fe11d6f0c1c99dfd6d2ef848d80c1143ff4faf3a451f",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-adjarica-kseniia-3.jpg",
+      "originalSize": 1105855,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-3-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 18038
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-3-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 28114
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-3-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 27388
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-3-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 43106
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-3-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 68929
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-3-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 109936
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-3-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 107488
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-3-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 170108
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-3-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 217190
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-3-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 342716
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-3-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 479143
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-3-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 769124
+        }
+      ],
+      "updatedAt": "2026-10-18T07:20:01.751Z"
+    },
+    "darevskia-adjarica-kseniia-4.jpg": {
+      "sourceHash": "6b66caa232a5f880b18a28e3feb6411da4f33a81660b3b0fddad26a99e4f74e0",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-adjarica-kseniia-4.jpg",
+      "originalSize": 533207,
+      "width": 1728,
+      "height": 1296,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-4-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 14849
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-4-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 21930
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-4-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 24241
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-4-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 34554
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-4-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 56169
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-4-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 79562
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-4-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 79570
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-4-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 111738
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-4-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 138568
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-4-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 187362
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-4-1728.avif",
+          "format": "avif",
+          "width": 1728,
+          "height": 1296,
+          "byteSize": 215024
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-4-1728.webp",
+          "format": "webp",
+          "width": 1728,
+          "height": 1296,
+          "byteSize": 289014
+        }
+      ],
+      "updatedAt": "2026-10-18T07:21:22.816Z"
+    },
+    "darevskia-adjarica-kseniia-5.jpg": {
+      "sourceHash": "316812809763cf52cb036a49e0a4ce0b61e72cbe58883c5d45a75bcac1b04998",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-adjarica-kseniia-5.jpg",
+      "originalSize": 755231,
+      "width": 1728,
+      "height": 1296,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-5-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 18642
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-5-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 29896
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-5-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 30276
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-5-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 47142
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-5-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 70034
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-5-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 109974
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-5-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 101696
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-5-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 165178
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-5-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 191206
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-5-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 313490
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-5-1728.avif",
+          "format": "avif",
+          "width": 1728,
+          "height": 1296,
+          "byteSize": 318509
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-5-1728.webp",
+          "format": "webp",
+          "width": 1728,
+          "height": 1296,
+          "byteSize": 500792
+        }
+      ],
+      "updatedAt": "2026-10-18T07:22:35.041Z"
+    },
     "darevskia-adjarica-leonid-1.jpg": {
       "sourceHash": "129429948a64e62e1b3f35369859d23a75f2b8de9981b220d2aa3fb5190cf46f",
       "configFingerprint": "409788ee46c653d8",
@@ -18651,6 +19506,196 @@
         }
       ],
       "updatedAt": "2026-08-28T21:31:02.107Z"
+    },
+    "darevskia-adjarica-rik-vanek-1.jpg": {
+      "sourceHash": "2eec820c3484b2f62ce98459f5fe03100279abae20ac0ece37e80b3acf1e7881",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-adjarica-rik-vanek-1.jpg",
+      "originalSize": 692387,
+      "width": 1909,
+      "height": 1359,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-adjarica-rik-vanek-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 227,
+          "byteSize": 17457
+        },
+        {
+          "key": "optimized/darevskia-adjarica-rik-vanek-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 227,
+          "byteSize": 28750
+        },
+        {
+          "key": "optimized/darevskia-adjarica-rik-vanek-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 285,
+          "byteSize": 25924
+        },
+        {
+          "key": "optimized/darevskia-adjarica-rik-vanek-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 285,
+          "byteSize": 43340
+        },
+        {
+          "key": "optimized/darevskia-adjarica-rik-vanek-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 456,
+          "byteSize": 52509
+        },
+        {
+          "key": "optimized/darevskia-adjarica-rik-vanek-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 456,
+          "byteSize": 89180
+        },
+        {
+          "key": "optimized/darevskia-adjarica-rik-vanek-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 570,
+          "byteSize": 72695
+        },
+        {
+          "key": "optimized/darevskia-adjarica-rik-vanek-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 570,
+          "byteSize": 123234
+        },
+        {
+          "key": "optimized/darevskia-adjarica-rik-vanek-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 854,
+          "byteSize": 133398
+        },
+        {
+          "key": "optimized/darevskia-adjarica-rik-vanek-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 854,
+          "byteSize": 211644
+        },
+        {
+          "key": "optimized/darevskia-adjarica-rik-vanek-1-1909.avif",
+          "format": "avif",
+          "width": 1909,
+          "height": 1359,
+          "byteSize": 292948
+        },
+        {
+          "key": "optimized/darevskia-adjarica-rik-vanek-1-1909.webp",
+          "format": "webp",
+          "width": 1909,
+          "height": 1359,
+          "byteSize": 416170
+        }
+      ],
+      "updatedAt": "2026-10-18T07:24:09.287Z"
+    },
+    "darevskia-adjarica-timoteo-b-1.jpg": {
+      "sourceHash": "43a66d38c59f3f6ef23e4dc85fda58776759945b2ab28f85f665ffdbb67bde11",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-adjarica-timoteo-b-1.jpg",
+      "originalSize": 818299,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-adjarica-timoteo-b-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 12674
+        },
+        {
+          "key": "optimized/darevskia-adjarica-timoteo-b-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 18302
+        },
+        {
+          "key": "optimized/darevskia-adjarica-timoteo-b-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 19380
+        },
+        {
+          "key": "optimized/darevskia-adjarica-timoteo-b-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 27332
+        },
+        {
+          "key": "optimized/darevskia-adjarica-timoteo-b-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 45842
+        },
+        {
+          "key": "optimized/darevskia-adjarica-timoteo-b-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 65936
+        },
+        {
+          "key": "optimized/darevskia-adjarica-timoteo-b-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 71203
+        },
+        {
+          "key": "optimized/darevskia-adjarica-timoteo-b-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 103938
+        },
+        {
+          "key": "optimized/darevskia-adjarica-timoteo-b-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 147925
+        },
+        {
+          "key": "optimized/darevskia-adjarica-timoteo-b-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 216326
+        },
+        {
+          "key": "optimized/darevskia-adjarica-timoteo-b-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 354215
+        },
+        {
+          "key": "optimized/darevskia-adjarica-timoteo-b-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 510638
+        }
+      ],
+      "updatedAt": "2026-10-18T07:25:35.051Z"
     },
     "darevskia-adjarica.jpg": {
       "sourceHash": "e6dd06493aafb7c884e0b06a726f10449e30b8a702f2bdea471bdfcb2c26c853",
@@ -19054,6 +20099,291 @@
       ],
       "updatedAt": "2026-08-28T21:31:16.482Z"
     },
+    "darevskia-armeniaca-achot-1.jpg": {
+      "sourceHash": "bd6e62fe6f03d8622ebe4c064cd8a3b1cd0eaac0e1a29d1ec2b1247623f886d0",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-armeniaca-achot-1.jpg",
+      "originalSize": 499396,
+      "width": 2048,
+      "height": 1364,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-armeniaca-achot-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12166
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-achot-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 19116
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-achot-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 16866
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-achot-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 26692
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-achot-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 35143
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-achot-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 56684
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-achot-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 48617
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-achot-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 79088
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-achot-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 799,
+          "byteSize": 83369
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-achot-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 799,
+          "byteSize": 136290
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-achot-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1364,
+          "byteSize": 161896
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-achot-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1364,
+          "byteSize": 266216
+        }
+      ],
+      "updatedAt": "2026-10-18T08:12:55.355Z"
+    },
+    "darevskia-armeniaca-aleksandre-1.jpg": {
+      "sourceHash": "61b1831d6eec0947b248619379892943e0459abd09c85cc42ae7958b3301e949",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-armeniaca-aleksandre-1.jpg",
+      "originalSize": 887278,
+      "width": 1989,
+      "height": 1445,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-armeniaca-aleksandre-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 232,
+          "byteSize": 19910
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-aleksandre-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 232,
+          "byteSize": 31486
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-aleksandre-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 291,
+          "byteSize": 30779
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-aleksandre-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 291,
+          "byteSize": 49396
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-aleksandre-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 465,
+          "byteSize": 67496
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-aleksandre-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 465,
+          "byteSize": 112252
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-aleksandre-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 581,
+          "byteSize": 99967
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-aleksandre-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 581,
+          "byteSize": 166776
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-aleksandre-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 872,
+          "byteSize": 190126
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-aleksandre-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 872,
+          "byteSize": 321712
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-aleksandre-1-1989.avif",
+          "format": "avif",
+          "width": 1989,
+          "height": 1445,
+          "byteSize": 442568
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-aleksandre-1-1989.webp",
+          "format": "webp",
+          "width": 1989,
+          "height": 1445,
+          "byteSize": 688742
+        }
+      ],
+      "updatedAt": "2026-10-18T08:21:29.071Z"
+    },
+    "darevskia-armeniaca-arvidas-1.jpg": {
+      "sourceHash": "73afc73cdc209d842d1fbecad4bf5d08be02436dbbfd6f4bc78c8397dd2e0e0d",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-armeniaca-arvidas-1.jpg",
+      "originalSize": 668353,
+      "width": 1542,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-armeniaca-arvidas-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 425,
+          "byteSize": 28410
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-arvidas-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 425,
+          "byteSize": 48060
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-arvidas-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 531,
+          "byteSize": 41351
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-arvidas-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 531,
+          "byteSize": 69414
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-arvidas-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 850,
+          "byteSize": 85752
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-arvidas-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 850,
+          "byteSize": 141752
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-arvidas-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1063,
+          "byteSize": 114660
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-arvidas-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1063,
+          "byteSize": 186306
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-arvidas-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1594,
+          "byteSize": 182133
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-arvidas-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1594,
+          "byteSize": 289802
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-arvidas-1-1542.avif",
+          "format": "avif",
+          "width": 1542,
+          "height": 2048,
+          "byteSize": 232195
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-arvidas-1-1542.webp",
+          "format": "webp",
+          "width": 1542,
+          "height": 2048,
+          "byteSize": 375334
+        }
+      ],
+      "updatedAt": "2026-10-18T08:12:27.145Z"
+    },
     "darevskia-armeniaca-davit-1.jpg": {
       "sourceHash": "859e7dd636e43d9d8b3fc5572e9b6a45f31e7e924af164bfd405fbe455ef96ba",
       "configFingerprint": "409788ee46c653d8",
@@ -19187,6 +20517,196 @@
         }
       ],
       "updatedAt": "2026-09-08T16:31:53.151Z"
+    },
+    "darevskia-armeniaca-dora-exploratrice-1.jpg": {
+      "sourceHash": "6d243b1e61a2efa40947b47d7a717f3824342c633aabf66e29a2532f52498134",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-armeniaca-dora-exploratrice-1.jpg",
+      "originalSize": 972906,
+      "width": 2048,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-armeniaca-dora-exploratrice-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 320,
+          "byteSize": 20443
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-dora-exploratrice-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 320,
+          "byteSize": 33776
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-dora-exploratrice-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 400,
+          "byteSize": 28728
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-dora-exploratrice-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 400,
+          "byteSize": 47456
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-dora-exploratrice-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 640,
+          "byteSize": 62554
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-dora-exploratrice-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 640,
+          "byteSize": 104630
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-dora-exploratrice-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 800,
+          "byteSize": 93447
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-dora-exploratrice-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 800,
+          "byteSize": 153196
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-dora-exploratrice-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1200,
+          "byteSize": 175873
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-dora-exploratrice-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1200,
+          "byteSize": 274576
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-dora-exploratrice-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 2048,
+          "byteSize": 374207
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-dora-exploratrice-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 2048,
+          "byteSize": 546106
+        }
+      ],
+      "updatedAt": "2026-10-18T08:11:36.421Z"
+    },
+    "darevskia-armeniaca-giorgi-1.jpg": {
+      "sourceHash": "8b36715b9564a7c67a2668b2682260009539c85808f1e5e9890f1a070a7019b0",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-armeniaca-giorgi-1.jpg",
+      "originalSize": 375464,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-armeniaca-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 7313
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9168
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 10224
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 13142
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 20955
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 29310
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 29784
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 42874
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-giorgi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 55337
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-giorgi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 82046
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-giorgi-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 122796
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-giorgi-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 184314
+        }
+      ],
+      "updatedAt": "2026-10-18T08:19:07.439Z"
     },
     "darevskia-armeniaca-konrad-1.jpg": {
       "sourceHash": "a1c7a36aae78cff06c04d64546d9382f43b4000cb18dd487cdb53be3cbf44ac9",
@@ -19349,6 +20869,386 @@
         }
       ],
       "updatedAt": "2026-08-28T21:31:23.118Z"
+    },
+    "darevskia-armeniaca-peter-1.jpg": {
+      "sourceHash": "ab05841e3e937adb7c32a4234c27387df45227890e8b67e4e590f443f3ebe3ac",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-armeniaca-peter-1.jpg",
+      "originalSize": 1180515,
+      "width": 2048,
+      "height": 1532,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-armeniaca-peter-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 239,
+          "byteSize": 21349
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-peter-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 239,
+          "byteSize": 34106
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-peter-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 299,
+          "byteSize": 31811
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-peter-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 299,
+          "byteSize": 51480
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-peter-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 479,
+          "byteSize": 76218
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-peter-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 479,
+          "byteSize": 119920
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-peter-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 598,
+          "byteSize": 113688
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-peter-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 598,
+          "byteSize": 182704
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-peter-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 898,
+          "byteSize": 222440
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-peter-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 898,
+          "byteSize": 352398
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-peter-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1532,
+          "byteSize": 506332
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-peter-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1532,
+          "byteSize": 793132
+        }
+      ],
+      "updatedAt": "2026-10-18T08:20:51.000Z"
+    },
+    "darevskia-armeniaca-tomo-m-1.jpg": {
+      "sourceHash": "ed41a75328bc0ea9668a56e032d6057417c341ef262d9dbb7d029e1a394c8674",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-armeniaca-tomo-m-1.jpg",
+      "originalSize": 436071,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-armeniaca-tomo-m-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9492
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomo-m-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14960
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomo-m-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 13030
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomo-m-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 20566
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomo-m-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 26843
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomo-m-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 40936
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomo-m-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 36793
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomo-m-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 56430
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomo-m-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 65045
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomo-m-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 96098
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomo-m-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 133795
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomo-m-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 190844
+        }
+      ],
+      "updatedAt": "2026-10-18T08:20:00.388Z"
+    },
+    "darevskia-armeniaca-tomáš-1.jpg": {
+      "sourceHash": "a608ffc92fe3a3ea64661ff5d87ba2a333931db500201c384f1dcbac1810c248",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-armeniaca-tomáš-1.jpg",
+      "originalSize": 274330,
+      "width": 2048,
+      "height": 1363,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-armeniaca-tomáš-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 7059
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomáš-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9070
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomáš-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 9321
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomáš-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 12034
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomáš-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 17286
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomáš-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 23670
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomáš-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 532,
+          "byteSize": 22882
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomáš-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 532,
+          "byteSize": 32504
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomáš-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 799,
+          "byteSize": 39435
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomáš-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 799,
+          "byteSize": 55914
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomáš-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1363,
+          "byteSize": 80482
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-tomáš-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1363,
+          "byteSize": 118572
+        }
+      ],
+      "updatedAt": "2026-10-18T08:09:00.207Z"
+    },
+    "darevskia-armeniaca-vojtěch-1.jpg": {
+      "sourceHash": "86b0a46adb1b957ca1d06f4c70c6ea931cf35e35daf554d6630784273a99ebce",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-armeniaca-vojtěch-1.jpg",
+      "originalSize": 536203,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-armeniaca-vojtěch-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11816
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-vojtěch-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 18064
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-vojtěch-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 16614
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-vojtěch-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 25618
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-vojtěch-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 34067
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-vojtěch-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 53438
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-vojtěch-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 47952
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-vojtěch-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 74452
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-vojtěch-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 88184
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-vojtěch-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 137030
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-vojtěch-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 191443
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-vojtěch-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 298524
+        }
+      ],
+      "updatedAt": "2026-10-18T08:18:17.915Z"
     },
     "darevskia-armeniaca.jpg": {
       "sourceHash": "6ecdf8038c43d9181e8f4c5b1ad0b058b3c26d1829acb80693efca1b22a3d692",
@@ -21090,6 +22990,481 @@
       ],
       "updatedAt": "2026-08-28T21:31:44.084Z"
     },
+    "darevskia-clarkorum-christian-1.jpg": {
+      "sourceHash": "c918646391dd364b493b173abf0873c25b018f57f9e7745a26ed7fb765696c7c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-clarkorum-christian-1.jpg",
+      "originalSize": 381643,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-clarkorum-christian-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8314
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-christian-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12510
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-christian-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 11708
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-christian-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 17460
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-christian-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 24771
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-christian-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 37606
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-christian-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 35117
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-christian-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 52592
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-christian-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 62433
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-christian-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 90112
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-christian-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 116516
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-christian-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 173254
+        }
+      ],
+      "updatedAt": "2026-10-18T09:18:02.009Z"
+    },
+    "darevskia-clarkorum-clo-09-1.jpg": {
+      "sourceHash": "d07983174a0ea6c9964f4806186c71da6391f637eace663828d5e78c575ea110",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-clarkorum-clo-09-1.jpg",
+      "originalSize": 325339,
+      "width": 1600,
+      "height": 1066,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-clarkorum-clo-09-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11591
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-clo-09-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 18166
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-clo-09-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 17274
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-clo-09-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 27230
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-clo-09-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 36356
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-clo-09-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 59270
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-clo-09-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 51473
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-clo-09-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 84764
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-clo-09-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 92713
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-clo-09-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 149100
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-clo-09-1-1600.avif",
+          "format": "avif",
+          "width": 1600,
+          "height": 1066,
+          "byteSize": 147277
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-clo-09-1-1600.webp",
+          "format": "webp",
+          "width": 1600,
+          "height": 1066,
+          "byteSize": 217092
+        }
+      ],
+      "updatedAt": "2026-10-18T09:17:24.867Z"
+    },
+    "darevskia-clarkorum-laotriton-1.jpg": {
+      "sourceHash": "eec42fa2fb96d800cae3047b7ffb7ae8c9e3b6c25ebc2604a6471937b34284b2",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-clarkorum-laotriton-1.jpg",
+      "originalSize": 496289,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-clarkorum-laotriton-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10783
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-laotriton-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 15456
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-laotriton-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 15210
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-laotriton-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 22186
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-laotriton-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 32220
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-laotriton-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 48088
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-laotriton-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 46529
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-laotriton-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 68806
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-laotriton-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 83043
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-laotriton-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 120534
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-laotriton-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 174961
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-laotriton-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 242588
+        }
+      ],
+      "updatedAt": "2026-10-18T09:18:56.301Z"
+    },
+    "darevskia-clarkorum-liothrix-1-crop-251-0-749-1000.jpg": {
+      "sourceHash": "8d9929811047b1dacfa964597e7caf33fce65ba05583ec9cdfa6a546336beaaf",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-clarkorum-liothrix-1-crop-251-0-749-1000.jpg",
+      "originalSize": 579861,
+      "width": 1534,
+      "height": 1919,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-crop-251-0-749-1000-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 400,
+          "byteSize": 19665
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-crop-251-0-749-1000-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 400,
+          "byteSize": 31360
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-crop-251-0-749-1000-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 500,
+          "byteSize": 26910
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-crop-251-0-749-1000-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 500,
+          "byteSize": 44682
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-crop-251-0-749-1000-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 801,
+          "byteSize": 54804
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-crop-251-0-749-1000-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 801,
+          "byteSize": 88416
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-crop-251-0-749-1000-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1001,
+          "byteSize": 75947
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-crop-251-0-749-1000-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1001,
+          "byteSize": 120676
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-crop-251-0-749-1000-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1501,
+          "byteSize": 138083
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-crop-251-0-749-1000-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1501,
+          "byteSize": 207850
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-crop-251-0-749-1000-1534.avif",
+          "format": "avif",
+          "width": 1534,
+          "height": 1919,
+          "byteSize": 208679
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-crop-251-0-749-1000-1534.webp",
+          "format": "webp",
+          "width": 1534,
+          "height": 1919,
+          "byteSize": 299798
+        }
+      ],
+      "updatedAt": "2026-10-18T09:22:39.098Z"
+    },
+    "darevskia-clarkorum-liothrix-1.jpg": {
+      "sourceHash": "a7d1d375a077af7294bef0f4ba4c0d8a0be781f449b8a27c5a89e24167ea50b2",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-clarkorum-liothrix-1.jpg",
+      "originalSize": 776692,
+      "width": 2048,
+      "height": 1919,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 299,
+          "byteSize": 15949
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 299,
+          "byteSize": 25016
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 374,
+          "byteSize": 21916
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 374,
+          "byteSize": 35224
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 599,
+          "byteSize": 44730
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 599,
+          "byteSize": 73784
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 750,
+          "byteSize": 63429
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 750,
+          "byteSize": 102286
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1124,
+          "byteSize": 114636
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1124,
+          "byteSize": 182066
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1919,
+          "byteSize": 267017
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1919,
+          "byteSize": 390384
+        }
+      ],
+      "updatedAt": "2026-10-18T09:16:34.244Z"
+    },
     "darevskia-clarkorum-mobile.jpg": {
       "sourceHash": "4c0033884f1114c29fd9b430f369c4737e920afa6afa91daf193ba5dd94076c7",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -21156,6 +23531,101 @@
         }
       ],
       "updatedAt": "2026-08-28T21:31:49.232Z"
+    },
+    "darevskia-clarkorum-tom-1.jpg": {
+      "sourceHash": "fd1ed17b678541cb31ca04c57dc7ee0cdc4f01b1ba794e02c515da8643d0b979",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-clarkorum-tom-1.jpg",
+      "originalSize": 929152,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-clarkorum-tom-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 17205
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-tom-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 26328
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-tom-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 26317
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-tom-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 40436
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-tom-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 62666
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-tom-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 98242
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-tom-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 91241
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-tom-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 149338
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-tom-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 173749
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-tom-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 278140
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-tom-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 371744
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-tom-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 555074
+        }
+      ],
+      "updatedAt": "2026-10-18T09:19:52.780Z"
     },
     "darevskia-clarkorum.jpg": {
       "sourceHash": "42203957388850dc5c3fe5c143f42cb9eb33ef0aef04ea0340044d1b1911f4b5",
@@ -49782,7 +52252,7 @@
           "byteSize": 437436
         }
       ],
-      "updatedAt": "2026-10-17T07:56:48.642Z"
+      "updatedAt": "2026-10-18T09:07:44.314Z"
     },
     "images/news/armenia-power-line-bird-electrocution/figure-2.jpg": {
       "sourceHash": "7f49895c2860d812ad9ab10dda52fe76b3a72e5ade5d609f2fcab767b0fcfb18",
@@ -49877,7 +52347,7 @@
           "byteSize": 145070
         }
       ],
-      "updatedAt": "2026-10-17T07:56:53.143Z"
+      "updatedAt": "2026-10-18T09:07:50.693Z"
     },
     "images/news/armenia-power-line-bird-electrocution/figure-3.jpg": {
       "sourceHash": "7dcd1b8b54e4db8a29a0a62ae480038f7e85eef17604eac518d94c059781b77f",
@@ -49972,7 +52442,7 @@
           "byteSize": 56370
         }
       ],
-      "updatedAt": "2026-10-17T07:56:51.742Z"
+      "updatedAt": "2026-10-18T09:07:55.191Z"
     },
     "images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-forest.jpg": {
       "sourceHash": "cdaea14369ed4cf94723dd86486bdb37a2487b0579a5ca9c14b65cc290a1b2dc",
@@ -50067,7 +52537,7 @@
           "byteSize": 599210
         }
       ],
-      "updatedAt": "2026-10-17T07:56:59.601Z"
+      "updatedAt": "2026-10-18T09:08:02.783Z"
     },
     "images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-waterfall.jpg": {
       "sourceHash": "8f4600e743f05d4ebce326b5b397480fe6fab308b6b7bfe1692fde3319c2e2d9",
@@ -50162,7 +52632,7 @@
           "byteSize": 782472
         }
       ],
-      "updatedAt": "2026-10-17T07:57:05.076Z"
+      "updatedAt": "2026-10-18T09:08:04.780Z"
     },
     "images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/paliastomi-lake.jpg": {
       "sourceHash": "a5c05efad4829f6fd588d6ed679c3e3c3dc15c73ace88827d913688de8f8e95b",
@@ -50257,7 +52727,7 @@
           "byteSize": 230144
         }
       ],
-      "updatedAt": "2026-10-17T07:57:01.653Z"
+      "updatedAt": "2026-10-18T09:08:02.299Z"
     },
     "images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/pichori-colchic-forest.jpg": {
       "sourceHash": "9e494074518b28ebb458984150d1e7a033a22f646e8c73c8edd90b361c3a776d",
@@ -50352,7 +52822,7 @@
           "byteSize": 1247006
         }
       ],
-      "updatedAt": "2026-10-17T07:57:14.900Z"
+      "updatedAt": "2026-10-18T09:08:07.440Z"
     },
     "images/news/leatherback-turtle-first-turkish-black-sea-records-2026/leatherback-turtle.png": {
       "sourceHash": "c071366949041880e2e8835244ffcfcf76188ef4f6f95a5559fa6c41ebdebce8",
@@ -50419,7 +52889,7 @@
           "byteSize": 61524
         }
       ],
-      "updatedAt": "2026-10-17T07:57:07.069Z"
+      "updatedAt": "2026-10-18T09:08:05.603Z"
     },
     "images/news/melanistic-eirenis-modestus-anatolia/figure-1.jpg": {
       "sourceHash": "b1a632812a8a9ebe5eadebb8158f1e94cfb0c6157f9336acc853d5f289a89003",
@@ -50514,7 +52984,7 @@
           "byteSize": 325026
         }
       ],
-      "updatedAt": "2026-10-17T07:57:13.160Z"
+      "updatedAt": "2026-10-18T09:08:08.637Z"
     },
     "images/news/melanistic-eirenis-modestus-anatolia/figure-2.jpg": {
       "sourceHash": "c8dbd794f68799168621b23a98f12dde88bd53980ec19c6903a0d1c4b2294621",
@@ -50609,7 +53079,7 @@
           "byteSize": 169858
         }
       ],
-      "updatedAt": "2026-10-17T07:57:15.279Z"
+      "updatedAt": "2026-10-18T09:08:09.854Z"
     },
     "images/news/melanistic-eirenis-modestus-anatolia/figure-3.jpg": {
       "sourceHash": "13c914b98a5d4d8c796389b3c804cc6ff1504cc408877cc5c7f86ad77fcba27c",
@@ -50704,7 +53174,7 @@
           "byteSize": 240074
         }
       ],
-      "updatedAt": "2026-10-17T07:57:17.511Z"
+      "updatedAt": "2026-10-18T09:08:10.351Z"
     },
     "images/news/theridion-huseynovi-new-spider-species-georgia-2026/theridion-huseynovi.png": {
       "sourceHash": "d4a1a13fbf943fc87f371418a57eca878129fcd41f735deb5bfbca43c80fe9f3",
@@ -50894,7 +53364,7 @@
           "byteSize": 645112
         }
       ],
-      "updatedAt": "2026-10-17T07:57:28.291Z"
+      "updatedAt": "2026-10-18T09:08:16.991Z"
     },
     "images/news/vipera-pontica-hybrid-georgia-2026/figure-2.jpg": {
       "sourceHash": "62f4c91ddee942d3d6b21b4defbe51198332352423ae0ffe9e31e432b0e966de",
@@ -50989,7 +53459,7 @@
           "byteSize": 559088
         }
       ],
-      "updatedAt": "2026-10-17T07:57:27.505Z"
+      "updatedAt": "2026-10-18T09:08:17.876Z"
     },
     "images/news/vipera-pontica-hybrid-georgia-2026/figure-3.jpg": {
       "sourceHash": "dd0f4b367d44de85997a0c0d23ac01cea456f9e52aad52829973567762d8dd83",
@@ -51084,7 +53554,7 @@
           "byteSize": 372058
         }
       ],
-      "updatedAt": "2026-10-17T07:57:25.980Z"
+      "updatedAt": "2026-10-18T09:08:19.497Z"
     },
     "images/news/vipera-pontica-hybrid-georgia-2026/figure-4.jpg": {
       "sourceHash": "58a64af0c4433dfb4f78b5849ba8c3caeeeadb38d0dc589f0363f85bdddbb317",
@@ -51179,7 +53649,7 @@
           "byteSize": 982360
         }
       ],
-      "updatedAt": "2026-10-17T07:57:35.471Z"
+      "updatedAt": "2026-10-18T09:08:21.797Z"
     },
     "images/species/accipiter-gentilis-afr-1.jpg": {
       "sourceHash": "c2bc814a7c781dce6160c9dd4ab87a47a001f462a14a81bd2edec861bc5aac5a",
@@ -77801,6 +80271,386 @@
       ],
       "updatedAt": "2026-10-14T14:04:00.875Z"
     },
+    "news-batumi-million-cordes-marsh-harrier.jpg": {
+      "sourceHash": "f52192e774ed3db43813d4e3a22b390dd273da5f7ecd7c752130de359082e431",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "news-batumi-million-cordes-marsh-harrier.jpg",
+      "originalSize": 247665,
+      "width": 2400,
+      "height": 1600,
+      "derivatives": [
+        {
+          "key": "optimized/news-batumi-million-cordes-marsh-harrier-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 3122
+        },
+        {
+          "key": "optimized/news-batumi-million-cordes-marsh-harrier-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 3578
+        },
+        {
+          "key": "optimized/news-batumi-million-cordes-marsh-harrier-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 3760
+        },
+        {
+          "key": "optimized/news-batumi-million-cordes-marsh-harrier-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 4688
+        },
+        {
+          "key": "optimized/news-batumi-million-cordes-marsh-harrier-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 6843
+        },
+        {
+          "key": "optimized/news-batumi-million-cordes-marsh-harrier-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 9260
+        },
+        {
+          "key": "optimized/news-batumi-million-cordes-marsh-harrier-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 9060
+        },
+        {
+          "key": "optimized/news-batumi-million-cordes-marsh-harrier-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 12354
+        },
+        {
+          "key": "optimized/news-batumi-million-cordes-marsh-harrier-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 16040
+        },
+        {
+          "key": "optimized/news-batumi-million-cordes-marsh-harrier-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 21442
+        },
+        {
+          "key": "optimized/news-batumi-million-cordes-marsh-harrier-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 43416
+        },
+        {
+          "key": "optimized/news-batumi-million-cordes-marsh-harrier-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1600,
+          "byteSize": 54684
+        }
+      ],
+      "updatedAt": "2026-10-18T07:47:53.401Z"
+    },
+    "news-batumi-million-daneshvar-station-1.jpg": {
+      "sourceHash": "91f0398d2ebc33ec7379cded47081eafaa005ecccc12c6a62c1eed8b09820748",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "news-batumi-million-daneshvar-station-1.jpg",
+      "originalSize": 1751878,
+      "width": 2400,
+      "height": 1350,
+      "derivatives": [
+        {
+          "key": "optimized/news-batumi-million-daneshvar-station-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 180,
+          "byteSize": 10446
+        },
+        {
+          "key": "optimized/news-batumi-million-daneshvar-station-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 180,
+          "byteSize": 15034
+        },
+        {
+          "key": "optimized/news-batumi-million-daneshvar-station-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 225,
+          "byteSize": 15815
+        },
+        {
+          "key": "optimized/news-batumi-million-daneshvar-station-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 225,
+          "byteSize": 23078
+        },
+        {
+          "key": "optimized/news-batumi-million-daneshvar-station-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 360,
+          "byteSize": 38645
+        },
+        {
+          "key": "optimized/news-batumi-million-daneshvar-station-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 360,
+          "byteSize": 57278
+        },
+        {
+          "key": "optimized/news-batumi-million-daneshvar-station-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 450,
+          "byteSize": 59959
+        },
+        {
+          "key": "optimized/news-batumi-million-daneshvar-station-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 450,
+          "byteSize": 87478
+        },
+        {
+          "key": "optimized/news-batumi-million-daneshvar-station-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 136775
+        },
+        {
+          "key": "optimized/news-batumi-million-daneshvar-station-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 675,
+          "byteSize": 199892
+        },
+        {
+          "key": "optimized/news-batumi-million-daneshvar-station-1-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1350,
+          "byteSize": 497710
+        },
+        {
+          "key": "optimized/news-batumi-million-daneshvar-station-1-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1350,
+          "byteSize": 747516
+        }
+      ],
+      "updatedAt": "2026-10-18T07:48:00.285Z"
+    },
+    "news-batumi-million-stolk-white-black-kite.jpg": {
+      "sourceHash": "2b648e02101647ba45309db39a7e171d9aa6058c7b8d6aaa1abb9edeff008874",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "news-batumi-million-stolk-white-black-kite.jpg",
+      "originalSize": 155449,
+      "width": 2400,
+      "height": 1765,
+      "derivatives": [
+        {
+          "key": "optimized/news-batumi-million-stolk-white-black-kite-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 235,
+          "byteSize": 1562
+        },
+        {
+          "key": "optimized/news-batumi-million-stolk-white-black-kite-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 235,
+          "byteSize": 1482
+        },
+        {
+          "key": "optimized/news-batumi-million-stolk-white-black-kite-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 294,
+          "byteSize": 1960
+        },
+        {
+          "key": "optimized/news-batumi-million-stolk-white-black-kite-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 294,
+          "byteSize": 2016
+        },
+        {
+          "key": "optimized/news-batumi-million-stolk-white-black-kite-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 471,
+          "byteSize": 3365
+        },
+        {
+          "key": "optimized/news-batumi-million-stolk-white-black-kite-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 471,
+          "byteSize": 4006
+        },
+        {
+          "key": "optimized/news-batumi-million-stolk-white-black-kite-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 588,
+          "byteSize": 4278
+        },
+        {
+          "key": "optimized/news-batumi-million-stolk-white-black-kite-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 588,
+          "byteSize": 5272
+        },
+        {
+          "key": "optimized/news-batumi-million-stolk-white-black-kite-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 883,
+          "byteSize": 7104
+        },
+        {
+          "key": "optimized/news-batumi-million-stolk-white-black-kite-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 883,
+          "byteSize": 9496
+        },
+        {
+          "key": "optimized/news-batumi-million-stolk-white-black-kite-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1765,
+          "byteSize": 20040
+        },
+        {
+          "key": "optimized/news-batumi-million-stolk-white-black-kite-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1765,
+          "byteSize": 27166
+        }
+      ],
+      "updatedAt": "2026-10-18T07:47:55.749Z"
+    },
+    "news-borjomi-grey-partridge-trinaud.jpg": {
+      "sourceHash": "1a9c9a59208bc4121f8bde332be7a3ea3febee5e69982838efc1591ef940b365",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "news-borjomi-grey-partridge-trinaud.jpg",
+      "originalSize": 1135135,
+      "width": 2400,
+      "height": 1599,
+      "derivatives": [
+        {
+          "key": "optimized/news-borjomi-grey-partridge-trinaud-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6025
+        },
+        {
+          "key": "optimized/news-borjomi-grey-partridge-trinaud-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8330
+        },
+        {
+          "key": "optimized/news-borjomi-grey-partridge-trinaud-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 8262
+        },
+        {
+          "key": "optimized/news-borjomi-grey-partridge-trinaud-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 11670
+        },
+        {
+          "key": "optimized/news-borjomi-grey-partridge-trinaud-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 17156
+        },
+        {
+          "key": "optimized/news-borjomi-grey-partridge-trinaud-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 25214
+        },
+        {
+          "key": "optimized/news-borjomi-grey-partridge-trinaud-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 24265
+        },
+        {
+          "key": "optimized/news-borjomi-grey-partridge-trinaud-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 35804
+        },
+        {
+          "key": "optimized/news-borjomi-grey-partridge-trinaud-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 47097
+        },
+        {
+          "key": "optimized/news-borjomi-grey-partridge-trinaud-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 72570
+        },
+        {
+          "key": "optimized/news-borjomi-grey-partridge-trinaud-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1599,
+          "byteSize": 226672
+        },
+        {
+          "key": "optimized/news-borjomi-grey-partridge-trinaud-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1599,
+          "byteSize": 392434
+        }
+      ],
+      "updatedAt": "2026-10-18T09:08:28.863Z"
+    },
     "news-crested-honey-buzzard-cordes-male.jpg": {
       "sourceHash": "ac61193a52a03d40e5390cb3a39acaa436e411e77ff85159950d486d588ad829",
       "configFingerprint": "409788ee46c653d8",
@@ -78560,6 +81410,196 @@
         }
       ],
       "updatedAt": "2026-10-14T14:04:18.527Z"
+    },
+    "news-shahdag-bison-gabler-springe.jpg": {
+      "sourceHash": "0a7ffffbf0537ee35790d8a26f0e540b8075b8bddfc2af20cb3523eddc2fb343",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "news-shahdag-bison-gabler-springe.jpg",
+      "originalSize": 1449888,
+      "width": 2400,
+      "height": 1578,
+      "derivatives": [
+        {
+          "key": "optimized/news-shahdag-bison-gabler-springe-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 210,
+          "byteSize": 15419
+        },
+        {
+          "key": "optimized/news-shahdag-bison-gabler-springe-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 210,
+          "byteSize": 23874
+        },
+        {
+          "key": "optimized/news-shahdag-bison-gabler-springe-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 263,
+          "byteSize": 23252
+        },
+        {
+          "key": "optimized/news-shahdag-bison-gabler-springe-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 263,
+          "byteSize": 36450
+        },
+        {
+          "key": "optimized/news-shahdag-bison-gabler-springe-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 421,
+          "byteSize": 56957
+        },
+        {
+          "key": "optimized/news-shahdag-bison-gabler-springe-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 421,
+          "byteSize": 91544
+        },
+        {
+          "key": "optimized/news-shahdag-bison-gabler-springe-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 526,
+          "byteSize": 83442
+        },
+        {
+          "key": "optimized/news-shahdag-bison-gabler-springe-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 526,
+          "byteSize": 136682
+        },
+        {
+          "key": "optimized/news-shahdag-bison-gabler-springe-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 789,
+          "byteSize": 179321
+        },
+        {
+          "key": "optimized/news-shahdag-bison-gabler-springe-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 789,
+          "byteSize": 287988
+        },
+        {
+          "key": "optimized/news-shahdag-bison-gabler-springe-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1578,
+          "byteSize": 505361
+        },
+        {
+          "key": "optimized/news-shahdag-bison-gabler-springe-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1578,
+          "byteSize": 846758
+        }
+      ],
+      "updatedAt": "2026-10-18T08:00:19.081Z"
+    },
+    "news-shahdag-bison-tatarinov-caucasicus.jpg": {
+      "sourceHash": "61c45a135b3d6c9235672739778aa4e5daa5211fc357cd1e04e13f79f315fd86",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "news-shahdag-bison-tatarinov-caucasicus.jpg",
+      "originalSize": 1033177,
+      "width": 2400,
+      "height": 1800,
+      "derivatives": [
+        {
+          "key": "optimized/news-shahdag-bison-tatarinov-caucasicus-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 10762
+        },
+        {
+          "key": "optimized/news-shahdag-bison-tatarinov-caucasicus-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 15062
+        },
+        {
+          "key": "optimized/news-shahdag-bison-tatarinov-caucasicus-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 15626
+        },
+        {
+          "key": "optimized/news-shahdag-bison-tatarinov-caucasicus-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 21796
+        },
+        {
+          "key": "optimized/news-shahdag-bison-tatarinov-caucasicus-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 35192
+        },
+        {
+          "key": "optimized/news-shahdag-bison-tatarinov-caucasicus-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 48456
+        },
+        {
+          "key": "optimized/news-shahdag-bison-tatarinov-caucasicus-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 50596
+        },
+        {
+          "key": "optimized/news-shahdag-bison-tatarinov-caucasicus-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 70056
+        },
+        {
+          "key": "optimized/news-shahdag-bison-tatarinov-caucasicus-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 103186
+        },
+        {
+          "key": "optimized/news-shahdag-bison-tatarinov-caucasicus-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 130750
+        },
+        {
+          "key": "optimized/news-shahdag-bison-tatarinov-caucasicus-2400.avif",
+          "format": "avif",
+          "width": 2400,
+          "height": 1800,
+          "byteSize": 310620
+        },
+        {
+          "key": "optimized/news-shahdag-bison-tatarinov-caucasicus-2400.webp",
+          "format": "webp",
+          "width": 2400,
+          "height": 1800,
+          "byteSize": 354390
+        }
+      ],
+      "updatedAt": "2026-10-18T08:00:12.967Z"
     },
     "olivierus-caucasicus-evgeny-1.jpg": {
       "sourceHash": "cf32b50bf7f42594851c0254a7e259d18a0f9f55482a213e6c8d737e50af973f",

@@ -1033,6 +1033,48 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/bufo-verrucosissimus-david-1.jpg": {
+    "path": "bufo-verrucosissimus-david-1",
+    "width": 2048,
+    "height": 1356,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/bufo-verrucosissimus-david-2.jpg": {
+    "path": "bufo-verrucosissimus-david-2",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/bufo-verrucosissimus-kirill-1.jpg": {
+    "path": "bufo-verrucosissimus-kirill-1",
+    "width": 1542,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1542],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/bufo-verrucosissimus-loisbouchet-1.jpg": {
+    "path": "bufo-verrucosissimus-loisbouchet-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/bufo-verrucosissimus-mikhail-1.jpg": {
+    "path": "bufo-verrucosissimus-mikhail-1",
+    "width": 1536,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/bufo-verrucosissimus-oscar-1.jpg": {
+    "path": "bufo-verrucosissimus-oscar-1",
+    "width": 1702,
+    "height": 1135,
+    "widths": [320, 400, 640, 800, 1200, 1702],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/bufo-verrucosissimus-zauri-1.jpg": {
     "path": "bufo-verrucosissimus-zauri-1",
     "width": 1024,
@@ -1964,6 +2006,27 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/darevskia-adjarica-kseniia-3.jpg": {
+    "path": "darevskia-adjarica-kseniia-3",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-adjarica-kseniia-4.jpg": {
+    "path": "darevskia-adjarica-kseniia-4",
+    "width": 1728,
+    "height": 1296,
+    "widths": [320, 400, 640, 800, 1200, 1728],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-adjarica-kseniia-5.jpg": {
+    "path": "darevskia-adjarica-kseniia-5",
+    "width": 1728,
+    "height": 1296,
+    "widths": [320, 400, 640, 800, 1200, 1728],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/darevskia-adjarica-leonid-1.jpg": {
     "path": "darevskia-adjarica-leonid-1",
     "width": 1024,
@@ -1976,6 +2039,20 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1024,
     "height": 683,
     "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-adjarica-rik-vanek-1.jpg": {
+    "path": "darevskia-adjarica-rik-vanek-1",
+    "width": 1909,
+    "height": 1359,
+    "widths": [320, 400, 640, 800, 1200, 1909],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-adjarica-timoteo-b-1.jpg": {
+    "path": "darevskia-adjarica-timoteo-b-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/darevskia-alpina-2.jpg": {
@@ -2013,6 +2090,27 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/darevskia-armeniaca-achot-1.jpg": {
+    "path": "darevskia-armeniaca-achot-1",
+    "width": 2048,
+    "height": 1364,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-armeniaca-aleksandre-1.jpg": {
+    "path": "darevskia-armeniaca-aleksandre-1",
+    "width": 1989,
+    "height": 1445,
+    "widths": [320, 400, 640, 800, 1200, 1989],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-armeniaca-arvidas-1.jpg": {
+    "path": "darevskia-armeniaca-arvidas-1",
+    "width": 1542,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1542],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/darevskia-armeniaca-davit-1.jpg": {
     "path": "darevskia-armeniaca-davit-1",
     "width": 985,
@@ -2027,11 +2125,53 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 578],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/darevskia-armeniaca-dora-exploratrice-1.jpg": {
+    "path": "darevskia-armeniaca-dora-exploratrice-1",
+    "width": 2048,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-armeniaca-giorgi-1.jpg": {
+    "path": "darevskia-armeniaca-giorgi-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/darevskia-armeniaca-konrad-1.jpg": {
     "path": "darevskia-armeniaca-konrad-1",
     "width": 1600,
     "height": 1000,
     "widths": [320, 400, 640, 800, 1200, 1600],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-armeniaca-peter-1.jpg": {
+    "path": "darevskia-armeniaca-peter-1",
+    "width": 2048,
+    "height": 1532,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-armeniaca-tom%C3%A1%C5%A1-1.jpg": {
+    "path": "darevskia-armeniaca-tom%C3%A1%C5%A1-1",
+    "width": 2048,
+    "height": 1363,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-armeniaca-tomo-m-1.jpg": {
+    "path": "darevskia-armeniaca-tomo-m-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-armeniaca-vojt%C4%9Bch-1.jpg": {
+    "path": "darevskia-armeniaca-vojt%C4%9Bch-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/darevskia-armeniaca.jpg": {
@@ -2167,12 +2307,54 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1728],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/darevskia-clarkorum-christian-1.jpg": {
+    "path": "darevskia-clarkorum-christian-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-clarkorum-clo-09-1.jpg": {
+    "path": "darevskia-clarkorum-clo-09-1",
+    "width": 1600,
+    "height": 1066,
+    "widths": [320, 400, 640, 800, 1200, 1600],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-clarkorum-laotriton-1.jpg": {
+    "path": "darevskia-clarkorum-laotriton-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-clarkorum-liothrix-1-crop-251-0-749-1000.jpg": {
+    "path": "darevskia-clarkorum-liothrix-1-crop-251-0-749-1000",
+    "width": 1534,
+    "height": 1919,
+    "widths": [320, 400, 640, 800, 1200, 1534],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-clarkorum-liothrix-1.jpg": {
+    "path": "darevskia-clarkorum-liothrix-1",
+    "width": 2048,
+    "height": 1919,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/darevskia-clarkorum-mobile.jpg": {
     "path": "darevskia-clarkorum-mobile",
     "width": 2048,
     "height": 1538,
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif"]
+  },
+  "https://cdn.reptiles.ge/darevskia-clarkorum-tom-1.jpg": {
+    "path": "darevskia-clarkorum-tom-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/darevskia-clarkorum.jpg": {
     "path": "darevskia-clarkorum",
@@ -6528,6 +6710,34 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 2000],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/news-batumi-million-cordes-marsh-harrier.jpg": {
+    "path": "news-batumi-million-cordes-marsh-harrier",
+    "width": 2400,
+    "height": 1600,
+    "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-batumi-million-daneshvar-station-1.jpg": {
+    "path": "news-batumi-million-daneshvar-station-1",
+    "width": 2400,
+    "height": 1350,
+    "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-batumi-million-stolk-white-black-kite.jpg": {
+    "path": "news-batumi-million-stolk-white-black-kite",
+    "width": 2400,
+    "height": 1765,
+    "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-borjomi-grey-partridge-trinaud.jpg": {
+    "path": "news-borjomi-grey-partridge-trinaud",
+    "width": 2400,
+    "height": 1599,
+    "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/news-crested-honey-buzzard-cordes-male.jpg": {
     "path": "news-crested-honey-buzzard-cordes-male",
     "width": 2400,
@@ -6582,6 +6792,20 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 2000,
     "height": 1200,
     "widths": [320, 400, 640, 800, 1200, 2000],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-shahdag-bison-gabler-springe.jpg": {
+    "path": "news-shahdag-bison-gabler-springe",
+    "width": 2400,
+    "height": 1578,
+    "widths": [320, 400, 640, 800, 1200, 2400],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-shahdag-bison-tatarinov-caucasicus.jpg": {
+    "path": "news-shahdag-bison-tatarinov-caucasicus",
+    "width": 2400,
+    "height": 1800,
+    "widths": [320, 400, 640, 800, 1200, 2400],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/olivierus-caucasicus-evgeny-1.jpg": {
