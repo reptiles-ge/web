@@ -29506,6 +29506,101 @@
       ],
       "updatedAt": "2026-08-28T21:36:30.226Z"
     },
+    "darevskia-valentini-achot-1.jpg": {
+      "sourceHash": "49b80f7665b72753aebeca5357da425e730f6b0fa75498f4a50cf3e66f557763",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-valentini-achot-1.jpg",
+      "originalSize": 468947,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-valentini-achot-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11443
+        },
+        {
+          "key": "optimized/darevskia-valentini-achot-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 18046
+        },
+        {
+          "key": "optimized/darevskia-valentini-achot-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 15754
+        },
+        {
+          "key": "optimized/darevskia-valentini-achot-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 25044
+        },
+        {
+          "key": "optimized/darevskia-valentini-achot-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 31408
+        },
+        {
+          "key": "optimized/darevskia-valentini-achot-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 50360
+        },
+        {
+          "key": "optimized/darevskia-valentini-achot-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 44135
+        },
+        {
+          "key": "optimized/darevskia-valentini-achot-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 69674
+        },
+        {
+          "key": "optimized/darevskia-valentini-achot-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 76007
+        },
+        {
+          "key": "optimized/darevskia-valentini-achot-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 119242
+        },
+        {
+          "key": "optimized/darevskia-valentini-achot-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 151124
+        },
+        {
+          "key": "optimized/darevskia-valentini-achot-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 235912
+        }
+      ],
+      "updatedAt": "2026-10-18T15:21:03.702Z"
+    },
     "darevskia-valentini-bertogcliment-1.jpg": {
       "sourceHash": "1f58b348ab7ebc31f6d2e48836fb50e08b9d40374cddfa5e7a10e8dc959aba7b",
       "configFingerprint": "409788ee46c653d8",
