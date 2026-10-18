@@ -19624,6 +19624,101 @@
       ],
       "updatedAt": "2026-10-18T08:12:55.355Z"
     },
+    "darevskia-armeniaca-aleksandre-1.jpg": {
+      "sourceHash": "61b1831d6eec0947b248619379892943e0459abd09c85cc42ae7958b3301e949",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-armeniaca-aleksandre-1.jpg",
+      "originalSize": 887278,
+      "width": 1989,
+      "height": 1445,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-armeniaca-aleksandre-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 232,
+          "byteSize": 19910
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-aleksandre-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 232,
+          "byteSize": 31486
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-aleksandre-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 291,
+          "byteSize": 30779
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-aleksandre-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 291,
+          "byteSize": 49396
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-aleksandre-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 465,
+          "byteSize": 67496
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-aleksandre-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 465,
+          "byteSize": 112252
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-aleksandre-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 581,
+          "byteSize": 99967
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-aleksandre-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 581,
+          "byteSize": 166776
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-aleksandre-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 872,
+          "byteSize": 190126
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-aleksandre-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 872,
+          "byteSize": 321712
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-aleksandre-1-1989.avif",
+          "format": "avif",
+          "width": 1989,
+          "height": 1445,
+          "byteSize": 442568
+        },
+        {
+          "key": "optimized/darevskia-armeniaca-aleksandre-1-1989.webp",
+          "format": "webp",
+          "width": 1989,
+          "height": 1445,
+          "byteSize": 688742
+        }
+      ],
+      "updatedAt": "2026-10-18T08:21:29.071Z"
+    },
     "darevskia-armeniaca-arvidas-1.jpg": {
       "sourceHash": "73afc73cdc209d842d1fbecad4bf5d08be02436dbbfd6f4bc78c8397dd2e0e0d",
       "configFingerprint": "409788ee46c653d8",
