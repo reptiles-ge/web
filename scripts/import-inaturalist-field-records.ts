@@ -14,6 +14,7 @@ const DEFAULT_PLACE_ID = 8857;
 const DEFAULT_PER_PAGE = 200;
 const DEFAULT_COORDINATE_DECIMALS = 5;
 const EXCLUDED_OBSERVATION_IDS_BY_SPECIES: Record<string, readonly number[]> = {
+  "darevskia-armeniaca": [290171358, 359556721],
   "macrovipera-lebetina": [396439253],
 };
 const INATURALIST_API = "https://api.inaturalist.org/v1";

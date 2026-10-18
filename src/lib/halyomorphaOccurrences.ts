@@ -53,6 +53,8 @@ export type HalyomorphaRegionSummary = {
   status: HalyomorphaOccurrenceStatus;
 };
 
+const ARMENIACA_OBSCURED_RECORD_NOTE =
+  "Darevskia armeniaca: iNaturalist public coordinates obscured (~28 km)";
 const DAHLI_OBSCURED_RECORD_NOTE =
   "Darevskia dahli: iNaturalist public coordinates obscured (~28 km)";
 const VERMICULARIS_OBSCURED_RECORD_NOTE =
@@ -61,6 +63,7 @@ const ANGUIS_OBSCURED_RECORD_NOTE =
   "Anguis colchica: iNaturalist public coordinates obscured (~28 km)";
 const OBSCURED_COORDINATE_NOTES = new Set([
   ANGUIS_OBSCURED_RECORD_NOTE,
+  ARMENIACA_OBSCURED_RECORD_NOTE,
   DAHLI_OBSCURED_RECORD_NOTE,
   VERMICULARIS_OBSCURED_RECORD_NOTE,
 ]);
