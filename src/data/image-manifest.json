@@ -7965,6 +7965,101 @@
       ],
       "updatedAt": "2026-10-18T10:08:32.265Z"
     },
+    "bufo-verrucosissimus-mikhail-1.jpg": {
+      "sourceHash": "a159b4be1f48f8b9de10f3f5e2758e490865953597b9d17977425260a61f6b84",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "bufo-verrucosissimus-mikhail-1.jpg",
+      "originalSize": 468898,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/bufo-verrucosissimus-mikhail-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 12849
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-mikhail-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 17362
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-mikhail-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 17615
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-mikhail-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 24882
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-mikhail-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 34544
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-mikhail-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 49342
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-mikhail-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 47501
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-mikhail-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 67236
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-mikhail-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 84284
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-mikhail-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 118846
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-mikhail-1-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 125816
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-mikhail-1-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 175402
+        }
+      ],
+      "updatedAt": "2026-10-18T10:10:43.742Z"
+    },
     "bufo-verrucosissimus-oscar-1.jpg": {
       "sourceHash": "df11e8e1477f3055d36bb7c40b6d9059856eaab768c90ae82aa3deee0d2bd002",
       "configFingerprint": "409788ee46c653d8",
