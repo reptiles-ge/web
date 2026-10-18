@@ -1,4 +1,9 @@
-import type { GalleryImage, Species, SpeciesStat } from "@/data/speciesTypes";
+import type {
+  GalleryImage,
+  PhotoCredit,
+  Species,
+  SpeciesStat,
+} from "@/data/speciesTypes";
 
 import {
   type AnimalGroup,
@@ -59,12 +64,28 @@ export const SPECIES_HERO_DESKTOP_SIZES = "62vw";
 export const SPECIES_HERO_SIZES = "(max-width: 1023px) 100vw, 62vw";
 
 export function getSpeciesHeroSources(species: Species) {
-  const gallery: GalleryImage[] = hasRealSpeciesPhotos(species)
+  const sourceGallery: GalleryImage[] = hasRealSpeciesPhotos(species)
     ? (species.gallery.length > 0
         ? species.gallery
         : [{ credit: species.imageCredit, src: species.image }]
       ).filter((item) => !isPlaceholderMedia(item.src))
     : [];
+  const heroCredits = new Map<string, PhotoCredit>();
+  if (species.imageCredit) {
+    heroCredits.set(species.image, species.imageCredit);
+  }
+  if (species.mobileImage && species.mobileImageCredit) {
+    heroCredits.set(species.mobileImage, {
+      ...heroCredits.get(species.mobileImage),
+      ...species.mobileImageCredit,
+    });
+  }
+  const gallery = sourceGallery.map((item) => {
+    const heroCredit = heroCredits.get(item.src);
+    return heroCredit
+      ? { ...item, credit: { ...heroCredit, ...item.credit } }
+      : item;
+  });
   const primary = gallery[0];
   const mobileHeroSrc =
     species.mobileImage && !isPlaceholderMedia(species.mobileImage)
