@@ -22610,6 +22610,101 @@
       ],
       "updatedAt": "2026-10-18T09:17:24.867Z"
     },
+    "darevskia-clarkorum-laotriton-1.jpg": {
+      "sourceHash": "eec42fa2fb96d800cae3047b7ffb7ae8c9e3b6c25ebc2604a6471937b34284b2",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-clarkorum-laotriton-1.jpg",
+      "originalSize": 496289,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-clarkorum-laotriton-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10783
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-laotriton-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 15456
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-laotriton-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 15210
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-laotriton-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 22186
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-laotriton-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 32220
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-laotriton-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 48088
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-laotriton-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 46529
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-laotriton-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 68806
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-laotriton-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 83043
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-laotriton-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 120534
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-laotriton-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 174961
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-laotriton-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 242588
+        }
+      ],
+      "updatedAt": "2026-10-18T09:18:56.301Z"
+    },
     "darevskia-clarkorum-liothrix-1.jpg": {
       "sourceHash": "a7d1d375a077af7294bef0f4ba4c0d8a0be781f449b8a27c5a89e24167ea50b2",
       "configFingerprint": "409788ee46c653d8",
