@@ -2811,6 +2811,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/darevskia-valentini-tom%C3%A1%C5%A1-1.jpg": {
+    "path": "darevskia-valentini-tom%C3%A1%C5%A1-1",
+    "width": 2048,
+    "height": 1373,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/darevskia-valentini.jpg": {
     "path": "darevskia-valentini",
     "width": 1153,
