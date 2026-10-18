@@ -2265,6 +2265,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1728],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/darevskia-clarkorum-liothrix-1.jpg": {
+    "path": "darevskia-clarkorum-liothrix-1",
+    "width": 2048,
+    "height": 1919,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/darevskia-clarkorum-mobile.jpg": {
     "path": "darevskia-clarkorum-mobile",
     "width": 2048,

@@ -22420,6 +22420,101 @@
       ],
       "updatedAt": "2026-08-28T21:31:44.084Z"
     },
+    "darevskia-clarkorum-liothrix-1.jpg": {
+      "sourceHash": "a7d1d375a077af7294bef0f4ba4c0d8a0be781f449b8a27c5a89e24167ea50b2",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-clarkorum-liothrix-1.jpg",
+      "originalSize": 776692,
+      "width": 2048,
+      "height": 1919,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 299,
+          "byteSize": 15949
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 299,
+          "byteSize": 25016
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 374,
+          "byteSize": 21916
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 374,
+          "byteSize": 35224
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 599,
+          "byteSize": 44730
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 599,
+          "byteSize": 73784
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 750,
+          "byteSize": 63429
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 750,
+          "byteSize": 102286
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1124,
+          "byteSize": 114636
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1124,
+          "byteSize": 182066
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1919,
+          "byteSize": 267017
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1919,
+          "byteSize": 390384
+        }
+      ],
+      "updatedAt": "2026-10-18T09:16:34.244Z"
+    },
     "darevskia-clarkorum-mobile.jpg": {
       "sourceHash": "4c0033884f1114c29fd9b430f369c4737e920afa6afa91daf193ba5dd94076c7",
       "configFingerprint": "a895f8e025dcc7fa",
