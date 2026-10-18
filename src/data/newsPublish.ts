@@ -1,4 +1,5 @@
 export const newsSlugs = [
+  "borjomi-kakabi-gnoli-gashveba",
   "shahdagi-dombis-8-khbo",
   "batumi-milioni-mtatsebeli-39-darghveva",
   "lagodekhi-iucn-mwvane-sia",
