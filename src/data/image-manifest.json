@@ -18518,6 +18518,101 @@
       ],
       "updatedAt": "2026-10-18T07:20:01.751Z"
     },
+    "darevskia-adjarica-kseniia-4.jpg": {
+      "sourceHash": "6b66caa232a5f880b18a28e3feb6411da4f33a81660b3b0fddad26a99e4f74e0",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-adjarica-kseniia-4.jpg",
+      "originalSize": 533207,
+      "width": 1728,
+      "height": 1296,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-4-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 14849
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-4-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 21930
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-4-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 24241
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-4-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 34554
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-4-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 56169
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-4-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 79562
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-4-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 79570
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-4-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 111738
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-4-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 138568
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-4-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 187362
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-4-1728.avif",
+          "format": "avif",
+          "width": 1728,
+          "height": 1296,
+          "byteSize": 215024
+        },
+        {
+          "key": "optimized/darevskia-adjarica-kseniia-4-1728.webp",
+          "format": "webp",
+          "width": 1728,
+          "height": 1296,
+          "byteSize": 289014
+        }
+      ],
+      "updatedAt": "2026-10-18T07:21:22.816Z"
+    },
     "darevskia-adjarica-leonid-1.jpg": {
       "sourceHash": "129429948a64e62e1b3f35369859d23a75f2b8de9981b220d2aa3fb5190cf46f",
       "configFingerprint": "409788ee46c653d8",

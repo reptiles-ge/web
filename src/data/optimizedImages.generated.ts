@@ -1971,6 +1971,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/darevskia-adjarica-kseniia-4.jpg": {
+    "path": "darevskia-adjarica-kseniia-4",
+    "width": 1728,
+    "height": 1296,
+    "widths": [320, 400, 640, 800, 1200, 1728],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/darevskia-adjarica-leonid-1.jpg": {
     "path": "darevskia-adjarica-leonid-1",
     "width": 1024,
