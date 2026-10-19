@@ -1,6 +1,6 @@
 import type { OptimizedImageEntry } from "@/lib/optimizedImageSources";
 
-export const NEWS_HERO_MIN_WIDTH = 1200;
+const NEWS_HERO_MIN_WIDTH = 1200;
 export const NEWS_HERO_RULE_SINCE = "2026-10-21";
 export const NEWS_HERO_MAX_EXCEPTIONS = 3;
 
