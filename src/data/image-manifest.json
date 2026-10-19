@@ -39613,6 +39613,101 @@
       ],
       "updatedAt": "2026-10-19T08:19:55.766Z"
     },
+    "eryx-jaculus-niklas-1.jpg": {
+      "sourceHash": "252ed5ce6792e973eb55fe3cd0dade343267d0a954b53900b866f18cc06de84c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eryx-jaculus-niklas-1.jpg",
+      "originalSize": 795788,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/eryx-jaculus-niklas-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 15370
+        },
+        {
+          "key": "optimized/eryx-jaculus-niklas-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 24436
+        },
+        {
+          "key": "optimized/eryx-jaculus-niklas-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 21633
+        },
+        {
+          "key": "optimized/eryx-jaculus-niklas-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 36006
+        },
+        {
+          "key": "optimized/eryx-jaculus-niklas-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 46384
+        },
+        {
+          "key": "optimized/eryx-jaculus-niklas-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 79206
+        },
+        {
+          "key": "optimized/eryx-jaculus-niklas-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 66623
+        },
+        {
+          "key": "optimized/eryx-jaculus-niklas-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 112886
+        },
+        {
+          "key": "optimized/eryx-jaculus-niklas-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 122442
+        },
+        {
+          "key": "optimized/eryx-jaculus-niklas-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 207598
+        },
+        {
+          "key": "optimized/eryx-jaculus-niklas-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 287388
+        },
+        {
+          "key": "optimized/eryx-jaculus-niklas-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 470598
+        }
+      ],
+      "updatedAt": "2026-10-19T08:20:56.457Z"
+    },
     "eryx-jaculus.jpg": {
       "sourceHash": "ebec808e93bc2996df1ac88564b287fdd65cf3e6b19e64198f792cab7c49afea",
       "configFingerprint": "a895f8e025dcc7fa",
