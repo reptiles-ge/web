@@ -5667,6 +5667,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/lacerta-strigata-donsky-2.jpg": {
+    "path": "lacerta-strigata-donsky-2",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/lacerta-strigata-fabian-1.jpg": {
     "path": "lacerta-strigata-fabian-1",
     "width": 1024,
@@ -5681,6 +5688,20 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/lacerta-strigata-giorgi-2.jpg": {
+    "path": "lacerta-strigata-giorgi-2",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/lacerta-strigata-kseniia-1.jpg": {
+    "path": "lacerta-strigata-kseniia-1",
+    "width": 1839,
+    "height": 1379,
+    "widths": [320, 400, 640, 800, 1200, 1839],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/lacerta-strigata-leonid-1.jpg": {
     "path": "lacerta-strigata-leonid-1",
     "width": 1024,
@@ -5693,6 +5714,27 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1024,
     "height": 768,
     "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/lacerta-strigata-mariusz-1.jpg": {
+    "path": "lacerta-strigata-mariusz-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/lacerta-strigata-sandro-1.jpg": {
+    "path": "lacerta-strigata-sandro-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/lacerta-strigata-tatiana-1.jpg": {
+    "path": "lacerta-strigata-tatiana-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/landing-cta-cover.jpeg": {
