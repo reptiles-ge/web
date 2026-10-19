@@ -33,6 +33,7 @@ import { rangeMap as dendrocoposMajor } from "@/data/speciesRangeMaps/dendrocopo
 import { rangeMap as dolichophisSchmidti } from "@/data/speciesRangeMaps/dolichophis-schmidti";
 import { rangeMap as eirenisModestus } from "@/data/speciesRangeMaps/eirenis-modestus";
 import { rangeMap as elapheUrartica } from "@/data/speciesRangeMaps/elaphe-urartica";
+import { rangeMap as eremiasVelox } from "@/data/speciesRangeMaps/eremias-velox";
 import { rangeMap as erithacusRubecula } from "@/data/speciesRangeMaps/erithacus-rubecula";
 import { rangeMap as euscorpiusItalicus } from "@/data/speciesRangeMaps/euscorpius-italicus";
 import { rangeMap as euscorpiusMingrelicus } from "@/data/speciesRangeMaps/euscorpius-mingrelicus";
@@ -118,6 +119,7 @@ export const INTERACTIVE_RANGE_MAPS: Partial<
   "dolichophis-schmidti": dolichophisSchmidti,
   "eirenis-modestus": eirenisModestus,
   "elaphe-urartica": elapheUrartica,
+  "eremias-velox": eremiasVelox,
   "erithacus-rubecula": erithacusRubecula,
   "euscorpius-italicus": euscorpiusItalicus,
   "euscorpius-mingrelicus": euscorpiusMingrelicus,

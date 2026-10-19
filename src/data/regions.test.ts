@@ -92,6 +92,7 @@ describe("region speciesIds", () => {
     "darevskia-obscura",
     "eirenis-modestus",
     "elaphe-urartica",
+    "eremias-velox",
     "mauremys-caspica",
     "paralaudakia-caucasia",
     "mustela-nivalis",
