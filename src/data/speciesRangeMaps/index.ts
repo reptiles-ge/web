@@ -45,6 +45,7 @@ import { rangeMap as garrulusGlandarius } from "@/data/speciesRangeMaps/garrulus
 import { rangeMap as gypaetusBarbatus } from "@/data/speciesRangeMaps/gypaetus-barbatus";
 import { rangeMap as gypsFulvus } from "@/data/speciesRangeMaps/gyps-fulvus";
 import { rangeMap as halyomorphaHalys } from "@/data/speciesRangeMaps/halyomorpha-halys";
+import { rangeMap as hylaOrientalis } from "@/data/speciesRangeMaps/hyla-orientalis";
 import { rangeMap as jynxTorquilla } from "@/data/speciesRangeMaps/jynx-torquilla";
 import { rangeMap as lacertaAgilis } from "@/data/speciesRangeMaps/lacerta-agilis";
 import { rangeMap as lacertaMedia } from "@/data/speciesRangeMaps/lacerta-media";
@@ -134,6 +135,7 @@ export const INTERACTIVE_RANGE_MAPS: Partial<
   "gypaetus-barbatus": gypaetusBarbatus,
   "gyps-fulvus": gypsFulvus,
   "halyomorpha-halys": halyomorphaHalys,
+  "hyla-orientalis": hylaOrientalis,
   "jynx-torquilla": jynxTorquilla,
   "lacerta-agilis": lacertaAgilis,
   "lacerta-media": lacertaMedia,
