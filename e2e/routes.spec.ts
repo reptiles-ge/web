@@ -44,6 +44,25 @@ test("English species page advertises KA as x-default", async ({ page }) => {
   ).toHaveAttribute("href", /\/gvelebi\/giurza\/?$/);
 });
 
+test("home and news articles advertise the locale Atom feed in head", async ({
+  page,
+}) => {
+  const pages = [
+    ["/", "/feed.xml"],
+    ["/en", "/en/feed.xml"],
+    ["/news/sakartvelos-mghvimeebi-20-ghamuris-sakheoba", "/feed.xml"],
+    ["/en/news/sakartvelos-mghvimeebi-20-ghamuris-sakheoba", "/en/feed.xml"],
+  ];
+  for (const [path, feed] of pages) {
+    await page.goto(path);
+    const links = page.locator(
+      'head link[rel="alternate"][type="application/atom+xml"]',
+    );
+    await expect(links).toHaveCount(1);
+    await expect(links).toHaveAttribute("href", new RegExp(`${feed}$`));
+  }
+});
+
 test("/ka prefix 301s to the unprefixed default locale", async ({
   request,
 }) => {
