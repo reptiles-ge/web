@@ -29431,6 +29431,101 @@
       ],
       "updatedAt": "2026-08-28T21:36:04.333Z"
     },
+    "darevskia-praticola-almkuznetsov-1.jpg": {
+      "sourceHash": "269c8e2a53071faa2022b34ec4715683320f70284431635a047a3d06e9180758",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-praticola-almkuznetsov-1.jpg",
+      "originalSize": 892575,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-praticola-almkuznetsov-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 36651
+        },
+        {
+          "key": "optimized/darevskia-praticola-almkuznetsov-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 58710
+        },
+        {
+          "key": "optimized/darevskia-praticola-almkuznetsov-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 53674
+        },
+        {
+          "key": "optimized/darevskia-praticola-almkuznetsov-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 88360
+        },
+        {
+          "key": "optimized/darevskia-praticola-almkuznetsov-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 112968
+        },
+        {
+          "key": "optimized/darevskia-praticola-almkuznetsov-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 199260
+        },
+        {
+          "key": "optimized/darevskia-praticola-almkuznetsov-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 154280
+        },
+        {
+          "key": "optimized/darevskia-praticola-almkuznetsov-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 270290
+        },
+        {
+          "key": "optimized/darevskia-praticola-almkuznetsov-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 251611
+        },
+        {
+          "key": "optimized/darevskia-praticola-almkuznetsov-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 433254
+        },
+        {
+          "key": "optimized/darevskia-praticola-almkuznetsov-1-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 333666
+        },
+        {
+          "key": "optimized/darevskia-praticola-almkuznetsov-1-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 558900
+        }
+      ],
+      "updatedAt": "2026-10-19T20:29:09.088Z"
+    },
     "darevskia-praticola-cristian-1.jpg": {
       "sourceHash": "5b3aae43362c7a16e854649cf8686fe07f3748f2d421e8b56741ef6a52a2f187",
       "configFingerprint": "409788ee46c653d8",
