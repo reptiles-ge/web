@@ -29431,6 +29431,101 @@
       ],
       "updatedAt": "2026-08-28T21:36:04.333Z"
     },
+    "darevskia-praticola-alexandre-1.jpg": {
+      "sourceHash": "ab79e3984141fb0740f3cb07857c7f75bfc87dcf6974a5a2a5fb9fb752b265d9",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-praticola-alexandre-1.jpg",
+      "originalSize": 509415,
+      "width": 2048,
+      "height": 1366,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-praticola-alexandre-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12072
+        },
+        {
+          "key": "optimized/darevskia-praticola-alexandre-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 17726
+        },
+        {
+          "key": "optimized/darevskia-praticola-alexandre-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 16443
+        },
+        {
+          "key": "optimized/darevskia-praticola-alexandre-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 23968
+        },
+        {
+          "key": "optimized/darevskia-praticola-alexandre-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 32669
+        },
+        {
+          "key": "optimized/darevskia-praticola-alexandre-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 48776
+        },
+        {
+          "key": "optimized/darevskia-praticola-alexandre-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 45646
+        },
+        {
+          "key": "optimized/darevskia-praticola-alexandre-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 68726
+        },
+        {
+          "key": "optimized/darevskia-praticola-alexandre-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 81024
+        },
+        {
+          "key": "optimized/darevskia-praticola-alexandre-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 116962
+        },
+        {
+          "key": "optimized/darevskia-praticola-alexandre-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1366,
+          "byteSize": 170780
+        },
+        {
+          "key": "optimized/darevskia-praticola-alexandre-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1366,
+          "byteSize": 240944
+        }
+      ],
+      "updatedAt": "2026-10-19T20:32:19.053Z"
+    },
     "darevskia-praticola-almkuznetsov-1.jpg": {
       "sourceHash": "269c8e2a53071faa2022b34ec4715683320f70284431635a047a3d06e9180758",
       "configFingerprint": "409788ee46c653d8",
