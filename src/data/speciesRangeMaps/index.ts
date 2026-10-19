@@ -44,6 +44,7 @@ import { rangeMap as gypsFulvus } from "@/data/speciesRangeMaps/gyps-fulvus";
 import { rangeMap as halyomorphaHalys } from "@/data/speciesRangeMaps/halyomorpha-halys";
 import { rangeMap as jynxTorquilla } from "@/data/speciesRangeMaps/jynx-torquilla";
 import { rangeMap as lacertaAgilis } from "@/data/speciesRangeMaps/lacerta-agilis";
+import { rangeMap as lacertaMedia } from "@/data/speciesRangeMaps/lacerta-media";
 import { rangeMap as lacertaStrigata } from "@/data/speciesRangeMaps/lacerta-strigata";
 import { rangeMap as laniusCollurio } from "@/data/speciesRangeMaps/lanius-collurio";
 import { rangeMap as latrodectusTredecimguttatus } from "@/data/speciesRangeMaps/latrodectus-tredecimguttatus";
@@ -129,6 +130,7 @@ export const INTERACTIVE_RANGE_MAPS: Partial<
   "halyomorpha-halys": halyomorphaHalys,
   "jynx-torquilla": jynxTorquilla,
   "lacerta-agilis": lacertaAgilis,
+  "lacerta-media": lacertaMedia,
   "lacerta-strigata": lacertaStrigata,
   "lanius-collurio": laniusCollurio,
   "latrodectus-tredecimguttatus": latrodectusTredecimguttatus,

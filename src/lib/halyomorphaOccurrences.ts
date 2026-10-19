@@ -65,15 +65,21 @@ const VALENTINI_OBSCURED_RECORD_NOTE =
   "Darevskia valentini: iNaturalist public coordinates obscured (~28 km)";
 const VALENTINI_NEEDS_ID_RECORD_NOTE =
   "Darevskia valentini: iNaturalist observation needs ID";
+const LACERTA_MEDIA_OBSCURED_RECORD_NOTE =
+  "Lacerta media: iNaturalist public coordinates obscured (~28 km)";
+const LACERTA_MEDIA_NOT_RESEARCH_RECORD_NOTE =
+  "Lacerta media: iNaturalist observation not research grade";
 const OBSCURED_COORDINATE_NOTES = new Set([
   ANGUIS_OBSCURED_RECORD_NOTE,
   ARMENIACA_OBSCURED_RECORD_NOTE,
   DAHLI_OBSCURED_RECORD_NOTE,
+  LACERTA_MEDIA_OBSCURED_RECORD_NOTE,
   VALENTINI_OBSCURED_RECORD_NOTE,
   VERMICULARIS_OBSCURED_RECORD_NOTE,
 ]);
 const NON_CONFIRMING_RECORD_NOTES = new Set([
   ...OBSCURED_COORDINATE_NOTES,
+  LACERTA_MEDIA_NOT_RESEARCH_RECORD_NOTE,
   VALENTINI_NEEDS_ID_RECORD_NOTE,
 ]);
 const MERTENSIELLA_OBSCURED_RECORD_NOTE =
