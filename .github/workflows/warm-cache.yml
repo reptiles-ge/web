@@ -46,11 +46,6 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
-    env:
-      BUNNY_STORAGE_ZONE: ${{ secrets.BUNNY_STORAGE_ZONE }}
-      BUNNY_STORAGE_ACCESS_KEY: ${{ secrets.BUNNY_STORAGE_ACCESS_KEY }}
-      BUNNY_STORAGE_REGION: ${{ secrets.BUNNY_STORAGE_REGION }}
-      GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v7
         with:
@@ -69,8 +64,14 @@ jobs:
 
       - name: Upload missing OG images and news schema crops
         run: pnpm images:warm
+        env:
+          BUNNY_STORAGE_ZONE: ${{ secrets.BUNNY_STORAGE_ZONE }}
+          BUNNY_STORAGE_ACCESS_KEY: ${{ secrets.BUNNY_STORAGE_ACCESS_KEY }}
+          BUNNY_STORAGE_REGION: ${{ secrets.BUNNY_STORAGE_REGION }}
 
       - name: Open a pull request with the updated news schema manifest
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           if git diff --quiet -- src/data/newsSchemaImages.json; then
             echo "newsSchemaImages.json is unchanged."
