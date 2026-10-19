@@ -28769,6 +28769,101 @@
       ],
       "updatedAt": "2026-10-19T19:13:52.284Z"
     },
+    "darevskia-portschinskii-tatyana-1.jpg": {
+      "sourceHash": "0a443049e3d258d4db583b990223959388d69675226b0b5df11b5279c345dc7f",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-portschinskii-tatyana-1.jpg",
+      "originalSize": 622091,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-portschinskii-tatyana-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10024
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tatyana-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 16386
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tatyana-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 14191
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tatyana-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 23318
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tatyana-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 30073
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tatyana-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 50692
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tatyana-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 42972
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tatyana-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 72258
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tatyana-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 80968
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tatyana-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 134898
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tatyana-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 224204
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tatyana-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 335624
+        }
+      ],
+      "updatedAt": "2026-10-19T19:16:28.741Z"
+    },
     "darevskia-portschinskii.jpg": {
       "sourceHash": "c479f778be8183ac0eaf57342d6b602e61079dd112871435da577940cf5a1d6a",
       "configFingerprint": "a895f8e025dcc7fa",
