@@ -28769,6 +28769,101 @@
       ],
       "updatedAt": "2026-10-19T19:13:52.284Z"
     },
+    "darevskia-portschinskii-tamara-1.jpg": {
+      "sourceHash": "fcbda3be4e450faf83d996d819805c0ab43722e9b66c7d63d7f7afa076726da0",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-portschinskii-tamara-1.jpg",
+      "originalSize": 805252,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-portschinskii-tamara-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 14464
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tamara-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 23868
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tamara-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 21429
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tamara-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 34524
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tamara-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 48423
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tamara-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 80402
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tamara-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 72276
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tamara-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 119012
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tamara-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 137479
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tamara-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 223190
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tamara-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 303710
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tamara-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 475064
+        }
+      ],
+      "updatedAt": "2026-10-19T19:17:07.619Z"
+    },
     "darevskia-portschinskii-tatyana-1.jpg": {
       "sourceHash": "0a443049e3d258d4db583b990223959388d69675226b0b5df11b5279c345dc7f",
       "configFingerprint": "409788ee46c653d8",
