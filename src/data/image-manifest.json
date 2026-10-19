@@ -7585,6 +7585,576 @@
       ],
       "updatedAt": "2026-08-28T21:28:58.873Z"
     },
+    "bufo-verrucosissimus-david-1.jpg": {
+      "sourceHash": "a2e0ce840fc448e911710a70d372d6d5bf345de66427306eebc3b71fd05e5dff",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "bufo-verrucosissimus-david-1.jpg",
+      "originalSize": 522785,
+      "width": 2048,
+      "height": 1356,
+      "derivatives": [
+        {
+          "key": "optimized/bufo-verrucosissimus-david-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 212,
+          "byteSize": 12910
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 212,
+          "byteSize": 20510
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 265,
+          "byteSize": 17709
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 265,
+          "byteSize": 28252
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 424,
+          "byteSize": 36827
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 424,
+          "byteSize": 57570
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 530,
+          "byteSize": 52134
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 530,
+          "byteSize": 81276
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 795,
+          "byteSize": 90074
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 795,
+          "byteSize": 131238
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1356,
+          "byteSize": 177379
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1356,
+          "byteSize": 256594
+        }
+      ],
+      "updatedAt": "2026-10-18T10:07:52.101Z"
+    },
+    "bufo-verrucosissimus-david-2.jpg": {
+      "sourceHash": "16f87bf35cc4aaa8628bf47b8b02cf137d9a756de7852d502c88c232580315bc",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "bufo-verrucosissimus-david-2.jpg",
+      "originalSize": 393324,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/bufo-verrucosissimus-david-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9429
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 13466
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 12890
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 18198
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 25585
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 36500
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 34979
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 49182
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 60132
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 85838
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 126938
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-david-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 181308
+        }
+      ],
+      "updatedAt": "2026-10-18T10:09:56.129Z"
+    },
+    "bufo-verrucosissimus-kirill-1.jpg": {
+      "sourceHash": "0a2aa977d7942f53fc43af8c96986f50322eafc559b72fd372a77cc2568dece9",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "bufo-verrucosissimus-kirill-1.jpg",
+      "originalSize": 420391,
+      "width": 1542,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/bufo-verrucosissimus-kirill-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 425,
+          "byteSize": 13860
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-kirill-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 425,
+          "byteSize": 19634
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-kirill-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 531,
+          "byteSize": 19016
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-kirill-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 531,
+          "byteSize": 27046
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-kirill-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 850,
+          "byteSize": 38089
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-kirill-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 850,
+          "byteSize": 53580
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-kirill-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1063,
+          "byteSize": 52469
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-kirill-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1063,
+          "byteSize": 74042
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-kirill-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1594,
+          "byteSize": 95425
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-kirill-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1594,
+          "byteSize": 131432
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-kirill-1-1542.avif",
+          "format": "avif",
+          "width": 1542,
+          "height": 2048,
+          "byteSize": 139271
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-kirill-1-1542.webp",
+          "format": "webp",
+          "width": 1542,
+          "height": 2048,
+          "byteSize": 189514
+        }
+      ],
+      "updatedAt": "2026-10-18T10:09:08.573Z"
+    },
+    "bufo-verrucosissimus-loisbouchet-1.jpg": {
+      "sourceHash": "ddb49ea07ea6cf1ab96a60cb9a75b6c18081db3f950f10c7a1ae30e8121369fd",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "bufo-verrucosissimus-loisbouchet-1.jpg",
+      "originalSize": 457326,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/bufo-verrucosissimus-loisbouchet-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 7427
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-loisbouchet-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 10050
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-loisbouchet-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 11076
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-loisbouchet-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 15426
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-loisbouchet-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 27052
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-loisbouchet-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 38382
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-loisbouchet-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 42045
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-loisbouchet-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 57742
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-loisbouchet-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 81998
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-loisbouchet-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 108146
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-loisbouchet-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 178153
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-loisbouchet-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 224108
+        }
+      ],
+      "updatedAt": "2026-10-18T10:08:32.265Z"
+    },
+    "bufo-verrucosissimus-mikhail-1.jpg": {
+      "sourceHash": "a159b4be1f48f8b9de10f3f5e2758e490865953597b9d17977425260a61f6b84",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "bufo-verrucosissimus-mikhail-1.jpg",
+      "originalSize": 468898,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/bufo-verrucosissimus-mikhail-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 12849
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-mikhail-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 17362
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-mikhail-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 17615
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-mikhail-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 24882
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-mikhail-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 34544
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-mikhail-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 49342
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-mikhail-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 47501
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-mikhail-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 67236
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-mikhail-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 84284
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-mikhail-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 118846
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-mikhail-1-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 125816
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-mikhail-1-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 175402
+        }
+      ],
+      "updatedAt": "2026-10-18T10:10:43.742Z"
+    },
+    "bufo-verrucosissimus-oscar-1.jpg": {
+      "sourceHash": "df11e8e1477f3055d36bb7c40b6d9059856eaab768c90ae82aa3deee0d2bd002",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "bufo-verrucosissimus-oscar-1.jpg",
+      "originalSize": 401452,
+      "width": 1702,
+      "height": 1135,
+      "derivatives": [
+        {
+          "key": "optimized/bufo-verrucosissimus-oscar-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10042
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-oscar-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 13584
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-oscar-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 14755
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-oscar-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 20402
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-oscar-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 33706
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-oscar-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 46106
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-oscar-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 47886
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-oscar-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 65310
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-oscar-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 86571
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-oscar-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 118664
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-oscar-1-1702.avif",
+          "format": "avif",
+          "width": 1702,
+          "height": 1135,
+          "byteSize": 150190
+        },
+        {
+          "key": "optimized/bufo-verrucosissimus-oscar-1-1702.webp",
+          "format": "webp",
+          "width": 1702,
+          "height": 1135,
+          "byteSize": 200078
+        }
+      ],
+      "updatedAt": "2026-10-18T10:07:07.317Z"
+    },
     "bufo-verrucosissimus-zauri-1.jpg": {
       "sourceHash": "c3392416b76d7c5878a6571c15b8735ee124c8c7a7267afa999984382c3d0226",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -22420,6 +22990,481 @@
       ],
       "updatedAt": "2026-08-28T21:31:44.084Z"
     },
+    "darevskia-clarkorum-christian-1.jpg": {
+      "sourceHash": "c918646391dd364b493b173abf0873c25b018f57f9e7745a26ed7fb765696c7c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-clarkorum-christian-1.jpg",
+      "originalSize": 381643,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-clarkorum-christian-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8314
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-christian-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12510
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-christian-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 11708
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-christian-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 17460
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-christian-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 24771
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-christian-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 37606
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-christian-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 35117
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-christian-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 52592
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-christian-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 62433
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-christian-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 90112
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-christian-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 116516
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-christian-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 173254
+        }
+      ],
+      "updatedAt": "2026-10-18T09:18:02.009Z"
+    },
+    "darevskia-clarkorum-clo-09-1.jpg": {
+      "sourceHash": "d07983174a0ea6c9964f4806186c71da6391f637eace663828d5e78c575ea110",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-clarkorum-clo-09-1.jpg",
+      "originalSize": 325339,
+      "width": 1600,
+      "height": 1066,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-clarkorum-clo-09-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11591
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-clo-09-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 18166
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-clo-09-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 17274
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-clo-09-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 27230
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-clo-09-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 36356
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-clo-09-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 59270
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-clo-09-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 51473
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-clo-09-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 84764
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-clo-09-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 92713
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-clo-09-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 149100
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-clo-09-1-1600.avif",
+          "format": "avif",
+          "width": 1600,
+          "height": 1066,
+          "byteSize": 147277
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-clo-09-1-1600.webp",
+          "format": "webp",
+          "width": 1600,
+          "height": 1066,
+          "byteSize": 217092
+        }
+      ],
+      "updatedAt": "2026-10-18T09:17:24.867Z"
+    },
+    "darevskia-clarkorum-laotriton-1.jpg": {
+      "sourceHash": "eec42fa2fb96d800cae3047b7ffb7ae8c9e3b6c25ebc2604a6471937b34284b2",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-clarkorum-laotriton-1.jpg",
+      "originalSize": 496289,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-clarkorum-laotriton-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10783
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-laotriton-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 15456
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-laotriton-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 15210
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-laotriton-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 22186
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-laotriton-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 32220
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-laotriton-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 48088
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-laotriton-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 46529
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-laotriton-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 68806
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-laotriton-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 83043
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-laotriton-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 120534
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-laotriton-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 174961
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-laotriton-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 242588
+        }
+      ],
+      "updatedAt": "2026-10-18T09:18:56.301Z"
+    },
+    "darevskia-clarkorum-liothrix-1-crop-251-0-749-1000.jpg": {
+      "sourceHash": "8d9929811047b1dacfa964597e7caf33fce65ba05583ec9cdfa6a546336beaaf",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-clarkorum-liothrix-1-crop-251-0-749-1000.jpg",
+      "originalSize": 579861,
+      "width": 1534,
+      "height": 1919,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-crop-251-0-749-1000-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 400,
+          "byteSize": 19665
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-crop-251-0-749-1000-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 400,
+          "byteSize": 31360
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-crop-251-0-749-1000-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 500,
+          "byteSize": 26910
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-crop-251-0-749-1000-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 500,
+          "byteSize": 44682
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-crop-251-0-749-1000-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 801,
+          "byteSize": 54804
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-crop-251-0-749-1000-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 801,
+          "byteSize": 88416
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-crop-251-0-749-1000-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1001,
+          "byteSize": 75947
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-crop-251-0-749-1000-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1001,
+          "byteSize": 120676
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-crop-251-0-749-1000-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1501,
+          "byteSize": 138083
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-crop-251-0-749-1000-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1501,
+          "byteSize": 207850
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-crop-251-0-749-1000-1534.avif",
+          "format": "avif",
+          "width": 1534,
+          "height": 1919,
+          "byteSize": 208679
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-crop-251-0-749-1000-1534.webp",
+          "format": "webp",
+          "width": 1534,
+          "height": 1919,
+          "byteSize": 299798
+        }
+      ],
+      "updatedAt": "2026-10-18T09:22:39.098Z"
+    },
+    "darevskia-clarkorum-liothrix-1.jpg": {
+      "sourceHash": "a7d1d375a077af7294bef0f4ba4c0d8a0be781f449b8a27c5a89e24167ea50b2",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-clarkorum-liothrix-1.jpg",
+      "originalSize": 776692,
+      "width": 2048,
+      "height": 1919,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 299,
+          "byteSize": 15949
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 299,
+          "byteSize": 25016
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 374,
+          "byteSize": 21916
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 374,
+          "byteSize": 35224
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 599,
+          "byteSize": 44730
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 599,
+          "byteSize": 73784
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 750,
+          "byteSize": 63429
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 750,
+          "byteSize": 102286
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1124,
+          "byteSize": 114636
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1124,
+          "byteSize": 182066
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1919,
+          "byteSize": 267017
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-liothrix-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1919,
+          "byteSize": 390384
+        }
+      ],
+      "updatedAt": "2026-10-18T09:16:34.244Z"
+    },
     "darevskia-clarkorum-mobile.jpg": {
       "sourceHash": "4c0033884f1114c29fd9b430f369c4737e920afa6afa91daf193ba5dd94076c7",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -22486,6 +23531,101 @@
         }
       ],
       "updatedAt": "2026-08-28T21:31:49.232Z"
+    },
+    "darevskia-clarkorum-tom-1.jpg": {
+      "sourceHash": "fd1ed17b678541cb31ca04c57dc7ee0cdc4f01b1ba794e02c515da8643d0b979",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-clarkorum-tom-1.jpg",
+      "originalSize": 929152,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-clarkorum-tom-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 17205
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-tom-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 26328
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-tom-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 26317
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-tom-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 40436
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-tom-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 62666
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-tom-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 98242
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-tom-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 91241
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-tom-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 149338
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-tom-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 173749
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-tom-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 278140
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-tom-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 371744
+        },
+        {
+          "key": "optimized/darevskia-clarkorum-tom-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 555074
+        }
+      ],
+      "updatedAt": "2026-10-18T09:19:52.780Z"
     },
     "darevskia-clarkorum.jpg": {
       "sourceHash": "42203957388850dc5c3fe5c143f42cb9eb33ef0aef04ea0340044d1b1911f4b5",
@@ -28366,6 +29506,861 @@
       ],
       "updatedAt": "2026-08-28T21:36:30.226Z"
     },
+    "darevskia-valentini-achot-1.jpg": {
+      "sourceHash": "49b80f7665b72753aebeca5357da425e730f6b0fa75498f4a50cf3e66f557763",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-valentini-achot-1.jpg",
+      "originalSize": 468947,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-valentini-achot-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11443
+        },
+        {
+          "key": "optimized/darevskia-valentini-achot-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 18046
+        },
+        {
+          "key": "optimized/darevskia-valentini-achot-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 15754
+        },
+        {
+          "key": "optimized/darevskia-valentini-achot-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 25044
+        },
+        {
+          "key": "optimized/darevskia-valentini-achot-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 31408
+        },
+        {
+          "key": "optimized/darevskia-valentini-achot-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 50360
+        },
+        {
+          "key": "optimized/darevskia-valentini-achot-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 44135
+        },
+        {
+          "key": "optimized/darevskia-valentini-achot-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 69674
+        },
+        {
+          "key": "optimized/darevskia-valentini-achot-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 76007
+        },
+        {
+          "key": "optimized/darevskia-valentini-achot-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 119242
+        },
+        {
+          "key": "optimized/darevskia-valentini-achot-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 151124
+        },
+        {
+          "key": "optimized/darevskia-valentini-achot-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 235912
+        }
+      ],
+      "updatedAt": "2026-10-18T15:21:03.702Z"
+    },
+    "darevskia-valentini-bertogcliment-1.jpg": {
+      "sourceHash": "1f58b348ab7ebc31f6d2e48836fb50e08b9d40374cddfa5e7a10e8dc959aba7b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-valentini-bertogcliment-1.jpg",
+      "originalSize": 909370,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-valentini-bertogcliment-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 26939
+        },
+        {
+          "key": "optimized/darevskia-valentini-bertogcliment-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 41538
+        },
+        {
+          "key": "optimized/darevskia-valentini-bertogcliment-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 40282
+        },
+        {
+          "key": "optimized/darevskia-valentini-bertogcliment-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 62362
+        },
+        {
+          "key": "optimized/darevskia-valentini-bertogcliment-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 93888
+        },
+        {
+          "key": "optimized/darevskia-valentini-bertogcliment-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 144460
+        },
+        {
+          "key": "optimized/darevskia-valentini-bertogcliment-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 137140
+        },
+        {
+          "key": "optimized/darevskia-valentini-bertogcliment-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 211614
+        },
+        {
+          "key": "optimized/darevskia-valentini-bertogcliment-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 258787
+        },
+        {
+          "key": "optimized/darevskia-valentini-bertogcliment-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 409330
+        },
+        {
+          "key": "optimized/darevskia-valentini-bertogcliment-1-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 396939
+        },
+        {
+          "key": "optimized/darevskia-valentini-bertogcliment-1-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 618476
+        }
+      ],
+      "updatedAt": "2026-10-18T15:17:25.756Z"
+    },
+    "darevskia-valentini-david-1.jpg": {
+      "sourceHash": "9d9dab222e81d8ea855f8393a8d7518ef44d8ec9551f13f244f63aa70bb90a76",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-valentini-david-1.jpg",
+      "originalSize": 269260,
+      "width": 2048,
+      "height": 1356,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-valentini-david-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 212,
+          "byteSize": 4805
+        },
+        {
+          "key": "optimized/darevskia-valentini-david-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 212,
+          "byteSize": 6810
+        },
+        {
+          "key": "optimized/darevskia-valentini-david-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 265,
+          "byteSize": 6399
+        },
+        {
+          "key": "optimized/darevskia-valentini-david-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 265,
+          "byteSize": 9676
+        },
+        {
+          "key": "optimized/darevskia-valentini-david-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 424,
+          "byteSize": 13567
+        },
+        {
+          "key": "optimized/darevskia-valentini-david-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 424,
+          "byteSize": 21086
+        },
+        {
+          "key": "optimized/darevskia-valentini-david-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 530,
+          "byteSize": 19717
+        },
+        {
+          "key": "optimized/darevskia-valentini-david-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 530,
+          "byteSize": 30046
+        },
+        {
+          "key": "optimized/darevskia-valentini-david-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 795,
+          "byteSize": 35518
+        },
+        {
+          "key": "optimized/darevskia-valentini-david-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 795,
+          "byteSize": 55088
+        },
+        {
+          "key": "optimized/darevskia-valentini-david-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1356,
+          "byteSize": 73373
+        },
+        {
+          "key": "optimized/darevskia-valentini-david-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1356,
+          "byteSize": 111730
+        }
+      ],
+      "updatedAt": "2026-10-18T15:18:15.463Z"
+    },
+    "darevskia-valentini-julian-descoubes-1.jpg": {
+      "sourceHash": "f45b434811afee623d06bc7d95e84d7bfd4d70d350a6e15ddc0ed02e1912096a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-valentini-julian-descoubes-1.jpg",
+      "originalSize": 245488,
+      "width": 2048,
+      "height": 1087,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-valentini-julian-descoubes-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 169,
+          "byteSize": 5664
+        },
+        {
+          "key": "optimized/darevskia-valentini-julian-descoubes-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 169,
+          "byteSize": 7530
+        },
+        {
+          "key": "optimized/darevskia-valentini-julian-descoubes-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 212,
+          "byteSize": 7685
+        },
+        {
+          "key": "optimized/darevskia-valentini-julian-descoubes-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 212,
+          "byteSize": 10556
+        },
+        {
+          "key": "optimized/darevskia-valentini-julian-descoubes-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 339,
+          "byteSize": 15593
+        },
+        {
+          "key": "optimized/darevskia-valentini-julian-descoubes-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 339,
+          "byteSize": 22112
+        },
+        {
+          "key": "optimized/darevskia-valentini-julian-descoubes-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 425,
+          "byteSize": 22019
+        },
+        {
+          "key": "optimized/darevskia-valentini-julian-descoubes-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 425,
+          "byteSize": 31150
+        },
+        {
+          "key": "optimized/darevskia-valentini-julian-descoubes-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 637,
+          "byteSize": 39570
+        },
+        {
+          "key": "optimized/darevskia-valentini-julian-descoubes-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 637,
+          "byteSize": 56840
+        },
+        {
+          "key": "optimized/darevskia-valentini-julian-descoubes-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1087,
+          "byteSize": 81219
+        },
+        {
+          "key": "optimized/darevskia-valentini-julian-descoubes-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1087,
+          "byteSize": 117748
+        }
+      ],
+      "updatedAt": "2026-10-18T15:21:39.950Z"
+    },
+    "darevskia-valentini-timoteo-b-1.jpg": {
+      "sourceHash": "7f94e3dc04858a84b1f6862fd71876987f5b20f3309114231e659b5e5cfebfc7",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-valentini-timoteo-b-1.jpg",
+      "originalSize": 1095723,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 17545
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 27622
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 26674
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 40928
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 64126
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 100370
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 101271
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 157326
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 211428
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 327194
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 496733
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 785464
+        }
+      ],
+      "updatedAt": "2026-10-18T15:19:02.026Z"
+    },
+    "darevskia-valentini-timoteo-b-2.jpg": {
+      "sourceHash": "3705b19529b97d3bbc221ce0199a62bdea280f2dbc17523435905fe81a16792e",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-valentini-timoteo-b-2.jpg",
+      "originalSize": 867638,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 16224
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 25138
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 24250
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 37796
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 56316
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 88522
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 84305
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 132582
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 161226
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 250388
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 357239
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 528356
+        }
+      ],
+      "updatedAt": "2026-10-18T15:20:26.487Z"
+    },
+    "darevskia-valentini-tom-1.jpg": {
+      "sourceHash": "db7a15ced48216febc0a7bff4243cf8113078309974068e4b94b87ebb03b4b96",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-valentini-tom-1.jpg",
+      "originalSize": 875809,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-valentini-tom-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 16397
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 26702
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 24603
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 39776
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 56377
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 93296
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 81729
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 136164
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 154658
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 257762
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 331588
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 523564
+        }
+      ],
+      "updatedAt": "2026-10-18T15:22:28.922Z"
+    },
+    "darevskia-valentini-tom-2.jpg": {
+      "sourceHash": "080e4cdaf5eb0fac23e96e2d37bfa5107b63afefdad25e717a06bba5989574b1",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-valentini-tom-2.jpg",
+      "originalSize": 827009,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-valentini-tom-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 13817
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 20328
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 21886
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 31898
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 53431
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 79308
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 80650
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 119614
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 154038
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 221772
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 336362
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 450522
+        }
+      ],
+      "updatedAt": "2026-10-18T15:23:11.395Z"
+    },
+    "darevskia-valentini-tomáš-1.jpg": {
+      "sourceHash": "f3693e1caea2a4aef305a7be74ff9a1b4c41818c8ef5163a5dac37e419f862bf",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-valentini-tomáš-1.jpg",
+      "originalSize": 555342,
+      "width": 2048,
+      "height": 1373,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-valentini-tomáš-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 214,
+          "byteSize": 10798
+        },
+        {
+          "key": "optimized/darevskia-valentini-tomáš-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 214,
+          "byteSize": 18166
+        },
+        {
+          "key": "optimized/darevskia-valentini-tomáš-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 268,
+          "byteSize": 15250
+        },
+        {
+          "key": "optimized/darevskia-valentini-tomáš-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 268,
+          "byteSize": 25396
+        },
+        {
+          "key": "optimized/darevskia-valentini-tomáš-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 429,
+          "byteSize": 30256
+        },
+        {
+          "key": "optimized/darevskia-valentini-tomáš-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 429,
+          "byteSize": 54070
+        },
+        {
+          "key": "optimized/darevskia-valentini-tomáš-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 536,
+          "byteSize": 42480
+        },
+        {
+          "key": "optimized/darevskia-valentini-tomáš-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 536,
+          "byteSize": 74824
+        },
+        {
+          "key": "optimized/darevskia-valentini-tomáš-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 804,
+          "byteSize": 78022
+        },
+        {
+          "key": "optimized/darevskia-valentini-tomáš-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 804,
+          "byteSize": 135568
+        },
+        {
+          "key": "optimized/darevskia-valentini-tomáš-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1373,
+          "byteSize": 174229
+        },
+        {
+          "key": "optimized/darevskia-valentini-tomáš-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1373,
+          "byteSize": 294176
+        }
+      ],
+      "updatedAt": "2026-10-18T15:19:47.131Z"
+    },
     "darevskia-valentini.jpg": {
       "sourceHash": "e0e72c56750763ade430d9b777618c3fa3f4f191646876080fb6529320ce7e51",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -30654,6 +32649,291 @@
         }
       ],
       "updatedAt": "2026-08-28T21:37:15.674Z"
+    },
+    "eirenis-collaris-axel-1.jpg": {
+      "sourceHash": "c88a5593418f168be80c25beb05a9d2ad75217a065a8fc4c7d2085a5e006a608",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eirenis-collaris-axel-1.jpg",
+      "originalSize": 1060083,
+      "width": 2048,
+      "height": 1595,
+      "derivatives": [
+        {
+          "key": "optimized/eirenis-collaris-axel-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 249,
+          "byteSize": 24403
+        },
+        {
+          "key": "optimized/eirenis-collaris-axel-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 249,
+          "byteSize": 37614
+        },
+        {
+          "key": "optimized/eirenis-collaris-axel-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 311,
+          "byteSize": 35356
+        },
+        {
+          "key": "optimized/eirenis-collaris-axel-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 311,
+          "byteSize": 56292
+        },
+        {
+          "key": "optimized/eirenis-collaris-axel-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 498,
+          "byteSize": 82579
+        },
+        {
+          "key": "optimized/eirenis-collaris-axel-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 498,
+          "byteSize": 131978
+        },
+        {
+          "key": "optimized/eirenis-collaris-axel-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 623,
+          "byteSize": 121767
+        },
+        {
+          "key": "optimized/eirenis-collaris-axel-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 623,
+          "byteSize": 198770
+        },
+        {
+          "key": "optimized/eirenis-collaris-axel-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 935,
+          "byteSize": 217505
+        },
+        {
+          "key": "optimized/eirenis-collaris-axel-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 935,
+          "byteSize": 360918
+        },
+        {
+          "key": "optimized/eirenis-collaris-axel-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1595,
+          "byteSize": 419626
+        },
+        {
+          "key": "optimized/eirenis-collaris-axel-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1595,
+          "byteSize": 700348
+        }
+      ],
+      "updatedAt": "2026-10-19T08:30:37.814Z"
+    },
+    "eirenis-collaris-frank-1.jpg": {
+      "sourceHash": "14b552fc771cd02b82531f16536c3c298bcdc825f0f1fc3f809dde5654f604e1",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eirenis-collaris-frank-1.jpg",
+      "originalSize": 532717,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/eirenis-collaris-frank-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10374
+        },
+        {
+          "key": "optimized/eirenis-collaris-frank-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14982
+        },
+        {
+          "key": "optimized/eirenis-collaris-frank-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 14592
+        },
+        {
+          "key": "optimized/eirenis-collaris-frank-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 21296
+        },
+        {
+          "key": "optimized/eirenis-collaris-frank-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 31441
+        },
+        {
+          "key": "optimized/eirenis-collaris-frank-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 46448
+        },
+        {
+          "key": "optimized/eirenis-collaris-frank-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 44478
+        },
+        {
+          "key": "optimized/eirenis-collaris-frank-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 66334
+        },
+        {
+          "key": "optimized/eirenis-collaris-frank-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 80492
+        },
+        {
+          "key": "optimized/eirenis-collaris-frank-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 119594
+        },
+        {
+          "key": "optimized/eirenis-collaris-frank-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 171411
+        },
+        {
+          "key": "optimized/eirenis-collaris-frank-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 257582
+        }
+      ],
+      "updatedAt": "2026-10-19T08:31:24.947Z"
+    },
+    "eirenis-collaris-giorgi-1.jpg": {
+      "sourceHash": "36fbf6ee39f493af7d86b8e4802c5affe2109d28143a4500aa59144e52e01512",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eirenis-collaris-giorgi-1.jpg",
+      "originalSize": 653587,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/eirenis-collaris-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12967
+        },
+        {
+          "key": "optimized/eirenis-collaris-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 21104
+        },
+        {
+          "key": "optimized/eirenis-collaris-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 18565
+        },
+        {
+          "key": "optimized/eirenis-collaris-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 29880
+        },
+        {
+          "key": "optimized/eirenis-collaris-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 41264
+        },
+        {
+          "key": "optimized/eirenis-collaris-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 65438
+        },
+        {
+          "key": "optimized/eirenis-collaris-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 59667
+        },
+        {
+          "key": "optimized/eirenis-collaris-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 93140
+        },
+        {
+          "key": "optimized/eirenis-collaris-giorgi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 112136
+        },
+        {
+          "key": "optimized/eirenis-collaris-giorgi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 167204
+        },
+        {
+          "key": "optimized/eirenis-collaris-giorgi-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 250370
+        },
+        {
+          "key": "optimized/eirenis-collaris-giorgi-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 360426
+        }
+      ],
+      "updatedAt": "2026-10-19T08:47:41.376Z"
     },
     "eirenis-collaris-ioane-1.jpg": {
       "sourceHash": "4ae8c16a4bc5e40407451ab42db6c68188f6d5ca744da6ff5215cb60cad0f896",
@@ -36920,6 +39200,467 @@
       ],
       "updatedAt": "2026-08-28T21:40:43.912Z"
     },
+    "eryx-jaculus-alex-1-crop-382-0-533-1000.jpg": {
+      "sourceHash": "498fe41a47d35faa4cd32ce0d08d58c105bd6431a91e4aac928796f077b9f2bc",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eryx-jaculus-alex-1-crop-382-0-533-1000.jpg",
+      "originalSize": 212626,
+      "width": 1092,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/eryx-jaculus-alex-1-crop-382-0-533-1000-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 400,
+          "byteSize": 11812
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-crop-382-0-533-1000-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 400,
+          "byteSize": 18766
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-crop-382-0-533-1000-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 500,
+          "byteSize": 16346
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-crop-382-0-533-1000-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 500,
+          "byteSize": 26164
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-crop-382-0-533-1000-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 800,
+          "byteSize": 30486
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-crop-382-0-533-1000-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 800,
+          "byteSize": 48284
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-crop-382-0-533-1000-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1000,
+          "byteSize": 41269
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-crop-382-0-533-1000-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1000,
+          "byteSize": 63854
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-crop-382-0-533-1000-1092.avif",
+          "format": "avif",
+          "width": 1092,
+          "height": 1365,
+          "byteSize": 62643
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-crop-382-0-533-1000-1092.webp",
+          "format": "webp",
+          "width": 1092,
+          "height": 1365,
+          "byteSize": 95718
+        }
+      ],
+      "updatedAt": "2026-10-19T08:23:01.321Z"
+    },
+    "eryx-jaculus-alex-1.jpg": {
+      "sourceHash": "c55853d19e97115892849c246061309e9d3269f44cb86b1aca5567edb65ef167",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eryx-jaculus-alex-1.jpg",
+      "originalSize": 395219,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/eryx-jaculus-alex-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8152
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12324
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 10739
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 17196
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 21566
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 34940
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 29623
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 46970
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 51369
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 80592
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 105805
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 163230
+        }
+      ],
+      "updatedAt": "2026-10-19T08:18:59.431Z"
+    },
+    "eryx-jaculus-alexandre-1.jpg": {
+      "sourceHash": "c91a43e6c5c56f9e99474ac54d6296cacb0e7d4d708527b2839628f69531e24b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eryx-jaculus-alexandre-1.jpg",
+      "originalSize": 713651,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/eryx-jaculus-alexandre-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14504
+        },
+        {
+          "key": "optimized/eryx-jaculus-alexandre-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 22204
+        },
+        {
+          "key": "optimized/eryx-jaculus-alexandre-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 21008
+        },
+        {
+          "key": "optimized/eryx-jaculus-alexandre-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 32238
+        },
+        {
+          "key": "optimized/eryx-jaculus-alexandre-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 46541
+        },
+        {
+          "key": "optimized/eryx-jaculus-alexandre-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 75620
+        },
+        {
+          "key": "optimized/eryx-jaculus-alexandre-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 67266
+        },
+        {
+          "key": "optimized/eryx-jaculus-alexandre-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 108884
+        },
+        {
+          "key": "optimized/eryx-jaculus-alexandre-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 122969
+        },
+        {
+          "key": "optimized/eryx-jaculus-alexandre-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 201674
+        },
+        {
+          "key": "optimized/eryx-jaculus-alexandre-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 261897
+        },
+        {
+          "key": "optimized/eryx-jaculus-alexandre-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 427530
+        }
+      ],
+      "updatedAt": "2026-10-19T08:17:53.674Z"
+    },
+    "eryx-jaculus-alisa-1.jpg": {
+      "sourceHash": "8f1b0173f78137dcd6ce42864d06bf3165756372628c008aac2cf1eec2f210f0",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eryx-jaculus-alisa-1.jpg",
+      "originalSize": 956234,
+      "width": 1542,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/eryx-jaculus-alisa-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 425,
+          "byteSize": 30456
+        },
+        {
+          "key": "optimized/eryx-jaculus-alisa-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 425,
+          "byteSize": 49702
+        },
+        {
+          "key": "optimized/eryx-jaculus-alisa-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 531,
+          "byteSize": 44200
+        },
+        {
+          "key": "optimized/eryx-jaculus-alisa-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 531,
+          "byteSize": 72318
+        },
+        {
+          "key": "optimized/eryx-jaculus-alisa-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 850,
+          "byteSize": 96807
+        },
+        {
+          "key": "optimized/eryx-jaculus-alisa-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 850,
+          "byteSize": 156786
+        },
+        {
+          "key": "optimized/eryx-jaculus-alisa-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1063,
+          "byteSize": 138329
+        },
+        {
+          "key": "optimized/eryx-jaculus-alisa-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1063,
+          "byteSize": 222140
+        },
+        {
+          "key": "optimized/eryx-jaculus-alisa-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1594,
+          "byteSize": 261433
+        },
+        {
+          "key": "optimized/eryx-jaculus-alisa-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1594,
+          "byteSize": 421420
+        },
+        {
+          "key": "optimized/eryx-jaculus-alisa-1-1542.avif",
+          "format": "avif",
+          "width": 1542,
+          "height": 2048,
+          "byteSize": 412600
+        },
+        {
+          "key": "optimized/eryx-jaculus-alisa-1-1542.webp",
+          "format": "webp",
+          "width": 1542,
+          "height": 2048,
+          "byteSize": 630232
+        }
+      ],
+      "updatedAt": "2026-10-19T08:17:10.537Z"
+    },
+    "eryx-jaculus-brechtheusequin-1.jpg": {
+      "sourceHash": "9aec365938ed3623559e0ef13184a3365709b412e834fecf38e41bf8dcb97aea",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eryx-jaculus-brechtheusequin-1.jpg",
+      "originalSize": 313263,
+      "width": 1365,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/eryx-jaculus-brechtheusequin-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 480,
+          "byteSize": 13925
+        },
+        {
+          "key": "optimized/eryx-jaculus-brechtheusequin-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 480,
+          "byteSize": 20294
+        },
+        {
+          "key": "optimized/eryx-jaculus-brechtheusequin-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 601,
+          "byteSize": 18837
+        },
+        {
+          "key": "optimized/eryx-jaculus-brechtheusequin-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 601,
+          "byteSize": 28188
+        },
+        {
+          "key": "optimized/eryx-jaculus-brechtheusequin-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 960,
+          "byteSize": 35730
+        },
+        {
+          "key": "optimized/eryx-jaculus-brechtheusequin-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 960,
+          "byteSize": 53366
+        },
+        {
+          "key": "optimized/eryx-jaculus-brechtheusequin-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1200,
+          "byteSize": 47621
+        },
+        {
+          "key": "optimized/eryx-jaculus-brechtheusequin-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1200,
+          "byteSize": 71102
+        },
+        {
+          "key": "optimized/eryx-jaculus-brechtheusequin-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1800,
+          "byteSize": 80119
+        },
+        {
+          "key": "optimized/eryx-jaculus-brechtheusequin-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1800,
+          "byteSize": 117778
+        },
+        {
+          "key": "optimized/eryx-jaculus-brechtheusequin-1-1365.avif",
+          "format": "avif",
+          "width": 1365,
+          "height": 2048,
+          "byteSize": 95084
+        },
+        {
+          "key": "optimized/eryx-jaculus-brechtheusequin-1-1365.webp",
+          "format": "webp",
+          "width": 1365,
+          "height": 2048,
+          "byteSize": 140894
+        }
+      ],
+      "updatedAt": "2026-10-19T08:16:30.654Z"
+    },
     "eryx-jaculus-giorgi-1.jpg": {
       "sourceHash": "c89a62e3c78882f2891e7bb4b51ef7e4050ebd2d4f352beeab9b5170f1061e9a",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -37089,6 +39830,249 @@
         }
       ],
       "updatedAt": "2026-08-28T21:40:52.678Z"
+    },
+    "eryx-jaculus-jiří-1.jpg": {
+      "sourceHash": "9a2a6181e870f36e9cef315a14dbbf47109b51caec31b7d3d00b656e31f44ed5",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eryx-jaculus-jiří-1.jpg",
+      "originalSize": 107046,
+      "width": 640,
+      "height": 480,
+      "derivatives": [
+        {
+          "key": "optimized/eryx-jaculus-jiří-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 17782
+        },
+        {
+          "key": "optimized/eryx-jaculus-jiří-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 30230
+        },
+        {
+          "key": "optimized/eryx-jaculus-jiří-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 27849
+        },
+        {
+          "key": "optimized/eryx-jaculus-jiří-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 44106
+        },
+        {
+          "key": "optimized/eryx-jaculus-jiří-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 61786
+        },
+        {
+          "key": "optimized/eryx-jaculus-jiří-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 98824
+        }
+      ],
+      "updatedAt": "2026-10-19T08:15:10.440Z"
+    },
+    "eryx-jaculus-lennart-1.jpg": {
+      "sourceHash": "cd7a3c2d943c643638396684622197ecebe4a9ac55bca1a89b9162c423d0a816",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eryx-jaculus-lennart-1.jpg",
+      "originalSize": 684160,
+      "width": 2048,
+      "height": 1367,
+      "derivatives": [
+        {
+          "key": "optimized/eryx-jaculus-lennart-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14068
+        },
+        {
+          "key": "optimized/eryx-jaculus-lennart-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 24972
+        },
+        {
+          "key": "optimized/eryx-jaculus-lennart-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 20343
+        },
+        {
+          "key": "optimized/eryx-jaculus-lennart-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 35968
+        },
+        {
+          "key": "optimized/eryx-jaculus-lennart-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 43862
+        },
+        {
+          "key": "optimized/eryx-jaculus-lennart-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 77892
+        },
+        {
+          "key": "optimized/eryx-jaculus-lennart-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 62267
+        },
+        {
+          "key": "optimized/eryx-jaculus-lennart-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 111976
+        },
+        {
+          "key": "optimized/eryx-jaculus-lennart-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 115909
+        },
+        {
+          "key": "optimized/eryx-jaculus-lennart-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 201034
+        },
+        {
+          "key": "optimized/eryx-jaculus-lennart-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1367,
+          "byteSize": 253341
+        },
+        {
+          "key": "optimized/eryx-jaculus-lennart-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1367,
+          "byteSize": 417018
+        }
+      ],
+      "updatedAt": "2026-10-19T08:19:55.766Z"
+    },
+    "eryx-jaculus-niklas-1.jpg": {
+      "sourceHash": "252ed5ce6792e973eb55fe3cd0dade343267d0a954b53900b866f18cc06de84c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eryx-jaculus-niklas-1.jpg",
+      "originalSize": 795788,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/eryx-jaculus-niklas-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 15370
+        },
+        {
+          "key": "optimized/eryx-jaculus-niklas-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 24436
+        },
+        {
+          "key": "optimized/eryx-jaculus-niklas-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 21633
+        },
+        {
+          "key": "optimized/eryx-jaculus-niklas-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 36006
+        },
+        {
+          "key": "optimized/eryx-jaculus-niklas-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 46384
+        },
+        {
+          "key": "optimized/eryx-jaculus-niklas-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 79206
+        },
+        {
+          "key": "optimized/eryx-jaculus-niklas-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 66623
+        },
+        {
+          "key": "optimized/eryx-jaculus-niklas-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 112886
+        },
+        {
+          "key": "optimized/eryx-jaculus-niklas-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 122442
+        },
+        {
+          "key": "optimized/eryx-jaculus-niklas-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 207598
+        },
+        {
+          "key": "optimized/eryx-jaculus-niklas-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 287388
+        },
+        {
+          "key": "optimized/eryx-jaculus-niklas-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 470598
+        }
+      ],
+      "updatedAt": "2026-10-19T08:20:56.457Z"
     },
     "eryx-jaculus.jpg": {
       "sourceHash": "ebec808e93bc2996df1ac88564b287fdd65cf3e6b19e64198f792cab7c49afea",
@@ -63862,6 +66846,101 @@
       ],
       "updatedAt": "2026-08-28T21:44:16.327Z"
     },
+    "lacerta-strigata-donsky-2.jpg": {
+      "sourceHash": "8a6b75aaca455dbf8cf528d3501cf2b14c05faef97d28297d23b653a556fab43",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lacerta-strigata-donsky-2.jpg",
+      "originalSize": 224262,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/lacerta-strigata-donsky-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 5196
+        },
+        {
+          "key": "optimized/lacerta-strigata-donsky-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 7156
+        },
+        {
+          "key": "optimized/lacerta-strigata-donsky-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 7069
+        },
+        {
+          "key": "optimized/lacerta-strigata-donsky-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 9688
+        },
+        {
+          "key": "optimized/lacerta-strigata-donsky-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 13512
+        },
+        {
+          "key": "optimized/lacerta-strigata-donsky-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 19676
+        },
+        {
+          "key": "optimized/lacerta-strigata-donsky-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 17728
+        },
+        {
+          "key": "optimized/lacerta-strigata-donsky-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 26984
+        },
+        {
+          "key": "optimized/lacerta-strigata-donsky-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 30381
+        },
+        {
+          "key": "optimized/lacerta-strigata-donsky-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 45950
+        },
+        {
+          "key": "optimized/lacerta-strigata-donsky-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 62877
+        },
+        {
+          "key": "optimized/lacerta-strigata-donsky-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 94642
+        }
+      ],
+      "updatedAt": "2026-10-19T07:10:12.052Z"
+    },
     "lacerta-strigata-fabian-1.jpg": {
       "sourceHash": "927fc5ba848c64a472906c26115bb3855d128f8aa51c7cd8cebc53356527e86b",
       "configFingerprint": "409788ee46c653d8",
@@ -64024,6 +67103,101 @@
       ],
       "updatedAt": "2026-09-11T12:34:10.659Z"
     },
+    "lacerta-strigata-giorgi-2.jpg": {
+      "sourceHash": "5737e3a7e471d8c63eb435057e8753fe202c8d34df4302cfdd1517d39181e948",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lacerta-strigata-giorgi-2.jpg",
+      "originalSize": 545953,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/lacerta-strigata-giorgi-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11793
+        },
+        {
+          "key": "optimized/lacerta-strigata-giorgi-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 18974
+        },
+        {
+          "key": "optimized/lacerta-strigata-giorgi-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 16403
+        },
+        {
+          "key": "optimized/lacerta-strigata-giorgi-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 26016
+        },
+        {
+          "key": "optimized/lacerta-strigata-giorgi-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 33359
+        },
+        {
+          "key": "optimized/lacerta-strigata-giorgi-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 54010
+        },
+        {
+          "key": "optimized/lacerta-strigata-giorgi-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 46524
+        },
+        {
+          "key": "optimized/lacerta-strigata-giorgi-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 73168
+        },
+        {
+          "key": "optimized/lacerta-strigata-giorgi-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 83957
+        },
+        {
+          "key": "optimized/lacerta-strigata-giorgi-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 131530
+        },
+        {
+          "key": "optimized/lacerta-strigata-giorgi-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 181510
+        },
+        {
+          "key": "optimized/lacerta-strigata-giorgi-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 273626
+        }
+      ],
+      "updatedAt": "2026-10-19T07:06:47.545Z"
+    },
     "lacerta-strigata-ka-1.jpg": {
       "sourceHash": "d215921d6da1691ed05cbe56cdf1b981cbeb0e7fcbbc89e486c7702eb34eb846",
       "configFingerprint": "409788ee46c653d8",
@@ -64104,6 +67278,101 @@
         }
       ],
       "updatedAt": "2026-09-11T12:31:49.284Z"
+    },
+    "lacerta-strigata-kseniia-1.jpg": {
+      "sourceHash": "958a4ec861459a3c0f798b0be8fd5288870c4e12caecabffd1536c98c1b200f6",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lacerta-strigata-kseniia-1.jpg",
+      "originalSize": 740874,
+      "width": 1839,
+      "height": 1379,
+      "derivatives": [
+        {
+          "key": "optimized/lacerta-strigata-kseniia-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 14276
+        },
+        {
+          "key": "optimized/lacerta-strigata-kseniia-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 19962
+        },
+        {
+          "key": "optimized/lacerta-strigata-kseniia-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 21435
+        },
+        {
+          "key": "optimized/lacerta-strigata-kseniia-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 29876
+        },
+        {
+          "key": "optimized/lacerta-strigata-kseniia-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 45275
+        },
+        {
+          "key": "optimized/lacerta-strigata-kseniia-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 64732
+        },
+        {
+          "key": "optimized/lacerta-strigata-kseniia-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 66199
+        },
+        {
+          "key": "optimized/lacerta-strigata-kseniia-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 95856
+        },
+        {
+          "key": "optimized/lacerta-strigata-kseniia-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 146564
+        },
+        {
+          "key": "optimized/lacerta-strigata-kseniia-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 199340
+        },
+        {
+          "key": "optimized/lacerta-strigata-kseniia-1-1839.avif",
+          "format": "avif",
+          "width": 1839,
+          "height": 1379,
+          "byteSize": 339169
+        },
+        {
+          "key": "optimized/lacerta-strigata-kseniia-1-1839.webp",
+          "format": "webp",
+          "width": 1839,
+          "height": 1379,
+          "byteSize": 426052
+        }
+      ],
+      "updatedAt": "2026-10-19T07:08:31.056Z"
     },
     "lacerta-strigata-leonid-1.jpg": {
       "sourceHash": "810c12234d536a86d833d0e274d1f3d9623eb51493d41ba7ff178a0b60a13c07",
@@ -64266,6 +67535,291 @@
         }
       ],
       "updatedAt": "2026-09-11T12:26:31.761Z"
+    },
+    "lacerta-strigata-mariusz-1.jpg": {
+      "sourceHash": "9bb7a6c598cdd7a2b9918c653fad20aebb69f7819020d49846885d800af8d3ea",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lacerta-strigata-mariusz-1.jpg",
+      "originalSize": 748851,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/lacerta-strigata-mariusz-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 16630
+        },
+        {
+          "key": "optimized/lacerta-strigata-mariusz-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 26688
+        },
+        {
+          "key": "optimized/lacerta-strigata-mariusz-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 23148
+        },
+        {
+          "key": "optimized/lacerta-strigata-mariusz-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 37052
+        },
+        {
+          "key": "optimized/lacerta-strigata-mariusz-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 47323
+        },
+        {
+          "key": "optimized/lacerta-strigata-mariusz-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 77228
+        },
+        {
+          "key": "optimized/lacerta-strigata-mariusz-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 66758
+        },
+        {
+          "key": "optimized/lacerta-strigata-mariusz-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 107722
+        },
+        {
+          "key": "optimized/lacerta-strigata-mariusz-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 121666
+        },
+        {
+          "key": "optimized/lacerta-strigata-mariusz-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 189256
+        },
+        {
+          "key": "optimized/lacerta-strigata-mariusz-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 264662
+        },
+        {
+          "key": "optimized/lacerta-strigata-mariusz-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 387674
+        }
+      ],
+      "updatedAt": "2026-10-19T07:07:57.456Z"
+    },
+    "lacerta-strigata-sandro-1.jpg": {
+      "sourceHash": "b20b59493f0b59b5a87e757fe0c3b3369922b614600ef748f723268b59e0ac24",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lacerta-strigata-sandro-1.jpg",
+      "originalSize": 249422,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/lacerta-strigata-sandro-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 7202
+        },
+        {
+          "key": "optimized/lacerta-strigata-sandro-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10202
+        },
+        {
+          "key": "optimized/lacerta-strigata-sandro-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 9322
+        },
+        {
+          "key": "optimized/lacerta-strigata-sandro-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 13430
+        },
+        {
+          "key": "optimized/lacerta-strigata-sandro-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 17475
+        },
+        {
+          "key": "optimized/lacerta-strigata-sandro-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 24492
+        },
+        {
+          "key": "optimized/lacerta-strigata-sandro-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 22662
+        },
+        {
+          "key": "optimized/lacerta-strigata-sandro-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 31830
+        },
+        {
+          "key": "optimized/lacerta-strigata-sandro-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 36862
+        },
+        {
+          "key": "optimized/lacerta-strigata-sandro-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 51296
+        },
+        {
+          "key": "optimized/lacerta-strigata-sandro-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 70434
+        },
+        {
+          "key": "optimized/lacerta-strigata-sandro-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 100676
+        }
+      ],
+      "updatedAt": "2026-10-19T07:10:56.094Z"
+    },
+    "lacerta-strigata-tatiana-1.jpg": {
+      "sourceHash": "bdc2eebf29fc8d80993ed01084db6227971b528d1d45c3870a05df5af0205b6a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lacerta-strigata-tatiana-1.jpg",
+      "originalSize": 467029,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/lacerta-strigata-tatiana-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10409
+        },
+        {
+          "key": "optimized/lacerta-strigata-tatiana-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 16480
+        },
+        {
+          "key": "optimized/lacerta-strigata-tatiana-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 14027
+        },
+        {
+          "key": "optimized/lacerta-strigata-tatiana-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 22056
+        },
+        {
+          "key": "optimized/lacerta-strigata-tatiana-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 28078
+        },
+        {
+          "key": "optimized/lacerta-strigata-tatiana-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 44378
+        },
+        {
+          "key": "optimized/lacerta-strigata-tatiana-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 38981
+        },
+        {
+          "key": "optimized/lacerta-strigata-tatiana-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 60108
+        },
+        {
+          "key": "optimized/lacerta-strigata-tatiana-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 68496
+        },
+        {
+          "key": "optimized/lacerta-strigata-tatiana-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 100882
+        },
+        {
+          "key": "optimized/lacerta-strigata-tatiana-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 142062
+        },
+        {
+          "key": "optimized/lacerta-strigata-tatiana-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 203732
+        }
+      ],
+      "updatedAt": "2026-10-19T07:07:25.087Z"
     },
     "lacerta-strigata.jpg": {
       "sourceHash": "89edf332d4e79346775a899be24adf09f0e8471f9a751bd8ff3e1c6df4d8cf25",

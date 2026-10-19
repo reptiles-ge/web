@@ -9,6 +9,7 @@ import { rangeMap as aquilaChrysaetos } from "@/data/speciesRangeMaps/aquila-chr
 import { rangeMap as araneusDiadematus } from "@/data/speciesRangeMaps/araneus-diadematus";
 import { rangeMap as argiopeBruennichi } from "@/data/speciesRangeMaps/argiope-bruennichi";
 import { rangeMap as blattaOrientalis } from "@/data/speciesRangeMaps/blatta-orientalis";
+import { rangeMap as bufoVerrucosissimus } from "@/data/speciesRangeMaps/bufo-verrucosissimus";
 import { rangeMap as bufotesViridis } from "@/data/speciesRangeMaps/bufotes-viridis";
 import { rangeMap as canisAureus } from "@/data/speciesRangeMaps/canis-aureus";
 import { rangeMap as canisLupus } from "@/data/speciesRangeMaps/canis-lupus";
@@ -23,14 +24,18 @@ import { rangeMap as cuculusCanorus } from "@/data/speciesRangeMaps/cuculus-cano
 import { rangeMap as darevskiaAdjarica } from "@/data/speciesRangeMaps/darevskia-adjarica";
 import { rangeMap as darevskiaArmeniaca } from "@/data/speciesRangeMaps/darevskia-armeniaca";
 import { rangeMap as darevskiaCaucasica } from "@/data/speciesRangeMaps/darevskia-caucasica";
+import { rangeMap as darevskiaClarkorum } from "@/data/speciesRangeMaps/darevskia-clarkorum";
 import { rangeMap as darevskiaDahli } from "@/data/speciesRangeMaps/darevskia-dahli";
 import { rangeMap as darevskiaDerjugini } from "@/data/speciesRangeMaps/darevskia-derjugini";
 import { rangeMap as darevskiaObscura } from "@/data/speciesRangeMaps/darevskia-obscura";
+import { rangeMap as darevskiaValentini } from "@/data/speciesRangeMaps/darevskia-valentini";
 import { rangeMap as dendrocoposMajor } from "@/data/speciesRangeMaps/dendrocopos-major";
 import { rangeMap as dolichophisSchmidti } from "@/data/speciesRangeMaps/dolichophis-schmidti";
+import { rangeMap as eirenisCollaris } from "@/data/speciesRangeMaps/eirenis-collaris";
 import { rangeMap as eirenisModestus } from "@/data/speciesRangeMaps/eirenis-modestus";
 import { rangeMap as elapheUrartica } from "@/data/speciesRangeMaps/elaphe-urartica";
 import { rangeMap as erithacusRubecula } from "@/data/speciesRangeMaps/erithacus-rubecula";
+import { rangeMap as eryxJaculus } from "@/data/speciesRangeMaps/eryx-jaculus";
 import { rangeMap as euscorpiusItalicus } from "@/data/speciesRangeMaps/euscorpius-italicus";
 import { rangeMap as euscorpiusMingrelicus } from "@/data/speciesRangeMaps/euscorpius-mingrelicus";
 import { rangeMap as falcoPeregrinus } from "@/data/speciesRangeMaps/falco-peregrinus";
@@ -41,6 +46,7 @@ import { rangeMap as gypsFulvus } from "@/data/speciesRangeMaps/gyps-fulvus";
 import { rangeMap as halyomorphaHalys } from "@/data/speciesRangeMaps/halyomorpha-halys";
 import { rangeMap as jynxTorquilla } from "@/data/speciesRangeMaps/jynx-torquilla";
 import { rangeMap as lacertaAgilis } from "@/data/speciesRangeMaps/lacerta-agilis";
+import { rangeMap as lacertaMedia } from "@/data/speciesRangeMaps/lacerta-media";
 import { rangeMap as lacertaStrigata } from "@/data/speciesRangeMaps/lacerta-strigata";
 import { rangeMap as laniusCollurio } from "@/data/speciesRangeMaps/lanius-collurio";
 import { rangeMap as latrodectusTredecimguttatus } from "@/data/speciesRangeMaps/latrodectus-tredecimguttatus";
@@ -91,6 +97,7 @@ export const INTERACTIVE_RANGE_MAPS: Partial<
   "araneus-diadematus": araneusDiadematus,
   "argiope-bruennichi": argiopeBruennichi,
   "blatta-orientalis": blattaOrientalis,
+  "bufo-verrucosissimus": bufoVerrucosissimus,
   "bufotes-viridis": bufotesViridis,
   "canis-aureus": canisAureus,
   "canis-lupus": canisLupus,
@@ -105,14 +112,18 @@ export const INTERACTIVE_RANGE_MAPS: Partial<
   "darevskia-adjarica": darevskiaAdjarica,
   "darevskia-armeniaca": darevskiaArmeniaca,
   "darevskia-caucasica": darevskiaCaucasica,
+  "darevskia-clarkorum": darevskiaClarkorum,
   "darevskia-dahli": darevskiaDahli,
   "darevskia-derjugini": darevskiaDerjugini,
   "darevskia-obscura": darevskiaObscura,
+  "darevskia-valentini": darevskiaValentini,
   "dendrocopos-major": dendrocoposMajor,
   "dolichophis-schmidti": dolichophisSchmidti,
+  "eirenis-collaris": eirenisCollaris,
   "eirenis-modestus": eirenisModestus,
   "elaphe-urartica": elapheUrartica,
   "erithacus-rubecula": erithacusRubecula,
+  "eryx-jaculus": eryxJaculus,
   "euscorpius-italicus": euscorpiusItalicus,
   "euscorpius-mingrelicus": euscorpiusMingrelicus,
   "falco-peregrinus": falcoPeregrinus,
@@ -123,6 +134,7 @@ export const INTERACTIVE_RANGE_MAPS: Partial<
   "halyomorpha-halys": halyomorphaHalys,
   "jynx-torquilla": jynxTorquilla,
   "lacerta-agilis": lacertaAgilis,
+  "lacerta-media": lacertaMedia,
   "lacerta-strigata": lacertaStrigata,
   "lanius-collurio": laniusCollurio,
   "latrodectus-tredecimguttatus": latrodectusTredecimguttatus,

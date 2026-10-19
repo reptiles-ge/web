@@ -1033,6 +1033,48 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/bufo-verrucosissimus-david-1.jpg": {
+    "path": "bufo-verrucosissimus-david-1",
+    "width": 2048,
+    "height": 1356,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/bufo-verrucosissimus-david-2.jpg": {
+    "path": "bufo-verrucosissimus-david-2",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/bufo-verrucosissimus-kirill-1.jpg": {
+    "path": "bufo-verrucosissimus-kirill-1",
+    "width": 1542,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1542],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/bufo-verrucosissimus-loisbouchet-1.jpg": {
+    "path": "bufo-verrucosissimus-loisbouchet-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/bufo-verrucosissimus-mikhail-1.jpg": {
+    "path": "bufo-verrucosissimus-mikhail-1",
+    "width": 1536,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/bufo-verrucosissimus-oscar-1.jpg": {
+    "path": "bufo-verrucosissimus-oscar-1",
+    "width": 1702,
+    "height": 1135,
+    "widths": [320, 400, 640, 800, 1200, 1702],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/bufo-verrucosissimus-zauri-1.jpg": {
     "path": "bufo-verrucosissimus-zauri-1",
     "width": 1024,
@@ -2265,12 +2307,54 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1728],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/darevskia-clarkorum-christian-1.jpg": {
+    "path": "darevskia-clarkorum-christian-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-clarkorum-clo-09-1.jpg": {
+    "path": "darevskia-clarkorum-clo-09-1",
+    "width": 1600,
+    "height": 1066,
+    "widths": [320, 400, 640, 800, 1200, 1600],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-clarkorum-laotriton-1.jpg": {
+    "path": "darevskia-clarkorum-laotriton-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-clarkorum-liothrix-1-crop-251-0-749-1000.jpg": {
+    "path": "darevskia-clarkorum-liothrix-1-crop-251-0-749-1000",
+    "width": 1534,
+    "height": 1919,
+    "widths": [320, 400, 640, 800, 1200, 1534],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-clarkorum-liothrix-1.jpg": {
+    "path": "darevskia-clarkorum-liothrix-1",
+    "width": 2048,
+    "height": 1919,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/darevskia-clarkorum-mobile.jpg": {
     "path": "darevskia-clarkorum-mobile",
     "width": 2048,
     "height": 1538,
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif"]
+  },
+  "https://cdn.reptiles.ge/darevskia-clarkorum-tom-1.jpg": {
+    "path": "darevskia-clarkorum-tom-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/darevskia-clarkorum.jpg": {
     "path": "darevskia-clarkorum",
@@ -2706,6 +2790,69 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/darevskia-valentini-achot-1.jpg": {
+    "path": "darevskia-valentini-achot-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-valentini-bertogcliment-1.jpg": {
+    "path": "darevskia-valentini-bertogcliment-1",
+    "width": 1536,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-valentini-david-1.jpg": {
+    "path": "darevskia-valentini-david-1",
+    "width": 2048,
+    "height": 1356,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-valentini-julian-descoubes-1.jpg": {
+    "path": "darevskia-valentini-julian-descoubes-1",
+    "width": 2048,
+    "height": 1087,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-valentini-timoteo-b-1.jpg": {
+    "path": "darevskia-valentini-timoteo-b-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-valentini-timoteo-b-2.jpg": {
+    "path": "darevskia-valentini-timoteo-b-2",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-valentini-tom-1.jpg": {
+    "path": "darevskia-valentini-tom-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-valentini-tom-2.jpg": {
+    "path": "darevskia-valentini-tom-2",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-valentini-tom%C3%A1%C5%A1-1.jpg": {
+    "path": "darevskia-valentini-tom%C3%A1%C5%A1-1",
+    "width": 2048,
+    "height": 1373,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/darevskia-valentini.jpg": {
     "path": "darevskia-valentini",
     "width": 1153,
@@ -2900,6 +3047,27 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 2048,
     "height": 1365,
     "widths": [400, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/eirenis-collaris-axel-1.jpg": {
+    "path": "eirenis-collaris-axel-1",
+    "width": 2048,
+    "height": 1595,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/eirenis-collaris-frank-1.jpg": {
+    "path": "eirenis-collaris-frank-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/eirenis-collaris-giorgi-1.jpg": {
+    "path": "eirenis-collaris-giorgi-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/eirenis-collaris-ioane-1.jpg": {
@@ -3476,6 +3644,41 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/eryx-jaculus-alex-1-crop-382-0-533-1000.jpg": {
+    "path": "eryx-jaculus-alex-1-crop-382-0-533-1000",
+    "width": 1092,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1092],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/eryx-jaculus-alex-1.jpg": {
+    "path": "eryx-jaculus-alex-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/eryx-jaculus-alexandre-1.jpg": {
+    "path": "eryx-jaculus-alexandre-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/eryx-jaculus-alisa-1.jpg": {
+    "path": "eryx-jaculus-alisa-1",
+    "width": 1542,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1542],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/eryx-jaculus-brechtheusequin-1.jpg": {
+    "path": "eryx-jaculus-brechtheusequin-1",
+    "width": 1365,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1365],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/eryx-jaculus-giorgi-1.jpg": {
     "path": "eryx-jaculus-giorgi-1",
     "width": 1024,
@@ -3502,6 +3705,27 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 771,
     "height": 1024,
     "widths": [400, 771],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/eryx-jaculus-ji%C5%99%C3%AD-1.jpg": {
+    "path": "eryx-jaculus-ji%C5%99%C3%AD-1",
+    "width": 640,
+    "height": 480,
+    "widths": [320, 400, 640],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/eryx-jaculus-lennart-1.jpg": {
+    "path": "eryx-jaculus-lennart-1",
+    "width": 2048,
+    "height": 1367,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/eryx-jaculus-niklas-1.jpg": {
+    "path": "eryx-jaculus-niklas-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/eryx-jaculus.jpg": {
@@ -5520,6 +5744,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/lacerta-strigata-donsky-2.jpg": {
+    "path": "lacerta-strigata-donsky-2",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/lacerta-strigata-fabian-1.jpg": {
     "path": "lacerta-strigata-fabian-1",
     "width": 1024,
@@ -5534,6 +5765,20 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/lacerta-strigata-giorgi-2.jpg": {
+    "path": "lacerta-strigata-giorgi-2",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/lacerta-strigata-kseniia-1.jpg": {
+    "path": "lacerta-strigata-kseniia-1",
+    "width": 1839,
+    "height": 1379,
+    "widths": [320, 400, 640, 800, 1200, 1839],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/lacerta-strigata-leonid-1.jpg": {
     "path": "lacerta-strigata-leonid-1",
     "width": 1024,
@@ -5546,6 +5791,27 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1024,
     "height": 768,
     "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/lacerta-strigata-mariusz-1.jpg": {
+    "path": "lacerta-strigata-mariusz-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/lacerta-strigata-sandro-1.jpg": {
+    "path": "lacerta-strigata-sandro-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/lacerta-strigata-tatiana-1.jpg": {
+    "path": "lacerta-strigata-tatiana-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/landing-cta-cover.jpeg": {

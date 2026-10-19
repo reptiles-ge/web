@@ -61,11 +61,32 @@ const VERMICULARIS_OBSCURED_RECORD_NOTE =
   "Xerotyphlops vermicularis: iNaturalist public coordinates obscured (~28 km)";
 const ANGUIS_OBSCURED_RECORD_NOTE =
   "Anguis colchica: iNaturalist public coordinates obscured (~28 km)";
+const VALENTINI_OBSCURED_RECORD_NOTE =
+  "Darevskia valentini: iNaturalist public coordinates obscured (~28 km)";
+const VALENTINI_NEEDS_ID_RECORD_NOTE =
+  "Darevskia valentini: iNaturalist observation needs ID";
+const LACERTA_MEDIA_OBSCURED_RECORD_NOTE =
+  "Lacerta media: iNaturalist public coordinates obscured (~28 km)";
+const LACERTA_MEDIA_NOT_RESEARCH_RECORD_NOTE =
+  "Lacerta media: iNaturalist observation not research grade";
+const EIRENIS_COLLARIS_OBSCURED_RECORD_NOTE =
+  "Eirenis collaris: iNaturalist public coordinates obscured (~28 km)";
+const ERYX_JACULUS_OBSCURED_RECORD_NOTE =
+  "Eryx jaculus: iNaturalist public coordinates obscured (~28 km)";
 const OBSCURED_COORDINATE_NOTES = new Set([
   ANGUIS_OBSCURED_RECORD_NOTE,
   ARMENIACA_OBSCURED_RECORD_NOTE,
   DAHLI_OBSCURED_RECORD_NOTE,
+  EIRENIS_COLLARIS_OBSCURED_RECORD_NOTE,
+  ERYX_JACULUS_OBSCURED_RECORD_NOTE,
+  LACERTA_MEDIA_OBSCURED_RECORD_NOTE,
+  VALENTINI_OBSCURED_RECORD_NOTE,
   VERMICULARIS_OBSCURED_RECORD_NOTE,
+]);
+const NON_CONFIRMING_RECORD_NOTES = new Set([
+  ...OBSCURED_COORDINATE_NOTES,
+  LACERTA_MEDIA_NOT_RESEARCH_RECORD_NOTE,
+  VALENTINI_NEEDS_ID_RECORD_NOTE,
 ]);
 const MERTENSIELLA_OBSCURED_RECORD_NOTE =
   "Mertensiella caucasica: iNaturalist public coordinates obscured (~27 km)";
@@ -140,9 +161,6 @@ export function getHalyomorphaOccurrenceSummary(
   confirmedRecordThreshold = 5,
 ): HalyomorphaOccurrenceSummary {
   const years = records.flatMap((record) => yearFromDate(record.date));
-  const obscuredCoordinateNote = records.find((record) =>
-    record.note ? OBSCURED_COORDINATE_NOTES.has(record.note) : false,
-  )?.note;
   const mertensiellaRecords = records.some(
     (record) => record.note === MERTENSIELLA_OBSCURED_RECORD_NOTE,
   );
@@ -160,10 +178,9 @@ export function getHalyomorphaOccurrenceSummary(
       yearFromDate(record.date),
     );
     const center = getRecordCenter(regionRecords);
-    const confirmingCount = obscuredCoordinateNote
-      ? regionRecords.filter((record) => record.note !== obscuredCoordinateNote)
-          .length
-      : regionRecords.length;
+    const confirmingCount = regionRecords.filter(
+      (record) => !record.note || !NON_CONFIRMING_RECORD_NOTES.has(record.note),
+    ).length;
     const status: HalyomorphaOccurrenceStatus = mertensiellaRecords
       ? MERTENSIELLA_SOURCE_CONFIRMED_REGIONS.has(id)
         ? "confirmed"
