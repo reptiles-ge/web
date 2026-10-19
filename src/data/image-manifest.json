@@ -28012,6 +28012,196 @@
       ],
       "updatedAt": "2026-08-28T21:35:50.394Z"
     },
+    "darevskia-portschinskii-anastasiia-1.jpg": {
+      "sourceHash": "bfb9ceff2b9b1e22668155ac88e0411ad0acf1fb678388f6bd0a48d3ba54b8a6",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-portschinskii-anastasiia-1.jpg",
+      "originalSize": 782455,
+      "width": 2048,
+      "height": 1532,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-portschinskii-anastasiia-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 239,
+          "byteSize": 12125
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-anastasiia-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 239,
+          "byteSize": 21096
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-anastasiia-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 299,
+          "byteSize": 17396
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-anastasiia-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 299,
+          "byteSize": 29884
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-anastasiia-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 479,
+          "byteSize": 35782
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-anastasiia-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 479,
+          "byteSize": 58722
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-anastasiia-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 598,
+          "byteSize": 51608
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-anastasiia-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 598,
+          "byteSize": 84690
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-anastasiia-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 898,
+          "byteSize": 111673
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-anastasiia-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 898,
+          "byteSize": 174874
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-anastasiia-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1532,
+          "byteSize": 329858
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-anastasiia-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1532,
+          "byteSize": 425882
+        }
+      ],
+      "updatedAt": "2026-10-19T19:14:37.020Z"
+    },
+    "darevskia-portschinskii-axel-1.jpg": {
+      "sourceHash": "c936a64d268869f38834f6412191cdcc92cc3b453092227f67e9b5b58cdaeac2",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-portschinskii-axel-1.jpg",
+      "originalSize": 576057,
+      "width": 2048,
+      "height": 1709,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-portschinskii-axel-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 267,
+          "byteSize": 12822
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-axel-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 267,
+          "byteSize": 20308
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-axel-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 334,
+          "byteSize": 17682
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-axel-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 334,
+          "byteSize": 27996
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-axel-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 534,
+          "byteSize": 35136
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-axel-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 534,
+          "byteSize": 57428
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-axel-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 668,
+          "byteSize": 49046
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-axel-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 668,
+          "byteSize": 78636
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-axel-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1001,
+          "byteSize": 83701
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-axel-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1001,
+          "byteSize": 136184
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-axel-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1709,
+          "byteSize": 169052
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-axel-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1709,
+          "byteSize": 272640
+        }
+      ],
+      "updatedAt": "2026-10-19T19:17:46.753Z"
+    },
     "darevskia-portschinskii-giorgi-1.jpg": {
       "sourceHash": "735245ffd0e0855ef3465635a7ac20abd8b5c1655ca992471ea2cf16dd271b85",
       "configFingerprint": "409788ee46c653d8",
@@ -28322,6 +28512,372 @@
       ],
       "updatedAt": "2026-09-11T12:52:49.209Z"
     },
+    "darevskia-portschinskii-giorgi-5.jpg": {
+      "sourceHash": "5cd087ea6269bb9440dbe957764b84b1900e821b62b4f0e4223f98fa8b1d2670",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-portschinskii-giorgi-5.jpg",
+      "originalSize": 729991,
+      "width": 2048,
+      "height": 1366,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-portschinskii-giorgi-5-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12304
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-giorgi-5-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 16572
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-giorgi-5-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 18277
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-giorgi-5-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 23948
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-giorgi-5-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 42180
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-giorgi-5-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 56756
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-giorgi-5-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 60997
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-giorgi-5-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 80940
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-giorgi-5-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 110864
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-giorgi-5-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 151316
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-giorgi-5-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1366,
+          "byteSize": 302016
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-giorgi-5-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1366,
+          "byteSize": 379504
+        }
+      ],
+      "updatedAt": "2026-10-19T19:19:27.424Z"
+    },
+    "darevskia-portschinskii-herbert-1.jpg": {
+      "sourceHash": "d04dd09a684c27cbb07e279eae53baf0ef6371091709e6799b0ec77cf3ccc874",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-portschinskii-herbert-1.jpg",
+      "originalSize": 688668,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-portschinskii-herbert-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 14233
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-herbert-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 21284
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-herbert-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 21013
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-herbert-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 30256
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-herbert-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 46191
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-herbert-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 66468
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-herbert-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 67904
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-herbert-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 97044
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-herbert-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 127614
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-herbert-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 180186
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-herbert-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 277131
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-herbert-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 365204
+        }
+      ],
+      "updatedAt": "2026-10-19T19:13:04.772Z"
+    },
+    "darevskia-portschinskii-jasminel13-1.jpg": {
+      "sourceHash": "fd0515b705df9e1ba011b25cbf014aa9016aa8609c79ed151862dff3e3e83bad",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-portschinskii-jasminel13-1.jpg",
+      "originalSize": 313040,
+      "width": 1114,
+      "height": 827,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-portschinskii-jasminel13-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 237,
+          "byteSize": 16034
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-jasminel13-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 237,
+          "byteSize": 23516
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-jasminel13-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 297,
+          "byteSize": 25352
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-jasminel13-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 297,
+          "byteSize": 37648
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-jasminel13-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 475,
+          "byteSize": 57627
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-jasminel13-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 475,
+          "byteSize": 89324
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-jasminel13-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 594,
+          "byteSize": 81175
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-jasminel13-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 594,
+          "byteSize": 129224
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-jasminel13-1-1114.avif",
+          "format": "avif",
+          "width": 1114,
+          "height": 827,
+          "byteSize": 135453
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-jasminel13-1-1114.webp",
+          "format": "webp",
+          "width": 1114,
+          "height": 827,
+          "byteSize": 202224
+        }
+      ],
+      "updatedAt": "2026-10-19T19:22:19.606Z"
+    },
+    "darevskia-portschinskii-maximus94-1.jpg": {
+      "sourceHash": "15443644315ae9edf41035142d0af1fefce4b6242d5f2b8c85ff297443ee20d8",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-portschinskii-maximus94-1.jpg",
+      "originalSize": 627236,
+      "width": 1542,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-portschinskii-maximus94-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 425,
+          "byteSize": 24603
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-maximus94-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 425,
+          "byteSize": 39078
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-maximus94-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 531,
+          "byteSize": 34473
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-maximus94-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 531,
+          "byteSize": 52610
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-maximus94-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 850,
+          "byteSize": 68552
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-maximus94-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 850,
+          "byteSize": 102718
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-maximus94-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1063,
+          "byteSize": 94625
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-maximus94-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1063,
+          "byteSize": 137598
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-maximus94-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1594,
+          "byteSize": 164880
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-maximus94-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1594,
+          "byteSize": 231142
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-maximus94-1-1542.avif",
+          "format": "avif",
+          "width": 1542,
+          "height": 2048,
+          "byteSize": 235711
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-maximus94-1-1542.webp",
+          "format": "webp",
+          "width": 1542,
+          "height": 2048,
+          "byteSize": 312314
+        }
+      ],
+      "updatedAt": "2026-10-19T19:15:18.586Z"
+    },
     "darevskia-portschinskii-mobile.jpg": {
       "sourceHash": "74f334d40732037c45bf8d9975278f322083ff0e58572bcc726a398cbe5d462f",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -28388,6 +28944,291 @@
         }
       ],
       "updatedAt": "2026-08-28T21:35:52.075Z"
+    },
+    "darevskia-portschinskii-nina-1.jpg": {
+      "sourceHash": "869d8db04f3f50031fde0d519b5cd0dfbfaf207fc86bd13e650ec43f15dd62ff",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-portschinskii-nina-1.jpg",
+      "originalSize": 1169753,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-portschinskii-nina-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 14828
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-nina-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 22638
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-nina-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 23145
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-nina-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 35684
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-nina-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 57706
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-nina-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 93040
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-nina-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 90818
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-nina-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 147114
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-nina-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 192782
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-nina-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 315084
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-nina-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 548094
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-nina-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 882404
+        }
+      ],
+      "updatedAt": "2026-10-19T19:13:52.284Z"
+    },
+    "darevskia-portschinskii-tamara-1.jpg": {
+      "sourceHash": "fcbda3be4e450faf83d996d819805c0ab43722e9b66c7d63d7f7afa076726da0",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-portschinskii-tamara-1.jpg",
+      "originalSize": 805252,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-portschinskii-tamara-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 14464
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tamara-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 23868
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tamara-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 21429
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tamara-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 34524
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tamara-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 48423
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tamara-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 80402
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tamara-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 72276
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tamara-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 119012
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tamara-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 137479
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tamara-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 223190
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tamara-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 303710
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tamara-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 475064
+        }
+      ],
+      "updatedAt": "2026-10-19T19:17:07.619Z"
+    },
+    "darevskia-portschinskii-tatyana-1.jpg": {
+      "sourceHash": "0a443049e3d258d4db583b990223959388d69675226b0b5df11b5279c345dc7f",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-portschinskii-tatyana-1.jpg",
+      "originalSize": 622091,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-portschinskii-tatyana-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10024
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tatyana-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 16386
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tatyana-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 14191
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tatyana-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 23318
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tatyana-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 30073
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tatyana-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 50692
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tatyana-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 42972
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tatyana-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 72258
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tatyana-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 80968
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tatyana-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 134898
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tatyana-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 224204
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tatyana-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 335624
+        }
+      ],
+      "updatedAt": "2026-10-19T19:16:28.741Z"
     },
     "darevskia-portschinskii.jpg": {
       "sourceHash": "c479f778be8183ac0eaf57342d6b602e61079dd112871435da577940cf5a1d6a",

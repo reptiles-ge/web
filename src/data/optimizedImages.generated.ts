@@ -2664,6 +2664,20 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/darevskia-portschinskii-anastasiia-1.jpg": {
+    "path": "darevskia-portschinskii-anastasiia-1",
+    "width": 2048,
+    "height": 1532,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-portschinskii-axel-1.jpg": {
+    "path": "darevskia-portschinskii-axel-1",
+    "width": 2048,
+    "height": 1709,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/darevskia-portschinskii-giorgi-1.jpg": {
     "path": "darevskia-portschinskii-giorgi-1",
     "width": 1024,
@@ -2690,6 +2704,55 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1024,
     "height": 682,
     "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-portschinskii-giorgi-5.jpg": {
+    "path": "darevskia-portschinskii-giorgi-5",
+    "width": 2048,
+    "height": 1366,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-portschinskii-herbert-1.jpg": {
+    "path": "darevskia-portschinskii-herbert-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-portschinskii-jasminel13-1.jpg": {
+    "path": "darevskia-portschinskii-jasminel13-1",
+    "width": 1114,
+    "height": 827,
+    "widths": [320, 400, 640, 800, 1114],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-portschinskii-maximus94-1.jpg": {
+    "path": "darevskia-portschinskii-maximus94-1",
+    "width": 1542,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1542],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-portschinskii-nina-1.jpg": {
+    "path": "darevskia-portschinskii-nina-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-portschinskii-tamara-1.jpg": {
+    "path": "darevskia-portschinskii-tamara-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-portschinskii-tatyana-1.jpg": {
+    "path": "darevskia-portschinskii-tatyana-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/darevskia-praticola-2.jpg": {
