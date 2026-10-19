@@ -69,12 +69,15 @@ const LACERTA_MEDIA_OBSCURED_RECORD_NOTE =
   "Lacerta media: iNaturalist public coordinates obscured (~28 km)";
 const LACERTA_MEDIA_NOT_RESEARCH_RECORD_NOTE =
   "Lacerta media: iNaturalist observation not research grade";
+const EIRENIS_COLLARIS_OBSCURED_RECORD_NOTE =
+  "Eirenis collaris: iNaturalist public coordinates obscured (~28 km)";
 const ERYX_JACULUS_OBSCURED_RECORD_NOTE =
   "Eryx jaculus: iNaturalist public coordinates obscured (~28 km)";
 const OBSCURED_COORDINATE_NOTES = new Set([
   ANGUIS_OBSCURED_RECORD_NOTE,
   ARMENIACA_OBSCURED_RECORD_NOTE,
   DAHLI_OBSCURED_RECORD_NOTE,
+  EIRENIS_COLLARIS_OBSCURED_RECORD_NOTE,
   ERYX_JACULUS_OBSCURED_RECORD_NOTE,
   LACERTA_MEDIA_OBSCURED_RECORD_NOTE,
   VALENTINI_OBSCURED_RECORD_NOTE,
