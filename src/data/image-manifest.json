@@ -29973,6 +29973,101 @@
       ],
       "updatedAt": "2026-10-19T20:31:28.097Z"
     },
+    "darevskia-praticola-vojtěch-1.jpg": {
+      "sourceHash": "c85d15d932f5be5522320ca29760980a045f2a3757fc563ffbc91ca0d9fa4444",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-praticola-vojtěch-1.jpg",
+      "originalSize": 497510,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-praticola-vojtěch-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9299
+        },
+        {
+          "key": "optimized/darevskia-praticola-vojtěch-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 15620
+        },
+        {
+          "key": "optimized/darevskia-praticola-vojtěch-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 12893
+        },
+        {
+          "key": "optimized/darevskia-praticola-vojtěch-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 21502
+        },
+        {
+          "key": "optimized/darevskia-praticola-vojtěch-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 26072
+        },
+        {
+          "key": "optimized/darevskia-praticola-vojtěch-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 45266
+        },
+        {
+          "key": "optimized/darevskia-praticola-vojtěch-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 37258
+        },
+        {
+          "key": "optimized/darevskia-praticola-vojtěch-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 63330
+        },
+        {
+          "key": "optimized/darevskia-praticola-vojtěch-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 68797
+        },
+        {
+          "key": "optimized/darevskia-praticola-vojtěch-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 114554
+        },
+        {
+          "key": "optimized/darevskia-praticola-vojtěch-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 158177
+        },
+        {
+          "key": "optimized/darevskia-praticola-vojtěch-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 248620
+        }
+      ],
+      "updatedAt": "2026-10-19T20:36:08.520Z"
+    },
     "darevskia-praticola-zauri-1.jpg": {
       "sourceHash": "ea866fac593947bb015e8dcb79e3743dc17bfa0ed176c8596e3aaa7fedc8be50",
       "configFingerprint": "409788ee46c653d8",
