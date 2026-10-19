@@ -32745,6 +32745,101 @@
       ],
       "updatedAt": "2026-10-19T08:30:37.814Z"
     },
+    "eirenis-collaris-frank-1.jpg": {
+      "sourceHash": "14b552fc771cd02b82531f16536c3c298bcdc825f0f1fc3f809dde5654f604e1",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eirenis-collaris-frank-1.jpg",
+      "originalSize": 532717,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/eirenis-collaris-frank-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10374
+        },
+        {
+          "key": "optimized/eirenis-collaris-frank-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14982
+        },
+        {
+          "key": "optimized/eirenis-collaris-frank-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 14592
+        },
+        {
+          "key": "optimized/eirenis-collaris-frank-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 21296
+        },
+        {
+          "key": "optimized/eirenis-collaris-frank-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 31441
+        },
+        {
+          "key": "optimized/eirenis-collaris-frank-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 46448
+        },
+        {
+          "key": "optimized/eirenis-collaris-frank-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 44478
+        },
+        {
+          "key": "optimized/eirenis-collaris-frank-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 66334
+        },
+        {
+          "key": "optimized/eirenis-collaris-frank-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 80492
+        },
+        {
+          "key": "optimized/eirenis-collaris-frank-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 119594
+        },
+        {
+          "key": "optimized/eirenis-collaris-frank-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 171411
+        },
+        {
+          "key": "optimized/eirenis-collaris-frank-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 257582
+        }
+      ],
+      "updatedAt": "2026-10-19T08:31:24.947Z"
+    },
     "eirenis-collaris-ioane-1.jpg": {
       "sourceHash": "4ae8c16a4bc5e40407451ab42db6c68188f6d5ca744da6ff5215cb60cad0f896",
       "configFingerprint": "a895f8e025dcc7fa",
