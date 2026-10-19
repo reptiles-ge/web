@@ -29973,6 +29973,87 @@
       ],
       "updatedAt": "2026-10-19T20:31:28.097Z"
     },
+    "darevskia-praticola-tom-1.jpg": {
+      "sourceHash": "1b096f142f1b83e05240f868a9431987bb331552f02a82aa91cb006b39dc7a6f",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-praticola-tom-1.jpg",
+      "originalSize": 108831,
+      "width": 960,
+      "height": 720,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-praticola-tom-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 11580
+        },
+        {
+          "key": "optimized/darevskia-praticola-tom-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 16704
+        },
+        {
+          "key": "optimized/darevskia-praticola-tom-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 17209
+        },
+        {
+          "key": "optimized/darevskia-praticola-tom-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 24662
+        },
+        {
+          "key": "optimized/darevskia-praticola-tom-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 35302
+        },
+        {
+          "key": "optimized/darevskia-praticola-tom-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 49408
+        },
+        {
+          "key": "optimized/darevskia-praticola-tom-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 48223
+        },
+        {
+          "key": "optimized/darevskia-praticola-tom-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 67038
+        },
+        {
+          "key": "optimized/darevskia-praticola-tom-1-960.avif",
+          "format": "avif",
+          "width": 960,
+          "height": 720,
+          "byteSize": 65113
+        },
+        {
+          "key": "optimized/darevskia-praticola-tom-1-960.webp",
+          "format": "webp",
+          "width": 960,
+          "height": 720,
+          "byteSize": 82710
+        }
+      ],
+      "updatedAt": "2026-10-19T20:38:07.748Z"
+    },
     "darevskia-praticola-vojtěch-1.jpg": {
       "sourceHash": "c85d15d932f5be5522320ca29760980a045f2a3757fc563ffbc91ca0d9fa4444",
       "configFingerprint": "409788ee46c653d8",
