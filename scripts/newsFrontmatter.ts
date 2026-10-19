@@ -39,6 +39,7 @@ const newsPhotoSchema = z.strictObject({
 export const newsKaFrontmatterSchema = z.strictObject({
   ...copyFields,
   gallery: z.array(newsPhotoSchema).optional(),
+  heroImageException: z.string().trim().min(20).optional(),
   image: newsPhotoSchema.optional(),
   publishedAt: nonempty,
   relatedHubIds: z.array(

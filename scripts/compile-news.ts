@@ -6,6 +6,8 @@ import type { NewsArticle, NewsPhoto } from "../src/data/newsTypes";
 import type { AppLocale } from "../src/i18n/routing";
 
 import { newsSlugs } from "../src/data/newsPublish";
+import { optimizedImages } from "../src/data/optimizedImages.generated";
+import { checkNewsHeroes, type NewsHeroInput } from "../src/lib/newsHeroImage";
 import { newsBodyStart, parseNewsBody } from "../src/lib/newsMdx";
 import {
   newsKaFrontmatterSchema,
@@ -17,6 +19,7 @@ const outFile = path.join(process.cwd(), "src/data/news.generated.ts");
 const translationLocales = ["en", "ru", "tr"] as const;
 
 const errors: string[] = [];
+const heroes: NewsHeroInput[] = [];
 const folders = fs
   .readdirSync(contentRoot, { withFileTypes: true })
   .filter((entry) => entry.isDirectory())
@@ -53,6 +56,12 @@ function compileArticle(slug: string): NewsArticle | undefined {
   const fm = parsed.data;
   if (fm.slug !== slug)
     errors.push(`${ka.file}: folder/slug mismatch: ${slug} vs ${fm.slug}`);
+  heroes.push({
+    exception: fm.heroImageException,
+    image: fm.image,
+    publishedAt: fm.publishedAt,
+    slug,
+  });
 
   const toPhoto = ({ alt, ...photo }: typeof fm.image & {}): NewsPhoto => ({
     ...photo,
@@ -123,6 +132,13 @@ for (const slug of newsSlugs) {
     errors.push(`${slug}: ${(error as Error).message}`);
   }
 }
+
+const heroCheck = checkNewsHeroes(heroes, optimizedImages);
+errors.push(...heroCheck.errors);
+if (heroCheck.warnings.length > 0)
+  console.warn(
+    `News heroes not ready for Discover:\n${heroCheck.warnings.map((line) => `  ${line}`).join("\n")}`,
+  );
 
 if (errors.length > 0) {
   console.error(errors.join("\n"));
