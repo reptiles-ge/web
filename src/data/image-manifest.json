@@ -39518,6 +39518,101 @@
       ],
       "updatedAt": "2026-10-19T08:15:10.440Z"
     },
+    "eryx-jaculus-lennart-1.jpg": {
+      "sourceHash": "cd7a3c2d943c643638396684622197ecebe4a9ac55bca1a89b9162c423d0a816",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eryx-jaculus-lennart-1.jpg",
+      "originalSize": 684160,
+      "width": 2048,
+      "height": 1367,
+      "derivatives": [
+        {
+          "key": "optimized/eryx-jaculus-lennart-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14068
+        },
+        {
+          "key": "optimized/eryx-jaculus-lennart-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 24972
+        },
+        {
+          "key": "optimized/eryx-jaculus-lennart-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 20343
+        },
+        {
+          "key": "optimized/eryx-jaculus-lennart-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 35968
+        },
+        {
+          "key": "optimized/eryx-jaculus-lennart-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 43862
+        },
+        {
+          "key": "optimized/eryx-jaculus-lennart-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 77892
+        },
+        {
+          "key": "optimized/eryx-jaculus-lennart-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 62267
+        },
+        {
+          "key": "optimized/eryx-jaculus-lennart-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 111976
+        },
+        {
+          "key": "optimized/eryx-jaculus-lennart-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 115909
+        },
+        {
+          "key": "optimized/eryx-jaculus-lennart-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 201034
+        },
+        {
+          "key": "optimized/eryx-jaculus-lennart-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1367,
+          "byteSize": 253341
+        },
+        {
+          "key": "optimized/eryx-jaculus-lennart-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1367,
+          "byteSize": 417018
+        }
+      ],
+      "updatedAt": "2026-10-19T08:19:55.766Z"
+    },
     "eryx-jaculus.jpg": {
       "sourceHash": "ebec808e93bc2996df1ac88564b287fdd65cf3e6b19e64198f792cab7c49afea",
       "configFingerprint": "a895f8e025dcc7fa",
