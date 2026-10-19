@@ -34,6 +34,7 @@ import { rangeMap as dolichophisSchmidti } from "@/data/speciesRangeMaps/dolicho
 import { rangeMap as eirenisModestus } from "@/data/speciesRangeMaps/eirenis-modestus";
 import { rangeMap as elapheUrartica } from "@/data/speciesRangeMaps/elaphe-urartica";
 import { rangeMap as erithacusRubecula } from "@/data/speciesRangeMaps/erithacus-rubecula";
+import { rangeMap as eryxJaculus } from "@/data/speciesRangeMaps/eryx-jaculus";
 import { rangeMap as euscorpiusItalicus } from "@/data/speciesRangeMaps/euscorpius-italicus";
 import { rangeMap as euscorpiusMingrelicus } from "@/data/speciesRangeMaps/euscorpius-mingrelicus";
 import { rangeMap as falcoPeregrinus } from "@/data/speciesRangeMaps/falco-peregrinus";
@@ -120,6 +121,7 @@ export const INTERACTIVE_RANGE_MAPS: Partial<
   "eirenis-modestus": eirenisModestus,
   "elaphe-urartica": elapheUrartica,
   "erithacus-rubecula": erithacusRubecula,
+  "eryx-jaculus": eryxJaculus,
   "euscorpius-italicus": euscorpiusItalicus,
   "euscorpius-mingrelicus": euscorpiusMingrelicus,
   "falco-peregrinus": falcoPeregrinus,
