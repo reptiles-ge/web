@@ -55,6 +55,8 @@ export type HalyomorphaRegionSummary = {
 
 const ARMENIACA_OBSCURED_RECORD_NOTE =
   "Darevskia armeniaca: iNaturalist public coordinates obscured (~28 km)";
+const PRATICOLA_OBSCURED_RECORD_NOTE =
+  "Darevskia praticola: iNaturalist public coordinates obscured (~28 km)";
 const PORTSCHINSKII_OBSCURED_RECORD_NOTE =
   "Darevskia portschinskii: iNaturalist public coordinates obscured (~28 km)";
 const PORTSCHINSKII_NEEDS_ID_RECORD_NOTE =
@@ -96,6 +98,7 @@ const OBSCURED_COORDINATE_NOTES = new Set([
   HYLA_ORIENTALIS_OBSCURED_RECORD_NOTE,
   LACERTA_MEDIA_OBSCURED_RECORD_NOTE,
   PORTSCHINSKII_OBSCURED_RECORD_NOTE,
+  PRATICOLA_OBSCURED_RECORD_NOTE,
   VALENTINI_OBSCURED_RECORD_NOTE,
   VELOX_OBSCURED_RECORD_NOTE,
   VERMICULARIS_OBSCURED_RECORD_NOTE,
