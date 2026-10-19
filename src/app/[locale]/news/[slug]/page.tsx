@@ -15,7 +15,6 @@ import { getRegionById, localizeRegionText } from "@/data/regions";
 import { getSpeciesById } from "@/data/species";
 import { georgiaPlaceName, openGraphLocale } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
-import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import {
   newsArticleAlternates,
   newsArticleUrl,
@@ -64,11 +63,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const title = copy.metaTitle;
   const url = newsArticleUrl(locale, article.slug);
-  const description = kaMetaDescriptionOverride(
-    locale,
-    new URL(url).pathname,
-    copy.metaDescription,
-  );
+  const description = copy.metaDescription;
   const ogImage = newsOgImageUrl(article);
   const published = newsDateTime(article.publishedAt);
 
