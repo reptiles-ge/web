@@ -272,4 +272,10 @@ describe("per-locale llms files", () => {
     expect(llmsLinkHeader("en")).toContain("</en/llms.txt>");
     expect(llmsLinkHeader("en")).toContain("</en/llms-full.txt>");
   });
+
+  it("keeps hreflang out of the Link header", () => {
+    for (const locale of ["ka", ...PREFIXED_LOCALES] as const) {
+      expect(llmsLinkHeader(locale)).not.toContain("hreflang");
+    }
+  });
 });

@@ -10,7 +10,7 @@ export function llmsIndexPath(locale: AppLocale) {
 
 export function llmsLinkHeader(locale: AppLocale) {
   return [
-    `<${llmsIndexPath(locale)}>; rel="alternate"; type="text/plain"; hreflang="${locale}"; title="llms.txt"`,
-    `<${llmsFullPath(locale)}>; rel="alternate"; type="text/plain"; hreflang="${locale}"; title="llms-full.txt"`,
+    `<${llmsIndexPath(locale)}>; rel="alternate"; type="text/plain"; title="llms.txt"`,
+    `<${llmsFullPath(locale)}>; rel="alternate"; type="text/plain"; title="llms-full.txt"`,
   ].join(", ");
 }
