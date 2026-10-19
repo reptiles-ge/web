@@ -28702,6 +28702,87 @@
       ],
       "updatedAt": "2026-10-19T19:13:04.772Z"
     },
+    "darevskia-portschinskii-jasminel13-1.jpg": {
+      "sourceHash": "fd0515b705df9e1ba011b25cbf014aa9016aa8609c79ed151862dff3e3e83bad",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-portschinskii-jasminel13-1.jpg",
+      "originalSize": 313040,
+      "width": 1114,
+      "height": 827,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-portschinskii-jasminel13-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 237,
+          "byteSize": 16034
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-jasminel13-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 237,
+          "byteSize": 23516
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-jasminel13-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 297,
+          "byteSize": 25352
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-jasminel13-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 297,
+          "byteSize": 37648
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-jasminel13-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 475,
+          "byteSize": 57627
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-jasminel13-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 475,
+          "byteSize": 89324
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-jasminel13-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 594,
+          "byteSize": 81175
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-jasminel13-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 594,
+          "byteSize": 129224
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-jasminel13-1-1114.avif",
+          "format": "avif",
+          "width": 1114,
+          "height": 827,
+          "byteSize": 135453
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-jasminel13-1-1114.webp",
+          "format": "webp",
+          "width": 1114,
+          "height": 827,
+          "byteSize": 202224
+        }
+      ],
+      "updatedAt": "2026-10-19T19:22:19.606Z"
+    },
     "darevskia-portschinskii-maximus94-1.jpg": {
       "sourceHash": "15443644315ae9edf41035142d0af1fefce4b6242d5f2b8c85ff297443ee20d8",
       "configFingerprint": "409788ee46c653d8",
