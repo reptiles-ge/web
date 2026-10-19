@@ -28484,6 +28484,101 @@
       ],
       "updatedAt": "2026-08-28T21:35:52.075Z"
     },
+    "darevskia-portschinskii-nina-1.jpg": {
+      "sourceHash": "869d8db04f3f50031fde0d519b5cd0dfbfaf207fc86bd13e650ec43f15dd62ff",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-portschinskii-nina-1.jpg",
+      "originalSize": 1169753,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-portschinskii-nina-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 14828
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-nina-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 22638
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-nina-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 23145
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-nina-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 35684
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-nina-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 57706
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-nina-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 93040
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-nina-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 90818
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-nina-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 147114
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-nina-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 192782
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-nina-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 315084
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-nina-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 548094
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-nina-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 882404
+        }
+      ],
+      "updatedAt": "2026-10-19T19:13:52.284Z"
+    },
     "darevskia-portschinskii.jpg": {
       "sourceHash": "c479f778be8183ac0eaf57342d6b602e61079dd112871435da577940cf5a1d6a",
       "configFingerprint": "a895f8e025dcc7fa",
