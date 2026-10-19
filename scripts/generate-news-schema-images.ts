@@ -93,7 +93,7 @@ function storageKey(src: string) {
     return decodeURIComponent(src.slice(CDN_BASE.length + 1));
   }
   if (src.startsWith("/")) return src.slice(1);
-  throw new Error(`No storage key for ${src}.`);
+  return null;
 }
 
 async function readSource(hero: NewsHeroImage) {
@@ -122,7 +122,7 @@ function selectHeroes(options: CliOptions, manifest: Manifest) {
     throw new Error(`Unknown news slug(s): ${unknown.join(", ")}.`);
   }
 
-  const heroes = new Map<string, NewsHeroImage>();
+  const heroes = new Map<string, { hero: NewsHeroImage; key: string }>();
   for (const article of articles) {
     if (options.slugs.length > 0 && !options.slugs.includes(article.slug)) {
       continue;
@@ -136,8 +136,13 @@ function selectHeroes(options: CliOptions, manifest: Manifest) {
       console.log(`${article.slug}: hero is ${hero.width} px wide, skipped.`);
       continue;
     }
+    const key = storageKey(hero.src);
+    if (!key) {
+      console.log(`${article.slug}: hero is not on the CDN, skipped.`);
+      continue;
+    }
     if (!options.force && manifest.entries[hero.src]) continue;
-    heroes.set(hero.src, hero);
+    heroes.set(hero.src, { hero, key });
   }
   return [...heroes.values()];
 }
@@ -154,13 +159,13 @@ async function main() {
     return;
   }
 
-  for (const hero of heroes) {
+  for (const { hero, key } of heroes) {
     const source = await readSource(hero);
     const crops: NewsSchemaCrop[] = [];
     for (const ratio of NEWS_SCHEMA_RATIOS) {
       const result = await renderAndStoreOgImage({
         alt: hero.src,
-        key: storageKey(hero.src),
+        key,
         og: resolveOgImageConfig({
           height: ratio.height,
           maxBytes: MAX_BYTES,
