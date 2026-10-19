@@ -31,6 +31,7 @@ import { rangeMap as darevskiaObscura } from "@/data/speciesRangeMaps/darevskia-
 import { rangeMap as darevskiaValentini } from "@/data/speciesRangeMaps/darevskia-valentini";
 import { rangeMap as dendrocoposMajor } from "@/data/speciesRangeMaps/dendrocopos-major";
 import { rangeMap as dolichophisSchmidti } from "@/data/speciesRangeMaps/dolichophis-schmidti";
+import { rangeMap as eirenisCollaris } from "@/data/speciesRangeMaps/eirenis-collaris";
 import { rangeMap as eirenisModestus } from "@/data/speciesRangeMaps/eirenis-modestus";
 import { rangeMap as elapheUrartica } from "@/data/speciesRangeMaps/elaphe-urartica";
 import { rangeMap as erithacusRubecula } from "@/data/speciesRangeMaps/erithacus-rubecula";
@@ -118,6 +119,7 @@ export const INTERACTIVE_RANGE_MAPS: Partial<
   "darevskia-valentini": darevskiaValentini,
   "dendrocopos-major": dendrocoposMajor,
   "dolichophis-schmidti": dolichophisSchmidti,
+  "eirenis-collaris": eirenisCollaris,
   "eirenis-modestus": eirenisModestus,
   "elaphe-urartica": elapheUrartica,
   "erithacus-rubecula": erithacusRubecula,
