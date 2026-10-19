@@ -3623,6 +3623,34 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/eryx-jaculus-alex-1.jpg": {
+    "path": "eryx-jaculus-alex-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/eryx-jaculus-alexandre-1.jpg": {
+    "path": "eryx-jaculus-alexandre-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/eryx-jaculus-alisa-1.jpg": {
+    "path": "eryx-jaculus-alisa-1",
+    "width": 1542,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1542],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/eryx-jaculus-brechtheusequin-1.jpg": {
+    "path": "eryx-jaculus-brechtheusequin-1",
+    "width": 1365,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1365],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/eryx-jaculus-giorgi-1.jpg": {
     "path": "eryx-jaculus-giorgi-1",
     "width": 1024,
@@ -3649,6 +3677,27 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 771,
     "height": 1024,
     "widths": [400, 771],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/eryx-jaculus-ji%C5%99%C3%AD-1.jpg": {
+    "path": "eryx-jaculus-ji%C5%99%C3%AD-1",
+    "width": 640,
+    "height": 480,
+    "widths": [320, 400, 640],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/eryx-jaculus-lennart-1.jpg": {
+    "path": "eryx-jaculus-lennart-1",
+    "width": 2048,
+    "height": 1367,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/eryx-jaculus-niklas-1.jpg": {
+    "path": "eryx-jaculus-niklas-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/eryx-jaculus.jpg": {
