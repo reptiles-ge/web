@@ -48785,6 +48785,101 @@
       ],
       "updatedAt": "2026-08-28T21:42:24.698Z"
     },
+    "hyla-orientalis-lennart-1.jpg": {
+      "sourceHash": "02936c69186adfa64dd54f6696baebe4e5a4484e0471d0226530c1a3dd42b2fa",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "hyla-orientalis-lennart-1.jpg",
+      "originalSize": 214221,
+      "width": 2048,
+      "height": 1367,
+      "derivatives": [
+        {
+          "key": "optimized/hyla-orientalis-lennart-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 4710
+        },
+        {
+          "key": "optimized/hyla-orientalis-lennart-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6644
+        },
+        {
+          "key": "optimized/hyla-orientalis-lennart-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 6323
+        },
+        {
+          "key": "optimized/hyla-orientalis-lennart-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 8856
+        },
+        {
+          "key": "optimized/hyla-orientalis-lennart-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 12439
+        },
+        {
+          "key": "optimized/hyla-orientalis-lennart-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 17684
+        },
+        {
+          "key": "optimized/hyla-orientalis-lennart-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 16831
+        },
+        {
+          "key": "optimized/hyla-orientalis-lennart-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 24918
+        },
+        {
+          "key": "optimized/hyla-orientalis-lennart-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 30617
+        },
+        {
+          "key": "optimized/hyla-orientalis-lennart-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 45676
+        },
+        {
+          "key": "optimized/hyla-orientalis-lennart-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1367,
+          "byteSize": 71094
+        },
+        {
+          "key": "optimized/hyla-orientalis-lennart-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1367,
+          "byteSize": 102608
+        }
+      ],
+      "updatedAt": "2026-10-19T17:54:36.101Z"
+    },
     "hyla-orientalis-mobile.jpg": {
       "sourceHash": "c731e1950f4ab68f91e71d2bb1e5163e11db76dc41ae0c981d70f4bb0cbda73d",
       "configFingerprint": "a895f8e025dcc7fa",
