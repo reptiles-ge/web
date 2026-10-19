@@ -71,6 +71,7 @@
     "images:optimize:site": "tsx scripts/compile-species.ts && tsx scripts/optimize-images.ts --site",
     "images:emit": "tsx scripts/compile-species.ts && tsx scripts/optimize-images.ts --emit-only",
     "inaturalist:field-records": "tsx scripts/import-inaturalist-field-records.ts",
+    "images:warm": "pnpm run images:og-missing && pnpm run images:news-schema",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "prepare": "husky",
