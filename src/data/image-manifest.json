@@ -38915,6 +38915,101 @@
       ],
       "updatedAt": "2026-08-28T21:40:43.912Z"
     },
+    "eryx-jaculus-alex-1.jpg": {
+      "sourceHash": "c55853d19e97115892849c246061309e9d3269f44cb86b1aca5567edb65ef167",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eryx-jaculus-alex-1.jpg",
+      "originalSize": 395219,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/eryx-jaculus-alex-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8152
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12324
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 10739
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 17196
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 21566
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 34940
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 29623
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 46970
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 51369
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 80592
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 105805
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 163230
+        }
+      ],
+      "updatedAt": "2026-10-19T08:18:59.431Z"
+    },
     "eryx-jaculus-alexandre-1.jpg": {
       "sourceHash": "c91a43e6c5c56f9e99474ac54d6296cacb0e7d4d708527b2839628f69531e24b",
       "configFingerprint": "409788ee46c653d8",
