@@ -5702,6 +5702,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/lacerta-strigata-mariusz-1.jpg": {
+    "path": "lacerta-strigata-mariusz-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/lacerta-strigata-tatiana-1.jpg": {
     "path": "lacerta-strigata-tatiana-1",
     "width": 2048,
