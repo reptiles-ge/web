@@ -2,7 +2,6 @@ import { createTranslator } from "next-intl";
 import { describe, expect, it, vi } from "vitest";
 
 import { routing } from "@/i18n/routing";
-import { newsFeedUrl } from "@/lib/newsFeed";
 
 import en from "../../../../messages/en.json";
 import ka from "../../../../messages/ka.json";
@@ -25,14 +24,12 @@ vi.mock("next-intl/server", () => ({
 
 describe("news index metadata", () => {
   it.each(routing.locales)(
-    "advertises the %s Atom feed as a plain URL",
+    "leaves the %s Atom feed link to the locale layout",
     async (locale) => {
       const metadata = await generateMetadata({
         params: Promise.resolve({ locale }),
       });
-      expect(metadata.alternates?.types).toEqual({
-        "application/atom+xml": newsFeedUrl(locale),
-      });
+      expect(metadata.alternates).not.toHaveProperty("types");
       expect(metadata.alternates?.canonical).toBeTruthy();
       expect(metadata.alternates?.languages).toHaveProperty("x-default");
       expect(metadata.title).toBe(messages[locale].news.metaTitle);

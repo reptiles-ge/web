@@ -15,7 +15,6 @@ import {
   newsIndexUrl,
   newsOgImageUrl,
 } from "@/lib/news";
-import { newsFeedUrl } from "@/lib/newsFeed";
 import { buildPageMetadata } from "@/lib/pageMetadata";
 import { absoluteUrl, localePath, siteEntityId } from "@/lib/site";
 
@@ -29,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const locale = localeParam as AppLocale;
   const t = await getTranslations({ locale, namespace: "news" });
-  const metadata = buildPageMetadata({
+  return buildPageMetadata({
     description: t("metaDescription"),
     indexable: true,
     locale,
@@ -37,13 +36,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     pagePath: newsIndexHref(),
     title: t("metaTitle"),
   });
-  return {
-    ...metadata,
-    alternates: {
-      ...metadata.alternates,
-      types: { "application/atom+xml": newsFeedUrl(locale) },
-    },
-  };
 }
 
 export function generateStaticParams() {
