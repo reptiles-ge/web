@@ -66357,6 +66357,101 @@
       ],
       "updatedAt": "2026-09-11T12:26:31.761Z"
     },
+    "lacerta-strigata-tatiana-1.jpg": {
+      "sourceHash": "bdc2eebf29fc8d80993ed01084db6227971b528d1d45c3870a05df5af0205b6a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lacerta-strigata-tatiana-1.jpg",
+      "originalSize": 467029,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/lacerta-strigata-tatiana-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10409
+        },
+        {
+          "key": "optimized/lacerta-strigata-tatiana-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 16480
+        },
+        {
+          "key": "optimized/lacerta-strigata-tatiana-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 14027
+        },
+        {
+          "key": "optimized/lacerta-strigata-tatiana-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 22056
+        },
+        {
+          "key": "optimized/lacerta-strigata-tatiana-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 28078
+        },
+        {
+          "key": "optimized/lacerta-strigata-tatiana-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 44378
+        },
+        {
+          "key": "optimized/lacerta-strigata-tatiana-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 38981
+        },
+        {
+          "key": "optimized/lacerta-strigata-tatiana-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 60108
+        },
+        {
+          "key": "optimized/lacerta-strigata-tatiana-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 68496
+        },
+        {
+          "key": "optimized/lacerta-strigata-tatiana-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 100882
+        },
+        {
+          "key": "optimized/lacerta-strigata-tatiana-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 142062
+        },
+        {
+          "key": "optimized/lacerta-strigata-tatiana-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 203732
+        }
+      ],
+      "updatedAt": "2026-10-19T07:07:25.087Z"
+    },
     "lacerta-strigata.jpg": {
       "sourceHash": "89edf332d4e79346775a899be24adf09f0e8471f9a751bd8ff3e1c6df4d8cf25",
       "configFingerprint": "a895f8e025dcc7fa",
