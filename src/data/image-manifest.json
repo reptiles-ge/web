@@ -32840,6 +32840,101 @@
       ],
       "updatedAt": "2026-10-19T08:31:24.947Z"
     },
+    "eirenis-collaris-giorgi-1.jpg": {
+      "sourceHash": "36fbf6ee39f493af7d86b8e4802c5affe2109d28143a4500aa59144e52e01512",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eirenis-collaris-giorgi-1.jpg",
+      "originalSize": 653587,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/eirenis-collaris-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12967
+        },
+        {
+          "key": "optimized/eirenis-collaris-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 21104
+        },
+        {
+          "key": "optimized/eirenis-collaris-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 18565
+        },
+        {
+          "key": "optimized/eirenis-collaris-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 29880
+        },
+        {
+          "key": "optimized/eirenis-collaris-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 41264
+        },
+        {
+          "key": "optimized/eirenis-collaris-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 65438
+        },
+        {
+          "key": "optimized/eirenis-collaris-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 59667
+        },
+        {
+          "key": "optimized/eirenis-collaris-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 93140
+        },
+        {
+          "key": "optimized/eirenis-collaris-giorgi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 112136
+        },
+        {
+          "key": "optimized/eirenis-collaris-giorgi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 167204
+        },
+        {
+          "key": "optimized/eirenis-collaris-giorgi-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 250370
+        },
+        {
+          "key": "optimized/eirenis-collaris-giorgi-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 360426
+        }
+      ],
+      "updatedAt": "2026-10-19T08:47:41.376Z"
+    },
     "eirenis-collaris-ioane-1.jpg": {
       "sourceHash": "4ae8c16a4bc5e40407451ab42db6c68188f6d5ca744da6ff5215cb60cad0f896",
       "configFingerprint": "a895f8e025dcc7fa",
