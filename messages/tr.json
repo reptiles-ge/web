@@ -955,7 +955,15 @@
     "read": "Oku",
     "copyLink": "Bağlantıyı kopyala",
     "linkCopied": "Bağlantı kopyalandı",
-    "shareFacebook": "Facebook'ta paylaş"
+    "shareFacebook": "Facebook'ta paylaş",
+    "archiveMetaTitle": "Gürcistan yaban hayatı haberleri — sayfa {page}",
+    "archiveMetaDescription": "Haber arşivi, sayfa {page}/{pageCount}: Gürcistan yaban hayatından kaynaklı saha kayıtları ve bilimsel notlar. Yayın tarihi {oldest} – {newest}.",
+    "archiveH1": "Haber arşivi, sayfa {page}",
+    "archiveIntro": "Toplam {total} makaleden {first}–{last} arası. Yayın tarihi {oldest} – {newest}.",
+    "pageNumber": "Sayfa {page}",
+    "paginationLabel": "Haber sayfaları",
+    "newerArticles": "Daha yeni makaleler",
+    "olderArticles": "Daha eski makaleler"
   },
   "about": {
     "metaTitle": "Reptiles.ge hakkında — Gürcistan hayvanları atlası",

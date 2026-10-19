@@ -7,6 +7,7 @@ import type { AppLocale } from "../src/i18n/routing";
 
 import { newsSlugs } from "../src/data/newsPublish";
 import { newsBodyStart, parseNewsBody } from "../src/lib/newsMdx";
+import { newsSlugIssue } from "../src/lib/newsSlug";
 import {
   newsKaFrontmatterSchema,
   newsTranslationFrontmatterSchema,
@@ -25,6 +26,11 @@ const folders = fs
 for (const folder of folders) {
   if (!newsSlugs.includes(folder as (typeof newsSlugs)[number]))
     errors.push(`${folder}: folder is missing from newsSlugs`);
+}
+
+for (const slug of newsSlugs) {
+  const issue = newsSlugIssue(slug);
+  if (issue) errors.push(`${slug}: ${issue}`);
 }
 
 function readLocale(slug: string, locale: AppLocale) {

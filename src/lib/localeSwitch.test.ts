@@ -48,6 +48,7 @@ describe("resolvePageContextFromIndex", () => {
     ["/authors", "author_index"],
     ["/contact", "contact"],
     ["/news", "news"],
+    ["/news/page/[page]", "news"],
     ["/species", "atlas"],
     ["/quiz", "quiz_index"],
     ["/regions", "region_index"],

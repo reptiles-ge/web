@@ -6,17 +6,16 @@ import { notFound } from "next/navigation";
 
 import { JsonLd } from "@/components/JsonLd";
 import { NewsIndexPage } from "@/components/NewsIndexPage";
-import { getPublishedNewsArticles } from "@/data/news";
 import { type AppLocale, routing } from "@/i18n/routing";
 import {
-  newsArticleUrl,
   newsIndexDateFields,
   newsIndexHref,
   newsIndexUrl,
   newsOgImageUrl,
 } from "@/lib/news";
+import { getNewsPage, newsListingJsonLd } from "@/lib/newsPages";
 import { buildPageMetadata } from "@/lib/pageMetadata";
-import { absoluteUrl, localePath, siteEntityId } from "@/lib/site";
+import { absoluteUrl, localePath } from "@/lib/site";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -56,54 +55,34 @@ export default async function NewsIndexRoute({ params }: Props) {
     locale,
     namespace: "groupHubShared",
   });
-  const articles = getPublishedNewsArticles(locale);
+  const newsPage = getNewsPage(locale, 1);
+  const articles = newsPage?.articles ?? [];
   const url = newsIndexUrl(locale);
-
-  const breadcrumbLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
+  const jsonLd = newsListingJsonLd({
+    articles,
+    breadcrumbs: [
       {
-        "@type": "ListItem",
-        item: absoluteUrl(localePath(locale, "/")),
         name: tShared("breadcrumbHome"),
-        position: 1,
+        url: absoluteUrl(localePath(locale, "/")),
       },
-      {
-        "@type": "ListItem",
-        item: url,
-        name: t("breadcrumbNews"),
-        position: 2,
-      },
+      { name: t("breadcrumbNews"), url },
     ],
-  };
-
-  const collectionLd = {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    ...newsIndexDateFields(locale, articles),
+    dates: newsIndexDateFields(locale, articles),
     description: t("metaDescription"),
-    inLanguage: locale,
-    isPartOf: { "@id": siteEntityId("website") },
-    mainEntity: {
-      "@type": "ItemList",
-      itemListElement: articles.map((article, index) => ({
-        "@type": "ListItem",
-        name: article.copy[locale]?.title ?? article.copy.ka.title,
-        position: index + 1,
-        url: newsArticleUrl(locale, article.slug),
-      })),
-      numberOfItems: articles.length,
-    },
+    locale,
     name: t("metaTitle"),
-    publisher: { "@id": siteEntityId("organization") },
     url,
-  };
+  });
 
   return (
     <>
-      <JsonLd data={[breadcrumbLd, collectionLd]} />
-      <NewsIndexPage articles={articles} locale={locale} />
+      <JsonLd data={jsonLd} />
+      <NewsIndexPage
+        articles={articles}
+        locale={locale}
+        pageCount={newsPage?.pageCount ?? 1}
+        total={newsPage?.total ?? 0}
+      />
     </>
   );
 }

@@ -163,7 +163,7 @@ const NEWS_SOURCE_BADGE_LIMIT = 4;
 
 const NEWS_WORDS_PER_MINUTE = 150;
 
-function newestNewsDateTime(articles: readonly NewsArticle[]) {
+export function newestNewsDateTime(articles: readonly NewsArticle[]) {
   let newest: null | string = null;
   let newestTime = Number.NEGATIVE_INFINITY;
   for (const article of articles) {
