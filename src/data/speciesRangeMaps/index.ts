@@ -28,11 +28,16 @@ import { rangeMap as darevskiaClarkorum } from "@/data/speciesRangeMaps/darevski
 import { rangeMap as darevskiaDahli } from "@/data/speciesRangeMaps/darevskia-dahli";
 import { rangeMap as darevskiaDerjugini } from "@/data/speciesRangeMaps/darevskia-derjugini";
 import { rangeMap as darevskiaObscura } from "@/data/speciesRangeMaps/darevskia-obscura";
+import { rangeMap as darevskiaPortschinskii } from "@/data/speciesRangeMaps/darevskia-portschinskii";
+import { rangeMap as darevskiaValentini } from "@/data/speciesRangeMaps/darevskia-valentini";
 import { rangeMap as dendrocoposMajor } from "@/data/speciesRangeMaps/dendrocopos-major";
 import { rangeMap as dolichophisSchmidti } from "@/data/speciesRangeMaps/dolichophis-schmidti";
+import { rangeMap as eirenisCollaris } from "@/data/speciesRangeMaps/eirenis-collaris";
 import { rangeMap as eirenisModestus } from "@/data/speciesRangeMaps/eirenis-modestus";
 import { rangeMap as elapheUrartica } from "@/data/speciesRangeMaps/elaphe-urartica";
+import { rangeMap as eremiasVelox } from "@/data/speciesRangeMaps/eremias-velox";
 import { rangeMap as erithacusRubecula } from "@/data/speciesRangeMaps/erithacus-rubecula";
+import { rangeMap as eryxJaculus } from "@/data/speciesRangeMaps/eryx-jaculus";
 import { rangeMap as euscorpiusItalicus } from "@/data/speciesRangeMaps/euscorpius-italicus";
 import { rangeMap as euscorpiusMingrelicus } from "@/data/speciesRangeMaps/euscorpius-mingrelicus";
 import { rangeMap as falcoPeregrinus } from "@/data/speciesRangeMaps/falco-peregrinus";
@@ -41,8 +46,10 @@ import { rangeMap as garrulusGlandarius } from "@/data/speciesRangeMaps/garrulus
 import { rangeMap as gypaetusBarbatus } from "@/data/speciesRangeMaps/gypaetus-barbatus";
 import { rangeMap as gypsFulvus } from "@/data/speciesRangeMaps/gyps-fulvus";
 import { rangeMap as halyomorphaHalys } from "@/data/speciesRangeMaps/halyomorpha-halys";
+import { rangeMap as hylaOrientalis } from "@/data/speciesRangeMaps/hyla-orientalis";
 import { rangeMap as jynxTorquilla } from "@/data/speciesRangeMaps/jynx-torquilla";
 import { rangeMap as lacertaAgilis } from "@/data/speciesRangeMaps/lacerta-agilis";
+import { rangeMap as lacertaMedia } from "@/data/speciesRangeMaps/lacerta-media";
 import { rangeMap as lacertaStrigata } from "@/data/speciesRangeMaps/lacerta-strigata";
 import { rangeMap as laniusCollurio } from "@/data/speciesRangeMaps/lanius-collurio";
 import { rangeMap as latrodectusTredecimguttatus } from "@/data/speciesRangeMaps/latrodectus-tredecimguttatus";
@@ -112,11 +119,16 @@ export const INTERACTIVE_RANGE_MAPS: Partial<
   "darevskia-dahli": darevskiaDahli,
   "darevskia-derjugini": darevskiaDerjugini,
   "darevskia-obscura": darevskiaObscura,
+  "darevskia-portschinskii": darevskiaPortschinskii,
+  "darevskia-valentini": darevskiaValentini,
   "dendrocopos-major": dendrocoposMajor,
   "dolichophis-schmidti": dolichophisSchmidti,
+  "eirenis-collaris": eirenisCollaris,
   "eirenis-modestus": eirenisModestus,
   "elaphe-urartica": elapheUrartica,
+  "eremias-velox": eremiasVelox,
   "erithacus-rubecula": erithacusRubecula,
+  "eryx-jaculus": eryxJaculus,
   "euscorpius-italicus": euscorpiusItalicus,
   "euscorpius-mingrelicus": euscorpiusMingrelicus,
   "falco-peregrinus": falcoPeregrinus,
@@ -125,8 +137,10 @@ export const INTERACTIVE_RANGE_MAPS: Partial<
   "gypaetus-barbatus": gypaetusBarbatus,
   "gyps-fulvus": gypsFulvus,
   "halyomorpha-halys": halyomorphaHalys,
+  "hyla-orientalis": hylaOrientalis,
   "jynx-torquilla": jynxTorquilla,
   "lacerta-agilis": lacertaAgilis,
+  "lacerta-media": lacertaMedia,
   "lacerta-strigata": lacertaStrigata,
   "lanius-collurio": laniusCollurio,
   "latrodectus-tredecimguttatus": latrodectusTredecimguttatus,

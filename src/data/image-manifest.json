@@ -29506,6 +29506,861 @@
       ],
       "updatedAt": "2026-08-28T21:36:30.226Z"
     },
+    "darevskia-valentini-achot-1.jpg": {
+      "sourceHash": "49b80f7665b72753aebeca5357da425e730f6b0fa75498f4a50cf3e66f557763",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-valentini-achot-1.jpg",
+      "originalSize": 468947,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-valentini-achot-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11443
+        },
+        {
+          "key": "optimized/darevskia-valentini-achot-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 18046
+        },
+        {
+          "key": "optimized/darevskia-valentini-achot-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 15754
+        },
+        {
+          "key": "optimized/darevskia-valentini-achot-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 25044
+        },
+        {
+          "key": "optimized/darevskia-valentini-achot-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 31408
+        },
+        {
+          "key": "optimized/darevskia-valentini-achot-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 50360
+        },
+        {
+          "key": "optimized/darevskia-valentini-achot-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 44135
+        },
+        {
+          "key": "optimized/darevskia-valentini-achot-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 69674
+        },
+        {
+          "key": "optimized/darevskia-valentini-achot-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 76007
+        },
+        {
+          "key": "optimized/darevskia-valentini-achot-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 119242
+        },
+        {
+          "key": "optimized/darevskia-valentini-achot-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 151124
+        },
+        {
+          "key": "optimized/darevskia-valentini-achot-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 235912
+        }
+      ],
+      "updatedAt": "2026-10-18T15:21:03.702Z"
+    },
+    "darevskia-valentini-bertogcliment-1.jpg": {
+      "sourceHash": "1f58b348ab7ebc31f6d2e48836fb50e08b9d40374cddfa5e7a10e8dc959aba7b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-valentini-bertogcliment-1.jpg",
+      "originalSize": 909370,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-valentini-bertogcliment-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 26939
+        },
+        {
+          "key": "optimized/darevskia-valentini-bertogcliment-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 41538
+        },
+        {
+          "key": "optimized/darevskia-valentini-bertogcliment-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 40282
+        },
+        {
+          "key": "optimized/darevskia-valentini-bertogcliment-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 62362
+        },
+        {
+          "key": "optimized/darevskia-valentini-bertogcliment-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 93888
+        },
+        {
+          "key": "optimized/darevskia-valentini-bertogcliment-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 144460
+        },
+        {
+          "key": "optimized/darevskia-valentini-bertogcliment-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 137140
+        },
+        {
+          "key": "optimized/darevskia-valentini-bertogcliment-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 211614
+        },
+        {
+          "key": "optimized/darevskia-valentini-bertogcliment-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 258787
+        },
+        {
+          "key": "optimized/darevskia-valentini-bertogcliment-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 409330
+        },
+        {
+          "key": "optimized/darevskia-valentini-bertogcliment-1-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 396939
+        },
+        {
+          "key": "optimized/darevskia-valentini-bertogcliment-1-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 618476
+        }
+      ],
+      "updatedAt": "2026-10-18T15:17:25.756Z"
+    },
+    "darevskia-valentini-david-1.jpg": {
+      "sourceHash": "9d9dab222e81d8ea855f8393a8d7518ef44d8ec9551f13f244f63aa70bb90a76",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-valentini-david-1.jpg",
+      "originalSize": 269260,
+      "width": 2048,
+      "height": 1356,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-valentini-david-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 212,
+          "byteSize": 4805
+        },
+        {
+          "key": "optimized/darevskia-valentini-david-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 212,
+          "byteSize": 6810
+        },
+        {
+          "key": "optimized/darevskia-valentini-david-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 265,
+          "byteSize": 6399
+        },
+        {
+          "key": "optimized/darevskia-valentini-david-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 265,
+          "byteSize": 9676
+        },
+        {
+          "key": "optimized/darevskia-valentini-david-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 424,
+          "byteSize": 13567
+        },
+        {
+          "key": "optimized/darevskia-valentini-david-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 424,
+          "byteSize": 21086
+        },
+        {
+          "key": "optimized/darevskia-valentini-david-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 530,
+          "byteSize": 19717
+        },
+        {
+          "key": "optimized/darevskia-valentini-david-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 530,
+          "byteSize": 30046
+        },
+        {
+          "key": "optimized/darevskia-valentini-david-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 795,
+          "byteSize": 35518
+        },
+        {
+          "key": "optimized/darevskia-valentini-david-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 795,
+          "byteSize": 55088
+        },
+        {
+          "key": "optimized/darevskia-valentini-david-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1356,
+          "byteSize": 73373
+        },
+        {
+          "key": "optimized/darevskia-valentini-david-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1356,
+          "byteSize": 111730
+        }
+      ],
+      "updatedAt": "2026-10-18T15:18:15.463Z"
+    },
+    "darevskia-valentini-julian-descoubes-1.jpg": {
+      "sourceHash": "f45b434811afee623d06bc7d95e84d7bfd4d70d350a6e15ddc0ed02e1912096a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-valentini-julian-descoubes-1.jpg",
+      "originalSize": 245488,
+      "width": 2048,
+      "height": 1087,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-valentini-julian-descoubes-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 169,
+          "byteSize": 5664
+        },
+        {
+          "key": "optimized/darevskia-valentini-julian-descoubes-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 169,
+          "byteSize": 7530
+        },
+        {
+          "key": "optimized/darevskia-valentini-julian-descoubes-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 212,
+          "byteSize": 7685
+        },
+        {
+          "key": "optimized/darevskia-valentini-julian-descoubes-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 212,
+          "byteSize": 10556
+        },
+        {
+          "key": "optimized/darevskia-valentini-julian-descoubes-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 339,
+          "byteSize": 15593
+        },
+        {
+          "key": "optimized/darevskia-valentini-julian-descoubes-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 339,
+          "byteSize": 22112
+        },
+        {
+          "key": "optimized/darevskia-valentini-julian-descoubes-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 425,
+          "byteSize": 22019
+        },
+        {
+          "key": "optimized/darevskia-valentini-julian-descoubes-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 425,
+          "byteSize": 31150
+        },
+        {
+          "key": "optimized/darevskia-valentini-julian-descoubes-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 637,
+          "byteSize": 39570
+        },
+        {
+          "key": "optimized/darevskia-valentini-julian-descoubes-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 637,
+          "byteSize": 56840
+        },
+        {
+          "key": "optimized/darevskia-valentini-julian-descoubes-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1087,
+          "byteSize": 81219
+        },
+        {
+          "key": "optimized/darevskia-valentini-julian-descoubes-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1087,
+          "byteSize": 117748
+        }
+      ],
+      "updatedAt": "2026-10-18T15:21:39.950Z"
+    },
+    "darevskia-valentini-timoteo-b-1.jpg": {
+      "sourceHash": "7f94e3dc04858a84b1f6862fd71876987f5b20f3309114231e659b5e5cfebfc7",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-valentini-timoteo-b-1.jpg",
+      "originalSize": 1095723,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 17545
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 27622
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 26674
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 40928
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 64126
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 100370
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 101271
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 157326
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 211428
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 327194
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 496733
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 785464
+        }
+      ],
+      "updatedAt": "2026-10-18T15:19:02.026Z"
+    },
+    "darevskia-valentini-timoteo-b-2.jpg": {
+      "sourceHash": "3705b19529b97d3bbc221ce0199a62bdea280f2dbc17523435905fe81a16792e",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-valentini-timoteo-b-2.jpg",
+      "originalSize": 867638,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 16224
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 25138
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 24250
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 37796
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 56316
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 88522
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 84305
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 132582
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 161226
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 250388
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 357239
+        },
+        {
+          "key": "optimized/darevskia-valentini-timoteo-b-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 528356
+        }
+      ],
+      "updatedAt": "2026-10-18T15:20:26.487Z"
+    },
+    "darevskia-valentini-tom-1.jpg": {
+      "sourceHash": "db7a15ced48216febc0a7bff4243cf8113078309974068e4b94b87ebb03b4b96",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-valentini-tom-1.jpg",
+      "originalSize": 875809,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-valentini-tom-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 16397
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 26702
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 24603
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 39776
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 56377
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 93296
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 81729
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 136164
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 154658
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 257762
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 331588
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 523564
+        }
+      ],
+      "updatedAt": "2026-10-18T15:22:28.922Z"
+    },
+    "darevskia-valentini-tom-2.jpg": {
+      "sourceHash": "080e4cdaf5eb0fac23e96e2d37bfa5107b63afefdad25e717a06bba5989574b1",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-valentini-tom-2.jpg",
+      "originalSize": 827009,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-valentini-tom-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 13817
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 20328
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 21886
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 31898
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 53431
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 79308
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 80650
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 119614
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 154038
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 221772
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 336362
+        },
+        {
+          "key": "optimized/darevskia-valentini-tom-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 450522
+        }
+      ],
+      "updatedAt": "2026-10-18T15:23:11.395Z"
+    },
+    "darevskia-valentini-tomáš-1.jpg": {
+      "sourceHash": "f3693e1caea2a4aef305a7be74ff9a1b4c41818c8ef5163a5dac37e419f862bf",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-valentini-tomáš-1.jpg",
+      "originalSize": 555342,
+      "width": 2048,
+      "height": 1373,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-valentini-tomáš-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 214,
+          "byteSize": 10798
+        },
+        {
+          "key": "optimized/darevskia-valentini-tomáš-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 214,
+          "byteSize": 18166
+        },
+        {
+          "key": "optimized/darevskia-valentini-tomáš-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 268,
+          "byteSize": 15250
+        },
+        {
+          "key": "optimized/darevskia-valentini-tomáš-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 268,
+          "byteSize": 25396
+        },
+        {
+          "key": "optimized/darevskia-valentini-tomáš-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 429,
+          "byteSize": 30256
+        },
+        {
+          "key": "optimized/darevskia-valentini-tomáš-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 429,
+          "byteSize": 54070
+        },
+        {
+          "key": "optimized/darevskia-valentini-tomáš-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 536,
+          "byteSize": 42480
+        },
+        {
+          "key": "optimized/darevskia-valentini-tomáš-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 536,
+          "byteSize": 74824
+        },
+        {
+          "key": "optimized/darevskia-valentini-tomáš-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 804,
+          "byteSize": 78022
+        },
+        {
+          "key": "optimized/darevskia-valentini-tomáš-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 804,
+          "byteSize": 135568
+        },
+        {
+          "key": "optimized/darevskia-valentini-tomáš-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1373,
+          "byteSize": 174229
+        },
+        {
+          "key": "optimized/darevskia-valentini-tomáš-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1373,
+          "byteSize": 294176
+        }
+      ],
+      "updatedAt": "2026-10-18T15:19:47.131Z"
+    },
     "darevskia-valentini.jpg": {
       "sourceHash": "e0e72c56750763ade430d9b777618c3fa3f4f191646876080fb6529320ce7e51",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -31794,6 +32649,291 @@
         }
       ],
       "updatedAt": "2026-08-28T21:37:15.674Z"
+    },
+    "eirenis-collaris-axel-1.jpg": {
+      "sourceHash": "c88a5593418f168be80c25beb05a9d2ad75217a065a8fc4c7d2085a5e006a608",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eirenis-collaris-axel-1.jpg",
+      "originalSize": 1060083,
+      "width": 2048,
+      "height": 1595,
+      "derivatives": [
+        {
+          "key": "optimized/eirenis-collaris-axel-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 249,
+          "byteSize": 24403
+        },
+        {
+          "key": "optimized/eirenis-collaris-axel-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 249,
+          "byteSize": 37614
+        },
+        {
+          "key": "optimized/eirenis-collaris-axel-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 311,
+          "byteSize": 35356
+        },
+        {
+          "key": "optimized/eirenis-collaris-axel-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 311,
+          "byteSize": 56292
+        },
+        {
+          "key": "optimized/eirenis-collaris-axel-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 498,
+          "byteSize": 82579
+        },
+        {
+          "key": "optimized/eirenis-collaris-axel-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 498,
+          "byteSize": 131978
+        },
+        {
+          "key": "optimized/eirenis-collaris-axel-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 623,
+          "byteSize": 121767
+        },
+        {
+          "key": "optimized/eirenis-collaris-axel-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 623,
+          "byteSize": 198770
+        },
+        {
+          "key": "optimized/eirenis-collaris-axel-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 935,
+          "byteSize": 217505
+        },
+        {
+          "key": "optimized/eirenis-collaris-axel-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 935,
+          "byteSize": 360918
+        },
+        {
+          "key": "optimized/eirenis-collaris-axel-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1595,
+          "byteSize": 419626
+        },
+        {
+          "key": "optimized/eirenis-collaris-axel-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1595,
+          "byteSize": 700348
+        }
+      ],
+      "updatedAt": "2026-10-19T08:30:37.814Z"
+    },
+    "eirenis-collaris-frank-1.jpg": {
+      "sourceHash": "14b552fc771cd02b82531f16536c3c298bcdc825f0f1fc3f809dde5654f604e1",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eirenis-collaris-frank-1.jpg",
+      "originalSize": 532717,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/eirenis-collaris-frank-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10374
+        },
+        {
+          "key": "optimized/eirenis-collaris-frank-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14982
+        },
+        {
+          "key": "optimized/eirenis-collaris-frank-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 14592
+        },
+        {
+          "key": "optimized/eirenis-collaris-frank-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 21296
+        },
+        {
+          "key": "optimized/eirenis-collaris-frank-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 31441
+        },
+        {
+          "key": "optimized/eirenis-collaris-frank-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 46448
+        },
+        {
+          "key": "optimized/eirenis-collaris-frank-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 44478
+        },
+        {
+          "key": "optimized/eirenis-collaris-frank-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 66334
+        },
+        {
+          "key": "optimized/eirenis-collaris-frank-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 80492
+        },
+        {
+          "key": "optimized/eirenis-collaris-frank-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 119594
+        },
+        {
+          "key": "optimized/eirenis-collaris-frank-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 171411
+        },
+        {
+          "key": "optimized/eirenis-collaris-frank-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 257582
+        }
+      ],
+      "updatedAt": "2026-10-19T08:31:24.947Z"
+    },
+    "eirenis-collaris-giorgi-1.jpg": {
+      "sourceHash": "36fbf6ee39f493af7d86b8e4802c5affe2109d28143a4500aa59144e52e01512",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eirenis-collaris-giorgi-1.jpg",
+      "originalSize": 653587,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/eirenis-collaris-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12967
+        },
+        {
+          "key": "optimized/eirenis-collaris-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 21104
+        },
+        {
+          "key": "optimized/eirenis-collaris-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 18565
+        },
+        {
+          "key": "optimized/eirenis-collaris-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 29880
+        },
+        {
+          "key": "optimized/eirenis-collaris-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 41264
+        },
+        {
+          "key": "optimized/eirenis-collaris-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 65438
+        },
+        {
+          "key": "optimized/eirenis-collaris-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 59667
+        },
+        {
+          "key": "optimized/eirenis-collaris-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 93140
+        },
+        {
+          "key": "optimized/eirenis-collaris-giorgi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 112136
+        },
+        {
+          "key": "optimized/eirenis-collaris-giorgi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 167204
+        },
+        {
+          "key": "optimized/eirenis-collaris-giorgi-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 250370
+        },
+        {
+          "key": "optimized/eirenis-collaris-giorgi-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 360426
+        }
+      ],
+      "updatedAt": "2026-10-19T08:47:41.376Z"
     },
     "eirenis-collaris-ioane-1.jpg": {
       "sourceHash": "4ae8c16a4bc5e40407451ab42db6c68188f6d5ca744da6ff5215cb60cad0f896",
@@ -36340,6 +37480,196 @@
       ],
       "updatedAt": "2026-09-11T01:46:02.522Z"
     },
+    "eremias-velox-david-1.jpg": {
+      "sourceHash": "7d694ddd92c7b5a56282cfe36a8bb2b41a947f62a240272c484fff8d40f9e3a7",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eremias-velox-david-1.jpg",
+      "originalSize": 410122,
+      "width": 2048,
+      "height": 1356,
+      "derivatives": [
+        {
+          "key": "optimized/eremias-velox-david-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 212,
+          "byteSize": 8334
+        },
+        {
+          "key": "optimized/eremias-velox-david-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 212,
+          "byteSize": 13152
+        },
+        {
+          "key": "optimized/eremias-velox-david-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 265,
+          "byteSize": 11364
+        },
+        {
+          "key": "optimized/eremias-velox-david-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 265,
+          "byteSize": 17964
+        },
+        {
+          "key": "optimized/eremias-velox-david-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 424,
+          "byteSize": 21953
+        },
+        {
+          "key": "optimized/eremias-velox-david-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 424,
+          "byteSize": 34732
+        },
+        {
+          "key": "optimized/eremias-velox-david-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 530,
+          "byteSize": 29848
+        },
+        {
+          "key": "optimized/eremias-velox-david-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 530,
+          "byteSize": 47560
+        },
+        {
+          "key": "optimized/eremias-velox-david-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 795,
+          "byteSize": 50001
+        },
+        {
+          "key": "optimized/eremias-velox-david-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 795,
+          "byteSize": 78278
+        },
+        {
+          "key": "optimized/eremias-velox-david-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1356,
+          "byteSize": 101916
+        },
+        {
+          "key": "optimized/eremias-velox-david-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1356,
+          "byteSize": 156798
+        }
+      ],
+      "updatedAt": "2026-10-19T17:37:45.161Z"
+    },
+    "eremias-velox-giorgi-1.jpg": {
+      "sourceHash": "f1c7bdaedab33f11cb067fb58e1899d22fdd1584ab614afe1a95046da4753dd3",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eremias-velox-giorgi-1.jpg",
+      "originalSize": 577591,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/eremias-velox-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 13377
+        },
+        {
+          "key": "optimized/eremias-velox-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 20732
+        },
+        {
+          "key": "optimized/eremias-velox-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 18509
+        },
+        {
+          "key": "optimized/eremias-velox-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 28626
+        },
+        {
+          "key": "optimized/eremias-velox-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 37098
+        },
+        {
+          "key": "optimized/eremias-velox-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 56840
+        },
+        {
+          "key": "optimized/eremias-velox-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 50930
+        },
+        {
+          "key": "optimized/eremias-velox-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 76452
+        },
+        {
+          "key": "optimized/eremias-velox-giorgi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 87818
+        },
+        {
+          "key": "optimized/eremias-velox-giorgi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 131586
+        },
+        {
+          "key": "optimized/eremias-velox-giorgi-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 185670
+        },
+        {
+          "key": "optimized/eremias-velox-giorgi-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 263134
+        }
+      ],
+      "updatedAt": "2026-10-19T17:38:25.582Z"
+    },
     "eremias-velox-jean-louis-1.jpg": {
       "sourceHash": "fa92cfa063197a334a97ed1a107feb069edb8344470c34b5b31b0c528b5587aa",
       "configFingerprint": "409788ee46c653d8",
@@ -36501,6 +37831,101 @@
         }
       ],
       "updatedAt": "2026-09-11T01:42:45.261Z"
+    },
+    "eremias-velox-korbinian-2.jpg": {
+      "sourceHash": "70692d2e46656da9dda098ccfe7abadd40c214c1cb17150a0cdf338975c2396c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eremias-velox-korbinian-2.jpg",
+      "originalSize": 295103,
+      "width": 2048,
+      "height": 1542,
+      "derivatives": [
+        {
+          "key": "optimized/eremias-velox-korbinian-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 241,
+          "byteSize": 5674
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 241,
+          "byteSize": 7310
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 301,
+          "byteSize": 8441
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 301,
+          "byteSize": 10490
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 482,
+          "byteSize": 19740
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 482,
+          "byteSize": 25084
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 602,
+          "byteSize": 29124
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 602,
+          "byteSize": 37030
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 904,
+          "byteSize": 50694
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 904,
+          "byteSize": 65020
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1542,
+          "byteSize": 94085
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1542,
+          "byteSize": 123748
+        }
+      ],
+      "updatedAt": "2026-10-19T17:36:26.172Z"
     },
     "eremias-velox-mobile.jpg": {
       "sourceHash": "ce62ebd2f1262cdd1a9d78bf07fa57ebd17ffaa62f45d26dc1605120764fbd57",
@@ -38060,6 +39485,467 @@
       ],
       "updatedAt": "2026-08-28T21:40:43.912Z"
     },
+    "eryx-jaculus-alex-1-crop-382-0-533-1000.jpg": {
+      "sourceHash": "498fe41a47d35faa4cd32ce0d08d58c105bd6431a91e4aac928796f077b9f2bc",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eryx-jaculus-alex-1-crop-382-0-533-1000.jpg",
+      "originalSize": 212626,
+      "width": 1092,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/eryx-jaculus-alex-1-crop-382-0-533-1000-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 400,
+          "byteSize": 11812
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-crop-382-0-533-1000-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 400,
+          "byteSize": 18766
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-crop-382-0-533-1000-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 500,
+          "byteSize": 16346
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-crop-382-0-533-1000-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 500,
+          "byteSize": 26164
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-crop-382-0-533-1000-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 800,
+          "byteSize": 30486
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-crop-382-0-533-1000-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 800,
+          "byteSize": 48284
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-crop-382-0-533-1000-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1000,
+          "byteSize": 41269
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-crop-382-0-533-1000-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1000,
+          "byteSize": 63854
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-crop-382-0-533-1000-1092.avif",
+          "format": "avif",
+          "width": 1092,
+          "height": 1365,
+          "byteSize": 62643
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-crop-382-0-533-1000-1092.webp",
+          "format": "webp",
+          "width": 1092,
+          "height": 1365,
+          "byteSize": 95718
+        }
+      ],
+      "updatedAt": "2026-10-19T08:23:01.321Z"
+    },
+    "eryx-jaculus-alex-1.jpg": {
+      "sourceHash": "c55853d19e97115892849c246061309e9d3269f44cb86b1aca5567edb65ef167",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eryx-jaculus-alex-1.jpg",
+      "originalSize": 395219,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/eryx-jaculus-alex-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8152
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12324
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 10739
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 17196
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 21566
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 34940
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 29623
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 46970
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 51369
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 80592
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 105805
+        },
+        {
+          "key": "optimized/eryx-jaculus-alex-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 163230
+        }
+      ],
+      "updatedAt": "2026-10-19T08:18:59.431Z"
+    },
+    "eryx-jaculus-alexandre-1.jpg": {
+      "sourceHash": "c91a43e6c5c56f9e99474ac54d6296cacb0e7d4d708527b2839628f69531e24b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eryx-jaculus-alexandre-1.jpg",
+      "originalSize": 713651,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/eryx-jaculus-alexandre-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14504
+        },
+        {
+          "key": "optimized/eryx-jaculus-alexandre-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 22204
+        },
+        {
+          "key": "optimized/eryx-jaculus-alexandre-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 21008
+        },
+        {
+          "key": "optimized/eryx-jaculus-alexandre-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 32238
+        },
+        {
+          "key": "optimized/eryx-jaculus-alexandre-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 46541
+        },
+        {
+          "key": "optimized/eryx-jaculus-alexandre-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 75620
+        },
+        {
+          "key": "optimized/eryx-jaculus-alexandre-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 67266
+        },
+        {
+          "key": "optimized/eryx-jaculus-alexandre-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 108884
+        },
+        {
+          "key": "optimized/eryx-jaculus-alexandre-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 122969
+        },
+        {
+          "key": "optimized/eryx-jaculus-alexandre-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 201674
+        },
+        {
+          "key": "optimized/eryx-jaculus-alexandre-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 261897
+        },
+        {
+          "key": "optimized/eryx-jaculus-alexandre-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 427530
+        }
+      ],
+      "updatedAt": "2026-10-19T08:17:53.674Z"
+    },
+    "eryx-jaculus-alisa-1.jpg": {
+      "sourceHash": "8f1b0173f78137dcd6ce42864d06bf3165756372628c008aac2cf1eec2f210f0",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eryx-jaculus-alisa-1.jpg",
+      "originalSize": 956234,
+      "width": 1542,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/eryx-jaculus-alisa-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 425,
+          "byteSize": 30456
+        },
+        {
+          "key": "optimized/eryx-jaculus-alisa-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 425,
+          "byteSize": 49702
+        },
+        {
+          "key": "optimized/eryx-jaculus-alisa-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 531,
+          "byteSize": 44200
+        },
+        {
+          "key": "optimized/eryx-jaculus-alisa-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 531,
+          "byteSize": 72318
+        },
+        {
+          "key": "optimized/eryx-jaculus-alisa-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 850,
+          "byteSize": 96807
+        },
+        {
+          "key": "optimized/eryx-jaculus-alisa-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 850,
+          "byteSize": 156786
+        },
+        {
+          "key": "optimized/eryx-jaculus-alisa-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1063,
+          "byteSize": 138329
+        },
+        {
+          "key": "optimized/eryx-jaculus-alisa-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1063,
+          "byteSize": 222140
+        },
+        {
+          "key": "optimized/eryx-jaculus-alisa-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1594,
+          "byteSize": 261433
+        },
+        {
+          "key": "optimized/eryx-jaculus-alisa-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1594,
+          "byteSize": 421420
+        },
+        {
+          "key": "optimized/eryx-jaculus-alisa-1-1542.avif",
+          "format": "avif",
+          "width": 1542,
+          "height": 2048,
+          "byteSize": 412600
+        },
+        {
+          "key": "optimized/eryx-jaculus-alisa-1-1542.webp",
+          "format": "webp",
+          "width": 1542,
+          "height": 2048,
+          "byteSize": 630232
+        }
+      ],
+      "updatedAt": "2026-10-19T08:17:10.537Z"
+    },
+    "eryx-jaculus-brechtheusequin-1.jpg": {
+      "sourceHash": "9aec365938ed3623559e0ef13184a3365709b412e834fecf38e41bf8dcb97aea",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eryx-jaculus-brechtheusequin-1.jpg",
+      "originalSize": 313263,
+      "width": 1365,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/eryx-jaculus-brechtheusequin-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 480,
+          "byteSize": 13925
+        },
+        {
+          "key": "optimized/eryx-jaculus-brechtheusequin-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 480,
+          "byteSize": 20294
+        },
+        {
+          "key": "optimized/eryx-jaculus-brechtheusequin-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 601,
+          "byteSize": 18837
+        },
+        {
+          "key": "optimized/eryx-jaculus-brechtheusequin-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 601,
+          "byteSize": 28188
+        },
+        {
+          "key": "optimized/eryx-jaculus-brechtheusequin-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 960,
+          "byteSize": 35730
+        },
+        {
+          "key": "optimized/eryx-jaculus-brechtheusequin-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 960,
+          "byteSize": 53366
+        },
+        {
+          "key": "optimized/eryx-jaculus-brechtheusequin-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1200,
+          "byteSize": 47621
+        },
+        {
+          "key": "optimized/eryx-jaculus-brechtheusequin-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1200,
+          "byteSize": 71102
+        },
+        {
+          "key": "optimized/eryx-jaculus-brechtheusequin-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1800,
+          "byteSize": 80119
+        },
+        {
+          "key": "optimized/eryx-jaculus-brechtheusequin-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1800,
+          "byteSize": 117778
+        },
+        {
+          "key": "optimized/eryx-jaculus-brechtheusequin-1-1365.avif",
+          "format": "avif",
+          "width": 1365,
+          "height": 2048,
+          "byteSize": 95084
+        },
+        {
+          "key": "optimized/eryx-jaculus-brechtheusequin-1-1365.webp",
+          "format": "webp",
+          "width": 1365,
+          "height": 2048,
+          "byteSize": 140894
+        }
+      ],
+      "updatedAt": "2026-10-19T08:16:30.654Z"
+    },
     "eryx-jaculus-giorgi-1.jpg": {
       "sourceHash": "c89a62e3c78882f2891e7bb4b51ef7e4050ebd2d4f352beeab9b5170f1061e9a",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -38229,6 +40115,249 @@
         }
       ],
       "updatedAt": "2026-08-28T21:40:52.678Z"
+    },
+    "eryx-jaculus-jiří-1.jpg": {
+      "sourceHash": "9a2a6181e870f36e9cef315a14dbbf47109b51caec31b7d3d00b656e31f44ed5",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eryx-jaculus-jiří-1.jpg",
+      "originalSize": 107046,
+      "width": 640,
+      "height": 480,
+      "derivatives": [
+        {
+          "key": "optimized/eryx-jaculus-jiří-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 17782
+        },
+        {
+          "key": "optimized/eryx-jaculus-jiří-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 30230
+        },
+        {
+          "key": "optimized/eryx-jaculus-jiří-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 27849
+        },
+        {
+          "key": "optimized/eryx-jaculus-jiří-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 44106
+        },
+        {
+          "key": "optimized/eryx-jaculus-jiří-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 61786
+        },
+        {
+          "key": "optimized/eryx-jaculus-jiří-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 98824
+        }
+      ],
+      "updatedAt": "2026-10-19T08:15:10.440Z"
+    },
+    "eryx-jaculus-lennart-1.jpg": {
+      "sourceHash": "cd7a3c2d943c643638396684622197ecebe4a9ac55bca1a89b9162c423d0a816",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eryx-jaculus-lennart-1.jpg",
+      "originalSize": 684160,
+      "width": 2048,
+      "height": 1367,
+      "derivatives": [
+        {
+          "key": "optimized/eryx-jaculus-lennart-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14068
+        },
+        {
+          "key": "optimized/eryx-jaculus-lennart-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 24972
+        },
+        {
+          "key": "optimized/eryx-jaculus-lennart-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 20343
+        },
+        {
+          "key": "optimized/eryx-jaculus-lennart-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 35968
+        },
+        {
+          "key": "optimized/eryx-jaculus-lennart-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 43862
+        },
+        {
+          "key": "optimized/eryx-jaculus-lennart-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 77892
+        },
+        {
+          "key": "optimized/eryx-jaculus-lennart-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 62267
+        },
+        {
+          "key": "optimized/eryx-jaculus-lennart-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 111976
+        },
+        {
+          "key": "optimized/eryx-jaculus-lennart-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 115909
+        },
+        {
+          "key": "optimized/eryx-jaculus-lennart-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 201034
+        },
+        {
+          "key": "optimized/eryx-jaculus-lennart-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1367,
+          "byteSize": 253341
+        },
+        {
+          "key": "optimized/eryx-jaculus-lennart-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1367,
+          "byteSize": 417018
+        }
+      ],
+      "updatedAt": "2026-10-19T08:19:55.766Z"
+    },
+    "eryx-jaculus-niklas-1.jpg": {
+      "sourceHash": "252ed5ce6792e973eb55fe3cd0dade343267d0a954b53900b866f18cc06de84c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eryx-jaculus-niklas-1.jpg",
+      "originalSize": 795788,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/eryx-jaculus-niklas-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 15370
+        },
+        {
+          "key": "optimized/eryx-jaculus-niklas-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 24436
+        },
+        {
+          "key": "optimized/eryx-jaculus-niklas-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 21633
+        },
+        {
+          "key": "optimized/eryx-jaculus-niklas-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 36006
+        },
+        {
+          "key": "optimized/eryx-jaculus-niklas-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 46384
+        },
+        {
+          "key": "optimized/eryx-jaculus-niklas-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 79206
+        },
+        {
+          "key": "optimized/eryx-jaculus-niklas-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 66623
+        },
+        {
+          "key": "optimized/eryx-jaculus-niklas-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 112886
+        },
+        {
+          "key": "optimized/eryx-jaculus-niklas-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 122442
+        },
+        {
+          "key": "optimized/eryx-jaculus-niklas-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 207598
+        },
+        {
+          "key": "optimized/eryx-jaculus-niklas-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 287388
+        },
+        {
+          "key": "optimized/eryx-jaculus-niklas-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 470598
+        }
+      ],
+      "updatedAt": "2026-10-19T08:20:56.457Z"
     },
     "eryx-jaculus.jpg": {
       "sourceHash": "ebec808e93bc2996df1ac88564b287fdd65cf3e6b19e64198f792cab7c49afea",
@@ -46656,6 +48785,671 @@
       ],
       "updatedAt": "2026-08-28T21:42:24.698Z"
     },
+    "hyla-orientalis-alena-1.jpg": {
+      "sourceHash": "f7ffddb6c4a2227e2adc907e04fcd64c93fd83f24c30ec56533c989760b61f70",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "hyla-orientalis-alena-1.jpg",
+      "originalSize": 276500,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/hyla-orientalis-alena-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 7086
+        },
+        {
+          "key": "optimized/hyla-orientalis-alena-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 8844
+        },
+        {
+          "key": "optimized/hyla-orientalis-alena-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 9646
+        },
+        {
+          "key": "optimized/hyla-orientalis-alena-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 12134
+        },
+        {
+          "key": "optimized/hyla-orientalis-alena-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 18475
+        },
+        {
+          "key": "optimized/hyla-orientalis-alena-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 23634
+        },
+        {
+          "key": "optimized/hyla-orientalis-alena-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 25237
+        },
+        {
+          "key": "optimized/hyla-orientalis-alena-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 32508
+        },
+        {
+          "key": "optimized/hyla-orientalis-alena-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 44355
+        },
+        {
+          "key": "optimized/hyla-orientalis-alena-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 56840
+        },
+        {
+          "key": "optimized/hyla-orientalis-alena-1-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 62385
+        },
+        {
+          "key": "optimized/hyla-orientalis-alena-1-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 80514
+        }
+      ],
+      "updatedAt": "2026-10-19T17:56:49.958Z"
+    },
+    "hyla-orientalis-brechtheusequin-1.jpg": {
+      "sourceHash": "a6dc1424c5917c2f1eb16e020483633b54de4222d5d20b14ec27f7c6da9196c1",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "hyla-orientalis-brechtheusequin-1.jpg",
+      "originalSize": 302775,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/hyla-orientalis-brechtheusequin-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 7961
+        },
+        {
+          "key": "optimized/hyla-orientalis-brechtheusequin-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10572
+        },
+        {
+          "key": "optimized/hyla-orientalis-brechtheusequin-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 10375
+        },
+        {
+          "key": "optimized/hyla-orientalis-brechtheusequin-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 14044
+        },
+        {
+          "key": "optimized/hyla-orientalis-brechtheusequin-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 19547
+        },
+        {
+          "key": "optimized/hyla-orientalis-brechtheusequin-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 26796
+        },
+        {
+          "key": "optimized/hyla-orientalis-brechtheusequin-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 25852
+        },
+        {
+          "key": "optimized/hyla-orientalis-brechtheusequin-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 35818
+        },
+        {
+          "key": "optimized/hyla-orientalis-brechtheusequin-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 43957
+        },
+        {
+          "key": "optimized/hyla-orientalis-brechtheusequin-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 62196
+        },
+        {
+          "key": "optimized/hyla-orientalis-brechtheusequin-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 93163
+        },
+        {
+          "key": "optimized/hyla-orientalis-brechtheusequin-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 133582
+        }
+      ],
+      "updatedAt": "2026-10-19T18:04:55.421Z"
+    },
+    "hyla-orientalis-fabian-1.jpg": {
+      "sourceHash": "9ab0dfde7b428ab74752d45aa01ac279c16679d7064435ca6f61dd2fe921936b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "hyla-orientalis-fabian-1.jpg",
+      "originalSize": 289129,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/hyla-orientalis-fabian-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 4925
+        },
+        {
+          "key": "optimized/hyla-orientalis-fabian-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6024
+        },
+        {
+          "key": "optimized/hyla-orientalis-fabian-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 6622
+        },
+        {
+          "key": "optimized/hyla-orientalis-fabian-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 8154
+        },
+        {
+          "key": "optimized/hyla-orientalis-fabian-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 14276
+        },
+        {
+          "key": "optimized/hyla-orientalis-fabian-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 17658
+        },
+        {
+          "key": "optimized/hyla-orientalis-fabian-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 20872
+        },
+        {
+          "key": "optimized/hyla-orientalis-fabian-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 25938
+        },
+        {
+          "key": "optimized/hyla-orientalis-fabian-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 41114
+        },
+        {
+          "key": "optimized/hyla-orientalis-fabian-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 50584
+        },
+        {
+          "key": "optimized/hyla-orientalis-fabian-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 102422
+        },
+        {
+          "key": "optimized/hyla-orientalis-fabian-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 122358
+        }
+      ],
+      "updatedAt": "2026-10-19T18:00:18.443Z"
+    },
+    "hyla-orientalis-frederic-1.jpg": {
+      "sourceHash": "d71e270124cc055e7decf359973a0f0a1b008329f9aaafc258a75e92afbf8959",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "hyla-orientalis-frederic-1.jpg",
+      "originalSize": 237222,
+      "width": 1280,
+      "height": 853,
+      "derivatives": [
+        {
+          "key": "optimized/hyla-orientalis-frederic-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8573
+        },
+        {
+          "key": "optimized/hyla-orientalis-frederic-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11914
+        },
+        {
+          "key": "optimized/hyla-orientalis-frederic-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 12688
+        },
+        {
+          "key": "optimized/hyla-orientalis-frederic-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 17246
+        },
+        {
+          "key": "optimized/hyla-orientalis-frederic-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 29153
+        },
+        {
+          "key": "optimized/hyla-orientalis-frederic-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 39786
+        },
+        {
+          "key": "optimized/hyla-orientalis-frederic-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 42987
+        },
+        {
+          "key": "optimized/hyla-orientalis-frederic-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 56920
+        },
+        {
+          "key": "optimized/hyla-orientalis-frederic-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 85623
+        },
+        {
+          "key": "optimized/hyla-orientalis-frederic-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 109014
+        },
+        {
+          "key": "optimized/hyla-orientalis-frederic-1-1280.avif",
+          "format": "avif",
+          "width": 1280,
+          "height": 853,
+          "byteSize": 101563
+        },
+        {
+          "key": "optimized/hyla-orientalis-frederic-1-1280.webp",
+          "format": "webp",
+          "width": 1280,
+          "height": 853,
+          "byteSize": 127526
+        }
+      ],
+      "updatedAt": "2026-10-19T17:58:35.145Z"
+    },
+    "hyla-orientalis-giorgi-1.jpg": {
+      "sourceHash": "b63911f3c4d1914e6015c7533dab31c53dbefca7834c05991f3dcaeab41dec3b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "hyla-orientalis-giorgi-1.jpg",
+      "originalSize": 613761,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/hyla-orientalis-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12413
+        },
+        {
+          "key": "optimized/hyla-orientalis-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 19836
+        },
+        {
+          "key": "optimized/hyla-orientalis-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 17531
+        },
+        {
+          "key": "optimized/hyla-orientalis-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 27380
+        },
+        {
+          "key": "optimized/hyla-orientalis-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 37594
+        },
+        {
+          "key": "optimized/hyla-orientalis-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 58962
+        },
+        {
+          "key": "optimized/hyla-orientalis-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 54272
+        },
+        {
+          "key": "optimized/hyla-orientalis-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 84746
+        },
+        {
+          "key": "optimized/hyla-orientalis-giorgi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 100652
+        },
+        {
+          "key": "optimized/hyla-orientalis-giorgi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 154936
+        },
+        {
+          "key": "optimized/hyla-orientalis-giorgi-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 221226
+        },
+        {
+          "key": "optimized/hyla-orientalis-giorgi-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 338984
+        }
+      ],
+      "updatedAt": "2026-10-19T18:02:05.375Z"
+    },
+    "hyla-orientalis-lennart-1.jpg": {
+      "sourceHash": "02936c69186adfa64dd54f6696baebe4e5a4484e0471d0226530c1a3dd42b2fa",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "hyla-orientalis-lennart-1.jpg",
+      "originalSize": 214221,
+      "width": 2048,
+      "height": 1367,
+      "derivatives": [
+        {
+          "key": "optimized/hyla-orientalis-lennart-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 4710
+        },
+        {
+          "key": "optimized/hyla-orientalis-lennart-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6644
+        },
+        {
+          "key": "optimized/hyla-orientalis-lennart-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 6323
+        },
+        {
+          "key": "optimized/hyla-orientalis-lennart-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 8856
+        },
+        {
+          "key": "optimized/hyla-orientalis-lennart-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 12439
+        },
+        {
+          "key": "optimized/hyla-orientalis-lennart-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 17684
+        },
+        {
+          "key": "optimized/hyla-orientalis-lennart-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 16831
+        },
+        {
+          "key": "optimized/hyla-orientalis-lennart-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 24918
+        },
+        {
+          "key": "optimized/hyla-orientalis-lennart-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 30617
+        },
+        {
+          "key": "optimized/hyla-orientalis-lennart-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 45676
+        },
+        {
+          "key": "optimized/hyla-orientalis-lennart-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1367,
+          "byteSize": 71094
+        },
+        {
+          "key": "optimized/hyla-orientalis-lennart-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1367,
+          "byteSize": 102608
+        }
+      ],
+      "updatedAt": "2026-10-19T17:54:36.101Z"
+    },
+    "hyla-orientalis-matthias-1.jpg": {
+      "sourceHash": "82e4c49dd03ee868254c591a7a41d1fbb087402844cdecd201d81c3006756b38",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "hyla-orientalis-matthias-1.jpg",
+      "originalSize": 317037,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/hyla-orientalis-matthias-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6309
+        },
+        {
+          "key": "optimized/hyla-orientalis-matthias-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8988
+        },
+        {
+          "key": "optimized/hyla-orientalis-matthias-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 8922
+        },
+        {
+          "key": "optimized/hyla-orientalis-matthias-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 12588
+        },
+        {
+          "key": "optimized/hyla-orientalis-matthias-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 19148
+        },
+        {
+          "key": "optimized/hyla-orientalis-matthias-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 28110
+        },
+        {
+          "key": "optimized/hyla-orientalis-matthias-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 27255
+        },
+        {
+          "key": "optimized/hyla-orientalis-matthias-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 41046
+        },
+        {
+          "key": "optimized/hyla-orientalis-matthias-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 51274
+        },
+        {
+          "key": "optimized/hyla-orientalis-matthias-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 78942
+        },
+        {
+          "key": "optimized/hyla-orientalis-matthias-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 118910
+        },
+        {
+          "key": "optimized/hyla-orientalis-matthias-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 185138
+        }
+      ],
+      "updatedAt": "2026-10-19T17:55:53.122Z"
+    },
     "hyla-orientalis-mobile.jpg": {
       "sourceHash": "c731e1950f4ab68f91e71d2bb1e5163e11db76dc41ae0c981d70f4bb0cbda73d",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -46722,6 +49516,467 @@
         }
       ],
       "updatedAt": "2026-08-28T21:42:30.524Z"
+    },
+    "hyla-orientalis-monteanimals-1.jpg": {
+      "sourceHash": "78e85f4af6b0314304c44754f49ab0fec73b91c8f2ac2e883a7591f77bca736b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "hyla-orientalis-monteanimals-1.jpg",
+      "originalSize": 428340,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/hyla-orientalis-monteanimals-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 8416
+        },
+        {
+          "key": "optimized/hyla-orientalis-monteanimals-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 10834
+        },
+        {
+          "key": "optimized/hyla-orientalis-monteanimals-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 11228
+        },
+        {
+          "key": "optimized/hyla-orientalis-monteanimals-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 14912
+        },
+        {
+          "key": "optimized/hyla-orientalis-monteanimals-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 23276
+        },
+        {
+          "key": "optimized/hyla-orientalis-monteanimals-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 30632
+        },
+        {
+          "key": "optimized/hyla-orientalis-monteanimals-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 32751
+        },
+        {
+          "key": "optimized/hyla-orientalis-monteanimals-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 44410
+        },
+        {
+          "key": "optimized/hyla-orientalis-monteanimals-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 59165
+        },
+        {
+          "key": "optimized/hyla-orientalis-monteanimals-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 81530
+        },
+        {
+          "key": "optimized/hyla-orientalis-monteanimals-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 131827
+        },
+        {
+          "key": "optimized/hyla-orientalis-monteanimals-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 177796
+        }
+      ],
+      "updatedAt": "2026-10-19T18:05:49.205Z"
+    },
+    "hyla-orientalis-nikita-1.jpg": {
+      "sourceHash": "6ac2a3b299097fdea3ee9c03ce58ed49df92ea5f9ff4dfe70e9d4d5626e2691f",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "hyla-orientalis-nikita-1.jpg",
+      "originalSize": 757644,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/hyla-orientalis-nikita-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 12615
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 19184
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 18591
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 28120
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 43144
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 67020
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 66070
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 102622
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 132128
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 212556
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 310107
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 460186
+        }
+      ],
+      "updatedAt": "2026-10-19T17:59:37.899Z"
+    },
+    "hyla-orientalis-nikita-2.jpg": {
+      "sourceHash": "0f06b0790aaadd1557b964f398780deed0b0b7678c2b8a12af2e9ff36098b356",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "hyla-orientalis-nikita-2.jpg",
+      "originalSize": 629424,
+      "width": 2048,
+      "height": 1366,
+      "derivatives": [
+        {
+          "key": "optimized/hyla-orientalis-nikita-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 5359
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6610
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 7310
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 8956
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 14626
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 18982
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 20912
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 26956
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 42562
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 64730
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1366,
+          "byteSize": 278804
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1366,
+          "byteSize": 348856
+        }
+      ],
+      "updatedAt": "2026-10-19T18:02:58.894Z"
+    },
+    "hyla-orientalis-phantom85-1.jpg": {
+      "sourceHash": "8d50ee5db7e13b1da1bbff31008b1516b11a5c521088db67c38f9e829f3f4c7c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "hyla-orientalis-phantom85-1.jpg",
+      "originalSize": 435189,
+      "width": 1153,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/hyla-orientalis-phantom85-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 569,
+          "byteSize": 18037
+        },
+        {
+          "key": "optimized/hyla-orientalis-phantom85-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 569,
+          "byteSize": 24618
+        },
+        {
+          "key": "optimized/hyla-orientalis-phantom85-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 710,
+          "byteSize": 25512
+        },
+        {
+          "key": "optimized/hyla-orientalis-phantom85-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 710,
+          "byteSize": 35396
+        },
+        {
+          "key": "optimized/hyla-orientalis-phantom85-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 1137,
+          "byteSize": 55026
+        },
+        {
+          "key": "optimized/hyla-orientalis-phantom85-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 1137,
+          "byteSize": 76054
+        },
+        {
+          "key": "optimized/hyla-orientalis-phantom85-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1421,
+          "byteSize": 78153
+        },
+        {
+          "key": "optimized/hyla-orientalis-phantom85-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1421,
+          "byteSize": 110012
+        },
+        {
+          "key": "optimized/hyla-orientalis-phantom85-1-1153.avif",
+          "format": "avif",
+          "width": 1153,
+          "height": 2048,
+          "byteSize": 154108
+        },
+        {
+          "key": "optimized/hyla-orientalis-phantom85-1-1153.webp",
+          "format": "webp",
+          "width": 1153,
+          "height": 2048,
+          "byteSize": 203638
+        }
+      ],
+      "updatedAt": "2026-10-19T18:01:13.145Z"
+    },
+    "hyla-orientalis-sandro-1.jpg": {
+      "sourceHash": "3c502708acea93c3dcda6b094222c7652912d54507decde2035106a81c01a7fa",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "hyla-orientalis-sandro-1.jpg",
+      "originalSize": 164923,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/hyla-orientalis-sandro-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 13055
+        },
+        {
+          "key": "optimized/hyla-orientalis-sandro-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 16798
+        },
+        {
+          "key": "optimized/hyla-orientalis-sandro-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 17762
+        },
+        {
+          "key": "optimized/hyla-orientalis-sandro-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 22782
+        },
+        {
+          "key": "optimized/hyla-orientalis-sandro-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 34808
+        },
+        {
+          "key": "optimized/hyla-orientalis-sandro-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 44286
+        },
+        {
+          "key": "optimized/hyla-orientalis-sandro-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 46845
+        },
+        {
+          "key": "optimized/hyla-orientalis-sandro-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 59996
+        },
+        {
+          "key": "optimized/hyla-orientalis-sandro-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 80423
+        },
+        {
+          "key": "optimized/hyla-orientalis-sandro-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 103352
+        },
+        {
+          "key": "optimized/hyla-orientalis-sandro-1-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 102194
+        },
+        {
+          "key": "optimized/hyla-orientalis-sandro-1-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 134174
+        }
+      ],
+      "updatedAt": "2026-10-19T18:03:54.225Z"
     },
     "hyla-orientalis.jpg": {
       "sourceHash": "36916702e8381f9b1294da7a2585c43dc121895b64ec20ca1fb17854fc71378a",
@@ -52252,7 +55507,7 @@
           "byteSize": 437436
         }
       ],
-      "updatedAt": "2026-10-18T09:07:44.314Z"
+      "updatedAt": "2026-10-19T10:58:31.620Z"
     },
     "images/news/armenia-power-line-bird-electrocution/figure-2.jpg": {
       "sourceHash": "7f49895c2860d812ad9ab10dda52fe76b3a72e5ade5d609f2fcab767b0fcfb18",
@@ -52347,7 +55602,7 @@
           "byteSize": 145070
         }
       ],
-      "updatedAt": "2026-10-18T09:07:50.693Z"
+      "updatedAt": "2026-10-19T10:58:33.177Z"
     },
     "images/news/armenia-power-line-bird-electrocution/figure-3.jpg": {
       "sourceHash": "7dcd1b8b54e4db8a29a0a62ae480038f7e85eef17604eac518d94c059781b77f",
@@ -52442,7 +55697,7 @@
           "byteSize": 56370
         }
       ],
-      "updatedAt": "2026-10-18T09:07:55.191Z"
+      "updatedAt": "2026-10-19T10:58:34.204Z"
     },
     "images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-forest.jpg": {
       "sourceHash": "cdaea14369ed4cf94723dd86486bdb37a2487b0579a5ca9c14b65cc290a1b2dc",
@@ -52537,7 +55792,7 @@
           "byteSize": 599210
         }
       ],
-      "updatedAt": "2026-10-18T09:08:02.783Z"
+      "updatedAt": "2026-10-19T10:58:39.743Z"
     },
     "images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-waterfall.jpg": {
       "sourceHash": "8f4600e743f05d4ebce326b5b397480fe6fab308b6b7bfe1692fde3319c2e2d9",
@@ -52632,7 +55887,7 @@
           "byteSize": 782472
         }
       ],
-      "updatedAt": "2026-10-18T09:08:04.780Z"
+      "updatedAt": "2026-10-19T10:58:42.238Z"
     },
     "images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/paliastomi-lake.jpg": {
       "sourceHash": "a5c05efad4829f6fd588d6ed679c3e3c3dc15c73ace88827d913688de8f8e95b",
@@ -52727,7 +55982,7 @@
           "byteSize": 230144
         }
       ],
-      "updatedAt": "2026-10-18T09:08:02.299Z"
+      "updatedAt": "2026-10-19T10:58:40.774Z"
     },
     "images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/pichori-colchic-forest.jpg": {
       "sourceHash": "9e494074518b28ebb458984150d1e7a033a22f646e8c73c8edd90b361c3a776d",
@@ -52822,7 +56077,7 @@
           "byteSize": 1247006
         }
       ],
-      "updatedAt": "2026-10-18T09:08:07.440Z"
+      "updatedAt": "2026-10-19T10:58:43.378Z"
     },
     "images/news/leatherback-turtle-first-turkish-black-sea-records-2026/leatherback-turtle.png": {
       "sourceHash": "c071366949041880e2e8835244ffcfcf76188ef4f6f95a5559fa6c41ebdebce8",
@@ -52889,7 +56144,7 @@
           "byteSize": 61524
         }
       ],
-      "updatedAt": "2026-10-18T09:08:05.603Z"
+      "updatedAt": "2026-10-19T10:58:44.044Z"
     },
     "images/news/melanistic-eirenis-modestus-anatolia/figure-1.jpg": {
       "sourceHash": "b1a632812a8a9ebe5eadebb8158f1e94cfb0c6157f9336acc853d5f289a89003",
@@ -52984,7 +56239,7 @@
           "byteSize": 325026
         }
       ],
-      "updatedAt": "2026-10-18T09:08:08.637Z"
+      "updatedAt": "2026-10-19T10:58:45.721Z"
     },
     "images/news/melanistic-eirenis-modestus-anatolia/figure-2.jpg": {
       "sourceHash": "c8dbd794f68799168621b23a98f12dde88bd53980ec19c6903a0d1c4b2294621",
@@ -53079,7 +56334,7 @@
           "byteSize": 169858
         }
       ],
-      "updatedAt": "2026-10-18T09:08:09.854Z"
+      "updatedAt": "2026-10-19T10:58:47.281Z"
     },
     "images/news/melanistic-eirenis-modestus-anatolia/figure-3.jpg": {
       "sourceHash": "13c914b98a5d4d8c796389b3c804cc6ff1504cc408877cc5c7f86ad77fcba27c",
@@ -53174,7 +56429,7 @@
           "byteSize": 240074
         }
       ],
-      "updatedAt": "2026-10-18T09:08:10.351Z"
+      "updatedAt": "2026-10-19T10:58:48.139Z"
     },
     "images/news/theridion-huseynovi-new-spider-species-georgia-2026/theridion-huseynovi.png": {
       "sourceHash": "d4a1a13fbf943fc87f371418a57eca878129fcd41f735deb5bfbca43c80fe9f3",
@@ -53364,7 +56619,7 @@
           "byteSize": 645112
         }
       ],
-      "updatedAt": "2026-10-18T09:08:16.991Z"
+      "updatedAt": "2026-10-19T10:58:53.901Z"
     },
     "images/news/vipera-pontica-hybrid-georgia-2026/figure-2.jpg": {
       "sourceHash": "62f4c91ddee942d3d6b21b4defbe51198332352423ae0ffe9e31e432b0e966de",
@@ -53459,7 +56714,7 @@
           "byteSize": 559088
         }
       ],
-      "updatedAt": "2026-10-18T09:08:17.876Z"
+      "updatedAt": "2026-10-19T10:58:52.968Z"
     },
     "images/news/vipera-pontica-hybrid-georgia-2026/figure-3.jpg": {
       "sourceHash": "dd0f4b367d44de85997a0c0d23ac01cea456f9e52aad52829973567762d8dd83",
@@ -53554,7 +56809,7 @@
           "byteSize": 372058
         }
       ],
-      "updatedAt": "2026-10-18T09:08:19.497Z"
+      "updatedAt": "2026-10-19T10:58:55.295Z"
     },
     "images/news/vipera-pontica-hybrid-georgia-2026/figure-4.jpg": {
       "sourceHash": "58a64af0c4433dfb4f78b5849ba8c3caeeeadb38d0dc589f0363f85bdddbb317",
@@ -53649,7 +56904,7 @@
           "byteSize": 982360
         }
       ],
-      "updatedAt": "2026-10-18T09:08:21.797Z"
+      "updatedAt": "2026-10-19T10:58:55.834Z"
     },
     "images/species/accipiter-gentilis-afr-1.jpg": {
       "sourceHash": "c2bc814a7c781dce6160c9dd4ab87a47a001f462a14a81bd2edec861bc5aac5a",
@@ -65002,6 +68257,101 @@
       ],
       "updatedAt": "2026-08-28T21:44:16.327Z"
     },
+    "lacerta-strigata-donsky-2.jpg": {
+      "sourceHash": "8a6b75aaca455dbf8cf528d3501cf2b14c05faef97d28297d23b653a556fab43",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lacerta-strigata-donsky-2.jpg",
+      "originalSize": 224262,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/lacerta-strigata-donsky-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 5196
+        },
+        {
+          "key": "optimized/lacerta-strigata-donsky-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 7156
+        },
+        {
+          "key": "optimized/lacerta-strigata-donsky-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 7069
+        },
+        {
+          "key": "optimized/lacerta-strigata-donsky-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 9688
+        },
+        {
+          "key": "optimized/lacerta-strigata-donsky-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 13512
+        },
+        {
+          "key": "optimized/lacerta-strigata-donsky-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 19676
+        },
+        {
+          "key": "optimized/lacerta-strigata-donsky-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 17728
+        },
+        {
+          "key": "optimized/lacerta-strigata-donsky-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 26984
+        },
+        {
+          "key": "optimized/lacerta-strigata-donsky-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 30381
+        },
+        {
+          "key": "optimized/lacerta-strigata-donsky-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 45950
+        },
+        {
+          "key": "optimized/lacerta-strigata-donsky-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 62877
+        },
+        {
+          "key": "optimized/lacerta-strigata-donsky-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 94642
+        }
+      ],
+      "updatedAt": "2026-10-19T07:10:12.052Z"
+    },
     "lacerta-strigata-fabian-1.jpg": {
       "sourceHash": "927fc5ba848c64a472906c26115bb3855d128f8aa51c7cd8cebc53356527e86b",
       "configFingerprint": "409788ee46c653d8",
@@ -65164,6 +68514,101 @@
       ],
       "updatedAt": "2026-09-11T12:34:10.659Z"
     },
+    "lacerta-strigata-giorgi-2.jpg": {
+      "sourceHash": "5737e3a7e471d8c63eb435057e8753fe202c8d34df4302cfdd1517d39181e948",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lacerta-strigata-giorgi-2.jpg",
+      "originalSize": 545953,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/lacerta-strigata-giorgi-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11793
+        },
+        {
+          "key": "optimized/lacerta-strigata-giorgi-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 18974
+        },
+        {
+          "key": "optimized/lacerta-strigata-giorgi-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 16403
+        },
+        {
+          "key": "optimized/lacerta-strigata-giorgi-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 26016
+        },
+        {
+          "key": "optimized/lacerta-strigata-giorgi-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 33359
+        },
+        {
+          "key": "optimized/lacerta-strigata-giorgi-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 54010
+        },
+        {
+          "key": "optimized/lacerta-strigata-giorgi-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 46524
+        },
+        {
+          "key": "optimized/lacerta-strigata-giorgi-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 73168
+        },
+        {
+          "key": "optimized/lacerta-strigata-giorgi-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 83957
+        },
+        {
+          "key": "optimized/lacerta-strigata-giorgi-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 131530
+        },
+        {
+          "key": "optimized/lacerta-strigata-giorgi-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 181510
+        },
+        {
+          "key": "optimized/lacerta-strigata-giorgi-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 273626
+        }
+      ],
+      "updatedAt": "2026-10-19T07:06:47.545Z"
+    },
     "lacerta-strigata-ka-1.jpg": {
       "sourceHash": "d215921d6da1691ed05cbe56cdf1b981cbeb0e7fcbbc89e486c7702eb34eb846",
       "configFingerprint": "409788ee46c653d8",
@@ -65244,6 +68689,101 @@
         }
       ],
       "updatedAt": "2026-09-11T12:31:49.284Z"
+    },
+    "lacerta-strigata-kseniia-1.jpg": {
+      "sourceHash": "958a4ec861459a3c0f798b0be8fd5288870c4e12caecabffd1536c98c1b200f6",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lacerta-strigata-kseniia-1.jpg",
+      "originalSize": 740874,
+      "width": 1839,
+      "height": 1379,
+      "derivatives": [
+        {
+          "key": "optimized/lacerta-strigata-kseniia-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 14276
+        },
+        {
+          "key": "optimized/lacerta-strigata-kseniia-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 19962
+        },
+        {
+          "key": "optimized/lacerta-strigata-kseniia-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 21435
+        },
+        {
+          "key": "optimized/lacerta-strigata-kseniia-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 29876
+        },
+        {
+          "key": "optimized/lacerta-strigata-kseniia-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 45275
+        },
+        {
+          "key": "optimized/lacerta-strigata-kseniia-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 64732
+        },
+        {
+          "key": "optimized/lacerta-strigata-kseniia-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 66199
+        },
+        {
+          "key": "optimized/lacerta-strigata-kseniia-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 95856
+        },
+        {
+          "key": "optimized/lacerta-strigata-kseniia-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 146564
+        },
+        {
+          "key": "optimized/lacerta-strigata-kseniia-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 199340
+        },
+        {
+          "key": "optimized/lacerta-strigata-kseniia-1-1839.avif",
+          "format": "avif",
+          "width": 1839,
+          "height": 1379,
+          "byteSize": 339169
+        },
+        {
+          "key": "optimized/lacerta-strigata-kseniia-1-1839.webp",
+          "format": "webp",
+          "width": 1839,
+          "height": 1379,
+          "byteSize": 426052
+        }
+      ],
+      "updatedAt": "2026-10-19T07:08:31.056Z"
     },
     "lacerta-strigata-leonid-1.jpg": {
       "sourceHash": "810c12234d536a86d833d0e274d1f3d9623eb51493d41ba7ff178a0b60a13c07",
@@ -65406,6 +68946,291 @@
         }
       ],
       "updatedAt": "2026-09-11T12:26:31.761Z"
+    },
+    "lacerta-strigata-mariusz-1.jpg": {
+      "sourceHash": "9bb7a6c598cdd7a2b9918c653fad20aebb69f7819020d49846885d800af8d3ea",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lacerta-strigata-mariusz-1.jpg",
+      "originalSize": 748851,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/lacerta-strigata-mariusz-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 16630
+        },
+        {
+          "key": "optimized/lacerta-strigata-mariusz-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 26688
+        },
+        {
+          "key": "optimized/lacerta-strigata-mariusz-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 23148
+        },
+        {
+          "key": "optimized/lacerta-strigata-mariusz-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 37052
+        },
+        {
+          "key": "optimized/lacerta-strigata-mariusz-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 47323
+        },
+        {
+          "key": "optimized/lacerta-strigata-mariusz-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 77228
+        },
+        {
+          "key": "optimized/lacerta-strigata-mariusz-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 66758
+        },
+        {
+          "key": "optimized/lacerta-strigata-mariusz-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 107722
+        },
+        {
+          "key": "optimized/lacerta-strigata-mariusz-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 121666
+        },
+        {
+          "key": "optimized/lacerta-strigata-mariusz-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 189256
+        },
+        {
+          "key": "optimized/lacerta-strigata-mariusz-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 264662
+        },
+        {
+          "key": "optimized/lacerta-strigata-mariusz-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 387674
+        }
+      ],
+      "updatedAt": "2026-10-19T07:07:57.456Z"
+    },
+    "lacerta-strigata-sandro-1.jpg": {
+      "sourceHash": "b20b59493f0b59b5a87e757fe0c3b3369922b614600ef748f723268b59e0ac24",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lacerta-strigata-sandro-1.jpg",
+      "originalSize": 249422,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/lacerta-strigata-sandro-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 7202
+        },
+        {
+          "key": "optimized/lacerta-strigata-sandro-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10202
+        },
+        {
+          "key": "optimized/lacerta-strigata-sandro-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 9322
+        },
+        {
+          "key": "optimized/lacerta-strigata-sandro-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 13430
+        },
+        {
+          "key": "optimized/lacerta-strigata-sandro-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 17475
+        },
+        {
+          "key": "optimized/lacerta-strigata-sandro-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 24492
+        },
+        {
+          "key": "optimized/lacerta-strigata-sandro-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 22662
+        },
+        {
+          "key": "optimized/lacerta-strigata-sandro-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 31830
+        },
+        {
+          "key": "optimized/lacerta-strigata-sandro-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 36862
+        },
+        {
+          "key": "optimized/lacerta-strigata-sandro-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 51296
+        },
+        {
+          "key": "optimized/lacerta-strigata-sandro-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 70434
+        },
+        {
+          "key": "optimized/lacerta-strigata-sandro-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 100676
+        }
+      ],
+      "updatedAt": "2026-10-19T07:10:56.094Z"
+    },
+    "lacerta-strigata-tatiana-1.jpg": {
+      "sourceHash": "bdc2eebf29fc8d80993ed01084db6227971b528d1d45c3870a05df5af0205b6a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lacerta-strigata-tatiana-1.jpg",
+      "originalSize": 467029,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/lacerta-strigata-tatiana-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10409
+        },
+        {
+          "key": "optimized/lacerta-strigata-tatiana-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 16480
+        },
+        {
+          "key": "optimized/lacerta-strigata-tatiana-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 14027
+        },
+        {
+          "key": "optimized/lacerta-strigata-tatiana-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 22056
+        },
+        {
+          "key": "optimized/lacerta-strigata-tatiana-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 28078
+        },
+        {
+          "key": "optimized/lacerta-strigata-tatiana-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 44378
+        },
+        {
+          "key": "optimized/lacerta-strigata-tatiana-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 38981
+        },
+        {
+          "key": "optimized/lacerta-strigata-tatiana-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 60108
+        },
+        {
+          "key": "optimized/lacerta-strigata-tatiana-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 68496
+        },
+        {
+          "key": "optimized/lacerta-strigata-tatiana-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 100882
+        },
+        {
+          "key": "optimized/lacerta-strigata-tatiana-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 142062
+        },
+        {
+          "key": "optimized/lacerta-strigata-tatiana-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 203732
+        }
+      ],
+      "updatedAt": "2026-10-19T07:07:25.087Z"
     },
     "lacerta-strigata.jpg": {
       "sourceHash": "89edf332d4e79346775a899be24adf09f0e8471f9a751bd8ff3e1c6df4d8cf25",
@@ -81125,6 +84950,671 @@
         }
       ],
       "updatedAt": "2026-10-14T14:04:12.639Z"
+    },
+    "news-georgia-cave-bats-ivanov-miniopterus-schreibersii.jpg": {
+      "sourceHash": "2636029b003a728561088e4e405fc606895b20021d2730dec2039e16116d5e07",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "news-georgia-cave-bats-ivanov-miniopterus-schreibersii.jpg",
+      "originalSize": 657580,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/news-georgia-cave-bats-ivanov-miniopterus-schreibersii-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14444
+        },
+        {
+          "key": "optimized/news-georgia-cave-bats-ivanov-miniopterus-schreibersii-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 20236
+        },
+        {
+          "key": "optimized/news-georgia-cave-bats-ivanov-miniopterus-schreibersii-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 18193
+        },
+        {
+          "key": "optimized/news-georgia-cave-bats-ivanov-miniopterus-schreibersii-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 25400
+        },
+        {
+          "key": "optimized/news-georgia-cave-bats-ivanov-miniopterus-schreibersii-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 32707
+        },
+        {
+          "key": "optimized/news-georgia-cave-bats-ivanov-miniopterus-schreibersii-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 46298
+        },
+        {
+          "key": "optimized/news-georgia-cave-bats-ivanov-miniopterus-schreibersii-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 43058
+        },
+        {
+          "key": "optimized/news-georgia-cave-bats-ivanov-miniopterus-schreibersii-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 61322
+        },
+        {
+          "key": "optimized/news-georgia-cave-bats-ivanov-miniopterus-schreibersii-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 71139
+        },
+        {
+          "key": "optimized/news-georgia-cave-bats-ivanov-miniopterus-schreibersii-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 100526
+        },
+        {
+          "key": "optimized/news-georgia-cave-bats-ivanov-miniopterus-schreibersii-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 157050
+        },
+        {
+          "key": "optimized/news-georgia-cave-bats-ivanov-miniopterus-schreibersii-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 230844
+        }
+      ],
+      "updatedAt": "2026-10-19T10:59:03.358Z"
+    },
+    "news-georgia-cave-bats-ivanov-rhinolophus-ferrumequinum.jpg": {
+      "sourceHash": "bf47c899a5bdace0f3541c75a00a5e9d6004fa3b457b0d7bf3b27110ed235bc5",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "news-georgia-cave-bats-ivanov-rhinolophus-ferrumequinum.jpg",
+      "originalSize": 499233,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/news-georgia-cave-bats-ivanov-rhinolophus-ferrumequinum-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9015
+        },
+        {
+          "key": "optimized/news-georgia-cave-bats-ivanov-rhinolophus-ferrumequinum-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10332
+        },
+        {
+          "key": "optimized/news-georgia-cave-bats-ivanov-rhinolophus-ferrumequinum-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 10660
+        },
+        {
+          "key": "optimized/news-georgia-cave-bats-ivanov-rhinolophus-ferrumequinum-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 12852
+        },
+        {
+          "key": "optimized/news-georgia-cave-bats-ivanov-rhinolophus-ferrumequinum-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 16879
+        },
+        {
+          "key": "optimized/news-georgia-cave-bats-ivanov-rhinolophus-ferrumequinum-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 21336
+        },
+        {
+          "key": "optimized/news-georgia-cave-bats-ivanov-rhinolophus-ferrumequinum-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 21358
+        },
+        {
+          "key": "optimized/news-georgia-cave-bats-ivanov-rhinolophus-ferrumequinum-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 28714
+        },
+        {
+          "key": "optimized/news-georgia-cave-bats-ivanov-rhinolophus-ferrumequinum-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 34255
+        },
+        {
+          "key": "optimized/news-georgia-cave-bats-ivanov-rhinolophus-ferrumequinum-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 46370
+        },
+        {
+          "key": "optimized/news-georgia-cave-bats-ivanov-rhinolophus-ferrumequinum-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 75861
+        },
+        {
+          "key": "optimized/news-georgia-cave-bats-ivanov-rhinolophus-ferrumequinum-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 114866
+        }
+      ],
+      "updatedAt": "2026-10-19T10:59:02.591Z"
+    },
+    "news-georgia-cave-bats-vardanashvili-ghliana-cave.jpg": {
+      "sourceHash": "6dccec3c5d1c02076340a0e9fd30bb27b7e4e3ef7184e2797e33418291fbb840",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "news-georgia-cave-bats-vardanashvili-ghliana-cave.jpg",
+      "originalSize": 1115439,
+      "width": 2000,
+      "height": 1333,
+      "derivatives": [
+        {
+          "key": "optimized/news-georgia-cave-bats-vardanashvili-ghliana-cave-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11018
+        },
+        {
+          "key": "optimized/news-georgia-cave-bats-vardanashvili-ghliana-cave-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 13914
+        },
+        {
+          "key": "optimized/news-georgia-cave-bats-vardanashvili-ghliana-cave-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 16053
+        },
+        {
+          "key": "optimized/news-georgia-cave-bats-vardanashvili-ghliana-cave-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 20430
+        },
+        {
+          "key": "optimized/news-georgia-cave-bats-vardanashvili-ghliana-cave-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 39483
+        },
+        {
+          "key": "optimized/news-georgia-cave-bats-vardanashvili-ghliana-cave-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 51134
+        },
+        {
+          "key": "optimized/news-georgia-cave-bats-vardanashvili-ghliana-cave-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 62011
+        },
+        {
+          "key": "optimized/news-georgia-cave-bats-vardanashvili-ghliana-cave-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 81128
+        },
+        {
+          "key": "optimized/news-georgia-cave-bats-vardanashvili-ghliana-cave-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 130736
+        },
+        {
+          "key": "optimized/news-georgia-cave-bats-vardanashvili-ghliana-cave-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 175678
+        },
+        {
+          "key": "optimized/news-georgia-cave-bats-vardanashvili-ghliana-cave-2000.avif",
+          "format": "avif",
+          "width": 2000,
+          "height": 1333,
+          "byteSize": 341235
+        },
+        {
+          "key": "optimized/news-georgia-cave-bats-vardanashvili-ghliana-cave-2000.webp",
+          "format": "webp",
+          "width": 2000,
+          "height": 1333,
+          "byteSize": 453858
+        }
+      ],
+      "updatedAt": "2026-10-19T10:59:04.473Z"
+    },
+    "news-georgia-cave-bats-vardanashvili-ghliana-colony.jpg": {
+      "sourceHash": "efc423f107245280887ddf56038085d741384ff321364784fb6390df0ba3e759",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "news-georgia-cave-bats-vardanashvili-ghliana-colony.jpg",
+      "originalSize": 905692,
+      "width": 2000,
+      "height": 1333,
+      "derivatives": [
+        {
+          "key": "optimized/news-georgia-cave-bats-vardanashvili-ghliana-colony-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14335
+        },
+        {
+          "key": "optimized/news-georgia-cave-bats-vardanashvili-ghliana-colony-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 21566
+        },
+        {
+          "key": "optimized/news-georgia-cave-bats-vardanashvili-ghliana-colony-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 20194
+        },
+        {
+          "key": "optimized/news-georgia-cave-bats-vardanashvili-ghliana-colony-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 30908
+        },
+        {
+          "key": "optimized/news-georgia-cave-bats-vardanashvili-ghliana-colony-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 43290
+        },
+        {
+          "key": "optimized/news-georgia-cave-bats-vardanashvili-ghliana-colony-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 64976
+        },
+        {
+          "key": "optimized/news-georgia-cave-bats-vardanashvili-ghliana-colony-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 60829
+        },
+        {
+          "key": "optimized/news-georgia-cave-bats-vardanashvili-ghliana-colony-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 90654
+        },
+        {
+          "key": "optimized/news-georgia-cave-bats-vardanashvili-ghliana-colony-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 103185
+        },
+        {
+          "key": "optimized/news-georgia-cave-bats-vardanashvili-ghliana-colony-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 148750
+        },
+        {
+          "key": "optimized/news-georgia-cave-bats-vardanashvili-ghliana-colony-2000.avif",
+          "format": "avif",
+          "width": 2000,
+          "height": 1333,
+          "byteSize": 187303
+        },
+        {
+          "key": "optimized/news-georgia-cave-bats-vardanashvili-ghliana-colony-2000.webp",
+          "format": "webp",
+          "width": 2000,
+          "height": 1333,
+          "byteSize": 287832
+        }
+      ],
+      "updatedAt": "2026-10-19T10:59:09.025Z"
+    },
+    "news-rioni-117-sturgeon-ffi-juvenile-in-hand.jpg": {
+      "sourceHash": "50ad5b616d9a5f79ac03ae1daaa4c8d60b27607b7030f7788982ca4ec4eb34f3",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "news-rioni-117-sturgeon-ffi-juvenile-in-hand.jpg",
+      "originalSize": 147373,
+      "width": 1440,
+      "height": 1373,
+      "derivatives": [
+        {
+          "key": "optimized/news-rioni-117-sturgeon-ffi-juvenile-in-hand-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 305,
+          "byteSize": 7253
+        },
+        {
+          "key": "optimized/news-rioni-117-sturgeon-ffi-juvenile-in-hand-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 305,
+          "byteSize": 8624
+        },
+        {
+          "key": "optimized/news-rioni-117-sturgeon-ffi-juvenile-in-hand-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 381,
+          "byteSize": 9589
+        },
+        {
+          "key": "optimized/news-rioni-117-sturgeon-ffi-juvenile-in-hand-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 381,
+          "byteSize": 11534
+        },
+        {
+          "key": "optimized/news-rioni-117-sturgeon-ffi-juvenile-in-hand-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 610,
+          "byteSize": 19210
+        },
+        {
+          "key": "optimized/news-rioni-117-sturgeon-ffi-juvenile-in-hand-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 610,
+          "byteSize": 22192
+        },
+        {
+          "key": "optimized/news-rioni-117-sturgeon-ffi-juvenile-in-hand-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 763,
+          "byteSize": 26369
+        },
+        {
+          "key": "optimized/news-rioni-117-sturgeon-ffi-juvenile-in-hand-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 763,
+          "byteSize": 30572
+        },
+        {
+          "key": "optimized/news-rioni-117-sturgeon-ffi-juvenile-in-hand-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1144,
+          "byteSize": 47120
+        },
+        {
+          "key": "optimized/news-rioni-117-sturgeon-ffi-juvenile-in-hand-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1144,
+          "byteSize": 53094
+        },
+        {
+          "key": "optimized/news-rioni-117-sturgeon-ffi-juvenile-in-hand-1440.avif",
+          "format": "avif",
+          "width": 1440,
+          "height": 1373,
+          "byteSize": 64560
+        },
+        {
+          "key": "optimized/news-rioni-117-sturgeon-ffi-juvenile-in-hand-1440.webp",
+          "format": "webp",
+          "width": 1440,
+          "height": 1373,
+          "byteSize": 69240
+        }
+      ],
+      "updatedAt": "2026-10-19T10:38:03.448Z"
+    },
+    "news-rioni-117-sturgeon-ffi-survey-nets.jpg": {
+      "sourceHash": "9dafb97d1ad48096b8df67303e243ab3c7b89b23fbf9c65381a2a5be549ac8db",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "news-rioni-117-sturgeon-ffi-survey-nets.jpg",
+      "originalSize": 384187,
+      "width": 1920,
+      "height": 1440,
+      "derivatives": [
+        {
+          "key": "optimized/news-rioni-117-sturgeon-ffi-survey-nets-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 9935
+        },
+        {
+          "key": "optimized/news-rioni-117-sturgeon-ffi-survey-nets-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 14202
+        },
+        {
+          "key": "optimized/news-rioni-117-sturgeon-ffi-survey-nets-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 15454
+        },
+        {
+          "key": "optimized/news-rioni-117-sturgeon-ffi-survey-nets-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 22118
+        },
+        {
+          "key": "optimized/news-rioni-117-sturgeon-ffi-survey-nets-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 35325
+        },
+        {
+          "key": "optimized/news-rioni-117-sturgeon-ffi-survey-nets-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 53068
+        },
+        {
+          "key": "optimized/news-rioni-117-sturgeon-ffi-survey-nets-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 55353
+        },
+        {
+          "key": "optimized/news-rioni-117-sturgeon-ffi-survey-nets-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 81838
+        },
+        {
+          "key": "optimized/news-rioni-117-sturgeon-ffi-survey-nets-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 114058
+        },
+        {
+          "key": "optimized/news-rioni-117-sturgeon-ffi-survey-nets-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 170308
+        },
+        {
+          "key": "optimized/news-rioni-117-sturgeon-ffi-survey-nets-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1440,
+          "byteSize": 253749
+        },
+        {
+          "key": "optimized/news-rioni-117-sturgeon-ffi-survey-nets-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1440,
+          "byteSize": 363504
+        }
+      ],
+      "updatedAt": "2026-10-19T10:38:04.146Z"
+    },
+    "news-rioni-117-sturgeon-foote-beridze-edna-lab.jpg": {
+      "sourceHash": "00c704de2cd7c8949cac917be618bec982bc173664091c4d63499168eb663710",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "news-rioni-117-sturgeon-foote-beridze-edna-lab.jpg",
+      "originalSize": 238522,
+      "width": 1920,
+      "height": 1281,
+      "derivatives": [
+        {
+          "key": "optimized/news-rioni-117-sturgeon-foote-beridze-edna-lab-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8696
+        },
+        {
+          "key": "optimized/news-rioni-117-sturgeon-foote-beridze-edna-lab-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11552
+        },
+        {
+          "key": "optimized/news-rioni-117-sturgeon-foote-beridze-edna-lab-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 11814
+        },
+        {
+          "key": "optimized/news-rioni-117-sturgeon-foote-beridze-edna-lab-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 15242
+        },
+        {
+          "key": "optimized/news-rioni-117-sturgeon-foote-beridze-edna-lab-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 20490
+        },
+        {
+          "key": "optimized/news-rioni-117-sturgeon-foote-beridze-edna-lab-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 26286
+        },
+        {
+          "key": "optimized/news-rioni-117-sturgeon-foote-beridze-edna-lab-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 26787
+        },
+        {
+          "key": "optimized/news-rioni-117-sturgeon-foote-beridze-edna-lab-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 34682
+        },
+        {
+          "key": "optimized/news-rioni-117-sturgeon-foote-beridze-edna-lab-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 43110
+        },
+        {
+          "key": "optimized/news-rioni-117-sturgeon-foote-beridze-edna-lab-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 55026
+        },
+        {
+          "key": "optimized/news-rioni-117-sturgeon-foote-beridze-edna-lab-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1281,
+          "byteSize": 78689
+        },
+        {
+          "key": "optimized/news-rioni-117-sturgeon-foote-beridze-edna-lab-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1281,
+          "byteSize": 100884
+        }
+      ],
+      "updatedAt": "2026-10-19T10:38:04.732Z"
     },
     "news-rioni-sturgeon-foote-spawning-ground-aerial.jpg": {
       "sourceHash": "d904f79060b7ab98a013ea8f6b8623572dd8bd93cbaeb2315bb61f035c1ff804",
