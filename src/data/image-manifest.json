@@ -29688,6 +29688,101 @@
       ],
       "updatedAt": "2026-08-28T21:36:04.722Z"
     },
+    "darevskia-praticola-roger-e-n-smith-1.jpg": {
+      "sourceHash": "5be4a3e8809ac89c361b9d308bd400947a09a077212db48a818b25ef5d7dbc2a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-praticola-roger-e-n-smith-1.jpg",
+      "originalSize": 886533,
+      "width": 1365,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-praticola-roger-e-n-smith-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 480,
+          "byteSize": 37690
+        },
+        {
+          "key": "optimized/darevskia-praticola-roger-e-n-smith-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 480,
+          "byteSize": 66754
+        },
+        {
+          "key": "optimized/darevskia-praticola-roger-e-n-smith-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 601,
+          "byteSize": 55029
+        },
+        {
+          "key": "optimized/darevskia-praticola-roger-e-n-smith-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 601,
+          "byteSize": 97492
+        },
+        {
+          "key": "optimized/darevskia-praticola-roger-e-n-smith-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 960,
+          "byteSize": 112853
+        },
+        {
+          "key": "optimized/darevskia-praticola-roger-e-n-smith-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 960,
+          "byteSize": 206314
+        },
+        {
+          "key": "optimized/darevskia-praticola-roger-e-n-smith-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1200,
+          "byteSize": 158823
+        },
+        {
+          "key": "optimized/darevskia-praticola-roger-e-n-smith-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1200,
+          "byteSize": 290476
+        },
+        {
+          "key": "optimized/darevskia-praticola-roger-e-n-smith-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1800,
+          "byteSize": 274146
+        },
+        {
+          "key": "optimized/darevskia-praticola-roger-e-n-smith-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1800,
+          "byteSize": 485984
+        },
+        {
+          "key": "optimized/darevskia-praticola-roger-e-n-smith-1-1365.avif",
+          "format": "avif",
+          "width": 1365,
+          "height": 2048,
+          "byteSize": 327598
+        },
+        {
+          "key": "optimized/darevskia-praticola-roger-e-n-smith-1-1365.webp",
+          "format": "webp",
+          "width": 1365,
+          "height": 2048,
+          "byteSize": 571496
+        }
+      ],
+      "updatedAt": "2026-10-19T20:31:28.097Z"
+    },
     "darevskia-praticola-zauri-1.jpg": {
       "sourceHash": "ea866fac593947bb015e8dcb79e3743dc17bfa0ed176c8596e3aaa7fedc8be50",
       "configFingerprint": "409788ee46c653d8",

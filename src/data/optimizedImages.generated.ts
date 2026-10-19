@@ -2783,6 +2783,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1224],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/darevskia-praticola-roger-e-n-smith-1.jpg": {
+    "path": "darevskia-praticola-roger-e-n-smith-1",
+    "width": 1365,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1365],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/darevskia-praticola-zauri-1.jpg": {
     "path": "darevskia-praticola-zauri-1",
     "width": 1344,
