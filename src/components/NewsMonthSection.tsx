@@ -1,23 +1,7 @@
-import type { ReactNode } from "react";
-
-export type NewsMonthItem = {
-  card: ReactNode;
-  id: string;
-  monthKey: string;
-};
+import type { NewsMonthItem } from "@/lib/newsMonthGroups";
 
 const wrapClass =
   "mx-auto box-content max-w-[1320px] px-5 md:px-10 lg:px-[60px]";
-
-export function groupNewsByMonth<T extends NewsMonthItem>(items: readonly T[]) {
-  const groups: Array<{ items: T[]; key: string }> = [];
-  for (const item of items) {
-    const group = groups.find((entry) => entry.key === item.monthKey);
-    if (group) group.items.push(item);
-    else groups.push({ items: [item], key: item.monthKey });
-  }
-  return groups;
-}
 
 export function NewsMonthSection({
   countLabel,

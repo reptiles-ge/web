@@ -4,15 +4,13 @@ import type { AppLocale } from "@/i18n/routing";
 import type { NewsPage } from "@/lib/newsPages";
 
 import { NewsListCard } from "@/components/NewsIndexCards";
-import {
-  groupNewsByMonth,
-  NewsMonthSection,
-} from "@/components/NewsMonthSection";
+import { NewsMonthSection } from "@/components/NewsMonthSection";
 import { NewsPagination } from "@/components/NewsPagination";
 import { Link } from "@/i18n/navigation";
 import { formatContentDate, formatContentMonth } from "@/lib/formatDate";
 import { newsIndexHref } from "@/lib/news";
 import { toNewsIndexEntry } from "@/lib/newsIndexEntry";
+import { groupNewsByMonth } from "@/lib/newsMonthGroups";
 
 const wrapClass =
   "mx-auto box-content max-w-[1320px] px-5 md:px-10 lg:px-[60px]";

@@ -3,11 +3,8 @@
 import { Search, X } from "lucide-react";
 import { type ReactNode, useDeferredValue, useMemo, useState } from "react";
 
-import {
-  groupNewsByMonth,
-  type NewsMonthItem,
-  NewsMonthSection,
-} from "@/components/NewsMonthSection";
+import { NewsMonthSection } from "@/components/NewsMonthSection";
+import { groupNewsByMonth, type NewsMonthItem } from "@/lib/newsMonthGroups";
 
 export type NewsIndexBrowserItem = NewsMonthItem & {
   searchText: string;
