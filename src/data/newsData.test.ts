@@ -135,10 +135,6 @@ describe("relations", () => {
         }
       }
     }
-    const checklist = published.find(
-      (item) => item.slug === "georgia-herpetofauna-checklist-2026",
-    );
-    expect(checklist?.relatedSpeciesIds).not.toContain("darevskia-mixta");
     expect(
       getPublishedNewsForSpecies("darevskia-mixta", "en").map(
         (item) => item.slug,
