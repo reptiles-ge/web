@@ -486,6 +486,7 @@ export const regions: Region[] = [
     },
     path: georgiaRegionPaths["mtskheta-mtianeti"],
     speciesIds: [
+      "lacerta-media",
       "accipiter-nisus",
       "dendrocopos-major",
       "jynx-torquilla",
@@ -721,6 +722,7 @@ export const regions: Region[] = [
     nameIn: { en: "Tbilisi", ka: "თბილისში", ru: "Тбилиси", tr: "Tiflis" },
     path: georgiaRegionPaths.tbilisi,
     speciesIds: [
+      "lacerta-media",
       "accipiter-nisus",
       "dendrocopos-major",
       "erithacus-rubecula",
