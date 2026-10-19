@@ -29716,6 +29716,101 @@
       ],
       "updatedAt": "2026-09-08T18:24:47.179Z"
     },
+    "darevskia-praticola-ilya-1.jpg": {
+      "sourceHash": "9aeae765dde942c29330a626853a00f773d653bebe8613447804f5fff9188d9e",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-praticola-ilya-1.jpg",
+      "originalSize": 368147,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-praticola-ilya-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 7608
+        },
+        {
+          "key": "optimized/darevskia-praticola-ilya-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 9904
+        },
+        {
+          "key": "optimized/darevskia-praticola-ilya-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 10414
+        },
+        {
+          "key": "optimized/darevskia-praticola-ilya-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 13872
+        },
+        {
+          "key": "optimized/darevskia-praticola-ilya-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 20928
+        },
+        {
+          "key": "optimized/darevskia-praticola-ilya-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 29528
+        },
+        {
+          "key": "optimized/darevskia-praticola-ilya-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 29724
+        },
+        {
+          "key": "optimized/darevskia-praticola-ilya-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 42120
+        },
+        {
+          "key": "optimized/darevskia-praticola-ilya-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 52252
+        },
+        {
+          "key": "optimized/darevskia-praticola-ilya-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 75504
+        },
+        {
+          "key": "optimized/darevskia-praticola-ilya-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 104306
+        },
+        {
+          "key": "optimized/darevskia-praticola-ilya-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 150286
+        }
+      ],
+      "updatedAt": "2026-10-19T20:33:06.958Z"
+    },
     "darevskia-praticola-mobile.jpg": {
       "sourceHash": "dc3d8cace244a41becd9c23eaec468e75888f350179e431b37f164caac64a12e",
       "configFingerprint": "a895f8e025dcc7fa",
