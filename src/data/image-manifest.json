@@ -39085,6 +39085,59 @@
       ],
       "updatedAt": "2026-08-28T21:40:52.678Z"
     },
+    "eryx-jaculus-jiří-1.jpg": {
+      "sourceHash": "9a2a6181e870f36e9cef315a14dbbf47109b51caec31b7d3d00b656e31f44ed5",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eryx-jaculus-jiří-1.jpg",
+      "originalSize": 107046,
+      "width": 640,
+      "height": 480,
+      "derivatives": [
+        {
+          "key": "optimized/eryx-jaculus-jiří-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 17782
+        },
+        {
+          "key": "optimized/eryx-jaculus-jiří-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 30230
+        },
+        {
+          "key": "optimized/eryx-jaculus-jiří-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 27849
+        },
+        {
+          "key": "optimized/eryx-jaculus-jiří-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 44106
+        },
+        {
+          "key": "optimized/eryx-jaculus-jiří-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 61786
+        },
+        {
+          "key": "optimized/eryx-jaculus-jiří-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 98824
+        }
+      ],
+      "updatedAt": "2026-10-19T08:15:10.440Z"
+    },
     "eryx-jaculus.jpg": {
       "sourceHash": "ebec808e93bc2996df1ac88564b287fdd65cf3e6b19e64198f792cab7c49afea",
       "configFingerprint": "a895f8e025dcc7fa",
