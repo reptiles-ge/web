@@ -4526,6 +4526,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/hyla-orientalis-nikita-2.jpg": {
+    "path": "hyla-orientalis-nikita-2",
+    "width": 2048,
+    "height": 1366,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/hyla-orientalis-phantom85-1.jpg": {
     "path": "hyla-orientalis-phantom85-1",
     "width": 1153,

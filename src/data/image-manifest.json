@@ -49517,6 +49517,101 @@
       ],
       "updatedAt": "2026-10-19T17:59:37.899Z"
     },
+    "hyla-orientalis-nikita-2.jpg": {
+      "sourceHash": "0f06b0790aaadd1557b964f398780deed0b0b7678c2b8a12af2e9ff36098b356",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "hyla-orientalis-nikita-2.jpg",
+      "originalSize": 629424,
+      "width": 2048,
+      "height": 1366,
+      "derivatives": [
+        {
+          "key": "optimized/hyla-orientalis-nikita-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 5359
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6610
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 7310
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 8956
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 14626
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 18982
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 20912
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 26956
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 42562
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 64730
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1366,
+          "byteSize": 278804
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1366,
+          "byteSize": 348856
+        }
+      ],
+      "updatedAt": "2026-10-19T18:02:58.894Z"
+    },
     "hyla-orientalis-phantom85-1.jpg": {
       "sourceHash": "8d50ee5db7e13b1da1bbff31008b1516b11a5c521088db67c38f9e829f3f4c7c",
       "configFingerprint": "409788ee46c653d8",
