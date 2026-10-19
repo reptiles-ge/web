@@ -4470,11 +4470,95 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1920],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/hyla-orientalis-alena-1.jpg": {
+    "path": "hyla-orientalis-alena-1",
+    "width": 1536,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/hyla-orientalis-brechtheusequin-1.jpg": {
+    "path": "hyla-orientalis-brechtheusequin-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/hyla-orientalis-fabian-1.jpg": {
+    "path": "hyla-orientalis-fabian-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/hyla-orientalis-frederic-1.jpg": {
+    "path": "hyla-orientalis-frederic-1",
+    "width": 1280,
+    "height": 853,
+    "widths": [320, 400, 640, 800, 1200, 1280],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/hyla-orientalis-giorgi-1.jpg": {
+    "path": "hyla-orientalis-giorgi-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/hyla-orientalis-lennart-1.jpg": {
+    "path": "hyla-orientalis-lennart-1",
+    "width": 2048,
+    "height": 1367,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/hyla-orientalis-matthias-1.jpg": {
+    "path": "hyla-orientalis-matthias-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/hyla-orientalis-mobile.jpg": {
     "path": "hyla-orientalis-mobile",
     "width": 1536,
     "height": 2048,
     "widths": [400, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/hyla-orientalis-monteanimals-1.jpg": {
+    "path": "hyla-orientalis-monteanimals-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/hyla-orientalis-nikita-1.jpg": {
+    "path": "hyla-orientalis-nikita-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/hyla-orientalis-nikita-2.jpg": {
+    "path": "hyla-orientalis-nikita-2",
+    "width": 2048,
+    "height": 1366,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/hyla-orientalis-phantom85-1.jpg": {
+    "path": "hyla-orientalis-phantom85-1",
+    "width": 1153,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1153],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/hyla-orientalis-sandro-1.jpg": {
+    "path": "hyla-orientalis-sandro-1",
+    "width": 1536,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1536],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/hyla-orientalis.jpg": {
