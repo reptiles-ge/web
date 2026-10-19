@@ -66642,6 +66642,101 @@
       ],
       "updatedAt": "2026-10-19T07:07:57.456Z"
     },
+    "lacerta-strigata-sandro-1.jpg": {
+      "sourceHash": "b20b59493f0b59b5a87e757fe0c3b3369922b614600ef748f723268b59e0ac24",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lacerta-strigata-sandro-1.jpg",
+      "originalSize": 249422,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/lacerta-strigata-sandro-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 7202
+        },
+        {
+          "key": "optimized/lacerta-strigata-sandro-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10202
+        },
+        {
+          "key": "optimized/lacerta-strigata-sandro-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 9322
+        },
+        {
+          "key": "optimized/lacerta-strigata-sandro-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 13430
+        },
+        {
+          "key": "optimized/lacerta-strigata-sandro-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 17475
+        },
+        {
+          "key": "optimized/lacerta-strigata-sandro-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 24492
+        },
+        {
+          "key": "optimized/lacerta-strigata-sandro-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 22662
+        },
+        {
+          "key": "optimized/lacerta-strigata-sandro-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 31830
+        },
+        {
+          "key": "optimized/lacerta-strigata-sandro-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 36862
+        },
+        {
+          "key": "optimized/lacerta-strigata-sandro-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 51296
+        },
+        {
+          "key": "optimized/lacerta-strigata-sandro-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 70434
+        },
+        {
+          "key": "optimized/lacerta-strigata-sandro-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 100676
+        }
+      ],
+      "updatedAt": "2026-10-19T07:10:56.094Z"
+    },
     "lacerta-strigata-tatiana-1.jpg": {
       "sourceHash": "bdc2eebf29fc8d80993ed01084db6227971b528d1d45c3870a05df5af0205b6a",
       "configFingerprint": "409788ee46c653d8",
