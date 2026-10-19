@@ -37575,6 +37575,101 @@
       ],
       "updatedAt": "2026-10-19T17:37:45.161Z"
     },
+    "eremias-velox-giorgi-1.jpg": {
+      "sourceHash": "f1c7bdaedab33f11cb067fb58e1899d22fdd1584ab614afe1a95046da4753dd3",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eremias-velox-giorgi-1.jpg",
+      "originalSize": 577591,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/eremias-velox-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 13377
+        },
+        {
+          "key": "optimized/eremias-velox-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 20732
+        },
+        {
+          "key": "optimized/eremias-velox-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 18509
+        },
+        {
+          "key": "optimized/eremias-velox-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 28626
+        },
+        {
+          "key": "optimized/eremias-velox-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 37098
+        },
+        {
+          "key": "optimized/eremias-velox-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 56840
+        },
+        {
+          "key": "optimized/eremias-velox-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 50930
+        },
+        {
+          "key": "optimized/eremias-velox-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 76452
+        },
+        {
+          "key": "optimized/eremias-velox-giorgi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 87818
+        },
+        {
+          "key": "optimized/eremias-velox-giorgi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 131586
+        },
+        {
+          "key": "optimized/eremias-velox-giorgi-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 185670
+        },
+        {
+          "key": "optimized/eremias-velox-giorgi-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 263134
+        }
+      ],
+      "updatedAt": "2026-10-19T17:38:25.582Z"
+    },
     "eremias-velox-jean-louis-1.jpg": {
       "sourceHash": "fa92cfa063197a334a97ed1a107feb069edb8344470c34b5b31b0c528b5587aa",
       "configFingerprint": "409788ee46c653d8",
