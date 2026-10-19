@@ -63,7 +63,7 @@ export function NewsArticleToc({
       <button
         aria-controls={listId}
         aria-expanded={open}
-        className="flex h-[52px] w-full cursor-pointer items-center justify-between text-left text-[14.5px] font-semibold xl:hidden"
+        className="flex h-[52px] w-full cursor-pointer items-center justify-between text-left text-[14.5px] font-semibold focus-visible:ring-2 focus-visible:ring-(--nw-accent) focus-visible:ring-offset-4 focus-visible:ring-offset-background focus-visible:outline-none xl:hidden"
         onClick={() => setOpen((value) => !value)}
         type="button"
       >
