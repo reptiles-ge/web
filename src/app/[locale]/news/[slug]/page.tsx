@@ -21,11 +21,10 @@ import {
   newsArticleUrl,
   newsDateTime,
   newsIndexUrl,
-  newsOgImageDimensions,
   newsOgImageUrl,
   publishedNewsStaticParams,
 } from "@/lib/news";
-import { newsImageRights } from "@/lib/newsVisual";
+import { newsSchemaImages } from "@/lib/newsSchemaImages";
 import { INDEXABLE_ROBOTS } from "@/lib/robots";
 import {
   absoluteUrl,
@@ -120,7 +119,6 @@ export default async function NewsArticleRoute({ params }: Props) {
     getTranslations({ locale, namespace: "groupHubShared" }),
   ]);
   const url = newsArticleUrl(locale, article.slug);
-  const ogImage = newsOgImageUrl(article);
   const published = newsDateTime(article.publishedAt);
   const modified = newsDateTime(article.updatedAt ?? article.publishedAt);
 
@@ -191,13 +189,7 @@ export default async function NewsArticleRoute({ params }: Props) {
     datePublished: published,
     description: copy.metaDescription,
     headline: copy.title,
-    image: {
-      "@type": "ImageObject",
-      contentUrl: ogImage,
-      url: ogImage,
-      ...newsOgImageDimensions(article),
-      ...newsImageRights(article, locale),
-    },
+    image: newsSchemaImages(article, locale),
     inLanguage: locale,
     isPartOf: article.series
       ? [

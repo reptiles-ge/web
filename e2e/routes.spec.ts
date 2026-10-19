@@ -402,3 +402,23 @@ test.describe("JS-disabled shells", () => {
     await expect(page.locator("h1")).toBeVisible();
   });
 });
+
+test("news article JSON-LD lists several sized images", async ({ page }) => {
+  await page.goto("/news/sakartvelos-mghvimeebi-20-ghamuris-sakheoba");
+  const jsonLd = await page
+    .locator('script[type="application/ld+json"]')
+    .allTextContents();
+  const nodes = jsonLd.flatMap((block) => {
+    const parsed = JSON.parse(block) as unknown;
+    return (Array.isArray(parsed) ? parsed : [parsed]) as Record<
+      string,
+      unknown
+    >[];
+  });
+  const article = nodes.find((node) => node["@type"] === "NewsArticle");
+  const images = article?.image as Record<string, unknown>[];
+  expect(images.length).toBeGreaterThan(1);
+  for (const image of images) {
+    expect(Number(image.width)).toBeGreaterThanOrEqual(1200);
+  }
+});
