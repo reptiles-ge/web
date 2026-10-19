@@ -49693,6 +49693,101 @@
       ],
       "updatedAt": "2026-10-19T18:01:13.145Z"
     },
+    "hyla-orientalis-sandro-1.jpg": {
+      "sourceHash": "3c502708acea93c3dcda6b094222c7652912d54507decde2035106a81c01a7fa",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "hyla-orientalis-sandro-1.jpg",
+      "originalSize": 164923,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/hyla-orientalis-sandro-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 13055
+        },
+        {
+          "key": "optimized/hyla-orientalis-sandro-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 16798
+        },
+        {
+          "key": "optimized/hyla-orientalis-sandro-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 17762
+        },
+        {
+          "key": "optimized/hyla-orientalis-sandro-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 22782
+        },
+        {
+          "key": "optimized/hyla-orientalis-sandro-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 34808
+        },
+        {
+          "key": "optimized/hyla-orientalis-sandro-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 44286
+        },
+        {
+          "key": "optimized/hyla-orientalis-sandro-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 46845
+        },
+        {
+          "key": "optimized/hyla-orientalis-sandro-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 59996
+        },
+        {
+          "key": "optimized/hyla-orientalis-sandro-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 80423
+        },
+        {
+          "key": "optimized/hyla-orientalis-sandro-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 103352
+        },
+        {
+          "key": "optimized/hyla-orientalis-sandro-1-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 102194
+        },
+        {
+          "key": "optimized/hyla-orientalis-sandro-1-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 134174
+        }
+      ],
+      "updatedAt": "2026-10-19T18:03:54.225Z"
+    },
     "hyla-orientalis.jpg": {
       "sourceHash": "36916702e8381f9b1294da7a2585c43dc121895b64ec20ca1fb17854fc71378a",
       "configFingerprint": "a895f8e025dcc7fa",

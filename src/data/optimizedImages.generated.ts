@@ -4540,6 +4540,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1153],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/hyla-orientalis-sandro-1.jpg": {
+    "path": "hyla-orientalis-sandro-1",
+    "width": 1536,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/hyla-orientalis.jpg": {
     "path": "hyla-orientalis",
     "width": 1536,
