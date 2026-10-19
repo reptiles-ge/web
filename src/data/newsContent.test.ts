@@ -22,6 +22,36 @@ const SHORTER_TRANSLATIONS = new Set([
   "leatherback-turtle-first-turkish-black-sea-records-2026",
 ]);
 
+const UNLISTED_REGION_LINKS: Record<string, readonly string[]> = {
+  "armenia-power-line-bird-electrocution": ["samtskhe-javakheti"],
+  "shahdagi-dombis-8-khbo": ["abkhazia", "samegrelo-zemo-svaneti"],
+};
+
+function bodyLinks(article: (typeof articles)[number]) {
+  const links = {
+    hub: new Set<string>(),
+    region: new Set<string>(),
+    species: new Set<string>(),
+  };
+  for (const locale of getNewsArticleLocales(article)) {
+    for (const section of article.copy[locale].sections) {
+      for (const block of section.blocks) {
+        if (block.type !== "p") continue;
+        for (const part of block.parts) {
+          if (typeof part === "string") continue;
+          if (
+            part.type === "hub" ||
+            part.type === "region" ||
+            part.type === "species"
+          )
+            links[part.type].add(part.id);
+        }
+      }
+    }
+  }
+  return links;
+}
+
 function figures(
   sections: (typeof articles)[number]["copy"]["ka"]["sections"],
 ) {
@@ -92,6 +122,45 @@ describe("news MDX content", () => {
             }
           }
         }
+      }
+    }
+  });
+
+  it("lists every linked species, region and hub in its related ids", () => {
+    for (const article of articles) {
+      const links = bodyLinks(article);
+      const unlisted = UNLISTED_REGION_LINKS[article.slug] ?? [];
+      expect(
+        [...links.species].filter(
+          (id) => !article.relatedSpeciesIds.includes(id),
+        ),
+        `${article.slug} relatedSpeciesIds`,
+      ).toEqual([]);
+      expect(
+        [...links.region].filter(
+          (id) =>
+            !article.relatedRegionIds.includes(id) && !unlisted.includes(id),
+        ),
+        `${article.slug} relatedRegionIds`,
+      ).toEqual([]);
+      expect(
+        [...links.hub].filter(
+          (id) => !article.relatedHubIds.some((hub) => hub === id),
+        ),
+        `${article.slug} relatedHubIds`,
+      ).toEqual([]);
+    }
+  });
+
+  it("keeps only region exceptions the article still links and leaves out", () => {
+    for (const [slug, ids] of Object.entries(UNLISTED_REGION_LINKS)) {
+      const article = articles.find((item) => item.slug === slug);
+      expect(article, slug).toBeDefined();
+      if (!article) continue;
+      const links = bodyLinks(article);
+      for (const id of ids) {
+        expect(links.region.has(id), `${slug} ${id}`).toBe(true);
+        expect(article.relatedRegionIds, `${slug} ${id}`).not.toContain(id);
       }
     }
   });

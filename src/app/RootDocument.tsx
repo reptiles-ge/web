@@ -23,10 +23,11 @@ const AxeDevConsole =
 
 type Props = {
   children: ReactNode;
+  feedUrl?: string;
   locale: string;
 };
 
-export function RootDocument({ children, locale }: Props) {
+export function RootDocument({ children, feedUrl, locale }: Props) {
   const isProd = process.env.NODE_ENV === "production";
 
   preconnect(CDN_BASE);
@@ -48,6 +49,9 @@ export function RootDocument({ children, locale }: Props) {
           />
         )}
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        {feedUrl ? (
+          <link href={feedUrl} rel="alternate" type="application/atom+xml" />
+        ) : null}
       </head>
       <body className="min-h-full bg-background font-sans text-foreground transition-colors duration-300">
         {isProd ? (

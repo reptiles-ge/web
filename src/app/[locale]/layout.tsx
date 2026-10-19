@@ -33,6 +33,7 @@ import { isLocalAdminEnabled } from "@/lib/adminAccess";
 import { getFooterData } from "@/lib/footerData";
 import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import { getNavbarData } from "@/lib/navbarData";
+import { newsFeedUrl } from "@/lib/newsFeed";
 import { localePath, siteGraphJsonLd } from "@/lib/site";
 
 type Props = {
@@ -72,7 +73,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       ? await getTranslations({ locale, namespace: "contentEditor" })
       : null;
   return (
-    <RootDocument locale={locale}>
+    <RootDocument feedUrl={newsFeedUrl(locale)} locale={locale}>
       <IntlProvider locale={locale} messages={messages}>
         <LocaleSwitchProvider>
           <JsonLd data={siteGraphJsonLd(locale, siteDescription)} />

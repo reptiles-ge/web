@@ -80,9 +80,7 @@ describe("news archive route", () => {
         "x-default",
         "https://reptiles.ge/news/page/2",
       );
-      expect(metadata.alternates?.types).toEqual({
-        "application/atom+xml": expect.any(String),
-      });
+      expect(metadata.alternates).not.toHaveProperty("types");
       expect(metadata.robots).toMatchObject({ follow: true, index: true });
     },
   );

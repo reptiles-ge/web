@@ -9,7 +9,6 @@ import { NewsArchivePage } from "@/components/NewsArchivePage";
 import { type AppLocale, routing } from "@/i18n/routing";
 import { formatContentDate } from "@/lib/formatDate";
 import { newsIndexUrl, newsOgImageUrl } from "@/lib/news";
-import { newsFeedUrl } from "@/lib/newsFeed";
 import {
   getNewsPage,
   newsArchiveAlternates,
@@ -46,10 +45,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
   return {
     ...metadata,
-    alternates: {
-      ...newsArchiveAlternates(locale, newsPage.page),
-      types: { "application/atom+xml": newsFeedUrl(locale) },
-    },
+    alternates: newsArchiveAlternates(locale, newsPage.page),
   };
 }
 
