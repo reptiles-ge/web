@@ -6948,6 +6948,34 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1920],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/news-georgia-cave-bats-ivanov-miniopterus-schreibersii.jpg": {
+    "path": "news-georgia-cave-bats-ivanov-miniopterus-schreibersii",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-georgia-cave-bats-ivanov-rhinolophus-ferrumequinum.jpg": {
+    "path": "news-georgia-cave-bats-ivanov-rhinolophus-ferrumequinum",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-georgia-cave-bats-vardanashvili-ghliana-cave.jpg": {
+    "path": "news-georgia-cave-bats-vardanashvili-ghliana-cave",
+    "width": 2000,
+    "height": 1333,
+    "widths": [320, 400, 640, 800, 1200, 2000],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-georgia-cave-bats-vardanashvili-ghliana-colony.jpg": {
+    "path": "news-georgia-cave-bats-vardanashvili-ghliana-colony",
+    "width": 2000,
+    "height": 1333,
+    "widths": [320, 400, 640, 800, 1200, 2000],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/news-rioni-117-sturgeon-ffi-juvenile-in-hand.jpg": {
     "path": "news-rioni-117-sturgeon-ffi-juvenile-in-hand",
     "width": 1440,
