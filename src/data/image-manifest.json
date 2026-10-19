@@ -66019,6 +66019,101 @@
       ],
       "updatedAt": "2026-09-11T12:34:10.659Z"
     },
+    "lacerta-strigata-giorgi-2.jpg": {
+      "sourceHash": "5737e3a7e471d8c63eb435057e8753fe202c8d34df4302cfdd1517d39181e948",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lacerta-strigata-giorgi-2.jpg",
+      "originalSize": 545953,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/lacerta-strigata-giorgi-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11793
+        },
+        {
+          "key": "optimized/lacerta-strigata-giorgi-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 18974
+        },
+        {
+          "key": "optimized/lacerta-strigata-giorgi-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 16403
+        },
+        {
+          "key": "optimized/lacerta-strigata-giorgi-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 26016
+        },
+        {
+          "key": "optimized/lacerta-strigata-giorgi-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 33359
+        },
+        {
+          "key": "optimized/lacerta-strigata-giorgi-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 54010
+        },
+        {
+          "key": "optimized/lacerta-strigata-giorgi-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 46524
+        },
+        {
+          "key": "optimized/lacerta-strigata-giorgi-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 73168
+        },
+        {
+          "key": "optimized/lacerta-strigata-giorgi-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 83957
+        },
+        {
+          "key": "optimized/lacerta-strigata-giorgi-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 131530
+        },
+        {
+          "key": "optimized/lacerta-strigata-giorgi-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 181510
+        },
+        {
+          "key": "optimized/lacerta-strigata-giorgi-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 273626
+        }
+      ],
+      "updatedAt": "2026-10-19T07:06:47.545Z"
+    },
     "lacerta-strigata-ka-1.jpg": {
       "sourceHash": "d215921d6da1691ed05cbe56cdf1b981cbeb0e7fcbbc89e486c7702eb34eb846",
       "configFingerprint": "409788ee46c653d8",
