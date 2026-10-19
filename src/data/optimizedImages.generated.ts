@@ -3623,6 +3623,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/eryx-jaculus-alexandre-1.jpg": {
+    "path": "eryx-jaculus-alexandre-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/eryx-jaculus-alisa-1.jpg": {
     "path": "eryx-jaculus-alisa-1",
     "width": 1542,
