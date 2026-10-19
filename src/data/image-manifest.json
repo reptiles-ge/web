@@ -38915,6 +38915,101 @@
       ],
       "updatedAt": "2026-08-28T21:40:43.912Z"
     },
+    "eryx-jaculus-brechtheusequin-1.jpg": {
+      "sourceHash": "9aec365938ed3623559e0ef13184a3365709b412e834fecf38e41bf8dcb97aea",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eryx-jaculus-brechtheusequin-1.jpg",
+      "originalSize": 313263,
+      "width": 1365,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/eryx-jaculus-brechtheusequin-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 480,
+          "byteSize": 13925
+        },
+        {
+          "key": "optimized/eryx-jaculus-brechtheusequin-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 480,
+          "byteSize": 20294
+        },
+        {
+          "key": "optimized/eryx-jaculus-brechtheusequin-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 601,
+          "byteSize": 18837
+        },
+        {
+          "key": "optimized/eryx-jaculus-brechtheusequin-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 601,
+          "byteSize": 28188
+        },
+        {
+          "key": "optimized/eryx-jaculus-brechtheusequin-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 960,
+          "byteSize": 35730
+        },
+        {
+          "key": "optimized/eryx-jaculus-brechtheusequin-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 960,
+          "byteSize": 53366
+        },
+        {
+          "key": "optimized/eryx-jaculus-brechtheusequin-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1200,
+          "byteSize": 47621
+        },
+        {
+          "key": "optimized/eryx-jaculus-brechtheusequin-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1200,
+          "byteSize": 71102
+        },
+        {
+          "key": "optimized/eryx-jaculus-brechtheusequin-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1800,
+          "byteSize": 80119
+        },
+        {
+          "key": "optimized/eryx-jaculus-brechtheusequin-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1800,
+          "byteSize": 117778
+        },
+        {
+          "key": "optimized/eryx-jaculus-brechtheusequin-1-1365.avif",
+          "format": "avif",
+          "width": 1365,
+          "height": 2048,
+          "byteSize": 95084
+        },
+        {
+          "key": "optimized/eryx-jaculus-brechtheusequin-1-1365.webp",
+          "format": "webp",
+          "width": 1365,
+          "height": 2048,
+          "byteSize": 140894
+        }
+      ],
+      "updatedAt": "2026-10-19T08:16:30.654Z"
+    },
     "eryx-jaculus-giorgi-1.jpg": {
       "sourceHash": "c89a62e3c78882f2891e7bb4b51ef7e4050ebd2d4f352beeab9b5170f1061e9a",
       "configFingerprint": "a895f8e025dcc7fa",
