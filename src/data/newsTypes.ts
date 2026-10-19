@@ -1,3 +1,4 @@
+import type { NewsSeriesId } from "@/data/newsSeries";
 import type { PhotoCredit } from "@/data/speciesTypes";
 import type { AppLocale } from "@/i18n/routing";
 import type { GroupHubId } from "@/lib/groupHubs";
@@ -11,6 +12,7 @@ export type NewsArticle = {
   relatedHubIds: readonly GroupHubId[];
   relatedRegionIds: readonly string[];
   relatedSpeciesIds: readonly string[];
+  series?: NewsSeriesId;
   slug: string;
   sources: readonly NewsSource[];
   status: NewsArticleStatus;

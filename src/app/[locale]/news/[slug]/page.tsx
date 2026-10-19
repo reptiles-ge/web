@@ -11,6 +11,7 @@ import {
   getPublishedNewsArticleBySlug,
   newsSourceName,
 } from "@/data/news";
+import { newsSeriesName } from "@/data/newsSeries";
 import { getRegionById, localizeRegionText } from "@/data/regions";
 import { getSpeciesById } from "@/data/species";
 import { georgiaPlaceName, openGraphLocale } from "@/i18n/localeMeta";
@@ -198,7 +199,15 @@ export default async function NewsArticleRoute({ params }: Props) {
       ...newsImageRights(article, locale),
     },
     inLanguage: locale,
-    isPartOf: { "@id": siteEntityId("website") },
+    isPartOf: article.series
+      ? [
+          { "@id": siteEntityId("website") },
+          {
+            "@type": "CreativeWorkSeries",
+            name: newsSeriesName(article.series, locale),
+          },
+        ]
+      : { "@id": siteEntityId("website") },
     mainEntityOfPage: {
       "@id": url,
       "@type": "WebPage",
