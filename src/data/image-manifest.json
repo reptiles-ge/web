@@ -65857,6 +65857,101 @@
       ],
       "updatedAt": "2026-08-28T21:44:16.327Z"
     },
+    "lacerta-strigata-donsky-2.jpg": {
+      "sourceHash": "8a6b75aaca455dbf8cf528d3501cf2b14c05faef97d28297d23b653a556fab43",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "lacerta-strigata-donsky-2.jpg",
+      "originalSize": 224262,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/lacerta-strigata-donsky-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 5196
+        },
+        {
+          "key": "optimized/lacerta-strigata-donsky-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 7156
+        },
+        {
+          "key": "optimized/lacerta-strigata-donsky-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 7069
+        },
+        {
+          "key": "optimized/lacerta-strigata-donsky-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 9688
+        },
+        {
+          "key": "optimized/lacerta-strigata-donsky-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 13512
+        },
+        {
+          "key": "optimized/lacerta-strigata-donsky-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 19676
+        },
+        {
+          "key": "optimized/lacerta-strigata-donsky-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 17728
+        },
+        {
+          "key": "optimized/lacerta-strigata-donsky-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 26984
+        },
+        {
+          "key": "optimized/lacerta-strigata-donsky-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 30381
+        },
+        {
+          "key": "optimized/lacerta-strigata-donsky-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 45950
+        },
+        {
+          "key": "optimized/lacerta-strigata-donsky-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 62877
+        },
+        {
+          "key": "optimized/lacerta-strigata-donsky-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 94642
+        }
+      ],
+      "updatedAt": "2026-10-19T07:10:12.052Z"
+    },
     "lacerta-strigata-fabian-1.jpg": {
       "sourceHash": "927fc5ba848c64a472906c26115bb3855d128f8aa51c7cd8cebc53356527e86b",
       "configFingerprint": "409788ee46c653d8",
