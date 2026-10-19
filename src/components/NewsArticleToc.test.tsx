@@ -22,7 +22,13 @@ describe("NewsArticleToc", () => {
   });
 
   it("numbers every section and links to its anchor", () => {
-    render(<NewsArticleToc heading="In this article" items={ITEMS} />);
+    render(
+      <NewsArticleToc
+        heading="In this article"
+        items={ITEMS}
+        summary="In this article · 2 sections"
+      />,
+    );
 
     const nav = screen.getByRole("navigation", { name: "In this article" });
     const links = screen.getAllByRole("link");
@@ -42,7 +48,13 @@ describe("NewsArticleToc", () => {
     });
     placeHeading("first", -400);
     placeHeading("second", 2000);
-    render(<NewsArticleToc heading="In this article" items={ITEMS} />);
+    render(
+      <NewsArticleToc
+        heading="In this article"
+        items={ITEMS}
+        summary="In this article · 2 sections"
+      />,
+    );
 
     expect(
       screen
@@ -64,5 +76,27 @@ describe("NewsArticleToc", () => {
         .getByRole("link", { name: /First section/ })
         .getAttribute("aria-current"),
     ).toBeNull();
+  });
+
+  it("collapses the list behind the summary button below the sidebar breakpoint", () => {
+    render(
+      <NewsArticleToc
+        heading="In this article"
+        items={ITEMS}
+        summary="In this article · 2 sections"
+      />,
+    );
+
+    const toggle = screen.getByRole("button", {
+      name: "In this article · 2 sections",
+    });
+    const list = document.getElementById(toggle.getAttribute("aria-controls")!);
+    expect(toggle.getAttribute("aria-expanded")).toBe("false");
+    expect(list?.classList.contains("hidden")).toBe(true);
+
+    fireEvent.click(toggle);
+
+    expect(toggle.getAttribute("aria-expanded")).toBe("true");
+    expect(list?.classList.contains("hidden")).toBe(false);
   });
 });
