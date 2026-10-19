@@ -3490,6 +3490,20 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/eremias-velox-david-1.jpg": {
+    "path": "eremias-velox-david-1",
+    "width": 2048,
+    "height": 1356,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/eremias-velox-giorgi-1.jpg": {
+    "path": "eremias-velox-giorgi-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/eremias-velox-jean-louis-1.jpg": {
     "path": "eremias-velox-jean-louis-1",
     "width": 1024,
@@ -3502,6 +3516,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1024,
     "height": 771,
     "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/eremias-velox-korbinian-2.jpg": {
+    "path": "eremias-velox-korbinian-2",
+    "width": 2048,
+    "height": 1542,
+    "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/eremias-velox-nikita-1.jpg": {

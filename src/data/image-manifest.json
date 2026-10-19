@@ -37480,6 +37480,196 @@
       ],
       "updatedAt": "2026-09-11T01:46:02.522Z"
     },
+    "eremias-velox-david-1.jpg": {
+      "sourceHash": "7d694ddd92c7b5a56282cfe36a8bb2b41a947f62a240272c484fff8d40f9e3a7",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eremias-velox-david-1.jpg",
+      "originalSize": 410122,
+      "width": 2048,
+      "height": 1356,
+      "derivatives": [
+        {
+          "key": "optimized/eremias-velox-david-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 212,
+          "byteSize": 8334
+        },
+        {
+          "key": "optimized/eremias-velox-david-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 212,
+          "byteSize": 13152
+        },
+        {
+          "key": "optimized/eremias-velox-david-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 265,
+          "byteSize": 11364
+        },
+        {
+          "key": "optimized/eremias-velox-david-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 265,
+          "byteSize": 17964
+        },
+        {
+          "key": "optimized/eremias-velox-david-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 424,
+          "byteSize": 21953
+        },
+        {
+          "key": "optimized/eremias-velox-david-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 424,
+          "byteSize": 34732
+        },
+        {
+          "key": "optimized/eremias-velox-david-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 530,
+          "byteSize": 29848
+        },
+        {
+          "key": "optimized/eremias-velox-david-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 530,
+          "byteSize": 47560
+        },
+        {
+          "key": "optimized/eremias-velox-david-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 795,
+          "byteSize": 50001
+        },
+        {
+          "key": "optimized/eremias-velox-david-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 795,
+          "byteSize": 78278
+        },
+        {
+          "key": "optimized/eremias-velox-david-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1356,
+          "byteSize": 101916
+        },
+        {
+          "key": "optimized/eremias-velox-david-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1356,
+          "byteSize": 156798
+        }
+      ],
+      "updatedAt": "2026-10-19T17:37:45.161Z"
+    },
+    "eremias-velox-giorgi-1.jpg": {
+      "sourceHash": "f1c7bdaedab33f11cb067fb58e1899d22fdd1584ab614afe1a95046da4753dd3",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eremias-velox-giorgi-1.jpg",
+      "originalSize": 577591,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/eremias-velox-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 13377
+        },
+        {
+          "key": "optimized/eremias-velox-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 20732
+        },
+        {
+          "key": "optimized/eremias-velox-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 18509
+        },
+        {
+          "key": "optimized/eremias-velox-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 28626
+        },
+        {
+          "key": "optimized/eremias-velox-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 37098
+        },
+        {
+          "key": "optimized/eremias-velox-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 56840
+        },
+        {
+          "key": "optimized/eremias-velox-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 50930
+        },
+        {
+          "key": "optimized/eremias-velox-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 76452
+        },
+        {
+          "key": "optimized/eremias-velox-giorgi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 87818
+        },
+        {
+          "key": "optimized/eremias-velox-giorgi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 131586
+        },
+        {
+          "key": "optimized/eremias-velox-giorgi-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 185670
+        },
+        {
+          "key": "optimized/eremias-velox-giorgi-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 263134
+        }
+      ],
+      "updatedAt": "2026-10-19T17:38:25.582Z"
+    },
     "eremias-velox-jean-louis-1.jpg": {
       "sourceHash": "fa92cfa063197a334a97ed1a107feb069edb8344470c34b5b31b0c528b5587aa",
       "configFingerprint": "409788ee46c653d8",
@@ -37641,6 +37831,101 @@
         }
       ],
       "updatedAt": "2026-09-11T01:42:45.261Z"
+    },
+    "eremias-velox-korbinian-2.jpg": {
+      "sourceHash": "70692d2e46656da9dda098ccfe7abadd40c214c1cb17150a0cdf338975c2396c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eremias-velox-korbinian-2.jpg",
+      "originalSize": 295103,
+      "width": 2048,
+      "height": 1542,
+      "derivatives": [
+        {
+          "key": "optimized/eremias-velox-korbinian-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 241,
+          "byteSize": 5674
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 241,
+          "byteSize": 7310
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 301,
+          "byteSize": 8441
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 301,
+          "byteSize": 10490
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 482,
+          "byteSize": 19740
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 482,
+          "byteSize": 25084
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 602,
+          "byteSize": 29124
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 602,
+          "byteSize": 37030
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 904,
+          "byteSize": 50694
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 904,
+          "byteSize": 65020
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1542,
+          "byteSize": 94085
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1542,
+          "byteSize": 123748
+        }
+      ],
+      "updatedAt": "2026-10-19T17:36:26.172Z"
     },
     "eremias-velox-mobile.jpg": {
       "sourceHash": "ce62ebd2f1262cdd1a9d78bf07fa57ebd17ffaa62f45d26dc1605120764fbd57",
