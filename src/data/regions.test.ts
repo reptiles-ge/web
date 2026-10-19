@@ -91,6 +91,7 @@ describe("region speciesIds", () => {
     "darevskia-derjugini",
     "darevskia-obscura",
     "darevskia-portschinskii",
+    "darevskia-praticola",
     "eirenis-modestus",
     "elaphe-urartica",
     "eremias-velox",
