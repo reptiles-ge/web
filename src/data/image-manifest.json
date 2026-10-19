@@ -37480,6 +37480,101 @@
       ],
       "updatedAt": "2026-09-11T01:46:02.522Z"
     },
+    "eremias-velox-david-1.jpg": {
+      "sourceHash": "7d694ddd92c7b5a56282cfe36a8bb2b41a947f62a240272c484fff8d40f9e3a7",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eremias-velox-david-1.jpg",
+      "originalSize": 410122,
+      "width": 2048,
+      "height": 1356,
+      "derivatives": [
+        {
+          "key": "optimized/eremias-velox-david-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 212,
+          "byteSize": 8334
+        },
+        {
+          "key": "optimized/eremias-velox-david-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 212,
+          "byteSize": 13152
+        },
+        {
+          "key": "optimized/eremias-velox-david-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 265,
+          "byteSize": 11364
+        },
+        {
+          "key": "optimized/eremias-velox-david-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 265,
+          "byteSize": 17964
+        },
+        {
+          "key": "optimized/eremias-velox-david-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 424,
+          "byteSize": 21953
+        },
+        {
+          "key": "optimized/eremias-velox-david-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 424,
+          "byteSize": 34732
+        },
+        {
+          "key": "optimized/eremias-velox-david-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 530,
+          "byteSize": 29848
+        },
+        {
+          "key": "optimized/eremias-velox-david-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 530,
+          "byteSize": 47560
+        },
+        {
+          "key": "optimized/eremias-velox-david-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 795,
+          "byteSize": 50001
+        },
+        {
+          "key": "optimized/eremias-velox-david-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 795,
+          "byteSize": 78278
+        },
+        {
+          "key": "optimized/eremias-velox-david-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1356,
+          "byteSize": 101916
+        },
+        {
+          "key": "optimized/eremias-velox-david-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1356,
+          "byteSize": 156798
+        }
+      ],
+      "updatedAt": "2026-10-19T17:37:45.161Z"
+    },
     "eremias-velox-jean-louis-1.jpg": {
       "sourceHash": "fa92cfa063197a334a97ed1a107feb069edb8344470c34b5b31b0c528b5587aa",
       "configFingerprint": "409788ee46c653d8",
