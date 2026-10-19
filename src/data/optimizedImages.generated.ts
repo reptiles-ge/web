@@ -2342,13 +2342,6 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
-  "https://cdn.reptiles.ge/darevskia-clarkorum-mobile.jpg": {
-    "path": "darevskia-clarkorum-mobile",
-    "width": 2048,
-    "height": 1538,
-    "widths": [400, 800, 1200, 2048],
-    "formats": ["avif"]
-  },
   "https://cdn.reptiles.ge/darevskia-clarkorum-tom-1.jpg": {
     "path": "darevskia-clarkorum-tom-1",
     "width": 2048,
@@ -6950,6 +6943,27 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
   },
   "https://cdn.reptiles.ge/news-from-the-sky-foote-sparrowhawk.jpg": {
     "path": "news-from-the-sky-foote-sparrowhawk",
+    "width": 1920,
+    "height": 1281,
+    "widths": [320, 400, 640, 800, 1200, 1920],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-rioni-117-sturgeon-ffi-juvenile-in-hand.jpg": {
+    "path": "news-rioni-117-sturgeon-ffi-juvenile-in-hand",
+    "width": 1440,
+    "height": 1373,
+    "widths": [320, 400, 640, 800, 1200, 1440],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-rioni-117-sturgeon-ffi-survey-nets.jpg": {
+    "path": "news-rioni-117-sturgeon-ffi-survey-nets",
+    "width": 1920,
+    "height": 1440,
+    "widths": [320, 400, 640, 800, 1200, 1920],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/news-rioni-117-sturgeon-foote-beridze-edna-lab.jpg": {
+    "path": "news-rioni-117-sturgeon-foote-beridze-edna-lab",
     "width": 1920,
     "height": 1281,
     "widths": [320, 400, 640, 800, 1200, 1920],
