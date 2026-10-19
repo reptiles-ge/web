@@ -1,4 +1,365 @@
 {
   "version": 1,
-  "entries": {}
+  "entries": {
+    "/images/news/armenia-power-line-bird-electrocution/figure-2.jpg": [
+      {
+        "height": 675,
+        "ratio": "16x9",
+        "url": "https://cdn.reptiles.ge/schema/16x9/images/news/armenia-power-line-bird-electrocution/figure-2.jpg",
+        "width": 1200
+      },
+      {
+        "height": 900,
+        "ratio": "4x3",
+        "url": "https://cdn.reptiles.ge/schema/4x3/images/news/armenia-power-line-bird-electrocution/figure-2.jpg",
+        "width": 1200
+      },
+      {
+        "height": 1200,
+        "ratio": "1x1",
+        "url": "https://cdn.reptiles.ge/schema/1x1/images/news/armenia-power-line-bird-electrocution/figure-2.jpg",
+        "width": 1200
+      }
+    ],
+    "/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-forest.jpg": [
+      {
+        "height": 675,
+        "ratio": "16x9",
+        "url": "https://cdn.reptiles.ge/schema/16x9/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-forest.jpg",
+        "width": 1200
+      },
+      {
+        "height": 900,
+        "ratio": "4x3",
+        "url": "https://cdn.reptiles.ge/schema/4x3/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-forest.jpg",
+        "width": 1200
+      },
+      {
+        "height": 1200,
+        "ratio": "1x1",
+        "url": "https://cdn.reptiles.ge/schema/1x1/images/news/cop17-erevani-saqartvelos-daculi-teritoriebi/mtirala-forest.jpg",
+        "width": 1200
+      }
+    ],
+    "/images/news/melanistic-eirenis-modestus-anatolia/figure-3.jpg": [
+      {
+        "height": 675,
+        "ratio": "16x9",
+        "url": "https://cdn.reptiles.ge/schema/16x9/images/news/melanistic-eirenis-modestus-anatolia/figure-3.jpg",
+        "width": 1200
+      },
+      {
+        "height": 900,
+        "ratio": "4x3",
+        "url": "https://cdn.reptiles.ge/schema/4x3/images/news/melanistic-eirenis-modestus-anatolia/figure-3.jpg",
+        "width": 1200
+      },
+      {
+        "height": 1200,
+        "ratio": "1x1",
+        "url": "https://cdn.reptiles.ge/schema/1x1/images/news/melanistic-eirenis-modestus-anatolia/figure-3.jpg",
+        "width": 1200
+      }
+    ],
+    "/images/news/vipera-pontica-hybrid-georgia-2026/figure-3.jpg": [
+      {
+        "height": 675,
+        "ratio": "16x9",
+        "url": "https://cdn.reptiles.ge/schema/16x9/images/news/vipera-pontica-hybrid-georgia-2026/figure-3.jpg",
+        "width": 1200
+      },
+      {
+        "height": 900,
+        "ratio": "4x3",
+        "url": "https://cdn.reptiles.ge/schema/4x3/images/news/vipera-pontica-hybrid-georgia-2026/figure-3.jpg",
+        "width": 1200
+      },
+      {
+        "height": 1200,
+        "ratio": "1x1",
+        "url": "https://cdn.reptiles.ge/schema/1x1/images/news/vipera-pontica-hybrid-georgia-2026/figure-3.jpg",
+        "width": 1200
+      }
+    ],
+    "https://cdn.reptiles.ge/alectoris-chukar-daria-1.jpg": [
+      {
+        "height": 675,
+        "ratio": "16x9",
+        "url": "https://cdn.reptiles.ge/schema/16x9/alectoris-chukar-daria-1.jpg",
+        "width": 1200
+      },
+      {
+        "height": 900,
+        "ratio": "4x3",
+        "url": "https://cdn.reptiles.ge/schema/4x3/alectoris-chukar-daria-1.jpg",
+        "width": 1200
+      },
+      {
+        "height": 1200,
+        "ratio": "1x1",
+        "url": "https://cdn.reptiles.ge/schema/1x1/alectoris-chukar-daria-1.jpg",
+        "width": 1200
+      }
+    ],
+    "https://cdn.reptiles.ge/capra-cylindricornis-nika-3.jpg": [
+      {
+        "height": 675,
+        "ratio": "16x9",
+        "url": "https://cdn.reptiles.ge/schema/16x9/capra-cylindricornis-nika-3.jpg",
+        "width": 1200
+      },
+      {
+        "height": 900,
+        "ratio": "4x3",
+        "url": "https://cdn.reptiles.ge/schema/4x3/capra-cylindricornis-nika-3.jpg",
+        "width": 1200
+      },
+      {
+        "height": 1200,
+        "ratio": "1x1",
+        "url": "https://cdn.reptiles.ge/schema/1x1/capra-cylindricornis-nika-3.jpg",
+        "width": 1200
+      }
+    ],
+    "https://cdn.reptiles.ge/images/news/theridion-huseynovi-new-spider-species-georgia-2026/theridion-huseynovi.png": [
+      {
+        "height": 675,
+        "ratio": "16x9",
+        "url": "https://cdn.reptiles.ge/schema/16x9/images/news/theridion-huseynovi-new-spider-species-georgia-2026/theridion-huseynovi.jpg",
+        "width": 1200
+      },
+      {
+        "height": 900,
+        "ratio": "4x3",
+        "url": "https://cdn.reptiles.ge/schema/4x3/images/news/theridion-huseynovi-new-spider-species-georgia-2026/theridion-huseynovi.jpg",
+        "width": 1200
+      },
+      {
+        "height": 1200,
+        "ratio": "1x1",
+        "url": "https://cdn.reptiles.ge/schema/1x1/images/news/theridion-huseynovi-new-spider-species-georgia-2026/theridion-huseynovi.jpg",
+        "width": 1200
+      }
+    ],
+    "https://cdn.reptiles.ge/news-batumi-19300-hoekstra-1.jpg": [
+      {
+        "height": 675,
+        "ratio": "16x9",
+        "url": "https://cdn.reptiles.ge/schema/16x9/news-batumi-19300-hoekstra-1.jpg",
+        "width": 1200
+      },
+      {
+        "height": 900,
+        "ratio": "4x3",
+        "url": "https://cdn.reptiles.ge/schema/4x3/news-batumi-19300-hoekstra-1.jpg",
+        "width": 1200
+      },
+      {
+        "height": 1200,
+        "ratio": "1x1",
+        "url": "https://cdn.reptiles.ge/schema/1x1/news-batumi-19300-hoekstra-1.jpg",
+        "width": 1200
+      }
+    ],
+    "https://cdn.reptiles.ge/news-batumi-239735-hoekstra-station-2.jpg": [
+      {
+        "height": 675,
+        "ratio": "16x9",
+        "url": "https://cdn.reptiles.ge/schema/16x9/news-batumi-239735-hoekstra-station-2.jpg",
+        "width": 1200
+      },
+      {
+        "height": 900,
+        "ratio": "4x3",
+        "url": "https://cdn.reptiles.ge/schema/4x3/news-batumi-239735-hoekstra-station-2.jpg",
+        "width": 1200
+      },
+      {
+        "height": 1200,
+        "ratio": "1x1",
+        "url": "https://cdn.reptiles.ge/schema/1x1/news-batumi-239735-hoekstra-station-2.jpg",
+        "width": 1200
+      }
+    ],
+    "https://cdn.reptiles.ge/news-batumi-million-daneshvar-station-1.jpg": [
+      {
+        "height": 675,
+        "ratio": "16x9",
+        "url": "https://cdn.reptiles.ge/schema/16x9/news-batumi-million-daneshvar-station-1.jpg",
+        "width": 1200
+      },
+      {
+        "height": 900,
+        "ratio": "4x3",
+        "url": "https://cdn.reptiles.ge/schema/4x3/news-batumi-million-daneshvar-station-1.jpg",
+        "width": 1200
+      },
+      {
+        "height": 1200,
+        "ratio": "1x1",
+        "url": "https://cdn.reptiles.ge/schema/1x1/news-batumi-million-daneshvar-station-1.jpg",
+        "width": 1200
+      }
+    ],
+    "https://cdn.reptiles.ge/news-crested-honey-buzzard-cordes-male.jpg": [
+      {
+        "height": 675,
+        "ratio": "16x9",
+        "url": "https://cdn.reptiles.ge/schema/16x9/news-crested-honey-buzzard-cordes-male.jpg",
+        "width": 1200
+      },
+      {
+        "height": 900,
+        "ratio": "4x3",
+        "url": "https://cdn.reptiles.ge/schema/4x3/news-crested-honey-buzzard-cordes-male.jpg",
+        "width": 1200
+      },
+      {
+        "height": 1200,
+        "ratio": "1x1",
+        "url": "https://cdn.reptiles.ge/schema/1x1/news-crested-honey-buzzard-cordes-male.jpg",
+        "width": 1200
+      }
+    ],
+    "https://cdn.reptiles.ge/news-from-the-sky-foote-sparrowhawk.jpg": [
+      {
+        "height": 675,
+        "ratio": "16x9",
+        "url": "https://cdn.reptiles.ge/schema/16x9/news-from-the-sky-foote-sparrowhawk.jpg",
+        "width": 1200
+      },
+      {
+        "height": 900,
+        "ratio": "4x3",
+        "url": "https://cdn.reptiles.ge/schema/4x3/news-from-the-sky-foote-sparrowhawk.jpg",
+        "width": 1200
+      },
+      {
+        "height": 1200,
+        "ratio": "1x1",
+        "url": "https://cdn.reptiles.ge/schema/1x1/news-from-the-sky-foote-sparrowhawk.jpg",
+        "width": 1200
+      }
+    ],
+    "https://cdn.reptiles.ge/news-georgia-cave-bats-vardanashvili-ghliana-colony.jpg": [
+      {
+        "height": 675,
+        "ratio": "16x9",
+        "url": "https://cdn.reptiles.ge/schema/16x9/news-georgia-cave-bats-vardanashvili-ghliana-colony.jpg",
+        "width": 1200
+      },
+      {
+        "height": 900,
+        "ratio": "4x3",
+        "url": "https://cdn.reptiles.ge/schema/4x3/news-georgia-cave-bats-vardanashvili-ghliana-colony.jpg",
+        "width": 1200
+      },
+      {
+        "height": 1200,
+        "ratio": "1x1",
+        "url": "https://cdn.reptiles.ge/schema/1x1/news-georgia-cave-bats-vardanashvili-ghliana-colony.jpg",
+        "width": 1200
+      }
+    ],
+    "https://cdn.reptiles.ge/news-rioni-117-sturgeon-ffi-juvenile-in-hand.jpg": [
+      {
+        "height": 675,
+        "ratio": "16x9",
+        "url": "https://cdn.reptiles.ge/schema/16x9/news-rioni-117-sturgeon-ffi-juvenile-in-hand.jpg",
+        "width": 1200
+      },
+      {
+        "height": 900,
+        "ratio": "4x3",
+        "url": "https://cdn.reptiles.ge/schema/4x3/news-rioni-117-sturgeon-ffi-juvenile-in-hand.jpg",
+        "width": 1200
+      },
+      {
+        "height": 1200,
+        "ratio": "1x1",
+        "url": "https://cdn.reptiles.ge/schema/1x1/news-rioni-117-sturgeon-ffi-juvenile-in-hand.jpg",
+        "width": 1200
+      }
+    ],
+    "https://cdn.reptiles.ge/news-rioni-sturgeon-foote-spawning-ground-aerial.jpg": [
+      {
+        "height": 675,
+        "ratio": "16x9",
+        "url": "https://cdn.reptiles.ge/schema/16x9/news-rioni-sturgeon-foote-spawning-ground-aerial.jpg",
+        "width": 1200
+      },
+      {
+        "height": 900,
+        "ratio": "4x3",
+        "url": "https://cdn.reptiles.ge/schema/4x3/news-rioni-sturgeon-foote-spawning-ground-aerial.jpg",
+        "width": 1200
+      },
+      {
+        "height": 1200,
+        "ratio": "1x1",
+        "url": "https://cdn.reptiles.ge/schema/1x1/news-rioni-sturgeon-foote-spawning-ground-aerial.jpg",
+        "width": 1200
+      }
+    ],
+    "https://cdn.reptiles.ge/news-shahdag-bison-gabler-springe.jpg": [
+      {
+        "height": 675,
+        "ratio": "16x9",
+        "url": "https://cdn.reptiles.ge/schema/16x9/news-shahdag-bison-gabler-springe.jpg",
+        "width": 1200
+      },
+      {
+        "height": 900,
+        "ratio": "4x3",
+        "url": "https://cdn.reptiles.ge/schema/4x3/news-shahdag-bison-gabler-springe.jpg",
+        "width": 1200
+      },
+      {
+        "height": 1200,
+        "ratio": "1x1",
+        "url": "https://cdn.reptiles.ge/schema/1x1/news-shahdag-bison-gabler-springe.jpg",
+        "width": 1200
+      }
+    ],
+    "https://cdn.reptiles.ge/panthera-pardus-assaf-1.jpg": [
+      {
+        "height": 675,
+        "ratio": "16x9",
+        "url": "https://cdn.reptiles.ge/schema/16x9/panthera-pardus-assaf-1.jpg",
+        "width": 1200
+      },
+      {
+        "height": 900,
+        "ratio": "4x3",
+        "url": "https://cdn.reptiles.ge/schema/4x3/panthera-pardus-assaf-1.jpg",
+        "width": 1200
+      },
+      {
+        "height": 1200,
+        "ratio": "1x1",
+        "url": "https://cdn.reptiles.ge/schema/1x1/panthera-pardus-assaf-1.jpg",
+        "width": 1200
+      }
+    ],
+    "https://cdn.reptiles.ge/regions/adjara.jpg": [
+      {
+        "height": 675,
+        "ratio": "16x9",
+        "url": "https://cdn.reptiles.ge/schema/16x9/regions/adjara.jpg",
+        "width": 1200
+      },
+      {
+        "height": 900,
+        "ratio": "4x3",
+        "url": "https://cdn.reptiles.ge/schema/4x3/regions/adjara.jpg",
+        "width": 1200
+      },
+      {
+        "height": 1200,
+        "ratio": "1x1",
+        "url": "https://cdn.reptiles.ge/schema/1x1/regions/adjara.jpg",
+        "width": 1200
+      }
+    ]
+  }
 }
