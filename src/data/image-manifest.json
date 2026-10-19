@@ -49422,6 +49422,87 @@
       ],
       "updatedAt": "2026-10-19T17:59:37.899Z"
     },
+    "hyla-orientalis-phantom85-1.jpg": {
+      "sourceHash": "8d50ee5db7e13b1da1bbff31008b1516b11a5c521088db67c38f9e829f3f4c7c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "hyla-orientalis-phantom85-1.jpg",
+      "originalSize": 435189,
+      "width": 1153,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/hyla-orientalis-phantom85-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 569,
+          "byteSize": 18037
+        },
+        {
+          "key": "optimized/hyla-orientalis-phantom85-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 569,
+          "byteSize": 24618
+        },
+        {
+          "key": "optimized/hyla-orientalis-phantom85-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 710,
+          "byteSize": 25512
+        },
+        {
+          "key": "optimized/hyla-orientalis-phantom85-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 710,
+          "byteSize": 35396
+        },
+        {
+          "key": "optimized/hyla-orientalis-phantom85-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 1137,
+          "byteSize": 55026
+        },
+        {
+          "key": "optimized/hyla-orientalis-phantom85-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 1137,
+          "byteSize": 76054
+        },
+        {
+          "key": "optimized/hyla-orientalis-phantom85-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1421,
+          "byteSize": 78153
+        },
+        {
+          "key": "optimized/hyla-orientalis-phantom85-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1421,
+          "byteSize": 110012
+        },
+        {
+          "key": "optimized/hyla-orientalis-phantom85-1-1153.avif",
+          "format": "avif",
+          "width": 1153,
+          "height": 2048,
+          "byteSize": 154108
+        },
+        {
+          "key": "optimized/hyla-orientalis-phantom85-1-1153.webp",
+          "format": "webp",
+          "width": 1153,
+          "height": 2048,
+          "byteSize": 203638
+        }
+      ],
+      "updatedAt": "2026-10-19T18:01:13.145Z"
+    },
     "hyla-orientalis.jpg": {
       "sourceHash": "36916702e8381f9b1294da7a2585c43dc121895b64ec20ca1fb17854fc71378a",
       "configFingerprint": "a895f8e025dcc7fa",
