@@ -2706,6 +2706,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/darevskia-portschinskii-maximus94-1.jpg": {
+    "path": "darevskia-portschinskii-maximus94-1",
+    "width": 1542,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1542],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/darevskia-portschinskii-nina-1.jpg": {
     "path": "darevskia-portschinskii-nina-1",
     "width": 2048,

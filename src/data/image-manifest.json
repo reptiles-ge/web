@@ -28512,6 +28512,101 @@
       ],
       "updatedAt": "2026-10-19T19:13:04.772Z"
     },
+    "darevskia-portschinskii-maximus94-1.jpg": {
+      "sourceHash": "15443644315ae9edf41035142d0af1fefce4b6242d5f2b8c85ff297443ee20d8",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-portschinskii-maximus94-1.jpg",
+      "originalSize": 627236,
+      "width": 1542,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-portschinskii-maximus94-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 425,
+          "byteSize": 24603
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-maximus94-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 425,
+          "byteSize": 39078
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-maximus94-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 531,
+          "byteSize": 34473
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-maximus94-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 531,
+          "byteSize": 52610
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-maximus94-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 850,
+          "byteSize": 68552
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-maximus94-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 850,
+          "byteSize": 102718
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-maximus94-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1063,
+          "byteSize": 94625
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-maximus94-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1063,
+          "byteSize": 137598
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-maximus94-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1594,
+          "byteSize": 164880
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-maximus94-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1594,
+          "byteSize": 231142
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-maximus94-1-1542.avif",
+          "format": "avif",
+          "width": 1542,
+          "height": 2048,
+          "byteSize": 235711
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-maximus94-1-1542.webp",
+          "format": "webp",
+          "width": 1542,
+          "height": 2048,
+          "byteSize": 312314
+        }
+      ],
+      "updatedAt": "2026-10-19T19:15:18.586Z"
+    },
     "darevskia-portschinskii-mobile.jpg": {
       "sourceHash": "74f334d40732037c45bf8d9975278f322083ff0e58572bcc726a398cbe5d462f",
       "configFingerprint": "a895f8e025dcc7fa",
