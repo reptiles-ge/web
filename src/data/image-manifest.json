@@ -49517,6 +49517,101 @@
       ],
       "updatedAt": "2026-08-28T21:42:30.524Z"
     },
+    "hyla-orientalis-monteanimals-1.jpg": {
+      "sourceHash": "78e85f4af6b0314304c44754f49ab0fec73b91c8f2ac2e883a7591f77bca736b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "hyla-orientalis-monteanimals-1.jpg",
+      "originalSize": 428340,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/hyla-orientalis-monteanimals-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 8416
+        },
+        {
+          "key": "optimized/hyla-orientalis-monteanimals-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 10834
+        },
+        {
+          "key": "optimized/hyla-orientalis-monteanimals-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 11228
+        },
+        {
+          "key": "optimized/hyla-orientalis-monteanimals-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 14912
+        },
+        {
+          "key": "optimized/hyla-orientalis-monteanimals-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 23276
+        },
+        {
+          "key": "optimized/hyla-orientalis-monteanimals-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 30632
+        },
+        {
+          "key": "optimized/hyla-orientalis-monteanimals-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 32751
+        },
+        {
+          "key": "optimized/hyla-orientalis-monteanimals-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 44410
+        },
+        {
+          "key": "optimized/hyla-orientalis-monteanimals-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 59165
+        },
+        {
+          "key": "optimized/hyla-orientalis-monteanimals-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 81530
+        },
+        {
+          "key": "optimized/hyla-orientalis-monteanimals-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 131827
+        },
+        {
+          "key": "optimized/hyla-orientalis-monteanimals-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 177796
+        }
+      ],
+      "updatedAt": "2026-10-19T18:05:49.205Z"
+    },
     "hyla-orientalis-nikita-1.jpg": {
       "sourceHash": "6ac2a3b299097fdea3ee9c03ce58ed49df92ea5f9ff4dfe70e9d4d5626e2691f",
       "configFingerprint": "409788ee46c653d8",
