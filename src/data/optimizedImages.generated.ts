@@ -5688,6 +5688,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/lacerta-strigata-kseniia-1.jpg": {
+    "path": "lacerta-strigata-kseniia-1",
+    "width": 1839,
+    "height": 1379,
+    "widths": [320, 400, 640, 800, 1200, 1839],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/lacerta-strigata-leonid-1.jpg": {
     "path": "lacerta-strigata-leonid-1",
     "width": 1024,
