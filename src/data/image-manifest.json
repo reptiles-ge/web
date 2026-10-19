@@ -48880,6 +48880,101 @@
       ],
       "updatedAt": "2026-10-19T17:56:49.958Z"
     },
+    "hyla-orientalis-frederic-1.jpg": {
+      "sourceHash": "d71e270124cc055e7decf359973a0f0a1b008329f9aaafc258a75e92afbf8959",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "hyla-orientalis-frederic-1.jpg",
+      "originalSize": 237222,
+      "width": 1280,
+      "height": 853,
+      "derivatives": [
+        {
+          "key": "optimized/hyla-orientalis-frederic-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8573
+        },
+        {
+          "key": "optimized/hyla-orientalis-frederic-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11914
+        },
+        {
+          "key": "optimized/hyla-orientalis-frederic-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 12688
+        },
+        {
+          "key": "optimized/hyla-orientalis-frederic-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 17246
+        },
+        {
+          "key": "optimized/hyla-orientalis-frederic-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 29153
+        },
+        {
+          "key": "optimized/hyla-orientalis-frederic-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 39786
+        },
+        {
+          "key": "optimized/hyla-orientalis-frederic-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 42987
+        },
+        {
+          "key": "optimized/hyla-orientalis-frederic-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 56920
+        },
+        {
+          "key": "optimized/hyla-orientalis-frederic-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 85623
+        },
+        {
+          "key": "optimized/hyla-orientalis-frederic-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 109014
+        },
+        {
+          "key": "optimized/hyla-orientalis-frederic-1-1280.avif",
+          "format": "avif",
+          "width": 1280,
+          "height": 853,
+          "byteSize": 101563
+        },
+        {
+          "key": "optimized/hyla-orientalis-frederic-1-1280.webp",
+          "format": "webp",
+          "width": 1280,
+          "height": 853,
+          "byteSize": 127526
+        }
+      ],
+      "updatedAt": "2026-10-19T17:58:35.145Z"
+    },
     "hyla-orientalis-lennart-1.jpg": {
       "sourceHash": "02936c69186adfa64dd54f6696baebe4e5a4484e0471d0226530c1a3dd42b2fa",
       "configFingerprint": "409788ee46c653d8",
