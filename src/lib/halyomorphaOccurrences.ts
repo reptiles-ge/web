@@ -65,6 +65,12 @@ const VELOX_OBSCURED_RECORD_NOTE =
   "Eremias velox: iNaturalist public coordinates obscured (~28 km)";
 const VELOX_NEEDS_ID_RECORD_NOTE =
   "Eremias velox: iNaturalist observation needs ID";
+const HYLA_ORIENTALIS_OBSCURED_RECORD_NOTE =
+  "Hyla orientalis: iNaturalist public coordinates obscured (~28 km)";
+const HYLA_ORIENTALIS_NEEDS_ID_RECORD_NOTE =
+  "Hyla orientalis: iNaturalist observation needs ID";
+const HYLA_ORIENTALIS_CASUAL_RECORD_NOTE =
+  "Hyla orientalis: iNaturalist observation is casual grade (no date)";
 const VALENTINI_OBSCURED_RECORD_NOTE =
   "Darevskia valentini: iNaturalist public coordinates obscured (~28 km)";
 const VALENTINI_NEEDS_ID_RECORD_NOTE =
@@ -83,6 +89,7 @@ const OBSCURED_COORDINATE_NOTES = new Set([
   DAHLI_OBSCURED_RECORD_NOTE,
   EIRENIS_COLLARIS_OBSCURED_RECORD_NOTE,
   ERYX_JACULUS_OBSCURED_RECORD_NOTE,
+  HYLA_ORIENTALIS_OBSCURED_RECORD_NOTE,
   LACERTA_MEDIA_OBSCURED_RECORD_NOTE,
   VALENTINI_OBSCURED_RECORD_NOTE,
   VELOX_OBSCURED_RECORD_NOTE,
@@ -90,6 +97,8 @@ const OBSCURED_COORDINATE_NOTES = new Set([
 ]);
 const NON_CONFIRMING_RECORD_NOTES = new Set([
   ...OBSCURED_COORDINATE_NOTES,
+  HYLA_ORIENTALIS_CASUAL_RECORD_NOTE,
+  HYLA_ORIENTALIS_NEEDS_ID_RECORD_NOTE,
   LACERTA_MEDIA_NOT_RESEARCH_RECORD_NOTE,
   VALENTINI_NEEDS_ID_RECORD_NOTE,
   VELOX_NEEDS_ID_RECORD_NOTE,

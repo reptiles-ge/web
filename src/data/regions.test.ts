@@ -93,6 +93,7 @@ describe("region speciesIds", () => {
     "eirenis-modestus",
     "elaphe-urartica",
     "eremias-velox",
+    "hyla-orientalis",
     "mauremys-caspica",
     "paralaudakia-caucasia",
     "mustela-nivalis",
