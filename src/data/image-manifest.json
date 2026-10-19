@@ -48880,6 +48880,101 @@
       ],
       "updatedAt": "2026-10-19T17:56:49.958Z"
     },
+    "hyla-orientalis-brechtheusequin-1.jpg": {
+      "sourceHash": "a6dc1424c5917c2f1eb16e020483633b54de4222d5d20b14ec27f7c6da9196c1",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "hyla-orientalis-brechtheusequin-1.jpg",
+      "originalSize": 302775,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/hyla-orientalis-brechtheusequin-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 7961
+        },
+        {
+          "key": "optimized/hyla-orientalis-brechtheusequin-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10572
+        },
+        {
+          "key": "optimized/hyla-orientalis-brechtheusequin-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 10375
+        },
+        {
+          "key": "optimized/hyla-orientalis-brechtheusequin-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 14044
+        },
+        {
+          "key": "optimized/hyla-orientalis-brechtheusequin-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 19547
+        },
+        {
+          "key": "optimized/hyla-orientalis-brechtheusequin-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 26796
+        },
+        {
+          "key": "optimized/hyla-orientalis-brechtheusequin-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 25852
+        },
+        {
+          "key": "optimized/hyla-orientalis-brechtheusequin-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 35818
+        },
+        {
+          "key": "optimized/hyla-orientalis-brechtheusequin-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 43957
+        },
+        {
+          "key": "optimized/hyla-orientalis-brechtheusequin-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 62196
+        },
+        {
+          "key": "optimized/hyla-orientalis-brechtheusequin-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 93163
+        },
+        {
+          "key": "optimized/hyla-orientalis-brechtheusequin-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 133582
+        }
+      ],
+      "updatedAt": "2026-10-19T18:04:55.421Z"
+    },
     "hyla-orientalis-fabian-1.jpg": {
       "sourceHash": "9ab0dfde7b428ab74752d45aa01ac279c16679d7064435ca6f61dd2fe921936b",
       "configFingerprint": "409788ee46c653d8",
