@@ -13,10 +13,12 @@ import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { Logo } from "@/components/Logo";
 import { NewsArticleToc } from "@/components/NewsArticleToc";
 import { NewsRichText } from "@/components/NewsRichText";
+import { NewsSeriesBlock } from "@/components/NewsSeriesBlock";
 import { NewsShareButtons } from "@/components/NewsShareButtons";
 import {
   getNewsCopy,
   getPublishedNewsArticles,
+  getPublishedNewsArticlesInSeries,
   newsLocalizedTitle,
   newsPhotoBySrc,
   newsRelatedHubs,
@@ -24,6 +26,7 @@ import {
   newsRelatedSpecies,
   newsSourceName,
 } from "@/data/news";
+import { newsSeriesName } from "@/data/newsSeries";
 import { getRegionHeroImage } from "@/data/regionImages";
 import { localizeRegionText } from "@/data/regions";
 import { getSpeciesById } from "@/data/species";
@@ -35,6 +38,7 @@ import { contentEditorAttributes } from "@/lib/contentEditorAttributes";
 import { formatContentDate, formatPhotoDate } from "@/lib/formatDate";
 import {
   newsArticleHref,
+  newsArticlePath,
   newsArticleUrl,
   newsIndexHref,
   newsReadMinutes,
@@ -134,6 +138,7 @@ export async function NewsArticlePage({
                 locale={locale}
               />
               <NewsArticleSources article={article} locale={locale} />
+              <NewsArticleSeries article={article} locale={locale} />
             </div>
             <aside className="contents xl:sticky xl:top-28 xl:flex xl:flex-col xl:gap-3">
               <NewsFacts facts={facts} heading={t("factsHeading")} />
@@ -395,6 +400,30 @@ async function NewsArticleHeader({
         />
       ) : null}
     </header>
+  );
+}
+
+async function NewsArticleSeries({ article, locale }: NewsArticlePageProps) {
+  if (!article.series) return null;
+  const t = await getTranslations({ locale, namespace: "news" });
+  const items = getPublishedNewsArticlesInSeries(article, locale).map(
+    (item) => ({
+      current: item.id === article.id,
+      dateLabel: formatContentDate(item.publishedAt, locale),
+      href: newsArticlePath(locale, item.slug),
+      id: item.id,
+      publishedAt: item.publishedAt,
+      title: newsLocalizedTitle(item, locale),
+    }),
+  );
+
+  return (
+    <NewsSeriesBlock
+      currentLabel={t("seriesCurrent")}
+      eyebrow={t("seriesHeading")}
+      items={items}
+      name={newsSeriesName(article.series, locale)}
+    />
   );
 }
 

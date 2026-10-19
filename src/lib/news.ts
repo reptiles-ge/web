@@ -50,6 +50,10 @@ export function newsArticleModifiedDateTime(article: NewsArticle) {
   return newsDateTime(article.updatedAt ?? article.publishedAt);
 }
 
+export function newsArticlePath(locale: AppLocale, slug: string) {
+  return getPathname({ href: newsArticleHref(slug), locale });
+}
+
 export function newsArticleUrl(locale: AppLocale, slug: string) {
   return absoluteUrl(newsArticlePath(locale, slug));
 }
@@ -174,10 +178,6 @@ export function newestNewsDateTime(articles: readonly NewsArticle[]) {
     newestTime = time;
   }
   return newest;
-}
-
-function newsArticlePath(locale: AppLocale, slug: string) {
-  return getPathname({ href: newsArticleHref(slug), locale });
 }
 
 function newsIndexPath(locale: AppLocale) {

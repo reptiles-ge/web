@@ -113,6 +113,7 @@ function compileArticle(slug: string): NewsArticle | undefined {
     relatedHubIds: fm.relatedHubIds,
     relatedRegionIds: fm.relatedRegionIds,
     relatedSpeciesIds: fm.relatedSpeciesIds,
+    ...(fm.series ? { series: fm.series } : {}),
     slug,
     sources: fm.sources,
     status: fm.status,
