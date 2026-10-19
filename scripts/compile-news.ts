@@ -6,7 +6,10 @@ import type { NewsArticle, NewsPhoto } from "../src/data/newsTypes";
 import type { AppLocale } from "../src/i18n/routing";
 
 import { newsSlugs } from "../src/data/newsPublish";
+import { optimizedImages } from "../src/data/optimizedImages.generated";
+import { checkNewsHeroes, type NewsHeroInput } from "../src/lib/newsHeroImage";
 import { newsBodyStart, parseNewsBody } from "../src/lib/newsMdx";
+import { newsSlugIssue } from "../src/lib/newsSlug";
 import {
   newsKaFrontmatterSchema,
   newsTranslationFrontmatterSchema,
@@ -17,6 +20,7 @@ const outFile = path.join(process.cwd(), "src/data/news.generated.ts");
 const translationLocales = ["en", "ru", "tr"] as const;
 
 const errors: string[] = [];
+const heroes: NewsHeroInput[] = [];
 const folders = fs
   .readdirSync(contentRoot, { withFileTypes: true })
   .filter((entry) => entry.isDirectory())
@@ -25,6 +29,11 @@ const folders = fs
 for (const folder of folders) {
   if (!newsSlugs.includes(folder as (typeof newsSlugs)[number]))
     errors.push(`${folder}: folder is missing from newsSlugs`);
+}
+
+for (const slug of newsSlugs) {
+  const issue = newsSlugIssue(slug);
+  if (issue) errors.push(`${slug}: ${issue}`);
 }
 
 function readLocale(slug: string, locale: AppLocale) {
@@ -53,6 +62,12 @@ function compileArticle(slug: string): NewsArticle | undefined {
   const fm = parsed.data;
   if (fm.slug !== slug)
     errors.push(`${ka.file}: folder/slug mismatch: ${slug} vs ${fm.slug}`);
+  heroes.push({
+    exception: fm.heroImageException,
+    image: fm.image,
+    publishedAt: fm.publishedAt,
+    slug,
+  });
 
   const toPhoto = ({ alt, ...photo }: typeof fm.image & {}): NewsPhoto => ({
     ...photo,
@@ -107,6 +122,7 @@ function compileArticle(slug: string): NewsArticle | undefined {
     relatedHubIds: fm.relatedHubIds,
     relatedRegionIds: fm.relatedRegionIds,
     relatedSpeciesIds: fm.relatedSpeciesIds,
+    ...(fm.series ? { series: fm.series } : {}),
     slug,
     sources: fm.sources,
     status: fm.status,
@@ -123,6 +139,13 @@ for (const slug of newsSlugs) {
     errors.push(`${slug}: ${(error as Error).message}`);
   }
 }
+
+const heroCheck = checkNewsHeroes(heroes, optimizedImages);
+errors.push(...heroCheck.errors);
+if (heroCheck.warnings.length > 0)
+  console.warn(
+    `News heroes not ready for Discover:\n${heroCheck.warnings.map((line) => `  ${line}`).join("\n")}`,
+  );
 
 if (errors.length > 0) {
   console.error(errors.join("\n"));

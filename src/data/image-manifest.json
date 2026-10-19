@@ -28012,6 +28012,196 @@
       ],
       "updatedAt": "2026-08-28T21:35:50.394Z"
     },
+    "darevskia-portschinskii-anastasiia-1.jpg": {
+      "sourceHash": "bfb9ceff2b9b1e22668155ac88e0411ad0acf1fb678388f6bd0a48d3ba54b8a6",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-portschinskii-anastasiia-1.jpg",
+      "originalSize": 782455,
+      "width": 2048,
+      "height": 1532,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-portschinskii-anastasiia-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 239,
+          "byteSize": 12125
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-anastasiia-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 239,
+          "byteSize": 21096
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-anastasiia-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 299,
+          "byteSize": 17396
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-anastasiia-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 299,
+          "byteSize": 29884
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-anastasiia-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 479,
+          "byteSize": 35782
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-anastasiia-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 479,
+          "byteSize": 58722
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-anastasiia-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 598,
+          "byteSize": 51608
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-anastasiia-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 598,
+          "byteSize": 84690
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-anastasiia-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 898,
+          "byteSize": 111673
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-anastasiia-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 898,
+          "byteSize": 174874
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-anastasiia-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1532,
+          "byteSize": 329858
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-anastasiia-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1532,
+          "byteSize": 425882
+        }
+      ],
+      "updatedAt": "2026-10-19T19:14:37.020Z"
+    },
+    "darevskia-portschinskii-axel-1.jpg": {
+      "sourceHash": "c936a64d268869f38834f6412191cdcc92cc3b453092227f67e9b5b58cdaeac2",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-portschinskii-axel-1.jpg",
+      "originalSize": 576057,
+      "width": 2048,
+      "height": 1709,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-portschinskii-axel-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 267,
+          "byteSize": 12822
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-axel-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 267,
+          "byteSize": 20308
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-axel-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 334,
+          "byteSize": 17682
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-axel-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 334,
+          "byteSize": 27996
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-axel-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 534,
+          "byteSize": 35136
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-axel-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 534,
+          "byteSize": 57428
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-axel-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 668,
+          "byteSize": 49046
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-axel-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 668,
+          "byteSize": 78636
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-axel-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1001,
+          "byteSize": 83701
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-axel-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1001,
+          "byteSize": 136184
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-axel-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1709,
+          "byteSize": 169052
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-axel-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1709,
+          "byteSize": 272640
+        }
+      ],
+      "updatedAt": "2026-10-19T19:17:46.753Z"
+    },
     "darevskia-portschinskii-giorgi-1.jpg": {
       "sourceHash": "735245ffd0e0855ef3465635a7ac20abd8b5c1655ca992471ea2cf16dd271b85",
       "configFingerprint": "409788ee46c653d8",
@@ -28322,6 +28512,372 @@
       ],
       "updatedAt": "2026-09-11T12:52:49.209Z"
     },
+    "darevskia-portschinskii-giorgi-5.jpg": {
+      "sourceHash": "5cd087ea6269bb9440dbe957764b84b1900e821b62b4f0e4223f98fa8b1d2670",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-portschinskii-giorgi-5.jpg",
+      "originalSize": 729991,
+      "width": 2048,
+      "height": 1366,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-portschinskii-giorgi-5-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12304
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-giorgi-5-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 16572
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-giorgi-5-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 18277
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-giorgi-5-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 23948
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-giorgi-5-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 42180
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-giorgi-5-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 56756
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-giorgi-5-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 60997
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-giorgi-5-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 80940
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-giorgi-5-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 110864
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-giorgi-5-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 151316
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-giorgi-5-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1366,
+          "byteSize": 302016
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-giorgi-5-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1366,
+          "byteSize": 379504
+        }
+      ],
+      "updatedAt": "2026-10-19T19:19:27.424Z"
+    },
+    "darevskia-portschinskii-herbert-1.jpg": {
+      "sourceHash": "d04dd09a684c27cbb07e279eae53baf0ef6371091709e6799b0ec77cf3ccc874",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-portschinskii-herbert-1.jpg",
+      "originalSize": 688668,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-portschinskii-herbert-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 14233
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-herbert-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 21284
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-herbert-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 21013
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-herbert-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 30256
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-herbert-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 46191
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-herbert-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 66468
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-herbert-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 67904
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-herbert-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 97044
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-herbert-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 127614
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-herbert-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 180186
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-herbert-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 277131
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-herbert-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 365204
+        }
+      ],
+      "updatedAt": "2026-10-19T19:13:04.772Z"
+    },
+    "darevskia-portschinskii-jasminel13-1.jpg": {
+      "sourceHash": "fd0515b705df9e1ba011b25cbf014aa9016aa8609c79ed151862dff3e3e83bad",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-portschinskii-jasminel13-1.jpg",
+      "originalSize": 313040,
+      "width": 1114,
+      "height": 827,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-portschinskii-jasminel13-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 237,
+          "byteSize": 16034
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-jasminel13-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 237,
+          "byteSize": 23516
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-jasminel13-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 297,
+          "byteSize": 25352
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-jasminel13-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 297,
+          "byteSize": 37648
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-jasminel13-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 475,
+          "byteSize": 57627
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-jasminel13-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 475,
+          "byteSize": 89324
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-jasminel13-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 594,
+          "byteSize": 81175
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-jasminel13-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 594,
+          "byteSize": 129224
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-jasminel13-1-1114.avif",
+          "format": "avif",
+          "width": 1114,
+          "height": 827,
+          "byteSize": 135453
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-jasminel13-1-1114.webp",
+          "format": "webp",
+          "width": 1114,
+          "height": 827,
+          "byteSize": 202224
+        }
+      ],
+      "updatedAt": "2026-10-19T19:22:19.606Z"
+    },
+    "darevskia-portschinskii-maximus94-1.jpg": {
+      "sourceHash": "15443644315ae9edf41035142d0af1fefce4b6242d5f2b8c85ff297443ee20d8",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-portschinskii-maximus94-1.jpg",
+      "originalSize": 627236,
+      "width": 1542,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-portschinskii-maximus94-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 425,
+          "byteSize": 24603
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-maximus94-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 425,
+          "byteSize": 39078
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-maximus94-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 531,
+          "byteSize": 34473
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-maximus94-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 531,
+          "byteSize": 52610
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-maximus94-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 850,
+          "byteSize": 68552
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-maximus94-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 850,
+          "byteSize": 102718
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-maximus94-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1063,
+          "byteSize": 94625
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-maximus94-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1063,
+          "byteSize": 137598
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-maximus94-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1594,
+          "byteSize": 164880
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-maximus94-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1594,
+          "byteSize": 231142
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-maximus94-1-1542.avif",
+          "format": "avif",
+          "width": 1542,
+          "height": 2048,
+          "byteSize": 235711
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-maximus94-1-1542.webp",
+          "format": "webp",
+          "width": 1542,
+          "height": 2048,
+          "byteSize": 312314
+        }
+      ],
+      "updatedAt": "2026-10-19T19:15:18.586Z"
+    },
     "darevskia-portschinskii-mobile.jpg": {
       "sourceHash": "74f334d40732037c45bf8d9975278f322083ff0e58572bcc726a398cbe5d462f",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -28388,6 +28944,291 @@
         }
       ],
       "updatedAt": "2026-08-28T21:35:52.075Z"
+    },
+    "darevskia-portschinskii-nina-1.jpg": {
+      "sourceHash": "869d8db04f3f50031fde0d519b5cd0dfbfaf207fc86bd13e650ec43f15dd62ff",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-portschinskii-nina-1.jpg",
+      "originalSize": 1169753,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-portschinskii-nina-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 14828
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-nina-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 22638
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-nina-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 23145
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-nina-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 35684
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-nina-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 57706
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-nina-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 93040
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-nina-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 90818
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-nina-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 147114
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-nina-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 192782
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-nina-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 315084
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-nina-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 548094
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-nina-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 882404
+        }
+      ],
+      "updatedAt": "2026-10-19T19:13:52.284Z"
+    },
+    "darevskia-portschinskii-tamara-1.jpg": {
+      "sourceHash": "fcbda3be4e450faf83d996d819805c0ab43722e9b66c7d63d7f7afa076726da0",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-portschinskii-tamara-1.jpg",
+      "originalSize": 805252,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-portschinskii-tamara-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 14464
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tamara-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 23868
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tamara-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 21429
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tamara-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 34524
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tamara-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 48423
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tamara-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 80402
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tamara-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 72276
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tamara-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 119012
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tamara-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 137479
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tamara-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 223190
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tamara-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 303710
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tamara-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 475064
+        }
+      ],
+      "updatedAt": "2026-10-19T19:17:07.619Z"
+    },
+    "darevskia-portschinskii-tatyana-1.jpg": {
+      "sourceHash": "0a443049e3d258d4db583b990223959388d69675226b0b5df11b5279c345dc7f",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-portschinskii-tatyana-1.jpg",
+      "originalSize": 622091,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-portschinskii-tatyana-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10024
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tatyana-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 16386
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tatyana-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 14191
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tatyana-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 23318
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tatyana-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 30073
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tatyana-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 50692
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tatyana-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 42972
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tatyana-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 72258
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tatyana-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 80968
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tatyana-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 134898
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tatyana-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 224204
+        },
+        {
+          "key": "optimized/darevskia-portschinskii-tatyana-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 335624
+        }
+      ],
+      "updatedAt": "2026-10-19T19:16:28.741Z"
     },
     "darevskia-portschinskii.jpg": {
       "sourceHash": "c479f778be8183ac0eaf57342d6b602e61079dd112871435da577940cf5a1d6a",
@@ -28590,6 +29431,196 @@
       ],
       "updatedAt": "2026-08-28T21:36:04.333Z"
     },
+    "darevskia-praticola-alexandre-1.jpg": {
+      "sourceHash": "ab79e3984141fb0740f3cb07857c7f75bfc87dcf6974a5a2a5fb9fb752b265d9",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-praticola-alexandre-1.jpg",
+      "originalSize": 509415,
+      "width": 2048,
+      "height": 1366,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-praticola-alexandre-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12072
+        },
+        {
+          "key": "optimized/darevskia-praticola-alexandre-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 17726
+        },
+        {
+          "key": "optimized/darevskia-praticola-alexandre-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 16443
+        },
+        {
+          "key": "optimized/darevskia-praticola-alexandre-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 23968
+        },
+        {
+          "key": "optimized/darevskia-praticola-alexandre-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 32669
+        },
+        {
+          "key": "optimized/darevskia-praticola-alexandre-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 48776
+        },
+        {
+          "key": "optimized/darevskia-praticola-alexandre-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 45646
+        },
+        {
+          "key": "optimized/darevskia-praticola-alexandre-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 68726
+        },
+        {
+          "key": "optimized/darevskia-praticola-alexandre-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 81024
+        },
+        {
+          "key": "optimized/darevskia-praticola-alexandre-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 116962
+        },
+        {
+          "key": "optimized/darevskia-praticola-alexandre-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1366,
+          "byteSize": 170780
+        },
+        {
+          "key": "optimized/darevskia-praticola-alexandre-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1366,
+          "byteSize": 240944
+        }
+      ],
+      "updatedAt": "2026-10-19T20:32:19.053Z"
+    },
+    "darevskia-praticola-almkuznetsov-1.jpg": {
+      "sourceHash": "269c8e2a53071faa2022b34ec4715683320f70284431635a047a3d06e9180758",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-praticola-almkuznetsov-1.jpg",
+      "originalSize": 892575,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-praticola-almkuznetsov-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 36651
+        },
+        {
+          "key": "optimized/darevskia-praticola-almkuznetsov-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 58710
+        },
+        {
+          "key": "optimized/darevskia-praticola-almkuznetsov-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 53674
+        },
+        {
+          "key": "optimized/darevskia-praticola-almkuznetsov-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 88360
+        },
+        {
+          "key": "optimized/darevskia-praticola-almkuznetsov-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 112968
+        },
+        {
+          "key": "optimized/darevskia-praticola-almkuznetsov-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 199260
+        },
+        {
+          "key": "optimized/darevskia-praticola-almkuznetsov-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 154280
+        },
+        {
+          "key": "optimized/darevskia-praticola-almkuznetsov-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 270290
+        },
+        {
+          "key": "optimized/darevskia-praticola-almkuznetsov-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 251611
+        },
+        {
+          "key": "optimized/darevskia-praticola-almkuznetsov-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 433254
+        },
+        {
+          "key": "optimized/darevskia-praticola-almkuznetsov-1-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 333666
+        },
+        {
+          "key": "optimized/darevskia-praticola-almkuznetsov-1-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 558900
+        }
+      ],
+      "updatedAt": "2026-10-19T20:29:09.088Z"
+    },
     "darevskia-praticola-cristian-1.jpg": {
       "sourceHash": "5b3aae43362c7a16e854649cf8686fe07f3748f2d421e8b56741ef6a52a2f187",
       "configFingerprint": "409788ee46c653d8",
@@ -28685,6 +29716,101 @@
       ],
       "updatedAt": "2026-09-08T18:24:47.179Z"
     },
+    "darevskia-praticola-ilya-1.jpg": {
+      "sourceHash": "9aeae765dde942c29330a626853a00f773d653bebe8613447804f5fff9188d9e",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-praticola-ilya-1.jpg",
+      "originalSize": 368147,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-praticola-ilya-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 7608
+        },
+        {
+          "key": "optimized/darevskia-praticola-ilya-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 9904
+        },
+        {
+          "key": "optimized/darevskia-praticola-ilya-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 10414
+        },
+        {
+          "key": "optimized/darevskia-praticola-ilya-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 13872
+        },
+        {
+          "key": "optimized/darevskia-praticola-ilya-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 20928
+        },
+        {
+          "key": "optimized/darevskia-praticola-ilya-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 29528
+        },
+        {
+          "key": "optimized/darevskia-praticola-ilya-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 29724
+        },
+        {
+          "key": "optimized/darevskia-praticola-ilya-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 42120
+        },
+        {
+          "key": "optimized/darevskia-praticola-ilya-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 52252
+        },
+        {
+          "key": "optimized/darevskia-praticola-ilya-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 75504
+        },
+        {
+          "key": "optimized/darevskia-praticola-ilya-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 104306
+        },
+        {
+          "key": "optimized/darevskia-praticola-ilya-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 150286
+        }
+      ],
+      "updatedAt": "2026-10-19T20:33:06.958Z"
+    },
     "darevskia-praticola-mobile.jpg": {
       "sourceHash": "dc3d8cace244a41becd9c23eaec468e75888f350179e431b37f164caac64a12e",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -28751,6 +29877,277 @@
         }
       ],
       "updatedAt": "2026-08-28T21:36:04.722Z"
+    },
+    "darevskia-praticola-roger-e-n-smith-1.jpg": {
+      "sourceHash": "5be4a3e8809ac89c361b9d308bd400947a09a077212db48a818b25ef5d7dbc2a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-praticola-roger-e-n-smith-1.jpg",
+      "originalSize": 886533,
+      "width": 1365,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-praticola-roger-e-n-smith-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 480,
+          "byteSize": 37690
+        },
+        {
+          "key": "optimized/darevskia-praticola-roger-e-n-smith-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 480,
+          "byteSize": 66754
+        },
+        {
+          "key": "optimized/darevskia-praticola-roger-e-n-smith-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 601,
+          "byteSize": 55029
+        },
+        {
+          "key": "optimized/darevskia-praticola-roger-e-n-smith-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 601,
+          "byteSize": 97492
+        },
+        {
+          "key": "optimized/darevskia-praticola-roger-e-n-smith-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 960,
+          "byteSize": 112853
+        },
+        {
+          "key": "optimized/darevskia-praticola-roger-e-n-smith-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 960,
+          "byteSize": 206314
+        },
+        {
+          "key": "optimized/darevskia-praticola-roger-e-n-smith-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1200,
+          "byteSize": 158823
+        },
+        {
+          "key": "optimized/darevskia-praticola-roger-e-n-smith-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1200,
+          "byteSize": 290476
+        },
+        {
+          "key": "optimized/darevskia-praticola-roger-e-n-smith-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1800,
+          "byteSize": 274146
+        },
+        {
+          "key": "optimized/darevskia-praticola-roger-e-n-smith-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1800,
+          "byteSize": 485984
+        },
+        {
+          "key": "optimized/darevskia-praticola-roger-e-n-smith-1-1365.avif",
+          "format": "avif",
+          "width": 1365,
+          "height": 2048,
+          "byteSize": 327598
+        },
+        {
+          "key": "optimized/darevskia-praticola-roger-e-n-smith-1-1365.webp",
+          "format": "webp",
+          "width": 1365,
+          "height": 2048,
+          "byteSize": 571496
+        }
+      ],
+      "updatedAt": "2026-10-19T20:31:28.097Z"
+    },
+    "darevskia-praticola-tom-1.jpg": {
+      "sourceHash": "1b096f142f1b83e05240f868a9431987bb331552f02a82aa91cb006b39dc7a6f",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-praticola-tom-1.jpg",
+      "originalSize": 108831,
+      "width": 960,
+      "height": 720,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-praticola-tom-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 11580
+        },
+        {
+          "key": "optimized/darevskia-praticola-tom-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 16704
+        },
+        {
+          "key": "optimized/darevskia-praticola-tom-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 17209
+        },
+        {
+          "key": "optimized/darevskia-praticola-tom-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 24662
+        },
+        {
+          "key": "optimized/darevskia-praticola-tom-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 35302
+        },
+        {
+          "key": "optimized/darevskia-praticola-tom-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 49408
+        },
+        {
+          "key": "optimized/darevskia-praticola-tom-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 48223
+        },
+        {
+          "key": "optimized/darevskia-praticola-tom-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 67038
+        },
+        {
+          "key": "optimized/darevskia-praticola-tom-1-960.avif",
+          "format": "avif",
+          "width": 960,
+          "height": 720,
+          "byteSize": 65113
+        },
+        {
+          "key": "optimized/darevskia-praticola-tom-1-960.webp",
+          "format": "webp",
+          "width": 960,
+          "height": 720,
+          "byteSize": 82710
+        }
+      ],
+      "updatedAt": "2026-10-19T20:38:07.748Z"
+    },
+    "darevskia-praticola-vojtěch-1.jpg": {
+      "sourceHash": "c85d15d932f5be5522320ca29760980a045f2a3757fc563ffbc91ca0d9fa4444",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-praticola-vojtěch-1.jpg",
+      "originalSize": 497510,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-praticola-vojtěch-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9299
+        },
+        {
+          "key": "optimized/darevskia-praticola-vojtěch-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 15620
+        },
+        {
+          "key": "optimized/darevskia-praticola-vojtěch-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 12893
+        },
+        {
+          "key": "optimized/darevskia-praticola-vojtěch-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 21502
+        },
+        {
+          "key": "optimized/darevskia-praticola-vojtěch-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 26072
+        },
+        {
+          "key": "optimized/darevskia-praticola-vojtěch-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 45266
+        },
+        {
+          "key": "optimized/darevskia-praticola-vojtěch-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 37258
+        },
+        {
+          "key": "optimized/darevskia-praticola-vojtěch-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 63330
+        },
+        {
+          "key": "optimized/darevskia-praticola-vojtěch-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 68797
+        },
+        {
+          "key": "optimized/darevskia-praticola-vojtěch-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 114554
+        },
+        {
+          "key": "optimized/darevskia-praticola-vojtěch-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 158177
+        },
+        {
+          "key": "optimized/darevskia-praticola-vojtěch-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 248620
+        }
+      ],
+      "updatedAt": "2026-10-19T20:36:08.520Z"
     },
     "darevskia-praticola-zauri-1.jpg": {
       "sourceHash": "ea866fac593947bb015e8dcb79e3743dc17bfa0ed176c8596e3aaa7fedc8be50",
@@ -29036,6 +30433,101 @@
         }
       ],
       "updatedAt": "2026-09-08T18:23:32.595Z"
+    },
+    "darevskia-praticola-zsolt-1.jpg": {
+      "sourceHash": "df7bb969c021e5e277c20c78fce3bed819b66cdee7960de624d4088a0a8e8628",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-praticola-zsolt-1.jpg",
+      "originalSize": 515781,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-praticola-zsolt-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 11073
+        },
+        {
+          "key": "optimized/darevskia-praticola-zsolt-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 17760
+        },
+        {
+          "key": "optimized/darevskia-praticola-zsolt-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 16293
+        },
+        {
+          "key": "optimized/darevskia-praticola-zsolt-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 25814
+        },
+        {
+          "key": "optimized/darevskia-praticola-zsolt-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 33583
+        },
+        {
+          "key": "optimized/darevskia-praticola-zsolt-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 54074
+        },
+        {
+          "key": "optimized/darevskia-praticola-zsolt-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 46688
+        },
+        {
+          "key": "optimized/darevskia-praticola-zsolt-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 74630
+        },
+        {
+          "key": "optimized/darevskia-praticola-zsolt-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 81213
+        },
+        {
+          "key": "optimized/darevskia-praticola-zsolt-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 126064
+        },
+        {
+          "key": "optimized/darevskia-praticola-zsolt-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 156131
+        },
+        {
+          "key": "optimized/darevskia-praticola-zsolt-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 233320
+        }
+      ],
+      "updatedAt": "2026-10-19T20:37:20.272Z"
     },
     "darevskia-praticola.jpg": {
       "sourceHash": "f955c3b611354f6c77e36dfc327a27db7683c5c7e06ec938cec4b9fafefb137d",
@@ -37480,6 +38972,196 @@
       ],
       "updatedAt": "2026-09-11T01:46:02.522Z"
     },
+    "eremias-velox-david-1.jpg": {
+      "sourceHash": "7d694ddd92c7b5a56282cfe36a8bb2b41a947f62a240272c484fff8d40f9e3a7",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eremias-velox-david-1.jpg",
+      "originalSize": 410122,
+      "width": 2048,
+      "height": 1356,
+      "derivatives": [
+        {
+          "key": "optimized/eremias-velox-david-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 212,
+          "byteSize": 8334
+        },
+        {
+          "key": "optimized/eremias-velox-david-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 212,
+          "byteSize": 13152
+        },
+        {
+          "key": "optimized/eremias-velox-david-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 265,
+          "byteSize": 11364
+        },
+        {
+          "key": "optimized/eremias-velox-david-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 265,
+          "byteSize": 17964
+        },
+        {
+          "key": "optimized/eremias-velox-david-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 424,
+          "byteSize": 21953
+        },
+        {
+          "key": "optimized/eremias-velox-david-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 424,
+          "byteSize": 34732
+        },
+        {
+          "key": "optimized/eremias-velox-david-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 530,
+          "byteSize": 29848
+        },
+        {
+          "key": "optimized/eremias-velox-david-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 530,
+          "byteSize": 47560
+        },
+        {
+          "key": "optimized/eremias-velox-david-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 795,
+          "byteSize": 50001
+        },
+        {
+          "key": "optimized/eremias-velox-david-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 795,
+          "byteSize": 78278
+        },
+        {
+          "key": "optimized/eremias-velox-david-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1356,
+          "byteSize": 101916
+        },
+        {
+          "key": "optimized/eremias-velox-david-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1356,
+          "byteSize": 156798
+        }
+      ],
+      "updatedAt": "2026-10-19T17:37:45.161Z"
+    },
+    "eremias-velox-giorgi-1.jpg": {
+      "sourceHash": "f1c7bdaedab33f11cb067fb58e1899d22fdd1584ab614afe1a95046da4753dd3",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eremias-velox-giorgi-1.jpg",
+      "originalSize": 577591,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/eremias-velox-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 13377
+        },
+        {
+          "key": "optimized/eremias-velox-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 20732
+        },
+        {
+          "key": "optimized/eremias-velox-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 18509
+        },
+        {
+          "key": "optimized/eremias-velox-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 28626
+        },
+        {
+          "key": "optimized/eremias-velox-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 37098
+        },
+        {
+          "key": "optimized/eremias-velox-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 56840
+        },
+        {
+          "key": "optimized/eremias-velox-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 50930
+        },
+        {
+          "key": "optimized/eremias-velox-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 76452
+        },
+        {
+          "key": "optimized/eremias-velox-giorgi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 87818
+        },
+        {
+          "key": "optimized/eremias-velox-giorgi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 131586
+        },
+        {
+          "key": "optimized/eremias-velox-giorgi-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 185670
+        },
+        {
+          "key": "optimized/eremias-velox-giorgi-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 263134
+        }
+      ],
+      "updatedAt": "2026-10-19T17:38:25.582Z"
+    },
     "eremias-velox-jean-louis-1.jpg": {
       "sourceHash": "fa92cfa063197a334a97ed1a107feb069edb8344470c34b5b31b0c528b5587aa",
       "configFingerprint": "409788ee46c653d8",
@@ -37641,6 +39323,101 @@
         }
       ],
       "updatedAt": "2026-09-11T01:42:45.261Z"
+    },
+    "eremias-velox-korbinian-2.jpg": {
+      "sourceHash": "70692d2e46656da9dda098ccfe7abadd40c214c1cb17150a0cdf338975c2396c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eremias-velox-korbinian-2.jpg",
+      "originalSize": 295103,
+      "width": 2048,
+      "height": 1542,
+      "derivatives": [
+        {
+          "key": "optimized/eremias-velox-korbinian-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 241,
+          "byteSize": 5674
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 241,
+          "byteSize": 7310
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 301,
+          "byteSize": 8441
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 301,
+          "byteSize": 10490
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 482,
+          "byteSize": 19740
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 482,
+          "byteSize": 25084
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 602,
+          "byteSize": 29124
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 602,
+          "byteSize": 37030
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 904,
+          "byteSize": 50694
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 904,
+          "byteSize": 65020
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1542,
+          "byteSize": 94085
+        },
+        {
+          "key": "optimized/eremias-velox-korbinian-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1542,
+          "byteSize": 123748
+        }
+      ],
+      "updatedAt": "2026-10-19T17:36:26.172Z"
     },
     "eremias-velox-mobile.jpg": {
       "sourceHash": "ce62ebd2f1262cdd1a9d78bf07fa57ebd17ffaa62f45d26dc1605120764fbd57",
@@ -48500,6 +50277,671 @@
       ],
       "updatedAt": "2026-08-28T21:42:24.698Z"
     },
+    "hyla-orientalis-alena-1.jpg": {
+      "sourceHash": "f7ffddb6c4a2227e2adc907e04fcd64c93fd83f24c30ec56533c989760b61f70",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "hyla-orientalis-alena-1.jpg",
+      "originalSize": 276500,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/hyla-orientalis-alena-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 7086
+        },
+        {
+          "key": "optimized/hyla-orientalis-alena-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 8844
+        },
+        {
+          "key": "optimized/hyla-orientalis-alena-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 9646
+        },
+        {
+          "key": "optimized/hyla-orientalis-alena-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 12134
+        },
+        {
+          "key": "optimized/hyla-orientalis-alena-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 18475
+        },
+        {
+          "key": "optimized/hyla-orientalis-alena-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 23634
+        },
+        {
+          "key": "optimized/hyla-orientalis-alena-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 25237
+        },
+        {
+          "key": "optimized/hyla-orientalis-alena-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 32508
+        },
+        {
+          "key": "optimized/hyla-orientalis-alena-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 44355
+        },
+        {
+          "key": "optimized/hyla-orientalis-alena-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 56840
+        },
+        {
+          "key": "optimized/hyla-orientalis-alena-1-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 62385
+        },
+        {
+          "key": "optimized/hyla-orientalis-alena-1-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 80514
+        }
+      ],
+      "updatedAt": "2026-10-19T17:56:49.958Z"
+    },
+    "hyla-orientalis-brechtheusequin-1.jpg": {
+      "sourceHash": "a6dc1424c5917c2f1eb16e020483633b54de4222d5d20b14ec27f7c6da9196c1",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "hyla-orientalis-brechtheusequin-1.jpg",
+      "originalSize": 302775,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/hyla-orientalis-brechtheusequin-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 7961
+        },
+        {
+          "key": "optimized/hyla-orientalis-brechtheusequin-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10572
+        },
+        {
+          "key": "optimized/hyla-orientalis-brechtheusequin-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 10375
+        },
+        {
+          "key": "optimized/hyla-orientalis-brechtheusequin-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 14044
+        },
+        {
+          "key": "optimized/hyla-orientalis-brechtheusequin-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 19547
+        },
+        {
+          "key": "optimized/hyla-orientalis-brechtheusequin-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 26796
+        },
+        {
+          "key": "optimized/hyla-orientalis-brechtheusequin-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 25852
+        },
+        {
+          "key": "optimized/hyla-orientalis-brechtheusequin-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 35818
+        },
+        {
+          "key": "optimized/hyla-orientalis-brechtheusequin-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 43957
+        },
+        {
+          "key": "optimized/hyla-orientalis-brechtheusequin-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 62196
+        },
+        {
+          "key": "optimized/hyla-orientalis-brechtheusequin-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 93163
+        },
+        {
+          "key": "optimized/hyla-orientalis-brechtheusequin-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 133582
+        }
+      ],
+      "updatedAt": "2026-10-19T18:04:55.421Z"
+    },
+    "hyla-orientalis-fabian-1.jpg": {
+      "sourceHash": "9ab0dfde7b428ab74752d45aa01ac279c16679d7064435ca6f61dd2fe921936b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "hyla-orientalis-fabian-1.jpg",
+      "originalSize": 289129,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/hyla-orientalis-fabian-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 4925
+        },
+        {
+          "key": "optimized/hyla-orientalis-fabian-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6024
+        },
+        {
+          "key": "optimized/hyla-orientalis-fabian-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 6622
+        },
+        {
+          "key": "optimized/hyla-orientalis-fabian-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 8154
+        },
+        {
+          "key": "optimized/hyla-orientalis-fabian-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 14276
+        },
+        {
+          "key": "optimized/hyla-orientalis-fabian-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 17658
+        },
+        {
+          "key": "optimized/hyla-orientalis-fabian-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 20872
+        },
+        {
+          "key": "optimized/hyla-orientalis-fabian-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 25938
+        },
+        {
+          "key": "optimized/hyla-orientalis-fabian-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 41114
+        },
+        {
+          "key": "optimized/hyla-orientalis-fabian-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 50584
+        },
+        {
+          "key": "optimized/hyla-orientalis-fabian-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 102422
+        },
+        {
+          "key": "optimized/hyla-orientalis-fabian-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 122358
+        }
+      ],
+      "updatedAt": "2026-10-19T18:00:18.443Z"
+    },
+    "hyla-orientalis-frederic-1.jpg": {
+      "sourceHash": "d71e270124cc055e7decf359973a0f0a1b008329f9aaafc258a75e92afbf8959",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "hyla-orientalis-frederic-1.jpg",
+      "originalSize": 237222,
+      "width": 1280,
+      "height": 853,
+      "derivatives": [
+        {
+          "key": "optimized/hyla-orientalis-frederic-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8573
+        },
+        {
+          "key": "optimized/hyla-orientalis-frederic-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11914
+        },
+        {
+          "key": "optimized/hyla-orientalis-frederic-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 12688
+        },
+        {
+          "key": "optimized/hyla-orientalis-frederic-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 17246
+        },
+        {
+          "key": "optimized/hyla-orientalis-frederic-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 29153
+        },
+        {
+          "key": "optimized/hyla-orientalis-frederic-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 39786
+        },
+        {
+          "key": "optimized/hyla-orientalis-frederic-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 42987
+        },
+        {
+          "key": "optimized/hyla-orientalis-frederic-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 56920
+        },
+        {
+          "key": "optimized/hyla-orientalis-frederic-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 85623
+        },
+        {
+          "key": "optimized/hyla-orientalis-frederic-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 109014
+        },
+        {
+          "key": "optimized/hyla-orientalis-frederic-1-1280.avif",
+          "format": "avif",
+          "width": 1280,
+          "height": 853,
+          "byteSize": 101563
+        },
+        {
+          "key": "optimized/hyla-orientalis-frederic-1-1280.webp",
+          "format": "webp",
+          "width": 1280,
+          "height": 853,
+          "byteSize": 127526
+        }
+      ],
+      "updatedAt": "2026-10-19T17:58:35.145Z"
+    },
+    "hyla-orientalis-giorgi-1.jpg": {
+      "sourceHash": "b63911f3c4d1914e6015c7533dab31c53dbefca7834c05991f3dcaeab41dec3b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "hyla-orientalis-giorgi-1.jpg",
+      "originalSize": 613761,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/hyla-orientalis-giorgi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12413
+        },
+        {
+          "key": "optimized/hyla-orientalis-giorgi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 19836
+        },
+        {
+          "key": "optimized/hyla-orientalis-giorgi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 17531
+        },
+        {
+          "key": "optimized/hyla-orientalis-giorgi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 27380
+        },
+        {
+          "key": "optimized/hyla-orientalis-giorgi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 37594
+        },
+        {
+          "key": "optimized/hyla-orientalis-giorgi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 58962
+        },
+        {
+          "key": "optimized/hyla-orientalis-giorgi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 54272
+        },
+        {
+          "key": "optimized/hyla-orientalis-giorgi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 84746
+        },
+        {
+          "key": "optimized/hyla-orientalis-giorgi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 100652
+        },
+        {
+          "key": "optimized/hyla-orientalis-giorgi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 154936
+        },
+        {
+          "key": "optimized/hyla-orientalis-giorgi-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 221226
+        },
+        {
+          "key": "optimized/hyla-orientalis-giorgi-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 338984
+        }
+      ],
+      "updatedAt": "2026-10-19T18:02:05.375Z"
+    },
+    "hyla-orientalis-lennart-1.jpg": {
+      "sourceHash": "02936c69186adfa64dd54f6696baebe4e5a4484e0471d0226530c1a3dd42b2fa",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "hyla-orientalis-lennart-1.jpg",
+      "originalSize": 214221,
+      "width": 2048,
+      "height": 1367,
+      "derivatives": [
+        {
+          "key": "optimized/hyla-orientalis-lennart-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 4710
+        },
+        {
+          "key": "optimized/hyla-orientalis-lennart-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6644
+        },
+        {
+          "key": "optimized/hyla-orientalis-lennart-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 6323
+        },
+        {
+          "key": "optimized/hyla-orientalis-lennart-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 8856
+        },
+        {
+          "key": "optimized/hyla-orientalis-lennart-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 12439
+        },
+        {
+          "key": "optimized/hyla-orientalis-lennart-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 17684
+        },
+        {
+          "key": "optimized/hyla-orientalis-lennart-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 16831
+        },
+        {
+          "key": "optimized/hyla-orientalis-lennart-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 24918
+        },
+        {
+          "key": "optimized/hyla-orientalis-lennart-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 30617
+        },
+        {
+          "key": "optimized/hyla-orientalis-lennart-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 45676
+        },
+        {
+          "key": "optimized/hyla-orientalis-lennart-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1367,
+          "byteSize": 71094
+        },
+        {
+          "key": "optimized/hyla-orientalis-lennart-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1367,
+          "byteSize": 102608
+        }
+      ],
+      "updatedAt": "2026-10-19T17:54:36.101Z"
+    },
+    "hyla-orientalis-matthias-1.jpg": {
+      "sourceHash": "82e4c49dd03ee868254c591a7a41d1fbb087402844cdecd201d81c3006756b38",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "hyla-orientalis-matthias-1.jpg",
+      "originalSize": 317037,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/hyla-orientalis-matthias-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6309
+        },
+        {
+          "key": "optimized/hyla-orientalis-matthias-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8988
+        },
+        {
+          "key": "optimized/hyla-orientalis-matthias-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 8922
+        },
+        {
+          "key": "optimized/hyla-orientalis-matthias-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 12588
+        },
+        {
+          "key": "optimized/hyla-orientalis-matthias-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 19148
+        },
+        {
+          "key": "optimized/hyla-orientalis-matthias-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 28110
+        },
+        {
+          "key": "optimized/hyla-orientalis-matthias-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 27255
+        },
+        {
+          "key": "optimized/hyla-orientalis-matthias-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 41046
+        },
+        {
+          "key": "optimized/hyla-orientalis-matthias-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 51274
+        },
+        {
+          "key": "optimized/hyla-orientalis-matthias-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 78942
+        },
+        {
+          "key": "optimized/hyla-orientalis-matthias-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 118910
+        },
+        {
+          "key": "optimized/hyla-orientalis-matthias-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 185138
+        }
+      ],
+      "updatedAt": "2026-10-19T17:55:53.122Z"
+    },
     "hyla-orientalis-mobile.jpg": {
       "sourceHash": "c731e1950f4ab68f91e71d2bb1e5163e11db76dc41ae0c981d70f4bb0cbda73d",
       "configFingerprint": "a895f8e025dcc7fa",
@@ -48566,6 +51008,467 @@
         }
       ],
       "updatedAt": "2026-08-28T21:42:30.524Z"
+    },
+    "hyla-orientalis-monteanimals-1.jpg": {
+      "sourceHash": "78e85f4af6b0314304c44754f49ab0fec73b91c8f2ac2e883a7591f77bca736b",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "hyla-orientalis-monteanimals-1.jpg",
+      "originalSize": 428340,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/hyla-orientalis-monteanimals-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 8416
+        },
+        {
+          "key": "optimized/hyla-orientalis-monteanimals-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 10834
+        },
+        {
+          "key": "optimized/hyla-orientalis-monteanimals-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 11228
+        },
+        {
+          "key": "optimized/hyla-orientalis-monteanimals-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 14912
+        },
+        {
+          "key": "optimized/hyla-orientalis-monteanimals-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 23276
+        },
+        {
+          "key": "optimized/hyla-orientalis-monteanimals-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 30632
+        },
+        {
+          "key": "optimized/hyla-orientalis-monteanimals-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 32751
+        },
+        {
+          "key": "optimized/hyla-orientalis-monteanimals-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 44410
+        },
+        {
+          "key": "optimized/hyla-orientalis-monteanimals-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 59165
+        },
+        {
+          "key": "optimized/hyla-orientalis-monteanimals-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 81530
+        },
+        {
+          "key": "optimized/hyla-orientalis-monteanimals-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 131827
+        },
+        {
+          "key": "optimized/hyla-orientalis-monteanimals-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 177796
+        }
+      ],
+      "updatedAt": "2026-10-19T18:05:49.205Z"
+    },
+    "hyla-orientalis-nikita-1.jpg": {
+      "sourceHash": "6ac2a3b299097fdea3ee9c03ce58ed49df92ea5f9ff4dfe70e9d4d5626e2691f",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "hyla-orientalis-nikita-1.jpg",
+      "originalSize": 757644,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/hyla-orientalis-nikita-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 12615
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 19184
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 18591
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 28120
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 43144
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 67020
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 66070
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 102622
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 132128
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 212556
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 310107
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 460186
+        }
+      ],
+      "updatedAt": "2026-10-19T17:59:37.899Z"
+    },
+    "hyla-orientalis-nikita-2.jpg": {
+      "sourceHash": "0f06b0790aaadd1557b964f398780deed0b0b7678c2b8a12af2e9ff36098b356",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "hyla-orientalis-nikita-2.jpg",
+      "originalSize": 629424,
+      "width": 2048,
+      "height": 1366,
+      "derivatives": [
+        {
+          "key": "optimized/hyla-orientalis-nikita-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 5359
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6610
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 7310
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 8956
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 14626
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 18982
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 20912
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 26956
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 42562
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 64730
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1366,
+          "byteSize": 278804
+        },
+        {
+          "key": "optimized/hyla-orientalis-nikita-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1366,
+          "byteSize": 348856
+        }
+      ],
+      "updatedAt": "2026-10-19T18:02:58.894Z"
+    },
+    "hyla-orientalis-phantom85-1.jpg": {
+      "sourceHash": "8d50ee5db7e13b1da1bbff31008b1516b11a5c521088db67c38f9e829f3f4c7c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "hyla-orientalis-phantom85-1.jpg",
+      "originalSize": 435189,
+      "width": 1153,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/hyla-orientalis-phantom85-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 569,
+          "byteSize": 18037
+        },
+        {
+          "key": "optimized/hyla-orientalis-phantom85-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 569,
+          "byteSize": 24618
+        },
+        {
+          "key": "optimized/hyla-orientalis-phantom85-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 710,
+          "byteSize": 25512
+        },
+        {
+          "key": "optimized/hyla-orientalis-phantom85-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 710,
+          "byteSize": 35396
+        },
+        {
+          "key": "optimized/hyla-orientalis-phantom85-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 1137,
+          "byteSize": 55026
+        },
+        {
+          "key": "optimized/hyla-orientalis-phantom85-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 1137,
+          "byteSize": 76054
+        },
+        {
+          "key": "optimized/hyla-orientalis-phantom85-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1421,
+          "byteSize": 78153
+        },
+        {
+          "key": "optimized/hyla-orientalis-phantom85-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1421,
+          "byteSize": 110012
+        },
+        {
+          "key": "optimized/hyla-orientalis-phantom85-1-1153.avif",
+          "format": "avif",
+          "width": 1153,
+          "height": 2048,
+          "byteSize": 154108
+        },
+        {
+          "key": "optimized/hyla-orientalis-phantom85-1-1153.webp",
+          "format": "webp",
+          "width": 1153,
+          "height": 2048,
+          "byteSize": 203638
+        }
+      ],
+      "updatedAt": "2026-10-19T18:01:13.145Z"
+    },
+    "hyla-orientalis-sandro-1.jpg": {
+      "sourceHash": "3c502708acea93c3dcda6b094222c7652912d54507decde2035106a81c01a7fa",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "hyla-orientalis-sandro-1.jpg",
+      "originalSize": 164923,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/hyla-orientalis-sandro-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 13055
+        },
+        {
+          "key": "optimized/hyla-orientalis-sandro-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 16798
+        },
+        {
+          "key": "optimized/hyla-orientalis-sandro-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 17762
+        },
+        {
+          "key": "optimized/hyla-orientalis-sandro-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 22782
+        },
+        {
+          "key": "optimized/hyla-orientalis-sandro-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 34808
+        },
+        {
+          "key": "optimized/hyla-orientalis-sandro-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 44286
+        },
+        {
+          "key": "optimized/hyla-orientalis-sandro-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 46845
+        },
+        {
+          "key": "optimized/hyla-orientalis-sandro-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 59996
+        },
+        {
+          "key": "optimized/hyla-orientalis-sandro-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 80423
+        },
+        {
+          "key": "optimized/hyla-orientalis-sandro-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 103352
+        },
+        {
+          "key": "optimized/hyla-orientalis-sandro-1-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 102194
+        },
+        {
+          "key": "optimized/hyla-orientalis-sandro-1-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 134174
+        }
+      ],
+      "updatedAt": "2026-10-19T18:03:54.225Z"
     },
     "hyla-orientalis.jpg": {
       "sourceHash": "36916702e8381f9b1294da7a2585c43dc121895b64ec20ca1fb17854fc71378a",

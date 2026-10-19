@@ -11,21 +11,20 @@ import {
   getPublishedNewsArticleBySlug,
   newsSourceName,
 } from "@/data/news";
+import { newsSeriesName } from "@/data/newsSeries";
 import { getRegionById, localizeRegionText } from "@/data/regions";
 import { getSpeciesById } from "@/data/species";
 import { georgiaPlaceName, openGraphLocale } from "@/i18n/localeMeta";
 import { type AppLocale, routing } from "@/i18n/routing";
-import { kaMetaDescriptionOverride } from "@/lib/kaMetaDescriptionOverrides";
 import {
   newsArticleAlternates,
   newsArticleUrl,
   newsDateTime,
   newsIndexUrl,
-  newsOgImageDimensions,
   newsOgImageUrl,
   publishedNewsStaticParams,
 } from "@/lib/news";
-import { newsImageRights } from "@/lib/newsVisual";
+import { newsSchemaImages } from "@/lib/newsSchemaImages";
 import { INDEXABLE_ROBOTS } from "@/lib/robots";
 import {
   absoluteUrl,
@@ -64,11 +63,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const title = copy.metaTitle;
   const url = newsArticleUrl(locale, article.slug);
-  const description = kaMetaDescriptionOverride(
-    locale,
-    new URL(url).pathname,
-    copy.metaDescription,
-  );
+  const description = copy.metaDescription;
   const ogImage = newsOgImageUrl(article);
   const published = newsDateTime(article.publishedAt);
 
@@ -124,7 +119,6 @@ export default async function NewsArticleRoute({ params }: Props) {
     getTranslations({ locale, namespace: "groupHubShared" }),
   ]);
   const url = newsArticleUrl(locale, article.slug);
-  const ogImage = newsOgImageUrl(article);
   const published = newsDateTime(article.publishedAt);
   const modified = newsDateTime(article.updatedAt ?? article.publishedAt);
 
@@ -195,15 +189,17 @@ export default async function NewsArticleRoute({ params }: Props) {
     datePublished: published,
     description: copy.metaDescription,
     headline: copy.title,
-    image: {
-      "@type": "ImageObject",
-      contentUrl: ogImage,
-      url: ogImage,
-      ...newsOgImageDimensions(article),
-      ...newsImageRights(article, locale),
-    },
+    image: newsSchemaImages(article, locale),
     inLanguage: locale,
-    isPartOf: { "@id": siteEntityId("website") },
+    isPartOf: article.series
+      ? [
+          { "@id": siteEntityId("website") },
+          {
+            "@type": "CreativeWorkSeries",
+            name: newsSeriesName(article.series, locale),
+          },
+        ]
+      : { "@id": siteEntityId("website") },
     mainEntityOfPage: {
       "@id": url,
       "@type": "WebPage",

@@ -52,6 +52,16 @@ export function getPublishedNewsArticles(locale?: AppLocale) {
   });
 }
 
+export function getPublishedNewsArticlesInSeries(
+  article: NewsArticle,
+  locale?: AppLocale,
+) {
+  if (!article.series) return [];
+  return getPublishedNewsArticles(locale)
+    .filter((item) => item.series === article.series)
+    .reverse();
+}
+
 export function getPublishedNewsForCreditAuthor(
   author: CreditAuthor,
   locale?: AppLocale,

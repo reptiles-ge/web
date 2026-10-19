@@ -39,3 +39,52 @@ jobs:
         with:
           path: .indexnow-state.json
           key: indexnow-state-${{ github.run_id }}
+
+  images:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    permissions:
+      contents: write
+      pull-requests: write
+    env:
+      BUNNY_STORAGE_ZONE: ${{ secrets.BUNNY_STORAGE_ZONE }}
+      BUNNY_STORAGE_ACCESS_KEY: ${{ secrets.BUNNY_STORAGE_ACCESS_KEY }}
+      BUNNY_STORAGE_REGION: ${{ secrets.BUNNY_STORAGE_REGION }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: staging
+
+      - uses: pnpm/action-setup@ea17c68df8912ef543352723c149a84f56e3d413 # v6.1.0
+        with:
+          version: 10.34.5
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Upload missing OG images and news schema crops
+        run: pnpm images:warm
+
+      - name: Open a pull request with the updated news schema manifest
+        run: |
+          if git diff --quiet -- src/data/newsSchemaImages.json; then
+            echo "newsSchemaImages.json is unchanged."
+            exit 0
+          fi
+          branch=bot/news-schema-images
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -C "$branch"
+          git add src/data/newsSchemaImages.json
+          git commit -m "Record new news schema crops"
+          git push --force origin "$branch"
+          if [ "$(gh pr list --head "$branch" --base staging --state open --json number --jq length)" = "0" ]; then
+            gh pr create --base staging --head "$branch" --label content \
+              --title "Record new news schema crops" \
+              --body "The warm-cache workflow uploaded 16:9, 4:3 and 1:1 crops for new news heroes. This records them in \`src/data/newsSchemaImages.json\`, so NewsArticle JSON-LD lists them after the next deploy."
+          fi

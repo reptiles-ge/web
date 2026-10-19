@@ -191,6 +191,7 @@ Long-form, answer-first practical guides (bat in the house, wasp nest, …) use 
 - No category or tag archive URLs. Drafts stay out of `getPublishedNewsArticles()`, sitemap, and `generateStaticParams`.
 - Reuse `localeAlternates` / `JsonLd` / sitemap `pageEntry`. Do not invent a parallel blog.
 - Do not invent counts, quotes, or species totals beyond the cited source.
+- Hero (`image` in KA frontmatter) must be landscape and at least 1200 px wide at the served size (`src/lib/newsHeroImage.ts`); `pnpm news:compile` fails for articles from 2026-10-21 on and warns for older ones. Urgent news without a fitting photo: `heroImageException: <reason>` (KA only, at most 3 open, remove it once the hero is replaced).
 
 ## SEO
 

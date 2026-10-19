@@ -50,6 +50,10 @@ export function newsArticleModifiedDateTime(article: NewsArticle) {
   return newsDateTime(article.updatedAt ?? article.publishedAt);
 }
 
+export function newsArticlePath(locale: AppLocale, slug: string) {
+  return getPathname({ href: newsArticleHref(slug), locale });
+}
+
 export function newsArticleUrl(locale: AppLocale, slug: string) {
   return absoluteUrl(newsArticlePath(locale, slug));
 }
@@ -163,7 +167,7 @@ const NEWS_SOURCE_BADGE_LIMIT = 4;
 
 const NEWS_WORDS_PER_MINUTE = 150;
 
-function newestNewsDateTime(articles: readonly NewsArticle[]) {
+export function newestNewsDateTime(articles: readonly NewsArticle[]) {
   let newest: null | string = null;
   let newestTime = Number.NEGATIVE_INFINITY;
   for (const article of articles) {
@@ -174,10 +178,6 @@ function newestNewsDateTime(articles: readonly NewsArticle[]) {
     newestTime = time;
   }
   return newest;
-}
-
-function newsArticlePath(locale: AppLocale, slug: string) {
-  return getPathname({ href: newsArticleHref(slug), locale });
 }
 
 function newsIndexPath(locale: AppLocale) {

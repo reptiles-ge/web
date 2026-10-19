@@ -1,5 +1,6 @@
 import { z } from "zod/v4";
 
+import { newsSeriesIds } from "../src/data/newsSeries";
 import { GROUP_HUBS, type GroupHubId } from "../src/lib/groupHubs";
 
 const nonempty = z.string().trim().min(1);
@@ -39,6 +40,7 @@ const newsPhotoSchema = z.strictObject({
 export const newsKaFrontmatterSchema = z.strictObject({
   ...copyFields,
   gallery: z.array(newsPhotoSchema).optional(),
+  heroImageException: z.string().trim().min(20).optional(),
   image: newsPhotoSchema.optional(),
   publishedAt: nonempty,
   relatedHubIds: z.array(
@@ -46,6 +48,7 @@ export const newsKaFrontmatterSchema = z.strictObject({
   ),
   relatedRegionIds: z.array(nonempty),
   relatedSpeciesIds: z.array(nonempty),
+  series: z.enum(newsSeriesIds).optional(),
   slug: nonempty,
   sources: z
     .array(

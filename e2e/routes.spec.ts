@@ -44,6 +44,25 @@ test("English species page advertises KA as x-default", async ({ page }) => {
   ).toHaveAttribute("href", /\/gvelebi\/giurza\/?$/);
 });
 
+test("home and news articles advertise the locale Atom feed in head", async ({
+  page,
+}) => {
+  const pages = [
+    ["/", "/feed.xml"],
+    ["/en", "/en/feed.xml"],
+    ["/news/sakartvelos-mghvimeebi-20-ghamuris-sakheoba", "/feed.xml"],
+    ["/en/news/sakartvelos-mghvimeebi-20-ghamuris-sakheoba", "/en/feed.xml"],
+  ];
+  for (const [path, feed] of pages) {
+    await page.goto(path);
+    const links = page.locator(
+      'head link[rel="alternate"][type="application/atom+xml"]',
+    );
+    await expect(links).toHaveCount(1);
+    await expect(links).toHaveAttribute("href", new RegExp(`${feed}$`));
+  }
+});
+
 test("/ka prefix 301s to the unprefixed default locale", async ({
   request,
 }) => {
@@ -382,4 +401,24 @@ test.describe("JS-disabled shells", () => {
     await page.goto("/contact");
     await expect(page.locator("h1")).toBeVisible();
   });
+});
+
+test("news article JSON-LD lists several sized images", async ({ page }) => {
+  await page.goto("/news/sakartvelos-mghvimeebi-20-ghamuris-sakheoba");
+  const jsonLd = await page
+    .locator('script[type="application/ld+json"]')
+    .allTextContents();
+  const nodes = jsonLd.flatMap((block) => {
+    const parsed = JSON.parse(block) as unknown;
+    return (Array.isArray(parsed) ? parsed : [parsed]) as Record<
+      string,
+      unknown
+    >[];
+  });
+  const article = nodes.find((node) => node["@type"] === "NewsArticle");
+  const images = article?.image as Record<string, unknown>[];
+  expect(images.length).toBeGreaterThan(1);
+  for (const image of images) {
+    expect(Number(image.width)).toBeGreaterThanOrEqual(1200);
+  }
 });

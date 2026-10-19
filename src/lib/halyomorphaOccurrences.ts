@@ -55,12 +55,28 @@ export type HalyomorphaRegionSummary = {
 
 const ARMENIACA_OBSCURED_RECORD_NOTE =
   "Darevskia armeniaca: iNaturalist public coordinates obscured (~28 km)";
+const PRATICOLA_OBSCURED_RECORD_NOTE =
+  "Darevskia praticola: iNaturalist public coordinates obscured (~28 km)";
+const PORTSCHINSKII_OBSCURED_RECORD_NOTE =
+  "Darevskia portschinskii: iNaturalist public coordinates obscured (~28 km)";
+const PORTSCHINSKII_NEEDS_ID_RECORD_NOTE =
+  "Darevskia portschinskii: iNaturalist observation needs ID";
 const DAHLI_OBSCURED_RECORD_NOTE =
   "Darevskia dahli: iNaturalist public coordinates obscured (~28 km)";
 const VERMICULARIS_OBSCURED_RECORD_NOTE =
   "Xerotyphlops vermicularis: iNaturalist public coordinates obscured (~28 km)";
 const ANGUIS_OBSCURED_RECORD_NOTE =
   "Anguis colchica: iNaturalist public coordinates obscured (~28 km)";
+const VELOX_OBSCURED_RECORD_NOTE =
+  "Eremias velox: iNaturalist public coordinates obscured (~28 km)";
+const VELOX_NEEDS_ID_RECORD_NOTE =
+  "Eremias velox: iNaturalist observation needs ID";
+const HYLA_ORIENTALIS_OBSCURED_RECORD_NOTE =
+  "Hyla orientalis: iNaturalist public coordinates obscured (~28 km)";
+const HYLA_ORIENTALIS_NEEDS_ID_RECORD_NOTE =
+  "Hyla orientalis: iNaturalist observation needs ID";
+const HYLA_ORIENTALIS_CASUAL_RECORD_NOTE =
+  "Hyla orientalis: iNaturalist observation is casual grade (no date)";
 const VALENTINI_OBSCURED_RECORD_NOTE =
   "Darevskia valentini: iNaturalist public coordinates obscured (~28 km)";
 const VALENTINI_NEEDS_ID_RECORD_NOTE =
@@ -79,14 +95,22 @@ const OBSCURED_COORDINATE_NOTES = new Set([
   DAHLI_OBSCURED_RECORD_NOTE,
   EIRENIS_COLLARIS_OBSCURED_RECORD_NOTE,
   ERYX_JACULUS_OBSCURED_RECORD_NOTE,
+  HYLA_ORIENTALIS_OBSCURED_RECORD_NOTE,
   LACERTA_MEDIA_OBSCURED_RECORD_NOTE,
+  PORTSCHINSKII_OBSCURED_RECORD_NOTE,
+  PRATICOLA_OBSCURED_RECORD_NOTE,
   VALENTINI_OBSCURED_RECORD_NOTE,
+  VELOX_OBSCURED_RECORD_NOTE,
   VERMICULARIS_OBSCURED_RECORD_NOTE,
 ]);
 const NON_CONFIRMING_RECORD_NOTES = new Set([
   ...OBSCURED_COORDINATE_NOTES,
+  HYLA_ORIENTALIS_CASUAL_RECORD_NOTE,
+  HYLA_ORIENTALIS_NEEDS_ID_RECORD_NOTE,
   LACERTA_MEDIA_NOT_RESEARCH_RECORD_NOTE,
+  PORTSCHINSKII_NEEDS_ID_RECORD_NOTE,
   VALENTINI_NEEDS_ID_RECORD_NOTE,
+  VELOX_NEEDS_ID_RECORD_NOTE,
 ]);
 const MERTENSIELLA_OBSCURED_RECORD_NOTE =
   "Mertensiella caucasica: iNaturalist public coordinates obscured (~27 km)";

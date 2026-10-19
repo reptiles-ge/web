@@ -1,4 +1,4 @@
-import { ArrowRight, ArrowUpRight, ChevronDown, FileText } from "lucide-react";
+import { ArrowRight, ArrowUpRight, FileText } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import type { NewsArticle } from "@/data/news";
@@ -13,10 +13,12 @@ import { CoverImagePreload } from "@/components/CoverImagePreload";
 import { Logo } from "@/components/Logo";
 import { NewsArticleToc } from "@/components/NewsArticleToc";
 import { NewsRichText } from "@/components/NewsRichText";
+import { NewsSeriesBlock } from "@/components/NewsSeriesBlock";
 import { NewsShareButtons } from "@/components/NewsShareButtons";
 import {
   getNewsCopy,
   getPublishedNewsArticles,
+  getPublishedNewsArticlesInSeries,
   newsLocalizedTitle,
   newsPhotoBySrc,
   newsRelatedHubs,
@@ -24,6 +26,7 @@ import {
   newsRelatedSpecies,
   newsSourceName,
 } from "@/data/news";
+import { newsSeriesName } from "@/data/newsSeries";
 import { getRegionHeroImage } from "@/data/regionImages";
 import { localizeRegionText } from "@/data/regions";
 import { getSpeciesById } from "@/data/species";
@@ -35,6 +38,7 @@ import { contentEditorAttributes } from "@/lib/contentEditorAttributes";
 import { formatContentDate, formatPhotoDate } from "@/lib/formatDate";
 import {
   newsArticleHref,
+  newsArticlePath,
   newsArticleUrl,
   newsIndexHref,
   newsReadMinutes,
@@ -116,22 +120,17 @@ export async function NewsArticlePage({
           visual={visual}
         />
         <div className={`${wrapClass} pt-6 md:pt-14`}>
-          <div className="mx-auto max-w-[700px] xl:grid xl:max-w-none xl:grid-cols-[220px_minmax(0,700px)_280px] xl:items-start xl:justify-between xl:gap-10">
-            <aside className="hidden xl:sticky xl:top-28 xl:block">
+          <div className="mx-auto flex max-w-[700px] flex-col xl:grid xl:max-w-none xl:grid-cols-[220px_minmax(0,700px)_280px] xl:items-start xl:justify-between xl:gap-10">
+            <aside className="xl:sticky xl:top-28">
               {showToc ? (
-                <NewsArticleToc heading={t("tocHeading")} items={tocItems} />
+                <NewsArticleToc
+                  heading={t("tocHeading")}
+                  items={tocItems}
+                  summary={t("tocSummary", { count: tocItems.length })}
+                />
               ) : null}
             </aside>
             <div className="min-w-0">
-              <div className="xl:hidden">
-                <NewsFacts facts={facts} heading={t("factsHeading")} />
-                {showToc ? (
-                  <NewsMobileToc
-                    items={tocItems}
-                    summary={t("tocSummary", { count: tocItems.length })}
-                  />
-                ) : null}
-              </div>
               <NewsArticleBody
                 article={article}
                 copy={copy}
@@ -139,19 +138,16 @@ export async function NewsArticlePage({
                 locale={locale}
               />
               <NewsArticleSources article={article} locale={locale} />
+              <NewsArticleSeries article={article} locale={locale} />
             </div>
-            <aside className="hidden xl:sticky xl:top-28 xl:flex xl:flex-col xl:gap-3">
-              <NewsFacts facts={facts} heading={t("factsHeading")} sidebar />
+            <aside className="contents xl:sticky xl:top-28 xl:flex xl:flex-col xl:gap-3">
+              <NewsFacts facts={facts} heading={t("factsHeading")} />
               <NewsAtlasLinks label={t("relatedHeading")} links={atlasLinks} />
             </aside>
           </div>
         </div>
       </article>
-      <NewsContinueReading
-        article={article}
-        atlasLinks={atlasLinks}
-        locale={locale}
-      />
+      <NewsContinueReading article={article} locale={locale} />
       <ContentAttribution
         locale={locale}
         publishedAt={article.publishedAt}
@@ -407,6 +403,30 @@ async function NewsArticleHeader({
   );
 }
 
+async function NewsArticleSeries({ article, locale }: NewsArticlePageProps) {
+  if (!article.series) return null;
+  const t = await getTranslations({ locale, namespace: "news" });
+  const items = getPublishedNewsArticlesInSeries(article, locale).map(
+    (item) => ({
+      current: item.id === article.id,
+      dateLabel: formatContentDate(item.publishedAt, locale),
+      href: newsArticlePath(locale, item.slug),
+      id: item.id,
+      publishedAt: item.publishedAt,
+      title: newsLocalizedTitle(item, locale),
+    }),
+  );
+
+  return (
+    <NewsSeriesBlock
+      currentLabel={t("seriesCurrent")}
+      eyebrow={t("seriesHeading")}
+      items={items}
+      name={newsSeriesName(article.series, locale)}
+    />
+  );
+}
+
 async function NewsArticleSources({ article, locale }: NewsArticlePageProps) {
   if (article.sources.length === 0) return null;
 
@@ -435,7 +455,7 @@ async function NewsArticleSources({ article, locale }: NewsArticlePageProps) {
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                <span className="text-[13px] font-bold text-(--nw-sep) tabular-nums">
+                <span className="text-[13px] font-bold text-(--nw-muted) tabular-nums">
                   {sectionNumber(index)}
                 </span>
                 <span className="text-[14px] leading-normal md:text-[15px]">
@@ -510,7 +530,10 @@ function NewsAtlasLinks({
 }) {
   if (links.length === 0) return null;
   return (
-    <nav aria-label={label}>
+    <nav
+      aria-label={label}
+      className="order-last mt-8 md:mt-10 xl:order-0 xl:mt-0"
+    >
       <ul className="flex flex-col gap-2 xl:gap-3">
         {links.map((link) => (
           <li key={link.key}>
@@ -620,11 +643,9 @@ function NewsContinueCard({
 
 async function NewsContinueReading({
   article,
-  atlasLinks,
   locale,
 }: {
   article: NewsArticle;
-  atlasLinks: AtlasLink[];
   locale: AppLocale;
 }) {
   const [t, tNav] = await Promise.all([
@@ -661,10 +682,7 @@ async function NewsContinueReading({
           />
         </Link>
       </div>
-      <div className="mt-5 xl:hidden">
-        <NewsAtlasLinks label={t("relatedHeading")} links={atlasLinks} />
-      </div>
-      <ul className="mt-2 grid gap-2 md:mt-7 md:gap-4 lg:grid-cols-2">
+      <ul className="mt-5 grid gap-2 md:mt-7 md:gap-4 lg:grid-cols-2">
         {related ? (
           <li>
             <NewsContinueCard
@@ -735,31 +753,11 @@ async function newsFacts(
   return facts;
 }
 
-function NewsFacts({
-  facts,
-  heading,
-  sidebar = false,
-}: {
-  facts: Fact[];
-  heading: string;
-  sidebar?: boolean;
-}) {
+function NewsFacts({ facts, heading }: { facts: Fact[]; heading: string }) {
   return (
-    <section
-      className={
-        sidebar
-          ? "rounded-[24px] bg-(--nw-card) px-[22px] pt-5 pb-2.5"
-          : "rounded-[20px] bg-(--nw-card) px-[18px] pt-4 pb-1.5"
-      }
-    >
+    <section className="order-first rounded-[20px] bg-(--nw-card) px-[18px] pt-4 pb-1.5 xl:order-0 xl:rounded-[24px] xl:px-[22px] xl:pt-5 xl:pb-2.5">
       <h2 className={eyebrowClass}>{heading}</h2>
-      <dl
-        className={
-          sidebar
-            ? "mt-2.5"
-            : "mt-1.5 grid grid-cols-2 gap-x-3.5 [&>div:nth-child(-n+2)]:border-t-0"
-        }
-      >
+      <dl className="mt-1.5 grid grid-cols-2 gap-x-3.5 xl:mt-2.5 xl:block max-xl:[&>div:nth-child(-n+2)]:border-t-0">
         {facts.map((fact) => (
           <div
             className="flex flex-col gap-[3px] border-t border-(--nw-line-soft) py-3 first:border-t-0"
@@ -900,42 +898,6 @@ function NewsFigureCredit({
         </span>
       ) : null}
     </span>
-  );
-}
-
-function NewsMobileToc({
-  items,
-  summary,
-}: {
-  items: Array<{ id: string; label: string }>;
-  summary: string;
-}) {
-  return (
-    <details className="group mt-2 rounded-[20px] bg-(--nw-card) px-[18px]">
-      <summary className="flex h-[52px] cursor-pointer list-none items-center justify-between text-[14.5px] font-semibold [&::-webkit-details-marker]:hidden">
-        {summary}
-        <ChevronDown
-          aria-hidden="true"
-          className="size-4 text-(--nw-muted) transition-transform group-open:rotate-180"
-          strokeWidth={1.75}
-        />
-      </summary>
-      <ol className="pb-2">
-        {items.map((item, index) => (
-          <li key={item.id}>
-            <a
-              className="flex gap-3 border-t border-(--nw-line-soft) py-2.5 text-[14px] leading-[1.4] text-(--nw-muted)"
-              href={`#${item.id}`}
-            >
-              <span className="w-[22px] shrink-0 text-[12px] font-bold text-(--nw-sep) tabular-nums">
-                {sectionNumber(index)}
-              </span>
-              {item.label}
-            </a>
-          </li>
-        ))}
-      </ol>
-    </details>
   );
 }
 

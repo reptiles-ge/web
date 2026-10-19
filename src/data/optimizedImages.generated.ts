@@ -2664,6 +2664,20 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/darevskia-portschinskii-anastasiia-1.jpg": {
+    "path": "darevskia-portschinskii-anastasiia-1",
+    "width": 2048,
+    "height": 1532,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-portschinskii-axel-1.jpg": {
+    "path": "darevskia-portschinskii-axel-1",
+    "width": 2048,
+    "height": 1709,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/darevskia-portschinskii-giorgi-1.jpg": {
     "path": "darevskia-portschinskii-giorgi-1",
     "width": 1024,
@@ -2692,6 +2706,55 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1024],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/darevskia-portschinskii-giorgi-5.jpg": {
+    "path": "darevskia-portschinskii-giorgi-5",
+    "width": 2048,
+    "height": 1366,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-portschinskii-herbert-1.jpg": {
+    "path": "darevskia-portschinskii-herbert-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-portschinskii-jasminel13-1.jpg": {
+    "path": "darevskia-portschinskii-jasminel13-1",
+    "width": 1114,
+    "height": 827,
+    "widths": [320, 400, 640, 800, 1114],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-portschinskii-maximus94-1.jpg": {
+    "path": "darevskia-portschinskii-maximus94-1",
+    "width": 1542,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1542],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-portschinskii-nina-1.jpg": {
+    "path": "darevskia-portschinskii-nina-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-portschinskii-tamara-1.jpg": {
+    "path": "darevskia-portschinskii-tamara-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-portschinskii-tatyana-1.jpg": {
+    "path": "darevskia-portschinskii-tatyana-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/darevskia-praticola-2.jpg": {
     "path": "darevskia-praticola-2",
     "width": 1536,
@@ -2706,11 +2769,53 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1536],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/darevskia-praticola-alexandre-1.jpg": {
+    "path": "darevskia-praticola-alexandre-1",
+    "width": 2048,
+    "height": 1366,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-praticola-almkuznetsov-1.jpg": {
+    "path": "darevskia-praticola-almkuznetsov-1",
+    "width": 1536,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/darevskia-praticola-cristian-1.jpg": {
     "path": "darevskia-praticola-cristian-1",
     "width": 1224,
     "height": 1013,
     "widths": [320, 400, 640, 800, 1200, 1224],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-praticola-ilya-1.jpg": {
+    "path": "darevskia-praticola-ilya-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-praticola-roger-e-n-smith-1.jpg": {
+    "path": "darevskia-praticola-roger-e-n-smith-1",
+    "width": 1365,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1365],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-praticola-tom-1.jpg": {
+    "path": "darevskia-praticola-tom-1",
+    "width": 960,
+    "height": 720,
+    "widths": [320, 400, 640, 800, 960],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-praticola-vojt%C4%9Bch-1.jpg": {
+    "path": "darevskia-praticola-vojt%C4%9Bch-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/darevskia-praticola-zauri-1.jpg": {
@@ -2732,6 +2837,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1344,
     "height": 960,
     "widths": [320, 400, 640, 800, 1200, 1344],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-praticola-zsolt-1.jpg": {
+    "path": "darevskia-praticola-zsolt-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/darevskia-praticola.jpg": {
@@ -3490,6 +3602,20 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/eremias-velox-david-1.jpg": {
+    "path": "eremias-velox-david-1",
+    "width": 2048,
+    "height": 1356,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/eremias-velox-giorgi-1.jpg": {
+    "path": "eremias-velox-giorgi-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/eremias-velox-jean-louis-1.jpg": {
     "path": "eremias-velox-jean-louis-1",
     "width": 1024,
@@ -3502,6 +3628,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "width": 1024,
     "height": 771,
     "widths": [320, 400, 640, 800, 1024],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/eremias-velox-korbinian-2.jpg": {
+    "path": "eremias-velox-korbinian-2",
+    "width": 2048,
+    "height": 1542,
+    "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/eremias-velox-nikita-1.jpg": {
@@ -4449,11 +4582,95 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1920],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/hyla-orientalis-alena-1.jpg": {
+    "path": "hyla-orientalis-alena-1",
+    "width": 1536,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/hyla-orientalis-brechtheusequin-1.jpg": {
+    "path": "hyla-orientalis-brechtheusequin-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/hyla-orientalis-fabian-1.jpg": {
+    "path": "hyla-orientalis-fabian-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/hyla-orientalis-frederic-1.jpg": {
+    "path": "hyla-orientalis-frederic-1",
+    "width": 1280,
+    "height": 853,
+    "widths": [320, 400, 640, 800, 1200, 1280],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/hyla-orientalis-giorgi-1.jpg": {
+    "path": "hyla-orientalis-giorgi-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/hyla-orientalis-lennart-1.jpg": {
+    "path": "hyla-orientalis-lennart-1",
+    "width": 2048,
+    "height": 1367,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/hyla-orientalis-matthias-1.jpg": {
+    "path": "hyla-orientalis-matthias-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/hyla-orientalis-mobile.jpg": {
     "path": "hyla-orientalis-mobile",
     "width": 1536,
     "height": 2048,
     "widths": [400, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/hyla-orientalis-monteanimals-1.jpg": {
+    "path": "hyla-orientalis-monteanimals-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/hyla-orientalis-nikita-1.jpg": {
+    "path": "hyla-orientalis-nikita-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/hyla-orientalis-nikita-2.jpg": {
+    "path": "hyla-orientalis-nikita-2",
+    "width": 2048,
+    "height": 1366,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/hyla-orientalis-phantom85-1.jpg": {
+    "path": "hyla-orientalis-phantom85-1",
+    "width": 1153,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1153],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/hyla-orientalis-sandro-1.jpg": {
+    "path": "hyla-orientalis-sandro-1",
+    "width": 1536,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1536],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/hyla-orientalis.jpg": {

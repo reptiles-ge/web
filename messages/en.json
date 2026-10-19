@@ -952,10 +952,20 @@
     "hubPage": "Group page",
     "continueReading": "Keep reading",
     "nextArticle": "Next article",
+    "seriesHeading": "In this series",
+    "seriesCurrent": "This article",
     "read": "Read",
     "copyLink": "Copy link",
     "linkCopied": "Link copied",
-    "shareFacebook": "Share on Facebook"
+    "shareFacebook": "Share on Facebook",
+    "archiveMetaTitle": "Wildlife news from Georgia — page {page}",
+    "archiveMetaDescription": "News archive, page {page} of {pageCount}: field records and scientific notes on Georgia’s wildlife, with cited sources. Published {oldest} – {newest}.",
+    "archiveH1": "News archive, page {page}",
+    "archiveIntro": "Articles {first}–{last} of {total}, published {oldest} – {newest}.",
+    "pageNumber": "Page {page}",
+    "paginationLabel": "News pages",
+    "newerArticles": "Newer articles",
+    "olderArticles": "Older articles"
   },
   "about": {
     "metaTitle": "About Reptiles.ge — atlas of animals of Georgia",

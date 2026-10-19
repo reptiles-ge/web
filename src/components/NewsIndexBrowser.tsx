@@ -3,10 +3,10 @@
 import { Search, X } from "lucide-react";
 import { type ReactNode, useDeferredValue, useMemo, useState } from "react";
 
-export type NewsIndexBrowserItem = {
-  card: ReactNode;
-  id: string;
-  monthKey: string;
+import { NewsMonthSection } from "@/components/NewsMonthSection";
+import { groupNewsByMonth, type NewsMonthItem } from "@/lib/newsMonthGroups";
+
+export type NewsIndexBrowserItem = NewsMonthItem & {
   searchText: string;
   topics: readonly string[];
 };
@@ -64,16 +64,10 @@ export function NewsIndexBrowser({
     [items, topic, normalizedQuery],
   );
 
-  const months = useMemo(() => {
-    const listed = filtering ? filtered : items.slice(featuredCount);
-    const groups: Array<{ items: NewsIndexBrowserItem[]; key: string }> = [];
-    for (const item of listed) {
-      const group = groups.find((entry) => entry.key === item.monthKey);
-      if (group) group.items.push(item);
-      else groups.push({ items: [item], key: item.monthKey });
-    }
-    return groups;
-  }, [featuredCount, filtered, filtering, items]);
+  const months = useMemo(
+    () => groupNewsByMonth(filtering ? filtered : items.slice(featuredCount)),
+    [featuredCount, filtered, filtering, items],
+  );
 
   const topicLabel = chips.find((chip) => chip.id === topic)?.label;
   const resultContext =
@@ -181,29 +175,12 @@ export function NewsIndexBrowser({
       ) : null}
 
       {months.map((month) => (
-        <section
-          aria-label={monthLabels[month.key]}
-          className={`${wrapClass} pt-8 md:pt-14`}
+        <NewsMonthSection
+          countLabel={articleWords[month.items.length]}
+          heading={monthLabels[month.key]}
+          items={month.items}
           key={month.key}
-        >
-          <div className="flex items-baseline justify-between gap-4 pb-1.5 md:justify-start md:pb-[22px]">
-            <h2 className="text-[21px] font-semibold tracking-[-0.01em] text-(--nw-ink) md:text-[30px] md:leading-[1.1] md:tracking-[-0.015em]">
-              {monthLabels[month.key]}
-            </h2>
-            <span className="text-[12.5px] text-(--nw-muted) tabular-nums md:text-[13px]">
-              {month.items.length} {articleWords[month.items.length]}
-            </span>
-            <span
-              aria-hidden="true"
-              className="hidden h-px flex-1 -translate-y-1.5 bg-(--nw-rule) md:block"
-            />
-          </div>
-          <ul className="md:grid md:grid-cols-2 md:gap-6 lg:grid-cols-3">
-            {month.items.map((item) => (
-              <li key={item.id}>{item.card}</li>
-            ))}
-          </ul>
-        </section>
+        />
       ))}
 
       {filtering && filtered.length === 0 ? (

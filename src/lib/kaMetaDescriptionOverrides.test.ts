@@ -54,6 +54,12 @@ describe("KA_META_DESCRIPTION_OVERRIDES", () => {
     expect(KA_META_DESCRIPTION_OVERRIDES[path]?.startsWith(name)).toBe(true);
   });
 
+  it("leaves news article descriptions to the article MDX", () => {
+    for (const [path] of entries) {
+      expect(path.startsWith("/news/"), path).toBe(false);
+    }
+  });
+
   it("separates the jackal profile from the jackal yard guide", () => {
     const profile =
       KA_META_DESCRIPTION_OVERRIDES["/dzuzumtsovrebi/chveulebrivi-tura"];
