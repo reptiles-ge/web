@@ -38915,6 +38915,101 @@
       ],
       "updatedAt": "2026-08-28T21:40:43.912Z"
     },
+    "eryx-jaculus-alisa-1.jpg": {
+      "sourceHash": "8f1b0173f78137dcd6ce42864d06bf3165756372628c008aac2cf1eec2f210f0",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "eryx-jaculus-alisa-1.jpg",
+      "originalSize": 956234,
+      "width": 1542,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/eryx-jaculus-alisa-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 425,
+          "byteSize": 30456
+        },
+        {
+          "key": "optimized/eryx-jaculus-alisa-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 425,
+          "byteSize": 49702
+        },
+        {
+          "key": "optimized/eryx-jaculus-alisa-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 531,
+          "byteSize": 44200
+        },
+        {
+          "key": "optimized/eryx-jaculus-alisa-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 531,
+          "byteSize": 72318
+        },
+        {
+          "key": "optimized/eryx-jaculus-alisa-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 850,
+          "byteSize": 96807
+        },
+        {
+          "key": "optimized/eryx-jaculus-alisa-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 850,
+          "byteSize": 156786
+        },
+        {
+          "key": "optimized/eryx-jaculus-alisa-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1063,
+          "byteSize": 138329
+        },
+        {
+          "key": "optimized/eryx-jaculus-alisa-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1063,
+          "byteSize": 222140
+        },
+        {
+          "key": "optimized/eryx-jaculus-alisa-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1594,
+          "byteSize": 261433
+        },
+        {
+          "key": "optimized/eryx-jaculus-alisa-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1594,
+          "byteSize": 421420
+        },
+        {
+          "key": "optimized/eryx-jaculus-alisa-1-1542.avif",
+          "format": "avif",
+          "width": 1542,
+          "height": 2048,
+          "byteSize": 412600
+        },
+        {
+          "key": "optimized/eryx-jaculus-alisa-1-1542.webp",
+          "format": "webp",
+          "width": 1542,
+          "height": 2048,
+          "byteSize": 630232
+        }
+      ],
+      "updatedAt": "2026-10-19T08:17:10.537Z"
+    },
     "eryx-jaculus-brechtheusequin-1.jpg": {
       "sourceHash": "9aec365938ed3623559e0ef13184a3365709b412e834fecf38e41bf8dcb97aea",
       "configFingerprint": "409788ee46c653d8",
