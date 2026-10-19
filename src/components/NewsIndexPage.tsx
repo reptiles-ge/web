@@ -11,16 +11,12 @@ import {
   type NewsIndexBrowserItem,
 } from "@/components/NewsIndexBrowser";
 import {
-  type NewsIndexEntry,
   NewsLeadCard,
   NewsListCard,
   NewsSideCard,
 } from "@/components/NewsIndexCards";
-import {
-  newsLocalizedDek,
-  newsLocalizedTitle,
-  newsSourceName,
-} from "@/data/news";
+import { NewsPagination } from "@/components/NewsPagination";
+import { newsSourceName } from "@/data/news";
 import { getAtlasStats } from "@/data/speciesAtlas";
 import { Link } from "@/i18n/navigation";
 import { formatContentDate, formatContentMonth } from "@/lib/formatDate";
@@ -29,16 +25,14 @@ import {
   GROUP_HUBS,
   type GroupHubId,
 } from "@/lib/groupHubs";
-import {
-  newsIndexDateFields,
-  newsReadMinutes,
-  newsSourceBadges,
-} from "@/lib/news";
-import { getNewsVisual, newsCategoryHub } from "@/lib/newsVisual";
+import { newsIndexDateFields, newsSourceBadges } from "@/lib/news";
+import { toNewsIndexEntry } from "@/lib/newsIndexEntry";
 
 type NewsIndexPageProps = {
   articles: NewsArticle[];
   locale: AppLocale;
+  pageCount: number;
+  total: number;
 };
 
 const TOPIC_ORDER: readonly GroupHubId[] = [
@@ -71,7 +65,12 @@ const trustLinkClass =
 const eyebrowClass =
   "text-[10.5px] font-semibold tracking-[0.16em] text-(--nw-muted) md:text-[11px]";
 
-export async function NewsIndexPage({ articles, locale }: NewsIndexPageProps) {
+export async function NewsIndexPage({
+  articles,
+  locale,
+  pageCount,
+  total,
+}: NewsIndexPageProps) {
   const [t, tNav, tShared] = await Promise.all([
     getTranslations({ locale, namespace: "news" }),
     getTranslations({ locale, namespace: "nav" }),
@@ -79,7 +78,7 @@ export async function NewsIndexPage({ articles, locale }: NewsIndexPageProps) {
   ]);
 
   const entries = articles.map((article) =>
-    toEntry(article, locale, {
+    toNewsIndexEntry(article, locale, {
       readLabel: (minutes) => t("readTime", { minutes }),
       topicLabel: (hub) => tNav(hub),
     }),
@@ -243,7 +242,7 @@ export async function NewsIndexPage({ articles, locale }: NewsIndexPageProps) {
                 />
                 <span className={eyebrowClass}>
                   {t("status", {
-                    count: articles.length,
+                    count: total,
                     date: formatContentDate(
                       newsIndexDateFields(locale, articles).dateModified,
                       locale,
@@ -294,6 +293,8 @@ export async function NewsIndexPage({ articles, locale }: NewsIndexPageProps) {
             monthLabels={monthLabels}
           />
         )}
+
+        <NewsPagination current={1} locale={locale} pageCount={pageCount} />
 
         <section className={`${wrapClass} pt-12 pb-14 md:pt-24 md:pb-28`}>
           <div className="relative overflow-hidden rounded-[28px] bg-(--nw-surface) px-[22px] pt-7 pb-[22px] md:rounded-[36px] md:px-16 md:py-14 lg:grid lg:grid-cols-[minmax(0,1fr)_520px] lg:items-center lg:gap-12">
@@ -366,33 +367,4 @@ export async function NewsIndexPage({ articles, locale }: NewsIndexPageProps) {
       </div>
     </div>
   );
-}
-
-function toEntry(
-  article: NewsArticle,
-  locale: AppLocale,
-  labels: {
-    readLabel: (minutes: number) => string;
-    topicLabel: (hub: GroupHubId) => string;
-  },
-): NewsIndexEntry {
-  const hub = newsCategoryHub(article);
-  const visual = getNewsVisual(article, locale);
-  const minutes = newsReadMinutes(article, locale);
-  return {
-    alt: visual?.alt ?? "",
-    dateLabel: formatContentDate(article.publishedAt, locale),
-    dek: newsLocalizedDek(article, locale),
-    illustrated: !visual,
-    publishedAt: article.publishedAt,
-    readLabel: labels.readLabel(minutes),
-    slug: article.slug,
-    source: article.sources[0]
-      ? newsSourceName(article.sources[0], locale)
-      : null,
-    sourceMore: Math.max(0, article.sources.length - 1),
-    src: visual?.src ?? GROUP_HUB_ILLUSTRATIONS[hub ?? "snakes"],
-    title: newsLocalizedTitle(article, locale),
-    topicLabel: hub ? labels.topicLabel(hub) : null,
-  };
 }

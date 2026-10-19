@@ -28,6 +28,13 @@ import {
   newsDateTime,
   newsIndexDateFields,
 } from "@/lib/news";
+import {
+  getNewsPage,
+  newsArchiveAlternates,
+  newsArchivePages,
+  newsPageDateModified,
+  newsPageUrl,
+} from "@/lib/newsPages";
 import { liveQuizzes } from "@/lib/quizzes";
 import {
   absoluteUrl,
@@ -76,6 +83,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       push(pageEntry(locale, path));
     }
     push(pageEntry(locale, "/news", newsIndexDateFields(locale).dateModified));
+    for (const page of newsArchivePages(locale)) {
+      const newsPage = getNewsPage(locale, page);
+      push({
+        alternates: {
+          languages: newsArchiveAlternates(locale, page).languages,
+        },
+        lastModified: toLastModified(
+          newsPageDateModified(locale, newsPage?.articles ?? []),
+        ),
+        url: newsPageUrl(locale, page),
+      });
+    }
     for (const article of getGuideArticles()) {
       push({
         ...pageEntry(locale, article.pathname),

@@ -112,7 +112,7 @@ export function resolvePageContextFromIndex(
   if (pathname === "/contact") {
     return { page_type: "contact" };
   }
-  if (pathname === "/news") {
+  if (pathname === "/news" || pathname === "/news/page/[page]") {
     return { page_type: "news" };
   }
   if (pathname === "/news/[slug]" && params.slug) {

@@ -955,7 +955,15 @@
     "read": "წაკითხვა",
     "copyLink": "ბმულის კოპირება",
     "linkCopied": "ბმული დაკოპირდა",
-    "shareFacebook": "Facebook-ზე გაზიარება"
+    "shareFacebook": "Facebook-ზე გაზიარება",
+    "archiveMetaTitle": "სიახლეები საქართველოს ველურ ბუნებაზე — გვერდი {page}",
+    "archiveMetaDescription": "სიახლეების არქივი, გვერდი {page} {pageCount}-დან: საველე აღრიცხვები და სამეცნიერო ცნობები საქართველოს ველურ ბუნებაზე, წყაროებით. გამოქვეყნდა {oldest} – {newest}.",
+    "archiveH1": "სიახლეების არქივი, გვერდი {page}",
+    "archiveIntro": "სტატიები {first}–{last}, სულ {total}. გამოქვეყნდა {oldest} – {newest}.",
+    "pageNumber": "გვერდი {page}",
+    "paginationLabel": "სიახლეების გვერდები",
+    "newerArticles": "ახალი სტატიები",
+    "olderArticles": "ადრინდელი სტატიები"
   },
   "about": {
     "metaTitle": "Reptiles.ge-ის შესახებ — საქართველოს ცხოველთა ატლასი",

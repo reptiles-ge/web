@@ -955,7 +955,15 @@
     "read": "Читать",
     "copyLink": "Скопировать ссылку",
     "linkCopied": "Ссылка скопирована",
-    "shareFacebook": "Поделиться в Facebook"
+    "shareFacebook": "Поделиться в Facebook",
+    "archiveMetaTitle": "Новости о дикой природе Грузии — страница {page}",
+    "archiveMetaDescription": "Архив новостей, страница {page} из {pageCount}: полевые учёты и научные сведения о дикой природе Грузии с источниками. Опубликованы {oldest} – {newest}.",
+    "archiveH1": "Архив новостей, страница {page}",
+    "archiveIntro": "Статьи {first}–{last} из {total}, опубликованы {oldest} – {newest}.",
+    "pageNumber": "Страница {page}",
+    "paginationLabel": "Страницы новостей",
+    "newerArticles": "Более новые статьи",
+    "olderArticles": "Более ранние статьи"
   },
   "about": {
     "metaTitle": "О проекте Reptiles.ge — атлас животных Грузии",

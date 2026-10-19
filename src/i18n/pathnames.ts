@@ -109,6 +109,7 @@ export const pathnames = {
   ),
   "/news": "/news",
   "/news/[slug]": "/news/[slug]",
+  "/news/page/[page]": "/news/page/[page]",
   "/photo-use": kaLatin("/fotoebis-gamoyeneba", "/photo-use"),
   "/privacy": "/privacy",
   "/quiz": "/quiz",
