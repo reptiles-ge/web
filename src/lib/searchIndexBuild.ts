@@ -1176,6 +1176,7 @@ function creditAuthorRoleSearchTerms(role: CreditAuthorRole) {
     photographer: ["ფოტოგრაფი", "photographer", "фотограф", "fotoğrafçı"],
     professor: ["პროფესორი", "professor", "профессор", "profesör"],
     ranger: ["რეინჯერი", "ranger", "рейнджер", "bekçi"],
+    researcher: ["მკვლევარი", "researcher", "исследователь", "araştırmacı"],
   };
   return terms[role];
 }

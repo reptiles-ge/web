@@ -48,7 +48,7 @@ export type CreditAuthor = {
 export type CreditAuthorKind = "page" | "person";
 
 export type CreditAuthorRole =
-  "herpetologist" | "photographer" | "professor" | "ranger";
+  "herpetologist" | "photographer" | "professor" | "ranger" | "researcher";
 
 type CreditAuthorJobTitle = "director" | "professor" | "ranger" | "researcher";
 
@@ -279,7 +279,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     portraitClass: "object-[50%_28%]",
     portraitSrc: "https://cdn.reptiles.ge/authors/armen-seropian.jpg",
     published: true,
-    role: "photographer",
+    role: "researcher",
     slug: "armen-seropian",
   },
   {
@@ -392,7 +392,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     portraitSrc:
       "https://cdn.reptiles.ge/images/authors/giorgi-sheklashvili.jpg",
     published: true,
-    role: "photographer",
+    role: "researcher",
     slug: "giorgi-sheklashvili",
   },
   {
@@ -447,7 +447,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     portraitClass: "object-[48%_12%]",
     portraitSrc: "https://cdn.reptiles.ge/authors/lasha-gogodze.jpg",
     published: true,
-    role: "herpetologist",
+    role: "researcher",
     slug: "lasha-gogodze",
   },
   {

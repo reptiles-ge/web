@@ -23,6 +23,7 @@ const ROLE_ORDER: readonly CreditAuthorRole[] = [
   "herpetologist",
   "professor",
   "ranger",
+  "researcher",
   "photographer",
 ];
 
