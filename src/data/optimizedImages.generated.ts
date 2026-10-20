@@ -2573,6 +2573,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/darevskia-mixta-sergei-2.jpg": {
+    "path": "darevskia-mixta-sergei-2",
+    "width": 1536,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/darevskia-mixta.jpg": {
     "path": "darevskia-mixta",
     "width": 1728,
