@@ -26638,6 +26638,101 @@
       ],
       "updatedAt": "2026-10-20T08:24:58.725Z"
     },
+    "darevskia-mixta-zdeněk-2.jpg": {
+      "sourceHash": "7a70bbdd1ec41f8ff330e60de340d7a75720744426741067aa7059654ec77e1f",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-mixta-zdeněk-2.jpg",
+      "originalSize": 525492,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-mixta-zdeněk-2-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11072
+        },
+        {
+          "key": "optimized/darevskia-mixta-zdeněk-2-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 17026
+        },
+        {
+          "key": "optimized/darevskia-mixta-zdeněk-2-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 15046
+        },
+        {
+          "key": "optimized/darevskia-mixta-zdeněk-2-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 23542
+        },
+        {
+          "key": "optimized/darevskia-mixta-zdeněk-2-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 30331
+        },
+        {
+          "key": "optimized/darevskia-mixta-zdeněk-2-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 49012
+        },
+        {
+          "key": "optimized/darevskia-mixta-zdeněk-2-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 41676
+        },
+        {
+          "key": "optimized/darevskia-mixta-zdeněk-2-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 68088
+        },
+        {
+          "key": "optimized/darevskia-mixta-zdeněk-2-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 71792
+        },
+        {
+          "key": "optimized/darevskia-mixta-zdeněk-2-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 120172
+        },
+        {
+          "key": "optimized/darevskia-mixta-zdeněk-2-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 156185
+        },
+        {
+          "key": "optimized/darevskia-mixta-zdeněk-2-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 259832
+        }
+      ],
+      "updatedAt": "2026-10-20T08:25:37.264Z"
+    },
     "darevskia-mixta.jpg": {
       "sourceHash": "c8b87a108d7cd70092f611eb1f551e59c09d2a67ff5e0f9ef68948d068628554",
       "configFingerprint": "a895f8e025dcc7fa",
