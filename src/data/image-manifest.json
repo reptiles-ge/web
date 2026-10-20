@@ -26856,6 +26856,101 @@
       ],
       "updatedAt": "2026-10-20T08:30:26.772Z"
     },
+    "darevskia-mixta-leonid-1.jpg": {
+      "sourceHash": "ceb1de4aebf398e8bf936b406f9507c983c1f81d18324a02612c7bc8a5c5ee78",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-mixta-leonid-1.jpg",
+      "originalSize": 615870,
+      "width": 2048,
+      "height": 1413,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-mixta-leonid-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 221,
+          "byteSize": 11871
+        },
+        {
+          "key": "optimized/darevskia-mixta-leonid-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 221,
+          "byteSize": 17122
+        },
+        {
+          "key": "optimized/darevskia-mixta-leonid-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 276,
+          "byteSize": 16953
+        },
+        {
+          "key": "optimized/darevskia-mixta-leonid-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 276,
+          "byteSize": 24712
+        },
+        {
+          "key": "optimized/darevskia-mixta-leonid-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 441,
+          "byteSize": 37543
+        },
+        {
+          "key": "optimized/darevskia-mixta-leonid-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 441,
+          "byteSize": 57358
+        },
+        {
+          "key": "optimized/darevskia-mixta-leonid-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 552,
+          "byteSize": 54339
+        },
+        {
+          "key": "optimized/darevskia-mixta-leonid-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 552,
+          "byteSize": 84374
+        },
+        {
+          "key": "optimized/darevskia-mixta-leonid-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 828,
+          "byteSize": 102378
+        },
+        {
+          "key": "optimized/darevskia-mixta-leonid-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 828,
+          "byteSize": 160136
+        },
+        {
+          "key": "optimized/darevskia-mixta-leonid-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1413,
+          "byteSize": 226515
+        },
+        {
+          "key": "optimized/darevskia-mixta-leonid-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1413,
+          "byteSize": 329068
+        }
+      ],
+      "updatedAt": "2026-10-20T08:34:05.947Z"
+    },
     "darevskia-mixta-mobile.jpg": {
       "sourceHash": "6c821fe194d4d09af8565a1acfdae9326754e5bc0172864de2c7b8bbc0d9c67c",
       "configFingerprint": "a895f8e025dcc7fa",
