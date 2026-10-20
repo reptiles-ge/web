@@ -126,10 +126,12 @@ describe("photo contributor roles and affiliations", () => {
 
   it("labels each contributor with the role the owner confirmed", () => {
     const roles: Record<string, string> = {
+      "armen-seropian": "researcher",
       "david-tarkhnishvili": "professor",
       "giorgi-iankoshvili": "herpetologist",
+      "giorgi-sheklashvili": "researcher",
       "ioane-rostiashvili": "herpetologist",
-      "lasha-gogodze": "herpetologist",
+      "lasha-gogodze": "researcher",
       "sandro-khakhva": "herpetologist",
       "shota-zandukeli": "herpetologist",
       "zauri-khachidze": "ranger",

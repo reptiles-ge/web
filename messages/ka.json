@@ -1060,7 +1060,8 @@
       "herpetologist": "ჰერპეტოლოგი",
       "photographer": "ფოტოგრაფი",
       "professor": "პროფესორი",
-      "ranger": "რეინჯერი"
+      "ranger": "რეინჯერი",
+      "researcher": "მკვლევარი"
     },
     "facebook": "Facebook",
     "instagram": "Instagram",
@@ -1105,7 +1106,8 @@
       "herpetologist": "ჰერპეტოლოგები",
       "photographer": "ფოტოგრაფები",
       "professor": "პროფესორები",
-      "ranger": "რეინჯერები"
+      "ranger": "რეინჯერები",
+      "researcher": "მკვლევრები"
     },
     "statGroups": "ჯგუფი",
     "summaryLabel": "მოკლედ",
