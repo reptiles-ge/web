@@ -26666,6 +26666,101 @@
       ],
       "updatedAt": "2026-10-20T08:28:55.971Z"
     },
+    "darevskia-mixta-kseniia-4.jpg": {
+      "sourceHash": "93e5a79a0828f78c1572f50e57116ed3eb78d013268b543044cb6357630bec1f",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-mixta-kseniia-4.jpg",
+      "originalSize": 761257,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-mixta-kseniia-4-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 14926
+        },
+        {
+          "key": "optimized/darevskia-mixta-kseniia-4-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 22006
+        },
+        {
+          "key": "optimized/darevskia-mixta-kseniia-4-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 21952
+        },
+        {
+          "key": "optimized/darevskia-mixta-kseniia-4-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 32162
+        },
+        {
+          "key": "optimized/darevskia-mixta-kseniia-4-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 50504
+        },
+        {
+          "key": "optimized/darevskia-mixta-kseniia-4-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 74714
+        },
+        {
+          "key": "optimized/darevskia-mixta-kseniia-4-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 74838
+        },
+        {
+          "key": "optimized/darevskia-mixta-kseniia-4-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 107136
+        },
+        {
+          "key": "optimized/darevskia-mixta-kseniia-4-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 139726
+        },
+        {
+          "key": "optimized/darevskia-mixta-kseniia-4-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 192506
+        },
+        {
+          "key": "optimized/darevskia-mixta-kseniia-4-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 311164
+        },
+        {
+          "key": "optimized/darevskia-mixta-kseniia-4-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 400014
+        }
+      ],
+      "updatedAt": "2026-10-20T08:29:44.280Z"
+    },
     "darevskia-mixta-mobile.jpg": {
       "sourceHash": "6c821fe194d4d09af8565a1acfdae9326754e5bc0172864de2c7b8bbc0d9c67c",
       "configFingerprint": "a895f8e025dcc7fa",
