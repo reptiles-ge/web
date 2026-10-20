@@ -26353,6 +26353,101 @@
       ],
       "updatedAt": "2026-08-28T21:32:23.109Z"
     },
+    "darevskia-mixta-sergei-1.jpg": {
+      "sourceHash": "b0f8823ebf78f23ba183d653c0e9cb30c9ad88360074e7d7908e856f56fb5833",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-mixta-sergei-1.jpg",
+      "originalSize": 807517,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-mixta-sergei-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 16123
+        },
+        {
+          "key": "optimized/darevskia-mixta-sergei-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 25042
+        },
+        {
+          "key": "optimized/darevskia-mixta-sergei-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 23848
+        },
+        {
+          "key": "optimized/darevskia-mixta-sergei-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 36336
+        },
+        {
+          "key": "optimized/darevskia-mixta-sergei-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 55477
+        },
+        {
+          "key": "optimized/darevskia-mixta-sergei-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 84912
+        },
+        {
+          "key": "optimized/darevskia-mixta-sergei-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 83232
+        },
+        {
+          "key": "optimized/darevskia-mixta-sergei-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 125876
+        },
+        {
+          "key": "optimized/darevskia-mixta-sergei-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 155034
+        },
+        {
+          "key": "optimized/darevskia-mixta-sergei-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 229814
+        },
+        {
+          "key": "optimized/darevskia-mixta-sergei-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 329451
+        },
+        {
+          "key": "optimized/darevskia-mixta-sergei-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 452380
+        }
+      ],
+      "updatedAt": "2026-10-20T08:23:07.183Z"
+    },
     "darevskia-mixta.jpg": {
       "sourceHash": "c8b87a108d7cd70092f611eb1f551e59c09d2a67ff5e0f9ef68948d068628554",
       "configFingerprint": "a895f8e025dcc7fa",
