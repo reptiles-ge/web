@@ -138,7 +138,15 @@ describe("photo contributor roles and affiliations", () => {
       expect(author.role, author.slug).toBe(
         roles[author.slug] ?? "photographer",
       );
-      expect(author, author.slug).not.toHaveProperty("jobTitle");
+    }
+  });
+
+  it("states every job title in the English bio", () => {
+    for (const author of CREDIT_AUTHORS) {
+      if (!author.jobTitle) continue;
+      expect(author.bio?.en.toLowerCase(), author.slug).toContain(
+        author.jobTitle,
+      );
     }
   });
 
@@ -156,9 +164,10 @@ describe("photo contributor roles and affiliations", () => {
     }
   });
 
-  it("gives affiliations to people only", () => {
+  it("gives job titles and affiliations to people only", () => {
     for (const author of CREDIT_AUTHORS) {
       if (creditAuthorKind(author) === "person") continue;
+      expect(author.jobTitle, author.slug).toBeUndefined();
       expect(author.affiliations, author.slug).toBeUndefined();
     }
   });

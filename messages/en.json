@@ -1050,6 +1050,12 @@
     "atlasCtaCount": "Species atlas · {count}"
   },
   "author": {
+    "jobTitles": {
+      "director": "Director",
+      "professor": "Professor",
+      "ranger": "Ranger",
+      "researcher": "Researcher"
+    },
     "roles": {
       "herpetologist": "Herpetologist",
       "photographer": "Photographer",

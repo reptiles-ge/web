@@ -1050,6 +1050,12 @@
     "atlasCtaCount": "სახეობების ატლასი · {count}"
   },
   "author": {
+    "jobTitles": {
+      "director": "დირექტორი",
+      "professor": "პროფესორი",
+      "ranger": "რეინჯერი",
+      "researcher": "მკვლევარი"
+    },
     "roles": {
       "herpetologist": "ჰერპეტოლოგი",
       "photographer": "ფოტოგრაფი",

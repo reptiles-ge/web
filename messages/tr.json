@@ -1050,6 +1050,12 @@
     "atlasCtaCount": "Tür atlası · {count}"
   },
   "author": {
+    "jobTitles": {
+      "director": "Direktör",
+      "professor": "Profesör",
+      "ranger": "Ranger",
+      "researcher": "Araştırmacı"
+    },
     "roles": {
       "herpetologist": "Herpetolog",
       "photographer": "Fotoğrafçı",
