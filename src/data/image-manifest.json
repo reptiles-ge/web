@@ -24124,6 +24124,101 @@
       ],
       "updatedAt": "2026-10-20T10:25:36.039Z"
     },
+    "darevskia-daghestanica-fabian-1.jpg": {
+      "sourceHash": "fdf5960915d09f6a95dd4ede12a3d969fd08116ccbc4ed9aa975ccd279fc31ff",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-daghestanica-fabian-1.jpg",
+      "originalSize": 501245,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-daghestanica-fabian-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 9752
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-fabian-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 13686
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-fabian-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 14337
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-fabian-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 19520
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-fabian-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 29680
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-fabian-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 40186
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-fabian-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 42479
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-fabian-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 57066
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-fabian-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 76985
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-fabian-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 99890
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-fabian-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 176516
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-fabian-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 218632
+        }
+      ],
+      "updatedAt": "2026-10-20T10:29:05.335Z"
+    },
     "darevskia-daghestanica-giorgi-1.jpg": {
       "sourceHash": "0e01238303538d14e31c48f465c98714271dc3cc0685e42c62cfb59a220e54ca",
       "configFingerprint": "409788ee46c653d8",
