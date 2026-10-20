@@ -2363,6 +2363,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1366],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/darevskia-daghestanica-timoteo-b-1.jpg": {
+    "path": "darevskia-daghestanica-timoteo-b-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/darevskia-dahli-2.jpg": {
     "path": "darevskia-dahli-2",
     "width": 2048,
