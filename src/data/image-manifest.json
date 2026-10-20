@@ -23990,6 +23990,73 @@
       ],
       "updatedAt": "2026-09-11T13:08:06.571Z"
     },
+    "darevskia-daghestanica-edouard-1.png": {
+      "sourceHash": "69178a514742ee3eeb456895af7b083f73969f34dcd54952599844e7e2994a81",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-daghestanica-edouard-1.png",
+      "originalSize": 2085899,
+      "width": 750,
+      "height": 1334,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-daghestanica-edouard-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 569,
+          "byteSize": 28063
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-edouard-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 569,
+          "byteSize": 39278
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-edouard-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 711,
+          "byteSize": 41744
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-edouard-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 711,
+          "byteSize": 58220
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-edouard-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 1138,
+          "byteSize": 85835
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-edouard-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 1138,
+          "byteSize": 117710
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-edouard-1-750.avif",
+          "format": "avif",
+          "width": 750,
+          "height": 1334,
+          "byteSize": 106625
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-edouard-1-750.webp",
+          "format": "webp",
+          "width": 750,
+          "height": 1334,
+          "byteSize": 143950
+        }
+      ],
+      "updatedAt": "2026-10-20T10:25:36.039Z"
+    },
     "darevskia-daghestanica-timoteo-b-1.jpg": {
       "sourceHash": "6fb10d5b2300961f5a3f3247d0d66f4b01d10ba52dd6482281941e3e2ce48571",
       "configFingerprint": "409788ee46c653d8",
