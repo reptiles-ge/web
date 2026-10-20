@@ -2363,6 +2363,69 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1366],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/darevskia-daghestanica-aleksandre-1.jpg": {
+    "path": "darevskia-daghestanica-aleksandre-1",
+    "width": 960,
+    "height": 661,
+    "widths": [320, 400, 640, 800, 960],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-daghestanica-andre-1.jpg": {
+    "path": "darevskia-daghestanica-andre-1",
+    "width": 705,
+    "height": 399,
+    "widths": [320, 400, 640, 705],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-daghestanica-denis-1.jpg": {
+    "path": "darevskia-daghestanica-denis-1",
+    "width": 2048,
+    "height": 1152,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-daghestanica-edouard-1.png": {
+    "path": "darevskia-daghestanica-edouard-1",
+    "width": 750,
+    "height": 1334,
+    "widths": [320, 400, 640, 750],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-daghestanica-fabian-1.jpg": {
+    "path": "darevskia-daghestanica-fabian-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-daghestanica-giorgi-1.jpg": {
+    "path": "darevskia-daghestanica-giorgi-1",
+    "width": 1511,
+    "height": 1009,
+    "widths": [320, 400, 640, 800, 1200, 1511],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-daghestanica-giorgi-2.jpg": {
+    "path": "darevskia-daghestanica-giorgi-2",
+    "width": 1153,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1153],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-daghestanica-timoteo-b-1.jpg": {
+    "path": "darevskia-daghestanica-timoteo-b-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-daghestanica-timoteo-b-2.jpg": {
+    "path": "darevskia-daghestanica-timoteo-b-2",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/darevskia-dahli-2.jpg": {
     "path": "darevskia-dahli-2",
     "width": 2048,
@@ -2559,11 +2622,109 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 1728],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/darevskia-mixta-aleksey-1.jpg": {
+    "path": "darevskia-mixta-aleksey-1",
+    "width": 1536,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-mixta-kseniia-1.jpg": {
+    "path": "darevskia-mixta-kseniia-1",
+    "width": 1728,
+    "height": 1296,
+    "widths": [320, 400, 640, 800, 1200, 1728],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-mixta-kseniia-2.jpg": {
+    "path": "darevskia-mixta-kseniia-2",
+    "width": 1296,
+    "height": 972,
+    "widths": [320, 400, 640, 800, 1200, 1296],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-mixta-kseniia-3.jpg": {
+    "path": "darevskia-mixta-kseniia-3",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-mixta-kseniia-4.jpg": {
+    "path": "darevskia-mixta-kseniia-4",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-mixta-kseniia-5.jpg": {
+    "path": "darevskia-mixta-kseniia-5",
+    "width": 1728,
+    "height": 1296,
+    "widths": [320, 400, 640, 800, 1200, 1728],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-mixta-leonid-1.jpg": {
+    "path": "darevskia-mixta-leonid-1",
+    "width": 2048,
+    "height": 1413,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/darevskia-mixta-mobile.jpg": {
     "path": "darevskia-mixta-mobile",
     "width": 2048,
     "height": 1413,
     "widths": [400, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-mixta-sergei-1.jpg": {
+    "path": "darevskia-mixta-sergei-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-mixta-sergei-2.jpg": {
+    "path": "darevskia-mixta-sergei-2",
+    "width": 1536,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-mixta-tom-1.jpg": {
+    "path": "darevskia-mixta-tom-1",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-mixta-tom-2.jpg": {
+    "path": "darevskia-mixta-tom-2",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-mixta-tom-3.jpg": {
+    "path": "darevskia-mixta-tom-3",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-mixta-zden%C4%9Bk-1.jpg": {
+    "path": "darevskia-mixta-zden%C4%9Bk-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/darevskia-mixta-zden%C4%9Bk-2.jpg": {
+    "path": "darevskia-mixta-zden%C4%9Bk-2",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
     "formats": ["avif", "webp"]
   },
   "https://cdn.reptiles.ge/darevskia-mixta.jpg": {
