@@ -63,6 +63,8 @@ const PORTSCHINSKII_OBSCURED_RECORD_NOTE =
   "Darevskia portschinskii: iNaturalist public coordinates obscured (~28 km)";
 const PORTSCHINSKII_NEEDS_ID_RECORD_NOTE =
   "Darevskia portschinskii: iNaturalist observation needs ID";
+const DAGHESTANICA_NEEDS_ID_RECORD_NOTE =
+  "Darevskia daghestanica: iNaturalist observation needs ID";
 const DAHLI_OBSCURED_RECORD_NOTE =
   "Darevskia dahli: iNaturalist public coordinates obscured (~28 km)";
 const VERMICULARIS_OBSCURED_RECORD_NOTE =
@@ -107,6 +109,7 @@ const OBSCURED_COORDINATE_NOTES = new Set([
 ]);
 const NON_CONFIRMING_RECORD_NOTES = new Set([
   ...OBSCURED_COORDINATE_NOTES,
+  DAGHESTANICA_NEEDS_ID_RECORD_NOTE,
   HYLA_ORIENTALIS_CASUAL_RECORD_NOTE,
   HYLA_ORIENTALIS_NEEDS_ID_RECORD_NOTE,
   LACERTA_MEDIA_NOT_RESEARCH_RECORD_NOTE,
