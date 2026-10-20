@@ -1050,6 +1050,12 @@
     "atlasCtaCount": "Атлас видов · {count}"
   },
   "author": {
+    "jobTitles": {
+      "director": "Директор",
+      "professor": "Профессор",
+      "ranger": "Рейнджер",
+      "researcher": "Исследователь"
+    },
     "roles": {
       "herpetologist": "Герпетолог",
       "photographer": "Фотограф",
