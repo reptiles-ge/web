@@ -46,7 +46,7 @@ export type CreditAuthor = {
 
 export type CreditAuthorKind = "page" | "person";
 
-export type CreditAuthorRole = "photographer";
+export type CreditAuthorRole = "herpetologist" | "photographer";
 
 export const CREDIT_AUTHORS: CreditAuthor[] = [
   {
@@ -71,7 +71,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     },
     portraitSrc: "https://cdn.reptiles.ge/authors/sandro-khakhva.jpg",
     published: true,
-    role: "photographer",
+    role: "herpetologist",
     slug: "sandro-khakhva",
   },
   {

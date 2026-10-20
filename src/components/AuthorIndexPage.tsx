@@ -19,7 +19,10 @@ import {
 } from "@/lib/creditAuthors";
 import { HOME_CONTRIBUTOR_PORTRAIT_SIZES } from "@/lib/imageSizes";
 
-const ROLE_ORDER: readonly CreditAuthorRole[] = ["photographer"];
+const ROLE_ORDER: readonly CreditAuthorRole[] = [
+  "photographer",
+  "herpetologist",
+];
 
 const EYEBROW =
   "text-[11px] font-medium tracking-[0.18em] text-muted-foreground uppercase";

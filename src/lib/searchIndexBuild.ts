@@ -1172,6 +1172,7 @@ function coverFromSpecies(id?: string, fallback?: string) {
 
 function creditAuthorRoleSearchTerms(role: CreditAuthorRole) {
   const terms: Record<CreditAuthorRole, string[]> = {
+    herpetologist: ["ჰერპეტოლოგი", "herpetologist", "герпетолог", "herpetolog"],
     photographer: ["ფოტოგრაფი", "photographer", "фотограф", "fotoğrafçı"],
   };
   return terms[role];

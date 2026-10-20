@@ -125,8 +125,11 @@ describe("photo contributor roles and affiliations", () => {
   });
 
   it("labels every contributor by the photos they give the atlas", () => {
+    const herpetologists = new Set(["sandro-khakhva"]);
     for (const author of CREDIT_AUTHORS) {
-      expect(author.role, author.slug).toBe("photographer");
+      expect(author.role, author.slug).toBe(
+        herpetologists.has(author.slug) ? "herpetologist" : "photographer",
+      );
       expect(author, author.slug).not.toHaveProperty("jobTitle");
     }
   });
