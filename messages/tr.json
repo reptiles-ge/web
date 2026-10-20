@@ -1051,6 +1051,7 @@
   },
   "author": {
     "roles": {
+      "herpetologist": "Herpetolog",
       "photographer": "Fotoğrafçı"
     },
     "facebook": "Facebook",
@@ -1093,6 +1094,7 @@
       "ctaButton": "Bize yazın"
     },
     "rolesPlural": {
+      "herpetologist": "Herpetologlar",
       "photographer": "Fotoğrafçılar"
     },
     "statGroups": "Grup",
