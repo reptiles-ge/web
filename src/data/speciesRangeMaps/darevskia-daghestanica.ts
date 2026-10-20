@@ -8,11 +8,11 @@ export const rangeMap: InteractiveRangeMapConfig = {
     en: {
       ...HALYOMORPHA_RANGE_COPY.en,
       intro:
-        "The Dagestan lizard map combines field localities from Georgia with public iNaturalist photo observations. Regions come from the records-by-region table: a region with five or more records is shaded on the map; a region with fewer records is marked as having too few records. iNaturalist observations that still need an ID are shown but not counted. Record counts reflect observation effort, not population density.",
+        "The Daghestanian Rock Lizard map combines field localities from Georgia with public iNaturalist photo observations. Regions come from the records-by-region table: a region with five or more records is shaded on the map; a region with fewer records is marked as having too few records. iNaturalist observations that still need an ID are shown but not counted. Record counts reflect observation effort, not population density.",
       mapAria:
-        "Dagestan lizard observations and regions with records on a map of Georgia",
+        "Daghestanian Rock Lizard observations and regions with records on a map of Georgia",
       officialRegionLabel: "Region with records",
-      rangeTitle: "Dagestan lizard: where it is recorded in Georgia",
+      rangeTitle: "Daghestanian Rock Lizard: where it is recorded in Georgia",
       regionsMetricLabel: "regions with enough records",
     },
     ka: {
