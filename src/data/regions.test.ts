@@ -97,6 +97,7 @@ describe("region speciesIds", () => {
     "eremias-velox",
     "hyla-orientalis",
     "mauremys-caspica",
+    "ommatotriton-ophryticus",
     "paralaudakia-caucasia",
     "mustela-nivalis",
     "procyon-lotor",

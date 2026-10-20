@@ -68,6 +68,7 @@ import { rangeMap as mustelaNivalis } from "@/data/speciesRangeMaps/mustela-niva
 import { rangeMap as natrixNatrix } from "@/data/speciesRangeMaps/natrix-natrix";
 import { rangeMap as natrixTessellata } from "@/data/speciesRangeMaps/natrix-tessellata";
 import { rangeMap as neophronPercnopterus } from "@/data/speciesRangeMaps/neophron-percnopterus";
+import { rangeMap as ommatotritonOphryticus } from "@/data/speciesRangeMaps/ommatotriton-ophryticus";
 import { rangeMap as paralaudakiaCaucasia } from "@/data/speciesRangeMaps/paralaudakia-caucasia";
 import { rangeMap as phasianusColchicus } from "@/data/speciesRangeMaps/phasianus-colchicus";
 import { rangeMap as picusViridis } from "@/data/speciesRangeMaps/picus-viridis";
@@ -163,6 +164,7 @@ export const INTERACTIVE_RANGE_MAPS: Partial<
   "natrix-natrix": natrixNatrix,
   "natrix-tessellata": natrixTessellata,
   "neophron-percnopterus": neophronPercnopterus,
+  "ommatotriton-ophryticus": ommatotritonOphryticus,
   "paralaudakia-caucasia": paralaudakiaCaucasia,
   "phasianus-colchicus": phasianusColchicus,
   "picus-viridis": picusViridis,
