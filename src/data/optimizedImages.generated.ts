@@ -2377,6 +2377,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 705],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/darevskia-daghestanica-denis-1.jpg": {
+    "path": "darevskia-daghestanica-denis-1",
+    "width": 2048,
+    "height": 1152,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/darevskia-daghestanica-edouard-1.png": {
     "path": "darevskia-daghestanica-edouard-1",
     "width": 750,
