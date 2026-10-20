@@ -2580,6 +2580,13 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [320, 400, 640, 800, 1200, 1296],
     "formats": ["avif", "webp"]
   },
+  "https://cdn.reptiles.ge/darevskia-mixta-kseniia-3.jpg": {
+    "path": "darevskia-mixta-kseniia-3",
+    "width": 2048,
+    "height": 1536,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/darevskia-mixta-mobile.jpg": {
     "path": "darevskia-mixta-mobile",
     "width": 2048,
