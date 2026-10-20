@@ -458,6 +458,7 @@ export const regions: Region[] = [
       "aegypius-monachus",
       "turdus-merula",
       "vulpes-vulpes",
+      "hemorrhois-ravergieri",
     ],
   },
   {
@@ -701,6 +702,7 @@ export const regions: Region[] = [
       "canis-lupus",
       "cuculus-canorus",
       "meles-canescens",
+      "hemorrhois-ravergieri",
     ],
   },
   {
@@ -764,6 +766,7 @@ export const regions: Region[] = [
       "turdus-merula",
       "vulpes-vulpes",
       "cuculus-canorus",
+      "hemorrhois-ravergieri",
     ],
   },
 ];
