@@ -27,6 +27,7 @@ import { rangeMap as darevskiaCaucasica } from "@/data/speciesRangeMaps/darevski
 import { rangeMap as darevskiaClarkorum } from "@/data/speciesRangeMaps/darevskia-clarkorum";
 import { rangeMap as darevskiaDahli } from "@/data/speciesRangeMaps/darevskia-dahli";
 import { rangeMap as darevskiaDerjugini } from "@/data/speciesRangeMaps/darevskia-derjugini";
+import { rangeMap as darevskiaMixta } from "@/data/speciesRangeMaps/darevskia-mixta";
 import { rangeMap as darevskiaObscura } from "@/data/speciesRangeMaps/darevskia-obscura";
 import { rangeMap as darevskiaPortschinskii } from "@/data/speciesRangeMaps/darevskia-portschinskii";
 import { rangeMap as darevskiaPraticola } from "@/data/speciesRangeMaps/darevskia-praticola";
@@ -119,6 +120,7 @@ export const INTERACTIVE_RANGE_MAPS: Partial<
   "darevskia-clarkorum": darevskiaClarkorum,
   "darevskia-dahli": darevskiaDahli,
   "darevskia-derjugini": darevskiaDerjugini,
+  "darevskia-mixta": darevskiaMixta,
   "darevskia-obscura": darevskiaObscura,
   "darevskia-portschinskii": darevskiaPortschinskii,
   "darevskia-praticola": darevskiaPraticola,
