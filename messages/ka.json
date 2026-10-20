@@ -1052,7 +1052,9 @@
   "author": {
     "roles": {
       "herpetologist": "ჰერპეტოლოგი",
-      "photographer": "ფოტოგრაფი"
+      "photographer": "ფოტოგრაფი",
+      "professor": "პროფესორი",
+      "ranger": "რეინჯერი"
     },
     "facebook": "Facebook",
     "instagram": "Instagram",
@@ -1095,7 +1097,9 @@
     },
     "rolesPlural": {
       "herpetologist": "ჰერპეტოლოგები",
-      "photographer": "ფოტოგრაფები"
+      "photographer": "ფოტოგრაფები",
+      "professor": "პროფესორები",
+      "ranger": "რეინჯერები"
     },
     "statGroups": "ჯგუფი",
     "summaryLabel": "მოკლედ",
