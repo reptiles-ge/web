@@ -1051,6 +1051,7 @@
   },
   "author": {
     "roles": {
+      "herpetologist": "ჰერპეტოლოგი",
       "photographer": "ფოტოგრაფი"
     },
     "facebook": "Facebook",
@@ -1093,6 +1094,7 @@
       "ctaButton": "მოგვწერე"
     },
     "rolesPlural": {
+      "herpetologist": "ჰერპეტოლოგები",
       "photographer": "ფოტოგრაფები"
     },
     "statGroups": "ჯგუფი",

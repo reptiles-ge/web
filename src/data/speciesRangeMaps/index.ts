@@ -49,6 +49,7 @@ import { rangeMap as garrulusGlandarius } from "@/data/speciesRangeMaps/garrulus
 import { rangeMap as gypaetusBarbatus } from "@/data/speciesRangeMaps/gypaetus-barbatus";
 import { rangeMap as gypsFulvus } from "@/data/speciesRangeMaps/gyps-fulvus";
 import { rangeMap as halyomorphaHalys } from "@/data/speciesRangeMaps/halyomorpha-halys";
+import { rangeMap as hemorrhoisRavergieri } from "@/data/speciesRangeMaps/hemorrhois-ravergieri";
 import { rangeMap as hylaOrientalis } from "@/data/speciesRangeMaps/hyla-orientalis";
 import { rangeMap as jynxTorquilla } from "@/data/speciesRangeMaps/jynx-torquilla";
 import { rangeMap as lacertaAgilis } from "@/data/speciesRangeMaps/lacerta-agilis";
@@ -67,6 +68,7 @@ import { rangeMap as mustelaNivalis } from "@/data/speciesRangeMaps/mustela-niva
 import { rangeMap as natrixNatrix } from "@/data/speciesRangeMaps/natrix-natrix";
 import { rangeMap as natrixTessellata } from "@/data/speciesRangeMaps/natrix-tessellata";
 import { rangeMap as neophronPercnopterus } from "@/data/speciesRangeMaps/neophron-percnopterus";
+import { rangeMap as ommatotritonOphryticus } from "@/data/speciesRangeMaps/ommatotriton-ophryticus";
 import { rangeMap as paralaudakiaCaucasia } from "@/data/speciesRangeMaps/paralaudakia-caucasia";
 import { rangeMap as phasianusColchicus } from "@/data/speciesRangeMaps/phasianus-colchicus";
 import { rangeMap as picusViridis } from "@/data/speciesRangeMaps/picus-viridis";
@@ -143,6 +145,7 @@ export const INTERACTIVE_RANGE_MAPS: Partial<
   "gypaetus-barbatus": gypaetusBarbatus,
   "gyps-fulvus": gypsFulvus,
   "halyomorpha-halys": halyomorphaHalys,
+  "hemorrhois-ravergieri": hemorrhoisRavergieri,
   "hyla-orientalis": hylaOrientalis,
   "jynx-torquilla": jynxTorquilla,
   "lacerta-agilis": lacertaAgilis,
@@ -161,6 +164,7 @@ export const INTERACTIVE_RANGE_MAPS: Partial<
   "natrix-natrix": natrixNatrix,
   "natrix-tessellata": natrixTessellata,
   "neophron-percnopterus": neophronPercnopterus,
+  "ommatotriton-ophryticus": ommatotritonOphryticus,
   "paralaudakia-caucasia": paralaudakiaCaucasia,
   "phasianus-colchicus": phasianusColchicus,
   "picus-viridis": picusViridis,

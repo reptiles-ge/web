@@ -49,6 +49,7 @@ export async function applyOptimizeCatalog(
     ...emptyManifest(),
     entries,
   });
+  ensureTrailingNewline(path.join(repoRoot, "src/data", MANIFEST_KEY));
 
   const assets = updates.filter(
     (
@@ -163,6 +164,11 @@ export async function optimizeUploadedOriginal(input: {
   const prefix = `${input.storage.urlFor(SPECIES_IMAGE_CONFIG.optimizedPrefix)}/`;
   const asset = compactAsset(input.key, entry, input.storage, prefix);
   return { asset, entry, key: input.key, src: input.src };
+}
+
+function ensureTrailingNewline(file: string) {
+  const text = fs.readFileSync(file, "utf8");
+  if (!text.endsWith("\n")) fs.writeFileSync(file, `${text}\n`);
 }
 
 function parseGeneratedImages(

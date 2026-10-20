@@ -75,6 +75,8 @@ const VELOX_OBSCURED_RECORD_NOTE =
   "Eremias velox: iNaturalist public coordinates obscured (~28 km)";
 const VELOX_NEEDS_ID_RECORD_NOTE =
   "Eremias velox: iNaturalist observation needs ID";
+const HEMORRHOIS_NEEDS_ID_RECORD_NOTE =
+  "Hemorrhois ravergieri: iNaturalist observation needs ID";
 const HYLA_ORIENTALIS_OBSCURED_RECORD_NOTE =
   "Hyla orientalis: iNaturalist public coordinates obscured (~28 km)";
 const HYLA_ORIENTALIS_NEEDS_ID_RECORD_NOTE =
@@ -85,6 +87,10 @@ const VALENTINI_OBSCURED_RECORD_NOTE =
   "Darevskia valentini: iNaturalist public coordinates obscured (~28 km)";
 const VALENTINI_NEEDS_ID_RECORD_NOTE =
   "Darevskia valentini: iNaturalist observation needs ID";
+const OMMATOTRITON_OBSCURED_RECORD_NOTE =
+  "Ommatotriton ophryticus: iNaturalist obscured cell crosses a region border";
+const OMMATOTRITON_NEEDS_ID_RECORD_NOTE =
+  "Ommatotriton ophryticus: iNaturalist observation needs ID";
 const LACERTA_MEDIA_OBSCURED_RECORD_NOTE =
   "Lacerta media: iNaturalist public coordinates obscured (~28 km)";
 const LACERTA_MEDIA_NOT_RESEARCH_RECORD_NOTE =
@@ -101,6 +107,7 @@ const OBSCURED_COORDINATE_NOTES = new Set([
   ERYX_JACULUS_OBSCURED_RECORD_NOTE,
   HYLA_ORIENTALIS_OBSCURED_RECORD_NOTE,
   LACERTA_MEDIA_OBSCURED_RECORD_NOTE,
+  OMMATOTRITON_OBSCURED_RECORD_NOTE,
   PORTSCHINSKII_OBSCURED_RECORD_NOTE,
   PRATICOLA_OBSCURED_RECORD_NOTE,
   VALENTINI_OBSCURED_RECORD_NOTE,
@@ -110,10 +117,12 @@ const OBSCURED_COORDINATE_NOTES = new Set([
 const NON_CONFIRMING_RECORD_NOTES = new Set([
   ...OBSCURED_COORDINATE_NOTES,
   DAGHESTANICA_NEEDS_ID_RECORD_NOTE,
+  HEMORRHOIS_NEEDS_ID_RECORD_NOTE,
   HYLA_ORIENTALIS_CASUAL_RECORD_NOTE,
   HYLA_ORIENTALIS_NEEDS_ID_RECORD_NOTE,
   LACERTA_MEDIA_NOT_RESEARCH_RECORD_NOTE,
   MIXTA_NEEDS_ID_RECORD_NOTE,
+  OMMATOTRITON_NEEDS_ID_RECORD_NOTE,
   PORTSCHINSKII_NEEDS_ID_RECORD_NOTE,
   VALENTINI_NEEDS_ID_RECORD_NOTE,
   VELOX_NEEDS_ID_RECORD_NOTE,
