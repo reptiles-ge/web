@@ -59,9 +59,14 @@ describe("uploadStandalonePhotos", () => {
         'export const optimizedBaseUrl = "https://cdn.reptiles.ge/optimized/";\nexport const optimizedImages: Record<string, OptimizedImageEntry> = {};\n',
       );
       await applyOptimizeCatalog(root, result.catalog);
-      const manifest = JSON.parse(
-        await readFile(path.join(dataDir, "image-manifest.json"), "utf8"),
-      ) as { entries: Record<string, unknown> };
+      const manifestText = await readFile(
+        path.join(dataDir, "image-manifest.json"),
+        "utf8",
+      );
+      expect(manifestText.endsWith("}\n")).toBe(true);
+      const manifest = JSON.parse(manifestText) as {
+        entries: Record<string, unknown>;
+      };
       expect(manifest.entries[result.catalog[0]?.key ?? ""]).toBeDefined();
       const generated = await readFile(
         path.join(dataDir, "optimizedImages.generated.ts"),
