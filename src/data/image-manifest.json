@@ -23909,6 +23909,73 @@
       ],
       "updatedAt": "2026-10-20T10:24:46.475Z"
     },
+    "darevskia-daghestanica-andre-1.jpg": {
+      "sourceHash": "edf264a985a067bfe80a0b0b6604b31fa3b702d37397d48077f3f5ce8e528a07",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "darevskia-daghestanica-andre-1.jpg",
+      "originalSize": 86586,
+      "width": 705,
+      "height": 399,
+      "derivatives": [
+        {
+          "key": "optimized/darevskia-daghestanica-andre-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 181,
+          "byteSize": 12223
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-andre-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 181,
+          "byteSize": 18454
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-andre-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 226,
+          "byteSize": 17035
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-andre-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 226,
+          "byteSize": 26702
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-andre-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 362,
+          "byteSize": 32744
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-andre-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 362,
+          "byteSize": 53210
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-andre-1-705.avif",
+          "format": "avif",
+          "width": 705,
+          "height": 399,
+          "byteSize": 41116
+        },
+        {
+          "key": "optimized/darevskia-daghestanica-andre-1-705.webp",
+          "format": "webp",
+          "width": 705,
+          "height": 399,
+          "byteSize": 61984
+        }
+      ],
+      "updatedAt": "2026-10-20T10:28:21.966Z"
+    },
     "darevskia-daghestanica-denis-1.jpg": {
       "sourceHash": "729eef4a87c71b53470cf24cce0777449b88c5017943f2eec6224915e9b4d6b3",
       "configFingerprint": "409788ee46c653d8",
