@@ -338,6 +338,8 @@ export const KA_META_DESCRIPTION_OVERRIDES: Record<string, string> = {
     "reptiles.ge-ის გამოყენების წესები, საგანმანათლებლო დათქმები, ინტელექტუალური საკუთრება და გარე წყაროების პირობები.",
   "/xvlikebi/acharuli-kldis-xvliki":
     "აჭარული კლდის ხვლიკი (Darevskia adjarica) უშხამო კლდის ხვლიკია, რომელიც საქართველოში აჭარასა და აბასთუმნის მხარეში გვხვდება.",
+  "/xvlikebi/acharuli-xvliki":
+    "აჭარული ხვლიკი (Darevskia mixta) უშხამო კლდის ხვლიკია დასავლეთ საქართველოს ნოტიო ტყის ხეობებში; მიმდინარე აღწერაში აჭარა არ შედის.",
   "/xvlikebi/afxazetis-kldis-xvliki":
     "აფხაზეთის კლდის ხვლიკი (Darevskia alpina) დასავლეთ დიდი კავკასიონის მაღალმთის კლდის ხვლიკია; საქართველოს 2026 წლის ჩამონათვალში კანდიდატ სახეობადაა მოცემული.",
   "/xvlikebi/artvinis-xvliki":
@@ -366,8 +368,6 @@ export const KA_META_DESCRIPTION_OVERRIDES: Record<string, string> = {
     "კასპიური გეკონი (Tenuidactylus caspius) საქართველოში დადასტურებული ერთადერთი გეკოს სახეობაა; კედელზე ნანახი პატარა ხვლიკი ზოგჯერ ჯოჯოში ერევათ.",
   "/xvlikebi/kavkasionis-xvliki":
     "კავკასიონის ხვლიკი (Darevskia caucasica) საქართველოში დიდი კავკასიონის კლდოვან ჰაბიტატებს უკავშირდება; პროფილი 2026 წლის ჩამონათვალის მონაცემებს ეყრდნობა.",
-  "/xvlikebi/kolxuri-kldis-xvliki":
-    "კოლხური კლდის ხვლიკი (Darevskia mixta) უშხამო კლდის ხვლიკია დასავლეთ საქართველოს ნოტიო ტყის ხეობებში; მიმდინარე აღწერაში აჭარა არ შედის.",
   "/xvlikebi/kolxuri-mdelos-xvliki":
     "კოლხური მდელოს ხვლიკი (Darevskia pontica) უშხამო, მიწაზე მცხოვრები მდელოს ხვლიკია ჩრდილო-დასავლეთ საქართველოს პონტურ არეალში.",
   "/xvlikebi/koxta-gveltava":

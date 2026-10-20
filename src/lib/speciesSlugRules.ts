@@ -113,6 +113,7 @@ const KA_SLUG_ALIASES: Record<string, string[]> = {
   ],
   "corvus-corax": ["qorani", "northern-raven", "common-raven", "raven"],
   "coturnix-coturnix": ["mtsqeri", "mwyeri"],
+  "darevskia-mixta": ["kolxuri-kldis-xvliki"],
   "dendrocopos-major": [
     "chreli-kodala",
     "didi-kodala",
