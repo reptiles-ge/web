@@ -75,6 +75,8 @@ const VELOX_OBSCURED_RECORD_NOTE =
   "Eremias velox: iNaturalist public coordinates obscured (~28 km)";
 const VELOX_NEEDS_ID_RECORD_NOTE =
   "Eremias velox: iNaturalist observation needs ID";
+const HEMORRHOIS_NEEDS_ID_RECORD_NOTE =
+  "Hemorrhois ravergieri: iNaturalist observation needs ID";
 const HYLA_ORIENTALIS_OBSCURED_RECORD_NOTE =
   "Hyla orientalis: iNaturalist public coordinates obscured (~28 km)";
 const HYLA_ORIENTALIS_NEEDS_ID_RECORD_NOTE =
@@ -110,6 +112,7 @@ const OBSCURED_COORDINATE_NOTES = new Set([
 const NON_CONFIRMING_RECORD_NOTES = new Set([
   ...OBSCURED_COORDINATE_NOTES,
   DAGHESTANICA_NEEDS_ID_RECORD_NOTE,
+  HEMORRHOIS_NEEDS_ID_RECORD_NOTE,
   HYLA_ORIENTALIS_CASUAL_RECORD_NOTE,
   HYLA_ORIENTALIS_NEEDS_ID_RECORD_NOTE,
   LACERTA_MEDIA_NOT_RESEARCH_RECORD_NOTE,
