@@ -124,11 +124,19 @@ describe("photo contributor roles and affiliations", () => {
     }
   });
 
-  it("labels every contributor by the photos they give the atlas", () => {
-    const herpetologists = new Set(["sandro-khakhva"]);
+  it("labels each contributor with the role the owner confirmed", () => {
+    const roles: Record<string, string> = {
+      "david-tarkhnishvili": "professor",
+      "giorgi-iankoshvili": "herpetologist",
+      "ioane-rostiashvili": "herpetologist",
+      "lasha-gogodze": "herpetologist",
+      "sandro-khakhva": "herpetologist",
+      "shota-zandukeli": "herpetologist",
+      "zauri-khachidze": "ranger",
+    };
     for (const author of CREDIT_AUTHORS) {
       expect(author.role, author.slug).toBe(
-        herpetologists.has(author.slug) ? "herpetologist" : "photographer",
+        roles[author.slug] ?? "photographer",
       );
       expect(author, author.slug).not.toHaveProperty("jobTitle");
     }

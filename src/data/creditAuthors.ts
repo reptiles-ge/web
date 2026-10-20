@@ -46,7 +46,8 @@ export type CreditAuthor = {
 
 export type CreditAuthorKind = "page" | "person";
 
-export type CreditAuthorRole = "herpetologist" | "photographer";
+export type CreditAuthorRole =
+  "herpetologist" | "photographer" | "professor" | "ranger";
 
 export const CREDIT_AUTHORS: CreditAuthor[] = [
   {
@@ -96,7 +97,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     portraitClass: "object-[50%_32%]",
     portraitSrc: "https://cdn.reptiles.ge/authors/zauri-khachidze.jpg",
     published: true,
-    role: "photographer",
+    role: "ranger",
     slug: "zauri-khachidze",
   },
   {
@@ -122,7 +123,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     portraitClass: "object-[50%_24%]",
     portraitSrc: "https://cdn.reptiles.ge/authors/ioane-rostiashvili.jpg",
     published: true,
-    role: "photographer",
+    role: "herpetologist",
     slug: "ioane-rostiashvili",
   },
   {
@@ -147,7 +148,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     portraitClass: "object-[50%_22%]",
     portraitSrc: "https://cdn.reptiles.ge/authors/giorgi-iankoshvili.jpg",
     published: true,
-    role: "photographer",
+    role: "herpetologist",
     slug: "giorgi-iankoshvili",
   },
   {
@@ -301,7 +302,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     portraitClass: "object-[72%_22%]",
     portraitSrc: "https://cdn.reptiles.ge/authors/shota-zandukeli.jpg",
     published: true,
-    role: "photographer",
+    role: "herpetologist",
     slug: "shota-zandukeli",
   },
   {
@@ -355,7 +356,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     portraitClass: "object-[50%_28%]",
     portraitSrc: "https://cdn.reptiles.ge/authors/david-tarkhnishvili.jpg",
     published: true,
-    role: "photographer",
+    role: "professor",
     slug: "david-tarkhnishvili",
   },
   {
@@ -438,7 +439,7 @@ export const CREDIT_AUTHORS: CreditAuthor[] = [
     portraitClass: "object-[48%_12%]",
     portraitSrc: "https://cdn.reptiles.ge/authors/lasha-gogodze.jpg",
     published: true,
-    role: "photographer",
+    role: "herpetologist",
     slug: "lasha-gogodze",
   },
   {

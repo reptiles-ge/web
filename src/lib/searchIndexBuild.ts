@@ -1174,6 +1174,8 @@ function creditAuthorRoleSearchTerms(role: CreditAuthorRole) {
   const terms: Record<CreditAuthorRole, string[]> = {
     herpetologist: ["ჰერპეტოლოგი", "herpetologist", "герпетолог", "herpetolog"],
     photographer: ["ფოტოგრაფი", "photographer", "фотограф", "fotoğrafçı"],
+    professor: ["პროფესორი", "professor", "профессор", "profesör"],
+    ranger: ["რეინჯერი", "ranger", "рейнджер", "bekçi"],
   };
   return terms[role];
 }

@@ -1052,7 +1052,9 @@
   "author": {
     "roles": {
       "herpetologist": "Herpetologist",
-      "photographer": "Photographer"
+      "photographer": "Photographer",
+      "professor": "Professor",
+      "ranger": "Ranger"
     },
     "facebook": "Facebook",
     "instagram": "Instagram",
@@ -1095,7 +1097,9 @@
     },
     "rolesPlural": {
       "herpetologist": "Herpetologists",
-      "photographer": "Photographers"
+      "photographer": "Photographers",
+      "professor": "Professors",
+      "ranger": "Rangers"
     },
     "statGroups": "Groups",
     "summaryLabel": "At a glance",

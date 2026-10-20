@@ -1052,7 +1052,9 @@
   "author": {
     "roles": {
       "herpetologist": "Герпетолог",
-      "photographer": "Фотограф"
+      "photographer": "Фотограф",
+      "professor": "Профессор",
+      "ranger": "Рейнджер"
     },
     "facebook": "Facebook",
     "instagram": "Instagram",
@@ -1095,7 +1097,9 @@
     },
     "rolesPlural": {
       "herpetologist": "Герпетологи",
-      "photographer": "Фотографы"
+      "photographer": "Фотографы",
+      "professor": "Профессора",
+      "ranger": "Рейнджеры"
     },
     "statGroups": "Групп",
     "summaryLabel": "Коротко",
