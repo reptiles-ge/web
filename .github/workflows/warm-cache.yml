@@ -84,8 +84,18 @@ jobs:
           git add src/data/newsSchemaImages.json
           git commit -m "Record new news schema crops"
           git push --force origin "$branch"
-          if [ "$(gh pr list --head "$branch" --base staging --state open --json number --jq length)" = "0" ]; then
-            gh pr create --base staging --head "$branch" --label content \
-              --title "Record new news schema crops" \
-              --body "The warm-cache workflow uploaded 16:9, 4:3 and 1:1 crops for new news heroes. This records them in \`src/data/newsSchemaImages.json\`, so NewsArticle JSON-LD lists them after the next deploy."
+          if [ "$(gh pr list --head "$branch" --base staging --state open --json number --jq length)" != "0" ]; then
+            echo "A pull request for $branch is already open."
+            exit 0
+          fi
+          if ! gh pr create --base staging --head "$branch" --label content \
+            --title "Record new news schema crops" \
+            --body "The warm-cache workflow uploaded 16:9, 4:3 and 1:1 crops for new news heroes. This records them in \`src/data/newsSchemaImages.json\`, so NewsArticle JSON-LD lists them after the next deploy."; then
+            compare="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/compare/staging...$branch?expand=1"
+            echo "::warning title=Open the news schema pull request by hand::GitHub Actions may not create pull requests in this repository. $branch is pushed; open it at $compare"
+            {
+              echo "### News schema crops are waiting for a pull request"
+              echo
+              echo "\`$branch\` holds the updated \`src/data/newsSchemaImages.json\`. [Open the pull request into staging]($compare) and label it \`content\`."
+            } >> "$GITHUB_STEP_SUMMARY"
           fi
