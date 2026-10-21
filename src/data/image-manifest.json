@@ -92892,6 +92892,101 @@
       ],
       "updatedAt": "2026-08-28T21:55:51.857Z"
     },
+    "pelobates-syriacus-achot-1.jpg": {
+      "sourceHash": "ca6f9436934b77703636042f5e6b2664924e2b976b5e500fb3ce107dbf2c0777",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pelobates-syriacus-achot-1.jpg",
+      "originalSize": 750792,
+      "width": 2048,
+      "height": 1366,
+      "derivatives": [
+        {
+          "key": "optimized/pelobates-syriacus-achot-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8987
+        },
+        {
+          "key": "optimized/pelobates-syriacus-achot-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12052
+        },
+        {
+          "key": "optimized/pelobates-syriacus-achot-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 12250
+        },
+        {
+          "key": "optimized/pelobates-syriacus-achot-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 17146
+        },
+        {
+          "key": "optimized/pelobates-syriacus-achot-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 27363
+        },
+        {
+          "key": "optimized/pelobates-syriacus-achot-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 37430
+        },
+        {
+          "key": "optimized/pelobates-syriacus-achot-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 39594
+        },
+        {
+          "key": "optimized/pelobates-syriacus-achot-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 57728
+        },
+        {
+          "key": "optimized/pelobates-syriacus-achot-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 93127
+        },
+        {
+          "key": "optimized/pelobates-syriacus-achot-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 141126
+        },
+        {
+          "key": "optimized/pelobates-syriacus-achot-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1366,
+          "byteSize": 356448
+        },
+        {
+          "key": "optimized/pelobates-syriacus-achot-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1366,
+          "byteSize": 465476
+        }
+      ],
+      "updatedAt": "2026-10-21T08:54:00.126Z"
+    },
     "pelobates-syriacus-alex-1.jpg": {
       "sourceHash": "990d2fdf24b1688e528f6a1fa07b4687d881d578a897013717c9e08cf7bb4d80",
       "configFingerprint": "409788ee46c653d8",
