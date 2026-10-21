@@ -44,6 +44,7 @@ export const regions: Region[] = [
     },
     path: georgiaRegionPaths.abkhazia,
     speciesIds: [
+      "emys-orbicularis",
       "accipiter-nisus",
       "dendrocopos-major",
       "erithacus-rubecula",
@@ -150,6 +151,7 @@ export const regions: Region[] = [
     nameIn: { en: "Guria", ka: "გურიაში", ru: "Гурии", tr: "Gurya" },
     path: georgiaRegionPaths.guria,
     speciesIds: [
+      "emys-orbicularis",
       "lanius-collurio",
       "vipera-kaznakovi",
       "natrix-tessellata",
@@ -184,6 +186,7 @@ export const regions: Region[] = [
     nameIn: { en: "Adjara", ka: "აჭარაში", ru: "Аджарии", tr: "Acara" },
     path: georgiaRegionPaths.adjara,
     speciesIds: [
+      "emys-orbicularis",
       "accipiter-nisus",
       "dendrocopos-major",
       "jynx-torquilla",
@@ -245,6 +248,7 @@ export const regions: Region[] = [
     nameIn: { en: "Imereti", ka: "იმერეთში", ru: "Имеретии", tr: "İmereti" },
     path: georgiaRegionPaths.imereti,
     speciesIds: [
+      "emys-orbicularis",
       "accipiter-nisus",
       "garrulus-glandarius",
       "lanius-collurio",
@@ -477,6 +481,7 @@ export const regions: Region[] = [
     },
     path: georgiaRegionPaths["mtskheta-mtianeti"],
     speciesIds: [
+      "emys-orbicularis",
       "lacerta-media",
       "accipiter-nisus",
       "dendrocopos-major",
@@ -554,6 +559,7 @@ export const regions: Region[] = [
     },
     path: georgiaRegionPaths["kvemo-kartli"],
     speciesIds: [
+      "emys-orbicularis",
       "accipiter-nisus",
       "dendrocopos-major",
       "erithacus-rubecula",
@@ -709,6 +715,7 @@ export const regions: Region[] = [
     nameIn: { en: "Tbilisi", ka: "თბილისში", ru: "Тбилиси", tr: "Tiflis" },
     path: georgiaRegionPaths.tbilisi,
     speciesIds: [
+      "emys-orbicularis",
       "lacerta-media",
       "accipiter-nisus",
       "dendrocopos-major",
