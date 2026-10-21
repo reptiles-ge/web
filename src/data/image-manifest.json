@@ -54026,6 +54026,59 @@
       ],
       "updatedAt": "2026-08-28T21:42:44.113Z"
     },
+    "images/authors/arvidas-merkelis.jpg": {
+      "sourceHash": "a0b9de46cd33eb55a755250d948a50a6e8d8b7b78501d61756caa4d1bb7b3605",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/authors/arvidas-merkelis.jpg",
+      "originalSize": 95178,
+      "width": 480,
+      "height": 480,
+      "derivatives": [
+        {
+          "key": "optimized/images/authors/arvidas-merkelis-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 320,
+          "byteSize": 16510
+        },
+        {
+          "key": "optimized/images/authors/arvidas-merkelis-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 320,
+          "byteSize": 23064
+        },
+        {
+          "key": "optimized/images/authors/arvidas-merkelis-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 400,
+          "byteSize": 22156
+        },
+        {
+          "key": "optimized/images/authors/arvidas-merkelis-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 400,
+          "byteSize": 30528
+        },
+        {
+          "key": "optimized/images/authors/arvidas-merkelis-480.avif",
+          "format": "avif",
+          "width": 480,
+          "height": 480,
+          "byteSize": 28249
+        },
+        {
+          "key": "optimized/images/authors/arvidas-merkelis-480.webp",
+          "format": "webp",
+          "width": 480,
+          "height": 480,
+          "byteSize": 39010
+        }
+      ],
+      "updatedAt": "2026-10-21T11:00:49.859Z"
+    },
     "images/authors/giorgi-natsvlishvili.png": {
       "sourceHash": "c18715eda47f2925b06543b0c44f206e5b071824b3e7319b2ef0730393fe3216",
       "configFingerprint": "409788ee46c653d8",
@@ -91196,6 +91249,59 @@
         }
       ],
       "updatedAt": "2026-08-28T21:55:26.982Z"
+    },
+    "optimized/images/authors/arvidas-merkelis-480.webp": {
+      "sourceHash": "26ef272ec9b6ac3fd008926df784df984d00150b5acf89b87af0e2fd639cd550",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "optimized/images/authors/arvidas-merkelis-480.webp",
+      "originalSize": 39010,
+      "width": 480,
+      "height": 480,
+      "derivatives": [
+        {
+          "key": "optimized/optimized/images/authors/arvidas-merkelis-480-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 320,
+          "byteSize": 15879
+        },
+        {
+          "key": "optimized/optimized/images/authors/arvidas-merkelis-480-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 320,
+          "byteSize": 21594
+        },
+        {
+          "key": "optimized/optimized/images/authors/arvidas-merkelis-480-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 400,
+          "byteSize": 20697
+        },
+        {
+          "key": "optimized/optimized/images/authors/arvidas-merkelis-480-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 400,
+          "byteSize": 28450
+        },
+        {
+          "key": "optimized/optimized/images/authors/arvidas-merkelis-480-480.avif",
+          "format": "avif",
+          "width": 480,
+          "height": 480,
+          "byteSize": 29630
+        },
+        {
+          "key": "optimized/optimized/images/authors/arvidas-merkelis-480-480.webp",
+          "format": "webp",
+          "width": 480,
+          "height": 480,
+          "byteSize": 38248
+        }
+      ],
+      "updatedAt": "2026-10-21T11:01:43.613Z"
     },
     "optimized/images/authors/giorgi-natsvlishvili-480.webp": {
       "sourceHash": "eec1b38a82513b714d887e3bbc5973642f12044309a32a98933675bab6ce1013",

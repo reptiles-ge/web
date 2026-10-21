@@ -107,9 +107,13 @@ describe("presentation helpers", () => {
     expect(
       creditAuthorSameAs({
         ...author,
-        links: { facebook: "https://f", researchGate: "https://r" },
+        links: {
+          facebook: "https://f",
+          inaturalist: "https://n",
+          researchGate: "https://r",
+        },
       }),
-    ).toEqual(["https://f", "https://r"]);
+    ).toEqual(["https://f", "https://n", "https://r"]);
   });
 });
 

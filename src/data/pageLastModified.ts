@@ -114,6 +114,7 @@ const SITEMAP_AUTHOR_LAST_MODIFIED: Partial<Record<string, string>> = {
 
 const SITEMAP_AUTHOR_DATE_PUBLISHED: Record<string, string> = {
   "armen-seropian": "2026-09-16T16:00:00+04:00",
+  "arvidas-merkelis": "2026-10-21T15:00:00+04:00",
   "david-tarkhnishvili": "2026-09-16T16:11:00+04:00",
   "giorgi-iankoshvili": "2026-09-16T16:22:00+04:00",
   "giorgi-natsvlishvili": "2026-10-03T12:00:00+04:00",

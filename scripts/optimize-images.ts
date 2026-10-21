@@ -272,10 +272,11 @@ function collectTargets(
     const siteImageSources = new Set([
       ...Object.values(siteImages),
       ...Object.values(GROUP_HUB_ILLUSTRATIONS),
+      ...CREDIT_AUTHORS.map((author) => author.portraitSrc),
     ]);
     for (const src of imageSources) {
       if (!siteImageSources.has(src)) {
-        throw new Error(`Unknown site or group image "${src}".`);
+        throw new Error(`Unknown site, group or author image "${src}".`);
       }
       add(src);
     }
