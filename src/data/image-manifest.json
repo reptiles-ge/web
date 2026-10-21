@@ -95012,6 +95012,101 @@
       ],
       "updatedAt": "2026-09-09T20:14:04.464Z"
     },
+    "pelophylax-ridibundus-dachi-1.jpg": {
+      "sourceHash": "016cde49ac634b262bfa32eae11e61257ee42f4da2e0145d31887d575205127a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pelophylax-ridibundus-dachi-1.jpg",
+      "originalSize": 306612,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/pelophylax-ridibundus-dachi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 5205
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-dachi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 5552
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-dachi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 6844
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-dachi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 7580
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-dachi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 13452
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-dachi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 15476
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-dachi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 18495
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-dachi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 21256
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-dachi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 32213
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-dachi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 37170
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-dachi-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 72629
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-dachi-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 86322
+        }
+      ],
+      "updatedAt": "2026-10-21T10:44:07.676Z"
+    },
     "pelophylax-ridibundus-donsky-1.jpg": {
       "sourceHash": "80d19aa05fc0c2ebdeea06660e8b781bc78feea497ddc84daeb5a2b99ff4ea7a",
       "configFingerprint": "409788ee46c653d8",
