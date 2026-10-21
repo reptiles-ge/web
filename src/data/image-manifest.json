@@ -93948,6 +93948,576 @@
       ],
       "updatedAt": "2026-08-28T21:55:57.744Z"
     },
+    "pelodytes-caucasicus-alex-1.jpg": {
+      "sourceHash": "5123544e3f0c3684e72fb586737df842a112c2824fb2860a6e9d2c422288c138",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pelodytes-caucasicus-alex-1.jpg",
+      "originalSize": 743766,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/pelodytes-caucasicus-alex-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9218
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-alex-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14076
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-alex-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 13373
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-alex-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 19472
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-alex-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 28026
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-alex-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 40084
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-alex-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 40338
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-alex-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 57260
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-alex-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 83252
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-alex-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 122512
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-alex-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 349139
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-alex-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 455948
+        }
+      ],
+      "updatedAt": "2026-10-21T09:53:07.091Z"
+    },
+    "pelodytes-caucasicus-bertogcliment-1.jpg": {
+      "sourceHash": "010d70e89bed7e4b17f4dd7858f0c57df71b893c89c341d853dc0454add9efb4",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pelodytes-caucasicus-bertogcliment-1.jpg",
+      "originalSize": 692897,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/pelodytes-caucasicus-bertogcliment-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 26840
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-bertogcliment-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 43726
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-bertogcliment-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 38000
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-bertogcliment-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 61002
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-bertogcliment-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 79530
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-bertogcliment-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 125926
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-bertogcliment-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 109665
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-bertogcliment-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 170586
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-bertogcliment-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 187362
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-bertogcliment-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 279770
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-bertogcliment-1-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 259162
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-bertogcliment-1-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 365944
+        }
+      ],
+      "updatedAt": "2026-10-21T09:41:39.000Z"
+    },
+    "pelodytes-caucasicus-david-1.jpg": {
+      "sourceHash": "50207b94609d94c26fff3fc9b46c7e1e640a17ea3be0dc0b1c7b02bca5c6749a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pelodytes-caucasicus-david-1.jpg",
+      "originalSize": 324438,
+      "width": 2048,
+      "height": 1366,
+      "derivatives": [
+        {
+          "key": "optimized/pelodytes-caucasicus-david-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6488
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-david-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8022
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-david-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 9097
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-david-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 11096
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-david-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 18491
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-david-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 23124
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-david-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 25845
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-david-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 33236
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-david-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 46814
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-david-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 59998
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-david-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1366,
+          "byteSize": 103406
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-david-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1366,
+          "byteSize": 131292
+        }
+      ],
+      "updatedAt": "2026-10-21T09:40:53.013Z"
+    },
+    "pelodytes-caucasicus-dmitry-1.jpg": {
+      "sourceHash": "d213477441e3330ac6bace6ff4b4b2eb4cffbff68cb635ce0de72dc14c843ad5",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pelodytes-caucasicus-dmitry-1.jpg",
+      "originalSize": 552405,
+      "width": 2048,
+      "height": 1367,
+      "derivatives": [
+        {
+          "key": "optimized/pelodytes-caucasicus-dmitry-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12950
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-dmitry-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 20646
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-dmitry-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 17594
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-dmitry-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 27696
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-dmitry-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 33267
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-dmitry-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 52626
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-dmitry-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 44317
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-dmitry-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 69534
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-dmitry-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 72706
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-dmitry-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 112906
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-dmitry-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1367,
+          "byteSize": 140481
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-dmitry-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1367,
+          "byteSize": 242200
+        }
+      ],
+      "updatedAt": "2026-10-21T09:58:09.754Z"
+    },
+    "pelodytes-caucasicus-gocha-1.jpg": {
+      "sourceHash": "c04d17a9a30347455d03f8bdf45f63a16ac76293b9ef361f27dfa9c752f69ede",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pelodytes-caucasicus-gocha-1.jpg",
+      "originalSize": 413407,
+      "width": 2048,
+      "height": 1367,
+      "derivatives": [
+        {
+          "key": "optimized/pelodytes-caucasicus-gocha-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8515
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-gocha-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14062
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-gocha-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 11711
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-gocha-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 18896
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-gocha-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 23142
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-gocha-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 37698
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-gocha-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 32194
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-gocha-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 51520
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-gocha-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 57980
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-gocha-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 88174
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-gocha-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1367,
+          "byteSize": 123215
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-gocha-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1367,
+          "byteSize": 178830
+        }
+      ],
+      "updatedAt": "2026-10-21T09:56:30.267Z"
+    },
+    "pelodytes-caucasicus-sebastian-1.jpg": {
+      "sourceHash": "1d175b394435d20f2e93400f69f09c6974fd9a47ad4eddfcb7aa3f3243103dae",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pelodytes-caucasicus-sebastian-1.jpg",
+      "originalSize": 682817,
+      "width": 2048,
+      "height": 1367,
+      "derivatives": [
+        {
+          "key": "optimized/pelodytes-caucasicus-sebastian-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 16041
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-sebastian-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 28766
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-sebastian-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 22140
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-sebastian-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 39460
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-sebastian-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 45722
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-sebastian-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 79350
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-sebastian-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 63542
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-sebastian-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 108104
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-sebastian-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 114265
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-sebastian-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 187990
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-sebastian-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1367,
+          "byteSize": 240096
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-sebastian-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1367,
+          "byteSize": 372168
+        }
+      ],
+      "updatedAt": "2026-10-21T09:57:27.750Z"
+    },
     "pelodytes-caucasicus-zauri-1.jpg": {
       "sourceHash": "de75d5691839a8e048116eab2d4b2cb09db50d49edde87e49535b3ae02d07248",
       "configFingerprint": "a895f8e025dcc7fa",

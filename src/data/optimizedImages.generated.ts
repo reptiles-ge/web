@@ -7809,6 +7809,48 @@ export const optimizedImages: Record<string, OptimizedImageEntry> = {
     "widths": [400, 800, 1200, 2048],
     "formats": ["avif"]
   },
+  "https://cdn.reptiles.ge/pelodytes-caucasicus-alex-1.jpg": {
+    "path": "pelodytes-caucasicus-alex-1",
+    "width": 2048,
+    "height": 1365,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/pelodytes-caucasicus-bertogcliment-1.jpg": {
+    "path": "pelodytes-caucasicus-bertogcliment-1",
+    "width": 1536,
+    "height": 2048,
+    "widths": [320, 400, 640, 800, 1200, 1536],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/pelodytes-caucasicus-david-1.jpg": {
+    "path": "pelodytes-caucasicus-david-1",
+    "width": 2048,
+    "height": 1366,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/pelodytes-caucasicus-dmitry-1.jpg": {
+    "path": "pelodytes-caucasicus-dmitry-1",
+    "width": 2048,
+    "height": 1367,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/pelodytes-caucasicus-gocha-1.jpg": {
+    "path": "pelodytes-caucasicus-gocha-1",
+    "width": 2048,
+    "height": 1367,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
+  "https://cdn.reptiles.ge/pelodytes-caucasicus-sebastian-1.jpg": {
+    "path": "pelodytes-caucasicus-sebastian-1",
+    "width": 2048,
+    "height": 1367,
+    "widths": [320, 400, 640, 800, 1200, 2048],
+    "formats": ["avif", "webp"]
+  },
   "https://cdn.reptiles.ge/pelodytes-caucasicus-zauri-1.jpg": {
     "path": "pelodytes-caucasicus-zauri-1",
     "width": 1024,
