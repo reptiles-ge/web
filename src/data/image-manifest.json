@@ -59943,6 +59943,291 @@
       ],
       "updatedAt": "2026-10-19T10:58:48.139Z"
     },
+    "images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis.jpg": {
+      "sourceHash": "d459ef009693894614f7e3706af233eb04b9791c1a7078efc00049e047f0a0af",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis.jpg",
+      "originalSize": 1618216,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10007
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14484
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 13266
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 19240
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 25885
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 35938
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 34715
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 48098
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 58822
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 78862
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 119886
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 154930
+        }
+      ],
+      "updatedAt": "2026-10-21T06:46:10.168Z"
+    },
+    "images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-forest.jpg": {
+      "sourceHash": "d81ee6eea82682e24d8672b7bd2b326d099d8a7bb57a282a171bfeaf65337f7e",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-forest.jpg",
+      "originalSize": 811117,
+      "width": 1920,
+      "height": 1280,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-forest-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11944
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-forest-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 16804
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-forest-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 18713
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-forest-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 26516
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-forest-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 46891
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-forest-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 68514
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-forest-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 75100
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-forest-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 109142
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-forest-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 173376
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-forest-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 249782
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-forest-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 440079
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-forest-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 640080
+        }
+      ],
+      "updatedAt": "2026-10-21T06:46:14.339Z"
+    },
+    "images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-view.jpg": {
+      "sourceHash": "1fec0bf9b060ecd532b494c8505c7d469a9149bb2cb6264651faa1369439bee1",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-view.jpg",
+      "originalSize": 678465,
+      "width": 1920,
+      "height": 1280,
+      "derivatives": [
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-view-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9866
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-view-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 13894
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-view-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 267,
+          "byteSize": 15613
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-view-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 267,
+          "byteSize": 22760
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-view-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 39276
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-view-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 59280
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-view-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 65187
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-view-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 96570
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-view-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 150977
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-view-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 214956
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-view-1920.avif",
+          "format": "avif",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 379304
+        },
+        {
+          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-view-1920.webp",
+          "format": "webp",
+          "width": 1920,
+          "height": 1280,
+          "byteSize": 509790
+        }
+      ],
+      "updatedAt": "2026-10-21T06:46:16.739Z"
+    },
     "images/news/theridion-huseynovi-new-spider-species-georgia-2026/theridion-huseynovi.png": {
       "sourceHash": "d4a1a13fbf943fc87f371418a57eca878129fcd41f735deb5bfbca43c80fe9f3",
       "configFingerprint": "409788ee46c653d8",
@@ -92607,6 +92892,196 @@
       ],
       "updatedAt": "2026-08-28T21:55:51.857Z"
     },
+    "pelobates-syriacus-achot-1.jpg": {
+      "sourceHash": "ca6f9436934b77703636042f5e6b2664924e2b976b5e500fb3ce107dbf2c0777",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pelobates-syriacus-achot-1.jpg",
+      "originalSize": 750792,
+      "width": 2048,
+      "height": 1366,
+      "derivatives": [
+        {
+          "key": "optimized/pelobates-syriacus-achot-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8987
+        },
+        {
+          "key": "optimized/pelobates-syriacus-achot-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12052
+        },
+        {
+          "key": "optimized/pelobates-syriacus-achot-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 12250
+        },
+        {
+          "key": "optimized/pelobates-syriacus-achot-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 17146
+        },
+        {
+          "key": "optimized/pelobates-syriacus-achot-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 27363
+        },
+        {
+          "key": "optimized/pelobates-syriacus-achot-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 37430
+        },
+        {
+          "key": "optimized/pelobates-syriacus-achot-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 39594
+        },
+        {
+          "key": "optimized/pelobates-syriacus-achot-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 57728
+        },
+        {
+          "key": "optimized/pelobates-syriacus-achot-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 93127
+        },
+        {
+          "key": "optimized/pelobates-syriacus-achot-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 141126
+        },
+        {
+          "key": "optimized/pelobates-syriacus-achot-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1366,
+          "byteSize": 356448
+        },
+        {
+          "key": "optimized/pelobates-syriacus-achot-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1366,
+          "byteSize": 465476
+        }
+      ],
+      "updatedAt": "2026-10-21T08:54:00.126Z"
+    },
+    "pelobates-syriacus-alex-1.jpg": {
+      "sourceHash": "990d2fdf24b1688e528f6a1fa07b4687d881d578a897013717c9e08cf7bb4d80",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pelobates-syriacus-alex-1.jpg",
+      "originalSize": 364599,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/pelobates-syriacus-alex-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6949
+        },
+        {
+          "key": "optimized/pelobates-syriacus-alex-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9922
+        },
+        {
+          "key": "optimized/pelobates-syriacus-alex-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 9484
+        },
+        {
+          "key": "optimized/pelobates-syriacus-alex-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 13792
+        },
+        {
+          "key": "optimized/pelobates-syriacus-alex-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 20125
+        },
+        {
+          "key": "optimized/pelobates-syriacus-alex-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 28986
+        },
+        {
+          "key": "optimized/pelobates-syriacus-alex-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 28290
+        },
+        {
+          "key": "optimized/pelobates-syriacus-alex-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 41398
+        },
+        {
+          "key": "optimized/pelobates-syriacus-alex-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 52552
+        },
+        {
+          "key": "optimized/pelobates-syriacus-alex-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 74928
+        },
+        {
+          "key": "optimized/pelobates-syriacus-alex-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 120004
+        },
+        {
+          "key": "optimized/pelobates-syriacus-alex-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 171886
+        }
+      ],
+      "updatedAt": "2026-10-21T08:50:57.865Z"
+    },
     "pelobates-syriacus-armen-1.jpg": {
       "sourceHash": "3c1b4512c1794317f848cad142720a5790e95c08edd908df8cad06332ce3f4f0",
       "configFingerprint": "409788ee46c653d8",
@@ -92892,6 +93367,101 @@
       ],
       "updatedAt": "2026-09-08T16:10:26.254Z"
     },
+    "pelobates-syriacus-bertogcliment-1.jpg": {
+      "sourceHash": "98e9c646c6af602683e100c49a1af42b61a3ffcbadd5a0829b30f1b5dd828fd6",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pelobates-syriacus-bertogcliment-1.jpg",
+      "originalSize": 725532,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/pelobates-syriacus-bertogcliment-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 27487
+        },
+        {
+          "key": "optimized/pelobates-syriacus-bertogcliment-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 42904
+        },
+        {
+          "key": "optimized/pelobates-syriacus-bertogcliment-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 39472
+        },
+        {
+          "key": "optimized/pelobates-syriacus-bertogcliment-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 61820
+        },
+        {
+          "key": "optimized/pelobates-syriacus-bertogcliment-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 84384
+        },
+        {
+          "key": "optimized/pelobates-syriacus-bertogcliment-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 134558
+        },
+        {
+          "key": "optimized/pelobates-syriacus-bertogcliment-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 115190
+        },
+        {
+          "key": "optimized/pelobates-syriacus-bertogcliment-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 188014
+        },
+        {
+          "key": "optimized/pelobates-syriacus-bertogcliment-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 196583
+        },
+        {
+          "key": "optimized/pelobates-syriacus-bertogcliment-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 314412
+        },
+        {
+          "key": "optimized/pelobates-syriacus-bertogcliment-1-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 270732
+        },
+        {
+          "key": "optimized/pelobates-syriacus-bertogcliment-1-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 419948
+        }
+      ],
+      "updatedAt": "2026-10-21T08:50:12.850Z"
+    },
     "pelobates-syriacus-laura-1.jpg": {
       "sourceHash": "8e32ca92d66d1f5cb0ede92b77ae09197884bc57d819368742bf42a494f04f99",
       "configFingerprint": "409788ee46c653d8",
@@ -92986,6 +93556,196 @@
         }
       ],
       "updatedAt": "2026-09-08T16:12:38.841Z"
+    },
+    "pelobates-syriacus-lennart-1.jpg": {
+      "sourceHash": "7256f56d1c523e6dd8e25fd1b328d644c30cf40d8b5da91b822f05b83ca7c5ce",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pelobates-syriacus-lennart-1.jpg",
+      "originalSize": 384713,
+      "width": 2048,
+      "height": 1367,
+      "derivatives": [
+        {
+          "key": "optimized/pelobates-syriacus-lennart-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9778
+        },
+        {
+          "key": "optimized/pelobates-syriacus-lennart-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14538
+        },
+        {
+          "key": "optimized/pelobates-syriacus-lennart-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 13084
+        },
+        {
+          "key": "optimized/pelobates-syriacus-lennart-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 19262
+        },
+        {
+          "key": "optimized/pelobates-syriacus-lennart-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 25691
+        },
+        {
+          "key": "optimized/pelobates-syriacus-lennart-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 36960
+        },
+        {
+          "key": "optimized/pelobates-syriacus-lennart-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 34837
+        },
+        {
+          "key": "optimized/pelobates-syriacus-lennart-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 50838
+        },
+        {
+          "key": "optimized/pelobates-syriacus-lennart-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 60332
+        },
+        {
+          "key": "optimized/pelobates-syriacus-lennart-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 88674
+        },
+        {
+          "key": "optimized/pelobates-syriacus-lennart-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1367,
+          "byteSize": 136285
+        },
+        {
+          "key": "optimized/pelobates-syriacus-lennart-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1367,
+          "byteSize": 189308
+        }
+      ],
+      "updatedAt": "2026-10-21T08:53:20.045Z"
+    },
+    "pelobates-syriacus-marcus-1.jpg": {
+      "sourceHash": "5e533a5ef2198ff7936e9f128b25c1fbc696a7383be2f081185116543f0755c7",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pelobates-syriacus-marcus-1.jpg",
+      "originalSize": 515644,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/pelobates-syriacus-marcus-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 10545
+        },
+        {
+          "key": "optimized/pelobates-syriacus-marcus-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 16028
+        },
+        {
+          "key": "optimized/pelobates-syriacus-marcus-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 15156
+        },
+        {
+          "key": "optimized/pelobates-syriacus-marcus-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 22204
+        },
+        {
+          "key": "optimized/pelobates-syriacus-marcus-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 31189
+        },
+        {
+          "key": "optimized/pelobates-syriacus-marcus-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 46440
+        },
+        {
+          "key": "optimized/pelobates-syriacus-marcus-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 43881
+        },
+        {
+          "key": "optimized/pelobates-syriacus-marcus-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 65300
+        },
+        {
+          "key": "optimized/pelobates-syriacus-marcus-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 78128
+        },
+        {
+          "key": "optimized/pelobates-syriacus-marcus-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 115874
+        },
+        {
+          "key": "optimized/pelobates-syriacus-marcus-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 168236
+        },
+        {
+          "key": "optimized/pelobates-syriacus-marcus-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 249750
+        }
+      ],
+      "updatedAt": "2026-10-21T08:52:36.756Z"
     },
     "pelobates-syriacus.jpg": {
       "sourceHash": "3223962bf51a7d415c46557efba40983cac0c3d059d04c5ec3b2e552fb31392f",
@@ -93187,6 +93947,576 @@
         }
       ],
       "updatedAt": "2026-08-28T21:55:57.744Z"
+    },
+    "pelodytes-caucasicus-alex-1.jpg": {
+      "sourceHash": "5123544e3f0c3684e72fb586737df842a112c2824fb2860a6e9d2c422288c138",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pelodytes-caucasicus-alex-1.jpg",
+      "originalSize": 743766,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/pelodytes-caucasicus-alex-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 9218
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-alex-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14076
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-alex-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 13373
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-alex-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 19472
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-alex-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 28026
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-alex-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 40084
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-alex-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 40338
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-alex-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 57260
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-alex-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 83252
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-alex-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 122512
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-alex-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 349139
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-alex-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 455948
+        }
+      ],
+      "updatedAt": "2026-10-21T09:53:07.091Z"
+    },
+    "pelodytes-caucasicus-bertogcliment-1.jpg": {
+      "sourceHash": "010d70e89bed7e4b17f4dd7858f0c57df71b893c89c341d853dc0454add9efb4",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pelodytes-caucasicus-bertogcliment-1.jpg",
+      "originalSize": 692897,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/pelodytes-caucasicus-bertogcliment-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 26840
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-bertogcliment-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 43726
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-bertogcliment-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 38000
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-bertogcliment-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 61002
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-bertogcliment-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 79530
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-bertogcliment-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 125926
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-bertogcliment-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 109665
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-bertogcliment-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 170586
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-bertogcliment-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 187362
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-bertogcliment-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 279770
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-bertogcliment-1-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 259162
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-bertogcliment-1-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 365944
+        }
+      ],
+      "updatedAt": "2026-10-21T09:41:39.000Z"
+    },
+    "pelodytes-caucasicus-david-1.jpg": {
+      "sourceHash": "50207b94609d94c26fff3fc9b46c7e1e640a17ea3be0dc0b1c7b02bca5c6749a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pelodytes-caucasicus-david-1.jpg",
+      "originalSize": 324438,
+      "width": 2048,
+      "height": 1366,
+      "derivatives": [
+        {
+          "key": "optimized/pelodytes-caucasicus-david-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 6488
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-david-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8022
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-david-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 9097
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-david-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 11096
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-david-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 18491
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-david-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 23124
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-david-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 25845
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-david-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 33236
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-david-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 46814
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-david-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 59998
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-david-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1366,
+          "byteSize": 103406
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-david-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1366,
+          "byteSize": 131292
+        }
+      ],
+      "updatedAt": "2026-10-21T09:40:53.013Z"
+    },
+    "pelodytes-caucasicus-dmitry-1.jpg": {
+      "sourceHash": "d213477441e3330ac6bace6ff4b4b2eb4cffbff68cb635ce0de72dc14c843ad5",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pelodytes-caucasicus-dmitry-1.jpg",
+      "originalSize": 552405,
+      "width": 2048,
+      "height": 1367,
+      "derivatives": [
+        {
+          "key": "optimized/pelodytes-caucasicus-dmitry-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12950
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-dmitry-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 20646
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-dmitry-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 17594
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-dmitry-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 27696
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-dmitry-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 33267
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-dmitry-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 52626
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-dmitry-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 44317
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-dmitry-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 69534
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-dmitry-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 72706
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-dmitry-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 112906
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-dmitry-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1367,
+          "byteSize": 140481
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-dmitry-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1367,
+          "byteSize": 242200
+        }
+      ],
+      "updatedAt": "2026-10-21T09:58:09.754Z"
+    },
+    "pelodytes-caucasicus-gocha-1.jpg": {
+      "sourceHash": "c04d17a9a30347455d03f8bdf45f63a16ac76293b9ef361f27dfa9c752f69ede",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pelodytes-caucasicus-gocha-1.jpg",
+      "originalSize": 413407,
+      "width": 2048,
+      "height": 1367,
+      "derivatives": [
+        {
+          "key": "optimized/pelodytes-caucasicus-gocha-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 8515
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-gocha-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 14062
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-gocha-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 11711
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-gocha-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 18896
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-gocha-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 23142
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-gocha-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 37698
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-gocha-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 32194
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-gocha-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 51520
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-gocha-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 57980
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-gocha-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 88174
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-gocha-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1367,
+          "byteSize": 123215
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-gocha-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1367,
+          "byteSize": 178830
+        }
+      ],
+      "updatedAt": "2026-10-21T09:56:30.267Z"
+    },
+    "pelodytes-caucasicus-sebastian-1.jpg": {
+      "sourceHash": "1d175b394435d20f2e93400f69f09c6974fd9a47ad4eddfcb7aa3f3243103dae",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pelodytes-caucasicus-sebastian-1.jpg",
+      "originalSize": 682817,
+      "width": 2048,
+      "height": 1367,
+      "derivatives": [
+        {
+          "key": "optimized/pelodytes-caucasicus-sebastian-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 16041
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-sebastian-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 28766
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-sebastian-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 22140
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-sebastian-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 39460
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-sebastian-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 427,
+          "byteSize": 45722
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-sebastian-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "byteSize": 79350
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-sebastian-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 534,
+          "byteSize": 63542
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-sebastian-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 534,
+          "byteSize": 108104
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-sebastian-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 114265
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-sebastian-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 801,
+          "byteSize": 187990
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-sebastian-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1367,
+          "byteSize": 240096
+        },
+        {
+          "key": "optimized/pelodytes-caucasicus-sebastian-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1367,
+          "byteSize": 372168
+        }
+      ],
+      "updatedAt": "2026-10-21T09:57:27.750Z"
     },
     "pelodytes-caucasicus-zauri-1.jpg": {
       "sourceHash": "de75d5691839a8e048116eab2d4b2cb09db50d49edde87e49535b3ae02d07248",
@@ -93682,6 +95012,196 @@
       ],
       "updatedAt": "2026-09-09T20:14:04.464Z"
     },
+    "pelophylax-ridibundus-dachi-1.jpg": {
+      "sourceHash": "016cde49ac634b262bfa32eae11e61257ee42f4da2e0145d31887d575205127a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pelophylax-ridibundus-dachi-1.jpg",
+      "originalSize": 306612,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/pelophylax-ridibundus-dachi-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 5205
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-dachi-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 5552
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-dachi-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 6844
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-dachi-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 7580
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-dachi-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 13452
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-dachi-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 15476
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-dachi-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 18495
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-dachi-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 21256
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-dachi-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 32213
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-dachi-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 37170
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-dachi-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 72629
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-dachi-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 86322
+        }
+      ],
+      "updatedAt": "2026-10-21T10:44:07.676Z"
+    },
+    "pelophylax-ridibundus-donsky-1.jpg": {
+      "sourceHash": "80d19aa05fc0c2ebdeea06660e8b781bc78feea497ddc84daeb5a2b99ff4ea7a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pelophylax-ridibundus-donsky-1.jpg",
+      "originalSize": 767006,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/pelophylax-ridibundus-donsky-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 12522
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-donsky-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 20450
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-donsky-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 18507
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-donsky-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 29686
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-donsky-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 43390
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-donsky-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 67792
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-donsky-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 64922
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-donsky-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 100512
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-donsky-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 130893
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-donsky-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 200208
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-donsky-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 320829
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-donsky-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 470064
+        }
+      ],
+      "updatedAt": "2026-10-21T10:40:30.823Z"
+    },
     "pelophylax-ridibundus-giorgi-1.jpg": {
       "sourceHash": "6f46d82e5ece2d1c550b56491c6ea559cf722ea05673cef7f6a8449c351cf823",
       "configFingerprint": "409788ee46c653d8",
@@ -93763,6 +95283,101 @@
       ],
       "updatedAt": "2026-09-09T20:12:15.926Z"
     },
+    "pelophylax-ridibundus-jack-1.jpg": {
+      "sourceHash": "6fb9b40c7eedcdf39e3508cd15bfaffefb3c72faeb60cca762fb8bf285d33219",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pelophylax-ridibundus-jack-1.jpg",
+      "originalSize": 387017,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/pelophylax-ridibundus-jack-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 8015
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-jack-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 10714
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-jack-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 11181
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-jack-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 15336
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-jack-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 24178
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-jack-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 32810
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-jack-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 34440
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-jack-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 44664
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-jack-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 58759
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-jack-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 78632
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-jack-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 110615
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-jack-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 156206
+        }
+      ],
+      "updatedAt": "2026-10-21T10:41:58.798Z"
+    },
     "pelophylax-ridibundus-lasha-1.jpg": {
       "sourceHash": "eca6f76f0361a2fd9e26e24a634850d3a4f49a602e3901966a179243ef51bd10",
       "configFingerprint": "409788ee46c653d8",
@@ -93815,6 +95430,291 @@
         }
       ],
       "updatedAt": "2026-09-09T20:13:22.540Z"
+    },
+    "pelophylax-ridibundus-marat-1.jpg": {
+      "sourceHash": "233f6dd2147f93eb15194804cd99f27379d104f201fd06b59bc6540699e1e68d",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pelophylax-ridibundus-marat-1.jpg",
+      "originalSize": 707292,
+      "width": 2048,
+      "height": 1536,
+      "derivatives": [
+        {
+          "key": "optimized/pelophylax-ridibundus-marat-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 240,
+          "byteSize": 14274
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-marat-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 240,
+          "byteSize": 22334
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-marat-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 300,
+          "byteSize": 20117
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-marat-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 300,
+          "byteSize": 31480
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-marat-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 480,
+          "byteSize": 40585
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-marat-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 480,
+          "byteSize": 63844
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-marat-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 600,
+          "byteSize": 56988
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-marat-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 600,
+          "byteSize": 87146
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-marat-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 104783
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-marat-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 900,
+          "byteSize": 156320
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-marat-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 263450
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-marat-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1536,
+          "byteSize": 350930
+        }
+      ],
+      "updatedAt": "2026-10-21T10:42:51.406Z"
+    },
+    "pelophylax-ridibundus-markus-1.jpg": {
+      "sourceHash": "1a269fbe11371463228c64b2ea8e4ad5376a776a10bf915b5ec3c5ec1dc1fe1a",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pelophylax-ridibundus-markus-1.jpg",
+      "originalSize": 497105,
+      "width": 1536,
+      "height": 2048,
+      "derivatives": [
+        {
+          "key": "optimized/pelophylax-ridibundus-markus-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 427,
+          "byteSize": 24665
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-markus-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 427,
+          "byteSize": 35360
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-markus-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 533,
+          "byteSize": 34942
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-markus-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 533,
+          "byteSize": 49798
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-markus-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 853,
+          "byteSize": 66125
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-markus-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 853,
+          "byteSize": 91944
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-markus-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 85841
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-markus-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 1067,
+          "byteSize": 116028
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-markus-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 132452
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-markus-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 1600,
+          "byteSize": 181314
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-markus-1-1536.avif",
+          "format": "avif",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 172600
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-markus-1-1536.webp",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048,
+          "byteSize": 237838
+        }
+      ],
+      "updatedAt": "2026-10-21T10:41:21.918Z"
+    },
+    "pelophylax-ridibundus-nikita-1.jpg": {
+      "sourceHash": "10271204dbb5cf48082e8f4bf7a4ebdb66251c4cbab681a4da527fd83af1b89c",
+      "configFingerprint": "409788ee46c653d8",
+      "originalKey": "pelophylax-ridibundus-nikita-1.jpg",
+      "originalSize": 664120,
+      "width": 2048,
+      "height": 1365,
+      "derivatives": [
+        {
+          "key": "optimized/pelophylax-ridibundus-nikita-1-320.avif",
+          "format": "avif",
+          "width": 320,
+          "height": 213,
+          "byteSize": 11915
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-nikita-1-320.webp",
+          "format": "webp",
+          "width": 320,
+          "height": 213,
+          "byteSize": 18112
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-nikita-1-400.avif",
+          "format": "avif",
+          "width": 400,
+          "height": 266,
+          "byteSize": 16714
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-nikita-1-400.webp",
+          "format": "webp",
+          "width": 400,
+          "height": 266,
+          "byteSize": 25410
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-nikita-1-640.avif",
+          "format": "avif",
+          "width": 640,
+          "height": 426,
+          "byteSize": 35937
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-nikita-1-640.webp",
+          "format": "webp",
+          "width": 640,
+          "height": 426,
+          "byteSize": 52768
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-nikita-1-800.avif",
+          "format": "avif",
+          "width": 800,
+          "height": 533,
+          "byteSize": 51404
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-nikita-1-800.webp",
+          "format": "webp",
+          "width": 800,
+          "height": 533,
+          "byteSize": 73910
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-nikita-1-1200.avif",
+          "format": "avif",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 95386
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-nikita-1-1200.webp",
+          "format": "webp",
+          "width": 1200,
+          "height": 800,
+          "byteSize": 135414
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-nikita-1-2048.avif",
+          "format": "avif",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 260810
+        },
+        {
+          "key": "optimized/pelophylax-ridibundus-nikita-1-2048.webp",
+          "format": "webp",
+          "width": 2048,
+          "height": 1365,
+          "byteSize": 328832
+        }
+      ],
+      "updatedAt": "2026-10-21T10:43:27.997Z"
     },
     "pelophylax-ridibundus-vlad-1.jpg": {
       "sourceHash": "cd133ee60c55a0ab18e05c64549778579ebcc17a9595190e2bfe9c611fe391b1",
@@ -116917,291 +118817,6 @@
         }
       ],
       "updatedAt": "2026-08-28T22:02:36.689Z"
-    },
-    "images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis.jpg": {
-      "sourceHash": "d459ef009693894614f7e3706af233eb04b9791c1a7078efc00049e047f0a0af",
-      "configFingerprint": "409788ee46c653d8",
-      "originalKey": "images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis.jpg",
-      "originalSize": 1618216,
-      "width": 2048,
-      "height": 1365,
-      "derivatives": [
-        {
-          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis-320.avif",
-          "format": "avif",
-          "width": 320,
-          "height": 213,
-          "byteSize": 10007
-        },
-        {
-          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis-320.webp",
-          "format": "webp",
-          "width": 320,
-          "height": 213,
-          "byteSize": 14484
-        },
-        {
-          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis-400.avif",
-          "format": "avif",
-          "width": 400,
-          "height": 266,
-          "byteSize": 13266
-        },
-        {
-          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis-400.webp",
-          "format": "webp",
-          "width": 400,
-          "height": 266,
-          "byteSize": 19240
-        },
-        {
-          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis-640.avif",
-          "format": "avif",
-          "width": 640,
-          "height": 426,
-          "byteSize": 25885
-        },
-        {
-          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis-640.webp",
-          "format": "webp",
-          "width": 640,
-          "height": 426,
-          "byteSize": 35938
-        },
-        {
-          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis-800.avif",
-          "format": "avif",
-          "width": 800,
-          "height": 533,
-          "byteSize": 34715
-        },
-        {
-          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis-800.webp",
-          "format": "webp",
-          "width": 800,
-          "height": 533,
-          "byteSize": 48098
-        },
-        {
-          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis-1200.avif",
-          "format": "avif",
-          "width": 1200,
-          "height": 800,
-          "byteSize": 58822
-        },
-        {
-          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis-1200.webp",
-          "format": "webp",
-          "width": 1200,
-          "height": 800,
-          "byteSize": 78862
-        },
-        {
-          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis-2048.avif",
-          "format": "avif",
-          "width": 2048,
-          "height": 1365,
-          "byteSize": 119886
-        },
-        {
-          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/schendyla-nemorensis-2048.webp",
-          "format": "webp",
-          "width": 2048,
-          "height": 1365,
-          "byteSize": 154930
-        }
-      ],
-      "updatedAt": "2026-10-21T06:46:10.168Z"
-    },
-    "images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-forest.jpg": {
-      "sourceHash": "d81ee6eea82682e24d8672b7bd2b326d099d8a7bb57a282a171bfeaf65337f7e",
-      "configFingerprint": "409788ee46c653d8",
-      "originalKey": "images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-forest.jpg",
-      "originalSize": 811117,
-      "width": 1920,
-      "height": 1280,
-      "derivatives": [
-        {
-          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-forest-320.avif",
-          "format": "avif",
-          "width": 320,
-          "height": 213,
-          "byteSize": 11944
-        },
-        {
-          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-forest-320.webp",
-          "format": "webp",
-          "width": 320,
-          "height": 213,
-          "byteSize": 16804
-        },
-        {
-          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-forest-400.avif",
-          "format": "avif",
-          "width": 400,
-          "height": 267,
-          "byteSize": 18713
-        },
-        {
-          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-forest-400.webp",
-          "format": "webp",
-          "width": 400,
-          "height": 267,
-          "byteSize": 26516
-        },
-        {
-          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-forest-640.avif",
-          "format": "avif",
-          "width": 640,
-          "height": 427,
-          "byteSize": 46891
-        },
-        {
-          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-forest-640.webp",
-          "format": "webp",
-          "width": 640,
-          "height": 427,
-          "byteSize": 68514
-        },
-        {
-          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-forest-800.avif",
-          "format": "avif",
-          "width": 800,
-          "height": 533,
-          "byteSize": 75100
-        },
-        {
-          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-forest-800.webp",
-          "format": "webp",
-          "width": 800,
-          "height": 533,
-          "byteSize": 109142
-        },
-        {
-          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-forest-1200.avif",
-          "format": "avif",
-          "width": 1200,
-          "height": 800,
-          "byteSize": 173376
-        },
-        {
-          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-forest-1200.webp",
-          "format": "webp",
-          "width": 1200,
-          "height": 800,
-          "byteSize": 249782
-        },
-        {
-          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-forest-1920.avif",
-          "format": "avif",
-          "width": 1920,
-          "height": 1280,
-          "byteSize": 440079
-        },
-        {
-          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-forest-1920.webp",
-          "format": "webp",
-          "width": 1920,
-          "height": 1280,
-          "byteSize": 640080
-        }
-      ],
-      "updatedAt": "2026-10-21T06:46:14.339Z"
-    },
-    "images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-view.jpg": {
-      "sourceHash": "1fec0bf9b060ecd532b494c8505c7d469a9149bb2cb6264651faa1369439bee1",
-      "configFingerprint": "409788ee46c653d8",
-      "originalKey": "images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-view.jpg",
-      "originalSize": 678465,
-      "width": 1920,
-      "height": 1280,
-      "derivatives": [
-        {
-          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-view-320.avif",
-          "format": "avif",
-          "width": 320,
-          "height": 213,
-          "byteSize": 9866
-        },
-        {
-          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-view-320.webp",
-          "format": "webp",
-          "width": 320,
-          "height": 213,
-          "byteSize": 13894
-        },
-        {
-          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-view-400.avif",
-          "format": "avif",
-          "width": 400,
-          "height": 267,
-          "byteSize": 15613
-        },
-        {
-          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-view-400.webp",
-          "format": "webp",
-          "width": 400,
-          "height": 267,
-          "byteSize": 22760
-        },
-        {
-          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-view-640.avif",
-          "format": "avif",
-          "width": 640,
-          "height": 427,
-          "byteSize": 39276
-        },
-        {
-          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-view-640.webp",
-          "format": "webp",
-          "width": 640,
-          "height": 427,
-          "byteSize": 59280
-        },
-        {
-          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-view-800.avif",
-          "format": "avif",
-          "width": 800,
-          "height": 533,
-          "byteSize": 65187
-        },
-        {
-          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-view-800.webp",
-          "format": "webp",
-          "width": 800,
-          "height": 533,
-          "byteSize": 96570
-        },
-        {
-          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-view-1200.avif",
-          "format": "avif",
-          "width": 1200,
-          "height": 800,
-          "byteSize": 150977
-        },
-        {
-          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-view-1200.webp",
-          "format": "webp",
-          "width": 1200,
-          "height": 800,
-          "byteSize": 214956
-        },
-        {
-          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-view-1920.avif",
-          "format": "avif",
-          "width": 1920,
-          "height": 1280,
-          "byteSize": 379304
-        },
-        {
-          "key": "optimized/images/news/schendyla-megobroba-new-centipede-tbilisi-2026/tbilisi-national-park-view-1920.webp",
-          "format": "webp",
-          "width": 1920,
-          "height": 1280,
-          "byteSize": 509790
-        }
-      ],
-      "updatedAt": "2026-10-21T06:46:16.739Z"
     }
   }
 }
