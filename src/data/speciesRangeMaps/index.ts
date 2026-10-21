@@ -73,6 +73,7 @@ import { rangeMap as ommatotritonOphryticus } from "@/data/speciesRangeMaps/omma
 import { rangeMap as paralaudakiaCaucasia } from "@/data/speciesRangeMaps/paralaudakia-caucasia";
 import { rangeMap as pelobatesSyriacus } from "@/data/speciesRangeMaps/pelobates-syriacus";
 import { rangeMap as pelodytesCaucasicus } from "@/data/speciesRangeMaps/pelodytes-caucasicus";
+import { rangeMap as pelophylaxRidibundus } from "@/data/speciesRangeMaps/pelophylax-ridibundus";
 import { rangeMap as phasianusColchicus } from "@/data/speciesRangeMaps/phasianus-colchicus";
 import { rangeMap as picusViridis } from "@/data/speciesRangeMaps/picus-viridis";
 import { rangeMap as platycepsNajadum } from "@/data/speciesRangeMaps/platyceps-najadum";
@@ -172,6 +173,7 @@ export const INTERACTIVE_RANGE_MAPS: Partial<
   "paralaudakia-caucasia": paralaudakiaCaucasia,
   "pelobates-syriacus": pelobatesSyriacus,
   "pelodytes-caucasicus": pelodytesCaucasicus,
+  "pelophylax-ridibundus": pelophylaxRidibundus,
   "phasianus-colchicus": phasianusColchicus,
   "picus-viridis": picusViridis,
   "platyceps-najadum": platycepsNajadum,

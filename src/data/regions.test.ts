@@ -102,6 +102,7 @@ describe("region speciesIds", () => {
     "paralaudakia-caucasia",
     "pelobates-syriacus",
     "pelodytes-caucasicus",
+    "pelophylax-ridibundus",
     "mustela-nivalis",
     "procyon-lotor",
     "vipera-renardi",
